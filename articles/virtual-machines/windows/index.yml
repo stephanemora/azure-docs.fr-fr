@@ -6,14 +6,12 @@ metadata:
   title: "Documentation sur les machines virtuelles Microsoft Azure\_– Didacticiels, informations de référence sur les API"
   meta.description: 'Learn how to create Windows virtual machines. Documentation helps you plan, deploy, and manage a virtual machine computing environment in the cloud.'
   services: virtual-machines\windows
-  author: czeumault
-  manager: carolz
+  author: georgewallace
+  manager: gwallace
   ms.service: virtual-machines-windows
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
   ms.date: 01/23/2017
-  ms.author: carolz
+  ms.author: gwallace
 abstract:
   description: 'Les Machines virtuelles Windows Azure fournissent une infrastructure sécurisée et virtualisée à la demande et à grande échelle avec Windows Server. Découvrez comment créer, configurer, gérer et mettre à l’échelle des machines virtuelles Windows avec nos guides de démarrage rapide, nos didacticiels et nos exemples.'
   aside:
@@ -43,7 +41,7 @@ sections:
             href: 'https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-quick-create-powershell?toc=/azure/virtual-machines/windows/toc.json'
           - image:
               src: 'https://docs.microsoft.com/azure/virtual-machines/windows/media/index/cli.svg'
-            text: Azure CLI
+            text: D’Azure CLI
             href: 'https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-quick-create-cli?toc=/azure/virtual-machines/windows/toc.json'
       - type: paragraph
         text: "Découvrez comment déployer en continu\_:"

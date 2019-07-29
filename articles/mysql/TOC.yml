@@ -39,7 +39,7 @@
       items:
         - name: Portail Azure
           href: tutorial-design-database-using-portal.md
-        - name: Azure CLI
+        - name: D’Azure CLI
           href: tutorial-design-database-using-cli.md
         - name: "Modèle Azure\_Resource\_Manager"
           href: tutorial-provision-mysql-server-using-Azure-Resource-Manager-templates.md
@@ -53,7 +53,7 @@
           maintainContext: true
 - name: Exemples
   items:
-    - name: Azure CLI
+    - name: D’Azure CLI
       href: sample-scripts-azure-cli.md
 - name: Concepts
   items:
@@ -135,13 +135,13 @@
       items:
         - name: Portail Azure
           href: howto-manage-firewall-using-portal.md
-        - name: Azure CLI
+        - name: D’Azure CLI
           href: howto-manage-firewall-using-cli.md
     - name: Restaurer un serveur
       items:
         - name: Portail Azure
           href: howto-restore-server-portal.md
-        - name: Azure CLI
+        - name: D’Azure CLI
           href: howto-restore-server-cli.md
     - name: Migrer une base de données
       items:
@@ -165,7 +165,7 @@
       items:
         - name: Portail Azure
           href: howto-server-parameters.md
-        - name: Azure CLI
+        - name: D’Azure CLI
           href: howto-configure-server-parameters-using-cli.md
     - name: Augmenter automatiquement le stockage
       items:
@@ -177,7 +177,7 @@
           items:
             - name: Portail Azure
               href: howto-configure-server-logs-in-portal.md
-            - name: Azure CLI
+            - name: D’Azure CLI
               href: howto-configure-server-logs-in-cli.md
         - name: Journaux d’audit
           items:
@@ -211,17 +211,17 @@
       items:
         - name: Portail Azure
           href: howto-manage-vnet-using-portal.md
-        - name: Azure CLI
+        - name: D’Azure CLI
           href: howto-manage-vnet-using-cli.md
     - name: Redémarrer le serveur
       items:
         - name: Portail Azure
           href: howto-restart-server-portal.md
-        - name: Azure CLI
+        - name: D’Azure CLI
           href: howto-restart-server-cli.md
 - name: Informations de référence
   items:
-    - name: Azure CLI
+    - name: D’Azure CLI
       href: /cli/azure/mysql
     - name: API REST
       href: /rest/api/mysql

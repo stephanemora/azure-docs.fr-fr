@@ -5,14 +5,12 @@ metadata:
   title: Documentation Azure Batch - Didacticiels et informations de référence sur les API | Microsoft Docs
   description: 'Vous pouvez utiliser Azure Batch pour exécuter des applications de calcul haute performance (HPC) en parallèle dans le cloud, efficacement et à grande échelle. Définissez les ressources de calcul Azure pour exécuter vos applications en parallèle ou à grande échelle sans avoir à configurer ou gérer manuellement votre infrastructure. Planifiez des tâches nécessitant beaucoup de ressources système et ajoutez ou supprimer des ressources de calcul en fonction de vos besoins, de manière dynamique. Découvrez comment utiliser Azure Batch en tirant parti de nos guides de démarrage rapide, nos didacticiels et nos exemples.'
   services: batch
-  author: czeumault
-  manager: carolz
+  author: georgewallace
+  manager: gwallace
   ms.service: batch
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
   ms.date: 11/30/2017
-  ms.author: carolz
+  ms.author: gwallace
 abstract:
   description: 'Vous pouvez utiliser Azure Batch pour exécuter des applications de calcul haute performance (HPC) en parallèle dans le cloud, efficacement et à grande échelle. Définissez les ressources de calcul Azure pour exécuter vos applications en parallèle ou à grande échelle sans avoir à configurer ou gérer manuellement votre infrastructure. Planifiez des tâches nécessitant beaucoup de ressources système et ajoutez ou supprimer des ressources de calcul en fonction de vos besoins, de manière dynamique. Découvrez comment utiliser Azure Batch en tirant parti de nos guides de démarrage rapide, nos didacticiels et nos exemples.'
 sections:
@@ -25,7 +23,7 @@ sections:
         items:
           - image:
               src: 'https://docs.microsoft.com/media/common/i_cligeneric.svg'
-            text: Azure CLI
+            text: D’Azure CLI
             href: quick-create-cli
           - image:
               src: 'https://docs.microsoft.com/media/common/i_portal.svg'

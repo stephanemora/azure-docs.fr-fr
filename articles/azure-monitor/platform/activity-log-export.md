@@ -158,7 +158,7 @@ Si un profil de journal existe déjà, vous devez tout d’abord le supprimer, p
     | storage-account-id |OUI |ID de ressource du compte de stockage dans lequel les journaux d’activité doivent être enregistrés. |
     | locations |OUI |Liste, séparée par des espaces, des régions pour lesquelles vous souhaitez collecter les événements du journal d’activité. Vous pouvez voir une liste de toutes les régions pour votre abonnement à l’aide de `az account list-locations --query [].name`. |
     | days |OUI |Nombre de jours pendant lesquels les événements doivent être conservés, compris entre 1 et 365. Une valeur de zéro signifie que les journaux d’activité seront stockés pour une durée indéfinie (pour toujours).  Si zéro est spécifié, le paramètre activé doit être défini sur true. |
-    |Activé | OUI |True ou False.  Utilisée pour activer ou désactiver la stratégie de rétention.  Si la valeur est True, le paramètre days doit être une valeur supérieure à 0.
+    |enabled | OUI |True ou False.  Utilisée pour activer ou désactiver la stratégie de rétention.  Si la valeur est True, le paramètre days doit être une valeur supérieure à 0.
     | categories |OUI |Liste, séparée par des espaces, des catégories d’événements qui doivent être collectées. Les valeurs possibles sont Write, Delete et Action. |
 
 

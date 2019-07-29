@@ -5,13 +5,12 @@ metadata:
   title: "Documentation Azure Site Recovery\_- Didacticiels, informations de référence sur les API\_| Microsoft\_Docs"
   meta.description: Learn how to set up cloud disaster recovery and business continuity for physical servers and virtual machines by deploying and managing replication.
   services: site-recovery
-  author: czeumault
-  manager: carolz
+  author: carmonmills
+  manager: carmonm
   ms.service: site-recovery
-  ms.tgt_pltfrm: na
   ms.topic: landing-page
   ms.date: 11/27/2018
-  ms.author: carolz
+  ms.author: carmonm
 abstract:
   description: 'Azure Site Recovery orchestre et gère la récupération d’urgence pour les machines virtuelles Azure, les machines virtuelles locales et les serveurs physiques. Découvrez comment répliquer, basculer et effectuer une restauration automatique avec nos guides de démarrage rapide et nos didacticiels.'
 sections:

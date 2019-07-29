@@ -5,14 +5,12 @@ metadata:
   title: 'Documentation Azure Event Grid - Didacticiels, informations de référence sur les API'
   description: Utilisez Azure Event Grid pour réagir à des événements pertinents sur les services Azure et non Azure en quasi temps réel.
   services: event-grid
-  author: czeumault
-  manager: carolz
+  author: dougeby
+  manager: dougeby
   ms.service: event-grid
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
   ms.date: 08/10/2017
-  ms.author: carolz
+  ms.author: dougeby
 abstract:
   description: 'Azure Event Grid est un service de routage d’événement intelligent et entièrement géré qui permet une consommation d’événements uniforme à l’aide d’un modèle publication-abonnement. Utilisez Azure Event Grid pour réagir à des événements pertinents sur les services Azure et non Azure en quasi temps réel. Découvrez comment utiliser Azure Event Grid avec nos guides de démarrage rapide, nos didacticiels et nos exemples.'
 sections:
@@ -25,7 +23,7 @@ sections:
         items:
           - image:
               src: /azure/event-grid/media/index/cli.svg
-            text: Azure CLI
+            text: D’Azure CLI
             href: /azure/event-grid/custom-event-quickstart
           - image:
               src: /azure/event-grid/media/index/logo_powershell.svg
@@ -42,7 +40,7 @@ sections:
         items:
           - image:
               src: /azure/event-grid/media/index/cli.svg
-            text: Azure CLI
+            text: D’Azure CLI
             href: /azure/storage/blobs/storage-blob-event-quickstart?toc=%2fazure%2fevent-grid%2ftoc.json
           - image:
               src: /azure/event-grid/media/index/logo_powershell.svg
