@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.author: raynew
-ms.openlocfilehash: bce9f3b3a574d27e2fb47fb9b2da9470c43fd2eb
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
-ms.translationtype: MT
+ms.openlocfilehash: 78a531c769612af0597e732f0dc539286dd7cdac
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66399424"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68489872"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Prendre en charge la matrice pour effectuer une récupération d’urgence de machines virtuelles Hyper-V locales vers Azure
 
@@ -33,8 +33,8 @@ Hyper-V sans Virtual Machine Manager | Vous pouvez effectuer la récupération d
 
 **Serveur** | **Configuration requise** | **Détails**
 --- | --- | ---
-Hyper-V (exécuté sans Virtual Machine Manager) |  Windows Server 2019, Windows Server 2016 (y compris server core installation), Windows Server 2012 R2 avec les dernières mises à jour | Si vous avez déjà configuré Windows Server 2012 R2 avec/ou SCVMM 2012 R2 avec Azure Site Recovery et que vous prévoyez de mettre à niveau le système d’exploitation, suivez les instructions de la [documentation.](upgrade-2012R2-to-2016.md) 
-Hyper-V (exécuté avec Virtual Machine Manager) | Virtual Machine Manager 2019, Virtual Machine Manager 2016, Virtual Machine Manager 2012 R2 | Si Virtual Machine Manager est utilisé, les hôtes de Windows Server 2019 doivent être gérés dans Virtual Machine Manager 2019. De même, les hôtes Windows Server 2016 doivent être gérés dans Virtual Machine Manager 2016.<br/><br/>
+Hyper-V (exécuté sans Virtual Machine Manager) |  Windows Server 2019, Windows Server 2016 (installation de Server Core incluse), Windows Server 2012 R2 avec les dernières mises à jour | Si vous avez déjà configuré Windows Server 2012 R2 avec/ou SCVMM 2012 R2 avec Azure Site Recovery et que vous prévoyez de mettre à niveau le système d’exploitation, suivez les instructions de la [documentation.](upgrade-2012R2-to-2016.md) 
+Hyper-V (exécuté avec Virtual Machine Manager) | Virtual Machine Manager 2019, Virtual Machine Manager 2016, Virtual Machine Manager 2012 R2 | Si Virtual Machine Manager est utilisé, les hôtes Windows Server 2019 doivent être managés dans Virtual Machine Manager 2019. De même, les hôtes Windows Server 2016 doivent être gérés dans Virtual Machine Manager 2016.<br/><br/>
 
 
 ## <a name="replicated-vms"></a>Machines virtuelles répliquées
@@ -59,16 +59,16 @@ Ajouter un disque sur la machine virtuelle Hyper-V répliquée | Non pris en cha
 
 **Composant** | **Hyper-V avec Virtual Machine Manager** | **Hyper-V sans Virtual Machine Manager**
 --- | --- | ---
-Réseau hôte : Association de cartes réseau | Oui | Oui
-Réseau hôte : VLAN | Oui | Oui
-Réseau hôte : IPv4 | OUI | Oui
-Réseau hôte : IPv6 | Non  | Non 
-Réseau machines virtuelles invitées : Association de cartes réseau | Non  | Non 
-Réseau machines virtuelles invitées : IPv4 | OUI | Oui
-Réseau machines virtuelles invitées : IPv6 | Non  | Oui
-Réseau machines virtuelles invitées : Adresse IP statique (Windows) | Oui | Oui
-Réseau machines virtuelles invitées : Adresse IP statique (Linux) | Non  | Non 
-Réseau machines virtuelles invitées : Plusieurs cartes réseau | OUI | Oui
+Réseau hôte : Association de cartes réseau | OUI | OUI
+Réseau hôte : VLAN | OUI | OUI
+Réseau hôte : IPv4 | OUI | OUI
+Réseau hôte : IPv6 | Non | Non
+Réseau machines virtuelles invitées : Association de cartes réseau | Non | Non
+Réseau machines virtuelles invitées : IPv4 | OUI | OUI
+Réseau machines virtuelles invitées : IPv6 | Non | OUI
+Réseau machines virtuelles invitées : Adresse IP statique (Windows) | OUI | OUI
+Réseau machines virtuelles invitées : Adresse IP statique (Linux) | Non | Non
+Réseau machines virtuelles invitées : Plusieurs cartes réseau | OUI | OUI
 
 
 
@@ -84,8 +84,8 @@ Plusieurs cartes réseau | OUI | OUI
 Adresse IP réservée | OUI | OUI
 IPv4 | OUI | OUI
 Conserver l’adresse IP source | OUI | OUI
-Points de terminaison du service Réseau virtuel Azure<br/> (sans pare-feu de stockage Azure) | OUI | OUI
-Mise en réseau accélérée | Non  | Non 
+Points de terminaison de service de réseau virtuel Azure<br/> (sans pare-feu de stockage Azure) | OUI | OUI
+Mise en réseau accélérée | Non | Non
 
 
 ## <a name="hyper-v-host-storage"></a>Stockage hôte Hyper-V
@@ -105,18 +105,18 @@ VMDK | N/D | N/D
 VHD/VHDX | OUI | OUI
 Machine virtuelle de 2e génération | OUI | OUI
 EFI/UEFI| OUI | OUI
-Disque de cluster partagé | Non  | Non 
-Disque chiffré | Non  | Non 
+Disque de cluster partagé | Non | Non
+Disque chiffré | Non | Non
 NFS | N/D | N/D
-SMB 3.0 | Non  | Non 
+SMB 3.0 | Non | Non
 RDM | N/D | N/D
 Disque > 1 To | Oui, jusqu’à 4,095 Go | Oui, jusqu’à 4,095 Go
 Disque : secteur logique et physique de 4 K | Non pris en charge : Gen 1/Gen 2 | Non pris en charge : Gen 1/Gen 2
-Disque : secteur logique de 4 K et physique de 512 octets | Oui |  Oui
-Gestion des volumes logiques (LVM). LVM est pris en charge uniquement sur des disques de données. Azure ne fournit qu’un seul disque de système d’exploitation. | Oui | OUI
-Volume avec disque à bandes > 1 To | Oui | OUI
-Espaces de stockage | OUI | OUI
-Ajout/suppression de disque à chaud | Non  | Non 
+Disque : secteur logique de 4 K et physique de 512 octets | OUI |  OUI
+Gestion des volumes logiques (LVM). LVM est pris en charge uniquement sur des disques de données. Azure ne fournit qu’un seul disque de système d’exploitation. | OUI | OUI
+Volume avec disque à bandes > 1 To | OUI | OUI
+Espaces de stockage | Non | Non
+Ajout/suppression de disque à chaud | Non | Non
 Exclure le disque | OUI | OUI
 Chemins d’accès multiples (MPIO) | OUI | OUI
 
@@ -127,13 +127,13 @@ Chemins d’accès multiples (MPIO) | OUI | OUI
 Stockage localement redondant | OUI | OUI
 Stockage géo-redondant | OUI | OUI
 Stockage géo-redondant avec accès en lecture | OUI | OUI
-Stockage froid | Non  | Non 
-Stockage chaud| Non  | Non 
-Objets blob de blocs | Non  | Non 
+Stockage froid | Non | Non
+Stockage chaud| Non | Non
+Objets blob de blocs | Non | Non
 Chiffrement au repos (SSE)| OUI | OUI
 Stockage Premium | OUI | OUI
-Service Import/Export | Non  | Non 
-Pare-feu et réseaux virtuels de stockage Azure configurés dans le compte de stockage de cache/de stockage cible (utilisé pour stocker les données de réplication) | Non  | Non 
+Service Import/Export | Non | Non
+Pare-feu et réseaux virtuels de stockage Azure configurés dans le compte de stockage de cache/de stockage cible (utilisé pour stocker les données de réplication) | Non | Non
 
 
 ## <a name="azure-compute-features"></a>Fonctionnalités de Calcul Azure
@@ -159,7 +159,7 @@ Taille du disque dur virtuel de données | Jusqu’à 4 095 Go | La vérificatio
 Adaptateurs réseau | Prise en charge de plusieurs adaptateurs réseau. |
 Disque dur virtuel partagé | Non pris en charge | La vérification de la configuration requise est mise en échec en cas de défaut de prise en charge.
 Disque FC | Non pris en charge | La vérification de la configuration requise est mise en échec en cas de défaut de prise en charge.
-Format de disque dur | Disque dur virtuel (VHD)  <br/><br/>  VHDX | Site Recovery convertit automatiquement VHDX en VHD quand vous effectuez un basculement vers Azure. Lorsque vous procédez à une restauration automatique vers un site local, les machines virtuelles continuent d’utiliser le format VHDX.
+Format de disque dur | Disque dur virtuel (VHD) <br/><br/> VHDX | Site Recovery convertit automatiquement VHDX en VHD quand vous effectuez un basculement vers Azure. Lorsque vous procédez à une restauration automatique vers un site local, les machines virtuelles continuent d’utiliser le format VHDX.
 BitLocker | Non pris en charge | BitLocker doit être désactivé avant d’activer la réplication pour une machine virtuelle.
 nom de la machine virtuelle | Entre 1 et 63 caractères. Uniquement des lettres, des chiffres et des traits d’union. Le nom de la machine virtuelle doit commencer et se terminer par une lettre ou un chiffre. | Mettez à jour la valeur dans les propriétés de machine virtuelle de Site Recovery.
 Type de machine virtuelle | Génération 1<br/><br/> Génération 2--Windows | Les machines virtuelles de 2e génération avec un type de disque de système d’exploitation de base, qui inclut un ou deux volumes de données au format VHDX et un espace disque inférieur à 300 Go sont prises en charge.<br></br>Les machines virtuelles Linux de 2e génération ne sont pas prises en charge. [Plus d’informations](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/)|
@@ -168,8 +168,8 @@ Type de machine virtuelle | Génération 1<br/><br/> Génération 2--Windows | L
 
 **Action** |  **Hyper-V avec Virtual Machine Manager** | **Hyper-V sans Virtual Machine Manager**
 --- | --- | ---
-Déplacer le coffre entre plusieurs groupes de ressources<br/><br/> Au sein et entre des abonnements | Non  | Non 
-Déplacer le stockage, les réseaux, les machines virtuelles Azure entre des groupes de ressources<br/><br/> Au sein et entre des abonnements | Non  | Non 
+Déplacer le coffre entre plusieurs groupes de ressources<br/><br/> Au sein et entre des abonnements | Non | Non
+Déplacer le stockage, les réseaux, les machines virtuelles Azure entre des groupes de ressources<br/><br/> Au sein et entre des abonnements | Non | Non
 
 > [!NOTE]
 > Dans le cadre de la réplication de machines virtuelles Hyper-V (gérées avec ou sans SCVMM) du niveau local vers Azure, vous ne pouvez répliquer que sur un seul locataire AD à partir d’un environnement spécifique (site Hyper-V ou SCVMM selon le cas).

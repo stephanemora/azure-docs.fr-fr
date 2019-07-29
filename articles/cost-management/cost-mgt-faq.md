@@ -11,10 +11,10 @@ ms.service: cost-management
 manager: benshy
 ms.custom: seodec18
 ms.openlocfilehash: 02a03adb128c140343032075ec334cbd6d88729b
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66002025"
 ---
 # <a name="frequently-asked-questions-for-cloudyn"></a>Forum aux questions (FAQ) sur Cloudyn
@@ -59,7 +59,7 @@ Si vous ne pouvez pas afficher les données de recommandation de l’optimiseur,
 
 Pour activer un compte :
 
-1.  Dans le portail Cloudyn, cliquez sur **Settings (Paramètres)** dans le coin supérieur droit et sélectionnez **Cloud Accounts (comptes cloud)**.
+1.  Dans le portail Cloudyn, cliquez sur **Settings (Paramètres)** dans le coin supérieur droit et sélectionnez **Cloud Accounts (comptes cloud)** .
 2.  Dans l’onglet Comptes Microsoft Azure, recherchez les comptes dont l’abonnement est **désactivé**.
 3.  À la droite d’un compte désactivé, cliquez sur le symbole **Modifier** qui ressemble à un crayon.
 4.  Vos ID client et ID taux sont détectés automatiquement. Cliquez sur **Suivant**.
@@ -74,9 +74,9 @@ Après avoir effectué les étapes précédentes, vous pouvez afficher les recom
 
 Examinons tout d’abord le scénario le plus courant qui met les comptes d’utilisateur à l’état *initiallySuspended*.
 
-> Admin1 peut être un utilisateur de l’accord entreprise ou fournisseur de solutions de Cloud de Microsoft. Leur organisation est prête à commencer à utiliser Cloudyn.  Il s’inscrit via le portail Azure et se connecte au portail Cloudyn. En tant que la personne qui inscrit le service de Cloudyn et les signes dans le portail Cloudyn, Admin1 devient le *administrateur principal*. L’administrateur 1 ne crée pas de comptes utilisateur. Toutefois, à l’aide du portail Cloudyn, ils créez des comptes Azure et configurer une hiérarchie d’entité. Admin1 informe un administrateur 2, un administrateur client, dont ils ont besoin pour vous inscrire avec Cloudyn et connectez-vous au portail Cloudyn.
+> L’administrateur 1 peut être un fournisseur de solutions Microsoft Cloud ou un utilisateur de contrat d’entreprise. Son organisation est prête à commencer à utiliser Cloudyn.  Il s’inscrit via le portail Azure et se connecte au portail Cloudyn. En tant que la personne qui inscrit le service Cloudyn et qui se connecte au portail Cloudyn, l'administrateur 1 devient *l’administrateur principal*. L’administrateur 1 ne crée pas de comptes utilisateur. Toutefois, à l’aide du portail Cloudyn, il crée des comptes Azure et définit une hiérarchie d’entité. L’administrateur 1 informe l’administrateur 2, un administrateur locataire, qu’il doit s’inscrire auprès de Cloudyn et se connecter au portail Cloudyn.
 >
-> L’administrateur 2 s’inscrit via le portail Azure. Toutefois, quand ils essaient de se connecter au portail Cloudyn, ils obtiennent une erreur indiquant que son compte est **suspendu**. L’administrateur principal, ou administrateur 1, est averti de la suspension du compte. L’administrateur 1 doit activer le compte de l’administrateur 2 et accorder l’*accès à l’entité administrateur* pour les entités appropriées, autorise l’accès à la gestion utilisateur et active le compte d’utilisateur.
+> L’administrateur 2 s’inscrit via le portail Azure. Toutefois, lorsqu’il tente de se connecter au portail Cloudyn, il reçoit un message d’erreur indiquant que son compte est **suspendu**. L’administrateur principal, ou administrateur 1, est averti de la suspension du compte. L’administrateur 1 doit activer le compte de l’administrateur 2 et accorder l’*accès à l’entité administrateur* pour les entités appropriées, autorise l’accès à la gestion utilisateur et active le compte d’utilisateur.
 
 
 Si vous recevez une alerte vous demandant d’autoriser l’accès pour un utilisateur, vous devez activer le compte d’utilisateur.
@@ -118,9 +118,9 @@ Pour ajouter des comptes CSP supplémentaires à une entité, sélectionnez **MS
 
 Vous pouvez avoir plusieurs comptes Azure utilisant des devises différentes. Toutefois, les rapports de coût dans Cloudyn n’affichent pas plus d’un type de devise par rapport.
 
-Si vous disposez de plusieurs abonnements avec des devises différentes, une entité parente et ses devises d’entité enfant sont affichées en dollars USD (**$**). La bonne pratique que nous suggérons est d’éviter d’utiliser des devises différentes dans la même hiérarchie d’entité. En d’autres termes, tous vos abonnements organisés dans une structure d’entités doivent utiliser la même devise.
+Si vous disposez de plusieurs abonnements avec des devises différentes, une entité parente et ses devises d’entité enfant sont affichées en dollars USD ( **$** ). La bonne pratique que nous suggérons est d’éviter d’utiliser des devises différentes dans la même hiérarchie d’entité. En d’autres termes, tous vos abonnements organisés dans une structure d’entités doivent utiliser la même devise.
 
-Cloudyn détecte automatiquement la devise de votre abonnement Contrat Entreprise et la présente correctement dans les rapports.  En revanche, Cloudyn affiche uniquement les dollars USD (**$**) pour les comptes Azure directs web et les comptes CSP.
+Cloudyn détecte automatiquement la devise de votre abonnement Contrat Entreprise et la présente correctement dans les rapports.  En revanche, Cloudyn affiche uniquement les dollars USD ( **$** ) pour les comptes Azure directs web et les comptes CSP.
 
 ## <a name="what-are-cloudyn-data-refresh-timelines"></a>Que sont les chronologies d’actualisation des données de Cloudyn ?
 
@@ -150,7 +150,7 @@ Pour obtenir des instructions, consultez [Configurer l’accès CSP indirect dan
 
 ## <a name="what-causes-the-optimizer-menu-item-to-appear"></a>Pourquoi l’élément de menu Optimizer (Optimiseur) apparaît-il ?
 
-Après l’ajout de l’accès à Azure Resource Manager et la collection des données, vous devriez voir l’option **Optimizer (Optimiseur)**. Pour activer l’accès à Azure Resource Manager, consultez [Activation de comptes désactivés avec les informations d’identification Azure](#how-do-i-activate-unactivated-accounts-with-azure-credentials).
+Après l’ajout de l’accès à Azure Resource Manager et la collection des données, vous devriez voir l’option **Optimizer (Optimiseur)** . Pour activer l’accès à Azure Resource Manager, consultez [Activation de comptes désactivés avec les informations d’identification Azure](#how-do-i-activate-unactivated-accounts-with-azure-credentials).
 
 ## <a name="is-cloudyn-agent-based"></a>L’agent Cloudyn est-il utilisé ?
 

@@ -12,12 +12,12 @@ ms.author: moslake
 ms.reviewer: ninarn, carlrab
 manager: craigg
 ms.date: 02/28/2019
-ms.openlocfilehash: c1db16475224cc3c91a5353ead0aabd091098e14
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.openlocfilehash: 775e1abe1f3d6412171b8ff5427fd905e37480b5
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66240364"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68489684"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>Les pools élastiques vous aident à gérer et à mettre à l’échelle plusieurs bases de données Azure SQL
 
@@ -94,7 +94,7 @@ Lorsque les ressources sont partagées, toutes les bases de données d’un pool
 
 ***Exemple de modèle d’achat DTU***
 
- Pour réduire les coûts pour trois bases de données S3 dans un pool de 200 eDTU, au moins deux de ces bases de données peuvent connaître un pic simultané au niveau de leur utilisation. Sinon, si plus de deux de ces quatre bases de données S3 connaissent un pic simultané, le pool devra être redimensionné à plus de 200 eDTU. Si le pool est redimensionné à plus de 200 eDTU, vous devez ajouter plusieurs bases de données S3 au pool pour maintenir des coûts inférieurs aux tailles de calcul pour les bases de données uniques.
+Pour réduire les coûts pour trois bases de données S3 dans un pool de 200 eDTU, au moins deux de ces bases de données peuvent connaître un pic simultané au niveau de leur utilisation. Sinon, si plus de deux de ces quatre bases de données S3 connaissent un pic simultané, le pool devra être redimensionné à plus de 200 eDTU. Si le pool est redimensionné à plus de 200 eDTU, vous devez ajouter plusieurs bases de données S3 au pool pour maintenir des coûts inférieurs aux tailles de calcul pour les bases de données uniques.
 
 Notez que cet exemple ne tient pas compte de l'utilisation des autres bases de données dans le pool. Si toutes les bases de données connaissent une utilisation à un moment donné, moins de 2/3 (ou 67 %) des bases de données peuvent connaître un pic simultané.
 
@@ -205,19 +205,19 @@ Pour plus d'informations, voir [Créer des alertes SQL Database dans le portail 
 
 - [SnelStart](https://azure.microsoft.com/resources/videos/azure-sql-database-case-study-snelstart/)
 
-  SnelStart utilisé des pools élastiques avec la base de données SQL Azure pour développer rapidement ses services d’entreprise au rythme de 1 000 nouvelles bases de données SQL par mois.
+  SnelStart a utilisé des pools élastiques avec SQL Database pour développer rapidement ses services métier au rythme de 1 000 nouvelles bases de données Azure SQL par mois.
 
 - [Umbraco](https://azure.microsoft.com/resources/videos/azure-sql-database-case-study-umbraco/)
 
-  Umbraco utilise des pools élastiques avec la base de données SQL Azure pour rapidement approvisionner services et de mise à l’échelle pour des milliers de locataires dans le cloud.
+  Umbraco utilise des pools élastiques avec Azure SQL Database afin de provisionner rapidement des services et de les mettre à l’échelle pour des milliers de locataires dans le cloud.
 
 - [Daxko/CSI](https://customers.microsoft.com/story/csi-used-azure-to-accelerate-its-development-cycle-and-to-enhance-its-customer-services)
 
-  Daxko/CSI utilise des pools élastiques avec la base de données SQL Azure pour accélérer son cycle de développement et améliorer ses performances et services clients.
+  Daxko/CSI utilise des pools élastiques avec Azure SQL Database pour accélérer son cycle de développement et améliorer ses performances et ses services clients.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour mettre à l’échelle des pools élastiques, consultez [Scaling elastic pools](sql-database-elastic-pool.md) (mise à l’échelle des pools élastiques) et [Scale an elastic pool - sample code](scripts/sql-database-monitor-and-scale-pool-powershell.md) (mise à l’échelle d’un pool élastique - exemple de code)
+- Pour mettre à l’échelle des pools élastiques, consultez [Scaling elastic pools](sql-database-elastic-pool-scale.md) (mise à l’échelle des pools élastiques) et [Scale an elastic pool - sample code](scripts/sql-database-monitor-and-scale-pool-powershell.md) (mise à l’échelle d’un pool élastique - exemple de code)
 - Vous pouvez aussi regarder la vidéo [Formation vidéo Microsoft Virtual Academy sur les fonctions de bases de données élastiques dans Azure SQL Database](https://mva.microsoft.com/training-courses/elastic-database-capabilities-with-azure-sql-db-16554)
 - Pour en savoir plus sur les modèles de conception pour les applications SaaS avec des pools élastiques, consultez [Modèles de conception pour les applications SaaS multilocataires avec Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md).
 - Pour obtenir un didacticiel SaaS utilisant des pools élastiques, consultez [Présentation de l’application SaaS Wingtip](sql-database-wtp-overview.md).
