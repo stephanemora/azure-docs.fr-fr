@@ -58,7 +58,7 @@ Les propriétés suivantes sont prises en charge pour le service lié Azure Data
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété `type` doit être définie sur **AzureDataLakeStore**. | OUI |
+| type | La propriété `type` doit être définie sur **AzureDataLakeStore**. | OUI |
 | dataLakeStoreUri | Informations à propos du compte Azure Data Lake Store. Cette information prend un des formats suivants : `https://[accountname].azuredatalakestore.net/webhdfs/v1` ou `adl://[accountname].azuredatalakestore.net/`. | OUI |
 | subscriptionId | ID de l’abonnement Azure auquel appartient le compte Data Lake Store. | Requis pour le récepteur |
 | resourceGroupName | Nom du groupe de ressources Azure auquel appartient le compte Data Lake Store. | Requis pour le récepteur |
