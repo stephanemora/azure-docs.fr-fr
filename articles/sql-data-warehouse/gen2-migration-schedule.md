@@ -3,19 +3,19 @@ title: Migrer votre entrepôt Azure SQL Data Warehouse existant vers Gen2 | Mic
 description: Instructions concernant la migration d’un entrepôt de données existant vers Gen2 et la planification de la migration par région.
 services: sql-data-warehouse
 author: mlee3gsd
-ms.author: anumjs
+ms.author: anjangsh
 ms.reviewer: jrasnick
 manager: craigg
 ms.assetid: 04b05dea-c066-44a0-9751-0774eb84c689
 ms.service: sql-data-warehouse
 ms.topic: article
 ms.date: 04/03/2019
-ms.openlocfilehash: 3141f3a1d6a9f09261dee4113276af72168e35e8
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: cef3036b01709847016d9523a5770febb8ff1134
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67444705"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839659"
 ---
 # <a name="upgrade-your-data-warehouse-to-gen2"></a>Mettre à niveau votre entrepôt de données vers Gen2
 
@@ -39,13 +39,13 @@ Le tableau suivant récapitule par région le moment où le niveau de capacité 
 | Est du Canada |\* |\* |
 | USA Centre |Disponible |1er juin 2019 |
 | Chine orientale |\* |\* |
-| Chine orientale 2 |\* |Gen2 uniquement |
+| Chine orientale 2 |Disponible |Gen2 uniquement |
 | Chine du Nord |\* |\* |
 | Chine Nord 2 |Disponible |Gen2 uniquement |
 | Asie Est |Disponible |1er juin 2019 |
 | USA Est |Disponible |1er juin 2019 |
 | USA Est 2 |Disponible |1er juin 2019 |
-| France Centre |\* |1er juin 2019 |
+| France Centre |Disponible |1er juin 2019 |
 | Centre de l’Allemagne |\* |\* |
 | Allemagne Centre-Ouest |1er septembre 2019|2 janvier 2020 |
 | Inde Centre |Disponible |1er juin 2019 |
@@ -56,10 +56,12 @@ Le tableau suivant récapitule par région le moment où le niveau de capacité 
 | Corée du Sud |Disponible |1er mai 2019 |
 | USA Centre Nord |Disponible |1er mai 2019 |
 | Europe Nord |Disponible |1er juin 2019 |
+| Afrique du Sud Nord |12 juillet 2019 |Gen2 uniquement |
 | USA Centre Sud |Disponible |1er juin 2019 |
 | Asie Sud-Est |Disponible |1er juin 2019 |
-| Sud du Royaume-Uni |Disponible en 2019 |1er juin 2019 |
-| Ouest du Royaume-Uni |\*|\* |
+| Émirats arabes unis Nord |20 juillet 2019 |Gen2 uniquement |
+| Sud du Royaume-Uni |Disponible |1er juin 2019 |
+| Ouest du Royaume-Uni |Disponible |Gen2 uniquement |
 | USA Centre-Ouest |2 septembre 2019 |2 janvier 2020|
 | Europe Ouest |Disponible |1er juin 2019 |
 | USA Ouest |Disponible |1er juin 2019 |

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/31/2019
 ms.author: abnarain
-ms.openlocfilehash: 7b0b637bdbab8f85c87d28473dda8f2e8f8a086e
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.openlocfilehash: ab82055d99401b0e7bc8aedf247fdf0d779f9f07
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67312056"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67875275"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Infrastructure Integration Runtime dans Azure Data Factory
 IR est l’infrastructure de calcul utilisée par Azure Data Factory pour fournir les fonctionnalités d’intégration de données suivantes entre différents environnements réseau :
@@ -85,7 +85,7 @@ Si vous souhaitez intégrer vos données en toute sécurité dans un environneme
 ### <a name="self-hosted-ir-compute-resource-and-scaling"></a>Ressources de calcul et mise à l’échelle du runtime d'intégration auto-hébergé
 Le runtime d’intégration auto-hébergé doit être installé sur un ordinateur local ou une machine virtuelle à l’intérieur d’un réseau privé. Actuellement, nous prenons uniquement en charge l’exécution du runtime d’intégration auto-hébergé sur un système d’exploitation Windows.  
 
-Pour obtenir un runtime d’intégration hautement disponible et évolutif, vous pouvez augmenter la taille des instances du runtime d’intégration auto-hébergé en associant l’instance logique avec plusieurs ordinateurs locaux en mode actif/actif.  Pour en savoir plus, consultez l’article « Comment créer et configurer le runtime d’intégration auto-hébergé » sous Procédures.
+Pour obtenir un runtime d’intégration hautement disponible et évolutif, vous pouvez augmenter la taille des instances du runtime d’intégration auto-hébergé en associant l’instance logique avec plusieurs ordinateurs locaux en mode actif/actif.  Pour en savoir plus, consultez l’article [Comment créer et configurer le runtime d’intégration auto-hébergé](create-self-hosted-integration-runtime.md) sous Procédures.
 
 ## <a name="azure-ssis-integration-runtime"></a>Runtime d’intégration Azure SSIS
 Pour effectuer une opération lift-and-shift sur la charge de travail SSIS existante, vous pouvez créer un runtime d’intégration Azure SSIS pour exécuter les packages SSIS en mode natif.

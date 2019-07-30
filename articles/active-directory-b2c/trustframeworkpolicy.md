@@ -10,18 +10,18 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 5a0ba48acf6ec3d221d9c4b5e95b380a2154171f
-ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+ms.openlocfilehash: 904893d4881de6be2c9055fefa9a8267cb045afd
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67537041"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67849407"
 ---
 # <a name="trustframeworkpolicy"></a>TrustFrameworkPolicy
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Une stratégie personnalisée est représentée par un ou plusieurs fichiers au format XML qui se font mutuellement référence dans une chaîne hiérarchique. Les éléments XML définissent des éléments de la stratégie tels que les schéma de revendications, transformations de revendications, définitions de contenu, fournisseurs de revendications, profils techniques, parcours utilisateur et étapes d’orchestration. Chaque fichier de stratégie est défini dans l’élément **TrustFrameworkPolicy** de niveau supérieur d’un fichier de stratégie. 
+Une stratégie personnalisée est représentée par un ou plusieurs fichiers au format XML qui se font mutuellement référence dans une chaîne hiérarchique. Les éléments XML définissent des éléments de la stratégie tels que les schéma de revendications, transformations de revendications, définitions de contenu, fournisseurs de revendications, profils techniques, parcours utilisateur et étapes d’orchestration. Chaque fichier de stratégie est défini dans l’élément **TrustFrameworkPolicy** de niveau supérieur d’un fichier de stratégie.
 
 ```XML
 <TrustFrameworkPolicy
@@ -68,11 +68,11 @@ Les types de fichiers de stratégie suivants sont généralement utilisés dans 
 
 - Fichier **de base** contenant la plupart des définitions. Pour faciliter la résolution des problèmes et la maintenance à long terme de vos stratégies, il est recommandé d’éviter autant que possible de modifier ce fichier.
 - Fichier d’**extensions** contenant les modifications de configuration propres à votre locataire. Ce fichier de stratégie est dérivé du fichier de base. Utilisez-le pour ajouter de nouvelles fonctionnalités ou remplacer des fonctionnalités existantes. Par exemple, utilisez-le pour fédérer avec de nouveaux fournisseurs d’identité.
-- Fichier de **partie de confiance** qui est le fichier centré sur une tâche unique, qui est appelé directement par une application par partie de confiance, telle que vos applications web, mobiles ou de bureau. Chaque tâche unique telle qu’une inscription ou une connexion, une réinitialisation de mot de passe ou une modification du profil, nécessite son propre fichier de stratégie de partie de confiance. Ce fichier de stratégie est dérivé du fichier d’extensions. 
+- Fichier de **partie de confiance** qui est le fichier centré sur une tâche unique, qui est appelé directement par une application par partie de confiance, telle que vos applications web, mobiles ou de bureau. Chaque tâche unique telle qu’une inscription ou une connexion, une réinitialisation de mot de passe ou une modification du profil, nécessite son propre fichier de stratégie de partie de confiance. Ce fichier de stratégie est dérivé du fichier d’extensions.
 
 Une application par partie de confiance appelle le fichier de stratégie de partie de confiance pour exécuter une tâche spécifique. Par exemple, pour démarrer le flux de connexion. L’Infrastructure d’expérience d’identité dans Azure AD B2C ajoute tous les éléments du fichier de base, puis du fichier d’extensions, et enfin du fichier de stratégie de partie de confiance pour assembler la stratégie en vigueur. Les éléments du même type et du même nom dans le fichier de partie de confiance remplacent ceux du fichier d’extensions qui remplacent ceux du fichier de base. Le diagramme suivant montre la relation entre les fichiers de stratégie et les applications par partie de confiance.
 
-![Modèle d’héritage](./media/trustframeworkpolicy/custom-policy-Inheritance-model.png)
+![Diagramme indiquant le modèle d’héritage de stratégie d’infrastructure de confiance](./media/trustframeworkpolicy/custom-policy-Inheritance-model.png)
 
 Le modèle d’héritage est le suivant :
 
@@ -84,7 +84,7 @@ Pour plus d’informations, consultez [Bien démarrer avec les stratégies perso
 
 ## <a name="base-policy"></a>Stratégie de base
 
-Pour hériter d’une autre stratégie, un élément **BasePolicy** doit être déclaré sous l’élément **TrustFrameworkPolicy** du fichier de stratégie. L’élément **BasePolicy** est une référence à la stratégie de base dont cette stratégie est dérivée.  
+Pour hériter d’une autre stratégie, un élément **BasePolicy** doit être déclaré sous l’élément **TrustFrameworkPolicy** du fichier de stratégie. L’élément **BasePolicy** est une référence à la stratégie de base dont cette stratégie est dérivée.
 
 L’élément **BasePolicy** contient les éléments suivants :
 
@@ -94,7 +94,7 @@ L’élément **BasePolicy** contient les éléments suivants :
 | PolicyId | 1:1 | Identificateur de la stratégie parente. |
 
 
-L’exemple suivant montre comment spécifier une stratégie de base. Cette stratégie **B2C_1A_TrustFrameworkExtensions** est dérivée de la stratégie **B2C_1A_TrustFrameworkBase**. 
+L’exemple suivant montre comment spécifier une stratégie de base. Cette stratégie **B2C_1A_TrustFrameworkExtensions** est dérivée de la stratégie **B2C_1A_TrustFrameworkBase**.
 
 ``` XML
 <TrustFrameworkPolicy
@@ -136,9 +136,9 @@ B2C_1A_TrustFrameWorkBase ou B2C_1A_TrustFrameworkExtensionPolicy :
   ...
 ```
 
-Un parcours utilisateur définit la logique métier des étapes qu’un utilisateur suit. Chaque parcours utilisateur est un ensemble d’étapes d’orchestration qui effectuent une série d’actions, de façon séquentielle, en termes d’authentification et de collecte d’informations. 
+Un parcours utilisateur définit la logique métier des étapes qu’un utilisateur suit. Chaque parcours utilisateur est un ensemble d’étapes d’orchestration qui effectuent une série d’actions, de façon séquentielle, en termes d’authentification et de collecte d’informations.
 
-Le fichier de stratégie **SocialAndLocalAccounts** dans le [pack de démarrage](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-get-started-custom#download-starter-pack-and-modify-policies) contient les parcours utilisateur SignUpOrSignIn, ProfileEdit et PasswordReset. Vous pouvez ajouter des parcours utilisateur pour d’autres scénarios, tels que la modification d’une adresse e-mail ou l’association et la dissociation d’un compte de réseau social. 
+Le fichier de stratégie **SocialAndLocalAccounts** dans le [pack de démarrage](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-get-started-custom#download-starter-pack-and-modify-policies) contient les parcours utilisateur SignUpOrSignIn, ProfileEdit et PasswordReset. Vous pouvez ajouter des parcours utilisateur pour d’autres scénarios, tels que la modification d’une adresse e-mail ou l’association et la dissociation d’un compte de réseau social.
 
 Les étapes d’orchestration peuvent appeler un [profil technique](technicalprofiles.md). Un profil technique fournit une infrastructure avec un mécanisme intégré pour communiquer avec différents types de parties. Par exemple, un profil technique peut effectuer, entre autres, les actions suivantes :
 
@@ -148,7 +148,7 @@ Les étapes d’orchestration peuvent appeler un [profil technique](technicalpro
 - Lire et écrire des données dans un magasin d’identités Azure AD B2C.
 - Appeler un service d’API Restful personnalisé.
 
-![Exécution de stratégie](./media/trustframeworkpolicy/custom-policy-execution.png)
+![Diagramme indiquant le workflow d’exécution de la stratégie](./media/trustframeworkpolicy/custom-policy-execution.png)
 
  L’élément **TrustFrameworkPolicy** contient les éléments suivants :
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/08/2019
 ms.author: tamram
 ms.subservice: tables
-ms.openlocfilehash: 63a81e390c113d10378973f928ffb58d71e8628e
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 40f760ab054154a02bea9eb341bda33bb879d824
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67295116"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68249577"
 ---
 # <a name="table-design-patterns"></a>Modèles de conception de table
 Cet article décrit certains modèles adaptés aux solutions de service de Table. Par ailleurs, il explique comment traiter certains problèmes et compromis abordés dans les autres articles de conception de stockage de table. Le diagramme suivant récapitule les relations entre les différents modèles :  
@@ -588,7 +588,7 @@ using Microsoft.Azure.Cosmos.Table;
 using Microsoft.Azure.Cosmos.Table.Queryable;
 ```
 
-EmployeeTable est un objet CloudTable qui implémente une méthode CreateQuery<ITableEntity>(), qui renvoie un élément TableQuery<ITableEntity>. Les objets de ce type implémentent IQueryable et permettent d’utiliser la syntaxe de notation par points et les expressions de requête LINQ.
+EmployeeTable est un objet CloudTable qui implémente une méthode CreateQuery\<ITableEntity>(), qui renvoie un élément TableQuery\<ITableEntity>. Les objets de ce type implémentent IQueryable et permettent d’utiliser la syntaxe de notation par points et les expressions de requête LINQ.
 
 Vous pouvez récupérer plusieurs entités en spécifiant une requête avec une clause **where**. Pour éviter une analyse de table, vous devez toujours inclure la valeur de **PartitionKey** dans la clause where, et si possible la valeur de **RowKey** afin d’éviter les analyses de table et de partition. Le service de Table prend en charge un ensemble limité d'opérateurs de comparaison (greater than, greater than or equal, less than or equal, equal et not equal) (supérieur à, supérieure ou égal à, inférieur ou égal à, égal et différent de). 
 

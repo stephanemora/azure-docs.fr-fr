@@ -6,16 +6,16 @@ author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: load data
-ms.date: 04/17/2018
+ms.subservice: load-data
+ms.date: 07/17/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: a4f52c2bd0040efef9e12a8feec0bfc779105ad4
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.openlocfilehash: 30b4009b2f52f4949a380f0fc51b02f94c98d966
+ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67461861"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68304291"
 ---
 # <a name="tutorial-load-data-to-azure-sql-data-warehouse"></a>Didacticiel : Chargement de données dans Azure SQL Data Warehouse
 
@@ -78,9 +78,9 @@ Suivez ces étapes pour créer un entrepôt de données SQL vide.
 
 5. Cliquez sur **Sélectionner**.
 
-6. Cliquez sur **Niveau de performance** pour spécifier si l’entrepôt de données est optimisé pour l’élasticité ou le calcul, et indiquer le nombre d’unités d’entrepôt de données. 
+6. Cliquez sur **Niveau de performance** pour spécifier si l’entrepôt de données est de type Gen1 ou Gen2, et indiquer le nombre d’unités d’entrepôt de données. 
 
-7. Pour ce didacticiel, sélectionnez le niveau de service **Optimisé pour l’élasticité**. Par défaut, le curseur est défini sur **DW400**.  Déplacez-le vers le haut et le bas pour voir son fonctionnement. 
+7. Pour ce didacticiel, sélectionnez le niveau de service **Gen1**. Par défaut, le curseur est défini sur **DW400**.  Déplacez-le vers le haut et le bas pour voir son fonctionnement. 
 
     ![configurer les performances](media/load-data-wideworldimportersdw/configure-performance.png)
 
@@ -1123,4 +1123,4 @@ Voici les étapes que vous avez effectuées :
 Passez à la vue d’ensemble du développement pour savoir comment migrer une base de données existante vers SQL Data Warehouse.
 
 > [!div class="nextstepaction"]
->[Concevoir des décisions pour migrer une base de données existante vers SQL Data Warehouse](sql-data-warehouse-overview-develop.md)
+>[Décisions de conception pour migrer une base de données existante vers SQL Data Warehouse](sql-data-warehouse-overview-develop.md)

@@ -6,14 +6,14 @@ author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 01/08/2019
+ms.date: 07/07/2019
 ms.author: dacurwin
-ms.openlocfilehash: c4e79d166d92a88934e5c5330ca852da8900c6f3
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: aecad4273493cd573935c78cae51bd0f59461e2e
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67275548"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67806965"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Sauvegarde Azure - Forum Aux Questions
 Cet article répond aux questions courantes sur le service Sauvegarde Azure.
@@ -51,37 +51,6 @@ Non. Dans un coffre Recovery Services, vous pouvez uniquement changer les option
 - Pour les agent permettant de sauvegarde des dossiers de fichiers Azure, lisez ce [FAQ](backup-azure-file-folder-backup-faq.md).
 
 
-## <a name="vmware-and-hyper-v-backup"></a>Sauvegarde VMware et Hyper-V
-
-### <a name="can-i-back-up-vmware-vcenter-servers-to-azure"></a>Puis-je sauvegarder des serveurs VMware vCenter dans Azure ?
-Oui. Vous pouvez utiliser le serveur de sauvegarde Azure pour sauvegarder des serveurs VMware vCenter et des hôtes ESXi dans Azure.
-
-- [en savoir plus](backup-mabs-protection-matrix.md) sur les versions prises en charge.
-- [Suivez ces étapes](backup-azure-backup-server-vmware.md) pour sauvegarder un serveur VMware.
-
-### <a name="do-i-need-a-separate-license-to-recover-an-full-on-premises-vmwarehyper-v-cluster"></a>Ai-je besoin d’une licence distincte pour récupérer un cluster VMware/Hyper-V entièrement local ?
-Vous n’avez pas besoin de licence distincte pour la protection VMware/Hyper-V.
-
-- Si vous êtes client System Center, utilisez System Center Data Protection Manager (DPM) pour protéger les machines virtuelles VMware.
-- Si vous n’êtes pas client System Center, vous pouvez utiliser le serveur de sauvegarde Azure (paiement à l’utilisation) pour protéger les machines virtuelles VMware.
-
-## <a name="dpm-and-azure-backup-server-backup"></a>Sauvegarde DPM et serveur de sauvegarde Azure
-
-### <a name="which-dpm-versions-are-supported"></a>Quelles sont les versions de DPM prises en charge ?
-Les versions de DPM prises en charge sont résumées dans la [matrice de prise en charge](backup-azure-dpm-introduction.md#prerequisites-and-limitations). Nous vous recommandons d’installer les dernières mises à jour de DPM et d’exécuter le [version la plus récente](https://aka.ms/azurebackup_agent) de l’agent de sauvegarde Azure sur le serveur DPM.
-
-### <a name="can-i-register-the-server-to-multiple-vaults"></a>Puis-je enregistrer mon serveur dans plusieurs coffres ?
-Non. Chaque serveur DPM ou serveur Sauvegarde Azure peut être inscrit auprès d’un seul coffre.
-
-### <a name="can-i-use-azure-backup-server-to-create-a-bare-metal-recovery-bmr-backup-for-a-physical-server-br"></a>Puis-je utiliser Azure Backup Server pour créer une sauvegarde de la récupération complète (BMR) pour un serveur physique ? <br/>
-Oui.
-
-### <a name="can-i-use-dpm-to-back-up-apps-in-azure-stack"></a>Puis-je utiliser DPM pour sauvegarder des applications dans Azure Stack ?
-Non. Vous pouvez utiliser la sauvegarde Azure pour protéger Azure Stack, mais la sauvegarde Azure ne prend pas en charge actuellement l’utilisation de DPM pour sauvegarder des applications dans Azure Stack.
-
-### <a name="if-ive-installed-azure-backup-agent-to-protect-my-files-and-folders-can-i-install-system-center-dpm-to-back-up-on-premises-workloads-to-azure"></a>Si j’ai installé l’agent Sauvegarde Azure pour protéger mes fichiers et dossiers, puis-je installer System Center DPM pour sauvegarder les charges de travail locales vers Azure ?
-Oui. Mais vous devez configurer tout d’abord DPM et puis installer l’agent Sauvegarde Azure.  L’installation des composants dans cet ordre garantit le fonctionnement de l’agent Sauvegarde Azure avec DPM. L’installation de l’agent Sauvegarde Azure avant l’installation de DPM n’est pas conseillée et n’est pas prise en charge.
-
 ## <a name="general-backup"></a>Sauvegarde générale
 
 ### <a name="are-there-limits-on-backup-scheduling"></a>Existe-t-il des limites sur la planification de la sauvegarde ?
@@ -118,7 +87,7 @@ Pour les sauvegardes Linux de machine virtuelle Azure, la Sauvegarde Azure prend
 Les limites de tailles sont les suivantes :
 
 Système d’exploitation/machine | Limite de taille de la source de données
---- | --- 
+--- | ---
 Windows 8 ou version ultérieure | 54 400 Go
 Windows 7 |1 700 Go
 Windows Server 2012 ou version ultérieure | 54 400 Go
@@ -185,7 +154,7 @@ Vous pouvez créer jusqu’à 9 999 points de récupération par instance prot
 - En savoir plus sur la [sauvegarde et la rétention](./backup-overview.md#backup-and-retention).
 
 
-### <a name="how-many-times-can-i-recovery-data-thats-backed-up-to-azure"></a>Combien de fois puis-je récupérer des données sauvegardées dans Azure ?
+### <a name="how-many-times-can-i-recover-data-thats-backed-up-to-azure"></a>Combien de fois puis-je récupérer des données sauvegardées dans Azure ?
 Il n’existe aucune limite concernant le nombre de récupérations dans Azure Backup.
 
 ### <a name="when-restoring-data-do-i-pay-for-the-egress-traffic-from-azure"></a>En cas de restauration de données, dois-je payer pour le trafic de sortie à partir d’Azure ?

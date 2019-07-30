@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin, nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 51fd5c8f406ea54c7fc8e81c674e41b30d7ad406
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: eb64aa401838451191a830a5adbfb435ac5fdf25
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67482411"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68261933"
 ---
 # <a name="service-to-service-calls-that-use-delegated-user-identity-in-the-on-behalf-of-flow"></a>Appels de service à service utilisant l’identité utilisateur déléguée dans le flux On-Behalf-Of
 
@@ -83,7 +83,7 @@ Inscrivez le service de niveau intermédiaire et l’application cliente dans Az
 1. Sélectionnez **Inscrire** pour créer l’application.
 1. Configurez les autorisations pour votre application. Dans **Autorisations des API**, sélectionnez **Ajouter une autorisation**, puis **Mes API**.
 1. Tapez le nom du service de niveau intermédiaire dans le champ de texte.
-1. Choisissez **Sélectionner les autorisations**, puis sélectionnez **Accéder à <service name>** .
+1. Choisissez **Sélectionner les autorisations**, puis sélectionnez **Accéder à \<Nom du service>** .
 
 ### <a name="configure-known-client-applications"></a>Configurer les applications clientes connues
 

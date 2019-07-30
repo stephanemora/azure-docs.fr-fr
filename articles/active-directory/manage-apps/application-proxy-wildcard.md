@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8cd29fc00a1c25a7c092393591060ca7e2938155
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 5d3b8176566593c5c9e9ff63a6ccbafcb2a35cd5
+ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67481269"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67827990"
 ---
 # <a name="wildcard-applications-in-the-azure-active-directory-application-proxy"></a>Applications génériques dans le proxy d’application Azure Active Directory
 
@@ -45,7 +45,9 @@ Vous pouvez publier des applications avec des caractères génériques si les UR
 
 > http(s)://*.\<domaine\>
 
-Par exemple : `http(s)://*.adventure-works.com`. Alors que les URL internes et externes peuvent utiliser des domaines différents, une bonne pratique consiste à utiliser des domaines identiques. Quand vous publiez l’application, vous voyez une erreur si une des URL n’a pas de caractère générique.
+Par exemple : `http(s)://*.adventure-works.com`.
+
+Alors que les URL internes et externes peuvent utiliser des domaines différents, une bonne pratique consiste à utiliser des domaines identiques. Quand vous publiez l’application, vous voyez une erreur si une des URL n’a pas de caractère générique.
 
 Si vous avez d’autres applications avec différents paramètres de configuration, vous devez publier ces exceptions en tant qu’applications distinctes pour remplacer les valeurs par défaut définies pour le caractère générique. Les applications sans caractère générique ont toujours priorité sur les applications génériques. Du point de vue de la configuration, ce sont « juste » des applications normales.
 
@@ -60,7 +62,7 @@ Pour commencer, vérifiez que vous respectez ces exigences.
 Bien que les [domaines personnalisés](application-proxy-configure-custom-domain.md) soient facultatifs pour toutes les autres applications, ils sont obligatoires pour les applications génériques. Pour créer des domaines personnalisés, vous devez :
 
 1. Créez un domaine vérifié dans Azure.
-2. Charger un certificat SSL au format PFX dans votre proxy d’application.
+1. Charger un certificat SSL au format PFX dans votre proxy d’application.
 
 Vous devez utiliser un certificat générique correspondant à l’application que vous voulez créer. Sinon, vous pouvez utiliser un certificat qui liste uniquement des applications spécifiques. Dans ce cas, seules les applications listées dans le certificat sont accessibles via cette application générique.
 
@@ -82,11 +84,11 @@ Voici quelques éléments à prendre en compte pour les applications générique
 
 Pour les applications génériques, **l’URL interne** doit être au format `http(s)://*.<domain>`.
 
-![Pour une URL interne, utilisez le format http(s)://*.<domain>](./media/application-proxy-wildcard/22.png)
+![Pour une URL interne, utilisez le format http(s)://*.\<domain>](./media/application-proxy-wildcard/22.png)
 
 Quand vous configurez une **URL externe**, vous devez utiliser le format suivant : `https://*.<custom domain>`
 
-![Pour une URL externe, utilisez le format https://*.<custom domain>](./media/application-proxy-wildcard/21.png)
+![Pour une URL externe, utilisez le format https://*.\<custom domain>](./media/application-proxy-wildcard/21.png)
 
 Les autres positions du caractère générique, les caractères génériques multiples ou les autres chaînes d’expression régulière ne sont pas pris en charge et entraînent des erreurs.
 
@@ -95,11 +97,11 @@ Les autres positions du caractère générique, les caractères génériques mul
 Vous pouvez exclure une application de l’application générique de la façon suivante :
 
 - Publier l’application d’exception en tant qu’application normale
-- Activer le caractère générique uniquement pour des applications spécifiques par le biais de vos paramètres DNS  
+- Activer le caractère générique uniquement pour des applications spécifiques par le biais de vos paramètres DNS
 
 La publication d’une application en tant qu’application normale est la méthode recommandée pour exclure une application d’un caractère générique. Vous devez publier les applications exclues avant les applications génériques pour vérifier que vos exceptions sont appliquées depuis le début. L’application la plus spécifique est toujours prioritaire : une application publiée sous `budgets.finance.adventure-works.com` est prioritaire sur l’application `*.finance.adventure-works.com`, qui à son tour est prioritaire sur l’application `*.adventure-works.com`.
 
-Vous pouvez également limiter le caractère générique pour qu’il fonctionne uniquement pour des applications spécifiques dans votre gestion DNS. Une bonne pratique consiste à créer une entrée CNAME avec un caractère générique et correspondant au format de l’URL externe que vous avez configurée. Toutefois, vous pouvez faire pointer à la place les URL des applications spécifiques vers les caractères génériques. Par exemple, au lieu de `*.adventure-works.com`, faites pointer `hr.adventure-works.com`, `expenses.adventure-works.com` et `travel.adventure-works.com individually` vers `000aa000-11b1-2ccc-d333-4444eee4444e.tenant.runtime.msappproxy.net`. 
+Vous pouvez également limiter le caractère générique pour qu’il fonctionne uniquement pour des applications spécifiques dans votre gestion DNS. Une bonne pratique consiste à créer une entrée CNAME avec un caractère générique et correspondant au format de l’URL externe que vous avez configurée. Toutefois, vous pouvez faire pointer à la place les URL des applications spécifiques vers les caractères génériques. Par exemple, au lieu de `*.adventure-works.com`, faites pointer `hr.adventure-works.com`, `expenses.adventure-works.com` et `travel.adventure-works.com individually` vers `000aa000-11b1-2ccc-d333-4444eee4444e.tenant.runtime.msappproxy.net`.
 
 Si vous utilisez cette option, vous avez aussi besoin d’une autre entrée CNAME pour la valeur `AppId.domain`, par exemple, `00000000-1a11-22b2-c333-444d4d4dd444.adventure-works.com`, pointant également vers le même emplacement. **L’AppId** se trouve dans la page de propriétés de l’application générique :
 
@@ -110,7 +112,7 @@ Si vous utilisez cette option, vous avez aussi besoin d’une autre entrée CNAM
 L’application générique est représentée par une seule vignette dans le [panneau MyApps](https://myapps.microsoft.com). Par défaut, cette vignette est masquée. Pour afficher la vignette et diriger les utilisateurs vers une page d’accueil spécifique :
 
 1. Suivez les instructions permettant de [définir une URL de page d’accueil](application-proxy-configure-custom-home-page.md).
-2. Définissez **Afficher l’application** avec la valeur **true** dans la page de propriétés d’application.
+1. Définissez **Afficher l’application** avec la valeur **true** dans la page de propriétés d’application.
 
 ### <a name="kerberos-constrained-delegation"></a>Délégation Kerberos contrainte
 

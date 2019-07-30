@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 06/24/2019
 ms.author: alkohli
-ms.openlocfilehash: 2426ecd9c480b0cc236295384ae04c60051f37ce
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 7ce4b9dda853e63e427757317abc2f7c878ba3a4
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67442969"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68253154"
 ---
 # <a name="manage-access-power-and-connectivity-mode-for-your-azure-data-box-edge"></a>Gérer l’accès, l’alimentation et le mode de connectivité de votre appareil Azure Data Box Edge
 
@@ -80,7 +80,7 @@ Vous n’avez pas besoin d’accorder des autorisations d’accès au niveau de 
 
 Avant d’essayer de créer une ressource, vérifiez que le fournisseur de ressources est inscrit dans l’abonnement. Si le fournisseur de ressources n’est pas inscrit, vous devez vérifier que l’utilisateur qui crée la ressource dispose de droits suffisants pour inscrire le fournisseur de ressources nécessaire sur le niveau de l’abonnement. Si vous ne l’avez pas fait également, l’erreur suivante s’affiche :
 
-*L’abonnement <Subscription name> ne dispose des autorisations pour inscrire le fournisseur de ressources : Microsoft.DataBoxEdge.*
+*L’abonnement \< <Nom de l’abonnement> ne dispose des autorisations pour inscrire le fournisseur de ressources : Microsoft.DataBoxEdge.*
 
 
 Pour obtenir une liste des fournisseurs de ressources inscrits dans l’abonnement actuel, exécutez la commande suivante :

@@ -2,18 +2,18 @@
 title: Forum aux questions sur Azure Kubernetes Service (AKS)
 description: Recherchez des réponses à certaines des questions les plus fréquemment posées sur Azure Kubernetes Service (AKS).
 services: container-service
-author: iainfoulds
+author: mlearned
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 07/03/2019
-ms.author: iainfou
-ms.openlocfilehash: d4fa365e1ed055fa8ddeb8fd475e152af84a3b71
-ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
+ms.date: 07/08/2019
+ms.author: mlearned
+ms.openlocfilehash: 554eba87efc56e2dadb3fb2d0cb78cd8b7ea7237
+ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67560442"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68302723"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Forum aux questions sur Azure Kubernetes Service (AKS)
 
@@ -62,30 +62,28 @@ Pour les nœuds Windows Server (actuellement en préversion dans AKS), Windows U
 Chaque déploiement AKS s’étend sur deux groupes de ressources :
 
 1. Vous créez le premier groupe de ressources. Ce groupe contient uniquement la ressource de service Kubernetes. Le fournisseur de ressources AKS crée automatiquement le second groupe de ressources au cours du déploiement. Un exemple du second groupe de ressources est *MC_myResourceGroup_myAKSCluster_eastus*. Pour obtenir des informations sur la façon de spécifier le nom de ce second groupe de ressources, consultez la section suivante.
-1. Le second groupe de ressources (*MC_myResourceGroup_myAKSCluster_eastus*, par exemple) contient toutes les ressources d’infrastructure associées au cluster. Ces ressources incluent les machines virtuelles de nœud Kubernetes, la mise en réseau et le stockage. L’objectif de ce groupe de ressources est de simplifier le nettoyage des ressources.
+1. Le second groupe de ressources, nommé *groupe de ressources de nœud*, contient toutes les ressources d’infrastructure associées au cluster. Ces ressources incluent les machines virtuelles de nœud Kubernetes, la mise en réseau et le stockage. Par défaut, le nom du groupe de ressources de nœud ressemble à ceci : *MC_myResourceGroup_myAKSCluster_eastus*. AKS supprime automatiquement la ressource de nœud à chaque fois que le cluster est supprimé. Cette ressource doit donc être utilisée uniquement pour les ressources qui partagent le cycle de vie du cluster.
 
-Si vous créez les ressources à utiliser avec votre cluster AKS, telles que les comptes de stockage ou les adresses IP publiques réservées, placez-les dans le groupe de ressources généré automatiquement.
+## <a name="can-i-provide-my-own-name-for-the-aks-node-resource-group"></a>Puis-je nommer mon groupe de ressources d’infrastructure AKS comme je le veux ?
 
-## <a name="can-i-provide-my-own-name-for-the-aks-infrastructure-resource-group"></a>Puis-je fournir mon propre nom pour le groupe de ressources d’infrastructure AKS ?
-
-Oui. Par défaut, le fournisseur de ressources AKS crée automatiquement un groupe de ressources secondaire (tel que *MC_myResourceGroup_myAKSCluster_eastus*) au cours du déploiement. Pour respecter la stratégie d’entreprise, vous pouvez fournir votre propre nom pour le groupe de ressources de ce cluster géré (*MC_* ).
+Oui. Par défaut, AKS nomme le groupe de ressources de nœud *MC_clustername_resourcegroupname_location*, mais vous pouvez également entrer votre propre nom.
 
 Pour spécifier votre propre nom de groupe de ressources, installez la version *0.3.2* ou une version ultérieure de l’extension Azure CLI [aks-preview][aks-preview-cli]. Lorsque vous créez un cluster AKS à l’aide de la commande [az aks create][az-aks-create], utilisez le paramètre *--node-resource-group* et spécifiez un nom pour le groupe de ressources. Si vous [utilisez un modèle Azure Resource Manager][aks-rm-template] pour déployer un cluster AKS, vous pouvez définir le nom du groupe de ressources à l’aide de la propriété *nodeResourceGroup*.
 
 * Le groupe de ressources secondaire est automatiquement créé par le fournisseur de ressources Azure dans votre propre abonnement.
 * Vous pouvez spécifier un nom de groupe de ressources personnalisé uniquement lorsque vous créez le cluster.
 
-Lorsque vous travaillez avec le groupe de ressources *MC_* , n’oubliez pas que vous ne pouvez pas :
+Lorsque vous travaillez avec le groupe de ressources de nœud, n’oubliez pas que vous ne pouvez pas :
 
-* Spécifier un groupe de ressources existant pour le groupe *MC_* .
-* Spécifier un autre abonnement pour le groupe de ressources *MC_* .
-* Modifier le nom du groupe de ressources *MC_* une fois que le cluster a été créé.
-* Spécifier des noms pour les ressources managées au sein du groupe de ressources *MC_* .
-* Modifier ou supprimer les balises des ressources managées au sein du groupe de ressources *MC_* . (Consultez des informations supplémentaires dans la section suivante.)
+* Spécifier un groupe de ressources existant pour le groupe de ressources de nœud.
+* Spécifier un autre abonnement pour le groupe de ressources de nœud.
+* Modifier le nom du groupe de ressources de nœud une fois que le cluster a été créé.
+* Spécifier des noms pour les ressources managées au sein du groupe de ressources de nœud.
+* Modifier ou supprimer les balises des ressources managées au sein du groupe de ressources de nœud. (Consultez des informations supplémentaires dans la section suivante.)
 
-## <a name="can-i-modify-tags-and-other-properties-of-the-aks-resources-in-the-mc-resource-group"></a>Puis-je modifier les balises et d’autres propriétés des ressources AKS dans le groupe de ressources MC_ ?
+## <a name="can-i-modify-tags-and-other-properties-of-the-aks-resources-in-the-node-resource-group"></a>Puis-je modifier les balises et d’autres propriétés des ressources AKS dans le groupe de ressources de nœud ?
 
-Si vous modifiez ou supprimez des balises créées par Azure et d’autres propriétés de ressources dans le groupe de ressources *MC_* , vous pouvez obtenir des résultats inattendus tels que des erreurs de mise à l’échelle et de mise à niveau. AKS vous permet de créer et modifier des balises personnalisées. Vous souhaiterez peut-être créer ou modifier des balises personnalisées, par exemple, pour affecter une unité commerciale ou un centre de coûts. En modifiant les ressources du groupe *MC_* dans le cluster AKS, vous empêchez d'atteindre l'objectif de niveau de service (SLO). Pour plus d'informations, consultez [AKS offre-t-il un contrat de niveau de service ?](#does-aks-offer-a-service-level-agreement)
+Si vous modifiez ou supprimez des balises créées par Azure et d’autres propriétés de ressources dans le groupe de ressources de nœud, vous pouvez obtenir des résultats inattendus tels que des erreurs de mise à l’échelle et de mise à niveau. AKS vous permet de créer et modifier des balises personnalisées. Vous souhaiterez peut-être créer ou modifier des balises personnalisées, par exemple, pour affecter une unité commerciale ou un centre de coûts. En modifiant les ressources du groupe de ressources de nœud dans le cluster AKS, vous empêchez d’atteindre l’objectif de niveau de service (SLO). Pour plus d'informations, consultez [AKS offre-t-il un contrat de niveau de service ?](#does-aks-offer-a-service-level-agreement)
 
 ## <a name="what-kubernetes-admission-controllers-does-aks-support-can-admission-controllers-be-added-or-removed"></a>Quels sont les contrôleurs d’admission Kubernetes qui sont pris en charge par AKS ? Les contrôleurs d’admission peuvent-ils être ajoutés ou supprimés ?
 
@@ -134,6 +132,14 @@ Les utilisateurs ne peuvent pas remplacer la validation de la valeur minimale `m
 ## <a name="can-i-apply-azure-reservation-discounts-to-my-aks-agent-nodes"></a>Puis-je appliquer des remises de réservation Azure sur mes nœuds d’agent AKS ?
 
 Les nœuds d’agent AKS sont facturés en tant que machines virtuelles Azure standard. Par conséquent, si vous avez acheté des [réservations Azure][reservation-discounts] pour la taille de machine virtuelle que vous utilisez dans AKS, ces remises sont automatiquement appliquées.
+
+## <a name="can-i-movemigrate-my-cluster-between-azure-tenants"></a>Puis-je déplacer/migrer mon cluster entre des locataires Azure ?
+
+Vous pouvez utiliser la commande `az aks update-credentials` pour déplacer un cluster AKS entre des locataires Azure. Suivez les instructions de la page [Choisir de mettre à jour ou de créer un principal du service](https://docs.microsoft.com/azure/aks/update-credentials), puis de la section [Mettre à jour le cluster AKS avec les nouvelles informations d’identification](https://docs.microsoft.com/azure/aks/update-credentials#update-aks-cluster-with-new-credentials).
+
+## <a name="can-i-movemigrate-my-cluster-between-subscriptions"></a>Puis-je déplacer/migrer mon cluster entre des abonnements ?
+
+Désolé... Le déplacement des clusters entre des abonnements n’est pas pris en charge pour le moment.
 
 <!-- LINKS - internal -->
 

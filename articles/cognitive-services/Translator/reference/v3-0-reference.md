@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: swmachan
-ms.openlocfilehash: 9b8f3894062c34e743a39f28b5f079a67a285c84
-ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
+ms.openlocfilehash: 8956aff86777e2a2570c6a555a9bd0882f328a77
+ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/25/2019
-ms.locfileid: "67357686"
+ms.lasthandoff: 07/13/2019
+ms.locfileid: "67868412"
 ---
 # <a name="translator-text-api-v30"></a>API de traduction de texte Translator Text v3.0
 
@@ -31,10 +31,10 @@ La version 3 de l’API de traduction de texte Translator Text fournit une API w
 
 ## <a name="base-urls"></a>URL de base
 
-Microsoft Translator est desservi par des centres de données situés dans plusieurs emplacements. Ils sont actuellement présents dans 6 [zones géographiques Azure](https://azure.microsoft.com/global-infrastructure/regions) :
+Microsoft Translator est desservi par des centres de données situés dans plusieurs emplacements. Ils sont actuellement présents dans 10 [zones géographiques Azure](https://azure.microsoft.com/global-infrastructure/regions) :
 
-* **Amérique :** USA Ouest 2 et USA Centre-Ouest 
-* **Asie-Pacifique :** Asie Sud-Est et Corée Sud
+* **Amérique :** USA Est, USA Centre Sud, USA Centre-Ouest, USA Ouest 2 
+* **Asie-Pacifique :** Corée Sud, Japon Est, Asie Sud-Est et Australie Est
 * **Europe :** Europe Nord et Europe Ouest
 
 Les requêtes adressées à l’API de traduction de texte Translator Text de Microsoft sont dans la plupart des cas gérées par le centre de données le plus proche de l’emplacement d’origine de la requête. En cas de défaillance d’un centre de données, la requête peut être routée à l’extérieur de la zone géographique Azure.

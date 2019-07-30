@@ -1,7 +1,7 @@
 ---
 title: 'Démarrage rapide Python : Créer, charger et interroger des index à l’aide d’API REST Recherche Azure – Recherche Azure'
 description: Explique comment créer un index, charger des données et exécuter des requêtes à l’aide de Python, de Jupyter Notebooks et d’une API REST Recherche Azure.
-ms.date: 06/20/2019
+ms.date: 07/11/2019
 author: heidisteen
 manager: cgronlun
 ms.author: heidist
@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 613879abd4c5c09450b690b793500a99428cff29
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 1c570549514ff5a5e7e598aa54d8e2ac4b5a5341
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67485472"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67849783"
 ---
 # <a name="quickstart-create-an-azure-search-index-in-python-using-jupyter-notebooks"></a>Démarrage rapide : Créer un index de Recherche Azure en Python à l’aide de notebooks Jupyter
 > [!div class="op_single_selector"]
@@ -26,13 +26,13 @@ ms.locfileid: "67485472"
 > * [Portal](search-create-index-portal.md)
 > 
 
-Générez un notebook Jupyter qui crée, charge et interroge un index de Recherche Azure en utilisant Python et les [API REST de Recherche Azure](https://docs.microsoft.com/rest/api/searchservice/). Cet article explique pas à pas comment créer un notebook à partir de rien. Vous pouvez également exécuter un notebook terminé. Pour télécharger une copie, accédez au [référentiel azure-search-python-samples](https://github.com/Azure-Samples/azure-search-python-samples).
+Générez un notebook Jupyter qui crée, charge et interroge un index de Recherche Azure en utilisant Python et les [API REST de Recherche Azure](https://docs.microsoft.com/rest/api/searchservice/). Cet article décrit la procédure à suivre pour créer un notebook. Vous pouvez [également télécharger et exécuter un notebook Jupyter Python complet](https://github.com/Azure-Samples/azure-search-python-samples).
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
 ## <a name="prerequisites"></a>Prérequis
 
-Les services et les outils qui suivent sont utilisés dans ce guide de démarrage rapide. 
+Les services et outils suivants sont indispensables dans ce guide de démarrage rapide. 
 
 + [Anaconda 3.x](https://www.anaconda.com/distribution/#download-section), qui fournit des notebooks Python 3.x et Jupyter.
 
@@ -94,7 +94,7 @@ Sauf si vous utilisez le portail, un index doit exister sur le service pour que 
 
 Les éléments requis d’un index sont un nom, une collection de champs et une clé. La collection de champs définit la structure d’un *document*. Chaque champ a un nom, un type et des attributs qui déterminent la façon dont il est utilisé (par exemple, s’il permet d’effectuer une recherche en texte intégral, et s’il est filtrable ou récupérable dans des résultats de recherche). Dans un index, l’un des champs de type `Edm.String` doit être désigné comme la *clé* pour l’identité du document.
 
-Cet index est nommé « hotels-quickstart » et a les définitions de champ que vous voyez ci-dessous. Il s’agit d’un sous-ensemble d’un [index Hotels](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotels/Hotels_IndexDefinition.JSON) plus grand utilisé dans d’autres procédures pas à pas. Nous l’avons le tronqué dans ce démarrage rapide par souci de concision.
+Cet index est nommé « hotels-quickstart » et contient les définitions de champ que vous voyez ci-dessous. Il s’agit d’un sous-ensemble d’un [index Hotels](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotels/Hotels_IndexDefinition.JSON) plus grand utilisé dans d’autres procédures pas à pas. Nous l’avons le tronqué dans ce démarrage rapide par souci de concision.
 
 1. Dans la cellule suivante, collez l’exemple suivant dans une cellule pour fournir le schéma. 
 
@@ -295,26 +295,13 @@ Cette étape vous montre comment interroger un index à l’aide de l’[API RES
    searchstring = '&search=pool&$orderby=Address/City&$select=HotelId, HotelName, Address/City, Address/StateProvince, Tags'
    ```
 
-## <a name="clean-up"></a>Nettoyer 
+## <a name="clean-up"></a>Nettoyer
 
-Vous devez supprimer l’index si vous n’en avez plus besoin. Un service gratuit est limité à trois index. Vous devez supprimer tous les index que vous n’utilisez pas activement pour faire place à d’autres didacticiels.
+Lorsque vous travaillez dans votre propre abonnement, il est recommandé, à la fin de chaque projet, de déterminer si vous avez toujours besoin des ressources que vous avez créées. Les ressources laissées en cours d’exécution peuvent vous coûter de l’argent. Vous pouvez supprimer les ressources une par une, ou choisir de supprimer le groupe de ressources afin de supprimer l’ensemble des ressources.
 
-Le moyen le plus simple de supprimer des objets est via le portail mais, dans la mesure où il s’agit d’un guide de démarrage rapide Python, la syntaxe suivante produit le même résultat :
+Vous pouvez rechercher et gérer les ressources dans le portail à l’aide des liens **Toutes les ressources** ou **Groupes de ressources** situés dans le volet de navigation de gauche.
 
-   ```python
-  url = endpoint + "indexes/hotels-quickstart" + api_version
-  response  = requests.delete(url, headers=headers)
-   ```
-
-Vous pouvez vérifier la suppression de l’index en demandant une liste des index existants. Si le démarrage rapide hotels a disparu, vous savez votre demande a abouti.
-
-```python
-url = endpoint + "indexes" + api_version + "&$select=name"
-
-response  = requests.get(url, headers=headers)
-index_list = response.json()
-pprint(index_list)
-```
+Si vous utilisez un service gratuit, n’oubliez pas que vous êtes limité à trois index, indexeurs et sources de données. Vous pouvez supprimer des éléments un par un dans le portail pour ne pas dépasser la limite. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

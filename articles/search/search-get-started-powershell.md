@@ -1,7 +1,7 @@
 ---
 title: 'Démarrage rapide PowerShell : Créer, charger et interroger des index à l’aide des API REST Recherche Azure - Recherche Azure'
 description: Explique comment créer un index, charger des données et exécuter des requêtes à l’aide de Invoke-RestMethod de PowerShell et de l'API REST Recherche Azure.
-ms.date: 06/10/2019
+ms.date: 07/11/2019
 author: heidisteen
 manager: cgronlun
 ms.author: heidist
@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: afd73ee3461fff11019be887dbf3078963644c5b
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 6bff2c84a4bfd81b94054b85744c17a1cd217756
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67485486"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67847063"
 ---
 # <a name="quickstart-create-an-azure-search-index-in-powershell-using-rest-apis"></a>Démarrage rapide : Créer un index Recherche Azure dans PowerShell à l’aide des API REST
 > [!div class="op_single_selector"]
@@ -26,13 +26,13 @@ ms.locfileid: "67485486"
 > * [Portal](search-create-index-portal.md)
 > 
 
-Cet article vous explique comment créer, charger et interroger un index Recherche Azure à l'aide de PowerShell et des [API REST Recherche Azure](https://docs.microsoft.com/rest/api/searchservice/). Cet article explique comment exécuter des commandes PowerShell de manière interactive. Vous pouvez également exécuter un script terminé. Pour télécharger une copie, accédez au référentiel [azure-search-powershell-samples](https://github.com/Azure-Samples/azure-search-powershell-samples/tree/master/Quickstart).
+Cet article vous explique comment créer, charger et interroger un index Recherche Azure à l'aide de PowerShell et des [API REST Recherche Azure](https://docs.microsoft.com/rest/api/searchservice/). Cet article explique comment exécuter des commandes PowerShell de manière interactive. Vous pouvez également [télécharger et exécuter un script PowerShell](https://github.com/Azure-Samples/azure-search-powershell-samples/tree/master/Quickstart) qui effectue les mêmes opérations.
 
-Si vous ne disposez d’aucun abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer, puis [inscrivez-vous auprès de la fonction Recherche Azure](search-create-service-portal.md).
+Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
 ## <a name="prerequisites"></a>Prérequis
 
-Les services et les outils qui suivent sont utilisés dans ce guide de démarrage rapide. 
+Les services et outils suivants sont indispensables dans ce guide de démarrage rapide. 
 
 + [PowerShell 5.1 ou version ultérieure](https://github.com/PowerShell/PowerShell) avec [Invoke-RestMethod](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Utility/Invoke-RestMethod) pour connaître les étapes séquentielles et interactives.
 
@@ -64,7 +64,7 @@ Toutes les demandes nécessitent une clé API sur chaque demande envoyée à vot
 2. Créez un objet **$url** qui spécifie la collection d'index du service. Remplacez le nom du service de recherche (YOUR-SEARCH-SERVICE-NAME) par un service de recherche valide.
 
     ```powershell
-    $url = "https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes?api-version=2019-05-06"
+    $url = "https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes?api-version=2019-05-06&$select=name"
     ```
 
 3. Exécutez **Invoke-RestMethod** pour envoyer une requête GET au service et vérifier la connexion. Ajoutez **ConvertTo-Json** afin d'afficher les réponses renvoyées par le service.
@@ -88,7 +88,7 @@ Toutes les demandes nécessitent une clé API sur chaque demande envoyée à vot
 
 Sauf si vous utilisez le portail, le service doit contenir un index pour vous permettre de charger des données. Cette étape définit l’index et l’envoie (push) au service. L’[API REST Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index) est utilisée pour cette étape.
 
-Un index doit contenir un nom et une collection de champs. La collection de champs définit la structure d'un *document*. Chaque champ a un nom, un type et des attributs qui déterminent la façon dont il est utilisé (par exemple, s’il permet d’effectuer une recherche en texte intégral, et s’il est filtrable ou récupérable dans les résultats de la recherche). Dans un index, l’un des champs de type `Edm.String` doit être désigné comme la *clé* pour l’identité du document.
+Un index doit contenir un nom et une collection de champs. La collection de champs définit la structure d'un *document*. Chaque champ a un nom, un type et des attributs qui déterminent la façon dont il est utilisé (par exemple, s’il permet d’effectuer une recherche en texte intégral, et s’il est filtrable ou récupérable dans les résultats de la recherche). Dans un index, l’un des champs de type `Edm.String` doit être désigné comme *clé* pour l’identité du document.
 
 Cet index est nommé « hotels-quickstart » et contient les définitions de champ que vous voyez ci-dessous. Il s’agit d’un sous-ensemble d’un [index Hotels](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotels/Hotels_IndexDefinition.JSON) plus grand utilisé dans d’autres procédures pas à pas. Nous l’avons volontairement tronqué dans ce démarrage rapide par souci de concision.
 
@@ -324,13 +324,13 @@ Utilisez des guillemets simples pour la recherche $urls. Les chaînes de requêt
 
 1. Définissez le point de terminaison vers la collection de documents *hotels-quickstart* et ajoutez un paramètre **search** à transmettre dans une chaîne de requête. 
   
-   Cette chaîne exécute une recherche vide (recherche=*), renvoyant une liste non classée (résultat de la recherche = 1.0) de documents arbitraires. Par défaut, Recherche Azure renvoie 50 correspondances à la fois. Telle qu’elle est structurée, cette requête renvoie la structure et les valeurs d’un document entier. Ajoutez **$count = true** pour obtenir le nombre de tous les documents dans les résultats.
+   Cette chaîne exécute une recherche vide (recherche=*), renvoyant une liste non classée (résultat de la recherche = 1.0) de documents arbitraires. Par défaut, Recherche Azure renvoie 50 correspondances à la fois. Telle qu’elle est structurée, cette requête renvoie la structure et les valeurs d’un document entier. Ajoutez **$count = true** pour obtenir le nombre de tous les documents dans les résultats.
 
     ```powershell
     $url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?api-version=2019-05-06&search=*&$count=true'
     ```
 
-1. Exécutez la commande pour envoyer le **$url** au service.
+1. Exécutez la commande pour envoyer **$url** au service.
 
     ```powershell
     Invoke-RestMethod -Uri $url -Headers $headers | ConvertTo-Json
@@ -394,15 +394,11 @@ $url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quicksta
 ```
 ## <a name="clean-up"></a>Nettoyer 
 
-Vous devez supprimer l’index si vous n’en avez plus besoin. Un service gratuit est limité à trois index. Vous souhaiterez peut-être supprimer un index que vous n’utilisez pas activement pour parcourir d’autres didacticiels.
+Lorsque vous travaillez dans votre propre abonnement, il est recommandé, à la fin de chaque projet, de déterminer si vous avez toujours besoin des ressources que vous avez créées. Les ressources laissées en cours d’exécution peuvent vous coûter de l’argent. Vous pouvez supprimer les ressources une par une, ou choisir de supprimer le groupe de ressources afin de supprimer l’ensemble des ressources.
 
-```powershell
-# Set the URI to the hotel index
-$url = 'https://mydemo.search.windows.net/indexes/hotels-quickstart?api-version=2019-05-06'
+Vous pouvez rechercher et gérer les ressources dans le portail à l’aide des liens **Toutes les ressources** ou **Groupes de ressources** situés dans le volet de navigation de gauche.
 
-# Delete the index
-Invoke-RestMethod -Uri $url -Headers $headers -Method Delete
-```
+Si vous utilisez un service gratuit, n’oubliez pas que vous êtes limité à trois index, indexeurs et sources de données. Vous pouvez supprimer des éléments un par un dans le portail pour ne pas dépasser la limite. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

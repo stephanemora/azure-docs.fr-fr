@@ -14,13 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/26/2017
-ms.author: malop; kumud
-ms.openlocfilehash: 07c8087043526a8eb0bf7a1963a761c40c11a925
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.author: malop
+ms.reviewer: kumud
+ms.openlocfilehash: b26f876fbe07b1667a579fc040562f1d6ee8a85e
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67202855"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67871800"
 ---
 # <a name="virtual-network-traffic-routing"></a>Routage du trafic de réseau virtuel
 
@@ -98,7 +99,7 @@ Vous pouvez spécifier les types suivants de tronçon suivants lors de la créat
 
 Vous ne pouvez pas spécifier **Homologation de réseau virtuel** ou **VirtualNetworkServiceEndpoint** en tant que type de tronçon suivant dans les itinéraires définis par l’utilisateur. Les itinéraires avec les types de tronçon suivants **réseau virtuel d’homologation** ou **VirtualNetworkServiceEndpoint** sont créés uniquement par Azure, lorsque vous configurez une homologation ou un point de terminaison de service de réseau virtuel.
 
-## <a name="next-hop-types-across-azure-tools"></a>**Types de tronçon suivants dans les outils Azure**
+## <a name="next-hop-types-across-azure-tools"></a>Types de tronçon suivants dans les outils Azure
 
 Le nom affiché et référencé pour les types de tronçon suivants diffère entre le portail Azure et les outils en ligne de commande, et entre Azure Resource Manager et les modèles de déploiement classique. Le tableau suivant répertorie les noms utilisés pour faire référence à chaque type de tronçon suivant avec les différents outils et [modèles de déploiement](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json):
 
@@ -216,7 +217,7 @@ La table de routage du *Sous-réseau1* dans l’image contient les itinéraires 
 |3   |Utilisateur   |Actif |10.0.0.0/24         |Réseau virtuel        |                   |Dans le Sous-réseau1|
 |4   |Default|Non valide|10.1.0.0/16         |Homologation de réseaux virtuels           |                   |              |
 |5\.   |Default|Non valide|10.2.0.0/16         |Homologation de réseaux virtuels           |                   |              |
-|6\.   |Utilisateur   |Actif |10.1.0.0/16         |Aucun                   |                   |ToVNet2-1-Drop|
+|6   |Utilisateur   |Actif |10.1.0.0/16         |Aucun                   |                   |ToVNet2-1-Drop|
 |7   |Utilisateur   |Actif |10.2.0.0/16         |Aucun                   |                   |ToVNet2-2-Drop|
 |8   |Default|Non valide|10.10.0.0/16        |Passerelle de réseau virtuel|[X.X.X.X]          |              |
 |9   |Utilisateur   |Actif |10.10.0.0/16        |Appliance virtuelle      |10.0.100.4         |To-On-Prem    |

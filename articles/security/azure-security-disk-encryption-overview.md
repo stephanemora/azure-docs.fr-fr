@@ -5,14 +5,14 @@ author: msmbaldwin
 ms.service: security
 ms.topic: article
 ms.author: mbaldwin
-ms.date: 06/05/2019
+ms.date: 07/17/2019
 ms.custom: seodec18
-ms.openlocfilehash: 58c5c8321e505fe2c1c7d19c58fe0d031b75b3e4
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: a67f19f0823827dad74e7aba15a92d696fbf580b
+ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67294866"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68304264"
 ---
 # <a name="azure-disk-encryption-overview"></a>Vue d’ensemble d’Azure Disk Encryption
 
@@ -44,7 +44,7 @@ Azure Disk Encryption prend en charge les scénarios client suivants :
 
 Il prend également en charge les scénarios de machines virtuelles suivants quand ils sont activés dans Microsoft Azure :
 
-* Intégration avec Azure Key Vault
+* Intégration avec Azure Key Vault.
 * [Machines virtuelles de niveau standard](https://azure.microsoft.com/pricing/details/virtual-machines/) qui remplissent les [conditions de mémoire minimale requises](azure-security-disk-encryption-prerequisites.md#supported-vm-sizes) 
 * Activation du chiffrement sur les machines virtuelles Windows et Linux, le disque managé et les machines virtuelles des groupes identiques à partir des images Azure Gallery prises en charge
 * Désactivation du chiffrement sur les lecteurs de système d’exploitation et de données pour les machines virtuelles Windows, les machines virtuelles des groupes identiques et les machines virtuelles avec disque managé
@@ -58,7 +58,7 @@ Il prend également en charge les scénarios de machines virtuelles suivants qua
    > [!NOTE]
    > Le chiffrement de lecteur de système d’exploitation n’est pas pris en charge pour toutes les distributions Linux. Pour plus d’informations, consultez [Systèmes d’exploitation pris en charge par Azure Disk Encryption : Linux](azure-security-disk-encryption-prerequisites.md#linux).
    
-* Activation du chiffrement sur les machines virtuelles Windows configurées avec des espaces de stockage Windows à compter de Windows Server 2016
+* Activation du chiffrement sur les machines virtuelles Windows configurées avec des espaces de stockage Windows à compter de Windows Server 2016 Les espaces de stockage direct (S2D) ne sont pas encore pris en charge.
 * Sauvegarde et restauration de machines virtuelles chiffrées pour les scénarios KEK (Key Encryption Key) et autres
 
 Azure Disk Encryption ne fonctionne pas pour les scénarios, fonctionnalités et technologies suivants :
@@ -69,9 +69,9 @@ Azure Disk Encryption ne fonctionne pas pour les scénarios, fonctionnalités et
 * Chiffrement de machines virtuelles Windows configurées avec des systèmes RAID logiciels
 * Chiffrement d’images personnalisées sur des machines virtuelles Linux
 * Intégration à un système de gestion de clés local
-* Azure Files (système de fichiers partagés)
-* NFS (système de gestion de fichiers en réseau)
-* Volumes dynamiques
+* Azure Files (système de fichiers partagés).
+* NFS (système de gestion de fichiers en réseau).
+* Volumes dynamiques.
 
 ## <a name="encryption-features"></a>Fonctionnalités de chiffrement
 

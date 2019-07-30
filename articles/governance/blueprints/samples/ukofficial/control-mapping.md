@@ -8,18 +8,18 @@ ms.date: 06/26/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 01a8e104f6d590113784db28e4bfde849d78b15f
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.openlocfilehash: 945898105aab7261ee494a86aeff10337599feb3
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67491909"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68226004"
 ---
 # <a name="control-mapping-of-the-uk-official-and-uk-nhs-blueprint-samples"></a>Mappage des contrôles des exemples de blueprint UK OFFICIAL et UK NHS
 
 L’article suivant décrit en détail comment les exemples de blueprint UK OFFICIAL et UK NHS mappent aux contrôles UK OFFICIAL et UK NHS. Pour plus d’informations sur les contrôles, voir [UK OFFICIAL](https://www.gov.uk/government/publications/government-security-classifications).
 
-Les mappages suivants sont effectués aux contrôles **UK OFFICIAL** et **UK NHS**. Utilisez le volet de navigation de droite pour accéder directement à la correspondance d’un contrôle spécifique. De nombreux contrôles mappés sont implémentés avec une initiative [Azure Policy](../../../policy/overview.md). Pour examiner l’initiative complète, ouvrez **Stratégie** dans le portail Azure et sélectionnez la page **Définitions**. Ensuite, recherchez et sélectionnez l’initiative de stratégie intégrée **[Préversion] Auditer les contrôles UK OFFICIAL et UK NHS et déployer des extensions de machine virtuelle spécifiques pour prendre en charge les exigences d’audit**.
+Les mappages suivants sont effectués aux contrôles **UK OFFICIAL** et **UK NHS**. Utilisez le volet de navigation de droite pour accéder directement à la correspondance d’un contrôle spécifique. De nombreux contrôles mappés sont implémentés avec une initiative [Azure Policy](../../../policy/overview.md). Pour examiner l’initiative complète, ouvrez **Stratégie** dans le portail Azure et sélectionnez la page **Définitions**. Ensuite, recherchez et sélectionnez l’initiative de stratégie intégrée **\[Préversion\] Auditer les contrôles UK OFFICIAL et UK NHS et déployer des extensions de machine virtuelle spécifiques pour prendre en charge les exigences d’audit**.
 
 ## <a name="1-data-in-transit-protection"></a>1 Protection des données en transit
 
@@ -37,7 +37,7 @@ Le fait de savoir où vos ressources Azure peuvent avoir des configurations de c
 - Un chiffrement de disque doit être appliqué aux machines virtuelles
 - Les variables de compte Automation doivent être chiffrées
 - La sécurisation du transfert vers des comptes de stockage doit être activée
-- La propriété ClusterProtectionLevel doivent être définie sur EncryptAndSign pour les clusters Service Fabric
+- La propriété ClusterProtectionLevel doit être définie sur EncryptAndSign pour les clusters Service Fabric
 - La technologie Transparent Data Encryption sur les bases de données SQL doit être activée
 - Déployer le chiffrement transparent des données sur les bases de données SQL
 - Exiger un chiffrement sur les comptes Data Lake Store
@@ -88,27 +88,27 @@ Ce blueprint affecte également des définitions Azure Policy qui permettent de 
 
 Ce blueprint affecte également une définition Azure Policy qui vérifie les autorisations associées aux fichiers de mot de passe des machines virtuelles Linux qui émettent une alerte si elles sont définies incorrectement. Cette conception vous d’appliquer une action corrective pour vérifier que les authentificateurs ne sont pas compromis.
 
-- [Préversion]: Audit Linux VM /etc/passwd file permissions are set to 0644
+- \[Préversion\] : Vérifier que les autorisations de fichiers /etc/passwd de machine virtuelle Linux sont définies sur 0644
 
 Ce blueprint vous aide à appliquer des mots de passe forts en affectant des définitions Azure Policy qui détectent les machines virtuelles Windows ne mettant pas en œuvre une force minimale ou d’autres exigences relatives aux mots de passe. Le fait d’avoir connaissance des machines virtuelles qui enfreignent la stratégie de force des mots de passe peut vous aider à prendre des actions correctives visant à rendre les mots de passe de tous les comptes d’utilisateurs de machine virtuelle conformes à la stratégie.
 
-- [Préversion]: Deploy requirements to audit Windows VMs that do not have the password complexity setting enabled
-- [Préversion]: Deploy requirements to audit Windows VMs that do not have a maximum password age of 70 days
-- [Préversion]: Deploy requirements to audit Windows VMs that do not have a minimum password age of 1 day
-- [Préversion]: Deploy requirements to audit Windows VMs that do not restrict the minimum password length to 14 characters
-- [Préversion]: Deploy requirements to audit Windows VMs that allow re-use of the previous 24 passwords
-- [Préversion]: Audit Windows VMs that do not have the password complexity setting enabled
-- [Préversion]: Audit Windows VMs that do not have a maximum password age of 70 days
-- [Préversion]: Audit Windows VMs that do not have a minimum password age of 1 day
-- [Préversion]: Audit Windows VMs that do not restrict the minimum password length to 14 characters
-- [Préversion]: Audit Windows VMs that allow re-use of the previous 24 passwords
+- \[Préversion\] : Déployer des exigences pour auditer les machines virtuelles Windows qui n’ont pas le paramètre de complexité de mot de passe activé
+- \[Préversion\] : Déployer des exigences pour auditer les machines virtuelles Windows qui n’ont pas l’antériorité maximale du mot de passe définie sur 70 jours
+- \[Préversion\] : Déployer des exigences pour auditer les machines virtuelles Windows qui n’ont pas l’antériorité minimale du mot de passe définie sur 1 jour
+- \[Préversion\] : Déployer des exigences pour auditer les machines virtuelles Windows qui ne limitent pas la longueur minimale du mot de passe à 14 caractères
+- \[Préversion\] : Déployer des exigences pour auditer les machines virtuelles Windows qui autorisent la réutilisation des 24 mots de passe précédents
+- \[Préversion\] : Auditer les machines virtuelles Windows qui n’ont pas le paramètre de complexité de mot de passe activé
+- \[Préversion\] : Auditer les machines virtuelles Windows qui n’ont pas l’antériorité maximale du mot de passe définie sur 70 jours
+- \[Préversion\] : Auditer les machines virtuelles Windows qui n’ont pas l’antériorité minimale du mot de passe définie sur 1 jour
+- \[Préversion\] : Auditer les machines virtuelles Windows qui ne limitent pas la longueur minimale du mot de passe à 14 caractères
+- \[Préversion\] : Auditer les machines virtuelles Windows qui autorisent la réutilisation des 24 mots de passe précédents
 
 Ce blueprint vous permet également de contrôler l’accès aux ressources Azure en affectant des définitions Azure Policy. Ces stratégies vérifient l’utilisation des types de ressources et des configurations susceptibles d’accorder un accès plus permissif aux ressources. Le fait de savoir quelles ressources enfreignent ces stratégies peut vous aider à prendre des actions correctives visant à limiter l’accès aux ressources Azure aux utilisateurs autorisés.
 
-- [Préversion]: Deploy requirements to audit Linux VMs that have accounts without passwords
-- [Préversion]: Deploy requirements to audit Linux VMs that allow remote connections from accounts without passwords
-- [Préversion]: Audit Linux VMs that have accounts without passwords
-- [Préversion]: Audit Linux VMs that allow remote connections from accounts without passwords
+- \[Préversion\] : Déployer des exigences pour auditer les machines virtuelles Linux qui ont des comptes sans mot de passe
+- \[Préversion\] : Déployer des exigences pour auditer les machines virtuelles Linux qui autorisent les connexions à distance des comptes sans mot de passe
+- \[Préversion\] : Auditer les machines virtuelles Linux qui ont des compte sans mot de passe
+- \[Préversion\] : Auditer les machines virtuelles Linux qui autorisent les connexions à distance des comptes sans mot de passe
 - Les comptes de stockage doivent être migrés vers de nouvelles ressources Azure Resource Manager
 - Les machines virtuelles doivent être migrées vers de nouvelles ressources Azure Resource Manager
 - Faire l’audit des machines virtuelles n’utilisant aucun disque managé
@@ -145,7 +145,7 @@ Ce blueprint affecte également des définitions Azure Policy qui permettent de 
 
 Ce blueprint affecte également une définition Azure Policy qui vérifie les autorisations associées aux fichiers de mot de passe des machines virtuelles Linux qui émettent une alerte si elles sont définies incorrectement. Cette conception vous d’appliquer une action corrective pour vérifier que les authentificateurs ne sont pas compromis.
 
-- [Préversion]: Audit Linux VM /etc/passwd file permissions are set to 0644
+- \[Préversion\] : Vérifier que les autorisations de fichiers /etc/passwd de machine virtuelle Linux sont définies sur 0644
 
 ## <a name="13-audit-information-for-users"></a>13 Informations d’audit pour les utilisateurs
 
@@ -154,8 +154,8 @@ Ce blueprint vous permet de garantir que les événements système sont journali
 - Superviser les serveurs SQL non audités dans Azure Security Center
 - Auditer le paramètre de diagnostic
 - Auditer les paramètres d'audit au niveau du serveur SQL
-- [Préversion]: Deploy Log Analytics Agent for Linux VMs
-- [Préversion]: Deploy Log Analytics Agent for Windows VMs
+- \[Préversion\] : Déployer Log Analytics Agent pour les machines virtuelles Linux
+- \[Préversion\] : Déployer Log Analytics Agent pour les machines virtuelles Windows
 - Déployer Network Watcher lors de la création de réseaux virtuels
 
 ## <a name="next-steps"></a>Étapes suivantes

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/26/2019
 ms.author: bwren
-ms.openlocfilehash: c72ac62b55b2b08be5aaad563933bcb2b703cba9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 836a17051aee4e6a9ac3089f60da30673783e408
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66245073"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67875963"
 ---
 # <a name="azure-monitor-overview"></a>Vue d’ensemble d’Azure Monitor
 
@@ -59,7 +59,7 @@ Dès que vous créez un abonnement Azure et commencez à ajouter des ressources 
 
 Augmentez le champ des données que vous collectez dans le fonctionnement actuel des ressources en [activant les diagnostics](platform/diagnostic-logs-overview.md) et en [ajoutant un agent](platform/agent-windows.md) aux ressources de calcul. Vous recueillerez ainsi les données de télémétrie pour le fonctionnement interne de la ressource et pourrez configurer différentes [sources de données](platform/agent-data-sources.md) afin de collecter les journaux d’activité et les métriques à partir du système d’exploitation invité Windows et Linux. 
 
-[Ajoutez un package d’instrumentation à votre application](app/azure-web-apps.md) pour autoriser Application Insights à collecter des informations détaillées sur votre application, notamment les affichages de pages, les requêtes d’application et les exceptions. Vérifiez la disponibilité de votre application en configurant un [test de disponibilité](app/monitor-web-app-availability.md) pour simuler le trafic utilisateur.
+Activez la surveillance de votre [application App Services](app/azure-web-apps.md) ou votre [application de machine virtuelle et de groupe de machines virtuelles identiques](app/azure-vm-vmss-apps.md) pour autoriser Application Insights à collecter des informations détaillées sur votre application, notamment les affichages de pages, les requêtes d’application et les exceptions. Vérifiez la disponibilité de votre application en configurant un [test de disponibilité](app/monitor-web-app-availability.md) pour simuler le trafic utilisateur.
 
 ### <a name="custom-sources"></a>Sources personnalisées
 Azure Monitor peut collecter des données de journal à partir de n’importe quel client REST à l’aide de l’[API de collecte de données](platform/data-collector-api.md). Cela vous permet de créer des scénarios de supervision personnalisés et d’étendre la supervision à des ressources qui n’exposent pas de données de télémétrie via d’autres sources.

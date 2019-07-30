@@ -6,12 +6,12 @@ ms.service: fxt-edge-filer
 ms.topic: conceptual
 ms.date: 06/20/2019
 ms.author: v-erkell
-ms.openlocfilehash: e7395c69d99884a5c662e545a69778ed195aec55
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: e6afd90c4e5a1b0759b3de7789ec37db4c04f2c7
+ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67543090"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67827456"
 ---
 # <a name="monitor-azure-fxt-edge-filer-hardware-status"></a>Superviser l'état du matériel Azure FXT Edge Filer
 
@@ -58,7 +58,7 @@ Le panneau de configuration avant gauche est équipé de plusieurs LED d'état (
 
 Les indicateurs d’état de gauche s'allument en orange en cas d'erreur du système. Le tableau ci-dessous décrit les causes possibles et les solutions à ces erreurs. 
 
-Si l'erreur persiste après avoir essayé ces solutions, contactez le support pour obtenir de l'aide. 
+Si l’erreur persiste après avoir essayé ces solutions, [contactez le support](fxt-support-ticket.md) pour obtenir de l’aide. 
 
 | Icône | Description | État d’erreur | Solutions possibles |
 |----------------|---------------|--------------------|----------------------|
@@ -79,7 +79,7 @@ Appuyez sur le bouton ID et intégrité du système pour passer du mode ID syst�
 |-------------------------------------------|-----------------------------------------------|
 | Bleu continu | Fonctionnement normal : le système est activé, fonctionne normalement et le mode ID système n’est pas actif. <br/>Appuyez sur le bouton ID et intégrité du système pour passer en mode ID système. |
 | Bleu clignotant | Le mode ID système est actif. Appuyez sur le bouton ID et intégrité du système pour passer en mode intégrité du système. |
-| Orange continu | Le système est en mode de prévention de défaillance. Si le problème persiste, contactez le Service clientèle et le Support Microsoft. |
+| Orange continu | Le système est en mode de prévention de défaillance. Si le problème persiste, [contactez le Service clientèle et le Support Microsoft](fxt-support-ticket.md). |
 | Orange clignotant | Erreur système. Consultez le journal des événements système afin d'y détecter d'éventuels messages d'erreur spécifiques. Pour plus d’informations sur les messages d'événement et d’erreur générés par le microprogramme système et les agents qui supervisent les composants du système, consultez la page de recherche de code d’erreur sur qrl.dell.com. |
 
 

@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 04/27/2019
+ms.date: 07/11/2019
 ms.author: juliako
-ms.openlocfilehash: ab74b778757aefc22f66e8b52d1f1d922526f14a
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 831ba217e99d1610383320ddf5706c6acfcdf48a
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67296147"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67848905"
 ---
 # <a name="streaming-endpoints"></a>Points de terminaison de diffusion en continu 
 
@@ -55,19 +55,17 @@ Pour plus d’informations sur le contrat SLA, consultez [Tarifs et contrat SLA]
 
 Fonctionnalité|standard|Premium
 ---|---|---
-Gratuit les 15 premiers jours <sup>1</sup>| OUI |Non
 Débit |Jusqu’à 600 Mbits/s, et le débit fourni peut être beaucoup plus élevé avec un CDN.|200 Mbits/s par unité de streaming (SU). Le débit fourni peut être beaucoup plus élevé avec un CDN.
 CDN|Azure CDN, CDN tiers ou sans CDN.|Azure CDN, CDN tiers ou sans CDN.
 La facturation est calculée sur la base d'un taux| Quotidien|Quotidien
 Chiffrement dynamique|OUI|OUI
 l’empaquetage dynamique|OUI|OUI
 Scale|Mise à l’échelle automatique vers le débit cible.|Unités de streaming supplémentaires
-Hôte de filtrage d’IP/G20/personnalisé <sup>2</sup>|OUI|OUI
+Hôte de filtrage d’IP/G20/personnalisé <sup>1</sup>|OUI|OUI
 Téléchargement progressif|OUI|OUI
 Utilisation recommandée |Recommandé pour la plupart des scénarios de streaming.|Utilisation professionnelle.
 
-<sup>1</sup> L’essai gratuit s’applique uniquement aux nouveaux comptes Media Services et au point de terminaison de streaming par défaut.<br/>
-<sup>2</sup> Uniquement utilisé directement sur le point de terminaison de streaming quand le CDN n’est pas activé sur le point de terminaison.<br/>
+<sup>1</sup> Uniquement utilisé directement sur le point de terminaison de streaming quand le CDN n’est pas activé sur le point de terminaison.<br/>
 
 ## <a name="properties"></a>properties 
 

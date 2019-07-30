@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 821143d39f8a4c06501ee38ef598a9d06d267d72
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: b7ba6ae188c098e85573503a1518ba65480d713a
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67273101"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807209"
 ---
 # <a name="authentication-flows"></a>Flux d’authentification
 
@@ -166,7 +166,7 @@ L’authentification Windows intégrée est conçue pour les applications écrit
 
 IWA ne permet pas de contourner l’authentification multifacteur. Si l’authentification multifacteur est configurée, l’authentification Windows intégrée peut échouer si une demande d’authentification multifacteur est requise. L’authentification multifacteur nécessite une interaction utilisateur.
 
-Vous ne pouvez pas contrôler les demandes d’authentification à deux facteurs côté fournisseur d’identité. L’administrateur de locataires le peut. En règle générale, l’authentification à deux facteurs est requise lorsque vous vous connectez à partir d’un autre pays, quand vous n’êtes pas connecté via un VPN à un réseau d’entreprise, et parfois même lorsque vous êtes connecté via un VPN. Azure AD utilise l’intelligence artificielle pour apprendre en continu à déterminer si l’authentification à deux facteurs est requise. En cas d’échec de l’authentification Windows intégrée, vous devriez être redirigé vers une invite utilisateur (https://aka.ms/msal-net-interactive).
+Vous ne pouvez pas contrôler les demandes d’authentification à deux facteurs côté fournisseur d’identité. L’administrateur de locataires le peut. En règle générale, l’authentification à deux facteurs est requise lorsque vous vous connectez à partir d’un autre pays, quand vous n’êtes pas connecté via un VPN à un réseau d’entreprise, et parfois même lorsque vous êtes connecté via un VPN. Azure AD utilise l’intelligence artificielle pour apprendre en continu à déterminer si l’authentification à deux facteurs est requise. En cas d’échec d’IWA, vous devez revenir à une [invite utilisateur interactive] (#interactive).
 
 L’autorité transmise lors de la construction de l’application cliente publique doit être l’une des suivantes :
 - Avec locataire (sous la forme `https://login.microsoftonline.com/{tenant}/` où `tenant` est le GUID représentant l’ID de locataire ou un domaine associé au locataire).

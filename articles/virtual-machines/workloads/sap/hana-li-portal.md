@@ -4,7 +4,7 @@ description: Décrit la façon dont vous pouvez identifier Azure HANA - Grandes
 services: virtual-machines-linux,virtual-machines-windows
 documentationcenter: ''
 author: msjuergent
-manager: patfilot
+manager: bburns
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -13,15 +13,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/02/2019
+ms.date: 07/15/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8240308b3e0955b1d4d3ef2e82cad215daf95b00
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2d64fe6c244ffcb6da2926dfea6efaa6da315727
+ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61482224"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68234469"
 ---
 # <a name="azure-hana-large-instances-control-through-azure-portal"></a>Contrôle des grandes instances Azure HANA à l’aide du portail Azure
 Ce document décrit la façon dont [HANA - Grandes instances](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) est présenté dans le [portail Azure](https://portal.azure.com) et les activités qui peuvent être effectuées par le biais du portail Azure avec des unités de Grande instance HANA qui sont automatiquement déployées. La visibilité de la fonctionnalité HANA - Grandes instances dans le portail Azure est fournie par le biais d’un fournisseur de ressources Azure pour HANA - Grandes instances, qui est actuellement en préversion publique
@@ -73,7 +73,7 @@ Si vous avez déployé plusieurs locataires de Grande instance HANA dans le mêm
 ## <a name="look-at-attributes-of-single-hli-unit"></a>Examen des attributs d’une unité HLI unique
 Dans la liste des unités de Grande instance HANA, vous pouvez cliquer sur une unité précise et obtenir les détails la concernant. 
 
-Dans l’écran de vue d’ensemble, vous obtenez une présentation de l’unité, qui ressemble à ceci :
+Dans l’écran de vue d’ensemble, après avoir cliqué sur « Afficher plus »vous obtenez une présentation de l’unité, qui ressemble à ceci :
 
 ![Afficher la vue d’ensemble d’une unité HLI](./media/hana-li-portal/portal-show-overview.png)
 
@@ -82,12 +82,21 @@ Si vous examinez les différents attributs affichés, vous remarquez qu’ils ne
 - [Références (SKU) disponibles pour HLI](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-available-skus)
 - [Architecture de stockage de SAP HANA (Grandes instances)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-storage-architecture) 
 
+Les données supplémentaires sur le côté inférieur droit sont la révision du tampon de grande instance HANA. Les valeurs possibles sont les suivantes :
+
+- Révision 3
+- Révision 4
+
+La révision 4 est la dernière architecture des grandes instances HANA avec des améliorations majeures de la latence du réseau entre les machines virtuelles Azure et les unités de grande instance HANA déployées dans les tampons ou les lignes de révision 4.
+Vous trouverez d’autres informations très importantes dans le coin inférieur droit de la vue d’ensemble avec le nom du groupe de placement de proximité Azure créé automatiquement pour chaque unité de grande instance HANA déployée. Ce groupe de placement de proximité doit être référencé lors du déploiement des machines virtuelles Azure qui hébergent la couche application SAP. En utilisant le [groupe de placement de proximité Azure](https://docs.microsoft.com/azure/virtual-machines/linux/co-location) associé à l’unité de grande instance HANA, vous vous assurez que les machines virtuelles Azure sont déployées à proximité de l’unité de grande instance HANA. La méthode d’utilisation des groupes de placement de proximité pour localiser la couche d’application SAP dans le même centre de données Azure que les unités de grande instance HANA hébergées en version 4 est décrite dans la section [Groupes de placement de proximité Azure pour une latence réseau optimale avec les applications SAP](sap-proximity-placement-scenarios.md).
+
 Un champ supplémentaire dans la colonne de droite de l’en-tête indique l’état d’alimentation de l’unité de Grande instance HANA.
 
 > [!NOTE]
 > L’état d’alimentation indique si l’unité matérielle est sous tension ou hors tension. Il ne donne pas d’informations indiquant si le système d’exploitation est opérationnel. Quand vous redémarrez une unité de Grande instance HANA, un peu de temps s’écoule pendant lequel l’état de l’unité devient **Démarrage en cours** pour passer à l’état **Démarré**. L’état **Démarré** signifie que le système d’exploitation est en train de démarrer ou que son démarrage est complètement terminé. Par conséquent, après un redémarrage de l’unité, vous ne pouvez pas espérer vous connecter à l’unité dès que l’état bascule vers **Démarré**.
 > 
 
+Si vous sélectionnez « En savoir plus », des informations supplémentaires s’affichent. Ces informations supplémentaires contiennent la révision du tampon de grande instance HANA, dans laquelle l’unité a été déployée. Pour découvrir les différentes révisions des tampons de grande instance HANA, veuillez consulter l’article [Qu’est-ce que SAP HANA sur Azure (grandes instances) ?](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)
 
 ## <a name="check-activities-of-a-single-hana-large-instance-unit"></a>Vérifier les activités d’une seule unité de Grande instance HANA 
 Outre le fait que vous disposez d’une vue d’ensemble des unités de Grande instance HANA, vous pouvez vérifier les activités de l’unité en particulier. Un journal d’activité peut ressembler à ceci :

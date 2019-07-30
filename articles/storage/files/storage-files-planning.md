@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: aba41d62df49a40d9fc3686684b39b71e1363453
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: 6282ce426b08c4ad9c44bead0bd4ec3d259f65fe
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68296051"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68501430"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planification d’un déploiement Azure Files
 
@@ -209,7 +209,7 @@ Le partage de fichiers Standard est disponible dans toutes les régions, jusqu�
 |Région  |Redondance prise en charge  |Prend en charge les comptes de stockage existants  |
 |---------|---------|---------|
 |Asie Sud-Est     |LRS|Non         |
-|Europe Ouest     |LRS|Non         |
+|Europe Ouest     |LRS, ZRS|Non         |
 |USA Ouest 2     |LRS, ZRS|Non         |
 
 Pour nous aider à hiérarchiser les nouvelles régions et les nouvelles fonctionnalités, veuillez répondre à ce [sondage](https://aka.ms/azurefilesatscalesurvey).

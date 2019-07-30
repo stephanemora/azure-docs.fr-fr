@@ -9,12 +9,12 @@ ms.date: 05/21/2019
 ms.author: mhopkins
 ms.reviewer: yzheng
 ms.subservice: common
-ms.openlocfilehash: 50eb62b20be66337c819372fa3d97eae4d7214b8
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 6902bf73707dc749da76cd32fe48911fcc88ba1e
+ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67435740"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68305725"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Gérer le cycle de vie du Stockage Blob Azure
 
@@ -31,7 +31,7 @@ Considérez un scénario où des données sont sollicitées fréquemment durant 
 
 ## <a name="storage-account-support"></a>Prise en charge du compte de stockage
 
-La stratégie de gestion du cycle de vie est disponible avec les comptes v2 universels (GPv2) et les comptes Stockage Blob. Dans le portail Azure, vous pouvez mettre à niveau un compte de stockage universel (GPv1) existant en compte GPv2. Pour plus d’informations sur les comptes de stockage, consultez [Vue d’ensemble des comptes de stockage Azure](../common/storage-account-overview.md).  
+La stratégie de gestion du cycle de vie est disponible avec les comptes Usage général v2 (GPv2), les comptes Stockage Blob et les comptes Stockage d’objet blob de blocs Premium. Dans le portail Azure, vous pouvez mettre à niveau un compte de stockage universel (GPv1) existant en compte GPv2. Pour plus d’informations sur les comptes de stockage, consultez [Vue d’ensemble des comptes de stockage Azure](../common/storage-account-overview.md).  
 
 ## <a name="pricing"></a>Tarifs
 
@@ -39,7 +39,7 @@ La fonctionnalité de gestion du cycle de vie est gratuite. Les clients sont fac
 
 ## <a name="regional-availability"></a>Disponibilité régionale
 
-La fonctionnalité de gestion du cycle de vie est disponible dans toutes les régions Azure.
+La fonctionnalité de gestion du cycle de vie est disponible dans toutes les régions Azure et Azure Government.
 
 ## <a name="add-or-remove-a-policy"></a>Ajouter ou supprimer une stratégie
 
@@ -57,13 +57,41 @@ Cet article explique comment gérer une stratégie en utilisant le portail et de
 
 ### <a name="azure-portal"></a>Portail Azure
 
+Il existe deux façons d’ajouter une stratégie à l’aide du Portail Microsoft Azure. 
+
+* [Mode Liste du Portail Microsoft Azure](#azure-portal-list-view)
+* [Mode Code du Portail Microsoft Azure](#azure-portal-code-view)
+
+#### <a name="azure-portal-list-view"></a>Mode Liste du Portail Microsoft Azure
+
+1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+
+2. Choisissez **Toutes les ressources**, puis sélectionnez votre compte de stockage.
+
+3. Sous **Service Blob**, sélectionnez **Gestion du cycle de vie** pour afficher ou modifier vos règles.
+
+4. Sélectionnez l’onglet **Mode Liste**.
+
+5. Sélectionnez **Ajouter une règle**, puis remplissez les champs de formulaire **Ensemble d’actions**. Dans l’exemple suivant, les objets BLOB sont déplacés vers le stockage froid s’ils n’ont pas été modifiés depuis 30 jours.
+
+   ![Page Lifecycle management action set (Ensemble d’actions de gestion du cycle de vie) du Portail Microsoft Azure](media/storage-lifecycle-management-concepts/lifecycle-management-action-set.png)
+
+6. Sélectionnez **Jeu de filtres** pour ajouter un filtre facultatif. Ensuite, sélectionnez **Parcourir** pour spécifier un conteneur et un dossier pour définir le filtre.
+
+   ![Page Lifecycle management action set (Jeu de filtres de gestion du cycle de vie) du Portail Microsoft Azure](media/storage-lifecycle-management-concepts/lifecycle-management-filter-set-browse.png)
+
+8. Sélectionnez **Vérifier + ajouter** pour passer en revue les paramètres de stratégie.
+
+9. Sélectionnez **Ajouter** pour ajouter la stratégie.
+
+#### <a name="azure-portal-code-view"></a>Mode Code du Portail Microsoft Azure
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 
 2. Choisissez **Toutes les ressources**, puis sélectionnez votre compte de stockage.
 
 3. Sous **Service Blob**, sélectionnez **Gestion du cycle de vie** pour afficher ou modifier votre stratégie.
 
-4. Le JSON suivant est un exemple de règle pouvant être collée dans la page du portail **Gestion du cycle de vie**.
+4. Le code JSON suivant est un exemple de stratégie que vous pouvez coller dans l’onglet **Mode Code**.
 
    ```json
    {
@@ -93,7 +121,9 @@ Cet article explique comment gérer une stratégie en utilisant le portail et de
    }
    ```
 
-5. Pour plus d’informations sur cet exemple de JSON, voir les sections [Stratégie](#policy) et [Règles](#rules).
+5. Sélectionnez **Enregistrer**.
+
+6. Pour plus d’informations sur cet exemple de JSON, voir les sections [Stratégie](#policy) et [Règles](#rules).
 
 ### <a name="powershell"></a>PowerShell
 
@@ -397,7 +427,7 @@ Pour les données qui sont modifiées et consultées régulièrement tout au lon
 La plateforme exécute la stratégie de cycle de vie une fois par jour. Une fois que vous avez configuré une stratégie, jusqu’à 24 heures peuvent s’écouler avant que certaines actions s’exécutent pour la première fois.  
 
 **J’ai réactivé manuellement un blob archivé. Comment puis-je empêcher son renvoi temporaire au niveau Archives ?**  
-Quand un objet blob est déplacé d’un niveau d’accès vers un autre, l’heure de sa dernière modification ne change pas. Si vous réactivez manuellement un blob archivé à un chaud, il est renvoyé au niveau archive par le moteur de gestion du cycle de vie. Vous pouvez empêcher cela en désactivant la règle qui affecte temporairement ce blob. Vous pouvez copier le blob vers un autre emplacement s’il doit rester en permanence au niveau chaud. Vous pouvez réactiver la règle lorsque le blob peut être renvoyé en toute sécurité au niveau archive. 
+Quand un objet blob est déplacé d’un niveau d’accès vers un autre, l’heure de sa dernière modification ne change pas. Si vous réactivez manuellement un blob archivé à un chaud, il est renvoyé au niveau archive par le moteur de gestion du cycle de vie. Désactivez la règle qui affecte temporairement cet objet BLOB pour empêcher son archivage. Copiez le BLOB vers un autre emplacement s’il doit rester en permanence au niveau chaud. Réactivez la règle lorsque le BLOB peut être renvoyé en toute sécurité au niveau archive. 
 
 
 ## <a name="next-steps"></a>Étapes suivantes

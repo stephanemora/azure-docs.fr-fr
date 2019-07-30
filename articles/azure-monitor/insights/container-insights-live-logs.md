@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/19/2019
+ms.date: 07/12/2019
 ms.author: magoedte
-ms.openlocfilehash: 7fd9248fd38054b7f0e1fad2888d8b0d4cf2e60c
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 968ee4c8bb5d7e09ef3c345c46f6c7b839e0e25a
+ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67274231"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67990034"
 ---
 # <a name="how-to-view-logs-and-events-in-real-time-preview"></a>Guide pratique pour afficher les journaux et événements en temps réel (préversion)
 Azure Monitor pour conteneurs inclut une fonctionnalité actuellement en préversion qui fournit une vue en temps réel de vos journaux de conteneur Azure Kubernetes Service (AKS) (stdout/stderr) et événements sans nécessiter l’exécution de commandes kubectl. Lorsque vous sélectionnez une option, un nouveau volet s’affiche sous la table de données de performances dans la vue **Nœuds**, **Contrôleurs** et **Conteneurs**. Il affiche la journalisation dynamique et les événements générés par le moteur du conteneur afin de faciliter la résolution des problèmes en temps réel.
@@ -66,7 +66,7 @@ Si vous avez activé l’autorisation Kubernetes RBAC, vous devez appliquer la l
          apiGroup: rbac.authorization.k8s.io
     ```
 
-2. Si vous le configurez pour la première fois, vous créez la liaison de règle de cluster en exécutant la commande suivante: `kubectl create -f LogReaderRBAC.yaml`. Si vous avez activé précédemment la prise en charge de la préversion des journaux dynamiques avant l’introduction des journaux des événements dynamiques, pour mettre à jour votre configuration, exécutez la commande suivante : `kubectl apply -f LogReaderRBAC.yml`.
+2. Si vous le configurez pour la première fois, vous appliquez la liaison de règle de cluster en exécutant la commande suivante : `kubectl create -f LogReaderRBAC.yaml`. Si vous avez activé précédemment la prise en charge de la préversion des journaux dynamiques avant l’introduction des journaux des événements dynamiques, pour mettre à jour votre configuration, exécutez la commande suivante : `kubectl apply -f LogReaderRBAC.yaml`.
 
 ## <a name="configure-aks-with-azure-active-directory"></a>Configurer AKS avec Azure Active Directory
 
@@ -116,5 +116,7 @@ Pour interrompre le défilement automatique, contrôler le comportement du volet
 Vous pouvez accéder aux journaux Azure Monitor pour afficher les journaux de conteneur historiques en sélectionnant **Afficher les journaux du conteneur** dans la liste déroulante **Afficher dans Analytics**.
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 - Pour continuer à découvrir comment utiliser Azure Monitor et surveiller les autres aspects de votre cluster AKS, consultez [Connaître l’état d’Azure Kubernetes Service](container-insights-analyze.md).
+
 - Consultez les [exemples de requêtes de journal](container-insights-log-search.md#search-logs-to-analyze-data) pour voir les requêtes prédéfinies et des exemples permettant d’évaluer ou de personnaliser la génération d’alertes, la visualisation ou l’analyse de vos clusters.

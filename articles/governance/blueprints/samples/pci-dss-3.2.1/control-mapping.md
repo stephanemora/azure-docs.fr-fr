@@ -8,18 +8,18 @@ ms.date: 06/24/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 38b1cc6249da98e11167416c8e18d06de1645679
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: 1e85cb5c06f36e0f8c105ece2c012cfe7cb77bf4
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67540948"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68226028"
 ---
 # <a name="control-mapping-of-the-pci-dss-v321-blueprint-sample"></a>Mappage des contrôles de l’exemple de blueprint PCI-DSS v3.2.1
 
 L’article suivant décrit en détail le mappage de l’exemple de blueprint PCI-DSS v3.2.1 Azure Blueprints aux contrôles PCI-DSS v3.2.1. Pour plus d’informations sur les contrôles, consultez [PCI-DSS v3.2.1](https://www.pcisecuritystandards.org/documents/PCI_DSS_v3-2-1.pdf).
 
-Les mappages suivants concernent les contrôles **PCI-DSS v3.2.1:2018**. Utilisez le volet de navigation de droite pour accéder directement à la correspondance d’un contrôle spécifique. De nombreux contrôles mappés sont implémentés avec une initiative [Azure Policy](../../../policy/overview.md). Pour examiner l’initiative complète, ouvrez **Stratégie** dans le portail Azure et sélectionnez la page **Définitions**. Ensuite, recherchez et sélectionnez l’initiative de stratégie intégrée **[Préversion] Auditer les contrôles PCI v3.2.1:2018 et déployer des extensions de machine virtuelle spécifiques pour prendre en charge les exigences d’audit**.
+Les mappages suivants concernent les contrôles **PCI-DSS v3.2.1:2018**. Utilisez le volet de navigation de droite pour accéder directement à la correspondance d’un contrôle spécifique. De nombreux contrôles mappés sont implémentés avec une initiative [Azure Policy](../../../policy/overview.md). Pour examiner l’initiative complète, ouvrez **Stratégie** dans le portail Azure et sélectionnez la page **Définitions**. Ensuite, recherchez et sélectionnez l’initiative de stratégie intégrée **\[Préversion\] Auditer les contrôles PCI v3.2.1:2018 et déployer des extensions de machine virtuelle spécifiques pour prendre en charge les exigences d’audit**.
 
 ## <a name="132-and-134-boundary-protection"></a>1.3.2 et 1.3.4 Protection de la limite
 
@@ -69,10 +69,10 @@ Ce blueprint vous permet de limiter et de contrôler les droits d’accès privi
 Microsoft.
  
 - Les comptes externes disposant d’autorisations de type propriétaire doivent être supprimés de votre abonnement
-- Les comptes externes disposant d’autorisations d'écriture doivent être supprimés de votre abonnement
+- Les comptes externes disposant d’autorisations d’écriture doivent être supprimés de votre abonnement
 - Les comptes externes disposant d’autorisations de lecture doivent être supprimés de votre abonnement
 - L'authentification multifacteur doit être activée sur les comptes disposant d’autorisations de type propriétaire de votre abonnement
-- L'authentification multifacteur doit être activée sur les comptes disposant d’autorisations d'écriture de votre abonnement
+- L’authentification multifacteur doit être activée sur les comptes disposant d’autorisations d’écriture sur votre abonnement
 - L'authentification multifacteur doit être activée sur les comptes disposant d’autorisations de lecture de votre abonnement
 - Un administrateur Azure Active Directory doit être approvisionné pour les serveurs SQL
 - Auditer l’utilisation de règles personnalisées RBAC
@@ -82,9 +82,9 @@ Microsoft.
 Azure implémente le contrôle d’accès en fonction du rôle (RBAC) pour vous aider à gérer qui a accès aux ressources dans Azure. À l’aide du portail Azure, vous pouvez passer en revue les utilisateurs ayant accès aux ressources Azure et leurs autorisations. Ce blueprint affecte des définitions [Azure Policy](../../../policy/overview.md) qui permettent de déterminer les comptes devant en priorité faire l’objet d’une revue, notamment les comptes dépréciés et les comptes externes avec des autorisations élevées.
 
 - Les comptes déconseillés doivent être supprimés de votre abonnement
-- Les comptes déconseillés disposant d’autorisations de type propriétaire doivent être supprimés de votre abonnement
-- Les comptes externes disposant d’autorisations de type propriétaire doivent être supprimés de votre abonnement
-- Les comptes externes disposant d’autorisations d'écriture doivent être supprimés de votre abonnement
+- Les comptes déconseillés disposant d’autorisations de propriétaire doivent être supprimés de votre abonnement
+- Les comptes externes disposant d’autorisations de propriétaire doivent être supprimés de votre abonnement
+- Les comptes externes disposant d’autorisations d’écriture doivent être supprimés de votre abonnement
 - Les comptes externes disposant d’autorisations de lecture doivent être supprimés de votre abonnement
 
 ## <a name="813-removal-or-adjustment-of-access-rights"></a>8.1.3 Suppression ou adaptation des droits d’accès
@@ -98,12 +98,12 @@ Azure implémente le contrôle d’accès en fonction du rôle (RBAC) pour vous 
 
 Ce blueprint vous aide à appliquer des mots de passe forts en affectant des définitions [Azure Policy](../../../policy/overview.md) qui détectent les machines virtuelles Windows ne mettant pas en œuvre une force minimale ni d’autres exigences relatives aux mots de passe. Le fait d’avoir connaissance des machines virtuelles qui enfreignent la stratégie de force des mots de passe peut vous aider à prendre des actions correctives visant à rendre les mots de passe de tous les comptes d’utilisateurs de machine virtuelle conformes à la stratégie.
 
-- [Préversion]: Audit Windows VMs that do not have a maximum password age of 70 days
-- [Préversion]: Deploy requirements to audit Windows VMs that do not have a maximum password age of 70 days
-- [Préversion]: Audit Windows VMs that do not restrict the minimum password length to 14 characters
-- [Préversion]: Deploy requirements to audit Windows VMs that do not restrict the minimum password length to 14 characters
-- [Préversion]: Audit Windows VMs that allow re-use of the previous 24 passwords
-- [Préversion]: Deploy requirements to audit Windows VMs that allow re-use of the previous 24 passwords
+- \[Préversion\] : Auditer les machines virtuelles Windows qui n’ont pas l’antériorité maximale du mot de passe définie sur 70 jours
+- \[Préversion\] : Déployer des exigences pour auditer les machines virtuelles Windows qui n’ont pas l’antériorité maximale du mot de passe définie sur 70 jours
+- \[Préversion\] : Auditer les machines virtuelles Windows qui ne limitent pas la longueur minimale du mot de passe à 14 caractères
+- \[Préversion\] : Déployer des exigences pour auditer les machines virtuelles Windows qui ne limitent pas la longueur minimale du mot de passe à 14 caractères
+- \[Préversion\] : Auditer les machines virtuelles Windows qui autorisent la réutilisation des 24 mots de passe précédents
+- \[Préversion\] : Déployer des exigences pour auditer les machines virtuelles Windows qui autorisent la réutilisation des 24 mots de passe précédents
 
 ## <a name="103-and-1054-audit-generation"></a>10.3 et 10.5.4 Génération de l’audit
 

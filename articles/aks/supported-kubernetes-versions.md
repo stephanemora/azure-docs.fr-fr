@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/20/2019
 ms.author: saudas
-ms.openlocfilehash: b7910ee6f58c582b824cec834d92a24c0e184bfb
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: a4726444e2103228cd26be3d3a6d516b31e315ee
+ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67205273"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68304329"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Versions de Kubernetes prises en charge dans Azure Kubernetes Service (AKS)
 
@@ -62,9 +62,16 @@ Pour plus de détails sur les communications concernant les changements de versi
 
 Quand une nouvelle version mineure est introduite, la version mineure et les publications des correctifs les plus anciennes prises en charge sont déconseillées et mises hors service. Par exemple, si la liste des versions actuellement supportées est :
 
-<a name="supported-version-list"></a>Liste des versions prises en charge
-----------------------
-1.12.a, 1.12.b, 1.11.a, 1.11.b, 1.10.a, 1.10.b, 1.9.a, 1.9.b
+```
+1.12.a
+1.12.b
+1.11.a
+1.11.b
+1.10.a
+1.10.b
+1.9.a
+1.9.b
+```
 
 Et qu’AKS publie la 1.13.x, cela signifie que les versions 1.9.x (toutes les versions 1.9) seront mises hors service et ne seront plus prises en charge.
 
@@ -74,15 +81,19 @@ Et qu’AKS publie la 1.13.x, cela signifie que les versions 1.9.x (toutes les v
 
 En plus de ce qui précède sur les versions mineures, AKS supporte les deux dernières versions *patch** d’une version mineure donnée. Par exemple, étant donné les versions supportées suivantes :
 
-<a name="supported-version-list"></a>Liste des versions prises en charge
-----------------------
+```
+Current Supported Version List
+------------------------------
 1.12.1, 1.12.2, 1.11.4, 1.11.5
+```
 
 Si Kubernetes a publié en amont les versions 1.12.3 et 1.11.6 et qu’AKS publie ces versions de patch, les versions de patch les plus anciennes sont dépréciées et supprimées, et la liste des versions supportées devient :
 
-<a name="supported-version-list"></a>Liste des versions prises en charge
+```
+New Supported Version List
 ----------------------
 1.12.*2*, 1.12.*3*, 1.11.*5*, 1.11.*6*
+```
 
 > [!NOTE]
 > Les clients ne doivent pas associer la création de cluster, de CI ou d’autres tâches automatisées à des versions de correctifs spécifiques. 

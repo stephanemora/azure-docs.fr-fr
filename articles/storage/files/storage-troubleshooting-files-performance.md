@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/25/2019
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 8c35501f3afbeed519fb5304229f25be1cbd5f9b
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 1a5e59bd0276477bad1eab9a544dc4070e662016
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67445671"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68249878"
 ---
 # <a name="troubleshoot-azure-files-performance-issues"></a>Résoudre les problèmes de niveau de performance d’Azure Files
 
@@ -108,7 +108,7 @@ Absence de prise en charge pour les baux de répertoire.
 ### <a name="workaround"></a>Solution de contournement
 
 - Si possible, évitez d’ouvrir/de fermer le descripteur dans le même répertoire dans un laps de temps bref.
-- Pour les machines virtuelles Linux, augmentez le délai d’expiration du cache du répertoire d’entrée en spécifiant **actimeo =<sec>** comme option de montage. Par défaut, il est d’une seconde, afin qu’une valeur supérieure comme trois ou cinq puisse vous aider.
+- Pour les machines virtuelles Linux, augmentez le délai d’expiration du cache du répertoire d’entrée en spécifiant **actimeo =\<sec>** comme option de montage. Par défaut, il est d’une seconde, afin qu’une valeur supérieure comme trois ou cinq puisse vous aider.
 - Pour les machines virtuelles Linux, mettez à niveau le noyau à 4.20 ou une version ultérieure.
 
 ## <a name="low-iops-on-centosrhel"></a>IOPS faibles sur CentOS/RHEL

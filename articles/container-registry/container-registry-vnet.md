@@ -3,16 +3,17 @@ title: Restreindre l’accès à un registre de conteneurs Azure à partir d’u
 description: Autorisez l’accès à un registre de conteneurs Azure uniquement à partir de ressources dans un réseau virtuel Azure ou de plages d’adresses IP publiques.
 services: container-registry
 author: dlepow
+manager: gwallace
 ms.service: container-registry
 ms.topic: article
 ms.date: 07/01/2019
 ms.author: danlep
-ms.openlocfilehash: 06e45127f940e01de5f3ceeefc354014a88014db
-ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
+ms.openlocfilehash: 2030496548df312b4f4cfab60c216d5f332c7ac2
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67514400"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68310390"
 ---
 # <a name="restrict-access-to-an-azure-container-registry-using-an-azure-virtual-network-or-firewall-rules"></a>Restreindre l’accès à un registre de conteneurs Azure à l’aide d’un réseau virtuel Azure ou de règles de pare-feu
 
@@ -39,6 +40,14 @@ Cet article présente deux scénarios pour créer des règles d’accès réseau
 * Pour utiliser les étapes Azure CLI décrites dans cet article, vous devez disposer d’Azure CLI version 2.0.58 ou ultérieure. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI][azure-cli].
 
 * Si vous ne disposez pas d’un registre de conteneurs, créez-en un (référence SKU Premium requise) et envoyez (push) un exemple d’image comme `hello-world` à partir de Docker Hub. Par exemple, utiliser le [portail Azure][quickstart-portal] or the [Azure CLI][quickstart-cli] pour créer un registre. 
+
+* Si vous souhaitez restreindre l’accès au registre à l’aide d’un réseau virtuel dans un autre abonnement Azure, vous devez inscrire le fournisseur de ressources pour Azure Container Registry dans cet abonnement. Par exemple :
+
+  ```azurecli
+  az account set --subscription <Name or ID of subscription of virtual network>
+
+  az provider register --namespace Microsoft.ContainerRegistry
+  ``` 
 
 ## <a name="about-network-rules-for-a-container-registry"></a>À propos des règles de réseau pour un registre de conteneurs
 

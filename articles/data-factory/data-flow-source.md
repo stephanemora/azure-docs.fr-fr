@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.openlocfilehash: 4f77eafd3309d7c1d679c126b1a5eb1ff0e9a28d
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.openlocfilehash: 048fe0ef88e8a79e21af7bb6e39a1d7ece3ee4ae
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67490089"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68277455"
 ---
 # <a name="source-transformation-for-mapping-data-flow"></a>Transformation de la source d’un mappage de flux de données 
 
@@ -82,7 +82,7 @@ Choisissez des paramètres pour gérer les fichiers dans votre source.
 
 ![Nouveaux paramètres de la source](media/data-flow/source2.png "Nouveaux paramètres")
 
-* **Chemin avec des caractères génériques** : Dans le dossier source, choisissez une série de fichiers qui correspondent à un modèle. Ce paramètre remplace tout fichier de votre définition de jeu de données.
+* **Chemin avec des caractères génériques** : Dans le conteneur source, choisissez une série de fichiers qui correspondent à un modèle. Ce paramètre remplace tout fichier de votre définition de jeu de données.
 
 Exemples de caractères génériques :
 

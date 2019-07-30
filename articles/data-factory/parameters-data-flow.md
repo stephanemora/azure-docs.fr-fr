@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 06/10/2019
-ms.openlocfilehash: 0a7140f70db78c8511f3c4da00b2f9c11c368163
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 998f8080509e7ba18ea1a759dff2ed8b8742c910
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67477687"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68253102"
 ---
 # <a name="mapping-data-flow-parameters"></a>Mappage de paramètres Data Flow
 
@@ -50,7 +50,7 @@ Une fois que vous avez créé votre flux de données avec des paramètres, vous 
 
 ![Définition d’un paramètre Data Flow](media/data-flow/parameter-assign.png "Définition d’un paramètre Data Flow")
 
-Si votre type de données de paramètre est une chaîne de caractères, lorsque vous cliquez sur la zone de texte pour définir les valeurs des paramètres, vous pouvez choisir d’entrer un pipeline ou une expression de flux de données. Si vous choisissez l’expression de pipeline, le panneau d’expression de pipeline vous est présenté. Assurez-vous d’inclure les fonctions de pipeline dans la syntaxe d’interpolation de chaîne en utilisant « @{{<expression>}} », par exemple :
+Si votre type de données de paramètre est une chaîne de caractères, lorsque vous cliquez sur la zone de texte pour définir les valeurs des paramètres, vous pouvez choisir d’entrer un pipeline ou une expression de flux de données. Si vous choisissez l’expression de pipeline, le panneau d’expression de pipeline vous est présenté. Assurez-vous d’inclure les fonctions de pipeline dans la syntaxe d’interpolation de chaîne en utilisant `'@{<expression>}'`, par exemple :
 
 ```'@{pipeline().RunId}'```
 

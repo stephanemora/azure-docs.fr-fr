@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/07/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: c5bbd19969349965ea20fa4cfc09e10119a9a86c
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: ee216bd4d6994179e347465c30039f2f8e293c85
+ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67295750"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68233016"
 ---
 # <a name="microsoft-azure-storage-performance-and-scalability-checklist"></a>Liste de contrôle des performances et de la scalabilité du Stockage Microsoft Azure
 
@@ -186,7 +186,7 @@ Dans certains cas, vous pouvez déterminer que votre application part du princip
 
 Les données de configuration, de recherche et d’autres données toujours utilisées par l’application constituent de parfaits candidats pour la mise en cache.  
 
-Pour savoir comment faire en sorte que les propriétés d’un objet blob détectent la date de la dernière modification à l’aide de .NET, consultez [Configuration et récupération des propriétés et des métadonnées](../blobs/storage-properties-metadata.md). Pour plus d’informations sur les téléchargements conditionnels, consultez [Spécification d’en-têtes conditionnels pour les opérations de Service Blob](https://msdn.microsoft.com/library/azure/dd179371.aspx).  
+Pour plus d’informations sur les téléchargements conditionnels, consultez [Spécification des en-têtes conditionnels pour les opérations du service BLOB](/rest/api/storageservices/specifying-conditional-headers-for-blob-service-operations).  
 
 #### <a name="subheading8"></a>Téléchargement de données par lots
 
@@ -293,8 +293,6 @@ Pour les gros volumes de données (plus de 1 To), Stockage Azure propose le se
 ### <a name="subheading20"></a>Utilisation de métadonnées
 
 Le service BLOB prend en charge les requêtes HEAD, lesquelles peuvent inclure des métadonnées sur un objet blob. Par exemple, si votre application doit extraire les données EXIF d’une photo, elle peut récupérer la photo en question, puis procéder à l’extraction. Pour économiser la bande passante et améliorer les performances, votre application peut stocker les données EXIF dans les métadonnées de l’objet blob quand l’application a chargé la photo : vous pouvez ensuite récupérer les données EXIF dans les métadonnées à l’aide d’une simple requête HEAD, ce qui permet d’économiser beaucoup de bande passante et de temps de traitement, nécessaires pour extraire les données EXIF chaque fois que l’objet blob est lu. Cela s’avère particulièrement utile lorsque vous avez simplement besoin des métadonnées, et non de tout le contenu d’un objet blob.  Un maximum de 8 Ko de métadonnées peut être stocké par objet blob (le service refusera les demandes de stockage supérieures). Si vos données ne respectent pas cette taille, vous ne pourrez pas utiliser cette méthode.  
-
-Pour savoir comment récupérer les métadonnées d’un objet blob à l’aide de .NET, consultez [Configuration et récupération des propriétés et des métadonnées](../blobs/storage-properties-metadata.md).  
 
 ### <a name="rapid-uploading"></a>Chargement rapide
 

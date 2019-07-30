@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 11b71b4656181da328cf630cefa4d25cb4f4efda
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 35cb6cba02a1bdcf9f19c7f02b7e2ca4d01e0d3f
+ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67482114"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67983663"
 ---
 # <a name="how-to-manage-the-local-administrators-group-on-azure-ad-joined-devices"></a>Guide pratique pour gérer le groupe Administrateurs local sur des appareils joints à Azure AD
 
@@ -75,7 +75,7 @@ Par défaut, Azure AD ajoute l’utilisateur qui effectue la jonction à Azure A
 
 Outre l’utilisation du processus de jonction à Azure AD, vous pouvez également élever manuellement un utilisateur régulier pour qu’il devienne un administrateur local sur un appareil spécifique. Cette étape nécessite que vous soyez déjà membre du groupe Administrateurs local. 
 
-À compter de la version **Windows 10 1709**, vous pouvez sélectionner **Paramètres -> Comptes -> Autres utilisateurs**. Sélectionnez **Ajouter un utilisateur professionnel ou scolaire**, entrez l’UPN de l’utilisateur sous **Compte d’utilisateur**, puis sélectionnez *Administrateur* sous **type de compte**  
+À compter de la version **Windows 10 1709**, vous pouvez effectuer cette tâche depuis **Paramètres -> Comptes -> Autres utilisateurs**. Sélectionnez **Ajouter un utilisateur professionnel ou scolaire**, entrez l’UPN de l’utilisateur sous **Compte d’utilisateur**, puis sélectionnez *Administrateur* sous **type de compte**  
  
 Vous pouvez également ajouter des utilisateurs à l’invite de commandes :
 

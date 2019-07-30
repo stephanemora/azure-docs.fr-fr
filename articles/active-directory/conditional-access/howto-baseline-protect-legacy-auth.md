@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b8e9ea8956d87e2ec47cc65495e81d8a0f0ad8cb
-ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
+ms.openlocfilehash: a313240685e539b613dee1c7ff8bd56bb24eb2ba
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67560924"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68227317"
 ---
 # <a name="baseline-policy-block-legacy-authentication-preview"></a>Stratégie de base de référence : Bloquer l’authentification héritée (préversion)
 
@@ -27,7 +27,7 @@ Pour permettre à vos utilisateurs d’accéder facilement à vos applications c
 
 Aujourd’hui, la majorité des tentatives de connexion compromettantes ont pour origine l’authentification héritée. L’authentification héritée ne prend pas en charge l’authentification multifacteur (MFA). Même si l’une de vos stratégies d’authentification multifacteur est activée dans votre annuaire, un individu mal intentionné peut s’authentifier à l’aide d’un protocole hérité et contourner l’authentification multifacteur.
 
-La meilleure façon de protéger votre compte contre les requêtes d’authentification malveillantes provenant de protocoles hérités est de bloquer toutes les requêtes de ce type. Pour faciliter le blocage de toutes les requêtes de connexion provenant de protocoles hérités, nous avons créé une stratégie de base de référence spécialement conçue à cet effet.
+La meilleure façon de protéger votre compte contre les requêtes d’authentification malveillantes provenant de protocoles hérités est de bloquer toutes les requêtes de ce type. Dans pour faciliter la sécurisation de votre environnement, nous avons créé cette stratégie de base afin de bloquer l’authentification héritée.
 
 **Bloquer l’authentification héritée** est une [stratégie de base de référence](concept-baseline-protection.md) qui bloque toutes les requêtes d’authentification provenant de protocoles hérités. Tous les utilisateurs doivent employer l’authentification moderne pour se connecter. Si vous utilisez cette stratégie conjointement à d’autres stratégies de base de référence, toutes les requêtes provenant de protocoles hérités seront bloquées et tous les utilisateurs devront s’authentifier avec l’authentification multifacteur (MFA) chaque fois que nécessaire. Cette stratégie ne bloque pas Exchange ActiveSync.
 
@@ -78,7 +78,7 @@ L’authentification moderne est activée par défaut dans SharePoint Online. Po
 
 Si vous souhaitez bloquer les requêtes d’authentification héritée provenant de Skype Entreprise, vous devez activer l’authentification moderne pour Skype Entreprise sur le web. Pour les annuaires créés après le 1er août 2017, l’authentification moderne est activée par défaut dans Skype Entreprise.
 
-Pour activer l’authentification moderne dans Skype Entreprise, nous vous suggérons de passer à Microsoft Teams, qui prend en charge l’authentification moderne par défaut. Toutefois, si vous ne pouvez pas encore passer à Microsoft Teams, vous devrez activer l’authentification moderne pour Skype Entreprise sur le web, afin que les clients Skype Entreprise puissent commencer à utiliser l’authentification moderne. Pour savoir comment activer l’authentification moderne dans Skype Entreprise, suivez les étapes de l’article [Topologies Skype Entreprise prenant en charge l’authentification moderne](https://docs.microsoft.com/skypeforbusiness/plan-your-deployment/modern-authentication/topologies-supported).
+Nous vous suggérons de passer à Microsoft Teams, qui prend en charge l’authentification moderne par défaut. Toutefois, si vous ne pouvez pas encore migrer vers Microsoft Teams, vous devrez activer l’authentification moderne pour Skype Entreprise sur le web, afin que les clients Skype Entreprise commencent à utiliser l’authentification moderne. Pour savoir comment activer l’authentification moderne dans Skype Entreprise, suivez les étapes de l’article [Topologies Skype Entreprise prenant en charge l’authentification moderne](https://docs.microsoft.com/skypeforbusiness/plan-your-deployment/modern-authentication/topologies-supported).
 
 Après avoir activé l’authentification moderne pour Skype Entreprise sur le web, nous vous recommandons d’activer l’authentification moderne pour Exchange Online lorsque vous l’activez pour Skype Entreprise. Vous pourrez ainsi synchroniser l’état de l’authentification moderne d’Exchange Online avec celui de Skype Entreprise sur le web, et éviter ainsi l’affichage de plusieurs invites de connexion à Skype Entreprise.
 
@@ -92,7 +92,8 @@ Pour utiliser le client de messagerie iOS natif, vous devrez exécuter iOS ver
 
 Si vous êtes un client hybride utilisant à la fois Exchange Server et Skype Entreprise localement, vous devez mettre à jour ces deux services afin qu’ils permettent l’authentification moderne. Lorsque vous utilisez l’authentification moderne dans un environnement hybride, l’authentification des utilisateurs se fait toujours localement. La méthode qui est employée pour les autoriser à accéder aux ressources (fichiers ou e-mails) n’est plus la même.
 
-Avant d’activer l’authentification moderne localement, vérifiez que vous répondez à toutes les exigences. Si c’est le cas, vous êtes prêt à activer l’authentification moderne localement.
+Avant de commencer l’activation de l’authentification moderne en local, vérifiez que vous avez respecté les conditions préalables.
+Vous êtes maintenant prêt à activer l’authentification moderne en local.
 
 Pour connaître les étapes nécessaires à l’activation de l’authentification moderne, consultez les articles suivants :
 
@@ -101,11 +102,11 @@ Pour connaître les étapes nécessaires à l’activation de l’authentificati
 
 ## <a name="enable-the-baseline-policy"></a>Activer la stratégie de base de référence
 
-La **Stratégie de base de référence : Bloquer l’authentification héritée (préversion)** est préconfigurée, et s’affiche dans la partie supérieure de la fenêtre lorsque vous accédez au panneau Accès conditionnel du portail Azure.
+La **Stratégie de base de référence : Bloquer l’authentification héritée (préversion)** est préconfigurée, et s’affiche dans la partie supérieure de la fenêtre lorsque vous accédez au panneau Accès conditionnel du portail Azure. Ce paramètre prend effet uniquement après une connexion réussie, de sorte que les utilisateurs ont toujours la possibilité d’essayer d’utiliser l’authentification héritée.
 
 Pour activer cette stratégie et protéger votre organisation :
 
-1. Connectez-vous au  **portail Azure**  en tant qu’administrateur général, administrateur de la sécurité ou administrateur de l’accès conditionnel.
+1. Connectez-vous au  **Portail Microsoft Azure**  en tant qu’administrateur général, administrateur de la sécurité ou administrateur de l’accès conditionnel.
 1. Accédez à **Azure Active Directory** > **Accès conditionnel**.
 1. Dans la liste des stratégies, sélectionnez **Stratégie de base de référence : Bloquer l’authentification héritée (préversion)** .
 1. Définissez **Activer la stratégie** sur **Utiliser la stratégie immédiatement**.

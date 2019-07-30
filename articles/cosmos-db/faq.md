@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 89c04a55138d57fd2ff37a96f2bc92b12d1780d9
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 5cbbd507352471f5e093ef018de4b0c849aad442
+ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341236"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68000793"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>Questions fréquentes sur les différentes API dans Azure Cosmos DB
 
@@ -151,7 +151,7 @@ Les conteneurs constituent également les entités de facturation d’Azure Cosm
 
 ### <a name="how-do-i-create-a-database"></a>Comment créer une base de données ?
 
-Vous pouvez créer des bases de données à l’aide du [portail Azure](https://portal.azure.com) comme décrit dans [Ajouter une collection](create-sql-api-dotnet.md#create-collection-database), de l’un des [Kits de développement logiciel (SDK) Azure Cosmos DB](sql-api-sdk-dotnet.md) ou d’[API REST](/rest/api/cosmos-db/).
+Vous pouvez créer des bases de données à l’aide du [portail Azure](https://portal.azure.com) comme décrit dans [Ajouter une collection](create-sql-api-java.md#add-a-container), de l’un des [Kits de développement logiciel (SDK) Azure Cosmos DB](sql-api-sdk-dotnet.md) ou d’[API REST](/rest/api/cosmos-db/).
 
 ### <a name="how-do-i-set-up-users-and-permissions"></a>Comment configurer des utilisateurs et des autorisations ?
 
@@ -742,9 +742,9 @@ Les pilotes clients du kit SDK Apache Cassandra reposant sur CQLv3 ont été uti
 
 Oui, vous pouvez utiliser la syntaxe régulière pour créer une clé de partition composite.
 
-### <a name="can-i-use-stable-loader-for-data-loading"></a>Puis-je utiliser le chargeur stable pour le chargement des données ?
+### <a name="can-i-use-sstableloader-for-data-loading"></a>Puis-je utiliser sstableloader pour le chargement des données ?
 
-Non, le chargeur stable n’est pas pris en charge.
+Non, sstableloader n’est pas pris en charge.
 
 ### <a name="can-an-on-premises-apache-cassandra-cluster-be-paired-with-azure-cosmos-dbs-cassandra-api"></a>Est-il possible d’associer un cluster Apache Cassandra local à l’API Cassandra d’Azure Cosmos DB ?
 

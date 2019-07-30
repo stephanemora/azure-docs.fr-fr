@@ -9,12 +9,12 @@ ms.service: application-insights
 ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: mbullwin
-ms.openlocfilehash: 5594c1f3517bf3d3f74841493df3c683304fa3f5
-ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
+ms.openlocfilehash: 4f296aae6c147b0d5209276dbd008a1207837cfd
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67502092"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67875201"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Analyser les performances d’Azure App Service
 
@@ -39,7 +39,7 @@ Il existe deux façons d’activer la supervision des applications hébergées p
 > [!NOTE]
 > Si les deux méthodes, la supervision basée sur un agent et l’instrumentation manuelle basée sur un SDK, sont détectées, seuls les paramètres de l’instrumentation manuelle sont appliqués. Cela évite que des données en double soient envoyées. Pour en savoir plus, consultez la [section de résolution des problèmes](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps#troubleshooting) ci-après.
 
-## <a name="enable-agent-based-monitoring-net"></a>Activer la supervision basée sur un agent pour .NET
+## <a name="enable-agent-based-monitoring-for-net-applications"></a>Activer la surveillance basée sur les agents pour les applications .NET
 
 > [!NOTE]
 > APPINSIGHTS_JAVASCRIPT_ENABLED et urlCompression ne peuvent pas être utilisés ensemble. Pour plus d’informations, consultez la [section de résolution des problèmes](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps#troubleshooting).
@@ -75,7 +75,7 @@ Il existe deux façons d’activer la supervision des applications hébergées p
 
     * Pour obtenir la liste des paramètres du processeur de télémétrie pris en charge pour l’échantillonnage adaptatif, consultez le [code](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/master/src/ServerTelemetryChannel/AdaptiveSamplingTelemetryProcessor.cs) et la [documentation associée](https://docs.microsoft.com/azure/azure-monitor/app/sampling).
 
-## <a name="enable-agent-based-monitoring-net-core"></a>Activer la supervision basée sur un agent pour .NET Core
+## <a name="enable-agent-based-monitoring-for-net-core-applications"></a>Activer la surveillance basée sur les agents pour les applications .NET Core
 
 Les versions suivantes de .NET Core sont prises en charge : ASP.NET Core 2.0, ASP.NET Core 2.1, ASP.NET Core 2.2
 
@@ -96,7 +96,7 @@ Le ciblage du framework complet à partir de .NET Core, le déploiement autonome
 
     ![Choisir les options par plateforme](./media/azure-web-apps/choose-options-new-net-core.png)
 
-## <a name="enable-client-side-monitoring-net"></a>Activer la supervision côté client pour .NET
+## <a name="enable-client-side-monitoring-for-net-applications"></a>Activer la surveillance côté client pour les applications .NET
 
 La supervision côté client est activée pour ASP.NET. Pour activer la supervision côté client :
 
@@ -113,7 +113,7 @@ La supervision côté client est activée pour ASP.NET. Pour activer la supervis
 
 Pour désactiver la supervision côté client, supprimez la paire clé-valeur associée dans les paramètres de l’application, ou définissez la valeur sur false.
 
-## <a name="enable-client-side-monitoring-net-core"></a>Activer la supervision côté client pour .NET Core
+## <a name="enable-client-side-monitoring-for-net-core-applications"></a>Activer la surveillance côté client pour les applications .NET Core
 
 La supervision côté client est **activée par défaut** pour les applications .NET Core configurées avec le niveau de **collecte Recommandé**, que le paramètre d’application « APPINSIGHTS_JAVASCRIPT_ENABLED » soit défini ou non.
 
@@ -169,7 +169,6 @@ La structure de base des paramètres d’application JSON pour un service d’ap
           }
         }
       ]
-
 ```
 
 Pour obtenir un exemple de modèle Azure Resource Manager où les paramètres d’application sont configurés pour Application Insights, consultez ce [modèle](https://github.com/Andrew-MSFT/BasicImageGallery), en particulier la section débutant à la [ligne 238](https://github.com/Andrew-MSFT/BasicImageGallery/blob/c55ada54519e13ce2559823c16ca4f97ddc5c7a4/CoreImageGallery/Deploy/CoreImageGalleryARM/azuredeploy.json#L238).

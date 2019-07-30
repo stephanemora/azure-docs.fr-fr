@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: iainfou
-ms.openlocfilehash: e49a37ec95a8cf26a2c63bd90759da35fc537e41
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: e0f38ed8367f076c9f9c4da77440bb3e9603d514
+ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67474241"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68234213"
 ---
-# <a name="azure-ad-domain-services"></a>Services de domaine Azure AD
-## <a name="features"></a>Caractéristiques
+# <a name="features-provided-by-azure-active-directory-domain-services"></a>Fonctionnalités fournies par les services de domaine Azure Active Directory
+
 Les fonctionnalités suivantes sont disponibles dans les domaines gérés des services de domaine Azure AD.
 
 * **Expérience de déploiement simple :** Vous pouvez activer Azure Active Directory Domain Services pour répertoire Azure AD en quelques clics. Votre domaine géré inclut des comptes d’utilisateur uniquement dans le cloud et des comptes d’utilisateur synchronisés à partir d’un répertoire local.

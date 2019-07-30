@@ -13,12 +13,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 06/25/2019
-ms.openlocfilehash: 2f3723e0a1b14edd6f516f3cc080501bea80d486
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 26b31781ae0056999eb222981b2eea3eb4595041
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67442049"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68228045"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Vue d’ensemble de la continuité de l’activité avec la base de données Azure SQL
 
@@ -68,7 +68,7 @@ Bien que le fait soit rare, un centre de données Azure peut subir une panne. En
 
 Au moment d’élaborer votre plan de continuité d’activité, vous devez comprendre le délai maximal acceptable nécessaire à la récupération complète de l’application après l’événement d’interruption. Ce délai s’appelle l’objectif de délai de récupération (RTO, recovery time objective). Vous devez également comprendre sur quelle période maximale l’application peut accepter de perdre les mises à jour de données récentes (intervalle de temps) lors de la récupération suite à un événement d’interruption. La perte de données potentielle est appelée un objectif de point de récupération (RPO).
 
-Différentes méthodes de récupération offrent différents niveaux de RPO et RTO. Vous pouvez choisir une méthode de récupération spécifique ou utiliser une combinaison de méthodes pour obtenir une récupération complète de l’application. Le tableau suivant compare les RPO et RTO de chaque option de récupération.
+Différentes méthodes de récupération offrent différents niveaux de RPO et RTO. Vous pouvez choisir une méthode de récupération spécifique ou utiliser une combinaison de méthodes pour effectuer une récupération complète de l’application. Le tableau suivant compare les RPO et RTO de chaque option de récupération. Les groupes de basculement automatique simplifient le déploiement et l’utilisation de la géo-réplication et ajoutent les fonctionnalités supplémentaires décrites dans le tableau suivant.
 
 | Méthode de récupération | RTO | RPO |
 | --- | --- | --- | 

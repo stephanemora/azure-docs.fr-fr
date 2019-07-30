@@ -1,19 +1,18 @@
 ---
 title: Résoudre les problèmes de l’agent Sauvegarde Azure
 description: Résoudre les problèmes liés à l’installation et l’inscription de l’agent Sauvegarde Azure
-services: backup
 author: saurabhsensharma
-manager: shivamg
+manager: sivan
 ms.service: backup
 ms.topic: conceptual
-ms.date: 05/21/2019
+ms.date: 07/15/2019
 ms.author: saurse
-ms.openlocfilehash: 1c4c2ed6265bdb3c29986fb0b90c3d85d32aadca
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 6dc56e4eccbad0de986551e055e877d3d051b145
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67434007"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68465965"
 ---
 # <a name="troubleshoot-the-microsoft-azure-recovery-services-mars-agent"></a>Résoudre les problèmes liés à l’agent Microsoft Azure Recovery Services (MARS)
 
@@ -46,8 +45,8 @@ Nous vous recommandons de passer en revue les points suivants avant de commencer
 | Cause : | Actions recommandées |
 | ---     | ---    |
 | **Les informations d’identification du coffre ne sont pas valides** <br/> <br/> Les fichiers d’informations d’identification du coffre peuvent avoir été endommagés ou être arrivés à expiration. (Par exemple, ils peuvent avoir été téléchargés plus de 48 heures avant l’heure de l’inscription.)| Téléchargez les nouvelles informations d’identification du coffre Recovery Services sur le portail Microsoft Azure. (Voir l’étape 6 de la section [Download the MARS agent](https://docs.microsoft.com/azure/backup/backup-configure-vault#download-the-mars-agent) (Télécharger l’agent MARS).) Suivez ensuite ces étapes : <ul><li> Si vous avez déjà installé et inscrit MARS, ouvrez la console MMC de l’agent Sauvegarde Microsoft Azure, puis sélectionnez **Inscrire le serveur** dans le volet **Actions** pour terminer l’inscription avec les nouvelles informations d’identification. <br/> <li> Si la nouvelle installation échoue, réessayez avec les nouvelles informations d’identification.</ul> **Remarque**: Si plusieurs fichiers d’informations d’identification de coffre ont été téléchargés, seul le plus récent est valide pendant 48 heures. Nous vous recommandons de télécharger un nouveau fichier d’informations d’identification de coffre.
-| **Le serveur proxy/pare-feu bloque l’inscription** <br/>or <br/>**Aucune connectivité Internet** <br/><br/> Si votre machine ou serveur proxy a une connectivité à Internet limitée et que vous ne garantissez pas l’accès pour les URL nécessaires, l’inscription échoue.| Suivez ces étapes :<br/> <ul><li> Travaillez avec votre équipe informatique pour vous assurer que le système dispose d’une connectivité Internet.<li> Si vous n’avez pas de serveur proxy, vérifiez que l’option de proxy n’est pas sélectionnée lorsque vous inscrivez l’agent. [Vérifiez vos paramètres de proxy](#verifying-proxy-settings-for-windows).<li> Si vous avez un pare-feu/serveur proxy, travaillez avec votre équipe de mise en réseau pour vous assurer que ces URL et adresses IP sont accessibles :<br/> <br> **URLs**<br> www.msftncsi.com <br> .Microsoft.com <br> .WindowsAzure.com <br> .microsoftonline.com <br> .windows.net <br>**Adresses IP**<br>  20.190.128.0/18 <br>  40.126.0.0/18 <br/></ul></ul>Essayez de procéder une nouvelle fois à l’inscription après avoir effectué les étapes précédentes de résolution des problèmes.
-| **Un logiciel antivirus bloque l’inscription** | Si vous avez un logiciel antivirus installé sur le serveur, ajoutez les règles d’exclusion nécessaires à l’analyse antivirus pour ces fichiers et dossiers : <br/><ui> <li> CBengine.exe <li> CSC.exe<li> Le dossier de travail. Son emplacement par défaut est C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch. <li> Le dossier Bin à l’emplacement C:\Program Files\Microsoft Azure Recovery Services Agent\Bin.
+| **Le serveur proxy/pare-feu bloque l’inscription** <br/>or <br/>**Aucune connectivité Internet** <br/><br/> Si votre machine ou serveur proxy a une connectivité à Internet limitée et que vous ne garantissez pas l’accès pour les URL nécessaires, l’inscription échoue.| Suivez ces étapes :<br/> <ul><li> Travaillez avec votre équipe informatique pour vous assurer que le système dispose d’une connectivité Internet.<li> Si vous n’avez pas de serveur proxy, vérifiez que l’option de proxy n’est pas sélectionnée lorsque vous inscrivez l’agent. [Vérifiez vos paramètres de proxy](#verifying-proxy-settings-for-windows).<li> Si vous avez un pare-feu/serveur proxy, travaillez avec votre équipe de mise en réseau pour vous assurer que ces URL et adresses IP sont accessibles :<br/> <br> **URLs**<br> `www.msftncsi.com` <br> .Microsoft.com <br> .WindowsAzure.com <br> .microsoftonline.com <br> .windows.net <br>**Adresses IP**<br>  20.190.128.0/18 <br>  40.126.0.0/18 <br/></ul></ul>Essayez de procéder une nouvelle fois à l’inscription après avoir effectué les étapes précédentes de résolution des problèmes.
+| **Un logiciel antivirus bloque l’inscription** | Si vous avez un logiciel antivirus installé sur le serveur, ajoutez les règles d’exclusion nécessaires à l’analyse antivirus pour ces fichiers et dossiers : <br/><ul> <li> CBengine.exe <li> CSC.exe<li> Le dossier de travail. Son emplacement par défaut est C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch. <li> Le dossier Bin à l’emplacement C:\Program Files\Microsoft Azure Recovery Services Agent\Bin.
 
 ### <a name="additional-recommendations"></a>Recommandations supplémentaires
 - Accédez à C:/Windows/Temp et vérifiez s’il y a plus de 60 000 ou 65 000 fichiers comportant l’extension .tmp. Si c’est le cas, supprimez ces fichiers.
@@ -89,13 +88,13 @@ Nous vous recommandons de passer en revue les points suivants avant de commencer
 
 | Error  | Causes possibles | Actions recommandées |
 |---------|---------|---------|
-|<br />L’activation n’a pas réussi. Échec de l’opération en cours en raison d’une erreur de service interne [0x1FC07]. Réessayez l’opération après un certain temps. Si le problème persiste, contactez le support technique Microsoft.     | <li> Le dossier de travail se situe sur un volume dont l’espace est insuffisant. <li> Le dossier de travail a été déplacé de façon incorrecte. <li> Le fichier OnlineBackup.KEK est manquant.         | <li>Effectuez une mise à niveau vers la [dernière version](https://aka.ms/azurebackup_agent) de l’agent MARS.<li>Déplacez l’emplacement du dossier de travail ou du cache vers un volume avec un espace disponible compris entre 5 et 10 % de la taille totale des données de sauvegarde. Pour déplacer correctement l’emplacement du cache, reportez-vous aux étapes contenues dans [Questions courantes sur la sauvegarde de fichiers et de dossiers](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq#backup).<li> Assurez-vous que le fichier OnlineBackup.KEK est présent. <br>*L’emplacement par défaut du dossier de travail ou le chemin d’accès à l’emplacement du cache est C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch*.        |
+|<br />L’activation n’a pas réussi. Échec de l’opération en cours en raison d’une erreur de service interne [0x1FC07]. Réessayez l’opération après un certain temps. Si le problème persiste, contactez le support technique Microsoft.     | <li> Le dossier de travail se situe sur un volume dont l’espace est insuffisant. <li> Le dossier de travail a été déplacé de façon incorrecte. <li> Le fichier OnlineBackup.KEK est manquant.         | <li>Effectuez une mise à niveau vers la [dernière version](https://aka.ms/azurebackup_agent) de l’agent MARS.<li>Déplacez l’emplacement du dossier de travail ou du cache vers un volume avec un espace disponible compris entre 5 et 10 % de la taille totale des données de sauvegarde. Pour déplacer correctement l’emplacement du cache, reportez-vous aux étapes contenues dans [Questions courantes sur la sauvegarde de fichiers et de dossiers](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq#manage-the-backup-cache-folder).<li> Assurez-vous que le fichier OnlineBackup.KEK est présent. <br>*L’emplacement par défaut du dossier de travail ou le chemin d’accès à l’emplacement du cache est C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch*.        |
 
 ## <a name="encryption-passphrase-not-correctly-configured"></a>La phrase secrète de chiffrement n’est pas correctement configurée
 
 | Error  | Causes possibles | Actions recommandées |
 |---------|---------|---------|
-| <br />Erreur 34506. La phrase secrète de chiffrement stockée sur cet ordinateur n’est pas configurée correctement.    | <li> Le dossier de travail se situe sur un volume dont l’espace est insuffisant. <li> Le dossier de travail a été déplacé de façon incorrecte. <li> Le fichier OnlineBackup.KEK est manquant.        | <li>Effectuez une mise à niveau vers la [dernière version](https://aka.ms/azurebackup_agent) de l’Agent MARS.<li>Déplacez l’emplacement du dossier de travail ou du cache vers un volume avec un espace disponible compris entre 5 et 10 % de la taille totale des données de sauvegarde. Pour déplacer correctement l’emplacement du cache, reportez-vous aux étapes contenues dans [Questions courantes sur la sauvegarde de fichiers et de dossiers](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq#backup).<li> Assurez-vous que le fichier OnlineBackup.KEK est présent. <br>*L’emplacement par défaut du dossier de travail ou le chemin d’accès à l’emplacement du cache est C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch*.         |
+| <br />Erreur 34506. La phrase secrète de chiffrement stockée sur cet ordinateur n’est pas configurée correctement.    | <li> Le dossier de travail se situe sur un volume dont l’espace est insuffisant. <li> Le dossier de travail a été déplacé de façon incorrecte. <li> Le fichier OnlineBackup.KEK est manquant.        | <li>Effectuez une mise à niveau vers la [dernière version](https://aka.ms/azurebackup_agent) de l’Agent MARS.<li>Déplacez l’emplacement du dossier de travail ou du cache vers un volume avec un espace disponible compris entre 5 et 10 % de la taille totale des données de sauvegarde. Pour déplacer correctement l’emplacement du cache, reportez-vous aux étapes contenues dans [Questions courantes sur la sauvegarde de fichiers et de dossiers](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq#manage-the-backup-cache-folder).<li> Assurez-vous que le fichier OnlineBackup.KEK est présent. <br>*L’emplacement par défaut du dossier de travail ou le chemin d’accès à l’emplacement du cache est C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch*.         |
 
 
 ## <a name="backups-dont-run-according-to-schedule"></a>Les sauvegardes ne s’exécutent pas comme prévu
@@ -165,8 +164,62 @@ Sauvegarde Azure peut ne pas correctement monter le volume de récupération, m�
 
 Si celle-ci échoue encore, redémarrez votre serveur ou client. Si vous ne souhaitez pas redémarrer, ou si la récupération échoue encore après le redémarrage du serveur, essayez de [l’exécuter depuis une autre machine](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine).
 
-## <a name="need-help-contact-support"></a>Vous avez besoin d’aide ? Contacter le support technique
-Si vous avez encore besoin d’aide, [contactez le support technique](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour résoudre rapidement votre problème.
+
+## <a name="troubleshoot-cache-problems"></a>Résoudre les problèmes de cache
+
+L’opération de sauvegarde peut échouer si le dossier du cache (également nommé « dossier temporaire ») n’est pas configuré correctement, ne respecte pas la configuration requise ou a un accès restreint.
+
+### <a name="pre-requisites"></a>Conditions préalables
+
+Pour que les opérations de l’agent MARS fonctionnent correctement, le dossier du cache doit respecter la configuration suivante :
+
+- [Vérifiez qu’il existe entre 5 et 10 % d’espace de volume disponible à l’emplacement du dossier temporaire](backup-azure-file-folder-backup-faq.md#whats-the-minimum-size-requirement-for-the-cache-folder)
+- [Vérifiez que l’emplacement du dossier temporaire est valide et accessible](backup-azure-file-folder-backup-faq.md#how-to-check-if-scratch-folder-is-valid-and-accessible)
+- [Vérifiez que les attributs de fichier sur le dossier du cache sont pris en charge](backup-azure-file-folder-backup-faq.md#are-there-any-attributes-of-the-cache-folder-that-arent-supported)
+- [Vérifiez que l’espace de stockage de cliché instantané alloué est suffisant pour le processus de sauvegarde](#increase-shadow-copy-storage)
+- [Vérifiez qu’aucun autre processus (par exemple, un logiciel antivirus) ne restreint l’accès au dossier du cache](#another-process-or-antivirus-software-blocking-access-to-cache-folder)
+
+### <a name="increase-shadow-copy-storage"></a>Augmenter l’espace de stockage de cliché instantané
+Les opérations de sauvegarde peuvent échouer si l’espace de stockage de cliché instantané est insuffisant pour protéger la source de données. Pour résoudre ce problème, augmentez l’espace de stockage de cliché instantané sur le volume protégé à l’aide de vssadmin comme indiqué ci-dessous :
+- Vérifiez l’espace de stockage de cliché instantané actuel à partir de l’invite de commandes avec élévation de privilèges :<br/>
+  `vssadmin List ShadowStorage /For=[Volume letter]:`
+- Augmentez l’espace de stockage de cliché instantané en utilisant la commande ci-dessous :<br/>
+  `vssadmin Resize ShadowStorage /On=[Volume letter]: /For=[Volume letter]: /Maxsize=[size]`
+
+### <a name="another-process-or-antivirus-software-blocking-access-to-cache-folder"></a>Un autre processus ou logiciel antivirus bloque l’accès au dossier du cache
+Si vous avez un logiciel antivirus installé sur le serveur, ajoutez les règles d’exclusion nécessaires à l’analyse antivirus pour ces fichiers et dossiers :  
+- Le dossier de travail. Son emplacement par défaut est C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch
+- Le dossier Bin à l’emplacement C:\Program Files\Microsoft Azure Recovery Services Agent\Bin
+- CBengine.exe
+- CSC.exe
+
+## <a name="common-issues"></a>Problèmes courants
+Cette section décrit les erreurs courantes que vous rencontrez lors de l’utilisation de l’agent MARS.
+
+### <a name="salchecksumstoreinitializationfailed"></a>SalChecksumStoreInitializationFailed
+
+Message d’erreur | Action recommandée |
+-- | --
+L’agent Microsoft Azure Recovery Services n’a pas pu accéder à la somme de contrôle de sauvegarde stockée sur l’emplacement temporaire | Pour résoudre ce problème, procédez comme indiqué ci-dessous, puis redémarrez le serveur : <br/> - [Vérifiez si un antivirus ou tout autre type de processus verrouille les fichiers sur l’emplacement temporaire](#another-process-or-antivirus-software-blocking-access-to-cache-folder)<br/> - [Vérifiez si l’agent MARS peut accéder à l’emplacement temporaire, et si ce dernier est valide.](backup-azure-file-folder-backup-faq.md#how-to-check-if-scratch-folder-is-valid-and-accessible)
+
+### <a name="salvhdinitializationerror"></a>SalVhdInitializationError
+
+Message d’erreur | Action recommandée |
+-- | --
+L’agent Microsoft Azure Recovery Services n’a pas pu accéder à l’emplacement temporaire pour initialiser le disque dur virtuel (VHD) | Pour résoudre ce problème, procédez comme indiqué ci-dessous, puis redémarrez le serveur : <br/> - [Vérifiez si un antivirus ou tout autre type de processus verrouille les fichiers sur l’emplacement temporaire](#another-process-or-antivirus-software-blocking-access-to-cache-folder)<br/> - [Vérifiez si l’agent MARS peut accéder à l’emplacement temporaire, et si ce dernier est valide.](backup-azure-file-folder-backup-faq.md#how-to-check-if-scratch-folder-is-valid-and-accessible)
+
+### <a name="sallowdiskspace"></a>SalLowDiskSpace
+
+Message d’erreur | Action recommandée |
+-- | --
+La sauvegarde a échoué en raison d’un espace de stockage insuffisant dans le volume où se trouve le dossier temporaire | Pour résoudre ce problème, suivez les étapes ci-dessous, puis réessayez l’opération :<br/>- [Vérifiez que la version de l’agent MARS est à jour](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409)<br/> - [Vérifiez et résolvez les problèmes de stockage impactant l’espace temporaire de la sauvegarde](#pre-requisites)
+
+### <a name="salbitmaperror"></a>SalBitmapError
+
+Message d’erreur | Action recommandée |
+-- | --
+Impossible de localiser les changements apportés à un fichier. Cela peut être dû à diverses raisons. Réessayez l’opération | Pour résoudre ce problème, suivez les étapes ci-dessous, puis réessayez l’opération :<br/> - [Vérifiez que la version de l’agent MARS est à jour](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409) <br/> - [Vérifiez et résolvez les problèmes de stockage impactant l’espace temporaire de la sauvegarde](#pre-requisites)
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Obtenez plus de détails sur [comment sauvegarder votre serveur Windows avec l’agent Sauvegarde Azure](tutorial-backup-windows-server-to-azure.md).

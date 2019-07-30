@@ -9,12 +9,12 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: reference
 ms.date: 06/19/2019
-ms.openlocfilehash: 490131d1743b366b5ac51a5a0fdac4b89ffe08f2
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 76d4fbaaea987b5d935d09b7ff1c490b6003a489
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67274174"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68260365"
 ---
 # <a name="reference-for-trigger-and-action-types-in-workflow-definition-language-for-azure-logic-apps"></a>Référence des types d’actions et de déclencheurs pour le langage de définition du flux de travail dans Azure Logic Apps
 
@@ -1091,7 +1091,7 @@ Pour l’attribut `includeTrigger`, vous pouvez spécifier les valeurs `true` ou
 
 *Exemple 1*
 
-Cette action exécute le code qui obtient le nom de votre application logique et renvoie le texte « Hello world de <nom-application-logique> » en tant que résultat. Dans cet exemple, le code référence le nom du flux de travail en accédant à la propriété `workflowContext.workflow.name` via l’objet `workflowContext` en lecture seule. Pour en savoir plus sur l’utilisation de l’objet `workflowContext`, voir [Faire référence aux résultats des actions et du déclencheur dans votre code](../logic-apps/logic-apps-add-run-inline-code.md#workflowcontext).
+Cette action exécute le code qui obtient le nom de votre application logique et renvoie le texte « Hello world de \<nom-application-logique> » en tant que résultat. Dans cet exemple, le code référence le nom du flux de travail en accédant à la propriété `workflowContext.workflow.name` via l’objet `workflowContext` en lecture seule. Pour en savoir plus sur l’utilisation de l’objet `workflowContext`, voir [Faire référence aux résultats des actions et du déclencheur dans votre code](../logic-apps/logic-apps-add-run-inline-code.md#workflowcontext).
 
 ```json
 "Execute_JavaScript_Code": {
@@ -1634,7 +1634,7 @@ Cette action crée une table CSV ou HTML à partir d’un tableau. Pour les tabl
 
 | Valeur | Type | Description | 
 |-------|------|-------------| 
-| <CSV *ou* HTML>| String | Format de la table que vous souhaitez créer | 
+| \<CSV *ou* HTML>| Chaîne | Format de la table que vous souhaitez créer | 
 | <*array*> | Array | Tableau ou expression qui fournit les éléments sources pour la table <p>**Remarque**: Si le tableau source est vide, l’action crée une table vide. | 
 |||| 
 
