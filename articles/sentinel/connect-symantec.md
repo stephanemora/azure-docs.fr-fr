@@ -1,43 +1,44 @@
 ---
-title: Connecter des données Symantec ICDX à Azure Sentinel en préversion | Microsoft Docs
-description: Découvrez comment connecter des données Symantec ICDX à Azure Sentinel.
+title: Connecter des données Symantec ICDx à Azure Sentinel en préversion | Microsoft Docs
+description: Découvrez comment connecter des données Symantec ICDx à Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
 manager: rkarlin
 editor: ''
 ms.assetid: d068223f-395e-46d6-bb94-7ca1afd3503c
-ms.service: sentinel
+ms.service: azure-sentinel
+ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/23/2019
+ms.date: 07/04/2019
 ms.author: rkarlin
-ms.openlocfilehash: 3b21371d6321b208b19ca8b2524308736c3ceca9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 74169b4bd2654fb0ff7ec4cdb2f2b02c0f4cc6e8
+ms.sourcegitcommit: 80aaf27e3ad2cc4a6599a3b6af0196c6239e6918
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66244345"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67673750"
 ---
-# <a name="connect-your-symantec-icdx-appliance"></a>Connecter votre appliance Symantec ICDX 
+# <a name="connect-your-symantec-icdx-appliance"></a>Connecter votre appliance Symantec ICDx 
 
 > [!IMPORTANT]
 > Azure Sentinel est actuellement disponible en préversion publique.
 > Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Le connecteur Symantec ICDX vous permet de connecter facilement les journaux de votre solution de sécurité Symantec à Azure Sentinel, de consulter des tableaux de bord, de créer des alertes personnalisées et d’améliorer les enquêtes. Cela vous donne plus d’informations sur le réseau de votre organisation et améliore vos capacités d’opération de sécurité. L'intégration entre Symantec ICDX et Azure Sentinel utilise l’API REST.
+Le connecteur Symantec ICDx vous permet de connecter facilement les journaux de votre solution de sécurité Symantec à Azure Sentinel, de consulter des tableaux de bord, de créer des alertes personnalisées et d’améliorer les enquêtes. Cela vous donne plus d’informations sur le réseau de votre organisation et améliore vos capacités d’opération de sécurité. L'intégration entre Symantec ICDx et Azure Sentinel utilise l’API REST.
 
 
 > [!NOTE]
 > Les données seront stockées dans l’emplacement géographique de l’espace de travail sur lequel vous exécutez Azure Sentinel.
 
-## <a name="configure-and-connect-symantec-icdx"></a>Configurer et connecter Symantec ICDX 
+## <a name="configure-and-connect-symantec-icdx"></a>Configurer et connecter Symantec ICDx 
 
-Symantec ICDX peut intégrer et exporter des journaux d'activité directement dans Azure Sentinel.
+Symantec ICDx peut intégrer et exporter des journaux d'activité directement dans Azure Sentinel.
 
-1. Ouvrez la Console de gestion ICDX pour ajouter des redirecteurs Microsoft Azure Sentinel (Log Analytics).
+1. Ouvrez la Console de gestion ICDx pour ajouter des redirecteurs Microsoft Azure Sentinel (Log Analytics).
 2. Dans la barre de navigation ICDX, cliquez sur **Configuration**. 
 3. En haut de l'écran **Configuration**, cliquez sur **Redirecteurs**.
 4. Sous **Redirecteurs**, en regard de Microsoft Azure Sentinel (Log Analytics), cliquez sur **Ajouter**. 
@@ -66,7 +67,7 @@ Symantec ICDX peut intégrer et exporter des journaux d'activité directement da
     - **Nom de journal personnalisé** : Entrez le nom de journal personnalisé dans l’espace de travail Log Analytics du portail Microsoft Azure vers lequel transférer les événements. L'option par défaut est SymantecICDx. Ce champ est obligatoire.
 8. Cliquez sur *Enregistrer* pour terminer la configuration du redirecteur. 
 9. Pour démarrer le redirecteur, sous **Options**, cliquez sur **Plus**, puis sur **Démarrer**.
-10. Pour utiliser le schéma pertinent dans Log Analytics pour les événements de Symantec ICDX, recherchez **SymantecICDX_CL**.
+10. Pour utiliser le schéma pertinent dans Log Analytics pour les événements de Symantec ICDx, recherchez **SymantecICDx_CL**.
 
 
 ## <a name="validate-connectivity"></a>Valider la connectivité
@@ -76,7 +77,7 @@ Plus de 20 minutes peuvent être nécessaires avant que vos journaux ne commenc
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Dans ce document, vous avez appris à connecter Symantec ICDX à Azure Sentinel. Pour en savoir plus sur Azure Sentinel, voir les articles suivants :
+Dans ce document, vous avez appris à connecter Symantec ICDx à Azure Sentinel. Pour en savoir plus sur Azure Sentinel, voir les articles suivants :
 - Découvrez comment [avoir une visibilité sur vos données et les menaces potentielles](quickstart-get-visibility.md).
 - Prise en main de la [détection des menaces avec Azure Sentinel](tutorial-detect-threats.md).
 
