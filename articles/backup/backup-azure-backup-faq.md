@@ -1,19 +1,18 @@
 ---
 title: Forum aux questions sur Sauvegarde Azure
 description: 'Réponses aux questions courantes sur : les fonctionnalités de la sauvegarde Azure, y compris les coffres Recovery Services ce qu’il peut sauvegarder, son fonctionnement, son chiffrement, et ses limites. '
-services: backup
 author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 07/07/2019
 ms.author: dacurwin
-ms.openlocfilehash: aecad4273493cd573935c78cae51bd0f59461e2e
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: c60b2bfae0d974d454c03b7eba655cbdacab5943
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67806965"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68466692"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Sauvegarde Azure - Forum Aux Questions
 Cet article répond aux questions courantes sur le service Sauvegarde Azure.
@@ -92,7 +91,7 @@ Windows 8 ou version ultérieure | 54 400 Go
 Windows 7 |1 700 Go
 Windows Server 2012 ou version ultérieure | 54 400 Go
 Windows Server 2008, Windows Server 2008 R2 | 1 700 Go
-Microsoft Azure | 16 disques de données<br/><br/> Disque de données jusqu’à 4 095 Go
+Azure VM | 16 disques de données<br/><br/> Disque de données jusqu’à 4 095 Go
 
 ### <a name="how-is-the-data-source-size-determined"></a>Comment la taille de la source de données est-elle déterminée ?
 Le tableau suivant explique comment la taille de chaque source de données est déterminée.

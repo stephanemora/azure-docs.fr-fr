@@ -186,7 +186,7 @@ Lorsque le jeton d'accès de votre fournisseur (et non le [jeton de session](#ex
 - **Compte Microsoft** : au moment de [configurer les paramètres d’authentification de compte Microsoft](configure-authentication-provider-microsoft.md), sélectionnez l’étendue `wl.offline_access`.
 - **Azure Active Directory** : Dans [https://resources.azure.com](https://resources.azure.com), effectuez les étapes suivantes :
     1. En haut de la page, sélectionnez **Lecture/écriture**.
-    2. Dans le navigateur de gauche, accédez à **abonnements** >  ** _\<subscription\_name_**  > **resourceGroups** >  ** _\<resource\_group\_name>_**  > **fournisseurs** > **Microsoft.Web** > **sites** >  ** _\<app\_name>_**  > **config** > **authsettings**. 
+    2. Dans le navigateur de gauche, accédez à **abonnements** >  **_\<subscription\_name_**  > **resourceGroups** >  **_\<resource\_group\_name>_**  > **fournisseurs** > **Microsoft.Web** > **sites** >  **_\<app\_name>_**  > **config** > **authsettings**. 
     3. Cliquez sur **Modifier**.
     4. Modifiez la propriété suivante. Remplacez la valeur _\<app\_id>_ par l’ID d’application Azure Active Directory du service auquel vous souhaitez accéder.
 
@@ -233,7 +233,7 @@ az webapp auth update --resource-group <group_name> --name <app_name> --token-re
 
 Les options Compte Microsoft et Azure Active Directory permettent de se connecter à partir de multiples domaines. Par exemple, l’option Compte Microsoft prend en charge les comptes _outlook.com_, _live.com_ et _hotmail.com_. Azure Active Directory prend en charge un nombre illimité de domaines personnalisés pour les comptes de connexion. Ce comportement peut ne pas être souhaitable pour une application interne pour laquelle vous souhaitez refuser l’accès à tout utilisateur disposant d’un compte _outlook.com_. Pour restreindre le nom de domaine des comptes de connexion, procédez comme suit.
 
-Dans [https://resources.azure.com](https://resources.azure.com), accédez à **abonnements** >  ** _\< subscription\_ name_**  > **resourceGroups** >  ** _\< resource\_ group\_ name>_**  > **fournisseurs** > **Microsoft.Web** > **sites** >  ** _\< app\_ name>_**  > **config** > **authsettings**. 
+Dans [https://resources.azure.com](https://resources.azure.com), accédez à **abonnements** >  **_\< subscription\_ name_**  > **resourceGroups** >  **_\< resource\_ group\_ name>_**  > **fournisseurs** > **Microsoft.Web** > **sites** >  **_\< app\_ name>_**  > **config** > **authsettings**. 
 
 Cliquez sur **Modifier**, modifiez la propriété suivante, puis cliquez sur **Put**. Veillez à remplacer la valeur _\<domain\_name>_ par le domaine souhaité.
 

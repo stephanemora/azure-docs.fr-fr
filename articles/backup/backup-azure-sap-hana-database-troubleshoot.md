@@ -1,19 +1,18 @@
 ---
 title: Résoudre les erreurs lors de la sauvegarde des bases de données SAP HANA en utilisant la sauvegarde Azure | Microsoft Docs
 description: Décrit comment résoudre les erreurs courantes qui peuvent survenir lorsque vous utilisez le service Sauvegarde Azure pour sauvegarder des bases de données SAP HANA.
-services: backup
 author: pvrk
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 06/28/2019
+ms.date: 07/22/2019
 ms.author: pullabhk
-ms.openlocfilehash: 32e814ea83f30b48af5ce507ce250f37a34390da
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 221b669c141681749709d6a5a406c78499f21032
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68249491"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68465470"
 ---
 # <a name="troubleshoot-backup-of-sap-hana-databases-on-azure"></a>Résoudre les problèmes de sauvegarde des bases de données SAP HANA sur Azure
 
