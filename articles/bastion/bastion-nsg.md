@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: cherylmc
-ms.openlocfilehash: e7210b2b1be072f5326070d768d5fe12c386ee0b
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.openlocfilehash: 5312ad2593e732f4c84eb67ed263bc9e4666a67a
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67191268"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67594194"
 ---
 # <a name="working-with-nsg-access-and-azure-bastion-preview"></a>Utiliser l’accès au groupe de sécurité réseau et Azure Bastion (préversion)
 
@@ -44,9 +44,9 @@ Dans ce diagramme :
 
 Si vous appliquez des groupes de sécurité réseau au sous-réseau **AzureBastionSubnet**, autorisez les deux balises de service suivantes pour le plan de contrôle et l’infrastructure d’Azure :
 
-* **GatewayManager (Resource Manager uniquement)** : Cette balise désigne les préfixes d’adresse du service Azure Gateway Manager. Si vous spécifiez GatewayManager comme valeur, le trafic vers GatewayManager est autorisé ou refusé.
+* **GatewayManager (Resource Manager uniquement)** : Cette balise désigne les préfixes d’adresse du service Azure Gateway Manager. Si vous spécifiez GatewayManager comme valeur, le trafic vers GatewayManager est autorisé ou refusé.  Si vous créez de groupes de sécurité réseau sur AzureBastionSubnet, activez la balise GatewayManager pour le trafic entrant.
 
-* **AzureCloud (Resource Manager uniquement)** : Cette balise désigne l’espace d’adressage IP pour Azure, notamment l’ensemble des adresses IP publiques du centre de données. Si vous spécifiez AzureCloud comme valeur, le trafic vers les adresses IP publiques Azure est autorisé ou refusé. Si vous souhaitez uniquement autoriser l’accès à AzureCloud dans une région spécifique, vous pouvez spécifier la région. Par exemple, pour autoriser l’accès uniquement à AzureCloud d’Azure dans la région USA Est, vous pouvez spécifier AzureCloud.EastUS en tant que balise de service.
+* **AzureCloud (Resource Manager uniquement)** : Cette balise désigne l’espace d’adressage IP pour Azure, notamment l’ensemble des adresses IP publiques du centre de données. Si vous spécifiez AzureCloud comme valeur, le trafic vers les adresses IP publiques Azure est autorisé ou refusé. Si vous souhaitez autoriser l’accès uniquement à AzureCloud dans une région spécifique, vous pouvez spécifier la région. Par exemple, pour autoriser l’accès uniquement à AzureCloud d’Azure dans la région USA Est, vous pouvez spécifier AzureCloud.EastUS en tant que balise de service. Si vous créez de groupes de sécurité réseau sur AzureBastionSubnet, activez la balise AzureCloud pour le trafic sortant.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

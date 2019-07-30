@@ -253,6 +253,9 @@
         - name: Compilation de configurations d’état souhaité
           href: automation-dsc-compile.md
           displayName: 'state configuration, composite resources, configurationData'
+        - name: Remédier aux serveurs DSC non conformes
+          href: automation-dsc-remediate.md
+          displayName: 'state configuration, DSC, remediate'
         - name: Composition de configurations d’état avec des ressources composites
           href: compose-configurationwithcompositeresources.md
         - name: Déploiement continu avec Chocolatey

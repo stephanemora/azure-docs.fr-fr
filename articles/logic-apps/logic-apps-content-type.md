@@ -1,21 +1,20 @@
 ---
-title: Gérer les types de contenu - Azure Logic Apps | Microsoft Docs
+title: Gérer les types de contenu - Azure Logic Apps
 description: Découvrez comment Logic Apps gère les types de contenu au moment du design et au moment de l’exécution
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 ms.author: estfan
-manager: jeconnoc
-ms.topic: article
-ms.date: 07/20/2018
 ms.reviewer: klam, LADocs
-ms.suite: integration
-ms.openlocfilehash: 2a9318317d5a01136a42b4fb6d580bafaf53ec4e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.topic: conceptual
+ms.date: 07/20/2018
+ms.openlocfilehash: 97897da13c70c29834b1fc276829b316416efd8d
+ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60685747"
+ms.lasthandoff: 07/13/2019
+ms.locfileid: "67868923"
 ---
 # <a name="handle-content-types-in-azure-logic-apps"></a>Gérer les types de contenu dans Azure Logic Apps
 
@@ -147,8 +146,9 @@ Cette liste décrit comment Logic Apps convertit le contenu lorsque vous utilise
 * `base64()`: convertit le contenu en une chaîne encodée en base64
 * `base64toString()`: convertit une chaîne encodée en base64 en `text/plain`
 * `base64toBinary()`: convertit une chaîne encodée en base64 en `application/octet-stream`
-* `encodeDataUri()`: encode une chaîne en tableau d’octets dataUri
-* `decodeDataUri()`: décode un `dataUri` en tableau d’octets
+* `dataUri()`: convertit une chaîne en un URI de données
+* `dataUriToBinary()`: convertit un URI de données en une chaîne binaire
+* `dataUriToString()`: convertit un URI de données en une chaîne
 
 Par exemple, si vous recevez une requête HTTP où `Content-Type` est défini sur `application/xml`, tel que ce contenu :
 

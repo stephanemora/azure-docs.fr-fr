@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: d720f60bff1aa4510ac26ac092c42eb98871c851
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: aba41d62df49a40d9fc3686684b39b71e1363453
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67540334"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68296051"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planification d’un déploiement Azure Files
 
@@ -183,7 +183,7 @@ Le stockage géoredondant réplique les données vers un autre centre de donnée
 
 Dans le cas d’un compte de stockage GRS, toutes les données sont d’abord répliquées avec le stockage localement redondant (LRS). Une mise à jour est au préalable validée dans la région primaire et répliquée avec le stockage localement redondant. Elle est ensuite répliquée de manière asynchrone dans la région secondaire avec le stockage géoredondant. Lors de l’écriture des données dans l’emplacement secondaire, celles-ci sont également répliquées au sein de cet emplacement avec le stockage localement redondant.
 
-Les régions primaire et secondaire gèrent les réplicas dans des domaines d’erreur et de mise à niveau distincts, au sein d’une unité d’échelle de stockage. Cette unité représente l’unité de réplication de base au sein du centre de données. La réplication à ce niveau est assurée par le stockage localement redondant ; pour plus d’informations, voir [Stockage localement redondant (LRS) : redondance des données à faible coût pour le stockage Azure](../common/storage-redundancy-lrs.md).
+Les régions primaire et secondaire gèrent les réplicas dans des domaines d’erreur et de mise à niveau distincts, au sein d’une unité d’échelle de stockage. Cette unité représente l’unité de réplication de base au sein du centre de données. La réplication à ce niveau est assurée par le stockage localement redondant ; pour en savoir plus, voir [Stockage localement redondant (LRS) : redondance des données à faible coût pour le stockage Azure](../common/storage-redundancy-lrs.md).
 
 Gardez ces points à l’esprit au moment de choisir une option de réplication :
 
@@ -197,8 +197,10 @@ Cette section s’applique uniquement aux partages de fichiers Standard. Tous le
 
 ### <a name="restrictions"></a>Restrictions
 
+- Les [Conditions d’utilisation supplémentaires des Préversions Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) s’appliquent aux partages de fichiers volumineux en préversion, y compris lorsqu’ils sont utilisés avec des déploiements Azure File Sync.
 - Vous oblige à créer un compte de stockage à usage général (impossibilité de développer des comptes de stockage existants).
-- La conversion de comptes LRS en GRS ne sera pas possible sur les nouveaux comptes de stockage, créés après l’acceptation de l’abonnement pour la préversion de partages de fichiers plus volumineux.
+- La conversion de comptes LRS/ZRS en GRS ne sera pas possible sur les nouveaux comptes de stockage, créés après l’acceptation de l’abonnement pour la préversion de partages de fichiers plus volumineux.
+
 
 ### <a name="regional-availability"></a>Disponibilité régionale
 
@@ -210,10 +212,20 @@ Le partage de fichiers Standard est disponible dans toutes les régions, jusqu�
 |Europe Ouest     |LRS|Non         |
 |USA Ouest 2     |LRS, ZRS|Non         |
 
+Pour nous aider à hiérarchiser les nouvelles régions et les nouvelles fonctionnalités, veuillez répondre à ce [sondage](https://aka.ms/azurefilesatscalesurvey).
 
 ### <a name="steps-to-onboard"></a>Étapes pour l’intégration
 
-Pour inscrire votre abonnement à la préversion de partages de fichiers plus volumineux, exécutez les commandes PowerShell suivantes :
+Pour inscrire votre abonnement à la préversion de partages de fichiers plus volumineux, vous devez utiliser Azure PowerShell. Vous pouvez utiliser [Azure Cloud Shell](https://shell.azure.com/) ou installer le [module Azure PowerShell localement](https://docs.microsoft.com/powershell/azure/install-Az-ps?view=azps-2.4.0) pour exécuter les commandes PowerShell suivantes :
+
+Tout d’abord, assurez-vous que l’abonnement que vous souhaitez inscrire dans la préversion est sélectionné :
+
+```powershell
+$context = Get-AzSubscription -SubscriptionId ...
+Set-AzContext $context
+```
+
+Ensuite, inscrivez-vous dans la préversion à l’aide des commandes suivantes :
 
 ```powershell
 Register-AzProviderFeature -FeatureName AllowLargeFileShares -ProviderNamespace Microsoft.Storage
@@ -227,7 +239,7 @@ Pour vérifier l’état de votre inscription, vous pouvez exécuter la commande
 Get-AzProviderFeature -FeatureName AllowLargeFileShares -ProviderNamespace Microsoft.Storage
 ```
 
-L’opération peut demander jusqu’à 15 minutes pour la mise à jour et l’affichage de l’état sur « inscrit », par contre vous devriez malgré tout pouvoir utiliser la fonctionnalité.
+La mise à jour de votre état vers **inscrit** peut prendre jusqu’à 15 minutes. Une fois votre état défini sur **inscrit**, vous devez être en mesure d’utiliser la fonctionnalité.
 
 ### <a name="use-larger-file-shares"></a>Utiliser des partages de fichiers plus volumineux
 

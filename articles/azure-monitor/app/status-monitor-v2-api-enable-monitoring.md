@@ -12,20 +12,20 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: e0d5363e253e89b32b5eca14366504f0ace39043
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 1e5a4ac9f159ce238149d44127fd63dcf3279623
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67479645"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807098"
 ---
-# <a name="status-monitor-v2-api-enable-applicationinsightsmonitoring-v031-alpha"></a>API Status Monitor v2 : Enable-ApplicationInsightsMonitoring (v0.3.1-alpha)
+# <a name="status-monitor-v2-api-enable-applicationinsightsmonitoring-v040-alpha"></a>API Status Monitor v2 : Enable-ApplicationInsightsMonitoring (v0.4.0-alpha)
 
 Cet article décrit une cmdlet appartenant au [module PowerShell Az.ApplicationMonitor](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
 
 > [!IMPORTANT]
 > Status Monitor v2 est actuellement en préversion publique.
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge.
+> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou n’être pas prises en charge.
 > Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="description"></a>Description
@@ -93,9 +93,9 @@ Vous pouvez créer un script d’installation unique pour plusieurs ordinateurs 
 - **MachineFilter** est une expression régulière C# obligatoire associée au nom de la machine virtuelle ou de l’ordinateur.
     - ’.*’ effectue la correspondance avec tous les éléments
     - ’ComputerName’ effectue la correspondance avec les ordinateurs présentant le nom exact spécifié uniquement.
-- **AppFilter** est une expression régulière C# obligatoire associée au nom de la machine virtuelle ou de l’ordinateur.
+- **AppFilter** est une expression C# régulière obligatoire du nom du site IIS. Vous pouvez obtenir la liste des sites sur votre serveur en exécutant la commande [get-iissite](https://docs.microsoft.com/powershell/module/iisadministration/get-iissite).
     - ’.*’ effectue la correspondance avec tous les éléments
-    - ’ComputerName’ effectue la correspondance avec les applications IIS présentant le nom exact spécifié uniquement.
+    - « SiteName » correspond uniquement au site IIS portant le nom exact spécifié.
 - **InstrumentationKey** est requis pour activer la surveillance des applications qui correspondent aux deux filtres précédents.
     - Conservez la valeur null si vous souhaitez définir des règles pour exclure la surveillance.
 
@@ -167,9 +167,9 @@ Successfully enabled Application Insights Status Monitor
  Ajoutez des données de télémétrie :
  - [Créez des tests web](monitor-web-app-availability.md) pour vous assurer que votre site reste actif.
 - [Ajoutez la télémétrie de client web](../../azure-monitor/app/javascript.md) pour afficher les exceptions à partir du code de la page web et activer le suivi des appels.
-- [Ajoutez le Kit de développement logiciel (SDK) Application Insights à votre code](../../azure-monitor/app/asp-net.md) afin de pouvoir insérer un suivi et journaliser les appels.
+- [Ajoutez le kit de développement logiciel (SDK) Application Insights à votre code](../../azure-monitor/app/asp-net.md) afin de pouvoir insérer un suivi et journaliser les appels.
  
- Plus d’opérations avec Status Monitor v2 :
+ Plus d’opérations avec Status Monitor v2 :
  - Utilisez notre guide pour [détecter un problème](status-monitor-v2-troubleshoot.md) dans Status Monitor v2.
  - [Obtenez la configuration](status-monitor-v2-api-get-config.md) pour confirmer que vos paramètres ont été enregistrés correctement.
  - [Obtenez l’état](status-monitor-v2-api-get-status.md) pour inspecter la surveillance.

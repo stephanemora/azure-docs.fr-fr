@@ -72,6 +72,8 @@
               href: connect-cisco.md
         - name: Connecter la Threat Intelligence
           href: connect-threat-intelligence.md
+        - name: Connecter des machines virtuelles Azure Stack
+          href: connect-azure-stack.md
     - name: Chasse
       href: hunting.md
       items:

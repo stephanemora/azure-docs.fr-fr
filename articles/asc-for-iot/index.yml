@@ -1,9 +1,9 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Documentation de la préversion d’Azure Security Center pour IoT
+title: Documentation Azure Security Center pour IoT
 metadata:
-  title: 'Documentation de la préversion d’Azure Security Center pour IoT - Tutoriels, guides de démarrage rapide | Microsoft Doc'
-  meta.description: Azure Security Center for IoT unifies your security management and enables advanced threat protection across your IoT solution.
+  title: 'Documentation Azure Security Center pour IoT - Tutoriels, guides de démarrage rapide | Microsoft Doc'
+  meta.description: Azure Security Center for IoT unifies your device security management and enables advanced threat detection and security posture management across your IoT solution.
   services: asc-for-iot
   author: mlottner
   manager: rkarlin
@@ -11,25 +11,25 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 03/26/19
+  ms.date: 07/23/19
   ms.author: rkarlin
 abstract:
-  description: "Utilisez la préversion d’Azure Security Center (ASC) pour IoT afin d’étendre votre vue de cybersécurité existante à l’ensemble de votre solution IoT. Obtenez une vraie vue panoramique de la sécurité de toutes vos ressources Azure. Des options de déploiement rapide et une intégration complète avec les jumeaux de module IoT Hub vous offrent un large éventail d’options de personnalisation et une intégration facile avec vos outils de gestion d’appareil actuels.\_"
+  description: "Utilisez Azure Security Center pour IoT afin d’étendre votre vue de cybersécurité existante à l’ensemble de votre solution IoT. Obtenez une vraie vue panoramique de la sécurité de toutes vos ressources Azure. Des options de déploiement rapide et une intégration complète avec les jumeaux de module IoT Hub vous offrent un large éventail d’options de personnalisation et une intégration facile avec vos outils de gestion d’appareil actuels.\_"
 sections:
   - title: "Démarrages en 5\_minutes"
     items:
       - type: paragraph
-        text: 'Découvrez comment activer votre hub IoT sur ASC pour IoT, installer des agents ASC pour IoT et obtenir une visibilité sur vos données et les menaces potentielles.'
+        text: 'Découvrez comment activer votre hub IoT sur Azure Security Center pour IoT, installer des agents de sécurité et avoir une visibilité sur vos menaces potentielles.'
       - type: list
         style: icon48
         items:
           - image:
               src: media/index/deploy.svg
-            text: Activer ASC pour IoT
+            text: Activer Azure Security Center pour IoT
             href: /azure/asc-for-iot/quickstart-onboard-iot-hub
           - image:
               src: media/index/get-started.svg
-            text: Bien démarrer avec ASC pour IoT
+            text: Bien démarrer avec Azure Security pour IoT
             href: /azure/asc-for-iot/getting-started
   - title: Guides pratiques
     items:
@@ -38,7 +38,7 @@ sections:
       - type: list
         style: unordered
         items:
-          - html: <a href="/azure/asc-for-iot/how-to-investigate-device">Détecter les menaces avec ASC pour IoT</a>
+          - html: <a href="/azure/asc-for-iot/how-to-investigate-device">Détecter les menaces avec Azure Security Center pour IoT</a>
   - title: Développer vos compétences avec Microsoft Learn
     items:
       - type: list
@@ -50,8 +50,17 @@ sections:
             image:
               src: media/index/tutorial.svg
               href: 'https://docs.microsoft.com/learn/azure'
-      - type: paragraph
-        text: <a href="/learn/browse/?term=security">Plus de formations interactives...</a>
+  - title: Vidéos Azure Security Center pour IoT
+    items:
+      - type: list
+        style: cards
+        className: cardsFTitle
+        items:
+          - title: Microsoft Azure Security Center pour IoT - Vue d’ensemble
+            href: 'https://youtu.be/pq5uSp9u_x0'
+            image:
+              src: 'https://docs.microsoft.com/media/common/i_video.svg'
+              href: 'https://youtu.be/pq5uSp9u_x0'
   - title: Informations de référence
     items:
       - type: list

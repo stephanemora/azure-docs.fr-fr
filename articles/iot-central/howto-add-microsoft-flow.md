@@ -8,12 +8,12 @@ ms.date: 04/25/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: hegate
-ms.openlocfilehash: c50271e28db104522c0e8811508fa882dc316eab
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e8bc8b8d4e3585ea4c0505f2e36abc6d1da7f8eb
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66235804"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797722"
 ---
 # <a name="build-workflows-with-the-iot-central-connector-in-microsoft-flow"></a>Créer des flux de travail avec le connecteur IoT Central dans Microsoft Flow
 
@@ -31,7 +31,8 @@ Consultez [ces modèles Microsoft Flow](https://aka.ms/iotcentralflowtemplates) 
 ## <a name="prerequisites"></a>Prérequis
 
 - Application avec paiement à l'utilisation
-- Un compte Microsoft personnel, scolaire ou professionnel pour se connecter à Flow ([En savoir plus sur les plans Microsoft Flow](https://aka.ms/microsoftflowplans))
+- Un compte Microsoft personnel, scolaire ou professionnel pour utiliser Microsoft Flow ([en savoir plus sur les plans Microsoft Flow](https://aka.ms/microsoftflowplans))
+- Un compte professionnel ou scolaire pour utiliser le connecteur Azure IoT Central
 
 ## <a name="trigger-a-workflow"></a>Déclencher un flux de travail
 
@@ -45,7 +46,12 @@ Cette section vous montre comment déclencher une notification mobile dans l’a
 
     ![Modèles Microsoft Flow disponibles](media/howto-add-microsoft-flow/flowtemplates1.png)
 
-1. Vous êtes invité à vous connecter aux connecteurs dans le modèle choisi. Une fois les connecteurs connectés, vous arrivez dans le concepteur pour créer votre flux de travail. Le flux de travail comporte un déclencheur IoT Central où votre application et votre règle sont déjà renseignées.
+1. Vous êtes invité à vous connecter aux connecteurs dans le modèle choisi. 
+
+    > [!NOTE]
+    > Pour utiliser le connecteur Azure IoT Central, vous devez vous connecter à l’aide d’un compte Azure Active Directory (compte professionnel ou scolaire). Lescomptes personnels tels que abc@outlook.com ou abc@live.com ne sont pas pris en charge par le connecteur Azure IoT Central.
+
+    Une fois connecté aux connecteurs, vous arrivez dans le concepteur pour créer votre flux de travail. Le flux de travail comporte un déclencheur IoT Central où votre application et votre règle sont déjà renseignées.
 
 1. Vous pouvez personnaliser le flux de travail en personnalisant les informations envoyées par l’action et en ajoutant de nouvelles actions. Dans cet exemple, l’action est **Notifications - M’envoyer une notification mobile**. Vous pouvez inclure du *contenu dynamique* provenant de votre règle IoT Central, en passant à votre notification des informations importantes, comme le nom de l’appareil et l’horodatage.
 

@@ -7,12 +7,12 @@ ms.date: 05/10/2019
 ms.topic: article
 ms.service: virtual-machines-linux
 manager: gwallace
-ms.openlocfilehash: 16ad2a93c9ff035166a738edba40c99075a6e7ba
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 065962614d0b85c4c50f86bef0b610c9b3577e07
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67671458"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68248154"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>Aperçu : Créer un modèle de générateur d’images Azure 
 
@@ -402,7 +402,7 @@ La sortie de l’image correspond à une ressource d’image managée.
  
 Propriétés de distribution :
 - **type** - managedImage 
-- **imageId** - ID de ressource de l’image de destination, format attendu : /subscriptions/<subscriptionId>/resourceGroups/<destinationResourceGroupName>/providers/Microsoft.Compute/images/<imageName>
+- **imageId** – ID de ressource de l’image de destination, format attendu : /subscriptions/\<subscriptionId>/resourceGroups/\<destinationResourceGroupName>/providers/Microsoft.Compute/images/\<imageName>
 - **location** - Emplacement de l’image managée.  
 - **runOutputName** - Nom unique d’identification de la distribution.  
 - **artifactTags** - Facultatif, balises de paire de valeur de clé spécifiées par l’utilisateur.
@@ -441,7 +441,7 @@ Avant de pouvoir distribuer dans la galerie d’images, vous devez créer une ga
 Propriétés de distribution de galeries d’images partagées :
 
 - **type** - sharedImage  
-- **galleryImageId** - ID de la galerie d’images partagées. Le format est : /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Compute/galleries/<sharedImageGalleryName>/images/<imageGalleryName>.
+- **galleryImageId** - ID de la galerie d’images partagées. Le format est : /subscriptions/\<subscriptionId>/resourceGroups/\<resourceGroupName>/providers/Microsoft.Compute/galleries/\<sharedImageGalleryName>/images/\<imageGalleryName>.
 - **runOutputName** - Nom unique d’identification de la distribution.  
 - **artifactTags** - Facultatif, balises de paire de valeur de clé spécifiées par l’utilisateur.
 - **replicationRegions** - Tableau de régions pour la réplication. Une des régions doit être la région où la galerie est déployée.

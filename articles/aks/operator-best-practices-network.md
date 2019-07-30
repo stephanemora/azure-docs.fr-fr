@@ -2,17 +2,17 @@
 title: Meilleures pratiques de l’opérateur – Connectivité réseau dans Azure Kubernetes Service (AKS)
 description: Découvrez les meilleures pratiques de l’opérateur pour les ressources de réseau virtuel et la connectivité dans Azure Kubernetes Service (AKS).
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/10/2018
-ms.author: iainfou
-ms.openlocfilehash: 2bdc18ba4dc77178d5fcc5d2ba6d89aa109d923c
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.author: mlearned
+ms.openlocfilehash: d1bc865b38b52c8a7c3ac6ec4dab6408a1d0430c
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "65192234"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67614751"
 ---
 # <a name="best-practices-for-network-connectivity-and-security-in-azure-kubernetes-service-aks"></a>Meilleures pratiques pour la connectivité réseau et la sécurité dans Azure Kubernetes Service (AKS)
 
@@ -105,10 +105,10 @@ Les contrôleurs d’entrée doivent être planifiés sur un nœud Linux. Les n�
 
 Il existe de nombreux scénarios pour l’entrée, notamment ceux des guides pratiques suivants :
 
-* [Créer un contrôleur d’entrée de base avec une connectivité réseau externe][aks-ingress-basic]
-* [Créer un contrôleur d’entrée qui utilise un réseau privé interne et une adresse IP][aks-ingress-internal]
+* [Créer un contrôleur d’entrée dans Azure Kubernetes Service (AKS)][aks-ingress-basic]
+* [Create an ingress controller to an internal virtual network in Azure Kubernetes Service (AKS)][aks-ingress-internal] (Créer un contrôleur d’entrée pour un réseau virtuel interne dans Azure Kubernetes Service (AKS))
 * [Créer un contrôleur d’entrée qui utilise vos propres certificats TLS][aks-ingress-own-tls]
-* Créer un contrôleur d’entrée qui utilise Let’s Encrypt pour générer automatiquement des certificats TLS [avec une adresse IP publique dynamique][aks-ingress-tls] ou [avec une adresse IP publique statique][aks-ingress-static-tls]
+* Créer un contrôleur d’entrée qui utilise Let’s Encrypt pour générer automatiquement des certificats TLS [avec une adresse IP publique dynamique][aks-ingress-tls] or [with a static public IP address][aks-ingress-static-tls]
 
 ## <a name="secure-traffic-with-a-web-application-firewall-waf"></a>Sécuriser le trafic avec un pare-feu d’applications web (WAF)
 
@@ -158,7 +158,7 @@ La plupart des opérations effectuées dans AKS peuvent exploiter des outils de 
 
 ![Se connecter à des nœuds AKS à l’aide d’un hôte bastion ou d’une jumpbox](media/operator-best-practices-network/connect-using-bastion-host-simplified.png)
 
-Le réseau de gestion de l’hôte bastion doit lui aussi être sécurisé. Utilisez [Azure ExpressRoute][expressroute] ou une [passerelle VPN][vpn-gateway] pour vous connecter à un réseau local et contrôler l’accès avec des groupes de sécurité réseau.
+Le réseau de gestion de l’hôte bastion doit lui aussi être sécurisé. Utilisez [Azure ExpressRoute][expressroute] or [VPN gateway][vpn-gateway] pour vous connecter à un réseau local et contrôler l’accès avec des groupes de sécurité réseau.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

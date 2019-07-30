@@ -5,17 +5,17 @@ services: sql-data-warehouse
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: ''
-ms.date: 05/13/2019
+ms.date: 07/03/2019
 author: anumjs
 ms.author: anjangsh
 ms.reviewer: jrasnick
 manager: craigg
-ms.openlocfilehash: 9e5f10c2b4c2108626db79ad9821a8b07e57a2e3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ee01ebad9e03aaa34911db49ce344d51b6a756d8
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66417701"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798698"
 ---
 # <a name="azure-sql-data-warehouse-release-notes"></a>Notes de publication pour Azure SQL Data Warehouse
 
@@ -25,9 +25,20 @@ Cet article résume les nouvelles fonctionnalités et améliorations des version
 
 Au fur et à mesure que de nouvelles fonctionnalités sont déployées dans toutes les régions, vérifiez la version déployée dans votre instance et les dernières notes de version d'Azure SQL DW pour connaître la disponibilité des fonctionnalités. Pour vérifier votre version Azure SQL DW, connectez-vous à votre entrepôt de données via SQL Server Management Studio (SSMS) et exécutez `SELECT @@VERSION AS 'SQL Data Warehouse';` pour retourner la version actuelle d'Azure SQL DW.
 
-Exemple de sortie : ![Version de SQL Data Warehouse](./media/release-notes/sql_data_warehouse_version.png)
+Exemple de sortie :
+
+![Version de SQL Data Warehouse](./media/release-notes/sql_data_warehouse_version.png)
 
 Utilisez la date prévue pour confirmer quelle version a été appliquée à votre version d’Azure SQL DW.
+
+## <a name="july-2019"></a>Juillet 2019
+
+| Améliorations du service | Détails |
+| --- | --- |
+|**Vue matérialisée (préversion)**|Une vue matérialisée conserve les données renvoyées par la requête de définition de vue et est automatiquement mise à jour à mesure que les données changent dans les tables sous-jacentes. Elle améliore les performances des requêtes complexes (généralement des requêtes contenant des jointures et agrégations) tout en offrant des opérations de maintenance simples. Pour plus d'informations, consultez les pages suivantes : </br> - [CREATE MATERIALIZED VIEW AS SELECT &#40;Transact-SQL&#41;](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?view=azure-sqldw-latest)</br> - [ALTER MATERIALIZED VIEW &#40;Transact-SQL&#41;](/sql/t-sql/statements/alter-materialized-view-transact-sql?view=azure-sqldw-latest) </br> - [Instructions T-SQL prises en charge dans Azure SQL Data Warehouse](/azure/sql-data-warehouse/sql-data-warehouse-reference-tsql-statements)|
+|**Prise en charge supplémentaire pour T-SQL**|La surface d’exposition au langage T-SQL pour SQL Data Warehouse a été étendue afin d'inclure la prise en charge de : </br> - [AT TIME ZONE](/sql/t-sql/queries/at-time-zone-transact-sql?view=azure-sqldw-latest)</br> - [STRING_AGG](/sql/t-sql/functions/string-agg-transact-sql?view=azure-sqldw-latest)|
+|**Mise en cache de jeu de résultats (Préversion)**|Commandes DBCC ajoutées pour gérer le cache du jeu de résultats annoncé précédemment. Pour plus d'informations, consultez les pages suivantes : </br> - [DBCC DROPRESULTSETCACHE &#40;Transact-SQL&#41;](/sql/t-sql/database-console-commands/dbcc-dropresultsetcache-transact-sql?view=azure-sqldw-latest)  </br> - [DBCC SHOWRESULTCACHESPACEUSED &#40;Transact-SQL&#41;](/sql/t-sql/database-console-commands/dbcc-showresultcachespaceused-transact-sql?view=azure-sqldw-latest) </br></br> Voir également la nouvelle colonne result_set_cache dans [ sys.dm_pdw_exec_requests ](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?view=azure-sqldw-latest), qui indique quand une requête exécutée à utilisé le cache du jeu de résultats.|
+|**Index columnstore en cluster ordonné (préversion)**|Nouvelle colonne, column_store_order_ordinal, ajoutée à [ sys.index_columns ](/sql/relational-databases/system-catalog-views/sys-index-columns-transact-sql?view=azure-sqldw-latest) pour identifier l’ordre des colonnes dans un index columstore en cluster ordonné.|
 
 ## <a name="may-2019"></a>Mai 2019
 

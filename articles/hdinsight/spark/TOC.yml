@@ -50,6 +50,18 @@
       href: ../hdinsight-version-release.md
     - name: Superviser la disponibilité de cluster avec les journaux Azure Monitor et Ambari
       href: ../hdinsight-cluster-availability.md
+    - name: Résolution des problèmes
+      items:
+        - name: Exception OutOfMemoryError
+          items:
+            - name: Mémoire du tas insuffisante
+              href: ./apache-spark-troubleshoot-outofmemory-heap.md
+        - name: Exception IllegalArgumentException
+          href: ./apache-spark-troubleshoot-illegalargumentexception.md
+        - name: Arrêt de l’application Apache Spark Streaming
+          href: ./apache-spark-troubleshoot-application-stops.md
+        - name: Exception RpcTimeoutException
+          href: ./apache-spark-troubleshoot-rpctimeoutexception.md
 - name: Procédures
   items:
     - name: Utiliser le stockage de cluster

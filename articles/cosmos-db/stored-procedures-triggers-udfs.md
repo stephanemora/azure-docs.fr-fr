@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/14/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 529c536d9ea3b898745f03c80b63702b2af485da
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 53ff318dcc034fb11e2d554f9ad8e8814eb32879
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67165576"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67672584"
 ---
 # <a name="stored-procedures-triggers-and-user-defined-functions"></a>Procédures stockées, déclencheurs et fonctions définies par l’utilisateur
 
@@ -37,7 +37,7 @@ L’écriture de procédures stockées, déclencheurs et fonctions définies par
 * **Encapsulation :** Les procédures stockées peuvent être utilisées pour regrouper la logique à un endroit. L’encapsulation ajoute une couche d'abstraction aux données, ce qui vous permet de faire évoluer vos applications indépendamment des données. Cette couche d’abstraction est utile lorsque les données sont sans schéma et que vous n’êtes pas obligé de gérer l’ajout d’une logique supplémentaire directement dans votre application. L’abstraction vous permet d'assurer la sécurité de vos données en simplifiant l'accès à partir des scripts.
 
 > [!TIP]
-> Les procédures stockées sont idéales pour les opérations exigeantes en écriture. Lorsque vous décidez où utiliser des procédures stockées, optimisez en encapsulant la quantité maximale d’écritures possibles. En règle générale, les procédures stockées ne sont pas le moyen le plus efficace pour effectuer un grand nombre d’opérations de lecture, donc l’utilisation de procédures stockées pour traiter par lot un grand nombre de lectures à retourner au client n’a pas l’avantage désiré.
+> Les procédures stockées conviennent parfaitement pour des opérations intenses en écriture et nécessitant une transaction sur une valeur de clé de partition. Lorsque vous décidez d’utiliser des procédures stockées, optimisez en encapsulant la quantité maximale d’écritures possibles. En règle générale, les procédures stockées ne sont pas le moyen le plus efficace pour effectuer un grand nombre d’opérations de lecture ou de requête. L’utilisation de procédures stockées pour traiter par lot un grand nombre de lectures à retourner au client n’offre donc pas l’avantage souhaité. Pour des performances optimales, ces opérations intenses en lecture doivent être effectuées côté client à l’aide du Kit de développement logiciel (SDK) Cosmos. 
 
 ## <a name="transactions"></a>Transactions
 

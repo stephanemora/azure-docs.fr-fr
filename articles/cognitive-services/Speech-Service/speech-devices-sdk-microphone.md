@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 07/16/2019
 ms.author: erhopf
-ms.openlocfilehash: 121e94228ca85684b20f2ee43c0f7fa3af82fc73
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: cb30b476471e140f96fa1d159e9a16898f529607
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606332"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68277491"
 ---
 # <a name="speech-devices-sdk-microphone-array-recommendations"></a>Recommandations sur le réseau de microphones pour le SDK Speech Devices
 
@@ -43,34 +43,34 @@ Les propriétés recommandées lors de la sélection des microphones sont les su
 
 | Paramètre                         | Recommandé                       |
 |-----------------------------------|-----------------------------------|
-| SNR                               | \> 65 dB (signal 1 kHz 94 dBSPL, bruit avec pondération A)   |
+| SNR                               | \> = 65 dB (signal 1 kHz 94 dBSPL, bruit avec pondération A)   |
 | Mise en correspondance de l’amplitude                | ± 1 dB @ 1 kHz                     |
 | Mise en correspondance de la phase                    | ± 2° @ 1 kHz                       |
-| Acoustic Overload Point (AOP)     | \> 120 dBSPL (THD = 10%)          |
+| Acoustic Overload Point (AOP)     | \> = 120 dBSPL (THD = 10%)          |
 | Vitesse de transmission                          | 24 bits minimum                    |
 | Taux d’échantillonnage                     | 16 kHz minimum\*                   |
-| Directivité                       | Omnidirectionnelle                   |
 | Réponse en fréquence                | ± 3 dB, 200-8000 Hz avec masque flottant\*|
 | Fiabilité                       | Plage de température de stockage de -40°C à 70°C<br />Plage de température de fonctionnement de -20°C à 55°C  |
 
-*\*Des taux d'échantillonnage plus élevés ou des gammes de fréquences « plus larges » peuvent être nécessaires pour des applications de communications de haute qualité (VoIP)*
+*\*Des taux d’échantillonnage plus élevés ou des gammes de fréquences « plus larges » peuvent être nécessaires pour des applications de communications de haute qualité (VoIP)*
 
 Une bonne sélection des composants doit s'accompagner d'une bonne intégration électroacoustique afin de ne pas nuire aux performances des composants utilisés. Des cas d'utilisation uniques peuvent également nécessiter des exigences supplémentaires (plages de température de fonctionnement, par exemple).
 
 ## <a name="microphone-array-integration"></a>Intégration du réseau de microphones
 
-Les performances des réseaux intégrés à un appareil et après un gain fixe ou un égaliseur doivent répondre aux recommandations suivantes :
+Les performances du réseau de microphones lorsqu’il est intégré à un appareil diffèrent de la spécification du composant. Il est important de s’assurer que les microphones sont bien mis en correspondance après l’intégration. Par conséquent, les performances de l’appareil mesurées après un gain fixe ou un égaliseur doivent répondre aux recommandations suivantes :
 
 |  Paramètre        |    Recommandé |
 |--------------------|----------------------------------------------------|
-|  SNR                 | \> 65 dB (signal 1 kHz 94 dBSPL, bruit avec pondération A) |
+|  SNR                 | \> 63 dB (signal 1 kHz 94 dBSPL, bruit avec pondération A) |
 |  Sensibilité en sortie  | -26 dBFS/Pa @ 1 kHz (recommandé) |
 |  Mise en correspondance de l’amplitude  | ± 2 dB, 200-8000 Hz |
-|  Mise en correspondance de la phase      | ± 5°, 200-8000 Hz |
-| % THD                 | ≤ 1 %, 200-8000 Hz, 94 dBSPL, 5e ordre |
-|  Réponse en fréquence  | ± 6 dB, 200-8000 Hz avec masque flottant\* |
+| THD%\*                 | ≤ 1 %, 200-8000 Hz, 94 dBSPL, 5e ordre |
+|  Réponse en fréquence  | ± 6 dB, 200-8000 Hz avec masque flottant\*\* |
 
-*\*Des gammes de fréquences « plus larges » peuvent être nécessaires pour des applications de communications de haute qualité (VoIP)*
+*\*\* Un haut-parleur à faible distorsion est requis pour mesurer le THD (par exemple, un Neumann KH120)*
+
+*\*\*Des gammes de fréquences « plus larges » peuvent être nécessaires pour des applications de communications de haute qualité (VoIP)*
 
 ## <a name="speaker-integration-recommendations"></a>Recommandations d’intégration du haut-parleur
 

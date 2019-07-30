@@ -1,5 +1,5 @@
 ---
-title: Exemples de code de la plateforme d’identité Microsoft | Microsoft Docs
+title: Exemples de code pour la plateforme d’identité Microsoft | Microsoft Docs
 description: Fournit un index des exemples de code de la plateforme d’identité Microsoft (point de terminaison v2.0) disponibles, organisés par scénario.
 services: active-directory
 documentationcenter: dev-center-name
@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/26/2018
+ms.date: 07/15/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ceae71766c3e51a84cd09e8ac88740353e783bea
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: f2e15bb8a069289a695643b3d7dc2e4b81d9b91d
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67482515"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68277865"
 ---
 # <a name="microsoft-identity-platform-code-samples-v20-endpoint"></a>Exemples de code de la plateforme d’identité Microsoft (point de terminaison v2.0)
 

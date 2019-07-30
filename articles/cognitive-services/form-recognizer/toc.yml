@@ -7,22 +7,22 @@
 - name: Démarrages rapides
   expaned: true
   items:
-    - name: Entraîner un modèle personnalisé et extraire des données
+    - name: Utilisation de l’API REST
       items:
-        - name: Utilisation de l’API REST
+        - name: Entraîner un modèle personnalisé et extraire des données
           items:
             - name: cURL
               href: quickstarts/curl-train-extract.md
             - name: Python
               href: quickstarts/python-train-extract.md
-    - name: Utiliser le modèle de reçu prédéfini
-      items:
-        - name: Utilisation de l’API REST
+        - name: Utiliser le modèle de reçu prédéfini
           items:
             - name: cURL
               href: quickstarts/curl-receipts.md
             - name: Python
               href: quickstarts/python-receipts.md
+    - name: Utilisation du kit de développement logiciel (SDK) .NET
+      href: quickstarts/dotnet-sdk.md
 - name: Guides pratiques
   items:
     - name: Créer un jeu de données d’entraînement

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: bwren
-ms.openlocfilehash: 5843ee11a615a2780e9fea2d89f7b18fb45706d8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 05d9dc8f676589dcb301c19b0a2e80e9fd4c1fa0
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65604360"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68249744"
 ---
 # <a name="collect-iis-logs-in-azure-monitor"></a>Collecter des journaux d’activité IIS dans Azure Monitor
 Internet Information Services (IIS) enregistre l'activité des utilisateurs dans des fichiers journaux qui peuvent être collectés par Azure Monitor et stockés en tant que [données de journal](data-platform.md).
@@ -34,7 +34,7 @@ Configurez les journaux d’activité IIS dans Azure Monitor à partir du [menu 
 
 
 ## <a name="data-collection"></a>Collecte des données
-Azure Monitor collecte les entrées de journal IIS à partir de chaque agent, à chaque fois que le journal est fermé et qu’un nouveau est créé. Cette fréquence est contrôlée par le paramètre de **planification de la substitution de fichier journal** pour le site IIS qui est, par défaut, défini sur une fois par jour. Par exemple, si le paramètre est **horaire**, Azure Monitor collecte le journal toutes les heures.  Si le paramètre est **quotidien**, Azure Monitor collecte le journal toutes les 24 heures.
+Azure Monitor collecte les entrées de journal IIS à partir de chaque agent, à chaque fois que l’horodateur du journal est modifié ou qu’un fichier est créé. Le journal est lu toutes les 5 minutes. Cette fréquence de création de fichier est contrôlée par le paramètre de **planification de la substitution de fichier journal** pour le site IIS qui est, par défaut, défini sur une fois par jour. Si, pour une raison quelconque, IIS ne met pas à jour l’horodateur avant l’heure de substitution, si le paramètre est **Horaire**, Azure Monitor collecte le journal toutes les heures. Si le paramètre est **Quotidien**, Azure Monitor collecte le journal toutes les 24 heures.
 
 
 ## <a name="iis-log-record-properties"></a>Propriétés d’enregistrement de journal IIS
@@ -42,7 +42,7 @@ Les enregistrements de journal IIS sont de type **W3CIISLog** et leurs propriét
 
 | Propriété | Description |
 |:--- |:--- |
-| Ordinateur |Nom de l'ordinateur à partir duquel l'événement a été collecté. |
+| Computer |Nom de l'ordinateur à partir duquel l'événement a été collecté. |
 | cIP |Adresse IP du client. |
 | csMethod |Méthode de la requête, par exemple GET ou POST. |
 | csReferer |Site à partir duquel l'utilisateur a suivi un lien vers le site actuel. |

@@ -4,15 +4,15 @@ description: Cet article fournit des informations sur la configuration des limit
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.date: 5/15/2019
+ms.date: 7/17/2019
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 272c6d2de23b1e89caef3f9bee20a96c5c196cde
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: e13884fb0c39beabf543fd04c9808373a68ec26a
+ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67275179"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68304303"
 ---
 # <a name="web-application-firewall-request-size-limits-and-exclusion-lists"></a>Limites de la taille des demandes adressées au pare-feu d’application web et listes d’exclusions
 
@@ -35,7 +35,7 @@ Le WAF offre également un bouton configurable qui permet d’activer ou de dés
 
 Les listes d’exclusion du WAF vous permettent d’omettre certains attributs de la demande dans une évaluation par le WAF. À titre d’exemple courant, citons les jetons Active Directory insérés qui sont utilisés pour les champs d’authentification ou de mot de passe. Ces attributs sont sujets à contenir des caractères spéciaux qui peuvent déclencher un faux positif dans les règles du pare-feu d’applications web. Une fois ajouté à la liste d’exclusions du WAF, un attribut n’est pris en considération par aucune règle du pare-feu d’applications web configurée et active. Les listes d’exclusions ont une portée globale.
 
-Les attributs qui suivent peuvent être ajoutés aux listes d’exclusion. Les valeurs du champ choisi ne sont pas évaluées par rapport aux règles de pare-feu d’applications web. Les listes d’exclusion suppriment l’inspection de la valeur du champ.
+Les attributs qui suivent peuvent être ajoutés aux listes d’exclusion par nom. Les valeurs du champ choisi ne sont pas évaluées par rapport aux règles WAF, mais leurs noms le sont toujours (voir l’Exemple 1 ci-dessous, où la valeur de l’en-tête User-Agent est exclue de l’évaluation WAF). Les listes d’exclusion suppriment l’inspection de la valeur du champ.
 
 * En-têtes de demande
 * Cookies de requête
@@ -46,7 +46,7 @@ Les attributs qui suivent peuvent être ajoutés aux listes d’exclusion. Les v
    * Entité JSON
    * Arguments de chaîne de requête de l’URL
 
-Vous pouvez spécifier une correspondance exacte avec l'en-tête ou le corps d'une requête, un cookie ou un attribut de chaîne de requête  ou spécifier des correspondances partielles. L'exclusion porte toujours sur un champ d'en-tête, jamais sur sa valeur. Les règles d'exclusion ont une portée globale, et s'appliquent à toutes les pages et à toutes les règles.
+Vous pouvez spécifier une correspondance exacte avec l'en-tête ou le corps d'une requête, un cookie ou un attribut de chaîne de requête  ou spécifier des correspondances partielles. Les règles d'exclusion ont une portée globale, et s'appliquent à toutes les pages et à toutes les règles.
 
 Voici les opérateurs de critères de correspondance pris en charge :
 
@@ -57,6 +57,9 @@ Voici les opérateurs de critères de correspondance pris en charge :
 - **Est égal à** : Cet opérateur correspond à tous les champs de la requête. * sera la valeur du sélecteur.
 
 Dans tous les cas, la correspondance respecte la casse, et les expressions régulières ne sont pas autorisées en guise de sélecteurs.
+
+> [!NOTE]
+> Si vous souhaitez en savoir plus et obtenir de l’aide, veuillez consulter la section [Résolution des problèmes WAF](web-application-firewall-troubleshoot.md).
 
 ### <a name="examples"></a>Exemples
 

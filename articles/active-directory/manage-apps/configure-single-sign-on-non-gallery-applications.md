@@ -12,12 +12,12 @@ ms.date: 05/08/2019
 ms.author: celested
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 95b7cbcf4e485dc93d49b9559dcb7d0d4f597ebe
-ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
+ms.openlocfilehash: a72cb7bc7feeba984d568a0465d4f23a494496e8
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67550347"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807646"
 ---
 # <a name="configure-single-sign-on-to-non-gallery-applications-in-microsoft-identity-platform"></a>Configurer l’authentification unique sur des applications hors galerie dans la plateforme d’identité Microsoft
 
@@ -50,13 +50,14 @@ Pour inscrire des applications ayant recours à tous les autres [mécanismes d�
 Pour connecter une application non répertoriée à l’aide d’un modèle d’intégration d’application, procédez comme suit :
 
 1. Connectez-vous au [Portail Azure Active Directory](https://aad.portal.azure.com/) à l’aide de votre compte d’administrateur de plateforme d’identité Microsoft.
-2. Sélectionnez **Applications d’entreprise** > **Nouvelle application**.
-3. (Facultatif mais recommandé) Dans la zone de recherche **Ajouter à partir de la galerie**, entrez le nom complet de l’application. Si l’application apparaît dans les résultats de recherche, sélectionnez-la et ignorez le reste de cette procédure.
-4. Sélectionnez **Application ne figurant pas dans la galerie**. La page **Ajouter votre propre application** s’affiche.
+1. Sélectionnez **Applications d’entreprise** > **Nouvelle application**.
+1. (Facultatif mais recommandé) Dans la zone de recherche **Ajouter à partir de la galerie**, entrez le nom complet de l’application. Si l’application apparaît dans les résultats de recherche, sélectionnez-la et ignorez le reste de cette procédure.
+1. Sélectionnez **Application ne figurant pas dans la galerie**. La page **Ajouter votre propre application** s’affiche.
 
-   ![Ajouter l’application](./media/configure-single-sign-on-non-gallery-applications/add-your-own-application.png)
-5. Entrez le nom complet de votre nouvelle application.
-6. Sélectionnez **Ajouter**.
+   ![Affiche la page Ajouter votre propre application](./media/configure-single-sign-on-non-gallery-applications/add-your-own-application.png)
+
+1. Entrez le nom complet de votre nouvelle application.
+1. Sélectionnez **Ajouter**.
 
 En ajoutant une application de cette manière, vous offrez une expérience similaire à celle des applications préintégrées. Dans la barre latérale de l’application, commencez par sélectionner **Authentification unique**. La page suivante (**Sélectionner une méthode d’authentification unique**) présente les options de configuration de l’authentification unique :
 
@@ -64,7 +65,7 @@ En ajoutant une application de cette manière, vous offrez une expérience simil
 - **Par mot de passe**
 - **Liée**
 
-![Sélectionner une méthode d’authentification unique](./media/configure-single-sign-on-non-gallery-applications/select-a-single-sign-on-method.png)
+![Affiche la page Sélectionner une méthode d’authentification unique](./media/configure-single-sign-on-non-gallery-applications/select-a-single-sign-on-method.png)
 
 Pour plus d’informations sur ces options, consultez les sections suivantes de cet article.
 
@@ -72,7 +73,7 @@ Pour plus d’informations sur ces options, consultez les sections suivantes de 
 
 Sélectionnez l’option **SAML** pour configurer l’authentification basée sur ce protocole pour l’application. (Si vous choisissez cette option, l’application doit prendre en charge le protocole SAML 2.0.) La page **Configurer l’authentification unique avec SAML** s’affiche.
 
-![Configurer l’authentification unique avec SAML](./media/configure-single-sign-on-non-gallery-applications/set-up-single-sign-on-with-saml.png)
+![Affiche la page Configurer l’authentification unique avec SAML](./media/configure-single-sign-on-non-gallery-applications/set-up-single-sign-on-with-saml.png)
 
 Cette page contient cinq rubriques différentes :
 
@@ -90,7 +91,7 @@ Recueillez à présent des informations sur la façon d’utiliser les fonctionn
 
 Pour configurer Azure AD, accédez à la rubrique **Configuration SAML de base** et sélectionnez l’icône **Modifier** (crayon). Vous pouvez entrer manuellement les valeurs ou charger un fichier de métadonnées pour extraire la valeur des champs.
 
-![Configuration SAML de base](./media/configure-single-sign-on-non-gallery-applications/basic-saml-configuration.png)
+![Affiche la page Configuration SAML de base](./media/configure-single-sign-on-non-gallery-applications/basic-saml-configuration.png)
 
 Les deux champs suivants sont obligatoires :
 
@@ -141,7 +142,7 @@ Pour afficher ou modifier les revendications envoyées dans le jeton SAML à l�
 
 - Accédez à la rubrique **Attributs utilisateur et revendications** et sélectionnez l’icône **Modifier**. La page **Attributs utilisateur et revendications** s’affiche.
 
-![Attributs utilisateur et revendications](./media/configure-single-sign-on-non-gallery-applications/user-attributes-and-claims.png)
+![Affiche la page Attributs utilisateur et revendications](./media/configure-single-sign-on-non-gallery-applications/user-attributes-and-claims.png)
 
 Vous pourrez avoir à modifier les revendications émises dans le jeton SAML pour deux raisons :
 
@@ -158,7 +159,7 @@ Depuis Azure AD, vous pouvez télécharger le certificat actif au format Base64 
 
 Pour afficher, créer ou télécharger vos certificats (actifs ou inactifs), accédez à la rubrique **Certificat de signature SAML** et sélectionnez l’icône **Modifier**. Le **Certificat de signature SAML** s’affiche.
 
-![Certificat de signature SAML](./media/configure-single-sign-on-non-gallery-applications/saml-signing-certificate.png)
+![Affiche la page Certificat de signature SAML](./media/configure-single-sign-on-non-gallery-applications/saml-signing-certificate.png)
 
 Vérifiez que le certificat comporte :
 
@@ -182,13 +183,13 @@ Une fois votre application configurée pour utiliser Azure AD comme fournisseur 
 Pour affecter un nouvel utilisateur ou un nouveau groupe à votre application :
 
 1. Dans la barre latérale de l’application, sélectionnez **Utilisateurs et groupes**. La page **\<nom de l’application> - Utilisateurs et groupes** s’affiche. Elle contient la liste actuelle des utilisateurs et groupes affectés.
-2. Sélectionnez **Ajouter des utilisateurs**. La page **Ajouter des affectations** s’affiche.
-3. Sélectionnez **Utilisateurs et groupes (\<Nombre> Sélectionné)** . La page **Utilisateurs et groupes** s’affiche. Elle contient une liste des utilisateurs et groupes disponibles.
-4. Tapez du texte ou faites défiler la liste pour trouver l’utilisateur ou le groupe à affecter.
-5. Sélectionnez chaque utilisateur ou groupe à ajouter, puis cliquez sur le bouton **Sélectionner**. La page **Utilisateurs et groupes** disparaît.
-6. Dans la page **Ajouter des affectations**, sélectionnez **Affecter**. La page **\<nom de l’application > - Utilisateurs et groupes** s’affiche. Les utilisateurs supplémentaires sont affichés dans la liste.
+1. Sélectionnez **Ajouter des utilisateurs**. La page **Ajouter des affectations** s’affiche.
+1. Sélectionnez **Utilisateurs et groupes (\<Nombre> Sélectionné)** . La page **Utilisateurs et groupes** s’affiche. Elle contient une liste des utilisateurs et groupes disponibles.
+1. Tapez du texte ou faites défiler la liste pour trouver l’utilisateur ou le groupe à affecter.
+1. Sélectionnez chaque utilisateur ou groupe à ajouter, puis cliquez sur le bouton **Sélectionner**. La page **Utilisateurs et groupes** disparaît.
+1. Dans la page **Ajouter des affectations**, sélectionnez **Affecter**. La page **\<nom de l’application > - Utilisateurs et groupes** s’affiche. Les utilisateurs supplémentaires sont affichés dans la liste.
 
-   ![Utilisateurs et groupes de l’application](./media/configure-single-sign-on-non-gallery-applications/application-users-and-groups.png)
+   ![Affiche la page Utilisateurs et groupes de l’application](./media/configure-single-sign-on-non-gallery-applications/application-users-and-groups.png)
 
 Depuis cette liste, vous pouvez :
 
@@ -213,26 +214,29 @@ Sélectionnez cette option pour configurer l’[authentification unique basée s
 
 Après avoir sélectionné **Authentification par mot de passe**, vous serez invité à entrer l’URL de la page de connexion web de l’application.
 
-![Authentification unique par mot de passe](./media/configure-single-sign-on-non-gallery-applications/password-based-sso.png)
+![Affiche la page URL de connexion pour entrer l’URL de connexion](./media/configure-single-sign-on-non-gallery-applications/password-based-sso.png)
 
 Effectuez ensuite les étapes suivantes :
 
 1. Entrez l’URL. Il doit s’agir de la page qui contient le champ d’entrée du nom d’utilisateur.
-2. Sélectionnez **Enregistrer**. Azure AD tente d’analyser la page de connexion à la recherche d’entrées de nom d’utilisateur et de mot de passe.
-3. Si la tentative d’analyse Azure AD échoue, sélectionnez **Configurer les paramètres d’authentification unique par mot de passe \<nom de l’application>** pour afficher la page **Configurer l’authentification**. (Si la tentative réussit, vous pouvez ignorer le reste de cette procédure.)
-4. Sélectionnez **Détecter manuellement les champs de connexion**. Des instructions supplémentaires décrivant la détection manuelle des champs de connexion s’affichent.
+1. Sélectionnez **Enregistrer**. Azure AD tente d’analyser la page de connexion à la recherche d’entrées de nom d’utilisateur et de mot de passe.
+1. Si la tentative d’analyse Azure AD échoue, sélectionnez **Configurer les paramètres d’authentification unique par mot de passe \<nom de l’application>** pour afficher la page **Configurer l’authentification**. (Si la tentative réussit, vous pouvez ignorer le reste de cette procédure.)
+1. Sélectionnez **Détecter manuellement les champs de connexion**. Des instructions supplémentaires décrivant la détection manuelle des champs de connexion s’affichent.
 
    ![Configuration manuelle de l’authentification unique par mot de passe](./media/configure-single-sign-on-non-gallery-applications/password-configure-sign-on.png)
-5. Sélectionnez **Capturer les champs de connexion**. Une page d’état de la capture s’ouvre dans un nouvel onglet affichant le message **Capture des métadonnées en cours**.
-6. Si la mention **Extension Volet d’accès requise** s’affiche dans un nouvel onglet, sélectionnez **Installer maintenant** pour installer l’extension de navigateur **My Apps Secure Sign-in Extension**. (Cette extension de navigateur est compatible avec Microsoft Edge, Chrome ou Firefox.) Ensuite, installez, lancez et activez l’extension, puis actualisez la page d’état de la capture.
+
+1. Sélectionnez **Capturer les champs de connexion**. Une page d’état de la capture s’ouvre dans un nouvel onglet affichant le message **Capture des métadonnées en cours**.
+1. Si la mention **Extension Volet d’accès requise** s’affiche dans un nouvel onglet, sélectionnez **Installer maintenant** pour installer l’extension de navigateur **My Apps Secure Sign-in Extension**. (Cette extension de navigateur est compatible avec Microsoft Edge, Chrome ou Firefox.) Ensuite, installez, lancez et activez l’extension, puis actualisez la page d’état de la capture.
 
    L’extension de navigateur ouvre ensuite un nouvel onglet qui affiche l’URL entrée.
-7. Dans l’onglet contenant l’URL saisie, suivez le processus de connexion. Renseignez les champs de nom d’utilisateur et de mot de passe et essayez de vous connecter. (Vous n’êtes pas obligé de fournir le mot de passe correct.)
+
+1. Dans l’onglet contenant l’URL saisie, suivez le processus de connexion. Renseignez les champs de nom d’utilisateur et de mot de passe et essayez de vous connecter. (Vous n’êtes pas obligé de fournir le mot de passe correct.)
 
    Un message vous invite à enregistrer les champs de connexion capturés.
-8. Sélectionnez **OK**. L’onglet se ferme, l’extension de navigateur met à jour la page d’état de la capture avec le message **Les métadonnées ont été mises à jour pour l’application**, puis cet onglet se ferme à son tour.
-9. Dans la page Azure AD **Configurer l’authentification**, sélectionnez **J’ai pu me connecter à l’application**.
-10. Sélectionnez **OK**.
+
+1. Sélectionnez **OK**. L’onglet se ferme, l’extension de navigateur met à jour la page d’état de la capture avec le message **Les métadonnées ont été mises à jour pour l’application**, puis cet onglet se ferme à son tour.
+1. Dans la page Azure AD **Configurer l’authentification**, sélectionnez **J’ai pu me connecter à l’application**.
+1. Sélectionnez **OK**.
 
 Après la capture de la page de connexion, vous pouvez affecter des utilisateurs et des groupes, et vous pouvez configurer des stratégies d’informations d’identification comme pour les [applications avec authentification unique par mot de passe](what-is-single-sign-on.md) standard.
 

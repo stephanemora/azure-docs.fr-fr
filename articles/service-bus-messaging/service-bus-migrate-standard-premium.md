@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2019
 ms.author: aschhab
-ms.openlocfilehash: 65c207b4d03e7d156c8c871a3642601fd0489ead
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 57ab281e8d07537c22bd3cf60306dfb1c7e81541
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65991415"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67566078"
 ---
 # <a name="migrate-existing-azure-service-bus-standard-namespaces-to-the-premium-tier"></a>Migrer des espaces de noms Standard Service Bus existants vers le niveau Premium
 Auparavant, Azure Service Bus offrait des espaces de noms uniquement pour le niveau Standard. Les espaces de noms sont des configurations multi-locataires optimisées pour les environnements à faible débit et les environnements de développement. Le niveau Premium offre des ressources dédiées par espace de noms pour une latence prévisible et un débit accru à un prix fixe. Le niveau Premium est optimisé pour les environnements à haut débit et de production qui nécessitent des fonctionnalités d’entreprise supplémentaires.
@@ -116,7 +116,29 @@ La migration à l’aide du portail Azure suit le même flux logique que la migr
 
 1. Examinez les changements sur la page Résumé. Sélectionnez **Terminer la migration** pour changer d'espace de noms et terminer la migration.
     ![Changer d'espace de noms - changer de menu][] La page de confirmation s'affiche lorsque la migration est terminée.
-    ![Changer d’espace de noms - réussite][]
+    ![Changer d'espace de noms - réussite][]
+
+## <a name="caveats"></a>Mises en garde
+
+Certaines des fonctionnalités fournies par le niveau Azure Service Bus Standard ne sont pas prises en charge par le niveau Azure Service Bus Premium. Cela est intentionnel, car le niveau Premium offre des ressources dédiées pour un débit et une latence prévisibles.
+
+Voici la liste des fonctionnalités non prises en charge par le niveau Premium et la manière dont elles sont traitées – 
+
+### <a name="express-entities"></a>Entités Express
+
+   Les entités Express qui n’enregistrent aucune donnée de message dans le stockage ne sont pas prises en charge au niveau Premium. Les ressources dédiées ont permis d’améliorer considérablement le débit tout en garantissant une persistance des données, telle qu’on peut l’attendre de tout système de messagerie d’entreprise.
+   
+   Durant la migration, toutes les entités Express dans votre espace de noms Standard sont créées sur l’espace de noms Premium en tant qu’entités non-Express.
+   
+   Si vous utilisez des modèles Azure Resource Manager (ARM), veillez à supprimer l’indicateur « enableExpress » de la configuration du déploiement afin que vos flux de travail automatisés s’exécutent sans erreur.
+
+### <a name="partitioned-entities"></a>Entités partitionnées
+
+   Les entités partitionnées étaient prises en charge au niveau Standard pour offrir une meilleure disponibilité dans une configuration multi-locataire. Avec l’approvisionnement de ressources dédiées disponibles par espace de noms au niveau Premium, cela n’est plus nécessaire.
+   
+   Pendant la migration, toute entité partitionnée dans l’espace de noms Standard est créée sur l’espace de noms Premium en tant qu’entité non partitionnée.
+   
+   Si votre modèle ARM définit « enablePartitioning » sur « true » pour une file d’attente ou une rubrique spécifiques, le répartiteur l’ignore.
 
 ## <a name="faqs"></a>FAQ
 
@@ -148,7 +170,7 @@ Non, aucun changement de code ou de configuration n'est nécessaire pour effectu
 ### <a name="what-happens-when-i-abort-the-migration"></a>Que se passe-t-il lorsque j'annule la migration ?
 La migration peut être interrompue en utilisant la commande `Abort` ou à l’aide du portail Azure. 
 
-#### <a name="azure-cli"></a>Azure CLI
+#### <a name="azure-cli"></a>D’Azure CLI
 
 ```azurecli
 az servicebus migration abort --resource-group $resourceGroup --name $standardNamespace

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 296486755f0935e4eb8dcdb663da46ef60ef38bc
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 356f795a1138ac6cd94097de71623095bceb92a3
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67441008"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68227345"
 ---
 # <a name="planning-a-cloud-based-azure-multi-factor-authentication-deployment"></a>Planification d’un déploiement Azure Multi-Factor Authentication basé sur le cloud
 
@@ -272,7 +272,7 @@ Certaines applications héritées et locales qui ne s’authentifient pas direct
 
 * Applications locales héritées, qui devront utiliser le proxy d’application.
 * Applications RADIUS locales, qui devront utiliser l’adaptateur MFA avec un serveur NPS.
-* Applications AD FS locales, qui devront utiliser l’adaptateur MFA avec AD FS 2016.
+* Applications AD FS locales, qui devront utiliser l’adaptateur MFA avec AD FS 2016 ou version ultérieure.
 
 Les applications qui s’authentifient directement auprès d’Azure AD et disposent d’une authentification moderne (WS-Fed, SAML, OAuth, OpenID Connect) peuvent tirer parti des stratégies d’accès conditionnel sans intermédiaire.
 
@@ -291,7 +291,7 @@ L’extension de serveur NPS (Network Policy Server) pour Azure MFA permet d’a
 * Avec le protocole CHAPv2, seuls les appels vocaux et les notifications Push de l’application d’authentification sont pris en charge.
 * Les stratégies d’accès conditionnel ne peuvent pas être appliquées.
 
-L’extension NPS joue le rôle d’adaptateur entre RADIUS et Azure MFA basé sur le cloud pour fournir un second facteur d’authentification et protéger le [VPN](howto-mfa-nps-extension-vpn.md), les [connexions de passerelle des services Bureau à distance](howto-mfa-nps-extension-rdg.md) ou les autres applications compatibles avec RADIUS. Les utilisateurs qui s’inscrivent à Azure MFA dans cet environnement devront justifier toutes les tentatives d’authentification. L’absence de stratégies d’accès conditionnel signifient que l’authentification multifacteur est toujours requise.
+L’extension NPS joue le rôle d’adaptateur entre RADIUS et Azure MFA basé sur le cloud pour fournir un second facteur d’authentification et protéger le [VPN](howto-mfa-nps-extension-vpn.md), les [connexions de passerelle des services Bureau à distance](howto-mfa-nps-extension-rdg.md) ou les autres applications compatibles avec RADIUS. Les utilisateurs qui s’inscrivent à Azure MFA dans cet environnement devront justifier toutes les tentatives d’authentification. L’absence de stratégies d’accès conditionnel signifie que l’authentification multifacteur est toujours requise.
 
 #### <a name="implementing-your-nps-server"></a>Implémentation de votre serveur NPS (Network Policy Server)
 
@@ -322,13 +322,13 @@ Contrairement à AD FS dans Windows Server 2012 R2, l’adaptateur AD FS 20
 
 Lors de l’utilisation d’Azure MFA avec AD FS 2016 et quand l’application cible est soumise à la stratégie d’accès conditionnel, il existe des considérations supplémentaires :
 
-* L’accès conditionnel est disponible lorsque l’application est une partie de confiance pour Azure AD, fédérée avec AD FS 2016.
-* L’accès conditionnel n’est pas disponible lorsque l’application est une partie de confiance pour AD FS 2016, et gérée ou fédérée avec AD FS 2016.
-* L’accès conditionnel n’est pas non plus disponible lorsque AD FS 2016 est configuré pour utiliser Azure MFA comme méthode d’authentification principale.
+* L’accès conditionnel est disponible lorsque l’application est une partie de confiance pour Azure AD, fédérée avec AD FS 2016 ou version ultérieure.
+* L’accès conditionnel n’est pas disponible lorsque l’application est une partie de confiance pour AD FS 2016 ou AD FS 2019, et gérée ou fédérée avec AD FS 2016 ou AD FS 2019.
+* L’accès conditionnel n’est pas non plus disponible lorsque AD FS 2016 ou AD FS 2019 est configuré pour utiliser Azure MFA comme méthode d’authentification principale.
 
 #### <a name="ad-fs-logging"></a>Journalisation AD FS
 
-La journalisation AD FS 2016 standard à la fois dans le journal de sécurité Windows et dans le journal de l’administrateur AD FS permet de collecter des informations sur les requêtes d’authentification et leur réussite ou échec. Les données de journal des événements au sein de ces événements indiquent si Azure MFA a été utilisé. Par exemple, un ID d’événement d’audit AD FS 1200 peut contenir :
+La journalisation AD FS 2016 ou AD FS 2019 standard à la fois dans le journal de sécurité Windows et dans le journal de l’administrateur AD FS permet de collecter des informations sur les requêtes d’authentification et leur réussite ou échec. Les données de journal des événements au sein de ces événements indiquent si Azure MFA a été utilisé. Par exemple, un ID d’événement d’audit AD FS 1200 peut contenir :
 
 ```
 <MfaPerformed>true</MfaPerformed>

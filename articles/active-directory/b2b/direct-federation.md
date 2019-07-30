@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 07/01/2019
+ms.date: 07/15/2019
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a4dadc68e78fbaa979751d5bcd04ef481c3ab886
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: 113e178d39ec776b63a0b38c55035f3493586ea2
+ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67544635"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68233872"
 ---
 # <a name="direct-federation-with-ad-fs-and-third-party-providers-for-guest-users-preview"></a>Fédération directe avec AD FS et des fournisseurs tiers pour les utilisateurs invités (version préliminaire)
 |     |
@@ -61,8 +61,11 @@ Par exemple, lorsque vous configurez la fédération directe pour **fabrikam.com
 
 ### <a name="signing-certificate-renewal"></a>Renouvellement du certificat de signature
 Si vous spécifiez l’URL de métadonnées dans les paramètres du fournisseur d’identité, Azure AD renouvelle automatiquement le certificat de signature à son expiration. Toutefois, si le certificat pivote avant le délai d’expiration pour une raison quelconque, ou si vous ne fournissez pas une URL de métadonnées, Azure AD ne pourra pas le renouveler. Dans ce cas, vous devez mettre à jour le certificat de signature manuellement.
+
+### <a name="limit-on-federation-relationships"></a>Limite des relations de fédération
+Pour le moment, le nombre de relations de fédération maximum pris en charge est limité à 1 000. Cette limite concerne à la fois les [fédérations internes et les fédérations directes](https://docs.microsoft.com/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0).
 ## <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
-### <a name="can-i-set-up-direct-federation-with-an-unmanaged-email-verified-tenant"></a>Puis-je configurer la fédération directe avec un client non géré (vérifié par e-mail) ? 
+### <a name="can-i-set-up-direct-federation-with-a-domain-for-which-an-unmanaged-email-verified-tenant-exists"></a>Puis-je configurer la fédération directe avec un domaine pour lequel un client non géré (vérifié par e-mail) existe ? 
 Oui. Si le domaine n’a pas été vérifié et que le client n’a pas encore subi une [prise en charge administrateur](../users-groups-roles/domains-admin-takeover.md), vous pouvez configurer la fédération directe. Les clients non gérés, ou vérifiés par e-mail, sont créés lorsqu’un utilisateur a utilisé une invitation B2B ou effectue une inscription libre-service pour Azure AD à l’aide d’un domaine qui n’existe pas actuellement. Vous pouvez configurer la fédération directe avec ces domaines. Si vous essayez de configurer la fédération directe avec un domaine vérifié par DNS, dans le portail Azure ou via PowerShell, vous rencontrerez une erreur.
 ### <a name="if-direct-federation-and-email-one-time-passcode-authentication-are-both-enabled-which-method-takes-precedence"></a>Si la fédération directe et l’authentification par code secret à usage unique par e-mail sont activées, quelle méthode est prioritaire ?
 Lorsque la fédération directe est établie avec une organisation partenaire, elle est prioritaire sur l’authentification par code secret à usage unique par e-mail pour les nouveaux utilisateurs invités de cette organisation. Si un utilisateur invité a utilisé une invitation à l’aide de l’authentification par code secret à usage unique avant que vous n’ayez configuré la fédération directe, il continue d’utiliser l’authentification par code secret à usage unique. 
@@ -117,7 +120,7 @@ Attributs requis dans le message WS-Fed du fournisseur d’identité :
 |---------|---------|
 |PassiveRequestorEndpoint     |`https://login.microsoftonline.com/login.srf`         |
 |Audience     |`urn:federation:MicrosoftOnline`         |
-|Émetteur     |L’URI de l’émetteur du fournisseur d’identité du partenaire, par exemple `http://www.example.com/exk10l6w90DHM0yi...`         |
+|Émetteur     |L’URI de l’émetteur du fournisseur d’identité partenaire, par exemple `http://www.example.com/exk10l6w90DHM0yi...`         |
 
 Revendications requises pour le jeton WS-Fed émis par le fournisseur d’identité :
 

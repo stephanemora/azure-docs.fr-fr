@@ -1,5 +1,5 @@
 ---
-title: Support pour les conteneurs
+title: Vérifier l’instance de conteneur Analyse des sentiments
 titleSuffix: Azure Cognitive Services
 description: Découvrez comment vérifier l’instance de conteneur d’analyse des sentiments.
 services: cognitive-services
@@ -9,23 +9,23 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 06/26/2019
 ms.author: dapine
-ms.openlocfilehash: f68d9c7098f2b1ca782e2522c632c2e267b35336
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: f69d573e9e70a505018e94cca354f363097cc1b8
+ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67455120"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68229277"
 ---
 ## <a name="verify-the-sentiment-analysis-container-instance"></a>Vérifier l’instance de conteneur Analyse des sentiments
 
 1. Sélectionnez l’onglet **Vue d’ensemble** et copiez l’adresse IP.
-1. Ouvrez un nouvel onglet de navigateur et utilisez l’adresse IP, par exemple, `http://<IP-address>:5000 (http://55.55.55.55:5000`). La page d’accueil du conteneur est présentée, vous informant que le conteneur est en cours d’exécution.
+1. Ouvrez un nouvel onglet de navigateur et entrez l’adresse IP. Par exemple, entrez `http://<IP-address>:5000 (http://55.55.55.55:5000`. La page d’accueil du conteneur s’affiche, vous informant que le conteneur est en cours d’exécution.
 
-    ![Afficher la page d’accueil du conteneur pour vérifier qu’il est en cours d’exécution](../media/how-tos/container-instance/swagger-docs-on-container.png)
+    ![Affichez la page d’accueil du conteneur pour vérifier qu’elle est en cours d’exécution](../media/how-tos/container-instance/swagger-docs-on-container.png).
 
-1. Sélectionnez le lien **Description de l’API de service** pour accéder à la page Swagger des conteneurs.
+1. Veuillez sélectionner le lien **Description de l’API de service** pour accéder à la page Swagger des conteneurs.
 
-1. Choisissez une des API **POST** et sélectionnez **Essayer**.  Les paramètres sont affichés, y compris l’exemple d’entrée :
+1. Choisissez une des API **POST** et sélectionnez **Essayer**.  Les paramètres sont affichés, y compris cet exemple d’entrée :
 
     ```json
     {
@@ -49,7 +49,7 @@ ms.locfileid: "67455120"
     }
     ```
 
-1. Remplacez l’entrée par le code JSON suivant :
+1. Remplacez l’entrée par le contenu JSON suivant :
 
     ```json
     {
@@ -67,9 +67,9 @@ ms.locfileid: "67455120"
 
 1. Sélectionnez **Exécuter** pour déterminer le sentiment du texte.
 
-    Le modèle inclus dans le conteneur génère un score compris entre 0 et 1, où 0 est négatif et 1 est positif.
+    Le modèle empaqueté dans le conteneur génère un score compris entre 0 et 1, où 0 est négatif et 1 est positif.
 
-    La réponse JSON retournée inclut le sentiment pour l’entrée de texte mise à jour :
+    La réponse JSON retournée inclut le sentiment pour l’entrée de texte mise à jour :
 
     ```json
     {
@@ -93,4 +93,4 @@ ms.locfileid: "67455120"
     }
     ```
 
-Nous pouvons maintenant corréler le document `id` de code JSON des charges utiles de réponse avec le document de charge utile de la requête d’origine `id` et constater un score de plus de `.98` indiquant un sentiment très positif.
+Nous pouvons maintenant corréler le document `id` des données JSON de la charge utile de réponse avec le document `id` de la charge utile de la requête d’origine. Nous voyons un score supérieur à `.98`, indiquant un sentiment fortement positif.

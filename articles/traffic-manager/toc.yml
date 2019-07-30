@@ -1,6 +1,6 @@
 - name: Documentation Traffic Manager
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: "Qu’est-ce que Traffic Manager\_?"
       href: traffic-manager-overview.md
@@ -10,6 +10,8 @@
       href: quickstart-create-traffic-manager-profile.md
     - name: Créer un profil Traffic Manager - PowerShell
       href: quickstart-create-traffic-manager-profile-powershell.md
+    - name: Créer un profil Traffic Manager - Azure CLI
+      href: quickstart-create-traffic-manager-profile-cli.md
 - name: Tutoriels
   items:
     - name: Acheminer le trafic pour une latence faible
@@ -97,7 +99,7 @@
       href: 'https://azure.microsoft.com/resources/samples/?service=traffic-manager'
     - name: Azure PowerShell
       href: /powershell/module/az.trafficmanager
-    - name: Azure CLI
+    - name: D’Azure CLI
       href: /cli/azure/network/traffic-manager
     - name: Java
       href: /java/api/com.microsoft.azure.management.trafficmanager

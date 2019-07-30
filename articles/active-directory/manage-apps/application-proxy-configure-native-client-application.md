@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cb36d6a03da07681db468184a489a79f7f0deab7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6cdc46ea3a45d04e6e837d0b7ad52ed8bf565cd2
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65825483"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67702424"
 ---
 # <a name="how-to-enable-native-client-applications-to-interact-with-proxy-applications"></a>Comment autoriser les applications clientes natives à interagir avec des applications de proxy
 
@@ -44,18 +44,21 @@ Publiez votre application proxy comme vous le feriez pour toute autre applicatio
 Vous devez désormais enregistrer votre application dans Azure AD, en procédant comme suit :
 
 1. Connectez-vous au [portail Azure Active Directory](https://aad.portal.azure.com/). Le **tableau de bord** du **Centre d’administration Azure Active Directory** s’affiche.
-2. Dans la barre latérale, sélectionnez **Azure Active Directory**. La vue d’ensemble de **Microsoft Azure Active Directory** s’affiche.
-3. Dans la barre latérale de la vue d’ensemble Azure AD, sélectionnez **Inscriptions d’applications**. La liste de toutes les inscriptions d’applications s’affiche.
-4. Sélectionnez **Nouvelle inscription**. La page **Inscrire une application** s’affiche.
+1. Dans la barre latérale, sélectionnez **Azure Active Directory**. La vue d’ensemble de **Microsoft Azure Active Directory** s’affiche.
+1. Dans la barre latérale de la vue d’ensemble Azure AD, sélectionnez **Inscriptions d’applications**. La liste de toutes les inscriptions d’applications s’affiche.
+1. Sélectionnez **Nouvelle inscription**. La page **Inscrire une application** s’affiche.
 
-   ![Créer une nouvelle inscription d’application](./media/application-proxy-configure-native-client-application/create.png)
-5. Dans l’en-tête **Nom**, indiquez un nom d’affichage côté utilisateur pour l’application.
-6. Sous l’en-tête **Types de comptes pris en charge**, sélectionnez un niveau d’accès en tenant compte des instructions suivantes :
+   ![Créer une inscription d’application sur le portail Azure](./media/application-proxy-configure-native-client-application/create.png)
+
+1. Dans l’en-tête **Nom**, indiquez un nom d’affichage côté utilisateur pour l’application.
+1. Sous l’en-tête **Types de comptes pris en charge**, sélectionnez un niveau d’accès en tenant compte des instructions suivantes :
+
    - Pour cibler uniquement les comptes internes de votre organisation, sélectionnez **Comptes dans cet annuaire organisationnel uniquement**.
    - Pour cibler uniquement les clients professionnels et dans l’éducation, sélectionnez **Comptes dans un annuaire organisationnel**.
    - Pour cibler le plus grand jeu d’identités Microsoft, sélectionnez **Comptes dans un annuaire organisationnel et comptes personnels Microsoft**.
-7. Dans l’en-tête **URI de redirection**, sélectionnez **Client public (mobile et bureau)** , puis saisissez l’URI de redirection de votre application.
-8. Sélectionnez et lisez les **stratégies de la plateforme Microsoft**, puis sélectionnez **Inscrire**. Une page présentant la nouvelle inscription d’application est créée et affichée.
+
+1. Dans l’en-tête **URI de redirection**, sélectionnez **Client public (mobile et bureau)** , puis saisissez l’URI de redirection de votre application.
+1. Sélectionnez et lisez les **stratégies de la plateforme Microsoft**, puis sélectionnez **Inscrire**. Une page présentant la nouvelle inscription d’application est créée et affichée.
 
 Pour en savoir plus sur la création d’une inscription d’application, voir [Integrating applications with Azure Active Directory](../develop/quickstart-v1-integrate-apps-with-azure-ad.md) (Intégration d’applications à Azure Active Directory).
 
@@ -64,11 +67,11 @@ Pour en savoir plus sur la création d’une inscription d’application, voir [
 Maintenant que vous avez inscrit votre application native, vous pouvez lui donner accès à d’autres applications dans votre annuaire, pour accéder à l’application proxy dans le cas présent. Activez l’application native à exposer à l’application proxy, en procédant comme suit :
 
 1. Dans la barre latérale de la nouvelle page d’inscription d’application, sélectionnez **Autorisations des API**. La page **Autorisations des API** de la nouvelle inscription d’application s’affiche.
-2. Sélectionnez **Ajouter une autorisation**. La page **Demander des autorisations d’API** apparaît.
-3. Sous le paramètre **Sélectionner une API**, choisissez **API utilisées par mon organisation**. Une liste s’affiche, affichant les applications de votre annuaire qui exposent des API.
-4. Saisissez du texte dans la zone de recherche ou faites défiler la page pour trouver l’application proxy que vous avez publiée à [l’étape 1 : Publiez votre application proxy](#step-1-publish-your-proxy-application), puis sélectionnez l’application proxy.
-5. Dans le titre **Quel type d'autorisation votre application nécessite-t-elle ?** , sélectionnez le type d’autorisation. Si votre application native doit accéder à l’API de l’application proxy en tant qu’utilisateur connecté, choisissez **Autorisations déléguées**. Si votre application native s’exécute en tant que service en arrière-plan ou démon sans aucun utilisateur connecté, sélectionnez **Autorisations de l’application**.
-6. Dans l’en-tête **Sélectionner les autorisations**, choisissez l’autorisation voulue, puis cliquez sur **Ajout d’autorisations**. La page **Autorisations des API** de votre application native affiche désormais l’application proxy et l’API d’autorisation que vous avez ajoutées.
+1. Sélectionnez **Ajouter une autorisation**. La page **Demander des autorisations d’API** apparaît.
+1. Sous le paramètre **Sélectionner une API**, choisissez **API utilisées par mon organisation**. Une liste s’affiche, affichant les applications de votre annuaire qui exposent des API.
+1. Saisissez du texte dans la zone de recherche ou faites défiler la page pour trouver l’application proxy que vous avez publiée à [l’étape 1 : Publiez votre application proxy](#step-1-publish-your-proxy-application), puis sélectionnez l’application proxy.
+1. Dans le titre **Quel type d'autorisation votre application nécessite-t-elle ?** , sélectionnez le type d’autorisation. Si votre application native doit accéder à l’API de l’application proxy en tant qu’utilisateur connecté, choisissez **Autorisations déléguées**. Si votre application native s’exécute en tant que service en arrière-plan ou démon sans aucun utilisateur connecté, sélectionnez **Autorisations de l’application**.
+1. Dans l’en-tête **Sélectionner les autorisations**, choisissez l’autorisation voulue, puis cliquez sur **Ajout d’autorisations**. La page **Autorisations des API** de votre application native affiche désormais l’application proxy et l’API d’autorisation que vous avez ajoutées.
 
 ## <a name="step-4-edit-the-active-directory-authentication-library"></a>Étape 4 : Modifier la bibliothèque d’authentification Active Directory
 

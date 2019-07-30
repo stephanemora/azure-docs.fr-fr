@@ -11,12 +11,12 @@ ms.date: 08/04/2017
 ms.author: marsma
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 2c1bfd9e2659127ab77e9db661b54fde18a8d25c
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 216f5413ce3dae1f2d040643a30a4d7db4a879b8
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67205361"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67835411"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>Accès aux journaux d’audit Azure AD B2C
 
@@ -34,7 +34,7 @@ La catégorie **B2C** des journaux d’audit contient les types d’activités s
 |Type d’activité |Description  |
 |---------|---------|
 |Authorization |Activités relatives à l’autorisation d’un utilisateur d’accéder à des ressources B2C (par exemple, un administrateur qui accède à la liste des stratégies B2C)         |
-|Répertoire |Activités relatives aux attributs d’annuaire récupérés quand un administrateur se connecte à l’aide du portail Azure |
+|Répertoire |Activités relatives aux attributs d’annuaire récupérés quand un administrateur se connecte en utilisant le Portail Microsoft Azure |
 |Application | Opérations CRUD sur des applications B2C |
 |Clé |Opérations CRUD sur les clés stockées dans le conteneur de clé B2C |
 |Ressource |Opérations CRUD sur les ressources B2C (par exemple, stratégies et fournisseurs d’identité)
@@ -44,34 +44,34 @@ La catégorie **B2C** des journaux d’audit contient les types d’activités s
 > Pour les activités CRUD des objets utilisateur, reportez-vous à la catégorie **Annuaire principal**.
 
 ## <a name="example-activity"></a>Exemple d’activité
-L’exemple ci-dessous montre les données capturées quand un utilisateur se connecte avec un fournisseur d’identité externe : ![Journaux d’audit - exemple](./media/active-directory-b2c-reference-audit-logs/audit-logs-example.png)
+L’exemple ci-dessous montre les données capturées quand un utilisateur se connecte avec un fournisseur d’identité externe : ![Exemple de page Détails de l’activité du journal d’audit du Portail Microsoft Azure](./media/active-directory-b2c-reference-audit-logs/audit-logs-example.png)
 
 Le volet des détails de l’activité contient les informations pertinentes suivantes :
 
 |Section|Champ|Description|
 |-------|-----|-----------|
 | Activité | Nom | Activité qui a eu lieu. Par exemple, « Émettre un id_token pour l’application » (qui conclut la connexion d’utilisateur réelle). |
-| Initié par (intervenant) | ID d’objet | **ID d’objet** de l’application B2C à laquelle l’utilisateur se connecte (cet identificateur n’est pas visible dans le portail Azure, mais est accessible, par exemple, via l’API Graph). |
+| Initié par (intervenant) | ID d’objet | **ID d’objet** de l’application B2C à laquelle l’utilisateur se connecte (cet identificateur n’est pas visible dans le Portail Microsoft Azure, mais est accessible, par exemple, via l’API Graph). |
 | Initié par (intervenant) | Nom de principal de service | **ID d’Application** de l’application B2C à laquelle l’utilisateur se connecte. |
 | Cible(s) | ID d’objet | **ID d’objet** de l’utilisateur qui se connecte. |
 | Détails supplémentaires | TenantId | **ID de locataire** du locataire Azure AD B2C. |
 | Détails supplémentaires | PolicyId | **ID de stratégie** du flux d’utilisateur (stratégie) utilisé pour la connexion de l’utilisateur. |
 | Détails supplémentaires | ApplicationId | **ID d’Application** de l’application B2C à laquelle l’utilisateur se connecte. |
 
-## <a name="accessing-audit-logs-through-the-azure-portal"></a>Accès aux journaux d’audit par le biais du portail Azure
+## <a name="accessing-audit-logs-through-the-azure-portal"></a>Accès aux journaux d’audit par le biais du Portail Microsoft Azure
 1. Accédez au [portail Azure](https://portal.azure.com). Vérifiez que vous êtes dans votre annuaire B2C.
 2. Cliquez sur **Azure Active Directory** dans la barre des favoris à gauche.
-    
-    ![Journaux d’audit - bouton AAD](./media/active-directory-b2c-reference-audit-logs/audit-logs-portal-aad.png)
+
+    ![Bouton Azure Active Directory mis en évidence dans le menu du portail de gauche](./media/active-directory-b2c-reference-audit-logs/audit-logs-portal-aad.png)
 
 1. Sous **Activité**, cliquez sur **Journaux d’audit**.
 
-    ![Journaux d’audit - section Journaux d’activité](./media/active-directory-b2c-reference-audit-logs/audit-logs-portal-section.png)
+    ![Bouton Journaux d’audit mis en évidence dans la section activité du menu](./media/active-directory-b2c-reference-audit-logs/audit-logs-portal-section.png)
 
 2. Dans la liste déroulante **Catégorie**, sélectionnez **B2C**.
 3. Cliquez sur **Appliquer**.
 
-    ![Journaux d’audit - Catégorie](./media/active-directory-b2c-reference-audit-logs/audit-logs-portal-category.png)
+    ![Catégorie et bouton Appliquer mis en évidence dans le filtre de journal d’audit](./media/active-directory-b2c-reference-audit-logs/audit-logs-portal-category.png)
 
 La liste des activités journalisées pendant les sept derniers jours apparaît.
 - Utilisez la liste déroulante **Type de ressource d’activité** pour filtrer selon les types d’activité soulignés ci-dessus.

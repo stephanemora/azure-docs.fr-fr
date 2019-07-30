@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: kasinh
-ms.openlocfilehash: 43793f1cc105bda7a50371f8fffd4ff787f6e300
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 12ec1ce4a774178be621d7d8626ead7f1b106189
+ms.sourcegitcommit: 20bb149fe74459e59b648361235324b0674fe55b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204436"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68298525"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Installer et mettre à niveau Azure Backup Server
 > [!div class="op_single_selector"]
@@ -247,15 +247,15 @@ Voici les étapes à suivre si vous devez déplacer MABS vers un nouveau serveur
 
 
   > [!IMPORTANT]
-  > - Le nom du nouveau serveur doit être le même que celui de l’instance du serveur Sauvegarde Azure d’origine. Vous ne pouvez pas changer le nom de la nouvelle instance du serveur de sauvegarde Azure si vous souhaitez utiliser le pool de stockage précédent et la base de données Data Protection Manager pour conserver les points de récupération.
-  > - Vous devez disposer d’une sauvegarde de la base de données Data Protection Manager. Vous devez restaurer la base de données.
+  > - Le nom du nouveau serveur doit être le même que celui de l’instance du serveur Sauvegarde Azure d’origine. Vous ne pouvez pas changer le nom de la nouvelle instance du serveur de sauvegarde Azure si vous souhaitez utiliser le pool de stockage précédent et la base de données MABS (DPMDB) pour conserver les points de récupération.
+  > - Vous devez disposer d’une sauvegarde de la base de données MABS (DPMDB). Vous devez restaurer la base de données.
 
 1. Dans le volet d’affichage, sélectionnez les ordinateurs clients dont vous souhaitez mettre à jour l’agent de protection.
 2. Arrêtez le serveur de sauvegarde Azure d’origine ou mettez-le hors connexion.
 3. Réinitialisez le compte de la machine dans Active Directory.
 4. Installez Server 2016 sur une nouvelle machine et attribuez à celle-ci le même nom que le serveur de sauvegarde Azure d’origine.
 5. Joignez le domaine.
-6. Installer Azure Backup server V2 ou version ultérieure (déplacez les disques du pool de stockage de DPM à partir de l’ancien serveur et effectuez l’importation)
+6. Installer Azure Backup server V2 ou version ultérieure (déplacez les disques du pool de stockage de MABS à partir de l’ancien serveur et effectuez l’importation)
 7. Restaurez la base de données DPM de l’étape 1.
 8. Attachez le stockage à partir du serveur de sauvegarde d’origine au nouveau serveur.
 9. Depuis SQL, restaurez la base de données DPM.

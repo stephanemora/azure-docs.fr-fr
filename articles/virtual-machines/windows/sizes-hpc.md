@@ -4,7 +4,7 @@ description: Répertorie les différentes tailles disponibles pour les machines 
 services: virtual-machines-windows
 documentationcenter: ''
 author: vermagit
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.assetid: ''
@@ -14,13 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/12/2018
-ms.author: jonbeck;amverma
-ms.openlocfilehash: e1eeabf66411117d700a558a2938fb8c1df0080b
-ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+ms.author: amverma
+ms.reviewer: jonbeck
+ms.openlocfilehash: 6fd08ca912c14a50064f4b6da18334d8bf9df0ca
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67538056"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67871592"
 ---
 # <a name="high-performance-compute-vm-sizes"></a>Tailles de machines virtuelles de calcul haute performance
 
@@ -31,11 +32,10 @@ ms.locfileid: "67538056"
 [!INCLUDE [virtual-machines-common-a8-a9-a10-a11-specs](../../../includes/virtual-machines-common-a8-a9-a10-a11-specs.md)]
 
 
-* **Système d’exploitation** : Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+* **Système d’exploitation** : Windows Server 2016 sur toutes les machines virtuelles de la série de calcul haute performance (HPC) ci-dessus. Windows Server 2012 R2, Windows Server 2012 sont également pris en charge sur les machines virtuelles non compatibles SR-IOV (excluant HB et HC).
 
-* **MPI** : Microsoft MPI (MS-MPI) 2012 R2 ou version ultérieure, bibliothèque Intel MPI 5.x
-
-  Sur les machines virtuelles non compatibles SR-IOV, les implémentations MPI prises en charge utilisent l’interface Microsoft Network Direct (ND) pour la communication entre les instances. Les tailles des VM compatibles SR-IOV (séries HB et HC) sur Azure autorisent presque n’importe quelle version de MPI pour une utilisation avec Mellanox OFED. 
+* **MPI** : les tailles des machines virtuelles SR-IOV activées sur Azure (HB, HC) permettent d’utiliser presque tous les qualificateurs de MPI avec Mellanox OFED.
+Sur les machines virtuelles non compatibles SR-IOV, les implémentations MPI prises en charge utilisent l’interface Microsoft Network Direct (ND) pour la communication entre les instances. Par conséquent, seules les versions Microsoft MPI (MS-MPI) 2012 R2 ou ultérieures et Intel MPI 5.x sont supportées. Les versions ultérieures (2017, 2018) de la bibliothèque runtime MPI Intel peuvent ne pas être compatibles avec les pilotes Azure RDMA.
 
 * **Extension de machine virtuelle InfiniBandDriverWindows** : sur les machines virtuelles compatibles RDMA, ajoutez l’extension InfiniBandDriverWindows pour activer InfiniBand. Cette extension de machine virtuelle Windows installe des pilotes Windows Network Direct (sur des machines virtuelles non compatibles SR-IOV) ou des pilotes Mellanox OFED (sur des machines virtuelles compatibles SR-IOV) pour la connectivité RDMA.
 Dans certains déploiements des instances A8 et A9, l’extension HpcVmDrivers est ajoutée automatiquement. Notez que l’extension de machine virtuelle HpcVmDrivers est déconseillée ; elle ne sera pas mise à jour. Pour ajouter l’extension de machine virtuelle sur une machine virtuelle, vous pouvez utiliser les cmdlets [Azure PowerShell](/powershell/azure/overview). 

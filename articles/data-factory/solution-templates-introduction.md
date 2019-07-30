@@ -11,12 +11,12 @@ ms.date: 01/04/2019
 author: gauravmalhot
 ms.author: gamal
 manager: craigg
-ms.openlocfilehash: 4bd38991b2452bdda65a7647f844dcc17fdfb125
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d239e44364c3a4879f2f131717511385a4bd7037
+ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60786932"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68234443"
 ---
 # <a name="templates"></a>Modèles
 
@@ -49,6 +49,8 @@ Data Factory utilise des modèles Azure Resource Manager pour enregistrer des mo
     -   [Copier les nouveaux fichiers par LastModifiedDate](solution-template-copy-new-files-lastmodifieddate.md)
 
     -   [Copie de plusieurs conteneurs de fichiers entre différents magasins basés sur des fichiers](solution-template-copy-files-multiple-containers.md)
+
+    -   [Déplacer des fichiers](solution-template-move-files.md)
 
     -   [Copie delta à partir d’une base de données](solution-template-delta-copy-with-control-table.md)
 

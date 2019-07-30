@@ -286,6 +286,8 @@
           href: application-proxy-security.md
         - name: Topologie du réseau
           href: application-proxy-network-topology.md
+        - name: Haute disponibilité et équilibrage de charge
+          href: application-proxy-high-availability-load-balancing.md
         - name: Comparaison des solutions d’accès à distance
           href: application-proxy-migration.md
     - name: Guides pratiques

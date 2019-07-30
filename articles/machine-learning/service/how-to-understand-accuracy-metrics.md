@@ -8,21 +8,31 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 06/20/2019
-ms.openlocfilehash: 44dfa387b289afe4dc5f030cca0b13325c04e811
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.date: 07/16/2019
+ms.openlocfilehash: dc147fd0252b2b5ec4ce334d6c1c464d9cde8ef5
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67313221"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68297896"
 ---
 # <a name="evaluate-training-accuracy-in-automated-ml-with-metrics"></a>Évaluer la précision de l’entraînement dans Machine Learning automatisé avec des métriques
 
-Il existe plusieurs manières d’afficher les métriques de précision de l’entraînement pour chaque itération d’exécution.
+Dans cet article, vous allez découvrir les différentes métriques disponibles pour les modèles de ML automatisé dans Azure Machine Learning. 
 
+Il existe plusieurs manières d’afficher les métriques de précision de l’entraînement pour chaque itération d’exécution.
 * Utiliser [un widget Jupyter](how-to-track-experiments.md#view-run-details)
 * Utiliser [la fonction `get_metrics()`](how-to-track-experiments.md#query-run-metrics) sur n’importe quel objet `Run`
 * Afficher [les métriques de l’expérience dans le portail Azure](how-to-track-experiments.md#view-the-experiment-in-the-azure-portal)
+
+## <a name="prerequisites"></a>Prérequis
+ 
+* Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de commencer. Essayez dès aujourd'hui la [version gratuite ou payante d’Azure Machine Learning service](https://aka.ms/AMLFree).
+ 
+* Créez une expérience Machine Learning automatisée, soit avec le kit de développement logiciel (SDK), soit dans le Portail Microsoft Azure.
+ 
+    * Utilisez le Kit de développement logiciel (SDK) pour développer un [modèle de classification](how-to-auto-train-remote.md) ou un [modèle de régression](tutorial-auto-train-models.md)
+    * Utilisez le [Portail Microsoft Azure](how-to-create-portal-experiments.md) pour créer un modèle de classification ou de régression en téléchargeant les données appropriées.
 
 ## <a name="classification-metrics"></a>Métriques de classification
 
@@ -68,3 +78,7 @@ root_mean_squared_error|L’erreur quadratique moyenne racine est la racine carr
 normalized_root_mean_squared_error|L’erreur quadratique moyenne racine normalisée est l’erreur quadratique moyenne racine divisée par la plage des données|[Calcul](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_error.html)|Diviser par la plage de données|
 root_mean_squared_log_error|L’erreur logarithmique quadratique moyenne racine est la racine carrée de l’erreur logarithmique quadratique attendue|[Calcul](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_log_error.html)|Aucun|
 normalized_root_mean_squared_log_error|L’erreur logarithmique quadratique moyenne racine normalisée est l’erreur logarithmique quadratique moyenne racine divisée par la plage des données|[Calcul](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_log_error.html)|Diviser par la plage de données|
+
+## <a name="next-steps"></a>Étapes suivantes
+
+Apprenez-en davantage sur le [ML automatisé](concept-automated-ml.md) dans Azure Machine Learning.

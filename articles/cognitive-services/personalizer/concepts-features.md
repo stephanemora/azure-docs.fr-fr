@@ -7,15 +7,15 @@ author: edjez
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
-ms.topic: concept
+ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: edjez
-ms.openlocfilehash: 2353b8c735602aff0386f44cc29d2be5eb9f90c4
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: c317cbec02b82743c233bf36f743cea808c30c69
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67340888"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68253582"
 ---
 # <a name="features-are-information-about-actions-and-context"></a>Les caractéristiques sont des informations sur les actions et sur le contexte
 
@@ -66,9 +66,10 @@ Voici quelques exemples d’espaces de noms de caractéristiques utilisés par d
 * current_time
 * NewsArticle_TextAnalytics
 
-Vous pouvez nommer les espaces de noms de caractéristiques suivant vos propres conventions, pour autant qu’il s’agisse de clés JSON valides.
+Vous pouvez nommer les espaces de noms de caractéristiques suivant vos propres conventions, pour autant qu’il s’agisse de clés JSON valides. Les espaces de noms sont utilisés pour organiser les fonctionnalités en ensembles distincts et pour lever l’ambiguïté entre des fonctionnalités ayant des noms similaires. Vous pouvez considérer les espaces de noms comme un « préfixe » ajouté aux noms de fonctionnalités. Les espaces de noms ne peuvent pas être imbriqués.
 
-Dans le JSON suivant, `user`, `state` et `device` sont des espaces de noms de caractéristiques.
+
+Dans le JSON suivant, `user`, `state` et `device` sont des espaces de noms de caractéristiques. Note sur la préversion publique : Pour le moment, nous vous recommandons vivement d’utiliser des noms pour les espaces de noms de fonctionnalités qui sont basés sur UTF-8 et qui commencent par des lettres différentes. Par exemple, `user`, `state`, et `device` commencent par `u`, `s`, et `d`. Si certains espaces de noms commencent par les mêmes caractères, cela risque de provoquer des collisions dans les index utilisés pour l’apprentissage automatique.
 
 Les objets JSON peuvent inclure des objets JSON imbriqués et de simples valeurs/propriétés. Un tableau peut être inclus uniquement si ces éléments sont des nombres. 
 
@@ -77,7 +78,7 @@ Les objets JSON peuvent inclure des objets JSON imbriqués et de simples valeurs
     "contextFeatures": [
         { 
             "user": {
-                "name":"Doug",
+                "profileType":"AnonymousUser",
                 "latlong": [47.6, -122.1]
             }
         },

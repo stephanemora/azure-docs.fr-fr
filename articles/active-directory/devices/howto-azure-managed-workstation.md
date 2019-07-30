@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: frasim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 51d8bbc8b8be9679fbf024d7c51de53c430dc493
-ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
+ms.openlocfilehash: 90687d0229d3ad74c287bb4aff4885dc26932e40
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67550482"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68227274"
 ---
 # <a name="deploy-a-secure-azure-managed-workstation"></a>Déployer une station de travail sécurisée gérée par Azure
 
@@ -168,7 +168,7 @@ Dans Intune, dans le portail Azure :
    * Description : **déploiement de stations de travail sécurisées**.
    * Définissez **Convertir tous les appareils ciblés en Autopilot** sur **Oui**. Ce paramètre permet de s’assurer que tous les appareils de la liste sont inscrits auprès du service de déploiement Autopilot. Le traitement de l’inscription peut prendre 48 heures.
 1. Sélectionnez **Suivant**.
-   * Comme **mode de déploiement**, choisissez le **déploiement automatique (préversion)** . Les appareils avec ce profil sont associés à l’utilisateur qui inscrit l’appareil. Les informations d’identification de l’utilisateur sont requises pour inscrire l’appareil.
+   * Comme **mode de déploiement**, choisissez le **déploiement automatique (préversion)** . Les appareils avec ce profil sont associés à l’utilisateur qui inscrit l’appareil. Les informations d’identification de l’utilisateur sont requises pour inscrire l’appareil. Il est important de noter que le déploiement d’un appareil en mode **Déploiement automatique** vous permettra de déployer des ordinateurs portables dans un modèle partagé. Aucune attribution d’utilisateur ne se produit avant la première attribution de l’appareil à un utilisateur. Par conséquent, toutes les stratégies utilisateur telles que BitLocker ne seront pas activées avant la première attribution d’utilisateur. Si vous souhaitez en savoir plus sur les méthodes de connexion à un appareil sécurisé, veuillez consulter la page [Profils sélectionnés](https://docs.microsoft.com/intune/device-profile-assign).
    * La case **Joindre à Azure AD comme** doit afficher **Appareil joints Azure AD** et être grisée.
    * Sélectionnez votre langue (région) et le type de compte utilisateur **standard**. 
 1. Sélectionnez **Suivant**.
@@ -177,6 +177,8 @@ Dans Intune, dans le portail Azure :
 1. Choisissez **Affectations** > **Affecter à** > **Groupes sélectionnés**. Dans la zone **Sélectionner les groupes à inclure**, choisissez **Utilisateurs de station de travail sécurisée**.
 1. Sélectionnez **Suivant**.
 1. Cliquez sur **Créer** pour créer le profil. Le profil de déploiement Autopilot est maintenant disponible pour les appareils.
+
+L’expérience utilisateur de l’inscription d’appareils dans AutoPilot diffère selon le type et le rôle de chaque appareil. Dans notre exemple de déploiement, nous illustrons un modèle dans lequel les appareils sécurisés sont déployés en bloc et peuvent être partagés, mais lorsqu’ils sont utilisés pour la première fois, l’appareil est attribué à un utilisateur. Si vous souhaitez en savoir plus, veuillez consulter la page [Inscription d’appareil Intune Autopilot](https://docs.microsoft.com/intune/device-enrollment).
 
 ### <a name="configure-windows-update"></a>Configurer Windows Update
 

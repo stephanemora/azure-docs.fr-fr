@@ -12,12 +12,12 @@ ms.author: mathoma
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: bcbdd5fd8395cb0a47038595127e9b20118bdf1b
-ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.openlocfilehash: 1c62fb466774a3599972d6a9cc340cca300eee59
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67147703"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67696185"
 ---
 # <a name="transactional-replication-with-single-pooled-and-instance-databases-in-azure-sql-database"></a>Réplication transactionnelle avec des bases de données uniques, mises en pool, et d’instance dans Azure SQL Database
 
@@ -50,7 +50,7 @@ Le **serveur de distribution** est une instance ou un serveur qui collecte les c
 
 L’**Abonné** est une instance ou un serveur qui reçoit les changements apportés sur le serveur de publication. Les abonnés peuvent être des bases de données uniques, mises en pool, et d’instance dans Azure SQL Database ou des bases de données SQL Server. Un abonné sur une base de données unique ou mise en pool doit être configuré en tant qu’abonné d’envoi (push). 
 
-| Rôle | Bases de données uniques et mises en pool | Bases de données d’instance |
+| Role | Bases de données uniques et mises en pool | Bases de données d’instance |
 | :----| :------------- | :--------------- |
 | **Publisher** | Non | OUI | 
 | **Serveur de distribution** | Non | OUI|
@@ -139,7 +139,7 @@ Dans cette configuration, une Azure SQL Database (base de données unique, mise 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-1. [Configurer la réplication transactionnelle pour une instance Managed Instance](replication-with-sql-database-managed-instance.md). 
+1. [Configurer la réplication entre deux instances gérées](replication-with-sql-database-managed-instance.md). 
 1. [Créer une publication](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication).
 1. [Créer un abonnement par push](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription) en utilisant le nom du serveur Azure SQL Database en tant qu’abonné (par exemple, `N'azuresqldbdns.database.windows.net`) et le nom de la base de données Azure SQL comme base de données de destination (par exemple, **Adventureworks**). )
 

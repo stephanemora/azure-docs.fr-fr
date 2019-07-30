@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 07/23/2018
 ms.author: anjangsh
 ms.reviewer: jrasnick
-ms.openlocfilehash: 95c59d3e5504058e27cdb4eda311c3917d6c834a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4348a634fd5b2b33f36d8e79f28caf659b82ccf4
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65912235"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67626148"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-june-2018"></a>Nouveautés dans Azure SQL Data Warehouse Juin 2018
 Azure SQL Data Warehouse reçoit continuellement des améliorations. Cet article décrit les nouvelles fonctionnalités et les modifications qui ont été introduites en juin 2018. 
@@ -91,7 +91,7 @@ Central Standard Time             -05:00               1
 
 ## <a name="auto-stats-operations-appear-in-sysdmpdwexecrequests-behavior-change"></a>Les opérations Auto Stats apparaissent dans sys.dm_pdw_exec_requests (changement de comportement)
 
-Avec l’introduction de [Création automatique des statistiques](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-statistics#automatic-creation-of-statistics), Azure SQL Data Warehouse génère des statistiques pour optimiser l’exécution des requêtes. La version de juin 2018 ajoute la capacité à surveiller lorsque les statistiques sont générées automatiquement en ajoutant un enregistrement dans la vue [sys.dm_pdw_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) à chaque fois qu’une opération [CREATE STATISTICS](https://docs.microsoft.com/sql/t-sql/statements/create-statistics-transact-sql) est exécutée.
+Avec l’introduction de [Création automatique des statistiques](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-statistics#automatic-creation-of-statistic), Azure SQL Data Warehouse génère des statistiques pour optimiser l’exécution des requêtes. La version de juin 2018 ajoute la capacité à surveiller lorsque les statistiques sont générées automatiquement en ajoutant un enregistrement dans la vue [sys.dm_pdw_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) à chaque fois qu’une opération [CREATE STATISTICS](https://docs.microsoft.com/sql/t-sql/statements/create-statistics-transact-sql) est exécutée.
 
 ```sql
 SELECT
@@ -111,23 +111,23 @@ start_time                | end_time                | command
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-À présent que vous en savez un peu plus sur SQL Data Warehouse, découvrez comment [créer rapidement un entrepôt SQL Data Warehouse][create a SQL Data Warehouse]. Si vous n’êtes pas encore familiarisé avec Azure, vous pouvez vous appuyer sur le [Glossaire Azure][Azure glossary] lorsque vous rencontrez de nouveaux termes. Ou bien, consultez ces autres ressources de SQL Data Warehouse.  
+À présent que vous en savez un peu plus sur SQL Data Warehouse, découvrez comment [créer rapidement un SQL Data Warehouse][create a SQL Data Warehouse]. If you are new to Azure, you may find the [Azure glossary][Azure glossary] utile lorsque vous rencontrez une nouvelle terminologie. Ou bien, consultez ces autres ressources de SQL Data Warehouse. [Témoignages de clients]  
 
-* [Témoignages de clients]
 * [Blogs]
 * [Demandes de fonctionnalités]
 * [Vidéos]
 * [Blogs de l’équipe de conseil clientèle]
 * [Forum Stack Overflow]
 * [Twitter]
+* [Blogs]: https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/
 
 
-[Blogs]: https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/
 [Blogs de l’équipe de conseil clientèle]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
 [Témoignages de clients]: https://azure.microsoft.com/case-studies/?service=sql-data-warehouse
 [Demandes de fonctionnalités]: https://feedback.azure.com/forums/307516-sql-data-warehouse
 [Forum Stack Overflow]: https://stackoverflow.com/questions/tagged/azure-sqldw
 [Twitter]: https://twitter.com/hashtag/SQLDW
 [Vidéos]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
+<bpt id="p1">[</bpt>Videos<ept id="p1">]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse</ept>
 [create a SQL Data Warehouse]: ./create-data-warehouse-portal.md
 [Azure glossary]: ../azure-glossary-cloud-terminology.md

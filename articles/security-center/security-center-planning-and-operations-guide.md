@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/11/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 04cfe489e9eea53bf58dd64e0eac3e5a95033bcc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ca96ba4c6b0de8ad39866a0783e7091fb4755164
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65966842"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67706247"
 ---
 # <a name="azure-security-center-planning-and-operations-guide"></a>Guide des opérations et de planification du Centre de sécurité Azure
 Ce guide s’adresse aux informaticiens professionnels, aux architectes informatiques, aux analystes de la sécurité des informations et aux administrateurs de cloud dont les entreprises prévoient d’utiliser le Centre de sécurité Azure.
@@ -87,21 +87,21 @@ En considérant les personnes décrites dans le diagramme précédent, voici le 
 
 **Jeff (propriétaire de la charge de travail)**
 
-* Propriétaire/collaborateur du groupe de ressources
+* Propriétaire/contributeur du groupe de ressources
 
 **David (sécurité informatique)**
 
-* Propriétaire/collaborateur de l’abonnement ou Administrateur de la sécurité
+* Propriétaire/contributeur de l’abonnement ou Administrateur de la sécurité
 
 **Judy (opérations de sécurité)**
 
 * Lecteur de l’abonnement ou lecteur de sécurité, autorisé à consulter les alertes
-* Propriétaire/collaborateur de l’abonnement ou Administrateur de la sécurité, requis pour clore les alertes
+* Propriétaire/contributeur de l’abonnement ou Administrateur de la sécurité, requis pour ignorer les alertes
 
 **Sam (analyste de sécurité)**
 
 * Lecteur de l’abonnement, autorisé à consulter les alertes
-* Propriétaire/collaborateur de l’abonnement, requis pour clore les alertes
+* Propriétaire/contributeur de l’abonnement, requis pour ignorer les alertes
 * Accès à l’espace de travail potentiellement requis
 
 Autres informations importantes à prendre en compte :

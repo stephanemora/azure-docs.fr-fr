@@ -11,12 +11,12 @@ ms.date: 04/16/2019
 ms.author: marsma
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 0c855a3e0280e1fadf2362f2d8959beff2f5d00a
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: c5626e2ddfc24eeaeed562f3eaf73d16626eb458
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67271971"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68278034"
 ---
 # <a name="web-sign-in-with-openid-connect-in-azure-active-directory-b2c"></a>Connexion web avec OpenID Connect dans Azure Active Directory B2C
 
@@ -134,6 +134,8 @@ Une des propriétés de ce document de configuration est `jwks_uri`, dont la val
 Pour déterminer quel flux utilisateur a été utilisé pour la signature d’un jeton d’ID (et d’où obtenir les métadonnées), deux options sont possibles. Tout d’abord, le nom du flux utilisateur est inclus dans la revendication `acr` du jeton d’ID. L’autre option consiste à coder le flux utilisateur dans la valeur du paramètre `state` lors de l’émission de la requête, puis à la décoder pour déterminer le flux utilisateur qui a été utilisé. Les 2 méthodes sont valides.
 
 Après avoir acquis le document de métadonnées à partir du point de terminaison de métadonnées OpenID Connect, vous pouvez utiliser les clés publiques RSA 256 pour valider la signature du jeton d’ID. Il peut y avoir plusieurs clés répertoriées sur ce point de terminaison, chacune étant identifiée par une revendication `kid`. L’en-tête de ce jeton d’ID contient également une revendication `kid`, qui indique quelle clé a été utilisée pour signer le jeton d’ID.
+
+Pour vérifier les jetons Azure AD B2C, vous devez générer la clé publique à l’aide de l’exposant (e) et du modulo (n). Vous devez déterminer comment procéder en conséquence dans votre langage de programmation respectif. La documentation officielle sur la génération de la clé publique en utilisant le protocole RSA est disponible ici : https://tools.ietf.org/html/rfc3447#section-3.1
 
 Après avoir validé la signature du jeton d’ID, vous devez vérifier plusieurs revendications. Exemple :
 

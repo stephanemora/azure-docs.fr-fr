@@ -4,7 +4,7 @@ description: Installation de la haute disponibilité SAP NetWeaver sur un cluste
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 95cde28bc4789346aabd58b5f7b543e1bbc989c1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0efb1ec30430a69563c61de667ad2568f2679a1b
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66357695"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67708977"
 ---
 # <a name="install-sap-netweaver-high-availability-on-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances-on-azure"></a>Installer la haute disponibilité SAP NetWeaver sur un cluster de basculement Windows et un partage de fichiers pour des instances SAP ASCS/SCS sur Azure
 
@@ -335,10 +335,10 @@ Finalisez l’installation de votre système SAP en installant :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Installation d’une instance ASCS/SCS sur un cluster de basculement sans disques partagés - Recommandations SAP officielles pour le partage de fichiers hautement disponibles][sap-official-ha-file-share-document]
+* [Installation d’une instance ASCS/SCS sur un cluster de basculement sans disques partagés – Recommandations SAP officielles pour le partage de fichiers hautement disponibles][sap-official-ha-file-share-document]
 
 * [Storage Spaces Direct dans Windows Server 2016][s2d-in-win-2016]
 
-* [Vue d’ensemble des serveurs de fichiers avec montée en puissance parallèle pour les données d’application][sofs-overview]
+* [Présentation de serveur de fichiers avec montée en puissance parallèle pour les données d’application][sofs-overview]
 
 * [Nouveautés du stockage dans Windows Server 2016][new-in-win-2016-storage]

@@ -77,6 +77,8 @@
       items:
         - name: Limiter l’accès à un réseau virtuel (préversion)
           href: container-registry-vnet.md
+        - name: Accéder derrière un pare-feu
+          href: container-registry-firewall-access-rules.md
         - name: Authentication
           items:
             - name: Vue d’ensemble de l’authentification

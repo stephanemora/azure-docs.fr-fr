@@ -3,19 +3,18 @@ title: Fonctionnement et configuration d'Azure Dev Spaces
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
-ms.component: azds-kubernetes
 author: zr-msft
 ms.author: zarhoads
 ms.date: 03/04/2019
 ms.topic: conceptual
 description: Décrit les processus qui alimentent Azure Dev Spaces et comment ils sont configurés dans le fichier de configuration azds.yaml.
 keywords: azds.yaml, Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs
-ms.openlocfilehash: 083ed45a8fa95ac5fc26af6547b5765acf80e43b
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: 83034dd3c99cc030ed770995bf00a6ad9fb57bdc
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67154557"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67670818"
 ---
 # <a name="how-azure-dev-spaces-works-and-is-configured"></a>Fonctionnement et configuration d'Azure Dev Spaces
 
@@ -80,7 +79,7 @@ Nous reviendrons plus en détail sur le fonctionnement d'Azure Dev Spaces dans c
 ## <a name="prepare-your-aks-cluster"></a>Préparer votre cluster AKS
 
 La préparation de votre cluster AKS implique les étapes suivantes :
-* Vérification que votre ACS cluster se trouve dans une région [prise en charge par Azure Dev Spaces][supported-regions].
+* Vérification que votre cluster Azure Kubernetes Service se trouve dans une région [prise en charge par Azure Dev Spaces][supported-regions].
 * Vérification que vous exécutez Kubernetes 1.10.3 ou version ultérieure.
 * Activer Azure Dev Spaces sur votre cluster avec `az aks use-dev-spaces`
 

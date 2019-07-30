@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 05/06/2019
-ms.openlocfilehash: 4aeda5612b2b3e9e2073a65320b238266c8bb33a
-ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+ms.openlocfilehash: 707f7f47b050d22d0bd225cf412181902ae84f50
+ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67537857"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67974465"
 ---
 # <a name="hyperscale-service-tier-for-up-to-100-tb"></a>Niveau de service Hyperscale pour jusqu’à 100 To
 
@@ -214,7 +214,7 @@ Pour demander à pouvoir créer des bases de données Hyperscale dans des régio
     > Nombre de To estimé 
     >
 
-10. Choisissez **Gravité C**.
+10. Choisissez **Gravité C**
 
 11. Choisissez la méthode de contact appropriée et renseignez les détails.
 
@@ -232,7 +232,7 @@ Voici les limitations actuelles du niveau de service Hyperscale depuis la dispon
 | Instance gérée | L’option Azure SQL Database Managed Instance n’est pas prise en charge actuellement avec des bases de données Hyperscale. |
 | Pools élastiques |  Les Pools élastiques ne sont actuellement pas pris en charge avec les bases de données SQL Hyperscale.|
 | La migration vers Hyperscale est actuellement une opération unidirectionnelle | Une fois qu’une base de données est migrée vers Hyperscale, elle ne peut pas être migrée directement vers un niveau de service non Hyperscale. À l’heure actuelle, la seule façon de migrer une base de données du niveau Hyperscale vers un niveau non Hyperscale consiste à effectuer une exportation/importation à l’aide d’un fichier BACPAC.|
-| Migration de bases de données avec des objets en mémoire | Les objets en mémoire doivent être supprimés et recréés en tant qu’objets qui ne sont pas en mémoire avant de migrer une base de données vers le niveau de service Hyperscale.|
+| Migration de bases de données avec des objets en mémoire persistants | Hyperscale ne prend en charge que les objets en mémoire non persistants (types de tables, SP et fonctions natifs).  Les tables en mémoire persistantes doivent être supprimées et recréées en tant qu’objets qui ne sont pas en mémoire avant de migrer une base de données vers le niveau de service Hyperscale.|
 | Suivi des changements de données | Vous ne pouvez pas utiliser le suivi des modifications de données avec des bases de données Hyperscale. |
 | Géo-réplication  | Vous ne pouvez pas encore configurer la géo-réplication pour Azure SQL Database Hyperscale.  Vous pouvez effectuer des géo-restaurations (restaurations de base de données dans une région différente à des fins de récupération d’urgence ou autres). |
 | Intégration du chiffrement transparent des données (TDE) avec Azure Key Vault | Le chiffrement transparent de base de données à l’aide d’Azure Key Vault (communément appelé Bring Your Own Key ou BYOK) n’est pas encore pris en charge pour Azure SQL Database Hyperscale, contrairement au chiffrement transparent des données à l’aide de Clés gérées par le service qui est pleinement pris en charge. |

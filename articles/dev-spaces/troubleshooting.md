@@ -9,12 +9,12 @@ ms.date: 09/11/2018
 ms.topic: conceptual
 description: Développement Kubernetes rapide avec des conteneurs et des microservices sur Azure
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs, Helm, service Mesh, routage du service Mesh, kubectl, k8s '
-ms.openlocfilehash: 651ae9d9f9a622724e1ee606219ba940995aa555
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 2434507ac89d631bb96ae9633403075801879a37
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67441747"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68277396"
 ---
 # <a name="troubleshooting-guide"></a>Guide de résolution des problèmes
 
@@ -439,3 +439,13 @@ L’installation peut réussir malgré le message d’erreur lors de l’exécut
 
 ### <a name="try"></a>Essai
 Mettez à jour votre installation de l’interface [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) vers 2.0.63 ou une version ultérieure. Cela permettra de résoudre le message d’erreur que vous recevez lors de l’exécution de `az aks use-dev-spaces`. Vous pouvez également continuer à utiliser votre version actuelle de l’interface Azure CLI et de l’interface CLI Azure Dev Spaces.
+
+
+## <a name="horizontal-pod-autoscaling-not-working-in-a-dev-space"></a>La mise à l’échelle automatique du pod horizontal ne fonctionne pas dans un espace de développement
+
+### <a name="reason"></a>Motif
+
+Lorsque vous exécutez un service dans un espace de développement, le pod de ce service est [injecté avec des conteneurs supplémentaires pour l’instrumentation](how-dev-spaces-works.md#prepare-your-aks-cluster). Ces conteneurs n’ont pas de requêtes ou de limites de ressources définies, ce qui entraîne la désactivation de la mise à l’échelle automatique du pod horizontal.
+
+### <a name="try"></a>Essai
+Exécutez le module de mise à l’échelle automatique du pod horizontal dans un espace de noms pour lequel les espaces de développement ne sont pas activés.

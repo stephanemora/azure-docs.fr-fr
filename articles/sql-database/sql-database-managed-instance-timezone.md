@@ -10,13 +10,13 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: ''
 manager: craigg
-ms.date: 05/22/2019
-ms.openlocfilehash: 8499d99ab82fa89062d74c7dc5db5d7dd11e770c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 07/05/2019
+ms.openlocfilehash: 05ec49c98c5bcfe40346550f5570c03a8fb3f881
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66016390"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657988"
 ---
 # <a name="time-zones-in-azure-sql-database-managed-instance"></a>Fuseaux horaires dans Azure SQL Database Managed Instance
 
@@ -30,7 +30,9 @@ Utilisez [AT TIME ZONE](https://docs.microsoft.com/sql/t-sql/queries/at-time-zon
 
 ## <a name="supported-time-zones"></a>Fuseaux horaires pris en charge
 
-Un ensemble de fuseaux horaires pris en charge est hérité du système d'exploitation sous-jacent de l'instance gérée. Il est régulièrement mis à jour pour obtenir de nouvelles définitions de fuseaux horaires et refléter les changements apportés aux fuseaux horaires existants. 
+Un ensemble de fuseaux horaires pris en charge est hérité du système d'exploitation sous-jacent de l'instance gérée. Il est régulièrement mis à jour pour obtenir de nouvelles définitions de fuseaux horaires et refléter les changements apportés aux fuseaux horaires existants.
+
+[La stratégie Heure d’été/modifications de fuseau horaire](https://aka.ms/time) garantit la précision de l’historique à partir de 2010.
 
 Une liste avec les noms des fuseaux horaires pris en charge est affichée dans la vue système [sys.time_zone_info](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-time-zone-info-transact-sql).
 
@@ -43,7 +45,7 @@ Le fuseau horaire d'une instance gérée ne peut être réglé que lors de la cr
 
 ### <a name="set-the-time-zone-through-the-azure-portal"></a>Régler le fuseau horaire via le portail Azure
 
-Lorsque vous saisissez les paramètres d’une nouvelle instance, sélectionnez un fuseau horaire dans la liste des fuseaux horaires pris en charge. 
+Lorsque vous saisissez les paramètres d’une nouvelle instance, sélectionnez un fuseau horaire dans la liste des fuseaux horaires pris en charge.
   
 ![Réglage d'un fuseau horaire lors de la création d'une instance](media/sql-database-managed-instance-timezone/01-setting_timezone-during-instance-creation.png)
 
@@ -82,7 +84,10 @@ Vous pouvez restaurer un fichier de sauvegarde ou importer des données vers une
 
 ### <a name="point-in-time-restore"></a>Limite de restauration dans le temps
 
-Lorsque vous effectuez une restauration dans le temps, l'heure de la restauration est interprétée comme une heure UTC. Ce réglage évite toute ambiguïté due à l'heure d'été et à ses éventuelles modifications.
+<del>Lorsque vous effectuez une restauration dans le temps, l’heure de la restauration est interprétée comme une heure UTC. Ce réglage évite toute ambiguïté due à l’heure d’été et à ses éventuelles modifications.<del>
+
+ >[!WARNING]
+  > Le comportement actuel ne correspond pas à la déclaration ci-dessus et l’heure de restauration est interprétée en fonction du fuseau horaire de l’instance gérée source des sauvegardes automatiques de base de données. Nous travaillons à la correction de ce comportement pour interpréter un moment donné en heure UTC. Pour plus de détails, voir [Problèmes connus](sql-database-managed-instance-timezone.md#known-issues).
 
 ### <a name="auto-failover-groups"></a>Groupes de basculement automatique
 
@@ -95,6 +100,21 @@ L'utilisation du même fuseau horaire dans des instances principale et secondair
 
 - Le fuseau horaire de l’instance gérée existante ne peut pas être modifié.
 - Les processus externes lancés à partir des travaux SQL Server Agent ne suivent pas le fuseau horaire de l'instance.
+
+## <a name="known-issues"></a>Problèmes connus
+
+Lors de l’exécution de l’opération Limite de restauration dans le temps (PiTR), l’heure à restaurer est interprétée en fonction du fuseau horaire défini sur l’instance gérée dont sont extraites les sauvegardes automatiques de base de données, même si la page du portail pour PiTR suggère que l’heure est interprétée en UTC.
+
+Exemple :
+
+Imaginons que le fuseau horaire défini sur l’instance dans laquelle les sauvegardes automatiques sont effectuées est UTC-5 (Heure standard de l’Est) .
+La page du portail pour la Limite de restauration dans le temps indique que l’heure à laquelle vous choisissez de restaurer est l’heure UTC :
+
+![PiTR avec heure locale sur le portail](media/sql-database-managed-instance-timezone/02-pitr-with-nonutc-timezone.png)
+
+Toutefois, l’heure de restauration est en fait interprétée comme Heure standard de l’Est. Dans cet exemple, la base de données sera restaurée dans l’état dans lequel elle était à 9 heures, Heure standard de l’Est, et non Heure UTC.
+
+Si vous souhaitez effectuer une restauration à un point précis en heure UTC, commencez par calculer l’heure équivalente dans le fuseau horaire de l’instance source, puis utilisez l’heure ainsi obtenue sur le portail ou dans le script PowerShell/CLI.
 
 ## <a name="list-of-supported-time-zones"></a>Liste des fuseaux horaires pris en charge
 

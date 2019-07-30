@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b64fd7efb00dabd1e1758ec631e6992d68bff2ab
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 8e9c11613a9bdcaedad1a69662b2d6bd7bfefc3b
+ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67481654"
+ms.lasthandoff: 07/13/2019
+ms.locfileid: "67867252"
 ---
 # <a name="how-to-manage-stale-devices-in-azure-ad"></a>Procédure : Gérer les appareils obsolètes dans Azure AD
 
@@ -145,6 +145,13 @@ La mise à jour du timestamp vise à simplifier les scénarios de cycle de vie d
 ### <a name="why-should-i-worry-about-my-bitlocker-keys"></a>Pourquoi dois-je me soucier de mes clés BitLocker ?
 
 Lorsque vous configurez des clés BitLocker pour des appareils Windows 10, elles sont stockées sur l’objet appareil dans Azure AD. Si vous supprimez un appareil obsolète, vous supprimez également les clés BitLocker qui sont stockées sur l’appareil. Vous devez déterminer si votre stratégie de nettoyage correspond au cycle de vie réel de votre appareil avant de supprimer un appareil obsolète. 
+
+### <a name="why-should-i-worry-about-windows-autopilot-devices"></a>Pourquoi dois-je surveiller de près l’utilisation des appareils Windows AutoPilot ?
+
+Quand un appareil Azure AD est associé à un objet Windows AutoPilot, les trois scénarios suivants peuvent se produire en cas de réaffectation de l’appareil :
+- Dans le cadre d’un déploiement de Windows AutoPilot piloté par l’utilisateur sans service sur mesure, un appareil Azure AD est créé, sans que ce dernier soit identifié par un ZTDID.
+- Dans le cadre d’un déploiement en mode automatique de Windows AutoPilot, la réaffectation échouera, car le système ne pourra pas trouver l’appareil Azure AD associé.  Il s’agit d’un mécanisme de sécurité qui permet de se prémunir contre les tentatives d’infiltrations d’appareils « frauduleux » dans Azure AD, sans informations d’identification. L’échec entraîne l’affichage d’un message d’erreur indiquant une incompatibilité ZTDID.
+- Dans le cadre d’un déploiement Windows Autopilot sur mesure, l’affectation échouera, car le système ne pourra pas trouver l’appareil Azure AD associé. En arrière-plan, les déploiements sur mesure utilisent le même processus en mode de déploiement automatique, de sorte qu’ils appliquent les mêmes mécanismes de sécurité.
 
 ### <a name="how-do-i-know-all-the-type-of-devices-joined"></a>Comment faire pour connaître tous les types d’appareils joints ?
 

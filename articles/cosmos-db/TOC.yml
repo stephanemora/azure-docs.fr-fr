@@ -738,6 +738,12 @@
           maintainContext: true
         - name: Pilote ODBC
           href: odbc-driver.md
+    - name: Migrer des données vers Cosmos DB
+      items:
+        - name: Migrer vers l’API SQL à l’aide de Striim
+          href: cosmosdb-sql-api-migrate-data-striim.md
+        - name: Migrer vers l’API Cassandra à l’aide de Striim
+          href: cosmosdb-cassandra-api-migrate-data-striim.md
     - name: Exécuteur en bloc de bibliothèque
       items:
         - name: À propos de la bibliothèque d’exécuteurs en bloc
