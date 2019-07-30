@@ -556,6 +556,8 @@
           href: how-to-create-schedule-trigger.md
         - name: Créer un déclencheur de fenêtre bascule
           href: how-to-create-tumbling-window-trigger.md
+        - name: Créer une dépendance de déclencheur de fenêtre bascule
+          href: tumbling-window-trigger-dependency.md
     - name: Modèles
       items:
         - name: Présentation des modèles

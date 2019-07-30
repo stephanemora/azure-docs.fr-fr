@@ -5,6 +5,7 @@
     - name: À propos de Time Series Insights
       href: time-series-insights-update-overview.md
 - name: Démarrages rapides
+  expanded: true
   items:
     - name: Azure Time Series Insights en disponibilité générale
       items:

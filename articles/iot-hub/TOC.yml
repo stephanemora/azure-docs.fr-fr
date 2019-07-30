@@ -5,6 +5,7 @@
     - name: "Qu’est-ce qu’Azure IoT Hub\_?"
       href: about-iot-hub.md
 - name: Démarrages rapides
+  expanded: true
   items:
     - name: Envoyer des données de télémétrie
       items:
