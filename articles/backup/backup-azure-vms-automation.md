@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: raynew
-ms.openlocfilehash: 4df65819256e6a81a07927d463d130fbfdf9317a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 85e7b40778305395bb0f4a9403b4aeafc4607654
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66255010"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67565697"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>Sauvegarder et restaurer des machines virtuelles Azure avec PowerShell
 
@@ -447,7 +447,7 @@ $restorejob
 >
 >
 
-Précisez un paramètre supplémentaire **TargetResourceGroupName** correspondant au groupe de ressources dans lequel les disques managés seront restaurés. 
+Précisez un paramètre supplémentaire **TargetResourceGroupName** correspondant au groupe de ressources dans lequel les disques managés seront restaurés.
 
 > [!NOTE]
 > Il est vivement recommandé d'utiliser le paramètre **TargetResourceGroupName** pour la restauration des disques managés car il améliore considérablement les performances. De plus, à partir du module 1.0 d'Azure Powershell Az, ce paramètre est obligatoire en cas de restauration avec des disques managés.
@@ -483,6 +483,15 @@ $details = Get-AzRecoveryServicesBackupJobDetails -Job $restorejob
 ```
 
 Une fois que vous avez restauré les disques, accédez à la section suivante pour créer la machine virtuelle.
+
+## <a name="replace-disks-in-azure-vm"></a>Remplacer des disques sur une machine virtuelle Azure
+
+Pour remplacer les disques et les informations de configuration, procédez comme suit :
+
+- Étape 1 : [Restaurez les disques](backup-azure-vms-automation.md#restore-the-disks)
+- Étape 2 : [Détachez un disque de données avec PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/detach-disk#detach-a-data-disk-using-powershell)
+- Étape 3 : [Attachez un disque de données à une machine virtuelle Windows avec PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/attach-disk-ps)
+
 
 ## <a name="create-a-vm-from-restored-disks"></a>Créer une machine virtuelle à partir de disques restaurés
 
@@ -718,6 +727,7 @@ La section suivante liste les étapes nécessaires pour créer une machine virtu
       ```powershell  
       Set-AzVMDiskEncryptionExtension -ResourceGroupName $RG -VMName $vm -DiskEncryptionKeyVaultUrl $dekUrl -DiskEncryptionKeyVaultId $keyVaultId -KeyEncryptionKeyUrl $kekUrl -KeyEncryptionKeyVaultId $keyVaultId -SkipVmBackup -VolumeType "All"
       ```
+
 
 ## <a name="restore-files-from-an-azure-vm-backup"></a>Restaurer des fichiers à partir d’une sauvegarde de machine virtuelle Azure
 

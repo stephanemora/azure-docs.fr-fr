@@ -5,14 +5,14 @@ services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 05/29/2019
+ms.date: 07/05/2019
 ms.author: yushwang
-ms.openlocfilehash: 6535949767999e04b11106ff8a294e912a6d0fb8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8301594f63efaa5c6484a4dfd640aafa96cf15a0
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66388851"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67666258"
 ---
 # <a name="about-vpn-devices-and-ipsecike-parameters-for-site-to-site-vpn-gateway-connections"></a>À propos des périphériques VPN et des paramètres IPsec/IKE pour les connexions de passerelle VPN site à site
 
@@ -31,10 +31,6 @@ Un périphérique VPN est requis pour configurer une connexion VPN site à site 
 
 ## <a name="devicetable"></a>Périphériques VPN validés et guides de configuration des périphériques
 
-> [!NOTE]
-> Lorsque vous configurez une connexion site à site, une adresse IPv4 publique est requise pour votre périphérique VPN.
->
-
 Nous avons validé un ensemble de périphériques VPN standard en partenariat avec des fournisseurs d’appareils. Tous les appareils appartenant aux familles de la liste suivante doivent fonctionner avec les passerelles VPN. Consultez [À propos des paramètres de configuration de la passerelle VPN](vpn-gateway-about-vpn-gateway-settings.md#vpntype) pour comprendre le type de VPN utilisé (PolicyBased ou RouteBased) pour la solution de passerelle VPN que vous souhaitez configurer.
 
 Pour configurer plus facilement votre périphérique VPN, reportez-vous aux liens qui correspondent à la famille de périphériques appropriée. Les liens vers les instructions de configuration sont fournis dans la mesure du possible. Pour une prise en charge des appareils VPN, contactez le fabricant de votre appareil.
@@ -48,6 +44,7 @@ Pour configurer plus facilement votre périphérique VPN, reportez-vous aux lien
 | Check Point |Passerelle de sécurité |R80.10 |[Guide de configuration](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) |[Guide de configuration](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) |
 | Cisco              |ASA       |8.3<br>8.4+ (IKEv2*) |Pris en charge |[Guide de configuration*](https://www.cisco.com/c/en/us/support/docs/security/adaptive-security-appliance-asa-software/214109-configure-asa-ipsec-vti-connection-to-az.html) |
 | Cisco |ASR |PolicyBased : IOS 15.1<br>RouteBased : IOS 15.2 |Pris en charge |Pris en charge |
+| Cisco | CSR | RouteBased : IOS-XE 16.10 | | [Script de configuration](vpn-gateway-download-vpndevicescript.md) |
 | Cisco |ISR |PolicyBased : IOS 15.0<br>RouteBased* : IOS 15.1 |Pris en charge |Pris en charge |
 | Cisco |Meraki |N/A |Non compatible |Non compatible |
 | Citrix |NetScaler MPX, SDX, VPX |10.1 et versions ultérieures |[Guide de configuration](https://docs.citrix.com/en-us/netscaler/11-1/system/cloudbridge-connector-introduction/cloudbridge-connector-azure.html) |Non compatible |
@@ -160,7 +157,7 @@ Le tableau suivant répertorie les offres d’association de sécurité IPsec (I
 | 3 |3DES          |SHA1              |Aucun         |
 | 4 |AES256        |SHA256            |Aucun         |
 | 5\. |AES128        |SHA1              |Aucun         |
-| 6\. |3DES          |SHA256            |Aucun         |
+| 6 |3DES          |SHA256            |Aucun         |
 
 #### <a name="azure-gateway-as-responder"></a>Passerelle Azure en tant que répondeur
 
@@ -171,7 +168,7 @@ Le tableau suivant répertorie les offres d’association de sécurité IPsec (I
 | 3 |3DES          |SHA1              |Aucun         |
 | 4 |AES256        |SHA256            |Aucun         |
 | 5\. |AES128        |SHA1              |Aucun         |
-| 6\. |3DES          |SHA256            |Aucun         |
+| 6 |3DES          |SHA256            |Aucun         |
 | 7 |DES           |SHA1              |Aucun         |
 | 8 |AES256        |SHA1              |1            |
 | 9 |AES256        |SHA1              |2            |
