@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 11/13/2018
 ms.author: aljo
 ms.openlocfilehash: cb9cb3998ed8208ff7b19aee8a984e4c057408ae
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66302260"
 ---
 # <a name="scaling-azure-service-fabric-clusters"></a>Mise à l’échelle des clusters Azure Service Fabric
@@ -47,7 +47,7 @@ Lors de la mise à l’échelle d’un cluster Azure, gardez les instructions su
 ### <a name="programmatic-scaling"></a>Mise à l’échelle par programmation
 Dans de nombreux scénarios, [les mises à l’échelle d’un cluster manuellement ou avec des règles de mise à l’échelle automatiques](service-fabric-cluster-scale-up-down.md) s’avèrent être de bonnes solutions. Pour les scénarios plus avancés, cependant, ces deux possibilités ne sont pas indiquées. Les inconvénients potentiels de ces approches sont les suivants :
 
-- Mise à l’échelle manuelle vous oblige à vous connecter et demander explicitement des opérations de mise à l’échelle. Si les opérations de mise à l’échelle sont requises fréquemment ou à des moments imprévisibles, cette approche n’est probablement pas la bonne.
+- La mise à l’échelle manuelle vous oblige à ouvrir une session et à demander explicitement des opérations de mise à l’échelle. Si les opérations de mise à l’échelle sont requises fréquemment ou à des moments imprévisibles, cette approche n’est probablement pas la bonne.
 - Lorsque les règles de mise à l’échelle automatique suppriment une instance d’un groupe de machines virtuelles identiques, elles ne suppriment pas automatiquement les connaissances de ce nœud du cluster Service Fabric associé, sauf si le nœud a un niveau de durabilité agent ou or. Comme les règles de mise à l’échelle automatique fonctionnent au niveau du groupe de machines virtuelles (et non au niveau de Service Fabric), elles peuvent supprimer des nœuds Service Fabric sans les arrêter en douceur. Cette suppression brutale laisse l’état de nœud Service Fabric « ghost » derrière elle, après les opérations de mise à l’échelle. Une personne (ou un service) doit nettoyer régulièrement l’état du nœud supprimé dans le cluster Service Fabric.
 - Un type de nœud ayant un niveau de durabilité argent ou or nettoie automatiquement les nœuds supprimés. Par conséquent, aucun nettoyage supplémentaire n’est requis.
 - Bien que les règles de mise à l’échelle automatique prennent en charge [plusieurs mesures](../azure-monitor/platform/autoscale-common-metrics.md), ce groupe reste limité. Si votre scénario requiert une mise à l’échelle en fonction d’une mesure non incluse dans ce groupe, les règles de mise à l’échelle automatique ne sont peut-être pas la bonne solution.
@@ -81,7 +81,7 @@ Lors de la mise à l’échelle d’un cluster Azure, gardez les instructions su
 Le processus de montée ou descente en puissance d’un type de nœud diffère selon qu’il s’agisse d’un type de nœud principal ou non principal.
 
 ### <a name="scaling-non-primary-node-types"></a>Mise à l’échelle de types de nœuds non principaux
-Créez un nouveau type de nœud avec les ressources dont vous avez besoin.  Mettez à jour les contraintes de placement des services en cours d’exécution afin d’inclure le nouveau type de nœud.  Progressivement (une à la fois), réduisez le nombre d’instances de l’ancien type de nœud à une valeur nulle, de manière à ne pas affecter la fiabilité du cluster.  Services progressivement migreront vers le nouveau type de nœud car l’ancien type de nœud est désactivé.
+Créez un nouveau type de nœud avec les ressources dont vous avez besoin.  Mettez à jour les contraintes de placement des services en cours d’exécution afin d’inclure le nouveau type de nœud.  Progressivement (une à la fois), réduisez le nombre d’instances de l’ancien type de nœud à une valeur nulle, de manière à ne pas affecter la fiabilité du cluster.  Les services migrent progressivement vers le nouveau type de nœud, à mesure de la désactivation de l’ancien type de nœud.
 
 ### <a name="scaling-the-primary-node-type"></a>Mise à l’échelle du type de nœud principal
 Nous vous recommandons de ne pas modifier la référence des machines virtuelles du type de nœud principal. Si vous avez besoin d’accroître la capacité du cluster, nous vous recommandons d’ajouter davantage d’instances. 

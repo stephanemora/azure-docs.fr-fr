@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 215b839c21c2590c08ac2f4250086eaf97914ce1
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66243713"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-net-sdk"></a>Authentification des utilisateurs finaux auprès d’Azure Data Lake Storage Gen1 à l’aide du SDK .NET
@@ -29,17 +29,17 @@ ms.locfileid: "66243713"
 
 Dans cet article, vous allez apprendre à utiliser le SDK .NET pour authentifier les utilisateurs finaux auprès d’Azure Data Lake Storage Gen1. Pour plus d’informations sur l’authentification de service à service auprès de Data Lake Storage Gen1 à l’aide du SDK .NET, voir [Authentification de service à service auprès de Data Lake Storage Gen1 à l’aide du SDK .NET](data-lake-store-service-to-service-authenticate-net-sdk.md).
 
-## <a name="prerequisites"></a>Conditions préalables
-* **Visual Studio 2013 ou version ultérieure**. Les instructions ci-dessous utilisent Visual Studio 2019.
+## <a name="prerequisites"></a>Prérequis
+* **Visual Studio 2013 ou version ultérieure**. Les instructions ci-dessous reposent sur Visual Studio 2019.
 
 * **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 * **Créez une application « native » Azure Active Directory**. Vous devez avoir suivi la procédure dans [End-user authentication with Data Lake Storage Gen1 using Azure Active Directory](data-lake-store-end-user-authenticate-using-active-directory.md) (Authentification des utilisateurs finaux avec Data Lake Storage Gen1 à l’aide d’Azure Active Directory).
 
 ## <a name="create-a-net-application"></a>Créer une application .NET
-1. Dans Visual Studio, sélectionnez le **fichier** menu, **New**, puis **projet**.
-2. Choisissez **application Console (.NET Framework)** , puis sélectionnez **suivant**.
-3. Dans **nom_projet**, entrez `CreateADLApplication`, puis sélectionnez **créer**.
+1. Dans Visual Studio, sélectionnez le menu **Fichier**, puis **Nouveau** et **Projet**.
+2. Choisissez **Application console (.NET Framework)** , puis sélectionnez **Suivant**.
+3. Dans **Nom du projet**, entrez `CreateADLApplication`, puis sélectionnez **Créer**.
 
 4. Ajoutez les packages NuGet à votre projet.
 

@@ -1,25 +1,25 @@
 ---
-title: Améliorer les performances des index columnstore dans Azure SQL Data Warehouse | Microsoft Docs
+title: Améliorer les performances de l’index columnstore dans Azure SQL Data Warehouse | Microsoft Docs
 description: Réduisez les besoins de mémoire ou augmentez la mémoire disponible afin d’optimiser le nombre de lignes qu’un index columnstore compresse dans chaque rowgroup.
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: load data
+ms.subservice: load-data
 ms.date: 03/22/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 39d0fe06ee0e0230411024833cac7c88308f86c7
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.openlocfilehash: ec85bcc764ba7a7ae6341e0490530c31fdb5a02b
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66225382"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67595470"
 ---
 # <a name="maximizing-rowgroup-quality-for-columnstore"></a>Optimiser la qualité du rowgroup pour columnstore
 
-La qualité du rowgroup est déterminée par le nombre de lignes d’un rowgroup. Augmentation de la mémoire disponible peut optimiser le nombre de lignes de qu'un index columnstore compresse dans chaque groupe de lignes.  Utilisez ces méthodes pour améliorer les taux de compression et les performances de requête pour les index columnstore.
+La qualité du rowgroup est déterminée par le nombre de lignes d’un rowgroup. L’augmentation de la mémoire disponible peut optimiser le nombre de lignes qu’un index columnstore compresse dans chaque rowgroup.  Utilisez ces méthodes pour améliorer les taux de compression et les performances de requête pour les index columnstore.
 
 ## <a name="why-the-rowgroup-size-matters"></a>Importance de la taille de rowgroup
 Dans la mesure où un index columnstore analyse une table en examinant les segments de colonne des rowgroups, l’optimisation du nombre de lignes dans chaque rowgroup améliore les performances de requête. Quand les rowgroups comportent un grand nombre de lignes, la compression des données s’améliore, ce qui signifie qu’il y a moins de données à lire à partir du disque.
@@ -39,7 +39,7 @@ Pour plus d’informations sur le chargement en masse, voir [Chargement de donn�
 
 ## <a name="how-to-monitor-rowgroup-quality"></a>Comment surveiller la qualité du rowgroup
 
-La vue de gestion dynamique sys.dm_pdw_nodes_db_column_store_row_group_physical_stats ([sys.dm_db_column_store_row_group_physical_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-physical-stats-transact-sql) contient la définition de vue correspondant à base de données SQL vers SQL Data Warehouse) qui expose des informations utiles comme le nombre de lignes dans les rowgroups et la raison de découpage le cas échéant. Vous pouvez créer la vue suivante pour interroger facilement cette vue de gestion dynamique et obtenir ainsi des informations sur le découpage du rowgroup.
+La vue de gestion dynamique sys.dm_pdw_nodes_db_column_store_row_group_physical_stats ([sys.dm_db_column_store_row_group_physical_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-physical-stats-transact-sql) contient la définition de vue faisant correspondre SQL DB à SQL Data Warehouse) expose des informations utiles telles que le nombre de lignes dans les rowgroups et la raison du découpage le cas échéant. Vous pouvez créer la vue suivante pour interroger facilement cette vue de gestion dynamique et obtenir ainsi des informations sur le découpage du rowgroup.
 
 ```sql
 create view dbo.vCS_rg_physical_stats
@@ -67,7 +67,7 @@ from cte;
 ```
 
 trim_reason_desc indique si le rowgroup a été découpé (trim_reason_desc = NO_TRIM signifie qu’aucun découpage n’a été effectué et que la qualité du rowgroup est optimale). Les raisons suivantes indiquent un découpage prématuré du rowgroup :
-- CHARGEMENT EN BLOC : cette raison de découpage est utilisée si le lot entrant de lignes pour la charge est inférieur à 1 million de lignes. Le moteur créera des rowgroups compressés si plus de 100 000 lignes sont insérées (par opposition à l’insertion dans le deltastore), mais affiche BULKLOAD comme raison du découpage. Dans ce scénario, envisagez d’augmenter votre charge de traitement par lots afin d’inclure plus de lignes. En outre, réévaluez votre schéma de partitionnement pour vous assurer qu’il n’est pas trop granulaire car les rowgroups ne peuvent pas s’étendre sur plusieurs limites de partition.
+- CHARGEMENT EN BLOC : cette raison de découpage est utilisée si le lot entrant de lignes pour la charge est inférieur à 1 million de lignes. Le moteur créera des rowgroups compressés si plus de 100 000 lignes sont insérées (par opposition à l’insertion dans le deltastore), mais affiche BULKLOAD comme raison du découpage. Dans ce scénario, vous pouvez augmenter votre charge de lot pour inclure davantage de lignes. En outre, réévaluez votre schéma de partitionnement pour vous assurer qu’il n’est pas trop granulaire car les rowgroups ne peuvent pas s’étendre sur plusieurs limites de partition.
 - MEMORY_LIMITATION : pour créer des groupes de 1 million de lignes, le moteur requiert une certaine quantité de mémoire de travail. Lorsque la mémoire disponible de la session de chargement est inférieure à la mémoire de travail requise, les rowgroups sont prématurément découpés. Les sections suivantes expliquent comment estimer la mémoire requise et comment allouer davantage de mémoire.
 - DICTIONARY_SIZE : cette raison indique qu’un rowgroup a été découpé, car il contenait au moins une colonne de chaîne avec des chaînes de cardinalité large et/ou haute. La taille du dictionnaire est limitée à 16 Mo de mémoire, et une fois cette limite atteinte, le rowgroup est compressé. Si cette situation se produit, vous pouvez isoler la colonne problématique dans un tableau distinct.
 

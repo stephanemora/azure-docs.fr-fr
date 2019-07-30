@@ -1,6 +1,6 @@
 ---
-title: Didacticiel charge à partir d’Azure Data Lake Storage pour Azure SQL Data Warehouse | Microsoft Docs
-description: Utiliser des tables externes PolyBase pour charger des données à partir d’Azure Data Lake Storage dans Azure SQL Data Warehouse.
+title: Didacticiel sur le chargement de données d’Azure Data Lake Storage dans Azure SQL Data Warehouse | Microsoft Docs
+description: Utilisez des tables externes PolyBase pour charger des données d’Azure Data Lake Storage dans Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
@@ -11,18 +11,18 @@ ms.date: 04/26/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.openlocfilehash: a706fca7f7653c6916efc72d07988e79c9015a43
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66244501"
 ---
-# <a name="load-data-from-azure-data-lake-storage-to-sql-data-warehouse"></a>Charger des données à partir d’Azure Data Lake Storage dans SQL Data Warehouse
-Utiliser des tables externes PolyBase pour charger des données à partir d’Azure Data Lake Storage dans Azure SQL Data Warehouse. Vous pouvez exécuter des requêtes ad hoc sur les données stockées dans Data Lake Storage, nous vous recommandons d’importer les données dans l’entrepôt de données SQL pour de meilleures performances.
+# <a name="load-data-from-azure-data-lake-storage-to-sql-data-warehouse"></a>Chargement de données d’Azure Data Lake Storage dans Azure SQL Data Warehouse
+Utilisez des tables externes PolyBase pour charger des données d’Azure Data Lake Storage dans Azure SQL Data Warehouse. Même si vous pouvez exécuter des requêtes ad hoc sur des données stockées dans Data Lake Storage, pour optimiser les performances, nous vous recommandons d’importer les données dans SQL Data Warehouse.
 
 > [!div class="checklist"]
-> * Créer des objets de base de données à charger à partir de Data Lake Storage.
-> * Se connecter à un répertoire de stockage Data Lake.
+> * Créez les objets de base de données requis pour charger à partir de Data Lake Storage.
+> * Connectez-vous à un répertoire Data Lake Storage.
 > * Charger des données dans Azure SQL Data Warehouse.
 
 Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
@@ -32,18 +32,18 @@ Avant de commencer ce didacticiel, téléchargez et installez la dernière versi
 
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
-* Application Azure Active Directory à utiliser pour l’authentification de Service à Service si vous chargez à partir de la génération 1. Pour créer, suivez la procédure [Authentification Active Directory](../data-lake-store/data-lake-store-authenticate-using-active-directory.md)
+* Une application Azure Active Directory pour l’authentification de service à service si vous chargez à partir de Gen1. Pour créer, suivez la procédure [Authentification Active Directory](../data-lake-store/data-lake-store-authenticate-using-active-directory.md)
 
 >[!NOTE] 
-> Si vous chargez à partir d’Azure Data Lake passe Gen1, vous avez besoin de l’ID client, la clé et la valeur du point de terminaison de jeton OAuth2.0 de votre Application Active Directory pour se connecter à votre compte de stockage depuis SQL Data Warehouse. Pour savoir comment obtenir ces valeurs, cliquez sur le lien ci-dessus. Pour l’inscription à l’application Azure Active Directory : utilisez l’ID d’application en tant qu’ID de client.
+> Si vous chargez à partir d’Azure Data Lake Storage Gen1, vous avez besoin de l’ID client, de la clé et de la valeur du point de terminaison du jeton OAuth2.0 de votre application Active Directory pour vous connecter à votre compte de stockage à partir de SQL Data Warehouse. Pour savoir comment obtenir ces valeurs, cliquez sur le lien ci-dessus. Pour l’inscription à l’application Azure Active Directory : utilisez l’ID d’application en tant qu’ID de client.
 > 
 
 * Un entrepôt de données SQL Azure. Consultez [Créer et interroger un entrepôt de données SQL Azure](create-data-warehouse-portal.md).
 
-* Un compte Data Lake Storage. Consultez [prise en main Azure Data Lake Storage](../data-lake-store/data-lake-store-get-started-portal.md). 
+* Un compte Data Lake Storage. Voir [Prise en main d’Azure Data Lake Storage](../data-lake-store/data-lake-store-get-started-portal.md). 
 
 ##  <a name="create-a-credential"></a>Créer des informations d’identification
-Pour accéder à votre compte Data Lake Storage, vous devez créer une clé principale de base de données pour chiffrer votre secret d’identification utilisé dans l’étape suivante. Vous créez ensuite un Database Scoped Credential. Pour la génération 1, les informations d’identification de niveau de base de données stocke les informations d’identification service principal configurées dans AAD. Vous devez utiliser la clé de compte de stockage dans les informations d’identification de niveau de base de données pour la génération 2. 
+Pour accéder à votre compte Data Lake Storage, vous devez créer une clé principale de base de données afin de chiffrer les informations secrètes d’identification au cours de l’étape suivante. Vous créez ensuite des informations d’identification incluses dans l’étendue de la base de données. Pour Gen1, les informations d’identification incluses dans l’étendue de la base de données contiennent les informations d’identification du principal du service configurées dans AAD. Vous devez utiliser la clé du compte de stockage dans les informations d’identification incluses dans l’étendue de la base de données pour Gen2. 
 
 Pour vous connecter à Data Lake Storage Gen1, vous devez **tout d’abord** créer une application Azure Active Directory, créer une clé d’accès et accorder l’accès aux applications à la ressource Data Lake Storage Gen1. Pour obtenir des instructions, consultez [S’authentifier auprès de Data Lake Storage Gen1 en utilisant Active Directory](../data-lake-store/data-lake-store-authenticate-using-active-directory.md).
 
@@ -115,7 +115,7 @@ WITH (
 ```
 
 ## <a name="configure-data-format"></a>Configurer le format des données
-Pour importer les données à partir de Data Lake Storage, vous devez spécifier le Format de fichier externe. Cet objet définit la façon dont les fichiers sont écrits dans Data Lake Storage.
+Pour importer les données à partir de Data Lake Storage, vous devez spécifier le format de fichier externe. Cet objet définit la manière dont les fichiers sont écrits dans Data Lake Storage.
 Pour obtenir la liste complète, consultez notre documentation T-SQL sur [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql).
 
 ```sql
@@ -176,7 +176,7 @@ Les options REJECT_TYPE et REJECT_VALUE vous permettent de définir le nombre de
 Data Lake Storage Gen1 utilise le contrôle d’accès en fonction du rôle (RBAC) pour contrôler l’accès aux données. Cela signifie que le principal de service doit disposer des autorisations de lecture pour les répertoires définis dans le paramètre d’emplacement, ainsi que pour les enfants des fichiers et du répertoire final. Cela permet à PolyBase d’authentifier et de charger ces données. 
 
 ## <a name="load-the-data"></a>Chargement des données
-Pour charger des données à partir de l’utilisation de Data Lake Storage le [CREATE TABLE AS SELECT (Transact-SQL)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) instruction. 
+Pour charger des données à partir de Data Lake Storage, utilisez l’instruction [CREATE TABLE AS SELECT (Transact-SQL)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse). 
 
 CTAS crée une table et la remplit avec les résultats d’une instruction select. CTAS définit la nouvelle table de manière à proposer les mêmes colonnes et les mêmes types de données que les résultats de l’instruction select. Si vous sélectionnez toutes les colonnes d’une table externe, la nouvelle table est un réplica des colonnes et des types de données dans la table externe.
 

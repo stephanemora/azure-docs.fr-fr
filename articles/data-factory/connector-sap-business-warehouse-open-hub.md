@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 03/08/2019
 ms.author: jingwang
 ms.openlocfilehash: 6fb989632d3165ac5e54e540aae4385fc2258c85
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66256909"
 ---
 # <a name="copy-data-from-sap-business-warehouse-via-open-hub-using-azure-data-factory"></a>Copier des données à partir de SAP Business Warehouse via Open Hub à l'aide d'Azure Data Factory
@@ -29,7 +29,7 @@ Vous pouvez copier des données de SAP Business Warehouse vers une banque de don
 
 Plus précisément, ce connecteur SAP Business Warehouse Open Hub prend en charge ce qui suit :
 
-- SAP Business Warehouse **version 7.01 ou une version ultérieure (dans une récente SAP prise en charge de Package pile publiée après l’année 2015)** .
+- SAP Business Warehouse **version 7.01 ou ultérieure (dans une pile SAP Support Package Stack postérieure à 2015)** .
 - Copie de données via la table OHD locale qui peut être DSO, InfoCube, MultiProvider, DataSource, etc.
 - Copie de données en utilisant une authentification de base.
 - Connexion au serveur d'applications.
@@ -38,32 +38,32 @@ Plus précisément, ce connecteur SAP Business Warehouse Open Hub prend en charg
 
 Le service [SAP BW Open Hub](https://wiki.scn.sap.com/wiki/display/BI/Overview+of+Open+Hub+Service) permet d'extraire efficacement des données à partir de SAP BW. Le schéma suivant illustre l'un des flux typiques dont disposent les clients dans leur système SAP, et dans lequel les données circulent comme suit : SAP ECC -> PSA -> DSO -> Cube.
 
-La destination SAP BW Open Hub (OHD) définit la cible vers laquelle les données SAP sont relayées. Les objets pris en charge par processus de transfert des données de SAP (DTP) peuvent être utilisés comme sources de données hub open, par exemple, DSO, InfoCube, source de données, etc. Les types de destination Open Hub, où les données relayées sont stockées, peuvent être des tables de bases de données (locales ou distantes) et des fichiers plats. Ce connecteur SAP BW Open Hub prend en charge la copie de données de la table OHD locale dans BW. Si vous utilisez d'autres types, vous pouvez vous connecter directement à la base de données ou au système de fichiers à l'aide d'autres connecteurs.
+La destination SAP BW Open Hub (OHD) définit la cible vers laquelle les données SAP sont relayées. Tous les objets pris en charge par le processus de transfert de données (DTP) SAP peuvent être utilisés comme sources de données Open Hub, par exemple, DSO, InfoCube, DataSource, etc. Les types de destination Open Hub, où les données relayées sont stockées, peuvent être des tables de bases de données (locales ou distantes) et des fichiers plats. Ce connecteur SAP BW Open Hub prend en charge la copie de données de la table OHD locale dans BW. Si vous utilisez d'autres types, vous pouvez vous connecter directement à la base de données ou au système de fichiers à l'aide d'autres connecteurs.
 
 ![SAP BW Open Hub](./media/connector-sap-business-warehouse-open-hub/sap-bw-open-hub.png)
 
 ## <a name="delta-extraction-flow"></a>Flux d’extraction de delta
 
-ADF SAP BW Connector Open Hub offre deux propriétés facultatives : `excludeLastRequest` et `baseRequestId` qui peut être utilisé pour gérer la charge de delta à partir de Open Hub. 
+Le connecteur ADF SAP BW Open Hub offre deux propriétés facultatives, `excludeLastRequest` et `baseRequestId`, qui permettent de gérer le chargement de delta à partir d’Open Hub. 
 
-- **excludeLastRequestId**: Indique s'il faut exclure les enregistrements de la dernière requête. Valeur par défaut est true. 
-- **baseRequestId**: ID de requête pour le chargement delta. Une fois qu’il est défini, seules les données avec ID de demande supérieur à la valeur de cette propriété seront récupérées. 
+- **excludeLastRequestId** : Indique s'il faut exclure les enregistrements de la dernière requête. La valeur par défaut est true. 
+- **baseRequestId** : ID de requête pour le chargement delta. Une fois l’ID défini, seules les données dont l’ID de requête est supérieur à la valeur de cette propriété sont récupérées. 
 
-En général, l’extraction à partir de SAP InfoProviders à Azure Data Factory (ADF) consistant en 2 étapes : 
+En général, l’extraction de fournisseurs d’informations SAP vers Azure Data Factory (ADF) comprend 2 étapes : 
 
-1. **Données de transfert de processus (DTP) pour SAP BW** cette étape copie les données à partir d’un fournisseur d’infos SAP BW dans une table de SAP BW Open Hub 
+1. **Traitement de transfert de données SAP BW** Cette étape copie les données d’un fournisseur d’informations SAP BW vers une table SAP BW Open Hub. 
 
-1. **Copie des données ADF** dans cette étape, la table Open Hub est lu par le connecteur ADF 
+1. **Copie des données ADF** Au cours de cette étape, le connecteur ADF lit la table Open Hub. 
 
 ![Flux d’extraction de delta](media/connector-sap-business-warehouse-open-hub/delta-extraction-flow.png)
 
-Dans la première étape, un processus DTP est exécutée. Chaque exécution crée un nouvel ID de demande SAP. L’ID de demande est stocké dans la table Open Hub et est ensuite utilisé par le connecteur ADF pour identifier le delta. Les deux étapes exécutent de façon asynchrone : le processus DTP est déclenché par SAP, et la copie des données ADF est déclenchée par le biais ADF. 
+Dans la première étape, un traitement de transfert de données est exécuté. Chaque exécution crée un ID de demande SAP. L’ID de demande est stocké dans la table Open Hub, puis utilisé par le connecteur ADF pour identifier le delta. Les deux étapes s’exécutent de façon asynchrone : le traitement de transfert de données est déclenché par SAP, et la copie des données ADF via ADF. 
 
-Par défaut, ADF ne lit pas la dernière delta à partir de la table Open Hub (option « exclude dernière demande » est true). Les présentes, les données dans ADF ne sont pas à jour avec les données dans le tableau Open Hub (le dernier delta est manquant) à 100 %. En retour, cette procédure permet de s’assurer qu’aucune ligne ne dissimulées provoquée par l’extraction asynchrone. Cela fonctionne bien même lorsque ADF lit la table Open Hub pendant le processus DTP est toujours écrit dans la même table. 
+Par défaut, ADF ne lit pas le dernier delta à partir de la table Open Hub (l’option « exclude last request » et définie sur true). Ainsi, les données dans ADF ne sont pas synchronisées à 100 % avec les données de la table Open Hub (le dernier delta est manquant). Par contre, cette procédure garantit qu’aucune ligne n’est perdue en raison de l’extraction asynchrone. Cela fonctionne bien, même si ADF lit la table Open Hub alors que le traitement de transfert de données est toujours en train d’écrire dans la même table. 
 
-En général, vous stockez l’ID de demande copié max dans la dernière exécution par ADF dans un magasin de données intermédiaire (par exemple, Azure Blob dans diagramme ci-dessus). Par conséquent, la même demande sans être lu une deuxième fois par ADF dans l’exécution ultérieure. Pendant ce temps, notez que les données ne sont pas automatiquement supprimées de la table Open Hub.
+Vous stockez généralement l’ID de requête max copié lors de la dernière exécution par ADF dans une banque de données intermédiaires (telle que le Stockage Blob Azure dans le diagramme ci-dessus). Par conséquent, la même demande n’est pas lue une deuxième fois par ADF lors de l’exécution suivante. Entre-temps, notez que les données ne sont pas automatiquement supprimées de la table Open Hub.
 
-Delta appropriée la manipulation des ne sont pas autorisée pour avoir des ID à partir de différents PDT de demande dans la même table Open Hub. Par conséquent, vous ne devez pas créer plusieurs DTP pour chaque Destination de Hub Open (OHD). Lorsque vous avez besoin d’extraction complète et Delta à partir du même fournisseur d’infos, vous devez créer deux OHDs pour le même fournisseur d’infos. 
+Pour un traitement de delta approprié, il ne peut pas y avoir d’ID de demande provenant de traitements de transfert de données différents dans la même table Open Hub. Vous ne devez donc pas créer plus d’un traitement de transfert de données pour chaque destination Open Hub. Si vous avec besoin d’extractions complète et de delta du même fournisseur d’informations, vous devez créer deux destinations Open Hub pour le même fournisseur d’informations. 
 
 ## <a name="prerequisites"></a>Conditions préalables
 
@@ -86,7 +86,7 @@ Pour utiliser ce connecteur SAP Business Warehouse Open Hub, vous devez suivre l
 
 > [!TIP]
 >
-> Pour obtenir une description de l’utilisation du connecteur de SAP BW Open Hub, consultez [charger des données à partir de SAP Business Warehouse (BW) à l’aide d’Azure Data Factory](load-sap-bw-data.md).
+> Pour une procédure pas à pas décrivant l’utilisation du connecteur SAP BW Open Hub, voir [Charger des données depuis SAP Business Warehouse à l’aide d’Azure Data Factory](load-sap-bw-data.md).
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -98,14 +98,14 @@ Les propriétés prises en charge pour le service lié SAP Business Warehouse Op
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type doit être définie sur : **SapOpenHub** | Oui |
-| server | Nom du serveur sur lequel réside l’instance SAP BW. | Oui |
-| systemNumber | Numéro de système du système SAP BW.<br/>Valeur autorisée : nombre décimal à deux chiffres représenté sous forme de chaîne. | Oui |
-| clientId | ID client du client dans le système SAP W.<br/>Valeur autorisée : nombre décimal à trois chiffres représenté sous forme de chaîne. | Oui |
-| langage | Langue utilisée par le système SAP. | Non (la valeur par défaut est **EN**)|
-| userName | Nom de l’utilisateur ayant accès au serveur SAP. | Oui |
+| type | La propriété type doit être définie sur : **SapOpenHub** | OUI |
+| serveur | Nom du serveur sur lequel réside l’instance SAP BW. | OUI |
+| systemNumber | Numéro de système du système SAP BW.<br/>Valeur autorisée : nombre décimal à deux chiffres représenté sous forme de chaîne. | OUI |
+| clientId | ID client du client dans le système SAP W.<br/>Valeur autorisée : nombre décimal à trois chiffres représenté sous forme de chaîne. | OUI |
+| Langage | Langue utilisée par le système SAP. | Non (la valeur par défaut est **EN**)|
+| userName | Nom de l’utilisateur ayant accès au serveur SAP. | OUI |
 | password | Mot de passe pour l’utilisateur. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | OUI |
-| connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Un Runtime d’intégration autohébergé est nécessaire comme indiqué dans [Prérequis](#prerequisites). |Oui |
+| connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Un Runtime d’intégration autohébergé est nécessaire comme indiqué dans [Conditions préalables](#prerequisites). |OUI |
 
 **Exemple :**
 
@@ -134,16 +134,16 @@ Les propriétés prises en charge pour le service lié SAP Business Warehouse Op
 
 ## <a name="dataset-properties"></a>Propriétés du jeu de données
 
-Pour obtenir la liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez l’article [Jeux de données](concepts-datasets-linked-services.md). Cette section fournit une liste des propriétés prises en charge par le jeu de données SAP BW Open Hub.
+Pour obtenir la liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez l’article [Jeux de données](concepts-datasets-linked-services.md). Cette section fournit la liste des propriétés prises en charge par le jeu de données SAP BW Open Hub.
 
 Pour copier des données depuis et vers SAP BW Open Hub, définissez la propriété type du jeu de données sur **SapOpenHubTable**. Les propriétés suivantes sont prises en charge.
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type doit être définie sur **SapOpenHubTable**.  | Oui |
-| openHubDestinationName | Nom de la destination Open Hub à partir de laquelle les données doivent être copiées. | Oui |
+| Type | La propriété type doit être définie sur **SapOpenHubTable**.  | OUI |
+| openHubDestinationName | Nom de la destination Open Hub à partir de laquelle les données doivent être copiées. | OUI |
 | excludeLastRequest | Indique s'il faut exclure les enregistrements de la dernière requête. | Non (la valeur par défaut est **true**) |
-| baseRequestId | ID de requête pour le chargement delta. Une fois ceci défini, seules les données dont le requestId est **supérieur à** la valeur de cette propriété sont récupérées.  | Non  |
+| baseRequestId | ID de requête pour le chargement delta. Une fois ceci défini, seules les données dont le requestId est **supérieur à** la valeur de cette propriété sont récupérées.  | Non |
 
 >[!TIP]
 >Si votre table Open Hub ne contient que les données générées par un seul ID de requête, par exemple, vous exécutez toujours un plein chargement et écrasez les données existantes dans la table, ou si vous n'exécutez le DTP qu'une fois à des fins de test, n'oubliez pas de décocher l'option « excludeLastRequest » afin de copier les données.
@@ -172,7 +172,7 @@ Pour obtenir la liste complète des sections et des propriétés disponibles pou
 
 ### <a name="sap-bw-open-hub-as-source"></a>SAP BW Open Hub en tant que source
 
-Pour copier des données à partir de SAP BW Open Hub, définissez **SapOpenHubSource** comme type de source dans l'activité de copie. Aucune propriété propre au type supplémentaires nécessaires dans l’activité de copie **source** section.
+Pour copier des données à partir de SAP BW Open Hub, définissez **SapOpenHubSource** comme type de source dans l'activité de copie. Aucune autre propriété spécifique du type n’est nécessaire dans la section **source** de l’activité de copie.
 
 **Exemple :**
 

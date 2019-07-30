@@ -9,10 +9,10 @@ ms.service: site-recovery
 ms.date: 05/30/2019
 ms.author: raynew
 ms.openlocfilehash: 11d409f904c43c0df4bbbd44fdb24531f2f989f6
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66399592"
 ---
 # <a name="replicate-azure-stack-vms-to-azure"></a>Répliquer des machines virtuelles Azure Stack dans Azure
@@ -68,7 +68,7 @@ Voici les éléments requis pour configurer ce scénario.
 **Exigence** | **Détails**
 --- | ---
 **Compte d’abonnement Azure** | Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/).
-**Autorisations du compte Azure** | Le compte Azure que vous utilisez doit être autorisé à effectuer les actions suivantes :<br/><br/> - Créer un coffre Recovery Services<br/><br/> - Créer une machine virtuelle dans le groupe de ressources et le réseau virtuel que vous utilisez pour le scénario<br/><br/> - Écrire dans le compte de stockage que vous spécifiez<br/><br/> Notez les points suivants :<br/><br/> - Si vous créez un compte gratuit, vous êtes l’administrateur de votre abonnement et pouvez effectuer toutes les actions.<br/><br/> - Si vous utilisez un abonnement existant dont vous n’êtes pas l’administrateur, vous devez collaborer avec l’administrateur pour qu’il vous accorde les autorisations Propriétaire ou Contributeur.<br/><br/> - Si vous avez besoin d’autorisations plus précises, voir [cet article](https://docs.microsoft.com/azure/site-recovery/site-recovery-role-based-linked-access-control). 
+**Autorisations du compte Azure** | Le compte Azure que vous utilisez doit être autorisé à effectuer les actions suivantes :<br/><br/> - Créer un coffre Recovery Services<br/><br/> - Créer une machine virtuelle dans le groupe de ressources et le réseau virtuel que vous utilisez pour le scénario<br/><br/> - Écrire dans le compte de stockage que vous spécifiez<br/><br/> Notez les points suivants :<br/><br/> \- Si vous créez un compte gratuit, vous êtes l’administrateur de votre abonnement et pouvez effectuer toutes les actions.<br/><br/> - Si vous utilisez un abonnement existant dont vous n’êtes pas l’administrateur, vous devez collaborer avec l’administrateur pour qu’il vous accorde les autorisations Propriétaire ou Contributeur.<br/><br/> - Si vous avez besoin d’autorisations plus précises, voir [cet article](https://docs.microsoft.com/azure/site-recovery/site-recovery-role-based-linked-access-control). 
 **Machine virtuelle Azure Stack** | Vous avez besoin d’une machine virtuelle Azure Stack dans l’abonnement du locataire, qui sera déployée en tant que serveur de configuration Site Recovery. 
 
 
@@ -214,7 +214,7 @@ Sélectionnez et vérifiez les ressources cibles.
 4. Dans **Rétention des points de récupération**, spécifiez le temps de rétention de chaque point de récupération. Les machines virtuelles répliquées peuvent être restaurées à n’importe quel point de récupération dans la fenêtre de temps spécifiée.
 5. Dans **Fréquence des captures instantanées de cohérence d’application**, spécifiez la fréquence de création d’instantanés de cohérence de l’application.
 
-    - Un instantané cohérent au niveau de l’application est un instantané de point-à-temps des données de l’application à l’intérieur de la machine virtuelle.
+    - Un instantané de cohérence d’application est une capture instantanée à un point dans le temps des données d’application à l’intérieur de la machine virtuelle.
     - Le service VSS s’assure que les applications sur la machine virtuelle sont dans un état cohérent au moment de la capture instantanée.
 6. Sélectionnez **OK** pour créer la stratégie.
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
 ms.openlocfilehash: cfa6a363725c35083b32d6de1dd1371777f91907
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66240303"
 ---
 # <a name="client-and-server-versioning-in-mobile-apps-and-mobile-services"></a>Contrôle de version client et serveur dans Mobile Apps et Mobile Services
@@ -29,12 +29,12 @@ Autrement dit, vous devez utiliser un SDK client *Mobile Apps* avec un SDK serve
 
 Remarque : chaque fois que ce document fait référence à un backend *Mobile Services* , il n'est pas nécessaire qu'il soit hébergé sur Mobile Services. Il est désormais possible de faire migrer un service mobile sur App Service sans aucune modification de code, mais dans ce cas le service utilisera toujours les versions du SDK *Mobile Services*.
 
-Pour en savoir plus sur la migration vers App Service sans modification du code, consultez l’article [migration d’un Service Mobile sur Azure App Service].
+Pour en savoir plus sur la migration vers App Service sans aucune modification de code, consultez l’article Migrer un service Mobile Services sur Azure App Service.
 
 ## <a name="header-specification"></a>Spécification de l’en-tête
 La clé `ZUMO-API-VERSION` peut être spécifiée dans l'en-tête HTTP ou dans la chaîne de requête. La valeur est une chaîne de version sous la forme **x.y.z**.
 
-Exemple :
+Par exemple :
 
 GET https://service.azurewebsites.net/tables/TodoItem
 
@@ -61,7 +61,7 @@ La vérification de version a été introduite à partir des versions suivantes 
 ### <a name="mobile-apps-server-sdks"></a>Kits de développement logiciel (SDK) du serveur Mobile *Apps*
 La vérification de version est incluse dans les versions suivantes du SDK serveur :
 
-| Plateforme de serveur | Kit SDK  | En-têtes de versions acceptés |
+| Plateforme de serveur | Kit SDK | En-têtes de versions acceptés |
 | --- | --- | --- |
 | .NET |[Microsoft.Azure.Mobile.Server](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server/) |2.0.0 |
 | Node.js |[azure-mobile-apps)](https://www.npmjs.com/package/azure-mobile-apps) |2.0.0 |

@@ -8,13 +8,13 @@ ms.topic: article
 ms.date: 05/31/2019
 ms.author: magattus
 ms.openlocfilehash: a04fcd3eaaed5c3e43f631ad1fbb6fed93ea29fb
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66481683"
 ---
-# <a name="azure-cdn-from-verizon-premium-rules-engine-reference"></a>Azure CDN à partir de la référence du moteur de règles Premium de Verizon
+# <a name="azure-cdn-from-verizon-premium-rules-engine-reference"></a>Documentation de référence sur le moteur de règles Azure CDN de Verizon Premium
 
 Cet article fournit les descriptions détaillées des conditions de correspondance et fonctionnalités disponibles pour le [moteur de règles](cdn-verizon-premium-rules-engine.md) Azure Content Delivery Network (CDN).
 
@@ -66,7 +66,7 @@ Les expressions régulières définissent un modèle qui est recherché dans une
 Caractère spécial | Description
 ------------------|------------
 \ | Une barre oblique inverse échappe le caractère qui la suit, ce caractère est alors traité comme une valeur littérale plutôt que d’utiliser sa signification d’expression régulière. Par exemple, la syntaxe suivante échappe un astérisque : `\*`
-% | La signification d’un symbole de pourcentage dépend de son utilisation.<br/><br/> `%{HTTPVariable}`: Cette syntaxe identifie une variable HTTP.<br/>`%{HTTPVariable%Pattern}`: Cette syntaxe utilise un symbole de pourcentage pour identifier une variable HTTP et comme un délimiteur.<br />`\%`: Échappement d’un symbole de pourcentage permet à utiliser comme une valeur littérale ou d’indiquer l’encodage des URL (par exemple, `\%20`).
+% | La signification d’un symbole de pourcentage dépend de son utilisation.<br/><br/> `%{HTTPVariable}`: cette syntaxe identifie une variable HTTP.<br/>`%{HTTPVariable%Pattern}`: cette syntaxe utilise un symbole de pourcentage pour identifier une variable HTTP et comme délimiteur.<br />`\%`: l’échappement d’un symbole de pourcentage permet de l’utiliser comme une valeur littérale ou d’indiquer l’encodage des URL (par exemple, `\%20`).
 \* | Un astérisque permet de mettre en correspondance une ou plusieurs fois le caractère qui le précède.
 Espace | Un caractère d’espace est généralement traité comme un caractère littéral.
 'valeur' | Les guillemets simples sont traités comme des caractères littéraux. Un jeu de guillemets simples n’a pas de signification particulière.

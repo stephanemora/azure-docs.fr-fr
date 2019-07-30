@@ -1,6 +1,6 @@
 ---
-title: Remplacement du comportement HTTP à l’aide d’Azure CDN à partir du moteur de règles Premium de Verizon | Microsoft Docs
-description: Le moteur de règles vous permet de personnaliser comment les requêtes HTTP sont gérés par Azure CDN de Verizon Premium, telles que le blocage de la remise de certains types de contenu, définir une stratégie de mise en cache, et modifier les en-têtes HTTP.
+title: Modifier le comportement HTTP à l’aide du moteur de règles Azure CDN de Verizon Premium | Microsoft Docs
+description: Le moteur de règles vous permet de personnaliser la manière dont Azure CDN de de Verizon Premium gère les requêtes HTTP, telles que le blocage de la remise de certains types de contenus, la définition d’une stratégie de mise en cache et la modification des en-têtes HTTP.
 services: cdn
 author: mdgattuso
 ms.service: cdn
@@ -8,17 +8,17 @@ ms.topic: article
 ms.date: 05/31/2019
 ms.author: magattus
 ms.openlocfilehash: 81af3073d64e4379972568a57907a7fb2f82356d
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66481728"
 ---
-# <a name="override-http-behavior-using-the-azure-cdn-from-verizon-premium-rules-engine"></a>Remplacement du comportement HTTP à l’aide d’Azure CDN à partir du moteur de règles Premium de Verizon
+# <a name="override-http-behavior-using-the-azure-cdn-from-verizon-premium-rules-engine"></a>Modifier le comportement HTTP à l’aide du moteur de règles Azure CDN de Verizon Premium
 
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 
 Le moteur de règles Azure CDN vous permet de personnaliser la gestion des requêtes HTTP. Par exemple, le blocage de la livraison de certains types de contenu, définir une stratégie de mise en cache ou modifier un en-tête HTTP. Ce didacticiel présente la création d’une règle qui modifie le comportement de mise en cache des ressources CDN. Pour plus d’informations sur la syntaxe de moteur de règles, consultez [Référence du moteur de règles Azure CDN](cdn-verizon-premium-rules-engine-reference.md).
 
@@ -100,4 +100,4 @@ Pour accéder au moteur de règles, vous devez d’abord sélectionner **Gérer*
 - [Conditions de correspondance du moteur de règles](cdn-verizon-premium-rules-engine-reference-match-conditions.md)
 - [Expressions conditionnelles du moteur de règles](cdn-verizon-premium-rules-engine-reference-conditional-expressions.md)
 - [Fonctionnalités du moteur de règles](cdn-verizon-premium-rules-engine-reference-features.md)
-- [Azure Friday : Nouvelles fonctionnalités premium puissantes de Azure CDN](https://azure.microsoft.com/documentation/videos/azure-cdns-powerful-new-premium-features/) (vidéo)
+- [Azure Fridays : les nouvelles fonctionnalités Premium puissantes du CDN Azure](https://azure.microsoft.com/documentation/videos/azure-cdns-powerful-new-premium-features/) (vidéo)

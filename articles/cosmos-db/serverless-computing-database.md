@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: sngun
 ms.openlocfilehash: db85d02a4f5c6e0f644a03394b570aac46202e72
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66256955"
 ---
 # <a name="serverless-database-computing-using-azure-cosmos-db-and-azure-functions"></a>Traitement de base de données serverless à l’aide d’Azure Cosmos DB et d’Azure Functions
@@ -107,11 +107,11 @@ Dans tous ces cas d’usage, étant donné que la fonction a découplé l’appl
 
 ## <a name="tooling"></a>Outils
 
-Intégration native entre Azure Cosmos DB et Azure Functions est disponible dans le portail Azure et dans Visual Studio 2019.
+L’intégration native entre Azure Cosmos DB et Azure Functions est disponible dans le portail Azure et dans Visual Studio 2019.
 
 * Dans le portail Azure Functions, vous pouvez créer un déclencheur Azure Cosmos DB. Pour obtenir des instructions de démarrage rapide, consultez [Créer un déclencheur Azure Cosmos DB dans le portail Azure](https://aka.ms/cosmosdbtriggerportalfunc).
 * Dans le portail Azure Cosmos DB, vous pouvez ajouter un déclencheur Azure Cosmos DB à une application Azure Functions existante dans le même groupe de ressources.
-* Dans Visual Studio 2019, vous pouvez créer un déclencheur Azure Cosmos DB en utilisant le [Azure Functions Tools](../azure-functions/functions-develop-vs.md):
+* Dans Visual Studio 2019, vous pouvez créer un déclencheur Azure Cosmos DB en utilisant [Azure Functions Tools](../azure-functions/functions-develop-vs.md) :
 
     >[!VIDEO https://www.youtube.com/embed/iprndNsUeeg]
 

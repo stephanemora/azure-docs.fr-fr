@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
 ms.openlocfilehash: e27829fe5ebf57552ef4e97a2bfc7b6aefd81dc8
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66254401"
 ---
 # <a name="api-management-policies"></a>Stratégies API Management
@@ -56,7 +56,7 @@ Cette section est une ressource de référence au sujet des stratégies Gestion 
 -   [Stratégies d’authentification](api-management-authentication-policies.md#AuthenticationPolicies)  
     -   [Authenticate with Basic](api-management-authentication-policies.md#Basic) : authentification avec un service principal à l’aide de l’authentification de base.  
     -   [Authenticate with client certificate](api-management-authentication-policies.md#ClientCertificate) : authentification avec un service principal à l’aide de certificats clients.  
-    -   [Authentifier avec identité gérée](api-management-authentication-policies.md#ManagedIdentity) -authentifier avec un service principal à l’aide un [identité gérée](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).  
+    -   [Authenticate with managed identity](api-management-authentication-policies.md#ManagedIdentity) : authentification avec un service principal à l’aide d’une [identité managée](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).  
 -   [Stratégies de mise en cache](api-management-caching-policies.md#CachingPolicies)  
     -   [Get from cache](api-management-caching-policies.md#GetFromCache) : effectue une recherche dans le cache et renvoie une réponse mise en cache valide si elle est disponible.  
     -   [Store to cache](api-management-caching-policies.md#StoreToCache) : met en cache la réponse en fonction de la configuration de contrôle de cache spécifiée.  

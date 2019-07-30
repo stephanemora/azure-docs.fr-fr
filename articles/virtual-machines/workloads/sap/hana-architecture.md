@@ -15,10 +15,10 @@ ms.date: 05/25/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: d077487f85c789bcdfea3d91e29ee0d44ce82de0
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66239433"
 ---
 # <a name="sap-hana-large-instances-architecture-on-azure"></a>Architecture SAP HANA (grandes instances) sur Azure
@@ -34,24 +34,24 @@ L’architecture globale de SAP HANA sur Azure (grandes instances) fournit une c
 
 L’architecture présentée est divisée en trois sections :
 
-- **droit**: Montre une infrastructure sur site qui exécute différentes applications dans les données centres afin que les utilisateurs finaux puissent accéder métier des applications, telles que SAP. Dans l’idéal, cette locale infrastructure est connectée à Azure avec [ExpressRoute](https://azure.microsoft.com/services/expressroute/).
+- **À droite** : affiche une infrastructure sur site qui exécute différentes applications dans les centres de données afin que les utilisateurs finaux puissent accéder à des applications métier, telles que SAP. Dans l’idéal, cette infrastructure locale est connectée à Azure avec [ExpressRoute](https://azure.microsoft.com/services/expressroute/).
 
-- **Centre**: Montre Azure IaaS et, dans ce cas, utilisez des machines virtuelles pour héberger SAP ou autres applications qui utilisent SAP HANA comme un système SGBD. Les instances HANA plus petites qui fonctionnent avec la mémoire que les machines virtuelles fournissent sont déployées dans des machines virtuelles avec leur couche Application. Pour plus d’informations sur les machines virtuelles, consultez[Machines virtuelles](https://azure.microsoft.com/services/virtual-machines/).
+- **Au centre** : montre Azure IaaS et, dans ce cas, l’utilisation des machines virtuelles pour héberger SAP ou d’autres applications qui utilisent SAP HANA en tant que système SGBD. Les instances HANA plus petites qui fonctionnent avec la mémoire que les machines virtuelles fournissent sont déployées dans des machines virtuelles avec leur couche Application. Pour plus d’informations sur les machines virtuelles, consultez[Machines virtuelles](https://azure.microsoft.com/services/virtual-machines/).
 
    Les services réseau Azure permettent de regrouper des systèmes SAP ainsi que d’autres applications dans des réseaux virtuels. Ces réseaux virtuels se connectent à des systèmes locaux et à SAP HANA sur Azure (grandes instances).
 
-   Pour les applications SAP NetWeaver et les bases de données qui sont prises en charge pour s’exécuter dans Azure, consultez [SAP Support Note #1928533 – applications SAP sur Azure : Produits et types de machines virtuelles Azure pris en charge](https://launchpad.support.sap.com/#/notes/1928533). Pour la documentation sur le déploiement des solutions SAP sur Azure, consultez :
+   Pour les bases de données et les applications SAP NetWeaver prises en charge pour être exécutées dans Azure, voir [Remarque sur la prise en charge SAP n° 1928533 – Applications SAP sur Azure : types de machines virtuelles Azure et produits pris en charge](https://launchpad.support.sap.com/#/notes/1928533). Pour la documentation sur le déploiement des solutions SAP sur Azure, consultez :
 
   -  [Utiliser SAP sur des machines virtuelles Windows](../../virtual-machines-windows-sap-get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
   -  [Utiliser des solutions SAP sur des machines virtuelles Azure](get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-- **gauche**: Répertorie le matériel certifié TDI SAP HANA dans le tampon de grande Instance Azure. Les unités de grande Instance HANA sont connectées aux réseaux virtuels de votre abonnement Azure à l’aide de la même technologie que la connectivité locale à Azure. À compter de mai 2019, une optimisation a été commercialisée qui permet de communiquer entre les unités de grande Instance HANA et les machines virtuelles Azure sans l’intervention de la passerelle ExpressRoute. Cette optimisation appelée ExpressRoute rapide chemin d’accès s’affiche dans cette architecture (lignes rouges). 
+- **À gauche** : montre le matériel certifié TDI SAP HANA dans le tampon de grande instance Azure. Les unités de grande instance HANA sont connectées aux réseaux virtuels de votre abonnement Azure à l’aide de la même technologie que la connectivité du système local à Azure. Depuis le mois de mai 2019, une optimisation a été introduite, qui permet la communication entre les unités d’instance de grande taille HANA et les machines virtuelles Azure sans implication de la passerelle ExpressRoute. Cette optimisation appelée ExpressRoute Fast Path est présentée dans cette architecture (lignes rouges). 
 
 Le tampon de grande instance Azure combine les composants suivants :
 
-- **Informatique**: Serveurs qui sont basées sur différents génération de processeurs Intel Xeon qui fournissent des capacités de calcul nécessaires et sont certifiés SAP HANA.
-- **Réseau** : Une structure réseau haut débit unifiée qui relie le calcul, de stockage et les composants de réseau local.
-- **Stockage** : Une infrastructure de stockage qui est accessible via une structure réseau unifiée. La capacité de stockage spécifique fournie varie selon la configuration SAP HANA sur Azure (grandes instances) spécifique déployée. Une capacité de stockage supplémentaire est disponible pour un coût mensuel supérieur.
+- **Calcul** : serveurs basés sur différentes générations de processeurs Intel Xeon qui offrent la capacité de calcul nécessaire et sont certifiés SAP HANA.
+- **Réseau** : structure réseau haut débit unifiée qui relie les composants de calcul, de stockage et LAN.
+- **Stockage** : infrastructure de stockage accessible via une infrastructure de réseau unifiée. La capacité de stockage spécifique fournie varie selon la configuration SAP HANA sur Azure (grandes instances) spécifique déployée. Une capacité de stockage supplémentaire est disponible pour un coût mensuel supérieur.
 
 Dans l’infrastructure multilocataire du tampon de grande instance, les clients sont déployés en tant que locataires isolés. Au moment du déploiement de l’abonné, nommez un abonnement Azure au sein de votre inscription Azure. Cet abonnement Azure correspond à la grande instance HANA facturée. Ces locataires ont une relation 1:1 avec l’abonnement Azure. En termes de réseau, il est possible d’accéder à une unité de grande instance HANA déployée sur un abonné dans une région Azure à partir de différents réseaux virtuels qui appartiennent à différents abonnements Azure. Ces abonnements Azure doivent appartenir à la même inscription Azure. 
 

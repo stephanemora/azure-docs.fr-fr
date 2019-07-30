@@ -1,19 +1,19 @@
 ---
-title: Script Azure PowerShell - Azure Cosmos DB Update RU/s pour l’API Cassandra
-description: Script Azure PowerShell - Azure Cosmos DB Update RU/s pour l’API Cassandra
+title: Script Azure PowerShell – Mise à jour du débit (RU/s) dans Azure Cosmos DB pour l’API Cassandra
+description: Script Azure PowerShell – Mise à jour du débit (RU/s) dans Azure Cosmos DB pour l’API Cassandra
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: samples
 ms.date: 05/18/2019
 ms.author: mjbrown
 ms.openlocfilehash: 05ff4379c0a5d5436525f25bd755a7fce46d8121
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66247918"
 ---
-# <a name="update-rus-for-a-keyspace-or-table-for-azure-cosmos-db---cassandra-api"></a>Mettre à jour de RU/s pour un espace de clés ou une table pour Azure Cosmos DB : API Cassandra
+# <a name="update-rus-for-a-keyspace-or-table-for-azure-cosmos-db---cassandra-api"></a>Mettre à jour le débit (RU/s) d’un espace de clés ou d’une table pour Azure Cosmos DB – API Cassandra
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 

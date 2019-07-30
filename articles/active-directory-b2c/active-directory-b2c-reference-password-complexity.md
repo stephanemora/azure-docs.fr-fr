@@ -11,10 +11,10 @@ ms.date: 02/11/2019
 ms.author: marsma
 ms.subservice: B2C
 ms.openlocfilehash: 37f8305d8ed212cf2c6678b35220d823611b9d7a
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66509014"
 ---
 # <a name="configure-complexity-requirements-for-passwords-in-azure-active-directory-b2c"></a>Configurer les exigences de complexité pour les mots de passe dans Azure Active Directory B2C
@@ -23,7 +23,7 @@ Azure Active Directory (Azure AD) B2C prend en charge la modification des exigen
 
 ## <a name="password-rule-enforcement"></a>Application des règles de mot de passe
 
-Lors de l’inscription ou de la réinitialisation de mot de passe, un utilisateur final doit fournir un mot de passe qui respecte les règles de complexité. Les règles de complexité du mot de passe s’appliquent flux d’utilisateur par flux d’utilisateur. Il est possible d’avoir un seul flux d’utilisateur à demander un pin à quatre chiffres au cours de l’abonnement à un certain temps un autre flux d’utilisateur nécessite une chaîne de huit caractères pendant l’inscription. Par exemple, vous pouvez utiliser un flux d’utilisateur avec différents niveaux de complexité du mot de passe pour les adultes et pour les enfants.
+Lors de l’inscription ou de la réinitialisation de mot de passe, un utilisateur final doit fournir un mot de passe qui respecte les règles de complexité. Les règles de complexité du mot de passe s’appliquent flux d’utilisateur par flux d’utilisateur. Il est possible qu’un flux d’utilisateur demande un code confidentiel à quatre chiffres et un autre une chaîne de huit caractères à l’inscription. Par exemple, vous pouvez utiliser un flux d’utilisateur avec différents niveaux de complexité du mot de passe pour les adultes et pour les enfants.
 
 La complexité du mot de passe ne s’applique jamais lors de la connexion. Les utilisateurs ne sont jamais invités à modifier leur mot de passe parce qu’il ne répond pas à l’exigence de complexité actuelle.
 

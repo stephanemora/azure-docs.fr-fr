@@ -12,13 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
-ms.author: yagup;kumud
-ms.openlocfilehash: a4ae997398c85dc99af8711f1c6ce4e743592d73
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.author: kumud
+ms.reviewer: yagup
+ms.openlocfilehash: ca3174ad69185da88bf89c843f641dd2b20d9ac5
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64939889"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67872489"
 ---
 # <a name="traffic-analytics"></a>Traffic Analytics
 
@@ -44,8 +45,8 @@ Les réseaux virtuels Azure ont des journaux de flux de groupe de sécurité ré
 
 - **Groupe de sécurité réseau** : contient la liste des règles de sécurité qui autorisent ou rejettent le trafic réseau vers les ressources connectées à un réseau virtuel Azure. Les NSG peuvent être associés à des sous-réseaux, à des machines virtuelles spécifiques (Classic) ou à des interfaces réseau (NIC) individuelles attachées à des machines virtuelles (Resource Manager). Pour plus d’informations, consultez [Sécurité du réseau](../virtual-network/security-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 - **Journalisation des flux de groupe de sécurité réseau (NSG)**  : permet d’afficher des informations sur le trafic IP entrant et sortant via un groupe de sécurité réseau. Les journaux de flux de groupe de sécurité réseau sont écrits au format JSON et affichent les flux entrants et sortants en fonction de la règle, la carte réseau à laquelle le flux s’applique, des informations à 5 tuples sur le flux (adresse IP source/de destination, port source/de destination, protocole), ainsi que l’autorisation ou le refus du trafic. Pour plus d’informations sur les journaux de flux de groupe de sécurité réseau, consultez [Présentation de la journalisation des flux pour les groupes de sécurité réseau](network-watcher-nsg-flow-logging-overview.md).
-- **Log Analytics** : service Azure qui collecte les données de surveillance et stocke les données dans un référentiel central. Ces données peuvent comprendre des événements, des données de performances ou des données personnalisées fournies par le biais de l’API Azure. Une fois collectées, les données sont disponibles pour les fonctions de génération d’alertes, d’analyse et d’exportation. Surveillance des applications telles qu’analytique de trafic et d’analyse de performances réseau est conçues à l’aide des journaux Azure Monitor en tant que base. Pour plus d’informations, consultez [Azure Monitor enregistre](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
-- **Espace de travail Log Analytics** : Une instance de journaux Azure Monitor, où sont stockées les données appartenant à un compte Azure. Pour plus d’informations sur les espaces de travail Analytique de journal, consultez [créer un espace de travail Analytique de journal](../azure-monitor/learn/quick-create-workspace.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+- **Log Analytics** : service Azure qui collecte les données de surveillance et stocke les données dans un référentiel central. Ces données peuvent comprendre des événements, des données de performances ou des données personnalisées fournies par le biais de l’API Azure. Une fois collectées, les données sont disponibles pour les fonctions de génération d’alertes, d’analyse et d’exportation. Les applications de surveillance telles que Network Performance Monitor et Traffic Analytics sont basées sur des journaux Azure Monitor. Pour plus d’informations, voir [Journaux Azure Monitor](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+- **Espace de travail Log Analytics** : instance d’analytique des journaux Azure Monitor, où les données appartenant à un compte Azure sont stockées. Pour plus d’informations sur les espaces de travail Log Analytics, voir [Créer un espace de travail Log Analytics dans le portail Azure](../azure-monitor/learn/quick-create-workspace.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 - **Network Watcher** : service régional qui vous permet de surveiller et de diagnostiquer l’état au niveau d’un scénario réseau dans Azure. Vous pouvez activer et désactiver les journaux de flux de groupe de sécurité réseau avec Network Watcher. Pour plus d’informations, consultez [Network Watcher](network-watcher-monitoring-overview.md).
 
 ## <a name="how-traffic-analytics-works"></a>Fonctionnement de Traffic Analytics
@@ -60,7 +61,7 @@ Vous pouvez utiliser l’analytique du trafic pour les régions prises en charge
 
 * Centre du Canada
 * USA Centre-Ouest
-* USA Est
+* East US
 * USA Est 2
 * USA Centre Nord
 * USA Centre Sud
@@ -87,25 +88,32 @@ Vous pouvez utiliser l’analytique du trafic pour les régions prises en charge
 L’espace de travail Log Analytics doit exister dans les régions suivantes :
 * Centre du Canada
 * USA Centre-Ouest
+* East US
+* USA Est 2
+* USA Centre Sud
+* USA Ouest
 * USA Ouest 2
-* USA Est
+* USA Centre
 * France Centre
+* Europe Nord
 * Europe Ouest
 * Sud du Royaume-Uni
+* Australie Est
 * Australie Sud-Est
+* Asie Est
 * Asie Sud-Est
 * Centre de la Corée
 * Inde Centre
 * Japon Est
 * Gouvernement américain - Virginie
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 ### <a name="user-access-requirements"></a>Conditions requises pour l’accès utilisateur
 
 Votre compte doit être membre de l’un des [rôles intégrés](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) Azure suivants :
 
-|Modèle de déploiement   | Rôle                   |
+|Modèle de déploiement   | Role                   |
 |---------          |---------               |
 |Gestionnaire de ressources   | Propriétaire                  |
 |                   | Contributeur            |
@@ -165,7 +173,7 @@ New-AzStorageAccount `
 Sélectionnez les options suivantes, comme indiqué dans l’image :
 
 1. Sélectionnez *Actif* pour **État**.
-2. Sélectionnez *Version 2* pour **version de journaux des flux**. La version 2 contient des statistiques de session des flux (octets et paquets).
+2. Sélectionnez *Version 2* comme **version de Journaux de flux**. La version 2 contient des statistiques de session des flux (octets et paquets).
 3. Sélectionnez un compte de stockage existant dans lequel conserver les journaux de flux. Si vous souhaitez stocker les données indéfiniment, définissez la valeur sur *0*. Des frais de stockage Azure peuvent s’appliquer pour le compte de stockage.
 4. Définissez **Rétention** sur le nombre de jours durant lequel vous souhaitez stocker les données.
 5. Sélectionnez *Activé* pour **Traffic Analytics Status** (État Traffic Analytics).
@@ -176,9 +184,9 @@ Sélectionnez les options suivantes, comme indiqué dans l’image :
 
     ![Sélection du compte de stockage, de l’espace de travail Log Analytics et activation de Traffic Analytics](./media/traffic-analytics/selection-of-storage-account-log-analytics-workspace-and-traffic-analytics-enablement-nsg-flowlogs-v2.png)
 
-Répétez les étapes précédentes pour les autres groupes de sécurité réseau pour lesquels vous souhaitez activer Traffic Analytics. Données des journaux de flux sont envoyées à l’espace de travail, assurez-vous que les lois et réglementations locales dans votre pays/région permettent le stockage de données dans la région où se trouve l’espace de travail.
+Répétez les étapes précédentes pour les autres groupes de sécurité réseau pour lesquels vous souhaitez activer Traffic Analytics. Les données des journaux de flux étant envoyées à l’espace de travail, assurez-vous que les lois et réglementations locales de votre pays/région autorisent le stockage de données dans la région où se trouve l’espace de travail.
 
-Vous pouvez également configurer d’analytique du trafic à l’aide du [Set-AzNetworkWatcherConfigFlowLog](/powershell/module/az.network/set-aznetworkwatcherconfigflowlog) applet de commande PowerShell dans Azure PowerShell. Exécutez `Get-Module -ListAvailable Az` pour rechercher la version installée. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-Az-ps).
+Vous pouvez également configurer les analyses de trafic à l’aide de la cmdlet PowerShell [Set-AzNetworkWatcherConfigFlowLog](/powershell/module/az.network/set-aznetworkwatcherconfigflowlog) dans Azure PowerShell. Exécutez `Get-Module -ListAvailable Az` pour rechercher la version installée. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-Az-ps).
 
 ## <a name="view-traffic-analytics"></a>Afficher Traffic Analytics
 
@@ -270,13 +278,13 @@ Certaines des informations que vous souhaitez obtenir une fois Traffic Analytics
 
     ![Tableau de bord présentant la distribution du trafic](./media/traffic-analytics/dashboard-showcasing-traffic-distribution.png)
 
-- La carte géographique montre le ruban supérieur pour sélectionner les paramètres tels que les centres de données (déployé/No-déploiement/actif/inactif/Traffic Analytique activé/Analytique du trafic n’est pas activée) et pays/régions envoyant du trafic inoffensifs/malveillants à la visualisation déploiement :
+- La carte géographique affiche le ruban supérieur pour sélectionner les paramètres tels que les centres de données (Déployé/Aucun déploiement/Actif/Inactif/Traffic Analytics Enabled (Traffic Analytics activé)/Traffic Analytics Not Enabled(Traffic Analytics désactivé)) et les pays/régions qui contribuent au trafic Inoffensif/Malveillant vers le déploiement actif :
 
     ![Carte géographique présentant le déploiement actif](./media/traffic-analytics/geo-map-view-showcasing-active-deployment.png)
 
-- La carte géographique montre la distribution du trafic vers un centre de données à partir de pays/régions et continents qui communiquent avec lui en bleu (trafic inoffensif) et rouges (trafic malveillant) des lignes :
+- La carte géographique montre la distribution du trafic vers un centre de données à partir de pays/régions et continents qui communiquent avec lui, représenté par des lignes bleues (trafic inoffensif) et des lignes rouges (trafic malveillant) :
 
-    ![Vue de la carte géographique présentant la distribution du trafic pour les continents et les pays/régions](./media/traffic-analytics/geo-map-view-showcasing-traffic-distribution-to-countries-and-continents.png)
+    ![Vue de la carte géographique présentant la distribution du trafic vers les pays/régions et continents](./media/traffic-analytics/geo-map-view-showcasing-traffic-distribution-to-countries-and-continents.png)
 
     ![Détails du flux pour la distribution du trafic dans la recherche dans les journaux](./media/traffic-analytics/flow-details-for-traffic-distribution-in-log-search.png)
 
@@ -293,7 +301,7 @@ Certaines des informations que vous souhaitez obtenir une fois Traffic Analytics
     ![Tableau de bord présentant la distribution de réseau virtuel](./media/traffic-analytics/dashboard-showcasing-virtual-network-distribution.png)
 
 - La topologie du réseau virtuel affiche le ruban supérieur pour sélectionner les paramètres comme les flux malveillants, les flux actifs, les connexions externes (connexions du réseau virtuel internes/actives/inactives) d’un réseau virtuel.
-- Vous pouvez filtrer la topologie du réseau virtuel en fonction des abonnements, des espaces de travail, des groupes de ressources et de l’intervalle de temps. D’autres filtres vous aident à comprendre le flux : Flux de Type (inter-réseaux virtuels IntraVNET et ainsi de suite), Direction du flux (entrante, sortante), état de flux (autorisés, bloqués), réseaux virtuels (ciblés et connecté), Type de connexion (l’homologation ou passerelle - P2S et S2S) et le groupe de sécurité réseau. Utilisez ces filtres pour vous concentrer sur les réseaux virtuels que vous souhaitez examiner en détail.
+- Vous pouvez filtrer la topologie du réseau virtuel en fonction des abonnements, des espaces de travail, des groupes de ressources et de l’intervalle de temps. D’autres filtres vous aident à comprendre le flux : type de flux (entre réseaux virtuels, dans un même réseau virtuel, etc.), direction du flux (entrant, sortant), état du flux (autorisé, bloqué) des réseaux virtuels (ciblé et connecté), type de connexion (peering ou passerelle – P2S et S2S) et groupe de sécurité réseau. Utilisez ces filtres pour vous concentrer sur les réseaux virtuels que vous souhaitez examiner en détail.
 - La topologie du réseau virtuel montre la distribution du trafic sur un réseau virtuel en ce qui concerne les flux (autorisés/bloqués/entrants/sortants/inoffensifs/malveillants), le protocole d’application et les groupes de sécurité réseau, par exemple :
 
     ![Topologie du réseau virtuel présentant la distribution du trafic et détails du flux](./media/traffic-analytics/virtual-network-topology-showcasing-traffic-distribution-and-flow-details.png)
@@ -365,4 +373,4 @@ Pour obtenir des réponses aux questions fréquemment posées, consultez [Traffi
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Pour savoir comment activer les journaux de flux, consultez [Enable flow logs](network-watcher-nsg-flow-logging-portal.md) (Activer les journaux de flux).
-- Pour comprendre le schéma et les détails de l’Analytique du trafic de traitement, consultez [schéma d’analytique du trafic](traffic-analytics-schema.md).
+- Pour comprendre le schéma et les détails de traitement de Traffic Analytics, voir [Schéma et agrégation de données dans Traffic Analytics](traffic-analytics-schema.md).

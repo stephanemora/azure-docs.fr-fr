@@ -1,6 +1,6 @@
 ---
-title: Visualiser les données à partir de l’Explorateur de données Azure à l’aide de Sisense
-description: Dans cet article, découvrez comment configurer l’Explorateur de données Azure comme source de données pour Sisense et visualiser les données.
+title: Visualiser des données Azure Data Explorer avec Sisense
+description: Cet article explique comment configurer Azure Data Explorer en tant que source de données pour Sisense, ainsi que visualiser les données.
 author: orspod
 ms.author: orspodek
 ms.reviewer: rkarlin
@@ -8,29 +8,29 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 5/29/2019
 ms.openlocfilehash: f0840b90e1036c23fa58d94515bfeb035299c07f
-ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66358182"
 ---
-# <a name="visualize-data-from-azure-data-explorer-in-sisense"></a>Visualiser les données à partir de l’Explorateur de données Azure dans Sisense
+# <a name="visualize-data-from-azure-data-explorer-in-sisense"></a>Visualiser des données Azure Data Explorer dans Sisense
 
-Sisense est une plateforme décisionnelle analytique qui vous permet de créer des applications d’analytique qui offrent des expériences utilisateur hautement interactifs. La business intelligence et le signalement de logiciels de tableau de bord permet d’accéder et combiner des données en quelques clics. Vous pouvez vous connecter à des données structurées et non structurées de sources, joindre des tables provenant de plusieurs sources avec un minimum de script et le codage et créer des rapports et tableaux de bord web interactives. Dans cet article, vous allez apprendre à configurer de l’Explorateur de données Azure comme source de données pour Sisense et visualiser les données à partir d’un cluster de l’exemple.
+Sisense est une plateforme décisionnelle analytique qui vous permet de créer des applications analytiques qui offrent des expériences utilisateur hautement interactives. Le logiciel de génération de rapports décisionnels et de tableau de bord vous permet d’accéder à des données et de combiner celles-ci en quelques clics. Il vous permet de vous connecter à des sources de données structurées et non structurées, de joindre des tables de plusieurs sources avec un minimum de scripts et de codage, et de créer des tableaux de bord et des rapports web interactifs. Dans cet article, vous allez apprendre à configurer Azure Data Explorer en tant que source de données pour Sisense, ainsi qu’à visualiser les données d’un exemple de cluster.
 
 ## <a name="prerequisites"></a>Conditions préalables
 
-Vous avez besoin de ce qui suit pour terminer cet article :
+Pour suivre cet article, vous devez :
 
-* [Téléchargez et installez l’application de Sisense](https://documentation.sisense.com/latest/getting-started/download-install.htm) 
+* [Télécharger et installer l’application Sisense](https://documentation.sisense.com/latest/getting-started/download-install.htm) 
 
-* Créer un cluster et la base de données qui inclut les exemples de données StormEvents. Pour plus d’informations, consultez [Démarrage rapide : Créer un cluster et une base de données Azure Data Explorer](create-cluster-database-portal.md) et [Ingérer des exemples de données dans Azure Data Explorer](ingest-sample-data.md).
+* Créer un cluster et une base de données qui inclut l’exemple de données StormEvents. Pour plus d’informations, consultez [Démarrage rapide : Créer un cluster et une base de données Azure Data Explorer](create-cluster-database-portal.md) et [Ingérer des exemples de données dans Azure Data Explorer](ingest-sample-data.md).
 
     [!INCLUDE [data-explorer-storm-events](../../includes/data-explorer-storm-events.md)]
 
-## <a name="connect-to-sisense-dashboards-using-azure-data-explorer-jdbc-connector"></a>Se connecter à des tableaux de bord Sisense à l’aide du Connecteur JDBC de l’Explorateur de données Azure
+## <a name="connect-to-sisense-dashboards-using-azure-data-explorer-jdbc-connector"></a>Se connecter à des tableaux de bord Sisense à l’aide du Connecteur JDBC d’Azure Data Explorer
 
-1. Télécharger et copier les dernières versions des fichiers jar suivants à *... \Sisense\DataConnectors\jdbcdrivers\adx* 
+1. Téléchargez et copiez les dernières versions des fichiers jar suivants vers *... \Sisense\DataConnectors\jdbcdrivers\adx* 
 
     * activation-1.1.jar
     * adal4j-1.6.0.jar
@@ -47,79 +47,79 @@ Vous avez besoin de ce qui suit pour terminer cet article :
     * oauth2-oidc-sdk-5.24.1.jar
     * slf4j-api-1.7.21.jar
     
-1. Ouvrez **Sisense** application.
-1. Sélectionnez **données** onglet et sélectionnez **+ ElastiCube** pour créer un nouveau modèle ElastiCube.
+1. Ouvrez l’application **Sisense**.
+1. Sélectionnez l’onglet **Data** (Données), puis **+ ElastiCube** pour créer un modèle ElastiCube.
     
     ![Sélectionnez ElastiCube](media/sisense/data-select-elasticube.png)
 
-1. Dans **ajouter un nouveau modèle ElastiCube**, nommez le modèle ElastiCube et **enregistrer**.
+1. Dans **Add new ElastiCube Model** (Ajouter un nouveau modèle ElastiCube), nommez le modèle ElastiCube, puis **enregistrez**.
    
     ![Ajouter un nouveau modèle ElastiCube](media/sisense/add-new-elasticube-model.png)
 
-1. Sélectionnez **+ données**.
+1. Sélectionnez **+ Data** (+ Données).
 
     ![Bouton de sélection de données](media/sisense/select-data.png)
 
-1. Dans **sélectionnez le connecteur** , sélectionnez **JDBC générique** connecteur.
+1. Sous l’onglet **Select Connector**(Sélectionner un connecteur), sélectionnez le connecteur **Generic JDBC**.
 
-    ![Choisissez le Connecteur JDBC](media/sisense/select-connector.png)
+    ![Choisir un connecteur JDBC](media/sisense/select-connector.png)
 
-1. Dans le **Connect** onglet, renseignez les champs suivants pour le **JDBC générique** connecteur, puis sélectionnez **suivant**.
+1. Sous l’onglet **Connect** (Connexion), renseignez les champs suivants pour le connecteur **JDBC générique**, puis sélectionnez **Suivant**.
 
-    ![Paramètres du Connecteur JDBC](media/sisense/jdbc-connector.png)
+    ![Paramètres du connecteur JDBC](media/sisense/jdbc-connector.png)
 
     |Champ |Description |
     |---------|---------|
     |Chaîne de connexion     |   `jdbc:sqlserver://<cluster_name.region>.kusto.windows.net:1433;database=<database_name>;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.kusto.windows.net;loginTimeout=30;authentication=ActiveDirectoryPassword`      |
     |Dossier de fichiers JAR JDBC  |    `..\Sisense\DataConnectors\jdbcdrivers\adx`     |
-    |Nom de la classe du pilote    |   `com.microsoft.sqlserver.jdbc.SQLServerDriver`      |
+    |Nom de classe du pilote    |   `com.microsoft.sqlserver.jdbc.SQLServerDriver`      |
     |User Name   |    Nom d’utilisateur AAD     |
-    |Mot de passe     |   Mot de passe utilisateur AAD      |
+    |Mot de passe     |   Nouveau mot de passe utilisateur AAD      |
 
-1. Dans le **sélectionner les données** rechercher, onglet **sélectionner la base de données** pour sélectionner la base de données à laquelle vous disposez des autorisations. Dans cet exemple, sélectionnez *test1*.
+1. Sous l’onglet **Select Data** (Sélectionner de données), recherchez **Select Database** (Sélectionner des données) pour sélectionner la base de données appropriée sur laquelle vous avez des autorisations. Dans cet exemple, sélectionnez *test1*.
 
     ![sélectionner la base de données](media/sisense/select-database.png)
 
-1. Dans *tester* volet (nom de la base de données) :
-    1. Sélectionnez le nom de table pour afficher un aperçu de la table et afficher les noms de colonne de table. Vous pouvez supprimer les colonnes inutiles.
-    1. Sélectionnez la case à cocher de la table appropriée pour sélectionner cette table. 
+1. Dans volet *test* (nom de la base de données) :
+    1. Sélectionnez le nom de table pour afficher un aperçu de la table et des noms de ses colonnes. Vous pouvez supprimer les colonnes inutiles.
+    1. Activez la case à cocher de la table appropriée pour la sélectionner. 
     1. Sélectionnez **Terminé**.
 
-    ![Sélectionnez la table](media/sisense/select-table-see-columns.png)    
+    ![sélectionner une table](media/sisense/select-table-see-columns.png)    
 
-1. Sélectionnez **Build** pour créer votre jeu de données. 
+1. Sélectionnez **Build** pour générer votre jeu de données. 
 
-    * Dans le **Build** fenêtre, sélectionnez **Build**.
+    * Dans la fenêtre **Build**, sélectionnez **Build** (Générer).
 
-      ![Fenêtre de la génération](media/sisense/build-window.png)
+      ![Fenêtre Build](media/sisense/build-window.png)
 
-    * Attendez que le processus de génération est terminée, puis sélectionnez **génération a réussi**.
+    * Attendez que le processus de génération soit terminé, puis sélectionnez **Build Succeeded** (Génération réussie).
 
-      ![La génération a réussi](media/sisense/build-succeeded.png)
+      ![Génération réussie](media/sisense/build-succeeded.png)
 
 ## <a name="create-sisense-dashboards"></a>Créer des tableaux de bord Sisense
 
-1. Dans **Analytique** onglet, sélectionnez **+**  >  **nouveau tableau de bord** pour créer des tableaux de bord sur ce jeu de données.
+1. Sous l’onglet **Analytics** (Analytique), sélectionnez **+**  > **New Dashboard** (Nouveau tableau de bord) pour créer des tableaux de bord sur ce jeu de données.
 
     ![Nouveau tableau de bord](media/sisense/new-dashboard.png)
 
-1. Choisir un tableau de bord et sélectionnez **créer**. 
+1. Choisissez un tableau de bord, puis sélectionnez **Create** (Créer). 
 
     ![Créer un tableau de bord](media/sisense/create-dashboard.png)
 
-1. Sous **nouveau Widget**, sélectionnez **+ sélectionner des données** pour créer un nouveau widget. 
+1. Sous **New Widget** (Nouveau widget), sélectionnez **+ Select Data** (+ Sélectionner des données) pour créer un widget. 
 
     ![Ajouter des champs au tableau de bord StormEvents](media/sisense/storm-dashboard-add-field.png)  
 
-1. Sélectionnez **+ ajouter davantage de données** pour ajouter des colonnes supplémentaires à votre graphique. 
+1. Sélectionnez **+ Add More Data** (+ Ajouter des données) pour ajouter des colonnes à votre graphique. 
 
-    ![Ajoutez des données au graphique](media/sisense/add-more-data.png)
+    ![Ajouter des données au graphique](media/sisense/add-more-data.png)
 
-1. Sélectionnez **+ Widget** pour créer un autre widget. Widgets de glisser -déplacer pour réorganiser votre tableau de bord.
+1. Sélectionnez **+ Widget** pour créer un autre widget. Glissez-déplacez les widgets pour réorganiser votre tableau de bord.
 
     ![Tableau de bord Storm](media/sisense/final-dashboard.png)
 
-Vous pouvez maintenant Explorer vos données avec visual analytique, créer des tableaux de bord et transformer des données en informations exploitables pour avoir un impact sur votre entreprise.
+Vous pouvez désormais explorer vos données avec des analyses visuelles, créer des tableaux de bord supplémentaires et transformer des données en informations actionnables pour orienter votre activité.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

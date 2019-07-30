@@ -1,19 +1,19 @@
 ---
-title: Script Azure PowerShell - Azure Cosmos DB Update RU/s pour l’API MongoDB
-description: Script Azure PowerShell - Azure Cosmos DB Update RU/s pour l’API MongoDB
+title: Script Azure PowerShell – Mise à jour du débit (RU/s) dans Azure Cosmos DB pour l’API MongoDB
+description: Script Azure PowerShell – Mise à jour du débit (RU/s) dans Azure Cosmos DB pour l’API MongoDB
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: samples
+ms.topic: sample
 ms.date: 05/18/2019
 ms.author: mjbrown
-ms.openlocfilehash: 4fc8a8c8cc8e5d516ace4a1523a0d1845b6f7edf
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.openlocfilehash: 517857116bf077814b936e5d7ecb54d841959657
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66247423"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603885"
 ---
-# <a name="update-rus-for-a-database-or-collection-for-azure-cosmos-db---mongodb-api"></a>Mettre à jour de RU/s pour une base de données ou une collection pour Azure Cosmos DB : API MongoDB
+# <a name="update-rus-for-a-database-or-collection-for-azure-cosmos-db---mongodb-api"></a>Mettre à jour le débit (RU/s) d’une base de données ou d’une collection pour Azure Cosmos DB – API MongoDB
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 

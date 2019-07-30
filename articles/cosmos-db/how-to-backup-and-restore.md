@@ -8,15 +8,15 @@ ms.date: 05/23/2019
 ms.author: govindk
 ms.reviewer: sngun
 ms.openlocfilehash: c32c333de94d1ed0089323e00e6dbbaaebb36488
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66241048"
 ---
 # <a name="restore-data-from-a-backup-in-azure-cosmos-db"></a>Restaurer des données à partir d'une sauvegarde dans Azure Cosmos DB 
 
-En cas de suppression accidentelle de votre base de données ou conteneur, vous pouvez [émettre un ticket de support]( https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) ou [appeler le support technique Azure]( https://azure.microsoft.com/support/options/) pour restaurer les données à partir de sauvegardes en ligne automatiques. Prise en charge Azure est uniquement disponible pour les plans sélectionnés comme **Standard**, **développeur**et les plans supérieurs à leur. Le support technique Azure n’est pas disponible avec un plan **De base**. Pour plus d’informations sur les différents plans de support technique, consultez la page [Plans de support Azure](https://azure.microsoft.com/support/plans/). 
+En cas de suppression accidentelle de votre base de données ou conteneur, vous pouvez [émettre un ticket de support]( https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) ou [appeler le support technique Azure]( https://azure.microsoft.com/support/options/) pour restaurer les données à partir de sauvegardes en ligne automatiques. Le support technique Azure est disponible seulement pour certains plans, comme **Standard**, **Développeur** et les plans plus élevés. Le support technique Azure n’est pas disponible avec un plan **De base**. Pour plus d’informations sur les différents plans de support technique, consultez la page [Plans de support Azure](https://azure.microsoft.com/support/plans/). 
 
 Pour restaurer une capture instantanée spécifique de la sauvegarde, Azure Cosmos DB exige que les données soient accessibles pendant la durée du cycle de sauvegarde de cette capture instantanée.
 
@@ -34,10 +34,10 @@ Vous devez avoir les informations suivantes avant de demander une restauration 
 
 * Si un ou plusieurs conteneurs sont supprimés, vous devez fournir le nom du compte Azure Cosmos, les noms des bases de données et les noms des conteneurs. Spécifiez aussi s’il existe un conteneur portant le même nom.
 
-* Si vous avez accidentellement supprimé ou endommagé vos données, vous devez contacter [prise en charge Azure](https://azure.microsoft.com/support/options/) dans les 8 heures pour que l’équipe Azure Cosmos DB peut aider à vous restaurez les données à partir des sauvegardes.
+* Si vous avez accidentellement supprimé ou endommagé vos données, vous devez contacter le [support Azure](https://azure.microsoft.com/support/options/) dans les 8 heures afin que l’équipe Azure Cosmos DB puisse vous aider à les restaurer à partir des sauvegardes.
   
-  * Si vous supprimez accidentellement votre base de données ou un conteneur, ouvrez une demande de support Sev B ou Sev C Azure. 
-  * Si vous avez accidentellement supprimé ou endommagé certains documents au sein du conteneur, ouvrez une demande de support Sev A. 
+  * Si vous avez accidentellement supprimé votre base de données ou votre conteneur, ouvrez un cas de support Sev B ou Sev C Azure. 
+  * Si vous avez accidentellement supprimé ou endommagé certains documents au sein du conteneur, ouvrez un cas de support Sev A. 
 
 En cas d’endommagement des données, et si les documents au sein d’un conteneur sont modifiés ou supprimés, **supprimez le conteneur le plus vite possible**. La suppression du conteneur peut éviter qu’Azure Cosmos DB remplace les sauvegardes. Si pour une raison quelconque la suppression n’est pas possible, vous devez émettre un ticket dès que possible. En plus du nom du compte Azure Cosmos, les noms des bases de données et les noms des collections, vous devez spécifier le moment dans le temps auquel les données peuvent être restaurées. Il est important d’être aussi précis que possible, afin de nous aider à déterminer les sauvegardes disponibles à ce moment-là. Il est également important de spécifier l’heure au format UTC. 
 

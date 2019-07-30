@@ -11,15 +11,15 @@ ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 00b1b58a39724951f2d5e4e688df8eb178654bbb
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65952843"
 ---
 # <a name="tasks-for-the-project-lead-in-the-team-data-science-process"></a>Tâches pour le coordinateur de projet dans Team Data Science Process
 
-Ce didacticiel décrit les tâches un coordinateur de projet est prévu pour leur équipe de projet. L’objectif est d’établir un environnement d’équipe collaborative standard conforme à [TDSP](overview.md) (Team Data Science Process). TDSP est un cadre élaboré par Microsoft qui propose une succession structurée d’activités visant à exécuter des solutions d’analytique prédictive basées sur le cloud avec efficacité. Pour obtenir une description sommaire des différents rôles au sein de l’équipe de science des données et des tâches qui incombent à ses membres dans le cadre de ce processus, consultez [Rôles et tâches du processus TDSP](roles-tasks.md).
+Ce didacticiel décrit de façon succincte les tâches qu’un coordinateur de projet est censé effectuer pour son équipe de projet. L’objectif est d’établir un environnement d’équipe collaborative standard conforme à [TDSP](overview.md) (Team Data Science Process). TDSP est un cadre élaboré par Microsoft qui propose une succession structurée d’activités visant à exécuter des solutions d’analytique prédictive basées sur le cloud avec efficacité. Pour obtenir une description sommaire des différents rôles au sein de l’équipe de science des données et des tâches qui incombent à ses membres dans le cadre de ce processus, consultez [Rôles et tâches du processus TDSP](roles-tasks.md).
 
 Un **coordinateur de projet** gère les activités quotidiennes des différents scientifiques des données dans le cadre d’un projet de science des données spécifique. Le flux de travail correspondant aux tâches que doit effectuer le coordinateur pour configurer cet environnement est illustré dans le schéma suivant :
 
@@ -41,7 +41,7 @@ Dans ce didacticiel, les noms des dépôts et des répertoires sont abrégés. C
 - **D5** : répertoire local cloné à partir de R5.
 
 
-## <a name="0-prerequisites"></a>0. Conditions préalables
+## <a name="0-prerequisites"></a>0. Prérequis
 
 Pour satisfaire les prérequis, il convient de mener à bien les tâches affectées à votre responsable de groupe décrites dans [Tâches du responsable de groupe pour une équipe de science des données](group-manager-tasks.md), de même que celles affectées à votre responsable d’équipe décrites dans [Coordinateur d’équipe pour une équipe de science des données](team-lead-tasks.md). 
 
@@ -73,11 +73,11 @@ Pour résumer, avant de commencer les tâches du responsable d’équipe, voici 
 
 - Cliquez sur la flèche vers le bas dans l’angle supérieur gauche, puis sélectionnez **+ Nouveau référentiel**. 
     
-    ![5.](./media/project-lead-tasks/project-leads-5-create-project-repo-4.png)
+    ![5\.](./media/project-lead-tasks/project-leads-5-create-project-repo-4.png)
 
 - Dans la fenêtre **Créer un référentiel**, attribuez un nom au dépôt Git de votre projet. Veillez à sélectionner **Git** comme type de référentiel. Dans cet exemple, nous utilisons le nom *DSProject1*. 
 
-    ![6.](./media/project-lead-tasks/project-leads-6-create-project-repo-5.png)
+    ![6](./media/project-lead-tasks/project-leads-6-create-project-repo-5.png)
 
 - Pour créer votre dépôt Git de projet ***DSProject1***, cliquez sur **Créer**.
 
@@ -150,7 +150,7 @@ Si vous utilisez Azure DevOps comme plateforme d’hébergement de code, l’_UR
 
 ![10](./media/project-lead-tasks/project-leads-10-clone-project-repository-linux.png)
 
-Si vous utilisez Azure DevOps comme plateforme d’hébergement de code, en règle générale, le _URL SSH du dépôt de projet_ est _ssh : / / < nom de Services Azure DevOps\>@< nom de Services Azure DevOps\>.visualstudio.com:22/ < nom de votre projet\>/\_git / < nom de votre dépôt de projet\>. Dans cet exemple, nous avons ***ssh://mysamplegroup\@mysamplegroup.visualstudio.com:22/MyTeam/_git/DSProject1***.
+Si vous utilisez Azure DevOps comme plateforme d’hébergement de code, l’_URL SSH du dépôt de projet_ se présente généralement sous la forme _ssh://<Nom Azure DevOps Services\>@<Nom Azure DevOps Services\>.visualstudio.com:22/<Nom de votre projet\>/\_git/<Nom du dépôt de votre projet\>. Dans cet exemple, nous avons ***ssh://mysamplegroup\@mysamplegroup.visualstudio.com:22/MyTeam/_git/DSProject1***.
 
 ### <a name="copy-contents-of-d3-to-d5"></a>Copier le contenu de D3 vers D5 
 

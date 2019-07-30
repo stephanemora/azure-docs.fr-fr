@@ -1,6 +1,6 @@
 ---
-title: Boîte de données Azure lourd limite | Microsoft Docs
-description: Décrit les limites du système et les tailles recommandées pour les connexions et les composants lourd de zone de données de Microsoft Azure.
+title: Limites d’Azure Data Box Heavy | Microsoft Docs
+description: Décrit les limites du système et les tailles recommandées pour les connexions et les composants de Microsoft Azure Data Heavy.
 services: databox
 author: alkohli
 ms.service: databox
@@ -9,27 +9,27 @@ ms.topic: article
 ms.date: 05/21/2019
 ms.author: alkohli
 ms.openlocfilehash: da518de4702925ebad29727e2bdce99e67d40249
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66427764"
 ---
-# <a name="azure-data-box-heavy-limits-preview"></a>Limites de lourdes de zone de données Azure (version préliminaire)
+# <a name="azure-data-box-heavy-limits-preview"></a>Limites d’Azure Data Box Heavy (préversion)
 
 
-Prendre en compte ces limites lors du déploiement et d’utiliser votre équipement lourd de zone de données Azure. Le tableau suivant décrit ces limites pour Data Box.
+Tenez compte de ces limites quand vous déployez et utilisez votre appareil Azure Data Box Heavy. Le tableau suivant décrit ces limites pour Data Box.
 
 
-## <a name="data-box-heavy-service-limits"></a>Limites de service lourd de boîte de données
+## <a name="data-box-heavy-service-limits"></a>Limites du service Azure Data Box Heavy
 
 [!INCLUDE [data-box-service-limits](../../includes/data-box-service-limits.md)]
 
-## <a name="data-box-heavy-limits"></a>Limites de zone importante de données
+## <a name="data-box-heavy-limits"></a>Limites de Data Box Heavy
 
-- Boîte de données peut stocker un maximum de 1 milliard de fichiers par nœud.
+- Le service Data Box peut stocker jusqu’à 1 milliard de fichiers par nœud.
 
-## <a name="azure-storage-limits"></a>Limites de stockage Azure
+## <a name="azure-storage-limits"></a>Limites de Stockage Azure
 
 [!INCLUDE [data-box-storage-limits](../../includes/data-box-storage-limits.md)]
 

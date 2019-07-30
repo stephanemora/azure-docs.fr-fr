@@ -11,10 +11,10 @@ ms.date: 03/22/2019
 ms.author: martinle
 ms.reviewer: igorstan
 ms.openlocfilehash: 94646c41d9894dd00018ff5ca44d76534d35e8c5
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65873263"
 ---
 # <a name="use-azure-stream-analytics-with-sql-data-warehouse"></a>Utiliser Azure Stream Analytics avec SQL Data Warehouse
@@ -22,7 +22,7 @@ Azure Stream Analytics est un service entièrement géré permettant de traiter 
 
 Dans cet article, vous allez apprendre à utiliser votre base de données Azure SQL Data Warehouse à la façon d’un récepteur de sortie pour vos travaux Stream Analytics.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 Exécutez d’abord les étapes suivantes dans le didacticiel [Bien démarrer avec Azure Stream Analytics][Get started using Azure Stream Analytics].  
 
 1. Création d’une entrée de hub d’événements
@@ -34,10 +34,10 @@ Ensuite, créez une base de données SQL Data Warehouse.
 
 ## <a name="specify-job-output-azure-sql-data-warehouse-database"></a>Spécification de la sortie du travail : Base de données Azure SQL Data Warehouse
 ### <a name="step-1"></a>Étape 1
-Votre travail Stream Analytique, cliquez sur **sortie** à partir du haut de la page, puis cliquez sur **ajouter**.
+En haut de la page de votre travail Stream Analytics, cliquez sur **SORTIE**, puis sur **AJOUTER**.
 
 ### <a name="step-2"></a>Étape 2
-Sélectionnez la base de données SQL.
+sélectionner SQL Database
 
 ### <a name="step-3"></a>Étape 3 :
 Entrez les valeurs ci-dessous dans la page suivante :
@@ -46,7 +46,7 @@ Entrez les valeurs ci-dessous dans la page suivante :
 * *Abonnement*:
   * Si votre base de données SQL Data Warehouse se trouve dans le même abonnement que celui de la tâche Stream Analytics, sélectionnez Utiliser la base de données SQL de l’abonnement actuel.
   * Si votre base de données se trouve dans un autre abonnement, sélectionnez Utiliser la base de données SQL d’un autre abonnement.
-* *Base de données* : spécifiez le nom d’une base de données de destination.
+* *Base de données* : spécifiez le nom d’une base de données de destination.
 * *Nom du serveur* : spécifiez le nom du serveur pour la base de données que vous venez d’indiquer. Vous pouvez obtenir cette information dans le portail Azure.
 
 ![][server-name]
@@ -60,7 +60,7 @@ Entrez les valeurs ci-dessous dans la page suivante :
 ### <a name="step-4"></a>Étape 4
 Cliquez sur la coche pour ajouter cette sortie du travail et pour vérifier que Stream Analytics peut se connecter à la base de données.
 
-Lorsque la connexion à la base de données réussit, vous verrez une notification dans le portail. Vous pouvez cliquer sur Test pour tester la connexion à la base de données.
+Dès que la connexion à la base de données est établie, une notification s’affiche dans le portail. Vous pouvez cliquez sur Tester pour tester la connexion à la base de données.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour une vue d’ensemble de l’intégration, consultez [Vue d’ensemble sur l’intégration de SQL Data Warehouse][SQL Data Warehouse integration overview].

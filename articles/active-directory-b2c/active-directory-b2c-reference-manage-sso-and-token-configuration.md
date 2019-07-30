@@ -11,10 +11,10 @@ ms.date: 10/09/2018
 ms.author: marsma
 ms.subservice: B2C
 ms.openlocfilehash: f3621b176e4bbfdfbd171339d6d01a1f91ed0ae7
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66509300"
 ---
 # <a name="manage-sso-and-token-customization-using-custom-policies-in-azure-active-directory-b2c"></a>Gérer la personnalisation des configurations SSO et de jetons avec des stratégies personnalisées dans Azure Active Directory B2C
@@ -25,7 +25,7 @@ Cet article explique comment gérer vos configurations de jetons, de session et 
 
 Pour modifier les paramètres de durée de vie de vos jetons, vous devez ajouter un élément [ClaimsProviders](claimsproviders.md) dans le fichier de partie de confiance de la stratégie que vous souhaitez affecter.  L’élément **ClaimsProviders** est un enfant de l’élément [TrustFrameworkPolicy](trustframeworkpolicy.md). 
 
-Insérer l’élément ClaimsProviders entre l’élément BasePolicy et l’élément de RelyingParty de fichier la partie de confiance.
+Insérez l’élément ClaimsProviders entre les éléments BasePolicy et RelyingParty du fichier de partie de confiance.
 
 À l’intérieur, vous devez indiquer les informations qui modifient la durée de vie de votre jeton. Le code XML ressemble à cet exemple :
 

@@ -1,6 +1,6 @@
 ---
-title: Obtenir les métriques de performances et de l’exécution de la requête SQL
-description: Découvrez comment récupérer les métriques de l’exécution des requêtes SQL et de profil de performances des requêtes SQL des demandes Azure Cosmos DB.
+title: Obtenir des métriques de performances et d’exécution de requête SQL
+description: Apprenez à récupérer des métriques d’exécution de requête SQL, ainsi qu’à profiler les performances de requête SQL de demandes Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
@@ -8,24 +8,24 @@ ms.topic: conceptual
 ms.date: 05/17/2019
 ms.author: girobins
 ms.openlocfilehash: b4017666956d0e01ea19781fb4f1ce2dde15fff5
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66481563"
 ---
-# <a name="get-sql-query-execution-metrics-and-analyze-query-performance-using-net-sdk"></a>Obtenir les métriques de l’exécution des requêtes SQL et d’analyser les performances des requêtes à l’aide du Kit de développement logiciel .NET
+# <a name="get-sql-query-execution-metrics-and-analyze-query-performance-using-net-sdk"></a>Obtenir des métriques d’exécution de requête SQL et analyser les performances de requête à l’aide du Kit de développement logiciel (SDK) .NET
 
-Cet article présente comment profiler les performances des requêtes SQL sur Azure Cosmos DB. Ce profil peut être effectuée à l’aide `QueryMetrics` récupéré à partir du SDK .NET et est décrite ici. [QueryMetrics](https://msdn.microsoft.com/library/microsoft.azure.documents.querymetrics.aspx) est un objet fortement typé avec des informations sur l’exécution de requête du serveur principal. Ces mesures sont décrites plus en détail dans le [régler les performances de requête](https://docs.microsoft.com/azure/cosmos-db/documentdb-sql-query-metrics) article.
+Cet article explique comment profiler les performances de requête SQL sur Azure Cosmos DB. Ce profilage exécutable à l’aide d’un objet `QueryMetrics` récupéré à partir du Kit de développement logiciel (SDK) .NET est détaillé ici. [QueryMetrics](https://msdn.microsoft.com/library/microsoft.azure.documents.querymetrics.aspx) est un objet fortement typé contenant des informations sur l’exécution de la requête principale. Ces mesures sont décrites plus en détail dans l’article [Réglage des performances des requêtes](https://docs.microsoft.com/azure/cosmos-db/documentdb-sql-query-metrics).
 
-## <a name="set-the-feedoptions-parameter"></a>Définissez le paramètre FeedOptions
+## <a name="set-the-feedoptions-parameter"></a>Définir le paramètre FeedOptions
 
-Toutes les surcharges pour [DocumentClient.CreateDocumentQuery](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentquery.aspx) prendre dans facultative [FeedOptions](https://msdn.microsoft.com/library/microsoft.azure.documents.client.feedoptions.aspx) paramètre. Cette option est ce qui permet à l’exécution des requêtes à être réglé et paramétrés. 
+Toutes les surcharges pour [DocumentClient.CreateDocumentQuery](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentquery.aspx) prennent un paramètre facultatif [FeedOptions](https://msdn.microsoft.com/library/microsoft.azure.documents.client.feedoptions.aspx). Cette option permet de régler et paramétrer l’exécution de la requête. 
 
-Pour collecter les mesures de l’exécution de requêtes Sql, vous devez définir le paramètre [PopulateQueryMetrics](https://msdn.microsoft.com/library/microsoft.azure.documents.client.feedoptions.populatequerymetrics.aspx#P:Microsoft.Azure.Documents.Client.FeedOptions.PopulateQueryMetrics) dans le [FeedOptions](https://msdn.microsoft.com/library/microsoft.azure.documents.client.feedoptions.aspx) à `true`. Paramètre `PopulateQueryMetrics` à true rend afin que le `FeedResponse` contiendra les informations pertinentes `QueryMetrics`. 
+Pour collecter les métriques d’exécution de requête SQL, vous devez définir le paramètre [PopulateQueryMetrics](https://msdn.microsoft.com/library/microsoft.azure.documents.client.feedoptions.populatequerymetrics.aspx#P:Microsoft.Azure.Documents.Client.FeedOptions.PopulateQueryMetrics) dans l’objet [FeedOptions](https://msdn.microsoft.com/library/microsoft.azure.documents.client.feedoptions.aspx) sur `true`. La définition de `PopulateQueryMetrics` sur true a pour effet que le paramètre `FeedResponse` contient les valeurs `QueryMetrics` pertinentes. 
 
-## <a name="get-query-metrics-with-asdocumentquery"></a>Obtenir les métriques de requête avec AsDocumentQuery()
-L’exemple de code suivant montre comment de récupérer les métriques lors de l’utilisation [AsDocumentQuery()](https://msdn.microsoft.com/library/microsoft.azure.documents.linq.documentqueryable.asdocumentquery.aspx) méthode :
+## <a name="get-query-metrics-with-asdocumentquery"></a>Obtenir des métriques de requête avec AsDocumentQuery()
+L’exemple de code suivant montre comment récupérer des métriques lors de l’utilisation de la méthode [AsDocumentQuery()](https://msdn.microsoft.com/library/microsoft.azure.documents.linq.documentqueryable.asdocumentquery.aspx) :
 
 ```csharp
 // Initialize this DocumentClient and Collection
@@ -60,9 +60,9 @@ while (documentQuery.HasMoreResults)
     }
 }
 ```
-## <a name="aggregating-querymetrics"></a>Agrégation QueryMetrics
+## <a name="aggregating-querymetrics"></a>Agrégation de QueryMetrics
 
-Dans la section précédente, notez qu’il y avait plusieurs appels à [ExecuteNextAsync](https://msdn.microsoft.com/library/azure/dn850294.aspx) (méthode). Chaque appel a retourné un `FeedResponse` objet qui a un dictionnaire de `QueryMetrics`; un pour chaque continuation de la requête. L’exemple suivant montre comment agréger ces `QueryMetrics` à l’aide de LINQ :
+Notez que la section précédente contenait plusieurs appels à la méthode [ExecuteNextAsync](https://msdn.microsoft.com/library/azure/dn850294.aspx). Chaque appel a retourné un objet `FeedResponse` contenant un dictionnaire de `QueryMetrics`, un pour chaque continuation de la requête. L’exemple suivant montre comment agréger ces `QueryMetrics` à l’aide de LINQ :
 
 ```csharp
 List<QueryMetrics> queryMetricsList = new List<QueryMetrics>();
@@ -82,9 +82,9 @@ QueryMetrics aggregatedQueryMetrics = queryMetricsList.Aggregate((curr, acc) => 
 Console.WriteLine(aggregatedQueryMetrics);
 ```
 
-## <a name="grouping-query-metrics-by-partition-id"></a>Métriques de requête de regroupement par ID de Partition
+## <a name="grouping-query-metrics-by-partition-id"></a>Regroupement des métriques de requête par ID de partition
 
-Vous pouvez regrouper les `QueryMetrics` par l’ID de Partition. Le regroupement par ID de Partition vous permet de voir si une Partition spécifique est à l’origine des problèmes de performances par rapport à d’autres personnes. L’exemple suivant montre comment regrouper `QueryMetrics` avec LINQ :
+Vous pouvez regrouper les `QueryMetrics` par ID de partition. Le regroupement par ID de partition vous permet de voir si une partition spécifique occasionne des problèmes de performances par rapport à d’autres. L’exemple suivant montre comment regrouper les `QueryMetrics` avec LINQ :
 
 ```csharp
 List<KeyValuePair<string, QueryMetrics>> partitionedQueryMetrics = new List<KeyValuePair<string, QueryMetrics>>();
@@ -115,7 +115,7 @@ foreach(IGrouping<string, KeyValuePair<string, QueryMetrics>> grouping in groupe
 
 ## <a name="linq-on-documentquery"></a>LINQ sur DocumentQuery
 
-Vous pouvez également obtenir le `FeedResponse` à partir d’une requête LINQ à l’aide de la `AsDocumentQuery()` méthode :
+Vous pouvez également obtenir l’objet `FeedResponse` à partir d’une requête LINQ à l’aide de la méthode `AsDocumentQuery()` :
 
 ```csharp
 IDocumentQuery<Document> linqQuery = client.CreateDocumentQuery(collection.SelfLink, feedOptions)
@@ -129,7 +129,7 @@ IReadOnlyDictionary<string, QueryMetrics> queryMetrics = feedResponse.QueryMetri
 
 ## <a name="expensive-queries"></a>Requêtes coûteuses
 
-Vous pouvez capturer les unités de requête consommées par chaque requête pour examiner les requêtes coûteuses ou des requêtes qui consomment un débit élevé. Vous pouvez obtenir les frais de requête à l’aide de la [RequestCharge](https://msdn.microsoft.com/library/azure/dn948712.aspx) propriété dans `FeedResponse`. Pour en savoir plus sur la façon d’obtenir les frais de requête à l’aide du portail Azure et les différents kits SDK, consultez [trouver les frais d’unités de demande](find-request-unit-charge.md) article.
+Vous pouvez capturer les unités de requête consommées par chaque requête afin d’examiner les requêtes coûteuses, c’est-à-dire celles qui consomment un débit élevé. Vous pouvez obtenir le coût de requête à l’aide de la propriété [RequestCharge](https://msdn.microsoft.com/library/azure/dn948712.aspx) dans `FeedResponse`. Pour en savoir plus sur la façon d’obtenir le coût de requête à l’aide du portail Azure et de différents kits de développement logiciel (SDK), voir l’article [Rechercher les frais d’unités de requête](find-request-unit-charge.md).
 
 ```csharp
 string query = "SELECT * FROM c";
@@ -146,9 +146,9 @@ while (documentQuery.HasMoreResults)
 }
 ```
 
-## <a name="get-the-query-execution-time"></a>Obtenir la durée d’exécution de requête
+## <a name="get-the-query-execution-time"></a>Obtenir le temps d’exécution de requête
 
-Lorsque vous calculez le temps nécessaire pour exécuter une requête côté client, assurez-vous que vous incluez uniquement le temps d’appeler le `ExecuteNextAsync` (méthode) et pas d’autres parties de votre base de code. Uniquement ces appels vous aident à dans le calcul de l’exécution des requêtes durée comme indiqué dans l’exemple suivant :
+Lors du calcul du temps requis pour exécuter une requête côté client, veillez à n’inclure que le temps de l’appel de la méthode `ExecuteNextAsync` et non d’autres parties de votre base de code. Seuls ces appels vous aident à calculer la durée d’exécution de la requête, comme illustré dans l’exemple suivant :
 
 ```csharp
 string query = "SELECT * FROM c";
@@ -166,11 +166,11 @@ while (documentQuery.HasMoreResults)
 DoSomeLogging(queryExecutionTimeEndToEndTotal.Elapsed);
 ```
 
-## <a name="scan-queries-commonly-slow-and-expensive"></a>Analyse des requêtes (couramment lentes et coûteuses)
+## <a name="scan-queries-commonly-slow-and-expensive"></a>Requêtes d’analyse (couramment lentes et coûteuses)
 
-Une requête d’analyse fait référence à une requête qui n’a pas été pris en charge par l’index, ce qui, de nombreux documents sont chargés avant de retourner le jeu de résultats.
+Une requête d’analyse est une requête qui n’a pas été servie par l’index, de sorte que de nombreux documents sont chargés avant le renvoi du jeu de résultats.
 
-Voici un exemple d’une requête d’analyse :
+Vous trouverez ci-dessous un exemple d’analyse :
 
 ```sql
 SELECT VALUE c.description 
@@ -178,7 +178,7 @@ FROM   c
 WHERE UPPER(c.description) = "BABYFOOD, DESSERT, FRUIT DESSERT, WITHOUT ASCORBIC ACID, JUNIOR"
 ```
 
-Filtre de cette requête utilise la fonction système supérieur, ce qui n’est pas pris en charge à partir de l’index. L’exécution de cette requête sur une grande collection de produits les métriques de requête suivantes pour la première continuation :
+Le filtre de cette requête utilise la fonction système UPPER qui n’est pas servie à partir de l’index. L’exécution de cette requête sur une collection volumineuse a généré les métriques de requête suivantes pour la première continuation :
 
 ```
 QueryMetrics
@@ -206,22 +206,22 @@ Client Side Metrics
   Request Charge                         :        4,059.95 RUs
 ```
 
-Notez les valeurs suivantes à partir de la sortie de métriques de requête :
+Notez les valeurs suivantes dans la sortie des métriques de requête :
 
 ```
 Retrieved Document Count                 :          60,951
 Retrieved Document Size                  :     399,998,938 bytes
 ```
 
-Cette requête de charger les 60,951 documents, totalisées 399,998,938 octets. Le chargement de ce nombre d’octets entraîne des frais d’unités de coût ou demande élevée. Il prend également beaucoup de temps pour exécuter la requête, est claire avec la propriété de temps total passé :
+Cette requête a chargé 60 951 documents totalisant 399 998 938 d’octets. Le chargement d’un tel nombre d’octets a un coût élevé en terme d’unités de requête. L’exécution de la requête prend également beaucoup de temps, comme le montre clairement la propriété de durée totale :
 
 ```
 Total Query Execution Time               :        4,500.34 milliseconds
 ```
 
-Ce qui signifie que la requête a nécessité 4.5 secondes à s’exécuter (et ce ne était qu’une seule continuation).
+Cela signifie que l’exécution de la requête a pris 4,5 secondes (et il ne s’agissait là que d’une seule continuation).
 
-Pour optimiser cet exemple de requête, évitez d’utiliser supérieure dans le filtre. Au lieu de cela, lorsque des documents sont créés ou mis à jour, le `c.description` valeurs doivent être insérés dans tous les caractères majuscules. La requête devient alors : 
+Pour optimiser cet exemple de requête, évitez d’utiliser la fonction UPPER dans le filtre. Au lieu de cela, lorsque de la création ou de la mise à jour de documents, les valeurs `c.description` doivent être insérées en caractères majuscules. La requête devient alors : 
 
 ```sql
 SELECT VALUE c.description 
@@ -229,9 +229,9 @@ FROM   c
 WHERE c.description = "BABYFOOD, DESSERT, FRUIT DESSERT, WITHOUT ASCORBIC ACID, JUNIOR"
 ```
 
-Cette requête peut désormais être traités à partir de l’index.
+Cette requête peut désormais être servie à partir de l’index.
 
-Pour en savoir plus sur le réglage des performances des requêtes, consultez la [régler les performances de requête](https://docs.microsoft.com/azure/cosmos-db/documentdb-sql-query-metrics) article.
+Pour en savoir plus sur le réglage des performances des requêtes, voir l’article [Régler les performances des requêtes](https://docs.microsoft.com/azure/cosmos-db/documentdb-sql-query-metrics).
 
 ## <a id="References"></a>Références
 
@@ -242,6 +242,6 @@ Pour en savoir plus sur le réglage des performances des requêtes, consultez la
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Régler les performances de requête](sql-api-query-metrics.md)
+- [Régler les performances des requêtes](sql-api-query-metrics.md)
 - [Vue d’ensemble de l’indexation](index-overview.md)
 - [Exemples .NET Azure Cosmos DB](https://github.com/Azure/azure-cosmosdb-dotnet)

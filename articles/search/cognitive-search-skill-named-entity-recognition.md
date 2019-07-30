@@ -12,10 +12,10 @@ ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
 ms.openlocfilehash: b7af4d0a48f002f7523def971a306d1fa2077c70
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65952037"
 ---
 #    <a name="named-entity-recognition-cognitive-skill"></a>Compétence cognitive Reconnaissance d’entités nommées
@@ -23,7 +23,7 @@ ms.locfileid: "65952037"
 La compétence **Reconnaissance d’entités nommées** extrait les entités nommées du texte. Sont notamment disponibles les types d’entités suivants : `person`, `location` et `organization`.
 
 > [!IMPORTANT]
-> Reconnaissance d’entité nommée compétence est plus disponible est remplacé par [Microsoft.Skills.Text.EntityRecognitionSkill](cognitive-search-skill-entity-recognition.md). Prise en charge s’est arrêté sur le 15 février 2019 et l’API a été supprimé du produit sur le 2 mai 2019. Suivez les recommandations de [déconseillé de compétences de recherche cognitive](cognitive-search-skill-deprecated.md) pour migrer vers une compétence pris en charge.
+> La compétence de reconnaissance des entités nommées est désormais remplacée par [Microsoft.Skills.Text.EntityRecognitionSkill](cognitive-search-skill-entity-recognition.md). La prise en charge a pris fin le 15 février 2019 et l’API a été supprimée du produit le 2 mai 2019. Suivez les recommandations de la page [Compétences de recherche cognitive déconseillées](cognitive-search-skill-deprecated.md) pour migrer vers une compétence prise en charge.
 
 > [!NOTE]
 > Si vous élargissez le champ en augmentant la fréquence des traitements, en ajoutant des documents supplémentaires ou en ajoutant plusieurs algorithmes d’IA, vous devez [attacher une ressource Cognitive Services facturable](cognitive-search-attach-cognitive-services.md). Des frais sont applicables durant l’appel des API dans Cognitive Services ainsi que pour l’extraction d’images durant la phase d’extraction du contenu des documents du service Recherche Azure. L’extraction de texte à partir des documents est gratuite.
@@ -41,7 +41,7 @@ La taille maximale d’un enregistrement est de 50 000 caractères selon `String
 
 Les paramètres respectent la casse.
 
-| Nom du paramètre     | Description  |
+| Nom du paramètre     | Description |
 |--------------------|-------------|
 | Catégories    | Tableau des catégories à extraire.  Types de catégories possibles : `"Person"`, `"Location"`, `"Organization"`. Si aucune catégorie n’est précisée, tous les types sont retournés.|
 |defaultLanguageCode |  Code de langue du texte d’entrée. Langues prises en charge : `de, en, es, fr, it`.|
@@ -49,14 +49,14 @@ Les paramètres respectent la casse.
 
 ## <a name="skill-inputs"></a>Entrées de la compétence
 
-| Entrez un nom      | Description                    |
+| Nom d’entrée      | Description                   |
 |---------------|-------------------------------|
 | languageCode  | facultatif. La valeur par défaut est `"en"`.  |
 | text          | Texte à analyser.          |
 
 ## <a name="skill-outputs"></a>Sorties de la compétence
 
-| Nom de sortie     | Description                    |
+| Nom de sortie     | Description                   |
 |---------------|-------------------------------|
 | persons      | Tableau de chaînes représentant chacune le nom d’une personne. |
 | Emplacements  | Tableau de chaînes représentant chacune un lieu. |

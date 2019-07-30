@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 03/16/2018
 ms.author: aljo
 ms.openlocfilehash: cb0f750f4049a1ce652c829f43928a95f30e6973
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66302238"
 ---
 # <a name="service-fabric-application-and-service-security"></a>Sécurité des applications et des services Service Fabric
@@ -36,7 +36,7 @@ L’authentification est la première chose à laquelle vous devez penser si vou
 
 Si les services sont accessibles directement, un service d’authentification, comme Azure Active Directory ou un microservice d’authentification dédié faisant office de service d’émission de jeton de sécurité (STS), peut être utilisé pour authentifier les utilisateurs. Les décisions d’approbation sont partagées entre les services à l’aide de jetons de sécurité ou de cookies. 
 
-Pour ASP.NET Core, le mécanisme principal [d’authentification des utilisateurs](/dotnet/standard/microservices-architecture/secure-net-microservices-web-applications/) est le système d’appartenance ASP.NET Core Identity. ASP.NET Core Identity stocke les informations utilisateur (notamment les revendications, les rôles et les informations de connexion) dans un magasin de données configuré par le développeur. ASP.NET Core Identity prend en charge l’authentification à 2 facteurs.  Fournisseurs d’authentification externes sont également prises en charge, les utilisateurs peuvent se connecter à l’aide du processus d’authentification existants de fournisseurs comme Microsoft, Google, Facebook ou Twitter.
+Pour ASP.NET Core, le mécanisme principal [d’authentification des utilisateurs](/dotnet/standard/microservices-architecture/secure-net-microservices-web-applications/) est le système d’appartenance ASP.NET Core Identity. ASP.NET Core Identity stocke les informations utilisateur (notamment les revendications, les rôles et les informations de connexion) dans un magasin de données configuré par le développeur. ASP.NET Core Identity prend en charge l’authentification à 2 facteurs.  Les fournisseurs d’authentification externes sont également pris en charge, ce qui permet aux utilisateurs de se connecter à l’aide de processus d’authentification existants, comme ceux de Microsoft, Google, Facebook ou Twitter.
 
 ### <a name="authorization"></a>Authorization
 Après l’authentification, les services doivent autoriser l’accès utilisateur ou déterminer ce qu’un utilisateur est autorisé à faire. Ce processus permet à un service d’autoriser uniquement les utilisateurs authentifiés à accéder aux API. L’autorisation est orthogonale et indépendante de l’authentification, qui est le processus permettant d’identifier un utilisateur. L’authentification peut créer une ou plusieurs identités pour l’utilisateur actuel.
