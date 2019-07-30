@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
-ms.openlocfilehash: b56191bc93a91f944bb313b4ab9ad602da17dcf0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e7baacd3bb64ad234e478d4c1f75e793c46ec321
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66357650"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68476773"
 ---
 # <a name="use-the-azure-maps-services-module"></a>Utiliser le module des services Azure Maps
 
@@ -26,7 +26,7 @@ Le Kit de développement logiciel (SDK) web Azure Maps fournit un *module des se
     - Utiliser la version d’Azure Content Delivery Network du module des services Azure Maps hébergée globalement. Ajoutez une référence de script à l’élément `<head>` du fichier :
 
         ```html
-        <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas-service.min.js"></script>
+        <script src="https://atlas.microsoft.com/sdk/javascript/service/2/atlas-service.min.js"></script>
         ```
 
     - Vous pouvez également charger le code source du Kit de développement logiciel (SDK) web d’Azure Maps localement à l’aide du package npm [azure-maps-control](https://www.npmjs.com/package/azure-maps-rest), puis l’héberger avec votre application. Ce package inclut aussi des définitions de TypeScript. Utilisez la commande suivante :

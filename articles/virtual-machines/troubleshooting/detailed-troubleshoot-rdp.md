@@ -4,7 +4,7 @@ description: Revoir les étapes de dépannage détaillées pour les erreurs lié
 services: virtual-machines-windows
 documentationcenter: ''
 author: genlin
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: top-support-issue,azure-service-management,azure-resource-manager
 keywords: impossible de se connecter au bureau à distance, dépanner le bureau à distance, le bureau à distance ne peut pas se connecter, erreurs du bureau à distance, dépannage du bureau à distance, problèmes du bureau à distance
@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 4b4d2e2099f0d49c7dd9a150ac659ffde62eaa21
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: 56fa1363e9737a2ce06ba5f0215235a84ee70ce6
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "64693081"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67709911"
 ---
 # <a name="detailed-troubleshooting-steps-for-remote-desktop-connection-issues-to-windows-vms-in-azure"></a>Étapes de dépannage détaillées pour les problèmes de connexion du Bureau à distance aux machines virtuelles Windows dans Azure
 Cet article décrit les étapes de dépannage détaillées pour diagnostiquer et résoudre les erreurs complexes du Bureau à distance pour les machines virtuelles basées Azure sur Windows.

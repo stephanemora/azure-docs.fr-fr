@@ -1,19 +1,18 @@
 ---
 title: Gérer et surveiller des bases de données SQL Server sur une machine virtuelle Azure sauvegardée par le service Sauvegarde Azure | Microsoft Docs
 description: Cet article décrit comment gérer et surveiller des bases de données SQL Server s’exécutant sur une machine virtuelle Azure.
-services: backup
 author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 03/14/2018
 ms.author: raynew
-ms.openlocfilehash: d850cb222b0028f862cdba302140ce12af8576db
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0a864382e54f5c8641aa6da2369eb914011c712c
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66492737"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68464869"
 ---
 # <a name="manage-and-monitor-backed-up-sql-server-databases"></a>Gérer et surveiller des bases de données SQL Server sauvegardées
 
@@ -90,10 +89,11 @@ Pour arrêter la protection de la base de données :
 
 6. Sélectionnez **Arrêter la sauvegarde**.
 
->
+
 > [!NOTE]
-Pour plus d’informations sur l’option de suppression de données, voir le FAQ ci-dessous : <br/>
-* [Si je supprime une base de données d’une instance protégée automatiquement, qu’advient-il des sauvegardes ?](faq-backup-sql-server.md#if-i-delete-a-database-from-an-autoprotected-instance-what-will-happen-to-the-backups)<br/>
+>
+Pour plus d’informations sur l’option de suppression de données, voir le FAQ ci-dessous :
+* [Si je supprime une base de données d’une instance protégée automatiquement, qu’advient-il des sauvegardes ?](faq-backup-sql-server.md#if-i-delete-a-database-from-an-autoprotected-instance-what-will-happen-to-the-backups)
 * [Si j’arrête une opération de sauvegarde d’une base de données protégée automatiquement, comment se comportera-t-elle ?](faq-backup-sql-server.md#if-i-change-the-name-of-the-database-after-it-has-been-protected-what-will-be-the-behavior)
 >
 >
@@ -145,7 +145,7 @@ Désinscrivez une instance SQL Server après avoir désactivé la protection, ma
 
 Parfois, l’extension de charge de travail sur la machine virtuelle peut être affectée pour une raison ou une autre. Dans ce cas, toutes les opérations déclenchées sur la machine virtuelle commencent à échouer. Vous devrez alors réinscrire l’extension sur la machine virtuelle. L’opération **Réinscrire** a pour effet de réinstaller l’extension de sauvegarde de charge de travail sur la machine virtuelle pour que les opérations se poursuivent.  <br>
 
-Il est conseillé d’utiliser cette option avec prudence car, une fois déclenchée sur une machine virtuelle avec une extension déjà saine, cette opération provoque le redémarrage de l’extension. Cela peut entraîner l’échec de tous les travaux en cours. Avant de déclencher l’opération de réinscription, vérifiez la présence d’un ou plusieurs des [symptômes](backup-sql-server-azure-troubleshoot.md#symptoms).
+Il est conseillé d’utiliser cette option avec prudence car, une fois déclenchée sur une machine virtuelle avec une extension déjà saine, cette opération provoque le redémarrage de l’extension. Cela peut entraîner l’échec de tous les travaux en cours. Avant de déclencher l’opération de réinscription, vérifiez la présence d’un ou plusieurs des [symptômes](backup-sql-server-azure-troubleshoot.md#re-registration-failures).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

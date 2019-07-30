@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f4e71bd7fd7e0ed9a220619995ba108fdccabe4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 51596e4db8999de5089748e40f9b24bd46c84e56
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66233745"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807828"
 ---
 # <a name="set-a-custom-home-page-for-published-apps-by-using-azure-ad-application-proxy"></a>Définir une page d’accueil personnalisée pour les applications publiées à l’aide du proxy d’application Azure AD
 
@@ -36,8 +36,8 @@ Voici un scénario expliquant pourquoi votre entreprise pourrait vouloir défini
 - L’URL externe par défaut, `https://ExpenseApp-contoso.msappproxy.net`, n’envoie pas un utilisateur externe vers la page de connexion.
 - Vous préférez définir `https://ExpenseApp-contoso.msappproxy.net/login/login.aspx` comme URL de la page d’accueil de sorte qu’un utilisateur externe voie d’abord la page de connexion.
 
->[!NOTE]
->Si vous octroyez aux utilisateurs un accès aux applications publiées, celles-ci sont affichées dans le [volet d’accès Azure AD](../user-help/my-apps-portal-end-user-access.md) et le [lanceur d’applications Office 365](https://www.microsoft.com/microsoft-365/blog/2016/09/27/introducing-the-new-office-365-app-launcher/).
+> [!NOTE]
+> Si vous octroyez aux utilisateurs un accès aux applications publiées, celles-ci sont affichées dans le [volet d’accès Azure AD](../user-help/my-apps-portal-end-user-access.md) et le [lanceur d’applications Office 365](https://www.microsoft.com/microsoft-365/blog/2016/09/27/introducing-the-new-office-365-app-launcher/).
 
 ## <a name="before-you-start"></a>Avant de commencer
 
@@ -56,22 +56,22 @@ Vous pouvez définir l’URL de la page d’accueil via le portail Azure ou à l
 Pour modifier l’URL de la page d’accueil de votre application via le portail Azure AD, procédez comme suit :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/) en tant qu’administrateur.
-2. Sélectionnez **Azure Active Directory**, puis **Inscriptions d’applications**. La liste des applications inscrites s’affiche.
-3. Choisissez votre application dans la liste. Une page présentant les détails de l’application inscrite s’affiche.
-4. Dans **Gérer**, sélectionnez **Personnalisation**.
-5. Mettez à jour le champ **URL de la page d’accueil** avec votre nouveau chemin d’accès.
+1. Sélectionnez **Azure Active Directory**, puis **Inscriptions d’applications**. La liste des applications inscrites s’affiche.
+1. Choisissez votre application dans la liste. Une page présentant les détails de l’application inscrite s’affiche.
+1. Dans **Gérer**, sélectionnez **Personnalisation**.
+1. Mettez à jour le champ **URL de la page d’accueil** avec votre nouveau chemin d’accès.
 
    ![Page Personnalisation pour une application inscrite, affichant le champ URL de la page d’accueil](media/application-proxy-configure-custom-home-page/app-proxy-app-branding.png)
- 
-6. Sélectionnez **Enregistrer**.
+
+1. Sélectionnez **Enregistrer**.
 
 ## <a name="change-the-home-page-with-powershell"></a>Changer la page d’accueil à l’aide de PowerShell
 
 Pour configurer la page d’accueil d’une application à l’aide de PowerShell, vous devez :
 
-1. Installer le module Azure AD PowerShell.
-2. Rechercher la valeur ObjectID de l’application.
-3. Mettre à jour l’URL de la page d’accueil de l’application à l’aide de commandes PowerShell.
+1. Installez le module Azure AD PowerShell.
+1. Rechercher la valeur ObjectID de l’application.
+1. Mettre à jour l’URL de la page d’accueil de l’application à l’aide de commandes PowerShell.
 
 ### <a name="install-the-azure-ad-powershell-module"></a>Installer le module Azure AD PowerShell
 
@@ -87,7 +87,7 @@ Pour installer le package, procédez comme suit :
 
     Si vous l’exécutez en tant que non-administrateur, utilisez l’option `-scope currentuser`.
 
-2. Pendant l’installation, sélectionnez **Y** pour installer deux packages depuis Nuget.org. Les deux packages sont requis.
+1. Pendant l’installation, sélectionnez **Y** pour installer deux packages depuis Nuget.org. Les deux packages sont requis.
 
 ### <a name="find-the-objectid-of-the-app"></a>Rechercher l’ObjectID de l’application
 
@@ -99,13 +99,13 @@ Pour obtenir l’ObjectID de l’application, recherchez l’application par son
    Import-Module AzureAD
    ```
 
-2. Connectez-vous au module Azure AD en tant qu’administrateur client.
+1. Connectez-vous au module Azure AD en tant qu’administrateur client.
 
    ```powershell
    Connect-AzureAD
    ```
 
-3. Recherchez l’application. Cet exemple utilise PowerShell pour rechercher l’ObjectID en recherchant l’application pas un nom d’affichage de `SharePoint`.
+1. Recherchez l’application. Cet exemple utilise PowerShell pour rechercher l’ObjectID en recherchant l’application pas un nom d’affichage de `SharePoint`.
 
    ```powershell
    Get-AzureADApplication | Where-Object { $_.DisplayName -eq "SharePoint" } | Format-List DisplayName, Homepage, ObjectId
@@ -135,31 +135,31 @@ Créez l’URL de la page d’accueil et mettez à jour votre application avec c
    $objguid = "8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4"
    ```
 
-2. Vérifiez que vous avez la bonne application en exécutant la commande suivante. La sortie doit être identique à celle que vous avez vue dans la section précédente ([Rechercher l’ObjectID de l’application](#find-the-objectid-of-the-app)).
+1. Vérifiez que vous avez la bonne application en exécutant la commande suivante. La sortie doit être identique à celle que vous avez vue dans la section précédente ([Rechercher l’ObjectID de l’application](#find-the-objectid-of-the-app)).
 
    ```powershell
    Get-AzureADApplication -ObjectId $objguid | Format-List DisplayName, Homepage, ObjectId
    ```
 
-3. Créez un objet d’application vide pour conserver les modifications que vous souhaitez apporter.
+1. Créez un objet d’application vide pour conserver les modifications que vous souhaitez apporter.
 
    ```powershell
    $appnew = New-Object "Microsoft.Open.AzureAD.Model.Application"
    ```
 
-4. Définissez l’URL de page d’accueil sur la valeur souhaitée. La valeur doit correspondre à un chemin d’accès de sous-domaine de l’application publiée. Par exemple, si vous changez l’URL de la page d’accueil de `https://sharepoint-iddemo.msappproxy.net/` en `https://sharepoint-iddemo.msappproxy.net/hybrid/`, les utilisateurs de l’application accèdent directement à la page d’accueil personnalisée.
+1. Définissez l’URL de page d’accueil sur la valeur souhaitée. La valeur doit correspondre à un chemin d’accès de sous-domaine de l’application publiée. Par exemple, si vous changez l’URL de la page d’accueil de `https://sharepoint-iddemo.msappproxy.net/` en `https://sharepoint-iddemo.msappproxy.net/hybrid/`, les utilisateurs de l’application accèdent directement à la page d’accueil personnalisée.
 
    ```powershell
    $homepage = "https://sharepoint-iddemo.msappproxy.net/hybrid/"
    ```
 
-5. Actualisez la page d’accueil.
+1. Actualisez la page d’accueil.
 
    ```powershell
    Set-AzureADApplication -ObjectId $objguid -Homepage $homepage
    ```
 
-6. Pour vérifier que la modification a réussi, réexécutez la commande suivante de l’étape 2.
+1. Pour vérifier que la modification a réussi, réexécutez la commande suivante de l’étape 2.
 
    ```powershell
    Get-AzureADApplication -ObjectId $objguid | Format-List DisplayName, Homepage, ObjectId
@@ -173,10 +173,10 @@ Créez l’URL de la page d’accueil et mettez à jour votre application avec c
    ObjectId    : 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4
    ```
 
-7. Redémarrez l’application pour vérifier que la page d’accueil s’affiche en tant que premier écran, comme prévu.
+1. Redémarrez l’application pour vérifier que la page d’accueil s’affiche en tant que premier écran, comme prévu.
 
->[!NOTE]
->Les modifications que vous apportez à l’application peuvent réinitialiser l’URL de page d’accueil. Si l’URL de votre page d’accueil est réinitialisée, répétez les étapes décrites dans cette section pour la rétablir.
+> [!NOTE]
+> Les modifications que vous apportez à l’application peuvent réinitialiser l’URL de page d’accueil. Si l’URL de votre page d’accueil est réinitialisée, répétez les étapes décrites dans cette section pour la rétablir.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

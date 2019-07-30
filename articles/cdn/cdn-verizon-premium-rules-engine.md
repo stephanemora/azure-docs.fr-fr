@@ -3,16 +3,16 @@ title: Modifier le comportement HTTP à l’aide du moteur de règles Azure CDN 
 description: Le moteur de règles vous permet de personnaliser la manière dont Azure CDN de de Verizon Premium gère les requêtes HTTP, telles que le blocage de la remise de certains types de contenus, la définition d’une stratégie de mise en cache et la modification des en-têtes HTTP.
 services: cdn
 author: mdgattuso
-ms.service: cdn
+ms.service: azure-cdn
 ms.topic: article
 ms.date: 05/31/2019
 ms.author: magattus
-ms.openlocfilehash: 81af3073d64e4379972568a57907a7fb2f82356d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fa08f59f3b69395d548649bb131e04c5071c053d
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66481728"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67593180"
 ---
 # <a name="override-http-behavior-using-the-azure-cdn-from-verizon-premium-rules-engine"></a>Modifier le comportement HTTP à l’aide du moteur de règles Azure CDN de Verizon Premium
 
