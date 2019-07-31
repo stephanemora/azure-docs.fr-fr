@@ -24,7 +24,7 @@ ms.locfileid: "67491407"
 ---
 # <a name="download-or-view-your-azure-billing-invoice-and-daily-usage-data"></a>Télécharger ou afficher votre facture Azure et vos données d’utilisation quotidienne
 
-Pour la plupart des abonnements, cous pouvez télécharger votre facture à partir du [portail Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) ou la faire envoyer par courrier électronique. Si vous êtes un client Azure avec un contrat Entreprise (client EA), vous ne pouvez pas télécharger les factures de votre organisation. Les factures sont envoyées à toute personne autorisée à recevoir des factures pour l’inscription.
+Pour la plupart des abonnements, vous pouvez télécharger votre facture à partir du [portail Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) ou la faire envoyer par courrier électronique. Si vous êtes un client Azure avec un contrat Entreprise (client EA), vous ne pouvez pas télécharger les factures de votre organisation. Les factures sont envoyées à toute personne autorisée à recevoir des factures pour l’inscription.
 
 Si vous êtes client EA ou avez un [Contrat client Microsoft](#check-access-to-a-microsoft-customer-agreement), vous pouvez télécharger les informations d’utilisation dans le [portail Azure](https://portal.azure.com/). Pour les autres abonnements, accédez au [Centre des comptes Azure](https://account.azure.com/Subscriptions) afin de télécharger les informations d’utilisation.
 
