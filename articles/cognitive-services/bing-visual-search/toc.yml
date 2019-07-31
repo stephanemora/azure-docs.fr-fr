@@ -52,7 +52,8 @@
     - name: Utilisation des informations Bing
       href: bing-insights-usage.md
     - name: Analytique pour l’API Recherche visuelle
-      href: bing-visual-search-stats.md
+      maintainContext: true
+      href: ../bing-web-search/bing-web-stats.md
 - name: Guides pratiques
   items:
     - name: Obtenir des informations à l’aide d’un jeton
