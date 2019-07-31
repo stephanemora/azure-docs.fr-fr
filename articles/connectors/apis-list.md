@@ -9,23 +9,25 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: article
 ms.date: 05/08/2019
-ms.openlocfilehash: c02361cf69b98da61a0f551ac037e6d35ea42efc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ab2413cfce8b87fbe1899a0b7c465c6e6c27a3f5
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65551863"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68277639"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>Connecteurs pour Azure Logic Apps
 
 Les connecteurs offrent un accès rapide à partir d’Azure Logic Apps aux événements, aux données et aux actions de l’ensemble des autres applications, services, systèmes, protocoles et plateformes. En utilisant des connecteurs dans vos applications logiques, vous développez les fonctionnalités de vos applications cloud et locales pour exécuter des tâches avec les données que vous créez et dont vous disposez déjà.
 
-Logic Apps offre [plus de 200 connecteurs](https://docs.microsoft.com/connectors). Cet article décrit les connecteurs les plus courants et les plus utilisés par des milliers d’applications et des millions d’exécutions pour le traitement des données et des informations. Pour rechercher la liste complète des connecteurs et les informations de référence sur chaque connecteur, telles que les déclencheurs, les actions et les limites, consultez les pages de référence de connecteur accessibles à partir de la [vue d’ensemble des connecteurs](https://docs.microsoft.com/connectors). En outre, apprenez-en davantage sur les [déclencheurs et actions](#triggers-actions), sur le [modèle de tarification de Logic Apps](../logic-apps/logic-apps-pricing.md) et sur les [détails de tarification de Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps/). 
+Logic Apps offre [des centaines de connecteurs](https://docs.microsoft.com/connectors). Cet article décrit les connecteurs les plus courants et les plus utilisés par des milliers d’applications et des millions d’exécutions pour le traitement des données et des informations. Pour rechercher la liste complète des connecteurs et les informations de référence sur chaque connecteur, telles que les déclencheurs, les actions et les limites, consultez les pages de référence de connecteur accessibles à partir de la [vue d’ensemble des connecteurs](https://docs.microsoft.com/connectors). En outre, apprenez-en davantage sur les [déclencheurs et actions](#triggers-actions), sur le [modèle de tarification de Logic Apps](../logic-apps/logic-apps-pricing.md) et sur les [détails de tarification de Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps/). 
 
 > [!NOTE]
 > Pour assurer l’intégration à un service ou à une API ne disposant pas de connecteur, vous pouvez appeler directement le service par le biais d’un protocole tel que HTTP, ou créer un [connecteur personnalisé](#custom).
 
 Les connecteurs sont disponibles sous forme de déclencheurs et d’actions intégrés ou de connecteurs managés :
+
+<a name="built-in"></a>
 
 * [**Éléments intégrés**](#built-ins) : ces déclencheurs et actions intégrés sont natifs d’Azure Logic Apps et vous permettent de créer des applications logiques qui s’exécutent selon des planifications personnalisées, communiquent avec d’autres points de terminaison, reçoivent des requêtes et y répondent, et appellent des fonctions Azure, Azure API Apps (Web Apps), vos propres API managées et publiées avec le service Azure Gestion des API, ainsi que des applications logiques imbriquées qui peuvent recevoir des requêtes. Vous pouvez également utiliser des actions intégrées pour organiser et contrôler le flux de travail de votre application logique et exploiter vos données.
 
@@ -35,6 +37,8 @@ Les connecteurs sont disponibles sous forme de déclencheurs et d’actions int�
   >
   > Pour plus d’informations sur la création d’environnements ISE, consultez l’article [Se connecter à des réseaux virtuels Azure à partir d’Azure Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#create-logic-apps-environment). 
   > Pour plus d’informations sur la tarification, consultez l’article [Modèle de tarification de Logic Apps](../logic-apps/logic-apps-pricing.md).
+
+<a name="managed-connectors"></a>
 
 * **Connecteurs managés** : déployés et managés par Microsoft, ces connecteurs fournissent des déclencheurs et actions qui permettent d’accéder à des services cloud et/ou à des systèmes locaux, tels qu’Office 365, Stockage Blob Azure, SQL Server, Dynamics, Salesforce, SharePoint, etc. Certains connecteurs prennent spécifiquement en charge les scénarios de communication entreprise-entreprise (B2B) et nécessitent un [compte d’intégration](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) lié à votre application logique. Avant d’utiliser certains connecteurs, vous devrez peut-être commencer par créer des connexions, qui sont managées par Azure Logic Apps. 
 

@@ -1,5 +1,5 @@
 ---
-title: Guide pratique pour sélectionner les autorisations pour une API donnée | Microsoft Docs
+title: Sélectionner des autorisations pour une API donnée | Microsoft Docs
 description: Découvrez comment les demandes d’autorisations fonctionnent pour les applications clientes et de ressources pour les applications que vous développez
 services: active-directory
 documentationcenter: ''
@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/11/2018
+ms.date: 07/15/2019
 ms.author: ryanwi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 42d5ce8a890f6f02e03a16b60f358d9430a09f88
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a209009615d703d87aeaddb81bfa263bec5c3296
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65545831"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68276814"
 ---
 # <a name="how-to-select-permissions-for-a-given-api"></a>Guide pratique pour sélectionner les autorisations pour une API donnée 
 

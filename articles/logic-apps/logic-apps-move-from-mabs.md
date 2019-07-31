@@ -9,12 +9,12 @@ ms.author: jonfan
 ms.reviewer: estfan, LADocs
 ms.topic: article
 ms.date: 05/30/2017
-ms.openlocfilehash: f813cb5d8d5c442fc17f126c3a2ff6de7b0bdde1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dfc0aa4fa7c70ae91f25f97671b15dacfe991594
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61321249"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68273179"
 ---
 # <a name="migrate-from-biztalk-services-to-azure-logic-apps"></a>Migrer de BizTalk Services vers Azure Logic Apps
 
@@ -52,7 +52,7 @@ BizTalk Services comporte plusieurs types d’artefacts.
 
 ## <a name="connectors"></a>Connecteurs
 
-Les connecteurs BizTalk Services permettent aux ponts d’envoyer et de recevoir des données ; cela comprend les ponts bidirectionnels qui activent des interactions de requête/réponse HTTP. Logic Apps utilise la même terminologie et comporte plus de 180 connecteurs ayant la même fonction en vous connectant à une large gamme de technologies et services. Par exemple, les connecteurs sont disponibles pour les services cloud SaaS et PaaS, tels que OneDrive, Office 365, Dynamics CRM et bien d’autres encore, ainsi que pour les systèmes locaux via la passerelle de données locale, qui remplace BizTalk Adapter Service pour BizTalk Services. Les sources dans BizTalk Services sont limitées aux abonnements FTP, SFTP et à une rubrique ou une file d’attente Service Bus.
+Les connecteurs BizTalk Services permettent aux ponts d’envoyer et de recevoir des données ; cela comprend les ponts bidirectionnels qui activent des interactions de requête/réponse HTTP. Logic Apps utilise la même terminologie et comporte des centaines de connecteurs ayant la même fonction en vous connectant à une large gamme de technologies et services. Par exemple, les connecteurs sont disponibles pour les services cloud SaaS et PaaS, tels que OneDrive, Office 365, Dynamics CRM et bien d’autres encore, ainsi que pour les systèmes locaux via la passerelle de données locale, qui remplace BizTalk Adapter Service pour BizTalk Services. Les sources dans BizTalk Services sont limitées aux abonnements FTP, SFTP et à une rubrique ou une file d’attente Service Bus.
 
 ![](media/logic-apps-move-from-mabs/sources.png)
 

@@ -1,5 +1,5 @@
 ---
-title: 'Azure Active Directory Domain Services : Dépannage de la configuration du principal de service | Microsoft Docs'
+title: 'Azure Active Directory Domain Services : Résolution des problèmes des principaux de service | Microsoft Docs'
 description: Résolution des problèmes de configuration du principal de service pour les services de domaine Azure AD
 services: active-directory-ds
 documentationcenter: ''
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/14/2019
 ms.author: iainfou
-ms.openlocfilehash: 5b94fca6087da61fe10d6c80b3fe7cfb5798f2d3
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 9e5fa8c84f5e7ca58117666846b603a118826150
+ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67473900"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68234138"
 ---
-# <a name="troubleshoot-invalid-service-principal-configuration-for-your-managed-domain"></a>Résoudre les problèmes liés à une configuration de principal de service non valide pour votre domaine managé
+# <a name="troubleshoot-invalid-service-principal-configurations-for-azure-active-directory-domain-services"></a>Résolution des problèmes de configuration de principal de service non valides pour Azure Active Directory Domain Services
 
 Cet article vous aide à résoudre les erreurs liées à la configuration du principal de service qui entraînent l’affichage du message d’alerte suivant :
 

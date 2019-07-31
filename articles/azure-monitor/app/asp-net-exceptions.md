@@ -10,23 +10,24 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 09/19/2017
+ms.date: 07/11/2019
 ms.author: mbullwin
-ms.openlocfilehash: cb32069de295b883cdc6d3a9fa495b1bea719c39
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c8d46ddc834cb12aa63720673c83d745ab53ab4d
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60691810"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68226880"
 ---
 # <a name="diagnose-exceptions-in-your-web-apps-with-application-insights"></a>Diagnostiquez les exceptions dans vos applications web avec Application Insights
 Les exceptions dans votre application web dynamique sont signalées par [Application Insights](../../azure-monitor/app/app-insights-overview.md). Vous pouvez associer les demandes ayant échoué à des exceptions et à d’autres événements sur le client et le serveur, ce qui vous permet de diagnostiquer rapidement les causes.
 
 ## <a name="set-up-exception-reporting"></a>Configurer les rapports d’exceptions
 * Pour que les exceptions soient signalées par votre application de serveur :
+  * Applications web Azure : Ajoutez [l’extension Application Insights](../../azure-monitor/app/azure-web-apps.md)
+  * Applications hébergées par IIS sur une machine virtuelle Azure et un groupe de machines virtuelles identiques Azure : Ajoutez l’[extension Application Monitoring](../../azure-monitor/app/azure-vm-vmss-apps.md)
   * Installez le [SDK Application Insights](../../azure-monitor/app/asp-net.md) dans votre code d’application, ou
   * Serveurs web IIS : Exécutez l’[agent Application Insights](../../azure-monitor/app/monitor-performance-live-website-now.md) ou
-  * Applications web Azure : Ajoutez [l’extension Application Insights](../../azure-monitor/app/azure-web-apps.md)
   * Applications web Java : Installez [l’agent Java](../../azure-monitor/app/java-agent.md)
 * Installez l’[extrait de code JavaScript](../../azure-monitor/app/javascript.md) dans vos pages web pour intercepter les exceptions du navigateur.
 * Dans certains frameworks d’application ou avec certains paramètres, vous devez prendre des mesures supplémentaires pour intercepter davantage d’exceptions :
@@ -60,23 +61,19 @@ Dans le code, notez que CodeLens affiche les données sur les exceptions :
 Application Insights est fourni avec une expérience APM organisée pour vous aider à diagnostiquer les échecs dans les applications surveillées. Pour démarrer, cliquez sur l’option Échecs dans le menu de ressource Application Insights situé dans la section Examiner.
 Une vue en plein écran apparaît et vous indique les tendances du taux d’échec pour vos demandes, le nombre d'entre elles qui échouent et le nombre d’utilisateurs qui en sont affectés. Sur la droite s’affichent certaines des distributions les plus utiles pour l’opération défaillante sélectionnée, avec les trois premiers codes de réponse, les trois premiers types d’exception et les trois premiers types de dépendances défaillantes.
 
-![Vue de triage des échecs (onglet des opérations)](./media/asp-net-exceptions/FailuresTriageView.png)
+![Vue de triage des échecs (onglet des opérations)](./media/asp-net-exceptions/failures0719.png)
 
-Vous pouvez consulter en un seul clic des exemples représentatifs pour chacun de ces sous-ensembles d’opérations. En particulier, pour diagnostiquer les exceptions, vous pouvez cliquer sur le nombre d’exceptions pour une exception spécifique afin d’afficher un panneau de détails sur les exceptions, comme indiqué ci-dessous :
+Vous pouvez consulter en un seul clic des exemples représentatifs pour chacun de ces sous-ensembles d’opérations. En particulier, pour diagnostiquer les exceptions, vous pouvez cliquer sur le nombre d’exceptions pour une exception spécifique à présenter dans l’onglet Détails de la transaction de bout en bout, comme indiqué ci-dessous :
 
-![Panneau de détails de l’exception](./media/asp-net-exceptions/ExceptionDetailsBlade.png)
+![Onglet Détails de la transaction de bout en bout](./media/asp-net-exceptions/end-to-end.png)
 
-**Sinon**, au lieu de rechercher les exceptions relatives à une opération défaillante spécifique, vous pouvez partir de la vue d’ensemble des exceptions, en basculant vers l’onglet Exceptions :
-
-![Vue de triage des échecs (onglet des exceptions)](./media/asp-net-exceptions/FailuresTriageView_Exceptions.png)
-
-Sur cette page, vous pouvez voir toutes les exceptions collectées pour votre application analysée.
+**Sinon**, au lieu de rechercher les exceptions relatives à une opération défaillante spécifique, vous pouvez partir de la vue d’ensemble des exceptions, en basculant vers l’onglet Exceptions en haut. Sur cette page, vous pouvez voir toutes les exceptions collectées pour votre application analysée.
 
 *Aucune exception ne s’affiche ? Consultez [Capture des exceptions](#exceptions)*
 
 
 ## <a name="custom-tracing-and-log-data"></a>Suivi personnalisé et données du journal
-Pour obtenir des données de diagnostic propres à votre application, vous pouvez insérer le code pour envoyer vos propres données de télémétrie. Ces informations apparaissent dans Recherche de diagnostic avec la demande, une vue de la page et d’autres données automatiquement collectées.
+Pour obtenir des données de diagnostic propres à votre application, vous pouvez insérer le code pour envoyer vos propres données de télémétrie. Ces informations apparaissent dans Recherche de diagnostic avec la requête, une vue de la page et d’autres données automatiquement collectées.
 
 Vous disposez de plusieurs options :
 
@@ -85,9 +82,9 @@ Vous disposez de plusieurs options :
 * [TrackException()](#exceptions) envoie des arborescences des appels de procédure. [Plus d’informations sur les exceptions](#exceptions).
 * Si vous utilisez déjà un framework de journalisation comme Log4Net ou NLog, vous pouvez [capturer ces journaux d’activité](asp-net-trace-logs.md) et les visualiser dans Recherche de diagnostic avec les données sur les demandes et les exceptions.
 
-Pour afficher ces événements, ouvrez [Recherche](../../azure-monitor/app/diagnostic-search.md), ouvrez Filtre, puis choisissez Événement personnalisé, Trace ou Exception.
+Pour voir ces événements, ouvrez [Recherche](../../azure-monitor/app/diagnostic-search.md) dans le menu de gauche, sélectionnez le menu déroulant **Types d’événements**, puis choisissez événement personnalisé, trace ou exception.
 
-![Extraire](./media/asp-net-exceptions/viewCustomEvents.png)
+![Extraire](./media/asp-net-exceptions/customevents.png)
 
 > [!NOTE]
 > Si votre application génère un volume important de télémétrie, le module d'échantillonnage adaptatif réduit automatiquement le volume qui est envoyé vers le portail en envoyant uniquement une fraction représentative des événements. Les événements qui font partie de la même opération seront activés ou désactivés en tant que groupe, afin que vous puissiez naviguer entre les événements connexes. [En savoir plus sur l'échantillonnage.](../../azure-monitor/app/sampling.md)
@@ -100,8 +97,6 @@ Les détails de la demande n'incluent pas les données envoyées à votre applic
 * [Installez le SDK](../../azure-monitor/app/asp-net.md) dans votre projet d’application.
 * Insérez du code dans votre application pour appeler [Microsoft.ApplicationInsights.TrackTrace()](../../azure-monitor/app/api-custom-events-metrics.md#tracktrace). Envoyez les données POST dans le paramètre du message. Il existe une limite à la taille autorisée. Vous pouvez donc essayer d'envoyer uniquement les données essentielles.
 * Lorsque vous examinez une demande ayant échoué, recherchez les traces associées.
-
-![Extraire](./media/asp-net-exceptions/060-req-related.png)
 
 ## <a name="exceptions"></a> Capture des exceptions et des données de diagnostic connexes
 Dans un premier temps, vous ne verrez pas dans le portail toutes les exceptions qui entraînent des défaillances dans votre application. Vous verrez les exceptions du navigateur (si vous utilisez le [SDK JavaScript](../../azure-monitor/app/javascript.md) dans vos pages web). Mais la plupart des exceptions de serveur sont interceptées par IIS et vous devez écrire un peu de code afin de les afficher.
@@ -171,6 +166,27 @@ La plupart des exceptions de navigateur sont signalées.
 
 Si votre page web inclut des fichiers de script à partir de réseaux de distribution de contenu ou d’autres domaines, vérifiez que votre balise de script possède l’attribut ```crossorigin="anonymous"```et que le serveur envoie des [en-têtes CORS](https://enable-cors.org/). Cela vous permettra d'obtenir une arborescence des appels de procédure et les détails des exceptions JavaScript non gérées à partir de ces ressources.
 
+## <a name="reuse-your-telemetry-client"></a>Réutiliser votre client de télémétrie
+
+> [!NOTE]
+> TelemetryClient est destiné à être instancié une seule fois et réutilisé tout au long de la durée de vie d’une application.
+
+Voici un exemple d’utilisation correcte de TelemetryClient.
+
+```csharp
+public class GoodController : ApiController
+{
+    // OK
+    private static readonly TelemetryClient telemetryClient;
+
+    static GoodController()
+    {
+        telemetryClient = new TelemetryClient();
+    }
+}
+```
+
+
 ## <a name="web-forms"></a>Formulaires web
 Pour les formulaires web, le module HTTP pourra collecter les exceptions si aucune redirection n’est configurée avec CustomErrors.
 
@@ -187,7 +203,6 @@ Mais si vous avez des redirections actives, ajoutez les lignes suivantes à la f
       }
     }
 ```
-
 ## <a name="mvc"></a>MVC
 À partir de la version 2.6 (bêta 3 et versions ultérieures) du Kit de développement logiciel (SDK) web d’Application Insights, Application Insights collecte automatiquement les exceptions non prises en charge qui sont levées dans les méthodes des contrôleurs MVC 5+. Si vous avez déjà ajouté un gestionnaire personnalisé pour suivre ces exceptions (comme dans les exemples suivants), vous pouvez le supprimer afin d’éviter un double suivi.
 
@@ -476,15 +491,11 @@ Add the attribute to the service implementations:
 ## <a name="exception-performance-counters"></a>Compteurs de performance des exceptions
 Si vous avez [installé l’agent Application Insights](../../azure-monitor/app/monitor-performance-live-website-now.md) sur votre serveur, vous pouvez obtenir un graphique du taux d’exceptions, mesuré par .NET. Celui-ci comprend les exceptions .NET gérées et non gérées.
 
-Ouvrez un panneau d'explorateur de mesures, ajoutez un nouveau graphique, puis sélectionnez **Taux d'exception**sous Compteurs de performances.
+Ouvrez un onglet d’explorateur de mesures, ajoutez un nouveau graphique, puis sélectionnez **Taux d’exception**sous Compteurs de performances.
 
 .NET Framework calcule le taux en comptant le nombre d’exceptions sur un intervalle et en divisant ce nombre par la longueur de l’intervalle.
 
 Ce chiffre sera différent du nombre d’« exceptions » calculé par le portail Application Insights, qui est basé sur les rapports TrackException. Les intervalles d’échantillonnage sont différents et le Kit de développement logiciel (SDK) n’envoie pas de rapports TrackException pour toutes les exceptions gérées et non gérées.
-
-## <a name="video"></a>Vidéo
-
-> [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Surveiller REST, SQL et les autres appels aux dépendances](../../azure-monitor/app/asp-net-dependencies.md)

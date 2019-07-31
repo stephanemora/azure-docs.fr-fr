@@ -17,17 +17,15 @@ ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 357c83cfd0ae3fed8b13419e72f50fcb90c04186
-ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
+ms.openlocfilehash: ff55853c859008690548b161451a24941a597d3a
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67550651"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68277896"
 ---
 # <a name="xamarin-android-specific-considerations-with-msalnet"></a>Considérations spécifiques à Xamarin Android avec MSAL.NET
 Cet article traite des considérations spécifiques lors de l’utilisation de Xamarin Android avec la bibliothèque d’authentification Microsoft pour .NET (MSAL.NET).
-
-Cet article s’applique à MSAL.NET 3.x. Si vous êtes intéressé par MSAL.NET 2.x, consultez [Caractéristiques de Xamarin Android dans MSAL.NET 2.x](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Xamarin-Android-specifics-2x).
 
 ## <a name="set-the-parent-activity"></a>Définir l’activité parente
 
@@ -38,6 +36,26 @@ var authResult = AcquireTokenInteractive(scopes)
  .WithParentActivityOrWindow(parentActivity)
  .ExecuteAsync();
 ```
+Vous pouvez également définir ceci au niveau PublicClientApplication (dans MSAL 4.2+) à l’aide d’un rappel.
+
+```CSharp
+// Requires MSAL.NET 4.2 or above
+var pca = PublicClientApplicationBuilder
+  .Create("<your-client-id-here>")
+  .WithParentActivityOrWindow(() => parentActivity)
+  .Build();
+```
+
+Il est recommandé d’utiliser le CurrentActivityPlugin [ici](https://github.com/jamesmontemagno/CurrentActivityPlugin).  Votre code de générateur PublicClientApplication ressemble alors à ceci :
+
+```CSharp
+// Requires MSAL.NET 4.2 or above
+var pca = PublicClientApplicationBuilder
+  .Create("<your-client-id-here>")
+  .WithParentActivityOrWindow(() => CrossCurrentActivity.Current)
+  .Build();
+```
+
 
 ## <a name="ensuring-control-goes-back-to-msal-once-the-interactive-portion-of-the-authentication-flow-ends"></a>S’assurer que le contrôle revient à la bibliothèque MSAL une fois la partie interactive du flux d’authentification terminée
 Sur Android, vous devez remplacer la méthode `OnActivityResult` de `Activity` et appeler la méthode SetAuthenticationContinuationEventArgs de la classe MSAL AuthenticationContinuationHelper.

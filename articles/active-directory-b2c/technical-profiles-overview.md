@@ -10,25 +10,25 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 80b8969ba657506705db2b1a3bbc5b389d0a992c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f3be6cebafb6d0f50b5ac9a9e40e5707202ea643
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66512450"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67849434"
 ---
 # <a name="about-technical-profiles-in-azure-active-directory-b2c-custom-policies"></a>À propos des profils techniques dans les stratégies personnalisées d’Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Un profil technique fournit une infrastructure avec un mécanisme intégré pour communiquer avec différents types de parties au moyen d’une stratégie personnalisée dans Azure Active Directory (Azure AD) B2C. Les profils techniques sont utilisés pour communiquer avec votre locataire Azure AD B2C, créer un utilisateur ou lire un profil utilisateur. Un profil technique peut être déclaré automatiquement pour permettre l’interaction avec l’utilisateur. Par exemple, collecter les informations d’identification de l’utilisateur pour se connecter, puis afficher la page d’inscription ou la page de réinitialisation du mot de passe. 
+Un profil technique fournit une infrastructure avec un mécanisme intégré pour communiquer avec différents types de parties au moyen d’une stratégie personnalisée dans Azure Active Directory (Azure AD) B2C. Les profils techniques sont utilisés pour communiquer avec votre locataire Azure AD B2C, créer un utilisateur ou lire un profil utilisateur. Un profil technique peut être déclaré automatiquement pour permettre l’interaction avec l’utilisateur. Par exemple, collecter les informations d’identification de l’utilisateur pour se connecter, puis afficher la page d’inscription ou la page de réinitialisation du mot de passe.
 
 ## <a name="type-of-technical-profiles"></a>Types de profils techniques
 
 Un profil technique permet les types de scénarios suivants :
 
 - [Azure Active Directory](active-directory-technical-profile.md) : fournit une assistance pour la gestion des utilisateurs Azure Active Directory B2C.
-- [Émetteur de jeton JWT](jwt-issuer-technical-profile.md) : émet un jeton JWT qui est retourné à l’application par partie de confiance. 
+- [Émetteur de jeton JWT](jwt-issuer-technical-profile.md) : émet un jeton JWT qui est retourné à l’application par partie de confiance.
 - **Fournisseur de facteur de téléphone** : authentification multifacteur.
 - [OAuth1](oauth1-technical-profile.md) : fédération avec n’importe quel fournisseur d’identité du protocole OAuth 1.0.
 - [OAuth2](oauth2-technical-profile.md) : fédération avec n’importe quel fournisseur d’identité du protocole OAuth 2.0.
@@ -37,15 +37,15 @@ Un profil technique permet les types de scénarios suivants :
 - [Fournisseur Restful](restful-technical-profile.md) : appel aux services d’API REST, comme la validation de l’entrée utilisateur, l’enrichissement des données utilisateur ou l’intégration avec les applications métier.
 - [SAML2](saml-technical-profile.md) : fédération avec n’importe quel fournisseur d’identité du protocole SAML.
 - [Autodéclaré](self-asserted-technical-profile.md) : interaction avec l’utilisateur. Par exemple, collecter les informations d’identification de l’utilisateur pour se connecter, afficher la page d’inscription ou la réinitialisation du mot de passe.
-- **WsFed** : fédération avec n’importe quel fournisseur d’identité du protocole WsFed. 
-- [Gestion des sessions](active-directory-b2c-reference-sso-custom.md) : gère différents types de sessions. 
+- **WsFed** : fédération avec n’importe quel fournisseur d’identité du protocole WsFed.
+- [Gestion des sessions](active-directory-b2c-reference-sso-custom.md) : gère différents types de sessions.
 - **Application Insights**
 
 ## <a name="technical-profile-flow"></a>Flux du profil technique
 
-Tous les types de profils techniques partagent le même concept. Vous pouvez envoyer des revendications d’entrée, exécuter la transformation des revendications et communiquer avec le tiers configuré, comme un fournisseur d’identité, une API REST ou les services d’annuaire Azure AD. Une fois le processus terminé, le profil technique retourne les revendications de sortie et peut exécuter la transformation des revendications de sortie. Le schéma suivant explique comment sont traités les transformations et les mappages référencés dans le profil technique. Quel que soit le tiers avec qui le profil technique interagit, une fois la transformation des revendications exécutée, les revendications de sortie du profil technique sont immédiatement stockées dans le conteneur de revendications. 
+Tous les types de profils techniques partagent le même concept. Vous pouvez envoyer des revendications d’entrée, exécuter la transformation des revendications et communiquer avec le tiers configuré, comme un fournisseur d’identité, une API REST ou les services d’annuaire Azure AD. Une fois le processus terminé, le profil technique retourne les revendications de sortie et peut exécuter la transformation des revendications de sortie. Le schéma suivant explique comment sont traités les transformations et les mappages référencés dans le profil technique. Quel que soit le tiers avec qui le profil technique interagit, une fois la transformation des revendications exécutée, les revendications de sortie du profil technique sont immédiatement stockées dans le conteneur de revendications.
 
-![Flux du profil technique](./media/technical-profiles-overview/technical-profile-idp-saml-flow.png)
+![Schéma illustrant le workflow du profil technique](./media/technical-profiles-overview/technical-profile-idp-saml-flow.png)
  
 1. **InputClaimsTransformation** : les revendications d’entrée de chaque [transformation des revendications](claimstransformations.md) d’entrée sont récupérées dans le conteneur de revendications. Une fois l’exécution terminée, les revendications de sortie sont replacées dans le conteneur de revendications. Les revendications de sortie d’une transformation des revendications d’entrée peuvent être des revendications d’entrée d’une transformation de revendications d’entrée ultérieure.
 2. **InputClaims** : les revendications sont récupérées auprès du conteneur de revendications et sont utilisées pour le profil technique. Par exemple, un [profil technique autodéclaré](self-asserted-technical-profile.md) utilise les revendications d’entrée pour préremplir les revendications de sortie fournies par l’utilisateur. Un profil technique d’API REST utilise les revendications d’entrée pour envoyer les paramètres d’entrée au point de terminaison de l’API REST. Azure Active Directory utilise la revendication d’entrée comme identificateur unique pour lire, mettre à jour ou supprimer un compte.
@@ -59,7 +59,7 @@ Tous les types de profils techniques partagent le même concept. Vous pouvez env
 6. **OutputClaimsTransformations** : les revendications d’entrée de chaque [transformation de revendications](claimstransformations.md) de sortie sont récupérées auprès du conteneur de revendications. Les revendications de sortie du profil technique des étapes précédentes peuvent être des revendications d’entrée d’une transformation de revendications de sortie. Après l’exécution, les revendications de sortie sont replacées dans le conteneur de revendications. Les revendications de sortie d’une transformation de revendications d’entrée peuvent également être des revendications d’entrée d’une transformation de revendications de sortie ultérieure.
 7. La **gestion de session d’authentification unique** - [gestion de session SSO](active-directory-b2c-reference-sso-custom.md) contrôle l’interaction avec l’utilisateur une fois qu’il a été authentifié. Par exemple, l’administrateur peut contrôler si la sélection des fournisseurs d’identité s’affiche, ou si des détails de compte local doivent être entrés à nouveau.
 
-Un profil technique peut hériter d’un autre profil technique pour modifier des paramètres ou ajouter de nouvelles fonctionnalités.  L’élément **IncludeTechnicalProfile** est une référence au profil technique de base dont découle un profil technique.  
+Un profil technique peut hériter d’un autre profil technique pour modifier des paramètres ou ajouter de nouvelles fonctionnalités.  L’élément **IncludeTechnicalProfile** est une référence au profil technique de base dont découle un profil technique.
 
 Par exemple, le profil technique **AAD-UserReadUsingAlternativeSecurityId-NoError** inclut le profil **AAD-UserReadUsingAlternativeSecurityId**. Ce profil technique définit l’élément de métadonnées **RaiseErrorIfClaimsPrincipalDoesNotExist** sur `true`, et génère une erreur si aucun compte de réseau social ne figure dans le répertoire. **AAD-UserReadUsingAlternativeSecurityId-NoError** remplace ce comportement et désactive le message d’erreur si l’utilisateur n’existe pas.
 
@@ -70,7 +70,7 @@ Par exemple, le profil technique **AAD-UserReadUsingAlternativeSecurityId-NoErro
   </Metadata>
   <IncludeTechnicalProfile ReferenceId="AAD-UserReadUsingAlternativeSecurityId" />
 </TechnicalProfile>
-``` 
+```
 
 **AAD-UserReadUsingAlternativeSecurityId** inclut le profil technique `AAD-Common`.
 

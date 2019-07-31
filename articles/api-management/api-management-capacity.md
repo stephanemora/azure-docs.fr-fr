@@ -11,16 +11,16 @@ ms.workload: integration
 ms.topic: article
 ms.date: 06/18/2018
 ms.author: apimpm
-ms.openlocfilehash: fe77361c4c9bed9310f8443ed4ff37faf7ea53a9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c39c585d9947422260868734ec89814d8a510089
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60658308"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67836951"
 ---
 # <a name="capacity-of-an-azure-api-management-instance"></a>Capacité d’une instance du service Gestion des API Azure
 
-La **capacité** est la [métrique Azure Monitor](api-management-howto-use-azure-monitor.md#view-metrics-of-your-apis) la plus importante et la seule dont vous devez tenir compte pour prendre des décisions éclairées en ce qui concerne la mise à l’échelle d’une instance du service Gestion des API pour accepter une charge plus élevée. Sa construction est complexe et requiert l’adoption d’un certain comportement.
+La **capacité** est la [métrique Azure Monitor](api-management-howto-use-azure-monitor.md#view-metrics-of-your-apis) la plus importante et celle dont vous devez tenir compte pour prendre des décisions éclairées en ce qui concerne la mise à l’échelle d’une instance du service Gestion des API pour accepter une charge plus élevée. Sa construction est complexe et requiert l’adoption d’un certain comportement.
 
 Cet article explique ce à quoi correspond la **capacité**, ainsi que son comportement. Il décrit comment accéder aux métriques de **capacité** dans le Portail Azure et vous informe quand le moment est venu de procéder à une mise à l’échelle ou à une mise à niveau de votre instance du service Gestion des API.
 
@@ -40,12 +40,14 @@ Pour suivre les étapes décrites dans cet article, vous devez avoir :
 
 ![Métrique de capacité](./media/api-management-capacity/capacity-ingredients.png)
 
-La **capacité** est un indicateur de charge sur une instance APIM. Elle reflète l’utilisation des ressources (UC, mémoire) et les longueurs de files d’attente réseau. L’utilisation de la mémoire et de l’UC indique la consommation des ressources par :
+La **capacité** est un indicateur de charge sur une instance de gestion des API. Elle reflète l’utilisation des ressources (UC, mémoire) et les longueurs de files d’attente réseau. L’utilisation de la mémoire et de l’UC indique la consommation des ressources par :
 
-+ les services APIM, tels que les actions de gestion ou le traitement des requêtes, qui peuvent inclure le transfert de requêtes ou l’exécution d’une stratégie
++ Les services de gestion des API, comme les actions de gestion ou le traitement des requêtes, qui peuvent inclure le transfert de requêtes ou l’exécution d’une stratégie
 + les processus de système d’exploitation sélectionnés, y compris les processus qui impliquent le coût des négociations SSL sur les nouvelles connexions.
 
 La **capacité** totale est une moyenne de ses propres valeurs issues de chacune des unités d’une instance du service Gestion des API.
+
+Bien que la **métrique de capacité** soit conçue pour mettre en évidence les problèmes liés à votre instance de gestion des API, il existe des cas où les problèmes ne seront pas reflétés dans les modifications de la **métrique de capacité**.
 
 ## <a name="capacity-metric-behavior"></a>Comportement de la métrique de capacité
 
@@ -63,6 +65,8 @@ Plus les opérations sur les requêtes sont complexes, plus la consommation de l
 ![Pics de la métrique de capacité](./media/api-management-capacity/capacity-spikes.png)
 
 La **capacité** peut également augmenter par intermittence ou être supérieure à zéro même si aucune requête n’est en cours de traitement. Cela se produit en raison d’actions propres au système ou à la plateforme et ne doit pas être pris en compte lorsque vous envisagez de mettre à l’échelle une instance.
+
+Une **métrique de capacité faible** ne signifie pas nécessairement que votre instance de gestion des API ne rencontre aucun problème.
   
 ## <a name="use-the-azure-portal-to-examine-capacity"></a>Utiliser le Portail Azure pour étudier la capacité
   

@@ -33,9 +33,15 @@
   items:
     - name: Kit de développement logiciel (SDK) Python
       items:
+        - name: Créer votre première expérience ML
+          items:
+            - name: 1. Configurer l’espace de travail et l’environnement de développement
+              href: tutorial-1st-experiment-sdk-setup.md
+            - name: 2. Entraîner votre premier modèle
+              href: tutorial-1st-experiment-sdk-train.md
         - name: Classification d’images (données MNIST)
           items:
-            - name: 1. Effectuer l’apprentissage d’un modèle
+            - name: 1. Entraîner un modèle
               displayName: build modeling
               href: tutorial-train-models-with-aml.md
             - name: 2. Déployer un modèle
@@ -45,7 +51,7 @@
             - name: 1. Préparer les données pour la modélisation
               displayName: data prep
               href: tutorial-data-prep.md
-            - name: 2. Former automatiquement un modèle ML
+            - name: 2. Entraîner automatiquement un modèle ML
               displayName: 'automl, automated, auto ml,'
               href: tutorial-auto-train-models.md
     - name: Interface visuelle

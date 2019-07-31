@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 05/02/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 4aba7aadbe92b6c4f0ab417785e230bb6a6823df
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5d043072244ede5b1d7bd28d4628ffe3cf4961d8
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60486581"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67836319"
 ---
 # <a name="move-data-from-an-ftp-server-by-using-azure-data-factory"></a>Déplacer des données à partir d’un serveur FTP à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -45,7 +45,7 @@ Vous pouvez créer un pipeline avec une activité de copie qui déplace les donn
 
 Le moyen le plus simple de créer un pipeline consiste à utiliser **l’Assistant Copie de Data Factory**. Consultez le [tutoriel : Créer un pipeline avec l’activité de copie à l’aide de l’Assistant Data Factory Copy](data-factory-copy-data-wizard-tutorial.md) pour obtenir une procédure pas à pas rapide.
 
-Vous pouvez également utiliser les outils suivants pour créer un pipeline : **portail Azure**, **Visual Studio**, **PowerShell**, **modèle Azure Resource Manager**, **API .NET** et **API REST**. Pour obtenir des instructions détaillées sur la création d’un pipeline avec une activité de copie, consultez le [didacticiel sur l’activité de copie](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+Vous pouvez également utiliser les outils suivants pour créer un pipeline : **Visual Studio**, **PowerShell**, **modèle Azure Resource Manager**, **.NET API** et **REST API**. Pour obtenir des instructions détaillées sur la création d’un pipeline avec une activité de copie, consultez le [didacticiel sur l’activité de copie](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 Que vous utilisiez des outils ou des API, la création d’un pipeline qui déplace les données d’un magasin de données source vers un magasin de données récepteur implique les étapes suivantes :
 
@@ -68,9 +68,9 @@ Le tableau suivant décrit les éléments JSON spécifiques pour un service FTP 
 | Type |Définissez ceci sur FtpServer. |OUI |&nbsp; |
 | host |Spécifiez le nom ou l’adresse IP du serveur FTP. |OUI |&nbsp; |
 | authenticationType |Spécifiez le type d’authentification. |OUI |Basic, anonyme |
-| username |Spécifiez l’utilisateur ayant accès au serveur FTP. |Non |&nbsp; |
+| userName |Spécifiez l’utilisateur ayant accès au serveur FTP. |Non |&nbsp; |
 | password |Spécifiez le mot de passe de l’utilisateur (username). |Non |&nbsp; |
-| Encryptedcredential |Spécifiez les informations d’identification chiffrées pour accéder au serveur FTP. |Non |&nbsp; |
+| encryptedCredential |Spécifiez les informations d’identification chiffrées pour accéder au serveur FTP. |Non |&nbsp; |
 | gatewayName |Spécifiez le nom de la passerelle dans Passerelle de gestion des données pour la connexion à un serveur FTP local |Non |&nbsp; |
 | port |Spécifiez le port sur lequel le serveur FTP écoute. |Non |21 |
 | enableSsl |Indiquez si vous souhaitez utiliser FTP sur un canal SSL/TLS. |Non |true |
@@ -211,7 +211,7 @@ Dans une activité de copie, quand la source est de type **FileSystemSource**, l
 ## <a name="json-example-copy-data-from-ftp-server-to-azure-blob"></a>Exemple JSON : copier des données d’un serveur FTP vers Stockage Blob Azure
 Cet exemple montre comment copier des données à partir d’un serveur FTP vers un stockage Blob Azure. Toutefois, il est possible de copier des données directement vers tout récepteur indiqué dans [magasins et formats de données pris en charge](data-factory-data-movement-activities.md#supported-data-stores-and-formats) à l’aide de l’activité de copie dans Data Factory.
 
-Les exemples suivants présentent des définitions JSON que vous pouvez utiliser pour créer un pipeline à l’aide du [portail Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), de [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou de [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md) :
+Les exemples suivants présentent des exemples de définitions de JSON que vous pouvez utiliser pour créer un pipeline à l’aide de [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou d’[Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md) :
 
 * Un service lié de type [FtpServer](#linked-service-properties).
 * Un service lié de type [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties).

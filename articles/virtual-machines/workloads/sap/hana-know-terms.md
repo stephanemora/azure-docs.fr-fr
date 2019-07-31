@@ -12,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 11/20/2018
-ms.author: saghorpa
+ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c069203e94872452c11a7e6cebccd213e0af639c
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 2564e0d34383f7c1daff5b02a871778fb90546cc
+ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67706935"
+ms.lasthandoff: 07/13/2019
+ms.locfileid: "67869003"
 ---
 # <a name="know-the-terms"></a>Maîtriser la terminologie
 
@@ -41,7 +41,10 @@ Plusieurs définitions communes sont largement utilisées dans ce guide sur l’
 - **Catégorie de référence SKU** : pour la grande instance HANA, les deux catégories suivantes de références SKU sont proposées :
     - **Classe de type I** : S72, S72m, S96, S144, S144m, S192, S192m et S192xm
     - **Classe de type II** : S384, S384m, S384xm, S384xxm, S576m, S576xm, S768m, S768xm et S960m
-
+- **Tampon** : définit la taille de déploiement interne de Microsoft pour les Grandes instances HANA. Avant que des unités Grande instance HANA puissent être déployées, un tampon Grande instance HANA constitué de racks de calcul, de réseau et de stockage doit être déployé dans un emplacement de centre de données. Un tel déploiement est appelé « tampon Grande instance HANA » ou, depuis la Révision 4 (voir ci-dessous), nous utilisons un autre terme : **Ligne de grande instance**.
+- **Révision** : il existe deux révisions de tampons pour les tampons Grande instance HANA. Celles-ci diffèrent des hôtes de machines virtuelles Azure en termes d’architecture et de proximité
+    - « Révision 3 » (Rev 3) est la conception d’origine qui a été déployée à partir du milieu de l’année 2016.
+    - « Révision 4 » (Rev 4) est une nouvelle conception qui peut fournir une proximité plus proche des hôtes de machines virtuelles Azure, avec une faible latence réseau entre les machines virtuelles Azure et les unités Grande instance HANA. 
 
 De nombreuses ressources supplémentaires sont disponibles sur le déploiement d’une charge de travail SAP dans le cloud. Si vous planifiez un déploiement de SAP HANA dans Azure, vous devez être expérimenté, connaitre les principes d’Azure IaaS et le déploiement des charges de travail SAP sur Azure IaaS. Avant de continuer, consultez [Utiliser des solutions SAP sur des machines virtuelles Azure](get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) pour plus d’informations. 
 

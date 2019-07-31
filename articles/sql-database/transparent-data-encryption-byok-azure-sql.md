@@ -12,12 +12,12 @@ ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
 ms.date: 04/19/2019
-ms.openlocfilehash: c3a29c6b4d0308b41e29f38fc29d79634727d593
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 645c140819042153b23d8e06417d4c5f441a14a9
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64926017"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68249231"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-keys-in-azure-key-vault-bring-your-own-key-support"></a>Azure SQL Transparent Data Encryption avec des clés managées dans Azure Key Vault : support Bring Your Own Key
 
@@ -179,7 +179,7 @@ Une fois qu’une base de données est chiffrée avec TDE à l’aide d’une cl
 
 Pour restaurer une sauvegarde chiffrée avec un protecteur TDE du coffre de clés, assurez-vous que le matériel de clé est toujours dans le coffre d’origine sous le nom de clé d’origine. Lorsque le protecteur TDE est modifié pour une base de données, les anciennes sauvegardes de la base de données **ne sont pas mises à jour** pour utiliser le nouveau protecteur TDE. Par conséquent, nous vous recommandons de conserver toutes les anciennes versions du protecteur TDE dans le coffre de clés, afin que toutes les sauvegardes de base de données puissent être restaurées.
 
-Si une clé susceptible d’être nécessaire pour la restauration d’une sauvegarde ne se trouve plus dans le coffre de clés d’origine, le message d’erreur suivant est renvoyé : « Le serveur cible `<Servername>` n’a pas accès à tous les URI AKV créés entre <Timestamp #1> et <Timestamp #2>. Veuillez réessayer l’opération après avoir restauré tous les URI AKV. »
+Si une clé susceptible d’être nécessaire pour la restauration d’une sauvegarde ne se trouve plus dans le coffre de clés d’origine, le message d’erreur suivant est renvoyé : « Le serveur cible `<Servername>` n’a pas accès à tous les URI AKV créés entre \<Timestamp #1> et \<Timestamp #2>. Veuillez réessayer l’opération après avoir restauré tous les URI AKV. »
 
 Pour contrer cela, exécutez la cmdlet [Get-AzSqlServerKeyVaultKey](/powershell/module/az.sql/get-azsqlserverkeyvaultkey) pour retourner la liste des clés du coffre de clés ajoutées au serveur (sauf si elles ont été supprimées par un utilisateur). Pour garantir la restauration possible de toutes les sauvegardes, vérifiez que le serveur cible pour la sauvegarde dispose d’un accès à toutes ces clés.
 

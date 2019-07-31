@@ -10,15 +10,15 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: f1953535a19be1a6aa3963776515b1f2c0d979c1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 083fd6b6027c78e956c133d7801a03fd9042e88d
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66508950"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67835749"
 ---
 # <a name="azure-ad-b2c-authentication-protocols"></a>Azure AD B2C : Protocoles d’authentification
-Azure Active Directory B2C (Azure AD B2C) fournit l’identité en tant que service pour vos applications en prenant en charge deux protocoles standard : OpenID Connect et OAuth 2.0. Bien que ce service soit conforme aux normes, vous pouvez constater de subtiles différences entre deux implémentations différentes de ces protocoles. 
+Azure Active Directory B2C (Azure AD B2C) fournit l’identité en tant que service pour vos applications en prenant en charge deux protocoles standard : OpenID Connect et OAuth 2.0. Bien que ce service soit conforme aux normes, vous pouvez constater de subtiles différences entre deux implémentations différentes de ces protocoles.
 
 Les informations fournies dans ce guide sont utiles si vous écrivez votre code en envoyant et en traitant directement des requêtes HTTP, plutôt qu’en utilisant une bibliothèque open source. Nous vous recommandons de lire les informations de cette page avant d’entrer dans les détails de chaque protocole. En revanche, si vous connaissez déjà Azure AD B2C, vous pouvez accéder directement aux [guides de référence du protocole](#protocols).
 
@@ -40,7 +40,7 @@ https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/oauth2/v2.0/token
 
 Dans presque tous les flux OAuth et OpenID Connect, quatre parties sont concernées par l’échange :
 
-![Rôles OAuth 2.0](./media/active-directory-b2c-reference-protocols/protocols_roles.png)
+![Diagramme montrant les 4 rôles OAuth 2.0](./media/active-directory-b2c-reference-protocols/protocols_roles.png)
 
 * Le **serveur d’autorisation** est le point de terminaison Azure AD. Il traite de manière sécurisée toutes les informations relatives à l’utilisateur, l’accès ainsi que les relations de confiance entre les parties des flux. Il est chargé de vérifier l’identité de l’utilisateur, l’octroi et la révocation de l’accès aux ressources et l’émission de jetons. Il est également connu sous le nom de fournisseur d’identité.
 
@@ -51,9 +51,9 @@ Dans presque tous les flux OAuth et OpenID Connect, quatre parties sont concern�
 * Le **serveur de ressources** héberge la ressource ou les données. Il approuve le serveur d’autorisation pour authentifier et autoriser le client OAuth en toute sécurité. Il utilise également les jetons d’accès du porteur pour garantir l’octroi de l’accès à une ressource.
 
 ## <a name="policies-and-user-flows"></a>Stratégies et flux d’utilisateur
-En fait, les stratégies Azure AD B2C constituent la fonctionnalité la plus importante du service. Azure AD B2C étend les protocoles OAuth 2.0 et OpenID Connect standard en introduisant des stratégies qui permettent à Azure AD B2C d’effectuer des opérations d’authentification et d’autorisation bien plus simples. 
+En fait, les stratégies Azure AD B2C constituent la fonctionnalité la plus importante du service. Azure AD B2C étend les protocoles OAuth 2.0 et OpenID Connect standard en introduisant des stratégies qui permettent à Azure AD B2C d’effectuer des opérations d’authentification et d’autorisation bien plus simples.
 
-Pour vous aider à configurer les tâches d’identité les plus courantes, le portail Azure AD B2C inclut des stratégies configurables prédéfinies appelées **flux d’utilisateur**. Les flux d’utilisateur décrivent entièrement les expériences liées à l’identité du consommateur, telles que l’inscription, la connexion et la modification de profil. Ils peuvent être définis dans une interface utilisateur d’administration. et exécutées à l’aide d’un paramètre de requête spécial dans les requêtes d’authentification HTTP. 
+Pour vous aider à configurer les tâches d’identité les plus courantes, le portail Azure AD B2C inclut des stratégies configurables prédéfinies appelées **flux d’utilisateur**. Les flux d’utilisateur décrivent entièrement les expériences liées à l’identité du consommateur, telles que l’inscription, la connexion et la modification de profil. Ils peuvent être définis dans une interface utilisateur d’administration. et exécutées à l’aide d’un paramètre de requête spécial dans les requêtes d’authentification HTTP.
 
 Les flux d’utilisateur ne constituant pas une fonctionnalité standard d’OAuth 2.0 ni d’OpenID Connect, vous devez prendre le temps de les comprendre. Pour plus d’informations, consultez le [guide de référence sur les flux d’utilisateur Azure AD B2C](active-directory-b2c-reference-policies.md).
 
@@ -62,7 +62,7 @@ L’implémentation d’OAuth 2.0 et d’OpenID Connect par Azure AD B2C utilis
 
 En ce sens, le porteur désigne toute partie qui peut présenter le jeton. Une partie doit d’abord s’authentifier auprès d’Azure AD pour recevoir un jeton du porteur, mais si les mécanismes nécessaires à la sécurité du jeton lors de la transmission et du stockage ne sont pas en place, il peut être intercepté et utilisé par une partie non autorisée.
 
-Bien que certains jetons de sécurité intègrent des mécanismes de protection contre l’utilisation par des parties non autorisées, les jetons du porteur n’en sont pas dotés et ils doivent donc être acheminés sur un canal sécurisé, par exemple à l’aide du protocole TLS (HTTPS). 
+Bien que certains jetons de sécurité intègrent des mécanismes de protection contre l’utilisation par des parties non autorisées, les jetons du porteur n’en sont pas dotés et ils doivent donc être acheminés sur un canal sécurisé, par exemple à l’aide du protocole TLS (HTTPS).
 
 Si un jeton du porteur est transmis en dehors d’un canal sécurisé, une partie malveillante peut utiliser une attaque d’intercepteur afin de s’approprier le jeton et de l’utiliser pour accéder sans autorisation à une ressource protégée. Les mêmes principes de sécurité s’appliquent au stockage ou à la mise en cache des jetons du porteur pour une utilisation ultérieure. Veillez systématiquement à ce que votre application transmette et stocke les jetons porteurs de manière sécurisée.
 

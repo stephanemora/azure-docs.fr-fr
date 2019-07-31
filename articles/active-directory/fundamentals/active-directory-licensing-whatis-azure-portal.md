@@ -14,12 +14,12 @@ ms.author: lizross
 ms.reviewer: krbain
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: be7094db14f53af939ded2313823bf2749e59a46
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d41c8edf3985e77e0f67a54013d1b59abbaf72f1
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60248298"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68297561"
 ---
 # <a name="what-is-group-based-licensing-in-azure-active-directory"></a>À quoi correspondent les licences basées sur les groupes dans Azure Active Directory ?
 
@@ -32,9 +32,9 @@ Pour relever ces défis, Azure AD inclut maintenant une gestion des licences par
 ## <a name="licensing-requirements"></a>Exigences en termes de licence
 Vous devez disposer d’une des licences suivantes pour utiliser les licences basées sur le groupe :
 
-- Abonnement d’essai ou payant pour Azure AD Basic
+- Abonnement d’essai ou payant pour Azure AD Basic et versions ultérieures
 
-- Édition d’essai ou payante d’Office 365 Enterprise E3 ou Office 365 A3 et versions ultérieures
+- Édition d’essai ou payante d’Office 365 Enterprise E3 ou Office 365 A3 ou Office 365 GCC G3 et versions ultérieures
 
 ### <a name="required-number-of-licenses"></a>Nombre de licences requis
 Pour tous les groupes auxquels une licence est attribuée, chaque membre unique doit également disposer d’une licence. Même si vous n’êtes pas obligé d’attribuer une licence à chaque membre du groupe, vous devez disposer de suffisamment de licences pour inclure tous les membres. Par exemple, si vous avez 1 000 membres uniques dans des groupes sous licence dans votre locataire, vous devez disposer d’au moins 1 000 licences pour respecter le contrat de licence.

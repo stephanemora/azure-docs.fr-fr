@@ -7,12 +7,12 @@ ms.date: 05/02/2019
 ms.topic: article
 ms.service: virtual-machines-windows
 manager: gwallace
-ms.openlocfilehash: fec6d83870e20b7622f37c52847803d4f03cbba5
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 103ec3c9ee4bd6b3b83408b0f9958a22d3a22ae1
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67722681"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68261061"
 ---
 # <a name="preview-create-a-windows-vm-with-azure-image-builder"></a>Aperçu : Créer une machine virtuelle Windows avec le Générateur d’images Azure
 
@@ -140,7 +140,7 @@ Attendez que la compilation soit terminée. Cela peut durer environ 15 minutes.
 
 ## <a name="create-the-vm"></a>Création de la machine virtuelle
 
-Créez la machine virtuelle avec l’image que vous avez créée. Remplacez *<password>* par votre mot de passe pour le `aibuser` sur la machine virtuelle.
+Créez la machine virtuelle avec l’image que vous avez créée. Remplacez *\<password>* par votre mot de passe pour l’utilisateur `aibuser` sur la machine virtuelle.
 
 ```azurecli-interactive
 az vm create \

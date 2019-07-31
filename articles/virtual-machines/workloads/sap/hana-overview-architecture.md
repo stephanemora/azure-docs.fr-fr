@@ -11,15 +11,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/04/2018
-ms.author: saghorpa
+ms.date: 07/12/2019
+ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a8662ef3aa7002ede0b183d72e7278d02c551c33
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: b2076778751161d5763d7bd0643cfe8f71a5f522
+ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67707344"
+ms.lasthandoff: 07/13/2019
+ms.locfileid: "67869198"
 ---
 #  <a name="what-is-sap-hana-on-azure-large-instances"></a>Qu’est-ce que SAP HANA sur Azure (grandes instances) ?
 
@@ -35,6 +35,16 @@ L’isolation du client dans le tampon d’infrastructure s’effectue dans le c
 
 Ces unités de serveur nues exécutent uniquement SAP HANA. La couche Application SAP ou la couche intermédiaire de la charge de travail est en cours d’exécution dans les machines virtuelles. Les tampons d’infrastructure qui exécutent SAP HANA sur des unités Azure (grandes instances) sont connectés aux principaux fournisseurs de services réseau Azure. De cette façon, la connectivité à faible latence entre des unités SAP HANA sur Azure (grandes instances) et des machines virtuelles est fournie.
 
+Depuis juillet 2019, nous faisons la distinction entre deux révisions différentes des tampons Grande instance HANA et les emplacements des déploiements :
+
+- « Révision 3 » (Rév. 3) : il s’agit des tampons mis à disposition du client pour le déploiement avant juillet 2019
+- « Révision 4 » (Rév. 4) : nouvelle conception de tampon déployée à proximité des hôtes de machine virtuelle Azure et qui jusqu’à présent sont disponibles dans les régions Azure suivantes :
+    -  Ouest des États-Unis 2 
+    -  USA Est 
+    -  Europe Ouest
+    -  Europe Nord
+
+
 Ce document fait partie des nombreux documents qui traitent de SAP HANA sur Azure (grandes instances). Ce document présente l’architecture de base, les responsabilités et les services fournis par la solution. Il présente également les capacités de haut niveau de la solution. Pour la plupart des autres domaines, tels que la mise en réseau et la connectivité, quatre autres documents couvrent les détails et les informations déroulantes. La documentation de SAP HANA sur Azure (grandes instances) n’aborde pas les aspects de l’installation de SAP NetWeaver ni les déploiements de SAP NetWeaver dans des machines virtuelles. SAP NetWeaver sur Azure est couvert dans des documents distincts disponibles dans le même conteneur de documentation Azure. 
 
 
@@ -46,7 +56,7 @@ Les différents documents de grande instance HANA couvrent les domaines suivants
 - [Haute disponibilité et récupération d’urgence de SAP HANA (grandes instances) sur Azure](hana-overview-high-availability-disaster-recovery.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [Résolution des problèmes et analyse de SAP HANA (grandes instances) sur Azure](troubleshooting-monitoring.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [Configuration de la haute disponibilité dans SUSE à l’aide de STONITH](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/ha-setup-with-stonith)
-- [Sauvegarde et restauration du système d’exploitation pour les références (SKU) de type II](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/os-backup-type-ii-skus)
+- [Sauvegarde et restauration du système d’exploitation pour les SKU Type II des tampons Révision 3](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/os-backup-type-ii-skus)
 
 **Étapes suivantes**
 - Voir [Maîtriser la terminologie](hana-know-terms.md)

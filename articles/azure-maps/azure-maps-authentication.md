@@ -3,18 +3,18 @@ title: Authentification auprès d’Azure Maps | Microsoft Docs
 description: Authentification pour l’utilisation des services Azure Maps.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 02/12/2019
+ms.date: 07/11/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 22aba19e16e4349a5b495b307c9906f7ded5a636
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a4608d0631c9a590fdde583e399883a023275c30
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66393672"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67838050"
 ---
 # <a name="authentication-with-azure-maps"></a>Authentification avec Azure Maps
 
@@ -31,7 +31,7 @@ Pour plus d’informations sur l’affichage de vos clés, consultez [Voir les d
 
 ## <a name="authentication-with-azure-active-directory-preview"></a>Authentification à l’aide d’Azure Active Directory (préversion)
 
-Azure Maps propose désormais une intégration [Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) pour l’authentification des requêtes qui sont envoyées aux services Azure Maps. Azure AD fournit une authentification basée sur l’identificateur, notamment le [contrôle d’accès en fonction du rôle (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview), pour accorder un accès de niveau utilisateur ou application aux ressources d’Azure Maps. Les sections qui suivent ont pour but de vous aider à comprendre les concepts et les composants de l’intégration d’Azure Maps et Azure AD.
+Azure Maps propose désormais une intégration [Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) pour l’authentification des requêtes qui sont envoyées aux services Azure Maps. Azure AD fournit une authentification basée sur l’identificateur, notamment le [contrôle d’accès en fonction du rôle (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview), pour accorder un accès de niveau utilisateur, application ou groupe aux ressources Azure Maps. Les sections qui suivent ont pour but de vous aider à comprendre les concepts et les composants de l’intégration d’Azure Maps et Azure AD.
 
 ## <a name="authentication-with-oauth-access-tokens"></a>Authentification à l’aide de jetons d’accès OAuth
 
@@ -75,9 +75,9 @@ Pour plus d’informations sur l’affichage de votre ID client, consultez [Voir
 
 ## <a name="control-access-with-rbac"></a>Contrôler l’accès avec RBAC
 
-Azure AD vous permet de contrôler l’accès aux ressources sécurisées à l’aide d’autorisations basées sur les rôles. Après avoir créé votre compte Azure Maps et inscrit l’application Azure Maps Azure AD dans votre locataire Azure AD, vous pouvez configurer le RBAC pour un utilisateur, une application ou une ressource Azure dans la page du portail de votre compte Azure Maps.
+Azure AD vous permet de contrôler l’accès aux ressources sécurisées à l’aide d’autorisations basées sur les rôles. Après avoir créé votre compte Azure Maps et inscrit l’application Azure Maps Azure AD dans votre locataire Azure AD, vous pouvez configurer le contrôle d’accès en fonction du rôle (RBAC) pour un utilisateur, une application, un groupe ou une ressource Azure dans la page du portail de votre compte Azure Maps.
 
-Azure Maps prend en charge le contrôle d’accès en lecture pour les utilisateurs Azure AD, les applications et les services Azure via les identités managées pour les ressources Azure.
+Azure Maps prend en charge le contrôle d’accès en lecture pour les utilisateurs Azure AD, les applications, les services et les groupes Azure via les identités managées pour les ressources Azure.
 
 ![Lecteur de données Azure Maps (préversion)](./media/azure-maps-authentication/concept.png)
 

@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 07/16/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f62cf65e275d8a9b909bf60103ccbd84e91e4574
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3a5f6189ee000550c4a46d778f571a0272da491d
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65785051"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68276676"
 ---
 # <a name="web-api-that-calls-web-apis---code-configuration"></a>API Web appelant des API web - Configuration du code
 
@@ -94,15 +94,18 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
 #endif
 ```
 
+Enfin, au lieu d’une clé secrète client ou d’un certificat, les applications clientes confidentielles peuvent également prouver leur identité à l’aide d’assertions client.
+Ce scénario avancé est détaillé dans [Assertions client](msal-net-client-assertions.md)
+
 ### <a name="how-to-call-on-behalf-of"></a>Comment appeler on-behalf-of
 
 L’appel on-behalf-of (OBO) s’effectue en appelant la méthode [AcquireTokenOnBehalf](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.acquiretokenonbehalfofparameterbuilder) sur l’interface `IConfidentialClientApplication`.
 
-L’`ClientAssertion` est générée à partir du jeton du porteur fourni à l’API par ses propres clients. Il y a [deux constructeurs](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.clientcredential.-ctor?view=azure-dotnet), un qui accepte un jeton du porteur JWT et un qui accepte tout type d’assertion de l’utilisateur (un autre type de jeton de sécurité, ensuite spécifié dans un paramètre supplémentaire nommé `assertionType`).
+L’`UserAssertion` est générée à partir du jeton du porteur fourni à l’API par ses propres clients. Il y a [deux constructeurs](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.clientcredential.-ctor?view=azure-dotnet), un qui accepte un jeton du porteur JWT et un qui accepte tout type d’assertion de l’utilisateur (un autre type de jeton de sécurité, ensuite spécifié dans un paramètre supplémentaire nommé `assertionType`).
 
 ![image](https://user-images.githubusercontent.com/13203188/37082180-afc4b708-21e3-11e8-8af8-a6dcbd2dfba8.png)
 
-Dans la pratique, le flux OBO est souvent utilisé pour acquérir un jeton pour une API en aval et le stocker dans le cache de jeton utilisateur MSAL.NET, afin que d’autres parties de l’API web puissent appeler par la suite sur les [substituts](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.clientapplicationbase.acquiretokensilent?view=azure-dotnet) de ``AcquireTokenOnSilent`` pour appeler les API en aval. Cela a pour effet d’actualiser les jetons si nécessaire.
+Dans la pratique, le flux OBO est souvent utilisé pour acquérir un jeton pour une API en aval et le stocker dans le cache de jeton utilisateur MSAL.NET, afin que d’autres parties de l’API web puissent appeler par la suite sur les [substituts](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.clientapplicationbase.acquiretokensilent?view=azure-dotnet) de ``AcquireTokenOnSilent`` pour appeler les API en aval. Cet appel a pour effet d’actualiser les jetons si nécessaire.
 
 ```CSharp
 private void AddAccountToCacheFromJwt(IEnumerable<string> scopes, JwtSecurityToken jwtToken, ClaimsPrincipal principal, HttpContext httpContext)

@@ -13,15 +13,15 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/13/2018
 ms.author: genli
-ms.openlocfilehash: f0569878d61ce83c4847867378d8e68fe0faa59b
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 8ab6fc75475cd99e3d803450476880175f12d2b6
+ms.sourcegitcommit: 1b7b0e1c915f586a906c33d7315a5dc7050a2f34
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67709409"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67881148"
 ---
 # <a name="troubleshoot-a-windows-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-the-azure-portal"></a>Résoudre les problèmes d’une machine virtuelle Windows en connectant le disque du système d’exploitation à une machine virtuelle de récupération à l’aide du portail Azure
-Si votre machine virtuelle Windows dans Azure rencontre une erreur de démarrage ou de disque, il vous faudra éventuellement appliquer la procédure de dépannage directement sur le disque dur virtuel. Comme exemple courant, citons l’échec de mise à jour d’une application qui empêche le bon démarrage de la machine virtuelle. Cet article vous explique comment utiliser le portail Azure pour connecter votre disque dur virtuel à une autre machine virtuelle Windows pour corriger les éventuelles erreurs, puis pour régénérer votre machine virtuelle d’origine.
+Si votre machine virtuelle Windows dans Azure rencontre une erreur de démarrage ou de disque, il vous faudra éventuellement appliquer la procédure de dépannage directement sur le disque dur virtuel. Comme exemple courant, citons l’échec de mise à jour d’une application qui empêche le bon démarrage de la machine virtuelle. Cet article vous explique comment utiliser le portail Azure pour connecter votre disque dur virtuel à une autre machine virtuelle Windows pour corriger les éventuelles erreurs, puis pour régénérer votre machine virtuelle d’origine. 
 
 ## <a name="recovery-process-overview"></a>Vue d’ensemble du processus de récupération
 Le processus de résolution de problème se présente comme suit :
@@ -34,30 +34,24 @@ Le processus de résolution de problème se présente comme suit :
 
 Pour la machine virtuelle qui utilise le disque managé, nous pouvons désormais utiliser Azure PowerShell et changer le disque de système d’exploitation pour une machine virtuelle. Il n’est désormais plus nécessaire de supprimer et de recréer la machine virtuelle. Pour en savoir plus, consultez [Résoudre les problèmes d’une machine virtuelle Windows en connectant le disque du système d’exploitation à une machine virtuelle de récupération avec Azure PowerShell](troubleshoot-recovery-disks-windows.md).
 
+> [!NOTE]
+> Cet article ne s’applique pas aux machines virtuelles avec un disque non managé.
+
 ## <a name="determine-boot-issues"></a>Identifier les problèmes de démarrage
 Examinez les diagnostics de démarrage et la capture d’écran de la machine virtuelle afin d’identifier la raison pour laquelle votre machine virtuelle ne démarre pas correctement. Comme exemple courant, citons l’échec de mise à jour d’une application ou un disque dur virtuel en cours de suppression ou de déplacement.
 
-Dans le portail, sélectionnez votre machine virtuelle, puis accédez à la section **Prise en charge et dépannage**. Cliquez sur **Diagnostics de démarrage** pour afficher la capture d’écran. Notez les messages d’erreur ou les codes d’erreur spécifiques pour vous aider à déterminer pourquoi la machine virtuelle rencontre un problème. 
+Dans le portail, sélectionnez votre machine virtuelle, puis accédez à la section **Prise en charge et dépannage**. Cliquez sur **Diagnostics de démarrage** pour afficher la capture d’écran. Notez les messages d’erreur ou les codes d’erreur spécifiques pour vous aider à déterminer pourquoi la machine virtuelle rencontre un problème.
 
 ![Affichage des journaux d’activité de console des diagnostics de démarrage de la machine virtuelle](./media/troubleshoot-recovery-disks-portal-windows/screenshot-error.png)
 
 Vous pouvez également cliquer sur **Télécharger une capture d’écran** pour télécharger une copie de la capture d’écran de la machine virtuelle.
 
 ## <a name="view-existing-virtual-hard-disk-details"></a>Afficher les détails du disque dur virtuel existant
-Avant de pouvoir associer votre disque dur virtuel à une autre machine virtuelle, vous devez identifier le nom du disque dur virtuel. 
+Avant de pouvoir associer votre disque dur virtuel à une autre machine virtuelle, vous devez identifier le nom du disque dur virtuel.
 
-Sélectionnez votre groupe de ressources à partir du portail, puis sélectionnez votre compte de stockage. Cliquez sur **Blobs**, comme dans l’exemple suivant :
+Sélectionnez la machine virtuelle qui présente un problème, puis sélectionnez **Disques**. Notez le nom du disque du système d’exploitation, comme dans l’exemple suivant :
 
-![Sélectionner les blobs de stockage](./media/troubleshoot-recovery-disks-portal-windows/storage-account-overview.png)
-
-En général, vous avez un conteneur nommé **vhds** qui stocke vos disques durs virtuels. Sélectionnez le conteneur pour afficher une liste des disques durs virtuels. Notez le nom de votre disque dur virtuel (le préfixe est généralement le nom de votre machine virtuelle) :
-
-![Identifier le disque dur virtuel dans un conteneur de stockage](./media/troubleshoot-recovery-disks-portal-windows/storage-container.png)
-
-Sélectionnez votre disque dur virtuel existant dans la liste, puis copiez l’URL à utiliser dans les étapes suivantes :
-
-![Copier l’URL du disque dur virtuel existant](./media/troubleshoot-recovery-disks-portal-windows/copy-vhd-url.png)
-
+![Sélectionner les blobs de stockage](./media/troubleshoot-recovery-disks-portal-windows/view-disk.png)
 
 ## <a name="delete-existing-vm"></a>Supprimer une machine virtuelle existante
 Les disques durs virtuels et les machines virtuelles sont deux ressources distinctes dans Azure. Le disque dur virtuel est l’emplacement de stockage du système d’exploitation, des applications et des configurations. La machine virtuelle correspond à des métadonnées définissant la taille ou l’emplacement ; elle référence des ressources comme un disque dur virtuel ou une carte d’interface réseau virtuelle (NIC). Chaque disque dur virtuel associé à une machine virtuelle se voit attribuer un bail. Bien que l’association et la dissociation des disques de données puisse s’effectuer pendant l’exécution de la machine virtuelle, le disque du système d’exploitation ne peut pas être dissocié, sauf si la ressource de machine virtuelle est supprimée. Le bail continue à associer le disque du système d’exploitation à une machine virtuelle, même lorsque cette machine virtuelle se trouve dans un état d’arrêt ou de libération.
@@ -70,30 +64,15 @@ Sélectionnez votre machine virtuelle dans le portail, puis cliquez sur **Suppri
 
 Attendez la fin de la suppression de la machine virtuelle avant d’associer le disque dur virtuel à une autre machine virtuelle. Le bail du disque dur virtuel, qui l’associe à la machine virtuelle, doit être libéré avant l’association du disque dur virtuel à une autre machine virtuelle.
 
-
 ## <a name="attach-existing-virtual-hard-disk-to-another-vm"></a>Associer un disque dur virtuel existant à une autre machine virtuelle
 Pour les prochaines étapes, vous utilisez une autre machine virtuelle à des fins de résolution des problèmes. Vous associez le disque dur virtuel existant à cette machine virtuelle de dépannage pour pouvoir modifier le contenu du disque. Ce processus vous permet de corriger les éventuelles erreurs de configuration ou d’examiner des fichiers journaux supplémentaires de système ou d’application, par exemple. Sélectionnez ou créez une autre machine virtuelle à des fins de résolution des problèmes.
 
-1. Sélectionnez votre groupe de ressources à partir du portail, puis sélectionnez votre machine virtuelle de résolution de problèmes. Sélectionnez **Disques**, puis cliquez sur **Attacher existant** :
+1. Sélectionnez votre groupe de ressources à partir du portail, puis sélectionnez votre machine virtuelle de résolution de problèmes. Sélectionnez **Disques**, **Modifier**, puis cliquez sur **Ajouter un disque de données** :
 
     ![Attacher un disque existant dans le portail](./media/troubleshoot-recovery-disks-portal-windows/attach-existing-disk.png)
 
-2. Pour sélectionner votre disque dur virtuel existant, cliquez sur **Fichier VHD** :
-
-    ![Rechercher le disque dur virtuel existant](./media/troubleshoot-recovery-disks-portal-windows/select-vhd-location.png)
-
-3. Sélectionnez votre compte de stockage et votre conteneur, puis cliquez sur votre disque dur virtuel existant. Cliquez sur le bouton **Sélectionner** pour confirmer votre choix :
-
-    ![Sélectionner votre disque dur virtuel existant](./media/troubleshoot-recovery-disks-portal-windows/select-vhd.png)
-
-4. Une fois que votre disque dur virtuel est sélectionné, cliquez sur **OK** pour attacher le disque dur virtuel existant :
-
-    ![Confirmer l’attachement du disque dur virtuel existant](./media/troubleshoot-recovery-disks-portal-windows/attach-disk-confirm.png)
-
-5. Après quelques secondes, le volet **Disques** de votre machine virtuelle répertorie votre disque dur virtuel existant connecté en tant que disque de données :
-
-    ![Disque dur virtuel existant attaché en tant que disque de données](./media/troubleshoot-recovery-disks-portal-windows/attached-disk.png)
-
+2. Dans la liste **Disques de données**, sélectionnez le disque de système d’exploitation de la machine virtuelle que vous avez identifié. Si vous ne voyez pas le disque de système d’exploitation, assurez-vous que la machine virtuelle de résolution des problèmes et le disque de système d’exploitation se trouvent dans la même région (emplacement).
+3. Sélectionnez **Enregistrer** pour appliquer la modification.
 
 ## <a name="mount-the-attached-data-disk"></a>Monter le disque de données associé
 
@@ -125,13 +104,16 @@ Une fois les erreurs résolues, dissociez le disque dur virtuel existant de votr
 
     ![Définition du disque de données comme étant hors connexion dans le Gestionnaire de serveur](./media/troubleshoot-recovery-disks-portal-windows/server-manager-set-disk-offline.png)
 
-3. Dissociez le disque dur virtuel de la machine virtuelle. Sélectionnez votre machine virtuelle dans le portail Azure et cliquez sur **Disques**. Sélectionnez votre disque dur virtuel existant, puis cliquez **Dissocier** :
+3. Dissociez le disque dur virtuel de la machine virtuelle. Sélectionnez votre machine virtuelle dans le portail Azure et cliquez sur **Disques**. 
+4. Sélectionnez **Modifier**, sélectionnez le disque de système d’exploitation que vous avez attaché, puis cliquez sur **Détacher** :
 
     ![Dissocier le disque dur virtuel existant](./media/troubleshoot-recovery-disks-portal-windows/detach-disk.png)
 
     Attendez que la machine virtuelle ait correctement dissocié le disque de données avant de continuer.
 
 ## <a name="create-vm-from-original-hard-disk"></a>Créer une machine virtuelle à partir du disque dur d’origine
+
+### <a name="method-1-use-azure-resource-manager-template"></a>Méthode 1 - Utilisation d’un modèle Azure Resource Manager
 Pour créer une machine virtuelle à partir de votre disque dur d’origine, utilisez [ce modèle Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd-new-or-existing-vnet). Le modèle déploie une machine virtuelle dans un réseau virtuel, nouveau ou existant, à l’aide de l’URL de disque dur virtuel de la commande précédente. Cliquez sur le bouton **Déployer dans Azure** comme suit :
 
 ![Déployer la machine virtuelle du modèle à partir de GitHub](./media/troubleshoot-recovery-disks-portal-windows/deploy-template-from-github.png)
@@ -140,6 +122,14 @@ Le modèle est chargé dans le portail Azure pour le déploiement. Entrez les no
 
 ![Déployer une machine virtuelle à partir d’un modèle](./media/troubleshoot-recovery-disks-portal-windows/deploy-from-image.png)
 
+### <a name="method-2-create-a-vm-from-the-disk"></a>Méthode 2 - Créer une machine virtuelle à partir du disque
+
+1. Dans le Portail Azure, sélectionnez votre groupe de ressources à partir du portail, puis localisez le disque du système d’exploitation. Vous pouvez également rechercher le disque en utilisant son nom :
+
+    ![Rechercher un disque à partir du Portail Azure](./media/troubleshoot-recovery-disks-portal-windows/search-disk.png)
+1. Sélectionnez **Overview (Vue d’ensemble)** , puis **Créer une machine virtuelle**.
+    ![Créer une machine virtuelle à partir d’un disque à partir du Portail Azure](./media/troubleshoot-recovery-disks-portal-windows/create-vm-from-disk.png)
+1. Suivez l’Assistant pour créer la machine virtuelle.
 
 ## <a name="re-enable-boot-diagnostics"></a>Réactiver les diagnostics de démarrage
 Lorsque vous créez votre machine virtuelle à partir du disque dur virtuel existant, les diagnostics de démarrage peuvent ne pas être automatiquement activés. Pour vérifier l’état des diagnostics de démarrage et l’activer si nécessaire, sélectionnez votre machine virtuelle dans le portail. Sous **Surveillance**, cliquez sur **Paramètres de diagnostic**. Vérifiez que l’état est **Activé**, et que la case à cocher en regard de **Diagnostics de démarrage** est sélectionnée. Si vous apportez des modifications, cliquez sur **Enregistrer** :

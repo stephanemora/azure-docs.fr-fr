@@ -1,5 +1,5 @@
 ---
-title: Déployer une application double pile IPv6 dans un réseau virtuel Azure - modèle Resource Manager (préversion)
+title: Déployer une application double pile IPv6 avec Basic Load Balancer dans un réseau virtuel Azure - modèle Resource Manager (préversion)
 titlesuffix: Azure Virtual Network
 description: Cet article montre comment déployer une application double pile IPv6 dans un réseau virtuel Azure à l’aide de modèles de machine virtuelle d’Azure Resource Manager.
 services: virtual-network
@@ -10,16 +10,16 @@ ms.service: virtual-network
 ms.devlang: NA
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 04/22/2019
+ms.date: 06/26/2019
 ms.author: kumud
-ms.openlocfilehash: ae90bc4a12763803f38224d917c4644a68ae7d6b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e97a5a478871d94e074b59558a11df1ec752b0f9
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62130931"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68249841"
 ---
-# <a name="deploy-an-ipv6-dual-stack-application-in-azure---template-preview"></a>Déployer une application double pile IPv6 dans Azure - Modèle (préversion)
+# <a name="deploy-an-ipv6-dual-stack-application-with-basic-load-balancer-in-azure---template-preview"></a>Déployer une application double pile IPv6 avec Basic Load Balancer dans Azure - Modèle (préversion)
 
 Cet article fournit une liste de tâches de configuration IPv6 avec la partie du modèle de machine virtuelle Azure Resource Manager correspondante. Utilisez le modèle décrit dans cet article pour déployer dans Azure une application double pile (IPv4 + IPv6) incluant un réseau virtuel double pile avec des sous-réseaux IPv4 et IPv6, un équilibreur de charge avec des configurations frontales doubles (IPv4 + IPv6), des machines virtuelles dont les cartes réseau ont une configuration double IP, un groupe de sécurité réseau et des adresses IP publiques. 
 
@@ -176,7 +176,7 @@ Si vous utilisez une appliance virtuelle réseau, ajoutez des itinéraires IPv6 
 ```
 
 ## <a name="sample-vm-template-json"></a>Exemple de JSON de modèle de machine virtuelle
-Cliquez [ici](https://azure.microsoft.com/resources/templates/ipv6-in-vnet/) pour déployer une application double pile IPv6 dans un réseau virtuel Azure à l’aide d’un modèle Azure Resource Manager.
+Pour déployer une application double pile IPv6 dans un réseau virtuel Azure à l’aide d’un modèle Azure Resource Manager, consultez l’exemple de modèle [ici](https://azure.microsoft.com/resources/templates/ipv6-in-vnet/).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

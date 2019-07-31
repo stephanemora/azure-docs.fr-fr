@@ -11,15 +11,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/28/2018
-ms.author: saghorpa
+ms.date: 07/04/2019
+ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5583a633c64943185f874e1c0ff80f654010aa53
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: aa88e45f2523dd65c4f714bfeab1c0eda401d720
+ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67710012"
+ms.lasthandoff: 07/13/2019
+ms.locfileid: "67869148"
 ---
 # <a name="operating-system-upgrade"></a>Mise à niveau du système d’exploitation
 Ce document décrit en détail les mises à niveau du système d’exploitation sur les grandes instances HANA.
@@ -31,7 +31,7 @@ Au moment du provisionnement de l’unité HLI, l’équipe des opérations de M
 
 Avant d’apporter des modifications majeures au système d’exploitation (par exemple, une mise à niveau de SP1 vers SP2), vous devez contacter l’équipe des opérations de Microsoft en ouvrant un ticket de support.
 
-Veuillez inclure sur votre ticket :
+Veuillez inclure dans votre ticket :
 
 * Votre ID d’abonnement HLI.
 * Le nom de votre serveur.
@@ -52,4 +52,4 @@ Voici quelques problèmes affectant couramment la mise à niveau :
 
 ## <a name="next-steps"></a>Étapes suivantes
 - Pour la classe de références SKU de type I de sauvegarde du système d’exploitation, consultez [Sauvegarde et restauration](hana-overview-high-availability-disaster-recovery.md).
-- Pour la classe de références SKU de type II, consultez [Sauvegarde du système d’exploitation pour références SKU de type II](os-backup-type-ii-skus.md).
+- Pour la classe SKU Type II, consultez [Sauvegarde du système d’exploitation pour les SKU Type II des tampons Révision 3](os-backup-type-ii-skus.md).

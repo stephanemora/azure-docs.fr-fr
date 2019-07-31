@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
-ms.openlocfilehash: a9a4475465fefb01ec53e6e0eb814f9b8f192a1b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 481c2f1eaf20e317c8efa4f21f337f4073af898f
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60390831"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68260745"
 ---
 # <a name="getting-started-with-azure-storage-azure-webjob-projects"></a>Prise en main d’Azure Storage (projets de tâche web Azure)
 [!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
@@ -30,7 +30,7 @@ Le service de stockage de tables Azure vous permet de stocker de grandes quantit
 Certains extraits de code illustrent l’attribut **Table** utilisé dans des fonctions appelées manuellement, c’est-à-dire sans utiliser l’un des attributs de déclenchement.
 
 ## <a name="how-to-add-entities-to-a-table"></a>Ajout d’une entité à une table
-Pour ajouter des entités à une table, utilisez l’attribut **Table** avec un paramètre **ICollector<T>** ou **IAsyncCollector<T>** , où **T** spécifie le schéma des entités que vous souhaitez ajouter. Le constructeur d’attribut prend un paramètre de chaîne qui spécifie le nom de la table.
+Pour ajouter des entités à une table, utilisez l’attribut **Table** avec un paramètre **ICollector\<T>** où **IAsyncCollector\<T>** , où **T** spécifie le schéma des entités que vous souhaitez ajouter. Le constructeur d’attribut prend un paramètre de chaîne qui spécifie le nom de la table.
 
 L’exemple de code suivant ajoute des entités **Person** à une table nommée *Ingress*.
 
@@ -79,7 +79,7 @@ Lorsque l’exécution de la fonction se termine, la page **Détails des appels*
 ![Arrêt de la fonction d’entrée](./media/vs-storage-webjobs-getting-started-tables/ingresssuccess.png)
 
 ## <a name="how-to-read-multiple-entities-from-a-table"></a>Lecture de plusieurs entrées à partir d’une table
-Pour lire une table, utilisez l’attribut **Table** avec un paramètre **IQueryable<T>** où le type **T** est dérivé de **TableEntity** ou implémente **ITableEntity**.
+Pour lire une table, utilisez l’attribut **Table** avec un paramètre **IQueryable\<T>** où le type **T** est dérivé de **TableEntity** ou implémente **ITableEntity**.
 
 L’exemple de code suivant lit et enregistre toutes les lignes de la table **Ingress** :
 

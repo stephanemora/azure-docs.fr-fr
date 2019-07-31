@@ -9,12 +9,12 @@ ms.author: deli
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 09/20/2018
-ms.openlocfilehash: 25ed66fd75301475542dbac8e8a01670ee37563c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 0225a9f34e016a4b1de51c06ba982d384e41007c
+ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60531772"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68302086"
 ---
 # <a name="migrate-azure-scheduler-jobs-to-azure-logic-apps"></a>Migrer des travaux Azure Scheduler vers Azure Logic Apps
 
@@ -79,7 +79,7 @@ Vous pouvez exécuter plusieurs travaux ponctuels en créant simplement une appl
 
    ![Entrer les détails « Différer jusqu’à »](./media/migrate-from-scheduler-to-logic-apps/delay-until-details.png)
 
-1. Ajoutez les autres actions que vous souhaitez exécuter parmi un choix de [plus de 200 connecteurs](../connectors/apis-list.md). 
+1. Ajoutez les autres actions que vous souhaitez exécuter parmi des [centaines de connecteurs prêts à l’utilisation](../connectors/apis-list.md). 
 
    Par exemple, vous pouvez ajouter une action HTTP qui envoie une requête à une URL, ou des actions qui interagissent avec les files d’attente de stockage, les files d’attente Service Bus ou les rubriques Service Bus : 
 
@@ -141,7 +141,7 @@ Dans Logic Apps, chaque travail ponctuel s’exécute comme une seule instance d
 
    Pour plus d’informations sur les options de planification avancée, consultez [Créer et exécuter des travaux et des workflows récurrents avec Azure Logic Apps](../connectors/connectors-native-recurrence.md)
 
-1. Ajoutez les autres actions souhaitées parmi un choix de [plus de 200 connecteurs](../connectors/apis-list.md). Sous le déclencheur, choisissez **Étape suivante**. Recherchez et sélectionnez les actions souhaitées.
+1. Ajoutez les autres actions que vous souhaitez exécuter parmi des [centaines prêtes à l’utilisation](../connectors/apis-list.md). Sous le déclencheur, choisissez **Étape suivante**. Recherchez et sélectionnez les actions souhaitées.
 
    Par exemple, vous pouvez ajouter une action HTTP qui envoie une requête à une URL, ou des actions qui interagissent avec les files d’attente de stockage, les files d’attente Service Bus ou les rubriques Service Bus : 
 

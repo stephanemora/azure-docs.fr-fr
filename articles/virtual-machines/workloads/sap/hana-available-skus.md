@@ -11,19 +11,37 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 11/20/2018
-ms.author: saghorpa
+ms.date: 07/12/2019
+ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 043ecdcb83d2ee39e3373f029c00c6237f87601c
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 7961578a1daf67176312d4257a4e86a7091082f0
+ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67709707"
+ms.lasthandoff: 07/13/2019
+ms.locfileid: "67869250"
 ---
 # <a name="available-skus-for-hli"></a>Références SKU disponibles pour HLI
 
-Le service SAP HANA sur Azure (grandes instances) est disponible dans plusieurs configurations pour les régions Azure USA Ouest, USA Est, Australie Est, Australie Sud-Est, Europe Ouest, Europe Nord, Japon Est et Japon Ouest.
+Le service SAP HANA sur Azure (Grandes instances) basé sur les tampons Révision 3 est disponible dans plusieurs configurations dans les régions suivantes :
+
+- USA Ouest
+- USA Est
+- Australie Est
+- Australie Sud-Est
+- Europe Ouest
+- Europe Nord
+- Japon Est
+- Japon Ouest
+
+Le service SAP HANA sur Azure (Grandes instances) basé sur des tampons Révision 4 est disponible dans plusieurs configurations dans les régions suivantes :
+
+- USA Ouest 2
+- USA Est
+- Europe Ouest
+- Europe Nord
+
+
 
 Liste des [Références SKU certifiées SAP HANA des grandes instances HANA](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) telles que :
 
@@ -43,12 +61,12 @@ Liste des [Références SKU certifiées SAP HANA des grandes instances HANA](htt
 |---| SAP HANA sur Azure S960m<br /> \- 20 x processeurs Intel® Xeon® E7-8890 v4<br /> 480 cœurs et 960 threads d’UC |  20,0 To |  46 To | Disponible |
 
 
-Sous SAP HANA TDIv5, SAP permet un redimensionnement personnalisé et des projets spécifiques au client qui peuvent déboucher sur des configurations de serveur qui ne sont pas répertoriées comme certifiées dans :
+Sous SAP HANA TDIv5, SAP permet un dimensionnement personnalisé et des projets propres au client qui peuvent déboucher sur des configurations de serveur qui ne sont pas répertoriées comme certifiées dans :
 
 - [Appliances certifiées SAP HANA](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/appliances.html)
 - [Plateformes IaaS certifiées SAP HANA](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure)
 
-Dans bien des cas, ces configurations de serveur propres au client comportent plus de mémoire que les unités de serveur certifiées pour SAP. Lorsqu’ils travaillent avec SAP, les clients ont bien la possibilité de recourir au support technique SAP pour faire certifier leurs configurations de serveur aux tailles spécifiques du client. Dans Azure, les références SKU standard des grandes instances HANA suivantes sont disponibles, et affichées dans les tarifs Microsoft pour de tels projets TDIv5 de redimensionnement propre au client.
+Dans bien des cas, ces configurations de serveur propres au client comportent plus de mémoire que les unités de serveur certifiées pour SAP. Lorsqu’ils travaillent avec SAP, les clients ont bien la possibilité de recourir au support technique SAP pour faire certifier leurs configurations de serveur aux tailles spécifiques du client. Dans Azure, les références SKU standard des grandes instances HANA suivantes sont disponibles, et affichées dans les tarifs Microsoft pour de tels projets TDIv5 de dimensionnement propre au client.
 
 | SKU|UC | Mémoire | Stockage | Disponibilité |
 | ---| --- | --- | --- | --- |

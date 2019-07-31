@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 72c88ef10bf1df217ec6e24ac744d0b30386b4a3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e473858ed02afce89313c0bfeffd95c785120d40
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60824012"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839035"
 ---
 # <a name="move-data-from-db2-by-using-azure-data-factory-copy-activity"></a>Déplacer des données depuis DB2 à l’aide de l’activité de copie dans Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -64,7 +64,7 @@ Le connecteur DB2 Data Factory prend en charge les plateformes et versions IBM D
 Vous pouvez créer un pipeline avec une activité de copie pour déplacer des données d’un magasin de données DB2 local à l’aide de différents outils et API : 
 
 - Le moyen le plus simple de créer un pipeline consiste à utiliser l’Assistant de copie Azure Data Factory. Pour une procédure pas à pas rapide sur la création d’un pipeline à l’aide de l’Assistant de copie, consultez la page [Didacticiel : Créer un pipeline à l’aide de l’Assistant de copie](data-factory-copy-data-wizard-tutorial.md). 
-- Vous pouvez également utiliser des outils pour créer un pipeline, notamment le portail Azure, Visual Studio, Azure PowerShell, un modèle Azure Resource Manager, l’API .NET et l’API REST. Pour obtenir des instructions détaillées sur la création d’un pipeline avec une activité de copie, consultez le [Didacticiel de l’activité de copie](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). 
+- Vous pouvez également utiliser des outils pour créer un pipeline, notamment Visual Studio, Azure PowerShell, un modèle Azure Resource Manager, l’API .NET et l’API REST. Pour obtenir des instructions détaillées sur la création d’un pipeline avec une activité de copie, consultez le [Didacticiel de l’activité de copie](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). 
 
 Que vous utilisiez des outils ou des API, la création d’un pipeline qui déplace les données d’un magasin de données source vers un magasin de données récepteur implique les étapes suivantes :
 
@@ -112,7 +112,7 @@ Pour l’activité de copie, lorsque la source est de type **RelationalSource** 
 > Les noms de schéma et de table respectent la casse. Dans l’instruction de requête, mettez les noms de propriétés entre "" (guillemets doubles).
 
 ## <a name="json-example-copy-data-from-db2-to-azure-blob-storage"></a>Exemple JSON : copier des données de DB2 vers Stockage Blob Azure
-Cet exemple présente des exemples de définition JSON, que vous pouvez utiliser pour créer un pipeline à l’aide du [portail Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), de [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou d’[Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). L’exemple montre comment copier des données depuis une base de données DB2 dans le stockage Blob. Les données peuvent toutefois être copiées dans [tout magasin de données récepteur pris en charge](data-factory-data-movement-activities.md#supported-data-stores-and-formats) à l’aide de l’activité de copie dans Azure Data Factory.
+Cet exemple présente des exemples de définition JSON, que vous pouvez utiliser pour créer un pipeline à l’aide de [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou d’[Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). L’exemple montre comment copier des données depuis une base de données DB2 dans le stockage Blob. Les données peuvent toutefois être copiées dans [tout magasin de données récepteur pris en charge](data-factory-data-movement-activities.md#supported-data-stores-and-formats) à l’aide de l’activité de copie dans Azure Data Factory.
 
 L’exemple contient les entités Data Factory suivantes :
 

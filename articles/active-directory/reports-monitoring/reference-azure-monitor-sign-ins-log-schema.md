@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a8ac6c56dca100ea9836158f46881c4eb12213e1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 0e7ae7e90642a6adfd35e71765e2753334660c56
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60285198"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68261863"
 ---
 # <a name="interpret-the-azure-ad-sign-in-logs-schema-in-azure-monitor"></a>Interpréter le schéma des journaux de connexion Azure Active Directory dans Azure Monitor
 
@@ -154,12 +154,17 @@ Cet article décrit le schéma de journal de connexion Azure Active Directory (A
 | ResultType | Le résultat de l’opération de connexion peut être *Success* (Réussite) ou *Failure* (Échec). | 
 | ResultSignature | Contient le code d’erreur éventuel de l’opération de connexion. |
 | resultDescription | Fournit la description de l’erreur pour l’opération de connexion. |
-| DurationMs |  Valeur non mappée, vous pouvez ignorer ce champ.|
+| riskDetail | riskDetail | Fournit le motif de l’état spécifique d’un utilisateur à risque, d’une connexion ou d’un événement à risque. Les valeurs possibles sont : `none`, `adminGeneratedTemporaryPassword`, `userPerformedSecuredPasswordChange`, `userPerformedSecuredPasswordReset`, `adminConfirmedSigninSafe`, `aiConfirmedSigninSafe`, `userPassedMFADrivenByRiskBasedPolicy`, `adminDismissedAllRiskForUser`, `adminConfirmedSigninCompromised`, `unknownFutureValue`. La valeur `none` signifie qu’aucune action n’a été effectuée sur l’utilisateur ou la connexion jusqu’à présent. <br>**Remarque :** Les détails de cette propriété nécessitent une licence Azure AD Premium P2. Les autres licences retournent la valeur `hidden`. |
+| riskEventTypes | riskEventTypes | Types d’événements à risque associés à la connexion. Les valeurs possibles sont : `unlikelyTravel`, `anonymizedIPAddress`, `maliciousIPAddress`, `unfamiliarFeatures`, `malwareInfectedIPAddress`, `suspiciousIPAddress`, `leakedCredentials`, `investigationsThreatIntelligence`, `generic` et `unknownFutureValue`. |
+| riskLevelAggregated | riskLevel | Niveau de risque agrégé. Les valeurs possibles sont : `none`, `low`, `medium`, `high`, `hidden` et `unknownFutureValue`. La valeur `hidden` indique que l’utilisateur ou la connexion n’a pas été activé pour Azure AD Identity Protection. **Remarque :** Les détails de cette propriété sont uniquement disponibles pour les clients Azure AD Premium P2. Tous les autres clients se verront retourner `hidden`. |
+| riskLevelDuringSignIn | riskLevel | Niveau de risque pendant la connexion. Les valeurs possibles sont : `none`, `low`, `medium`, `high`, `hidden` et `unknownFutureValue`. La valeur `hidden` indique que l’utilisateur ou la connexion n’a pas été activé pour Azure AD Identity Protection. **Remarque :** Les détails de cette propriété sont uniquement disponibles pour les clients Azure AD Premium P2. Tous les autres clients se verront retourner `hidden`. |
+| riskState | riskState | Signale l’état de l’utilisateur à risque, de la connexion ou d’un événement à risque. Les valeurs possibles sont : `none`, `confirmedSafe`, `remediated`, `dismissed`, `atRisk`, `confirmedCompromised`, `unknownFutureValue`. |
+| DurationMs |  Valeur non mappée, vous pouvez ignorer ce champ. |
 | callerIpAddress | Adresse IP du client à l’origine de la demande. | 
 | CorrelationId | GUID facultatif transmis par le client. Cette valeur peut aider à corréler des opérations côté client avec des opérations côté serveur, et est utile lors du suivi de journaux d’activité couvrant plusieurs services. |
 | Identité | Identité extraite du jeton présenté lors de la création de la demande. Il peut s’agir d’un compte d’utilisateur, d’un compte système ou d’un principal du service. |
 | Niveau | Fournit le type de message. Pour l’audit, il s’agit toujours d’*Information*. |
-| Lieu | Indique l’emplacement de l’activité de connexion. |
+| Location | Indique l’emplacement de l’activité de connexion. |
 | properties | Répertorie toutes les propriétés associées aux connexions. Pour plus d’informations, voir la [documentation de référence sur l’API Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin). Ce schéma utilise les mêmes noms d’attribut que la ressource de connexion pour une meilleure lisibilité.
 
 ## <a name="next-steps"></a>Étapes suivantes

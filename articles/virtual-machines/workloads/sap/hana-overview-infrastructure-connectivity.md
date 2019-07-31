@@ -11,15 +11,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/10/2018
-ms.author: rclaus
+ms.date: 07/12/2019
+ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 05bd09d3ab05f3ce426126e5629523fba087dad9
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 4a1df7406ab4f4d7137d12dd7131a4c26b617cb2
+ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67707306"
+ms.lasthandoff: 07/13/2019
+ms.locfileid: "67869222"
 ---
 # <a name="sap-hana-large-instances-deployment"></a>Déploiement de SAP HANA (grandes instances) 
 
@@ -37,6 +37,7 @@ Microsoft a besoin des informations suivantes pour déployer les unités de gran
 - Pour chaque région de déploiement Azure :
     - Une plage d’adresses IP /29 pour les connexions ER-P2P qui relient les réseaux virtuels Azure aux grandes instances HANA.
     - Un bloc CIDR /24 utilisé pour le pool d’adresses IP du serveur de grandes instances HANA.
+    - Facultatif avec [ExpressRoute Global Reach](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach) pour activer le routage direct depuis un site local vers des unités de grandes instances HANA ou le routage entre des unités de grandes instances HANA dans différentes régions Azure, vous devez réserver une autre adresse IP/29 vont. Cette plage ne peut pas chevaucher les autres plages d’adresses IP que vous avez définies auparavant.
 - Les valeurs de plage d’adresses IP utilisées dans l’attribut Espace d’adressage du réseau virtuel de chaque réseau virtuel Azure qui se connecte à de grandes instances HANA.
 - Données pour chaque système de grandes instances HANA :
   - Nom d’hôte souhaité, idéalement avec le nom de domaine complet.

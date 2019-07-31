@@ -1,23 +1,21 @@
 ---
 title: Comprendre la remise Azure Reserved VM Instances | Microsoft Docs
 description: Découvrez comment la remise d’instance de machine virtuelle réservée Azure est appliquée aux machines virtuelles en cours d’exécution.
-documentationcenter: ''
 author: yashesvi
 manager: yashar
-editor: ''
 ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/13/2019
+ms.date: 07/11/2019
 ms.author: banders
-ms.openlocfilehash: b112dd881d4b2e87e617111d00bc82c6151d7750
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 191160035f516d818d5537c5c47f9604998c46f7
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60370070"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67849987"
 ---
 # <a name="how-the-azure-reservation-discount-is-applied-to-virtual-machines"></a>Comment la remise de réservation Azure est-elle appliquée aux machines virtuelles ?
 
@@ -68,13 +66,39 @@ Quand vous achetez une instance de machine virtuelle réservée, si vous sélect
 
 Une remise de réservation s’applique uniquement à l’utilisation de la machine virtuelle où la valeur `ServiceType` dans `AdditionalInfo` correspond à la réservation achetée. L'application de la remise de réservation ne tient pas compte du compteur utilisé pour les machines virtuelles et évalue uniquement `ServiceType`. Déterminez le type de service pour lequel vous avez acheté la machine virtuelle. Vous pouvez échanger une réservation de machine virtuelle de stockage non Premium contre une réservation de stockage Premium, et inversement.
 
-## <a name="classic-vms-and-cloud-services"></a>Machines virtuelles et services cloud classiques
+## <a name="services-that-get-vm-reservation-discounts"></a>Services qui obtiennent des remises de réservation de machines virtuelles
 
-Les instances réservées de machines virtuelles s’appliquent aux machines virtuelles et services cloud classiques que la flexibilité de taille d'instance est activée. Pour les services cloud, la remise de réservation s’applique uniquement au coût du calcul. Lorsque la remise de réservation est appliquée aux services cloud, les frais d’utilisation sont divisés en frais de calcul (compteur Linux) et en frais de services cloud (compteur de gestion des services cloud). Pour plus d'informations, consultez [Comment la remise de réservation s'applique-t-elle aux services cloud ?](billing-reserved-instance-windows-software-costs.md#cloud-services-software-meters-not-included-in-reservation-cost)
+Vos réservations de machine virtuelle peuvent s’appliquer à l’utilisation de machines virtuelles émise à partir de plusieurs services, pas seulement pour vos déploiements de machine virtuelle. Les ressources qui obtiennent des remises de réservation varient en fonction du paramètre de flexibilité de la taille d’instance.
+
+### <a name="instance-size-flexibility-setting"></a>Paramètre de flexibilité de la taille d’instance
+
+Le paramètre de flexibilité de la taille d’instance détermine les services qui obtiennent les remises d’instance réservée.
+
+Que le paramètre soit activé ou désactivé, les remises de réservation s’appliquent automatiquement à toute utilisation de machine virtuelle correspondante lorsque la valeur *ConsumedService* est `Microsoft.Compute`. Par conséquent, vérifiez vos données d’utilisation pour la valeur *ConsumedService*. Voici quelques exemples :
+
+- Machines virtuelles
+- Groupes identiques de machines virtuelles
+- Service de conteneur
+- Déploiements Azure Batch (en mode Abonnement utilisateur)
+- Azure Kubernetes Service (AKS)
+- Service Fabric
+
+Lorsque le paramètre est activé, les remises de réservation s’appliquent automatiquement à l’utilisation de la machine virtuelle correspondante lorsque la valeur *ConsumedService* est l’un des éléments suivants :
+
+- Microsoft.Compute
+- Microsoft.ClassicCompute
+- Microsoft.Batch
+- Microsoft.MachineLearningServices
+- Microsoft.Kusto
+
+Vérifiez la valeur *ConsumedService* dans vos données d’utilisation pour déterminer si l’utilisation est éligible pour les remises de réservation.
+
+Pour plus d’informations à propos de la flexibilité de la taille d’instance, consultez [Flexibilité en termes de taille de machine virtuelle avec des instances de machines virtuelles réservées](../virtual-machines/windows/reserved-vm-instance-size-flexibility.md).
+
 
 ## <a name="need-help-contact-us"></a>Vous avez besoin d’aide ? Nous contacter
 
-Si vous avez des questions ou besoin d’aide, [créez une demande de support](https://go.microsoft.com/fwlink/?linkid=2083458).
+Si vous avez des questions ou besoin d’aide, créez une [demande de support](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

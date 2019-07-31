@@ -12,20 +12,20 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: 562ce8a4267370be9b049e3b56f213f82deb89c0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e63d935b3c11766c4981ffb035dd45ad4019797c
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66734983"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807066"
 ---
-# <a name="status-monitor-v2-api-set-applicationinsightsmonitoringconfig-v021-alpha"></a>API Status Monitor v2 : Set-ApplicationInsightsMonitoringConfig (v0.2.1-alpha)
+# <a name="status-monitor-v2-api-set-applicationinsightsmonitoringconfig-v040-alpha"></a>API Status Monitor v2 : Set-ApplicationInsightsMonitoringConfig (v0.4.0-alpha)
 
 Ce document décrit une cmdlet appartenant au [module PowerShell Az.ApplicationMonitor](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
 
 > [!IMPORTANT]
 > Status Monitor v2 est actuellement en préversion publique.
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. En effet, certaines fonctionnalités peuvent être limitées ou non prises en charge.
+> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge.
 > Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="description"></a>Description
@@ -50,10 +50,10 @@ PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-x
 Dans cet exemple :
 - `MachineFilter` effectue la correspondance avec l’ordinateur actuel en utilisant le caractère générique `'.*'`.
 - `AppFilter='WebAppExclude'` fournit une clé d’instrumentation `null`. L’application spécifiée ne sera pas instrumentée.
-- `AppFilter='WebAppOne'` affecte à l’application spécifiée une clé d’instrumentation unique.
-- `AppFilter='WebAppTwo'` affecte à l’application spécifiée une clé d’instrumentation unique.
-- Enfin, `AppFilter` utilise également le caractère générique `'.*'` pour établir les correspondances de toutes les applications web pour lesquelles les règles précédentes n’ont effectué aucune correspondance, et affecter une clé d’instrumentation par défaut.
-- Des espaces ont été ajoutés pour faciliter la lisibilité.
+- `AppFilter='WebAppOne'` attribue à l’application spécifiée une clé d’instrumentation unique.
+- `AppFilter='WebAppTwo'` attribue à l’application spécifiée une clé d’instrumentation unique.
+- Enfin, `AppFilter` utilise également le caractère générique `'.*'` pour établir les correspondances de toutes les applications web pour lesquelles les règles précédentes n’ont effectué aucune correspondance, et attribuer une clé d’instrumentation par défaut.
+- Des espaces ont été ajoutées pour faciliter la lisibilité.
 
 ```powershell
 PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKeyMap 
@@ -94,7 +94,7 @@ Vous pouvez créer un script d’installation unique pour plusieurs ordinateurs 
 **Paramètre commun.** Utilisez ce commutateur pour afficher les journaux détaillés.
 
 
-## <a name="output"></a>Sortie
+## <a name="output"></a>Output
 
 Par défaut, aucune sortie.
 

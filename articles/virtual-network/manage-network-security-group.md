@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/05/2018
 ms.author: kumud
-ms.openlocfilehash: f1353165954021cd949d6e46357d10514ee26b3c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1c00f23570c3f8d80e39f3fe3901f866e40dc2ea
+ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65560942"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68305681"
 ---
 # <a name="create-change-or-delete-a-network-security-group"></a>Créer, changer ou supprimer un groupe de sécurité réseau
 
@@ -124,7 +124,7 @@ Le nombre de règles par groupe de sécurité réseau que vous pouvez créer par
     |Plages de ports source     | Spécifiez un port unique, tel que 80, une plage de ports, telle que 1024-65535, ou une liste séparée par des virgules de ports uniques et/ou de plages de ports, telle que 80, 1024-65535. Entrez un astérisque pour autoriser le trafic sur n’importe quel port. | Les ports et les plages spécifient les ports sur lesquels la règle autorise ou refuse le trafic. Le nombre de ports que vous pouvez spécifier est limité. Pour plus d’informations, consultez [Limites de mise en réseau](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).  |
     |Destination     | Sélectionnez **N’importe lequel**, **Groupe de sécurité d’application**, **Adresses IP**, ou **Réseau virtuel** pour les règles de sécurité du trafic sortant. Si vous créez une règle de sécurité du trafic entrant, les options sont les mêmes que celles répertoriées pour **Source**.        | Si vous choisissez **Groupe de sécurité d’application**, vous devez sélectionner un ou plusieurs groupes de sécurité d’application existants se trouvant dans la même région que celle de l’interface réseau. Découvrez comment [créer un groupe de sécurité d’application](#create-an-application-security-group). Si vous choisissez **Groupe de sécurité d’application**, sélectionnez un groupe de sécurité d’application existant se trouvant dans la même région que celle de l’interface réseau. Si vous sélectionnez **Adresses IP**, spécifiez les **Plages d’adresses IP/CIDR de destination**. À l’image de **Source** et de **Plages d’adresses IP/CIDR sources**, vous pouvez spécifier une seule adresse ou plage, ou plusieurs dans une certaine limite. Si vous sélectionnez **Réseau virtuel**, qui est une balise de service, le trafic est autorisé sur toutes les adresses IP dans l’espace d’adressage du réseau virtuel. Si l’adresse IP que vous spécifiez est affectée à une machine virtuelle Azure, veillez à spécifier l’adresse IP privée, et non l’adresse IP publique, affectée à la machine virtuelle. Les règles de sécurité sont traitées une fois qu’Azure a converti l’adresse IP publique en adresse IP privée pour les règles de sécurité liées au trafic entrant, et avant qu’Azure ne convertisse une adresse IP privée en une adresse IP publique pour les règles de trafic sortant. Pour plus d’informations sur les adresses IP privées et publiques dans Azure, consultez [Types d’adresses IP](virtual-network-ip-addresses-overview-arm.md).        |
     |Plages de ports de destination     | Spécifiez une valeur unique ou une liste de valeurs séparées par des virgules. | À l’image de **Plages de ports sources**, vous pouvez spécifier un seul port et une seule plage, ou plusieurs dans une certaine limite. |
-    |Protocole     | Sélectionnez **Tout**, **TCP** ou **UDP**.        |         |
+    |Protocole     | Sélectionnez **Any (Tout)** , **TCP**, **UDP** ou **ICMP**.        |         |
     |Action     | Sélectionnez **Autoriser** ou **Refuser**.        |         |
     |Priorité     | Entrez une valeur comprise entre 100 et 4096 qui est unique pour toutes les règles de sécurité au sein du groupe de sécurité réseau. |Les règles sont traitées par ordre de priorité. Plus le numéro est faible, plus la priorité est élevée. Nous vous recommandons de laisser un écart entre les numéros de priorité quand vous créez des règles, par exemple, 100, 200, 300. Cela permet par la suite d’intercaler de nouvelles règles.         |
     |Nom     | Nom unique de la règle au sein du groupe de sécurité réseau.        |  Le nom peut comprendre jusqu’à 80 caractères. Il doit commencer par une lettre ou un chiffre, se terminer par une lettre, un chiffre ou un trait de soulignement, et ne peut contenir que des lettres, des chiffres, des traits de soulignement, des points ou des tirets.       |
@@ -195,9 +195,9 @@ Un groupe de sécurité d’application contient zéro interface réseau, ou plu
     | Paramètre        | Valeur                                                   |
     | ---            | ---                                                     |
     | Nom           | Le nom doit être unique au sein d’un groupe de ressources.        |
-    | Abonnement   | Sélectionnez votre abonnement.                               |
-    | Groupe de ressources | Sélectionnez un groupe de ressources existant ou créez-en un. |
-    | Lieu       | Sélectionner un emplacement                                       |
+    | Subscription   | Sélectionnez votre abonnement.                               |
+    | Resource group | Sélectionnez un groupe de ressources existant ou créez-en un. |
+    | Location       | Sélectionner un emplacement                                       |
 
 **Commandes**
 

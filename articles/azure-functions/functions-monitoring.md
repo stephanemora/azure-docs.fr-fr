@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: glenga
-ms.openlocfilehash: 581b7cc09089b5f48938bc9677eca6b9dc3731d3
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 15fd8593f950e0f553d1b7ca34ee785692043cad
+ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67442292"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68304359"
 ---
 # <a name="monitor-azure-functions"></a>Surveiller l’exécution des fonctions Azure
 
@@ -570,7 +570,7 @@ Ne définissez pas `telemetryClient.Context.Operation.Id`. Ce paramètre global 
 
 ## <a name="log-custom-telemetry-in-javascript-functions"></a>Journaliser des données de télémétrie personnalisées dans les fonctions JavaScript
 
-Le [SDK Node.js pour Application Insights](https://www.npmjs.com/package/applicationinsights) est en version bêta. Voici un exemple de code qui envoie des données de télémétrie personnalisées à Application Insights :
+Voici un exemple d’extrait de code qui envoie des données de télémétrie personnalisées avec le [SDK Node.js Application Insights](https://github.com/microsoft/applicationinsights-node.js) :
 
 ```javascript
 const appInsights = require("applicationinsights");

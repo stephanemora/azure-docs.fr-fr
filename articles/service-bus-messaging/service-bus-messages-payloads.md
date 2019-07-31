@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2018
 ms.author: aschhab
-ms.openlocfilehash: 3158f0255810c66605d28856133112181c2916db
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 26256fe968eff5f7570885278620fded5673b5a0
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61315637"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68249970"
 ---
 # <a name="messages-payloads-and-serialization"></a>Messages, charges utiles et sérialisation
 
@@ -77,7 +77,7 @@ Lorsque la charge utile est en transit ou stockée à l’intérieur de Service 
 
 Contrairement aux variantes Java ou .NET Standard, la version .NET Framework de l’API Service Bus prend en charge la création d’instances **BrokeredMessage** en transmettant des objets .NET arbitraires dans le constructeur. 
 
-En cas d’utilisation du protocole SBMP hérité, ces objets sont sérialisés avec le sérialiseur binaire par défaut ou avec un sérialiseur fourni en externe. Si le protocole AMQP est utilisé, l’objet est sérialisé dans un objet AMQP. Le récepteur peut récupérer ces objets avec la méthode [GetBody<T>()](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1), en fournissant le type attendu. Avec AMQP, les objets sont sérialisés dans un graphique AMQP d’objets **ArrayList** et **IDictionary<string, object>** , et n’importe quel client AMQP peut les décoder. 
+En cas d’utilisation du protocole SBMP hérité, ces objets sont sérialisés avec le sérialiseur binaire par défaut ou avec un sérialiseur fourni en externe. Si le protocole AMQP est utilisé, l’objet est sérialisé dans un objet AMQP. Le récepteur peut récupérer ces objets avec la méthode [GetBody\<T>()](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1), en fournissant le type attendu. Avec AMQP, les objets sont sérialisés dans un graphique AMQP d’objets **ArrayList** et **IDictionary<string, object>** , et n’importe quel client AMQP peut les décoder. 
 
 Bien que cette sérialisation cachée se révèle commode, les applications doivent contrôler explicitement la sérialisation des objets et convertir leurs graphiques d’objets en flux avant de les inclure dans un message, ainsi qu’effectuer l’opération inverse côté destinataire. Ceci entraîne des résultats interopérables. Il convient également de noter que bien qu’AMQP dispose d’un modèle d’encodage binaire très puissant, il est lié à l’écosystème de messagerie AMQP, et les clients HTTP auront donc des difficultés à décoder les charges utiles de ce type. 
 

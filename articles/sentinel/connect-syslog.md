@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/07/2019
+ms.date: 07/10/2019
 ms.author: rkarlin
-ms.openlocfilehash: ee7b31a57bc9627776b9ca5445132a4662506134
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: fef9fa128d2ebb84fb82579f254735fdb9aa7ee2
+ms.sourcegitcommit: 1b7b0e1c915f586a906c33d7315a5dc7050a2f34
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67611328"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67881068"
 ---
 # <a name="connect-your-external-solution-using-syslog"></a>Connectez votre solution externe à l’aide de Syslog
 
@@ -35,20 +35,31 @@ Vous pouvez connecter n’importe quelle appliance locale prenant en charge Sysl
 
 ## <a name="how-it-works"></a>Fonctionnement
 
-La connexion Syslog est accomplie via un agent pour Linux. Par défaut, l’agent pour Linux reçoit les événements du démon Syslog par UDP, mais dans les cas où une machine Linux doit collecter un volume important d’événements Syslog (par exemple, lorsqu’un agent Linux reçoit des événements d’autres appareils), la configuration est modifiée afin d’utiliser le transport TCP entre le démon Syslog et l’agent.
+Syslog est un protocole de journalisation d’événements commun à Linux. Les applications envoient les messages qui peuvent être stockés sur l’ordinateur local ou remis à un collecteur Syslog. Lorsque l’agent Log Analytics pour Linux est installé, il configure le démon Syslog local pour qu’il transfère des messages à l’agent. L’agent envoie ensuite le message à Azure Monitor, où un enregistrement correspondant est créé.
+
+Pour plus d’informations, consultez [Sources de données Syslog dans Azure Monitor](../azure-monitor/platform/data-sources-syslog.md).
+
+> [!NOTE]
+> L’agent peut collecter les journaux à partir de plusieurs sources, mais doit être installé sur une machine proxy dédiée.
 
 ## <a name="connect-your-syslog-appliance"></a>Connecter votre appliance Syslog
 
-1. Dans le portail Azure Sentinel, sélectionnez **Connecteurs de données** et choisissez la vignette **Syslog**.
-2. Si votre machine Linux n’est pas dans Azure, téléchargez et installez l’**Agent pour Linux** Azure Sentinel sur votre appliance. 
-1. Si vous travaillez dans Azure, sélectionnez ou créez une machine virtuelle au sein de l’espace de travail Azure Sentinel dédié à la réception des messages de Syslog. Sélectionnez la machine virtuelle dans les espaces de travail Azure Sentinel et cliquez sur **Connecter** en haut du volet gauche.
-3. Cliquez sur **Configurer les journaux pour leur connexion** dans le programme d’installation du connecteur de Syslog. 
-4. Cliquez sur **Appuyez pour ouvrir le panneau de configuration**.
+1. Dans le portail Azure Sentinel, sélectionnez **Connecteurs de données**, sélectionnez la ligne **Syslog** dans le tableau et dans le volet syslog à droite, cliquez sur **Open connector page (Ouvrir la page du connecteur)** .
+2. Si votre machine Linux se trouve dans Azure, sélectionnez **Download and install agent on Azure Linux virtual machine (Télécharger et installer l’agent sur la machine virtuelle Linux Azure)** . Dans la fenêtre Machines virtuelles, sélectionnez les machines sur lesquelles vous souhaitez installer l’agent, puis cliquez sur **Connect (Se connecter)** en haut.
+1. Si votre machine Linux ne se trouve pas dans Azure, sélectionnez **Download and install agent on Linux non-Azure machine (Télécharger et installer l’agent sur la machine virtuelle Linux non-Azure)** . Dans la fenêtre **Direct agent (Agent direct)** , copiez la commande sous **Download and onboard agent for Linux (Télécharger et intégrer l’agent pour Linux)** et exécutez-la sur votre ordinateur. 
+1. Sous **Configure the logs to be connected (Configurer les journaux à connecter)** dans la fenêtre de configuration du connecteur syslog, suivez les instructions suivantes :
+    1. Cliquez sur le lien pour **ouvrir la configuration des paramètres avancés de votre espace de travail**. 
+    1. Sélectionnez **Données**, puis **Syslog**.
+    1. Ensuite, dans la table, définissez les fonctions que vous souhaitez que syslog collecte. Vous devez ajouter ou sélectionner les fonctions que votre appliance syslog inclut dans ses en-têtes de journal. Vous pouvez voir cette configuration dans votre appliance Syslog dans Syslog-d dans le dossier : /etc/rsyslog.d/security-config-omsagent.conf et dans r-Syslog sous /etc/syslog-ng/security-config-omsagent.conf. 
+       > [!NOTE]
+       > Si vous activez la case à cocher pour **Appliquer la configuration ci-dessous à mes machines**, cette configuration s’applique à toutes les machines Linux connectées à cet espace de travail. Vous pouvez voir cette configuration dans votre machine Syslog sous 
+1. Cliquez sur **Appuyez pour ouvrir le panneau de configuration**.
 1. Sélectionnez **Données**, puis **Syslog**.
    - Veillez à ce que chaque installation que vous envoyez via Syslog se trouve dans le tableau. Pour chaque installation à surveiller, définissez une gravité. Cliquez sur **Appliquer**.
 1. Dans votre machine Syslog, assurez-vous que vous envoyez ces installations. 
 
-3. Pour utiliser le schéma pertinent dans Log Analytics pour les journaux Syslog, recherchez **Syslog**.
+1. Pour utiliser le schéma pertinent dans Log Analytics pour les journaux Syslog, recherchez **Syslog**.
+1. Vous pouvez utiliser la fonction Kusto décrite dans [Utilisation de fonctions dans les requêtes de journal Azure Monitor](../azure-monitor/log-query/functions.md) pour analyser vos messages Syslog, puis les enregistrer en tant que nouvelle fonction Log Analytics, puis utiliser la fonction en tant que nouveau type de données.
 
 
 

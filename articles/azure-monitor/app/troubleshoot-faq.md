@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/17/2018
 ms.author: mbullwin
-ms.openlocfilehash: ab1327b42a76a6e76183d84cb1750cce8b85228f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 778a95db8ce462d06e2464db56b542f8113a4960
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65604282"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67875373"
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights : Forum Aux Questions (FAQ)
 
@@ -37,6 +37,7 @@ ms.locfileid: "65604282"
 
 ## <a name="can-i-use-application-insights-with-"></a>Puis-je utiliser Application Insights avec... ?
 
+* [Applications web sur un serveur IIS sur une machine virtuelle Azure ou un groupe de machines virtuelles identiques Azure](azure-vm-vmss-apps.md)
 * [Applications web sur un serveur IIS - en local ou sur une machine virtuelle](asp-net.md)
 * [Applications web Java](java-get-started.md)
 * [Applications Node.js](nodejs.md)
@@ -104,7 +105,7 @@ Une application de bureau que vous pouvez utiliser dans votre serveur web IIS po
 * Requêtes HTTP
 * [Dépendances](asp-net-dependencies.md). Appels passés aux instances SQL Database ; appels HTTP vers des services externes ; Azure Cosmos DB, table, stockage d’objets blob et file d’attente. 
 * [Exceptions](asp-net-exceptions.md) et arborescences des appels de procédure.
-* [Compteurs de performances](performance-counters.md) : si vous utilisez [Status Monitor](monitor-performance-live-website-now.md), [Supervision Azure](azure-web-apps.md) ou le [writer collectd d’Application Insights](java-collectd.md).
+* [Compteurs de performances](performance-counters.md) : si vous utilisez [Status Monitor](monitor-performance-live-website-now.md), la [surveillance Azure pour App Services](azure-web-apps.md), la [surveillance Azure pour le groupe de machines virtuelles identiques](azure-vm-vmss-apps.md) ou le [writer collectd d’Application Insights](java-collectd.md).
 * [Événements et mesures personnalisés](api-custom-events-metrics.md) que vous codez.
 * [Journaux d’activité de suivi](asp-net-trace-logs.md) si vous configurez le collecteur approprié.
 
@@ -145,7 +146,7 @@ Vous pouvez [utiliser Power BI](export-power-bi.md ) pour afficher les données 
 
 
 ## <a name="data"></a>Combien de temps les données sont-elles conservées dans le portail ? Sont-elles sécurisées ?
-Voir [Rétention de données et confidentialité][data].
+Consultez [Rétention de données et confidentialité][data].
 
 ## <a name="could-personal-data-be-sent-in-the-telemetry"></a>Est-ce que des informations personnelles peuvent être envoyées dans les données de télémétrie ?
 

@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: juliako
-ms.openlocfilehash: e92086ca18887b9b2c2362e97d855c33834b83bb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6e62eb862cf6d6760ca67b9e948a724b16303e89
+ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65799216"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68305637"
 ---
 # <a name="upload-and-index-your-videos"></a>Charger et indexer vos vidéos  
 
@@ -64,7 +64,7 @@ URL qui est utilisée pour notifier le client (à l’aide d’une requête POST
         |---|---|
         |id|L’ID de la vidéo|
         |state|État de la vidéo|  
-    - Exemple : https://test.com/notifyme?projectName=MyProject&id=1234abcd&state=Processed
+    - Exemple : https:\//test.com/notifyme?projectName=MyProject&id=1234abcd&state=Processed
 - Personne identifiée dans la vidéo :
   - properties
     
@@ -75,7 +75,7 @@ URL qui est utilisée pour notifier le client (à l’aide d’une requête POST
       |knownPersonId|ID de la personne qui est unique au sein d’un modèle de visage|
       |personName|Nom de la personne|
         
-    - Exemple : https://test.com/notifyme?projectName=MyProject&id=1234abcd&faceid=12&knownPersonId=CCA84350-89B7-4262-861C-3CAC796542A5&personName=Inigo_Montoya 
+    - Exemple : https:\//test.com/notifyme?projectName=MyProject&id=1234abcd&faceid=12&knownPersonId=CCA84350-89B7-4262-861C-3CAC796542A5&personName=Inigo_Montoya 
 
 #### <a name="notes"></a>Notes
 

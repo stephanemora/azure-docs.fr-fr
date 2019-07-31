@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3da96c09026baff3965e0a90d1f461fd948a3a50
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 59f716ccd7b2e02c9064f13cf1ffd6e8180858c9
+ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60441012"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67827913"
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Rapports d’activité d’audit dans le portail Azure Active Directory 
 
@@ -41,7 +41,7 @@ Cet article présente une vue d’ensemble du rapport d’audit.
  
 ## <a name="who-can-access-the-data"></a>Qui peut accéder aux données ?
 
-* Les utilisateurs des rôles **Administrateur de la sécurité**, **Lecteur Sécurité**, **Leceur de rapports** ou **Administrateur général**
+* Les utilisateurs des rôles **Administrateur de la sécurité**, **Lecteur Sécurité**, **Lecteur de rapports** ou **Administrateur général**
 * En outre, tous les utilisateurs (non-administrateurs) peuvent voir leurs propres activités d’audit
 
 ## <a name="audit-logs"></a>Journaux d’audit

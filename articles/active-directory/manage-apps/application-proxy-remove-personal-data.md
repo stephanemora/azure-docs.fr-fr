@@ -15,19 +15,19 @@ ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 039f8c9f114dfd3542fefa7b1a1eea8656cbb9c4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ebb2a38e520c988ee7ca9a234aadd6ae2de4f0cb
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65782965"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807750"
 ---
-# <a name="remove-personal-data-for-azure-active-directory-application-proxy"></a>Supprimer des données personnelles pour des proxy d’application Azure Active Directory  
+# <a name="remove-personal-data-for-azure-active-directory-application-proxy"></a>Supprimer des données personnelles pour des proxy d’application Azure Active Directory
 
-Le proxy d'application Azure Active Directory nécessite l’installation de connecteurs sur vos appareils, ce qui signifie qu’il pourrait y avoir des données personnelles sur vos appareils. Cet article explique comment supprimer ces données personnelles afin d’améliorer la confidentialité. 
-
+Le proxy d'application Azure Active Directory nécessite l’installation de connecteurs sur vos appareils, ce qui signifie qu’il pourrait y avoir des données personnelles sur vos appareils. Cet article explique comment supprimer ces données personnelles afin d’améliorer la confidentialité.
 
 ## <a name="where-is-the-personal-data"></a>Où se trouvent ces données personnelles ?
+
 Le proxy d’application peut écrire des données personnelles dans les types de journaux suivants :
 
 - Journaux d’événements des connecteurs
@@ -52,36 +52,33 @@ Utiliser les sections suivantes pour supprimer les données personnelles de jour
 
 ### <a name="view-or-export-specific-data"></a>Afficher ou exporter des données spécifiques
 
-Pour afficher ou exporter des données spécifiques, recherchez des entrées associées dans chaque journal des événements du connecteur. Les journaux d’activité se trouvent dans `C:\ProgramData\Microsoft\Microsoft AAD Application Proxy Connector\Trace`. 
+Pour afficher ou exporter des données spécifiques, recherchez des entrées associées dans chaque journal des événements du connecteur. Les journaux d’activité se trouvent dans `C:\ProgramData\Microsoft\Microsoft AAD Application Proxy Connector\Trace`.
 
 Étant donné que les journaux d’activité sont des fichiers texte, vous pouvez utiliser [findstr](https://docs.microsoft.com/windows-server/administration/windows-commands/findstr) pour rechercher les entrées de texte associées à un utilisateur.  
 
-Pour rechercher des données personnelles, recherchez UserID (ID utilisateur) dans les fichiers journaux. 
+Pour rechercher des données personnelles, recherchez UserID (ID utilisateur) dans les fichiers journaux.
 
 Pour rechercher des données personnelles consignées par une application qui utilise la délégation Kerberos contrainte, recherchez ces composants du type de nom d'utilisateur :
 
 - Nom d’utilisateur principal local
 - Partie correspondant au nom d’utilisateur dans le nom d’utilisateur principal
 - Partie correspondant au nom d’utilisateur dans le nom d’utilisateur principal local
-- Nom de compte du gestionnaire des comptes de sécurité (SAM) local 
-
+- Nom de compte du gestionnaire des comptes de sécurité (SAM) local
 
 ### <a name="delete-specific-data"></a>Supprimer des données spécifiques
 
 Pour supprimer des données spécifiques :
 
 1. Redémarrez le service du connecteur de proxy d’application Microsoft Azure AD afin de générer un nouveau fichier journal. Le nouveau fichier journal vous permet de supprimer ou de modifier les anciens fichiers journaux. 
-2. Suivez le processus [Afficher ou exporter des données spécifiques](#view-or-export-specific-data), détaillé précédemment, pour trouver les informations à supprimer. Recherchez dans tous les journaux d’activité du connecteur.
-3. Supprimez les fichiers journaux adéquats ou sélectionnez les champs contenant des données personnelles et supprimez-les. De plus, vous pouvez supprimer tous les anciens fichiers journaux si vous n’en avez plus besoin.
+1. Suivez le processus [Afficher ou exporter des données spécifiques](#view-or-export-specific-data), détaillé précédemment, pour trouver les informations à supprimer. Recherchez dans tous les journaux d’activité du connecteur.
+1. Supprimez les fichiers journaux adéquats ou sélectionnez les champs contenant des données personnelles et supprimez-les. De plus, vous pouvez supprimer tous les anciens fichiers journaux si vous n’en avez plus besoin.
 
 ### <a name="turn-off-connector-logs"></a>Désactiver les journaux d’activité du connecteur
 
-Pour vous assurer que les journaux d’activité du connecteur ne contiennent aucune donnée personnelle, vous pouvez arrêter la génération de journaux d’activité. Pour arrêter la génération de journaux d’activité du connecteur, supprimez la ligne en surbrillance suivante de `C:\Program Files\Microsoft AAD App Proxy Connector\ApplicationProxyConnectorService.exe.config`. 
+Pour vous assurer que les journaux d’activité du connecteur ne contiennent aucune donnée personnelle, vous pouvez arrêter la génération de journaux d’activité. Pour arrêter la génération de journaux d’activité du connecteur, supprimez la ligne en surbrillance suivante de `C:\Program Files\Microsoft AAD App Proxy Connector\ApplicationProxyConnectorService.exe.config`.
 
-![Configuration](./media/application-proxy-remove-personal-data/01.png)
-
+![Affiche un extrait de code avec le code à supprimer mis en surbrillance](./media/application-proxy-remove-personal-data/01.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour obtenir une vue d’ensemble du proxy d’application, consultez [Offrir un accès à distance sécurisé aux applications locales](application-proxy.md).
-

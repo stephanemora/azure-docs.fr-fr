@@ -4,7 +4,7 @@ description: Guide pratique pour monter un partage Azure Files à partir de nœu
 services: batch
 documentationcenter: ''
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: ''
 ms.service: batch
@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 05/24/2018
 ms.author: lahugh
 ms.custom: ''
-ms.openlocfilehash: 914bc11736b08dab6b334307dc188b5d153c7331
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 8c9d041648408b05b7cd160d5aea9dfb33ac061d
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341320"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68322380"
 ---
 # <a name="use-an-azure-file-share-with-a-batch-pool"></a>Utiliser un partage de fichiers Azure avec un pool Batch
 
@@ -52,7 +52,7 @@ Dans Batch, vous devez monter le partage chaque fois qu’une tâche est exécut
 Par exemple, incluez une commande `net use` pour monter le partage de fichiers dans le cadre de chaque ligne de commande de tâche. Pour monter le partage de fichiers, les informations d’identification suivantes sont nécessaires :
 
 * **Nom d’utilisateur :** AZURE\\\<nom_compte_stockage\>, par exemple, AZURE\\*mystorageaccountname*
-* **Mot de passe** : <compte_de_stockage_se_terminant_par==>, par exemple *XXXXXXXXXXXXXXXXXXXXX==*
+* **Mot de passe** : \<StorageAccountKeyWhichEnds in==>, par exemple, *XXXXXXXXXXXXXXXXXXXXX==*
 
 La commande suivante monte un partage de fichiers *myfileshare* dans le compte de stockage *mystorageaccountname* en tant que le lecteur *S:*  :
 
@@ -129,7 +129,7 @@ apt-get update && apt-get install cifs-utils && sudo mkdir -p /mnt/MyAzureFileSh
 Ensuite, exécutez la commande `mount` pour monter le partage de fichiers, en fournissant ces informations d’identification :
 
 * **Nom d’utilisateur** : \<nom_compte_stockage\>, par exemple, *mystorageaccountname*
-* **Mot de passe** : <compte_de_stockage_se_terminant_par==>, par exemple *XXXXXXXXXXXXXXXXXXXXX==*
+* **Mot de passe** : \<StorageAccountKeyWhichEnds in==>, par exemple, *XXXXXXXXXXXXXXXXXXXXX==*
 
 La commande suivante monte un partage de fichiers *myfileshare* dans le compte de stockage *mystorageaccountname* dans */mnt/MyAzureFileShare* : 
 

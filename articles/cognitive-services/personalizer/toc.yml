@@ -43,6 +43,8 @@
         - name: Évaluation hors connexion
           href: concepts-offline-evaluation.md
           displayName: 'learning policy, Counterfactual, features'
+        - name: Évaluation des fonctionnalités
+          href: concept-feature-evaluation.md
     - name: Scalabilité et performance
       href: concepts-scalability-performance.md
 - name: Guides pratiques

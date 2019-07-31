@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/21/2019
+ms.date: 07/11/2019
 ms.author: magoedte
-ms.openlocfilehash: 39dbb504603544a468907d87d236338cb95e39a3
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: a55a4b2f3045aac8dfe9e46a50074585ab3ef491
+ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67441632"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67827794"
 ---
 # <a name="manage-log-analytics-workspace-using-azure-resource-manager-templates"></a>Gérer un espace de travail Log Analytics à l’aide de modèles Azure Resource Manager
 
@@ -40,6 +40,7 @@ Vous pouvez utiliser des [modèles Azure Resource Manager](../../azure-resource-
 Cet article fournit des exemples de modèle qui illustrent des opérations de configuration que vous pouvez effectuer avec des modèles.
 
 ## <a name="api-versions"></a>Versions d’API
+
 La table suivante répertorie la version d’API pour les ressources utilisées dans cet exemple.
 
 | Ressource | Type de ressource | Version de l'API |
@@ -50,16 +51,8 @@ La table suivante répertorie la version d’API pour les ressources utilisées 
 | Solution    | solutions     | 2015-11-01-preview |
 
 ## <a name="create-a-log-analytics-workspace"></a>Créer un espace de travail Log Analytics
-L’exemple suivant crée un espace de travail avec un modèle à partir de votre ordinateur local. Le modèle JSON est configuré pour vous demander uniquement le nom de l’espace de travail et spécifie une valeur par défaut pour les autres paramètres susceptibles d’être utilisés comme configuration standard dans votre environnement.  
 
-Les paramètres suivants sont définis comme une valeur par défaut :
-
-* Emplacement : par défaut, USA Est
-* Référence (SKU) : la valeur par défaut est le nouveau niveau de tarification par Go publié dans le modèle de tarification d’avril 2018
-
-> [!NOTE]
->Lors de la création ou de la configuration d’un espace de travail Log Analytics dans un abonnement pour lequel le nouveau modèle de tarification d’avril 2018 a été choisi, le seul niveau tarifaire Log Analytics valide est **PerGB2018**.  
->Si vous disposez d'abonnements dans le [modèle de tarification antérieur à avril 2018](https://docs.microsoft.com/azure/azure-monitor/platform/usage-estimated-costs#new-pricing-model), vous pouvez spécifier le niveau tarifaire **Autonome**, qui fonctionne pour les inscriptions du modèle de tarification antérieur à avril 2018, ainsi que pour les inscriptions de la nouvelle tarification. Pour les espaces de travail dans des abonnements qui ont adopté le nouveau modèle de tarification, le niveau tarifaire est défini sur **PerGB2018**. 
+L’exemple suivant crée un espace de travail avec un modèle à partir de votre ordinateur local. Le modèle JSON est configuré pour exiger uniquement le nom et l’emplacement du nouvel espace de travail (à l’aide des valeurs par défaut des autres paramètres de l’espace de travail, tels que le niveau tarifaire et la rétention).  
 
 ### <a name="create-and-deploy-template"></a>Créer et déployer un modèle
 
@@ -79,26 +72,35 @@ Les paramètres suivants sont définis comme une valeur par défaut :
         "location": {
             "type": "String",
             "allowedValues": [
-              "eastus",
-              "westus"
+              "australiacentral", 
+              "australiaeast", 
+              "australiasoutheast", 
+              "brazilsouth",
+              "canadacentral", 
+              "centralindia", 
+              "centralus", 
+              "eastasia", 
+              "eastus", 
+              "eastus2", 
+              "francecentral", 
+              "japaneast", 
+              "koreacentral", 
+              "northcentralus", 
+              "northeurope", 
+              "southafricanorth", 
+              "southcentralus", 
+              "southeastasia", 
+              "uksouth", 
+              "ukwest", 
+              "westcentralus", 
+              "westeurope", 
+              "westus", 
+              "westus2" 
             ],
-            "defaultValue": "eastus",
             "metadata": {
               "description": "Specifies the location in which to create the workspace."
             }
-        },
-        "sku": {
-            "type": "String",
-            "allowedValues": [
-              "Standalone",
-              "PerNode",
-              "PerGB2018"
-            ],
-            "defaultValue": "PerGB2018",
-            "metadata": {
-            "description": "Specifies the service tier of the workspace: Standalone, PerNode, Per-GB"
         }
-          }
     },
     "resources": [
         {
@@ -107,9 +109,6 @@ Les paramètres suivants sont définis comme une valeur par défaut :
             "apiVersion": "2015-11-01-preview",
             "location": "[parameters('location')]",
             "properties": {
-                "sku": {
-                    "Name": "[parameters('sku')]"
-                },
                 "features": {
                     "searchVersion": 1
                 }
@@ -118,26 +117,28 @@ Les paramètres suivants sont définis comme une valeur par défaut :
        ]
     }
     ```
-2. Modifiez le modèle en fonction de vos besoins.  Consultez la référence [Microsoft.OperationalInsights/workspaces modèle](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces) pour découvrir les propriétés et les valeurs prises en charge. 
+
+2. Modifiez le modèle en fonction de vos besoins. Consultez la référence [Microsoft.OperationalInsights/workspaces modèle](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces) pour découvrir les propriétés et les valeurs prises en charge. 
 3. Enregistrez ce fichier au format **deploylaworkspacetemplate.json** dans un dossier local.
-4. Vous êtes prêt à déployer ce modèle. Vous utilisez PowerShell ou la ligne de commande pour créer l’espace de travail.
+4. Vous êtes prêt à déployer ce modèle. Vous utilisez PowerShell ou la ligne de commande pour créer l’espace de travail, en spécifiant le nom et l’emplacement de l’espace de travail au sein de la commande.
 
    * Pour PowerShell, utilisez les commandes suivantes à partir du dossier qui contient le modèle :
    
         ```powershell
-        New-AzResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile deploylaworkspacetemplate.json
+        New-AzResourceGroupDeployment -ResourceGroupName <resource-group-name> -TemplateFile deploylaworkspacetemplate.json -workspaceName <workspace-name> -location <location>
         ```
 
    * Pour la ligne de commande, utilisez les commandes suivantes à partir du dossier qui contient le modèle :
 
         ```cmd
         azure config mode arm
-        azure group deployment create <my-resource-group> <my-deployment-name> --TemplateFile deploylaworkspacetemplate.json
+        azure group deployment create <my-resource-group> <my-deployment-name> --TemplateFile deploylaworkspacetemplate.json --workspaceName <workspace-name> --location <location>
         ```
 
 Le déploiement peut prendre plusieurs minutes. Lorsqu’il est terminé, vous voyez un message similaire au message suivant qui inclut le résultat :<br><br> ![Exemple de résultat lorsque le déploiement est achevé](./media/template-workspace-configuration/template-output-01.png)
 
 ## <a name="configure-a-log-analytics-workspace"></a>Configurer un espace de travail Log Analytics
+
 L’exemple de modèle suivant illustre comment :
 
 1. Ajouter des solutions à l’espace de travail
@@ -161,19 +162,21 @@ L’exemple de modèle suivant illustre comment :
         "description": "Workspace name"
       }
     },
-    "serviceTier": {
+    "pricingTier": {
       "type": "string",
       "allowedValues": [
+        "PerGB2018",
         "Free",
         "Standalone",
         "PerNode",
-        "PerGB2018"
+        "Standard",
+        "Premium"
       ],
       "defaultValue": "PerGB2018",
       "metadata": {
-        "description": "Pricing tier: PerGB2018 or legacy tiers (Free, Standalone or PerNode) which are not available to all customers"
-    }
-      },
+        "description": "Pricing tier: PerGB2018 or legacy tiers (Free, Standalone, PerNode, Standard or Premium) which are not available to all customers."
+      }
+    },
     "dataRetention": {
       "type": "int",
       "defaultValue": 30,
@@ -187,17 +190,40 @@ L’exemple de modèle suivant illustre comment :
     "immediatePurgeDataOn30Days": {
       "type": "bool",
       "metadata": {
-        "description": "If set to true when changing retention to 30 days, older data will be immediately deleted. This only applies when retention is being set to 30 days."
+        "description": "If set to true when changing retention to 30 days, older data will be immediately deleted. Use this with extreme caution. This only applies when retention is being set to 30 days."
       }
     },
     "location": {
       "type": "string",
       "allowedValues": [
-        "East US",
-        "West Europe",
-        "Southeast Asia",
-        "Australia Southeast"
-      ]
+        "australiacentral", 
+        "australiaeast", 
+        "australiasoutheast", 
+        "brazilsouth",
+        "canadacentral", 
+        "centralindia", 
+        "centralus", 
+        "eastasia", 
+        "eastus", 
+        "eastus2", 
+        "francecentral", 
+        "japaneast", 
+        "koreacentral", 
+        "northcentralus", 
+        "northeurope", 
+        "southafricanorth", 
+        "southcentralus", 
+        "southeastasia", 
+        "uksouth", 
+        "ukwest", 
+        "westcentralus", 
+        "westeurope", 
+        "westus", 
+        "westus2"
+      ],
+      "metadata": {
+        "description": "Specifies the location in which to create the workspace."
+      }
     },
     "applicationDiagnosticsStorageAccountName": {
         "type": "string",
@@ -235,7 +261,10 @@ L’exemple de modèle suivant illustre comment :
       "location": "[parameters('location')]",
       "properties": {
         "sku": {
-          "Name": "[parameters('serviceTier')]"
+          "name": "[parameters('pricingTier')]"
+          "features": {
+            "immediatePurgeDataOn30Days": "[parameters('immediatePurgeDataOn30Days')]"
+          }
         },
     "retentionInDays": "[parameters('dataRetention')]"
       },
@@ -494,6 +523,10 @@ L’exemple de modèle suivant illustre comment :
       "type": "int",
       "value": "[reference(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspaceName')), '2015-11-01-preview').retentionInDays]"
     },
+    "immediatePurgeDataOn30Days": {  
+      "type": "bool",
+      "value": "[reference(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspaceName')), '2015-11-01-preview').features.immediatePurgeDataOn30Days]"
+    },
     "portalUrl": {
       "type": "string",
       "value": "[reference(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspaceName')), '2015-11-01-preview').portalUrl]"
@@ -503,6 +536,7 @@ L’exemple de modèle suivant illustre comment :
 
 ```
 ### <a name="deploying-the-sample-template"></a>Déploiement de l’exemple de modèle
+
 Pour déployer l’exemple de modèle :
 
 1. Enregistrez l’exemple joint dans un fichier, par exemple `azuredeploy.json`. 
@@ -510,17 +544,20 @@ Pour déployer l’exemple de modèle :
 3. Utilisez PowerShell ou la ligne de commande pour déployer le modèle.
 
 #### <a name="powershell"></a>PowerShell
+
 ```powershell
 New-AzResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile azuredeploy.json
 ```
 
 #### <a name="command-line"></a>Ligne de commande
+
 ```cmd
 azure config mode arm
 azure group deployment create <my-resource-group> <my-deployment-name> --TemplateFile azuredeploy.json
 ```
 
 ## <a name="example-resource-manager-templates"></a>Exemples de modèles Azure Resource Manager
+
 La galerie de modèles de démarrage rapide Azure comprend plusieurs modèles pour Log Analytics, destinés aux opérations suivantes :
 
 * [Déployer une machine virtuelle exécutant Windows avec l’extension de machine virtuelle Log Analytics](https://azure.microsoft.com/documentation/templates/201-oms-extension-windows-vm/)
@@ -530,5 +567,7 @@ La galerie de modèles de démarrage rapide Azure comprend plusieurs modèles po
 * [Ajouter un compte de stockage existant à Log Analytics](https://azure.microsoft.com/resources/templates/oms-existing-storage-account/)
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 * [Déployez l’agent Windows sur des machines virtuelles Azure à l’aide du modèle Resource Manager](../../virtual-machines/extensions/oms-windows.md).
+
 * [Déployez l’agent Linux sur des machines virtuelles Azure à l’aide du modèle Resource Manager](../../virtual-machines/extensions/oms-linux.md).

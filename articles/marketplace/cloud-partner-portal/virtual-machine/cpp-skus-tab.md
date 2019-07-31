@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 04/25/2019
 ms.author: pabutler
-ms.openlocfilehash: e1a110abf8e057034043da34455bf678277c6cb4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dceb82af73061b91676ffb7061c7495995e76667
+ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65799946"
+ms.lasthandoff: 07/13/2019
+ms.locfileid: "67868721"
 ---
 # <a name="virtual-machine-skus-tab"></a>Onglet Références de machine virtuelle
 
@@ -68,6 +68,11 @@ Le tableau suivant décrit l’objectif, le contenu et le format de ces champs. 
 ## <a name="additional-pricing-considerations"></a>Autres considérations relatives à la tarification
 
 Le modèle de tarification décrit ci-dessus est une description de base.  Il est en cours de modification et peut être affecté par les réglementations fiscales régionales ou locales ainsi que par les stratégies de tarification de Microsoft. 
+
+### <a name="new-core-sizes-added-on-722019"></a>Nouvelles tailles de cœurs ajoutées le 02/07/2019
+
+Les éditeurs de machines virtuelles ont été avertis le 2 juillet 2019 de l’ajout de nouveaux tarifs pour les nouvelles tailles de machines virtuelles Azure (en fonction du nombre de cœurs).  Les nouveaux tarifs concernent les tailles de cœurs suivantes : 10, 44, 48, 60, 120, 208 et 416.  Pour les machines virtuelles existantes, de nouveaux tarifs pour ces tailles de cœurs ont été calculés automatiquement en fonction des tarifs actuels.  Les éditeurs ont jusqu’au 1er août 2019 pour passer en revue les prix supplémentaires et apporter les modifications souhaitées.  Après cette date, s’ils n’ont pas encore été republiés par l’éditeur, les prix automatiquement calculés pour ces nouvelles tailles de cœurs prendront effet.
+
 
 ### <a name="simplified-currency-pricing"></a>Tarification simplifiée en devise
 

@@ -10,16 +10,16 @@ ms.reviewer: klam, jehollan, LADocs
 ms.topic: article
 ms.assetid: bd229179-7199-4aab-bae0-1baf072c7659
 ms.date: 05/26/2017
-ms.openlocfilehash: 620ede672d71338abeff5198fd5f94e92dc193d0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 233aa92b30404ac7ad2b93bb37380bea984be566
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60681827"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68273224"
 ---
 # <a name="create-custom-apis-you-can-call-from-azure-logic-apps"></a>Créer des API personnalisées que vous pouvez appeler à partir d’Azure Logic Apps
 
-Bien qu’Azure Logic Apps offre [plus de 100 connecteurs intégrés](../connectors/apis-list.md), que vous pouvez utiliser dans les flux de travail d’application logique, vous voudrez peut-être appeler des API, des systèmes et des services qui ne sont pas disponibles en tant que connecteurs. Vous pouvez créer vos propres API personnalisées, qui fournissent des actions et des déclencheurs utilisables dans des applications logiques. Voici d’autres raisons qui peuvent vous amener à vouloir créer vos propres API de façon à les appeler à partir de workflows d’applications logiques :
+Bien qu’Azure Logic Apps offre [des centaines de connecteurs](../connectors/apis-list.md), que vous pouvez utiliser dans les flux de travail d’application logique, vous voudrez peut-être appeler des API, des systèmes et des services qui ne sont pas disponibles en tant que connecteurs. Vous pouvez créer vos propres API personnalisées, qui fournissent des actions et des déclencheurs utilisables dans des applications logiques. Voici d’autres raisons qui peuvent vous amener à vouloir créer vos propres API de façon à les appeler à partir de workflows d’applications logiques :
 
 * Étendre l’intégration de votre système actuel et les flux de travail d’intégration de données.
 * Aider les clients à utiliser votre service pour gérer des tâches personnelles ou professionnelles.

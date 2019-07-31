@@ -5,14 +5,14 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: article
-ms.date: 1/18/2019
+ms.date: 7/13/2019
 ms.author: victorh
-ms.openlocfilehash: 5c098c6c22b079d586c0bd808df9af4a737c17a8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 051aabed758f80208549cf64bf5d74b1fecfbe75
+ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62096236"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67854154"
 ---
 # <a name="use-azure-dns-to-provide-custom-domain-settings-for-an-azure-service"></a>Utiliser DNS Azure pour fournir des paramètres de domaine personnalisé pour un service Azure
 
@@ -110,6 +110,8 @@ Une fois que le processus est terminé, exécutez **nslookup** pour vérifier qu
 ![figure 1](./media/dns-custom-domain/finalnslookup.png)
 
 Pour en savoir plus sur le mappage d’un domaine personnalisé à App Service, voir [Mapper un nom DNS personnalisé existant à des applications web Azure](../app-service/app-service-web-tutorial-custom-domain.md?toc=%dns%2ftoc.json).
+
+Pour savoir comment migrer un nom DNS actif, consultez [Migrer un nom DNS actif vers Azure App Service](../app-service/manage-custom-dns-migrate-domain.md).
 
 Si vous avez besoin d’acheter un domaine personnalisé, pour en savoir plus sur les domaines App Service, voir [Acheter et configurer un nom de domaine personnalisé dans Azure App Service](../app-service/manage-custom-dns-buy-domain.md).
 

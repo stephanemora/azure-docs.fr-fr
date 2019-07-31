@@ -10,14 +10,14 @@ ms.service: virtual-network
 ms.devlang: NA
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 04/22/2019
+ms.date: 07/15/2019
 ms.author: kumud
-ms.openlocfilehash: 0ec650880a45f6383b24b5ac810fc2ee745806b7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5093b74484cd04a0c0c7afed8e2ebc725af033f5
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62130936"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68249833"
 ---
 # <a name="what-is-ipv6-for-azure-virtual-network-preview"></a>Qu’est-ce que le protocole IPv6 pour réseau virtuel Azure ? (Préversion)
 
@@ -44,24 +44,32 @@ Avantages du protocole IPv6 pour réseau virtuel Azure :
 
 ## <a name="capabilities"></a>Fonctionnalités
 
-La prise en charge du protocole IPv6 pour les machines virtuelles présente les caractéristiques suivantes :
+IPv6 pour le réseau virtuel inclut les fonctionnalités suivantes :
 
 - Les clients Azure peuvent définir leur propre espace d’adressage de réseau virtuel IPv6 pour répondre aux besoins de leurs applications et clients, ou intégrer sans difficulté dans leur propre espace d’adressage IP local.
 - Des réseaux virtuels double pile (IPv4 et IPv6) avec des sous-réseaux double pile permettent aux applications de se connecter à des ressources tant IPv4 que IPv6 au sein de leur réseau virtuel ou sur Internet.
 - Possibilité de protéger vos ressources avec des règles de protocole IPv6 pour les groupes de sécurité réseau.
 - Possibilité de personnaliser le routage du trafic IPv6 dans votre réseau virtuel avec des itinéraires définis par l’utilisateur, en particulier lorsque vous utilisez des appliances virtuelles réseau pour augmenter votre application.
-- Prise en charge de l’équilibreur de charge IPv6 pour créer des applications résilientes et évolutives, incluant la prise en charge d’Azure DNS pour les enregistrements AAAA pour les adresses IP publiques IPv6.
-- Facilité d’ajout de la connectivité IPv6 à des déploiements exclusivement IPv4 existants, avec mise à niveau sur place.
+- Accordez aux clients Internet un accès fluide à votre application à double pile à l’aide du protocole de leur choix avec la prise en charge d’Azure DNS pour les enregistrements (AAAA) IPv6. 
+- Prise en charge de l’équilibreur de charge public IPv6 standard pour créer des applications scalables et résilientes. Cela inclut :
+    - Sonde d’intégrité IPv6 en option pour déterminer quelles instances de pool back-end sont intègres et donc en état de recevoir de nouveaux flux. .  
+    - Règles de trafic sortant fournissant un contrôle déclaratif complet sur la connectivité sortante pour mettre à l’échelle et adapter cette fonctionnalité en fonction de vos besoins spécifiques.
+    - Configurations front-end facultatives qui permettent à un même équilibreur de charge d’utiliser plusieurs adresses IP publiques IPv6. Les mêmes protocole et port frontal peuvent être réutilisés pour plusieurs adresses front-end.
+- Une adresse IP publique de niveau d’instance fournit une connectivité Internet IPv6 directement aux machines virtuelles individuelles.
+- Ajoutez facilement la connectivité IPv6 à des déploiements exclusivement IPv4 existants, avec mise à niveau sur place.
 - Possibilité de créer des applications double pile dont l’échelle s’adapte automatiquement à votre charge à l’aide de groupes de machines virtuelles identiques.
+- La prise en charge du portail pour la préversion inclut à présent la création, la modification et la suppression interactives de réseaux virtuels et sous-réseaux virtuels à double pile (IPv4+IPv6), ainsi que de règles de groupe de sécurité réseau IPv6, d’itinéraires IPv6 définis par l’utilisateur et d’adresses IP publiques IPv6.  
 
 ## <a name="limitations"></a>Limites
 La préversion du protocole IPv6 pour réseau virtuel Azure présente les limitations suivantes :
-- Le protocole IPv6 pour réseau virtuel Azure (préversion) est disponible dans toutes les régions Azure, mais uniquement dans Azure international, pas dans les clouds pour le secteur public.   
-- La prise en charge du portail pour la préversion est limitée à l’affichage d’une grande partie de la configuration IPv6, mais pas toute. Cependant, le protocole IPv6 pour réseau virtuel offre un support et une documentation complets (avec des exemples) pour le déploiement d’IPv6 à l’aide d’Azure Powershell et de l’interface de ligne de commande.
+- Le protocole IPv6 pour réseau virtuel Azure (préversion) est disponible dans toutes les régions Azure, mais uniquement dans Azure international, pas dans les clouds pour le secteur public.
+- La prise en charge par le portail de composants Standard Load Balancer est en mode lecture uniquement.  Toutefois, une prise en charge complète et de la documentation (avec des exemples) sont disponibles pour les déploiements Standard Load Balancer à l’aide d’Azure PowerShell et de l’interface de ligne de commande (CLI).   
 - La prise en charge de Network Watcher pour la préversion est limitée aux journaux de flux NSG et aux captures de paquet réseau.
-- La prise en charge de l’équilibrage de charge pour la préversion est initialement limitée à l’équilibreur de charge de base.
-- Les adresses IP publiques au niveau de l’instance (adresses IP publiques définies directement sur une machine virtuelle) ne sont pas prises en charge dans la préversion.  
-- Le peering de réseau virtuel (au niveau régional ou global) n’est pas pris en charge dans la préversion. 
+- Le peering de réseau virtuel (au niveau régional ou global) n’est pas pris en charge dans la préversion.
+- Lors de l’utilisation d’un équilibreur de charge externe IPv6 Standard, les limites suivantes s’appliquent : 
+  - Les règles de trafic sortant peuvent faire référence à plusieurs adresses IP publiques front-end, mais elles ne peuvent **pas** faire référence à un préfixe public IPv6. Le préfixe public IP prend en charge uniquement les préfixes IPv4.
+  - Les règles d’équilibrage de charge IPv6 ne peuvent **pas** utiliser la fonctionnalité d’*adresse IP flottante*. La réutilisation de ports sur les instances back-end est prise en charge uniquement avec IPv4.
+- La réservation d’un bloc d’adresses IPv6 accessibles sur Internet n’est pas prise en charge par la fonctionnalité de préfixe d’adresse IP publique Azure.
 
 ## <a name="pricing"></a>Tarifs
 

@@ -13,17 +13,18 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/15/2017
-ms.author: dx@sendgrid.com
-ms.openlocfilehash: 91d28802b4af23da5b8060fa7c8f9a7e843a7dab
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: erikre
+ms.reviewer: dx@sendgrid.com
+ms.openlocfilehash: c3211ba9f8a8b16ad4372c82d8e50c46f3ad6897
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60444737"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67876375"
 ---
 # <a name="how-to-send-email-using-sendgrid-with-azure"></a>Envoi de courriers électroniques à l'aide de SendGrid avec Azure
 ## <a name="overview"></a>Vue d'ensemble
-Ce guide présente l'exécution de tâches de programmation courantes avec le service de messagerie SendGrid dans Azure. Les exemples sont écrits en C\# et prennent en charge .NET Standard 1.3. Les scénarios traités incluent le développement d’une messagerie électronique, l’envoi de courriers électroniques, l’ajout de pièces jointes et l’activation de différents paramètres de messagerie et de suivi. Pour plus d’informations sur SendGrid et sur l’envoi de courriers électroniques, consultez la section [Étapes suivantes][Next steps].
+Ce guide présente l'exécution de tâches de programmation courantes avec le service de messagerie SendGrid dans Azure. Les exemples sont écrits en C\# et prennent en charge .NET Standard 1.3. Les scénarios traités incluent le développement d’une messagerie électronique, l’envoi de courriers électroniques, l’ajout de pièces jointes et l’activation de différents paramètres de messagerie et de suivi. Pour plus d'informations sur SendGrid et l'envoi de courriers électroniques, consultez la section [Étapes suivantes][Next steps] .
 
 ## <a name="what-is-the-sendgrid-email-service"></a>Définition du service de messagerie SendGrid
 SendGrid est un [service de messagerie dans le cloud] qui fournit des fonctionnalités fiables en matière de [remise de courrier électronique transactionnelle], d'extensibilité et d'analyse en temps réel, ainsi que des API flexibles qui facilitent l'intégration personnalisée. Voici quelques cas d’utilisation courants de SendGrid :
@@ -34,7 +35,7 @@ SendGrid est un [service de messagerie dans le cloud] qui fournit des fonctionna
 * transfert des demandes de renseignements des clients.
 * traitement des messages électroniques entrants.
 
-Pour plus d’informations, consultez le site [https://sendgrid.com](https://sendgrid.com) ou le référentiel GitHub de la [bibliothèque C#][sendgrid-csharp] de SendGrid.
+Pour plus d’informations, consultez le site [https://sendgrid.com](https://sendgrid.com) ou le dépôt GitHub [Bibliothèque C#][sendgrid-csharp] de SendGrid.
 
 ## <a name="create-a-sendgrid-account"></a>Création d'un compte SendGrid
 [!INCLUDE [sendgrid-sign-up](../includes/sendgrid-sign-up.md)]
@@ -93,7 +94,7 @@ L'exemple suivant montre comment créer un objet de message entièrement renseig
     msg.AddContent(MimeType.Text, "Hello World plain text!");
     msg.AddContent(MimeType.Html, "<p>Hello World!</p>");
 
-Pour plus d’informations sur toutes les propriétés et méthodes prises en charge par le type **SendGrid**, consultez la page [sendgrid-csharp][sendgrid-csharp] sur GitHub.
+Pour plus d'informations sur les propriétés et méthodes prises en charge par le type **SendGrid** , consultez la page [sendgrid-csharp][sendgrid-csharp] sur GitHub.
 
 ## <a name="how-to-send-an-email"></a>Activation envoyer un e-mail
 Après avoir créé un e-mail, vous pouvez l’envoyer à l’aide de l’API de SendGrid. Une autre possibilité consiste à utiliser la [bibliothèque intégrée de .NET][NET-library].
@@ -253,7 +254,7 @@ SendGrid offre plusieurs API et webhooks que vous pouvez utiliser pour tirer pro
 ## <a name="next-steps"></a>Étapes suivantes
 Maintenant que vous avez appris les bases du service de messagerie SendGrid, consultez ces liens pour en savoir plus.
 
-* Référentiel de la bibliothèque C\# de SendGrid : [sendgrid-csharp][sendgrid-csharp]
+* Dépôt Bibliothèque C\# de SendGrid : [sendgrid-csharp][sendgrid-csharp]
 * Documentation de l’API SendGrid : <https://sendgrid.com/docs>
 
 [Next steps]: #next-steps

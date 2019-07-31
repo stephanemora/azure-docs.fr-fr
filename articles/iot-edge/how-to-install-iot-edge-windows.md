@@ -7,15 +7,15 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 07/10/2019
 ms.author: kgremban
 ms.custom: seodec18
-ms.openlocfilehash: f67f24cab907c3fe9998704e0a0a85d5b29f60a7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7f20e04fa65d0266d9e77b8bbcf2e2c4b1fd9eab
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66808867"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68227448"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-windows"></a>Installer le runtime Azure IoT Edge sur Windows
 
@@ -58,7 +58,7 @@ Azure IoT Edge s’appuie sur un moteur de conteneur [compatible avec OCI](https
 
 Un script PowerShell télécharge et installe le démon de sécurité Azure IoT Edge. Le démon de sécurité démarre ensuite le premier des deux modules de runtime, l’agent IoT Edge qui permet de déployer à distance d’autres modules. 
 
-Lorsque vous installez le runtime IoT Edge pour la première fois sur un appareil, vous devez fournir à celui-ci une identité d’un hub IoT. Un appareil IoT Edge unique peut être approvisionné manuellement à l’aide d’une chaîne de connexion d’appareil fournie par IoT Hub. Vous pouvez également utiliser le service Device Provisioning pour provisionner automatiquement des appareils, ce qui s’avère particulièrement utile lorsque vous devez configurer de nombreux appareils. Choisissez le script d’installation approprié selon votre choix en matière d’approvisionnement. 
+Lorsque vous installez le runtime IoT Edge pour la première fois sur un appareil, vous devez fournir à celui-ci une identité d’un hub IoT. Un appareil IoT Edge unique peut être approvisionné manuellement à l’aide d’une chaîne de connexion d’appareil fournie par IoT Hub. Vous pouvez également utiliser le service Device Provisioning Service (DPS) pour provisionner automatiquement des appareils, ce qui s’avère particulièrement utile lorsque vous devez configurer de nombreux appareils. Choisissez le script d’installation approprié selon votre choix en matière d’approvisionnement. 
 
 Les sections suivantes décrivent les cas et paramètres d’utilisation courants du script d’installation d’IoT Edge sur un nouvel appareil. 
 
@@ -106,6 +106,7 @@ Cet exemple présente une installation manuelle avec des conteneurs Windows :
 7. Utilisez les étapes dans [Vérifier une installation réussie](#verify-successful-installation) pour vérifier le statut d’IoT Edge sur votre appareil. 
 
 Lorsque vous installez et provisionnez un appareil manuellement, vous pouvez utiliser des paramètres supplémentaires pour modifier l’installation, à savoir :
+
 * Diriger le trafic pour qu’il transite par un serveur proxy
 * Pointer le programme d’installation sur un répertoire hors connexion
 * Déclarer une image conteneur d’agent spécifique, et fournir des informations d’identification si l’image se trouve dans un registre privé
@@ -114,16 +115,16 @@ Pour plus d’informations sur ces options d’installation, passez à la sectio
 
 ### <a name="option-2-install-and-automatically-provision"></a>Option 2 : Installer et approvisionner automatiquement
 
-Dans cette deuxième option, vous provisionnez l’appareil en utilisant le Service IoT Hub Device Provisioning. Fournissez l’**ID de l’étendue** d’une instance du Service Device Provisioning, et l’**ID d’inscription** de votre appareil.
+Dans cette deuxième option, vous provisionnez l’appareil en utilisant le Service IoT Hub Device Provisioning. Fournissez l’**ID de l’étendue** d’une instance du Service Device Provisioning, et l’**ID d’inscription** de votre appareil. Des valeurs supplémentaires peuvent être nécessaires en fonction de votre mécanisme d’attestation lors du provisionnement avec DPS, par exemple lors de l’utilisation de [clés symétriques](how-to-auto-provision-symmetric-keys.md).
 
-L’exemple suivant présente une installation automatique avec des conteneurs Windows :
+L’exemple suivant présente une installation automatique avec des conteneurs Windows et une attestation TPM :
 
 1. Suivez les étapes de la rubrique [Créer et provisionner un appareil IoT Edge avec TPM simulé sur Windows](how-to-auto-provision-simulated-device-windows.md) pour configurer le service Device Provisioning et récupérer son **ID d’étendue**, simuler un appareil TPM et récupérer son **ID d’inscription**, puis créez une inscription individuelle. Une fois l’appareil inscrit dans votre IoT Hub, suivez ces étapes d’installation.  
 
    >[!TIP]
    >Gardez ouverte la fenêtre dans laquelle s’exécute le simulateur TPM durant l’installation et les tests. 
 
-2. Exécutez PowerShell ISE en tant qu’administrateur.
+1. Exécutez PowerShell ISE en tant qu’administrateur.
 
    >[!NOTE]
    >Utilisez une session AMD64 de PowerShell pour installer IoT Edge, pas PowerShell (x86). Si vous ne savez pas quel type de session vous utilisez, exécutez la commande suivante :
@@ -132,27 +133,37 @@ L’exemple suivant présente une installation automatique avec des conteneurs W
    >(Get-Process -Id $PID).StartInfo.EnvironmentVariables["PROCESSOR_ARCHITECTURE"]
    >```
 
-3. La commande **Deploy-IoTEdge** vérifie que votre ordinateur Windows a une version prise en charge, active la fonctionnalité des conteneurs, avant de télécharger le runtime moby et le runtime IoT Edge. Par défaut, la commande utilise des conteneurs de Windows. 
+1. La commande **Deploy-IoTEdge** vérifie que votre ordinateur Windows a une version prise en charge, active la fonctionnalité des conteneurs, avant de télécharger le runtime moby et le runtime IoT Edge. Par défaut, la commande utilise des conteneurs de Windows. 
 
    ```powershell
    . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
    Deploy-IoTEdge
    ```
 
-4. À ce stade, les appareils IoT Core peuvent redémarrer automatiquement. D’autres appareils Windows 10 ou Windows Server peuvent vous inviter à redémarrer. Si c’est le cas, arrêtez ou redémarrez votre appareil maintenant. Une fois votre appareil prêt, exécutez à nouveau PowerShell en tant qu’administrateur.
+1. À ce stade, les appareils IoT Core peuvent redémarrer automatiquement. D’autres appareils Windows 10 ou Windows Server peuvent vous inviter à redémarrer. Si c’est le cas, arrêtez ou redémarrez votre appareil maintenant. Une fois votre appareil prêt, exécutez à nouveau PowerShell en tant qu’administrateur.
 
-6. La commande **Initialize-IoTEdge** configure le runtime IoT Edge sur votre ordinateur. Par défaut, la commande est une commande d’approvisionnement manuel avec des conteneurs Windows. Utilisez la balise `-Dps` pour utiliser le service de provisionnement des appareils à la place du provisionnement manuel.
+1. La commande **Initialize-IoTEdge** configure le runtime IoT Edge sur votre ordinateur. Par défaut, la commande est une commande d’approvisionnement manuel avec des conteneurs Windows. Utilisez la balise `-Dps` pour utiliser le service de provisionnement des appareils à la place du provisionnement manuel.
+
+   Utilisation de la commande **Initialize-IoTEdge** pour utiliser DPS avec l’attestation TPM :
 
    ```powershell
    . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
    Initialize-IoTEdge -Dps
    ```
 
-7. Lorsque vous y êtes invité, fournissez l’ID de l’étendue de votre service de provisionnement des appareils et l’ID d’inscription de votre appareil, que vous avez récupérés à l’étape 1.
+   Utilisation de la commande **Initialize-IoTEdge** pour utiliser DPS avec l’attestation de clé symétrique. Remplacez `{symmetric key}` par une clé d’appareil.
 
-8. Utilisez les étapes dans [Vérifier une installation réussie](#verify-successful-installation) pour vérifier le statut d’IoT Edge sur votre appareil. 
+   ```powershell
+   . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
+   Initialize-IoTEdge -Dps -SymmetricKey {symmetric key}
+   ```
+
+1. Lorsque vous y êtes invité, fournissez l’ID de l’étendue de votre service de provisionnement des appareils et l’ID d’inscription de votre appareil, que vous avez récupérés à l’étape 1.
+
+1. Utilisez les étapes dans [Vérifier une installation réussie](#verify-successful-installation) pour vérifier le statut d’IoT Edge sur votre appareil. 
 
 Lorsque vous installez et provisionnez un appareil manuellement, vous pouvez utiliser des paramètres supplémentaires pour modifier l’installation, à savoir :
+
 * Diriger le trafic pour qu’il transite par un serveur proxy
 * Pointer le programme d’installation sur un répertoire hors connexion
 * Déclarer une image conteneur d’agent spécifique, et fournir des informations d’identification si l’image se trouve dans un registre privé
@@ -161,7 +172,8 @@ Pour plus d’informations sur ces options d’installation, poursuivez la lectu
 
 ## <a name="offline-installation"></a>Installation hors connexion
 
-Lors de l’installation, deux fichiers sont téléchargés : 
+Lors de l’installation, deux fichiers sont téléchargés :
+
 * Le fichier cab Microsoft Azure IoT Edge, contenant le démon de sécurité IoT Edge (iotedged), le moteur du conteneur Moby et Moby CLI.
 * Programme d’installation msi du Package redistribuable Visual C++ (Runtime VC)
 
@@ -238,6 +250,7 @@ Update-IoTEdge
 ```
 
 Lorsque vous mettez à jour IoT Edge, vous pouvez utiliser des paramètres supplémentaires pour modifier la mise à jour, notamment :
+
 * Diriger le trafic pour qu’il transite par un serveur proxy, ou
 * Pointer le programme d’installation sur un répertoire hors connexion 
 * Redémarrer sans invite si nécessaire
@@ -285,6 +298,7 @@ La commande Initialize-IoTEdge configure IoT Edge avec votre chaîne de connexio
 | **DeviceConnectionString** | Chaîne de connexion d’un appareil IoT Edge inscrit dans un IoT Hub, entre apostrophes | **Obligatoire** pour une installation manuelle. Si vous ne fournissez pas de chaîne de connexion dans les paramètres de script, vous serez invité à la spécifier durant l’installation. |
 | **ScopeId** | ID de l’étendue d’une instance de Service Device Provisioning associée à votre IoT Hub. | **Obligatoire** pour une installation DPS. Si vous ne fournissez pas d’ID de l’étendue dans les paramètres de script, vous serez invité à le spécifier durant l’installation. |
 | **RegistrationID** | ID d’inscription généré par votre appareil | **Obligatoire** pour une installation DPS. Si vous ne fournissez pas d’ID d’inscription dans les paramètres de script, vous serez invité à le spécifier durant l’installation. |
+| **SymmetricKey** | Clé symétrique utilisée pour provisionner l’identité de l’appareil IoT Edge lors de l’utilisation de DPS | **Obligatoire** pour l’installation DPS si vous utilisez l’attestation de clé symétrique. |
 | **ContainerOs** | **Windows** ou **Linux** | Si aucun système d’exploitation de conteneur n’est spécifié, Windows est la valeur par défaut.<br><br>Pour des conteneurs Windows, IoT Edge utilise le moteur de conteneur Moby inclus dans l’installation. Pour des conteneurs Linux, vous devez installer un moteur de conteneur avant de commencer l’installation. |
 | **InvokeWebRequestParameters** | Table de hachage de paramètres et valeurs | Pendant l’installation, plusieurs requêtes web sont effectuées. Ce champ permet de définir des paramètres pour ces requêtes HTTP. Ce paramètre est utile pour configurer des informations d’identification pour des serveurs proxy. Pour plus d’informations, voir [Configurer un appareil IoT Edge de façon à ce qu’il communique via un serveur proxy](how-to-configure-proxy-support.md). |
 | **AgentImage** | URI d’image de l’agent IoT Edge | Par défaut, une nouvelle installation d’IoT Edge utilise la dernière balise de déploiement pour l’image d’agent IoT Edge. Ce paramètre permet de définir une balise spécifique pour la version d’image, ou de fournir votre propre image d’agent. Pour plus d’informations, voir [Comprendre les balises IoT Edge](how-to-update-iot-edge.md#understand-iot-edge-tags). |
@@ -301,14 +315,12 @@ La commande Initialize-IoTEdge configure IoT Edge avec votre chaîne de connexio
 | **OfflineInstallationPath** | Chemin du répertoire | Si ce paramètre est inclus, le programme d’installation vérifie la présence dans le répertoire listé des fichiers cab IoT Edge et MSI du Runtime VC. Tous les fichiers introuvables dans le répertoire sont téléchargés. Si les deux fichiers sont dans le répertoire, vous pouvez installer IoT Edge sans connexion Internet. Vous pouvez également utiliser ce paramètre pour utiliser une version spécifique. |
 | **RestartIfNeeded** | Aucun | Cet indicateur permet au script de déploiement de redémarrer l’ordinateur sans invite, si nécessaire. |
 
-
 ### <a name="uninstall-iotedge"></a>Uninstall-IoTEdge
 
 | Paramètre | Valeurs acceptées | Commentaires |
 | --------- | --------------- | -------- |
 | **Force** | Aucun | Cet indicateur force la désinstallation si la précédente tentative de désinstallation a échoué. 
 | **RestartIfNeeded** | Aucun | Cet indicateur permet au script de désinstallation de redémarrer l’ordinateur sans invite, si nécessaire. |
-
 
 ## <a name="next-steps"></a>Étapes suivantes
 

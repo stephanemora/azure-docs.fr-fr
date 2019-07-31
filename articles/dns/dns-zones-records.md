@@ -15,12 +15,12 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/18/2017
 ms.author: victorh
-ms.openlocfilehash: 2b9c8f1bb7407dd36623fd8ad68f9489172a1caf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1a62a4d5f06856ca0fe6356ca388047679097e3f
+ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64712225"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68004471"
 ---
 # <a name="overview-of-dns-zones-and-records"></a>Vue d’ensemble des enregistrements et des zones DNS
 
@@ -87,6 +87,8 @@ Cela s’applique uniquement au jeu d’enregistrements NS défini à l’extré
 Un jeu d’enregistrements SOA est créé automatiquement au sommet (apex) de chaque zone (nom = « \@ »), et est automatiquement supprimé lors de la suppression de la zone.  Il n’est pas possible de créer ou supprimer séparément des enregistrements SOA.
 
 Vous pouvez modifier toutes les propriétés de l’enregistrement SOA, sauf la propriété « host » qui est préconfigurée pour faire référence au nom du serveur de noms principal fourni par le DNS Azure.
+
+Le numéro de série de la zone dans l’enregistrement SOA n’est pas mis à jour automatiquement lorsque des modifications sont apportées aux enregistrements de la zone. Vous pouvez le mettre à jour manuellement en modifiant l’enregistrement SOA, si nécessaire.
 
 ### <a name="spf-records"></a>Enregistrements SPF
 

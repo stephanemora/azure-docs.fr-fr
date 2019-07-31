@@ -9,12 +9,12 @@ ms.date: 02/11/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 94a385b7e41dd4a7664dc40418456b304ebef509
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 51e0379607c49019590a99c9fb7304f28be2afe5
+ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65150014"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68305735"
 ---
 # <a name="initiate-a-storage-account-failover-preview"></a>Lancer un basculement de compte de stockage (préversion)
 
@@ -67,7 +67,7 @@ Pour lancer un basculement de compte à l’aide de PowerShell, vous devez d’a
 1. Désinstallez les installations précédentes d’Azure PowerShell :
 
     - Supprimez toutes les anciennes installations d’Azure PowerShell de Windows à l’aide du paramètre **Applications et fonctionnalités** situé sous **Paramètres**.
-    - Supprimez tous les modules **Azure*** de `%Program Files%\WindowsPowerShell\Modules`.
+    - Supprimez tous les modules **Azure** de `%Program Files%\WindowsPowerShell\Modules`.
     
 1. Vérifiez que la dernière version de PowerShellGet est installée. Ouvrez une fenêtre Windows PowerShell et exécutez la commande suivante pour installer la dernière version :
  
@@ -96,7 +96,7 @@ Pour lancer un basculement de compte à partir de PowerShell, exécutez la comma
 Invoke-AzStorageAccountFailover -ResourceGroupName <resource-group-name> -Name <account-name> 
 ```
 
-## <a name="azure-cli"></a>Azure CLI
+## <a name="azure-cli"></a>D’Azure CLI
 
 Pour lancer un basculement de compte à partir de l’interface de ligne de commande Azure, exécutez la commande suivante :
 

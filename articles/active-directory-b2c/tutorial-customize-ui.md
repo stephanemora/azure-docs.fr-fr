@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 4c0fdbee2c5108dd3203217cb721576703b3faca
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: da7ec020b6f3f4a3b1890695a78fb6bdb363d233
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66512079"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67849380"
 ---
 # <a name="tutorial-customize-the-interface-of-user-experiences-in-azure-active-directory-b2c"></a>Didacticiel : Personnaliser l'interface des expériences utilisateur dans Azure Active Directory B2C
 
@@ -44,11 +44,11 @@ Bien que vous puissiez stocker vos fichiers de plusieurs façons, pour les besoi
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 2. Veillez à bien utiliser l’annuaire qui contient votre abonnement Azure. Sélectionnez le **filtre Répertoire et abonnement** dans le menu supérieur et sélectionnez l’annuaire qui contient votre abonnement. Cet annuaire est différent de celui qui contient votre locataire Azure B2C.
-3. Choisissez Tous les services dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Comptes de stockage**. 
+3. Choisissez Tous les services dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Comptes de stockage**.
 4. Sélectionnez **Ajouter**.
 5. Sous **Groupe de ressources**, sélectionnez **Créer**, entrez un nom pour le nouveau groupe de ressources, puis cliquez sur **OK**.
 6. Nommez le compte de stockage. Le nom que vous choisissez doit être unique dans Azure, et contenir entre 3 et 24 caractères, uniquement des lettres minuscules et des chiffres.
-7. Sélectionnez l’emplacement du compte de stockage ou acceptez l’emplacement par défaut. 
+7. Sélectionnez l’emplacement du compte de stockage ou acceptez l’emplacement par défaut.
 8. Acceptez toutes les autres valeurs par défaut, sélectionnez **Vérifier + créer**, puis cliquez sur **Créer**.
 9. Une fois le compte de stockage créé, sélectionnez **Accéder à la ressource**.
 
@@ -68,7 +68,7 @@ Bien que vous puissiez stocker vos fichiers de plusieurs façons, pour les besoi
 5. Pour **En-têtes exposés**, saisissez un astérisque (*).
 6. Pour **Âge maximal**, tapez 200.
 
-    ![Activez CORS](./media/tutorial-customize-ui/enable-cors.png)
+    ![Page de configuration CORS dans Stockage Blob Azure dans le Portail Azure](./media/tutorial-customize-ui/enable-cors.png)
 
 5. Cliquez sur **Enregistrer**.
 
@@ -85,14 +85,14 @@ Pour personnaliser l’interface utilisateur de l’expérience d’inscription,
         <title>My B2C Application</title>
         <link rel="stylesheet" href="https://your-storage-account.blob.core.windows.net/your-container/style.css">
       </head>
-      <body>  
+      <body>
         <h1>My B2C Application</h1>
         <div id="api"></div>
       </body>
     </html>
     ```
 
-    Vous pouvez concevoir la page comme bon vous semble, mais l’élément div **api** est obligatoire pour tout fichier de personnalisation HTML que vous créez. 
+    Vous pouvez concevoir la page comme bon vous semble, mais l’élément div **api** est obligatoire pour tout fichier de personnalisation HTML que vous créez.
 
 3. Enregistrez le fichier sous *custom-ui.html*.
 4. Créez la feuille CSS simple suivante, qui centre tous les éléments dans la page d’inscription ou de connexion, y compris les éléments injectés par Azure AD B2C.
@@ -103,7 +103,7 @@ Pour personnaliser l’interface utilisateur de l’expérience d’inscription,
       text-align: center;
     }
     .intro h2 {
-      text-align: center; 
+      text-align: center;
     }
     .entry {
       width: 300px ;
@@ -111,7 +111,7 @@ Pour personnaliser l’interface utilisateur de l’expérience d’inscription,
       margin-right: auto ;
     }
     .divider h2 {
-      text-align: center; 
+      text-align: center;
     }
     .create {
       width: 300px ;
@@ -130,7 +130,7 @@ Dans ce tutoriel, vous stockez les fichiers que vous avez créés dans le compte
 2. Sélectionnez le compte de stockage que vous avez créé, sélectionnez **Blobs**, puis sélectionnez le conteneur que vous avez créé.
 3. Sélectionnez **Charger**, accédez au fichier *custom-ui.html* et sélectionnez-le, puis cliquez sur **Charger**.
 
-    ![Charger des fichiers de personnalisation](./media/tutorial-customize-ui/upload-blob.png)
+    ![Page Charger l’objet blob dans le portail avec le bouton Charger et Fichiers mis en surbrillance](./media/tutorial-customize-ui/upload-blob.png)
 
 4. Copiez l’URL du fichier que vous avez chargé afin de l’utiliser ultérieurement dans ce tutoriel.
 5. Répétez les étapes 3 et 4 pour le fichier *style.css*.
@@ -149,11 +149,11 @@ Dans ce tutoriel, vous stockez les fichiers que vous avez créés dans le compte
 2. En haut de la page, cliquez sur **Exécuter le flux d’utilisateur**.
 3. Cliquez sur le bouton **Exécuter le flux d’utilisateur**.
 
-    ![Exécuter un flux d’utilisateur d’inscription ou de connexion](./media/tutorial-customize-ui/run-user-flow.png)
+    ![Exécuter une page de flux d’utilisateur pour le flux d’utilisateur d’inscription ou de connexion](./media/tutorial-customize-ui/run-user-flow.png)
 
     Vous devez voir une page semblable à l’exemple suivant avec les éléments centrés conformément au fichier CSS que vous avez créé :
 
-    ![Résultats du flux d’utilisateur](./media/tutorial-customize-ui/run-now.png) 
+    ![Navigateur web présentant une page d’inscription ou de connexion avec des éléments d’interface utilisateur personnalisés](./media/tutorial-customize-ui/run-now.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

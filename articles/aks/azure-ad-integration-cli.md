@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 04/16/2019
 ms.author: mlearned
 ms.openlocfilehash: 5b99d76ef20c288d6ae0bd33e1e2b6a75a359d3a
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2019
+ms.lasthandoff: 07/25/2019
 ms.locfileid: "67616269"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service-using-the-azure-cli"></a>Intégrer Azure Active Directory avec Azure Kubernetes Service à l’aide d’Azure AD
@@ -49,7 +49,7 @@ Depuis le cluster Kubernetes, l’authentification par jeton de Webhook est util
 
 Pour intégrer avec AKS, vous créez et utilisez une application Azure AD qui agit en tant que point de terminaison pour les demandes d’identité. La première application Azure AD dont vous avez besoin obtient l’appartenance au groupe Azure AD pour un utilisateur.
 
-Créez le composant d’application serveur en utilisant la commande [az ad app create][az-ad-app-create] command, then update the group membership claims using the [az ad app update][az-ad-app-update]. L’exemple suivant utilise la variable *aksname* définie dans la section [Avant de commencer](#before-you-begin) et crée une variable
+Créez le composant d’application serveur avec la commande [az ad app create][az-ad-app-create], puis mettez à jour les revendications d’appartenance au groupe avec la commande [az ad app update][az-ad-app-update]. L’exemple suivant utilise la variable *aksname* définie dans la section [Avant de commencer](#before-you-begin) et crée une variable
 
 ```azurecli-interactive
 # Create the Azure AD application
@@ -62,7 +62,7 @@ serverApplicationId=$(az ad app create \
 az ad app update --id $serverApplicationId --set groupMembershipClaims=All
 ```
 
-Créez à présent un principal de service pour l’application serveur en utilisant la commande [créer az ad sp][az-ad-sp-create] command. This service principal is used to authenticate itself within the Azure platform. Then, get the service principal secret using the [az ad sp credential reset][az-ad-sp-credential-reset], et affectez-le à la variable nommée *serverApplicationSecret* en vue d’une utilisation dans l’une des étapes suivantes :
+Maintenant, créez un principal de service pour l’application serveur avec la commande [az ad sp create][az-ad-sp-create]. Ce principal de service est utilisé pour s’authentifier dans la plateforme Azure. Ensuite, obtenez le secret du principal de service en utilisant la commande [az ad sp credential reset][az-ad-sp-credential-reset] et affectez-le à la variable nommée *serverApplicationSecret* pour l’utiliser dans l’une des étapes suivantes :
 
 ```azurecli-interactive
 # Create a service principal for the Azure AD application
@@ -89,7 +89,7 @@ az ad app permission add \
     --api-permissions e1fe6dd8-ba31-4d61-89e7-88639da4683d=Scope 06da0dbc-49e2-44d2-8312-53f166ab848a=Scope 7ab1d382-f21e-4acd-a863-ba3e13f7da61=Role
 ```
 
-Enfin, accordez les autorisations attribuées dans l’étape précédente pour l’application serveur à l’aide de la commande [az ad app permission grant][az-ad-app-permission-grant] command. This step fails if the current account is not a tenant admin. You also need to add permissions for Azure AD application to request information that may otherwise require administrative consent using the [az ad app permission admin-consent][az-ad-app-permission-admin-consent] :
+Enfin, accordez les autorisations attribuées dans l’étape précédente pour l’application serveur à l’aide de la commande [az ad app permission grant][az-ad-app-permission-grant]. Cette étape échoue si le compte actuel n’est pas un administrateur de locataire. Vous devez également ajouter des autorisations pour que l’application Azure AD demande des informations, qui sinon pourraient nécessiter le consentement de l’administrateur avec [az ad app permission admin-consent][az-ad-app-permission-admin-consent] :
 
 ```azurecli-interactive
 az ad app permission grant --id $serverApplicationId --api 00000003-0000-0000-c000-000000000000
@@ -120,7 +120,7 @@ Obtenez l’ID oAuth2 pour l’application serveur afin de permettre le flux d�
 oAuthPermissionId=$(az ad app show --id $serverApplicationId --query "oauth2Permissions[0].id" -o tsv)
 ```
 
-Ajoutez les autorisations pour les composants d’application cliente et d’application serveur nécessaires pour utiliser le flux de communication oAuth2 à l’aide de la commande [az ad app permission add][az-ad-app-permission-add] command. Then, grant permissions for the client application to communication with the server application using the [az ad app permission grant][az-ad-app-permission-grant] :
+Ajoutez les autorisations pour les composants d’application cliente et d’application serveur nécessaires pour utiliser le flux de communication oAuth2 à l’aide de la commande [az ad app permission add][az-ad-app-permission-add]. Ensuite, accordez des autorisations pour que l’application cliente communique avec l’application serveur en utilisant la commande [az ad app permission grant][az-ad-app-permission-grant] :
 
 ```azurecli-interactive
 az ad app permission add --id $clientApplicationId --api $serverApplicationId --api-permissions $oAuthPermissionId=Scope
@@ -137,7 +137,7 @@ Créez un groupe de ressources pour le cluster :
 az group create --name myResourceGroup --location EastUS
 ```
 
-Obtenez l’ID de locataire de votre abonnement Azure à l’aide de la commande [az account show][az-account-show] command. Then, create the AKS cluster using the [az aks create][az-aks-create]. La commande pour créer le cluster AKS fournit les ID d’application serveur et cliente, le secret du principal de service de l’application serveur et votre ID de locataire :
+Obtenez l’ID de locataire de votre abonnement Azure à l’aide de la commande [az account show][az-account-show]. Ensuite, créez le cluster AKS avec la commande [az aks create][az-aks-create]. La commande pour créer le cluster AKS fournit les ID d’application serveur et cliente, le secret du principal de service de l’application serveur et votre ID de locataire :
 
 ```azurecli-interactive
 tenantId=$(az account show --query tenantId -o tsv)
@@ -248,7 +248,7 @@ Pour utiliser des utilisateurs et des groupes Azure AD afin de contrôler l’ac
 
 Pour plus d’informations sur la sécurisation des clusters Kubernetes, voir [Options d’accès et d’identité pour Azure Kubernetes Service (AKS)][rbac-authorization].
 
-Pour découvrir les meilleures pratiques de contrôle des identités et des ressources, voir [Meilleurs pratiques relatives à l’authentification et à l’autorisation dans Azure Kubernetes Service (AKS)][operator-best-practices-identity].
+Pour découvrir les meilleures pratiques de contrôle des identités et des ressources, consultez [Meilleurs pratiques relatives à l’authentification et à l’autorisation dans Azure Kubernetes Service (AKS)][operator-best-practices-identity].
 
 <!-- LINKS - external -->
 [kubernetes-webhook]:https://kubernetes.io/docs/reference/access-authn-authz/authentication/#webhook-token-authentication

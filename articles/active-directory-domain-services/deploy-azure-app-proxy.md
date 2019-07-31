@@ -1,5 +1,5 @@
 ---
-title: 'Azure Active Directory Domain Services : déployer le proxy d’application Azure Active Directory | Microsoft Docs'
+title: 'Azure Active Directory Domain Services : Déployer le proxy d’application Azure AD | Microsoft Docs'
 description: Utiliser le proxy d'application sur les domaines managés par les Azure Active Directory Domain Services
 services: active-directory-ds
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/14/2019
 ms.author: iainfou
-ms.openlocfilehash: e9ccbd81a8efeb69ea073d89edd6579a6d59699a
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: eca421697081310b1bf245172b3ff125e11c8728
+ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67473607"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68234170"
 ---
 # <a name="deploy-azure-ad-application-proxy-on-an-azure-ad-domain-services-managed-domain"></a>Déployer le proxy d'application sur un domaine managé par les Azure Active Directory Domain Services
 Le service Proxy d’application Azure Active Directory (AD) vous aide à prendre en charge les personnes qui travaillent à distance en publiant des applications locales afin de les rendre accessibles sur Internet. Avec les Azure AD Domain Services, vous pouvez désormais transférer des applications héritées vers des services d’infrastructure Azure. Vous pouvez ensuite publier ces applications à l’aide du proxy d’application Azure AD pour fournir un accès à distance sécurisé aux utilisateurs de votre organisation.
@@ -86,7 +86,7 @@ Auparavant, vous approvisionniez une machine virtuelle Windows Server et la joig
     ![Réussite de l'utilitaire de résolution des problèmes](./media/app-proxy/app-proxy-connector-troubleshooter.png)
 5. Vous devez voir le connecteur nouvellement installé sur la page Proxy d’application dans votre annuaire Azure AD.
 
-    ![](./media/app-proxy/app-proxy-connector-page.png)
+    ![Dans le Portail Azure, le connecteur installé s’affiche comme étant disponible](./media/app-proxy/app-proxy-connector-page.png)
 
 > [!NOTE]
 > Vous pouvez choisir d’installer les connecteurs sur plusieurs serveurs pour garantir une haute disponibilité pour l’authentification des applications publiées par le biais du proxy d’application Azure AD. Effectuez les étapes répertoriées ci-dessus pour installer le connecteur sur d’autres serveurs joints à votre domaine managé.

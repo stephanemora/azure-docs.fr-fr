@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 5/2/2019
-ms.openlocfilehash: c1b2875e6899d2301a4c4b564882214dc7bc4981
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8e3ae84242a1a9b76fbb18a8d8164c97a62a97d9
+ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65205456"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68003910"
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Niveau de compatibilité pour les travaux Azure Stream Analytics
 
@@ -84,6 +84,12 @@ Le comportement de l’opération upsert est *insert or replace* (insérer ou re
 **Niveaux précédents :** les types [DateTimeOffset](https://docs.microsoft.com/sql/t-sql/data-types/datetimeoffset-transact-sql?view=sql-server-2017) étaient ajustés au format temps universel coordonné (UTC).
 
 **Niveau 1.2 :** DateTimeOffset n’est plus ajusté.
+
+### <a name="long-when-writing-to-sql-output"></a>Long lors de l’écriture dans une sortie SQL
+
+**Niveaux précédents :** Les valeurs ont été tronquées en fonction du type cible.
+
+**Niveau 1.2 :** Les valeurs qui ne tiennent pas dans le type cible sont traitées en fonction de la stratégie d’erreur de sortie.
 
 ### <a name="strict-validation-of-prefix-of-functions"></a>Validation stricte des préfixes de fonction
 

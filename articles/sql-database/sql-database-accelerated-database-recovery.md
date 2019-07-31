@@ -11,16 +11,16 @@ ms.author: mathoma
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 77bc33747964a5f4ee1a67aba777dc3ed76b9a51
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1d556c82f47868f4ee06694e23092f10029d619d
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65073468"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839850"
 ---
 # <a name="accelerated-database-recovery"></a>Récupération de base de données accélérée
 
-La **récupération de base de données accélérée** est une nouvelle fonctionnalité du moteur de base de données SQL qui améliore considérablement la disponibilité des bases de données, en particulier en présence de transactions d’une durée d’exécution longue, grâce à une nouvelle conception du processus de récupération du moteur de base de données SQL. La récupération de base de données accélérée est disponible pour les bases de données uniques et les bases de données mises en pool dans Azure SQL Database, et les bases de données dans Azure SQL Data Warehouse. Les principaux avantages de la récupération de base de données accélérée sont :
+La **récupération de base de données accélérée** est une nouvelle fonctionnalité du moteur de base de données SQL qui améliore considérablement la disponibilité des bases de données, en particulier en présence de transactions d’une durée d’exécution longue, grâce à une nouvelle conception du processus de récupération du moteur de base de données SQL. La récupération de base de données accélérée est disponible pour les bases de données uniques et les bases de données mises en pool dans Azure SQL Database, et les bases de données dans Azure SQL Data Warehouse (actuellement en préversion publique). Les principaux avantages de la récupération de base de données accélérée sont :
 
 - **Récupération rapide et cohérente des bases de données**
 

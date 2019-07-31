@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 03/27/2019
+ms.date: 07/16/2019
 ms.author: magoedte
-ms.openlocfilehash: 22802950c68dc5a3cf0df8ee26ff38ccb937b551
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: fbfbd8e26ab3e92f06194322be7ec2be2fb180fd
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67295516"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68254464"
 ---
 # <a name="manage-log-data-and-workspaces-in-azure-monitor"></a>Gérer les données du journal et les espaces de travail dans Azure Monitor
 Azure Monitor stocke les données de journal d’activité dans un espace de travail Log Analytics, qui n’est autre qu’un conteneur de données et d’informations de configuration. Pour gérer l'accès aux données de journal, vous accomplissez diverses tâches administratives liées aux espaces de travail. Vous ou d’autres membres de votre organisation pouvez utiliser plusieurs espaces de travail pour gérer différents ensembles de données provenant de tout ou partie de votre infrastructure informatique.
@@ -192,12 +192,18 @@ Chaque espace de travail peut être associé à plusieurs comptes et chaque comp
 
 Les activités suivantes nécessitent également des autorisations Azure :
 
-| Action                                                          | Autorisations Azure nécessaires | Notes |
-|-----------------------------------------------------------------|--------------------------|-------|
-| Ajout et suppression de solutions de supervision                        | `Microsoft.Resources/deployments/*` <br> `Microsoft.OperationalInsights/*` <br> `Microsoft.OperationsManagement/*` <br> `Microsoft.Automation/*` <br> `Microsoft.Resources/deployments/*/write` | Ces autorisations doivent être accordées au niveau du groupe de ressources ou de l’abonnement. |
-| Modification du niveau tarifaire                                       | `Microsoft.OperationalInsights/workspaces/*/write` | |
+||Action |Autorisations Azure nécessaires |Notes |
+|-------|-------------------------|------|
+| Ajout et suppression de solutions de supervision | `Microsoft.Resources/deployments/*` <br> `Microsoft.OperationalInsights/*` <br> `Microsoft.OperationsManagement/*` <br> `Microsoft.Automation/*` <br> `Microsoft.Resources/deployments/*/write` | Ces autorisations doivent être accordées au niveau du groupe de ressources ou de l’abonnement. |
+| Modification du niveau tarifaire | `Microsoft.OperationalInsights/workspaces/*/write` | |
 | Affichage des données dans les mosaïques de solution *Sauvegarde* et *Site Recovery* | Administrateur/coadministrateur | Accède aux ressources déployées à l’aide du modèle de déploiement Classic |
-| Gestion d’un espace de travail dans le portail Azure                        | `Microsoft.Resources/deployments/*` <br> `Microsoft.OperationalInsights/workspaces/*` ||
+| Gestion d’un espace de travail dans le portail Azure | `Microsoft.Resources/deployments/*` <br> `Microsoft.OperationalInsights/workspaces/*` ||
+| Afficher les propriétés de base de l’espace de travail et entrer dans le panneau Espace de travail dans le portail | `Microsoft.OperationalInsights/workspaces/read` ||
+| Interroger des journaux à l’aide d’une interface | `Microsoft.OperationalInsights/workspaces/query/read` ||
+| Accéder à tous les types de journaux à l’aide de requêtes | `Microsoft.OperationalInsights/workspaces/query/*/read` ||
+| Accéder à une table de journaux spécifique | `Microsoft.OperationalInsights/workspaces/query/<table_name>/read` ||
+| Lire les clés de l’espace de travail pour autoriser l’envoi des journaux à cet espace de travail | `Microsoft.OperationalInsights/workspaces/sharedKeys/action` ||
+
 
 
 #### <a name="manage-access-to-log-analytics-workspace-using-azure-permissions"></a>Gérer l’accès à l’espace de travail Log Analytics à l’aide des autorisations Azure 
@@ -215,9 +221,9 @@ Le rôle Lecteur Log Analytics inclut les actions Azure suivantes :
 
 | Type    | Autorisation | Description |
 | ------- | ---------- | ----------- |
-| Action | `*/read`   | Possibilité de visualiser toutes les ressources Azure et la configuration des ressources. Inclut la visualisation des éléments suivants : <br> État d’extension de machine virtuelle <br> Configuration des diagnostics Azure sur les ressources <br> Totalité des paramètres et propriétés de l’ensemble des ressources |
-| Action | `Microsoft.OperationalInsights/workspaces/analytics/query/action` | Possibilité d’exécuter des requêtes à l’aide de la fonction Recherche dans les journaux v2 |
-| Action | `Microsoft.OperationalInsights/workspaces/search/action` | Possibilité d’exécuter des requêtes à l’aide de la fonction Recherche dans les journaux v1 |
+| Action | `*/read`   | Possibilité de visualiser toutes les ressources Azure et la configuration des ressources. Inclut la visualisation des éléments suivants : <br> État d’extension de machine virtuelle <br> Configuration des diagnostics Azure sur les ressources <br> Totalité des paramètres et propriétés de l’ensemble des ressources. <br> Pour les espaces de travail, il permet aux autorisations illimitées de lire les paramètres de l’espace de travail et d’exécuter des requêtes sur les données. Consultez des options plus granulaires ci-dessus. |
+| Action | `Microsoft.OperationalInsights/workspaces/analytics/query/action` | Déprécié. Il n’est pas nécessaire de les affecter aux utilisateurs. |
+| Action | `Microsoft.OperationalInsights/workspaces/search/action` | Déprécié. Il n’est pas nécessaire de les affecter aux utilisateurs. |
 | Action | `Microsoft.Support/*` | Possibilité d’ouvrir des cas de support |
 |Non-action | `Microsoft.OperationalInsights/workspaces/sharedKeys/read` | Interdiction de lecture de la clé d’espace de travail requise pour l’utilisation de l’API de collecte de données et pour l’installation des agents. Cela empêche l’utilisateur d’ajouter de nouvelles ressources à l’espace de travail. |
 
@@ -242,7 +248,7 @@ Le rôle Contributeur Log Analytics inclut les actions Azure suivantes :
 
 | Autorisation | Description |
 | ---------- | ----------- |
-| `*/read`     | Possibilité de visualiser toutes les ressources et la configuration des ressources. Inclut la visualisation des éléments suivants : <br> État d’extension de machine virtuelle <br> Configuration des diagnostics Azure sur les ressources <br> Totalité des paramètres et propriétés de l’ensemble des ressources |
+| `*/read`     | Possibilité de visualiser toutes les ressources Azure et la configuration des ressources. Inclut la visualisation des éléments suivants : <br> État d’extension de machine virtuelle <br> Configuration des diagnostics Azure sur les ressources <br> Totalité des paramètres et propriétés de l’ensemble des ressources. <br> Pour les espaces de travail, il permet aux autorisations illimitées de lire les paramètres de l’espace de travail et d’exécuter des requêtes sur les données. Consultez des options plus granulaires ci-dessus. |
 | `Microsoft.Automation/automationAccounts/*` | Possibilité de créer et configurer les comptes Azure Automation, et notamment d’ajouter et modifier des runbooks |
 | `Microsoft.ClassicCompute/virtualMachines/extensions/*` <br> `Microsoft.Compute/virtualMachines/extensions/*` | Ajout, mise à jour et suppression d’extensions de machine virtuelle, notamment l’extension Microsoft Monitoring Agent et l’extension Agent OMS pour Linux |
 | `Microsoft.ClassicStorage/storageAccounts/listKeys/action` <br> `Microsoft.Storage/storageAccounts/listKeys/action` | Visualisation de la clé du compte de stockage ; opération requise pour la configuration de Log Analytics pour la lecture des journaux d’activité à partir des comptes de stockage Azure |
@@ -268,7 +274,7 @@ Quand les utilisateurs interrogent les journaux à partir d’un espace de trava
 | Autorisation | Description |
 | ---------- | ----------- |
 | `Microsoft.Insights/logs/<tableName>/read`<br><br>Exemples :<br>`Microsoft.Insights/logs/*/read`<br>`Microsoft.Insights/logs/Heartbeat/read` | Capacité d’afficher toutes les données de journal pour la ressource.  |
-
+| `Microsoft.Insights/diagnosticSettings/write ` | Possibilité de configurer les paramètres de diagnostic pour autoriser la configuration des journaux pour cette ressource. |
 
 Cette autorisation est accordée généralement à partir d’un rôle qui inclut des autorisations _\*/read ou_ _\*_ tel que les rôles [Lecteur](../../role-based-access-control/built-in-roles.md#reader) et [Contributeur](../../role-based-access-control/built-in-roles.md#contributor) intégrés. Notez que les rôles personnalisés qui incluent des actions spécifiques ou des rôles intégrés dédiés peuvent ne pas inclure cette autorisation.
 

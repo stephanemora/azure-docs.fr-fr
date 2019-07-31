@@ -10,24 +10,24 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 06879164c6f72891b734da077c667c6f90448fe4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6163f1cbf878f4d4678b2b66829522b0dd16ae22
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66512965"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67835627"
 ---
 # <a name="predicates-and-predicatevalidations"></a>Predicates et PredicateValidations
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Les éléments **Predicates** et **PredicateValidations** vous permettent d’effectuer un processus de validation afin de vous assurer que seules des données correctement formées sont entrées dans votre locataire Azure Active Directory (Azure AD) B2C.  
+Les éléments **Predicates** et **PredicateValidations** vous permettent d’effectuer un processus de validation afin de vous assurer que seules des données correctement formées sont entrées dans votre locataire Azure Active Directory (Azure AD) B2C.
 
-Le diagramme suivant illustre la relation entre les éléments :  
+Le diagramme suivant illustre la relation entre les éléments :
 
-![Prédicats](./media/predicates/predicates.png)
+![Diagramme montrant la relation entre les prédicats et les validations de prédicat](./media/predicates/predicates.png)
 
-## <a name="predicates"></a>Prédicats  
+## <a name="predicates"></a>Prédicats
 
 L’élément **Predicate** définit une validation de base pour vérifier la valeur d’un type de revendication et retourne `true` ou `false`. La validation est effectuée en utilisant un élément **Method** et un ensemble d’éléments **Parameter** pertinents à la méthode. Par exemple, un prédicat peut vérifier si la longueur d’une valeur de revendication de chaîne est dans la plage des paramètres minimaux et maximaux spécifiés, ou si une valeur de revendication de chaîne contient un jeu de caractères. L’élément **UserHelpText** fournit un message d’erreur présenté aux utilisateurs si la vérification échoue. La valeur de l’élément **UserHelpText** peut être localisée à l’aide de la [personnalisation de la langue](localization.md).
 
@@ -35,7 +35,7 @@ L’élément **Predicates** contient l’élément suivant :
 
 | Élément | Occurrences | Description |
 | ------- | ----------- | ----------- |
-| Predicate | 1:n | Liste de prédicats. | 
+| Predicate | 1:n | Liste de prédicats. |
 
 L’élément **Predicate** contient les attributs suivants :
 
@@ -49,13 +49,13 @@ L’élément **Predicate** contient les éléments suivants :
 | Élément | Occurrences | Description |
 | ------- | ----------- | ----------- |
 | UserHelpText | 1:1 | Message d’erreur présenté aux utilisateurs si la vérification échoue. Vous pouvez localiser cette chaîne à l’aide de la [personnalisation de la langue](localization.md). |
-| parameters | 1:1 | Paramètres pour le type de méthode de la validation de chaîne. | 
+| parameters | 1:1 | Paramètres pour le type de méthode de la validation de chaîne. |
 
 L’élément **Parameters** contient les éléments suivants :
 
 | Élément | Occurrences | Description |
 | ------- | ----------- | ----------- |
-| Paramètre | 1:n | Paramètres pour le type de méthode de la validation de chaîne. | 
+| Paramètre | 1:n | Paramètres pour le type de méthode de la validation de chaîne. |
 
 L’élément **Parameter** contient les attributs suivants :
 
@@ -108,7 +108,7 @@ L’exemple suivant montre une méthode `IsDateRange` avec les paramètres `Mini
 </Predicate>
 ```
 
-## <a name="predicatevalidations"></a>PredicateValidations 
+## <a name="predicatevalidations"></a>PredicateValidations
 
 Alors que les prédicats définissent la validation à effectuer par rapport à un type de revendication, les **PredicateValidations** regroupent un ensemble de prédicats pour former une validation de l’entrée utilisateur qui peut être appliquée à un type de revendication. Chaque élément **PredicateValidation** contient un ensemble d’éléments **PredicateGroup** qui contiennent un ensemble d’éléments **PredicateReference** qui pointe vers un **Predicate**. Pour que la validation réussisse, la valeur de la revendication doit réussir tous les tests des prédicats qui se trouvent sous tous les éléments **PredicateGroup** avec leur ensemble d’éléments **PredicateReference**.
 
@@ -134,7 +134,7 @@ L’élément **PredicateValidations** contient l’élément suivant :
 
 | Élément | Occurrences | Description |
 | ------- | ----------- | ----------- |
-| PredicateValidation | 1:n | Liste de validations de prédicat. | 
+| PredicateValidation | 1:n | Liste de validations de prédicat. |
 
 L’élément **PredicateValidation** contient l’attribut suivant :
 
@@ -146,13 +146,13 @@ L’élément **PredicateValidation** contient l’élément suivant :
 
 | Élément | Occurrences | Description |
 | ------- | ----------- | ----------- |
-| PredicateGroups | 1:n | Liste de groupes de prédicats. | 
+| PredicateGroups | 1:n | Liste de groupes de prédicats. |
 
 L’élément **PredicateGroups** contient l’élément suivant :
 
 | Élément | Occurrences | Description |
 | ------- | ----------- | ----------- |
-| PredicateGroup | 1:n | Liste de prédicats. | 
+| PredicateGroup | 1:n | Liste de prédicats. |
 
 L’élément **PredicateGroup** contient l’attribut suivant :
 
@@ -164,8 +164,8 @@ L’élément **PredicateGroup** contient les éléments suivants :
 
 | Élément | Occurrences | Description |
 | ------- | ----------- | ----------- |
-| UserHelpText | 1:1 |  Description du prédicat qui peut être aider les utilisateurs à déterminer quelle valeur ils doivent taper. | 
-| PredicateReferences | 1:n | Liste de références de prédicats. | 
+| UserHelpText | 1:1 |  Description du prédicat qui peut être aider les utilisateurs à déterminer quelle valeur ils doivent taper. |
+| PredicateReferences | 1:n | Liste de références de prédicats. |
 
 L’élément **PredicateReferences** contient les attributs suivants :
 
@@ -177,7 +177,7 @@ L’élément **PredicateReferences** contient les éléments suivants :
 
 | Élément | Occurrences | Description |
 | ------- | ----------- | ----------- |
-| PredicateReference | 1:n | Référence à un prédicat. | 
+| PredicateReference | 1:n | Référence à un prédicat. |
 
 L’élément **PredicateReference** contient les attributs suivants :
 
@@ -188,7 +188,7 @@ L’élément **PredicateReference** contient les attributs suivants :
 
 ## <a name="configure-password-complexity"></a>Configurer la complexité du mot de passe
 
-Avec **Predicates** et **PredicateValidationsInput**, vous pouvez contrôler les exigences de complexité des mots de passe fournis par un utilisateur lors de la création d’un compte. Par défaut, Azure AD B2C utilise des mots de passe forts. Azure AD B2C prend également en charge les options de configuration permettant de contrôler la complexité des mots de passe utilisables par les clients. Vous pouvez définir la complexité du mot de passe à l’aide de ces éléments de prédicats : 
+Avec **Predicates** et **PredicateValidationsInput**, vous pouvez contrôler les exigences de complexité des mots de passe fournis par un utilisateur lors de la création d’un compte. Par défaut, Azure AD B2C utilise des mots de passe forts. Azure AD B2C prend également en charge les options de configuration permettant de contrôler la complexité des mots de passe utilisables par les clients. Vous pouvez définir la complexité du mot de passe à l’aide de ces éléments de prédicats :
 
 - **IsLengthBetween8And64** à l’aide de la méthode `IsLengthRange` valide le fait que le mot de passe doit compter entre 8 et 64 caractères.
 - **Lowercase** à l’aide de la méthode `IncludesCharacters` valide le fait que le mot de passe contient une lettre minuscule.
@@ -348,7 +348,7 @@ Dans votre type de revendication, ajoutez l’élément **PredicateValidationRef
 
 Le schéma suivant montre comment les éléments sont organisés quand Azure AD B2C affiche le message d’erreur :
 
-![Processus de prédicat](./media/predicates/predicates-pass.png)
+![Diagramme montrant des exemples de complexité de mot de passe PredicateGroup Predicate](./media/predicates/predicates-pass.png)
 
 ## <a name="configure-a-date-range"></a>Configurer une plage de dates
 
@@ -382,8 +382,8 @@ Ajoutez un **PredicateValidation** avec une référence au prédicat `DateRange`
 </PredicateValidations>
 ```
 
-Dans votre type de revendication, ajoutez un élément**PredicateValidationReference** et spécifiez l’identificateur en tant que `CustomDateRange`. 
-    
+Dans votre type de revendication, ajoutez un élément**PredicateValidationReference** et spécifiez l’identificateur en tant que `CustomDateRange`.
+
 ```XML
 <ClaimType Id="dateOfBirth">
   <DisplayName>Date of Birth</DisplayName>

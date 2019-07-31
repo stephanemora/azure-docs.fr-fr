@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/18/2019
+ms.date: 07/12/2019
 ms.author: spelluru
-ms.openlocfilehash: 533770d98b146dea01e91e1249115c4b5c074b3c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c14abf3acce0084507a03f3d34fdd59566d88c28
+ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62101561"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67854277"
 ---
 # <a name="create-virtual-machines-using-an-azure-resource-manager-template"></a>Créer des machines virtuelles à l’aide d’un modèle Azure Resource Manager 
 
@@ -51,9 +51,8 @@ Les [Bonnes pratiques de création de modèles Azure Resource Manager](https://d
 ## <a name="view-and-save-a-virtual-machines-resource-manager-template"></a>Afficher et enregistrer un modèle Resource Manager de machine virtuelle
 1. Suivez les étapes de la section [Créer votre première machine virtuelle dans un laboratoire](tutorial-create-custom-lab.md#add-a-vm-to-the-lab) pour commencer à créer une machine virtuelle.
 1. Entrez les informations requises pour votre machine virtuelle et ajoutez les artefacts que vous souhaitez pour cette machine virtuelle.
+1. Passez à l’onglet **Paramètres avancés**. 
 1. Au bas de la fenêtre Configurer les paramètres, choisissez **Afficher le modèle ARM**.
-
-   ![Bouton Afficher le modèle ARM](./media/devtest-lab-use-arm-template/devtestlab-lab-view-rm-template.png)
 1. Copiez et enregistrez le modèle Resource Manager à utiliser ultérieurement pour créer une autre machine virtuelle.
 
    ![Modèle Resource Manager à enregistrer pour une utilisation ultérieure](./media/devtest-lab-use-arm-template/devtestlab-lab-copy-rm-template.png)
@@ -63,6 +62,11 @@ Après avoir enregistré le modèle Resource Manager, vous devez mettre à jour 
 ![Personnaliser les paramètres à l’aide d’un fichier JSON](./media/devtest-lab-use-arm-template/devtestlab-lab-custom-params.png)
 
 Le modèle Resource Manager est maintenant préparé pour [créer une machine virtuelle](devtest-lab-create-environment-from-arm.md).
+
+## <a name="set-expiration-date"></a>Définir une date d’expiration
+Dans des scénarios tels que la formation, les démonstrations et les essais, vous pouvez créer des machines virtuelles et les supprimer automatiquement après une durée fixe, afin de ne pas occasionner de coûts inutiles. Vous pouvez créer une machine virtuelle de laboratoire avec une date d’expiration en spécifiant la propriété **expirationDate** pour la machine virtuelle. Consultez le même modèle Resource Manager dans [notre dépôt GitHub](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates/101-dtl-create-vm-username-pwd-customimage-with-expiration).
+
+
 
 ### <a name="next-steps"></a>Étapes suivantes
 * Découvrez comment [Créer des environnements à plusieurs machines virtuelles avec les modèles Resource Manager](devtest-lab-create-environment-from-arm.md).

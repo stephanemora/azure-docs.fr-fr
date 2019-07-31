@@ -10,21 +10,21 @@ ms.author: sihhu
 author: MayMSFT
 manager: cgronlun
 ms.reviewer: jmartens
-ms.date: 05/02/2019
+ms.date: 07/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: db23c8af7eaa4a86691ccb0bb831ce2cc28d635c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6c5d60bb51a96725f766c6b49d61ac20fb2a1b58
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65471830"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68297923"
 ---
 # <a name="transform-data-with-the-azure-machine-learning-data-prep-sdk"></a>Transformer des données avec le SDK de préparation des données Azure Machine Learning
 
 Cet article vous permet d’apprendre les différentes méthodes de transformation de données à l’aide du package `azureml-dataprep`. Le package offre des fonctions qui simplifient l’ajout de colonnes, le filtrage des lignes ou des colonnes indésirables et l’imputation des valeurs manquantes. Consultez la documentation de référence complète relative au [package azureml-dataprep](https://aka.ms/data-prep-sdk).
 
 > [!Important]
-> Si vous générez une nouvelle solution, essayez [Azure Machine Learning Datasets](how-to-explore-prepare-data.md) (préversion) pour transformer vos données, créer des instantanés des données et stocker des définitions de jeux de données avec version. Datasets est la prochaine version du Kit de développement logiciel (SDK) de préparation des données, offrant des fonctionnalités étendues pour la gestion des jeux de données dans des solutions d’intelligence artificielle. Si vous utilisez le package `azureml-dataprep` pour créer un dataflow avec vos transformations au lieu d’utiliser le package `azureml-datasets` pour créer un jeu de données, vous ne pourrez pas utiliser des instantanés ou des jeux de données avec version ultérieurement.
+> Si vous générez une nouvelle solution, essayez [Azure Machine Learning Datasets](how-to-explore-prepare-data.md) (préversion) pour transformer vos données, créer des instantanés des données et stocker des définitions de jeux de données avec version. Datasets est la prochaine version du kit de développement logiciel (SDK) de préparation des données, offrant des fonctionnalités étendues pour la gestion des jeux de données dans des solutions d’intelligence artificielle. Si vous utilisez le package `azureml-dataprep` pour créer un dataflow avec vos transformations au lieu d’utiliser le package `azureml-datasets` pour créer un jeu de données, vous ne pourrez pas utiliser des instantanés ou des jeux de données avec version ultérieurement.
 
 Cette procédure illustre les tâches suivantes à l’aide d’exemples :
 
@@ -46,7 +46,7 @@ dflow = dprep.read_csv(path=r'data\crime0-10.csv')
 dflow.head(3)
 ```
 
-||ID|Case Number|Date|Block|IUCR|Primary Type|Description|Location Description|Arrest|Domestic|...|Ward|Community Area|FBI Code|X Coordinate|Y Coordinate|Year|Updated On|Latitude|Longitude|Lieu|
+||id|Case Number|Date|Block|IUCR|Primary Type|Description|Location Description|Arrest|Domestic|...|Ward|Community Area|FBI Code|X Coordinate|Y Coordinate|Year|Updated On|Latitude|Longitude|Location|
 |-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|
 |0|10140490|HY329907|07/05/2015 11:50:00 PM|050XX N NEWLAND AVE|0820|THEFT|$500 AND UNDER|STREET|false|false|...|41|10|06|1129230|1933315|2015|07/12/2015 12:42:46 PM|41.973309466|-87.800174996|(41.973309466, -87.800174996)|
 |1|10139776|HY329265|07/05/2015 11:30:00 PM|011XX W MORSE AVE|0460|BATTERY|SIMPLE|STREET|false|true|...|49|1|08B|1167370|1946271|2015|07/12/2015 12:42:46 PM|42.008124017|-87.65955018|(42.008124017, -87.65955018)|
@@ -63,7 +63,7 @@ case_category = dflow.add_column(new_column_name='Case Category',
 case_category.head(3)
 ```
 
-||ID|Case Number|Case Category|Date|Block|IUCR|Primary Type|Description|Location Description|Arrest|Domestic|...|Ward|Community Area|FBI Code|X Coordinate|Y Coordinate|Year|Updated On|Latitude|Longitude|Lieu|
+||id|Case Number|Case Category|Date|Block|IUCR|Primary Type|Description|Location Description|Arrest|Domestic|...|Ward|Community Area|FBI Code|X Coordinate|Y Coordinate|Year|Updated On|Latitude|Longitude|Location|
 |-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|------|
 |0|10140490|HY329907|HY|07/05/2015 11:50:00 PM|050XX N NEWLAND AVE|0820|THEFT|$500 AND UNDER|STREET|false|false|...|41|10|06|1129230|1933315|2015|07/12/2015 12:42:46 PM|41.973309466|-87.800174996|(41.973309466, -87.800174996)|
 |1|10139776|HY329265|HY|07/05/2015 11:30:00 PM|011XX W MORSE AVE|0460|BATTERY|SIMPLE|STREET|false|true|...|49|1|08B|1167370|1946271|2015|07/12/2015 12:42:46 PM|42.008124017|-87.65955018|(42.008124017, -87.65955018)|
@@ -94,7 +94,7 @@ dflow = dflow.to_number(['Latitude', 'Longitude'])
 dflow.head(3)
 ```
 
-||ID|Arrest|Latitude|Longitude|
+||id|Arrest|Latitude|Longitude|
 |-----|------|-----|------|-----|
 |0|10140490|false|41.973309|-87.800175|
 |1|10139776|false|42.008124|-87.659550|
@@ -137,7 +137,7 @@ dflow_imputed = impute_builder.to_dataflow()
 dflow_imputed.head(3)
 ```
 
-||ID|Arrest|Latitude|Longitude|
+||id|Arrest|Latitude|Longitude|
 |-----|------|-----|------|-----|
 |0|10140490|false|41.973309|-87.800175|
 |1|10139776|false|42.008124|-87.659550|
@@ -275,6 +275,11 @@ df = dflow.to_pandas_dataframe()
 Le Kit de développement logiciel (SDK) inclut les méthodes [`drop_columns()`](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#drop-columns-columns--multicolumnselection-----azureml-dataprep-api-dataflow-dataflow) et [`filter()`](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py) pour vous permettre de filtrer des lignes ou des colonnes.
 
 ### <a name="initial-setup"></a>Configuration initiale
+
+> [!Note]
+> Dans cet exemple, l’URL n’est pas une URL complète. Au lieu de cela, elle fait référence au dossier demo dans l’objet blob. L’URL complète des données est https://dprepdata.blob.core.windows.net/demo/green-small/green_tripdata_2013-08.csv.
+
+Ce que nous faisons dans ce tutoriel, c’est charger tous les fichiers dans le dossier et d’agréger le résultat dans green_df_raw et yellow_df_raw.
 
 ```python
 import azureml.dataprep as dprep
@@ -500,4 +505,4 @@ dflow.head(2)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Consultez le [didacticiel](tutorial-data-prep.md) sur le Kit de développement logiciel (SDK) de préparation des données Azure Machine Learning pour obtenir un exemple de résolution d’un scénario spécifique.
+* Consultez le [didacticiel](tutorial-data-prep.md) sur le Kit de développement logiciel (SDK) de préparation des données Azure Machine Learning pour obtenir un exemple de résolution d’un scénario spécifique

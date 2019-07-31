@@ -11,15 +11,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 03/05/2019
-ms.author: rclaus
+ms.date: 07/04/2019
+ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a2cfe9dc02e69f3b47c99e01bc70bffc942338fd
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: b303a18d481ae1a682d81d87e7c14060ffdfaf14
+ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67707255"
+ms.lasthandoff: 07/13/2019
+ms.locfileid: "67869181"
 ---
 # <a name="sap-hana-large-instances-storage-architecture"></a>Architecture de stockage de SAP HANA (grandes instances)
 
@@ -90,9 +90,9 @@ Voici quelques exemples de ce à quoi peut ressembler l’exécution de plusieur
 Il existe d’autres variantes. 
 
 ## <a name="encryption-of-data-at-rest"></a>Chiffrement des données au repos
-Le stockage utilisé pour la grande instance HANA permet un chiffrement transparent des données lorsqu’elles sont stockées sur les disques. Lorsqu’une unité de grande instance HANA est déployée, vous pouvez activer ce type de chiffrement. Vous pouvez également modifier les volumes chiffrés après le déploiement. Le passage d’un volume non chiffré à un volume chiffré est transparent et ne requiert aucun temps d’arrêt. 
+Le stockage utilisé pour la grande instance HANA utilise un chiffrement transparent des données lorsqu’elles sont stockées sur les disques, et ce depuis fin 2018. Dans les déploiements antérieurs, vous pouviez choisir d’obtenir les volumes chiffrés. Si vous avez choisi de ne pas utiliser cette option, vous pouvez demander à obtenir les volumes chiffrés en ligne. Le passage d’un volume non chiffré à un volume chiffré est transparent et ne requiert aucun temps d’arrêt. 
 
-Avec les références SKU de classe Type I, le volume sur lequel le numéro d’unité logique de démarrage est stocké est chiffré. Dans le cas de références SKU de grande instance HANA de classe Type II, vous devez chiffrer le numéro d’unité logique de démarrage avec les méthodes du système d’exploitation. Pour plus d’informations, contactez l’équipe de gestion des services Microsoft.
+Avec les références SKU de classe Type I, le volume sur lequel le numéro d’unité logique de démarrage est stocké est chiffré. Dans les tampons HANA Grande instance Révision 3, à l’aide de la classe Type II des références SKU HANA Grande instance, vous devez chiffrer le numéro d’unité logique de démarrage avec les méthodes du système d’exploitation. Dans les tampons HANA Grande instance Révision 4, à l’aide des unités Type II, le volume dans lequel le numéro d’unité logique de démarrage est stocké et est également chiffré au repos par défaut. 
 
 ## <a name="required-settings-for-larger-hana-instances-on-hana-large-instances"></a>Paramètres requis pour des plus instances HANA plus grandes sur de grandes Instances HANA
 Le stockage utilisé dans les grandes Instances HANA limite la taille des fichiers. La [limite de taille est de 16 To](https://docs.netapp.com/ontap-9/index.jsp?topic=%2Fcom.netapp.doc.dot-cm-vsmg%2FGUID-AA1419CF-50AB-41FF-A73C-C401741C847C.html) par fichier. Contrairement aux limitations de taille de fichier dans les systèmes de fichiers EXT3, HANA ne reconnaît pas implicitement la limite de stockage appliquée par le stockage sur de grandes Instances HANA. Par conséquent, HANA ne crée pas automatiquement un nouveau fichier de données lorsque la limite de taille de 16 To est atteinte. Quand HANA tente d’étendre le fichier au-delà de 16 To, il signale des erreurs et le serveur d’index se bloque à la fin.

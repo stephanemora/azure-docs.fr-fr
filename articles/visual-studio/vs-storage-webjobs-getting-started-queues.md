@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: article
 ms.date: 12/02/2016
 ms.author: ghogen
-ms.openlocfilehash: f6f1a3a7f0a406e1dbb40f4bfc6a358da7ac68fa
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 44206f1826fc25407d9dec3f832b70881091e187
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60391167"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68248957"
 ---
 # <a name="getting-started-with-azure-queue-storage-and-visual-studio-connected-services-webjob-projects"></a>Prise en main du stockage de files d'attente Azure et des services connectés Visual Studio (projets WebJob)
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
@@ -190,7 +190,7 @@ Pour plus d’informations, consultez [Arrêt correct de WebJobs](http://blog.am
 Pour écrire une fonction qui crée un message en file d'attente, utilisez l'attribut **Queue** . Comme **QueueTrigger**, vous transmettez le nom de la file d'attente sous forme de chaîne, ou vous pouvez [définir le nom de la file d'attente de manière dynamique](#how-to-set-configuration-options).
 
 ### <a name="string-queue-messages"></a>Messages de file d’attente de chaîne
-L’exemple de code non asynchrone suivant crée un message en file d’attente dans la file d’attente nommée « outputqueue », avec le même contenu que le message de file d’attente reçu dans la file d’attente « inputqueue ». (Dans le cas de fonctions asynchrones, utilisez l'élément **IAsyncCollector<T>** , comme indiqué plus loin dans la présente section.)
+L’exemple de code non asynchrone suivant crée un message en file d’attente dans la file d’attente nommée « outputqueue », avec le même contenu que le message de file d’attente reçu dans la file d’attente « inputqueue ». (Dans le cas de fonctions asynchrones, utilisez l’élément **IAsyncCollector\<>T**, comme indiqué plus loin dans la présente section.)
 
 ```csharp
 public static void CreateQueueMessage(
@@ -216,7 +216,7 @@ public static void CreateQueueMessage(
 Le Kit de développement logiciel (SDK) sérialise automatiquement l’objet au format JSON. Un message de file d’attente est toujours créé, même si l’objet est null.
 
 ### <a name="create-multiple-messages-or-in-async-functions"></a>Création de plusieurs messages de file d’attente dans des fonctions asynchrones
-Pour créer plusieurs messages, affectez **ICollector<T>** ou **IAsyncCollector<T>** , comme type de paramètre pour la file d’attente de sortie, comme indiqué dans l’exemple suivant.
+Pour créer plusieurs messages, affectez **ICollector\<T>** ou **IAsyncCollector\<T>** , comme type de paramètre pour la file d’attente de sortie, comme indiqué dans l’exemple suivant.
 
 ```csharp
 public static void CreateQueueMessages(

@@ -10,12 +10,12 @@ ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: multiple
-ms.openlocfilehash: c1d7b52bdce77ca108781a999a8a85b3e3fca0b8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 58755a0ac49b9549813ddb507dfbd986d83dfce5
+ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61487449"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68305847"
 ---
 # <a name="mainframe-rehosting-on-azure-virtual-machines"></a>Réhébergement de mainframe sur des machines virtuelles Azure
 
@@ -86,7 +86,7 @@ Découvrez comment [déplacer le calcul mainframe vers Azure](./concepts/mainfra
 
 Azure propose des contrats de niveau de service basés sur des engagements. La disponibilité à plusieurs 9 est proposée par défaut, et les contrats de niveau de service peuvent être optimisés avec la réplication locale ou géographique des services. La version complète du [contrat SLA Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/) explique la disponibilité garantie d’Azure dans son ensemble.
 
-Avec Azure IaaS (une machine virtuelle, par exemple), des fonctions système spécifiques assurent la prise en charge du basculement, par exemple les instances de clustering de basculement et les [groupes à haute disponibilité](/azure/virtual-machines/windows/regions-and-availability#availability-sets). Lorsque vous utilisez les ressources PaaS (platform-as-a-service) d’Azure, la plateforme gère automatiquement le basculement. Il peut s’agir, par exemple, [d’Azure SQL Database](/azure/sql-database/sql-database-technical-overview) et [d’Azure Cosmos DB](/azure/cosmos-db/introduction).
+Avec Azure IaaS (une machine virtuelle, par exemple), des fonctions système spécifiques assurent la prise en charge du basculement, par exemple les instances de clustering de basculement et les groupes à haute disponibilité. Lorsque vous utilisez les ressources PaaS (platform-as-a-service) d’Azure, la plateforme gère automatiquement le basculement. Il peut s’agir, par exemple, [d’Azure SQL Database](/azure/sql-database/sql-database-technical-overview) et [d’Azure Cosmos DB](/azure/cosmos-db/introduction).
 
 ### <a name="scalability"></a>Extensibilité
 

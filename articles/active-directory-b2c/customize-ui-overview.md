@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 6c9109cf4d6d67d3d8001a9de1d54e24622a9286
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 13ae1b74acbcab8d623c24d6a7b8d7e1355b80e8
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66511171"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68227155"
 ---
 # <a name="about-user-interface-customization-in-azure-active-directory-b2c"></a>À propos de la personnalisation de l’interface utilisateur dans Azure Active Directory B2C
 
@@ -29,7 +29,7 @@ Vous personnalisez l’interface utilisateur de votre application de différente
 - Si les clients tentent de modifier leur profil avant de se connecter, ils sont redirigés vers une page que vous personnalisez à l’aide de la même procédure que celle utilisée pour la personnalisation de la page de connexion Azure AD.
 - Si vous utilisez des [stratégies personnalisées](active-directory-b2c-overview-custom.md) pour fournir des expériences de modification de profil, de réinitialisation du mot de passe, d’inscription ou de connexion dans votre application, vous utilisez des [fichiers de stratégie pour personnaliser l’interface utilisateur](active-directory-b2c-ui-customization-custom.md).
 - Si vous avez besoin de fournir du contenu dynamique basé sur la décision d’un client, vous utilisez des [stratégies personnalisées qui peuvent changer le contenu de la page](active-directory-b2c-ui-customization-custom-dynamic.md) en fonction d’un paramètre qui est envoyé dans une chaîne de requête. Par exemple, l’image d’arrière-plan dans la page de connexion ou d’inscription Azure AD B2C change en fonction d’un paramètre que vous transmettez à partir de votre application web ou mobile.
-- Vous pouvez activer le code JavaScript côté client dans vos [flux utilisateur](user-flow-javascript-overview.md) ou [stratégies personnalisées](page-contract.md) Azure AD B2C.
+- Vous pouvez activer le code JavaScript côté client dans vos [flux utilisateur](user-flow-javascript-overview.md) ou [stratégies personnalisées](page-layout.md) Azure AD B2C.
 
 Azure AD B2C exécute le code dans le navigateur de votre client et adopte une approche moderne appelée [Partage des ressources cross-origin (CORS)](https://www.w3.org/TR/cors/). Au moment de l’exécution, le contenu est chargé depuis une URL que vous spécifiez dans un flux d’utilisateur. Vous spécifiez différentes URL pour différentes pages. Une fois le contenu chargé à partir de votre URL, il est fusionné avec un fragment HTML inséré à partir d’Azure AD B2C, puis présenté à votre client.
 
@@ -37,7 +37,7 @@ Lorsque vous utilisez vos propres fichiers HTML et CSS pour personnaliser l’in
 
 - Azure AD B2C fusionne le contenu HTML dans vos pages. Ne copiez pas et n’essayez pas de modifier le contenu par défaut fourni par Azure AD B2C. Il est préférable de créer votre contenu HTML à partir de zéro et d’utiliser le contenu par défaut comme référence.
 - JavaScript peut désormais être inclus dans votre contenu personnalisé.
-- Les versions de navigateur prises en charge sont les suivantes : 
+- Les versions de navigateur prises en charge sont les suivantes :
     - Internet Explorer 11, 10 et Microsoft Edge
     - Prise en charge limitée pour Internet Explorer 9 et 8
     - Google Chrome 42.0 et ultérieur
@@ -50,11 +50,11 @@ Pour les flux utilisateur v2, vous pouvez choisir un modèle prédéfini qui don
 
 Dans le menu de gauche, sous **Personnaliser**, sélectionnez **Mises en page**. Puis sélectionnez **Modèle (préversion)** .
 
-![Choisir un modèle de mise en page](media/customize-ui-overview/template.png)
+![Liste déroulante de sélection de modèle dans la page de flux d’utilisateur du portail Azure](media/customize-ui-overview/template.png)
 
 Sélectionnez un modèle dans la liste. Par exemple, le modèle **Bleu océan** applique la mise en page suivante à vos pages de flux utilisateur :
 
-![Modèle Bleu océan](media/customize-ui-overview/ocean-blue.png)
+![Exemple de modèle Bleu océan sur la page de connexion d’inscription](media/customize-ui-overview/ocean-blue.png)
 
 Lorsque vous choisissez un modèle, la mise en page sélectionnée est appliquée à toutes les pages dans votre flux utilisateur et l’URI de chaque page est visible dans le champ **URI de la page personnalisée**.
 
@@ -85,13 +85,13 @@ Pour personnaliser l’interface utilisateur, vous procédez comme suit :
 - Héberger votre contenu sur un point de terminaison HTTPS (avec CORS activé). Vous devez activer à la fois les méthodes de requête GET et OPTIONS lors de la configuration de CORS.
 - Utilisez les feuilles de style en cascade pour donner du style aux éléments d’interface utilisateur insérés par Azure AD B2C dans votre page. L’exemple suivant montre un fichier CSS simple qui inclut également des paramètres pour les éléments HTML d’inscription injectés :
 
-    ```css 
+    ```css
     h1 {
       color: blue;
       text-align: center;
     }
     .intro h2 {
-      text-align: center; 
+      text-align: center;
     }
     .entry {
       width: 400px ;
@@ -99,7 +99,7 @@ Pour personnaliser l’interface utilisateur, vous procédez comme suit :
       margin-right: auto ;
     }
     .divider h2 {
-      text-align: center; 
+      text-align: center;
     }
     .create {
       width: 400px ;

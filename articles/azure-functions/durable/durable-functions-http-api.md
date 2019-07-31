@@ -8,14 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 03/14/2019
+ms.date: 07/08/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 2f0b01601dfb28b2b6b8ee8ca53398ec3dccb803
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7aef7eb2e3d88bef7d2700d9945b9ff343c17536
+ms.sourcegitcommit: af31deded9b5836057e29b688b994b6c2890aa79
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65787283"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67812818"
 ---
 # <a name="http-apis-in-durable-functions-azure-functions"></a>API HTTP dans Fonctions durables (Azure Functions)
 
@@ -45,12 +45,13 @@ La classe [DurableOrchestrationClient](https://azure.github.io/azure-functions-d
 Ces exemples de fonctions produisent les données de réponse JSON suivantes. Le type de données de tous les champs est `string`.
 
 | Champ                   |Description                           |
-|-------------------------|--------------------------------------|
-| **`id`**                |L’ID de l’instance d’orchestration. |
-| **`statusQueryGetUri`** |L’URL de l’état de l’instance d’orchestration. |
-| **`sendEventPostUri`**  |L’URL « Raise event » de l’instance d’orchestration. |
-| **`terminatePostUri`**  |L’URL « d’arrêt » de l’instance d’orchestration. |
-| **`rewindPostUri`**     |URL de «rembobinage» de l’instance d’orchestration. |
+|-----------------------------|--------------------------------------|
+| **`id`**                    |L’ID de l’instance d’orchestration. |
+| **`statusQueryGetUri`**     |L’URL de l’état de l’instance d’orchestration. |
+| **`sendEventPostUri`**      |L’URL « Raise event » de l’instance d’orchestration. |
+| **`terminatePostUri`**      |L’URL « d’arrêt » de l’instance d’orchestration. |
+| **`purgeHistoryDeleteUri`** |URL de « purge de l’historique » de l’instance d’orchestration. |
+| **`rewindPostUri`**         |(préversion) URL de « rembobinage » de l’instance d’orchestration. |
 
 Voici un exemple de réponse :
 
@@ -65,6 +66,7 @@ Location: https://{host}/runtime/webhooks/durabletask/instances/34ce9a28a6834d84
     "statusQueryGetUri":"https://{host}/runtime/webhooks/durabletask/instances/34ce9a28a6834d8492ce6a295f1a80e2?taskHub=DurableFunctionsHub&connection=Storage&code=XXX",
     "sendEventPostUri":"https://{host}/runtime/webhooks/durabletask/instances/34ce9a28a6834d8492ce6a295f1a80e2/raiseEvent/{eventName}?taskHub=DurableFunctionsHub&connection=Storage&code=XXX",
     "terminatePostUri":"https://{host}/runtime/webhooks/durabletask/instances/34ce9a28a6834d8492ce6a295f1a80e2/terminate?reason={text}&taskHub=DurableFunctionsHub&connection=Storage&code=XXX",
+    "purgeHistoryDeleteUri":"https://{host}/runtime/webhooks/durabletask/instances/34ce9a28a6834d8492ce6a295f1a80e2?taskHub=DurableFunctionsHub&connection=Storage&code=XXX"
     "rewindPostUri":"https://{host}/runtime/webhooks/durabletask/instances/34ce9a28a6834d8492ce6a295f1a80e2/rewind?reason={text}&taskHub=DurableFunctionsHub&connection=Storage&code=XXX"
 }
 ```
@@ -156,12 +158,12 @@ La charge utile de réponse pour les cas **HTTP 200** et **HTTP 202** est un o
 
 | Champ                 | Type de données | Description |
 |-----------------------|-----------|-------------|
-| **`runtimeStatus`**   | chaîne    | L’état d’exécution de l’instance. Les valeurs sont *Running*, *Pending*, *Failed*, *Canceled*, *Terminated*, *Completed*. |
+| **`runtimeStatus`**   | string    | L’état d’exécution de l’instance. Les valeurs sont *Running*, *Pending*, *Failed*, *Canceled*, *Terminated*, *Completed*. |
 | **`input`**           | JSON      | Les données JSON utilisées pour initialiser l’instance. Ce champ est `null` si le paramètre de chaîne de requête `showInput` est défini sur `false`.|
 | **`customStatus`**    | JSON      | Données JSON utilisées pour l’état d’orchestration personnalisé. Ce champ est `null` s’il n’est pas défini. |
 | **`output`**          | JSON      | La sortie JSON de l’instance. Ce champ est `null` si l’instance n’est pas dans un état terminé. |
-| **`createdTime`**     | chaîne    | Heure à laquelle l’instance a été créée. Utilise la notation étendue ISO 8601. |
-| **`lastUpdatedTime`** | chaîne    | Heure du dernier état persistant de l’instance. Utilise la notation étendue ISO 8601. |
+| **`createdTime`**     | string    | Heure à laquelle l’instance a été créée. Utilise la notation étendue ISO 8601. |
+| **`lastUpdatedTime`** | string    | Heure du dernier état persistant de l’instance. Utilise la notation étendue ISO 8601. |
 | **`historyEvents`**   | JSON      | Tableau JSON contenant l’historique d’exécution de l’orchestration. Ce champ est `null`, sauf si le paramètre de chaîne de requête `showHistory` a la valeur `true`. |
 
 Voici un exemple de charge utile de réponse incluant l’historique et les sorties de l’activité d’exécution d’orchestration (mis en forme pour une meilleure lisibilité) :
@@ -547,11 +549,11 @@ POST /admin/extensions/DurableTaskExtension/instances/bcf6fb5067b046fbb021b52ba7
 
 Les réponses pour cette API sont vides.
 
-## <a name="rewind-instance-preview"></a>Instance de rembobinage (préversion)
+### <a name="rewind-instance-preview"></a>Instance de rembobinage (préversion)
 
 Restaure une instance d’orchestration ayant échoué dans un état en cours d’exécution au travers de la relecture des dernières opérations ayant échoué.
 
-### <a name="request"></a>Requête
+#### <a name="request"></a>Requête
 
 Pour la version 1.x du runtime Functions, la demande est mise en forme comme suit (plusieurs lignes sont affichées par souci de clarté) :
 
@@ -580,7 +582,7 @@ Les paramètres de la demande pour cette API incluent l’ensemble par défaut m
 | **`instanceId`**  | URL             | L’ID de l’instance d’orchestration. |
 | **`reason`**      | Chaîne de requête    | facultatif. Motif de rembobinage de l’instance d’orchestration. |
 
-### <a name="response"></a>response
+#### <a name="response"></a>response
 
 Plusieurs valeurs de code d’état possibles peuvent être retournées.
 
@@ -595,6 +597,89 @@ POST /admin/extensions/DurableTaskExtension/instances/bcf6fb5067b046fbb021b52ba7
 ```
 
 Les réponses pour cette API sont vides.
+
+### <a name="signal-entity-preview"></a>Entité de signal (préversion)
+
+Envoie un message d’opération unidirectionnel à une [entité durable](durable-functions-types-features-overview.md#entity-functions). Si l’entité n’existe pas, elle est créée automatiquement.
+
+#### <a name="request"></a>Requête
+
+La requête HTTP est mise en forme comme suit (plusieurs lignes sont affichées par souci de clarté) :
+
+```http
+POST /runtime/webhooks/durabletask/entities/{entityType}/{entityKey}
+    ?taskHub={taskHub}
+    &connection={connectionName}
+    &code={systemKey}
+    &op={operationName}
+```
+
+Les paramètres de requête pour cette API incluent l’ensemble par défaut mentionné précédemment, ainsi que les paramètres uniques suivants :
+
+| Champ             | Type de paramètre  | Description |
+|-------------------|-----------------|-------------|
+| **`entityType`**  | URL             | Le type de l’entité. |
+| **`entityKey`**   | URL             | Nom unique de l’entité. |
+| **`op`**          | Chaîne de requête    | facultatif. Nom de l’opération définie par l’utilisateur à appeler. |
+| **`{content}`**   | Contenu de la demande | La charge utile de l’événement au format JSON. |
+
+Voici un exemple de requête qui envoie un message « Add » défini par l’utilisateur à une entité `Counter` appelée `steps`. Le contenu du message est la valeur `5`. Si l’entité n’existe pas encore, elle est créée par cette requête :
+
+```http
+POST /runtime/webhooks/durabletask/entities/Counter/steps?op=Add
+Content-Type: application/json
+
+5
+```
+
+#### <a name="response"></a>response
+
+Cette opération a plusieurs réponses possibles :
+
+* **HTTP 202 (acceptée)** : L’opération de signal a été acceptée pour traitement asynchrone.
+* **HTTP 400 (requête incorrecte)** : Le contenu de la requête n’était pas de type `application/json` ou n’était pas un objet JSON valide ou bien sa valeur `entityKey` n’était pas valide.
+* **HTTP 404 (introuvable)** : Le `entityType` spécifié est introuvable.
+
+Une requête HTTP réussie ne contient pas de contenu dans la réponse. Une requête HTTP ayant échoué peut contenir des informations d’erreur au format JSON dans le contenu de la réponse.
+
+### <a name="query-entity-preview"></a>Entité de requête (préversion)
+
+Obtient l’état de l’entité spécifiée.
+
+#### <a name="request"></a>Requête
+
+La requête HTTP est mise en forme comme suit (plusieurs lignes sont affichées par souci de clarté) :
+
+```http
+GET /runtime/webhooks/durabletask/entities/{entityType}/{entityKey}
+    ?taskHub={taskHub}
+    &connection={connectionName}
+    &code={systemKey}
+```
+
+#### <a name="response"></a>response
+
+Cette opération a deux réponses possibles :
+
+* **HTTP 200 (OK)** : l’entité spécifiée existe.
+* **HTTP 404 (introuvable)** : l’entité spécifiée est introuvable.
+
+Une réponse réussie contient l’état sérialisé JSON de l’entité en tant que contenu.
+
+#### <a name="example"></a>Exemples
+Voici un exemple de requête HTTP qui obtient l’état d’une entité existante `Counter` appelée `steps` :
+
+```http
+GET /runtime/webhooks/durabletask/entities/Counter/steps
+```
+
+Si l’entité `Counter` contenait simplement un nombre d’étapes enregistrées dans un champ `currentValue`, le contenu de la réponse pourrait ressembler à ce qui suit (mise en forme pour plus de lisibilité) :
+
+```json
+{
+    "currentValue": 5
+}
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 

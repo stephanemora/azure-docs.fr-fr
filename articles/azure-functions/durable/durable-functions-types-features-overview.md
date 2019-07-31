@@ -8,14 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 07/04/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 76b6f013333113d5a24b744bc962d36b1c0e21b3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: de5019e0f91c92829082aed962bb9633da52b4a9
+ms.sourcegitcommit: af31deded9b5836057e29b688b994b6c2890aa79
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60731111"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67812841"
 ---
 # <a name="durable-functions-types-and-features-azure-functions"></a>Types et fonctionnalités Durable Functions (Azure Functions)
 
@@ -27,7 +27,7 @@ Cet article vous présente les différents types de fonctions que vous pouvez ut
 
 ## <a name="types-of-durable-functions"></a>Types de fonctions durables
 
-Vous pouvez utiliser trois types de fonctions durables dans Azure Functions : les fonctions d’activité, les fonctions d’orchestrateur et les fonctions clientes.
+Vous pouvez utiliser 4 types de fonctions durables dans Azure Functions : les fonctions d’activité, les fonctions d’orchestrateur, les fonctions d’entité et les fonctions clientes.
 
 ### <a name="activity-functions"></a>Fonctions d’activité
 
@@ -43,7 +43,7 @@ Pour plus d’informations et pour obtenir des exemples, consultez [Fonctions d�
 
 ### <a name="orchestrator-functions"></a>Fonctions d’orchestrateur
 
-Les fonctions d’orchestrateur décrivent la façon dont les actions sont exécutées et l’ordre dans lequel elles sont exécutées. Les fonctions d’orchestrateur décrivent l’orchestration dans le code (C# ou JavaScript), comme indiqué dans [Concepts techniques et modèles Durable Functions](durable-functions-concepts.md). Une orchestration peut avoir de nombreux types d’actions différents, comme des [fonctions d’activité](#activity-functions), des [sous-orchestrations](#sub-orchestrations), l’[attente d’événements externes](#external-events) et des [ minuteurs](#durable-timers). 
+Les fonctions d’orchestrateur décrivent la façon dont les actions sont exécutées et l’ordre dans lequel elles sont exécutées. Les fonctions d’orchestrateur décrivent l’orchestration dans le code (C# ou JavaScript), comme indiqué dans [Concepts techniques et modèles Durable Functions](durable-functions-concepts.md). Une orchestration peut avoir de nombreux types d’actions différents, comme des [fonctions d’activité](#activity-functions), des [sous-orchestrations](#sub-orchestrations), l’[attente d’événements externes](#external-events) et des [ minuteurs](#durable-timers). Les fonctions d’orchestrateur peuvent également interagir avec des [fonctions d’entité](#entity-functions).
 
 Une fonction d’orchestrateur doit être déclenchée par un [déclencheur d’orchestration](durable-functions-bindings.md#orchestration-triggers).
 
@@ -51,11 +51,18 @@ L’orchestrateur est démarré par un [client d’orchestrateur](#client-functi
 
 Pour plus d’informations et pour obtenir des exemples, consultez [Déclencheurs d’orchestration](durable-functions-bindings.md#orchestration-triggers).
 
+###  <a name="entity-functions"></a>Fonctions d’entité (préversion)
+
+Les fonctions d’entité définissent les opérations pour la lecture et la mise à jour de petits éléments d’état, connus sous le nom *d’entités durables*. Comme les fonctions d’orchestrateur, les fonctions d’entité sont des fonctions ayant un type spécial de déclencheur, *déclencheur d’entité*. Contrairement aux fonctions d’orchestrateur, les fonctions d’entité n’ont pas de contraintes code spécifiques. Les fonctions d’entité gèrent également l’état explicitement plutôt que de représenter implicitement l’état via le flux de contrôle.
+
+> [!NOTE]
+> Les fonctions d’entité et les fonctionnalités associées sont uniquement disponibles dans Durable Functions 2.0 et versions ultérieures.
+
+Pour plus d’informations sur les fonctions d’entité, consultez la documentation sur la fonctionnalité en préversion [Fonctions d’entité](durable-functions-preview.md#entity-functions).
+
 ### <a name="client-functions"></a>Fonctions clientes
 
-Les fonctions clientes sont des fonctions déclenchées qui créent de nouvelles instances d’une orchestration. Les fonctions clientes sont le point d’entrée pour la création d’une instance d’orchestration Durable Functions. Vous pouvez déclencher une fonction cliente à partir de n’importe quelle source (HTTP, file d’attente, flux d’événements). Pour écrire une fonction cliente, vous pouvez utiliser n’importe quel langage pris en charge par l’application. 
-
-Les fonctions clientes ont également une liaison de [client d’orchestration](durable-functions-bindings.md#orchestration-client). Une fonction cliente peut utiliser la liaison de client d’orchestration pour créer et gérer des orchestrations durables. 
+Les fonctions clientes sont des fonctions déclenchées qui créent et gèrent des instances d’orchestrations et d’entités. Elles sont en fait le point d’entrée pour interagir avec Durable Functions. Vous pouvez déclencher une fonction cliente à partir de n’importe quelle source (HTTP, file d’attente, flux d’événements, etc.). Une fonction cliente utilise la [liaison de client d’orchestration](durable-functions-bindings.md#orchestration-client) pour créer et gérer des entités et des orchestrations durables.
 
 L’exemple de base d’une fonction cliente est une fonction HTTP déclenchée qui démarre une fonction d’orchestrateur et retourne une réponse de vérification de l’état. Pour obtenir un exemple, consultez [Découverte de l’URL de l’API HTTP](durable-functions-http-api.md#http-api-url-discovery).
 

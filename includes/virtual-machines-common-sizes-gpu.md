@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/11/2019
 ms.author: cynthn;azcspmt;jonbeck
 ms.custom: include file
-ms.openlocfilehash: b7bc040ae799aec98454fb227bbeeb6027f9615a
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 0325fc8cabc43988fb27a307921977b9b487c123
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67673322"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68286272"
 ---
 Les tailles de machine virtuelle au GPU optimisé sont des machines virtuelles spécialisées disponibles avec des GPU NVIDIA uniques ou multiples. Ces tailles sont conçues pour des charges de travail de visualisation, mais également de calcul et d’affichage graphique intensifs. Cet article donne des informations sur le nombre et le type de GPU, de processeurs virtuels, de disques de données et de cartes réseau. Le débit de stockage et la bande passante réseau sont également inclus pour chacune des tailles de ce regroupement.
 
@@ -148,7 +148,7 @@ Chaque GPU dans les instances NV est fourni avec une licence GRID. Cette licence
 
 1 GPU = une moitié de carte M60.
 
-## <a name="nvv3-series-preview-sup1sup"></a>Série NVv3 (préversion) <sup>1</sup>
+## <a name="nvv3-series--sup1sup"></a>Série NVv3  <sup>1</sup>
 
 Premium Storage :  Pris en charge
 

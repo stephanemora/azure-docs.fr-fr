@@ -11,34 +11,38 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/27/2018
-ms.author: saghorpa
+ms.date: 07/12/2019
+ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: dacc0a745fc387dcaf6be282b562d83e1b798ea4
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 3afcd429351a0d988ff0e82ecf09f524ceac70f1
+ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67710094"
+ms.lasthandoff: 07/13/2019
+ms.locfileid: "67868970"
 ---
-# <a name="os-backup-and-restore-for-type-ii-skus"></a>Sauvegarde et la restauration du système d’exploitation pour les références (SKU) de type II
+# <a name="os-backup-and-restore-for-type-ii-skus-of-revision-3-stamps"></a>Sauvegarde et restauration du système d’exploitation pour les références (SKU) de type II avec révision 3
 
-Ce document décrit les étapes permettant de sauvegarder et de restaurer le système de fichiers du système d’exploitation pour les **références (SKU) de type II** des grandes instances HANA. 
+Ce document décrit les étapes permettant de sauvegarder et de restaurer le système de fichiers du système d’exploitation pour les **références (SKU) de type II** des grandes instances HANA de révision 3. 
+
+>[!Important]
+> **Cet article ne s’applique pas aux déploiements de références SKU de type II dans les tampons de grande instance HANA de révision 4.** Les numéros d’unité logique de démarrage des unités de grande instance HANA de type II déployées dans les tampons de grande instance HANA de révision 4 peuvent être sauvegardés avec des captures instantanées de stockage, comme c’est le cas avec les références SKU de type I déjà dans les tampons de révision 3.
+
 
 >[!NOTE]
 >Les scripts de sauvegarde du système d’exploitation utilisent le logiciel ReaR, qui est préinstallé sur le serveur.  
 
-Une fois le provisionnement effectué par l’équipe de gestion des services Microsoft, le serveur est, par défaut, configuré avec une planification de deux sauvegardes pour préserver la sauvegarde du système de fichiers du système d’exploitation. Vous pouvez vérifier la planification des tâches de sauvegarde avec la commande suivante :
+Une fois l’approvisionnement effectué par l’équipe de gestion `Service Management` Microsoft, le serveur est par défaut configuré avec une planification de deux sauvegardes pour préserver la sauvegarde du système de fichiers du système d’exploitation. Vous pouvez vérifier la planification des tâches de sauvegarde avec la commande suivante :
 ```
 #crontab –l
 ```
-Vous pouvez modifier la planification de la sauvegarde à tout moment avec la commande suivante :
+Vous pouvez modifier la planification de la sauvegarde à tout moment avec la commande suivante :
 ```
 #crontab -e
 ```
 ## <a name="how-to-take-a-manual-backup"></a>Comment effectuer une sauvegarde manuelle ?
 
-La sauvegarde du système de fichiers du système d’exploitation est d’ores et déjà planifiée avec une **tâche Cron**. Toutefois, vous pouvez aussi effectuer la sauvegarde du système de fichiers du système d’exploitation manuellement. Pour effectuer une sauvegarde manuelle, exécutez la commande suivante :
+La sauvegarde du système d’exploitation est d’ores et déjà planifiée avec une **tâche Cron**. Toutefois, vous pouvez aussi effectuer la sauvegarde du système de fichiers du système d’exploitation manuellement. Pour effectuer une sauvegarde manuelle, exécutez la commande suivante :
 
 ```
 #rear -v mkbackup

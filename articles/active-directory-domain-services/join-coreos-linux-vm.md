@@ -1,5 +1,5 @@
 ---
-title: 'Azure Active Directory Domain Services : Joindre une machine virtuelle CoreOS Linux à un domaine managé | Microsoft Docs'
+title: 'Azure Active Directory Domain Services : Joindre une machine virtuelle Linux CoreOS | Microsoft Docs'
 description: Joindre une machine virtuelle CoreOS Linux à Azure AD Domain Services
 services: active-directory-ds
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: iainfou
-ms.openlocfilehash: 93d8279c07c936d7e5ce2c7e756baadfbe4a1b0a
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 78a6c5262cd6668712beac1e041fa4f25c05a724
+ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67473307"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68234063"
 ---
 # <a name="join-a-coreos-linux-virtual-machine-to-a-managed-domain"></a>Joindre une machine virtuelle CoreOS Linux à un domaine managé
 Cet article indique comment joindre une machine virtuelle CoreOS Linux dans Azure à un domaine managé Azure AD Domain Services.
@@ -59,54 +59,56 @@ Suivez les instructions de l’article [Connexion à une machine virtuelle exéc
 ## <a name="configure-the-hosts-file-on-the-linux-virtual-machine"></a>Configurer le fichier hosts sur la machine virtuelle Linux
 Dans votre terminal SSH, modifiez le fichier/etc/hosts et mettez à jour l’adresse IP et le nom d’hôte de votre machine.
 
-```
+```console
 sudo vi /etc/hosts
 ```
 
 Dans le fichier hosts, saisissez la valeur suivante :
 
-```
+```console
 127.0.0.1 contoso-coreos.contoso100.com contoso-coreos
 ```
+
 Ici, « contoso100.com » est le nom de domaine DNS de votre domaine géré. « contoso-coreos » est le nom d’hôte de la machine virtuelle CoreOS que vous joignez au domaine managé.
 
 
 ## <a name="configure-the-sssd-service-on-the-linux-virtual-machine"></a>Configurer le service SSSD sur la machine virtuelle Linux
 Ensuite, mettez à jour votre fichier de configuration SSSD dans ('/etc/sssd/sssd.conf') pour le faire correspondre à l’exemple suivant :
 
- ```
- [sssd]
- config_file_version = 2
- services = nss, pam
- domains = CONTOSO100.COM
+```console
+[sssd]
+config_file_version = 2
+services = nss, pam
+domains = CONTOSO100.COM
 
- [domain/CONTOSO100.COM]
- id_provider = ad
- auth_provider = ad
- chpass_provider = ad
+[domain/CONTOSO100.COM]
+id_provider = ad
+auth_provider = ad
+chpass_provider = ad
 
- ldap_uri = ldap://contoso100.com
- ldap_search_base = dc=contoso100,dc=com
- ldap_schema = rfc2307bis
- ldap_sasl_mech = GSSAPI
- ldap_user_object_class = user
- ldap_group_object_class = group
- ldap_user_home_directory = unixHomeDirectory
- ldap_user_principal = userPrincipalName
- ldap_account_expire_policy = ad
- ldap_force_upper_case_realm = true
- fallback_homedir = /home/%d/%u
+ldap_uri = ldap://contoso100.com
+ldap_search_base = dc=contoso100,dc=com
+ldap_schema = rfc2307bis
+ldap_sasl_mech = GSSAPI
+ldap_user_object_class = user
+ldap_group_object_class = group
+ldap_user_home_directory = unixHomeDirectory
+ldap_user_principal = userPrincipalName
+ldap_account_expire_policy = ad
+ldap_force_upper_case_realm = true
+fallback_homedir = /home/%d/%u
 
- krb5_server = contoso100.com
- krb5_realm = CONTOSO100.COM
- ```
+krb5_server = contoso100.com
+krb5_realm = CONTOSO100.COM
+```
+
 Remplacez 'CONTOSO100.COM' par le nom de domaine DNS de votre domaine managé. Vérifiez que vous spécifiez le nom de domaine en lettres majuscules dans le fichier de configuration.
 
 
 ## <a name="join-the-linux-virtual-machine-to-the-managed-domain"></a>Joindre la machine virtuelle Linux au domaine géré
 Maintenant que les packages requis sont installés sur la machine virtuelle Linux, la tâche suivante consiste à joindre cette machine virtuelle au domaine géré.
 
-```
+```console
 sudo adcli join -D CONTOSO100.COM -U bob@CONTOSO100.COM -K /etc/krb5.keytab -H contoso-coreos.contoso100.com -N coreos
 ```
 
@@ -118,26 +120,30 @@ sudo adcli join -D CONTOSO100.COM -U bob@CONTOSO100.COM -K /etc/krb5.keytab -H c
 >   * Vérifiez si vous avez mis à jour les paramètres du serveur DNS pour le réseau virtuel afin de pointer vers les contrôleurs de domaine du domaine managé.
 
 Démarrez le service SSSD. Sur votre terminal SSH, saisissez la commande suivante :
-  ```
-  sudo systemctl start sssd.service
-  ```
+  
+```console
+sudo systemctl start sssd.service
+```
 
 
 ## <a name="verify-domain-join"></a>Vérifier la jonction de domaine
 Vérifiez rapidement si la machine a bien été jointe au domaine géré. Connectez-vous à la machine virtuelle CoreOS jointe au domaine à l’aide d’une autre connexion SSH. Utilisez un compte d’utilisateur de domaine, puis vérifiez que le compte d’utilisateur est correctement résolu.
 
 1. Sur votre terminal SSH, tapez la commande suivante pour vous connecter à la machine virtuelle CoreOS jointe au domaine à l’aide de SSH. Utilisez un compte de domaine appartenant au domaine géré (par exemple dans ce cas, « bob@CONTOSO100.COM »).
-    ```
+    
+    ```console
     ssh -l bob@CONTOSO100.COM contoso-coreos.contoso100.com
     ```
 
 2. Sur votre terminal SSH, tapez la commande suivante pour voir si le répertoire de base a été initialisé correctement.
-    ```
+    
+    ```console
     pwd
     ```
 
 3. Sur votre terminal SSH, tapez la commande suivante pour voir si les membres du groupe ont été correctement résolus.
-    ```
+   
+    ```console
     id
     ```
 
