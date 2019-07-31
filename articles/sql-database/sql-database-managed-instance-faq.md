@@ -11,19 +11,19 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab
 manager: craigg
-ms.date: 07/08/2019
-ms.openlocfilehash: c3a070eb7e1435055b47b39985cf8cb0b182a514
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.date: 07/16/2019
+ms.openlocfilehash: 4087137a0e6f4f35c6401de67bd0bca1fe5b421b
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67798079"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68278098"
 ---
 # <a name="sql-database-managed-instance-frequently-asked-questions-faq"></a>Forum aux questions sur les instances gérées SQL Database
 
 Cet article contient plusieurs des questions les plus courantes sur les [instances gérées SQL Database](sql-database-managed-instance.md).
 
-## <a name="where-can-i-find-a-list-of-features-that-are-supported-on-managed-instance"></a>Où puis-je trouver une liste des fonctionnalités qui sont prises en charge sur une instance gérée ?
+## <a name="where-can-i-find-a-list-of-features-supported-on-managed-instance"></a>Où puis-je trouver la liste des fonctionnalités prises en charge sur une instance gérée ?
 
 Pour obtenir la liste des fonctionnalités prises en charge dans l’instance gérée, consultez [Azure SQL Database par rapport à SQL Server](sql-database-features.md).
 
@@ -43,13 +43,13 @@ Pour les bogues et les problèmes connus, consultez [Changements de comportement
 ## <a name="can-a-managed-instance-have-the-same-name-as-on-premises-sql-server"></a>Est-ce qu’une instance gérée peut avoir le même nom que SQL Server local ?
 
 L’instance gérée doit avoir un nom qui se termine par *database.windows.net*. Pour utiliser une autre zone DNS au lieu de la valeur par défaut, par exemple, **mi-another-name**.contoso.com : 
-- Utilisez CliConfig pour définir un alias (l’outil étant simplement un wrapper de paramètres du registre, cela peut également être accomplie à l’aide de la stratégie de groupe ou un script).
+- Utilisez CliConfig pour définir un alias. L’outil étant simplement un wrapper de paramètres du registre, cela peut aussi se faire à l'aide d'une stratégie de groupe ou d'un script.
 - Utilisez *CNAME* avec l’option *TrustServerCertificate = true*.
 
 
 ## <a name="how-can-i-move-database-from-managed-instance-back-to-sql-server-or-azure-sql-database"></a>Comment puis-je déplacer la base de données d’une instance gérée vers SQL Server ou Azure SQL Database ?
 
-Vous pouvez [exporter la base de données pour bacpac](sql-database-export.md) , puis [importer le fichier bacpac]( sql-database-import.md). Cette approche est recommandée si votre base de données est inférieure à 100 Go.
+Vous pouvez [exporter la base de données vers BACPAC](sql-database-export.md), puis [importer le fichier BACPAC]( sql-database-import.md). Cette approche est recommandée si votre base de données est inférieure à 100 Go.
 
 La réplication transactionnelle peut être utilisée si toutes les tables dans la base de données ont des clés primaires.
 
@@ -57,30 +57,30 @@ Les sauvegardes natives `COPY_ONLY` prises à partir d’une instance gérée ne
 
 ## <a name="how-can-i-migrate-my-instance-database-to-a-single-azure-sql-database"></a>Comment puis-je migrer ma base de données d’instance à une base de données Azure SQL Database unique ?
 
-Une option consiste à [exporter la base de données vers un fichier bacpac](sql-database-export.md), puis [importer le fichier bacpac]( sql-database-import.md). 
+Une option consiste à [exporter la base de données vers un fichier BACPAC](sql-database-export.md), puis à [importer le fichier BACPAC]( sql-database-import.md). 
 
 Cette approche est recommandée si votre base de données est inférieure à 100 Go. La réplication transactionnelle peut être utilisée si toutes les tables dans la base de données ont des clés primaires.
 
 ## <a name="how-do-i-choose-between-gen-4-and-gen-5-hardware-generation-for-managed-instance"></a>Comment choisir entre la génération de matériel Gen 4 et Gen 5 pour une instance gérée ?
 
-Cela dépend de votre charge de travail car certaines générations de matériel sont meilleures pour certains types de charges de travail que pour d’autres. Bien que le sujet de la performance soit plutôt complexe à simplifier, les différences suivantes entre les générations de matériel affectent la performance de la charge de travail :
-- Gen 4 fournit une meilleure prise en charge de calcul puisqu’elle est basée sur des processeurs physiques, et Gen 5 basée sur des processeurs vCore. Cela pourrait être plus avantageux pour calculer des charges de travail intensives.
-- La Gen 5 prend en charge la mise en réseau accélérée, ce qui se traduit par une meilleure bande passante d’E/S vers le stockage distant. Cela peut être avantageux pour les charges de travail intensives d’E/S sur les niveaux de service usage général. Gen 5 utilise des disques locaux SSD plus rapides par rapport à Gen 4. Cela pourrait être avantageux pour les charges de travail intensives d’E/S sur les niveaux de service critiques de l’entreprise.
+Cela dépend de votre charge de travail car certaines générations de matériel sont plus adaptées à certains types de charges de travail que d’autres. Bien que le sujet de la performance soit plutôt complexe à simplifier, les différences suivantes entre les générations de matériel affectent la performance de la charge de travail :
+- Gen 4 fournit une meilleure prise en charge de calcul puisqu’elle est basée sur des processeurs physiques, et Gen 5 basée sur des processeurs vCore. Cela peut s'avérer plus avantageux pour calculer des charges de travail intensives.
+- La Gen 5 prend en charge la mise en réseau accélérée, ce qui se traduit par une meilleure bande passante d’E/S vers le stockage distant. Cela peut s'avérer avantageux pour les charges de travail intensives d’E/S sur les niveaux de service usage général. Gen 5 utilise des disques locaux SSD plus rapides par rapport à Gen 4. Cela peut s'avérer avantageux pour les charges de travail intensives d’E/S sur les niveaux de service critiques de l’entreprise.
 
-Il est conseillé aux clients de tester la performance des charges de travail réelles destinées à la production avant la mise en production afin de déterminer quelle génération de matériel fonctionnera le mieux dans votre cas.
+Il est vivement conseillé de tester le niveau de performance des charges de travail réelles destinées à la production avant la mise en production afin de déterminer quelle génération de matériel fonctionnera le mieux dans votre cas.
 
 ## <a name="can-i-switch-my-managed-instance-hardware-generation-between-gen-4-and-gen-5-online"></a>Puis-je basculer ma génération de matériel d’instance gérée entre Gen 4 et Gen 5 en ligne ? 
 
-La commutation en ligne automatisée entre les générations de matériel est possible si les deux générations de matériel sont disponibles dans la même région où votre instance gérée est provisionnée. Dans ce cas, vous avez une option dans la section de niveau tarifaire du portail Azure pour basculer entre les générations de matériel.
+La commutation en ligne automatisée entre les générations de matériel est possible si les deux générations de matériel sont disponibles dans la même région où votre instance gérée est approvisionnée. Dans ce cas, vous avez une option dans la section de niveau tarifaire du portail Azure pour basculer entre les générations de matériel.
 
-Il s’agit d’une opération durable car la nouvelle instance gérée sera provisionnée à l’arrière-plan et les bases de données seront automatiquement transférées entre l’ancienne et la nouvelle instance. Ce processus sera intégré pour les clients.
+Il s’agit d’une opération de longue durée car la nouvelle instance gérée sera approvisionnée en arrière-plan et les bases de données seront automatiquement transférées entre l’ancienne et la nouvelle instance, avec un rapide basculement au terme du processus. 
 
-Si les deux générations de matériel ne sont pas prises en charge dans la même région, la modification de la génération de matériel est possible mais doit être effectuée manuellement. Pour cela, vous devez approvisionner une nouvelle instance dans la région où la génération matérielle souhaitée est disponible, et sauvegarder et restaurer manuellement les données entre l’ancienne et la nouvelle instance.
+Si les deux générations de matériel ne sont pas prises en charge dans la même région, la modification de la génération de matériel est possible mais doit être effectuée manuellement. Pour cela, vous devez approvisionner une nouvelle instance dans la région où la génération de matériel souhaitée est disponible, et sauvegarder et restaurer manuellement les données entre l’ancienne et la nouvelle instance.
 
 
 ## <a name="how-do-i-tune-performance-of-my-managed-instance"></a>Comment régler les performances de mon instance gérée ? 
 
-L’instance gérée à des fins générales utilise le stockage à distance en raison de la taille des données et des fichiers journaux importants pour la performance. Pour régler la performance des niveaux de service à usage général, suivez les instructions de ce billet de blog.
+L’instance gérée à usage général utilise le stockage à distance en raison de la taille des données et des fichiers journaux importants pour le niveau de performance. Pour régler les performances du niveau de service à usage général, suivez les instructions de ce billet de blog.
 
 Pour les charges de travail intensives E/S, envisagez d’utiliser du matériel Gen 5, plutôt que Gen 4 pour les calculer. Pour plus d’informations, consultez la section FAQ sur le choix entre plusieurs générations de matériel.
 
@@ -113,13 +113,13 @@ Pour plus d’informations et pour savoir comment vérifier le pare-feu intégr�
 
 Afin d’atténuer les risques liés à la mise en réseau, il est recommandé aux clients d’appliquer un ensemble de paramètres et de contrôles de sécurité :
 
-- Activez Transparent Data Encryption (TDE) sur toutes les bases de données.
+- Activez [Transparent Data Encryption (TDE)](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql) sur toutes les bases de données.
 - Désactivez Common Language Runtime (CLR). Cela est recommandé localement également.
-- Utiliser uniquement des comptes Azure AD.
-- Accédez à SQL MI avec un compte à faibles privilèges DBA.
+- Utilisez uniquement Authentification Azure Active Directory (AAD).
+- Accédez à l'instance avec un compte à faibles privilèges DBA.
 - Configurez l’accès au serveur de rebond JiT pour le compte sysadmin.
-- Activez l’audit SQL et intégrez-le avec les mécanismes d’alerte.
-- Activez la détection des menaces pour la suite ATS.
+- Activez l’[audit SQL](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine) et intégrez-le à des mécanismes d’alerte.
+- Activez la [détection des menaces](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection) à partir de la suite [Advanced Data Security (ADS)](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security).
 
 
 ## <a name="where-can-i-find-use-cases-and-resulting-cost-savings-with-managed-instance"></a>Où puis-je trouver des cas d’utilisation et les économies de coûts qui en résultent avec l’instance gérée ?
@@ -150,6 +150,9 @@ Dans des situations rares mais nécessaires, nous pourrions avoir besoin de fair
 
 Pour cette raison, nous déconseillons fortement de se fier à l’immuabilité de l’adresse IP car cela pourrait causer des temps d’arrêt inutiles.
 
+## <a name="can-i-move-a-managed-instance-or-its-vnet-to-another-resource-group"></a>Puis-je déplacer une instance gérée ou son réseau virtuel vers un autre groupe de ressources?
+
+Non, il s’agit de la limite actuelle de la plateforme. Après la création d’une instance gérée, le déplacement de l’instance gérée ou du réseau virtuel vers un autre groupe de ressources ou vers un autre abonnement n’est pas pris en charge.
 
 ## <a name="can-i-change-the-time-zone-for-an-existing-managed-instance"></a>Puis-je changer le fuseau horaire d’une instance gérée existante ?
 
@@ -160,17 +163,17 @@ Les solutions de contournement comprennent la création d’une nouvelle instanc
 
 ## <a name="how-do-i-resolve-performance-issues-with-my-managed-instance"></a>Comment résoudre les problèmes de performances avec mon instance gérée ?
 
-Pour une comparaison des performances entre une instance gérée et SQL Server, un bon point de départ sont les [meilleures pratiques pour comparer les performances entre une instance gérée SQL Azure et SQL Server](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/The-best-practices-for-performance-comparison-between-Azure-SQL/ba-p/683210).
+Pour une comparaison des performances entre une instance gérée et SQL Server, commencez par consulter l'article [Meilleures pratiques pour comparer les performances entre une instance gérée Azure SQL et SQL Server](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/The-best-practices-for-performance-comparison-between-Azure-SQL/ba-p/683210).
 
 Les chargements de données sont souvent plus lents sur les instances gérées que dans SQL Server en raison du modèle de récupération complète obligatoire et des [limites](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics) du débit d’écriture du journal des transactions. Parfois, cela peut être contourné en chargeant des données transitoires dans tempdb au lieu d’une base de données utilisateur, ou en utilisant un magasin de colonnes en cluster ou des tables optimisées en mémoire.
 
 
 ## <a name="can-i-restore-my-encrypted-database-to-managed-instance"></a>Puis-je restaurer ma base de données chiffrée de l’instance gérée ?
 
-Oui, vous n’avez pas besoin de décrypter votre base de données pour pouvoir la restaurer en instance gérée. Vous devez fournir à l’instance gérée un certificat/une clé utilisée comme protecteur de clé de cryptage dans le système source pour pouvoir lire les données du fichier de sauvegarde crypté. Il existe deux façons d’effectuer cette opération :
+Oui, vous n’avez pas besoin de décrypter votre base de données pour pouvoir la restaurer en instance gérée. Vous devez fournir à l’instance gérée un certificat/une clé utilisée comme protecteur de clé de cryptage dans le système source pour pouvoir lire les données du fichier de sauvegarde crypté. Il existe deux façons d'effectuer cette opération :
 
-- Téléchargez le protecteur de certificat-protector dans l’instance gérée. Cela est possible uniquement à l’aide de PowerShell. L’exemple de script décrit l’ensemble du processus.
-- Téléchargez protecteur de clé asymétrique dans Azure Key Vault (AKV) et survolez l’instance gérée. Cette approche ressemble au cas d’utilisation TDE de Bring-your-own-key (BYOK) qui utilise également l’intégration AKV pour stocker la clé de cryptage. Si vous voulez simplement que la clé téléchargée vers AKV soit disponible pour l’instance gérée pour restaurer les bases de données cryptées sans utiliser la clé comme un protecteur de clé de cryptage, suivez les instructions pour configurer BYOK TDE, et ne cochez pas la case Faire de la clé sélectionnée le protecteur par défaut de TDE.
+- *Téléchargez le protecteur de certificat dans l’instance gérée*. Cela est uniquement possible à l’aide de PowerShell. L’[exemple de script](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-migrate-tde-certificate) décrit l’ensemble du processus.
+- *Téléchargez le protecteur de clé asymétrique dans Azure Key Vault (AKV) et pointez l'instance gérée sur celui-ci.* . Cette approche ressemble au cas d’utilisation TDE de Bring-your-own-key (BYOK) qui utilise également l’intégration AKV pour stocker la clé de cryptage. Si vous ne souhaitez pas utiliser la clé en tant que protecteur de clé de chiffrement, mais simplement la mettre à disposition de l'instance gérée pour restaurer les bases de données chiffrées, suivez les instructions pour [configurer BYOK TDE](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql#manage-transparent-data-encryption-in-the-azure-portal), et ne cochez pas la case *Définir la clé sélectionnée comme protecteur TDE par défaut*.
 
 Une fois que vous mettez le protecteur de cryptage à la disposition de l’instance gérée, vous pouvez procéder à la procédure standard de restauration de la base de données.
 

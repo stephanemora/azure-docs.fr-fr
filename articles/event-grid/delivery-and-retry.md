@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: spelluru
-ms.openlocfilehash: b4bfdd3e9cdf99314dc55907ba163adc6cd39423
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0945b06f78ac34500f0b16a4a419cff12d1a4734
+ms.sourcegitcommit: af31deded9b5836057e29b688b994b6c2890aa79
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65952889"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67812921"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Distribution et nouvelle tentative de distribution de messages avec Azure Grid
 
@@ -43,6 +43,12 @@ Pour un comportement déterministe, définissez la durée de l’événement de 
 
 Par défaut, Event Grid fait expirer tous les événements qui ne sont pas distribués dans les 24 heures. Vous pouvez [personnaliser la stratégie de nouvelle tentative](manage-event-delivery.md) lors de la création d’un abonnement à un événement. Vous fournissez le nombre maximal de tentatives de remise (par défaut, 30) et la durée de vie de l’événement (par défaut, 1 440 minutes).
 
+## <a name="delayed-delivery"></a>Livraison retardée
+
+En cas d'échec de livraison d'un point de terminaison, Event Grid commence à retarder la livraison et retente les événements sur ce point de terminaison. Par exemple, si les dix premiers événements publiés sur un point de terminaison échouent, Event Grid supposera que le point de terminaison rencontre des problèmes et retardera toutes les tentatives suivantes *et nouvelles* livraisons pendant un certain laps de temps, parfois même pendant plusieurs heures.
+
+La livraison retardée a pour objectif de protéger les points de terminaison non sains, ainsi que le système Event Grid. Sans temporisation et retard de livraison sur les points de terminaison non sains, la stratégie de nouvelle tentative d'Event Grid peut aisément saturer un système.
+
 ## <a name="dead-letter-events"></a>Événements de lettres mortes
 
 Quand Event Grid ne parvient pas à remettre un événement, il peut envoyer cet événement non remis à un compte de stockage. Ce processus est appelé mise en file d’attente de lettres mortes. Par défaut, Event Grid n’active pas cette fonctionnalité. Pour l’activer, vous devez spécifier le compte de stockage dans lequel les événements non remis seront conservés au moment de créer l’abonnement aux événements. Les événements sont extraits de ce compte de stockage pour résoudre les remises.
@@ -63,25 +69,29 @@ Event Grid utilise les codes de réponse HTTP pour accuser réception des évén
 
 ### <a name="success-codes"></a>Codes de réussite
 
-Les codes de réponse HTTP suivants indiquent qu’un événement a bien été distribué à votre webhook. Event Grid considère que la distribution est effectuée.
+Event Grid considère **uniquement** les codes de réponse HTTP suivants en tant que livraisons réussies. Tous les autres codes d’état sont considérés en tant que livraisons ayant échoué et font l'objet de nouvelles tentatives ou de lettres mortes, le cas échéant. Lorsqu'il reçoit un code d'état réussi, Event Grid considère la livraison comme terminée.
 
 - 200 OK
+- 201 Créé
 - 202 Accepté
+- 203 Informations ne faisant pas autorité
+- 204 Pas de contenu
 
 ### <a name="failure-codes"></a>Codes d’échec
 
-Les codes de réponse HTTP suivants indiquent un échec de la tentative de distribution d’un événement.
+Tous les codes ne figurant par dans les codes ci-dessus (200 à 204) sont considérés comme ayant échoué et feront l'objet de nouvelles tentatives. Certains sont associés à des stratégies de nouvelle tentative spécifiques (voir ci-dessous). Toutes les autres suivent le modèle de temporisation exponentielle standard. Il est important de garder à l’esprit qu’en raison de la nature hautement parallélisée de l’architecture d'Event Grid, le comportement d'une nouvelle tentative n'est pas déterministe. 
 
-- 400 Demande incorrecte
-- 401 Non autorisé
-- 404 Introuvable
-- 408 Délai d’expiration de la demande
-- 413 Entité de demande trop grande
-- 414 URI trop long
-- 429 Trop de demandes
-- 500 Erreur interne du serveur
-- 503 Service indisponible
-- 504 Dépassement du délai de la passerelle
+| Code d’état | Comportement pour les nouvelles tentatives |
+| ------------|----------------|
+| 400 Demande incorrecte | Nouvelle tentative après 5 minutes (lettre morte immédiatement, si configurée) |
+| 401 Non autorisé | Nouvelle tentative après 5 minutes ou plus |
+| 403 Interdit | Nouvelle tentative après 5 minutes ou plus |
+| 404 Introuvable | Nouvelle tentative après 5 minutes ou plus |
+| 408 Délai d’expiration de la requête | Nouvelle tentative après 2 minutes ou plus |
+| 413 Entité de demande trop grande | Nouvelle tentative après 10 secondes ou plus (lettre morte immédiatement, si configurée) |
+| 503 Service indisponible | Nouvelle tentatives après 30 secondes ou plus |
+| Tous les autres | Nouvelle tentatives après 10 secondes ou plus |
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

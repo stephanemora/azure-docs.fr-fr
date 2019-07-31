@@ -6,22 +6,116 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: article
-ms.date: 06/14/2019
+ms.date: 06/17/2019
 ms.author: alkohli
-ms.openlocfilehash: 6f3ac38c3eac968bd2f7ec2aada435466d3ff279
-ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.openlocfilehash: deaa9a220ee4d765650779b40742225e300ffdb7
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67148121"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807490"
 ---
 # <a name="understand-logs-to-troubleshoot-data-upload-issues-in-azure-data-box-disk"></a>Comprendre les journaux pour résoudre les problèmes liés au chargement des données dans Azure Data Box Disk
 
 Cet article s’applique à Microsoft Azure Data Box Disk et décrit les problèmes que vous rencontrez lors du chargement des données dans Azure.
 
-## <a name="data-upload-logs"></a>Journaux sur le chargement des données
+## <a name="about-upload-logs"></a>À propos des journaux de chargement
 
-Lorsque les données sont chargées sur un centre de données dans Azure, les fichiers `_error.xml` et `_verbose.xml` sont générés. Ces journaux sont chargés sur le même compte de stockage utilisé pour charger des données. Voici un exemple de `_error.xml` obtenue.
+Lorsque les données sont chargées sur un centre de données dans Azure, les fichiers `_error.xml` et `_verbose.xml` sont générés pour chaque compte de stockage. Ces journaux sont chargés sur le même compte de stockage utilisé pour charger des données. 
+
+Les journaux sont au même format et contiennent des descriptions XML des événements qui se sont produits lors de la copie des données du disque vers le compte de stockage Azure.
+
+Le journal détaillé contient des informations complètes sur l’état de l’opération de copie pour chaque objet blob ou fichier, alors que le journal d’erreurs contient uniquement les informations des objets blob ou fichiers qui ont rencontré des erreurs lors du chargement.
+
+Le journal d’erreurs a la même structure que le journal détaillé mais il exclut les opérations réussies.
+
+## <a name="download-logs"></a>Télécharger les journaux d’activité
+
+Procédez comme suit pour localiser les journaux de chargement.
+
+1. Si des erreurs se produisent lors du chargement des données dans Azure, le portail affiche un chemin d’accès au dossier dans lequel se trouvent les journaux de diagnostic.
+
+    ![Lien vers les journaux dans le portail](./media/data-box-disk-troubleshoot-upload/data-box-disk-portal-logs.png)
+
+2. Accédez à **waies**.
+
+    ![journaux d'erreurs et journaux détaillés](./media/data-box-disk-troubleshoot-upload/data-box-disk-portal-logs-1.png)
+
+Dans chaque cas, vous voyez les journaux d’activité d’erreurs et les journaux d’activité détaillés. Sélectionnez chaque journal et téléchargez une copie locale.
+
+## <a name="sample-upload-logs"></a>Exemples de journaux de chargement
+
+Voici un exemple de `_verbose.xml` obtenue. Dans ce cas, l'ordre s'est terminé sans erreur.
+
+```xml
+
+<?xml version="1.0" encoding="utf-8"?>
+<DriveLog Version="2018-10-01">
+  <DriveId>184020D95632</DriveId>
+  <Blob Status="Completed">
+    <BlobPath>$root/botetapageblob.vhd</BlobPath>
+    <FilePath>\PageBlob\botetapageblob.vhd</FilePath>
+    <Length>1073742336</Length>
+    <ImportDisposition Status="Created">rename</ImportDisposition>
+    <PageRangeList>
+      <PageRange Offset="0" Length="4194304" Status="Completed" />
+      <PageRange Offset="4194304" Length="4194304" Status="Completed" />
+      <PageRange Offset="8388608" Length="4194304" Status="Completed" />
+      --------CUT-------------------------------------------------------
+      <PageRange Offset="1061158912" Length="4194304" Status="Completed" />
+      <PageRange Offset="1065353216" Length="4194304" Status="Completed" />
+      <PageRange Offset="1069547520" Length="4194304" Status="Completed" />
+      <PageRange Offset="1073741824" Length="512" Status="Completed" />
+    </PageRangeList>
+  </Blob>
+  <Blob Status="Completed">
+    <BlobPath>$root/botetablockblob.txt</BlobPath>
+    <FilePath>\BlockBlob\botetablockblob.txt</FilePath>
+    <Length>19</Length>
+    <ImportDisposition Status="Created">rename</ImportDisposition>
+    <BlockList>
+      <Block Offset="0" Length="19" Status="Completed" />
+    </BlockList>
+  </Blob>
+  <File Status="Completed">
+    <FileStoragePath>botetaazurefilesfolder/botetaazurefiles.txt</FileStoragePath>
+    <FilePath>\AzureFile\botetaazurefilesfolder\botetaazurefiles.txt</FilePath>
+    <Length>20</Length>
+    <ImportDisposition Status="Created">rename</ImportDisposition>
+    <FileRangeList>
+      <FileRange Offset="0" Length="20" Status="Completed" />
+    </FileRangeList>
+  </File>
+  <Status>Completed</Status>
+</DriveLog>
+```
+
+Pour le même ordre, voici un exemple de `_error.xml` obtenu.
+
+```xml
+
+<?xml version="1.0" encoding="utf-8"?>
+<DriveLog Version="2018-10-01">
+  <DriveId>184020D95632</DriveId>
+  <Summary>
+    <ValidationErrors>
+      <None Count="3" />
+    </ValidationErrors>
+    <CopyErrors>
+      <None Count="3" Description="No errors encountered" />
+    </CopyErrors>
+  </Summary>
+  <Status>Completed</Status>
+</DriveLog>
+```
+
+Voici un exemple de `_error.xml` obtenu où l'ordre s'est terminé avec des erreurs. 
+
+Dans ce cas, le fichier d’erreur contient une section `Summary` et une autre section contenant toutes les erreurs au niveau du fichier. 
+
+Le `Summary` contient les `ValidationErrors` et les `CopyErrors`. Dans ce cas, 8 fichiers ou dossiers ont été chargés dans Azure et aucune erreur de validation n'a été enregistrée. Lorsque les données ont été copiées dans le compte de stockage Azure, 5 fichiers ou dossiers ont été correctement chargés. Les 3 fichiers ou dossiers restants ont été renommés conformément aux conventions d’affectation de noms des conteneurs Azure, puis correctement chargés dans Azure.
+
+L'état au niveau des fichiers indique `BlobStatus`, ce qui décrit les mesures prises pour charger les objets blob. Dans ce cas, trois conteneurs ont été renommés, car les dossiers dans lesquels les données ont été copiées n'étaient pas conformes aux conventions d’affectation de noms des conteneurs Azure. Pour les objets blob téléchargés dans ces conteneurs, le nouveau nom de conteneur, le chemin d’accès de l’objet blob dans Azure, le chemin d’accès au fichier d'origine non valide et la taille de l’objet blob sont inclus.
     
 ```xml
  <?xml version="1.0" encoding="utf-8"?>
@@ -57,32 +151,17 @@ Lorsque les données sont chargées sur un centre de données dans Azure, les fi
     </DriveLog>
 ```
 
-## <a name="download-logs"></a>Télécharger les journaux d’activité
-
-Il y a deux façons de localiser et de télécharger des journaux de diagnostic.
-
-- Si des erreurs se produisent lors du chargement des données dans Azure, le portail affiche un chemin d’accès au dossier dans lequel se trouvent les journaux de diagnostic.
-
-    ![Lien vers les journaux dans le portail](./media/data-box-disk-troubleshoot-upload/data-box-disk-portal-logs.png)
-
-- Accédez au compte de stockage associé à votre commande Data Box. Accédez à **Service BLOB > Parcourir les objets blob** et recherchez l’objet blob correspondant au compte de stockage. Accédez à **waies**.
-
-    ![Journaux d’activité de copie 2](./media/data-box-disk-troubleshoot/data-box-disk-copy-logs2.png)
-
-Dans chaque cas, vous voyez les journaux d’activité d’erreurs et les journaux d’activité détaillés. Sélectionnez chaque journal et téléchargez une copie locale.
-
-
 ## <a name="data-upload-errors"></a>Erreurs de chargement des données
 
 Les erreurs générées lors du chargement des données dans Azure sont résumées dans le tableau suivant.
 
-| Code d'erreur | Description                        |
+| Code d'erreur | Description                   |
 |-------------|------------------------------|
 |`None` |  Opération réussie.           |
-|`Renamed` | Objet blob renommé avec succès.  |                                                            |
+|`Renamed` | Objet blob renommé avec succès.   |
 |`CompletedWithErrors` | Chargement terminé avec des erreurs. Les détails des fichiers de l’erreur sont inclus dans le fichier journal.  |
 |`Corrupted`|Le CRC calculé au cours de l’ingestion de données ne correspond pas au CRC calculé lors du chargement.  |  
-|`StorageRequestFailed` | Échec de la demande de stockage Azure.   |     |
+|`StorageRequestFailed` | Échec de la demande de stockage Azure.   |     
 |`LeasePresent` | Cet élément est loué et est utilisé par un autre utilisateur. |
 |`StorageRequestForbidden` |Échec du chargement en raison de problèmes d’authentification. |
 |`ManagedDiskCreationTerminalFailure` | Échec du chargement en tant que disques managés. Les fichiers sont disponibles dans le compte de stockage intermédiaire en tant qu’objets blob de pages. Vous pouvez convertir manuellement des objets blob de pages en disques managés.  |

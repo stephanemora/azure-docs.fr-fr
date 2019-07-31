@@ -9,18 +9,23 @@ ms.author: estfan
 ms.reviewer: deli, klam, LADocs
 ms.topic: conceptual
 ms.date: 05/25/2019
-ms.openlocfilehash: 7f15dc5b28a44dc8405e2f0524913e6012ebe380
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7716c477cea2200e6fee901f7b5f63cd4b833bd7
+ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66356044"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68232683"
 ---
 # <a name="schedule-and-run-recurring-automated-tasks-processes-and-workflows-with-azure-logic-apps"></a>Créer et exécuter des tâches et des workflows récurrents avec Azure Logic Apps
 
-Logic Apps vous aide à créer et à exécuter des tâches et des processus récurrents automatisés selon un calendrier. En créant un workflow d'application logique qui démarre avec un déclencheur intégré de type Périodicité ou Fenêtre glissante, c’est-à-dire des déclencheurs de type Planifier, vous pouvez exécuter des tâches immédiatement, ultérieurement ou à intervalles réguliers. Vous pouvez appeler des services à l'intérieur et à l'extérieur d'Azure, notamment des points de terminaison HTTP ou HTTPS, poster des messages sur des services Azure comme Azure Storage et Azure Service Bus, ou charger des fichiers vers un partage de fichiers. Le déclencheur Périodicité vous permet également de configurer des programmes complexes et des récurrences avancées pour exécuter des tâches. Pour plus d’informations sur les déclencheurs Planification intégrés et les actions, consultez [Schedule and run recurring automated, tasks, and workflows with Azure Logic Apps (Planifier et exécuter des tâches et des workflows automatisés et récurrents avec Azure Logic Apps)](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md).
+Logic Apps vous aide à créer et à exécuter des tâches et des processus récurrents automatisés selon un calendrier. En créant un workflow d'application logique qui démarre avec un déclencheur intégré de type Périodicité ou Fenêtre glissante, c’est-à-dire des déclencheurs de type Planifier, vous pouvez exécuter des tâches immédiatement, ultérieurement ou à intervalles réguliers. Vous pouvez appeler des services à l'intérieur et à l'extérieur d'Azure, notamment des points de terminaison HTTP ou HTTPS, poster des messages sur des services Azure comme Azure Storage et Azure Service Bus, ou charger des fichiers vers un partage de fichiers. Le déclencheur Périodicité vous permet également de configurer des programmes complexes et des récurrences avancées pour exécuter des tâches. Pour plus d’informations sur les déclencheurs et actions de planification intégrés, consultez [Planifier des déclencheurs](#schedule-triggers) et [Planifier des actions](#schedule-actions). 
 
-Voici quelques exemples qui montrent les types de tâches que vous pouvez exécuter :
+> [!TIP]
+> Vous pouvez planifier et exécuter des charges de travail récurrentes sans créer d’application logique distincte pour chaque travail planifié et en cours d'exécution dans la [limite des workflows par région et par abonnement](../logic-apps/logic-apps-limits-and-config.md#definition-limits). Vous pouvez privilégier l'utilisation du modèle d’application logique créé par le [modèle de démarrage rapide Azure : Planificateur de travaux Logic Apps](https://github.com/Azure/azure-quickstart-templates/tree/master/301-logicapps-jobscheduler/).
+>
+> Le modèle du planificateur de travaux Logic Apps crée une application logique CreateTimerJob qui appelle une application logique TimerJob. Vous pouvez ensuite appeler l’application logique CreateTimerJob en tant qu’API en effectuant une requête HTTP et en utilisant une planification en tant qu'entrée pour la requête. Chaque appel fait à l’application logique CreateTimerJob appelle également l’application logique TimerJob, ce qui crée une nouvelle instance TimerJob qui s’exécute en continu en fonction de la planification spécifiée ou jusqu’à ce que la limite spécifiée soit atteinte. Ainsi, vous pouvez exécuter autant d’instances TimerJob que vous le souhaitez, sans vous soucier des limites de workflow car les instances ne correspondent pas à des définitions ou ressources de workflow d’application logique individuelle.
+
+Cette liste présente quelques exemples de tâches que vous pouvez exécuter avec les déclencheurs de planification intégrés :
 
 * Obtenir des données internes, par exemple exécuter une procédure stockée SQL tous les jours.
 
@@ -42,15 +47,19 @@ Vous pouvez également utiliser les actions intégrées Planifier pour suspendre
 
 Cet article décrit les capacités des déclencheurs et actions intégrés de type Planifier.
 
+<a name="schedule-triggers"></a>
+
 ## <a name="schedule-triggers"></a>Planifier des déclencheurs
 
-Vous pouvez démarrer votre workflow d'application logique en utilisant le déclencheur Périodicité ou le déclencheur Fenêtre glissante, qui ne sont associés à aucun service ou système spécifique, par exemple Office 365 Outlook ou SQL Server. Ces déclencheurs démarrent et exécutent votre workflow en fonction de la périodicité que vous avez spécifiée lors de la sélection de l’intervalle et de la fréquence, par exemple le nombre de secondes, de minutes et d'heures pour les deux déclencheurs, ou le nombre de jours, de semaines ou de mois pour le déclencheur Périodicité. Vous pouvez également définir la date et l'heure de début ainsi que le fuseau horaire. Chaque fois qu’un déclencheur est activé, Logic Apps crée et exécute une instance de workflow pour votre application logique.
+Vous pouvez démarrer votre workflow d'application logique en utilisant le déclencheur Périodicité ou le déclencheur Fenêtre glissante, qui n'est associé à aucun service ou système spécifique, par exemple Office 365 Outlook ou SQL Server. Ces déclencheurs démarrent et exécutent votre workflow en fonction de la périodicité que vous avez spécifiée lors de la sélection de l’intervalle et de la fréquence, par exemple le nombre de secondes, de minutes et d'heures pour les deux déclencheurs, ou le nombre de jours, de semaines ou de mois pour le déclencheur Périodicité. Vous pouvez également définir la date et l'heure de début ainsi que le fuseau horaire. Chaque fois qu’un déclencheur est activé, Logic Apps crée et exécute une instance de workflow pour votre application logique.
 
 Voici les différences entre ces types déclencheurs :
 
 * **Périodicité** : Exécute votre workflow à intervalles réguliers selon la périodicité que vous avez spécifiée. Si des périodicités sont manquées, le déclencheur Périodicité ne les traite pas, mais redémarre les périodicités selon l'intervalle planifié suivant. Vous pouvez spécifier la date et l'heure de début ainsi que le fuseau horaire. Si vous sélectionnez « Jour », vous pouvez spécifier les heures du jour et les minutes, par exemple, tous les jours à 14h30. Si vous sélectionnez « Semaine », vous pouvez également sélectionner les jours de la semaine, par exemple le mercredi et le samedi. Pour plus d'informations, voir [Créer, planifier et exécuter des tâches et des workflows récurrents avec le déclencheur Périodicité](../connectors/connectors-native-recurrence.md).
 
 * **Fenêtre glissante** : Exécute votre workflow à des intervalles réguliers qui traitent les données en continu. Si des périodicités sont manquées, le déclencheur Fenêtre coulissante revient en arrière et traite les périodicités manquées. Vous pouvez spécifier une date et une heure de début, un fuseau horaire et une durée pour retarder chaque périodicité de votre workflow. Ce déclencheur ne permet pas de spécifier les jours, les semaines et les mois, les heures du jour, les minutes et les jours de la semaine. Pour plus d'informations, voir [Créer, planifier et exécuter des tâches et des workflows récurrents avec le déclencheur Fenêtre glissante](../connectors/connectors-native-sliding-window.md).
+
+<a name="schedule-actions"></a>
 
 ## <a name="schedule-actions"></a>Planifier des actions
 
@@ -64,7 +73,7 @@ Après chaque action dans votre workflow d’application logique, vous pouvez ut
 
 <a name="start-time"></a>
 
-Voici quelques modèles qui montrent comment vous pouvez contrôler la périodicité avec la date et l’heure de début, et comment les services Logic Apps exécutent ces périodicités :
+Voici quelques modèles qui montrent comment vous pouvez contrôler la périodicité avec la date et l’heure de début, et comment le service Logic Apps exécute ces périodicités :
 
 | Heure de début | Périodicité sans planification | Périodicité avec planification (déclencheur Périodicité uniquement) |
 |------------|-----------------------------|----------------------------------------------------|
@@ -75,11 +84,11 @@ Voici quelques modèles qui montrent comment vous pouvez contrôler la périodic
 
 *Exemple d’heure de début passée et de périodicité, mais sans planification*
 
-Prenons par exemple le 8 septembre 2017 à 13h comme date et heure actuelles. Vous pouvez choisir le 7 septembre 2017 à 14h00 comme date et heure de début (dans le passé), et une périodicité d’exécution tous les 2 jours.
+Prenons par exemple le 8 septembre 2017 à 13h comme date et heure actuelles. Vous pouvez choisir le 7 septembre 2017 à 14h00 comme date et heure de début (dans le passé), et une périodicité d’exécution tous les deux jours.
 
 | Heure de début | Heure actuelle | Périodicité | Planification |
 |------------|--------------|------------|----------|
-| 2017-09-**07**T14:00:00Z <br>(**07**-09-2017 à 14h00) | 2017-09-**08**T13:00:00Z <br>(**08**-09-2017 à 13h00) | Tous les 2 jours | {aucune} |
+| 2017-09-**07**T14:00:00Z <br>(**07**-09-2017 à 14h00) | 2017-09-**08**T13:00:00Z <br>(**08**-09-2017 à 13h00) | Tous les deux jours | {aucune} |
 |||||
 
 Pour le déclencheur Périodicité, le moteur Logic Apps calcule les heures d’exécution en fonction de l’heure de début, ignore les heures d’exécution passées, utilise l’heure de début suivante pour la première exécution, puis calcule les exécutions futures en fonction de la dernière exécution.

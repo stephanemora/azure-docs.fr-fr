@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 06/27/2019
-ms.openlocfilehash: f42d811a89f00fda19222ae088041330e4cf6264
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: c75b19fff478c14ff47996cf9159e48f3ff69724
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67658041"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68261196"
 ---
 # <a name="automated-backups"></a>Sauvegardes automatisées
 
@@ -54,7 +54,7 @@ Vous pouvez essayer certaines de ces opérations en utilisant les exemples suiva
 
 ## <a name="how-long-are-backups-kept"></a>Quelle est la durée de conservation des sauvegardes ?
 
-Chaque base de données SQL Database a une période de conservation de sauvegarde par défaut comprise entre 7 et 35 jours qui dépend du modèle d’achat et du niveau de service. Vous pouvez mettre à jour la période de rétention des sauvegardes d’une base de données sur le serveur Microsoft Azure SQL Database. Consultez [Modification de la période de conservation](#how-to-change-the-pitr-backup-retention-period) pour plus d’informations.
+Toutes les bases de données Azure SQL (uniques, mises en pool et Managed Instance), présentent une période de rétention des sauvegardes de **sept** jours. Vous pouvez [modifier la période de rétention des sauvegardes jusqu’à 35 jours](#how-to-change-the-pitr-backup-retention-period).
 
 Si vous supprimez une base de données, SQL Database conserve les sauvegardes de la même façon que s’il s’agissait d’une base de données en ligne. Par exemple, si vous supprimez une base de données De base dont la période de conservation est de sept jours, une sauvegarde datant de quatre jours est enregistrée pendant encore trois jours.
 
@@ -62,23 +62,6 @@ Si vous souhaitez conserver les sauvegardes plus longtemps que la période de co
 
 > [!IMPORTANT]
 > Si vous supprimez le serveur Azure SQL Server qui héberge les bases de données SQL, tous les pools élastiques et bases de données qui appartiennent au serveur sont également supprimés, sans pouvoir être restaurés. Vous ne pouvez pas restaurer un serveur supprimé. Mais si vous avez configuré la conservation à long terme, les sauvegardes des bases de données avec conservation à long terme ne seront pas supprimées et peuvent être restaurées.
-
-### <a name="default-backup-retention-period"></a>Période de conservation des sauvegardes par défaut
-
-#### <a name="dtu-based-purchasing-model"></a>Modèle d’achat DTU
-
-La période de conservation par défaut pour une base de données créée à l’aide du modèle d’achat DTU varie selon le niveau de service :
-
-- Le niveau de service De base est **d’une** semaine.
-- Le niveau de service Standard est de **cinq** semaines.
-- Le niveau de service Premium est de **cinq** semaines.
-
-#### <a name="vcore-based-purchasing-model"></a>Modèle d’achat vCore
-
-Si vous utilisez le [modèle d’achat vCore](sql-database-service-tiers-vcore.md), la période de conservation des sauvegardes par défaut est de **sept** jours (pour les bases de données uniques, mises en pool et Managed Instance). Pour toutes les bases de données Azure SQL (uniques, mises en pool et d'instance), vous pouvez [modifier la période de conservation des sauvegardes et la prolonger jusqu’à 35 jours](#how-to-change-the-pitr-backup-retention-period).
-
-> [!WARNING]
-> Si vous réduisez la période de rétention actuelle, toutes les sauvegardes antérieures à la nouvelle période de rétention ne seront plus disponibles. Si vous augmentez la période de rétention actuelle, SQL Database conserve les sauvegardes existantes jusqu’à ce que la période de rétention plus longue soit atteinte.
 
 ## <a name="how-often-do-backups-happen"></a>À quelle fréquence les sauvegardes se produisent-elles ?
 
@@ -109,7 +92,11 @@ Si votre base de données est chiffrée à l’aide de TDE, les sauvegardes sont
 
 ## <a name="how-does-microsoft-ensure-backup-integrity"></a>Comment Microsoft garantit l’intégrité de la sauvegarde ?
 
-L’équipe d’ingénieurs Azure SQL Database teste régulièrement et automatiquement la restauration des sauvegardes automatisées de bases de données placées sur des serveurs logiques et dans des pools élastiques. Lors d’une restauration à un moment donné, les bases de données subissent également des vérifications d’intégrité à l’aide de DBCC CHECKDB. Managed Instance effectue une sauvegarde initiale automatique avec `CHECKSUM` des bases de données restaurées à l’aide de la commande `RESTORE` native ou du service de migration des données à l’issue de la migration. Tout problème détecté lors de la vérification d’intégrité est traduit par une alerte envoyée à l’équipe d’ingénieurs. Pour plus d’informations sur l’intégrité des données dans Azure SQL Database, consultez l’article [Intégrité des données dans Azure SQL Database](https://azure.microsoft.com/blog/data-integrity-in-azure-sql-database/).
+L’équipe d’ingénieurs Azure SQL Database teste régulièrement et automatiquement la restauration des sauvegardes automatisées de bases de données placées sur des serveurs logiques et dans des pools élastiques (non disponible dans Managed Instance). Lors d’une restauration à un moment donné, les bases de données subissent également des vérifications d’intégrité à l’aide de DBCC CHECKDB.
+
+Managed Instance effectue une sauvegarde initiale automatique avec `CHECKSUM` des bases de données restaurées à l’aide de la commande `RESTORE` native ou du service de migration des données à l’issue de la migration.
+
+Tout problème détecté lors de la vérification d’intégrité est traduit par une alerte envoyée à l’équipe d’ingénieurs. Pour plus d’informations sur l’intégrité des données dans Azure SQL Database, consultez l’article [Intégrité des données dans Azure SQL Database](https://azure.microsoft.com/blog/data-integrity-in-azure-sql-database/).
 
 ## <a name="how-do-automated-backups-impact-compliance"></a>Quel est l’impact des sauvegardes automatisées sur la conformité ?
 
@@ -120,6 +107,9 @@ Lorsque vous migrez votre base de données à partir d’un niveau de service ba
 ## <a name="how-to-change-the-pitr-backup-retention-period"></a>Comment modifier la période de conservation des sauvegardes PITR ?
 
 Vous pouvez modifier la période de rétention des sauvegardes PITR par défaut à l’aide du portail Microsoft Azure, de PowerShell ou de l’API REST. Les valeurs prises en charge sont les suivantes : 7, 14, 21, 28 ou 35 jours. Les exemples suivants illustrent comment modifier la conservation de récupération jusqu’à une date et heure pour la faire passer à 28 jours.
+
+> [!WARNING]
+> Si vous réduisez la période de rétention actuelle, toutes les sauvegardes antérieures à la nouvelle période de rétention ne seront plus disponibles. Si vous augmentez la période de rétention actuelle, SQL Database conserve les sauvegardes existantes jusqu’à ce que la période de rétention plus longue soit atteinte.
 
 > [!NOTE]
 > Ces API impactent uniquement la période de conservation PITR. Si vous avez configuré la conservation à long terme pour votre base de données, elle ne sera pas affectée. Consultez [Conservation à long terme](sql-database-long-term-retention.md) pour en savoir plus sur la modification des périodes de conservation à long terme.
@@ -140,7 +130,7 @@ Pour changer la période de rétention des sauvegardes PITR dans le portail Micr
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Le module PowerShell Azure Resource Manager est toujours pris en charge par Azure SQL Database, mais tous les développements futurs sont destinés au module Az.Sql. Pour ces cmdlets, consultez [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Les arguments des commandes dans le module Az et dans les modules AzureRm sont sensiblement identiques.
+> Le module PowerShell Azure Resource Manager est toujours pris en charge par Azure SQL Database, mais tous les développements futurs sont destinés au module Az.Sql. Pour ces cmdlets, voir [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Les arguments des commandes dans le module Az sont sensiblement identiques à ceux des modules AzureRm.
 
 ```powershell
 Set-AzSqlDatabaseBackupShortTermRetentionPolicy -ResourceGroupName resourceGroup -ServerName testserver -DatabaseName testDatabase -RetentionDays 28

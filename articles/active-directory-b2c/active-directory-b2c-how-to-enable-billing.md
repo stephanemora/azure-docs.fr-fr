@@ -10,12 +10,12 @@ ms.workload: identity
 ms.date: 01/24/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 9d3ce15ac9899fe09d907296976db15ed0babb35
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 5cc6c8b4947f8c5ebeb27be2dc82f323f84a6902
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67612481"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67835418"
 ---
 # <a name="link-an-azure-subscription-to-an-azure-active-directory-b2c-tenant"></a>Lier un abonnement Azure à un locataire Azure Active Directory B2C
 
@@ -45,9 +45,9 @@ Accédez au locataire Azure AD qui affiche votre abonnement Azure. Ouvrez le [po
 
 ## <a name="find-azure-ad-b2c-in-the-azure-marketplace"></a>Rechercher Azure AD B2C dans la Place de marché Microsoft Azure
 
-Cliquez sur le bouton **Créer une ressource**. Dans le champ **Rechercher dans le marketplace**, entrez `B2C`.
+Cliquez sur le bouton **Créer une ressource**. Dans le champ **Rechercher dans la Place de marché**, entrez `Active Directory B2C`.
 
-![Ajouter le bouton en surbrillance et le texte Azure AD B2C dans le champ Rechercher dans le marketplace](../../includes/media/active-directory-b2c-create-tenant/find-azure-ad-b2c.png)
+![Capture d’écran du portail avec « Active Directory B2C » dans la recherche de la Place de marché](../../includes/media/active-directory-b2c-create-tenant/find-azure-ad-b2c.png)
 
 Dans la liste des résultats, cliquez sur **Azure AD B2C**.
 
@@ -67,7 +67,7 @@ Pour Abonnement, sélectionnez un abonnement Azure actif dont vous êtes adminis
 
 Sélectionnez un groupe de ressources et un emplacement de groupe de ressources. La sélection effectuée ici n’a aucun impact sur l’emplacement, les performances ou l’état de facturation du locataire Azure AD B2C.
 
-![Créer une ressource B2C](./media/active-directory-b2c-how-to-enable-billing/createresourceb2c.png)
+![Page de création de la ressource Azure AD B2C dans le portail Azure](./media/active-directory-b2c-how-to-enable-billing/createresourceb2c.png)
 
 ## <a name="manage-your-azure-ad-b2c-tenant-resources"></a>Gérer vos ressources de locataire Azure AD B2C
 
@@ -80,7 +80,7 @@ Vous pouvez utiliser cette ressource pour :
 - envoyer une demande de support ;
 - déplacer votre ressource de locataire Azure AD B2C vers un autre abonnement Azure ou un autre groupe de ressources.
 
-![Paramètres de ressource B2C](./media/active-directory-b2c-how-to-enable-billing/b2cresourcesettings.png)
+![Page des paramètres des ressources B2C dans le portail Azure](./media/active-directory-b2c-how-to-enable-billing/b2cresourcesettings.PNG)
 
 ## <a name="change-the-azure-ad-b2c-tenant-billing-subscription"></a>Changer l’abonnement de facturation du locataire Azure AD B2C
 

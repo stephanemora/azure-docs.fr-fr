@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/25/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 499aeccdf00980eeb66ac6ee06e45267fd515143
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: cf05468af17a4fafa7c81c7ad8bc89b3306a54af
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67177027"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68286259"
 ---
 Les galeries Shared Image Gallery vous permettent de partager des images à l’aise du contrôle d’accès en fonction du rôle (RBAC). Vous pouvez utiliser le contrôle d’accès en fonction du rôle (RBAC) pour partager des images au sein de votre locataire, voire avec d’autres personnes en dehors. Toutefois, si vous souhaitez partager à grande échelle des images hors de votre locataire Azure, vous devez créer une inscription d’application pour faciliter le partage.  À l’aide d’une inscription d’application, vous pouvez activer des scénarios de partage plus complexes, comme : 
 
@@ -46,7 +46,7 @@ Fournissez l’autorisation de l’inscription d’application pour utiliser la 
 
 ## <a name="give-tenant-2-access"></a>Accorder l’accès au locataire 2
 
-Accordez l’accès au locataire 2 à l’application, en demandant la connexion via un navigateur. Remplacez *<Tenant2 ID>* par l’ID du locataire avec lequel que vous voulez partager votre galerie d’images. Remplacez *<ID d’application (client)>* par l’ID d’application de l’inscription d’application que vous avez créée. Lorsque vous avez effectué ces remplacements, collez l’adresse URL dans un navigateur et suivez les invites pour vous connecter au locataire 2.
+Accordez l’accès au locataire 2 à l’application, en demandant la connexion via un navigateur. Remplacez *\<Tenant2 ID>* par l’ID du locataire avec lequel que vous souhaitez partager votre galerie d’images. Remplacez *\<ID d’application (client)>* par l’ID d’application de l’inscription d’application que vous avez créée. Lorsque vous avez effectué ces remplacements, collez l’adresse URL dans un navigateur et suivez les invites pour vous connecter au locataire 2.
 
 ```
 https://login.microsoftonline.com/<Tenant 2 ID>/oauth2/authorize?client_id=<Application (client) ID>&response_type=code&redirect_uri=https%3A%2F%2Fwww.microsoft.com%2F 

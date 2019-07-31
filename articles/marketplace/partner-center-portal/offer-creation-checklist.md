@@ -1,165 +1,165 @@
 ---
-title: Offre de liste de vérification de la création - commerciales place de marché Azure
-description: Les détails que vous pouvez fournir dans le processus de création d’offre. -Commercial place de marché Azure
+title: Liste de contrôle de création d’offre – Place de marché Azure commerciale pour Azure
+description: Détails que vous pouvez fournir dans le cadre du processus de création d’offre – Place de marché commerciale pour Azure
 author: qianw211
 manager: evansma
 ms.author: v-qiwe
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 904058c2c98c8ded2ea9c91e8aa7ec595aa49b05
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
-ms.translationtype: MT
+ms.openlocfilehash: eb824eb67e84ec4bdb93bc355ac6a6afa844ceb9
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66481443"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67701153"
 ---
 # <a name="offer-creation-checklist"></a>Liste de vérification de la création d’offre
 
-Le processus de création offre vous guident tout au long de plusieurs pages. Voici les détails que vous pouvez fournir sur chaque page, avec des liens pour en savoir plus sur chaque élément.
+Le processus de création d’offre vous amène à visiter plusieurs pages. Voici les détails que vous pouvez fournir sur chacune d’elles, avec des liens pour en apprendre davantage plus sur chaque élément.
 
-Vous êtes invité à fournir ou spécifier des éléments sont indiqués ci-dessous. Certaines zones sont facultatives ou avoir les valeurs par défaut fourni, que vous pouvez modifier comme vous le souhaitez. Vous n’êtes pas obligé de travailler sur ces sections dans l’ordre indiqué ici.
+Les éléments que vous devez fournir ou spécifier sont indiqués ci-dessous. Certaines zones sont facultatives ou comportent des valeurs par défaut que vous pouvez modifier à votre guise. Vous n’êtes pas obligé de travailler sur ces sections dans l’ordre indiqué ici.
 
 | **Item**    | **Objectif**  |
 | :---------- | :-------------------|
-| [**Nouvelle offre Modal**](#new-offer-modal) | Collecte offre des informations d’identité.  |
-| [Page d’installation de l’offre](#offer-setup-page) | Vous permet d’opter pour utiliser les fonctionnalités clés et de choisir comment vendre votre offre via Microsoft.  |
-| [Page de propriétés](#properties-page) | Définir les catégories et les secteurs d’activité utilisées pour regrouper votre offre sur les places de marché, les contrats prenant en charge votre offre et votre version de l’application. |
-| [Page d’annonce de l’offre](#offer-listing-page) | Définir les détails de l’offre à afficher dans la place de marché, notamment des descriptions de votre offre et des ressources marketing. |
-| [Page d’aperçu](#preview-page) | Définir une Audience limitée de la version préliminaire pour libérer votre offre avant de publier votre offre en direct pour le public plus large de la place de marché. |
-| [Page de Configuration technique de l’offre](#technical-configuration-page)  | Disponible uniquement si vous sélectionnez cette option pour vendre de l’offre à Microsoft. Définir les détails techniques (chemin d’URL webhook, ID de locataire et ID d’application) utilisés pour se connecter à votre offre. |
-| [**Nouveau Plan Modal**](#plan-identity-modal) | Collecte les informations de l’identité de plan.  |
-| [Plan de Page de liste](#plan-listing-page)  | Disponible uniquement si vous sélectionnez cette option pour vendre de l’offre à Microsoft. Définir les détails permet de répertorier le Plan dans la place de marché.  |
-| [Plan de tarification & Page disponibilité](#plan-pricing--availability-page)  | Disponible uniquement si vous sélectionnez cette option pour vendre de l’offre à Microsoft.  Collecte les caractéristiques d’entreprise (modèle de tarification), la disponibilité audience et sur le marché pour chaque plan (version) de votre offre.  |
-| [Page liste de test](#test-drive-listing-page)  | Disponible uniquement si vous sélectionnez cette option pour proposer une version d’évaluation de votre offre. Définir les détails sur le test de lecteur dans la place de marché de liste.  |
-| Page Configuration de techniques de test  | Disponible uniquement si vous sélectionnez cette option pour proposer une version d’évaluation de votre offre. Définir les détails techniques pour la démonstration (ou « tester »), ce qui permettront aux clients d’essayer votre offre avant de les valider pour l’acheter.  |
-| [Passez en revue et publier la Page](#review-and-publish-page)  | Sélectionnez les modifications que vous souhaitez publier, afficher l’état de chaque page et ajoutez une note à l’équipe de certification.  |
+| [**Modal de nouvelle offre**](#new-offer-modal) | Collecte des informations d’identité liées à l’offre.  |
+| [Page Configuration de l’offre](#offer-setup-page) | Optez pour l’utilisation des fonctionnalités clés et choisissez comment vendre votre offre via Microsoft.  |
+| [Page Propriétés](#properties-page) | Définissez les catégories et secteurs utilisés pour grouper votre offre en fonction des places de marché, des contrats légaux associés, et de la version de votre application. |
+| [Page Référencement de l’offre](#offer-listing-page) | Définissez les détails de l’offre à afficher sur la Place de marché, dont des descriptions de votre offre et de ses composants marketing. |
+| [Page Préversion](#preview-page) | Définissez un Public de préversion limité avant de publier votre offre pour public plus important. |
+| [Page Configuration technique de l’offre](#technical-configuration-page)  | Disponible uniquement si vous choisissez de vendre l’offre via Microsoft. Définissez les détails techniques (chemin d’URL, Webhook, ID de locataire et ID d’application) utilisés pour la connexion à votre offre. |
+| [**Modal de nouveau plan**](#plan-identity-modal) | Collecte des informations sur l’identité du plan.  |
+| [Page Référencement du plan](#plan-listing-page)  | Disponible uniquement si vous choisissez de vendre l’offre via Microsoft. Définissez les détails utilisés pour référencer le plan sur la place de marché.  |
+| [Page Tarification et disponibilité du plan](#plan-pricing--availability-page)  | Disponible uniquement si vous choisissez de vendre l’offre via Microsoft.  Recueille les caractéristiques de l’entreprise (modèle de tarification), l’audience et la disponibilité du marché pour chaque forfait (version) de votre offre.  |
+| [Page Référencement de version d’évaluation](#test-drive-listing-page)  | Disponible uniquement si vous décidez de proposer une version d’évaluation de votre offre. Définissez les détails utilisés pour référencer la version d’évaluation sur la Place de marché.  |
+| Page Configuration technique de la version d’évaluation  | Disponible uniquement si vous décidez de proposer une version d’évaluation de votre offre. Définissez les détails techniques de la démonstration (ou « version d’évaluation ») qui permettra à des clients d’essayer votre offre avant de s’engager à l’acheter.  |
+| [Page Passer en revue et publier](#review-and-publish-page)  | Sélectionnez les modifications que vous souhaitez publier, affichez l’état de chaque page et ajoutez des notes à l’adresse de l’équipe de certification.  |
 
 
-## <a name="new-offer-modal"></a>Nouvelle offre modale 
+## <a name="new-offer-modal"></a>Modal de nouvelle offre 
 
-La première vous devrez fournir des informations sont un nom et un ID de votre offre. 
+Les premiers éléments d’informations que vous serez invité à fournir sont un ID et un alias pour votre offre. 
 
 | **Nom du champ**    | **Remarques**   |  
 | :---------------- | :-----------| 
-| ID de l’offre  | Requis, ne peut pas être modifié après sa création. Nombre maximal de 50 caractères et doit contenir uniquement des caractères alphanumériques en minuscules, des tirets ou des traits de soulignement. |
-| Nom de l’offre  | Requis. |
+| ID de l’offre  | Obligatoire, ne peut pas être modifié après la création. Maximum 50 caractères alphanumériques minuscules, tirets ou traits de soulignement. |
+| Alias de l’offre  | Requis. |
 
-## <a name="offer-setup-page"></a>Page d’installation de l’offre
+## <a name="offer-setup-page"></a>Page de configuration de l’offre
 
-La page le programme d’installation de l’offre est où vous pouvez opter pour différents canaux et de vente, ainsi déclarer qu'entraîne l’utilisation des fonctionnalités clés, telles que la version d’évaluation et le client. 
+La page de configuration de l’offre vous permet de choisir différents canaux et propositions de vente, ainsi que de déclarer l’utilisation de fonctionnalités clés, telles que des versions d’évaluation et des prospects. 
 
 | **Nom du champ**    | **Remarques**   | 
 | :---------------- | :-----------|  
-| Vous souhaitez vendre via Microsoft ?  | Requis. Valeur par défaut : Oui |
-| Comment voulez-vous que les clients potentiels pour interagir avec l’offre liste ? (Appel à l’action)  | Obligatoire si ne pas vendre via Microsoft. Valeur par défaut : Version d’évaluation gratuite, Options : « Télécharger maintenant », « Évaluation gratuite », « Me contacter ». |
-| URL de la version d’essai  | Obligatoire si « Version d’évaluation gratuite » est sélectionnée, comme les façon dont les clients doivent interagir avec la liste de l’offre. |
-| URL de l’offre  | Obligatoire si « Obtenir maintenant » est activée, comme les façon dont les clients doivent interagir avec la liste de l’offre |
+| Voulez-vous vendre via Microsoft ?  | Requis. Valeur par défaut : OUI |
+| Comment voulez-vous que des clients potentiels interagissent avec le référencement de l’offre ? (Invite à l’action)  | Obligatoire en cas de vente sans passer par Microsoft. Valeur par défaut : Essai gratuit, Options : « Télécharger maintenant », « Essai gratuit », « Me contacter ». |
+| URL de la version d’essai  | Obligatoire si « Essai gratuit » est sélectionné comme façon dont les clients doivent interagir avec le référencement de l’offre. |
+| URL de l’offre  | Obligatoire si « Obtenir maintenant » est sélectionné comme façon dont les clients doivent interagir avec le référencement de l’offre. |
 | Canaux  | facultatif. Valeur par défaut : Pas activé dans le canal CSP (revendeur).  |
-| Version d’évaluation | facultatif. Valeur par défaut : Aucune version d’évaluation est activée.  |
-| Type de version d’évaluation | Obligatoire si activé une version d’évaluation. Valeur par défaut : Aucune sélection. Options : Azure Resource Manager, Dynamics 365 pour Business Central, Dynamics 365 for Customer Engagement, Dynamics 365 pour les opérations, l’application logique, Power BI.  |
-| Gestion des prospects : se connecter à un système CRM | Requis si vente via Microsoft, ou si la liste propose comme « Me contacter ». Par défaut : aucun système CRM connecté. Options de CRM : Table Azure, objets blob Azure, Dynamics CRM online, des point de terminaison HTTPs, Marketo, Salesforce  |
+| Version d’évaluation | facultatif. Valeur par défaut : Aucune version d’évaluation activée.  |
+| Type de version d’évaluation | Obligatoire version d’évaluation activée. Valeur par défaut : Non sélectionné. Options : Azure Resource Manager, Dynamics 365 for Business Central, Dynamics 365 for Customer Engagement, Dynamics 365 for Operations, Logic Apps, Power BI.  |
+| Gestion des prospects – Se connecter à un système CRM | Obligatoire en cas de vente via Microsoft ou de référencement des offres via un lien « Me contacter ». Par défaut : aucun système CRM connecté. Options CRM : Azure table, Azure blob, Dynamics CRM Online, Point de terminaison HTTPS, Marketo, Salesforce  |
 
 ## <a name="properties-page"></a>Page Propriétés
 
-La page de propriétés est où vous définissez les catégories et les secteurs d’activité utilisées pour regrouper votre offre sur les places de marché, les contrats prenant en charge votre offre et votre version de l’application. Veillez à fournir des informations complètes et exactes relatives à votre offre sur cette page, afin qu’il a affiché de manière appropriée et proposé à l’ensemble approprié de clients. 
+La page de propriétés est l’emplacement où vous définissez les catégories et secteurs utilisés pour grouper votre offre selon les places de marché, les contrats légaux associés, et la version de votre application. Veillez à fournir des détails complets et précis sur votre offre dans cette page, afin qu’elle soit correctement affichée et proposée aux clients appropriés. 
 
 | **Nom du champ**    | **Remarques**   | 
 | :---------------- | :-----------|  
-| Catégorie et sous-catégorie | Obligatoire 3 1 et max. Valeur par défaut : Aucune sélection. |
-| Secteurs d’activité et subindustries | facultatif. max 2 L1 Industries et max 2 subindustries au sein de chaque secteur d’activité L1, par défaut : Aucun sélectionné |
+| Catégorie et sous-catégorie | Obligatoire 1 et maximum 3. Valeur par défaut : Aucune sélectionnée. |
+| Secteurs et sous-secteurs | facultatif. 2 secteurs L1 et au maximum 2 sous-secteurs dans chaque secteur L1. Valeur par défaut : Aucune sélectionnée |
 | Version de l’application  | facultatif. Valeur par défaut : Aucune. |
-| Utiliser le contrat Standard  | facultatif. Par défaut : pas sélectionné.  | |
-| Conditions d’utilisation  | Obligatoire si le contrat Standard n’est pas sélectionnée.  |
+| Utiliser le contrat Standard  | facultatif. Par défaut : non sélectionné.  | |
+| Conditions d’utilisation  | Obligatoire si le contrat Standard n’est pas sélectionné.  |
 
-## <a name="offer-listing-page"></a>Page d’annonce de l’offre
+## <a name="offer-listing-page"></a>Page de référencement de l’offre
 
-La page de liste est dans laquelle vous permet de fournir le texte et les images que les clients voient lors de l’affichage de la liste de votre offre dans la place de marché. 
+La page de référencement vous permet de fournir le texte et les images que les clients voient quand ils affichent le référencement de votre offre sur la Place de marché. 
 
 | **Nom du champ**    | **Remarques**   |
 | :---------------- | :-----------| 
 | Nom  | Obligatoire, maximum 50 caractères. |
 | Résumé  | Obligatoire, maximum 100 caractères. | 
-| Description  | 3000 caractères requis, max. |
-| Instructions de prise en main  | 3000 caractères requis, max. |
-| Instructions de prise en main  | 3000 caractères requis, max. |
-| Mots clés de recherche  | Facultatif, recommandé, mots 3 clés maximales. |
-| URL de stratégie de confidentialité  | Requis. |
-| URL de supports de Marketing de programme CSP  | facultatif. |
-| Liens utiles titre + URL  | facultatif. |
-| Prise en charge des Documents titre + fichier  | Requis, min 1 et 3 de max. Doit être au format fichier PDF. |
-| Captures d’écran.  | Obligatoire, la capture d’écran 1 de min et max 5 ; quatre ou plus recommandés. Doit être au format PNG 1280 X 720. |
-| Store logos (petite, moyenne, grande, à l’échelle, héros)  | Petit (48 X 48) et grand (216 X 216) requis ; autres tailles facultatifs mais recommandé : Moyenne (90 x 90), à l’échelle (255 x 115), héros (815 x 290). Doit être au format PNG. |
-| Nom de vidéos + URL de miniature  | Facultatif, recommandé, 4 vidéos maximales. La miniature doit être 1280 x 720 au format PNG. Vidéo doit être hébergée dans YouTube ou Vimeo. |
-| Contacts (programme CSP, ingénierie, prise en charge)  | Ingénierie et contact de Support nécessaires (nom, e-mail et le numéro de téléphone) ; Contact du programme CSP facultatif mais recommandé. |
+| Description  | Obligatoire, maximum 3 000 caractères. |
+| Instructions de prise en main  | Obligatoire, maximum 3 000 caractères. |
+| Instructions de prise en main  | Obligatoire, maximum 3 000 caractères. |
+| Mots clés de recherche  | Facultatif, recommandé, maximum 3 mots clés. |
+| URL de la politique de confidentialité  | Requis. |
+| URL des Ressources Marketing du programme CSP  | facultatif. |
+| Titre + URL de liens utiles  | facultatif. |
+| Titre + Fichier de documents associés  | Obligatoire, min. 1 et max. 3. Doit être au format de fichier PDF. |
+| Captures d’écran.  | Obligatoire, min. 1 et max. 5 captures d’écran ; min. quatre recommandées. Doit être au format PNG 1280 X 720. |
+| Logos du Store (Petit, Moyen, Grand, Large, Bannière)  | Petit (48 X 48) et Grand (216 X 216) obligatoires. Les autres tailles sont facultatives mais recommandées : Moyen (90 x 90), Large (255 x 115), Bannière (815 x 290). Le logo doit être au format PNG |
+| Nom + URL + miniature des vidéos  | Facultatif, recommandé, max. 4 vidéos. La miniature doit être au format PNG 1280 x 720. La vidéo doit être hébergée sur YouTube ou Vimeo. |
+| Contacts (Programme Fournisseur de solutions Microsoft Cloud (CSP), Ingénierie, Support)  | Contacts Ingénierie et Support obligatoires (nom, e-mail et le numéro de téléphone) ; Contact Programme CSP facultatif mais recommandé. |
 | URL du support technique  | Requis. |
 
-## <a name="preview-page"></a>Page d’aperçu
+## <a name="preview-page"></a>Page de préversion
 
-La page d’aperçu est où vous spécifiez l’audience pour avoir accès à la version d’évaluation offre, pour vérifier que l’offre répond à toutes vos exigences avant sa mise en service. 
+La page de préversion vous permet de spécifier le public ayant accès à la préversion de votre offre afin de vérifier que celle-ci répond à toutes vos exigences avant sa mise en ligne. 
 
 | **Nom du champ**    | **Remarques**   | 
 | :---------------- | :-----------| 
-| Adresse de messagerie AAD/MSA + description | Obligatoire, 1 de min et max 10 si entré manuellement, ou jusqu'à 20 si le chargement d’un fichier CSV. |
+| E-mail + description AAD/MSA | Obligatoire, min. 1 et max. 10 en cas d’entrée manuelle, ou jusqu’à 20 e cas de chargement de fichier CSV. |
 
 ## <a name="technical-configuration-page"></a>Page de configuration technique 
 
-La page de configuration technique est où vous spécifiez les détails techniques utilisées par Microsoft pour vous connecter à votre offre. Cette page n’est pas visible pour vous si vous avez décidé de ne pas vendre via Microsoft.
+La page de configuration technique est celle où vous spécifiez les détails techniques utilisés par Microsoft pour se connecter à votre offre. Vous ne pouvez pas voir cette page si vous avez décidé de ne pas vendre via Microsoft.
 
 | **Nom du champ**    | **Remarques**   |  
 | :---------------- | :-----------| 
-| URL de la page d’accueil | Obligatoire si la vente via Microsoft. |
-| Webhook de connexion | Obligatoire si la vente via Microsoft. |
-| ID de locataire Azure AD | Obligatoire si la vente via Microsoft. |
-| ID de l’application Azure AD | Obligatoire si la vente via Microsoft. |
+| URL de la page d’accueil | Obligatoire en cas de vente via Microsoft. |
+| Webhook de connexion | Obligatoire en cas de vente via Microsoft. |
+| ID de locataire Azure AD | Obligatoire en cas de vente via Microsoft. |
+| ID de l’application Azure AD | Obligatoire en cas de vente via Microsoft. |
 
-## <a name="plan-identity-modal"></a>Identité de plan modale
+## <a name="plan-identity-modal"></a>Modal d’identité de plan
 
-La première que vous êtes invité à fournir des informations sont un nom et un ID de votre Plan. Cette page n’est pas visible pour vous si vous avez décidé de ne pas vendre via Microsoft.
-
-| **Nom du champ**    | **Remarques**   |  
-| :---------------- | :-----------| 
-| ID du plan  | Obligatoire si la vente via Microsoft. Il ne peut pas être modifié après sa création. Nombre maximal de 50 caractères et doit contenir uniquement des caractères alphanumériques en minuscules, des tirets ou des traits de soulignement. |
-| Nom du plan  | Obligatoire si la vente via Microsoft. Doit être unique dans tous les plans dans l’offre. Maximum 50 caractères. |
-
-## <a name="plan-listing-page"></a>Page de liste du plan
-
-Le plan d’affichage de page est dans lequel vous fournissez le texte pour les clients voient lors de l’affichage du plan dans la place de marché. Cette page n’est pas visible pour vous si vous avez décidé de ne pas vendre via Microsoft.
+Les premiers éléments d’informations que vous êtes invité à fournir sont un nom et un identifiant pour votre plan. Vous ne pouvez pas voir cette page si vous avez décidé de ne pas vendre via Microsoft.
 
 | **Nom du champ**    | **Remarques**   |  
 | :---------------- | :-----------| 
-| Description du plan   | Obligatoire si la vente via Microsoft. Max 500 caractères. | |
+| ID du plan  | Obligatoire en cas de vente via Microsoft. Ne peut pas être modifié une fois créé. Maximum 50 caractères alphanumériques minuscules, tirets ou traits de soulignement. |
+| Nom du plan  | Obligatoire en cas de vente via Microsoft. Doit être unique pour tous les plans dans l’offre. 50 caractères maximum. |
+
+## <a name="plan-listing-page"></a>Page de référencement du plan
+
+La page de référencement du plan est celle dans laquelle vous fournissez le texte que les clients peuvent voir quand ils consultent le plan sur la Place de marché. Vous ne pouvez pas voir cette page si vous avez décidé de ne pas vendre via Microsoft.
+
+| **Nom du champ**    | **Remarques**   |  
+| :---------------- | :-----------| 
+| Description du plan   | Obligatoire en cas de vente via Microsoft. Maximum 500 caractères. | |
 
 ## <a name="plan-pricing--availability-page"></a>Page de tarification et disponibilité du plan
 
-La page de tarification et disponibilité de plan est où vous définissez les caractéristiques de l’entreprise, public et disponibilité du marché pour chaque plan (version) de votre offre. Cette page n’est pas visible pour vous si vous avez décidé de ne pas vendre via Microsoft.
+La page de tarification et disponibilité de plan est celle dans laquelle vous définissez les caractéristiques de l’entreprise, l’audience et la disponibilité du marché pour chaque forfait (version) de votre offre. Vous ne pouvez pas voir cette page si vous avez décidé de ne pas vendre via Microsoft.
 
 | **Nom du champ**    | **Remarques**   | 
 | :---------------- | :-----------| 
-| Disponibilité du marché  | Requis, 1 de min et max 141. |
-| Modèle de tarification  | Requis. Valeur par défaut : Tarification forfaitaire. Options : Tarification forfaitaire, par utilisateur. |
-| Au minimum et maximum sièges  | Facultatif, disponible uniquement si le modèle sélectionné de tarification en fonction du siège. |
-| Terme de facturation  | Requis. Valeur par défaut : Mensuel. Options : Mensuelle, annuelle. |
-| Prix  | Requis USD par mois, si la facturation mensuelle terme sélectionné ; ou USD par an si annuel facturation terme sélectionné. |
-| Plan de public  | facultatif. Valeur par défaut : Plan de public. Options : Public, privé, par ID de locataire |
-| Restreint planifier Audience (ID de locataire + description)  | Obligatoire si le plan privé sélectionné. Min 1 et 10 max ID de locataire si vous avez entré manuellement. Max 20000 si l’importation de fichiers CSV. |
+| Disponibilité sur le marché  | Obligatoire, min. 1 et max. 141. |
+| Modèle de tarification  | Requis. Valeur par défaut : Taux fixe. Options : Tarification fixe, par utilisateur. |
+| Minimum et maximum de sièges  | Facultatif, disponible uniquement si le modèle de tarification basée sur ls sièges et sélectionné. |
+| Fréquence de facturation  | Requis. Valeur par défaut : Mensuelle: Options : Mensuelle, Annuelle. |
+| Prix  | Obligatoire, USD par mois, si la fréquence de facturation sélectionnée est mensuelle, ou USD par an si la fréquence de facturation sélectionnée est annuelle. |
+| Public du plan  | facultatif. Valeur par défaut : Plan public. Options : Public, privé, par ID de locataire |
+| Public du plan restreint (ID de locataire + description)  | Obligatoire si le plan sélectionné est privé. Min. 1 et max. 10 ID de locataire en cas d’entrée manuelle. Max. 20 000 en cas d’importation de fichier CSV. |
 
-## <a name="test-drive-listing-page"></a>Page liste de test
+## <a name="test-drive-listing-page"></a>Page Référencement de version d’évaluation
 
-Disponible uniquement si vous sélectionnez cette option pour proposer une version d’évaluation de votre offre. Définir les détails sur le test de lecteur dans la place de marché de liste.
+Disponible uniquement si vous décidez de proposer une version d’évaluation de votre offre. Définissez les détails utilisés pour référencer la version d’évaluation sur la Place de marché.
 
 | **Nom du champ**    | **Remarques**   | 
 | :---------------- | :-----------| 
 | Description  | Requis. |
-| Nom d’utilisateur manuelle + fichier  | 1 doc requis, max. Doit être au format PDF. |
-| Nom de la vidéo, URL + miniature  | Facultatif et recommandé. La miniature doit être 533 x 324 au format JPGP ou PNG. Vidéo doit être hébergée dans YouTube ou Vimeo. |
+| Nom + fichier de manuel utilisateur  | Obligatoire, max. 1 doc. Doit être au format PDF. |
+| Nom de la vidéo, URL + miniature  | Facultatif, recommandé. La miniature doit être 533 x 324 au format JPGP ou PNG. La vidéo doit être hébergée sur YouTube ou Vimeo. |
 
-## <a name="review-and-publish-page"></a>Passez en revue et publier la page
+## <a name="review-and-publish-page"></a>Page Passer en revue et publier
 
 | **Nom du champ**    | **Remarques**   | 
 | :---------------- | :-----------| 
-| Notes relatives à la certification  | facultatif. |
+| Notes pour la certification  | facultatif. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Créez une offre SaaS](./create-new-saas-offer.md)
+- [Créer une nouvelle offre SaaS](./create-new-saas-offer.md)

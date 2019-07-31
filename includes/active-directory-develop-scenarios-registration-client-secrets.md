@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 04/18/2018
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: 9ee7422b372993d60c629524eb036b9678e5776c
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: cd37880be6d518105e880b93a0bd748f7c729d88
+ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67177245"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68286285"
 ---
 ## <a name="registration-of-secrets-or-certificates"></a>Enregistrement de secrets ou de certificats
 
@@ -32,9 +32,11 @@ La gestion des informations d’identification du client est effectuée dans la 
 ![image](../articles/active-directory/develop/media/quickstart-update-azure-ad-app-preview/credentials-certificates-secrets-expanded.png)
 
 - Le secret d’une application (également appelé secret client) est généré par Azure AD, lors de l’inscription de l’application de client confidentiel. Cette génération est effectuée via l’option **Nouveau secret client**. À ce stade, vous devez copier la chaîne du secret dans le Presse-papiers pour pouvoir l’utiliser dans votre application, avant de cliquer sur **Enregistrer**. Cette chaîne ne s’affichera plus.
-- Le certificat est chargé lors de l’inscription d’application, via le bouton **Charger un certificat**
+- Le certificat est chargé lors de l’inscription d’application à l'aide du bouton **Charger un certificat**. Azure AD prend uniquement en charge les certificats directement inscrits sur l’application et ne suit pas les chaînes de certificats.
 
 Pour en savoir plus, voir [Démarrage rapide : Configurer une application cliente pour accéder aux API web | Ajouter des informations d’identification à votre application web](../articles/active-directory/develop/quickstart-configure-app-access-web-apis.md#add-credentials-to-your-web-application)
+
+
 
 ### <a name="registering-client-secrets-using-powershell"></a>Inscription de secrets client à l’aide de PowerShell
 

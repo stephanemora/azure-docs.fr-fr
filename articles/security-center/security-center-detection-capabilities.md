@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/2/2018
 ms.author: rkarlin
-ms.openlocfilehash: d4ca08a7b757889f79fb7ea5b85d7bc5c1c72259
-ms.sourcegitcommit: 1e347ed89854dca2a6180106228bfafadc07c6e5
+ms.openlocfilehash: ac3d1a55a707349873132befb25a38358b563138
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67569370"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67875556"
 ---
 # <a name="azure-security-center-detection-capabilities"></a>Fonctionnalités de détection d’Azure Security Center
 Ce document aborde les fonctionnalités avancées de détection d’Azure Security Center, qui permet d’identifier les menaces actives ciblant vos ressources Microsoft Azure (aussi bien Windows que Linux) et fournit les informations nécessaires pour y répondre rapidement.
@@ -50,7 +50,7 @@ Azure Security Center emploie des analyses de sécurité avancées allant bien a
 ### <a name="threat-intelligence"></a>Informations sur les menaces
 Microsoft dispose d’une multitude d’informations en matière de menaces à l’échelle mondiale. La télémétrie provient de plusieurs sources, telles qu’Azure, Office 365, Microsoft CRM Online, Microsoft Dynamics AX, outlook.com, MSN.com, Microsoft Digital Crimes Unit (DCU) et Microsoft Security Response Center (MSRC). Les chercheurs reçoivent également les informations sur les menaces partagées par les principaux fournisseurs de services cloud et s’abonnent aux flux d’informations sur les menaces provenant de tiers. Azure Security Center peut utiliser ces informations pour vous alerter en cas de menaces provenant d’éléments malveillants connus. Voici quelques exemples :
 
-* **Communications sortantes vers une adresse IP malveillante**: le trafic sortant vers un botnet ou un darknet connu indique probablement que la ressource a été compromise et qu’une personne malveillante essaie d’exécuter des commandes sur ce système ou d’exfiltrer des données. Azure Security Center compare le trafic réseau à la base de données de menaces globales de Microsoft et vous avertit s’il détecte une communication avec une adresse IP malveillante.
+* **Communications sortantes vers une adresse IP malveillante** : le trafic sortant vers un botnet ou un darknet connu indique probablement que la ressource a été compromise et qu’une personne malveillante essaie d’exécuter des commandes sur ce système ou d’exfiltrer des données. Azure Security Center compare le trafic réseau à la base de données de menaces globales de Microsoft et vous avertit s’il détecte une communication avec une adresse IP malveillante.
 
 ## <a name="behavioral-analytics"></a>Analyse comportementale
 L’analyse comportementale est une technique qui analyse et compare les données à une collection de modèles connus. Toutefois, ces modèles ne sont pas de simples signatures. Ils sont déterminés par le biais d’algorithmes d’apprentissage automatique appliqués aux ensembles de données massifs. Ils sont également déterminés à travers une analyse minutieuse des comportements malveillants par des experts. Azure Security Center peut utiliser l’analyse comportementale pour identifier les ressources compromises en se basant sur l’analyse des journaux d’activité de la machine virtuelle, des journaux d’activité du périphérique réseau virtuel, des journaux d’activité Service Fabric, des vidages sur incident et d’autres sources.

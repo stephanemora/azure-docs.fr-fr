@@ -5,20 +5,20 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 06/10/2019
-ms.openlocfilehash: eb228138118512c5c64574212910c5f16885ee94
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 07/12/2019
+ms.openlocfilehash: 902187c3462c54f728519aa1e6e60fbcc1eab20f
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67081642"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67876307"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mariadb-using-the-azure-portal"></a>Guide pratique pour créer et gérer des réplicas en lecture dans Azure Database for MariaDB avec le portail Azure
 
 Dans cet article, vous allez apprendre à créer et à gérer des réplicas en lecture dans le service Azure Database for MariaDB à l’aide du Portail Microsoft Azure.
 
 > [!IMPORTANT]
-> La lecture de réplicas dans la même région est actuellement disponible en préversion publique.
+> Vous pouvez créer un réplica en lecture dans la même région que votre serveur maître ou dans n’importe quelle autre région Azure de votre choix. Les réplicas en lecture (même région et entre régions) sont actuellement en préversion publique.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -45,7 +45,11 @@ Un serveur réplica en lecture peut être créé en effectuant les étapes suiva
 
     ![Azure Database for MariaDB - Nom du réplica](./media/howto-read-replica-portal/replica-name.png)
 
-6. Sélectionnez **OK** pour confirmer la création du réplica.
+6. Sélectionnez l’emplacement du serveur de réplica. Vous pouvez créer un réplica dans n’importe quelle région Azure. L’emplacement par défaut est le même que celui du serveur maître.
+
+    ![Azure Database for MariaDB - Nom du réplica](./media/howto-read-replica-portal/replica-location.png)
+
+7. Sélectionnez **OK** pour confirmer la création du réplica.
 
 > [!NOTE]
 > Les réplicas en lecture sont créés avec la même configuration de serveur que le serveur maître. La configuration du serveur réplica peut être modifiée après la création de ce dernier. Il est recommandé que la configuration du serveur réplica soit maintenue à des valeurs égales ou supérieures à celles du serveur maître pour garantir que le serveur réplica est à la hauteur du serveur maître.

@@ -15,12 +15,12 @@ ms.date: 04/01/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6bf265f51f2fea16f90dd0bcf2891bd9bed5cef8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b994078350aec5657659f8835d228eb907606bb8
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65963573"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807640"
 ---
 # <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>Gestion de l’approvisionnement de comptes d’utilisateur pour les applications d’entreprise dans le portail Azure
 
@@ -31,14 +31,11 @@ Cet article explique comment utiliser le [portail Azure](https://portal.azure.co
 Utilisez le portail Azure Active Directory pour afficher et gérer toutes les applications d’entreprise qui sont configurées pour l’authentification unique. Les applications d’entreprise sont des applications qui sont déployées et utilisées au sein de votre organisation. Suivez ces étapes pour afficher et gérer vos applications d’entreprise :
 
 1. Ouvrez le [portail Azure Active Directory](https://aad.portal.azure.com).
-
 1. Dans le volet gauche, sélectionnez **Applications d’entreprise**. Une liste de toutes les applications configurées s’affiche, dont les applications qui ont été ajoutées à partir de la galerie.
-
 1. Sélectionnez n’importe quelle application pour charger son panneau de ressources, où vous pouvez afficher les rapports et gérer les paramètres de l’application.
-
 1. Sélectionnez **Approvisionnement** pour gérer les paramètres d’approvisionnement du compte utilisateur de l’application sélectionnée.
 
-   ![Volet de ressources d’application](./media/configure-automatic-user-provisioning-portal/enterprise-apps-provisioning.png)
+   ![Écran Approvisionnement pour gérer les paramètres d’approvisionnement du compte d'utilisateur](./media/configure-automatic-user-provisioning-portal/enterprise-apps-provisioning.png)
 
 ## <a name="provisioning-modes"></a>Modes d’approvisionnement
 
@@ -68,17 +65,17 @@ Développez **Mappages** pour afficher et modifier les attributs utilisateur qui
 
 Il existe un ensemble préconfiguré de mappages entre les objets utilisateur Azure AD et les objets utilisateur de chaque application SaaS. Certaines applications gèrent d’autres types d’objets, tels que des groupes ou des contacts. Sélectionnez un mappage dans la table pour ouvrir l’éditeur de mappage sur la droite, où vous pouvez les afficher et les personnaliser.
 
-![Volet de ressources d’application](./media/configure-automatic-user-provisioning-portal/enterprise-apps-provisioning-mapping.png)
+![Affiche l'écran Mappage d’attributs](./media/configure-automatic-user-provisioning-portal/enterprise-apps-provisioning-mapping.png)
 
 Les personnalisations prises en charge sont notamment les suivantes :
 
 * L’activation et la désactivation des mappages d’objets spécifiques, par exemple entre l’objet utilisateur Azure AD et l’objet utilisateur de l’application SaaS.
 * Modification des attributs qui circulent entre l’objet utilisateur Azure AD et l’objet utilisateur de l’application. Pour plus d’informations sur le mappage d’attributs, voir [Présentation des types de mappages d’attributs](customize-application-attributes.md#understanding-attribute-mapping-types).
-* Le filtrage des actions d’approvisionnement qu’effectue Azure AD sur l’application ciblée. Plutôt qu’Azure AD synchronise entièrement les objets, vous pouvez limiter les actions exécutées. 
+* Le filtrage des actions d’approvisionnement qu’effectue Azure AD sur l’application ciblée. Plutôt qu’Azure AD synchronise entièrement les objets, vous pouvez limiter les actions exécutées.
 
   Par exemple, si vous sélectionnez uniquement **Mettre à jour**, Azure AD met à jour les comptes d’utilisateur d’une application et n’en crée pas de nouveaux. Si vous sélectionnez uniquement **Créer**, Azure crée des comptes d’utilisateur, mais ne met pas à jour les comptes existants. Cette fonctionnalité permet aux administrateurs de créer des mappages différents pour les flux de travail de création et de mise à jour de comptes.
 
-* Ajout d’un nouveau mappage d’attribut. Sélectionnez **Ajouer un nouveau mappage** en bas du volet **Mappage d’attribut**. Remplissez le formulaire **Modifier l’attribut** et sélectionnez **OK** pour ajouter le nouveau mappage à la liste. 
+* Ajout d’un nouveau mappage d’attribut. Sélectionnez **Ajouer un nouveau mappage** en bas du volet **Mappage d’attribut**. Remplissez le formulaire **Modifier l’attribut** et sélectionnez **OK** pour ajouter le nouveau mappage à la liste.
 
 ### <a name="settings"></a>Paramètres
 
