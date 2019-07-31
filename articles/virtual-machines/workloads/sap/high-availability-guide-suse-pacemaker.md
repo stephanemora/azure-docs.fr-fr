@@ -4,7 +4,7 @@ description: Configuration de Pacemaker sur SUSE Linux Enterprise Server dans Az
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: mssedusch
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: 9a23f13947c4c7a77460ff389861e1dcc1de3c7f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cd377e78abe328814795bb1f75465b090a13e456
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65992120"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68228365"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Configuration de Pacemaker sur SUSE Linux Enterprise Server dans Azure
 
@@ -448,7 +448,7 @@ Les éléments suivants sont précédés de **[A]** (applicable à tous les nœu
    <pre><code>sudo vi /etc/corosync/corosync.conf
    </code></pre>
 
-   Ajoutez le contenu ci-dessous en gras dans le fichier si les valeurs sont absentes ou différentes. Veillez à modifier le jeton sur 30 000 pour autoriser la maintenance avec préservation de la mémoire. Pour en savoir plus, consultez [cet article pour Linux][virtual-machines-linux-maintenance] ou [Windows][virtual-machines-windows-maintenance]. N’oubliez pas non plus de supprimer le paramètre mcastaddr.
+   Ajoutez le contenu ci-dessous en gras dans le fichier si les valeurs sont absentes ou différentes. Veillez à modifier le jeton sur 30 000 pour autoriser la maintenance avec préservation de la mémoire. Pour plus d’informations, consultez [cet article pour Linux][virtual-machines-linux-maintenance] or [Windows][virtual-machines-windows-maintenance]. N’oubliez pas non plus de supprimer le paramètre mcastaddr.
 
    <pre><code>[...]
      <b>token:          30000
@@ -495,17 +495,18 @@ Les éléments suivants sont précédés de **[A]** (applicable à tous les nœu
 
 L’appareil STONITH utilise un principal de service pour l’autorisation sur Microsoft Azure. Pour créer un principal de service, effectuez les étapes suivantes.
 
-1. Accédez à [https://portal.azure.com](https://portal.azure.com)
+1. Accédez à <https://portal.azure.com>
 1. Ouvrez le panneau Azure Active Directory  
    Accédez aux propriétés et notez l’ID de répertoire. Il s’agit de **l’ID du locataire**.
 1. Cliquez sur Inscriptions d’applications
-1. Cliquez sur Ajouter.
-1. Entrez un nom, sélectionnez le type d’application « Application web/API », entrez une URL de connexion (par exemple http\://localhost), puis cliquez sur Créer
-1. L’URL de connexion n’est pas utilisée et peut être une URL valide
-1. Sélectionnez la nouvelle application et cliquez sur Clés dans l’onglet Paramètres
-1. Entrez une description pour la nouvelle clé, sélectionnez « N’expire jamais » et cliquez sur Enregistrer
+1. Cliquez sur Nouvelle inscription
+1. Entrez un nom, sélectionnez « Comptes dans cet annuaire d’organisation uniquement » 
+2. Sélectionnez le type d’application « Web », entrez une URL de connexion (par exemple http:\//localhost), puis cliquez sur Ajouter  
+   L’URL de connexion n’est pas utilisée et peut être une URL valide
+1. Sélectionnez Certificats et secrets, puis sélectionnez Nouveau secret client
+1. Entrez une description pour la nouvelle clé, sélectionnez « N’expire jamais » et cliquez sur Ajouter
 1. Notez la valeur. Cette valeur est utilisée comme **mot de passe** pour le principal de service
-1. Notez l’ID de l’application. Cet identifiant est utilisé comme nom d’utilisateur (**ID de connexion** dans la procédure ci-dessous) du principal de service
+1. Sélectionnez Vue d’ensemble. Notez l’ID de l’application. Cet identifiant est utilisé comme nom d’utilisateur (**ID de connexion** dans la procédure ci-dessous) du principal de service
 
 ### <a name="1-create-a-custom-role-for-the-fence-agent"></a>**[1]**  Créer un rôle personnalisé pour l’agent d’isolation
 
@@ -580,7 +581,7 @@ sudo crm configure primitive <b>stonith-sbd</b> stonith:external/sbd \
 
 Azure propose des [événements planifiés](https://docs.microsoft.com/azure/virtual-machines/linux/scheduled-events). Les événements planifiés sont fournis via le service de métadonnées et permettent à l'application de préparer des événements tels que l'arrêt d'une machine virtuelle, le redéploiement d'une machine virtuelle, etc. L'agent de ressource **[azure-events](https://github.com/ClusterLabs/resource-agents/pull/1161)** supervise les événements planifiés Azure. Si des événements sont détectés, l’agent tente d'arrêter toutes les ressources sur la machine virtuelle concernée et de les déplacer vers un autre nœud du cluster. Pour y parvenir, des ressources Pacemaker supplémentaires doivent être configurées. 
 
-1. **[A]**  Installez l'agent **azure-events**. 
+1. **[A]** Installez l'agent **azure-events**. 
 
 <pre><code>sudo zypper install resource-agents
 </code></pre>
@@ -613,4 +614,4 @@ sudo crm configure property maintenance-mode=false
 * [Déploiement SGBD de machines virtuelles Azure pour SAP][dbms-guide]
 * [Haute disponibilité pour NFS sur les machines virtuelles Azure sur SUSE Linux Enterprise Server][sles-nfs-guide]
 * [Haute disponibilité pour SAP NetWeaver sur les machines virtuelles Azure sur SUSE Linux Enterprise Server pour les applications SAP][sles-guide]
-* Pour savoir comment établir une haute disponibilité et planifier la récupération d’urgence de SAP HANA sur des machines virtuelles Azure, consultez [Haute disponibilité de SAP HANA sur des machines virtuelles Azure][sap-hana-ha].
+* Pour savoir comment établir une haute disponibilité et planifier la récupération d’urgence de SAP HANA sur des machines virtuelles Azure, consultez [Haute disponibilité de SAP HANA sur des machines virtuelles Azure][sap-hana-ha]

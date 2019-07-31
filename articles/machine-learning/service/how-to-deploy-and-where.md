@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 05/31/2019
+ms.date: 07/08/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: dcb90eb8ee25b8b0c780006f3555a5a9b815ffdd
-ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
+ms.openlocfilehash: cae6039b904f3dcd19ed191dc1b5fdd2f05f0323
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67514311"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68260346"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Déployer des modèles avec le service Azure Machine Learning
 
@@ -332,12 +332,12 @@ Le tableau suivant donne un exemple de configuration de déploiement créée pou
 Les sections suivantes expliquent comment créer la configuration de déploiement et l’utiliser ensuite pour déployer le service web.
 
 ### <a name="optional-profile-your-model"></a>Facultatif : Profiler votre modèle
-Avant de déployer votre modèle en tant que service, vous pouvez le profiler afin de déterminer les exigences optimales en processeur et en mémoire. Vous pouvez profiler votre modèle à l’aide du kit de développement logiciel (SDK) ou de l'interface CLI.
 
-Pour plus d’informations, consultez la documentation du SDK disponible ici : https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#profile-workspace--profile-name--models--inference-config--input-data-
+Avant de déployer votre modèle en tant que service, vous pouvez le profiler afin de déterminer les exigences optimales en processeur et en mémoire avec le SDK ou la CLI.  Les résultats du profilage du modèle sont fournis sous la forme d’un objet `Run`. Les détails complets du [schéma du profil de modèle se trouvent dans la documentation de l’API](https://docs.microsoft.com/python/api/azureml-core/azureml.core.profile.modelprofile?view=azure-ml-py)
 
-Les résultats du profilage du modèle sont fournis sous la forme d’un objet Run.
-Vous trouverez des détails sur le schéma de profil de modèle ici : https://docs.microsoft.com/python/api/azureml-core/azureml.core.profile.modelprofile?view=azure-ml-py
+En savoir plus sur [la façon de profiler votre modèle à l’aide du SDK](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#profile-workspace--profile-name--models--inference-config--input-data-).
+
+Pour profiler votre modèle à l’aide de la CLI, utilisez [az ml model profile](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-profile).
 
 ## <a name="deploy-to-target"></a>Déployer sur la cible
 
@@ -356,9 +356,27 @@ Pour un déploiement local, vous devez avoir **Docker installé** sur votre mach
 
 + **Avec l’interface CLI**
 
+    Pour déployer à l’aide de la CLI, utilisez la commande suivante. Remplacez `mymodel:1` par le nom et la version du modèle inscrit :
+
   ```azurecli-interactive
-  az ml model deploy -m sklearn_mnist:1 -ic inferenceconfig.json -dc deploymentconfig.json
+  az ml model deploy -m mymodel:1 -ic inferenceconfig.json -dc deploymentconfig.json
   ```
+
+    Les entrées dans le document `deploymentconfig.json` correspondent aux paramètres pour [LocalWebservice.deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.local.localwebservicedeploymentconfiguration?view=azure-ml-py). Le tableau suivant décrit le mappage entre les entités dans le document JSON et les paramètres de la méthode :
+
+    | Entité JSON | Paramètre de méthode | Description |
+    | ----- | ----- | ----- |
+    | `computeType` | N/D | La cible de calcul. En local, la valeur doit être `local`. |
+    | `port` | `port` | Port local sur lequel exposer le point de terminaison HTTP du service. |
+
+    Le code JSON suivant est un exemple de configuration de déploiement à utiliser avec l’interface CLI :
+
+    ```json
+    {
+        "computeType": "local",
+        "port": 32267
+    }
+    ```
 
 ### <a id="aci"></a> Azure Container Instances (DEVTEST)
 
@@ -379,10 +397,44 @@ Pour plus d’informations sur les quotas et la disponibilité d’ACI en foncti
 
 + **Avec l’interface CLI**
 
-  ```azurecli-interactive
-  az ml model deploy -m sklearn_mnist:1 -n aciservice -ic inferenceconfig.json -dc deploymentconfig.json
-  ```
+    Pour déployer à l’aide de la CLI, utilisez la commande suivante. Remplacez `mymodel:1` par le nom et la version du modèle inscrit. Remplacez `myservice` par le nom à attribuer à ce service :
 
+    ```azurecli-interactive
+    az ml model deploy -m mymodel:1 -n myservice -ic inferenceconfig.json -dc deploymentconfig.json
+    ```
+
+    Les entrées dans le document `deploymentconfig.json` correspondent aux paramètres pour [AciWebservice.deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aci.aciservicedeploymentconfiguration?view=azure-ml-py). Le tableau suivant décrit le mappage entre les entités dans le document JSON et les paramètres de la méthode :
+
+    | Entité JSON | Paramètre de méthode | Description |
+    | ----- | ----- | ----- |
+    | `computeType` | N/D | La cible de calcul. Pour ACI, la valeur doit être `ACI`. |
+    | `containerResourceRequirements` | N/D | Contient les éléments de configuration pour le processeur et la mémoire alloués au conteneur. |
+    | &emsp;&emsp;`cpu` | `cpu_cores` | Nombre de cœurs de processeur à allouer pour ce service web. Par défaut, `0.1` |
+    | &emsp;&emsp;`memoryInGB` | `memory_gb` | Quantité de mémoire (en Go) à allouer à ce service web. Par défaut, `0.5` |
+    | `location` | `location` | Région Azure dans laquelle déployer ce service web. Si elle n’est pas spécifiée, l’emplacement de l’espace de travail sera utilisé. Vous trouverez plus d’informations sur les régions disponibles ici : [Régions ACI](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=container-instances) |
+    | `authEnabled` | `auth_enabled` | Indique s’il faut activer ou pas l’authentification pour ce service web. Par défaut, False |
+    | `sslEnabled` | `ssl_enabled` | Indique s’il faut activer ou pas SSL pour ce service web. Valeur par défaut False. |
+    | `appInsightsEnabled` | `enable_app_insights` | Indique s’il faut activer ou pas AppInsights pour ce service web. Par défaut, False |
+    | `sslCertificate` | `ssl_cert_pem_file` | Fichier de certificat requis si SSL est activé |
+    | `sslKey` | `ssl_key_pem_file` | Fichier de clé requis si SSL est activé |
+    | `cname` | `ssl_cname` | cname si SSL est activé |
+    | `dnsNameLabel` | `dns_name_label` | Étiquette du nom DNS pour le point de terminaison de scoring. Si elle n’est pas spécifiée, une étiquette de nom DNS unique sera générée pour le point de terminaison de scoring. |
+
+    Le code JSON suivant est un exemple de configuration de déploiement à utiliser avec l’interface CLI :
+
+    ```json
+    {
+        "computeType": "aci",
+        "containerResourceRequirements":
+        {
+            "cpu": 0.5,
+            "memoryInGB": 1.0
+        },
+        "authEnabled": true,
+        "sslEnabled": false,
+        "appInsightsEnabled": false
+    }
+    ```
 
 + **Avec VS Code**
 
@@ -414,9 +466,71 @@ Si vous avez déjà un cluster AKS attaché, vous pouvez le déployer. Si vous n
 
 + **Avec l’interface CLI**
 
+    Pour déployer à l’aide de la CLI, utilisez la commande suivante. Remplacez `myaks` par le nom de la cible de calcul AKS. Remplacez `mymodel:1` par le nom et la version du modèle inscrit. Remplacez `myservice` par le nom à attribuer à ce service :
+
   ```azurecli-interactive
-  az ml model deploy -ct myaks -m mymodel:1 -n aksservice -ic inferenceconfig.json -dc deploymentconfig.json
+  az ml model deploy -ct myaks -m mymodel:1 -n myservice -ic inferenceconfig.json -dc deploymentconfig.json
   ```
+
+    Les entrées dans le document `deploymentconfig.json` correspondent aux paramètres pour [AksWebservice.deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aks.aksservicedeploymentconfiguration?view=azure-ml-py). Le tableau suivant décrit le mappage entre les entités dans le document JSON et les paramètres de la méthode :
+
+    | Entité JSON | Paramètre de méthode | Description |
+    | ----- | ----- | ----- |
+    | `computeType` | N/D | La cible de calcul. Pour AKS, la valeur doit être `aks`. |
+    | `autoScaler` | N/D | Contient les éléments de configuration pour la mise à l’échelle automatique. Consultez le tableau de mise à l’échelle automatique. |
+    | &emsp;&emsp;`autoscaleEnabled` | `autoscale_enabled` | Indique si la mise à l’échelle automatique doit être activée ou pas pour le service web. Si `numReplicas` = `0`, `True` ; sinon, `False`. |
+    | &emsp;&emsp;`minReplicas` | `autoscale_min_replicas` | Nombre minimal de conteneurs à utiliser lors de la mise à l’échelle automatique de ce service web. Par défaut, `1`. |
+    | &emsp;&emsp;`maxReplicas` | `autoscale_max_replicas` | Nombre maximal de conteneurs à utiliser lors de la mise à l’échelle automatique de ce service web. Par défaut, `10`. |
+    | &emsp;&emsp;`refreshPeriodInSeconds` | `autoscale_refresh_seconds` | Fréquence à laquelle la mise à l’échelle automatique tente de mettre à l’échelle ce service web. Par défaut, `1`. |
+    | &emsp;&emsp;`targetUtilization` | `autoscale_target_utilization` | Utilisation cible (en pourcentage sur 100) que la mise à l’échelle automatique doit tenter de gérer pour ce service web. Par défaut, `70`. |
+    | `dataCollection` | N/D | Contient les éléments de configuration pour la collecte de données. |
+    | &emsp;&emsp;`storageEnabled` | `collect_model_data` | Indique s’il faut activer la collecte des données de modèle ou pas pour le service web. Par défaut, `False`. |
+    | `authEnabled` | `auth_enabled` | Indique s’il faut activer l’authentification ou pas pour le service web. Par défaut, `True`. |
+    | `containerResourceRequirements` | N/D | Contient les éléments de configuration pour le processeur et la mémoire alloués au conteneur. |
+    | &emsp;&emsp;`cpu` | `cpu_cores` | Nombre de cœurs de processeur à allouer pour ce service web. Par défaut, `0.1` |
+    | &emsp;&emsp;`memoryInGB` | `memory_gb` | Quantité de mémoire (en Go) à allouer à ce service web. Par défaut, `0.5` |
+    | `appInsightsEnabled` | `enable_app_insights` | Indique s’il faut activer la journalisation Application Insights ou pas pour le service web. Par défaut, `False`. |
+    | `scoringTimeoutMs` | `scoring_timeout_ms` | Délai d’expiration à appliquer pour les appels de scoring au service web. Par défaut, `60000`. |
+    | `maxConcurrentRequestsPerContainer` | `replica_max_concurrent_requests` | Nombre maximal de demandes simultanées par nœud pour ce service web. Par défaut, `1`. |
+    | `maxQueueWaitMs` | `max_request_wait_time` | Durée maximale pendant laquelle une demande est conservée dans la file d’attente (en millisecondes) avant qu’une erreur 503 soit renvoyée. Par défaut, `500`. |
+    | `numReplicas` | `num_replicas` | Nombre de conteneurs à allouer pour ce service web. Aucune valeur par défaut. Si ce paramètre n’est pas défini, la mise à l’échelle automatique est activée par défaut. |
+    | `keys` | N/D | Contient les éléments de configuration pour les clés. |
+    | &emsp;&emsp;`primaryKey` | `primary_key` | Clé d’authentification principale à utiliser pour ce service web |
+    | &emsp;&emsp;`secondaryKey` | `secondary_key` | Clé d’authentification secondaire à utiliser pour ce service web |
+    | `gpuCores` | `gpu_cores` | Nombre de cœurs GPU à allouer pour ce service web. 1 constitue la valeur par défaut. |
+    | `livenessProbeRequirements` | N/D | Contient les éléments de configuration pour les exigences de probe liveness. |
+    | &emsp;&emsp;`periodSeconds` | `period_seconds` | Fréquence (en secondes) d’exécution de probe liveness. La valeur par défaut est 10 secondes. La valeur minimale est 1. |
+    | &emsp;&emsp;`initialDelaySeconds` | `initial_delay_seconds` | Nombre de secondes après le démarrage du conteneur avant le lancement des probes liveness. La valeur par défaut est 310 |
+    | &emsp;&emsp;`timeoutSeconds` | `timeout_seconds` | Nombre de secondes après lequel la probe liveness expire. La valeur par défaut est de 2 secondes. La valeur minimale est 1 |
+    | &emsp;&emsp;`successThreshold` | `success_threshold` | Nombre minimal de réussites consécutives pour que la probe liveness soit considérée comme réussie après avoir échoué. La valeur par défaut est de 1. La valeur minimale est 1. |
+    | &emsp;&emsp;`failureThreshold` | `failure_threshold` | Quand un Pod démarre et que la probe liveness échoue, Kubernetes essaie FailureThreshold times avant d’abandonner. La valeur par défaut est 3. La valeur minimale est 1. |
+    | `namespace` | `namespace` | Espace de noms Kubernetes dans lequel le service web est déployé. Jusqu’à 63 caractères alphanumériques ('a'-'z', '0'-'9') et le trait d’union ('-'). Le premier caractère et le dernier caractère ne peuvent pas être des traits d’union. |
+
+    Le code JSON suivant est un exemple de configuration de déploiement à utiliser avec l’interface CLI :
+
+    ```json
+    {
+        "computeType": "aks",
+        "autoScaler":
+        {
+            "autoscaleEnabled": true,
+            "minReplicas": 1,
+            "maxReplicas": 3,
+            "refreshPeriodInSeconds": 1,
+            "targetUtilization": 70
+        },
+        "dataCollection":
+        {
+            "storageEnabled": true
+        },
+        "authEnabled": true,
+        "containerResourceRequirements":
+        {
+            "cpu": 0.5,
+            "memoryInGB": 1.0
+        }
+    }
+    ```
 
 + **Avec VS Code**
 

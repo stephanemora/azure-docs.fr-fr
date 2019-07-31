@@ -53,7 +53,7 @@ Vous pouvez également contourner Visual Studio et utiliser directement la ligne
 ## <a name="download-and-run-the-apache-cordova-app"></a>Télécharger et exécuter l'application Apache Cordova
 [!INCLUDE [app-service-mobile-cordova-run-app](../../includes/app-service-mobile-cordova-run-app.md)]
 <!-- URLs -->
-[Portail Azure] : https://portal.azure.com/
+[Portail Azure]: https://portal.azure.com/
 
 [Visual Studio Community 2017]: https://www.visualstudio.com/
 [Visual Studio Tools pour Apache Cordova]: https://www.visualstudio.com/en-us/features/cordova-vs.aspx

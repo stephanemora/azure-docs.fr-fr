@@ -13,39 +13,28 @@ ms.author: sstein
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/08/2019
-ms.openlocfilehash: ed05748a450d8d2082476aaba0831383e5fb60a0
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 8debd55cd1d5588a24dcd32a619ae772e499a939
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67441568"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67850079"
 ---
 # <a name="what-is-azure-sql-database-service"></a>Qu’est-ce que le service Azure SQL Database ?
 
-SQL Database est un service administré de bases de données relationnelles à usage général de Microsoft Azure qui prend en charge des structures telles que les données relationnelles, JSON, les données spatiales et XML. SQL Database offre des performances scalables de façon dynamique dans deux modèles d’achat différents : un modèle d’achat vCore et un modèle d’achat DTU. SQL Database fournit aussi des options telles que les [index columnstore](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) pour la génération de rapport et l’analyse extrême, et [OLTP en mémoire](sql-database-in-memory.md) pour le traitement transactionnel extrême. Microsoft gère toutes les applications de correctifs et mises à jour de la base de code SQL en toute transparence et élimine toute la gestion de l’infrastructure sous-jacente.
+Azure SQL Database est un service géré de bases de données relationnelles à usage général qui vous permet de créer une couche de stockage de données hautement disponible et performante pour les applications et solutions dans le cloud Microsoft Azure. SQL Database peut être le bon choix pour une variété d'applications modernes dans le cloud car il vous permet d'utiliser de puissantes fonctionnalités pour traiter à la fois des données relationnelles et des [structures non relationnelles](sql-database-multi-model-features.md), notamment des graphiques, des structures JSON, spatiales et XML. Il repose sur la dernière version stable du [moteur de base de données Microsoft SQL Server ](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation?toc=/azure/sql-database/toc.json) et vous permet d'utiliser un riche ensemble de fonctions avancées de traitement des requêtes telles que les [technologies en mémoire hautes performances ](sql-database-in-memory.md) et le [traitement intelligent des requêtes ](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=/azure/sql-database/toc.json).
+Avec la stratégie orientée cloud de Microsoft, les dernières fonctionnalités de SQL Server sont tout d’abord publiées dans SQL Database, puis dans SQL Server. Cette approche vous procure les fonctionnalités SQL Server les plus récentes sans frais d’application de correctifs ou de mise à niveau, et ces fonctionnalités ont déjà été testées sur des millions de bases de données. SQL Database vous permet de définir et de mettre à l'échelle facilement les performances dans deux modèles d’achat différents : un [modèle d’achat vCore](sql-database-service-tiers-vcore.md) et un [modèle d’achat DTU](sql-database-service-tiers-dtu.md). SQL Database est un service entièrement géré qui intègre une haute disponibilité, des sauvegardes et d'autres opérations de maintenance courantes. Microsoft gère toutes les applications de correctifs et mises à jour du code SQL et du code du système d’exploitation en toute transparence, et élimine toute la gestion de l’infrastructure sous-jacente.
 
 > [!NOTE]
 > Pour connaître la signification des termes dans Azure SQL Database, consultez le [Lexique SQL Database](sql-database-glossary-terms.md).
 
 Azure SQL Database fournit les options de déploiement suivantes pour une base de données Azure SQL :
 
-- En tant que [base de données unique](sql-database-single-database.md) avec son propre ensemble de ressources géré via un serveur SQL Database. Une base de données unique est similaire à une [base de données autonome](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases) dans SQL Server.
-- Un [pool élastique](sql-database-elastic-pool.md) qui est une collection de bases de données avec un ensemble partagé de ressources gérées via un serveur SQL Database. Les bases de données uniques peuvent être déplacées dans et hors d’un pool élastique.
-- Une [instance gérée](sql-database-managed-instance.md) qui est une collection de bases de données système et utilisateur avec un ensemble partagé de ressources. Une instance gérée est similaire à une instance du [moteur de base de données Microsoft SQL Server](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation).
-
-L’illustration suivante représente ces options de déploiement :
-
 ![deployment-options](./media/sql-database-technical-overview/deployment-options.png)
 
-SQL Database partage sa base de code avec le [moteur de base de données Microsoft SQL Server](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation). Avec la stratégie orientée cloud de Microsoft, les dernières fonctionnalités de SQL Server sont tout d’abord publiées dans SQL Database, puis dans SQL Server. Cette approche vous procure les fonctionnalités SQL Server les plus récentes sans frais d’application de correctifs ou de mise à niveau, et ces fonctionnalités ont déjà été testées sur des millions de bases de données. Pour plus d’informations sur les nouvelles fonctionnalités annoncées, voir :
-
-- **[Feuille de route pour Azure SQL Database](https://azure.microsoft.com/roadmap/?category=databases)** :
-
-  l’endroit où trouver les nouveautés et les futures fonctionnalités.
-
-- **[Blog Azure SQL Database](https://azure.microsoft.com/blog/topics/database)**  :
-
-  l’endroit où les membres de l’équipe produit SQL Server publient des billets de blog sur les nouveautés et les fonctionnalités de SQL Database.
+- [Base de données unique](sql-database-single-database.md) représente une base de données isolée entièrement gérée qui constitue le choix parfait pour les applications de cloud modernes et les microservices nécessitant une source de données unique et fiable. Une base de données unique est similaire à des [bases de données autonomes](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases?toc=/azure/sql-database/toc.json) dans le [moteur de base de données Microsoft SQL Server](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation?toc=/azure/sql-database/toc.json).
+- [Instance gérée](sql-database-managed-instance.md) représente une instance entièrement gérée du [moteur de base de données Microsoft SQL Server](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation?toc=/azure/sql-database/toc.json) contenant un ensemble de bases de données pouvant être utilisées ensemble. C'est le choix idéal pour une migration facile de bases de données SQL Server locales vers le cloud Azure et pour les applications qui doivent exploiter les puissantes fonctionnalités de bases de données fournies par le moteur de base de données SQL Server.
+- [Pool élastique](sql-database-elastic-pool.md) représente une collection de [bases de données uniques](sql-database-single-database.md) avec un ensemble partagé de ressources telles que le processeur ou la mémoire. Les bases de données uniques peuvent être déplacées dans et hors d’un pool élastique.
 
 > [!IMPORTANT]
 > Pour comprendre les différences de fonctionnalités entre SQL Database et SQL Server, ainsi que les différences entre les diverses options de déploiement d’Azure SQL Database, voir [Fonctionnalités SQL](sql-database-features.md).
@@ -54,8 +43,9 @@ SQL Database offre des performances prévisibles pour plusieurs types de ressour
 
 ## <a name="scalable-performance-and-pools"></a>Pools et performances évolutives
 
-- Avec des bases de données uniques, chaque base de données est isolée des autres et portable, avec sa propre garantie quantité de ressources de calcul, de mémoire et de stockage. SQL Database fournit des ressources de calcul, de mémoire et de stockage différentes pour répondre à différents besoins, ainsi que la possibilité de [mettre à l’échelle des ressources de base de données unique](sql-database-single-database-scale.md) de façon dynamique. Le [niveau de service hyperscale](sql-database-service-tier-hyperscale.md) pour une base de données unique vous permet de mettre à l’échelle jusqu’à 100 To, avec des fonctionnalités de sauvegarde et de restauration rapides.
-- Avec des pools élastiques, vous pouvez créer des bases de données ou déplacer des bases de données uniques dans un pool de ressources pour optimiser l’utilisation des ressources et réaliser des économies, en ayant la possibilité de [mettre à l’échelle des ressources de pool élastique](sql-database-elastic-pool-scale.md) de façon dynamique.
+Tous les types SQL Database vous permettent de définir la quantité de ressources qui seront affectées. 
+- Avec des bases de données uniques, chaque base de données est isolée des autres et portable, avec sa propre garantie quantité de ressources de calcul, de mémoire et de stockage. La quantité de ressources assignée à la base de données est dédiée à cette base de données et ne sera pas partagée avec d'autres bases de données dans le cloud Azure. Vous pouvez mettre à l'échelle de façon dynamique des [ressources de base de données uniques](sql-database-single-database-scale.md). Base de données unique fournit différentes ressources de calcul, de mémoire et de stockage pour différents besoins, allant de 1 à 80 vCores, 32 Go à 4 To, etc. Le [niveau de service hyperscale](sql-database-service-tier-hyperscale.md) pour une base de données unique vous permet de mettre à l’échelle jusqu’à 100 To, avec des fonctionnalités de sauvegarde et de restauration rapides.
+- Avec les pools élastiques, vous pouvez assigner des ressources qui seront partagées par toutes les bases de données du pool. Vous pouvez créer une base de données ou déplacer des bases de données uniques existantes vers un pool de ressources pour optimiser l’utilisation des ressources et réaliser des économies, en ayant la possibilité de [mettre à l’échelle des ressources de pool élastique](sql-database-elastic-pool-scale.md) de façon dynamique.
 - Avec des instances gérées, chaque instance est isolée des autres avec des ressources garanties. Au sein d’une instance managée, les bases de données d’instance partagent un ensemble de ressources, avec la possibilité de [mettre à l’échelle des ressources d’instance managée](sql-database-managed-instance-resource-limits.md) de façon dynamique.
 
 Vous pouvez créer votre première application dans une petite base de données unique pour un coût mensuel modique avec le niveau de service d’usage général, puis modifier ce niveau de service manuellement ou par programmation à tout moment en niveau critique pour l’entreprise afin de répondre aux besoins de votre solution. Vous pouvez ajuster les performances sans perturber le fonctionnement de votre application, ni l’expérience de vos clients. L’évolutivité dynamique permet à votre base de données de répondre en toute transparence aux besoins en ressources qui évoluent sans cesse et de payer uniquement les ressources dont vous avez besoin, lorsque vous en avez besoin.
@@ -65,11 +55,8 @@ La scalabilité dynamique est différente de la mise à l’échelle automatique
 ### <a name="purchasing-models-service-tiers-compute-sizes-and-storage-amounts"></a>Modèles d’achat, niveaux de service, tailles de calcul et quantités de stockage
 
 SQL Database est disponible en deux modèles d’achat :
-
-- Le [modèle d’achat DTU](sql-database-service-tiers-dtu.md) offre une combinaison de ressources de calcul, de mémoire et d’E/S réparties sur trois niveaux de service pour prendre en charge les charges de travail de base de données, tant légères qu’importantes. Les tailles de calcul de chaque niveau fournissent une combinaison différente de ces ressources, auxquelles vous pouvez ajouter d’autres ressources de stockage.
 - Le [modèle d’achat vCore](sql-database-service-tiers-vcore.md) vous permet de choisir le nombre de vCores, la quantité de mémoire et de stockage, ainsi que la vitesse de stockage. Le modèle d’achat vCore vous permet également d’utiliser [Azure Hybrid Benefit pour SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/) afin de réduire les coûts. Pour en savoir plus sur Azure Hybrid Benefit, consultez le [forum aux questions](#sql-database-frequently-asked-questions-faq).
-
-  
+- Le [modèle d’achat DTU](sql-database-service-tiers-dtu.md) offre une combinaison de ressources de calcul, de mémoire et d’E/S réparties sur trois niveaux de service pour prendre en charge les charges de travail de base de données, tant légères qu’importantes. Les tailles de calcul de chaque niveau fournissent une combinaison différente de ces ressources, auxquelles vous pouvez ajouter d’autres ressources de stockage.
 
 ### <a name="elastic-pools-to-maximize-resource-utilization"></a>Pools élastiques pour optimiser l’utilisation des ressources
 
@@ -88,9 +75,15 @@ Les scripts aident à la surveillance et à la mise à l’échelle des pools é
 
 Vous pouvez fusionner des bases de données uniques avec des pools élastiques et changer les niveaux de service des bases de données uniques et des pools élastiques de façon simple et rapide pour vous adapter à votre situation. Grâce à la puissance et à la portée d’Azure, vous pouvez mélanger les autres services Azure avec SQL Database, afin de pouvoir répondre aux besoins uniques de vos applications en matière de conception, réduire les coûts, optimiser l’efficacité des ressources et créer de nouvelles opportunités professionnelles.
 
-### <a name="extensive-monitoring-and-alerting-capabilities"></a>Fonctionnalités étendues de surveillance et d’alerte
+## <a name="extensive-monitoring-and-alerting-capabilities"></a>Fonctionnalités étendues de surveillance et d’alerte
 
-Vous utilisez les outils intégrés de [surveillance](sql-database-performance.md) et [d’alerte](sql-database-insights-alerts-portal.md) de performances, combinées avec les évaluations de performance. Ces outils vous permettent d’évaluer rapidement l’impact des mises à l’échelle (montées ou descentes en charge) en fonction de vos besoins en performances actuels ou pour un projet. En outre, SQL Database peut [émettre des métriques et des journaux de diagnostic](sql-database-metrics-diag-logging.md) pour faciliter la supervision. Vous pouvez configurer SQL Database pour stocker l’utilisation des ressources, les employés et les sessions, ainsi que la connectivité dans une de ces ressources Azure :
+Azure SQL Database offre un ensemble de fonctions avancées de surveillance et de dépannage qui peuvent vous aider à obtenir un aperçu complet des caractéristiques de la charge de travail. Les caractéristiques et les outils peuvent être classés dans les catégories suivantes :
+ - Les capacités de surveillance intégrées fournies par la dernière version du moteur de base de données SQL Server qui vous permettent d’obtenir en temps réel des informations sur les performances. 
+ - Les capacités de surveillance PaaS fournies par la plate-forme Azure vous permettent de surveiller facilement un grand nombre d'instances de bases de données et de fournir des conseils de dépannage qui facilitent la résolution des problèmes de performances.
+
+La fonction de surveillance du moteur de base de données intégrée la plus importante que vous devriez utiliser est le composant [Magasin des requêtes](sql-database-operate-query-store.md), qui consigne en temps réel les performances de vos requêtes et vous permet d'identifier les problèmes de performances potentiels et les principaux consommateurs de ressources. Réglage automatique et les recommandations fournissent des conseils concernant les requêtes avec les performances régressées et les index manquants ou dupliqués. Réglage automatique dans Azure SQL Database vous permet soit d'appliquer manuellement les scripts qui peuvent résoudre les problèmes, soit de laisser Azure SQL Database appliquer le correctif, le tester et vérifier s'il présente un certain avantage, et conserver ou annuler le changement en fonction du résultat. Outre les fonctions Magasin des requêtes et Réglage automatique, vous pouvez également utiliser des composants [DMV et XEvent](sql-database-monitoring-with-dmvs.md) standard pour surveiller les performances des charges de travail.
+
+La plate-forme Azure fournit les [outils intégrés de surveillance](sql-database-performance.md) et d'[alerte](sql-database-insights-alerts-portal.md), combinés avec les évaluations de performance, qui vous permettent de surveiller facilement le statut de milliers de bases de données. Ces outils vous permettent d’évaluer rapidement l’impact des mises à l’échelle (montées ou descentes en charge) en fonction de vos besoins en performances actuels ou pour un projet. En outre, SQL Database peut [émettre des métriques et des journaux de diagnostic](sql-database-metrics-diag-logging.md) pour faciliter la supervision. Vous pouvez configurer SQL Database pour stocker l’utilisation des ressources, les employés et les sessions, ainsi que la connectivité dans une de ces ressources Azure :
 
 - **Stockage Azure** : pour archiver à petit prix de gros volumes de données de télémétrie.
 - **Azure Event Hub** : pour intégrer des données de télémétrie SQL Database à votre solution de supervision personnalisée ou à vos pipelines chauds.
@@ -100,7 +93,7 @@ Vous utilisez les outils intégrés de [surveillance](sql-database-performance.m
 
 ## <a name="availability-capabilities"></a>Fonctionnalités de disponibilité
 
-Dans un environnement SQL Server traditionnel, vous devez généralement avoir configuré (au moins) 2 machines localement avec des copies exactes (gérée de façon synchrone) des données (à l’aide de fonctionnalités telles que les groupes de disponibilité AlwaysOn ou d’instances de cluster de basculement) pour vous protéger contre la défaillance d’un ordinateur/composant unique.  Cela assure une haute disponibilité, mais pas la protection contre une catastrophe naturelle détruisant votre centre de données.
+Dans un environnement SQL Server traditionnel, vous devez généralement avoir configuré (au moins) 2 machines localement avec des copies exactes (gérée de façon synchrone) des données (à l’aide de fonctionnalités telles que les groupes de disponibilité AlwaysOn ou d’instances de cluster de basculement) pour vous protéger contre la défaillance d’un ordinateur/composant unique. Cela assure une haute disponibilité, mais pas la protection contre une catastrophe naturelle détruisant votre centre de données.
 
 La récupération d’urgence suppose qu’un événement catastrophique sera suffisamment localisé géographiquement pour avoir une autre machine/un autre ensemble de machines avec une copie de vos données à distance.  Dans SQL Server, vous pouvez utiliser des groupes de disponibilité Always On s’exécutant en mode asynchrone pour obtenir cette fonctionnalité.  Les problèmes de rapidité signifient généralement que les personnes ne souhaitent pas attendre que la réplication se produise si loin avant de valider une transaction. Il existe donc un risque potentiel de perte de données lorsque vous effectuez des basculements non planifiés.
 
@@ -260,3 +253,8 @@ Les clients SQL Database auront les droits associés à Azure Hybrid Benefit pou
 - Pour accéder à des exemples Azure CLI et PowerShell, consultez :
   - [Exemples d’interface de ligne de commande Azure pour SQL Database](sql-database-cli-samples.md)
   - [Exemples Azure PowerShell pour SQL Database](sql-database-powershell-samples.md)
+
+ - Pour plus d’informations sur les nouvelles fonctionnalités annoncées, voir 
+   - **[Feuille de route Azure pour SQL Database](https://azure.microsoft.com/roadmap/?category=databases)**  : l’endroit où trouver les nouveautés et les futures fonctionnalités.
+  - **[Blog Azure SQL Database](https://azure.microsoft.com/blog/topics/database)**  : c’est là où les membres de l’équipe produit SQL Server publient des billets de blog sur les nouveautés et les fonctionnalités de SQL Database.
+
