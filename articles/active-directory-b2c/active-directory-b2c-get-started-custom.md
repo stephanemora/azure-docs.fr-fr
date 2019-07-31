@@ -1,5 +1,5 @@
 ---
-title: Prise en main des stratégies personnalisées - Azure Active Directory B2C | Microsoft Docs
+title: Bien démarrer avec les stratégies personnalisées - Azure Active Directory B2C
 description: Découvrez comment bien démarrer avec les stratégies personnalisées dans Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/16/2019
+ms.date: 07/16/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 2929c033b4744ea89f8e3d711a5e2e0df6301c14
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 83269a5ae0d2e5fb7ae2651dbc27926c910a0e03
+ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66730006"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68302485"
 ---
 # <a name="get-started-with-custom-policies-in-azure-active-directory-b2c"></a>Bien démarrer avec les stratégies personnalisées dans Azure Active Directory B2C
 
@@ -31,7 +31,7 @@ Les [stratégies personnalisées](active-directory-b2c-overview-custom.md) sont 
 ## <a name="add-signing-and-encryption-keys"></a>Ajouter des clés de signature et de chiffrement
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/) en tant qu’administrateur général de votre locataire Azure AD B2C.
-2. Veillez à bien utiliser le répertoire qui contient votre locataire Azure AD B2C. Cliquez sur le **filtre Répertoire et abonnement** dans le menu supérieur et sélectionnez le répertoire qui contient votre locataire. 
+2. Veillez à bien utiliser le répertoire qui contient votre locataire Azure AD B2C. Cliquez sur le **filtre Répertoire et abonnement** dans le menu supérieur et sélectionnez le répertoire qui contient votre locataire.
 3. Choisissez **Tous les services** dans le coin supérieur gauche du Portail Azure, recherchez et sélectionnez **Azure Active Directory B2C**.
 4. Dans la page de vue d’ensemble, sélectionnez **Infrastructure d’expérience d’identité**.
 
@@ -70,13 +70,15 @@ Azure AD B2C exige que vous inscriviez deux applications utilisées pour inscrir
 
 ### <a name="register-the-identityexperienceframework-application"></a>Inscrire l’application IdentityExperienceFramework
 
-1. Choisissez **Tous les services** dans le coin supérieur gauche du Portail Azure, recherchez et sélectionnez **Azure Active Directory**.
-2. Dans le menu, sélectionnez **Inscriptions d’applications (héritées)** .
-3. Sélectionnez **Nouvelle inscription d’application**.
-4. Pour **Nom**, entrez `IdentityExperienceFramework`.
-5. Pour **Type d’application**, choisissez **Application/API web**.
-6. Pour **URL de connexion**, entrez `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`, où `your-tenant-name` est le nom de domaine de votre locataire Azure AD B2C. Toutes les URL doivent désormais utiliser [b2clogin.com](b2clogin.md).
-7. Cliquez sur **Créer**. Après sa création, copiez l’ID d’application et enregistrez-le pour une utilisation ultérieure.
+1. Sélectionnez **Tous les services** dans le coin supérieur gauche du portail Azure.
+1. Dans la zone de recherche, entrez `Azure Active Directory`.
+1. Dans la liste des résultats, sélectionnez sur **Azure Active Directory**.
+1. Sous **Gérer** dans le menu de gauche, sélectionnez **Inscriptions d’applications (hérité)** .
+1. Sélectionnez **Nouvelle inscription d’application**.
+1. Pour **Nom**, entrez `IdentityExperienceFramework`.
+1. Pour **Type d’application**, choisissez **Application/API web**.
+1. Pour **URL de connexion**, entrez `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`, où `your-tenant-name` est le nom de domaine de votre locataire Azure AD B2C. Toutes les URL doivent désormais utiliser [b2clogin.com](b2clogin.md).
+1. Cliquez sur **Créer**. Après sa création, copiez l’ID d’application et enregistrez-le pour une utilisation ultérieure.
 
 ### <a name="register-the-proxyidentityexperienceframework-application"></a>Inscrire l’application ProxyIdentityExperienceFramework
 
@@ -90,57 +92,76 @@ Azure AD B2C exige que vous inscriviez deux applications utilisées pour inscrir
 9. Cochez la case en regard d’**Accéder à IdentityExperienceFramework**, cliquez sur **Sélectionner**, puis sur **Terminé**.
 10. Sélectionnez **Accorder des autorisations** puis confirmez en sélectionnant **Oui**.
 
-## <a name="download-starter-pack-and-modify-policies"></a>Télécharger le pack de démarrage et modifier les stratégies
+## <a name="custom-policy-starter-pack"></a>Pack de démarrage de stratégie personnalisée
 
-Les stratégies personnalisées sont un ensemble de fichiers XML qui doivent être chargés sur votre client Azure AD B2C. Des packs de démarrage de fichiers sont fournis pour vous aider à être rapidement opérationnel. Chaque pack de démarrage de la liste suivante contient le plus petit nombre possible de profils techniques et de parcours utilisateur nécessaires pour réaliser les scénarios décrits :
+Les stratégies personnalisées sont un ensemble de fichiers XML que vous téléchargez vers votre locataire Azure AD B2C pour définir des profils techniques et des parcours utilisateur. Nous fournissons des packs de démarrage avec plusieurs stratégies prédéfinies pour vous permettre de vous familiariser rapidement. Chacun de ces packs de démarrage contient le plus petit nombre possible de profils techniques et de parcours utilisateur nécessaires pour réaliser les scénarios décrits :
 
-- LocalAccounts : vous permet d’utiliser uniquement des comptes locaux.
-- SocialAccounts : vous permet d’utiliser uniquement des comptes sociaux (ou fédérés).
-- SocialAndLocalAccounts : vous permet d’utiliser à la fois des comptes locaux et des comptes sociaux.
-- SocialAndLocalAccountsWithMFA : active les options social, local et authentification multifacteur.
+- **LocalAccounts** : vous permet d’utiliser uniquement des comptes locaux.
+- **SocialAccounts** : vous permet d’utiliser uniquement des comptes sociaux (ou fédérés).
+- **SocialAndLocalAccounts** : vous permet d’utiliser à la fois des comptes locaux et des comptes sociaux.
+- **SocialAndLocalAccountsWithMFA** : active les options social, local et authentification multifacteur.
 
 Chaque pack de démarrage contient :
 
-- Le fichier de base. Il n’y a que peu de modifications à apporter la base.
-- Le fichier d’extension.  C’est sur ce fichier que portent la plupart des modifications de la configuration.
-- Les fichiers de partie de confiance. Il s’agit de fichiers propres aux tâches appelés par votre application.
+- **Ficher de base** : il n’y a que peu de modifications à apporter à la base. Exemple : *TrustFrameworkBase.xml*
+- **Fichier d’extension** : c’est sur ce fichier que portent la plupart des modifications de la configuration. Exemple : *TrustFrameworkExtensions.xml*
+- **Fichiers de partie de confiance** : sont des fichiers propres à chaque tâche, appelés par l’application. Exemples : *SignUpOrSignin.xml*, *ProfileEdit.xml*, *PasswordReset.xml*
 
->[!NOTE]
->Si votre éditeur XML prend en charge la validation, validez la conformité des fichiers au schéma XML TrustFrameworkPolicy_0.3.0.0.xsd, qui se trouve dans le dossier racine du pack de démarrage. La validation du schéma XML identifie les erreurs avant le chargement.
+Dans cet article, vous allez modifier les fichiers de stratégie personnalisée XML dans le pack de démarrage **SocialAndLocalAccounts**. Si vous avez besoin d’un éditeur XML, essayez [Visual Studio Code](https://code.visualstudio.com/download), un éditeur multiplateforme léger.
 
-1. [Téléchargez le fichier .zip](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip) ou exécutez :
+### <a name="get-the-starter-pack"></a>Obtenez le pack de démarrage
+
+Récupérez les packs de démarrage de stratégie personnalisés à partir de GitHub, puis mettez à jour les fichiers XML dans le pack de démarrage SocialAndLocalAccounts avec votre nom de locataire Azure AD B2C.
+
+1. [Téléchargez le fichier .zip](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip) ou clonez le référentiel :
 
     ```console
     git clone https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack
     ```
 
-2. Dans le dossier SocialAndLocalAccounts, modifiez tous les fichiers en remplaçant `yourtenant` par le nom de votre locataire. Par exemple : `contosoTenant.onmicrosoft.com`. Si vous avez besoin d’un éditeur XML, [essayez Visual Studio Code](https://code.visualstudio.com/download), un éditeur multiplateforme léger.
+1. Dans tous les fichiers du répertoire **SocialAndLocalAccounts**, remplacez la chaîne `yourtenant` par le nom de votre locataire Azure AD B2C.
+
+    Par exemple, si le nom de votre locataire B2C est *contosotenant*, toutes les instances de `yourtenant.onmicrosoft.com` deviennent `contosotenant.onmicrosoft.com`.
 
 ### <a name="add-application-ids-to-the-custom-policy"></a>Ajouter des ID d’applications à la stratégie personnalisée
 
 Ajoutez les ID d’applications au fichier d’extensions *TrustFrameworkExtensions.xml*.
 
-1. Ouvrez le fichier *TrustFrameworkExtensions.xml* et recherchez l’élément `<TechnicalProfile Id="login-NonInteractive">`.
-2. Remplacez les deux instances de `IdentityExperienceFrameworkAppId` par l’ID de l’application d’infrastructure d’expérience d’identité que vous avez créée précédemment. Remplacez les deux instances de `ProxyIdentityExperienceFrameworkAppId` par l’ID de l’application Infrastructure d’expérience d’identité de proxy que vous avez créée précédemment.
-3. Enregistrez votre fichier d’extensions.
+1. Ouvrez `SocialAndLocalAccounts/` **`TrustFrameworkExtensions.xml`** et trouvez l’élément `<TechnicalProfile Id="login-NonInteractive">`.
+1. Remplacez les deux instances de `IdentityExperienceFrameworkAppId` par l’ID de l’application IdentityExperienceFramework que vous avez créée précédemment.
+1. Remplacez les deux instances de `ProxyIdentityExperienceFrameworkAppId` par l’ID de l’application ProxyIdentityExperienceFramework que vous avez créée précédemment.
+1. Enregistrez le fichier .
 
 ## <a name="upload-the-policies"></a>Charger les stratégies
 
-1. Dans la page Stratégies personnalisées de l’Infrastructure d’expérience d’identité, sélectionnez **Charger une stratégie**.
-1. Dans cet ordre, chargez *TrustFrameworkBase.xml*, *TrustFrameworkExtensions.xml*, *SignUpOrSignin.xml*, *ProfileEdit.xml* et *PasswordReset.xml*. Lorsqu’un fichier est chargé, son nom est précédé de `B2C_1A_`.
+1. Sélectionnez l’élément de menu **Identity Experience Framework** dans votre locataire B2C du portail Azure.
+1. Sélectionnez **Charger une stratégie personnalisée**.
+1. Dans cet ordre, téléchargez les fichiers de stratégie :
+    1. *TrustFrameworkBase.xml*
+    1. *TrustFrameworkExtensions.xml*
+    1. *SignUpOrSignin.xml*
+    1. *ProfileEdit.xml*
+    1. *PasswordReset.xml*
+
+Lorsque vous chargez les fichiers, Azure ajoute le préfixe `B2C_1A_` à chacun d’eux.
+
+> [!TIP]
+> Si votre éditeur XML prend en charge la validation, validez la conformité des fichiers au schéma XML `TrustFrameworkPolicy_0.3.0.0.xsd`, qui se trouve dans le dossier racine du pack de démarrage. La validation du schéma XML identifie les erreurs avant le chargement.
 
 ## <a name="test-the-custom-policy"></a>Tester la stratégie personnalisée
 
-1. Dans la page Stratégies personnalisées, sélectionnez **B2C_1A_signup_signin**.
-2. Pour **sélectionner une application** dans la page de présentation de la stratégie personnalisée, sélectionnez l’application web nommée *webapp1* que vous avez inscrite précédemment. Assurez-vous que l’**URL de réponse** soit `https://jwt.ms`.
-3. Sélectionnez **Exécuter maintenant**.
-4. Vous devriez pouvoir vous inscrire à l’aide d’une adresse de messagerie.
-5. Connectez-vous avec le même compte pour vérifier que votre configuration est correcte.
+1. Sous **Stratégies personnalisées**, sélectionnez **B2C_1A_signup_signin**.
+1. Pour **sélectionner une application** dans la page de présentation de la stratégie personnalisée, sélectionnez l’application web nommée *webapp1* que vous avez inscrite précédemment.
+1. Assurez-vous que l’**URL de réponse** soit `https://jwt.ms`.
+1. Sélectionnez **Exécuter maintenant**.
+1. Inscrivez-vous au moyen d’une adresse e-mail.
+1. Sélectionnez **Exécuter maintenant** à nouveau.
+1. Connectez-vous avec le même compte pour vérifier que votre configuration est correcte.
 
 ## <a name="add-facebook-as-an-identity-provider"></a>Ajouter Facebook en tant que fournisseur d’identité
 
-1. Configurez une [application Facebook](active-directory-b2c-setup-fb-app.md).
-2. Dans le fichier *TrustFrameworkExtensions.xml*, remplacez la valeur de `client_id` par l’ID d’application Facebook :
+1. Effectuez les étapes décrites dans [Configurer l’inscription et la connexion avec un compte Facebook](active-directory-b2c-setup-fb-app.md) pour configurer une application Facebook.
+1. Dans le fichier `SocialAndLocalAccounts/` **`TrustFrameworkExtensions.xml`** , remplacez la valeur de `client_id` par l’ID d’application Facebook :
 
    ```xml
    <TechnicalProfile Id="Facebook-OAUTH">
@@ -148,9 +169,13 @@ Ajoutez les ID d’applications au fichier d’extensions *TrustFrameworkExtensi
      <!--Replace the value of client_id in this technical profile with the Facebook app ID"-->
        <Item Key="client_id">00000000000000</Item>
    ```
-3. Chargez le fichier *TrustFrameworkExtensions.xml* sur votre locataire.
-4. Testez en utilisant **Exécuter maintenant** ou en appelant la stratégie directement à partir de votre application inscrite.
+
+1. Chargez le fichier *TrustFrameworkExtensions.xml* sur votre locataire.
+1. Sous **Stratégies personnalisées**, sélectionnez **B2C_1A_signup_signin**.
+1. Sélectionnez **Exécuter maintenant** et sélectionnez Facebook pour vous connecter avec Facebook et tester la stratégie personnalisée. Ou appelez la stratégie directement à partir de votre application inscrite.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Ajoutez Azure Active Directory en tant que fournisseur d’identité. Le fichier de base utilisé dans ce guide de démarrage contient déjà une partie du contenu dont vous avez besoin pour ajouter d’autres fournisseurs d’identité. Pour plus d’informations sur la configuration des connexions, consultez l’article [Configurer l’inscription et la connexion avec un compte Azure Active Directory à l’aide de stratégies personnalisées Active Directory B2C](active-directory-b2c-setup-aad-custom.md).
+Ensuite, essayez d’ajouter Azure Active Directory (Azure AD) comme fournisseur d’identité. Le fichier de base utilisé dans ce guide de démarrage contient déjà une partie du contenu dont vous avez besoin pour ajouter d’autres fournisseurs d’identité comme Azure AD.
+
+Pour plus d’informations sur la configuration de Azure AD et sur le fournisseur d’identité, consultez [Configurer l’inscription et la connexion avec un compte Azure Active Directory à l’aide de stratégies personnalisées Active Directory B2C](active-directory-b2c-setup-aad-custom.md).

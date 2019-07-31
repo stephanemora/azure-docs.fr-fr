@@ -5,15 +5,15 @@ services: storage
 author: jeffpatt24
 ms.service: storage
 ms.topic: article
-ms.date: 01/31/2019
+ms.date: 07/16/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 9cd1be26f6832fffb86dfefd0d93d9dbb393c0f0
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: 1e35ef9eab841878ecc147d7b22a82860f27e7d9
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67303872"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68297696"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Résoudre les problèmes de synchronisation de fichiers Azure
 Utilisez Azure File Sync pour centraliser les partages de fichiers de votre organisation dans Azure Files tout en conservant la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Azure File Sync transforme Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible dans Windows Server pour accéder à vos données localement, notamment SMB, NFS et FTPS. Vous pouvez avoir autant de caches que nécessaire dans le monde entier.
@@ -244,6 +244,7 @@ Pour afficher ces erreurs, exécutez le script PowerShell **FileSyncErrorsReport
 
 | HRESULT | HRESULT (décimal) | Chaîne d’erreur | Problème | Correction |
 |---------|-------------------|--------------|-------|-------------|
+| 0x80070043 | -2147942467 | ERROR_BAD_NET_NAME | Le fichier hiérarchisé sur le serveur n’est pas accessible. Ce problème se produit si le fichier hiérarchisé n’a pas été rappelé avant la suppression d’un point de terminaison de serveur. | Pour résoudre ce problème, consultez [Fichiers hiérarchisés non accessibles sur le serveur après la suppression d’un point de terminaison de serveur](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint). |
 | 0x80c80207 | -2134375929 | ECS_E_SYNC_CONSTRAINT_CONFLICT | Une modification de fichier ou de répertoire ne peut pas encore être synchronisée, car un dossier dépendant n’est pas encore synchronisé. Cet élément sera synchronisé une fois que les modifications dépendantes seront synchronisées. | Aucune action requise. |
 | 0x8007007b | -2147024773 | ERROR_INVALID_NAME | Le nom de répertoire est non valide. | Renommez le fichier ou le répertoire en question. Pour plus d’informations, voir [Gestion des caractères non pris en charge](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#handling-unsupported-characters). |
 | 0x80c80018 | -2134376424 | ECS_E_SYNC_FILE_IN_USE | Un fichier ne peut pas être synchronisé, car il est en cours d’utilisation. Le fichier sera synchronisé lorsqu’il ne sera plus en cours d’utilisation. | Aucune action requise. Azure File Sync crée une capture instantanée VSS temporaire une fois par jour sur le serveur pour synchroniser les fichiers qui ont des descripteurs ouverts. |
@@ -253,14 +254,15 @@ Pour afficher ces erreurs, exécutez le script PowerShell **FileSyncErrorsReport
 | 0x80070020 | -2147024864 | ERROR_SHARING_VIOLATION | Un fichier ne peut pas être synchronisé, car il est en cours d’utilisation. Le fichier sera synchronisé lorsqu’il ne sera plus en cours d’utilisation. | Aucune action requise. |
 | 0x80c80017 | -2134376425 | ECS_E_SYNC_OPLOCK_BROKEN | Un fichier a été modifié pendant la synchronisation, par conséquent, il doit être synchronisé à nouveau. | Aucune action requise. |
 
+
 #### <a name="handling-unsupported-characters"></a>Gestion des caractères non pris en charge
-Si le script PowerShell **FileSyncErrorsReport.ps1** montre des défaillances dues à des caractères non pris en charge (code d’erreur 0x8007007b), supprimez les caractères en cause des noms de fichiers respectifs, ou renommez-les. PowerShell imprimera probablement ces caractères en tant que points d’interrogation ou rectangles vides dans la mesure où la plupart de ces caractères n’ont aucun codage visuel standard. [L’outil d’évaluation](storage-sync-files-planning.md#evaluation-tool) peut servir à identifier les caractères qui ne sont pas pris en charge.
+Si le script PowerShell **FileSyncErrorsReport.ps1** montre des défaillances dues à des caractères non pris en charge (code d’erreur 0x8007007b), supprimez les caractères en cause des noms de fichiers respectifs, ou renommez-les. PowerShell imprimera probablement ces caractères en tant que points d’interrogation ou rectangles vides dans la mesure où la plupart de ces caractères n’ont aucun codage visuel standard. [L’outil d’évaluation](storage-sync-files-planning.md#evaluation-cmdlet) peut servir à identifier les caractères qui ne sont pas pris en charge.
 
 Le tableau ci-dessous contient tous les caractères unicode qu’Azure File Sync ne prend pas en charge.
 
 | Jeu de caractères | Nombre de caractères |
 |---------------|-----------------|
-| <ul><li>0x0000009D (osc commande de système d’exploitation)</li><li>0x00000090 (dcs chaîne de commande d’appareils)</li><li>0x0000008F (ss3 remplacement unique trois)</li><li>0x00000081 (préréglage haut octet)</li><li>0x0000007F (suppr Supprimer)</li><li>0x0000008D (ri interligne inversé)</li></ul> | 6\. |
+| <ul><li>0x0000009D (osc commande de système d’exploitation)</li><li>0x00000090 (dcs chaîne de commande d’appareils)</li><li>0x0000008F (ss3 remplacement unique trois)</li><li>0x00000081 (préréglage haut octet)</li><li>0x0000007F (suppr Supprimer)</li><li>0x0000008D (ri interligne inversé)</li></ul> | 6 |
 | 0x0000FDD0 - 0x0000FDEF (formulaire de présentation arabe-a) | 32 |
 | 0x0000FFF0 - 0x0000FFFF (caractères spéciaux) | 16 |
 | <ul><li>0x0001FFFE - 0x0001FFFF = 2 (type non caractère)</li><li>0x0002FFFE - 0x0002FFFF = 2 (type non caractère)</li><li>0x0003FFFE - 0x0003FFFF = 2 (type non caractère)</li><li>0x0004FFFE - 0x0004FFFF = 2 (type non caractère)</li><li>0x0005FFFE - 0x0005FFFF = 2 (type non caractère)</li><li>0x0006FFFE - 0x0006FFFF = 2 (type non caractère)</li><li>0x0007FFFE - 0x0007FFFF = 2 (type non caractère)</li><li>0x0008FFFE - 0x0008FFFF = 2 (type non caractère)</li><li>0x0009FFFE - 0x0009FFFF = 2 (type non caractère)</li><li>0x000AFFFE - 0x000AFFFF = 2 (type non caractère)</li><li>0x000BFFFE - 0x000BFFFF = 2 (type non caractère)</li><li>0x000CFFFE - 0x000CFFFF = 2 (type non caractère)</li><li>0x000DFFFE - 0x000DFFFF = 2 (type non caractère)</li><li>0x000EFFFE - 0x000EFFFF = 2 (non défini)</li><li>0x000FFFFE - 0x000FFFFF = 2 (zone d’utilisation privée supplémentaire)</li></ul> | 30 |
@@ -797,14 +799,14 @@ Il existe deux classes principales de défaillances pouvant se produire par le b
 
 Les sections suivantes vous indiquent comment résoudre les problèmes de hiérarchisation cloud et déterminer si un problème est lié au stockage cloud ou au serveur.
 
-<a id="monitor-tiering-activity"></a>**Comment surveiller l’activité de hiérarchisation sur un serveur**  
+### <a name="how-to-monitor-tiering-activity-on-a-server"></a>Comment surveiller l’activité de hiérarchisation sur un serveur  
 Pour surveiller l’activité de hiérarchisation sur un serveur, utilisez les ID d’événement 9003, 9016 et 9029 dans le journal des événements de télémétrie (situé sous Applications and Services\Microsoft\FileSync\Agent in Event Viewer).
 
 - L’ID d’événement 9003 fournit la distribution des erreurs de distribution pour un point de terminaison de serveur. Par exemple, le nombre total d’erreurs, le code d’erreur, etc. Remarque, un événement est enregistré par code d’erreur.
 - L’ID d’événement 9016 fournit des résultats de dédoublement pour un volume. Par exemple, le pourcentage d’espace libre, le nombre de fichiers dédoublé dans la session, le nombre d’échec de dédoublement de fichiers, etc.
 - L’ID d’événement 9029 fournit des informations sur les sessions de duplication d’un point de terminaison de serveur. Par exemple, le nombre de fichiers tentés dans la session, le nombre de fichiers hiérarchisés dans la session, le nombre de fichiers déjà hiérarchisés, etc.
 
-<a id="monitor-recall-activity"></a>**Comment surveiller l’activité de rappel sur un serveur**  
+### <a name="how-to-monitor-recall-activity-on-a-server"></a>Comment surveiller l’activité de rappel sur un serveur
 Pour surveiller l’activité de rappel sur un serveur, utilisez les ID d’événement 9005, 9006, 9009 et 9059 dans le journal des événements de télémétrie (situé sous Applications and Services\Microsoft\FileSync\Agent in Event Viewer).
 
 - L’ID d’événement 9005 fournit une fiabilité de rappel pour un point de terminaison de serveur. Par exemple, le nombre de total des fichiers uniques consultés, le nombre total des fichiers uniques dont l’accès a échoué, etc.
@@ -812,7 +814,7 @@ Pour surveiller l’activité de rappel sur un serveur, utilisez les ID d’év�
 - L’ID d’événement 9009 fournit des informations sur les sessions de rappel d’un point de terminaison de serveur. Par exemple, DurationSeconds, CountFilesRecallSucceeded, CountFilesRecallFailed, etc.
 - L’ID d’événement 9059 fournit la distribution des rappels d’application pour un point de terminaison de serveur. Par exemple, ShareId, Application Name et TotalEgressNetworkBytes.
 
-<a id="files-fail-tiering"></a>**Résoudre les problèmes de hiérarchisation de fichiers**  
+### <a name="how-to-troubleshoot-files-that-fail-to-tier"></a>Résoudre les problèmes de hiérarchisation de fichiers
 Si la hiérarchisation des fichiers dans Azure Files échoue :
 
 1. Dans l’observateur d’événements, examinez les journaux d’événements de télémétrie, des opérations et de diagnostic, situés sous Applications and Services\Microsoft\FileSync\Agent. 
@@ -828,7 +830,7 @@ Si la hiérarchisation des fichiers dans Azure Files échoue :
 > [!NOTE]
 > Un d’ID d’événement 9003 est enregistré une fois par heure dans le journal d’événements de télémétrie si un fichier ne parvient pas à hiérarchiser (un événement est enregistré par code d’erreur). Les journaux d’événements des opérations et de diagnostic doivent être utilisés si les informations supplémentaires sont nécessaires pour diagnostiquer un problème.
 
-<a id="files-fail-recall"></a>**Résoudre les problèmes de rappel de fichiers**  
+### <a name="how-to-troubleshoot-files-that-fail-to-be-recalled"></a>Résoudre les problèmes de rappel de fichiers  
 Si le rappel de fichiers échoue :
 1. Dans l’observateur d’événements, examinez les journaux d’événements de télémétrie, des opérations et de diagnostic, situés sous Applications and Services\Microsoft\FileSync\Agent.
     1. Vérifiez que le ou les fichiers se trouvent dans le partage de fichiers Azure.
@@ -840,7 +842,88 @@ Si le rappel de fichiers échoue :
 > [!NOTE]
 > Un d’ID d’événement 9006 est enregistré une fois par heure dans le journal d’événements de télémétrie si un fichier ne parvient pas à rappeler (un événement est enregistré par code d’erreur). Les journaux d’événements des opérations et de diagnostic doivent être utilisés si les informations supplémentaires sont nécessaires pour diagnostiquer un problème.
 
-<a id="files-unexpectedly-recalled"></a>**Résoudre les problèmes de rappel de fichiers inattendu sur un serveur**  
+### <a name="tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint"></a>Les fichiers hiérarchisés ne sont pas accessibles sur le serveur après la suppression d’un point de terminaison de serveur
+Les fichiers hiérarchisés sur un serveur sont inaccessibles si les fichiers ne sont pas rappelés avant la suppression du point de terminaison.
+
+Erreurs consignées si les fichiers hiérarchisés ne sont pas accessibles
+- Lors de la synchronisation d’un fichier, le code d’erreur-2147942467 (0x80070043-ERROR_BAD_NET_NAME) est enregistré dans le journal des événements ItemResults
+- Lors du rappel d’un fichier, le code d’erreur-2134376393 (0x80c80037-ECS_E_SYNC_SHARE_NOT_FOUND) est enregistré dans le journal des événements RecallResults
+
+La restauration de l’accès à vos fichiers hiérarchisés est possible si les conditions suivantes sont remplies :
+- Le point de terminaison de serveur a été supprimé au cours des 30 derniers jours
+- Le point de terminaison Cloud n’a pas été supprimé 
+- Le partage de fichiers n’a pas été supprimé
+- Le groupe de synchronisation n’a pas été supprimé
+
+Si les conditions ci-dessus sont remplies, vous pouvez restaurer l’accès aux fichiers sur le serveur en recréant le point de terminaison de serveur sur le même chemin d’accès sur le serveur au sein du même groupe de synchronisation dans les 30 jours. 
+
+Si les conditions ci-dessus ne sont pas remplies, la restauration de l’accès n’est pas possible, car ces fichiers hiérarchisés sur le serveur sont désormais orphelins. Suivez les instructions ci-dessous pour supprimer les fichiers hiérarchisés orphelins.
+
+**Remarques**
+- Lorsque les fichiers hiérarchisés ne sont pas accessibles sur le serveur, le fichier complet doit toujours être accessible si vous accédez directement au partage de fichiers Azure.
+- Pour empêcher les fichiers hiérarchisés orphelins à l’avenir, suivez les étapes décrites dans [Supprimer un point de terminaison de serveur](https://docs.microsoft.com/azure/storage/files/storage-sync-files-server-endpoint#remove-a-server-endpoint) lors de la suppression d’un point de terminaison de serveur.
+
+<a id="get-orphaned"></a>**Obtention de la liste des fichiers hiérarchisés orphelins** 
+
+1. Vérifiez que la version v5.1 (ou ultérieure) de l’agent Azure File Sync est installée.
+2. Exécutez les commandes PowerShell suivantes pour répertorier les fichiers hiérarchisés orphelins :
+```powershell
+Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
+$orphanFiles = Get-StorageSyncOrphanedTieredFiles -path <server endpoint path>
+$orphanFiles.OrphanedTieredFiles > OrphanTieredFiles.txt
+```
+3. Enregistrez le fichier de sortie OrphanTieredFiles.txt dans le cas où les fichiers doivent être restaurés à partir d’une sauvegarde après avoir été supprimés.
+
+<a id="remove-orphaned"></a>**Comment supprimer des fichiers hiérarchisés orphelins** 
+
+*Option 1 : supprimer les fichiers hiérarchisés orphelins*
+
+Cette option supprime les fichiers hiérarchisés orphelins sur le serveur Windows, mais nécessite de supprimer le point de terminaison de serveur s’il existe en raison de la récréation après 30 jours ou s’il est connecté à un autre groupe de synchronisation. Des conflits de fichiers se produisent si des fichiers sont mis à jour sur le partage de fichiers Windows Server ou Azure avant la recréation du point de terminaison de serveur.
+
+1. Vérifiez que la version v5.1 (ou ultérieure) de l’agent Azure File Sync est installée.
+2. Sauvegardez le partage de fichiers Azure et l’emplacement du point de terminaison de serveur.
+3. Supprimez le point de terminaison de serveur dans le groupe de synchronisation (s’il existe) en suivant les étapes décrites dans [Supprimer un point de terminaison de serveur](https://docs.microsoft.com/azure/storage/files/storage-sync-files-server-endpoint#remove-a-server-endpoint).
+
+> [!Warning]  
+> Si le point de terminaison de serveur n’est pas supprimé avant d’utiliser l’applet de commande Remove-StorageSyncOrphanedTieredFiles, la suppression du fichier hiérarchisé orphelin sur le serveur supprimera le fichier complet dans le partage de fichiers Azure. 
+
+4. Exécutez les commandes PowerShell suivantes pour répertorier les fichiers hiérarchisés orphelins :
+
+```powershell
+Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
+$orphanFiles = Get-StorageSyncOrphanedTieredFiles -path <server endpoint path>
+$orphanFiles.OrphanedTieredFiles > OrphanTieredFiles.txt
+```
+5. Enregistrez le fichier de sortie OrphanTieredFiles.txt au cas où les fichiers doivent être restaurés à partir d’une sauvegarde après avoir été supprimés.
+6. Exécutez les commandes PowerShell suivantes pour supprimer les fichiers hiérarchisés orphelins :
+
+```powershell
+Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
+$orphanFilesRemoved = Remove-StorageSyncOrphanedTieredFiles -Path <folder path containing orphaned tiered files> -Verbose
+$orphanFilesRemoved.OrphanedTieredFiles > DeletedOrphanFiles.txt
+```
+**Remarques** 
+- Les fichiers hiérarchisés modifiés sur le serveur qui ne sont pas synchronisés avec le partage de fichiers Azure seront supprimés.
+- Les fichiers hiérarchisés qui sont accessibles (non orphelins) ne seront pas supprimés.
+- Les fichiers non hiérarchisés sont conservés sur le serveur.
+
+7. Facultatif : Recréez le point de terminaison de serveur si vous l’avez supprimé à l’étape 3.
+
+*Option 2 : Montez le partage de fichiers Azure et copiez les fichiers localement qui sont orphelins sur le serveur*
+
+Cette option ne nécessite pas la suppression du point de terminaison de serveur, mais nécessite un espace disque suffisant pour copier les fichiers complets localement.
+
+1. [Montez](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-windows) le partage de fichiers Azure sur le serveur Windows qui contient des fichiers hiérarchisés orphelins.
+2. Exécutez les commandes PowerShell suivantes pour répertorier les fichiers hiérarchisés orphelins :
+```powershell
+Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
+$orphanFiles = Get-StorageSyncOrphanedTieredFiles -path <server endpoint path>
+$orphanFiles.OrphanedTieredFiles > OrphanTieredFiles.txt
+```
+3. Utilisez le fichier de sortie OrphanTieredFiles.txt pour identifiez les fichiers hiérarchisés orphelins sur le serveur.
+4. Remplacez les fichiers hiérarchisés orphelins en copiant le fichier complet du partage de fichiers Azure sur le serveur Windows.
+
+### <a name="how-to-troubleshoot-files-unexpectedly-recalled-on-a-server"></a>Comment résoudre les problèmes de rappel de fichiers inattendu sur un serveur  
 Les antivirus, applications de sauvegarde et autres applications qui lisent un grand nombre de fichiers provoquent des rappels inattendus, sauf s’ils ont été configurés pour ignorer la lecture du contenu des fichiers hors connexion. Ignorer les fichiers hors connexion pour les produits qui prennent en charge cette option permet d’éviter des rappels inattendus pendant les opérations telles que les analyses antivirus ou les travaux de sauvegarde.
 
 Contactez votre éditeur de logiciel pour savoir comment configurer la solution de façon à ignorer la lecture des fichiers hors connexion.

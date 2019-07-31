@@ -7,12 +7,12 @@ ms.author: mattwoj
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 06/27/2019
-ms.openlocfilehash: dc086bc1252c084b717807213b5ba4c7f9d7bb97
-ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
+ms.openlocfilehash: cea763416f36abd80b1d22b4414cc2454bc30c66
+ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67514051"
+ms.lasthandoff: 07/13/2019
+ms.locfileid: "67868724"
 ---
 # <a name="create-a-new-saas-offer"></a>Créer une nouvelle offre SaaS
 
@@ -20,7 +20,7 @@ Pour commencer à créer des offres Software as a service (SaaS), veillez à d�
 
 ![Tableau de bord de la Place de marché commerciale sur Partner Center](./media/new-offer-overview.png)
 
-Sélectionnez le bouton + **Créer nouveau...** , puis sélectionnez l’élément de menu **Software as a service**. 
+Sélectionnez le + **Nouvelle offre...** , puis sélectionnez l’élément de menu **Software as a service**. 
 
 Si vous sélectionnez l’un des autres types d’offre, vous êtes redirigé vers l’ancien [Portail Cloud Partner](https://cloudpartner.azure.com/).  À l’heure actuelle, seules les offres SaaS sont disponibles dans le portail de la Place de marché commerciale sur Partner Center. 
 
@@ -31,13 +31,14 @@ La boîte de dialogue **Nouvelle offre** s’affiche.
 ![Boîte de dialogue Nouvelle offre](./media/new-offer-popup.png)
 
 
-## <a name="offer-id-and-name"></a>ID et nom de l’offre
+## <a name="offer-id-and-alias"></a>ID et alias de l’offre
 
-- **ID de l’offre** : Créez un identificateur unique par offre dans votre compte. Cet ID sera visible par les clients dans l’adresse URL de l’offre de la Place de marché et des modèles Resource Manager (si applicable). L’ID de l’offre doit être en minuscules, alphanumérique (dont traits d’union, tirets du bas, mais pas d’espace blanc). Il est limité à 50 caractères et ne peut pas être mis à jour après sa création.  
+- **ID de l’offre** : Identificateur unique par offre dans votre compte. Cet ID sera visible par les clients dans l’adresse URL de l’offre de la Place de marché et des modèles Resource Manager (si applicable). L’ID de l’offre doit être en minuscules, alphanumérique (dont traits d’union, tirets du bas, mais pas d’espace blanc). Il est limité à 50 caractères et ne peut pas être modifié après avoir cliqué sur *Créer*.  
 Exemple : test-offer-1
 <br>Voici l’URL obtenu : `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`
 
-- **Nom de l’offre** : Nom officiel de votre offre d’application SaaS, cohérent sur plusieurs publications, annonces et sites web.  Ce nom peut être une marque.  Le nom de l’offre ne doit pas contenir d’espace blanc, d’emojis (sauf s’il s’agit du symbole de marque ou de copyright) et ne doit pas dépasser 50 caractères.
+- **Alias de l’offre** : Le nom utilisé pour faire référence à l’offre dans le portail espace partenaires. Ce nom n’est pas utilisé dans la place de marché et est différent du *nom de l’offre* et d’autres valeurs qui seront présentées aux clients. Cette valeur ne peut pas être modifiée après que vous ayez sélectionné *Créer*.
+
 <br>Exemple : Offre test 1&#8482;
 
 Sélectionnez **Créer**.  Une page **Présentation de l’offre** est créée.  
@@ -115,8 +116,8 @@ Promouvoir votre entreprise avec Microsoft en créant une liste de la Place de m
 ##### <a name="get-it-now-free"></a>Obtenez-en une maintenant (gratuit)
 Répertoriez votre offre gratuitement pour les clients en fournissant une URL valide (qui commence par http ou https) où ils peuvent accéder à votre application.  Par exemple : `https://contoso.com/saas-app`
 
-##### <a name="free-trial"></a>Essai gratuit
-Répertoriez votre offre en tant qu’essai gratuit pour les clients en fournissant une URL valide (qui commence par http ou https) où ils peuvent accéder à votre application.  Par exemple : `https://contoso.com/trial/saas-app`
+##### <a name="free-trial-listing"></a>Essai gratuit (annonce)
+Répertoriez votre offre en tant qu’essai gratuit pour les clients en fournissant une URL valide (qui commence par http ou https) où ils peuvent accéder à votre application.  Par exemple : `https://contoso.com/trial/saas-app`. Les versions d’évaluation gratuites sont créées, gérées et configurées par votre service et n’ont pas d’abonnements gérés par Microsoft.
 
 ##### <a name="contact-me"></a>Me contacter
 Collectez des informations de contact client en connectant votre système de gestion de la relation client (CRM). Le client devra autoriser le partage de ses informations. Ces informations client, ainsi que le nom de l’offre, son ID et la Place de marché sur laquelle il a trouvé votre offre, seront envoyées au système CRM que vous avez configuré. Pour plus d’informations sur la configuration de votre CRM, consultez [Connecter la gestion des prospects](#connect-lead-management). 
@@ -205,6 +206,9 @@ N’oubliez pas d’**Enregistrer** avant de passer à la section suivante.
 
 L’onglet Annonce de l’offre affiche les langues (et les marchés) disponibles pour votre offre. English (États-Unis) est actuellement le seul emplacement disponible. De plus, cette page affiche le statut de l’annonce spécifique à une langue et l’heure et la date à laquelle elle a été ajoutée. Vous devez définir les informations de la Place de marché (nom de l’offre, description, termes de recherche, etc.) pour chaque langue / marché.
 
+> [!NOTE]
+> Il n’est pas nécessaire que le contenu de l’offre (telle que la description de l’offre, les documents, les captures d’écran, les conditions d’utilisation et la politique de confidentialité) soit en anglais tant que la description de l’offre commence par l’expression : « cette application est disponible uniquement en [langue qui n’est pas l’anglais] .» Il est également possible de fournir une *URL de lien utile* pour offrir du contenu dans une langue autre que celle utilisée dans le contenu de la liste des offres.
+
 ### <a name="offer-listings"></a>Liste des offres
 
 Renseignez les informations à afficher dans la place de marché, dont les descriptions des composants marketing et de votre offre.
@@ -268,9 +272,9 @@ L’onglet **Configuration technique** définit les informations techniques (che
 
 - **Webhook de connexion** (obligatoire) : Pour tous les événements asynchrones que Microsoft doit vous envoyer au nom du client (exemple : un abonnement SaaS devenu non valide), nous vous demandons de fournir un webhook de connexion. Si vous ne disposez pas d’un système de webhook, la configuration la plus simple consiste à disposer d’une application de logique de point de terminaison HTTP qui écoute les événements qui sont publiés et les traite de façon appropriée (par exemple, https:\//prod-1westus.logic.azure.com:443/work). Pour plus d’informations, consultez [Appeler, déclencher ou imbriquer des workflows via des points de terminaison HTTP dans des applications logiques](https://docs.microsoft.com/azure/logic-apps/logic-apps-http-endpoint).
 
-- **ID du locataire Azure AD** (obligatoire) : Dans le portail Azure, vous devez [créer une application Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) afin que nous puissions confirmer que la connexion entre nos deux services se fait bien dans le cadre d’une communication authentifiée. Pour trouver l’[ID du locataire](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-tenant-id), rendez-vous dans Azure Active Directory et sélectionnez **Propriétés**, puis cherchez le numéro de l’**ID du répertoire** (par exemple, 50c464d3-4930-494c-963c-1e951d15360e).
+- **ID du locataire Azure AD** (obligatoire) : Dans le portail Azure, vous devez [créer une application Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) afin que nous puissions confirmer que la connexion entre nos deux services se fait bien dans le cadre d’une communication authentifiée. Pour trouver l’[ID du locataire](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in), rendez-vous dans Azure Active Directory et sélectionnez **Propriétés**, puis cherchez le numéro de l’**ID du répertoire** (par exemple, 50c464d3-4930-494c-963c-1e951d15360e).
 
-- **ID de l’application Azure AD** (obligatoire) : Vous avez également besoin de l’[ID de votre application](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-application-id-and-authentication-key) et d’une clé d’authentification. Pour obtenir ces valeurs, rendez-vous dans Azure Active Directory et sélectionnez **Inscriptions d’applications**, puis cherchez le numéro de l’**ID de l’application** (par exemple, 50c464d3-4930-494c-963c-1e951d15360e). Pour trouver la clé d’authentification, accédez à **Paramètres** et sélectionnez **Clés**. Vous devez fournir une description et une durée, et vous obtiendrez ensuite une valeur numérique.
+- **ID de l’application Azure AD** (obligatoire) : Vous avez également besoin de l’[ID de votre application](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) et d’une clé d’authentification. Pour obtenir ces valeurs, rendez-vous dans Azure Active Directory et sélectionnez **Inscriptions d’applications**, puis cherchez le numéro de l’**ID de l’application** (par exemple, 50c464d3-4930-494c-963c-1e951d15360e). Pour trouver la clé d’authentification, accédez à **Paramètres** et sélectionnez **Clés**. Vous devez fournir une description et une durée, et vous obtiendrez ensuite une valeur numérique.
 
  Remarque : l’ID de l’application Azure est associé à votre ID d’éditeur. Veillez donc à utiliser le même ID d’application dans toutes les offres.
 
@@ -307,6 +311,22 @@ Sélectionnez **Enregistrer** après avoir renseigné ces champs.
 
 L’onglet **Tarification et disponibilité** vous permet de configurer les marchés dans lesquels sera disponible ce plan, ainsi que le modèle de monétisation souhaité, le prix et la fréquence de facturation. De plus, vous pouvez indiquer si vous voulez que le plan soit visible à tous ou uniquement à des utilisateurs spécifiques (un public privé).
 
+##### <a name="enabling-free-trials"></a>Activation des essais gratuits
+
+Les offres SaaS via la place de marché commercial vous permettent de fournir un essai gratuit d’un mois lors de la vente par le biais de Microsoft. Pour tous les modèles de facturation et toutes les conditions, à l’exception des forfaits avec compteur, des essais gratuits sont pris en charge. Cette option permet aux clients de bénéficier d’une faible barrière à l’entrée au bout d’un mois d’accès gratuit.  Si vous choisissez d’activer une version d’évaluation gratuite pour les plans de votre offre, le client ne pourra pas passer à un abonnement payant avant la fin de la période initiale d’un mois.  Pendant ce temps, les clients qui achètent votre offre peuvent essayer n’importe lequel des plans pris en charge ayant activé l’essai gratuit et les convertir entre eux.  La conversion en abonnement payant est effectuée automatiquement à la fin de la période.
+
+>[!Note]
+>Si le client choisit de passer à un plan sans essai gratuit, la conversion aura lieu, mais l’essai gratuit sera immédiatement perdue.  En outre, une fois qu’un client a commencé à payer un plan, il ne peut plus obtenir d’essai gratuit sur le même abonnement, même s’il est converti en référence SKU qui prend en charge les essais gratuits.
+
+La possibilité de configurer un essai gratuit est disponible pour chaque plan de votre offre. Accédez simplement à la tarification et à la disponibilité de chaque offre et cochez la case pour autoriser un essai d’un mois.
+
+![Case à cocher d’essai gratuit d’un mois](./media/free-trial-enable.png)
+
+Pour obtenir des informations sur les abonnements clients qui participent actuellement à un essai gratuit `isFreeTrial`, utilisez la nouvelle propriété API, qui sera marquée comme true ou false. Pour plus d’informations, consultez [SaaS Obtenir l’API d’abonnement](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2#get-subscription).
+
+>[!Note]
+>Les essais gratuits ne sont pas pris en charge pour les plans qui tirent parti du service de contrôle de la place de marché.
+
 #### <a name="markets"></a>Marchés
 
 - **Modifier les marchés** (facultatif)
@@ -320,7 +340,7 @@ Si vous avez déjà fixé des prix pour votre plan en dollar américain (USD) et
 
 - **Modèle de tarification** : Taux fixe ou basé sur l’occupation
 
-**Taux fixe :** Autorisez l’accès à votre offre via un tarif unique et fixe mensuel ou annuel. Cela est parfois désigné sous le nom de « tarification en fonction du site ».
+**Taux fixe :** Autorisez l’accès à votre offre via un tarif unique et fixe mensuel ou annuel. Cela est parfois désigné sous le nom de « tarification en fonction du site ». Avec ce modèle de tarification, vous pouvez éventuellement définir des plans contrôlés qui utilisent l’API du service de contrôle de place de marché pour payer les clients en fonction d’unités non standard.  Pour plus d’informations sur la facturation limitée, consultez [facturation limitée à l’aide du service de contrôle de la place de marché](./saas-metered-billing.md).
 
 **Selon l’occupation :** Autorisez l’accès à votre offre via un prix basé sur le nombre d’utilisateurs ou de *sièges* occupés. Ce modèle basé sur l’occupation vous permet de définir le nombre minimum et maximum de d’utilisateurs autorisés en fonction du prix. Ainsi, plusieurs gammes de prix peuvent être configurées en fonction du nombre d’utilisateurs en configurant plusieurs plans.  Ces champs sont facultatifs. Si vides, le nombre d’utilisateurs sera considéré sans limite (avec un minimum de 1 et un maximum d’autant d’utilisateurs que peut prendre en charge le système). Ces champs peuvent être modifiés dans le cadre d’une mise à jour de votre plan.
 
@@ -434,13 +454,13 @@ Pour déployer la version d’évaluation de votre côté, veuillez créer et fo
 
 - **ID d’abonnement Azure** (obligatoire pour Azure Resource Manager et les applications logiques) : Entrez l’ID d’abonnement pour accorder l’accès à vos services de compte Azure pour obtenir un rapport et une tarification sur l’utilisation des ressources. Nous vous recommandons d’envisager la [création d’un abonnement Azure distinct](https://docs.microsoft.com/azure/billing/billing-create-subscription) à utiliser pour les versions d’évaluation si vous n’en avez pas déjà. Pour trouver vos ID d’abonnement Azure en vous connectant au [portail Azure](https://portal.azure.com/) et en accédant à l’onglet **Abonnements** dans le menu de gauche. Sélectionnez l’onglet pour afficher votre ID d’abonnement (par exemple, « a83645ac-1234-5ab6-6789-1h234g764ghty »).
 
-- **ID du locataire Azure AD** (obligatoire) : Saisissez l’[ID client](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-tenant-id) de votre Azure Active Directory. Pour trouver cet ID, connectez-vous sur le [Portail Azure](https://portal.azure.com/), sélectionnez l’onglet Active Directory dans le menu de gauche, puis **Propriétés**, cherchez le numéro de l’**ID du répertoire** (par exemple, 50c464d3-4930-494c-963c-1e951d15360e). Vous pouvez aussi rechercher l’ID locataire de votre organisation à l’aide l’URL de votre nom de domaine : [https://www.whatismytenantid.com](https://www.whatismytenantid.com).
+- **ID du locataire Azure AD** (obligatoire) : Saisissez l’[ID client](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) de votre Azure Active Directory. Pour trouver cet ID, connectez-vous sur le [Portail Azure](https://portal.azure.com/), sélectionnez l’onglet Active Directory dans le menu de gauche, puis **Propriétés**, cherchez le numéro de l’**ID du répertoire** (par exemple, 50c464d3-4930-494c-963c-1e951d15360e). Vous pouvez aussi rechercher l’ID locataire de votre organisation à l’aide l’URL de votre nom de domaine : [https://www.whatismytenantid.com](https://www.whatismytenantid.com).
 
 - **Nom du locataire Azure AD** (obligatoire pour Dynamics 365) : Entrez le nom de votre locataire Azure Active Directory. Pour rechercher ce nom, connectez-vous au [portail Azure](https://portal.azure.com/), et dans le coin supérieur droit, le nom de votre locataire s’affichera sous le nom de votre compte.
 
-- **ID de l’application Azure AD** (obligatoire) : Entrez l’[ID de votre application](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-application-id-and-authentication-key) Azure Active Directory. Pour trouver cet ID, connectez-vous sur le [Portail Azure](https://portal.azure.com/), sélectionnez l’onglet Active Directory dans le menu de gauche, puis **Inscriptions d’applications**, cherchez le numéro de l’**ID de l’application** (par exemple, 50c464d3-4930-494c-963c-1e951d15360e).
+- **ID de l’application Azure AD** (obligatoire) : Entrez l’[ID de votre application](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) Azure Active Directory. Pour trouver cet ID, connectez-vous sur le [Portail Azure](https://portal.azure.com/), sélectionnez l’onglet Active Directory dans le menu de gauche, puis **Inscriptions d’applications**, cherchez le numéro de l’**ID de l’application** (par exemple, 50c464d3-4930-494c-963c-1e951d15360e).
 
-- **Clé secrète client de l’application Azure AD** (obligatoire) : Entrez la [clé secrète client](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-application-id-and-authentication-key) d’application Azure AD. Pour trouver cette valeur, connectez-vous au [portail Azure](https://portal.azure.com/). Dans le volet de navigation gauche, sélectionnez l’onglet **Azure Active Directory**,puis **Inscriptions d’applications**, et enfin votre application de version d’évaluation. Ensuite, sélectionnez **Certificats et clés secrètes**, **Nouvelle clé secrète client**, entrez une description, sélectionnez **Jamais** sous **Expiration** puis choisissez **Ajouter**. Veillez à copier la valeur. (Ne quittez pas la page avant d’avoir terminé, ou vous n’aurez pas accès à la valeur.)
+- **Clé secrète client de l’application Azure AD** (obligatoire) : Entrez la [clé secrète client](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#certificates-and-secrets) d’application Azure AD. Pour trouver cette valeur, connectez-vous au [portail Azure](https://portal.azure.com/). Dans le volet de navigation gauche, sélectionnez l’onglet **Azure Active Directory**,puis **Inscriptions d’applications**, et enfin votre application de version d’évaluation. Ensuite, sélectionnez **Certificats et clés secrètes**, **Nouvelle clé secrète client**, entrez une description, sélectionnez **Jamais** sous **Expiration** puis choisissez **Ajouter**. Veillez à copier la valeur. (Ne quittez pas la page avant d’avoir terminé, ou vous n’aurez pas accès à la valeur.)
 
 N’oubliez pas d’**Enregistrer** avant de passer à la section suivante.
 

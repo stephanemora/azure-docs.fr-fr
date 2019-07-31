@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 05/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7be6c9eda6d0a70d929efe4c00f661eb67105820
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3738ffe8b3faedc328bde01173400289403652f4
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65606411"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68297930"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Configurer un environnement de développement pour Azure Machine Learning
 
@@ -30,7 +30,7 @@ Cet article concerne les environnements et les outils suivants :
 
 * [Data Science Virtual Machine (DSVM)](#dsvm) : un environnement de développement/expérimentation préconfiguré dans le cloud Azure, qui est conçu pour le travail de science des données et peut être déployé à l’UC uniquement des instances de machines virtuelles ou aux instances basées sur le GPU. Python 3, Conda, Jupyter Notebook et SDK Azure Machine Learning sont déjà installés. La machine virtuelle est fournie avec les infrastructures, outils et éditeurs Deep Learning et Machine Learning les plus appréciés pour le développement de solutions Machine Learning. C’est probablement l’environnement de développement le plus complet pour le Machine Learning sur la plateforme Azure.
 
-* [Jupyter Notebook](#jupyter) : si vous utilisez déjà le Jupyter Notebook, le Kit de développement logiciel (SDK) contient des fonctionnalités supplémentaires que vous devez installer.
+* [Jupyter Notebooks](#jupyter) : si vous utilisez déjà le Jupyter Notebook, le Kit de développement logiciel (SDK) contient des fonctionnalités supplémentaires que vous devez installer.
 
 * [Visual Studio Code](#vscode) : si vous utilisez Visual Studio Code, sachez qu’il est doté de certaines extensions utiles que vous pouvez installer.
 
@@ -193,16 +193,10 @@ Lorsque vous utilisez un ordinateur local (qui peut également être une machine
     pip install azureml-sdk[notebooks,automl]
     ```
 
-    Utilisez cette commande pour installer le Kit de développement logiciel (SDK) de préparation de données Azure Machine Learning seul :
-
-    ```shell
-    pip install azureml-dataprep
-    ```
-
    > [!NOTE]
    > Si vous recevez un message indiquant que PyYAML ne peut pas être désinstallé, utilisez plutôt la commande suivante :
    >
-   > `pip install --upgrade azureml-sdk[notebooks,automl] azureml-dataprep --ignore-installed PyYAML`
+   > `pip install --upgrade azureml-sdk[notebooks,automl] --ignore-installed PyYAML`
 
    L’installation du Kit de développement logiciel (SDK) peut prendre plusieurs minutes. Consultez le [guide d’installation](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) pour plus d’informations sur les options d’installation.
 
@@ -231,6 +225,12 @@ La procédure décrite dans la section [Ordinateur Local](#local) installe les c
     ```shell
     conda activate myenv
     ```
+    
+1. Clonez le [dépôt GitHub](https://aka.ms/aml-notebooks) pour un ensemble d’exemples de notebooks.
+
+    ```CLI
+    git clone https://github.com/Azure/MachineLearningNotebooks.git
+    ```
 
 1. Lancez le serveur Jupyter Notebook avec la commande suivante :
 
@@ -251,8 +251,9 @@ La procédure décrite dans la section [Ordinateur Local](#local) installe les c
     import sys
     sys.path
     ```
-
+    
 1. Pour configurer le Jupyter Notebook pour utiliser votre espace de travail Azure Machine Learning service, veuillez consulter la section [Créer un fichier de configuration d’espace de travail](#workspace).
+
 
 ### <a id="vscode"></a>Visual Studio Code
 
@@ -380,7 +381,7 @@ Il existe trois façons de créer le fichier de configuration :
 
 * **Suivez la procédure indiquée dans [Create an Azure Machine Learning service workspace (Créer un espace de travail Azure Machine Learning service)](setup-create-workspace.md#sdk)** : Un fichier *config.json* est créé dans votre bibliothèque Azure Notebooks. Ce fichier contient les informations de configuration pour votre espace de travail. Vous pouvez télécharger ou copier le fichier *config.json* dans d’autres environnements de développement.
 
-* **Téléchargez le fichier** : Dans le [portail Azure](https://ms.portal.azure.com), sélectionnez [Télécharger config.json](https://ms.portal.azure.com) à partir de la section **Vue d’ensemble** de votre espace de travail.
+* **Téléchargez le fichier** : Dans le [portail Azure](https://ms.portal.azure.com), sélectionnez **Télécharger config.json** à partir de la section **Vue d’ensemble** de votre espace de travail.
 
      ![Portail Azure](./media/how-to-configure-environment/configure.png)
 

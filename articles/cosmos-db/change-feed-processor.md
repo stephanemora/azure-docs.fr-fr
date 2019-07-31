@@ -5,69 +5,87 @@ author: rimman
 ms.service: cosmos-db
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 05/21/2019
+ms.date: 07/23/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: d0faeba5278e23990a72c9d2dd3d7e18510bdf80
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: e5142e9b4e7c2c79fd2b7e41123db4422334b730
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67342055"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68467788"
 ---
 # <a name="change-feed-processor-in-azure-cosmos-db"></a>Processeur de flux de modification dans Azure Cosmos DB 
 
-La [bibliothèque du processeur de flux de modification Azure Cosmos DB](sql-api-sdk-dotnet-changefeed.md) vous permet de répartir le traitement des événements sur plusieurs consommateurs. Cette bibliothèque simplifie la lecture des modifications sur plusieurs partitions et threads exécutés en parallèle.
+Le processeur de flux de modification fait partie du [kit de développement logiciel Azure Cosmos DB V3](https://github.com/Azure/azure-cosmos-dotnet-v3). Elle simplifie le processus de lecture du flux de modification et répartit efficacement le traitement des événements sur plusieurs consommateurs.
 
-Le principal avantage de la bibliothèque du processeur de flux de modification est que vous n’êtes pas obligé de gérer chaque partition et jeton de liaison, et que vous n’avez pas à interroger chaque conteneur manuellement.
+Le principal avantage de la bibliothèque du processeur de flux de modification est son comportement à tolérance de panne qui garantit une livraison « au moins une fois » de tous les événements dans le flux de modification.
 
-La bibliothèque du processeur de flux de modification simplifie la lecture des modifications sur plusieurs partitions et threads exécutés en parallèle. Elle gère automatiquement la lecture des modifications sur les différentes partitions à l’aide d’un mécanisme de bail. Comme vous pouvez le voir dans l’image suivante, si vous démarrez deux clients qui utilisent la bibliothèque du processeur de flux de modification, ces deux clients se partagent la charge de travail. Plus vous ajoutez de clients, plus la charge de travail est répartie entre ces clients.
+## <a name="components-of-the-change-feed-processor"></a>Composants du processeur de flux de modification
 
-![Utilisation de la bibliothèque du processeur de flux de modification Azure Cosmos DB](./media/change-feed-processor/change-feed-output.png)
+Il existe quatre composants principaux dans l’implémentation du processeur de flux de modification : 
 
-Le client de gauche a été démarré en premier et a commencé à analyser l’ensemble des partitions. Puis, lors du démarrage du deuxième client, le premier client lui a transmis certains des baux. Cela permet de distribuer facilement la charge de travail entre différents ordinateurs et clients.
+1. **Conteneur supervisé :** le conteneur supervisé est constitué des données à partir desquelles le flux de modification est généré. Toutes les insertions et les mises à jour apportées au conteneur supervisé sont répercutées dans le flux de modification du conteneur.
 
-Si vous avez deux fonctions Azure serverless qui analysent le même conteneur et utilisent le même bail, les deux fonctions peuvent obtenir des documents différents en fonction de la manière dont la bibliothèque du processeur décide de traiter les partitions.
+1. **Conteneur de baux :** Le conteneur de baux fait office d’entrepôt d’état et coordonne le traitement du flux de modification entre plusieurs rôles de travail. Le conteneur de baux peut être stocké dans le même compte que le conteneur surveillé ou dans un compte distinct. 
 
-## <a name="implementing-the-change-feed-processor-library"></a>Implémentation de la bibliothèque du processeur de flux de modification
+1. **L’hôte :** Un hôte est une instance d’application qui utilise le processeur de flux de modification pour écouter les modifications. Plusieurs instances avec la même configuration de bail peuvent s’exécuter en parallèle, mais chaque instance doit avoir un **nom d’instance** différent. 
 
-Il existe quatre composants principaux dans l’implémentation de la bibliothèque du processeur de flux de modification : 
+1. **Le délégué :** Le délégué est le code qui définit ce que vous, le développeur, souhaitez faire avec chaque lot de modifications que le processeur de flux de modification lit. 
 
-1. **Conteneur supervisé :** le conteneur supervisé est constitué des données à partir desquelles le flux de modification est généré. Toutes les insertions et les modifications apportées au conteneur supervisé sont répercutées dans le flux de modification du conteneur.
-
-1. **Conteneur de baux :** le conteneur de baux coordonne le traitement du flux de modification entre les threads de travail (workers). Un conteneur distinct est utilisé pour stocker les baux avec un bail par partition. Il est préférable de stocker ce conteneur de baux sur un autre compte, avec une zone d’écriture plus proche de l’endroit où le processeur de flux de modification s’exécute. Un objet de bail contient les attributs suivants :
-
-   * Propriétaire : spécifie l’hôte détenteur du bail.
-
-   * Continuation : spécifie la position (jeton de continuation) d’une partition particulière dans le flux de modification.
-
-   * Timestamp : heure de dernière mise à jour du bail. Vous pouvez utiliser l’horodatage pour vérifier si le bail est considéré expiré.
-
-1. **Hôte de processeur :** chaque hôte détermine le nombre de partitions à traiter en fonction du nombre d’instances d’hôtes restantes qui disposent de baux actifs.
-
-   * Quand un hôte démarre, il acquiert des baux pour équilibrer la charge de travail parmi tous les hôtes. Un hôte renouvelle périodiquement les baux afin que ceux-ci restent actifs.
-
-   * Un hôte crée un point de contrôle pour le dernier jeton de continuation de son bail pour chaque lecture. Pour garantir la sécurité de l’accès concurrentiel, un hôte vérifie l’ETag pour chaque mise à jour de bail. D’autres stratégies de point de contrôle sont également prises en charge.
-
-   * En cas d’arrêt, un hôte libère tous les baux mais conserve les informations de continuation, afin de pouvoir reprendre ultérieurement la lecture à partir du point de contrôle stocké.
-
-   Actuellement, le nombre d’hôtes ne peut pas être supérieur au nombre de partitions (baux).
-
-1. **Consommateurs :** les consommateurs, ou workers, sont des threads qui exécutent le traitement du flux de modification initié par chaque hôte. Chaque hôte de processeur peut avoir plusieurs consommateurs. Chaque consommateur lit le flux de modification à partir de la partition à laquelle il est assigné, et il informe son hôte des modifications et des baux expirés.
-
-Pour mieux comprendre comment ces quatre éléments du processeur de flux de modification interagissent, examinons un exemple à l’aide du schéma suivant. La collection analysée stocke des documents et utilise « city » comme clé de partition. Nous constatons que la partition bleue contient des documents avec le champ « city » de « A-E », et ainsi de suite. Il existe deux hôtes, chacun avec deux consommateurs lisant à partir des quatre partitions en parallèle. Les flèches indiquent les consommateurs lisant à partir d’un point spécifique dans le flux de modification. Dans la première partition, le bleu foncé représente les modifications non lues, tandis que le bleu clair représente les modifications déjà lues sur le flux de modification. Les hôtes utilisent la collection de baux pour stocker une valeur de « continuation » afin d’assurer le suivi de la position de lecture actuelle pour chaque consommateur.
+Pour mieux comprendre comment ces quatre éléments du processeur de flux de modification interagissent, examinons un exemple à l’aide du schéma suivant. Le conteneur surveillé stocke les documents et utilise « City » comme clé de partition. Nous voyons que les valeurs de clé de partition sont distribuées dans des plages qui contiennent des éléments. Il existe deux instances d’hôte et le processeur de flux de modification affecte différentes plages de valeurs de clés de partition à chaque instance pour optimiser la distribution de calcul. Chaque plage est lue en parallèle et sa progression est gérée séparément des autres plages dans le conteneur de baux.
 
 ![Exemple de processeur de flux de modification](./media/change-feed-processor/changefeedprocessor.png)
 
-### <a name="change-feed-and-provisioned-throughput"></a>Flux de modification et débit provisionné
+## <a name="implementing-the-change-feed-processor"></a>Implémentation du processeur de flux de modification
+
+Le point d’entrée est toujours le conteneur surveillé, à partir d’une instance `Container` que vous appelez `GetChangeFeedProcessorBuilder` :
+
+[!code-csharp[Main](~/samples-cosmosdb-dotnet-change-feed-processor/src/Program.cs?name=DefineProcessor)]
+
+Le premier paramètre est un nom distinct qui décrit l’objectif de ce processeur et le deuxième nom est l’implémentation de délégué qui gérera les modifications. 
+
+Voici un exemple de délégué :
+
+[!code-csharp[Main](~/samples-cosmosdb-dotnet-change-feed-processor/src/Program.cs?name=Delegate)]
+
+Enfin, vous définissez un nom pour cette instance de processeur avec `WithInstanceName` et avec quel conteneur vous souhaitez maintenir l’état du bail `WithLeaseContainer`.
+
+Appeler `Build` vous donnera l’instance de processeur que vous pouvez démarrer en appelant `StartAsync`.
+
+## <a name="processing-life-cycle"></a>Cycle de vie du traitement
+
+Le cycle de vie normal d’une instance d’hôte est le suivant :
+
+1. Lire le flux de modification.
+1. Si aucune modification n’est apportée, veillez pendant un intervalle de temps prédéfini (personnalisable avec `WithPollInterval` dans le générateur) et accédez à #1.
+1. En cas de modifications, envoyez-les au **délégué**.
+1. Lorsque le délégué finit de traiter **correctement** les modifications, mettez à jour le magasin de baux avec le dernier point traité dans le temps et accédez à #1.
+
+## <a name="error-handling"></a>Gestion des erreurs
+
+Le processeur de flux de modification résiste aux erreurs de code utilisateur. Cela signifie que si votre implémentation de délégué a une exception non gérée (étape #4), le thread qui traite ce lot de modifications particulier sera arrêté et un nouveau thread sera créé. Le nouveau thread vérifie le dernier point dans le temps du magasin de baux pour cette plage de valeurs de clé de partition, et redémarre à partir de là, en envoyant efficacement le même lot de modifications au délégué. Ce comportement se poursuivra jusqu’à ce que votre délégué traite correctement les modifications et c’est la raison pour laquelle le processeur de flux de modification a une garantie « au moins une fois », car si le code de délégué lève, il réessaiera ce lot.
+
+## <a name="dynamic-scaling"></a>Mise à l’échelle dynamique
+
+Comme mentionné dans l’introduction, le processeur de flux de modification peut distribuer automatiquement le calcul sur plusieurs instances. Vous pouvez déployer plusieurs instances de votre application à l’aide du processeur de flux de modification et en tirer parti, les seules exigences principales sont les suivantes :
+
+1. Toutes les instances doivent avoir la même configuration de conteneur de baux.
+1. Toutes les instances doivent avoir le même nom de flux de travail.
+1. Chaque instance doit avoir un nom d’instance différent (`WithInstanceName`).
+
+Si ces trois conditions s’appliquent, le processeur de flux de modification utilise un algorithme de distribution égal, répartit tous les baux dans le conteneur de baux sur toutes les instances en cours d’exécution et parallélise le calcul. Un bail ne peut appartenir qu’à une seule instance à la fois, ce qui signifie que le nombre maximal d’instances est égal au nombre de baux.
+
+Les instances peuvent croître et se réduire et le processeur de flux de modification ajuste dynamiquement la charge en la redistribuant en conséquence.
+
+## <a name="change-feed-and-provisioned-throughput"></a>Flux de modification et débit provisionné
 
 Vous êtes facturé pour les unités de requête consommées, car des unités de requête sont consommées lorsque vous déplacez des données vers et à partir des conteneurs Cosmos. La facturation tient compte de toutes les unités de requête consommées par le conteneur de baux.
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-* [Bibliothèque du processeur de flux de modification Azure Cosmos DB](sql-api-sdk-dotnet-changefeed.md)
-* [Package NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/)
-* [Exemples supplémentaires sur GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/ChangeFeedProcessor)
+* [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md)
+* [Exemples supplémentaires sur GitHub](https://github.com/Azure-Samples/cosmos-dotnet-change-feed-processor)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -1,5 +1,5 @@
 ---
-title: Erreurs de package de code de diagnostic d’Azure Service Fabric| Microsoft Docs
+title: Diagnostiquer les erreurs de package de code courantes à l’aide de Service Fabric | Microsoft Docs
 description: Découvrez comment résoudre les erreurs de package de code les plus courantes avec Azure Service Fabric
 services: service-fabric
 documentationcenter: .net
@@ -14,56 +14,58 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/09/2019
 ms.author: grzuber
-ms.openlocfilehash: 235952388d2c044cc141b3020c67944c4250ea3d
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 320a55e8b14648b1d7e256855582ab31846a63cf
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67276578"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68249219"
 ---
-# <a name="diagnose-common-code-package-errors-with-service-fabric"></a>Diagnostiquez les erreurs de package de code courantes avec Service Fabric
+# <a name="diagnose-common-code-package-errors-by-using-service-fabric"></a>Diagnostiquer les erreurs de package de code courantes à l’aide de Service Fabric
 
-Cet article explique ce que cela signifie pour un package de code de terminer de façon inattendue, et fournit des informations sur les causes possibles des codes d’erreur courants, ainsi que les étapes de dépannage qui peuvent potentiellement vous aider à corriger le problème.
+Cet article décrit ce que signifie l’interruption inattendue d’un package de code. Il fournit des informations sur les causes possibles des codes d’erreur courants, ainsi que des étapes de résolution des problèmes.
 
 ## <a name="when-does-a-process-or-container-terminate-unexpectedly"></a>Quand est-ce qu’un processus ou conteneur s’arrête de façon inattendue ?
 
-Lorsque Service Fabric reçoit une demande de démarrage d’un package de code, il commence la préparation de l’environnement sur le système local sur la base des options de configuration définies dans l’application et les manifestes de service. Ces préparatifs peuvent inclure la réservation de points de terminaison ou de ressources réseau, la configuration de règles de pare-feu ou la définition de contraintes de gouvernance des ressources. Une fois que l’environnement a été configuré correctement, Service Fabric tente d’apporter le package de code. Cette étape est considérée comme réussie si le système d’exploitation ou le runtime du conteneur signale que le processus ou conteneur a été activé avec succès. Si l’activation a échoué, vous devriez voir un message de contrôle d’intégrité dans SFX indiquant
+Quand Azure Service Fabric reçoit une requête de démarrage d’un package de code, il commence à préparer l’environnement sur le système local en fonction des options définies dans les manifestes de l’application et du service. Ces préparatifs peuvent inclure la réservation de points de terminaison ou de ressources réseau, la configuration de règles de pare-feu ou la définition de contraintes de gouvernance des ressources. 
+
+Une fois que l’environnement a été configuré correctement, Service Fabric tente d’apporter le package de code. Cette étape est considérée comme réussie si le système d’exploitation ou le runtime du conteneur signale que le processus ou conteneur a été activé avec succès. Si l’activation a échoué, vous devriez voir un message de contrôle d’intégrité dans SFX similaire à ce qui suit :
 
 ```
 There was an error during CodePackage activation. Service host failed to activate. Error: 0xXXXXXXXX
 ```
 
-Une fois que le package de code a bien été correctement apporté, Service Fabric commence la surveillance de sa durée de vie. À ce stade, un processus ou conteneur peut se terminer à tout moment pour plusieurs raisons. L’initialisation d’une DLL peut échouer, le système d’exploitation peut ne plus avoir d’espace de tas, etc. Si votre package de code s’est arrêté, vous devriez voir un message de contrôle d’intégrité dans SFX indiquant
+Une fois que le package de code a bien été correctement activé, Service Fabric commence la surveillance de sa durée de vie. À ce stade, un processus ou conteneur peut se terminer à tout moment pour plusieurs raisons. Par exemple, il se peut qu’il n’ait pas pu initialiser une DLL ou que le système d’exploitation ait dépassé l’espace du segment de mémoire du bureau. Si votre package de code s’est arrêté, vous devriez voir le message de contrôle d’intégrité dans SFX suivant :
 
 ```
 The process/container terminated with exit code: XXXXXXXX. Please look at your application logs/dump or debug your code package for more details. For information about common termination errors, please visit https://aka.ms/service-fabric-termination-errors
 ```
 
-Le code de sortie fourni dans ce message de contrôle d’intégrité est le seul indice fourni par le processus/conteneur quant à la raison de son arrêt, et il peut avoir été généré par n’importe quel niveau de la pile. Il est difficile de comprendre si ce code de sortie est lié, par exemple, à une erreur de système d’exploitation ou un problème avec .NET, ou s’il a été déclenché par votre code. Par conséquent, cet article peut être utilisé comme point de départ pour diagnostiquer la source des codes de sortie d’arrêt et les solutions possibles, en gardant à l’esprit que ce sont des solutions générales à des scénarios courants et qu’elles peuvent ne pas s’appliquer à l’erreur que vous voyez.
+Le code de sortie dans ce message d’intégrité est le seul indice que le processus ou le conteneur fournit sur la raison pour laquelle il s’est terminé. Il peut être généré par n’importe quel niveau de la pile. Par exemple, ce code de sortie peut être lié à une erreur de système d’exploitation ou à un problème .NET, ou il a peut-être été déclenché par votre code. Utilisez cet article comme point de départ pour le diagnostic de la source des codes de sortie de terminaison et des solutions possibles. Mais gardez à l’esprit qu’il s’agit de solutions générales pour des scénarios courants qui peuvent ne pas s’appliquer à l’erreur que vous rencontrez.
 
 ## <a name="how-can-i-tell-if-service-fabric-terminated-my-code-package"></a>Comment puis-je savoir si Service Fabric a interrompu mon package de code ?
 
-Service Fabric peut être responsable de l’interruption de votre package de code pour diverses raisons. Par exemple, il peut décider de placer le package de code sur un autre nœud à des fins d’équilibrage de charge. Vous pouvez déterminer que le package de code a été arrêté par Service Fabric si vous voyez un des codes de sortie du tableau suivant :
+Service Fabric peut être responsable de l’interruption de votre package de code pour diverses raisons. Par exemple, il peut décider de placer le package de code sur un autre nœud à des fins d’équilibrage de charge. Vous pouvez vérifier que Service Fabric mis fin à votre package de code si vous voyez l’un des codes de sortie dans le tableau suivant.
 
 >[!NOTE]
-> Si votre processus/conteneur se termine avec un code de sortie autre que ceux dans le tableau suivant, Service Fabric n’en est pas responsable.
+> Si votre processus ou votre conteneur se termine avec un code de sortie autre que ceux dans le tableau suivant, Service Fabric n’en est pas responsable.
 
 Code de sortie | Description
 --------- | -----------
-7147 | Ces codes d’erreur indiquent que Service Fabric a arrêté le processus/conteneur de façon appropriée en lui envoyant un signal Ctrl + C.
-7148 | Ces codes d’erreur indiquent que Service Fabric a arrêté le processus/conteneur. Parfois, ce code d’erreur peut indiquer que le processus/conteneur n’a pas répondu dans un délai raisonnable après l’envoi d’un signal Ctrl + C, et qu’il a donc dû être arrêté de façon forcée.
+7147 | Indique que Service Fabric a arrêté le processus ou le conteneur de façon appropriée en lui envoyant un signal Ctrl + C.
+7148 | Indique que Service Fabric a arrêté le processus ou le conteneur. Parfois, ce code d’erreur indique que le processus ou le conteneur n’a pas répondu dans un délai raisonnable après l’envoi d’un signal Ctrl + C, et qu’il a donc dû être arrêté de façon forcée.
 
 
 ## <a name="other-common-error-codes-and-their-potential-fixes"></a>Autres codes d’erreur courants et corrections éventuelles
 
-Code de sortie | Valeur hexadécimale | Description courte | Cause racine | Correctif potentiel
+Code de sortie | Valeur hexadécimale | Brève description | Cause racine | Correctif potentiel
 --------- | --------- | ----------------- | ---------- | -------------
-3221225794 | 0xc0000142 | STATUS_DLL_INIT_FAILED | Cette erreur peut potentiellement signifier que la machine était à court d’espace de tas. Cette cause est probable si vous avez un grand nombre de processus appartenant à votre application exécutée sur le nœud. | Si votre programme n’a pas été conçu pour répondre aux signaux Ctrl + C, vous pouvez activer le paramètre « EnableActivateNoWindow » dans le manifeste de cluster. L’activation de ce paramètre signifie que votre package de code ne s’exécutera pas dans une fenêtre de l’interface graphique et ne recevra pas de signaux Ctrl + C, mais cela réduit la quantité d’espace de tas que chaque processus consomme. Si votre package de code a besoin de recevoir les signaux Ctrl + C, vous pouvez augmenter la taille de tas de votre nœud.
-3762504530 | 0xe0434352 | N/A | Cette valeur est le code d’erreur pour une exception non gérée dans le code managé (autrement dit, .NET). | Si vous voyez ce code de sortie, cela signifie que votre application déclenche une exception qui est restée non gérée et a terminé le processus. Le débogage des journaux et dumps de votre application doit être la première étape pour déterminer ce qui a provoqué l’erreur.
+3221225794 | 0xc0000142 | STATUS_DLL_INIT_FAILED | Cette erreur peut potentiellement signifier que la machine était à court d’espace dans le segment de mémoire. Cette cause est probable si vous avez un grand nombre de processus appartenant à votre application exécutée sur le nœud. | Si votre programme n’a pas été conçu pour répondre aux signaux Ctrl + C, vous pouvez activer le paramètre **« EnableActivateNoWindow »** dans le manifeste de cluster. L’activation de ce paramètre signifie que votre package de code s’exécutera sans fenêtre GUI et ne recevra pas de signaux Ctrl + C. Cette action réduit également la quantité d’espace dans le segment de mémoire du bureau consommée par chaque processus. Si votre package de code a besoin de recevoir les signaux Ctrl + C, vous pouvez augmenter la taille de tas de votre nœud.
+3762504530 | 0xe0434352 | N/A | Cette valeur représente le code d’erreur pour une exception non gérée dans le code managé (autrement dit, .NET). | Ce code de sortie indique que votre application a levé une exception qui reste non gérée et qui a mis fin au processus. En guise de première étape pour déterminer ce qui a déclenché cette erreur, déboguez les journaux et les fichiers de vidage de votre application.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* En savoir plus sur le [diagnostic des autres scénarios courants](service-fabric-diagnostics-common-scenarios.md)
-* Pour obtenir une présentation plus détaillée des journaux Azure Monitor et de ce qu’ils proposent, lisez [Présentation des journaux Azure Monitor](../operations-management-suite/operations-management-suite-overview.md).
+* En savoir plus sur le [diagnostic des autres scénarios courants](service-fabric-diagnostics-common-scenarios.md).
+* Obtenez une vue d’ensemble plus détaillée des journaux de Azure Monitor et de ce qu’ils offrent en lisant [Vue d’ensemble Azure Monitor](../operations-management-suite/operations-management-suite-overview.md).
 * Découvrez plus en détail la [création d’alertes](../log-analytics/log-analytics-alerts.md) dans les journaux Azure Monitor pour faciliter la détection et les diagnostics.
-* Familiarisez-vous avec les fonctionnalités de [requêtes et recherches dans les journaux](../log-analytics/log-analytics-log-searches.md) proposées par les journaux Azure Monitor
+* Familiarisez-vous avec les fonctionnalités de [requête et de recherche dans les journaux](../log-analytics/log-analytics-log-searches.md) proposées par Journaux Azure Monitor.

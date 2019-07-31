@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/10/2019
 ms.author: juergent
-ms.openlocfilehash: 7464ea481d4c95856b78a83a875f2cd24c00705b
-ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
+ms.openlocfilehash: 754eb063f82344e72bece8fb0ac5708dbc8ab791
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67503320"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68249129"
 ---
 [1928533]: https://launchpad.support.sap.com/#/notes/1928533
 [2015553]: https://launchpad.support.sap.com/#/notes/2015553
@@ -593,7 +593,7 @@ Ramenez la ressource vers *azibmdb01* et effacez les contraintes d’emplacement
 crm resource clear msl_<b>Db2_db2ptr_PTR</b>
 </code></pre>
 
-- **crm resource migrate \<nom_ressource> <host> :** crée des contraintes d’emplacement et peut entraîner des problèmes de prise de contrôle
+- **crm resource migrate \<nom_ressource> \<hôte> :** crée des contraintes d’emplacement et peut entraîner des problèmes de prise de contrôle
 - **crm resource clear \<nom_ressource>**  : efface les contraintes d’emplacement
 - **crm resource cleanup \<nom_ressource>**  : efface toutes les erreurs de la ressource
 

@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/12/2019
+ms.date: 07/16/2019
 ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b5e175a8cdd1622add90bd80df63303fe914ab9c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 767f7362a6c46d864ba17f23f6506bf6cdb71414
+ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66430813"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68304730"
 ---
 # <a name="application-configuration-options"></a>Options de configuration d’application
 
@@ -38,10 +38,10 @@ Dans votre code, vous initialisez une nouvelle application cliente publique ou c
 ## <a name="authority"></a>Authority
 L’autorité est une URL indiquant un annuaire dont la bibliothèque d’authentification Microsoft peut demander des jetons. Les autorités courantes sont les suivantes :
 
-- https://login.microsoftonline.com/&lt ;tenant&gt; /, où &lt; tenant&gt; est l’ID de locataire du locataire Azure Active Directory (Azure AD) ou d’un domaine associé à celui-ci. Utilisé uniquement pour connecter des utilisateurs d’une organisation spécifique.
-- https://login.microsoftonline.com/common/. Utilisé pour connecter des utilisateurs disposant de comptes professionnels ou scolaires, ou de comptes Microsoft personnels.
-- https://login.microsoftonline.com/organizations/. Utilisé pour connecter des utilisateurs disposant de comptes professionnels ou scolaires.
-- https://login.microsoftonline.com/consumers/. Utilisé pour connecter des utilisateurs disposant uniquement de comptes Microsoft personnels (anciennement appelés comptes Windows Live ID).
+- https\://login.microsoftonline.com/\<tenant\>/, où &lt;tenant&gt; est l’ID de locataire du locataire Azure Active Directory (Azure AD) ou d’un domaine associé à celui-ci. Utilisé uniquement pour connecter des utilisateurs d’une organisation spécifique.
+- https\://login.microsoftonline.com/common/. Utilisé pour connecter des utilisateurs disposant de comptes professionnels ou scolaires, ou de comptes Microsoft personnels.
+- https\://login.microsoftonline.com/organizations/. Utilisé pour connecter des utilisateurs disposant de comptes professionnels ou scolaires.
+- https\://login.microsoftonline.com/consumers/. Utilisé pour connecter des utilisateurs disposant uniquement de comptes Microsoft personnels (anciennement appelés comptes Windows Live ID).
 
 Le paramètre d’autorité doit être cohérent avec ce qui est déclaré dans le portail d’inscription d’application.
 
@@ -50,7 +50,7 @@ L’URL d’autorité est composée de l’instance et de l’audience.
 L’autorité peut être :
 - Une autorité de cloud Azure AD.
 - Une autorité Azure AD B2C. Voir [Spécificités B2C](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/AAD-B2C-specifics).
-- Une autorité de services de fédération Active Directory (AD FS). Voir [Prise en charge d’ADFS](https://aka.ms/msal-net-adfs-support).
+- Une autorité de services de fédération Active Directory (AD FS). Consultez [Support de AD FS](https://aka.ms/msal-net-adfs-support).
 
 Les autorités de cloud Azure AD comprennent deux parties :
 - L’*instance* de fournisseur d’identité.
@@ -103,11 +103,17 @@ L’URI de redirection est l’URI auquel le fournisseur d’identité renvoie l
 
 ### <a name="redirect-uri-for-public-client-apps"></a>URI de redirection pour les applications clientes publiques
 Si vous êtes un développeur d’application cliente publique utilisant MSAL :
-- Vous n’avez pas besoin de transmettre la valeur `RedirectUri`, car elle est calculée automatiquement par MSAL. Cet URI de redirection est défini sur l’une des valeurs suivantes, selon la plateforme :
-   - `urn:ietf:wg:oauth:2.0:oob` pour toutes les plateformes Windows.
-   - `msal{ClientId}://auth` pour Xamarin Android et iOS.
+- Vous souhaitez utiliser `.WithDefaultRedirectUri()` dans les applications de bureau ou UWP (MSAL.NET 4.1 +). Cette méthode permet de définir la propriété URI de redirection de l’application cliente publique sur l’URI de redirection recommandé par défaut pour les applications clientes publiques. 
 
-- Vous n’avez pas besoin de configurer l’URI de redirection dans [Inscriptions d’applications](https://aka.ms/appregistrations) :
+  Plateforme  | URI de redirection  
+  ---------  | --------------
+  Application de bureau (.NET FW) | `https://login.microsoftonline.com/common/oauth2/nativeclient` 
+  UWP | valeur de `WebAuthenticationBroker.GetCurrentApplicationCallbackUri()`. Cela active l’authentification unique avec le navigateur en définissant la valeur sur le résultat de WebAuthenticationBroker.GetCurrentApplicationCallbackUri() que vous devez inscrire
+  .NET Core | `https://localhost`. Cela permet à l’utilisateur d’utiliser le navigateur système pour l’authentification interactive, car .NET Core n’a pas d’interface utilisateur pour l’affichage Web incorporé pour le moment.
+
+- Vous n’avez pas besoin d’ajouter un URI de redirection si vous générez une application Xamarin Android et iOS qui ne prend pas en charge le répartiteur (l’URI de redirection est automatiquement défini sur `msal{ClientId}://auth` pour Xamarin Android et iOS)
+
+- Vous avez besoin de configurer l’URI de redirection dans [Inscriptions d’applications](https://aka.ms/appregistrations) :
 
    ![URI de redirection dans Inscriptions d’applications](media/msal-client-application-configuration/redirect-uri.png)
 
@@ -119,7 +125,7 @@ Vous pouvez remplacer l’URI de redirection à l’aide de la propriété `Redi
 Pour plus de détails, voir la [documentation pour Android et iOS](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Leveraging-the-broker-on-iOS).
 
 ### <a name="redirect-uri-for-confidential-client-apps"></a>URI de redirection pour les applications clientes confidentielles
-Pour les applications web, l’URI de redirection (ou URI de réponse) est l’URI qu’Azure AD utilise pour renvoyer le jeton à l’application. Il peut s’agir de l’URL de l’application web/API Web si l’application confidentielle est un des applications suivantes. L’URI de redirection doit être inscrit dans l’inscription d’application. Cette inscription est particulièrement importante lorsque vous déployez une application que vous avez initialement testée localement. Vous devez ensuite ajouter l’URL de réponse de l’application déployée dans le portail d’inscription d’application.
+Pour les applications web, l’URI de redirection (ou URI de réponse) est l’URI qu’Azure AD utilise pour renvoyer le jeton à l’application. Cette URI peut s’agir de l’URL de l’application web/API Web si l’application confidentielle est l’une des applications suivantes. L’URI de redirection doit être inscrit dans l’inscription d’application. Cette inscription est particulièrement importante lorsque vous déployez une application que vous avez initialement testée localement. Vous devez ensuite ajouter l’URL de réponse de l’application déployée dans le portail d’inscription d’application.
 
 Pour les applications démon, vous n’avez pas besoin de spécifier un URI de redirection.
 

@@ -4,33 +4,89 @@ description: Explique comment grouper des machines avant d’exécuter une éval
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 11/28/2018
-ms.author: raynew
-ms.openlocfilehash: c11d2f22fa08417107b0eecdd902b4521410b358
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 07/17/2019
+ms.author: hamusa
+ms.openlocfilehash: 13c640d25265b2663520ef7ab203b0b0a33829e2
+ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60544912"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68301702"
 ---
-# <a name="group-machines-for-assessment"></a>Grouper des machines pour l’évaluation
+# <a name="create-a-group-for-assessment"></a>Créer un groupe pour l’évaluation
 
-Cet article explique comment créer un groupe de machines pour l’évaluation par [Azure Migrate](migrate-overview.md). Azure Migrate évalue les machines du groupe pour vérifier si elles sont adaptées à la migration vers Azure, et fournit des estimations de dimensionnement et de coût d’exécution de chaque machine dans Azure. Si vous connaissez les machines à migrer ensemble, vous pouvez créer manuellement le groupe dans Azure Migrate à l’aide de la méthode suivante. Si vous n’êtes pas certain des machines à regrouper, vous pouvez utiliser la fonctionnalité de visualisation des dépendances dans Azure Migrate pour créer des groupes. [En savoir plus.](how-to-create-group-machine-dependencies.md)
+Cet article décrit comment créer des groupes de machines à évaluer avec Azure Migrate : Évaluation de serveur.
+
+[Azure Migrate](migrate-services-overview.md) vous aide à migrer vers Azure. Azure Migrate offre un hub centralisé pour suivre la découverte, l’évaluation et la migration d’une infrastructure, d’applications et de données locales vers Azure. Le hub fournit des outils Azure pour l’évaluation et la migration, ainsi que des offres d’éditeurs de logiciels indépendant (ISV) tiers. 
+
+## <a name="grouping-machines"></a>Regroupement de machines
+
+Vous rassemblez des machines dans des groupes pour déterminer si elles sont adaptées à la migration vers Azure et pour obtenir des estimations de coût et de dimensionnement Azure. Il existe deux façons de créer des groupes :
+
+- Si vous connaissez les machines à migrer ensemble, vous pouvez créer manuellement le groupe dans Azure Migrate.
+- Si vous n’êtes pas certain des machines à regrouper, vous pouvez utiliser la fonctionnalité de visualisation des dépendances dans Azure Migrate pour créer des groupes. 
 
 > [!NOTE]
 > La fonctionnalité de visualisation de dépendance n’est pas disponible dans Azure Government.
 
-## <a name="create-a-group"></a>Créer un groupe
+## <a name="create-a-group-manually"></a>Créer un groupe manuellement
 
-1. Dans la **vue d’ensemble** du projet Azure Migrate, sous Gérer, cliquez sur  **Groupes** > **+ Groupe** et spécifiez un nom de groupe.
-2. Ajoutez une ou plusieurs machines au groupe, puis cliquez sur  **Créer**.
-3. Vous pouvez éventuellement choisir d’exécuter une nouvelle évaluation pour le groupe.
+Vous pouvez créer un groupe en même temps que vous [créez une évaluation](how-to-create-assessment.md).
+
+Si vous souhaitez créer un groupe manuellement en dehors de la création d’une évaluation, procédez comme suit :
+
+1. Dans le projet Azure Migrate > **Vue d’ensemble**, cliquez sur **Évaluer et migrer des serveurs**. Dans **Azure Migrate : Évaluation de serveur**, cliquez sur **Groupes**
+    - Si vous n’avez pas encore ajouté l’outil Azure Migrate : Évaluation de serveur, cliquez pour l’ajouter. [Plus d’informations](how-to-assess.md)
+    - Si vous n’avez pas encore créé de projet Azure Migrate, [cliquez ici pour en savoir plus](how-to-add-tool-first-time.md).
+
+    ![Sélection de groupes](./media/how-to-create-a-group/select-groups.png)
+
+2. Cliquez sur l’icône **Groupe**.
+3. Dans **Créer un groupe**, spécifiez un nom de groupe et, dans **Nom de l’appliance**, sélectionnez l’appliance Azure Migrate que vous utilisez pour la détection de machines.
+1. Dans la liste de machine, sélectionnez les machines que vous souhaitez ajouter au groupe > **Créer**.
 
     ![Créer un groupe](./media/how-to-create-a-group/create-group.png)
 
-Une fois le groupe créé, vous pouvez le modifier en le sélectionnant dans la page **Groupes** et en ajoutant ou en supprimant des machines.
+Vous pouvez maintenant utiliser ce groupe lorsque vous [Créez une évaluation](how-to-create-assessment.md).
+
+## <a name="refine-a-group-with-dependency-mapping"></a>Affiner un groupe avec un mappage des dépendances
+
+Le mappage des dépendances vous permet de visualiser les dépendances entre les machines. En général, vous utilisez le mappage des dépendances lorsque vous souhaitez évaluer les groupes de machines avec des niveaux de confiance élevés.
+- Il vous aide à vérifier les dépendances des machines avant d’exécuter une évaluation. 
+- Il vous aide également à planifier efficacement votre migration vers Azure, en vous assurant que rien n’est oublié et en évitant ainsi les interruptions surprises durant la migration.
+- Vous pouvez découvrir les systèmes interdépendants qui doivent migrer en même temps et déterminer si un système en cours d’exécution continue de servir les utilisateurs ou si une mise hors service peut être envisagée au lieu de la migration.
+
+Si vous avez déjà [configuré le mappage des dépendances](how-to-create-group-machine-dependencies.md) et que vous souhaitez affiner un groupe existant, procédez comme suit :
+
+1. Sous l’onglet **Serveurs**, dans la vignette **Azure Migrate : Évaluation de serveur**, cliquez sur **Groupes**.
+2. Cliquez sur le groupe que vous souhaitez affiner.
+    - Si vous n’avez pas encore configuré le mappage des dépendances, la colonne **Dépendances** indique un état **Installation requise**. Pour chaque machine virtuelle pour laquelle vous souhaitez visualiser les dépendances, cliquez sur **Installation requise**. Installez quelques agents sur chaque machine virtuelle avant de pouvoir mapper les dépendances de la machine. [Plus d’informations](how-to-create-group-machine-dependencies.md)
+
+        ![Ajouter un mappage des dépendances](./media/how-to-create-a-group/add-dependency-mapping.png)
+
+    - Si vous avez déjà configuré le mappage des dépendances, dans la page groupe, cliquez sur **Afficher les dépendances** pour ouvrir le mappage des dépendances de groupe.
+
+3. Après avoir cliqué sur **Afficher les dépendances**, la carte des dépendances de groupe affiche les éléments suivants :
+
+    - Connexions TCP entrantes (clients) et sortantes (serveurs) vers toutes les machines du groupe sur lesquelles sont installées les agents de dépendance, et à partir de celles-ci.
+    - Les machines dépendantes sur lesquels les agents de dépendance ne sont pas installés sont regroupées par numéro de port.
+    - Les machines dépendantes avec des agents de dépendance installés sont affichées dans des zones distinctes.
+    - Processus en cours d’exécution à l’intérieur de la machine. Développez chaque boîte de machine pour afficher les processus.
+    - Propriétés de la machine ( y compris le nom de domaine complet, le système d’exploitation, l’adresse MAC). Cliquez sur chaque zone de la machine pour afficher les détails.
+
+4. Pour afficher les dépendances dans un intervalle de temps de votre choix, modifiez l’intervalle de temps (par défaut, une heure) en spécifiant les dates de début et de fin, ou la durée.
+
+    > [!NOTE]
+    > L’intervalle de temps peut atteindre une heure. Si vous avez besoin d’un intervalle plus long, utilisez [Azure Monitor pour interroger les données dépendantes](how-to-create-group-machine-dependencies.md) pendant une période plus longue.
+
+5. Une fois que vous avez identifié les dépendances que vous souhaitez ajouter ou supprimer dans le groupe, vous pouvez modifier le groupe. Utilisez Ctrl+clic pour ajouter ou supprimer des machines dans le groupe.
+
+    - Seules les machines qui ont été détectées peuvent être ajoutées.
+    - L’ajout et la suppression de machines au sein d’un groupe invalide ses évaluations passées.
+    - Vous pouvez, si vous le souhaitez, créer une nouvelle évaluation lorsque vous modifiez le groupe.
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Découvrez comment utiliser le [mappage de dépendances de machine](how-to-create-group-machine-dependencies.md) pour créer des groupes à haute fiabilité.
-- [Découvrez plus en détail](concepts-assessment-calculation.md) le mode de calcul des évaluations.
+Découvrez comment configurer et utiliser le [mappage des dépendances](how-to-create-group-machine-dependencies.md) pour créer des groupes de confiance élevée.
+

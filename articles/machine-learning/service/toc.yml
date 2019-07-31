@@ -24,11 +24,6 @@
         - name: Exécuter une expérience localement
           displayName: 'workspace, install, sdk'
           href: quickstart-run-local-notebook.md
-    - name: Interface visuelle
-      items:
-        - name: Préparer et visualiser des données
-          displayName: experiment drag-and-drop
-          href: ui-quickstart-run-experiment.md
 - name: Tutoriels
   items:
     - name: Kit de développement logiciel (SDK) Python
@@ -41,7 +36,7 @@
               href: tutorial-1st-experiment-sdk-train.md
         - name: Classification d’images (données MNIST)
           items:
-            - name: 1. Entraîner un modèle
+            - name: 1. Effectuer l’apprentissage d’un modèle
               displayName: build modeling
               href: tutorial-train-models-with-aml.md
             - name: 2. Déployer un modèle
@@ -51,7 +46,7 @@
             - name: 1. Préparer les données pour la modélisation
               displayName: data prep
               href: tutorial-data-prep.md
-            - name: 2. Entraîner automatiquement un modèle ML
+            - name: 2. Former automatiquement un modèle ML
               displayName: 'automl, automated, auto ml,'
               href: tutorial-auto-train-models.md
     - name: Interface visuelle

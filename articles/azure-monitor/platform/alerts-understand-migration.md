@@ -4,15 +4,15 @@ description: Découvrez comment l’outil de migration des alertes fonctionne et
 author: snehithm
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 06/19/2019
+ms.date: 07/10/2019
 ms.author: snmuvva
 ms.subservice: alerts
-ms.openlocfilehash: 015000388c5629dbd8ed8833931a809ebd738bd6
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: f981c14e26c51c427dab6b418cab8df46b1bb026
+ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67295526"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68302242"
 ---
 # <a name="understand-how-the-migration-tool-works"></a>Comprendre le fonctionnement de l’outil de migration
 
@@ -33,7 +33,8 @@ Bien que l’outil peut migrer presque toutes les [règles d’alerte classiques
 - Les règles d’alerte classiques des métriques d’invité pour les machines virtuelles (Windows et Linux). Consultez les [conseils permettant de recréer ces règles d’alerte dans les nouvelles alertes de métriques](#guest-metrics-on-virtual-machines) plus loin dans cet article.
 - Les règles d’alerte classiques des métriques de stockage classiques. Consultez les [conseils pour la surveillance de vos comptes de stockage classiques](https://azure.microsoft.com/blog/modernize-alerting-using-arm-storage-accounts/).
 - Les règles d’alerte classiques pour certaines métriques de compte de stockage. Consultez les [détails](#storage-account-metrics) plus loin dans cet article.
-- Les règles d’alerte classiques sur certaines métriques Cosmos DB. Les détails seront ajoutés dans une prochaine mise à jour.
+- Les règles d’alerte classiques sur certaines métriques Cosmos DB. Consultez les [détails](#cosmos-db-metrics) plus loin dans cet article.
+- Règles d’alerte classiques sur toutes les mesures de services cloud et de machines virtuelles classiques (Microsoft. ClassicCompute/virtualMachines et Microsoft. ClassicCompute/domainNames/Slots/Roles). Consultez les [détails](#classic-compute-metrics) plus loin dans cet article.
 
 Si votre abonnement a des règles classiques de ce type, vous devez les migrer manuellement. Étant donné que nous ne pouvons pas fournir une migration automatique, les alertes de métrique classiques existantes de ces types continueront à fonctionner jusqu'à juin 2020. Cette extension vous donne le temps de passer aux nouvelles alertes. Toutefois, aucune nouvelle alerte classique ne pourra être créée après août 2019.
 
@@ -67,6 +68,44 @@ Toutes les alertes classiques sur les comptes de stockage peuvent être migrées
 Les règles d’alerte classiques sur les métriques de pourcentage doivent être migrées selon [le mappage entre les anciennes et nouvelles métriques de stockage](https://docs.microsoft.com/azure/storage/common/storage-metrics-migration#metrics-mapping-between-old-metrics-and-new-metrics). Les seuils devront être modifiés en conséquence, car la nouvelle métrique disponible est absolue.
 
 Les règles d’alerte classiques sur AnonymousThrottlingError, SASThrottlingError et ThrottlingError doivent être fractionnées en deux nouvelles alertes, car il n’existe aucune métrique combinée qui fournit les mêmes fonctionnalités. Les seuils devront être adaptés de manière appropriée.
+
+### <a name="cosmos-db-metrics"></a>Métriques Cosmos DB
+
+Toutes les alertes classiques sur les mesures de Cosmos DB peuvent être migrées, à l’exception des alertes sur ces mesures :
+
+- Nombre moyen de requêtes par seconde
+- Niveau de cohérence
+- Http 2xx
+- Http 3xx
+- HTTP 400
+- Http 401
+- Erreur interne du serveur
+- Nombre maximal de RUPM consommées par minute
+- Nombre maximal de RU par seconde
+- Nombre d’échecs de requêtes Mongo
+- Requêtes ayant échoué supprimées Mongo
+- Requêtes d’insertion ayant échoué Mongo
+- Autres demandes ayant échoué Mongo
+- Autres frais des requêtes Mongo
+- Autres taux des requêtes Mongo
+- Requêtes interrogées ayant échoué Mongo
+- Requêtes ayant échoué mises à jour Mongo
+- Latence de lecture observée
+- Latence d’écriture observée
+- Disponibilité des services
+- Capacité de stockage
+- Requêtes limitées
+- Total de requêtes
+
+Le nombre moyen de demandes par seconde, le niveau de cohérence, le nombre maximal de RUPM consommées par minute, le nombre maximal de RU par seconde, la latence de lecture observée, la latence d’écriture observée et la capacité de stockage ne sont pas disponible actuellement dans le [nouveau système](metrics-supported.md#microsoftdocumentdbdatabaseaccounts).
+
+Les alertes sur les mesures de requête comme HTTP 2xx, HTTP 3xx, HTTP 400, HTTP 401, erreur de serveur interne, disponibilité du service, demandes limitées et nombre total de requêtes ne sont pas migrées, car la manière dont les requêtes sont comptées est différente entre les mesures classiques et les nouvelles mesures. Les alertes doivent être recréées manuellement avec des seuils ajustés.
+
+Les alertes sur les mesures de requêtes Mongo ayant échoué doivent être fractionnées en plusieurs alertes, car il n’existe aucune mesure combinée qui offre les mêmes fonctionnalités. Les seuils devront être adaptés de manière appropriée.
+
+### <a name="classic-compute-metrics"></a>Calcul classique de mesures
+
+Les alertes sur les mesures de calcul classiques ne seront pas migrées à l’aide de l’outil de migration, car les ressources de calcul classiques ne sont pas encore prises en charge avec les nouvelles alertes. La prise en charge des nouvelles alertes sur ces types de ressources sera ajoutée à l’avenir. Une fois disponible, les clients doivent recréer de nouvelles règles d’alerte équivalentes en fonction de leurs règles d’alerte classiques avant juin 2020.
 
 ### <a name="classic-alert-rules-on-deprecated-metrics"></a>Règles d’alerte classiques sur des métriques déconseillées
 
@@ -159,9 +198,34 @@ Pour Application Insights, les métriques équivalentes sont indiquées ci-desso
 | requestFailed.count | requests/failed| Utilisez 'count' au lieu de 'sum' pour `aggregationType`.   |
 | view.count | pageViews/count| Utilisez 'count' au lieu de 'sum' pour `aggregationType`.   |
 
+### <a name="microsoftdocumentdbdatabaseaccounts"></a>Microsoft.DocumentDB/databaseAccounts
+
+Pour Cosmos DB, les mesures équivalentes sont indiquées ci-dessous :
+
+| Métrique dans les alertes classiques | Métrique équivalente dans les nouvelles alertes | Commentaires|
+|--------------------------|---------------------------------|---------|
+| AvailableStorage     |AvailableStorage|   |
+| Taille des données | DataUsage| |
+| Nombre de documents | DocumentCount||
+| Taille d'index | IndexUsage||
+| Nombre de frais des requêtes Mongo| MongoRequestCharge avec la dimension « CommandName » = « count »||
+| Nombre de taux des requêtes Mongo | MongoRequestCount avec la dimension « CommandName » = « count »||
+| Frais de requête de suppression Mongo | MongoRequestCharge avec la dimension « CommandName » = « delete »||
+| Taux de requête de suppression Mongo | MongoRequestsCount avec la dimension « CommandName » = « delete »||
+| Frais de requête d’insertion Mongo | MongoRequestCharge avec la dimension « CommandName » = « insert »||
+| Taux de requête d’insertion Mongo | MongoRequestsCount avec la dimension « CommandName » = « insert »||
+| Frais de requêtes d’interrogation Mongo | MongoRequestCharge avec la dimension « CommandName » = « find »||
+| Taux de requêtes d’interrogation Mongo | MongoRequestsCount avec la dimension « CommandName » = « find »||
+| Frais de requête de mise à jour Mongo | MongoRequestCharge avec la dimension « CommandName » = « update »||
+| Service indisponible| ServiceAvailability||
+| TotalRequestUnits | TotalRequestUnits||
+
 ### <a name="how-equivalent-action-groups-are-created"></a>Comment les groupes d’actions équivalents sont créés
 
 Les règles d’alerte classiques avaient les actions d’e-mail, de webhook, d’application logique et de runbook liées à la règle d’alerte elle-même. Les nouvelles règles d’alerte utilisent des groupes d’actions qui peuvent être réutilisés dans plusieurs règles d’alerte. L’outil de migration crée un groupe d’actions unique pour les actions similaires, quel que soit le nombre de règles d’alerte utilisant l’action. Les groupes d’actions créés par l’outil de migration utilisent le format d’attribution de noms « Migrated_AG* ».
+
+> [!NOTE]
+> Les alertes classiques ont envoyé des e-mails localisés en fonction des paramètres régionaux de l’administrateur classique lorsqu’ils sont utilisés pour notifier les rôles d’administrateur classiques. Les nouveaux e-mails d’alerte sont envoyés par le biais de groupes d’actions et sont uniquement en anglais.
 
 ## <a name="rollout-phases"></a>Phases de déploiement
 
@@ -173,7 +237,6 @@ L’outil de migration est livré en plusieurs phases aux clients qui utilisent 
 La plupart des abonnements sont actuellement marqués comme prêts pour la migration. Seuls les abonnements qui ont des alertes classiques sur les types de ressources suivants ne sont pas encore prêts pour la migration.
 
 - Microsoft.classicCompute/domainNames/slots/roles
-- Microsoft.documentDB/databases
 - Microsoft.insights/components
 
 ## <a name="who-can-trigger-the-migration"></a>Qui peut déclencher la migration ?
@@ -184,6 +247,7 @@ Tout utilisateur ayant le rôle intégré de contributeur de surveillance au niv
 - Microsoft.Insights/actiongroups/*
 - Microsoft.Insights/AlertRules/*
 - Microsoft.Insights/metricAlerts/*
+- Microsoft.AlertsManagement/smartDetectorAlertRules/*
 
 > [!NOTE]
 > En plus d’avoir les autorisations ci-dessus, votre abonnement doit être inscrit avec le fournisseur de ressources Microsoft.AlertsManagement. Cela est nécessaire pour réussir la migration des alertes d’anomalies d’échec sur Application Insights. 
