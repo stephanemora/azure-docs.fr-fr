@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: aef5c67786726790c5841c1ce4ddff8b67bdf21b
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 7c2b52a0dff08b7fe80d46f878a93d8d0741982c
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67709042"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68249153"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -220,7 +220,7 @@ Dans Windows, une instance SAP ASCS/SCS contient des services SAP centraux, le s
 Une instance SAP ASCS/SCS inclut les composants suivants :
 
 * Services centraux SAP :
-    * Deux processus, un serveur de messages et de mise en file d’attente, et un <nom_hôte_virtuel_ASCS/SCS> utilisé pour accéder à ces deux processus.
+    * Deux processus, un serveur de messages et de mise en file d’attente, et un \<nom_hôte_virtuel_ASCS/SCS> utilisé pour accéder à ces deux processus.
     * Structure de fichiers : S:\usr\sap\\&lt;SID&gt;\ASCS/SCS\<numéro d’instance\>
 
 
@@ -228,7 +228,7 @@ Une instance SAP ASCS/SCS inclut les composants suivants :
   * Structure de fichiers : S:\usr\sap\\&lt;SID&gt;\SYS\...
   * Partage de fichiers sapmnt, qui autorise l’accès à ces fichiers S:\usr\sap\\&lt;SID&gt;\SYS\... à l’aide du chemin UNC suivant :
 
-    \\\\&lt;nom d’hôte virtuel ASCS/SCS&gt;\sapmnt\\&lt;SID&gt;\SYS\..
+    \\\\<Nom d’hôte virtuel ASCS/SCS\>\sapmnt\\&lt;SID&gt;\SYS\..
 
 
 ![Figure 2 : Processus, structure de fichiers et partage de fichiers sapmnt d’hôte global d’une instance SAP ASCS/SCS][sap-ha-guide-figure-8001]
@@ -243,7 +243,7 @@ _**Figure 3 :** Architecture de haute disponibilité (HA) SAP ASCS/SCS avec disq
 
 > [!IMPORTANT]
 > Ces deux composants s’exécutent sous la même instance SAP ASCS/SCS :
->* Le même <nom d’hôte virtuel ASCS/SCS> est utilisé pour accéder aux processus de serveur de mise en file d’attente et de messages SAP, ainsi qu’aux fichiers d’hôte global SAP par le biais du partage de fichiers sapmnt.
+>* Le même \<nom d’hôte virtuel ASCS/SCS> est utilisé pour accéder aux processus de serveur de mise en file d’attente et de messages SAP, ainsi qu’aux fichiers d’hôte global SAP par le biais du partage de fichiers sapmnt.
 >* Ils partagent le même lecteur de disque partagé de cluster S.
 >
 

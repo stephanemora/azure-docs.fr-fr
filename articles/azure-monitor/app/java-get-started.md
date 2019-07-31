@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/24/2019
 ms.author: lagayhar
-ms.openlocfilehash: a453e82f47bb9eed25c8d5caf986bc854085e8ac
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d3edfa1ca63560f447d2c9ea3da3588e069b7af1
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67061221"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68226819"
 ---
 # <a name="get-started-with-application-insights-in-a-java-web-project"></a>Prise en main d'Application Insights dans un projet web Java
 
@@ -91,7 +91,7 @@ Actualisez ensuite les dépendances du projet pour télécharger les fichiers bi
 ```
 
 #### <a name="if-youre-using-eclipse-to-create-a-dynamic-web-project-"></a>Si vous utilisez Eclipse pour créer un projet Web dynamique...
-Utilisez le [Kit de développement logiciel (SDK) Application Insights pour plug-in Java][eclipse]. Remarque : bien que ce plug-in vous permette d’être opérationnel avec Application Insights plus rapidement (en supposant que vous n’utilisez pas Maven ou Gradle), il ne s’agit pas un système de gestion des dépendances. Par conséquent, la mise à jour du plug-in ne mettra pas automatiquement les bibliothèques d’Application Insights à jour dans votre projet.
+Utilisez le [kit de développement logiciel (SDK) Application Insights pour plug-in Java][eclipse]. Remarque : bien que ce plug-in vous permette d’être opérationnel avec Application Insights plus rapidement (en supposant que vous n’utilisez pas Maven ou Gradle), il ne s’agit pas un système de gestion des dépendances. Par conséquent, la mise à jour du plug-in ne mettra pas automatiquement les bibliothèques d’Application Insights à jour dans votre projet.
 
 * *Des erreurs de validation de build ou de somme de contrôle ?* Essayez d’utiliser une version spécifique, telle que : `version:'2.0.n'`. Vous trouverez la version la plus récente dans les [notes de publication du Kit de développement logiciel (SDK)](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) ou dans les [artefacts Maven](https://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
 * *Pour effectuer une mise à jour vers un Kit de développement logiciel (SDK)* , actualisez les dépendances de votre projet.
@@ -169,6 +169,8 @@ Vous pouvez également [définir la clé dans le code](../../azure-monitor/app/a
         TelemetryConfiguration.getActive().setInstrumentationKey(instrumentationKey);
     }
 ```
+
+Notez que les [métriques en temps réel](https://docs.microsoft.com/azure/azure-monitor/app/live-stream) ne prennent pas en charge la lecture de la clé d’instrumentation à partir du code.
 
 ## <a name="4-add-an-http-filter"></a>4. Ajouter un filtre HTTP
 La dernière étape de la configuration permet au composant de demande HTTP de consigner toutes les demandes web. (Non requis si vous voulez juste l'API seule.)
@@ -433,30 +435,6 @@ Chaque [compteur de performances Windows](https://msdn.microsoft.com/library/win
 
 ### <a name="unix-performance-counters"></a>Compteurs de performances Unix
 * [Installez collectd avec le plug-in Application Insights](java-collectd.md) pour obtenir une grande variété de données sur le système et le réseau.
-
-## <a name="local-forwarder"></a>Redirecteur local
-
-[Redirecteur local](https://docs.microsoft.com/azure/application-insights/local-forwarder) est un agent qui collecte des données de télémétrie Application Insights ou [OpenCensus](https://opencensus.io/) sur une variété de kits de développement logiciel (SDK) et d’infrastructures, et les achemine vers Application Insights. Il peut être exécuté sous Windows et Linux.
-
-```xml
-<Channel type="com.microsoft.applicationinsights.channel.concrete.localforwarder.LocalForwarderTelemetryChannel">
-<DeveloperMode>false</DeveloperMode>
-<EndpointAddress><!-- put the hostname:port of your LocalForwarder instance here --></EndpointAddress>
-<!-- The properties below are optional. The values shown are the defaults for each property -->
-<FlushIntervalInSeconds>5</FlushIntervalInSeconds><!-- must be between [1, 500]. values outside the bound will be rounded to nearest bound -->
-<MaxTelemetryBufferCapacity>500</MaxTelemetryBufferCapacity><!-- units=number of telemetry items; must be between [1, 1000] -->
-</Channel>
-```
-
-Si vous utilisez le starter SpringBoot, ajoutez le code suivant à votre fichier de configuration (application.properies) :
-
-```yml
-azure.application-insights.channel.local-forwarder.endpoint-address=<!--put the hostname:port of your LocalForwarder instance here-->
-azure.application-insights.channel.local-forwarder.flush-interval-in-seconds=<!--optional-->
-azure.application-insights.channel.local-forwarder.max-telemetry-buffer-capacity=<!--optional-->
-```
-
-Les valeurs par défaut sont les mêmes pour la configuration du fichier application.properties SpringBoot et du fichier applicationinsights.xml.
 
 ## <a name="get-user-and-session-data"></a>Obtenir des données utilisateur et de session
 Vous envoyez des données de télémétrie depuis votre serveur web. Vous pouvez désormais ajouter plus de surveillance pour obtenir une vue à 360 degrés de votre application :

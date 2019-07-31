@@ -34,7 +34,7 @@ Si vous avez du contenu exprimé dans une langue moins fréquemment utilisée, v
 Pour l’analyse des sentiments, l’extraction de phrases clés et la reconnaissance d’entité, la liste des langues prises en charge est plus sélective, car les analyseurs sont optimisés pour prendre en compte les règles linguistiques des langues supplémentaires. La prise en charge de l’ensemble complet de [types d’entité](how-tos/text-analytics-how-to-entity-linking.md#supported-types-for-named-entity-recognition) est actuellement limitée aux langues suivantes : 
 * Anglais
 * Chinois simplifié
-* Anglais
+* Français
 * Allemand
 * Espagnol
 
@@ -53,7 +53,7 @@ Les langues prises en charge sont initialement déployées en préversion avant 
 | Néerlandais       | `nl`          | ✔ \*     | ✔          |  ✔ \*           |     |
 | Anglais     | `en`          | ✔        | ✔           |  ✔ \*\*     |      |
 | Finnois     | `fi`          | ✔ \*     | ✔           |  ✔ \*           |     |
-| Anglais      | `fr`          | ✔        | ✔           |  ✔            |     |
+| Français      | `fr`          | ✔        | ✔           |  ✔            |     |
 | Allemand      | `de`          | ✔ \*     | ✔           |  ✔           |     |
 | Grec       | `el`          | ✔ \*     |             |            |     |
 | Hongrois   | `hu`          |           |             |  ✔ \*          |     | 

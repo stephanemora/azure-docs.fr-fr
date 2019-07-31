@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 518e3fa842c5283dc20a6111773bd55451f026b6
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f33a59105d1be94ccd4fb24ae3d962b36c2efbdd
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60486848"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839350"
 ---
 # <a name="azure-data-factory---frequently-asked-questions"></a>Azure Data Factory - Forum aux Questions
 > [!NOTE]
@@ -35,7 +35,7 @@ Data Factory vous permet de créer des flux de travail pilotés par les données
 Pour plus d’informations, consultez [Vue d’ensemble et concepts clés](data-factory-introduction.md).
 
 ### <a name="where-can-i-find-pricing-details-for-azure-data-factory"></a>où puis-je trouver des informations de tarification pour Azure Data Factory ?
-Consultez la [page de tarification de Data Factory][adf-pricing-details] pour plus d’informations sur la tarification d’Azure Data Factory.  
+Pour plus d’informations sur la tarification d’Azure Data Factory, consultez la [page de tarification de Data Factory][adf-pricing-details].  
 
 ### <a name="how-do-i-get-started-with-azure-data-factory"></a>comment prendre en main Azure Data Factory ?
 * Pour obtenir une vue d'ensemble d'Azure Data Factory, consultez [Présentation d'Azure Data Factory](data-factory-introduction.md).
@@ -51,11 +51,10 @@ Consultez la section **Limites d’Azure Data Factory** de l’article [Abonneme
 ### <a name="what-is-the-authoringdeveloper-experience-with-azure-data-factory-service"></a>Qu’est-il possible de faire avec le service Azure Data Factory en termes de création/développement ?
 Vous pouvez créer des fabriques de données en utilisant un des outils/SDK suivants :
 
-* **Portail Azure** : les panneaux du service Data Factory dans le portail Azure fournissent une interface utilisateur complète qui vous permet de créer des fabriques de données et des services liés. **Data Factory Editor**, qui fait également partie du portail, vous permet de créer facilement des services liés, des tables, des jeux de données et des pipelines en spécifiant des définitions JSON pour ces artefacts. Consultez [Créer votre premier pipeline de données en utilisant le portail Azure](data-factory-build-your-first-pipeline-using-editor.md) pour obtenir un exemple d’utilisation du portail et de l’éditeur pour créer et déployer une fabrique de données.
 * **Visual Studio** : vous pouvez utiliser Visual Studio pour créer une fabrique de données Azure. Pour plus d’informations, consultez [Créer votre premier pipeline de données à l’aide de Visual Studio](data-factory-build-your-first-pipeline-using-vs.md) .
-* **Azure PowerShell** : consultez [Créer et surveiller Azure Data Factory à l’aide d’Azure PowerShell](data-factory-build-your-first-pipeline-using-powershell.md) pour obtenir un didacticiel/une procédure pas à pas pour créer une fabrique de données à l’aide de PowerShell. Consultez [Informations de référence sur les applets de commande Data Factory][adf-powershell-reference] dans la bibliothèque MSDN pour obtenir une documentation complète sur les applets de commande Data Factory.
-* **Bibliothèque de classes .NET** Vous pouvez créer par programmation des fabriques de données à l'aide du Kit de développement logiciel (SDK) Data Factory .NET. Consultez [Créer, surveiller et gérer des fabriques de données à l'aide du Kit de développement logiciel (SDK) .NET](data-factory-create-data-factories-programmatically.md) pour découvrir comment créer une fabrique de données à l'aide du Kit de développement logiciel (SDK) .NET. Consultez [Informations de référence sur la bibliothèque de classes Data Factory][msdn-class-library-reference] pour obtenir une documentation complète sur le Kit de développement logiciel (SDK) Data Factory .NET.
-* **API REST** Vous pouvez également utiliser l'API REST exposée par le service Azure Data Factory pour créer et déployer des fabriques de données. Consultez [Informations de référence sur l’API REST Data Factory][msdn-rest-api-reference] pour obtenir une documentation complète de l’API REST Data Factory.
+* **Azure PowerShell** : consultez [Créer et surveiller Azure Data Factory à l’aide d’Azure PowerShell](data-factory-build-your-first-pipeline-using-powershell.md) pour obtenir un didacticiel/une procédure pas à pas pour créer une fabrique de données à l’aide de PowerShell. Consultez les [Informations de référence sur les applets de commande Data Factory][adf-powershell-reference] dans la bibliothèque MSDN pour obtenir une documentation complète sur les applets de commande Data Factory.
+* **Bibliothèque de classes .NET** Vous pouvez créer par programmation des fabriques de données à l'aide du Kit de développement logiciel (SDK) Data Factory .NET. Consultez [Créer, surveiller et gérer des fabriques de données à l'aide du Kit de développement logiciel (SDK) .NET](data-factory-create-data-factories-programmatically.md) pour découvrir comment créer une fabrique de données à l'aide du Kit de développement logiciel (SDK) .NET. Consultez les [Informations de référence sur la bibliothèque de classes Data Factory][msdn-class-library-reference] pour obtenir une documentation complète sur le Kit de développement logiciel (SDK) Data Factory .NET.
+* **API REST** Vous pouvez également utiliser l'API REST exposée par le service Azure Data Factory pour créer et déployer des fabriques de données. Consultez les [Informations de référence sur l’API REST Data Factory][msdn-rest-api-reference] pour obtenir une documentation complète de l’API REST Data Factory.
 * **Modèle Azure Resource Manager** Voir [Tutoriel : Concevoir votre première fabrique de données Azure à l’aide du modèle Azure Resource Manager](data-factory-build-your-first-pipeline-using-arm.md) pour plus de détails.
 
 ### <a name="can-i-rename-a-data-factory"></a>Puis-je renommer une fabrique de données ?
@@ -69,7 +68,7 @@ Oui. Utilisez le bouton **Déplacer** sur le panneau de votre fabrique de donné
 ### <a name="what-are-the-compute-environments-supported-by-data-factory"></a>Quels sont les environnements de calcul pris en charge par Data Factory ?
 Le tableau suivant fournit une liste d’environnements de calcul pris en charge par Data Factory et les activités qui peuvent s’exécuter sur ces derniers.
 
-| Environnement de calcul | activités |
+| Environnement de calcul | activities |
 | --- | --- |
 | [Cluster HDInsight à la demande](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) ou [votre propre cluster HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) |[DotNet](data-factory-use-custom-activities.md), [Hive](data-factory-hive-activity.md), [Pig](data-factory-pig-activity.md), [MapReduce](data-factory-map-reduce.md), [Diffusion en continu Hadoop](data-factory-hadoop-streaming-activity.md) |
 | [Azure Batch](data-factory-compute-linked-services.md#azure-batch-linked-service) |[DotNet](data-factory-use-custom-activities.md) |

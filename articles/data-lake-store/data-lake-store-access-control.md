@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
-ms.openlocfilehash: 211cb32298b17bb9e4023bf8bc74233c3916f58d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 276e691351d852d6dcb0075d47bf33af6767fc10
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60879104"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68226095"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen1"></a>Contrôle d’accès dans Azure Data Lake Storage Gen1
 
@@ -77,9 +77,9 @@ Voici quelques scénarios courants pour vous aider à comprendre les autorisatio
 | Ajouter à | Data.txt            |   `--X`   |   `--X`    |  `--X`      | `RW-`          |
 | Supprimer    | Data.txt            |   `--X`   |   `--X`    |  `-WX`      | `---`          |
 | Créer    | Data.txt            |   `--X`   |   `--X`    |  `-WX`      | `---`          |
-| Liste      | /                   |   `R-X`   |   `---`    |  `---`      | `---`          |
-| Liste      | /Seattle/           |   `--X`   |   `R-X`    |  `---`      | `---`          |
-| Liste      | /Seattle/Portland/  |   `--X`   |   `--X`    |  `R-X`      | `---`          |
+| List      | /                   |   `R-X`   |   `---`    |  `---`      | `---`          |
+| List      | /Seattle/           |   `--X`   |   `R-X`    |  `---`      | `---`          |
+| List      | /Seattle/Portland/  |   `--X`   |   `--X`    |  `R-X`      | `---`          |
 
 
 > [!NOTE]
@@ -166,7 +166,7 @@ def access_check( user, desired_perms, path ) :
   # Handle the owning user. Note that mask IS NOT used.
   entry = get_acl_entry( path, OWNER )
   if (user == entry.identity)
-      return ( (desired_perms & e.permissions) == desired_perms )
+      return ( (desired_perms & entry.permissions) == desired_perms )
 
   # Handle the named users. Note that mask IS used.
   entries = get_acl_entries( path, NAMED_USER )

@@ -9,10 +9,10 @@ ms.date: 12/6/2016
 ms.author: ancav
 ms.subservice: autoscale
 ms.openlocfilehash: 9da8e5fb88ff34e561b579b760973ecd23c884a3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 07/31/2019
 ms.locfileid: "66129746"
 ---
 # <a name="azure-monitor-autoscaling-common-metrics"></a>Métriques courantes pour la mise à l’échelle automatique d’Azure Monitor
@@ -56,10 +56,10 @@ Vous pouvez créer une alerte pour les métriques suivantes :
 | \Processor(_Total)\% temps processeur |Pourcentage |
 | \Processor(_Total)\\% temps privilégié |Pourcentage |
 | \Processor(_Total)\\% temps utilisateur |Pourcentage |
-| \Processor Information(_Total)\Fréquence du processeur |Nombre |
-| \System\Processus |Nombre |
-| \Process(_Total)\Nombre de threads |Nombre |
-| \Process(_Total)\Nombre de handles |Nombre |
+| \Processor Information(_Total)\Fréquence du processeur |Count |
+| \System\Processus |Count |
+| \Process(_Total)\Nombre de threads |Count |
+| \Process(_Total)\Nombre de handles |Count |
 | \Memory\\% octets validés en cours d’utilisation |Pourcentage |
 | \Memory\Octets disponibles |Octets |
 | \Memory\Octets validés |Octets |
@@ -75,11 +75,11 @@ Vous pouvez créer une alerte pour les métriques suivantes :
 | \PhysicalDisk(_Total)\Octets disque/s |BytesPerSecond |
 | \PhysicalDisk(_Total)\Lectures disque, octets/s |BytesPerSecond |
 | \PhysicalDisk(_Total)\Écritures disque, octets/s |Octets par seconde |
-| \PhysicalDisk(_Total)\Longueur moyenne Longueur de file d'attente de disque |Nombre |
-| \PhysicalDisk(_Total)\Longueur moyenne de file d’attente lecture disque |Nombre |
-| \PhysicalDisk(_Total)\Longueur moyenne de file d’attente écriture disque |Nombre |
+| \PhysicalDisk(_Total)\Longueur moyenne Longueur de file d'attente de disque |Count |
+| \PhysicalDisk(_Total)\Longueur moyenne de file d’attente lecture disque |Count |
+| \PhysicalDisk(_Total)\Longueur moyenne de file d’attente écriture disque |Count |
 | \LogicalDisk(_Total)\\% espace libre |Pourcentage |
-| \LogicalDisk(_Total)\Mégaoctets libres |Nombre |
+| \LogicalDisk(_Total)\Mégaoctets libres |Count |
 
 ### <a name="guest-os-metrics-linux-vms"></a>Métriques de SE invité pour les machines virtuelles Linux
 Lorsque vous créez une machine virtuelle dans Azure, les diagnostics sont activés par défaut grâce à l’extension Diagnostics.
@@ -123,15 +123,15 @@ Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,U
 | \Disque physique\Temps de lecture moyen |Secondes |
 | \Disque physique\Temps d’écriture moyen |Secondes |
 | \Disque physique\Temps de transfert moyen |Secondes |
-| \Disque physique\Longueur moyenne de la file d’attente du disque |Nombre |
+| \Disque physique\Longueur moyenne de la file d’attente du disque |Count |
 | \Interface réseau\Octets transmis |Octets |
 | \Interface réseau\Octets reçus |Octets |
-| \Interface réseau\Paquets transmis |Nombre |
-| \Interface réseau\Paquets reçus |Nombre |
+| \Interface réseau\Paquets transmis |Count |
+| \Interface réseau\Paquets reçus |Count |
 | \Interface réseau\Total des octets |Octets |
-| \Interface réseau\Total des erreurs Rx |Nombre |
-| \Interface réseau\Total des erreurs Tx |Nombre |
-| \Interface réseau\Total des collisions |Nombre |
+| \Interface réseau\Total des erreurs Rx |Count |
+| \Interface réseau\Total des erreurs Tx |Count |
+| \Interface réseau\Total des collisions |Count |
 
 ## <a name="commonly-used-web-server-farm-metrics"></a>Métriques web couramment utilisées (batterie de serveurs)
 Vous pouvez également effectuer la mise à l’échelle en fonction des métriques de serveur web courantes, telles que la longueur de file d’attente HTTP. Son nom de métrique est **Longueur de file d’attente HTTP**.  La section suivante répertorie les métriques de batterie de serveurs (Web Apps) disponibles.
@@ -149,8 +149,8 @@ Ces métriques permettent d’émettre une alerte ou de procéder à un mise à 
 | --- | --- |
 | Pourcentage UC |Pourcentage |
 | Pourcentage mémoire |Pourcentage |
-| Longueur de file d’attente du disque |Nombre |
-| Longueur de file d’attente HTTP |Nombre |
+| Longueur de file d’attente du disque |Count |
+| Longueur de file d’attente HTTP |Count |
 | Octets reçus |Octets |
 | BytesSent |Octets |
 

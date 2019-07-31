@@ -5,14 +5,14 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: article
-ms.date: 11/3/2018
+ms.date: 7/13/2019
 ms.author: victorh
-ms.openlocfilehash: b08eae072c2fbe420401424baf97a25b4cbbe87b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7d20ef750aa4556a73852982631423d3d08271f5
+ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60790740"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67854108"
 ---
 # <a name="host-load-balanced-azure-web-apps-at-the-zone-apex"></a>Héberger des applications web Azure à charge équilibrée à l’extrémité de la zone
 
@@ -43,7 +43,7 @@ Créez un groupe de ressources qui contiendra toutes les ressources utilisées d
 Créez deux plans Web App Service dans votre groupe de ressources en suivant les informations de configuration du tableau ci-dessous. Pour plus d’informations sur la création d’un plan App Service, voir [Gérer un plan App Service dans Azure](../app-service/app-service-plan-manage.md).
 
 
-|Nom  |Système d’exploitation  |Lieu  |Niveau de tarification  |
+|Nom  |Système d’exploitation  |Location  |Niveau de tarification  |
 |---------|---------|---------|---------|
 |ASP-01     |Windows|USA Est|Dev/Test D1-Shared|
 |ASP-02     |Windows|USA Centre|Dev/Test D1-Shared|
@@ -87,7 +87,7 @@ Vous pouvez maintenant créer les points de terminaison pour les deux applicatio
 3. Cliquez sur **Add**.
 4. Aidez-vous du tableau suivant pour configurer les points de terminaison :
 
-   |Type  |Nom  |Cible  |Lieu  |Paramètres d’en-tête personnalisé|
+   |Type  |Nom  |Cible  |Location  |Paramètres d’en-tête personnalisé|
    |---------|---------|---------|---------|---------|
    |Point de terminaison externe     |End-01|Adresse IP enregistrée pour App-01|USA Est|host:\<URL enregistrée pour App-01\><br>Exemple : **host:app-01.azurewebsites.net**|
    |Point de terminaison externe     |End-02|Adresse IP enregistrée pour App-02|USA Centre|host:\<URL enregistrée pour App-02\><br>Exemple : **host:app-02.azurewebsites.net**
@@ -144,3 +144,5 @@ Pour en savoir plus sur les enregistrements d’alias, consultez les articles su
 - [Tutoriel : Configurer un enregistrement d'alias pour faire référence à une adresse IP publique](tutorial-alias-pip.md)
 - [Tutoriel : Configurer un enregistrement d'alias pour prendre en charge des noms de domaine d'apex avec Traffic Manager](tutorial-alias-tm.md)
 - [FAQ DNS](https://docs.microsoft.com/azure/dns/dns-faq#alias-records)
+
+Pour savoir comment migrer un nom DNS actif, consultez [Migrer un nom DNS actif vers Azure App Service](../app-service/manage-custom-dns-migrate-domain.md).
