@@ -1,6 +1,6 @@
 ---
 title: 'Exemple : Analyse de vidéo en temps réel - Vision par ordinateur'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Découvrez comment effectuer une analyse en quasi temps réel des images d’un flux vidéo en direct en utilisant l’API Vision par ordinateur.
 services: cognitive-services
 author: KellyDF
@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 03/21/2019
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: feafb983a7b9e4aea6091753842b03a65ccd3ca5
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 3432ea20f9fb59524940258e13c46ee6f4c4e890
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60001556"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68565702"
 ---
 # <a name="how-to-analyze-videos-in-real-time"></a>Comment analyser des vidéos en temps réel
 

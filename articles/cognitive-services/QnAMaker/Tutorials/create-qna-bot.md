@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: tutorial
-ms.date: 06/24/2019
+ms.date: 07/31/2019
 ms.author: diberry
-ms.openlocfilehash: 1d475d988847bd4cc9e37b91a0c5d28678cb05f2
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 4bb987a5a091871bec2c0cc8cec6d9ab804bb244
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67446649"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68697988"
 ---
 # <a name="tutorial-create-a-qna-bot-with-azure-bot-service-v4"></a>Didacticiel : Créer un bot QnA avec Azure Bot Service v4
 
@@ -50,8 +50,8 @@ Créez un bot en tant qu’application cliente pour la base de connaissances.
     |Paramètre|Valeur|Objectif|
     |--|--|--|
     |Nom du robot|`my-tutorial-kb-bot`|Il s’agit du nom de ressource Azure pour le bot.|
-    |Abonnement|Consultez l’objectif.|Sélectionnez le même abonnement que celui utilisé pour créer les ressources QnA Maker.|
-    |Groupe de ressources|`my-tutorial-rg`|Groupe de ressources utilisé pour toutes les ressources Azure relatives aux bots.|
+    |Subscription|Consultez l’objectif.|Sélectionnez le même abonnement que celui utilisé pour créer les ressources QnA Maker.|
+    |Resource group|`my-tutorial-rg`|Groupe de ressources utilisé pour toutes les ressources Azure relatives aux bots.|
     |Location|`west us`|Emplacement de la ressource Azure du bot.|
     |Niveau tarifaire|`F0`|Niveau gratuit du service de bot Azure.|
     |Nom de l’application|`my-tutorial-kb-bot-app`|Il s’agit d’une application web qui ne prend en charge que votre bot. Ce nom d’application doit être différent de celui que votre service QnA Maker utilise déjà. Le partage de l’application web de QnA Maker avec toute autre ressource n’est pas pris en charge.|
@@ -101,7 +101,7 @@ Dans le cas contraire, vous devez trouver les ressources associées au bot. La f
 
 ## <a name="related-to-qna-maker-bots"></a>Lié aux bots QnA Maker
 
-* Le bot d’aide de QnA Maker, utilisé dans le portail de QnA Maker, est disponible sous forme d’[exemple de bot](https://github.com/Microsoft/BotBuilder-Samples/tree/master/experimental/csharp_dotnetcore/qnamaker-support-bot).
+* Le bot d’aide de QnA Maker, utilisé dans le portail de QnA Maker, est disponible sous forme d’[exemple de bot](https://github.com/microsoft/BotBuilder-Samples/tree/master/experimental/qnamaker-support).
     ![L’icône du bot d’aide de QnA Maker représente un robot rouge](../media/qnamaker-tutorials-create-bot/answer-bot-icon.PNG)
 * [Les bots médicaux](https://docs.microsoft.com/HealthBot/qna_model_howto) utilisent QnA Maker comme l’un de leurs [ modèles de langage](https://docs.microsoft.com/HealthBot/qna_model_howto).
 

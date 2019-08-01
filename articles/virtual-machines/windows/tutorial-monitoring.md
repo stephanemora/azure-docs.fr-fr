@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 12/05/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 05fd9f06bec2a68455d42bfd460f0a5a419a255e
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 25160c50cd4844fdb5b3a3454213b2067ef91d01
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67708039"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68608026"
 ---
 # <a name="tutorial-monitor-and-update-a-windows-virtual-machine-in-azure"></a>Didacticiel : Superviser et mettre à jour une machine virtuelle Windows dans Azure
 
@@ -300,4 +300,4 @@ Dans ce didacticiel, vous avez configuré et examiné des machines virtuelles av
 Passez au didacticiel suivant pour découvrir plus d’informations sur Azure Security Center.
 
 > [!div class="nextstepaction"]
-> [Gérer la sécurité des machines virtuelles](./tutorial-azure-security.md)
+> [Gérer la sécurité des machines virtuelles](../../security/fundamentals/overview.md)

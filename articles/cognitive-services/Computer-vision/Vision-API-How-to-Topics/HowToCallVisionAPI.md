@@ -1,6 +1,6 @@
 ---
 title: 'Exemple : Appeler l’API d’analyse d’image - Vision par ordinateur'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Découvrez comment appeler l’API Vision par ordinateur à l’aide de REST dans Azure Cognitive Services.
 services: cognitive-services
 author: KellyDF
@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 03/21/2019
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: 0e2767660edf2a9dbcb8617b07a6b9f71fedb743
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 35e6ad922ab54748165fcf8e273d93ee44bc42cc
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60011233"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564536"
 ---
 # <a name="example-how-to-call-the-computer-vision-api"></a>Exemple : Appeler l’API Vision par ordinateur
 
@@ -228,7 +228,7 @@ Le champ « categories » est une liste d’une ou plusieurs catégories parmi l
 
 Champ   | Type  | Contenu
 ------|------|------|
-Catégories | `object`   | Objet de premier niveau
+categories | `object`   | Objet de premier niveau
 categories[].name    | `string` | Nom issu de la taxonomie des 86 catégories
 categories[].score  | `number`  | Score de confiance, compris entre 0 et 1
 categories[].detail  | `object?`      | Objet de détail facultatif

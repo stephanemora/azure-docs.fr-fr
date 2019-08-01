@@ -1,6 +1,6 @@
 ---
 title: 'Démarrage rapide : Créer une application dans le portail LUIS'
-titleSuffix: Language Understanding - Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Ce guide de démarrage rapide traite de la création d’une application dans le portail LUIS. Créez les composants de base d'une application, les intentions et les entités. Ensuite, testez l'application en fournissant un exemple d’énoncé utilisateur dans le panneau de test interactif afin d’obtenir l’intention prévue. La création d’une application est gratuite et ne nécessite pas d’abonnement Azure.
 services: cognitive-services
 author: diberry
@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 2e4ff7dc97e3ee72336bd4c081caf1aa1a62bc56
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: f54643883028d93b56c7e122f43db95bb6d0b8c1
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65146553"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560874"
 ---
 # <a name="quickstart-create-a-new-app-in-the-luis-portal"></a>Démarrage rapide : Créer une application dans le portail LUIS
 
@@ -82,8 +82,8 @@ Ajoutez les 15 exemples d'énoncés suivants à l’intention `FindForm`.
 |2|Où se trouve le formulaire de ressources humaines hrf-234591 ?|
 |3|hrf-345623, où est-il|
 |4|Est-il possible de m’envoyer hrf-345794|
-|5.|Ai-je besoin de hrf-234695 pour postuler à un emploi en interne ?|
-|6.|Mon directeur doit-il savoir que je postule à un emploi avec hrf-234091|
+|5\.|Ai-je besoin de hrf-234695 pour postuler à un emploi en interne ?|
+|6|Mon directeur doit-il savoir que je postule à un emploi avec hrf-234091|
 |7|Où envoyer hrf-234918 ? Est-ce que je reçois une réponse par messagerie ?|
 |8|hrf-234555|
 |9|Quand la mise à jour de hrf-234987 a-t-elle été effectuée ?|

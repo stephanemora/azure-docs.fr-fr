@@ -1,6 +1,6 @@
 ---
 title: 'Démarrage rapide : Obtenir des réponses d’une base de connaissances - REST, C# - QnA Maker'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Ce guide de démarrage rapide basé sur REST C# vous aide à obtenir programmatiquement une réponse à partir d’une base de connaissances.
 services: cognitive-services
 author: diberry
@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 07/16/2019
 ms.author: diberry
-ms.openlocfilehash: 020403268665633bf3d71cf43258ced87b4f837d
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: ba128f5ad87083f8d57c33011969756f3b3a8c93
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68249711"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559819"
 ---
 # <a name="get-answers-to-a-question-from-a-knowledge-base-with-c"></a>Obtenir des réponses à une question à partir d’une base de connaissance avec C#
 

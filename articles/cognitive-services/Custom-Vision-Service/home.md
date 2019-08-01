@@ -1,6 +1,6 @@
 ---
 title: Qu’est-ce que le service Vision personnalisée d’Azure ?
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Découvrez comment utiliser le service Vision personnalisée pour créer des classifieurs d’images personnalisés dans le cloud Azure.
 services: cognitive-services
 author: PatrickFarley
@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: overview
 ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 8a5dd16948724e3a79863450212702aa8aeb2347
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 033b0317b1738e24e4ac9c9ae2150b015cc5a8e5
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67605139"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560962"
 ---
 # <a name="what-is-azure-custom-vision"></a>Qu’est-ce que le service Vision personnalisée d’Azure ?
 

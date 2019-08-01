@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 05/08/2019
 ms.author: tasharm
-ms.openlocfilehash: 688887826fa803b616ca737bc8558aa17ed80e37
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.openlocfilehash: 3f18b77fe436328e79df351b9c5edcf6dc289ad7
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66297772"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68697266"
 ---
 # <a name="quickstart-call-the-text-analytics-service-using-the-ruby-sdk"></a>Démarrage rapide : Utilisation du SDK Ruby pour appeler le service Analyse de texte
 
@@ -32,8 +32,6 @@ Consultez les [définitions des API](//go.microsoft.com/fwlink/?LinkID=759346) p
 * [SDK Analyse de texte pour Ruby](https://rubygems.org/gems/azure_cognitiveservices_textanalytics)
  
 [!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
-
-Il vous faut également [le point de terminaison et la clé d’accès](../How-tos/text-analytics-how-to-access-key.md) générée pendant le processus d’inscription. 
 
 <a name="RubyProject"></a>
 
@@ -132,7 +130,7 @@ Il vous faut également [le point de terminaison et la clé d’accès](../How-t
     SentimentAnalysisExample(textAnalyticsClient)
     ```
 
-### <a name="output"></a>Sortie
+### <a name="output"></a>Output
 
 ```console
 ===== SENTIMENT ANALYSIS =====
@@ -197,7 +195,7 @@ Le service Analyse de texte peut détecter la langue d’un document texte parmi
     DetectLanguageExample(textAnalyticsClient)
     ```
 
-### <a name="output"></a>Sortie
+### <a name="output"></a>Output
 
 ```console
 ===== LANGUAGE EXTRACTION ======
@@ -265,7 +263,7 @@ Le service Analyse de texte peut différencier et extraire différentes entités
     RecognizeEntitiesExample(textAnalyticsClient)
     ```
 
-### <a name="output"></a>Sortie
+### <a name="output"></a>Output
 
 ```console
 ===== ENTITY RECOGNITION =====
@@ -371,7 +369,7 @@ Le service Analyse de texte peut extraire des expressions clés dans des phrases
     KeyPhraseExtractionExample(textAnalyticsClient)
     ```
 
-### <a name="output"></a>Sortie
+### <a name="output"></a>Output
 
 ```console
 Document ID: 1
