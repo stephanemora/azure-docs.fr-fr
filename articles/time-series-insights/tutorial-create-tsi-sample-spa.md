@@ -8,12 +8,12 @@ ms.date: 06/29/2019
 ms.author: dpalled
 manager: cshankar
 ms.custom: seodec18
-ms.openlocfilehash: 8ee4cd30d5742896df96ccfd714d85ebbab194f9
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: bd50fb4a28aa0ab71c1fb0aeba772a2bd7d1df9d
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67595698"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68677724"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-single-page-web-app"></a>Didacticiel : Créer une application web monopage Azure Time Series Insights
 
@@ -30,9 +30,9 @@ Ce tutoriel vous apprendra à effectuer les opérations suivantes :
 > * Le code source pour ce didacticiel est disponible sur [GitHub](https://github.com/Microsoft/tsiclient/tree/tutorial/pages/tutorial).
 > * L’[exemple d’application cliente](https://insights.timeseries.azure.com/clientsample) Time Series Insights est hébergé pour présenter l’application terminée utilisée dans ce didacticiel.
 
-## <a name="prerequisites"></a>Prérequis
+Souscrivez un [abonnement Azure gratuit](https://azure.microsoft.com/free/) si vous n’en avez pas déjà un.
 
-* Souscrivez un [abonnement Azure gratuit](https://azure.microsoft.com/free/) si vous n’en avez pas déjà un.
+## <a name="prerequisites"></a>Prérequis
 
 * Une copie gratuite de Visual Studio. Téléchargez les [versions de la Communauté 2017 ou 2019](https://www.visualstudio.com/downloads/) pour commencer.
 
@@ -57,7 +57,7 @@ Ce didacticiel utilise également des données de l’environnement Time Series 
 1. Créez un répertoire pour stocker vos fichiers de projet d’application. Ensuite, accédez à chacune des URL suivantes. Cliquez avec le bouton droit sur le lien **Brute** dans l’angle supérieur droit de la page, puis sélectionnez **Enregistrer sous** pour enregistrer les fichiers dans le répertoire de votre projet.
 
    - [*index.html*](https://github.com/Microsoft/tsiclient/blob/tutorial/pages/tutorial/index.html) : HTML et JavaScript pour la page
-   - [*sampleStyles.css*]( https://github.com/Microsoft/tsiclient/blob/tutorial/pages/tutorial/sampleStyles.css) : feuille de style CSS
+   - [*sampleStyles.css*](https://github.com/Microsoft/tsiclient/blob/tutorial/pages/tutorial/sampleStyles.css) : feuille de style CSS
 
    > [!NOTE]
    > Selon le navigateur, il se peut que vous deviez modifier l’extension de fichier en .html ou .css avant d’enregistrer le fichier.

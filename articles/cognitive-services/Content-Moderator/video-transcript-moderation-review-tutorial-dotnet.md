@@ -1,6 +1,6 @@
 ---
 title: 'Didacticiel : Modérer des vidéos et des transcriptions dans .NET - Content Moderator'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Ce tutoriel explique comment concevoir une solution de modération de vidéos et de transcriptions complète à l’aide de la modération assistée par ordinateur et de la création de révisions pour une intervention humaine.
 services: cognitive-services
 author: PatrickFarley
@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: b210af2a70a3ce858d8f53102a181c75373b4176
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: e1c3d3d95261b959a7540aab73faf12f92801d4c
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606948"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564271"
 ---
 # <a name="tutorial-video-and-transcript-moderation"></a>Didacticiel : Modération de vidéos et de transcriptions
 

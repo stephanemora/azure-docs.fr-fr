@@ -1,21 +1,21 @@
 ---
 title: 'Didacticiel : Utiliser le détecteur de logo personnalisé pour reconnaître les services Azure - Vision personnalisée'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Dans ce tutoriel, vous allez examiner un exemple d’application qui utilise le service Vision personnalisée d’Azure dans le cadre d’un scénario de détection de logo. Découvrez comment le service Vision personnalisée est utilisé avec d’autres composants pour fournir une application de bout en bout.
 services: cognitive-services
 author: PatrickFarley
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: b4b10591069b71a4e70769f5bdcd6149768c5007
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: b0a5b110951d7b13110fab935d5ca1333f7f8c1e
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67604020"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564206"
 ---
 # <a name="tutorial-recognize-azure-service-logos-in-camera-pictures"></a>Didacticiel : Reconnaître les logos des services Azure dans les images de l’appareil photo
 

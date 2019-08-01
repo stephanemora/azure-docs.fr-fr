@@ -1,6 +1,6 @@
 ---
 title: 'Démarrage rapide : Créer un projet de classification d’images avec le SDK Custom Vision pour Node.js'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Créez un projet, ajoutez des balises, chargez des images, entraînez votre projet et faites une prédiction avec le SDK Node.js.
 services: cognitive-services
 author: areddish
@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 07/15/2019
 ms.author: areddish
-ms.openlocfilehash: 92713fe16e482a3ed65b9593581749270b67a487
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 2fe02bd48097b6e051f0203b4615c8c5683224cd
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68277584"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560979"
 ---
 # <a name="quickstart-create-an-image-classification-project-with-the-custom-vision-nodejs-sdk"></a>Démarrage rapide : Créer un projet de classification d’images avec le SDK Custom Vision Node.js
 

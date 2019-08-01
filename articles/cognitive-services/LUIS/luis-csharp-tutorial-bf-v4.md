@@ -1,6 +1,6 @@
 ---
 title: Bot Language Understanding C# v4
-titleSuffix: Language Understanding - Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: À l’aide de C#, créez un bot conversationnel intégré avec compréhension de la langue (LUIS). Le bot est créé avec Bot Framework version 4 et le service du bot d’application web Azure.
 services: cognitive-services
 author: diberry
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 06/24/2019
 ms.author: diberry
-ms.openlocfilehash: 8a03d87441f26d3116aff8af33fd94da0ef9a909
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 210724e8a8b9b585a3e308b8e321d809e4e897a1
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67438432"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560657"
 ---
 # <a name="tutorial-use-a-web-app-bot-enabled-with-language-understanding-in-c"></a>Didacticiel : Utiliser un Web App Bot activé avec Language Understanding dans C#
 
@@ -47,8 +47,8 @@ ms.locfileid: "67438432"
     |Paramètre|Objectif|Paramétrage suggéré|
     |--|--|--|
     |Nom du robot|Nom de la ressource|`luis-csharp-bot-` + `<your-name>`, par exemple, `luis-csharp-bot-johnsmith`|
-    |Abonnement|Abonnement où créer le bot.|Votre abonnement principal.
-    |Groupe de ressources|Groupe logique de ressources Azure|Créer un groupe pour stocker toutes les ressources utilisées avec ce bot, et nommer le groupe `luis-csharp-bot-resource-group`.|
+    |Subscription|Abonnement où créer le bot.|Votre abonnement principal.
+    |Resource group|Groupe logique de ressources Azure|Créer un groupe pour stocker toutes les ressources utilisées avec ce bot, et nommer le groupe `luis-csharp-bot-resource-group`.|
     |Location|Région Azure, qui peut différer de la région de création ou de publication LUIS.|`westus`|
     |Niveau tarifaire|Utilisé pour les limites de demande de service et la facturation.|`F0` est le niveau gratuit.
     |Nom de l’application|Utilisé comme sous-domaine durant le déploiement de votre bot sur le cloud (par exemple, humanresourcesbot.azurewebsites.net).|`luis-csharp-bot-` + `<your-name>`, par exemple, `luis-csharp-bot-johnsmith`|
@@ -85,7 +85,7 @@ Le processus de création du service de bot crée également une application LUI
 ## <a name="test-the-bot-in-web-chat"></a>Tester le bot dans la Discussion Web
 
 1. Dans le Portail Azure du nouveau bot, sélectionnez **Tester dans le Web Chat**. 
-1. Dans la zone de texte **Tapez votre message**, entrez le texte `hello`. Le bot répond avec des informations sur le framework de bot, ainsi que des exemples de requêtes pour le modèle LUIS spécifique, tel que la réservation d’un vol pour Paris. 
+1. Dans la zone de texte **Tapez votre message**, entrez `hello`. Le bot répond avec des informations sur le framework de bot, ainsi que des exemples de requêtes pour le modèle LUIS spécifique, tel que la réservation d’un vol pour Paris. 
 
     ![Capture d’écran du Portail Azure, saisie du mot « hello »](./media/bfv4-csharp/ask-bot-question-in-portal-test-in-web-chat.png)
 

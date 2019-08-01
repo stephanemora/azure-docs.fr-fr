@@ -1,6 +1,6 @@
 ---
 title: 'Démarrage rapide : Analyser le contenu d’un texte (C#) - Content Moderator'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Guide pratique pour analyser du texte afin d’y détecter du contenu choquant ou répréhensible à l’aide du kit SDK Azure Content Moderator pour .NET
 services: cognitive-services
 author: sanjeev3
@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: quickstart
 ms.date: 07/03/2019
 ms.author: sajagtap
-ms.openlocfilehash: f848ea0d1c86b9c12d26c59b8f0e92d1e5d70094
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 45ac641948531aa27334762704eba3333aebba4d
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67604062"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564324"
 ---
 # <a name="quickstart-analyze-text-content-for-objectionable-material-in-c"></a>Démarrage rapide : Analyser le contenu d’un texte pour trouver des matériaux répréhensibles en C#
 

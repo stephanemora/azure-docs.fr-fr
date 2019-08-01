@@ -1,6 +1,6 @@
 ---
 title: 'Démarrage rapide : Déployer une application avec le portail LUIS'
-titleSuffix: Language Understanding - Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Découvrez comment déployer votre application LUIS sur le point de terminaison de prédiction une fois que l’application est prête à retourner des prédictions d’énoncés à une application cliente, par exemple un chatbot. Ce démarrage rapide vous guide tout au long du déploiement d’une application en créant une ressource de point de terminaison de prédiction, en affectant la ressource à l’application, en entraînant l’application et en la publiant.
 services: cognitive-services
 author: diberry
@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: db2b543fa8e5429cc8d50d7789b03239173f563d
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 5c310c1943eaf23423be873c6172e27c621fe109
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65154532"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564071"
 ---
 # <a name="quickstart-deploy-an-app-in-the-luis-portal"></a>Démarrage rapide : Déployer une application dans le portail LUIS
 
@@ -41,10 +41,10 @@ Vous créez la ressource de point de terminaison de prédiction dans le portail 
    |Paramètre|Valeur|Objectif|
    |--|--|--|
    |Nom|`my-cognitive-service-resource`|Nom de la ressource Azure. Vous avez besoin de ce nom quand vous affectez la ressource à l’application dans le portail LUIS.|
-   |Abonnement|Votre abonnement|Sélectionnez un des abonnements associés à votre compte.|
-   |Lieu|**USA Ouest**|Région Azure pour cette ressource.|
+   |Subscription|Votre abonnement|Sélectionnez un des abonnements associés à votre compte.|
+   |Location|**USA Ouest**|Région Azure pour cette ressource.|
    |Niveau tarifaire|**S0**|Niveau tarifaire par défaut pour cette ressource.|
-   |Groupe de ressources|`my-cognitive-service-resource-group`|Créez un groupe de ressources pour toutes vos ressources Cognitive Services. Quand vous en avez terminé avec les ressources, vous pouvez supprimer le groupe de ressources pour nettoyer votre abonnement. |
+   |Resource group|`my-cognitive-service-resource-group`|Créez un groupe de ressources pour toutes vos ressources Cognitive Services. Quand vous en avez terminé avec les ressources, vous pouvez supprimer le groupe de ressources pour nettoyer votre abonnement. |
    | | | |
 
    ![Choix d’API Azure](./media/get-started-portal-deploy-app/create-cognitive-services-resource.png)

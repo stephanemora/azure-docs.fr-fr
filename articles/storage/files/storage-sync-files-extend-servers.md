@@ -1,19 +1,18 @@
 ---
 title: 'Tutoriel : Étendre les serveurs de fichiers Windows avec Azure File Sync | Microsoft Docs'
 description: Découvrez la procédure complète pour étendre les serveurs de fichiers Windows avec Azure File Sync.
-services: storage
 author: roygara
 ms.service: storage
 ms.topic: tutorial
 ms.date: 10/23/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: df3850a839ac789957a9adffb7122a0b58987781
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: f71a27ea4da6bce5832287e948e0731672280196
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64705072"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68699484"
 ---
 # <a name="tutorial-extend-windows-file-servers-with-azure-file-sync"></a>Didacticiel : Étendre les serveurs de fichiers Windows avec Azure File Sync
 
@@ -100,7 +99,7 @@ Après avoir déployé un compte de stockage Azure, vous créez un partage de fi
    1. Sous l’onglet **Disques**, sous **Options du disque**, laissez les valeurs par défaut.
    1. Sous **DISQUES DE DONNÉES**, sélectionnez **Créer et attacher un disque**.
 
-   1. Utilisez les valeurs par défaut pour tous les paramètres, à l’exception du paramètre **Taille (Gio)**, que vous pouvez changer à **1 Go** dans ce tutoriel.
+   1. Utilisez les valeurs par défaut pour tous les paramètres, à l’exception du paramètre **Taille (Gio)** , que vous pouvez changer à **1 Go** dans ce tutoriel.
 
       ![Détails du disque de données](./media/storage-sync-files-extend-servers/vm-create-new-disk-details.png)
 
@@ -223,7 +222,7 @@ Pour déployer Azure File Sync, vous commencez par créer une ressource **Servic
    | **Nom** | Nom unique (par abonnement) du service de synchronisation de stockage.<br><br>Utilisez le nom _afssyncservice02_ dans ce tutoriel. |
    | **Abonnement** | L’abonnement Azure que vous utilisez pour ce tutoriel. |
    | **Groupe de ressources** | groupe de ressources qui contient le service de synchronisation de stockage.<br><br>Utilisez le groupe _afsresgroup101918_ dans ce tutoriel. |
-   | **Lieu** | USA Est |
+   | **Lieu** | East US |
 
 1. Quand vous avez terminé, sélectionnez **Créer** pour déployer le **service de synchronisation de stockage**.
 1. Sélectionnez l’onglet **Notifications** > **Accéder à la ressource**.

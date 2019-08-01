@@ -8,14 +8,14 @@ manager: assafi
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 05/23/2019
+ms.date: 07/30/2019
 ms.author: aahi
-ms.openlocfilehash: 44def29292bc882fdaa08ff76667742756f178b8
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.openlocfilehash: d3644022e1877369368953b9f147c64aaae2d459
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66299448"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68697644"
 ---
 # <a name="quickstart-call-the-text-analytics-service-using-the-go-sdk"></a>Démarrage rapide : Appeler le service Analyse de texte à l’aide du SDK Go 
 <a name="HOLTop"></a>
@@ -27,8 +27,6 @@ Utilisez ce guide de démarrage rapide pour commencer l’analyse du langage ave
 * [SDK Analyse de texte pour Go](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v2.1/textanalytics)
 
 [!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
-
-Vous devez également avoir le [point de terminaison et la clé d’accès](../How-tos/text-analytics-how-to-access-key.md) générée pendant le processus d’inscription.
 
 ## <a name="set-up-a-new-project"></a>Configurer un nouveau projet
 
@@ -132,7 +130,7 @@ for _,error := range *batchResult.Errors {
 
 Dans la fonction principale de votre projet, appelez `SentimentAnalysis()`.
 
-### <a name="output"></a>Sortie
+### <a name="output"></a>Output
 
 ```console
 Document ID: 1 , Sentiment Score: 0.87
@@ -192,7 +190,7 @@ for _,error := range *result.Errors {
 
 Dans la fonction principale de votre projet, appelez `LanguageDetection()`.
 
-### <a name="output"></a>Sortie
+### <a name="output"></a>Output
 
 ```console
 Document ID: 0 Detected Languages with Score: English 1.000000,
@@ -202,7 +200,7 @@ Document ID: 2 Detected Languages with Score: Chinese_Simplified 1.000000,
 
 ## <a name="entity-recognition"></a>Reconnaissance d’entité
 
-Créez une fonction appelée `ExtractEntities()` qui sélectionne le client créé précédemment. Créez la liste des objets `MultiLanguageInput`, contenant les documents à analyser. Chaque objet contient un `id`, `language` et un attribut `text`. L’attribut `text` stocke le texte à analyser, `language` correspond au langage du document et `id` peut être n’importe quelle valeur. 
+Créez une fonction appelée `ExtractEntities()` qui sélectionne le client créé précédemment. Créez la liste des objets `MultiLanguageInput` contenant les documents à analyser. Chaque objet contient un `id`, `language` et un attribut `text`. L’attribut `text` stocke le texte à analyser, `language` correspond au langage du document et `id` peut être n’importe quelle valeur. 
 
 ```golang
 func ExtractKeyPhrases(textAnalyticsclient textanalytics.BaseClient) {
@@ -256,7 +254,7 @@ Dans la même fonction, appelez `call textAnalyticsclient.Entities()` et affiche
 
 Dans la fonction principale de votre projet, appelez `ExtractEntities()`.
 
-### <a name="output"></a>Sortie
+### <a name="output"></a>Output
 
 ```console
 Document ID: 0
@@ -349,7 +347,7 @@ Dans la même fonction, appelez textAnalyticsclient.KeyPhrases() et obtenez le r
 
 Dans la fonction principale de votre projet, appelez `ExtractKeyPhrases()`.
 
-### <a name="output"></a>Sortie
+### <a name="output"></a>Output
 
 ```console
 Document ID: 0
