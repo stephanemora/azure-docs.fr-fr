@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/28/2019
 ms.author: rkarlin
-ms.openlocfilehash: 882d4e0592b74e8af30ff5bf110a41e403c3bf7d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4274b3684a2e9e79385a561b1cad426b4ffd954e
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60906472"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68609948"
 ---
 # <a name="manage-endpoint-protection-issues-with-azure-security-center"></a>Gérer les problèmes de protection du point de terminaison avec Azure Security Center
 Azure Security Center surveille l’état de protection des logiciels anti-programme malveillant et l’indique dans le panneau Endpoint protection issues (Problèmes de protection du point de terminaison). Security Center met en évidence les problèmes, tels que les menaces détectées et une protection insuffisante, qui peuvent rendre vos machines virtuelles et ordinateurs vulnérables aux menaces des logiciels anti-programme malveillant. En utilisant les informations dans **Endpoint protection issues** (Problèmes de protection du point de terminaison), vous pouvez déterminer un plan pour résoudre les problèmes identifiés.
@@ -100,7 +100,7 @@ Un autre résultat de recherche s’ouvre avec les informations filtrées unique
 ## <a name="next-steps"></a>Étapes suivantes
 Cet article vous a montré comment implémenter la recommandation de Security Center « Installer Endpoint Protection ». Pour en savoir plus sur l’activation de Microsoft Antimalware dans Azure, consultez le document suivant :
 
-* [Microsoft Antimalware pour Azure Cloud Services et les machines virtuelles](../security/azure-security-antimalware.md) : découvrez comment déployer Microsoft Antimalware.
+* [Microsoft Antimalware pour Azure Cloud Services et les machines virtuelles](../security/fundamentals/antimalware.md) : découvrez comment déployer Microsoft Antimalware.
 
 Pour plus d’informations sur Security Center, consultez les documents suivants :
 

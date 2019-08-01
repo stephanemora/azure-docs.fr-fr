@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlr
-manager: craigg
 ms.date: 04/16/2019
-ms.openlocfilehash: 886f06e8640891ac09d1e4624335a7bfebcd3def
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b8c05ab05630e92e64a4885d5e6cdc6f5471dff2
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60340789"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568061"
 ---
 # <a name="how-to-use-a-managed-instance-in-azure-sql-database"></a>Utiliser une instance managée dans Azure SQL Database
 

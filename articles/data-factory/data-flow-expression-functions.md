@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/15/2019
-ms.openlocfilehash: 12a97e9f355ca1c71e926433e5eafd8b960a87da
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 0850fb5995902ce82132e813ecb7d4126aff03af
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67203218"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68516737"
 ---
 # <a name="data-transformation-expressions-in-mapping-data-flow"></a>Expressions de transformation de données dans le flux de données de mappage 
 
@@ -699,12 +699,12 @@ Obtient la somme agrégée de valeurs distinctes appartenant à une colonne num�
 <code><b>sumDistinctIf(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : number) => number</b></code><br/><br/>
 Selon certains critères, obtient la somme agrégée d’une colonne numérique. La condition peut être basée sur n’importe quelle colonne * ``sumDistinctIf(state == 'CA' && commission < 10000, sales) -> value``
 * ``sumDistinctIf(true, sales) -> SUM(sales)``
-*********************************
+---
 ### <code>sumIf</code>
 <code><b>sumIf(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : number) => number</b></code><br/><br/>
 Selon certains critères, obtient la somme agrégée d’une colonne numérique. La condition peut être basée sur n’importe quelle colonne * ``sumIf(state == 'CA' && commission < 10000, sales) -> value``
 * ``sumIf(true, sales) -> SUM(sales)``
-*********************************
+---
 ### <code>tan</code>
 <code><b>tan(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
 Calcule une valeur de tangente * ``tan(0) -> 0.0``

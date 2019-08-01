@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 07/05/2019
 ms.author: yushwang
-ms.openlocfilehash: 8301594f63efaa5c6484a4dfd640aafa96cf15a0
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 343bbf5c84ce97feb7b7d170523845f5a2f7c10d
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67666258"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68668434"
 ---
 # <a name="about-vpn-devices-and-ipsecike-parameters-for-site-to-site-vpn-gateway-connections"></a>À propos des périphériques VPN et des paramètres IPsec/IKE pour les connexions de passerelle VPN site à site
 
@@ -37,7 +37,7 @@ Pour configurer plus facilement votre périphérique VPN, reportez-vous aux lien
 
 |**Fournisseur**          |**Famille de périphériques**     |**Version de système d’exploitation minimale** |**Instructions de configuration PolicyBased** |**Instructions de configuration RouteBased** |
 | ---                | ---                  | ---                   | ---            | ---           |
-| A10 Networks, Inc. |Thunder CFW           |ACOS 4.1.1             |Non compatible  |[Guide de configuration](https://www.a10networks.com/resources/deployment-guides/a10-thunder-cfw-ipsec-vpn-interoperability-azure-vpn-gateways)|
+| A10 Networks, Inc. |Thunder CFW           |ACOS 4.1.1             |Non compatible  |[Guide de configuration](https://www.a10networks.com/wp-content/uploads/A10-DG-16161-EN.pdf)|
 | Allied Telesis     |Routeurs VPN série AR |Série AR 5.4.7+               |Bientôt disponible     |[Guide de configuration](https://www.alliedtelesis.com/documents/how-to/configure/site-to-site-vpn-between-azure-and-ar-series-router)|
 | Barracuda Networks, Inc. |Barracuda NextGen Firewall série F |PolicyBased : 5.4.3<br>RouteBased : 6.2.0 |[Guide de configuration](https://techlib.barracuda.com/NGF/AzurePolicyBasedVPNGW) |[Guide de configuration](https://techlib.barracuda.com/NGF/AzureRouteBasedVPNGW) |
 | Barracuda Networks, Inc. |Barracuda NextGen Firewall série X |Pare-feu Barracuda 6.5 |[Guide de configuration](https://techlib.barracuda.com/BFW/ConfigAzureVPNGateway) |Non compatible |
@@ -49,7 +49,7 @@ Pour configurer plus facilement votre périphérique VPN, reportez-vous aux lien
 | Cisco |Meraki |N/A |Non compatible |Non compatible |
 | Citrix |NetScaler MPX, SDX, VPX |10.1 et versions ultérieures |[Guide de configuration](https://docs.citrix.com/en-us/netscaler/11-1/system/cloudbridge-connector-introduction/cloudbridge-connector-azure.html) |Non compatible |
 | F5 |Série BIG-IP |12.0 |[Guide de configuration](https://devcentral.f5.com/articles/connecting-to-windows-azure-with-the-big-ip) |[Guide de configuration](https://devcentral.f5.com/articles/big-ip-to-azure-dynamic-ipsec-tunneling) |
-| Fortinet |FortiGate |FortiOS 5.6 |  |[Guide de configuration](https://cookbook.fortinet.com/ipsec-vpn-microsoft-azure-56/) |
+| Fortinet |FortiGate |FortiOS 5.6 |  |[Guide de configuration](https://docs.fortinet.com/document/fortigate/6.2.0/azure-cookbook/030680/connecting-a-local-fortigate-to-an-azure-fortigate-via-site-to-site-vpn) |
 | Internet Initiative Japan (IIJ) |Série SEIL |SEIL/X 4.60<br>SEIL/B1 4.60<br>SEIL/x86 3.20 |[Guide de configuration](https://www.iij.ad.jp/biz/seil/ConfigAzureSEILVPN.pdf) |Non compatible |
 | Juniper |SRX |PolicyBased : JunOS 10.2<br>Routebased : JunOS 11.4 |Pris en charge |[Script de configuration](vpn-gateway-download-vpndevicescript.md) |
 | Juniper |Série J |PolicyBased : JunOS 10.4r9<br>RouteBased : JunOS 11.4 |Pris en charge |[Script de configuration](vpn-gateway-download-vpndevicescript.md) |

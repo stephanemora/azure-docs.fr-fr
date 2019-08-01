@@ -1,18 +1,19 @@
 ---
 title: Configurer les rapports pour la Sauvegarde Azure
 description: Configurez les rapports Power BI pour la Sauvegarde Azure à l’aide d’un coffre Recovery Services.
-author: adigan
-manager: shivamg
+ms.reviewer: adigan
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 07/09/2019
-ms.author: adigan
-ms.openlocfilehash: ae772446a4955f9f9def830d5c770f7d826b7e48
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: 169ce73ead52d6a275f13f084c681e14c89ab606
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68466612"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68689359"
 ---
 # <a name="configure-azure-backup-reports"></a>Configurer les rapports de la Sauvegarde Azure
 Cet article explique les étapes à suivre pour configurer les rapports pour la Sauvegarde Azure à l’aide d’un coffre Recovery Services. Il montre également comment accéder aux rapports à l’aide de Power BI. Une fois que vous avez terminé ces étapes, vous pouvez accéder directement à Power BI pour afficher, personnaliser et créer des rapports.

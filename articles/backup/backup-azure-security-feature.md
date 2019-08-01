@@ -1,18 +1,19 @@
 ---
 title: Fonctionnalités de sécurité pour la protection des sauvegardes hybrides ayant recours à la Sauvegarde Azure
 description: Découvrez comment utiliser les fonctionnalités de sécurité dans la Sauvegarde Azure pour renforcer la sécurité des sauvegardes
-author: utraghuv
-manager: vijayts
+ms.reviewer: utraghuv
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 06/08/2017
-ms.author: utraghuv
-ms.openlocfilehash: 1e643e74f35b381dfb329453d81615bc69785ed7
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: 2c1890089bcb713d8ef80bca25b123b425d96607
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68465417"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68688675"
 ---
 # <a name="security-features-to-help-protect-hybrid-backups-that-use-azure-backup"></a>Fonctionnalités de sécurité pour la protection des sauvegardes hybrides ayant recours à la Sauvegarde Azure
 Les préoccupations en matière de risques de sécurité, comme les logiciels malveillants, le ransomware et les intrusions, sont de plus en plus nombreuses. Ces problèmes de sécurité peuvent coûter cher, à la fois en termes d’argent et de données. Pour vous protéger contre ces attaques, la Sauvegarde Azure fournit désormais des fonctionnalités de sécurité visant à protéger les sauvegardes hybrides. Cet article explique comment activer et utiliser ces fonctionnalités par le biais d’un agent Azure Recovery Services et du serveur de sauvegarde Azure. Voici quelques fonctionnalités :

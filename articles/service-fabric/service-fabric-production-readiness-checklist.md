@@ -3,7 +3,7 @@ title: Liste de contrôle de l’état préparation à la production d’Azure S
 description: Préparez votre application Service Fabric et votre cluster de production en suivant les meilleures pratiques.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chakdan
 editor: ''
 ms.assetid: ''
@@ -13,17 +13,17 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 6/05/2019
-ms.author: aljo
-ms.openlocfilehash: a75b02b8173507a28204a3ec2030ce7ed9838495
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: atsenthi
+ms.openlocfilehash: 9e86f7306ee70bee2e084b967867e2a9be5b66e1
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66729862"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68599357"
 ---
 # <a name="production-readiness-checklist"></a>Liste de vérification de disponibilité de la production
 
-Votre application et le cluster sont prêts à accepter le trafic de production ? Le fait que vous exécutiez et testiez votre application et votre cluster ne signifie pas nécessairement qu’ils sont prêts à passer en production. Continuez à exécuter votre application et votre cluster en douceur tout en passant en revue la liste de contrôle suivante. Nous recommandons vivement de vérifier tous ces points. Bien sûr, vous pouvez choisir d’utiliser d’autres solutions pour une ligne (par exemple, vos propres infrastructures de diagnostic).
+Votre application et le cluster sont prêts à accepter le trafic de production ? Le fait que vous exécutiez et testiez votre application et votre cluster ne signifie pas nécessairement qu’il sont prêts à passer en production. Continuez à exécuter votre application et votre cluster en douceur tout en passant en revue la liste de contrôle suivante. Nous recommandons vivement de vérifier tous ces points. Bien sûr, vous pouvez choisir d’utiliser d’autres solutions pour une ligne (par exemple, vos propres infrastructures de diagnostic).
 
 
 ## <a name="prerequisites-for-production"></a>Conditions préalables à la production

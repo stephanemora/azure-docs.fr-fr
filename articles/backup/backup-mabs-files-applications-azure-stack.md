@@ -1,18 +1,19 @@
 ---
 title: Sauvegarder des fichiers dans des machines virtuelles Azure Stack
 description: Utilisez Sauvegarde Azure pour sauvegarder et restaurer des fichiers et applications Azure Stack dans votre environnement Azure Stack.
-author: adigan
-manager: shivamg
+ms.reviewer: adigan
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 6/5/2018
-ms.author: adigan
-ms.openlocfilehash: 36e7fceb63e6013ca09e8c2e2db18d6795f61273
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: 7214cf4c16cc4ee5e76d479d153395085a7e3a6e
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68465094"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68688943"
 ---
 # <a name="back-up-files-on-azure-stack"></a>Sauvegarder des fichiers sur Azure Stack
 Vous pouvez utiliser Sauvegarde Azure pour protéger (ou sauvegarder) des fichiers et applications sur Azure Stack. Pour sauvegarder des fichiers et applications, installez un serveur Sauvegarde Microsoft Azure en tant que machine virtuelle s’exécutant sur Azure Stack. Vous pouvez protéger les fichiers sur n’importe quel serveur Azure Stack du même réseau virtuel. Après avoir installé un serveur de sauvegarde Azure, ajoutez des disques Azure pour augmenter le stockage local disponible pour les données de sauvegarde à court terme. Un serveur de sauvegarde Azure utilise un stockage Azure pour la rétention à long terme.

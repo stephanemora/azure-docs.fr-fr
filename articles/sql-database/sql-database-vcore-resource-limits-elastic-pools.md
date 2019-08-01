@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 06/26/2019
-ms.openlocfilehash: 4e63e1e477ce82221e5121815b609326cc2c1112
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: b84e317745b7bd20f4862bd04584e42254a660d1
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447183"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68566191"
 ---
 # <a name="resource-limits-for-elastic-pools-using-the-vcore-based-purchasing-model-limits"></a>Limites de ressources pour les pools élastiques suivant les limites du modèle d’achat vCore
 
@@ -45,7 +44,7 @@ Vous pouvez définir le niveau de service, la taille de calcul et la quantité d
 |Taille de calcul|GP_Gen4_1|GP_Gen4_2|GP_Gen4_3|GP_Gen4_4|GP_Gen4_5|GP_Gen4_6
 |:--- | --: |--: |--: |--: |--: |--: |
 |Génération H/W|4|4|4|4|4|4|
-|vCores|1|2|3|4|5\.|6\.|
+|vCores|1|2|3|4|5\.|6|
 |Mémoire (Go)|7|14|21|28|35|42|
 |Nombre maximal de bases de données par pool|100|200|500|500|500|500|
 |Prise en charge de ColumnStore|OUI|OUI|OUI|OUI|OUI|OUI|
@@ -101,7 +100,7 @@ Vous pouvez définir le niveau de service, la taille de calcul et la quantité d
 |Taille de calcul|GP_Gen5_2|GP_Gen5_4|GP_Gen5_6|GP_Gen5_8|GP_Gen5_10|GP_Gen5_12|GP_Gen5_14|
 |:--- | --: |--: |--: |--: |---: | --: |--: |
 |Génération H/W|5\.|5\.|5\.|5\.|5\.|5\.|5\.|
-|vCores|2|4|6\.|8|10|12|14|
+|vCores|2|4|6|8|10|12|14|
 |Mémoire (Go)|10.2|20,4|30,6|40,8|51|61,2|71,4|
 |Nombre maximal de bases de données par pool|100|200|500|500|500|500|500|
 |Prise en charge de ColumnStore|OUI|OUI|OUI|OUI|OUI|OUI|OUI|
@@ -161,11 +160,11 @@ Vous pouvez définir le niveau de service, la taille de calcul et la quantité d
 |Taille de calcul|BC_Gen4_1|BC_Gen4_2|BC_Gen4_3|BC_Gen4_4|BC_Gen4_5|BC_Gen4_6|
 |:--- | --: |--: |--: |--: |--: |--: |
 |Génération H/W|4|4|4|4|4|4|
-|vCores|1|2|3|4|5\.|6\.|
+|vCores|1|2|3|4|5\.|6|
 |Mémoire (Go)|7|14|21|28|35|42|
 |Nombre maximal de bases de données par pool|Seules les bases de données uniques sont prises en charge pour cette taille de calcul|50|100|100|100|100|
 |Prise en charge de ColumnStore|OUI|OUI|OUI|OUI|OUI|OUI|
-|Stockage In-Memory OLTP (Go)|1|2|3|4|5\.|6\.|
+|Stockage In-Memory OLTP (Go)|1|2|3|4|5\.|6|
 |Type de stockage|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|
 |Taille maximale des données (Go)|650|650|650|650|650|650|
 |Taille maximale du journal (Go)|195|195|195|195|195|195|
@@ -217,7 +216,7 @@ Vous pouvez définir le niveau de service, la taille de calcul et la quantité d
 |Taille de calcul|BC_Gen5_2|BC_Gen5_4|BC_Gen5_6|BC_Gen5_8|BC_Gen5_10|BC_Gen5_12|BC_Gen5_14|
 |:--- | --: |--: |--: |--: |---: | --: |--: |
 |Génération H/W|5\.|5\.|5\.|5\.|5\.|5\.|5\.|
-|vCores|2|4|6\.|8|10|12|14|
+|vCores|2|4|6|8|10|12|14|
 |Mémoire (Go)|10.2|20,4|30,6|40,8|51|61,2|71,4|
 |Nombre maximal de bases de données par pool|Seules les bases de données uniques sont prises en charge pour cette taille de calcul|50|100|100|100|100|100|
 |Prise en charge de ColumnStore|OUI|OUI|OUI|OUI|OUI|OUI|OUI|

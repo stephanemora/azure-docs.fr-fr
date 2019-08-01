@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4474283b9a233e39497cd05f0f04ea0984f02401
-ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
+ms.openlocfilehash: 213540a5b6c77146155365133f2cca08eea25351
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67560952"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68608162"
 ---
 # <a name="baseline-policy-require-mfa-for-admins-preview"></a>Stratégie de référence : Exiger l’authentification multifacteur pour les administrateurs (préversion)
 
@@ -52,7 +52,7 @@ La stratégie **Stratégie de référence : Exiger l’authentification multifac
 
 Pour activer cette stratégie et protéger vos administrateurs, procédez comme suit :
 
-1. Connectez-vous au  **portail Microsoft Azure**  en tant qu’administrateur général, administrateur de sécurité ou administrateur de l’accès conditionnel.
+1. Connectez-vous au  **portail Azure** en tant qu’administrateur général, administrateur de sécurité ou administrateur de l’accès conditionnel.
 1. Accédez à **Azure Active Directory** > **Accès conditionnel**.
 1. Dans la liste des stratégies, sélectionnez **Stratégie de référence : Exiger l’authentification multifacteur pour les administrateurs (préversion)** .
 1. Définissez **Activer la stratégie** sur **Utiliser la stratégie immédiatement**.
@@ -65,6 +65,6 @@ Pour activer cette stratégie et protéger vos administrateurs, procédez comme 
 
 Pour plus d'informations, consultez les pages suivantes :
 
-* [Stratégies de protection de référence de l’accès conditionnel](concept-baseline-protection.md)
-* [Cinq étapes pour sécuriser votre infrastructure d’identité](../../security/azure-ad-secure-steps.md)
-* [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](overview.md)
+* [Stratégies de protection de base de référence pour l’accès conditionnel](concept-baseline-protection.md)
+* [Cinq étapes pour sécuriser votre infrastructure d’identité](../../security/fundamentals/steps-secure-identity.md)
+* [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](overview.md)

@@ -11,19 +11,19 @@ ms.date: 01/15/2019
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 0e7405e48307091ff5df12096d49a00c011e2de3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d0fd26da81c4f59f16b5f0364cf165ec36a6ea39
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66480434"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68516327"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Environnements de calcul pris en charge par Azure Data Factory
 Cet article décrit les différents environnements de calcul que vous pouvez utiliser pour traiter ou transformer des données. Il fournit également des détails sur les différentes configurations (à la demande ou de type « apporter votre propre configuration ») prises en charge par Data Factory lors de la configuration des services liés qui relient ces environnements de calcul à Azure Data Factory.
 
 Le tableau suivant fournit une liste d’environnements de calcul pris en charge par Data Factory et les activités qui peuvent s’exécuter sur ces derniers. 
 
-| Environnement de calcul                                          | activités                                                   |
+| Environnement de calcul                                          | activities                                                   |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | [Cluster HDInsight à la demande](#azure-hdinsight-on-demand-linked-service) ou [votre propre cluster HDInsight](#azure-hdinsight-linked-service) | [Hive](transform-data-using-hadoop-hive.md), [Pig](transform-data-using-hadoop-pig.md), [Spark](transform-data-using-spark.md), [MapReduce](transform-data-using-hadoop-map-reduce.md), [Streaming Hadoop](transform-data-using-hadoop-streaming.md) |
 | [Azure Batch](#azure-batch-linked-service)                   | [Personnalisée](transform-data-using-dotnet-custom-activity.md)     |
@@ -288,10 +288,10 @@ Vous pouvez créer un service lié Azure HDInsight pour inscrire votre propre cl
 | ----------------- | ------------------------------------------------------------ | -------- |
 | Type              | La propriété de type doit être définie sur **HDInsight**.            | OUI      |
 | clusterUri        | L'URI du cluster HDInsight.                            | OUI      |
-| username          | Spécifiez le nom de l'utilisateur à utiliser pour se connecter à un cluster HDInsight existant. | OUI      |
+| userName          | Spécifiez le nom de l'utilisateur à utiliser pour se connecter à un cluster HDInsight existant. | OUI      |
 | password          | Spécifiez le mot de passe du compte d'utilisateur.                       | OUI      |
 | linkedServiceName | Nom du service lié de stockage Azure faisant référence au stockage Blob Azure utilisé par le cluster HDInsight. <p>Actuellement, vous ne pouvez pas spécifier un service lié Azure Data Lake Store pour cette propriété. Vous pouvez accéder aux données d’Azure Data Lake Store à partir de scripts Hive/Pig si le cluster HDInsight a accès à Data Lake Store. </p> | OUI      |
-| isEspEnabled      | Spécifiez « *true* » si le cluster HDInsight est activé avec le [Pack Sécurité Entreprise](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-introduction). La valeur par défaut est « *false* ». | Non       |
+| isEspEnabled      | Spécifiez « *true* » si le cluster HDInsight est activé avec le [Pack Sécurité Entreprise](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-architecture). La valeur par défaut est « *false* ». | Non       |
 | connectVia        | Runtime d’intégration à utiliser pour répartir les activités à ce service lié. Vous pouvez utiliser un runtime d’intégration Azure ou un runtime d’intégration auto-hébergé. À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. <br />Pour un cluster HDInsight activé avec le Pack Sécurité Entreprise, utilisez un runtime d'intégration auto-hébergé qui dispose d'une visibilité directe sur le cluster ou qui doit être déployé dans le même réseau virtuel que le cluster HDInsight activé avec le Pack Sécurité Entreprise. | Non       |
 
 > [!IMPORTANT]
@@ -425,11 +425,11 @@ Vous créez un service lié **Analytique Azure Data Lake** pour lier un service 
 
 | Propriété             | Description                              | Obligatoire                                 |
 | -------------------- | ---------------------------------------- | ---------------------------------------- |
-| Type                 | La propriété de type doit être définie sur : **AzureDataLakeAnalytics**. | OUI                                      |
+| type                 | La propriété de type doit être définie sur : **AzureDataLakeAnalytics**. | OUI                                      |
 | accountName          | Nom du compte du service Analytique Azure Data Lake.  | OUI                                      |
 | dataLakeAnalyticsUri | URI du service Analytique Azure Data Lake.           | Non                                       |
 | subscriptionId       | ID d’abonnement Azure                    | Non                                       |
-| nom_groupe_ressources    | Nom du groupe de ressources Azure                | Non                                       |
+| resourceGroupName    | Nom du groupe de ressources Azure                | Non                                       |
 | servicePrincipalId   | Spécifiez l’ID client de l’application.     | OUI                                      |
 | servicePrincipalKey  | Spécifiez la clé de l’application.           | OUI                                      |
 | locataire               | Spécifiez les informations de locataire (nom de domaine ou ID de locataire) dans lesquels se trouve votre application. Vous pouvez le récupérer en pointant la souris dans le coin supérieur droit du portail Azure. | OUI                                      |

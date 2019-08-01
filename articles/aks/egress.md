@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 03/04/2019
 ms.author: mlearned
-ms.openlocfilehash: 094a696a12025dcfd575ce3f035b12b4a04aba10
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 67471d688e64244067a7537bc87c379da4a69c03
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67615569"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68696358"
 ---
 # <a name="use-a-static-public-ip-address-for-egress-traffic-in-azure-kubernetes-service-aks"></a>Utiliser une adresse IP publique statique pour le trafic de sortie dans Azure Kubernetes Service (AKS)
 
@@ -22,7 +22,7 @@ Cet article vous montre comment créer et utiliser une adresse IP publique stati
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-Cet article suppose que vous avez un cluster AKS existant. Si vous avez besoin d’un cluster AKS, consultez le guide de démarrage rapide d’AKS [avec Azure CLI][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal].
+Cet article suppose que vous avez un cluster AKS existant. Si vous avez besoin d’un cluster AKS, consultez le guide de démarrage rapide d’AKS [avec Azure CLI][aks-quickstart-cli]ou avec le [Portail Azure][aks-quickstart-portal].
 
 Azure CLI 2.0.59 (ou une version ultérieure) doit également être installé et configuré. Exécutez  `az --version` pour trouver la version. Si vous devez installer ou mettre votre version à niveau, consultez  [Installation d’Azure CLI][install-azure-cli].
 
@@ -34,7 +34,7 @@ Après la création d’un service Kubernetes de type `LoadBalancer`, les nœuds
 
 ## <a name="create-a-static-public-ip"></a>Créer une adresse IP publique statique
 
-Quand vous créez une adresse IP publique statique pour l’utiliser avec AKS, la ressource d’adresse IP doit être créée dans le groupe de ressources du **nœud**. Obtenez le nom du groupe de ressources avec la commande [az aks show][az-aks-show] et ajoutez le paramètre de requête `--query nodeResourceGroup`. L’exemple suivant obtient les le groupe de ressources du nœud pour le cluster AKS nommé *myAKSCluster* dans le groupe de ressources nommé *myResourceGroup* :
+Obtenez le nom du groupe de ressources avec la commande [az aks show][az-aks-show] et ajoutez le paramètre de requête `--query nodeResourceGroup`. L’exemple suivant obtient les le groupe de ressources du nœud pour le cluster AKS nommé *myAKSCluster* dans le groupe de ressources nommé *myResourceGroup* :
 
 ```azurecli-interactive
 $ az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv

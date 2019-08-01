@@ -1,6 +1,6 @@
 ---
 title: Modération d’image - Content Moderator
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Utilisez la modération de l'image assistée par ordinateur de Content Moderator ainsi que l'outil de révision pour une intervention humaine afin de modérer les images incluant du contenu pour adultes et osé.
 services: cognitive-services
 author: sanjeev3
@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 9f1df23d1f0f24787bb9267064ffd647eda2cb74
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8b3449edb539ab56fcf206a367f9b81e43290733
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60699271"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564910"
 ---
 # <a name="learn-image-moderation-concepts"></a>Familiarisez-vous avec les concepts de modération d'image
 

@@ -3,18 +3,18 @@ title: Ajouter une forme avec Azure Maps | Microsoft Docs
 description: Comment ajouter une forme à une carte Javascript
 author: jingjing-z
 ms.author: jinzh
-ms.date: 10/30/2018
+ms.date: 07/29/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: f61c7a939902ee5d02b2e9ba896c7555968f9d0d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0696eba4f3cca7beedc2efcda0182ab82b3d69d9
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60769513"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68638692"
 ---
 # <a name="add-a-shape-to-a-map"></a>Ajouter une forme à une carte
 
@@ -142,7 +142,7 @@ Azure Maps utilise une version étendue du schéma GeoJSON qui fournit une défi
 }  
 ```
 
-Le SDK web Azure Maps convertit ces fonctionnalités `Pooint` en fonctionnalités `Polygon` en arrière-plan et peut être restitué sur la carte à l’aide de couches de polygones et de lignes, comme indiqué ici.
+Le SDK web Azure Maps convertit ces fonctionnalités `Point` en fonctionnalités `Polygon` en arrière-plan et peut être restitué sur la carte à l’aide de couches de polygones et de lignes, comme indiqué ici.
 
 <iframe height='500' scrolling='no' title='Ajouter un cercle à une carte' src='//codepen.io/azuremaps/embed/PRmzJX/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consultez le stylet <a href='https://codepen.io/azuremaps/pen/PRmzJX/'>Add a circle to a map</a> (Ajouter un cercle à une carte) d’Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) sur <a href='https://codepen.io'>CodePen</a>.
 </iframe>

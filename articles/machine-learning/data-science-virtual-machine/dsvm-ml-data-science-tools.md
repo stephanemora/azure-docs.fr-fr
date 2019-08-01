@@ -4,7 +4,7 @@ description: Découvrez les outils et les frameworks de Machine Learning préins
 keywords: outils de science des données, machine virtuelle science des données, outils pour la science des données, science des données linux
 services: machine-learning
 documentationcenter: ''
-author: gopitk
+author: vijetajo
 manager: cgronlun
 ms.custom: seodec18
 ms.assetid: ''
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
-ms.author: gokuma
-ms.openlocfilehash: e8876306e4ffbd0fa9a8aafc6d5d757fd3c9c614
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: vijetaj
+ms.openlocfilehash: 3b05d076a61593e8c34ce642f2fe2fd137e07109
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60502087"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68565251"
 ---
 # <a name="machine-learning-and-data-science-tools"></a>Outils de science des données et d’apprentissage automatique
 La machine virtuelle DSVM (Data Science Virtual Machine) offre un ensemble complet d’outils et de bibliothèques d’apprentissage automatique (ML) disponibles dans des langages courants tels que Python, R et Julia. 

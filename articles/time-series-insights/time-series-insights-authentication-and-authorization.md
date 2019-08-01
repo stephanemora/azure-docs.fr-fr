@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 06/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: 899bcffaf3a54bd541d488f99c35ec6721d751ca
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: bdf0fbfb2b40e932f9e3627c3bc0356eb0afb472
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67544003"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68677926"
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Authentification et autorisation pour l’API Insights Azure Time Series
 
@@ -107,6 +107,6 @@ Comme indiqué à l'**étape 3**, séparer les informations d'identification de
 
 - Pour des exemples de code de l'API Time Series Insights en préversion, consultez [Interroger des données en préversion à l’aide de données C# ](./time-series-insights-update-query-data-csharp.md).
 
-- Pour obtenir des informations de référence sur l’API, consultez le [document de référence sur l’API de requête](/rest/api/time-series-insights/ga-query-api).
+- Pour obtenir des informations de référence sur l’API, consultez le [document de référence sur l’API de requête](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api).
 
 - Découvrez comment [créer un principal de service](../active-directory/develop/howto-create-service-principal-portal.md).

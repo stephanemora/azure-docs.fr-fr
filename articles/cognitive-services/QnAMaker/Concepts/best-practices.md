@@ -1,6 +1,6 @@
 ---
 title: Bonnes pratiques - QnA Maker
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Suivez ces bonnes pratiques pour améliorer votre base de connaissances et fournir des résultats plus pertinents aux utilisateurs finaux de votre application/bot conversationnel.
 services: cognitive-services
 author: diberry
@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 06/25/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: dd4f85822a5e6615e7ea6e31b4231c04c9d4e88c
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: bbd6c55337eb30c883ecbd542abbdfc0f842e3f9
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67542853"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563112"
 ---
 # <a name="best-practices-of-a-qna-maker-knowledge-base"></a>Bonnes pratiques pour une base de connaissances QnA Maker
 

@@ -2,22 +2,22 @@
 title: Démarrage rapide pour accéder à un nouveau locataire et pour en créer un - Azure Active Directory | Microsoft Docs
 description: Instructions pour rechercher Azure Active Directory et créer un locataire pour votre organisation.
 services: active-directory
-author: eross-msft
+author: msaburnley
 manager: daveba
 ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: quickstart
 ms.date: 09/10/2018
-ms.author: lizross
+ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f970e9d43bc6dd67fe55ca9cdcfcae716c9f166a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4bc3e3bb178efbbc8f4cee6d81417ce70bd7a662
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67110616"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562061"
 ---
 # <a name="quickstart-create-a-new-tenant-in-azure-active-directory"></a>Démarrage rapide : Créer un locataire dans Azure Active Directory
 Vous pouvez effectuer toutes vos tâches d’administration à l’aide du portail Azure Active Directory (Azure AD), notamment la création d’un locataire pour votre organisation. 

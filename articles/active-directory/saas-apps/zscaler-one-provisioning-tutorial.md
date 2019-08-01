@@ -15,21 +15,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 3d6210fa215792fc7ff049eb597df5905926c193
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: de9dce04b6f27b6ae6f5c5caeed5728370359558
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67670893"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68515381"
 ---
 # <a name="tutorial-configure-zscaler-one-for-automatic-user-provisioning"></a>Didacticiel : Configurer Zscaler One pour l'approvisionnement automatique d’utilisateurs
 
 Ce tutoriel présente les étapes à effectuer dans Zscaler One et Azure Active Directory (Azure AD) afin de configurer Azure AD pour provisionner et déprovisionner automatiquement des utilisateurs et des groupes sur Zscaler One.
 
 > [!NOTE]
-> Ce tutoriel décrit un connecteur reposant sur le service d'approvisionnement d’utilisateurs Azure AD. Pour plus d’informations sur l’objet et le fonctionnement de ce service et pour accéder au forum aux questions, consultez [Automatisation de l’approvisionnement et du déprovisionnement des utilisateurs pour les applications SaaS avec Azure Active Directory](../active-directory-saas-app-provisioning.md).
->
-> Ce connecteur est actuellement disponible en préversion. Pour plus d’informations sur les conditions d’utilisation Microsoft Azure générales relatives aux fonctionnalités d'évaluation, consultez [Conditions d’utilisation supplémentaires des préversions Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Ce tutoriel décrit un connecteur reposant sur le service d'approvisionnement d’utilisateurs Azure AD. Pour plus d’informations sur l’objet et le fonctionnement de ce service et pour accéder au forum aux questions, consultez [Automatisation de l’approvisionnement et de l’annulation de l’approvisionnement des utilisateurs pour les applications SaaS avec Azure Active Directory](../active-directory-saas-app-provisioning.md).
+
 
 ## <a name="prerequisites"></a>Prérequis
 

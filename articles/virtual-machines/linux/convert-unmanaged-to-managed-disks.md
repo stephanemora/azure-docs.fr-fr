@@ -1,27 +1,18 @@
 ---
 title: Convertir les disques non managés d’une machine virtuelle Linux dans Azure en disques managés - Azure Disques managés | Microsoft Docs
 description: Guide pratique pour convertir les disques non managés d’une machine virtuelle Linux en disques managés à l’aide d’Azure CLI dans le modèle de déploiement Resource Manager
-services: virtual-machines-linux
-documentationcenter: ''
 author: roygara
-manager: twooley
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
-ms.devlang: azurecli
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/15/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: eb6a5ed74073a1a31fc9bb1972266e76c7bc2782
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a0157e75d0c8d2c2493792bcd8d30a856f8072b6
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66418464"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68696069"
 ---
 # <a name="convert-a-linux-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>Convertir les disques non managés d’une machine virtuelle Linux en disques managés
 

@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 904893d4881de6be2c9055fefa9a8267cb045afd
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: b8b2cad95929d6132a4f0ae52597fb1633874ff1
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67849407"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68592115"
 ---
 # <a name="trustframeworkpolicy"></a>TrustFrameworkPolicy
 
@@ -138,7 +138,7 @@ B2C_1A_TrustFrameWorkBase ou B2C_1A_TrustFrameworkExtensionPolicy :
 
 Un parcours utilisateur définit la logique métier des étapes qu’un utilisateur suit. Chaque parcours utilisateur est un ensemble d’étapes d’orchestration qui effectuent une série d’actions, de façon séquentielle, en termes d’authentification et de collecte d’informations.
 
-Le fichier de stratégie **SocialAndLocalAccounts** dans le [pack de démarrage](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-get-started-custom#download-starter-pack-and-modify-policies) contient les parcours utilisateur SignUpOrSignIn, ProfileEdit et PasswordReset. Vous pouvez ajouter des parcours utilisateur pour d’autres scénarios, tels que la modification d’une adresse e-mail ou l’association et la dissociation d’un compte de réseau social.
+Le fichier de stratégie **SocialAndLocalAccounts** dans le [pack de démarrage](active-directory-b2c-get-started-custom.md#custom-policy-starter-pack) contient les parcours utilisateur SignUpOrSignIn, ProfileEdit et PasswordReset. Vous pouvez ajouter des parcours utilisateur pour d’autres scénarios, tels que la modification d’une adresse e-mail ou l’association et la dissociation d’un compte de réseau social.
 
 Les étapes d’orchestration peuvent appeler un [profil technique](technicalprofiles.md). Un profil technique fournit une infrastructure avec un mécanisme intégré pour communiquer avec différents types de parties. Par exemple, un profil technique peut effectuer, entre autres, les actions suivantes :
 

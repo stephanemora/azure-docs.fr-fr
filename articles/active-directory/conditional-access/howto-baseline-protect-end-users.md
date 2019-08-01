@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f2644e0e35139ac470b89f6af1b95cf510f60a0a
-ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
+ms.openlocfilehash: afcd9c9d3191caeabe182f499b5fd80cd8e1d8dd
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67561016"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68608141"
 ---
 # <a name="baseline-policy-end-user-protection-preview"></a>Stratégie de base : Protection de l’utilisateur final (préversion)
 
@@ -56,7 +56,7 @@ L’utilisateur peut désormais se connecter, réinitialiser son mot de passe et
 Les protocoles d’authentification hérités (IMAP, SMTP, POP3, etc.) sont utilisés par les clients de messagerie pour effectuer des demandes d’authentification. Ces protocoles ne prennent pas en charge l’authentification multifacteur.  La plupart des problèmes de compromission de comptes détectés par Microsoft sont causés par des utilisateurs malveillants, qui s’attaquent à des protocoles hérités pour tenter de contourner l’authentification multifacteur. Pour s’assurer que l’authentification multifacteur est bien requise lors de la connexion à un compte et que des utilisateurs malveillants ne peuvent pas la contourner, cette stratégie bloque toutes les demandes d’authentification adressées à des comptes administrateur à partir de protocoles hérités.
 
 > [!WARNING]
-> Avant d’activer cette stratégie, assurez-vous que vos utilisateurs n’utilisent aucun protocole d’authentification hérité. Pour plus d’informations, voir l’article [Comment bloquer l’authentification héritée auprès d’Azure AD avec un accès conditionnel](howto-baseline-protect-legacy-auth.md#identify-legacy-authentication-use).
+> Avant d’activer cette stratégie, assurez-vous que vos utilisateurs n’utilisent aucun protocole d’authentification hérité. Consultez l’article [ Comment bloquer l’authentification héritée sur Azure AD avec l’accès conditionnel](howto-baseline-protect-legacy-auth.md#identify-legacy-authentication-use) pour en savoir plus.
 
 ## <a name="enable-the-baseline-policy"></a>Activer la stratégie de base
 
@@ -74,6 +74,6 @@ Pour activer cette stratégie et protéger vos utilisateurs, procédez comme sui
 
 Pour plus d'informations, consultez les pages suivantes :
 
-* [Stratégies de protection de base de l’accès conditionnel](concept-baseline-protection.md)
-* [Cinq étapes pour sécuriser votre infrastructure d’identité](../../security/azure-ad-secure-steps.md)
-* [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](overview.md)
+* [Stratégies de protection de base de référence pour l’accès conditionnel](concept-baseline-protection.md)
+* [Cinq étapes pour sécuriser votre infrastructure d’identité](../../security/fundamentals/steps-secure-identity.md)
+* [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](overview.md)

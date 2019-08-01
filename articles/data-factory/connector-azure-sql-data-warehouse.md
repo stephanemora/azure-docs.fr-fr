@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/24/2019
 ms.author: jingwang
-ms.openlocfilehash: 24ee419e5c6eb4b8c148c61c232d2ab7ab07c74b
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 2d0c8cfb5e146694304d32eca27836f49d82e887
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67449596"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68618690"
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Copier des données depuis/vers Azure SQL Data Warehouse à l’aide d’Azure Data Factory 
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -58,14 +58,14 @@ Les sections suivantes fournissent des informations détaillées sur les propri�
 
 Les propriétés prises en charge pour le service lié Azure SQL Data Warehouse sont les suivantes :
 
-| Propriété | Description | Obligatoire |
-|:--- |:--- |:--- |
-| Type | La propriété de type doit être définie sur **AzureSqlDW** | OUI |
-| connectionString | Spécifiez les informations requises pour la connexion à l’instance Azure SQL Data Warehouse pour la propriété **connectionString**. <br/>Marquez ce champ comme SecureString pour le stocker de façon sécurisée dans Data Factory. Vous pouvez également stocker un mot de passe/une clé de principal de service dans Azure Key Vault et, en cas d'authentification SQL, extraire la configuration `password` de la chaîne de connexion. Pour plus d'informations, reportez-vous à l'exemple JSON décrit sous le tableau et à l'article [Stocker des informations d'identification dans Azure Key Vault](store-credentials-in-key-vault.md). | OUI |
-| servicePrincipalId | Spécifiez l’ID client de l’application. | Oui, quand vous utilisez l’authentification Azure AD avec le principal de service. |
+| Propriété            | Description                                                  | Obligatoire                                                     |
+| :------------------ | :----------------------------------------------------------- | :----------------------------------------------------------- |
+| Type                | La propriété de type doit être définie sur **AzureSqlDW**             | OUI                                                          |
+| connectionString    | Spécifiez les informations requises pour la connexion à l’instance Azure SQL Data Warehouse pour la propriété **connectionString**. <br/>Marquez ce champ comme SecureString pour le stocker de façon sécurisée dans Data Factory. Vous pouvez également stocker un mot de passe/une clé de principal de service dans Azure Key Vault et, en cas d'authentification SQL, extraire la configuration `password` de la chaîne de connexion. Pour plus d'informations, reportez-vous à l'exemple JSON décrit sous le tableau et à l'article [Stocker des informations d'identification dans Azure Key Vault](store-credentials-in-key-vault.md). | OUI                                                          |
+| servicePrincipalId  | Spécifiez l’ID client de l’application.                         | Oui, quand vous utilisez l’authentification Azure AD avec le principal de service. |
 | servicePrincipalKey | Spécifiez la clé de l’application. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | Oui, quand vous utilisez l’authentification Azure AD avec le principal de service. |
-| locataire | Spécifiez les informations de locataire (nom de domaine ou ID de locataire) dans lesquels se trouve votre application. Vous pouvez le récupérer en pointant la souris dans le coin supérieur droit du Portail Azure. | Oui, quand vous utilisez l’authentification Azure AD avec le principal de service. |
-| connectVia | Le [runtime d’intégration](concepts-integration-runtime.md) à utiliser pour se connecter à la banque de données. Vous pouvez utiliser Azure Integration Runtime ou un runtime d’intégration auto-hébergé (si votre magasin de données se trouve sur un réseau privé). À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. | Non |
+| locataire              | Spécifiez les informations de locataire (nom de domaine ou ID de locataire) dans lesquels se trouve votre application. Vous pouvez le récupérer en pointant la souris dans le coin supérieur droit du Portail Azure. | Oui, quand vous utilisez l’authentification Azure AD avec le principal de service. |
+| connectVia          | Le [runtime d’intégration](concepts-integration-runtime.md) à utiliser pour se connecter à la banque de données. Vous pouvez utiliser Azure Integration Runtime ou un runtime d’intégration auto-hébergé (si votre magasin de données se trouve sur un réseau privé). À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. | Non                                                           |
 
 Pour en savoir plus sur les autres types d’authentification, consultez les sections suivantes sur les prérequis et les exemples JSON, respectivement :
 
@@ -111,13 +111,13 @@ Pour en savoir plus sur les autres types d’authentification, consultez les sec
                 "type": "SecureString",
                 "value": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;User ID=<username>@<servername>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
             },
-            "password": { 
-                "type": "AzureKeyVaultSecret", 
-                "store": { 
-                    "referenceName": "<Azure Key Vault linked service name>", 
-                    "type": "LinkedServiceReference" 
-                }, 
-                "secretName": "<secretName>" 
+            "password": { 
+                "type": "AzureKeyVaultSecret", 
+                "store": { 
+                    "referenceName": "<Azure Key Vault linked service name>", 
+                    "type": "LinkedServiceReference" 
+                }, 
+                "secretName": "<secretName>" 
             }
         },
         "connectVia": {
@@ -231,9 +231,9 @@ Pour obtenir la liste complète des sections et propriétés disponibles pour la
 
 Pour copier des données depuis ou vers Azure SQL Data Warehouse, les propriétés suivantes sont prises en charge :
 
-| Propriété | Description | Obligatoire |
-|:--- |:--- |:--- |
-| Type | La propriété **type** du jeu de données doit être définie sur **AzureSqlDWTable**. | OUI |
+| Propriété  | Description                                                  | Obligatoire                    |
+| :-------- | :----------------------------------------------------------- | :-------------------------- |
+| Type      | La propriété **type** du jeu de données doit être définie sur **AzureSqlDWTable**. | OUI                         |
 | tableName | Nom de la table ou de la vue dans l’instance Azure SQL Data Warehouse à laquelle le service lié fait référence. | Non pour Source, Oui pour Récepteur |
 
 #### <a name="dataset-properties-example"></a>Exemple de propriétés du jeu de données
@@ -264,12 +264,12 @@ Pour obtenir la liste complète des sections et des propriétés disponibles pou
 
 Pour copier des données d’Azure SQL Data Warehouse, affectez la valeur **SqlDWSource** à la propriété **type** dans l’activité de copie. Les propriétés prises en charge dans la section **source** de l’activité de copie sont les suivantes :
 
-| Propriété | Description | Obligatoire |
-|:--- |:--- |:--- |
-| Type | La propriété **type** de la source d’activité de copie doit être définie sur **SqlDWSource**. | OUI |
-| sqlReaderQuery | Utiliser la requête SQL personnalisée pour lire les données. Exemple : `select * from MyTable`. | Non |
-| sqlReaderStoredProcedureName | Nom de la procédure stockée qui lit les données de la table source. La dernière instruction SQL doit être une instruction SELECT dans la procédure stockée. | Non |
-| storedProcedureParameters | Paramètres de la procédure stockée.<br/>Les valeurs autorisées sont des paires de noms ou de valeurs. Les noms et la casse des paramètres doivent correspondre aux noms et à la casse des paramètres de la procédure stockée. | Non |
+| Propriété                     | Description                                                  | Obligatoire |
+| :--------------------------- | :----------------------------------------------------------- | :------- |
+| Type                         | La propriété **type** de la source d’activité de copie doit être définie sur **SqlDWSource**. | OUI      |
+| sqlReaderQuery               | Utiliser la requête SQL personnalisée pour lire les données. Exemple : `select * from MyTable`. | Non       |
+| sqlReaderStoredProcedureName | Nom de la procédure stockée qui lit les données de la table source. La dernière instruction SQL doit être une instruction SELECT dans la procédure stockée. | Non       |
+| storedProcedureParameters    | Paramètres de la procédure stockée.<br/>Les valeurs autorisées sont des paires de noms ou de valeurs. Les noms et la casse des paramètres doivent correspondre aux noms et à la casse des paramètres de la procédure stockée. | Non       |
 
 ### <a name="points-to-note"></a>Points à noter
 
@@ -367,18 +367,18 @@ GO
 
 Pour copier des données vers Azure SQL Data Warehouse, définissez **SqlDWSink** comme type de récepteur dans l’activité de copie. Les propriétés suivantes sont prises en charge dans la section **sink** de l’activité de copie :
 
-| Propriété | Description | Obligatoire |
-|:--- |:--- |:--- |
-| Type | La propriété **type** du récepteur d’activité de copie doit être définie sur **SqlDWSink**. | OUI |
-| allowPolyBase | Indique s’il faut utiliser PolyBase (le cas échéant) au lieu du mécanisme BULKINSERT. <br/><br/> Nous vous recommandons d’utiliser PolyBase pour charger des données dans SQL Data Warehouse. Pour connaître les contraintes et les détails, consultez la section [Utiliser PolyBase pour charger des données dans Azure SQL Data Warehouse](#use-polybase-to-load-data-into-azure-sql-data-warehouse).<br/><br/>Les valeurs autorisées sont **True** et **False** (par défaut).  | Non |
-| polyBaseSettings | Groupe de propriétés pouvant être spécifié lorsque la propriété **allowPolybase** est définie sur **true**. | Non |
-| rejectValue | Spécifie le nombre ou le pourcentage de lignes pouvant être rejetées avant l’échec de la requête.<br/><br/>Découvrez-en plus sur les options de rejet de PolyBase dans la section Arguments de [CREATE EXTERNAL TABLE (Transact-SQL)](https://msdn.microsoft.com/library/dn935021.aspx). <br/><br/>Les valeurs autorisées sont : 0 (par défaut), 1, 2, et ainsi de suite. |Non |
-| rejectType | Indique si l’option **rejectValue** est une valeur littérale ou un pourcentage.<br/><br/>Les valeurs autorisées sont **Value** (par défaut) et **Percentage**. | Non |
+| Propriété          | Description                                                  | Obligatoire                                      |
+| :---------------- | :----------------------------------------------------------- | :-------------------------------------------- |
+| Type              | La propriété **type** du récepteur d’activité de copie doit être définie sur **SqlDWSink**. | OUI                                           |
+| allowPolyBase     | Indique s’il faut utiliser PolyBase (le cas échéant) au lieu du mécanisme BULKINSERT. <br/><br/> Nous vous recommandons d’utiliser PolyBase pour charger des données dans SQL Data Warehouse. Pour connaître les contraintes et les détails, consultez la section [Utiliser PolyBase pour charger des données dans Azure SQL Data Warehouse](#use-polybase-to-load-data-into-azure-sql-data-warehouse).<br/><br/>Les valeurs autorisées sont **True** et **False** (par défaut). | Non                                            |
+| polyBaseSettings  | Groupe de propriétés pouvant être spécifié lorsque la propriété **allowPolybase** est définie sur **true**. | Non                                            |
+| rejectValue       | Spécifie le nombre ou le pourcentage de lignes pouvant être rejetées avant l’échec de la requête.<br/><br/>Découvrez-en plus sur les options de rejet de PolyBase dans la section Arguments de [CREATE EXTERNAL TABLE (Transact-SQL)](https://msdn.microsoft.com/library/dn935021.aspx). <br/><br/>Les valeurs autorisées sont : 0 (par défaut), 1, 2, et ainsi de suite. | Non                                            |
+| rejectType        | Indique si l’option **rejectValue** est une valeur littérale ou un pourcentage.<br/><br/>Les valeurs autorisées sont **Value** (par défaut) et **Percentage**. | Non                                            |
 | rejectSampleValue | Détermine le nombre de lignes à extraire avant que PolyBase recalcule le pourcentage de lignes rejetées.<br/><br/>Les valeurs autorisées sont 1, 2, et ainsi de suite. | Oui, si **rejectType** est **percentage** |
-| useTypeDefault | Spécifie comment gérer les valeurs manquantes dans les fichiers texte délimités lorsque PolyBase extrait des données à partir du fichier texte.<br/><br/>Pour plus d’informations sur cette propriété, consultez la section Arguments dans [CREATE EXTERNAL FILE FORMAT (Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx).<br/><br/>Les valeurs autorisées sont **True** et **False** (par défaut).<br><br>**Consultez les [étapes de résolution des problèmes](#polybase-troubleshooting) relatives à ce paramètre.** | Non |
-| writeBatchSize | Nombre de lignes à insérer dans le tableau SQL **par lot**. S’applique uniquement quand PolyBase n’est pas utilisé.<br/><br/>La valeur autorisée est **integer** (nombre de lignes). Par défaut, Data Factory détermine de façon dynamique la taille de lot appropriée selon la taille de ligne. | Non |
-| writeBatchTimeout | Temps d’attente pour que l’opération d’insertion de lot soit terminée avant d’expirer. S’applique uniquement quand PolyBase n’est pas utilisé.<br/><br/>La valeur autorisée est **timespan**. Exemple : “00:30:00” (30 minutes). | Non |
-| preCopyScript | Spécifiez une requête SQL pour l’activité de copie à exécuter avant l’écriture de données dans Azure SQL Data Warehouse à chaque exécution. Utilisez cette propriété pour nettoyer les données préchargées. | Non |
+| useTypeDefault    | Spécifie comment gérer les valeurs manquantes dans les fichiers texte délimités lorsque PolyBase extrait des données à partir du fichier texte.<br/><br/>Pour plus d’informations sur cette propriété, consultez la section Arguments dans [CREATE EXTERNAL FILE FORMAT (Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx).<br/><br/>Les valeurs autorisées sont **True** et **False** (par défaut).<br><br> | Non                                            |
+| writeBatchSize    | Nombre de lignes à insérer dans le tableau SQL **par lot**. S’applique uniquement quand PolyBase n’est pas utilisé.<br/><br/>La valeur autorisée est **integer** (nombre de lignes). Par défaut, Data Factory détermine de façon dynamique la taille de lot appropriée selon la taille de ligne. | Non                                            |
+| writeBatchTimeout | Temps d’attente pour que l’opération d’insertion de lot soit terminée avant d’expirer. S’applique uniquement quand PolyBase n’est pas utilisé.<br/><br/>La valeur autorisée est **timespan**. Exemple : “00:30:00” (30 minutes). | Non                                            |
+| preCopyScript     | Spécifiez une requête SQL pour l’activité de copie à exécuter avant l’écriture de données dans Azure SQL Data Warehouse à chaque exécution. Utilisez cette propriété pour nettoyer les données préchargées. | Non                                            |
 
 #### <a name="sql-data-warehouse-sink-example"></a>Exemple de récepteur SQL Data Warehouse
 
@@ -419,10 +419,10 @@ Si les critères ne sont pas remplis, Azure Data Factory contrôle les paramètr
 
 1. Le **service lié source** contient les types et méthodes d’authentification suivants :
 
-    | Type de magasin de données source pris en charge | Type d’authentification source pris en charge |
-    |:--- |:--- |
-    | [Blob Azure](connector-azure-blob-storage.md) | Authentification par clé de compte, l’authentification d’une identité gérée |
-    | [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md) | Authentification d’un principal du service |
+    | Type de magasin de données source pris en charge                             | Type d’authentification source pris en charge                        |
+    | :----------------------------------------------------------- | :---------------------------------------------------------- |
+    | [Blob Azure](connector-azure-blob-storage.md)                | Authentification par clé de compte, l’authentification d’une identité gérée |
+    | [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md) | Authentification d’un principal du service                            |
     | [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | Authentification par clé de compte, l’authentification d’une identité gérée |
 
     >[!IMPORTANT]
@@ -545,8 +545,6 @@ La solution consiste à désélectionner l’option « **Utiliser l’option de 
 
 **Autres**
 
-Pour en apprendre plus sur les problèmes connus relatifs à PolyBase, consultez [Résolution des problèmes liés à la charge Polybase pour Azure SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-troubleshoot.md#polybase).
-
 ### <a name="sql-data-warehouse-resource-class"></a>Classe de ressources SQL Data Warehouse
 
 Pour obtenir le meilleur débit possible, attribuez une classe de ressources plus volumineuse à l’utilisateur qui charge des données dans SQL Data Warehouse par le biais de PolyBase.
@@ -555,12 +553,12 @@ Pour obtenir le meilleur débit possible, attribuez une classe de ressources plu
 
 Le tableau suivant donne des exemples montrant comment spécifier la propriété **tableName** dans le jeu de données JSON. Il montre plusieurs combinaisons de noms de schéma et de table.
 
-| Schéma BD | Nom de la table | Propriété JSON **tableName** |
-| --- | --- | --- |
-| dbo | MyTable | MyTable ou dbo.MyTable ou [dbo].[MyTable] |
-| dbo1 | MyTable | dbo1.MyTable ou [dbo1].[MyTable] |
-| dbo | My.Table | [My.Table] ou [dbo].[My.Table] |
-| dbo1 | My.Table | [dbo1].[My.Table] |
+| Schéma BD | Nom de la table | Propriété JSON **tableName**               |
+| --------- | ---------- | ----------------------------------------- |
+| dbo       | MyTable    | MyTable ou dbo.MyTable ou [dbo].[MyTable] |
+| dbo1      | MyTable    | dbo1.MyTable ou [dbo1].[MyTable]          |
+| dbo       | My.Table   | [My.Table] ou [dbo].[My.Table]            |
+| dbo1      | My.Table   | [dbo1].[My.Table]                         |
 
 Si vous voyez l’erreur suivante, il peut s’agir d’un problème avec la valeur spécifiée pour la propriété **tableName**. Consultez le tableau précédent pour savoir comment spécifier des valeurs pour la propriété JSON **tableName**.
 
@@ -589,35 +587,35 @@ Quand vous copiez des données vers ou à partir d’Azure SQL Data Warehouse, l
 >[!TIP]
 >Reportez-vous à l’article [Types de tables de données dans Azure SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-tables-data-types.md) sur les types de données pris en charge par SQL Data Warehouse et leurs solutions de contournement.
 
-| Type de données Azure SQL Data Warehouse | Type de données intermédiaires d’Azure Data Factory |
-|:--- |:--- |
-| bigint | Int64 |
-| binary | Byte[] |
-| bit | Boolean |
-| char | String, Char[] |
-| date | Datetime |
-| Datetime | Datetime |
-| datetime2 | Datetime |
-| Datetimeoffset | DateTimeOffset |
-| Decimal | Decimal |
-| FILESTREAM attribute (varbinary(max)) | Byte[] |
-| Float | Double |
-| image | Byte[] |
-| int | Int32 |
-| money | Decimal |
-| nchar | String, Char[] |
-| numeric | Decimal |
-| nvarchar | String, Char[] |
-| real | Single |
-| rowversion | Byte[] |
-| smalldatetime | Datetime |
-| smallint | Int16 |
-| smallmoney | Decimal |
-| time | TimeSpan |
-| tinyint | Byte |
-| uniqueidentifier | Guid |
-| varbinary | Byte[] |
-| varchar | String, Char[] |
+| Type de données Azure SQL Data Warehouse    | Type de données intermédiaires d’Azure Data Factory |
+| :------------------------------------ | :----------------------------- |
+| bigint                                | Int64                          |
+| binary                                | Byte[]                         |
+| bit                                   | Boolean                        |
+| char                                  | String, Char[]                 |
+| date                                  | Datetime                       |
+| Datetime                              | Datetime                       |
+| datetime2                             | Datetime                       |
+| Datetimeoffset                        | DateTimeOffset                 |
+| Decimal                               | Decimal                        |
+| FILESTREAM attribute (varbinary(max)) | Byte[]                         |
+| Float                                 | Double                         |
+| image                                 | Byte[]                         |
+| int                                   | Int32                          |
+| money                                 | Decimal                        |
+| nchar                                 | String, Char[]                 |
+| numeric                               | Decimal                        |
+| nvarchar                              | String, Char[]                 |
+| real                                  | Single                         |
+| rowversion                            | Byte[]                         |
+| smalldatetime                         | Datetime                       |
+| smallint                              | Int16                          |
+| smallmoney                            | Decimal                        |
+| time                                  | TimeSpan                       |
+| tinyint                               | Byte                           |
+| uniqueidentifier                      | Guid                           |
+| varbinary                             | Byte[]                         |
+| varchar                               | String, Char[]                 |
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour obtenir la liste des magasins de données pris en charge en tant que sources et récepteurs par l’activité de copie dans Azure Data Factory, consultez le tableau [Magasins de données pris en charge](copy-activity-overview.md##supported-data-stores-and-formats).

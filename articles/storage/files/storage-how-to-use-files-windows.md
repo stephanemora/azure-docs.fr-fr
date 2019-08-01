@@ -1,19 +1,18 @@
 ---
 title: Utilisation d’un partage de fichiers Azure avec Windows | Microsoft Docs
 description: Découvrez comment utiliser un partage de fichiers Azure avec Windows et Windows Server.
-services: storage
 author: roygara
 ms.service: storage
 ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 02a8b825a513c75ef7c037348ccaecdf5026ded2
-ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
+ms.openlocfilehash: d2bad808d0bcbbd5dc8052db0f8fd32fc4c1180a
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67560479"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68699477"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Utiliser un partage de fichiers Azure avec Windows
 [Azure Files](storage-files-introduction.md) est le système de fichiers cloud facile à utiliser de Microsoft. Il est possible d’utiliser sans problème le partage de fichiers Azure dans Windows et Windows Server. Cet article décrit les considérations concernant l’utilisation d’un partage de fichiers Azure avec Windows et Windows Server.

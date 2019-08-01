@@ -9,16 +9,18 @@ ms.topic: quickstart
 ms.date: 12/14/2018
 ms.author: mhopkins
 ms.reviewer: seguler
-ms.openlocfilehash: 5fe011d740b1c08ae3b9cf4e3ea67d2cdd4fee66
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: f96d1956fececbe00bf9f33bd146056836c2c4c0
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68360097"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564999"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-with-python"></a>Démarrage rapide : charger, télécharger et répertorier des objets blob avec Python
 
 Dans ce guide de démarrage rapide, vous apprenez à utiliser Python pour charger, télécharger et lister des objets blob de blocs dans un conteneur de stockage Blob Azure. Les objets blob sont simplement des objets qui peuvent contenir n’importe quelle quantité de données texte ou binaires (par exemple, des images, des documents, du contenu multimédia en streaming ou des données d’archive) et sont distincts dans Stockage Azure des partages de fichiers, des tables sans schéma et des files d’attente de messages. (Pour plus d’informations, consultez [Présentation de Stockage Azure](/azure/storage/common/storage-introduction).)
+
+[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
 ## <a name="prerequisites"></a>Prérequis
 

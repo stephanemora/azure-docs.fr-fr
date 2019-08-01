@@ -1,18 +1,19 @@
 ---
 title: 'Sauvegarde Azure : Utiliser PowerShell pour sauvegarder des charges de travail DPM'
 description: Découvrez comment déployer et gérer Sauvegarde Azure pour Data Protection Manager (DPM) à l’aide de PowerShell
-author: kasinh
-manager: vvithal
+ms.reviewer: adigan
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 1/23/2017
-ms.author: adigan
-ms.openlocfilehash: a269db3d97f23c16e848026ce78fc04c7a1182e8
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: 8e17747e2f1f29243215eac85e4e5fa761e11692
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68465132"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68688928"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-data-protection-manager-dpm-servers-using-powershell"></a>Déployer et gérer une sauvegarde vers Azure pour des serveurs Data Protection Manager (DPM) à l’aide de PowerShell
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a313240685e539b613dee1c7ff8bd56bb24eb2ba
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: 91cc2707034eabf85afae70278f2448b77d3ee14
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68227317"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68608076"
 ---
 # <a name="baseline-policy-block-legacy-authentication-preview"></a>Stratégie de base de référence : Bloquer l’authentification héritée (préversion)
 
@@ -117,5 +117,5 @@ Pour activer cette stratégie et protéger votre organisation :
 Pour plus d'informations, consultez les pages suivantes :
 
 * [Stratégies de protection de base de référence pour l’accès conditionnel](concept-baseline-protection.md)
-* [Cinq étapes pour sécuriser votre infrastructure d’identité](../../security/azure-ad-secure-steps.md)
+* [Cinq étapes pour sécuriser votre infrastructure d’identité](../../security/fundamentals/steps-secure-identity.md)
 * [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](overview.md)

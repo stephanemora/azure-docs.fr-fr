@@ -1,19 +1,18 @@
 ---
 title: Démarrage rapide pour la gestion des partages de fichiers Azure avec Azure PowerShell
 description: Utilisez ce guide de démarrage rapide pour découvrir comment gérer les partages de fichiers Azure avec Azure PowerShell.
-services: storage
 author: roygara
 ms.service: storage
 ms.topic: quickstart
 ms.date: 10/26/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: e32aead791fb84415da1b00f1e979a6ac0f28155
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.openlocfilehash: 802ad497f95a43665665d7e7dbd06c9081eba74a
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66729034"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68699506"
 ---
 # <a name="quickstart-create-and-manage-an-azure-file-share-with-azure-powershell"></a>Démarrage rapide : Créer et gérer un partage de fichiers Azure avec Azure PowerShell 
 Ce guide vous explique les bases de l’utilisation du [partage de fichiers](storage-files-introduction.md) Azure avec PowerShell. Le partage de fichiers Azure est similaire à d’autres partages de fichiers, mais est stocké dans le cloud et s’appuie sur la plateforme Azure. Il prend en charge le protocole SMB de norme industrielle et permet le partage de fichiers entre plusieurs machines, applications et instances. 

@@ -1,6 +1,6 @@
 ---
 title: Effectuer des opérations sur les images - Java
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Explorez une application Java Swing de base qui utilise l’API Vision par ordinateur dans Azure Cognitive Services. Effectuez une reconnaissance OCR, créez des miniatures et utilisez des fonctionnalités visuelles dans une image.
 services: cognitive-services
 author: KellyDF
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.author: kefre
 ms.custom: seodec18
 ms.date: 04/30/2019
-ms.openlocfilehash: a22308e0c7ff924205f715692d011a4572b2bdb8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 16f75095c7e4461c84a1fea28cc620c49b6c5bca
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65232633"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68565682"
 ---
 # <a name="use-computer-vision-features-with-the-rest-api-and-java"></a>Utiliser les fonctionnalités Vision par ordinateur avec l’API REST et Java
 

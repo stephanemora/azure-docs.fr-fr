@@ -4,7 +4,7 @@ titleSuffix: Azure
 description: Configurez et créez une instance Deep Learning Data Science Virtual Machine dans Azure à des fins d’analytique et d’apprentissage automatique.
 services: machine-learning
 documentationcenter: ''
-author: gopitk
+author: vijetajo
 manager: cgronlun
 ms.custom: seodec18
 ms.assetid: e1467c0f-497b-48f7-96a0-7f806a7bec0b
@@ -12,15 +12,15 @@ ms.service: machine-learning
 ms.subservice: data-science-vm
 ms.workload: data-services
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: quickstart
 ms.date: 03/16/2018
-ms.author: gokuma
-ms.openlocfilehash: 318df03c7c4447d051dfa396098462c0f8bbf423
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: vijetaj
+ms.openlocfilehash: b9d0f9aead6e2cedd3ca0884273bac0106a925a0
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65410432"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68591916"
 ---
 # <a name="provision-a-deep-learning-virtual-machine-on-azure"></a>Provisionner une machine virtuelle DLVM dans Azure 
 
@@ -68,7 +68,7 @@ Une fois la machine virtuelle créée, vous pouvez vous y connecter à l’aide 
 
 ### <a name="linux-edition"></a>Édition Linux
 
-Une fois la machine virtuelle créée, vous pouvez vous y connecter avec SSH. Utilisez les informations d’identification de compte que vous avez créées dans la section [**Paramètres de base**](#basics) de l’étape 3 de l’interface de l’interpréteur de commandes texte. Pour plus d’informations sur les connexions SSH aux machines virtuelles Azure, consultez [Installer et configurer le Bureau à distance pour effectuer une connexion à une machine virtuelle Linux dans Azure](/azure/virtual-machines/linux/use-remote-desktop). Sur un client Windows, vous pouvez télécharger un outil client SSH tel que [Putty](https://www.putty.org). Si vous préférez un bureau graphique (système Windows X), vous pouvez utiliser le transfert X11 sur Putty ou installer le client X2Go. 
+Une fois la machine virtuelle créée, vous pouvez vous y connecter avec SSH. Utilisez les informations d’identification de compte que vous avez créées dans la section [**Paramètres de base**](#basics) de l’étape 3 de l’interface de l’interpréteur de commandes texte. Pour plus d’informations sur les connexions SSH aux machines virtuelles Azure, consultez [Installer et configurer le Bureau à distance pour effectuer une connexion à une machine virtuelle Linux dans Azure](../../virtual-machines/linux/use-remote-desktop.md). Sur un client Windows, vous pouvez télécharger un outil client SSH tel que [Putty](https://www.putty.org). Si vous préférez un bureau graphique (système Windows X), vous pouvez utiliser le transfert X11 sur Putty ou installer le client X2Go. 
 
 > [!NOTE]
 > Lors de tests, le client X2Go a obtenu de meilleures performances que le transfert X11. Nous recommandons d’utiliser le client X2Go pour une interface de bureau graphique.

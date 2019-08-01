@@ -2,7 +2,7 @@
 title: Assigner ou supprimer des licences – Azure Active Directory | Microsoft Docs
 description: Ces instructions expliquent comment assigner des licences Azure Active Directory à vos utilisateurs ou groupes et les supprimer.
 services: active-directory
-author: eross-msft
+author: msaburnley
 manager: daveba
 ms.assetid: f8b932bc-8b4f-42b5-a2d3-f2c076234a78
 ms.service: active-directory
@@ -10,16 +10,16 @@ ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/05/2018
-ms.author: lizross
+ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1e7a3f80067adb3093bd27e34a45b3afd72b4993
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9f76e766d0aedae88eb11dd244f71f130f77c57e
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60247644"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561659"
 ---
 # <a name="assign-or-remove-licenses-using-the-azure-active-directory-portal"></a>Assigner ou supprimer des licences à l’aide du portail Azure Active Directory
 De nombreux services Azure Active Directory (Azure AD) nécessitent que vous activiez un produit Azure AD et que vous assigniez une licence à chacun de vos utilisateurs ou groupes (et membres associés) pour ce produit. Seuls les utilisateurs disposant de licences actives seront en mesure d’accéder et d’utiliser les services Azure AD sous licence.

@@ -1,19 +1,18 @@
 ---
 title: Planification d’un déploiement Azure Files | Microsoft Docs
 description: Découvrez les éléments à prendre en compte lors de la planification d’un déploiement Azure Files.
-services: storage
 author: roygara
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 6282ce426b08c4ad9c44bead0bd4ec3d259f65fe
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 1845107998bfefde4c604744c3c09f5356010f7b
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68501430"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68699690"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planification d’un déploiement Azure Files
 
@@ -98,7 +97,7 @@ Actuellement, vous ne pouvez pas convertir directement un partage de fichiers St
 > [!IMPORTANT]
 > Les partages de fichiers Premium sont uniquement disponibles avec le stockage LRS, et dans la plupart des régions qui offrent des comptes de stockage. Pour savoir si les partages de fichiers Premium sont actuellement disponibles dans votre région, consultez la page des [produits disponibles par région](https://azure.microsoft.com/global-infrastructure/services/?products=storage) pour Azure.
 
-### <a name="provisioned-shares"></a>Partages approvisionnés
+#### <a name="provisioned-shares"></a>Partages approvisionnés
 
 Les partages de fichiers Premium sont approvisionnés selon un ratio Gio/IOPS/débit fixe. Pour chaque Gio approvisionné, le partage reçoit un débit d’une IOPS et de 0,1 Mio/s, dans les limites maximales autorisées par partage. L’approvisionnement minimal autorisé est de 100 Gio avec un minimum d’E/S par seconde/débit.
 
@@ -135,7 +134,7 @@ Le tableau suivant illustre quelques exemples de ces formules pour les tailles d
 > [!NOTE]
 > Les performances des partages de fichiers sont soumises aux limites du réseau des machines, à la bande passante réseau disponible, aux tailles d’e/s, au parallélisme, entre autres nombreux facteurs. Pour obtenir une mise à l’échelle des performances maximales, répartissez la charge entre plusieurs machines virtuelles. Reportez-vous au [guide de résolution des problèmes](storage-troubleshooting-files-performance.md) pour certains problèmes de performances courants et leurs solutions de contournement.
 
-### <a name="bursting"></a>Mode en rafales
+#### <a name="bursting"></a>Mode en rafales
 
 Les partages de fichiers Premium peuvent rapidement accroître leur IOPS jusqu’à multiplier leur nombre par trois. Ce mode en rafales est automatisé et fonctionne selon un système de crédits. Il fonctionne dans la mesure des possibilités et la limite de rafale n’est pas une garantie : les partages de fichiers peuvent croître par rafales *jusqu’à* cette limite.
 
@@ -208,6 +207,7 @@ Le partage de fichiers Standard est disponible dans toutes les régions, jusqu�
 
 |Région  |Redondance prise en charge  |Prend en charge les comptes de stockage existants  |
 |---------|---------|---------|
+|Australie Est     |LRS|Non         |
 |Asie Sud-Est     |LRS|Non         |
 |Europe Ouest     |LRS, ZRS|Non         |
 |USA Ouest 2     |LRS, ZRS|Non         |

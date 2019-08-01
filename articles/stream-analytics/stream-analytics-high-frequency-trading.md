@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 33a7b27d065fc0383e4693053f7bfb6d56e2d33b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ae82c0e72287ee4c89cb3fb2294bf4bd79aec8c3
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61480066"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68598649"
 ---
 # <a name="high-frequency-trading-simulation-with-stream-analytics"></a>Simulation d’échange à fréquence élevée avec Stream Analytics
 La combinaison du langage SQL, des fonctions JavaScript définies par l’utilisateur (UDF) et des agrégats définis par l’utilisateur (UDA) dans Azure Stream Analytics permet aux utilisateurs d’effectuer des analyses avancées. Les analyses avancées peuvent inclure l’apprentissage automatique en ligne et la notation, ainsi que la simulation des processus avec état. Cet article décrit comment effectuer une régression linéaire dans une tâche Azure Stream Analytics qui exécute la formation continue et la notation dans un scénario commercial haute fréquence.
@@ -65,7 +65,7 @@ Voici quelques exemples d’événements générés :
 >L’horodatage de l’événement est **lastUpdated**, en heure d’époque.
 
 ### <a name="predictive-model-for-high-frequency-trading"></a>Modèle de prédictif pour les échanges à fréquence élevée
-À des fins de démonstration, nous utilisons un modèle linéaire décrit par Darryl Shen dans [sa thèse](http://eprints.maths.ox.ac.uk/1895/1/Darryl%20Shen%20%28for%20archive%29.pdf).
+À des fins de démonstration, nous utilisons un modèle linéaire décrit par Darryl Shen dans [sa thèse](https://docplayer.net/23038840-Order-imbalance-based-strategy-in-high-frequency-trading.html).
 
 Le déséquilibre du volume de commande (VOI) est une fonction d’offres/demandes qui concerne les prix et le volume, elle s’applique aux offres/demandes en cours ou depuis le dernier cycle. Dans la thèse, sont identifiées les corrélations entre le déséquilibre du volume de commande et les mouvements de prix futurs. On y distingue un modèle linéaire entre les 5 dernières valeurs du VOI et les mouvements de prix des 10 cycles suivants. L’apprentissage du modèle est effectué à l’aide des données du jour précédent et de la régression linéaire. 
 

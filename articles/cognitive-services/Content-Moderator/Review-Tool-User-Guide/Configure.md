@@ -1,6 +1,6 @@
 ---
 title: Configurer les paramètres de l’Outil de révision – Content Moderator
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Utilisez l’Outil de révision pour configurer ou récupérer votre équipe, vos tags, vos connecteurs, vos flux de travail et vos informations d’identification Content Moderator.
 services: cognitive-services
 author: sanjeev3
@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: article
 ms.date: 03/15/2019
 ms.author: sajagtap
-ms.openlocfilehash: f88ccbabc925b651abbc06f571a9d4220ed8aeb2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 70bc2c9f457aba09f3d3220061b2fd31d0923906
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61285399"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68565662"
 ---
 # <a name="configure-the-review-tool"></a>Configurer l’outil de révision
 
@@ -105,7 +105,7 @@ Pour ajouter un connecteur (et le rendre utilisable dans les [flux de travail](.
 
 ![Paramètres des connecteurs Content Moderator](images/settings-4-connectors.png)
 
-## <a name="workflows"></a>Flux de travail
+## <a name="workflows"></a>Workflows
 
 L’onglet **Flux de travail** permet de gérer les [flux de travail](../review-api.md#workflows). Il s’agit de filtres cloud de contenus, qui fonctionnent avec des connecteurs pour trier le contenu de différentes façons et effectuer les actions nécessaires. C’est ici que sont définis, modifiés et testés les flux de travail. Pour obtenir des conseils sur la procédure à suivre, voir [Définir et utiliser des flux de travail](Workflows.md).
 

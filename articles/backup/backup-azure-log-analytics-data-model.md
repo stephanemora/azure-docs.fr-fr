@@ -1,18 +1,19 @@
 ---
 title: Modèle de données des journaux Azure Monitor pour Sauvegarde Azure
 description: Cet article présente des informations détaillées sur le modèle de données des journaux Azure Monitor pour les données de Sauvegarde Azure.
-author: adigan
-manager: shivamg
+ms.reviewer: adigan
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 02/26/2019
-ms.author: adigan
-ms.openlocfilehash: 6563eefffee0ed8d9ce94c3e0a1e24b0d32314f0
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: 878e4e7508d82f78e82f1fd8bda69079d9468e9f
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68466160"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68689234"
 ---
 # <a name="log-analytics-data-model-for-azure-backup-data"></a>Modèle de données Log Analytics pour les données de sauvegarde Azure
 
@@ -47,7 +48,7 @@ Ce tableau fournit plus d’informations sur les champs liés aux alertes.
 | State_s |Texte |État actuel de l’objet alerte, par exemple, Actif, Supprimé |
 | BackupManagementType_s |Texte |Type de fournisseur exécutant la sauvegarde (par exemple, Machine virtuelle IaaS, Dossier de fichiers) auquel appartient cette alerte |
 | OperationName |Texte |Nom de l’opération actuelle, par exemple, Alerte |
-| Catégorie |Texte |Catégorie de données de diagnostic envoyées (push) aux journaux Azure Monitor. Toujours AzureBackupReport |
+| Category |Texte |Catégorie de données de diagnostic envoyées (push) aux journaux Azure Monitor. Toujours AzureBackupReport |
 | Ressource |Texte |Ceci est la ressource pour laquelle les données sont collectées ; affiche le nom du coffre Recovery Services |
 | ProtectedContainerUniqueId_s |Texte |Identificateur unique du serveur protégé associé à l’alerte (il s’agissait de ProtectedServerUniqueId_s dans V1)|
 | VaultUniqueId_s |Texte |Identificateur unique du coffre protégé associé à l’alerte |
@@ -79,7 +80,7 @@ Ce tableau fournit plus d’informations sur les champs liés aux éléments de 
 | State_s |Texte |État de l’objet élément de sauvegarde, par exemple, Actif, Supprimé |
 | BackupManagementType_s |Texte |Type de fournisseur exécutant la sauvegarde (par exemple, Machine virtuelle IaaS, Dossier de fichiers) auquel appartient cet élément de sauvegarde |
 | OperationName |Texte |Nom de l’opération, par exemple, BackupItem |
-| Catégorie |Texte |Catégorie de données de diagnostic envoyées (push) aux journaux Azure Monitor. Toujours AzureBackupReport |
+| Category |Texte |Catégorie de données de diagnostic envoyées (push) aux journaux Azure Monitor. Toujours AzureBackupReport |
 | Ressource |Texte |Ressource pour laquelle les données sont collectées, par exemple le nom du coffre Recovery Services |
 | SourceSystem |Texte |Système source des données actuelles - Azure |
 | ResourceId |Texte |Id de ressource des données collectées, par exemple id de ressource du coffre Recovery Services |
@@ -101,7 +102,7 @@ Ce tableau fournit des détails sur les associations d’éléments de sauvegard
 | BackupManagementType_s |Texte |Type de fournisseur pour le serveur exécutant la sauvegarde, par exemple, Machine virtuelle IaaS, Dossier de fichiers |
 | BackupItemSourceSize_s |Texte | Taille frontale de l’élément de sauvegarde |
 | BackupManagementServerUniqueId_s |Texte | Champ qui identifie de manière unique le serveur de gestion des sauvegardes par le biais duquel l’élément de sauvegarde est protégé, le cas échéant |
-| Catégorie |Texte |Ce champ représente la catégorie des données de diagnostic transférées à Log Analytics, c’est-à-dire AzureBackupReport |
+| Category |Texte |Ce champ représente la catégorie des données de diagnostic transférées à Log Analytics, c’est-à-dire AzureBackupReport |
 | OperationName |Texte |Ce champ représente le nom de l’opération en cours - Association d’éléments de sauvegarde |
 | Ressource |Texte |Ceci est la ressource pour laquelle les données sont collectées ; affiche le nom du coffre Recovery Services |
 | ProtectedContainerUniqueId_s |Texte |Identificateur unique du serveur protégé associé à l’élément de sauvegarde (il s’agissait de ProtectedServerUniqueId_s dans V1) |
@@ -144,7 +145,7 @@ Ce tableau fournit plus d’informations sur les champs liés aux travaux.
 | State_s |Texte |État actuel de l’objet travail, par exemple, Actif, Supprimé |
 | BackupManagementType_s |Texte |Type de fournisseur pour le serveur exécutant la sauvegarde, par exemple, Machine virtuelle IaaS, Dossier de fichiers |
 | OperationName |Texte |Ce champ représente le nom de l’opération en cours - Travail |
-| Catégorie |Texte |Ce champ représente la catégorie des données de diagnostic envoyées (push) aux journaux Azure Monitor, c’est-à-dire AzureBackupReport |
+| Category |Texte |Ce champ représente la catégorie des données de diagnostic envoyées (push) aux journaux Azure Monitor, c’est-à-dire AzureBackupReport |
 | Ressource |Texte |Ceci est la ressource pour laquelle les données sont collectées ; affiche le nom du coffre Recovery Services |
 | ProtectedServerUniqueId_s |Texte |Identificateur unique du serveur protégé associé au travail |
 | ProtectedContainerUniqueId_s |Texte | ID unique identifiant le conteneur protégé sur lequel le travail est exécuté |
@@ -179,7 +180,7 @@ Ce tableau fournit plus d’informations sur les champs liés à la stratégie.
 | State_s |Texte ||État actuel de l’objet stratégie, par exemple, Actif, Supprimé |
 | BackupManagementType_s |Texte ||Type de fournisseur pour le serveur exécutant la sauvegarde, par exemple, Machine virtuelle IaaS, Dossier de fichiers |
 | OperationName |Texte ||Ce champ représente le nom de l’opération en cours - Stratégie |
-| Catégorie |Texte ||Ce champ représente la catégorie des données de diagnostic envoyées (push) aux journaux Azure Monitor, c’est-à-dire AzureBackupReport |
+| Category |Texte ||Ce champ représente la catégorie des données de diagnostic envoyées (push) aux journaux Azure Monitor, c’est-à-dire AzureBackupReport |
 | Ressource |Texte ||Ceci est la ressource pour laquelle les données sont collectées ; affiche le nom du coffre Recovery Services |
 | PolicyUniqueId_g |Texte ||ID unique d’identification de la stratégie |
 | PolicyName_s |Texte ||Nom de la stratégie définie |
@@ -227,7 +228,7 @@ Ce tableau fournit des détails sur les associations de stratégies avec différ
 | State_s |Texte ||État actuel de l’objet stratégie, par exemple, Actif, Supprimé |
 | BackupManagementType_s |Texte ||Type de fournisseur pour le serveur exécutant la sauvegarde, par exemple, Machine virtuelle IaaS, Dossier de fichiers |
 | OperationName |Texte ||Ce champ représente le nom de l’opération en cours - Association de stratégies |
-| Catégorie |Texte ||Ce champ représente la catégorie des données de diagnostic envoyées (push) aux journaux Azure Monitor, c’est-à-dire AzureBackupReport |
+| Category |Texte ||Ce champ représente la catégorie des données de diagnostic envoyées (push) aux journaux Azure Monitor, c’est-à-dire AzureBackupReport |
 | Ressource |Texte ||Ceci est la ressource pour laquelle les données sont collectées ; affiche le nom du coffre Recovery Services |
 | PolicyUniqueId_g |Texte ||ID unique d’identification de la stratégie |
 | VaultUniqueId_s |Texte ||ID unique du coffre auquel cette stratégie appartient |
@@ -271,7 +272,7 @@ Ce tableau fournit plus d’informations sur les champs liés au stockage.
 | State_s |Texte |État actuel de l’objet stockage, par exemple, Actif, Supprimé |
 | BackupManagementType_s |Texte |Type de fournisseur pour le serveur exécutant la sauvegarde, par exemple, Machine virtuelle IaaS, Dossier de fichiers |
 | OperationName |Texte |Ce champ représente le nom de l’opération en cours - Stockage |
-| Catégorie |Texte |Ce champ représente la catégorie des données de diagnostic envoyées (push) aux journaux Azure Monitor, c’est-à-dire AzureBackupReport |
+| Category |Texte |Ce champ représente la catégorie des données de diagnostic envoyées (push) aux journaux Azure Monitor, c’est-à-dire AzureBackupReport |
 | Ressource |Texte |Ceci est la ressource pour laquelle les données sont collectées ; affiche le nom du coffre Recovery Services |
 | ProtectedServerUniqueId_s |Texte |ID unique du serveur protégé pour lequel le stockage est calculé |
 | VaultUniqueId_s |Texte |ID unique du coffre pour lequel le stockage est calculé |
@@ -310,7 +311,7 @@ Ce tableau fournit plus d’informations sur les champs liés aux coffres.
 | SchemaVersion_s |Texte |Ce champ indique la version actuelle du schéma, **V2** |
 | State_s |Texte |État actuel de l’objet coffre, par exemple, Actif, Supprimé |
 | OperationName |Texte |Ce champ représente le nom de l’opération en cours - Coffre |
-| Catégorie |Texte |Ce champ représente la catégorie des données de diagnostic envoyées (push) aux journaux Azure Monitor, c’est-à-dire AzureBackupReport |
+| Category |Texte |Ce champ représente la catégorie des données de diagnostic envoyées (push) aux journaux Azure Monitor, c’est-à-dire AzureBackupReport |
 | Ressource |Texte |Ceci est la ressource pour laquelle les données sont collectées ; affiche le nom du coffre Recovery Services |
 | VaultUniqueId_s |Texte |ID unique du coffre |
 | VaultName_s |Texte |Nom du coffre |
@@ -329,12 +330,12 @@ Ce tableau indique les champs de base relatifs aux serveurs de gestion des sauve
 
 |Champ  |Type de données  | Description  |
 |---------|---------|----------|
-|BackupManagmentServerName_s     |Texte         |Nom du serveur de gestion des sauvegardes        |
+|BackupManagementServerName_s     |Texte         |Nom du serveur de gestion des sauvegardes        |
 |AzureBackupAgentVersion_s     |Texte         |Version de l’agent Sauvegarde Azure sur le serveur de gestion des sauvegardes          |
-|BackupManagmentServerVersion_s     |Texte         |Version du serveur de gestion des sauvegardes|
-|BackupManagmentServerOSVersion_s     |Texte            |Version du système d’exploitation du serveur de gestion des sauvegardes|
+|BackupManagementServerVersion_s     |Texte         |Version du serveur de gestion des sauvegardes|
+|BackupManagementServerOSVersion_s     |Texte            |Version du système d’exploitation du serveur de gestion des sauvegardes|
 |BackupManagementServerType_s     |Texte         |Type du serveur de gestion des sauvegardes, par exemple as MABS et SC DPM|
-|BackupManagmentServerUniqueId_s     |Texte         |Champ qui identifie de façon unique le serveur de gestion des sauvegardes       |
+|BackupManagementServerUniqueId_s     |Texte         |Champ qui identifie de façon unique le serveur de gestion des sauvegardes       |
 
 ### <a name="preferredworkloadonvolume"></a>PreferredWorkloadOnVolume
 

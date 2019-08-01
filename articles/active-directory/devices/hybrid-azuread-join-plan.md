@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: abb050eb527e65b4fd31f3251d37fef7d51e867e
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: ee3309bdd3629057d174866dde58ffd95e9e5ca8
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67655978"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562140"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Procédure : Planifier l’implémentation de la jonction Azure AD Hybride
 
@@ -64,7 +64,7 @@ Pour les appareils exécutant le système d’exploitation Windows, les versions
 ### <a name="windows-down-level-devices"></a>Appareils Windows de bas niveau
 
 - Windows 8.1
-- Windows 7 Pour des informations relatives à la prise en charge de Windows 7, consultez l'article [Fin de la prise en charge de Windows 7](https://www.microsoft.com/en-us/windowsforbusiness/end-of-windows-7-support)
+- Windows 7 Pour des informations relatives à la prise en charge de Windows 7, consultez l'article [Fin de la prise en charge de Windows 7](https://www.microsoft.com/windowsforbusiness/end-of-windows-7-support)
 - Windows Server 2012 R2
 - Windows Server 2012
 - Windows Server 2008 R2
@@ -87,7 +87,7 @@ Si vous comptez sur l’outil de préparation système (Sysprep) et utilisez une
 
 Si vous utilisez une capture instantanée de machine virtuelle pour créer des machines virtuelles supplémentaires, vérifiez qu’elle ne provient pas d'une machine virtuelle déjà inscrite auprès d'Azure AD en tant que jonction Azure AD Hybride.
 
-Si vos appareils joints au domaine Windows 10 sont déjà [inscrits auprès d’Azure AD](https://docs.microsoft.com/azure/active-directory/devices/overview#getting-devices-in-azure-ad) sur votre locataire, nous vous recommandons vivement de supprimer cet état avant d’activer la jonction Azure AD Hybride. À partir de la version 1809 de Windows 10, les modifications suivantes ont été apportées pour éviter ce double état :
+Si vos appareils joints au domaine Windows 10 sont déjà [inscrits auprès d’Azure AD](overview.md#getting-devices-in-azure-ad) sur votre locataire, nous vous recommandons vivement de supprimer cet état avant d’activer la jonction Azure AD Hybride. À partir de la version 1809 de Windows 10, les modifications suivantes ont été apportées pour éviter ce double état :
 
 - Tout état existant inscrit à Azure AD est automatiquement supprimé dès lors que l’appareil est joint à Azure AD Hybride.
 - Vous pouvez éviter que votre appareil joint au domaine soit inscrit à Azure AD en ajoutant cette clé de Registre - HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin, "BlockAADWorkplaceJoin"=dword:00000001.
@@ -121,7 +121,7 @@ Si vous disposez d'un environnement fédéré utilisant Active Directory Federat
 > [!NOTE]
 > Azure AD ne prend pas en charge les cartes à puce ou les certificats dans les domaines gérés.
 
-Depuis la version 1.1.819.0, Azure AD Connect comporte un Assistant permettant de configurer la jointure Azure AD hybride. Il simplifie considérablement le processus de configuration. Si vous n’avez pas la possibilité d’installer la version requise d’Azure AD Connect, consultez le [Guide pratique pour configurer manuellement l’inscription des appareils](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-manual). 
+Depuis la version 1.1.819.0, Azure AD Connect comporte un Assistant permettant de configurer la jointure Azure AD hybride. Il simplifie considérablement le processus de configuration. Si vous n’avez pas la possibilité d’installer la version requise d’Azure AD Connect, consultez le [Guide pratique pour configurer manuellement l’inscription des appareils](hybrid-azuread-join-manual.md). 
 
 Selon le scénario correspondant à votre infrastructure d’identité, consultez :
 

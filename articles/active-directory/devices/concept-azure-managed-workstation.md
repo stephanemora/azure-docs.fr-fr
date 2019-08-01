@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: frasim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 02a6ddef294c4872f2d7e50e8940ecbb4b4b7bc4
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.openlocfilehash: ba53049d580f3f90499dc0471b9ac981f4a374f2
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67491590"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562165"
 ---
 # <a name="understand-secure-azure-managed-workstations"></a>Comprendre les stations de travail sécurisées gérées par Azure
 
@@ -25,7 +25,7 @@ Les stations de travail sécurisées et isolées sont extrêmement importantes p
 Ce document explique ce dont vous avez besoin pour créer une station de travail sécurisée, souvent appelée station de travail avec accès privilégié (PAW). Cet article contient également des instructions détaillées concernant la configuration des contrôles de sécurité initiaux. Ce guide décrit comment la technologie cloud permet de gérer le service. Cette technologie s’appuie sur les fonctionnalités de sécurité introduites dans Windows 10RS5, Microsoft Defender Advanced Threat Protection (ATP), Azure Active Directory et Intune.
 
 > [!NOTE]
-> Cet article explique le concept de station de travail sécurisée et son importance. Si vous êtes déjà familiarisé avec le concept et que vous souhaitez passer directement au déploiement, consultez [Déployer une station de travail sécurisée](https://docs.microsoft.com/azure/active-directory/devices/howto-azure-managed-workstation).
+> Cet article explique le concept de station de travail sécurisée et son importance. Si vous êtes déjà familiarisé avec le concept et que vous souhaitez passer directement au déploiement, consultez [Déployer une station de travail sécurisée](howto-azure-managed-workstation.md).
 
 ## <a name="why-secure-workstation-access-is-important"></a>Pourquoi un accès sécurisé aux stations de travail est important
 

@@ -1,19 +1,18 @@
 ---
 title: Paramètres de pare-feu et de proxy locaux d’Azure File Sync | Microsoft Docs
 description: Configuration de réseau local d’Azure File Sync
-services: storage
 author: roygara
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 33d5be20682c8341932a2a0021ccda27583775bd
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: 69f4c767b9fc1da90db021ffb3eb8704983ca69b
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68335975"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68699305"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>Paramètres de proxy et de pare-feu d’Azure File Sync
 Azure File Sync connecte vos serveurs locaux à Azure Files, activant des fonctionnalités de synchronisation multisite et de hiérarchisation cloud. Pour cela, un serveur local doit donc être connecté à Internet. Un administrateur informatique doit déterminer la meilleure voie d’accès aux services cloud Azure pour le serveur.
@@ -116,7 +115,7 @@ Pour des raisons de récupération d’urgence et de continuité d’activité (
 | Public | Inde Centre | https:\//kailani-cin.one.microsoft.com | Inde Sud | https:\//tm-kailani-cin.one.microsoft.com |
 | Public | USA Centre | https:\//kailani-cus.one.microsoft.com | USA Est 2 | https:\//tm-kailani-cus.one.microsoft.com |
 | Public | Asie Est | https:\//kailani11.one.microsoft.com | Asie Sud-Est | https:\//tm-kailani11.one.microsoft.com |
-| Public | USA Est | https:\//kailani1.one.microsoft.com | USA Ouest | https:\//tm-kailani1.one.microsoft.com |
+| Public | East US | https:\//kailani1.one.microsoft.com | USA Ouest | https:\//tm-kailani1.one.microsoft.com |
 | Public | USA Est 2 | https:\//kailani-ess.one.microsoft.com | USA Centre | https:\//tm-kailani-ess.one.microsoft.com |
 | Public | Japon Est | https:\//japaneast01.afs.azure.net | Japon Ouest | https:\//tm-japaneast01.afs.azure.net |
 | Public | Japon Ouest | https:\//japanwest01.afs.azure.net | Japon Est | https:\//tm-japanwest01.afs.azure.net |
@@ -131,7 +130,7 @@ Pour des raisons de récupération d’urgence et de continuité d’activité (
 | Public | Ouest du Royaume-Uni | https:\//kailani-ukw.one.microsoft.com | Sud du Royaume-Uni | https:\//tm-kailani-ukw.one.microsoft.com |
 | Public | USA Centre-Ouest | https:\//westcentralus01.afs.azure.net | USA Ouest 2 | https:\//tm-westcentralus01.afs.azure.net |
 | Public | Europe Ouest | https:\//kailani6.one.microsoft.com | Europe Nord | https:\//tm-kailani6.one.microsoft.com |
-| Public | USA Ouest | https:\//kailani.one.microsoft.com | USA Est | https:\//tm-kailani.one.microsoft.com |
+| Public | USA Ouest | https:\//kailani.one.microsoft.com | East US | https:\//tm-kailani.one.microsoft.com |
 | Public | USA Ouest 2 | https:\//westus201.afs.azure.net | USA Centre-Ouest | https:\//tm-westus201.afs.azure.net |
 | Gouvernement américain | Gouvernement des États-Unis – Arizona | https:\//usgovarizona01.afs.azure.us | Gouvernement des États-Unis – Texas | https:\//tm-usgovarizona01.afs.azure.us |
 | Gouvernement américain | Gouvernement des États-Unis – Texas | https:\//usgovtexas01.afs.azure.us | Gouvernement des États-Unis – Arizona | https:\//tm-usgovtexas01.afs.azure.us |

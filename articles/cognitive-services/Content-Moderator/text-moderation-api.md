@@ -1,5 +1,6 @@
 ---
 title: Modération de texte - Content Moderator
+titleSuffix: Azure Cognitive Services
 description: Utilisez la modération du texte pour détecter le texte indésirable, les informations d’identification personnelle (PII) et les listes de termes personnalisées.
 services: cognitive-services
 author: sanjeev3
@@ -9,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 5a1007f2408b48c96f5eeaf585b94c8caa7ceb45
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e1d5224d8dc86c82624613b0d2a984ceef3ae5bf
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60607125"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564381"
 ---
 # <a name="learn-text-moderation-concepts"></a>Familiarisez-vous avec les concepts de modération de texte
 

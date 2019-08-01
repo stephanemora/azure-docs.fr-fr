@@ -1,18 +1,19 @@
 ---
 title: Gérer et superviser les sauvegardes de machine virtuelle Azure à l’aide du service Sauvegarde Azure
 description: Découvrez comment gérer et superviser les sauvegardes de machine virtuelle Azure à l’aide du service Sauvegarde Azure.
-author: sogup
-manager: vijayts
+ms.reviewer: sogup
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 03/13/2019
-ms.author: sogup
-ms.openlocfilehash: 3a958e2397071407f6283938382ad7dd8c07bc09
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: bfc9d01284bb5623989676afbdeadc1c91c14ab0
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68466254"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68688382"
 ---
 # <a name="manage-azure-vm-backups"></a>Gérer les sauvegardes de machines virtuelles Azure
 
@@ -106,7 +107,7 @@ Il existe deux façons d’arrêter la protection d’une machine virtuelle :
 * **Arrêter la protection et supprimer les données de sauvegarde**. Cette option empêche toutes les futures tâches de sauvegarde de protéger votre machine virtuelle et supprime tous les points de récupération. Vous ne pourrez pas restaurer la machine virtuelle, ni utiliser l’option *Reprendre la sauvegarde*.
 
 >[!NOTE]
->Si vous supprimez une source de données sans arrêter les sauvegardes, les nouvelles sauvegardes sont vouées à l’échec. Les anciens points de récupération expirent conformément à la stratégie, mais un dernier point de récupération est conservé jusqu’à ce que vous arrêtiez les sauvegardes et supprimiez les données.
+>Si vous supprimez une source de données sans arrêter les sauvegardes, les nouvelles sauvegardes échouent. Les anciens points de récupération expirent conformément à la stratégie, mais un dernier point de récupération est conservé jusqu’à ce que vous arrêtiez les sauvegardes et supprimiez les données.
 >
 
 ### <a name="stop-protection-and-retain-backup-data"></a>Arrêter la protection et conserver les données de sauvegarde

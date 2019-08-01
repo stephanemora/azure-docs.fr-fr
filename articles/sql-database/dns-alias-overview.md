@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: genemi, ayolubek, jrasnick
-manager: craigg
 ms.date: 06/26/2019
-ms.openlocfilehash: bb38f73308fb1eb67be310120cb589cb9412e737
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.openlocfilehash: 3d0a4b5890ed5758f4045459815fb4ebbffe75c6
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67461826"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68550654"
 ---
 # <a name="dns-alias-for-azure-sql-database"></a>Alias DNS pour Azure SQL Database
 
@@ -83,7 +82,7 @@ Par ailleurs, les API REST peuvent être consultées sur GitHub à l’adresse 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Le module PowerShell Azure Resource Manager est toujours pris en charge par Azure SQL Database, mais tous les développements futurs sont destinés au module Az.Sql. Pour ces cmdlets, consultez [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Les arguments des commandes dans le module Az et dans les modules AzureRm sont sensiblement identiques.
+> Le module PowerShell Azure Resource Manager est toujours pris en charge par Azure SQL Database, mais tous les développements futurs sont destinés au module Az.Sql. Pour ces cmdlets, voir [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Les arguments des commandes dans le module Az et dans les modules AzureRm sont sensiblement identiques.
 
 Les cmdlets PowerShell appellent les API REST.
 

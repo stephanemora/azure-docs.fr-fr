@@ -12,17 +12,21 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/11/2019
+ms.date: 07/25/2019
 ms.author: alkohli
-ms.openlocfilehash: a6bea2b5447435930cb0e1f80073a11007e80415
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 65d2a21a9f40470cee1dd9d713f9f9cb5431a245
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60629303"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68516700"
 ---
 # <a name="storsimple-virtual-array-system-requirements"></a>Configuration système requise pour StorSimple Virtual Array
+
+[!INCLUDE [storsimple-virtual-array-eol-banner](../../includes/storsimple-virtual-array-eol-banner.md)]
+
 ## <a name="overview"></a>Vue d'ensemble
+
 Cet article décrit la configuration système requise importante pour Microsoft Azure StorSimple Virtual Array et pour les clients de stockage accédant au tableau. Nous vous recommandons de lire attentivement les informations suivantes avant de déployer votre système Azure StorSimple, puis d’y revenir si nécessaire pendant le déploiement et les opérations suivantes.
 
 Les conditions requises sont les suivantes :

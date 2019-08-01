@@ -7,12 +7,12 @@ ms.topic: overview
 author: cjgronlund
 ms.author: cgronlun
 ms.date: 05/02/2019
-ms.openlocfilehash: b01ad5a4fd8808c1e841ba2fb47ea06ece011010
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7fa8562c466c81ebc05360bf06cdde1ee29bed9e
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67051047"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68598978"
 ---
 # <a name="what-are-azure-open-datasets-preview-and-how-can-you-use-them"></a>Que sont les jeux de données Azure Open Datasets (préversion) et comment pouvez-vous les utiliser ?
 
@@ -58,4 +58,4 @@ Si vous ne trouvez pas les données que vous recherchez, envoyez-nous un e-mail 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Exemple de notebook](samples.md)
 * [Tutoriel : Modélisation de régression avec données sur les taxis de New York](tutorial-opendatasets-automl.md)
-* [Kit de développement logiciel (SDK) Python pour jeux de données ouverts](https://aka.ms/open-datasets-api)
+* [Kit de développement logiciel (SDK) Python pour jeux de données ouverts](/python/api/azureml-opendatasets/?view=azure-ml-py)

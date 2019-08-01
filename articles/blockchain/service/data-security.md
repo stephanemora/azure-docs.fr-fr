@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: seal
 manager: femila
-ms.openlocfilehash: dd0a33364ed9395a85478798e47352c533bd47dc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 00d4911c0f2541ea5c64eccca3ab1b1505e06390
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65028199"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68608531"
 ---
 # <a name="azure-blockchain-service-security"></a>Sécurité d’Azure Blockchain Service
 
@@ -23,7 +23,7 @@ Azure Blockchain Service assure la sécurisation et la disponibilité de vos don
 
 ## <a name="isolation"></a>Isolation
 
-Les ressources Azure Blockchain Service sont isolées dans un réseau virtuel privé. Chaque nœud de transaction et de validation correspond à une machine virtuelle. Les machines virtuelles d’un réseau virtuel ne peuvent pas communiquer directement avec celles d’un autre réseau virtuel. L’isolation offre l’assurance que la communication reste privée au sein du réseau virtuel. Pour plus d’informations sur l’isolation de réseau virtuel Azure, consultez l’article [Isolation dans le cloud public Azure](../../security/azure-isolation.md#networking-isolation).
+Les ressources Azure Blockchain Service sont isolées dans un réseau virtuel privé. Chaque nœud de transaction et de validation correspond à une machine virtuelle. Les machines virtuelles d’un réseau virtuel ne peuvent pas communiquer directement avec celles d’un autre réseau virtuel. L’isolation offre l’assurance que la communication reste privée au sein du réseau virtuel. Pour plus d’informations sur l’isolation de réseau virtuel Azure, consultez l’article [Isolation dans le cloud public Azure](../../security/fundamentals/isolation-choices.md#networking-isolation).
 
 ![Diagramme de réseau virtuel](./media/data-security/vnet.png)
 

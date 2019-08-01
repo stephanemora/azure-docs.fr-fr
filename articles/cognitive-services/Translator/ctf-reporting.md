@@ -1,6 +1,6 @@
 ---
 title: Compte-rendu CTF (Collaborative Translation Framework) - API de traduction de texte Translator Text
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Explique comment utiliser le compte-rendu CTF (Collaborative Translation Framework).
 services: cognitive-services
 author: swmachan
@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: swmachan
-ms.openlocfilehash: 79a645b0b41f200c384c165f244efa679be65171
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 6a197095d97e67f7548e60375148cff57e47b797
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67443457"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595941"
 ---
 # <a name="how-to-use-collaborative-translation-framework-ctf-reporting"></a>Guide pratique pour utiliser le compte-rendu CTF (Collaborative Translation Framework)
 
@@ -96,7 +96,7 @@ Le jeu de résultats contient un tableau des éléments **UserTranslationCount**
 
 | Champ | Description |
 |:---|:---|
-| Nombre| Nombre de résultats récupérés|
+| Count| Nombre de résultats récupérés|
 | À partir | Langue source|
 | Rating| Évaluation appliquée par l’expéditeur dans l’appel de méthode AddTranslation()|
 | À| Langue cible|

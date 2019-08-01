@@ -1,6 +1,6 @@
 ---
 title: Utiliser des travaux de modération avec la console d’API REST – Content Moderator
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Utilisez les opérations de travail de l’API Review (Révision) pour initier des travaux de modération du contenu de bout en bout pour le contenu d’image ou de texte dans Azure Content Moderator.
 services: cognitive-services
 author: sanjeev3
@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: sajagtap
-ms.openlocfilehash: 7827cee2af2dfc0c1fddc407c1d146dc9a66c514
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c6f3d9c1605dc97b315550d8b7e3fdf08144c1bc
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60607580"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561233"
 ---
 # <a name="define-and-use-moderation-jobs-rest"></a>Définir et utiliser des travaux de modération (REST)
 

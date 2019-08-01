@@ -3,18 +3,18 @@ title: Que sont des documents parallèles ? - Custom Translator
 titleSuffix: Azure Cognitive Services
 description: Les documents parallèles sont des paires de documents dont un document est la traduction de l’autre. Un document de la paire contient des phrases dans la langue source et l’autre document contient ces phrases traduites dans la langue cible.
 author: swmachan
-manager: christw
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 3b7997adfa38fa24bdf41f22c99f06e9a0ba1bf0
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: fb54df2e1eb89d30e62ae80355635356343994ee
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447390"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595446"
 ---
 # <a name="what-are-parallel-documents"></a>Que sont des documents parallèles ?
 

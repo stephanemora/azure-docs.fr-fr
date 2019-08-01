@@ -17,12 +17,12 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f9be13ac22e6eda32668d635032ebcccf417b6c7
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 3ea45056b0112769105ddd997ce1abc79f59679f
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65785220"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68663345"
 ---
 # <a name="migrating-applications-to-msalnet"></a>Migration d’applications vers MSAL.NET
 
@@ -55,7 +55,7 @@ Il est également possible dans MSAL.NET d’accéder aux ressources v1.0. Consu
 
 - ADAL.NET utilise [AuthenticationContext](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/AuthenticationContext:-the-connection-to-Azure-AD) comme représentation de votre connexion auprès du service d’émission de jeton de sécurité (STS) ou du serveur d’autorisation, par le biais d’une autorité. À l’opposé, MSAL.NET est conçue autour des [applications clientes](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Client-Applications). La bibliothèque fournit deux classes distinctes : `PublicClientApplication` et `ConfidentialClientApplication`
 
-- Acquisition de jetons : ADAL.NET et MSAL.NET ont les mêmes appels d’authentification (`AcquireTokenAsync` et `AcquireTokenSilentAsync` pour ADAL.NET, `AqquireTokenInteractive` et `AcquireTokenSilent` dans MSAL.NET), mais avec des paramètres obligatoires différents. L’une des différences vient du fait que, dans MSAL.NET, vous n’avez plus besoin de passer la valeur `ClientID` de votre application dans chaque appel AcquireTokenXX. En effet, la valeur `ClientID` est définie une seule fois lors de la génération de `IPublicClientApplication` ou `IConfidentialClientApplication`.
+- Acquisition de jetons : ADAL.NET et MSAL.NET ont les mêmes appels d’authentification (`AcquireTokenAsync` et `AcquireTokenSilentAsync` pour ADAL.NET, `AcquireTokenInteractive` et `AcquireTokenSilent` dans MSAL.NET), mais avec des paramètres obligatoires différents. L’une des différences vient du fait que, dans MSAL.NET, vous n’avez plus besoin de passer la valeur `ClientID` de votre application dans chaque appel AcquireTokenXX. En effet, la valeur `ClientID` est définie une seule fois lors de la génération de `IPublicClientApplication` ou `IConfidentialClientApplication`.
 
 ### <a name="iaccount-not-iuser"></a>IAccount au lieu de IUser
 

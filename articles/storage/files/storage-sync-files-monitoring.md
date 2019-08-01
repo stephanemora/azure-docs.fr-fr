@@ -1,19 +1,18 @@
 ---
 title: Surveiller Azure File Sync | Microsoft Docs
 description: Comment surveiller Azure File Sync.
-services: storage
 author: roygara
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 86c4bf328430bbc623d8e493eec5db520d50ef82
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: ac09f9b59bc6f47adc9311cc910352c1a0d73b5d
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67485973"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68699285"
 ---
 # <a name="monitor-azure-file-sync"></a>Superviser Azure File Sync
 
@@ -42,10 +41,10 @@ Les métriques suivantes pour Azure File Sync sont disponibles dans Azure Monito
 | Taille de rappel de la hiérarchisation cloud | Taille des données rappelées.<br><br>Unité : Octets<br>Type d’agrégation : Somme<br>Dimension applicable : Nom du serveur, nom du groupe de synchronisation |
 | Taille de rappel de hiérarchisation cloud par application | Taille des données rappelées par application.<br><br>Unité : Octets<br>Type d’agrégation : Somme<br>Dimension applicable : Nom de l’application, nom du serveur, nom du groupe de synchronisation |
 | Débit de rappel de la hiérarchisation cloud | Taille de débit de rappel des données.<br><br>Unité : Octets<br>Type d’agrégation : Somme<br>Dimension applicable : Nom du serveur, nom du groupe de synchronisation |
-| Fichiers ne se synchronisant pas | Nombre de fichiers qui ne peuvent pas être synchronisés.<br><br>Unité : Nombre<br>Type d’agrégation : Somme<br>Dimensions applicables : Nom du point de terminaison de serveur, sens de la synchronisation, nom du groupe de synchronisation |
-| Fichiers synchronisés | Nombre de fichiers transférés (chargement et téléchargement).<br><br>Unité : Nombre<br>Type d’agrégation : Somme<br>Dimensions applicables : Nom du point de terminaison de serveur, sens de la synchronisation, nom du groupe de synchronisation |
-| État du serveur en ligne | Nombre de pulsations reçues du serveur.<br><br>Unité : Nombre<br>Type d’agrégation : Maximale<br>Dimension applicable : Nom du serveur |
-| Résultat de session de synchronisation | Résultat de session de synchronisation (1 = session de synchronisation réussie ; 0 = session de synchronisation ayant échoué)<br><br>Unité : Nombre<br>Types d’agrégation : Maximale<br>Dimensions applicables : Nom du point de terminaison de serveur, sens de la synchronisation, nom du groupe de synchronisation |
+| Fichiers ne se synchronisant pas | Nombre de fichiers qui ne peuvent pas être synchronisés.<br><br>Unité : Count<br>Type d’agrégation : Somme<br>Dimensions applicables : Nom du point de terminaison de serveur, sens de la synchronisation, nom du groupe de synchronisation |
+| Fichiers synchronisés | Nombre de fichiers transférés (chargement et téléchargement).<br><br>Unité : Count<br>Type d’agrégation : Somme<br>Dimensions applicables : Nom du point de terminaison de serveur, sens de la synchronisation, nom du groupe de synchronisation |
+| État du serveur en ligne | Nombre de pulsations reçues du serveur.<br><br>Unité : Count<br>Type d’agrégation : Maximale<br>Dimension applicable : Nom du serveur |
+| Résultat de session de synchronisation | Résultat de session de synchronisation (1 = session de synchronisation réussie ; 0 = session de synchronisation ayant échoué)<br><br>Unité : Count<br>Types d’agrégation : Maximale<br>Dimensions applicables : Nom du point de terminaison de serveur, sens de la synchronisation, nom du groupe de synchronisation |
 
 ### <a name="alerts"></a>Alertes
 

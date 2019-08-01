@@ -12,17 +12,21 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/08/2018
+ms.date: 07/25/2019
 ms.author: alkohli
-ms.openlocfilehash: b8e9f12a549f71971c2da3b9865f6a74dad58f61
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b5ffc16a7c9dacef3036ca5ce225265252dcdf5d
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60630136"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68516759"
 ---
 # <a name="storsimple-virtual-array-best-practices"></a>Bonnes pratiques liées à StorSimple Virtual Array
+
 ## <a name="overview"></a>Vue d'ensemble
+
+[!INCLUDE [storsimple-virtual-array-eol-banner](../../includes/storsimple-virtual-array-eol-banner.md)]
+
 Microsoft Azure StorSimple Virtual Array est une solution de stockage intégrée qui gère les tâches de stockage entre un appareil virtuel local exécuté dans un hyperviseur et le stockage cloud Microsoft Azure. StorSimple Virtual Array représente une alternative efficace et économique à la baie de stockage physique de la gamme 8000. La baie virtuelle peut s’exécuter sur votre infrastructure de l’hyperviseur, prend en charge les protocoles SMB et iSCSI, et est adaptée aux scénarios de bureaux distants. Pour plus d’informations sur les solutions StorSimple, consultez [Vue d’ensemble de Microsoft Azure StorSimple](https://www.microsoft.com/en-us/server-cloud/products/storsimple/overview.aspx).
 
 Cet article aborde les bonnes pratiques à implémenter au cours de l’installation initiale, du déploiement et de la gestion de la baie virtuelle StorSimple Virtual Array. Ces bonnes pratiques fournissent des instructions validées pour l’installation et la gestion de votre baie virtuelle. Cet article est destiné aux administrateurs informatiques qui déploient et gèrent les baies virtuelles dans leurs centres de données.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: 1ec7fd4116aa848a9c431df386997cb23f405f1b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5c156e30f4fa0270082cd1108958c3472130a460
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64925408"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68640822"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Présentation de la journalisation des flux pour les groupes de sécurité réseau
 
@@ -76,8 +76,6 @@ Les flux de journaux d’activité incluent les propriétés suivantes :
 La version 2 des journaux présente l’état du flux. Vous pouvez configurer la version des journaux de flux que vous recevez. Pour savoir comment activer les journaux de flux, consultez [Enable flow logs](network-watcher-nsg-flow-logging-portal.md) (Activer les journaux de flux).
 
 L’état du flux *B* est enregistré lorsqu’un flux est lancé. L’état du flux *C* et l’état du flux *E* sont les états qui marquent respectivement la continuation d’un flux et son arrêt. Les deux états *C* et *E* contiennent des informations sur la bande passante du trafic.
-
-Pour la continuation *C* et la fin *E* d’états de flux, le nombre d’octets et de paquets est le nombre cumulé depuis l’enregistrement de tuple de flux précédent. Si l’on se réfère à l’exemple de conversation précédent, le nombre total de paquets transférés est de 1 021 + 52 + 8 005 + 47 = 9 125. Le nombre total d’octets transférés est de 588 096+29 952+4 610 880+27 072 = 5 256 000.
 
 **Exemple**: tuples de flux à partir d’une conversation TCP entre 185.170.185.105:35370 and 10.2.0.4:23 :
 

@@ -1,6 +1,6 @@
 ---
 title: Utiliser le point de terminaison de prédiction pour tester les images par programmation avec un classifieur - Custom Vision
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Découvrez comment utiliser l’API pour tester par programmation des images avec votre classifieur Service Vision personnalisée.
 services: cognitive-services
 author: anrothMSFT
@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: article
 ms.date: 04/02/2019
 ms.author: anroth
-ms.openlocfilehash: 1ee6edbf49bbcd2014afcf29ed3b737168a3b5bc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8564095cc84a3f124ca41efd2e19787cd16902ab
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60816734"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564123"
 ---
 # <a name="use-your-model-with-the-prediction-api"></a>Utiliser votre modèle avec l’API de prédiction
 

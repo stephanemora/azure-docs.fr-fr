@@ -1,5 +1,6 @@
 ---
 title: Présentation d’Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: La solution Azure Cognitive Services est une famille d’API, de kits de développement logiciel (SDK) et de services que vous pouvez utiliser avec Microsoft Azure pour générer des applications intelligentes.
 services: cognitive-services
 author: nitinme
@@ -9,12 +10,12 @@ ms.subservice: ''
 ms.topic: article
 ms.date: 04/19/2019
 ms.author: nitinme
-ms.openlocfilehash: 0da0ba48839ae9ef7d6ab26c353dae66eac06471
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: dd93cd938539ae322e6344e0ce24cee6e34db27b
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67165055"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68594754"
 ---
 # <a name="what-are-azure-cognitive-services"></a>Présentation d’Azure Cognitive Services
 

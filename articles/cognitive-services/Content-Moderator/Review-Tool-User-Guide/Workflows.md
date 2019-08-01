@@ -1,6 +1,6 @@
 ---
 title: Définir et utiliser des flux de travail de contenu via l’outil de révision - Content Moderator
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Vous pouvez utiliser le concepteur de flux de travail Azure Content Moderator pour définir des flux de travail personnalisés et des seuils en fonction de vos stratégies de contenu.
 services: cognitive-services
 author: sanjeev3
@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: article
 ms.date: 04/04/2019
 ms.author: sajagtap
-ms.openlocfilehash: 006f7d6691b8872aaa7ff8ccacff484585761d00
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9b87529014a0eeb5561cd166a29f2309198733b5
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61271120"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68565633"
 ---
 # <a name="define-and-use-moderation-workflows"></a>Définir et utiliser des flux de travail de modération
 

@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
-manager: craigg
 ms.date: 01/15/2019
-ms.openlocfilehash: 168068094761fd35bf0386f476fbdd1262e9643f
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: 509a08705d87e8f789e26ebbcec295a31f99f416
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68228303"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567633"
 ---
 # <a name="configure-an-existing-virtual-network-for-azure-sql-database-managed-instance"></a>Configurer un réseau virtuel existant pour Azure SQL Database Managed Instance
 

@@ -4,8 +4,8 @@ titleSuffix: Azure
 description: Configurez et créez une machine virtuelle pour la science des données pour Linux (Ubuntu) sur Azure pour vos besoins d’analyse et d’apprentissage automatique.
 services: machine-learning
 documentationcenter: ''
-author: gopitk
-ms.author: gokuma
+author: vijetajo
+ms.author: vijetaj
 manager: cgronlun
 ms.custom: seodec18
 ms.assetid: 3bab0ab9-3ea5-41a6-a62a-8c44fdbae43b
@@ -14,14 +14,14 @@ ms.subservice: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: quickstart
 ms.date: 03/16/2018
-ms.openlocfilehash: 5a9fdebc8db0c2a1acc20a894f80cfcc87fb89d5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8a19f414f31c307111edad876ed973ff4027d907
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66236493"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68591921"
 ---
 # <a name="provision-the-data-science-virtual-machine-for-linux-ubuntu"></a>Approvisionner une machine virtuelle pour la science des données pour Linux (Ubuntu)
 
@@ -121,7 +121,7 @@ Vous pouvez accéder à la machine DSVM Ubuntu à l’aide de trois méthodes :
 1. X2Go pour les sessions graphiques
 1. JupyterHub et JupyterLab pour les blocs-notes Jupyter
 
-Vous pouvez également attacher une DSVM à Azure Notebooks pour exécuter des notebooks Jupyter sur la machine virtuelle et contourner les limitations du niveau de service gratuit. Pour plus d’informations, consultez [Gérer et configurer des projets Notebooks - Niveau Calcul](/azure/notebooks/configure-manage-azure-notebooks-projects#compute-tier).
+Vous pouvez également attacher une DSVM à Azure Notebooks pour exécuter des notebooks Jupyter sur la machine virtuelle et contourner les limitations du niveau de service gratuit. Pour plus d’informations, consultez [Gérer et configurer des projets Notebooks - Niveau Calcul](../../notebooks/configure-manage-azure-notebooks-projects.md#compute-tier).
 
 ### <a name="ssh"></a>SSH
 

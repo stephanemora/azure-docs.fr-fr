@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: dd9aa28703003d2e286197d57e9f00361e2b460d
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: 11ab9f6bb4ab61a669c9c898ee9f5668b7cd568f
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67653999"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68598661"
 ---
 # <a name="become-a-cloud-marketplace-publisher"></a>Devenir un éditeur sur la Place de marché dans le cloud
 
@@ -22,7 +22,7 @@ Cet article traite de l’inscription en tant qu’éditeur sur la place de marc
 
 |  | Étape d’inscription | Duration | Détails |  
 |:--- |:--- |:--- |:--- |  
-| 1 | S’inscrire au Microsoft Partner Network | 15 min | [S’inscrire au Microsoft Partner Network](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account#register-for-an-account-using-the-enrollment-page) |  
+| 1 | S’inscrire au Microsoft Partner Network | 15 min | [S’inscrire au Microsoft Partner Network](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) |  
 | 2 | Créer un compte Microsoft <ul>(requis pour les offres de transaction de la Place de marché Azure ; recommandé pour les autres)</ul> | 15 min | [Créer un ID Microsoft](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) |  
 | 3 | Créer un compte Espace partenaires | 15 min | [Créer un compte Espace partenaires](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) |  
 | 4 |  Se connecter au Portail Cloud Partner | 1 à 3 jours | [Se connecter au Portail Cloud Partner](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account#sign-in-with-a-work-account) |  

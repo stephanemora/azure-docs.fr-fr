@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
-manager: craigg
 ms.date: 02/23/2019
-ms.openlocfilehash: e5426bb7c8eba9d58dbf0472360c6ce0b19c9bc4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: decb4428321d5083d6ba7af134e223eb2fa5a912
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66431332"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68566704"
 ---
 # <a name="azure-sql-database-service-tiers"></a>Niveaux de service Azure SQL Database
 

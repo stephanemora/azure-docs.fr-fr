@@ -1,6 +1,6 @@
 ---
 title: Créer des révisions de vidéos à l’aide de .NET - Content Moderator
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Cet article fournit des informations et des exemples de code destinés à vous aider à démarrer rapidement avec le SDK Content Moderator avec C# pour créer des révisions de vidéos.
 services: cognitive-services
 author: sanjeev3
@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: sajagtap
-ms.openlocfilehash: c8572e6bc7fdedb68527cad4e7ea4109838089b5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 74b0ad4b5d8a16c8d46fcf6de67c46dab29ba51d
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64726832"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564288"
 ---
 # <a name="create-video-reviews-using-net"></a>Créer des révisions de vidéos à l’aide de .NET
 

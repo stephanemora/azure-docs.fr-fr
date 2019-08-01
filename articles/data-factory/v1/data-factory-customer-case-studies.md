@@ -13,21 +13,21 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 952a8aa2dbfdabfb7f0df198a7453b847c33f7e2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c636032766b90af78e7794b3d515b924fa31d6cd
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60486972"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68596028"
 ---
 # <a name="azure-data-factory---customer-case-studies"></a>Azure Data Factory : Études de cas client
 Data Factory est un service de gestion des informations dans le cloud qui automatise le déplacement et la transformation des données. Des clients répartis dans plusieurs secteurs utilisent Data Factory et d’autres services Azure pour générer leurs pipelines d’analyse et résoudre des problèmes commerciaux.  Découvrez directement auprès de nos clients comment et pourquoi ils utilisent Data Factory.
 
 ## <a name="milliman"></a>Milliman
-[L’entreprise Top Actuarial transforme le secteur des assurances](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=20096)
+[L’entreprise Top Actuarial transforme le secteur des assurances](https://customers.microsoft.com/en-us/story/732463-top-actuarial-firm-transforms-the-insurance-industry-w)
 
 ## <a name="rockwell-automation"></a>Rockwell Automation
-[L’entreprise d’automatisation industrielle réduit ses coûts jusqu’à 90 % grâce à des solutions Big Data](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18356)
+[L’entreprise d’automatisation industrielle réduit ses coûts jusqu’à 90 % grâce à des solutions Big Data](https://customers.microsoft.com/en-us/story/726192-industrial-automation-firm-cuts-costs-up-to-90-percent)
 
 ## <a name="ziosk"></a>Ziosk
 [Quel jeu souhaitez-vous avec votre hamburger ? Ziosk le sait peut-être déjà.](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18294)

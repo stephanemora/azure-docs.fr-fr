@@ -6,16 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
-author: garyericson
-ms.author: garye
+author: xiaoharper
+ms.author: amlstudiodocs
 ms.custom: seodc18
 ms.date: 03/04/2019
-ms.openlocfilehash: e29e4713cb01fcf894e09631ecca91ff07587751
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6e0a355852be57a3b0869a6bf094e98a89f49f28
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60751629"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514924"
 ---
 # <a name="downloadable-infographic-machine-learning-basics-with-algorithm-examples"></a>Infographie téléchargeable : principes de base de l’apprentissage automatique avec exemples d’algorithmes
 
@@ -34,7 +34,7 @@ Téléchargez cette vue d’ensemble infographique présentant de manière simpl
 ## <a name="more-help-with-algorithms-for-beginners-and-advanced-users"></a>Aide supplémentaire sur les algorithmes pour les débutants et les utilisateurs expérimentés
 
 * Pour plus d’informations sur les différents types d’algorithmes d’apprentissage automatique, sur leur utilisation et sur la manière de choisir l’algorithme qui convient à votre solution, consultez [Comment choisir des algorithmes Microsoft Azure Machine Learning Studio](algorithm-choice.md).
-* Pour obtenir une liste par catégorie de tous les algorithmes d’apprentissage automatique disponibles dans Machine Learning Studio, consultez [Initialiser le modèle][initialize-model] dans Machine Learning Studio : aide sur les algorithmes et les modules.
+* Pour obtenir la liste par catégorie de tous les algorithmes d’apprentissage automatique disponibles dans Machine Learning Studio, consultez [Initialiser le modèle][initialize-model] dans Machine Learning Studio : aide sur les algorithmes et les modules.
 * Pour obtenir la liste alphabétique complète des algorithmes et des modules de Machine Learning Studio, consultez [Liste alphabétique des modules de Machine Learning Studio][a-z-list] dans Machine Learning Studio : aide sur les algorithmes et les modules.
 * Pour obtenir une vue d’ensemble d’Azure AI Gallery et des nombreuses ressources proposées par la communauté, consultez la page [Partager et découvrir des ressources dans Azure AI Gallery](gallery-how-to-use-contribute-publish.md).
 

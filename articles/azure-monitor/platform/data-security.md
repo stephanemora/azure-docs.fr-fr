@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: magoedte
-ms.openlocfilehash: dd4efcd2f1d4cbf497ad1fde6936088513cb5fd0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 407aaf15808d1d1420fd1a3804651d29a407d4b3
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60759936"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68606670"
 ---
 # <a name="log-analytics-data-security"></a>Sécurité des données Log Analytics
-Ce document est destiné à fournir des informations propres à Log Analytics, qui est une fonctionnalité d’Azure Monitor, en complément des informations disponibles sur le [Centre de confidentialité Azure](../../security/security-microsoft-trust-center.md).  
+Ce document est destiné à fournir des informations propres à Log Analytics, qui est une fonctionnalité d’Azure Monitor, en complément des informations disponibles sur le [Centre de confidentialité Azure](../../security/fundamentals/trust-center.md).  
 
 Cet article décrit les procédures de collecte, de traitement et de sécurisation des données par Log Analytics. Vous pouvez utiliser des agents pour la connexion au service web, utiliser System Center Operations Manager pour collecter des données opérationnelles ou récupérer des données à partir des diagnostics Azure pour une utilisation par Log Analytics. 
 

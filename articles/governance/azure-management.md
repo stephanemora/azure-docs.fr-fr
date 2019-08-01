@@ -7,12 +7,12 @@ ms.service: governance
 ms.topic: article
 ms.date: 12/06/2018
 ms.author: dacoulte
-ms.openlocfilehash: d68e7d9ec3b60b93f0050250d7e7d718db7aa5b8
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.openlocfilehash: 520b84722d9434b309d3eb6da0baa3c1e4da33d0
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67488477"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68608193"
 ---
 # <a name="overview-of-management-services-in-azure"></a>Vue d’ensemble des services de gestion dans Azure
 
@@ -44,7 +44,7 @@ La gouvernance dans Azure est principalement mise en œuvre à l’aide de deux 
 
 ## <a name="secure"></a>Sécuriser
 
-Gérez la sécurité de vos ressources et de vos données. Un programme de sécurité implique l’évaluation des menaces, la collecte et l’analyse des données, et la conformité de vos applications et ressources. [Azure Security Center](../security-center/security-center-intro.md) assure la supervision de la sécurité et l’analyse des menaces, notamment par des fonctionnalités unifiées de gestion de la sécurité et de protection avancée contre les menaces sur l’ensemble des charges de travail cloud hybrides. Consultez [Présentation de la sécurité Azure](../security/azure-security.md) pour des informations complètes et des conseils sur la sécurisation des ressources Azure.
+Gérez la sécurité de vos ressources et de vos données. Un programme de sécurité implique l’évaluation des menaces, la collecte et l’analyse des données, et la conformité de vos applications et ressources. [Azure Security Center](../security-center/security-center-intro.md) assure la supervision de la sécurité et l’analyse des menaces, notamment par des fonctionnalités unifiées de gestion de la sécurité et de protection avancée contre les menaces sur l’ensemble des charges de travail cloud hybrides. Consultez [Présentation de la sécurité Azure](../security/fundamentals/overview.md) pour des informations complètes et des conseils sur la sécurisation des ressources Azure.
 
 ## <a name="protect"></a>Protéger
 

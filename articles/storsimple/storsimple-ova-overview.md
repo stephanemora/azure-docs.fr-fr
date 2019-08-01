@@ -12,16 +12,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 03/14/2019
+ms.date: 07/25/2019
 ms.author: alkohli
-ms.openlocfilehash: e5713af737a6d9d190814b4155a8e772deea06bc
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: cbfc69c7d8d9354ae4e727b9eb0180583165abab
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60630320"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68516705"
 ---
 # <a name="introduction-to-the-storsimple-virtual-array"></a>Présentation de StorSimple Virtual Array
+
+[!INCLUDE [storsimple-virtual-array-eol-banner](../../includes/storsimple-virtual-array-eol-banner.md)]
 
 ## <a name="overview"></a>Vue d'ensemble
 
@@ -87,7 +89,7 @@ Quand plusieurs utilisateurs simultanés accèdent au groupe virtuel, ils partag
 
 StorSimple Virtual Array n’est pas adapté aux charges de travail qui nécessitent une haute disponibilité. Le groupe virtuel est un appareil à nœud unique qui subit des temps d’arrêt au moment de l’installation des mises à jour logicielles. Les administrateurs doivent planifier une fenêtre de maintenance de 30 minutes trois ou quatre fois par an.
 
-## <a name="workflows"></a>Flux de travail
+## <a name="workflows"></a>Workflows
 
 StorSimple Virtual Array est particulièrement adapté aux flux de travail suivants :
 

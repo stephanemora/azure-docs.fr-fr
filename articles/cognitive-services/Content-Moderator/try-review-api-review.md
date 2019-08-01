@@ -1,6 +1,6 @@
 ---
 title: Créer des révisions de modération avec la console d’API REST - Content Moderator
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Utilisez les API de révision Azure Content Moderator afin de créer des révisions de texte ou d'image pour la modération humaine.
 services: cognitive-services
 author: sanjeev3
@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: sajagtap
-ms.openlocfilehash: 254269ccedc92b9dfc164cc4665a8a8513682773
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 581ab488337cfecae3f5dd97610c7f92c75af8b5
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60607555"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564352"
 ---
 # <a name="create-human-reviews-rest"></a>Créer des révisions humaines (REST)
 

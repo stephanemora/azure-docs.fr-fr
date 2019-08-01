@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: genemi
-manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: e76b5ecd3d6401c317f6500ec376fc25d3fa55b8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3d18f5b77d08a55bd06656a72cbc02c040b6f127
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60331126"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68566237"
 ---
 # <a name="how-to-use-batching-to-improve-sql-database-application-performance"></a>Comment utiliser le traitement par lots pour améliorer les performances des applications de base de données SQL
 

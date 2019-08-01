@@ -1,6 +1,6 @@
 ---
 title: Utiliser les révisions de contenu via l’outil de vérification - Content Moderator
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Découvrez comment l'outil de révision permet aux modérateurs humains d'examiner des images sur un portail web.
 services: cognitive-services
 author: sanjeev3
@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: article
 ms.date: 03/15/2019
 ms.author: sajagtap
-ms.openlocfilehash: a482ecf4a0d321525ab7e392695d2c4c0eebeadc
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5b73436153427019a7d0d2c641f50592a385f19c
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60628997"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564545"
 ---
 # <a name="create-human-reviews"></a>Créer des révisions humaines
 

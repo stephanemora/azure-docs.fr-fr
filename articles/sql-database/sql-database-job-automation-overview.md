@@ -9,14 +9,13 @@ ms.topic: overview
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
-manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 4e80bbc868376a41212d924bd31df6ac70a52ded
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 677d9b5a8ca837288755ab098fbccd8a5b7ddacd
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57901965"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567853"
 ---
 # <a name="automate-management-tasks-using-database-jobs"></a>Automatiser des tâches de gestion avec des travaux de base de données
 
@@ -40,12 +39,12 @@ Vous pouvez utiliser l’automatisation des travaux dans plusieurs scénarios :
   - Créez des travaux qui répliquent les modifications apportées à vos bases de données sur d’autres bases de données, ou qui collectent les mises à jour effectuées dans des bases de données distantes et les appliquent à la base de données.
   - Créez des travaux qui chargent des données depuis ou vers vos bases de données avec SQL Server Integration Services (SSIS).
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Vue d'ensemble
 
 Les technologies de planification de travaux suivantes sont disponibles dans Azure SQL Database :
 
 - **Travaux SQL Agent** est le composant classique et éprouvé de planification de travaux de SQL Server disponible dans Managed Instance. Les travaux de l’Agent SQL ne sont pas disponibles dans les bases de données uniques.
-- **Travaux de base de données élastiques** est le service de planification de travaux qui exécute des travaux personnalisés sur une ou plusieurs bases de données SQL.
+- **Travaux de base de données élastiques** est le service de planification de travaux qui exécute des travaux personnalisés sur une ou plusieurs bases de données Azure SQL.
 
 Il convient de noter quelques différences importantes entre SQL Agent (disponible localement et dans le cadre de SQL Database Managed Instance) et l’agent de travail élastique de base de données (disponible pour les bases de données uniques dans Azure SQL Database et les bases de données dans SQL Data Warehouse).
 

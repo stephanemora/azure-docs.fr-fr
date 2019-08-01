@@ -2,22 +2,22 @@
 title: Ajouter ou mettre à jour les informations du profil utilisateur dans Azure Active Directory | Microsoft Docs
 description: Ces instructions vous expliquent comment ajouter des informations à un profil utilisateur dans Azure Active Directory, y compris une image et des informations sur son poste.
 services: active-directory
-author: eross-msft
+author: msaburnley
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
 ms.date: 04/11/2019
-ms.author: lizross
+ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8d710a86bb63765ea8a1a777818ca5f99e38d3a7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4002c14ed6340a0e1a89ee295d47c98436515775
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60248086"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561772"
 ---
 # <a name="add-or-update-a-users-profile-information-using-azure-active-directory"></a>Ajouter ou mettre à jour les informations du profil utilisateur avec Azure Active Directory
 Ajoutez des informations à un profil utilisateur, dont une image de profil, des informations sur l’emploi, et quelques réglages avec Azure Active Directory (Azure AD). Pour en savoir plus sur l’ajout de nouveaux utilisateurs, consultez [Comment ajouter ou supprimer des utilisateurs dans Azure Active Directory](add-users-azure-active-directory.md).

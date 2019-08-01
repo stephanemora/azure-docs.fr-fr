@@ -3,7 +3,7 @@ title: Vue d’ensemble de Service Fabric et des conteneurs | Microsoft Docs
 description: Voici une vue d’ensemble de Service Fabric et de la méthode à suivre pour déployer des applications de microservices au moyen de conteneurs. Cet article fournit une vue d’ensemble de l’utilisation de conteneurs et des fonctionnalités disponibles dans Service Fabric.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: c98b3fcb-c992-4dd9-b67d-2598a9bf8aab
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/8/2018
-ms.author: aljo
-ms.openlocfilehash: 5a45f14e5ac1da5152f320bd92b1ebb42be1d214
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: atsenthi
+ms.openlocfilehash: 2ed3a9d4b1ec219d22a9e01e7acec5d7e950289b
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60881408"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68599761"
 ---
 # <a name="service-fabric-and-containers"></a>Service Fabric et conteneurs
 
@@ -48,7 +48,7 @@ Les conteneurs s’exécutent directement sur le noyau et disposent d’une vue 
 
 Par rapport aux machines virtuelles, les conteneurs présentent les avantages suivants :
 
-* **Taille réduite** : les conteneurs utilisent un espace de stockage unique ainsi que les versions et mises à jour de la couche pour une efficacité accrue.
+* **Petit** : les conteneurs utilisent un espace de stockage unique ainsi que les versions et mises à jour de la couche pour une efficacité accrue.
 * **Démarrage rapide** : comme les conteneurs n’ont pas besoin d’initialiser l’intégralité d’un système d’exploitation, ils peuvent démarrer beaucoup plus rapidement, généralement en quelques secondes.
 * **Portabilité** : une image d’application en conteneur peut être portée de manière à s’exécuter dans le cloud ou en local, à l’intérieur de machines virtuelles ou directement sur des machines physiques.
 * **Gouvernance des ressources** : le nombre de ressources physiques qu’un conteneur peut consommer sur son hôte peut être limité.
@@ -78,7 +78,7 @@ Voici des exemples pour lesquels le conteneur est un bon choix :
 
 * **Opération lift-and-shift pour IIS** : vous pouvez placer une application [ASP.NET MVC](https://www.asp.net/mvc) existante dans un conteneur au lieu de la faire migrer sur ASP.NET Core. Ces applications ASP.NET MVC dépendent des services Internet (IIS, Internet Information Services). Vous pouvez empaqueter ces applications dans des images de conteneur à partir de l’image IIS créée au préalable, puis les déployer avec Service Fabric. Pour plus d’informations sur les conteneurs Windows, consultez la page [Images conteneurs sur Windows Server](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-server).
 
-* **Mélange de conteneurs et de microservices Service Fabric** : utilisez une image de conteneur existante pour une partie de votre application. Par exemple, vous pouvez utiliser le [conteneur NGINX](https://hub.docker.com/_/nginx/) pour le système frontal web de votre application et les services avec état pour les calculs les plus intenses du back-end.
+* **Mélange de conteneurs et de microservices Service Fabric** : Utilisez une image de conteneur existante pour une partie de votre application. Par exemple, vous pouvez utiliser le [conteneur NGINX](https://hub.docker.com/_/nginx/) pour le système frontal web de votre application et les services avec état pour les calculs les plus intenses du back-end.
 
 * **Réduction de l’impact des services de « voisins bruyants »**  : vous pouvez utiliser la capacité de gouvernance des ressources des conteneurs pour limiter le nombre de ressources utilisées par un service sur un hôte. Si les services sont susceptibles de consommer un grand nombre de ressources et, de ce fait, d’affecter les performances d’autres services (opération de type requête exécutée sur le long terme, par exemple), vous pouvez envisager de les placer dans des conteneurs soumis à la gouvernance des ressources.
 

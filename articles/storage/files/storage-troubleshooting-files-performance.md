@@ -1,19 +1,18 @@
 ---
 title: Guide de résolution des problèmes de niveau de performance d’Azure Files
 description: Problèmes de niveau de performance connus avec les partages de fichiers Azure et les solutions de contournement associées.
-services: storage
 author: gunjanj
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 1a5e59bd0276477bad1eab9a544dc4070e662016
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 6b28d004ceacda3cec13e96ceae84d5d1ff1a2e5
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68249878"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68699171"
 ---
 # <a name="troubleshoot-azure-files-performance-issues"></a>Résoudre les problèmes de niveau de performance d’Azure Files
 

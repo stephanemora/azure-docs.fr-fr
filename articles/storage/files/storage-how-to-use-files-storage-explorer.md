@@ -1,19 +1,18 @@
 ---
 title: Démarrage rapide pour la gestion des partages de fichiers Azure à l’aide de l’Explorateur Stockage Azure
 description: Utilisez ce guide de démarrage rapide pour découvrir comment utiliser l’Explorateur Stockage Azure pour gérer Azure Files.
-services: storage
 author: roygara
 ms.service: storage
 ms.topic: quickstart
 ms.date: 10/18/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: bf87704a8055b5725178c846df71ed4d873417e3
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: b034b3e7aa5fcb61cf83565f3e4c3b1c83f3610c
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64713877"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68699457"
 ---
 # <a name="quickstart-create-and-manage-azure-file-shares-with-azure-storage-explorer"></a>Démarrage rapide : Créer et gérer des partages de fichiers Azure avec l’Explorateur Stockage Azure
 Ce guide vous explique les bases de l’utilisation du [partage de fichiers Azure](storage-files-introduction.md) avec l’Explorateur Stockage Azure. Le partage de fichiers Azure est similaire à d’autres partages de fichiers, mais est stocké dans le cloud et s’appuie sur la plateforme Azure. Il prend en charge le protocole SMB standard de l’industrie et permet le partage de fichiers entre plusieurs machines, applications et instances. 

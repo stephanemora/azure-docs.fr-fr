@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 06/26/2019
+ms.date: 07/25/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 1e29b8e23927ef2ff70416d1adc76e2b2b3f2d8a
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 8219e795bb9ab4fc0d479b71e6a93fe6300037d0
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67443713"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514915"
 ---
 # <a name="grant-access-to-azure-blob-and-queue-data-with-rbac-using-azure-cli"></a>Octroyer l’accès aux données blob et de file d’attente Azure avec RBAC à l’aide d’Azure CLI
 

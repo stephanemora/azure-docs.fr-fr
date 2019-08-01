@@ -1,6 +1,6 @@
 ---
 title: Envoi de requêtes de recherche à l’API Recherche visuelle Bing
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Apprenez-en davantage sur les paramètres de l’API REST utilisés dans l’API Recherche visuelle Bing.
 services: cognitive-services
 author: aahill
@@ -10,12 +10,12 @@ ms.subservice: bing-visual-search
 ms.topic: article
 ms.date: 7/01/2019
 ms.author: aahi
-ms.openlocfilehash: bd5118b42f32a521df8e3acfffb68391d4021791
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: b0b26c771f19edeb45fd4fb6aa3f24c335d0f51e
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67541517"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562711"
 ---
 # <a name="sending-search-queries-to-the-bing-visual-search-api"></a>Envoi de requêtes de recherche à l’API Recherche visuelle Bing
 

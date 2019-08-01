@@ -1,18 +1,17 @@
 ---
 title: Vue d’ensemble de l’authentification Azure Active Directory sur SMB pour Azure Files (préversion) - Stockage Azure
 description: Azure Files prend en charge l’authentification basée sur l’identité sur SMB (Server Message Block) (préversion) avec Azure Active Directory (Azure AD) Domain Services. Vos machines virtuelles Windows jointes à un domaine peuvent alors accéder aux partages de fichiers Azure en utilisant les informations d’identification Azure AD.
-services: storage
 author: roygara
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/18/2019
 ms.author: rogarana
-ms.openlocfilehash: 21087424be1a7a3edfe2dddcbec830bd74559b23
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: b1bc7385751fbd1829b4aee2713621448f8aa505
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67269364"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68699737"
 ---
 # <a name="overview-of-azure-files-azure-active-directory-domain-service-aad-ds-authentication-support-for-smb-access-preview"></a>Vue d’ensemble de la prise en charge de l’authentification Azure Active Directory Domaine Service (AAD DS) d’Azure Files pour l’accès SMB (préversion)
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]

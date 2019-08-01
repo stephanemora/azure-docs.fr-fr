@@ -1,19 +1,19 @@
 ---
 title: Qu’est-ce qu’Azure Backup ?
 description: Fournit une vue d’ensemble du service Sauvegarde Azure et de la façon de le déployer dans le cadre de votre stratégie de continuité d’activité et de reprise d’activité (BCDR).
-author: rayne-wiselman
+author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: overview
 ms.date: 04/24/2019
-ms.author: raynew
+ms.author: dacurwin
 ms.custom: mvc
-ms.openlocfilehash: 9e926ca2625f98522652ae7e7d245ecf2ed576c4
-ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
+ms.openlocfilehash: e3577a1a0da7809298697c55c84662bc15b0f1e7
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66688713"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639638"
 ---
 # <a name="what-is-azure-backup"></a>Qu’est-ce qu’Azure Backup ?
 

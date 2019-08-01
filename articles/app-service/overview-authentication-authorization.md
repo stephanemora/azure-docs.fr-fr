@@ -16,12 +16,12 @@ ms.date: 08/24/2018
 ms.author: cephalin
 ms.reviewer: mahender
 ms.custom: seodec18
-ms.openlocfilehash: 42d925a77de20392459081e6669706da330ba7fa
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 53733774968f94ac95d9b3fea6d8fcb422b4e02c
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67836710"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68515186"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service"></a>Authentification et autorisation dans Azure App Service
 
@@ -56,7 +56,7 @@ Le module, configuré à l’aide des paramètres de l’application, s’exécu
 
 ### <a name="user-claims"></a>Revendications d’utilisateur
 
-Pour toutes les infrastructures de langage, App Service rend les revendications de l’utilisateur accessibles à votre code en les insérant dans les en-têtes de demande. Dans le cas des applications ASP.NET 4.6, App Service remplit [ClaimsPrincipal.Current](/dotnet/api/system.security.claims.claimsprincipal.current) avec les revendications de l’utilisateur authentifié, ce qui vous permet de suivre le modèle de code .NET standard, attribut `[Authorize]` compris. De même, pour les applications PHP, App Service remplit la variable `_SERVER['REMOTE_USER']`. Pour les applications Java, les revendications sont [accessibles depuis le servlet Tomcat](containers/configure-language-java.md#authenticate-users).
+Pour toutes les infrastructures de langage, App Service rend les revendications de l’utilisateur accessibles à votre code en les insérant dans les en-têtes de demande. Dans le cas des applications ASP.NET 4.6, App Service remplit [ClaimsPrincipal.Current](/dotnet/api/system.security.claims.claimsprincipal.current) avec les revendications de l’utilisateur authentifié, ce qui vous permet de suivre le modèle de code .NET standard, attribut `[Authorize]` compris. De même, pour les applications PHP, App Service remplit la variable `_SERVER['REMOTE_USER']`. Pour les applications Java, les revendications sont [accessibles depuis le servlet Tomcat](containers/configure-language-java.md#authenticate-users-easy-auth).
 
 Avec [Azure Functions](../azure-functions/functions-overview.md), `ClaimsPrincipal.Current` n’est pas alimenté pour le code .NET, mais les revendications d’utilisateur se trouvent toujours dans les en-têtes de demande.
 

@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: a9c857ab9e9a3cfc0d1314600b612c4e6293173d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3e7e2294938179da83fb5ad03db177c1142ad096
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60332311"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568341"
 ---
 # <a name="scale-out-databases-with-the-shard-map-manager"></a>Monter en charge les bases de données avec le Gestionnaire de cartes de partitions
 
@@ -58,7 +57,7 @@ L’infrastructure élastique prend en charge les types suivants en tant que cl�
 | long |long |
 | GUID |uuid |
 | byte[]  |byte[] |
-| Datetime | timestamp |
+| datetime | timestamp |
 | intervalle de temps | duration|
 | datetimeoffset |offsetdatetime |
 
@@ -75,7 +74,7 @@ Les **partitions** contiennent des **shardlets** (micro-partitions) et le mappag
 | 1 |Database_A |
 | 3 |Database_B |
 | 4 |Database_C |
-| 6\. |Database_B |
+| 6 |Database_B |
 | ... |... |
 
 ### <a name="range-shard-maps"></a>Cartes de partitions de plage

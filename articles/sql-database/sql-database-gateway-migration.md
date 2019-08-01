@@ -9,14 +9,13 @@ ms.topic: conceptual
 author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
-manager: craigg
 ms.date: 07/01/2019
-ms.openlocfilehash: 5894579c62c524394c7fea044b96885f7c8e8204
-ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+ms.openlocfilehash: 85691464684ff327c01a85bf357514f447564dd7
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67538149"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568109"
 ---
 # <a name="azure-sql-database-traffic-migration-to-newer-gateways"></a>Migration du trafic des bases de données Azure SQL Database vers des passerelles plus récentes
 
@@ -30,7 +29,7 @@ La première série de désaffectations de passerelles est prévue pour le 1er s
 
 - USA Ouest
 - Europe Ouest
-- USA Est
+- East US
 - USA Centre
 - Asie Sud-Est
 - USA Centre Sud

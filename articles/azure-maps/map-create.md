@@ -3,18 +3,18 @@ title: Créer une carte avec Azure Maps | Microsoft Docs
 description: Procédure de création d’une carte JavaScript
 author: jingjing-z
 ms.author: jinzh
-ms.date: 10/30/2018
+ms.date: 07/26/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 222fc5e9083c03ff0d4e31927363c5f517cf32a9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8a4f67290e93d8b296added9023fe9b6947ba02c
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62108597"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68638679"
 ---
 # <a name="create-a-map"></a>Créer une carte
 

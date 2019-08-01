@@ -3,19 +3,19 @@ title: Score de récompense - Personalizer
 titleSuffix: Azure Cognitive Services
 description: Le score de récompense indique à quel point le choix de personnalisation, RewardActionID, était adapté à l’utilisateur. La valeur du score de récompense est déterminée par votre logique métier, en fonction des observations sur le comportement utilisateur. Personalizer effectue l’apprentissage de ses modèles Machine Learning en évaluant les récompenses.
 services: cognitive-services
-author: edjez
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 06/07/2019
-ms.author: edjez
-ms.openlocfilehash: 39db28cd7e11d77362a2aefcf4ad8d2748db59c2
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.author: diberry
+ms.openlocfilehash: 72c425a1ec9fb83cc2e9dd1bae2c4f521109f162
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67722506"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68663374"
 ---
 # <a name="reward-scores-indicate-success-of-personalization"></a>Les scores de récompense indiquent la réussite de la personnalisation
 

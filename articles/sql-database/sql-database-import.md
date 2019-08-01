@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 06/20/2019
-ms.openlocfilehash: 5726a11d37899517674d445711afda31731b901d
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: ca098eba8e0cbad0d0240bd7819a401c502a869d
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68305812"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568023"
 ---
 # <a name="quickstart-import-a-bacpac-file-to-a-database-in-azure-sql-database"></a>Démarrage rapide : Importer un fichier BACPAC dans Azure SQL Database
 
@@ -35,7 +34,7 @@ Le [Portail Microsoft Azure](https://portal.azure.com) prend *uniquement* en cha
 La migration d’une base de données vers une [instance managée](sql-database-managed-instance.md) provenant d’un fichier BACPAC à l’aide d’Azure PowerShell n’est pas prise en charge pour le moment. Veuillez plutôt utiliser SQL Server Management Studio ou SQLPackage.
 
 > [!NOTE]
-> Les machines qui traitent les requêtes d’importation/exportation soumises par le biais du Portail Microsoft Azure ou de PowerShell doivent stocker le fichier BACPAC et les fichiers temporaires générés par Data-Tier Application Framework (DacFX). L’espace disque requis varie considérablement parmi les bases de données de même taille, et peut nécessiter jusqu’à 3 fois la taille de la base de données. Les ordinateurs exécutant les requêtes d’importation/exportation ne disposent que de 450 Go d’espace disque local. Par conséquent, certaines demandes peuvent échouer avec l’erreur `There is not enough space on the disk`. Dans ce cas, la solution de contournement consiste à exécuter sqlpackage.exe sur un ordinateur ayant suffisamment d’espace disque local. Pour éviter ce problème, nous vous conseillons d’utiliser [SqlPackage](#import-from-a-bacpac-file-using-sqlpackage) pour importer/exporter des bases de données supérieures à 150 Go.
+> Les machines qui traitent les requêtes d’importation/exportation soumises par le biais du portail Microsoft Azure ou de PowerShell doivent stocker le fichier BACPAC et les fichiers temporaires générés par Data-Tier Application Framework (DacFX). L’espace disque requis varie considérablement entre bases de données de même taille, et peut nécessiter jusqu’à 3 fois la taille de la base de données. Les ordinateurs exécutant les requêtes d’importation/exportation ne disposent que de 450 Go d’espace disque local. Par conséquent, certaines demandes peuvent échouer avec l’erreur `There is not enough space on the disk`. Dans ce cas, la solution de contournement consiste à exécuter sqlpackage.exe sur un ordinateur ayant suffisamment d’espace disque local. Pour éviter ce problème, nous vous conseillons d’utiliser [SqlPackage](#import-from-a-bacpac-file-using-sqlpackage) pour importer/exporter des bases de données supérieures à 150 Go.
  
 1. Pour importer à partir d’un fichier BACPAC dans une base de données unique à l’aide du Portail Microsoft Azure, ouvrez la page appropriée du serveur de base de données, puis, dans la barre d’outils, sélectionnez **Importer la base de données**.  
 

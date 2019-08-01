@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
-manager: craigg
 ms.date: 02/20/2019
-ms.openlocfilehash: 1318cd3d1c0c51889cc70b6836d06d6d6ee70c24
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: eb49649e9c92416fc674c032b9dc6a613a34dd77
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60387397"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68569663"
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-sql"></a>Utiliser l’authentification Azure Active Directory pour l’authentification avec SQL
 

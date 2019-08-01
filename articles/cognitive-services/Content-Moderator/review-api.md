@@ -1,6 +1,6 @@
 ---
 title: Concepts des révisions, flux de travail et travaux - Content Moderator
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: En savoir plus sur les révisions, flux de travail et travaux
 services: cognitive-services
 author: sanjeev3
@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: sajagtap
-ms.openlocfilehash: c1d4ef640e2ae072dacba7a665b6689e3224c55c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a77b93c46c9989181cf4473e8b908571a3df2f20
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60607294"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68565541"
 ---
 # <a name="content-moderation-reviews-workflows-and-jobs"></a>Révisions, flux de travail et travaux avec modération du contenu
 
@@ -29,7 +29,7 @@ Dans une révision, le contenu est chargé dans l’outil de révision et appara
 
 Consultez le [guide de l’outil de révision](./review-tool-user-guide/review-moderated-images.md) pour commencer à créer des révisions, ou le [guide de l’API REST](./try-review-api-review.md) pour apprendre à le faire par programmation.
 
-## <a name="workflows"></a>Flux de travail
+## <a name="workflows"></a>Workflows
 
 Un flux de travail est un filtre personnalisé basé sur le cloud pour le contenu. Flux de travail peut se connecter à une variété de services pour filtrer le contenu de différentes façons et puis exécutez l’action appropriée. Avec le connecteur Content Moderator, un flux de travail peut automatiquement appliquer des balises de modération et créer révisions avec le contenu soumis.
 

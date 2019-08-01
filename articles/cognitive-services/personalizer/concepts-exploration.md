@@ -3,19 +3,19 @@ title: Exploration – Personalizer
 titleSuffix: Azure Cognitive Services
 description: Avec une exploration, le service Personalizer est en mesure de continuer à fournir de bons résultats, même si le comportement de l’utilisateur change. Le choix d’un paramètre d’exploration est une décision opérationnelle concernant la proportion d’interactions d’utilisateur nécessaires pour explorer, afin d’améliorer le modèle.
 services: cognitive-services
-author: edjez
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 05/13/2019
-ms.author: edjez
-ms.openlocfilehash: ebb59b6bb7c36f4558b2bd63d2d55fa95823c4c3
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.author: diberry
+ms.openlocfilehash: cfecea6a64301d86aa657420dc300c26d4ed6f1e
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67722469"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68663395"
 ---
 # <a name="exploration-and-exploitation"></a>Exploration et exploitation
 

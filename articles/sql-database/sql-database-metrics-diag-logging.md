@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
-manager: craigg
 ms.date: 05/21/2019
-ms.openlocfilehash: 6824a7151a0c007d6fe4ba021f274886a3cf0dcb
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: a1475188d2e1ab0db3dfd9775fc37d3fc0a17158
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447823"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567258"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Journalisation des métriques et diagnostics d’Azure SQL Database
 
@@ -211,7 +210,7 @@ Pour activer la diffusion en continu des données de télémétrie de diagnostic
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Le module PowerShell Azure Resource Manager est toujours pris en charge par Azure SQL Database, mais tous les développements à venir sont destinés au module Az.Sql. Pour ces cmdlets, consultez [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Les arguments pour les commandes dans le module Az et dans les modules AzureRm sont sensiblement identiques.
+> Le module PowerShell Azure Resource Manager est toujours pris en charge par Azure SQL Database, mais tous les développements à venir sont destinés au module Az.Sql. Pour ces cmdlets, voir [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Les arguments pour les commandes dans le module Az et dans les modules AzureRm sont sensiblement identiques.
 
 Vous pouvez activer les métriques et la journalisation des diagnostics à l’aide de PowerShell.
 
@@ -440,7 +439,7 @@ Les détails des données de télémétrie disponibles pour tous les journaux so
 |TimeGenerated [UTC]|Horodatage indiquant à quel moment le journal a été enregistré |
 |Type|Toujours : AzureDiagnostics |
 |ResourceProvider|Nom du fournisseur de ressources. Toujours : MICROSOFT.SQL |
-|Catégorie|Nom de la catégorie. Toujours : ResourceUsageStats |
+|Category|Nom de la catégorie. Toujours : ResourceUsageStats |
 |Ressource|Nom de la ressource |
 |ResourceType|Nom du type de ressource. Toujours : MANAGEDINSTANCES |
 |SubscriptionId|GUID d’abonnement de la base de données |
@@ -465,7 +464,7 @@ Les détails des données de télémétrie disponibles pour tous les journaux so
 |TimeGenerated [UTC]|Horodatage indiquant à quel moment le journal a été enregistré |
 |Type|Toujours : AzureDiagnostics |
 |ResourceProvider|Nom du fournisseur de ressources. Toujours : MICROSOFT.SQL |
-|Catégorie|Nom de la catégorie. Toujours : QueryStoreRuntimeStatistics |
+|Category|Nom de la catégorie. Toujours : QueryStoreRuntimeStatistics |
 |OperationName|Nom de l’opération. Toujours : QueryStoreRuntimeStatisticsEvent |
 |Ressource|Nom de la ressource |
 |ResourceType|Nom du type de ressource. Toujours : SERVEURS/BASES DE DONNÉES |
@@ -516,7 +515,7 @@ En savoir plus sur les [données de statistiques d’exécution du magasin des r
 |TimeGenerated [UTC]|Horodatage indiquant à quel moment le journal a été enregistré |
 |Type|Toujours : AzureDiagnostics |
 |ResourceProvider|Nom du fournisseur de ressources. Toujours : MICROSOFT.SQL |
-|Catégorie|Nom de la catégorie. Toujours : QueryStoreWaitStatistics |
+|Category|Nom de la catégorie. Toujours : QueryStoreWaitStatistics |
 |OperationName|Nom de l’opération. Toujours : QueryStoreWaitStatisticsEvent |
 |Ressource|Nom de la ressource |
 |ResourceType|Nom du type de ressource. Toujours : SERVEURS/BASES DE DONNÉES |
@@ -554,7 +553,7 @@ Découvrez-en davantage sur les [données des statistiques d’attente du magasi
 |TimeGenerated [UTC]|Horodatage indiquant à quel moment le journal a été enregistré |
 |Type|Toujours : AzureDiagnostics |
 |ResourceProvider|Nom du fournisseur de ressources. Toujours : MICROSOFT.SQ |
-|Catégorie|Nom de la catégorie. Toujours : Errors |
+|Category|Nom de la catégorie. Toujours : Errors |
 |OperationName|Nom de l’opération. Toujours : ErrorEvent |
 |Ressource|Nom de la ressource |
 |ResourceType|Nom du type de ressource. Toujours : SERVEURS/BASES DE DONNÉES |
@@ -567,7 +566,7 @@ Découvrez-en davantage sur les [données des statistiques d’attente du magasi
 |Message|Message d’erreur en texte brut |
 |user_defined_b|Indique si l’erreur est un bit défini par l’utilisateur |
 |error_number_d|Code d'erreur |
-|Severity|Gravité de l’erreur |
+|severity|Gravité de l’erreur |
 |state_d|État de l’erreur |
 |query_hash_s|Hachage de requête de la requête ayant échoué, si disponible |
 |query_plan_hash_s|Hachage du plan de requête de la requête ayant échoué, si disponible |
@@ -583,7 +582,7 @@ En savoir plus sur les [messages d’erreur SQL Server](https://msdn.microsoft.c
 |TimeGenerated [UTC]|Horodatage indiquant à quel moment le journal a été enregistré |
 |Type|Toujours : AzureDiagnostics |
 |ResourceProvider|Nom du fournisseur de ressources. Toujours : MICROSOFT.SQL |
-|Catégorie|Nom de la catégorie. Toujours : DatabaseWaitStatistics |
+|Category|Nom de la catégorie. Toujours : DatabaseWaitStatistics |
 |OperationName|Nom de l’opération. Toujours : DatabaseWaitStatisticsEvent |
 |Ressource|Nom de la ressource |
 |ResourceType|Nom du type de ressource. Toujours : SERVEURS/BASES DE DONNÉES |
@@ -612,7 +611,7 @@ Apprenez-en davantage sur les [statistiques d’attente de base de données](htt
 |TimeGenerated [UTC]|Horodatage indiquant à quel moment le journal a été enregistré |
 |Type|Toujours : AzureDiagnostics |
 |ResourceProvider|Nom du fournisseur de ressources. Toujours : MICROSOFT.SQL |
-|Catégorie|Nom de la catégorie. Toujours : Délais d’expiration |
+|Category|Nom de la catégorie. Toujours : Délais d’expiration |
 |OperationName|Nom de l’opération. Toujours : TimeoutEvent |
 |Ressource|Nom de la ressource |
 |ResourceType|Nom du type de ressource. Toujours : SERVEURS/BASES DE DONNÉES |
@@ -635,7 +634,7 @@ Apprenez-en davantage sur les [statistiques d’attente de base de données](htt
 |TimeGenerated [UTC]|Horodatage indiquant à quel moment le journal a été enregistré |
 |Type|Toujours : AzureDiagnostics |
 |ResourceProvider|Nom du fournisseur de ressources. Toujours : MICROSOFT.SQL |
-|Catégorie|Nom de la catégorie. Toujours : Blocs |
+|Category|Nom de la catégorie. Toujours : Blocs |
 |OperationName|Nom de l’opération. Toujours : BlockEvent |
 |Ressource|Nom de la ressource |
 |ResourceType|Nom du type de ressource. Toujours : SERVEURS/BASES DE DONNÉES |
@@ -659,7 +658,7 @@ Apprenez-en davantage sur les [statistiques d’attente de base de données](htt
 |TimeGenerated [UTC] |Horodatage indiquant à quel moment le journal a été enregistré |
 |Type|Toujours : AzureDiagnostics |
 |ResourceProvider|Nom du fournisseur de ressources. Toujours : MICROSOFT.SQL |
-|Catégorie|Nom de la catégorie. Toujours : Blocages |
+|Category|Nom de la catégorie. Toujours : Blocages |
 |OperationName|Nom de l’opération. Toujours : DeadlockEvent |
 |Ressource|Nom de la ressource |
 |ResourceType|Nom du type de ressource. Toujours : SERVEURS/BASES DE DONNÉES |
@@ -680,7 +679,7 @@ Apprenez-en davantage sur les [statistiques d’attente de base de données](htt
 |TimeGenerated [UTC]|Horodatage indiquant à quel moment le journal a été enregistré |
 |Type|Toujours : AzureDiagnostics |
 |ResourceProvider|Nom du fournisseur de ressources. Toujours : MICROSOFT.SQL |
-|Catégorie|Nom de la catégorie. Toujours : AutomaticTuning |
+|Category|Nom de la catégorie. Toujours : AutomaticTuning |
 |Ressource|Nom de la ressource |
 |ResourceType|Nom du type de ressource. Toujours : SERVEURS/BASES DE DONNÉES |
 |SubscriptionId|GUID d’abonnement de la base de données |

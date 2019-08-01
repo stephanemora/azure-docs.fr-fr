@@ -1,6 +1,6 @@
 ---
 title: Méthode Transliterate de l’API de traduction de texte Translator Text
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Utilisez la méthode Transliterate de l’API de traduction de texte Translator Text.
 services: cognitive-services
 author: swmachan
@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: swmachan
-ms.openlocfilehash: ddf4ca1939e09f5f63999657e7a751c9e53693e2
-ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
+ms.openlocfilehash: 0be56bbd421bcd12e3c494a671db2f322e07c575
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/25/2019
-ms.locfileid: "67357655"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68594930"
 ---
 # <a name="translator-text-api-30-transliterate"></a>API de traduction de texte Translator Text 3.0 : Transliterate
 

@@ -1,6 +1,6 @@
 ---
 title: Méthode de recherche dans le dictionnaire de l’API de traduction de texte Microsoft Translator Text
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Utilisez la méthode de recherche dans le dictionnaire de l’API de traduction de texte Microsoft Translator Text.
 services: cognitive-services
 author: swmachan
@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: swmachan
-ms.openlocfilehash: 8cc37c9edd5679158f8454e00bd27a53e4491004
-ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
+ms.openlocfilehash: 9a06c8e3b50c3f54971694f8d3924a3a5ba5f071
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/25/2019
-ms.locfileid: "67357693"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595037"
 ---
 # <a name="translator-text-api-30-dictionary-lookup"></a>API de traduction de texte Translator Text 3.0 : Recherche dans le dictionnaire
 

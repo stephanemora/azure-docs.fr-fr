@@ -4,7 +4,7 @@ description: Apprenez-en davantage sur les infrastructures et les outils Deep Le
 keywords: outils de science des données, machine virtuelle science des données, outils pour la science des données, science des données linux
 services: machine-learning
 documentationcenter: ''
-author: gopitk
+author: vijetajo
 manager: cgronlun
 ms.custom: seodec18
 ms.assetid: ''
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2017
-ms.author: gokuma
-ms.openlocfilehash: 59f88d54d3542738f1a500c8c476995eb1535ecf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: vijetaj
+ms.openlocfilehash: 08a740ec898f1ac46ff66de9002e4241d918adc0
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62130266"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68558171"
 ---
 # <a name="deep-learning-and-ai-frameworks"></a>Frameworks d’apprentissage profond et d’intelligence artificielle
 La machine virtuelle [DSVM](https://aka.ms/dsvm) (Data Science Virtual Machine) et la machine virtuelle [DLVM](https://aka.ms/dsvm/deeplearning) (Deep Learning Virtual Machine) prennent en charge plusieurs frameworks d’apprentissage profond pour créer des applications d’intelligence artificielle (IA) avec des fonctionnalités cognitives et d’analytique prédictive comme la compréhension d’image et de langue.

@@ -4,7 +4,7 @@ description: Découvrez les outils et les utilitaires qui sont préinstallés su
 keywords: outils de science des données, machine virtuelle science des données, outils pour la science des données, science des données linux
 services: machine-learning
 documentationcenter: ''
-author: gopitk
+author: vijetajo
 manager: cgronlun
 ms.custom: seodec18
 ms.assetid: ''
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/22/2019
-ms.author: gokuma
-ms.openlocfilehash: 0a503b82c07da62b5c5c768d8e1c92cb19e75aee
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: vijetaj
+ms.openlocfilehash: d48c2b849f875289c89201f20478deebf4c00db9
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66236472"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68565233"
 ---
 # <a name="get-to-know-your-data-science-virtual-machine"></a>Découvrir votre machine virtuelle DSVM
 
@@ -30,7 +30,7 @@ La machine virtuelle DSVM (Data Science Virtual Machine) contient la liste compl
 De plus, la machine virtuelle DSVM comprend plusieurs exemples de code et procédures pas à pas sous la forme de notebooks Jupyter qui peuvent être exécutés localement. Il existe également une documentation pour ces exemples, qui en facilite la compréhension. 
 
 > [!NOTE]
-> Vous pouvez utiliser [Azure Notebooks](/azure/notebooks/azure-notebooks-overview) pour créer, exécuter et partager des notebooks Jupyter dans le cloud. Vous pouvez [attacher une machine virtuelle Science des données à Azure Notebooks](/azure/notebooks/configure-manage-azure-notebooks-projects#compute-tier) pour développer la puissance de calcul disponible.
+> Vous pouvez utiliser [Azure Notebooks](../../notebooks/azure-notebooks-overview.md) pour créer, exécuter et partager des notebooks Jupyter dans le cloud. Vous pouvez [attacher une machine virtuelle Science des données à Azure Notebooks](../../notebooks/configure-manage-azure-notebooks-projects.md#compute-tier) pour développer la puissance de calcul disponible.
 
 Les outils, plateformes, utilitaires et exemples compris dans la machine virtuelle DSVM sont organisés selon les sections suivantes :
 

@@ -1,6 +1,6 @@
 ---
 title: 'Définir le flux de travail de modération avec la console d’API REST : Content Moderator'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Vous pouvez utiliser les API de révision Azure Content Moderator pour définir des flux de travail personnalisés et des seuils en fonction de vos stratégies de contenu.
 services: cognitive-services
 author: sanjeev3
@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: sajagtap
-ms.openlocfilehash: e150b1321f2fbd348e737222c752203281503643
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 71b7be74ca7b6ac072dfd7c9fa6b8efa72361dfa
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60605901"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561192"
 ---
 # <a name="define-and-use-moderation-workflows-rest"></a>Définir et utiliser des flux de travail de modération (REST)
 
@@ -37,7 +37,7 @@ Entrez les valeurs de **team**, **workflowname** et **Ocp-Apim-Subscription-Key*
 
 - **team** : ID d’équipe que vous avez créé lors de la configuration de votre compte [Outil de révision](https://contentmoderator.cognitive.microsoft.com/) compte (il se trouve dans le champ **Id** sur l’écran des informations d’identification de votre outil de révision).
 - **workflowname** : nom d’un nouveau flux de travail à ajouter (ou un nom existant si vous souhaitez mettre à jour un flux de travail existant).
-- **Ocp-Apim-Subscription-Key** : votre clé Content Moderator Vous pouvez la trouver sous l’onglet **Paramètres** de l’[Outil de révision](https://contentmoderator.cognitive.microsoft.com).
+- **Ocp-Apim-Subscription-Key** : votre clé Content Moderator. Vous pouvez la trouver sous l’onglet **Paramètres** de l’[Outil de révision](https://contentmoderator.cognitive.microsoft.com).
 
 ![Paramètres de requête et en-têtes de la console Flux de travail - Créer ou mettre à jour](images/workflow-console-parameters.PNG)
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4332c921af770cb47e9a9a779d0bd148153fcd31
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 6e58762bd5bf4342804767a200c94b432dd152a0
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67666142"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562216"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Activation Planifier votre implémentation de la jointure d’Azure AD
 
@@ -271,7 +271,7 @@ GAM ne s’applique pas à la jonction Azure AD.
 
 ## <a name="configure-enterprise-state-roaming"></a>Configurer l’itinérance des états d’entreprise
 
-Si vous voulez activer l’itinérance des états dans Azure AD, afin que les utilisateurs puissent synchroniser leurs paramètres entre différents appareils, consultez [Activer Enterprise State Roaming dans Azure Active Directory](https://docs.microsoft.com/azure/active-directory/devices/enterprise-state-roaming-enable). 
+Si vous voulez activer l’itinérance des états dans Azure AD, afin que les utilisateurs puissent synchroniser leurs paramètres entre différents appareils, consultez [Activer Enterprise State Roaming dans Azure Active Directory](enterprise-state-roaming-enable.md). 
 
 **Recommandation** : Activez ce paramètre même pour des appareils joints à Azure AD hybrides.
 

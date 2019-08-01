@@ -3,7 +3,7 @@ title: Créer une application de conteneur Windows sur Service Fabric dans Azure
 description: Dans ce démarrage rapide, créez votre première application conteneur Windows sur Microsoft Azure Service Fabric.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: jpconnock
 editor: vturecek
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/10/2019
-ms.author: aljo
+ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: ebc3d988afd9257bbdf045814877ab70012836aa
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: 096a398b8fc4f7f42dcc42feb7fe00b182d7649b
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68225109"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68599375"
 ---
 # <a name="quickstart-deploy-windows-containers-to-service-fabric"></a>Démarrage rapide : déployer des conteneurs Windows sur Service Fabric
 
@@ -40,7 +40,7 @@ Dans ce guide de démarrage rapide, vous apprenez à :
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 * Un abonnement Azure (vous pouvez créer un [ compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)).
 * Un ordinateur de développement exécutant :

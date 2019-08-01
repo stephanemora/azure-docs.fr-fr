@@ -11,12 +11,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 05/23/2019
-ms.openlocfilehash: 80137c7f1ecebab4d2da0c4b7ba0ca9292dad22e
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: f680a1cb15edf0141897c74da3b7c7afa01acae0
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67443967"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68699116"
 ---
 # <a name="explore-and-prepare-data-with-the-dataset-class-preview"></a>Explorer et préparer les données avec la classe Dataset (préversion)
 
@@ -66,10 +66,10 @@ top_n_sample_dataset.to_pandas_dataframe()
 ||id|Case Number|Date|Block|IUCR|Primary Type|...|
 -|--|-----------|----|-----|----|------------|---
 0|10498554|HZ239907|4/4/2016 23:56|007XX E 111TH ST|1153|PRATIQUE FRAUDULEUSE|...
-1|10516598|HZ258664|4/15/2016 17:00|082XX S MARSHFIELD AVE|890|THEFT|...
-2|10519196|HZ261252|4/15/2016 10:00|104XX S SACRAMENTO AVE|1154|PRATIQUE FRAUDULEUSE|...
-3|10519591|HZ261534|4/15/2016 9:00|113XX S PRAIRIE AVE|1120|PRATIQUE FRAUDULEUSE|...
-4|10534446|HZ277630|4/15/2016 10:00|055XX N KEDZIE AVE|890|THEFT|...
+1|10516598|HZ258664|15/4/2016 17:00|082XX S MARSHFIELD AVE|890|THEFT|...
+2|10519196|HZ261252|15/4/2016 10:00|104XX S SACRAMENTO AVE|1154|PRATIQUE FRAUDULEUSE|...
+3|10519591|HZ261534|15/4/2016 9:00|113XX S PRAIRIE AVE|1120|PRATIQUE FRAUDULEUSE|...
+4|10534446|HZ277630|15/4/2016 10:00|055XX N KEDZIE AVE|890|THEFT|...
 
 ### <a name="simple-random-sample"></a>Échantillon aléatoire simple
 
@@ -82,9 +82,9 @@ simple_random_sample_dataset.to_pandas_dataframe()
 
 ||id|Case Number|Date|Block|IUCR|Primary Type|...|
 -|--|-----------|----|-----|----|------------|---
-0|10516598|HZ258664|4/15/2016 17:00|082XX S MARSHFIELD AVE|890|THEFT|...
-1|10519196|HZ261252|4/15/2016 10:00|104XX S SACRAMENTO AVE|1154|PRATIQUE FRAUDULEUSE|...
-2|10534446|HZ277630|4/15/2016 10:00|055XX N KEDZIE AVE|890|THEFT|...
+0|10516598|HZ258664|15/4/2016 17:00|082XX S MARSHFIELD AVE|890|THEFT|...
+1|10519196|HZ261252|15/4/2016 10:00|104XX S SACRAMENTO AVE|1154|PRATIQUE FRAUDULEUSE|...
+2|10534446|HZ277630|15/4/2016 10:00|055XX N KEDZIE AVE|890|THEFT|...
 
 ### <a name="stratified-sample"></a>Échantillon stratifié
 
@@ -105,8 +105,8 @@ sample_dataset.to_pandas_dataframe()
 
 ||id|Case Number|Date|Block|IUCR|Primary Type|...|
 -|--|-----------|----|-----|----|------------|---
-0|10516598|HZ258664|4/15/2016 17:00|082XX S MARSHFIELD AVE|890|THEFT|...
-1|10534446|HZ277630|4/15/2016 10:00|055XX N KEDZIE AVE|890|THEFT|...
+0|10516598|HZ258664|15/4/2016 17:00|082XX S MARSHFIELD AVE|890|THEFT|...
+1|10534446|HZ277630|15/4/2016 10:00|055XX N KEDZIE AVE|890|THEFT|...
 2|10535059|HZ278872|4/15/2016 4:30|004XX S KILBOURN AVE|810|THEFT|...
 
 ## <a name="explore-with-summary-statistics"></a>Explorer avec un résumé des statistiques
@@ -117,7 +117,7 @@ sample_dataset.to_pandas_dataframe()
 dataset.get_profile()
 ```
 
-||Type|Min|max|Nombre|Manquant|Non manquant|Manquant (%)|Erreurs|Vide|Quantile 0,1 %|Quantile 1 %|Quantile 5 %|Quantile 25 %|Quantile 50 %|Quantile 75 %|Quantile 95 %|Quantile 99 %|Quantile 99,9 %|Moyenne|Écart type|Variance|Asymétrie|Kurtosis
+||Type|Min|max|Count|Manquant|Non manquant|Manquant (%)|Erreurs|Vide|Quantile 0,1 %|Quantile 1 %|Quantile 5 %|Quantile 25 %|Quantile 50 %|Quantile 75 %|Quantile 95 %|Quantile 99 %|Quantile 99,9 %|Moyenne|Écart type|Variance|Asymétrie|Kurtosis
 -|----|---|---|-----|-------------|-----------------|---------------|-----------|-----------|-------------|-----------|-----------|------------|------------|------------|------------|------------|--------------|----|------------------|--------|--------|--------
 id|FieldType.INTEGER|1.04986e+07|1.05351e+07|10.0|0.0|10.0|0.0|0.0|0.0|1.04986e+07|1.04992e+07|1.04986e+07|1.05166e+07|1.05209e+07|1.05259e+07|1.05351e+07|1.05351e+07|1.05351e+07|1.05195e+07|12302.7|1.51358e+08|-0.495701|-1.02814
 Case Number|FieldType.STRING|HZ239907|HZ278872|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
@@ -130,10 +130,10 @@ Location Description|FieldType.STRING||ÉCOLE, PUBLIC, BÂTIMENT|10.0|0.0|10.0|0
 Arrest|FieldType.BOOLEAN|False|False|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
 Domestic|FieldType.BOOLEAN|False|False|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
 Beat|FieldType.INTEGER|531|2433|10.0|0.0|10.0|0.0|0.0|0.0|531|531|531|614|1318.5|1911|2433|2433|2433|1371.1|692.094|478994|0.105418|-1.60684
-District|FieldType.INTEGER|5\.|24|10.0|0.0|10.0|0.0|0.0|0.0|5\.|5\.|5\.|6\.|13|19|24|24|24|13,5|6.94822|48.2778|0.0930109|-1.62325
+District|FieldType.INTEGER|5\.|24|10.0|0.0|10.0|0.0|0.0|0.0|5\.|5\.|5\.|6|13|19|24|24|24|13,5|6.94822|48.2778|0.0930109|-1.62325
 Ward|FieldType.INTEGER|1|48|10.0|0.0|10.0|0.0|0.0|0.0|1|5\.|1|9|22,5|40|48|48|48|24,5|16.2635|264.5|0.173723|-1.51271
 Community Area|FieldType.INTEGER|4|77|10.0|0.0|10.0|0.0|0.0|0.0|4|8.5|4|24|37.5|71|77|77|77|41.2|26.6366|709.511|0.112157|-1.73379
-FBI Code|FieldType.INTEGER|6\.|11|10.0|0.0|10.0|0.0|0.0|0.0|6\.|6\.|6\.|6\.|11|11|11|11|11|9.4|2.36643|5.6|-0.702685|-1.59582
+FBI Code|FieldType.INTEGER|6|11|10.0|0.0|10.0|0.0|0.0|0.0|6|6|6|6|11|11|11|11|11|9.4|2.36643|5.6|-0.702685|-1.59582
 X Coordinate|FieldType.INTEGER|1.16309e+06|1.18336e+06|10.0|7.0|3.0|0.7|0.0|0.0|1.16309e+06|1.16309e+06|1.16309e+06|1.16401e+06|1.16678e+06|1.17921e+06|1.18336e+06|1.18336e+06|1.18336e+06|1.17108e+06|10793.5|1.165e+08|0.335126|-2.33333
 Y Coordinate|FieldType.INTEGER|1.8315e+06|1.908e+06|10.0|7.0|3.0|0.7|0.0|0.0|1.8315e+06|1.8315e+06|1.8315e+06|1.83614e+06|1.85005e+06|1.89352e+06|1.908e+06|1.908e+06|1.908e+06|1.86319e+06|39905.2|1.59243e+09|0.293465|-2.33333
 Year|FieldType.INTEGER|2016|2016|10.0|0.0|10.0|0.0|0.0|0.0|2016|2016|2016|2016|2016|2016|2016|2016|2016|2016|0|0|NaN|NaN
@@ -168,7 +168,7 @@ ds_def.head(3)
 |1|10516598|False| 41.744107 |-87.664494|
 |2|10519196|False| NaN|NaN|
 
-Vérifiez maintenant la valeur `MEAN` de la colonne de la latitude en utilisant la fonction [`summarize()`](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#summarize-summary-columns--typing-union-typing-list-azureml-dataprep-api-dataflow-summarycolumnsvalue---nonetype----none--group-by-columns--typing-union-typing-list-str---nonetype----none--join-back--bool---false--join-back-columns-prefix--typing-union-str--nonetype----none-----azureml-dataprep-api-dataflow-dataflow). Cette fonction accepte un tableau de colonnes dans le paramètre `group_by_columns` pour spécifier le niveau d’agrégation. Le paramètre `summary_columns` accepte la fonction `SummaryColumnsValue`, qui spécifie le nom de colonne actuel, le nom du nouveau champ calculé et la fonction `SummaryFunction` à exécuter.
+Vérifiez maintenant la valeur `MEAN` de la colonne de la latitude en utilisant la fonction [`summarize()`](/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-ml-py#summarize-summary-columns--typing-union-typing-list-azureml-dataprep-api-dataflow--summarycolumnsvalue---nonetype----none--group-by-columns--typing-union-typing-list-str---nonetype----none--join-back--bool---false--join-back-columns-prefix--typing-union-str--nonetype----none-----azureml-dataprep-api-dataflow-dataflow). Cette fonction accepte un tableau de colonnes dans le paramètre `group_by_columns` pour spécifier le niveau d’agrégation. Le paramètre `summary_columns` accepte la fonction `SummaryColumnsValue`, qui spécifie le nom de colonne actuel, le nom du nouveau champ calculé et la fonction `SummaryFunction` à exécuter.
 
 ```Python
 lat_mean = ds_def.summarize(group_by_columns = ['Arrest'],
@@ -256,7 +256,7 @@ ds_def = ds_def.assert_value('Longitude', (value <= 180) & (value >= -87), error
 ds_def.get_profile()
 ```
 
-||Type|Min|max|Nombre|Manquant|Non manquant|Manquant (%)|Erreurs|Vide|Quantile 0,1 %|Quantile 1 %|Quantile 5 %|Quantile 25 %|Quantile 50 %|Quantile 75 %|Quantile 95 %|Quantile 99 %|Quantile 99,9 %|Moyenne|Écart type|Variance|Asymétrie|Kurtosis
+||Type|Min|max|Count|Manquant|Non manquant|Manquant (%)|Erreurs|Vide|Quantile 0,1 %|Quantile 1 %|Quantile 5 %|Quantile 25 %|Quantile 50 %|Quantile 75 %|Quantile 95 %|Quantile 99 %|Quantile 99,9 %|Moyenne|Écart type|Variance|Asymétrie|Kurtosis
 -|----|---|---|-----|-------------|-----------------|---------------|-----------|-----------|-------------|-----------|-----------|------------|------------|------------|------------|------------|--------------|----|------------------|--------|--------|--------
 id|FieldType.INTEGER|1.04986e+07|1.05351e+07|10.0|0.0|10.0|0.0|0.0|0.0|1.04986e+07|1.04992e+07|1.04986e+07|1.05166e+07|1.05209e+07|1.05259e+07|1.05351e+07|1.05351e+07|1.05351e+07|1.05195e+07|12302.7|1.51358e+08|-0.495701|-1.02814
 Arrest|FieldType.BOOLEAN|False|False|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||

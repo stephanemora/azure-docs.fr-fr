@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 06/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 250dd691c3ef3146d6768123de52bf0628b10e42
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 28f255c66c0e4a929914d037ee9c93b509a3602b
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66728967"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68677784"
 ---
 # <a name="query-data-from-the-azure-time-series-insights-ga-environment-using-c"></a>Interroger des données à partir d’un environnement GA Azure Time Series Insights en utilisant C#
 
@@ -43,6 +43,6 @@ Ajoutez les packages NuGet `Microsoft.IdentityModel.Clients.ActiveDirectory` et 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour en savoir plus sur l’interrogation, consultez les [informations de référence sur l’API de requête](/rest/api/time-series-insights/ga-query-api).
+- Pour en savoir plus sur l’interrogation, consultez les [informations de référence sur l’API de requête](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api).
 
 - Lisez la rubrique dédiée à la [connexion d’une application monopage JavaScript](tutorial-create-tsi-sample-spa.md) à Time Series Insights.

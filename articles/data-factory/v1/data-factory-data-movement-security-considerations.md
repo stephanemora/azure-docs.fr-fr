@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 083770c24a6c8939f8d1ff9f0efd5d18aff9dcb0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b425db761375c705d3c810002234a937bac46d78
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60487032"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68610168"
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Azure Data Factory - Considérations de sécurité relatives au déplacement des données
 
@@ -50,7 +50,7 @@ Cet article présente les principes de sécurité à prendre en compte dans les 
 
 ## <a name="cloud-scenarios"></a>Scénarios cloud
 ### <a name="securing-data-store-credentials"></a>Sécurisation des informations d’identification des banques de données
-Azure Data Factory protège les informations d’identification de vos banques de données en les **chiffrant** à l’aide de **certificats gérés par Microsoft**. Ces certificats sont remplacés tous les **deux ans** (avec renouvellement des certificats et migration des informations d’identification). Ces informations d’identification chiffrées sont stockées de manière sécurisée dans un **stockage Azure géré par les services de gestion d’Azure Data Factory**. Pour plus d’informations sur la sécurité du stockage Azure, consultez l’article [Vue d’ensemble des fonctionnalités de sécurité du stockage Azure](../../security/security-storage-overview.md).
+Azure Data Factory protège les informations d’identification de vos banques de données en les **chiffrant** à l’aide de **certificats gérés par Microsoft**. Ces certificats sont remplacés tous les **deux ans** (avec renouvellement des certificats et migration des informations d’identification). Ces informations d’identification chiffrées sont stockées de manière sécurisée dans un **stockage Azure géré par les services de gestion d’Azure Data Factory**. Pour plus d’informations sur la sécurité du stockage Azure, consultez l’article [Vue d’ensemble des fonctionnalités de sécurité du stockage Azure](../../security/fundamentals/storage-overview.md).
 
 ### <a name="data-encryption-in-transit"></a>Chiffrement des données en transit
 Tous les transferts de données entre les services de déplacement des données dans Data Factory et une banque de données cloud s’effectuent via un canal HTTPS ou TLS sécurisé, si la banque de données cloud prend en charge HTTPS ou TLS.

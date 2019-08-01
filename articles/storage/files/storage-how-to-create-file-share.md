@@ -1,19 +1,18 @@
 ---
 title: Création d’un partage de fichiers Azure | Microsoft Docs
 description: Créer un partage de fichiers Azure dans Azure Files à l’aide du portail Azure, de PowerShell et d’Azure CLI.
-services: storage
 author: roygara
 ms.service: storage
 ms.topic: conceptual
 ms.date: 09/19/2017
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: d945d5b79c274aa8e142203c56b27eb673e36741
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e56be394bc7667dfca9a0b417593e8e587073712
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65510514"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68699644"
 ---
 # <a name="create-a-file-share-in-azure-files"></a>Créer un partage de fichiers dans Azure Files
 Vous pouvez créer des partages de fichiers Azure à l’aide du  [portail Azure](https://portal.azure.com/), des applets de commande PowerShell du Stockage Azure, des bibliothèques clientes du Stockage Azure ou de l’API REST du Stockage Azure. Ce tutoriel vous apprendra à effectuer les opérations suivantes :
@@ -82,7 +81,7 @@ Pour vous préparer à utiliser PowerShell, téléchargez et installez les apple
 
 3. **Créer le partage de fichiers**
     ```azurecli
-    az storage share create --name files --quota 2048 --connection-string $current_env_conn_string 1 > /dev/null
+    az storage share create --name files --quota 2048 --connection-string $current_env_conn_string > /dev/null
     ```
 
 ## <a name="next-steps"></a>Étapes suivantes

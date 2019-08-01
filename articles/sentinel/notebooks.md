@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2019
 ms.author: rkarlin
-ms.openlocfilehash: cc84db4bd3dc06d4e2dbecb3be8ceee37d554ae7
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 6372a7958caf108903321e5ee87ea6bf1a42271c
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67619850"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68689596"
 ---
 # <a name="use-jupyter-notebooks-to-hunt-for-security-threats"></a>Utiliser Jupyter Notebook pour rechercher des menaces de sécurité
 
@@ -32,7 +32,7 @@ ms.locfileid: "67619850"
 
 Azure Sentinel repose sur le magasin de données. Il associe des capacités d’interrogation hautes performances, un schéma dynamique et s’adapte aux volumes de données importants. Le portail Azure Sentinel et tous les outils Azure Sentinel utilisent une API commune pour accéder à ce magasin de données. La même API est également disponible pour les outils externes tels que les notebooks [Jupyter](https://jupyter.org/) et Python. Bien que de nombreuses tâches courantes puissent être effectuées dans le portail, Jupyter étend l’étendue de ce que vous pouvez faire avec ces données. Il combine une programmabilité totale à une vaste collection de bibliothèques pour l’apprentissage automatique, la visualisation et l’analyse des données. Ces attributs transforment Jupyter en un outil essentiel pour les scénarios de recherche et d’enquête relatifs à la sécurité.
 
-![exemple de notebook](./media/notebooks/sentinel-nb-mapandtimeline.png)
+![exemple de notebook](./media/notebooks/sentinel-notebooks-map.png)
 
 Nous avons intégré l’expérience de Jupyter dans le portail Azure Sentinel, pour que vous puissiez créer et exécuter facilement des notebooks pour analyser vos données. La bibliothèque *Kqlmagic* fournit le ciment qui vous permet d’extraire des requêtes d’Azure Sentinel et de les exécuter directement à l’intérieur d’un notebook. Les requêtes utilisent le [langage de requête Kusto](https://kusto.azurewebsites.net/docs/query/index.html). Plusieurs notebooks, développés par certains des analystes de sécurité de Microsoft, sont intégrés à Azure Sentinel. Quelques-uns d’entre eux sont conçus pour un scénario spécifique et peuvent être utilisés en tant que tel. D’autres sont des exemples pour illustrer les techniques et les fonctionnalités que vous pouvez copier ou adapter pour les utiliser dans vos propres notebooks. D’autres notebooks peuvent également être importés à partir du GitHub de la communauté Azure Sentinel.
 
@@ -68,15 +68,15 @@ Dans l’exemple suivant, nous allons créer un projet Azure Notebooks à partir
 
 1. Dans le portail Azure Sentinel, cliquez sur **Notebooks** dans le menu de navigation. Pour créer un projet Azure Notebooks, cliquez sur **Clone Azure Sentinel Notebooks** (Cloner des notebooks Azure Sentinel) ; pour ouvrir vos projets de notebooks existants, cliquez sur **Go to your Notebooks** (Accéder à vos notebooks).
   
-   ![sélectionner les notebooks](./media/notebooks/sentinel-az-notebooks-home.png)
+   ![sélectionner les notebooks](./media/notebooks/sentinel-azure-notebooks-home.png)
 
 2. Si vous avez choisi l’option **Clone Azure Sentinel Notebooks** (Cloner des notebooks Azure Sentinel) à l’étape précédente, la boîte de dialogue suivante s’affiche. Cliquez sur **Importer** pour cloner le référentiel GitHub dans votre projet Azure Notebooks. Si vous n’avez pas de compte Azure Notebooks existant, vous êtes invité à en créer un et à vous connecter.
 
-   ![Importer un notebook](./media/notebooks/sentinel-nb-signin-and-clone.png)
+   ![Importer un notebook](./media/notebooks/sentinel-notebooks-clone.png)
 
 3. Lorsque vous créez un projet, vous devez nommer le projet ; utilisez le nom par défaut ou saisissez-en un autre. Ne cochez pas l’option **Clone Recursively** (Cloner récursivement), puisqu’elle fait référence à des référentiels GitHub liés. Cliquer sur **Importer** démarre le clonage du contenu de GitHub, qui peut prendre quelques minutes.
 
-   ![Importer un notebook](./media/notebooks/sentinel-create-nb-project.png)
+   ![Importer un notebook](./media/notebooks/sentinel-create-project.png)
 
 4. Ouvrez le dossier **Notebooks** pour afficher les notebooks. Chaque notebook vous guide dans la procédure de recherche ou d’investigation. Les bibliothèques et autres dépendances requises par le notebook peuvent être installées à partir du notebook lui-même ou via une procédure de configuration simple. La configuration qui lie votre projet de notebook à votre abonnement Azure Sentinel est automatiquement définie dans les étapes précédentes. Vos notebooks sont prêts à s’exécuter dans votre espace de travail Log Analytics Azure Sentinel.
 

@@ -2,20 +2,20 @@
 title: Résolution des problèmes - Personalizer
 titleSuffix: Azure Cognitive Services
 description: Les réponses aux questions fréquemment posées sur la résolution des problèmes de Personalizer figurent dans cet article.
-author: edjez
+author: diberry
 manager: nitinme
 services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: article
 ms.date: 06/15/2019
-ms.author: edjez
-ms.openlocfilehash: be6119d96b89622f45db1099a47e858a5893c2cb
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.author: diberry
+ms.openlocfilehash: 7f7a6a08b86d21287c644f6a851d465d97f32e74
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67722250"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68663683"
 ---
 # <a name="personalizer-troubleshooting"></a>Résolution des problèmes de Personalizer
 

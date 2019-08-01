@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: na
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 45c1fc6340df6a5400864b2e1222a2c65e586232
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: f0f4a260bb52fb10147f6d6b9e74aa5cd4fd0e1a
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67482028"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562149"
 ---
 # <a name="enable-enterprise-state-roaming-in-azure-active-directory"></a>Activer Enterprise State Roaming dans Azure Active Directory
 Enterprise State Roaming est disponible pour toute organisation disposant d’une licence Azure AD Premium ou Enterprise Mobility + Security (EMS). Pour plus d’informations sur l’obtention d’un abonnement Azure AD, consultez la page [du produit Azure AD](https://azure.microsoft.com/services/active-directory) .
@@ -31,7 +31,7 @@ Lorsque vous activez Enterprise State Roaming, votre organisation reçoit automa
   
    ![Image du paramètre d’appareil «Les utilisateurs peuvent synchroniser les paramètres et les données d’application sur différents appareils»](./media/enterprise-state-roaming-enable/device-settings.png)
   
-Pour qu’un appareil Windows 10 utilise le service Enterprise State Roaming, l’appareil doit s’authentifier à l’aide d’une identité Azure AD. Pour les appareils joints à Azure AD, l’identité de connexion principale de l’utilisateur est l’identité Azure AD. Ainsi, aucune configuration supplémentaire n’est requise. Pour les appareils qui utilisent un répertoire Active Directory local, l’administrateur informatique doit [configurer les appareils hybrides joints à Azure AD](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-manual-steps). 
+Pour qu’un appareil Windows 10 utilise le service Enterprise State Roaming, l’appareil doit s’authentifier à l’aide d’une identité Azure AD. Pour les appareils joints à Azure AD, l’identité de connexion principale de l’utilisateur est l’identité Azure AD. Ainsi, aucune configuration supplémentaire n’est requise. Pour les appareils qui utilisent un répertoire Active Directory local, l’administrateur informatique doit [configurer les appareils hybrides joints à Azure AD](hybrid-azuread-join-manual-steps.md). 
 
 ## <a name="data-storage"></a>Stockage des données
 Les données Enterprise State Roaming sont hébergées dans une ou plusieurs [régions Azure](https://azure.microsoft.com/regions/) qui correspondent le plus à la valeur de pays/région définie dans l’instance Azure Active Directory. Les données Enterprise State Roaming sont partitionnées selon les trois principales régions géographiques : Amérique du Nord, EMEA et Asie-Pacifique. Les données Enterprise State Roaming pour le client sont situées localement dans la région géographique, et ne sont pas répliquées entre régions.  Par exemple :

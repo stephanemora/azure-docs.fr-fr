@@ -1,18 +1,18 @@
 ---
 title: Tableau de prise en charge de Sauvegarde Azure
 description: Fournit un résumé des limitations et des paramètres de prise en charge pour le service Sauvegarde Azure.
-author: rayne-wiselman
+author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 02/17/2019
-ms.author: raynew
-ms.openlocfilehash: a6b7dfe8fb8ade7f84f41fb5602aff68b4f52cf2
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: 7ee4cffea9c997e5fcd3631594d61e6d5383cb38
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68464831"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639482"
 ---
 # <a name="azure-backup-support-matrix"></a>Tableau de prise en charge de Sauvegarde Azure
 

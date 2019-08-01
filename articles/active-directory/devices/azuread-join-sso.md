@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 64e190e3e70459846b50e1f68158b0a5c458a216
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 14e7a4389c192dde8d086a69a35114f3b8b33e96
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67482056"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562192"
 ---
 # <a name="how-sso-to-on-premises-resources-works-on-azure-ad-joined-devices"></a>Fonctionnement de l’authentification unique auprès de ressources locales sur des appareils joints à Azure AD
 
@@ -51,7 +51,7 @@ Avec l’authentification unique, sur un appareil joint à Azure AD, vous pouvez
 - Accéder à un chemin UNC sur un serveur membre d’AD
 - Accéder à un serveur web membre d’AD configuré pour la sécurité intégrée de Windows 
 
-Si vous voulez gérer votre annuaire AD local à partir d’un appareil Windows, installez les [Outils d’administration de serveur distant pour Windows 10](https://www.microsoft.com/en-us/download/details.aspx?id=45520).
+Si vous voulez gérer votre annuaire AD local à partir d’un appareil Windows, installez les [Outils d’administration de serveur distant pour Windows 10](https://www.microsoft.com/download/details.aspx?id=45520).
 
 Vous pouvez utiliser :
 

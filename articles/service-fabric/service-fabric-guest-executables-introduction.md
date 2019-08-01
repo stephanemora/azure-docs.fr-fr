@@ -3,7 +3,7 @@ title: Déploiement d’un exécutable existant dans Azure Service Fabric | Micr
 description: Découvrez-en plus sur l’empaquetage d’une application existante en tant que fichier exécutable invité afin de la déployer sur un cluster Service Fabric.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: d799c1c6-75eb-4b8a-9f94-bf4f3dadf4c3
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 03/15/2018
-ms.author: aljo
-ms.openlocfilehash: b7efeb1b4d83f6a6b372f73a7c0a5ca9bffdc052
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: atsenthi
+ms.openlocfilehash: 521c7a198d9085cdc93d325e63ad9d46cc4c7928
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60946669"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68599461"
 ---
 # <a name="deploy-an-existing-executable-to-service-fabric"></a>Déployer un fichier exécutable existant sur Service Fabric
 Vous pouvez exécuter n’importe quel type de code, comme Node.js, Java ou C++ dans Azure Service Fabric en tant que service. Dans la terminologie Service Fabric, ces types de service sont appelés des exécutables invités.

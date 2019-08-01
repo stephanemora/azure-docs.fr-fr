@@ -1,6 +1,6 @@
 ---
 title: Limites et quotas – Service Vision personnalisée
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Découvrez les limites et quotas applicables au service Vision personnalisée.
 services: cognitive-services
 author: anrothMSFT
@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: anroth
-ms.openlocfilehash: 9cff5fdac39be2338305cd37a4b2328a28a48255
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 37921c655cc3c5de5c3c5079eda47fb7513fdf9f
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67269262"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560945"
 ---
 # <a name="limits-and-quotas"></a>Limites et quotas
 

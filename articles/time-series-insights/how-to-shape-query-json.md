@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 05/09/2019
 ms.author: dpalled
 ms.custom: seodec18
-ms.openlocfilehash: 089285637bb740fea47f1fd07de0906dfe46662b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 421e25570cd4c4495769530e4072cd8e0219f752
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66244458"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68666276"
 ---
 # <a name="shape-json-to-maximize-query-performance"></a>Mise en forme de JSON afin d’optimiser les performances des requêtes 
 
@@ -195,5 +195,5 @@ Pour une propriété avec un grand nombre de valeurs possibles, il est préféra
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Lisez [Syntaxe de requête Azure Time Series Insights](/rest/api/time-series-insights/ga-query-syntax) afin d’en savoir plus sur la syntaxe de requête pour l’API REST d’accès aux données Time Series Insights.
+- Lisez [Syntaxe de requête Azure Time Series Insights](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-syntax) afin d’en savoir plus sur la syntaxe de requête pour l’API REST d’accès aux données Time Series Insights.
 - Découvrez [comment mettre en forme les événements](./time-series-insights-send-events.md).

@@ -1,6 +1,6 @@
 ---
 title: Taxonomie des catégories d’images – Vision par ordinateur
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Obtenez les 86 catégories de taxonomie pour l’API Vision par ordinateur dans Azure Cognitive Services.
 services: cognitive-services
 author: KellyDF
@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 04/17/2019
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: 92adcf40d008a94a2fd81846cf9aa712474beacc
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 42562f3e19844621cb3893cb4ce185e85cf7e0ab
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60498846"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68565745"
 ---
 # <a name="computer-vision-86-category-taxonomy"></a>Computer Vision 86-taxonomie par catégorie
 

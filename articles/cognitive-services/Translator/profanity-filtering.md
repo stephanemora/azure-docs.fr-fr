@@ -1,6 +1,6 @@
 ---
 title: Filtrage des grossièretés - API de traduction de texte Translator Text
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Utilisez le filtrage des grossièretés dans l’API de traduction de texte Translator Text.
 services: cognitive-services
 author: swmachan
@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: swmachan
-ms.openlocfilehash: cc6bf9766912aa55d7869d90976d3089cfd6cf4c
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 114dea098db5c824a1235ba1635f547383bf6743
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67448261"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595198"
 ---
 # <a name="add-profanity-filtering-with-the-translator-text-api"></a>Ajouter un filtrage des grossièretés dans l’API de traduction de texte Translator Text
 

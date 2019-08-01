@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 10/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: 95830cdffb232e16f9fbae51cfa11fbd18172c3c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ec0b9fbdfdb96317e1e7f6fe00384ba4f8c42bcc
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61447078"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68607957"
 ---
 # <a name="add-a-custom-page-to-the-remote-monitoring-solution-accelerator-web-ui"></a>Ajouter une page personnalisée à l’interface utilisateur web de l’accélérateur de solution de supervision à distance
 
@@ -160,7 +160,7 @@ Si vous le souhaitez, vous pouvez connecter votre copie locale en cours d’exé
     az network nsg rule update --name SSH --nsg-name {your solution name}-nsg --resource-group {your solution name} --access Allow
     ```
 
-    Vous devez uniquement activer l’accès SSH durant le test et le développement. Si vous activez SSH, [vous devez le désactiver à nouveau dès que possible](../security/azure-security-network-security-best-practices.md).
+    Vous devez uniquement activer l’accès SSH durant le test et le développement. Si vous activez SSH, [vous devez le désactiver à nouveau dès que possible](../security/fundamentals/network-best-practices.md).
 
 1. Utilisez le portail Azure ou [l’interface CLI az](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) pour rechercher le nom et l’adresse IP publique de votre machine virtuelle. Par exemple :
 

@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 07/17/2019
 ms.author: hamusa
-ms.openlocfilehash: 7cde18f2da764a055443900e7daf160f72e2eeb5
-ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
+ms.openlocfilehash: 4130bb746a4faa4907353654d16f7c20c0cc7817
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68301652"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68598949"
 ---
 # <a name="set-up-dependency-visualization-for-assessment"></a>Configurer la visualisation des dépendances pour l'évaluation
 
@@ -39,7 +39,7 @@ Le mappage des dépendances vous permet de visualiser les dépendances entre les
 Disponibilité | La visualisation des dépendances n’est pas disponible dans Azure Government.
 Service Map | La visualisation des dépendances utilise la solution Service Map dans les journaux Azure Monitor. [Service Map](../azure-monitor/insights/service-map-configure.md) détecte et affiche automatiquement les connexions entre serveurs.
 Agents | Pour utiliser la visualisation des dépendances, installez quelques agents sur les machines que vous voulez mapper :<br/> - [Agent Azure Log Analytics](../azure-monitor/platform/log-analytics-agent.md) (anciennement connu sous le nom de Microsoft Monitoring Agent (MMA).<br/> - Agent Service Map Dependency.<br/><br/> Pour automatiser l’installation de l’agent, vous pouvez utiliser un outil de déploiement tel que System Center Configuration Manager ou un outil de partenaire tel qu’[Intigua](https://www.intigua.com/getting-started-intigua-for-azure-migration), qui offre une solution de déploiement de l’agent pour Azure Migrate.
-Agent de dépendances | Passez en revue la prise en charge des agents de dépendance pour [Windows](/azure-monitor/insights/service-map-configure.md#supported-windows-operating-systems) et [Linux](../azure-monitor/insights/service-map-configure.md#supported-linux-operating-systems).<br/><br/> [En savoir plus](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#installation-script-examples) sur l’utilisation des scripts pour installer l’agent de dépendances.
+Agent de dépendances | Passez en revue la prise en charge des agents de dépendance pour [Windows](../azure-monitor/insights/service-map-configure.md#supported-windows-operating-systems) et [Linux](../azure-monitor/insights/service-map-configure.md#supported-linux-operating-systems).<br/><br/> [En savoir plus](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#installation-script-examples) sur l’utilisation des scripts pour installer l’agent de dépendances.
 Log Analytics agent (MMA) | [En savoir](../azure-monitor/platform/log-analytics-agent.md#install-and-configure-agent) plus sur les méthodes d’installation MMA.<br/><br/> Pour les machines surveillées par System Center Operations Manager 2012 R2 ou version ultérieure, il n'est pas nécessaire d'installer l'agent MMA. Service Map s’intègre à Operations Manager. Vous pouvez activer l’intégration en suivant les conseils disponibles [ici](https://docs.microsoft.com/azure/azure-monitor/insights/service-map-scom#prerequisites). Notez toutefois que l'agent de dépendance doit être installé sur ces machines.<br/><br/> [Passez en revue](../azure-monitor/platform/log-analytics-agent.md#supported-linux-operating-systems) les systèmes d'exploitation Linux pris en charge par l'agent Log Analytics.
 Groupes d’évaluation | Les groupes pour lesquels vous souhaitez visualiser les dépendances ne doivent pas contenir plus de 10 machines. Si vous avez plus de 10 machines, divisez-les en petits groupes pour visualiser les dépendances.
 

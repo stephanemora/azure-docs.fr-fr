@@ -1,18 +1,19 @@
 ---
 title: Résoudre les problèmes de l’agent Sauvegarde Azure
 description: Résoudre les problèmes liés à l’installation et l’inscription de l’agent Sauvegarde Azure
-author: saurabhsensharma
-manager: sivan
+ms.reviewer: saurse
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 07/15/2019
-ms.author: saurse
-ms.openlocfilehash: 6dc56e4eccbad0de986551e055e877d3d051b145
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: 12cc584b27134c5c109f1a95eb4ccf8a7b2f0c64
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68465965"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68689218"
 ---
 # <a name="troubleshoot-the-microsoft-azure-recovery-services-mars-agent"></a>Résoudre les problèmes liés à l’agent Microsoft Azure Recovery Services (MARS)
 

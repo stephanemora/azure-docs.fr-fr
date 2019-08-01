@@ -1,18 +1,19 @@
 ---
 title: Sauvegarder un serveur Exchange dans Azure Backup avec System Center 2012 R2 DPM
 description: Apprenez à sauvegarder un serveur Exchange dans Azure Backup à l’aide de System Center 2012 R2 DPM
-author: kasinh
-manager: vvithal
+ms.reviewer: kasinh
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 01/31/2019
-ms.author: kasinh
-ms.openlocfilehash: 2d3670e2120e7c203e40d39ba9d82537da877ee5
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: 0c8975aed79e78b4bb66ce1516b85ceeb78628e8
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68466743"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68689420"
 ---
 # <a name="back-up-an-exchange-server-to-azure-backup-with-system-center-2012-r2-dpm"></a>Sauvegarder un serveur Exchange dans Azure Backup avec System Center 2012 R2 DPM
 Cet article explique comment configurer un serveur System Center 2012 R2 Data Protection Manager (DPM) pour sauvegarder un serveur Microsoft Exchange dans Azure Backup.  

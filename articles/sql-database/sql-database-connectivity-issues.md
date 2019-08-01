@@ -11,14 +11,13 @@ ms.topic: conceptual
 author: dalechen
 ms.author: ninarn
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 06/14/2019
-ms.openlocfilehash: adbe8dfd41725c11516f820656b0476ed1aa8881
-ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
+ms.openlocfilehash: da2107a0573fafd10394931be21fb446f83fd5f2
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67144047"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68569067"
 ---
 # <a name="working-with-sql-database-connection-issues-and-transient-errors"></a>Gestion des problèmes de connexion et des erreurs temporaires de base de données SQL
 
@@ -77,8 +76,8 @@ Vous pouvez également définir le nombre maximal de tentatives avant l’arrêt
 
 Des exemples de code avec logique de nouvelle tentative sont disponibles aux emplacements suivants :
 
-- [Connexion résiliente à SQL avec ADO.NET][step-4-connect-resiliently-to-sql-with-ado-net-a78n]
-- [Connexion résiliente à SQL avec PHP][step-4-connect-resiliently-to-sql-with-php-p42h]
+- [Se connecter de façon robuste à SQL avec ADO.NET][step-4-connect-resiliently-to-sql-with-ado-net-a78n]
+- [Se connecter de façon robuste à SQL avec PHP][step-4-connect-resiliently-to-sql-with-php-p42h]
 
 <a id="k-test-retry-logic" name="k-test-retry-logic"></a>
 

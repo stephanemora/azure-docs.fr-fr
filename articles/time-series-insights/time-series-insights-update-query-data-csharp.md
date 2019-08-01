@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 05/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: fc5f35aedd52e206433afb0f556bc1cde8296232
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8fdfd39527ccd298b78ef2c4c895d1f667d8d33b
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66237476"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68677618"
 ---
 # <a name="query-data-from-the-azure-time-series-insights-preview-environment-using-c"></a>Interroger des données à partir de l’environnement Azure Time Series Insights Preview en utilisant C#
 
@@ -42,6 +42,6 @@ L’exemple montre plusieurs exemples de base de l’utilisation de l’API de r
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour en savoir plus sur l’interrogation, consultez les [informations de référence sur l’API de requête](/rest/api/time-series-insights/preview-query).
+- Pour en savoir plus sur l’interrogation, consultez les [informations de référence sur l’API de requête](https://docs.microsoft.com/rest/api/time-series-insights/preview-query).
 
 - Lisez la rubrique dédiée à la [connexion d’une application monopage JavaScript](tutorial-create-tsi-sample-spa.md) à Time Series Insights.

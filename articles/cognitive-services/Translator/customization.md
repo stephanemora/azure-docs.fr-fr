@@ -1,6 +1,6 @@
 ---
 title: Personnalisation de la traduction - API de traduction de texte Translator Text
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Utilisez Microsoft Translator Hub pour générer votre propre système de traduction automatique à l’aide de la terminologie et du style de votre choix.
 services: cognitive-services
 author: swmachan
@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: swmachan
-ms.openlocfilehash: 87c47fc970ccb96419818e3b3e39c939201708f0
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: e6771a0d72592f1952853642ceea196b02774ada
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447333"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595313"
 ---
 # <a name="customize-your-text-translations"></a>Personnaliser vos traductions de texte
 

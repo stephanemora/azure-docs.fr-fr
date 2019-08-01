@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: genli
-ms.openlocfilehash: 925461ba6c74fe0bcf286692c1a19bb4e7c02dfa
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 6217fe51a0231ee1bd34f9fbe8edef47ee073209
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68254419"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68609703"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problèmes de configuration et de gestion pour Azure Cloud Services : Forum Aux Questions (FAQ)
 
@@ -297,7 +297,7 @@ Vous pouvez activer une extension Antimalware à l’aide du script PowerShell d
 - [Créer une tâche de démarrage PowerShell](cloud-services-startup-tasks-common.md#create-a-powershell-startup-task)
 - [Set-AzureServiceAntimalwareExtension](https://docs.microsoft.com/powershell/module/servicemanagement/azure/Set-AzureServiceAntimalwareExtension?view=azuresmps-4.0.0 )
 
-Pour plus d’informations sur les scénarios de déploiement Antimalware et la façon de l’activer à partir du portail, consultez [Scénarios de déploiement Antimalware](../security/azure-security-antimalware.md#antimalware-deployment-scenarios).
+Pour plus d’informations sur les scénarios de déploiement Antimalware et la façon de l’activer à partir du portail, consultez [Scénarios de déploiement Antimalware](../security/fundamentals/antimalware.md#antimalware-deployment-scenarios).
 
 ### <a name="how-to-enable-server-name-indication-sni-for-cloud-services"></a>Comment activer l’Indication du nom de serveur (SNI) pour les services cloud ?
 

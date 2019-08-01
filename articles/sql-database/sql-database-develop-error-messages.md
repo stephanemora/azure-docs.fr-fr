@@ -11,14 +11,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 03/06/2019
-ms.openlocfilehash: 2682f98628f3c1cf22a2c3767f52bedbc148fa62
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 24bd2cca2e4ed053d51f618d90274e8988a09c26
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60723490"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568903"
 ---
 # <a name="sql-error-codes-for-sql-database-client-applications-database-connection-errors-and-other-issues"></a>Codes d’erreur SQL pour les applications clientes SQL Database : erreurs de connexion de base de données et autres problèmes
 
@@ -53,7 +52,7 @@ Pour en savoir plus sur la *période de blocage* des clients qui utilisent ADO.N
 
 Les erreurs suivantes sont temporaires et doivent être relancées dans la logique d’application : 
 
-| Code d'erreur | Severity | Description |
+| Code d'erreur | severity | Description |
 | ---:| ---:|:--- |
 | 4060 |16 |Impossible d'ouvrir de base de données "%.&#x2a;ls" demandée par la connexion. La connexion a échoué. Pour plus d’informations, consultez [Erreurs 4000 à 4999](https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors#errors-4000-to-4999)|
 | 40197 |17 |Le service a rencontré une erreur lors du traitement de votre demande. Réessayez. Code d'erreur % d.<br/><br/>Vous recevez cette erreur lorsque le service est arrêté en raison de mises à niveau logicielles ou matérielles, de pannes de matériel ou tout autre problème de basculement. Le code d'erreur (%d) incorporé au message d'erreur 40197 fournit des informations supplémentaires sur le type de défaillance ou de basculement survenu. 40020, 40143, 40166 et 40540 sont des exemples de codes d'erreur incorporés au message d'erreur 40197.<br/><br/>La reconnexion à votre serveur SQL Database vous reconnecte automatiquement à une copie saine de votre base de données. Votre application doit détecter l'erreur 40197, consigner le code d'erreur incorporé (%d) dans le message pour la résolution des problèmes, et essayer de se reconnecter à la base de données SQL jusqu'à ce que les ressources soient disponibles et que votre connexion soit rétablie. Pour plus d’informations, consultez [Erreurs temporaires](sql-database-connectivity-issues.md#transient-errors-transient-faults).|
@@ -68,7 +67,7 @@ Les erreurs suivantes sont temporaires et doivent être relancées dans la logiq
 
 Les erreurs suivantes peuvent survenir lors de la copie d’une base de données dans Azure SQL Database. Pour en savoir plus, consultez [Copie d’une base de données Azure SQL](sql-database-copy.md).
 
-| Code d'erreur | Severity | Description |
+| Code d'erreur | severity | Description |
 | ---:| ---:|:--- |
 | 40635 |16 |Le client avec l'adresse IP’%.&#x2a;ls’ est temporairement désactivé. |
 | 40637 |16 |La copie de base de données est actuellement désactivée. |
@@ -103,7 +102,7 @@ Rubriques connexes :
   * [Limites de vCores pour les pools élastiques](sql-database-vcore-resource-limits-elastic-pools.md)
   * [Limites de ressources d’une instance gérée](sql-database-managed-instance-resource-limits.md) 
 
-| Code d'erreur | Severity | Description |
+| Code d'erreur | severity | Description |
 | ---:| ---:|:--- |
 | 10928 |20 |ID de la ressource : %d. %d, la limite %s de la base de données a été atteinte. Pour en savoir plus, consultez [Limites de ressources de SQL Database pour les bases de données uniques et mises en pool](sql-database-resource-limits-database-server.md).<br/><br/>L’ID de ressource indique la ressource qui a atteint la limite. Pour les threads de travail, ID de la ressource = 1. Pour les sessions, l’ID de ressource = 2.<br/><br/>Pour en savoir plus sur cette erreur et sa résolution, consultez : <br/>&bull; &nbsp;[Limites de ressources du serveur de base de données](sql-database-resource-limits-database-server.md)<br/>&bull; &nbsp;[Limites de DTU pour les bases de données uniques](sql-database-service-tiers-dtu.md)<br/>&bull; &nbsp;[Limites de DTU pour les pools élastiques](sql-database-dtu-resource-limits-elastic-pools.md)<br/>&bull; &nbsp;[Limites de vCores pour les bases de données uniques](sql-database-vcore-resource-limits-single-databases.md)<br/>&bull; &nbsp;[Limites de vCores pour les pools élastiques](sql-database-vcore-resource-limits-elastic-pools.md)<br/>&bull; &nbsp;[Limites de ressources d’une instance gérée](sql-database-managed-instance-resource-limits.md) |
 | 10929 |20 |ID de la ressource : %d. La garantie minimale de %s est %d ; la limite maximale est de %d et le taux d’utilisation actuel de la base de données est de %d. Toutefois, le serveur est trop occupé pour prendre en charge les requêtes supérieures à %d pour cette base de données. L’ID de ressource indique la ressource qui a atteint la limite. Pour les threads de travail, ID de la ressource = 1. Pour les sessions, l’ID de ressource = 2. Pour plus d'informations, consultez les pages suivantes : <br/>&bull; &nbsp;[Limites de ressources du serveur de base de données](sql-database-resource-limits-database-server.md)<br/>&bull; &nbsp;[Limites de DTU pour les bases de données uniques](sql-database-service-tiers-dtu.md)<br/>&bull; &nbsp;[Limites de DTU pour les pools élastiques](sql-database-dtu-resource-limits-elastic-pools.md)<br/>&bull; &nbsp;[Limites de vCores pour les bases de données uniques](sql-database-vcore-resource-limits-single-databases.md)<br/>&bull; &nbsp;[Limites de vCores pour les pools élastiques](sql-database-vcore-resource-limits-elastic-pools.md)<br/>&bull; &nbsp;[Limites de ressources d’une instance gérée](sql-database-managed-instance-resource-limits.md) <br/>Sinon, réessayez plus tard. |
@@ -118,7 +117,7 @@ Rubriques connexes :
 
 Les erreurs suivantes sont liées à la création et à l’utilisation de pools élastiques :
 
-| Code d'erreur | Severity | Description | Action corrective |
+| Code d'erreur | severity | Description | Action corrective |
 |:--- |:--- |:--- |:--- |
 | 1132 | 17 |Le pool élastique a atteint sa limite de stockage. Le taux d’utilisation du stockage pour le pool élastique ne doit pas dépasser (%d) Mo. Tentative d’écriture de données dans une base de données alors que la limite de stockage du pool élastique a été atteinte. Pour plus d’informations sur les limites de ressources, consultez : <br/>&bull; &nbsp;[Limites de DTU pour les pools élastiques](sql-database-dtu-resource-limits-elastic-pools.md)<br/>&bull; &nbsp;[Limites de vCores pour les pools élastiques](sql-database-vcore-resource-limits-elastic-pools.md) <br/> |Envisagez si possible d’augmenter le nombre de DTU du pool élastique ou d’ajouter de la capacité de stockage à ce dernier afin d’accroître sa limite de stockage. Vous pouvez aussi réduire l’espace de stockage utilisé par les bases de données individuelles qu’il contient ou supprimer certaines de ses bases de données. Pour plus d’informations sur la mise à l’échelle d’un pool élastique, consultez [Mettre à l’échelle des ressources de pool élastique](sql-database-elastic-pool-scale.md).|
 | 10929 | 16 |La garantie minimale de %s est %d ; la limite maximale est de %d et le taux d’utilisation actuel de la base de données est de %d. Toutefois, le serveur est trop occupé pour prendre en charge les requêtes supérieures à %d pour cette base de données. Pour plus d’informations sur les limites de ressources, consultez : <br/>&bull; &nbsp;[Limites de DTU pour les pools élastiques](sql-database-dtu-resource-limits-elastic-pools.md)<br/>&bull; &nbsp;[Limites de vCores pour les pools élastiques](sql-database-vcore-resource-limits-elastic-pools.md) <br/> Sinon, réessayez plus tard. Nombre minimal de DTU/vCore par base de données ; nombre maximal de DTU/vCore par base de données. Le nombre total d’ouvriers simultanés (demandes) dans toutes les bases de données du pool élastique a failli dépasser la limite du pool. |Envisagez si possible d’augmenter le nombre de DTU ou de vCore du pool élastique afin d’accroître sa limite de rôles de travail, ou supprimez des bases de données du pool élastique. |
@@ -152,7 +151,7 @@ Rubriques connexes :
 
 Les erreurs suivantes n’entrent dans aucune des catégories précédentes.
 
-| Code d'erreur | Severity | Description |
+| Code d'erreur | severity | Description |
 | ---:| ---:|:--- |
 | [15006](https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors#errors-15000-to-15999) |16 |(Connexion de l’administrateur) n’est pas un nom valide, car il contient des caractères non valides.|
 | [18452](https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors#errors-18000-to-18999) |14 |La connexion a échoué. La connexion provient d'un domaine non approuvé et ne peut pas être utilisée avec l’authentification Windows.%.&#x2a;ls (Les connexions Windows ne sont pas prises en charge dans cette version de SQL Server.) |

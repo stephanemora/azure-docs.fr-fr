@@ -1,20 +1,18 @@
 ---
 title: Résoudre les problèmes liés à Azure Files dans Linux | Microsoft Docs
 description: Résolution des problèmes liés à Azure Files dans Linux
-services: storage
 author: jeffpatt24
-tags: storage
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 232b4ca2ee4f3137069ed155cc82a5c5e3251420
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 5c501e6c2bc1a30273682352a68565ccc897ff50
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67807272"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68699199"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>Résoudre les problèmes liés à Azure Files dans Linux
 

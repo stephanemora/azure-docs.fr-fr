@@ -3,18 +3,18 @@ title: Ajouter une couche de bulles dans Azure Maps | Microsoft Docs
 description: Comment ajouter une couche de bulles à une carte Javascript
 author: rbrundritt
 ms.author: richbrun
-ms.date: 10/30/2018
+ms.date: 07/29/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: f2c4c6b8655d5efb993a2dedf536000ac94328c2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 516e4f35c88ae9c0e2d63e8a4ee40eb57c05ac29
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60769683"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639038"
 ---
 # <a name="add-a-bubble-layer-to-a-map"></a>Ajouter une couche de bulles à une carte
 

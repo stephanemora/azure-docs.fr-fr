@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 06/03/2018
 ms.author: v-adgera
 ms.custom: seodec18
-ms.openlocfilehash: 5dc2587a0c127106d5afb41e20eca43919065f1b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 66a0b98e2cae14c3708cf8a6aa3f8bd498f41c9f
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67118785"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68609642"
 ---
 # <a name="how-to-configure-monitoring-in-azure-digital-twins"></a>Guide pratique pour configurer la supervision dans Azure Digital Twins
 
@@ -123,7 +123,7 @@ Mes journaux Azure Monitor fournissent également des services de notification d
 
 ## <a name="other-options"></a>Autres options
 
-Azure Digital Twins prend également en charge la journalisation et l’audit de sécurité spécifiques à une application. Pour une présentation complète de toutes les options de journalisation Azure disponibles pour votre instance Azure Digital Twins, consultez l’article [Journalisation et audit Azure](../security/azure-log-audit.md).
+Azure Digital Twins prend également en charge la journalisation et l’audit de sécurité spécifiques à une application. Pour une présentation complète de toutes les options de journalisation Azure disponibles pour votre instance Azure Digital Twins, consultez l’article [Journalisation et audit Azure](../security/fundamentals/log-audit.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

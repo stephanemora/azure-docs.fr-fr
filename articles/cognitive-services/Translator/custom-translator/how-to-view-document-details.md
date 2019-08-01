@@ -3,18 +3,18 @@ title: Informations détaillées sur les documents – Custom Translator
 titleSuffix: Azure Cognitive Services
 description: La page de liste des documents affiche les 10 premiers documents dans votre espace de travail. Le nom de chaque document, ainsi que les informations relatives à son appariement, son type, sa langue, l’heure de son chargement, ainsi que l’adresse de messagerie de l’utilisateur ayant chargé ce document.
 author: swmachan
-manager: christw
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 267d60c2e9941c66ab128f68bd7aaf1cc54fedd9
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: cf0d96414c40784210723e315da5d885d61198c5
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67442503"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595579"
 ---
 # <a name="view-document-details"></a>Afficher les détails du document
 

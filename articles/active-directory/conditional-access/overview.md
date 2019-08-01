@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 370771d44e2fbbf0fca7af453f7425ebc1b1bdcd
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 99d17b354e267d003e23e507ca190b951e3ed4a0
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67612615"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68608100"
 ---
 # <a name="what-is-conditional-access"></a>Qu’est-ce que l’accès conditionnel ?
 
@@ -73,7 +73,7 @@ Adopter une approche basée sur des stratégies pour protéger l’accès aux ap
 
 ## <a name="azure-ad-conditional-access-and-federated-authentication"></a>Accès conditionnel Azure AD et authentification fédérée
 
-Les stratégies d’accès conditionnel s’intègrent en toute transparence avec [l’authentification fédérée](../../security/azure-ad-choose-authn.md#federated-authentication). Cette prise en charge inclut tous les contrôles et conditions pris en charge, et assure une visibilité sur la manière dont la stratégie est appliquée aux connexions des utilisateurs actifs à l’aide de la [création de rapports Azure AD](../reports-monitoring/concept-sign-ins.md).
+Les stratégies d’accès conditionnel s’intègrent en toute transparence avec [l’authentification fédérée](../../security/fundamentals/choose-ad-authn.md#federated-authentication). Cette prise en charge inclut tous les contrôles et conditions pris en charge, et assure une visibilité sur la manière dont la stratégie est appliquée aux connexions des utilisateurs actifs à l’aide de la [création de rapports Azure AD](../reports-monitoring/concept-sign-ins.md).
 
 *L’authentification fédérée avec Azure AD* signifie qu’un service d’authentification approuvé gère l’authentification des utilisateurs qui se connectent à Azure AD. Un service d’authentification approuvé est, par exemple, Active Directory Federation Services (ADFS), ou tout autre service de fédération. Dans cette configuration, l’authentification de l’utilisateur principal s’effectue au niveau du service, après quoi Azure AD est utilisé pour se connecter à des applications individuelles. L’accès conditionnel Azure AD est appliqué avant d’accorder l’accès à l’application à laquelle l’utilisateur tente d’accéder. 
 

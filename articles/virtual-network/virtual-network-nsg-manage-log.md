@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/04/2018
 ms.author: kumud
-ms.openlocfilehash: b3225d8d2f9eb7ccd0f4087d93cd9c1d940783d9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 667d725653e9b668b18644e7d0c6d8f437e833ed
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64714680"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68570645"
 ---
 # <a name="diagnostic-logging-for-a-network-security-group"></a>Journalisation des diagnostics pour un groupe de sécurité réseau
 
@@ -92,7 +92,7 @@ Si vous souhaitez uniquement enregistrer les données de l’une de ces catégor
 
 Consultez et analysez les journaux d’activité. Pour plus d’informations, voir [Afficher et analyser les journaux d’activité](#view-and-analyze-logs).
 
-### <a name="azure-cli"></a>Azure CLI
+### <a name="azure-cli"></a>D’Azure CLI
 
 Vous pouvez exécuter les commandes qui suivent dans [Azure Cloud Shell](https://shell.azure.com/bash), ou en exécutant Azure CLI à partir de votre ordinateur. Azure Cloud Shell est un interpréteur de commandes interactif gratuit. Il contient des outils Azure courants préinstallés et configurés pour être utilisés avec votre compte. Si vous exécutez l’interface CLI à partir de votre ordinateur, vous avez besoin de la version 2.0.38 ou ultérieure. Exécutez `az --version` sur votre ordinateur pour trouver la version installée. Si vous devez mettre à niveau, consultez [Installation d’Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest). Si vous exécutez l’interface CLI localement, vous devez aussi exécuter `az login` pour vous connecter à Azure avec un compte disposant des [autorisations nécessaires](virtual-network-network-interface.md#permissions).
 
@@ -132,7 +132,7 @@ Consultez et analysez les journaux d’activité. Pour plus d’informations, vo
 Les données de diagnostic peuvent être :
 - [Écrites dans un compte de stockage Azure](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json), pour l’audit ou l’inspection manuelle. Vous pouvez spécifier la durée de rétention (en jours) à l’aide des paramètres de diagnostic des ressources.
 - [Diffusées vers un hub d’événements](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) pour qu’un service tiers ou une solution d’analyse personnalisée (p. ex. PowerBI) les ingère.
-- [Écrit dans les journaux d’activité Azure Monitor](../azure-monitor/platform/collect-azure-metrics-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-diagnostics-direct-to-log-analytics).
+- [Écrit dans les journaux d’activité Azure Monitor](../azure-monitor/platform/diagnostic-logs-stream-log-store.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ## <a name="log-categories"></a>Catégories de journal
 

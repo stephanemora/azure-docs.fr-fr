@@ -3,18 +3,18 @@ title: Afficher les résultats des tests système et du déploiement - Custom Tr
 titleSuffix: Azure Cognitive Services
 description: Au terme de votre apprentissage, passez en revue les tests système pour analyser vos résultats. Si ces résultats vous conviennent, faites une demande de déploiement pour le modèle concerné.
 author: swmachan
-manager: christw
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: ec15851ae7ff59a752fbf0d823d87aa6e68f10e9
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: f5e1a21f24fdd2458d4803d6ed1675455fa5037d
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67442477"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595603"
 ---
 # <a name="view-system-test-results"></a>Afficher les résultats de test système
 

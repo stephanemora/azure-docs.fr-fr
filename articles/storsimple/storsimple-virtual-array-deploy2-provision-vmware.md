@@ -12,20 +12,23 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/11/2019
+ms.date: 07/25/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3c9fe597957057dc61da5c2b1cf6f9216711764a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ab5ad8acc5d0769a19a4022c55e0461e7ce42762
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61418824"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68516827"
 ---
 # <a name="deploy-storsimple-virtual-array---provision-in-vmware"></a>Déploiement de StorSimple Virtual Array - Configuration dans VMware
 ![](./media/storsimple-virtual-array-deploy2-provision-vmware/vmware4.png)
 
 ## <a name="overview"></a>Vue d'ensemble
+
+[!INCLUDE [storsimple-virtual-array-eol-banner](../../includes/storsimple-virtual-array-eol-banner.md)]
+
 Ce didacticiel explique comment configurer et vous connecter à StorSimple Virtual Array sur un système hôte exécutant VMware ESXi 5.0, 5.5, 6.0 ou 6.5. Cet article concerne le déploiement de StorSimple Virtual Array dans le portail Azure, ainsi que dans Microsoft Azure Government Cloud.
 
 Vous aurez besoin de privilèges d’administrateur pour configurer un appareil virtuel et vous y connecter. La configuration initiale peut prendre environ 10 minutes.

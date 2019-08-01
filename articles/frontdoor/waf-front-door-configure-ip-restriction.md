@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.date: 05/31/2019
 ms.author: kumud
 ms.reviewer: tyao
-ms.openlocfilehash: 611a52f43b5b0e076ae37df9df86479ec894c6f4
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: a610a2c01a1e935c55942b621e5b3799cb002fc0
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67849161"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698641"
 ---
 # <a name="configure-an-ip-restriction-rule-with-a-web-application-firewall-for-azure-front-door-service"></a>Configurer une règle de restriction IP avec un pare-feu d’applications web pour Azure Front Door Service
 Cet article vous montre comment configurer des règles de restriction IP dans un pare-feu d’applications web (WAF) pour Azure Front Door Service à l’aide d’Azure CLI, Azure PowerShell ou un modèle Azure Resource Manager.
@@ -40,7 +40,7 @@ Créez un profil Azure Front Door Service en suivant les instructions décrites 
 
 ### <a name="create-a-waf-policy"></a>Créer une stratégie de pare-feu d’applications web (WAF)
 
-Créer une stratégie WAF à l’aide de la commande [az network waf-policy create](/cli/azure/ext/front-door/network/waf-policy?view=azure-cli-latest#ext-front-door-az-network-waf-policy-create). Dans l’exemple suivant, remplacez le nom de la stratégie *IPAllowPolicyExampleCLI* par un nom unique.
+Créer une stratégie WAF à l’aide de la commande [az network waf-policy create](/cli/azure/ext/front-door/network/front-door/waf-policy?view=azure-cli-latest#ext-front-door-az-network-front-door-waf-policy-create). Dans l’exemple suivant, remplacez le nom de la stratégie *IPAllowPolicyExampleCLI* par un nom unique.
 
 ```azurecli-interactive 
 az network waf-policy create \
@@ -50,7 +50,7 @@ az network waf-policy create \
   ```
 ### <a name="add-a-custom-ip-access-control-rule"></a>Ajouter une règle de contrôle d’accès IP personnalisée
 
-Utilisez la commande [az network waf-policy custom-rule create](/cli/azure/ext/front-door/network/waf-policy/custom-rule?view=azure-cli-latest#ext-front-door-az-network-waf-policy-custom-rule-create) pour ajouter une règle de contrôle d'accès IP personnalisée pour une stratégie WAF que vous venez de créer.
+Utilisez la commande [az network waf-policy custom-rule create](/cli/azure/ext/front-door/network/front-door/waf-policy/rule?view=azure-cli-latest#ext-front-door-az-network-front-door-waf-policy-rule-create) pour ajouter une règle de contrôle d'accès IP personnalisée pour une stratégie WAF que vous venez de créer.
 
 Dans les exemples suivants :
 -  Remplacez *IPAllowPolicyExampleCLI* par votre stratégie unique créée précédemment.
@@ -82,7 +82,7 @@ az network waf-policy custom-rule create \
 ```
     
 ### <a name="find-the-id-of-a-waf-policy"></a>Rechercher l’ID d’une stratégie WAF 
-Recherchez une stratégie WAF à l’aide de la commande [az network waf-policy show](/cli/azure/ext/front-door/network/waf-policy?view=azure-cli-latest#ext-front-door-az-network-waf-policy-show). Là encore, remplacez *IPAllowPolicyExampleCLI* dans l’exemple suivant par votre stratégie unique que vous avez créée précédemment.
+Recherchez une stratégie WAF à l’aide de la commande [az network waf-policy show](/cli/azure/ext/front-door/network/front-door/waf-policy?view=azure-cli-latest#ext-front-door-az-network-front-door-waf-policy-show). Là encore, remplacez *IPAllowPolicyExampleCLI* dans l’exemple suivant par votre stratégie unique que vous avez créée précédemment.
 
    ```azurecli
    az network waf-policy show \

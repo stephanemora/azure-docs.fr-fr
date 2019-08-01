@@ -4,7 +4,7 @@ titleSuffix: Azure
 description: Configurez et créez une machine virtuelle pour la science des données sur Microsoft Azure pour vos besoins d’analyse et d’apprentissage automatique.
 services: machine-learning
 documentationcenter: ''
-author: gopitk
+author: vijetajo
 manager: cgronlun
 ms.custom: seodec18
 ms.assetid: e1467c0f-497b-48f7-96a0-7f806a7bec0b
@@ -12,15 +12,15 @@ ms.service: machine-learning
 ms.subservice: data-science-vm
 ms.workload: data-services
 ms.devlang: na
-ms.topic: article
+ms.topic: quickstart
 ms.date: 02/22/2019
-ms.author: gokuma
-ms.openlocfilehash: 57768fc463f5ea1d2f1ec386f3f0975758220013
-ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
+ms.author: vijetaj
+ms.openlocfilehash: dfb3e9f6390d4c80b8f3c37b87f2659c671fa823
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67626394"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68591825"
 ---
 # <a name="provision-a-windows-data-science-virtual-machine-on-azure"></a>Provisionner une machine virtuelle DSVM Windows sur Azure
 
@@ -106,7 +106,7 @@ Pour créer une instance de DSVM
 
 Une fois la machine virtuelle créée et approvisionnée, vous pouvez vous y connecter à l’aide du bureau distant en utilisant les informations d’identification du compte administrateur que vous avez configurées dans la section **Paramètres de base** précédente. Vous êtes maintenant prêt à utiliser les outils qui sont installés et configurés sur la machine virtuelle. La plupart des outils sont accessibles par le biais des icônes du Bureau et des vignettes du menu Démarrer.
 
-Vous pouvez également attacher une DSVM à Azure Notebooks pour exécuter des notebooks Jupyter sur la machine virtuelle et contourner les limitations du niveau de service gratuit. Pour plus d’informations, consultez [Gérer et configurer des projets Notebooks - Niveau Calcul](/azure/notebooks/configure-manage-azure-notebooks-projects#compute-tier).
+Vous pouvez également attacher une DSVM à Azure Notebooks pour exécuter des notebooks Jupyter sur la machine virtuelle et contourner les limitations du niveau de service gratuit. Pour plus d’informations, consultez [Gérer et configurer des projets Notebooks - Niveau Calcul](../../notebooks/configure-manage-azure-notebooks-projects.md#compute-tier).
 
 ## <a name="tools-installed-on-the-microsoft-data-science-virtual-machine"></a>Outils installés sur la machine virtuelle de science des données
 

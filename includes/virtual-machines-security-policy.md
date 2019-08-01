@@ -4,18 +4,18 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: c44b39effdc6d8fcdc144915ec7b51489e3798cd
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: f289da08c63f655006801d89f82640c6e3c6b7be
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67177028"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68622372"
 ---
 Il est important de sécuriser votre machine virtuelle (VM) pour les applications que vous exécutez. La sécurisation des machines virtuelles peut comprendre plusieurs services et fonctionnalités Azure qui garantissent un accès sécurisé à vos machines virtuelles et le stockage sécurisé des données. Cet article donne des informations vous permettant de sécuriser votre machine virtuelle et vos applications.
 
 ## <a name="antimalware"></a>Logiciel anti-programme malveillant
 
-Les menaces vis-à-vis des environnements cloud sont dynamiques et il faut plus que jamais maintenir une protection efficace dans le but de répondre aux exigences de conformité et de sécurité. [Microsoft Antimalware pour Azure](../articles/security/azure-security-antimalware.md) offre une fonctionnalité de protection en temps réel qui permet d’identifier et de supprimer les virus, logiciels espions et autres logiciels malveillants. Les alertes peuvent être configurées pour vous avertir lorsqu’un logiciel malveillant ou indésirable connu tente de s’installer ou de s’exécuter sur votre machine virtuelle Azure.
+Les menaces vis-à-vis des environnements cloud sont dynamiques et il faut plus que jamais maintenir une protection efficace dans le but de répondre aux exigences de conformité et de sécurité. [Microsoft Antimalware pour Azure](../articles/security/fundamentals/antimalware.md) offre une fonctionnalité de protection en temps réel qui permet d’identifier et de supprimer les virus, logiciels espions et autres logiciels malveillants. Les alertes peuvent être configurées pour vous avertir lorsqu’un logiciel malveillant ou indésirable connu tente de s’installer ou de s’exécuter sur votre machine virtuelle Azure.
 
 ## <a name="azure-security-center"></a>Azure Security Center
 
@@ -53,4 +53,4 @@ Avec le [contrôle d’accès en fonction du rôle](../articles/role-based-acces
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-- Suivez les étapes permettant de surveiller la sécurité de la machine virtuelle à l’aide d’Azure Security Center pour [Linux](../articles/virtual-machines/linux/tutorial-azure-security.md) ou [Windows](../articles/virtual-machines/windows/tutorial-azure-security.md).
+- Suivez les étapes permettant de surveiller la sécurité de la machine virtuelle à l’aide d’Azure Security Center pour [Linux](../articles/security/fundamentals/overview.md) ou [Windows](../articles/virtual-machines/windows/tutorial-azure-security.md).

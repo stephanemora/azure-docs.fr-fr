@@ -3,7 +3,7 @@ title: Obtenir de l’aide et ouvrir un ticket de support – Azure Active Direc
 description: Ces instructions permettent d’obtenir de l’aide et d’ouvrir un ticket de support pour Azure Active Directory.
 services: active-directory
 documentationcenter: na
-author: eross-msft
+author: msaburnley
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.subservice: fundamentals
 ms.workload: identity
 ms.date: 08/28/2017
-ms.author: lizross
+ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 22bf80c13ef3b18ab3119b6b35e529c8ad32f504
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9dce9b93dfe4ddfca370d1d3131d1d12cb6f121d
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60248057"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561765"
 ---
 # <a name="find-help-and-open-a-support-ticket-for-azure-active-directory"></a>Obtenir de l’aide et ouvrir un ticket de support pour Azure Active Directory
 Microsoft propose des services de support pour les problèmes techniques, de prévente, de facturation et d’abonnements relatifs à Azure Active Directory (Azure AD). Le support est disponible en ligne et par téléphone pour les abonnements d’évaluation et payants Microsoft Azure. L’assistance téléphonique et le support de facturation en ligne sont disponibles dans plusieurs langues. 

@@ -3,7 +3,7 @@ title: Conteneuriser vos services Azure Service Fabric sur Windows
 description: Découvrez comment conteneuriser vos services Service Fabric Reliable Actors et Reliable Services sur Windows.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: anmolah
 editor: roroutra
 ms.assetid: 0b41efb3-4063-4600-89f5-b077ea81fa3a
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 5/23/2018
 ms.author: anmola
-ms.openlocfilehash: 1210b34590484379ae487ad1b87e76a433e4582a
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 0cb48a2272ce854005f9f3db5b6a9abf62cc7015
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67621821"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68599211"
 ---
 # <a name="containerize-your-service-fabric-reliable-services-and-reliable-actors-on-windows"></a>Conteneuriser vos services Service Fabric Reliable Actors et Reliable Services sur Windows
 

@@ -1,6 +1,6 @@
 ---
 title: Méthode BreakSentence de l’API de traduction de texte Translator Text.
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Utilisez la méthode BreakSentence de l’API de traduction de texte Translator Text.
 services: cognitive-services
 author: swmachan
@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: swmachan
-ms.openlocfilehash: 59f6957f1781852e4ab4c0713742581b5c884f25
-ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
+ms.openlocfilehash: b3851b572dedde48540444873590f7a682a4853c
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/25/2019
-ms.locfileid: "67357860"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595210"
 ---
 # <a name="translator-text-api-30-breaksentence"></a>API de traduction de texte Translator Text 3.0 : BreakSentence
 

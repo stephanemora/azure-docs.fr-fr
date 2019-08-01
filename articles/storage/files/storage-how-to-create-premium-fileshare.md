@@ -1,19 +1,18 @@
 ---
 title: Créer un partage de fichiers Azure premium
 description: Dans cet article, vous allez apprendre à créer un partage de fichiers Azure premium.
-services: storage
 author: roygara
 ms.service: storage
 ms.topic: conceptual
 ms.date: 05/05/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 63caf9a08acb04bab3712891701d32c21c22e9fc
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 223efefde4fc09684504925abd0d8d5ee5e4b5ea
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67449892"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68699577"
 ---
 # <a name="how-to-create-an-premium-azure-file-share"></a>Créer un partage de fichiers premium via le portail Azure
 Les partages de fichiers premium sont proposés sur les supports de stockage SSD et sont utiles pour les charges de travail gourmandes en E/S, notamment l’hébergement de bases de données et le calcul haute performance (HPC). Les partages de fichiers premium sont hébergés dans un type de compte de stockage spécial, appelé compte FileStorage. Les partages de fichiers premium sont conçus pour les applications d’entreprise évolutives et à hautes performances, en fournissant des partages à latence faible et homogène, nombre élevé d’IOPS et débit élevé.

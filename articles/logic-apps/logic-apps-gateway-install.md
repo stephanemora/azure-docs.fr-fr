@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: arthii, LADocs
 ms.topic: article
 ms.date: 10/01/2018
-ms.openlocfilehash: 10a6e5c33f6a3c23d98e6eb3380de0d6dc6ac216
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 61a9b319b9ea44f766bc6f014b76bc48d15efc57
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65544483"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68598460"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Installer une passerelle de données locale pour Azure Logic Apps
 
@@ -296,7 +296,7 @@ La passerelle de données s’exécute en tant que service Windows et, comme ave
 
 ## <a name="tenant-level-administration"></a>Administration au niveau du locataire 
 
-Il n’existe actuellement aucun emplacement unique où les administrateurs client peuvent gérer toutes les passerelles que d’autres utilisateurs ont installées et configurées. Si vous êtes un administrateur client, vous pouvez demander aux utilisateurs de votre organisation de vous ajouter en tant qu’administrateur pour chaque passerelle qu’ils installent. Cela vous permet ainsi de gérer toutes les passerelles de votre organisation via la page Paramètres des passerelles, ou via les [Commandes PowerShell](https://docs.microsoft.com/power-bi/service-gateway-high-availability-clusters#powershell-support-for-gateway-clusters). 
+Il n’existe actuellement aucun emplacement unique où les administrateurs client peuvent gérer toutes les passerelles que d’autres utilisateurs ont installées et configurées. Si vous êtes un administrateur client, vous pouvez demander aux utilisateurs de votre organisation de vous ajouter en tant qu’administrateur pour chaque passerelle qu’ils installent. Cela vous permet ainsi de gérer toutes les passerelles de votre organisation via la page Paramètres des passerelles, ou via les [Commandes PowerShell](/data-integration/gateway/service-gateway-powershell-support). 
 
 <a name="gateway-cloud-service"></a>
 
@@ -418,7 +418,7 @@ Pour vous aider à résoudre les problèmes, démarrez toujours par la collecte 
 
 Voici les emplacements où vous trouverez divers journaux d’activité :
 
-| Type de journal | Lieu | 
+| Type de journal | Location | 
 |----------|----------| 
 | **Journaux d’activité du programme d’installation** | %localappdata%\Temp\On-premises_data_gateway_ <*AAAAMMJJ*>.<*nombre*>.log | 
 | **Journaux d’activité de configuration** | C:\Utilisateurs\<*nom d’utilisateur*> \AppData\Local\Microsoft\On-premises data gateway\GatewayConfigurator<*AAAAMMJJ*>. <*nombre*>.log | 

@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 075d0e2471457e1a585f7fdea9b523b1d13499c7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 322cc2fd53972c7c084da76ac0c80b757d0d2297
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61388590"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68570405"
 ---
 # <a name="monitor-and-manage-performance-of-azure-sql-databases-and-pools-in-a-multi-tenant-saas-app"></a>Surveiller et gérer les performances des bases de données Azure SQL et des pools dans une application SaaS multilocataire
 
@@ -87,7 +86,7 @@ Le script *Demo-PerformanceMonitoringAndManagement.ps1* simulant une charge de t
 | 3 | Générer une charge avec des pics plus longs et plus fréquents par base de données|
 | 4 | Générer une charge avec des pics de DTU supérieurs par base de données (environ 80 DTU)|
 | 5\. | Générer une charge normale et une charge élevée sur un seul locataire (environ 95 DTU)|
-| 6\. | Générer une charge déséquilibrée entre plusieurs pools|
+| 6 | Générer une charge déséquilibrée entre plusieurs pools|
 
 Le générateur de charge applique une charge CPU *synthétique* à chaque base de données de locataire. Le générateur démarre un travail pour chaque base de données de locataire, qui appelle périodiquement une procédure stockée qui génère la charge. Les niveaux de charge (exprimés en eDTU), la durée et les intervalles varient selon les bases de données afin de simuler l’activité d’un locataire imprévisible.
 

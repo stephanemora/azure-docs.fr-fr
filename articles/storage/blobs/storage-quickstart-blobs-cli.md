@@ -9,16 +9,18 @@ ms.topic: quickstart
 ms.date: 11/14/2018
 ms.author: tamram
 ms.reviewer: seguler
-ms.openlocfilehash: 0b74876d153a775993678ad50ed311c524480f76
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 6a0aef9b2fc7a99183ebd6991691245731e00200
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149592"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68565963"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-the-azure-cli"></a>Démarrage rapide : Charger, télécharger et lister des objets blob avec Azure CLI
 
 L’interface de ligne de commande Azure (Azure CLI) est l’expérience de ligne de commande d’Azure pour gérer les ressources Azure. Vous pouvez l’utiliser dans votre navigateur avec Azure Cloud Shell. Vous pouvez également l’installer sur Windows, Linux ou MacOS, et l’exécuter à partir de la ligne de commande. Dans ce guide de démarrage rapide, vous apprenez à utiliser Azure CLI pour charger et télécharger des données vers et à partir du stockage Blob Azure.
+
+[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
 ## <a name="prerequisites"></a>Prérequis
 

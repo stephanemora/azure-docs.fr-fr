@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/23/2019
 ms.author: bwren
-ms.openlocfilehash: b77fb3ab5651147c59b9f0afd22a2d6d0159c90e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 673575d480b78c151e68963e4a935fc72e7e578b
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66357484"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564746"
 ---
 # <a name="sources-of-monitoring-data-for-azure-monitor"></a>Sources des données de surveillance pour Azure Monitor
 Azure Monitor repose sur une [plateforme commune de données de surveillance](data-platform.md) qui inclut des [journaux](data-platform-logs.md) et des [métriques](data-platform-metrics.md). La collecte des données dans cette plate-forme permet d'analyser ensemble des données provenant de plusieurs ressources à l'aide d'un ensemble commun d'outils dans Azure Monitor. Les données de surveillance peuvent également être envoyées à d'autres endroits pour étayer certains scénarios, et certaines ressources peuvent écrire des données sur d'autres sites afin de consigner ces informations dans des journaux ou des métriques.
@@ -101,7 +101,7 @@ La plupart des services Azure envoient des [métriques de plateforme](data-platf
 | Destination | Description | Informations de référence |
 |:---|:---|:---|
 | Métriques Azure Monitor | Les métriques de la plate-forme seront inscrites dans la base de données de métriques Azure Monitor, sans aucune configuration. Accédez aux métriques de la plate-forme depuis Metrics Explorer.  | [Prise en main de l’explorateur de métriques Azure](metrics-getting-started.md)<br>[Mesures prises en charge avec Azure Monitor](metrics-supported.md) |
-| Journaux d’activité Azure Monitor | Copiez les métriques de la plate-forme dans les journaux pour l'analyse des tendances et d'autres analyses à l'aide de Log Analytics. | [Diagnostics Azure directement dans Log Analytics](collect-azure-metrics-logs.md#azure-diagnostics-direct-to-log-analytics) |
+| Journaux d’activité Azure Monitor | Copiez les métriques de la plate-forme dans les journaux pour l'analyse des tendances et d'autres analyses à l'aide de Log Analytics. | [Diagnostics Azure directement dans Log Analytics](diagnostic-logs-stream-log-store.md) |
 | Event Hubs | Diffusez en continu des métriques sur d’autres emplacements à l'aide d’Event Hubs. |[Diffuser des données de surveillance Azure vers un hub d’événements pour les utiliser dans un outil externe](stream-monitoring-data-event-hubs.md) |
 
 ### <a name="diagnostic-logs"></a>Journaux de diagnostic

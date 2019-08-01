@@ -1,18 +1,19 @@
 ---
 title: Sauvegarde Azure pour les charges de travail SQL Server à l’aide du serveur de sauvegarde Azure
 description: Présentation de la sauvegarde de bases de données SQL Server à l’aide du serveur de sauvegarde Azure
-author: kasinh
-manager: vvithal
+ms.reviewer: kasinh
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 03/24/2017
-ms.author: kasinh
-ms.openlocfilehash: 0aff75e37ec8184b6c23ff00cbf61e5cbe045b5f
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: 5e91d63f4479d0677c57342cb1b726e33a45bb86
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68465451"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68689084"
 ---
 # <a name="back-up-sql-server-to-azure-with-azure-backup-server"></a>Sauvegarder des données SQL Server vers Azure à l’aide du serveur de sauvegarde Azure
 Cet article vous guide tout au long des étapes de configuration de la sauvegarde des bases de données SQL Server à l’aide du serveur de sauvegarde Microsoft Azure.

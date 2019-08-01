@@ -2,7 +2,7 @@
 title: Questions fréquentes (FAQ) - Azure Active Directory | Microsoft Docs
 description: Réponses aux questions courantes sur Azure et Azure Active Directory, la gestion des mots de passe et l’accès aux applications.
 services: active-directory
-author: eross-msft
+author: msaburnley
 manager: daveba
 ms.assetid: b8207760-9714-4871-93d5-f9893de31c8f
 ms.service: active-directory
@@ -10,15 +10,15 @@ ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/12/2018
-ms.author: lizross
+ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c67eec3a17e949d630bedf920c690f9f5a36424d
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 4c1ee5e849d8004f828a2d92d728ad7925fc05c4
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204566"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68693948"
 ---
 # <a name="frequently-asked-questions-about-azure-active-directory"></a>Questions fréquentes (FAQ) sur Azure Active Directory
 Azure Active Directory (Azure AD) est une solution IDaaS (Identity as a Service) complète qui couvre tous les aspects de l’identité, la gestion des accès et la sécurité.
@@ -68,7 +68,8 @@ Par ailleurs, les services Azure AD payants comme Enterprise Mobility + Securit
 
 **Q : Comment quitter un locataire quand je suis ajouté comme collaborateur ?**
 
-<a name="a-when-you-are-added-to-another-organizations-tenant-as-a-collaborator-you-can-use-the-tenant-switcher-in-the-upper-right-to-switch-between-tenants--currently-there-is-no-way-to-leave-the-inviting-organization-and-microsoft-is-working-on-providing-this-functionality--until-this-feature-is-available-you-can-ask-the-inviting-organization-to-remove-you-from-their-tenant"></a>**R :** Quand vous êtes ajouté comme collaborateur au locataire d’une autre organisation, vous pouvez utiliser le « sélecteur de locataire » en haut à droite pour basculer entre les locataires.  Il n’existe actuellement aucun moyen de quitter l’organisation à l’origine de l’invitation, mais Microsoft travaille à la mise en place de cette fonctionnalité.  En attendant que cette fonctionnalité soit disponible, vous pouvez demander à l’organisation à l’origine de l’invitation de vous retirer de son client.
+**R :** Quand vous êtes ajouté comme collaborateur au locataire d’une autre organisation, vous pouvez utiliser le « sélecteur de locataire » en haut à droite pour basculer entre les locataires.  Il n’existe actuellement aucun moyen de quitter l’organisation à l’origine de l’invitation, mais Microsoft travaille à la mise en place de cette fonctionnalité.  En attendant que cette fonctionnalité soit disponible, vous pouvez demander à l’organisation à l’origine de l’invitation de vous retirer de son client.
+
 ---
 **Q : Comment connecter mon annuaire local à Azure AD ?**
 

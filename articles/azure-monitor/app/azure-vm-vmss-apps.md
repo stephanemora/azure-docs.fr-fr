@@ -9,12 +9,12 @@ ms.service: application-insights
 ms.topic: conceptual
 ms.date: 06/27/2019
 ms.author: mbullwin
-ms.openlocfilehash: 69ae6ab6caedd9e89d277b92558931685d2ea320
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: f2c6b98fd0be2061e9d8cab5c063cafadf71476a
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67877415"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68597454"
 ---
 # <a name="monitor-application-performance-hosted-on-azure-vm-and-azure-virtual-machine-scale-sets"></a>Surveiller les performances des applications hébergées sur les machines virtuelles Azure et les groupes de machines virtuelles identiques Azure
 
@@ -24,7 +24,7 @@ Cet article vous guide dans l’activation de la surveillance Application Insigh
 
 > [!IMPORTANT]
 > L’extension ApplicationMonitoringWindows Azure est actuellement disponible en préversion publique.
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge.
+> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou n’être pas prises en charge.
 > Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="enable-application-insights"></a>Activer Application Insights
@@ -42,7 +42,7 @@ Il existe deux façons d’activer l’analyse des applications pour les machine
     * Utilisez cette méthode si vous devez effectuer des appels d’API personnalisés pour suivre les événements/dépendances qui ne sont pas capturés par défaut avec la supervision basée sur un agent. Pour en savoir plus, consultez l’[article sur l’API Application Insights pour les événements et mesures personnalisés](https://docs.microsoft.com/azure/azure-monitor/app/api-custom-events-metrics).
 
 > [!NOTE]
-> Si les deux méthodes, la supervision basée sur un agent et l’instrumentation manuelle basée sur un SDK, sont détectées, seuls les paramètres de l’instrumentation manuelle sont appliqués. Cela évite que des données en double soient envoyées. Pour en savoir plus, consultez la [section de résolution des problèmes](https://docs.microsoft.com/azure/azure-monitor/app/azure-vm-apps#troubleshooting) ci-après.
+> Si les deux méthodes, la supervision basée sur un agent et l’instrumentation manuelle basée sur un SDK, sont détectées, seuls les paramètres de l’instrumentation manuelle sont appliqués. Cela évite que des données en double soient envoyées. Pour en savoir plus, consultez la [section de résolution des problèmes](#troubleshooting) ci-après.
 
 ## <a name="manage-agent-based-monitoring-for-net-applications-on-vm-using-powershell"></a>Gérer l’analyse basée sur les agents pour les applications .NET sur une machine virtuelle à l’aide de PowerShell
 

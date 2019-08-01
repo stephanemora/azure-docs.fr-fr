@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-manager: craigg
 ms.date: 04/30/2019
-ms.openlocfilehash: 80d01a360a2f80749bd7fbe7a9aadb9dda1189c6
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 55d60ec332515fcfa3deb565a4a770027681537a
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67706987"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68566982"
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Récupérer une base de données Azure SQL à l’aide des sauvegardes automatisées d’une base de données
 
@@ -141,7 +140,7 @@ Comme indiqué précédemment, en plus du Portail Azure, la récupération de la
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Le module PowerShell Azure Resource Manager est toujours pris en charge par Azure SQL Database, mais tous les développements à venir sont destinés au module Az.Sql. Pour ces cmdlets, consultez [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Les arguments des commandes du module Az et des modules AzureRm sont sensiblement identiques.
+> Le module PowerShell Azure Resource Manager est toujours pris en charge par Azure SQL Database, mais tous les développements à venir sont destinés au module Az.Sql. Pour ces cmdlets, voir [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Les arguments des commandes du module Az et des modules AzureRm sont sensiblement identiques.
 
 - Pour restaurer une base de données autonome ou mise en pool, voir [Restore-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase).
 

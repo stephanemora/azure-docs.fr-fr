@@ -1,6 +1,6 @@
 ---
 title: 'Améliorer votre classifieur : Service Vision personnalisée'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Découvrez comment améliorer la qualité de votre classifieur.
 services: cognitive-services
 author: PatrickFarley
@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: pafarley
-ms.openlocfilehash: 35f83832b0ceb7507b39095e9cc974d82a480c69
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d71c750185589fd488df70b63fd48e9e674ee3dc
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60606941"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561044"
 ---
 # <a name="how-to-improve-your-classifier"></a>Comment améliorer votre classifieur
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 203b752f9da67ebf60e373fe7ce0893b4fd7fcb5
-ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
+ms.openlocfilehash: aab2aa4415345747a0e87b90ef0a7ee770ef3465
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67560958"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68608126"
 ---
 # <a name="baseline-policy-require-mfa-for-service-management-preview"></a>Stratégie de référence : exiger l’authentification MFA pour le management des services (préversion)
 
@@ -68,6 +68,6 @@ Pour activer cette stratégie et protéger vos administrateurs, procédez comme 
 
 Pour plus d'informations, consultez les pages suivantes :
 
-* [Stratégies de protection de référence de l’accès conditionnel](concept-baseline-protection.md)
-* [Cinq étapes pour sécuriser votre infrastructure d’identité](../../security/azure-ad-secure-steps.md)
-* [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](overview.md)
+* [Stratégies de protection de base de référence pour l’accès conditionnel](concept-baseline-protection.md)
+* [Cinq étapes pour sécuriser votre infrastructure d’identité](../../security/fundamentals/steps-secure-identity.md)
+* [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](overview.md)

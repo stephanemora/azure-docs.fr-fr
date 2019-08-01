@@ -3,7 +3,7 @@ title: Créer une application Azure Service Fabric Reliable Actors Java sur Linu
 description: Découvrez comment créer et déployer une application Java Service Fabric Reliable Actors en cinq minutes.
 services: service-fabric
 documentationcenter: java
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: 02b51f11-5d78-4c54-bb68-8e128677783e
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/18/2018
-ms.author: aljo
-ms.openlocfilehash: 37d9c17ff10922aa524fa2fe3eb8abff92c83052
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: atsenthi
+ms.openlocfilehash: 4b008c001e1c4749b6ab6f9f21eff479f007c05c
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60394023"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68599687"
 ---
 # <a name="create-your-first-java-service-fabric-reliable-actors-application-on-linux"></a>Création de votre première application Java Service Fabric Reliable Actors
 > [!div class="op_single_selector"]

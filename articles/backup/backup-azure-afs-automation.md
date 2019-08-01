@@ -1,18 +1,19 @@
 ---
 title: Sauvegarder et restaurer Azure Files à l’aide de Sauvegarde Azure et PowerShell
 description: Sauvegardez et restaurez Azure Files à l’aide de Sauvegarde Azure et PowerShell.
-author: pvrk
-manager: shivamg
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 03/05/2018
-ms.author: pullabhk
-ms.openlocfilehash: 986414d0bac24d0c7e37b34df473346742fa97fd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: dacurwin
+ms.reviewer: pullabhk
+ms.openlocfilehash: 5f62bd0456bfbf5882d6d8c3ee822433fbb58302
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65204181"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68688772"
 ---
 # <a name="back-up-and-restore-azure-files-with-powershell"></a>Sauvegarder et restaurer Azure Files avec PowerShell
 
@@ -151,7 +152,7 @@ Get-AzRecoveryServicesVault -Name "testvault" | Set-AzRecoveryServicesVaultConte
 
 ### <a name="fetch-the-vault-id"></a>Récupérer l’ID de coffre
 
-Conformément aux instructions d’Azure PowerShell, nous prévoyons de déprécier la définition du contexte de coffre. Au lieu de cela, vous pouvez stocker ou récupérer l’ID du coffre et le transmettre aux commandes appropriées, comme suit :
+Conformément aux instructions d’Azure PowerShell, nous prévoyons de déprécier la définition du contexte de coffre. À la place, vous pouvez stocker ou récupérer l’ID du coffre et le transmettre aux commandes appropriées, comme suit :
 
 ```powershell
 $vaultID = Get-AzRecoveryServicesVault -ResourceGroupName "Contoso-docs-rg" -Name "testvault" | select -ExpandProperty ID

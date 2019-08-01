@@ -9,14 +9,13 @@ ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: vanto, carlrab
-manager: craigg
 ms.date: 05/07/2019
-ms.openlocfilehash: d3e68a5287e59c576f85491e6e5eba33fac080ca
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cebe6b4ca61b835e7c77f51592c20799fe271853
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65465159"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567404"
 ---
 # <a name="configure-public-endpoint-in-azure-sql-database-managed-instance"></a>Configurer un point de terminaison public dans Azure SQL Database Managed Instance
 

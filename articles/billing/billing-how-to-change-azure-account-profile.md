@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 87de721f596eb4148939c00bc4b4db270a87c24e
-ms.sourcegitcommit: 0ebc62257be0ab52f524235f8d8ef3353fdaf89e
+ms.openlocfilehash: dea54f2e692174e12cb2dc1f0e0e0ed9fca127bc
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67724102"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68516575"
 ---
 # <a name="change-the-profile-information-for-your-azure-account"></a>Modifier les informations de profil de votre compte Azure
 
@@ -28,7 +28,7 @@ Microsoft utilise l’adresse e-mail dans un profil utilisateur, un utilisateur 
 
 ## <a name="change-your-profile-information"></a>Modifier vos informations de profil
 
-1. Connectez-vous au [Centre des comptes Azure](https://account.azure.com/Profile).
+1. Connectez-vous au [Centre des comptes Azure](https://account.azure.com/subscriptions).
 1. Sélectionnez le bouton **Modifier les détails**, puis mettez à jour les informations du **profil**.
 
    ![Exemples d’informations de profil Azure](./media/billing-how-to-change-azure-account-profile/profile.png)
@@ -72,7 +72,7 @@ Entrez l’adresse e-mail sur laquelle vous souhaitez recevoir des communication
 
 Vous pouvez modifier votre adresse e-mail de contact en utilisant l’une des méthodes suivantes :
 
-* Connectez-vous au [Centre des comptes Azure](https://account.azure.com/Profile). Sélectionnez **Modifier les détails**, puis mettez à jour l’adresse e-mail du profil. La mise à jour de l’adresse e-mail de votre profil ne met pas à jour votre adresse e-mail de connexion.
+* Connectez-vous au [Centre des comptes Azure](https://account.azure.com/subscriptions). Sélectionnez **Modifier les détails**, puis mettez à jour l’adresse e-mail du profil. La mise à jour de l’adresse e-mail de votre profil ne met pas à jour votre adresse e-mail de connexion.
 
 * Accédez à la section [Informations de contact](https://portal.azure.com/#blade/HubsExtension/ContactInfoBlade) du portail Azure et entrez une adresse e-mail. L’adresse que vous fournissez reçoit des communications marketing et de service. L’adresse e-mail dans le profil de Centre des comptes Azure est mise à jour automatiquement. La mise à jour de l’adresse e-mail de votre profil ne met pas à jour votre adresse e-mail de connexion.
 

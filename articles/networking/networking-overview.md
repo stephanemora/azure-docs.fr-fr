@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/17/2019
 ms.author: kumud
-ms.openlocfilehash: 9fb7fc9b4f0e5af0847876ff41b6a307f8a09749
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.openlocfilehash: 857b38693ca85d6ab397cbe850f0cd530fefc88c
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68348048"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68598393"
 ---
 # <a name="azure-networking"></a>Mise en réseau Azure
 
@@ -38,7 +38,7 @@ Cette section décrit les services qui assurent la connectivité entre les resso
 |[Passerelle VPN](#vpngateway)|Envoie du trafic chiffré entre un réseau virtuel Azure et un emplacement local via l’Internet public.|<p>[Connexions de site à site](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)</p> <p>[Connexions de réseau virtuel à réseau virtuel](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)</p> <p>[Connexions point à site](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md)</p>|
 |[Virtual WAN](#virtualwan)|Optimise et automatise la connectivité des branches vers et via Azure. Les régions Azure servent de hubs auxquels vous pouvez connecter vos branches.|<p>[Connexions de site à site](../virtual-wan/virtual-wan-site-to-site-portal.md), [Connexions ExpressRoute](../virtual-wan/virtual-wan-expressroute-portal.md)</p>|
 |[DNS Azure](#dns)|Héberge le domaine DNS qui fournit une résolution de noms à l’aide de l’infrastructure Microsoft Azure.|<p>[Héberger votre domaine dans Azure DNS](../dns/dns-delegate-domain-azure-dns.md)</p><p>[Créer des enregistrements DNS pour une application web](../dns/dns-web-sites-custom-domain.md)</p> <p>[Créer un enregistrement d’alias pour Traffic Manager](../dns/tutorial-alias-tm.md)</p> <p>[Créer un enregistrement d’alias pour l’adresse IP publique](../dns/tutorial-alias-pip.md)</p> <p>[Créer un enregistrement d’alias pour l’enregistrement de la ressource de zone](../dns/tutorial-alias-rr.md)</p>|
-|[Azure Bastion (préversion)](#bastion)|Configurez une connectivité RDP/SSH sécurisée et fluide à vos machines virtuelles directement dans le portail Azure via SSL. Lorsque vous vous connectez via Azure Bastion, vos machines virtuelles n’ont pas besoin d’une adresse IP publique.|<p>[Créer un hôte Azure Bastion](../bastion/bastion-create-host-portal.md)</p><p>[Se connecter à une machine virtuelle Linux avec SSH](../bastion/bastion-connect-vm-ssh.md)</p><p>[Se connecter à une machine virtuelle Windows avec RDP](/bastion/bastion-connect-vm-rdp.md)</p>|
+|[Azure Bastion (préversion)](#bastion)|Configurez une connectivité RDP/SSH sécurisée et fluide à vos machines virtuelles directement dans le portail Azure via SSL. Lorsque vous vous connectez via Azure Bastion, vos machines virtuelles n’ont pas besoin d’une adresse IP publique.|<p>[Créer un hôte Azure Bastion](../bastion/bastion-create-host-portal.md)</p><p>[Se connecter à une machine virtuelle Linux avec SSH](../bastion/bastion-connect-vm-ssh.md)</p><p>[Se connecter à une machine virtuelle Windows avec RDP](../bastion/bastion-connect-vm-rdp.md)</p>|
 ||||
 
 
@@ -74,7 +74,7 @@ Azure Virtual WAN est un service réseau qui offre une connectivité de branche 
 Azure DNS est un service d’hébergement pour les domaines DNS qui offre une résolution de noms à l’aide de l’infrastructure Microsoft Azure. En hébergeant vos domaines dans Azure, vous pouvez gérer vos enregistrements DNS à l’aide des mêmes informations d’identification, les mêmes API, les mêmes outils et la même facturation que vos autres services Azure. Pour plus d’informations, consultez [Présentation d’Azure DNS](../dns/dns-overview.md).
 
 ### <a name="bastion"></a>Azure Bastion (préversion)
-Le service Azure Bastion est un nouveau service PaaS complètement managé par la plateforme que vous provisionnez au sein de votre réseau virtuel. Il fournit une connectivité RDP/SSH sécurisée et fluide à vos machines virtuelles directement dans le Portail Azure via SSL. Lorsque vous vous connectez via Azure Bastion, vos machines virtuelles n’ont pas besoin d’une adresse IP publique. Pour plus d’informations, consultez [Présentation d’Azure Bastion](/bastion/bastion-overview.md).
+Le service Azure Bastion est un nouveau service PaaS complètement managé par la plateforme que vous provisionnez au sein de votre réseau virtuel. Il fournit une connectivité RDP/SSH sécurisée et fluide à vos machines virtuelles directement dans le Portail Azure via SSL. Lorsque vous vous connectez via Azure Bastion, vos machines virtuelles n’ont pas besoin d’une adresse IP publique. Pour plus d’informations, consultez [Présentation d’Azure Bastion](../bastion/bastion-overview.md).
 
 ![Architecture d’Azure Bastion](./media/networking-overview/architecture.png)
 

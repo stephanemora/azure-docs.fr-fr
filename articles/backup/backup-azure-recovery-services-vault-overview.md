@@ -1,18 +1,18 @@
 ---
 title: Vue d’ensemble des coffres Recovery Services
 description: Vue d’ensemble et comparaison entre les coffres Recovery Services et les coffres de sauvegarde Azure.
-author: rayne-wiselman
+author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 8/10/2018
-ms.author: raynew
-ms.openlocfilehash: 21ce9f411bf9c80e44614c6f7a6d123d49634a8f
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: 78f35f30503a6d4f5ead222799f160a88fe2c1d5
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68465617"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639817"
 ---
 # <a name="recovery-services-vaults-overview"></a>Vue d’ensemble des coffres Recovery Services
 

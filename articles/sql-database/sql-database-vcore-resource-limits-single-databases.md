@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 04/22/2019
-ms.openlocfilehash: c89aa3b4ecf0c07cfbb579cdc18fac6e822bc047
-ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+ms.openlocfilehash: 661ac9ea3fd87268c43bf0a0eba66e30f636fc77
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67536227"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68566204"
 ---
 # <a name="resource-limits-for-single-databases-using-the-vcore-based-purchasing-model"></a>Limites de ressources pour des bases de données uniques suivant le modèle d’achat vCore
 
@@ -43,7 +42,7 @@ Vous pouvez définir le niveau de service, la taille de calcul et la quantité d
 |Taille de calcul|GP_Gen4_1|GP_Gen4_2|GP_Gen4_3|GP_Gen4_4|GP_Gen4_5|GP_Gen4_6
 |:--- | --: |--: |--: |--: |--: |--: |
 |Génération H/W|4|4|4|4|4|4|
-|vCores|1|2|3|4|5\.|6\.|
+|vCores|1|2|3|4|5\.|6|
 |Mémoire (Go)|7|14|21|28|35|42|
 |Prise en charge de ColumnStore|OUI|OUI|OUI|OUI|OUI|OUI|
 |Stockage In-Memory OLTP (Go)|N/A|N/A|N/A|N/A|N/A|N/A|
@@ -89,7 +88,7 @@ Vous pouvez définir le niveau de service, la taille de calcul et la quantité d
 |Taille de calcul|GP_Gen5_2|GP_Gen5_4|GP_Gen5_6|GP_Gen5_8|GP_Gen5_10|GP_Gen5_12|GP_Gen5_14|
 |:--- | --: |--: |--: |--: |---: | --: |--: |
 |Génération H/W|5\.|5\.|5\.|5\.|5\.|5\.|5\.|
-|vCores|2|4|6\.|8|10|12|14|
+|vCores|2|4|6|8|10|12|14|
 |Mémoire (Go)|10.2|20,4|30,6|40,8|51|61,2|71,4|
 |Prise en charge de ColumnStore|OUI|OUI|OUI|OUI|OUI|OUI|OUI|
 |Stockage In-Memory OLTP (Go)|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
@@ -141,7 +140,7 @@ Le [niveau de calcul serverless](sql-database-serverless.md) est disponible en p
 |Génération H/W|5\.|5\.|5\.|
 |Nombre minimal-maximal de vCores|0,5-1|0,5-2|0,5-4|
 |Mémoire minimale-maximale (Go)|2,02-3|2,05-6|2,10-12|
-|Délai minimal de pause automatique (heures)|6\.|6\.|6\.|
+|Délai minimal de pause automatique (heures)|6|6|6|
 |Prise en charge de ColumnStore|OUI|OUI|OUI|
 |Stockage In-Memory OLTP (Go)|N/A|N/A|N/A|
 |Taille maximale des données (Go)|512|1 024|1 024|
@@ -168,10 +167,10 @@ Le [niveau de calcul serverless](sql-database-serverless.md) est disponible en p
 |Taille de calcul|BC_Gen4_1|BC_Gen4_2|BC_Gen4_3|BC_Gen4_4|BC_Gen4_5|BC_Gen4_6|
 |:--- | --: |--: |--: |--: |--: |--: |
 |Génération H/W|4|4|4|4|4|4|
-|vCores|1|2|3|4|5\.|6\.|
+|vCores|1|2|3|4|5\.|6|
 |Mémoire (Go)|7|14|21|28|35|42|
 |Prise en charge de ColumnStore|OUI|OUI|OUI|OUI|OUI|OUI|
-|Stockage In-Memory OLTP (Go)|1|2|3|4|5\.|6\.|
+|Stockage In-Memory OLTP (Go)|1|2|3|4|5\.|6|
 |Type de stockage|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|
 |Taille maximale des données (Go)|650|650|650|650|650|650|
 |Taille maximale du journal (Go)|195|195|195|195|195|195|
@@ -216,7 +215,7 @@ Le [niveau de calcul serverless](sql-database-serverless.md) est disponible en p
 |Taille de calcul|BC_Gen5_2|BC_Gen5_4|BC_Gen5_6|BC_Gen5_8|BC_Gen5_10|BC_Gen5_12|BC_Gen5_14|
 |:--- | --: |--: |--: |--: |---: | --: |--: |
 |Génération H/W|5\.|5\.|5\.|5\.|5\.|5\.|5\.|
-|vCores|2|4|6\.|8|10|12|14|
+|vCores|2|4|6|8|10|12|14|
 |Mémoire (Go)|10.2|20,4|30,6|40,8|51|61,2|71,4|
 |Prise en charge de ColumnStore|OUI|OUI|OUI|OUI|OUI|OUI|OUI|
 |Stockage In-Memory OLTP (Go)|1 571|3 142|4 713|6 284|8 655|11 026|13 397|

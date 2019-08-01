@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 6d24b533d4335e1a6142944ad42484bbe9d2bb96
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 447aa4f5bb3c274900beddcef8c89db88d3f3ee9
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67477436"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68688048"
 ---
 # <a name="troubleshoot-the-startstop-vms-during-off-hours-solution"></a>Résoudre les problèmes liés à la solution Start/Stop VMs during off-hours
 
@@ -179,7 +179,7 @@ Effectuez les étapes suivantes pour vérifier que la solution est correctement 
 
 Pour obtenir des instructions plus détaillées et des instructions supplémentaires sur l’utilisation de la solution pour démarrer et arrêter des machines virtuelles dans l’ordre, consultez [Démarrer/arrêter les machines virtuelles dans un certain ordre](../automation-solution-vm-management.md#scenario-2-startstop-vms-in-sequence-by-using-tags).
 
-## <a name="403"></a>Scénario : Échec de la tâche Start/Stop VM (Démarrage/arrêt de machines virtuelles) avec l’état 403 forbidden (Interdit) 
+## <a name="403"></a>Scénario : Échec de la tâche Start/Stop VM (Démarrage/arrêt de machines virtuelles) avec l’état 403 forbidden (Interdit)
 
 ### <a name="issue"></a>Problème
 
@@ -208,6 +208,9 @@ Lors de l’utilisation de la solution Start/Stop VMs during off-hours, vous re
 ### <a name="cause"></a>Cause :
 
 Souvent, les erreurs peuvent être dues à l’utilisation d’une ancienne version obsolète de la solution.
+
+> [!NOTE]
+> La solution Start/Stop VMs during off-hours a été testée avec les modules Azure importés dans votre compte Automation lors du déploiement de la solution. La solution ne fonctionne actuellement pas avec des versions plus récentes du module Azure. Cela affecte uniquement le compte Automation que vous utilisez pour exécuter la solution Start/Stop VMs during off-hours. Vous pouvez toujours utiliser des versions les plus récentes du module Azure dans vos autres comptes Automation, comme décrit dans le [Guide de mise à jour des modules Azure PowerShell dans Azure Automation](../automation-update-azure-modules.md).
 
 ### <a name="resolution"></a>Résolution :
 

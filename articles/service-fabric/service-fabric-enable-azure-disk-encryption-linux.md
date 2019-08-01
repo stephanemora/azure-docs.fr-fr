@@ -3,7 +3,7 @@ title: Activer le chiffrement de disque pour les clusters Linux Azure Service Fa
 description: Cet article décrit comment activer le chiffrement de disque pour les nœuds de cluster Azure Service Fabric dans Linux en utilisant Azure Resource Manager et Azure Key Vault.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: navya
 ms.assetid: 15d0ab67-fc66-4108-8038-3584eeebabaa
 ms.service: service-fabric
@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/22/2019
-ms.author: aljo
-ms.openlocfilehash: 47b07188d1757708fb494c6a66e93379657e806a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: atsenthi
+ms.openlocfilehash: 5bcfad63df69010851dde66b0c8935e63a509455
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66258758"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68599593"
 ---
 # <a name="enable-disk-encryption-for-azure-service-fabric-cluster-nodes-in-linux"></a>Activer le chiffrement de disque pour les nœuds de cluster Azure Service Fabric dans Linux 
 > [!div class="op_single_selector"]
@@ -49,7 +49,7 @@ La préversion du chiffrement de disque des groupes de machines virtuelles ident
     ```powershell
     Register-AzProviderFeature -ProviderNamespace Microsoft.Compute -FeatureName "UnifiedDiskEncryption"
     ```
-2. Attendez 10 minutes environ jusqu’à ce que l’état indique *Inscrit*. Vous pouvez vérifier l’état en exécutant la commande suivante :
+2. Attendez 10 minutes environ jusqu’à ce que l’état indique *Inscrit*. Vous pouvez vérifier l’état en exécutant la commande suivante :
     ```powershell
     Get-AzProviderFeature -ProviderNamespace "Microsoft.Compute" -FeatureName "UnifiedDiskEncryption"
     Register-AzResourceProvider -ProviderNamespace Microsoft.Compute

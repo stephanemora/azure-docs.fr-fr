@@ -2,23 +2,23 @@
 title: Restaurer ou supprimer de façon définitive un utilisateur supprimé - Azure Active Directory | Microsoft Docs
 description: Comment afficher les utilisateurs pouvant être restaurés, restaurer un utilisateur supprimé et supprimer de façon définitive un utilisateur avec Azure Active Directory.
 services: active-directory
-author: eross-msft
+author: msaburnley
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
 ms.date: 04/01/2018
-ms.author: lizross
+ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d69bd931f2f8c72fd1e6fc79c16662ea367617d6
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9864634020ad115a48bdb70a6736733919d0f0d3
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60248204"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561682"
 ---
 # <a name="restore-or-remove-a-recently-deleted-user-using-azure-active-directory"></a>Restaurer ou supprimer un utilisateur supprimé à l’aide d’Azure Active Directory
 Lorsque vous supprimez un utilisateur, son compte reste à l’état suspendu pendant 30 jours. Pendant ces 30 jours, le compte de l’utilisateur peut être restauré, avec l’ensemble de ses propriétés. À l’issue de ce délai de 30 jours, l’utilisateur est automatiquement et définitivement supprimé.

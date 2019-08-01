@@ -1,18 +1,19 @@
 ---
 title: Sauvegarder un serveur Exchange dans une sauvegarde Microsoft Azure avec le serveur de sauvegarde Azure
 description: Découvrez comment sauvegarder un serveur Exchange dans une sauvegarde Microsoft Azure avec le serveur de sauvegarde Azure.
-author: kasinh
-manager: vvithal
+ms.reviewer: kasinh
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 03/24/2017
-ms.author: kasinh
-ms.openlocfilehash: 0eacd295e279a3b3bcfbdad2c67cac7160f8dcb3
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: 89ad5cac462384e8c688ae9ca68c5ae309249a71
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68466399"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68689278"
 ---
 # <a name="back-up-an-exchange-server-to-azure-with-azure-backup-server"></a>Sauvegarder un serveur Exchange dans Azure avec le serveur de sauvegarde Azure
 Cet article explique comment configurer un serveur de sauvegarde Azure pour sauvegarder un serveur Microsoft Exchange dans une sauvegarde Microsoft Azure.  

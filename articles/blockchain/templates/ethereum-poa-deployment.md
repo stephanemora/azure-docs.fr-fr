@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: vamelech
-ms.openlocfilehash: 3531b43e6aee1eedef811e81e192873c5b5ed561
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 01b9f7f74077737ea95a56bbe81f440db425bf0c
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66126801"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698449"
 ---
 # <a name="ethereum-proof-of-authority-consortium"></a>Ethereum Proof-of-Authority Consortium
 
@@ -216,9 +216,9 @@ Nom d’utilisateur de la machine virtuelle|Nom d’utilisateur de l’administr
 Type d'authentification|Méthode d’authentification auprès de la machine virtuelle.|Clé publique SSH ou mot de passe|Mot de passe
 Mot de passe (Type d’authentification = Mot de passe).|Mot de passe du compte administrateur pour chacune des machines virtuelles déployées.  Le mot de passe doit contenir 3 des éléments suivants : une majuscule, une minuscule, un chiffre et un caractère spécial. Initialement, toutes les machines virtuelles ont le même mot de passe, que vous pouvez modifier après le provisionnement.|12 à 72 caractères|N/D
 Clé SSH (Type d’authentification = Clé publique)|Clé de shell sécurisée utilisée pour la session à distance.||N/D
-Abonnement|Abonnement vers lequel vous déployez le réseau de consortium.||N/D
+Subscription|Abonnement vers lequel vous déployez le réseau de consortium.||N/D
 Groupe de ressources|Groupe de ressources vers lequel vous déployez le réseau de consortium.||N/D
-Lieu|Région Azure du groupe de ressources.||N/D
+Location|Région Azure du groupe de ressources.||N/D
 
 Voici un exemple de déploiement : ![panneau de base](./media/ethereum-poa-deployment/basic-blade.png)
 
@@ -764,7 +764,7 @@ La prise en charge de WebAssembly est déjà activée pour vous sur les réseaux
 
 #### <a name="i-notice-there-are-many-transactions-on-the-network-that-i-didnt-send-where-are-these-coming-from"></a>Je remarque un grand nombre de transactions sur le réseau que je n\'ai pas envoyées. D’où viennent-elles ?
 
-Il est dangereux de déverrouiller [l’API personnelle](https://web3js.readthedocs.io/en/1.0/web3-eth-personal.html). Les bots écoutent les comptes Ethereum déverrouillés et tentent d’en extraire des fonds. Le bot suppose que ces comptes contiennent real-ether et essaie d’être le premier à permettre l’équilibre. N’activez pas l’API personnelle sur le réseau. Il est préférable de signer au préalable les transactions manuellement à l’aide d’un portefeuille comme MetaMask ou par programmation comme indiqué dans la section [Interaction par programmation avec un contrat intelligent](#programmatically-interacting-with-a-smart-contract).
+Il est dangereux de déverrouiller [l’API personnelle](https://web3js.readthedocs.io/en/v1.2.0/web3-eth-personal.html). Les bots écoutent les comptes Ethereum déverrouillés et tentent d’en extraire des fonds. Le bot suppose que ces comptes contiennent real-ether et essaie d’être le premier à permettre l’équilibre. N’activez pas l’API personnelle sur le réseau. Il est préférable de signer au préalable les transactions manuellement à l’aide d’un portefeuille comme MetaMask ou par programmation comme indiqué dans la section [Interaction par programmation avec un contrat intelligent](#programmatically-interacting-with-a-smart-contract).
 
 #### <a name="how-to-ssh-onto-a-vm"></a>Comment exécuter SSH sur une machine virtuelle ?
 

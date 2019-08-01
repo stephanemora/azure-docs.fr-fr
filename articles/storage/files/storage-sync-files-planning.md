@@ -1,19 +1,18 @@
 ---
 title: Planification d’un déploiement Azure File Sync | Microsoft Docs
 description: Découvrez les éléments à prendre en compte lors de la planification d’un déploiement Azure Files.
-services: storage
 author: roygara
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 2/7/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: e9e790ac8ac67478a0e7b5143a5b2f1fdd9c790c
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: f89e7307d75b159886cb47bde3e1fceb5ed557f5
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67798667"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68699339"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planification d’un déploiement de synchronisation de fichiers Azure
 Utilisez Azure File Sync pour centraliser les partages de fichiers de votre organisation dans Azure Files tout en conservant la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Azure File Sync transforme Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible dans Windows Server pour accéder à vos données localement, notamment SMB, NFS et FTPS. Vous pouvez avoir autant de caches que nécessaire dans le monde entier.
@@ -252,7 +251,7 @@ Azure File Sync est disponible uniquement dans les régions suivantes :
 | Inde Centre | Pune |
 | USA Centre | Iowa |
 | Asie Est | Hong Kong (R.A.S.) |
-| USA Est | Virginie |
+| East US | Virginie |
 | Est des États-Unis 2 | Virginie |
 | France Centre | Paris |
 | Centre de la Corée| Séoul |
@@ -294,7 +293,7 @@ Pour prendre en charge l’intégration du basculement entre le stockage géored
 | Inde Centre       | Inde Sud        |
 | USA Centre          | USA Est 2          |
 | Asie Est           | Asie Sud-Est     |
-| USA Est             | USA Ouest            |
+| East US             | USA Ouest            |
 | USA Est 2           | USA Centre         |
 | France Centre      | France Sud       |
 | Japon Est          | Japon Ouest         |
@@ -313,7 +312,7 @@ Pour prendre en charge l’intégration du basculement entre le stockage géored
 | Gouvernement américain - Virginie      | Gouvernement des États-Unis – Texas       |
 | Europe Ouest         | Europe Nord       |
 | USA Centre-Ouest     | USA Ouest 2          |
-| USA Ouest             | USA Est            |
+| USA Ouest             | East US            |
 | USA Ouest 2           | USA Centre-Ouest    |
 
 ## <a name="azure-file-sync-agent-update-policy"></a>Stratégie de mise à jour de l’agent Azure File Sync

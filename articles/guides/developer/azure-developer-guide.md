@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: 99e043adeac9a43432fb1eba85527b561c477354
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 665eeb60012d5cec08b8a3ad919d7ddfdadc2d23
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64570553"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68609580"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Guide de prise en main pour les développeurs Azure
 
@@ -170,7 +170,7 @@ Il est essentiel non seulement de savoir qui utilise vos applications, mais auss
   > 
   > **Démarrer** : pour en savoir plus sur l’authentification dans App Service, consultez [Authentification et autorisation dans Azure App Service](../../app-service/overview-authentication-authorization.md).
 
-Pour en savoir plus sur les bonnes pratiques de sécurité dans Azure, consultez [Bonnes pratiques et modèle de sécurité dans Azure](../../security/security-best-practices-and-patterns.md).
+Pour en savoir plus sur les bonnes pratiques de sécurité dans Azure, consultez [Bonnes pratiques et modèle de sécurité dans Azure](../../security/fundamentals/best-practices-and-patterns.md).
 
 ### <a name="monitoring"></a>Surveillance
 

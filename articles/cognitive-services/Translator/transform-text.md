@@ -1,6 +1,6 @@
 ---
 title: Transformer du texte - API de traduction de texte Translator Text
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Transformez du texte à l’aide de l’API de traduction de texte Translator Text.
 services: cognitive-services
 author: swmachan
@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: swmachan
-ms.openlocfilehash: 5caefad7b681970e79e727367619ca494335c390
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 533f09b09b7f5899833669b5f0ad4ffa5efa3a43
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67435022"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68594895"
 ---
 # <a name="how-to-use-the-transformtext-method"></a>Guide pratique pour utiliser la méthode TransformText
 

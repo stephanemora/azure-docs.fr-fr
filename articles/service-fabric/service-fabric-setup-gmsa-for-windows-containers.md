@@ -3,7 +3,7 @@ title: Configurer un GMSA pour les services de conteneur Azure Service Fabric | 
 description: Découvrez comment configurer un GMSA pour un conteneur en cours d’exécution dans Azure Service Fabric.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: ab49c4b9-74a8-4907-b75b-8d2ee84c6d90
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/20/2019
 ms.author: subramar
-ms.openlocfilehash: b4aa08c10cef91b3bf2eef4c87967a74524f6500
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 09994c7676de8470efff1707598ddf32a48e41a0
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67621791"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68599185"
 ---
 # <a name="set-up-gmsa-for-windows-containers-running-on-service-fabric"></a>Configurer un GSMA pour des conteneurs Windows s’exécutant sur Service Fabric
 

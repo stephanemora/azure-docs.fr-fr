@@ -1,7 +1,7 @@
 ---
 title: Effectuer une migration de l’API de traduction de conversation Translator Speech vers le service Speech
 titleSuffix: Azure Cognitive Services
-description: Découvrez comment migrer vos applications de l'API de traduction de conversation Translator Speech vers les services Speech.
+description: Découvrez comment migrer vos applications de l'API de traduction de conversation Translator Speech vers le service Speech.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: aahi
-ms.openlocfilehash: 1ed494cea1ccf8845a25a3ab49d3194cc6a55509
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7b61aef13b113d9b2502c24e3001da25fa186c76
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65785675"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559561"
 ---
 # <a name="migrate-from-the-translator-speech-api-to-the-speech-service"></a>Effectuer une migration de l’API de traduction de conversation Translator Speech vers le service Speech
 

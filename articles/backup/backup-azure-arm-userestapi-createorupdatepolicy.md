@@ -1,20 +1,21 @@
 ---
 title: 'Sauvegarde Azure : créer des stratégies de sauvegarde à l’aide de l’API REST'
 description: Gérer les stratégies de sauvegarde (planification et rétention) à l’aide de l’API REST
-author: pvrk
-manager: shivamg
+ms.reviewer: pullabhk
+author: dcurwin
+manager: carmonm
 keywords: API REST ; sauvegarde de machine virtuelle Azure ; restauration de machine virtuelle Azure ;
 ms.service: backup
 ms.topic: conceptual
 ms.date: 08/21/2018
-ms.author: pullabhk
+ms.author: dacurwin
 ms.assetid: 5ffc4115-0ae5-4b85-a18c-8a942f6d4870
-ms.openlocfilehash: f0729a49c3dc72a28431d711e6783abda96d2ce3
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: d81d8aa299333890de61cf0c8ee75be76ca31bf2
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68466816"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68688742"
 ---
 # <a name="create-azure-recovery-services-backup-policies-using-rest-api"></a>Créer des stratégies de sauvegarde Azure Recovery Services à l’aide de l’API REST
 
@@ -24,7 +25,7 @@ Les étapes de création d’une stratégie de sauvegarde pour un coffre Azure R
 
 - Une stratégie de sauvegarde est créée par coffre.
 - Une stratégie de sauvegarde peut être créée pour la sauvegarde des charges de travail suivantes
-  - Microsoft Azure
+  - Azure VM
   - SQL dans une machine virtuelle Azure
   - Partage de fichiers Azure
 - Une stratégie peut être attribuée à de nombreuses ressources. Une stratégie de sauvegarde de machine virtuelle Azure peut être utilisée pour protéger plusieurs machines virtuelles Azure.

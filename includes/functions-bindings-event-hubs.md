@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 03/05/2019
 ms.author: cshoe
-ms.openlocfilehash: 1fcb308c73ee93308515d91398bedee3c41ccf38
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 938d7e0cbd493dcb269418e9fd364611d734a085
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68362509"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68589952"
 ---
 ## <a name="trigger"></a>Déclencheur
 
@@ -250,7 +250,7 @@ Les exemples suivants illustrent les données de liaison Event Hubs dans le fich
 Voici le code JavaScript :
 
 ```javascript
-module.exports = function (context, eventHubMessage) {
+module.exports = function (context, myEventHubMessage) {
     context.log('Function triggered to process a message: ', myEventHubMessage);
     context.log('EnqueuedTimeUtc =', context.bindingData.enqueuedTimeUtc);
     context.log('SequenceNumber =', context.bindingData.sequenceNumber);

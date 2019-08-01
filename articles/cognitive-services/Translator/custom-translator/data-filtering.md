@@ -3,18 +3,18 @@ title: Filtrage des données - Custom Translator
 titleSuffix: Azure Cognitive Services
 description: Lorsque vous soumettez des documents pour l'apprentissage d'un système personnalisé, différentes étapes de traitement et de filtrage s'appliquent à ceux-ci afin de préparer l'apprentissage.
 author: swmachan
-manager: christw
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: a224a30114d03468c5764528e6c7472572a93f1c
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 1028443eaaf6c483cd7cd57289b0dcf2a9f11902
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67443436"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595909"
 ---
 # <a name="data-filtering"></a>Filtrage de données
 

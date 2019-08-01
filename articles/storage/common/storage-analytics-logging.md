@@ -9,12 +9,12 @@ ms.date: 03/11/2019
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: a77cf20be30361abf6590dbd53bdb07c327eb9d8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e46064076fb5d38fbde94bd4bb7e5dfbcff7e3b4
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65204989"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68556174"
 ---
 # <a name="azure-storage-analytics-logging"></a>Journalisation Azure Storage Analytics
 
@@ -26,6 +26,8 @@ Storage Analytics enregistre des informations détaillées sur les demandes ayan
 
 > [!NOTE]
 >  La journalisation Storage Analytics est disponible pour les services Blob, File d’attente et de Table. Un compte de stockage Premium n’est toutefois pas pris en charge.
+
+[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
 ## <a name="requests-logged-in-logging"></a>Requêtes consignées lors de la journalisation
 ### <a name="logging-authenticated-requests"></a>Enregistrement des demandes authentifiées

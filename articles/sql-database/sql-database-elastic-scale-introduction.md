@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 59701c31e461bbd5d73ec708504139347f6075f2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e5ae56b2050243831f10863bbb4184a9e89f5911
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66241868"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568400"
 ---
 # <a name="scaling-out-with-azure-sql-database"></a>Scale-out avec Azure SQL Database
 Vous pouvez facilement effectuer un scale-out sur les bases de données Azure SQL à l’aide des outils de **base de données élastique**. Ces outils et fonctionnalités vous permettent d’utiliser les ressources d’**Azure SQL Database** pour créer des solutions pour les charges de travail transactionnelles et notamment les applications Software as a Service (SaaS). Les fonctionnalités de base de données élastique se composent des éléments suivants :
