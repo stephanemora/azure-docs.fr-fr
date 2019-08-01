@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: normesta
-ms.openlocfilehash: 6dd50e15c5fb11a50ddd0370ea47a5406d2a7125
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: f384fb738fe719b8e622e8d61502e6acba2bbf31
+ms.sourcegitcommit: da0a8676b3c5283fddcd94cdd9044c3b99815046
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68306016"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68314373"
 ---
 # <a name="multi-protocol-access-on-azure-data-lake-storage"></a>Accès multi-protocole pour Azure Data Lake Storage
 
@@ -22,7 +22,7 @@ Les API d’objets BLOB fonctionnent désormais avec les comptes qui ont un espa
 Jusqu’à récemment, vous avez peut-être dû maintenir des solutions de stockage distinctes pour le stockage des objets et l’analyse du stockage. Cela est dû au fait que Azure Data Lake Storage Gen2 avait une prise en charge limitée de l’écosystème. Il avait également un accès limité aux fonctionnalités du service BLOB, telles que la journalisation des diagnostics. Une solution de stockage fragmenté est difficile à maintenir, car vous devez déplacer les données entre les comptes pour effectuer différents scénarios. Vous n’avez plus à le faire.
 
 > [!NOTE]
-> L’accès multi-protocole sur Data Lake Storage est en préversion publique et est disponible uniquement dans les régions **USA Ouest 2** et **USA Centre-Ouest**. Pour passer en revue les limitations, consultez l’article [Problèmes connus](data-lake-storage-known-issues.md). Pour vous inscrire dans la préversion, consultez [cette page](http://aka.ms/blobinteropsignup).
+> L’accès multi-protocole sur Data Lake Storage est en préversion publique et est disponible uniquement dans les régions **USA Ouest 2** et **USA Centre-Ouest**. Pour passer en revue les limitations, consultez l’article [Problèmes connus](data-lake-storage-known-issues.md). Pour vous inscrire dans la préversion, consultez [cette page](https://aka.ms/blobinteropsignup).
 
 ## <a name="use-the-entire-ecosystem-of-applications-tools-and-services"></a>Utiliser l’intégralité de l’écosystème d’applications, d’outils et de services
 

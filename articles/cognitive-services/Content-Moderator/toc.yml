@@ -11,16 +11,16 @@
       href: quick-start.md
     - name: Utilisation du kit de développement logiciel (SDK) client
       items:
-        - name: 'C#'
+        - name: Utilisation du kit de développement logiciel (SDK) .NET
           items:
             - name: Analyser le contenu d’une image
               href: image-moderation-quickstart-dotnet.md
             - name: Analyser le contenu d’un texte
               href: text-moderation-quickstart-dotnet.md
-        - name: Python
-          items:
-            - name: Analyser le contenu d’un texte
-              href: text-moderation-quickstart-python.md
+        - name: Utilisation du Kit de développement logiciel (SDK) Python
+          href: python-sdk-quickstart.md
+        - name: Utilisation du Kit de développement logiciel (SDK) Java
+          href: java-sdk-quickstart.md
 - name: Tutoriels
   items:
     - name: Modérer les images d’e-commerce

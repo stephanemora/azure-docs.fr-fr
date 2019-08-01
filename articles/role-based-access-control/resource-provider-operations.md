@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 07/11/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: e6ac3ef296509c6613a2a30821392c91648cc104
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
+ms.openlocfilehash: ce4765a512b81d13f735a05ad4fba5408284a607
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/13/2019
-ms.locfileid: "67868628"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68501406"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Opérations du fournisseur de ressources Azure Resource Manager
 
@@ -3233,19 +3233,6 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Action | Microsoft.MachineLearning/Workspaces/read | Afficher un espace de travail Machine Learning |
 > | Action | Microsoft.MachineLearning/Workspaces/resyncstoragekeys/action | Resynchroniser les clés d’un compte de stockage configuré pour un espace de travail Machine Learning |
 > | Action | Microsoft.MachineLearning/Workspaces/write | Créer ou mettre à jour un espace de travail Machine Learning |
-
-## <a name="microsoftmachinelearningcompute"></a>Microsoft.MachineLearningCompute
-
-> [!div class="mx-tdCol2BreakAll"]
-> | Type d’action | Opération | Description |
-> | --- | --- | --- |
-> | Action | Microsoft.MachineLearningCompute/operationalizationClusters/checkUpdate/action | Vérifie si des mises à jour sont disponibles pour les services système pour le cluster d’opérationnalisation |
-> | Action | Microsoft.MachineLearningCompute/operationalizationClusters/delete | Supprime un compte d’hébergement |
-> | Action | Microsoft.MachineLearningCompute/operationalizationClusters/listKeys/action | Affiche les clés associées au cluster d’opérationnalisation |
-> | Action | Microsoft.MachineLearningCompute/operationalizationClusters/read | Lit un compte d’hébergement |
-> | Action | Microsoft.MachineLearningCompute/operationalizationClusters/updateSystem/action | Met à jour les services système dans un cluster d’opérationnalisation |
-> | Action | Microsoft.MachineLearningCompute/operationalizationClusters/write | Crée ou met à jour un compte d’hébergement |
-> | Action | Microsoft.MachineLearningCompute/register/action | Inscrit l’ID d’abonnement auprès du fournisseur de ressources et permet la création de ressources de calcul de Machine Learning |
 
 ## <a name="microsoftmachinelearningservices"></a>Microsoft.MachineLearningServices
 
