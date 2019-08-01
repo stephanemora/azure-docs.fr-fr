@@ -11,12 +11,12 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: jeconnoc
-ms.openlocfilehash: a8a216a7d2ce048ed5131997df762942998aaa88
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: 66effb095edf7927a38fca53b2ff317e9bad468e
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68444126"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68619616"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-image"></a>Créer une fonction sur Linux avec une image personnalisée
 
@@ -190,7 +190,7 @@ Vous pouvez désormais utiliser cette image comme source de déploiement pour un
 
 ## <a name="create-a-premium-plan"></a>Créer un plan Premium
 
-Hébergement Linux pour les conteneurs de fonctions personnalisés pris en charge sur les [plans dédiés (App Service)](functions-scale.md#app-service-plan) et les [plans Premium](functions-scale.md#premium-plan). Ce tutoriel utilise un plan Premium, qui peut être mis à l’échelle en fonction des besoins. Pour en savoir plus sur l’hébergement, consultez [Comparaison des plans d’hébergement Azure Functions](functions-scale.md).
+Hébergement Linux pour les conteneurs de fonctions personnalisés pris en charge sur les [plans dédiés (App Service)](functions-scale.md#app-service-plan) et les [plans Premium](functions-premium-plan.md#features). Ce tutoriel utilise un plan Premium, qui peut être mis à l’échelle en fonction des besoins. Pour en savoir plus sur l’hébergement, consultez [Comparaison des plans d’hébergement Azure Functions](functions-scale.md).
 
 L’exemple suivant crée un plan Premium nommé `myPremiumPlan` dans le niveau tarifaire **Élastique Premium 1** (`--sku EP1`), dans la région USA Ouest (`-location WestUS`) et dans un conteneur Linux (`--is-linux`).
 

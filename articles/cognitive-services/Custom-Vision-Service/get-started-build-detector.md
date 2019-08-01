@@ -1,6 +1,6 @@
 ---
 title: 'Démarrage rapide : Créer un détecteur d’objets - Service Custom Vision'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Dans ce guide de démarrage rapide, vous allez découvrir comment utiliser le site web Custom Vision pour créer un modèle de classification d’images.
 services: cognitive-services
 author: anrothMSFT
@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 07/12/2019
 ms.author: anroth
-ms.openlocfilehash: a5f211f3e8b7a55ca5d933ed2296ff9e54cb29e4
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: 40f30ddece9881f565f45f4ef6c9d0e2ad85fe95
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68424339"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561130"
 ---
 # <a name="quickstart-how-to-build-an-object-detector-with-custom-vision"></a>Démarrage rapide : Créer un détecteur d’objets avec Custom Vision
 
@@ -42,7 +42,7 @@ Dans votre navigateur web, accédez à la [page web Custom Vision](https://custo
 
     ![La boîte de dialogue du nouveau projet comporte des champs permettant de renseigner le nom, la description et les domaines.](./media/get-started-build-detector/new-project.png)
 
-1. Entrez un nom et une description pour le projet. Sélectionnez ensuite un groupe de ressources. Si votre compte de connexion est associé à un compte Azure, la liste déroulante Resource Group (Groupe de ressources) affiche tous vos groupes de ressources Azure qui incluent une ressource du service Custom Vision. 
+1. Entrez un nom et une description pour le projet. Sélectionnez ensuite un groupe de ressources. Si votre compte de connexion est associé à un compte Azure, la liste déroulante Resource Group (Groupe de ressources) affiche tous vos groupes de ressources Azure qui incluent une ressource du service Vision personnalisée. 
 
    > [!NOTE]
    > Si aucun groupe de ressources n’est disponible, vérifiez que vous vous êtes connecté à [customvision.ai](https://customvision.ai) avec le même compte que celui utilisé pour vous connecter au [portail Azure](https://portal.azure.com/). Vérifiez aussi que vous avez sélectionné le même « Répertoire » dans le portail Custom Vision que celui du portail Azure où se trouvent vos ressources Custom Vision. Dans les deux sites, vous pouvez sélectionner votre répertoire à partir du menu déroulant de compte situé en haut à droite de l’écran. 
@@ -53,7 +53,7 @@ Dans votre navigateur web, accédez à la [page web Custom Vision](https://custo
 
     |Domaine|Objectif|
     |---|---|
-    |__General__| Optimisé pour un large éventail de tâches de détection d’objets. Si aucun autre domaine n’est approprié, ou si vous hésitez sur le choix du domaine, sélectionnez le domaine Generic (Général). |
+    |__Généralités__| Optimisé pour un large éventail de tâches de détection d’objets. Si aucun autre domaine n’est approprié, ou si vous hésitez sur le choix du domaine, sélectionnez le domaine Generic (Général). |
     |__Logo__|Optimisé pour rechercher des logos de marque dans les images.|
     |__Compact Domains__ (Domaines compacts)| Optimisé en fonction des contraintes de détection d’objets en temps réel sur les appareils mobiles. Les modèles générés par les domaines compacts sont exportables pour s’exécuter localement.|
 
@@ -63,7 +63,7 @@ Dans votre navigateur web, accédez à la [page web Custom Vision](https://custo
 
 [!INCLUDE [choose training images](includes/choose-training-images.md)]
 
-## <a name="upload-and-tag-images"></a>Charger et baliser des images
+## <a name="upload-and-tag-images"></a>Charger et étiqueter des images
 
 Dans cette section, vous allez charger et étiqueter manuellement des images pour faciliter l’entraînement du détecteur. 
 

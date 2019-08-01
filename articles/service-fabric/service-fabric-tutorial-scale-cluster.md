@@ -3,7 +3,7 @@ title: Mettre à l’échelle un cluster Service Fabric dans Azure | Microsoft D
 description: Dans ce tutoriel, vous allez découvrir comment effectuer une mise à l’échelle d’un cluster Service Fabric dans Azure.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/22/2019
-ms.author: aljo
+ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 9e34984dde4ae09540ff73a8ddd1a90c11d5bef4
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 6b1f226fba43428cdf5f46d41425ac534219de7f
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68385186"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68619055"
 ---
 # <a name="tutorial-scale-a-service-fabric-cluster-in-azure"></a>Didacticiel : Mettre à l’échelle un cluster Service Fabric dans Azure
 
@@ -888,7 +888,7 @@ Maintenant, passez au didacticiel suivant pour savoir comment mettre à niveau l
 [reliability]: service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster
 [template]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Windows-3-NodeTypes-Secure-NSG/AzureDeploy.json
 [parameters]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Windows-3-NodeTypes-Secure-NSG/AzureDeploy.Parameters.json
-et scale-in))
+
 > * Ajouter et supprimer des types de nœuds (scale out et scale in)
 > * Augmenter les ressources de nœud (scale up)
 
