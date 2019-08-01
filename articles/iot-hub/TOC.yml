@@ -37,7 +37,7 @@
           href: quickstart-control-device-android.md
     - name: Communiquer avec des flux d’appareil (préversion)
       items:
-        - name: 'C#'
+        - name: .NET
           href: quickstart-device-streams-echo-csharp.md
         - name: Node.js
           href: quickstart-device-streams-echo-nodejs.md
@@ -45,7 +45,7 @@
           href: quickstart-device-streams-echo-c.md
     - name: Utiliser SSH/RDP avec des flux d’appareil (préversion)
       items:
-        - name: 'C#'
+        - name: .NET
           href: quickstart-device-streams-proxy-csharp.md
         - name: Node.js
           href: quickstart-device-streams-proxy-nodejs.md
@@ -91,6 +91,8 @@
       href: iot-hub-scaling.md
     - name: Haute disponibilité et récupération d’urgence
       href: iot-hub-ha-dr.md
+    - name: Présentation d’une adresse IP IoT Hub
+      href: iot-hub-understand-ip-address.md
     - name: Protocoles supplémentaires pris en charge
       href: iot-hub-protocol-gateway.md
     - name: Comparer le message et le routage d’événement
@@ -248,7 +250,7 @@
               href: iot-hub-python-python-module-twin-getstarted.md
             - name: C
               href: iot-hub-c-c-module-twin-getstarted.md
-            - name: Nœud
+            - name: Node.js
               href: iot-hub-node-node-module-twin-getstarted.md
         - name: Prise en main de la gestion d’appareils
           items:

@@ -8,12 +8,12 @@ ms.author: rgarcia
 ms.date: 04/03/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 9838add4f83434848d61f3ae86db71765efdc59a
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 499b08dbdc8e798a884b721bcba51be1f6973df6
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59995725"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562381"
 ---
 # <a name="tutorial-step-by-step-instructions-to-create-a-new-android-app-using-azure-spatial-anchors"></a>Didacticiel : Instructions pas à pas pour créer une application Android à l’aide d’Azure Spatial Anchors
 
@@ -23,7 +23,7 @@ Ce tutoriel vous montre comment créer une application Android qui intègre la f
 
 Pour suivre ce tutoriel, veillez à disposer des éléments suivants :
 
-- Une machine Windows ou macOS dotée d’<a href="https://developer.android.com/studio/" target="_blank">Android Studio 3.3+</a>.
+- Une machine Windows ou macOS dotée d’<a href="https://developer.android.com/studio/" target="_blank">Android Studio 3.4+</a>.
 - Un appareil Android <a href="https://developer.android.com/studio/debug/dev-options" target="_blank">prêt pour le développement</a> et <a href="https://developers.google.com/ar/discover/supported-devices" target="_blank">compatible ARCore</a>.
 
 ## <a name="getting-started"></a>Prise en main
@@ -34,7 +34,7 @@ Dans la fenêtre **Create New Projets**, sous la section **Phone and Tablet** , 
 
 ## <a name="trying-it-out"></a>Essai
 
-Pour tester votre nouvelle application, connectez votre appareil prêt pour le développement à votre ordinateur de développement à l’aide d’un câble USB. Cliquez sur **Run**->**Run 'app'**. Dans la fenêtre **Select Deployment Target**, sélectionnez votre appareil, puis cliquez sur **OK**. Android Studio installe l’application sur votre appareil connecté et le démarre. « Hello World! » doit maintenant s’afficher dans l’application qui s’exécute sur votre appareil. Cliquez sur **Run**->**Stop 'app'**.
+Pour tester votre nouvelle application, connectez votre appareil prêt pour le développement à votre ordinateur de développement à l’aide d’un câble USB. Cliquez sur **Run**->**Run 'app'** . Dans la fenêtre **Select Deployment Target**, sélectionnez votre appareil, puis cliquez sur **OK**. Android Studio installe l’application sur votre appareil connecté et le démarre. « Hello World! » doit maintenant s’afficher dans l’application qui s’exécute sur votre appareil. Cliquez sur **Run**->**Stop 'app'** .
 
 ## <a name="integrating-arcore"></a>Intégration d’_ARCore_
 
@@ -57,12 +57,12 @@ Modifiez `app\manifests\AndroidManifest.xml` pour inclure les entrées suivantes
 </application>
 ```
 
-Modifiez `Gradle Scripts\build.gradle (Module: app)` pour y inclure l’entrée ci-dessous. Ce code garantit que votre application cible ARCore version 1.7. Après cette modification, il se peut que vous obteniez une notification de Gradle qui vous invite à effectuer une synchronisation : cliquez sur **Sync now**.
+Modifiez `Gradle Scripts\build.gradle (Module: app)` pour y inclure l’entrée ci-dessous. Ce code garantit que votre application cible ARCore version 1.8. Après cette modification, il se peut que vous obteniez une notification de Gradle qui vous invite à effectuer une synchronisation : cliquez sur **Sync now**.
 
 ```
 dependencies {
     ...
-    implementation 'com.google.ar:core:1.7.0'
+    implementation 'com.google.ar:core:1.8.0'
     ...
 }
 ```
@@ -71,7 +71,7 @@ dependencies {
 
 <a href="https://developers.google.com/ar/develop/java/sceneform/" target="_blank">_Sceneform_</a> simplifie le rendu de scènes 3D réalistes dans les applications de réalité augmentée sans qu’il soit nécessaire d’apprendre OpenGL.
 
-Modifiez `Gradle Scripts\build.gradle (Module: app)` pour y inclure les entrées ci-dessous. Ce code permet à votre application d’utiliser des constructions de langage à partir de Java 8, ce qui est une exigence de `Sceneform`. Il garantit aussi que votre application cible `Sceneform` version 1.7, dans la mesure où elle doit correspondre à la version d’ARCore qu’utilise votre application. Après cette modification, il se peut que vous obteniez une notification de Gradle qui vous invite à effectuer une synchronisation : cliquez sur **Sync now**.
+Modifiez `Gradle Scripts\build.gradle (Module: app)` pour y inclure les entrées ci-dessous. Ce code permet à votre application d’utiliser des constructions de langage à partir de Java 8, ce qui est une exigence de `Sceneform`. Il garantit aussi que votre application cible `Sceneform` version 1.8, dans la mesure où elle doit correspondre à la version d’ARCore qu’utilise votre application. Après cette modification, il se peut que vous obteniez une notification de Gradle qui vous invite à effectuer une synchronisation : cliquez sur **Sync now**.
 
 ```
 android {
@@ -85,7 +85,7 @@ android {
 
 dependencies {
     ...
-    implementation 'com.google.ar.sceneform.ux:sceneform-ux:1.7.0'
+    implementation 'com.google.ar.sceneform.ux:sceneform-ux:1.8.0'
     ...
 }
 ```
@@ -123,13 +123,13 @@ Enfin, ajoutez la méthode `handleTap()` suivante pour tout lier ensemble. Une s
 
 ## <a name="attach-a-local-azure-spatial-anchor"></a>Attacher une ancre spatiale Azure locale
 
-Modifiez `Gradle Scripts\build.gradle (Module: app)` pour y inclure l’entrée ci-dessous. Ce code garantit que votre application cible Azure Spatial Anchors version 1.0.2. Ceci dit, le référencement de n’importe quelle version récente d’Azure Spatial Anchors doit fonctionner.
+Modifiez `Gradle Scripts\build.gradle (Module: app)` pour y inclure l’entrée ci-dessous. Ce code garantit que votre application cible Azure Spatial Anchors version 1.3.0. Ceci dit, le référencement de n’importe quelle version récente d’Azure Spatial Anchors doit fonctionner.
 
 ```
 dependencies {
     ...
-    implementation "com.microsoft.azure.spatialanchors:spatialanchors_jni:[1.0.2]"
-    implementation "com.microsoft.azure.spatialanchors:spatialanchors_java:[1.0.2]"
+    implementation "com.microsoft.azure.spatialanchors:spatialanchors_jni:[1.3.0]"
+    implementation "com.microsoft.azure.spatialanchors:spatialanchors_java:[1.3.0]"
     ...
 }
 ```

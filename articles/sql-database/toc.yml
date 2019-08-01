@@ -175,7 +175,7 @@
           href: sql-database-service-tier-hyperscale-faq.md
     - name: Bases de données uniques
       items:
-        - name: Vue d’ensemble des bases de données uniques
+        - name: Documentation sur les bases de données uniques
           href: sql-database-single-index.yml
         - name: Fonctionnalités d’une base de données unique
           href: sql-database-single-database.md
@@ -215,7 +215,7 @@
           href: sql-database-elastic-pool-manage.md
     - name: Instances managées
       items:
-        - name: Vue d’ensemble des instances managées
+        - name: Documentation sur les instances managées
           href: sql-database-managed-instance-index.yml
         - name: Fonctionnalités des instances managées
           href: sql-database-managed-instance.md
@@ -235,7 +235,7 @@
           href: sql-database-managed-instance-public-endpoint-securely.md
     - name: Platform as a service
       items:
-        - name: Vue d’ensemble de Platform as a service
+        - name: Documentation sur Platform as a service
           href: sql-database-paas.yml
         - name: Continuité de l’activité
           href: sql-database-business-continuity.md
@@ -324,7 +324,7 @@
           href: sql-database-feature-restrictions.md
     - name: Extensibilité
       items:
-        - name: Vue d’ensemble de la scalabilité
+        - name: Documentation sur la scalabilité
           href: sql-database-scalability-index.yml
         - name: Effectuer un scale-up/scale-down
           href: sql-database-scale-resources.md
@@ -354,7 +354,7 @@
           href: sql-database-elastic-transactions-overview.md
     - name: Analyse et réglage
       items:
-        - name: Présentation de l’analyse et du réglage
+        - name: Documentation sur la supervision et l’optimisation
           href: sql-database-monitoring-tuning-index.yml
         - name: Surveillance et optimisation des performances
           href: sql-database-monitor-tune-overview.md
@@ -378,7 +378,7 @@
               href: sql-database-advisor.md
     - name: Fonctionnalités de bases de données
       items:
-        - name: Vue d'ensemble
+        - name: Documentation sur les fonctionnalités SQL Database
           href: sql-database-features-index.yml
         - name: Comparaison des fonctionnalités SQL
           href: sql-database-features.md

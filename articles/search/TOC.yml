@@ -231,7 +231,9 @@
           href: cognitive-search-resources-documentation.md
     - name: Magasin de connaissances (préversion)
       items:
-        - name: Pour commencer
+        - name: Se connecter avec Power BI
+          href: knowledge-store-connect-powerbi.md
+        - name: Créer avec REST et Postman
           href: knowledge-store-howto.md
     - name: Données de requête
       items:
@@ -342,7 +344,7 @@
           href: cognitive-search-skill-textsplit.md
         - name: Sentiments
           href: cognitive-search-skill-sentiment.md
-        - name: Traduction de texte (préversion)
+        - name: Traduction de texte
           href: cognitive-search-skill-text-translation.md
         - name: Analyse d’image
           href: cognitive-search-skill-image-analysis.md

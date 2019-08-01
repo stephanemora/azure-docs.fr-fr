@@ -56,12 +56,18 @@
           items:
             - name: Mémoire du tas insuffisante
               href: ./apache-spark-troubleshoot-outofmemory-heap.md
+            - name: Espace de tas Java
+              href: ./apache-spark-troubleshoot-outofmemory-heap-space.md
+        - name: Travaux Apache Spark lents - conteneur de stockage
+          href: ./apache-spark-troubleshoot-job-slowness-container.md
         - name: Exception IllegalArgumentException
           href: ./apache-spark-troubleshoot-illegalargumentexception.md
         - name: Arrêt de l’application Apache Spark Streaming
           href: ./apache-spark-troubleshoot-application-stops.md
         - name: Exception RpcTimeoutException
           href: ./apache-spark-troubleshoot-rpctimeoutexception.md
+        - name: Blocage d’une API cross-origin
+          href: ./apache-spark-troubleshoot-blocking-cross-origin.md
 - name: Procédures
   items:
     - name: Utiliser le stockage de cluster

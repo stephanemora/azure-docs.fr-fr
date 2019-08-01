@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 05/30/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 4ed66e3a0237eced852c806e78a8af6bdf8d8579
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: b8c8d1a867f6872c5e3ec9e1b48dac8f80c84950
+ms.sourcegitcommit: 15f7b641a67f3d6cf4fb4b4c11eaee18cf335923
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66417828"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68602145"
 ---
 # <a name="run-a-disaster-recovery-drill-to-azure"></a>Effectuer un exercice de récupération d'urgence vers Azure
 
@@ -88,6 +88,6 @@ Si vous souhaitez vous connecter aux machines virtuelles Azure via RDP/SSH aprè
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Exécutez un basculement et une restauration automatique pour les machines virtuelles VMware](vmware-azure-tutorial-failover-failback.md).
-> [Exécutez un basculement et une restauration automatique pour les machines virtuelles Hyper-V](hyper-v-azure-failover-failback-tutorial.md).
-> [Exécuter un basculement et une restauration automatique pour des machines physiques](physical-to-azure-failover-failback.md)
+> [Exécuter un basculement et une restauration automatique pour les machines virtuelles VMware](vmware-azure-tutorial-failover-failback.md)
+> [Exécuter un basculement et une restauration automatique pour les machines virtuelles Hyper-V](hyper-v-azure-failover-failback-tutorial.md)
+> [Exécuter un basculement et une restauration automatique pour les machines physiques](physical-to-azure-failover-failback.md)

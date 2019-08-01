@@ -12,32 +12,32 @@ author: garyericson
 ms.author: garye
 ms.reviewer: davidph
 manager: cgronlun
-ms.date: 05/02/2019
-ms.openlocfilehash: 3d336d6a53b6d234048c56d8492d278bef6fed64
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.date: 07/26/2019
+ms.openlocfilehash: 2c85a378dc219e8af1b6458344ee4dba0fa73e68
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65957510"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68596795"
 ---
 # <a name="tutorial-create-a-predictive-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Didacticiel : Créer un modèle prédictif en R avec le moteur Machine Learning Services (préversion) d’Azure SQL Database
 
-Dans la deuxième partie de cette série de didacticiels qui en compte trois parties, vous allez créer deux modèles prédictifs en R avec le moteur Machine Learning Services (préversion) d’Azure SQL Database, puis sélectionner le modèle le plus précis.
+Dans la deuxième partie de cette série de didacticiels qui en compte trois parties, vous allez créer deux modèles prédictifs en R et sélectionner le modèle le plus précis. Dans la partie suivante de cette série, vous allez déployer ce modèle dans une base de données SQL avec Azure SQL Database Machine Learning Services (préversion).
 
-Cet article porte sur les points suivants :
+Cet article porte sur les points suivants :
 
 > [!div class="checklist"]
 > * Effectuer l’apprentissage de deux modèles Machine Learning
 > * Effectuer des prédictions à partir des deux modèles
 > * Comparer les résultats pour choisir le modèle le plus précis
 
-Dans la [première partie](sql-database-tutorial-predictive-model-prepare-data.md), vous avez appris à importer un exemple de base de données dans une base de données Azure SQL, puis à préparer les données destinées à utiliser pour entraîner un modèle prédictif en R.
+Dans la [première partie](sql-database-tutorial-predictive-model-prepare-data.md), vous avez appris à importer un exemple de base de données, puis à préparer les données destinées à utiliser pour entraîner un modèle prédictif en R.
 
-Dans la [troisième partie](sql-database-tutorial-predictive-model-deploy.md), vous allez apprendre à stocker le modèle dans une base de données, puis à créer une procédure stockée capable d’effectuer des prédictions basées sur de nouvelles données.
+Dans la [troisième partie](sql-database-tutorial-predictive-model-deploy.md), vous allez apprendre à stocker le modèle dans une base de données, puis à créer des procédures stockées à partir des scripts R développés dans les première et deuxième parties. Les procédures stockées seront exécutées dans une base de données SQL pour effectuer des prédictions basées sur de nouvelles données.
 
 [!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 * La deuxième partie de ce didacticiel part du principe que vous avez suivi la [**première partie**](sql-database-tutorial-predictive-model-prepare-data.md) et ses conditions préalables.
 
@@ -130,4 +130,4 @@ La deuxième partie de ce didacticiel vous a présenté les étapes suivantes :
 Pour déployer le modèle Machine Learning que vous avez créé, suivez la troisième partie de cette série de didacticiels :
 
 > [!div class="nextstepaction"]
-> [Didacticiel : Déployer un modèle prédictif en R avec le moteur Machine Learning Services (préversion) d’Azure SQL Database](sql-database-tutorial-predictive-model-deploy.md)
+> [Tutoriel : Déployer un modèle prédictif en R avec le moteur Machine Learning Services (préversion) d’Azure SQL Database](sql-database-tutorial-predictive-model-deploy.md)

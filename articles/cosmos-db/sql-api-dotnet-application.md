@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.date: 06/24/2019
 ms.author: sngun
 ms.openlocfilehash: 85d9cbe7d0807ca0e7951e1e12d1edbbf7c921db
-ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "67985854"
 ---
-# <a name="tutorial-develop-an-aspnet-core-mvc-web-application-with-azure-cosmos-db-by-using-net-sdk"></a>Tutoriel : Développer une application web ASP.NET Core MVC avec Azure Cosmos DB à l’aide du kit SDK .NET 
+# <a name="tutorial-develop-an-aspnet-core-mvc-web-application-with-azure-cosmos-db-by-using-net-sdk"></a>Didacticiel : Développer une application web ASP.NET Core MVC avec Azure Cosmos DB à l’aide du kit SDK .NET 
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-dotnet-application.md)
@@ -31,7 +31,7 @@ Ce tutoriel vous montre comment utiliser Azure Cosmos DB pour stocker des donné
 
 Si vous n’avez pas le temps de suivre ce tutoriel, vous pouvez télécharger l’exemple de projet complet à partir de [GitHub][GitHub].
 
-Ce tutoriel contient les sections suivantes :
+Ce didacticiel contient les sections suivantes :
 
 > [!div class="checklist"]
 > * Création d’un compte Azure Cosmos
@@ -72,7 +72,7 @@ Dans la section suivante, vous allez créer une application ASP.NET Core MVC.
 
    ![Créer un projet d’application web ASP.NET Core](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-new-project-dialog.png)
 
-3. Dans la zone **Nom** , tapez le nom du projet. Ce tutoriel utilise le nom « todo ». Si vous choisissez d’utiliser un autre nom, corrigez les exemples de code fournis chaque fois que ce tutoriel fait référence à l’espace de noms todo, de façon à utiliser le nom que vous avez attribué à votre application. 
+3. Dans la zone **Nom** , tapez le nom du projet. Ce didacticiel utilise le nom « todo ». Si vous choisissez d’utiliser un autre nom, corrigez les exemples de code fournis chaque fois que ce tutoriel fait référence à l’espace de noms todo, de façon à utiliser le nom que vous avez attribué à votre application. 
 
 4. Sélectionnez **Parcourir** pour accéder au dossier où vous souhaitez créer le projet. Sélectionnez **Créer**. 
 
@@ -132,7 +132,7 @@ Maintenant que nous avons presque tout le code de framework ASP.NET Core MVC don
 
    [!code-csharp[Main](~/samples-cosmosdb-dotnet-core-web-app/src/Controllers/ItemController.cs)]
 
-   L’attribut **ValidateAntiForgeryToken** est utilisé ici pour protéger cette application contre les attaques de type falsification de requête intersites. Et il ne s’agit pas que d’un simple ajout de cet attribut, vos vues devraient également fonctionner avec ce jeton anti-falsification. Pour plus d’informations sur le sujet, et pour obtenir des exemples illustrant une implémentation adéquate, consultez [Prévention des falsifications de requête intersites][Preventing Cross-Site Request Forgery]. The source code provided on [GitHub][GitHub].
+   L’attribut **ValidateAntiForgeryToken** est utilisé ici pour protéger cette application contre les attaques de type falsification de requête intersites. Et il ne s’agit pas que d’un simple ajout de cet attribut, vos vues devraient également fonctionner avec ce jeton anti-falsification. Pour plus d’informations sur le sujet, et pour obtenir des exemples illustrant une implémentation adéquate, consultez [Prévention des falsifications de requête intersites][Preventing Cross-Site Request Forgery]. Le code source fourni sur [GitHub][GitHub] comporte l’implémentation complète.
 
    Nous utilisons également l’attribut **Bind** sur le paramètre de méthode pour établir une protection contre les attaques par sur-validation. Pour plus d’informations, consultez [Opérations CRUD de base dans ASP.NET MVC][Basic CRUD Operations in ASP.NET MVC].
 

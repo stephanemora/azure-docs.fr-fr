@@ -8,12 +8,12 @@ ms.author: pmorgan
 ms.date: 07/05/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 57244dd9f3365b3899bcc1dde6382cc3b51719d9
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 7e7d4a542146fb8d342cce6c34f9d97e72349f84
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67722939"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561390"
 ---
 # <a name="tutorial-step-by-step-instructions-to-create-a-new-hololens-unity-app-using-azure-spatial-anchors"></a>Didacticiel : Instructions pas à pas pour créer une application HoloLens Unity avec Azure Spatial Anchors
 
@@ -23,7 +23,7 @@ Ce tutoriel vous montre comment créer une application HoloLens Unity avec Azure
 
 Pour suivre ce tutoriel, veillez à disposer des éléments suivants :
 
-1. Une machine Windows dotée de <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017+</a> avec la charge de travail de **développement pour la plateforme Windows universelle** et le composant **SDK Windows 10 (version 10.0.17763.0 ou plus récente)** , et <a href="https://git-scm.com/download/win" target="_blank">Git for Windows</a>.
+1. Une machine Windows dotée de <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017+</a> avec la charge de travail de **développement pour la plateforme Windows universelle** et le composant **SDK Windows 10 (version 10.0.18362.0 ou plus récente)** , et <a href="https://git-scm.com/download/win" target="_blank">Git for Windows</a>.
 2. L’[extension Visual Studio (VSIX) C++/WinRT](https://aka.ms/cppwinrt/vsix) pour Visual Studio doit être installée à partir de [Visual Studio Marketplace](https://marketplace.visualstudio.com/).
 3. Un appareil HoloLens avec le [mode développeur](https://docs.microsoft.com/windows/mixed-reality/using-visual-studio) activé. L’appareil utilisé dans cet article est un HoloLens doté de la [mise à jour Windows 10 d’octobre 2018](https://docs.microsoft.com/windows/mixed-reality/release-notes-october-2018 ) (aussi appelée RS5). Pour mettre à jour votre appareil HoloLens vers la dernière version, ouvrez l’application **Paramètres**, accédez à **Mise et sécurité**, puis sélectionnez le bouton **Vérifier les mises à jour**.
 
@@ -57,10 +57,10 @@ Nous devons informer Unity que l’application que nous tentons d’exporter doi
 > [!NOTE]
 > Si vous ne voyez pas l’icône Windows Store, vérifiez que vous avez bien sélectionné Windows Store .NET Scripting Backend avant l’installation. Si ce n’est pas le cas, vous devrez peut-être réinstaller Unity avec l’installation de Windows appropriée.
 
-**Vérifier la configuration .NET**
+**Vérifier la configuration du serveur principal de script**
 1. Accédez à **Edit** > **Project Settings** > **Player** (**Player** est peut-être resté ouvert depuis l’étape précédente).
 2. Dans **Inspector Panel** pour **Player Settings**, sélectionnez l’icône **Windows Store**.
-3. Dans **Other Settings** de la section Configuration, assurez-vous que l’option **Scripting Backend** est définie sur **.NET**.
+3. Dans la section Configuration **Autres paramètres**, assurez-vous que l’option **Serveur principal de script** est définie sur **IL2CPP**.
 
 **Définir les fonctionnalités**
 1. Accédez à **Edit** > **Project Settings** > **Player** (**Player** est peut-être resté ouvert depuis l’étape précédente).

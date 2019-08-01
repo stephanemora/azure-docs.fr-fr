@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 06/10/2019
+ms.date: 07/26/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 456c984e577e3427ce8cd62d6f63987118f2c8ed
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: e0725988ff88baea2458f0a5e459440874e66088
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67164155"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68596427"
 ---
 # <a name="tutorial-integrate-oracle-cloud-infrastructure-console-with-azure-active-directory"></a>Didacticiel : Intégrer Oracle Cloud Infrastructure Console à Azure Active Directory
 
@@ -165,7 +165,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
       ![Configuration](./media/oracle-cloud-tutorial/config09.png)
 
-   1. Pour **GROUPE DE FOURNISSEURS D’IDENTITÉ**, entrez le nom et l’ID du groupe qui sont définis dans le portail Azure. Le groupe doit être mappé au groupe correspondant dans le champ **Groupe OCI**.
+   1. Le **GROUPE DE FOURNISSEURS D’IDENTITÉ** doit être sélectionné en tant que groupe personnalisé. L’ID DE GROUPE doit être le GUID du groupe à partir d’Azure Active Directory. Le groupe doit être mappé au groupe correspondant dans le champ **Groupe OCI**.
 
    1. Vous pouvez mapper plusieurs groupes selon votre configuration dans le portail Azure et les besoins de votre organisation. Cliquez sur **+ Ajouter un mappage** pour ajouter autant de groupes que vous le souhaitez.
 

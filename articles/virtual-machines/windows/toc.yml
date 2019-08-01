@@ -108,6 +108,8 @@
           href: compute-benchmark-scores.md
         - name: Quotas de processeurs virtuels
           href: quotas.md
+    - name: Hôtes dédiés
+      href: dedicated-hosts.md
     - name: Maintenance et mises à jour
       href: maintenance-and-updates.md
     - name: Stockage sur disque
@@ -146,6 +148,12 @@
   items:
     - name: Créer des machines virtuelles
       items:
+        - name: Utiliser des hôtes dédiés
+          items:
+            - name: PowerShell
+              href: dedicated-hosts-powershell.md
+            - name: Portail
+              href: dedicated-hosts-portal.md
         - name: 'Utiliser C#'
           href: csharp.md
         - name: Utiliser un disque spécialisé

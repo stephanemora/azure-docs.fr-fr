@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/12/2019
 ms.author: kumud
-ms.openlocfilehash: fcc26d0d42576e8d39407f2af5bafe6de24db19f
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: b088b4d0e21819411c7329f3cb1e6ca9761665fd
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67154498"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68610205"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>FAQ sur les réseaux virtuels Azure
 
@@ -49,7 +49,7 @@ Vous pouvez utiliser les outils suivants pour créer ou configurer un réseau vi
 
 * Portail Azure
 * PowerShell
-* Azure CLI
+* D’Azure CLI
 * Fichier de configuration réseau (netcfg - pour les réseaux virtuels classiques uniquement). Consultez l’article [Configurer un réseau virtuel à l’aide d’un fichier de configuration réseau](virtual-networks-using-network-configuration-file.md).
 
 ### <a name="what-address-ranges-can-i-use-in-my-vnets"></a>Quelles plages d’adresses puis-je utiliser dans mes réseaux virtuels ?
@@ -215,7 +215,7 @@ Oui. Vous pouvez appliquer des [groupes de sécurité réseau](security-overview
 Oui. Vous pouvez déployer une [appliance virtuelle réseau de pare-feu](https://azure.microsoft.com/marketplace/?term=firewall) à partir de plusieurs fournisseurs via Azure Marketplace.
 
 ### <a name="is-there-information-available-about-securing-vnets"></a>Existe-t-il des informations sur la sécurisation des réseaux virtuels ?
-Oui. Pour plus d’informations, consultez [Présentation de la sécurité réseau Azure](../security/security-network-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Oui. Pour plus d’informations, consultez [Présentation de la sécurité réseau Azure](../security/fundamentals/network-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ## <a name="apis-schemas-and-tools"></a>API, schémas et outils
 
