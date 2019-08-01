@@ -3,16 +3,17 @@ title: Surveiller les conteneurs dans Azure Container Instances
 description: Comment superviser la consommation des ressources de calcul comme le processeur et la mémoire par vos conteneurs dans Azure Container Instances
 services: container-instances
 author: dlepow
+manager: gwallace
 ms.service: container-instances
 ms.topic: overview
 ms.date: 04/24/2019
 ms.author: danlep
-ms.openlocfilehash: 7b46ea0518038eeb908591b8438acc2a9095242c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 4c1208d8cbc795e53128df0ccf93e79dc427abad
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64570902"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325851"
 ---
 # <a name="monitor-container-resources-in-azure-container-instances"></a>Surveiller les ressources des conteneurs dans Azure Container Instances
 
@@ -21,7 +22,7 @@ ms.locfileid: "64570902"
 Ce document décrit en détail la collecte des métriques Azure Monitor pour les instances de conteneurs à l’aide du portail Azure et d’Azure CLI.
 
 > [!IMPORTANT]
-> Les métriques Azure Monitor dans Azure Container Instances sont en préversion et certaines [limitations s’appliquent](#preview-limitations). Les préversions sont à votre disposition, à la condition d’accepter les [conditions d’utilisation supplémentaires][terms-of-use]. Certains aspects de cette fonctionnalité sont susceptibles d’être modifiés avant la mise à disposition générale.
+> Les métriques Azure Monitor dans Azure Container Instances sont en préversion et certaines [limitations s’appliquent](#preview-limitations). Les préversions sont à votre disposition, à condition que vous acceptiez les [conditions d’utilisation supplémentaires][terms-of-use]. Certains aspects de cette fonctionnalité sont susceptibles d’être modifiés avant la mise à disposition générale.
 
 ## <a name="preview-limitations"></a>Limitations de la version préliminaire
 
@@ -136,7 +137,7 @@ Timestamp            Name          Containername             Average
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour en savoir plus sur la surveillance Azure, consultez [Vue d’ensemble de surveillance Azure][azure-monitoring].
+Pour en savoir plus sur la supervision Azure, consultez [Vue d’ensemble de la supervision Azure][azure-monitoring].
 
 Découvrez comment créer des [alertes de métrique][metric-alert] pour être averti quand une métrique pour Azure Container Instances franchit un seuil.
 

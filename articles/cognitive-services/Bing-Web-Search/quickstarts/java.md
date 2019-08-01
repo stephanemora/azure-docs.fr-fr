@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Effectuer une recherche web avec Java - API REST Recherche Web Bing'
+title: 'Démarrage rapide : Utiliser Java pour appeler l’API Recherche Web Bing'
 titleSuffix: Azure Cognitive Services
 description: Utilisez ce démarrage rapide pour envoyer des requêtes à l'API REST Recherche Web Bing à l'aide de Java et recevoir une réponse JSON
 services: cognitive-services
@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 03/12/2019
+ms.date: 07/22/2019
 ms.author: aahi
-ms.custom: seodec2018
-ms.openlocfilehash: 8282838f778516e31080960400e5b1435f0b5673
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.custom: seodec2018, seo-java-july2019
+ms.openlocfilehash: 42cb270955846f1333b79389c3ca979dc4808f05
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57866324"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68489627"
 ---
 # <a name="quickstart-search-the-web-using-the-bing-web-search-rest-api-and-java"></a>Démarrage rapide : Effectuer des recherches sur le web à l'aide de l'API REST Recherche Web Bing et de Java
 

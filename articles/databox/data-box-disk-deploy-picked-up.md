@@ -6,16 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 06/25/2019
+ms.date: 07/23/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 7e7a1f119a2f2b0e60645cb776b26c124910cacb
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: ca42532fe6ba954180ce06ed0e3561e42f1fb447
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67448212"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68424238"
 ---
+::: zone target="docs"
+
 # <a name="tutorial-return-azure-data-box-disk-and-verify-data-upload-to-azure"></a>Didacticiel : Retourner des disques Azure Data Box et vérifier le chargement des données dans Azure
 
 Ce tutoriel est le dernier de la série : Déployer Azure Data Box Disk. Ce didacticiel vous apprendra à effectuer les opérations suivantes :
@@ -28,6 +30,7 @@ Ce tutoriel est le dernier de la série : Déployer Azure Data Box Disk. Ce did
 ## <a name="prerequisites"></a>Prérequis
 
 Avant de commencer, vérifiez que vous avez suivi le [tutoriel : Copier des données sur Azure Data Box Disk et procéder à une vérification](data-box-disk-deploy-copy-data.md).
+
 
 ## <a name="ship-data-box-disk-back"></a>Renvoyer un disque Data Box
 
@@ -229,5 +232,41 @@ Passez au guide pratique suivant pour savoir comment gérer des disques Data Box
 
 > [!div class="nextstepaction"]
 > [Utiliser le portail Azure pour administrer le disque Azure Data Box](./data-box-portal-ui-admin.md)
+
+::: zone-end
+
+
+::: zone target="chromeless"
+
+# <a name="return-the-disk-and-verify-upload-to-azure"></a>Retourner le disque et vérifier le chargement sur Azure
+
+## <a name="ship-to-azure"></a>Envoyer à Azure
+
+1. Une fois la validation des données terminée, déconnectez les disques. Débranchez les câbles de connexion.
+2. Emballez tous les disques et les câbles de connexion dans du papier à bulles et placez le tout dans la boîte d’envoi. Des frais peuvent s’appliquer si les accessoires sont manquants.
+    - Réutilisez l’emballage de la première expédition.  
+    - Nous vous recommandons d’emballer les disques avec du papier bulle pour les protéger.
+    - Vérifiez qu’ils sont suffisamment serrés dans la boîte pour éviter qu’ils ne bougent.
+3. Les étapes suivantes sont déterminées par l’endroit où vous retournez l’appareil.
+    - [Planifiez une date d’enlèvement avec UPS en cas de renvoi aux États-Unis et au Canada](data-box-disk-deploy-picked-up.md#pick-up-in-us-canada).
+    - [Planifiez une date d’enlèvement auprès de DHL pour l’Europe](data-box-disk-deploy-picked-up.md#pick-up-in-europe) en visitant son site web et en spécifiant le numéro de facture de transport aérien.
+    - [Planifiez une date d’enlèvement pour les pays de la région Australie-Pacifique](data-box-disk-deploy-picked-up.md#pick-up-in-asia-pacific-region), tels que l’Australie, le Japon, la Corée et Singapour.
+4. Une fois que les disques ont été récupérés par le transporteur, l’état de la commande dans le portail est mis à jour et l’ID de suivi est affiché.
+
+## <a name="verify-upload-to-azure"></a>Vérifier le chargement sur Azure
+
+Une fois les données chargées sur Azure, vérifiez que vos données se trouvent dans les comptes de stockage avant de les supprimer de la source. Vos données peuvent se trouver aux emplacements suivants :
+
+- Votre ou vos comptes de stockage Azure. Lorsque vous copiez les données sur Data Box, selon le type, les données sont chargées vers l’un des chemins d’accès ci-après dans votre compte Stockage Azure.
+
+    - **Pour les objets blob de blocs et de pages** : https://<nom_compte_stockage>.blob.core.windows.net/<containername>/files/a.txt
+
+    - **Pour Azure Files** : https://<nom_compte_stockage>.file.core.windows.net/<sharename>/files/a.txt
+
+    Vous pouvez également accéder à votre compte de stockage Azure dans le Portail Azure et naviguer à partir de cet emplacement.
+
+- Votre ou vos groupes de ressources spécifiés pour les disques managés. Quand vous créez des disques managés, les disques durs virtuels sont chargés en tant qu’objets blob de pages, puis convertis en disques managés. Les disques managés sont attachés aux groupes de ressources spécifiés au moment de la création de la commande.
+
+::: zone-end
 
 

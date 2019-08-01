@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/19/2019
+ms.date: 07/22/2019
 ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: fa9b091beacbc98c6939ec0454bd04da2b7561e7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9e34984dde4ae09540ff73a8ddd1a90c11d5bef4
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66157979"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68385186"
 ---
 # <a name="tutorial-scale-a-service-fabric-cluster-in-azure"></a>Didacticiel : Mettre à l’échelle un cluster Service Fabric dans Azure
 
@@ -95,7 +95,7 @@ Le scale in ou scale out, ou mise à l’échelle horizontale, modifie le nombre
 
 Ainsi, en mettant à jour la valeur de *nt1InstanceCount*, vous modifiez le nombre de nœuds dans le deuxième type de nœud.  N’oubliez pas que vous ne pouvez pas effectuer de scale out d’un type de nœud à plus de 100 nœuds.  Les types de nœuds non principaux exécutant des charges de travail de production avec état doivent toujours comporter au moins cinq nœuds. Les types de nœuds non principaux exécutant des charges de travail de production sans état doivent toujours comporter au moins deux nœuds.
 
-Si vous effectuez un scale in et supprimez des nœuds à partir d’un type de nœud de [niveau de durabilité][durability] Bronze, vous devez [effacer manuellement l’état de ces nœuds](service-fabric-cluster-scale-up-down.md#manually-remove-vms-from-a-node-typevirtual-machine-scale-set).  Pour les niveaux de durabilité Silver et Gold, ces étapes sont effectuées automatiquement par la plateforme.
+Si vous effectuez un scale-in et supprimez des nœuds à partir d’un type de nœud de [niveau de durabilité][durability] Bronze, vous devez [effacer manuellement l’état de ces nœuds](service-fabric-cluster-scale-up-down.md#manually-remove-vms-from-a-node-typevirtual-machine-scale-set).  Pour les niveaux de durabilité Silver et Gold, ces étapes sont effectuées automatiquement par la plateforme.
 
 ### <a name="deploy-the-updated-template"></a>Déployer le modèle mis à jour
 Enregistrez les modifications apportées aux fichiers *template.json* et *parameters.json*.  Pour déployer le modèle mis à jour, exécutez la commande suivante :

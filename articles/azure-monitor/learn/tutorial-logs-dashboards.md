@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 06/19/2019
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 93cda8680bc665055d449e86c24d6565f6fc525f
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: c859fb9b8b3509e8369559a3a9a4d45cb4e34125
+ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67296392"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68414166"
 ---
 # <a name="create-and-share-dashboards-of-log-analytics-data"></a>Créer et partager des tableaux de bord de données Log Analytics
 
@@ -75,7 +75,7 @@ Enregistrez la requête en sélectionnant le bouton **Enregistrer** en haut de l
 
 ![Enregistrer la requête](media/tutorial-logs-dashboards/save-query.png)
 
-Dans le panneau de configuration **Enregistrer la requête**, indiquez un nom, par exemple *Machines virtuelles Azure - Utilisation des processeurs* et une catégorie telle que *Tableaux de bord*, puis cliquez sur **Enregistrer**.  De cette façon, vous pouvez créer une bibliothèque de requêtes courantes que vous pouvez utiliser et modifier.  Enfin, épinglez ceci au tableau de bord partagé créé précédemment en sélectionnant le bouton **Épingler** dans l’angle supérieur droit de la page, puis en sélectionnant le nom du tableau de bord.
+Dans le panneau de configuration **Enregistrer la requête**, indiquez un nom, par exemple *Machines virtuelles Azure - Utilisation des processeurs* et une catégorie telle que *Tableaux de bord*, puis cliquez sur **Enregistrer**.  De cette façon, vous pouvez créer une bibliothèque de requêtes courantes que vous pouvez utiliser et modifier.  Enfin, épinglez ceci au tableau de bord partagé créé précédemment en sélectionnant le bouton **Épingler au tableau de bord** en haut à droite de la page, puis en sélectionnant le nom du tableau de bord.
 
 Maintenant qu’une requête est épinglée au tableau de bord, vous remarquerez qu’elle a un titre générique et qu’elle est suivie d’un commentaire.
 

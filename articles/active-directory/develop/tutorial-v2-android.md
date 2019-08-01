@@ -16,12 +16,12 @@ ms.author: jmprieur
 ms.reviwer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cb1e322e0424debc14a29ad8a516c95acea54714
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 5bd19b6094d68277130916b5cda565ba9e633c59
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67872112"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68334108"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-from-an-android-app"></a>Connecter des utilisateurs et appeler Microsoft Graph à partir d’une application Android
 
@@ -47,7 +47,7 @@ Cet exemple utilise la bibliothèque d’authentification Microsoft pour Android
 
  MSAL renouvelle automatiquement les jetons, fournit une authentification unique (SSO) entre les autres applications de l’appareil et gère les comptes.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 * Ce didacticiel nécessite Android Studio version 16 ou ultérieure (supérieure à 19 recommandée).
 
@@ -538,3 +538,8 @@ La première fois qu’un utilisateur se connecte à votre application, Microsof
 ## <a name="get-help"></a>Obtenir de l’aide
 
 Si vous rencontrez des problèmes avec ce tutoriel ou avec la plateforme d’identités Microsoft, consultez le [Centre d’aide et de support](https://docs.microsoft.com/azure/active-directory/develop/developer-support-help-options).
+
+Aidez-nous à améliorer la plateforme d’identité Microsoft. Dites-nous ce que vous pensez en répondant à un court questionnaire de deux questions.
+
+> [!div class="nextstepaction"]
+> [Enquête sur la plateforme d’identité Microsoft](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyKrNDMV_xBIiPGgSvnbQZdUQjFIUUFGUE1SMEVFTkdaVU5YT0EyOEtJVi4u)

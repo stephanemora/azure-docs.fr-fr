@@ -9,12 +9,12 @@ ms.date: 04/23/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: b9ced0b08ed26057a45959f759fb90cbd7efe2a5
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 305804682ede9833619837807d6f174ec670560e
+ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66239788"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68414244"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-linux-devices"></a>Didacticiel : Développer un module C# IoT Edge pour les appareils Linux
 
@@ -42,6 +42,9 @@ Utilisez le tableau suivant afin de comprendre les options dont vous disposez po
 | -- | ------------------ | ------------- |
 | **Linux AMD64** | ![Modules C# pour LinuxAMD64 dans VS Code](./media/tutorial-c-module/green-check.png) | ![Modules C# modules pour LinuxAMD64 dans Visual Studio](./media/tutorial-c-module/green-check.png) |
 | **Linux ARM32** | ![Modules C# pour LinuxARM32 dans VS Code](./media/tutorial-c-module/green-check.png) | ![Modules C# pour LinuxARM64 dans Visual Studio](./media/tutorial-c-module/green-check.png) |
+
+>[!NOTE]
+>La prise en charge des appareils Linux ARM64 est disponible en [préversion publique](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Pour plus d’informations, consultez [Develop and debug ARM64 IoT Edge modules in Visual Studio Code (preview)](https://devblogs.microsoft.com/iotdev/develop-and-debug-arm64-iot-edge-modules-in-visual-studio-code-preview) (Développer et déboguer des modules IoT Edge ARM64 dans Visual Studio Code (préversion)).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -93,7 +96,7 @@ Le fichier d’environnement stocke les informations d’identification de votre
 
 ### <a name="select-your-target-architecture"></a>Sélectionner votre architecture cible
 
-Visual Studio Code peut développer des modules C pour les appareils Linux AMD64 et Linux ARM32v7. Vous devez sélectionner l’architecture que vous ciblez avec chaque solution, car le conteneur est généré et s’exécute différemment pour chaque type d’architecture. Linux AMD64 est la valeur par défaut. 
+Visual Studio Code peut développer des modules C# pour les appareils Linux AMD64 et Linux ARM32v7. Vous devez sélectionner l’architecture que vous ciblez avec chaque solution, car le conteneur est généré et s’exécute différemment pour chaque type d’architecture. Linux AMD64 est la valeur par défaut. 
 
 1. Ouvrez la palette de commandes et recherchez **Azure IoT Edge: Définir la plateforme cible par défaut pour la solution Edge**, ou sélectionnez l’icône de raccourci dans la barre latérale en bas de la fenêtre. 
 

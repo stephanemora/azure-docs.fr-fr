@@ -14,14 +14,14 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/18/2019
 ms.author: spelluru
-ms.openlocfilehash: b5abb8d4aad7c58bf673aa578255efe12d32ad4b
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: ee9a68df685095244fc9471b7d4ab0f6cee0642d
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54422896"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68360267"
 ---
-# <a name="tutorial-access-a-lab-in-azure-devtest-labs"></a>Tutoriel : Accéder à un laboratoire dans Azure DevTest Labs
+# <a name="tutorial-access-a-lab-in-azure-devtest-labs"></a>Didacticiel : Accéder à un laboratoire dans Azure DevTest Labs
 Dans ce tutoriel, vous utilisez le laboratoire créé dans le [tutoriel : Créer un laboratoire dans Azure DevTest Labs](tutorial-create-custom-lab.md).
 
 Dans ce tutoriel, vous allez effectuer les actions suivantes :
@@ -58,8 +58,15 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
     ![Connexion à la machine virtuelle](./media/tutorial-use-custom-lab/connect-button.png)
 2. Enregistrer le fichier **RDP** téléchargé sur votre disque dur et utilisez-le pour vous connecter à la machine virtuelle. Spécifiez le nom d’utilisateur et le mot de passe que vous avez indiqués en créant la machine virtuelle à la section précédente. 
 
-    > [!NOTE] 
-    > Pour vous connecter à une machine virtuelle Linux, l’accès par protocole SSH et/ou RDP doit être activé pour la machine virtuelle. Pour les étapes à suivre pour vous connecter à une machine virtuelle Linux via un protocole RDP, consultez [Installer et configurer le Bureau à distance pour se connecter à une machine virtuelle Linux dans Azure](../virtual-machines/linux/use-remote-desktop.md). 
+    Pour vous connecter à une machine virtuelle Linux, l’accès par protocole SSH et/ou RDP doit être activé pour la machine virtuelle. Pour les étapes à suivre pour vous connecter à une machine virtuelle Linux via un protocole RDP, consultez [Installer et configurer le Bureau à distance pour se connecter à une machine virtuelle Linux dans Azure](../virtual-machines/linux/use-remote-desktop.md). 
+
+    > [!NOTE]
+    > Il existe d’autres façons d’accéder à la page de votre machine virtuelle. En voici quelques-unes : 
+    > 
+    > 1. Recherchez toutes les machines virtuelles de votre abonnement. Sélectionnez votre machine virtuelle dans la liste pour accéder à la page **Machine virtuelle**.
+    > 2. Accédez à la page **Groupe de ressources** pour le groupe de ressources. Ensuite, sélectionnez votre machine virtuelle dans la liste des ressources du groupe de ressources pour accéder à la page **Machine virtuelle**. 
+    >
+    > N’utilisez pas le bouton **Se connecter** de la barre d’outils de la page **Machine virtuelle** à laquelle vous accédez à l’aide de ces options. Au lieu de cela, accédez à la page **Machine virtuelle** à partir de la page **DevTest Labs**, comme indiqué dans cet article, puis utilisez le bouton **Se connecter** dans la barre d’outils.
 
 
 ## <a name="unclaim-the-vm"></a>Cesser de revendiquer la machine virtuelle

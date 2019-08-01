@@ -6,15 +6,15 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc
-ms.date: 7/10/2019
+ms.date: 07/19/2019
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: 2894af5f253e20b32dde0ecc5f658edff4814149
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
+ms.openlocfilehash: 1349e07662504564fdf48a53f24525c4a16aa477
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/13/2019
-ms.locfileid: "67868426"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68326899"
 ---
 # <a name="what-is-azure-firewall"></a>Qu’est-ce qu’un pare-feu Azure ?
 
@@ -32,7 +32,7 @@ Comme la haute disponibilité est intégrée, aucun équilibreur de charge suppl
 
 ## <a name="availability-zones"></a>Zones de disponibilité
 
-Pare-feu Azure peut être configuré pendant le déploiement pour couvrir plusieurs zones de disponibilité afin de fournir une disponibilité supérieure. Avec les Zones de disponibilité Azure, votre disponibilité s’élève à 99,99 % du temps total. Pour plus d’informations, consultez [Contrat de niveau de service (SLA)](https://azure.microsoft.com/support/legal/sla/azure-firewall/v1_0/) de Pare-feu Azure. Un contrat de niveau de service de 99,99 % est offert lorsque deux Zones de disponibilité ou plus sont sélectionnées.
+Le Pare-feu Azure peut être configuré pendant le déploiement pour couvrir plusieurs zones de disponibilité afin de fournir une disponibilité supérieure. Avec les Zones de disponibilité Azure, votre disponibilité s’élève à 99,99 % du temps total. Pour plus d’informations, consultez [Contrat de niveau de service (SLA)](https://azure.microsoft.com/support/legal/sla/azure-firewall/v1_0/) de Pare-feu Azure. Un contrat de niveau de service de 99,99 % est offert quand deux Zones de disponibilité ou plus sont sélectionnées.
 
 Vous pouvez également associer Pare-feu Azure à une zone spécifique uniquement pour des raisons de proximité, en utilisant le contrat de niveau de service standard garantissant un taux de disponibilité de 99,95 %.
 
@@ -80,7 +80,7 @@ Le trafic réseau entrant vers votre adresse IP publique de pare-feu est traduit
 ## <a name="multiple-public-ip-addresses"></a>Adresses IP publiques multiples
 
 > [!IMPORTANT]
-> Le Pare-feu Azure avec plusieurs adresses IP publiques est disponible via Azure PowerShell, Azure CLI, REST et les modèles. L’interface utilisateur du portail est ajoutée progressivement aux régions et sera disponible dans toutes les régions après le lancement.
+> Le Pare-feu Azure avec plusieurs adresses IP publiques est disponible par le biais du portail Azure, d’Azure PowerShell, d’Azure CLI, de REST et des modèles.
 
 
 Vous pouvez associer plusieurs adresses IP publiques (jusqu’à 100) à votre pare-feu.

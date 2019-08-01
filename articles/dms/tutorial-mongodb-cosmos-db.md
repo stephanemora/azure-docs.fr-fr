@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
 ms.date: 07/04/2019
-ms.openlocfilehash: 2ff5ebefbe379edda94dcf8ac066027398e2f3f4
-ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
+ms.openlocfilehash: baf3c372d0c84d4daf439fdc92fa6eeac5d12d0b
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67565540"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68501016"
 ---
 # <a name="tutorial-migrate-mongodb-to-azure-cosmos-dbs-api-for-mongodb-offline-using-dms"></a>Didacticiel : migrer MongoDB vers l’API Azure Cosmos DB pour MongoDB hors connexion à l’aide de DMS
 
@@ -128,6 +128,8 @@ Une fois le service créé, recherchez-le dans le portail Azure, ouvrez-le, puis
      https://blobnameurl/container?SASKEY
      ```
 
+     Cette chaîne de connexion SAP du conteneur d’objets blob se trouve dans l’Explorateur Stockage Azure. La création de la signature d’accès partagé pour le conteneur concerné vous fournira l’URL au format requis ci-dessus.
+     
      De plus, en fonction des informations d’images mémoire de type dans le stockage Azure, gardez à l’esprit les informations suivantes.
 
      * Pour les images mémoire BSON, les données dans le conteneur d’objets blob doivent être au format bsondump, de sorte que les fichiers de données sont placés dans des dossiers nommés d’après les bases de données conteneur au format collection.bson. Les fichiers de métadonnées (le cas échéant) doivent être nommés en utilisant le format *collection*.metadata.json.
@@ -135,7 +137,7 @@ Une fois le service créé, recherchez-le dans le portail Azure, ouvrez-le, puis
      * Pour les images mémoire JSON, les fichiers présents dans le conteneur d’objets blob doivent être placés dans des dossiers nommés d’après les bases de données conteneur. Dans chaque dossier de base de données, les fichiers de données doivent être placés dans un sous-dossier appelé « data » et nommé en utilisant le format *collection*.json. Les fichiers de métadonnées (le cas échéant) doivent être placés dans un sous-dossier appelé « metadata » et nommé en utilisant le même format, *collection*.json. Les fichiers de métadonnées doivent être au même format que celui produit par l’outil de bsondump MongoDB.
 
     > [!IMPORTANT]
-    > Il est déconseillé d’utiliser un certificat auto-signé sur le serveur mongo. Toutefois, si un tel certificat est utilisé, connectez-vous au serveur en utilisant le **mode chaîne de connexion** et vérifiez que votre chaîne de connexion a “”
+    > Il est déconseillé d’utiliser un certificat autosigné sur le serveur mongo. Toutefois, si un tel certificat est utilisé, connectez-vous au serveur en utilisant le **mode chaîne de connexion** et vérifiez que votre chaîne de connexion a “”
     >
     >```
     >&sslVerifyCertificate=false

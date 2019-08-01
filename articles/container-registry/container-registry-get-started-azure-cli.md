@@ -3,23 +3,24 @@ title: 'Démarrage rapide : Créer un registre Docker privé dans Azure - Azure
 description: Apprenez rapidement à créer un registre de conteneurs Docker privé avec l’interface de ligne de commande Azure.
 services: container-registry
 author: dlepow
+manager: gwallace
 ms.service: container-registry
 ms.topic: quickstart
 ms.date: 01/22/2019
 ms.author: danlep
 ms.custom: seodec18, H1Hack27Feb2017, mvc
-ms.openlocfilehash: 24bdd52673c65d039166dc28f9f0a0a784569a1a
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 6c511c56ab8df14cc6ea81363772ae0fd6d61272
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59678698"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68309526"
 ---
 # <a name="quickstart-create-a-private-container-registry-using-the-azure-cli"></a>Démarrage rapide : Créer un registre de conteneurs privé avec Azure CLI
 
 Azure Container Registry est un service de registre de conteneurs Docker géré utilisé pour stocker des images de conteneurs Docker privés. Ce guide décrit en détail la création d’une instance Azure Container Registry à l’aide de l’interface de ligne de commande Azure. Vous allez ensuite utiliser des commandes Docker pour envoyer (push) une image conteneur dans le registre, puis tirer (pull) et exécuter l’image à partir de votre registre.
 
-Ce guide de démarrage rapide vous demande d’exécuter Azure CLI (version 2.0.55 ou ultérieure recommandée). Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installer Azure CLI 2.0][azure-cli].
+Ce guide de démarrage rapide vous demande d’exécuter Azure CLI (version 2.0.55 ou ultérieure recommandée). Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI][azure-cli].
 
 Docker doit également être installé en local. Docker fournit des packages qui le configurent facilement sur n’importe quel système [macOS][docker-mac], [Windows][docker-windows] ou [Linux][docker-linux].
 
@@ -116,7 +117,7 @@ v1
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
-Quand vous n’en avez plus besoin, vous pouvez utiliser la commande [az group delete][az-group-delete] pour supprimer le groupe de ressources, le registre de conteneurs et les images conteneur stockées à cet endroit.
+Vous pouvez utiliser la commande [az group delete][az-group-delete] pour supprimer le groupe de ressources, le registre de conteneurs et les images conteneur stockées à cet endroit quand vous n’en avez plus besoin.
 
 ```azurecli
 az group delete --name myResourceGroup

@@ -6,12 +6,12 @@ ms.service: data-share
 ms.topic: overview
 ms.date: 07/10/2019
 ms.author: joanpo
-ms.openlocfilehash: 7d4e51ec9564bfb123cf73d9fe89d040f42fe650
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 11f32b1f1349ef0f9826f95832648e6949cc2f8c
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67807543"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68421386"
 ---
 # <a name="what-is-azure-data-share-preview"></a>En quoi consiste Azure Data Share (préversion) ?
 
@@ -24,6 +24,8 @@ La préversion d’Azure Data Share permet aux organisations de partager leurs d
 Pour contrôler la façon dont ses données sont utilisées, le fournisseur de données doit spécifier des conditions d’utilisation. Le consommateur de données doit accepter ces conditions pour recevoir les données. Les fournisseurs de données peuvent spécifier la fréquence à laquelle les consommateurs de leurs données doivent recevoir des mises à jour. Le fournisseur de données peut à tout moment révoquer l’accès aux nouvelles mises à jour. 
 
 Azure Data Share améliore l’obtention d’insights en permettant la combinaison de données tierces dans le but d’enrichir les scénarios d’analytique et d’intelligence artificielle. Les outils d’analytique Azure sont faciles à utiliser et permettent de préparer, traiter et analyser les données partagées à l’aide de Azure Data Share. 
+
+Le fournisseur de données et le consommateur de données doivent avoir un abonnement Azure pour partager et recevoir des données. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/).
 
 ## <a name="scenarios-for-azure-data-share"></a>Scénarios relatifs à Azure Data Share
 
@@ -78,6 +80,7 @@ Azure Data Share s’appuie sur la sécurité sous-jacente fournie par Azure pou
 Les contrôles d’accès peuvent être définis au niveau des ressources Azure Data Share, afin que seules les personnes autorisées puissent y accéder. 
 
 Azure Data Share utilise les identités managées pour ressources Azure (autrefois, fichiers MSI) dans le cadre de la gestion automatique des identités dans Azure Active Directory. Les identités managées pour ressources Azure permettent d’accéder aux comptes de stockage qui sont utilisés pour le partage des données. Il n’y a pas d’échange d’informations d’identification entre un fournisseur de données et un consommateur de données. Pour plus d’informations, consultez [Identités managées pour les ressources Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities). 
+
 
 ## <a name="supported-regions"></a>Régions prises en charge
 

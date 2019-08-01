@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/17/2019
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 9cc18c7442a55c14ad759201aaf195d2d1bf3309
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: f22273a28d5e4207712bdba71ef788629d51916e
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67594060"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68321673"
 ---
 # <a name="tutorial-configure-https-on-an-azure-cdn-custom-domain"></a>Didacticiel : Configurer HTTPS sur un domaine personnalisé Azure CDN
 
@@ -190,15 +190,11 @@ La validation automatique prend généralement quelques heures. Si votre domaine
 ### <a name="custom-domain-is-not-mapped-to-your-cdn-endpoint"></a>Le domaine personnalisé n’est pas mappé à votre point de terminaison CDN
 
 >[!NOTE]
->La validation par e-mail d’une propriété de domaine personnalisée n’est pas disponible pour les profils **Azure CDN fournis par Akamai**. Si vous utilisez **Azure CDN d’Akamai**, votre domaine personnalisé doit être mappé sur votre point de terminaison CDN avec un enregistrement CNAME comme indiqué ci-dessus.  Cette fonctionnalité est dans notre backlog. 
+>Si vous utilisez **Azure CDN d’Akamai**, votre domaine personnalisé doit être mappé sur votre point de terminaison CDN avec un enregistrement CNAME comme indiqué ci-dessus.  Cette fonctionnalité est dans notre backlog. 
 
 Si l’entrée d’enregistrement CNAME contient le sous-domaine cdnverify, suivez les autres instructions de cette étape.
 
-Dès que vous soumettez une requête pour activer HTTPS sur votre domaine personnalisé, l’autorité de certification DigiCert valide la propriété de votre domaine en contactant son inscrit, en fonction des informations [WHOIS](http://whois.domaintools.com/) du domaine pour cet inscrit. Une prise de contact est établie par le biais de l’adresse de messagerie (par défaut) ou le numéro de téléphone répertorié dans l’inscription WHOIS. Vous devez effectuer la validation de domaine avant que le protocole HTTPS soit activé sur votre domaine personnalisé. Vous disposez de six jours ouvrables pour approuver le domaine. Les requêtes qui ne sont pas approuvées dans ce délai de six jours ouvrables sont automatiquement annulées. 
-
-![Enregistrement WHOIS](./media/cdn-custom-ssl/whois-record.png)
-
-DigiCert envoie également un e-mail de vérification à des adresses e-mail supplémentaires. Si les informations sur l’inscrit WHOIS sont privées, vérifiez que vous pouvez effectuer directement l’approbation à partir de l’une des adresses suivantes :
+DigiCert envoie un e-mail de vérification aux adresses e-mail suivantes. Vérifiez que vous pouvez effectuer directement l’approbation à partir de l’une des adresses suivantes :
 
 admin@&lt;votre-nom-de-domaine.com&gt;  
 administrateur@&lt;votre-nom-de-domaine.com&gt;  
@@ -206,7 +202,7 @@ webmaster@&lt;votre-nom-de-domaine.com&gt;
 hostmaster@&lt;votre-nom-de-domaine.com&gt;  
 postmaster@&lt;votre-nom-de-domaine.com&gt;  
 
-Au bout de quelques minutes, vous devriez recevoir un e-mail similaire à celui de l’exemple suivant et vous demandant d’approuver la requête. Si vous utilisez un filtre de courrier indésirable, ajoutez admin@digicert.com à sa liste verte. Si vous ne recevez pas d’e-mail dans les 24 heures, contactez le support Microsoft.
+Au bout de quelques minutes, vous devriez recevoir un e-mail similaire à celui de l’exemple suivant et vous demandant d’approuver la requête. Si vous utilisez un filtre de courrier indésirable, ajoutez verification@digicert.com à sa liste verte. Si vous ne recevez pas d’e-mail dans les 24 heures, contactez le support Microsoft.
     
 ![E-mail de validation du domaine](./media/cdn-custom-ssl/domain-validation-email.png)
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b24888934d7e89a13b1b07b7138be476575fc306
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: c7781651536275eba60bfde49e00a450dde6d3e1
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204613"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68357029"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Didacticiel : Configurer la jointure hybride Azure Active Directory pour des domaines managés
 
@@ -143,7 +143,7 @@ Vous devez également activer **Autoriser les mises à jour de la barre d’éta
 
 ### <a name="configure-seamless-sso"></a>Configurer l’authentification unique fluide
 
-Pour effectuer correctement la jonction Azure AD Hybride de vos appareils Windows de niveau inférieur dans un domaine managé qui utilise [PHS]../hybrid/whatis-phs.md) ou [PTA](../hybrid/how-to-connect-pta.md) en tant que méthode d’authentification des services cloud Azure AD, vous devez également [configurer l’authentification unique fluide](../hybrid/how-to-connect-sso-quick-start.md#step-2-enable-the-feature).
+Pour effectuer correctement la jonction Azure AD Hybride de vos appareils Windows de niveau inférieur dans un domaine managé qui utilise [PHS](../hybrid/whatis-phs.md) ou [PTA](../hybrid/how-to-connect-pta.md) en tant que méthode d’authentification des services cloud Azure AD, vous devez également [configurer l’authentification unique fluide](../hybrid/how-to-connect-sso-quick-start.md#step-2-enable-the-feature).
 
 ### <a name="install-microsoft-workplace-join-for-windows-downlevel-computers"></a>Installer Microsoft Workplace Join pour des ordinateurs Windows de niveau inférieur
 

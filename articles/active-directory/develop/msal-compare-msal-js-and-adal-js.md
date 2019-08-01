@@ -17,12 +17,12 @@ ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 10b5169d3f06e265b3effa3ec18ad8e4f69959d3
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 328db116cebda5eb288f04cc89e2c85550c38083
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66121971"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68421189"
 ---
 # <a name="differences-between-msal-js-and-adal-js"></a>Différences entre MSAL JS et ADAL JS
 
@@ -59,9 +59,9 @@ Dans la version 2.0, l'utilisation de l'autorité `https://login.microsoftonlin
 
     Le protocole v2.0 utilise des étendues au lieu de ressources dans les demandes. En d'autres termes, lorsque votre application doit demander des jetons avec des autorisations pour une ressource telle que MS Graph, la différence en termes de valeurs transmises aux méthodes de bibliothèque est la suivante :
 
-    v1.0 : ressource =https://graph.microsoft.com
+    v1.0 : ressource = https\://graph.microsoft.com
 
-    v2.0 : étendue = https://graph.microsoft.com/User.Read
+    v2.0 : étendue = https\://graph.microsoft.com/User.Read
 
     Vous pouvez demander des étendues pour n'importe quelle API de ressources à l'aide de l'URI de l'API au format suivant : appidURI/scope Par exemple : https:\//mytenant.onmicrosoft.com/myapi/api.read
 
@@ -77,7 +77,7 @@ Dans la version 2.0, l'utilisation de l'autorité `https://login.microsoftonlin
 
 * Étendues dynamiques pour un consentement incrémentiel.
 
-    Lorsque vous génériez des applications à l'aide de la version 1.0, vous deviez enregistrer le jeu complet d'autorisations (étendues statiques) exigé par l'application pour que l'utilisateur donne son consentement au moment de la connexion. Dans la version 2.0, vous pouvez utiliser le paramètre scope pour demander les autorisations au moment où vous le souhaitez. C'est ce qu'on appelle des étendues dynamiques. Cela permet à l'utilisateur de fournir un consentement incrémentiel aux étendues. Par conséquent, si au début vous souhaitez juste que l'utilisateur se connecte à votre application et que vous n'avez besoin d'aucun type d'accès, c'est possible. Si, par la suite, vous devez avoir la possibilité de lire le calendrier de l'utilisateur, vous pouvez alors demander l'étendue de celui-ci dans les méthodes acquireToken et obtenir le consentement de l'utilisateur. Par exemple : 
+    Lorsque vous génériez des applications à l'aide de la version 1.0, vous deviez enregistrer le jeu complet d'autorisations (étendues statiques) exigé par l'application pour que l'utilisateur donne son consentement au moment de la connexion. Dans la version 2.0, vous pouvez utiliser le paramètre scope pour demander les autorisations au moment où vous le souhaitez. C'est ce qu'on appelle des étendues dynamiques. Cela permet à l'utilisateur de fournir un consentement incrémentiel aux étendues. Par conséquent, si au début vous souhaitez juste que l'utilisateur se connecte à votre application et que vous n'avez besoin d'aucun type d'accès, c'est possible. Si, par la suite, vous devez avoir la possibilité de lire le calendrier de l'utilisateur, vous pouvez alors demander l'étendue de celui-ci dans les méthodes acquireToken et obtenir le consentement de l'utilisateur. Par exemple :
 
     ```javascript
     var request = {
@@ -89,7 +89,7 @@ Dans la version 2.0, l'utilisation de l'autorité `https://login.microsoftonlin
 
 * Étendues pour les API V1.0
 
-    Lors de l'obtention de jetons à l'aide de MSAL.js pour les API V1.0, vous pouvez demander toutes les étendues statiques enregistrées sur l'API en ajoutant `.default` à l'URI de l'ID d'application de l'API en tant qu'étendue. Par exemple : 
+    Lors de l'obtention de jetons à l'aide de MSAL.js pour les API V1.0, vous pouvez demander toutes les étendues statiques enregistrées sur l'API en ajoutant `.default` à l'URI de l'ID d'application de l'API en tant qu'étendue. Par exemple :
 
     ```javascript
     var request = {

@@ -2,20 +2,20 @@
 title: 'Démarrage rapide : Effectuer un scale-out du calcul dans Azure SQL Data Warehouse - PowerShell | Microsoft Docs'
 description: Mettez à l’échelle le calcul dans Azure SQL Data Warehouse avec PowerShell. Montez en charge le calcul pour améliorer les performances, ou réduisez-le pour diminuer les coûts.
 services: sql-data-warehouse
-author: kevinvngo
+author: Antvgski
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: quickstart
-ms.subservice: manage
+ms.subservice: implement
 ms.date: 04/17/2018
-ms.author: kevin
+ms.author: Anthony.vanGemert
 ms.reviewer: igorstan
-ms.openlocfilehash: bd137b71cab4a345afce835effd2ecb0c03df312
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ddf33c927054512d1807d1c9e3429edaa5de25b9
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66167026"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479250"
 ---
 # <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-in-powershell"></a>Démarrage rapide : Mettre à l’échelle le calcul dans Azure SQL Data Warehouse avec PowerShell
 
@@ -68,10 +68,10 @@ Suivez ces étapes pour rechercher des informations sur l’emplacement de votre
 
 Dans SQL Data Warehouse, vous pouvez augmenter ou réduire les ressources de calcul en ajustant les unités Data Warehouse Unit. Le guide [Créer et connecter – Portail](create-data-warehouse-portal.md) a permis de créer **mySampleDataWarehouse** et de l’initialiser avec 400 DWU. Les étapes suivantes ajustent les DWU de **mySampleDataWarehouse**.
 
-Pour modifier les unités de l’entrepôt de données, utilisez la cmdlet PowerShell [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase). L’exemple suivant définit les unités de l’entrepôt de données sur DW300 pour la base de données **mySampleDataWarehouse** qui est hébergée dans le groupe de ressources **myResourceGroup** sur le serveur **mynewserver-20180430**.
+Pour modifier les unités de l’entrepôt de données, utilisez la cmdlet PowerShell [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase). L’exemple suivant définit les unités de l’entrepôt de données sur DW300c pour la base de données **mySampleDataWarehouse** qui est hébergée dans le groupe de ressources **myResourceGroup** sur le serveur **mynewserver-20180430**.
 
 ```Powershell
-Set-AzSqlDatabase -ResourceGroupName "myResourceGroup" -DatabaseName "mySampleDataWarehouse" -ServerName "mynewserver-20171113" -RequestedServiceObjectiveName "DW300"
+Set-AzSqlDatabase -ResourceGroupName "myResourceGroup" -DatabaseName "mySampleDataWarehouse" -ServerName "mynewserver-20171113" -RequestedServiceObjectiveName "DW300c"
 ```
 
 ## <a name="check-data-warehouse-state"></a>Vérifiez l’état de l’entrepôt de données
@@ -98,7 +98,7 @@ MaxSizeBytes                  : 263882790666240
 Status                        : Online
 CreationDate                  : 11/20/2017 9:18:12 PM
 CurrentServiceObjectiveId     : 284f1aff-fee7-4d3b-a211-5b8ebdd28fea
-CurrentServiceObjectiveName   : DW300
+CurrentServiceObjectiveName   : DW300c
 RequestedServiceObjectiveId   : 284f1aff-fee7-4d3b-a211-5b8ebdd28fea
 RequestedServiceObjectiveName :
 ElasticPoolName               :

@@ -10,24 +10,24 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.date: 05/08/2019
 ms.custom: mvc
-ms.openlocfilehash: 43133810c6f8b7cb9fdacb2503103e09f345acfc
-ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
+ms.openlocfilehash: 3da0e5bb9ecb8557ac8b51b3aa6faf60a52dddf9
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65551168"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68312117"
 ---
-# <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>Démarrage rapide : Exécuter une tâche Spark sur Azure Databricks à l'aide du portail Azure
+# <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>Démarrage rapide : Exécuter une tâche Spark sur Azure Databricks avec le portail Azure
 
-Ce guide de démarrage rapide montre comment créer un espace de travail Azure Databricks et un cluster Apache Spark au sein de cet espace de travail. Enfin, vous découvrirez comment exécuter un travail Spark sur le cluster Databricks. Pour plus d’informations sur Azure Databricks, consultez [Présentation d’Azure Databricks](what-is-azure-databricks.md)
+Dans ce guide de démarrage rapide, vous allez utiliser le portail Azure pour créer un espace de travail Azure Databricks avec un cluster Apache Spark. Vous exécutez un travail sur le cluster et utilisez des graphiques personnalisés pour produire des rapports en temps réel à partir de données de sécurité Boston.
 
-Dans le cadre du travail Spark de ce guide de démarrage rapide, vous allez analyser des données de sécurité Boston pour bénéficier d'un aperçu de différentes méthodes de création de rapports.
+## <a name="prerequisites"></a>Prérequis
 
-Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
+- Abonnement Azure : [créez-en un gratuitement](https://azure.microsoft.com/free/)
 
 ## <a name="sign-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
 
-Connectez-vous au [Portail Azure](https://portal.azure.com).
+Connectez-vous au [Portail Azure](https://portal.azure.com). Vous ne pouvez pas suivre ce tutoriel avec l’abonnement Essai gratuit Azure. Pour utiliser un compte gratuit pour créer le cluster Azure Databricks, avant de créer le cluster, accédez à votre profil et définissez votre abonnement sur **paiement à l’utilisation**. Pour plus d’informations, consultez la page [Compte Azure gratuit](https://azure.microsoft.com/free/).
 
 ## <a name="create-an-azure-databricks-workspace"></a>Créer un espace de travail Azure Databricks
 

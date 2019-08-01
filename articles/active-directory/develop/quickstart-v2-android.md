@@ -3,7 +3,7 @@ title: Guide de démarrage rapide Android pour la plateforme d’identités Micr
 description: Découvrez comment les applications Android peuvent appeler une API qui nécessite des jetons d’accès pour le point de terminaison de la plateforme d’identités Microsoft.
 services: active-directory
 documentationcenter: dev-center-name
-author: danieldobalian
+author: rwike77
 manager: CelesteDG
 editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/26/2019
+ms.date: 07/17/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 547eafac8cc1acf2b60416f93804e819a1c549b0
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 1c22d93d39f086aaa6e2f103d3becbe9376b49b0
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67702755"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68324543"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>Démarrage rapide : Connecter des utilisateurs et appeler l’API Microsoft Graph à partir d’une application Android
 
@@ -104,8 +104,10 @@ Ce démarrage rapide contient un exemple de code qui montre comment une applicat
 >          }
 >       ]
 >    }
-> 1. Inside **app** > **manifests**, open  **AndroidManifest.xml**.
-> 1. Paste the following activity to the **manifest\application** node: 
+>    ```
+> 
+> 1. Dans **app** > **manifests**, ouvrez a**AndroidManifest.xml**.
+> 1. Collez l’activité suivante au nœud **manifest\application** : 
 >    ```xml
 >    <!--Intent filter to catch Microsoft's callback after Sign In-->
 >    <activity
@@ -120,7 +122,11 @@ Ce démarrage rapide contient un exemple de code qui montre comment une applicat
 >        </intent-filter>
 >    </activity>
 >    ```
-> > 1. Exécutez l’application. 
+> 1. Exécutez l’application. 
+
+> [!div class="sxs-lookup" renderon="portal"]
+> > [!NOTE]
+> > Ce guide de démarrage rapide prend en charge Enter_the_Supported_Account_Info_Here.
 
 > [!div renderon="docs"]
 > 1. Extrayez et ouvrez le projet dans Android Studio.
@@ -247,3 +253,8 @@ En savoir plus sur la bibliothèque MSAL pour Android :
 > [Wiki de la bibliothèque MSAL pour Android](https://github.com/AzureAD/microsoft-authentication-library-for-android/wiki)
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+
+Aidez-nous à améliorer la plateforme des identités Microsoft. Faites-nous part de votre avis en répondant à une petite enquête de deux questions.
+
+> [!div class="nextstepaction"]
+> [Enquête sur la plateforme des identités Microsoft](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyKrNDMV_xBIiPGgSvnbQZdUQjFIUUFGUE1SMEVFTkdaVU5YT0EyOEtJVi4u)

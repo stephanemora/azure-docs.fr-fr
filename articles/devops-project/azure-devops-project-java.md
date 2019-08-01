@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Créer un pipeline CI/CD pour Java avec Azure DevOps Projects'
+title: 'Démarrage rapide : Créer un pipeline CI/CD pour Java - Azure DevOps Projects'
 description: DevOps Projects facilite la prise en main d’Azure. Ce composant vous aide à lancer une application sur le service Azure de votre choix en quelques étapes rapides.
 ms.prod: devops
 ms.technology: devops-cicd
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 07/09/2018
 ms.author: mlearned
-ms.custom: mvc
+ms.custom: mvc, seo-java-july2019
 monikerRange: vsts
-ms.openlocfilehash: 38be92a006ae6dbb7a550d2d91d886df820fb883
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 87090e205f4aa3e6b2886e6384921ddd46ea717d
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58093563"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68489511"
 ---
 # <a name="create-a-cicd-pipeline-for-java-with-azure-devops-projects"></a>Créer un pipeline CI/CD pour Java avec Azure DevOps Projects
 

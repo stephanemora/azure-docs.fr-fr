@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 906da7ac6b0086e4efca7c38171668a08f687d19
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: bd55abac534407facd0cb416012767b9f2e39fd8
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59995592"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68360015"
 ---
 # <a name="tutorial-stream-azure-active-directory-logs-to-an-azure-event-hub"></a>Didacticiel : Diffuser en continu des journaux Azure Active Directory sur un hub d’événements Azure
 
@@ -52,7 +52,7 @@ Pour utiliser cette fonctionnalité, vous avez besoin des éléments suivants :
 
       ![Paramètres d’exportation](./media/quickstart-azure-monitor-stream-logs-to-event-hub/ExportSettings.png)
 
-5. Cochez la case **Stream to an event hub (Diffuser sur un hub d’événements)**, puis cliquez sur **Event Hub/Configure (Hub d’événements/Configurer)**.
+5. Cochez la case **Stream to an event hub (Diffuser sur un hub d’événements)** , puis cliquez sur **Event Hub/Configure (Hub d’événements/Configurer)** .
 
 6. Sélectionnez un abonnement Azure et un espace de noms Event Hubs vers lequel acheminer les journaux d’activité.  
     L’abonnement et l’espace de noms Event Hubs doivent tous deux être associés au locataire Azure AD à partir duquel les journaux d’activité sont diffusés. Vous pouvez également spécifier un hub d’événements au sein de l’espace de noms Event Hubs vers lequel les journaux d’activité doivent être envoyés. Si aucun hub d’événements n’est spécifié, il sera créé dans l’espace de noms et aura pour nom par défaut **insights-logs-audit**.
@@ -76,6 +76,9 @@ Pour utiliser cette fonctionnalité, vous avez besoin des éléments suivants :
 Une fois que les données apparaissent dans le hub d’événements, vous pouvez y accéder et les lire de deux manières :
 
 * **Configurez un outil SIEM pris en charge**. Pour lire les données du hub d’événements, la plupart des outils nécessitent la chaîne de connexion du hub d’événements, ainsi que certaines autorisations de votre abonnement Azure. Voici une liste non exhaustive des outils tiers avec intégration Azure Monitor :
+    
+    * **ArcSight** : Pour plus d’informations sur l’intégration des journaux d’activité Azure AD à Splunk, consultez [Comment intégrer les journaux d’activité Azure AD à ArcSight à l’aide d’Azure Monitor](howto-integrate-activity-logs-with-arcsight.md).
+    
     * **Splunk** : pour plus d’informations sur l’intégration des journaux d’activité Azure AD à Splunk, consultez [Comment intégrer les journaux d’activité Azure AD à Splunk à l’aide d’Azure Monitor](tutorial-integrate-activity-logs-with-splunk.md).
     
     * **IBM QRadar** : vous pouvez télécharger le module DSM et le protocole Azure Event Hub depuis l’adresse du [service d’assistance d’IBM](https://www.ibm.com/support). Pour plus d’informations sur l’intégration avec Azure, accédez au site [IBM QRadar Security Intelligence Platform 7.3.0](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0).
@@ -87,6 +90,7 @@ Une fois que les données apparaissent dans le hub d’événements, vous pouvez
 
 ## <a name="next-steps"></a>Étapes suivantes
 
+* [Intégrer des journaux d’activité Azure Active Directory à ArcSight à l’aide d’Azure Monitor](howto-integrate-activity-logs-with-arcsight.md)
 * [Intégrer les journaux d’activité Azure AD à Splunk à l’aide d’Azure Monitor](tutorial-integrate-activity-logs-with-splunk.md)
 * [Intégrer des journaux Azure AD avec SumoLogic à l’aide d’Azure Monitor](howto-integrate-activity-logs-with-sumologic.md)
 * [Interpréter le schéma des journaux d’audit dans Azure Monitor](reference-azure-monitor-audit-log-schema.md)

@@ -3,17 +3,18 @@ title: Tutoriel - Tâches de conteneur à plusieurs étapes - Azure Container Re
 description: Dans ce tutoriel, vous allez découvrir comment configurer une tâche Azure Container Registry Task pour déclencher automatiquement un workflow à plusieurs étapes afin de créer, exécuter et envoyer (push) des images de conteneur dans le cloud lorsque vous validez le code source dans un référentiel Git.
 services: container-registry
 author: dlepow
+manager: gwallace
 ms.service: container-registry
 ms.topic: tutorial
 ms.date: 05/09/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 09b8e5d31bc6a4ec24633889920e2768bb7ce538
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: c78c2c8279972108aee12b9b386175d0f27b7fee
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65546553"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68310412"
 ---
 # <a name="tutorial-run-a-multi-step-container-workflow-in-the-cloud-when-you-commit-source-code"></a>Didacticiel : exécuter un workflow de conteneur à plusieurs étapes dans le cloud lorsque vous validez le code source
 
@@ -35,7 +36,7 @@ Pour suivre ce didacticiel, vous devez avoir déjà effectué les étapes du [di
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Si vous souhaitez utiliser l’interface Azure CLI en local, vous devez avoir installé la version **2.0.62** d’Azure CLI ou une version ultérieure et être connecté avec [az login][az-login]. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau l’interface CLI, consultez l’article [Installer Azure CLI 2.0][azure-cli].
+Si vous voulez utiliser l’interface Azure CLI en local, vous devez avoir installé la version **2.0.62** d’Azure CLI ou ultérieure, et être connecté avec [az login][az-login]. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau l’interface CLI, consultez l’article [Installer Azure CLI 2.0][azure-cli].
 
 [!INCLUDE [container-registry-task-tutorial-prereq.md](../../includes/container-registry-task-tutorial-prereq.md)]
 
@@ -79,7 +80,7 @@ GIT_USER=<github-username>      # Your GitHub user account name
 GIT_PAT=<personal-access-token> # The PAT you generated in the previous section
 ```
 
-Créez maintenant la tâche en exécutant la commande [az acr task create][az-acr-task-create] suivante :
+Maintenant, créez la tâche en exécutant la commande [az acr task create][az-acr-task-create] suivante :
 
 ```azurecli-interactive
 az acr task create \
@@ -93,7 +94,7 @@ az acr task create \
 
 Cette tâche spécifie que tout code temporel est validé dans la branche *maîtresse* du référentiel spécifié par `--context` et qu’ACR Tasks va exécuter la tâche à plusieurs étapes à partir du code de cette branche. Le fichier YAML spécifié par `--file` à la racine du référentiel définit les étapes. 
 
-La sortie d’une commande [az acr task create][az-acr-task-create] réussie se présente ainsi :
+La sortie d’une commande [az acr task create][az-acr-task-create] réussie se présente ainsi :
 
 ```console
 {
@@ -220,7 +221,7 @@ Run ID: cf19 was successful after 18s
 
 Maintenant que vous avez testé la tâche en l’exécutant manuellement, déclenchez-la automatiquement avec une modification du code source.
 
-Vérifiez tout d’abord que le répertoire contenant votre clone local du [référentiel][sample-repo] est actif :
+Vérifiez d’abord que vous êtes dans répertoire contenant votre clone local du [dépôt][sample-repo] :
 
 ```azurecli-interactive
 cd acr-build-helloworld-node
@@ -263,7 +264,7 @@ Run ID: cf1d was successful after 37s
 
 ## <a name="list-builds"></a>Répertorier les générations
 
-Pour afficher la liste des exécutions de tâche effectuées par ACR Tasks pour votre registre, exécutez la commande [az acr task list-runs][az-acr-task-list-runs] :
+Pour afficher la liste des exécutions de tâche effectuées par ACR Tasks pour votre registre, exécutez la commande [az acr task list-runs][az-acr-task-list-runs] :
 
 ```azurecli-interactive
 az acr task list-runs --registry $ACR_NAME --output table
@@ -323,7 +324,7 @@ Cette tâche à plusieurs étapes effectue ce qui suit :
 
 ### <a name="task-command"></a>Commande de la tâche
 
-À l'aide des variables d’environnement shell définies précédemment, créez la tâche en exécutant la commande suivante : [az acr tâche créer][az-acr-task-create]. Remplacez le nom de votre registre par *mycontainerregistrydate*.
+En utilisant les variables d’environnement shell définies précédemment, créez la tâche en exécutant la commande [az acr task create][az-acr-task-create] suivante. Remplacez le nom de votre registre par *mycontainerregistrydate*.
 
 ```azurecli-interactive
 az acr task create \
@@ -338,7 +339,7 @@ az acr task create \
 
 ### <a name="add-task-credential"></a>Ajouter les informations d’identification de la tâche
 
-Pour envoyer (push) les images dans le registre identifié par la valeur `regDate`, utilisez la commande [az acr task credential add][az-acr-task-credential-add] afin d'ajouter les informations d’identification de ce registre à la tâche.
+Pour envoyer (push) les images dans le registre identifié par la valeur `regDate`, utilisez la commande [az acr task credential add][az-acr-task-credential-add] afin d’ajouter les informations d’identification de ce registre à la tâche.
 
 Pour cet exemple, nous vous recommandons de créer un [principal de service](container-registry-auth-service-principal.md) avec accès au registre limité au rôle *AcrPush*. Pour créer le principal de service, consultez ce [script Azure CLI](https://github.com/Azure-Samples/azure-cli-samples/blob/master/container-registry/service-principal-create/service-principal-create.sh).
 
@@ -356,7 +357,7 @@ L’interface CLI renvoie le nom du serveur de connexion au registre que vous av
 
 ### <a name="test-the-multi-step-workflow"></a>Tester le workflow à plusieurs étapes
 
-Comme dans l'exemple précédent, pour tester la tâche à plusieurs étapes, déclenchez-la manuellement en exécutant la commande [az acr task run][az-acr-task-run]. Pour déclencher la tâche avec une validation au référentiel Git, consultez la section [Déclencher une génération avec une validation](#trigger-a-build-with-a-commit).
+Comme dans l’exemple précédent, pour tester la tâche à plusieurs étapes, déclenchez-la manuellement en exécutant la commande [az acr task run][az-acr-task-run]. Pour déclencher la tâche avec une validation au référentiel Git, consultez la section [Déclencher une génération avec une validation](#trigger-a-build-with-a-commit).
 
 ```azurecli-interactive
 az acr task run --registry $ACR_NAME --name example2

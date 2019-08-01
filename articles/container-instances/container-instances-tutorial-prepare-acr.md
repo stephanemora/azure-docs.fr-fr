@@ -3,17 +3,18 @@ title: Tutoriel - Préparer un registre de conteneurs pour Azure Container Insta
 description: Tutoriel Azure Container Instances (partie 2 sur 3) - Préparer un registre de conteneurs Azure et envoyer une image
 services: container-instances
 author: dlepow
+manager: gwallace
 ms.service: container-instances
 ms.topic: tutorial
 ms.date: 03/21/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: c1a4313f9a8174b9ea6e6cff694b9a0a9cf395d1
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: b3c907eacb14ed65410a60fcf22ebe99fd8cc3bb
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57538151"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325609"
 ---
 # <a name="tutorial-deploy-an-azure-container-registry-and-push-a-container-image"></a>Tutoriel : Déployer un registre de conteneurs Azure et envoyer une image conteneur
 
@@ -42,7 +43,7 @@ Créez un groupe de ressources avec la commande [az group create][az-group-creat
 az group create --name myResourceGroup --location eastus
 ```
 
-Une fois que vous avez créé le groupe de ressources, créez un registre de conteneurs Azure à l’aide de la commande [az acr create][az-acr-create]. Le nom du registre de conteneurs doit être unique dans Azure et contenir de 5 à 50 caractères alphanumériques. Remplacez `<acrName>` par un nom unique pour votre registre :
+Une fois que vous avez créé le groupe de ressources, créez un registre de conteneurs Azure avec la commande [az acr create][az-acr-create]. Le nom du registre de conteneurs doit être unique dans Azure et contenir de 5 à 50 caractères alphanumériques. Remplacez `<acrName>` par un nom unique pour votre registre :
 
 ```azurecli
 az acr create --resource-group myResourceGroup --name <acrName> --sku Basic --admin-enabled true
@@ -94,7 +95,7 @@ Login Succeeded
 
 Pour envoyer une image de conteneur sur un registre privé comme Azure Container Registry, vous devez d’abord étiqueter l’image avec le nom complet du serveur de connexion du registre.
 
-Tout d’abord, obtenez le nom complet du serveur de connexion pour votre registre de conteneurs Azure. Exécutez la commande [az acr show][az-acr-show] suivante et remplacez `<acrName>` par le nom du registre que vous venez de créer :
+Tout d’abord, obtenez le nom complet du serveur de connexion pour votre registre de conteneurs Azure. Exécutez la commande [az acr show][az-acr-show] suivante et remplacez `<acrName>` par le nom du registre que vous venez de créer :
 
 ```azurecli
 az acr show --name <acrName> --query loginServer --output table
@@ -109,7 +110,7 @@ Result
 mycontainerregistry082.azurecr.io
 ```
 
-Maintenant, affichez la liste de vos images locales avec la commande [images Docker][docker-images] :
+Maintenant, affichez la liste de vos images locales avec la commande [docker images][docker-images] :
 
 ```bash
 docker images
@@ -123,7 +124,7 @@ REPOSITORY          TAG       IMAGE ID        CREATED           SIZE
 aci-tutorial-app    latest    5c745774dfa9    39 minutes ago    68.1 MB
 ```
 
-Balisez l’image *aci-tutorial-app* à l’aide du loginServer de votre registre de conteneurs. Ajoutez également la balise `:v1` à la fin du nom d’image pour indiquer le numéro de version de l’image. Remplacez `<acrLoginServer>` par le résultat de la commande [az acr show][az-acr-show] que vous avez exécuté précédemment.
+Balisez l’image *aci-tutorial-app* à l’aide du loginServer de votre registre de conteneurs. Ajoutez également la balise `:v1` à la fin du nom d’image pour indiquer le numéro de version de l’image. Remplacez `<acrLoginServer>` par le résultat de la commande [az acr show][az-acr-show] que vous avez exécutée précédemment.
 
 ```bash
 docker tag aci-tutorial-app <acrLoginServer>/aci-tutorial-app:v1
@@ -140,7 +141,7 @@ mycontainerregistry082.azurecr.io/aci-tutorial-app    v1        5c745774dfa9    
 
 ## <a name="push-image-to-azure-container-registry"></a>Envoyer l’image à Azure Container Registry
 
-Maintenant que vous avez étiqueté l’image *aci-tutorial-app* avec le nom complet du serveur de connexion de votre registre privé, vous pouvez l’envoyer au registre avec la commande [docker push][docker-push]. Remplacez `<acrLoginServer>` par le nom complet du serveur de connexion que vous avez obtenu à l’étape précédente.
+Maintenant que vous avez étiqueté l’image *aci-tutorial-app* avec le nom complet du serveur de connexion de votre registre privé, vous pouvez l’envoyer (push) au registre avec la commande [docker push][docker-push]. Remplacez `<acrLoginServer>` par le nom complet du serveur de connexion que vous avez obtenu à l’étape précédente.
 
 ```bash
 docker push <acrLoginServer>/aci-tutorial-app:v1
@@ -162,13 +163,13 @@ v1: digest: sha256:ed67fff971da47175856505585dcd92d1270c3b37543e8afd46014d328f05
 
 ## <a name="list-images-in-azure-container-registry"></a>Énumérer les images dans Azure Container Registry
 
-Pour vérifier que l’image que vous venez d’envoyer est en effet dans le registre de conteneurs Azure, listez les images dans votre registre avec la commande [az acr repository list][az-acr-repository-list]. Remplacez `<acrName>` par le nom de votre registre de conteneurs.
+Pour vérifier que l’image que vous venez d’envoyer est bien dans le registre de conteneurs Azure, listez les images de votre registre avec la commande [az acr repository list][az-acr-repository-list]. Remplacez `<acrName>` par le nom de votre registre de conteneurs.
 
 ```azurecli
 az acr repository list --name <acrName> --output table
 ```
 
-Par exemple : 
+Par exemple :
 
 ```console
 $ az acr repository list --name mycontainerregistry082 --output table
@@ -177,7 +178,7 @@ Result
 aci-tutorial-app
 ```
 
-Pour afficher les *balises* d’une image spécifique, utilisez la commande [az acr repository show-tags][az-acr-repository-show-tags].
+Pour voir les *étiquettes* d’une image spécifique, utilisez la commande [az acr repository show-tags][az-acr-repository-show-tags].
 
 ```azurecli
 az acr repository show-tags --name <acrName> --repository aci-tutorial-app --output table

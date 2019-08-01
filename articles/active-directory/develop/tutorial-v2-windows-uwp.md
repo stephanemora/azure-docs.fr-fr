@@ -16,12 +16,12 @@ ms.date: 07/16/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ff2089e8abdde8e6a99de1be2be070fb457fa632
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: dae3f9f2f4a9f6966d3453123773887c244cf4e2
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68276638"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68334060"
 ---
 # <a name="call-microsoft-graph-api-from-a-universal-windows-platform-application-xaml"></a>Appeler l’API Microsoft Graph à partir d’une application de plateforme Windows universelle (XAML)
 
@@ -385,7 +385,7 @@ Des informations de base sur le jeton obtenu via `AcquireTokenInteractive` ou `A
 |Propriété  |Format  |Description |
 |---------|---------|---------|
 |**Nom d’utilisateur** |<span>user@domain.com</span> |Nom qui identifie l’utilisateur.|
-|**Token Expires** |Datetime |L’heure d’expiration du jeton. MSAL repousse la date d’expiration en renouvelant le jeton si nécessaire.|
+|**Token Expires** |DateTime |L’heure d’expiration du jeton. MSAL repousse la date d’expiration en renouvelant le jeton si nécessaire.|
 
 ### <a name="more-information-about-scopes-and-delegated-permissions"></a>Informations supplémentaires sur les étendues et les autorisations déléguées
 
@@ -419,3 +419,8 @@ Vous activez l’[authentification intégrée sur des domaines fédérés](#enab
 **Solution de contournement :** sélectionnez **Connexion avec d’autres options**, puis **Sign in with a username and password** (Se connecter avec un nom d’utilisateur et un mot de passe). Sélectionnez **Provide your password** (Indiquer votre mot de passe), puis passez au processus d’authentification par téléphone.
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+
+Aidez-nous à améliorer la plateforme d’identité Microsoft. Faites-nous part de votre avis en répondant à une petite enquête de deux questions.
+
+> [!div class="nextstepaction"]
+> [Enquête sur la plateforme d’identité Microsoft](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyKrNDMV_xBIiPGgSvnbQZdUQjFIUUFGUE1SMEVFTkdaVU5YT0EyOEtJVi4u)

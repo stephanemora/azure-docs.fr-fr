@@ -1,5 +1,5 @@
 ---
-title: Démarrage rapide avec Azure Application Insights | Microsoft Docs
+title: 'Démarrage rapide : Supervision des applications web Java'
 description: Fournit des instructions permettant de configurer rapidement une application web Java pour la supervision avec Application Insights
 services: application-insights
 keywords: ''
@@ -8,15 +8,15 @@ ms.author: mbullwin
 ms.reviewer: lagayhar
 ms.date: 07/15/2019
 ms.service: application-insights
-ms.custom: mvc
+ms.custom: mvc, seo-java-july2019
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: ef3c7668f1fb462b2d6a91cc90746437e74df51d
-ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
+ms.openlocfilehash: 160c0bd90e2e733cd2d57798c0e80f2df569cf0a
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67989888"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68489753"
 ---
 # <a name="start-monitoring-your-java-web-application"></a>Démarrer l’analyse de votre application web Java
 
@@ -56,7 +56,7 @@ Application Insights permet de recueillir les données de télémétrie à parti
    | ------------- |:-------------|:-----|
    | **Nom**      | Valeur globalement unique | Nom identifiant l’application que vous analysez |
    | **Groupe de ressources**     | myResourceGroup      | Nom du nouveau groupe de ressources pour héberger les données Application Insights |
-   | **Lieu** | USA Est | Choisissez un emplacement près de chez vous ou proche de l’endroit où votre application est hébergée |
+   | **Lieu** | East US | Choisissez un emplacement près de chez vous ou proche de l’endroit où votre application est hébergée |
 
 2. Cliquez sur **Créer**.
 

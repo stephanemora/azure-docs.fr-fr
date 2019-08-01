@@ -1,6 +1,6 @@
 ---
 title: Présentation de l’API Vision par ordinateur - Vision par ordinateur
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Le service Vision par ordinateur offre aux développeurs un accès à des algorithmes avancés pour le traitement d’images et le renvoi d’informations.
 services: cognitive-services
 author: PatrickFarley
@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 07/03/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: f92d8ce8e95962558b3bdb7b4a4d8fe70c725f46
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 4f823b62237e8018f092d7a94fb479f7fbdd38da
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67604495"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68565773"
 ---
 # <a name="what-is-computer-vision"></a>Qu’est-ce que le service Vision par ordinateur ?
 
@@ -65,7 +65,7 @@ Le service Vision par ordinateur peut analyser des images qui répondent aux exi
 - L’image doit être au format JPEG, PNG, GIF ou BMP
 - La taille de fichier de l’image doit être inférieure à 4 mégaoctets (Mo)
 - Les dimensions de l’image doivent être supérieures à 50 x 50 pixels
-  - Pour l’OCR, la taille de l’image doit être comprise entre 50 x 50 et 4200 x 4200 pixels
+  - Pour l’API Read, la taille de l’image doit être comprise entre 50 x 50 et 10 000 x 10 000 pixels.
 
 ## <a name="data-privacy-and-security"></a>Sécurité et confidentialité des données
 

@@ -1,5 +1,5 @@
 ---
-title: Générer une application monopage AngularJS pour la connexion à et la déconnexion d’Azure Active Directory | Microsoft Docs
+title: Générer une application monopage AngularJS pour la connexion et la déconnexion avec Azure AD | Microsoft Docs
 description: Découvrez comment générer une application monopage AngularJS qui s’intègre à Azure AD pour la connexion et appelle des API protégées par Azure AD à l’aide d’OAuth.
 services: active-directory
 documentationcenter: ''
@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1a1fdbcd04504181a20f5245b6f2378be5b9d405
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: 20c62d379006382d4208e4b111202581bc75454f
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66001208"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68380751"
 ---
 # <a name="quickstart-build-an-angularjs-single-page-app-for-sign-in-and-sign-out-with-azure-active-directory"></a>Démarrage rapide : Générer une application monopage AngularJS pour la connexion à et la déconnexion avec Azure Active Directory
 

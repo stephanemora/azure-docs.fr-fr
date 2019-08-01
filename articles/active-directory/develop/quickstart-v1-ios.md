@@ -1,5 +1,5 @@
 ---
-title: Générer une application iOS qui s’intègre avec Azure AD pour la connexion et appelle des API protégées en utilisant OAuth 2.0 | Microsoft Docs
+title: Créer une application iOS intégrée avec Azure AD pour la connexion à l’aide d’OAuth 2.0 | Microsoft Docs
 description: Découvrez comment connecter des utilisateurs et appeler l’API Microsoft Graph à partir d’une application iOS.
 services: active-directory
 documentationcenter: ios
@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: brandwe
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d6274557ede35d7640eba37e5777cb0cb67d459a
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: 8a82a7cad9b9176589824b6febb5cfdde89fce8a
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66497094"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68380879"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-app"></a>Démarrage rapide : Connecter des utilisateurs et appeler l’API Microsoft Graph à partir d’une application iOS
 

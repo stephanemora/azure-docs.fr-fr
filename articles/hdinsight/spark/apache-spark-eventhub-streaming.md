@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 05/24/2019
-ms.openlocfilehash: c8c99d976f416d0c1d07fb3a266d37ecd6235fdb
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: fef551c254eb4fa212333a55bde3d642645a16b6
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67295354"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68489803"
 ---
 # <a name="tutorial-process-tweets-using-azure-event-hubs-and-apache-spark-in-hdinsight"></a>Didacticiel : Traiter les tweets à l’aide d’Azure Event Hubs et d’Apache Spark dans HDInsight
 
@@ -48,7 +48,7 @@ Pour recevoir un flux de tweets, vous créez une application dans Twitter. Suive
     |---|---|
     |Nom|Indiquez le nom de l’application. La valeur utilisée pour ce tutoriel est **HDISparkStreamApp0423**. Ce nom doit être unique.|
     |Description|Entrez une brève description de l’application. La valeur utilisée pour ce tutoriel est **A simple HDInsight Spark streaming application** (Application de streaming HDInsight Spark simple).|
-    |Website|Indiquez le site web de l’application. Il n’est pas nécessaire que ce soit un site web valide.  La valeur utilisée pour ce tutoriel est **http://www.contoso.com** .|
+    |Website|Indiquez le site web de l’application. Il n’est pas nécessaire que ce soit un site web valide.  La valeur utilisée pour ce tutoriel est `http://www.contoso.com`.|
     |URL de rappel|Vous pouvez laisser cette valeur vide.|
 
 1. Sélectionnez **Yes, I have read and agree to the Twitter Developer Agreement** (Oui, j’ai lu et accepte le contrat de développement Twitter), puis sélectionnez **Create your Twitter application** (Créer votre application Twitter).
@@ -84,8 +84,8 @@ Ce hub d’événements vous permet de stocker des tweets.
     |---|---|
     |Nom|entrez un nom pour le hub d’événements.  La valeur utilisée pour ce tutoriel est **myeventhubns20180403**.|
     |Niveau tarifaire|Sélectionnez **Standard**.|
-    |Abonnement|Sélectionnez votre abonnement approprié.|
-    |Groupe de ressources|sélectionnez un groupe de ressources existant dans la liste déroulante ou sélectionnez **Créer** pour créer un groupe de ressources.|
+    |Subscription|Sélectionnez votre abonnement approprié.|
+    |Resource group|sélectionnez un groupe de ressources existant dans la liste déroulante ou sélectionnez **Créer** pour créer un groupe de ressources.|
     |Location|sélectionnez le même **emplacement** que celui de votre cluster Apache Spark dans HDInsight pour réduire la latence et les coûts.|
     |Activer la majoration automatique (facultatif) |L’augmentation automatique met automatiquement à l’échelle le nombre d’unités de débit affectées à votre espace de noms Event Hubs quand votre trafic dépasse la capacité des unités de débit qui lui sont assignées.  |
     |Augmentation automatique des unités de débit maximales (Facultatif)|Ce curseur ne s’affiche que si vous cochez **Activer l’augmentation automatique**.  |

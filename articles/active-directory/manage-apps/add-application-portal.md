@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 04/09/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3de6a2cbdfe7a6d006a3bbfab16792376eda0d07
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 466660a1e064ef41eb330b36107dbdcb1d097498
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67702533"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68477318"
 ---
 # <a name="quickstart-add-an-application-to-your-azure-active-directory-tenant"></a>Démarrage rapide : Ajouter une application à votre locataire Azure Active Directory
 
@@ -137,9 +137,8 @@ Pour utiliser un logo personnalisé :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce guide de démarrage rapide, vous avez appris à ajouter une application de la galerie à votre locataire Azure AD. Vous avez appris à modifier les propriétés d’une application.
+Maintenant que vous avez ajouté l’application à votre organisation Azure AD, [choisissez une méthode d’authentification unique](what-is-single-sign-on.md#choosing-a-single-sign-on-method) que vous voulez utiliser et reportez-vous à l’article approprié ci-dessous :
 
-Vous êtes maintenant prêt à configurer l’application pour une authentification unique.
-
-> [!div class="nextstepaction"]
-> [Configurer l’authentification unique](configure-single-sign-on-portal.md)
+- [Configurer l’authentification unique SAML](configure-single-sign-on-non-gallery-applications.md)
+- [Configurer l’authentification unique par mot de passe](configure-password-single-sign-on-non-gallery-applications.md)
+- [Configurer l’authentification liée](configure-linked-sign-on.md)

@@ -3,17 +3,18 @@ title: 'Didacticiel : automatiser la génération des images de conteneur - Azur
 description: Dans ce didacticiel, vous allez découvrir comment configurer une tâche Azure Container Registry Task pour déclencher automatiquement la génération des images de conteneur dans le cloud lorsque vous validez le code source dans un référentiel Git.
 services: container-registry
 author: dlepow
+manager: gwallace
 ms.service: container-registry
 ms.topic: tutorial
 ms.date: 05/04/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 7a9a1e3d3c92f43d19a75e7cd0e10b3fd395a9b5
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: ea3f4f295da747b3a53956c0888797a5f8607d6e
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65544987"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68310478"
 ---
 # <a name="tutorial-automate-container-image-builds-in-the-cloud-when-you-commit-source-code"></a>Didacticiel : automatiser la génération des images de conteneur dans le cloud lorsque vous validez le code source
 
@@ -33,7 +34,7 @@ Pour suivre ce didacticiel, vous devez avoir déjà effectué les étapes du [di
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Si vous souhaitez utiliser l’interface Azure CLI en local, vous devez avoir installé la version **2.0.46** d’Azure CLI ou une version ultérieure et être connecté avec [az login][az-login]. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau l’interface CLI, consultez l’article [Installer Azure CLI 2.0][azure-cli].
+Si vous voulez utiliser l’interface Azure CLI en local, vous devez avoir installé la version **2.0.46** d’Azure CLI ou une version ultérieure, et être connecté avec [az login][az-login]. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau l’interface CLI, consultez l’article [Installer Azure CLI 2.0][azure-cli].
 
 [!INCLUDE [container-registry-task-tutorial-prereq.md](../../includes/container-registry-task-tutorial-prereq.md)]
 
@@ -49,7 +50,7 @@ GIT_USER=<github-username>      # Your GitHub user account name
 GIT_PAT=<personal-access-token> # The PAT you generated in the previous section
 ```
 
-Créez maintenant la tâche en exécutant la commande [az acr task create][az-acr-task-create] suivante :
+Maintenant, créez la tâche en exécutant la commande [az acr task create][az-acr-task-create] suivante :
 
 ```azurecli-interactive
 az acr task create \
@@ -67,7 +68,7 @@ az acr task create \
 
 Cette tâche spécifie que tout code temporel est validé dans la branche *maîtresse* du référentiel spécifié par `--context` et qu’ACR Tasks va générer l’image conteneur à partir du code de cette branche. Le Dockerfile spécifié par `--file` à la racine du dépôt est utilisé pour générer l’image. L’argument `--image` spécifie une valeur paramétrable de `{{.Run.ID}}` pour la partie « version » de la balise de l’image, garantissant ainsi que l’image générée est en corrélation avec une build spécifique et qu’elle est référencée de façon unique.
 
-La sortie d’une commande [az acr task create][az-acr-task-create] réussie se présente ainsi :
+La sortie d’une commande [az acr task create][az-acr-task-create] réussie se présente ainsi :
 
 ```console
 {
@@ -128,7 +129,7 @@ La sortie d’une commande [az acr task create][az-acr-task-create] réussie se 
 
 ## <a name="test-the-build-task"></a>Tester la tâche de génération
 
-Vous disposez maintenant d’une tâche qui définit votre build. Pour tester le pipeline de build, déclenchez une génération manuellement en exécutant la commande [az acr task run][az-acr-task-run] :
+Vous disposez maintenant d’une tâche qui définit votre build. Pour tester le pipeline de build, déclenchez une build manuellement en exécutant la commande [az acr task run][az-acr-task-run] :
 
 ```azurecli-interactive
 az acr task run --registry $ACR_NAME --name taskhelloworld
@@ -208,7 +209,7 @@ Run ID: da2 was successful after 27s
 
 Maintenant que vous avez testé la tâche en l’exécutant manuellement, déclenchez-la automatiquement avec une modification du code source.
 
-Vérifiez tout d’abord que le répertoire contenant votre clone local du [référentiel][sample-repo] est actif :
+Vérifiez d’abord que vous êtes dans répertoire contenant votre clone local du [dépôt][sample-repo] :
 
 ```azurecli-interactive
 cd acr-build-helloworld-node
@@ -251,7 +252,7 @@ Run ID: da4 was successful after 38s
 
 ## <a name="list-builds"></a>Répertorier les générations
 
-Pour afficher la liste des exécutions de tâche effectuées par ACR Tasks pour votre registre, exécutez la commande [az acr task list-runs][az-acr-task-list-runs] :
+Pour afficher la liste des exécutions de tâche effectuées par ACR Tasks pour votre registre, exécutez la commande [az acr task list-runs][az-acr-task-list-runs] :
 
 ```azurecli-interactive
 az acr task list-runs --registry $ACR_NAME --output table

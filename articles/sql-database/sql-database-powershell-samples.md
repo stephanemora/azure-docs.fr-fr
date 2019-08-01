@@ -10,14 +10,13 @@ ms.topic: sample
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 03/25/2019
-ms.openlocfilehash: cee93538706b8a886e2468e8ef9bf0d9b504e2c6
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: c32803fec6107e39a0b8329adaee072e3e291575
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67696177"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567059"
 ---
 # <a name="azure-powershell-samples-for-azure-sql-database"></a>Exemples Azure PowerShell pour Azure SQL Database
 
@@ -40,6 +39,8 @@ Le tableau suivant comprend des liens vers des exemples de scripts Azure PowerS
 |**Configurer la géoréplication et le basculement**||
 | [Configurer et basculer une base de données unique à l’aide de la géoréplication active](scripts/sql-database-setup-geodr-and-failover-database-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Ce script PowerShell configure la géoréplication active pour une base de données Azure SQL unique et la fait basculer vers le réplica secondaire. |
 | [Configurer et basculer une base de données mise en pool à l’aide de la géoréplication active](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Ce script PowerShell configure la géoréplication active pour une base de données Azure SQL dans un pool élastique SQL et la fait basculer vers le réplica secondaire. |
+|**Configurer un groupe de basculement**||
+| [Configurer un groupe de basculement pour une seule base de données](scripts/sql-database-add-single-db-to-failover-group-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Ce script PowerShell crée une base de données et un groupe de basculement, ajoute la base de données au groupe de basculement et teste le basculement sur le serveur secondaire. | 
 |**Mettre à l’échelle une base de données unique et un pool élastique**||
 | [Mettre à l’échelle une base de données unique](scripts/sql-database-monitor-and-scale-database-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Ce script PowerShell surveille les mesures de performances d’une base de données Azure SQL, l’adapte à une taille de calcul supérieure et crée une règle d’alerte sur l’une des mesures de performances. |
 | [Mettre à l’échelle un pool élastique](scripts/sql-database-monitor-and-scale-pool-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Ce script PowerShell surveille les mesures de performances d’un pool élastique Azure SQL Database, l’adapte à une taille de calcul supérieure et crée une règle d’alerte sur l’une des mesures de performances. |

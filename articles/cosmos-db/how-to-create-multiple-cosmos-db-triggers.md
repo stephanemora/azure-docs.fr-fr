@@ -1,33 +1,33 @@
 ---
-title: Guide pratique pour créer plusieurs déclencheurs Azure Cosmos DB indépendants
-description: Découvrez comment configurer plusieurs déclencheurs Azure Cosmos DB indépendants pour créer des architectures Azure Functions basées sur les événements.
+title: Guide pratique pour créer plusieurs déclencheurs Azure Functions indépendants pour Cosmos DB
+description: Découvrez comment configurer plusieurs déclencheurs Azure Functions indépendants pour Cosmos DB afin de créer des architectures basées sur les événements.
 author: ealsur
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 05/23/2019
+ms.date: 07/17/2019
 ms.author: maquaran
-ms.openlocfilehash: 722da9f0112d63af52be8c9c3a746f6da9638bac
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 315ac1025a2b05ec7b16f7f0b14b66f224905d92
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66241946"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68335680"
 ---
-# <a name="create-multiple-azure-cosmos-db-triggers"></a>Créer plusieurs déclencheurs Azure Cosmos DB
+# <a name="create-multiple-azure-functions-triggers-for-cosmos-db"></a>Créer plusieurs déclencheurs Azure Functions pour Cosmos DB
 
-Cet article explique comment configurer plusieurs déclencheurs Cosmos DB fonctionnant en parallèle et réagissant de façon indépendante aux modifications.
+Cet article explique comment configurer plusieurs déclencheurs Azure Functions pour Cosmos DB fonctionnant en parallèle et réagissant de façon indépendante aux modifications.
 
-![Fonctions basées sur les événements serverless fonctionnant avec le déclencheur Azure Cosmos DB et partageant un conteneur de baux](./media/change-feed-functions/multi-trigger.png)
+![Fonctions basées sur les événements serverless fonctionnant avec le déclencheur Azure Functions pour Cosmos DB et partageant un conteneur de baux](./media/change-feed-functions/multi-trigger.png)
 
 ## <a name="event-based-architecture-requirements"></a>Exigences de l’architecture basée sur les événements
 
 Quand il s’agit de créer des architectures serverless avec [Azure Functions](../azure-functions/functions-overview.md), il est [recommandé](../azure-functions/functions-best-practices.md#avoid-long-running-functions) de créer un ensemble de petites fonctions qui fonctionnent bien ensemble plutôt que des fonctions volumineuses et durables.
 
-À mesure que vous créerez des flux serverless basés sur les événements à l’aide du [déclencheur Azure Cosmos DB](./change-feed-functions.md), le cas se présentera où vous voudrez faire plusieurs choses chaque fois qu’un nouvel événement se produit dans un [conteneur Azure Cosmos](./databases-containers-items.md#azure-cosmos-containers) déterminé. Si les actions que vous souhaitez déclencher sont indépendantes les unes des autres, la solution idéale consiste à **créer un déclencheur Cosmos DB par action**, chacun étant à l’écoute des modifications se produisant dans le même conteneur Azure Cosmos.
+À mesure que vous créerez des flux serverless basés sur les événements à l’aide du [déclencheur Azure Functions pour Cosmos DB](./change-feed-functions.md), le cas se présentera où vous voudrez faire plusieurs choses chaque fois qu’un nouvel événement se produit dans un [conteneur Azure Cosmos](./databases-containers-items.md#azure-cosmos-containers) déterminé. Si les actions que vous souhaitez déclencher sont indépendantes les unes des autres, la solution idéale consiste à **créer un déclencheur Azure Functions pour Cosmos DB par action**, chacun étant à l’écoute des modifications se produisant dans le même conteneur Azure Cosmos.
 
 ## <a name="optimizing-containers-for-multiple-triggers"></a>Optimisation des conteneurs pour plusieurs déclencheurs
 
-Compte tenu des *exigences* du déclencheur Cosmos DB, nous avons besoin d’un second conteneur pour stocker l’état, également appelé *conteneur de baux*. Cela veut-il dire que vous avez besoin d’un conteneur de baux distinct pour chaque fonction Azure ?
+Compte tenu des *exigences* du déclencheur Azure Functions pour Cosmos DB, nous avons besoin d’un second conteneur pour stocker l’état, également appelé *conteneur de baux*. Cela veut-il dire que vous avez besoin d’un conteneur de baux distinct pour chaque fonction Azure ?
 
 Ici, vous avez le choix entre deux options :
 
@@ -108,6 +108,6 @@ Et pour JavaScript, vous pouvez appliquer la configuration au fichier `function.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Consultez la configuration complète du [déclencheur Azure Cosmos DB](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---configuration)
+* Consultez la configuration complète du [déclencheur Azure Functions pour Cosmos DB](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---configuration).
 * Vérifiez la [liste d’exemples](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---example) étendue pour tous les langages.
 * Pour obtenir d’autres exemple, visitez les recettes serverless avec Azure Cosmos DB et Azure Functions sur le [dépôt GitHub](https://github.com/ealsur/serverless-recipes/tree/master/cosmosdbtriggerscenarios).

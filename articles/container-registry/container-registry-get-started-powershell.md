@@ -3,17 +3,18 @@ title: Démarrage rapide - Créer un registre Docker privé dans Azure - PowerSh
 description: Apprenez à créer rapidement un registre de conteneurs Docker privé dans Azure avec PowerShell.
 services: container-registry
 author: dlepow
+manager: gwallace
 ms.service: container-registry
 ms.topic: quickstart
 ms.date: 01/22/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 82771d005ce38972cdb1484a02e071a30e577a06
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f99b4ee6dd11a109d1c563c84debc2157cb03337
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66152163"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68309497"
 ---
 # <a name="quickstart-create-a-private-container-registry-using-azure-powershell"></a>Démarrage rapide : Créer un registre de conteneurs privé avec Azure PowerShell
 
@@ -25,7 +26,7 @@ Azure Container Registry est un service de registre de conteneurs Docker géré 
 
 Ce guide de démarrage rapide nécessite le module Azure PowerShell. Exécutez `Get-Module -ListAvailable Az` pour déterminer la version installée. Si vous devez installer ou mettre à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-az-ps).
 
-Docker doit également être installé en local. Docker fournit des packages pour [macOS][docker-mac], [Windows][docker-windows] et [Linux][docker-linux].
+Docker doit également être installé en local. Docker fournit des packages pour les systèmes [macOS][docker-mac], [Windows][docker-windows] et [Linux][docker-linux].
 
 Étant donné qu’Azure Cloud Shell n’inclut pas tous les composants Docker requis (par exemple, le démon `dockerd`), vous ne pouvez pas l’utiliser pour ce démarrage rapide.
 
@@ -65,7 +66,7 @@ Avant d’extraire et d’envoyer des images conteneurs, vous devez vous connect
 $creds = Get-AzContainerRegistryCredential -Registry $registry
 ```
 
-Ensuite, exécutez [connexion docker][docker-login] pour vous connecter :
+Ensuite, exécutez [docker login][docker-login] pour vous connecter :
 
 ```powershell
 $creds.Password | docker login $registry.LoginServer -u $creds.Username --password-stdin

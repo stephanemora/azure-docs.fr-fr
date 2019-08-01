@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 02/03/2019
-ms.openlocfilehash: 7a1132b5857cf6c54d0566ca29bb76ce1ef88513
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ad4706ce038feb316d238c1cabc12b27621c8085
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66150243"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68443332"
 ---
 # <a name="azure-cli-samples-for-azure-sql-database"></a>Exemples Azure CLI pour Azure SQL Database
 
@@ -41,6 +41,8 @@ Le tableau suivant comprend des liens vers des exemples de scripts Azure CLI po
 |**Mettre à l’échelle une base de données unique et un pool élastique**||
 | [Mettre à l’échelle une base de données unique](scripts/sql-database-monitor-and-scale-database-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Cet exemple de script CLI met à l’échelle une base de données Azure SQL vers une autre taille de calcul après avoir déterminé la taille de la base de données. |
 | [Mettre à l’échelle un pool élastique](scripts/sql-database-scale-pool-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Cet exemple de script CLI met à l’échelle un pool élastique SQL à une taille de calcul différente.  |
+|**Groupes de basculement**||
+| [Ajouter une base de données à un groupe de basculement](scripts/sql-database-add-single-db-to-failover-group-cli.md?toc=%2fcli%2fazure%2ftoc.json)| Ce script CLI crée une base de données et un groupe de basculement, ajoute la base de données au groupe de basculement et teste le basculement sur le serveur secondaire.|
 |||
 
 Découvrez-en plus sur l’[API de base de données unique Azure CLI ](sql-database-single-databases-manage.md#azure-cli-manage-sql-database-servers-and-single-databases).

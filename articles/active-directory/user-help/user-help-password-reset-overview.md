@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 05/15/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f1dae1b8577c4f90211c3b377dbf88efe6907326
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 66cb7218b5217565529e1e15d875c23dff10e06f
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66243884"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68382273"
 ---
 # <a name="reset-your-own-work-or-school-password-overview"></a>Vue d’ensemble de la réinitialisation d’un mot de passe professionnel ou scolaire
 
@@ -34,5 +34,5 @@ Pour obtenir des informations détaillées et des instructions sur l’inscripti
 
 |Article |Description |
 |------|------------|
-|[S’inscrire pour la réinitialisation du mot de passe en libre-service](active-directory-passwords-reset-register.md)| Instructions pour la vérification des méthodes d’authentification et l’inscription à la réinitialisation de mot de passe en libre-service de sorte à pouvoir réinitialiser votre mot de passe.|
-|[Réinitialiser votre mot de passe](user-help-reset-password.md)| Instructions pour la réinitialisation et le déverrouillage du mot de passe d’un compte professionnel ou scolaire.|
+| [S’inscrire pour la réinitialisation de mot de passe en libre-service](active-directory-passwords-reset-register.md) ] Instructions pour la vérification des méthodes d’authentification et l’inscription à la réinitialisation de mot de passe en libre-service afin de pouvoir réinitialiser votre mot de passe.|
+| [Réinitialiser votre mot de passe](user-help-reset-password.md) ] Instructions pour la réinitialisation et le déverrouillage du mot de passe d’un compte professionnel ou scolaire.|

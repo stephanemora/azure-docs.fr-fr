@@ -1,21 +1,21 @@
 ---
-title: 'Démarrage rapide : SDK Recherche d’entités Bing, Python'
-titlesuffix: Azure Cognitive Services
-description: Configuration de l’application console du Kit de développement logiciel (SDK) pour Recherche d’entités Bing.
+title: 'Démarrage rapide : Rechercher des entités avec le SDK Recherche d’entités Bing pour Python'
+titleSuffix: Azure Cognitive Services
+description: Utilisez ce guide de démarrage rapide pour rechercher des entités avec le SDK Recherche d’entités Bing pour Python.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
-ms.date: 02/01/2019
+ms.date: 07/24/2019
 ms.author: aahi
-ms.openlocfilehash: 9a66df03ceb03885ba5f61b4adeb54cb1876338d
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 0a4a4e3ce6f318a693b8ee760a0d892eaecb2c82
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65813609"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479015"
 ---
 # <a name="quickstart-bing-entity-search-sdk-with-python"></a>Démarrage rapide : SDK Recherche d’entités Bing avec Python
 
@@ -27,7 +27,7 @@ Utilisez ce guide de démarrage rapide pour commencer à rechercher des entités
 
 * [SDK Recherche d’entités Bing pour Python](https://pypi.org/project/azure-cognitiveservices-search-entitysearch/)
 
-Nous vous recommandons d’utiliser un environnement virtuel python. Vous pouvez installer et lancer un environnement virtuel avec le module venv. Vous pouvez installer virtualenv pour Python 2.7 avec :
+Nous vous recommandons d’utiliser un environnement virtuel python. Vous pouvez installer et lancer un environnement virtuel avec le module venv. Vous pouvez installer virtualenv avec :
 
 ```Console
 python -m venv mytestenv

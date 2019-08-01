@@ -14,26 +14,21 @@ ms.tgt_pltfrm: .NET Core
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: c42066b3ac02264ee357bac7ed3fdd360e9d5d4a
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: 99a42102b30c91b7f1bba06cfaae7662b408b784
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67798413"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68326571"
 ---
 # <a name="quickstart-create-a-net-core-app-with-app-configuration"></a>Démarrage rapide : Créer une application .NET Core avec App Configuration
 
-Azure App Configuration est un service de configuration managée dans Azure. Vous pouvez vous en servir pour stocker et gérer facilement tous les paramètres de votre application dans un seul endroit, indépendamment de votre code. Ce guide de démarrage rapide vous montre comment intégrer le service à une application console .NET Core.
-
-Vous pouvez utiliser l’éditeur de code de votre choix pour exécuter les étapes de ce guide de démarrage rapide. [Visual Studio Code](https://code.visualstudio.com/) est une excellente option disponible sur les plateformes Windows, macOS et Linux.
-
-![Démarrage rapide de l’exécution de l’application](./media/quickstarts/dotnet-core-app-run.png)
+Dans ce guide de démarrage rapide, vous intégrez Azure App Configuration dans une application console .NET Core pour centraliser le stockage et la gestion des paramètres d’application en dehors de votre code.
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour suivre ce guide de démarrage rapide, installez le [kit SDK .NET Core](https://dotnet.microsoft.com/download).
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+- Abonnement Azure : [créez-en un gratuitement](https://azure.microsoft.com/free/)
+- [Kit de développement logiciel (SDK) .NET Core](https://dotnet.microsoft.com/download)
 
 ## <a name="create-an-app-configuration-store"></a>Créer un magasin de configuration d’application
 

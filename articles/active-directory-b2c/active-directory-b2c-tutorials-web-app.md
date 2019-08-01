@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 041bcf32035ab6cdc3ee4df06050f75186759f5e
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: bcfd1ef02c68de7709cb8642b94f23a6884ea156
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67835649"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68464759"
 ---
 # <a name="tutorial-enable-authentication-in-a-web-application-using-azure-active-directory-b2c"></a>Didacticiel : Activer l’authentification dans une application web à l’aide d’Azure Active Directory B2C
 
@@ -64,8 +64,9 @@ L’exemple de solution contient les deux projets suivants :
 Vous devez modifier l’exemple pour qu’il utilise l’application qui est inscrite dans votre locataire, ce qui inclut l’ID d’application et la clé que vous avez enregistrés précédemment. Vous devez également configurer les flux d’utilisateur que vous avez créés. L’exemple définit les valeurs de configuration en tant que paramètres dans le fichier Web.config. Pour modifier les paramètres :
 
 1. Ouvrez la solution **B2C-WebAPI-DotNet** dans Visual Studio.
-2. Dans le projet **TaskWebApp**, ouvrez le fichier **Web.config**. Remplacez la valeur pour `ida:Tenant` avec le nom du locataire que vous avez créé. Remplacez la valeur pour `ida:ClientId` avec l’ID d’application que vous avez enregistré. Remplacez la valeur de `ida:ClientSecret` avec la clé que vous avez enregistrée.
+2. Dans le projet **TaskWebApp**, ouvrez le fichier **Web.config**. Remplacez la valeur pour `ida:Tenant` avec le nom du locataire que vous avez créé. Remplacez la valeur pour `ida:ClientId` avec l’ID d’application que vous avez enregistré. Remplacez la valeur de `ida:ClientSecret` avec la clé que vous avez enregistrée. Vous devez encoder le secret client au format XML avant de l’ajouter au fichier Web.config.
 3. Dans le fichier **Web.config**, remplacez la valeur pour `ida:SignUpSignInPolicyId` avec `b2c_1_signupsignin1`. Remplacez la valeur pour `ida:EditProfilePolicyId` avec `b2c_1_profileediting1`. Remplacez la valeur pour `ida:ResetPasswordPolicyId` avec `b2c_1_passwordreset1`.
+
 
 ## <a name="run-the-sample"></a>Exécution de l'exemple
 

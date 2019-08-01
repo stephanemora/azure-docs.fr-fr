@@ -1,109 +1,87 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à SAP Business Object Cloud | Microsoft Docs'
-description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et SAP Business Object Cloud.
+title: 'Didacticiel : Intégration d’Azure Active Directory à SAP Analytics Cloud | Microsoft Docs'
+description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et SAP Analytics Cloud.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
+manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 6c5e44f0-4e52-463f-b879-834d80a55cdf
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/31/2018
+ms.date: 07/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8ad2ffddf96aa6ecc886ac5653d2d0b8dcfb0856
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1fd01c86086c7491d22f655fcba5da237286412f
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67091711"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68347801"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-sap-business-object-cloud"></a>Didacticiel : Intégration d’Azure Active Directory à SAP Business Object Cloud
+# <a name="tutorial-integrate-sap-analytics-cloud-with-azure-active-directory"></a>Didacticiel : Intégrer SAP Analytics Cloud à Azure Active Directory
 
-L’objectif de ce didacticiel est de vous apprendre à intégrer SAP Business Object Cloud avec Azure Active Directory (Azure AD).
-Intégrer SAP Business Object Cloud avec Azure AD vous offre les avantages suivants :
+Dans ce tutoriel, vous découvrez comment intégrer SAP Analytics Cloud à Azure Active Directory (Azure AD). Quand vous intégrez SAP Analytics Cloud à Azure AD, vous pouvez :
 
-* Dans Azure AD, vous pouvez contrôler l’accès à SAP Business Object Cloud.
-* Vous pouvez permettre aux utilisateurs de se connecter automatiquement à SAP Business Object Cloud (par le biais de l’authentification unique) avec leur compte Azure AD.
-* Vous pouvez gérer vos comptes dans un emplacement central : le portail Azure
+* Contrôler dans Azure AD qui a accès à SAP Analytics Cloud.
+* Permettre à vos utilisateurs de se connecter automatiquement à SAP Analytics Cloud avec leur compte Azure AD.
+* Gérer vos comptes à un emplacement central : le Portail Azure.
 
-Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
+Pour en savoir plus sur l’intégration des applications SaaS à Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour configurer l’intégration d’Azure AD avec SAP Business Object Cloud, vous avez besoin des éléments suivants :
+Pour commencer, vous devez disposer de ce qui suit :
 
-* Un abonnement Azure AD Si vous n’avez pas d’environnement Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
-* Abonnement SAP Business Object Cloud pour lequel l’authentification unique est activée
+* Un abonnement Azure AD Si vous ne disposez d’aucun abonnement, vous pouvez obtenir [un compte gratuit](https://azure.microsoft.com/free/).
+* Un abonnement SAP Analytics Cloud pour lequel l’authentification unique est activée.
 
 ## <a name="scenario-description"></a>Description du scénario
 
-Dans ce didacticiel, vous configurez et testez l’authentification unique Azure AD dans un environnement de test.
+Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
-* SAP Business Object Cloud prend en charge l’authentification unique initiée par le **fournisseur de services**
+* SAP Analytics Cloud prend en charge l’authentification unique lancée par le **fournisseur de services**
 
-## <a name="adding-sap-business-object-cloud-from-the-gallery"></a>Ajouter SAP Business Object Cloud à partir de la galerie
+## <a name="adding-sap-analytics-cloud-from-the-gallery"></a>Ajout de SAP Analytics Cloud à partir de la galerie
 
-Pour configurer l’intégration de SAP Business Object Cloud à Azure AD, vous devez ajouter SAP Business Object Cloud, disponible dans la galerie, à votre liste d’applications SaaS gérées.
+Pour configurer l’intégration de SAP Analytics Cloud à Azure AD, vous devez ajouter SAP Analytics Cloud depuis la galerie à votre liste d’applications SaaS gérées.
 
-**Pour ajouter SAP Business Object Cloud à partir de la galerie, procédez comme suit :**
+1. Connectez-vous au [portail Azure](https://portal.azure.com) avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
+1. Dans le panneau de navigation gauche, sélectionnez le service **Azure Active Directory**.
+1. Accédez à **Applications d’entreprise**, puis sélectionnez **Toutes les applications**.
+1. Pour ajouter une nouvelle application, sélectionnez **Nouvelle application**.
+1. Dans la section **Ajouter à partir de la galerie**, tapez **SAP Analytics Cloud** dans la zone de recherche.
+1. Sélectionnez **SAP Analytics Cloud** dans le volet de résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
-
-    ![Bouton Azure Active Directory](common/select-azuread.png)
-
-2. Accédez à **Applications d’entreprise**, puis sélectionnez l’option **Toutes les applications**.
-
-    ![Panneau Applications d’entreprise](common/enterprise-applications.png)
-
-3. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
-
-    ![Bouton Nouvelle application](common/add-new-app.png)
-
-4. Dans la zone de recherche, tapez **SAP Business Object Cloud**, sélectionnez **SAP Business Object Cloud** dans le volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
-
-     ![SAP Business Object Cloud dans la liste des résultats](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurer et tester l’authentification unique Azure AD
 
-Dans cette section, vous allez configurer et tester l’authentification unique Azure AD avec SAP Business Object Cloud, grâce à un utilisateur de test appelé **Britta Simon**.
-Pour que l’authentification unique fonctionne, une relation entre un utilisateur Azure AD et l’utilisateur associé dans SAP Business Object Cloud doit être établie.
+Configurez et testez l’authentification unique Azure AD avec SAP Analytics Cloud avec un utilisateur de test appelé **B.Simon**. Pour que l’authentification unique fonctionne, vous devez établir un lien entre un utilisateur Azure AD et l’utilisateur SAP Analytics Cloud associé.
 
-Pour configurer et tester l’authentification unique Azure AD avec SAP Business Object Cloud, vous devez compléter les blocs de construction suivants :
+Pour configurer et tester l’authentification unique (SSO) Azure AD avec SAP Analytics Cloud, suivez les indications des sections ci-après :
 
-1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-2. **[Configurer l’authentification unique SAP Business Object Cloud](#configure-sap-business-object-cloud-single-sign-on)** pour configurer les paramètres de l’authentification unique côté application.
-3. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
-5. **[Créer un utilisateur de test SAP Business Object Cloud](#create-sap-business-object-cloud-test-user)** pour avoir un équivalent de Britta Simon dans SAP Business Object Cloud lié à la représentation d’un utilisateur Azure AD.
-6. **[Tester l’authentification unique](#test-single-sign-on)** : pour vérifier si la configuration fonctionne.
+1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-sso)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
+2. **[Configurer l’authentification unique SAP Analytics Cloud](#configure-sap-analytics-cloud-sso)**  : pour configurer les paramètres de l’authentification unique côté application.
+3. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec B. Simon.
+4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à B. Simon d’utiliser l’authentification unique Azure AD.
+5. **[Créer un utilisateur de test SAP Analytics Cloud](#create-sap-analytics-cloud-test-user)**  : pour avoir un équivalent de B.Simon dans SAP Analytics Cloud lié à la représentation Azure AD associée.
+6. **[Tester l’authentification unique](#test-sso)** pour vérifier si la configuration fonctionne.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD
+### <a name="configure-azure-ad-sso"></a>Configurer l’authentification unique Azure AD
 
-Dans cette section, vous activez l’authentification unique Azure AD dans le portail Azure.
+Effectuez les étapes suivantes pour activer l’authentification unique Azure AD dans le Portail Azure.
 
-Pour configurer l’authentification unique Azure AD avec SAP Business Object Cloud, effectuez les étapes suivantes :
+1. Dans le [portail Azure](https://portal.azure.com/), accédez à la page d’intégration de l’application **SAP Analytics Cloud**, recherchez la section **Gérer** et sélectionnez **Authentification unique**.
+1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
+1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de modification/stylet pour **Configuration SAML de base** afin de modifier les paramètres.
 
-1. Dans le [portail Azure](https://portal.azure.com/), dans la page d’intégration de l’application **SAP Business Object Cloud**, sélectionnez **Authentification unique**.
+   ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-    ![Lien Configurer l’authentification unique](common/select-sso.png)
-
-2. Dans la boîte de dialogue **Sélectionner une méthode d’authentification unique**, sélectionnez le mode **SAML/WS-Fed** afin d’activer l’authentification unique.
-
-    ![Mode de sélection de l’authentification unique](common/select-saml-option.png)
-
-3. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône **Modifier** pour ouvrir la boîte de dialogue **Configuration SAML de base**.
-
-    ![Modifier la configuration SAML de base](common/edit-urls.png)
-
-4. Dans la section **Configuration SAML de base**, effectuez les étapes suivantes :
-
-    ![Informations d’authentification unique dans la section Domaine et URL SAP Business Object Cloud](common/sp-identifier.png)
+1. Dans la section **Configuration SAML de base**, entrez les valeurs pour les champs suivants :
 
     a. Dans la zone de texte **URL de connexion**, entrez une URL au format suivant :
 
@@ -120,15 +98,19 @@ Pour configurer l’authentification unique Azure AD avec SAP Business Object
     | `<sub-domain>.sapanalytics.cloud` |
 
     > [!NOTE] 
-    > Les valeurs de ces URL servent uniquement à des fins de démonstration. Mettez à jour les valeurs avec les URL de connexion et de l’identificateur réels. Pour obtenir l’URL de connexion, contactez [l’équipe de support technique SAP Business Object Cloud Client](https://help.sap.com/viewer/product/SAP_BusinessObjects_Cloud/release/). Vous pouvez obtenir l’URL de l’identificateur en téléchargeant les métadonnées SAP Business Object Cloud depuis la console d’administration. Une explication sera fournie plus loin dans ce didacticiel.
+    > Les valeurs de ces URL servent uniquement à des fins de démonstration. Mettez à jour les valeurs avec les URL de connexion et de l’identificateur réels. Pour obtenir l’URL de connexion, contactez [l’équipe du support client SAP Analytics Cloud](https://help.sap.com/viewer/product/SAP_BusinessObjects_Cloud/release/). Vous pouvez obtenir l’URL de l’identificateur en téléchargeant les métadonnées de SAP Analytics Cloud depuis la console d’administration. Une explication sera fournie plus loin dans ce didacticiel.
 
-4. Sur la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le fichier **XML de métadonnées de fédération** en fonction des options définies selon vos besoins, puis enregistrez-le sur votre ordinateur.
+4. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **XML de métadonnées de fédération**, puis sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
 
     ![Lien Téléchargement de certificat](common/metadataxml.png)
 
-### <a name="configure-sap-business-object-cloud-single-sign-on"></a>Configurer l’authentification unique SAP Business Object Cloud
+6. Dans la section **Configurer SAP Analytics Cloud**, copiez la ou les URL appropriées en fonction de vos besoins.
 
-1. Dans une autre fenêtre du navigateur Web, ouvrez une session sur votre site d’entreprise SAP Business Object Cloud en tant qu’administrateur.
+    ![Copier les URL de configuration](common/copy-configuration-urls.png)
+
+### <a name="configure-sap-analytics-cloud-sso"></a>Configurer l’authentification unique SAP Analytics Cloud
+
+1. Dans une autre fenêtre du navigateur web, ouvrez une session sur votre site d’entreprise SAP Analytics Cloud en tant qu’administrateur.
 
 2. Sélectionnez **Menu** > **Système** > **Administration**.
     
@@ -150,7 +132,7 @@ Pour configurer l’authentification unique Azure AD avec SAP Business Object
 
     ![Sous Charger les métadonnées du fournisseur d’identité, sélectionnez Charger](./media/sapboc-tutorial/config5.png)
 
-7. Dans la liste **Attribut utilisateur**, sélectionnez l’attribut utilisateur (étape 3) que vous souhaitez utiliser pour votre mise en œuvre. Cet attribut utilisateur est mappé au fournisseur d’identité. Pour entrer un attribut personnalisé sur la page de l’utilisateur, utilisez l’option **Mappage SAML personnalisé**. Ou bien, vous pouvez sélectionner **E-mail** ou **ID UTILISATEUR** en tant qu’attribut utilisateur. Dans notre exemple, nous avons sélectionné **E-mail**, car nous avons mappé la revendication de l’identificateur d’utilisateur avec l’attribut **userprincipalname** dans la section **Attributs utilisateur et revendications** dans le portail Azure. Cela fournit un e-mail de l’utilisateur unique, qui est envoyé à l’application SAP Business Object Cloud dans chaque réponse SAML correcte.
+7. Dans la liste **Attribut utilisateur**, sélectionnez l’attribut utilisateur (étape 3) que vous souhaitez utiliser pour votre mise en œuvre. Cet attribut utilisateur est mappé au fournisseur d’identité. Pour entrer un attribut personnalisé sur la page de l’utilisateur, utilisez l’option **Mappage SAML personnalisé**. Ou bien, vous pouvez sélectionner **E-mail** ou **ID UTILISATEUR** en tant qu’attribut utilisateur. Dans notre exemple, nous avons sélectionné **E-mail**, car nous avons mappé la revendication de l’identificateur d’utilisateur avec l’attribut **userprincipalname** dans la section **Attributs utilisateur et revendications** dans le portail Azure. Ceci fournit un e-mail de l’utilisateur unique, qui est envoyé à l’application SAP Analytics Cloud dans chaque réponse SAML correcte.
 
     ![Sélectionner un attribut utilisateur](./media/sapboc-tutorial/config6.png)
 
@@ -162,64 +144,43 @@ Pour configurer l’authentification unique Azure AD avec SAP Business Object
 
     ![Icône Enregistrer](./media/sapboc-tutorial/save.png)
 
-### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD 
+### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
-L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure.
+Dans cette section, vous allez créer un utilisateur de test appelé B. Simon dans le portail Azure.
 
-1. Dans le volet gauche du portail Azure, sélectionnez **Azure Active Directory**, sélectionnez **Utilisateurs**, puis sélectionnez **Tous les utilisateurs**.
-
-    ![Liens « Utilisateurs et groupes » et « Tous les utilisateurs »](common/users.png)
-
-2. Sélectionnez **Nouvel utilisateur** dans la partie supérieure de l’écran.
-
-    ![Bouton Nouvel utilisateur](common/new-user.png)
-
-3. Dans les propriétés de l’utilisateur, effectuez les étapes suivantes.
-
-    ![Boîte de dialogue Utilisateur](common/user-properties.png)
-
-    a. Dans le champ **Nom**, entrez **BrittaSimon**.
-  
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotreentreprise.extension**.  
-    Par exemple, BrittaSimon@contoso.com
-
-    c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
-
-    d. Cliquez sur **Créer**.
+1. Dans le volet gauche du Portail Azure, sélectionnez **Azure Active Directory**, **Utilisateurs**, puis **Tous les utilisateurs**.
+1. Sélectionnez **Nouvel utilisateur** dans la partie supérieure de l’écran.
+1. Dans les propriétés **Utilisateur**, effectuez les étapes suivantes :
+   1. Dans le champ **Nom**, entrez `B.Simon`.  
+   1. Dans le champ **Nom de l’utilisateur**, entrez username@companydomain.extension. Par exemple : `B.Simon@contoso.com`.
+   1. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ **Mot de passe**.
+   1. Cliquez sur **Créer**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 
-Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentification unique Azure en lui accordant l’accès à SAP Business Object Cloud.
+Dans cette section, vous allez autoriser B.Simon à utiliser l’authentification unique Azure en lui accordant l’accès à SAP Analytics Cloud.
 
-1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, **Toutes les applications**, puis **SAP Business Object Cloud**.
+1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
+1. Dans la liste des applications, sélectionnez **SAP Analytics Cloud**.
+1. Dans la page de vue d’ensemble de l’application, recherchez la section **Gérer** et sélectionnez **Utilisateurs et groupes**.
 
-    ![Panneau Applications d’entreprise](common/enterprise-applications.png)
+   ![Lien « Utilisateurs et groupes »](common/users-groups-blade.png)
 
-2. Dans la liste des applications, sélectionnez **SAP Business Object Cloud**.
+1. Sélectionnez **Ajouter un utilisateur**, puis **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
 
-    ![Lien SAP Business Object Cloud dans la liste des applications](common/all-applications.png)
+    ![Lien Ajouter un utilisateur](common/add-assign-user.png)
 
-3. Dans le menu de gauche, sélectionnez **Utilisateurs et groupes**.
+1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **B. Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** au bas de l’écran.
+1. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle**, sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
+1. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
 
-    ![Lien « Utilisateurs et groupes »](common/users-groups-blade.png)
+### <a name="create-sap-analytics-cloud-test-user"></a>Créer un utilisateur de test SAP Analytics Cloud
 
-4. Cliquez sur le bouton **Ajouter un utilisateur**, puis sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
-
-    ![Volet Ajouter une attribution](common/add-assign-user.png)
-
-5. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
-
-6. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle**, sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
-
-7. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
-
-### <a name="create-sap-business-object-cloud-test-user"></a>Créer un utilisateur de test pour SAP Business Object Cloud
-
-Les utilisateurs Azure AD doivent être approvisionnés dans SAP Business Object Cloud avant de pouvoir se connecter à SAP Business Object Cloud. Dans SAP Business Object Cloud, l’approvisionnement est une tâche manuelle.
+Les utilisateurs Azure AD doivent être provisionnés dans SAP Analytics Cloud avant de pouvoir s’y connecter. Dans SAP Analytics Cloud, le provisionnement est une tâche manuelle.
 
 Pour approvisionner un compte d’utilisateur :
 
-1. Connectez-vous en tant qu’administrateur à votre site d’entreprise SAP Business Object Cloud.
+1. Connectez-vous en tant qu’administrateur à votre site d’entreprise SAP Analytics Cloud.
 
 2. Sélectionnez **Menu** > **Sécurité** > **Utilisateurs**.
 
@@ -231,27 +192,27 @@ Pour approvisionner un compte d’utilisateur :
 
     Effectuez ensuite les tâches suivantes :
 
-    a. Dans la boîte **ID UTILISATEUR**, entrez l’ID utilisateur de l’utilisateur, par exemple **Britta**.
+    a. Dans la zone **ID UTILISATEUR**, entrez l’ID utilisateur de l’utilisateur, par exemple **B**.
 
-    b. Dans la boîte **PRÉNOM**, entrez le prénom de l’utilisateur, par exemple **Britta**.
+    b. Dans la zone **PRÉNOM**, entrez le prénom de l’utilisateur, par exemple **B**.
 
     c. Dans la boîte **NOM**, entrez le prénom de l’utilisateur, par exemple **Simon**.
 
-    d. Dans la boîte **NOM COMPLET**, tapez le nom complet de l’utilisateur, par exemple **Britta Simon**.
+    d. Dans la zone **NOM D’AFFICHAGE**, entrez le nom complet de l’utilisateur, par exemple **B.Simon**.
 
-    e. Dans la zone de texte **E-mail**, entrez l’adresse e-mail de l’utilisateur, par exemple **brittasimon\@contoso.com**.
+    e. Dans la zone **E-MAIL**, entrez l’adresse e-mail de l’utilisateur, par exemple `b.simon@contoso.com`.
 
     f. Dans la page **Sélectionner des rôles**, sélectionnez le rôle approprié pour l’utilisateur, puis **OK**.
 
       ![Sélectionner un rôle](./media/sapboc-tutorial/user3.png)
 
-    g. Sélectionnez l’icône **Enregistrer**.    
+    g. Sélectionnez l’icône **Enregistrer**.
 
-### <a name="test-single-sign-on"></a>Tester l’authentification unique 
+### <a name="test-sso"></a>Tester l’authentification unique (SSO) 
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
-En cliquant sur la vignette SAP Business Object Cloud dans le panneau d’accès, vous êtes automatiquement connecté à l’application SAP Business Object Cloud pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Lorsque vous cliquez sur la vignette SAP Analytics Cloud dans le volet d’accès, vous devez être connecté automatiquement à l’application SAP Analytics Cloud pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

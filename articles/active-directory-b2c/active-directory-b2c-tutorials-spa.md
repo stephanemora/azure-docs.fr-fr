@@ -5,17 +5,17 @@ services: active-directory-b2c
 author: mmacy
 manager: celestedg
 ms.author: marsma
-ms.date: 07/08/2019
+ms.date: 07/24/2019
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 496cf801a44638af61306b43791abce9466e2cb2
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 6884cb7b10da3996977f2aea7693625bc45c3139
+ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67835689"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68369579"
 ---
 # <a name="tutorial-enable-authentication-in-a-single-page-application-using-azure-active-directory-b2c"></a>Didacticiel : Activer l’authentification dans une application monopage à l’aide d’Azure Active Directory B2C
 
@@ -41,7 +41,7 @@ Avant de poursuivre les étapes de ce tutoriel, vous devez disposer des ressourc
 De plus, vous devez disposer des éléments suivants dans votre environnement de développement local :
 
 * Éditeur de code, par exemple [Visual Studio Code](https://code.visualstudio.com/) ou [Visual Studio 2019](https://www.visualstudio.com/downloads/)
-* [Kit SDK .NET Core 2.0.0](https://www.microsoft.com/net/core) ou version ultérieure
+* [SDK .NET Core 2.2](https://dotnet.microsoft.com/download) ou ultérieur
 * [Node.JS](https://nodejs.org/en/download/)
 
 ## <a name="update-the-application"></a>Mettre à jour l’application
@@ -58,7 +58,7 @@ Au cours du deuxième tutoriel que vous avez effectué dans le cadre des préreq
 
 ## <a name="get-the-sample-code"></a>Obtention de l'exemple de code
 
-Dans ce tutoriel, vous configurez un exemple de code que vous téléchargez depuis GitHub. L’exemple montre comment une application monopage peut utiliser Azure AD B2C pour l’inscription et la connexion des utilisateurs, et pour appeler une API web protégée.
+Dans ce tutoriel, vous configurez un exemple de code que vous téléchargez depuis GitHub. L’exemple montre comment une application monopage peut utiliser Azure AD B2C pour l’inscription et la connexion des utilisateurs, et pour appeler une API web protégée.
 
 [Téléchargez un fichier zip ](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp/archive/master.zip) ou clonez l’exemple à partir de GitHub.
 
@@ -115,8 +115,8 @@ L’exemple prend en charge l’inscription et la connexion des utilisateurs, la
 
 ### <a name="sign-up-using-an-email-address"></a>S’inscrire au moyen d’une adresse e-mail
 
-1. Cliquez sur **Connexion** pour vous inscrire en tant qu’utilisateur de l’application. Cette méthode utilise le flux d’utilisateurs **B2C_1_signupsignin1** que vous avez spécifié au cours d’une étape antérieure.
-1. Azure AD B2C présente une page de connexion avec un lien pour l’abonnement. Si vous ne possédez pas encore de compte, cliquez sur le lien **Inscrivez-vous maintenant**.
+1. Cliquez sur **Connexion** pour démarrer le flux d’utilisateur *B2C_1_signupsignin1* que vous avez spécifié à l’étape précédente.
+1. Azure AD B2C présente une page de connexion avec un lien pour l’abonnement. Étant donné que vous n’avez pas encore de compte, cliquez sur le lien **Inscrivez-vous maintenant**.
 1. Le flux de travail d’abonnement présente une page pour collecter et vérifier l’identité de l’utilisateur à l’aide d’une adresse e-mail. Le flux de travail d’inscription collecte également le mot de passe et les attributs demandés, qui sont définis dans le flux d’utilisateur.
 
     Utilisez une adresse e-mail valide et validez à l’aide d’un code de vérification. Définissez un mot de passe. Entrez des valeurs pour les attributs requis.
@@ -133,11 +133,15 @@ Vous pouvez désormais utiliser votre adresse e-mail et votre mot de passe pour 
 
 Une fois que vous vous êtes connecté, l’application affiche une erreur indiquant une insuffisance d’autorisations. Cette erreur est **attendue** :
 
-`ServerError: AADB2C90205: This application does not have sufficient permissions against this web resource to perform the operation.`
+```Output
+ServerError: AADB2C90205: This application does not have sufficient permissions against this web resource to perform the operation.
+Correlation ID: ce15bbcc-0000-0000-0000-494a52e95cd7
+Timestamp: 2019-07-20 22:17:27Z
+```
 
-Vous recevez cette erreur, car vous tentez d’accéder à une ressource à partir de l’annuaire de démonstration, mais votre jeton d’accès est valide uniquement pour votre annuaire Azure AD. L’appel d’API n’est donc pas autorisé.
+Cette erreur s’affiche car l’application web tente d’accéder à une API web qui est protégée par l’annuaire de démonstration *fabrikamb2c*. Étant donné que votre jeton d’accès n’est valide que pour votre annuaire Azure AD, l’appel d’API n’est pas autorisé.
 
-Passez au tutoriel suivant de la série (consultez [Étapes suivantes](#next-steps)) afin de créer une API web protégée pour votre annuaire.
+Pour corriger cette erreur, passez au tutoriel suivant de la série (voir [Étapes suivantes](#next-steps)) afin de créer une API web protégée pour votre annuaire.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -151,4 +155,4 @@ Dans cet article, vous avez appris à effectuer les opérations suivantes :
 Passez maintenant au prochain tutoriel de la série pour octroyer l’accès à une API web protégée à partir de l’application SPA :
 
 > [!div class="nextstepaction"]
-> [Tutoriel : Accorder l’accès à une API web ASP.NET Core dans une application monopage à l’aide d’Azure Active Directory B2C](active-directory-b2c-tutorials-spa-webapi.md)
+> [Tutoriel : Accorder l’accès à une API web ASP.NET Core dans une application monopage à l’aide d’Azure Active Directory B2C >](active-directory-b2c-tutorials-spa-webapi.md)

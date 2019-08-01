@@ -6,16 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 04/16/2019
+ms.date: 07/23/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 70890dcd72cadc55e56410381a94ac071b248a91
-ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.openlocfilehash: 336cc7dae00d06e38e4be8671f1cb11ed73e5edc
+ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67147531"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68414645"
 ---
+::: zone target="docs"
+
 # <a name="tutorial-copy-data-to-azure-data-box-disk-and-verify"></a>Didacticiel : Copier des données sur Azure Data Box Disk et procéder à une vérification
 
 Ce didacticiel explique comment copier des données à partir de votre ordinateur hôte, puis générer les sommes de contrôle pour vérifier l’intégrité des données.
@@ -287,3 +289,43 @@ Passez au didacticiel suivant pour savoir comment renvoyer le disque Data Box et
 
 > [!div class="nextstepaction"]
 > [Envoyer votre Azure Data Box à Microsoft](./data-box-disk-deploy-picked-up.md)
+
+::: zone-end
+
+::: zone target="chromeless"
+
+## <a name="copy-data-to-disks"></a>Copier des données sur des disques
+
+Effectuez les étapes suivantes pour vous connecter et copier des données à partir de votre ordinateur vers le Data Box Disk.
+
+1. Affichez le contenu du disque déverrouillé. La liste des dossiers et sous-dossiers précréés sur le disque varie selon les options sélectionnées au moment de la commande Data Box Disk.
+2. Copiez les données dans des dossiers qui correspondent au format de données approprié. Par exemple, copiez les données non structurées dans le dossier *BlockBlob*, les données VHD ou VHDX dans le dossier *PageBlob* et les fichiers dans *AzureFile*. Si le format des données ne correspond pas au dossier (type de stockage), les données ne pourront pas être chargées vers Azure.
+
+    - Un conteneur est créé dans le compte de stockage Azure de chaque sous-dossier sous les dossiers BlockBlob et PageBlob. Tous les fichiers sous les dossiers *BlockBlob* et *PageBlob* sont copiés dans un conteneur par défaut $root dans le compte Stockage Azure. 
+    - Tous les fichiers présents dans le conteneur $root sont systématiquement chargés en tant qu’objets blob de blocs.
+    - Copiez les fichiers dans un sous-dossier du dossier *AzureFile*. Un sous-dossier dans le dossier *AzureFile* crée un partage de fichiers. Les fichiers copiés directement dans le dossier *AzureFile* échouent et sont chargés en tant qu’objets blob de blocs.
+    - Si les fichiers et les dossiers existent dans le répertoire racine, vous devez les déplacer vers un autre dossier avant de commencer à copier des données.
+    - Si votre commande comporte Disques managés comme l’une des destinations de stockage, consultez les conventions de nommage pour les [disques managés](data-box-disk-limits.md#managed-disk-naming-conventions).
+
+    > [!IMPORTANT]
+    > Tous les conteneurs, objets blob et fichiers doivent respecter les [conventions de nommage Azure](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions) et les [limites de taille d’objet Azure](data-box-disk-limits.md#azure-object-size-limits). Si ces règles ou limites ne sont pas respectées, le chargement des données vers Azure échoue.
+
+3. Utilisez la fonction glisser-déplacer avec l’Explorateur de fichiers ou n’importe quel outil de copie de fichier compatible SMB, comme Robocopy, pour copier vos données. Plusieurs travaux de copie peuvent être lancés simultanément à l’aide de la commande suivante :
+
+    ```
+    Robocopy <source> <destination>  * /MT:64 /E /R:1 /W:1 /NFL /NDL /FFT /Log:c:\RobocopyLog.txt
+    ```
+4. Ouvrez le dossier cible pour afficher et vérifier les fichiers copiés. Si vous rencontrez des erreurs au cours du processus de copie, téléchargez les fichiers journaux pour résoudre les problèmes. L’emplacement des fichiers journaux est spécifié dans la commande robocopy.
+
+Appliquez la procédure facultative de [fractionnement et copie](data-box-disk-deploy-copy-data.md#split-and-copy-data-to-disks) quand vous utilisez plusieurs disques et que vous disposez d’un jeu de données volumineux qui doit être fractionné et copié sur la totalité des disques.
+
+## <a name="validate-data"></a>Valider les données
+
+Effectuez les étapes suivantes pour vérifier vos données.
+
+1. Exécutez le fichier `DataBoxDiskValidation.cmd` pour la validation des sommes de contrôle dans le dossier *DataBoxDiskImport* de votre lecteur.
+2. Utilisez l’option 2 pour valider vos fichiers et générer des sommes de contrôle. Selon la taille de vos données, cette étape peut prendre un certain temps. Si des erreurs se produisent pendant la validation et la génération des sommes de contrôle, vous en êtes averti, et un lien d’accès aux journaux d’activité des erreurs vous est également fourni.
+
+    Si vous constatez des erreurs lors de la validation, consultez [Résoudre les erreurs de validation](data-box-disk-troubleshoot.md).
+
+::: zone-end

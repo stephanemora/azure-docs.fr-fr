@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 07/09/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 2554501ecf6d4ef115e3283fa635c24510b8c797
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 728bf785edebcd17599b6a56edea1e26ed2d2fbc
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68249584"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68311788"
 ---
 # <a name="migrate-physical-or-virtualized-servers-to-azure"></a>Migrer des serveurs physiques ou virtualisés vers Azure 
 
@@ -214,7 +214,7 @@ Vous devez installer l’agent Mobility Service sur les machines qui feront l’
 4. Copiez le fichier du programme d’installation sur la machine qui doit faire l’objet d’une migration.
 5. Vérifiez que vous disposez de la phrase secrète qui a été générée lorsque vous avez déployé l’appliance.
     - Stockez le fichier dans un fichier texte temporaire sur la machine.
-    - Vous pouvez obtenir la phrase secrète dans l’appliance de réplication. Sur la ligne de commande, exécutez **C:\ProgramData\ASR\svsystems\bin\genpassphrase.exe -v** pour afficher la phrase secrète.
+    - Vous pouvez obtenir la phrase secrète dans l’appliance de réplication. Sur la ligne de commande, exécutez **C:\ProgramData\ASR\home\svsystems\bin\genpassphrase.exe -v** pour afficher la phrase secrète.
     - Ne regénérez pas la phrase secrète. Si vous la regénérez, la connectivité sera perdue et vous devrez réinscrire l’appliance de réplication.
 
 
@@ -283,10 +283,10 @@ Vous devez installer l’agent Mobility Service sur les machines qui feront l’
 
     ![Paramètres de la cible](./media/tutorial-migrate-physical-virtual-machines/target-settings.png)
 
-12. Dans **Compute**, vérifiez le nom de la machine virtuelle, sa taille, le type de disque du système d’exploitation et le groupe à haute disponibilité. La machine virtuelle doit satisfaire aux [exigences d’Azure](migrate-support-matrix-vmware.md#azure-vm-requirements).
+12. Dans **Capacité de calcul**, vérifiez le nom, la taille, le type de disque du système d’exploitation et le groupe à haute disponibilité de la machine virtuelle. Les machines virtuelles doivent satisfaire aux [exigences d’Azure](migrate-support-matrix-vmware.md#azure-vm-requirements).
 
     - **Taille de la machine virtuelle** : par défaut, Azure Migrate Server Migration choisit une taille qui correspond à la taille la plus proche dans l’abonnement Azure. Vous pouvez également choisir une taille manuelle dans **Taille de la machine virtuelle Azure**. 
-    - **Disque de système d’exploitation** : spécifiez le disque de système d’exploitation (démarrage) pour la machine virtuelle. Le disque du système d’exploitation contient le chargeur et le programme d’installation du système d’exploitation. 
+    - **Disque de système d’exploitation** : spécifiez le disque du système d’exploitation (démarrage) pour la machine virtuelle. Le disque du système d’exploitation est le disque qui contient le chargeur de démarrage et le programme d’installation du système d’exploitation. 
     - **Groupe à haute disponibilité** : si la machine virtuelle doit se trouver dans un groupe à haute disponibilité Azure après la migration, spécifiez-le ici. Ce groupe doit figurer dans le groupe de ressources cible que vous spécifiez pour la migration.
 
     ![Paramètres de capacité de calcul](./media/tutorial-migrate-physical-virtual-machines/compute-settings.png)
@@ -308,7 +308,7 @@ Vous devez installer l’agent Mobility Service sur les machines qui feront l’
 ## <a name="track-and-monitor"></a>Suivre et superviser
 
 - Quand vous cliquez sur **Répliquer**, un travail Démarrer la réplication commence. 
-- Une fois ce travail terminé, les machines commencent leur réplication initiale vers Azure.
+- Une fois le travail Démarrer la réplication terminé, les machines commencent leur réplication initiale vers Azure.
 - Au terme de la réplication initiale, la réplication différentielle commence. Les modifications incrémentielles apportées aux disques locaux sont répliquées régulièrement sur les disques de réplica dans Azure.
 
 
@@ -320,24 +320,24 @@ Vous pouvez superviser l’état de la réplication en cliquant sur **Réplicati
 ## <a name="run-a-test-migration"></a>Exécuter un test de migration
 
 
-Quand la réplication différentielle commence, vous pouvez exécuter un test de migration avec les machines virtuelles avant d’exécuter une migration complète vers Azure. Avant la migration, nous vous recommandons vivement d’effectuer cette opération au moins une fois pour chaque machine.
+Quand la réplication différentielle commence, vous pouvez exécuter une migration de test avec les machines virtuelles avant d’exécuter une migration complète vers Azure. Avant la migration, nous vous recommandons vivement d’effectuer cette opération au moins une fois pour chaque machine.
 
-- L’exécution d’un test de migration permet de vérifier que la migration fonctionne comme prévu, sans impact sur les machines locales qui restent opérationnelles durant la réplication. 
-- Un test de migration simule la migration en créant une machine virtuelle Azure à l’aide de données répliquées (il s’agit en général d’une migration vers un réseau virtuel hors production dans votre abonnement Azure).
-- Vous pouvez utiliser la machine virtuelle Azure de test répliquée pour valider la migration, tester les applications et résoudre les éventuels problèmes avant la migration complète.
+- L’exécution d’une migration de test permet de vérifier que la migration fonctionne comme prévu, sans impact sur les machines locales qui restent opérationnelles et poursuivent la réplication. 
+- Une migration de test simule la migration en créant une machine virtuelle Azure à l’aide de données répliquées (il s’agit en général d’une migration vers un réseau virtuel hors production dans votre abonnement Azure).
+- Vous pouvez utiliser la machine virtuelle Azure de test répliquée pour valider la migration, effectuer des tests d’applications et résoudre les éventuels problèmes avant la migration complète.
 
-Effectuez un test de migration de la façon suivante :
+Effectuez une migration de test de la façon suivante :
 
 
 1. Dans **Objectifs de migration** > **Serveurs** > **Azure Migrate : Server Migration**, cliquez sur **Tester les serveurs migrés**.
 
      ![Tester les serveurs migrés](./media/tutorial-migrate-physical-virtual-machines/test-migrated-servers.png)
 
-2. Cliquez avec le bouton droit sur la machine virtuelle à tester, puis cliquez sur **Test de migration**.
+2. Cliquez avec le bouton droit sur la machine virtuelle à tester, puis cliquez sur **Migration de test**.
 
     ![Migration de test](./media/tutorial-migrate-physical-virtual-machines/test-migrate.png)
 
-3. Dans **Migration de test**, sélectionnez le réseau virtuel Azure dans lequel la machine virtuelle Azure se trouvera après la migration. Nous vous recommandons d’utiliser un réseau virtuel hors production.
+3. Dans **Migration de test**, sélectionnez le réseau virtuel Azure dans lequel la machine virtuelle Azure se trouvera après la migration. Nous vous recommandons d’utiliser un réseau virtuel hors production.
 4. Le travail **Migration de test** démarre. Supervisez le travail dans les notifications du portail.
 5. Une fois la migration terminée, affichez la machine virtuelle Azure migrée dans **Machines virtuelles** dans le portail Azure. Le nom de la machine a le suffixe **-Test**.
 6. Une fois le test terminé, cliquez avec le bouton droit sur la machine virtuelle Azure dans **Réplication des machines**, puis cliquez sur **Nettoyer la migration de test**.
@@ -355,15 +355,15 @@ Après avoir vérifié que la migration de test fonctionne comme prévu, vous po
 
 2. Dans **Réplication des machines**, cliquez avec le bouton droit sur la machine virtuelle > **Migrer**.
 3. Dans **Migrer** > **Arrêter les machines virtuelles et effectuer une migration planifiée sans perte de données**, sélectionnez **Oui** > **OK**.
-    - Par défaut, Azure Migrate arrête la machine virtuelle locale et exécute une réplication à la demande pour synchroniser toute modification apportée à la machine virtuelle depuis la dernière réplication. Cela permet d’éviter toute perte de données.
+    - Par défaut, Azure Migrate arrête la machine virtuelle locale et exécute une réplication à la demande pour synchroniser tout changement apporté à la machine virtuelle depuis la dernière réplication. Cela permet d’éviter toute perte de données.
     - Si vous ne souhaitez pas arrêter la machine virtuelle, sélectionnez **Non**.
 4. Un travail de migration démarre pour la machine virtuelle. Suivez le travail dans les notifications Azure.
 5. Une fois le travail terminé, vous pouvez afficher et gérer la machine virtuelle à partir de la page **Machines virtuelles**.
 
 ## <a name="complete-the-migration"></a>Effectuer la migration
 
-1. Une fois la migration terminée, cliquez avec le bouton droit sur la machine virtuelle > **Arrêter la migration**. Cette action arrête la réplication pour la machine locale et nettoie les informations d’état de la réplication pour la machine virtuelle.
-2. Installez l’agent de machine virtuelle Azure pour [Windows](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) ou [Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux) sur les machines migrées.
+1. Une fois la migration terminée, cliquez avec le bouton droit sur la machine virtuelle > **Arrêter la migration**. Cette action arrête la réplication pour la machine locale et nettoie les informations d’état de la réplication de la machine virtuelle.
+2. Installez l’agent [Windows](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) ou [Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux) de machine virtuelle Azure sur les machines migrées.
 3. Effectuez les éventuels ajustements post-migration de l’application, comme la mise à jour des chaînes de connexion de base de données et les configurations du serveur web.
 4. Effectuez les tests finaux de réception de l’application et de la migration sur l’application migrée qui s’exécute maintenant dans Azure.
 5. Réduisez le trafic vers l’instance de machine virtuelle Azure migrée.
@@ -387,4 +387,4 @@ Après avoir vérifié que la migration de test fonctionne comme prévu, vous po
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Prenez connaissance du [parcours de migration dans le cloud](https://docs.microsoft.com/azure/architecture/cloud-adoption/getting-started/migrate) dans le Framework d’adoption du cloud.
+Examinez le [parcours de migration cloud](https://docs.microsoft.com/azure/architecture/cloud-adoption/getting-started/migrate) dans le framework d’adoption du cloud Azure.

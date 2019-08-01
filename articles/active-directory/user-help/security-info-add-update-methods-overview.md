@@ -12,34 +12,37 @@ ms.topic: overview
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 115354985284b090fef890068ade6ddaf5867f04
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 3bcef64c8bf8c2b52e5cc5d954de933d830ba4c1
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56457802"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68382891"
 ---
 # <a name="overview-about-changing-your-security-info-preview-methods-and-information"></a>Vue d’ensemble du changement des méthodes et données relatives aux informations de sécurité (préversion)
+
 Vous pouvez ajouter, modifier, supprimer et changer la méthode de vérification des informations de sécurité par défaut dans les pages **Informations de sécurité**. Pour plus de détails sur chaque méthode et sur la façon de changer vos informations, consultez l’article de procédure associé.
 
 ## <a name="two-factor-verification-versus-password-reset-authentication"></a>Vérification à deux facteurs et réinitialisation de mot de passe
+
 Les méthodes relatives aux informations de sécurité sont utilisées pour la vérification à deux facteurs et la réinitialisation de mot de passe. Toutefois, ces techniques d’authentification ne prennent pas en charge toutes les méthodes.
 
-|Méthode|Utilisé pour|
-|------|--------|
-|Application Authenticator|Vérification à deux facteurs et réinitialisation de mot de passe.|
-|SMS|Vérification à deux facteurs et réinitialisation de mot de passe.|
-|Appels téléphoniques|Vérification à deux facteurs et réinitialisation de mot de passe.|
-|Compte e-mail|Authentification par réinitialisation de mot de passe uniquement. Vous devez choisir une autre méthode pour la vérification à deux facteurs.|
-|Questions de sécurité|Authentification par réinitialisation de mot de passe uniquement. Vous devez choisir une autre méthode pour la vérification à deux facteurs.|
+| Méthode | Utilisé pour |
+| ------ | -------- |
+| Application Authenticator | Vérification à deux facteurs et réinitialisation de mot de passe. |
+| SMS | Vérification à deux facteurs et réinitialisation de mot de passe. |
+| Appels téléphoniques | Vérification à deux facteurs et réinitialisation de mot de passe. |
+| Compte e-mail | Authentification par réinitialisation de mot de passe uniquement. Vous devez choisir une autre méthode pour la vérification à deux facteurs. |
+| Questions de sécurité | Authentification par réinitialisation de mot de passe uniquement. Vous devez choisir une autre méthode pour la vérification à deux facteurs. |
 
 ## <a name="method-based-how-to-articles"></a>Articles de procédure fondés sur une méthode
+
 Cette liste répertorie les articles fondés sur une méthode. Chaque article explique en détail comment ajouter, modifier, supprimer ou changer vos informations de sécurité en fonction de la méthode spécifiée.
 
-|Article |Description |
-|------|------------|
-|[Configurer les informations de sécurité pour utiliser une application d’authentification](security-info-setup-auth-app.md)|Décrit comment modifier votre méthode de vérification des informations de sécurité pour l’application Microsoft Authenticator.|
-|[Configurer les informations de sécurité pour utiliser des SMS](security-info-setup-text-msg.md)|Décrit comment modifier votre méthode de vérification des informations de sécurité pour utiliser des SMS.|
-|[Configurer les informations de sécurité pour utiliser un appel téléphonique](security-info-setup-phone-number.md)|Décrit comment modifier votre méthode de vérification des informations de sécurité pour utiliser des appels téléphoniques.|
-|[Configurer les informations de sécurité pour utiliser l’e-mail](security-info-setup-email.md)|Décrit comment modifier votre méthode de vérification des informations de sécurité pour utiliser une adresse e-mail.|
-|[Set up security info to use pre-defined security questions](security-info-setup-questions.md) (Configurer les informations de sécurité pour utiliser les questions de sécurité prédéfinis)|Décrit comment modifier votre méthode de vérification des informations de sécurité pour utiliser des questions de sécurité.|
+| Article | Description |
+| ------ |------------ |
+| [Configurer les informations de sécurité pour utiliser une application d’authentification](security-info-setup-auth-app.md) | Décrit comment modifier votre méthode de vérification des informations de sécurité pour l’application Microsoft Authenticator. |
+| [Configurer les informations de sécurité pour utiliser des SMS](security-info-setup-text-msg.md) | Décrit comment modifier votre méthode de vérification des informations de sécurité pour utiliser des SMS. |
+| [Configurer les informations de sécurité pour utiliser un appel téléphonique](security-info-setup-phone-number.md) | Décrit comment modifier votre méthode de vérification des informations de sécurité pour utiliser des appels téléphoniques. |
+| [Configurer les informations de sécurité pour utiliser l’e-mail](security-info-setup-email.md) | Décrit comment modifier votre méthode de vérification des informations de sécurité pour utiliser une adresse e-mail. |
+| [Set up security info to use pre-defined security questions](security-info-setup-questions.md) (Configurer les informations de sécurité pour utiliser les questions de sécurité prédéfinis)|Décrit comment modifier votre méthode de vérification des informations de sécurité pour utiliser des questions de sécurité. |

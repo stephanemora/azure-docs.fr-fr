@@ -14,26 +14,23 @@ ms.tgt_pltfrm: ASP.NET Core
 ms.workload: tbd
 ms.date: 04/19/2019
 ms.author: yegu
-ms.openlocfilehash: 38b404ec10fb7b66b5e276665b0c9047d0576c15
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: 41947de18ae27b41d046fd4358f0039a1b56374d
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67798401"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68347919"
 ---
 # <a name="quickstart-add-feature-flags-to-an-aspnet-core-app"></a>Démarrage rapide : Ajouter des indicateurs de fonctionnalités dans une application ASP.NET Core
 
-Vous pouvez activer la gestion des fonctionnalités dans ASP.NET Core en connectant votre application à Azure App Configuration. Vous pouvez utiliser ce service managé pour stocker tous vos indicateurs de fonctionnalités et contrôler leur état de manière centralisée. Ce guide de démarrage rapide vous montre comment incorporer App Configuration à une application web ASP.NET Core pour créer une implémentation de bout en bout de la gestion des fonctionnalités.
+Dans ce guide de démarrage rapide, vous incorporez Azure App Configuration à une application web ASP.NET Core pour créer une implémentation de bout en bout de la gestion des fonctionnalités. Vous pouvez utiliser le service App Configuration pour stocker de manière centralisée tous vos indicateurs de fonctionnalités et contrôler leur état. 
 
 Les bibliothèques de gestion des fonctionnalités .NET Core étendent le framework avec une prise en charge complète des indicateurs de fonctionnalités. Ces bibliothèques sont basées sur le système de configuration .NET Core. Elles s’intègrent de manière fluide à App Configuration par le biais de son fournisseur de configuration .NET Core.
 
-Vous pouvez utiliser l’éditeur de code de votre choix pour exécuter les étapes de ce guide de démarrage rapide. [Visual Studio Code](https://code.visualstudio.com/) est une excellente option disponible sur les plateformes Windows, macOS et Linux.
-
 ## <a name="prerequisites"></a>Prérequis
 
-Pour suivre ce guide de démarrage rapide, installez le [SDK .NET Core](https://dotnet.microsoft.com/download).
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+- Abonnement Azure : [créez-en un gratuitement](https://azure.microsoft.com/free/)
+- [SDK .NET Core](https://dotnet.microsoft.com/download).
 
 ## <a name="create-an-app-configuration-store"></a>Créer un magasin App Configuration
 
@@ -135,7 +132,7 @@ Ajoutez l’outil [Secret Manager](https://docs.microsoft.com/aspnet/core/securi
 1. Ouvrez *Startup.cs*, puis ajoutez des références au gestionnaire de fonctionnalités .NET Core :
 
     ```csharp
-    using Microsoft.FeatureManagement.AspNetCore;
+    using Microsoft.FeatureManagement;
     ```
 
 1. Mettez à jour la méthode `ConfigureServices` pour ajouter la prise en charge de l’indicateur de fonctionnalité en appelant la méthode `services.AddFeatureManagement()`. Si vous le souhaitez, vous pouvez inclure un filtre à utiliser avec les indicateurs de fonctionnalité en appelant `services.AddFeatureFilter<FilterType>()` :

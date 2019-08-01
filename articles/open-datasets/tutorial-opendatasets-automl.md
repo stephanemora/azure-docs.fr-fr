@@ -9,12 +9,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 05/02/2019
-ms.openlocfilehash: a1df79c59ede8cd9ad72a2ebb2edb4bdb64b802a
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 963e4f7e9db638450a89dd4ae0091019fc58e2a4
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67588968"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359435"
 ---
 # <a name="tutorial-build-a-regression-model-with-automated-machine-learning-and-open-datasets"></a>Didacticiel : Créer un modèle de régression avec Machine Learning automatisé et Open Datasets
 
@@ -62,7 +62,7 @@ Cet exemple utilise un environnement Anaconda avec notebooks Jupyter, mais vous 
     ```
 1. Installez les packages dont vous avez besoin pour ce didacticiel. Ces packages sont volumineux et leur installation nécessite de 5 à 10 minutes.
     ```
-    pip install azureml-sdk[automl] azureml-contrib-opendatasets
+    pip install azureml-sdk[automl] azureml-opendatasets
     ```
 1. Démarrez un noyau de notebook à partir de votre environnement.
     ```
@@ -77,7 +77,7 @@ Importez les packages nécessaires. Le package Open Datasets contient une classe
 
 
 ```python
-from azureml.contrib.opendatasets import NycTlcGreen
+from azureml.opendatasets import NycTlcGreen
 import pandas as pd
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
@@ -90,8 +90,8 @@ Commencez par créer un dataframe pour contenir les données des taxis. Dans un 
 
 ```python
 green_taxi_df = pd.DataFrame([])
-start = datetime.strptime("1/1/2016","%m/%d/%Y")
-end = datetime.strptime("1/31/2016","%m/%d/%Y")
+start = datetime.strptime("1/1/2016", "%m/%d/%Y")
+end = datetime.strptime("1/31/2016", "%m/%d/%Y")
 
 for sample_month in range(12):
     temp_df_green = NycTlcGreen(start + relativedelta(months=sample_month), end + relativedelta(months=sample_month)) \
@@ -361,7 +361,7 @@ green_taxi_df.head(10)
       <td>2</td>
       <td>2016-01-24 20:46:50</td>
       <td>2016-01-24 21:04:03</td>
-      <td>6\.</td>
+      <td>6</td>
       <td>2.82</td>
       <td>Aucun</td>
       <td>Aucun</td>
@@ -401,7 +401,9 @@ def build_time_features(vector):
 
     return pd.Series((month_num, day_of_month, day_of_week, hour_of_day, country_code))
 
-green_taxi_df[["month_num", "day_of_month","day_of_week", "hour_of_day", "country_code"]] = green_taxi_df[["lpepPickupDatetime"]].apply(build_time_features, axis=1)
+
+green_taxi_df[["month_num", "day_of_month", "day_of_week", "hour_of_day", "country_code"]
+              ] = green_taxi_df[["lpepPickupDatetime"]].apply(build_time_features, axis=1)
 green_taxi_df.head(10)
 ```
 
@@ -665,7 +667,7 @@ green_taxi_df.head(10)
       <td>2</td>
       <td>2016-01-24 20:46:50</td>
       <td>2016-01-24 21:04:03</td>
-      <td>6\.</td>
+      <td>6</td>
       <td>2.82</td>
       <td>Aucun</td>
       <td>Aucun</td>
@@ -680,7 +682,7 @@ green_taxi_df.head(10)
       <td>1.0</td>
       <td>1</td>
       <td>24</td>
-      <td>6\.</td>
+      <td>6</td>
       <td>20</td>
       <td>FR</td>
     </tr>
@@ -695,11 +697,12 @@ Supprimez certaines colonnes dont vous n'aurez pas besoin à des fins de modéli
 columns_to_remove = ["lpepDropoffDatetime", "puLocationId", "doLocationId", "extra", "mtaTax",
                      "improvementSurcharge", "tollsAmount", "ehailFee", "tripType", "rateCodeID",
                      "storeAndFwdFlag", "paymentType", "fareAmount", "tipAmount"
-                    ]
+                     ]
 for col in columns_to_remove:
     green_taxi_df.pop(col)
 
-green_taxi_df = green_taxi_df.rename(columns={"lpepPickupDatetime": "datetime"})
+green_taxi_df = green_taxi_df.rename(
+    columns={"lpepPickupDatetime": "datetime"})
 green_taxi_df["datetime"] = green_taxi_df["datetime"].dt.normalize()
 green_taxi_df.head(5)
 ```
@@ -720,7 +723,7 @@ green_taxi_df.head(5)
     <tr style="text-align: right;">
       <th></th>
       <th>vendorID</th>
-      <th>Datetime</th>
+      <th>datetime</th>
       <th>passengerCount</th>
       <th>tripDistance</th>
       <th>pickupLongitude</th>
@@ -830,7 +833,7 @@ green_taxi_df.head(5)
 Maintenant que vous avez téléchargé et sommairement préparé les données des taxis, ajoutez des données de congés en tant que fonctionnalités supplémentaires. Les fonctionnalités spécifiques aux congés renforceront la précision du modèle, car les principaux congés correspondent à des moments où la demande en taxis augmente considérablement et où l'offre devient limitée. Le jeu de données des congés est relativement restreint. Aussi récupérez le jeu complet à l'aide du constructeur de classe `PublicHolidays`, sans paramètres pour le filtrage. Prévisualisez les données pour vérifier leur format.
 
 ```python
-from azureml.contrib.opendatasets import PublicHolidays
+from azureml.opendatasets import PublicHolidays
 # call default constructor to download full dataset
 holidays_df = PublicHolidays().to_pandas_dataframe()
 holidays_df.head(5)
@@ -921,12 +924,14 @@ holidays_df.head(5)
 Renommez les colonnes `countryRegionCode` et `date` de manière à ce qu'elles correspondent aux noms des champs respectifs des données des taxis, et normalisez l'heure pour pouvoir l'utiliser en tant que clé. Joignez ensuite les données des congés aux données des taxis en effectuant une jointure gauche à l'aide de la fonction `merge()` Pandas. Tous les enregistrements de `green_taxi_df` seront ainsi conservés, mais ajoutez les données des congés, le cas échéant, pour `datetime` et `country_code`, toujours `"US"`, dans le cas présent. Prévisualisez les données pour vérifier qu'elles ont été correctement fusionnées.
 
 ```python
-holidays_df = holidays_df.rename(columns={"countryRegionCode": "country_code", "date": "datetime"})
+holidays_df = holidays_df.rename(
+    columns={"countryRegionCode": "country_code", "date": "datetime"})
 holidays_df["datetime"] = holidays_df["datetime"].dt.normalize()
 holidays_df.pop("countryOrRegion")
 holidays_df.pop("holidayName")
 
-taxi_holidays_df = pd.merge(green_taxi_df, holidays_df, how="left", on=["datetime", "country_code"])
+taxi_holidays_df = pd.merge(green_taxi_df, holidays_df, how="left", on=[
+                            "datetime", "country_code"])
 taxi_holidays_df.head(5)
 ```
 
@@ -946,7 +951,7 @@ taxi_holidays_df.head(5)
     <tr style="text-align: right;">
       <th></th>
       <th>vendorID</th>
-      <th>Datetime</th>
+      <th>datetime</th>
       <th>passengerCount</th>
       <th>tripDistance</th>
       <th>pickupLongitude</th>
@@ -1068,11 +1073,11 @@ taxi_holidays_df.head(5)
 Maintenant vous ajoutez des données météorologiques NOAA aux données des taxis et des congés. Utilisez une approche similaire pour récupérer les données météorologiques en téléchargeant un mois à la fois de façon itérative. En outre, spécifiez le paramètre `cols` avec un tableau de chaînes pour filtrer les colonnes que vous souhaitez télécharger. Ce jeu de données, contenant des données météorologiques du monde entier, est particulièrement volumineux. Aussi, avant d'ajouter chaque mois, filtrez les champs de latitude/longitude aux abords de New York à l'aide de la fonction `query()` du dataframe. Ainsi, le `weather_df` ne sera pas démesurément volumineux.
 
 ```python
-from azureml.contrib.opendatasets import NoaaIsdWeather
+from azureml.opendatasets import NoaaIsdWeather
 
 weather_df = pd.DataFrame([])
-start = datetime.strptime("1/1/2016","%m/%d/%Y")
-end = datetime.strptime("1/31/2016","%m/%d/%Y")
+start = datetime.strptime("1/1/2016", "%m/%d/%Y")
+end = datetime.strptime("1/31/2016", "%m/%d/%Y")
 
 for sample_month in range(12):
     tmp_df = NoaaIsdWeather(cols=["temperature", "precipTime", "precipDepth", "snowDepth"], start_date=start + relativedelta(months=sample_month), end_date=end + relativedelta(months=sample_month))\
@@ -1110,7 +1115,7 @@ weather_df.head(10)
       <th>latitude</th>
       <th>precipDepth</th>
       <th>longitude</th>
-      <th>Datetime</th>
+      <th>datetime</th>
       <th>usaf</th>
     </tr>
   </thead>
@@ -1254,7 +1259,8 @@ weather_df.pop("latitude")
 weather_df = weather_df.query("temperature==temperature")
 
 # group by datetime
-aggregations = {"snowDepth": "mean", "precipTime": "max", "temperature": "mean", "precipDepth": "max"}
+aggregations = {"snowDepth": "mean", "precipTime": "max",
+                "temperature": "mean", "precipDepth": "max"}
 weather_df_grouped = weather_df.groupby("datetime").agg(aggregations)
 weather_df_grouped.head(10)
 ```
@@ -1280,7 +1286,7 @@ weather_df_grouped.head(10)
       <th>precipDepth</th>
     </tr>
     <tr>
-      <th>Datetime</th>
+      <th>datetime</th>
       <th></th>
       <th></th>
       <th></th>
@@ -1370,7 +1376,8 @@ weather_df_grouped.head(10)
 Fusionnez les données des taxis et des congés que vous avez préparées avec les nouvelles données météorologiques. Cette fois, la clé `datetime` suffit, et effectuez à nouveau une jointure gauche des données. Exécutez la fonction `describe()` sur le nouveau dataframe pour afficher un résumé des statistiques de chaque champ.
 
 ```python
-taxi_holidays_weather_df = pd.merge(taxi_holidays_df, weather_df_grouped, how="left", on=["datetime"])
+taxi_holidays_weather_df = pd.merge(
+    taxi_holidays_df, weather_df_grouped, how="left", on=["datetime"])
 taxi_holidays_weather_df.describe()
 ```
 
@@ -1569,13 +1576,16 @@ Depuis le résumé des statistiques, vous constatez que plusieurs champs présen
 Excluez ces anomalies à l'aide des fonctions de requête, puis supprimez les dernières colonnes inutiles à des fins de formation.
 
 ```python
-final_df = taxi_holidays_weather_df.query("pickupLatitude>=40.53 and pickupLatitude<=40.88")
-final_df = final_df.query("pickupLongitude>=-74.09 and pickupLongitude<=-73.72")
+final_df = taxi_holidays_weather_df.query(
+    "pickupLatitude>=40.53 and pickupLatitude<=40.88")
+final_df = final_df.query(
+    "pickupLongitude>=-74.09 and pickupLongitude<=-73.72")
 final_df = final_df.query("tripDistance>0 and tripDistance<75")
 final_df = final_df.query("passengerCount>0 and passengerCount<100")
 final_df = final_df.query("totalAmount>0")
 
-columns_to_remove_for_training = ["datetime", "pickupLongitude", "pickupLatitude", "dropoffLongitude", "dropoffLatitude", "country_code"]
+columns_to_remove_for_training = ["datetime", "pickupLongitude",
+                                  "pickupLatitude", "dropoffLongitude", "dropoffLatitude", "country_code"]
 for col in columns_to_remove_for_training:
     final_df.pop(col)
 ```
@@ -1755,7 +1765,8 @@ x_df = final_df
 ```python
 from sklearn.model_selection import train_test_split
 
-X_train, X_test, y_train, y_test = train_test_split(x_df, y_df, test_size=0.2, random_state=222)
+X_train, X_test, y_train, y_test = train_test_split(
+    x_df, y_df, test_size=0.2, random_state=222)
 ```
 
 ### <a name="load-workspace-and-configure-experiment"></a>Charger l’espace de travail et configurer l’expérience
@@ -1767,7 +1778,8 @@ Chargez votre espace de travail de service Azure Machine Learning à l’aide de
 from azureml.core.workspace import Workspace
 from azureml.core.experiment import Experiment
 
-workspace = Workspace.get(subscription_id="<your-subscription-id>", name="<your-workspace-name>", resource_group="<your-resource-group>")
+workspace = Workspace.get(subscription_id="<your-subscription-id>",
+                          name="<your-workspace-name>", resource_group="<your-resource-group>")
 experiment = Experiment(workspace, "opendatasets-ml")
 ```
 
@@ -1792,7 +1804,7 @@ automl_config = AutoMLConfig(task="regression",
                              primary_metric="spearman_correlation",
                              preprocess=True,
                              n_cross_validations=5
-                            )
+                             )
 ```
 
 ### <a name="submit-experiment"></a>Soumettre l’expérience
@@ -1919,7 +1931,7 @@ print(1 - mean_abs_percent_error)
     Model Accuracy:
     0.8507638035507564
 
-Compte tenu du fait que nous avons utilisé un échantillon de données relativement limité par rapport au jeu de données complet (n=11748), la précision du modèle s'élève à 85 %, avec RMSE à environ +/- 4,00 $ d'erreur lors de la prévision du prix des courses de taxi. À des fins d'amélioration de la précision, revenez à la deuxième cellule de ce notebook et augmentez la taille d’échantillon à partir de 2 000 enregistrements par mois, puis réexécutez l'expérience dans son intégralité pour effectuer un nouvel apprentissage du modèle avec plus de données.
+Compte tenu du fait que vous avez utilisé un échantillon de données relativement limité par rapport au jeu de données complet (n=11748), la précision du modèle s’élève à 85 %, avec RMSE à environ +/- 4,00 $ d’erreur lors de la prévision du prix des courses de taxi. À des fins d'amélioration de la précision, revenez à la deuxième cellule de ce notebook et augmentez la taille d’échantillon à partir de 2 000 enregistrements par mois, puis réexécutez l'expérience dans son intégralité pour effectuer un nouvel apprentissage du modèle avec plus de données.
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 

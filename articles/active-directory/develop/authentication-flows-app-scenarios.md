@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/15/2019
+ms.date: 07/25/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3d50019e8de1daf3d69342dcaf9eeecfba493a83
-ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
+ms.openlocfilehash: c3d9f96f0b61129a0f881c8fe8676bd5df7376ad
+ms.sourcegitcommit: 5604661655840c428045eb837fb8704dca811da0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68302437"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68494584"
 ---
 # <a name="authentication-flows-and-application-scenarios"></a>Flux d’authentification et scénarios d’applications
 
@@ -80,6 +80,14 @@ Les jetons de sécurité peuvent être acquis à partir de plusieurs types d’a
 
 Le point de terminaison de la Plateforme d’identités Microsoft prend en charge l’authentification de diverses architectures d’application : applications monopages, applications web, API web, applications mobiles et natives, démons et applications côté serveur.  Les applications utilisent les différents flux d’authentification pour connecter les utilisateurs et obtenir des jetons pour appeler des API protégées.
 
+### <a name="single-page-application"></a>Application monopage
+
+De nombreuses applications web modernes sont créées en tant qu’applications monopages côté client et écrites avec JavaScript ou une infrastructure de type SPA comme Angular, Vue.js et React.js. Ces applications s’exécutent dans un navigateur web et présentent des caractéristiques d’authentification différentes de celles des applications web côté serveur traditionnelles. La plateforme des identités Microsoft permet aux applications monopages de connecter des utilisateurs et d’obtenir des jetons pour accéder aux services back-end ou aux API web.
+
+![Application monopage](media/scenarios/spa-app.svg)
+
+Pour plus d’informations, consultez [Applications monopages](scenario-spa-overview.md).
+
 ### <a name="web-application-signing-in-a-user"></a>Application web connectant un utilisateur
 
 ![Une application web connecte des utilisateurs](media/scenarios/scenario-webapp-signs-in-users.svg)
@@ -90,51 +98,54 @@ Pour **protéger une application** web (connectant l’utilisateur), vous allez 
 
 - Si vous développez node. js, vous allez utiliser Passport.js.
 
-Pour plus de détails, voir [Application web qui connecte les utilisateurs](scenario-web-app-sign-user-overview.md)
+Pour plus d’informations, consultez [Application web qui connecte les utilisateurs](scenario-web-app-sign-user-overview.md).
 
 ### <a name="web-application-signing-in-a-user-and-calling-a-web-api-on-behalf-of-the-user"></a>Application web connectant un utilisateur et appelant une API web au nom de l’utilisateur
 
 ![Une application web appelle des API web](media/scenarios/web-app.svg)
 
-À partir de l’application web, pour **appeler l’API web** au nom de l’utilisateur, vous allez utiliser la classe `ConfidentialClientApplication` de MSAL. Vous allez utiliser le flux de code d’autorisation, qui stocke le jeton acquis dans le cache de jeton. Le contrôleur acquiert ensuite les jetons en mode silencieux à partir du cache si nécessaire. MSAL actualise le jeton si nécessaire.
+À partir de l’application web, pour **appeler l’API web** au nom de l’utilisateur, utilisez la classe `ConfidentialClientApplication` de MSAL. Vous allez utiliser le flux de code d’autorisation, qui stocke le jeton acquis dans le cache de jeton. Le contrôleur acquiert ensuite les jetons en mode silencieux à partir du cache si nécessaire. MSAL actualise le jeton si nécessaire.
 
-Pour plus de détails, voir [Une application web appelle des API web](scenario-web-app-call-api-overview.md)
+Pour plus d’informations, consultez [Une application web appelle des API web](scenario-web-app-call-api-overview.md).
 
 ### <a name="desktop-application-calling-a-web-api-on-behalf-of-the-signed-in-user"></a>Application de bureau appelant une API web au nom de l’utilisateur connecté
 
-Pour appeler une API web à partir d’une application de bureau qui connecte des utilisateurs, vous allez utiliser les méthodes d’acquisition de jetons interactives de la classe PublicClientApplication de MSAL. Ces méthodes interactives vous permettent de contrôler l’expérience de l’interface utilisateur de connexion. Pour permettre cette interaction, MSAL utilise un navigateur web
+Pour appeler une API web à partir d’une application de bureau qui connecte des utilisateurs, utilisez les méthodes d’acquisition de jetons interactives de la classe PublicClientApplication de MSAL. Ces méthodes interactives vous permettent de contrôler l’expérience de l’interface utilisateur de connexion. Pour permettre cette interaction, MSAL utilise un navigateur web.
 
 ![Bureau](media/scenarios/desktop-app.svg)
 
-Pour les applications hébergées sur Windows qui s’exécutent sur des ordinateurs joints à un domaine Windows ou joints à AAD, il existe une autre possibilité. Elles peuvent acquérir un jeton en mode silencieux à l’aide de l’[authentification Windows intégrée](https://aka.ms/msal-net-iwa)
+Pour les applications hébergées sur Windows qui s’exécutent sur des ordinateurs joints à un domaine Windows ou joints à AAD, il existe une autre possibilité. Ces applications peuvent acquérir un jeton en mode silencieux à l’aide de l’[authentification Windows intégrée](https://aka.ms/msal-net-iwa).
 
 Les applications qui s’exécutent sur un appareil sans navigateur peuvent toujours appeler une API pour le compte d’un utilisateur. Pour s’authentifier, l’utilisateur doit se connecter sur un autre appareil doté d’un navigateur web. Pour permettre ce scénario, vous devez utiliser le [flux de code de l’appareil](https://aka.ms/msal-net-device-code-flow)
 
 ![Flux de code d’appareil](media/scenarios/device-code-flow-app.svg)
 
-Enfin, et bien que ce ne soit pas recommandé, vous pouvez utiliser un [Nom d’utilisateur/Mot de passe](https://aka.ms/msal-net-up) dans les applications clientes publiques. Ce flux reste nécessaire dans certains scénarios (comme DevOps), mais il faut savoir que son utilisation peut imposer des contraintes à votre application. Par exemple, les applications qui utilisent ce flux ne peuvent pas connecter un utilisateur qui doit effectuer une authentification multifacteur (accès conditionnel). Ce flux ne permet pas non plus à votre application de bénéficier de l’authentification unique. Il va également à l’encontre des principes de l’authentification moderne et n’est fourni que pour des raisons d’héritage.
+Pour finir, bien que ce ne soit pas recommandé, vous pouvez utiliser un [Nom d’utilisateur/Mot de passe](https://aka.ms/msal-net-up) dans les applications clientes publiques. Ce flux reste nécessaire dans certains scénarios (comme DevOps), mais il faut savoir que son utilisation peut imposer des contraintes à votre application. Par exemple, les applications qui utilisent ce flux ne peuvent pas connecter un utilisateur qui doit effectuer une authentification multifacteur (accès conditionnel). Ce flux ne permet pas non plus à votre application de bénéficier de l’authentification unique. L’authentification avec nom d’utilisateur/mot de passe va à l’encontre des principes de l’authentification moderne et n’est fournie que pour des raisons d’héritage.
 
 Dans les applications de bureau, si vous souhaitez que le cache de jeton soit persistant, vous devez [personnaliser la sérialisation du cache de jeton](https://aka.ms/msal-net-token-cache-serialization). Vous pouvez même activer des caches de jeton offrant une compatibilité descendante et ascendante avec des générations précédentes de bibliothèques d’authentification (ADAL.NET 3.x et 4.x) en implémentant une [sérialisation du cache à double jeton](https://aka.ms/msal-net-dual-cache-serialization).
 
-Pour plus de détails, voir [Application de bureau qui appelle des API web](scenario-desktop-overview.md)
+Pour plus d’informations, consultez [Application de bureau qui appelle des API web](scenario-desktop-overview.md).
 
 ### <a name="mobile-application-calling-a-web-api-on-behalf-of-the-user-whos-signed-in-interactively"></a>Application mobile appelant une API web au nom de l’utilisateur qui s’est connecté de manière interactive
 
+Comme pour les applications de bureau, une application mobile utilisera les méthodes d’acquisition de jetons interactives de la classe PublicClientApplication de MSAL pour acquérir un jeton afin d’appeler une API web.
+
 ![Mobile](media/scenarios/mobile-app.svg)
 
-Comme pour les applications de bureau, pour acquérir un jeton afin d’appeler une API web, une application mobile va utiliser les méthodes d’acquisition de jetons interactives de la classe PublicClientApplication de MSAL. Sur iOS et Android, par défaut, MSAL utilise le navigateur web du système. Mais vous pouvez lui donner pour instruction d’utiliser l’affichage web incorporé. Il existe des spécificités en fonction de la plateforme mobile : (UWP, iOS, Android).
+MSAL iOS et MSAL Android, par défaut, utilisent le navigateur web du système. Toutefois, vous pouvez aussi leur donner pour instruction d’utiliser l’affichage web incorporé. Il existe des spécificités en fonction de la plateforme mobile : (UWP, iOS, Android).
+
 Certains scénarios, impliquant un accès conditionnel lié à l’ID d’appareil ou à l’inscription de l’appareil, nécessitent l’installation d’un [répartiteur](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/leveraging-brokers-on-Android-and-iOS) sur un appareil. Le portail d’entreprise Microsoft (sur Android) et Microsoft Authenticator (Android et iOS) sont des exemples de répartiteurs. MSAL est désormais en capable d’interagir avec des répartiteurs.
 
 > [!NOTE]
 > Des stratégies de protection des applications peuvent être appliquées  à votre application mobile (utilisant MSAL. iOS, MSAL.Android ou MSAL.NET/Xamarin), par exemple, pour empêcher les utilisateurs de copier du texte protégé. L’application est [gérée par Intune](https://docs.microsoft.com/intune/app-sdk) et reconnue par Intune en tant qu’application gérée. Le [Kit de développement logiciel (SDK) Intune](https://docs.microsoft.com/intune/app-sdk-get-started) est séparé des bibliothèques MSAL et communique avec AAD de façon autonome.
 
-Pour plus de détails, voir [Application mobile qui appelle des API web](scenario-mobile-overview.md)
+Pour plus d’informations, consultez [Application mobile qui appelle des API web](scenario-mobile-overview.md).
 
 ### <a name="protected-web-api"></a>API web protégée
 
 Vous pouvez utiliser le point de terminaison de la plateforme d’identité Microsoft pour sécuriser des services web, comme l’API web RESTful de votre application. Une API web protégée est appelée avec un jeton d’accès pour sécuriser ses données et authentifier les demandes entrantes. L’appelant d’une API web ajoute un jeton d’accès dans l’en-tête d’autorisation d’une requête HTTP. Si vous souhaitez protéger votre API web ASP.NET ou ASP.NET Core, vous devez valider le jeton d’accès. Pour ce faire, vous allez utiliser l’intergiciel JWT ASP.NET. En coulisses, la validation est effectuée par la bibliothèque d’[extensions IdentityModel pour .NET](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/wiki), non par MSAL.NET
 
-Pour plus de détails, voir [API web protégée](scenario-protected-web-api-overview.md)
+Pour plus d’informations, consultez [API web protégée](scenario-protected-web-api-overview.md).
 
 ### <a name="web-api-calling-another-downstream-web-api-on-behalf-of-the-user-for-whom-it-was-called"></a>API web appelant une autre API web en aval au nom de l’utilisateur pour qui elle a été appelée
 
@@ -143,14 +154,16 @@ Les API web appelant une autre API web doivent également fournir une sérialisa
 
   ![API Web](media/scenarios/web-api.svg)
 
-Pour plus de détails, voir [API web qui appelle des API web](scenario-web-api-call-api-overview.md)
+Pour plus d’informations, consultez [API web qui appelle des API web](scenario-web-api-call-api-overview.md).
 
 ### <a name="desktopservice-or-web-daemon-application-calling-web-api-without-a-user-in-its-own-name"></a>Application de bureau/service ou démon web appelant une API web sans utilisateur (en son propre nom)
 
-Les applications qui contiennent des processus de longue durée ou qui fonctionnent sans interaction d’un utilisateur doivent également disposer d’un moyen d’accès aux API web sécurisées. Ces applications peuvent s’authentifier et récupérer des jetons à l’aide de l’identité d’application plutôt qu’avec l’identité déléguée d’un utilisateur. Elles prouvent leur identité à l’aide d’une clé secrète client ou d’un certificat.
+Les applications qui contiennent des processus de longue durée ou qui fonctionnent sans interaction utilisateur doivent également disposer d’un moyen d’accès aux API web sécurisées. Ces applications peuvent s’authentifier et récupérer des jetons à l’aide de l’identité d’application plutôt qu’avec l’identité déléguée d’un utilisateur. Elles prouvent leur identité à l’aide d’une clé secrète client ou d’un certificat.
 Vous pouvez écrire de telles applications (applications démon) acquérant un jeton pour l’application en plus d’utiliser les méthodes d’acquisition d’[informations d’identification du client](https://aka.ms/msal-net-client-credentials) de la classe ConfidentialClientApplication de MSAL. Cela suppose que l’application a précédemment inscrit une clé secrète (mot de passe d’application, certificat ou assertion du client) auprès d’Azure AD, qu’elle partage ensuite avec cet appel.
 
 ![Application démon](media/scenarios/daemon-app.svg)
+
+Pour plus d’informations, consultez [Application démon qui appelle des API web](scenario-daemon-overview.md).
 
 ## <a name="scenarios-and-supported-authentication-flows"></a>Scénarios et flux d’authentification pris en charge
 
@@ -183,6 +196,8 @@ Tous les types d’application ne sont pas disponibles sur toutes les plateforme
 | [Application mobile qui appelle des API web](scenario-mobile-overview.md) <br/> [![Application mobile qui appelle des API web](media/scenarios/mobile-app.svg)](scenario-mobile-overview.md) | ![UWP](media/sample-v2-code/logo_windows.png) MSAL.NET ![Xamarin](media/sample-v2-code/logo_xamarin.png) MSAL.NET | | | ![iOS / Objective C ou swift](media/sample-v2-code/logo_iOS.png) MSAL.iOS | ![Android](media/sample-v2-code/logo_Android.png) MSAL.Android
 | [Application démon](scenario-daemon-overview.md) <br/> [![Application démon](media/scenarios/daemon-app.svg)](scenario-daemon-overview.md) | ![.NET](media/sample-v2-code/logo_NET.png) MSAL.NET ![.NET Core](media/sample-v2-code/logo_NETcore.png)MSAL.NET ![MSAL Java](media/sample-v2-code/logo_java.png) msal4j ![MSAL Python](media/sample-v2-code/logo_python.png) MSAL Python| ![.NET Core](media/sample-v2-code/logo_NETcore.png) MSAL.NET ![MSAL Java](media/sample-v2-code/logo_java.png) msal4j ![MSAL Python](media/sample-v2-code/logo_python.png) MSAL Python| ![.NET Core](media/sample-v2-code/logo_NETcore.png)MSAL.NET ![MSAL Java](media/sample-v2-code/logo_java.png) msal4j ![MSAL Python](media/sample-v2-code/logo_python.png) MSAL Python
 | [API web qui appelle des API web](scenario-web-api-call-api-overview.md) <br/> [![API web qui appelle des API web](media/scenarios/web-api.svg)](scenario-web-api-call-api-overview.md) | ![.NET](media/sample-v2-code/logo_NET.png) <br/> ASP.NET + MSAL.NET ![.NET Core](media/sample-v2-code/logo_NETcore.png) <br/> ASP.NET Core + MSAL.NET| ![.NET Core](media/sample-v2-code/logo_NETcore.png) <br/> ASP.NET Core + MSAL.NET| ![.NET Core](media/sample-v2-code/logo_NETcore.png)<br/> ASP.NET Core + MSAL.NET
+
+Consultez également [Bibliothèques prises en charge par Microsoft selon le système d’exploitation/language](reference-v2-libraries.md#microsoft-supported-libraries-by-os--language).
 
 ## <a name="next-steps"></a>Étapes suivantes
 Apprenez-en davantage sur les [notions de base de l’authentification](authentication-scenarios.md) et les [jetons d’accès](access-tokens.md).

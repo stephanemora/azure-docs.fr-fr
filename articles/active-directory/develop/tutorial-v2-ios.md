@@ -6,6 +6,7 @@ documentationcenter: dev-center-name
 author: danieldobalian
 manager: CelesteDG
 ms.service: active-directory
+ms.subservice: develop
 ms.topic: tutorial
 ms.workload: identity
 ms.date: 07/15/2019
@@ -13,12 +14,12 @@ ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 910069ab89cef18794e637b6bfbbc57fb732871c
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: f22cf95fcf13f0038525b2cac282f01959fa7eb6
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67872086"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68335522"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-from-an-ios-app"></a>Connecter des utilisateurs et appeler Microsoft Graph à partir d’une application iOS
 
@@ -65,7 +66,7 @@ Ce tutoriel va créer un projet. Si vous souhaitez plutôt télécharger le tuto
 4. Dans la section **Gérer** du volet qui apparaît, sélectionnez **Authentification**.
 5. Cliquez sur **Essayer la nouvelle expérience** en haut de l’écran pour ouvrir la nouvelle expérience d’inscription d’application, puis cliquez sur **+Nouvelle inscription** >  **+Ajouter une plateforme** > **iOS**.
     - Entrez l’ID de bundle de votre projet. Si vous avez téléchargé le code, cette valeur est `com.microsoft.identitysample.MSALiOS`. Si vous créez votre propre projet, sélectionnez-le dans Xcode et ouvrez l’onglet **Général**. L’identificateur de bundle apparaît dans la section **Identité**.
-6. Cliquez sur `Configure` et enregistrez la **Configuration MSAL** qui apparaît dans la page **Configuration iOS** pour pouvoir l’entrer plus tard quand vous configurerez votre application.  Cliquez sur **Terminé**.
+6. Cliquez sur `Configure` et enregistrez la **Configuration MSAL** qui apparaît dans la page **Configuration iOS** pour pouvoir l’entrer plus tard quand vous configurerez votre application.  Cliquez sur **Done**.
 
 ## <a name="add-msal"></a>Ajouter MSAL
 
@@ -498,3 +499,8 @@ Une fois que vous êtes connecté, l’application affiche les données retourn�
 ## <a name="get-help"></a>Obtenir de l’aide
 
 Si vous rencontrez des problèmes avec ce tutoriel ou avec la plateforme d’identités Microsoft, consultez le [Centre d’aide et de support](https://docs.microsoft.com/azure/active-directory/develop/developer-support-help-options).
+
+Aidez-nous à améliorer la plateforme d’identité Microsoft. Faites-nous part de votre avis en répondant à une petite enquête de deux questions.
+
+> [!div class="nextstepaction"]
+> [Enquête sur la plateforme des identités Microsoft](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyKrNDMV_xBIiPGgSvnbQZdUQjFIUUFGUE1SMEVFTkdaVU5YT0EyOEtJVi4u)

@@ -12,16 +12,16 @@ ms.date: 06/05/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fcd0338f9195afae0e326155dbc4e10dd4fc1f91
-ms.sourcegitcommit: 0ebc62257be0ab52f524235f8d8ef3353fdaf89e
+ms.openlocfilehash: 5d1ebb4b094ab5c03343486e7af6624273288453
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67723893"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68421206"
 ---
 # <a name="application-management-with-azure-active-directory"></a>Gestion des applications avec Azure Active Directory
 
-Azure Active Directory (Azure AD) simplifie la façon dont vous gérez vos applications en fournissant un seul système d’identité pour vos applications cloud et locales. Vous pouvez ajouter vos applications SaaS (software as a service), vos applications locales et vos applications métier (LOB) à Azure AD. Les utilisateurs se connectent une fois pour accéder de manière sécurisée et fluide à ces applications, ainsi qu’aux applications Office 365 et d’autres applications métier de Microsoft. Vous pouvez réduire les coûts d’administration en automatisant le provisionnement des utilisateurs. Vous pouvez aussi utiliser des stratégies d’authentification multifacteur et d’accès conditionnel pour fournir un accès sécurisé aux applications.
+Azure Active Directory (Azure AD) simplifie la façon dont vous gérez vos applications en fournissant un seul système d’identité pour vos applications cloud et locales. Vous pouvez ajouter vos applications SaaS (software as a service), vos applications locales et vos applications métier (LOB) à Azure AD. Les utilisateurs se connectent une fois pour accéder de manière sécurisée et fluide à ces applications, ainsi qu’aux applications Office 365 et d’autres applications métier de Microsoft. Vous pouvez réduire les coûts d’administration en [automatisant le provisionnement des utilisateurs](user-provisioning.md). Vous pouvez aussi utiliser des stratégies d’authentification multifacteur et d’accès conditionnel pour fournir un accès sécurisé aux applications.
 
 ![Diagramme montrant des applications fédérées via Azure AD](media/what-is-application-management/app-management-overview.png)
 

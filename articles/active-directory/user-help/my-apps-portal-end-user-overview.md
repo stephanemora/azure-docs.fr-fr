@@ -13,12 +13,12 @@ ms.date: 05/08/2019
 ms.author: lizross
 ms.custom: user-help
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e8948040ac338a855c55e2ff44536c900adea7f6
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: a8827119d591ee1e3f12d0e8d8dcfc7ab88ce987
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65470707"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68383060"
 ---
 # <a name="what-is-the-my-apps-portal"></a>Qu’est-ce que le portail MyApps ?
 
@@ -35,8 +35,8 @@ Pour des informations détaillées et des instructions sur les opérations qu’
 
 |Article |Description |
 |------|------------|
-|[Accéder au portail Mes applications et l’utiliser](my-apps-portal-end-user-access.md)|Instructions sur la façon d’accéder au portail web **Mes applications** pour voir et démarrer les applications cloud de votre organisation, en fonction de l’appareil.|
-|[Mettre à jour vos informations de profil et de compte](my-apps-portal-end-user-update-profile.md)|Instructions sur la façon de mettre à jour vos informations personnelles qui s’affichent dans la page **Profil** du portail **Mes applications**.|
-|[Mettre à jour les informations de vos groupes](my-apps-portal-end-user-groups.md)|Instructions sur la façon d’afficher et de gérer les informations relatives à vos groupes dans la page **Groupes** du portail **Mes applications**.|
-|[Effectuer vos propres révisions d’accès](my-apps-portal-end-user-access-reviews.md)|Instructions sur la façon d’afficher et d’effectuer des **révisions d’accès** pour autoriser ou refuser l’accès à un utilisateur ou à un groupe par les applications de votre organisation dans la page **Révisions d’accès** du portail **Mes applications**.|
-|[Résolution des problèmes concernant le portail Mes applications](my-apps-portal-end-user-troubleshoot.md)|Avant de contacter le support technique, consultez les suggestions de dépannage concernant les problèmes rencontrés avec le portail **Mes applications**.|
+| [Accéder au portail Mes applications et l’utiliser](my-apps-portal-end-user-access.md) | Instructions sur la façon d’accéder au portail web **Mes applications** pour voir et démarrer les applications cloud de votre organisation, en fonction de l’appareil. |
+| [Mettre à jour vos informations de profil et de compte](my-apps-portal-end-user-update-profile.md) |Instructions sur la façon de mettre à jour vos informations personnelles qui s’affichent dans la page **Profil** du portail **Mes applications**. |
+| [Mettre à jour les informations de vos groupes](my-apps-portal-end-user-groups.md)|Instructions sur la façon d’afficher et de gérer les informations relatives à vos groupes dans la page **Groupes** du portail **Mes applications**. |
+| [Effectuer vos propres révisions d’accès](my-apps-portal-end-user-access-reviews.md) |Instructions sur la façon d’afficher et d’effectuer des **révisions d’accès** pour autoriser ou refuser l’accès à un utilisateur ou à un groupe par les applications de votre organisation dans la page **Révisions d’accès** du portail **Mes applications**. |
+| [Résolution des problèmes concernant le portail Mes applications](my-apps-portal-end-user-troubleshoot.md) |Avant de contacter le support technique, consultez les suggestions de dépannage concernant les problèmes rencontrés avec le portail **Mes applications**. |

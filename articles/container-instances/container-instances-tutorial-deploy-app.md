@@ -3,17 +3,18 @@ title: Tutoriel - Déployer une application conteneur sur Azure Container Instan
 description: Tutoriel Azure Container Instances (partie 3 sur 3) - Déployer une application conteneur sur Azure Container Instances
 services: container-instances
 author: dlepow
+manager: gwallace
 ms.service: container-instances
 ms.topic: tutorial
 ms.date: 03/21/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 210254a4404a5280e326bf40057331a784ff6148
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: e14a3ba50d75161afa3325b3b7bcbfe96ea24cc3
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56326737"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325632"
 ---
 # <a name="tutorial-deploy-a-container-application-to-azure-container-instances"></a>Tutoriel : Déployer une application conteneur sur Azure Container Instances
 
@@ -66,13 +67,13 @@ Répétez la commande [az container show][az-container-show] jusqu’à ce que l
 
 ## <a name="view-the-application-and-container-logs"></a>Afficher les journaux d’activité d’applications et de conteneurs
 
-Une fois le déploiement réussi, affichez le nom de domaine complet du conteneur avec la commande [az container show][az-container-show] :
+Une fois le déploiement réussi, affichez le nom de domaine complet du conteneur avec la commande [az container show][az-container-show] :
 
 ```bash
 az container show --resource-group myResourceGroup --name aci-tutorial-app --query ipAddress.fqdn
 ```
 
-Par exemple : 
+Par exemple :
 ```console
 $ az container show --resource-group myResourceGroup --name aci-tutorial-app --query ipAddress.fqdn
 "aci-demo.eastus.azurecontainer.io"

@@ -3,7 +3,7 @@ title: Guide de démarrage rapide iOS pour la plateforme d’identités Microsof
 description: Apprenez à connecter des utilisateurs et à interroger Microsoft Graph dans une application iOS.
 services: active-directory
 documentationcenter: dev-center-name
-author: danieldobalian
+author: brandwe
 manager: CelesteDG
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
@@ -17,12 +17,12 @@ ms.author: brandwe
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b3802d8f92913e416cc6a80f899179fde80cec30
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: bfb136529c606cafa235a525fcbe6e03b1d583d0
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65962590"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68335600"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-app"></a>Démarrage rapide : Connecter des utilisateurs et appeler l’API Microsoft Graph à partir d’une application iOS
 
@@ -90,8 +90,7 @@ Ce démarrage rapide contient un exemple de code qui montre comment une applicat
 >    ```swift
 >    let kClientID = "Enter_the_Application_Id_here"
 >    let kAuthority = "https://login.microsoftonline.com/Enter_the_Tenant_Info_Here"
->
->    ```
+>    ``` 
 > 1. Cliquez avec le bouton droit sur **Info.plist** et sélectionnez **Ouvrir en tant que** > **Code source**.
 > 1. Remplacez le nœud racine dict par votre ***ID d'offre groupée*** :
 >
@@ -108,6 +107,10 @@ Ce démarrage rapide contient un exemple de code qui montre comment une applicat
 > 
 >    ```
 > 1. Générez et exécutez l'application ! 
+
+> [!div class="sxs-lookup" renderon="portal"]
+> > [!NOTE]
+> > Ce guide de démarrage rapide prend en charge Enter_the_Supported_Account_Info_Here.
 
 > [!div renderon="docs"]
 >
@@ -253,3 +256,8 @@ Essayez le didacticiel iOS pour bénéficier d'un guide pas à pas complet sur l
 > [Didacticiel iOS pour appeler l’API Graph](https://docs.microsoft.com/azure/active-directory/develop/guidedsetups/active-directory-ios)
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+
+Aidez-nous à améliorer la plateforme des identités Microsoft. Dites-nous ce que vous pensez en répondant à un court questionnaire de deux questions.
+
+> [!div class="nextstepaction"]
+> [Enquête sur la plateforme des identités Microsoft](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyKrNDMV_xBIiPGgSvnbQZdUQjFIUUFGUE1SMEVFTkdaVU5YT0EyOEtJVi4u)

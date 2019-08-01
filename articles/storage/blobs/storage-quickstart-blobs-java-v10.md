@@ -1,24 +1,26 @@
 ---
-title: 'Démarrage rapide d’Azure : créer un objet blob dans un stockage d’objets à l’aide du Kit de développement logiciel (SDK) de stockage Java V10 | Microsoft Docs'
+title: 'Démarrage rapide : Utiliser le SDK de stockage Java pour créer un objet blob'
 description: Dans ce guide de démarrage rapide, vous créez un conteneur dans le stockage d’objets (Azure Blob), chargez un fichier, répertoriez des objets et téléchargez à l’aide du Kit de développement logiciel (SDK) de stockage Java.
 services: storage
 author: mhopkins-msft
-ms.custom: mvc
+ms.custom: mvc, seo-java-july2019
 ms.service: storage
 ms.topic: quickstart
 ms.date: 11/14/2018
 ms.author: mhopkins
 ms.reviewer: seguler
-ms.openlocfilehash: f023f3fdbc82960f3994f8e5763310dc95ca1c2f
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 12507ba87148bef6378542feb4ebde3b1c291a72
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65152801"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68565921"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-by-using-the-java-storage-sdk-v10"></a>Démarrage rapide : Charger, télécharger et lister des objets blob à l’aide du kit de développement logiciel (SDK) Stockage Java V10
 
 Dans ce démarrage rapide, vous apprenez à utiliser le nouveau Kit de développement logiciel (SDK) de stockage Java pour charger, télécharger et répertorier des objets blob de blocs dans un conteneur de stockage Blob Azure. Le nouveau Kit de développement logiciel (SDK) Java utilise le modèle de programmation réactive avec RxJava, ce qui permet des opérations asynchrones. En savoir plus sur les [extensions réactives RxJava pour la machine virtuelle Java](https://github.com/ReactiveX/RxJava). 
+
+[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -50,14 +52,14 @@ Cette solution nécessite que vous conserviez en toute sécurité le nom et la c
 
 ### <a name="linux-example"></a>Exemple Linux
 
-```
+```bash
 export AZURE_STORAGE_ACCOUNT="<youraccountname>"
 export AZURE_STORAGE_ACCESS_KEY="<youraccountkey>"
 ```
 
 ### <a name="windows-example"></a>Exemple Windows
 
-```
+```CMD
 setx AZURE_STORAGE_ACCOUNT "<youraccountname>"
 setx AZURE_STORAGE_ACCESS_KEY "<youraccountkey>"
 ```
@@ -74,7 +76,7 @@ Si vous souhaitez exécuter l’exemple à l’aide de Maven au niveau de la lig
 
 Cet exemple montre la sortie si vous exécutez l’application sous Windows.
 
-```
+```Output
 Created quickstart container
 Enter a command
 (P)utBlob | (L)istBlobs | (G)etBlob | (D)eleteBlobs | (E)xitSample

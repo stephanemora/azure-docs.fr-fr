@@ -14,28 +14,21 @@ ms.tgt_pltfrm: ASP.NET Core
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 1b2a076427d8e4e845096c40cdbdf56b62a1723e
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: 600c808c0bda991bb7203bbf60c098918e274da6
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67795723"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68326625"
 ---
 # <a name="quickstart-create-an-aspnet-core-app-with-azure-app-configuration"></a>Démarrage rapide : Créer une application ASP.NET Core avec Azure App Configuration
 
-Azure App Configuration est un service de configuration managée dans Azure. Vous pouvez vous en servir pour stocker et gérer facilement tous les paramètres de votre application dans un seul endroit, indépendamment de votre code. Ce guide de démarrage rapide vous montre comment intégrer le service à une application web ASP.NET Core. 
-
-ASP.NET Core génère un objet de configuration basé sur une paire clé-valeur unique, à l’aide des paramètres d’une ou de plusieurs sources de données qui sont spécifiées par une application. Ces sources de données sont appelées *fournisseurs de configuration*. Étant donné que le client .NET Core d’App Configuration est implémenté en tant que fournisseur, le service ressemble à une autre source de données.
-
-Vous pouvez utiliser l’éditeur de code de votre choix pour exécuter les étapes de ce guide de démarrage rapide. [Visual Studio Code](https://code.visualstudio.com/) est une excellente option disponible sur les plateformes Windows, macOS et Linux.
-
-![Démarrage rapide du lancement d’application local](./media/quickstarts/aspnet-core-app-launch-local.png)
+Dans ce guide de démarrage rapide, vous intégrez Azure App Configuration dans une application ASP.NET Core pour centraliser le stockage et la gestion des paramètres d’application en dehors de votre code. ASP.NET Core génère un objet de configuration basé sur une paire clé-valeur unique, à l’aide des paramètres d’une ou de plusieurs sources de données qui sont spécifiées par une application. Ces sources de données sont appelées *fournisseurs de configuration*. Étant donné que le client .NET Core d’App Configuration est implémenté en tant que fournisseur, le service ressemble à une autre source de données.
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour suivre ce guide de démarrage rapide, installez le [kit SDK .NET Core](https://dotnet.microsoft.com/download).
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+- Abonnement Azure : [créez-en un gratuitement](https://azure.microsoft.com/free/)
+- [Kit de développement logiciel (SDK) .NET Core](https://dotnet.microsoft.com/download)
 
 ## <a name="create-an-app-configuration-store"></a>Créer un magasin de configuration d’application
 

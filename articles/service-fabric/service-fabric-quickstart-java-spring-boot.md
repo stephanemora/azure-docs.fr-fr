@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/29/2019
 ms.author: suhuruli
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 2c98b069e042f9cbd07ccee643028ac84b3471c6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f7cf3f4cc0ceba89c031f5c36e90bbd6ef3dd20a
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57886682"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68327167"
 ---
 # <a name="quickstart-deploy-a-java-spring-boot-application-to-service-fabric"></a>Démarrage rapide : Déployer une application Spring Boot Java sur Service Fabric
 
@@ -90,7 +90,7 @@ git clone https://github.com/spring-guides/gs-spring-boot.git
     java -jar gs-spring-boot-0.1.0.jar
     ```
 
-1. Ajoutez la ressource **Endpoints** au fichier `gs-spring-boot/SpringServiceFabric/SpringServiceFabric/SpringGettingStartedPkg/ServiceManifest.xml`
+1. Ajoutez la ressource **Endpoints** dans le fichier *gs-spring-boot/SpringServiceFabric/SpringServiceFabric/SpringGettingStartedPkg/ServiceManifest.xml*.
 
     ```xml 
         <Resources>
@@ -145,7 +145,7 @@ git clone https://github.com/spring-guides/gs-spring-boot.git
     docker run --name sftestcluster -d -p 19080:19080 -p 19000:19000 -p 25100-25200:25100-25200 -p 8080:8080 mysfcluster
     ```
 
-    Le démarrage du cluster local prend un certain temps. Pour vérifier que le cluster est entièrement opérationnel, accédez à Service Fabric Explorer à l’adresse **http://localhost:19080**. Les cinq nœuds sains indiquent que le cluster local est opérationnel. 
+    Le démarrage du cluster local prend un certain temps. Pour vérifier que le cluster est entièrement opérationnel, accédez à Service Fabric Explorer à l’adresse **http://localhost:19080** . Les cinq nœuds sains indiquent que le cluster local est opérationnel. 
     
     ![Cluster local sain](./media/service-fabric-quickstart-java-spring-boot/sfxlocalhost.png)
 
@@ -176,7 +176,7 @@ Service Fabric Explorer s’exécute dans tous les clusters Service Fabric et es
 Pour mettre à l’échelle le service web frontal, procédez comme suit :
 
 1. Ouvrez Service Fabric Explorer dans votre cluster. Par exemple, `http://localhost:19080`.
-1. Cliquez sur le bouton de sélection (points de suspension) à côté du nœud **fabric:/SpringServiceFabric/SpringGettingStarted** dans l’arborescence, puis choisissez **Scale Service (Mettre à l’échelle le service)**.
+1. Cliquez sur le bouton de sélection (points de suspension) à côté du nœud **fabric:/SpringServiceFabric/SpringGettingStarted** dans l’arborescence, puis choisissez **Scale Service (Mettre à l’échelle le service)** .
 
     ![Mettre à l’échelle le service dans Service Fabric Explorer](./media/service-fabric-quickstart-java-spring-boot/sfxscaleservicehowto.png)
 

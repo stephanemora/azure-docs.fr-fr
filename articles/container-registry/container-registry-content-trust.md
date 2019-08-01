@@ -3,20 +3,21 @@ title: Approbation de contenu dans Azure Container Registry
 description: Découvrez comment activer l’approbation de contenu pour votre registre de conteneurs Azure et comment envoyer (push) ou extraire (pull) des images signées.
 services: container-registry
 author: dlepow
+manager: gwallace
 ms.service: container-registry
 ms.topic: quickstart
 ms.date: 05/06/2019
 ms.author: danlep
-ms.openlocfilehash: ca9ef32a830f56edb471256b3b9175ba0fbec51d
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: d2132f060076aefe6ae0eccb6d5300c78c96ece5
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "65069227"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68356547"
 ---
 # <a name="content-trust-in-azure-container-registry"></a>Approbation de contenu dans Azure Container Registry
 
-Azure Container Registry implémente le modèle d’[approbation de contenu][docker-content-trust] de Docker, lequel permet l’envoi (push) et le tirage (pull) d’images signées. Cet article vous permet de bien démarrer avec l’activation de l’approbation de contenu dans vos registres de conteneur.
+Azure Container Registry implémente le modèle d’[approbation de contenu][docker-content-trust] de Docker, qui permet l’envoi (push) et le tirage (pull) d’images signées. Cet article vous permet de bien démarrer avec l’activation de l’approbation de contenu dans vos registres de conteneur.
 
 > [!NOTE]
 > L’approbation de contenu est une fonctionnalité de la [référence SKU Premium](container-registry-skus.md) d’Azure Container Registry.
@@ -36,7 +37,7 @@ L’approbation de contenu fonctionne avec les **balises** d’un référentiel.
 L’approbation de contenu est gérée par le biais d’un ensemble de clés de signatures de chiffrement. Ces clés sont associées à un référentiel spécifique dans un registre. Les clients Docker et votre registre utilisent plusieurs types de clés de signature dans le cadre de la gestion de l’approbation relative aux balises d’un référentiel. Lorsque vous activez l’approbation de contenu et que vous l’intégrez à votre pipeline de publication et de consommation de conteneurs, vous devez gérer ces clés avec soin. Pour plus d’informations, consultez la section [Gestion des clés](#key-management) dans la suite de cet article, ainsi que l’article [Manage keys for content trust][docker-manage-keys] (Gérer les clés de l’approbation de contenu) dans la documentation Docker.
 
 > [!TIP]
-> Il s’agissait là d’une vue d’ensemble très générale du modèle d’approbation de contenu de Docker. Pour découvrir une présentation détaillée de l’approbation de contenu, consultez l’article [Content trust in Docker][docker-content-trust] (Approbation de contenu dans Docker).
+> Il s’agissait là d’une vue d’ensemble très générale du modèle d’approbation de contenu de Docker. Pour obtenir une présentation détaillée de l’approbation de contenu, consultez l’article [Content trust in Docker][docker-content-trust] (Approbation de contenu dans Docker).
 
 ## <a name="enable-registry-content-trust"></a>Activer l’approbation de contenu sur le registre
 
@@ -85,7 +86,7 @@ Dans cet exemple, le rôle `AcrImageSigner` a été assigné à deux entités : 
 
 ![Activation de l’approbation de contenu pour un registre dans le Portail Azure][content-trust-02-portal]
 
-### <a name="azure-cli"></a>Azure CLI
+### <a name="azure-cli"></a>D’Azure CLI
 
 Pour accorder des autorisations de signature à un utilisateur à l’aide d’Azure CLI, assignez à cet utilisateur le rôle `AcrImageSigner`, limité à votre registre. Le format de la commande est le suivant :
 
@@ -163,7 +164,7 @@ No valid trust data for unsigned
 
 ### <a name="behind-the-scenes"></a>Dans les coulisses
 
-Lorsque vous exécutez la commande `docker pull`, le client Docker utilise la même bibliothèque que dans [l’interface de ligne de commande Notary][docker-notary-cli] pour demander le mappage sur SHA-256 du code de hachage de la balise que vous extrayez. Après la validation des signatures sur les données d’approbation, le client demande au moteur Docker d’effectuer une « extraction par code de hachage ». Pendant l’extraction, le moteur utilise la somme de contrôle SHA-256 comme adresse du contenu pour demander et valider le manifeste d’image à partir du registre de conteneurs Azure.
+Quand vous exécutez la commande `docker pull`, le client Docker utilise la même bibliothèque que dans l’[interface de ligne de commande Notary][docker-notary-cli] pour demander le mappage sur SHA-256 du code de hachage de la balise que vous extrayez. Après la validation des signatures sur les données d’approbation, le client demande au moteur Docker d’effectuer une « extraction par code de hachage ». Pendant l’extraction, le moteur utilise la somme de contrôle SHA-256 comme adresse du contenu pour demander et valider le manifeste d’image à partir du registre de conteneurs Azure.
 
 ## <a name="key-management"></a>Gestion des clés
 
@@ -173,13 +174,13 @@ Comme indiqué pour la sortie `docker push` lorsque vous envoyez votre première
 ~/.docker/trust/private
 ```
 
-Sauvegardez vos clés racine et de référentiel en les compressant dans une archive et en les stockant à un endroit sécurisé hors connexion (tel qu’un dispositif de stockage USB). Par exemple, dans Bash :
+Sauvegardez vos clés racine et de référentiel en les compressant dans une archive et en les stockant dans un emplacement sécurisé. Par exemple, dans Bash :
 
 ```bash
 umask 077; tar -zcvf docker_private_keys_backup.tar.gz ~/.docker/trust/private; umask 022
 ```
 
-Parallèlement aux clés racine et de référentiel générées localement, plusieurs autres clés sont générées et stockées par Azure Container Registry lorsque vous envoyez une image approuvée. Pour découvrir une présentation détaillée des différentes clés dans l’implémentation de l’approbation de contenu de Docker, et notamment des instructions de gestion supplémentaires, consultez l’article [Manage keys for content trust][docker-manage-keys] (Gérer les clés de l’approbation de contenu) dans la documentation Docker.
+Parallèlement aux clés racine et de référentiel générées localement, plusieurs autres clés sont générées et stockées par Azure Container Registry lorsque vous envoyez une image approuvée. Pour obtenir une présentation détaillée des différentes clés dans l’implémentation de l’approbation de contenu de Docker, et notamment des instructions de gestion supplémentaires, consultez l’article [Manage keys for content trust][docker-manage-keys] (Gérer les clés de l’approbation de contenu) dans la documentation Docker.
 
 ### <a name="lost-root-key"></a>Clé racine perdue
 
@@ -194,7 +195,9 @@ Pour désactiver l’approbation de contenu pour votre registre, accédez au reg
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur l’approbation de contenu, consultez [Approbation de contenu dans Docker][docker-content-trust]. Bien que cet article ait abordé plusieurs points clés, l’approbation de contenu est un vaste sujet couvert de manière plus approfondie dans la documentation Docker.
+* Pour plus d’informations sur l’approbation de contenu, consultez [Approbation de contenu dans Docker][docker-content-trust]. Bien que cet article ait abordé plusieurs points clés, l’approbation de contenu est un vaste sujet couvert de manière plus approfondie dans la documentation Docker.
+
+* Consultez la documentation [Azure Pipelines](/azure/devops/pipelines/build/content-trust) pour obtenir un exemple d’utilisation de l’approbation de contenu quand vous générez et effectuez un Push d’une image Docker.
 
 <!-- IMAGES> -->
 [content-trust-01-portal]: ./media/container-registry-content-trust/content-trust-01-portal.png

@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 05/30/2019
+ms.date: 07/18/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c5c689c6624a47a01e8e85c8aec33b956459981f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7f631a641ab63d33d27d1e4520a000b4b01132be
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67095369"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68478562"
 ---
 # <a name="tutorial-integrate-outsystems-azure-ad-with-azure-active-directory"></a>Didacticiel : Intégrer OutSystems Azure AD à Azure Active Directory
 
@@ -101,7 +101,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 ### <a name="configure-outsystems-azure-ad"></a>Configurer OutSystems Azure AD
 
-Pour configurer l’authentification unique côté **OutSystems**, vous devez envoyer le fichier **XML des métadonnées de fédération** téléchargé et les URL appropriées copiées depuis le portail Azure à l’[équipe du support technique OutSystems](mailto:support@outsystems.com). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
+Pour configurer l’authentification unique côté OutSystems, vous devez télécharger le composant [IdP forge](https://www.outsystems.com/forge/component-overview/599/idp) et le configurer comme indiqué dans les [instructions](https://success.outsystems.com/Documentation/Development_FAQs/How_to_configure_OutSystems_to_use_identity_providers_using_SAML#Configure_your_application_to_use_IdP_connector). Après avoir installé le composant et effectué les modifications de code nécessaires, configurez Azure AD en téléchargeant le fichier XML des métadonnées de fédération à partir du portail Azure et chargez-le sur le composant IdP OutSystems en suivant les [instructions](https://success.outsystems.com/Documentation/Development_FAQs/How_to_configure_OutSystems_to_use_identity_providers_using_SAML#Azure_AD_.2F_ADFS) ci-dessous.
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
@@ -135,7 +135,7 @@ Dans cette section, vous allez autoriser B. Simon à utiliser l’authentificat
 
 ### <a name="create-outsystems-azure-ad-test-user"></a>Créer un utilisateur de test OutSystems Azure AD
 
-Dans cette section, un utilisateur appelé Britta Simon est créé dans OutSystems. OutSystems prend en charge l’attribution d’utilisateurs juste-à-temps, option activée par défaut. Vous n’avez aucune opération à effectuer dans cette section. S’il n’existe pas encore d’utilisateur dans OutSystems, il en est créé un après l’authentification.
+Dans cette section, un utilisateur appelé B.Simon est créé dans OutSystems. OutSystems prend en charge l’attribution d’utilisateurs juste-à-temps, option activée par défaut. Vous n’avez aucune opération à effectuer dans cette section. S’il n’existe pas encore d’utilisateur dans OutSystems, il en est créé un après l’authentification.
 
 ### <a name="test-sso"></a>Tester l’authentification unique (SSO)
 

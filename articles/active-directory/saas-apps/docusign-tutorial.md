@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/01/2019
 ms.author: jeedes
-ms.openlocfilehash: 607e5aded52375190878de6b48ffa4aa2ab49767
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5c7d6116ed2925e57f094a67f27a11f9e2d61831
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67104082"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68499257"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-docusign"></a>Tutoriel : Intégration d’Azure Active Directory avec DocuSign
 
@@ -47,7 +47,7 @@ Dans ce didacticiel, vous configurez et testez l’authentification unique Azure
 
 * DocuSign prend en charge l’authentification unique lancée par le **fournisseur de services**
 
-* DocuSign prend en charge le provisionnement d’utilisateurs **juste-à-temps**
+* DocuSign prend en charge le [provisionnement automatique d’utilisateurs](https://docs.microsoft.com/azure/active-directory/saas-apps/dropboxforbusiness-provisioning-tutorial)
 
 ## <a name="adding-docusign-from-the-gallery"></a>Ajout de DocuSign à partir de la galerie
 

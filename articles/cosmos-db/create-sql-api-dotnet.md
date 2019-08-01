@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 07/12/2019
-ms.openlocfilehash: 1687a81952418c0b751fe0b9ec0ec560ae0b2b2b
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: c738b2d44c5faca1ef95b2da8fd1f90a1b3af919
+ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68297610"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68371012"
 ---
 # <a name="quickstart-build-a-net-console-app-to-manage-azure-cosmos-db-sql-api-resources"></a>Démarrage rapide : Générer une application console .NET pour gérer les ressources de l’API SQL Azure Cosmos DB
 
@@ -34,9 +34,9 @@ Azure Cosmos DB est le service de base de données multi-modèle de Microsoft di
 * Interroger les données 
 * Supprimer la base de données
 
-[Documentation de référence sur l’API](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet) | [Code source de la bibliothèque](https://github.com/Azure/azure-cosmos-dotnet-v3) | [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Cosmos)
+[Documentation de référence sur l’API](/dotnet/api/microsoft.azure.cosmos?view=azure-dotnet) | [Code source de la bibliothèque](https://github.com/Azure/azure-cosmos-dotnet-v3) | [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Cosmos)
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 * Abonnement Azure – [Vous pouvez en créer un gratuitement](https://azure.microsoft.com/free/) ou [essayer Azure Cosmos DB gratuitement](https://azure.microsoft.com/try/cosmosdb/) sans abonnement Azure, sans frais et sans engagement. 
 * Kit de développement logiciel (SDK) [.NET Core 2.1 ou version ultérieure](https://dotnet.microsoft.com/download/dotnet-core/2.1).
@@ -126,9 +126,25 @@ L’exemple d’application doit s’authentifier auprès de votre compte Azure 
 
 Après avoir copié l’**URI** et la **CLÉ PRIMAIRE** de votre compte, enregistrez-les dans une nouvelle variable d’environnement sur la machine locale exécutant l’application. Pour définir la variable d’environnement, ouvrez une fenêtre de console, puis exécutez la commande suivante. Veillez à remplacer les valeurs `<Your_Azure_Cosmos_account_URI>` et `<Your_Azure_Cosmos_account_PRIMARY_KEY>`.
 
+**Windows**
+
 ```console
-setx EndpointUrl <Your_Azure_Cosmos_account_URI>
-setx PrimaryKey <Your_Azure_Cosmos_account_PRIMARY_KEY>
+setx EndpointUrl "<Your_Azure_Cosmos_account_URI>"
+setx PrimaryKey "<Your_Azure_Cosmos_account_PRIMARY_KEY>"
+```
+
+**Linux**
+
+```bash
+export EndpointUrl "<Your_Azure_Cosmos_account_URI>"
+export PrimaryKey "<Your_Azure_Cosmos_account_PRIMARY_KEY>"
+```
+
+**MacOS**
+
+```bash
+export EndpointUrl "<Your_Azure_Cosmos_account_URI>"
+export PrimaryKey "<Your_Azure_Cosmos_account_PRIMARY_KEY>"
 ```
 
  ## <a id="object-model"></a>Modèle objet
@@ -142,16 +158,17 @@ Avant de commencer à générer l’application, examinons la hiérarchie des re
 
 Pour en savoir plus sur la hiérarchie des différentes entités, voir [Utilisation de bases de données, conteneurs et éléments dans Azure Cosmos DB](databases-containers-items.md). Vous allez utiliser les classes .NET suivantes pour interagir avec ces ressources :
 
-* [CosmosClient]() : cette classe fournit une représentation logique côté client pour le service Azure Cosmos DB. Ce client est utilisé pour configurer et exécuter des requêtes sur le service.
+* [CosmosClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclient?view=azure-dotnet) : cette classe fournit une représentation logique côté client pour le service Azure Cosmos DB. Ce client est utilisé pour configurer et exécuter des requêtes sur le service.
 
-* [CreateDatabaseIfNotExistsAsync]() : cette méthode obtient ou, si nécessaire, crée une ressource de base de données en tant qu’opération asynchrone. 
+* [CreateDatabaseIfNotExistsAsync](/dotnet/api/microsoft.azure.cosmos.cosmosclient.createdatabaseifnotexistsasync?view=azure-dotnet) : cette méthode obtient ou, si nécessaire, crée une ressource de base de données en tant qu’opération asynchrone. 
 
-* [CreateContainerIfNotExistsAsync]() : cette méthode obtient ou, si nécessaire, crée un conteneur en tant qu’opération asynchrone. Vous pouvez vérifier le code d’état de la réponse pour déterminer si le conteneur vient d’être créé (201) ou si un conteneur existant a été retourné (200). 
-* [CreateItemAsync]() : cette méthode crée un élément dans le conteneur. 
+* [CreateContainerIfNotExistsAsync](/dotnet/api/microsoft.azure.cosmos.database.createcontainerifnotexistsasync?view=azure-dotnet) : cette méthode obtient ou, si nécessaire, crée un conteneur en tant qu’opération asynchrone. Vous pouvez vérifier le code d’état de la réponse pour déterminer si le conteneur vient d’être créé (201) ou si un conteneur existant a été retourné (200). 
+* [CreateItemAsync](/dotnet/api/microsoft.azure.cosmos.container.createitemasync?view=azure-dotnet) : cette méthode crée un élément dans le conteneur. 
 
-* [QueryItemsAsync]() : exécute une requête pour obtenir les éléments requis. Une requête SQL est transmise dans cette méthode. 
+* [GetItemQueryIterator](/dotnet/api/microsoft.azure.cosmos.container.GetItemQueryIterator?view=azure-dotnet
+) : cette méthode crée une requête pour les éléments sous un conteneur dans une base de données Azure Cosmos à l’aide d’une instruction SQL avec des valeurs paramétrables. 
 
-* [DeleteAsync]() : supprime la base de données spécifiée de votre compte Azure Cosmos. Le méthode `DeleteAsync` supprime uniquement les base de données. La suppression de l’instance `Cosmosclient` doit se produire séparément (ce qu’elle fait dans la méthode DeleteDatabaseAndCleanupAsync. 
+* [DeleteAsync](/dotnet/api/microsoft.azure.cosmos.database.deleteasync?view=azure-dotnet) : supprime la base de données spécifiée de votre compte Azure Cosmos. Le méthode `DeleteAsync` supprime uniquement les base de données. La suppression de l’instance `Cosmosclient` doit se produire séparément (ce qu’elle fait dans la méthode DeleteDatabaseAndCleanupAsync. 
 
  ## <a id="code-examples"></a>Exemples de codes
 

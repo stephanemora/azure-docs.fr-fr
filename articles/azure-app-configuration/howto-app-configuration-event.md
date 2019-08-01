@@ -13,24 +13,20 @@ ms.topic: tutorial
 ms.date: 05/30/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 2cb9ad28a21842987f8c0f7c75151ab8c7fe6fa0
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.openlocfilehash: d41ce06279536e3479b96d8d7afedf81624dbc9b
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66735808"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68326596"
 ---
 # <a name="quickstart-route-azure-app-configuration-events-to-a-web-endpoint-with-azure-cli"></a>Démarrage rapide : Router des événements Azure App Configuration vers un point de terminaison web avec Azure CLI
 
-Les utilisateurs Azure App Configuration peuvent s’abonner à des événements émis dès que des paires clé-valeur sont modifiées. Ces événements peuvent déclencher des webhooks, Azure Functions, des files d’attente de stockage Azure ou tout autre gestionnaire d’événements pris en charge par [Azure Event Grid](https://docs.microsoft.com/azure/event-grid/event-handlers). Dans cet article, vous allez apprendre à utiliser Azure CLI pour vous abonner à des événements Azure App Configuration.
+Dans ce guide démarrage rapide, vous découvrez comment configurer des abonnements à des événements Azure App Configuration afin d’envoyer des événements de modification de paires clé-valeur à un point de terminaison web. Les utilisateurs Azure App Configuration peuvent s’abonner à des événements émis dès que des paires clé-valeur sont modifiées. Ces événements peuvent déclencher des webhooks, des fonctions Azure, des files d’attente de stockage Azure ou tout autre gestionnaire d’événements pris en charge par Azure Event Grid. En règle générale, vous envoyez des événements à un point de terminaison qui traite les données d’événement et entreprend des actions. Toutefois, pour simplifier cet article, vous envoyez les événements à une application web qui collecte et affiche les messages.
 
-En règle générale, vous envoyez des événements à un point de terminaison qui traite les données d’événement et entreprend des actions. Toutefois, pour simplifier cet article, vous envoyez les événements à une application web qui collecte et affiche les messages.
+## <a name="prerequisites"></a>Prérequis
 
-En suivant les instructions de cet article, vous voyez que les données d’événement ont été envoyées à l’application web.
-
-![Afficher l’événement d’abonnement](./media/quickstarts/event-grid/view-results.png)
-
-[!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
+- Abonnement Azure : [créez-en un gratuitement](https://azure.microsoft.com/free/). Vous pouvez également utiliser Azure Cloud Shell.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -144,3 +140,4 @@ Maintenant que vous savez créer des rubriques et des abonnements d’événemen
 
 - [Réaction aux événements clé-valeur](concept-app-configuration-event.md)
 - [À propos d’Event Grid](../event-grid/overview.md)
+- [Gestionnaires Azure Event Grid](../event-grid/event-handlers.md)

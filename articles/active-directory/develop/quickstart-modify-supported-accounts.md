@@ -1,5 +1,5 @@
 ---
-title: Modifier les comptes pris en charge par une application inscrite à l’aide de la plateforme d’identité Microsoft | Azure
+title: Modifier les comptes d’applications de plateforme des identités Microsoft | Azure
 description: Configurez une application inscrite avec la plateforme d’identité Microsoft pour modifier les utilisateurs ou les comptes qui peuvent accéder à l’application.
 services: active-directory
 documentationcenter: ''
@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: aragra, lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 00d99ae48abfcb3e4d4abc0d63565994df45f746
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: be62dabc01e00465fa5227c5531fa18a16cf10a9
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65545728"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68380784"
 ---
 # <a name="quickstart-modify-the-accounts-supported-by-an-application"></a>Démarrage rapide : Modifier les comptes pris en charge par une application
 

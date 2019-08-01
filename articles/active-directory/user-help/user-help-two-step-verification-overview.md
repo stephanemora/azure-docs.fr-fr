@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 07/30/2018
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 48a38b91cd17e2107fe85bfc77da8ead86196173
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: d33a18aaca923bd49858671546ab053cf3fb21a3
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56174042"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68382133"
 ---
 # <a name="two-step-verification-overview"></a>Aperçu de la vérification en deux étapes
 
@@ -30,9 +30,9 @@ Elle est plus sécurisée qu’un simple mot de passe, car elle s’appuie sur d
 
 |Article |Description |
 |------|------------|
-|[Expérience d'installation](multi-factor-authentication-end-user-first-time.md) |Décrit comment configurer la vérification en deux étapes pour la première fois.|
-|[Prise en main de la vérification en deux étapes](multi-factor-authentication-end-user.md)|Décrit ce que signifie la vérification en deux étapes pour vous.| 
-|[Comment se connecter](user-help-sign-in.md)|Décrit comment se connecter à l’aide de votre méthode de vérification spécifiée.|
-|[Modification des paramètres](multi-factor-authentication-end-user-manage-settings.md) |Illustre comment modifier vos paramètres, comme le numéro de téléphone ou la méthode d’inscription favorite.|
-|[Aide pour la vérification en deux étapes](multi-factor-authentication-end-user-troubleshoot.md) |Décrit comment résoudre les problèmes courants liés à la vérification en deux étapes.|
-|[Gérer les mots de passe d’application](multi-factor-authentication-end-user-app-passwords.md) |Explique comment créer et utiliser des mots de passe d’application.|
+| [Expérience d'installation](multi-factor-authentication-end-user-first-time.md) |Décrit comment configurer la vérification en deux étapes pour la première fois.|
+| [Bien démarrer avec la vérification en deux étapes](multi-factor-authentication-end-user.md) ]Explique ce que signifie la vérification en deux étapes.| 
+| [Guide pratique pour se connecter](user-help-sign-in.md) ]Décrit comment se connecter à l’aide de votre méthode de vérification spécifiée.|
+| [Modification des paramètres](multi-factor-authentication-end-user-manage-settings.md) |Illustre comment modifier vos paramètres, comme le numéro de téléphone ou la méthode d’inscription favorite.|
+| [Aide pour la vérification en deux étapes](multi-factor-authentication-end-user-troubleshoot.md) |Décrit comment résoudre les problèmes courants liés à la vérification en deux étapes.|
+| [Gérer les mots de passe d’application](multi-factor-authentication-end-user-app-passwords.md) |Explique comment créer et utiliser des mots de passe d’application.|

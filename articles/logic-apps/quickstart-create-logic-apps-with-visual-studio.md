@@ -11,12 +11,12 @@ ms.custom: mvc
 ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.date: 04/25/2019
-ms.openlocfilehash: a8857d62b3078d78bdd0a339ebadf766ddb2fb43
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 51d1af24a22f7ed86b01b1c7c79b204cd552a7ea
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67295825"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68385414"
 ---
 # <a name="quickstart-create-automated-tasks-processes-and-workflows-with-azure-logic-apps---visual-studio"></a>Démarrage rapide : Créer des tâches, des processus et des workflows automatisés avec Azure Logic Apps - Visual Studio
 
@@ -64,6 +64,8 @@ Dans ce guide de démarrage rapide, vous créez la même application logique ave
   Par exemple, pour les connexions Dynamics CRM Online, le Concepteur recherche les propriétés par défaut et personnalisées dans votre instance CRM.
 
 * Un compte de messagerie pris en charge par Logic Apps, par exemple Office 365 Outlook, Outlook.com ou Gmail. Pour les autres fournisseurs, [passez en revue la liste des connecteurs ici](https://docs.microsoft.com/connectors/). Office 365 Outlook est utilisé dans cet exemple. Si vous utilisez un autre fournisseur, les étapes générales sont identiques, mais votre interface utilisateur peut être légèrement différente.
+
+<a name="create-resource-group-project"></a>
 
 ## <a name="create-azure-resource-group-project"></a>Créer un projet de groupe de ressources Azure
 
@@ -141,6 +143,8 @@ Dans la zone de recherche, entrez « rss ». Dans la liste des déclencheurs, 
 
 1. Enregistrez votre solution Visual Studio. (Clavier : Ctrl+S)
 
+<a name="deploy-to-Azure"></a>
+
 ## <a name="deploy-logic-app-to-azure"></a>Déployer l’application logique dans Azure
 
 Avant de pouvoir exécuter et tester votre application logique, déployez-la dans Azure à partir de Visual Studio.
@@ -173,6 +177,22 @@ Avant de pouvoir exécuter et tester votre application logique, déployez-la dan
    ![Outlook envoie un e-mail pour chaque nouvel élément RSS](./media/quickstart-create-logic-apps-with-visual-studio/outlook-email.png)
 
 Félicitations, vous avez correctement généré et déployé votre application logique avec Visual Studio. Pour gérer votre application logique et examiner son historique des exécutions, consultez [Manage logic apps with Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md) (Gérer des applications logiques avec Visual Studio).
+
+## <a name="add-new-logic-app"></a>Ajouter une nouvelle application logique
+
+Quand vous avez déjà un projet de groupe de ressources Azure, vous pouvez y ajouter une nouvelle application logique vide à partir de la fenêtre Structure JSON.
+
+1. Dans l’Explorateur de solutions, ouvrez le fichier `<logic-app-name>.json`.
+
+1. Dans le menu **Affichage**, sélectionnez **Autres fenêtres** > **Structure JSON**.
+
+1. Pour ajouter une ressource au fichier de modèle, choisissez **Ajouter une ressource** en haut de la fenêtre Structure JSON. Ou, dans la fenêtre Structure JSON, cliquez avec le bouton droit sur **Ressources**, puis sélectionnez **Ajouter une nouvelle ressource**.
+
+   ![Fenêtre Structure JSON](./media/quickstart-create-logic-apps-with-visual-studio/jsonoutline.png)
+
+1. Dans la boîte de dialogue **Ajouter une ressource**, recherchez et sélectionnez **Application logique**. Donnez un nom à votre application logique, puis choisissez **Ajouter**.
+
+   ![Ajouter une ressource](./media/quickstart-create-logic-apps-with-visual-studio/addresource.png)
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 

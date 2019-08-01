@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 06/11/2019
 ms.author: spelluru
-ms.openlocfilehash: 803fe6eff8804dbd407642386865fe975c8db524
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 0c50a321cbeb0d07a5039038ff796df00463ac8a
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67123257"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68385672"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>Didacticiel : Configurer un laboratoire de salle de classe 
 Dans ce tutoriel, vous allez configurer un laboratoire de classe avec des machines virtuelles utilisées par les étudiants dans la classe.  
@@ -113,14 +113,14 @@ Un propriétaire de laboratoire peut ajouter d’autres utilisateurs au rôle **
 Vous pouvez définir des quotas par utilisateur en effectuant les étapes suivantes : 
 
 1. Sélectionnez **Utilisateurs** dans le menu de gauche si la page n’est pas déjà active. 
-2. Sélectionnez **Quota par utilisateur :** dans la barre d’outils. 
+2. Sélectionnez **Quota par utilisateur : 10 heures** dans la barre d’outils. 
 3. Sur la page **Quota par utilisateur**, spécifiez le nombre d’heures que vous souhaitez donner à chaque utilisateur (étudiant) : 
+    1. **Nombre total d’heures de laboratoire par utilisateur**. Les utilisateurs peuvent employer leurs machines virtuelles pendant le nombre d’heures défini (spécifié pou ce champ) **en plus de l’heure planifiée**. Si vous sélectionnez cette option, entrez le **nombre d’heures** dans la zone de texte. 
+
+        ![Nombre d’heures par utilisateur](../media/how-to-configure-student-usage/number-of-hours-per-user.png). 
     1. **0 heure (heures planifiées uniquement)** . Les utilisateurs peuvent utiliser leurs machines virtuelles uniquement pendant les heures planifiées, ou quand vous, en tant que le propriétaire de laboratoire, activez leurs machines virtuelles.
 
         ![Zéro heure - uniquement aux heures planifiées](../media/how-to-configure-student-usage/zero-hours.png)
-    1. **Nombre total d’heures de laboratoire par utilisateur**. Les utilisateurs peuvent employer leurs machines virtuelles pendant le nombre d'heures défini (spécifié pou ce champ) **en plus de l'heure planifiée**. Si vous sélectionnez cette option, entrez le **nombre d’heures** dans la zone de texte. 
-
-        ![Nombre d’heures par utilisateur](../media/how-to-configure-student-usage/number-of-hours-per-user.png)
     4. Sélectionnez **Enregistrer**. 
 5. Les valeurs modifiées figurent maintenant dans la barre d’outils : **Quota par utilisateur : &lt;nombre d’heures&gt;** . 
 
