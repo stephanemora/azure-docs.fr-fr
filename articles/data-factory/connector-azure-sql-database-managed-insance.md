@@ -123,7 +123,7 @@ Les propriétés suivantes sont prises en charge pour copier des données vers e
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type du jeu de données doit être définie sur **SqlServerTable**. | OUI |
+| type | La propriété type du jeu de données doit être définie sur **SqlServerTable**. | OUI |
 | tableName |Cette propriété est le nom de la table ou de la vue dans l'instance de base de données à laquelle le service lié fait référence. | Non pour Source, Oui pour Récepteur |
 
 **Exemple**
