@@ -1,18 +1,19 @@
 ---
 title: Sauvegarder des bases de données SQL Server sur des machines virtuelles Azure | Microsoft Docs
 description: Découvrir comment sauvegarder des bases de données SQL Server sur des machines virtuelles Azure
-author: sachdevaswati
-manager: vijayts
+ms.reviewer: vijayts
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 06/18/2019
-ms.author: vijayts
-ms.openlocfilehash: 9870acdebaa4bf700bb18b5fa1d3a26f6338a10b
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: b7bf9943afa2a79f98fd28d15e5ea46fa63af732
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68464984"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68688642"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>Sauvegarder des bases de données SQL Server sur des machines virtuelles Azure
 

@@ -15,6 +15,8 @@
               href: QuickStarts/csharp-detect-sdk.md
             - name: Python
               href: Tutorials/FaceAPIinPythonTutorial.md
+        - name: Kit de développement logiciel (SDK) Python
+          href: QuickStarts/python-sdk.md
     - name: Utilisation de l’API REST
       items:
         - name: Détecter des visages dans une image
