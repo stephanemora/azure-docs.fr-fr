@@ -9,12 +9,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 26609e7b21af8804a4b43039c84c04597035721c
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 80809afc9f2a8e8da2f6adecfe916141c4cd3e45
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67706208"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68278339"
 ---
 # <a name="service-bus-faq"></a>FAQ Service Bus
 
@@ -134,7 +134,7 @@ Lorsque vous supprimez un espace de noms d’un abonnement, patientez pendant 4�
 Pour obtenir la liste des exceptions Service Bus potentielles, consultez [Vue d’ensemble des exceptions][Exceptions overview].
 
 ### <a name="what-is-a-shared-access-signature-and-which-languages-support-generating-a-signature"></a>Qu’est-ce qu’une signature d’accès partagé et quels langages prennent en charge la génération d’une signature ?
-Les signatures d’accès partagé sont un mécanisme d’authentification basé sur des hachages sécurisés SHA-256 ou des URI. Pour plus d’informations sur la génération de vos propres signatures en Node.js, PHP, Java et C\#, consultez l’article [Signatures d’accès partagé][Shared Access Signatures].
+Les signatures d’accès partagé sont un mécanisme d’authentification basé sur des hachages sécurisés SHA-256 ou des URI. Pour plus d’informations sur la génération de vos propres signatures en Node.js, PHP, Java, Python et C#, consultez l’article [Signatures d’accès partagé][Shared Access Signatures].
 
 ## <a name="subscription-and-namespace-management"></a>Gestion des abonnements et des espaces de noms
 ### <a name="how-do-i-migrate-a-namespace-to-another-azure-subscription"></a>Migration d’un espace de noms vers un autre abonnement Azure

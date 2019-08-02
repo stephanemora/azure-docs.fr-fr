@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 07/16/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd2da6baecdce3ab85a45347f27f573bf814445d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 705545fd5167087be1a001c45f58907d6ff225e8
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67055750"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68277826"
 ---
 # <a name="daemon-app-that-calls-web-apis---code-configuration"></a>Application démon appelant des API web - Configuration du code
 
@@ -39,11 +39,11 @@ Bibliothèques Microsoft prenant en charge les applications démon :
 
 ## <a name="configuration-of-the-authority"></a>Configuration de l’autorité
 
-Étant donné que les applications démon n’utilisent pas d’autorisations déléguées, mais des autorisations d’application, leur *type de compte pris en charge* ne peut pas être du type *Comptes d’un répertoire organisationnel ni comptes Microsoft personnels (par exemple, Skype, Xbox, Outlook.com)* . En effet, aucun administrateur de locataire n’octroie son consentement à l’application démon pour les comptes Microsoft personnels. Vous devez choisir des *comptes dans mon organisation* ou des *comptes dans une organisation*.
+Étant donné que les applications démon n’utilisent pas d’autorisations déléguées, mais des autorisations d’application, leur *type de compte pris en charge* ne peut pas être du type *Comptes dans un annuaire organisationnel et comptes Microsoft personnels (par exemple, Skype, Xbox, Outlook.com)* . En effet, aucun administrateur de locataire n’octroie son consentement à l’application démon pour les comptes personnels Microsoft. Vous devez choisir des *comptes dans mon organisation* ou des *comptes dans une organisation*.
 
 L’autorité spécifiée dans la configuration de l’application doit donc être locataire (en spécifiant un ID de locataire ou un nom de domaine associé à votre organisation).
 
-Si vous êtes éditeur de logiciels indépendant et souhaitez fournir un outil mutualisé, vous pouvez utiliser `organizations`. Mais n’oubliez pas que vous devrez également expliquer à vos clients comment accorder le consentement administrateur. Pour plus d’informations, consultez [Demande de consentement d’un client entier](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant). De plus, il existe actuellement une limitation dans la bibliothèque MSAL qui fait que le paramètre `organizations` est autorisé uniquement lorsque les informations d’identification du client sont un secret d’application (et non un certificat). Voir [MSAL.NET bogue n° 891](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/891)
+Si vous êtes éditeur de logiciels indépendant et souhaitez fournir un outil multilocataire, vous pouvez utiliser `organizations`. Mais n’oubliez pas que vous devrez aussi expliquer à vos clients comment accorder le consentement administrateur. Pour plus d’informations, consultez [Demande de consentement d’un client entier](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant). De plus, il existe actuellement une limitation dans la bibliothèque MSAL qui fait que le paramètre `organizations` est autorisé uniquement quand les informations d’identification correspondent à un secret d’application (et non à un certificat). Voir [MSAL.NET bogue n° 891](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/891)
 
 ## <a name="application-configuration-and-instantiation"></a>Instanciation et configuration d’application
 
@@ -86,6 +86,9 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
     .WithAuthority(new Uri(config.Authority))
     .Build();
 ```
+
+Enfin, à la place d’une clé secrète client ou d’un certificat, l’application cliente confidentielle peut aussi prouver son identité à l’aide d’assertions clientes. Ce scénario avancé est détaillé dans [Assertions clientes](msal-net-client-assertions.md).
+
 
 ### <a name="msalpython"></a>MSAL.Python
 

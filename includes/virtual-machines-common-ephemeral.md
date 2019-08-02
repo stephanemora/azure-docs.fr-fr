@@ -5,15 +5,15 @@ services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 07/01/2019
+ms.date: 07/08/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 30d71ed54e490be8c3a4b36cedbc0eda634323a1
-ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
+ms.openlocfilehash: a57335eccfce1e81fe0cc85ae6fa7b12aa27e1c3
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67626470"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67805865"
 ---
 Les disques de système d’exploitation éphémères sont créés sur le stockage local de la machine virtuelle (VM) et ne sont pas enregistrés dans le Stockage Azure à distance. Les disques de système d’exploitation éphémères conviennent particulièrement bien aux charges de travail sans état, car les applications tolèrent les défaillances individuelles des machines virtuelles, mais sont plus sensibles au temps de déploiement de machine virtuelle et de réinitialisation des instances de machines virtuelles individuelles. Comparé à un disque de système d’exploitation standard, un disque éphémère offre une latence plus faible pour les opérations de lecture/écriture et permet une réinitialisation plus rapide des machines virtuelles. 
  
@@ -32,7 +32,7 @@ Différences clés entre les disques de système d’exploitation persistants et
 
 |                             | Disque de système d’exploitation persistant                          | Disque de système d’exploitation éphémère                              |    |
 |-----------------------------|---------------------------------------------|------------------------------------------------|
-| Limite de taille pour le disque de système d’exploitation      | 2 Tio                                                                                        | Taille du cache pour la taille de la machine virtuelle ou 2TiB (la valeur la plus petite étant retenue) : [DS](../articles/virtual-machines/linux/sizes-general.md), [ES](../articles/virtual-machines/linux/sizes-memory.md), [M](../articles/virtual-machines/linux/sizes-memory.md), [FS](../articles/virtual-machines/linux/sizes-compute.md) et [GS](../articles/virtual-machines/linux/sizes-memory.md)              |
+| Limite de taille pour le disque de système d’exploitation      | 2 Tio                                                                                        | Taille du cache pour la taille de la machine virtuelle ou 2 Tio, la valeur la plus faible étant retenue. Pour la **taille du cache en Gio**, consultez [DS](../articles/virtual-machines/linux/sizes-general.md), [ES](../articles/virtual-machines/linux/sizes-memory.md), [M](../articles/virtual-machines/linux/sizes-memory.md), [FS](../articles/virtual-machines/linux/sizes-compute.md), and [GS](/azure/virtual-machines/linux/sizes-previous-gen#gs-series)              |
 | Tailles de machines virtuelles prises en charge          | Tous                                                                                          | DSv1, DSv2, DSv3, Esv3, Fs, FsV2, GS, M                                               |
 | Prise en charge du type de disque           | Disque de système d’exploitation managé et non managé                                                                | Disque de système d’exploitation managé uniquement                                                               |
 | Prise en charge de la région              | Toutes les régions                                                                                  | Toutes les régions                              |

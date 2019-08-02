@@ -8,15 +8,18 @@ ms.author: spelluru
 ms.date: 07/09/2019
 ms.topic: article
 ms.service: event-hubs
-ms.openlocfilehash: f179687b0983e145244e228a3d3b06b4eabead48
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 003e68b36ff71fb2991cf087ef33f72aba73a8be
+ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67723325"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68233960"
 ---
-# <a name="process-data-from-your-event-hub-using-azure-stream-analytics"></a>Traiter des données de votre instance Event Hub avec Azure Stream Analytics
+# <a name="process-data-from-your-event-hub-using-azure-stream-analytics-preview"></a>Traiter les données de votre hub d’événements avec Azure Stream Analytics (préversion)
 Le service Azure Stream Analytics facilite l'ingestion, le traitement et l'analyse des données de streaming Azure Event Hubs, et offre de précieux insights permettant des actions en temps réel. Cette intégration vous permet de créer rapidement un pipeline d’analyse de chemin réactif. Vous pouvez utiliser le portail Azure pour visualiser les données entrantes et écrire une requête Stream Analytics. Une fois votre requête prête, vous pouvez la déplacer en production en quelques clics. 
+
+> [!NOTE]
+> Actuellement, cette fonctionnalité est uniquement disponible en tant que version préliminaire. 
 
 ## <a name="key-benefits"></a>Principaux avantages
 Voici les principaux avantages de l’intégration d’Azure Event Hubs et d'Azure Stream Analytics : 
@@ -37,7 +40,7 @@ Voici les principaux avantages de l’intégration d’Azure Event Hubs et d'Azu
 1. Une page de requête contenant les valeurs déjà définies pour les champs suivants s'affiche :
     1. Votre **Event Hub** en tant qu’entrée pour la requête.
     1. Un exemple de **requête SQL** avec l’instruction SELECT. 
-    1. Un alias de **sortie** pour faire référence à vos résultats de test. 
+    1. Un alias de **sortie** pour référencer vos résultats de test de requête. 
 
         ![Éditeur de requête](./media/process-data-azure-stream-analytics/query-editor.png)
         

@@ -9,12 +9,12 @@ ms.date: 03/21/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: f6422bf2ccc42c12d8f2d20a5a7ece8d37e8b48e
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: cc0ba80f7aef53568e048b8285800982c818b004
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67449727"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68334587"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configurer des pare-feux et des réseaux virtuels dans Stockage Azure
 
@@ -23,8 +23,6 @@ Stockage Azure fournit un modèle de sécurité en couche. Ce modèle vous perme
 Une application qui accède à un compte de stockage alors que des règles de réseau sont en vigueur requiert une autorisation appropriée sur la demande. L’autorisation est prise en charge avec les informations d’identification Azure Active Directory (Azure AD) pour les objets blob et les files d’attente, avec une clé d’accès de compte valide ou un jeton SAS.
 
 > [!IMPORTANT]
-> Azure File Sync ne prend pas encore en charge les pare-feux et les réseaux virtuels. Si vous utilisez Azure File Sync sur votre compte de stockage et que vous activez ces éléments, Azure File Sync ne sera pas synchronisé.
->
 > L’activation des règles de pare-feu pour votre compte de stockage bloque les demandes entrantes pour les données par défaut, sauf si les demandes proviennent d’un service qui fonctionne au sein d’un réseau virtuel (VNet) Azure. Les demandes qui sont bloquées comprennent les demandes émanant d’autres services Azure, du portail Azure, des services de journalisation et de métriques, etc.
 >
 > Vous pouvez accorder l’accès aux services Azure qui fonctionnent à partir d’un réseau virtuel en autorisant le sous-réseau de l’instance de service. Activez un nombre limité de scénarios via le mécanisme [Exceptions](#exceptions) décrit dans la section suivante. Pour accéder au portail Azure, vous devez utiliser un ordinateur qui se trouve dans la limite de confiance (IP ou réseau virtuel) que vous avez définie.
@@ -357,6 +355,7 @@ Si vous activez l’exception **Services Microsoft approuvés**, les services su
 |Azure DevTest Labs|Microsoft.DevTestLab|Création d’une image personnalisée et installation de l’artefact. [Plus d’informations](/azure/devtest-lab/devtest-lab-overview)|
 |Azure Event Grid|Microsoft.EventGrid|Permettez la publication d’événements Stockage Blob et autorisez Event Grid à effectuer des publications dans les files d’attente de stockage. En savoir plus sur les [événements Stockage Blob](/azure/event-grid/event-sources) et la [publication dans les files d’attente](/azure/event-grid/event-handlers).|
 |Hubs d'événements Azure|Microsoft.EventHub|Archivage des données avec Event Hubs Capture. [En savoir plus](/azure/event-hubs/event-hubs-capture-overview)|
+| Azure File Sync| Microsoft.StorageSync| Vous permet de transformer votre serveur de fichiers local en cache pour les partages de fichiers Azure. Autoriser la synchronisation sur plusieurs sites, une récupération d’urgence rapide et une sauvegarde sur le cloud. [En savoir plus](../files/storage-sync-files-planning.md)|
 |Azure HDInsight|Microsoft.HDInsight|Approvisionnez le contenu initial du système de fichiers par défaut pour un nouveau cluster HDInsight. [Plus d’informations](https://azure.microsoft.com/blog/enhance-hdinsight-security-with-service-endpoints/)|
 |Azure Monitor|Microsoft.Insights|Autorisation de l’écriture de données de supervision dans un compte de stockage sécurisé. [En savoir plus](/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security).|
 |Mise en réseau Azure|Microsoft.Network|Stockage et analyse des journaux d’activité du trafic réseau. [Plus d’informations](/azure/network-watcher/network-watcher-packet-capture-overview)|

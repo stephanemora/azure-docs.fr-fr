@@ -10,12 +10,12 @@ ms.subservice: anomaly-detector
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: dapine
-ms.openlocfilehash: cb0a12df6696e76050d4c53bd75e07134b3dc27c
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 617a8fc823b7c40d047e5825dc31b095da132f29
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67721720"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68321445"
 ---
 # <a name="configure-anomaly-detector-containers"></a>Configurer des conteneurs Détecteur d’anomalies
 
@@ -104,8 +104,8 @@ Remplacez la valeur entre accolades, `{}`, par vos propres valeurs :
 
 | Placeholder | Valeur | Format ou exemple |
 |-------------|-------|---|
-|{BILLING_KEY} | La clé de point de terminaison de la ressource Détecteur d’anomalies. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
-|{BILLING_ENDPOINT_URI} | Valeur de point de terminaison de facturation, région comprise.|`https://westus2.api.cognitive.microsoft.com`|
+|{API_KEY} | La clé de point de terminaison de la ressource Détecteur d’anomalies. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
+|{ENDPOINT_URI} | Valeur de point de terminaison de facturation, région comprise.|`https://westus2.api.cognitive.microsoft.com`|
 
 > [!IMPORTANT]
 > Vous devez spécifier les options `Eula`, `Billing` et `ApiKey` pour exécuter le conteneur, sinon il ne démarrera pas.  Pour plus d'informations, consultez [Facturation](anomaly-detector-container-howto.md#billing).
@@ -121,8 +121,8 @@ Les exemples Docker suivants s’appliquent au conteneur Détecteur d’anomalie
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
   containerpreview.azurecr.io/microsoft/cognitive-services-anomaly-detector \
   Eula=accept \
-  Billing={BILLING_ENDPOINT_URI} \
-  ApiKey={BILLING_KEY} 
+  Billing={ENDPOINT_URI} \
+  ApiKey={API_KEY} 
   ```
 
 ### <a name="logging-example-with-command-line-arguments"></a>Exemple de journalisation avec arguments de ligne de commande
@@ -131,6 +131,6 @@ Les exemples Docker suivants s’appliquent au conteneur Détecteur d’anomalie
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
   containerpreview.azurecr.io/microsoft/cognitive-services-anomaly-detector \
   Eula=accept \
-  Billing={BILLING_ENDPOINT_URI} ApiKey={BILLING_KEY} \
+  Billing={ENDPOINT_URI} ApiKey={API_KEY} \
   Logging:Console:LogLevel:Default=Information
   ```

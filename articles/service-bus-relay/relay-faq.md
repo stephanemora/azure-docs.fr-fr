@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/21/2018
 ms.author: spelluru
-ms.openlocfilehash: c6ea5e72f70620004b4b00be0c779893a3b2ad90
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: f9f182a459f9a38c96bdf923998d1cdfee8fc3ac
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67706193"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68277957"
 ---
 # <a name="azure-relay-faqs"></a>FAQ sur Azure Relay
 
@@ -128,7 +128,7 @@ Move-AzResource -DestinationResourceGroupName 'targetRG' -DestinationSubscriptio
 Pour obtenir une description des exceptions courantes et des actions suggérées, consultez [Exceptions Relay][Relay exceptions].
 
 ### <a name="what-is-a-shared-access-signature-and-which-languages-can-i-use-to-generate-a-signature"></a>Qu’est-ce qu’une signature d’accès partagé et quels langages puis-je utiliser pour générer une signature ?
-Les signatures d’accès partagé (SAP) sont des mécanismes d’authentification basés sur des hachages sécurisés SHA-256 ou des URI. Pour plus d’informations sur la génération de vos propres signatures en Node, PHP, Java, C et C#, consultez [Authentification de Service Bus avec les signatures d’accès partagé][Shared Access Signatures].
+Les signatures d’accès partagé (SAP) sont des mécanismes d’authentification basés sur des hachages sécurisés SHA-256 ou des URI. Pour plus d’informations sur la génération de vos propres signatures en Node.js, PHP, Python, Java, C et C#, consultez [Authentification de Service Bus avec les signatures d’accès partagé][Shared Access Signatures].
 
 ### <a name="is-it-possible-to-whitelist-relay-endpoints"></a>Est-il possible de mettre des points de terminaison de relais en liste verte ?
 Oui. Le client de relais établit des connexions au service Azure Relay en utilisant des noms de domaine complets (FQDN). Cela permet aux clients d’ajouter une entrée pour `*.servicebus.windows.net` sur les pare-feu qui prennent en charge la mise en liste verte de DNS.

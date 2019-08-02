@@ -3,17 +3,18 @@ title: Tutoriel - Déployer un groupe de plusieurs conteneurs dans Azure Contain
 description: Dans ce tutoriel, vous allez apprendre à déployer un groupe comportant plusieurs conteneurs dans Azure Container Instances à l’aide d’un modèle Resource Manager avec Azure CLI.
 services: container-instances
 author: dlepow
+manager: gwallace
 ms.service: container-instances
 ms.topic: article
 ms.date: 04/03/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: f769beda1654dc9f58ecff733741fb1ab9118031
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7438b5a91d3bf0ce8330e33bc1c849a8b0329c6f
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66152302"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325892"
 ---
 # <a name="tutorial-deploy-a-multi-container-group-using-a-resource-manager-template"></a>Didacticiel : Déployer un groupe de plusieurs conteneurs avec un modèle Resource Manager
 
@@ -165,7 +166,7 @@ Après quelques secondes, vous devriez recevoir une réponse initiale d’Azure.
 
 ## <a name="view-deployment-state"></a>Afficher l’état du déploiement
 
-Pour afficher l’état du déploiement, utilisez la commande [az container show][az-container-show] suivante :
+Pour afficher l’état du déploiement, utilisez la commande [az container show][az-container-show] suivante :
 
 ```azurecli-interactive
 az container show --resource-group myResourceGroup --name myContainerGroup --output table
@@ -196,7 +197,7 @@ listening on port 80
 ::1 - - [21/Mar/2019:23:17:54 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
 ```
 
-Pour afficher les journaux du conteneur annexe, exécutez une commande similaire, en spécifiant le conteneur `aci-tutorial-sidecar`.
+Pour afficher les journaux du conteneur annexe, exécutez une commande similaire en spécifiant le conteneur `aci-tutorial-sidecar`.
 
 ```azurecli-interactive
 az container logs --resource-group myResourceGroup --name myContainerGroup --container-name aci-tutorial-sidecar
@@ -222,7 +223,7 @@ Date: Thu, 21 Mar 2019 20:36:41 GMT
 Connection: keep-alive
 ```
 
-Comme vous pouvez le voir, l’annexe envoie régulièrement une requête HTTP à l’application web principale via le réseau local du groupe pour s’assurer qu’il fonctionne. Cet exemple d’annexe peut être étendu pour déclencher une alerte suite à la réception d’un code de réponse HTTP autre que `200 OK`.
+Comme vous pouvez le voir, l’annexe envoie régulièrement une requête HTTP à l’application web principale via le réseau local du groupe pour s’assurer qu’il fonctionne. Cet exemple d’annexe peut être développé afin de déclencher une alerte après réception d’un code de réponse HTTP autre que `200 OK`.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

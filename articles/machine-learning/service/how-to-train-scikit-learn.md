@@ -6,16 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.author: minxia
-author: mx-iao
+ms.author: maxluk
+author: maxluk
 ms.date: 06/30/2019
 ms.custom: seodec18
-ms.openlocfilehash: d2c9b104d1fe9333221bc20e7e23b436358c9ece
-ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
+ms.openlocfilehash: c9e983f7981c1155964617694d2cce86aba741b7
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67514025"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67840017"
 ---
 # <a name="train-and-register-scikit-learn-models-at-scale-with-azure-machine-learning-service"></a>Entraîner et inscrire des modèles Scikit-learn à l’échelle avec Azure Machine Learning service
 
@@ -27,7 +27,7 @@ Que vous développiez un modèle Scikit-learn de A à Z ou importiez un modèle 
 
 ## <a name="prerequisites"></a>Prérequis
 
-Exécutez ce code sur l’un des environnements :
+Exécutez ce code sur l’un de ces environnements :
  - Machine virtuelle de Notebook Azure Machine Learning : pas d’installation ou de téléchargement nécessaire
 
     - Effectuez un [démarrage rapide du notebook informatique](quickstart-run-cloud-notebook.md) pour créer un serveur de notebook dédié dans lequel auront été préchargés le kit de développement logiciel (SDK) et l’exemple de référentiel.
@@ -42,7 +42,7 @@ Exécutez ce code sur l’un des environnements :
 
 ## <a name="set-up-the-experiment"></a>Configurer l’expérience
 
-Cette section configure l’expérience de formation via le chargement des packages Python requis, l’initialisation d’un espace de travail, la création d’une expérience et le chargement des données et des scripts de formation.
+Cette section configure l’expérience d’apprentissage via le chargement des packages Python requis, l’initialisation d’un espace de travail, la création d’une expérience et le chargement des données et des scripts d’apprentissage.
 
 ### <a name="import-packages"></a>Importer des packages
 
@@ -162,7 +162,7 @@ run.wait_for_completion(show_output=True)
 
 Lorsque l’exécution est lancée, il effectue les étapes suivantes :
 
-- **Préparation** : une image docker est créée en fonction de l’estimateur TensorFlow. L’image est chargée dans le registre de conteneurs de l’espace de travail et mise en cache pour des exécutions ultérieures. Les journaux sont également transmis en continu à l’historique des exécutions et peuvent être affichés afin de surveiller la progression.
+- **Préparation** : une image docker est créée en fonction de l’estimateur TensorFlow. L’image est chargée dans le registre de conteneurs de l’espace de travail et mise en cache pour des exécutions ultérieures. Les journaux sont également transmis en continu à l’historique des exécutions et peuvent être affichés afin de surveiller la progression.
 
 - **Mise à l’échelle** : le cluster tente de monter en puissance si le cluster Batch AI nécessite plus de nœuds pour l’exécution que la quantité disponible actuellement.
 

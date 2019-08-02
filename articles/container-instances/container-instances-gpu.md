@@ -3,17 +3,17 @@ title: Déployer des instances de conteneur Azure compatibles GPU
 description: Découvrez comment déployer des instances de conteneur Azure à exécuter sur les ressources GPU.
 services: container-instances
 author: dlepow
-manager: jeconnoc
+manager: gwallace
 ms.service: container-instances
 ms.topic: article
 ms.date: 04/17/2019
 ms.author: danlep
-ms.openlocfilehash: 5073b68f6ef3de330671e3ea25056e0cae976360
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 300e9b82d578663a4d2ada3889a07d8b03051cc5
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60583806"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325949"
 ---
 # <a name="deploy-container-instances-that-use-gpu-resources"></a>Déployer des instances de conteneur qui utilisent des ressources GPU
 
@@ -22,7 +22,7 @@ Pour exécuter certaines charges de travail nécessitant beaucoup de ressources 
 Cet article indique comment ajouter des ressources GPU lorsque vous déployez un groupe de conteneurs avec un [fichier YAML](container-instances-multi-container-yaml.md) ou un [modèle Resource Manager](container-instances-multi-container-group.md). Vous pouvez également spécifier des ressources GPU lorsque vous déployez une instance de conteneur à l’aide du portail Azure.
 
 > [!IMPORTANT]
-> Cette fonctionnalité est actuellement en préversion et certaines [limitations s’appliquent](#preview-limitations). Les préversions sont à votre disposition, à la condition d’accepter les [conditions d’utilisation supplémentaires][terms-of-use]. Certains aspects de cette fonctionnalité sont susceptibles d’être modifiés avant la mise à disposition générale.
+> Cette fonctionnalité est actuellement en préversion et certaines [limitations s’appliquent](#preview-limitations). Les préversions sont à votre disposition, à condition que vous acceptiez les [conditions d’utilisation supplémentaires][terms-of-use]. Certains aspects de cette fonctionnalité sont susceptibles d’être modifiés avant la mise à disposition générale.
 
 ## <a name="preview-limitations"></a>Limitations de la version préliminaire
 
@@ -99,7 +99,7 @@ Déployez le groupe de conteneurs avec la commande [az container create][az-cont
 az container create --resource-group myResourceGroup --file gpu-deploy-aci.yaml --location eastus
 ```
 
-Le déploiement prend plusieurs minutes. Ensuite, le conteneur démarre et exécute une opération d’ajout de vecteur CUDA. Exécutez la commande [az container logs][az-container-logs] pour afficher la sortie du journal d’activité :
+Le déploiement prend plusieurs minutes. Ensuite, le conteneur démarre et exécute une opération d’ajout de vecteur CUDA. Exécutez la commande [az container logs][az-container-logs] pour afficher la sortie du journal d’activité :
 
 ```azurecli
 az container logs --resource-group myResourceGroup --name gpucontainergroup --container-name gpucontainer
@@ -118,7 +118,7 @@ Done
 
 ## <a name="resource-manager-template-example"></a>Exemple de modèle Resource Manager
 
-Une autre façon de déployer un groupe de conteneurs avec des ressources GPU est d’utiliser un [modèle Resource Manager](container-instances-multi-container-group.md). Commencez par créer un fichier nommé `gpudeploy.json`, puis copiez-y le code JSON suivant. Cet exemple déploie une instance de conteneur avec un GPU V100 qui exécute un travail de formation [TensorFlow](https://www.tensorflow.org/versions/r1.1/get_started/mnist/beginners) pour le [jeu de données MNIST](http://yann.lecun.com/exdb/mnist/). Les requêtes de ressources sont suffisantes pour exécuter la charge de travail.
+Une autre façon de déployer un groupe de conteneurs avec des ressources GPU est d’utiliser un [modèle Resource Manager](container-instances-multi-container-group.md). Commencez par créer un fichier nommé `gpudeploy.json`, puis copiez-y le code JSON suivant. Cet exemple déploie une instance de conteneur avec un GPU V100 qui exécute un travail de formation [TensorFlow](https://www.tensorflow.org/) pour le jeu de données MNIST. Les requêtes de ressources sont suffisantes pour exécuter la charge de travail.
 
 ```JSON
 {
@@ -176,7 +176,7 @@ Déployez ensuite le modèle avec la commande [az group deployment create][az-gr
 az group deployment create --resource-group myResourceGroup --template-file gpudeploy.json
 ```
 
-Le déploiement prend plusieurs minutes. Ensuite, le conteneur démarre et exécute le travail TensorFlow. Exécutez la commande [az container logs][az-container-logs] pour afficher la sortie du journal d’activité :
+Le déploiement prend plusieurs minutes. Ensuite, le conteneur démarre et exécute le travail TensorFlow. Exécutez la commande [az container logs][az-container-logs] pour afficher la sortie du journal d’activité :
 
 ```azurecli
 az container logs --resource-group myResourceGroup --name gpucontainergrouprm --container-name gpucontainer

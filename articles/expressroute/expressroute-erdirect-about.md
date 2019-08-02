@@ -5,15 +5,15 @@ services: expressroute
 author: jaredr80
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 07/06/2019
+ms.date: 07/10/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: d7add3d509427d72e23d61d1777db7941c7550a4
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: e598cc03a1b7b4999719152540866c7168130e03
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67657255"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807477"
 ---
 # <a name="about-expressroute-direct"></a>À propose de ExpressRoute Direct
 
@@ -59,6 +59,22 @@ ExpressRoute Direct prend en charge des scénarios d’ingestion massive de donn
 | --- | --- |
 | **Bande passante souscrite** : 200 Gbits/s | **Bande passante souscrite** : 20 Gbits/s |
 | <ul><li>5 Gbit/s</li><li>10 Gbits/s</li><li>40 Gbits/s</li><li>100 Gbits/s</li></ul> | <ul><li>1 Gbit/s</li><li>2 Gbit/s</li><li>5 Gbit/s</li><li>10 Gbits/s</li></ul>
+
+## <a name="technical-requirements"></a>Exigences techniques
+
+* Interfaces Microsoft Enterprise Edge Router (MSEE) :
+    * Double port Ethernet 10 ou 100 Gigabits uniquement sur une paire de routeurs
+    * Connectivité fibre optique LR monomode
+    * IPv4 et IPv6
+    * MTU IP 1 500 octets
+
+* Connectivité commutateur/routeur couche 2/3 :
+    * Doit prendre en charge la balise 1 802.1Q (Dot1Q) ou l’encapsulation à deux balises 802.1Q (QinQ)
+    * EtherType = 0x8100
+    * Vous devez ajouter la balise VLAN externe (STAG) en fonction de l’ID de VLAN spécifié par Microsoft - *Applicable uniquement sur QinQ*
+    * Doit prendre en charge plusieurs sessions BGP (VLAN) par port et par appareil
+    * Connectivité IPv4 et IPv6. *Pour IPv6, aucune sous-interface supplémentaire n’est créée. L’adresse IPv6 sera ajoutée à la sous-interface existante*. 
+    * Facultatif : Prise en charge du protocole [Bidirectional Forwarding Detection (BFD)](https://docs.microsoft.com/azure/expressroute/expressroute-bfd), qui est configurée par défaut sur l’ensemble des appairages privés et des circuits ExpressRoute
 
 ## <a name="vlan-tagging"></a>Balisage VLAN
 

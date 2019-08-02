@@ -7,19 +7,19 @@ author: mdgattuso
 manager: danielgi
 editor: sohamnchatterjee
 ms.assetid: 669ef140-a6dd-4b62-9b9d-3f375a14215e
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/19/2019
 ms.author: magattus
-ms.openlocfilehash: 63f6156e6e1a94c49b2147f7c25da35c247c701d
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: b6b4db89210bcc572e3780667f7a3e88dc5f1d28
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67331874"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68226575"
 ---
 # <a name="azure-cdn-coverage-by-metro"></a>Couverture Azure CDN par Metro 
 > [!div class="op_single_selector"]
@@ -44,7 +44,7 @@ Cet article répertorie les éléments Metro actuels contenant des emplacements 
 | Afrique | Cape Town, Afrique du Sud<br />Johannesbourg, Afrique du Sud | Johannesbourg, Afrique du Sud | Afrique du Sud |
 | Moyen-Orient | Dubaï, Émirats arabes unis | Muscat, Oman<br />Fujirah, Émirats Arabes Unis | Qatar<br />Émirats Arabes Unis |
 | Inde | Chennai, Inde<br />Hyderabad, Inde<br />Mumbai, Inde<br />New Delhi, Inde | Bengaluru (Bangalore), Inde<br />Chennai, Inde<br />Mumbai, Inde<br />New Delhi, Inde<br /> | Inde |
-| Asie | Hong Kong (R.A.S.)<br />Osaka, Japon<br />Tokyo, Japon<br />Kuala Lumpur, Malaisie<br />Manille, Philippines<br />Singapour<br />Busan, Corée du Sud<br />Séoul, Corée du Sud<br />Taipei, Taiwan<br />Bangkok, Thaïlande | Hong Kong (R.A.S.)<br />Batam, Indonésie<br />Jakarta, Indonésie<br />Osaka, Japon<br />Tokyo, Japon<br />Singapour<br />Séoul, Corée du Sud<br />Kaohsiung, Taïwan | Hong Kong (R.A.S.)<br />Indonésie<br />Israël<br />Japon<br />Macao (R.A.S.)<br />Malaisie<br />Philippines<br />Singapour<br />Corée du Sud<br />Taïwan<br />Thaïlande<br />Turquie<br />Vietnam |
+| Asie | Hong Kong (R.A.S.)<br />Osaka, Japon<br />Tokyo, Japon<br />Kuala Lumpur, Malaisie<br />Manille, Philippines<br />Singapour<br />Busan, Corée du Sud<br />Séoul, Corée du Sud<br />Taipei, Taiwan<br />Bangkok, Thaïlande | Hong Kong (R.A.S.)<br />Batam, Indonésie<br />Jakarta, Indonésie<br />Osaka, Japon<br />Tokyo, Japon<br />Singapour<br />Séoul, Corée du Sud<br />Kaohsiung, Taïwan<br />Taipei, Taiwan | Hong Kong (R.A.S.)<br />Indonésie<br />Israël<br />Japon<br />Macao (R.A.S.)<br />Malaisie<br />Philippines<br />Singapour<br />Corée du Sud<br />Taïwan<br />Thaïlande<br />Turquie<br />Vietnam |
 | Australie et Nouvelle Zélande | Brisbane, Australie<br />Melbourne, Australie<br />Perth, Australie<br />Sydney, Australie<br />Auckland, Nouvelle-Zélande | Melbourne, Australie<br />Sydney, Australie<br />Auckland, Nouvelle-Zélande | Australie<br />Nouvelle-Zélande |
 
 

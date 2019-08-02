@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 03/15/2019
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: 70d1f54aed5e83801b1d1e249d7a412dd6d9a49a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 73cf6fd1c20f2e4208d1f7c28a756f28a2fad839
+ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65964040"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68302572"
 ---
 # <a name="application-map-triage-distributed-applications"></a>Cartographie d’application : trier des applications distribuées
 
@@ -119,7 +119,7 @@ namespace CustomInitializer.Telemetry
 }
 ```
 
-**Charger l'initialiseur dans la configuration TelemetryConfiguration active**
+**Applications ASP.NET : Charger l’initialiseur dans la configuration TelemetryConfiguration active**
 
 Dans ApplicationInsights.config :
 
@@ -132,9 +132,6 @@ Dans ApplicationInsights.config :
       </TelemetryInitializers>
     </ApplicationInsights>
 ```
-
-> [!NOTE]
-> Ajouter l’initialiseur en utilisant `ApplicationInsights.config` n’est pas valide pour les applications ASP.NET Core.
 
 Une autre méthode pour les applications web ASP.NET consiste à instancier l’initialiseur dans le code, par exemple dans Global.aspx.cs :
 
@@ -149,15 +146,20 @@ Une autre méthode pour les applications web ASP.NET consiste à instancier l’
     }
 ```
 
+> [!NOTE]
+> Ajouter l’initialiseur en utilisant `ApplicationInsights.config` ou `TelemetryConfiguration.Active` n’est pas valide pour les applications ASP.NET Core. 
+
+**Applications ASP.NET Core : Charger l’initialiseur dans la configuration TelemetryConfiguration**
+
 Pour les applications [ASP.NET Core](asp-net-core.md#adding-telemetryinitializers), l’ajout d’un nouveau `TelemetryInitializer` se fait en l’ajoutant au conteneur d’injection de dépendance, comme indiqué ci-dessous. Cela se fait dans la méthode `ConfigureServices` de votre classe `Startup.cs`.
 
 ```csharp
  using Microsoft.ApplicationInsights.Extensibility;
  using CustomInitializer.Telemetry;
  public void ConfigureServices(IServiceCollection services)
-    {
-        services.AddSingleton<ITelemetryInitializer, MyCustomTelemetryInitializer>();
-    }
+{
+    services.AddSingleton<ITelemetryInitializer, MyTelemetryInitializer>();
+}
 ```
 
 ### <a name="nodejs"></a>Node.js
@@ -195,7 +197,7 @@ Pour plus d’informations sur la corrélation Java et sur la façon de configur
 
 ```javascript
 appInsights.queue.push(() => {
-appInsights.context.addTelemetryInitializer((envelope) => {
+appInsights.addTelemetryInitializer((envelope) => {
   envelope.tags["ai.cloud.role"] = "your role name";
   envelope.tags["ai.cloud.roleInstance"] = "your role instance";
 });

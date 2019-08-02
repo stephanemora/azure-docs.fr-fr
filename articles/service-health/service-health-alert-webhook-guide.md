@@ -1,75 +1,73 @@
 ---
-title: Configurer des notifications sur l’intégrité du service Azure pour les systèmes de gestion des problèmes existants à l’aide d’un webhook
-description: Obtenir des notifications personnalisées sur les événements d’intégrité du service sur votre système de gestion des problèmes existants.
+title: Configurer des notifications Azure Service Health pour les systèmes de gestion des problèmes existants à l’aide d’un webhook
+description: Envoyez des notifications personnalisées sur les événements d’intégrité de service à votre système de gestion des problèmes existants.
 author: stephbaron
 ms.author: stbaron
 ms.topic: conceptual
 ms.service: service-health
 ms.workload: Supportability
 ms.date: 3/27/2018
-ms.openlocfilehash: 3e9a564310d750e63c9cf81d19f698e75712d09a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8f84b43519c197797b39397cfd15c4f90444177c
+ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67067187"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67854383"
 ---
-# <a name="configure-health-notifications-for-existing-problem-management-systems-using-a-webhook"></a>Configurer des notifications sur l’intégrité pour les systèmes de gestion des problèmes existants à l’aide d’un Webhook
+# <a name="use-a-webhook-to-configure-health-notifications-for-problem-management-systems"></a>Utiliser un webhook afin de configurer les notifications d’intégrité pour les systèmes de gestion des problèmes
 
-Cet article montre comment configurer vos alertes d’intégrité du service pour envoyer des données via des Webhooks vers votre système de notification existant.
+Cet article vous montre comment configurer les alertes Azure Service Health pour envoyer des données via des webhooks à votre système de notification existant.
 
-Aujourd’hui, vous pouvez configurer des alertes d’intégrité du service de sorte que lorsqu’un incident lié à un service Azure vous concerne, vous soyez averti par SMS ou e-mail.
-Toutefois, vous disposez peut-être déjà d’un système de notification externe que vous souhaitez utiliser.
-Ce document vous montre les parties les plus importantes de la charge utile du Webhook, et comment il est possible de créer des alertes personnalisées pour être averti lorsque vous êtes confronté à des problèmes de service.
+Vous pouvez configurer des alertes Service Health pour recevoir une notification par SMS ou par e-mail quand un incident lié à un service Azure vous concerne.
 
-Si vous souhaitez utiliser une intégration préconfigurée, découvrez comment :
+Toutefois, vous avez peut-être déjà en place un système de notification externe que vous préférez utiliser. Cet article identifie les parties les plus importantes de la charge utile du webhook. Il explique également comment créer des alertes personnalisées pour recevoir une notification en cas de problèmes liés à des services qui vous concernent.
+
+Si vous souhaitez utiliser une intégration préconfigurée, consultez :
 * [Configurer des alertes avec ServiceNow](service-health-alert-webhook-servicenow.md)
 * [Configurer des alertes avec PagerDuty](service-health-alert-webhook-pagerduty.md)
 * [Configurer des alertes avec OpsGenie](service-health-alert-webhook-opsgenie.md)
 
-### <a name="watch-an-introductory-video"></a>Regarder une vidéo d’introduction
+**Regarder une vidéo d’introduction :**
 
 >[!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2OtUV]
 
-## <a name="configuring-a-custom-notification-using-the-service-health-webhook-payload"></a>Configuration d’une notification personnalisée à l’aide de la charge utile du Webhook de l’intégrité du service
-Si vous souhaitez configurer l’intégration de votre propre Webhook personnalisé, vous devez analyser la charge utile JSON envoyée au cours des notifications sur l’intégrité du service.
+## <a name="configure-a-custom-notification-by-using-the-service-health-webhook-payload"></a>Configurer une notification personnalisée à l’aide de la charge utile du webhook Service Health
+Pour configurer l’intégration de votre propre webhook personnalisé, vous devez analyser la charge utile JSON envoyée via la notification Service Health.
 
-Consultez [ici un exemple](../azure-monitor/platform/activity-log-alerts-webhook.md) de ce à quoi la charge utile du Webhook `ServiceHealth` ressemble.
+Consultez [un exemple](../azure-monitor/platform/activity-log-alerts-webhook.md) de charge utile de Webhook `ServiceHealth`.
 
-Il est possible de déterminer qu’il s’agit d’une alerte d’intégrité du service en regardant `context.eventSource == "ServiceHealth"`. À partir de là, les propriétés qui sont les plus importantes à ingérer sont :
- * `data.context.activityLog.status`
- * `data.context.activityLog.level`
- * `data.context.activityLog.subscriptionId`
- * `data.context.activityLog.properties.title`
- * `data.context.activityLog.properties.impactStartTime`
- * `data.context.activityLog.properties.communication`
- * `data.context.activityLog.properties.impactedServices`
- * `data.context.activityLog.properties.trackingId`
+Vous pouvez vérifier qu’il s’agit d’une alerte Service Health en examinant `context.eventSource == "ServiceHealth"`. Les propriétés suivantes sont les plus pertinentes :
+- **data.context.activityLog.status**
+- **data.context.activityLog.level**
+- **data.context.activityLog.subscriptionId**
+- **data.context.activityLog.properties.title**
+- **data.context.activityLog.properties.impactStartTime**
+- **data.context.activityLog.properties.communication**
+- **data.context.activityLog.properties.impactedServices**
+- **data.context.activityLog.properties.trackingId**
 
-## <a name="creating-a-direct-link-to-the-service-health-dashboard-for-an-incident"></a>Création d’un lien direct vers le tableau de bord Service Health pour un incident
-Vous pouvez créer un lien direct vers votre tableau de bord Service Health sur un ordinateur de bureau ou mobile en générant une URL spécialisée. Utilisez `trackingId`, ainsi que le premier et les trois derniers chiffres de votre `subscriptionId`, pour former le lien :
-```
-https://app.azure.com/h/<trackingId>/<first and last three digits of subscriptionId>
-```
+## <a name="create-a-link-to-the-service-health-dashboard-for-an-incident"></a>Créer un lien vers le tableau de bord Service Health pour un incident
+Vous pouvez créer un lien direct vers votre tableau de bord Service Health sur un poste de travail ou un appareil mobile en générant une URL spécialisée. Utilisez le *trackingId* ainsi que les trois premiers et les trois derniers chiffres de votre *subscriptionId* au format suivant :
 
-Par exemple, si votre `subscriptionId` est `bba14129-e895-429b-8809-278e836ecdb3` et votre `trackingId` est `0DET-URB`, votre URL Service Health personnalisée est :
+https<i></i>://app.azure.com/h/ *&lt;trackingId&gt;* / *&lt;trois premiers et trois derniers chiffres de subscriptionId&gt;*
 
-```
-https://app.azure.com/h/0DET-URB/bbadb3
-```
+Par exemple, si votre *subscriptionId* est bba14129-e895-429b-8809-278e836ecdb3 et si votre *trackingId* est 0DET-URB, votre URL Service Health est :
 
-## <a name="using-the-level-to-detect-the-severity-of-the-issue"></a>Utilisation du niveau pour détecter la gravité du problème
-Du niveau de gravité le plus faible au plus élevé, la propriété `level` de la charge utile peut être `Informational`, `Warning`, `Error`, et `Critical`.
+https<i></i>://app.azure.com/h/0DET-URB/bbadb3
 
-## <a name="parsing-the-impacted-services-to-understand-the-full-scope-of-the-incident"></a>Analyse des services concernés pour comprendre l’étendue de l’incident
-Les alertes d’intégrité du service peuvent vous informer des problèmes survenant entre plusieurs régions et services. Pour obtenir tous les détails, vous devez analyser la valeur de `impactedServices`.
-Le contenu est une chaîne [placée dans une séquence d’échappement JSON](https://json.org/). Sans séquence d’échappement, il contient un autre objet JSON pouvant être analysé régulièrement.
+## <a name="use-the-level-to-detect-the-severity-of-the-issue"></a>Utiliser la propriété level pour détecter le niveau de gravité du problème
+Du niveau de gravité le plus faible au plus élevé, la propriété **level** de la charge utile peut avoir la valeur *Informational*, *Warning*, *Error* ou *Critical*.
+
+## <a name="parse-the-impacted-services-to-determine-the-incident-scope"></a>Analyser les services impactés pour déterminer l’étendue de l’incident
+Les alertes Service Health peuvent vous informer sur les problèmes rencontrés dans plusieurs régions et services. Pour obtenir tous les détails, vous devez analyser la valeur de `impactedServices`.
+
+Le contenu est une chaîne [JSON](https://json.org/) faisant l’objet d’une séquence d’échappement. En l’absence de séquence d’échappement, le contenu correspond à un autre objet JSON qui peut être analysé de manière régulière. Par exemple :
 
 ```json
 {"data.context.activityLog.properties.impactedServices": "[{\"ImpactedRegions\":[{\"RegionName\":\"Australia East\"},{\"RegionName\":\"Australia Southeast\"}],\"ServiceName\":\"Alerts & Metrics\"},{\"ImpactedRegions\":[{\"RegionName\":\"Australia Southeast\"}],\"ServiceName\":\"App Service\"}]"}
 ```
 
-Cela devient :
+devient :
 
 ```json
 [
@@ -95,13 +93,17 @@ Cela devient :
 ]
 ```
 
-Cela montre qu’il existe des problèmes avec les alertes et les mesures dans les régions Australie Est et Australie Sud-Est, ainsi que des problèmes avec App Service dans Australie Sud-Est.
+Cet exemple illustre des problèmes qui se produisent pour :
+- « Alerts & Metrics » (Alertes et métriques) dans les régions Australie Est et Australie Sud-Est
+- « App Service » dans la région Australie Sud-Est
 
+## <a name="test-your-webhook-integration-via-an-http-post-request"></a>Tester l’intégration de votre Webhook via une requête HTTP POST
 
-## <a name="testing-your-webhook-integration-via-an-http-post-request"></a>Tester l’intégration à Webhook via une demande HTTP POST
-1. Créez la charge utile d’intégrité du service que vous souhaitez envoyer. Vous trouverez un exemple de charge utile du Webhook d’intégrité du service dans la page [Webhook pour des alertes du journal d’activité Azure](../azure-monitor/platform/activity-log-alerts-webhook.md).
+Procédez comme suit :
 
-2. Créez une requête HTTP POST comme suit :
+1. Créez la charge utile Service Health à envoyer. Vous trouverez un exemple de charge utile de Webhook Service Health dans [Webhook des alertes du journal d’activité Azure](../azure-monitor/platform/activity-log-alerts-webhook.md).
+
+1. Créez une requête HTTP POST comme suit :
 
     ```
     POST        https://your.webhook.endpoint
@@ -110,9 +112,9 @@ Cela montre qu’il existe des problèmes avec les alertes et les mesures dans l
 
     BODY        <service health payload>
     ```
-3. Vous devez recevoir une réponse `2XX - Successful`.
+   Vous devez recevoir une réponse « 2XX - Successful » (2XX - Réussite).
 
-4. Accédez à [PagerDuty](https://www.pagerduty.com/) pour confirmer que votre intégration a été définie avec succès.
+1. Accédez à [PagerDuty](https://www.pagerduty.com/) pour confirmer que votre intégration a été définie avec succès.
 
 ## <a name="next-steps"></a>Étapes suivantes
 - Consultez le [schéma webhook des alertes de journal d’activité](../azure-monitor/platform/activity-log-alerts-webhook.md). 

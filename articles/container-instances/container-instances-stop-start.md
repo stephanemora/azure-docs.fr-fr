@@ -3,16 +3,17 @@ title: Arrêter ou démarrer manuellement des conteneurs dans Azure Container In
 description: Découvrez comment arrêter ou démarrer manuellement des conteneurs dans Azure Container Instances.
 services: container-instances
 author: dlepow
+manager: gwallace
 ms.service: container-instances
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: danlep
-ms.openlocfilehash: 8e62d106a42dfbec897e5e14cf68fd3d7fd823c4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c7d46ad8d935e28b5a24e48c85ac2464b55b2669
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65070811"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325638"
 ---
 # <a name="manually-stop-or-start-containers-in-azure-container-instances"></a>Arrêter ou démarrer manuellement des conteneurs dans Azure Container Instances
 
@@ -20,7 +21,7 @@ Le paramètre [Stratégie de redémarrage](container-instances-restart-policy.md
 
 ## <a name="stop"></a>Arrêter
 
-Arrêtez manuellement un groupe de conteneurs en cours d’exécution à tout moment - par exemple, en utilisant la commande [az container stop][az-container-stop] ou le portail Azure. Pour certaines charges de travail de conteneur, vous pouvez vouloir arrêter un groupe de conteneurs à exécution longue après une période définie afin de réduire les coûts. 
+Arrêtez manuellement un groupe de conteneurs en cours d’exécution, par exemple, en utilisant la commande [az container stop][az-container-stop] ou le portail Azure. Pour certaines charges de travail de conteneur, vous pouvez vouloir arrêter un groupe de conteneurs à exécution longue après une période définie afin de réduire les coûts. 
 
 *À l'état Arrêté, un groupe de conteneurs met fin et recycle tous les conteneurs du groupe. Il ne conserve pas l’état des conteneurs.*
 
@@ -28,7 +29,7 @@ Lorsque les conteneurs sont recyclés, les [ressources](container-instances-cont
 
 L'arrêt n’a aucun effet si le groupe de conteneurs est déjà terminé (état Réussite ou Échec). Par exemple, un groupe de conteneurs avec des tâches de conteneur à exécution unique correctement exécutées se termine dans un état Réussite. Toute tentative visant à arrêter un groupe dans cet état ne change pas ce dernier. 
 
-## <a name="start"></a>Démarrer
+## <a name="start"></a>Start
 
 Lorsqu'un groupe de conteneurs est arrêté - soit parce que les conteneurs s’arrêtent d’eux-mêmes, soit parce que vous avez arrêté manuellement le groupe - vous pouvez démarrer les conteneurs. Par exemple, utilisez la commande [az container start][az-container-start] ou le portail Azure pour démarrer manuellement les conteneurs du groupe. Si l’image d’un conteneur est mise à jour, une nouvelle image est extraite. 
 
@@ -40,7 +41,7 @@ Après que vous avez démarré ou redémarré manuellement un groupe de conteneu
   
 ## <a name="restart"></a>Redémarrer
 
-Vous pouvez redémarrer un groupe de conteneurs en cours d’exécution - par exemple, en utilisant la commande [az container restart][az-container-restart]. Cette action redémarre tous les conteneurs du groupe de conteneurs. Si l’image d’un conteneur est mise à jour, une nouvelle image est extraite. 
+Vous pouvez redémarrer un groupe de conteneurs en cours d’exécution – par exemple, en utilisant la commande [az container restart][az-container-restart]. Cette action redémarre tous les conteneurs du groupe de conteneurs. Si l’image d’un conteneur est mise à jour, une nouvelle image est extraite. 
 
 Le redémarrage d’un groupe de conteneurs est utile lorsque vous souhaitez résoudre un problème de déploiement. Par exemple, si une limitation temporaire des ressources empêche le bon fonctionnement de vos conteneurs, le redémarrage du groupe peut résoudre le problème.
 

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/06/2019
 ms.author: mayg
-ms.openlocfilehash: efb49db6cce7ba238d40bf80ddf87b2a1a83834f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 062ed5e408317e95b36d6d0dfa395311ed4afe7f
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66479993"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68261430"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>Installer un serveur cible maître Linux pour la restauration automatique
 Après avoir basculé une machine virtuelle sur Azure, vous pouvez la restaurer automatiquement sur le site local. L’opération de restauration vous oblige à reprotéger la machine virtuelle à partir d’Azure sur le site local. Pour ce faire, vous avez besoin d’un serveur cible maître, capable de recevoir le trafic. 
@@ -245,7 +245,7 @@ Pour créer un disque de rétention, procédez comme suit :
 
     ![ID Multipath](./media/vmware-azure-install-linux-master-target/image27.png)
 
-3. Formatez le disque, puis créez un système de fichiers sur le nouveau lecteur : **mkfs.ext4/dev/mapper/<id multichemin du disque de rétention>** .
+3. Formatez le lecteur, puis créez un système de fichiers sur le nouveau lecteur : **mkfs.ext4 /dev/mapper/\<ID multipath du disque de conservation>** .
     
     ![Système de fichiers](./media/vmware-azure-install-linux-master-target/image23-centos.png)
 

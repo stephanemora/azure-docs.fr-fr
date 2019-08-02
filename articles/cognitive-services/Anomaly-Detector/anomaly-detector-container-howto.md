@@ -10,12 +10,12 @@ ms.subservice: anomaly-detector
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: dapine
-ms.openlocfilehash: f84f1bab048630d6dd45085b3d082004d10bb6a8
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 8d107aed75904c27b9ed231d50c884f96318a324
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67721704"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68321427"
 ---
 # <a name="install-and-run-anomaly-detector-containers"></a>Installer et exécuter des conteneurs Détecteur d’anomalies
 
@@ -38,7 +38,7 @@ L’utilisation des conteneurs Détecteur d’anomalies est soumise aux prérequ
 |--|--|
 |Moteur Docker| Vous avez besoin d’un moteur Docker installé sur un [ordinateur hôte](#the-host-computer). Docker fournit des packages qui configurent l’environnement Docker sur [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) et [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Pour apprendre les principes de base de Docker et des conteneurs, consultez la [vue d’ensemble de Docker](https://docs.docker.com/engine/docker-overview/).<br><br> Vous devez configurer Docker pour permettre aux conteneurs de se connecter à Azure et de lui envoyer des données de facturation. <br><br> **Sur Windows**, vous devez également configurer Docker pour prendre en charge les conteneurs Linux.<br><br>|
 |Bonne connaissance de Docker | Vous devez avoir une compréhension élémentaire des concepts Docker, notamment les registres, référentiels, conteneurs et images conteneurs, ainsi qu’une maîtrise des commandes `docker` de base.| 
-|Ressource Détecteur d’anomalies |Pour pouvoir utiliser ces conteneurs, vous devez avoir :<br><br>Ressource Azure _Détecteur d’anomalies_ afin d’obtenir la clé de facturation et l’URI du point de terminaison de facturation associés. Les deux valeurs, disponibles dans les pages Clés et Vue d’ensemble de Détecteur d’anomalies du Portail Azure, sont nécessaires au démarrage du conteneur.<br><br>**{BILLING_KEY}**  : clé de ressource<br><br>**{BILLING_ENDPOINT_URI}**  : exemple d’UURI de point de terminaison : `https://westus2.api.cognitive.microsoft.com`|
+|Ressource Détecteur d’anomalies |Pour pouvoir utiliser ces conteneurs, vous devez avoir :<br><br>une ressource _Détecteur d'anomalies_ d’Azure afin d’obtenir la clé API et l’URI du point de terminaison associés. Les deux valeurs disponibles dans les pages Clés et Vue d’ensemble de **Détecteur d’anomalies** du Portail Azure sont nécessaires pour le démarrage du conteneur.<br><br>**{API_KEY}**  : l’une des deux clés de ressource disponibles à la page **Clés**<br><br>**{ENDPOINT_URI}**  : le point de terminaison tel qu'il est fourni à la page **Vue d’ensemble**|
 
 ## <a name="request-access-to-the-container-registry"></a>Demander l’accès au registre de conteneurs
 
@@ -60,8 +60,8 @@ Le tableau suivant décrit la quantité minimale et recommandée de cœurs de pr
 
 | Requêtes par seconde (RPS) | Minimale | Recommandé |
 |-----------|---------|-------------|
-| 10 RPS | 4 cœurs, 1 Go de mémoire | 8 cœurs, 2 Go de mémoire |
-| 20 RPS | 8 cœurs, 2 Go de mémoire | 16 cœurs, 4 Go de mémoire |
+| 10 RPS | 4 cœurs, 1 Go de mémoire | 8 cœurs, 2 Go de mémoire |
+| 20 RPS | 8 cœurs, 2 Go de mémoire | 16 cœurs, 4 Go de mémoire |
 
 Chaque cœur doit être cadencé à au moins 2,6 gigahertz (GHz).
 
@@ -100,8 +100,8 @@ Utilisez la commande [docker run](https://docs.docker.com/engine/reference/comma
 
 | Placeholder | Valeur |
 |-------------|-------|
-|{BILLING_KEY} | Cette clé, qui permet de démarrer le conteneur, est disponible dans la page Clés du Détecteur d’anomalies du Portail Azure.  |
-|{BILLING_ENDPOINT_URI} | La valeur de l’URI du point de terminaison de facturation est disponible dans la page Vue d’ensemble du Détecteur d’anomalies du Portail Azure.|
+|{API_KEY} | Cette clé, qui permet de démarrer le conteneur, est disponible dans la page Clés du Détecteur d’anomalies du Portail Azure.  |
+|{ENDPOINT_URI} | La valeur de l’URI du point de terminaison de facturation est disponible dans la page Vue d’ensemble du Détecteur d’anomalies du Portail Azure.|
 
 Remplacez ces paramètres par vos propres valeurs dans l’exemple de commande `docker run` suivant.
 
@@ -109,8 +109,8 @@ Remplacez ces paramètres par vos propres valeurs dans l’exemple de commande `
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
 containerpreview.azurecr.io/microsoft/cognitive-services-anomaly-detector:latest \
 Eula=accept \
-Billing={BILLING_ENDPOINT_URI} \
-ApiKey={BILLING_KEY}
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY}
 ```
 
 Cette commande :
@@ -135,8 +135,8 @@ Exécutez le premier conteneur sur le port 5000.
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
 <container-registry>/microsoft/<container-name> \
 Eula=accept \
-Billing={BILLING_ENDPOINT_URI} \
-ApiKey={BILLING_KEY}
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY}
 ```
 
 Exécutez le deuxième conteneur sur le port 5001.
@@ -146,8 +146,8 @@ Exécutez le deuxième conteneur sur le port 5001.
 docker run --rm -it -p 5000:5001 --memory 4g --cpus 1 \
 <container-registry>/microsoft/<container-name> \
 Eula=accept \
-Billing={BILLING_ENDPOINT_URI} \
-ApiKey={BILLING_KEY}
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY}
 ```
 
 Tous les conteneurs suivants doivent être sur un port différent. 

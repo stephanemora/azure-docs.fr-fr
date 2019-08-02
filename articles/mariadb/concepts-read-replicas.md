@@ -5,20 +5,20 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 06/10/2019
-ms.openlocfilehash: 8abe257090b5159053a37350c9e24cc27073679b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 07/12/2019
+ms.openlocfilehash: e6bbe15727a6f989d8c16c67591d39d7870d5708
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67081746"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67874893"
 ---
 # <a name="read-replicas-in-azure-database-for-mariadb"></a>Réplicas en lecture dans Azure Database for MariaDB
 
-La fonctionnalité de réplica en lecture vous permet de répliquer les données d’un serveur Azure Database for MariaDB sur un serveur en lecture seule. Vous pouvez effectuer la réplication à partir du serveur maître vers cinq réplicas au maximum dans la même région que le serveur maître. Les réplicas sont mis à jour de manière asynchrone à l’aide de la technologie de réplication selon la position du fichier journal binaire (binlog) du moteur MariaDB avec ID de transaction global (GTID). Pour découvrir plus en détail la réplication binlog, consultez la [vue d’ensemble de la réplication binlog](https://mariadb.com/kb/en/library/replication-overview/).
+La fonctionnalité de réplica en lecture vous permet de répliquer les données d’un serveur Azure Database for MariaDB sur un serveur en lecture seule. Vous pouvez effectuer la réplication à partir du serveur maître vers cinq réplicas au maximum. Les réplicas sont mis à jour de manière asynchrone à l’aide de la technologie de réplication selon la position du fichier journal binaire (binlog) du moteur MariaDB avec ID de transaction global (GTID). Pour découvrir plus en détail la réplication binlog, consultez la [vue d’ensemble de la réplication binlog](https://mariadb.com/kb/en/library/replication-overview/).
 
 > [!IMPORTANT]
-> Les réplicas en lecture d’une même région sont actuellement disponibles en préversion publique.
+> Vous pouvez créer un réplica en lecture dans la même région que votre serveur maître ou dans n’importe quelle autre région Azure de votre choix. Les réplicas en lecture (même région et entre régions) sont actuellement en préversion publique.
 
 Les réplicas sont de nouveaux serveurs que vous gérez de manière similaire aux serveurs Azure Database for MariaDB classiques. Pour chaque réplica en lecture, vous êtes facturé en fonction de la capacité de calcul provisionnée dans les vCores et du stockage provisionné en Go/mois.
 
@@ -118,7 +118,7 @@ Les utilisateurs sur le serveur maître sont répliqués sur les réplicas en le
 
 Pour empêcher les données de se désynchroniser et pour éviter leur perte ou leur endommagement potentiels, certains paramètres de serveur sont verrouillés et ne peuvent pas être mis à jour lors de l’utilisation des réplicas en lecture.
 
-Les paramètres de serveur suivants sont verrouillés sur les serveurs maîtres et réplicas :
+Les paramètres de serveur suivants sont verrouillés sur les serveurs maîtres et réplicas :
 - [`innodb_file_per_table`](https://mariadb.com/kb/en/library/innodb-system-variables/#innodb_file_per_table) 
 - [`log_bin_trust_function_creators`](https://mariadb.com/kb/en/library/replication-and-binary-log-system-variables/#log_bin_trust_function_creators)
 

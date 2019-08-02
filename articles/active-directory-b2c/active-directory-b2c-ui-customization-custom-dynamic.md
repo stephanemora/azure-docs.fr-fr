@@ -10,21 +10,21 @@ ms.topic: conceptual
 ms.date: 09/20/2017
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: e1abdfa8bc47f42f7373760370588c0bc41fc1dc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 43c0da3ca8fa4b2f74d48b0e202cc56bc8b9406c
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66507776"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68227218"
 ---
 # <a name="azure-active-directory-b2c-configure-the-ui-with-dynamic-content-by-using-custom-policies"></a>Azure Active Directory B2C : configurer l’interface utilisateur avec du contenu dynamique à l’aide de stratégies personnalisées
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-À l’aide de stratégies personnalisées Azure Active Directory B2C (Azure AD B2C), vous pouvez envoyer un paramètre dans une chaîne de requête. En transmettant le paramètre à votre point de terminaison HTML, vous pouvez changer le contenu de la page de façon dynamique. Par exemple, vous pouvez changer l’image d’arrière-plan dans la page de connexion ou d’inscription Azure AD B2C en fonction d’un paramètre que vous transmettez depuis votre application web ou mobile. 
+À l’aide de stratégies personnalisées Azure Active Directory B2C (Azure AD B2C), vous pouvez envoyer un paramètre dans une chaîne de requête. En transmettant le paramètre à votre point de terminaison HTML, vous pouvez changer le contenu de la page de façon dynamique. Par exemple, vous pouvez changer l’image d’arrière-plan dans la page de connexion ou d’inscription Azure AD B2C en fonction d’un paramètre que vous transmettez depuis votre application web ou mobile.
 
 ## <a name="prerequisites"></a>Prérequis
-Cet article se concentre sur la façon de personnaliser l’interface utilisateur Azure AD B2C avec du *contenu dynamique* à l’aide de stratégies personnalisées. Pour commencer, consultez [Personnalisation de l’interface utilisateur dans une stratégie personnalisée](active-directory-b2c-ui-customization-custom.md). 
+Cet article se concentre sur la façon de personnaliser l’interface utilisateur Azure AD B2C avec du *contenu dynamique* à l’aide de stratégies personnalisées. Pour commencer, consultez [Personnalisation de l’interface utilisateur dans une stratégie personnalisée](active-directory-b2c-ui-customization-custom.md).
 
 >[!NOTE]
 >L’article Azure AD B2C, [Configurer la personnalisation de l’interface utilisateur dans une stratégie personnalisée](active-directory-b2c-ui-customization-custom.md), explique les notions de base suivantes :
@@ -35,11 +35,11 @@ Cet article se concentre sur la façon de personnaliser l’interface utilisateu
 
 ## <a name="add-a-link-to-html5css-templates-to-your-user-journey"></a>Ajouter d’un lien aux modèles HTML5/CSS pour votre parcours utilisateur
 
-Dans une stratégie personnalisée, une définition de contenu définit l’URI de page HTML5 qui est utilisée pour une étape d’interface utilisateur spécifiée (par exemple, les pages de connexion ou d’inscription). La stratégie de base définit l’apparence par défaut en pointant vers un URI de fichiers HTML5 (dans les fichiers CSS). Dans la stratégie d’extension, vous pouvez modifier l’apparence en substituant le LoadUri du fichier HTML5. Les définitions de contenu comprennent des URL vers du contenu externe qui est défini en créant des fichiers HTML5/CSS, si nécessaire. 
+Dans une stratégie personnalisée, une définition de contenu définit l’URI de page HTML5 qui est utilisée pour une étape d’interface utilisateur spécifiée (par exemple, les pages de connexion ou d’inscription). La stratégie de base définit l’apparence par défaut en pointant vers un URI de fichiers HTML5 (dans les fichiers CSS). Dans la stratégie d’extension, vous pouvez modifier l’apparence en substituant le LoadUri du fichier HTML5. Les définitions de contenu comprennent des URL vers du contenu externe qui est défini en créant des fichiers HTML5/CSS, si nécessaire.
 
 La section `ContentDefinitions` contient une série d’éléments XML `ContentDefinition`. L’attribut d’ID de l’élément `ContentDefinition` spécifie le type des page qui se rapporte à la définition de contenu. Autrement dit, l’élément définit le contexte que va appliquer un modèle HTML5/CSS personnalisé. Le tableau suivant décrit l’ensemble d’ID de définition de contenu reconnus par le moteur d’infrastructure d’expérience d’identité et les types de page associés.
 
-| ID de définition du contenu | Modèle HTML5 par défaut| Description | 
+| ID de définition du contenu | Modèle HTML5 par défaut| Description |
 |-----------------------|--------|-------------|
 | *api.error* | [exception.cshtml](https://login.microsoftonline.com/static/tenant/default/exception.cshtml) | **Page d’erreur**. Cette page s’affiche lorsqu’une exception ou une erreur est rencontrée. |
 | *api.idpselections* | [idpSelector.cshtml](https://login.microsoftonline.com/static/tenant/default/idpSelector.cshtml) | **Page de sélection du fournisseur d’identité**. Cette page répertorie les fournisseurs d’identité parmi lesquels les utilisateurs peuvent faire leur choix au moment de la connexion. Il s’agit généralement de fournisseurs d’identité d’entreprise, de fournisseurs d’identité de réseaux sociaux tels que Facebook et Google + ou de comptes locaux. |
@@ -53,14 +53,14 @@ La section `ContentDefinitions` contient une série d’éléments XML `ContentD
 | *api.signuporsignin* | [unified.html](https://login.microsoftonline.com/static/tenant/default/unified.cshtml) | **Page de connexion ou d’inscription unifiée**. Cette page gère le processus d’inscription et de connexion des utilisateurs. Les utilisateurs peuvent utiliser des fournisseurs d’identité d’entreprise, des fournisseurs d’identité de réseaux sociaux tels que Facebook et Google + ou des comptes locaux.  |
 
 ## <a name="serving-dynamic-content"></a>Utilisation de contenu dynamique
-Dans l’article [Azure Active Directory B2C : Configurer la personnalisation de l’interface utilisateur dans une stratégie personnalisée](active-directory-b2c-ui-customization-custom.md), vous avez chargé des fichiers HTML5 vers le stockage Blob Azure. Ces fichiers HTML5 sont statiques et affichent le même contenu HTML pour chaque requête. 
+Dans l’article [Azure Active Directory B2C : Configurer la personnalisation de l’interface utilisateur dans une stratégie personnalisée](active-directory-b2c-ui-customization-custom.md), vous avez chargé des fichiers HTML5 vers le stockage Blob Azure. Ces fichiers HTML5 sont statiques et affichent le même contenu HTML pour chaque requête.
 
-Dans cet article, vous utilisez une application webASP.NET, qui peut accepter des paramètres de chaîne de requête et réagir en conséquence. 
+Dans cet article, vous utilisez une application webASP.NET, qui peut accepter des paramètres de chaîne de requête et réagir en conséquence.
 
 Lors de cette procédure pas à pas, vous allez effectuer les opérations suivantes :
-* Créer une application web ASP.NET Core qui héberge vos modèles HTML5. 
-* Ajouter un modèle personnalisé HTML5, _unified.cshtml_. 
-* Publier votre application web sur Azure App Service. 
+* Créer une application web ASP.NET Core qui héberge vos modèles HTML5.
+* Ajouter un modèle personnalisé HTML5, _unified.cshtml_.
+* Publier votre application web sur Azure App Service.
 * Définir un partage de ressources cross-origin (CORS) pour votre application web.
 * Remplacer les éléments `LoadUri` pour pointer vers votre fichier HTML5.
 
@@ -89,7 +89,7 @@ Votre modèle HTML5 personnalisé est basé sur le modèle HTML5 intégré à Az
 ### <a name="step-22-add-the-mvc-view"></a>Étape 2.2 : Ajouter la vue MVC
 1. Cliquez avec le bouton droit sur le dossier Vues/Accueil, puis sur **Ajouter** > **Nouvel élément**.
 
-    ![Ajouter un élément MVC](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-add-view1.png)
+    ![Ajouter un nouvel élément dans Visual Studio](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-add-view1.png)
 
 2. Dans la fenêtre **Ajouter un nouvel élément - Contoso.AADB2C.UI**, sélectionnez **Web > ASP.NET**.
 
@@ -99,7 +99,7 @@ Votre modèle HTML5 personnalisé est basé sur le modèle HTML5 intégré à Az
 
 5. Sélectionnez **Ajouter**.
 
-    ![Ajouter une vue MVC](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-add-view2.png)
+    ![Boîte de dialogue Ajouter un nouvel élément dans Visual Studio avec Page de vue MVC mis en évidence](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-add-view2.png)
 
 6. Si le fichier *unified.cshtml* n’est pas déjà ouvert, double-cliquez dessus pour l’ouvrir, puis supprimez son contenu.
 
@@ -123,11 +123,11 @@ Votre modèle HTML5 personnalisé est basé sur le modèle HTML5 intégré à Az
 
 Localisez l’élément `<img>` contenant la valeur `ID` *background_background_image*, puis remplacez la valeur `src` par **https://kbdevstorage1.blob.core.windows.net/asset-blobs/19889_en_1** ou toute autre image d’arrière-plan que vous souhaitez utiliser.
 
-![Modifier l’arrière-plan de la page](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-add-static-background.png)
+![élément img avec la valeur personnalisée src background_background_image](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-add-static-background.png)
 
 ### <a name="step-24-add-your-view-to-the-mvc-controller"></a>Étape 2.4 : Ajouter votre vue au contrôleur MVC
 
-1. Ouvrez **Controllers\HomeController.cs** et ajoutez la méthode suivante : 
+1. Ouvrez **Controllers\HomeController.cs** et ajoutez la méthode suivante :
 
     ```C
     public IActionResult unified()
@@ -136,9 +136,9 @@ Localisez l’élément `<img>` contenant la valeur `ID` *background_background_
     }
     ```
     Ce code spécifie que la méthode doit utiliser un fichier de modèle de *vue* pour afficher une réponse dans le navigateur. Étant donné que nous ne spécifions pas de manière explicite le nom du fichier de modèle de *vue*, MVC est par défaut défini pour utiliser le fichier de vue _unified.cshtml_ dans le dossier */Vues/Accueil*.
-    
+
     Une fois ajoutée la méthode _unified_, votre code doit ressembler à ce qui suit :
-    
+
     ![Changer le contrôleur pour restituer la vue](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-controller-view.png)
 
 2. Déboguez votre application web et assurez-vous que la page _unified_ est accessible (par exemple, `http://localhost:<Port number>/Home/unified`).
@@ -174,7 +174,7 @@ Localisez l’élément `<img>` contenant la valeur `ID` *background_background_
 
 2. Dans la section **Paramètres**, sous la section **API**, sélectionnez **CORS**.
 
-    ![Sélectionner les paramètres CORS](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-CORS2.png)
+    ![Élément de menu CORS mis en évidence dans le menu App Service sur le portail Azure](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-CORS2.png)
 
 3. Dans la fenêtre **CORS**, dans la zone **Origines autorisées**, effectuez une des opérations suivantes :
 
@@ -183,9 +183,9 @@ Localisez l’élément `<img>` contenant la valeur `ID` *background_background_
 
 4. Sélectionnez **Enregistrer**.
 
-    ![Fenêtre CORS](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-CORS3.png)
+    ![Page de paramètres CORS avec un astérisque mis en évidence dans Origines autorisées](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-CORS3.png)
 
-    Quand vous sélectionnez **Enregistrer**, l’application API accepte les appels JavaScript provenant des URL spécifiées. 
+    Quand vous sélectionnez **Enregistrer**, l’application API accepte les appels JavaScript provenant des URL spécifiées.
 
 ## <a name="step-4-html5-template-validation"></a>Étape 4 : Validation du modèle HTML5
 Votre modèle HTML5 est prêt à être utilisé. Toutefois, il n’est pas disponible dans le code des `ContentDefinition`. Avant d’ajouter `ContentDefinition` à votre stratégie personnalisée, vérifiez les points suivants :
@@ -193,7 +193,7 @@ Votre modèle HTML5 est prêt à être utilisé. Toutefois, il n’est pas dispo
 * CORS est activé sur votre serveur de contenu.
 
     >[!NOTE]
-    >Pour vérifier que le site où vous hébergez votre contenu a activé CORS et qu’il peut tester des demandes CORS, accédez au site web [test-cors.org](https://test-cors.org/). 
+    >Pour vérifier que le site où vous hébergez votre contenu a activé CORS et qu’il peut tester des demandes CORS, accédez au site web [test-cors.org](https://test-cors.org/).
 
 * Votre contenu utilisé est sécurisé via **HTTPS**.
 * Vous utilisez des *URL absolues* comme `https://yourdomain/content` pour l’ensemble des liens, images et contenu CSS.
@@ -206,16 +206,16 @@ Pour configurer `ContentDefinition`, effectuez les opérations suivantes :
 
 3. Ouvrez le fichier d’extension (par exemple, *TrustFrameworkExtensions.xml*), puis recherchez l’élément `<BuildingBlocks>`. Si l’élément n’existe pas, ajoutez-le.
 
-4. Collez l’intégralité du contenu du nœud `<ContentDefinitions>` que vous avez copié en tant qu’enfant de l’élément `<BuildingBlocks>`. 
+4. Collez l’intégralité du contenu du nœud `<ContentDefinitions>` que vous avez copié en tant qu’enfant de l’élément `<BuildingBlocks>`.
 
 5. Recherchez le nœud `<ContentDefinition>` contenant `Id="api.signuporsignin"` dans le code XML que vous avez copié.
 
-6. Modifiez la valeur de `LoadUri` en remplaçant _~/tenant/default/unified_ par _https://<nom_app>.azurewebsites.net/home/unified_.  
+6. Modifiez la valeur de `LoadUri` en remplaçant _~/tenant/default/unified_ par _https://<nom_app>.azurewebsites.net/home/unified_.
     Votre stratégie personnalisée doit ressembler à ce qui suit :
-    
-    ![Votre définition de contenu](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-content-definition.png)
 
-## <a name="step-6-upload-the-policy-to-your-tenant"></a>Étape 6 : Charger la stratégie sur un client
+    ![Exemple d’extrait XML avec l’élément LoadUri mis en évidence](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-content-definition.png)
+
+## <a name="step-6-upload-the-policy-to-your-tenant"></a>Étape 6 : Charger la stratégie sur un client
 1. Dans le [portail Azure](https://portal.azure.com), passez au [contexte de votre locataire Azure AD B2C](active-directory-b2c-navigate-to-b2c-context.md), puis sélectionnez **Azure AD B2C**.
 
 2. Sélectionnez **Infrastructure d’expérience d’identité**.
@@ -234,20 +234,20 @@ Pour configurer `ContentDefinition`, effectuez les opérations suivantes :
     >[!NOTE]
     >L’option Exécuter maintenant nécessite la préinscription d’au moins une application sur le locataire. Pour découvrir comment inscrire des applications, consultez les articles sur Azure AD B2C [Bien démarrer](active-directory-b2c-get-started.md) et [Inscription des applications](active-directory-b2c-app-registration.md).
 
-2. Ouvrez **B2C_1A_signup_signin**, la stratégie personnalisée de partie de confiance que vous avez chargée, puis sélectionnez **Exécuter maintenant**.  
+2. Ouvrez **B2C_1A_signup_signin**, la stratégie personnalisée de partie de confiance que vous avez chargée, puis sélectionnez **Exécuter maintenant**.
     Vous devez être en mesure de voir votre HTML5 personnalisé avec l’arrière-plan que vous avez créé précédemment.
 
     ![Votre stratégie d’inscription ou de connexion](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-demo1.png)
 
 ## <a name="step-8-add-dynamic-content"></a>Étape 8 : Ajout de contenu dynamique
-Changez l’arrière-plan en fonction d’un paramètre de chaîne de requête nommé _campaignId_. Votre application par partie de confiance (applications web et mobiles) envoie le paramètre à Azure AD B2C. Votre stratégie lit le paramètre et envoie sa valeur à votre modèle HTML5. 
+Changez l’arrière-plan en fonction d’un paramètre de chaîne de requête nommé _campaignId_. Votre application par partie de confiance (applications web et mobiles) envoie le paramètre à Azure AD B2C. Votre stratégie lit le paramètre et envoie sa valeur à votre modèle HTML5.
 
 ### <a name="step-81-add-a-content-definition-parameter"></a>Étape 8.1 : Ajouter un paramètre de définition de contenu
 
 Ajoutez l’élément `ContentDefinitionParameters` en effectuant les opérations suivantes :
 1. Ouvrez le fichier *SignUpOrSignin* de votre stratégie (par exemple, *SignUpOrSignin.xml*).
 
-2. Sous le nœud `<DefaultUserJourney>`, ajoutez le nœud `UserJourneyBehaviors` :  
+2. Sous le nœud `<DefaultUserJourney>`, ajoutez le nœud `UserJourneyBehaviors` :
 
     ```XML
     <RelyingParty>
@@ -292,30 +292,30 @@ Modifiez la méthode `unified` HomeController pour accepter le paramètre campai
 
 2. Recherchez l’élément `<img>` avec l’ID `background_background_image` et remplacez la valeur `src` par `@ViewData["background"]`.
 
-    ![Modifier l’arrière-plan de la page](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-add-dynamic-background.png)
+    ![élément img avec la valeur src mise en évidence ](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-add-dynamic-background.png)
 
 ### <a name="83-upload-the-changes-and-publish-your-policy"></a>8.3 : Charger les modifications et publier votre stratégie
 1. Publiez votre projet Visual Studio sur Azure App Service.
 
 2. Chargez la stratégie *SignUpOrSignin.xml* sur Azure AD B2C.
 
-3. Ouvrez **B2C_1A_signup_signin**, la stratégie personnalisée de partie de confiance que vous avez chargée, puis sélectionnez **Exécuter maintenant**.  
+3. Ouvrez **B2C_1A_signup_signin**, la stratégie personnalisée de partie de confiance que vous avez chargée, puis sélectionnez **Exécuter maintenant**.
     Vous devez voir la même image d’arrière-plan que celle affichée auparavant.
 
 4. Copiez l’URL de la barre d’adresses du navigateur.
 
 5. Ajoutez le paramètre de chaîne de requête _campaignId_ à l’URI. Par exemple, ajoutez `&campaignId=hawaii`, comme illustré dans l’image suivante :
 
-    ![Modifier l’arrière-plan de la page](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-campaignId-param.png)
+    ![URI avec le paramètre de chaîne de requête campaignId mis en évidence](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-campaignId-param.png)
 
 6. Appuyez sur **Entrée** pour afficher l’image d’arrière-plan d’Hawaï.
 
-    ![Modifier l’arrière-plan de la page](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-demo2.png)
+    ![Page S’inscrire ou se connecter avec l’image d’arrière-plan personnalisé Hawaii](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-demo2.png)
 
-7. Remplacez la valeur par *Tokyo* et appuyez sur **Entrée**.  
+7. Remplacez la valeur par *Tokyo* et appuyez sur **Entrée**.
     Le navigateur affiche l’arrière-plan de Tokyo.
 
-    ![Modifier l’arrière-plan de la page](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-demo3.png)
+    ![Page S’inscrire ou se connecter avec l’image d’arrière-plan personnalisé Tokyo](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-demo3.png)
 
 ## <a name="step-9-change-the-rest-of-the-user-journey"></a>Étape 9 : Changer le reste du parcours utilisateur
 Si vous sélectionnez le lien **Inscrivez-vous dès maintenant** dans la page de connexion, le navigateur affiche l’image d’arrière-plan par défaut, pas l’image que vous avez définie. En effet, vous avez changé uniquement la page d’inscription ou de connexion. Pour changer le reste des définitions de contenu avec autodéclaration :
@@ -329,13 +329,13 @@ Si vous sélectionnez le lien **Inscrivez-vous dès maintenant** dans la page de
 
     d. Ajoutez *selfasserted* au contrôleur **Accueil**.
 
-2. Revenez à l’étape 4 et effectuez les opérations suivantes : 
+2. Revenez à l’étape 4 et effectuez les opérations suivantes :
 
     a. Dans votre stratégie d’extension, recherchez le nœud `<ContentDefinition>` qui contient `Id="api.selfasserted"`, `Id="api.localaccountsignup"` et `Id="api.localaccountpasswordreset"`.
 
     b. Définissez l’attribut `LoadUri` sur votre URI *selfasserted*.
 
-3. Revenez à l’étape 8.2 et modifiez votre code pour accepter les paramètres de chaîne de requête, mais cette fois pour la fonction *selfasserted*. 
+3. Revenez à l’étape 8.2 et modifiez votre code pour accepter les paramètres de chaîne de requête, mais cette fois pour la fonction *selfasserted*.
 
 4. Chargez la stratégie *TrustFrameworkExtensions.xml*, puis vérifiez que sa validation réussit.
 

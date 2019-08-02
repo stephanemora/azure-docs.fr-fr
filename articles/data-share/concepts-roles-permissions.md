@@ -6,12 +6,12 @@ ms.service: data-share
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: joanpo
-ms.openlocfilehash: 76889904dd89da0b44dad6b47250351c73f75653
-ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
+ms.openlocfilehash: a5d70b9aa611b4f939cb46b5d25655edd818cb35
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67788524"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807538"
 ---
 # <a name="roles-and-requirements-for-azure-data-share-preview"></a>Rôles et exigences pour Azure Data Share en préversion
 
@@ -21,12 +21,12 @@ Cet article décrit les rôles requis pour partager des données à l’aide de 
 
 Pour partager ou recevoir des données à l’aide d’Azure Data Share, le compte d’utilisateur que vous utilisez pour vous connecter à Azure doit être en mesure d’accorder des autorisations du partage de données au compte de stockage dont vous partagez les données à ou sur lequel vous recevez des données. Il s’agit en général d’une autorisation qui existe dans le rôle **propriétaire** ou dans un rôle personnalisé avec l’autorisation Microsoft.Authorization/role assignments/write affectée. 
 
-Pour partager ou recevoir des données sur un compte de stockage Azure, vous devez être un propriétaire du compte de stockage sur lequel vous recevez des données. Même si vous avez créé le compte de stockage, cela ne vous accorde pas automatiquement la propriété du compte de stockage. Pour vous ajouter vous-même au rôle de propriétaire de votre compte de stockage Azure, procédez comme suit.
+Pour partager ou recevoir des données sur un compte de stockage Azure, vous devez être propriétaire du compte de stockage. Même si vous avez créé le compte de stockage, cela ne vous accorde pas automatiquement la propriété du compte de stockage. Pour vous ajouter vous-même au rôle de propriétaire de votre compte de stockage Azure, procédez comme suit.
 
 1. Accéder à un compte de stockage dans le portail Azure
-1. Sélectionner **Contrôle d’accès (IAM)**
+1. Sélectionnez **Contrôle d’accès (IAM)**
 1. Cliquez sur **Ajouter**.
-1. Ajoutez-vous en tant que propriétaire des données blob du stockage
+1. Ajoutez-vous en tant que propriétaire.
 
 Pour visualiser les autorisations dont vous disposez dans l’abonnement, sélectionnez votre nom d’utilisateur dans le coin supérieur droit du Portail Azure, puis sélectionnez **Autorisations**. Si vous avez accès à plusieurs abonnements, sélectionnez l’abonnement approprié. 
 

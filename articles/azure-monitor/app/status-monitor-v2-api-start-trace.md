@@ -1,5 +1,5 @@
 ---
-title: 'Référence sur l’API Azure Status Monitor v2 : Lancer une trace | Microsoft Docs'
+title: 'Référence sur l’API Azure Status Monitor v2 : Lancer une trace | Microsoft Docs'
 description: Référence sur l’API Azure Status Monitor v2. Start-Trace. Collectez les journaux ETW de Status Monitor et du kit de développement logiciel (SDK) Application Insights.
 services: application-insights
 documentationcenter: .net
@@ -12,20 +12,20 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: 186324e6a93f90fd04323074e5dc883e3e271725
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: b6787134707273a76290adb723a9bc9012252ebd
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67479130"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807057"
 ---
-# <a name="status-monitor-v2-api-start-applicationinsightsmonitoringtrace-v031-alpha"></a>API Status Monitor v2 : Start-ApplicationInsightsMonitoringTrace (v0.3.1-alpha)
+# <a name="status-monitor-v2-api-start-applicationinsightsmonitoringtrace-v040-alpha"></a>API Status Monitor v2 : Start-ApplicationInsightsMonitoringTrace (v0.4.0-alpha)
 
-Cet article décrit une cmdlet appartenant au [module PowerShell Az.ApplicationMonitor](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
+Cet article décrit une applet de commande appartenant au [module PowerShell Az.ApplicationMonitor](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
 
 > [!IMPORTANT]
 > Status Monitor v2 est actuellement en préversion publique.
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge.
+> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou n’être pas prises en charge.
 > Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="description"></a>Description
@@ -37,7 +37,7 @@ Les événements collectés seront imprimés dans la console en temps réel et e
 Cette cmdlet s’exécute jusqu’à la fin du délai d’expiration (5 minutes par défaut) ou vous pouvez l’arrêter manuellement (`Ctrl + C`).
 
 > [!IMPORTANT] 
-> Cette cmdlet requiert une session PowerShell avec des autorisations d’administrateur.
+> Cette applet de commande requiert une session PowerShell avec des autorisations d’administrateur.
 
 ## <a name="examples"></a>Exemples
 
@@ -126,7 +126,7 @@ Résolution de problèmes supplémentaires :
 
 
 
- Plus d’opérations avec Status Monitor v2 :
+ Plus d’opérations avec Status Monitor v2 :
  - Utilisez notre guide pour [détecter un problème](status-monitor-v2-troubleshoot.md) dans Status Monitor v2.
  - [Obtenez la configuration](status-monitor-v2-api-get-config.md) pour confirmer que vos paramètres ont été enregistrés correctement.
  - [Obtenez l’état](status-monitor-v2-api-get-status.md) pour inspecter la surveillance.

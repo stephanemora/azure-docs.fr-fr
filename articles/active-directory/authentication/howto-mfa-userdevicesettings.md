@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 04d4848a00fd645bcf23342f27fe820ccf034a8b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3152dead04510078dd475b611afbfc30264e58f7
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66298837"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68297652"
 ---
 # <a name="manage-user-settings-with-azure-multi-factor-authentication-in-the-cloud"></a>Gestion des paramètres utilisateur avec Azure Multi-Factor Authentication dans le cloud
 
@@ -25,6 +25,12 @@ En tant qu’administrateur, vous pouvez gérer les paramètres des utilisateurs
 * Demander aux utilisateurs de fournir à nouveau des méthodes de contact
 * Supprimer des mots de passe d’application
 * Exiger l’authentification MFA sur tous les appareils de confiance
+
+## <a name="manage-authentication-methods"></a>Gérer les méthodes d’authentification
+
+En tant qu’administrateur doté du rôle d’administrateur d’authentification, vous pouvez exiger des utilisateurs qu’ils réinitialisent leur mot de passe, se réinscrivent à MFA ou révoquent les sessions MFA existantes de leur objet utilisateur.
+
+![Gérer les méthodes d’authentification à partir du portail Azure](./media/howto-mfa-userdevicesettings/manage-authentication-methods.png)
 
 ## <a name="require-users-to-provide-contact-methods-again"></a>Demander aux utilisateurs de fournir à nouveau des méthodes de contact
 

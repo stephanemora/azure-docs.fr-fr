@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 05/11/2019
 ms.author: genli
-ms.openlocfilehash: f40b3e0d2a49f6522149a977572d4f3c12e34255
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: ad30bd4f77c5f4314956e39f26a30b72d72a208a
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67720053"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68361163"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Préparer un disque dur virtuel Windows à charger sur Azure
 
@@ -31,10 +31,24 @@ Sur une machine virtuelle de génération 1, vous pouvez convertir un système d
 Pour plus d’informations sur la stratégie de prise en charge des machines virtuelles Azure, consultez la page [Prise en charge des logiciels serveur Microsoft pour les machines virtuelles Microsoft Azure](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines).
 
 > [!NOTE]
-> Les instructions fournies dans cet article s’appliquent à la version 64 bits de Windows Server 2008 R2 et aux systèmes d’exploitation Windows Server ultérieurs. Pour plus d’informations sur l’exécution d’un système d'exploitation 32 bits dans Azure, consultez l’article [Prise en charge pour les systèmes d’exploitation 32 bits sur des machines virtuelles Azure](https://support.microsoft.com/help/4021388/support-for-32-bit-operating-systems-in-azure-virtual-machines).
+> Les instructions de cet article s’appliquent à :
+>1. la version 64 bits de Windows Server 2008 R2 et aux systèmes d’exploitation Windows Server ultérieurs. Pour plus d’informations sur l’exécution d’un système d'exploitation 32 bits dans Azure, consultez l’article [Prise en charge pour les systèmes d’exploitation 32 bits sur des machines virtuelles Azure](https://support.microsoft.com/help/4021388/support-for-32-bit-operating-systems-in-azure-virtual-machines).
+>2. Si un outil de récupération d'urgence comme Azure Site Recovery ou Azure Migrate est utilisé pour effectuer une migration de la charge de travail, ce processus reste nécessaire et doit être suivi sur le système d’exploitation invité pour préparer l’image avant la migration.
 
-## <a name="convert-the-virtual-disk-to-a-fixed-size-and-to-vhd"></a>Convertissez le disque virtuel en disque VHD de taille fixe 
-Pour convertir votre disque virtuel au format exigé par Azure, utilisez une des méthodes décrites dans cette section. Sauvegardez la machine virtuelle avant de convertir le disque virtuel. Vérifiez que le disque dur virtuel Windows fonctionne correctement sur le serveur local. Ensuite, résolvez toute erreur dans la machine virtuelle elle-même avant de tenter une conversion ou un chargement sur Azure.
+## <a name="convert-the-virtual-disk-to-a-fixed-size-and-to-vhd"></a>Convertissez le disque virtuel en disque VHD de taille fixe
+
+Pour convertir votre disque virtuel au format exigé par Azure, utilisez une des méthodes décrites dans cette section :
+
+1. Sauvegardez la machine virtuelle avant d’exécuter le processus de conversion de disque virtuel.
+
+1. Vérifiez que le disque dur virtuel Windows fonctionne correctement sur le serveur local. Résolvez toute erreur dans la machine virtuelle elle-même avant de tenter une conversion ou un chargement sur Azure.
+
+1. Concernant la taille du disque dur virtuel :
+
+   1. Tous les VDH sur Azure doivent avoir une taille virtuelle alignée à 1 Mo. Avant de convertir un disque brut en VHD, vous devez vous assurer que la taille du disque brut est un multiple de 1 Mo. Les fractions d’un mégaoctet entraînent des erreurs lors de la création d’images à partir du disque dur virtuel chargé.
+
+   2. La taille maximale autorisée pour le disque dur virtuel du système d’exploitation est de 2 To.
+
 
 Après avoir converti le disque, créez une machine virtuelle qui utilise le disque. Démarrez et connectez-vous à la machine virtuelle pour finir de la préparer en vue du chargement.
 

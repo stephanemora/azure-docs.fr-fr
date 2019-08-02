@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: dapine
 ms.custom: seodec18
-ms.openlocfilehash: 4613b576b444059d448cf1094284f2a68e6c31a8
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 90358d54077a0c320e8d3186e806b8a61d951c82
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67275143"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68321339"
 ---
 # <a name="configure-recognize-text-docker-containers"></a>Configurer des conteneurs Docker Reconnaître le texte
 
@@ -97,8 +97,8 @@ Remplacez {_argument_name_} par vos propres valeurs :
 
 | Placeholder | Valeur | Format ou exemple |
 |-------------|-------|---|
-|{BILLING_KEY} | Clé de point de terminaison de la ressource Cognitive Services. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
-|{BILLING_ENDPOINT_URI} | Valeur de point de terminaison de facturation, région comprise.|`https://westcentralus.api.cognitive.microsoft.com/vision/v1.0`|
+|{API_KEY} | Clé de point de terminaison de la ressource Cognitive Services. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
+|{ENDPOINT_URI} | Valeur de point de terminaison de facturation, région comprise.|`https://westcentralus.api.cognitive.microsoft.com/vision/v1.0`|
 
 > [!IMPORTANT]
 > Vous devez spécifier les options `Eula`, `Billing` et `ApiKey` pour exécuter le conteneur, sinon il ne démarrera pas.  Pour plus d'informations, consultez [Facturation](computer-vision-how-to-install-containers.md#billing).
@@ -114,8 +114,8 @@ Les exemples Docker suivants s’appliquent au conteneur Reconnaître le texte.
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
   containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text \
   Eula=accept \
-  Billing={BILLING_ENDPOINT_URI} \
-  ApiKey={BILLING_KEY} 
+  Billing={ENDPOINT_URI} \
+  ApiKey={API_KEY} 
   ```
 
 ### <a name="logging-example"></a>Exemple de journalisation 
@@ -124,8 +124,8 @@ Les exemples Docker suivants s’appliquent au conteneur Reconnaître le texte.
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
   containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text \
   Eula=accept \
-  Billing={BILLING_ENDPOINT_URI} \
-  ApiKey={BILLING_KEY} \
+  Billing={ENDPOINT_URI} \
+  ApiKey={API_KEY} \
   Logging:Console:LogLevel:Default=Information
   ```
 

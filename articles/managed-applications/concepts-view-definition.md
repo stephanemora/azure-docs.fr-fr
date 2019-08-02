@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: lazinnat
 author: lazinnat
 ms.date: 06/12/2019
-ms.openlocfilehash: 6735787f9b43f98ab611584f3c7191c9f927dbc2
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: ff96bddef1b34f5a8bf743ccaaccba2da01534dc
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67479054"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68335091"
 ---
 # <a name="view-definition-artifact-in-azure-managed-applications"></a>Artefact de définition de vue dans les applications managées Azure
 
@@ -32,6 +32,8 @@ Exemple de schéma JSON pour la définition de vue :
 
 ```json
 {
+    "$schema": "https://schema.management.azure.com/schemas/viewdefinition/0.0.1-preview/ViewDefinition.json#",
+    "contentVersion": "0.0.0.1",
     "views": [
         {
             "kind": "Overview",
@@ -84,7 +86,7 @@ Exemple de schéma JSON pour la définition de vue :
                         "displayName": "Custom Context Action",
                         "path": "testCustomResource/testContextAction",
                         "icon": "Stop",
-                        "createUIDefinition": { },
+                        "createUIDefinition": { }
                     }
                 ],
                 "columns": [
@@ -126,6 +128,8 @@ Lorsque vous fournissez cette vue dans **viewDefinition.json**, elle remplace la
 |en-tête|Non|En-tête de la page Vue d'ensemble.|
 |description|Non|Description de votre application managée.|
 |commandes|Non|Pour le tableau de boutons de barre d’outils supplémentaires de la page Vue d’ensemble, consultez [commandes](#commands).|
+
+![Vue d'ensemble](./media/view-definition/overview.png)
 
 ## <a name="metrics"></a>Mesures
 
@@ -176,11 +180,13 @@ La vue Métriques vous permet de collecter et d'agréger les données de vos res
 
 |Propriété|Obligatoire|Description|
 |---------|---------|---------|
-|Nom|OUI|Nom de la mesure.|
+|name|OUI|Nom de la mesure.|
 |aggregationType|OUI|Type d’agrégation à utiliser pour cette métrique. Types d’agrégation pris en charge : `none, sum, min, max, avg, unique, percentile, count`|
 |namespace|Non|Informations supplémentaires à utiliser pour déterminer le fournisseur de métriques qui convient.|
 |resourceTagFilter|Non|Tableau de balises de ressource (seront séparées par le mot `or`) pour lesquelles les métriques s'affichent. S’applique en plus du filtre de type de ressource.|
 |resourceType|OUI|Type de ressource pour laquelle les métriques s'affichent.|
+
+![Mesures](./media/view-definition/metrics.png)
 
 ## <a name="custom-resources"></a>Ressources personnalisées
 
@@ -228,6 +234,8 @@ Dans cette vue, vous pouvez effectuer des opérations GET, PUT, DELETE et POST p
 |commandes|Non|Pour le tableau de boutons de barre d’outils supplémentaires de la page Ressources personnalisées, consultez [commandes](#commands).|
 |colonnes|Non|Tableau de colonnes de la ressource personnalisée. S'il n'est pas défini, la colonne `name` s'affiche par défaut. La colonne doit contenir `"key"` et `"displayName"`. Pour la clé, indiquez la clé de la propriété à afficher dans une vue. Si elle est imbriquée, utilisez un point en tant que séparateur, par exemple, `"key": "name"` ou `"key": "properties.property1"`. Pour le nom d’affichage, indiquez le nom complet de la propriété à afficher dans une vue. Vous pouvez également fournir une propriété `"optional"`. Lorsqu'elle est définie sur true, la colonne est masquée dans une vue par défaut.|
 
+![CustomResources](./media/view-definition/customresources.png)
+
 ## <a name="commands"></a>Commandes
 
 Les commandes correspondent à un tableau de boutons de barre d’outils supplémentaires qui s'affichent sur la page. Chaque commande représente une action POST de votre fournisseur personnalisé Azure défini dans **mainTemplate.json**. Pour une présentation des fournisseurs personnalisés, consultez [Vue d'ensemble des fournisseurs personnalisés Azure](custom-providers-overview.md).
@@ -252,7 +260,12 @@ Les commandes correspondent à un tableau de boutons de barre d’outils supplé
 |icon|Non|Icône du bouton de commande. La liste des icônes prises en charge est définie dans [Schéma JSON](https://schema.management.azure.com/schemas/viewdefinition/0.0.1-preview/ViewDefinition.json#).|
 |createUIDefinition|Non|Créez le schéma de définition d’interface utilisateur pour la commande. Pour voir une présentation de la création de définitions d’interface utilisateur, consultez la page [Prise en main de CreateUiDefinition](create-uidefinition-overview.md).|
 
+## <a name="looking-for-help"></a>Besoin d’aide
+
+Si vous avez des questions sur Applications managées Azure, n’hésitez pas à vous rendre sur le site [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-managedapps). Avant de la publier, vérifiez si votre réponse a déjà été posée et a déjà reçu une réponse. Ajoutez le mot clé `azure-managedapps` pour obtenir une réponse rapide !
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Pour voir une présentation des applications gérées, consultez [Vue d’ensemble des applications gérées Azure](overview.md).
 - Pour une présentation des fournisseurs personnalisés, consultez [Vue d'ensemble des fournisseurs personnalisés Azure](custom-providers-overview.md).
+- Pour créer une application managée Azure avec des fournisseurs personnalisés Azure, consultez le tutoriel [ : Créer une application managée avec des actions des fournisseurs et des types de ressources personnalisés](tutorial-create-managed-app-with-custom-provider.md)

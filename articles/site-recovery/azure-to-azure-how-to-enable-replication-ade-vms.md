@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/08/2019
 ms.author: sutalasi
-ms.openlocfilehash: b2e9bf7fbe7d5940b517d97dcc15d21c30835001
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: b000610b5cba6f768a629ad797500a57597f2569
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67449215"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68335696"
 ---
 # <a name="replicate-azure-disk-encryption-enabled-virtual-machines-to-another-azure-region"></a>Répliquer des machines virtuelles prenant en charge Azure Disk Encryption vers une autre région Azure
 
@@ -28,21 +28,17 @@ Site Recovery a besoin que l’utilisateur dispose d’une autorisation de créa
 Pour activer la réplication de machines virtuelles prenant en charge Azure Disk Encryption à partir du portail Azure, l’utilisateur a besoin des autorisations suivantes :
 
 - Autorisations d’accès au coffre de clés
-    - List
-    - Créer
-    - Obtenir
-
--   Autorisations d’accès au secret du coffre de clés
-    - List
-    - Créer
-    - Obtenir
-
+    - Lister, créer et obtenir
+    
+- Autorisations d’accès au secret du coffre de clés
+    - Opérations de gestion des secrets
+        - Obtenir, lister et définir
+    
 - Autorisations de clé du coffre de clés (obligatoires uniquement si les machines virtuelles utilisent la clé de chiffrement à clé pour chiffrer les clés de chiffrement de disque)
-    - List
-    - Obtenir
-    - Créer
-    - Encrypt (Chiffrer)
-    - Decrypt (Déchiffrer)
+    - Opérations de gestion des clés
+        - Obtenir, lister et créer
+    - Opérations de chiffrement
+        - Déchiffrer et chiffrer
 
 Pour gérer les autorisations, accédez à la ressource du coffre de clés dans le portail. Ajoutez les autorisations nécessaires pour l’utilisateur. L’exemple suivant montre comment activer des autorisations pour le coffre de clés *ContosoWeb2Keyvault*, qui se trouve dans la région source.
 

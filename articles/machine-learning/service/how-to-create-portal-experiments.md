@@ -11,12 +11,12 @@ author: tsikiksr
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 05/02/2019
-ms.openlocfilehash: 5eb3e94ff65e8a8b74f357a4cb8a517fd3837c5a
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 1bfc415b2e4dbc66e2afeae73b78079fb027a60c
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67871809"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68358833"
 ---
 # <a name="create-and-explore-automated-machine-learning-experiments-in-the-azure-portal-preview"></a>Créer et explorer des expériences Machine Learning automatisé dans le portail Azure (préversion)
 
@@ -180,7 +180,7 @@ Dans le cadre des travaux de formation, l'exécution de chaque pipeline peut né
 
 ### <a name="view-training-run-details"></a>Afficher les détails de l'exécution de formation
 
-Explorez les modèles de sortie pour afficher les détails de l’exécution, tels que les métriques de performances et les graphiques de distribution. [En savoir plus sur les graphiques](how-to-track-experiments.md#understanding-automated-ml-charts).
+Explorez les modèles de sortie pour afficher les détails de l’exécution, tels que les métriques de performances et les graphiques de distribution. [En savoir plus sur les graphiques](how-to-understand-automated-ml.md).
 
 ![Détails d'itération](media/how-to-create-portal-experiments/iteration-details.png)
 
@@ -243,4 +243,5 @@ Machine Learning automatisé vous aide à déployer le modèle sans écrire de c
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [En savoir plus sur Machine Learning automatisé](concept-automated-ml.md) et Azure Machine Learning.
+* [Comprendre les résultats du Machine Learning](how-to-understand-automated-ml.md).
 * [En savoir plus sur l'utilisation d'un service web](https://docs.microsoft.com/azure/machine-learning/service/how-to-consume-web-service).

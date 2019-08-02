@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/15/2019
+ms.date: 07/15/2019
 ms.author: rolyon
 ms.reviewer: skwan
-ms.openlocfilehash: 4ee58835a5055f5382cefa3a049424ffe97a01c4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3aa24fdfc156c0197d724fd57729f5b11fa908ee
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67122941"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68278160"
 ---
 # <a name="manage-access-to-azure-management-with-conditional-access"></a>Gérer l’accès à la gestion Azure avec l’accès conditionnel
 
@@ -32,7 +32,16 @@ Pour créer une stratégie pour la gestion Azure, sélectionnez **Gestion Micros
 
 ![Accès conditionnel pour la gestion Azure](./media/conditional-access-azure-management/conditional-access-azure-mgmt.png)
 
-La stratégie que vous créez s’applique à tous les points de terminaison de gestion Azure, y compris le portail Azure, le fournisseur Azure Resource Manager, les API de gestion de service classiques, Azure PowerShell et le portail administrateur des abonnements Visual Studio. Notez que la stratégie s’applique à Azure PowerShell, qui appelle l’API Azure Resource Manager. Elle ne s’applique pas à [Azure AD PowerShell](/powershell/azure/active-directory/install-adv2), qui appelle Microsoft Graph.
+La stratégie que vous créez s’applique à tous les points de terminaison de gestion Azure, notamment :
+
+- Portail Azure
+- Fournisseur Azure Resource Manager
+- API Gestion des services classiques
+- Azure PowerShell
+- Portail de l’administrateur d’abonnements Visual Studio
+- Azure DevOps
+
+Notez que la stratégie s’applique à Azure PowerShell, qui appelle l’API Azure Resource Manager. Elle ne s’applique pas à [Azure AD PowerShell](/powershell/azure/active-directory/install-adv2), qui appelle Microsoft Graph.
 
 > [!CAUTION]
 > Vous devez comprendre le fonctionnement de l’accès conditionnel avant de configurer une stratégie pour gérer l’accès à la gestion Azure. Veillez à ne pas créer de conditions susceptibles de bloquer votre propre accès au portail.

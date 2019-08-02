@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 5d0819f71405b1bf1d4bef57a8b93d57bc879087
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 61b5b96636ea12b5c63da657e006bd3121c34756
+ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66244969"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67852608"
 ---
 # <a name="alerts-on-activity-log"></a>Alertes sur le journal d’activité 
 
 ## <a name="overview"></a>Vue d'ensemble
-Les alertes de journal d’activité s’activent lorsqu’un nouvel événement du journal d’activité correspond aux conditions spécifiées dans l’alerte. Il s’agit de ressources Azure, et peuvent donc être créées à l’aide d’un modèle Azure Resource Manager. Elles peuvent également être créées, mises à jour ou supprimées dans le portail Azure. Cet article présente les concepts qui sous-tendent les alertes de journal d’activité. Cet article décrit comment utiliser le portail Azure pour configurer une alerte sur les événements de journal d’activité. Pour plus d’informations sur son utilisation, consultez [Créer et gérer les alertes de journal d’activité](alerts-activity-log.md).
+Les alertes du journal d’activité s’activent quand un nouvel [événement du journal d’activité](activity-log-schema.md) correspond aux conditions spécifiées dans l’alerte. La règle d’alerte se déclenche en fonction de l’ordre et du volume des événements enregistrés dans le [journal d’activité Azure](activity-logs-overview.md). Les règles d’alerte du journal d’activité étant des ressources Azure, elles peuvent être créées à l’aide d’un modèle Azure Resource Manager. Elles peuvent également être créées, mises à jour ou supprimées dans le portail Azure. Cet article présente les concepts qui sous-tendent les alertes de journal d’activité. Pour plus d’informations sur la création ou l’utilisation des règles d’alerte du journal d’activité, consultez [Créer et gérer des alertes du journal d’activité](alerts-activity-log.md).
 
 > [!NOTE]
 > Les alertes **ne peuvent pas** être créées pour des événements dans la catégorie d’alerte du journal d’activité.
@@ -43,8 +43,7 @@ Les alertes de journal d’activité ont quelques options communes :
     - Au niveau de l’abonnement : par exemple, toutes les machines virtuelles d’un abonnement (ou) toutes les ressources d’un abonnement
 - **Groupe de ressources** : par défaut, la règle d’alerte est enregistrée dans le même groupe de ressources que celui de la cible définie dans l’étendue. L’utilisateur peut également définir le groupe de ressources où la règle d’alerte doit être stockée.
 - **Type de ressource** : Resource Manager a défini l’espace de noms pour la cible de l’alerte.
-
-- **Nom de l'opération** : le nom de l’opération Access Control basé sur le rôle de Resource Manager.
+- **Nom de l'opération** : [nom d’opération Azure Resource Manager](../../role-based-access-control/resource-provider-operations.md) utilisé pour le Contrôle d’accès en fonction du rôle. Les opérations non inscrites auprès d’Azure Resource Manager ne peuvent pas être utilisées dans une règle d’alerte du journal d’activité.
 - **Niveau** : le niveau de gravité de l’événement (détaillé, informationnel, avertissement, erreur ou critique).
 - **État** : l’état de l’événement, généralement « Démarré », « Échoué » ou « Réussi ».
 - **Événement lancé par** : également appelé l’« appelant». L’adresse e-mail ou l’identificateur Azure Active Directory de l’utilisateur qui a effectué l’opération.
@@ -61,9 +60,8 @@ Pour en savoir plus sur les groupes d’actions, consultez [Créer et gérer des
 
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 - Obtenir une [vue d’ensemble des alertes](alerts-overview.md).
 - En savoir plus sur la [création et la modification des alertes de journal d’activité](alerts-activity-log.md).
 - Consultez le [schéma webhook des alertes de journal d’activité](activity-log-alerts-webhook.md).
 - En savoir plus sur les [notifications sur l’intégrité du service](service-notifications.md).
-
-

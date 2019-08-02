@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: reference
 ms.date: 06/07/2019
 ms.author: tomfitz
-ms.openlocfilehash: 4f1bc1415fbb875120d7b64128cae69e1e3f442c
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 72bb11cd064c90c2bbe1e9e6452dcbf07fe37817
+ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67339842"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68304871"
 ---
 # <a name="tag-support-for-azure-resources"></a>Prise en charge des étiquettes pour les ressources Azure
 Cet article indique si un type de ressource prend en charge les [étiquettes](resource-group-using-tags.md). La colonne intitulée **Prend en charge les balises** indique si le type de ressource a une propriété pour la balise. La colonne intitulée **Balise dans le rapport des coûts** indique si ce type de ressource transmet la balise au rapport des coûts.
@@ -890,7 +890,7 @@ Pour obtenir les mêmes données qu’un fichier de valeurs séparées par des v
 | trafficmanagerprofiles | OUI | OUI |
 | trafficmanagerprofiles/heatMaps | Non |  Non |
 | virtualHubs | OUI | OUI |
-| virtualNetworkGateways | OUI | Non |
+| virtualNetworkGateways | OUI | OUI |
 | virtualNetworks | OUI | OUI |
 | virtualNetworks/subnets | Non |  Non |
 | virtualNetworkTaps | OUI | OUI |

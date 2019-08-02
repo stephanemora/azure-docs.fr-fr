@@ -4,19 +4,19 @@ description: Décrit comment utiliser la limitation avec des requêtes Azure Res
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 05/14/2019
+ms.date: 07/09/2019
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: b382b9ae35d492b4c779b8f7ee360fb378d54e08
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f457b316d9f499f2cab02452c1b03ad07a9aef27
+ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66399714"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68302829"
 ---
 # <a name="throttling-resource-manager-requests"></a>Limitation des requêtes de Resource Manager
 
-Pour chaque abonnement et locataire Azure, Resource Manager autorise jusqu’à 12 000 demandes de lecture et 1 200 demandes d’écriture par heure. Ces limites sont définies d’après l’ID du principal qui effectue les requêtes et l’ID d’abonnement ou l’ID du locataire. Si vos demandes proviennent de plusieurs ID de principal, votre limite dans l’abonnement ou le locataire est supérieure à 12 000 et 1 200 par heure.
+Pour chaque abonnement et locataire Azure, Resource Manager autorise jusqu’à 12 000 demandes de lecture et 1 200 demandes d’écriture par heure. Ces limites sont définies d’après le principal de sécurité (utilisateur ou application) qui effectue les requêtes et l’ID d’abonnement ou l’ID du locataire. Si vos requêtes proviennent de plusieurs principaux de sécurité, votre limite dans l’abonnement ou le locataire est supérieure à 12 000 et 1200 par heure.
 
 Les requêtes sont appliquées à votre abonnement ou à votre locataire. Les requêtes appliquées à l’abonnement sont celles qui impliquent la transmission de votre ID d’abonnement, par exemple pour récupérer les groupes de ressources dans votre abonnement. Les requêtes appliquées au locataire n’incluent pas votre ID d’abonnement, notamment pour la récupération des emplacements Azure valides.
 

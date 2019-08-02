@@ -3,17 +3,17 @@ title: Gérer l’authentification dans Azure Maps | Microsoft Docs
 description: Vous pouvez utiliser le portail Azure pour gérer l’authentification dans Azure Maps.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 02/14/2019
+ms.date: 07/11/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 617adbcda70799aa07248945bbc27f9d95aa77a3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1dc63a2c2350ad4f1d02d0c1b22050293d7b866c
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65952573"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67837814"
 ---
 # <a name="manage-authentication-in-azure-maps"></a>Gérer l’authentification dans Azure Maps
 
@@ -59,7 +59,7 @@ Dès lors qu’un compte Azure Map est créé, vous devez établir un lien entre
 
 ## <a name="grant-rbac-to-azure-maps"></a>Accorder le RBAC à Azure Maps
 
-Après avoir associé un compte Azure Maps à votre locataire Azure AD, vous pouvez octroyer le contrôle d’accès en assignant à un utilisateur ou une application un ou plusieurs rôles de contrôle d’accès Azure Maps.
+Après avoir associé un compte Azure Maps à votre locataire Azure AD, vous pouvez octroyer le contrôle d’accès en assignant à un utilisateur, un groupe ou une application un ou plusieurs rôles de contrôle d’accès Azure Maps.
 
 1. Accédez à la zone **Contrôle d’accès (IAM)** , et sélectionnez **Affectations de rôles**, puis **Ajouter une attribution de rôle**.
 

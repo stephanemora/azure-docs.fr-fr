@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/22/2018
 ms.author: sharadag
-ms.openlocfilehash: 7a261d65a7bd3eea150dd764c65b94ddd47466b3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 420d7afe0d825da9149f2cb2ae1540a2805b357c
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60736120"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68335882"
 ---
 # <a name="troubleshooting-common-routing-issues"></a>Résolution des problèmes de routage courants
 Cet article explique comment résoudre certains des problèmes de routage courants que vous pouvez rencontrer concernant votre configuration Azure Front Door Service. 
@@ -62,11 +62,11 @@ Ce symptôme peut avoir plusieurs causes :
 
 
 3. Vérifier les paramètres de règle de routage
-     - Accédez à la règle de routage qui doit router du nom d’hôte frontend en question vers un pool backend. Vérifiez que les protocoles acceptés sont correctement configurés, ou dans le cas contraire, vérifiez que le protocole que Front Door utilisera lors du transfert de la requête est correctement configuré. Les _Protocoles acceptés_ déterminent quelles requêtes Front Door doit accepter et le _Protocole de transfert_ sous l’onglet _Avancé_ détermine quel protocole Front Door doit utiliser pour transférer la requête au backend.
+     - Accédez à la règle de routage qui doit router du nom d’hôte frontend en question vers un pool backend. Vérifiez que les protocoles acceptés sont correctement configurés, ou dans le cas contraire, vérifiez que le protocole que Front Door utilisera lors du transfert de la requête est correctement configuré. Les _Protocoles acceptés_ déterminent quelles requêtes Front Door doit accepter et le _Protocole de transfert_ détermine quel protocole Front Door doit utiliser pour transférer la requête au backend.
           - Par exemple, si le backend accepte uniquement les requêtes HTTP, les configurations suivantes sont valides :
                - Les _Protocoles acceptés_ sont HTTP et HTTPS. Le _Protocole de transfert_ est HTTP. La mise en correspondance de la requête ne fonctionnera pas, car HTTPS est un protocole autorisé et si une requête est arrivée en tant que HTTPS, Front Door tente de la transférer en utilisant HTTPS.
 
                - Les _Protocoles acceptés_ sont HTTP. La valeur de _Protocole de transfert_ est soit la correspondance de la requête, soit HTTPS.
 
-   - Cliquez sur l’onglet _Avancé_ en haut du panneau de configuration des règles de routage. Le champ _Réécriture d’URL_ est désactivé par défaut, et vous devez l’utiliser uniquement si vous souhaitez limiter les ressources hébergées par le backend que vous souhaitez rendre disponibles. Quand il est désactivé, Front Door transfère le même chemin de requête que celui qu’il reçoit. Il est possible que ce champ soit mal configuré et que Front Door demande une ressource du backend qui n’est pas disponible, ce qui retourne un code d’état HTTP 404.
+   - Le champ _Réécriture d’URL_ est désactivé par défaut, et vous devez l’utiliser uniquement si vous souhaitez limiter les ressources hébergées par le backend que vous souhaitez rendre disponibles. Quand il est désactivé, Front Door transfère le même chemin de requête que celui qu’il reçoit. Il est possible que ce champ soit mal configuré et que Front Door demande une ressource du backend qui n’est pas disponible, ce qui retourne un code d’état HTTP 404.
 

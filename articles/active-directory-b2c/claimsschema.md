@@ -10,18 +10,18 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: e09c4530fc6dce00e6d807908c7de598422a440b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 132dd91ba121fc5939a0f30194fe4abdd3755414
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66511867"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67847049"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-L’élément **ClaimsSchema** définit les types de revendications qui peuvent être référencés dans le cadre de la stratégie. Le schéma de revendications est l’endroit où vous déclarez vos revendications. Une revendication peut être le prénom, le nom de famille, le nom d’affichage, le numéro de téléphone, et bien plus encore. L’élément ClaimsSchema contient une liste d’éléments **ClaimType**. L’élément **ClaimType** contient l’attribut **Id**, qui est le nom de la revendication. 
+L’élément **ClaimsSchema** définit les types de revendications qui peuvent être référencés dans le cadre de la stratégie. Le schéma de revendications est l’endroit où vous déclarez vos revendications. Une revendication peut être le prénom, le nom de famille, le nom d’affichage, le numéro de téléphone, et bien plus encore. L’élément ClaimsSchema contient une liste d’éléments **ClaimType**. L’élément **ClaimType** contient l’attribut **Id**, qui est le nom de la revendication.
 
 ```XML
 <BuildingBlocks>
@@ -44,7 +44,7 @@ L’élément **ClaimType** contient l’attribut suivant :
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| ID | OUI | Identificateur utilisé pour le type de revendication. D’autres éléments peuvent utiliser cet identificateur dans la stratégie. |
+| Id | OUI | Identificateur utilisé pour le type de revendication. D’autres éléments peuvent utiliser cet identificateur dans la stratégie. |
 
 L’élément **ClaimType** contient les éléments suivants :
 
@@ -89,7 +89,7 @@ Dans l’exemple suivant, quand l’Infrastructure d’expérience d’identité
 ```
 
 Ainsi, le jeton JWT émis par Azure AD B2C émet le `family_name` au lieu du nom de ClaimType **surname**.
- 
+
 ```JSON
 {
   "sub": "6fbbd70d-262b-4b50-804c-257ae1706ef2",
@@ -115,14 +115,14 @@ L’exemple suivant configure une revendication **PhoneNumber** avec le masque `
 <ClaimType Id="PhoneNumber">
   <DisplayName>Phone Number</DisplayName>
   <DataType>string</DataType>
-  <Mask Type="Simple">XXX-XXX-</Mask>  
+  <Mask Type="Simple">XXX-XXX-</Mask>
   <UserHelpText>Your telephone number.</UserHelpText>
 </ClaimType>
 ```
 
 L’Infrastructure d’expérience d’identité affiche le numéro de téléphone tout en masquant les six premiers chiffres :
 
-![Utilisation du type de revendication avec un masque](./media/claimsschema/mask.png)
+![Revendication de numéro de téléphone affichée dans le navigateur avec les six premiers chiffres masqués par des X](./media/claimsschema/mask.png)
 
 L’exemple suivant configure une revendication **AlternateEmail** avec le masque `Regex` :
 
@@ -137,7 +137,7 @@ L’exemple suivant configure une revendication **AlternateEmail** avec le masqu
 
 L’Infrastructure d’expérience d’identité affiche uniquement la première lettre de l’adresse e-mail et le nom de domaine de messagerie :
 
-![Utilisation du type de revendication avec un masque](./media/claimsschema/mask-regex.png)
+![Revendication d’e-mail affichée dans le navigateur avec les caractères masqués par des astérisques](./media/claimsschema/mask-regex.png)
 
 
 ### <a name="restriction"></a>Restriction
@@ -179,10 +179,10 @@ L’exemple suivant configure une revendication de liste déroulante **city** av
   </Restriction>
 </ClaimType>
 ```
+
 Liste déroulante de villes avec New York comme valeur par défaut :
 
-![Liste déroulante de villes](./media/claimsschema/dropdownsingleselect.png)
-
+![Contrôle de liste déroulante affiché dans le navigateur et présentant la valeur par défaut](./media/claimsschema/dropdownsingleselect.png)
 
 ### <a name="pattern"></a>Modèle
 
@@ -212,7 +212,7 @@ L’exemple suivant configure une revendication **email** avec validation de l�
 
 L’Infrastructure d’expérience d’identité affiche la revendication d’adresse e-mail avec validation de l’entrée du format d’e-mail :
 
-![Utilisation du type de revendication avec pattern](./media/claimsschema/pattern.png)
+![TextBox présentant le message d’erreur déclenché par la restriction regex](./media/claimsschema/pattern.png)
 
 ## <a name="userinputtype"></a>UserInputType
 
@@ -222,7 +222,7 @@ Azure AD B2C prend en charge toute une gamme de types d’entrée d’utilisateu
 
 Le type d’entrée d’utilisateur **TextBox** sert à fournir une zone de texte sur une seule ligne.
 
-![Utilisation du type de revendication avec textbox](./media/claimsschema/textbox.png)
+![TextBox présentant les propriétés spécifiées dans le type de revendication](./media/claimsschema/textbox.png)
 
 ```XML
 <ClaimType Id="displayName">
@@ -237,7 +237,7 @@ Le type d’entrée d’utilisateur **TextBox** sert à fournir une zone de text
 
 Le type d’entrée d’utilisateur **EmailBox** sert à fournir un champ d’entrée d’e-mail de base.
 
-![Utilisation du type de revendication avec emailbox](./media/claimsschema/emailbox.png)
+![EmailBox présentant les propriétés spécifiées dans le type de revendication](./media/claimsschema/emailbox.png)
 
 ```XML
 <ClaimType Id="email">
@@ -297,7 +297,7 @@ Le type d’entrée d’utilisateur **RadioSingleSelect** sert à fournir une co
     <Enumeration Text="Green " Value="Green" SelectByDefault="false" />
     <Enumeration Text="Orange" Value="Orange" SelectByDefault="true" />
   </Restriction>
-</ClaimType>    
+</ClaimType>
 ```
 
 ### <a name="dropdownsingleselect"></a>DropdownSingleSelect
@@ -375,4 +375,4 @@ Le type d’entrée d’utilisateur **Paragraph** sert à fournir un champ qui a
 </ClaimType>
 ```
 
-Pour afficher l’une des valeurs **Enumeration** dans une revendication **responseMsg**, utilisez la transformation de revendication `GetMappedValueFromLocalizedCollection` ou `CreateStringClaim`. Pour plus d’informations, consultez [Transformations de revendications de chaînes](string-transformations.md). 
+Pour afficher l’une des valeurs **Enumeration** dans une revendication **responseMsg**, utilisez la transformation de revendication `GetMappedValueFromLocalizedCollection` ou `CreateStringClaim`. Pour plus d’informations, consultez [Transformations de revendications de chaînes](string-transformations.md).

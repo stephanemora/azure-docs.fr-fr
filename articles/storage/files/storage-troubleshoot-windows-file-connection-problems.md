@@ -1,29 +1,27 @@
 ---
 title: Résoudre les problèmes liés à Azure Files sous Windows | Microsoft Docs
 description: Résoudre les problèmes liés à Azure Files sous Windows
-services: storage
 author: jeffpatt24
-tags: storage
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 7bc7f3631748f4ac74a76e9e67aa2aef2c8f9a71
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f36d3bcb16876f080f780658bc59afd794e3431e
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66480306"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68699179"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Résoudre les problèmes liés à Azure Files sous Windows
 
 Cet article liste les problèmes courants liés à Microsoft Azure Files en cas de connexion à partir de clients Windows. Il fournit également les causes possibles et les solutions de ces problèmes. En plus des étapes de résolution présentées dans cet article, vous pouvez utiliser [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5)  pour vérifier que l’environnement du client Windows est configuré correctement. AzFileDiagnostics détecte automatiquement la plupart des problèmes mentionnés dans cet article et vous aide à configurer votre environnement pour que les performances soient optimales. Vous pouvez également trouver ces informations dans [l’utilitaire de résolution des problèmes de partages Azure Files](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares), qui vous guide dans les étapes de résolution des problèmes liés à la connexion, au mappage ou au montage de partages Azure Files.
 
-<a id="error5"></a>
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
+<a id="error5"></a>
 ## <a name="error-5-when-you-mount-an-azure-file-share"></a>Error 5 quand vous montez un partage de fichiers Azure
 
 Quand vous essayez de monter un partage de fichiers, vous pouvez recevoir l’erreur suivante :
@@ -108,7 +106,6 @@ Contactez votre service informatique ou ISP pour ouvrir le port 445 sortant aux
 #### <a name="solution-4---use-rest-api-based-tools-like-storage-explorerpowershell"></a>Solution 4 - Utiliser les outils basés sur l’API REST, par exemple l’Explorateur Stockage/PowerShell
 Azure Files prend également en charge REST en plus de SMB. L’accès REST fonctionne sur le port 443 (tcp standard). Il existe divers outils écrits à l’aide de l’API REST qui permettent une expérience d’interface utilisateur riche. L’[Explorateur Stockage](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) est l’un d’eux. [Téléchargez et installez l’Explorateur Stockage](https://azure.microsoft.com/features/storage-explorer/), puis connectez-vous à votre partage de fichiers grâce à Azure Files. Vous pouvez aussi utiliser [PowerShell](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-powershell) qui utilise également API REST.
 
-
 ### <a name="cause-2-ntlmv1-is-enabled"></a>Cause 2 : NTLMv1 est activé
 
 Les messages Erreur système 53 ou Erreur système 87 peuvent également s’afficher si la communication NTLMv1 est activée sur le client. Azure Files prend uniquement en charge l’authentification NTLMv2. Le fait d’activer NTLMv1 crée un client moins sécurisé. Par conséquent, les communications sont bloquées pour Azure Files. 
@@ -136,6 +133,13 @@ L’erreur 1816 se produit lorsque vous atteignez la limite autorisée de descri
 
 Réduisez le nombre de handles ouverts simultanément en fermant certains d’entre eux, puis réessayez. Pour plus d’informations, consultez [Liste de contrôle des performances et de l’extensibilité de Microsoft Azure Storage](../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
+Pour afficher les descripteurs ouverts pour un partage de fichiers, un répertoire ou un fichier, utilisez l’applet de commande PowerShell [Get-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/get-azstoragefilehandle).  
+
+Pour fermer les descripteurs ouverts pour un partage de fichiers, un répertoire ou un fichier, utilisez l’applet de commande PowerShell [Close-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/close-azstoragefilehandle).
+
+> [!Note]  
+> Les applets de commande AzStorageFileHandle et Close-AzStorageFileHandle sont incluses dans le module PowerShell Az version 2.4 ou ultérieure. Pour installer le module PowerShell Az le plus récent, consultez [Installer le module Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
+
 <a id="authorizationfailureportal"></a>
 ## <a name="error-authorization-failure-when-browsing-to-an-azure-file-share-in-the-portal"></a>Erreur « Échec de l’autorisation » quand vous accédez à un partage de fichiers Azure dans le portail
 
@@ -155,6 +159,23 @@ Accédez au compte de stockage où se trouve le partage de fichiers Azure, cliqu
 ### <a name="solution-for-cause-2"></a>Solution pour la cause 2
 
 Vérifiez que les règles de pare-feu et de réseau virtuel sont configurées correctement sur le compte de stockage. Pour vérifier si des règles de pare-feu ou de réseau virtuel sont à l’origine du problème, définissez temporairement le paramètre du compte de stockage sur **Autoriser l’accès à partir de tous les réseaux**. Pour plus d’informations, consultez [Configurer les pare-feu et les réseaux virtuels dans le Stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-network-security).
+
+<a id="open-handles"></a>
+## <a name="unable-to-delete-a-file-or-directory-in-an-azure-file-share"></a>Impossible de supprimer un fichier ou répertoire d’un partage de fichiers Azure
+
+### <a name="cause"></a>Cause :
+Ce problème se produit généralement quand le fichier ou le répertoire a un descripteur ouvert. 
+
+### <a name="solution"></a>Solution
+
+Si les clients SMB ont fermé tous les descripteurs ouverts et que le problème persiste, effectuez les étapes suivantes :
+
+- Utilisez l’applet de commande PowerShell [Get-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/get-azstoragefilehandle) pour afficher les descripteurs ouverts.
+
+- Utilisez l’applet de commande PowerShell [Close-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/close-azstoragefilehandle) pour fermer les descripteurs ouverts. 
+
+> [!Note]  
+> Les applets de commande AzStorageFileHandle et Close-AzStorageFileHandle sont incluses dans le module PowerShell Az version 2.4 ou ultérieure. Pour installer le module PowerShell Az le plus récent, consultez [Installer le module Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
 
 <a id="slowfilecopying"></a>
 ## <a name="slow-file-copying-to-and-from-azure-files-in-windows"></a>Ralentissement des copies de fichiers vers et à partir d’Azure Files sous Windows
@@ -183,7 +204,7 @@ Si le correctif logiciel est installé, la sortie suivante s’affiche :
 > Les images de Windows Server 2012 R2 dans Azure Marketplace ont le correctif logiciel KB3114025 installé par défaut à compter de décembre 2015.
 
 <a id="shareismissing"></a>
-## <a name="no-folder-with-a-drive-letter-in-my-computer"></a>Aucun dossier avec une lettre de lecteur dans **Poste de travail**
+## <a name="no-folder-with-a-drive-letter-in-my-computer-or-this-pc"></a>Aucun dossier avec une lettre de lecteur dans « Poste de travail » ou « Ce PC »
 
 Si vous mappez un partage de fichiers Azure en tant qu’administrateur via Net use, le partage n’apparaît pas.
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: c15d315d186af5622d9fa988945750d93e8eb11f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ae6d55180785c9407662776a95fcba31f8ba5275
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66507561"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67835205"
 ---
 #  <a name="add-claims-and-customize-user-input-using-custom-policies-in-azure-active-directory-b2c"></a>Ajouter des revendications et personnaliser l’entrée utilisateur avec des stratégies personnalisées dans Azure Active Directory B2C
 
@@ -79,7 +79,7 @@ Les éléments suivants sont utilisés pour définir la revendication :
 
 #### <a name="dropdownsingleselect"></a>DropdownSingleSelect
 
-![Capture d’écran de l’option de liste déroulante](./media/active-directory-b2c-configure-signup-self-asserted-custom/dropdown-menu-example.png)
+![Contrôle de liste déroulante à sélection unique présentant plusieurs options](./media/active-directory-b2c-configure-signup-self-asserted-custom/dropdown-menu-example.png)
 
 ```xml
 <ClaimType Id="city">
@@ -96,7 +96,7 @@ Les éléments suivants sont utilisés pour définir la revendication :
 
 #### <a name="checkboxmultiselect"></a>CheckboxMultiSelect
 
-![Capture d’écran de l’option de sélection multiple](./media/active-directory-b2c-configure-signup-self-asserted-custom/multiselect-menu-example.png)
+![Contrôle de case à cocher à sélection multiple présentant plusieurs options](./media/active-directory-b2c-configure-signup-self-asserted-custom/multiselect-menu-example.png)
 
 ```xml
 <ClaimType Id="city">
@@ -235,7 +235,7 @@ Les éléments suivants sont utilisés pour définir la revendication :
       <IncludeTechnicalProfile ReferenceId="AAD-Common" />
     </TechnicalProfile>
     ```
-   
+
 4. Ajoutez la revendication `<OutputClaim ClaimTypeReferenceId="city" />` au fichier SignUporSignIn.xml pour qu’elle soit envoyée à l’application dans le jeton après un parcours utilisateur réussi.
 
     ```xml

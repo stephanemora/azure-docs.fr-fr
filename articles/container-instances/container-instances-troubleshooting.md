@@ -3,18 +3,18 @@ title: Résolution des problèmes liés à Azure Container Instances
 description: Découvrez comment résoudre les problèmes liés à Azure Container Instances
 services: container-instances
 author: dlepow
-manager: jeconnoc
+manager: gwallace
 ms.service: container-instances
 ms.topic: article
 ms.date: 04/25/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 9dc3e19f9429a6055a799f3f013c732538fa370d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4b41a3862341ef39c1288985d86d86667fbc5866
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65070863"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325599"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>Résoudre les problèmes courants dans Azure Container Instances
 
@@ -22,7 +22,7 @@ Cet article explique comment résoudre les problèmes courants de gestion ou de 
 
 ## <a name="naming-conventions"></a>Conventions d’affectation de noms
 
-Lorsque vous définissez la spécification du conteneur, certains paramètres requièrent le respect des restrictions en matière d’affectation de noms. Le tableau suivant indique les exigences spécifiques des propriétés du groupe de conteneurs. Pour plus d’informations sur les conventions d’affectation de noms Azure, consultez [Conventions d’affectation de noms][azure-name-restrictions] dans Azure Architecture Center.
+Lorsque vous définissez la spécification du conteneur, certains paramètres requièrent le respect des restrictions en matière d’affectation de noms. Le tableau suivant indique les exigences spécifiques des propriétés du groupe de conteneurs. Pour plus d’informations sur les conventions d’affectation de noms Azure, consultez [Conventions d’affectation de noms][azure-name-restrictions] dans le centre Azure Architecture Center.
 
 | Étendue | Longueur | Casse | Caractères valides | Modèle suggéré | Exemples |
 | --- | --- | --- | --- | --- | --- |
@@ -54,7 +54,7 @@ Si Azure Container Instances ne parvient pas à extraire votre image initialemen
 
 Pour résoudre ce problème, supprimez l’instance de conteneur et réessayez votre déploiement. Vérifiez que l’image existe dans le Registre, et que vous avez correctement tapé le nom de l’image.
 
-Des événements tels que les suivants sont alors affichés dans la sortie de [az container show][az-container-show] :
+Des événements tels que les suivants sont alors affichés dans la sortie de [az container show][az-container-show] :
 
 ```bash
 "events": [

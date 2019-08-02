@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 07/10/2019
 ms.author: v-chjenk
-ms.openlocfilehash: 7ec4e0ffd87c0ef73a551416d8a8cc672f095483
-ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
+ms.openlocfilehash: 9e58c3bfc0e74f9aac61085608a843954b0923c0
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67786726"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68249553"
 ---
 # <a name="tenant-and-host-pool-creation"></a>Création d’un pool de locataires et d’hôtes
 
@@ -97,7 +97,7 @@ Suivez les instructions ci-après pour détecter les problèmes d’échecs de d
 3. Une fois l’erreur identifiée, utilisez le message d’erreur et les ressources figurant dans l’article [Résolution des erreurs courantes dans des déploiements Azure avec Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-common-deployment-errors) pour résoudre le problème.
 4. Supprimez toutes les ressources créées lors du déploiement précédent, puis essayez de redéployer le modèle.
 
-### <a name="error-your-deployment-failedhostnamejoindomain"></a>Error: Votre déploiement a échoué….<hostname>/joindomain
+### <a name="error-your-deployment-failedhostnamejoindomain"></a>Error: Votre déploiement a échoué….\<hostname>/joindomain
 
 ![Capture d’écran du message d’échec du déploiement](media/e72df4d5c05d390620e07f0d7328d50f.png)
 
