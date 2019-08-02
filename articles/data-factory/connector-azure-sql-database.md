@@ -60,7 +60,7 @@ Les propriétés prises en charge pour un service lié Azure SQL Database sont l
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété **type** doit être définie sur **AzureSqlDatabase**. | OUI |
+| type | La propriété **type** doit être définie sur **AzureSqlDatabase**. | OUI |
 | connectionString | Spécifiez les informations requises pour la connexion à l’instance Azure SQL Database pour la propriété **connectionString**. <br/>Marquez ce champ en tant que **SecureString** pour le stocker en toute sécurité dans Azure Data Factory. Vous pouvez également placer un mot de passe ou une clé de principal de service dans Azure Key Vault. En cas d’authentification SQL, vous pouvez extraire la configuration `password` de la chaîne de connexion. Pour plus d’informations, reportez-vous à l’exemple JSON décrit après le tableau et à l’article [Stocker des informations d’identification dans Azure Key Vault](store-credentials-in-key-vault.md). | OUI |
 | servicePrincipalId | Spécifiez l’ID client de l’application. | Oui, quand vous utilisez l’authentification Azure AD avec le principal de service. |
 | servicePrincipalKey | Spécifiez la clé de l’application. Marquez ce champ en tant que **SecureString** afin de le stocker en toute sécurité dans Azure Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | Oui, quand vous utilisez l’authentification Azure AD avec le principal de service. |
