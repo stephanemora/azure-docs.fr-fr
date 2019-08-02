@@ -3,18 +3,18 @@ title: Compter les états des tâches et des nœuds - Azure Batch | Microsoft Do
 description: Comptez l’état des tâches et des nœuds de calcul Azure Batch pour faciliter la gestion et la surveillance des solutions Batch.
 services: batch
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 ms.service: batch
 ms.topic: article
 ms.date: 09/07/2018
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 574cdea61a474dda5d20254bfae9ff2f06044cca
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7b41be8c325cd238592f33369499348885de1778
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60775370"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68323537"
 ---
 # <a name="monitor-batch-solutions-by-counting-tasks-and-nodes-by-state"></a>Surveiller les solutions Batch en comptant les tâches et les nœuds par état
 
@@ -24,7 +24,7 @@ Pour surveiller et gérer des solutions Azure Batch à grande échelle, vous ave
 
   En comptant les tâches dans chaque état, vous pouvez plus facilement afficher la progression du travail à un utilisateur, ou détecter des retards ou échecs inattendus susceptibles d’affecter le travail. Obtenir le nombre de tâches est disponible à compter de l’API version 2017-06-01.5.1 et des kits SDK et outils associés du service Batch.
 
-* [Répertorier le nombre de nœuds des pools][rest_get_node_counts] obtient le nombre de nœuds de calcul dédiés et basse priorité dans chaque pool qui se trouvent dans différents états : création, inactif, hors connexion, anticipé, en cours de redémarrage, réimageage, démarrage, etc. 
+* [Répertorier le nombre de nœuds des pools][rest_get_node_counts] obtient le nombre de nœuds de calcul dédiés et basse priorité dans chaque pool qui se trouvent dans différents états : création, inactif, hors connexion, anticipé, en cours de redémarrage, réinitialisation, démarrage, etc. 
 
   En comptant les nœuds dans chaque état, vous pouvez déterminer quand vous avez des ressources de calcul suffisantes pour exécuter vos travaux, et identifier les problèmes potentiels avec vos pools. Répertorier les nombres de nœuds des pools est disponible à compter de l’API version 2018-03-01.6.1 et des kits SDK et outils associés du service Batch.
 

@@ -5,14 +5,14 @@ author: yashesvi
 manager: yashar
 ms.service: billing
 ms.topic: conceptual
-ms.date: 07/03/2019
+ms.date: 07/19/2019
 ms.author: banders
-ms.openlocfilehash: cd0a70aa0fb5096c5b0157ae078c961da03109bc
-ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
+ms.openlocfilehash: c63447ff0a3329e0cc0dc0605984ae4f26e9c25f
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67565300"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359237"
 ---
 # <a name="what-are-azure-reservations"></a>Qu’est-ce qu’une réservation Azure ?
 
@@ -22,7 +22,7 @@ Vous pouvez acheter une réservation sur le [portail Azure](https://ms.portal.az
 
 ## <a name="why-buy-a-reservation"></a>Pourquoi acheter une réservation ?
 
-Si vous avez des machines virtuelles, Azure Cosmos DB ou des bases de données SQL qui fonctionnent sur de longues périodes, l’achat d’une réservation est l’option la plus économique. Par exemple, si vous exécutez en permanence quatre instances d’un service sans réservation, vous êtes facturé au tarif du paiement à l’utilisation. Si vous achetez une réservation pour ces ressources, vous bénéficiez immédiatement de la remise sur celle-ci réservation. Les ressources ne sont plus facturées au tarif du paiement à l’utilisation.
+Si vous avez des machines virtuelles, Azure Cosmos DB ou des bases de données SQL qui fonctionnent sur de longues périodes, l’achat d’une réservation est l’option la plus économique. Par exemple, si vous exécutez en permanence quatre instances d’un service sans réservation, vous êtes facturé au tarif du paiement à l’utilisation. Lorsque vous achetez une réservation pour ces ressources, vous bénéficiez immédiatement de la remise sur celle-ci réservation. Les ressources ne sont plus facturées au tarif du paiement à l’utilisation.
 
 ## <a name="charges-covered-by-reservation"></a>Frais couverts par la réservation
 
@@ -38,9 +38,9 @@ Pour les machines virtuelles Windows et SQL Database, vous pouvez couvrir les co
 
 Pour acheter un plan, vous devez disposer d’un rôle de propriétaire dans un abonnement Entreprise (MS-AZR-0017P ou MS-AZR-0148P) ou Paiement à l'utilisation (MS-AZR-003P or MS-AZR-0023P). Les fournisseurs de solutions cloud peuvent utiliser le portail Azure ou l’ [Espace partenaires](/partner-center/azure-reservations) pour acheter des réservations Azure.
 
-Les clients EA peuvent limiter les achats aux administrateurs EA en désactivant l’option **Ajouter des instances réservées** dans EA Portal. Les administrateurs EA doivent être propriétaires d'au moins un abonnement EA pour acheter une réservation. Cette option est particulièrement utile pour les entreprises souhaitant qu'une équipe centralisée achète des réservations pour différents centres de coûts. Au terme de l'achat, les équipes centralisées peuvent ajouter des propriétaires de centres de coûts aux réservations. Les propriétaires peuvent ensuite étendre la réservation à leurs abonnements. L’équipe centralisée n'est pas tenue de disposer d'un accès de propriétaire d'abonnement là où la réservation est achetée.
+Les clients Accord Entreprise (EA) peuvent limiter les achats aux administrateurs EA. Pour ce faire, ils désactivent l'option  **Ajouter des instances réservées** dans le portail EA. Les administrateurs EA doivent être propriétaires d'au moins un abonnement EA pour acheter une réservation. Cette option est particulièrement utile pour les entreprises souhaitant qu'une équipe centralisée achète des réservations pour différents centres de coûts. Au terme de l'achat, les équipes centralisées peuvent ajouter des propriétaires de centres de coûts aux réservations. Les propriétaires peuvent ensuite étendre la réservation à leurs abonnements. L’équipe centralisée n'est pas tenue de disposer d'un accès de propriétaire d'abonnement là où la réservation est achetée.
 
-Une remise de réservation s’applique uniquement aux ressources associées aux abonnements achetés via des forfaits d’entreprise, de fournisseurs de services cloud et individuels avec paiement à l’utilisation.
+Une remise de réservation s’applique uniquement aux ressources associées aux abonnements achetés via des forfaits d’entreprise, de fournisseurs de solutions cloud et individuels avec paiement à l’utilisation.
 
 ## <a name="scope-reservations"></a>Réservations d’étendue
 
@@ -66,11 +66,11 @@ Un seul groupe de ressources peut obtenir des remises de réservation de plusieu
 
 Vous pouvez étendre la réservation à un groupe de ressources lorsque vous achetez la réservation ou vous définissez l’étendue après l’achat. Vous devez être propriétaire d’un abonnement pour étendre la réservation à un groupe de ressources.
 
-Pour définir l’étendue, accédez à la page [Acheter une réservation](https://ms.portal.azure.com/#blade/Microsoft\_Azure\_Reservations/CreateBlade/referrer/Browse\_AddCommand) sur le portail Azure. Ensuite, sélectionnez le type de réservation que vous voulez acheter. Dans le formulaire de sélection **Sélectionnez le produit que vous voulez acheter**, remplacez la valeur **Étendue** par **Groupe de ressources seul** et sélectionnez un groupe de ressources.
+Pour définir l’étendue, accédez à la page [Acheter une réservation](https://ms.portal.azure.com/#blade/Microsoft\_Azure\_Reservations/CreateBlade/referrer/Browse\_AddCommand) sur le portail Azure. Sélectionnez le type de réservation que vous voulez acheter. Dans le formulaire de sélection **Sélectionnez le produit que vous voulez acheter**, remplacez la valeur Étendue par Groupe de ressources unique. Sélectionnez ensuite un groupe de ressources.
 
 ![Exemple illustrant la sélection de l’achat de réservation de machine virtuelle](./media/billing-save-compute-costs-reservations/select-product-to-purchase.png)
 
-Les recommandations d’achat pour le groupe de ressources dans la réservation de la machine virtuelle sont présentées. Ces recommandations sont calculées à partir de l’analyse de votre utilisation sur les 30 derniers jours. Une recommandation d’achat est proposée si le coût d’exécution des ressources avec les instances réservées est moins chère que le coût d’exécution des ressources avec le paiement à l’utilisation. Pour plus d’informations sur les recommandations d’achat de réservation, consultez le billet de blog [Obtenir des recommandations d’achat d’instances réservées en fonction de vos habitudes d’utilisation](https://azure.microsoft.com/blog/get-usage-based-reserved-instance-recommendations).
+Les recommandations d’achat pour le groupe de ressources dans la réservation de la machine virtuelle sont présentées. Ces recommandations sont calculées à partir de l’analyse de votre utilisation sur les 30 derniers jours. Une recommandation d’achat est proposée si le coût d’exécution des ressources avec les instances réservées est moins chère que le coût d’exécution des ressources avec le paiement à l’utilisation. Pour plus d’informations sur les recommandations d’achat de réservation, consultez [Obtenir des recommandations d’achat d’instances réservées en fonction de vos habitudes d’utilisation](https://azure.microsoft.com/blog/get-usage-based-reserved-instance-recommendations).
 
 Vous pouvez modifier l’étendue après l’achat d’une réservation. Pour ce faire, accédez à la réservation, cliquez sur **Configuration** et redéfinissez la réservation. La modification de l’étendue de la réservation n’est pas une transaction commerciale. Le terme de votre réservation n’est pas modifié. Pour plus d’informations sur la mise à jour de l’étendue, consultez [Mettre à jour la portée après avoir acheté une réservation](billing-manage-reserved-vm-instance.md#change-the-reservation-scope).
 
@@ -88,7 +88,7 @@ Si vous remarquez que l’utilisation de la réservation de votre groupe de ress
 
 Si vous n’avez pas les ressources correspondantes dans un groupe de ressources, la réservation sera sous-utilisée. La réservation ne s’applique pas automatiquement à un autre groupe de ressources ou à un autre abonnement où il existe une faible utilisation.
 
-L’étendue de réservation ne se met automatiquement à jour si vous déplacez le groupe de ressources d’un abonnement à un autre. Vous devrez redéfinir la portée de la réservation. Sinon, la réservation sera sous-utilisée.
+L’étendue de réservation ne se met automatiquement à jour si vous déplacez le groupe de ressources d’un abonnement à un autre. L’étendue n’est pas mise à jour si vous supprimez le groupe de ressources. Vous devrez [redéfinir la portée de la réservation](billing-manage-reserved-vm-instance.md#change-the-reservation-scope). Sinon, la réservation sera sous-utilisée.
 
 ## <a name="discounted-subscription-and-offer-types"></a>Types d'abonnements et d'offres remisés
 
@@ -102,17 +102,17 @@ Les ressources opérant dans le cadre d’un abonnement relevant d’autres type
 
 ## <a name="how-is-a-reservation-billed"></a>Comment une réservation est-elle facturée ?
 
-La réservation est facturée selon le mode de paiement associé à l’abonnement. Si vous avez souscrit un abonnement Entreprise, le coût des réservations est déduit de votre solde d’engagement. Si ce solde ne couvre pas le coût des réservations, le dépassement vous est facturé. Si vous avez souscrit un abonnement à partir d’un forfait individuel avec paiement à l’utilisation, la carte de crédit associée à votre compte est facturée immédiatement. Si vous réglez sur facture, les frais sont portés sur votre prochaine facture.
+La réservation est facturée selon le mode de paiement associé à l’abonnement. Si vous avez souscrit un abonnement Entreprise, le coût des réservations est déduit de votre solde d’engagement. Lorsque ce solde ne couvre pas le coût des réservations, le dépassement vous est facturé. Si vous avez souscrit un abonnement à partir d’un forfait individuel avec paiement à l’utilisation, la carte de crédit associée à votre compte est facturée immédiatement. Lorsque vous réglez sur facture, les frais sont portés sur votre prochaine facture.
 
 ## <a name="how-reservation-discount-is-applied"></a>Comment la remise de réservation est-elle appliquée ?
 
-La remise sur réservation s’applique à l’utilisation de ressource correspondant aux attributs que vous sélectionnez lorsque vous achetez la réservation. Ces attributs englobent l’étendue dans laquelle les machines virtuelles, les bases de données SQL, Azure Cosmos DB ou d’autres ressources correspondantes s’exécutent. Par exemple, si vous voulez une remise sur réservation pour quatre machines virtuelles Standard D2 de la région USA Ouest, sélectionnez l’abonnement dans le cadre duquel ces machines virtuelles s’exécutent.
+La remise sur réservation s’applique à l’utilisation de ressource correspondant aux attributs que vous sélectionnez lorsque vous achetez la réservation. Les attributs englobent l’étendue dans laquelle les machines virtuelles, les bases de données SQL, Azure Cosmos DB ou d’autres ressources correspondantes s’exécutent. Par exemple, si vous voulez une remise sur réservation pour quatre machines virtuelles Standard D2 de la région USA Ouest, sélectionnez l’abonnement dans le cadre duquel ces machines virtuelles s’exécutent.
 
 Une remise de réservation repose sur le principe de « *capacité utilisée ou perdue* ». Si vous ne disposez pas des ressources correspondantes pour une heure donnée, vous perdez une quantité de réservation pour cette heure. Vous ne pouvez pas reporter les heures réservées inutilisées.
 
 Lorsque vous arrêtez une ressource, la remise de réservation s'applique automatiquement à une autre ressource correspondante dans l'étendue spécifiée. Si aucune ressource correspondante n'est trouvée dans l'étendue spécifiée, les heures réservées sont *perdues*.
 
-Par exemple, vous pourrez plus tard créer une ressource et disposer d'une réservation correspondante sous-utilisée. Dans cet exemple, la remise de réservation s’applique automatiquement à la nouvelle ressource correspondante.
+Par exemple, vous pourrez plus tard créer une ressource et disposer d'une réservation correspondante sous-utilisée. La remise de réservation s’applique automatiquement à la nouvelle ressource correspondante.
 
 Si elles s’exécutent dans différents abonnements au sein de votre compte/inscription, sélectionnez l’étendue alors définie comme partagée. Cette étendue partagée permet d’appliquer la remise de réservation à différents abonnements. Vous pouvez modifier l’étendue après l’achat d’une réservation. Pour plus d’informations, voir [Gérer les réservations Azure](billing-manage-reserved-vm-instance.md).
 
@@ -120,7 +120,7 @@ Une remise sur réservation s’applique uniquement aux ressources associées au
 
 ## <a name="when-the-reservation-term-expires"></a>Expiration du terme de la réservation
 
-À l’issue de la période de réservation, la remise sur facturation cesse de s’appliquer et la machine virtuelle, la base de données SQL, Azure Cosmos DB ou tout autre ressource est facturée au tarif du paiement à l’utilisation. Les réservations Azure ne sont pas renouvelées automatiquement. Pour continuer de bénéficier de la remise sur facturation, vous devez acheter une nouvelle réservation de services et logiciels éligibles.
+À l’issue de la période de réservation, la remise sur facturation cesse de s’appliquer. La machine virtuelle, la base de données SQL, Azure Cosmos DB ou tout autre ressource sont facturées au tarif du paiement à l’utilisation. Les réservations Azure ne sont pas renouvelées automatiquement. Pour continuer de bénéficier de la remise sur facturation, vous devez acheter une nouvelle réservation de services et logiciels éligibles.
 
 ## <a name="discount-applies-to-different-sizes"></a>La remise s'applique à différentes tailles
 
@@ -128,9 +128,31 @@ Quand vous achetez une réservation, la remise peut être appliquée à d’autr
 
 Plans de service :
 
-- Instances de machines virtuelles réservées : lorsque vous achetez la réservation et sélectionnez **Optimisé pour** : **flexibilité de la taille d’instance**, la couverture de remise dépend de la taille de machine virtuelle que vous sélectionnez. La réservation peut s’appliquer aux tailles des machines virtuelles dans le même groupe de gammes de tailles. Pour plus d’informations, consultez [Flexibilité en termes de taille de machine virtuelle avec des instances de machines virtuelles réservées](../virtual-machines/windows/reserved-vm-instance-size-flexibility.md).
+- Instances de machines virtuelles réservées : Lorsque vous achetez la réservation et sélectionnez **Optimisé pour flexibilité de la taille d’instance**, la couverture de remise dépend de la taille de machine virtuelle que vous sélectionnez. La réservation peut s’appliquer aux tailles des machines virtuelles dans le même groupe de gammes de tailles. Pour plus d’informations, consultez [Flexibilité en termes de taille de machine virtuelle avec des instances de machines virtuelles réservées](../virtual-machines/windows/reserved-vm-instance-size-flexibility.md).
 - Capacité réservée SQL Database : la couverture de remise dépend du niveau de performance que vous choisissez. Pour plus d’informations, consultez [Comprendre comment une remise de réservation Azure est appliquée aux bases de données SQL](billing-understand-reservation-charges.md).
 - Capacité réservée Azure Cosmos DB : la couverture de remise dépend du débit provisionné. Pour plus d’informations, consultez [Comprendre comment une remise de réservation Azure Cosmos DB est appliquée](billing-understand-cosmosdb-reservation-charges.md).
+
+## <a name="reservation-notifications"></a>Notifications de réservation
+
+Selon la façon dont vous payez votre abonnement Azure, nous envoyons des notifications de réservation par e-mail aux utilisateurs suivants dans votre organisation. Les notifications sont envoyées pour différents événements, notamment :
+
+- Purchase
+- Expiration de la réservation à venir
+- Expiry
+- Renouvellement
+- Annulation
+- Étendue modifiée
+
+Pour les clients avec des abonnements EA :
+- Une notification d’achat est envoyée à l’acheteur et aux contacts de notification EA.
+- Les autres notifications de cycle de vie des réservations sont envoyées uniquement aux contacts de notification EA.
+- Les utilisateurs ajoutés à une réservation à l’aide de l’autorisation RBAC (IAM) ne reçoivent pas de notifications par e-mail.
+
+Pour les clients qui ont des abonnements individuels :
+- l’acheteur reçoit une notification d’achat.
+- Au moment de l’achat, le propriétaire du compte de facturation de l’abonnement reçoit une notification d’achat.
+- Le propriétaire du compte reçoit toutes les autres notifications.
+
 
 ## <a name="need-help-contact-us"></a>Vous avez besoin d’aide ? Contactez-nous.
 

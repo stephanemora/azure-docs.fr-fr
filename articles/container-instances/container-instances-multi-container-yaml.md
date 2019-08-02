@@ -3,16 +3,17 @@ title: 'Didacticiel : Déployer un groupe multiconteneur dans Azure Container In
 description: Dans ce didacticiel, vous découvrez comment déployer un groupe multiconteneur dans Azure Container Instances à l’aide d’Azure CLI et d’un fichier YAML.
 services: container-instances
 author: dlepow
+manager: gwallace
 ms.service: container-instances
 ms.topic: article
 ms.date: 04/03/2019
 ms.author: danlep
-ms.openlocfilehash: a0a91ece4f219cf822673cd457c064c326b89478
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 599339b0591245462dcc0840400ad5241cd5922c
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66149075"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325808"
 ---
 # <a name="tutorial-deploy-a-multi-container-group-using-a-yaml-file"></a>Didacticiel : Déployer un groupe multiconteneur à l’aide d’un fichier YAML
 
@@ -95,13 +96,13 @@ Pour utiliser un registre d’images conteneur privé, ajoutez la propriété `i
 
 ## <a name="deploy-the-container-group"></a>Déployer le groupe de conteneurs
 
-Créez un groupe de ressources avec la commande [az group create][az-group-create] :
+Créez un groupe de ressources avec la commande [az group create][az-group-create] :
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
-Déployez le groupe de conteneurs avec la commande [az container create][az-container-create], en transmettant le fichier YAML en argument :
+Déployez le groupe de conteneurs avec la commande [az container create][az-container-create], en transmettant le fichier YAML en tant qu’argument :
 
 ```azurecli-interactive
 az container create --resource-group myResourceGroup --file deploy-aci.yaml
@@ -111,7 +112,7 @@ Après quelques secondes, vous devriez recevoir une réponse initiale d’Azure.
 
 ## <a name="view-deployment-state"></a>Afficher l’état du déploiement
 
-Pour afficher l’état du déploiement, utilisez la commande [az container show][az-container-show] suivante :
+Pour afficher l’état du déploiement, utilisez la commande [az container show][az-container-show] suivante :
 
 ```azurecli-interactive
 az container show --resource-group myResourceGroup --name myContainerGroup --output table

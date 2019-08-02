@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 03/15/2018
-ms.openlocfilehash: 0fc1b65a4ba1c8a3d76b48206d6a4703035e05bc
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b0057815bee46d6708886302ff5b598c89b47e8f
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67055334"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68335731"
 ---
 # <a name="send-cloud-to-device-messages-from-an-iot-hub"></a>Envoyer des messages cloud-à-appareil à partir d’IoT Hub
 
@@ -43,7 +43,7 @@ Un appareil peut également :
 
 * *Abandonner* le message, ce qui amène IoT Hub à replacer ce dernier dans la file d’attente avec l’état *Enqueued*(En file attente). Les appareils qui se connectent via le protocole MQTT ne peuvent pas abandonner les messages cloud-à-appareil.
 
-Il est possible qu’un thread ne parvienne pas à traiter un message, mais n’en avertisse pas IoT Hub. Dans ce cas, les messages passent automatiquement de l’état *Invisible* à l’état *Enqueued* (En file d’attente) après un délai d’attente de *visibilité* (ou de *verrouillage*). La valeur par défaut de ce délai est d’une minute.
+Il est possible qu’un thread ne parvienne pas à traiter un message, mais n’en avertisse pas IoT Hub. Dans ce cas, les messages passent automatiquement de l’état *Invisible* à l’état *Enqueued* (En file d’attente) après un délai d’attente de *visibilité* (ou de *verrouillage*). La valeur de ce délai d’attente est d’une minute et ne peut pas être modifiée.
 
 La propriété **Nombre maximal de remises** sur IoT Hub détermine le nombre maximal de fois qu’un message peut passer de l’état *Enqueued* (En file d’attente) à l’état *Invisible*, et inversement. Une fois ce nombre de transitions atteint, IoT Hub attribue au message l’état *Dead lettered* (Mis en file d’attente de lettres mortes). De même, IoT Hub attribue à un message l’état *Dead lettered* (Mis en file d’attente de lettres mortes) à l’issue de son délai d’expiration. Pour en savoir plus, voir [Durée de vie](#message-expiration-time-to-live).
 

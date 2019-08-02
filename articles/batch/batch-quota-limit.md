@@ -4,7 +4,7 @@ description: En savoir plus sur les contraintes, les limites et les quotas par d
 services: batch
 documentationcenter: ''
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: 28998df4-8693-431d-b6ad-974c2f8db5fb
 ms.service: batch
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/28/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: de32ae16ea4d3c52b8017f35ae5af6009ab59205
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 312f6746cb02aa66b0e7f8b47cb10e52558fa542
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67080901"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68323157"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Quotas et limites du service Batch
 

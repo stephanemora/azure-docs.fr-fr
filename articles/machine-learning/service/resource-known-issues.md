@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 04/30/2019
 ms.custom: seodec18
-ms.openlocfilehash: 80bb7af0f7ed20336ab08d4f3ca9639057b9c67f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 206a8d9ba45dcb948dfffff86bab17b58a33e464
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65149769"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68358616"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning-service"></a>Problèmes connus et dépannage du service Azure Machine Learning
 
@@ -117,6 +117,14 @@ Si cette erreur s’affiche lorsque vous utilisez le machine learning automatis�
 1. Détachez, puis réattachez le cluster à votre notebook. 
 
 Si ces étapes ne résolvent pas le problème, essayez de redémarrer le cluster.
+
+### <a name="failtosendfeather"></a>FailToSendFeather
+
+Si vous voyez une erreur `FailToSendFeather` lors de la lecture de données sur le cluster Azure Databricks, reportez-vous aux solutions suivantes :
+
+* Effectuez une mise à niveau du package `azureml-sdk[automl_databricks]` vers la dernière version.
+* Ajoutez la version 1.1.8 ou une version supérieure de `azure-dataprep`.
+* Ajoutez la version 0.11 ou une version supérieure de `pyarrow`.
 
 ## <a name="azure-portal"></a>Portail Azure
 

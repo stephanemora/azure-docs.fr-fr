@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 10/18/2018
 ms.author: rambala
-ms.openlocfilehash: 2ceb4aeac55bd555a41c29bd41b00c771490e5f9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9c4a57111566248d3537cab0d9d85c0c3be874a1
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60425752"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68335928"
 ---
 # <a name="interoperability-in-azure-back-end-connectivity-features-test-configuration-details"></a>Interopérabilité des fonctionnalités de connectivité de back-end Azure : détails de la configuration de test
 
@@ -23,11 +23,11 @@ Cet article décrit les détails de configuration de l’[initialisation (tearDo
 
 ## <a name="spoke-vnet-connectivity-by-using-vnet-peering"></a>Connectivité de réseau virtuel spoke à l’aide de l’appairage de réseau virtuel
 
-La figure suivante montre les détails de l’appairage de réseau virtuel Azure d’un réseau virtuel spoke. Pour savoir comment configurer l’appairage entre deux réseaux virtuels, consultez la rubrique indiquant comment [Gérer l’appairage de réseau virtuel][VNet-Config]. Si vous voulez que le réseau virtuel spoke utilise les passerelles qui sont connectées au réseau virtuel hub, sélectionnez **Utiliser des passerelles distantes**.
+La figure suivante montre les détails de l’appairage de réseau virtuel Azure d’un réseau virtuel spoke. Pour savoir comment configurer le Peering de deux réseaux virtuels, consultez [Gérer le Peering de réseaux virtuels][VNet-Config]. Si vous voulez que le réseau virtuel spoke utilise les passerelles qui sont connectées au réseau virtuel hub, sélectionnez **Utiliser des passerelles distantes**.
 
 [![1]][1]
 
-La figure suivante montre les détails de l’appairage du réseau virtuel hub. Si vous voulez que le réseau virtuel spoke utilise les passerelles de réseau virtuel hub, sélectionnez **Utiliser des passerelles distantes**.
+La figure suivante montre les détails de l’appairage du réseau virtuel hub. Si vous souhaitez que le réseau virtuel hub autorise le réseau virtuel spoke à utiliser les passerelles du hub, sélectionnez **Autoriser le transit de la passerelle**.
 
 [![2]][2]
 
@@ -166,7 +166,7 @@ ExpressRoute 1 connecte le réseau virtuel hub et l’emplacement Location 1 l
 
 ###  <a name="site-to-site-vpn-over-expressroute"></a>VPN de site à site sur ExpressRoute
 
-Vous pouvez configurer un VPN de site à site à l’aide de l’appairage Microsoft ExpressRoute pour échanger des données de façon privée entre votre réseau local et vos réseaux virtuels Azure. Avec cette configuration, vous pouvez échanger des données en garantissant confidentialité, authenticité et intégrité. L’échange de données est également soumis à un système anti-relecture. Pour plus d’informations sur la configuration d’un VPN IPSec de site à site en mode tunnel via l’homologation Microsoft ExpressRoute, consultez l’article [Configurer un réseau VPN de site à site via l’homologation Microsoft ExpressRoute][S2S-Over-ExR]. 
+Vous pouvez configurer un VPN de site à site à l’aide de l’appairage Microsoft ExpressRoute pour échanger des données de façon privée entre votre réseau local et vos réseaux virtuels Azure. Avec cette configuration, vous pouvez échanger des données en garantissant confidentialité, authenticité et intégrité. L’échange de données est également soumis à un système anti-relecture. Pour plus d’informations sur la configuration d’un VPN IPsec de site à site en mode tunnel via l’homologation Microsoft ExpressRoute, consultez l’article [Configurer un réseau VPN de site à site via le Peering Microsoft ExpressRoute][S2S-Over-ExR]. 
 
 La principale limitation liée à la configuration d’un VPN de site à site qui utilise l’homologation Microsoft est le débit. Le débit sur le tunnel IPsec est limité par la capacité de la passerelle VPN. Le débit d’une passerelle VPN est inférieur au débit ExpressRoute. Dans ce scénario, le fait d’utiliser le tunnel IPsec pour un trafic très sécurisé et d’utiliser l’appairage privé pour toutes les autres catégories de trafic permet d’optimiser l’utilisation de la bande passante ExpressRoute.
 
@@ -188,21 +188,22 @@ Dans l’appairage de réseau virtuel dans une région, les réseaux virtuels sp
 
 Vous pouvez souhaiter que les réseaux virtuels branch, qui se trouvent dans différentes régions, et les réseaux locaux communiquent entre eux via un réseau virtuel hub. La solution Azure native pour cette configuration est la connectivité VPN de site à site à l’aide d’un VPN. Une autre solution consiste à utiliser une appliance virtuelle réseau (NVA) pour le routage dans le hub.
 
-Pour plus d’informations, consultez [Qu’est-ce qu’une passerelle VPN ?][VPN] et [Déployer une appliance virtuelle réseau hautement disponible][Deploy-NVA].
+Pour plus d’informations, consultez [À propos de la passerelle VPN][VPN].
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>and [Deploy a highly available NVA][Deploy-NVA].
+
+Étapes suivantes
 
 Découvrez-en plus sur l’[analyse du plan de contrôle][Control-Analysis] de l’initialisation (tearDown) de test et les vues de différents réseaux virtuels ou réseaux locaux virtuels (VLAN) dans la topologie.
 
-Découvrez-en plus sur l’[analyse du plan de données][Data-Analysis] de l’initialisation (tearDown) de test et les affichages des fonctionnalités de supervision de réseau Azure.
-
-Consultez le [Forum aux questions ExpressRoute][ExR-FAQ] pour :
+Découvrez l’[analyse du plan de données][Data-Analysis] de l’initialisation (tearDown) de test et les affichages des fonctionnalités de supervision de réseau Azure.
+-   Consultez le [FAQ ExpressRoute][ExR-FAQ] pour :
 -   Connaître le nombre de circuits ExpressRoute que vous pouvez connecter à une passerelle ExpressRoute.
 -   Connaître le nombre de passerelles ExpressRoute que vous pouvez connecter à un circuit ExpressRoute.
--   Découvrir les autres limites de mise à l’échelle d’ExpressRoute.
 
 
 <!--Image References-->
+Découvrir les autres limites de mise à l’échelle d’ExpressRoute.
 [1]: ./media/backend-interoperability/SpokeVNet_peering.png "Peering du réseau virtuel spoke"
 [2]: ./media/backend-interoperability/HubVNet-peering.png "Peering du réseau virtuel hub"
 [3]: ./media/backend-interoperability/BranchVNet-VPNGW.png "Configuration de passerelle VPN d’un réseau virtuel branch"
@@ -210,7 +211,6 @@ Consultez le [Forum aux questions ExpressRoute][ExR-FAQ] pour :
 [5]: ./media/backend-interoperability/ExR1-Hub-Connection.png "Configuration de la connexion d’ExpressRoute 1 à la passerelle ExR de réseau virtuel hub"
 [6]: ./media/backend-interoperability/ExR2.png "Configuration d’ExpressRoute 2"
 [7]: ./media/backend-interoperability/ExR2-Hub-Connection.png "Configuration de la connexion d’ExpressRoute 2 à la passerelle ExR de réseau virtuel hub"
-[8]: ./media/backend-interoperability/ExR2-Remote-Connection.png "Configuration de la connexion d’ExpressRoute 2 à la passerelle ExR de réseau virtuel distant"
 
 <!--Link References-->
 [Setup]: https://docs.microsoft.com/azure/networking/connectivty-interoperability-preface

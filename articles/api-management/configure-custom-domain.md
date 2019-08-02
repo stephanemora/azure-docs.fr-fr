@@ -11,12 +11,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 07/01/2019
 ms.author: apimpm
-ms.openlocfilehash: 59b44dcc9ec3a1f7c274f426a19aa8ed2258db3e
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: 9eb03be5cd9704c3b124bfb16fd30c5c3466890d
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67509299"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68326137"
 ---
 # <a name="configure-a-custom-domain-name"></a>Configuration d’un nom de domaine personnalisé
 
@@ -72,6 +72,16 @@ Pour effectuer les étapes décrites dans cet article, vous devez disposer des �
     > Le processus d’attribution du certificat peut prendre 15 minutes ou plus, selon la taille du déploiement. La référence SKU de développeur présente des temps d’arrêt, mais pas les références SKU de base ou supérieures.
 
 [!INCLUDE [api-management-custom-domain](../../includes/api-management-custom-domain.md)]
+
+## <a name="dns-configuration"></a>Configuration DNS
+
+Lorsque vous configurez DNS pour votre nom de domaine personnalisé, vous avez le choix entre deux options :
+
+- Configurer un enregistrement CNAME qui pointe vers le point de terminaison de votre nom de domaine personnalisé configuré.
+- Configurer un enregistrement A qui pointe vers l’adresse IP de votre passerelle de gestion des API.
+
+> [!NOTE]
+> Bien que l’adresse IP de l’instance de gestion des API soit statique, elle peut changer dans quelques scénarios. Pour cette raison, il est recommandé d’utiliser CNAME lors de la configuration d’un domaine personnalisé. Tenez-en compte lorsque vous choisissez la méthode de configuration DNS. Pour plus d’informations, consultez le [FAQ sur la gestion des API](https://docs.microsoft.com/azure/api-management/api-management-faq#is-the-api-management-gateway-ip-address-constant-can-i-use-it-in-firewall-rules).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

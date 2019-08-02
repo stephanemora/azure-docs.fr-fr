@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: dapine
 ms.custom: seodec18
-ms.openlocfilehash: d72b47d375b8e50cde43e263261551d3010ba013
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: efde223061a873a57595bc4a577b7de55b1d8a46
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67704710"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68321467"
 ---
 # <a name="install-and-run-recognize-text-containers"></a>Installer et exécuter des conteneurs Reconnaître le texte
 
@@ -34,7 +34,7 @@ L’utilisation des conteneurs Reconnaître le texte est soumise aux prérequis 
 |--|--|
 |Moteur Docker| Vous avez besoin d’un moteur Docker installé sur un [ordinateur hôte](#the-host-computer). Docker fournit des packages qui configurent l’environnement Docker sur [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) et [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Pour apprendre les principes de base de Docker et des conteneurs, consultez la [vue d’ensemble de Docker](https://docs.docker.com/engine/docker-overview/).<br><br> Vous devez configurer Docker pour permettre aux conteneurs de se connecter à Azure et de lui envoyer des données de facturation. <br><br> **Sur Windows**, vous devez également configurer Docker pour prendre en charge les conteneurs Linux.<br><br>|
 |Bonne connaissance de Docker | Vous devez avoir une compréhension élémentaire des concepts Docker, notamment les registres, référentiels, conteneurs et images conteneurs, ainsi qu’une maîtrise des commandes `docker` de base.| 
-|Ressource `Cognitive Services` Azure |Pour pouvoir utiliser le conteneur, vous devez disposer des éléments suivants :<br><br>Ressource Azure _Cognitive Services_ et la clé de facturation de l’URI du point de terminaison de facturation associée. Les deux valeurs, disponibles dans les pages Vue d’ensemble et Clés de la ressource, sont nécessaires au démarrage du conteneur. Vous devez ajouter le routage `vision/v2.0` à l’URI de point de terminaison, comme dans l’exemple BILLING_ENDPOINT_URI suivant. <br><br>**{BILLING_KEY}**  : clé de ressource<br><br>**{BILLING_ENDPOINT_URI}**  : exemple d’UURI de point de terminaison : `https://westus.api.cognitive.microsoft.com/vision/v2.0`|
+|Ressource Vision par ordinateur |Pour pouvoir utiliser le conteneur, vous devez disposer des éléments suivants :<br><br>Une ressource **Vision par ordinateur** Azure, la clé d’API associée et l’URI de point de terminaison. Les deux valeurs, disponibles dans les pages Vue d’ensemble et Clés de la ressource, sont nécessaires au démarrage du conteneur.<br><br>**{API_KEY}**  : l’une des deux clés de ressource disponibles à la page **Clés**<br><br>**{ENDPOINT_URI}**  : le point de terminaison tel qu'il est fourni à la page **Vue d’ensemble**|
 
 ## <a name="request-access-to-the-private-container-registry"></a>Demander l’accès au registre de conteneurs privé
 
@@ -43,7 +43,6 @@ L’utilisation des conteneurs Reconnaître le texte est soumise aux prérequis 
 ### <a name="the-host-computer"></a>L’ordinateur hôte
 
 [!INCLUDE [Host Computer requirements](../../../includes/cognitive-services-containers-host-computer.md)]
-
 
 ### <a name="container-requirements-and-recommendations"></a>Exigences et suggestions relatives au conteneur
 
@@ -90,8 +89,8 @@ Utilisez la commande [docker run](https://docs.docker.com/engine/reference/comma
 
 | Placeholder | Valeur |
 |-------------|-------|
-|{BILLING_KEY} | Cette clé, qui permet de démarrer le conteneur, est disponible dans la page Clés de Azure `Cognitive Services`.  |
-|{BILLING_ENDPOINT_URI} | Valeur de l’URI du point de terminaison de facturation. Par exemple : `https://westus.api.cognitive.microsoft.com/vision/v2.0`|
+|{API_KEY} | Cette clé, qui permet de démarrer le conteneur, est disponible dans la page Clés de Azure `Cognitive Services`.  |
+|{ENDPOINT_URI} | Valeur de l’URI du point de terminaison de facturation. Par exemple : `https://westus.api.cognitive.microsoft.com/vision/v2.0`|
 
 Vous devez ajouter le routage `vision/v2.0` à l’URI de point de terminaison, comme dans l’exemple BILLING_ENDPOINT_URI suivant.
 
@@ -101,8 +100,8 @@ Remplacez ces paramètres par vos propres valeurs dans l’exemple de commande `
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
 containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text \
 Eula=accept \
-Billing={BILLING_ENDPOINT_URI} \
-ApiKey={BILLING_KEY}
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY}
 ```
 
 Cette commande :
@@ -132,7 +131,7 @@ Vous pouvez utiliser conjointement les opérations `POST /vision/v2.0/recognizeT
 
 ### <a name="synchronous-text-recognition"></a>Reconnaissance de texte synchrone
 
-Vous pouvez utiliser l’opération `POST /vision/v2.0/recognizeTextDirect` pour reconnaître de façon synchrone le texte imprimé dans une image. Étant donné que cette opération est synchrone, le corps de la demande pour cette opération est identique à celui de l’opération `POST /vision/v2.0/recognizeText`. Toutefois, le corps de la demande pour cette opération est identique à celui retourné par l’opération `GET /vision/v2.0/textOperations/*{id}*`.
+Vous pouvez utiliser l’opération `POST /vision/v2.0/recognizeTextDirect` pour reconnaître de façon synchrone le texte imprimé dans une image. Étant donné que cette opération est synchrone, le corps de la requête pour cette opération est identique l’opération `POST /vision/v2.0/recognizeText`. Toutefois, le corps de la requête pour cette opération est identique à celui retourné par l’opération `GET /vision/v2.0/textOperations/*{id}*`.
 
 <!--  ## Validate container is running -->
 
@@ -156,7 +155,7 @@ Les conteneurs Reconnaître le texte envoient des informations de facturation à
 
 Pour plus d’informations sur ces options, consultez [Configurer des conteneurs](./computer-vision-resource-container-config.md).
 
-<!--blogs/samples/video coures -->
+<!--blogs/samples/video course -->
 
 [!INCLUDE [Discoverability of more container information](../../../includes/cognitive-services-containers-discoverability.md)]
 

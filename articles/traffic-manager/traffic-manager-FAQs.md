@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: allensu
-ms.openlocfilehash: 640d36649f59842a740b4c12b4e3ab39a6d98c13
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 37f1a0d9c70afc0a3a86ac76b682ee7b2adb253d
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67050951"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68335793"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Forum Aux Questions (FAQ) relatif à Traffic Manager
 
@@ -31,7 +31,7 @@ Par conséquent, Traffic Manager ne fournit pas de point de terminaison ou d’a
 ### <a name="what-types-of-traffic-can-be-routed-using-traffic-manager"></a>Quels types de trafic peuvent être routés à l’aide de Traffic Manager ?
 Comme expliqué dans [Fonctionnement de Traffic Manager](../traffic-manager/traffic-manager-how-it-works.md), un point de terminaison Traffic Manager peut être n’importe quel service orienté Internet hébergé à l’intérieur ou en dehors d’Azure. Par conséquent, Traffic Manager peut acheminer le trafic provenant de l’Internet public vers un ensemble de points de terminaison également orienté Internet. Si vous disposez de points de terminaison à l’intérieur d’un réseau privé (par exemple, une version interne [d’Azure Load Balancer](../load-balancer/load-balancer-overview.md#internalloadbalancer)), ou que vos utilisateurs exécutent des requêtes DNS à partir de tels réseaux internes, vous ne pouvez pas utiliser Traffic Manager pour router ce trafic.
 
-### <a name="does-traffic-manager-support-sticky-sessions"></a>Traffic Manager prend-il en charge les sessions « persistantes » ?
+### <a name="does-traffic-manager-support-sticky-sessions"></a>Traffic Manager prend-il en charge les sessions « persistantes » ?
 
 Comme expliqué dans la section [Fonctionnement de Traffic Manager](../traffic-manager/traffic-manager-how-it-works.md), Traffic Manager fonctionne au niveau du DNS. Il utilise les réponses DNS pour diriger les clients vers le point de terminaison de service approprié. Les clients se connectent directement au point de terminaison du service, et non via Traffic Manager. Par conséquent, Traffic Manager ne voit pas le trafic HTTP entre le client et le serveur.
 
@@ -438,7 +438,7 @@ Les paramètres de surveillance de Traffic Manager sont définis au niveau du pr
 Traffic Manager permet de spécifier des en-têtes personnalisés dans les contrôles d’intégrité HTTP(S) lancés sur vos points de terminaison. Si vous souhaitez spécifier un en-tête personnalisé, vous pouvez le faire au niveau du profil (applicable à tous les points de terminaison) ou au niveau du point de terminaison. Si un en-tête est défini à deux niveaux, celui spécifié au niveau du point de terminaison prévaut sur celui au niveau du profil.
 Il est courant de spécifier des en-têtes d’hôte afin que les requêtes de Traffic Manager soient correctement acheminées vers un point de terminaison hébergé dans un environnement mutualisé. Un autre cas d’usage consiste à identifier les requêtes de Traffic Manager à partir des journaux d’activité de requête d’un point de terminaison HTTP(S).
 
-## <a name="what-host-header-do-endpoint-health-checks-use"></a>Quel en-tête hôte est utilisé pour les contrôles d’intégrité des points de terminaison ?
+### <a name="what-host-header-do-endpoint-health-checks-use"></a>Quel en-tête hôte est utilisé pour les contrôles d’intégrité des points de terminaison ?
 
 Si aucun paramètre d’en-tête hôte personnalisé n’est fourni, l’en-tête d’hôte utilisé par Traffic Manager est le nom DNS de la cible de point de terminaison configuré dans le profil, s’il est disponible.
 

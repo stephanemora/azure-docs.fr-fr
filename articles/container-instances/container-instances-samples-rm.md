@@ -3,16 +3,17 @@ title: Exemples de modèles Azure Resource Manager - Azure Container Instances
 description: Exemples de modèles Azure Resource Manager pour Azure Container Instances
 services: container-instances
 author: dlepow
+manager: gwallace
 ms.service: container-instances
 ms.topic: article
 ms.date: 03/07/2019
 ms.author: danlep
-ms.openlocfilehash: 3d73d05c64f4b4867c69a15089c19ab8c320b9a8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2089f024e1de2e92f6e401549c5876e26db17ebb
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60537953"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325692"
 ---
 # <a name="azure-resource-manager-templates-for-azure-container-instances"></a>Modèles Azure Resource Manager pour Azure Container Instances
 
@@ -42,7 +43,7 @@ Pour plus d’options de déploiement, consultez la section [Déploiement](#depl
 
 Vous disposez de plusieurs options pour déployer des ressources à l’aide de modèles Resource Manager :
 
-[Azure CLI][deploy-cli]
+[Interface de ligne de commande Azure][deploy-cli]
 
 [Azure PowerShell][deploy-powershell]
 

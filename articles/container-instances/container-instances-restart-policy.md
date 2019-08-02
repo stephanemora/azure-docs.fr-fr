@@ -3,16 +3,17 @@ title: Utilisez des stratégies de redémarrage avec des tâches conteneurisées
 description: Découvrez comment utiliser Azure Container Instances pour exécuter des tâches jusqu’à complétion, telles que des tâches de génération, de test ou de rendu d’image.
 services: container-instances
 author: dlepow
+manager: gwallace
 ms.service: container-instances
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: danlep
-ms.openlocfilehash: 06872eefd0d500a22214109ad5055dd236b5a6ac
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4fe5d9a20249a17030e0ccfa34f6a4f183be0d82
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60608124"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325675"
 ---
 # <a name="run-containerized-tasks-with-restart-policies"></a>Exécuter des tâches conteneurisées avec des stratégies de redémarrage
 
@@ -20,7 +21,7 @@ La facilité et la vitesse de déploiement des conteneurs d’Azure Container In
 
 À l’aide d’une stratégie de redémarrage configurable, vous pouvez spécifier l’arrêt de vos conteneurs lorsque leurs processus sont terminés. Étant donné que les instances de conteneur sont facturées à la seconde, vous êtes facturé uniquement pour les ressources de calcul utilisées au moment où le conteneur qui exécute votre tâche est exécuté.
 
-Les exemples présentés dans cet article utilisent l’interface de ligne de commande Azure. Vous devez disposer d’Azure CLI version 2.0.21 ou ultérieure [en local][azure-cli-install], ou utiliser l’interface de ligne de commande dans [Azure Cloud Shell](../cloud-shell/overview.md).
+Les exemples présentés dans cet article utilisent l’interface de ligne de commande Azure. Vous devez disposer d’Azure CLI version 2.0.21 ou ultérieure [en local][azure-cli-install], ou utiliser l’interface de ligne de commande Azure dans [Azure Cloud Shell](../cloud-shell/overview.md).
 
 ## <a name="container-restart-policy"></a>Stratégie de redémarrage des conteneurs
 
@@ -48,7 +49,7 @@ az container create \
 
 Pour voir la stratégie de redémarrage à l’œuvre, créez une instance de conteneur à partir de l’image Microsoft [aci-wordcount][aci-wordcount-image], puis spécifiez la stratégie de redémarrage `OnFailure`. Cet exemple de conteneur exécute un script Python qui, par défaut, analyse le texte de [Hamlet](http://shakespeare.mit.edu/hamlet/full.html) de Shakespeare, écrit les 10 mots les plus fréquents dans STDOUT, puis se termine.
 
-Exécutez l’exemple de conteneur avec la commande [az container create][az-container-create] suivante :
+Exécutez l’exemple de conteneur avec la commande [az container create][az-container-create] suivante :
 
 ```azurecli-interactive
 az container create \
@@ -58,7 +59,7 @@ az container create \
     --restart-policy OnFailure
 ```
 
-Azure Container Instances démarre le conteneur, puis l’arrête lorsque l’exécution de son application (ou de son script, dans ce cas) est terminée. Quand Azure Container Instances arrête un conteneur dont la stratégie de redémarrage est `Never` ou `OnFailure`, l’état du conteneur est défini sur **Terminé**. Vous pouvez vérifier l’état du conteneur à l’aide de la commande [az container show][az-container-show] :
+Azure Container Instances démarre le conteneur, puis l’arrête lorsque l’exécution de son application (ou de son script, dans ce cas) est terminée. Quand Azure Container Instances arrête un conteneur dont la stratégie de redémarrage est `Never` ou `OnFailure`, l’état du conteneur est défini sur **Terminé**. Vous pouvez vérifier l’état du conteneur à l’aide de la commande [az container show][az-container-show] :
 
 ```azurecli-interactive
 az container show --resource-group myResourceGroup --name mycontainer --query containers[0].instanceView.currentState.state
@@ -70,7 +71,7 @@ Exemple de sortie :
 "Terminated"
 ```
 
-Lorsque l’état de l’exemple de conteneur est *Terminé*, vous pouvez voir la sortie de sa tâche en consultant les journaux d’activité du conteneur. Exécutez la commande [az container logs][az-container-logs] pour afficher la sortie du script :
+Lorsque l’état de l’exemple de conteneur est *Terminé*, vous pouvez voir la sortie de sa tâche en consultant les journaux d’activité du conteneur. Exécutez la commande [az container logs][az-container-logs] pour afficher la sortie du script :
 
 ```azurecli-interactive
 az container logs --resource-group myResourceGroup --name mycontainer

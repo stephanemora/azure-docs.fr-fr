@@ -5,18 +5,18 @@ services: application-gateway
 author: abshamsft
 ms.service: application-gateway
 ms.topic: article
-ms.date: 02/22/2019
+ms.date: 07/19/2019
 ms.author: absha
-ms.openlocfilehash: f456cfec82a315a2be877a52e4f3f1850b992736
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7baadfb549b19bb12757c82d723578202b5cf8ad
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60715173"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68347880"
 ---
-# <a name="troubleshoot-application-gateway-with-app-service"></a>Dépanner Application Gateway avec App Service
+# <a name="troubleshoot-app-service-issues-in-application-gateway"></a>Résoudre les problèmes d’App Service dans Application Gateway
 
-Découvrez comment diagnostiquer et résoudre les problèmes rencontrés avec App Gateway et App Service en tant que serveur principal.
+Découvrez comment diagnostiquer et résoudre les problèmes lorsque serveur d’applications est utilisé comme cible de back-end avec Application Gateway
 
 ## <a name="overview"></a>Vue d'ensemble
 
@@ -26,16 +26,14 @@ Dans cet article, vous allez apprendre à résoudre les problèmes suivants :
 > * L’URL d’App Service est exposée dans le navigateur en cas de redirection
 > * Le domaine du cookie ARRAffinity d’App Service est défini sur nom d’hôte d’App Service (example.azurewebsites.net) au lieu de l’hôte d’origine
 
-Lorsque vous configurez une instance d’App Service publique dans le pool principal d’Application Gateway et que vous avez une redirection configurée dans le code de votre application, vous noterez peut-être que lorsque vous accédez à Application Gateway, vous êtes redirigé par le navigateur directement à l’URL d’App Service.
+Quand une application back-end envoie une réponse de redirection, vous pouvez souhaiter rediriger le client vers une URL différente de celle spécifiée par l’application back-end. Par exemple, cela peut être le cas quand un service d’application est hébergé derrière une passerelle d’application et exige que le client effectue une redirection vers son chemin relatif. (Par exemple, une redirection de contoso.azurewebsites.net/path1 vers contoso.azurewebsites.net/path2.) Quand le service d’application envoie une réponse de redirection, il utilise le nom d’hôte qui figure dans l’en-tête d’emplacement de sa réponse, qui est identique à celui situé dans la requête qu’il reçoit de la passerelle d’application. Par conséquent, le client adresse directement la requête à contoso.azurewebsites.net/path2 au lieu de passer par la passerelle d’application (contoso.com/path2). Or, il n’est pas souhaitable de contourner la passerelle d’application.
 
 Cette erreur peut se produire pour les raisons suivantes :
 
 - Vous avez configuré la redirection sur votre App Service. La redirection peut être aussi simple que l’ajout d’une barre oblique à la demande.
 - L’authentification Azure AD provoque la redirection.
-- Vous avez activé « Choisir le nom d’hôte à partir de l’adresse du serveur principal » dans les paramètres HTTP d’Application Gateway.
-- Vous n’avez pas inscrit votre domaine personnalisé avec App Service.
 
-En outre, lorsque vous utilisez App Services derrière App Gateway et que vous utilisez un domaine personnalisé pour accéder à Application Gateway, vous pourriez noter que la valeur de domaine du cookie ARRAffinity définie par App Service contient le nom de domaine « example.azurewebsites.net ». Si vous souhaitez que votre nom d’hôte d’origine soit aussi le domaine du cookie, suivez la solution dans cet article.
+De même, lorsque vous utilisez App Services derrière Application Gateway, le nom de domaine associé à Application Gateway (example.com) est différent du nom de domaine d’App Service (par exemple, example.azurewebsites.net). Vous pourrez constater que la valeur de domaine pour le cookie ARRAffinity défini par App Service contiendra le nom de domaine « example.azurewebsites.net », ce qui n’est pas souhaitable. Le nom d’hôte d’origine (example.com) doit être la valeur du nom de domaine dans le cookie.
 
 ## <a name="sample-configuration"></a>Exemple de configuration
 
@@ -46,13 +44,13 @@ En outre, lorsque vous utilisez App Services derrière App Gateway et que vous u
 
 ## <a name="cause"></a>Cause :
 
-Une instance App Service est uniquement accessible avec les noms d’hôte configurés dans les paramètres de domaine personnalisé. Par défaut, il s’agit de « example.azurewebsites.net », et si vous souhaitez accéder à App Service à l’aide d’Application Gateway avec un nom d’hôte qui n’est pas inscrit dans App Service ou le nom de domaine complet d’Application Gateway, vous devez remplacer le nom d’hôte dans la demande d’origine par le nom d’hôte d’App Service.
+App Service étant un service multilocataire, il utilise l’en-tête d’hôte de la requête pour router celle-ci vers le point de terminaison approprié. Cependant, le nom de domaine par défaut des services d’applications, *.azurewebsites.net (par exemple, contoso.azurewebsites.net), est différent du nom de domaine de la passerelle d’application (par exemple, contoso.com). Étant donné que la requête d’origine du client a le nom de domaine de la passerelle d’application (contoso.com) comme nom d’hôte, vous devez configurer la passerelle d’application pour faire du nom d’hôte dans la requête d’origine le nom d’hôte des services d’applications lorsque la requête est acheminée vers le back-end du service d’applications.  Pour cela, utilisez l’option « Choisir le nom d’hôte à partir de l’adresse du serveur principal » dans la configuration des paramètres HTTP d’Application Gateway et l’option « Choisir le nom d’hôte à partir des paramètres du serveur principal HTTP » dans la configuration de la sonde d’intégrité.
 
-Pour faire cela avec Application Gateway, nous utilisons l’option « Choisir le nom d’hôte à partir de l’adresse du serveur principal » dans les paramètres HTTP, et pour que la sonde fonctionne, nous utilisons « Choisir le nom d’hôte à partir des paramètres du serveur principal HTTP » dans la configuration de la sonde.
+
 
 ![appservice-1](./media/troubleshoot-app-service-redirection-app-service-url/appservice-1.png)
 
-Pour cette raison, lorsqu’App Service effectue une redirection, il utilise le nom d’hôte « example.azurewebsites.net » dans l’en-tête Location, au lieu du nom d’hôte d’origine, sauf en cas de configuration différente. Vous pouvez vérifier les exemples d’en-tête de requête et de réponse ci-dessous.
+Pour cette raison, lorsqu’App Service effectue une redirection, il utilise le nom d’hôte écrasé « contoso.azurewebsites.net » dans l’en-tête Location, au lieu du nom d’hôte d’origine « contoso.com », sauf en cas de configuration différente. Vous pouvez vérifier les exemples d’en-tête de requête et de réponse ci-dessous.
 ```
 ## Request headers to Application Gateway:
 
@@ -66,21 +64,28 @@ Host: www.contoso.com
 
 Status Code: 301 Moved Permanently
 
-Location: http://example.azurewebsites.net/path/
+Location: http://contoso.azurewebsites.net/path/
 
 Server: Microsoft-IIS/10.0
 
-Set-Cookie: ARRAffinity=b5b1b14066f35b3e4533a1974cacfbbd969bf1960b6518aa2c2e2619700e4010;Path=/;HttpOnly;Domain=example.azurewebsites.net
+Set-Cookie: ARRAffinity=b5b1b14066f35b3e4533a1974cacfbbd969bf1960b6518aa2c2e2619700e4010;Path=/;HttpOnly;Domain=contoso.azurewebsites.net
 
 X-Powered-By: ASP.NET
 ```
 Dans l’exemple ci-dessus, vous pouvez remarquer que l’en-tête de réponse a un code d’état 301 pour la redirection et que l’en-tête Location a le nom d’hôte d’App Service au lieu du nom d’hôte d’origine « www.contoso.com ».
 
-## <a name="solution"></a>Solution
+## <a name="solution-rewrite-the-location-header"></a>Solution : Réécrire l’en-tête d’emplacement
 
-Ce problème peut être résolu en n’utilisant pas de redirection côté application. Toutefois, si cela n’est pas possible, nous devons transmettre le même en-tête hôte que celui qu’App Gateway reçoit à App Service au lieu d’effectuer un remplacement de l’hôte.
+Vous devez définir le nom d’hôte de l’en-tête d’emplacement sur le nom de domaine de la passerelle d’application. Pour cela, créez une [règle de réécriture](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers) avec une condition qui évalue si l’en-tête d’emplacement dans la réponse contient azurewebsites.net et exécute une action de réécriture de l’en-tête d’emplacement avec le nom d’hôte de la passerelle d’application.  Consultez les instructions de [réécriture de l'en-tête d’emplacement](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers#modify-a-redirection-url).
 
-Une fois cela fait, App Service effectue la redirection (le cas échéant) sur le même en-tête hôte d’origine qui pointe vers App Gateway et pas lui-même.
+> [!NOTE]
+> La prise en charge de la réécriture d’en-tête HTTP n’est disponible que pour [Standard_V2 et WAF_v2 SKU](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant) dans Application Gateway. Si vous utilisez la référence SKU V1, nous vous recommandons vivement de [migrer de V1 vers V2](https://docs.microsoft.com/azure/application-gateway/migrate-v1-v2) afin de pouvoir utiliser la réécriture et d’autres [fonctionnalités avancées](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant#feature-comparison-between-v1-sku-and-v2-sku) disponibles avec la référence SKU V2.
+
+## <a name="alternate-solution-use-app-services-custom-domain-instead-of-default-domain-name"></a>Autre solution : Utilisez le domaine personnalisé du service d’applications au lieu du nom de domaine par défaut
+
+Si vous utilisez la référence SKU V1, vous ne pourrez pas réécrire l’en-tête d’emplacement, car cette fonctionnalité est disponible uniquement pour la référence SKU V2. Pour résoudre le problème de redirection, vous devrez donc transmettre le nom d’hôte reçu par Application Gateway à App Service au lieu d’écraser l’hôte.
+
+Une fois c’est fait, App Service effectue la redirection (le cas échéant) sur le même en-tête hôte d’origine qui pointe vers App Gateway et pas lui-même.
 
 Pour cela, vous devez posséder un domaine personnalisé et suivre le processus indiqué ci-dessous.
 

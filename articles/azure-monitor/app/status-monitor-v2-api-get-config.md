@@ -12,21 +12,16 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: 1f7061c9823ddc8ff7f8f42976041f1c9ff68fc0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9e1b3242a96bfaadfe6f791e0ca9bf25262065e2
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66514400"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68326348"
 ---
-# <a name="status-monitor-v2-api-get-applicationinsightsmonitoringconfig-v021-alpha"></a>API Status Monitor v2 : Get-ApplicationInsightsMonitoringConfig (v0.2.1-alpha)
+# <a name="status-monitor-v2-api-get-applicationinsightsmonitoringconfig"></a>API Status Monitor v2 : Get-ApplicationInsightsMonitoringConfig
 
 Cet article décrit une cmdlet appartenant au [module PowerShell Az.ApplicationMonitor](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
-
-> [!IMPORTANT]
-> Status Monitor v2 est actuellement en préversion publique.
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou n’être pas prises en charge.
-> Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="description"></a>Description
 
@@ -45,7 +40,7 @@ PS C:\> Get-ApplicationInsightsMonitoringConfig
 
 Aucun paramètre requis.
 
-## <a name="output"></a>Sortie
+## <a name="output"></a>Output
 
 
 #### <a name="example-output-from-reading-the-config-file"></a>Exemple de sortie à partir de la lecture du fichier de configuration

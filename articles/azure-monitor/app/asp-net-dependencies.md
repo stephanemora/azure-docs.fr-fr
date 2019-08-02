@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: mbullwin
-ms.openlocfilehash: a233299b86100c7e43291ffb6448d576ef6072f0
-ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
+ms.openlocfilehash: c2f115564c81f38dd437f1d3ff1e33d7d162a42f
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68302560"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68326440"
 ---
 # <a name="dependency-tracking-in-azure-application-insights"></a>Suivi des dépendances dans Azure Application Insights 
 
@@ -103,7 +103,7 @@ Pour les applications ASP.NET, la requête SQL complète est collectée par le b
 | Plateforme | Étape(s) nécessaire(s) pour obtenir la requête SQL complète |
 | --- | --- |
 | Application web Azure |Dans le Panneau de configuration de l’application web, [ouvrez le panneau Application Insights](../../azure-monitor/app/azure-web-apps.md) et activez les commandes SQL dans .NET |
-| Serveur IIS (machine virtuelle Azure, locale, etc.) | [Installez Status Monitor sur le serveur où l’application est exécutée](../../azure-monitor/app/monitor-performance-live-website-now.md), puis redémarrez IIS.
+| Serveur IIS (machine virtuelle Azure, locale, etc.) | Utilisez le module Status Monitor PowerShell pour [installer le moteur d’instrumentation](../../azure-monitor/app/status-monitor-v2-api-enable-instrumentation-engine.md) et redémarrer IIS. |
 | Service cloud Azure | Ajoutez une [tâche de démarrage pour installer StatusMonitor](../../azure-monitor/app/cloudservices.md#set-up-status-monitor-to-collect-full-sql-queries-optional) <br> Votre application doit être intégrée au SDK ApplicationInsights au moment de la build en installant les packages NuGet pour les applications [ASP.NET](https://docs.microsoft.com/azure/azure-monitor/app/asp-net) ou [ASP.NET Core](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core) |
 | IIS Express | Non pris en charge
 

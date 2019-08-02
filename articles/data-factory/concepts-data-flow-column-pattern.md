@@ -1,17 +1,17 @@
 ---
 title: Modèles de colonne Data Flow de mappage Azure Data Factory
-description: Découvrez comment utiliser les modèles de colonne Azure Data Factory dans le mappage Data Flow pour créer des modèles de modèles généralisés afin de transformer les champs d’un flux de données sans tenir compte des métadonnées de schéma sous-jacentes
+description: Créer des modèles de transformation de données généralisés à l’aide de modèles de colonnes Azure Data Factory dans des flux de données de mappage
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: 08cdaafe00b7dc586ea75f6ff03fdb89107edee9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 076c3318a68a50e6bd1b4f9f2a4a4b9a034533c6
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66430757"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68346577"
 ---
 # <a name="azure-data-factory-mapping-data-flows-column-patterns"></a>Modèles de colonne de flux de données de mappage Azure Data Factory
 
@@ -30,3 +30,13 @@ Lors de la construction de modèles de colonnes de modèle, utilisez `$$` dans l
 Si vous choisissez d’utiliser l’une des fonctions d’expression régulière du Générateur d’expressions, vous pouvez ensuite utiliser $1, $2, $3... pour référencer les sous-modèles correspondant à votre expression régulière.
 
 L’utilisation de SUM avec une série de champs entrants constitue un exemple de scénario de modèle de colonne. Les calculs agrégés des calculs de SUM résident dans la transformation agrégée. Vous pouvez ensuite utiliser SUM sur chaque correspondance des types de champs qui correspondent à « integer », puis utiliser $$ pour référencer chaque correspondance dans votre expression.
+
+## <a name="match-columns"></a>Colonnes de correspondance
+![types de modèles de colonnes](media/data-flow/pattern2.png "Types de modèles")
+
+Pour créer des modèles basés sur des colonnes, vous pouvez faire correspondre le nom de colonne, le type, le flux ou la position et utiliser n’importe quelle combinaison de ceux-ci avec les fonctions d’expression et les expressions régulières.
+
+![position de colonne](media/data-flow/position.png "Position de colonne")
+
+## <a name="next-steps"></a>Étapes suivantes
+En savoir plus sur le flux de données de mappage ADF [langage d’expression](https://aka.ms/dataflowexpressions) pour les transformations de données

@@ -12,23 +12,18 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: c8199c960229f9cc53cf57f9da3e1f17ebd9f5c7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 02f4fa45cbfa619825478520961b6411459973e4
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67074161"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68326273"
 ---
 # <a name="status-monitor-v2-detailed-instructions"></a>Status Monitor v2 : Instructions détaillées
 
 Cet article décrit comment intégrer à PowerShell Gallery et télécharger le module ApplicationMonitor.
-Il décrit les paramètres les plus courants dont vous aurez besoin pour commencer.
-Il inclut également les instructions du manuel au cas où vous n’avez pas accès à internet.
-
-> [!IMPORTANT]
-> Status Monitor v2 est actuellement en préversion publique.
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge.
-> Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+Il contient les paramètres les plus courants dont vous aurez besoin pour commencer.
+Nous avons également donné des instructions pour télécharger le manuel si vous n’avez d’accès Internet.
 
 ## <a name="get-an-instrumentation-key"></a>Obtenir une clé d’instrumentation
 
@@ -36,11 +31,10 @@ Pour commencer, vous avez besoin d’une clé d’instrumentation. Pour en savoi
 
 ## <a name="run-powershell-as-admin-with-an-elevated-execution-policy"></a>Exécuter PowerShell en tant qu’administrateur avec une stratégie d’exécution avec élévation de privilèges
 
-**Exécuter en tant qu’administrateur**
+### <a name="run-as-admin"></a>Exécuter en tant qu’administrateur
 
 PowerShell a besoin d’autorisations de niveau administrateur pour apporter des modifications à votre ordinateur.
-
-**Stratégie d’exécution**
+### <a name="execution-policy"></a>Stratégie d’exécution
 - Description : Par défaut, l’exécution des scripts PowerShell est désactivée. Nous vous recommandons d’autoriser les scripts RemoteSigned (signés à distance) uniquement pour l’étendue Current (Actuelle).
 - Référence : [À propos des stratégies d’exécution](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-6) et [Set-ExecutionPolicy](
 https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-6

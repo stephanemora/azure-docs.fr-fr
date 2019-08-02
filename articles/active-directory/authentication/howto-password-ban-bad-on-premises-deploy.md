@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8487f82b123b42f9d6a6f0fbd6d6cbb240bf9fdc
-ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
+ms.openlocfilehash: 01a9cc4ec4788422337b77b285ed8ee440f6acd4
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67785525"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68346893"
 ---
 # <a name="deploy-azure-ad-password-protection"></a>Déployer la protection par mot de passe d’Azure AD
 
@@ -135,7 +135,11 @@ Deux programmes d’installation sont requis pour la protection de mot de passe 
         ```
 
         > [!NOTE]
-        > Ce mode échoue si l’authentification multifacteur Azure est requise. Dans ce cas, utilisez l’un des deux modes d’authentification précédents.
+        > Ce mode échoue si l’authentification multifacteur Azure est requise pour votre compte. Dans ce cas, utilisez l’un des deux modes d’authentification précédents, ou bien utilisez un autre compte qui ne nécessite pas d’authentification multifacteur.
+        >
+        > L’authentification multifacteur peut également être requise si l’inscription de l’appareil Azure (qui est utilisée en arrière-plan par la protection de mot de passe Azure AD) a été configurée pour exiger globalement une authentification multifacteur. Pour contourner ce problème, vous pouvez utiliser un autre compte prenant en charge l’authentification multifacteur avec l’un des deux modes d’authentification précédents, ou vous pouvez également assouplir temporairement l’exigence d’authentification multifacteur pour l’inscription d’un appareil Azure. Pour ce faire, accédez au portail de gestion Azure, ensuite accédez à Azure Active Directory, puis à Appareils, Paramètres de l’appareil et définissez « Exiger l’authentification multifacteur pour joindre des appareils » sur Non. Veillez à reconfigurer ce paramètre sur Oui une fois l’inscription terminée.
+        >
+        > Nous vous recommandons de contourner les exigences de l’authentification multifacteur à des fins de test uniquement.
 
        Vous n’êtes pas tenu actuellement de spécifier le paramètre *-ForestCredential*, qui est réservé pour de futures fonctionnalités.
 
@@ -156,7 +160,7 @@ Deux programmes d’installation sont requis pour la protection de mot de passe 
         ```
 
         > [!NOTE]
-        > Ce mode ne fonctionnera pas sur les systèmes d’exploitation Server Core. À la place, utilisez l’un des deux modes d’authentification suivants. De plus, ce mode peut échouer si la configuration de sécurité renforcée d’Internet Explorer est activée. La solution de contournement consiste à désactiver cette configuration, à inscrire le proxy, puis à la réactiver.  
+        > Ce mode ne fonctionnera pas sur les systèmes d’exploitation Server Core. À la place, utilisez l’un des deux modes d’authentification suivants. De plus, ce mode peut échouer si la configuration de sécurité renforcée d’Internet Explorer est activée. La solution de contournement consiste à désactiver cette configuration, à inscrire la forêt, puis à la réactiver.  
 
      * Mode d’authentification de code d’appareil :
 
@@ -175,7 +179,11 @@ Deux programmes d’installation sont requis pour la protection de mot de passe 
         ```
 
         > [!NOTE]
-        > Ce mode échoue si l’authentification multifacteur Azure est requise. Dans ce cas, utilisez l’un des deux modes d’authentification précédents.
+        > Ce mode échoue si l’authentification multifacteur Azure est requise pour votre compte. Dans ce cas, utilisez l’un des deux modes d’authentification précédents, ou bien utilisez un autre compte qui ne nécessite pas d’authentification multifacteur.
+        >
+        > L’authentification multifacteur peut également être requise si l’inscription de l’appareil Azure (qui est utilisée en arrière-plan par la protection de mot de passe Azure AD) a été configurée pour exiger globalement une authentification multifacteur. Pour contourner ce problème, vous pouvez utiliser un autre compte prenant en charge l’authentification multifacteur avec l’un des deux modes d’authentification précédents, ou vous pouvez également assouplir temporairement l’exigence d’authentification multifacteur pour l’inscription d’un appareil Azure. Pour ce faire, accédez au portail de gestion Azure, ensuite accédez à Azure Active Directory, puis à Appareils, Paramètres de l’appareil et définissez « Exiger l’authentification multifacteur pour joindre des appareils » sur Non. Veillez à reconfigurer ce paramètre sur Oui une fois l’inscription terminée.
+        >
+        > Nous vous recommandons de contourner les exigences de l’authentification multifacteur à des fins de test uniquement.
 
        Ces exemples fonctionnent uniquement si l’utilisateur actuellement connecté est également un administrateur de domaine Active Directory pour le domaine racine. Si ce n’est pas le cas, vous pouvez fournir d’autres informations d’identification de domaine via le paramètre *-ForestCredential*.
 

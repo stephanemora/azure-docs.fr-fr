@@ -6,14 +6,14 @@ author: yashesvi
 manager: yashar
 ms.service: billing
 ms.topic: conceptual
-ms.date: 07/03/2019
+ms.date: 07/19/2019
 ms.author: banders
-ms.openlocfilehash: cea2c8e6d476c3ea2799337ab2da1f9406731814
-ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
+ms.openlocfilehash: 08c9f958f5103da9961f4c2d29be97f455cecc4b
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67565361"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359270"
 ---
 # <a name="prepay-for-sql-data-warehouse-charges-with-reserved-capacity"></a>Prépayer SQL Data Warehouse avec une capacité réservée
 
@@ -46,26 +46,26 @@ Par exemple, supposons que votre consommation totale de SQL Data Warehouse est D
 1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
 2. Sélectionnez **Tous les services** > **Réservations**.
 3. Sélectionnez un abonnement. Utilisez la liste Abonnement pour choisir l’abonnement à utiliser pour payer la capacité réservée. Les coûts initiaux de la capacité réservée sont facturés conformément au mode de paiement défini sur l’abonnement. Le type d’abonnement doit être Accord Entreprise (numéros de l’offre : MS-AZR-0017P ou MS-AZR-0148P) ou Paiement à l’utilisation (numéros de l’offre : MS-AZR-0003P ou MS-AZR-0023P).
-  - Pour un abonnement Entreprise, les frais sont déduits du solde d’engagement monétaire de l’inscription ou facturés comme un dépassement.
-  - Pour un abonnement Paiement à l’utilisation, les frais sont facturés sur le mode de paiement par carte de crédit ou par facture défini sur l’abonnement.
+   - Pour un abonnement Entreprise, les frais sont déduits du solde d’engagement monétaire de l’inscription ou facturés comme un dépassement.
+   - Pour un abonnement Paiement à l’utilisation, les frais sont facturés sur le mode de paiement par carte de crédit ou par facture défini sur l’abonnement.
 4. Sélectionnez une étendue. Utilisez la liste Étendue pour choisir une étendue d’abonnement.
-  - **Étendue de groupe de ressources unique** : applique la remise de réservation aux ressources correspondantes incluses dans le groupe de ressources sélectionné uniquement.
-  - **Étendue d’abonnement unique** : applique la remise de réservation aux ressources correspondantes incluses dans l’abonnement sélectionné.
-  - **Étendue partagée** : applique la remise de réservation aux ressources correspondantes dans les abonnements éligibles inclus dans le contexte de facturation. Pour les clients Contrat Entreprise, le contexte de facturation correspond à l’inscription. Pour les abonnements individuels utilisant les tarifs du paiement à l’utilisation, l’étendue de facturation correspond à tous les abonnements éligibles créés par l’administrateur de compte.
-    - Pour les clients Entreprise, le contexte de facturation est défini par l’inscription EA.
-    - Pour les clients Paiement à l’utilisation, l’étendue partagée correspond à tous les abonnements Paiement à l’utilisation créés par l’administrateur de compte.
+   - **Étendue de groupe de ressources unique** : applique la remise de réservation aux ressources correspondantes incluses dans le groupe de ressources sélectionné uniquement.
+   - **Étendue d’abonnement unique** : applique la remise de réservation aux ressources correspondantes incluses dans l’abonnement sélectionné.
+   - **Étendue partagée** : applique la remise de réservation aux ressources correspondantes dans les abonnements éligibles inclus dans le contexte de facturation. Pour les clients Contrat Entreprise, le contexte de facturation correspond à l’inscription. Pour les abonnements individuels utilisant les tarifs du paiement à l’utilisation, l’étendue de facturation correspond à tous les abonnements éligibles créés par l’administrateur de compte.
+   - Pour les clients Entreprise, le contexte de facturation est défini par l’inscription EA.
+   - Pour les clients Paiement à l’utilisation, l’étendue partagée correspond à tous les abonnements Paiement à l’utilisation créés par l’administrateur de compte.
 5. Sélectionnez une région éligible pour la capacité réservée.
 6. Choisissez une quantité. Entrez le nombre d’unités de calcul Data Warehouse que vous voulez acheter.    
-  Par exemple, une quantité de 30 correspond à une réservation de capacité de 3 000 cDWU par heure.
+   Par exemple, une quantité de 30 correspond à une réservation de capacité de 3 000 cDWU par heure.
 7. Examinez le coût de réservation de capacité réservée SQL Data Warehouse dans la section **Coûts**.
 8. Sélectionnez **Achat**.
 9. Sélectionnez **Afficher cette réservation** pour voir le statut de votre achat.
 
 ## <a name="cancellations-and-exchanges"></a>Annulations et échanges
 
-Si vous êtes amené à annuler votre capacité réservée Azure SQL Data Warehouse, des frais de résiliation anticipée de 12 % peuvent s’appliquer. Les remboursements sont basés sur le tarif le plus bas de votre prix d’achat ou le prix actuel de la réservation. Les remboursements sont limités à 50 000 USD par an. Le remboursement que vous recevez correspond au solde restant au prorata moins les frais de résiliation anticipée de 12 %. Pour demander une annulation, accédez à la réservation dans le Portail Azure et sélectionnez **Remboursement** pour créer une demande de support.
+Si vous êtes amené à annuler votre capacité réservée Azure SQL Data Warehouse, des frais de résiliation anticipée de 12 % peuvent s’appliquer. Les remboursements sont basés sur le tarif le plus bas de votre prix d’achat ou le prix actuel de la réservation. Les remboursements sont limités à 50 000 USD par an. Le remboursement que vous recevez correspond au solde restant au prorata moins les frais de résiliation anticipée de 12 %. Pour annuler, accédez à la réservation dans le portail Azure, puis sélectionnez **Remboursement**.
 
-Si vous devez modifier la région ou la durée de votre capacité réservée SQL Data Warehouse, vous pouvez l’échanger contre une autre réservation de valeur égale ou supérieure. La date de début du terme de la nouvelle réservation ne couvre pas la réservation échangée. La terme d’un an ou de trois ans commence à courir lorsque vous créez la nouvelle réservation. Pour demander un échange, ouvrez la réservation dans le portail Azure et sélectionnez **Échange** pour créer une demande de support.
+Si vous devez modifier la région ou la durée de votre capacité réservée SQL Data Warehouse, vous pouvez l’échanger contre une autre réservation de valeur égale ou supérieure. La date de début du terme de la nouvelle réservation ne couvre pas la réservation échangée. La terme d’un an ou de trois ans commence à courir lorsque vous créez la nouvelle réservation. Pour échanger, ouvrez la réservation dans le portail Azure, puis sélectionnez **Échanger**.
 
 Pour plus d’informations sur l’échange ou le remboursement des réservations, voir [Échanges et remboursements de réservations](billing-azure-reservations-self-service-exchange-and-refund.md).
 
