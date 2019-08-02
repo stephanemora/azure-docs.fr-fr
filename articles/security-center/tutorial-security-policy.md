@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 5/05/2019
+ms.date: 7/18/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 7ff05421222ff0f4312d703366cfd443eee06450
-ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
+ms.openlocfilehash: 4550532d36753d9b8ed472193bc833855ddd34c9
+ms.sourcegitcommit: da0a8676b3c5283fddcd94cdd9044c3b99815046
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67551725"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68314915"
 ---
 # <a name="working-with-security-policies"></a>Utilisation de stratégies de sécurité
 
@@ -71,7 +71,7 @@ Pour afficher vos stratégies de sécurité dans Security Center :
    Dans l’écran **Gestion de stratégie**, vous pouvez voir le nombre de groupes d’administration, d’abonnements et d’espaces de travail, ainsi que votre structure de groupes d’administration.
 
    > [!NOTE]
-   > - Le tableau de bord Security Center peut afficher sous **Couverture de l’abonnement** un nombre d’abonnements plus élevé que celui indiqué sous **Gestion de stratégie**. Couverture de l’abonnement montre le nombre d’abonnements Standard, Gratuits et « Non couverts ». Security Center n’est pas activé pour les abonnements « Non couverts », et ceux-ci ne sont pas affichés sous **Gestion de stratégie**.
+   > Le tableau de bord Security Center peut afficher sous **Couverture de l’abonnement** un nombre d’abonnements plus élevé que celui indiqué sous **Gestion de stratégie**. Couverture de l’abonnement montre le nombre d’abonnements Standard, Gratuits et « Non couverts ». Security Center n’est pas activé pour les abonnements « Non couverts », et ceux-ci ne sont pas affichés sous **Gestion de stratégie**.
    >
 
 2. Sélectionnez le groupe d’administration ou l’abonnement dont vous souhaitez afficher les stratégies.
@@ -84,10 +84,10 @@ Pour afficher vos stratégies de sécurité dans Security Center :
    ![Écran des stratégies](./media/security-center-policies/policy-screen.png)
 
 > [!NOTE]
-> - Lorsque vous affichez les stratégies attribuées, vous pouvez voir plusieurs affectations et comment chacune d’elles est configurée individuellement.
+> Lorsque vous affichez les stratégies attribuées, vous pouvez voir plusieurs affectations et comment chacune d’elles est configurée individuellement.
 
 ## <a name="edit-security-policies"></a>Modifier des stratégies de sécurité
-Vous pouvez modifier la stratégie de sécurité par défaut pour chacun de vos groupes d’administration et abonnements Azure dans [Azure Policy](../governance/policy/tutorials/create-and-manage.md). Pour modifier une stratégie de sécurité, vous devez avoir le rôle d’administrateur de la sécurité, de propriétaire ou de collaborateur pour l’abonnement concerné ou le groupe de gestion dans laquelle elle se trouve.
+Vous pouvez modifier la stratégie de sécurité par défaut pour chacun de vos groupes d’administration et abonnements Azure dans [Azure Policy](../governance/policy/tutorials/create-and-manage.md). Pour modifier une stratégie de sécurité, vous devez avoir le rôle de propriétaire ou d’administrateur de la sécurité pour l’abonnement concerné ou le groupe de gestion dans laquelle elle se trouve.
 
 Pour obtenir des instructions sur la façon de modifier une stratégie de sécurité dans Azure Policy, consultez [Créer et gérer des stratégies pour appliquer la conformité](../governance/policy/tutorials/create-and-manage.md).
 
@@ -145,6 +145,7 @@ Dans les exemples suivants, remplacez les variables suivantes :
 
 Cet exemple vous montre comment affecter l’initiative Security Center intégrée sur un abonnement ou un groupe d’administration :
  
+ ```
     PUT  
     https://management.azure.com/{scope}/providers/Microsoft.Authorization/policyAssignments/{policyAssignmentName}?api-version=2018-05-01 
 
@@ -169,6 +170,7 @@ Cet exemple vous montre comment affecter l’initiative Security Center intégr�
     } 
 
     } 
+ ```
 
 Cet exemple vous montre comment affecter l’initiative Security Center intégrée sur un abonnement, avec les stratégies suivantes désactivées : 
 
@@ -178,16 +180,16 @@ Cet exemple vous montre comment affecter l’initiative Security Center intégr�
 
 - Protection du point de terminaison (« endpointProtectionMonitoringEffect ») 
 
-
+ ```
     PUT https://management.azure.com/{scope}/providers/Microsoft.Authorization/policyAssignments/{policyAssignmentName}?api-version=2018-05-01 
     
-    Corps de la requête (JSON) 
+    Request Body (JSON) 
     
     { 
     
       "properties":{ 
     
-    "displayName":"Activer la surveillance dans Azure Security Center", 
+    "displayName":"Enable Monitoring in Azure Security Center", 
     
     "metadata":{ 
     
@@ -197,25 +199,25 @@ Cet exemple vous montre comment affecter l’initiative Security Center intégr�
     
     "policyDefinitionId":"/providers/Microsoft.Authorization/policySetDefinitions/1f3afdf9-d0c9-4c3d-847f-89da613e70a8", 
     
-    "paramètres":{ 
+    "parameters":{ 
     
-    "systemUpdatesMonitoringEffect":{"value":"Désactivé"}, 
+    "systemUpdatesMonitoringEffect":{"value":"Disabled"}, 
     
-    "systemConfigurationsMonitoringEffect":{"value":"Désactivé"}, 
+    "systemConfigurationsMonitoringEffect":{"value":"Disabled"}, 
     
-    "endpointProtectionMonitoringEffect":{"value":"Désactivé"}, 
+    "endpointProtectionMonitoringEffect":{"value":"Disabled"}, 
     
     }, 
     
      } 
     
     } 
-
+ ```
 Cet exemple vous montre comment supprimer une affectation :
-
+ ```
     DELETE   
     https://management.azure.com/{scope}/providers/Microsoft.Authorization/policyAssignments/{policyAssignmentName}?api-version=2018-05-01 
-
+ ```
 
 ### Informations de référence sur les noms de stratégies <a name="policy-names"></a>
 

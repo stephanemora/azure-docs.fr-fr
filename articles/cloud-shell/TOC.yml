@@ -1,4 +1,4 @@
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   href: overview.md
 - name: Démarrage rapide
   items:
@@ -7,9 +7,7 @@
     - name: PowerShell - Démarrage rapide
       href: quickstart-powershell.md
 - name: Outils et fonctionnalités
-  items:
-    - name: Outils et fonctionnalités
-      href: features.md
+  href: features.md
 - name: Tutoriels
   items:
     - name: Ansible
@@ -40,7 +38,7 @@
   href: troubleshooting.md
 - name: Informations de référence
   items:
-    - name: Azure CLI
+    - name: D’Azure CLI
       href: /cli/azure
     - name: Azure PowerShell
       href: /powershell/azure

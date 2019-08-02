@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide Java : Créer, charger et interroger des index à l’aide des API REST de la recherche Azure - Recherche Azure'
+title: 'Démarrage rapide : Créer un index Recherche Azure en Java'
 description: Explique comment créer un index, charger des données et exécuter des requêtes à l’aide de Java et des API REST de Recherche Azure.
 services: search
 author: jj09
@@ -8,13 +8,13 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 08/26/2018
 ms.author: jjed
-ms.custom: seodec2018
-ms.openlocfilehash: 83f41f248d99ce55daef40e168e5f7b175e08107
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.custom: seodec2018, seo-java-july2019
+ms.openlocfilehash: 7172cd01ca881ec3027854444107b0744b65feb3
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67450103"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68489791"
 ---
 # <a name="quickstart-create-an-azure-search-index-in-java"></a>Démarrage rapide : Créer un index Recherche Azure en Java
 > [!div class="op_single_selector"]
@@ -64,7 +64,7 @@ Tous les appels d’API REST dans le service Recherche Azure exigent que vous fo
 3. Sélectionnez le service que vous souhaitez utiliser.
 4. Le tableau de bord des services affiche des vignettes contenant des informations essentielles, ainsi que l'icône de clé permettant d'accéder aux clés administrateur.
    
-      ![][3]
+      ![Capture d’écran montrant comment accéder aux clés d’administration à partir du tableau de bord du service][3]
 5. Copiez l'URL du service et une clé d’administration. Vous en aurez besoin plus tard, pour les ajouter au fichier **config.properties** .
 
 ## <a name="download-the-sample-files"></a>Télécharger les fichiers exemples
@@ -77,10 +77,10 @@ Toutes les modifications et instructions d'exécution ultérieures seront effect
 ## <a name="import-project"></a>Importer le projet
 1. Dans Eclipse, choisissez **File** > **Import** > **General** > **Existing Projects into Workspace**.
    
-    ![][4]
+    ![Capture d’écran montrant comment importer un projet existant][4]
 2. Dans **Select root directory**, accédez au dossier contenant les fichiers exemples. Sélectionnez le dossier qui contient le dossier .project. Le projet doit s'afficher sélectionné dans la liste **Projects** .
    
-    ![][12]
+    ![Capture d’écran montrant la liste des projets dans la fenêtre Importer des projets][12]
 3. Cliquez sur **Terminer**.
 4. Utilisez **Project Explorer** pour afficher et modifier les fichiers. Si l’explorateur n’est pas ouvert, cliquez sur **Window** > **Show View** > **Project Explorer** ou utilisez le raccourci.
 
@@ -89,18 +89,18 @@ Toutes les modifications et instructions d'exécution ultérieures seront effect
 2. Reportez-vous aux étapes précédentes de cet article. Vous y trouverez l’URL de service et le paramètre `api-key` du service dans le [Portail Microsoft Azure](https://portal.azure.com) afin d’obtenir les valeurs que vous allez saisir dans le fichier **config.properties**.
 3. Dans le fichier **config.properties**, remplacez « API Key » par le paramètre `api-key` de votre service. Ensuite, le nom du service (le premier composant de l’URL https://servicename.search.windows.net) remplace « ServiceName » dans le même fichier.
    
-    ![][5]
+    ![Capture d’écran montrant comment remplacer la clé API][5]
 
 ## <a name="configure-the-project-build-and-runtime-environments"></a>Configuration des environnements de projet, de génération et d'exécution
 1. Dans Project Explorer dans Eclipse, cliquez avec le bouton droit sur le projet, puis cliquez sur **Properties** > **Project Facets**.
 2. Sélectionnez **Dynamic Web Module**, **Java** et **JavaScript**.
    
-    ![][6]
+    ![Capture d’écran montrant comment sélectionner les facettes de projet pour votre projet][6]
 3. Cliquez sur **Appliquer**.
 4. Sélectionnez **Window** > **Preferences** > **Server** > **Runtime Environments** > **Add..** .
 5. Développez Apache et sélectionnez la version du serveur Apache Tomcat que vous avez précédemment installée. Sur notre système, nous avons installé la version 8.
    
-    ![][7]
+    ![Capture d’écran montrant où, dans la fenêtre de l’environnement d’exécution, vous pouvez sélectionner votre version d’Apache Tomcat][7]
 6. Dans la page suivante, spécifiez le répertoire d'installation de Tomcat. Sur un ordinateur Windows, il s’agit très probablement du répertoire C:\Program Files\Apache Software Foundation\Tomcat *version*.
 7. Cliquez sur **Terminer**.
 8. Sélectionnez **Window** > **Preferences** > **Java** > **Installed JREs** > **Add**.
@@ -110,17 +110,17 @@ Toutes les modifications et instructions d'exécution ultérieures seront effect
 12. Accédez à **Program Files** > **Java** et sélectionnez le JDK que vous avez installé précédemment. Il est important de sélectionner le JDK comme JRE.
 13. Dans Installed JREs, sélectionnez le **JDK**. Vos paramètres doivent être similaires au contenu de la capture d'écran suivante.
     
-    ![][9]
+    ![Capture d’écran montrant comment sélectionner JDK comme JRE installé][9]
 14. Si vous le souhaitez, sélectionnez **Window** > **Web Browser** > **Internet Explorer** pour ouvrir l’application dans un navigateur externe. Un navigateur externe vous donne une meilleure expérience de l’application Web.
     
-    ![][8]
+    ![Capture d’écran montrant comment sélectionner Internet Explorer comme fenêtre de navigation externe][8]
 
 La phase de configuration est maintenant terminée. Vous allez maintenant créer et exécuter le projet.
 
 ## <a name="build-the-project"></a>Créer le projet
 1. Dans Project Explorer, cliquez avec le bouton droit sur le nom du projet et sélectionnez **Run As** > **Maven build...** pour configurer le projet.
    
-    ![][10]
+    ![Capture d’écran montrant comment choisir Maven Build dans la fenêtre de l’Explorateur de projets][10]
 2. Dans le champ Goals de Edit Configuration, saisissez « clean install », puis cliquez sur **Run**.
 
 Des messages d'état s’affichent dans la fenêtre de la console. Le message BUILD SUCCESS indique que le projet a été généré sans erreur.
@@ -147,7 +147,7 @@ Le jeu de données USGS comprend les enregistrements qui correspondent à l'Éta
 
 Saisissez un terme pour que le moteur de recherche puisse travailler. Essayez d'entrer le nom d’une figure locale. « Roger Williams » fut le premier gouverneur de Rhode Island. De nombreux parcs, bâtiments et écoles portent son nom.
 
-![][11]
+![Capture d’écran montrant comment effectuer une recherche sur des données de groupes de sécurité universels][11]
 
 Vous pouvez également essayer les termes suivants :
 

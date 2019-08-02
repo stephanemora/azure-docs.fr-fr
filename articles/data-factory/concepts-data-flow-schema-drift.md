@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/04/2018
-ms.openlocfilehash: 6fd610afc0a21a97a8544b9e4b173f207f5fb50f
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 562daa024985a546ffb49c4da11eace3bc81a659
+ms.sourcegitcommit: da0a8676b3c5283fddcd94cdd9044c3b99815046
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67722884"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68314820"
 ---
 # <a name="mapping-data-flow-schema-drift"></a>Dérive de schéma de mappage de flux de données
 
@@ -25,7 +25,8 @@ Afin de vous protéger contre la dérive de schéma, il est important de dispose
 * Définir des paramètres de transformation qui peuvent fonctionner avec des modèles de données et non avec des champs et des valeurs codés en dur
 * Définir des expressions qui comprennent les modèles pour correspondre aux champs entrants, au lieu d’utiliser des champs nommés
 
-## <a name="how-to-implement-schema-drift"></a>Comment implémenter une dérive de schéma
+## <a name="how-to-implement-schema-drift-in-adf-mapping-data-flows"></a>Comment implémenter la dérive de schéma dans fonctionnalité de mappage de flux de données d’Azure Data Factory
+Azure Data Factory prend en charge en mode natif des schémas flexibles qui passent d’une exécution à une autre afin que vous puissiez générer une logique de transformation de données générique sanscdevoir recompiler vos flux de données.
 
 * Choisissez « Allow Schema Drift » (« Autoriser la dérive de schéma ») dans votre transformation de la source
 
@@ -33,11 +34,13 @@ Afin de vous protéger contre la dérive de schéma, il est important de dispose
 
 * Lorsque vous avez sélectionné cette option, tous les champs entrants sont lus dans votre source à chaque exécution du flux de données et transmis au récepteur dans tout le flux.
 
-* Assurez-vous d’utiliser « Auto-Map » (« Mappage automatique ») pour mapper tous les nouveaux champs dans la transformation du récepteur afin que tous les nouveaux champs soient sélectionnés et dirigés dans votre destination.
+* Par défaut, toutes les colonnes nouvellement détectées (colonnes dérivées) arrivent en tant que type de données chaîne. Dans votre transformation source, choisissez « Infer drifted column types » (Inférer les types de colonnes dérivés) si vous souhaitez qu’Azure Data Factory infère automatiquement les types de données à partir de la source.
+
+* Veillez à utiliser « Auto-Map » (Mappage automatique) pour mapper tous les nouveaux champs dans la transformation du récepteur afin que ceux-ci soient sélectionnés et dirigés vers votre destination, et définissez également « Allow Schema Drift » (Autoriser la dérive de schéma) sur le Récepteur.
 
 <img src="media/data-flow/automap.png" width="400">
 
-* Tout fonctionnera lorsque de nouveaux champs seront introduits dans ce scénario avec un simple mappage Source -> Détecteur (également appelé Copie).
+* Tout fonctionnera lorsque de nouveaux champs seront introduits dans ce scénario avec un simple mappage de source à récepteur (également appelé Copie).
 
 * Pour ajouter des transformations dans le flux de travail qui gère la dérive de schéma, vous pouvez utiliser la correspondance de modèles pour faire correspondre les colonnes par nom, type et valeur.
 
@@ -67,9 +70,11 @@ Vous pouvez tester cela avec l’exemple Data Flow « Taxi Demo » d’Azure D
 <img src="media/data-flow/taxidrift2.png" width="800">
 
 ## <a name="access-new-columns-downstream"></a>Accéder aux nouvelles colonnes en aval
+Quand vous générez de nouvelles colonnes avec des modèles de colonnes, vous pouvez y accéder par la suite dans vos transformations de flux de données à l’aide des méthodes suivantes :
 
-Quand vous générez de nouvelles colonnes avec des modèles de colonnes, vous pouvez y accéder plus loin dans vos transformations de flux de données à l’aide de la fonction d’expression « byName ».
+* Utilisez « byPosition » pour identifier les nouvelles colonnes par leur numéro de position.
+* Utilisez « byName » pour identifier les nouvelles colonnes par leur nom.
+* Dans les modèles de colonne, utilisez les paramètres « Name » (Nom), « Stream » (Flux), « Position » ou « Type », ou n’importe quelle combinaison de ceux-ci pour identifier de nouvelles colonnes.
 
 ## <a name="next-steps"></a>Étapes suivantes
-
 Dans le [langage d’expression de flux de données](data-flow-expression-functions.md), vous trouverez des fonctionnalités supplémentaires pour les modèles de colonnes et la dérive de schéma, notamment « byName » et « byPosition ».
