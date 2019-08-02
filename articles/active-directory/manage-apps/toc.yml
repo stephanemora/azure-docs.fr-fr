@@ -221,6 +221,8 @@
           items:
             - name: Provisionnement d’utilisateurs pour les applications de galerie
               href: application-provisioning-config-how-to.md
+            - name: Activer le provisionnement utilisateur automatique pour les applications multilocataires
+              href: isv-automatic-provisioning-multi-tenant-apps.md
             - name: Configurer le provisionnement d’utilisateurs automatique
               href: configure-automatic-user-provisioning-portal.md
             - name: Personnaliser les attributs de l’application

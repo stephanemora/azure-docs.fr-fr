@@ -2,7 +2,7 @@
   href: index.yml
 - name: Vue d'ensemble
   items:
-    - name: 'Utilisateurs, groupes, licences et rôles'
+    - name: 'Utilisateurs, groupes, licences et rôles Azure AD'
       href: directory-overview-user-model.md
 - name: Démarrages rapides
   items:
@@ -10,6 +10,8 @@
       href: /azure/active-directory/fundamentals/add-users-azure-active-directory?context=azure/active-directory/users-groups-roles/context/ugr-context
     - name: Attribuer des licences à des utilisateurs
       href: /azure/active-directory/fundamentals/license-users-groups?context=azure/active-directory/users-groups-roles/context/ugr-context
+    - name: Attribuer un rôle avec une étendue de ressources
+      href: roles-quickstart-app-registration-limits.md
     - name: Définir l’expiration de groupes
       href: groups-quickstart-expiration.md
     - name: Définir la stratégie de noms de groupes
@@ -126,10 +128,24 @@
           href: directory-assign-admin-roles.md
         - name: Afficher et attribuer des rôles
           href: directory-manage-roles-portal.md
-        - name: Attribuer des rôles avec PowerShell
+        - name: Attribuer des rôles personnalisés dans l’API Graph
           href: roles-assign-powershell.md
-        - name: Déléguer les rôles d’administration d’applications
-          href: roles-delegate-app-roles.md
+        - name: Aperçu des rôles personnalisés
+          items:
+            - name: Aperçu des rôles personnalisés
+              href: roles-custom-overview.md
+            - name: Créer un rôle personnalisé
+              href: roles-create-custom.md
+            - name: Voir les attributions des rôles personnalisés
+              href: roles-view-assignments.md
+            - name: Attribuer des rôles dans le centre d’administration Azure AD
+              href: /azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
+            - name: Attribuer des rôles personnalisés dans l’API Graph
+              href: roles-assign-graph.md
+            - name: Autorisations d’aperçu des rôles personnalisés
+              href: roles-custom-available-permissions.md
+            - name: Déléguer les autorisations d’administration d’applications
+              href: roles-delegate-app-roles.md
         - name: Rôles à privilèges minimum par tâche
           href: roles-delegate-by-task.md
         - name: "Rôles Microsoft\_365"

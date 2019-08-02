@@ -9,18 +9,18 @@
       items:
         - name: Développement en équipe
           href: quickstart-team-development.md
-        - name: Exécuter une application
+        - name: Déboguer et itérer
+          items:
+            - name: Utiliser Visual Studio Code et Java
+              href: quickstart-java.md
+            - name: Utiliser Visual Studio Code et .NET Core
+              href: quickstart-netcore.md
+            - name: Utiliser Visual Studio Code et Node.js
+              href: quickstart-nodejs.md
+            - name: Utiliser Visual Studio et .NET Core
+              href: quickstart-netcore-visualstudio.md
+        - name: Développer avec l’interface de ligne de commande
           href: quickstart-cli.md
-        - name: Exécuter une application avec un fichier Dockerfile
-          href: quickstart-cli-dockerfile.md
-        - name: Exécuter et déboguer Java avec VS Code
-          href: quickstart-java.md
-        - name: Exécuter et déboguer .NET Core avec VS Code
-          href: quickstart-netcore.md
-        - name: Exécuter et déboguer Node.js avec VS Code
-          href: quickstart-nodejs.md
-        - name: Exécuter et déboguer .NET Core avec Visual Studio
-          href: quickstart-netcore-visualstudio.md
     - name: Tutoriels
       items:
         - name: Java (VS Code & CLI)

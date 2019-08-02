@@ -10,10 +10,10 @@ ms.date: 03/21/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
 ms.openlocfilehash: 719237f63d387cf56ab7947f8f168e0aa4351376
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68325583"
 ---
 # <a name="tutorial-create-a-container-image-for-deployment-to-azure-container-instances"></a>Tutoriel : Créer une image conteneur à déployer sur Azure Container Instances
@@ -49,7 +49,7 @@ Vous pouvez également [télécharger l’archive ZIP][aci-helloworld-zip] direc
 
 ## <a name="build-the-container-image"></a>Générer l’image de conteneur
 
-Le fichier Dockerfile de l’exemple d’application montre comment le conteneur est généré. La génération du conteneur commence par une [image Node.js officielle][docker-hub-nodeimage] based on [Alpine Linux][alpine-linux] basée sur Linux Alpine, une petite distribution bien adaptée aux conteneurs. Les fichiers d’application sont ensuite copiés dans le conteneur, les dépendances sont installées à l’aide de Node Package Manager, et l’application démarre.
+Le fichier Dockerfile de l’exemple d’application montre comment le conteneur est généré. La génération du conteneur commence par une [image officielle Node.js][docker-hub-nodeimage] basée sur [Linux Alpine][alpine-linux], une petite distribution parfaitement adaptée aux conteneurs. Les fichiers d’application sont ensuite copiés dans le conteneur, les dépendances sont installées à l’aide de Node Package Manager, et l’application démarre.
 
 ```Dockerfile
 FROM node:8.9.3-alpine
