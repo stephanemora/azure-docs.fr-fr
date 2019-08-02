@@ -101,14 +101,18 @@
       items:
         - name: Gérer votre application
           href: howto-administer.md
+        - name: Gérer des utilisateurs et des rôles
+          href: howto-manage-users-roles.md
+        - name: Consulter votre facture
+          href: howto-view-bill.md
+        - name: Personnaliser l’interface utilisateur de l’application
+          href: howto-customize-ui.md
         - name: Préparer et charger des images
           href: howto-prepare-images.md
         - name: Configurer le tableau de bord de l’application
           href: howto-configure-homepage.md
         - name: Utiliser des vignettes de tableau de bord
           href: howto-use-tiles.md
-        - name: Personnaliser l’interface utilisateur de l’application
-          href: howto-customize-ui.md
         - name: Utiliser des modèles d’application
           href: howto-use-app-templates.md
         - name: Gérer à partir du portail Azure
