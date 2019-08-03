@@ -233,7 +233,7 @@ Pour copier des données depuis ou vers Azure SQL Database, les propriétés sui
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété **type** du jeu de données doit être définie sur **AzureSqlTable**. | OUI |
+| type | La propriété **type** du jeu de données doit être définie sur **AzureSqlTable**. | OUI |
 | tableName | Nom de la table ou de la vue dans l’instance Azure SQL Database à laquelle le service lié fait référence. | Non pour Source, Oui pour Récepteur |
 
 #### <a name="dataset-properties-example"></a>Exemple de propriétés du jeu de données
@@ -266,7 +266,7 @@ Pour copier des données d’Azure SQL Database, affectez la valeur **SqlSource*
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété **type** de la source de l’activité de copie doit être définie sur **SqlSource**. | OUI |
+| type | La propriété **type** de la source de l’activité de copie doit être définie sur **SqlSource**. | OUI |
 | sqlReaderQuery | Cette propriété utilise la requête SQL personnalisée pour lire les données. Par exemple `select * from MyTable`. | Non |
 | sqlReaderStoredProcedureName | Nom de la procédure stockée qui lit les données de la table source. La dernière instruction SQL doit être une instruction SELECT dans la procédure stockée. | Non |
 | storedProcedureParameters | Paramètres de la procédure stockée.<br/>Les valeurs autorisées sont des paires de noms ou de valeurs. Les noms et la casse des paramètres doivent correspondre aux noms et à la casse des paramètres de la procédure stockée. | Non |
@@ -372,7 +372,7 @@ Pour copier des données vers Azure SQL Database, affectez la valeur **SqlSink**
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété **type** du récepteur de l’activité de copie doit être définie sur **SqlSink**. | OUI |
+| type | La propriété **type** du récepteur de l’activité de copie doit être définie sur **SqlSink**. | OUI |
 | writeBatchSize | Nombre de lignes à insérer dans le tableau SQL *par lot*.<br/> La valeur autorisée est **integer** (nombre de lignes). Par défaut, Azure Data Factory détermine de façon dynamique la taille de lot appropriée selon la taille de ligne. | Non |
 | writeBatchTimeout | Temps d’attente pour que l’opération d’insertion de lot soit terminée avant d’expirer.<br/> La valeur autorisée est **timespan**. Par exemple : « 00:30:00 » (30 minutes). | Non |
 | preCopyScript | Spécifiez une requête SQL pour l’activité de copie à exécuter avant l’écriture de données dans Azure SQL Database. Elle n'est appelée qu'une seule fois par copie. Utilisez cette propriété pour nettoyer les données préchargées. | Non |
