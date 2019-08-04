@@ -12,17 +12,17 @@ author: garyericson
 ms.author: garye
 ms.reviewer: davidph
 manager: cgronlun
-ms.date: 05/17/2019
-ms.openlocfilehash: 12738b63be92420c5f3afea6c133522cbd97f849
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.date: 07/29/2019
+ms.openlocfilehash: 9f16ebc5acff7bbccc9de28e2fab0d223c6e244b
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66420227"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68640015"
 ---
 # <a name="tutorial-build-a-clustering-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Didacticiel : Créer un modèle de clustering en R avec Azure SQL Database Machine Learning Services (préversion)
 
-Dans la deuxième partie de ce tutoriel, vous allez créer un modèle k-moyennes en R pour effectuer un clustering en R avec Azure SQL Database Machine Learning Services (préversion).
+Dans la deuxième partie de cette série de didacticiels qui en compte trois, vous allez créer un modèle k-moyennes dans R pour effectuer le clustering. Dans la partie suivante de cette série, vous allez déployer ce modèle dans une base de données SQL avec Azure SQL Database Machine Learning Services (préversion).
 
 Cet article porte sur les points suivants :
 
@@ -31,9 +31,9 @@ Cet article porte sur les points suivants :
 > * Effectuer un clustering
 > * Analyser les résultats
 
-Dans la [première partie](sql-database-tutorial-clustering-model-prepare-data.md), vous avez appris à préparer les données d’une base de données Azure SQL afin d’effectuer un clustering en R.
+Dans la [première partie](sql-database-tutorial-clustering-model-prepare-data.md), vous avez appris à préparer les données d’une base de données Azure SQL afin d’effectuer un clustering.
 
-Dans la [troisième partie](sql-database-tutorial-clustering-model-deploy.md), vous allez voir comment créer une procédure stockée dans une base de données Azure SQL qui vous permettra d’effectuer un clustering basé sur les nouvelles données.
+Dans la [troisième partie](sql-database-tutorial-clustering-model-deploy.md), vous allez découvrir comment créer une procédure stockée dans une base de données Azure SQL qui vous permettra d’effectuer un clustering en R basé sur des nouvelles données.
 
 [!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 

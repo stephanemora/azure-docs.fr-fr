@@ -1,5 +1,5 @@
 ---
-title: Guide pratique pour bien démarrer avec l’exploration de connaissances (préversion) - Recherche Azure
+title: Prise en main de la base de connaissances (préversion) – Recherche Azure
 description: Familiarisez-vous avec les étapes d'envoi de documents enrichis créés par les pipelines d'indexation IA de Recherche Azure vers une base de connaissances de votre compte de stockage Azure. De là, vous pouvez consulter, remodeler et utiliser des documents enrichis dans Recherche Azure et dans d'autres applications.
 manager: cgronlun
 author: HeidiSteen
@@ -8,19 +8,19 @@ ms.service: search
 ms.topic: quickstart
 ms.date: 06/29/2019
 ms.author: heidist
-ms.openlocfilehash: e50dfcdc5ac2fbe2435066546a340874e1b8f682
-ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
+ms.openlocfilehash: 5794a24931b613bf1bdddd983799367bb02cf44d
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67551067"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68641010"
 ---
-# <a name="how-to-get-started-with-knowledge-mining-in-azure-search"></a>Guide pratique pour bien démarrer avec l’exploration de connaissances dans Recherche Azure
+# <a name="how-to-get-started-with-knowledge-store-in-azure-search"></a>Prise en main de la base de connaissances dans Recherche Azure
 
 > [!Note]
 > La base de connaissances est en préversion et n’a pas été conçue pour la production. L’[API REST version 2019-05-06-Preview](search-api-preview.md) fournit cette fonctionnalité. Il n’y a pas de prise en charge de .NET SDK pour l’instant.
 >
-La [base de connaissances](knowledge-store-concept-intro.md) enregistre les documents enrichis par l’intelligence artificielle créés lors de l’indexation dans votre compte de stockage Azure pour l’exploration de connaissances en aval dans d’autres applications. Vous pouvez également utiliser des enrichissements enregistrés pour comprendre et affiner un pipeline d'indexation Recherche Azure. 
+La [base de connaissances](knowledge-store-concept-intro.md) enregistre les documents enrichis par l’intelligence artificielle créés lors de l’indexation dans votre compte de stockage Azure pour l’exploration de données en aval dans d’autres applications. Vous pouvez également utiliser des enrichissements enregistrés pour comprendre et affiner un pipeline d'indexation Recherche Azure. 
 
 Une base de connaissances est définie par un *ensemble de compétences* et créée par un *indexeur*. L’expression physique d’une base de connaissances est spécifiée via des *projections* qui déterminent les structures de données dans le stockage. Au terme de cette procédure pas à pas, vous aurez créé tous ces objets et saurez comment ils s’assemblent. 
 

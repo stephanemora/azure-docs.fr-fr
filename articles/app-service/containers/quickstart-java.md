@@ -1,5 +1,5 @@
 ---
-title: Créer une application web Java sur Linux - Azure App Service
+title: Créer une application web Java sur Linux – Azure App Service
 description: Dans ce démarrage rapide, vous déployez votre premier programme Java Hello World dans Azure App Service sur Linux en quelques minutes.
 keywords: azure, app service, application web, linux, java, maven, démarrage rapide
 services: app-service\web
@@ -15,13 +15,13 @@ ms.devlang: Java
 ms.topic: quickstart
 ms.date: 03/27/2019
 ms.author: msangapu
-ms.custom: mvc
-ms.openlocfilehash: 30689e05a2567646ff541818dc68a90c13da7a56
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.custom: mvc, seo-java-july2019
+ms.openlocfilehash: 4f31820357048515ddf30b53a93c03f7eecec3be
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68297253"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68678214"
 ---
 # <a name="quickstart-create-a-java-app-in-app-service-on-linux"></a>Démarrage rapide : créer une application Java dans App Service sous Linux
 
@@ -63,6 +63,31 @@ Ajoutez ensuite la définition de plug-in suivante dans l’élément `<build>` 
         <groupId>com.microsoft.azure</groupId>
         <artifactId>azure-webapp-maven-plugin</artifactId>
         <version>1.7.0</version>
+        <configuration>
+            <!-- Specify v2 schema -->
+            <schemaVersion>v2</schemaVersion>
+            <!-- App information -->
+            <resourceGroup>RESOURCEGROUP_NAME</resourceGroup>
+            <appName>WEBAPP_NAME</appName>
+            <region>REGION</region>
+   
+            <!-- Java Runtime Stack for App on Linux-->
+            <runtime>
+                <os>linux</os>
+                <javaVersion>jre8</javaVersion>
+                <webContainer>tomcat 8.5</webContainer>
+            </runtime> 
+            <deployment>
+                <resources>
+                    <resource>
+                        <directory>${project.basedir}/target</directory>
+                        <includes>
+                            <include>*.war</include>
+                        </includes>
+                    </resource>
+                </resources>
+            </deployment>
+        </configuration>
     </plugin>
 </plugins>
 ```

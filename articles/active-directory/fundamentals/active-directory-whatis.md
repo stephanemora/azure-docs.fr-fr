@@ -6,16 +6,16 @@ author: msaburnley
 manager: daveba
 ms.service: active-directory
 ms.topic: overview
-ms.date: 05/08/2019
+ms.date: 07/31/2019
 ms.author: ajburnle
 ms.custom: it-pro, seodec18, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8fafa7bd95801be46025727b2261fc95bc539988
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: c3087f0ac69126c6d509eee77abe15cc35319dfb
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67440547"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68693916"
 ---
 # <a name="what-is-azure-active-directory"></a>Qu’est-ce qu’Azure Active Directory ?
 
@@ -41,16 +41,14 @@ Azure AD s’adresse aux utilisateurs suivants :
 
 Les services d’entreprise Microsoft Online comme Office 365 ou Microsoft Azure nécessitent Azure AD pour la connexion et la protection des identités. Si vous vous abonnez à un service en ligne Microsoft pour entreprise, vous disposez automatiquement d’Azure AD avec un accès à toutes les fonctionnalités gratuites.
 
-Pour enrichir votre implémentation Azure AD, vous pouvez ajouter des fonctionnalités payantes en procédant à une mise à niveau vers les licences Azure Active Directory Basic, Premium P1 ou Premium P2. Les licences payantes Azure AD s’appuient sur votre annuaire gratuit existant et couvrent le libre-service, la supervision améliorée, les rapports de sécurité et l’accès sécurisé pour vos utilisateurs mobiles.
+Pour enrichir votre implémentation Azure AD, vous pouvez ajouter des fonctionnalités payantes en procédant à une mise à niveau vers les licences Azure Active Directory Premium P1 ou Premium P2. Les licences payantes Azure AD s’appuient sur votre annuaire gratuit existant et couvrent le libre-service, la supervision améliorée, les rapports de sécurité et l’accès sécurisé pour vos utilisateurs mobiles.
 
 >[!Note]
 >Pour connaître la structure de prix de ces licences, consultez les [tarifs d’Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 >
->Les éditions Azure Active Directory, Premium P1, Premium P2 et Azure Active Directory de base ne sont actuellement pas prises en charge en Chine. Pour plus d’informations sur les tarifs d’Azure AD, contactez le [forum Azure Active Directory](https://azure.microsoft.com/support/community/?product=active-directory).
+>Les éditions Azure Active Directory, Premium P1 et Premium P2 ne sont actuellement pas prises en charge en Chine. Pour plus d’informations sur les tarifs d’Azure AD, contactez le [forum Azure Active Directory](https://azure.microsoft.com/support/community/?product=active-directory).
 
 - **Azure Active Directory Free.** Offre la gestion des utilisateurs et des groupes, la synchronisation d’annuaires locaux, des rapports de base, des changements de mot de passe en libre-service pour les utilisateurs cloud ainsi que l’authentification unique sur Azure, Office 365 et bon nombre d’applications SaaS populaires.
-
-- **Azure Active Directory Basic.** En plus des fonctionnalités Free, la licence Basic offre l’accès aux applications centrées sur le cloud, la gestion des accès par groupe, la réinitialisation libre-service des mots de passe pour les applications cloud et l’utilisation du proxy d’application Azure AD (pour publier des applications web locales à l’aide d’Azure AD).
 
 - **Azure Active Directory Premium P1.** En plus des fonctionnalités Free et Basic, la licence P1 offre à vos utilisateurs hybrides l’accès aux ressources locales et cloud. Elle prend également en charge des fonctionnalités administratives avancées, notamment les groupes dynamiques, la gestion de groupes libre-service, Microsoft Identity Manager (suite de gestion des identités et des accès locaux) et l’écriture différée dans le cloud (pour faire bénéficier à vos utilisateurs locaux de la réinitialisation de mot de passe libre-service).
 
@@ -85,7 +83,7 @@ Pour mieux comprendre Azure AD et sa documentation, nous vous recommandons de p
 
 Après avoir choisi votre licence Azure AD, vous avez accès à une partie ou à la totalité des fonctionnalités suivantes pour votre organisation :
 
-|Catégorie|Description|
+|Category|Description|
 |-------|-----------|
 |Gestion des applications|Gérez vos applications cloud et locales avec le proxy d’application, l’authentification unique, le portail Mes applications (également appelé panneau d’accès) et les applications SaaS (software as a service). Pour plus d’informations, consultez [Guide pratique pour offrir un accès à distance sécurisé aux applications locales](../manage-apps/application-proxy.md) et la [documentation sur la gestion des applications](../manage-apps/index.yml).|
 |Authentication|Gérez la réinitialisation de mot de passe libre-service Azure Active Directory, l’authentification multifacteur, la liste de mots de passe interdits et le verrouillage intelligent. Pour plus d’informations, consultez la [documentation sur Azure AD Authentication](../authentication/index.yml).|

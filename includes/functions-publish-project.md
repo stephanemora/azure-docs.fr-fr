@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/24/2019
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 48bb91b3b2e9a31de63e515edb857bc2a170ea79
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: fbb537c9584c948af37694b3bfc77a7c345e084d
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67176848"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639119"
 ---
 ## <a name="deploy-the-function-app-project-to-azure"></a>Déployer le projet d’application de fonction sur Azure
 
@@ -23,7 +23,7 @@ Une fois l'application de fonction créée dans Azure, vous pouvez utiliser la c
 func azure functionapp publish <APP_NAME>
 ```
 
-Une sortie semblable à la suivante, tronquée pour une meilleure lisibilité, s'affiche.
+Une sortie semblable à la suivante, tronquée pour en faciliter la lisibilité, s’affiche :
 
 ```output
 Getting site publishing info...
@@ -39,4 +39,4 @@ Functions in myfunctionapp:
         Invoke url: https://myfunctionapp.azurewebsites.net/api/httptrigger?code=cCr8sAxfBiow548FBDLS1....
 ```
 
-Copiez la valeur de l'URL d'appel de votre déclencheur HttpTrigger, que vous pouvez maintenant utiliser pour tester votre fonction dans Azure. L'URL contient une valeur de chaîne de requête `code` qui constitue votre clé de fonction. Cette clé empêche les autres utilisateurs d'appeler le point de terminaison de votre déclencheur HTTP dans Azure.
+Copiez la valeur `Invoke url` de votre déclencheur `HttpTrigger`, que vous pouvez désormais utiliser pour tester votre fonction dans Azure. L'URL contient une valeur de chaîne de requête `code` qui constitue votre clé de fonction. Cette clé empêche les autres utilisateurs d'appeler le point de terminaison de votre déclencheur HTTP dans Azure.

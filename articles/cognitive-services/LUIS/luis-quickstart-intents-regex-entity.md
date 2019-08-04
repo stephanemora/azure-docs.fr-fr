@@ -1,5 +1,5 @@
 ---
-title: Entité Expression régulière
+title: Entité Expression régulière – LUIS
 titleSuffix: Azure Cognitive Services
 description: Extrayez des données mises en forme de façon homogène depuis un énoncé à l’aide de l’entité Expression régulière.
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 06/03/2019
 ms.author: diberry
-ms.openlocfilehash: 5e79de8dc8b4e81f427925b6e3d662bd4931804d
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: 958d880829e9524389a25f029415786231644c04
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66497021"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563593"
 ---
 # <a name="tutorial-get-well-formatted-data-from-the-utterance"></a>Didacticiel : Obtenir des données au format approprié à partir de l’énoncé
 Dans ce tutoriel, vous créez une application pour extraire des données mises en forme de façon homogène à partir d’un énoncé avec l’entité **Expression régulière**.

@@ -5,14 +5,14 @@ author: SnehaGunda
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.topic: overview
-ms.date: 05/20/2019
+ms.date: 07/26/2019
 ms.author: sngun
-ms.openlocfilehash: bd86b230d801f5fff8a9fb0de85f9f3025527382
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: be6a402673fd2d3ba01451c6ea04e723cbdfa292
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65953454"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68597510"
 ---
 # <a name="introduction-to-azure-cosmos-db-table-api"></a>Présentation d’Azure Cosmos DB : API de table
 
@@ -22,7 +22,7 @@ ms.locfileid: "65953454"
 * [Un débit dédié](partition-data.md) partout dans le monde.
 * Des latences de quelques millisecondes au 99e centile.
 * Une haute disponibilité garantie.
-* [Une indexation secondaire automatique](https://www.vldb.org/pvldb/vol8/p1668-shukla.pdf).
+* Une indexation secondaire automatique.
 
 Les applications écrites pour le stockage de table Azure peuvent migrer vers Azure Cosmos DB à l’aide de l’API de table sans aucune modification de code, et tirer parti des fonctionnalités Premium. L’API de table a des kits de développement logiciel (SDK) pour .NET, Java, Python et Node.js.
 
@@ -34,14 +34,14 @@ Si vous utilisez actuellement le stockage de table Azure, vous bénéficiez des 
 
 | | Stockage de tables Azure | API Table d’Azure Cosmos DB |
 | --- | --- | --- |
-| Latence | Rapide, mais aucune limite supérieure sur la latence. | Une latence de quelques millisecondes pour les lectures et écritures, appuyée par des lectures avec une latence de < 10 ms et des écritures avec une latence de < 15 ms au 99e centile, à n’importe quelle échelle, n’importe où dans le monde. |
+| Latence | Rapide, mais aucune limite supérieure sur la latence. | Une latence inférieure à 10 millisecondes pour les lectures et écritures au 99e centile, à toute échelle, partout dans le monde. |
 | Débit | Modèle de débit variable. Les tables ont une limite d’évolutivité de 20 000 opérations/s. | Hautement évolutif avec un [débit dédié réservé par table](request-units.md), qui est appuyé par des contrats de niveau de service. Les comptes n’ont aucune limite supérieure sur le débit, et prennent en charge > 10 millions d’opérations/s par table. |
-| Diffusion mondiale | Une région unique avec une région de lecture secondaire en option pour la haute disponibilité. Vous ne pouvez pas lancer le basculement. | [Une distribution mondiale clé en main](distribute-data-globally.md) de 1 à plus de 30 régions. Prise en charge des [basculements automatiques et manuels](high-availability.md) à tout moment, partout dans le monde. |
-| Indexation | Index primaire uniquement sur PartitionKey et RowKey. Pas d’index secondaire. | Indexation automatique et complète de toutes les propriétés, aucune gestion des index. |
+| Diffusion mondiale | Une région unique avec une région de lecture secondaire en option pour la haute disponibilité. Vous ne pouvez pas lancer le basculement. | [Une distribution mondiale clé en main](distribute-data-globally.md) de 1 à un nombre quelconque de régions. Prise en charge des [basculements automatiques et manuels](high-availability.md) à tout moment, partout dans le monde. Fonctionnalité multimaître permettant à n’importe toute région d’accepter des opérations d’écriture. |
+| Indexation | Index primaire uniquement sur PartitionKey et RowKey. Pas d’index secondaire. | Indexation automatique et complète de toutes les propriétés par défaut, sans gestion d’index. |
 | Requête | L’exécution des requêtes utilise un index de clé primaire, et effectue une recherche dans le cas contraire. | Les requêtes peuvent tirer parti de l’indexation automatique de propriétés pour des temps de requête rapides. |
 | Cohérence | Forte au sein de la région primaire. Éventuelle au sein de la région secondaire. | [Cinq niveaux de cohérence bien définis](consistency-levels.md) pour compenser la disponibilité, la latence, le débit ou la cohérence en fonction des besoins de votre application. |
 | Tarifs | Optimisation pour le stockage. | Optimisation pour le débit. |
-| Contrats SLA | Disponibilité de 99,99 %. | Un contrat SLA avec une disponibilité à 99,99 % pour tous les comptes à région unique et à plusieurs régions avec cohérence souple, ainsi qu’une disponibilité de lecture à 99,999 % pour tous les comptes de base de données à plusieurs régions [Contrats SLA complets à la pointe du secteur](https://azure.microsoft.com/support/legal/sla/cosmos-db/) sur la disponibilité générale. |
+| Contrats SLA | Disponibilité de 99,9% à 99,99%, en fonction de la stratégie de réplication. | Disponibilité de 99,999% en lecture, de 99,99% en écriture sur un compte dans une seule région, et de 99,999% en écriture sur les comptes dans plusieurs régions. [Contrats SLA complets](https://azure.microsoft.com/support/legal/sla/cosmos-db/) couvrant la disponibilité, la latence, le débit et la cohérence. |
 
 ## <a name="get-started"></a>Prise en main
 

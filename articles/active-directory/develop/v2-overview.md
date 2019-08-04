@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: agirling, saeeda, benv
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 93e4337f0593933a4e877f391df8132a9b2cd4af
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 12027581ae62588550407c8350f3b74f1e743561
+ms.sourcegitcommit: 15f7b641a67f3d6cf4fb4b4c11eaee18cf335923
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67702692"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68601828"
 ---
 # <a name="microsoft-identity-platform-v20-overview"></a>Présentation de la plateforme d’identités Microsoft (v2.0)
 
@@ -43,7 +43,7 @@ Avec la plateforme d’identités Microsoft, vous pouvez écrire du code une seu
 
 ## <a name="getting-started"></a>Prise en main
 
-L’utilisation des identités ne doit pas être difficile. Choisissez un scénario qui vous concerne ; chaque chemin de scénario a un guide de démarrage rapide et une page de présentation qui vous aident à être opérationnel en quelques minutes :
+L’utilisation des identités ne doit pas être difficile. Choisissez un [scénario](authentication-flows-app-scenarios.md) s’appliquant à votre cas ; chaque chemin de scénario a un guide de démarrage rapide et une page de présentation qui vous aident à être opérationnel en quelques minutes :
 
 - [Générer une application monopage](scenario-spa-overview.md)
 - [Générer une application web qui connecte les utilisateurs](scenario-web-app-sign-user-overview.md)
@@ -62,6 +62,7 @@ Le tableau suivant décrit les scénarios d’applications d’authentification 
 
 Si vous souhaitez en savoir plus sur les concepts d’authentification de base, nous vous recommandons de commencer par ces rubriques :
 
+- [Flux d’authentification et scénarios d’applications](authentication-flows-app-scenarios.md)
 - [Principes fondamentaux de l’authentification](authentication-scenarios.md)
 - [Applications et principaux de service](app-objects-and-service-principals.md)
 - [Audiences](v2-supported-account-types.md)

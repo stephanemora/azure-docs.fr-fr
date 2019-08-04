@@ -9,15 +9,15 @@ ms.date: 01/23/2019
 ms.author: danlep
 ms.custom: include file
 ms.openlocfilehash: 09eaf9465ec3912dea6e1f3ee1693f6bfed50abc
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "67177619"
 ---
 ## <a name="push-image-to-registry"></a>Envoyer l’image au registre
 
-Pour envoyer une image dans un registre Azure Container Registry, vous devez tout d’abord disposer d’une image. Si vous n’avez pas encore d’images conteneur locales, exécutez la commande [docker pull][docker-pull] suivante pour tirer (pull) une image existante du hub Docker. Pour cet exemple, tirez l’image `hello-world`.
+Pour envoyer une image dans un registre Azure Container Registry, vous devez tout d’abord disposer d’une image. Si vous n’avez pas encore d’images conteneur locales, exécutez la commande [docker pull][docker-pull] suivante pour extraire (pull) une image existante du Docker Hub. Pour cet exemple, tirez l’image `hello-world`.
 
 ```
 docker pull hello-world
@@ -25,13 +25,13 @@ docker pull hello-world
 
 Avant de pousser (push) une image vers le registre, vous devez la marquer avec le nom complet de votre serveur de connexion ACR. Le nom du serveur de connexion est au format *\<nom-registre\>.azurecr.io* (tout en minuscules). Par exemple : *mycontainerregistry007.azurecr.io*.
 
-Marquez l’image en utilisant la commande [docker tag][docker-tag]. Remplacez `<acrLoginServer>` par le nom du serveur de connexion de votre instance ACR.
+Étiquetez l’image en utilisant la commande [docker tag][docker-tag]. Remplacez `<acrLoginServer>` par le nom du serveur de connexion de votre instance ACR.
 
 ```
 docker tag hello-world <acrLoginServer>/hello-world:v1
 ```
 
-Enfin, utilisez la commande [docker push][docker-push] pour pousser l’image vers l’instance ACR. Remplacez `<acrLoginServer>` par le nom du serveur de connexion de votre instance ACR. Cet exemple crée le référentiel **hello-world** qui contient l’image `hello-world:v1`.
+Enfin, utilisez la commande [docker push][docker-push] pour envoyer l’image à l’instance ACR. Remplacez `<acrLoginServer>` par le nom du serveur de connexion de votre instance ACR. Cet exemple crée le référentiel **hello-world** qui contient l’image `hello-world:v1`.
 
 ```
 docker push <acrLoginServer>/hello-world:v1

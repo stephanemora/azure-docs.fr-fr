@@ -1,5 +1,5 @@
 ---
-title: Activer le service Azure Security Center pour IoT dans IoT Hub (préversion) | Microsoft Docs
+title: Activer le service Azure Security Center pour IoT dans IoT Hub | Microsoft Docs
 description: Découvrez comment activer le service Azure Security Center pour IoT dans votre hub IoT.
 services: asc-for-iot
 ms.service: asc-for-iot
@@ -15,54 +15,63 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/16/2019
 ms.author: mlottner
-ms.openlocfilehash: f81fb7aeed1b704ebdd82c1f5b83c33a4b05e9ca
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: a794ccea13323f38b20906458e216f85652bfc3e
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67617999"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68596965"
 ---
-# <a name="quickstart-enable-service-in-iot-hub"></a>Démarrage rapide : Activer le service dans IoT Hub
+# <a name="quickstart-onboard-azure-security-center-for-iot-service-in-iot-hub"></a>Démarrage rapide : Intégrer le service Azure Security Center pour IoT dans IoT Hub
 
-> [!IMPORTANT]
-> Azure Security Center pour IoT est disponible en préversion publique.
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-Cet article explique comment activer le service Azure Security Center pour IoT en préversion sur votre hub IoT.  
+Cet article explique comment activer le service Azure Security Center pour IoT sur votre IoT Hub. Si vous n’avez pas de hub IoT, pour commencer, voir [Créer un hub IoT à l’aide du portail Azure](https://docs.microsoft.com/azure/iot-hub/iot-hub-create-through-portal). 
 
 > [!NOTE]
 > Actuellement, Azure Security Center pour IoT prend uniquement en charge les hubs IoT de niveau standard.
-> Azure Security Center pour IoT est une solution de hub unique. Si plusieurs hubs sont nécessaires, vous avez besoin de plusieurs solutions. 
+> Azure Security Center pour IoT est une solution de hub unique. Si vous avez besoin de plusieurs hubs, plusieurs solutions Azure Security Center pour IoT sont requises. 
 
 ## <a name="prerequisites-for-enabling-the-service"></a>Prérequis pour l’activation du service
 
 - Espace de travail Log Analytics
-  - Par défaut, deux types d’informations sont stockés par ASC pour IoT dans votre espace de travail Log Analytics : les **alertes de sécurité** et les **recommandations**. 
+  - Par défaut, Azure Security Center pour IoT stocke deux types d’informations dans votre espace de travail Log Analytics : des **alertes de sécurité** et des **recommandations**. 
   - Vous pouvez choisir d’ajouter le stockage d’un type d’information supplémentaire : les **événements bruts**. Notez que le stockage d’**événements bruts** dans Log Analytics engendre des frais de stockage supplémentaires. 
 - IoT Hub (niveau standard)
 - Satisfaire à tous les [prérequis du service](service-prerequisites.md) 
-- Régions de service prises en charge
-  - USA Centre
-  - Europe Nord
-  - Asie Sud-Est
 
-## <a name="enable-asc-for-iot-on-your-iot-hub"></a>Activer ASC pour IoT sur votre hub IoT 
+|Régions de service Azure prises en charge | ||
+|---|---|---|
+| USA Centre |East US |USA Est 2 |
+| USA Centre-Ouest |USA Ouest |Ouest des États-Unis 2 |
+| USA Centre Sud|USA Centre Nord | Centre du Canada|
+| Est du Canada| Europe Nord|Brésil Sud|
+| France Centre| Ouest du Royaume-Uni|Sud du Royaume-Uni|
+|Europe Ouest|Europe Nord| Japon Ouest|
+|Japon Est | Australie Sud-Est|Australie Est|
+|Asie Est| Asie Sud-Est| Centre de la Corée|
+|Corée du Sud| Inde Centre| Inde Sud|
+|
+
+## <a name="enable-azure-security-center-for-iot-on-your-iot-hub"></a>Activer Azure Security Center pour IoT sur votre IoT Hub 
 
 Pour activer la sécurité sur votre hub IoT, procédez de la façon suivante : 
 
 1. Ouvrez votre **hub IoT** dans le portail Azure. 
-2. Dans le menu **Sécurité**, cliquez sur **Vue d’ensemble**, puis sur **Démarrer l’aperçu**. 
-3. Choisissez **Activer la sécurité IoT**. 
-4. Fournissez les détails de votre espace de travail Log Analytics. 
-   - Choisissez de stocker les **événements bruts** en plus des types d’informations par défaut de stockage en laissant le bouton bascule d’**événement brut** sur **Actif**. 
-   - Choisissez d’activer la **collection de jumeaux** en laissant le bouton bascule de **collection de jumeaux** sur **Actif**. 
-5. Cliquez sur **Enregistrer**. 
+1. Dans le menu **Sécurité**, cliquez sur **Sécuriser votre solution IoT**.
+1. Laissez l’option par défaut **Activer** sélectionnée. 
+1. Sélectionnez votre espace de travail Log Analytics.
+1. Fournissez les détails de votre espace de travail Log Analytics. 
+   - Choisissez d’activer la **collection de jumeaux** en laissant le bouton bascule de **collection de jumeaux** sur **Actif**.
+   - Choisissez de stocker les **événements bruts** en plus des types d’informations de stockage par défaut en sélectionnant **Stocker les événements bruts de sécurité d’appareil** dans Log Analytics. Laissez l’option **événement brut** **Activée**. 
+    
+1. Cliquez sur **Enregistrer**. 
 
-Félicitations ! Vous avez terminé l’activation d’ASC pour IoT sur votre hub IoT. 
+Félicitations ! Vous avez activé Azure Security Center pour IoT sur votre IoT Hub. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Passez à l’article suivant pour savoir comment configurer votre solution...
+Passez à l’article suivant pour configurer votre solution...
 
 > [!div class="nextstepaction"]
 > [Configurer votre solution](quickstart-configure-your-solution.md)
+
+

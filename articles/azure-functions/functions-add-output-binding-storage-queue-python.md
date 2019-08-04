@@ -1,6 +1,6 @@
 ---
 title: Ajouter une liaison de file d’attente Stockage Azure à votre fonction Python
-description: Découvrez comment ajouter une liaison de sortie de file d’attente Stockage Azure à votre fonction Python à l’aide d’Azure CLI et d’Azure Functions Core Tools.
+description: Découvrez comment ajouter une liaison de sortie de file d’attente Stockage Azure à votre fonction Python en utilisant Azure CLI et Azure Functions Core Tools.
 services: functions
 keywords: ''
 author: ggailey777
@@ -11,20 +11,20 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: python
 manager: jeconnoc
-ms.openlocfilehash: c2565a5549cbca08b987883e5905f09070b5ab2c
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 34ec7c678410b2e0814f8dbb7a69257886cb891d
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67443200"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639109"
 ---
 # <a name="add-an-azure-storage-queue-binding-to-your-python-function"></a>Ajouter une liaison de file d’attente Stockage Azure à votre fonction Python
 
-Azure Functions vous permet de connecter des services Azure et d’autres ressources à des fonctions sans avoir à écrire votre propre code d’intégration. Ces *liaisons*, qui représentent l’entrée et la sortie, sont déclarées dans la définition de la fonction. Les données issues des liaisons sont fournies à la fonction en tant que paramètres. Un déclencheur est un type spécial de liaison d’entrée. Bien que ne pouvant avoir qu’un seul déclencheur, une fonction peut avoir plusieurs liaisons d’entrée et de sortie. Pour en savoir plus, consultez [Concepts des déclencheurs et liaisons Azure Functions](functions-triggers-bindings.md).
+Azure Functions vous permet de connecter des services Azure et d’autres ressources à des fonctions sans avoir à écrire votre propre code d’intégration. Ces *liaisons*, qui représentent l’entrée et la sortie, sont déclarées dans la définition de la fonction. Les données issues des liaisons sont fournies à la fonction en tant que paramètres. Un *déclencheur* est un type spécial de liaison d’entrée. Si une fonction ne peut avoir qu’un seul déclencheur, elle peut avoir plusieurs liaisons d’entrée et de sortie. Pour en savoir plus, consultez [Concepts des déclencheurs et liaisons Azure Functions](functions-triggers-bindings.md).
 
-Cet article vous montre comment intégrer la fonction que vous avez créée dans l’[article du guide de démarrage rapide précédent](functions-create-first-function-python.md) à une file d’attente Stockage Azure. La liaison de sortie que vous ajoutez à cette fonction écrit des données à partir de la requête HTTP dans un message au sein de la file d’attente. 
+Cet article vous montre comment intégrer la fonction que vous avez créée dans l’[article du guide de démarrage rapide précédent](functions-create-first-function-python.md) à une file d’attente Stockage Azure. La liaison de sortie que vous ajoutez à cette fonction écrit des données d’une requête HTTP dans un message en file d’attente.
 
-La plupart des liaisons requièrent une chaîne de connexion stockée que Functions utilise pour accéder au service lié. Pour simplifier, vous utilisez le compte de stockage que vous avez créé avec votre application de fonction. La connexion à ce compte est déjà stockée dans un paramètre d’application nommé `AzureWebJobsStorage`.  
+La plupart des liaisons requièrent une chaîne de connexion stockée que Functions utilise pour accéder au service lié. Pour faciliter cette connexion, vous utilisez le compte de stockage que vous avez créé avec votre application de fonction. La connexion à ce compte est déjà stockée dans un paramètre d’application nommé `AzureWebJobsStorage`.  
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -32,13 +32,13 @@ Avant de commencer cet article, suivez les étapes de la [partie 1 du guide de 
 
 ## <a name="download-the-function-app-settings"></a>Télécharger les paramètres de l’application de fonction
 
-Dans l’article du guide de démarrage rapide précédent, vous avez créé une application de fonction dans Azure ainsi que le compte de stockage requis. La chaîne de connexion pour ce compte est stockée de manière sécurisée dans les paramètres d’application au sein d’Azure. Dans cet article, vous allez écrire des messages dans une file d’attente de stockage au sein du même compte. Pour vous connecter à votre compte de stockage lors de l’exécution de la fonction localement, vous devez télécharger les paramètres de l’application dans le fichier local.settings.json. Exécutez la commande Azure Functions Core Tools suivante pour télécharger les paramètres dans local.settings.json, en remplaçant `<APP_NAME>` par le nom de votre application de fonction issu de l’article précédent :
+Dans l’article du guide de démarrage rapide précédent, vous avez créé une application de fonction dans Azure ainsi que le compte de stockage nécessaire. La chaîne de connexion pour ce compte est stockée de manière sécurisée dans les paramètres d’application au sein d’Azure. Dans cet article, vous allez écrire des messages dans une file d’attente de stockage au sein du même compte. Pour vous connecter à votre compte de stockage lors de l’exécution de la fonction localement, vous devez télécharger les paramètres de l’application dans le fichier local.settings.json. Exécutez la commande Azure Functions Core Tools suivante pour télécharger les paramètres dans le fichier local.settings.json, en remplaçant `<APP_NAME>` par le nom de votre application de fonction décrite dans l’article précédent :
 
 ```bash
 func azure functionapp fetch-app-settings <APP_NAME>
 ```
 
-Vous serez peut-être amené à vous connecter à votre compte Azure.
+Il se peut que vous deviez vous connecter à votre compte Azure.
 
 > [!IMPORTANT]  
 > Comme il contient des secrets, le fichier local.settings.json n’est jamais publié et doit être exclu du contrôle de code source.
@@ -49,20 +49,20 @@ Vous avez besoin de la valeur `AzureWebJobsStorage`, qui est la chaîne de conne
 
 [!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
 
-Maintenant, vous pouvez ajouter une liaison de sortie de stockage à votre projet.
+Vous pouvez maintenant ajouter la liaison de sortie de stockage à votre projet.
 
 ## <a name="add-an-output-binding"></a>Ajouter une liaison de sortie
 
 Dans Functions, chaque type de liaison requiert la définition d’une `direction`, d’un `type` et d’un `name` unique dans le fichier function.json. Selon le type de liaison, des propriétés supplémentaires peuvent être requises. La [configuration de la sortie de la file d’attente](functions-bindings-storage-queue.md#output---configuration) décrit les champs requis pour une liaison de file d’attente Stockage Azure.
 
-Pour créer une liaison, vous ajoutez un objet de configuration de liaison au fichier `function.json`. Modifiez le fichier function.json dans votre dossier HttpTrigger pour ajouter au tableau `bindings` un objet ayant les propriétés suivantes :
+Pour créer une liaison, vous ajoutez un objet de configuration de liaison au fichier function.json. Modifiez le fichier function.json dans votre dossier HttpTrigger pour ajouter au tableau `bindings` un objet ayant les propriétés suivantes :
 
 | Propriété | Valeur | Description |
 | -------- | ----- | ----------- |
-| **`name`** | `msg` | Nom qui identifie le paramètre de liaison référencé dans votre code. |
+| **`name`** | `msg` | Nom identifiant le paramètre de liaison référencé dans votre code. |
 | **`type`** | `queue` | La liaison est une liaison de file d’attente Stockage Azure. |
 | **`direction`** | `out` | La liaison est une liaison de sortie. |
-| **`queueName`** | `outqueue` | Nom de la file d’attente dans laquelle écrit la liaison. Si *queueName* n’existe pas, la liaison le crée à la première utilisation. |
+| **`queueName`** | `outqueue` | Nom de la file d’attente dans laquelle écrit la liaison. Si la propriété `queueName` n’existe pas, la liaison la crée lors de la première utilisation. |
 | **`connection`** | `AzureWebJobsStorage` | Nom d’un paramètre d’application qui contient la chaîne de connexion du compte de stockage. Le paramètre `AzureWebJobsStorage` contient la chaîne de connexion du compte de stockage que vous avez créé avec l’application de fonction. |
 
 Votre fichier function.json doit maintenant ressembler à l’exemple suivant :
@@ -99,7 +99,7 @@ Votre fichier function.json doit maintenant ressembler à l’exemple suivant :
 
 ## <a name="add-code-that-uses-the-output-binding"></a>Ajouter le code qui utilise la liaison de sortie
 
-Une fois qu’il est configuré, vous pouvez commencer à utiliser le `name` de la liaison pour y accéder en tant qu’attribut de méthode dans la signature de la fonction. Dans l’exemple suivant, `msg` est une instance de la [`azure.functions.InputStream class`](/python/api/azure-functions/azure.functions.httprequest).
+Une fois la propriété `name` configurée, vous pouvez commencer à l’utiliser pour accéder à la liaison en tant qu’attribut de méthode dans la signature de la fonction. Dans l’exemple suivant, `msg` est une instance de la [`azure.functions.InputStream class`](/python/api/azure-functions/azure.functions.httprequest).
 
 ```python
 import logging
@@ -128,7 +128,7 @@ def main(req: func.HttpRequest, msg: func.Out[func.QueueMessage]) -> str:
         )
 ```
 
-En utilisant une liaison de sortie, vous n’avez pas besoin de recourir au code du SDK Stockage Azure pour l’authentification, l’obtention d’une référence de file d’attente ou l’écriture de données. La liaison de sortie de file d’attente et le runtime Functions effectuent ces tâches.
+Lorsque vous utilisez une liaison de sortie, vous n’avez pas besoin de recourir au code du Kit de développement logiciel (SDK) Stockage Azure pour l’authentification, l’obtention d’une référence de file d’attente ou l’écriture de données. La liaison de sortie de file d’attente et le runtime Functions effectuent ces tâches.
 
 ## <a name="run-the-function-locally"></a>Exécuter la fonction localement
 
@@ -139,13 +139,13 @@ func host start
 ```
 
 > [!NOTE]  
-> Comme vous avez activé des offres groupées d’extension dans le fichier host.json dans le cadre de l’article précédent, l’[extension de liaison de stockage](functions-bindings-storage-blob.md#packages---functions-2x) a été téléchargée et installée lors du démarrage, avec les autres extensions de liaison Microsoft.
+> Comme vous avez activé des offres groupées d’extension dans le fichier host.json dans le cadre du guide de démarrage rapide précédent, l’[extension de liaison de stockage](functions-bindings-storage-blob.md#packages---functions-2x) a été téléchargée et installée lors du démarrage, avec les autres extensions de liaison Microsoft.
 
 Copiez l’URL de votre fonction `HttpTrigger` à partir de la sortie du runtime et collez-la dans la barre d’adresses de votre navigateur. Ajoutez la chaîne de requête `?name=<yourname>` à cette URL et exécutez la demande. Vous devez voir la même réponse dans le navigateur que dans l’article précédent.
 
 Cette fois, la liaison de sortie crée également une file d’attente nommée `outqueue` dans votre compte de stockage et ajoute un message avec cette même chaîne.
 
-Ensuite, vous utilisez l’interface de ligne de commande Azure pour afficher la nouvelle file d’attente et vérifier qu’un message a été ajouté. Vous pouvez également afficher votre file d’attente à l’aide de l’[Explorateur Stockage Microsoft Azure][Azure Storage Explorer] ou dans le [portail Azure](https://portal.azure.com).
+Ensuite, vous utilisez l’interface de ligne de commande Azure pour afficher la nouvelle file d’attente et vérifier qu’un message a été ajouté. Vous pouvez également afficher votre file d’attente en utilisant l’[Explorateur Stockage Azure][Azure Storage Explorer] ou sur le [portail Azure](https://portal.azure.com).
 
 ### <a name="set-the-storage-account-connection"></a>Définir la connexion de compte de stockage
 
@@ -155,7 +155,7 @@ Ouvrez le fichier local.settings.json et copiez la valeur d’`AzureWebJobsStora
 export AZURE_STORAGE_CONNECTION_STRING=<STORAGE_CONNECTION_STRING>
 ```
 
-Une fois la chaîne de connexion définie dans la variable d’environnement `AZURE_STORAGE_CONNECTION_STRING`, vous pouvez accéder à votre compte de stockage sans vous authentifier systématiquement.
+Lorsque vous définissez la chaîne de connexion dans la variable d’environnement `AZURE_STORAGE_CONNECTION_STRING`, vous pouvez accéder à votre compte de stockage sans devoir vous authentifier à chaque fois.
 
 ### <a name="query-the-storage-queue"></a>Interroger la file d’attente de stockage
 
@@ -167,7 +167,7 @@ az storage queue list --output tsv
 
 La sortie de cette commande comprend une file d’attente nommée `outqueue`, qui a été créée lors de l’exécution de la fonction.
 
-Ensuite, utilisez la commande [`az storage message peek`](/cli/azure/storage/message#az-storage-message-peek) pour afficher les messages dans cette file d’attente, comme dans l’exemple suivant.
+Ensuite, utilisez la commande [`az storage message peek`](/cli/azure/storage/message#az-storage-message-peek) pour afficher les messages dans cette file d’attente, comme dans l’exemple suivant :
 
 ```azurecli-interactive
 echo `echo $(az storage message peek --queue-name outqueue -o tsv --query '[].{Message:content}') | base64 --decode`
@@ -182,7 +182,7 @@ La chaîne retournée doit être la même que le message que vous avez envoyé p
 
 [!INCLUDE [functions-publish-project](../../includes/functions-publish-project.md)]
 
-Là encore, vous pouvez utiliser cURL ou un navigateur pour tester la fonction déployée. Ajoutez la chaîne de requête `&name=<yourname>` à l’URL, comme dans l’exemple suivant :
+Là encore, vous pouvez utiliser cURL ou un navigateur pour tester la fonction déployée. Comme précédemment, ajoutez la chaîne de requête `&name=<yourname>` à l’URL, comme dans l’exemple suivant :
 
 ```bash
 curl https://myfunctionapp.azurewebsites.net/api/httptrigger?code=cCr8sAxfBiow548FBDLS1....&name=<yourname>
@@ -194,7 +194,7 @@ Vous pouvez [examiner le message de file d’attente de stockage](#query-the-sto
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Vous avez mis à jour votre fonction déclenchée via HTTP pour écrire des données dans une file d’attente de stockage. Pour en savoir plus sur le développement de fonctions Azure à l’aide de Python, consultez le [Guide des développeurs Python sur Azure Functions](functions-reference-python.md) et [Déclencheurs et liaisons Azure Functions](functions-triggers-bindings.md).
+Vous avez mis à jour votre fonction déclenchée via HTTP pour écrire des données dans une file d’attente de stockage. Pour en savoir plus sur le développement de fonctions Azure Functions avec Python, voir le [Guide des développeurs Python sur Azure Functions](functions-reference-python.md) et [Déclencheurs et liaisons Azure Functions](functions-triggers-bindings.md).
 
 Ensuite, vous devez activer la supervision Application Insights pour votre application de fonction :
 

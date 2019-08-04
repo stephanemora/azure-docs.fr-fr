@@ -10,18 +10,20 @@ ms.topic: quickstart
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-manager: craigg
-ms.date: 03/25/2019
-ms.openlocfilehash: 8ca2346de84a97bff370a7d5bacb006130cb5116
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.date: 07/29/2019
+ms.openlocfilehash: 1c6fdc6f6d2e642db8b57745573260c819c6c307
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65792474"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68640928"
 ---
 # <a name="quickstart-use-net-core-c-to-query-an-azure-sql-database"></a>Démarrage rapide : Utilisation de .NET Core (C#) pour interroger une base de données Azure SQL
 
 Dans ce guide de démarrage rapide, vous allez utiliser [.NET Core](https://www.microsoft.com/net/) et du code C# pour vous connecter à une base de données Azure SQL. Vous allez ensuite exécuter une instruction Transact-SQL pour interroger des données.
+
+> [!TIP]
+> Le module Microsoft Learn suivant vous aide à apprendre gratuitement comment [Développer et configurer une application ASP.Net qui interroge une base de données Azure SQL Database](https://docs.microsoft.com/learn/modules/develop-app-that-queries-azure-sql/).
 
 ## <a name="prerequisites"></a>Prérequis
 

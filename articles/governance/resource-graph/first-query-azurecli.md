@@ -3,17 +3,16 @@ title: Exécuter votre première requête avec Azure CLI
 description: Cet article vous guide tout au long des étapes à suivre pour activer l’extension Resource Graph pour Azure CLI et exécuter votre première requête.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 10/22/2018
+ms.date: 07/26/2019
 ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
-ms.custom: seodec18
-ms.openlocfilehash: 592b2c611888623c2753d7c4abc9fe57c28af30e
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: afe32c197b5eab24ba298395bb2c9e83f847d6c5
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65823164"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562576"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-cli"></a>Démarrage rapide : Exécuter votre première requête Resource Graph à l’aide d’Azure CLI
 
@@ -36,7 +35,7 @@ Pour permettre à Azure CLI d’interroger Azure Resource Graph, vous devez ajou
    az extension add --name resource-graph
    ```
 
-1. Vérifiez que l’extension a été installée et qu’il s’agit de la version attendue (**0.1.7** minimum) :
+1. Vérifiez que l’extension a été installée et qu’il s’agit de la version attendue (**0.1.11** minimum) :
 
    ```azurecli-interactive
    # Check the extension list (note that you may have other extensions installed)
@@ -89,9 +88,6 @@ Si vous souhaitez supprimer l’extension Resource Graph de votre environnement 
 # Remove the Resource Graph extension from the Azure CLI environment
 az extension remove -n resource-graph
 ```
-
-> [!NOTE]
-> Cette opération ne supprime pas le fichier d’extension téléchargé précédemment. Elle le supprime uniquement de l’environnement Azure CLI en cours d’exécution.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

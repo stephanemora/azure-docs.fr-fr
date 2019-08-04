@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: azure-functions
 ms.custom: mvc
 manager: jeconnoc
-ms.openlocfilehash: b207064f691391af2c180c7a6ab03e42ed79fcb6
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 40a912a94dc61342c04528e902bb0e084546904d
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67451610"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68592811"
 ---
 # <a name="connect-functions-to-azure-storage-using-visual-studio-code"></a>Connecter des fonctions à Stockage Azure avec Visual Studio Code
 
@@ -81,7 +81,7 @@ Pour créer une liaison, cliquez avec le bouton droit (Ctrl+Clic sur macOS) sur 
 | **Sélectionner une liaison avec un sens...** | `Azure Queue Storage` | La liaison est une liaison de file d’attente Stockage Azure. |
 | **Nom utilisé pour identifier cette liaison dans votre code** | `msg` | Nom qui identifie le paramètre de liaison référencé dans votre code. |
 | **File d’attente à laquelle le message sera envoyé** | `outqueue` | Nom de la file d’attente dans laquelle écrit la liaison. Si *queueName* n’existe pas, la liaison le crée à la première utilisation. |
-| **Sélectionnez le paramètre dans « local.setting.json »** | `AzureWebJobsStorage` | Nom d’un paramètre d’application qui contient la chaîne de connexion du compte de stockage. Le paramètre `AzureWebJobsStorage` contient la chaîne de connexion du compte de stockage que vous avez créé avec l’application de fonction. |
+| **Sélectionnez le paramètre dans « local.setting.json »** | `AzureWebJobsStorage` | Nom d’un paramètre d’application qui contient la chaîne de connexion du compte de stockage. Le paramètre `AzureWebJobsStorage` contient la chaîne de connexion du compte de stockage que vous avez créé avec l’application de fonction. |
 
 Une liaison est ajoutée au tableau `bindings` dans votre fichier function.json, qui doit maintenant se présenter comme l’exemple suivant :
 
@@ -118,30 +118,7 @@ Une liaison est ajoutée au tableau `bindings` dans votre fichier function.json,
 
 ### <a name="c-class-library"></a>Bibliothèque de classes C\#
 
-Dans un projet de bibliothèque de classes C#, les liaisons sont définies comme attributs de liaison sur la méthode de fonction. Le fichier function.json est ensuite généré automatiquement en fonction de ces attributs.
-
-Ouvrez le fichier projet HttpTrigger.cs et ajoutez l’instruction `using` suivante :
-
-```cs
-using Microsoft.Azure.WebJobs.Extensions.Storage;
-```
-
-Ajoutez le paramètre suivant à la définition de la méthode `Run` :
-
-```cs
-[Queue("outqueue"),StorageAccount("AzureWebJobsStorage")] ICollector<string> msg
-```
-
-Le paramètre `msg` est un type `ICollector<T>`, qui représente une collection de messages écrits dans une sortie de la liaison quand la fonction se termine. Dans ce cas, la sortie est une file d’attente de stockage nommée `outqueue`. La chaîne de connexion pour le compte de stockage est définie par `StorageAccountAttribute`. Cet attribut indique le paramètre qui contient la chaîne de connexion du compte de stockage et qui peut être appliqué au niveau de la classe, de la méthode ou du paramètre. Dans ce cas, vous pourriez omettre `StorageAccountAttribute`, car vous utilisez déjà le compte de stockage par défaut.
-
-La définition de la méthode Run doit maintenant se présenter comme ceci :  
-
-```cs
-[FunctionName("HttpTrigger")]
-public static async Task<IActionResult> Run(
-    [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req, 
-    [Queue("outqueue"),StorageAccount("AzureWebJobsStorage")] ICollector<string> msg, ILogger log)
-```
+[!INCLUDE [functions-add-storage-binding-csharp-library](../../includes/functions-add-storage-binding-csharp-library.md)]
 
 ## <a name="add-code-that-uses-the-output-binding"></a>Ajouter le code qui utilise la liaison de sortie
 
@@ -183,46 +160,11 @@ module.exports = async function (context, req) {
 
 ### <a name="c"></a>C\#
 
-Ajoutez le code qui utilise l’objet de liaison de sortie `msg` pour créer un message de file d’attente. Ajoutez ce code avant que la méthode retourne.
-
-```cs
-if (!string.IsNullOrEmpty(name))
-{
-    // Add a message to the output collection.
-    msg.Add(string.Format("Name passed to the function: {0}", name));
-}
-```
-
-À ce stade, votre fonction doit se présenter comme suit :
-
-```cs
-[FunctionName("HttpTrigger")]
-public static async Task<IActionResult> Run(
-    [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req, 
-    [Queue("outqueue"),StorageAccount("AzureWebJobsStorage")] ICollector<string> msg, ILogger log)
-{
-    log.LogInformation("C# HTTP trigger function processed a request.");
-
-    string name = req.Query["name"];
-
-    string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
-    dynamic data = JsonConvert.DeserializeObject(requestBody);
-    name = name ?? data?.name;
-
-    if (!string.IsNullOrEmpty(name))
-    {
-        // Add a message to the output collection.
-        msg.Add(string.Format("Name passed to the function: {0}", name));
-    }
-    return name != null
-        ? (ActionResult)new OkObjectResult($"Hello, {name}")
-        : new BadRequestObjectResult("Please pass a name on the query string or in the request body");
-}
-```
+[!INCLUDE [functions-add-storage-binding-csharp-library-code](../../includes/functions-add-storage-binding-csharp-library-code.md)]
 
 [!INCLUDE [functions-run-function-test-local-vs-code](../../includes/functions-run-function-test-local-vs-code.md)]
 
-Une nouvelle file d’attente nommée **outqueue** est créée dans votre compte de stockage, par le runtime des fonctions, lorsque la liaison de sortie est utilisée pour la première fois. Vous allez utiliser l’Explorateur Stockage pour vérifier que la file d’attente a été créée ainsi que le nouveau message.
+Le runtime Functions crée une file d’attente nommée **outqueue** dans votre compte de stockage lors de la première utilisation de la liaison de sortie. Vous allez utiliser l’Explorateur Stockage pour vérifier que la file d’attente a été créée ainsi que le nouveau message.
 
 ### <a name="connect-storage-explorer-to-your-account"></a>Connecter l’Explorateur Stockage à votre compte
 
@@ -252,7 +194,7 @@ Une fois connecté à votre compte, vous voyez tous les abonnements Azure associ
 
 À présent, il est temps de republier sur Azure l’application de fonction mise à jour.
 
-## <a name="redeploy-and-test-the-updated-app"></a>Redéployer et tester l’application mise à jour
+## <a name="redeploy-and-verify-the-updated-app"></a>Redéployer et tester l’application mise à jour
 
 1. Dans Visual Studio Code, appuyez sur F1 pour ouvrir la palette de commandes. Dans la palette de commandes, recherchez et sélectionnez `Azure Functions: Deploy to function app...`.
 

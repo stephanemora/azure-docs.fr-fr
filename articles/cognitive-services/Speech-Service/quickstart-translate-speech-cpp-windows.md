@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : traduire une entrée vocale, C++ (Windows) - Services Speech'
+title: 'Démarrage rapide : Traduire une entrée vocale, C++ (Windows) – Speech Service'
 titleSuffix: Azure Cognitive Services
 description: Dans ce guide de démarrage rapide, vous allez créer une application C++ simple pour capturer les paroles de l’utilisateur, les traduire dans une autre langue et générer le texte à la ligne de commande. Ce guide est conçu pour les utilisateurs de Windows.
 services: cognitive-services
@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: ff577bc0fe7db05c71aab04f0aaa5525f30b255c
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 379087ca94eee6ce3d45bfd97b4771c5f08d6333
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67602892"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68607701"
 ---
 # <a name="quickstart-translate-speech-with-the-speech-sdk-for-c"></a>Démarrage rapide : traduire une entrée vocale à l’aide du SDK Speech pour C++
 
 Des guides de démarrage rapide sont également disponibles pour la [reconnaissance vocale](quickstart-cpp-windows.md) et la [synthèse vocale](quickstart-text-to-speech-cpp-windows.md).
 
-Dans ce guide de démarrage rapide, vous allez créer une application C++ simple qui capture les paroles de l’utilisateur à partir du microphone de votre ordinateur, les traduit, puis transcrit le texte traduit à la ligne de commande en temps réel. Cette application est conçue pour fonctionner sur Windows 64 bits et est générée avec le [package NuGet du SDK Speech](https://aka.ms/csspeech/nuget) et Microsoft Visual Studio 2017.
+Dans ce guide de démarrage rapide, vous allez créer une application C++ simple qui capture les paroles de l’utilisateur à partir du microphone de votre ordinateur, les traduit, puis transcrit le texte traduit à la ligne de commande en temps réel. Cette application est conçue pour fonctionner sur Windows 64 bits, et est générée avec le [package NuGet du Kit de développement logiciel (SDK) Speech](https://aka.ms/csspeech/nuget) et Microsoft Visual Studio 2017 ou version ultérieure.
 
 Pour obtenir la liste complète des langues disponibles pour la traduction vocale, consultez [Prise en charge linguistique](language-support.md).
 
@@ -29,7 +29,7 @@ Pour obtenir la liste complète des langues disponibles pour la traduction vocal
 
 Ce démarrage rapide nécessite :
 
-* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
+* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) ou version ultérieure
 * Clé d’abonnement Azure pour le service Speech. [Vous pouvez en obtenir une gratuitement](get-started.md).
 
 ## <a name="create-a-visual-studio-project"></a>Créer un projet Visual Studio

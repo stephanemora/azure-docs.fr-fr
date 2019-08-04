@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Exécuter le SDK Speech Devices sur Linux - Services Speech'
+title: 'Démarrage rapide : Exécuter le Kit de développement logiciel (SDK) Speech Devices sur Linux – Speech Service'
 titleSuffix: Azure Cognitive Services
 description: Prérequis et instructions pour bien démarrer avec le SDK Linux Speech Devices.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/10/2019
 ms.author: erhopf
-ms.openlocfilehash: d755f3388466369ee1edc3d9ff1e353173babc10
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 3ee39f4cf0c78850b0128fc5e497f2b2aee57bbc
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67723299"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559068"
 ---
 # <a name="quickstart-run-the-speech-devices-sdk-sample-app-on-linux"></a>Démarrage rapide : Exécuter l’exemple d’application du SDK Speech Devices sur Linux
 

@@ -6,16 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: quickstart
-author: garyericson
-ms.author: garye
+author: xiaoharper
+ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/06/2019
-ms.openlocfilehash: 0819c232412e1619f82a25476a8318d26c8087da
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: e5c004b69f24b50ed2eb3a10dbd0a7915c0773ce
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58105724"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68515106"
 ---
 # <a name="quickstart-create-your-first-data-science-experiment-in-azure-machine-learning-studio"></a>Démarrage rapide : Créer votre première expérience de science des données dans Azure Machine Learning Studio
 
@@ -59,7 +59,7 @@ Voici comment obtenir ce jeu de données dans le cadre de votre expérience.
 
     ![Renommer l’expérience](./media/create-experiment/rename-experiment.png)
 
-1. Sur la gauche de la zone de dessin de l’expérience se trouve une palette de jeux de données et de modules. Tapez la valeur **automobile** dans la zone de recherche se trouvant en haut de cette palette, afin de rechercher le jeu de données **Données sur le prix des véhicules automobiles (brutes)**. Faites glisser ce jeu de données vers le canevas de l’expérience.
+1. Sur la gauche de la zone de dessin de l’expérience se trouve une palette de jeux de données et de modules. Tapez la valeur **automobile** dans la zone de recherche se trouvant en haut de cette palette, afin de rechercher le jeu de données **Données sur le prix des véhicules automobiles (brutes)** . Faites glisser ce jeu de données vers le canevas de l’expérience.
 
     ![Recherchez le jeu de données d’automobile et faites-le glisser vers le canevas de l’expérience](./media/create-experiment/type-automobile.png)
 
@@ -107,11 +107,11 @@ Nous commençons par ajouter un module qui supprime toute la colonne **normalize
      ![Le volet Propriétés indique que la colonne « normalized-losses » est exclue](./media/create-experiment/showing-excluded-column.png)
 
      > [!TIP] 
-     > Vous pouvez ajouter un commentaire dans un module en double-cliquant sur ce module, puis en saisissant du texte. Ceci peut vous aider à voir d'un seul coup d'œil ce que fait chaque module dans votre expérience. Dans ce cas, double-cliquez sur le module [Sélectionner des colonnes dans le jeu de données][select-columns] et saisissez le commentaire suivant : « Exclure les pertes normalisées ».
+     > Vous pouvez ajouter un commentaire dans un module en double-cliquant sur ce module, puis en saisissant du texte. Ceci peut vous aider à voir d'un seul coup d'œil ce que fait chaque module dans votre expérience. Dans ce cas, double-cliquez sur le module [Sélectionner des colonnes dans le jeu de données][select-columns], puis entrez le commentaire suivant : « Exclure les pertes normalisées ».
 
      ![Double-cliquez sur un module pour ajouter un commentaire](./media/create-experiment/add-comment.png)
 
-1. Faites glisser le module [Nettoyer les données manquantes][clean-missing-data] vers la zone de dessin de l’expérience et connectez-le au module [Sélectionner des colonnes dans le jeu de données][select-columns]. Dans le volet **Propriétés**, sélectionnez **Supprimer toute la ligne** sous **Mode de nettoyage**. Ces options indiquent au module [Nettoyage des données manquantes][clean-missing-data] de nettoyer les données en supprimant les lignes où il manque des valeurs. Double-cliquez sur le module et saisissez le commentaire suivant : « Supprimer les lignes de valeur manquantes ».
+1. Faites glisser le module [Nettoyer les données manquantes][clean-missing-data] jusqu’à la zone de dessin de l’expérience et connectez-le au module [Sélectionner des colonnes dans le jeu de données][select-columns]. Dans le volet **Propriétés**, sélectionnez **Supprimer toute la ligne** sous **Mode de nettoyage**. Ces options indiquent au module [Nettoyer les données manquantes][clean-missing-data] de nettoyer les données en supprimant les lignes où il manque des valeurs. Double-cliquez sur le module et saisissez le commentaire suivant : « Supprimer les lignes de valeur manquantes ».
 
     ![Définissez le mode de nettoyage du module « Nettoyage des données manquantes » sur « Supprimer toute la ligne »](./media/create-experiment/set-remove-entire-row.png)
 
@@ -183,11 +183,11 @@ Nous allons utiliser nos données pour la formation et le test en les divisant e
 
 1. Pour sélectionner l’algorithme d’apprentissage, développez la catégorie **Machine Learning** dans la palette des modules, à gauche de la zone de dessin, puis développez **Initialiser le modèle**. Différentes catégories de modules s'affichent, permettant d'initialiser des algorithmes d'apprentissage automatique. Pour les besoins de cet exemple, sélectionnez le module [Régression linéaire][linear-regression] sous la catégorie **Régression**, puis faites-le glisser vers le canevas de l’expérience. Vous pouvez également rechercher le module en tapant « régression linéaire » dans la zone de recherche de la palette.
 
-1. Recherchez et faites glisser le module [Effectuer le traitement de données pour apprentissage du modèle][train-model] jusqu’à la zone de dessin de l’expérience. Connectez la sortie du module [Régression linéaire][linear-regression] à l’entrée de gauche du module [Former le modèle][train-model], puis connectez la sortie des données de formation (port gauche) du module [Fractionner les données][split] à l’entrée de droite du module [Former le modèle][train-model].
+1. Recherchez et faites glisser le module [Entraîner le modèle][train-model] jusqu’à la zone de dessin. Connectez la sortie du module [Régression linéaire][linear-regression] à l’entrée de gauche du module [Entraîner votre modèle][train-model], puis connectez la sortie des données d’entraînement (port gauche) du module [Fractionner les données][split] à l’entrée de droite du module [Entraîner votre modèle][train-model].
 
     ![Connectez le module « Former le modèle » aux modules « Régression linéaire » et « Fractionner les données »](./media/create-experiment/connect-train-model.png)
 
-1. Cliquez sur le module [Effectuer le traitement de données][train-model] pour apprentissage du modèle, cliquez sur l’option **Lancer le sélecteur de colonne** du volet **Propriétés** et sélectionnez la colonne **Price**. **Price** est la valeur à prédire par notre modèle.
+1. Cliquez sur le module [Entraîner votre modèle][train-model], cliquez sur l’option **Lancer le sélecteur de colonne** dans le volet **Propriétés**, puis sélectionnez la colonne **Price**. **Price** est la valeur à prédire par notre modèle.
 
     Vous pouvez sélectionner la colonne **price** dans le sélecteur de colonne en la faisant passer de la liste **Colonnes disponibles** à la liste **Colonnes sélectionnées**.
 
@@ -203,7 +203,7 @@ Nous disposons à présent d’un modèle de régression formé qui permet de no
 
 À présent que nous avons formé le modèle à l'aide de 75 % de nos données, nous pouvons l'utiliser pour la notation du reste de nos données (25 %), afin de voir s'il fonctionne correctement.
 
-1. Recherchez et faites glisser le module [Noter le modèle][score-model] vers le canevas de l’expérience. Connectez la sortie du module [Former le modèle][train-model] au port d’entrée de gauche [Noter le modèle][score-model]. Connectez la sortie de données de test (port de droite) du module [Split Data][split] au port d’entrée de droite de [Score Model][score-model].
+1. Recherchez et faites glisser le module [Noter le modèle][score-model] vers le canevas de l’expérience. Connectez la sortie du module [Entraîner le modèle][train-model] au port d’entrée de gauche du module [Scorer le modèle][score-model]. Connectez la sortie des données de test (port de droite) du module [Fractionner les données][split] au port d’entrée de droite du module [Scorer le modèle][score-model].
 
     ![Connectez le module « Noter le modèle » aux modules « Former le modèle » et « Fractionner les données »](./media/create-experiment/connect-score-model.png)
 
@@ -217,7 +217,7 @@ Nous disposons à présent d’un modèle de régression formé qui permet de no
 
 1. Exécutez l’expérience.
 
-Pour afficher la sortie du module [Evaluate Model][evaluate-model], cliquez sur le port de sortie, puis sélectionnez **Visualiser**.
+Pour afficher la sortie du module [Évaluer le modèle][evaluate-model], cliquez sur le port de sortie, puis sélectionnez **Visualiser**.
 
 ![Résultats de l’évaluation de l’expérience](./media/create-experiment/evaluation-results.png)
 

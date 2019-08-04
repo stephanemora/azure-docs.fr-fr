@@ -8,12 +8,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 5/31/2019
 ms.author: victorh
-ms.openlocfilehash: e2e29bf0068fae5d6f4987ec5c3f2a52b883e4bd
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: 5f7fd47a096ddd57150a466f85fabcfc2f7045d9
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66418110"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564878"
 ---
 # <a name="what-is-azure-application-gateway"></a>Qu’est-ce qu’Azure Application Gateway ?
 
@@ -111,7 +111,7 @@ Le vidage des connexions permet d’éliminer délicatement les membres du pool 
 
 Application Gateway vous permet de créer des pages d’erreur personnalisées au lieu d’afficher les pages d’erreur par défaut. Vous pouvez utiliser votre marque et votre mise en page personnelle à l’aide d’une page d’erreur personnalisée.
 
-Pour plus d’informations, consultez [Réécrire les en-têtes HTTP](rewrite-http-headers.md).
+Pour plus d’informations, voir [Erreurs personnalisées](custom-error.md).
 
 ## <a name="rewrite-http-headers"></a>Réécrire les en-têtes HTTP
 

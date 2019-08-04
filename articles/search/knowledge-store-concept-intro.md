@@ -7,14 +7,14 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: overview
-ms.date: 05/02/2019
+ms.date: 08/02/2019
 ms.author: heidist
-ms.openlocfilehash: 4a27e4d8f2fbaafe6d27a3e3cabd31aa715b9d80
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 6cbf8dfe51e8b553fd84e9eb81a2ea37a65c387e
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65540750"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68668282"
 ---
 # <a name="what-is-knowledge-store-in-azure-search"></a>Qu'est-ce que la base de connaissances de Recherche Azure ?
 
@@ -22,11 +22,13 @@ ms.locfileid: "65540750"
 > La base de connaissances est en préversion et n’a pas été conçue pour la production. L’[API REST version 2019-05-06-Preview](search-api-preview.md) fournit cette fonctionnalité. Il n’y a pas de prise en charge de .NET SDK pour l’instant.
 >
 
-La base de connaissances est une fonctionnalité facultative de Recherche Azure qui enregistre les métadonnées et documents enrichis créés par un pipeline d'indexation basé sur l'IA [(recherche cognitive)](cognitive-search-concept-intro.md). La base de connaissances repose sur un compte de stockage Azure que vous configurez dans le cadre du pipeline. Lorsqu'il est activé, le service de recherche utilise ce compte de stockage pour mettre en cache une représentation de chaque document enrichi. 
+La base de connaissances est une fonctionnalité de Recherche Azure qui enregistre les métadonnées et documents enrichis créés par un pipeline d'indexation basé sur l'IA [(recherche cognitive)](cognitive-search-concept-intro.md). Un document enrichi est la sortie d’un pipeline, créée à partir d’un contenu qui a été extrait, structuré et analysé à l’aide de ressources de Cognitive Services. Dans un pipeline basé sur l’IA standard, les documents enrichis sont temporaires, utilisés uniquement pendant l’indexation, puis ignorés. Avec la base de connaissances, les documents sont enregistrés en vue d’une évaluation et d’une exploration ultérieures, et peuvent potentiellement devenir des entrées dans une charge de travail de science des données en aval. 
 
-Si vous avez déjà eu recours à la recherche cognitive par le passé, vous savez que des ensembles de compétences peuvent être utilisés pour déplacer un document dans le cadre d'une séquence d'enrichissements. Le résultat peut être un index Recherche Azure ou (nouveauté de cette préversion) des projections d'une base de connaissances.
+Si vous avez déjà eu recours à la recherche cognitive par le passé, vous savez que des ensembles de compétences sont utilisés pour déplacer un document dans le cadre d'une séquence d'enrichissements. Le résultat peut être un index Recherche Azure ou (nouveauté de cette préversion) des projections d'une base de connaissances. Les deux sorties, l’index de recherche et la base de connaissances, sont physiquement distincte. Elles partagent le même contenu, mais sont stockés et utilisées de manières très différentes.
 
-Les projections vous permettent de structurer les données à utiliser dans une application située en aval. Vous pouvez utiliser l'[Explorateur Stockage](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) conçu pour Stockage Azure, ou n'importe quelle application capable de se connecter à Stockage Azure, ce qui ouvre de nouvelles possibilités d'utilisation de documents enrichis. Les pipelines de science des données et les analyses personnalisées en sont des exemples.
+Physiquement, une base de connaissances est créée dans un compte Stockage Azure, en tant que stockage Table ou Bob Azure, selon la façon dont vous configurez le pipeline. Tout outil ou processus pouvant se connecter au Stockage Azure peut utiliser le contenu d’un magasin de connaissances.
+
+Les projections vous permettent de structurer des données dans une base de connaissances. Par exemple, des projections vous permettent de choisir si la sortie est enregistrée en tant qu’objet blob unique ou collection de tables associées. Un moyen simple d’afficher le contenu d’une base de connaissances consiste à utiliser l’[explorateur stockage](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) intégré pour Stockage Azure.
 
 ![Diagramme de base de connaissances au sein d'un pipeline](./media/knowledge-store-concept-intro/annotationstore_sans_internalcache.png "Diagramme de base de connaissances au sein d'un pipeline")
 

@@ -10,27 +10,28 @@ ms.reviewer: v-mamcge, jasonh, kfile
 ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc seodec18
-ms.date: 04/22/2019
-ms.openlocfilehash: 415ce28a7cab77c538a7dfb8f387900ff515dd0e
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.date: 07/29/2019
+ms.openlocfilehash: 0a91db15fcf77a936905a68c6b69b507d4e32a78
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67164564"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68677692"
 ---
 # <a name="quickstart-explore-azure-time-series-insights"></a>Démarrage rapide : Explorer Azure Time Series Insights
 
-Ce guide de démarrage rapide consacré à l’explorateur Azure Time Series Insights vous aide à démarrer avec Time Series Insights dans un environnement de démonstration gratuit. Vous y découvrirez comment utiliser votre navigateur web pour visualiser de grands volumes de données IoT avant de faire le tour des fonctionnalités clés qui sont désormais en disponibilité générale.
+Ce guide de démarrage rapide consacré à l’explorateur Azure Time Series Insights vous aide à démarrer avec Time Series Insights dans un environnement de démonstration gratuit. Ce guide de démarrage rapide explique comment utiliser votre navigateur web pour visualiser de grands volumes de données IoT avant de faire le tour de fonctionnalités clés désormais en disponibilité générale.
 
 Azure Time Series Insights est un service entièrement managé d’analyse, de stockage et de visualisation qui simplifie la découverte et l’analyse simultanées de milliards d’événements IoT. Cette solution vous donne une vue globale de vos données afin que vous puissiez valider rapidement votre solution IoT et éviter des temps morts coûteux d’appareils stratégiques. Azure Time Series Insights vous aide à découvrir des tendances masquées, détecter les anomalies et effectuer des analyses de cause première quasiment en temps réel.
 
 Pour plus de flexibilité, vous pouvez ajouter Azure Time Series Insights à des applications préexistantes via ses [API REST](./time-series-insights-update-tsq.md) puissantes et son [kit SDK client](./tutorial-create-tsi-sample-spa.md). Vous pouvez utiliser les API pour stocker, interroger et consommer des données de série chronologique dans l’application cliente de votre choix. Vous pouvez également utiliser le kit SDK client pour ajouter des composants d’interface utilisateur à votre application existante.
 
-Ce guide de démarrage rapide consacré à l’explorateur Time Series Insights propose une visite guidée des fonctionnalités qui sont désormais en disponibilité générale.
+Ce guide de démarrage rapide consacré à l’explorateur Time Series Insights propose une visite guidée des fonctionnalités désormais en disponibilité générale.
+
+> [!IMPORTANT]
+> Créez un [compte Azure gratuit](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) si ce n’est déjà fait.
 
 ## <a name="prepare-the-demo-environment"></a>Préparer l’environnement de démonstration
-
-1. Créez un [compte Azure gratuit](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) si ce n’est déjà fait.
 
 1. Dans votre navigateur, accédez à la [démonstration de la disponibilité générale](https://insights.timeseries.azure.com/demo).
 
@@ -79,6 +80,13 @@ Ce guide de démarrage rapide consacré à l’explorateur Time Series Insights 
    [![Filtrer les séries](media/quickstart/quickstart9.png)](media/quickstart/quickstart9.png#lightbox)
 
 Après avoir terminé le démarrage rapide, vous pouvez tester l’exemple de jeu de données pour créer différentes visualisations.
+
+## <a name="clean-up-resources"></a>Supprimer des ressources
+
+Maintenant que vous avez terminé le didacticiel, nettoyez les ressources que vous avez créées :
+
+1. Dans le menu de gauche du [portail Azure](https://portal.azure.com), sélectionnez **Toutes les ressources**, puis votre groupe de ressources Azure Time Series Insights.
+1. Vous pouvez supprimer l’intégralité du groupe de ressources (et toutes les ressources qu’il contient) en sélectionnant **Supprimer** ou supprimer chaque ressource individuellement.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

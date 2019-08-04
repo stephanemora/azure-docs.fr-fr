@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Reconnaissance vocale, Node.js - Services de reconnaissance vocale'
+title: 'Démarrage rapide : Reconnaissance vocale, Node.js – Speech Service'
 titleSuffix: Azure Cognitive Services
 description: Utilisez ce guide pour créer une application console de reconnaissance vocale à l’aide du kit SDK Speech pour Node.js. Lorsque vous avez terminé, vous pouvez utiliser le microphone de l’ordinateur pour une retranscription vocale en temps réel.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: fmegen
-ms.openlocfilehash: 9d233de8a9cdd4b9a3637edcd1c6196b4ad16fd2
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 1a3d1bc62e995aff43d9538f49b436a7de16f1e9
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67605131"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68554076"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-nodejs"></a>Démarrage rapide : Reconnaissance vocale à l’aide du SDK Speech pour Node.js
 

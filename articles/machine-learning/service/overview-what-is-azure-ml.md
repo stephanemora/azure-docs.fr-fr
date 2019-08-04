@@ -10,12 +10,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 383bfbfe335300685be0ee1a43c78748f688276a
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: c1ec9db2b026dd1853eceb1f110878d6b2beb4d4
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65472760"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68678027"
 ---
 # <a name="what-is-azure-machine-learning-service"></a>Qu'est-ce que le service Azure Machine Learning ?
 
@@ -32,13 +32,13 @@ Les prévisions ou prédictions générées à partir de Machine Learning peuven
 Le service Azure Machine Learning fournit un environnement cloud que vous pouvez utiliser pour préparer les données, entraîner, tester, déployer, gérer et suivre des modèles Machine Learning. Commencez à vous entraîner sur votre ordinateur local, puis effectuez un scale-out sur le cloud. Le service prend entièrement en charge les technologies open source comme PyTorch, TensorFlow et scikit-learn et peut être utilisé pour n’importe quel type de machine learning, du machine learning classique au deep learning (apprentissage profond), pour l’apprentissage supervisé ou non supervisé. 
 
 Explorez et préparez des données, entraînez et testez des modèles, puis déployez-les à l’aide d’outils élaborés comme :
-+ Une [interface visuelle](ui-quickstart-run-experiment.md) dans laquelle vous pouvez glisser-déplacer des modules afin de générer vos expériences et déployer des modèles
++ Une [interface visuelle](ui-tutorial-automobile-price-train-score.md) dans laquelle vous pouvez glisser-déplacer des modules afin de générer vos expériences et déployer des modèles
 + Des [notebooks Jupyter](https://jupyter.org) dans lesquels vous pouvez utiliser les [SDK](https://docs.microsoft.com/azure/machine-learning/service/#reference) pour écrire votre propre code, comme [ces exemples de notebooks](https://aka.ms/aml-notebooks)
 + [Extension Visual Studio Code](how-to-vscode-tools.md)
 
 ## <a name="what-can-i-do-with-azure-machine-learning-service"></a>Que faire avec Azure Machine Learning ?
 
-En utilisant le <a href="https://aka.ms/aml-sdk" target="_blank">kit SDK Python Azure Machine Learning</a> avec des packages Python open source ou en utilisant l’[interface visuelle](ui-quickstart-run-experiment.md), vous pouvez générer et entraîner vous-même des modèles Machine Learning et des modèles de deep learning extrêmement précis dans un espace de travail Azure Machine Learning service.
+Utilisez le <a href="https://aka.ms/aml-sdk" target="_blank">kit SDK Python Azure Machine Learning</a> avec des packages Python open source ou utilisez l’[interface visuelle (préversion)](ui-tutorial-automobile-price-train-score.md) pour générer et entraîner vous-même des modèles Machine Learning et des modèles de deep learning extrêmement précis dans un espace de travail du service Azure Machine Learning.
 
 Vous pouvez choisir parmi les nombreux composants de machine learning disponibles dans les packages Python open source, comme <a href="https://scikit-learn.org/stable/" target="_blank">Scikit-learn</a>, <a href="https://www.tensorflow.org" target="_blank">Tensorflow</a>, <a href="https://pytorch.org" target="_blank">PyTorch</a> et <a href="https://mxnet.io" target="_blank">MXNet</a>.
 
@@ -86,9 +86,9 @@ Voici une comparaison rapide.
 |Modules pour l’interface| Divers | Jeu initial de modules courants|
 |Cibles de calcul d’entraînement| Cible de calcul propriétaire, prise en charge CPU uniquement| Prend en charge le calcul Azure Machine Learning, GPU ou CPU<br/>(Autres calculs pris en charge dans le SDK)|
 |Cibles de calcul de déploiement| Format de service web propriétaire, non personnalisable | Options de sécurité d’entreprise et Azure Kubernetes Service. <br/>([Autres calculs](how-to-deploy-and-where.md) pris en charge dans le SDK) |
-|Entraînement de modèle automatisé et optimisation des hyperparamètres | Non  | Pas encore dans l’interface visuelle. <br/> (Pris en charge dans le SDK et sur le portail Azure). | 
+|Entraînement de modèle automatisé et optimisation des hyperparamètres | Non | Pas encore dans l’interface visuelle. <br/> (Pris en charge dans le SDK et sur le portail Azure). | 
 
-Essayez l’interface visuelle (préversion) avec le [Démarrage rapide : Préparer et visualiser des données sans écrire de code](ui-quickstart-run-experiment.md)
+Essayer l’interface visuelle (préversion) avec le [Didacticiel : Prédire le prix de voitures à l’aide de l’interface visuelle](ui-tutorial-automobile-price-train-score.md).
 
 > [!NOTE]
 > Les modèles créés dans Studio ne peuvent pas être déployés ni gérés par Azure Machine Learning service. En revanche, les modèles créés et déployés dans l’interface visuelle du service peuvent être gérés via l’espace de travail Azure Machine Learning service.

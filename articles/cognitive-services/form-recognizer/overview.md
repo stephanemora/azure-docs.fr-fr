@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: overview
-ms.date: 07/01/2019
+ms.date: 07/25/2019
 ms.author: pafarley
-ms.openlocfilehash: e064faf3017b95cb3a5f3d9b89f178fb7f846766
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: b07201556f08bde4ef8c7a7904c6619a126d7765
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67592620"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68594547"
 ---
 # <a name="what-is-form-recognizer"></a>Qu’est-ce que Form Recognizer ?
 
@@ -26,17 +26,28 @@ Le modèle personnalisé Form Recognizer effectue l’apprentissage avec vos pro
 
 Un apprentissage non supervisé permet au modèle de comprendre la disposition ainsi que les relations entre les champs et les entrées, sans étiquetage manuel des données ni codage et maintenance intensifs. En revanche, les modèles d’apprentissage automatique préformés nécessitent des données standardisées. Ils sont moins précis avec les documents d’entrée qui s’écartent des formats traditionnels, tels que les formulaires spécifiques à certains secteurs.
 
-## <a name="pre-built-receipt-model"></a>Modèle de reçu préconstruit
+## <a name="prebuilt-receipt-model"></a>Modèle de reçu préconstruit
 
 Form Recognizer comprend également un modèle pour la lecture des reçus d’achat. Ce modèle extrait des informations clés telles que la date et l’heure de la transaction, les détails du vendeur, le montant des taxes et frais totaux et plus encore. En outre, le modèle de reçu préconstruit est entraîné pour reconnaître et retourner tout le texte d’un reçu.
 
 ## <a name="what-it-includes"></a>Contenu
 
-Form Recognizer est disponible en tant qu’API REST. Vous pouvez créer, entraîner et évaluer un modèle personnalisé ou accéder au modèle préconstruit en appelant ces API. Si vous le souhaitez, vous pouvez entraîner et exécuter des modèles personnalisés dans un conteneur Docker local.
+Form Recognizer est disponible en tant qu’API REST. Vous pouvez créer, effectuer l’apprentissage et noter un modèle personnalisé, ou accéder au modèle préconstruit en appelant ces API. Si vous le souhaitez, vous pouvez entraîner et exécuter des modèles personnalisés dans un conteneur Docker local.
 
-## <a name="input-requirements-custom-model"></a>Exigences d’entrée (modèle personnalisé)
+## <a name="input-requirements"></a>Critères des entrées
+### <a name="custom-model"></a>Modèle personnalisé
 
 [!INCLUDE [input requirements](./includes/input-requirements.md)]
+
+### <a name="prebuilt-receipt-model"></a>Modèle de reçu préconstruit
+
+Les exigences d’entrée pour le modèle de reçu sont légèrement différentes.
+
+* Le format doit être JPEG, PNG, BMP, PDF (texte ou numérisé) ou TIFF.
+* La taille du fichier doit être inférieure à 20 Mo.
+* Les dimensions des images doivent être comprises entre 50 x 50 et 10 000 x 10 000 pixels. 
+* Les dimensions des PDF ne doivent pas dépasser 17 x 17 pouces, ce qui correspond aux formats de papier Legal ou A3, et plus petits.
+* Pour PDF et TIFF, seules les 200 premières pages sont traitées (avec un abonnement gratuit, seules les deux premières pages sont traitées).
 
 ## <a name="request-access"></a>Demander l'accès
 

@@ -12,17 +12,17 @@ author: garyericson
 ms.author: garye
 ms.reviewer: davidph
 manager: cgronlun
-ms.date: 05/17/2019
-ms.openlocfilehash: 1fe9df6378884ba55cb1017da87522ae66edaff0
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.date: 07/29/2019
+ms.openlocfilehash: 6f4d237d5e923aab61ae34a235d2e1f759399e6d
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66420217"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68640908"
 ---
 # <a name="tutorial-deploy-a-clustering-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Didacticiel : Déployer un modèle de clustering en R avec Azure SQL Database Machine Learning Services (préversion)
 
-Dans le troisième volet de ce tutoriel en trois parties, vous allez déployer un modèle de clustering en R avec Azure SQL Database Machine Learning Services (préversion).
+Dans la dernière partie de ce didacticiel qui en compte trois, vous allez déployer un modèle de clustering développé en R dans une base de données SQL en utilisant le service Machine Learning Services (préversion) d’Azure SQL Database.
 
 Vous allez créer une procédure stockée avec un script R incorporé qui effectue un clustering. Du fait que votre modèle s’exécute dans la base de données Azure SQL, il peut facilement être entraîné sur des données stockées dans la base de données.
 
@@ -33,9 +33,9 @@ Cet article porte sur les points suivants :
 > * Effectuer un clustering dans SQL Database
 > * Utiliser les informations de clustering
 
-Dans la [première partie](sql-database-tutorial-clustering-model-prepare-data.md), vous avez appris à préparer les données d’une base de données Azure SQL afin d’effectuer un clustering en R.
+Dans la [première partie](sql-database-tutorial-clustering-model-prepare-data.md), vous avez appris à préparer les données d’une base de données Azure SQL afin d’effectuer un clustering.
 
-Dans la [deuxième partie](sql-database-tutorial-clustering-model-build.md), vous avez vu comment créer un modèle k-moyennes pour effectuer un clustering.
+Dans la [deuxième partie](sql-database-tutorial-clustering-model-build.md), vous avez appris à créer et à effectuer l’apprentissage d’un modèle de clustering k-moyennes en R.
 
 [!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
@@ -45,7 +45,7 @@ Dans la [deuxième partie](sql-database-tutorial-clustering-model-build.md), vou
 
 ## <a name="create-a-stored-procedure-that-generates-the-model"></a>Création d’une procédure stockée qui génère le modèle
 
-Exécutez le script T-SQL suivant pour créer la procédure stockée. La procédure recrée les étapes développées dans les première et deuxième parties de ce tutoriel :
+Exécutez le script T-SQL suivant pour créer la procédure stockée. La procédure recrée les étapes que vous avez développées dans les première et deuxième parties de ce didacticiel :
 
 * Classer les clients en fonction de leur historique d’achats et de retours
 * Générer quatre clusters de clients à l’aide d’un algorithme k-moyennes

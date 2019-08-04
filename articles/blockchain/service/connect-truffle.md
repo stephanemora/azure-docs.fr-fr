@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.service: azure-blockchain
 ms.reviewer: jackyhsu
 manager: femila
-ms.openlocfilehash: 8b1a701beac867c5f331ffa1ee1dee615961c6b3
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: 9154bc749f7db337de67f501d5e5049dfd466156
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66416290"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698467"
 ---
 # <a name="quickstart-use-truffle-to-connect-to-an-azure-blockchain-service-network"></a>Démarrage rapide : Utiliser Truffle pour vous connecter à un réseau Azure Blockchain Service
 
@@ -28,6 +28,8 @@ Truffle est un environnement de développement blockchain que vous pouvez utilis
 * [Créer un membre Azure Blockchain](create-member.md)
 * Installez [Truffle](https://github.com/trufflesuite/truffle). Truffle nécessite que plusieurs outils soient installés, notamment [Node.js](https://nodejs.org) et [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
 * Installez [Python 2.7.15](https://www.python.org/downloads/release/python-2715/). Python est nécessaire pour Web3.
+* Installez [Visual Studio Code](https://code.visualstudio.com/download).
+* Installez l’[extension Solidity de Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=JuanBlanco.solidity).
 
 ## <a name="create-truffle-project"></a>Créer un projet Truffle
 
@@ -53,38 +55,51 @@ Truffle est un environnement de développement blockchain que vous pouvez utilis
     ```
 
     Vous pouvez recevoir des avertissements de npm lors de l’installation.
+    
+## <a name="configure-truffle-project"></a>Configurer le projet Truffle
 
-1. Lancez la console de développement interactive de Truffle.
+Pour configurer le projet Truffle, vous avez besoin d’obtenir certaines informations sur le nœud de transaction à partir du portail Azure.
 
-    ``` bash
-    truffle develop
+### <a name="transaction-node-endpoint-addresses"></a>Adresses des points de terminaison de nœud de transaction
+
+1. Dans le portail Azure, accédez à chaque nœud de transaction et sélectionnez **Nœuds de transaction > Chaînes de connexion**.
+1. Copiez et enregistrez l’URL du point de terminaison à partir de **HTTPS (clé d’accès 1)** pour chaque nœud de transaction. Vous aurez besoin des adresses des points de terminaison pour le fichier de configuration du contrat intelligent, plus tard dans ce tutoriel.
+
+    ![Adresse de point de terminaison de transaction](./media/send-transaction/endpoint.png)
+
+### <a name="edit-configuration-file"></a>Modifier le fichier de configuration
+
+1. Lancez Visual Studio Code et ouvrez le dossier du répertoire du projet Truffle à l’aide du menu **Fichier > Dossier ouvert**.
+1. Ouvrez le fichier de configuration Truffle `truffle-config.js`.
+1. Remplacez le contenu du fichier par les informations de configuration suivantes. Ajoutez une variable contenant l’adresse du point de terminaison. Remplacez les le contenu entre crochets par des valeurs que vous avez collectées dans les sections précédentes.
+
+    ``` javascript
+    var defaultnode = "<default transaction node connection string>";   
+    var Web3 = require("web3");
+    
+    module.exports = {
+      networks: {
+        defaultnode: {
+          provider: new Web3.providers.HttpProvider(defaultnode),
+          network_id: "*"
+        }
+      }
+    }
     ```
 
-    Truffle crée une blockchain de développement locale et fournit une console interactive.
+1. Enregistrez les changements apportés à `truffle-config.js`.
 
 ## <a name="connect-to-transaction-node"></a>Se connecter à un nœud de transaction
 
-Utilisez *Web3* pour vous connecter au nœud de transaction. Vous pouvez obtenir la chaîne de connexion *Web3* à partir du portail Azure.
+Utilisez *Web3* pour vous connecter au nœud de transaction.
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
-1. Accédez au membre Azure Blockchain Service. Sélectionnez **Nœuds de transaction**, puis le lien du nœud de transaction par défaut.
+1. Utilisez la console Truffle pour vous connecter au nœud de transaction par défaut.
 
-    ![Sélectionner le nœud de transaction par défaut](./media/connect-truffle/transaction-nodes.png)
-
-1. Sélectionnez **Exemple de code > Web3**.
-1. Copiez le code JavaScript situé sous **HTTPS (clé d’accès 1)** . Vous avez besoin du code pour la console de développement interactif Truffle.
-
-    ![Code web3](./media/connect-truffle/web3-code.png)
-
-1. Collez le code JavaScript de l’étape précédente dans la console de développement interactif Truffle. Le code crée un objet web3 connecté au nœud de transaction Azure Blockchain Service.
-
-    Exemple de sortie :
-
-    ```bash
-    truffle(develop)> var Web3 = require("Web3");
-    truffle(develop)> var provider = new Web3.providers.HttpProvider("https://myblockchainmember.blockchain.azure.com:3200/hy5FMu5TaPR0Zg8GxiPwned");
-    truffle(develop)> var web3 = new Web3(provider);
+    ``` bash
+    truffle console --network defaultnode
     ```
+
+    Truffle se connecte au nœud de transaction par défaut et fournit une console interactive.
 
     Vous pouvez appeler des méthodes sur l’objet **web3** pour interagir avec votre nœud de transaction.
 
@@ -97,7 +112,7 @@ Utilisez *Web3* pour vous connecter au nœud de transaction. Vous pouvez obtenir
     Exemple de sortie :
 
     ```bash
-    truffle(develop)> web3.eth.getBlockNumber();
+    truffle(defaultnode)> web3.eth.getBlockNumber();
     18567
     ```
 1. Quittez la console de développement Truffle.

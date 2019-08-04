@@ -9,12 +9,12 @@ manager: jeconnoc
 ms.topic: overview
 ms.date: 05/08/2019
 ms.custom: mvc
-ms.openlocfilehash: 7cabedaec1190437aa9f225397afa8871cb06e88
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: f76f5d4dc84d1f8827248ab8399c1ae450a643a0
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66306371"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68620164"
 ---
 # <a name="azure-red-hat-openshift"></a>Azure Red Hat OpenShift
 
@@ -38,7 +38,7 @@ Les nœuds Azure Red Hat OpenShift s’exécutent sur des machines virtuelles Az
 
 ## <a name="virtual-networks-and-ingress"></a>Réseaux virtuels et entrée
 
-Vous pouvez connecter un cluster Azure Red Hat OpenShift à un réseau virtuel existant via le peering. Dans cette configuration, les pods peuvent se connecter à d’autres services dans un réseau virtuel appairé et à des réseaux locaux via [ExpressRoute](https://docs.microsoft.com/azure/expressroute/) ou des connexions VPN site à site (S2S).
+Vous pouvez [connecter un cluster Azure Red Hat OpenShift à un réseau virtuel existant](https://docs.microsoft.com/azure/openshift/tutorial-create-cluster#optional-connect-the-clusters-virtual-network-to-an-existing-virtual-network) via le peering. Dans cette configuration, les Pod peuvent se connecter à d’autres services dans un réseau virtuel homologué.
 
 Consultez [Connecter le réseau virtuel d’un cluster à un réseau virtuel existant](tutorial-create-cluster.md#optional-connect-the-clusters-virtual-network-to-an-existing-virtual-network) pour plus d’informations.
 
