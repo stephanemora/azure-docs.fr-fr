@@ -68,6 +68,8 @@
       items:
         - name: Migrer une base de données SQL Server
           href: virtual-machines-windows-migrate-sql.md
+        - name: Machine virtuelle vers une nouvelle région
+          href: virtual-machines-windows-sql-move-different-region.md
     - name: Configurer la haute disponibilité
       items:
         - name: Utiliser le Stockage Azure pour la sauvegarde et la restauration

@@ -25,6 +25,10 @@
       href: ../hdinsight-component-versioning.md
     - name: HDInsight 4.0
       href: ../hdinsight-version-release.md
+    - name: Résolution des problèmes
+      items:
+        - name: Délais d’expiration avec la commande hbase hbck
+          href: ./hbase-troubleshoot-timeouts-hbase-hbck.md
 - name: Procédures
   items:
     - name: Utiliser le stockage de cluster

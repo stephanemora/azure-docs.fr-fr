@@ -43,6 +43,8 @@
       href: security-center-incident.md
     - name: Réponse aux incidents
       href: security-center-incident-response.md
+    - name: Gestion multilocataire
+      href: security-center-cross-tenant-management.md
 - name: Guides pratiques
   items:
     - name: Améliorer votre score de sécurité
@@ -81,6 +83,8 @@
       items:
         - name: Que sont les recommandations de sécurité
           href: security-center-recommendations.md
+        - name: Corriger les recommandations
+          href: security-center-remediate-recommendations.md
         - name: Renforcer la posture de sécurité
           href: security-center-monitoring.md
         - name: Protéger les ordinateurs et les applications
