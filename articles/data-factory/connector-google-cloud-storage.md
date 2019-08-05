@@ -53,7 +53,7 @@ Les propriétés prises en charge pour le service lié Google Cloud Storage sont
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété de type doit être définie sur **AmazonS3**. | OUI |
+| type | La propriété de type doit être définie sur **AmazonS3**. | OUI |
 | accessKeyId | ID de la clé d’accès secrète. Pour trouver la clé d’accès et le secret, accédez à **Google Cloud Storage** > **Paramètres** > **Interopérabilité**. |OUI |
 | secretAccessKey | La clé d’accès secrète elle-même. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). |OUI |
 | serviceUrl | Spécifiez le point de terminaison personnalisé S3 en tant que **`https://storage.googleapis.com`** . | OUI |
