@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/21/2018
 ms.author: spelluru
-ms.openlocfilehash: f9f182a459f9a38c96bdf923998d1cdfee8fc3ac
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 207f73bbf9a92d26be1791fc11ce81fe68252705
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68277957"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68422962"
 ---
 # <a name="azure-relay-faqs"></a>FAQ sur Azure Relay
 
@@ -36,7 +36,7 @@ Le [service Azure Relay](relay-what-is-it.md) facilite le déploiement de vos ap
 A [espace de noms](relay-create-namespace-portal.md) est un conteneur d’étendue que vous pouvez utiliser pour adresser des ressources Relay au sein de votre application. Vous devez créer un espace de noms pour utiliser Relay. Il s’agit de l’une des premières étapes de la prise en main.
 
 ### <a name="what-happened-to-service-bus-relay-service"></a>Qu’est-il advenu du service Service Bus Relay ?
-Le service anciennement nommé Service Bus Relay s’appelle désormais [Relais WCF](relay-wcf-dotnet-get-started.md). Vous pouvez continuer à utiliser ce service comme vous en avez l’habitude. La fonctionnalité Connexions hybrides est une version mise à jour d’un service transplanté à partir Azure BizTalk Services. Les fonctionnalités Relais WCF et Connexions hybrides continuent d’être prises en charge.
+Le service anciennement nommé Service Bus Relay s’appelle désormais [Relais WCF](service-bus-relay-tutorial.md). Vous pouvez continuer à utiliser ce service comme vous en avez l’habitude. La fonctionnalité Connexions hybrides est une version mise à jour d’un service transplanté à partir Azure BizTalk Services. Les fonctionnalités Relais WCF et Connexions hybrides continuent d’être prises en charge.
 
 ## <a name="pricing"></a>Tarifs
 Cette section contient les réponses à certaines questions fréquemment posées sur la structure de tarification de Relay. Pour des informations générales sur la tarification d’Azure, vous pouvez également consulter le [Forum aux questions sur le support technique Azure](https://azure.microsoft.com/support/faq/). Pour obtenir toutes les informations sur la tarification de Relay, consultez [Détails de la tarification de Service Bus][Pricing overview].
