@@ -209,10 +209,6 @@
           href: /azure/active-directory/saas-apps/
     - name: Concepts
       items:
-        - name: Synchronisation initiale du provisionnement
-          href: user-provisioning.md
-        - name: Synchronisation incrémentielle du provisionnement
-          href: user-provisioning.md
         - name: Provisionnement automatique pour les applications prenant en charge SCIM
           href: use-scim-to-provision-users-and-groups.md
     - name: Guides pratiques
