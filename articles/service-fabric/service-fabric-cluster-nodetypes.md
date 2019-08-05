@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/23/2018
 ms.author: chackdan
-ms.openlocfilehash: a5f8735df2b230de2b0ddcdcccff09430bada9e3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f33b25112b5c4ee77f1f7d2a419ffb8e926a27d9
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64684687"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68501356"
 ---
 # <a name="azure-service-fabric-node-types-and-virtual-machine-scale-sets"></a>Types de nœuds Azure Service Fabric et groupes de machines virtuelles identiques
 Les [groupes de machines virtuelles identiques](/azure/virtual-machine-scale-sets) représentent une ressource de calcul Azure. Vous pouvez utiliser des groupes identiques pour déployer et gérer une collection de machines virtuelles comme un groupe. Chaque type de nœud que vous définissez dans un cluster Azure Service Fabric configure une mise à l’échelle différente.  Le runtime Service Fabric installé sur chaque machine virtuelle dans le groupe identique par l’extension de machine virtuelle Microsoft.Azure.ServiceFabric. Vous pouvez faire monter ou descendre en puissance chaque type de nœud de manière indépendante, modifier la référence SKU du système d’exploitation s’exécutant sur chaque nœud de cluster, avoir différents ensembles de ports ouverts et utiliser différentes métriques de capacité.
@@ -60,6 +60,7 @@ Voici un extrait de code d’extension de machine virtuelle Service Fabric :
          "durabilityLevel": "Silver",
          "enableParallelJobs": true,
          "nicPrefixOverride": "[variables('subnet0Prefix')]",
+         "dataPath": "D:\\\\SvcFab",
          "certificate": {
            "commonNames": [
              "[parameters('certificateCommonName')]"
@@ -76,18 +77,19 @@ Voici les descriptions des propriétés :
 
 | **Nom** | **Valeurs autorisées** | ** --- ** | **Conseils ou brève description** |
 | --- | --- | --- | --- |
-| name | chaîne | --- | Nom unique de l’extension |
+| name | string | --- | Nom unique de l’extension |
 | type | "ServiceFabricLinuxNode" ou "ServiceFabricWindowsNode | --- | Identifie le système d’exploitation sur lequel démarre Service Fabric |
 | autoUpgradeMinorVersion | true ou false | --- | Active la mise à niveau automatique des versions mineures du runtime SF |
 | publisher | Microsoft.Azure.ServiceFabric | --- | Nom de l’éditeur d’extension Service Fabric |
-| clusterEndpont | chaîne | --- | URI : port vers le point de terminaison de gestion |
-| nodeTypeRef | chaîne | --- | Nom du type de nœud |
+| clusterEndpont | string | --- | URI : port vers le point de terminaison de gestion |
+| nodeTypeRef | string | --- | Nom du type de nœud |
 | durabilityLevel | bronze, silver, gold, platinum | --- | Temps alloué pour suspendre l’infrastructure Azure immuable |
 | enableParallelJobs | true ou false | --- | Active le calcul de ParallelJobs, par exemple supprimer une machine virtuelle et redémarrer une machine virtuelle dans le même groupe identique en parallèle |
-| nicPrefixOverride | chaîne | --- | Préfixe du sous-réseau, par exemple "10.0.0.0/24" |
+| nicPrefixOverride | string | --- | Préfixe du sous-réseau, par exemple "10.0.0.0/24" |
 | commonNames | string[] | --- | Noms communs des certificats de cluster installés |
-| x509StoreName | chaîne | --- | Nom du Store où se trouve le certificat de cluster installé |
+| x509StoreName | string | --- | Nom du Store où se trouve le certificat de cluster installé |
 | typeHandlerVersion | 1.1 | --- | Version de l’extension. Il est recommandé de mettre à niveau la version classique d’extension 1.0 vers la version 1.1 |
+| dataPath | string | --- | Chemin d’accès au lecteur utilisé pour enregistrer l’état des données d’application et services système Service Fabric. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Consultez [Vue d’ensemble de la fonction « Déployer n’importe où » et comparaison avec les clusters gérés par Azure](service-fabric-deploy-anywhere.md).

@@ -8,13 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 06/19/2019
-ms.openlocfilehash: 735bf2802bcf55ed87de2ffd2f52539898302b00
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.date: 07/19/2019
+ms.openlocfilehash: b649ea1c69f82840a663cf32391e4c74ac6cc33e
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67275079"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68319512"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limites et informations de configuration pour Azure Logic Apps
 
@@ -173,13 +173,29 @@ Les limites pour les connecteurs personnalisés qu’il est possible de créer �
 
 ## <a name="integration-account-limits"></a>Limites du compte d’intégration
 
+Chaque abonnement Azure a les limites de compte d’intégration suivantes :
+
+* Un compte d’intégration unique de [niveau Gratuit](../logic-apps/logic-apps-pricing.md#integration-accounts)
+
+* 1 000 comptes d’intégration au total, notamment des comptes d’intégration dans des [environnements de service d’intégration](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) sur les [références SKU Développeur et Premium](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level).
+
+* Chaque environnements de service d’intégration, [Développeur ou Premium](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level), est limité à 5 comptes d’intégration au total :
+
+  | Référence (SKU) de l’environnement de service d’intégration | Limite |
+  |---------|-------|
+  | **Premium** | 5 au total - [Standard](../logic-apps/logic-apps-pricing.md#integration-accounts) uniquement, pas de niveau Gratuit ni De base |
+  | **Développeur** | 5 au total - Gratuit (limité à 1) et/ou Standard, mais pas niveau De base |
+  |||
+
+Des coûts supplémentaires s’appliquent aux comptes d’intégration que vous ajoutez au-delà des comptes d’intégration inclus avec un environnement de service d’intégration. Pour plus d’informations sur la tarification et la facturation des environnements de service d’intégration, consultez [Modèle de tarification Logic apps](../logic-apps/logic-apps-pricing.md#fixed-pricing). Pour connaître la tarification, consultez [Tarification Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps/).
+
 <a name="artifact-number-limits"></a>
 
 ### <a name="artifact-limits-per-integration-account"></a>Limites du nombre d’artefacts par compte d’intégration
 
-Les limites du nombre d’artefacts pour chaque compte d’intégration sont les suivantes. Pour plus d’informations, consultez [Tarifs Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps/).
+Les limites du nombre d’artefacts pour chaque niveau de compte d’intégration sont les suivantes. Pour connaître la tarification, consultez [Tarification Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps/). Pour plus d’informations sur la tarification et la facturation des comptes d’intégration, consultez [Modèle de tarification Logic apps](../logic-apps/logic-apps-pricing.md#integration-accounts).
 
-> [!NOTE] 
+> [!NOTE]
 > Utilisez le niveau gratuit uniquement pour les scénarios exploratoires, pas pour les scénarios de production. Ce niveau limite le débit et l’utilisation et n’inclut aucun contrat de niveau de service (SLA).
 
 | Artefact | Gratuit | De base | standard |

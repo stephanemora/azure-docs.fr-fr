@@ -8,28 +8,29 @@ manager: CelesteDG
 editor: ''
 ms.assetid: 06f5b317-053e-44c3-aaaa-cf07d8692735
 ms.service: active-directory
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 07/04/2019
 ms.author: ryanwi
 ms.custom: aaddev, annaba
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4b1c68d9254b0da2e5296c83d8dd4c95091fde1b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 901cf3e25ed63421f7e07d7773b6381fc54ea8a2
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67111806"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68489108"
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-preview"></a>Durées de vie des jetons configurables dans Azure Active Directory (préversion)
 
 Vous pouvez spécifier la durée de vie d’un jeton émis par Azure Active Directory (Azure AD). Vous pouvez définir les durées de vie des jetons pour toutes les applications de votre organisation, pour une application mutualisée (plusieurs organisations) ou pour un principal de service spécifique de votre organisation.
 
 > [!IMPORTANT]
-> En réponse aux retours des clients lors de la préversion, nous avons remplacé la fonctionnalité configurable de durée de vie des jetons par des [capacités de gestion de session d’authentification](https://go.microsoft.com/fwlink/?linkid=2083106) dans l’accès conditionnel Azure AD. Cette fonctionnalité sera déconseillée à partir du 1er novembre 2019. Si vous utilisez la stratégie configurable de durée de vie des jetons, basculez vers la nouvelle fonctionnalité d’accès conditionnel. 
+> En réponse aux retours des clients au cours de la préversion, nous avons implémenté des [fonctionnalités de gestion des sessions d’authentification](https://go.microsoft.com/fwlink/?linkid=2083106) dans l’accès conditionnel Azure AD. Vous pouvez utiliser cette nouvelle fonctionnalité pour configurer les durées de vie des jetons d’actualisation en définissant la fréquence de connexion. Après le 1er novembre 2019, vous ne pourrez pas utiliser une stratégie de durée de vie de jetons configurable pour configurer des jetons d’actualisation, mais vous pourrez toujours l’utiliser pour configurer des jetons d’accès.
 
 Dans Azure AD, un objet de stratégie représente un ensemble de règles appliquées sur des applications individuelles ou sur toutes les applications d’une organisation. Chaque type de stratégie comporte une structure unique avec un ensemble de propriétés qui sont ensuite appliquées aux objets auxquels elles sont affectées.
 
@@ -39,6 +40,7 @@ Vous pouvez désigner une stratégie comme stratégie par défaut pour votre org
 > La stratégie configurable de durée de vie des jetons n’est pas prise en charge par SharePoint Online.  Même si vous avez la possibilité de créer cette stratégie via PowerShell, SharePoint Online ne reconnaît pas cette stratégie. Reportez-vous au [blog SharePoint Online](https://techcommunity.microsoft.com/t5/SharePoint-Blog/Introducing-Idle-Session-Timeout-in-SharePoint-and-OneDrive/ba-p/119208) pour en savoir plus sur la configuration des délais d’expiration des sessions inactives.
 >* Par défaut, la durée de vie d’un jeton d’accès SharePoint Online est d’une heure. 
 >* Par défaut, la durée de vie d’un jeton d’actualisation SharePoint Online est de 90 jours.
+
 
 ## <a name="token-types"></a>Types de jetons
 
@@ -79,7 +81,7 @@ Une stratégie de durée de vie des jetons est un type d’objet de stratégie q
 ### <a name="configurable-token-lifetime-properties"></a>Propriétés des durées de vie des jetons configurables
 | Propriété | Chaîne de propriété de stratégie | Éléments affectés | Default | Minimale | Maximale |
 | --- | --- | --- | --- | --- | --- |
-| Durée de vie de jeton d’accès |AccessTokenLifetime |Jetons d’accès, jetons d’ID, jetons SAML2 |1 heure |10 minutes |1 jour |
+| Durée de vie de jeton d’accès |AccessTokenLifetime<sup>4</sup> |Jetons d’accès, jetons d’ID, jetons SAML2 |1 heure |10 minutes |1 jour |
 | Délai d’inactivité maximale de jeton d’actualisation |MaxInactiveTime |Jetons d’actualisation |90 jours |10 minutes |90 jours |
 | Âge maximal de jeton d’actualisation à facteur unique |MaxAgeSingleFactor |Jetons d’actualisation (pour tous les utilisateurs) |Jusqu’à révocation |10 minutes |Jusqu’à révocation<sup>1</sup> |
 | Âge maximal de jeton d’actualisation multifacteur |MaxAgeMultiFactor |Jetons d’actualisation (pour tous les utilisateurs) |Jusqu’à révocation |10 minutes |Jusqu’à révocation<sup>1</sup> |
@@ -87,6 +89,7 @@ Une stratégie de durée de vie des jetons est un type d’objet de stratégie q
 | Âge maximal de jeton de session multifacteur |MaxAgeSessionMultiFactor<sup>3</sup> |Jetons de session (persistants et non persistants) |Jusqu’à révocation |10 minutes |Jusqu’à révocation<sup>1</sup> |
 
 * <sup>1</sup>Une durée explicite maximale de 365 jours peut être définie pour ces attributs.
+* <sup>4</sup>Pour que le client web Microsoft Teams fonctionne, il est recommandé de définir AccessTokenLifetime sur une valeur supérieure à 15 minutes pour Microsoft Teams.
 
 ### <a name="exceptions"></a>Exceptions
 | Propriété | Éléments affectés | Default |

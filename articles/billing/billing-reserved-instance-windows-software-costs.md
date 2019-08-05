@@ -3,8 +3,8 @@ title: Coûts des logiciels de réservations pour Azure | Microsoft Docs
 description: Découvrez les compteurs de logiciels qui ne sont pas inclus dans les coûts d’instance Azure Reserved VM Instance.
 services: billing
 documentationcenter: ''
-author: manish-shukla01
-manager: manshuk
+author: yashar
+manager: yashar
 editor: ''
 tags: billing
 ms.service: billing
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2019
 ms.author: banders
-ms.openlocfilehash: 340cba65a1faac247678cd187f106157ba566f3e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 52e2e2503303c2a7525a3a6c156f648c097b27dd
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60371170"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68478629"
 ---
 # <a name="software-costs-not-included-with-azure-reserved-vm-instances"></a>Coûts des logiciels non inclus dans les instances Azure Reserved VM Instances
 
-Si vous n’utilisez pas Azure Hybrid Benefit sur vos instances de machine virtuelle réservées, vous êtes facturé pour les compteurs de logiciels listés dans la section suivante.
+Les remises liées à l’instance réservée de machine virtuelle et à la capacité réservée SQL s’appliquent uniquement aux coûts d’infrastructure et non aux coûts des logiciels. Si vous n’utilisez pas de machines virtuelles Windows et que vous ne bénéficiez pas d’Azure Hybrid Benefit sur vos instances de machine virtuelle réservées, nous vous facturons les compteurs de logiciels listés dans la section suivante. Pour les déploiements SQL PaaS, le coût IP continue d’être facturé à l’aide d’un compteur distinct si Azure Hybrid Benefit n’est pas sélectionné.
 
 ## <a name="windows-software-meters-not-included-in-reservation-cost"></a>Compteurs de logiciels Windows non inclus dans le coût des réservations
 
@@ -80,4 +80,4 @@ Pour plus d’informations sur les réservations pour Azure, consultez les artic
 
 ## <a name="need-help-contact-us"></a>Vous avez besoin d’aide ? Nous contacter
 
-Si vous avez des questions ou besoin d’aide, créez une [demande de support](https://go.microsoft.com/fwlink/?linkid=2083458).
+Si vous avez des questions ou besoin d’aide, [créez une demande de support](https://go.microsoft.com/fwlink/?linkid=2083458).

@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/07/2019
+ms.date: 07/12/2019
 ms.author: magoedte
-ms.openlocfilehash: bc26cc0654aac9416bf31ffccf426648e3a8b8d2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e8241069a8671919b70dfbe44fe28c99a05358c5
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67122544"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68489729"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-for-a-hybrid-environment"></a>Activer Azure Monitor pour machines virtuelles (préversion) pour un environnement hybride
 
@@ -44,6 +44,7 @@ Les étapes pour effectuer cette tâche sont récapitulées comme suit :
 4. Déployez Azure Monitor pour machines virtuelles.
 
 ## <a name="install-the-dependency-agent-on-windows"></a>Installer l’agent de dépendances sous Windows
+
 Vous pouvez installer Dependency Agent manuellement sur les ordinateurs Windows en exécutant `InstallDependencyAgent-Windows.exe`. Si vous exécutez ce fichier exécutable sans aucune option, il démarre un assistant de configuration que vous pouvez suivre pour une installation interactive de l’agent.
 
 >[!NOTE]
@@ -61,6 +62,7 @@ Par exemple, pour exécuter le programme d’installation avec le paramètre `/?
 Par défaut, les fichiers Dependency Agent pour Windows sont installés dans le répertoire *C:\Program Files\Microsoft Dependency Agent*. Si le démarrage de l’agent de dépendances échoue une fois l’installation terminée, recherchez des informations détaillées sur l’erreur dans les journaux d’activité. Le répertoire des journaux d’activité est *%Programfiles%\Microsoft Dependency Agent\logs*.
 
 ## <a name="install-the-dependency-agent-on-linux"></a>Installer l’agent de dépendances sous Linux
+
 Dependency Agent est installé sur les ordinateurs Linux avec *InstallDependencyAgent-Linux64.bin*, script shell comportant un fichier binaire à extraction automatique. Vous pouvez exécuter le fichier à l’aide de `sh` ou ajouter des autorisations d’exécution au fichier lui-même.
 
 >[!NOTE]
@@ -81,7 +83,7 @@ Si le démarrage de l’agent de dépendances échoue, recherchez des informatio
 
 Les fichiers de l’agent de dépendances sont placés dans les répertoires suivants :
 
-| Fichiers | Lieu |
+| Fichiers | Location |
 |:--|:--|
 | Fichiers principaux | /opt/microsoft/dependency-agent |
 | Fichiers journaux | /var/opt/microsoft/dependency-agent/log |
@@ -89,19 +91,76 @@ Les fichiers de l’agent de dépendances sont placés dans les répertoires sui
 | Fichiers exécutables de service | /opt/microsoft/dependency-agent/bin/microsoft-dependency-agent<br>/opt/microsoft/dependency-agent/bin/microsoft-dependency-agent-manager |
 | Fichiers de stockage binaires | /var/opt/microsoft/dependency-agent/storage |
 
+## <a name="installation-script-examples"></a>Exemples de script d’installation
+
+Afin de déployer facilement l’agent de dépendances sur plusieurs serveurs en même temps, l’exemple de script suivant est fourni pour télécharger et installer l’agent de dépendances sous Windows ou Linux.
+
+### <a name="powershell-script-for-windows"></a>Script PowerShell pour Windows
+
+```powershell
+Invoke-WebRequest "https://aka.ms/dependencyagentwindows" -OutFile InstallDependencyAgent-Windows.exe
+
+.\InstallDependencyAgent-Windows.exe /S
+```
+
+### <a name="shell-script-for-linux"></a>Script shell pour Linux
+
+```
+wget --content-disposition https://aka.ms/dependencyagentlinux -O InstallDependencyAgent-Linux64.bin
+sudo sh InstallDependencyAgent-Linux64.bin -s
+```
+
+## <a name="desired-state-configuration"></a>Configuration de l’état souhaité (DSC)
+
+Pour déployer l’agent de dépendances avec la configuration de l'état souhaité, vous pouvez utiliser le module xPSDesiredStateConfiguration avec l’exemple de code suivant :
+
+```powershell
+configuration ServiceMap {
+
+    Import-DscResource -ModuleName xPSDesiredStateConfiguration
+
+    $DAPackageLocalPath = "C:\InstallDependencyAgent-Windows.exe"
+
+    Node localhost
+    {
+        # Download and install the Dependency agent
+        xRemoteFile DAPackage 
+        {
+            Uri = "https://aka.ms/dependencyagentwindows"
+            DestinationPath = $DAPackageLocalPath
+        }
+
+        xPackage DA
+        {
+            Ensure="Present"
+            Name = "Dependency Agent"
+            Path = $DAPackageLocalPath
+            Arguments = '/S'
+            ProductId = ""
+            InstalledCheckRegKey = "HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\DependencyAgent"
+            InstalledCheckRegValueName = "DisplayName"
+            InstalledCheckRegValueData = "Dependency Agent"
+            DependsOn = "[xRemoteFile]DAPackage"
+        }
+    }
+}
+```
+
 ## <a name="enable-performance-counters"></a>Activer les compteurs de performance
-Si l’espace de travail Log Analytics référencé par la solution n’est pas déjà configuré pour collecter les compteurs de performance requis par la solution, vous devez activer ces derniers. Il existe deux méthodes pour le faire :
+
+Si l’espace de travail Log Analytics référencé par la solution n’est pas déjà configuré pour collecter les compteurs de performance requis par la solution, vous devez activer ces derniers. Il existe deux méthodes pour le faire :
 * Manuellement, tel que décrit dans [Sources de données de performance Windows et Linux dans Log Analytics](../../azure-monitor/platform/data-sources-performance-counters.md)
 * En téléchargeant et en exécutant un script PowerShell disponible dans [Azure PowerShell Gallery](https://www.powershellgallery.com/packages/Enable-VMInsightsPerfCounters/1.1)
 
 ## <a name="deploy-azure-monitor-for-vms"></a>Déployer Azure Monitor pour machines virtuelles
+
 Cette méthode inclut un modèle JSON spécifiant la configuration requise pour activer les composants de la solution dans votre espace de travail Log Analytics.
 
-Si vous ne savez pas comment déployer des ressources à l’aide d’un modèle, consultez :
+Si vous ne savez pas comment déployer des ressources à l’aide d’un modèle, consultez les sections suivantes :
 * [Déployer des ressources à l’aide de modèles Resource Manager et d’Azure PowerShell](../../azure-resource-manager/resource-group-template-deploy.md)
 * [Déployer des ressources à l’aide de modèles Resource Manager et de l’interface de ligne de commande Azure](../../azure-resource-manager/resource-group-template-deploy-cli.md)
 
-Pour utiliser Azure CLI, vous devez d’abord l’installer et l’utiliser localement. Vous devez exécuter Azure CLI 2.0.27 ou version ultérieure. Pour identifier votre version, exécutez `az --version`. Pour installer ou mettre à niveau Azure CLI, consultez [Installer Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Pour utiliser Azure CLI, vous devez d’abord installer et utiliser l’interface CLI localement. Vous devez exécuter Azure CLI 2.0.27 ou version ultérieure. Pour identifier votre version, exécutez `az --version`. Pour installer ou mettre à niveau Azure CLI, consultez [Installer Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 ### <a name="create-and-execute-a-template"></a>Créer et exécuter un modèle
 
@@ -185,6 +244,35 @@ Pour utiliser Azure CLI, vous devez d’abord l’installer et l’utiliser loca
     provisioningState       : Succeeded
     ```
    Une fois que vous avez activé la supervision, 10 minutes peuvent s’écouler avant que vous ne puissiez voir les métriques et l’état d’intégrité pour l’ordinateur hybride.
+
+## <a name="troubleshooting"></a>Résolution de problèmes
+
+### <a name="vm-doesnt-appear-on-the-map"></a>La machine virtuelle n’apparaît pas sur la carte
+
+Si votre installation de l’agent de dépendances a réussi, mais que vous ne voyez pas votre ordinateur sur la carte, diagnostiquez le problème en procédant comme suit.
+
+1. L’agent de dépendances est-il correctement installé ? Vous pouvez vous en assurer en vérifiant si le service est installé et en cours d’exécution.
+
+    **Windows** : recherchez le service nommé « Microsoft Dependency Agent ». 
+
+    **Linux** : recherchez « microsoft-dependency-agent » dans les processus en cours d’exécution.
+
+2. Utilisez-vous le [niveau tarifaire Gratuit de Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions) ? Le plan Gratuit autorise jusqu’à 5 ordinateurs uniques. Les ordinateurs suivants ne s’affichent pas sur la carte, même si les cinq précédents n’envoient plus de données.
+
+3. L’ordinateur envoie-t-il des données de journal et de performances aux journaux Azure Monitor ? Exécutez la requête suivante sur votre ordinateur : 
+
+    ```Kusto
+    Usage | where Computer == "computer-name" | summarize sum(Quantity), any(QuantityUnit) by DataType
+    ```
+
+    Retourne-t-elle un ou plusieurs résultats ? Les données sont-elles récentes ? Dans ce cas, votre agent Log Analytics fonctionne correctement et communique avec le service. Si ce n’est pas le cas, vérifiez l’agent sur votre serveur : [Résolution des problèmes de l’agent Log Analytics pour Windows](../platform/agent-windows-troubleshoot.md) ou [Résolution des problèmes de l’agent Log Analytics pour Linux](../platform/agent-linux-troubleshoot.md).
+
+#### <a name="computer-appears-on-the-map-but-has-no-processes"></a>L’ordinateur s’affiche sur la carte, mais n’a aucun processus
+
+Si vous voyez votre serveur sur la carte, mais qu’il ne comporte aucune donnée de processus ou de connexion, cela indique que l’agent de dépendances est installé et en cours d’exécution, mais que le pilote en mode noyau ne s’est pas chargé. 
+
+Vérifiez le fichier C:\Program Files\Microsoft Dependency Agent\logs\wrapper.log (Windows) ou le fichier /var/opt/microsoft/dependency-agent/log/service.log (Linux). Les dernières lignes du fichier doivent indiquer la raison pour laquelle le noyau ne s’est pas chargé. Par exemple, le noyau n’est peut-être pas pris en charge sous Linux si vous l’avez mis à jour.
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

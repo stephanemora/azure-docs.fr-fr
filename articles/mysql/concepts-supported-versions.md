@@ -5,19 +5,22 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 3/13/2019
-ms.openlocfilehash: e7e81632b2be135fb74d375ab8a11f1b4b3ef39d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 7/25/2019
+ms.openlocfilehash: 3d4bab4558ebfd0f6031ef00a0b67bb0d5b61120
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60525935"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68501447"
 ---
 # <a name="supported-azure-database-for-mysql-server-versions"></a>Versions prises en charge du serveur de base de données Azure pour MySQL
 
 Azure Database for MySQL a été développé à partir de [MySQL Community Edition](https://www.mysql.com/products/community/), avec le moteur InnoDB.
 
 MySQL utilise le schéma de nommage X.Y.Z. X correspond à la version majeure, Y à la version mineure et Z à la version du correctif de bogue. Pour plus d’informations sur ce schéma, reportez-vous à la [documentation MySQL](https://dev.mysql.com/doc/refman/5.7/en/which-version.html).
+
+> [!NOTE]
+> Dans le service, une passerelle est utilisée pour rediriger les connexions vers des instances de serveur. Une fois la connexion établie, le client de MySQL affiche la version de MySQL définie dans la passerelle, et non la version en cours d’exécution sur votre instance de serveur MySQL. Pour déterminer la version de votre instance de serveur MySQL, utilisez la commande `SELECT VERSION();` à l’invite de MySQL.
 
 Azure Database pour MySQL prend actuellement en charge les versions suivantes :
 
@@ -33,8 +36,14 @@ Version du correctif de bogue : 5.7.24
 
 Pour plus d’informations sur les améliorations et les correctifs de MySQL 5.7.24, consultez les [notes de publication](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-24.html) MySQL.
 
+## <a name="mysql-version-80"></a>MySQL Version 8.0
+
 > [!NOTE]
-> Dans le service, une passerelle est utilisée pour rediriger les connexions vers des instances de serveur. Une fois la connexion établie, le client de MySQL affiche la version de MySQL définie dans la passerelle, et non la version en cours d’exécution sur votre instance de serveur MySQL. Pour déterminer la version de votre instance de serveur MySQL, utilisez la commande `SELECT VERSION();` à l’invite de MySQL.
+> MySQL 8.0 est actuellement en préversion. Si MySQL 8.0 ne s’affiche pas dans le portail Azure, le déploiement n’est peut-être pas terminé dans votre région. 
+
+Version du correctif de bogue : 8.0.15
+
+Pour plus d’informations sur les améliorations et les correctifs dans MySQL 8.0.15, consultez les [notes de publication](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-15.html) MySQL.
 
 ## <a name="managing-updates-and-upgrades"></a>Gestion des mises à jour et des mises à niveau
 Le service gère automatiquement les correctifs pour les mises à jour des versions des correctifs de bogues. Par exemple, 5.7.20 à 5.7.21.  

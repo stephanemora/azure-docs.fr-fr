@@ -50,7 +50,7 @@ Pour affecter un utilisateur ou un groupe à une application d’entreprise, vou
 1. Dans le volet **Applications d’entreprise**, sélectionnez **Toutes les applications**. Cette action répertorie les applications que vous pouvez gérer.
 1. Dans le volet **Applications d’entreprise - Toutes les applications**, sélectionnez une application.
 1. Dans le volet ***NomApplication***, sélectionnez **Propriétés**.
-1. Dans le volet ***NomApplication* - Propriétés**, définissez le paramètre **Affectation utilisateur requise ?** sur **Non**.
+1. Dans le volet ***NomApplication* - Propriétés**, définissez le paramètre **Affectation utilisateur requise ?** sur **Non**.
 
 L’option **Affectation utilisateur requise ?**  :
 

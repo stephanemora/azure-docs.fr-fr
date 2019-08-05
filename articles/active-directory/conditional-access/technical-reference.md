@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: article
-ms.date: 03/22/2019
+ms.date: 07/10/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5919eebccad8d7f9e048ae07be296eaaaf8428eb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 316c5b6b52c30b51fb2f177a0ae2bd9758fc91d9
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67112106"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68442476"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Référence des paramètres d’accès conditionnel Azure Active Directory
 
@@ -57,7 +57,6 @@ Vous pouvez affecter une stratégie d’accès conditionnel aux applications clo
 - Microsoft Intune
 - Inscription à Microsoft Intune
 - Planificateur Microsoft
-- Microsoft Power BI
 - Microsoft PowerApps
 - Recherche Microsoft Bing
 - Microsoft StaffHub
@@ -69,6 +68,7 @@ Vous pouvez affecter une stratégie d’accès conditionnel aux applications clo
 - Office Delve
 - Office Sway
 - Outlook Groups
+- Service Power BI
 - Project Online
 - Skype Entreprise Online
 - Réseau privé virtuel (VPN)
@@ -97,6 +97,8 @@ Dans une stratégie d’accès conditionnel, vous pouvez configurer la condition
 
 ![Lier la stratégie d’accès au système d’exploitation client](./media/technical-reference/41.png)
 
+Si vous bloquez l’authentification héritée à l’aide de la condition **Autres clients**, vous pouvez également définir la condition de plateforme de l’appareil.
+
 ## <a name="client-apps-condition"></a>Condition d’applications clientes
 
 Dans votre stratégie d’accès conditionnel, vous pouvez configurer la condition [Applications clientes](conditions.md#client-apps) pour lier la stratégie à l’application cliente à l’origine d’une tentative d’accès. Configurez la condition d’applications clientes afin d’accorder ou de bloquer l’accès en cas de tentative d’accès à partir des types d’applications clientes suivantes :
@@ -114,7 +116,7 @@ Dans votre stratégie d’accès conditionnel, vous pouvez sélectionner **Navig
 
 Ce paramètre fonctionne avec tous les navigateurs. Toutefois, pour satisfaire à une stratégie d’appareil, telle qu’une exigence d’appareil conforme, les systèmes d’exploitation et navigateurs suivants sont pris en charge :
 
-| SE                     | Navigateurs                                      |
+| OS                     | Navigateurs                                      |
 | :--                    | :--                                           |
 | Windows 10             | Internet Explorer, Microsoft Edge, Chrome     |
 | Windows 8 / 8.1        | Internet Explorer, Chrome                     |
@@ -134,22 +136,22 @@ Sur des systèmes Windows 7, iOS, Android et macOS, Azure AD identifie l’appar
 
 #### <a name="chrome-support"></a>Prise en charge Chrome
 
-Dans **Windows 10 Creators Update (version 1703)** ou version ultérieure, la prise en charge de Chrome nécessite l’installation de [cette extension](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji).
+Dans **Windows 10 Creators Update (version 1703)** ou version ultérieure, la prise en charge de Chrome nécessite l’installation de l’[extension Comptes Windows 10](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji). Cette extension est requise lorsqu’une stratégie d’accès conditionnel requiert des détails spécifiques sur l’appareil.
 
 Pour déployer automatiquement cette extension sur les navigateurs Chrome, créez la clé de Registre suivante :
 
 |    |    |
 | --- | --- |
-| path | HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist |
+| Path | HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist |
 | Nom | 1 |
 | Type | REG_SZ (String) |
-| Données | ppnbnpeolgkicgegkbkbjmhlideopiji; https://clients2.google.com/service/update2/crx |
+| Données | ppnbnpeolgkicgegkbkbjmhlideopiji;https\://clients2.google.com/service/update2/crx |
 
 Pour la prise en charge de Chrome dans **Windows 8.1 et 7**, créez la clé de Registre suivante :
 
 |    |    |
 | --- | --- |
-| path | HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
+| Path | HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
 | Nom | 1 |
 | Type | REG_SZ (String) |
 | Données | {"pattern":"https://device.login.microsoftonline.com","filter":{"ISSUER":{"CN":"MS-Organization-Access"}}} |
@@ -202,6 +204,8 @@ Ce paramètre s’applique aux applications clientes suivantes :
 
 - Microsoft Azure Information Protection
 - Microsoft Bookings
+- Microsoft Cortana
+- Microsoft Dynamics 365
 - Microsoft Edge
 - Microsoft Excel
 - Microsoft Flow
@@ -240,8 +244,11 @@ Dans votre stratégie d’accès conditionnel, vous pouvez exiger qu’une strat
 
 Ce paramètre s’applique aux applications clientes suivantes :
 
+- Microsoft Cortana
+- Microsoft Edge
 - Microsoft OneDrive
 - Microsoft Outlook
+- Planificateur Microsoft
 
 **Remarques**
 

@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 06/21/2019
 ms.author: juliako
-ms.openlocfilehash: b060e2c8a7353dd8145ced8c6e89d9b666a4212c
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 28b9c8f343437c20e277d2f3ba53767afa45a5c2
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67703894"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68501250"
 ---
 # <a name="media-services-v3-frequently-asked-questions"></a>Forum Aux Questions (FAQ) Media Services v3
 
@@ -60,6 +60,12 @@ Vous pouvez utiliser un [encodeur live local](recommended-on-premises-live-encod
 
 ## <a name="content-protection"></a>Protection du contenu
 
+### <a name="should-i-use-an-aes-128-clear-key-encryption-or-a-drm-system"></a>Dois-je utiliser un chiffrement à clé en clair AES-128 ou un système DRM ?
+
+Les clients se demandent souvent s’ils devraient utiliser un chiffrement AES ou un système DRM. La principale différence entre les deux systèmes est qu’avec le chiffrement AES, la clé de contenu est transmise au client via TLS ; elle est chiffrée en transit, mais sans autre chiffrement (« en clair »). Par conséquent, la clé utilisée pour déchiffrer le contenu peut être lue par le lecteur client et affichée dans la trace réseau du client, en texte en clair. Le chiffrement avec une clé en clair AES-128 convient à des cas d’utilisation dans lesquels l’observateur est fiable (par exemple, le chiffrement de vidéos d’entreprise distribuées dans une société et destinées aux employés).
+
+Par rapport à la clé en clair AES-128, les systèmes DRM comme PlayReady, Widevine et FairPlay fournissent tous un niveau supplémentaire de chiffrement sur la clé utilisée pour déchiffrer le contenu. La clé de contenu est chiffrée selon une clé protégée par le runtime DRM, en plus de tout chiffrement lors du transit fourni par TLS. De plus, le déchiffrement est pris en charge dans un environnement sécurisé au niveau du système d’exploitation, où il est plus difficile pour un utilisateur malintentionné de commettre une attaque. DRM est recommandé dans des cas d’utilisation où l’observateur peut ne pas être fiable et où donc un niveau de sécurité supérieur est requis.
+
 ### <a name="how-and-where-to-get-jwt-token-before-using-it-to-request-license-or-key"></a>Comment et où obtenir un jeton JWT avant de l’utiliser pour demander une licence ou une clé ?
 
 1. Pour un environnement de production, vous devez disposer d’un service d’émission de jeton de sécurité (STS) (service web) qui émet un jeton JWT en réponse à une requête HTTPS. Dans le cas d’un environnement de test, vous pouvez utiliser le code figurant dans la méthode **GetTokenAsync** définie dans [Program.cs](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs).
@@ -80,6 +86,30 @@ Pour plus d'informations, consultez les pages suivantes :
 
 - [Présentation de la protection du contenu](content-protection-overview.md)
 - [Concevoir un système de protection de contenu multi-DRM avec contrôle d’accès](design-multi-drm-system-with-access-control.md)
+
+### <a name="http-or-https"></a>HTTP ou HTTPS ?
+L’application de lecteur MVC ASP.NET doit prendre en charge les éléments suivants :
+
+* Authentification des utilisateurs via Azure AD, sous HTTPS.
+* Échange de jeton JWT entre le client et Azure AD, sous HTTPS.
+* Acquisition de licence DRM par le client, qui doit être sous HTTPS si la distribution de licences est assurée par Azure Media Services. La suite de produits PlayReady n’impose pas le format HTTPS pour la distribution de licences. Si votre serveur de licences PlayReady se trouve en dehors de Media Services, vous pouvez utiliser HTTP ou HTTPS.
+
+Puisque l’application de lecteur ASP.NET utilise le protocole HTTPS en tant que meilleure pratique, Media Player se trouve sur une page sous HTTPS. Le protocole HTTP est cependant privilégié pour la diffusion en continu, ce qui signifie que vous devez tenir compte du problème du contenu mixte.
+
+* Le navigateur ne permet pas un contenu mixte. Mais vous pouvez utiliser des plug-ins tels que Silverlight et OSMF pour Smooth et DASH. Le contenu mixte est un problème de sécurité, en raison de la menace que constitue la possibilité d’injecter un logiciel JavaScript malveillant, qui risque de mettre en danger les données du client. Les navigateurs bloquent cette fonctionnalité par défaut. Le seul moyen de contourner ce problème est d’autoriser tous les domaines (HTTPS ou HTTP) côté serveur (origine). Il ne s’agit probablement pas d’une idée judicieuse.
+* Évitez le contenu mixte. L’application de lecteur et Media Player doivent utiliser HTTP ou HTTPS. Si vous lisez du contenu mixte, silverlightSS tech vous oblige à supprimer un avertissement de contenu mixte. flashSS tech traite le contenu mixte sans aucun avertissement.
+* Si votre point de terminaison de diffusion a été créé avant août 2014, il ne prend pas en charge HTTPS. Dans ce cas, créez et utilisez un nouveau point de terminaison pour le protocole HTTPS.
+
+### <a name="what-about-live-streaming"></a>Qu’en est-il de la diffusion en continu ?
+
+Vous pouvez utiliser exactement la même conception et la même implémentation pour protéger un service de diffusion en continu dans Media Services, en traitant l’élément multimédia associé à un programme comme un élément multimédia VOD. Pour pouvoir protéger du contenu en direct via la fonctionnalité multi-DRM, appliquez la même procédure d’installation/de traitement à l’élément multimédia, comme s’il s’agissait d’un élément VOD, avant de l’associer à une sortie en direct.
+
+### <a name="what-about-license-servers-outside-media-services"></a>Qu’en est-il des serveurs de licences hors Media Services ?
+
+Souvent, les clients investissent dans une batterie de serveurs qu’ils hébergent dans leur propre centre de données ou chez des fournisseurs de services DRM. Avec la protection de contenu Media Services, vous pouvez fonctionner en mode hybride. Le contenu peut être hébergé et protégé dynamiquement dans Media Services, alors que les licences DRM sont délivrées par des serveurs situés en dehors de Media Services. Dans ce cas, envisagez les modifications suivantes :
+
+* Le service STS doit émettre des jetons acceptables et pouvant être vérifiés par la batterie de serveurs de licence. Par exemple, les serveurs de licences Widevine fournis par Axinom exigent un jeton JWT spécifique contenant un message d’octroi de droit. Par conséquent, vous devez disposer d’un STS pour émettre un jeton JWT. 
+* Vous n’avez plus besoin de configurer le service de distribution de licences dans Media Services. Vous devez fournir les URL d’acquisition de la licence (pour PlayReady, Widevine et FairPlay) au moment où vous configurez ContentKeyPolicies.
 
 ## <a name="media-services-v2-vs-v3"></a>Media Services v2 et v3 
 

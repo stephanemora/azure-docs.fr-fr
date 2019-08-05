@@ -5,14 +5,14 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: article
-ms.date: 6/7/2019
+ms.date: 07/19/2019
 ms.author: victorh
-ms.openlocfilehash: 5dfc00b1193117c22ba1c763bb0e75d9c4712222
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 89b50cff2d46f8c92c09653aeaac49551c97e9c6
+ms.sourcegitcommit: da0a8676b3c5283fddcd94cdd9044c3b99815046
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67275743"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68314468"
 ---
 # <a name="azure-dns-alias-records-overview"></a>Vue d’ensemble des enregistrements d’alias Azure DNS
 
@@ -30,6 +30,8 @@ Un jeu d’enregistrements d’alias est pris en charge pour les types d’enreg
 ## <a name="capabilities"></a>Fonctionnalités
 
 - **Pointer vers une ressource d’adresse IP publique à partir d’un jeu d’enregistrements A/AAAA DNS.** Vous pouvez créer un jeu d’enregistrements A/AAAA et en faire un jeu d’enregistrements d’alias pour pointer vers une ressource d’adresse IP publique. Le jeu d’enregistrements DNS change automatiquement si l’adresse IP publique change ou est supprimée. Les enregistrements DNS non résolus qui pointent vers des adresses IP incorrectes sont évités.
+
+   Il existe une limite actuelle de 20 jeux d’enregistrements d’alias par ressource.
 
 - **Pointer vers un profil Traffic Manager à partir d’un jeu d’enregistrements A/AAAA/CNAME DNS.** Vous pouvez créer un jeu d'enregistrements A/AAAA ou CNAME et utiliser des enregistrements d'alias pour le diriger vers un profil Traffic Manager. Cela s’avère particulièrement utile quand vous devez router le trafic à un apex de zone, car les enregistrements CNAME traditionnels ne sont pas pris en charge pour un apex de zone. Supposons par exemple que votre profil Traffic Manager soit myprofile.trafficmanager.net et que la zone DNS de votre entreprise soit contoso.com. Vous pouvez créer un jeu d'enregistrements d'alias de type A/AAAA pour contoso.com (l'extrémité de la zone) et pointer vers myprofile.trafficmanager.net.
 - **Pointer vers un point de terminaison Azure CDN (Content Delivery Network)** . C’est utile quand vous créez des sites web statiques à l’aide du Stockage Azure et d’Azure CDN.

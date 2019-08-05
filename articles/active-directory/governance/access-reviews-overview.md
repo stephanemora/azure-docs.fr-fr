@@ -3,8 +3,8 @@ title: Que sont les révisions d’accès ? - Azure Active Directory | Microsoft
 description: Avec les révisions d’accès Azure Active Directory, vous pouvez contrôler que l’appartenance à des groupes et l’accès aux applications répondent aux initiatives de gouvernance, de gestion des risques et de conformité de votre organisation.
 services: active-directory
 documentationcenter: ''
-author: rolyon
-manager: mtillman
+author: msaburnley
+manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 06/05/2019
-ms.author: rolyon
+ms.date: 07/23/2019
+ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7fcc804db66430598e72e9ebf31a8837eda1cca6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: da9bc3906e6f39b2d943708eb6a1b930ac8cc5a5
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67204606"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68401945"
 ---
 # <a name="what-are-azure-ad-access-reviews"></a>Présentation des révisions d’accès Azure AD
 
@@ -78,10 +78,29 @@ Voici quelques exemples de scénarios pour vous aider à déterminer le nombre d
 | --- | --- | --- |
 | Un administrateur crée une révision d’accès du groupe A avec 500 utilisateurs.<br/>Attribue 3 propriétaires de groupe en tant que réviseurs. | 1 administrateur + 3 propriétaires de groupe | 4 |
 | Un administrateur crée une révision d’accès du groupe A avec 500 utilisateurs.<br/>Effectue une révision indépendante. | 1 administrateur + 500 utilisateurs en tant que réviseurs indépendants | 501 |
-| Un administrateur crée une révision d’accès de groupe A avec 5 utilisateurs et 25 utilisateurs invités.<br/>Effectue une révision indépendante. | 1 administrateur + 5 utilisateurs en tant que réviseurs indépendants<br/>(les utilisateurs invités sont traités dans le rapport 1 à 5 requis) | 6\. |
+| Un administrateur crée une révision d’accès de groupe A avec 5 utilisateurs et 25 utilisateurs invités.<br/>Effectue une révision indépendante. | 1 administrateur + 5 utilisateurs en tant que réviseurs indépendants<br/>(les utilisateurs invités sont traités dans le rapport 1 à 5 requis) | 6 |
 | Un administrateur crée une révision d’accès de groupe A avec 5 utilisateurs et 28 utilisateurs invités.<br/>Effectue une révision indépendante. | 1 administrateur + 5 utilisateurs en tant que réviseurs indépendants + 1 utilisateur pour couvrir les utilisateurs invités dans le rapport de 1 à 5 requis | 7 |
 
 Pour plus d’informations sur l’attribution de licences aux utilisateurs, consultez [Assigner ou supprimer des licences à l’aide du portail Azure Active Directory](../fundamentals/license-users-groups.md).
+
+## <a name="onboard-access-reviews"></a>Intégrer les révisions d’accès
+
+Pour intégrer les révisions d’accès, effectuez les étapes suivantes.
+
+1. Connectez-vous en tant qu’administrateur général ou administrateur d’utilisateurs au [portail Azure](https://portal.azure.com) où vous voulez utiliser les révisions d’accès.
+
+1. Dans le volet de navigation à gauche, cliquez sur **Azure Active Directory**.
+
+1. Dans le menu gauche, cliquez sur **Identity Governance**.
+
+1. Cliquez sur **Révisions d’accès**.
+ 
+    ![Page de démarrage des révisions d'accès](./media/access-reviews-overview/access-reviews-overview-onboard.png)
+
+1. Sur la page, cliquez sur le bouton **Intégrer maintenant**.
+    
+      ![Intégration des révisions d’accès](./media/access-reviews-overview/access-reviews-overview-select-onboard.png)
+
 
 ## <a name="learn-about-access-reviews"></a>En savoir plus sur les révisions d’accès
 

@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 06/24/2019
+ms.date: 07/22/2019
 ms.author: diberry
-ms.openlocfilehash: 4c08c95a05d4f22e2338a7264409aec0f64a4755
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: edaa36cf22e63d42eb347aea3da1816e2c93b45e
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67442515"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479215"
 ---
 # <a name="preview-migrate-to-api-version-3x-for-luis-apps"></a>Aperçu : Migrer vers la version 3.x de l’API pour les applications LUIS
 
@@ -54,6 +54,11 @@ Le format de l’appel HTTP de point de terminaison V3 a évolué.
 |POST|https://<b>{REGION}</b>.api.cognitive.microsoft.com/luis/<b>v3.0-preview</b>/apps/<b>{APP-ID}</b>/slots/<b>{SLOT-NAME}</b>/predict|
 |||
 
+Valeurs valides pour les emplacements :
+
+* `production`
+* `staging`
+
 ## <a name="endpoint-url-changes-by-version-id"></a>Évoluions de l’URL de point de terminaison par ID de version
 
 Si vous souhaitez interroger par version, vous devez d’abord [publier via l’API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c3b) avec `"directVersionPublish":true`. Interrogez le point de terminaison qui fait référence à l’ID de version plutôt qu’au nom d’emplacement.
@@ -77,10 +82,10 @@ L’API V3 possède de différents paramètres de chaîne de requête.
 
 |Nom de paramètre|Type|Version|Default|Objectif|
 |--|--|--|--|--|
-|`log`|booléenne|V2 et V3|false|Stocker la requête dans un fichier journal.| 
+|`log`|boolean|V2 et V3|false|Stocker la requête dans un fichier journal.| 
 |`query`|string|V3 uniquement|Pas de valeur par défaut. Obligatoire dans la demande GET.|**Dans V2**, l’énoncé à prédire se trouve dans le paramètre `q`. <br><br>**Dans V3**, la fonctionnalité est transmise dans le paramètre `query`.|
 |`show-all-intents`|boolean|V3 uniquement|false|Retourner toutes les intentions avec le score correspondant dans l’objet **prediction.intents**. Les intentions sont retournées en tant qu’objets dans un objet `intents` parent. Cela permet un accès programmatique sans qu’il soit nécessaire de rechercher l’intention dans un tableau : `prediction.intents.give`. Dans V2, elles étaient retournées dans un tableau. |
-|`verbose`|booléenne|V2 et V3|false|**Dans V2**, quand la valeur est true, cela signifie que toutes les intentions prédites ont été retournées. Si vous avez besoin de toutes les intentions prédites, utilisez le paramètre `show-all-intents` de V3.<br><br>**Dans V3**, ce paramètre fournit uniquement les détails des métadonnées d’entité de la prédiction d’entité.  |
+|`verbose`|boolean|V2 et V3|false|**Dans V2**, quand la valeur est true, cela signifie que toutes les intentions prédites ont été retournées. Si vous avez besoin de toutes les intentions prédites, utilisez le paramètre `show-all-intents` de V3.<br><br>**Dans V3**, ce paramètre fournit uniquement les détails des métadonnées d’entité de la prédiction d’entité.  |
 
 
 
@@ -107,8 +112,8 @@ L’API V3 possède de différents paramètres de chaîne de requête.
 |--|--|--|--|--|
 |`dynamicLists`|array|V3 uniquement|Non requis.|Les [listes dynamiques](#dynamic-lists-passed-in-at-prediction-time) vous permettent d’étendre une entité de liste entraînée et publiée existante, déjà présente dans l’application LUIS.|
 |`externalEntities`|array|V3 uniquement|Non requis.|Les [entités externes](#external-entities-passed-in-at-prediction-time) permettent à votre application LUIS d’identifier et d’étiqueter les entités pendant l’exécution, qui peuvent servir de fonctionnalités aux entités existantes. |
-|`options.datetimeReference`|string|V3 uniquement|Pas de valeur par défaut|Utilisé pour déterminer le [décalage de datetimeV2](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity).|
-|`options.overridePredictions`|booléenne|V3 uniquement|false|Indique si l’[entité externe (dont le nom est identique à celui de l’entité existante)](#override-existing-model-predictions) de l’utilisateur est utilisée ou si l’entité existante du modèle est utilisée pour la prédiction. |
+|`options.datetimeReference`|string|V3 uniquement|Pas de valeur par défaut|Utilisé pour déterminer le [décalage de datetimeV2](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity). Le format du datetimeReference est [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).|
+|`options.overridePredictions`|boolean|V3 uniquement|false|Indique si l’[entité externe (dont le nom est identique à celui de l’entité existante)](#override-existing-model-predictions) de l’utilisateur est utilisée ou si l’entité existante du modèle est utilisée pour la prédiction. |
 |`query`|string|V3 uniquement|Requis.|**Dans V2**, l’énoncé à prédire se trouve dans le paramètre `q`. <br><br>**Dans V3**, la fonctionnalité est transmise dans le paramètre `query`.|
 
 
@@ -144,6 +149,8 @@ Les principales propriétés JSON pour V3 sont :
     }
 }
 ```
+
+Le `normalizedQuery` contient des corrections orthographiques. Cela correspond à la propriété `alteredQuery` de l’API V2.  
 
 L’objet `intents` est une liste non triée. Ne partez pas du principe que le premier enfant de `intents` correspond à `topIntent`. Utilisez à la place la valeur de `topIntent` pour rechercher le score :
 

@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 7/17/2019
+ms.date: 07/19/2019
 ms.author: victorh
-ms.openlocfilehash: 6dbc855fb1eb2ee9bcd292c896706b31f819aa5a
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 239998f29ac9a578174c5dba547bb24ba0755505
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68253125"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68318185"
 ---
 # <a name="configure-azure-firewall-application-rules-with-sql-fqdns"></a>Configurer des règles d’application de pare-feu Azure avec des noms de domaine complets SQL
 
@@ -32,8 +32,7 @@ Grâce aux noms de domaine complets SQL, vous pouvez filtrer le trafic :
 Dans la préversion publique, le filtrage de nom de domaine complet SQL est pris en charge uniquement en [mode proxy](https://docs.microsoft.com/azure/sql-database/sql-database-connectivity-architecture#connection-policy) (port 1433). Si vous utilisez SQL dans le mode de redirection par défaut, vous pouvez filtrer les accès à l’aide de la balise de service SQL dans le cadre des [règles de réseau](overview.md#network-traffic-filtering-rules).
 Si vous utilisez des ports qui ne sont pas par défaut pour le trafic IaaS SQL, vous pouvez configurer ces ports dans les règles d’application de pare-feu.
 
-> [!NOTE]
-> Les règles d’applications avec des noms de domaine complets SQL sont actuellement disponibles dans toutes les régions via Azure CLI, REST et les modèles. L’interface utilisateur du portail est ajoutée progressivement aux régions et sera disponible dans toutes les régions après le lancement.
+Les règles d’applications avec des noms de domaine complets SQL sont actuellement disponibles dans toutes les régions via le portail Azure, Azure CLI, REST et les modèles.
 
 ## <a name="configure-using-azure-cli"></a>Configurer à l’aide d’Azure CLI
 

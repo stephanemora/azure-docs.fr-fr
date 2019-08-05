@@ -9,22 +9,22 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 06/19/2019
+ms.date: 07/25/2019
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: d8bfe92af4e8afc4edae76efb2e1cb7b287c7aa9
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: 150c41dce06c81f2e9e07605ab6d5afa9e424453
+ms.sourcegitcommit: 5604661655840c428045eb837fb8704dca811da0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67304765"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68494488"
 ---
 # <a name="multi-step-web-tests"></a>Tests web à plusieurs étapes
 
 Vous pouvez surveiller une séquence enregistrée d’URL et d’interactions avec un site web via des tests web à plusieurs étapes. Cet article vous guidera tout au long du processus de création d’un test web à plusieurs étapes avec Visual Studio Enterprise.
 
 > [!NOTE]
-> Les tests web à plusieurs étapes impliquent des coûts supplémentaires. Pour en savoir plus, consultez le [guide de tarification officiel](https://azure.microsoft.com/pricing/details/application-insights/).
+> Les tests web à plusieurs étapes dépendent des fichiers de test web Visual Studio. Il a été [annoncé](https://devblogs.microsoft.com/devops/cloud-based-load-testing-service-eol/) que Visual Studio 2019 est la dernière version avec la fonctionnalité de test web. Il est important de comprendre que même si aucune nouvelle fonctionnalité ne sera ajoutée, les fonctionnalités de test web dans Visual Studio 2019 sont toujours prises en charge et continueront d’être prises en charge pendant le cycle de vie du support du produit. L’équipe de produit Azure Monitor a répondu aux questions concernant l’avenir des tests de disponibilité à plusieurs étapes [ici](https://github.com/MicrosoftDocs/azure-docs/issues/26050#issuecomment-468814101).  
 
 ## <a name="pre-requisites"></a>Conditions préalables
 
@@ -34,6 +34,9 @@ Vous pouvez surveiller une séquence enregistrée d’URL et d’interactions av
 Pour localiser les outils requis. Lancez **Visual Studio Installer** > **Composants individuels** > **Débogage et tests** > **Outils de test des performances web et de test de charge**.
 
 ![Capture d’écran de l’interface utilisateur Visual Studio Installer avec Composants individuels sélectionné avec une case à cocher en regard de l’élément pour Outils de test des performances web et de test de charge](./media/availability-multistep/web-performance-load-testing.png)
+
+> [!NOTE]
+> Les tests web à plusieurs étapes impliquent des coûts supplémentaires. Pour en savoir plus, consultez le [guide de tarification officiel](https://azure.microsoft.com/pricing/details/application-insights/).
 
 ## <a name="record-a-multi-step-web-test"></a>Enregistrer un test web à plusieurs étapes
 
@@ -87,7 +90,7 @@ Utilisez Visual Studio Enterprise pour enregistrer une session web.
 |----|----|----|
 | **Délai d’expiration du test** |diminuez cette valeur pour être averti des réponses lentes. Le test est compté comme une erreur si des réponses de votre site n’ont pas été reçues pendant cette période. Si vous avez sélectionné **Analyser les demandes dépendantes**, l’ensemble des images, fichiers de style, scripts et autres ressources dépendantes ont dû être reçus pendant cette période.|
 | **Réponse HTTP** | le code d’état retourné est comptabilisé comme un succès. 200 est le code qui indique qu’une page web normale a été retournée.|
-| **Correspondance du contenu** | Chaîne telle que « Bienvenue ! » Nous vérifions qu’une correspondance exacte respectant la casse est présente dans chaque réponse. Il doit s'agir d'une chaîne standard sans caractère générique. N'oubliez pas que si votre contenu change, vous devrez peut-être l'actualiser. **La correspondance de contenu est prise en charge uniquement pour les caractères anglais** |
+| **Correspondance du contenu** | Chaîne telle que « Bienvenue ! » Nous vérifions qu’une correspondance exacte respectant la casse est présente dans chaque réponse. Il doit s'agir d'une chaîne standard sans caractère générique. N'oubliez pas que si votre contenu change, vous devrez peut-être l'actualiser. **La correspondance de contenu est prise en charge uniquement pour les caractères anglais** |
 
 ### <a name="alerts"></a>Alertes
 
@@ -159,7 +162,7 @@ Paramétrez les jetons, en définissant le paramètre lorsque le jeton est retou
 
 ## <a name="troubleshooting"></a>Résolution de problèmes
 
-[Article dédié à la résolution des problèmes](troubleshoot-availability.md).
+Consultez l’[article dédié au dépannage](troubleshoot-availability.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

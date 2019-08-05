@@ -12,12 +12,12 @@ ms.date: 07/17/2019
 ms.author: mimart
 ms.reviewer: arvindh, japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f3b23aa7db29390ef50a72f73fb153fef5301b92
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: ddbb233bb9d0970169f040e3040b44a0b75aa1f8
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68304832"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68477173"
 ---
 # <a name="single-sign-on-to-applications-in-azure-active-directory"></a>S’authentifier avec l’authentification unique auprès des applications dans Azure Active Directory
 
@@ -71,9 +71,9 @@ L’authentification unique SAML est prise en charge pour les applications qui u
 - SAML 2.0
 - Un certificat de fournisseur d'identité WS-Federation
 
-Pour configurer une application SaaS pour l’authentification unique via SAML, consultez [Configurer l’authentification unique via SAML](configure-single-sign-on-portal.md). De plus, de nombreuses applications SaaS (Software as a service) offrent un [tutoriel spécifique à l’application](../saas-apps/tutorial-list.md) qui vous guide dans la configuration de l’authentification unique basée sur SAML.
+Pour configurer une application SaaS pour l’authentification unique via SAML, consultez [Configurer l’authentification unique via SAML](configure-single-sign-on-non-gallery-applications.md). De plus, de nombreuses applications SaaS (Software as a service) offrent un [tutoriel spécifique à l’application](../saas-apps/tutorial-list.md) qui vous guide dans la configuration de l’authentification unique basée sur SAML.
 
-Pour configurer une application pour WS-Federation, procédez de la même façon que pour configurer une application pour l’authentification unique via SAML, consultez [Configurer l’authentification unique via SAML](configure-single-sign-on-portal.md). Lors de l’étape de configuration de l’application pour utiliser Azure AD, vous devez remplacer l’URL de connexion Azure AD par le point de terminaison `https://login.microsoftonline.com/<tenant-ID>/wsfed` WS-Federation.
+Pour configurer une application pour WS-Federation, procédez de la même façon que pour configurer une application pour l’authentification unique via SAML, consultez [Configurer l’authentification unique via SAML](configure-single-sign-on-non-gallery-applications.md). Lors de l’étape de configuration de l’application pour utiliser Azure AD, vous devez remplacer l’URL de connexion Azure AD par le point de terminaison `https://login.microsoftonline.com/<tenant-ID>/wsfed` WS-Federation.
 
 Pour configurer une application locale pour l’authentification unique via SAML, consultez [Authentification unique via SAML pour applications locales par le biais du proxy d’application](application-proxy-configure-single-sign-on-on-premises-apps.md).
 
@@ -100,7 +100,7 @@ L’authentification unique par mot de passe est prise en charge pour toutes les
 - Chrome sur Windows 7 ou version ultérieure, et sur Mac OS X ou version ultérieure
 - Firefox 26.0 ou version ultérieure sur Windows XP SP2 ou version ultérieure, et sur Mac OS X 10.6 ou version ultérieure
 
-Pour configurer une application cloud pour l’authentification unique par mot de passe, consultez [Configurer l’application pour l’authentification unique par mot de passe](application-sign-in-problem-password-sso-gallery.md#configure-the-app-for-password-sso).
+Pour configurer une application cloud pour l’authentification unique par mot de passe, consultez [Configurer l’authentification unique par mot de passe](configure-password-single-sign-on-non-gallery-applications.md).
 
 Pour configurer une application locale pour l’authentification unique via le proxy d’application, consultez [Authentification unique avec mise au coffre des mots de passe par le biais du proxy d’application](application-proxy-configure-single-sign-on-password-vaulting.md).
 
@@ -127,8 +127,7 @@ Quand l’utilisateur final gère les informations d’identification :
 - Les administrateurs sont toujours en mesure de définir de nouvelles informations d’identification pour l’application.
 
 ## <a name="linked-sign-on"></a>Authentification liée
-
-L’authentification unique liée permet à Azure AD de fournir l’authentification unique à une application qui est déjà configurée pour l’authentification unique dans un autre service. L’application liée peut apparaître aux utilisateurs finaux dans le portail Office 365 ou dans le portail Azure AD MyApps. Par exemple, un utilisateur peut lancer une application qui est configurée pour l’authentification unique dans les services de fédération Active Directory (AD FS) 2.0 à partir du portail Office 365. Des rapports supplémentaires sont également disponibles pour les applications liées qui sont lancées à partir du portail Office 365 ou du portail Azure AD MyApps.
+L’authentification unique liée permet à Azure AD de fournir l’authentification unique à une application qui est déjà configurée pour l’authentification unique dans un autre service. L’application liée peut apparaître aux utilisateurs finaux dans le portail Office 365 ou dans le portail Azure AD MyApps. Par exemple, un utilisateur peut lancer une application qui est configurée pour l’authentification unique dans les services de fédération Active Directory (AD FS) 2.0 à partir du portail Office 365. Des rapports supplémentaires sont également disponibles pour les applications liées qui sont lancées à partir du portail Office 365 ou du portail Azure AD MyApps. Pour configurer une application pour l’authentification liée, consultez [Configurer l’authentification liée](configure-linked-sign-on.md).
 
 ### <a name="linked-sign-on-for-application-migration"></a>Authentification liée pour la migration de l’application
 
@@ -189,8 +188,9 @@ Vos utilisateurs ne voient pas de différence quand ils se connectent pour utili
 Pour plus d’informations, consultez la page [Éditions d’Azure Active Directory](../fundamentals/active-directory-whatis.md).
 
 ## <a name="related-articles"></a>Articles connexes
-
-- [Tutoriels pour l’intégration d’applications SaaS avec Azure Active Directory](../saas-apps/tutorial-list.md)
-- [Tutoriel pour la configuration de l’authentification unique](configure-single-sign-on-portal.md)
-- [Introduction à la gestion de l’accès aux applications](what-is-access-management.md)
-- Lien de téléchargement : [Plan de déploiement de l’authentification unique](https://aka.ms/SSODeploymentPlan)
+* [Tutoriels pour l’intégration d’applications SaaS avec Azure Active Directory](../saas-apps/tutorial-list.md)
+* [Configurer l’authentification unique SAML](configure-single-sign-on-non-gallery-applications.md)
+* [Configurer l’authentification unique par mot de passe](configure-password-single-sign-on-non-gallery-applications.md)
+* [Configurer l’authentification liée](configure-linked-sign-on.md)
+* [Introduction à la gestion de l’accès aux applications](what-is-access-management.md)
+* Lien de téléchargement : [Plan de déploiement de l’authentification unique](https://aka.ms/SSODeploymentPlan).

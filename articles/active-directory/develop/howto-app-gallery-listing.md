@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/08/2019
+ms.date: 07/04/2019
 ms.author: ryanwi
 ms.reviewer: elisol, bryanla
 ms.custom: aaddev, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 41b407b4343db4f594049c4b1027fe4279dab840
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 0198e5f5df3d25ef825248ff78db95326dc755c2
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67482955"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68477059"
 ---
 # <a name="how-to-list-your-application-in-the-azure-active-directory-application-gallery"></a>Activation Lister votre application dans la galerie d’applications Azure Active Directory
 
@@ -49,6 +49,8 @@ Cet article montre comment répertorier une application dans la galerie d’appl
 - Pour une authentification unique par mot de passe, assurez-vous que votre application prend en charge l’authentification par formulaire de telle sorte que le mot de passe puisse être stocké dans le coffre pour que le travail d’authentification unique soit effectué comme prévu.
 
 - Pour les demandes d’attribution automatique d’utilisateurs, l’application doit être répertoriée dans la galerie avec une fonctionnalité d’authentification unique activée utilisant SAML 2.0/WS-Fed. Vous pouvez demander l’authentification unique et l’attribution d’utilisateur ensemble sur le portail, si elles ne sont pas répertoriées.
+
+- Vous avez besoin d’un compte permanent pour les tests avec au moins 2 utilisateurs inscrits.
 
 >[!NOTE]
 >Nous travaillons avec un nombre élevé de requêtes de connecteur SCIM. Nous avons donc arrêté de prendre de nouvelles requêtes sur notre portail. Merci de patienter avant d’effectuer de nouvelles requêtes, et ce, jusqu’à nouvel ordre. Veuillez nous excuser pour ce retard et pour les désagréments occasionnés.

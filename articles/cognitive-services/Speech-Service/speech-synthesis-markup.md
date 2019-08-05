@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 8285a76f8cd07863874f9c8e8eebe96f1cb968dd
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: e2b1e02a622dfe4ae488e372e44c8440f20d7034
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67604820"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68501153"
 ---
 # <a name="speech-synthesis-markup-language-ssml"></a>SSML (Speech Synthesis Markup Language)
 
@@ -351,6 +351,78 @@ Les modifications de ton peuvent s’appliquer aux voix standard au niveau de la
         <prosody contour="(80%,+20%) (90%,+30%)" >
             Good morning.
         </prosody>
+    </voice>
+</speak>
+```
+
+## <a name="add-recorded-audio"></a>Ajouter un audio enregistré
+
+`audio` est un élément facultatif qui vous permet d’insérer un audio MP3 dans un document SSML. Le corps de l’élément audio peut contenir du texte brut ou un balisage SSML qui est prononcé si le fichier audio n’est pas disponible ou ne peut pas être lu. De plus, l’élément `audio` peut contenir du texte et les éléments suivants : `audio`, `break`, `p`, `s`, `phoneme`, `prosody`, `say-as` et `sub`.
+
+Tout audio inclus dans le document SSML doit respecter les exigences suivantes :
+
+* Le MP3 doit être hébergé sur un point de terminaison HTTPS accessible via Internet. HTTPS est requis et le domaine qui héberge le fichier MP3 doit présenter un certificat SSL approuvé valide.
+* Le MP3 doit être un fichier MP3 valide (MPEG v2).
+* La vitesse de transmission doit être de 48 Kbits/s.
+* L’échantillonnage doit être de 16 000 Hz.
+* La durée totale cumulée de tous les fichiers texte et audio dans une réponse unique ne peut pas dépasser 90 secondes.
+* Le MP3 ne doit pas contenir d’informations propres à un client ou d’autres informations sensibles.
+
+**Syntaxe**
+
+```xml
+<audio src="string"/></audio>
+```
+
+**Attributs**
+
+| Attribut | Description | Obligatoire/facultatif |
+|-----------|-------------|---------------------|
+| src | Spécifie l’emplacement/URL du fichier audio. | Obligatoire en cas d’utilisation de l’élément audio dans votre document SSML. |
+
+**Exemple**
+
+```xml
+<speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">
+    <p>
+        <audio src="https://contoso.com/opinionprompt.wav"/>
+        Thanks for offering your opinion. Please begin speaking after the beep.
+        <audio src="https://contoso.com/beep.wav">
+        Could not play the beep, please voice your opinion now. </audio>
+    </p>
+</speak>
+```
+
+## <a name="add-background-audio"></a>Ajouter un arrière-plan audio
+
+L’élément `mstts:backgroundaudio` vous permet d’ajouter de l’audio en arrière-plan à vos documents SSML (ou de combiner un fichier audio avec la synthèse vocale). Avec `mstts:backgroundaudio`, vous pouvez exécuter en boucle un fichier audio en arrière-plan, l’estomper au début de la synthèse vocale et l’estomper à la fin de la synthèse vocale.
+
+Si l’audio en arrière-plan fourni est plus court que la synthèse vocale ou la diminution du son, il est répété en boucle. S’il est plus long que la synthèse vocale, il s’arrête lorsque la diminution du son est terminée.
+
+Un seul fichier audio en arrière-plan est autorisé par document SSML. Toutefois, vous pouvez intercaler des balises `audio` dans l’élément `voice` pour ajouter de l’audio supplémentaire à votre document SSML.
+
+**Syntaxe**
+
+```XML
+<mstts:backgroundaudio src="string" volume="string" fadein="string" fadeout="string"/>
+```
+
+**Attributs**
+
+| Attribut | Description | Obligatoire/facultatif |
+|-----------|-------------|---------------------|
+| src | Spécifie l’emplacement/URL du fichier audio en arrière-plan. | Obligatoire en cas d’utilisation de l’audio en arrière-plan dans votre document SSML. |
+| volume | Spécifie le volume du fichier audio en arrière-plan. Les **valeurs acceptées** vont de `0` à `100` inclus. La valeur par défaut est `1`. | Facultatif |
+| fadein | Spécifie la durée de la diminution de son du fichier audio en arrière-plan. Les **valeurs acceptées** vont de `0` à `10000` inclus.  | Facultatif |
+| fadeout | Spécifie la durée de la diminution de son du fichier audio en arrière-plan. Les **valeurs acceptées** vont de `0` à `10000` inclus.  | Facultatif |
+
+**Exemple**
+
+```xml
+<speak version="1.0" xml:lang="en-US" xmlns:mstts="http://www.w3.org/2001/mstts">
+    <mstts:backgroundaudio src="https://contoso.com/sample.wav" volume="0.7" fadein="3000" fadeout="4000"/>
+    <voice name="Microsoft Server Speech Text to Speech Voice (en-US, Jessa24kRUS)">
+        The text provided in this document will be spoken over the background audio.
     </voice>
 </speak>
 ```

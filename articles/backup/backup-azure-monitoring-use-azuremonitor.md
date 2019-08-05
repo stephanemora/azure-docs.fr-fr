@@ -1,7 +1,6 @@
 ---
 title: 'Sauvegarde Azure : surveiller la sauvegarde Azure avec Azure Monitor'
 description: Supervisez les charges de travail de Sauvegarde Azure et créez des alertes personnalisées avec Azure Monitor.
-services: backup
 author: pvrk
 manager: shivamg
 keywords: Analytique des journaux d'activité ; alertes ; paramètres de diagnostic ; groupes d’actions
@@ -10,12 +9,12 @@ ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: pullabhk
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-ms.openlocfilehash: e2d4a235737789f2f5852c00218427613db3d558
-ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
+ms.openlocfilehash: 15b701a9ccc469636875736b6e316c150615aa16
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67786309"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68465930"
 ---
 # <a name="monitor-at-scale-by-using-azure-monitor"></a>Superviser à grande échelle avec Azure Monitor
 
@@ -31,7 +30,7 @@ Sauvegarde Azure fournit [des fonctionnalités intégrées de supervision et d�
 > [!NOTE]
 > Des données provenant de sauvegardes de machines virtuelles Azure, de l’agent Sauvegarde Azure, de System Center Data Protection Manager, de sauvegardes SQL dans des machines virtuelles Azure et de sauvegardes de partage de fichiers Azure sont injectées dans l’espace de travail Log Analytics via des paramètres de diagnostic. 
 
-Pour superviser à grande échelle, vous avez besoin des fonctionnalités de deux services Azure. *Les paramètres de diagnostic* envoient des données provenant de plusieurs ressources Azure Resource Manager vers une autre ressource. *Log Analytics* génère des alertes personnalisées où vous pouvez utiliser des groupes d’actions pour définir d’autres canaux de notification. 
+Pour superviser/générer des rapports à grande échelle, vous avez besoin des fonctionnalités de deux services Azure. *Les paramètres de diagnostic* envoient des données provenant de plusieurs ressources Azure Resource Manager vers une autre ressource. *Log Analytics* génère des alertes personnalisées où vous pouvez utiliser des groupes d’actions pour définir d’autres canaux de notification. 
 
 Les sections suivantes expliquent comment utiliser Log Analytics pour superviser Sauvegarde Azure à grande échelle.
 
@@ -50,50 +49,33 @@ Vous pouvez cibler un espace de travail Log Analytics depuis un autre abonnement
 
 ### <a name="deploy-a-solution-to-the-log-analytics-workspace"></a>Déployer une solution sur l’espace de travail Log Analytics
 
-Une fois que les données sont dans l’espace de travail Log Analytics, [déployez un modèle GitHub](https://azure.microsoft.com/resources/templates/101-backup-oms-monitoring/) sur Log Analytics pour visualiser les données. Pour identifier correctement l’espace de travail, veillez à lui donner le même groupe de ressources, le même nom d’espace de travail et le même emplacement d’espace de travail. Installez ensuite ce modèle sur l’espace de travail.
+> [!IMPORTANT]
+> Nous avons publié un [modèle](https://azure.microsoft.com/resources/templates/101-backup-la-reporting/) multivue mis à jour pour la supervision et la création de rapports basés sur Log Analytics dans Sauvegarde Azure. Notez que les utilisateurs qui utilisaient la [solution antérieure](https://azure.microsoft.com/resources/templates/101-backup-oms-monitoring/) continuent à la voir dans leurs espaces de travail, même après le déploiement de la nouvelle solution. Toutefois, l’ancienne solution peut fournir des résultats incorrects en raison de modifications mineures du schéma. Les utilisateurs doivent donc déployer le nouveau modèle.
 
-> [!NOTE]
-> Si vous n’avez pas d’alertes, de travaux de sauvegarde ou de travaux de restauration dans votre espace de travail Log Analytics, vous devez normalement voir un code d’erreur « BadArgumentError » dans le portail. Ignorez cette erreur et continuez à utiliser la solution. Une fois que les données du type approprié commencent à arriver dans l’espace de travail, les visualisations les reflètent et vous ne voyez plus cette erreur.
+Une fois que les données sont dans l’espace de travail Log Analytics, [déployez un modèle GitHub](https://azure.microsoft.com/resources/templates/101-backup-la-reporting/) sur Log Analytics pour visualiser les données. Pour identifier correctement l’espace de travail, veillez à lui donner le même groupe de ressources, le même nom d’espace de travail et le même emplacement d’espace de travail. Installez ensuite ce modèle sur l’espace de travail.
 
 ### <a name="view-azure-backup-data-by-using-log-analytics"></a>Afficher des données de Sauvegarde Azure avec Log Analytics
 
-Une fois le modèle déployé, la solution pour la supervision de Sauvegarde Azure apparaît dans la zone Récapitulatif de l’espace de travail. Pour accéder au récapitulatif, choisissez une des méthodes suivantes :
+Une fois le modèle déployé, la solution pour la supervision et la création de rapports dans Sauvegarde Azure apparaît dans la zone Récapitulatif de l’espace de travail. Pour accéder au récapitulatif, choisissez une des méthodes suivantes :
 
 - **Azure Monitor** : Dans la section **Insights**, sélectionnez **Plus**, puis choisissez l’espace de travail approprié.
 - **Espaces de travail Log Analytics** : Sélectionnez l’espace de travail approprié puis, sous **Général**, sélectionnez **Récapitulatif de l’espace de travail**.
 
-![Vignette Supervision de Log Analytics](media/backup-azure-monitoring-laworkspace/la-azurebackup-azuremonitor-tile.png)
+![Vignettes de supervision et de création de rapports Log Analytics](media/backup-azure-monitoring-laworkspace/la-azurebackup-overview-dashboard.png)
 
-Quand vous sélectionnez la vignette Supervision, le modèle de concepteur ouvre une série de graphiques sur les données de supervision provenant de Sauvegarde Azure. Voici quelques-uns des graphiques qui s’affichent :
+Lorsque vous sélectionnez l’une des vignettes de vue d’ensemble, vous pouvez afficher des informations supplémentaires. Voici quelques-uns des rapports qui s’affichent :
 
-* Tous les travaux de sauvegarde
+* Travaux de sauvegarde (sans journal)
 
-   ![Graphiques Log Analytics pour les travaux de sauvegarde](media/backup-azure-monitoring-laworkspace/la-azurebackup-allbackupjobs.png)
+   ![Graphiques Log Analytics pour les travaux de sauvegarde](media/backup-azure-monitoring-laworkspace/la-azurebackup-backupjobsnonlog.png)
 
-* Travaux de restauration
+* Alertes à partir de la sauvegarde des ressources Azure
 
-   ![Graphiques Log Analytics pour les travaux de restauration](media/backup-azure-monitoring-laworkspace/la-azurebackup-restorejobs.png)
+   ![Graphiques Log Analytics pour les travaux de restauration](media/backup-azure-monitoring-laworkspace/la-azurebackup-alertsazure.png)
 
-* Alertes de Sauvegarde Azure intégrées pour les ressources Azure
-
-   ![Graphiques Log Analytics pour les alertes de Sauvegarde Azure intégrées pour les ressources Azure](media/backup-azure-monitoring-laworkspace/la-azurebackup-activealerts.png)
-
-* Alertes de Sauvegarde Azure intégrées pour les ressources locales
-
-   ![Graphiques Log Analytics pour les alertes de Sauvegarde Azure intégrées pour les ressources locales](media/backup-azure-monitoring-laworkspace/la-azurebackup-activealerts-onprem.png)
-
-* Sources de données actives
-
-   ![Graphique Log Analytics pour les entités sauvegardées actives](media/backup-azure-monitoring-laworkspace/la-azurebackup-activedatasources.png)
-
-* Stockage cloud des coffres Recovery Services
-
-   ![Graphique Log Analytics pour le stockage cloud des coffres Recovery Services](media/backup-azure-monitoring-laworkspace/la-azurebackup-cloudstorage-in-gb.png)
-
+De même, en cliquant sur les autres vignettes, vous pouvez voir des rapports sur les travaux de restauration, le stockage cloud, les éléments de sauvegarde, les alertes provenant de la sauvegarde des ressources locales et les travaux de sauvegarde de journal.
+ 
 Ces graphiques sont fournis avec le modèle. Vous pouvez modifier les graphiques ou en ajouter si nécessaire.
-
-> [!IMPORTANT]
-> Quand vous déployez le modèle, vous créez en fait un verrou en lecture seule. Pour modifier et enregistrer le modèle, vous devez supprimer le verrou. Vous pouvez supprimer un verrou dans la section **Paramètres** de l’espace de travail Log Analytics, dans le volet **Verrous**.
 
 ### <a name="create-alerts-by-using-log-analytics"></a>Créer des alertes avec Log Analytics
 

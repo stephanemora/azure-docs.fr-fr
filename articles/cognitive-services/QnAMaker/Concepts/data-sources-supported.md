@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 03/26/2019
+ms.date: 07/25/2019
 ms.author: diberry
-ms.openlocfilehash: efb2524b430935e6c74415efe850b69835825bc7
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 156b2cf7c8042699f70e4bc3ec0b8944ac59a364
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447692"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68501175"
 ---
 # <a name="data-sources-for-qna-maker-content"></a>Sources de données pour le contenu QnA Maker
 
@@ -150,14 +150,34 @@ L’importation d’une base de connaissances remplace le contenu de la base de 
 
 Si vous ne possédez aucun contenu pour alimenter la base de connaissances, vous pouvez ajouter du contenu QnA éditorial dans la base de connaissances QnA Maker. Découvrez comment mettre à jour votre base de connaissances [ici](../How-To/edit-knowledge-base.md).
 
+<a href="#formatting-considerations"></a>
+
 ## <a name="formatting-considerations"></a>Mise en forme - Éléments à prendre en compte
 
-Après l’importation d’un fichier ou d’une URL, celui-ci est converti en Markdown et stocké dans ce format. Si le processus de conversion ne convertit pas correctement les liens dans vos fichiers et les URL, vous devez modifier les questions et réponses dans la page **Editer**. 
+Après l’importation d’un fichier ou d’une URL, QnA Maker convertit et stocke votre contenu dans le [format Markdown](https://en.wikipedia.org/wiki/Markdown). Le processus de conversion ajoute de nouvelles lignes dans le texte, telles que `\n\n`. Une connaissance du format Markdown vous aide à comprendre le contenu converti et à gérer le contenu de votre base de connaissances. 
 
-|Format|Objectif|
-|--|--|
-|`\n\n`| Nouvelle ligne|
-|`\n*`|Point pour une liste ordonnée|
+Si vous ajoutez ou modifiez votre contenu directement dans votre base de connaissances, utilisez la **mise en forme Markdown** pour créer un contenu de texte enrichi ou modifiez le contenu du format Markdown qui est déjà dans la réponse. QnA Maker prend en charge une grande partie du format Markdown pour offrir des fonctionnalités de texte enrichi à votre contenu. Toutefois, l’application cliente, telle qu’un bot de chat, peut ne pas prendre en charge le même ensemble de formats Markdown. Il est important de tester l’affichage des réponses de l’application cliente. 
+
+Voici la liste des formats Markdown que vous pouvez utiliser dans QnA Maker : 
+
+|Objectif|Format|Exemple de Markdown|Rendu<br>tel qu’il est affiché dans le bot de chat|
+|--|--|--|--|
+Nouvelle ligne entre 2 phrases.|`\n\n`|`How can I create a bot with \n\n QnA Maker?`|![nouvelle ligne entre 2 phrases](../media/qnamaker-concepts-datasources/format-newline.png)|
+|En-têtes de H1 à H6. Le nombre de `#` dénote de quel en-tête il s’agit. 1 `#` correspond à H1.|`\n# text \n## text \n### text \n####text \n#####text` |`## Creating a bot \n ...text.... \n### Important news\n ...text... \n### Related Information\n ....text...`<br><br>`\n# my h1 \n## my h2\n### my h3 \n#### my h4 \n##### my h5`|![format avec en-têtes Markdown](../media/qnamaker-concepts-datasources/format-headers.png)<br>![format avec en-têtes Markdown H1 à H5](../media/qnamaker-concepts-datasources/format-h1-h5.png)|
+|Italique |`*text*`|`How do I create a bot with *QnA Maker*?`|![format en italique](../media/qnamaker-concepts-datasources/format-italics.png)|
+|Chaîne (gras)|`**text**`|`How do I create a bot with **QnA Maker**?`|![format avec un marquage renforcé pour le gras](../media/qnamaker-concepts-datasources/format-strong.png)|
+|URL du lien|`[text](https://www.my.com)`|`How do I create a bot with [QnA Maker](https://www.qnamaker.ai)?`|![format pour l’URL (lien hypertexte)](../media/qnamaker-concepts-datasources/format-url.png)|
+|*URL pour l’image publique|`![text](https://www.my.com/image.png)`|`How can I create a bot with ![QnAMaker](https://review.docs.microsoft.com/en-us/azure/cognitive-services/qnamaker/media/qnamaker-how-to-key-management/qnamaker-resource-list.png)`|![format de l’URL de l’image publique ](../media/qnamaker-concepts-datasources/format-image-url.png)|
+|Barré|`~~text~~`|`some ~~questoins~~ questions need to be asked`|![format barré](../media/qnamaker-concepts-datasources/format-strikethrough.png)|
+|Gras et italique|`***text***`|`How can I create a ***QnA Maker*** bot?`|![format pour le gras et l’italique](../media/qnamaker-concepts-datasources/format-bold-italics.png)|
+|URL en gras pour le lien|`[**text**](https://www.my.com)`|`How do I create a bot with [**QnA Maker**](https://www.qnamaker.ai)?`|![format de l’URL en gras](../media/qnamaker-concepts-datasources/format-bold-url.png)|
+|URL en italiques pour le lien|`[*text*](https://www.my.com)`|`How do I create a bot with [*QnA Maker*](https://www.qnamaker.ai)?`|![format de l’URL en italique](../media/qnamaker-concepts-datasources/format-url-italics.png)|
+|Ajouter un caractère d’échappement devant les symboles Markdown|`\*text\*`|`How do I create a bot with \*QnA Maker\*?`|![format de l’URL en italique](../media/qnamaker-concepts-datasources/format-escape-markdown-symbols.png)|
+|Liste triée|`\n 1. item1 \n 1. item2`|`This is an ordered list: \n 1. List item 1 \n 1. List item 2`<br>L’exemple précédent utilise la numérotation automatique intégrée au Markdown.<br>`This is an ordered list: \n 1. List item 1 \n 2. List item 2`<br>L’exemple précédent utilise la numérotation explicite.|![format de la liste triée](../media/qnamaker-concepts-datasources/format-ordered-list.png)|
+|Liste non triée|`\n * item1 \n * item2`<br>or<br>`\n - item1 \n - item2`|`This is an ordered list: \n * List item 1 \n * List item 2`|![format de la liste triée](../media/qnamaker-concepts-datasources/format-unordered-list.png)|
+|Listes imbriquées|`\n * Parent1 \n\t * Child1 \n\t * Child2 \n * Parent2`<br><br>`\n * Parent1 \n\t 1. Child1 \n\t * Child2 \n 1. Parent2`<br><br>Vous pouvez imbriquer des listes triées et non triées ensemble. L’onglet, `\t`, indique le niveau de mise en retrait de l’élément enfant.|`This is an unordered list: \n * List item 1 \n\t * Child1 \n\t * Child2 \n * List item 2`<br><br>`This is an ordered nested list: \n 1. Parent1 \n\t 1. Child1 \n\t 1. Child2 \n 1. Parent2`|![format de la liste non triée imbriquée](../media/qnamaker-concepts-datasources/format-nested-unordered-list.png)<br>![format de la liste triée imbriquée](../media/qnamaker-concepts-datasources/format-nested-ordered-list.png)|
+
+*QnA Maker ne traite pas du tout l’image. C’est le rôle de l’application cliente d’effectuer le rendu de l’image. 
 
 ## <a name="editing-your-knowledge-base-locally"></a>Modification de votre base de connaissances en local
 

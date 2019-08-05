@@ -11,12 +11,12 @@ author: mx-iao
 ms.reviewer: sgilley
 ms.date: 05/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: 638d7bfb0e396874415c1055c4b707a65caffa4e
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 97a4bc20394553b97211763cedaa76c3711306f2
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67269305"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68319328"
 ---
 # <a name="access-data-from-your-datastores"></a>Accéder aux données depuis vos magasins de données
 
@@ -240,6 +240,18 @@ est = Estimator(source_directory='your code directory',
                 entry_script='train.py',
                 inputs=[ds1.as_download(), ds2.path('./foo').as_download(), ds3.as_upload(path_on_compute='./bar.pkl')])
 ```
+
+## <a name="access-datastores-during-for-scoring"></a>Accéder aux magasins de données pendant le scoring
+
+Azure Machine Learning service offre plusieurs moyens d’utiliser vos modèles pour le scoring. Certaines de ces méthodes ne fournissent pas d’accès aux magasins de données. Utilisez le tableau suivant pour comprendre les méthodes qui vous permettent d’accéder aux magasins de données pendant le scoring :
+
+| Méthode | Accès aux magasins de données | Description |
+| ----- | :-----: | ----- |
+| [Prédiction par lots](how-to-run-batch-predictions.md) | ✔ | Effectuez des prédictions sur de grandes quantités de données de façon asynchrone. |
+| [Service web](how-to-deploy-and-where.md) | &nbsp; | Déployez des modèles en tant que services web. |
+| [Module IoT Edge](how-to-deploy-and-where.md) | &nbsp; | Déployez des modèles en tant qu’appareils IoT Edge. |
+
+Dans les situations où le SDK ne fournit pas d’accès aux magasins de données, vous pouvez créer un code personnalisé à l’aide du SDK Azure approprié pour accéder aux données. Par exemple, en utilisant le [SDK Stockage Azure pour Python](https://github.com/Azure/azure-storage-python) pour accéder aux données stockées dans des blobs.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

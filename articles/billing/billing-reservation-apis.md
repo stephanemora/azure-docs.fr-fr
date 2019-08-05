@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/25/2019
 ms.author: banders
-ms.openlocfilehash: 6d63f9a393dbb40c3b0952eba9ab9449fd7b558d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 20ed2bcf793ab5c3913ccf66d338e71c1a99a003
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64702619"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68478934"
 ---
 # <a name="apis-for-azure-reservation-automation"></a>API dédiées à l’automatisation de la réservation Azure
 
@@ -104,7 +104,7 @@ Pour fusionner deux réservations en une seule réservation, utilisez l’API [d
 
 ## <a name="change-scope-for-a-reservation"></a>Modifier l’étendue d’une réservation
 
-L’étendue d’une réservation peut être un abonnement unique ou tous les abonnements de votre contexte de facturation. Si vous définissez l’étendue à un seul abonnement, la réservation est mise en correspondance avec les ressources en cours d’exécution dans l’abonnement sélectionné. Si vous définissez l’étendue pour qu’elle soit partagée, Azure met en correspondance la réservation avec les ressources exécutées dans tous les abonnements du contexte de facturation. Le contexte de facturation dépend de l’abonnement utilisé pour acheter la réservation. Pour plus d’informations, consultez [Manage reservations - Change the scope](billing-manage-reserved-vm-instance.md#change-the-reservation-scope) (Gérer les réservations - Modifier l’étendue).
+L’étendue d’une réservation peut être un abonnement unique, un groupe de ressources unique ou tous les abonnements de votre contexte de facturation. Si vous définissez l’étendue à un seul abonnement ou un seul groupe de ressources, la réservation est mise en correspondance avec les ressources en cours d’exécution dans l’abonnement sélectionné. Si vous supprimez ou déplacez l’abonnement ou le groupe de ressources, la réservation n’est pas utilisée.  Si vous définissez l’étendue pour qu’elle soit partagée, Azure met en correspondance la réservation avec les ressources exécutées dans tous les abonnements du contexte de facturation. Le contexte de facturation dépend de l’abonnement utilisé pour acheter la réservation. Vous pouvez sélectionner l’étendue à l’achat ou la modifier à tout moment après l’achat. Pour plus d’informations, consultez [Manage reservations - Change the scope](billing-manage-reserved-vm-instance.md#change-the-reservation-scope) (Gérer les réservations - Modifier l’étendue).
 
 Pour modifier l’étendue par programmation, utilisez l’API [de réservation - Mise à jour](/rest/api/reserved-vm-instances/reservation/update).
 

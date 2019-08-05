@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: ormaoz
 ms.custom: ''
-ms.openlocfilehash: 57e66d449b194662bfc03f7e130cf49c02a15793
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 05e2375998b3bce4320b2d66ab7fce44cd911dcc
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67275714"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479128"
 ---
 # <a name="manage-aws-costs-and-usage-in-azure"></a>Gérer le coût et l’utilisation d’AWS dans Azure
 
@@ -151,13 +151,23 @@ Cette erreur signifie que Cost Management ne peut pas appeler l’API AssumeRole
 - La case à cocher **MFA requise** est décochée.
 - Le compte AWS approuvé dans le rôle AWS est _432263259397_.
 
-### <a name="collection-failed-with-access-denied"></a>Échec de la collecte avec l’erreur Accès refusé
+### <a name="collection-failed-with-access-denied---cur-report-definitions"></a>Échec de la collecte avec les définitions de rapport Accès refusé - Rapport d’utilisation et de coût
 
-- **Code d’erreur :** _AccessDeniedReportDefinitions_ 
-- **Code d’erreur :** _AccessDeniedListReports_ 
-- **Code d’erreur :** _AccessDeniedDownloadReport_ 
+**Code d’erreur :** _AccessDeniedReportDefinitions_ 
 
-Ce message d’erreur signifie que Cost Management ne peut pas accéder aux fichiers CUR stockés dans le compartiment Amazon S3. Assurez-vous que la stratégie JSON AWS jointe au rôle ressemble à l’exemple indiqué au bas de la section [Créer un rôle et une stratégie dans AWS](aws-integration-set-up-configure.md#create-a-role-and-policy-in-aws).
+Cette erreur signifie que Cost Management ne peut pas voir les définitions de rapport d’utilisation et de coût. Cette autorisation est utilisée pour valider le fait que le rapport d’utilisation et de coût est défini comme prévu par Azure Cost Management. Consultez [Créer un rapport sur les coûts et l’utilisation dans AWS](aws-integration-set-up-configure.md#create-a-cost-and-usage-report-in-aws).
+
+### <a name="collection-failed-with-access-denied---list-reports"></a>Échec de la collecte avec l’erreur Accès refusé - Lister les rapports
+
+**Code d’erreur :** _AccessDeniedListReports_ 
+
+Cette erreur signifie que Cost Management ne peut pas répertorier l’objet dans le compartiment S3 où se trouve le rapport d’utilisation et de coût. La stratégie IAM AWS requiert une autorisation sur le compartiment et sur les objets dans le compartiment. Consultez [Créer un rôle et une stratégie dans AWS](aws-integration-set-up-configure.md#create-a-role-and-policy-in-aws).
+
+### <a name="collection-failed-with-access-denied---download-report"></a>Échec de la collecte avec l’erreur Accès refusé - Télécharger le rapport 
+
+**Code d’erreur :** _AccessDeniedDownloadReport_ 
+
+Ce message d’erreur signifie que Cost Management ne peut pas accéder aux fichiers de rapport d’utilisation et de coût stockés dans le compartiment Amazon S3 ni les télécharger. Assurez-vous que la stratégie JSON AWS jointe au rôle ressemble à l’exemple indiqué au bas de la section [Créer un rôle et une stratégie dans AWS](aws-integration-set-up-configure.md#create-a-role-and-policy-in-aws).
 
 ### <a name="collection-failed-since-we-did-not-find-the-cost-and-usage-report"></a>Échec de la collecte car nous n’avons pas trouvé le rapport sur le coût et l’utilisation
 

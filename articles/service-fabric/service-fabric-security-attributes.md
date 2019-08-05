@@ -1,6 +1,6 @@
 ---
-title: Attributs de sécurité communs pour Azure Service Fabric
-description: Check-list des attributs de sécurité couramment utilisés pour l'évaluation d'Azure Service Fabric
+title: Attributs de sécurité pour Azure Service Fabric
+description: Check-list des attributs de sécurité utilisés pour l’évaluation d’Azure Service Fabric
 services: service-fabric
 documentationcenter: ''
 author: msmbaldwin
@@ -9,12 +9,12 @@ ms.service: service-fabric
 ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 7c1718298c3f7c3fea28fa0b18569085f071696f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 23c7f8bdcf67d59ccdd5cd0b00bc0e0960ba1d8f
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66003052"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68443867"
 ---
 # <a name="security-attributes-for-azure-service-fabric"></a>Attributs de sécurité pour Azure Service Fabric
 
@@ -26,8 +26,8 @@ Cet article décrit les attributs de sécurité intégrés à Azure Service Fabr
 
 | Attribut de sécurité | Oui/Non | Notes |
 |---|---|--|
-| Chiffrement au repos :<ul><li>Chiffrement côté serveur</li><li>Chiffrement côté serveur avec des clés gérées par le client</li><li>Autres fonctionnalités de chiffrement (côté client, Always Encrypted, etc.)</ul>| OUI | Le cluster et le groupe de machines virtuelles identiques sur lequel le cluster est basé appartiennent au client. Le chiffrement de disque Azure peut être activé sur le groupe de machines virtuelles identiques. |
-| Chiffrement en transit :<ul><li>Chiffrement Express Route</li><li>Chiffrement dans le réseau virtuel</li><li>Chiffrement de réseau virtuel à réseau virtuel</ul>| OUI |  |
+| Chiffrement au repos (comme le chiffrement côté serveur, le chiffrement côté serveur avec clés managées par le client et d’autres fonctions de chiffrement)| OUI | Le cluster et le groupe de machines virtuelles identiques sur lequel le cluster est basé appartiennent au client. Le chiffrement de disque Azure peut être activé sur le groupe de machines virtuelles identiques. |
+| Chiffrement en transit (ExpressRoute, de réseau virtuel et de réseau virtuel à réseau virtuel)| OUI |  |
 | Gestion des clés de chiffrement (CMK, BYOK, etc.)| OUI | Le cluster et le groupe de machines virtuelles identiques sur lequel le cluster est basé appartiennent au client. Le chiffrement de disque Azure peut être activé sur le groupe de machines virtuelles identiques. |
 | Chiffrement au niveau des colonnes (Azure Data Services)| N/A |  |
 | Appels d’API chiffrés| OUI | Les appels d’API Service Fabric sont effectués via Azure Resource Manager. Un jeton web JSON valide (JWT) est nécessaire. |

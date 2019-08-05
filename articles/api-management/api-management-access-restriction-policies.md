@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/21/2019
 ms.author: apimpm
-ms.openlocfilehash: 8947637a42adfca12268c3f84e208079768870e0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8ee7db3ade594958729deeb12007f528376d5179
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65921222"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68442418"
 ---
 # <a name="api-management-access-restriction-policies"></a>Stratégies de restriction des accès de la Gestion des API
 
@@ -78,7 +78,7 @@ Cette stratégie peut être utilisée dans les [sections](https://azure.microsof
 
 -   **Sections de la stratégie :** inbound, outbound
 
--   **Étendues de la stratégie :** global, product, API, operation
+-   **Étendues de la stratégie :** toutes les étendues
 
 ## <a name="LimitCallRate"></a> Limit call rate by subscription
 
@@ -138,7 +138,7 @@ Cette stratégie peut être utilisée dans les [sections](https://azure.microsof
 
 -   **Sections de la stratégie :** inbound
 
--   **Étendues de la stratégie :** product
+-   **Étendues de la stratégie :** produit, API, opération
 
 ## <a name="LimitCallRateByKey"></a> Limite de débit d’appels par clé
 
@@ -202,7 +202,7 @@ Cette stratégie peut être utilisée dans les [sections](https://azure.microsof
 
 -   **Sections de la stratégie :** inbound
 
--   **Étendues de la stratégie :** global, product, API, operation
+-   **Étendues de la stratégie :** toutes les étendues
 
 ## <a name="RestrictCallerIPs"></a> Restrict caller IPs
 
@@ -248,7 +248,7 @@ Dans l’exemple suivant, la stratégie autorise uniquement les requêtes entran
 Cette stratégie peut être utilisée dans les [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.
 
 -   **Sections de la stratégie :** inbound
--   **Étendues de la stratégie :** global, product, API, operation
+-   **Étendues de la stratégie :** toutes les étendues
 
 ## <a name="SetUsageQuota"></a> Set usage quota by subscription
 
@@ -366,7 +366,7 @@ Dans l’exemple suivant, le quota est indexé par l’adresse IP de l’appelan
 Cette stratégie peut être utilisée dans les [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.
 
 -   **Sections de la stratégie :** inbound
--   **Étendues de la stratégie :** global, product, API, operation
+-   **Étendues de la stratégie :** toutes les étendues
 
 ## <a name="ValidateJWT"></a> Validate JWT
 
@@ -553,7 +553,7 @@ output-token-variable-name|Chaîne. Nom de variable de contexte qui reçoit la v
 Cette stratégie peut être utilisée dans les [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.
 
 -   **Sections de la stratégie :** inbound
--   **Étendues de la stratégie :** global, product, API, operation
+-   **Étendues de la stratégie :** toutes les étendues
 
 ## <a name="next-steps"></a>Étapes suivantes
 

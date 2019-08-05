@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/19/2019
+ms.date: 07/18/2019
 ms.author: spelluru
-ms.openlocfilehash: a46d816c04d9f5629c2ee9538016d42c53f9a331
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fb66fa2d4a6a03841fa057c4d1982b7bf4c6976d
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66244403"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68565335"
 ---
 # <a name="azure-devtest-labs-faq"></a>FAQ d’Azure DevTest Labs
 Obtenez des réponses aux questions les plus fréquemment posées sur Azure DevTest Labs.
@@ -46,7 +46,7 @@ Notre compte Twitter : [@azlabservices](https://twitter.com/azlabservices)
 ### <a name="what-if-my-question-isnt-answered-here"></a>Que dois-je faire si je n’ai pas trouvé de réponse à ma question ici ?
 Si votre question n’est pas répertoriée ici, faites-le-nous savoir pour que nous puissions vous aider à trouver une réponse.
 
-- Postez une question à la fin de ce Forum aux questions. Dialoguez avec l’équipe du Cache Azure et les autres membres de la communauté au sujet de cet article.
+- Postez une question à la fin de ce Forum aux questions. 
 - Pour atteindre un public plus large, postez une question sur le [forum MSDN consacré à Azure DevTest Labs](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureDevTestLabs). Dialoguez avec l’équipe d’Azure DevTest Labs et les autres membres de la communauté.
 - Concernant les demandes et idées de fonctionnalité, envoyez-les à [Azure DevTest Labs User Voice](https://feedback.azure.com/forums/320373-azure-devtest-labs).
 
@@ -390,6 +390,19 @@ Les erreurs de déploiement de machine virtuelle sont capturées dans des journa
 
 Parfois, l’erreur de déploiement se produit avant que ne commence le déploiement de la machine virtuelle. C’est par exemple le cas quand la limite d’abonnement pour une ressource qui a été créée avec la machine virtuelle est dépassée. Dans ce cas, les détails de l’erreur sont capturés dans les journaux d’activité au niveau du laboratoire. Les journaux d’activité sont situés en bas des paramètres **Configuration et stratégies**. Pour plus d’informations sur l’utilisation des journaux d’activité dans Azure, consultez [Afficher les journaux d’activité pour auditer les actions sur les ressources](../azure-resource-manager/resource-group-audit.md).
 
+### <a name="why-do-i-get-location-is-not-available-for-resource-type-error-when-trying-to-create-a-lab"></a>Pourquoi l’erreur « L’emplacement n’est pas disponible pour le type de ressource » s’affiche-t-elle quand j’essaie de créer un laboratoire ?
+Un message d’erreur semblable au suivant peut s’afficher lorsque vous essayez de créer un laboratoire : 
 
+```
+The provided location 'australiacentral' is not available for resource type 'Microsoft.KeyVault/vaults'. List of available regions for the resource type is 'northcentralus,eastus,northeurope,westeurope,eastasia,southeastasia,eastus2,centralus,southcentralus,westus,japaneast,japanwest,australiaeast,australiasoutheast,brazilsouth,centralindia,southindia,westindia,canadacentral,canadaeast,uksouth,ukwest,westcentralus,westus2,koreacentral,koreasouth,francecentral,southafricanorth
+```
+
+Vous pouvez résoudre cette erreur en effectuant l’une des étapes suivantes :
+
+#### <a name="option-1"></a>Option 1 :
+Vérifiez la disponibilité du type de ressource dans les régions Azure sur la page [Produits disponibles par région](https://azure.microsoft.com/global-infrastructure/services/). Si le type de ressource n’est pas disponible dans une certaine région, DevTest Labs ne prend pas en charge la création d’un laboratoire dans cette région. Sélectionnez une autre région lorsque vous créez votre laboratoire. 
+
+#### <a name="option-2"></a>Option 2 :
+Si le type de ressource est disponible dans votre région, vérifiez s’il est inscrit auprès de votre abonnement. Vous pouvez le faire au niveau du propriétaire de l’abonnement, comme indiqué dans [cet article](../azure-resource-manager/resource-manager-supported-services.md). 
 
 

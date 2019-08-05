@@ -11,17 +11,17 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 05/18/2019
-ms.openlocfilehash: 11b3e7724f34a7929d9851dbc8034829f020868b
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.date: 07/18/2019
+ms.openlocfilehash: bd68909f51ff6cead8484ae4ab9f2557e9d6554e
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67190707"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68443320"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Utiliser les groupes de basculement automatique pour permettre le basculement transparent et coordonné de plusieurs bases de données
 
-Les groupes de basculement automatique sont une fonctionnalité de SQL Database qui vous permet de gérer la réplication et le basculement d’un groupe de bases de données sur un serveur SQL Database ou de toutes les bases de données d’une instance gérée vers une autre région. Cette fonction utilise la même technologie sous-jacente que la [géoréplication active](sql-database-active-geo-replication.md). Vous pouvez déclencher le basculement manuellement ou vous pouvez le déléguer au service SQL Database via une stratégie définie par l’utilisateur. Cette dernière option vous permet de récupérer automatiquement plusieurs bases de données associées dans une région secondaire après une défaillance grave ou un autre événement non planifié qui entraîne une perte totale ou partielle de la disponibilité du service SQL Database dans la région primaire. En outre, vous pouvez utiliser les bases de données secondaires accessibles en lecture pour décharger les charges de travail de requêtes en lecture seule. Comme les groupes de basculement automatique impliquent de nombreuses bases de données, celles-ci doivent être configurées sur le serveur primaire. Les serveurs primaire et secondaire pour les bases de données dans le groupe de basculement doivent faire partie du même abonnement. Les groupes de basculement automatique prennent en charge la réplication de toutes les bases de données du groupe vers un seul serveur secondaire situé dans une autre région,
+Les groupes de basculement automatique sont une fonctionnalité de SQL Database qui vous permet de gérer la réplication et le basculement d’un groupe de bases de données sur un serveur SQL Database ou de toutes les bases de données d’une instance gérée vers une autre région. Il s’agit d’une abstraction déclarative sur la fonctionnalité de [géoréplication active](sql-database-active-geo-replication.md) existante, conçue pour simplifier le déploiement et la gestion des bases de données géorépliquées à l’échelle. Vous pouvez déclencher le basculement manuellement ou vous pouvez le déléguer au service SQL Database via une stratégie définie par l’utilisateur. Cette dernière option vous permet de récupérer automatiquement plusieurs bases de données associées dans une région secondaire après une défaillance grave ou un autre événement non planifié qui entraîne une perte totale ou partielle de la disponibilité du service SQL Database dans la région primaire. Un groupe de basculement peut inclure une ou plusieurs bases de données, généralement utilisées par la même application. En outre, vous pouvez utiliser les bases de données secondaires accessibles en lecture pour décharger les charges de travail de requêtes en lecture seule. Comme les groupes de basculement automatique impliquent de nombreuses bases de données, celles-ci doivent être configurées sur le serveur primaire. Les serveurs primaire et secondaire pour les bases de données dans le groupe de basculement doivent faire partie du même abonnement. Les groupes de basculement automatique prennent en charge la réplication de toutes les bases de données du groupe vers un seul serveur secondaire situé dans une autre région,
 
 > [!NOTE]
 > Si vous utilisez des bases de données uniques ou mises en pool sur un serveur SQL Database et souhaitez que plusieurs bases de données secondaires se trouvent dans des régions identiques ou différentes, utilisez la [géoréplication active](sql-database-active-geo-replication.md).
@@ -31,7 +31,7 @@ Lorsque vous utilisez des groupes de basculement automatique avec une stratégie
 Lorsque vous utilisez des groupes de basculement automatique avec une stratégie de basculement automatique, toute panne qui affecte les bases de données sur le serveur SQL Database ou l’instance gérée donne lieu à un basculement automatique. Vous pouvez gérer le groupe de basculement automatique à l’aide des méthodes suivantes :
 
 - [Portail Azure](sql-database-implement-geo-distributed-database.md)
-- [PowerShell : Groupe de basculement](scripts/sql-database-setup-geodr-failover-database-failover-group-powershell.md)
+- [PowerShell : Groupe de basculement](scripts/sql-database-add-single-db-to-failover-group-powershell.md)
 - [API REST : Groupe de basculement](https://docs.microsoft.com/rest/api/sql/failovergroups).
 
 Après le basculement, assurez-vous que les exigences d’authentification de votre serveur et de votre base de données sont configurées sur la nouvelle base de données primaire. Pour plus d’informations, consultez [Gestion de la sécurité de la base de données SQL Azure après la récupération d’urgence](sql-database-geo-replication-security-config.md).
@@ -79,11 +79,11 @@ Pour assurer vraiment la continuité des activités, l’ajout d’une redondanc
 
 - **Écouteur en lecture-écriture du groupe de basculement**
 
-  Un enregistrement DNS CNAME formé qui pointe vers l’URL du serveur primaire actuel. Il permet aux applications SQL en lecture-écriture de se reconnecter en toute transparence à la base de données primaire lorsqu’elle est modifiée après le basculement. Lorsque le groupe de basculement est créé sur un serveur SQL Database, l’enregistrement DNS CNAME pour l’URL de l’écouteur est formé comme suit : `<fog-name>.database.windows.net`. Lorsque le groupe de basculement est créé sur une instance gérée, l’enregistrement DNS CNAME pour l’URL de l’écouteur est formé comme suit : `<fog-name>.zone_id.database.windows.net`.
+  Un enregistrement DNS CNAME qui pointe vers l’URL du serveur primaire actuel. Il est créé automatiquement lorsque le groupe de basculement est créé et permet à la charge de travail SQL en lecture-écriture de se reconnecter en toute transparence à la base de données primaire lorsqu’elle est modifiée après le basculement. Lorsque le groupe de basculement est créé sur un serveur SQL Database, l’enregistrement DNS CNAME pour l’URL de l’écouteur est formé comme suit : `<fog-name>.database.windows.net`. Lorsque le groupe de basculement est créé sur une instance gérée, l’enregistrement DNS CNAME pour l’URL de l’écouteur est formé comme suit : `<fog-name>.zone_id.database.windows.net`.
 
 - **Écouteur en lecture seule du groupe de basculement**
 
-  Enregistrement DNS CNAME formé pour l’écouteur en lecture seule pointant vers l’URL du serveur secondaire. Il permet aux applications SQL en lecture seule de se connecter en toute transparence à la base de données secondaire à l’aide des règles d’équilibrage de charge spécifiées. Lorsque le groupe de basculement est créé sur un serveur SQL Database, l’enregistrement DNS CNAME pour l’URL de l’écouteur est formé comme suit : `<fog-name>.secondary.database.windows.net`. Lorsque le groupe de basculement est créé sur une instance gérée, l’enregistrement DNS CNAME pour l’URL de l’écouteur est formé comme suit : `<fog-name>.zone_id.secondary.database.windows.net`.
+  Enregistrement DNS CNAME formé pour l’écouteur en lecture seule pointant vers l’URL du serveur secondaire. Il est créé automatiquement lorsque le groupe de basculement est créé et permet à la charge de travail SQL en lecture seule de se connecter en toute transparence à la base de données secondaire à l’aide des règles d’équilibrage de charge spécifiées. Lorsque le groupe de basculement est créé sur un serveur SQL Database, l’enregistrement DNS CNAME pour l’URL de l’écouteur est formé comme suit : `<fog-name>.secondary.database.windows.net`. Lorsque le groupe de basculement est créé sur une instance gérée, l’enregistrement DNS CNAME pour l’URL de l’écouteur est formé comme suit : `<fog-name>.zone_id.secondary.database.windows.net`.
 
 - **Stratégie de basculement automatique**
 
@@ -279,6 +279,9 @@ Cette séquence est recommandée dans le but spécifique d’éviter le problèm
 > [!NOTE]
 > Si vous avez créé une base de données secondaire dans le cadre de la configuration des groupes de basculement, il n’est pas conseillé de passer la base de données secondaire à un niveau de service inférieur. En effet, votre couche Données pourrait manquer de capacité pour traiter votre charge de travail normale après l’activation du basculement.
 
+> [!IMPORTANT]
+> La mise à niveau ou la rétrogradation d’une instance Managed Instance qui est membre d’un groupe de basculement n’est pas prise en charge actuellement.
+
 ## <a name="preventing-the-loss-of-critical-data"></a>Prévention de la perte de données critiques
 
 En raison de la latence élevée des réseaux étendus, la copie continue utilise un mécanisme de réplication asynchrone. La perte de certaines données reste donc inévitable en cas de défaillance. Or, pour certaines applications, une perte de données est inacceptable. Pour protéger ces mises à jour critiques, un développeur d’applications peut appeler la procédure système [sp_wait_for_database_copy_sync](/sql/relational-databases/system-stored-procedures/active-geo-replication-sp-wait-for-database-copy-sync) immédiatement après la validation de la transaction. L’appel de **sp_wait_for_database_copy_sync** bloque le thread appelant jusqu’à ce que la dernière transaction validée ait été transmise à la base de données secondaire. Toutefois, il n’attend pas que les transactions transmises soient relues et validées sur la base de données secondaire. **sp_wait_for_database_copy_sync** est limité à une relation de copie continue spécifique. Tout utilisateur disposant de droits de connexion à la base de données primaire peut appeler cette procédure.
@@ -307,7 +310,7 @@ Comme indiqué plus haut, les groupes de basculement automatique et la géo-rép
 |  | |
 
 > [!IMPORTANT]
-> Pour un exemple de script, voir [Configurer et basculer un groupe de basculement pour une base de données unique](scripts/sql-database-setup-geodr-failover-database-failover-group-powershell.md).
+> Pour un exemple de script, voir [Configurer et basculer un groupe de basculement pour une base de données unique](scripts/sql-database-add-single-db-to-failover-group-powershell.md).
 >
 
 ### <a name="powershell-managing-failover-groups-with-managed-instances-preview"></a>PowerShell : Gérer des groupes de basculement avec des instances managées (préversion)
@@ -368,7 +371,7 @@ Comme indiqué plus haut, les groupes de basculement automatique et la géo-rép
 - Pour obtenir des exemples de scripts, consultez :
   - [Configurer et basculer une base de données unique à l’aide de la géoréplication active](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
   - [Configurer et basculer une base de données mise en pool à l’aide de la géoréplication active](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md)
-  - [Configurer et basculer un groupe de basculement pour une base de données unique](scripts/sql-database-setup-geodr-failover-database-failover-group-powershell.md)
+  - [Configurer et basculer un groupe de basculement pour une base de données unique](scripts/sql-database-add-single-db-to-failover-group-powershell.md)
 - Pour une vue d’ensemble de la continuité des activités et des scénarios, consultez [Vue d’ensemble de la continuité des activités](sql-database-business-continuity.md)
 - Pour en savoir plus sur les sauvegardes automatisées d’une base de données Azure SQL, consultez [Sauvegardes automatisées d’une base de données SQL](sql-database-automated-backups.md).
 - Pour en savoir plus sur l’utilisation des sauvegardes automatisées pour la récupération, consultez [Restaurer une base de données à partir des sauvegardes initiées par le service](sql-database-recovery-using-backups.md).
