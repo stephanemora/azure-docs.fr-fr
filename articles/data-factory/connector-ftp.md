@@ -127,7 +127,7 @@ Pour copier des données depuis FTP au **format Parquet ou de texte délimité**
 
 | Propriété   | Description                                                  | Obligatoire |
 | ---------- | ------------------------------------------------------------ | -------- |
-| Type       | La propriété de type sous `location` dans le jeu de données doit être définie sur **FtpServerLocation**. | OUI      |
+| type       | La propriété de type sous `location` dans le jeu de données doit être définie sur **FtpServerLocation**. | OUI      |
 | folderPath | Le chemin d’accès du dossier. Si vous souhaitez utiliser un caractère générique pour filtrer le dossier, ignorez ce paramètre et spécifiez-le dans les paramètres de la source de l’activité. | Non       |
 | fileName   | Le nom de fichier sous le chemin d’accès folderPath donné. Si vous souhaitez utiliser un caractère générique pour filtrer les fichiers, ignorez ce paramètre et spécifiez-le dans les paramètres de la source de l’activité. | Non       |
 
