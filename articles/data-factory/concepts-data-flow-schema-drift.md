@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/04/2018
-ms.openlocfilehash: 562daa024985a546ffb49c4da11eace3bc81a659
-ms.sourcegitcommit: da0a8676b3c5283fddcd94cdd9044c3b99815046
+ms.openlocfilehash: b5777300f5033569caf3868218e747df3ff83a76
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68314820"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68640228"
 ---
 # <a name="mapping-data-flow-schema-drift"></a>Dérive de schéma de mappage de flux de données
 
@@ -65,7 +65,7 @@ Ensuite, nous arrondirons et additionnerons les valeurs pour chacune de ces colo
 
 ```round(sum ($$))```
 
-Vous pouvez tester cela avec l’exemple Data Flow « Taxi Demo » d’Azure Data Factory. Activez la session de débogage à l’aide du bouton Déboguer en haut de la surface de conception du flux de données pour afficher vos résultats de manière interactive :
+Vous pouvez voir cette fonctionnalité de dérive du schéma à l’aide de l’exemple d’Azure Data Factory Data Flow, « Taxi Demo ». Activez la session de débogage à l’aide du bouton Déboguer en haut de la surface de conception du flux de données pour afficher vos résultats de manière interactive :
 
 <img src="media/data-flow/taxidrift2.png" width="800">
 
@@ -75,6 +75,9 @@ Quand vous générez de nouvelles colonnes avec des modèles de colonnes, vous p
 * Utilisez « byPosition » pour identifier les nouvelles colonnes par leur numéro de position.
 * Utilisez « byName » pour identifier les nouvelles colonnes par leur nom.
 * Dans les modèles de colonne, utilisez les paramètres « Name » (Nom), « Stream » (Flux), « Position » ou « Type », ou n’importe quelle combinaison de ceux-ci pour identifier de nouvelles colonnes.
+
+## <a name="rule-based-mapping"></a>Mappage basé sur des règles
+Les transformations de sélection et de réception prennent en charge les critères spéciaux par le biais d’un mappage basé sur des règles. Cela vous permettra de créer des règles qui peuvent mapper des colonnes dérivées à des alias de colonne et de recevoir ces colonnes vers votre destination.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Dans le [langage d’expression de flux de données](data-flow-expression-functions.md), vous trouverez des fonctionnalités supplémentaires pour les modèles de colonnes et la dérive de schéma, notamment « byName » et « byPosition ».

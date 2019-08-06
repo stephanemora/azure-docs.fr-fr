@@ -11,15 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2019
+ms.date: 07/25/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 174184993e40b60dc89022d360f0c09fb31bc60b
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: a928640aa6d56f0a39011a2cabcf979b4d907a46
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68501280"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561473"
 ---
 # <a name="protect-your-content-by-using-media-services-dynamic-encryption"></a>Protéger votre contenu à l’aide du chiffrement dynamique de Media Services
 
@@ -170,7 +170,7 @@ Vous pouvez contrôler qui a accès à votre contenu en configurant la stratégi
 
 Vous pouvez utiliser une stratégie de clé de contenu limitée à l’ouverture si vous souhaitez attribuer une licence à une personne dépourvue d’autorisation. Par exemple, si vos recettes sont basées sur la publicité plutôt que sur des abonnements.  
 
-Avec une stratégie de clé de contenu limitée au jeton, la clé de contenu n’est envoyée qu’à un client qui présente un JSON Web Token (JWT) ou un simple jeton web valides dans la demande de clé ou de licence. Ce jeton doit être émis par un service d’émission de jeton de sécurité (STS). 
+Avec une stratégie de clé de contenu limitée au jeton, la clé de contenu n’est envoyée qu’à un client qui présente un JSON Web Token ou un simple jeton web (SWT) valides dans la demande de clé ou de licence. Ce jeton doit être émis par un service d’émission de jeton de sécurité (STS). 
 
 Vous pouvez utiliser Azure AD en tant que STS ou déployer un STS personnalisé. Le STS doit être configuré pour créer un jeton signé avec la clé spécifiée et émettre les revendications spécifiées dans la configuration de restriction de jeton. Le service de remise de clé ou de licence Media Services retourne la licence ou la clé demandées au client si les deux conditions suivantes sont réunies :
 
@@ -196,8 +196,10 @@ La fonctionnalité de *prévention de réexécution de jeton* permet aux clients
 
 Un client peut choisir d’utiliser un STS personnalisé pour fournir des jetons. En voici plusieurs raisons :
 
-* Le fournisseur d’identité utilisé par le client ne prend pas en charge STS. Dans ce cas, un service STS personnalisé peut être une solution.
-* Le client peut avoir besoin de contrôler de manière plus souple ou plus stricte l’intégration de STS avec le système de facturation des abonnés du client. Par exemple, un opérateur MVPD peut proposer plusieurs offres d’abonné OTT, par exemple des offres premium, de base et sports. L’opérateur peut chercher à associer les revendications d’un jeton avec l’offre d’un abonné afin que seul le contenu d’une offre spécifique soit mis à disposition. Dans ce cas, un STS personnalisé offre la souplesse et la maîtrise nécessaires.
+* Le fournisseur d’identité (IDP) utilisé par le client ne prend pas en charge STS. Dans ce cas, un service STS personnalisé peut être une solution.
+* Le client peut avoir besoin de contrôler de manière plus souple ou plus stricte l’intégration de STS avec le système de facturation des abonnés du client. 
+
+   Par exemple, un service [OTT](https://en.wikipedia.org/wiki/Over-the-top_media_services) peut proposer plusieurs offres d’abonné, par exemple des offres premium, de base et sports. L’opérateur peut chercher à associer les revendications d’un jeton avec l’offre d’un abonné afin que seul le contenu d’une offre spécifique soit mis à disposition. Dans ce cas, un STS personnalisé offre la souplesse et la maîtrise nécessaires.
 * Pour inclure des revendications personnalisées dans le jeton afin de pouvoir opérer une sélection parmi différentes ContentKeyPolicyOptions avec différents paramètres de licence DRM (licence d’abonnement ou licence de location).
 * Pour inclure une revendication représentant l’identificateur de clé de contenu de la clé à laquelle le jeton accorde l’accès.
 
@@ -217,18 +219,18 @@ Si vous utilisez .NET Framework/C# en tant que plateforme de développement, le 
 
 Utilisez les modèles suivants si vous souhaitez spécifier un service de remise de clé ou de licence autre que Media Services. Les deux champs modifiables présents dans les modèles sont là pour vous permettre de partager votre stratégie de diffusion en continu entre plusieurs ressources afin d’éviter de créer une stratégie par ressource. 
 
-* `EnvelopeEncryption.CustomKeyAcquisitionUrlTemplate` : Modèle pour l’URL du service personnalisé qui remet les clés aux lecteurs de l’utilisateur final. Il n’est pas requis lorsque vous utilisez Azure Media Services pour émettre des clés. 
+* `EnvelopeEncryption.CustomKeyAcquisitionUrlTemplate`: Modèle pour l’URL du service personnalisé qui remet les clés aux lecteurs de l’utilisateur final. Il n’est pas requis lorsque vous utilisez Azure Media Services pour émettre des clés. 
 
    Ce modèle prend en charge les jetons remplaçables que le service met à jour lors de l’exécution, en utilisant la valeur spécifique à la requête.  Les valeurs de jeton actuellement prises en charge sont les suivantes :
    * `{AlternativeMediaId}` qui est remplacée par la valeur de StreamingLocatorId.AlternativeMediaId.
    * `{ContentKeyId}` qui est remplacée par la valeur de l’identificateur de la clé demandée.
-* `StreamingPolicyPlayReadyConfiguration.CustomLicenseAcquisitionUrlTemplate` : Modèle pour l’URL du service personnalisé qui remet les licences aux lecteurs de l’utilisateur final. Il n’est pas requis lorsque vous utilisez Azure Media Services pour émettre des licences. 
+* `StreamingPolicyPlayReadyConfiguration.CustomLicenseAcquisitionUrlTemplate`: Modèle pour l’URL du service personnalisé qui remet les licences aux lecteurs de l’utilisateur final. Il n’est pas requis lorsque vous utilisez Azure Media Services pour émettre des licences. 
 
    Ce modèle prend en charge les jetons remplaçables que le service met à jour lors de l’exécution, en utilisant la valeur spécifique à la requête. Les valeurs de jeton actuellement prises en charge sont les suivantes :  
    * `{AlternativeMediaId}` qui est remplacée par la valeur de StreamingLocatorId.AlternativeMediaId.
    * `{ContentKeyId}` qui est remplacée par la valeur de l’identificateur de la clé demandée. 
-* `StreamingPolicyWidevineConfiguration.CustomLicenseAcquisitionUrlTemplate` : Identique au modèle précédent, uniquement pour Widevine. 
-* `StreamingPolicyFairPlayConfiguration.CustomLicenseAcquisitionUrlTemplate` : Identique au modèle précédent, uniquement pour FairPlay.  
+* `StreamingPolicyWidevineConfiguration.CustomLicenseAcquisitionUrlTemplate`: Identique au modèle précédent, uniquement pour Widevine. 
+* `StreamingPolicyFairPlayConfiguration.CustomLicenseAcquisitionUrlTemplate`: Identique au modèle précédent, uniquement pour FairPlay.  
 
 Par exemple :
 

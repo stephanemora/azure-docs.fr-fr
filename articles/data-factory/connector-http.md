@@ -171,7 +171,7 @@ Pour copier des données depuis HTTP au format P**arquet ou de texte délimité*
 
 | Propriété    | Description                                                  | Obligatoire |
 | ----------- | ------------------------------------------------------------ | -------- |
-| Type        | La propriété de type sous `location` dans le jeu de données doit être définie sur **HttpServerLocation**. | OUI      |
+| type        | La propriété de type sous `location` dans le jeu de données doit être définie sur **HttpServerLocation**. | OUI      |
 | relativeUrl | URL relative de la ressource qui contient les données.       | Non       |
 
 > [!NOTE]
@@ -212,7 +212,7 @@ Pour la copie de données depuis HTTP au **format ORC/Avro/JSON/binaire**, les p
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété **type** du jeu de données doit être définie sur **HttpFile**. | OUI |
+| type | La propriété **type** du jeu de données doit être définie sur **HttpFile**. | OUI |
 | relativeUrl | URL relative de la ressource qui contient les données. Quand cette propriété n’est pas spécifiée, seule l’URL indiquée dans la définition du service lié est utilisée. | Non |
 | requestMethod | Méthode HTTP. Les valeurs autorisées sont **Get** (par défaut) et **Post**. | Non |
 | additionalHeaders | En-têtes de requête HTTP supplémentaires. | Non |
@@ -279,7 +279,7 @@ Pour copier des données depuis HTTP au format **Parquet ou de texte délimité*
 
 | Propriété                 | Description                                                  | Obligatoire |
 | ------------------------ | ------------------------------------------------------------ | -------- |
-| Type                     | La propriété type sous `storeSettings` doit être définie sur **HttpReadSetting**. | OUI      |
+| type                     | La propriété type sous `storeSettings` doit être définie sur **HttpReadSetting**. | OUI      |
 | requestMethod            | Méthode HTTP. <br>Les valeurs autorisées sont **Get** (par défaut) et **Post**. | Non       |
 | addtionalHeaders         | En-têtes de requête HTTP supplémentaires.                             | Non       |
 | RequestBody              | Corps de la requête HTTP.                               | Non       |
@@ -336,7 +336,7 @@ Pour la copie de données depuis HTTP au **format ORC/Avro/JSON/binaire**, les p
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété **type** de la source de l’activité de copie doit être définie sur **HttpSource**. | OUI |
+| type | La propriété **type** de la source de l’activité de copie doit être définie sur **HttpSource**. | OUI |
 | httpRequestTimeout | Délai d’expiration (valeur **TimeSpan**) pour l’obtention d’une réponse par la requête HTTP. Cette valeur correspond au délai d’expiration pour l’obtention d’une réponse, et non au délai d’expiration pour la lecture des données de la réponse. La valeur par défaut est **00:01:40**.  | Non |
 
 **Exemple**

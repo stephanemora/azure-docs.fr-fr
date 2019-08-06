@@ -1,6 +1,6 @@
 ---
-title: Clés d’abonnement
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Clés d’abonnement - LUIS
+titleSuffix: Azure Cognitive Services
 description: 'LUIS utilise deux clés : la clé de création gratuite pour créer votre modèle et la clé de point de terminaison limitée pour interroger le point de terminaison de prédiction avec des énoncés de l’utilisateur.'
 services: cognitive-services
 author: diberry
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/18/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: feb4622be14b51cfa72c33cda6c2477f799758c6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 69b4a92470b33ab6615eead16be044a88436d64e
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66473594"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68619760"
 ---
 # <a name="authoring-and-query-prediction-endpoint-keys-in-luis"></a>Clés de point de terminaison de création et de prédiction de requête dans LUIS
 LUIS utilise deux clés : [création](#programmatic-key) et [point de terminaison](#endpoint-key). La clé de création est générée automatiquement lorsque vous créez votre compte LUIS. Lorsque vous êtes prêt à publier votre application LUIS, vous devez [créer la clé de point de terminaison](luis-how-to-azure-subscription.md), [l’affecter](luis-how-to-azure-subscription.md) à votre application LUIS et [l’utiliser avec la requête de point de terminaison](#use-endpoint-key-in-query). 
@@ -29,6 +29,7 @@ LUIS utilise deux clés : [création](#programmatic-key) et [point de terminais
 Il est important de créer des applications LUIS dans des [régions](luis-reference-regions.md#publishing-regions) où vous voulez également publier et interroger.
 
 <a name="programmatic-key" ></a>
+
 ## <a name="authoring-key"></a>Clé de création
 
 Une clé de création, également connue sous le nom de clé de démarrage, est générée automatiquement lorsque vous créez un compte LUIS et elle est gratuite. Vous avez une clé de création pour toutes vos applications LUIS pour chaque [région](luis-reference-regions.md) de création. La clé de création est fournie pour créer votre application LUIS, ou pour tester les requêtes de point de terminaison. 

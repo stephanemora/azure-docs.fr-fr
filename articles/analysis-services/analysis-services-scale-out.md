@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 5524645153db0468076cc9b567965bff79d915cb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8297a2b1e78da6685b3129071612dc4457990bc1
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65192311"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68696406"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Montée en charge d’Azure Analysis Services
 
@@ -73,7 +73,7 @@ Pour plus d’informations, consultez [Surveiller les métriques du serveur](ana
 
 ### <a name="in-azure-portal"></a>Dans le portail Azure
 
-1. Dans le portail, cliquez sur **Montée en charge**. Utilisez le curseur pour sélectionner le nombre de serveurs réplica de requête. Le nombre de réplicas que vous choisissez s’ajoute à votre serveur existant.
+1. Dans le portail, cliquez sur **Montée en charge**. Utilisez le curseur pour sélectionner le nombre de serveurs réplica de requête. Le nombre de réplicas que vous choisissez s’ajoute à votre serveur existant.  
 
 2. Dans **Séparer le serveur de traitement du pool de requêtes**, sélectionnez Oui pour exclure votre serveur de traitement des serveurs de requêtes. Les [connexions](#connections) client utilisant la chaîne de connexion par défaut (sans `:rw`) sont redirigées vers les réplicas du pool de requêtes. 
 
@@ -142,6 +142,10 @@ Pour les connexions de clients d’utilisateur finaux, comme Power BI Desktop, E
 Pour SSMS, SSDT et les chaînes de connexion dans PowerShell, les applications de fonction Azure et AMO, utilisez **Nom du serveur d’administration**. Le nom du serveur d’administration inclut un qualificateur `:rw` (lecture-écriture) spécial. Toutes les opérations de traitement se produisent sur le serveur d’administration (principal).
 
 ![Noms de serveur](media/analysis-services-scale-out/aas-scale-out-name.png)
+
+## <a name="scale-up--down-vs-scale-out"></a>Effectuer un scale-up/scale-down et Montée en charge
+
+Vous pouvez modifier le niveau tarifaire du serveur sur un serveur avec plusieurs réplicas. Le même niveau tarifaire s’applique à tous les réplicas. L’opération de scale up et scale down affiche tout d’abord tous les réplicas à la fois, puis affiche tous les réplicas sur le nouveau niveau tarifaire.
 
 ## <a name="troubleshoot"></a>Résolution des problèmes
 

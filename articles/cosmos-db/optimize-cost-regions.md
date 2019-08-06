@@ -4,14 +4,14 @@ description: Cet article explique comment gérer les coûts des déploiements mu
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/21/2019
+ms.date: 07/31/2019
 ms.author: rimman
-ms.openlocfilehash: 478714f48782adb138f1ed803d53c81ec48f2efd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 233eab1fc49d7ce4cbb1e5b98b67eda9a64aa195
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65967288"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68667596"
 ---
 # <a name="optimize-multi-region-cost-in-azure-cosmos-db"></a>Optimiser le coût multirégion dans Azure Cosmos DB
 
@@ -35,9 +35,9 @@ Supposons que vous disposez d’un conteneur dans la région USA Ouest qui est p
 |----|----|----|----|
 |Facture de débit pour le conteneur de la région USA Ouest (plusieurs régions d’écriture) |10 000 RU/seconde x 24 x 31 |0,016 $ pour 100 RU/s par heure |$1 190,40 |
 |Facture de débit pour 3 régions supplémentaires : USA Est, Europe Nord et Asie Est (plusieurs régions d’écriture) |(3 + 1) x 10 000 RU/s x 24 x 31 |0,016 $ pour 100 RU/s par heure |$4 761,60 |
-|Facture de stockage pour le conteneur de la région USA Ouest |100 Go |0,25 $/Go |25 $ |
-|Facture de stockage pour 3 régions supplémentaires (USA Est, Europe Nord et Asie Est) |3 x 1 To |0,25 $/Go |75 $ |
-|**Total**|||**6 052 $** |
+|Facture de stockage pour le conteneur de la région USA Ouest |1 To (ou 1 024 Go) |0,25 $/Go |256 $ |
+|Facture de stockage pour 3 régions supplémentaires (USA Est, Europe Nord et Asie Est) |3 * 1 Go (ou 3 072 Go) |0,25 $/Go |768 $ |
+|**Total**|||**6 976 $** |
 
 ## <a name="improve-throughput-utilization-on-a-per-region-basis"></a>Améliorer l’utilisation du débit par région
 

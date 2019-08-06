@@ -13,12 +13,12 @@ ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/05/2018
 ms.author: rclaus
-ms.openlocfilehash: 02ee65020f72fb9c3262db82e035e628f780e2cf
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 86a0633a433623c2b43bb26721e5fcee08d4301f
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67709995"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68640816"
 ---
 # <a name="sap-hana-azure-backup-on-file-level"></a>Sauvegarde SAP HANA sur Azure au niveau fichier
 
@@ -50,7 +50,7 @@ Une autre solution consiste à copier les fichiers de sauvegarde SAP HANA sur un
 
 ## <a name="azure-blobxfer-utility-details"></a>Détails de l’utilitaire blobxfer Azure
 
-Pour stocker les répertoires et les fichiers sur le stockage Azure, vous pouvez utiliser l’interface de ligne de commande ou PowerShell, ou encore développer un outil à l’aide d’un des [kits de développement logiciel (SDK) Azure](https://azure.microsoft.com/downloads/). Il existe également un utilitaire prêt à l’emploi, AzCopy, qui permet de copier des données vers le stockage Azure, mais il est uniquement compatible avec Windows (voir [Transfert de données avec l’utilitaire de ligne de commande AzCopy](../../../storage/common/storage-use-azcopy.md)).
+Pour stocker les répertoires et les fichiers sur le stockage Azure, vous pouvez utiliser l’interface de ligne de commande ou PowerShell, ou encore développer un outil à l’aide d’un des [kits de développement logiciel (SDK) Azure](https://azure.microsoft.com/downloads/). Il existe également un utilitaire prêt à l’emploi, AzCopy, pour la copie de données dans Stockage Azure. (consultez l’article [Transfert de données avec l’utilitaire de ligne de commande AzCopy](../../../storage/common/storage-use-azcopy.md).)
 
 Par conséquent, blobxfer a été utilisé pour copier les fichiers de sauvegarde SAP HANA. Il s’agit d’un outil Open Source utilisé par de nombreux clients dans leur environnement de production. Il est disponible sur [GitHub](https://github.com/Azure/blobxfer). Cet outil permet de copier des données directement sur le stockage Blob Azure ou sur le système de partage de fichiers Azure. Il inclut également de nombreuses fonctionnalités utiles, telles que le code de hachage md5 ou le parallélisme automatique lors de la copie d’un répertoire contenant plusieurs fichiers.
 

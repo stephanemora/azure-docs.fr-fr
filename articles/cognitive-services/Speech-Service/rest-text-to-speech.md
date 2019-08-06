@@ -1,5 +1,5 @@
 ---
-title: Informations de référence sur l’API Synthèse vocale (REST) – Services Speech
+title: Informations de référence sur l’API Synthèse vocale (REST) – Service Speech
 titleSuffix: Azure Cognitive Services
 description: Découvrez comment utiliser les API REST Synthèse vocale. Cet article vous présente les options d’autorisation, les options de requête, et vous explique comment structurer une demande et recevoir une réponse.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 684ddcd49d3cd3c3d4f0a8d6f4675e1e27bdb7b9
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: b0a0d788c9fadd13b9a37f541a81945c86b37c29
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67604885"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559180"
 ---
 # <a name="text-to-speech-rest-api"></a>API REST de synthèse vocale
 
@@ -48,7 +48,7 @@ Le point de terminaison `voices/list` vous permet d’obtenir une liste complèt
 | Centre du Canada | `https://canadacentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | USA Centre | `https://centralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Asie Est | `https://eastasia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| USA Est | `https://eastus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| East US | `https://eastus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | USA Est 2 | `https://eastus2.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | France Centre | `https://francecentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Inde Centre | `https://centralindia.tts.speech.microsoft.com/cognitiveservices/voices/list` |

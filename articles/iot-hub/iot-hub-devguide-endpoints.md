@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 06/10/2019
-ms.openlocfilehash: 50a1e0a6bfa6fe33f432548a4a0b485134a60c72
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 689a702863dda53870f775bd8520d5dd406d242f
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67055342"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68640605"
 ---
 # <a name="reference---iot-hub-endpoints"></a>Référence - Points de terminaison IoT Hub
 
@@ -104,3 +104,4 @@ Les autres rubriques de référence de ce Guide du développeur IoT Hub comprenn
 * [Langage de requête IoT Hub pour les jumeaux d’appareil, les travaux et le routage des messages](iot-hub-devguide-query-language.md)
 * [Quotas et limitation](iot-hub-devguide-quotas-throttling.md)
 * [Prise en charge de MQTT dans IoT Hub](iot-hub-mqtt-support.md)
+* [Comprendre l’adresse IP de votre hub IoT](iot-hub-understand-ip-address.md)

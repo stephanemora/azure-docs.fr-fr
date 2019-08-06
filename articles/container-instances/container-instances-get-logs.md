@@ -10,15 +10,15 @@ ms.date: 03/21/2019
 ms.author: danlep
 ms.custom: mvc
 ms.openlocfilehash: 8ae7ab3f53f480f46165800504fbb1eb6649c3e2
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68325968"
 ---
 # <a name="retrieve-container-logs-and-events-in-azure-container-instances"></a>Récupérer les journaux d’activité du conteneur et les événements dans Azure Container Instances
 
-Lorsqu’un conteneur se comporte mal, commencez par afficher ses journaux avec [az container logs][az-container-logs], and streaming its standard out and standard error with [az container attach][az-container-attach].
+Lorsque vous avez un conteneur mal configuré, démarrez en affichant ses journaux d’activité avec [journaux d’activité du conteneur az][az-container-logs] et diffusez en continu sa sortie standard et son erreur standard avec [liaison du conteneur az][az-container-attach].
 
 ## <a name="view-logs"></a>Afficher les journaux d’activité
 

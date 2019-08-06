@@ -9,17 +9,17 @@ ms.topic: article
 ms.date: 07/02/2019
 ms.author: danlep
 ms.openlocfilehash: 3511655d220ee85ce6b5744612e5d6fddafbe877
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68309729"
 ---
 # <a name="check-the-health-of-an-azure-container-registry"></a>Vérifier l’intégrité d’un registre de conteneurs Azure
 
 Lorsque vous utilisez un registre de conteneurs Azure, vous pouvez parfois rencontrer des problèmes. Par exemple, vous ne pourrez peut-être pas extraire une image de conteneur en raison d’un problème avec Docker dans votre environnement local. Il est également possible qu’un problème de réseau vous empêche de vous connecter au registre. 
 
-La première étape du diagnostic consiste à exécuter la command to get information about the health of the environment and optionally access to a target registry. This command is available in Azure CLI version 2.0.67 or later. If you need to install or upgrade, see [Install Azure CLI][azure-cli], [az acr check-health][az-acr-check-health].
+Une première étape de diagnostic consiste à exécuter la commande [az acr check-health][az-acr-check-health] pour obtenir des informations sur l’intégrité de l’environnement et éventuellement sur l’accès à un registre cible. Cette commande est disponible dans Azure CLI, version 2.0.67 ou ultérieure. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI][azure-cli].
 
 ## <a name="run-az-acr-check-health"></a>Exécuter az acr check-health
 

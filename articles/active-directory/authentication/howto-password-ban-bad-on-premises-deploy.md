@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 01a9cc4ec4788422337b77b285ed8ee440f6acd4
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.openlocfilehash: 3ebeed3636ea6da77e05a9a790e51c7771ebe685
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68346893"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68666287"
 ---
 # <a name="deploy-azure-ad-password-protection"></a>Déployer la protection par mot de passe d’Azure AD
 
@@ -31,6 +31,12 @@ Durant la phase d’audit, de nombreuses organisations constatent les points sui
 * Elles doivent améliorer les processus opérationnels existants pour utiliser des mots de passe plus sécurisés.
 * Les utilisateurs utilisent souvent des mots de passe non sécurisés.
 * Elles doivent informer les utilisateurs des modifications de sécurisation à venir, de l’impact que cela peut avoir sur eux et de la façon de choisir des mots de passe plus sécurisés.
+
+Il est également possible que la validation de mot de passe renforcée affecte l’automatisation de votre déploiement de contrôleur de domaine Active Directory existante. Nous vous recommandons d’effectuer au moins une promotion DC et une rétrogradation DC au cours de l’évaluation de la période d’audit afin d’aider à dévoiler ces problèmes à l’avance.  Pour plus d'informations, consultez les pages suivantes :
+
+* [Ntdsutil.exe ne peut pas définir un mot de passe de mode de réparation des services d’annuaire faible](howto-password-ban-bad-on-premises-troubleshoot.md##ntdsutilexe-fails-to-set-a-weak-dsrm-password)
+* [La promotion du réplica du contrôleur de domaine échoue en raison d’un mot de passe de mode de réparation des services d’annuaire faible](howto-password-ban-bad-on-premises-troubleshoot.md#domain-controller-replica-promotion-fails-because-of-a-weak-dsrm-password)
+* [La rétrogradation du contrôleur de domaine échoue en raison d’un mot de passe administrateur local faible](howto-password-ban-bad-on-premises-troubleshoot.md#domain-controller-demotion-fails-due-to-a-weak-local-administrator-password)
 
 Une fois que la fonctionnalité a été exécutée en mode audit pendant une période raisonnable, vous pouvez basculer la configuration de *Audit* à *Appliquer* pour exiger des mots de passe plus sécurisés. Durant cette période, effectuer un monitoring strict est une bonne idée.
 

@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/02/2018
+ms.date: 07/26/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4ea3ec9024e4ea6a254fb6fe80f93886dc31a0ff
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9c0bc7f5d4890ae494c6c6616b42eddc2445b159
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65545801"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68666489"
 ---
 # <a name="whats-new-for-authentication"></a>Quelles sont les nouveautés en matière d’authentification ? 
 
@@ -41,9 +41,48 @@ Le système d’authentification modifie et ajoute des fonctionnalités en perma
 
 ## <a name="upcoming-changes"></a>Changements à venir
 
-Aucun n’est planifié pour l’instant. 
+Août 2019 : Appliquer la sémantique POST en fonction des règles d’analyse d’URL : les paramètres en double déclenchent une erreur, les guillemets entre les paramètres ne sont plus ignorés et la [marque d'ordre d'octet](https://www.w3.org/International/questions/qa-byte-order-mark) est ignorée.
 
-## <a name="march-2019"></a>Mars 2019
+## <a name="july-2019"></a>Juillet 2019
+
+### <a name="app-only-tokens-for-single-tenant-applications-are-only-issued-if-the-client-app-exists-in-the-resource-tenant"></a>Les jetons d’application pour applications à locataire unique sont émis uniquement si l’application cliente existe dans le locataire de ressources
+
+**Date d’effet** : 26 juillet 2019
+
+**Points de terminaison impactés** : [V1.0](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-client-creds-grant-flow) et [v2.0](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow)
+
+**Protocole impacté** : [Informations d’identification du client (jetons d’application uniquement)](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-client-creds-grant-flow)
+
+Une modification de sécurité a été mise en ligne le 26 juillet qui modifie la façon dont sont émis les jetons d’application (via l’octroi d’informations d’identification du client). Auparavant, les applications étaient autorisées à obtenir des jetons pour appeler une autre application, quelle que soit la présence dans le locataire ou les rôles consentis pour cette application.  Ce comportement a été mis à jour de sorte que pour les ressources (parfois appelées API Web) définies sur un locataire unique (valeur par défaut), l’application cliente doit exister dans le locataire de la ressource.  Notez que le consentement existant entre le client et l’API n’est toujours pas nécessaire, et que les applications doivent toujours effectuer leurs propres vérifications d’autorisation pour s’assurer qu’une revendication `roles` est présente et contient la valeur attendue pour l’API.
+
+Le message d’erreur de ce scénario indique actuellement : 
+
+`The service principal named <appName> was not found in the tenant named <tenant_name>. This can happen if the application has not been installed by the administrator of the tenant.`
+
+Pour résoudre ce problème, utilisez l’expérience de consentement de l’administrateur pour créer le principal du service de l’application cliente dans votre locataire, ou créez-le manuellement.  Cette exigence garantit que le locataire a donné l’autorisation d’exécuter l’application au sein du locataire.  
+
+#### <a name="example-request"></a>Exemple de requête
+
+`https://login.microsoftonline.com/contoso.com/oauth2/authorize?resource=https://gateway.contoso.com/api&response_type=token&client_id=14c88eee-b3e2-4bb0-9233-f5e3053b3a28&...` Dans cet exemple, le locataire de ressource (autorité) est contoso.com, l’application de ressource est une application à locataire unique appelée `gateway.contoso.com/api` pour le locataire Contoso, et l’application cliente est `14c88eee-b3e2-4bb0-9233-f5e3053b3a28`.  Si l’application cliente a un principal de service dans Contoso.com, cette demande peut continuer.  Toutefois, si ce n’est pas le cas, la demande échoue avec l’erreur ci-dessus.  
+
+Si l’application de la passerelle Contoso était une application mutualisée, la requête continue, peu importe si l’application cliente a un principal de service ou non dans Contoso.com.  
+
+### <a name="redirect-uris-can-now-contain-query-string-parameters"></a>Les URI de redirection peuvent désormais contenir des paramètres de chaîne de requête
+
+**Date d’effet** : 22 juillet 2019
+
+**Points de terminaison impactés** : V1.0 et v2.0
+
+**Protocole impacté** : Tous les flux
+
+Selon la norme [RFC 6749](https://tools.ietf.org/html/rfc6749#section-3.1.2), les applications Azure AD peuvent désormais inscrire et utiliser des URI de redirection (réponse) avec des paramètres de requêtes statiques (par exemple, https://contoso.com/oauth2?idp=microsoft) pour les requêtes OAuth 2.0).  Les URI de redirection dynamiques sont toujours interdites, car elles représentent un risque pour la sécurité, et cela ne peut pas être utilisé pour conserver les informations d’état sur une demande d’authentification. Pour cela, utilisez le paramètre `state`.
+
+Le paramètre de requête statique est soumis à la correspondance de chaînes pour les URI de redirection comme toute autre partie de l’URI de redirection. Si aucune chaîne n’est inscrite correspondant à la valeur redirect_uri décodée par l’URI, la demande est rejetée.  Si l’URI est trouvée dans l’inscription de l’application, la chaîne entière sera utilisée pour rediriger l’utilisateur, y compris le paramètre de requête statique. 
+
+Remarque : à ce jour (fin juillet 2019), l’inscription d’application UX dans le portail Azure bloque toujours les paramètres de requête.  Toutefois, vous pouvez modifier le manifeste d’application manuellement pour ajouter des paramètres de requête et effectuer le test dans votre application.  
+
+
+## <a name="march-2019"></a>Mars 2019
 
 ### <a name="looping-clients-will-be-interrupted"></a>Le bouclage des clients sera interrompu
 

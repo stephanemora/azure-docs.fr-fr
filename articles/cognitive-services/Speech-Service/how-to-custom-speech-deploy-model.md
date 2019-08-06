@@ -1,6 +1,6 @@
 ---
-title: Déployer un modèle pour Custom Speech - Services Speech
-titlesuffix: Azure Cognitive Services
+title: Déployer un modèle pour Custom Speech - Service Speech
+titleSuffix: Azure Cognitive Services
 description: Dans ce document, vous allez apprendre à créer et à déployer un point de terminaison à l’aide du portail Custom Speech.
 services: cognitive-services
 author: erhopf
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: f2b69bf3e5d536e7e813ef4a7c36b2937141fd43
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 15e2ce437a746d15622dc4e093a63c87448f100d
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606622"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559673"
 ---
 # <a name="deploy-a-custom-model"></a>Déployer un modèle personnalisé
 

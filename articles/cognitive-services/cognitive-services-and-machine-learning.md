@@ -1,7 +1,7 @@
 ---
-title: Cognitive Services et Machine Learning
-titlesuffix: Azure Cognitive Services
-description: Découvrez où Azure Cognitive Services s’intègre avec d’autres produits Azure pour le Machine Learning.
+title: Cognitive Services et machine learning
+titleSuffix: Azure Cognitive Services
+description: Découvrez où Azure Cognitive Services s’intègre avec d’autres produits Azure pour le machine learning.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 07/23/2019
 ms.author: diberry
-ms.openlocfilehash: 15faacccfa1e0f7dd759f719c02e106918d735bb
-ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
+ms.openlocfilehash: d7049c729140591717782b191f970f4295140cb8
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68414695"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68697920"
 ---
-# <a name="cognitive-services-and-machine-learning"></a>Cognitive Services et Machine Learning
+# <a name="cognitive-services-and-machine-learning"></a>Cognitive Services et machine learning
 
 Cognitive Services fournit des fonctionnalités de Machine Learning pour résoudre des problèmes généraux tels que l’analyse de texte pour inférer des sentiments, ou l’analyse d’images pour reconnaître des objets ou visages. Pour utiliser ces services, vous n’avez pas besoin de connaissances spéciales en matière de Machine Learning ou de science des données. 
 
@@ -26,7 +26,7 @@ Cognitive Services fournit des fonctionnalités de Machine Learning pour résoud
 |--|--|
 |[Décision](https://azure.microsoft.com/services/cognitive-services/directory/decision/)|Créez des applications qui fournissent des recommandations pour une prise de décision éclairée et efficace.|
 |[Langage](https://azure.microsoft.com/services/cognitive-services/directory/lang/)|Autorisez vos applications à traiter le langage naturel avec des scripts préconstruits, à évaluer les sentiments et à reconnaître les attentes des utilisateurs.|
-|[Action](https://azure.microsoft.com/services/cognitive-services/directory/search/)|Ajoutez des API Recherche Bing à vos applications et exploitez la possibilité de passer au crible des milliards de pages web, images, vidéos et actualités avec un seul appel d’API.|
+|[action](https://azure.microsoft.com/services/cognitive-services/directory/search/)|Ajoutez des API Recherche Bing à vos applications et exploitez la possibilité de passer au crible des milliards de pages web, images, vidéos et actualités avec un seul appel d’API.|
 |[Speech](https://azure.microsoft.com/services/cognitive-services/directory/speech/)|Convertissez de la parole en texte et du texte en parole naturelle. Traduisez d’une langue à une autre, et activez la vérification et la reconnaissance de l’orateur.|
 |[Vision](https://azure.microsoft.com/services/cognitive-services/directory/vision/)|Identifiez, légendez, indexez et modérez le contenu de vos photos, vidéos et entrées manuscrites.|
 ||||
@@ -40,7 +40,7 @@ Utilisez une autre solution de Machine Learning dans le cas suivant :
 
 * Vous devez choisir l’algorithme et effectuer l’apprentissage sur des données très spécifiques.
 
-## <a name="what-is-machine-learning"></a>Qu’est-ce que le Machine Learning
+## <a name="what-is-machine-learning"></a>L’apprentissage automatique - De quoi s’agit-il ?
 
 Le Machine Learning consiste à associer des données et un algorithme pour répondre à un besoin spécifique. Une fois les données et l’algorithme formés, vous obtenez un modèle réutilisable avec d’autres données. Le modèle formé fournit des insights basés sur les nouvelles données. 
 
@@ -105,11 +105,11 @@ Les données suivantes catégorisent chaque service selon le type de données qu
 |[QnA Maker](./QnAMaker/Overview/overview.md)||x||
 |[Module de reconnaissance de l’orateur](./speaker-recognition/home.md)||x||
 |[Synthèse vocale (TTS) Speech](speech-service/text-to-speech.md)|x|x||
-|[Reconnaissance vocale (STT) Speech](/speech-service/speech-to-text.md)|x|x||
+|[Reconnaissance vocale (STT) Speech](speech-service/speech-to-text.md)|x|x||
 |[Traduction vocale](speech-service/speech-translation.md)|x|||
 |[Analyse de texte](./text-analytics/overview.md)|x|||
 |[Translator Text](./translator/translator-info-overview.md)|x|||
-|[Traduction de texte Translator Text – Custom Translator]()||x||
+|[Traduction de texte Translator Text – Custom Translator](./translator/custom-translator/overview.md)||x||
 
 *Personalizer n’a besoin que des données d’entraînement collectées par le service (pendant qu’il fonctionne en temps réel) pour évaluer votre stratégie et vos données. Personalizer n’a pas besoin de jeux de données historiques volumineux pour une formation initiale ou par lot. 
 
