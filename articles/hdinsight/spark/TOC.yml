@@ -53,13 +53,7 @@
     - name: Résolution des problèmes
       items:
         - name: Exception OutOfMemoryError
-          items:
-            - name: Mémoire du tas insuffisante
-              href: ./apache-spark-troubleshoot-outofmemory-heap.md
-            - name: Espace de tas Java
-              href: ./apache-spark-troubleshoot-outofmemory-heap-space.md
-            - name: Échec de démarrage du serveur Livy
-              href: ./apache-spark-troubleshoot-outofmemory-native-thread.md
+          href: ./apache-spark-troubleshoot-outofmemory.md
         - name: Échec du travail Apache Spark - NoClassDefFoundError
           href: ./apache-spark-troubleshoot-job-fails-noclassdeffounderror.md
         - name: Échec du travail Apache Spark - InvalidClassException

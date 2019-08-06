@@ -287,8 +287,6 @@
       items:
         - name: Mettre à niveau vers la 2e génération
           href: upgrade-to-latest-generation.md
-        - name: Moderniser votre entrepôt de données
-          href: sql-data-warehouse-restore.md
         - name: Superviser votre charge de travail - Portail
           href: sql-data-warehouse-monitor-workload-portal.md
         - name: Superviser votre charge de travail - DMV
