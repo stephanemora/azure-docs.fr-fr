@@ -55,7 +55,7 @@ Les propriétés prises en charge pour le service lié MongoDB sont les suivante
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | type |La propriété type doit être définie sur : **MongoDb** |OUI |
-| serveur |Nom d’hôte ou adresse IP du serveur MongoDB. |OUI |
+| server |Nom d’hôte ou adresse IP du serveur MongoDB. |OUI |
 | port |Le port TCP utilisé par le serveur MongoDB pour écouter les connexions clientes. |Non (valeur par défaut est 27017) |
 | databaseName |Nom de la base de données MongoDB à laquelle vous souhaitez accéder. |OUI |
 | authenticationType | Type d'authentification utilisé pour se connecter à la base de données MongoDB.<br/>Les valeurs autorisées sont les suivantes : **De base**, et **Anonyme**. |OUI |
