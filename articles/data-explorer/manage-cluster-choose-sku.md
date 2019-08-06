@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/14/2019
-ms.openlocfilehash: 0239111ca56dfe431a00eee83c79eedccc66c927
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: b0cf6eab86b0b932e44b6824305c23df01f35808
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68226146"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68383821"
 ---
 # <a name="select-the-correct-vm-sku-for-your-azure-data-explorer-cluster"></a>Sélectionner la bonne référence SKU de machine virtuelle pour votre cluster Azure Data Explorer 
 
@@ -39,11 +39,11 @@ Azure Data Explorer offre deux types de clusters :
 
 Lors de la création d'un cluster Azure Data Explorer, sélectionnez la référence SKU de machine virtuelle *optimale* pour la charge de travail planifiée. Azure Data Explorer propose deux familles de références SKU :
 
-* **D_V2** : La référence SKU **D** est optimisée pour le calcul et disponible en deux versions.
+* **D_V2** : La référence SKU D est optimisée pour le calcul et disponible en deux versions.
     * Machine virtuelle seule
     * Machine virtuelle regroupée avec des disques de stockage Premium
 
-* **LS** : La référence SKU **L** est optimisée pour le stockage. Pour le même prix, elle propose un disque SSD beaucoup plus grand que la référence SKU **D**.
+* **LS** : La référence SKU L est optimisée pour le stockage. Pour le même prix, elle propose un disque SSD beaucoup plus grand que la référence SKU **D**.
 
 Le tableau suivant présente les principales différences entre les types de référence SKU disponibles :
  

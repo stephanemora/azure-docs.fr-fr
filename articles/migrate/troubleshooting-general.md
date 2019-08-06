@@ -4,14 +4,14 @@ description: Fournit une vue d'ensemble des problèmes connus dans le service Az
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/17/2019
+ms.date: 07/22/2019
 ms.author: raynew
-ms.openlocfilehash: 0e2a8f269a98babc17f36ceff209ee2f057e6911
-ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
+ms.openlocfilehash: 15d3809b9a028fd2495c504e9bf19251dd051520
+ms.sourcegitcommit: 57a7d4f67635212f5bf0c56e58fd87c8ec366f2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68302325"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68372584"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Résoudre les problèmes d’Azure Migrate
 
@@ -54,6 +54,10 @@ Suivez les étapes ci-dessous pour créer un projet Azure Migrate.
 
    ![Créer un deuxième projet Azure Migrate](./media/troubleshooting-general/create-new-project.png)
 
+### <a name="which-azure-geographies-are-supported-by-azure-migrate"></a>Quelles sont les zones géographiques Azure prises en charge par Azure Migrate ?
+
+Vous pouvez trouver la liste pour [VMware ici](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#azure-migrate-projects) et pour [Hyper-V ici](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-hyper-v#azure-migrate-projects).
+
 ### <a name="deletion-of-azure-migrate-projects-and-associated-log-analytics-workspace"></a>Suppression de projets Azure Migrate et espace de travail Log Analytics associé
 
 Quand vous supprimez un projet Azure Migrate, le projet de migration et les métadonnées sur les machines découvertes sont supprimés. Cependant, si vous avez attaché un espace de travail Log Analytics à l’outil Server Assessment, il n’est pas supprimé automatiquement. En effet, le même espace de travail Log Analytics peut être utilisé dans plusieurs cas d’usage. Si vous souhaitez aussi supprimer l’espace de travail Log Analytics, vous devez le faire manuellement.
@@ -76,7 +80,7 @@ Dès que vous avez reçu l’e-mail d’invitation, ouvrez-le et cliquez sur le 
 
 ### <a name="deployment-of-azure-migrate-appliance-for-vmware-failed-with-the-error-the-provided-manifest-file-is-invalid-invalid-ovf-manifest-entry"></a>Échec du déploiement de l’appliance Azure Migrate pour VMware avec l’erreur : Le fichier manifeste indiqué n'est pas valide : entrée de manifeste OVF non valide.
 
-1. Vérifiez si le fichier OVA de l’appliance Azure Migrate est correctement téléchargé en contrôlant sa valeur de hachage. Reportez-vous à cet [article](https://docs.microsoft.com/azure/migrate/tutorial-assessment-vmware#verify-the-collector-appliance) pour vérifier la valeur de hachage. Si la valeur de hachage ne correspond pas, téléchargez à nouveau le fichier OVA et recommencez le déploiement.
+1. Vérifiez si le fichier OVA de l’appliance Azure Migrate est correctement téléchargé en contrôlant sa valeur de hachage. Reportez-vous à cet [article](https://docs.microsoft.com/azure/migrate/tutorial-assessment-vmware) pour vérifier la valeur de hachage. Si la valeur de hachage ne correspond pas, téléchargez à nouveau le fichier OVA et recommencez le déploiement.
 2. Si vous faites à nouveau face à un échec et que vous utilisez un client VMware vSphere pour le déploiement du fichier OVF, essayez plutôt d’utiliser le client Web vSphere. Si le problème persiste, essayez d’utiliser un autre navigateur web.
 3. Si vous utilisez le client web vSphere et tentez de le déployer sur vCenter Server 6.5 ou 6.7, essayez de déployer le fichier OVA directement sur l’hôte ESXi en suivant les étapes ci-dessous :
    - Connectez-vous directement à l’hôte ESXi (au lieu de vCenter Server) en utilisant le client web (https://<*adresse IP de l’hôte*>/ui).
@@ -121,9 +125,31 @@ Si le problème se produit toujours dans la dernière version, cela peut être d
 3. Identifiez le numéro de port correct pour se connecter au serveur vCenter.
 4. Enfin, vérifiez si le serveur vCenter est en cours d’exécution.
 
+
+### <a name="the-appliance-could-not-be-registered-successfully-to-the-azure-migrate-project-error-id-60052"></a>Il n’a pas été possible d’inscrire l’appliance au projet Azure Migrate (ID d’erreur : 60052)
+
+Cette erreur est due à une insuffisance d’autorisations sur le compte Azure utilisé pour inscrire l’appliance. Vérifiez que le compte d’utilisateur Azure utilisé pour inscrire l’appliance dispose au moins d’un accès « Contributeur » à l’abonnement. [Apprenez-en davantage](https://docs.microsoft.com/azure/migrate/migrate-appliance#appliance-deployment-requirements) sur les rôles et autorisations Azure requis.
+
+### <a name="the-appliance-could-not-be-registered-successfully-to-the-azure-migrate-project-error-id-60039"></a>Il n’a pas été possible d’inscrire l’appliance au projet Azure Migrate (ID d’erreur : 60039)
+
+Le projet de Azure Migrate que vous avez sélectionné pour inscrire l’appliance est introuvable, ce qui entraîne l’échec de l’inscription. Accédez au portail Azure et vérifiez si le projet existe dans votre groupe de ressources. Si le projet n’existe pas, créez un projet Azure Migrate dans votre groupe de ressources et réinscrivez l’appliance. [Apprenez-en davantage](https://docs.microsoft.com/azure/migrate/how-to-add-tool-first-time#create-a-project-and-add-a-tool) plus sur la création d’un projet Azure Migrate.
+
+### <a name="azure-key-vault-management-operation-failed-error-id-60030-60031"></a>L’opération de gestion d’Azure Key Vault a échoué (ID d’erreur : 60030, 60031)
+
+Vérifiez que le compte d’utilisateur Azure utilisé pour inscrire l’appliance dispose au moins d’un accès « Contributeur » à l’abonnement. Vérifiez également si le compte a accès au Key Vault spécifié dans le message d’erreur, puis retentez l’opération. Si le problème persiste, contactez le support technique Microsoft. [Apprenez-en davantage](https://docs.microsoft.com/azure/migrate/migrate-appliance#appliance-deployment-requirements) sur les rôles et autorisations Azure requis.
+
+### <a name="discovery-could-not-be-initiated-due-to-the-error-the-operation-failed-for-the-given-list-of-hosts-or-clusters-error-id-60028"></a>Il n’a pas été possible de lancer la découverte en raison de l’erreur. L’opération a échoué pour la liste donnée d’hôtes ou de clusters (ID d’erreur : 60028)
+
+Il n’a pas été possible de lancer la découverte sur les hôtes répertoriés dans l’erreur en raison d’un problème d’accès aux informations sur les machines virtuelles ou de récupération de celles-ci. Les autres hôtes ont été correctement ajoutés. Ajoutez de nouveau les hôtes répertoriés dans l’erreur à l’aide de l’option **Ajouter un hôte**. En cas d’erreur de validation, reportez-vous au guide de correction pour résoudre l’erreur, puis réessayez d’**Enregistrer et lancer la découverte**.
+
+### <a name="azure-active-directory-aad-operation-failed-the-error-occurred-while-creating-or-updating-the-aad-application-error-id-60025"></a>L’opération Azure Active Directory (AAD) a échoué. L’erreur s’est produite lors de la création ou de la mise à jour de l’application AAD (ID d’erreur : 60025)
+
+Le compte d’utilisateur Azure utilisé pour inscrire l’appliance n’a pas accès à l’application AAD spécifiée dans le message d’erreur. Vérifiez si vous êtes le propriétaire de l’application AAD. [Apprenez-en davantage](https://docs.microsoft.com/azure/migrate/migrate-appliance#appliance-deployment-requirements) sur les permissions d’application AAD.
+
+
 ## <a name="discovery-issues"></a>Problèmes de découverte
 
-### <a name="i-started-discovery-but-i-dont-see-the-discovered-vms-on-azure-portal-server-assessment-and-server-migrate-tiles-show-a-status-of-discovery-in-progress"></a>J’ai démarré la détection, mais je ne vois pas les machines virtuelles découvertes sur le portail Azure. Les vignettes Server Assessment et Server Migration affichent l’état « Détection en cours ».
+### <a name="i-started-discovery-but-i-dont-see-the-discovered-vms-on-azure-portal-server-assessment-and-server-migration-tiles-show-a-status-of-discovery-in-progress"></a>J’ai démarré la détection, mais je ne vois pas les machines virtuelles découvertes sur le portail Azure. Les vignettes Évaluation de serveur et Migration de serveur affichent l’état « Découverte en cours »
 Après le démarrage de la découverte à partir de l’appliance, prévoyez un certain temps pour que les machines détectées apparaissent dans le portail Azure. Il faut environ 15 minutes pour une découverte VMware et environ 2 minutes par hôte ajouté pour une découverte Hyper-V. Si vous continuez à voir « Détection en cours » même au bout de ce délai, cliquez sur **Actualiser** sous l’onglet **Serveurs**. Ceci doit normalement montrer le nombre de serveurs découverts dans les vignettes Server Assessment et Server Migration.
 
 
@@ -146,15 +172,15 @@ Il faut jusqu’à 30 minutes pour que les données de découverte collectées p
 4. Attendez que l’opération d’actualisation se termine. Vous devez maintenant voir les informations à jour sur vos machines virtuelles.
 
 ### <a name="unable-to-connect-to-hosts-or-cluster-as-the-server-name-cannot-be-resolved-winrm-error-code-0x803381b9-error-id-50004"></a>Impossible de se connecter aux hôtes ou au cluster, car le nom du serveur ne peut pas être résolu. Code d’erreur WinRM : 0x803381B9 (ID d’erreur : 50004)
-Cette erreur se produit si le DNS servant l’appliance ne peut pas résoudre le nom du cluster ou de l’hôte que vous avez fourni. Si vous voyez cette erreur sur le cluster, essayez en fournissant le nom de domaine complet du cluster. 
+Cette erreur se produit si le DNS servant l’appliance ne peut pas résoudre le nom du cluster ou de l’hôte que vous avez fourni. Si vous voyez cette erreur sur le cluster, essayez en fournissant le nom de domaine complet du cluster.
 
-Vous pouvez aussi voir cette erreur pour les hôtes d’un cluster. Dans ce cas, l’appliance a pu se connecter au cluster. Le cluster a cependant retourné les noms d’hôte qui ne sont pas des noms de domaine complets. 
+Vous pouvez aussi voir cette erreur pour les hôtes d’un cluster. Dans ce cas, l’appliance a pu se connecter au cluster. Le cluster a cependant retourné les noms d’hôte qui ne sont pas des noms de domaine complets.
 
 Pour résoudre cette erreur, mettez à jour le fichier hosts sur l’appliance en ajoutant un mappage de l’adresse IP et des noms d’hôtes.
 1. Ouvrez le Bloc-notes en tant qu’administrateur. Ouvrez le fichier C:\Windows\System32\Drivers\etc\hosts.
 2. Ajoutez l’adresse IP et le nom d’hôte dans une ligne. Répétez cette opération pour chaque hôte ou cluster pour lequel vous voyez cette erreur.
 3. Enregistrez et fermez le fichier hosts.
-4. Vous pouvez vérifier si l’appliance peut se connecter aux hôtes en utilisant l’application de gestion de l’appliance. Au bout de 30 minutes, vous devez normalement voir les informations à jour sur ces hôtes dans le portail Azure. 
+4. Vous pouvez vérifier si l’appliance peut se connecter aux hôtes en utilisant l’application de gestion de l’appliance. Au bout de 30 minutes, vous devez normalement voir les informations à jour sur ces hôtes dans le portail Azure.
 
 
 ## <a name="assessment-issues"></a>Problèmes d’évaluation
@@ -202,8 +228,11 @@ Le dimensionnement de disque dans Server Assessment dépend de deux propriétés
 
 Par exemple, si vous avez un disque local avec 32 Go de mémoire, mais que la valeur d’IOPS en lecture et écriture agrégée pour le disque est de 800 IOPS, Server Assessment recommandera un type de disque Premium (en raison des exigences d’IOPS plus élevées), puis recommandera une référence SKU de disque capable de prendre en charge la taille et les IOPS requises. La correspondance la plus proche dans cet exemple serait P15 (256 Go, 1100 IOPS). Par conséquent, même si la taille requise par le disque locale était de 32 Go, Server Assessment a recommandé un disque avec une plus grande taille en raison de l’exigence élevée du disque local en matière d’IOPS.
 
+### <a name="why-does-my-assessment-report-say-percentageofcoresutilizedmissing-or-percentageofmemoryutilizedmissing-for-some-vms"></a>Pourquoi mon rapport d’évaluation indique-t-il « PercentageOfCoresUtilizedMissing » ou « PercentageOfMemoryUtilizedMissing » pour certaines machines virtuelles ?
+Les problèmes ci-dessus sont répertoriés lorsque l’appliance Azure Migrate ne peut pas collecter les données de performances des machines virtuelles locales. Cela peut se produire si les machines virtuelles étaient hors tension durant la période pour laquelle vous créez l’évaluation (dernier jour/dernière semaine/dernière mois), car l’appliance ne peut pas collecter les données de performances d’une machine virtuelle hors tension. Si seuls les compteurs mémoire manquent et que vous essayez d’évaluer des machines virtuelles Hyper-V, vérifiez si vous avez activé la mémoire dynamique sur ces machines virtuelles. Il existe actuellement un problème connu qui a pour effet que l’appliance Azure Migrate ne peut pas collecter les données d’utilisation de la mémoire des machines virtuelles sur lesquelles la mémoire dynamique n’est pas activée. Notez que ce problème affecte uniquement les machines virtuelles Hyper-V, pas les machines virtuelles VMware. Si l’un des compteurs de performances est manquant, Azure Migrate : L’évaluation du serveur revient aux cœurs et à la mémoire alloués, et recommande une taille de machine virtuelle appropriée.
+
 ### <a name="is-the-os-license-cost-of-the-vm-included-in-the-compute-cost-estimated-by-server-assessment"></a>Le coût de la licence du système d’exploitation de la machine virtuelle est-il inclus dans le coût de calcul estimé par Server Assessment ?
-Actuellement, Server Assessment ne prend en compte que le coût de la licence du système d’exploitation pour les machines Windows. Le coût de la licence du système d’exploitation pour les machines Linux n’est pas encore pris en compte. 
+Actuellement, Server Assessment ne prend en compte que le coût de la licence du système d’exploitation pour les machines Windows. Le coût de la licence du système d’exploitation pour les machines Linux n’est pas encore pris en compte.
 
 ### <a name="what-impact-does-performance-history-and-percentile-utilization-have-on-the-size-recommendations"></a>Quel est l’impact de l’utilisation de l’historique des performances et des centiles sur les suggestions de taille ?
 Ces propriétés sont applicables seulement pour le dimensionnement « En fonction des performances ». Server Assessment recueille les données de performances des machines locales de manière continue, et les utilise pour recommander la référence SKU de machine virtuelle et la référence SKU de disque dans Azure. Voici comment les données de performances sont recueillies par Server Assessment :

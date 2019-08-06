@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/25/2019
-ms.openlocfilehash: 00658b650cdc0b1752bb9f2f205420018c1d6edd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e749138cd28f7bd8faf10ca1087a73f323533a25
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61346341"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68335672"
 ---
 # <a name="delete-activity-in-azure-data-factory"></a>Activité Delete dans Azure Data Factory
 
@@ -86,7 +86,7 @@ Voici quelques recommandations relatives à l’utilisation de l’activité Del
 | maxConcurrentConnections | Nombre de connexions simultanées au magasin de stockage pour supprimer un dossier ou des fichiers.   |  Non. Par défaut, il s’agit de `1`. |
 | enablelogging | Indique si vous devez enregistrer les noms des dossiers ou fichiers qui ont été supprimés. Si la valeur est true, vous devez fournir un compte de stockage pour enregistrer le fichier journal dans lequel vous pouvez suivre les comportements de l’activité Delete. | Non |
 | logStorageSettings | S’applique seulement quand enablelogging = true.<br/><br/>Groupe de propriétés de stockage vous permettant de spécifier où enregistrer le fichier journal contenant les noms des dossiers ou fichiers supprimés par l’activité Delete. | Non |
-| linkedServiceName | S’applique seulement quand enablelogging = true.<br/><br/>Service lié de [Stockage Azure](connector-azure-blob-storage.md#linked-service-properties), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#linked-service-properties) ou [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) utilisé pour stocker le fichier journal qui contient les noms des dossiers ou fichiers supprimés par l’activité Delete. | Non |
+| linkedServiceName | S’applique seulement quand enablelogging = true.<br/><br/>Service lié de [Stockage Azure](connector-azure-blob-storage.md#linked-service-properties), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#linked-service-properties) ou [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) utilisé pour stocker le fichier journal qui contient les noms des dossiers ou fichiers supprimés par l’activité Delete. N’oubliez pas qu’il doit être configuré avec le même type d’Integration Runtime que celui utilisé par l’activité de suppression pour supprimer des fichiers. | Non |
 | chemin d’accès | S’applique seulement quand enablelogging = true.<br/><br/>Chemin utilisé pour enregistrer le fichier journal dans votre compte de stockage. Si vous ne spécifiez pas le chemin d’accès, le service crée un conteneur à votre place. | Non |
 
 ## <a name="monitoring"></a>Surveillance
@@ -115,7 +115,7 @@ Vous pouvez voir et superviser les résultats de l’activité Delete dans deux 
 
 ### <a name="sample-log-file-of-the-delete-activity"></a>Exemple de fichier journal de l’activité Delete
 
-| Nom | Catégorie | Statut | Error |
+| Nom | Category | Statut | Error |
 |:--- |:--- |:--- |:--- |
 | test1/yyy.json | Fichier | Deleted |  |
 | test2/hello789.txt | Fichier | Deleted |  |
@@ -132,7 +132,7 @@ Racine/<br/>&nbsp;&nbsp;&nbsp;&nbsp;Dossier_A_1/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nb
 
 Utilisez à présent l’activité Delete pour supprimer un dossier ou des fichiers en combinant différentes valeurs de propriété du jeu de données et de l’activité Delete :
 
-| folderPath (provenant du jeu de données) | fileName (provenant du jeu de données) | recursive (provenant de l’activité Delete) | Sortie |
+| folderPath (provenant du jeu de données) | fileName (provenant du jeu de données) | recursive (provenant de l’activité Delete) | Output |
 |:--- |:--- |:--- |:--- |
 | Racine/ Dossier_A_2 | NULL | False | Racine/<br/>&nbsp;&nbsp;&nbsp;&nbsp;Dossier_A_1/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;Dossier_A_2/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>4.txt</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>5.csv</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dossier_B_1/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6.txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dossier_B_2/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8.txt |
 | Racine/ Dossier_A_2 | NULL | True | Racine/<br/>&nbsp;&nbsp;&nbsp;&nbsp;Dossier_A_1/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;<strike>Dossier_A_2/</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>4.txt</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>5.csv</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>Dossier_B_1/</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>6.txt</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>7.csv</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>Dossier_B_2/</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>8.txt</strike> |
@@ -563,6 +563,9 @@ Jeu de données utilisé comme destination de données par l’activité Copy.
     }
 }
 ```
+
+Vous pouvez également faire en sorte que le modèle déplace les fichiers à partir d’[ici](solution-template-move-files.md).
+
 ## <a name="known-limitation"></a>Limitation connue
 
 -   L’activité Delete ne prend pas en charge la suppression de la liste des dossiers décrite par le caractère générique.

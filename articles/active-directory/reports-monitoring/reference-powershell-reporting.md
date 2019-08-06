@@ -17,21 +17,18 @@ ms.date: 07/12/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 27fa3d7be5238527f86e9dfde3be70ae09259d69
-ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
+ms.openlocfilehash: 2d9d5fdb9091d51c67fd5d778bac189c08647741
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68302751"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359759"
 ---
 # <a name="azure-ad-powershell-cmdlets-for-reporting"></a>Applets de commande Azure AD PowerShell pour la création de rapports
 
-Avec les rapports Azure Active Directory (Azure AD), vous pouvez obtenir toutes les informations dont vous avez besoin pour déterminer l’état de votre environnement. Vous pouvez récupérer des données de rapport à l’aide des cmdlets PowerShell Azure AD pour la création de rapports.
+Avec les rapports Azure Active Directory (Azure AD), vous pouvez afficher des informations sur les activités concernant toutes les opérations d’écriture dans votre direction (journaux d’audit) et les données d’authentification (journaux de connexion). Bien que les informations soient disponibles à l’aide de MS API Graph, vous pouvez maintenant récupérer les mêmes données à l’aide des cmdlets PowerShell Azure AD pour la création de rapports.
 
-Cet article vous donne une vue d’ensemble de la cmdlet.
-
-
-
+Cet article vous donne une vue d’ensemble des cmdlets PowerShell à utiliser pour les journaux d’audit et les journaux de connexion.
 
 ## <a name="audit-logs"></a>Journaux d’audit
 
@@ -43,7 +40,7 @@ Accédez aux journaux d’audit à l’aide de la cmdlet « AzureADAuditDirector
 | Scénario                      | Commande PowerShell |
 | :--                           | :--                |
 | Nom d’affichage de l’application      | Get-AzureADAuditDirectoryLogs -Filter "initiatedBy/app/displayName eq 'Azure AD Cloud Sync'" |
-| Catégorie                      | Get-AzureADAuditDirectoryLogs -Filter "category eq 'Application Management'" |
+| Category                      | Get-AzureADAuditDirectoryLogs -Filter "category eq 'Application Management'" |
 | Heure/date d’activité            | Get-AzureADAuditDirectoryLogs -Filter "activityDateTime gt 2019-04-18" |
 | Toutes les options ci-dessus              | Get-AzureADAuditDirectoryLogs -Filter "initiatedBy/app/displayName eq 'Azure AD Cloud Sync' and category eq 'Application Management' and activityDateTime gt 2019-04-18"|
 

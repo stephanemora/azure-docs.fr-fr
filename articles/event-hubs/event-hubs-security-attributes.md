@@ -1,6 +1,6 @@
 ---
-title: Attributs de sécurité communs pour Azure Event Hubs
-description: Liste de contrôle des attributs de sécurité communs pour l’évaluation d’Azure Event Hubs
+title: Attributs de sécurité pour Azure Event Hubs
+description: Liste de contrôle des attributs de sécurité pour l’évaluation d’Azure Event Hubs
 services: event-hubs
 ms.service: event-hubs
 documentationcenter: ''
@@ -9,16 +9,16 @@ manager: barbkess
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 50f19d50f211972c2042c69a1e3177ffb4a47624
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2262609de774eb2b1334215bf46968b5554ed691
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66247198"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68442455"
 ---
-# <a name="common-security-attributes-for-azure-event-hubs"></a>Attributs de sécurité communs pour Azure Event Hubs
+# <a name="security-attributes-for-azure-event-hubs"></a>Attributs de sécurité pour Azure Event Hubs
 
-Cet article documente les attributs de sécurité courants intégrés dans Azure Event Hubs.
+Cet article documente les attributs de sécurité intégrés à Azure Event Hubs.
 
 [!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
 
@@ -26,8 +26,8 @@ Cet article documente les attributs de sécurité courants intégrés dans Azure
 
 | Attribut de sécurité | Oui/Non | Notes |
 |---|---|--|
-| Chiffrement au repos :<ul><li>Chiffrement côté serveur</li><li>Chiffrement côté serveur avec des clés gérées par le client</li><li>Autres fonctionnalités de chiffrement (côté client, Always Encrypted, etc.)</ul>|  OUI | |
-| Chiffrement en transit :<ul><li>Chiffrement Express Route</li><li>Chiffrement dans le réseau virtuel</li><li>Chiffrement de réseau virtuel à réseau virtuel</ul>| OUI | |
+| Chiffrement au repos (comme le chiffrement côté serveur, le chiffrement côté serveur avec clés managées par le client et d’autres fonctions de chiffrement)|  OUI | |
+| Chiffrement en transit (ExpressRoute, de réseau virtuel et de réseau virtuel à réseau virtuel)| OUI | |
 | Gestion des clés de chiffrement (CMK, BYOK, etc.)| Non |  |
 | Chiffrement au niveau des colonnes (Azure Data Services)| N/A | |
 | Appels d’API chiffrés| OUI |  |
@@ -45,7 +45,7 @@ Cet article documente les attributs de sécurité courants intégrés dans Azure
 
 | Attribut de sécurité | Oui/Non | Notes|
 |---|---|--|
-| Prise en charge de la supervision Azure (Log Analytics, App Insights, etc.)| OUI | |
+| Prise en charge de la supervision Azure (Log analytics, App insights, etc.)| OUI | |
 
 ## <a name="identity-and-access-management"></a>Gestion de l’identité et de l’accès
 

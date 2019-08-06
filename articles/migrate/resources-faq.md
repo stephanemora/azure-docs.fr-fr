@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: snehaa
-ms.openlocfilehash: e5b4777adfcbb5babbf5db792a10d025c79b1a8b
-ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
+ms.openlocfilehash: 0708502087ae6880d9559cf17f0ba9982b2ba040
+ms.sourcegitcommit: 57a7d4f67635212f5bf0c56e58fd87c8ec366f2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68302367"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68372487"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Azure Migrate - Forum aux questions
 
@@ -20,20 +20,8 @@ Cet article contient les questions fréquemment posées sur Azure Migrate. Si, a
 ## <a name="general"></a>Généralités
 
 ### <a name="which-azure-geographies-are-supported-by-azure-migrate"></a>Quelles sont les zones géographiques Azure prises en charge par Azure Migrate ?
-Azure Migrate prend actuellement en charge un certain nombre de zones géographiques dans lesquelles un projet Azure Migrate peut être créé. Même si vous ne pouvez créer des projets que dans ces zones, vous pouvez néanmoins toujours évaluer ou migrer vos machines pour d’autres emplacements cibles. La zone géographique du projet est uniquement utilisée pour stocker les métadonnées détectées.
 
-
-**Zone géographique** | **Emplacement de stockage des métadonnées**
---- | ---
-Azure Government | Gouvernement américain - Virginie
-Asie | Asie Sud-Est ou Asie Est
-Europe | Europe Sud ou Europe Ouest
-Royaume-Uni | Royaume-Uni Sud ou Royaume-Uni Ouest
-États-Unis | USA Centre ou USA Ouest 2
-
-
-> [!NOTE]
-> La prise en charge d’Azure Government est actuellement disponible pour l’[ancienne version](https://docs.microsoft.com/azure/migrate/migrate-services-overview#azure-migrate-versions) d’Azure Migrate uniquement.
+Vous pouvez trouver la liste pour [VMware ici](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#azure-migrate-projects) et pour [Hyper-V ici](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-hyper-v#azure-migrate-projects).
 
 ### <a name="how-is-azure-migrate-different-from-azure-site-recovery"></a>En quoi Azure Migrate diffère-t-il d’Azure Site Recovery ?
 

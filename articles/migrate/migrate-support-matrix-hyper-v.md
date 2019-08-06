@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 06/02/2019
+ms.date: 07/22/2019
 ms.author: raynew
-ms.openlocfilehash: f6edbe19429b38d68aea1f1ecfe426c9b2d194d0
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 507ca6daa30a19b73848d6d3cf253390baf496af
+ms.sourcegitcommit: 57a7d4f67635212f5bf0c56e58fd87c8ec366f2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67810080"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68372462"
 ---
 # <a name="support-matrix-for-hyper-v-assessment-and-migration"></a>Tableau de prise en charge pour l’évaluation et la migration Hyper-V
 
@@ -24,12 +24,12 @@ Vous pouvez utiliser le [service Azure Migrate](migrate-overview.md) pour évalu
 
 Le tableau récapitule les scénarios pris en charge pour les machines virtuelles Hyper-V.
 
-**Déploiement** | **Détails*** 
---- | --- 
+**Déploiement** | **Détails***
+--- | ---
 **Évaluer des machines virtuelles Hyper-V en local** | [Configurez](tutorial-prepare-hyper-v.md) votre première évaluation.<br/><br/> [Exécutez](scale-hyper-v-assessment.md) une évaluation à grande échelle.
 **Migrer des machines virtuelles Hyper-V vers Azure** | [Testez](tutorial-migrate-hyper-v.md) une migration vers Azure.
 
-    
+
 
 ## <a name="azure-migrate-projects"></a>Projets Azure Migrate
 
@@ -39,6 +39,21 @@ Autorisations Azure | Vous avez besoin d’autorisations Contributeur ou Propri�
 Machines virtuelles Hyper-V | Évaluez jusqu’à 10 000 machines virtuelles Hyper-V au sein d’un même projet.
 
 Un projet peut inclure à la fois des machines virtuelles VMware et des machines virtuelles Hyper-V, jusqu’aux limites de l’évaluation.
+
+**Zone géographique :** Un projet Azure Migrate peut être créé dans un certain nombre de zones géographiques. Même si vous ne pouvez créer des projets que dans ces zones, vous pouvez néanmoins toujours évaluer ou migrer vos machines pour d’autres emplacements cibles. La zone géographique du projet est uniquement utilisée pour stocker les métadonnées détectées.
+
+
+ **Zone géographique** | **Emplacement de stockage des métadonnées**
+ --- | ---
+ Azure Government | Gouvernement américain - Virginie
+ Asie-Pacifique | Asie Sud-Est ou Asie Est
+ Europe | Europe Sud ou Europe Ouest
+ Royaume-Uni | Royaume-Uni Sud ou Royaume-Uni Ouest
+ États-Unis | USA Centre ou USA Ouest 2
+
+
+ > [!NOTE]
+ > La prise en charge d’Azure Government est actuellement disponible pour l’[ancienne version](https://docs.microsoft.com/azure/migrate/migrate-services-overview#azure-migrate-versions) d’Azure Migrate uniquement.
 
 
 ## <a name="assessment-hyper-v-host-requirements"></a>Évaluation - Exigences de l'hôte Hyper-V
@@ -86,16 +101,16 @@ Pour évaluer des machines virtuelles, l'appliance Azure Migrate a besoin d'une 
 
 - Lorsque vous déployez l'appliance, Azure Migrate effectue un contrôle de connectivité vers les URL résumées dans le tableau ci-dessous.
 - Si vous utilisez un firewall.proxy basé sur URL, autorisez l'accès aux URL du tableau, en vérifiant que le proxy résout tous les enregistrements CNAME reçus lors de la recherche des URL.
-- Si vous disposez d'un proxy d'interception, vous devrez peut-être importer le certificat de serveur depuis le serveur proxy vers l'appliance. 
+- Si vous disposez d'un proxy d'interception, vous devrez peut-être importer le certificat de serveur depuis le serveur proxy vers l'appliance.
 
-    
+
 **URL** | **Détails**  
---- | --- 
+--- | ---
 *. portal.azure.com | Accès au portail Azure
 \* .windows.net | Connectez-vous à votre abonnement Azure :
 *.microsoftonline.com | Création d'applications Azure Active Directory pour les communications de l’appliance au service.
 management.azure.com | Création d'applications Azure Active Directory pour les communications de l’appliance au service.
-dc.services.visualstudio.com | Enregistrement et surveillance 
+dc.services.visualstudio.com | Enregistrement et surveillance
 *.vault.azure.net | Gérez les secrets dans Azure Key Vault lorsque vous communiquez entre l'appliance et le service.
 
 
@@ -104,7 +119,7 @@ dc.services.visualstudio.com | Enregistrement et surveillance
 Le tableau suivant résume les exigences du port pour l’évaluation.
 
 **Appareil** | **Connection**
---- | --- 
+--- | ---
 **Appliance** | Connexions entrantes sur le port TCP 3389 pour permettre des connexions à distance vers l'appliance.<br/> Connexions entrantes sur le port 44368 pour accéder à distance à l'application de gestion de l'appliance via l'URL : https://<appliance-ip-or-name>:44368<br/> Connexions sortantes sur le port 443 pour envoyer des métadonnées de découverte et de performance à Azure Migrate.
 **Hôte/cluster Hyper-V** | Connexions entrantes sur les ports WinRM 5985 (HTTP) et 5986 (HTTPS) pour extraire les métadonnées de configuration et de performance des machines virtuelles Hyper-V en utilisant une session Common Information Model (CIM).
 
@@ -152,22 +167,17 @@ time.windows.com | Vérifie la synchronisation horaire entre l’horloge systèm
 Le tableau suivant résume les exigences de port sur les hôtes et les machines virtuelles Hyper-V pour la migration des machines virtuelles.
 
 **Appareil** | **Connection**
---- | --- 
+--- | ---
 Hôtes/machines virtuelles Hyper-V | Connexions sortantes sur le port HTTPS 443 pour envoyer les données de réplication des machines virtuelles à Azure Migrate.
 
-  
-## <a name="migration-vm-disk-support"></a>Migration - prise en charge des disques de machines virtuelles 
+
+## <a name="migration-vm-disk-support"></a>Migration - prise en charge des disques de machines virtuelles
 
 **Support** | **Détails**
 --- | ---
 Disques migrés | Les machines virtuelles peuvent uniquement être migrées vers des disques managés (disques durs standard, disques SSD Premium) dans Azure.
-   
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 [Se préparer à l'évaluation d’une machine virtuelle Hyper-V](tutorial-prepare-hyper-v.md) pour la migration.
-
-
-
-
- 

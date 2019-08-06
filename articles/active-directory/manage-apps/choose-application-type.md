@@ -15,12 +15,13 @@ ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9e5e7ae02cfdc921d593d204151ac501c8c8ee80
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ROBOTS: NOINDEX
+ms.openlocfilehash: fb2c49d6436a14e9b6cbb0a92eb0dfba077c8e4d
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67807673"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68424260"
 ---
 # <a name="choosing-the-application-type-when-adding-an-application-in-azure-active-directory"></a>Choix du type d’application lors de l’ajout d’une application dans Azure Active Directory
 
@@ -42,7 +43,7 @@ Azure AD prend en charge quatre types d’applications principaux que vous pouve
 
 Les fonctionnalités ci-après sont prises en charge par les quatre types d’applications précédents dans Azure AD :
 
-- **Démarrage rapide** : commencez rapidement à utiliser une application en suivant des [étapes de déploiement simple](https://docs.microsoft.com/azure/active-directory/active-directory-integrating-applications-getting-started).
+- **Démarrage rapide** : commencez rapidement à utiliser une application en suivant des [étapes de déploiement simple](https://docs.microsoft.com/azure/active-directory/active-directory-integrating-applications-getting-started)
 
 - **Gestion des propriétés générales** : obtenez un [lien direct ciblé](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) vers une application, [personnalisez la marque](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-change-app-logo-user-azure-portal) d’une application, ou [désactivez l’application](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-disable-app-azure-portal) pour tous les utilisateurs.
 

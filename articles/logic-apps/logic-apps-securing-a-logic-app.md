@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 06/28/2019
-ms.openlocfilehash: d69861beb5848679aa00c8b39f0caa84c7c5d847
-ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
+ms.openlocfilehash: f27dfd1f907d106ddb3b1b9dd7534d56380149c2
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67986799"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68385505"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Accès et données sécurisés dans Azure Logic Apps
 
@@ -193,9 +193,9 @@ Pour contrôler l’accès aux entrées et aux sorties dans l’historique des e
 
   Cette option vous permet de sécuriser l’accès à l’historique des exécutions en spécifiant une plage d’adresses IP autorisée.
 
-* [Masquer les entrées et les sorties de l’historique des exécutions à l’aide de l’obfuscation](#obfuscate).
+* [Masquez les données de l’historique d’exécution à l’aide d’une obfuscation](#obfuscate).
 
-  Cette option vous permet de masquer les entrées et les sorties de l’historique des exécutions en fonction du déclencheur ou de l’action.
+  Vous pouvez masquer les entrées et/ou sorties de nombreux déclencheurs et actions dans l’historique d’exécution d’une application logique.
 
 <a name="restrict-ip"></a>
 
@@ -258,7 +258,11 @@ Si vous automatisez le déploiement des applications logiques à l’aide d’un
 
 <a name="obfuscate"></a>
 
-### <a name="hide-inputs-and-outputs-in-run-history-by-using-obfuscation"></a>Masquer les entrées et les sorties de l’historique des exécutions à l’aide de l’obfuscation
+### <a name="hide-data-from-run-history-by-using-obfuscation"></a>Masquer les données de l’historique d’exécution à l’aide d’une obfuscation
+
+De nombreux déclencheurs et actions disposent de paramètres permettant masquer les entrées et/ou sorties dans l’historique d’exécution d’une application logique. Voici quelques [aspects à prendre en compte](#obfuscation-considerations) lors de l’utilisation de ces paramètres pour sécuriser ces données.
+
+#### <a name="secure-inputs-and-outputs-in-the-designer"></a>Sécuriser les entrées et sorties dans le concepteur
 
 1. Si votre application logique n’est pas encore ouverte dans le [portail Azure](https://portal.azure.com), ouvrez-la dans le Concepteur d’application logique.
 
@@ -290,9 +294,38 @@ Si vous automatisez le déploiement des applications logiques à l’aide d’un
 
       ![Données masquées dans l’historique des exécutions](media/logic-apps-securing-a-logic-app/hidden-data-run-history.png)
 
+<a name="secure-data-code-view"></a>
+
+#### <a name="secure-inputs-and-outputs-in-code-view"></a>Sécuriser les entrées et sorties en mode Code
+
+Dans la définition de déclencheur ou d’action sous-jacente, ajoutez ou mettez à jour le tableau `runtimeConfiguration.secureData.properties` avec une des deux valeurs ou les deux :
+
+* `"inputs"` : Sécurise les entrées dans l’historique des exécutions.
+* `"outputs"` : Sécurise les sorties dans l’historique des exécutions.
+
+Voici quelques [aspects à prendre en compte](#obfuscation-considerations) lors de l’utilisation de ces paramètres pour sécuriser ces données.
+
+```json
+"<trigger-or-action-name>": {
+   "type": "<trigger-or-action-type>",
+   "inputs": {
+      <trigger-or-action-inputs>
+   },
+   "runtimeConfiguration": {
+      "secureData": {
+         "properties": [
+            "inputs",
+            "outputs"
+         ]
+      }
+   },
+   <other-attributes>
+}
+```
+
 <a name="obfuscation-considerations"></a>
 
-#### <a name="considerations-when-securing-inputs-and-outputs"></a>Considérations relatives à la sécurisation des entrées et des sorties
+#### <a name="considerations-when-hiding-inputs-and-outputs"></a>Considérations relatives au masquage d’entrées et sorties
 
 * Lorsque vous sécurisez les entrées ou les sorties d’un déclencheur ou d’une action, Logic Apps n’envoie pas les données sécurisées à Azure Log Analytics. De plus, vous ne pouvez pas ajouter de [propriétés suivies](logic-apps-monitor-your-logic-apps.md#azure-diagnostics-event-settings-and-details) à ce déclencheur ou à cette action à des fins de supervision.
 
@@ -564,3 +597,4 @@ Voici quelques méthodes permettant de sécuriser tous les points de terminaison
 * [Créer des modèles de déploiement](logic-apps-create-deploy-template.md)  
 * [Analyser vos applications logiques](logic-apps-monitor-your-logic-apps.md)  
 * [Diagnostiquer des échecs et problèmes d’applications logiques](logic-apps-diagnosing-failures.md)  
+* [Automatiser le déploiement d’application logique](logic-apps-azure-resource-manager-templates-overview.md)
