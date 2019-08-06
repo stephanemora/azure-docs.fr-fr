@@ -93,7 +93,7 @@ Pour copier des données à partir de Google Cloud Storage au [format Parquet ou
 
 | Propriété   | Description                                                  | Obligatoire |
 | ---------- | ------------------------------------------------------------ | -------- |
-| Type       | La propriété de type sous `location` dans le jeu de données doit être définie sur **AmazonS3Location**. | OUI      |
+| type       | La propriété de type sous `location` dans le jeu de données doit être définie sur **AmazonS3Location**. | OUI      |
 | bucketName | Le nom de compartiment S3.                                          | OUI      |
 | folderPath | Le chemin d’accès au dossier sous le compartiment donné. Si vous souhaitez utiliser un caractère générique pour filtrer le dossier, ignorez ce paramètre et spécifiez-le dans les paramètres de la source de l’activité. | Non       |
 | fileName   | Le nom de fichier sous le compartiment et le chemin d’accès donnés. Si vous souhaitez utiliser un caractère générique pour filtrer les fichiers, ignorez ce paramètre et spécifiez-le dans les paramètres de la source de l’activité. | Non       |
@@ -134,7 +134,7 @@ Pour la copie de données à partir de Google Cloud Storage au **format ORC/Avro
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type du jeu de données doit être définie sur : **AmazonS3Object** |OUI |
+| type | La propriété type du jeu de données doit être définie sur : **AmazonS3Object** |OUI |
 | bucketName | Le nom de compartiment S3. Le filtre de caractères génériques n'est pas pris en charge. |Oui pour la copie/Activité Lookup/Non pour l’activité GetMetadata |
 | key | Le **filtre de nom ou de caractères génériques** de la clé d’objet S3 sous le compartiment spécifié. S’applique uniquement lorsque la propriété « prefix » n’est pas spécifiée. <br/><br/>Le filtre de caractères génériques est pris en charge pour la partie du dossier et la partie du nom de fichier. Les caractères génériques autorisés sont les suivants : `*` (correspond à zéro caractère ou plusieurs) et `?` (correspond à zéro ou un caractère).<br/>- Exemple 1 : `"key": "rootfolder/subfolder/*.csv"`<br/>- Exemple 2 : `"key": "rootfolder/subfolder/???20180427.txt"`<br/>Consultez d’autres exemples dans les [exemples de filtre de dossier et de fichier](#folder-and-file-filter-examples). Utilisez `^` comme caractère d’échappement si votre nom de dossier/fichier réel contient des caractères génériques ou ce caractère d’échappement. |Non |
 | prefix | Préfixe de la clé d’objet S3. Les objets dont les clés commencent par ce préfixe sont sélectionnés. S’applique uniquement lorsque la propriété « key » n’est pas spécifiée. |Non |
@@ -192,7 +192,7 @@ Pour copier des données à partir de Google Cloud Storage au **format Parquet o
 
 | Propriété                 | Description                                                  | Obligatoire                                                    |
 | ------------------------ | ------------------------------------------------------------ | ----------------------------------------------------------- |
-| Type                     | La propriété type sous `storeSettings` doit être définie sur **AmazonS3ReadSetting**. | OUI                                                         |
+| type                     | La propriété type sous `storeSettings` doit être définie sur **AmazonS3ReadSetting**. | OUI                                                         |
 | recursive                | Indique si les données sont lues de manière récursive à partir des sous-dossiers ou uniquement du dossier spécifié. Notez que lorsque l’option « recursive » est définie sur true et que le récepteur est un magasin basé sur un fichier, un dossier vide ou un sous-dossier n’est pas copié ou créé sur le récepteur. Les valeurs autorisées sont **true** (par défaut) et **false**. | Non                                                          |
 | prefix                   | Le préfixe pour la clé d’objet S3 sous le compartiment donné configuré dans le jeu de données pour filtrer les objets sources. Les objets dont les clés commencent par ce préfixe sont sélectionnés. S’applique uniquement lorsque les propriétés `wildcardFolderPath` et `wildcardFileName` ne sont pas spécifiées. |                                                             |
 | wildcardFolderPath       | Le chemin d’accès du dossier avec des caractères génériques sous le compartiment donné configuré dans le jeu de données pour filtrer les dossiers sources. <br>Les caractères génériques autorisés sont : `*` (correspond à zéro ou plusieurs caractères) et `?` (correspond à zéro ou un caractère) ; utilisez `^` en guise d’échappement si votre nom de dossier contient effectivement ce caractère d’échappement ou générique. <br>Consultez d’autres exemples dans les [exemples de filtre de dossier et de fichier](#folder-and-file-filter-examples). | Non                                                          |
@@ -251,7 +251,7 @@ Pour copier des données à partir de Google Cloud Storage au **format ORC/Avro/
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type de la source d’activité de copie doit être définie sur : **FileSystemSource** |OUI |
+| type | La propriété type de la source d’activité de copie doit être définie sur : **FileSystemSource** |OUI |
 | recursive | Indique si les données sont lues de manière récursive dans les sous-dossiers ou uniquement dans le dossier spécifié. Remarque : Quand l’option récursive a la valeur true et que le récepteur est un magasin basé sur des fichiers, le dossier/sous-dossier vide n’est pas copié/créé dans le récepteur.<br/>Valeurs autorisées : **true** (par défaut) et **false** | Non |
 | maxConcurrentConnections | Le nombre de connexions simultanées au magasin de stockage. Spécifiez uniquement lorsque vous souhaitez limiter les connexions simultanées au magasin de données. | Non |
 
