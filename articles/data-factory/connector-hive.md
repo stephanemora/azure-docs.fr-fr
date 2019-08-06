@@ -89,7 +89,7 @@ Pour copier des données de Hive, définissez la propriété de type du jeu de d
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type du jeu de données doit être définie sur : **HiveObject** | OUI |
+| type | La propriété type du jeu de données doit être définie sur : **HiveObject** | OUI |
 | tableName | Nom de la table. | Non (si « query » dans la source de l’activité est spécifié) |
 
 **Exemple**
