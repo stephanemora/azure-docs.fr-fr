@@ -64,6 +64,8 @@
           href: ./hdinsight-troubleshoot-invalidnetworksecuritygroupsecurityrules-cluster-creation-fails.md
         - name: Conversion d’un certificat de principal de service
           href: ./hdinsight-troubleshoot-converting-service-principal-certificate.md
+        - name: Problèmes de pulsations Apache Ambari
+          href: ./apache-ambari-troubleshoot-heartbeat-issues.md
 - name: Procédures
   items:
     - name: Utiliser le bac à sable (sandbox) Apache Hadoop

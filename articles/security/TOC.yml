@@ -50,7 +50,7 @@
         - name: Chiffrement de disque pour les VM IaaS
           items:
             - name: À propos d’Azure Disk Encryption
-              displayName: 'Bitlocker, bek'
+              displayName: 'BitLocker, bek'
               href: azure-security-disk-encryption-overview.md
             - name: Démarrages rapides
               items:
@@ -70,7 +70,7 @@
                   href: azure-security-disk-encryption-windows.md
                 - name: Chiffrement de disque pour les machines virtuelles Linux
                   href: azure-security-disk-encryption-linux.md
-                - name: Chiffrement de disque avec séquencement d’extensions VMSS
+                - name: Chiffrement de disques avec un séquencement d’extensions de groupes de machines virtuelles identiques
                   href: azure-security-disk-encryption-extension-sequencing.md
                 - name: Annexe relative au chiffrement de disque
                   href: azure-security-disk-encryption-appendix.md
@@ -332,49 +332,3 @@
     - name: Test de pénétration
       displayName: penetration
       href: ./fundamentals/pen-testing.md
-    - name: Outil Microsoft de modélisation des menaces
-      displayName: stride
-      href: ./develop/threat-modeling-tool.md
-      items:
-        - name: Prise en main
-          href: ./develop/threat-modeling-tool-getting-started.md
-        - name: Présentation des fonctionnalités
-          href: ./develop/threat-modeling-tool-feature-overview.md
-        - name: Menaces
-          href: ./develop/threat-modeling-tool-threats.md
-        - name: Publications
-          href: ./develop/threat-modeling-tool-releases.md
-          items:
-            - name: "Version en disponibilité générale de Threat Modeling Tool\_7.1.5091.2\_- 12\_septembre\_2018"
-              href: ./develop/threat-modeling-tool-releases-71509112.md
-            - name: "Version mise à jour de Threat Modeling Tool\_7.1.51023.1\_- 1er\_novembre\_2018"
-              href: ./develop/threat-modeling-tool-releases-71510231.md
-            - name: "Version mise à jour de Threat Modeling Tool\_7.1.60126.1\_- 29\_janvier\_2019"
-              href: ./develop/threat-modeling-tool-releases-71601261.md
-            - name: "Version mise à jour de Threat Modeling Tool\_7.1.60408.1\_- 9\_avril\_2019"
-              href: ./develop/threat-modeling-tool-releases-71604081.md
-            - name: "Version mise à jour de Threat Modeling Tool\_ 7.1.60702.1 - 02 juillet\_2019"
-              href: ./develop/threat-modeling-tool-releases-71607021.md
-        - name: Corrections
-          href: ./develop/threat-modeling-tool-mitigations.md
-          items:
-            - name: Audit et journalisation
-              href: ./develop/threat-modeling-tool-auditing-and-logging.md
-            - name: Authentication
-              href: ./develop/threat-modeling-tool-authentication.md
-            - name: Authorization
-              href: ./develop/threat-modeling-tool-authorization.md
-            - name: Sécurité des communications
-              href: ./develop/threat-modeling-tool-communication-security.md
-            - name: Gestion des configurations
-              href: ./develop/threat-modeling-tool-configuration-management.md
-            - name: Cryptographie
-              href: ./develop/threat-modeling-tool-cryptography.md
-            - name: Gestion des exceptions
-              href: ./develop/threat-modeling-tool-exception-management.md
-            - name: Validation des entrées
-              href: ./develop/threat-modeling-tool-input-validation.md
-            - name: Données sensibles
-              href: ./develop/threat-modeling-tool-sensitive-data.md
-            - name: Gestion des sessions
-              href: ./develop/threat-modeling-tool-session-management.md
