@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: carlrab, vanto
-manager: craigg
 ms.date: 07/02/2019
-ms.openlocfilehash: 9dfc22be45b68ba4ff59d88810435db35bafc8b6
-ms.sourcegitcommit: 5604661655840c428045eb837fb8704dca811da0
+ms.openlocfilehash: 0e9bdb22baed74ef948f369f9259784900486860
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68494964"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68569089"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Architecture de la connectivité Azure SQL
 
@@ -77,7 +76,7 @@ Le tableau ci-dessous répertorie les adresses IP des passerelles par région. P
 | Chine du Nord          | 139.219.15.17      |                 | |
 | Chine Nord 2        | 40.73.50.0         |                 | |
 | Asie Est            | 191.234.2.139, 52.175.33.150 |       | |
-| USA Est              | 40.121.158.30, 40.79.153.12 | 191.238.6.43 | Aucune connexion après le 1er septembre 2019 |
+| East US              | 40.121.158.30, 40.79.153.12 | 191.238.6.43 | Aucune connexion après le 1er septembre 2019 |
 | USA Est 2            | 40.79.84.180, 52.177.185.181, 52.167.104.0 | 191.239.224.107    | Aucune connexion après le 1er septembre 2019 |
 | France Centre       | 40.79.137.0, 40.79.129.1 |           | |
 | Centre de l’Allemagne      | 51.4.144.100       |                 | |
