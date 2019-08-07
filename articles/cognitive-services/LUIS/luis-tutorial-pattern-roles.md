@@ -1,5 +1,5 @@
 ---
-title: Rôles de modèle
+title: Données de rôles de modèle - LUIS
 titleSuffix: Azure Cognitive Services
 description: Les modèles permettent d’extraire des données à partir d’énoncés de modèle au format approprié. L’énoncé de modèle utilise une entité simple et des rôles pour extraire des données associées telles que l’emplacement d’origine et l’emplacement de destination.
 ms.custom: seodec18
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 07/16/2019
 ms.author: diberry
-ms.openlocfilehash: c0e3ac1d53cda2afb2184b92b0fd0afd662101bb
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 7586a81eac95a2e4a08b045b3a2826132d9919f7
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68277498"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560030"
 ---
 # <a name="tutorial-extract-contextually-related-patterns-using-roles"></a>Didacticiel : Extraire des modèles relatifs au contexte à l’aide de rôles
 

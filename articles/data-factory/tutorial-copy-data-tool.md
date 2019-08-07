@@ -11,15 +11,15 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.date: 09/11/2018
 ms.author: jingwang
-ms.openlocfilehash: 553e87cacf407da2333da3105647719679feaabf
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: a4d5941091c3cf6516380c4d6384951d886e0e7f
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57544203"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68640328"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-the-copy-data-tool"></a>Copier des données à partir du Stockage Blob Azure vers une base de données SQL en utilisant l’outil Copier les données
-> [!div class="op_single_selector" title1="Select the version of the Data Factory service that you're using:"]
+> [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
 > * [Version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Version actuelle](tutorial-copy-data-tool.md)
 
@@ -39,7 +39,7 @@ Dans ce tutoriel, vous effectuerez les étapes suivantes :
 
 * **Abonnement Azure** : Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 * **Compte de stockage Azure** : Utilisez le stockage blob comme magasin de données _source_. Si vous ne possédez pas de compte de stockage Azure, consultez les instructions dans [Créer un compte de stockage](../storage/common/storage-quickstart-create-account.md).
-* **Azure SQL Database** : Utilisez une base de données SQL comme magasin de données _récepteur_. Si vous n’avez pas de base de données SQL, consultez les instructions dans [Créer une base de données SQL](../sql-database/sql-database-get-started-portal.md).
+* **Azure SQL Database** : Utilisez une base de données SQL comme magasin de données _récepteur_. Si vous n’avez pas de base de données SQL, consultez les instructions dans [Créer une base de données SQL](../sql-database/sql-database-get-started-portal.md).
 
 ### <a name="create-a-blob-and-a-sql-table"></a>Créer un objet blob et une table SQL
 
@@ -72,7 +72,7 @@ Préparez votre stockage d'objets blob et votre base de données SQL pour ce did
     CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
     ```
 
-2. Autorisez les services Azure à accéder au serveur SQL. Vérifiez que le paramètre **Autoriser l’accès aux services Azure** est activé pour votre serveur exécutant SQL Database. Ce paramètre permet à Data Factory d’écrire des données dans votre instance de base de données. Pour vérifier et activer ce paramètre, accédez à votre serveur SQL Azure > **Sécurité** > **Pare-feux et réseaux virtuels** > définissez l’option **Autoriser l’accès aux services Azure** sur **Activé**.
+2. Autorisez les services Azure à accéder au serveur SQL. Vérifiez que le paramètre **Autoriser l’accès aux services Azure** est activé pour votre serveur exécutant SQL Database. Ce paramètre permet à Data Factory d’écrire des données dans votre instance de base de données. Pour vérifier et activer ce paramètre, accédez à votre serveur SQL Azure > Vue d’ensemble > Définir le pare-feu serveur > définissez l’option **Autoriser l’accès aux services Azure** sur **Activé**.
 
 ## <a name="create-a-data-factory"></a>Créer une fabrique de données
 
@@ -87,7 +87,7 @@ Préparez votre stockage d'objets blob et votre base de données SQL pour ce did
     
     ![Message d’erreur de nouvelle fabrique de données](./media/tutorial-copy-data-tool/name-not-available-error.png)
 
-    Si vous recevez un message d’erreur concernant la valeur du nom, saisissez un autre nom pour la fabrique de données. Par exemple, utilisez le nom _**votrenom**_**ADFTutorialDataFactory**. Pour savoir comment nommer les artefacts Data Factory, consultez la rubrique [Data Factory - Règles d'affectation des noms](naming-rules.md).
+    Si vous recevez un message d’erreur concernant la valeur du nom, saisissez un autre nom pour la fabrique de données. Par exemple, utilisez le nom _**votrenom**_ **ADFTutorialDataFactory**. Pour savoir comment nommer les artefacts Data Factory, consultez la rubrique [Data Factory - Règles d'affectation des noms](naming-rules.md).
 1. Sélectionnez l’**abonnement** Azure dans lequel vous créez la nouvelle fabrique de données.
 1. Pour **Groupe de ressources**, réalisez l’une des opérations suivantes :
     
@@ -164,7 +164,7 @@ Préparez votre stockage d'objets blob et votre base de données SQL pour ce did
 
     ![Sélectionner le service lié récepteur](./media/tutorial-copy-data-tool/select-sink-linked-service.png)
 
-1. Sur la page **Mappage de table**, sélectionnez la table **[dbo].[emp]**, puis sélectionnez **Suivant**.
+1. Sur la page **Mappage de table**, sélectionnez la table **[dbo].[emp]** , puis sélectionnez **Suivant**.
 
     ![Mappage de table](./media/tutorial-copy-data-tool/table-mapping.png)
 1. Sur la page **Mappage de schéma**, notez que les deux premières colonnes dans le fichier d’entrée sont mappées aux colonnes **FirstName** et **LastName** de la table **emp**. Sélectionnez **Suivant**.

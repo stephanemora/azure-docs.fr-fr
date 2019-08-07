@@ -1,7 +1,7 @@
 ---
-title: Que sont les services Speech Azure ?
+title: Qu’est-ce que le service de reconnaissance vocale ?
 titleSuffix: Azure Cognitive Services
-description: Les services Speech Azure sont l’unification de la reconnaissance vocale, de la synthèse vocale et de la traduction vocale dans un seul abonnement Azure. Il est facile d’ajouter les services Speech à vos applications, outils et appareils avec le Kit de développement logiciel (SDK) Speech, le Kit de développement logiciel (SDK) Speech Devices ou des API REST. Ajoutez des fonctionnalités vocales à un bot conversationnel, convertissez du texte en parole dans une application de traduction, ou transcrivez de grands volumes de données d’un centre d’appels.
+description: Le service Speech unifie la reconnaissance vocale, la synthèse vocale et la traduction vocale dans un seul abonnement Azure. Il est facile d’ajouter les services Speech à vos applications, outils et appareils avec le Kit de développement logiciel (SDK) Speech, le Kit de développement logiciel (SDK) Speech Devices ou des API REST. Ajoutez des fonctionnalités vocales à un bot conversationnel, convertissez du texte en parole dans une application de traduction, ou transcrivez de grands volumes de données d’un centre d’appels.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: d9664ac9fb72a5f094674856a20230199270f01d
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 1d722d7e2886008aa5aa3acff8095fcf35ac38d8
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67603145"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68554181"
 ---
 # <a name="what-are-the-speech-services"></a>Qu’est-ce que Speech Services ?
 

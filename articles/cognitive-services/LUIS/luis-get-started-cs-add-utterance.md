@@ -1,6 +1,6 @@
 ---
-title: Modifier, effectuer l’apprentissage d’une application, C#
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Modifier, entraîner l’application, C#- LUIS
+titleSuffix: Azure Cognitive Services
 description: Dans ce démarrage rapide de C#, vous allez ajouter des exemples d’énoncés à une application de domotique et effectuer l’apprentissage de l’application.
 services: cognitive-services
 author: diberry
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 07/16/2019
 ms.author: diberry
-ms.openlocfilehash: d44877e35687745ddba51d4d015729e62106c9ca
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.openlocfilehash: 55251a553921e947e7c6522677e51e4eb1d3fa5b
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68348437"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68619955"
 ---
 # <a name="quickstart-change-model-using-c"></a>Démarrage rapide : Modifier un modèle à l’aide de C#
 
@@ -115,7 +115,7 @@ Pour gérer les arguments de ligne de commande, ajoutez le code principal. Ajout
 
 ### <a name="copy-utterancesjson-to-output-directory"></a>Copier le fichier utterances.json dans le répertoire de sortie
 
-Dans l’Explorateur de solutions, ajoutez `utterances.json` en cliquant avec le bouton droit sur le nom du projet, en sélectionnant **Ajouter**, puis en sélectionnant **Élément existant**. Sélectionnez le fichier `utterances.json`. Ceci ajoute le fichier au projet. Il doit ensuite être ajouté à la direction de la sortie. Cliquez avec le bouton droit sur `utterances.json` et sélectionnez **Propriétés**. Dans la fenêtre Propriétés, marquez l’élément **Action de génération** de `Content` et l’élément **Copier dans le répertoire de sortie** de `Copy Always`.  
+Dans l’Explorateur de solutions, ajoutez `utterances.json` en cliquant avec le bouton droit sur le nom du projet, en sélectionnant **Ajouter**, puis en sélectionnant **Élément existant**. Sélectionnez le fichier `utterances.json`. Ceci ajoute le fichier au projet. Il doit ensuite être ajouté au répertoire de sortie. Cliquez avec le bouton droit sur `utterances.json` et sélectionnez **Propriétés**. Dans la fenêtre Propriétés, marquez l’élément **Action de génération** de `Content` et l’élément **Copier dans le répertoire de sortie** de `Copy Always`.  
 
 ![Marquer le fichier JSON en tant que contenu](./media/luis-quickstart-cs-add-utterance/content-properties.png)
 

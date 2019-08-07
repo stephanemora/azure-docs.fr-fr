@@ -1,5 +1,6 @@
 ---
-title: Présentation du service Language Understanding (LUIS) - Azure Cognitive Services | Microsoft Docs
+title: Qu’est-ce que le service Language Understanding (LUIS) ?
+titleSuffix: Azure Cognitive Services
 description: Language Understanding (LUIS) est un service API cloud qui applique une intelligence Machine Learning personnalisée au texte en langage naturel des conversations d’un utilisateur afin d’en prédire le sens général et d’en extraire des informations détaillées pertinentes.
 services: cognitive-services
 author: diberry
@@ -9,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: overview
 ms.date: 06/11/2019
 ms.author: diberry
-ms.openlocfilehash: 569b33d299f52f0da50d8a8992420754aa85b533
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 41c5e2f01678996406c586eb20043516beaf2184
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67062172"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563180"
 ---
 # <a name="what-is-language-understanding-luis"></a>Qu’est-ce que le service Language Understanding (LUIS) ?
 
@@ -110,7 +111,7 @@ Outils simplifiant et accélérant l’utilisation de LUIS avec un bot :
 * [LUDown](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/Ludown) LUDown est un outil en ligne de commande facilitant la gestion des modèles de langage pour votre bot.
 
 Autres services Cognitive Services utilisés avec LUIS :
-* [QnA Maker][qnamaker]permet à différents types de textes de se combiner en une question et de répondre à la base de connaissances.
+* [QnA Maker][qnamaker] permet à différents types de textes de se combiner en une question et de répondre à la base de connaissances.
 * [L’API Vérification orthographique Bing](../bing-spell-check/proof-text.md) propose la correction de texte avant la prédiction. 
 * [Speech](../Speech-Service/overview.md) convertit les requêtes énoncées à voix haute sous forme de texte. 
 * [L’Apprenant de conversation](https://docs.microsoft.com/azure/cognitive-services/labs/conversation-learner/overview) accélère la création de conversations avec un bot à l’aide de LUIS.

@@ -5,18 +5,18 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 06/27/2019
 ms.author: pafarley
-ms.openlocfilehash: 73a7795629a94395b43bfca191cec7b2c4773611
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: 17dc32f8948387b90229d3c4c07102cff98e3018
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68481430"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562689"
 ---
 Form Recognizer fonctionne sur les documents d’entrée qui répondent aux critères suivants :
 
 * Format JPG, PNG ou PDF (texte ou numérisé). Les PDF englobant du texte sont préférables, car il n’existe aucun risque d’erreur au niveau de l’extraction et de l’emplacement des caractères.
 * Si vos fichiers PDF sont verrouillés par mot de passe, vous devez supprimer le verrou avant de les soumettre.
-* La taille du fichier doit être inférieure à 4 mégaoctets (Mo).
+* La taille du fichier doit être inférieure à 4 Mo.
 * Pour les images, les dimensions doivent être comprises entre 50 x 50 et 4200 x 4200 pixels.
 * S’ils sont numérisés à partir de documents papier, la qualité de numérisation des formulaires doit être supérieure.
 * Le texte doit utiliser l’alphabet latin (lettres de l’alphabet).

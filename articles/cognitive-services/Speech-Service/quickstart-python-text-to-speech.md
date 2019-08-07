@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Convertir du texte par synthèse vocale, Python - Services Speech'
+title: 'Démarrage rapide : Convertir du texte par synthèse vocale, Python - Service Speech'
 titleSuffix: Azure Cognitive Services
 description: Dans ce guide de démarrage rapide, vous allez apprendre à convertir du texte par synthèse vocale à l’aide de Python et de l’API REST Synthèse vocale. L’exemple de texte inclus dans ce guide est structuré en tant que langage de balisage de synthèse vocale (SSML). Cela vous permet de choisir la voix et la langue de la réponse de la reconnaissance vocale.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 60a7fe79de62e3b81e25c17c23ba39a08e8a061c
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 0afe5897c723e22405d9bde2e9c9e729d0373a06
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67604987"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68553664"
 ---
 # <a name="quickstart-convert-text-to-speech-using-python"></a>Démarrage rapide : Convertir du texte par synthèse vocale à l’aide de Python
 

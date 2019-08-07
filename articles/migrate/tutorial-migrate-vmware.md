@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 07/08/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 885c877f219f59ab5049cf7b8e01243077d6d3eb
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.openlocfilehash: 7fba9cbbaa15359e7e4dd95e66645dd5f4022431
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68348385"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68640768"
 ---
 # <a name="migrate-vmware-vms-to-azure-agentless"></a>Migrer des machines virtuelles VMware vers Azure (sans agent)
 
@@ -41,7 +41,7 @@ Vous pouvez migrer des machines virtuelles VMware vers Azure à l’aide de l’
 
 Pour savoir quelle migration effectuer, sans agent ou basée sur un agent, passez en revue les articles suivants :
 
-- [Découvrez](server-migrate-overview.md) le fonctionnement de la migration sans agent et [passez en revue les limitations](server-migrate-overview.md#agentless-migration-limitations).
+- [Découvrez](server-migrate-overview.md) le fonctionnement de la migration sans agent et [comparez les méthodes de migration](server-migrate-overview.md#compare-migration-methods).
 - [Lisez cet article](tutorial-migrate-vmware-agent.md) si vous souhaitez appliquer la méthode basée sur un agent.
 
 ## <a name="prerequisites"></a>Prérequis
@@ -83,7 +83,7 @@ Azure Migrate Server Migration exécute une appliance de machines virtuelles VMw
 Si vous avez suivi le deuxième tutoriel pour évaluer des machines virtuelles VMware, vous avez déjà configuré l’appliance au cours de ce tutoriel. Si vous n’avez pas suivi ce tutoriel, vous devez configurer l’appliance maintenant. Pour ce faire, procédez comme suit : 
 
 - Téléchargez un fichier de modèle OVA, puis importez-le dans vCenter Server.
-- Créer l’appliance et vérifier qu’elle peut se connecter à Azure Migrate Server Assessment 
+- Créez l’appliance et vérifiez qu’elle peut se connecter à Azure Migrate Server Assessment. 
 - Configurez l’appliance pour la première fois, puis inscrivez-la auprès du projet Azure Migrate.
 
 Suivez les instructions de [cet article](how-to-set-up-appliance-vmware.md) pour configurer l’appliance.
@@ -93,7 +93,7 @@ Suivez les instructions de [cet article](how-to-set-up-appliance-vmware.md) pour
 
 Azure Migrate nécessite des modifications des machines virtuelles afin d’être sûr de pouvoir les migrer vers Azure.
 
-- Pour certains [systèmes d’exploitation](server-migrate-overview.md#agentless-migration-limitations), Azure Migrate effectue ces modifications automatiquement.
+- Pour certains systèmes d’exploitation, Azure Migrate effectue ces modifications automatiquement. [En savoir plus](migrate-support-matrix-vmware.md#agentless-migration-vmware-vm-requirements)
 - Si vous migrez une machine virtuelle qui n’a pas l’un de ces systèmes d’exploitation, suivez les instructions pour préparer la machine virtuelle.
 - Il est important d’effectuer ces modifications avant de commencer la migration. Si vous migrez la machine virtuelle avant d’effectuer la modification, elle risque de ne pas démarrer dans Azure.
 - Les modifications de configuration que vous apportez aux machines virtuelles locales sont répliquées dans Azure après l’activation de la réplication pour la machine virtuelle. Pour garantir la réplication des modifications, vérifiez que le point de récupération vers lequel vous effectuez la migration est postérieur au moment où les modifications de configuration ont été apportées localement.

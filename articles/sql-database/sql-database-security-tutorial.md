@@ -8,14 +8,14 @@ ms.topic: tutorial
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
-ms.date: 02/08/2019
+ms.date: 07/29/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: ce9ba7c197bb604b9d71e2bf501ca67d32865f38
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 9850285482db4f5981c183b51152ba1a3ac4975c
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566881"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68640132"
 ---
 # <a name="tutorial-secure-a-single-or-pooled-database"></a>Didacticiel : Sécuriser une base de données unique ou mise en pool
 
@@ -38,6 +38,9 @@ Azure SQL Database sécurise les données dans une base de données unique ou mi
 > Une base de données Azure SQL sur une instance managée se sécurise à l’aide de règles de sécurité réseau et de points de terminaison privés, comme décrit dans [Instance managée de base de données Azure SQL](sql-database-managed-instance-index.yml) et [Architecture de connectivité](sql-database-managed-instance-connectivity-architecture.md).
 
 Pour plus d’informations, consultez les articles [Vue d’ensemble de la sécurité dans Azure SQL Database](/azure/sql-database/sql-database-security-index) et [Capacités](sql-database-security-overview.md).
+
+> [!TIP]
+> Les modules Microsoft Learn suivants vous aident à vous familiariser gratuitement avec [la sécurisation de votre base de données Azure SQL Database](https://docs.microsoft.com/learn/modules/secure-your-azure-sql-database/).
 
 ## <a name="prerequisites"></a>Prérequis
 

@@ -10,20 +10,19 @@ ms.topic: quickstart
 author: sachinpMSFT
 ms.author: ninarn
 ms.reviewer: carlrab, sstein
-manager: craigg
-ms.date: 04/23/2019
-ms.openlocfilehash: 470dca235b9a3212c09052f7535fa90d076fe4d3
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.date: 07/29/2019
+ms.openlocfilehash: f9c2ed77075affdfdf464dbf8a468629fc2e610d
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68444451"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68640049"
 ---
 # <a name="quickstart-create-a-single-database-in-azure-sql-database-using-the-azure-portal-powershell-and-azure-cli"></a>Démarrage rapide : Créer une base de données unique dans Azure SQL Database à l’aide du portail Azure, de PowerShell et d’Azure CLI
 
 La création d’une [base de données unique](sql-database-single-database.md) est l’option de déploiement la plus rapide et la plus simple pour créer une base de données dans Azure SQL Database. Ce guide de démarrage rapide vous montre comment créer et interroger une base de données unique à l’aide du portail Azure.
 
-Si vous n’avez pas d’abonnement Azure, [créez un compte gratuit](https://azure.microsoft.com/free/).
+Si vous n’avez pas d’abonnement Azure, [créez un compte gratuit](https://azure.microsoft.com/free/). 
 
 Pour toutes les étapes de ce guide de démarrage rapide, connectez-vous au [Portail Azure](https://portal.azure.com/).
 
@@ -37,7 +36,7 @@ Une base de données unique peut être créée dans la couche de calcul approvis
 Quand vous créez une base de données unique, vous définissez également un [serveur SQL Database](sql-database-servers.md) pour la gérer et la placer dans le [groupe de ressources Azure](../azure-resource-manager/resource-group-overview.md) d’une région spécifiée.
 
 > [!NOTE]
-> Ce démarrage rapide utilise le [modèle d’achat vCore](sql-database-service-tiers-vcore.md) et la couche de calcul [serverless](sql-database-serverless.md), mais le [modèle d’achat DTU](sql-database-service-tiers-DTU.md) est également disponible.
+> Ce guide de démarrage rapide utilise le [modèle d’achat vCore](sql-database-service-tiers-vcore.md), mais le [modèle d’achat DTU](sql-database-service-tiers-DTU.md) est également disponible.
 
 Pour créer une base de données unique contenant les exemples de données AdventureWorksLT :
 

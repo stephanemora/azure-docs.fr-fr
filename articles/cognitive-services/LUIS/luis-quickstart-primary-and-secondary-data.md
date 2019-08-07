@@ -1,5 +1,5 @@
 ---
-title: Entité Simple, liste d’expressions
+title: Entité Simple, liste d’expressions - LUIS
 titleSuffix: Azure Cognitive Services
 description: Dans ce tutoriel, vous allez extraire les données de nom de poste de travail issues du machine learning à partir d’un énoncé utilisant l’entité Simple. Pour augmenter la précision de l’extraction, ajoutez une liste d’expressions dont les termes sont spécifiques à l’entité simple.
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 07/16/2019
 ms.author: diberry
-ms.openlocfilehash: a03a1224451411617f38c8cecafbef008aa08916
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 786c5725046885a0321696e95703c53081e96979
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68276206"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560331"
 ---
 # <a name="tutorial-extract-names-with-simple-entity-and-a-phrase-list"></a>Didacticiel : Extraire des noms avec une entité simple et une liste d’expressions
 

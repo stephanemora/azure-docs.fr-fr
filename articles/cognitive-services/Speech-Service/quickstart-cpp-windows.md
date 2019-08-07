@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Reconnaissance vocale, C++ (Windows) - Services de reconnaissance vocale'
+title: 'Démarrage rapide : Reconnaissance vocale, C++ (Windows) - Services Speech'
 titleSuffix: Azure Cognitive Services
 description: Découvrir la reconnaissance vocale en C++ sur Windows Desktop à l’aide du SDK Speech
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: wolfma
-ms.openlocfilehash: d63d1c96077642e660e2272cbd8c2ee1250b1471
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: c795f1581ae36f100065c39cd47bc4efc564b9fe
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606493"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68607889"
 ---
 # <a name="quickstart-recognize-speech-in-c-on-windows-by-using-the-speech-sdk"></a>Démarrage rapide : Reconnaissance vocale en C++ sur Windows à l’aide du kit SDK de reconnaissance vocale
 
@@ -24,7 +24,7 @@ Des guides de démarrage rapide sont également disponibles pour la [synthèse v
 Si vous le souhaitez, choisissez un autre langage de programmation et/ou environnement :<br/>
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-Dans cet article, vous créez une application console C++ pour Windows. Vous utilisez le [kit SDK Speech](speech-sdk.md) de Cognitive Services pour transcrire la reconnaissance vocale en temps réel à partir du microphone de votre PC. L’application est créée avec le [package NuGet du kit SDK Speech](https://aka.ms/csspeech/nuget) et Microsoft Visual Studio 2017 (toute édition).
+Dans cet article, vous créez une application console C++ pour Windows. Vous utilisez le [kit SDK Speech](speech-sdk.md) de Cognitive Services pour transcrire la reconnaissance vocale en temps réel à partir du microphone de votre PC. L’application est créée avec le [package NuGet du SDK Speech](https://aka.ms/csspeech/nuget) et Microsoft Visual Studio 2017 ou version ultérieure (toute édition).
 
 ## <a name="prerequisites"></a>Prérequis
 

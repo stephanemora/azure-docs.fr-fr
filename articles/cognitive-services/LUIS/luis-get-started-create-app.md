@@ -1,6 +1,6 @@
 ---
-title: 'Démarrage rapide : Créer une application'
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: 'Démarrage rapide : Créer une application - LUIS'
+titleSuffix: Azure Cognitive Services
 description: Créez une application LUIS qui utilise le domaine prédéfini `HomeAutomation` pour allumer et éteindre des lumières et des appliances. Ce domaine prédéfini vous fournit les intentions, les entités et des exemples d’énoncés. À la fin du processus, vous disposerez d’un point de terminaison LUIS exécuté dans le cloud.
 services: cognitive-services
 author: diberry
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 6d3b4d23ae1ad04142b0dec01a1abccbd2f81942
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: e53f8d6e08b345d417ce54deacd658275cb1cd00
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65150252"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563921"
 ---
 # <a name="quickstart-use-prebuilt-home-automation-app"></a>Démarrage rapide : Utiliser une application domotique prédéfinie
 

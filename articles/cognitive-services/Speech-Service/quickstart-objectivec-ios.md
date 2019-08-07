@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Reconnaissance vocale, Objective-C - Services de reconnaissance vocale'
+title: 'Démarrage rapide : Reconnaissance vocale, Objective-C - Service Speech'
 titleSuffix: Azure Cognitive Services
 description: Découvrir la reconnaissance vocale en Objective-C sur iOS à l’aide du SDK Speech
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: chlandsi
-ms.openlocfilehash: 55b442b74847ccbc0dcc944eada7b33ccd368bed
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 01a2b9d5bad7d490f5ee9f6a21af5bc1308bdab1
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67605055"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68553643"
 ---
 # <a name="quickstart-recognize-speech-in-objective-c-on-ios-using-the-speech-sdk"></a>Démarrage rapide : Reconnaissance vocale en Objective-C sur iOS à l’aide du SDK Speech
 

@@ -8,13 +8,13 @@ ms.topic: tutorial
 author: MightyPen
 ms.author: genemi
 ms.reviewer: carlrab
-ms.date: 02/08/2019
-ms.openlocfilehash: f6f0160e06ac10a6f1e4e51c93bfa133818117c8
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.date: 07/29/2019
+ms.openlocfilehash: 3359c39b21edad72ce0b9d7feb35d442c842f002
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568971"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68640118"
 ---
 # <a name="tutorial-design-a-relational-database-in-a-single-database-within-azure-sql-database-cx23-and-adonet"></a>Didacticiel : Concevoir une base de données relationnelle dans une base de données unique au sein d’Azure SQL Database en C&#x23; avec ADO.NET
 
@@ -29,6 +29,9 @@ Azure SQL Database est une solution DBaaS relationnelle dans Microsoft Cloud (A
 > * Interroger les données avec ADO.NET
 
 *Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
+
+> [!TIP]
+> Le module Microsoft Learn suivant vous aide à apprendre gratuitement comment [développer et configurer une application ASP.Net qui interroge une base de données Azure SQL Database](https://docs.microsoft.com/learn/modules/develop-app-that-queries-azure-sql/), ce qui comprend la création d’une base de données simple.
 
 ## <a name="prerequisites"></a>Prérequis
 

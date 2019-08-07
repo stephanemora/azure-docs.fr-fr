@@ -8,18 +8,18 @@ ms.topic: tutorial
 ms.date: 07/11/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 83567a45980b29931f9b68bd6d60df0d427b09de
-ms.sourcegitcommit: af31deded9b5836057e29b688b994b6c2890aa79
+ms.openlocfilehash: c790667c73adfed061b97b14ebb7df4c68461786
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67813016"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68663796"
 ---
 # <a name="assess-hyper-v-vms-with-azure-migrate-server-assessment"></a>Évaluer des machines virtuelles Hyper-V Azure Migrate Server Assessment
 
 Cet article vous montre comment évaluer des machines virtuelles Hyper-V locales avec l’outil Azure Migrate : Server Assessment.
 
-[Azure Migrate](migrate-services-overview.md) fournit un hub d’outils qui vous permettent de découvrir, évaluer et migrer des applications, une infrastructure et des charges de travail vers Microsoft Azure. Le hub comprend des outils Azure Migrate et des offres de fournisseurs de logiciels indépendants tiers.
+[Azure Migrate](migrate-services-overview.md) fournit un hub d’outils qui vous permettent de découvrir, d’évaluer et de migrer des applications, une infrastructure et des charges de travail vers Microsoft Azure. Le hub comprend des outils Azure Migrate et des offres de fournisseurs de logiciels indépendants tiers.
 
 
 
@@ -33,7 +33,7 @@ Ce tutoriel est le deuxième d’une série qui montre comment évaluer et migre
 > * Passer en revue l’évaluation.
 
 > [!NOTE]
-> Les tutoriels vous montrent le chemin de déploiement le plus simple pour un scénario donné, afin de vous permettre de configurer rapidement une preuve de concept. Ils utilisent des options par défaut là où c’est possible, et ne montrent pas tous les paramètres et chemins possibles. Pour obtenir des instructions détaillées, consultez les articles sur les procédures.
+> Les tutoriels vous montrent le chemin de déploiement le plus simple pour un scénario donné, pour vous permettre de configurer rapidement une preuve de concept. Ils utilisent des options par défaut, le cas échéant, et ne montrent pas tous les paramètres et chemins possibles. Pour obtenir des instructions détaillées, consultez les articles sur les procédures.
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/) avant de commencer.
 
@@ -79,7 +79,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 9. Dans **Sélectionner un outil de migration**, sélectionnez **Ignorer l’ajout d’un outil de migration pour l’instant** > **Suivant**.
 10. Dans **Vérifier + ajouter des outils**, passez en revue les paramètres, puis cliquez sur **Ajouter des outils**.
-11. Attendez quelques minutes pendant que le projet Azure Migrate se déploie. Vous êtes alors dirigé vers la page du projet. Si vous ne voyez pas le projet, vous pouvez y accéder à partir de **Serveurs** dans le tableau de bord Azure Migrate.
+11. Attendez quelques minutes, le temps nécessaire au déploiement du projet Azure Migrate. Vous êtes dirigé vers la page du projet. Si vous ne voyez pas le projet, vous pouvez y accéder à partir de **Serveurs** dans le tableau de bord Azure Migrate.
 
 
 
@@ -91,7 +91,7 @@ Azure Migrate Server Assessment exécute une appliance de machine virtuelle Hype
 - Cette appliance effectue la découverte des machines virtuelles, et envoie les métadonnées et les données de performances des machines virtuelles à Azure Migrate : Server Assessment.
 - Pour configurer l’appliance, vous devez :
     - Télécharger un disque dur virtuel Hyper-V compressé à partir du portail Azure.
-    - Créer l’appliance et vérifier qu’elle peut se connecter à Azure Migrate Server Assessment.
+    - Créez l’appliance et vérifiez qu’elle peut se connecter à Azure Migrate Server Assessment.
     - Configurer l’appliance pour la première fois, puis l’inscrire auprès du projet Azure Migrate.
 
 ### <a name="download-the-vhd"></a>Télécharger le disque dur virtuel
@@ -110,15 +110,17 @@ Téléchargez le modèle de disque dur virtuel compressé pour l’appliance.
 Vérifiez que le fichier compressé est sécurisé avant de le déployer.
 
 1. Sur l’ordinateur où vous avez téléchargé le fichier, ouvrez une fenêtre de commande d’administrateur.
-2. Exécutez la commande suivante pour générer le code de hachage du disque dur virtuel
-    - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - Exemple d’utilisation : ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
+
+2. Exécutez la commande PowerShell suivante pour générer le code de hachage du fichier ZIP
+    - ```C:\>Get-FileHash -Path <file_location> -Algorithm [Hashing Algorithm]```
+    - Exemple d’utilisation : ```C:\>Get-FileHash -Path ./AzureMigrateAppliance_v1.19.06.27.zip -Algorithm SHA256```
+
 3.  Pour l’appliance version 1.19.06.27, le hachage généré doit correspondre à ces valeurs.
 
   **Algorithme** | **Valeur de hachage**
   --- | ---
-  MD5 | 3681f745fa2b0a0a6910707d85161ec5
-  SHA256 | e6ca109afab9657bdcfb291c343b3e3abced9a273d25273059171f9954d25832
+  MD5 | 3681F745FA2B0A0A6910707D85161EC5
+  SHA256 | E6CA109AFAB9657BDCFB291C343B3E3ABCED9A273D25273059171F9954D25832
 
 
 
@@ -126,7 +128,7 @@ Vérifiez que le fichier compressé est sécurisé avant de le déployer.
 
 Importez le fichier téléchargé, puis créez la machine virtuelle.
 
-1. Extrayez le fichier VHD compressé dans un dossier sur l’hôte Hyper-V qui hébergera la machine virtuelle de l’appliance. Trois dossiers sont extraits.
+1. Extrayez le fichier de disque dur virtuel compressé dans un dossier sur l’hôte Hyper-V qui hébergera la machine virtuelle de l’appliance. Trois dossiers sont extraits.
 2. Ouvrez le Gestionnaire Hyper-V. Dans **Actions**, cliquez sur **Importer la machine virtuelle**.
 
     ![Déployer le disque dur virtuel](./media/tutorial-assess-hyper-v/deploy-vhd.png)
@@ -134,7 +136,7 @@ Importez le fichier téléchargé, puis créez la machine virtuelle.
 2. Dans l’Assistant Importation de machine virtuelle > **Avant de commencer**, cliquez sur **Suivant**.
 3. Dans **Localiser le dossier**, spécifiez le dossier contenant le disque dur virtuel extrait. Cliquez ensuite sur **Suivant**.
 1. Dans **Sélectionner une machine virtuelle**, cliquez sur **Suivant**.
-2. Dans **Choisir le type d’importation**, cliquez sur **Copier l’ordinateur virtuel (créer un ID unique)** . Cliquez ensuite sur **Suivant**.
+2. Dans **Choisir le type d’importation**, cliquez sur **Copier la machine virtuelle (créer un identifiant unique)** . Cliquez ensuite sur **Suivant**.
 3. Dans **Choisir la destination**, laissez la valeur par défaut. Cliquez sur **Suivant**.
 4. Dans **Dossiers de stockage**, laissez la valeur par défaut. Cliquez sur **Suivant**.
 5. Dans **Choisir un réseau**, spécifiez le commutateur virtuel qui sera utilisé par la machine virtuelle. Le commutateur nécessite une connexion à Internet pour envoyer des données à Azure.
@@ -150,7 +152,7 @@ Vérifiez que la machine virtuelle de l’appliance peut se connecter aux [URL A
 
 Configurez l’appliance pour la première fois.
 
-1. Dans Gestionnaire Hyper-> **Machines virtuelles**, cliquez avec le bouton droit sur la machine virtuelle > **Se connecter**.
+1. Dans Gestionnaire Hyper-V> **Machines virtuelles**, cliquez avec le bouton droit sur la machine virtuelle > **Se connecter**.
 2. Spécifiez la langue, le fuseau horaire et le mot de passe pour l’appliance.
 3. Ouvrez un navigateur sur une machine qui peut se connecter à la machine virtuelle, puis ouvrez l’URL de l’application web de l’appliance : **https://*nom ou adresse IP de l’appliance* : 44368**.
 
@@ -158,9 +160,9 @@ Configurez l’appliance pour la première fois.
 1. Dans l’application web > **Configurer les prérequis**, procédez comme suit :
     - **Licence** : Acceptez les termes de licence et lisez les informations relatives aux tiers.
     - **Connectivité** : L’application vérifie que la machine virtuelle a accès à Internet. Si la machine virtuelle utilise un proxy :
-        - Cliquez sur **Paramètres du proxy** et spécifiez l’adresse du proxy et le port d’écoute, sous la forme http://ProxyIPAddress ou http://ProxyFQDN.
-        - Spécifiez les informations d’identification si le proxy nécessite une authentification.
-        - Seuls les proxys HTTP sont pris en charge.
+      - Cliquez sur **Paramètres du proxy** et spécifiez l’adresse du proxy et le port d’écoute, sous la forme http://ProxyIPAddress ou http://ProxyFQDN.
+      - Spécifiez les informations d’identification si le proxy nécessite une authentification.
+      - Seuls les proxys HTTP sont pris en charge.
     - **Synchronisation de l’heure** : L’heure est vérifiée. L’heure de l’appliance doit être synchronisée avec l’heure Internet pour que la découverte des machines virtuelles fonctionne correctement.
     - **Installer les mises à jour** : Azure Migrate Server Assessment vérifie que les dernières mises à jour sont installées sur l’appliance.
 
@@ -172,25 +174,37 @@ Configurez l’appliance pour la première fois.
     - La connexion avec un code PIN n’est pas prise en charge.
 3. Une fois la connexion effectuée, revenez à l’application web.
 4. Sélectionnez l’abonnement où le projet Azure Migrate a été créé. Sélectionnez ensuite le projet.
-5. Spécifiez un nom pour l’appliance. Le nom doit être alphanumérique et comporter 14 caractères au maximum.
+5. Spécifiez un nom pour l’appliance. Le nom doit être alphanumérique et comporter 14 caractères au maximum.
 6. Cliquez sur **S'inscrire**.
 
 
 ### <a name="delegate-credentials-for-smb-vhds"></a>Déléguer des informations d’identification pour les disques durs virtuels sur SMB
 
-Si vous utilisez des disques durs virtuels sur des SMB, vous devez activer la délégation des informations d’identification de l’appliance aux hôtes Hyper-V. Si vous n’avez pas effectué cette opération sur chaque hôte dans le [tutoriel précédent](tutorial-prepare-hyper-v.md#enable-credssp-on-hosts), faites-le maintenant à partir de l’appliance :
+Si vous utilisez des disques durs virtuels sur des SMB, vous devez activer la délégation des informations d’identification de l’appliance aux hôtes Hyper-V. Ce tutoriel requiert les éléments suivants :
 
-1. Sur la machine virtuelle de l’appliance, exécutez cette commande. HyperVHost1/HyperVHost2 sont des exemples de noms d’hôte.
+- Vous permettez à chaque hôte d’agir en tant que délégué pour l’appliance. Vous devez avoir effectué cette opération dans le tutoriel précédent, lorsque vous avez préparé Hyper-V pour l’évaluation et la migration. Vous devez avoir configuré CredSSP pour les ordinateurs hôtes [manuellement](tutorial-prepare-hyper-v.md#enable-credssp-on-hosts) ou en [exécutant le script de configuration des composants requis Hyper-V](tutorial-prepare-hyper-v.md#hyper-v-prerequisites-configuration-script).
+- Activez la délégation CredSSP afin que l’appliance Azure Migrate puisse agir en tant que client, en déléguant les informations d’identification à un hôte.
 
-    ```
-    Enable-WSManCredSSP -Role Client -DelegateComputer HyperVHost1.contoso.com HyperVHost2.contoso.com -Force
-    ```
+Activez sur l’appliance comme suit :
 
-2. Vous pouvez également effectuer cette opération dans l’éditeur de stratégie de groupe locale sur l’appliance :
-    - Dans **Stratégie de l’ordinateur local** > **Configuration de l’ordinateur**, cliquez sur **Modèles d’administration** > **Système** > **Délégation d’informations d’identification**.
-    - Double-cliquez sur **Autoriser la délégation de nouvelles informations d’identification**, puis sélectionnez **Activé**.
-    - Dans **Options**, cliquez sur **Afficher**, puis ajoutez chaque hôte Hyper-V que vous voulez découvrir à la liste, avec **wsman/** comme préfixe.
-    - Dans **Délégation d’informations d’identification**, double-cliquez sur **Autoriser la délégation de nouvelles informations d’identification avec l’authentification de serveur NTLM uniquement**. À nouveau, ajoutez chaque hôte Hyper-V que vous voulez découvrir à la liste, avec **wsman/** comme préfixe.
+#### <a name="option-1"></a>Option 1 :
+
+Sur la machine virtuelle de l’appliance, exécutez cette commande. HyperVHost1/HyperVHost2 sont des exemples de noms d’hôte.
+
+```
+Enable-WSManCredSSP -Role Client -DelegateComputer HyperVHost1.contoso.com HyperVHost2.contoso.com -Force
+```
+
+Exemple : ` Enable-WSManCredSSP -Role Client -DelegateComputer HyperVHost1.contoso.com HyperVHost2.contoso.com -Force `
+
+#### <a name="option-2"></a>Option 2 :
+
+Vous pouvez également effectuer cette opération dans l’éditeur d’objets de stratégie de groupe sur l’appliance :
+
+1. Dans **Stratégie de l’ordinateur local** > **Configuration de l’ordinateur**, cliquez sur **Modèles d’administration** > **Système** > **Délégation d’informations d’identification**.
+2. Double-cliquez sur **Autoriser la délégation de nouvelles informations d’identification**, puis sélectionnez **Activé**.
+3. Dans **Options**, cliquez sur **Afficher**, puis ajoutez chaque hôte Hyper-V que vous voulez découvrir à la liste, avec **wsman/** comme préfixe.
+4. Ensuite, dans **Délégation d’informations d’identification**, double-cliquez sur **Autoriser la délégation de nouvelles informations d’identification avec l’authentification de serveur NTLM uniquement**. À nouveau, ajoutez chaque hôte Hyper-V que vous voulez découvrir à la liste, avec **wsman/** comme préfixe.
 
 ## <a name="start-continuous-discovery"></a>Démarrer la découverte en continu
 
@@ -205,7 +219,7 @@ Connectez-vous de l’appliance à des hôtes ou des clusters Hyper-V, et démar
     - Vous pouvez ajouter un cluster, même s’il existe des problèmes avec des hôtes spécifiques dans le cluster.
 4. Après la validation, cliquez sur **Enregistrer et démarrer la découverte** pour démarrer le processus de découverte.
 
-Ceci démarre la découverte. Il faut environ 15 minutes pour que les métadonnées des machines virtuelles découvertes apparaissent dans le portail Azure.
+Ceci démarre la découverte. Il faut environ 15 minutes pour que les métadonnées des machines virtuelles découvertes apparaissent dans le portail Azure.
 
 ### <a name="verify-vms-in-the-portal"></a>Vérifier les machines virtuelles dans le portail
 
@@ -249,12 +263,12 @@ Exécutez une évaluation comme suit :
 7. Cliquez sur **Exporter l’évaluation** pour la télécharger sous la forme d’un fichier Excel.
 
 
-## <a name="review-an-assessment"></a>Passer en revue une évaluation
+## <a name="review-an-assessment"></a>Réviser une évaluation
 
-Une évaluation décrit :
+Une évaluation décrit les éléments suivants :
 
-- **Préparé pour Azure** : Indique si les machines virtuelles conviennent pour la migration vers Azure.
-- **Estimation des coûts mensuels** : Coûts mensuels estimés de calcul et de stockage pour l’exécution des machines virtuelles dans Azure.
+- **Préparé pour Azure** : Indique si les machines virtuelles peuvent faire l’objet d’une migration vers Azure.
+- **Estimation des coûts mensuels** : Coûts mensuels de calcul et de stockage estimés pour l’exécution des machines virtuelles dans Azure.
 - **Estimation des coûts de stockage mensuels** : Coûts estimés pour le stockage sur disque après la migration.
 
 
@@ -266,29 +280,29 @@ Une évaluation décrit :
     ![Récapitulatif de l’évaluation](./media/tutorial-assess-hyper-v/assessment-summary.png)
 
 
-### <a name="review-azure-readiness"></a>Passer en revue la préparation pour Azure
+### <a name="review-azure-readiness"></a>Examiner la préparation pour Azure
 
 1. Dans **Préparé pour Azure**, vérifiez si les machines virtuelles sont prêtes pour la migration vers Azure.
 2. Passez en revue l’état des machines virtuelles :
-    - **Disponible pour Azure** : Azure Migrate recommande une taille de machine virtuelle et des estimations de coût pour les machines virtuelles de l’évaluation.
+    - **Disponible pour Azure** : Azure Migrate recommande une taille de machine virtuelle et donne des estimations de coût pour les machines virtuelles de l’évaluation.
     - **Disponible sous conditions** : Montre des problèmes et leur correction suggérée.
     - **Non disponible pour Azure** : Montre des problèmes et leur correction suggérée.
     - **État de la préparation inconnu** : Utilisé quand Azure Migrate ne peut pas évaluer la préparation, en raison de problèmes de disponibilité des données.
 
-2. Cliquez sur un état **Préparé pour Azure**. Vous pouvez visualiser les détails de l’état de préparation des machines virtuelles et explorer en détail chaque machine virtuelle, notamment les valeurs pour le calcul, le stockage et le réseau.
+2. Cliquez sur un état **Préparé pour Azure**. Vous pouvez voir les informations relatives à l’état de préparation des machines virtuelles et explorer ces dernières en détail, notamment en ce qui concerne les valeurs pour le calcul, le stockage et le réseau.
 
 ### <a name="review-cost-details"></a>Passer en revue les détails des coûts
 
-Cette vue montre le coût estimé du calcul et du stockage liés à l’exécution des machines virtuelles dans Azure.
+Cette vue montre une estimation des coûts de calcul et de stockage liés à l’exécution des machines virtuelles dans Azure.
 
 1. Passez en revue les coûts mensuels de calcul et de stockage. Les coûts sont agrégés pour toutes les machines virtuelles du groupe évalué.
 
-    - Les estimations des coûts sont basées sur les recommandations de taille pour une machine ainsi que sur ses disques et ses propriétés.
+    - Les estimations des coûts sont basées sur les suggestions de taille d’une machine ainsi que sur ses disques et ses propriétés.
     - Les coûts mensuels estimés pour le calcul et le stockage sont affichés.
     - L’estimation des coûts porte sur l’exécution des machines virtuelles locales en tant que machines virtuelles IaaS. Azure Migrate Server Assessment ne prend pas en compte les coûts PaaS ou SaaS.
 
-2. Vous pouvez passer en revue les estimations des coûts de stockage mensuels. Cette vue montre les coûts de stockage agrégés pour le groupe évalué, répartis selon différents types de disques de stockage.
-3. Vous pouvez explorer les détails pour des machines virtuelles spécifiques.
+2. Vous pouvez passer en revue les estimations des coûts de stockage mensuels. Cette vue montre les coûts de stockage agrégés pour le groupe évalué, répartis selon différents types de disque de stockage.
+3. Vous pouvez explorer les détails de machines virtuelles spécifiques.
 
 
 ### <a name="review-confidence-rating"></a>Examiner le niveau de confiance
@@ -298,10 +312,10 @@ Quand vous effectuez des évaluations basées sur les performances, un niveau de
 ![Niveau de confiance](./media/tutorial-assess-hyper-v/confidence-rating.png)
 
 - Un niveau allant de 1 étoile (le plus faible) à 5 étoiles (le plus élevé) est attribué.
-- Le niveau de confiance vous aide à estimer la fiabilité des recommandations de taille fournies par l’évaluation.
+- Le niveau de confiance vous aide à estimer la fiabilité des suggestions de taille fournies par l’évaluation.
 - Le niveau de confiance est basé sur la disponibilité des points de données nécessaires pour calculer l’évaluation.
 
-Les niveaux de confiance pour une évaluation sont les suivants.
+Les niveaux de confiance d’une évaluation sont les suivants.
 
 **Disponibilité des points de données** | **Niveau de confiance**
 --- | ---
@@ -311,7 +325,7 @@ Les niveaux de confiance pour une évaluation sont les suivants.
 61 %-80 % | 4 étoiles
 81 %-100 % | 5 étoiles
 
-[Découvrez plus d’informations](best-practices-assessment.md#best-practices-for-confidence-ratings) sur les bonnes pratiques relatives aux niveaux de confiance.
+[Découvrez plus en détail](best-practices-assessment.md#best-practices-for-confidence-ratings) les bonnes pratiques relatives aux niveaux de confiance.
 
 
 
@@ -322,7 +336,7 @@ Les niveaux de confiance pour une évaluation sont les suivants.
 Dans ce tutoriel, vous allez :
 
 > [!div class="checklist"]
-> * Configuré une appliance Azure Migrate
+> * Configurer une appliance Azure Migrate
 > * Créé et examiné une évaluation
 
 Passez au troisième tutoriel de la série pour découvrir comment migrer des machines virtuelles Hyper-V vers Azure avec Azure Migrate Server Migration.

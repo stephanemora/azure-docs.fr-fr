@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Personnaliser l’assistant virtuel « voice-first » (préversion), Java (Windows, Linux) - Services Speech'
+title: 'Démarrage rapide : Personnaliser l’assistant virtuel « voice-first » (préversion), Java (Windows, Linux) - Service Speech'
 titleSuffix: Azure Cognitive Services
 description: Dans ce guide de démarrage rapide, vous allez apprendre à utiliser le kit SDK Speech de Cognitive Services dans une application console Java. Vous allez apprendre à connecter votre application cliente à un bot Bot Framework existant configuré pour utiliser le canal Direct Line Speech et à procurer une expérience de l’assistant virtuel « voice-first ».
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: bidishac
-ms.openlocfilehash: 78e80b276a13ee6e27fdf0515f2901fdeaa20c5d
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: b1be09a2af712277ccaad827b8e84e24ed9f5c5c
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67604925"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68553262"
 ---
 # <a name="quickstart-create-a-voice-first-virtual-assistant-with-the-speech-sdk-java"></a>Démarrage rapide : Créer un assistant virtuel « voice-first » avec le SDK Speech, Java
 

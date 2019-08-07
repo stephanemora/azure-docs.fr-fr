@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 7a592a7d0d8c9d32de83c92b258c4678dc3f8166
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2d743b53f5ca74299c865d381f0832729fc956f4
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60188266"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68677593"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-azure-powershell"></a>Didacticiel : Mettre à l’échelle automatiquement un groupe de machines virtuelles identiques avec Azure PowerShell
 
@@ -137,7 +137,7 @@ $myScaleProfile = New-AzureRmAutoscaleProfile `
 ```
 
 
-## <a name="apply-autoscale-rules-to-a-scale-set"></a>Appliquer des règles de mise à l’échelle automatique à un groupe identique
+## <a name="apply-autoscale-profile-to-a-scale-set"></a>Appliquer un profil de mise à l’échelle automatique à un groupe identique
 L’étape finale consiste à appliquer le profil de mise à l’échelle automatique à votre groupe identique. Votre groupe identique peut ensuite augmenter ou diminuer automatiquement en fonction de la demande de l’application. Appliquez le profil de mise à l’échelle automatique avec l’applet de commande [Add-AzureRmAutoscaleSetting](/powershell/module/AzureRM.Insights/Add-AzureRmAutoscaleSetting) comme suit :
 
 ```azurepowershell-interactive
@@ -188,7 +188,7 @@ IpAddress
 52.168.121.216
 ```
 
-Créez une connexion distante vers votre première instance de machine virtuelle. Spécifiez votre propre adresse IP publique et le numéro de port de l’instance de machine virtuelle requise, comme indiqué dans les commandes précédentes. Lorsque vous y êtes invité, entrez les informations d’identification utilisées lors de la création du groupe identique (par défaut dans les exemples de commandes, il s’agit de *azureuser* et *P\@ssw0rd!*). Si vous utilisez Azure Cloud Shell, effectuez cette étape à partir d’une invite de commandes PowerShell locale ou du client Bureau à distance. L’exemple suivant établit une connexion à une instance de machine virtuelle *0* :
+Créez une connexion distante vers votre première instance de machine virtuelle. Spécifiez votre propre adresse IP publique et le numéro de port de l’instance de machine virtuelle requise, comme indiqué dans les commandes précédentes. Lorsque vous y êtes invité, entrez les informations d’identification utilisées lors de la création du groupe identique (par défaut dans les exemples de commandes, il s’agit de *azureuser* et *P\@ssw0rd!* ). Si vous utilisez Azure Cloud Shell, effectuez cette étape à partir d’une invite de commandes PowerShell locale ou du client Bureau à distance. L’exemple suivant établit une connexion à une instance de machine virtuelle *0* :
 
 ```powershell
 mstsc /v 52.168.121.216:50001

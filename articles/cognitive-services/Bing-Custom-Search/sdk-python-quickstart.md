@@ -1,21 +1,21 @@
 ---
 title: 'Démarrage rapide : Appeler votre point de terminaison Recherche personnalisée Bing avec le kit SDK Python | Microsoft Docs'
 titleSuffix: Azure Cognitive Services
-description: Utilisez le SDK Recherche personnalisée Bing pour Python afin d’obtenir des résultats de recherche personnalisée.
+description: Utilisez ce guide de démarrage rapide pour commencer à demander des résultats de recherche depuis votre instance Recherche personnalisée Bing avec le SDK Python.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: quickstart
-ms.date: 03/05/2019
+ms.date: 07/26/2019
 ms.author: aahi
-ms.openlocfilehash: c4c5059bc57ea33357145f6b119456dc6c5bdb7b
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: 7a9d0d6619878299768e1f17b4da3280ea1ec1fc
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57571812"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564615"
 ---
 # <a name="quickstart-call-your-bing-custom-search-endpoint-using-the-python-sdk"></a>Démarrage rapide : Appeler votre point de terminaison Recherche personnalisée Bing avec le kit SDK Python 
 

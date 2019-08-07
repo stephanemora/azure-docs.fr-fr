@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 05/30/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 6d2b9c8dd8fb89e201cff5155b1dec0857204752
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.openlocfilehash: bb60fa216c10b11b6a47c029fbef3698c6f7bd6d
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66400052"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68663494"
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>Migrer des machines virtuelles Amazon Web Services (AWS) vers Azure
 
@@ -96,8 +96,10 @@ Quand les machines virtuelles Azure sont créées après la migration (basculeme
 6. Pour le **Groupe de ressources**, sélectionnez **Existant** puis **migrationRG**.
 7. Pour **Emplacement**, sélectionnez **Europe Ouest**.
 8. Sous **Sous-réseau**, laissez les valeurs par défaut pour le **Nom** et la **Plage d’adresses IP**.
-9. Laissez l’option **Points de terminaison de Service** désactivée.
-10. Sélectionnez **Créer** lorsque vous avez terminé.
+9. Ajoutez des instructions pour les paramètres de protection DDoS.
+10. Laissez l’option **Points de terminaison de Service** désactivée.
+11. Ajoutez des instructions pour les paramètres du pare-feu.
+12. Sélectionnez **Créer** lorsque vous avez terminé.
 
 ## <a name="prepare-the-infrastructure"></a>Préparer l’infrastructure
 
@@ -157,7 +159,7 @@ Dans cette section, vous entrez des informations sur les ressources que vous ave
 
 Vous devez créer une stratégie de réplication avant de pouvoir activer la réplication.
 
-1. Sélectionnez **Répliquer et associer**.
+1. Sélectionnez **Créer et associer**.
 2. Dans **Nom**, entrez **myReplicationPolicy**.
 3. Conservez les autres paramètres par défaut puis sélectionnez **OK** pour créer la stratégie. La nouvelle stratégie est automatiquement associée au serveur de configuration.
 

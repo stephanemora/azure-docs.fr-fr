@@ -1,5 +1,5 @@
 ---
-title: analyse de sentiments
+title: Icône Analyse des sentiments - LUIS
 titleSuffix: Azure Cognitive Services
 description: Dans ce tutoriel, vous allez créer une application montrant comment obtenir le sentiment positif, négatif et neutre des énoncés. Le sentiment est déterminé à partir de l’énoncé entier.
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 06/03/2019
 ms.author: diberry
-ms.openlocfilehash: 1408e29793fdac77b89e3f0cc0a7be525f7fa1d2
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: ad1dba3c35c0f1fa5640e484319b584731843dd8
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66479762"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563573"
 ---
 # <a name="tutorial--get-sentiment-of-utterance"></a>Didacticiel :  Obtenir le sentiment d’un énoncé
 

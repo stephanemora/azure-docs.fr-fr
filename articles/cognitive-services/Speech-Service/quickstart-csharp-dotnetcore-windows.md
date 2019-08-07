@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Reconnaissance vocale, C# (.NET Core) - Services Speech'
+title: 'Démarrage rapide : Reconnaissance vocale, C# (.NET Core) - Service Speech'
 titleSuffix: Azure Cognitive Services
 description: Découvrez comment effectuer la reconnaissance vocale en C# sous .NET Core sur Windows ou macOS en utilisant le SDK Speech
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: wolfma
-ms.openlocfilehash: 9c445ea685518cec77089ce644a79305ff7f3e9e
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 341f173e399196e32ab59f44db4302b1b1a195e6
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606585"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68607731"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-net-core"></a>Démarrage rapide : reconnaissance vocale à l’aide du SDK Speech pour .NET Core
 
@@ -24,7 +24,7 @@ Des guides de démarrage rapide sont également disponibles pour la [synthèse v
 Si vous le souhaitez, choisissez un autre langage de programmation et/ou environnement :<br/>
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-Dans cet article, vous créez une application console C# pour .NET Core sur Windows ou macOS en utilisant le [SDK Speech](speech-sdk.md) de Cognitive Services. Vous transcrivez la reconnaissance vocale en temps réel à partir du microphone de votre PC. L’application est créée avec le [package NuGet du kit SDK Speech](https://aka.ms/csspeech/nuget) et Microsoft Visual Studio 2017 (toute édition).
+Dans cet article, vous créez une application console C# pour .NET Core sur Windows ou macOS en utilisant le [SDK Speech](speech-sdk.md) de Cognitive Services. Vous transcrivez la reconnaissance vocale en temps réel à partir du microphone de votre PC. L’application est créée avec le [package NuGet du SDK Speech](https://aka.ms/csspeech/nuget) et Microsoft Visual Studio 2017 ou version ultérieure (toute édition).
 
 > [!NOTE]
 > .NET Core est une plateforme .NET à vocation multiplateforme, open source, qui implémente la spécification [.NET Standard](https://docs.microsoft.com/dotnet/standard/net-standard).
@@ -36,7 +36,7 @@ Vous avez besoin d’une clé d’abonnement au service Speech pour suivre ce gu
 Ce démarrage rapide nécessite :
 
 * [Kit de développement logiciel (SDK) .NET Core](https://dotnet.microsoft.com/download)
-* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
+* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) ou version ultérieure
 * Clé d’abonnement Azure pour le service Speech. [Vous pouvez en obtenir une gratuitement](get-started.md).
 
 ## <a name="create-a-visual-studio-project"></a>Créer un projet Visual Studio

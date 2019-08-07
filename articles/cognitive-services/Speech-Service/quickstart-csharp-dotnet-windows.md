@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Reconnaissance vocale, .NET Framework (Windows) - Services de reconnaissance vocale'
+title: 'Démarrage rapide : Reconnaissance vocale, .NET Framework (Windows) - Service Speech'
 titleSuffix: Azure Cognitive Services
 description: Utilisez ce guide pour créer une application de console de reconnaissance vocale à l’aide de .NET Framework pour Windows et du kit SDK Speech. Lorsque vous avez terminé, vous pouvez utiliser le microphone de l’ordinateur pour une retranscription vocale en temps réel.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: wolfma
-ms.openlocfilehash: d8738357a3bad6626ef6d79248aef1c4d2cb1ead
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 47f955734070be4adfe7f58da98265b976e643d5
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67603084"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68554165"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-net-framework-windows"></a>Démarrage rapide : reconnaissance vocale à l’aide du SDK Speech pour le .NET Framework (Windows)
 

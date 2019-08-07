@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Traduction vocale, C# (.NET Core Windows)'
+title: 'Démarrage rapide : Traduction vocale, C# (.NET Core Windows) - Service Speech'
 titleSuffix: Azure Cognitive Services
 description: Dans ce démarrage rapide, vous allez créer une application .NET Core simple pour capturer les paroles de l’utilisateur, les traduire dans une autre langue et générer le texte dans la ligne de commande. Ce guide est conçu pour les utilisateurs de Windows.
 services: cognitive-services
@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 8ab76a786f11677f5d8f0715b257bd2fb04e50bf
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 81e652e6456b049c2f4fca938d02d1b0724f2ffd
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67602807"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68609677"
 ---
 # <a name="quickstart-translate-speech-with-the-speech-sdk-for-net-core"></a>Démarrage rapide : Traduire une entrée vocale à l’aide du Kit de développement logiciel (SDK) Speech pour .NET Core
 
 Des guides de démarrage rapide sont également disponibles pour la [reconnaissance vocale](quickstart-csharp-dotnet-windows.md) et la [synthèse vocale](quickstart-text-to-speech-dotnetcore.md).
 
-Dans ce démarrage rapide, vous allez créer une application .NET Core simple qui capture les paroles de l’utilisateur à partir du microphone de votre ordinateur, les traduit, puis retranscrit le texte traduit dans la ligne de commande en temps réel. Cette application est conçue pour fonctionner sur Windows 64 bits, et est générée avec le [package NuGet du Kit de développement logiciel (SDK) Speech](https://aka.ms/csspeech/nuget) et Microsoft Visual Studio 2017.
+Dans ce démarrage rapide, vous allez créer une application .NET Core simple qui capture les paroles de l’utilisateur à partir du microphone de votre ordinateur, les traduit, puis retranscrit le texte traduit dans la ligne de commande en temps réel. Cette application est conçue pour fonctionner sur Windows 64 bits, et est générée avec le [package NuGet du Kit de développement logiciel (SDK) Speech](https://aka.ms/csspeech/nuget) et Microsoft Visual Studio 2017 ou version ultérieure.
 
 Pour obtenir la liste complète des langues disponibles pour la traduction vocale, consultez [Prise en charge linguistique](language-support.md).
 
@@ -30,7 +30,7 @@ Pour obtenir la liste complète des langues disponibles pour la traduction vocal
 Ce démarrage rapide nécessite :
 
 * [Kit de développement logiciel (SDK) .NET Core](https://dotnet.microsoft.com/download)
-* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
+* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) ou version ultérieure
 * Clé d’abonnement Azure pour le service Speech. [Vous pouvez en obtenir une gratuitement](get-started.md).
 
 ## <a name="create-a-visual-studio-project"></a>Créer un projet Visual Studio

@@ -1,6 +1,6 @@
 ---
-title: Obtenir l’intention, Node.js
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Obtenir l’intention, Node.js - LUIS
+titleSuffix: Azure Cognitive Services
 description: Dans ce démarrage rapide, utilisez une application LUIS publique disponible pour déterminer l’intention d’un utilisateur à partir du texte conversationnel. À l’aide de Node.js, envoyez l’intention de l’utilisateur sous forme de texte au point de terminaison de prédiction HTTP de l’application publique.
 services: cognitive-services
 author: diberry
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 07/16/2019
 ms.author: diberry
-ms.openlocfilehash: 51ba4935afc2713fb0dc92ebbf6ca31f7c60355a
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 084d717c1001604a7fb8ed60518777f956dec8b9
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68276086"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563797"
 ---
 # <a name="quickstart-get-intent-using-nodejs"></a>Démarrage rapide : Obtenir l’intention à l’aide de Node.js
 

@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 07/11/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 10f559295ff0598dea26fb30b089f020e2985889
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 993b0249bdcc8e0e54dbe0c222aa2335c3bf8d4a
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67840343"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68679139"
 ---
 # <a name="prepare-vmware-vms-for-assessment-and-migration-to-azure"></a>Préparer l’évaluation de machines virtuelles VMware et leur migration vers Azure
 
@@ -60,7 +60,7 @@ Si vous déployez l’appliance Azure Migrate pour évaluer ou exécuter une mig
     - La seconde application accède à un coffre de clés Azure Key Vault créé pendant l’inscription pour stocker les informations Azure AD App et les paramètres de configuration de l’appliance.
 - Vous pouvez affecter des autorisations à Azure Migrate pour créer ces applications Azure AD à l’aide de l’une des méthodes suivantes :
     - Un administrateur général/locataire peut octroyer des autorisations aux utilisateurs du locataire pour créer et inscrire des applications Azure AD.
-    - Un administrateur général/locataire peut attribuer au compte le rôle Développeur d’applications (qui dispose des autorisations appropriées).
+    - L’administrateur général ou le locataire peuvent attribuer au compte le rôle Développeur d’applications (qui dispose des autorisations appropriées).
 
 Il est intéressant de noter que :
 
@@ -70,7 +70,7 @@ Il est intéressant de noter que :
 
 #### <a name="grant-account-permissions"></a>Octroyer des autorisations au compte
 
-L’administrateur général/locataire peut octroyer des autorisations comme suit
+L’administrateur général ou le locataire peuvent octroyer des autorisations de la façon suivante :
 
 1. Dans Azure AD, l’administrateur général/locataire doit accéder à **Azure Active Directory** > **Utilisateurs** > **Paramètres utilisateur**.
 2. L’administrateur doit affecter la valeur **Oui** à **Inscriptions des applications**.
@@ -84,7 +84,7 @@ L’administrateur général/locataire peut octroyer des autorisations comme sui
 
 #### <a name="assign-application-developer-role"></a>Attribuer le rôle Développeur d’applications 
 
-Un administrateur général/locataire peut attribuer à un compte le rôle Développeur d’applications. [Plus d’informations](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal)
+L’administrateur général ou le locataire peuvent attribuer à un compte le rôle Développeur d’applications. [Plus d’informations](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal)
 
 ## <a name="assign-role-assignment-permissions"></a>Affecter des autorisations d’attribution de rôle
 
@@ -102,11 +102,11 @@ Affectez des autorisations d’attribution de rôle sur le groupe de ressources 
 
 ## <a name="prepare-for-vmware-vm-assessment"></a>Préparer l’évaluation des machines virtuelles VMware
 
-Pour préparer l’évaluation des machines virtuelles VMware, vous devez vérifier les paramètres de machine virtuelle et d’hôte Hyper-V ainsi que les paramètres de déploiement de l’appliance.
+Pour préparer l’évaluation des machines virtuelles VMware, vous devez vérifier les paramètres de machine virtuelle et d’hôte VMWare, ainsi que les paramètres de déploiement de l’appliance.
 
 ### <a name="verify-vmware-settings"></a>Vérifier les paramètres VMware
 
-1. [Vérifiez](migrate-support-matrix-vmware.md#assessment-vmware-server-requirements) les exigences relatives au serveur VMware pour l’évaluation des machines virtuelles.
+1. [Vérifiez](migrate-support-matrix-vmware.md#assessment-vcenter-server-requirements) les exigences relatives au serveur VMware pour l’évaluation des machines virtuelles.
 2. [Vérifiez](migrate-support-matrix-vmware.md#assessment-port-requirements) que les ports nécessaires sont ouverts sur les serveurs vCenter Server.
 
 

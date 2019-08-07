@@ -12,32 +12,34 @@ author: garyericson
 ms.author: garye
 ms.reviewer: davidph
 manager: cgronlun
-ms.date: 05/17/2019
-ms.openlocfilehash: 83ef25f04012933c2665e63e4617d480eb336f7b
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.date: 07/29/2019
+ms.openlocfilehash: 800dbfc05c47a949bf024e9a5c671979b49ad201
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66419797"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639974"
 ---
 # <a name="tutorial-prepare-data-to-perform-clustering-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Didacticiel : Préparer des données pour effectuer un clustering en R avec Azure SQL Database Machine Learning Services (préversion)
 
-Dans la première partie de ce tutoriel, vous allez préparer les données d’une base de données Azure SQL pour effectuer un clustering en R avec Azure SQL Database Machine Learning Services (préversion).
+Dans la première partie de cette série de tutoriels qui en compte trois, vous allez importer et préparer les données à partir d’une base de données Azure SQL à l’aide de R. Plus tard dans cette série, vous allez utiliser ces données pour entraîner et déployer un modèle de clustering en R avec Azure SQL Database Machine Learning Services (préversion).
 
 Le *clustering* peut être compris comme le regroupement de données au sein de groupes, en fonction de leurs similitudes.
 Vous allez utiliser l’algorithme **k-moyennes** pour effectuer le clustering des clients au sein d’un jeu de données comprenant des achats et des retours d’articles. Le regroupement des clients au sein de clusters vous permet de concentrer vos efforts marketing plus efficacement en ciblant des groupes précis.
 Le clustering k-moyennes est un algorithme d’*apprentissage non supervisé* qui recherche des modèles de données en fonction de leurs similitudes.
 
+Dans les parties 1 et 2 de cette série, vous allez développer des scripts en R dans RStudio pour préparer vos données et entraîner un modèle de Machine Learning. Ensuite, dans la troisième partie, vous allez exécuter ces scripts en R à l’intérieur d’une base de données SQL à l’aide de procédures stockées.
+
 Cet article porte sur les points suivants :
 
 > [!div class="checklist"]
 > * Importation d’un exemple de base de données dans une base de données Azure SQL
-> * Séparer les clients selon différentes dimensions
-> * Charger des données à partir de la base de données Azure SQL dans un cadre de données à l’aide de R
+> * Séparer les clients selon différentes dimensions à l’aide de R
+> * Chargement des données à partir de la base de données Azure SQL dans un cadre de données à l’aide de R
 
-Dans la [deuxième partie](sql-database-tutorial-clustering-model-build.md), vous allez voir comment créer et entraîner un modèle de clustering k-moyennes.
+Dans la [deuxième partie](sql-database-tutorial-clustering-model-build.md), vous allez voir comment créer et entraîner un modèle de clustering k-moyennes en R.
 
-Dans la [troisième partie](sql-database-tutorial-clustering-model-deploy.md), vous allez voir comment créer une procédure stockée dans une base de données Azure SQL qui vous permettra d’effectuer un clustering basé sur les nouvelles données.
+Dans la [troisième partie](sql-database-tutorial-clustering-model-deploy.md), vous allez découvrir comment créer une procédure stockée dans une base de données Azure SQL qui vous permettra d’effectuer un clustering en R basé sur des nouvelles données.
 
 [!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
@@ -207,8 +209,8 @@ Sur le portail Azure, procédez comme suit :
 Dans le premier tutoriel de cette série de trois, vous avez effectué les étapes suivantes :
 
 * Importation d’un exemple de base de données dans une base de données Azure SQL
-* Séparer les clients selon différentes dimensions
-* Charger des données à partir de la base de données Azure SQL dans un cadre de données à l’aide de R
+* Séparer les clients selon différentes dimensions à l’aide de R
+* Chargement des données à partir de la base de données Azure SQL dans un cadre de données à l’aide de R
 
 Pour créer un modèle Machine Learning qui utilise ces données clients, suivez la deuxième partie de ce tutoriel :
 

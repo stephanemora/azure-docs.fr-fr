@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Reconnaissance vocale, Swift - Services Speech'
+title: 'Démarrage rapide : Reconnaissance vocale, Swift - Service Speech'
 titleSuffix: Azure Cognitive Services
 description: Découvrir la reconnaissance vocale en Swift sur iOS avec le SDK Speech
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: chlandsi
-ms.openlocfilehash: 98c37d4a39235e5ed1a82df72886d196cbf19e49
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: c001b10f14167b4c0947c2ef0ae3f27cc4f55657
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67605038"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68553537"
 ---
 # <a name="quickstart-recognize-speech-in-swift-on-ios-using-the-speech-sdk"></a>Démarrage rapide : Reconnaissance vocale en Swift sur iOS avec le SDK Speech
 
@@ -63,15 +63,18 @@ Dans les boîtes de dialogue qui suivent, effectuez les sélections suivantes :
 
 1. Placez un nouveau fichier d’en-tête avec le nom `MicrosoftCognitiveServicesSpeech-Bridging-Header.h` dans le répertoire `helloworld` dans le projet helloworld, puis collez le code suivant dedans : [!code-swift[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/swift-ios/helloworld/helloworld/MicrosoftCognitiveServicesSpeech-Bridging-Header.h#code)]
 1. Ajoutez le chemin d’accès relatif `helloworld/MicrosoftCognitiveServicesSpeech-Bridging-Header.h` à l’en-tête de pontage dans les paramètres de projet Swift pour la cible helloworld dans le champ *En-tête de pontage Objective-C* ![Propriétés d’en-tête](media/sdk/qs-swift-ios-bridging-header.png)
-1. Remplacez le contenu du fichier `AppDelegate.swift` généré automatiquement par : [!code-swift[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/swift-ios/helloworld/helloworld/AppDelegate.swift#code)]
-1. Remplacez le contenu du fichier `ViewController.swift` généré automatiquement par : [!code-swift[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/swift-ios/helloworld/helloworld/ViewController.swift#code)]
+1. Remplacez le contenu du fichier `AppDelegate.swift` généré automatiquement par :  
+   [!code-swift[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/swift-ios/helloworld/helloworld/AppDelegate.swift#code)]
+1. Remplacez le contenu du fichier `ViewController.swift` généré automatiquement par :  
+   [!code-swift[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/swift-ios/helloworld/helloworld/ViewController.swift#code)]
 1. Dans `ViewController.swift`, remplacez la chaîne `YourSubscriptionKey` par votre clé d’abonnement.
 1. Remplacez la chaîne `YourServiceRegion` par la [région](regions.md) associée à votre abonnement (par exemple, `westus` pour l’abonnement à un essai gratuit).
 
 ## <a name="install-the-sdk-as-a-cocoapod"></a>Installer le SDK en tant que CocoaPod
 
 1. Installez le gestionnaire de dépendances de CocoaPod comme décrit dans ses [instructions d’installation](https://guides.cocoapods.org/using/getting-started.html).
-1. Accédez au répertoire de votre exemple d’application (`helloworld`). Placez un fichier texte avec le nom `Podfile` et le contenu suivant dans ce répertoire :[!code-swift[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/swift-ios/helloworld/Podfile)]
+1. Accédez au répertoire de votre exemple d’application (`helloworld`). Placez un fichier texte avec le nom `Podfile` et le contenu suivant dans ce répertoire :  
+   [!code-swift[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/swift-ios/helloworld/Podfile)]
 1. Accédez au répertoire `helloworld` dans un terminal et exécutez la commande `pod install`. Ceci génère espace de travail Xcode `helloworld.xcworkspace` contenant l’exemple d’application et le SDK Speech en tant que dépendance. Cet espace de travail sera utilisé par la suite.
 
 ## <a name="build-and-run-the-sample"></a>Créer et exécuter l’exemple.

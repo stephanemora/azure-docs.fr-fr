@@ -1,5 +1,5 @@
 ---
-title: Données contextuelles avec des rôles - Language Understanding
+title: Données contextuelles avec des rôles - LUIS
 titleSuffix: Azure Cognitive Services
 description: Recherchez des données connexes en fonction du contexte. Par exemple, les emplacements d’origine et de destination d’un déménagement physique depuis un bâtiment et un bureau vers un autre bâtiment et un autre bureau sont liés.
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 061bd94a839d83f75566412ac546ab3208543780
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 2eac05712dc7b3deceba52681195101f9bf2b40c
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68467628"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560017"
 ---
 # <a name="tutorial-extract-contextually-related-data-from-an-utterance"></a>Didacticiel : Extraire des données connexes en fonction du contexte d’un énoncé
 

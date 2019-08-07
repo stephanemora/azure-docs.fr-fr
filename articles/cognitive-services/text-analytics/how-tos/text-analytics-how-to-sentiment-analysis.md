@@ -1,5 +1,6 @@
 ---
-title: Analyse des sentiments à l’aide de l’API REST Analyse de texte dans Azure Cognitive Services | Microsoft Docs
+title: Analyse des sentiments à l’aide de l’API REST Analyse de texte dans Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Découvrez comment détecter des sentiments à l’aide de l’API REST Analyse de texte.
 services: cognitive-services
 author: aahill
@@ -7,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 02/26/2019
+ms.date: 07/30/2019
 ms.author: aahi
-ms.openlocfilehash: c3004dd3910dd5fdafc933efa213c9f097310e87
-ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
+ms.openlocfilehash: 19654a4902ae64e5de63ffc93a8d143cc518e254
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68001708"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68697747"
 ---
 # <a name="example-detect-sentiment-with-text-analytics"></a>Exemple : Détecter les sentiments avec Analyse de texte
 
@@ -39,9 +40,9 @@ L’analyse des sentiments produit un résultat de meilleure qualité quand vous
 
 Vous devez disposer des documents JSON dans ce format : ID, texte et langue.
 
-La taille du document doit être inférieure à 5 120 caractères par document. Vous pouvez avoir jusqu’à 1000 éléments (ID) par collection. La collection est soumise dans le corps de la requête. Voici un exemple de contenu que vous pouvez soumettre pour analyse des sentiments :
+La taille du document doit être inférieure à 5 120 caractères par document. Vous pouvez avoir jusqu’à 1000 éléments (ID) par collection. La collection est soumise dans le corps de la demande. Voici un exemple de contenu que vous pouvez soumettre pour analyse des sentiments :
 
-```
+```json
     {
         "documents": [
             {
@@ -63,7 +64,7 @@ La taille du document doit être inférieure à 5 120 caractères par document.
                 "language": "en",
                 "id": "4",
                 "text": "It was foggy so we missed the spectacular views, but the trail was ok. Worth checking out if you are in the area."
-            },                
+            },
             {
                 "language": "en",
                 "id": "5",
@@ -81,16 +82,16 @@ Pour plus d’informations sur la définition de la requête, consultez [Appeler
 
 + Définissez le point de terminaison HTTP pour l’analyse des sentiments à l’aide d’une ressource Analyse de texte sur Azure ou d’un [conteneur Analyse de texte](text-analytics-how-to-install-containers.md) instancié. Il doit inclure la ressource `/sentiment` : `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/sentiment`.
 
-+ Définissez un en-tête de requête pour inclure la clé d’accès pour les opérations d’Analyse de texte. Pour plus d’informations, consultez [Rechercher des points de terminaison et des clés d’accès](text-analytics-how-to-access-key.md).
++ Définissez un en-tête de demande pour inclure la [clé d’accès](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) des opérations Analyse de texte.
 
-+ Dans le corps de la requête, fournissez la collection de documents JSON que vous avez préparée pour cette analyse.
++ Dans le corps de la demande, fournissez la collection de documents JSON que vous avez préparée pour cette analyse.
 
 > [!Tip]
 > Utilisez [Postman](text-analytics-how-to-call-api.md) ou ouvrez la **console de test d’API** dans la [documentation](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9) pour structurer la requête et la publier sur le service.
 
 ## <a name="step-2-post-the-request"></a>Étape 2 : Publier la requête
 
-L’analyse est effectuée à la réception de la requête. Pour connaître la taille et le nombre de requêtes que vous pouvez envoyer par minute et seconde, consultez la section [Limites de données](../overview.md#data-limits) dans la vue d’ensemble.
+L’analyse est effectuée à la réception de la demande. Pour connaître la taille et le nombre de requêtes que vous pouvez envoyer par minute et seconde, consultez la section [Limites de données](../overview.md#data-limits) dans la vue d’ensemble.
 
 Rappelez-vous que le service est sans état. Aucune donnée n’est stockée dans votre compte. Les résultats sont retournés immédiatement dans la réponse.
 
@@ -104,41 +105,41 @@ La sortie est retournée immédiatement. Vous pouvez diffuser les résultats ver
 L’exemple suivant montre la réponse pour la collection de documents dans cet article :
 
 ```json
-{
-    "documents": [
-        {
-            "score": 0.9999237060546875,
-            "id": "1"
-        },
-        {
-            "score": 0.0000540316104888916,
-            "id": "2"
-        },
-        {
-            "score": 0.99990355968475342,
-            "id": "3"
-        },
-        {
-            "score": 0.980544924736023,
-            "id": "4"
-        },
-        {
-            "score": 0.99996328353881836,
-            "id": "5"
-        }
-    ],
-    "errors": []
-}
+    {
+        "documents": [
+            {
+                "score": 0.9999237060546875,
+                "id": "1"
+            },
+            {
+                "score": 0.0000540316104888916,
+                "id": "2"
+            },
+            {
+                "score": 0.99990355968475342,
+                "id": "3"
+            },
+            {
+                "score": 0.980544924736023,
+                "id": "4"
+            },
+            {
+                "score": 0.99996328353881836,
+                "id": "5"
+            }
+        ],
+        "errors": []
+    }
 ```
 
 ## <a name="sentiment-analysis-v3-public-preview"></a>Analyse des sentiments v3 - Préversion publique
 
-La [prochaine version d’Analyse des sentiments](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-preview/operations/56f30ceeeda5650db055a3c9) est désormais disponible en préversion publique. Elle apporte des améliorations significatives en matière de précision et de détail du score et de la catégorisation du texte de l’API. 
+La [prochaine version d’Analyse des sentiments](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-preview/operations/56f30ceeeda5650db055a3c9) est désormais disponible en préversion publique. Elle apporte des améliorations significatives en matière de précision et de détail du score et de la catégorisation du texte de l’API.
 
 > [!NOTE]
 > * Analyse des sentiments v3 nécessite le même format de requête et les mêmes [limites de données](../overview.md#data-limits) que la version précédente.
-> * À l’heure actuelle, Analyse des sentiments v3 : 
->    * Prend en charge uniquement la langue anglaise.  
+> * À l’heure actuelle, Analyse des sentiments v3 :
+>    * Prend en charge uniquement la langue anglaise.
 >    * Est disponible dans les régions suivantes : `Central US`, `Central Canada` et `East Asia`.
 
 |Fonctionnalité |Description  |
@@ -164,94 +165,94 @@ Analyse des sentiments v3 peut retourner des scores et des étiquettes au niveau
 Le JSON suivant est un exemple de requête adressée à la nouvelle version d’Analyse des sentiments. Notez que la mise en forme de la requête est identique à celle de la version précédente :
 
 ```json
-{
-  "documents": [
     {
-      "language": "en",
-      "id": "1",
-      "text": "Hello world. This is some input text that I love."
-    },
-    {
-      "language": "en",
-      "id": "2",
-      "text": "It's incredibly sunny outside! I'm so happy."
+        "documents": [
+        {
+            "language": "en",
+            "id": "1",
+            "text": "Hello world. This is some input text that I love."
+        },
+        {
+            "language": "en",
+            "id": "2",
+            "text": "It's incredibly sunny outside! I'm so happy."
+        }
+        ],
     }
-  ]
-}
 ```
 
 ### <a name="sentiment-analysis-v3-example-response"></a>Exemple de réponse d’Analyse des sentiments v3
 
-Alors que le format de la requête est identique à celui de la version précédente, le format de la réponse a changé. Le JSON suivant est un exemple de réponse de la nouvelle version de l’API :
+Alors que le format de la demande est identique à celui de la version précédente, le format de la réponse a changé. Le JSON suivant est un exemple de réponse de la nouvelle version de l’API :
 
 ```json
-{
-    "documents": [
-        {
-            "id": "1",
-            "sentiment": "positive",
-            "documentScores": {
-                "positive": 0.98570585250854492,
-                "neutral": 0.0001625834556762,
-                "negative": 0.0141316400840878
-            },
-            "sentences": [
-                {
-                    "sentiment": "neutral",
-                    "sentenceScores": {
-                        "positive": 0.0785155147314072,
-                        "neutral": 0.89702343940734863,
-                        "negative": 0.0244610067456961
-                    },
-                    "offset": 0,
-                    "length": 12
+    {
+        "documents": [
+            {
+                "id": "1",
+                "sentiment": "positive",
+                "documentScores": {
+                    "positive": 0.98570585250854492,
+                    "neutral": 0.0001625834556762,
+                    "negative": 0.0141316400840878
                 },
-                {
-                    "sentiment": "positive",
-                    "sentenceScores": {
-                        "positive": 0.98570585250854492,
-                        "neutral": 0.0001625834556762,
-                        "negative": 0.0141316400840878
+                "sentences": [
+                    {
+                        "sentiment": "neutral",
+                        "sentenceScores": {
+                            "positive": 0.0785155147314072,
+                            "neutral": 0.89702343940734863,
+                            "negative": 0.0244610067456961
+                        },
+                        "offset": 0,
+                        "length": 12
                     },
-                    "offset": 13,
-                    "length": 36
-                }
-            ]
-        },
-        {
-            "id": "2",
-            "sentiment": "positive",
-            "documentScores": {
-                "positive": 0.89198976755142212,
-                "neutral": 0.103382371366024,
-                "negative": 0.0046278294175863
+                    {
+                        "sentiment": "positive",
+                        "sentenceScores": {
+                            "positive": 0.98570585250854492,
+                            "neutral": 0.0001625834556762,
+                            "negative": 0.0141316400840878
+                        },
+                        "offset": 13,
+                        "length": 36
+                    }
+                ]
             },
-            "sentences": [
-                {
-                    "sentiment": "positive",
-                    "sentenceScores": {
-                        "positive": 0.78401315212249756,
-                        "neutral": 0.2067587077617645,
-                        "negative": 0.0092281140387058
-                    },
-                    "offset": 0,
-                    "length": 30
+            {
+                "id": "2",
+                "sentiment": "positive",
+                "documentScores": {
+                    "positive": 0.89198976755142212,
+                    "neutral": 0.103382371366024,
+                    "negative": 0.0046278294175863
                 },
-                {
-                    "sentiment": "positive",
-                    "sentenceScores": {
-                        "positive": 0.99996638298034668,
-                        "neutral": 0.0000060341349126,
-                        "negative": 0.0000275444017461
+                "sentences": [
+                    {
+                        "sentiment": "positive",
+                        "sentenceScores": {
+                            "positive": 0.78401315212249756,
+                            "neutral": 0.2067587077617645,
+                            "negative": 0.0092281140387058
+                        },
+                        "offset": 0,
+                        "length": 30
                     },
-                    "offset": 31,
-                    "length": 13
-                }
-            ]
-        }
-    ],
-    "errors": []
-}
+                    {
+                        "sentiment": "positive",
+                        "sentenceScores": {
+                            "positive": 0.99996638298034668,
+                            "neutral": 0.0000060341349126,
+                            "negative": 0.0000275444017461
+                        },
+                        "offset": 31,
+                        "length": 13
+                    }
+                ]
+            }
+        ],
+        "errors": []
+    }
 ```
 
 ### <a name="example-c-code"></a>Exemple de code C#
@@ -263,15 +264,14 @@ Vous trouverez un exemple d’application C# qui appelle cette version d’Analy
 Dans cet article, vous avez vu les concepts et le flux de travail d’analyse des sentiments à l’aide de l’API Analyse de texte dans Azure Cognitive Services. En résumé :
 
 + L’[API Analyse des sentiments](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9) est disponible pour certaines langues.
-+ Les documents JSON figurant dans le corps de la requête incluent un ID, un texte et un code de langue.
-+ La requête POST s’effectue sur un point de terminaison `/sentiment`, à l’aide [d’une clé d’accès et d’un point de terminaison](text-analytics-how-to-access-key.md) personnalisés valides pour votre abonnement.
++ Les documents JSON figurant dans le corps de la demande incluent un ID, un texte et un code de langue.
++ La requête POST s’effectue sur un point de terminaison `/sentiment`, à l’aide [d’une clé d’accès et d’un point de terminaison](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) personnalisés valides pour votre abonnement.
 + La sortie de réponse, qui se compose d’un score de sentiment pour chaque ID de document, peut être diffusée vers n’importe quelle application qui accepte JSON, par exemple Excel et Power BI, pour n’en citer que quelques-unes.
 
-## <a name="see-also"></a>Voir aussi 
+## <a name="see-also"></a>Voir aussi
 
- [Vue d’ensemble d’Analyse de texte](../overview.md)  
- [Questions fréquentes (FAQ)](../text-analytics-resource-faq.md)</br>
- [Page produit d’Analyse de texte](//go.microsoft.com/fwlink/?LinkID=759712) 
+ [Vue d’ensemble Analyse de texte](../overview.md) [Questions fréquentes (FAQ)](../text-analytics-resource-faq.md)</br>
+ [Page produit d’Analyse de texte](//go.microsoft.com/fwlink/?LinkID=759712)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

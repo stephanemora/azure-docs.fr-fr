@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : traduire une entrée vocale avec C# (UWP) - Services Speech'
+title: 'Démarrage rapide : traduire une entrée vocale avec C# (UWP) - Service Speech'
 titleSuffix: Azure Cognitive Services
 description: Dans ce guide de démarrage rapide, vous allez créer une application UWP (plateforme Windows universelle) simple pour capturer les paroles de l’utilisateur, les traduire dans une autre langue et générer le texte à la ligne de commande. Ce guide est conçu pour les utilisateurs de Windows.
 services: cognitive-services
@@ -9,18 +9,19 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.date: 07/23/2019
 ms.author: erhopf
-ms.openlocfilehash: dafcbd6bbe7f542d4eabc6b7cf858ac4871caae8
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.topic: quickstart
+ms.openlocfilehash: 813edbea0548a5cac9532750a450de08bd238028
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68404907"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68640019"
 ---
 # <a name="quickstart-translate-speech-with-the-speech-sdk-for-c-uwp"></a>Démarrage rapide : traduire une entrée vocale à l’aide du SDK Speech pour C# (UWP)
 
 Des guides de démarrage rapide sont également disponibles pour la [reconnaissance vocale](quickstart-csharp-uwp.md), la [traduction vocale](quickstart-text-to-speech-csharp-uwp.md) et [l’assistant virtuel « voice-first »](quickstart-virtual-assistant-csharp-uwp.md).
 
-Dans ce guide de démarrage rapide, vous allez créer une application UWP (plateforme Windows universelle) simple qui capture les paroles de l’utilisateur à partir du microphone de votre ordinateur, les traduit, puis transcrit le texte traduit à la ligne de commande en temps réel. Cette application est conçue pour fonctionner sur Windows 64 bits et est générée avec le [package NuGet du SDK Speech](https://aka.ms/csspeech/nuget) et Microsoft Visual Studio 2017.
+Dans ce guide de démarrage rapide, vous allez créer une application UWP (plateforme Windows universelle) simple qui capture les paroles de l’utilisateur à partir du microphone de votre ordinateur, les traduit, puis transcrit le texte traduit à la ligne de commande en temps réel. Cette application est conçue pour fonctionner sur Windows 64 bits, et est générée avec le [package NuGet du Kit de développement logiciel (SDK) Speech](https://aka.ms/csspeech/nuget) et Microsoft Visual Studio 2017 ou version ultérieure.
 
 Pour obtenir la liste complète des langues disponibles pour la traduction vocale, consultez [Prise en charge linguistique](language-support.md).
 
@@ -31,7 +32,7 @@ Pour obtenir la liste complète des langues disponibles pour la traduction vocal
 
 Ce démarrage rapide nécessite :
 
-* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
+* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) ou version ultérieure
 * Clé d’abonnement Azure pour le service Speech. [Vous pouvez en obtenir une gratuitement](get-started.md).
 
 ## <a name="create-a-visual-studio-project"></a>Créer un projet Visual Studio

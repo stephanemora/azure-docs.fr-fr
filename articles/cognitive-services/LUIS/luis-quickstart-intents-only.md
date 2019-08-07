@@ -1,5 +1,5 @@
 ---
-title: Prédire les intentions
+title: Prédire les intentions - LUIS
 titleSuffix: Azure Cognitive Services
 description: Dans ce tutoriel, vous allez créer une application personnalisée qui prédit l’intention d’un utilisateur. Cette application est le type d’application LUIS le plus simple, car elle n’extrait pas divers éléments de données du texte de l’énoncé tels que les adresses e-mail ou les dates.
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 07/16/2019
 ms.author: diberry
-ms.openlocfilehash: 534aa678df69a4ef71296005922fa59bbe7bbcfa
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 249ac689f855d175fa5df7cc5fed9438c0873289
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68277578"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560376"
 ---
 # <a name="tutorial-build-luis-app-to-determine-user-intentions"></a>Didacticiel : Générer une application LUIS pour déterminer les intentions d’un utilisateur
 

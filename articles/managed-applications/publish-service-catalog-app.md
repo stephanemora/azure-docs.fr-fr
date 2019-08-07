@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.date: 10/04/2018
 ms.author: tomfitz
-ms.openlocfilehash: dc86943924cd0c47c465e9d3bac4ca91b73a3ff5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bf6ae32a61504dc344e140a0e27c5a17b5422073
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66171550"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68609876"
 ---
 # <a name="create-and-publish-a-managed-application-definition"></a>Créer et publier une définition d’application gérée
 
@@ -85,20 +85,20 @@ Ajoutez le code JSON suivant à votre fichier. Il définit les paramètres pour 
 
 Enregistrez le fichier mainTemplate.json.
 
-## <a name="create-the-user-interface-definition"></a>Créer la définition d’interface utilisateur
+## <a name="defining-your-create-experience-using-createuidefinitionjson"></a>Définition de votre expérience de création à l’aide de CreateUiDefinition.json
 
-Le portail Azure utilise le fichier **createUiDefinition.json** afin de générer l’interface utilisateur pour les utilisateurs qui créent l’application managée. Vous déterminez la façon dont les utilisateurs fournissent une entrée pour chaque paramètre. Vous pouvez utiliser des options comme un sélecteur de liste déroulante, une zone de texte, une zone de mot de passe et d’autres outils de saisie. Pour en savoir plus sur la création d’un fichier de définition de l’interface utilisateur pour une application gérée, consultez [Prise en main de CreateUiDefinition](create-uidefinition-overview.md).
+En tant qu’éditeur, vous définissez votre expérience de création à l’aide du fichier **createUiDefinition.json**, qui génère l’interface pour les utilisateurs qui créent des applications managées. Vous définissez la manière dont les utilisateurs fournissent une entrée pour chaque paramètre à l’aide des [éléments de contrôle] (create-uidefinition-elements.md), notamment les listes déroulantes, les zones de texte et les zones de mot de passe.
 
-Créez un fichier nommé **createUiDefinition.json**. Le nom respecte la casse.
+Créez un fichier **createUiDefinition.json** (ce nom doit respecter la casse).
 
-Ajoutez le code JSON suivant au fichier.
+Ajoutez le code de démarrage JSON suivant au fichier et enregistrez-le.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json#",
-    "handler": "Microsoft.Compute.MultiVm",
-    "version": "0.1.2-preview",
-    "parameters": {
+   "$schema": "https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json#",
+   "handler": "Microsoft.Azure.CreateUIDef",
+   "version": "0.1.2-preview",
+   "parameters": {
         "basics": [
             {}
         ],
@@ -139,10 +139,9 @@ Ajoutez le code JSON suivant au fichier.
             "location": "[location()]"
         }
     }
-}
 ```
 
-Enregistrez le fichier createUiDefinition.json.
+Pour en savoir plus, consultez la page [Prise en main de CreateUiDefinition](create-uidefinition-overview.md).
 
 ## <a name="package-the-files"></a>Empaqueter les fichiers
 

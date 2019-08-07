@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Personnaliser l’assistant virtuel « voice-first » (préversion), C# (UWP) - Services Speech'
+title: 'Démarrage rapide : Personnaliser l’assistant virtuel « voice-first » (préversion), C# (UWP) - Service Speech'
 titleSuffix: Azure Cognitive Services
 description: Dans cet article, vous créez une application UWP (plateforme Windows universelle) C# en utilisant le kit SDK Speech de Cognitive Services. Vous connectez votre application cliente à un bot Bot Framework existant configuré pour utiliser le canal Direct Line Speech. L’application est créée avec le package NuGet du kit SDK Speech et Microsoft Visual Studio 2017.
 services: cognitive-services
@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: travisw
-ms.openlocfilehash: 22c18b573e7107163f858c79956ca6f5380f6834
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 6d88bcc6d9d2c2e46ef3a3cb841c9268a544e37c
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67604972"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68609691"
 ---
 # <a name="quickstart-create-a-voice-first-virtual-assistant-with-the-speech-sdk-uwp"></a>Démarrage rapide : Créer un assistant virtuel « voice-first » avec le SDK Speech, UWP
 
 Des guides de démarrage rapide sont également disponibles pour la [reconnaissance vocale](quickstart-csharp-uwp.md), la [synthèse vocale](quickstart-text-to-speech-csharp-uwp.md) et la [traduction vocale](quickstart-translate-speech-uwp.md).
 
-Dans cet article, vous allez développer une application UWP (plateforme Windows universelle) C# en utilisant le [SDK Speech](speech-sdk.md). Le programme se connecte à un bot existant configuré pour procurer une expérience de l’assistant virtuel « voice-first » à partir de l’application cliente. L’application est créée avec le [package NuGet du kit SDK Speech](https://aka.ms/csspeech/nuget) et Microsoft Visual Studio 2017 (toute édition).
+Dans cet article, vous allez développer une application UWP (plateforme Windows universelle) C# en utilisant le [SDK Speech](speech-sdk.md). Le programme se connecte à un bot existant configuré pour procurer une expérience de l’assistant virtuel « voice-first » à partir de l’application cliente. L’application est créée avec le [package NuGet du SDK Speech](https://aka.ms/csspeech/nuget) et Microsoft Visual Studio 2017 ou version ultérieure (toute édition).
 
 > [!NOTE]
 > La plateforme Windows universelle vous permet de développer des applications qui s’exécutent sur n’importe quel appareil prenant en charge Windows 10, notamment des PC, Xbox, Surface Hub et d’autres appareils.
@@ -30,7 +30,7 @@ Dans cet article, vous allez développer une application UWP (plateforme Windows
 
 Ce démarrage rapide nécessite :
 
-* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
+* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) ou version ultérieure
 * Clé d’abonnement Azure pour les services Speech. [Obtenez-en un gratuitement](get-started.md) ou créez-le sur le [portail Azure](https://portal.azure.com).
 * Un bot existant configuré avec le [canal Direct Line Speech ](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
 

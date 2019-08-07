@@ -8,13 +8,13 @@ ms.topic: tutorial
 author: stevestein
 ms.author: sstein
 ms.reviewer: v-masebo
-ms.date: 02/08/2019
-ms.openlocfilehash: bbd009d127eecc4df357fc1073ba4055d13a8b2c
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.date: 07/29/2019
+ms.openlocfilehash: c6ad1cd7af02f281c53ece23a018f8b5ec0c7da9
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569016"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68640940"
 ---
 # <a name="tutorial-design-a-relational-database-in-a-single-database-within-azure-sql-database-using-ssms"></a>Didacticiel : Concevoir une base de données relationnelle dans une base de données unique au sein d’Azure SQL Database avec SSMS
 
@@ -30,6 +30,8 @@ Azure SQL Database est une solution DBaaS relationnelle dans Microsoft Cloud (A
 
 *Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
+> [!TIP]
+> Le module Microsoft Learn suivant vous aide à apprendre gratuitement comment [Développer et configurer une application ASP.Net qui interroge une base de données Azure SQL Database](https://docs.microsoft.com/learn/modules/develop-app-that-queries-azure-sql/), ce qui comprend la création d’une base de données simple.
 > [!NOTE]
 > Pour les besoins de ce tutoriel, nous utilisons une base de données unique. Vous pouvez également utiliser une base de données mise en pool élastique ou une base de données d’instance située dans une instance managée. Pour la connexion à une instance gérée, consultez ces guides de démarrage rapide des instances gérées : [Démarrage rapide : Configurer la machine virtuelle Azure pour qu’elle se connecte à Azure SQL Database Managed Instance](sql-database-managed-instance-configure-vm.md) et [Démarrage rapide : Configurer une connexion point à site sur Azure SQL Database Managed Instance à partir d’un emplacement local](sql-database-managed-instance-configure-p2s.md).
 

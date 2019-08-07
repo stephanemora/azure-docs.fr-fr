@@ -3,19 +3,19 @@ title: Déontologie et utilisation responsable - Personalizer
 titleSuffix: Azure Cognitive Services
 description: Ces instructions ont pour but de vous aider à implémenter une personnalisation de façon à ce que votre entreprise et votre service inspirent confiance. Prenez le temps de faire des recherches, d’en savoir plus et de délibérer sur l’impact de la personnalisation sur la vie des gens. En cas de doute, demandez conseil.
 services: cognitive-services
-author: edjez
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 06/12/2019
-ms.author: edjez
-ms.openlocfilehash: ceb32e9e378ba1e58db11e55be8bd551faf08c2a
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.author: diberry
+ms.openlocfilehash: f565d95f8270612a8d83dd44a1e1bb895d1a4373
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67722393"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68662788"
 ---
 # <a name="guidelines-for-responsible-implementation-of-personalizer"></a>Instructions pour une implémentation responsable de Personalizer
 
@@ -183,7 +183,7 @@ Pensez à créer des méthodes permettant aux membres d’équipe, aux utilisate
 
 Toute personne réfléchissant aux effets secondaires de l’utilisation d’une technologie est limité par son point de vue et son vécu. Étendez la gamme d’opinions disponibles en introduisant des voix plus diversifiées dans vos équipes, utilisateurs ou comités consultatifs, en faisant en sorte de les encourager à partager leur avis. Utilisez des supports de formation afin de développer les connaissances de votre équipe dans ce domaine et de favoriser la discussion de sujets complexes et sensibles.
 
-Traitez les tâches relatives à une utilisation responsable comme toute autre tâche transversale dans le cycle de vie d’application, telles que celles liées à l’expérience utilisateur, à la sécurité ou à Devops. Ces tâches et leurs exigences ne doivent pas être prises en considération à posteriori. L’utilisation responsable doit être discutée et vérifiée tout au long du cycle de vie d’application.
+Traitez les tâches relatives à une utilisation responsable comme toute autre tâche transversale dans le cycle de vie d’application, telles que celles liées à l’expérience utilisateur, à la sécurité ou à DevOps. Ces tâches et leurs exigences ne doivent pas être prises en considération à posteriori. L’utilisation responsable doit être discutée et vérifiée tout au long du cycle de vie d’application.
  
 ## <a name="questions-and-feedback"></a>Questions et commentaires
 

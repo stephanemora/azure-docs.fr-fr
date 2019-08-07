@@ -6,13 +6,13 @@ ms.author: tarcher
 ms.service: jenkins
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 06/18/2019
-ms.openlocfilehash: f5f74ebeb803a5c493f1dbedb6501adf3a88c215
-ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
+ms.date: 07/31/2019
+ms.openlocfilehash: 10ff8f4645ee1e7023c96174236243a3b85de938
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67785666"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68679120"
 ---
 <!-- GMinchAQ, 06/18/19 -->
 
@@ -175,18 +175,18 @@ Dans cette section, vous allez préparer le serveur Jenkins afin qu’il exécut
 * Installer l’interface CLI de Helm et Kubernetes
 * Ajouter les informations d’identification
 
-### <a name="install-plugins"></a>Installer les plug-ins
+### <a name="install-plug-ins"></a>Installer les plug-ins
 
 1. Connectez-vous à votre serveur Jenkins. Choisissez**Manage Jenkins > Manage Plugins** (Gérer Jenkins > Gérer les plug-ins).
-2. Sous l’onglet **Available** (Disponibles), sélectionnez les plug-ins suivants :
+2. Sous l’onglet **Disponibles**, sélectionnez les plug-ins suivants :
     * [Azure Dev Spaces](https://plugins.jenkins.io/azure-dev-spaces)
     * [Azure Container Registry Tasks](https://plugins.jenkins.io/azure-container-registry-tasks)
     * [Environment Injector](https://plugins.jenkins.io/envinject)
     * [GitHub Integration](https://plugins.jenkins.io/github-pullrequest)
 
-    Si ces plug-ins ne sont pas listés, examinez l’onglet **Installed** (Installés) pour voir s’ils sont déjà installés.
+    Si ces plug-ins ne sont pas listés, examinez l’onglet **Installés** pour voir s’ils sont déjà installés.
 
-3. Pour installer les plug-ins, choisissez **Download now and install after restart** (Télécharger maintenant et installer après le redémarrage).
+3. Pour installer les plug-ins, choisissez **Télécharger maintenant et installer après le redémarrage**.
 
 4. Redémarrez votre serveur Jenkins pour terminer l’installation.
 

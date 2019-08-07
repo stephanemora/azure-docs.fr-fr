@@ -12,12 +12,12 @@ ms.date: 05/21/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ecff60d1a1f808c4021476d136fe014175451672
-ms.sourcegitcommit: 0ebc62257be0ab52f524235f8d8ef3353fdaf89e
+ms.openlocfilehash: c890288539a8abebe688ca4571ffa6c152e992ee
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67723964"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68694057"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Didacticiel : Ajouter une application locale pour un accès à distance via le service Proxy d'application d'Azure Active Directory
 
@@ -85,8 +85,6 @@ Ouvrez les ports suivants pour le trafic **sortant**.
    | 443 | Toutes les communications sortantes avec le service de proxy d’application |
 
 Si votre pare-feu régule le trafic en fonction des utilisateurs d'origine, ouvrez également les ports 80 et 443 au trafic provenant des services Windows exécutés en tant que service réseau.
-
-Une version plus ancienne du connecteur est peut-être déjà installée si vous utilisez déjà le service Proxy d'application. Suivez ce tutoriel pour installer la dernière version du connecteur. Les versions antérieures à la version 1.5.132.0 requièrent également l'ouverture des ports suivants : 5671, 8080, 9090-9091, 9350, 9352, 10100–10120.
 
 ### <a name="allow-access-to-urls"></a>Autoriser l'accès à des URL
 
@@ -180,7 +178,7 @@ Maintenant que vous avez préparé votre environnement et installé un connecteu
 
     | Champ | Description |
     | :---- | :---------- |
-    | **Expiration de l'application principale** | Définissez cette valeur sur **Long** uniquement si l'authentification et la connexion de votre application sont lentes. |
+    | **Expiration de l'application principale** | Définissez cette valeur sur **Long** uniquement si l'authentification et la connexion de votre application sont lentes. Par défaut, le délai d’expiration de l’application principale est de 85 secondes. Si cette valeur est trop importante, le délai d’expiration de l’application principale passe à 180 secondes. |
     | **Utiliser un cookie HTTP-only** | Définissez cette valeur sur **Oui** pour que les cookies du service Proxy d'application incluent un indicateur HTTPOnly dans l'en-tête de réponse HTTP. Si vous utilisez les services Bureau à distance, définissez cette valeur sur **Non**.|
     | **Utiliser un cookie sécurisé**| Définissez cette valeur sur **Oui** pour transmettre les cookies sur un canal sécurisé, comme une requête HTTPS chiffrée.
     | **Utiliser un cookie persistant**| Conservez cette valeur sur **Non**. Utilisez ce paramètre uniquement pour les applications qui ne peuvent pas partager de cookies entre les processus. Pour plus d’informations sur les paramètres de cookies, consultez [Paramètres de cookies pour l’accès aux applications locales dans Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-cookie-settings).

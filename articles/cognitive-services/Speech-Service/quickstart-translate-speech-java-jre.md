@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Traduction vocale, Java (Windows, Linux) - Services Speech'
+title: 'Démarrage rapide : Traduction vocale, Java (Windows, Linux) - Service Speech'
 titleSuffix: Azure Cognitive Services
 description: Dans ce guide de démarrage rapide, vous allez créer une application Java simple pour capturer les paroles de l’utilisateur, les traduire dans une autre langue et générer le texte à la ligne de commande. Ce guide est conçu pour les utilisateurs de Windows et Linux.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 68567e673cf6fb53b8d9b6f7b9ef96aee691ac3a
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: cbb86dd4b24cb325b8ea6708ebc2ffc89a697757
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67604952"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68553393"
 ---
 # <a name="quickstart-translate-speech-with-the-speech-sdk-for-java"></a>Démarrage rapide : Traduire une entrée vocale à l’aide du kit de développement logiciel (SDK) Speech pour Java
 
