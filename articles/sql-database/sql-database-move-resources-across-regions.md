@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 06/25/2019
-ms.openlocfilehash: 26d3377767a99a7291e73522152d4c6dbf389067
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: 2158d4120445de4c62461fb89555a1b73bc1e2b4
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68445107"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567170"
 ---
 # <a name="how-to-move-azure-sql-resources-to-another-region"></a>Guide pratique pour déplacer des ressources Azure SQL vers une autre région
 
@@ -45,7 +44,7 @@ Cet article fournit un flux de travail général pour déplacer des ressources v
 
 ## <a name="move-single-database"></a>Déplacer une base de données unique
 
-### <a name="verify-prerequisites"></a>Vérifier les prérequis 
+### <a name="verify-prerequisites"></a>Vérifier la configuration requise 
 
 1. Créez un serveur logique cible pour chaque serveur source. 
 1. Configurez le pare-feu avec les exceptions appropriées à l’aide de [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md).  
@@ -93,7 +92,7 @@ Une fois le déplacement terminé, supprimez les ressources dans la région sour
 
 ## <a name="move-elastic-pools"></a>Déplacer les pools élastiques
 
-### <a name="verify-prerequisites"></a>Vérifier les prérequis 
+### <a name="verify-prerequisites"></a>Vérifier la configuration requise 
 
 1. Créez un serveur logique cible pour chaque serveur source. 
 1. Configurez le pare-feu avec les exceptions appropriées à l’aide de [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md). 
@@ -145,7 +144,7 @@ Une fois le déplacement terminé, supprimez les ressources dans la région sour
 
 ## <a name="move-managed-instance"></a>Déplacer l’instance managée
 
-### <a name="verify-prerequisites"></a>Vérifier les prérequis
+### <a name="verify-prerequisites"></a>Vérifier la configuration requise
  
 1. Pour chaque instance managée source, créez une instance managée cible de la même taille dans la région cible.  
 1. Configurez le réseau pour une instance managée. Pour plus d’informations, consultez [Configuration réseau](sql-database-howto-managed-instance.md#network-configuration).

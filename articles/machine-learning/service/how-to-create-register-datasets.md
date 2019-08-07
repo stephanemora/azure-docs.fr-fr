@@ -11,12 +11,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 05/21/2019
-ms.openlocfilehash: 765ec8291ba873c6b200cf330d82e6e2ab53357d
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: 473bf87e1961c3c7687b0867885adef40c14d71f
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68423117"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68694324"
 ---
 # <a name="create-and-access-datasets-preview-in-azure-machine-learning"></a>Créer des jeux de données et y accéder (préversion) dans Azure Machine Learning
 
@@ -30,7 +30,7 @@ Avec les jeux de données Azure Machine Learning, vous pouvez :
 
 * **Accéder facilement aux données lors de l’entraînement du modèle** sans vous soucier de la chaîne de connexion ou du chemin de données.
 
-* **Partager des données et collaborer** avec les autres utilisateurs.
+* **Partager des données et collaborer** avec les autres utilisateurs
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -48,10 +48,10 @@ Pour créer et utiliser des jeux de données, vous avez besoin des éléments su
 ## <a name="data-formats"></a>Formats de données
 
 Vous pouvez créer un jeu de données Azure Machine Learning à partir des formats suivants :
-+ [delimited](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset#from-delimited-files-path--separator------header--promoteheadersbehavior-all-files-have-same-headers--3---encoding--fileencoding-utf8--0---quoting-false--infer-column-types-true--skip-rows-0--skip-mode--skiplinesbehavior-no-rows--0---comment-none--include-path-false--archive-options-none-)
-+ [json](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#from-json-files-path--encoding--fileencoding-utf8--0---flatten-nested-arrays-false--include-path-false-)
-+ [Excel](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#from-excel-files-path--sheet-name-none--use-column-headers-false--skip-rows-0--include-path-false--infer-column-types-true-)
-+ [Parquet](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#from-parquet-files-path--include-path-false-)
++ [delimited](/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#from-delimited-files-path--separator------header--promoteheadersbehavior-all-files-have-same-headers--3---encoding--fileencoding-utf8--0---quoting-false--infer-column-types-true--skip-rows-0--skip-mode--skiplinesbehavior-no-rows--0---comment-none--include-path-false--archive-options-none--partition-format-none-)
++ [json](/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#from-json-files-path--encoding--fileencoding-utf8--0---flatten-nested-arrays-false--include-path-false--partition-format-none-)
++ [Excel](/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#from-excel-files-path--sheet-name-none--use-column-headers-false--skip-rows-0--include-path-false--infer-column-types-true--partition-format-none-)
++ [Parquet](/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#from-parquet-files-path--include-path-false--partition-format-none-)
 + [DataFrame Pandas](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#from-pandas-dataframe-dataframe--path-none--in-memory-false-)
 + [SQL query](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#from-sql-query-data-source--query-)
 + [binary](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#from-binary-files-path-)
@@ -62,7 +62,7 @@ En créant un jeu de données, vous créez une référence à l’emplacement de
 
 ### <a name="create-from-local-files"></a>Créer à partir de fichiers locaux
 
-Chargez des fichiers à partir de votre ordinateur local en spécifiant le chemin d’accès du fichier ou dossier à l’aide de la méthode [`auto_read_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset(class)?view=azure-ml-py#auto-read-files-path--include-path-false-), à partir de la classe `Dataset`.  Cette méthode effectue les étapes suivantes, sans que vous ayez à spécifier le type de fichier ou des arguments d’analyse :
+Chargez des fichiers à partir de votre ordinateur local en spécifiant le chemin d’accès du fichier ou dossier à l’aide de la méthode [`auto_read_files()`](/python/api/azureml-core/azureml.core.dataset(class)?view=azure-ml-py#auto-read-files-path--include-path-false--partition-format-none-), à partir de la classe `Dataset`.  Cette méthode effectue les étapes suivantes, sans que vous ayez à spécifier le type de fichier ou des arguments d’analyse :
 
 * Déduire et définir le délimiteur.
 * Ignore les enregistrements vides en haut du fichier.

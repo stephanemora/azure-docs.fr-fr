@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 07/18/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9d2f06b054e433c0320019548c56539d102beaad
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 7193b994e5749965542746627ef3de2cfe090fa3
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68386726"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561578"
 ---
 # <a name="set-up-security-info-to-use-a-security-key-preview"></a>Configurer des informations de sécurité pour utiliser une clé de sécurité (préversion)
 
@@ -30,7 +30,7 @@ Vous pouvez utiliser des clés de sécurité comme méthode de connexion avec mo
 
 ## <a name="what-is-a-security-key"></a>Qu’est-ce qu’une clé de sécurité ?
 
-Nous prenons actuellement en charge plusieurs conceptions et fournisseurs de clés de sécurité utilisant la méthode d’authentification par mot de passe [Fast Identity Online (Rex) (FIDO2)](https://fidoalliance.org/fido2/). Cette méthode vous permet de vous connecter une seule fois à votre compte professionnel ou scolaire pour accéder à toutes les ressources cloud de votre organisation et aux navigateurs pris en charge.
+Nous prenons actuellement en charge plusieurs conceptions et fournisseurs de clés de sécurité qui utilisent les protocoles d’authentification sans mot de passe (FIDO2) [ Fast Indentity Online (FIDO)](https://fidoalliance.org/fido2/). Ces clés vous permettent de vous connecter à votre compte professionnel ou scolaire pour accéder à vos ressources informatiques d’organisation situées sur un support et un navigateur web pris en charge.
 
 Votre administrateur ou votre organisation vous fournit une clé de sécurité si elle en a besoin pour votre compte professionnel ou scolaire. Il existe différents types de clés de sécurité que vous pouvez utiliser, par exemple une clé USB que vous connectez à votre appareil ou une clé NFC que vous connectez à un lecteur NFC. Vous pouvez obtenir plus d’informations sur votre clé de sécurité, notamment son type, dans la documentation du fabricant.
 
@@ -39,17 +39,17 @@ Votre administrateur ou votre organisation vous fournit une clé de sécurité s
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-Avant de commencer à inscrire votre clé de sécurité, vérifiez les éléments suivants :
+Avant de pouvoir inscrire votre clé de sécurité, les conditions suivantes doivent être remplies :
 
 - Votre administrateur a activé cette fonctionnalité pour une utilisation au sein de votre organisation.
 
-- Vous êtes sur un appareil exécutant au moins Windows 10 version 1903 et utilisant le navigateur Microsoft Edge.
+- Vous êtes sur un appareil qui a la mise à jour Windows du 10 mai 2019 et qui utilise un navigateur pris en charge.
 
-- Vous avez reçu une clé de sécurité physique de votre administrateur ou de votre organisation. Votre clé de sécurité doit être à la fois conforme à FIDO2 et à Microsoft. Si vous avez des questions sur votre clé de sécurité et pour vérifier si elle est compatible, contactez le support technique de votre organisation.
+- Vous avez reçu une clé de sécurité physique approuvée par votre administrateur ou par votre organisation. Votre clé de sécurité doit être à la fois conforme à FIDO2 et à Microsoft. Si vous avez des questions sur votre clé de sécurité et pour vérifier si elle est compatible, contactez le support technique de votre organisation.
 
 ## <a name="register-your-security-key"></a>Inscrire votre clé de sécurité
 
-Vous devez préparer votre clé de sécurité pour qu’elle fonctionne avec Windows et un code confidentiel unique pour pouvoir vous connecter à votre compte professionnel ou scolaire à l’aide de la clé.
+Vous devez créer votre clé de sécurité et lui associer un PIN unique avant de pouvoir vous connecter à votre compte professionnel ou scolaire via cette clé. Vous pouvez avoir jusqu’à 10 clés enregistrées avec votre compte. 
 
 1. Accédez à la page **Mon profil** à l’adresse https://myprofile.microsoft.com et connectez-vous si vous ne l’avez pas déjà fait.
 
@@ -96,7 +96,7 @@ Vous devez préparer votre clé de sécurité pour qu’elle fonctionne avec Win
 
 ## <a name="delete-a-security-key-from-your-security-info"></a>Supprimer une clé de sécurité de vos informations de sécurité
 
-Si vous ne souhaitez plus utiliser votre clé de sécurité, vous pouvez la supprimer de vos informations de sécurité. Bien que cela empêche l’utilisation de la clé de sécurité avec votre compte professionnel ou scolaire, la clé de sécurité continue de stocker vos données et informations d’identification. Pour supprimer vos données et vos informations d’identification de la clé de sécurité elle-même, vous devez suivre les instructions de la section [Réinitialiser une clé de sécurité compatible Microsoft](#reset-your-security-key) dans cet article.
+Si vous avez perdu votre clé de sécurité ou que vous ne souhaitez plus l’utiliser, vous pouvez la supprimer de vos informations de sécurité. Bien que cela empêche l’utilisation de la clé de sécurité avec votre compte professionnel ou scolaire, la clé de sécurité continue de stocker vos données et informations d’identification. Pour supprimer vos données et vos informations d’identification de la clé de sécurité elle-même, vous devez suivre les instructions de la section [Réinitialiser une clé de sécurité compatible Microsoft](#reset-your-security-key) dans cet article.
 
 1. Sélectionnez le lien **Supprimer** de la clé de sécurité à supprimer.
 
@@ -105,7 +105,7 @@ Si vous ne souhaitez plus utiliser votre clé de sécurité, vous pouvez la supp
     Votre clé de sécurité est supprimée et vous ne pouvez plus l’utiliser pour vous connecter à votre compte professionnel ou scolaire.
 
 >[!Important]
->Si vous avez supprimé cette clé de sécurité par erreur, vous devez l’inscrire à nouveau en suivant les instructions de la section [Inscrire votre clé de sécurité](#register-your-security-key) dans cet article.
+>Si vous avez supprimé cette clé de sécurité par erreur, vous devez l’enregistrer à nouveau en suivant les instructions de la section [Comment enregistrer une clé de sécurité](#register-your-security-key) dans cet article.
 
 ## <a name="manage-your-security-key-settings-from-windows-settings"></a>Gérer vos paramètres de clé de sécurité à partir des paramètres Windows
 
@@ -138,25 +138,15 @@ Vous pouvez créer un nouveau code confidentiel pour votre clé de sécurité.
 
 1. Ouvrez l’application Paramètres Windows, sélectionnez **Comptes**, **Options de connexion**, **Clé de sécurité**, puis **Gérer**.
 
-2. Insérez votre clé de sécurité dans le port USB ou connectez votre lecteur NFC pour vérifier votre identité.5
+2. Insérez votre clé de sécurité dans le port USB ou connectez votre lecteur NFC pour vérifier votre identité.
 3. Sélectionnez **Ajouter** dans la zone **Security Key PIN (Code confidentiel de la clé de sécurité)** , tapez et confirmez le nouveau code confidentiel de la clé de sécurité, puis sélectionnez **OK**.
 
-    La clé de sécurité est mise à jour avec le nouveau code confidentiel de clé de sécurité à utiliser avec votre compte professionnel ou scolaire. Si vous décidez à nouveau de modifier votre code confidentiel, vous pouvez sélectionner le bouton **Modifier**.6
+     La clé de sécurité est mise à jour avec le nouveau code confidentiel de clé de sécurité à utiliser avec votre compte professionnel ou scolaire. Si vous décidez à nouveau de modifier votre code confidentiel, vous pouvez sélectionner le bouton **Modifier**.
 4. Sélectionnez **Fermer** pour fermer l’écran **Gérer**.
 
 ## <a name="additional-security-info-methods"></a>Autres méthodes d’informations de sécurité
 
-Vous avez la possibilité de choisir la façon d’être contacté par votre organisation pour la vérification de votre identité, en fonction de ce que vous essayez de faire. Ces options sont les suivantes :
-
-- **Application d’authentification.** Téléchargez et utilisez une application d’authentification pour obtenir une notification d’approbation ou un code d’approbation généré de manière aléatoire pour la réinitialisation du mot de passe ou la vérification en deux étapes. Pour obtenir des instructions détaillées sur la configuration et l’utilisation de l’application Microsoft Authenticator, consultez [Configurer les informations de sécurité pour utiliser une application d’authentification](security-info-setup-auth-app.md).
-
-- **SMS sur appareil mobile.** Entrez votre numéro de téléphone mobile et recevez un code par SMS, à utiliser pour la vérification en deux étapes ou la réinitialisation de mot de passe. Pour obtenir des instructions détaillées sur la vérification de votre identité par SMS, consultez [Configurer les informations de sécurité pour utiliser la messagerie texte (SMS)](security-info-setup-text-msg.md).
-
-- **Appel sur téléphone mobile ou téléphone professionnel.** Entrez votre numéro de téléphone mobile et recevez un appel pour la réinitialisation de mot de passe ou la vérification en deux étapes. Pour des instructions pas à pas sur la façon de vérifier votre identité par téléphone, consultez [Configurer les informations de sécurité pour utiliser les appels téléphoniques](security-info-setup-phone-number.md).
-
-- **Adresse e-mail.** Entrez votre adresse e-mail professionnelle ou scolaire pour recevoir un e-mail de réinitialisation de mot de passe. Cette option n’est pas disponible pour la vérification en deux étapes. Pour des instructions pas à pas sur la façon de configurer votre e-mail, consultez [Configurer les informations de sécurité pour utiliser l’e-mail](security-info-setup-email.md).
-
-- **Questions de sécurité.** Répondez à certaines questions de sécurité créées par votre administrateur pour votre organisation. Cette option est uniquement disponible pour la réinitialisation du mot de passe et non pour la vérification en deux étapes. Pour des instructions pas à pas sur la façon de configurer vos questions de sécurité, consultez l’article [Configurer les informations de sécurité pour utiliser les questions de sécurité](security-info-setup-questions.md).
+Pour enregistrer une clé de sécurité, vous devez avoir au moins une méthode de vérification de sécurité supplémentaire enregistrée. Pour plus d’informations, consultez la [Section vue d’ensemble](security-info-add-update-methods-overview.md). 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -9,14 +9,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 07/24/2019
+ms.date: 07/26/2019
 ms.author: mbullwin
-ms.openlocfilehash: c086f94a161853cba3a9ed2b98f13ea17b90dd20
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 662594f3ef0e4d5598b52cb07006b513e7f3c35a
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68478815"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564980"
 ---
  # <a name="application-insights-overriding-default-endpoints"></a>Remplacer les points de terminaison par défaut d’Application Insights
 
@@ -158,6 +158,14 @@ Actuellement, seules les régions [Azure Government](https://docs.microsoft.com/
 | Azure Government | Canal de télémétrie |`https://dc.applicationinsights.us/v2/track` |
 | Azure Government | QuickPulse (Live Metrics) |`https://quickpulse.applicationinsights.us/QuickPulseService.svc` |
 | Azure Government | Profile Query |`https://dc.applicationinsights.us/api/profiles/{0}/appId` |
+
+Si vous utilisez actuellement l’[Application Insights API REST](https://dev.applicationinsights.io/
+), normalement accessible via « api.applicationinsights.io », vous aurez besoin d’utiliser un point de terminaison local à votre région :
+
+|Région |  Nom du point de terminaison | Valeur |
+|-----------------|:------------|:-------------|
+| Azure China | API REST | `api.applicationinsights.azure.cn` |
+| Azure Government | API REST | `api.applicationinsights.us`|
 
 > [!NOTE]
 > La supervision par extension/agent sans code pour Azure App Services **n’est pas prise en charge actuellement** dans ces régions. Dès que cette fonctionnalité sera disponible, le présent article sera mis à jour.

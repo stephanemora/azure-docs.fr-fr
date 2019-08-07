@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: reference
 ms.date: 07/22/2019
 ms.author: rwaller
-ms.openlocfilehash: 8af56d0d7c0f320e607421f12effdb9b37d5f78d
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: de6a29e1c4c102aa7d4038185c1635544ba9dfe2
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68444602"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68688791"
 ---
 # <a name="use-azure-active-directory-azure-ad-authentication-with-the-immersive-reader-service"></a>Utiliser l’authentification Azure Active Directory (Azure AD) avec le service Lecteur immersif
 
@@ -29,7 +29,7 @@ Dans les sections suivantes, vous allez utiliser l’environnement Azure Cloud S
    Select-AzSubscription -SubscriptionName <YOUR_SUBSCRIPTION>
    ```
 
-2. Ensuite, [créez une ressource de Lecteur immersif](https://docs.microsoft.com/powershell/module/az.cognitiveservices/new-azcognitiveservicesaccount?view=azps-1.8.0) avec un sous-domaine personnalisé. 
+2. Ensuite, [créez une ressource de Lecteur immersif](https://docs.microsoft.com/powershell/module/az.cognitiveservices/new-azcognitiveservicesaccount?view=azps-1.8.0) avec un sous-domaine personnalisé.
 
    >[!NOTE]
    > Le nom de sous-domaine est utilisé dans le SDK Lecteur immersif lors du lancement du lecteur avec la fonction launchAsync.
@@ -37,7 +37,7 @@ Dans les sections suivantes, vous allez utiliser l’environnement Azure Cloud S
    -SkuName peut être F0 (niveau Gratuit) ou S0 (niveau Standard, également gratuit pendant la préversion publique). Le niveau S0 a une limite de débit d’appels supérieure et aucun quota mensuel sur le nombre d’appels.
 
    -Location peut avoir une des valeurs suivantes : `eastus`, `westus`, `australiaeast`, `centralindia`, `japaneast`, `northeurope`, `westeurope`
-   
+
    -CustomSubdomainName doit être globalement unique et ne peut pas inclure de caractères spéciaux, comme : « . », « ! », « , ».
 
 
@@ -63,7 +63,7 @@ Dans les sections suivantes, vous allez utiliser l’environnement Azure Cloud S
 
    // Display the Resource info
    $resource
-   ```   
+   ```
 
 ## <a name="assign-a-role-to-a-service-principal"></a>Attribuer un rôle à un principal de service
 
@@ -83,7 +83,7 @@ Maintenant que vous disposez d’un sous-domaine personnalisé associé à votre
    $aadApp
    ```
 
-   Ici, nous capturons l’objet d’application Azure AD récemment créé dans une variable **$aadApp** pour l’utiliser à l’étape suivante.   
+   Ici, nous capturons l’objet d’application Azure AD récemment créé dans une variable **$aadApp** pour l’utiliser à l’étape suivante.
 
 2. Ensuite, vous devez [créer un principal du service](https://docs.microsoft.com/powershell/module/az.resources/new-azadserviceprincipal?view=azps-1.8.0) pour l’application Azure AD.
 
@@ -128,11 +128,11 @@ Dans cet exemple, votre mot de passe est utilisé pour authentifier le principal
    ```
 
    >[!NOTE]
-   > Le SDK Lecteur immersif utilise la propriété AccessToken du jeton, par exemple $token.AccessToken. Pour plus d’informations, consultez les [informations de référence](reference.md) du SDK et des [exemples de code](https://github.com/microsoft/immersive-reader-sdk/tree/master/samples).
+   > Le SDK Lecteur immersif utilise la propriété AccessToken du jeton, par exemple $token.AccessToken. Pour plus d’informations, consultez les [informations de référence](reference.md) du SDK et des [exemples de code](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples).
 
 Le principal du service peut également être authentifié avec un certificat. Outre le principal du service, les utilisateurs principaux sont également pris en charge en ayant des autorisations déléguées via une autre application Azure AD. Dans ce cas, au lieu de mots de passe ou de certificats, les utilisateurs sont invités à fournir une authentification à deux facteurs lors de l’acquisition des jetons.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Consulter le [didacticiel](./tutorial.md) pour voir que vous pouvez faire d’autre avec le SDK Lecteur immersif
-* Explorer le [SDK Lecteur Immersive](https://github.com/Microsoft/immersive-reader-sdk) et la [référence du SDK Lecteur immersif](./reference.md)
+* Explorer le [SDK Lecteur Immersive](https://github.com/microsoft/immersive-reader-sdk) et la [référence du SDK Lecteur immersif](./reference.md)

@@ -6,14 +6,14 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.openlocfilehash: 15c74637a2dc42ec44f582878b5505d94637cd7b
-ms.sourcegitcommit: da0a8676b3c5283fddcd94cdd9044c3b99815046
+ms.openlocfilehash: 974243da07a2570e851b7d44eac2556c201c2782
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68314221"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68678527"
 ---
-# <a name="azure-data-factory-mapping-data-flow-select-transformation"></a>Transformation de sélection (Select) de mappage de Data Flow pour Azure Data Factory
+# <a name="mapping-data-flow-select-transformation"></a>Transformation de sélection de mappage de flux de données
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
 Utilisez cette transformation pour la sélectivité de colonne (en réduisant le nombre de colonnes), pour attribuer des alias aux noms de colonnes et de flux et pour réorganiser les colonnes.
@@ -27,10 +27,7 @@ Dans le diagramme ci-dessus, la transformation de sélection (Select) se trouve 
 
 Le flux Select peut également être utilisé comme un moyen de désélectionner les colonnes à partir de votre flux de données. Par exemple, si vous avez 6 colonnes définies dans votre récepteur, mais que vous souhaitez choisir uniquement 3 colonnes spécifiques à transformer et à transmettre au récepteur, vous pouvez sélectionner uniquement ces 3 colonnes à l’aide de la transformation de sélection.
 
-> [!NOTE]
-> Vous devez désactiver « Sélectionner tout » pour sélectionner uniquement des colonnes spécifiques
-
-![Transformation de sélection (Select)](media/data-flow/select001.png "Alias Select")
+![Transformation de sélection (Select)](media/data-flow/newselect1.png "Alias Select")
 
 ## <a name="options"></a>Options
 * Le paramètre par défaut pour « Sélectionner » consiste à inclure toutes les colonnes d’entrée et de conserver ces noms d’origine. Vous pouvez appliquer un alias au flux de données en définissant le nom de la transformation de sélection (Select).
@@ -38,6 +35,23 @@ Le flux Select peut également être utilisé comme un moyen de désélectionner
 * Choisissez Skip Duplicates (Ignorer les doublons) pour éliminer les colonnes dupliquées des métadonnées d’entrée ou de sortie.
 
 ![Ignorer les doublons](media/data-flow/select-skip-dup.png "Ignorer les doublons")
+
+> [!NOTE]
+> Pour effacer les règles de mappage, cliquez sur le bouton **Réinitialiser**.
+
+## <a name="mapping"></a>Mappage
+Par défaut, la transformation de sélection mappe automatiquement toutes les colonnes, ce qui permet de transmettre toutes les colonnes entrantes au même nom sur les données de sortie. Le nom du flux de sortie configuré dans Paramètres Select définit un nouveau nom d’alias pour le flux. Si vous conservez l’ensemble Select pour le mappage automatique, vous pouvez créer un alias de l’ensemble du flux avec toutes les colonnes identiques.
+
+![Règles de transformation Select](media/data-flow/rule2.png "Mappage basé sur des règles")
+
+Si vous souhaitez créer un alias, supprimer, renommer ou réorganiser des colonnes, vous devez d’abord désactiver l’option « auto-map » (mappage automatique). Par défaut, vous verrez un filtre par défaut entré pour vous, appelé « All input columns » (toutes les colonnes d’entrée). Vous pouvez laisser ce filtre si vous souhaitez toujours autoriser toutes les colonnes entrantes à mapper pour avoir le même nom à la sortie des données.
+
+Toutefois, si vous souhaitez ajouter des filtres personnalisés, vous devez cliquer sur « Add mapping » (ajouter un mappage). Le mappage de champs vous fournit une liste de noms de colonnes entrantes et sortantes à mapper ainsi que des alias. Choisissez « Mappage basé sur des règles » pour créer des règles de critères spéciaux.
+
+## <a name="rule-based-mapping"></a>Mappage basé sur des règles
+Lorsque vous choisissez le mappage basé sur des règles, vous demandez à ADF d’évaluer votre expression correspondante pour qu’elle corresponde aux filtres de modèle entrants et de définir les noms de champs sortants. Vous pouvez ajouter n’importe quelle combinaison de mappage de champs et de mappage basé sur des règles. Les noms de champs sont ensuite générés au moment de l’exécution par ADF en fonction des métadonnées entrantes de la source. Vous pouvez afficher les noms des champs générés pendant le débogage et à l’aide du volet aperçu des données.
+
+Vous trouverez plus d’informations sur les critères spéciaux [dans la documentation du modèle de colonne](concepts-data-flow-column-pattern.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Après l’utilisation de Select pour renommer, réorganiser et attribuer des alias aux colonnes, utilisez la [transformation de récepteur Sink](data-flow-sink.md) pour placer vos données dans un magasin de données.

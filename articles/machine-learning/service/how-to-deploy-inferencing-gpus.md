@@ -10,12 +10,12 @@ ms.author: vaidyas
 author: csteegz
 ms.reviewer: larryfr
 ms.date: 07/24/2019
-ms.openlocfilehash: 520e7fe953256e4c489e4c540493d9f74dda3aef
-ms.sourcegitcommit: 5604661655840c428045eb837fb8704dca811da0
+ms.openlocfilehash: 06194537a0c0cce3a52510e6f426a9c2904387b2
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68494352"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68694344"
 ---
 # <a name="deploy-a-deep-learning-model-for-inference-with-gpu"></a>Déployer un modèle de deep learning pour une inférence avec GPU
 
@@ -25,6 +25,9 @@ L’inférence, ou notation de modèle, est la phase au cours de laquelle le mod
 
 > [!TIP]
 > Bien que les extraits de code de cet article utilisent un modèle TensorFlow, vous pouvez appliquer les informations à n’importe quel framework Machine Learning qui prend en charge les GPU.
+
+> [!NOTE]
+> Les informations contenues dans cet article s’appuient sur l’article[How to deploy to Azure Kubernetes Service (Comment déployer sur Azure Kubernetes Service)](how-to-deploy-azure-kubernetes-service.md). L’article « How to deploy to Azure Kubernetes Service » couvre généralement le déploiement sur AKS,mais cet article traite du déploiement spécifique au GPU.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -87,7 +90,7 @@ except ComputeTargetException:
 > [!IMPORTANT]
 > Azure vous facture tant que le cluster AKS existe. Veillez à supprimer votre cluster AKS lorsque vous n’en avec plus besoin.
 
-Pour plus d’informations sur l’utilisation d’Azure Kubernetes Service avec Azure Machine Learning service, consultez [Comment déployer et où](how-to-deploy-and-where.md#deploy-aks).
+Pour plus d’informations sur l’utilisation d’AKS avec Azure Machine Learning service, consultez [How to deploy to Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md).
 
 ## <a name="write-the-entry-script"></a>Écrire le script d’entrée
 
@@ -162,7 +165,7 @@ gpu_aks_config = AksWebservice.deploy_configuration(autoscale_enabled=False,
                                                     memory_gb=4)
 ```
 
-Pour plus d’informations, consultez la documentation de référence pour [AksService.deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aks.akswebservice?view=azure-ml-py#deploy-configuration-autoscale-enabled-none--autoscale-min-replicas-none--autoscale-max-replicas-none--autoscale-refresh-seconds-none--autoscale-target-utilization-none--collect-model-data-none--auth-enabled-none--cpu-cores-none--memory-gb-none--enable-app-insights-none--scoring-timeout-ms-none--replica-max-concurrent-requests-none--max-request-wait-time-none--num-replicas-none--primary-key-none--secondary-key-none--tags-none--properties-none--description-none--gpu-cores-none--period-seconds-none--initial-delay-seconds-none--timeout-seconds-none--success-threshold-none--failure-threshold-none--namespace-none-).
+Pour plus d’informations, consultez la documentation de référence pour [AksService.deploy_configuration](/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py#deploy-configuration-autoscale-enabled-none--autoscale-min-replicas-none--autoscale-max-replicas-none--autoscale-refresh-seconds-none--autoscale-target-utilization-none--collect-model-data-none--auth-enabled-none--cpu-cores-none--memory-gb-none--enable-app-insights-none--scoring-timeout-ms-none--replica-max-concurrent-requests-none--max-request-wait-time-none--num-replicas-none--primary-key-none--secondary-key-none--tags-none--properties-none--description-none--gpu-cores-none--period-seconds-none--initial-delay-seconds-none--timeout-seconds-none--success-threshold-none--failure-threshold-none--namespace-none--token-auth-enabled-none-).
 
 ## <a name="define-the-inference-configuration"></a>Définir la configuration de l’inférence
 

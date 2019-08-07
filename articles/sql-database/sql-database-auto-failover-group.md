@@ -10,21 +10,20 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-manager: craigg
 ms.date: 07/18/2019
-ms.openlocfilehash: bd68909f51ff6cead8484ae4ab9f2557e9d6554e
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: 5d79edc4db07a2c5916725efc312d9f94fe985dc
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68443320"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68640086"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Utiliser les groupes de basculement automatique pour permettre le basculement transparent et coordonné de plusieurs bases de données
 
 Les groupes de basculement automatique sont une fonctionnalité de SQL Database qui vous permet de gérer la réplication et le basculement d’un groupe de bases de données sur un serveur SQL Database ou de toutes les bases de données d’une instance gérée vers une autre région. Il s’agit d’une abstraction déclarative sur la fonctionnalité de [géoréplication active](sql-database-active-geo-replication.md) existante, conçue pour simplifier le déploiement et la gestion des bases de données géorépliquées à l’échelle. Vous pouvez déclencher le basculement manuellement ou vous pouvez le déléguer au service SQL Database via une stratégie définie par l’utilisateur. Cette dernière option vous permet de récupérer automatiquement plusieurs bases de données associées dans une région secondaire après une défaillance grave ou un autre événement non planifié qui entraîne une perte totale ou partielle de la disponibilité du service SQL Database dans la région primaire. Un groupe de basculement peut inclure une ou plusieurs bases de données, généralement utilisées par la même application. En outre, vous pouvez utiliser les bases de données secondaires accessibles en lecture pour décharger les charges de travail de requêtes en lecture seule. Comme les groupes de basculement automatique impliquent de nombreuses bases de données, celles-ci doivent être configurées sur le serveur primaire. Les serveurs primaire et secondaire pour les bases de données dans le groupe de basculement doivent faire partie du même abonnement. Les groupes de basculement automatique prennent en charge la réplication de toutes les bases de données du groupe vers un seul serveur secondaire situé dans une autre région,
 
 > [!NOTE]
-> Si vous utilisez des bases de données uniques ou mises en pool sur un serveur SQL Database et souhaitez que plusieurs bases de données secondaires se trouvent dans des régions identiques ou différentes, utilisez la [géoréplication active](sql-database-active-geo-replication.md).
+> Si vous utilisez des bases de données uniques ou mises en pool sur un serveur SQL Database et souhaitez que plusieurs bases de données secondaires se trouvent dans des régions identiques ou différentes, utilisez la [géoréplication active](sql-database-active-geo-replication.md). 
 
 Lorsque vous utilisez des groupes de basculement automatique avec une stratégie de basculement automatique, toute panne qui affecte une ou plusieurs des bases de données du groupe donne lieu à un basculement automatique. En outre, les groupes de basculement automatique fournissent des points de terminaison d’écouteur de lecture-écriture et de lecture seule qui restent inchangés pendant les basculements. Que vous utilisiez l’activation manuelle ou automatique du basculement, ce dernier bascule toutes les bases de données secondaires du groupe en bases de données primaires. Une fois le basculement des bases de données terminé, l’enregistrement DNS est automatiquement mis à jour pour rediriger les points de terminaison vers la nouvelle région. Pour en savoir plus sur les données d’objectif de point et de délai de récupération, voir [Vue d’ensemble de la continuité des activités](sql-database-business-continuity.md).
 
@@ -256,14 +255,14 @@ La configuration ci-dessus garantit que le basculement automatique ne bloque pas
 
 ## <a name="enabling-geo-replication-between-managed-instances-and-their-vnets"></a>Activation de la géoréplication entre les instances gérées et leurs réseaux virtuels
 
-Lorsque vous configurez des groupes de basculement entre des instances gérées principale et secondaire dans deux régions différentes, chaque instance est isolée à l’aide d’un réseau virtuel indépendant. Pour autoriser le trafic de réplication entre ces réseaux virtuels, vérifiez que les conditions préalables suivantes sont satisfaites :
+Lorsque vous configurez des groupes de basculement entre les instances gérées primaire et secondaire dans deux régions différentes, chaque instance est isolée et utilise un réseau virtuel indépendant. Pour autoriser le trafic de réplication entre ces réseaux virtuels, vérifiez que les conditions préalables suivantes sont satisfaites :
 
 1. Les deux instances gérées doivent se trouver dans différentes régions Azure.
-2. Votre instance secondaire doit être vide (aucune base de données utilisateur).
-3. Les instances gérées principale et secondaire doivent se trouver dans le même groupe de ressources.
-4. Les réseaux virtuels dont les instances gérées font partie doivent être connectés via une [passerelle VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md). L’homologation Global VNet Peering n’est pas prise en charge.
-5. Les adresses IP des deux réseaux virtuels des instances gérées ne peuvent pas se chevaucher.
-6. Vous devez configurer vos groupes de sécurité réseau (NSG) de telle sorte que les ports 5022 et 11000 à 12000 soient ouverts en entrée et en sortie pour les connexions provenant du sous-réseau de l’autre instance gérée. Il s’agit d’autoriser le trafic de réplication entre les instances
+1. Les deux instances gérées doivent avoir le même niveau de service et la même capacité de stockage. 
+1. Votre instance gérée secondaire doit être vide (aucune base de données utilisateur).
+1. Les réseaux virtuels utilisés par les instances gérées doivent être connectés via une[passerelle VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) ou un itinéraire Express. Lorsque deux réseaux virtuels se connectent via un réseau local, assurez-vous qu’il n’existe pas de ports de blocage de règle de pare-feu 5022 et 11000-11999. L’homologation Global VNet Peering n’est pas prise en charge.
+1. Les adresses IP des deux réseaux virtuels des instances gérées ne peuvent pas se chevaucher.
+1. Vous devez configurer vos groupes de sécurité réseau (NSG) de telle sorte que les ports 5022 et 11000 à 12000 soient ouverts en entrée et en sortie pour les connexions provenant du sous-réseau de l’autre instance gérée. Il s’agit d’autoriser le trafic de réplication entre les instances
 
    > [!IMPORTANT]
    > La configuration incorrecte des règles de groupes de sécurité réseau bloque les opérations de copie sur les bases de données.
@@ -369,9 +368,9 @@ Comme indiqué plus haut, les groupes de basculement automatique et la géo-rép
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Pour obtenir des exemples de scripts, consultez :
-  - [Configurer et basculer une base de données unique à l’aide de la géoréplication active](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
-  - [Configurer et basculer une base de données mise en pool à l’aide de la géoréplication active](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md)
-  - [Configurer et basculer un groupe de basculement pour une base de données unique](scripts/sql-database-add-single-db-to-failover-group-powershell.md)
+  - [Utiliser PowerShell afin de configurer la géoréplication active pour avoir une base de données unique dans Azure SQL Database](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
+  - [Utiliser PowerShell afin de configurer la géoréplication active pour avoir une base de données mise en pool dans Azure SQL Database](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md)
+  - [Utiliser PowerShell afin d’ajouter une base de données unique Azure SQL Database à un groupe de basculement](scripts/sql-database-add-single-db-to-failover-group-powershell.md)
 - Pour une vue d’ensemble de la continuité des activités et des scénarios, consultez [Vue d’ensemble de la continuité des activités](sql-database-business-continuity.md)
 - Pour en savoir plus sur les sauvegardes automatisées d’une base de données Azure SQL, consultez [Sauvegardes automatisées d’une base de données SQL](sql-database-automated-backups.md).
 - Pour en savoir plus sur l’utilisation des sauvegardes automatisées pour la récupération, consultez [Restaurer une base de données à partir des sauvegardes initiées par le service](sql-database-recovery-using-backups.md).

@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 07/19/2019
-ms.openlocfilehash: b649ea1c69f82840a663cf32391e4c74ac6cc33e
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: dd4eef7998b83c7a527738762379d0d3e720d70f
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68319512"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68699812"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limites et informations de configuration pour Azure Logic Apps
 
@@ -175,7 +175,7 @@ Les limites pour les connecteurs personnalisés qu’il est possible de créer �
 
 Chaque abonnement Azure a les limites de compte d’intégration suivantes :
 
-* Un compte d’intégration unique de [niveau Gratuit](../logic-apps/logic-apps-pricing.md#integration-accounts)
+* Un compte d’intégration par région Azure [niveau Gratuit](../logic-apps/logic-apps-pricing.md#integration-accounts)
 
 * 1 000 comptes d’intégration au total, notamment des comptes d’intégration dans des [environnements de service d’intégration](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) sur les [références SKU Développeur et Premium](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level).
 
@@ -283,7 +283,7 @@ Logic Apps ne prend pas en charge la connexion directe à des comptes de stockag
 | Inde Centre | 52.172.157.194, 52.172.184.192, 52.172.191.194, 104.211.73.195 |
 | USA Centre | 13.67.236.76, 40.77.31.87, 40.77.111.254, 104.43.243.39 |
 | Asie Est | 13.75.89.159, 23.97.68.172, 40.83.98.194, 168.63.200.173 |
-| USA Est | 40.117.99.79, 40.117.100.228, 137.116.126.165, 137.135.106.54 |
+| East US | 40.117.99.79, 40.117.100.228, 137.116.126.165, 137.135.106.54 |
 | USA Est 2 | 40.70.27.253, 40.79.44.7, 40.84.25.234, 40.84.59.136 |
 | Japon Est | 13.71.146.140, 13.78.43.164, 13.78.62.130, 13.78.84.187 |
 | Japon Ouest | 40.74.68.85, 40.74.81.13, 40.74.85.215, 40.74.140.173 |
@@ -315,7 +315,7 @@ Logic Apps ne prend pas en charge la connexion directe à des comptes de stockag
 | Inde Centre | 52.172.154.168, 52.172.185.79, 52.172.186.159, 104.211.74.145, 104.211.90.162, 104.211.90.169, 104.211.101.108, 104.211.102.62 | 104.211.81.192 - 104.211.81.207, 52.172.211.12 |
 | USA Centre | 13.67.236.125, 23.100.82.16, 23.100.86.139, 23.100.87.24, 23.100.87.56, 40.113.218.230, 40.122.170.198, 104.208.25.27 | 13.89.171.80 - 13.89.171.95, 52.173.245.164 |
 | Asie Est | 13.75.94.173, 40.83.73.39, 40.83.75.165, 40.83.77.208, 40.83.100.69, 40.83.127.19, 52.175.33.254, 65.52.175.34 | 13.75.36.64 - 13.75.36.79, 52.175.23.169 |
-| USA Est | 13.92.98.111, 23.100.29.190, 23.101.132.208, 23.101.136.201, 23.101.139.153, 40.114.82.191, 40.121.91.41, 104.45.153.81 | 40.71.11.80 - 40.71.11.95, 40.71.249.205, 191.237.41.52 |
+| East US | 13.92.98.111, 23.100.29.190, 23.101.132.208, 23.101.136.201, 23.101.139.153, 40.114.82.191, 40.121.91.41, 104.45.153.81 | 40.71.11.80 - 40.71.11.95, 40.71.249.205, 191.237.41.52 |
 | USA Est 2 | 40.70.26.154, 40.70.27.236, 40.70.29.214, 40.70.131.151, 40.84.30.147, 104.208.140.40, 104.208.155.200, 104.208.158.174 | 40.70.146.208 - 40.70.146.223, 52.232.188.154 |
 | Japon Est | 13.71.158.3, 13.71.158.120, 13.73.4.207, 13.78.18.168, 13.78.20.232, 13.78.21.155, 13.78.35.229, 13.78.42.223 | 13.78.108.0 - 13.78.108.15, 13.71.153.19 |
 | Japon Ouest | 40.74.64.207, 40.74.68.85, 40.74.74.21, 40.74.76.213, 40.74.77.205, 40.74.140.4, 104.214.137.243, 138.91.26.45 | 40.74.100.224 - 40.74.100.239, 104.215.61.248 |
