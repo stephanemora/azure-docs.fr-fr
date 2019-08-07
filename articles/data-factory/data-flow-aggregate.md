@@ -3,16 +3,15 @@ title: Transformation d’agrégation dans le flux de données de mappage - Azur
 description: Découvrez comment agréger des données à grande échelle dans Azure Data Factory avec la transformation d’agrégation de flux de données de mappage.
 author: kromerm
 ms.author: makromer
-ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.openlocfilehash: 21135b26d4bc840b3fcb091e675e5e6bd24d8548
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.openlocfilehash: 778aefc05a9b12648e60d752a3c281cb18323125
+ms.sourcegitcommit: da0a8676b3c5283fddcd94cdd9044c3b99815046
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67312110"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68314228"
 ---
 # <a name="aggregate-transformation-in-mapping-data-flow"></a>Transformation d’agrégation dans le flux de données de mappage 
 
@@ -39,6 +38,12 @@ Choisissez l’onglet Agrégations pour créer des expressions d’agrégation. 
 > [!NOTE]
 > En mode Débogage, le Générateur d’expressions ne peut pas produire d’aperçus de données avec des fonctions d’agrégation. Pour afficher des aperçus de données pour les transformations d’agrégation, fermez le Générateur d’expressions et affichez les données via l’onglet Aperçu des données.
 
+## <a name="reconnect-rows-and-columns"></a>Reconnecter les lignes et les colonnes
+Les transformations d’agrégation sont étroitement équivalentes aux requêtes SQL Aggregate Select. Les colonnes qui ne sont pas incluses dans la clause Regrouper par ou les fonctions d’agrégation ne sont pas transmises à la sortie de votre transformation d’agrégation. Si vous souhaitez inclure d’autres colonnes avec votre sortie de lignes agrégées, vous devez :
+
+* Utilisez une fonction d’agrégation pour inclure cette colonne supplémentaire, telle que Last() ou First()
+* Joignez à nouveau les colonnes avant votre agrégation à l’aide du [modèle de jointure réflexive](https://mssqldude.wordpress.com/2018/12/20/adf-data-flows-self-join/).
+
 ## <a name="next-steps"></a>Étapes suivantes
 
-\- Définir l’agrégation en fonction d’une fenêtre à l’aide de la [transformation Fenêtre](data-flow-window.md)
+* Définir l’agrégation en fonction d’une fenêtre à l’aide de la [transformation Fenêtre](data-flow-window.md)

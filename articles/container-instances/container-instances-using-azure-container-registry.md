@@ -3,17 +3,18 @@ title: Déployer sur Azure Container Instances à partir d’Azure Container Reg
 description: Découvrez comment déployer des conteneurs dans Azure Container Instances à l’aide d’images conteneur stockées dans un registre de conteneurs Azure.
 services: container-instances
 author: dlepow
+manager: gwallace
 ms.service: container-instances
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 515dc8ed4a2fc9b3d2973d393c6894d8c7cef8f0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 502f178b66e7ba233552d7db4e095363c8bb8628
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66729377"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325557"
 ---
 # <a name="deploy-to-azure-container-instances-from-azure-container-registry"></a>Déployer sur Azure Container Instances à partir d’Azure Container Registry
 
@@ -49,7 +50,7 @@ az keyvault create -g $RES_GROUP -n $AKV_NAME
 
 Vous devez maintenant créer un principal de service et stocker ses informations d’identification dans votre coffre de clés.
 
-La commande suivante utilise [az ad sp create-for-rbac][az-ad-sp-create-for-rbac] pour créer le principal du service, et [az keyvault secret set][az-keyvault-secret-set] pour stocker le **mot de passe** du principal de service dans le coffre.
+La commande suivante utilise [az ad sp create-for-rbac][az-ad-sp-create-for-rbac] to create the service principal, and [az keyvault secret set][az-keyvault-secret-set] pour stocker le **mot de passe** du principal du service dans le coffre :
 
 ```azurecli
 # Create service principal, store its password in AKV (the registry *password*)
@@ -93,7 +94,7 @@ Obtenez d’abord le nom du serveur de connexion du registre avec la commande [a
 ACR_LOGIN_SERVER=$(az acr show --name $ACR_NAME --resource-group $RES_GROUP --query "loginServer" --output tsv)
 ```
 
-Exécutez la commande [az container create][az-container-create] suivante pour déployer une instance de conteneur. La commande utilise les informations d’identification du principal du service stockées dans Azure Key Vault pour vous authentifier auprès de votre registre de conteneur et suppose que vous avez précédemment poussé l’image [aci-helloworld](container-instances-quickstart.md) dans votre registre. Mettez à jour la valeur `--image` si vous souhaitez utiliser une autre image à partir de votre registre.
+Exécutez la commande [az container create][az-container-create]suivante pour déployer une instance de conteneur. La commande utilise les informations d’identification du principal du service stockées dans Azure Key Vault pour vous authentifier auprès de votre registre de conteneur et suppose que vous avez précédemment poussé l’image [aci-helloworld](container-instances-quickstart.md) dans votre registre. Mettez à jour la valeur `--image` si vous souhaitez utiliser une autre image à partir de votre registre.
 
 ```azurecli
 az container create \

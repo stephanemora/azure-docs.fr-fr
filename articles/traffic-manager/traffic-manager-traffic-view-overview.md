@@ -12,12 +12,12 @@ ms.workload: infrastructure
 ms.date: 03/16/2018
 ms.author: allensu
 ms.custom: ''
-ms.openlocfilehash: 5a34cf3e41e04367b1cf38015861518fb74dd3f7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 39d6090b14a16f505413154df2a78d42b3fb3f3c
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67070947"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68333710"
 ---
 # <a name="traffic-manager-traffic-view"></a>Traffic View de Traffic Manager
 
@@ -68,6 +68,25 @@ Vous pouvez afficher les données relatives à la Vue du trafic sous la forme d�
 
 Lorsque vous utilisez Traffic View, vous êtes facturé en fonction du nombre de points de données utilisés pour créer les insights présentés. Actuellement, le seul type de point de données utilisé correspond aux requêtes reçues par rapport à votre profil Traffic Manager. Pour plus d’informations sur les prix, visitez la page [Tarifs Traffic Manager](https://azure.microsoft.com/pricing/details/traffic-manager/).
 
+## <a name="faqs"></a>FAQ
+
+* [À quoi sert la fonctionnalité Affichage du trafic ?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-does-traffic-view-do)
+
+* [Quels sont les avantages de la fonctionnalité Affichage du trafic ?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-can-i-benefit-from-using-traffic-view)
+
+* [En quoi la fonctionnalité Affichage du trafic diffère-t-elle des métriques Traffic Manager disponibles dans Azure Monitor ?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-is-traffic-view-different-from-the-traffic-manager-metrics-available-through-azure-monitor)
+
+* [La fonctionnalité Affichage du trafic utilise-t-elle les informations sur le sous-réseau du client EDNS ?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#does-traffic-view-use-edns-client-subnet-information)
+
+* [Combien de jours de données la fonctionnalité Affichage du trafic utilise-t-elle ?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-many-days-of-data-does-traffic-view-use)
+
+* [Comment la fonctionnalité Affichage du trafic gère-t-elle les points de terminaison externes ?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-does-traffic-view-handle-external-endpoints)
+
+* [Dois-je activer la fonctionnalité Affichage du trafic pour chaque profil de mon abonnement ?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#do-i-need-to-enable-traffic-view-for-each-profile-in-my-subscription)
+
+* [Comment désactiver la fonctionnalité Affichage du trafic ?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-can-i-turn-off-traffic-view)
+
+* [Comment la fonctionnalité Affichage du trafic est-elle facturée ?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-does-traffic-view-billing-work)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

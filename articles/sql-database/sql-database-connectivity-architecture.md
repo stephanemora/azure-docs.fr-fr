@@ -12,12 +12,12 @@ ms.author: rohitna
 ms.reviewer: carlrab, vanto
 manager: craigg
 ms.date: 07/02/2019
-ms.openlocfilehash: 8441e64981b7157e91a56124a08c0aa02a9b1db0
-ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+ms.openlocfilehash: 9dfc22be45b68ba4ff59d88810435db35bafc8b6
+ms.sourcegitcommit: 5604661655840c428045eb837fb8704dca811da0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67537932"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68494964"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Architecture de la connectivité Azure SQL
 
@@ -64,18 +64,20 @@ Le tableau ci-dessous répertorie les adresses IP des passerelles par région. P
 
 | Nom de la région          | Adresse IP de la passerelle | Passerelle désactivée </br> Adresse IP| Remarques sur la désactivation | 
 | --- | --- | --- | --- |
+| Centre de l’Australie    | 20.36.105.0 | | |
+| Australie Centre 2   | 20.36.113.0 | | |
 | Australie Est       | 13.75.149.87, 40.79.161.1 | | |
 | Sud-Est de l’Australie | 191.239.192.109, 13.73.109.251 | | |
 | Brésil Sud         | 104.41.11.5        |                 | |
 | Centre du Canada       | 40.85.224.249      |                 | |
 | Est du Canada          | 40.86.226.166      |                 | |
 | USA Centre           | 13.67.215.62, 52.182.137.15 | 23.99.160.139 | Aucune connexion après le 1er septembre 2019 |
-| Chine Est 1         | 139.219.130.35     |                 | |
+| Chine orientale           | 139.219.130.35     |                 | |
 | Chine Est 2         | 40.73.82.1         |                 | |
-| Chine Nord 1        | 139.219.15.17      |                 | |
+| Chine du Nord          | 139.219.15.17      |                 | |
 | Chine Nord 2        | 40.73.50.0         |                 | |
 | Asie Est            | 191.234.2.139, 52.175.33.150 |       | |
-| USA Est 1            | 40.121.158.30, 40.79.153.12 | 191.238.6.43 | Aucune connexion après le 1er septembre 2019 |
+| USA Est              | 40.121.158.30, 40.79.153.12 | 191.238.6.43 | Aucune connexion après le 1er septembre 2019 |
 | USA Est 2            | 40.79.84.180, 52.177.185.181, 52.167.104.0 | 191.239.224.107    | Aucune connexion après le 1er septembre 2019 |
 | France Centre       | 40.79.137.0, 40.79.129.1 |           | |
 | Centre de l’Allemagne      | 51.4.144.100       |                 | |
@@ -89,13 +91,17 @@ Le tableau ci-dessous répertorie les adresses IP des passerelles par région. P
 | Corée du Sud          | 52.231.200.86      |                 | |
 | USA Centre Nord     | 23.96.178.199      | 23.98.55.75     | Aucune connexion après le 1er septembre 2019 |
 | Europe Nord         | 40.113.93.91       | 191.235.193.75  | Aucune connexion après le 1er septembre 2019 |
+| Afrique du Sud Nord   | 102.133.152.0      |                 | |
+| Afrique du Sud Ouest    | 102.133.24.0       |                 | |
 | USA Centre Sud     | 13.66.62.124       | 23.98.162.75    | Aucune connexion après le 1er septembre 2019 |
 | Asie Sud-Est      | 104.43.15.0        | 23.100.117.95   | Aucune connexion après le 1er septembre 2019 |
+| Émirats arabes unis Centre          | 20.37.72.64        |                 | |
+| Émirats arabes unis Nord            | 65.52.248.0        |                 | |
 | Sud du Royaume-Uni             | 51.140.184.11      |                 | |
 | Ouest du Royaume-Uni              | 51.141.8.11        |                 | |
 | USA Centre-Ouest      | 13.78.145.25       |                 | |
-| Europe Ouest          | 191.237.232.75, 40.68.37.158 |       | |
-| USA Ouest 1            | 23.99.34.75, 104.42.238.205 |        | |
+| Europe Ouest          | 40.68.37.158       | 191.237.232.75  | Aucune connexion après le 1er septembre 2019 |
+| USA Ouest              | 104.42.238.205     | 23.99.34.75     | Aucune connexion après le 1er septembre 2019 |
 | USA Ouest 2            | 13.66.226.202      |                 | |
 |                      |                    |                 | |
 
@@ -110,7 +116,7 @@ Pour changer la stratégie de connexion Azure SQL Database pour un serveur Azure
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Le module PowerShell Azure Resource Manager est toujours pris en charge par Azure SQL Database, mais tous les développements futurs sont destinés au module Az.Sql. Pour ces cmdlets, consultez [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Les arguments des commandes dans le module Az et dans les modules AzureRm sont sensiblement identiques. Le script suivant nécessite le [module Azure PowerShell](/powershell/azure/install-az-ps).
+> Le module PowerShell Azure Resource Manager est toujours pris en charge par Azure SQL Database, mais tous les développements futurs sont destinés au module Az.Sql. Pour ces cmdlets, voir [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Les arguments des commandes dans le module Az sont sensiblement identiques à ceux des modules AzureRm. Le script suivant nécessite le [module Azure PowerShell](/powershell/azure/install-az-ps).
 
 Le script PowerShell suivant montre comment modifier la stratégie de connexion.
 

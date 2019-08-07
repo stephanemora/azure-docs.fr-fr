@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2018
 ms.author: maheshu
-ms.openlocfilehash: 1fba8cc9ae40cf5539016bbd73de65f557a64136
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: f7b1b294e9500ef9e0aadd24cfe3cd4e61fddda1
+ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67177645"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68426883"
 ---
 > [!IMPORTANT]
 > **Activez la synchronisation du hachage de mot de passe avec Azure AD Domain Services avant d’effectuer les tâches de cet article.**

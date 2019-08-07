@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/08/2019
-ms.author: jaredr80
-ms.openlocfilehash: 7fb591d94380e403a021f9aaed598b6d96417e3f
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.date: 07/17/2019
+ms.author: cherylmc
+ms.openlocfilehash: 331a554332db8c05d4ece1a1df5d6557d6e86906
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67670735"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68310359"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Partenaires ExpressRoute et emplacements d’homologation
 
@@ -79,7 +79,7 @@ Les **régions Azure locales** sont celles auxquelles [ExpressRoute Local](expre
 | **Amsterdam** | Equinix | Europe Ouest | Aryaka Networks, AT&T NetBond, British Telecom, Colt, Equinix, euNetworks, GÉANT, InterCloud, Interxion, KPN, IX Reach, Level 3 Communications, Megaport, NTT Communications, Orange, Tata Communications, TeleCity Group, Telefonica, Telenor, Telia Carrier, Verizon, Zayo |
 | **Amsterdam2** | Interxion | Europe Ouest | CenturyLink Cloud Connect, DE-CIX, Interxion, Vodafone |
 | **Atlanta** | Equinix | n/a | Equinix, Megaport |
-| **Auckland** | Vocus | n/a | Devoli, Kordia, Megaport |
+| **Auckland** | Vocus Group NZ | n/a | Devoli, Kordia, Megaport, Vocus Group NZ |
 | **Busan** |LG CNS | Corée du Sud | LG CNS |
 | **Canberra** | CDC | Centre de l’Australie | CDC |
 | **Canberra2** | CDC | Centre de l’Australie 2| CDC |
@@ -93,7 +93,7 @@ Les **régions Azure locales** sont celles auxquelles [ExpressRoute Local](expre
 | **Dubaï2** | du datamena | Émirats arabes unis Nord | du datamena, Orixcom |
 | **Dublin** | Equinix | Europe Nord | Colt, eir, Equinix, Interxion, Megaport |
 | **Francfort** | Interxion | n/a | DE-CIX, Interxion |
-| **Hong Kong (R.A.S.)** | Equinix | Asie Est | Aryaka Networks, British Telecom, CenturyLink Cloud Connect, Chief Telecom, China Telecom Global, Equinix, Megaport, NTT Communications, Orange, PCCW Global Limited, Tata Communications, Verizon |
+| **Hong Kong (R.A.S.)** | Equinix | Asie Est | Aryaka Networks, British Telecom, CenturyLink Cloud Connect, Chief Telecom, China Telecom Global, Equinix, Megaport, NTT Communications, Orange, PCCW Global Limited, Tata Communications, Telia Carrier, Verizon |
 | **Johannesburg** | Teraco | Afrique du Sud Nord | British Telecom, Internet Solutions - Cloud Connect, Liquid Telecom, Teraco |
 | **Kuala Lumpur** | TIME dotCom | n/a | TIME dotCom |
 | **Las Vegas** | Switch | n/a | CenturyLink Cloud Connect, Megaport |
@@ -120,13 +120,13 @@ Les **régions Azure locales** sont celles auxquelles [ExpressRoute Local](expre
 | **Silicon Valley2** | Coresite | USA Ouest | Coresite | 
 | **Singapour** | Equinix | Asie Sud-Est | Aryaka Networks, AT&T NetBond, British Telecom, Epsilon Global Communications, Equinix, InterCloud, Level 3 Communications, Megaport, NTT Communications, Orange, SingTel, Tata Communications, Telstra Corporation, Verizon, Vodafone |
 | **Singapore2** | Global Switch | Asie Sud-Est | Colt, Epsilon Global Communications, Megaport, SingTel |
-| **Sydney** | Equinix | Australie Est | AARNet, AT&T NetBond, British Telecom, Devoli, Equinix, Kordia, Megaport, NEXTDC, NTT Communications, Optus, Orange, Telstra Corporation, TPG Telecom, Verizon |
+| **Sydney** | Equinix | Australie Est | AARNet, AT&T NetBond, British Telecom, Devoli, Equinix, Kordia, Megaport, NEXTDC, NTT Communications, Optus, Orange, Spark NZ, Telstra Corporation, TPG Telecom, Verizon, Vocus Group NZ |
 | **Taipei** | Chief Telecom | n/a | Chief Telecom, FarEasTone |
 | **Tokyo** | Equinix | Japon Est | Aryaka Networks, AT&T NetBond, British Telecom, CenturyLink Cloud Connect, Colt, Equinix, Internet Initiative Japan Inc. - IIJ, NTT Communications, NTT EAST, Orange, Softbank, Verizon |
 | **Toronto** | Cologix | Centre du Canada | AT&T NetBond, Bell Canada, CenturyLink Cloud Connect, Cologix, Equinix, IX Reach Megaport, Telus, Verizon, Zayo |
 | **Washington DC** | Equinix | USA Est, USA Est 2 | Aryaka Networks, AT&T NetBond, British Telecom, CenturyLink Cloud Connect, Cologix, Comcast, Coresite, Equinix, Internet2, InterCloud, Level 3 Communications, Megaport, Neutrona Networks, NTT Communications, Orange, PacketFabric, Sprint, Tata Communications, Telia Carrier, Verizon, Zayo |
 | **Washington DC2** | Coresite | USA Est, USA Est 2 |Coresite | 
-| **Zurich** | Interxion | n/a | Interxion |
+| **Zurich** | Interxion | n/a | Intercloud, Interxion |
 
  **+** = bientôt disponible
 
@@ -180,12 +180,12 @@ Si votre fournisseur de connectivité ne se trouve pas dans la liste des section
 ## <a name="c1partners"></a>Connectivité via d’autres fournisseurs de services
 | **Lieu** | **Microsoft Exchange** | **Fournisseurs de connectivité** |
 | --- | --- | --- |
-| **Amsterdam** | Equinix, Telecity | BICS, CloudXpress, Eurofiber, Fastweb S.p.A, Gulf Bridge International, MainOne, Nianet, Post, Proximus, TDC Erhverv, Telecom Italia Sparkle, Telia |
+| **Amsterdam** | Equinix, Interxion, Level 3 Communications, Telecity | BICS, CloudXpress, Eurofiber, Fastweb S.p.A, Gulf Bridge International, Kalaam Telecom Bahrain B.S.C, MainOne, Nianet, Post, Proximus, TDC Erhverv, Telecom Italia Sparkle, Telekom Deutschland GmbH, Telia |
 | **Atlanta** | Equinix| Crown Castle
 | **Le Cap** | Teraco | MTN |
-| **Chicago** | Equinix | Crown Castle, Spectrum Enterprise, Windstream |
+| **Chicago** | Equinix| Crown Castle, Spectrum Enterprise, Windstream |
 | **Dallas** | Equinix, Megaport | Axtel, C3ntro Telecom, Cox Business, Crown Castle, Data Foundry, Spectrum Enterprise, Transtelco |
-| **Francfort** | Telecity | BICS, Cinia, Nianet, QSC AG |
+| **Francfort** | Interxion, Telecity | BICS, Cinia, Nianet, QSC AG, Telekom Deutschland GmbH |
 | **Hambourg** | Equinix | Cinia |
 | **Hong Kong (R.A.S.)** | Equinix | Chief, Macroview Telecom |
 | **Johannesburg** | Teraco | MTN |

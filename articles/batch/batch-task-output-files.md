@@ -3,7 +3,7 @@ title: Conserver le résultat d’un travail et d’une tâche dans le stockage 
 description: Découvrez comment utiliser l’API de service Batch pour conserver le résultat d’un travail et d’une tâche Batch dans le stockage Azure.
 services: batch
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.service: batch
 ms.devlang: multiple
@@ -13,12 +13,12 @@ ms.workload: big-compute
 ms.date: 03/05/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 982fe5cea633d9fd1bbbe7dc862b69d89f5f1c1c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c113521a1828a27ce9454ea142cb1708b7c5a1b6
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65595275"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68322843"
 ---
 # <a name="persist-task-data-to-azure-storage-with-the-batch-service-api"></a>Conserver les données de tâche dans le stockage Azure avec l’API de service Batch
 
@@ -178,7 +178,7 @@ Si vous développez dans un langage autre que C#, vous devez implémenter la nor
 
 ## <a name="code-sample"></a>Exemple de code
 
-L’exemple de projet [PersistOutputs][github_persistoutputs] est l’un des [exemples de code Azure Batch][github_samples] disponibles sur GitHub. Cette solution Visual Studio montre comment utiliser la bibliothèque cliente Batch pour .NET pour conserver le résultat de la tâche dans l’espace de stockage durable. Pour exécuter l’exemple, procédez comme suit :
+[PersistOutputs][github_persistoutputs] sample project is one of the [Azure Batch code samples][github_samples] sur GitHub. Cette solution Visual Studio montre comment utiliser la bibliothèque cliente Batch pour .NET pour conserver le résultat de la tâche dans l’espace de stockage durable. Pour exécuter l’exemple, procédez comme suit :
 
 1. Ouvrez le projet dans **Visual Studio 2019**.
 2. Ajoutez vos **informations d’identification de compte** Batch et Stockage à **AccountSettings.settings** dans le projet Microsoft.Azure.Batch.Samples.Common.

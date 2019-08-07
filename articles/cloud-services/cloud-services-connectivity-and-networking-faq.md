@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/23/2018
 ms.author: genli
-ms.openlocfilehash: 2a46879a6882e6d45e4a7ccce59e4a02feea9005
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 513803adec71e0e2c9578d762c5f4c110ed7086f
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61432957"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68384502"
 ---
 # <a name="connectivity-and-networking-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problèmes de connectivité et de mise en réseau pour Azure Cloud Services : Forum Aux Questions (FAQ)
 
@@ -72,7 +72,7 @@ Le module de réécriture d’URL d’IIS permet de rediriger le trafic arrivant
 
 ## <a name="how-can-i-blockdisable-incoming-traffic-to-the-default-url-of-my-cloud-service"></a>Comment bloquer/désactiver le trafic entrant sur l’URL par défaut de mon service cloud ?
 
-Vous pouvez bloquer le trafic entrant via l’URL/le nom par défaut de votre service cloud (par exemple, \*. cloudapp.net). Définissez l’en-tête de l’hôte pour un nom DNS personnalisé (par exemple, www.MyCloudService.com) sous la configuration de liaison de site dans le fichier de définition (*.csdef) du service cloud, comme indiqué :
+Vous pouvez bloquer le trafic entrant via l’URL/le nom par défaut de votre service cloud (par exemple, \*. cloudapp.net). Définissez l’en-tête de l’hôte pour un nom DNS personnalisé (par exemple, www\.MyCloudService.com) sous la configuration de liaison de site dans le fichier de définition (*.csdef) du service cloud, comme indiqué :
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>

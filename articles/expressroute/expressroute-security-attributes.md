@@ -1,6 +1,6 @@
 ---
-title: Attributs de sécurité communs pour Azure ExpressRoute
-description: Liste de contrôle des attributs de sécurité couramment utilisés pour l’évaluation d’Azure ExpressRoute
+title: Attributs de sécurité pour Azure ExpressRoute
+description: Check-list des attributs de sécurité pour l’évaluation d’Azure ExpressRoute
 services: expressroute
 ms.service: expressroute
 documentationcenter: ''
@@ -9,16 +9,16 @@ manager: barbkess
 ms.topic: conceptual
 ms.date: 06/05/2019
 ms.author: mbaldwin
-ms.openlocfilehash: d6156715fb87831d465197fd8eec59d245221e48
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c9a46497c18b99ad7774036fd92e63d024b47045
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67082210"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68442203"
 ---
-# <a name="common-security-attributes-for-azure-expressroute"></a>Attributs de sécurité communs pour Azure ExpressRoute
+# <a name="security-attributes-for-azure-expressroute"></a>Attributs de sécurité pour Azure ExpressRoute
 
-La sécurité fait partie intégrante d'un service Azure. Cet article documente les attributs de sécurité courants intégrés dans Azure ExpressRoute.
+Cet article documente les attributs de sécurité intégrés à Azure ExpressRoute.
 
 [!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
 
@@ -26,8 +26,8 @@ La sécurité fait partie intégrante d'un service Azure. Cet article documente 
 
 | Attribut de sécurité | Oui/Non | Notes |
 |---|---|--|
-| Chiffrement au repos :<ul><li>Chiffrement côté serveur</li><li>Chiffrement côté serveur avec des clés gérées par le client</li><li>Autres fonctionnalités de chiffrement (côté client, Always Encrypted, etc.)</ul>|  N/A | ExpressRoute ne stocke pas les données client. |
-| Chiffrement en transit :<ul><li>Chiffrement Express Route</li><li>Chiffrement dans le réseau virtuel</li><li>Chiffrement de réseau virtuel à réseau virtuel</ul>| Non | |
+| Chiffrement au repos (comme le chiffrement côté serveur, le chiffrement côté serveur avec clés managées par le client et d’autres fonctions de chiffrement)|  N/A | ExpressRoute ne stocke pas les données client. |
+| Chiffrement en transit (ExpressRoute, de réseau virtuel et de réseau virtuel à réseau virtuel)| Non | |
 | Gestion des clés de chiffrement (CMK, BYOK, etc.)| N/A |  |
 | Chiffrement au niveau des colonnes (Azure Data Services)| N/A | |
 | Appels d’API chiffrés| OUI | Via [Azure Resource Manager](../azure-resource-manager/index.yml) et HTTPS. |

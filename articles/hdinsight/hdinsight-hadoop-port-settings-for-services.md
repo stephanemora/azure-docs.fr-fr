@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/27/2019
 ms.author: hrasheed
-ms.openlocfilehash: 77e7aec1797a4b33068430371ba0969d1737746e
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: 34ab49378f9237a42bed869a6f6d67249b5238f9
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67508799"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68464694"
 ---
 # <a name="ports-used-by-apache-hadoop-services-on-hdinsight"></a>Ports utilisés par les services Apache Hadoop sur HDInsight
 
@@ -28,7 +28,7 @@ En interne, HDInsight est implémenté par plusieurs machines virtuelles Azure (
 > [!IMPORTANT]  
 > Si vous ne spécifiez pas de réseau virtuel Azure comme une option de configuration pour HDInsight, un réseau virtuel Azure sera créé automatiquement. Toutefois, vous ne pouvez pas associer d’autres ordinateurs (comme les autres machines virtuelles Azure ou votre ordinateur de développement client) à ce réseau virtuel.
 
-Pour joindre des ordinateurs supplémentaires au réseau virtuel, vous devez d’abord créer le réseau virtuel, puis le spécifier lors de la création de votre cluster HDInsight. Pour plus d’informations, consultez [Étendre les capacités de HDInsight en utilisant un réseau virtuel Azure](hdinsight-extend-hadoop-virtual-network.md)
+Pour joindre des ordinateurs supplémentaires au réseau virtuel, vous devez d’abord créer le réseau virtuel, puis le spécifier lors de la création de votre cluster HDInsight. Pour plus d’informations, consultez le document [Planifier un réseau virtuel pour HDInsight](hdinsight-plan-virtual-network-deployment.md).
 
 ## <a name="public-ports"></a>Ports publics
 
@@ -105,7 +105,7 @@ Exemples :
 | NodeManager |Tous les nœuds de travail |30050 |&nbsp; |L’adresse du gestionnaire de conteneurs |
 | Interface utilisateur web de NodeManager |Tous les nœuds de travail |30060 |HTTP |Interface de Resource Manager |
 | Adresse de Timeline |Nœuds principaux |10200 |RPC |Le service RPC du service de Timeline. |
-| Interface utilisateur web de Timeline |Nœuds principaux |8181 |HTTP |L’interface utilisateur web du service Timeline |
+| Interface utilisateur web de Timeline |Nœuds principaux |8188 |HTTP |L’interface utilisateur web du service Timeline |
 
 ### <a name="hive-ports"></a>Ports Hive
 

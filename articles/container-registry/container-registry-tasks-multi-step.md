@@ -3,16 +3,17 @@ title: Automatiser la compilation, les tests et les correctifs d’images à l�
 description: Présentation des tâches multiétapes, une fonctionnalité d’ACR Tasks dans Azure Container Registry qui assure des flux de travail basés sur des tâches permettant de compiler, de tester et de corriger des images de conteneurs dans le cloud.
 services: container-registry
 author: dlepow
+manager: gwallace
 ms.service: container-registry
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: danlep
-ms.openlocfilehash: ac0e4e9019a35d3fdb35c0b7af9cb1289f4bceeb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 89962fbce6863b16a0d8b229047eb19a821e37bb
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60829580"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68310564"
 ---
 # <a name="run-multi-step-build-test-and-patch-tasks-in-acr-tasks"></a>Exécuter des tâches de compilation, de test et de correction multiétapes dans les tâches ACR
 
@@ -154,7 +155,7 @@ Pour en savoir plus sur les compilations automatiques lors de la validation Git 
 Vous trouverez ici des références et des exemples de tâches multiétapes :
 
 * [Tâches de référence](container-registry-tasks-reference-yaml.md) : types d’étapes de tâches, leurs propriétés et leur utilisation.
-* [Exemples de tâches] [ task-examples] : exemple `task.yaml` pour plusieurs scénarios, simples et complexes.
+* [Exemples de tâches][task-examples] : exemple `task.yaml` pour plusieurs scénarios, simples et complexes.
 * [Référentiel Cmd](https://github.com/AzureCR/cmd) - Une collection de conteneurs agissant en tant que commandes pour les tâches ACR.
 
 <!-- IMAGES -->

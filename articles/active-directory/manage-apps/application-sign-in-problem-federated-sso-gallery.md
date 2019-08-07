@@ -1,5 +1,5 @@
 ---
-title: Problèmes de connexion à une application de la galerie configurée pour l’authentification unique fédérée | Microsoft Docs
+title: Problèmes de connexion à une application d’authentification unique fédérée de la galerie | Microsoft Docs
 description: Instructions sur la manière de résoudre les problèmes rencontrés lors de la connexion à une application configurée pour l’authentification unique SAML fédérée avec Azure AD
 services: active-directory
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.date: 02/18/2019
 ms.author: mimart
 ms.reviewer: luleon, asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1985b7bbcfdaab2aa303f67a9b1d090c85eedd5d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 32f3b2f45a808ebfa71f456c015de3dd59d60bd9
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65825206"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68381365"
 ---
 # <a name="problems-signing-in-to-a-gallery-application-configured-for-federated-single-sign-on"></a>Problèmes de connexion à une application de la galerie configurée pour l’authentification unique fédérée
 

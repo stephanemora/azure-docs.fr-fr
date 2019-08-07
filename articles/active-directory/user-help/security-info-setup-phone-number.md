@@ -12,14 +12,15 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9c1620be30d8cdf3a592ab0fc118938783579689
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: fbac4f364dedc28f7d5f3e100481a56bde70b4d3
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60474933"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68382910"
 ---
 # <a name="set-up-security-info-preview-to-use-phone-calls"></a>Configurer les informations de sécurité (préversion) pour utiliser un appel téléphonique
+
 Procédez comme suit pour ajouter vos méthodes de vérification en deux étapes et de réinitialisation de mot de passe. Au terme de la configuration initiale, vous pouvez revenir à la page **Informations de sécurité** pour ajouter, mettre à jour ou supprimer vos informations de sécurité.
 
 Si vous êtes invité à les configurer immédiatement après vous être connecté à votre compte professionnel ou scolaire, reportez-vous aux étapes détaillées de l'article [Configurer vos informations de sécurité à partir de l'invite de la page de connexion](security-info-setup-signin.md).
@@ -28,10 +29,11 @@ Si vous êtes invité à les configurer immédiatement après vous être connect
 
 > [!Note]
 > Les informations de sécurité ne prennent pas en charge les numéros de poste. Même si vous ajoutez le bon format, +33 4 25 55 51 23-12345, les numéros de poste sont supprimés avant l’appel.
-> 
+>
 > Si vous ne voyez pas d'option téléphonique, cela peut indiquer que votre organisation ne vous autorise pas à utiliser un numéro de téléphone à des fins de vérification. Dans ce cas, vous devez choisir une autre méthode, ou contacter votre administrateur pour obtenir de l'aide.
 
 ## <a name="set-up-phone-calls-from-the-security-info-page"></a>Configurer la méthode de l'appel téléphonique à partir de la page Informations de sécurité
+
 Selon les paramètres de votre organisation, vous pourrez peut-être utiliser l'appel téléphonique comme méthode d'informations de sécurité.
 
 >[!Note]
@@ -64,6 +66,7 @@ Selon les paramètres de votre organisation, vous pourrez peut-être utiliser l'
     Vos informations de sécurité sont mises à jour et vous pouvez opter pour un appel téléphonique afin de contrôler votre identité lorsque vous utilisez la vérification en deux étapes ou la réinitialisation du mot de passe. Si vous souhaitez que l'appel téléphonique constitue votre méthode par défaut, reportez-vous à la section [Changer de méthode d'informations de sécurité par défaut](#change-your-default-security-info-method) de cet article.
 
 ## <a name="delete-phone-calls-from-your-security-info-methods"></a>Supprimer l'appel téléphonique de vos méthodes d'informations de sécurité
+
 Si vous ne souhaitez plus utiliser l'appel téléphonique comme méthode d'informations de sécurité, vous pouvez supprimer celle-ci de la page **Informations de sécurité**.
 
 >[!Important]
@@ -76,8 +79,9 @@ Si vous ne souhaitez plus utiliser l'appel téléphonique comme méthode d'infor
     ![Lien permettant de supprimer la méthode Téléphone sur la page Informations de sécurité](media/security-info/securityinfo-myprofile-phonetext-delete.png)
 
 2. Sélectionnez **Oui** dans la zone de confirmation pour supprimer le numéro de **téléphone**. Une fois votre numéro de téléphone supprimé, celui-ci disparaît de vos informations de sécurité et de la page **Informations de sécurité**. Si **Téléphone** est votre méthode par défaut, celle-ci est remplacée par une autre méthode disponible.
-    
+
 ## <a name="change-your-default-security-info-method"></a>Changer de méthode d'informations de sécurité par défaut
+
 Pour utiliser l'appel téléphonique comme méthode par défaut lorsque vous vous connectez à votre compte professionnel ou scolaire à l'aide de la vérification en deux étapes ou pour les demandes de réinitialisation de mot de passe, il vous suffit de définir cette méthode sur la page **Informations de sécurité**.
 
 ### <a name="to-change-your-default-security-info-method"></a>Pour changer de méthode d'informations de sécurité par défaut
@@ -93,16 +97,19 @@ Pour utiliser l'appel téléphonique comme méthode par défaut lorsque vous vou
     La méthode par défaut utilisée pour la connexion devient **Téléphone - Appeler ( *_votre_numéro_de_téléphone_* )** .
 
 ## <a name="additional-security-info-methods"></a>Autres méthodes d'informations de sécurité
+
 Vous avez la possibilité de choisir la façon d’être contacté par votre organisation pour la vérification de votre identité, en fonction de ce que vous essayez de faire. Ces options sont les suivantes :
 
 - **Application d’authentification.** Téléchargez et utilisez une application d’authentification pour obtenir une notification d’approbation ou un code d’approbation généré de manière aléatoire pour la réinitialisation du mot de passe ou la vérification en deux étapes. Pour obtenir des instructions détaillées sur la configuration et l’utilisation de l’application Microsoft Authenticator, consultez [Configurer les informations de sécurité pour utiliser une application d’authentification](security-info-setup-auth-app.md).
 
 - **SMS sur appareil mobile.** Entrez votre numéro de téléphone mobile et recevez un code par SMS, à utiliser pour la vérification en deux étapes ou la réinitialisation de mot de passe. Pour obtenir des instructions détaillées sur la vérification de votre identité par SMS, consultez [Configurer les informations de sécurité pour utiliser la messagerie texte (SMS)](security-info-setup-text-msg.md).
 
+- **Clé de sécurité.** Enregistrez votre clé de sécurité compatible Microsoft et utilisez-la avec un code PIN pour la vérification en deux étapes ou la réinitialisation du mot de passe. Pour obtenir des instructions détaillées sur la vérification de votre identité au moyen d’une clé de sécurité, consultez [Configurer des informations de sécurité pour utiliser une clé de sécurité](security-info-setup-security-key.md).
+
 - **Adresse e-mail.** Entrez votre adresse e-mail professionnelle ou scolaire pour recevoir un e-mail de réinitialisation de mot de passe. Cette option n’est pas disponible pour la vérification en deux étapes. Pour des instructions pas à pas sur la façon de configurer votre e-mail, consultez [Configurer les informations de sécurité pour utiliser l’e-mail](security-info-setup-email.md).
 
 - **Questions de sécurité.** Répondez à certaines questions de sécurité créées par votre administrateur pour votre organisation. Cette option est uniquement disponible pour la réinitialisation du mot de passe et non pour la vérification en deux étapes. Pour des instructions pas à pas sur la façon de configurer vos questions de sécurité, consultez l’article [Configurer les informations de sécurité pour utiliser les questions de sécurité](security-info-setup-questions.md).
-    
+
     >[!Note]
     >Si certaines de ces options ne sont pas disponibles, il est très probable que votre organisation n’autorise pas ces méthodes. Si tel est le cas, vous devez choisir une autre méthode ou contacter votre administrateur pour obtenir de l’aide.
 

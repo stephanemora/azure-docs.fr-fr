@@ -1,19 +1,19 @@
 ---
 title: Résoudre les problèmes d’un serveur de sauvegarde Azure
 description: Résolvez les problèmes d’installation et d’enregistrement du serveur de sauvegarde Azure, mais aussi de sauvegarde et de restauration des charges de travail applicatives.
-services: backup
-author: kasinh
-manager: vvithal
+ms.reviewer: srinathv
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 05/21/2019
-ms.author: kasinh
-ms.openlocfilehash: 06faed8ceca77edc20b67f73a76d885839aa7dbc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 07/05/2019
+ms.author: dacurwin
+ms.openlocfilehash: c08acaf65cd42abd9db97fab1267ce5628595b78
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66304336"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68689268"
 ---
 # <a name="troubleshoot-azure-backup-server"></a>Résoudre les problèmes d’un serveur de sauvegarde Azure
 
@@ -119,3 +119,33 @@ Nous vous recommandons d’effectuer les validations ci-dessous avant de résoud
 | Opération | Détails de l’erreur | Solution de contournement |
 | --- | --- | --- |
 | Configuration des notifications par e-mail à l’aide d’un compte Office 365 |ID d'erreur : 2013| **Cause :**<br> Tentative d’utiliser le compte Office 365 <br>**Action recommandée :**<ol><li> La première chose à vérifier est que l’option permettant d’autoriser un relais anonyme sur un connecteur de réception pour votre serveur DPM est configurée sur Exchange. Pour plus d’informations sur cette configuration, consultez [Autoriser le relais anonyme sur un connecteur de réception](https://technet.microsoft.com/library/bb232021.aspx) sur TechNet.</li> <li> Si vous ne pouvez pas utiliser un relais SMTP interne et devez effectuer la configuration à l’aide de votre serveur Office 365, vous pouvez configurer IIS en tant que relais. Configurez le serveur DPM pour [relayer SMTP vers O365 en utilisant IIS](https://technet.microsoft.com/library/aa995718(v=exchg.65).aspx).<br><br> **IMPORTANT :** veillez à utiliser le format user\@domain.com et *non pas* le format domaine\utilisateur.<br><br><li>Faites en sorte que DPM utilise le nom du serveur local en guise de serveur SMTP, port 587. Ensuite, faites-lui utiliser l’adresse e-mail d’utilisateur dont doivent provenir les e-mails.<li> Le nom d’utilisateur et le mot de passe dans la page d’installation de DPM SMTP doivent correspondre à un compte de domaine rattaché au domaine où se trouve DPM. </li><br> **REMARQUE** : lorsque vous changez l'adresse du serveur SMTP, une fois les modifications effectuées, fermez la zone des paramètres, puis rouvrez-la pour vérifier qu'elle reflète la nouvelle valeur.  Se limiter à changer et à tester ne suffit pas toujours pour que les nouveaux paramètres soient pris en compte. C’est pourquoi effectuer un test de cette façon est une bonne pratique.<br><br>Au cours de ce processus, vous pouvez à tout moment supprimer ces paramètres en fermant la console DPM et en modifiant les clés de Registre suivantes : **HKLM\SOFTWARE\Microsoft\Microsoft Data Protection Manager\Notification\ <br/> Supprimer les clés SMTPPassword et SMTPUserName**. Vous pouvez les rajouter à l’interface utilisateur quand vous la relancez.
+
+
+## <a name="common-issues"></a>Problèmes courants
+
+Cette section décrit les erreurs courantes que vous pouvez rencontrer lors de l’utilisation du serveur de sauvegarde Azure.
+
+
+### <a name="cbpsourcesnapshotfailedreplicamissingorinvalid"></a>CBPSourceSnapshotFailedReplicaMissingOrInvalid
+
+Message d’erreur | Action recommandée |
+-- | --
+La sauvegarde a échoué, car le réplica de sauvegarde sur disque est non valide ou manquant. | Pour résoudre ce problème, suivez les étapes ci-dessous, puis réessayez l’opération : <br/> 1. Créez un point de récupération de disque<br/> 2. Exécutez une vérification de la cohérence sur la source de données <br/> 3. Arrêtez la protection de la source de données, puis reconfigurez la protection pour cette source de données
+
+### <a name="cbpsourcesnapshotfailedreplicametadatainvalid"></a>CBPSourceSnapshotFailedReplicaMetadataInvalid
+
+Message d’erreur | Action recommandée |
+-- | --
+La capture instantanée du volume source a échoué car les métadonnées du réplica ne sont pas valides. | Créer un point de récupération de disque de cette source de source et réessayer la sauvegarde en ligne
+
+### <a name="cbpsourcesnapshotfailedreplicainconsistent"></a>CBPSourceSnapshotFailedReplicaInconsistent
+
+Message d’erreur | Action recommandée |
+-- | --
+La capture instantanée du volume source a échoué en raison d’un réplica de source de données incohérent. | Exécutez une vérification de cohérence sur cette source de données et réessayez
+
+### <a name="cbpsourcesnapshotfailedreplicacloningissue"></a>CBPSourceSnapshotFailedReplicaCloningIssue
+
+Message d’erreur | Action recommandée |
+-- | --
+La sauvegarde a échoué car le réplica de sauvegarde de disque n’a pas pu être cloné.| S’assurer que tous les fichiers de réplica de sauvegarde de disque précédents (.vhdx) sont démontés et qu’aucune sauvegarde de disque à disque n’est en cours pendant les sauvegardes en ligne

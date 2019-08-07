@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 970fdaba1870097e253b51c70e523e399bc88dfc
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: c2fc552211ed55239259ce84d84584c451733d70
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67440775"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68499870"
 ---
 # <a name="what-are-baseline-policies"></a>Que sont les stratégies de référence ?
 
@@ -58,7 +58,10 @@ Si votre organisation utilise ces comptes dans des scripts ou du code, envisagez
 
 Les administrateurs hautement privilégiés ne sont pas les seuls ciblés lors d’attaques. Les malfaiteurs ont tendance à cibler les utilisateurs normaux. Après s’être introduits, ils peuvent demander l’accès à des informations confidentielles au nom du titulaire du compte d’origine, ou télécharger l’ensemble du répertoire et effectuer une attaque par hameçonnage dans toute l’organisation. Une méthode courante pour améliorer la protection de tous les utilisateurs finaux consiste à demander une forme de vérification de compte plus stricte lorsqu’une connexion risquée est détectée.
 
-**Protection de l’utilisateur final (préversion)** est une stratégie de référence qui protège tous les utilisateurs dans un répertoire. L’activation de cette stratégie nécessite que tous les utilisateurs s’inscrive à l’authentification multifacteur Azure dans un délai de 14 jours. Une fois inscrits, les utilisateurs seront invités à effectuer l’authentification multifacteur uniquement lors de tentatives de connexion risquées. Les comptes d'utilisateur compromis sont bloqués jusqu'à la réinitialisation du mot de passe et l’élimination du risque.
+**Protection de l’utilisateur final (préversion)** est une stratégie de référence qui protège tous les utilisateurs dans un répertoire. L’activation de cette stratégie nécessite que tous les utilisateurs s’inscrive à l’authentification multifacteur Azure dans un délai de 14 jours. Une fois inscrits, les utilisateurs seront invités à effectuer l’authentification multifacteur uniquement lors de tentatives de connexion risquées. Les comptes d'utilisateur compromis sont bloqués jusqu'à la réinitialisation du mot de passe et l’élimination du risque. 
+
+[!NOTE]
+Tous les utilisateurs précédemment identifiés comme présentant un risque sont bloqués jusqu'à la réinitialisation du mot de passe et risquent d'être rejetés lors de l'activation de la stratégie.
 
 ### <a name="block-legacy-authentication-preview"></a>Bloquer l’authentification héritée (préversion)
 

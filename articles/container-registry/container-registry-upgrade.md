@@ -3,16 +3,17 @@ title: Mettre à niveau un registre de conteneurs Azure Classic
 description: Tirez parti du jeu de fonctionnalités étendu des registres de conteneur managés De base, Standard et Premium en mettant à niveau votre registre de conteneurs classique non managé.
 services: container-registry
 author: dlepow
+manager: gwallace
 ms.service: container-registry
 ms.topic: article
 ms.date: 03/26/2019
 ms.author: danlep
-ms.openlocfilehash: a5099feee34eb5497b68987485412e29ad5d5365
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 05c227e7de078c6bb371049f16e191598b9ca4e5
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60480342"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68310375"
 ---
 # <a name="upgrade-a-classic-container-registry"></a>Mettre à niveau un registre de conteneurs Classique
 
@@ -52,7 +53,7 @@ Au terme de la migration, le compte de stockage de l'abonnement dans lequel le r
 
 ## <a name="how-to-upgrade"></a>Mise à niveau
 
-Vous pouvez mettre à niveau un registre Classique non managé vers une des références SKU managées de plusieurs façons. Dans les sections suivantes, nous décrivons le processus d’utilisation d’[Azure CLI][azure-cli] et du [portail Azure][azure-portal].
+Vous pouvez mettre à niveau un registre Classique non managé vers une des références SKU managées de plusieurs façons. Dans les sections suivantes, nous décrivons le processus d’utilisation d’[Azure CLI][azure-cli]and the [Azure portal][azure-portal].
 
 ## <a name="upgrade-in-azure-cli"></a>Mise à niveau dans Azure CLI
 

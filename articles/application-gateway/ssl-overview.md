@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 3/19/2019
 ms.author: victorh
-ms.openlocfilehash: ee901fdcae9717cc6d03d7653bcaacc0c32518e0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 199fcdf2ebf10852906b842f09fe7beafd2acdb5
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66254321"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68326622"
 ---
 # <a name="overview-of-ssl-termination-and-end-to-end-ssl-with-application-gateway"></a>Présentation de la terminaison SSL et du chiffrement SSL de bout en bout sur la passerelle Application Gateway
 
@@ -92,7 +92,17 @@ Les certificats d’authentification ont été déconseillés et remplacés par 
 - Les certificats signés par des autorités de certification connues dont le nom commun correspond au nom de l’hôte dans les paramètres HTTP du serveur principal ne nécessitent pas d’étape supplémentaire pour que le protocole SSL de bout en bout fonctionne. 
 
    Par exemple, si les certificats de serveur principal sont émis par une autorité de certification connue et a un nom commun contoso.com et que le de paramètres HTTP du serveur principal est également défini sur contoso.com, aucune étape supplémentaire n’est nécessaire. Vous pouvez définir le paramètre du protocole HTTP du serveur principal sur HTTPS et le contrôle d’intégrité et le chemin des données seront de ce fait compatibles SSL. Si vous utilisez Azure App Service ou d’autres services web Azure en tant que back-end, ceux-ci sont également implicitement approuvés et aucune étape supplémentaire n’est nécessaire pour le protocole SSL de bout en bout.
+   
+> [!NOTE] 
+>
+> Pour qu’un certificat SSL soit approuvé, ce certificat du serveur principal doit avoir été émis par une autorité de certification qui est incluse dans le magasin approuvé Application Gateway. Si le certificat n’a pas été émis par une autorité de certification approuvée, Application Gateway vérifiera si le certificat de l’autorité de certification émettrice a été émis par une autorité de certification approuvée, et ainsi de suite jusqu’à ce qu’une autorité de certification approuvée soit détectée (à ce stade, une connexion sécurisée sera établie) ou qu’aucune autorité de certification approuvée ne soit trouvée (dans ce cas, Application Gateway marquera le serveur principal comme étant non sain). Par conséquent, il est recommandé que le certificat de serveur principal contienne à la fois les autorités de certification racines et intermédiaires.
+
 - Si le certificat est auto-signé ou signé par des intermédiaires inconnus, un certificat racine approuvé doit être défini pour pouvoir activer le SSL de bout en bout dans la référence SKU v2. Application Gateway communique uniquement avec les serveurs dont le certificat racine du certificat de serveur correspond à un présent dans la liste des certificats racines de confiance dans le paramètre HTTP principal associé au pool de serveurs.
+
+> [!NOTE] 
+>
+> Le certificat auto-signé doit faire partie d’une chaîne de certificats. Un seul certificat auto-signé sans chaîne n’est pas pris en charge dans la référence SKU v2.
+
 - En plus de la correspondance du certificat racine, Application Gateway vérifie également si le paramètre d’hôte spécifié dans le paramètre HTTP du serveur principal d’hôte correspond à celle du nom commun (CN) présenté par le certificat SSL du serveur principal. Lorsque vous tentez d’établir une connexion SSL au serveur principal, Application Gateway définit l’extension SNI d’indication de nom de serveur à l’hôte spécifié dans le paramètre HTTP du serveur principal.
 - Si vous choisissez l’option **Choisir le nom d’hôte à partir de l’adresse du serveur principal** au lieu du champ Hôte dans le paramètre HTTP du serveur principal, l’en-tête SNI est toujours définie sur le nom de domaine complet du pool principal et le nom commun sur le certificat SSL du serveur principal doit correspondre à son nom de domaine complet. Les membres du pool principal avec des adresses IP ne sont pas pris en charge dans ce scénario.
 - Le certificat racine est un certificat de racine codé en base64 parmi les certificats de serveur principal.

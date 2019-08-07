@@ -1,34 +1,34 @@
 ---
 title: Créer un compte Cognitive Services dans le portail Azure
 titlesuffix: Azure Cognitive Services
-description: Guide pratique de création d’un compte d’API Azure Cognitive Services sur le Portail Azure.
+description: Commencez à utiliser Azure Cognitive Services en créant et en vous abonnant à une ressource dans le Portail Azure.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 06/11/2019
+ms.date: 07/16/2019
 ms.author: aahi
-ms.openlocfilehash: b857ee0395c447c8699b8f6a812853528812a7bd
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: e9616f3014288e4b2580f474c49c646928db5a08
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67445851"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68334256"
 ---
-# <a name="create-a-cognitive-services-account-using-the-azure-portal"></a>Créer un compte Cognitive Services dans le portail Azure
+# <a name="create-a-cognitive-services-resource-using-the-azure-portal"></a>Créer un compte Cognitive Services dans le portail Azure
 
-Dans ce guide de démarrage rapide, vous allez apprendre à vous inscrire à Azure Cognitive Services et à créer un compte disposant d’un abonnement monoservice ou multiservice. Ces services sont représentés par des [ressources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal) Azure qui vous permettent de vous connecter à une ou plusieurs des API Azure Cognitive Services.
+Utilisez ce guide de démarrage rapide pour commencer à utiliser Azure Cognitive Services à l’aide du portail Azure. Les services Cognitive Services sont représentés par des [ressources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal) Azure que vous créez dans votre abonnement Azure. Après avoir créé la ressource, utilisez les clés et le point de terminaison générés pour authentifier vos applications. 
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Un abonnement Azure valide. [Créez un compte](https://azure.microsoft.com/free/) gratuitement.
+* Un abonnement Azure valide : [créez-en un gratuitement](https://azure.microsoft.com/free/).
 
 [!INCLUDE [cognitive-services-subscription-types](../../includes/cognitive-services-subscription-types.md)]
 
 ## <a name="create-a-new-azure-cognitive-services-resource"></a>Créer une ressource Azure Cognitive Services
 
-Avant de créer une ressource, vous devez disposer d’un groupe de ressources Azure. Chaque compte Cognitive Services (et ses ressources Azure associées) doivent appartenir à un groupe de ressources Azure. Quand vous créez un compte, vous avez le choix entre créer un groupe de ressources ou utiliser un groupe existant. Cet article montre comment créer un groupe de ressources.
+Avant de créer une ressource Cognitive Services, vous devez disposer d’un groupe de ressources Azure pour contenir la ressource. Quand vous créez une nouvelle ressource, vous avez le choix entre créer un groupe de ressources ou utiliser un groupe existant. Cet article montre comment créer un groupe de ressources.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com), puis cliquez sur **+ Créer une ressource**.
 
@@ -36,7 +36,7 @@ Avant de créer une ressource, vous devez disposer d’un groupe de ressources A
 
 2. Vous pouvez trouver les services cognitifs disponibles en procédant comme suit :
     * Utilisez la barre de recherche et entrez le nom du service auquel vous voulez vous abonner.
-        * Pour créer une ressource pour un abonnement multiservice, entrez **Cognitive Services** dans la recherche de la barre, puis sélectionnez la ressource **Cognitive Services**.
+        * Pour créer une ressource pour un abonnement multiservice, entrez **Cognitive Services** dans la barre de recherche, puis sélectionnez la ressource **Cognitive Services**.
 
         ![Rechercher Cognitive Services](media/cognitive-services-apis-create-account/azureCogServSearchMulti.png)
 
@@ -51,7 +51,7 @@ Avant de créer une ressource, vous devez disposer d’un groupe de ressources A
 
     |    |    |
     |--|--|
-    | **Nom** | Nom descriptif de votre ressource Cognitive Services. Nous vous recommandons d’utiliser un nom explicite, par exemple *MyCognitiveServicesAccount*. |
+    | **Nom** | Nom descriptif de votre ressource Cognitive Services. Par exemple *MyCognitiveServicesAccount*. |
     | **Abonnement** | Sélectionnez l’un de vos abonnements Azure disponibles. |
     | **Lieu** | Emplacement de votre instance Cognitive Services. Des emplacements différents peuvent entraîner une latence. Toutefois, cela n’aura pas d’impact sur la disponibilité d’exécution de votre ressource. |
     | **Niveau tarifaire** | Le coût associé à votre compte Cognitive Services dépend des options que vous choisissez, ainsi que de votre utilisation. Pour plus d'informations, consultez le [détail des tarifs](https://azure.microsoft.com/pricing/details/cognitive-services/) de l’API.
@@ -60,7 +60,7 @@ Avant de créer une ressource, vous devez disposer d’un groupe de ressources A
     ![Écran Création de ressources](media/cognitive-services-apis-create-account/resource_create_screen.png)
 
 
-## <a name="get-the-keys-for-your-subscription"></a>Obtenir les clés pour votre abonnement
+## <a name="get-the-keys-for-your-resource"></a>Obtenir les clés pour votre ressource
 
 Après avoir créé votre ressource, vous pouvez y accéder à partir du tableau de bord Azure, si vous l’y avez épinglée. Sinon, vous pouvez y accéder dans **Groupes de ressources**. Après avoir sélectionné votre ressource, vous pouvez obtenir les clés en sélectionnant **Clés** sous **Gestion des ressources**.
 
@@ -68,7 +68,7 @@ Après avoir créé votre ressource, vous pouvez y accéder à partir du tableau
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
-Si vous souhaitez nettoyer et supprimer un abonnement Cognitive Services, vous pouvez supprimer la ressource ou le groupe de ressources. La suppression du groupe de ressources efface également les autres ressources liées au groupe de ressources.
+Si vous souhaitez nettoyer et supprimer un abonnement Cognitive Services, vous pouvez supprimer la ressource ou le groupe de ressources. La suppression du groupe de ressources efface également toutes les autres ressources se trouvant dans le groupe.
 
 Pour supprimer un groupe de ressources dans le portail Azure :
 

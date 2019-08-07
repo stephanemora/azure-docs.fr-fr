@@ -1,6 +1,6 @@
 ---
-title: Attributs de sécurité courants pour Azure Key Vault
-description: Check-list des attributs de sécurité couramment utilisés pour l'évaluation d'Azure Key Vault
+title: Attributs de sécurité pour Azure Key Vault
+description: Une liste de contrôle des attributs de sécurité pour l’évaluation d’Azure Key Vault
 services: key-vault
 author: msmbaldwin
 manager: barbkess
@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 1c2265ff5f4c444121bf70c35145703f1b9fe981
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 836d025c5bc69da9606c9a6172ac6a43caaaf29b
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66000194"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68444023"
 ---
 # <a name="security-attributes-for-azure-key-vault"></a>Attributs de sécurité pour Azure Key Vault
 
@@ -25,8 +25,8 @@ Cet article décrit les attributs de sécurité intégrés à Azure Key Vault.
 
 | Attribut de sécurité | Oui/Non | Notes |
 |---|---|--|
-| Chiffrement au repos :<ul><li>Chiffrement côté serveur</li><li>Chiffrement côté serveur avec des clés gérées par le client</li><li>Autres fonctionnalités de chiffrement (côté client, Always Encrypted, etc.)</ul>| OUI | Tous les objets sont chiffrés. |
-| Chiffrement en transit :<ul><li>Chiffrement Express Route</li><li>Chiffrement dans le réseau virtuel</li><li>Chiffrement de réseau virtuel à réseau virtuel</ul>| OUI | Toutes les communications se font par le biais d’appels d’API chiffrés |
+| Chiffrement au repos (comme le chiffrement côté serveur, le chiffrement côté serveur avec clés managées par le client et d’autres fonctions de chiffrement)| OUI | Tous les objets sont chiffrés. |
+| Chiffrement en transit (comme ExpressRoute, de réseau virtuel et de réseau virtuel à réseau virtuel)| OUI | Toutes les communications se font par le biais d’appels d’API chiffrés |
 | Gestion des clés de chiffrement (CMK, BYOK, etc.)| OUI | Le client contrôle toutes les clés de son Key Vault. Lorsque des clés sauvegardées avec HSM (Hardware Security Module) sont spécifiées, un module HSM Niveau 2 FIPS protège la clé, le certificat ou le secret. |
 | Chiffrement au niveau des colonnes (Azure Data Services)| N/A |  |
 | Appels d’API chiffrés| OUI | Utilisation du protocole HTTPS. |
@@ -44,7 +44,7 @@ Cet article décrit les attributs de sécurité intégrés à Azure Key Vault.
 
 | Attribut de sécurité | Oui/Non | Notes|
 |---|---|--|
-| Prise en charge de la supervision Azure (Log Analytics, App Insights, etc.)| OUI | Utilisation de Log Analytics. |
+| Prise en charge de la supervision Azure (Log analytics, App insights, etc.)| OUI | Utilisation de Log Analytics. |
 
 ## <a name="identity-and-access-management"></a>Gestion de l’identité et de l’accès
 

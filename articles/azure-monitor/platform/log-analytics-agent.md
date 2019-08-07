@@ -11,20 +11,20 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 07/01/2019
+ms.date: 07/23/2019
 ms.author: magoedte
-ms.openlocfilehash: 583845b2ea63efd42f382c9c150de650f34bafed
-ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
+ms.openlocfilehash: 653355af7dcb0b30c3deb444fcfe4b4ff76e7e77
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67514107"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68424120"
 ---
 # <a name="collect-log-data-with-the-log-analytics-agent"></a>Collecter des données de journal avec l’agent Log Analytics
 
 L'agent Azure Log Analytics, précédemment appelé Microsoft Monitoring Agent (MMA) ou agent OMS Linux, a été développé fournir une gestion complète sur plusieurs machines locales, ordinateurs surveillés par [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/) et machines virtuelles situées dans un cloud. Les agents Windows et Linux accèdent à Azure Monitor et stockent des données de journaux collectés à partir de différentes sources dans votre espace de travail Log Analytics, ainsi qu’à des journaux ou métriques uniques tels que définis dans une solution de surveillance. 
 
-Cet article propose une présentation détaillée des exigences en matière d'agent, de système et de réseau, ainsi que des différentes méthodes de déploiement.   
+Cet article propose une présentation détaillée des exigences en matière d'agent, de système et de réseau, ainsi que des différentes méthodes de déploiement.
 
 ## <a name="overview"></a>Vue d'ensemble
 
@@ -45,10 +45,14 @@ Les versions suivantes du système d’exploitation Windows sont officiellement 
 
 * Windows Server 2019
 * Windows Server 2008 R2, 2012, 2012 R2, 2016, version 1709 et 1803
-* Windows 7 SP1 (ou version ultérieure)
+* Windows 7 SP1, Windows 8 Enterprise et Pro, et Windows 10 Enterprise et Pro
+
+>[!NOTE]
+>Tandis que l’agent Log Analytics pour Windows a été conçu pour prendre en charge les scénarios d’analyse de serveur, nous savons que vous pouvez exécuter le client Windows pour prendre en charge les charges de travail configurées et optimisées pour le système d’exploitation serveur. L’agent ne prend pas en charge le client Windows, mais nos solutions de surveillance ne concernent pas les scénarios d’analyse du client, sauf mention explicite.
 
 ## <a name="supported-linux-operating-systems"></a>Systèmes d’exploitation Linux pris en charge
-Cette section fournit des détails sur les distributions Linux prises en charge.    
+
+Cette section fournit des détails sur les distributions Linux prises en charge.
 
 À partir des versions publiées après août 2018, nous apportons les changements suivants à notre modèle de prise en charge :  
 
@@ -90,9 +94,11 @@ Le tableau suivant répertorie les packages requis pour les distributions Linux 
 >rsyslog ou syslog-ng est requis pour collecter les messages syslog. Le démon syslog par défaut sur la version 5 de Red Hat Enterprise Linux, CentOS et Oracle Linux (sysklog) ne prend pas en charge la collecte des événements syslog. Pour collecter les données syslog avec cette version de ces distributions, le démon rsyslog doit être installé et configuré à la place de sysklog.
 
 ## <a name="tls-12-protocol"></a>Protocole TLS 1.2
+
 Pour garantir la sécurité des données en transit vers les journaux Azure Monitor, nous vous encourageons vivement à configurer l’agent de façon à utiliser au moins Transport Layer Security (TLS) 1.2. Les versions antérieures de TLS/SSL (Secure Sockets Layer) se sont avérées vulnérables et bien qu’elles fonctionnent encore pour assurer la compatibilité descendante, elles sont **déconseillées**.  Pour plus d’informations, passez en revue [Envoi sécurisé de données via TLS 1.2](../../azure-monitor/platform/data-security.md#sending-data-securely-using-tls-12). 
 
 ## <a name="network-firewall-requirements"></a>Configuration requise du pare-feu réseau
+
 Voici la liste des informations de configuration du proxy et du pare-feu requises pour permettre à l’agent Linux et Windows de communiquer avec les journaux Azure Monitor.  
 
 |Ressource de l'agent|Ports |Direction |Ignorer l’inspection HTTPS|
@@ -128,7 +134,8 @@ Par exemple : `https://user01:password@proxy01.contoso.com:30443`
 > [!NOTE]
 > Si des caractères spéciaux, par exemple « \@ », sont utilisés dans le mot de passe, il se produit une erreur de connexion au proxy, car la valeur est mal analysée.  Pour contourner ce problème, encodez le mot de passe dans l’URL à l’aide d’un outil comme [URLDecode](https://www.urldecoder.org/).  
 
-## <a name="install-and-configure-agent"></a>Installer et configurer l’agent 
+## <a name="install-and-configure-agent"></a>Installer et configurer l’agent
+
 Selon vos besoins, plusieurs méthodes vous permettent de connecter des machines de votre abonnement Azure ou d’un environnement hybride directement à des journaux Azure Monitor. Le tableau suivant décrit chacune d’entre elle, pour vous permettre d’identifier la plus adaptée à votre organisation.
 
 |Source | Méthode | Description|

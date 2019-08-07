@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
-manager: craigg
 ms.date: 06/26/2019
-ms.openlocfilehash: f4e19b916553912e36f2c3beee3f6a518b244e4d
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 961c0de6856a9791f76be1ec609f176f1fbbf8fb
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67707002"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567333"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Vue d’ensemble des limites de ressources Azure SQL Database Managed Instance
 
@@ -40,8 +39,7 @@ L’instance gérée d’Azure SQL Database peut être déployée sur deux gén�
 | Nombre de vCores | 8, 16, 24 vCores | 4, 8, 16, 24, 32, 40, 64, 80 vCores |
 | Mémoire maximale (ratio mémoire/cœur) | 7 Go par vCore<br/>Ajoutez plus de vCores pour obtenir davantage de mémoire. | 5,1 Go par vCore<br/>Ajoutez plus de vCores pour obtenir davantage de mémoire. |
 | Mémoire OLTP maximum en mémoire | Limite de l’instance : 3 Go par vCore<br/>Limites de base de données :<br/> - 8 cœurs : 8 Go par base de données<br/> - 16 cœurs : 20 Go par base de données<br/> - 24 cœurs : 36 Go par base de données | Limite de l’instance : 2,5 Go par vCore<br/>Limites de base de données :<br/> - 8 cœurs : 13 Go par base de données<br/> - 16 cœurs : 32 Go par base de données |
-| Stockage réservé maximal d’instance (universel) |  8 To | 8 To |
-| Stockage réservé maximal d’instance (critique pour l’entreprise) | 1 To | 1 To, 2 To ou 4 To, en fonction du nombre de cœurs |
+| Stockage réservé d’instance max. |  Usage général : 8 To<br/>Critique pour l’entreprise : 1 To | Usage général : 8 To<br/> Critique pour l’entreprise 1 To, 2 To ou 4 To, en fonction du nombre de cœurs |
 
 > [!IMPORTANT]
 > Les nouvelles bases de données Gen4 ne sont plus prises en charge dans la région AustraliaEast.

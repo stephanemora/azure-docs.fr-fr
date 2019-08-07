@@ -3,25 +3,17 @@ author: yashesvi
 ms.author: banders
 ms.service: virtual-machines-windows
 ms.topic: include
-ms.date: 07/11/2019
-ms.openlocfilehash: 766856438b22661b961bfbadc0b63376031622f6
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.date: 07/19/2019
+ms.openlocfilehash: 763d424d9d462c4a9531df84f3e5e26bfc1b0a14
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67850826"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68502284"
 ---
 # <a name="prepay-for-virtual-machines-with-azure-reserved-vm-instances-ri"></a>Prépayer des machines virtuelles avec des instances de machines virtuelles réservées Azure
 
-Prépayez les machines virtuelles et réalisez des économies avec Azure Reserved Virtual Machine Instances. Pour plus d’informations, consultez [Offre Azure Reserved VM Instances](https://azure.microsoft.com/pricing/reserved-vm-instances/).
-
-Vous pouvez acheter une instance de machine virtuelle réservée dans le [portail Azure](https://portal.azure.com). Pour acheter une instance :
-
-- Vous devez avoir le rôle Propriétaire pour au moins un abonnement entreprise ou un abonnement assorti d’un paiement à l’utilisation.
-- Pour les abonnements Entreprise, **Add Reserved Instances** (Ajouter des instances réservées) doit être activé dans le [portal EA](https://ea.azure.com). Si ce paramètre est désactivé, vous devez être administrateur EA de l’abonnement.
-- Pour le programme CSP (Cloud Solution Provider), seuls les agents administrateurs ou les agents commerciaux peuvent acheter les réservations.
-
-La remise de réservation est appliquée automatiquement au nombre de machines virtuelles en cours d’exécution qui correspondent à l’étendue et aux attributs de la réservation. Vous pouvez mettre à jour l’étendue de la réservation par le biais du [portail Azure](https://portal.azure.com), de PowerShell, de CLI ou de l’API.
+Prépayez les machines virtuelles et réalisez des économies avec Azure Reserved Virtual Machine Instances. La remise de réservation est appliquée automatiquement au nombre de machines virtuelles en cours d’exécution qui correspondent à l’étendue et aux attributs de la réservation. Vous n’avez pas besoin d’attribuer une réservation à une machine virtuelle pour obtenir les remises. Un achat d’instance réservée couvre uniquement la partie Calcul de l’utilisation de votre machine virtuelle. Pour les machines virtuelles Windows, le compteur d’utilisation est divisé en deux compteurs distincts. Il existe un compteur de calcul, qui est le même que le compteur Linux et un compteur IP Windows. Les frais que vous voyez lorsque vous effectuez l’achat sont uniquement pour les coûts de calcul. Les frais n’incluent pas les coûts des logiciels Windows. Pour plus d’informations sur les coûts liés aux logiciels, consultez [Coûts des logiciels non inclus dans Azure Reserved VM Instances](../articles/billing/billing-reserved-instance-windows-software-costs.md).
 
 ## <a name="determine-the-right-vm-size-before-you-buy"></a>Déterminer la taille de machine virtuelle adaptée avant l’achat
 
@@ -34,7 +26,7 @@ Vous pouvez utiliser les suggestions de réservation pour déterminer les réser
 - Les suggestions d’achat et une quantité recommandée s’affichent lorsque vous achetez une instance réservée de machine virtuelle sur le portail Azure.
 - Azure Advisor fournit des suggestions d’achat pour les divers abonnements.  
 - Vous pouvez utiliser les API pour obtenir des suggestions d’achat tant pour l’étendue partagée que pour l’étendue d’un abonnement unique. Pour plus d’informations, voir [API de suggestion d’achat d’instance réservée pour les entreprises](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation).
-- Pour les clients EA, des suggestions d’achat pour des étendues d’abonnement simples et partagées sont disponibles dans le [pack de contenu Power BI Azure consommation Insights](/power-bi/service-connect-to-azure-consumption-insights).
+- Pour les clients Accord Entreprise (EA), des suggestions d’achat pour des étendues d’abonnement simples et partagées sont disponibles dans le [pack de contenu Power BI Azure Consumption Insights](/power-bi/service-connect-to-azure-consumption-insights).
 
 ### <a name="services-that-get-vm-reservation-discounts"></a>Services qui obtiennent des remises de réservation de machines virtuelles
 
@@ -42,14 +34,14 @@ Vos réservations de machine virtuelle peuvent s’appliquer à l’utilisation 
 
 #### <a name="instance-size-flexibility-setting"></a>Paramètre de flexibilité de la taille d’instance
 
-Le paramètre de flexibilité de la taille de l’instance détermine les services qui obtiennent les remises d’instance réservée.
+Le paramètre de flexibilité de la taille d’instance détermine les services qui obtiennent les remises d’instance réservée.
 
 Que le paramètre soit activé ou désactivé, les remises de réservation s’appliquent automatiquement à toute utilisation de machine virtuelle correspondante lorsque la valeur *ConsumedService* est `Microsoft.Compute`. Par conséquent, vérifiez vos données d’utilisation pour la valeur *ConsumedService*. Voici quelques exemples :
 
 - Machines virtuelles
 - Groupes identiques de machines virtuelles
 - Service de conteneur
-- Déploiements de Azure Batch (en mode abonnement utilisateur)
+- Déploiements Azure Batch (en mode Abonnement utilisateur)
 - Azure Kubernetes Service (AKS)
 - Service Fabric
 
@@ -78,7 +70,7 @@ Des instances de machines virtuelles réservées sont disponibles pour la plupar
 
 - **Séries de machines virtuelles** : A, Av2 ou G.
 
-- **Machines virtuelles en préversion** : toutes les séries ou tailles de machines virtuelles en préversion.
+- **Machines virtuelles préversion et promo** : n’importe quelle série ou tailles de machines virtuelles en préversion ou qui utilise un compteur promotionnel.
 
 - **Clouds** : les réservations ne sont pas disponibles à l’achat dans les régions Allemagne et Chine.
 
@@ -88,6 +80,16 @@ Des instances de machines virtuelles réservées sont disponibles pour la plupar
 
 ## <a name="buy-a-reserved-vm-instance"></a>Acheter une instance de machine virtuelle réservée
 
+Vous pouvez acheter une instance de machine virtuelle réservée dans le [portail Azure](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22VirtualMachines%22%7D).
+
+Ces conditions s’appliquent à l’achat d’une instance de machine virtuelle réservée :
+
+- Vous devez avoir le rôle Propriétaire pour au moins un abonnement EA ou un abonnement assorti d’un paiement à l’utilisation.
+- Pour les abonnements EA, l’option **Ajouter des instances réservées** doit être activée sur le [portail EA](https://ea.azure.com/). Ou, si ce paramètre est désactivé, vous devez être administrateur EA de l’abonnement.
+- Pour le programme CSP (Cloud Solution Provider), seuls les agents administrateurs ou les agents commerciaux peuvent acheter les réservations.
+
+Pour acheter une instance :
+
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 1. Sélectionnez **Tous les services** > **Réservations**.
 1. Sélectionnez **Ajouter** pour acheter une nouvelle réservation, puis cliquez sur **Machine virtuelle**.
@@ -96,7 +98,7 @@ Des instances de machines virtuelles réservées sont disponibles pour la plupar
 | Champ      | Description|
 |------------|--------------|
 |Subscription|Abonnement utilisé pour payer la réservation. Les coûts initiaux de la réservation sont facturés au mode de paiement défini sur l’abonnement. Le type d’abonnement doit être Accord Entreprise (numéros de l’offre : MS-AZR-0017P or MS-AZR-0148P) ou un abonnement individuel avec paiement à l’utilisation (numéros de l’offre : MS-AZR-0003P ou MS-AZR-0023P). Pour un abonnement Entreprise, les frais sont déduits du solde d’engagement monétaire de l’inscription ou facturés comme un dépassement. Pour un abonnement payable à l’utilisation, les frais sont facturés sur le mode de paiement par carte de crédit ou facture défini sur l’abonnement.|    
-|Étendue       |L’étendue de la réservation peut couvrir un seul abonnement ou plusieurs abonnements (étendue partagée). Si vous sélectionnez : <ul><li>**Étendue de groupe de ressources unique** : applique la remise de réservation aux ressources correspondantes incluses dans le groupe de ressources sélectionné uniquement.</li><li>**Étendue d’abonnement unique** : applique la remise de réservation aux ressources correspondantes incluses dans l’abonnement sélectionné.</li><li>**Étendue partagée** : applique la remise de réservation aux ressources correspondantes dans les abonnements éligibles inclus dans le contexte de facturation. Pour les clients Contrat Entreprise, le contexte de facturation correspond à l’inscription. Pour les abonnements individuels utilisant les tarifs du paiement à l’utilisation, l’étendue de facturation correspond à tous les abonnements éligibles créés par l’administrateur de compte.</li></ul>|
+|Étendue       |L’étendue de la réservation peut couvrir un seul abonnement ou plusieurs abonnements (étendue partagée). Si vous sélectionnez : <ul><li>**Étendue de groupe de ressources unique** : applique la remise de réservation aux ressources correspondantes incluses dans le groupe de ressources sélectionné uniquement.</li><li>**Étendue d’abonnement unique** : applique la remise de réservation aux ressources correspondantes incluses dans l’abonnement sélectionné.</li><li>**Étendue partagée** : applique la remise de réservation aux ressources correspondantes dans les abonnements éligibles inclus dans le contexte de facturation. Pour les clients EA, le contexte de facturation est défini par l’inscription. Pour les abonnements individuels utilisant les tarifs du paiement à l’utilisation, l’étendue de facturation correspond à tous les abonnements éligibles créés par l’administrateur de compte.</li></ul>|
 |Région    |Région Azure couverte par la réservation.|    
 |Taille de la machine virtuelle     |Taille des instances de machines virtuelles.|
 |Optimiser pour     |La flexibilité de la taille d’instance de machine virtuelle est sélectionnée par défaut. Cliquez sur **Paramètres avancés** pour modifier la valeur de la flexibilité de taille d’instance afin d’appliquer la remise de réservation à d’autres machines virtuelles dans le même [Groupe de taille de machine virtuelle](../articles/virtual-machines/windows/reserved-vm-instance-size-flexibility.md). La priorité de capacité priorise la capacité de centre de données pour vos déploiements. Cela offre une assurance supplémentaire dans votre capacité à lancer les instances de machines virtuelles quand vous en avez besoin. La priorité de capacité est uniquement disponible si l’étendue de réservation comprend un seul abonnement. |
@@ -104,6 +106,12 @@ Des instances de machines virtuelles réservées sont disponibles pour la plupar
 |Quantité    |Nombre d’instances achetées au sein de la réservation. La quantité correspond au nombre d’instances de machines virtuelles en cours d’exécution pouvant bénéficier de la remise de facturation. Par exemple, si vous exécutez 10 machines virtuelles Standard_D2 dans la région USA Est, vous devez spécifier 10 comme quantité pour optimiser l’avantage pour toutes les machines virtuelles en cours d’exécution. |
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2PjmT]
+
+## <a name="usage-data-and-reservation-utilization"></a>Données d’utilisation et utilisation de la réservation
+
+Vos données d’utilisation ont un prix effectif de zéro pour l’utilisation qui bénéficie d’une remise de réservation. Vous pouvez voir l’instance de machine virtuelle qui a reçu la remise de réservation pour chaque réservation.
+
+Pour plus d’informations sur l’affichage des remises de réservation dans les données d’utilisation, consultez [Comprendre l’utilisation de la réservation Azure pour l’inscription de votre entreprise](../articles/billing/billing-understand-reserved-instance-usage-ea.md) si vous êtes un client EA. Si vous avez un abonnement individuel, consultez [Comprendre l’utilisation d’une réservation Azure pour votre abonnement individuel avec tarifs de paiement à l’utilisation](../articles/billing/billing-understand-reserved-instance-usage.md).
 
 ## <a name="change-a-reservation-after-purchase"></a>Modifier une réservation après achat
 
@@ -126,9 +134,9 @@ Toutefois, vous pouvez *échanger* une réservation si vous souhaitez y apporter
 
 ## <a name="cancellations-and-exchanges"></a>Annulations et échanges
 
-Si vous devez annuler votre réservation, des frais de résiliation anticipée de 12 % sont susceptibles d’être appliqués. Les remboursements sont basés sur le tarif le plus bas de votre prix d’achat ou le prix actuel de la réservation. Les remboursements sont limités à 50 000 $ par an. Le remboursement que vous recevez correspond au solde restant au prorata moins les frais de résiliation anticipée de 12 %. Pour demander une annulation, accédez à la réservation dans le Portail Azure et sélectionnez **Remboursement** pour créer une demande de support.
+Si vous devez annuler votre réservation, des frais de résiliation anticipée de 12 % sont susceptibles d’être appliqués. Les remboursements sont basés sur le tarif le plus bas de votre prix d’achat ou le prix actuel de la réservation. Les remboursements sont limités à 50 000 $ par an. Le remboursement que vous recevez correspond au solde restant au prorata moins les frais de résiliation anticipée de 12 %. Pour annuler, accédez à la réservation dans le portail Azure, puis sélectionnez **Remboursement**.
 
-Si vous devez changer votre réservation d’instances de machine virtuelle réservées pour une autre région, un autre groupe de taille de machine virtuelle ou un autre terme, vous pouvez l’échanger. L’échange doit être destiné à une autre réservation de valeur égale ou supérieure. La date de début du terme de la nouvelle réservation ne couvre pas la réservation échangée. Le terme d’un an ou de trois ans commence à courir dès la création de la nouvelle réservation. Pour demander un échange, accédez à la réservation dans le Portail Azure et sélectionnez **Échange** pour créer une demande de support.
+Si vous devez changer votre réservation d’instances de machine virtuelle réservées pour une autre région, un autre groupe de taille de machine virtuelle ou un autre terme, vous pouvez l’échanger. L’échange doit être destiné à une autre réservation de valeur égale ou supérieure. La date de début du terme de la nouvelle réservation ne couvre pas la réservation échangée. Le terme d’un an ou de trois ans commence à courir dès la création de la nouvelle réservation. Pour échanger, accédez à la réservation dans le portail Azure, puis sélectionnez **Échanger**.
 
 Pour plus d’informations sur l’échange ou le remboursement des réservations, voir [Échanges et remboursements de réservations](../articles/billing/billing-azure-reservations-self-service-exchange-and-refund.md).
 

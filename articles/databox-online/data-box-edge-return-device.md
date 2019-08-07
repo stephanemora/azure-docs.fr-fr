@@ -1,23 +1,23 @@
 ---
-title: Retourner votre appareil Azure Data Box Edge | Microsoft Docs
-description: Décrit comment retourner l’appareil Azure Data Box Edge et supprimer la commande de l’appareil.
+title: Retourner ou remplacer votre appareil Azure Data Box Edge | Microsoft Docs
+description: Décrit comment retourner ou remplacer l’appareil Azure Data Box Edge.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 07/19/2019
 ms.author: alkohli
-ms.openlocfilehash: 9aeae0ab68d809b36a3316054f12a5a9657721f1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a5fee604a529e9ca6153f6c189f199577ae65426
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65468603"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68356151"
 ---
-# <a name="return-your-azure-data-box-edge-device"></a>Retourner votre appareil Azure Data Box Edge
+# <a name="return-or-replace-your-azure-data-box-edge-device"></a>Retourner ou remplacer votre appareil Azure Data Box Edge
 
-Cet article décrit comment effacer les données, puis retourner votre appareil Azure Data Box Edge. Une fois que vous avez retourné l’appareil, vous pouvez également supprimer la ressource associée à l’appareil.
+Cet article décrit comment effacer les données, puis retourner votre appareil Azure Data Box Edge. Une fois que vous avez retourné l’appareil, vous pouvez également supprimer la ressource associée à l’appareil ou commander un appareil de remplacement.
 
 Dans cet article, vous apprendrez comment :
 
@@ -26,6 +26,7 @@ Dans cet article, vous apprendrez comment :
 > * Ouvrir un ticket de support pour retourner votre appareil
 > * Emballer l’appareil et planifier un enlèvement
 > * Supprimer la ressource dans le Portail Azure
+> * Obtenir un appareil de remplacement
 
 ## <a name="erase-data-from-the-device"></a>Effacer les données de l’appareil
 
@@ -105,6 +106,21 @@ Effectuez les étapes suivantes pour supprimer l’appareil et la ressource dans
     ![Confirmation de suppression](media/data-box-edge-return-device/delete-resource-2.png)
 
 Vous êtes informé lorsque l’appareil et la ressource associée ont bien été supprimés.
+
+## <a name="get-a-replacement-device"></a>Obtenir un appareil de remplacement
+
+Un appareil de remplacement est nécessaire lorsque l’appareil existant présente une défaillance matérielle ou a besoin d’une mise à niveau. Procédez comme suit lorsque votre appareil présente une défaillance matérielle :
+
+1. [Ouvrez un ticket de support de support pour problème matériel](#open-a-support-ticket). Le support Microsoft déterminera qu’une unité de remplacement de champ (FRU) n’est pas disponible pour cette instance ou que l’appareil a besoin d’une mise à niveau matérielle. Dans les deux cas, le support commandera un appareil de remplacement.
+2. [Créer une nouvelle ressource](data-box-edge-deploy-prep.md#create-a-new-resource) pour le périphérique de remplacement. Veillez à activer la case à cocher **Je possède un appareil Data Box Edge**. 
+3. Une fois que vous avez reçu un appareil de remplacement, [installez](data-box-edge-deploy-install.md) et [activez](data-box-edge-deploy-connect-setup-activate.md) l’appareil de remplacement par rapport à la nouvelle ressource.
+4. Suivez toutes les étapes pour retourner l’appareil d’origine :
+    1. Ouvrez un autre ticket pour retourner l’appareil d’origine.
+    2. [Effacez les données sur l’appareil](#erase-data-from-the-device).
+    3. [Planifiez un enlèvement](#schedule-a-pickup).
+    5. [Supprimez la ressource](#delete-the-resource) associée à l’appareil retourné.
+
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

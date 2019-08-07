@@ -5,15 +5,15 @@ description: Apprenez tout ce que devez savoir sur la modélisation des données
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 07/23/2019
 ms.author: rimman
 ms.custom: rimman
-ms.openlocfilehash: 47d519523c7ffd1c0b6329d6b4eb12b052466b35
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: da119b2858c6b6c7bbc99b40d340f79964e0fae3
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67657375"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68467898"
 ---
 # <a name="data-modeling-in-azure-cosmos-db"></a>Modélisation des données dans Azure Cosmos DB
 
@@ -417,3 +417,5 @@ De même qu'il existe plusieurs façons de représenter un élément de données
 Pour en savoir plus sur Azure Cosmos DB, consultez la page de [documentation](https://azure.microsoft.com/documentation/services/cosmos-db/) du service.
 
 Pour comprendre la répartition de vos données entre plusieurs partitions, consultez [Partitionnement, clés de partition et mise à l’échelle dans Azure Cosmos DB](sql-api-partition-data.md).
+
+Pour savoir comment modéliser et partitionner des données sur Azure Cosmos DB à l’aide d’un exemple concret, reportez-vous à [Modélisation et partitionnement des données – Exemple concret](how-to-model-partition-example.md).

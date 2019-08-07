@@ -1,6 +1,6 @@
 ---
 title: Attributs de sécurité pour Gestion des API Azure
-description: Check-list des attributs de sécurité communs pour l’évaluation de Gestion des API
+description: Check-list des attributs de sécurité pour l’évaluation de la gestion des API
 services: api-management
 author: msmbaldwin
 manager: barbkess
@@ -8,12 +8,12 @@ ms.service: api-management
 ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 3b5826d472b80179c5eb76e0e3a6b1c7ee282487
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2049e2349e3a25ebd4d3f4db19ec47bbaeb067de
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66001092"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68442281"
 ---
 # <a name="security-attributes-for-api-management"></a>Attributs de sécurité pour Gestion des API
 
@@ -25,8 +25,8 @@ Cet article décrit les attributs de sécurité intégrés à Gestion des API.
 
 | Attribut de sécurité | Oui/Non | Notes |
 |---|---|--|
-| Chiffrement au repos :<ul><li>Chiffrement côté serveur</li><li>Chiffrement côté serveur avec des clés gérées par le client</li><li>Autres fonctionnalités de chiffrement (côté client, Always Encrypted, etc.)</ul>| Oui (chiffrement côté service uniquement) | Les données sensibles telles que les certificats, les clés et les valeurs secrètes sont chiffrées à l'aide de clés d'instance de service gérées par le service. |
-| Chiffrement en transit :<ul><li>Chiffrement Express Route</li><li>Chiffrement dans le réseau virtuel</li><li>Chiffrement de réseau virtuel à réseau virtuel</ul>| OUI | Le chiffrement [Express Route](../expressroute/index.yml) et VNet est fourni par la [mise en réseau Azure](../virtual-network/index.yml). |
+| Chiffrement au repos (comme le chiffrement côté serveur, le chiffrement côté serveur avec clés managées par le client et d’autres fonctions de chiffrement)| Oui (chiffrement côté service uniquement) | Les données sensibles telles que les certificats, les clés et les valeurs secrètes sont chiffrées à l'aide de clés d'instance de service gérées par le service. |
+| Chiffrement en transit (ExpressRoute, de réseau virtuel et de réseau virtuel à réseau virtuel)| OUI | Le chiffrement [Express Route](../expressroute/index.yml) et VNet est fourni par la [mise en réseau Azure](../virtual-network/index.yml). |
 | Gestion des clés de chiffrement (CMK, BYOK, etc.)| Non | Toutes les clés de chiffrement sont propres à l'instance de service et gérées par ce dernier. |
 | Chiffrement au niveau des colonnes (Azure Data Services)| N/A | |
 | Appels d’API chiffrés| OUI | Les appels de plan de gestion se font par le biais d'[Azure Resource Manager](../azure-resource-manager/index.yml) sur TLS. Un jeton web JSON valide (JWT) est nécessaire.  Les appels de plan de données peuvent être sécurisés via TLS et un des mécanismes d’authentification pris en charge (certificat client ou JWT, par exemple).
@@ -45,7 +45,7 @@ Cet article décrit les attributs de sécurité intégrés à Gestion des API.
 
 | Attribut de sécurité | Oui/Non | Notes|
 |---|---|--|
-| Prise en charge de la supervision Azure (Log Analytics, App Insights, etc.)| OUI | |
+| Prise en charge de la supervision Azure (Log analytics, App insights, etc.)| OUI | |
 
 ## <a name="identity-and-access-management"></a>Gestion de l’identité et de l’accès
 

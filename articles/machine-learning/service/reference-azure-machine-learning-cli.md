@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 601a6139b81e45fa5005b7510189eac594c29fb0
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: a82a44127a470b6366eeffc60c73f762d5a8f525
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67475998"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68348583"
 ---
 # <a name="use-the-cli-extension-for-azure-machine-learning-service"></a>Utiliser l’extension CLI pour le service Azure Machine Learning
 
@@ -178,29 +178,33 @@ Les commandes suivantes montrent comment inscrire un modèle entraîné, puis le
     az ml model deploy -n myservice -m mymodel:1 --ic inferenceconfig.json --dc deploymentconfig.json --ct akscomputetarget
     ```
     
-    Voici un exemple de document `inferenceconfig.json` :
-    ```json
-    {
-    "entryScript": "score.py",
-    "runtime": "python",
-    "condaFile": "myenv.yml",
-    "extraDockerfileSteps": null,
-    "sourceDirectory": null,
-    "enableGpu": false,
-    "baseImage": null,
-    "baseImageRegistry": null
-    }
-    ```
-    Le document suivant est un exemple de document « deploymentconfig.json » :
-    ```json
-    {
-    "computeType": "aks",
-    "ComputeTarget": "akscomputetarget"
-    }
-    ```
+    Pour plus d’informations sur le schéma du fichier de configuration d'inférence, consultez [Schéma de configuration de l’inférence](#inferenceconfig).
+    
+    Pour plus d’informations sur le schéma du fichier de configuration de déploiement, consultez [Schéma de configuration de déploiement](#deploymentconfig).
 
     Pour plus d’informations, consultez [az ml model deploy](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-deploy).
 
+<a id="inferenceconfig"></a>
+
+## <a name="inference-configuration-schema"></a>Schéma de configuration de l’inférence
+
+[!INCLUDE [inferenceconfig](../../../includes/machine-learning-service-inference-config.md)]
+
+<a id="deploymentconfig"></a>
+
+## <a name="deployment-configuration-schema"></a>Schéma de configuration de déploiement
+
+### <a name="local-deployment-configuration-schema"></a>Schéma de configuration de déploiement local
+
+[!INCLUDE [deploymentconfig](../../../includes/machine-learning-service-local-deploy-config.md)]
+
+### <a name="azure-container-instance-deployment-configuration-schema"></a>Schéma de configuration de déploiement d’Azure Container Instance 
+
+[!INCLUDE [deploymentconfig](../../../includes/machine-learning-service-aci-deploy-config.md)]
+
+### <a name="azure-kubernetes-service-deployment-configuration-schema"></a>Schéma de configuration de déploiement d’Azure Kubernetes Service
+
+[!INCLUDE [deploymentconfig](../../../includes/machine-learning-service-aks-deploy-config.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
 

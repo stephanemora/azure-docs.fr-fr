@@ -8,19 +8,19 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/16/2019
 ms.author: zarhoads
-ms.openlocfilehash: c92762b53b0f5b50ea08f2f78998a3ccecbed990
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4eef31a050072c0413421a5490b35b765cb9557d
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67061059"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68381835"
 ---
 # <a name="use-gpus-for-compute-intensive-workloads-on-azure-kubernetes-service-aks"></a>Utiliser des GPU pour les charges de travail nécessitant beaucoup de ressources système sur Azure Kubernetes Service (AKS)
 
 Les processeurs graphiques (GPU) sont souvent utilisés pour les charges de travail nécessitant beaucoup de ressources système, comme le traitement graphique et la visualisation. AKS prend en charge la création de pools de nœuds compatibles GPU pour exécuter ce type de charges de travail dans Kubernetes. Pour plus d’informations sur les machines virtuelles compatibles GPU disponibles, voir [Tailles de machines virtuelles optimisées pour les GPU dans Azure][gpu-skus]. Pour les nœuds AKS, nous recommandons la taille minimale *Standard_NC6*.
 
 > [!NOTE]
-> Les machines virtuelles compatibles GPU contiennent du matériel spécialisé, plus cher et dépendant de la disponibilité régionale. Pour plus d’informations, voir l’outil de [tarification][azure-pricing] et la [disponibilité régionale][azure-availability].
+> Les machines virtuelles compatibles GPU contiennent du matériel spécialisé, plus cher et dépendant de la disponibilité régionale. Pour plus d’informations, consultez la page des [tarifs][azure-pricing] tool and [region availability][azure-availability].
 
 Actuellement, vous ne pouvez utiliser de pools de nœuds compatibles GPU que sous Linux.
 
@@ -28,7 +28,7 @@ Actuellement, vous ne pouvez utiliser de pools de nœuds compatibles GPU que sou
 
 Cet article part du principe que vous disposez déjà d’un cluster AKS qui comporte des nœuds prenant en charge les GPU. Votre cluster AKS doit exécuter Kubernetes 1.10 ou une version ultérieure. Si vous avez besoin d’un cluster AKS qui réponde à ces exigences, consultez la première section de cet article, [Créer un cluster AKS](#create-an-aks-cluster).
 
-Le logiciel Azure CLI version 2.0.64 ou ultérieure doit également être installé et configuré. Exécutez  `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez  [Installation d’Azure CLI 2.0][install-azure-cli].
+Le logiciel Azure CLI version 2.0.64 ou ultérieure doit également être installé et configuré. Exécutez  `az --version` pour trouver la version. Si vous devez effectuer une installation ou une mise à niveau, consultez  [Installer Azure CLI][install-azure-cli].
 
 ## <a name="create-an-aks-cluster"></a>Créer un cluster AKS
 
@@ -60,7 +60,7 @@ az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 
 Avant de pouvoir utiliser les GPU dans les nœuds, vous devez déployer un DaemonSet pour le plug-in d’appareil NVIDIA. Ce DaemonSet exécute un pod sur chaque nœud de façon à fournir les pilotes requis pour les GPU.
 
-Commencez par créer un espace de noms avec la commande [kubectl create namespace][kubectl-create], par exemple, *gpu-ressources* :
+Commencez par créer un espace de noms avec la commande [kubectl create namespace][kubectl-create], par exemple, *gpu-ressources* :
 
 ```console
 kubectl create namespace gpu-resources
@@ -111,7 +111,7 @@ spec:
             path: /var/lib/kubelet/device-plugins
 ```
 
-Ensuite, utilisez la commande [kubectl apply][kubectl-apply] pour créer un DaemonSet et confirmez la création du plug-in d’appareil nVidia, comme indiqué dans l’exemple de sortie suivant :
+Ensuite, utilisez la commande [kubectl apply][kubectl-apply] pour créer un DaemonSet et confirmez la création du plug-in d’appareil nVidia, comme indiqué dans l’exemple de sortie suivant :
 
 ```console
 $ kubectl apply -f nvidia-device-plugin-ds.yaml
@@ -184,7 +184,7 @@ Non-terminated Pods:         (9 in total)
 
 ## <a name="run-a-gpu-enabled-workload"></a>Exécuter une charge de travail compatible GPU
 
-Pour voir fonctionner le GPU, planifiez une charge de travail compatible GPU avec la demande de ressource correspondante. Cet exemple exécute une tâche [Tensorflow](https://www.tensorflow.org/versions/r1.1/get_started/mnist/beginners) sur le [jeu de données MNIST](http://yann.lecun.com/exdb/mnist/).
+Pour voir fonctionner le GPU, planifiez une charge de travail compatible GPU avec la demande de ressource correspondante. Cet exemple exécute une tâche [Tensorflow](https://www.tensorflow.org/) sur le [jeu de données MNIST](http://yann.lecun.com/exdb/mnist/).
 
 Créez un fichier nommé *samples-tf-mnist-demo.yaml* et collez le manifeste YAML suivant. Le manifeste de travail suivant comporte la limite de ressource `nvidia.com/gpu: 1` :
 
@@ -234,7 +234,7 @@ samples-tf-mnist-demo   0/1           3m29s      3m29s
 samples-tf-mnist-demo   1/1   3m10s   3m36s
 ```
 
-Pour voir la sortie de la charge de travail compatible GPU, commencez par récupérer le nom des pods avec la commande [kubectl get pods][kubectl-get] :
+Pour voir la sortie de la charge de travail compatible GPU, commencez par récupérer le nom des pods avec la commande [kubectl get pods][kubectl-get] :
 
 ```console
 $ kubectl get pods --selector app=samples-tf-mnist-demo

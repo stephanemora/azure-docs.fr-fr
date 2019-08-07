@@ -5,17 +5,17 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/20/2019
-ms.openlocfilehash: dcd51756a9c5a5a24a082862bb911cc2d2605d61
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 07/23/2019
+ms.openlocfilehash: 395b7bc31377fd771549a399032bad9d951ec804
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65954362"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68384927"
 ---
 # <a name="consistency-levels-in-azure-cosmos-db"></a>Niveaux de cohérence dans Azure Cosmos DB
 
-Les bases de données distribuées qui reposent sur la réplication afin d’offrir une haute disponibilité, une faible latence ou les deux, constituent le compromis fondamental entre la cohérence de la lecture et la disponibilité, la latence et le débit. La plupart des bases de données distribuées qui sont commercialisées demandent aux développeurs de choisir entre les deux modèles de cohérence extrêmes : une cohérence *forte* et une cohérence *éventuelle*. La  [linéarisabilité](https://cs.brown.edu/~mph/HerlihyW90/p463-herlihy.pdf) ou le modèle de cohérence fort constitue la référence en matière de programmabilité des données. Mais il est proposé au prix d’une latence élevée (dans un état stable) et d’une perte de disponibilité (en cas de défaillance). Dans le même temps, la cohérence éventuelle offre une plus haute disponibilité et de meilleures performances, mais la programmation des applications est devient difficile. 
+Les bases de données distribuées qui reposent sur la réplication afin d’offrir une haute disponibilité, une faible latence ou les deux, constituent le compromis fondamental entre la cohérence de la lecture et la disponibilité, la latence et le débit. La plupart des bases de données distribuées qui sont commercialisées demandent aux développeurs de choisir entre les deux modèles de cohérence extrêmes : une cohérence *forte* et une cohérence *éventuelle*. La linéarisabilité ou le modèle de cohérence fort constitue la référence en matière de programmabilité des données. Mais il est proposé au prix d’une latence élevée (dans un état stable) et d’une perte de disponibilité (en cas de défaillance). Dans le même temps, la cohérence éventuelle offre une plus haute disponibilité et de meilleures performances, mais la programmation des applications est devient difficile. 
 
 Azure Cosmos DB aborde la cohérence des données sous forme d’un éventail de choix, plutôt que de proposer deux extrêmes. La cohérence forte et la cohérence éventuelle constituent les deux extrémités du spectre, mais il existe de nombreuses possibilités entre les deux. Les développeurs peuvent utiliser ces options pour faire des choix précis et des compromis granulaires en termes de haute disponibilité et de performance. 
 
@@ -35,11 +35,11 @@ Vous pouvez configurer le niveau de cohérence par défaut sur votre compte Azur
 
 ## <a name="guarantees-associated-with-consistency-levels"></a>Garanties associées aux niveaux de cohérence
 
-Les contrats de niveau de service complets fournis par Azure Cosmos DB garantissent que 100 % des requêtes de lecture respecteront la garantie de cohérence dans le cadre du niveau de cohérence choisi. Une requête de lecture respecte le contrat de niveau de service de cohérence si toutes les garanties de cohérence associées au niveau de cohérence sont satisfaites. Les définitions précises des cinq niveaux de cohérence dans Azure Cosmos DB (en utilisant le [langage de spécification TLA +](https://lamport.azurewebsites.net/tla/tla.html)) sont fournies dans le référentiel GitHub [azure-cosmos-tla](https://github.com/Azure/azure-cosmos-tla). 
+Les contrats de niveau de service complets fournis par Azure Cosmos DB garantissent que 100 % des requêtes de lecture respecteront la garantie de cohérence dans le cadre du niveau de cohérence choisi. Une requête de lecture respecte le contrat de niveau de service de cohérence si toutes les garanties de cohérence associées au niveau de cohérence sont satisfaites. Les définitions précises des cinq niveaux de cohérence dans Azure Cosmos DB (en utilisant le langage de spécification TLA +) sont fournies dans le référentiel GitHub [azure-cosmos-tla](https://github.com/Azure/azure-cosmos-tla).
 
 La sémantique des cinq niveaux de cohérence est décrite ici :
 
-- **Remarque**: une cohérence forte offre une garantie de [linéarisabilité](https://aphyr.com/posts/313-strong-consistency-models). Garantit que les lectures retournent la version validée la plus récente d’un élément. Un client ne voit jamais une écriture partielle ou non validée. Les utilisateurs sont toujours assurés de lire la toute dernière écriture validée.
+- **Remarque**: une cohérence forte offre une garantie de linéarisabilité. La linéarisabilité fait référence aux demandes de traitement simultanées. Garantit que les lectures retournent la version validée la plus récente d’un élément. Un client ne voit jamais une écriture partielle ou non validée. Les utilisateurs sont toujours assurés de lire la toute dernière écriture validée.
 
 - **Obsolescence limitée**: les lectures honoreront la garantie de préfixe cohérent. Les lectures sont retardées derrière les écritures par, au plus, des versions *« K »* (c’est-à-dire des « mises à jour ») d’un élément ou un intervalle de temps *« T »* . En d’autres termes, lorsque vous choisissez l’obsolescence limitée, « l’obsolescence » peut être configurée de deux manières : 
 
@@ -48,7 +48,7 @@ La sémantique des cinq niveaux de cohérence est décrite ici :
 
   La cohérence de type obsolescence limitée fournit l’ordre global total, en dehors de la « fenêtre d’obsolescence ». Notez que des garanties de lecture unitone existent dans une région à l’intérieur et en dehors de la fenêtre d’obsolescence. La cohérence forte dispose de la même sémantique que l’obsolescence limitée. La fenêtre d’obsolescence est égale à zéro. L’obsolescence limitée est également appelée linéarisabilité retardée. Lorsqu’un client effectue des opérations de lecture dans une région acceptant les écritures, les garanties fournies par une cohérence à obsolescence limitée sont identiques à celles à forte cohérence.
 
-- **Session**: les lectures honoreront les garanties de préfixe cohérent (en partant du principe qu’il s’agit d’une session à « writer » unique), de lectures unitones, d’écritures unitones, de lecture de vos écritures et d’écriture suivant les lectures. La cohérence de session est limitée à une session client.
+- **Session**:  Dans une session client unique, les lectures honoreront les garanties de préfixe cohérent (en partant du principe qu’il s’agit d’une session à « writer » unique), de lectures unitones, d’écritures unitones, de lecture de vos écritures et d’écriture suivant les lectures. Les clients en dehors de la session effectuant des écritures verront la cohérence éventuelle.
 
 - **Préfixe cohérent** : les mises à jour retournées contiennent un préfixe de toutes les mises à jour, sans interruption. Le niveau de cohérence Préfixe cohérent garantit que les lectures ne voient jamais les écritures non ordonnées.
 

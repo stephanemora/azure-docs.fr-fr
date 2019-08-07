@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: 38d8bdfcba48d2080b434ebec192b41f3663ae6a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3ba8a8e5922c012b93ab19a5859aab5c31d35b2b
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60831790"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68424144"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Comment utiliser le Kit de développement logiciel (SDK) Azure WebJobs pour le traitement en arrière-plan basé sur les événements
 
@@ -171,6 +171,7 @@ public static void Run(
 
 L’attribut `QueueTrigger` indique au runtime d’appeler la fonction chaque fois qu’un message de file d’attente apparaît dans la file d’attente `myqueue-items`. L’attribut `Blob` indique au runtime d’utiliser le message de file d’attente pour lire un objet blob dans le conteneur *sample-workitems*. Le contenu du message de file d’attente, passé à la fonction dans le paramètre `myQueueItem`, est le nom de l’objet blob.
 
+[!INCLUDE [webjobs-always-on-note](../../includes/webjobs-always-on-note.md)]
 
 ### <a name="manual-triggers"></a>Déclencheurs manuels
 
@@ -370,7 +371,7 @@ Vous pouvez configurer les liaisons suivantes :
 
 * [Déclencheur Azure Cosmos DB](#azure-cosmosdb-trigger-configuration-version-3x)
 * [Déclencheur Event Hubs](#event-hubs-trigger-configuration-version-3x)
-* Déclencheur de stockage de file d’attente
+* [Déclencheur de stockage de file d’attente](#queue-storage-trigger-configuration)
 * [Liaison SendGrid](#sendgrid-binding-configuration-version-3x)
 * [Déclencheur Service Bus](#service-bus-trigger-configuration-version-3x)
 
@@ -841,7 +842,7 @@ Chaque journal créé par une instance `ILogger` présente des attributs `Catego
 |Avertissement     | 3 |
 |Error       | 4 |
 |Critique    | 5\. |
-|Aucun        | 6\. |
+|Aucun        | 6 |
 
 Vous pouvez filtrer indépendamment chaque catégorie en fonction d’un [`LogLevel`](/dotnet/api/microsoft.extensions.logging.loglevel) spécifique. Par exemple, il se peut que vous souhaitiez afficher tous les journaux d’activité pour le traitement de déclencheurs blob, mais uniquement les niveaux `Error` et plus élevés pour tous les autres éléments.
 

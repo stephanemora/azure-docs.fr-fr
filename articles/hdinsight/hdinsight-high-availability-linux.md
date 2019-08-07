@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: hrasheed
-ms.openlocfilehash: 6cb72730ef3dbef81e2b2c9bc1c5cfd3bbd88b65
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1828efb410849677e859d341e4e16e4f5d4ca681
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64704924"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68405995"
 ---
 # <a name="availability-and-reliability-of-apache-hadoop-clusters-in-hdinsight"></a>Disponibilité et fiabilité des clusters Apache Hadoop dans HDInsight
 
@@ -94,7 +94,7 @@ Vous pouvez vous connecter aux nœuds qui ne sont pas directement accessibles su
 
 * **Tunnel SSH** : si vous avez besoin d’accéder à un service web hébergé sur un des nœuds qui n’est pas exposé à Internet, vous devez utiliser un tunnel SSH. Pour plus d’informations, consultez le document [Utiliser un tunnel SSH avec HDInsight](hdinsight-linux-ambari-ssh-tunnel.md).
 
-* **Réseau virtuel Azure** : si votre cluster HDInsight fait partie intégrante d’un réseau virtuel Azure, toutes les ressources du même réseau virtuel peuvent accéder directement à tous les nœuds du cluster. Pour plus d’informations, consultez le document [Étendre HDInsight en utilisant un réseau virtuel Azure](hdinsight-extend-hadoop-virtual-network.md).
+* **Réseau virtuel Azure** : si votre cluster HDInsight fait partie intégrante d’un réseau virtuel Azure, toutes les ressources du même réseau virtuel peuvent accéder directement à tous les nœuds du cluster. Pour plus d’informations, consultez le document [Planifier un réseau virtuel pour HDInsight](hdinsight-plan-virtual-network-deployment.md).
 
 ## <a name="how-to-check-on-a-service-status"></a>Comment contrôler  l'état d'un service
 
@@ -145,8 +145,8 @@ Les alertes suivantes aident à superviser la disponibilité d’un cluster :
 | NameNode High Availability Health        | Cette alerte au niveau du service est déclenchée si Active NameNode ou Standby NameNode ne sont pas en cours d’exécution.                                                                                     |
 | DataNode Process                         | Cette alerte au niveau de l’hôte est déclenchée s’il n’est pas possible d’établir que le processus DataNode individuel est opérationnel et à l’écoute sur le réseau.                                                         |
 | DataNode Web UI                          | Cette alerte au niveau de l’hôte est déclenchée si l’interface utilisateur web de DataNode est inaccessible.                                                                                                                    |
-| Percent JournalNodes Available           | Cette alerte est déclenchée si le nombre de JournalNodes en panne dans le cluster est supérieur au seuil critique configuré. Elle agrège les résultats des vérifications des processus JournalNode.        |
-| Percent DataNodes Available              | Cette alerte est déclenchée si le nombre de DataNodes en panne dans le cluster est supérieur au seuil critique configuré. Elle agrège les résultats des vérifications des processus DataNode.              |
+| Percent JournalNodes Available           | Cette alerte est déclenchée si le nombre de JournalNodes en panne dans le cluster est supérieur au seuil critique configuré. Elle agrège les résultats des vérifications de processus JournalNode.        |
+| Percent DataNodes Available (Pourcentage de DataNodes disponibles)              | Cette alerte est déclenchée si le nombre de DataNodes en panne dans le cluster est supérieur au seuil critique configuré. Elle agrège les résultats des vérifications des processus DataNode.              |
 | Zeppelin Server Status                   | Cette alerte au niveau de l’hôte est déclenchée s’il n’est pas possible de déterminer que le serveur Zeppelin est opérationnel et répond aux demandes des clients.                                                                   |
 | HiveServer2 Interactive Process          | Cette alerte au niveau de l’hôte est déclenchée s’il n’est pas possible de déterminer que HiveServerInteractive est opérationnel et répond aux demandes des clients.                                                             |
 | LLAP Application                         | Cette alerte est déclenchée s’il n’est pas possible de déterminer que l’application LLAP est opérationnelle et répond aux demandes.                                                                                    |
@@ -247,7 +247,7 @@ Dans l’interface utilisateur web d’Ambari, sélectionnez le service dont vou
 
 La taille d’un nœud n’est sélectionnable que lors de la création du cluster. Pour obtenir la liste des différentes tailles de machine virtuelle disponibles pour HDInsight, voir la page [Tarification de HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
-Lorsque vous créez un cluster, vous pouvez spécifier la taille des nœuds. Les informations suivantes aident à déterminer comment spécifier la taille avec le [portail Azure][preview-portal], le [module Azure PowerShell Az][azure-powershell] et [Azure CLI][azure-cli] :
+Lorsque vous créez un cluster, vous pouvez spécifier la taille des nœuds. Les informations suivantes fournissent des conseils sur la façon de spécifier la taille à l’aide du [portail Azure][preview-portal], [Azure PowerShell module Az][azure-powershell], et [Azure CLI][azure-cli] :
 
 * **Portail Azure**: lors de la création d’un cluster, vous pouvez définir la taille des nœuds utilisés par le cluster :
 

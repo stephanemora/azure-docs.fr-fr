@@ -8,22 +8,23 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 05/22/2019
+ms.date: 07/22/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 43d0e7566102c882d4a2819237a795fdff425f75
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: b90b4806e86ed0ba33500cf31a6ed892241ceabe
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67446490"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68423452"
 ---
 # <a name="qna-maker-knowledge-base-limits-and-boundaries"></a>Limites de la base de connaissances QnA Maker
-Liste complète des limites dans QnA Maker.
+
+Les limites QnA Maker fournies ci-dessous sont une combinaison des [limites du niveau tarifaire d’Azure Search](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity) et des [limites du niveau de tarification QnA Maker](https://azure.microsoft.com/pricing/details/cognitive-services/qna-maker/). Vous devez connaître les deux ensembles de limites pour connaître le nombre de bases de connaissances que vous pouvez créer par ressource et la taille de chaque base de connaissances.
 
 ## <a name="knowledge-bases"></a>Bases de connaissances
 
-* Nombre maximal de bases de connaissances selon les [limites de niveau de la Recherche Azure](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity)
+Le nombre maximal de bases de connaissances est basé sur les [limites de niveau de la Recherche Azure](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity).
 
 |**Niveau de la Recherche Azure** | **Gratuit** | **De base** |**S1** | **S2**| **S3** |**S3 HD**|
 |---|---|---|---|---|---|----|
@@ -32,11 +33,18 @@ Liste complète des limites dans QnA Maker.
  Par exemple, si votre niveau comporte 15 index autorisés, vous pouvez publier 14 bases de connaissances (1 index par base de connaissances publiée). Le quinzième index, `testkb`, est utilisé pour toutes les bases de connaissances à des fins de création et de test. 
 
 ## <a name="extraction-limits"></a>Limites d’extraction
-* Nombre maximal de fichiers pouvant être extraits et taille de fichier maximale : consultez [Tarifs de QnAMaker](https://azure.microsoft.com/pricing/details/cognitive-services/qna-maker/)
-* Nombre maximal de liens ciblés pouvant être analysés pour l’extraction de questions/réponses de pages HTML de FAQ : 20
+
+### <a name="maximum-number-of-files"></a>Nombre maximal de fichiers
+
+Le nombre maximal de fichiers qui peuvent être extraits et la taille de fichier maximale sont basés sur vos **[limites du niveau de tarification QnA Maker](https://azure.microsoft.com/pricing/details/cognitive-services/qna-maker/)** .
+
+### <a name="maximum-number-of-deep-links-from-url"></a>Nombre maximal de liens ciblés à partir de l’URL
+
+Le nombre maximal de liens ciblés pouvant être analysés pour l’extraction de questions/réponses à partir d’une page URL est de **20**.
 
 ## <a name="metadata-limits"></a>Limites de métadonnées
-* Nombre maximal de champs de métadonnées par base de connaissances selon les [limites de niveau de la Recherche Azure](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity)
+
+Le nombre maximal de champs de métadonnées par base de connaissances est basé sur les **[limites de niveau de la Recherche Azure](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity)** .
 
 |**Niveau de la Recherche Azure** | **Gratuit** | **De base** |**S1** | **S2**| **S3** |**S3 HD**|
 |---|---|---|---|---|---|----|
@@ -52,7 +60,8 @@ Limites globales sur le contenu de la base de connaissances :
 * Longueur de nom de fichier : 200
 * Formats de fichier pris en charge : « .tsv », « .pdf », « .txt », « .docx », « .xlsx ».
 * Nombre maximal de questions alternatives : 300
-* Nombre maximal de paires question-réponse : varie selon le [niveau Recherche Azure](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity#document-limits) choisi. Une paire question-réponse est mappée à un document dans l’index Recherche Azure. 
+* Nombre maximal de paires question-réponse : varie selon le **[niveau Recherche Azure choisi](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity#document-limits)** . Une paire question-réponse est mappée à un document dans l’index Recherche Azure. 
+* Page HTML/URL : 1 million de caractères
 
 ## <a name="create-knowledge-base-call-limits"></a>Créer des limites d’appel de base de connaissances :
 Elles représentent les limites pour chaque action de création d’une base de connaissances, autrement dit, pour chaque clic sur *Créer une base de connaissances* ou pour chaque appel de l’API CreateKnowledgeBase.

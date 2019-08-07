@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: sutalasi
-ms.openlocfilehash: 7e2f5c344a0fb632956ab5d5b951ee69cff528ec
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a7413b2dcb24a42092eb2af9816b1d29a8306e19
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60363550"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68377215"
 ---
 # <a name="test-results-for-hyper-v-replication-to-a-secondary-site"></a>Résultats des tests de la réplication Hyper-V vers un site secondaire
 
@@ -108,7 +108,7 @@ Les résultats indiquent clairement que la solution Site Recovery, utilisée ave
 
 | Serveur | RAM | Modèle | Processeur | Nombre de processeurs | Carte d’interface réseau | Logiciel |
 | --- | --- | --- | --- | --- | --- | --- |
-| Serveurs Hyper-V en cluster : <br />ESTLAB-HOST11<br />ESTLAB-HOST12<br />ESTLAB-HOST13<br />ESTLAB-HOST14<br />ESTLAB-HOST25 |128 - ESTLAB-HOST25 : 256 |Dell™ PowerEdge™ R820 |Processeur Intel(R) Xeon(R) E5-4620 0 \@ 2,20 GHz |4 |1 Gbit/s x 4 |Windows Server Datacenter 2012 R2 (x 64) + rôle Hyper-V |
+| Serveurs Hyper-V en cluster : <br />ESTLAB-HOST11<br />ESTLAB-HOST12<br />ESTLAB-HOST13<br />ESTLAB-HOST14<br />ESTLAB-HOST25 |128<br />ESTLAB-HOST25 has 256 |Dell™ PowerEdge™ R820 |Processeur Intel(R) Xeon(R) E5-4620 0 \@ 2,20 GHz |4 |1 Gbit/s x 4 |Windows Server Datacenter 2012 R2 (x 64) + rôle Hyper-V |
 | Serveur VMM |2 | | |2 |1 Gbit/s |Windows Server Database 2012 R2 (x 64) + rôle VMM 2012 R2 |
 
 ### <a name="secondary-site"></a>Site secondaire
@@ -133,11 +133,11 @@ Les résultats indiquent clairement que la solution Site Recovery, utilisée ave
 
 | Charge de travail | Taille des E/S (Ko) | Pourcentage d’accès | Pourcentage de lectures | E/S en attente | Modèle d’E/S |
 | --- | --- | --- | --- | --- | --- |
-| Serveur de fichiers |48163264 |60 %20 %5 %5 %10 % |80 %80 %80 %80 %80 % |88888 |100 % aléatoires |
-| SQL Server (volume 1) SQL Server (volume 2) |864 |100 %100 % |70 %0 % |88 |100 % aléatoires100 % séquentielles |
+| Serveur de fichiers |4<br />8<br />16<br />32<br />64 |60 %<br />20%<br />5 %<br />5 %<br />10% |80 %<br />80 %<br />80 %<br />80 %<br />80 % |8<br />8<br />8<br />8<br />8 |100 % aléatoires |
+| SQL Server (volume 1)<br />SQL Server (volume 2) |8<br />64 |100 %<br />100 % |70 %<br />0 % |8<br />8 |100 % aléatoires<br />100 % séquentiel |
 | Microsoft Exchange |32 |100 % |67 % |8 |100 % aléatoires |
-| Station de travail/VDI |464 |66 %34 % |70 %95 % |11 |100 % aléatoires |
-| Serveur de fichiers web |4864 |33 %34 %33 % |95 %95 %95 % |888 |75 % aléatoires |
+| Station de travail/VDI |4<br />64 |66 %<br />34 % |70 %<br />95 % |1<br />1 |100 % aléatoires |
+| Serveur de fichiers web |4<br />8<br />64 |33 %<br />34 %<br />33 % |95 %<br />95 %<br />95 % |8<br />8<br />8 |75 % aléatoires |
 
 ### <a name="vm-configuration"></a>Configuration des machines virtuelles
 
@@ -150,8 +150,8 @@ Les résultats indiquent clairement que la solution Site Recovery, utilisée ave
 | SQL Server |51 |1 |4 |167 |10 |
 | Microsoft Exchange Server |71 |1 |4 |552 |10 |
 | Serveur de fichiers |50 |1 |2 |552 |22 |
-| VDI |149 |0,5 |1 |80 |6\. |
-| Serveur web |149 |0,5 |1 |80 |6\. |
+| VDI |149 |0,5 |1 |80 |6 |
+| Serveur web |149 |0,5 |1 |80 |6 |
 | TOTAL |470 | | |96,83 To |4 108 |
 
 ### <a name="site-recovery-settings"></a>Paramètres de Site Recovery

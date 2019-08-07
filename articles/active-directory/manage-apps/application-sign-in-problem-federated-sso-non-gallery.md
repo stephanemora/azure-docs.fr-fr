@@ -1,5 +1,5 @@
 ---
-title: Problèmes de connexion à une application non issue de la galerie configurée pour l’authentification unique fédérée | Microsoft Docs
+title: Problèmes de connexion à une application d’authentification unique fédérée n’appartenant pas à la galerie | Microsoft Docs
 description: Instructions pour résoudre les problèmes rencontrés lors de la connexion à une application configurée pour l’authentification unique SAML fédérée avec Azure AD
 services: active-directory
 documentationcenter: ''
@@ -16,19 +16,19 @@ ms.date: 07/11/2017
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 38decf98707231c21427f7a22dd4d12adb41852b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d26f52db394877cff13bf4b0b476a9603c1ddba8
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65825437"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68381384"
 ---
 # <a name="problems-signing-in-to-a-non-gallery-application-configured-for-federated-single-sign-on"></a>Problèmes de connexion à une application non issue de la galerie configurée pour l’authentification unique fédérée
 
 Pour résoudre les problèmes de connexion ci-dessous, nous vous recommandons de suivre ces suggestions afin de bénéficier du meilleur diagnostic et d’automatiser les étapes de résolution :
 
-- Installer l’[extension de navigateur sécurisée Mes applications](access-panel-extension-problem-installing.md) pour aider Azure Active Directory (Azure AD) à fournir un meilleur diagnostic et de meilleures résolutions lorsque vous utilisez l’expérience de test dans le Portail Azure.
-- Reproduisez l’erreur à l’aide de l’expérience de test sur la page de configuration d’application du Portail Azure. En savoir plus sur le [débogage d’applications avec authentification unique SAML](../develop/howto-v1-debug-saml-sso-issues.md)
+- Installez l’[extension de navigateur sécurisée Mes applications](access-panel-extension-problem-installing.md) pour aider Azure Active Directory (Azure AD) à fournir un meilleur diagnostic et de meilleures résolutions lorsque vous utilisez l’expérience de test dans le portail Azure.
+- Reproduisez l’erreur à l’aide de l’expérience de test sur la page de configuration d’application du portail Azure. En savoir plus sur le [débogage d’applications avec authentification unique SAML](../develop/howto-v1-debug-saml-sso-issues.md)
 
 ## <a name="application-not-found-in-directory"></a>Application introuvable dans le répertoire
 
@@ -164,7 +164,7 @@ Le fournisseur d’application doit confirmer sa prise en charge de l’impléme
 
 ## <a name="misconfigured-application"></a>Application mal configurée
 
-*Erreur AADSTS650056 : Application mal configurée. La raison peut être l’une des suivantes : Le client n’a pas répertorié toutes les autorisations pour « AAD Graph » dans les autorisations demandées de l’inscription d’application du client. Ou l’administrateur n’a pas donné son consentement dans le tenant. Vous pouvez aussi vérifier l’identificateur d’application dans la requête pour vous assurer qu’il correspond à l’identificateur d’application client configuré. Contactez votre administrateur pour corriger la configuration ou donner un consentement au nom du client.* .
+*Erreur AADSTS650056 : Application mal configurée. La raison peut être l’une des suivantes : Le client n’a pas répertorié toutes les autorisations pour « AAD Graph » dans les autorisations demandées de l’inscription d’application du client. Ou l’administrateur n’a pas donné son consentement dans le locataire. Vous pouvez aussi vérifier l’identificateur d’application dans la requête pour vous assurer qu’il correspond à l’identificateur d’application cliente configuré. Contactez votre administrateur pour corriger la configuration ou donner un consentement au nom du locataire.* .
 
 **Cause possible**
 
@@ -172,7 +172,7 @@ L’attribut `Issuer` envoyé de l’application vers Azure AD dans la requête 
 
 **Résolution :**
 
-Vérifiez que l’attribut `Issuer` de la requête SAML correspond à la valeur de l’identificateur configurée dans Azure AD. Si vous utilisez l’[expérience de test](../develop/howto-v1-debug-saml-sso-issues.md) dans le Portail Azure avec l’extension de navigateur sécurisée Mes applications, vous n’avez pas besoin de suivre ces étapes manuellement :
+Vérifiez que l’attribut `Issuer` de la requête SAML correspond à la valeur de l’identificateur configurée dans Azure AD. Si vous utilisez l’[expérience de test](../develop/howto-v1-debug-saml-sso-issues.md) dans le portail Azure avec l’extension de navigateur sécurisée Mes applications, vous n’avez pas besoin de suivre ces étapes manuellement :
 
 1.  Ouvrez le [**portail Azure**](https://portal.azure.com/) et connectez-vous en tant **qu’Administrateur général** ou que **Coadministrateur**.
 

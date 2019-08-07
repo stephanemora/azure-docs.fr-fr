@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2017
 ms.author: genli
-ms.openlocfilehash: f01dfe78d5d5e322258b0ee98cec314f9afe33c0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 19a654215377ba0fac7dacf800bf87a3481679c0
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60329727"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68357230"
 ---
 # <a name="troubleshooting-degraded-state-on-azure-traffic-manager"></a>Résolution des problèmes liés à l’état détérioré d’Azure Traffic Manager
 
-Cet article décrit comment résoudre les problèmes d’un profil Azure Traffic Manager qui présente un état détérioré. Pour ce scénario, considérez que vous avez configuré un profil Traffic Manager pointant vers certains de vos services hébergés cloudapp.net. Si le statut de l’intégrité de votre Traffic Manager est **Dégradé**, le statut d’un ou plusieurs points de terminaison peut être **Dégradé** :
+Cet article décrit comment résoudre les problèmes d’un profil Azure Traffic Manager qui présente un état détérioré. La première étape de la résolution d’un statut de dégradation d’Azure Traffic Manager consiste à activer la journalisation des diagnostics.  Pour plus d’informations, consultez [Activer les journaux de diagnostic](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-diagnostic-logs). Pour ce scénario, considérez que vous avez configuré un profil Traffic Manager pointant vers certains de vos services hébergés cloudapp.net. Si le statut de l’intégrité de votre Traffic Manager est **Dégradé**, le statut d’un ou plusieurs points de terminaison peut être **Dégradé** :
 
 ![statut du point de terminaison dégradé](./media/traffic-manager-troubleshooting-degraded/traffic-manager-degradedifonedegraded.png)
 

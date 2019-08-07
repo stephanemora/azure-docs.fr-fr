@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 44b95c92f51ca9782fca492f3dec3142087ecc91
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: 8aaaa6465b501cee83f4c2d8cb60729282651967
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67797018"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68384853"
 ---
 # <a name="understand-cost-management-data"></a>Comprendre les données Cost Management
 
@@ -51,13 +51,13 @@ Les informations suivantes présentent les [offres Microsoft Azure](https://azur
 
 _<sup>**1**</sup> Pour les données antérieures à mai 2014, visitez [Azure Enterprise Portal](https://ea.azure.com)._
 
-_<sup>**2**</sup> Pour les données antérieures au 2 octobre 2018, visitez le [Centre des comptes Azure](https://account.azure.com/subscriptions)._
+_<sup>**2**</sup>Pour les données antérieures au 2 octobre 2018, visitez le [Centre des comptes Azure](https://account.azure.com/subscriptions)._
 
 _<sup>**3**</sup> Les Contrats client Microsoft ont commencé en mars 2019 et ne disposent pas de données historiques avant cette date._
 
 _<sup>**4**</sup> Les données historiques des abonnements basés sur le crédit et avec règlement à l’avance peuvent ne pas correspondre à votre facture. Consultez [Les données historiques peuvent ne pas correspondre à la facture](#historical-data-might-not-match-invoice) ci-dessous._
 
-Le tableau suivant présente des offres qui ne sont pas encore prises en charge.
+Les offres suivantes ne sont pas encore prises en charge :
 
 | Catégorie  | **Nom de l’offre** | **ID du quota** | **Numéro de l’offre** |
 | --- | --- | --- | --- |
@@ -92,10 +92,11 @@ Les tableaux suivants indiquent les données qui sont comprises ou non dans Cost
 | Utilisation des produits de la Place de marché<sup>6</sup> | Taxes. Pour plus d’informations, consultez [Conditions de facturation expliquées](../billing/billing-understand-your-invoice.md). |
 | Achats de la Place de marché<sup>6</sup>      | Crédits. Pour plus d’informations, consultez [Conditions de facturation expliquées](../billing/billing-understand-your-invoice.md). |
 | Achats de réservation<sup>7</sup>      |  |
+| Amortissement des achats de réservation<sup>7</sup>      |  |
 
 _<sup>**5**</sup> L’utilisation des services Azure est basée sur la réservation et des prix négociés._
 
-_<sup>**6**</sup> L’utilisation et les achats de la Place de marché ne sont pas disponibles pour les offres de paiement à l’utilisation, MSDN et Visual Studio pour l’instant._
+_<sup>**6**</sup> Les achats de la Place de marché ne sont pas disponibles pour les offres de paiement à l’utilisation, MSDN et Visual Studio pour l’instant._
 
 _<sup>**7**</sup> Les achats de réservation sont uniquement disponibles pour les comptes des Contrats entreprise pour l’instant._
 
@@ -124,7 +125,7 @@ Abonnements avec paiement à l’utilisation. Si le mois de facturation se termi
 
 ### <a name="rerated-data"></a>Données réestimées
 
-Que vous utilisiez les [API Cost Management](index.yml), Power BI ou le portail Microsoft Azure pour récupérer des données, prévoyez une réestimation des frais de la période de facturation en cours, et donc des changements, jusqu’à la clôture de la facture.
+Que vous utilisiez les [API Cost Management](index.yml), Power BI ou le portail Azure pour récupérer des données, prévoyez une réestimation des frais de la période de facturation en cours, et donc des changements, jusqu’à la clôture de la facture.
 
 ## <a name="usage-data-update-frequency-varies"></a>La fréquence de mise à jour des données d’utilisation varie
 

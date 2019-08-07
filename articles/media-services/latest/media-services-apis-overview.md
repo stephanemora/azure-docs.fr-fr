@@ -9,15 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 05/02/2019
+ms.date: 07/05/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: ca4e343ea4774bbe4ff992ad671575b150b3c045
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 26fea4322df625b2e38028a3b7121fb41f2acf81
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65890969"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68311859"
 ---
 # <a name="developing-with-media-services-v3-apis"></a>Développement avec des API Media Services v3
 
@@ -85,21 +85,26 @@ Pour plus d’informations sur le suivi des opérations asynchrones Azure, consu
 
 Media Services propose les opérations de longue durée suivantes :
 
-* Create LiveEvent
-* Update LiveEvent
-* Delete LiveEvent
-* Start LiveEvent
-* Stop LiveEvent
-* Reset LiveEvent
-* Create LiveOutput
-* Delete LiveOutput
-* Create StreamingEndpoint
-* Update StreamingEndpoint
-* Delete StreamingEndpoint
-* Start StreamingEndpoint
-* Stop StreamingEndpoint
-* Start StreamingEndpoint
+* [Créer des événements en direct](https://docs.microsoft.com/rest/api/media/liveevents/create)
+* [Mettre à jour des événements en direct](https://docs.microsoft.com/rest/api/media/liveevents/update)
+* [Supprimer l’événement en direct](https://docs.microsoft.com/rest/api/media/liveevents/delete)
+* [Démarrer l’événement en direct](https://docs.microsoft.com/rest/api/media/liveevents/start)
+* [Arrêter l’événement en direct](https://docs.microsoft.com/rest/api/media/liveevents/stop)
 
+  Utilisez le paramètre `removeOutputsOnStop` pour supprimer toutes les sorties en temps réel associées lors de l’arrêt de l’événement.  
+* [Réinitialiser l’événement en direct](https://docs.microsoft.com/rest/api/media/liveevents/reset)
+* [Créer une sortie en temps réel](https://docs.microsoft.com/rest/api/media/liveevents/create)
+* [Supprimer la sortie en temps réel](https://docs.microsoft.com/rest/api/media/liveevents/delete)
+* [Créer un StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints/create)
+* [Mettre à jour un StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints/update)
+* [Supprimer un StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints/delete)
+* [Démarrer un StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints/start)
+* [Arrêter un StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints/stop)
+* [Mettre à l’échelle un StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints/scale)
+
+En cas de soumission réussie d’une longue opération, vous recevez un message « 202 accepté » et devez interroger la fin de l’opération à l’aide de l’ID d’opération retourné.
+
+Une seule opération de longue durée est prise en charge pour un événement en direct donné ou l’une de ses sorties en temps réel associées. Une fois démarrée, une opération de longue durée doit se terminer avant de commencer une opération de longue durée ultérieure sur le même LiveEvent ou sur les sorties en temps réel associées. Pour les événements en direct avec plusieurs sorties en temps réel, vous devez attendre la fin de l’exécution d’une opération de longue durée sur une sortie en temps réel avant de déclencher une opération de longue durée sur une autre sortie en temps réel. 
 
 ## <a name="sdks"></a>Kits SDK
 

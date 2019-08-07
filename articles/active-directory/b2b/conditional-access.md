@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c012ebfb00b57079e43b74b4f6570744db980860
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5a54e5006a268347148945fbe7fc5f18cfa41036
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67113158"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68357123"
 ---
 # <a name="conditional-access-for-b2b-collaboration-users"></a>Accès conditionnel pour les utilisateurs de B2B Collaboration
 
@@ -92,6 +92,10 @@ Par conséquent, la recommandation d’authentification MFA pour les utilisateur
 Lorsque Contoso active les stratégies d’accès conditionnel en fonction des appareils pour ses données d’entreprise, l’accès est protégé contre les appareils non gérés par Contoso et non conformes aux stratégies d’appareils de Contoso.
 
 Si l’appareil de l’utilisateur B2B n’est pas géré par Contoso, l’accès des utilisateurs B2B des organisations partenaires est bloqué quel que soit le contexte d’application de ces stratégies. Cependant, Contoso peut créer des listes d’exclusions contenant des utilisateurs partenaires spécifiques afin de les exclure de la stratégie d’accès conditionnel en fonction des appareils.
+
+#### <a name="mobile-application-management-policies-for-b2b"></a>Stratégies de gestion des applications mobiles pour B2B
+
+Les stratégies de protection des applications à accès conditionnel ne peuvent pas être appliquées aux utilisateurs B2B, car l’organisation qui lance l’invitation n’a aucune visibilité sur l’organisation de l’utilisateur B2B.
 
 #### <a name="location-based-conditional-access-for-b2b"></a>Accès conditionnel en fonction des emplacements pour B2B
 

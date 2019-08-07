@@ -3,22 +3,23 @@ title: Verrouiller une image dans Azure Container Registry
 description: Définissez des attributs pour une image conteneur ou un référentiel afin qu’il ne puisse pas être supprimé ou remplacé dans un registre de conteneurs Azure.
 services: container-registry
 author: dlepow
+manager: gwallace
 ms.service: container-registry
 ms.topic: article
 ms.date: 02/19/2019
 ms.author: danlep
-ms.openlocfilehash: ebbfaba158e7ddb669111f097eb1adde2373aa6c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7a313353ee1c7afae10fd7af84570565037e40ab
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60828645"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68310644"
 ---
 # <a name="lock-a-container-image-in-an-azure-container-registry"></a>Verrouiller une image dans un registre de conteneurs Azure
 
 Dans un registre de conteneurs Azure, vous pouvez verrouiller une version d’image ou un référentiel afin qu’il ne puisse pas être supprimé ou mis à jour. Pour verrouiller une image ou un référentiel, mettez à jour ses attributs à l’aide de la commande Azure CLI [az acr repository update][az-acr-repository-update]. 
 
-Cet article nécessite que vous exécutiez Azure CLI dans Azure Cloud Shell ou localement (version 2.0.55 ou ultérieure recommandée). Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installer Azure CLI 2.0][azure-cli].
+Cet article nécessite que vous exécutiez Azure CLI dans Azure Cloud Shell ou localement (version 2.0.55 ou ultérieure recommandée). Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI][azure-cli].
 
 ## <a name="scenarios"></a>Scénarios
 

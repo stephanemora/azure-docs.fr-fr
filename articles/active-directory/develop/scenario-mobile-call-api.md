@@ -3,7 +3,7 @@ title: Application mobile qui appelle des API web (appel d’une API web) - Plat
 description: Apprendre à générer une application mobile qui appelle des API web (appel d’une API web)
 services: active-directory
 documentationcenter: dev-center-name
-author: danieldobalian
+author: jmprieur
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
@@ -16,12 +16,12 @@ ms.author: jmprieur
 ms.reviwer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7fc8c21db0f42bbb6804c00e27e82f840d7038c2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 76f0cddfa889376d3795726e74d82e53417b31f1
+ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67111169"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68413580"
 ---
 # <a name="mobile-app-that-calls-web-apis---call-a-web-api"></a>Application mobile qui appelle des API web - Appeler une API web
 
@@ -114,17 +114,7 @@ Une fois que vous disposez du jeton d’accès, il est facile d’appeler une AP
 
 ### <a name="xamarin"></a>Xamarin
 
-```CSharp
-httpClient = new HttpClient();
-
-// Put access token in HTTP request.
-httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", result.AccessToken);
-
-// Call Graph.
-HttpResponseMessage response = await _httpClient.GetAsync(apiUri);
-...
-}
-```
+[!INCLUDE [Call web API in .NET](../../../includes/active-directory-develop-scenarios-call-apis-dotnet.md)]
 
 ## <a name="making-several-api-requests"></a>Faire plusieurs requêtes d’API
 
@@ -132,6 +122,40 @@ Si vous avez besoin d’appeler la même API plusieurs fois, ou plusieurs API, t
 
 - **Consentement incrémentiel** : La Plateforme d’identités Microsoft permet aux applications d’obtenir le consentement de l’utilisateur lorsque des autorisations sont requises, et non toutes les autorisations au début. Chaque fois que votre application est prête à appeler une API, elle doit demander uniquement les étendues qu’elle doit utiliser.
 - **Accès conditionnel** : Dans certains scénarios, vous pouvez obtenir les exigences d’accès conditionnel supplémentaires lorsque vous effectuez plusieurs requêtes d’API. Cela peut se produire si la première requête n’a aucune stratégie d’accès conditionnel appliquée et que votre application tente d’accéder en mode silencieux à une nouvelle API qui requiert un accès conditionnel. Pour gérer ce scénario, veillez à intercepter les erreurs des requêtes en mode silencieux et à vous préparer à effectuer une requête interactive.  Pour plus d’informations, consultez [Recommandations en matière d’accès conditionnel](conditional-access-dev-guide.md).
+
+## <a name="calling-several-apis-in-xamarin-or-uwp---incremental-consent-and-conditional-access"></a>Appel de plusieurs API dans Xamarin ou UWP – Consentement incrémentiel et accès conditionnel
+
+Si vous devez appeler plusieurs API pour le même utilisateur, une fois que vous avez acquis un jeton pour un utilisateur, vous pouvez éviter de demander à l’utilisateur des informations d’identification à plusieurs reprises en appelant `AcquireTokenSilent` pour obtenir un jeton.
+
+```CSharp
+var result = await app.AcquireTokenXX("scopeApi1")
+                      .ExecuteAsync();
+
+result = await app.AcquireTokenSilent("scopeApi2")
+                  .ExecuteAsync();
+```
+
+L’interaction est requise dans les cas suivants :
+
+- L’utilisateur a donné son consentement pour la première API, mais doit également le donner pour davantage d’étendues (consentement incrémentiel).
+- La première API ne nécessitait aucune authentification multifacteur, contrairement à celle qui suit.
+
+```CSharp
+var result = await app.AcquireTokenXX("scopeApi1")
+                      .ExecuteAsync();
+
+try
+{
+ result = await app.AcquireTokenSilent("scopeApi2")
+                  .ExecuteAsync();
+}
+catch(MsalUiRequiredException ex)
+{
+ result = await app.AcquireTokenInteractive("scopeApi2")
+                  .WithClaims(ex.Claims)
+                  .ExecuteAsync();
+}
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -5,33 +5,34 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: include
-ms.date: 01/11/2018
+ms.date: 07/19/2019
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: e3cff54f49d40fb7da99dcafa9535349ccb70e09
-ms.sourcegitcommit: 6e6813f8e5fa1f6f4661a640a49dc4c864f8a6cb
+ms.openlocfilehash: e692b4704d14a1f0d18f2a3be7397a13a969bc40
+ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67150477"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68371771"
 ---
 Le tableau suivant présente les limites par défaut pour les comptes de stockage V1, V2 et d’objets blob universels. La limite d’*entrée* désigne toutes les données issues de requêtes envoyées à un compte de stockage. La limite de *sortie* désigne toutes les données issues des réponses reçues depuis un compte de stockage.
 
 | Ressource | Limite par défaut |
 | --- | --- |
 | Nombre de comptes de stockage par région et par abonnement, y compris les comptes standard et premium | 250 |
-| Capacité maximale du compte de stockage | 2 Po pour les États-Unis et l’Europe, 500 To pour toutes les autres régions, y compris le Royaume-Uni |
+| Capacité maximale du compte de stockage | 2 Po pour les États-Unis et l'Europe, 500 To pour toutes les autres régions (y compris le Royaume-Uni)<sup>1</sup>|
 | Nombre maximal de conteneurs d’objets blob, de partages de fichiers, de tables, de files d’attente, d’entités ou de messages par compte de stockage | Aucune limite |
 | Taux de demande maximal<sup>1</sup> par compte de stockage | 20 000 demandes par seconde |
-| Entrée max.<sup>1</sup> par compte de stockage (régions des États-Unis) | 10 Gbit/s si RA-GRS/GRS est activé, 20 Gbit/s pour LRS/ZRS<sup>2</sup> |
-| Entrée max.<sup>1</sup> par compte de stockage (régions hors États-Unis) | 5 Gbit/s si RA-GRS/GRS est activé, 10 Gbit/s pour LRS/ZRS<sup>2</sup> |
+| Entrée maximale<sup>1</sup> par compte de stockage (régions des États-Unis, Europe) | 25 Gbits |
+| Entrée maximale <sup>1</sup> par compte de stockage (régions autres que les États-Unis et l’Europe) | 5 Gbit/s si RA-GRS/GRS est activé, 10 Gbit/s pour LRS/ZRS<sup>2</sup> |
 | Nombre maximal de sorties pour les comptes de stockage à usage général v2 et Blob (toutes les régions) | 50 Gbit/s |
 | Nombre maximal de sorties pour les comptes de stockage à usage général v1 (régions des États-Unis) | 20 Gbit/s si RA-GRS/GRS est activé, 30 Gbit/s pour LRS/ZRS<sup>2</sup> |
 | Nombre maximal de sorties pour les comptes de stockage à usage général v1 (régions hors États-Unis) | 10 Gbit/s si RA-GRS/GRS est activé, 15 Gbit/s pour LRS/ZRS<sup>2</sup> |
 
-<sup>1</sup> Les comptes de stockage standard Azure prennent en charge la demande de limites supérieures pour les entrées. Pour demander une augmentation des limites de compte pour la sortie, contactez le [support Azure](https://azure.microsoft.com/support/faq/).
+<sup>1</sup>Les comptes Azure Standard Storage prennent en charge la demande de limites supérieures pour les entrées. Pour demander une augmentation des limites de compte pour la sortie, contactez le [support Azure](https://azure.microsoft.com/support/faq/). Pour plus d’informations, consultez [Annonce de comptes de stockage plus grands et à plus grande échelle](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/).
 
 <sup>2</sup> [Les options de réplication du Stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-redundancy) sont notamment :
+
 - **RA-GRS** : Stockage géoredondant avec accès en lecture. Si RA-GRS est activé, les cibles de sortie pour l’emplacement secondaire sont identiques à celles de l’emplacement principal.
 - **GRS** : Stockage géoredondant.
 - **ZRS** : Stockage redondant interzone.

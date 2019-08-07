@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: reference
 ms.date: 05/23/2019
 ms.author: evansma
-ms.openlocfilehash: 476aaacbe6f1bf6d1920df0f12599976bfcc27b7
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: a8196370a93a6ce8eed83002397c2f09efbc777f
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67701133"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68358583"
 ---
 # <a name="saas-fulfillment-apis-version-2"></a>API de traitement SaaS, version 2 
 
@@ -111,7 +111,7 @@ Le point de terminaison de résolution permet à l’éditeur d’associer un je
 |  Content-Type      | `application/json` |
 |  x-ms-requestid    |  Valeur de chaîne unique pour le suivi de la requête du client, de préférence un GUID. Si cette valeur n’est pas fournie, une valeur sera générée et fournie dans les en-têtes de réponse. |
 |  x-ms-correlationid |  Valeur de chaîne unique pour l’opération sur le client. Ce paramètre sert à corréler tous les événements de l’opération client avec les événements côté serveur. Si cette valeur n’est pas fournie, une valeur sera générée et fournie dans les en-têtes de réponse.  |
-|  autorisation     |  [Obtenir le jeton du porteur web JSON (JWT)](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app). |
+|  autorisation     |  [Obtenir le jeton du porteur web JSON (JWT)](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app). Par exemple : « `Bearer <access_token>` ». |
 |  x-ms-marketplace-token  |  Paramètre de requête de jeton dans l’URL lorsque l’utilisateur est redirigé vers le site web du partenaire SaaS depuis Azure (par exemple : `https://contoso.com/signup?token=..`). *Remarque :* L’URL décode la valeur du jeton à partir du navigateur avant de l’utiliser.  |
 
 *Codes de réponse :*
@@ -175,7 +175,7 @@ Répertorie tous les abonnements SaaS pour un éditeur.
 | Content-Type       |  `application/json`  |
 | x-ms-requestid     |  Valeur de chaîne unique pour le suivi de la requête du client, de préférence un GUID. Si cette valeur n’est pas fournie, une valeur sera générée et fournie dans les en-têtes de réponse. |
 | x-ms-correlationid |  Valeur de chaîne unique pour l’opération sur le client. Ce paramètre sert à corréler tous les événements de l’opération client avec les événements côté serveur. Si cette valeur n’est pas fournie, une valeur sera générée et fournie dans les en-têtes de réponse.  |
-| autorisation      |  [Obtenir le jeton du porteur web JSON (JWT)](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app).  |
+| autorisation      |  [Obtenir le jeton du porteur web JSON (JWT)](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app). Par exemple : « `Bearer <access_token>` ».  |
 
 *Codes de réponse :*
 
@@ -253,7 +253,7 @@ Obtient l’abonnement SaaS spécifié. Utilisez cet appel pour obtenir des info
 |  Content-Type      |  `application/json`  |
 |  x-ms-requestid    |  Valeur de chaîne unique pour le suivi de la requête du client, de préférence un GUID. Si cette valeur n’est pas fournie, une valeur sera générée et fournie dans les en-têtes de réponse. |
 |  x-ms-correlationid |  Valeur de chaîne unique pour l’opération sur le client. Ce paramètre sert à corréler tous les événements de l’opération client avec les événements côté serveur. Si cette valeur n’est pas fournie, une valeur sera générée et fournie dans les en-têtes de réponse.  |
-|  autorisation     |  [Obtenir le jeton du porteur web JSON (JWT)](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app). |
+|  autorisation     |  [Obtenir le jeton du porteur web JSON (JWT)](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app). Par exemple : « `Bearer <access_token>` ».  |
 
 *Codes de réponse :*
 
@@ -323,7 +323,7 @@ Utilisez cet appel pour déterminer s’il existe des offres publiques ou privé
 |   Content-Type     |  `application/json` |
 |   x-ms-requestid   |   Valeur de chaîne unique pour le suivi de la requête du client, de préférence un GUID. Si cette valeur n’est pas fournie, une valeur sera générée et fournie dans les en-têtes de réponse. |
 |  x-ms-correlationid  | Valeur de chaîne unique pour l’opération sur le client. Ce paramètre sert à corréler tous les événements de l’opération client avec les événements côté serveur. Si cette valeur n’est pas fournie, une valeur sera générée et fournie dans les en-têtes de réponse. |
-|  autorisation     |  [Obtenir le jeton du porteur web JSON (JWT)](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app). |
+|  autorisation     |  [Obtenir le jeton du porteur web JSON (JWT)](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app).  Par exemple : « `Bearer <access_token>` ». |
 
 *Codes de réponse :*
 
@@ -375,7 +375,7 @@ Erreur interne du serveur.<br>
 |  Content-Type      | `application/json`  |
 |  x-ms-requestid    | Valeur de chaîne unique pour le suivi de la requête du client, de préférence un GUID. Si cette valeur n’est pas fournie, une valeur sera générée et fournie dans les en-têtes de réponse.  |
 |  x-ms-correlationid  | Valeur de chaîne unique pour l’opération sur le client. Cette chaîne sert à corréler tous les événements de l’opération client avec les événements côté serveur. Si cette valeur n’est pas fournie, une valeur sera générée et fournie dans les en-têtes de réponse.  |
-|  autorisation     |  [Obtenir le jeton du porteur web JSON (JWT)](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app). |
+|  autorisation     |  [Obtenir le jeton du porteur web JSON (JWT)](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app).  Par exemple : « `Bearer <access_token>` ». |
 
 *Charge utile de demande :*
 
@@ -432,7 +432,7 @@ Mettre à jour le plan de l’abonnement.
 |  Content-Type      | `application/json` |
 |  x-ms-requestid    |   Valeur de chaîne unique pour le suivi de la requête du client, de préférence un GUID. Si cette valeur n’est pas fournie, une valeur sera générée et fournie dans les en-têtes de réponse.  |
 |  x-ms-correlationid  |  Valeur de chaîne unique pour l’opération sur le client. Ce paramètre sert à corréler tous les événements de l’opération client avec les événements côté serveur. Si cette valeur n’est pas fournie, une valeur sera générée et fournie dans les en-têtes de réponse.    |
-| autorisation      |  [Obtenir le jeton du porteur web JSON (JWT)](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app).  |
+| autorisation      |  [Obtenir le jeton du porteur web JSON (JWT)](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app).  Par exemple : « `Bearer <access_token>` ».  |
 
 *Charge utile de demande :*
 
@@ -498,7 +498,7 @@ Mettre à jour la quantité de l’abonnement.
 |  Content-Type      | `application/json` |
 |  x-ms-requestid    |   Valeur de chaîne unique pour le suivi de la requête du client, de préférence un GUID. Si cette valeur n’est pas fournie, une valeur sera générée et fournie dans les en-têtes de réponse.  |
 |  x-ms-correlationid  |  Valeur de chaîne unique pour l’opération sur le client. Ce paramètre sert à corréler tous les événements de l’opération client avec les événements côté serveur. Si cette valeur n’est pas fournie, une valeur sera générée et fournie dans les en-têtes de réponse.    |
-| autorisation      |  [Obtenir le jeton du porteur web JSON (JWT)](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app).  |
+| autorisation      |  [Obtenir le jeton du porteur web JSON (JWT)](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app).  Par exemple : « `Bearer <access_token>` ».  |
 
 *Charge utile de demande :*
 
@@ -565,7 +565,7 @@ Annuler l’abonnement et supprimer l’abonnement spécifié.
 |   Content-Type     |  `application/json` |
 |  x-ms-requestid    |   Valeur de chaîne unique pour le suivi de la requête du client, de préférence un GUID. Si cette valeur n’est pas fournie, une valeur sera générée et fournie dans les en-têtes de réponse.   |
 |  x-ms-correlationid  |  Valeur de chaîne unique pour l’opération sur le client. Ce paramètre sert à corréler tous les événements de l’opération client avec les événements côté serveur. Si cette valeur n’est pas fournie, une valeur sera générée et fournie dans les en-têtes de réponse.   |
-|  autorisation     |  [Obtenir le jeton du porteur web JSON (JWT)](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app).  |
+|  autorisation     |  [Obtenir le jeton du porteur web JSON (JWT)](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app).  Par exemple : « `Bearer <access_token>` ».  |
 
 *Codes de réponse :*
 
@@ -618,7 +618,7 @@ Répertorie les opérations en attente pour l’éditeur actif.
 |   Content-Type     |  `application/json` |
 |  x-ms-requestid    |  Valeur de chaîne unique pour le suivi de la requête du client, de préférence un GUID. Si cette valeur n’est pas fournie, une valeur sera générée et fournie dans les en-têtes de réponse.  |
 |  x-ms-correlationid |  Valeur de chaîne unique pour l’opération sur le client. Ce paramètre sert à corréler tous les événements de l’opération client avec les événements côté serveur. Si cette valeur n’est pas fournie, une valeur sera générée et fournie dans les en-têtes de réponse.  |
-|  autorisation     |  [Obtenir le jeton du porteur web JSON (JWT)](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app).  |
+|  autorisation     |  [Obtenir le jeton du porteur web JSON (JWT)](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app).  Par exemple : « `Bearer <access_token>` ».  |
 
 *Codes de réponse :*
 
@@ -681,7 +681,7 @@ Permet à l’éditeur de suivre l’état de l’opération asynchrone déclenc
 |  Content-Type      |  `application/json`   |
 |  x-ms-requestid    |   Valeur de chaîne unique pour le suivi de la requête du client, de préférence un GUID. Si cette valeur n’est pas fournie, une valeur sera générée et fournie dans les en-têtes de réponse.  |
 |  x-ms-correlationid |  Valeur de chaîne unique pour l’opération sur le client. Ce paramètre sert à corréler tous les événements de l’opération client avec les événements côté serveur. Si cette valeur n’est pas fournie, une valeur sera générée et fournie dans les en-têtes de réponse.  |
-|  autorisation     |  [Obtenir le jeton du porteur web JSON (JWT)](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app).  |
+|  autorisation     |  [Obtenir le jeton du porteur web JSON (JWT)](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app). Par exemple : « `Bearer <access_token>` ».  |
 
 *Codes de réponse :*<br>
 
@@ -745,7 +745,7 @@ Mettre à jour l’état d’une opération pour indiquer la réussite ou l’é
 |   Content-Type     | `application/json`   |
 |   x-ms-requestid   |   Valeur de chaîne unique pour le suivi de la requête du client, de préférence un GUID. Si cette valeur n’est pas fournie, une valeur sera générée et fournie dans les en-têtes de réponse. |
 |  x-ms-correlationid |  Valeur de chaîne unique pour l’opération sur le client. Ce paramètre sert à corréler tous les événements de l’opération client avec les événements côté serveur. Si cette valeur n’est pas fournie, une valeur sera générée et fournie dans les en-têtes de réponse. |
-|  autorisation     |  [Obtenir le jeton du porteur web JSON (JWT)](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app).  |
+|  autorisation     |  [Obtenir le jeton du porteur web JSON (JWT)](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app).  Par exemple : « `Bearer <access_token>` ».  |
 
 *Charge utile de demande :*
 

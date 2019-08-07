@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: cherylmc
-ms.openlocfilehash: 65116ebbd6a66241a5b35a39f3dfb8f826a3745f
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 881d89170c82731fca3f6977da486eac5be772f8
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67594272"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68466991"
 ---
 # <a name="create-an-azure-bastion-host-preview"></a>Créer un hôte Azure Bastion (préversion)
 
@@ -54,7 +54,7 @@ Cette section vous permet de créer une ressource Azure Bastion à partir du por
     * **Nom** : Nom de la nouvelle ressource Bastion
     * **Région** : Région publique Azure dans laquelle est créée la ressource.
     * **Réseau virtuel** : Réseau virtuel dans lequel la ressource Bastion est créée. Vous pouvez créer un réseau virtuel dans le portail pendant ce processus, au cas où vous n’avez pas ou ne souhaitez pas utiliser un réseau virtuel existant. Si vous utilisez un réseau virtuel existant, vérifiez que ce dernier a suffisamment d’espace d’adresse disponible pour prendre en compte les exigences du sous-réseau Bastion.
-    * **Sous-réseau** : Sous-réseau dans votre réseau virtuel auquel la nouvelle ressource d’hôte Bastion est déployée. Vous devez créer un sous-réseau à l’aide de la valeur de nom **AzureBastionSubnet**. Cette valeur permet à Azure de savoir dans quel sous-réseau déployer les ressources Bastion. Ceci est différent d’un sous-réseau de passerelle. Nous vous recommandons vivement d’utiliser au moins/27 ou un sous-réseau plus vaste (/27, /26 et ainsi de suite). Créez le sous-réseau **AzureBastionSubnet** sans groupes de sécurité réseau, tables de routage ni délégations.
+    * **Sous-réseau** : Sous-réseau dans votre réseau virtuel auquel la nouvelle ressource d’hôte Bastion est déployée. Vous devez créer un sous-réseau à l’aide de la valeur de nom **AzureBastionSubnet**. Cette valeur permet à Azure de savoir dans quel sous-réseau déployer les ressources Bastion. Ceci est différent d’un sous-réseau de passerelle. Nous vous recommandons vivement d’utiliser au moins/27 ou un sous-réseau plus vaste (/27, /26 et ainsi de suite). Créez le sous-réseau **AzureBastionSubnet** sans tables de routage ou délégations. Lorsque vous utilisez des groupes de sécurité réseau sur le sous-réseau **AzureBastionSubnet**, consultez la rubrique [Travailler avec des groupes de sécurité réseau](bastion-nsg.md).
     * **Adresse IP publique** : Adresse IP publique de la ressource Bastion où RDP/SSH est accessible (sur le port 443). Créez une adresse IP publique ou utilisez-en une existante. L’adresse IP publique doit être située dans la même région que la ressource Bastion que vous créez.
     * **Nom de l’adresse IP publique** : Nom de la ressource de l’adresse IP publique.
     * **Référence (SKU) d'adresse IP publique** : Défini par défaut sur **Standard**. Azure Bastion utilise/prend en charge uniquement la référence (SKU) d’adresse IP publique standard.

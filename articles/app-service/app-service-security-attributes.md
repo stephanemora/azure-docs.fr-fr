@@ -9,16 +9,16 @@ ms.service: app-service
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: mbaldwin
-ms.openlocfilehash: e38e1479c1e094f691e8f22f0a48f9342cae5cf3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 299262610c027529749840720f46d6dc97a07b21
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66475082"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68442267"
 ---
 # <a name="security-attributes-for-azure-app-service"></a>Attributs de sécurité pour Azure App Service
 
-Cet article documente les attributs de sécurité courants intégrés dans Azure App Service.
+Cet article documente les attributs de sécurité intégrés à Azure App Service.
 
 [!INCLUDE [Security attributes header](../../includes/security-attributes-header.md)]
 

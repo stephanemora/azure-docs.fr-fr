@@ -10,66 +10,66 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
 ms.author: dapine
-ms.openlocfilehash: a419ed3b9c0d2c4db9c552642dc5c662786f6730
-ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
+ms.openlocfilehash: 290a01e7e478f718607c0550702474cd31979a63
+ms.sourcegitcommit: b49431b29a53efaa5b82f9be0f8a714f668c38ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67561253"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68377404"
 ---
-# <a name="deploy-a-sentiment-analysis-container-to-azure-kubernetes-services-aks"></a>Déployer un conteneur Analyse des sentiments sur Azure Kubernetes Service (AKS)
+# <a name="deploy-a-sentiment-analysis-container-to-azure-kubernetes-service"></a>Déployer un conteneur Analyse des sentiments sur Azure Kubernetes Service (AKS)
 
-Découvrez comment déployer les conteneurs [Analyse de texte](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-install-containers) Cognitive Services avec l’image Analyse des sentiments sur Azure Kubernetes Service (AKS). Cette procédure illustre la création d’une ressource Analyse de texte, la création d’une image Analyse des sentiments associée et la possibilité de procéder à l’orchestration des deux depuis un navigateur. L’utilisation de conteneurs peut détourner l’attention des développeurs de la gestion de l’infrastructure, au lieu de se concentrer sur le développement d’applications.
+Découvrez comment déployer les conteneurs [Analyse de texte](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-install-containers) Cognitive Services Azure avec l’image Analyse des sentiments sur Azure Kubernetes Service (AKS). Cette procédure illustre la création d’une ressource Analyse de texte, la création d’une image Analyse des sentiments associée et l’orchestration des deux depuis un navigateur. L’utilisation de conteneurs peut détourner l’attention des développeurs de la gestion de l’infrastructure, au lieu de se concentrer sur le développement d’applications.
 
 ## <a name="prerequisites"></a>Prérequis
 
-Cette procédure nécessite plusieurs outils qui doivent être installés et exécutés localement. N’utilisez pas Azure Cloud Shell.
+Cette procédure nécessite plusieurs outils qui doivent être installés et exécutés localement. N’utilisez pas Azure Cloud Shell. Vous avez besoin des éléments suivants :
 
-* Utilisez un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
-* Éditeur de texte, par exemple : [Visual Studio Code](https://code.visualstudio.com/download).
-* Installez [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
-* Installez l’[interface de ligne de commande Kubernetes](https://kubernetes.io/docs/tasks/tools/install-kubectl/).
+* Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
+* Un éditeur de code, par exemple [Visual Studio Code](https://code.visualstudio.com/download).
+* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) installé.
+* The [Kubernetes CLI](https://kubernetes.io/docs/tasks/tools/install-kubectl/) installé.
 * Une ressource Azure avec le niveau de tarification approprié. Certains niveaux tarifaires ne fonctionnent pas avec ce conteneur :
-    * La ressource **Analytique de texte** uniquement avec les niveaux tarifaires F0 ou Standard.
-    * La ressource **Cognitive Services** avec un niveau tarifaire S0.
+    * La ressource **Analyse de texte Azure** uniquement avec les niveaux tarifaires F0 ou Standard.
+    * La ressource **Azure Cognitive Services** avec un niveau tarifaire S0.
 
 [!INCLUDE [Create a Cognitive Services Text Analytics resource](../includes/create-text-analytics-resource.md)]
 
-[!INCLUDE [Create a Text Analytics Containers on Azure Kubernetes Services (AKS)](../../containers/includes/create-aks-resource.md)]
+[!INCLUDE [Create a Text Analytics container on Azure Kubernetes Service (AKS)](../../containers/includes/create-aks-resource.md)]
 
-## <a name="deploy-text-analytics-container-to-an-aks-cluster"></a>Déployer un conteneur Analyse de texte sur un cluster AKS
+## <a name="deploy-a-text-analytics-container-to-an-aks-cluster"></a>Déployer un conteneur Analyse de texte sur un cluster AKS
 
-1. Ouvrez l’interface Azure CLI et se connecter à Azure
+1. Ouvrir Azure CLI et se connecter à Azure.
 
     ```azurecli
     az login
     ```
 
-1. Connectez-vous au cluster AKS (remplacez `your-cluster-name` et `your-resource-group` par les valeurs appropriées)
+1. Connectez-vous au cluster AKS. Remplacez `your-cluster-name` et `your-resource-group` par les valeurs appropriées.
 
     ```azurecli
     az aks get-credentials -n your-cluster-name -g -your-resource-group
     ```
 
-    Une fois cette commande exécutée, elle signale un message similaire au message suivant :
+    Une fois cette commande exécutée, elle signale un message similaire au message suivant :
 
     ```console
     Merged "your-cluster-name" as current context in /home/username/.kube/config
     ```
 
     > [!WARNING]
-    > Si plusieurs abonnements sont disponibles sur votre compte Azure et que la commande `az aks get-credentials` renvoie une erreur, le problème peut être que vous n’utilisez pas l’abonnement approprié. Définissez simplement le contexte de votre session Azure CLI pour utiliser le même abonnement avec lequel vous avez créé les ressources, puis réessayez.
+    > Si plusieurs abonnements sont disponibles sur votre compte Azure et que la commande `az aks get-credentials` renvoie une erreur, le problème peut être que vous n’utilisez pas l’abonnement approprié. Définissez le contexte de votre session Azure CLI pour utiliser le même abonnement avec lequel vous avez créé les ressources, puis réessayez.
     > ```azurecli
     >  az account set -s subscription-id
     > ```
 
-1. Ouvrez l’éditeur de texte de votre choix (cet exemple utilise __Visual Studio Code__) :
+1. Ouvrez l’éditeur de texte de votre choix. L’exemple suivant utilise Visual Studio Code.
 
     ```azurecli
     code .
     ```
 
-1. Dans l’éditeur de texte, créez un nouveau fichier nommé _sentiment.yaml_ et collez-y le fichier YAML suivant. Assurez-vous de remplacer les valeurs `billing/value` et `apikey/value` par les vôtres.
+1. Dans l’éditeur de texte, créez un nouveau fichier nommé _sentiment.yaml_ et collez-y le fichier YAML suivant. Assurez-vous de remplacer les valeurs `billing/value` et `apikey/value` par vos propres informations.
 
     ```yaml
     apiVersion: apps/v1beta1
@@ -109,38 +109,38 @@ Cette procédure nécessite plusieurs outils qui doivent être installés et ex�
     ```
 
 1. Enregistrez le fichier et fermez l’éditeur de texte.
-1. Exécutez la commande `apply` Kubernetes avec le fichier _sentiment.yaml_ comme cible :
+1. Exécutez la commande Kubernetes `apply` avec le fichier _sentiment.yaml_ comme cible :
 
     ```console
     kuberctl apply -f sentiment.yaml
     ```
 
-    Une fois la configuration de déploiement correctement appliquée par la commande, un message similaire à la sortie suivante s’affiche :
+    Une fois la configuration de déploiement correctement appliquée par la commande, un message similaire à la sortie suivante s’affiche :
 
     ```
     deployment.apps "sentiment" created
     service "sentiment" created
     ```
-1. Vérifiez que le POD a été déployé :
+1. Vérifiez que le pod a été déployé :
 
     ```console
     kubectl get pods
     ```
 
-    Vous obtiendrez ainsi l’état d’exécution du POD :
+    Vous obtiendrez ainsi l’état d’exécution du pod :
 
     ```
     NAME                         READY     STATUS    RESTARTS   AGE
     sentiment-5c9ccdf575-mf6k5   1/1       Running   0          1m
     ```
 
-1. Vérifiez que le service est disponible et obtenez l’adresse IP :
+1. Vérifiez que le service est disponible et obtenez l’adresse IP.
 
     ```console
     kubectl get services
     ```
 
-    Vous obtiendrez ainsi l’état d’exécution du service _sentiment_ dans le POD :
+    La sortie de l’état d’exécution du service _sentiment_ dans le pod :
 
     ```
     NAME         TYPE           CLUSTER-IP    EXTERNAL-IP      PORT(S)          AGE
@@ -148,9 +148,9 @@ Cette procédure nécessite plusieurs outils qui doivent être installés et ex�
     sentiment    LoadBalancer   10.0.100.64   168.61.156.180   5000:31234/TCP   2m
     ```
 
-[!INCLUDE [Verify the Sentiment Analysis container instance](../includes/verify-sentiment-analysis-container.md)]
+[!INCLUDE [Verify the sentiment analysis container instance](../includes/verify-sentiment-analysis-container.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Utiliser davantage de [conteneurs Cognitive Services](../../cognitive-services-container-support.md)
-* Utiliser le [service connecté Analyse de texte](../vs-text-connected-service.md)
+* Utiliser le [service connecté Analytique de texte](../vs-text-connected-service.md)

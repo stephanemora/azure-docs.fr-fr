@@ -4,14 +4,14 @@ description: Décrit comment utiliser des modèles liés dans un modèle Azure 
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 05/01/2019
+ms.date: 07/17/2019
 ms.author: tomfitz
-ms.openlocfilehash: 4a5fe1bd2bf57fbec240ab242dd889014dde9578
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: c79429d1a39e975c6bcc7fce191846a6205f9a86
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67206426"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68311705"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Utilisation de modèles liés et imbriqués durant le déploiement de ressources Azure
 
@@ -90,7 +90,7 @@ Pour imbriquer le modèle dans le modèle principal, utilisez la propriété **t
 > ],
 > ```
 >
-> Vous ne pouvez pas utiliser la fonction `reference` dans la section outputs d’un modèle imbriqué. Pour renvoyer les valeurs d’une ressource déployée dans un modèle imbriqué, convertissez votre modèle imbriqué en modèle lié.
+> Vous ne pouvez pas utiliser la fonction `reference` dans la section Sorties d’un modèle imbriqué pour une ressource que vous avez déployée dans le modèle imbriqué. Pour renvoyer les valeurs d’une ressource déployée dans un modèle imbriqué, convertissez votre modèle imbriqué en modèle lié.
 
 Le modèle imbriqué nécessite les [mêmes propriétés](resource-group-authoring-templates.md) qu’un modèle standard.
 

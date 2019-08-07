@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: fdfd7794961b0254526b124525c6e978d13b0114
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 109ecc671b43365c433a626ff8d9fe55a5a626b5
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65800275"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68310297"
 ---
 # <a name="message-expiration-time-to-live"></a>Expiration des messages (durée de vie)
 

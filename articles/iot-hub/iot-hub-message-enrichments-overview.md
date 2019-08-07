@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: robinsh
-ms.openlocfilehash: 13e35ab93fc37541548785c6355489eaf3a3efc2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8e24489ad2909879b035a08316e66788034e99bc
+ms.sourcegitcommit: b49431b29a53efaa5b82f9be0f8a714f668c38ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66754551"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68377200"
 ---
 # <a name="message-enrichments-for-device-to-cloud-iot-hub-messages-preview"></a>Enrichissements de messages pour les messages IoT Hub-appareil-à-cloud (préversion)
 
@@ -35,9 +35,14 @@ La valeur peut être l’un des exemples suivants :
 
 * N’importe quelle chaîne statique. Des valeurs dynamiques telles que des conditions, une logique et des fonctions ne sont pas autorisées. Par exemple, si vous développez une application SaaS utilisée par plusieurs clients, vous pouvez attribuer un identificateur à chaque client et rendre cet identificateur disponible dans l’application. Lorsque l’application s’exécute, IoT Hub horodate les messages de télémétrie de l’appareil avec l’identificateur du client, ce qui permet de traiter les messages différemment pour chaque client.
 
+* Le nom de l’IoT Hub qui envoie le message. Cette valeur est *$iothubname*.
+
 * Informations du jumeau d’appareil, comme son chemin d’accès. Des exemples seraient *$twin.tags.field* et *$twin.tags.latitude*.
 
-* Le nom de l’IoT Hub qui envoie le message. Cette valeur est *$iothubname*.
+   > [!NOTE]
+   > Pour l’instant, seuls $iothubname, $twin.tags, $twin.properties.desired et $twin.properties.reported sont des variables prises en charge pour l’enrichissement de message.
+
+Les enrichissements de message sont ajoutés en tant que propriétés d’application aux messages envoyés aux points de terminaison choisis.  
 
 ## <a name="applying-enrichments"></a>Application des enrichissements
 

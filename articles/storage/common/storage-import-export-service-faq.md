@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 12/13/2018
+ms.date: 07/18/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: ee2917c64843c8ab137e0122d63a328d6c19fedb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 109f541157716ae4f9b195d0a3ed02a1d8c91960
+ms.sourcegitcommit: da0a8676b3c5283fddcd94cdd9044c3b99815046
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61478570"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68314109"
 ---
 # <a name="azure-importexport-service-frequently-asked-questions"></a>Service Azure Import/Export : Questions fréquentes (FAQ) 
 Vous trouverez ci-dessous des questions et réponses relatives à l’utilisation du service Azure Import/Export pour le transfert de données vers le Stockage Azure. Les questions/réponses sont classées dans les catégories suivantes :
@@ -66,7 +66,7 @@ Oui. Vous pouvez annuler une tâche dont l’état est **Création** ou **Expéd
 L’état des travaux terminés est visible pendant 90 jours. Les tâches effectuées sont supprimées après 90 jours.
 
 ### <a name="if-i-want-to-import-or-export-more-than-10-drives-what-should-i-do"></a>Si je souhaite importer ou exporter plus de 10 disques, que dois-je faire ?
-Une tâche d’importation ou d’exportation peut référencer uniquement 10 disques dans une seule tâche. Pour expédier plus de 10 disques, vous devez créer plusieurs tâches. Les disques associés à la même tâche doivent être expédiés ensemble dans le même colis. Pour plus d’informations et pour obtenir de l’aide quand la capacité de données s’étend sur plusieurs tâches d’importation de disques, contactez Microsoft à l’adresse bulkimport@microsoft.com. 
+Une tâche d’importation ou d’exportation peut référencer uniquement 10 disques dans une seule tâche. Pour expédier plus de 10 disques, vous devez créer plusieurs tâches. Les disques associés à la même tâche doivent être expédiés ensemble dans le même colis. Pour plus d’informations et pour obtenir de l’aide quand la capacité de données s’étend sur plusieurs tâches d’importation de disques, contactez l’assistance Microsoft. 
 
 ### <a name="the-uploaded-blob-shows-status-as-lease-expired-what-should-i-do"></a>L’objet blob chargé affiche l’état « Bail expiré ». Que dois-je faire ?
 Vous pouvez ignorer le champ « Bail expiré ». Import/Export prend le bail sur l’objet blob lors du chargement afin de s’assurer qu’aucun autre processus ne peut mettre à jour l’objet blob en parallèle. Bail expiré signifie qu’Import/export ne charge plus sur cet objet et que vous pouvez l’utiliser. 

@@ -4,7 +4,7 @@ description: Utilisez des tâches de préparation au niveau du travail afin de m
 services: batch
 documentationcenter: .net
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: 63d9d4f1-8521-4bbb-b95a-c4cad73692d3
 ms.service: batch
@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 02/27/2017
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 517ac0f612b9e5fc5909a7f0fe2ce088c9b367d9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a85ced787529db7e6d607665d81632ab1c450dfe
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60776194"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68466970"
 ---
 # <a name="run-job-preparation-and-job-release-tasks-on-batch-compute-nodes"></a>Exécuter des tâches de préparation et de validation du travail sur les nœuds de calcul Batch
 
@@ -31,7 +31,7 @@ Avant l’exécution des tâches d’un travail, la tâche de préparation du tr
 
 Les tâches de préparation et de validation du travail offrent des fonctionnalités de tâche Batch courantes, telles que téléchargement de fichiers ([fichiers de ressources][net_job_prep_resourcefiles]), exécution avec élévation de privilèges, variables d’environnement personnalisées, durée d’exécution maximale, nombre de tentatives et période de rétention des fichiers.
 
-Dans les sections ci-après, vous découvrirez comment utiliser les classes [JobPreparationTask][net_job_prep] et [JobReleaseTask][net_job_release] disponibles dans la bibliothèque [Batch .NET][api_net].
+Dans les sections ci-après, vous découvrirez comment utiliser les classes [JobPreparationTask][net_job_prep] and [JobReleaseTask][net_job_release] disponibles dans la bibliothèque [Batch.NET] [api_net].
 
 > [!TIP]
 > Les tâches de préparation et de validation du travail sont particulièrement utiles dans les environnements de « pool partagé », dans lesquels un pool de nœuds de calcul persiste entre les exécutions d’un travail et est utilisé par de nombreux travaux.
@@ -51,7 +51,7 @@ Dans un environnement de « pool partagé » dans lequel les nœuds de calcul d�
 
 **Rétention des journaux**
 
-Vous voulez peut-être conserver une copie des fichiers journaux générés par les tâches ou peut-être les fichiers de vidage sur incident qui peuvent être générés par les applications ayant échoué. Dans ces cas, utilisez une **tâche de validation du travail** pour compresser et télécharger ces données vers un compte de [Stockage Azure][azure_storage].
+Vous voulez peut-être conserver une copie des fichiers journaux générés par les tâches ou peut-être les fichiers de vidage sur incident qui peuvent être générés par les applications ayant échoué. Dans ces cas, utilisez une **tâche de mise en production du travail** pour compresser et télécharger ces données vers un compte de [Stockage Azure][azure_storage].
 
 > [!TIP]
 > Une autre façon de conserver les journaux d’activité et les autres données de sortie des travaux et des tâches consiste à utiliser la bibliothèque de [conventions de fichier Azure Batch](batch-task-output.md) .
@@ -64,7 +64,7 @@ Avant l’exécution des tâches d’un travail, Batch exécute la tâche de pr�
 La tâche de préparation du travail est uniquement exécutée sur les nœuds sur lesquels l’exécution d’une tâche est planifiée. Ceci empêche l'exécution d'une tâche de préparation inutile dans le cas où une tâche n'est pas attribuée à un nœud. Cette situation peut survenir lorsque le nombre de tâches pour un travail est inférieur au nombre de nœuds dans un pool. Elle s’applique également si [l’exécution de tâches simultanées](batch-parallel-node-tasks.md) est activée. Dans ce cas, certains nœuds restent inactifs si le nombre de tâches est inférieur au nombre total de tâches simultanées possibles. Lorsque vous n’exécutez pas la tâche de préparation du travail sur des nœuds inactifs, vous pouvez réduire vos frais de transfert de données.
 
 > [!NOTE]
-> [JobPreparationTask][net_job_prep_cloudjob] diffère de [CloudPool.StartTask][pool_starttask] dans la mesure où JobPreparationTask s’exécute au début de chaque travail, tandis que StartTask s’exécute uniquement lorsqu’un nœud de calcul rejoint un pool ou redémarre.
+> [JobPreparationTask][net_job_prep_cloudjob] differs from [CloudPool.StartTask][pool_starttask] dans la mesure où JobPreparationTask s’exécute au début de chaque travail, tandis que StartTask s’exécute uniquement lorsqu’un nœud de calcul rejoint un pool ou redémarre.
 > 
 > 
 
@@ -73,11 +73,13 @@ Lorsqu'un travail est marqué comme terminé, la tâche de validation du travail
 
 > [!NOTE]
 > La suppression du travail exécute également la tâche de validation du travail. Toutefois, si un travail a déjà été arrêté, la tâche de validation n’est pas exécutée une seconde fois si ce travail est supprimé par la suite.
+
+Les tâches de validation du travail peuvent s’exécuter pendant un maximum de 15 minutes avant d’être terminées par le service Batch. Pour plus d’informations, voir la [Documentation de référence sur l’API REST](https://docs.microsoft.com/rest/api/batchservice/job/add#jobreleasetask).
 > 
 > 
 
 ## <a name="job-prep-and-release-tasks-with-batch-net"></a>Tâches de préparation et de validation du travail avec Batch.NET
-Pour utiliser une tâche de préparation du travail, affectez un objet [JobPreparationTask][net_job_prep] à la propriété [CloudJob.JobPreparationTask][net_job_prep_cloudjob] de votre travail. De même, initialisez la propriété [JobReleaseTask][net_job_release] et affectez-la à la propriété [CloudJob.JobReleaseTask][net_job_prep_cloudjob] de votre travail pour définir la tâche de validation du travail.
+Pour utiliser une tâche de préparation du travail, affectez une propriété [JobPreparationTask][net_job_prep] object to your job's [CloudJob.JobPreparationTask][net_job_prep_cloudjob]. De même, initialisez la propriété [JobReleaseTask][net_job_release] et affectez-la à la propriété [CloudJob.JobReleaseTask][net_job_prep_cloudjob] de votre travail pour définir la tâche de validation du travail.
 
 Dans cet extrait de code, `myBatchClient` est une instance de [BatchClient][net_batch_client], et `myPool` est un pool existant dans le compte Batch.
 
@@ -105,7 +107,7 @@ myJob.JobReleaseTask =
 await myJob.CommitAsync();
 ```
 
-Comme mentionné ci-dessus, la tâche de validation est exécutée lorsqu’un travail est arrêté ou supprimé. Pour arrêter un travail, utilisez [JobOperations.TerminateJobAsync][net_job_terminate]. Pour supprimer un travail, utilisez [JobOperations.DeleteJobAsync][net_job_delete]. Généralement, vous arrêtez ou supprimez un travail lorsque les tâches de ce dernier sont terminées ou qu’un délai d’expiration que vous avez défini a été atteint.
+Comme mentionné ci-dessus, la tâche de validation est exécutée lorsqu’un travail est arrêté ou supprimé. Pour arrêter un travail, utilisez [JobOperations.TerminateJobAsync][net_job_terminate]. Delete a job with [JobOperations.DeleteJobAsync][net_job_delete]. Généralement, vous arrêtez ou supprimez un travail lorsque les tâches de ce dernier sont terminées ou qu’un délai d’expiration que vous avez défini a été atteint. Exemple de code sur GitHub
 
 ```csharp
 // Terminate the job to mark it as Completed; this will initiate the
@@ -115,19 +117,19 @@ Comme mentionné ci-dessus, la tâche de validation est exécutée lorsqu’un t
 await myBatchClient.JobOperations.TerminateJobAsync("JobPrepReleaseSampleJob");
 ```
 
-## <a name="code-sample-on-github"></a>Exemple de code sur GitHub
-Pour découvrir les tâches de préparation et de validation du travail en action, consultez l’exemple de projet [JobPrepRelease][job_prep_release_sample] sur GitHub. Cette application de console effectue les opérations suivantes :
+## <a name="code-sample-on-github"></a>Pour découvrir les tâches de préparation et de validation du travail en action, consultez l’exemple de projet [JobPrepRelease][job_prep_release_sample] sur GitHub.
+Cette application de console effectue les opérations suivantes : Crée un pool avec deux nœuds.
 
-1. Crée un pool avec deux nœuds.
-2. Crée un travail avec des tâches de préparation du travail, de validation et standard.
-3. Exécute la tâche de préparation du travail qui écrit d'abord l'ID de nœud dans un fichier texte dans le répertoire « partagé » d'un nœud.
-4. Exécute une tâche sur chaque nœud qui écrit son ID de tâche dans le même fichier texte.
-5. Lorsque toutes les tâches sont terminées (ou que le délai d'attente est atteint), imprime le contenu du fichier texte de chaque nœud dans la console.
-6. Lorsque le travail est terminé, exécute la tâche de validation du travail pour supprimer le fichier du nœud.
-7. Imprime les codes de sortie des tâches de préparation et de validation du travail pour chaque nœud sur lequel elles sont exécutées.
-8. Interrompt l'exécution pour permettre la confirmation de la suppression du pool et/ou du travail.
+1. Crée un travail avec des tâches de préparation du travail, de validation et standard.
+2. Exécute la tâche de préparation du travail qui écrit d'abord l'ID de nœud dans un fichier texte dans le répertoire « partagé » d'un nœud.
+3. Exécute une tâche sur chaque nœud qui écrit son ID de tâche dans le même fichier texte.
+4. Lorsque toutes les tâches sont terminées (ou que le délai d'attente est atteint), imprime le contenu du fichier texte de chaque nœud dans la console.
+5. Lorsque le travail est terminé, exécute la tâche de validation du travail pour supprimer le fichier du nœud.
+6. Imprime les codes de sortie des tâches de préparation et de validation du travail pour chaque nœud sur lequel elles sont exécutées.
+7. Interrompt l'exécution pour permettre la confirmation de la suppression du pool et/ou du travail.
+8. Le résultat de l'exemple d'application ressemble à ce qui suit :
 
-Le résultat de l'exemple d'application ressemble à ce qui suit :
+En raison de la variabilité des heures de création et de démarrage des nœuds dans un nouveau pool (certains nœuds sont prêts pour les tâches avant d’autres), vous risquez d’obtenir un résultat différent.
 
 ```
 Attempting to create pool: JobPrepReleaseSamplePool
@@ -173,27 +175,27 @@ Sample complete, hit ENTER to exit...
 ```
 
 > [!NOTE]
-> En raison de la variabilité des heures de création et de démarrage des nœuds dans un nouveau pool (certains nœuds sont prêts pour les tâches avant d’autres), vous risquez d’obtenir un résultat différent. En particulier, étant donné que les tâches s’exécutent rapidement, l’un des nœuds du pool peut exécuter l’ensemble des tâches du travail. Si cela se produit, vous remarquerez que les tâches de préparation et de validation du travail n’existent pas pour le nœud qui n’a exécuté aucune tâche.
+> En particulier, étant donné que les tâches s’exécutent rapidement, l’un des nœuds du pool peut exécuter l’ensemble des tâches du travail. Si cela se produit, vous remarquerez que les tâches de préparation et de validation du travail n’existent pas pour le nœud qui n’a exécuté aucune tâche. Inspection des tâches de préparation et de validation du travail dans le Portail Azure
 > 
 > 
 
-### <a name="inspect-job-preparation-and-release-tasks-in-the-azure-portal"></a>Inspection des tâches de préparation et de validation du travail dans le Portail Azure
-Lorsque vous exécutez l’exemple d’application, vous pouvez utiliser le [Portail Azure][portal] pour visualiser les propriétés du travail et ses tâches, ou même télécharger le fichier texte partagé modifié par les tâches du travail.
+### <a name="inspect-job-preparation-and-release-tasks-in-the-azure-portal"></a>Lorsque vous exécutez l’exemple d’application, vous pouvez utiliser le [Portail Azure][portal] pour visualiser les propriétés du travail et ses tâches, ou même télécharger le fichier texte partagé modifié par les tâches du travail.
+La capture d’écran ci-après illustre le **panneau Tâches de préparation** du Portail Azure après une exécution de l’exemple d’application.
 
-La capture d’écran ci-après illustre le **panneau Tâches de préparation** du Portail Azure après une exécution de l’exemple d’application. Accédez aux propriétés *JobPrepReleaseSampleJob* une fois les tâches terminées (mais avant la suppression de votre travail et du pool), puis cliquez sur **Tâches de préparation** ou sur **Tâches de fin** pour en visualiser les propriétés.
+Accédez aux propriétés *JobPrepReleaseSampleJob* une fois les tâches terminées (mais avant la suppression de votre travail et du pool), puis cliquez sur **Tâches de préparation** ou sur **Tâches de fin** pour en visualiser les propriétés. Propriétés de préparation du travail dans le portail Azure
 
-![Propriétés de préparation du travail dans le portail Azure][1]
+![Étapes suivantes][1]
 
-## <a name="next-steps"></a>Étapes suivantes
-### <a name="application-packages"></a>packages d’application
-Outre la tâche de préparation du travail, vous pouvez également utiliser la fonctionnalité [packages d’application](batch-application-packages.md) de Batch pour préparer des nœuds de calcul à l’exécution de tâches. Cette fonctionnalité est particulièrement utile pour déployer des applications qui ne nécessitent pas de programme d’installation, des applications qui contiennent de nombreux fichiers (plus de 100) ou des applications qui requièrent un contrôle de version strict.
+## <a name="next-steps"></a>packages d’application
+### <a name="application-packages"></a>Outre la tâche de préparation du travail, vous pouvez également utiliser la fonctionnalité [packages d’application](batch-application-packages.md) de Batch pour préparer des nœuds de calcul à l’exécution de tâches.
+Cette fonctionnalité est particulièrement utile pour déployer des applications qui ne nécessitent pas de programme d’installation, des applications qui contiennent de nombreux fichiers (plus de 100) ou des applications qui requièrent un contrôle de version strict. Installation d’applications et de données intermédiaires
 
-### <a name="installing-applications-and-staging-data"></a>Installation d’applications et de données intermédiaires
-Le billet MSDN ci-après fournit une vue d’ensemble de différentes méthodes de préparation de vos nœuds à l’exécution des tâches :
-
-[Installing applications and staging data on Batch compute nodes][forum_post] (Installation d’applications et de données intermédiaires sur les nœuds de calcul Batch)
+### <a name="installing-applications-and-staging-data"></a>Le billet MSDN ci-après fournit une vue d’ensemble de différentes méthodes de préparation de vos nœuds à l’exécution des tâches :
+[Installation d’applications et de données intermédiaires sur les nœuds de calcul Batch][forum_post]
 
 Rédigé par l’un des membres de l’équipe Azure Batch, ce billet décrit plusieurs techniques que vous pouvez utiliser pour déployer des applications et des données sur les nœuds de calcul.
+
+Written by one of the Azure Batch team members, it discusses several techniques that you can use to deploy applications and data to compute nodes.
 
 [api_net]: https://msdn.microsoft.com/library/azure/mt348682.aspx
 [api_net_listjobs]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.joboperations.listjobs.aspx

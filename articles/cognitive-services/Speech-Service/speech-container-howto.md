@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: dapine
-ms.openlocfilehash: 8f395788d4dd3c845155a52bd6b4666998838fcd
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.openlocfilehash: 089b9030debc7489e123d49b5c78052f597ca469
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67490236"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68348415"
 ---
 # <a name="install-and-run-speech-service-containers"></a>Installer et exécuter des conteneurs de service Speech
 
@@ -38,7 +38,7 @@ L’utilisation des conteneurs Speech est soumise aux conditions préalables sui
 |--|--|
 |Moteur Docker| Vous avez besoin d’un moteur Docker installé sur un [ordinateur hôte](#the-host-computer). Docker fournit des packages qui configurent l’environnement Docker sur [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) et [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Pour apprendre les principes de base de Docker et des conteneurs, consultez la [vue d’ensemble de Docker](https://docs.docker.com/engine/docker-overview/).<br><br> Vous devez configurer Docker pour permettre aux conteneurs de se connecter à Azure et de lui envoyer des données de facturation. <br><br> **Sur Windows**, vous devez également configurer Docker pour prendre en charge les conteneurs Linux.<br><br>|
 |Bonne connaissance de Docker | Vous devez avoir une compréhension élémentaire des concepts Docker, notamment les registres, référentiels, conteneurs et images conteneurs, ainsi qu’une maîtrise des commandes `docker` de base.| 
-|Ressource Speech |Pour pouvoir utiliser ces conteneurs, vous devez avoir :<br><br>Ressource Azure de _Speech_ permettant d’obtenir la clé de facturation et l’URI du point de terminaison de facturation associés. Les deux valeurs, disponibles dans les pages Vue d’ensemble de **Speech** et Clés du portail Azure, sont nécessaires au démarrage du conteneur.<br><br>**{BILLING_KEY}**  : clé de ressource<br><br>**{BILLING_ENDPOINT_URI}**  : exemple d’UURI de point de terminaison : `https://westus.api.cognitive.microsoft.com/sts/v1.0`|
+|Ressource Speech |Pour pouvoir utiliser ces conteneurs, vous devez avoir :<br><br>Une ressource _Speech_ d’Azure afin d’obtenir la clé API et l’URI du point de terminaison associés. Les deux valeurs sont disponibles sur les pages Vue d’ensemble et Clés de la ressource **Speech** du portail Azure. Elles sont nécessaires au démarrage du conteneur.<br><br>**{API_KEY}**  : l’une des deux clés de ressource disponibles à la page **Clés**<br><br>**{ENDPOINT_URI}**  : le point de terminaison tel qu'il est fourni à la page **Vue d’ensemble**|
 
 ## <a name="request-access-to-the-container-registry"></a>Demander l’accès au registre de conteneurs
 
@@ -66,8 +66,8 @@ Le tableau suivant décrit la quantité minimale et recommandée de cœurs de pr
 
 | Conteneur | Minimale | Recommandé |
 |-----------|---------|-------------|
-|cognitive-services-speech-to-text | 2 cœurs<br>2 Go de mémoire  | 4 cœurs<br>4 Go de mémoire  |
-|cognitive-services-text-to-speech | 1 cœur, 0,5 Go de mémoire| 2 cœurs, 1 Go de mémoire |
+|cognitive-services-speech-to-text | 2 cœurs<br>Mémoire 2 Go  | 4 cœurs<br>Mémoire 4 Go  |
+|cognitive-services-text-to-speech | 1 cœur, 0,5 Go de mémoire| 2 cœurs, 1 Go de mémoire |
 
 * Chaque cœur doit être cadencé à au moins 2,6 gigahertz (GHz).
 
@@ -180,8 +180,8 @@ Utilisez la commande [docker run](https://docs.docker.com/engine/reference/comma
 
 | Placeholder | Valeur |
 |-------------|-------|
-|{BILLING_KEY} | Cette clé, qui permet de démarrer le conteneur, est disponible dans la page Clés de Speech sur le portail Azure.  |
-|{BILLING_ENDPOINT_URI} | La valeur de l’URI de point de terminaison de facturation est disponible dans la page Vue d’ensemble de Speech du portail Azure.|
+|{API_KEY} | Cette clé, qui permet de démarrer le conteneur, est disponible dans la page Clés de Speech sur le portail Azure.  |
+|{ENDPOINT_URI} | La valeur de l’URI de point de terminaison de facturation est disponible dans la page Vue d’ensemble de Speech du portail Azure.|
 
 Remplacez ces paramètres par vos propres valeurs dans l’exemple de commande `docker run` suivant.
 
@@ -191,8 +191,8 @@ Remplacez ces paramètres par vos propres valeurs dans l’exemple de commande `
 docker run --rm -it -p 5000:5000 --memory 2g --cpus 1 \
 containerpreview.azurecr.io/microsoft/cognitive-services-text-to-speech \
 Eula=accept \
-Billing={BILLING_ENDPOINT_URI} \
-ApiKey={BILLING_KEY}
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY}
 ```
 
 ### <a name="speech-to-text"></a>Reconnaissance vocale
@@ -201,8 +201,8 @@ ApiKey={BILLING_KEY}
 docker run --rm -it -p 5000:5000 --memory 2g --cpus 2 \
 containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text \
 Eula=accept \
-Billing={BILLING_ENDPOINT_URI} \
-ApiKey={BILLING_KEY}
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY}
 ```
 
 Cette commande :
@@ -232,13 +232,13 @@ Par défaut, le Kit de développement logiciel (SDK) Speech utilise des services
 
 Passer de l’utilisation de cet appel d’initialisation du cloud Azure :
 
-```C#
+```csharp
 var config = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
 ```
 
 à cet appel à l’aide du point de terminaison de conteneur :
 
-```C#
+```csharp
 var config = SpeechConfig.FromEndpoint(
     new Uri("ws://localhost:5000/speech/recognition/dictation/cognitiveservices/v1"),
     "YourSubscriptionKey");

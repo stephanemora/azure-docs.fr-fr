@@ -5,15 +5,15 @@ author: rimman
 ms.author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 07/23/2019
 ms.reviewer: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 51a554586c67842ead40cd4a1bfaaa51bbdd8a18
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 40caea40637c57aedb6315ff6fc032898ff07af7
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65954402"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68467945"
 ---
 # <a name="change-feed-in-azure-cosmos-db---overview"></a>Flux de modification dans Azure Cosmos DB - Vue d'ensemble
 
@@ -56,7 +56,7 @@ Dans un compte Azure Cosmos multirégion, si une région d’écriture bascule, 
 
 Si une propriété de durée de vie (TTL) est définie sur -1 pour un élément, le flux de modification est conservé indéfiniment. Tant que les données ne sont pas supprimées, elles restent dans le flux de modification.  
 
-### <a name="change-feed-and-etag-lsn-or-ts"></a>Flux de modification et formats _etag, _lsn ou _ts
+### <a name="change-feed-and-_etag-_lsn-or-_ts"></a>Flux de modification et formats _etag, _lsn ou _ts
 
 Le format _etag est un format interne. Vous ne devez pas vous y fier, car il peut être modifié à tout moment. Le format _ts correspond à un horodatage de modification ou de création. Vous pouvez utiliser les données _ts à des fins de comparaison chronologique. Le format _lsn est un ID de lot qui est ajouté uniquement pour le flux de modification. Il représente l’ID de transaction. De nombreux éléments peuvent avoir un même _lsn. L’étiquette d’entité (ETag) de FeedResponse est différente du _etag que vous voyez dans l’élément. _etag est un identificateur interne utilisé pour le contrôle de l’accès concurrentiel, qui indique la version du document, alors que l’ETag est utilisé pour le séquencement du flux.
 
@@ -94,7 +94,7 @@ Voici quelques-uns des scénarios que vous pouvez facilement implémenter avec l
 Vous pouvez utiliser le flux de modification à l’aide des options suivantes :
 
 * [Utilisation du flux de modification avec Azure Functions](change-feed-functions.md)
-* [Utilisation du flux de modification avec la bibliothèque du processeur](change-feed-processor.md) 
+* [Utilisation du flux de modification avec le processeur de flux de modification](change-feed-processor.md) 
 
 Le flux de modification est disponible pour chacune des clés de partition logique du conteneur, et il peut être distribué vers un ou plusieurs consommateurs en vue d’un traitement parallèle, comme indiqué dans l’image ci-dessous.
 
@@ -108,7 +108,7 @@ Le flux de modification est disponible pour chacune des clés de partition logiq
 
 * Le flux de modification inclut les opérations d’insertion et de mise à jour apportées aux éléments du conteneur. Vous pouvez capturer des suppressions en définissant un indicateur de « suppression réversible » dans vos éléments (par exemple, vos documents) au lieu d’effectuer des suppressions définitives. Vous pouvez également définir un délai d’expiration fixe pour vos éléments avec la [fonctionnalité de durée de vie](time-to-live.md). Par exemple, vous pouvez définir le délai sur 24 heures et utiliser la valeur de cette propriété pour capturer les suppressions. Avec cette solution, vous devez traiter les modifications dans un intervalle de temps inférieur à la période d’expiration de durée de vie. 
 
-* Chaque modification apportée à un élément n’apparaît qu’une seule fois dans le flux de modification. En outre, les clients doivent gérer leur logique de points de contrôle. Si vous souhaitez éviter la gestion complexe des points de contrôle, la bibliothèque du processeur du flux de modification fournit des points de contrôle automatiques ainsi qu’une sémantique de type « au moins une fois ». Consultez [Utilisation du flux de modification avec la bibliothèque du processeur](change-feed-processor.md).
+* Chaque modification apportée à un élément n’apparaît qu’une seule fois dans le flux de modification. En outre, les clients doivent gérer leur logique de points de contrôle. Si vous souhaitez éviter la gestion complexe des points de contrôle, le processeur du flux de modification fournit des points de contrôle automatiques ainsi qu’une sémantique de type « au moins une fois ». Consultez [Utilisation du flux de modification avec le processeur de flux de modification](change-feed-processor.md).
 
 * Seule la dernière modification d’un élément donné est incluse dans le journal des modifications. Les modifications intermédiaires peuvent ne pas être disponibles.
 
@@ -126,4 +126,4 @@ Pour plus d’informations sur le flux de modification, consultez les articles s
 
 * [Options de lecture du flux de modification](read-change-feed.md)
 * [Utilisation du flux de modification avec Azure Functions](change-feed-functions.md)
-* [Utilisation de la bibliothèque du processeur de flux de modification](change-feed-processor.md)
+* [Utilisation du processeur de flux de modification](change-feed-processor.md)

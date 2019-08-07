@@ -1,0 +1,110 @@
+---
+title: Créer des modèles d’application logique pour le déploiement – Azure Logic Apps
+description: Découvrez comment créer des modèles Azure Resource Manager pour automatiser le déploiement dans Azure Logic Apps
+services: logic-apps
+ms.service: logic-apps
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, LADocs
+ms.topic: article
+ms.date: 07/26/2019
+ms.openlocfilehash: 7d216a3706c13a5fff312850e244a521ab22ae9e
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68386738"
+---
+# <a name="create-azure-resource-manager-templates-to-automate-deployment-for-azure-logic-apps"></a>Créez des modèles Azure Resource Manager afin d’automatiser le déploiement pour le service Azure Logic Apps
+
+Pour vous aider à automatiser la création et le déploiement de votre application logique, cet article décrit les méthodes permettant de créer un [modèle de Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) pour votre application logique. Pour obtenir une vue d’ensemble de la structure et de la syntaxe d’un modèle qui comprend votre définition de flux de travail et d’autres ressources nécessaires pour le déploiement, consultez [Vue d’ensemble : Automatiser le déploiement pour les applications logiques avec des modèles de Azure Resource Manager](logic-apps-azure-resource-manager-templates-overview.md).
+
+Azure Logic Apps fournit un [modèle Azure Resource Manager prédéfini pour les applications logiques](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create/azuredeploy.json). À l’aide de ce modèle, vous pouvez créer des applications logiques, mais aussi définir les ressources et les paramètres à utiliser pour les déployer. Vous pouvez utiliser ce modèle pour vos propres scénarios professionnels, ou le personnaliser selon vos besoins. Pour plus d’informations sur les modèles Azure Resource Manager, consultez ces articles :
+
+* [Structure et syntaxe du modèle Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md)
+* [Création de modèles Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md)
+* [Développer des modèles Azure Resource Manager pour la cohérence du cloud](../azure-resource-manager/templates-cloud-consistency.md)
+
+> [!IMPORTANT]
+> Les connexions de votre modèle doivent utiliser le même groupe de ressources et le même emplacement Azure que votre application logique.
+
+<a name="visual-studio"></a>
+
+## <a name="create-templates-with-visual-studio"></a>Créer des modèles avec Visual Studio
+
+La manière la plus simple de créer des modèles d’application logique paramétrés valides prêts pour le déploiement consiste à utiliser Visual Studio (version Community Edition gratuite ou version ultérieure) et les outils Azure Logic Apps pour Visual Studio. Vous pouvez ensuite [créer votre application logique dans Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md) ou [rechercher et télécharger une application logique depuis le portail Azure dans Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md).
+
+En téléchargeant votre application logique, vous recevez un modèle qui comprend les définitions de votre application logique et d’autres ressources telles que les connexions. Le modèle *paramètre* également, ou définit des paramètres pour, les valeurs utilisées pour déployer votre application logique et d’autres ressources. Pour fournir des valeurs pour ces paramètres, vous pouvez utiliser un fichier de paramètres séparé. De cette façon, vous pouvez modifier plus facilement ces valeurs en fonction de vos besoins en matière de déploiement. Pour plus d’informations, consultez les rubriques suivantes :
+
+* [Créer des applications logiques avec Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)
+* [Gérer des applications logiques avec Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md)
+
+<a name="azure-powershell"></a>
+
+## <a name="create-templates-with-azure-powershell"></a>Créer des modèles avec Azure Powershell
+
+Vous pouvez également créer des modèles Resource Manager en utilisant Azure PowerShell avec le [module LogicAppTemplate](https://github.com/jeffhollan/LogicAppTemplateCreator). Ce module open source évalue d’abord votre application logique et toutes les connexions que celle-ci utilise. Il génère ensuite les ressources de modèle avec les paramètres nécessaires pour le déploiement.
+
+Par exemple, supposons que votre application logique reçoive un message d’une file d’attente Azure Service Bus et qu’elle ajoute des données à une base de données Azure SQL Azure. Le module conserve toute la logique d’orchestration et paramètre les chaînes de connexion SQL et Service Bus afin que vous puissiez fournir et modifier ces valeurs en fonction de vos besoins en matière de déploiement.
+
+### <a name="install-powershell-modules"></a>Installer des modules PowerShell
+
+1. Installez [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps) si ce n’est pas déjà fait.
+
+1. La méthode la plus simple pour installer le module LogicAppTemplate à partir de [PowerShell Gallery](https://www.powershellgallery.com/packages/LogicAppTemplate) est d’utiliser cette commande :
+
+   ```text
+   PS> Install-Module -Name LogicAppTemplate
+   ```
+
+   Pour effectuer une mise à jour vers la dernière version, exécutez la commande suivante :
+
+   ```text
+   PS> Update-Module -Name LogicAppTemplate
+   ```
+
+Ou, pour procéder à l’installation manuelle, suivez les étapes décrites dans GitHub pour le [Créateur du modèle d’application logique](https://github.com/jeffhollan/LogicAppTemplateCreator).
+
+### <a name="install-azure-resource-manager-client"></a>Installer le client Azure Resource Manager
+
+Pour que le module LogicAppTemplate fonctionne avec un jeton d’accès d’abonnement et un locataire Azure, installez l’[outil client Azure Resource Manager](https://github.com/projectkudu/ARMClient), qui est un outil en ligne de commande simple qui appelle l’API Azure Resource Manager.
+
+Quand vous exécutez la commande `Get-LogicAppTemplate` avec cet outil, la commande obtient d’abord un jeton d’accès via l’outil ARMClient, dirige le jeton vers le script PowerShell et crée le modèle en tant que fichier JSON. Pour plus d’informations sur cet outil, consultez cet [article sur l’outil client Azure Resource Manager](https://blog.davidebbo.com/2015/01/azure-resource-manager-client.html).
+
+### <a name="generate-template-with-powershell"></a>Générer un modèle avec PowerShell
+
+Pour générer votre modèle après l’installation du module LogicAppTemplate, exécutez la commande PowerShell :
+
+```text
+PS> Get-LogicAppTemplate
+```
+
+Pour suivre la recommandation relative à la redirection dans un jeton à partir de l’[outil client Azure Resource Manager](https://github.com/projectkudu/ARMClient), exécutez cette commande à l’emplacement dans lequel `$SubscriptionId` est votre ID d’abonnement Azure :
+
+```text
+PS> armclient token $SubscriptionId | Get-LogicAppTemplate -LogicApp <logic-app-name> -ResourceGroup <Azure-resource-group-name> -SubscriptionId $SubscriptionId -Verbose | Out-File C:\template.json
+```
+
+Après l’extraction, vous pouvez créer un fichier de paramètres à partir de votre modèle en exécutant la commande suivante :
+
+```text
+PS> Get-ParameterTemplate -TemplateFile $filename | Out-File '<parameters-file-name>.json'
+```
+
+Pour l’extraction avec des références Azure Key Vault (statique uniquement), exécutez la commande suivante :
+
+```text
+PS> Get-ParameterTemplate -TemplateFile $filename -KeyVault Static | Out-File $fileNameParameter
+```
+
+| parameters | Obligatoire | Description |
+|------------|----------|-------------|
+| TemplateFile | OUI | Le chemin d'accès à votre fichier de modèle |
+| KeyVault | Non | Une énumération qui décrit comment gérer les valeurs de coffre de clés possibles. Par défaut, il s’agit de `None`. |
+||||
+
+## <a name="next-steps"></a>Étapes suivantes
+
+> [!div class="nextstepaction"]
+> [Déployer des modèles d’application logique](../logic-apps/logic-apps-deploy-azure-resource-manager-templates.md)

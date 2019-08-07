@@ -197,7 +197,7 @@ Pour copier des données à partir d’OData, définissez la propriété **type*
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété **type** du jeu de données doit être définie sur **ODataResource**. | OUI |
+| type | La propriété **type** du jeu de données doit être définie sur **ODataResource**. | OUI |
 | chemin d’accès | Chemin de la ressource OData. | OUI |
 
 **Exemple**
@@ -232,7 +232,7 @@ Pour copier des données à partir d’OData, définissez le type **source** de 
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété **type** de la source d’activité de copie doit être définie sur **RelationalSource**. | OUI |
+| type | La propriété **type** de la source d’activité de copie doit être définie sur **RelationalSource**. | OUI |
 | query | Options de requête OData pour filtrer les données. Exemple : `"$select=Name,Description&$top=5"`.<br/><br/>**Remarque**: Le connecteur OData copie des données à partir de l’URL combinée `[URL specified in linked service]/[path specified in dataset]?[query specified in copy activity source]`. Pour plus d’informations, consultez [OData URL components](https://www.odata.org/documentation/odata-version-3-0/url-conventions/). | Non |
 
 **Exemple**

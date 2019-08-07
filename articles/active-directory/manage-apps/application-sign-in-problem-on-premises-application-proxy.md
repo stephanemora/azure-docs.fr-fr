@@ -1,5 +1,5 @@
 ---
-title: Problèmes rencontrés lors de la connexion à une application locale à l’aide du proxy d’application Azure AD | Microsoft Docs
+title: Problème de connexion à l’application locale à l’aide du proxy d’application Azure AD | Microsoft Docs
 description: Dépannage des problèmes courants rencontrés lorsque vous ne parvenez pas à vous connecter à une application locale intégrée à Azure AD à l’aide du proxy d’application Azure AD
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.date: 05/21/2018
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0adc2effb27ffcd870ec543ee7b353a092808797
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4483dc75d116e75521cb348b56dac418b3e012a8
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65825260"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68381328"
 ---
 # <a name="problems-signing-in-to-an-on-premises-application-using-the-azure-ad-application-proxy"></a>Problèmes rencontrés lors de la connexion à une application locale à l’aide du proxy d’application Azure AD
 

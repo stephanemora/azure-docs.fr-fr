@@ -10,12 +10,12 @@ ms.author: robreed
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: b486c30827ee67b58cbdc0027c8221cceed02e51
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3f6d15e67122afcbea3cc294c803a302e961bdbd
+ms.sourcegitcommit: 57a7d4f67635212f5bf0c56e58fd87c8ec366f2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66235940"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68372556"
 ---
 # <a name="azure-automation-state-configuration-overview"></a>Vue d’ensemble d’Azure Automation State Configuration
 
@@ -82,6 +82,10 @@ Si vos nœuds sont situés dans un réseau privé, les ports et URL suivants son
 * URL globale d’US Gov Virginie : *.azure-automation.us
 * Service de l’agent : https://\<ID_espace_de_travail\>.agentsvc.azure-automation.net
 
+Cela fournit une connectivité réseau pour que le nœud géré communique avec Azure Automation.
+Si vous utilisez des ressources DSC qui communiquent entre des nœuds, telles que les [ressources WaitFor*](https://docs.microsoft.com/powershell/dsc/reference/resources/windows/waitForAllResource), vous devrez également autoriser le trafic entre les nœuds.
+Pour connaître la configuration réseau requise, consultez la documentation de chaque ressource DSC.
+
 #### <a name="proxy-support"></a>Prise en charge de proxy
 
 La prise en charge de proxy pour l’agent DSC est disponible dans Windows version 1809 et versions ultérieures.
@@ -100,6 +104,7 @@ Si vous avez un compte Automation défini pour une région spécifique, vous pou
 | --- | --- |
 | USA Centre-Ouest | wcus-jobruntimedata-prod-su1.azure-automation.net</br>wcus-agentservice-prod-1.azure-automation.net |
 | USA Centre Sud |scus-jobruntimedata-prod-su1.azure-automation.net</br>scus-agentservice-prod-1.azure-automation.net |
+| USA Est   | eus-jobruntimedata-prod-su1.azure-automation.net</br>eus-agentservice-prod-1.azure-automation.net |
 | USA Est 2 |eus2-jobruntimedata-prod-su1.azure-automation.net</br>eus2-agentservice-prod-1.azure-automation.net |
 | Centre du Canada |cc-jobruntimedata-prod-su1.azure-automation.net</br>cc-agentservice-prod-1.azure-automation.net |
 | Europe Ouest |we-jobruntimedata-prod-su1.azure-automation.net</br>we-agentservice-prod-1.azure-automation.net |

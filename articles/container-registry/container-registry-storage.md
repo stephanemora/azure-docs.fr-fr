@@ -3,16 +3,17 @@ title: Stockage des images dans Azure Container Registry
 description: Plus d’informations sur comment vos images conteneur Docker sont stockées dans Azure Container Registry, y compris la sécurité, de redondance et la capacité.
 services: container-registry
 author: dlepow
+manager: gwallace
 ms.service: container-registry
 ms.topic: article
 ms.date: 03/21/2018
 ms.author: danlep
-ms.openlocfilehash: 55c84907ab41f6da9d7a0989c68a1c1f90c5e424
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4517cc21ca0087358e750cd480288d4ec3718791
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60827270"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68310532"
 ---
 # <a name="container-image-storage-in-azure-container-registry"></a>Stockage des images conteneur dans Azure Container Registry
 
@@ -46,7 +47,7 @@ Un très grand nombre de balises et de référentiels peuvent affecter les perfo
 
 ## <a name="storage-cost"></a>Coût de stockage
 
-Pour plus d’informations sur la tarification, consultez [tarification d’Azure Container Registry ][pricing].
+Pour plus d’informations sur la tarification, consultez [Tarification d’Azure Container Registry][pricing].
 
 ## <a name="next-steps"></a>Étapes suivantes
 

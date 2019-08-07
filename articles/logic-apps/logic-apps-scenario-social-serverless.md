@@ -10,12 +10,12 @@ ms.reviewer: estfan, LADocs
 ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.topic: article
 ms.date: 03/15/2018
-ms.openlocfilehash: 29d56e64f118fe36fb4905dca20d9fba2f210665
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 6f0176253d0f1953e9c779a317cfe7bf453acb8f
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67295927"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68385454"
 ---
 # <a name="create-streaming-customer-insights-dashboard-with-azure-logic-apps-and-azure-functions"></a>Créer un tableau de bord des insights client en streaming avec Azure Logic Apps et Azure Functions
 
@@ -26,7 +26,7 @@ Azure Logic Apps fournit un moteur de flux de travail serverless dans le cloud a
 
 Dans ce scénario, vous créez une application logique qui déclenche la recherche des retours d’expérience des clients. Voici certains des connecteurs qui peuvent aider à réagir aux retours d’expérience client, y compris Outlook.com, Office 365, Survey Monkey, Twitter et une [requête HTTP à partir d’un formulaire Web](https://blogs.msdn.microsoft.com/logicapps/2017/01/30/calling-a-logic-app-from-an-html-form/). Le flux de travail que vous créez analyse un hashtag sur Twitter.
 
-Vous pouvez [générer la solution entière dans Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md) et [déployer la solution avec le modèle Azure Resource Manager](../logic-apps/logic-apps-create-deploy-template.md). Pour obtenir une procédure pas à pas vidéo qui montre comment créer cette solution, [regardez cette vidéo de Channel 9](https://aka.ms/logicappsdemo). 
+Vous pouvez [générer la solution entière dans Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md) et [déployer la solution avec le modèle Azure Resource Manager](../logic-apps/logic-apps-deploy-azure-resource-manager-templates.md). Pour obtenir une procédure pas à pas vidéo qui montre comment créer cette solution, [regardez cette vidéo de Channel 9](https://aka.ms/logicappsdemo). 
 
 ## <a name="trigger-on-customer-data"></a>Déclencheur sur les données client
 
@@ -106,7 +106,7 @@ Pour afficher des historiques d’exécution précédentes dans Visual Studio ou
 
 ## <a name="create-automated-deployment-templates"></a>Créer des modèles de déploiement automatisé
 
-Après avoir créé une solution d’application logique, vous pouvez capturer et déployer votre application comme un [modèle Azure Resource Manager](../azure-resource-manager/resource-group-overview.md#template-deployment) à n’importe quelle région Azure dans le monde. Vous pouvez utiliser cette fonctionnalité pour modifier les paramètres pour la création de différentes versions de votre application et pour l’intégration de votre solution dans Azure Pipelines. Vous pouvez également inclure Azure Functions dans votre modèle de déploiement afin de gérer la solution entière avec toutes les dépendances en tant que modèle unique. Apprenez [à créer des modèles de déploiement d’applications logiques](../logic-apps/logic-apps-create-deploy-template.md).
+Après avoir créé une solution d’application logique, vous pouvez capturer et déployer votre application comme un [modèle Azure Resource Manager](../azure-resource-manager/resource-group-overview.md#template-deployment) à n’importe quelle région Azure dans le monde. Vous pouvez utiliser cette fonctionnalité pour modifier les paramètres pour la création de différentes versions de votre application et pour l’intégration de votre solution dans Azure Pipelines. Vous pouvez également inclure Azure Functions dans votre modèle de déploiement afin de gérer la solution entière avec toutes les dépendances en tant que modèle unique. Apprenez comment [automatiser le déploiement d’applications logiques](logic-apps-azure-resource-manager-templates-overview.md).
 
 Vous trouverez un exemple de modèle de déploiement avec une fonction Azure dans le [référentiel de modèles de démarrage rapide Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/101-function-app-create-dynamic).
 

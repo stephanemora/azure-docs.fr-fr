@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: allensu
-ms.openlocfilehash: 9068cb0dad742ac6e5eeae0b3a1b801d08d4734c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 305f24fc274ad48f5c60762223b7bf4e970fe083
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67070994"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68333740"
 ---
 # <a name="traffic-manager-routing-methods"></a>Méthodes de routage de Traffic Manager
 
@@ -123,8 +123,38 @@ Traffic Manager analyse l’adresse IP source de la requête DNS afin de déterm
 
 Comme expliqué dans [Fonctionnement de Traffic Manager](traffic-manager-how-it-works.md), Traffic Manager ne reçoit pas de requêtes DNS provenant directement de clients. Au lieu de cela, les requêtes DNS proviennent du service DNS récursif que les clients sont configurés pour utiliser. Par conséquent, l’adresse IP utilisée pour déterminer la région n’est pas l’adresse IP du client, mais celle du service DNS récursif. Dans la pratique, cette adresse IP est un bon proxy pour le client.
 
+### <a name="faqs"></a>FAQ
+
+* [Quels sont les cas d’utilisation dans lesquels le routage géographique est utile ?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-are-some-use-cases-where-geographic-routing-is-useful)
+
+* [Comment décider si je dois utiliser la méthode de routage de performances ou la méthode de routage géographique ?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-do-i-decide-if-i-should-use-performance-routing-method-or-geographic-routing-method)
+
+* [Quelles sont les régions prises en charge par Traffic Manager pour le routage géographique ?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-are-the-regions-that-are-supported-by-traffic-manager-for-geographic-routing)
+
+* [Comment Traffic Manager détermine-t-il l’emplacement à partir duquel un utilisateur exécute une requête ?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-does-traffic-manager-determine-where-a-user-is-querying-from)
+
+* [Est-il garanti que Traffic Manager détermine correctement l’emplacement géographique exact de l’utilisateur dans tous les cas ?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#is-it-guaranteed-that-traffic-manager-can-correctly-determine-the-exact-geographic-location-of-the-user-in-every-case)
+
+* [Pour le routage géographique, un point de terminaison doit-il être situé physiquement dans la même région que celle avec laquelle il est configuré ?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#does-an-endpoint-need-to-be-physically-located-in-the-same-region-as-the-one-it-is-configured-with-for-geographic-routing)
+
+* [Puis-je affecter des régions géographiques aux points de terminaison dans un profil qui n’est pas configuré pour procéder au routage géographique ?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-assign-geographic-regions-to-endpoints-in-a-profile-that-is-not-configured-to-do-geographic-routing)
+
+* [Pourquoi une erreur est-elle générée lorsque j’essaie de modifier la méthode de routage d’un profil existant en méthode de routage géographique ?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#why-am-i-getting-an-error-when-i-try-to-change-the-routing-method-of-an-existing-profile-to-geographic)
+
+* [Pourquoi est-il vivement recommandé que les clients créent des profils imbriqués à la place de points de terminaison sous un profil avec le routage géographique activé ?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#why-is-it-strongly-recommended-that-customers-create-nested-profiles-instead-of-endpoints-under-a-profile-with-geographic-routing-enabled)
+
+* [Existe-t-il des restrictions quant à la version de l’API qui prend en charge ce type de routage ?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#are-there-any-restrictions-on-the-api-version-that-supports-this-routing-type)
+
 ## <a name = "multivalue"></a>Méthode de routage du trafic Valeurs multiples
 La méthode de routage du trafic **Valeurs multiples** vous permet d’obtenir plusieurs points de terminaison intègres dans une seule réponse à une requête DNS. Cela permet à l’appelant de faire de nouvelles tentatives côté client avec d’autres points de terminaison quand un point de terminaison retourné ne répond pas. Ce modèle peut augmenter la disponibilité d’un service et réduire la latence associée à une nouvelle requête DNS pour obtenir un point de terminaison sain. La méthode de routage Valeurs multiples ne fonctionne que si tous les points de terminaison sont de type « Externe » et sont des adresses IPv4 ou IPv6 spécifiées. Lors de la réception d’une requête pour ce profil, tous les points de terminaison sains sont retournés et soumis à un nombre de retours maximal configurable.
+
+### <a name="faqs"></a>FAQ
+
+* [Quels sont les cas d’utilisation dans lesquels le routage MultiValue est utile ?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-are-some-use-cases-where-multivalue-routing-is-useful)
+
+* [Combien de points de terminaison sont renvoyés avec le routage MultiValue ?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-many-endpoints-are-returned-when-multivalue-routing-is-used)
+
+* [Obtiendrais-je le même ensemble de points de terminaison avec le routage MultiValue ?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#will-i-get-the-same-set-of-endpoints-when-multivalue-routing-is-used)
 
 ## <a name = "subnet"></a>Méthode de routage du trafic Sous-réseau
 La méthode de routage du trafic **Sous-réseau** vous permet de mapper un ensemble de plages d’adresses IP d’utilisateur final à des points de terminaison spécifiques dans un profil. Ensuite, si Traffic Manager reçoit une requête DNS pour ce profil, il inspecte l’adresse IP source de cette demande (dans la plupart des cas, il s’agit de l’adresse IP sortante de la résolution DNS utilisée par l’appelant), détermine le point de terminaison auquel elle est mappée, et retourne ce point de terminaison dans la réponse à la requête. 
@@ -133,6 +163,19 @@ L’adresse IP à associer à un point de terminaison peut être spécifiée en 
 Si vous définissez un point de terminaison sans plage d’adresses, il fait office de secours et récupère le trafic de n’importe quel sous-réseau restant. Si aucun point de terminaison de secours n’est inclus, Traffic Manager envoie une réponse NODATA pour toutes les plages non définies. Il est par conséquent hautement recommandé de définir un point de terminaison de secours ou de vérifier que toutes les plages d’adresses IP possibles sont spécifiées sur vos points de terminaison.
 
 Un routage de sous-réseau permet d’offrir une expérience différente au utilisateurs qui se connectent à partir d’un espace d’adressage IP spécifique. Par exemple, en utilisant un routage de sous-réseau, un client peut faire en sorte que toutes les demandes émanant de son bureau d’entreprise soient acheminées vers un autre point de terminaison où il peut tester une version uniquement interne de son application. Un autre scénario est quand vous souhaitez offrir une expérience différente aux utilisateurs qui se connectent à partir d’un fournisseur de services Internet (ISP) spécifique (par exemple, pour bloquer les utilisateurs d’un ISP donné).
+
+### <a name="faqs"></a>FAQ
+
+* [Quels sont les cas d’utilisation dans lesquels le routage en fonction du sous-réseau est utile ?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-are-some-use-cases-where-subnet-routing-is-useful)
+
+* [Comment Traffic Manager connaît-il l’adresse IP de l’utilisateur final ?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-does-traffic-manager-know-the-ip-address-of-the-end-user)
+
+* [Comment puis-je spécifier des adresses IP avec le routage en fonction du sous-réseau ?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-can-i-specify-ip-addresses-when-using-subnet-routing)
+
+* [Comment puis-je spécifier un point de terminaison de secours avec le routage en fonction du sous-réseau ?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-can-i-specify-a-fallback-endpoint-when-using-subnet-routing)
+
+* [Que se passe-t-il si un point de terminaison est désactivé dans un profil de type de routage en fonction du sous-réseau ?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-happens-if-an-endpoint-is-disabled-in-a-subnet-routing-type-profile)
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

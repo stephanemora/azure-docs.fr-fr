@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: reference
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: 485e8626af4266492e02d4f9fbe4af486e10c082
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 22860e0798ec852b6d25da27e108befe8a3089a2
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67718392"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68488828"
 ---
 # <a name="immersive-reader-sdk-reference"></a>Référence du kit de développement logiciel (SDK) du lecteur immersif
 
@@ -23,22 +23,22 @@ Le kit de développement logiciel (SDK) du lecteur immersif est une bibliothèqu
 
 ## <a name="functions"></a>Fonctions
 
-Le SDK expose une seule fonction, `ImmersiveReader.launchAsync(token, resourceName, content, options)`.
+Le SDK expose une seule fonction, `ImmersiveReader.launchAsync(token, subdomain, content, options)`.
 
 ### <a name="launchasync"></a>launchAsync
 
 Lance le lecteur immersif au sein d'un `iframe` de votre application web.
 
 ```typescript
-launchAsync(token: string, resourceName: string, content: Content, options?: Options): Promise<HTMLDivElement>;
+launchAsync(token: string, subdomain: string, content: Content, options?: Options): Promise<HTMLDivElement>;
 ```
 
 #### <a name="parameters"></a>parameters
 
 | Nom | type | Description |
 | ---- | ---- |------------ |
-| `token` | string | Jeton d’accès obtenu à partir de l’appel du point de terminaison `issueToken`. |
-| `resourceName` | string | Réservé. Cette propriété doit être définie sur `null`. |
+| `token` | string | Le jeton d’authentification Azure AD. Consultez le [guide pratique sur l’authentification Azure AD](./azure-active-directory-authentication.md). |
+| `subdomain` | string | Sous-domaine personnalisé de votre ressource Lecteur immersif dans Azure. Consultez le [guide pratique sur l’authentification Azure AD](./azure-active-directory-authentication.md). |
 | `content` | [Contenu](#content) | Objet dans lequel figure le contenu à afficher dans le lecteur immersif. |
 | `options` | [Options](#options) | Options de configuration de certains comportements du lecteur immersif. facultatif. |
 

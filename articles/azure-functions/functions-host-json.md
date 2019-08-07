@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/08/2018
 ms.author: glenga
-ms.openlocfilehash: 89c4723e83979f89721677146810abdf99fb5d11
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.openlocfilehash: ecb2059e529347b7eff72bf6af74b82558a4c251
+ms.sourcegitcommit: 83a89c45253b0d432ce8dcd70084c18e9930b1fd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67310483"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68371700"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x"></a>Informations de référence sur le fichier host.json pour Azure Functions 2.x  
 
@@ -147,7 +147,7 @@ Liste des fonctions que l’hôte de travail exécute. Un tableau vide désigne 
 
 ## <a name="functiontimeout"></a>functionTimeout
 
-Indique la durée avant expiration du délai de toutes les fonctions. Dans les plans de consommation serverless, la plage valide est comprise entre 1 seconde et 10 minutes, et la valeur par défaut est de 5 minutes. Dans un plan App Service dédié, il n’existe aucune limite globale, et la valeur par défaut est de 30 minutes. La valeur `-1` indique une exécution sans limite.
+Indique la durée avant expiration du délai de toutes les fonctions. Dans les plans de consommation serverless, la plage valide est comprise entre 1 seconde et 10 minutes, et la valeur par défaut est de 5 minutes. Dans un plan App Service, il n’existe aucune limite globale et la valeur par défaut dépend de la version du runtime. Dans la version 2.x, la valeur par défaut pour un plan App Service plan est de 30 minutes. Dans la version 1.x, elle prend la valeur *null*, ce qui signifie l’absence de délai d’expiration. Elle ne peut pas être définie sur Infinite. Si cette valeur n’est pas définie explicitement, elle prend la valeur par défaut de 30 minutes.
 
 ```json
 {
@@ -176,7 +176,7 @@ Paramètres de configuration de l’[analyse d’intégrité d’hôtes](https:/
 |enabled|true|Indique si la fonctionnalité est activée. | 
 |healthCheckInterval|10 secondes|L’intervalle de temps entre les contrôles d’intégrité périodiques en arrière-plan. | 
 |healthCheckWindow|2 minutes|Une fenêtre de temps coulissante utilisée conjointement au paramètre `healthCheckThreshold`.| 
-|healthCheckThreshold|6\.|Nombre maximal de fois où le contrôle d’intégrité peut échouer avant le lancement d’un recyclage de l’hôte.| 
+|healthCheckThreshold|6|Nombre maximal de fois où le contrôle d’intégrité peut échouer avant le lancement d’un recyclage de l’hôte.| 
 |counterThreshold|0.80|Le seuil auquel un compteur de performance est considéré comme non intègre.| 
 
 ## <a name="http"></a>http

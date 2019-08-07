@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 392699182859a090c13304f63d28a78b95a65ec7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 87e5ec82299ef9ddc8bc8756196bb2ace3d1f6f3
+ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65024018"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68414230"
 ---
 # <a name="search-explorer-for-querying-data-in-azure-search"></a>Utiliser l'explorateur pour interroger les données Recherche Azure 
 
@@ -85,7 +85,7 @@ Ajoutez **$select** pour limiter les résultats aux champs explicitement nommés
 Recherche Azure renvoie les 50 premières correspondances selon le classement de la recherche. Pour obtenir le jeu de documents correspondants suivant, ajoutez **$top = 100 & $skip = 50** afin d'augmenter le jeu de résultats à 100 documents (50 par défaut, 1 000 maximum), en ignorant les 50 premiers documents. N'oubliez pas qu'il vous faut fournir des critères de recherche, terme ou expression de requête, pour obtenir des résultats classés. Notez que les scores de recherche diminuent au fil des résultats de la recherche.
 
    ```Input
-   search=seattle condo&$select=listingId,beds,baths,description,street,city,price&$count=true&$top=100,&$skip=50
+   search=seattle condo&$select=listingId,beds,baths,description,street,city,price&$count=true&$top=100&$skip=50
    ```
 
    **Résultats**
@@ -94,13 +94,25 @@ Recherche Azure renvoie les 50 premières correspondances selon le classement d
 
 ## <a name="filter-expressions-greater-than-less-than-equal-to"></a>Filtrer les expressions (supérieur à, inférieur à, égal à)
 
-Utilisez le paramètre **$filter** lorsque vous souhaitez spécifier des critères précis plutôt qu'une recherche de texte libre. Cet exemple recherche plus de 3 chambres : `search=seattle condo&$filter=beds gt 3&$count=true`
+Utilisez le paramètre **$filter** lorsque vous souhaitez spécifier des critères précis plutôt qu'une recherche de texte libre. Cet exemple recherche plus de 3 chambres :
+
+   ```Input
+   search=seattle condo&$filter=beds gt 3&$count=true
+   ```
+   
+   **Résultats**
 
    ![Expression de filtre](./media/search-explorer/search-explorer-example-filter.png "Filtrer par critères")
 
 ## <a name="order-by-expressions"></a>Expressions OrderBy
 
-Ajoutez **$orderby** pour trier les résultats selon un autre champ, à côté du score de recherche. Pour le tester, vous pouvez utiliser l'exemple d'expression `search=seattle condo&$select=listingId,beds,price&$filter=beds gt 3&$count=true&$orderby=price asc`
+Ajoutez **$orderby** pour trier les résultats selon un autre champ, à côté du score de recherche. Pour le tester, vous pouvez utiliser l'exemple d'expression suivant :
+
+   ```Input
+   search=seattle condo&$select=listingId,beds,price&$filter=beds gt 3&$count=true&$orderby=price asc
+   ```
+   
+   **Résultats**
 
    ![Expression OrderBy](./media/search-explorer/search-explorer-example-ordery.png "Modifier l’ordre de tri")
 

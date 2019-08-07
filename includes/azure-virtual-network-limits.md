@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/25/2019
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: 3e66bf61caf786473d89eab9a6567bb05aff0d19
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 1fd08efd12e723a16445eba1d341f017a86a212e
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67457329"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68481431"
 ---
 <a name="azure-resource-manager-virtual-networking-limits"></a>Limites de mise en réseau - Azure Resource Manager 
 Les limites suivantes s’appliquent uniquement aux ressources de réseau gérées par le biais **d’Azure Resource Manager** par région et par abonnement. Découvrez comment [afficher l’utilisation actuelle de vos ressources par rapport aux limites de votre abonnement](../articles/networking/check-usage-against-limits.md).
@@ -30,6 +30,8 @@ Les limites suivantes s’appliquent uniquement aux ressources de réseau géré
 | Adresses IP privées par réseau virtuel |65 536 |
 | Adresses IP privées par interface réseau |256 |
 | Adresses IP privées par machine virtuelle |256 |
+| Adresses IP publiques par interface réseau |256 |
+| Adresses IP publiques par machine virtuelle |256 |
 | Flux TCP ou UDP simultanés par carte réseau de machine virtuelle ou instance de rôle |500 000 |
 | Cartes d’interface réseau |65 536 |
 | Network Security Group |5 000 |

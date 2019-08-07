@@ -7,12 +7,12 @@ ms.author: mattwoj
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 06/27/2019
-ms.openlocfilehash: cea763416f36abd80b1d22b4414cc2454bc30c66
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
+ms.openlocfilehash: a4947349e64d5f9bf95a9213701dc62a0e018b8f
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/13/2019
-ms.locfileid: "67868724"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68501303"
 ---
 # <a name="create-a-new-saas-offer"></a>Créer une nouvelle offre SaaS
 
@@ -114,10 +114,13 @@ Promouvoir votre entreprise avec Microsoft en créant une liste de la Place de m
 - **Comment voulez-vous qu’interagissent les clients avec l’offre de liste ?**
 
 ##### <a name="get-it-now-free"></a>Obtenez-en une maintenant (gratuit)
-Répertoriez votre offre gratuitement pour les clients en fournissant une URL valide (qui commence par http ou https) où ils peuvent accéder à votre application.  Par exemple : `https://contoso.com/saas-app`
+Répertoriez votre offre gratuitement pour les clients en fournissant une URL valide (qui commence par *http* ou *https*) où ils peuvent accéder à votre application.  Par exemple : `https://contoso.com/saas-app`
 
 ##### <a name="free-trial-listing"></a>Essai gratuit (annonce)
-Répertoriez votre offre en tant qu’essai gratuit pour les clients en fournissant une URL valide (qui commence par http ou https) où ils peuvent accéder à votre application.  Par exemple : `https://contoso.com/trial/saas-app`. Les versions d’évaluation gratuites sont créées, gérées et configurées par votre service et n’ont pas d’abonnements gérés par Microsoft.
+Répertoriez votre offre aux clients avec un lien vers une version d’évaluation gratuite en fournissant une URL valide (qui commence par *http* ou *https*), où ils peuvent obtenir une version d’évaluation via une [authentification en un clic à l’aide d’Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide#using-azure-active-directory-to-enable-trials).  Par exemple : `https://contoso.com/trial/saas-app`. Les versions d’évaluation gratuites sont créées, gérées et configurées par votre service et n’ont pas d’abonnements gérés par Microsoft.
+
+> [!NOTE]
+> Les jetons que votre application recevra via votre lien d’évaluation peuvent uniquement être utilisés pour obtenir des informations utilisateur par le biais de Azure AD pour automatiser la création de comptes dans votre application. Les comptes Microsoft (MSA) ne sont pas pris en charge pour l’authentification à l’aide de ce jeton.
 
 ##### <a name="contact-me"></a>Me contacter
 Collectez des informations de contact client en connectant votre système de gestion de la relation client (CRM). Le client devra autoriser le partage de ses informations. Ces informations client, ainsi que le nom de l’offre, son ID et la Place de marché sur laquelle il a trouvé votre offre, seront envoyées au système CRM que vous avez configuré. Pour plus d’informations sur la configuration de votre CRM, consultez [Connecter la gestion des prospects](#connect-lead-management). 
@@ -175,7 +178,7 @@ L’onglet **Propriétés** vous invite à définir les catégories et secteurs 
 
 Sélectionnez **Enregistrer** après avoir renseigné ces champs. 
 
-### <a name="category"></a>Catégorie
+### <a name="category"></a>Category
 Sélectionnez un minimum d’une (1) catégorie et un maximum de trois (3) catégories utilisées pour grouper votre offre dans les zones de recherche appropriées sur la Place de marché. Expliquez dans la description comment votre offre prend en charge ces catégories dans la description de l’offre. 
 
 ### <a name="industry"></a>Secteur d’activité
@@ -220,6 +223,92 @@ Jusqu’à 3 000 caractères peuvent être entrés dans ce champ. Pour obtenir p
 - **Mots clés de recherche** : Entrez un maximum de trois mots clés que les clients pourront utiliser pour rechercher votre offre sur les Places de marché.
 - **Instructions de prise en main** (obligatoire) : Expliquez comment configurer et démarrer votre application à des clients potentiels.  Ce démarrage rapide peut contenir des liens vers des ressources en ligne plus détaillées. Jusqu’à 3 000 caractères peuvent être entrés dans ce champ. 
 
+#### <a name="description"></a>**Description**
+
+Ce champ est obligatoire. Éléments à inclure dans la description : 
+
+* Décrivez clairement la proposition de valeur de votre offre dès les premières phrases de votre description.  
+* Gardez à l’esprit que les premières phrases peuvent être affichées dans les résultats de recherche.  
+* Ne comptez pas sur les fonctionnalités de votre produit pour convaincre. Concentrez-vous plutôt sur ce que votre application peut apporter aux clients.  
+* Autant que possible, utilisez le vocabulaire propre au secteur visé, ainsi que des termes décrivant les avantages proposés. 
+
+Votre proposition de valeur doit comprendre les composants suivants : 
+
+* Description du produit. 
+* Type d’utilisateur qui tire parti du produit. 
+* Les clients ont des besoins ou des problèmes auxquels le produit répond. 
+
+Pour que la description de votre offre soit plus attrayante, vous pouvez utiliser des balises HTML pour mettre en forme la description. 
+
+1. Si vous souhaitez créer des paragraphes, ajoutez `<p>` au début du texte et ajoutez `</p>` à la fin.
+
+    **Exemple**: 
+
+    `<p>` Il s’agit de mon premier paragraphe. `</p>` <br>
+    `<p>` Il s’agit de mon deuxième paragraphe. `</p>` <br>
+
+    La section ci-dessus ressemblerait à ceci :
+
+    <p> Il s’agit de mon premier paragraphe. </p>
+    <p> Il s’agit de mon deuxième paragraphe. </p>
+
+1. Si vous souhaitez ajouter une **liste à puces**, placez votre texte entre les balises `<li>` ci-dessous. Vous pouvez copier et coller plus d’éléments à puces (éléments entre les balises `<li>` et `</li>`) à l’intérieur des balises `<ul>` et `</ul>`. .Assurez-vous d’ajouter le`<ul></ul>`. 
+
+    **Exemple**:
+
+    ```
+    <ul> 
+        <li>add text here</li> 
+        <li> add text here </li> 
+        <li> add text here </li> 
+    </ul> 
+    ```
+
+    La section ci-dessus ressemblerait à ceci :
+    <ul> 
+        <li>ajoutez du texte ici</li> 
+        <li> ajoutez du texte ici </li> 
+        <li> ajoutez du texte ici </li> 
+    </ul> 
+
+1. Pour **mettre en gras** le contenu, ajoutez `<b>` au début du texte que vous souhaitez mettre en gras et ajoutez `</b>` à la fin du texte que vous souhaitez mettre en gras. 
+
+    **Exemple**: `<b>`VERSION D’ÉVALUATION GRATUITE`</b>`
+    
+    Avec le texte ci-dessus, les mots VERSION D’ÉVALUATION GRATUITE seront mis en gras dans la description de l’offre dans la vitrine. 
+
+    **VERSION D’ÉVALUATION GRATUITE**
+
+1. Pour ajouter des **sauts de ligne** entre votre contenu, ajoutez `<br>` avant le contenu que vous souhaitez démarrer sur une nouvelle ligne. Si vous souhaitez conserver un espace et vous assurer que le contenu commence sur une nouvelle ligne, ajoutez `<br><br>` avant le contenu. 
+
+    **Exemple**:
+
+    Il s’agit d’une ligne de texte. `<br>` Il s’agit d’une ligne de texte qui commence sur une nouvelle ligne. `<br><br>` Il s’agit d’une ligne qui démarre deux lignes au-dessous. 
+
+    La section ci-dessus ressemblerait à ceci :
+
+    Il s’agit d’une ligne de texte. <br> Il s’agit d’une ligne de texte qui commence sur une nouvelle ligne. <br><br> Il s’agit d’une ligne qui démarre deux lignes au-dessous. 
+
+1. Si vous souhaitez **augmenter la taille du texte**, commencez par choisir la taille du texte. Utilisez les exemples ci-dessous. Après avoir sélectionné la taille du texte, ajoutez les balises `<H*></H*>` correspondantes au début et à la fin du texte. 
+
+    **Exemple**:
+
+    `<h1>`Il s’agit du titre 1`</h1>` <br>
+    `<h2>`Il s’agit du titre 2`</h2>` <br>
+    `<h3>`Il s’agit du titre 3`</h3>` <br>
+    `<h4>`Il s’agit du titre 4`</h4>` <br>
+    `<h5>`Il s’agit du titre 5`</h5>` <br>
+    `<h6>`Il s’agit du titre 6`</h6>` 
+
+    La section ci-dessus ressemblerait à ceci :
+
+    <h1>Il s’agit du titre 1</h1> 
+    <h2>Il s’agit du titre 2</h2> 
+    <h3>Il s’agit du titre 3</h3> 
+    <h4>Il s’agit du titre 4</h4> 
+    <h5>Il s’agit du titre 5</h5> 
+    <h6>Il s’agit du titre 6</h6> 
+
 #### <a name="links"></a>Liens
 
 - **Politique de confidentialité** (obligatoire) : Lien vers la politique de confidentialité de votre organisation. Vous devez veiller à ce que votre application respecte les lois et réglementations en matière de confidentialité et à renseigner une politique de confidentialité conforme.
@@ -259,7 +348,7 @@ L’onglet **Préversion** vous permet de définir un **Public de préversion** 
 
 - **Définir un public pour la Préversion : Ajoutez une seule adresse e-mail de compte AAD/MSA par ligne, avec une description facultative.**
 
-Ajoutez manuellement jusqu’à dix (10) adresses e-mail ou vingt (20) en chargeant un fichier CSV, pour un compte Microsoft (MSA) ou des comptes Azure Active Directory (AAD) existants afin d’aider à la validation de votre offre avant sa publication. En ajoutant ces comptes, vous définissez un public qui sera autorisé à accéder à la préversion de votre offre avant sa publication sur les places de marché. Si votre offre est déjà publiée, vous pouvez toujours définir un public pour la préversion en vue de test de changements ou de mises à jour futurs.
+Ajoutez manuellement jusqu’à dix (10) adresses e-mail ou vingt (20) en chargeant un fichier CSV, pour un compte Microsoft (MSA) ou des comptes Azure Active Directory (AAD) existants afin d’aider à la validation de votre offre avant sa publication. En ajoutant ces comptes, vous définissez un public qui sera autorisé à accéder à la préversion de votre offre avant sa publication sur les places de marché. Si votre offre est déjà publiée, vous pouvez toujours définir un public pour la préversion en vue de test de changements ou de mises à jour futurs.
 
 > [!NOTE]
 > Le public pour la préversion n’est pas le même que le public privé. Un public de préversion est autorisé à accéder à votre offre _avant_ sa publication sur les places de marché. Vous pouvez aussi choisir de créer un plan et de le rendre disponible uniquement à un public privé. Dans l’onglet **Liste des plans**, vous pouvez définir un public privé en cochant **Il s’agit d’un plan privé**. Vous pouvez définir un public privé comprenant jusqu’à 20 000 clients à l’aide des ID de locataire Azure.

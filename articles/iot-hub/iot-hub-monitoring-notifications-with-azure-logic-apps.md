@@ -7,14 +7,14 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.tgt_pltfrm: arduino
-ms.date: 04/19/2019
+ms.date: 07/18/2019
 ms.author: robinsh
-ms.openlocfilehash: 26637468f44e12f7ad66f907e0f6be3d907e578f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ad1fcb67704e79f5aef62a59604e47f477804405
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64719330"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68385719"
 ---
 # <a name="iot-remote-monitoring-and-notifications-with-azure-logic-apps-connecting-your-iot-hub-and-mailbox"></a>Surveillance à distance IoT et notifications avec Azure Logic Apps connectant votre IoT Hub et votre boîte aux lettres
 
@@ -30,7 +30,25 @@ Vous apprenez à créer une application logique qui connecte votre IoT Hub et vo
 
 Le code client exécuté sur votre appareil définit une propriété d’application, `temperatureAlert`, dans chaque message de télémétrie qu’il envoie à votre hub IoT. Lorsque le code client détecte une température supérieure à 30 °C, il définit cette propriété sur `true` ; sinon, il définit la propriété sur `false`.
 
-Dans cette rubrique, vous configurez le routage sur votre hub IoT pour envoyer des messages dans lequel `temperatureAlert = true` à un point de terminaison Service Bus, et vous configurez une application logique qui déclenche des messages destinés au point de terminaison Service Bus et vous envoie une notification par e-mail.
+Les messages arrivant à votre IOT Hub ressemblent à ce qui suit, avec les données de télémétrie contenues dans le corps et la propriété `temperatureAlert` contenue dans les propriétés de l’application (les propriétés système ne sont pas affichées) :
+
+```json
+{
+  "body": {
+    "messageId": 18,
+    "deviceId": "Raspberry Pi Web Client",
+    "temperature": 27.796111770668457,
+    "humidity": 66.77637926438427
+  },
+  "applicationProperties": {
+    "temperatureAlert": "false"
+  }
+}
+```
+
+Pour en savoir plus sur le format de message de IOT Hub, consultez [Créer et lire des messages IOT Hub](iot-hub-devguide-messages-construct.md).
+
+Dans cette rubrique, vous configurez le routage sur votre IOT Hub pour envoyer des messages dont la propriété `temperatureAlert` est `true` par rapport à un point de terminaison Service Bus. Vous configurez ensuite une application logique qui se déclenche sur les messages arrivant au point de terminaison Service Bus et vous envoie une notification par courrier électronique.
 
 ## <a name="what-you-do"></a>Procédure
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 699707953ae06afa9cbf3cc7286f94917ba0efca
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.openlocfilehash: 66bad9c9c647fe87fdcf6b99a8d17f319b1ef9fc
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67490108"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479983"
 ---
 # <a name="understand-and-work-with-scopes"></a>Comprendre et utiliser des étendues
 
@@ -142,6 +142,18 @@ Les abonnements Azure sont imbriqués sous les sections de facture, comme ils le
 
 Les utilisateurs de facturation n’ont pas accès aux groupes d’administration, car ils ne relèvent pas explicitement du compte de facturation. Toutefois, lorsque des groupes d’administration sont activés pour l’organisation, tous les coûts d’abonnement sont cumulés sur le compte de facturation et sur le groupe d’administration racine, car ils sont tous deux limités à un répertoire unique. Les groupes d’administration incluent uniquement les achats basés sur l’utilisation. Les achats tels que les réservations et les offres tierces de la Place de marché ne sont pas inclus dans les groupes d’administration. Par conséquent, le compte de facturation et le groupe d’administration racine peuvent signaler des totaux différents. Pour afficher ces coûts, utilisez le compte de facturation ou le profil de facturation correspondant.
 
+## <a name="aws-scopes"></a>Étendues AWS
+
+Une fois l’intégration AWS terminée, consultez la section [Installer et configurer l'intégration d’AWS](aws-integration-set-up-configure.md). Les étendues disponibles sont les suivantes :
+
+- **Compte de facturation externe** : représente un contrat de client avec un fournisseur tiers. Cela est similaire au compte de facturation EA.
+
+    Type de ressource : `Microsoft.CostManagement/externalBillingAccounts`
+    
+- **Abonnement externe** : représente un compte opérationnel client avec un fournisseur tiers. Cela est similaire à un abonnement Azure.
+
+    Type de ressource : `Microsoft.CostManagement/externalSubscriptions`
+
 ## <a name="cloud-solution-provider-csp-scopes"></a>Étendues Fournisseur de solutions cloud (CSP)
 
 Les partenaires CSP ne sont actuellement pas pris en charge dans Cost Management. À la place, vous pouvez utiliser l’[Espace partenaires](https://docs.microsoft.com/azure/cloud-solution-provider/overview/partner-center-overview).
@@ -204,7 +216,7 @@ Lorsque vous utilisez les API Cost Management, il est essentiel d’en connaîtr
 3. Copiez l’ID du groupe d’administration affiché dans le tableau.
 4. Votre étendue est : `"/providers/Microsoft.Management/managementGroups/{id}"`
 
-### <a name="subscription"></a>Abonnement
+### <a name="subscription"></a>Subscription
 
 1. Ouvrez le Portail Azure et accédez à **Abonnements** dans la liste des services.
 2. Copiez l’ID de l’abonnement affiché dans le tableau.

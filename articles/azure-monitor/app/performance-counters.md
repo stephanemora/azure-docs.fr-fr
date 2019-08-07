@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: mbullwin
-ms.openlocfilehash: 0ec64a5ae412fb4a1900021fefcb7d9112b1b019
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c681b58b01979b95e35ae57cefde38c56a787543
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66255338"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68360256"
 ---
 # <a name="system-performance-counters-in-application-insights"></a>Compteurs de performances système dans Application Insights
 
@@ -30,17 +30,16 @@ Le volet Métriques affiche un ensemble de compteurs de performances par défaut
 ![Compteurs de performances signalés dans Application Insights](./media/performance-counters/performance-counters.png)
 
 Les compteurs par défaut actuels qui sont configurés pour être collectés pour les applications Web ASP.NET/ASP.NET Core sont :
-
-         - % Process\\Processor Time
-         - % Process\\Processor Time Normalized
-         - Memory\\Available Bytes
-         - ASP.NET Requests/Sec
-         - .NET CLR Exceptions Thrown / sec
-         - ASP.NET ApplicationsRequest Execution Time
-         - Process\\Private Bytes
-         - Process\\IO Data Bytes/sec
-         - ASP.NET Applications\\Requests In Application Queue
-         - Processor(_Total)\\% Processor Time
+- % du processus\\Temps du processeur
+- % du processus\\Temps du processeur normalisé
+- Mémoire\\Octets disponibles
+- Demandes ASP.NET/seconde
+- Exceptions .NET CLR levées/seconde
+- Heure d’exécution de ASP.NET ApplicationsRequest
+- Processus\\Octets privés
+- Processus\\Octets de données IP/seconde
+- Applications ASP.NET\\Requêtes dans la file d’attente des applications
+- Processor(_Total)\\ % de temps de processeur
 
 ## <a name="add-counters"></a>Ajouter des compteurs
 
@@ -56,16 +55,15 @@ Si le compteur de performances que vous souhaitez n’est pas inclus dans la lis
    * Si vous avez ajouté Application Insights à votre application pendant le développement, modifiez ApplicationInsights.config dans votre projet, puis redéployez-le sur vos serveurs.
 3. Modifiez la directive du collecteur de performances :
 
-```XML
+    ```XML
 
-    <Add Type="Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.PerformanceCollectorModule, Microsoft.AI.PerfCounterCollector">
-      <Counters>
-        <Add PerformanceCounter="\Objects\Processes"/>
-        <Add PerformanceCounter="\Sales(photo)\# Items Sold" ReportAs="Photo sales"/>
-      </Counters>
-    </Add>
-
-```
+        <Add Type="Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.PerformanceCollectorModule, Microsoft.AI.PerfCounterCollector">
+          <Counters>
+            <Add PerformanceCounter="\Objects\Processes"/>
+            <Add PerformanceCounter="\Sales(photo)\# Items Sold" ReportAs="Photo sales"/>
+          </Counters>
+        </Add>
+    ```
 
 > [!NOTE]
 > Les applications ASP.NET Core n’ont pas `ApplicationInsights.config`. Par conséquent, la méthode ci-dessus n’est pas valable pour les applications ASP.NET Core.
@@ -82,8 +80,7 @@ Si vous spécifiez une instance, elle est collectée en tant que dimension « C
 Pour collecter les compteurs de performances système et les envoyer à Application Insights, vous pouvez adapter l’extrait de code ci-dessous :
 
 
-``` C#
-
+```csharp
     var perfCollectorModule = new PerformanceCollectorModule();
     perfCollectorModule.Counters.Add(new PerformanceCounterCollectionRequest(
       @"\Process([replace-with-application-process-name])\Page Faults/sec", "PageFaultsPerfSec")));
@@ -92,7 +89,7 @@ Pour collecter les compteurs de performances système et les envoyer à Applicat
 
 Ou vous pouvez effectuer la même opération avec les mesures personnalisées que vous avez créées :
 
-``` C#
+```csharp
     var perfCollectorModule = new PerformanceCollectorModule();
     perfCollectorModule.Counters.Add(new PerformanceCounterCollectionRequest(
       @"\Sales(photo)\# Items Sold", "Photo sales"));

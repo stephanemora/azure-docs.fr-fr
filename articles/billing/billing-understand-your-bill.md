@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/01/2019
+ms.date: 07/22/2019
 ms.author: banders
-ms.openlocfilehash: c8b0d6febbffb80cb4e8bcbf62febb51d059282c
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.openlocfilehash: 69659e700ee47c8961ec21f0fb23573e13d72588
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67490309"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68383634"
 ---
 # <a name="understand-your-microsoft-azure-bill"></a>Comprendre votre facture Microsoft Azure
 Pour comprendre votre facture Azure, comparez-la avec le fichier détaillé sur l’utilisation quotidienne et les rapports de gestion des coûts dans le Portail Azure.
@@ -115,9 +115,9 @@ Une fois la machine virtuelle créée, chaque compteur commence à émettre des 
 
 ## <a name="payment"></a>Régler votre facture
 
-Si vous avez configuré une carte de crédit ou une carte bancaire comme moyen de paiement, le paiement est débité automatiquement dans les 10 jours qui suivent la fin de la période de facturation. Sur votre relevé de carte de crédit, le poste doit indiquer **MSFT Azure**.
+Si vous avez configuré une carte de crédit comme moyen de paiement, le paiement est débité automatiquement dans les 10 jours qui suivent la fin de la période de facturation. Sur votre relevé de carte de crédit, le poste doit indiquer **MSFT Azure**.
 
-Pour changer la carte de crédit ou de débit utilisée, consultez [Ajouter, mettre à jour ou supprimer une carte de crédit ou débit pour Azure](billing-how-to-change-credit-card.md).
+Pour changer la carte de crédit utilisée, consultez [Ajouter, mettre à jour ou supprimer une carte de crédit pour Azure](billing-how-to-change-credit-card.md).
 
 Si vous [payez par facture](billing-how-to-pay-by-invoice.md), envoyez votre paiement à l’adresse indiquée au bas de la facture.
 

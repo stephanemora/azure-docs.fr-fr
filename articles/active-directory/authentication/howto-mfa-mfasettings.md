@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 618377d532dc932eb21f282ac8ba7f6c07df16f2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f6260a619ad3dfda65fcdfc1180cba4002dd23d0
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67113438"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68499898"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Configurer les paramètres d’Azure Multi-Factor Authentication
 
@@ -143,6 +143,31 @@ Par exemple, s’il n’existe qu’un seul message personnalisé et que la lang
 1. Choisissez la langue.
 1. Sélectionnez un fichier audio .mp3 ou .wav à charger.
 1. Sélectionnez **Ajouter**.
+
+### <a name="custom-voice-message-defaults"></a>Valeurs par défaut des messages vocaux personnalisés
+
+Exemples de scripts pour la création de messages personnalisés.
+
+| Nom du message | Script |
+| --- | --- |
+| Authentification réussie | Votre connexion a bien été vérifiée. Au revoir. |
+| Invite à entrer une extension | Merci d'avoir choisi d'utiliser le système de vérification de connexion de Microsoft. Appuyez sur la touche dièse pour continuer. |
+| Confirmation de fraude | Une alerte de fraude a été envoyée. Pour débloquer votre compte, veuillez contacter le support informatique de votre société. |
+| Message d'accueil en cas de fraude (standard) | Merci d'avoir choisi d'utiliser le système de vérification de connexion de Microsoft. Appuyez sur la touche dièse pour terminer la vérification. Si vous n’êtes pas à l’origine de cette vérification, quelqu’un tente peut-être d’accéder à votre compte. Veuillez appuyer sur zéro puis sur dièse pour envoyer une alerte de fraude. Cela avertira l’équipe informatique de votre entreprise et bloquera les autres tentatives de vérification. |
+| Fraude signalée – Une alerte de fraude a été envoyée. | Pour débloquer votre compte, veuillez contacter le support informatique de votre société. |
+| Activation | Merci d'avoir choisi d'utiliser le système de vérification de connexion de Microsoft. Appuyez sur la touche dièse pour terminer la vérification. |
+| Nouvelle tentative d'authentification refusée | Vérification refusée. |
+| Réessayer (standard) | Merci d'avoir choisi d'utiliser le système de vérification de connexion de Microsoft. Appuyez sur la touche dièse pour terminer la vérification. |
+| Message d'accueil (standard) | Merci d'avoir choisi d'utiliser le système de vérification de connexion de Microsoft. Appuyez sur la touche dièse pour terminer la vérification. |
+| Message d'accueil (PIN) | Merci d'avoir choisi d'utiliser le système de vérification de connexion de Microsoft. Veuillez entrer votre code PIN suivi de la clé dièse pour terminer votre vérification. |
+| Message d'accueil en cas de fraude (PIN) | Merci d'avoir choisi d'utiliser le système de vérification de connexion de Microsoft.  Veuillez entrer votre code PIN suivi de la clé dièse pour terminer votre vérification. Si vous n’êtes pas à l’origine de cette vérification, quelqu’un tente peut-être d’accéder à votre compte. Veuillez appuyer sur zéro puis sur dièse pour envoyer une alerte de fraude. Cela avertira l’équipe informatique de votre entreprise et bloquera les autres tentatives de vérification. |
+| Nouvelle tentative (PIN) | Merci d'avoir choisi d'utiliser le système de vérification de connexion de Microsoft. Veuillez entrer votre code PIN suivi de la clé dièse pour terminer votre vérification. |
+| Invite à entrer une extension après les chiffres | Si vous utilisez déjà cette extension, appuyez sur la touche dièse pour continuer. |
+| Authentification refusée | Désolé, nous ne pouvons pas vous connecter pour le moment. Veuillez réessayer plus tard. |
+| Message d'accueil lors de l'activation (standard) | Merci d'avoir choisi d'utiliser le système de vérification de connexion de Microsoft. Appuyez sur la touche dièse pour terminer la vérification. |
+| Nouvelle tentative d'activation (standard) | Merci d'avoir choisi d'utiliser le système de vérification de connexion de Microsoft. Appuyez sur la touche dièse pour terminer la vérification. |
+| Message d'accueil lors de l'activation (PIN) | Merci d'avoir choisi d'utiliser le système de vérification de connexion de Microsoft. Veuillez entrer votre code PIN suivi de la clé dièse pour terminer votre vérification. |
+| Invite à entrer une extension avant les chiffres | Merci d'avoir choisi d'utiliser le système de vérification de connexion de Microsoft. Veuillez transférer cet appel vers l’extension... |
 
 ## <a name="one-time-bypass"></a>Contournement à usage unique
 

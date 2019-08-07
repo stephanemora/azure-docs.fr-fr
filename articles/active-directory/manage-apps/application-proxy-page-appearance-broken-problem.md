@@ -1,5 +1,5 @@
 ---
-title: La page d’application ne s’affiche pas correctement pour une application de proxy d’application | Microsoft Docs
+title: La page d’application ne fonctionne pas correctement pour l’application de proxy d’application | Microsoft Docs
 description: Conseils quand la page ne s’affiche pas correctement dans une application de proxy d’application que vous avez intégrée à Azure AD
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.date: 05/21/2018
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 99c2c53f3bf723c1d45edf2e62cd404615924c9b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 13e73f0ed56648ce162f00d6df5e7b86a922ca01
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65783731"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68381414"
 ---
 # <a name="application-page-does-not-display-correctly-for-an-application-proxy-application"></a>La page d’application ne s’affiche pas correctement pour une application de proxy d’application
 

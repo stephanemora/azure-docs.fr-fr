@@ -10,31 +10,30 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/02/2019
+ms.date: 07/19/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 537ee35e96a41cd02605319e244d39c6567c3bf1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e6511ff84c251577a5ff483f892387ab7d3d4d41
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60344584"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68360460"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-azure-resource-manager-templates"></a>Gérer l’accès aux ressources Azure avec RBAC et les modèles Azure Resource Manager
 
 Le [contrôle d’accès en fonction du rôle (RBAC)](overview.md) vous permet de gérer l’accès aux ressources Azure. En plus d’utiliser Azure PowerShell ou Azure CLI, vous pouvez gérer l’accès aux ressources Azure à l’aide de RBAC et des [modèles Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md). Les modèles peuvent être utiles si vous devez déployer les ressources de manière cohérente et répétée. Cet article décrit comment vous pouvez gérer l’accès à l’aide de RBAC et des modèles.
 
-## <a name="example-template-to-create-a-role-assignment"></a>Exemple de modèle pour créer une attribution de rôle
+## <a name="assign-role-to-resource-group-or-subscription"></a>Attribuer un rôle à un groupe de ressources ou à un abonnement
 
 Dans le contrôle d’accès en fonction du rôle, vous créez une attribution de rôle pour accorder l’accès. Le modèle suivant montre comment :
-- Attribuer un rôle à un utilisateur, un groupe ou une application dans l’étendue d’un groupe de ressources
+- Comment attribuer un rôle à un utilisateur, un groupe ou une application dans un groupe de ressources ou la portée d’un abonnement
 - Spécifier les rôles Propriétaire, Collaborateur et Lecteur comme paramètre
 
 Pour utiliser le modèle, vous devez spécifier les entrées suivantes :
-- Nom d’un groupe de ressources
 - Identificateur unique d’un utilisateur, d’un groupe ou d’une application auquel ou à laquelle attribuer le rôle
 - Rôle à attribuer
-- Identificateur unique à utiliser pour l’attribution de rôle
+- Un identificateur unique qui sera utilisé pour l’attribution de rôle, ou vous pouvez utiliser l’identificateur par défaut
 
 ```json
 {
@@ -60,6 +59,7 @@ Pour utiliser le modèle, vous devez spécifier les entrées suivantes :
     },
     "roleNameGuid": {
       "type": "string",
+      "defaultValue": "[newGuid()]",
       "metadata": {
         "description": "A new GUID used to identify the role assignment"
       }
@@ -68,33 +68,118 @@ Pour utiliser le modèle, vous devez spécifier les entrées suivantes :
   "variables": {
     "Owner": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Authorization/roleDefinitions/', '8e3af657-a8ff-443c-a75c-2fe8c4bcb635')]",
     "Contributor": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Authorization/roleDefinitions/', 'b24988ac-6180-42a0-ab88-20f7382dd24c')]",
-    "Reader": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Authorization/roleDefinitions/', 'acdd72a7-3385-48ef-bd42-f606fba81ae7')]",
-    "scope": "[resourceGroup().id]"
+    "Reader": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Authorization/roleDefinitions/', 'acdd72a7-3385-48ef-bd42-f606fba81ae7')]"
   },
   "resources": [
     {
       "type": "Microsoft.Authorization/roleAssignments",
-      "apiVersion": "2017-05-01",
+      "apiVersion": "2018-09-01-preview",
       "name": "[parameters('roleNameGuid')]",
       "properties": {
         "roleDefinitionId": "[variables(parameters('builtInRoleType'))]",
-        "principalId": "[parameters('principalId')]",
-        "scope": "[variables('scope')]"
+        "principalId": "[parameters('principalId')]"
       }
     }
   ]
 }
 ```
 
-Voici un exemple d’attribution d’un rôle Lecteur à un utilisateur après avoir déployé le modèle.
+L’exemple suivant illustre une attribution de rôle lecteur à un utilisateur pour un groupe de ressources après le déploiement du modèle.
 
 ![Attribution de rôle à l’aide d’un modèle](./media/role-assignments-template/role-assignment-template.png)
+
+L’étendue de l’attribution de rôle est déterminée à partir du niveau du déploiement. Les commandes de déploiement au niveau du groupe de ressources et de l’abonnement sont présentées dans cet article.
+
+## <a name="assign-role-to-resource"></a>Attribuer un rôle à la ressource
+
+Si vous avez besoin de créer une attribution de rôle au niveau d’une ressource, le format de l’attribution de rôle est différent. Vous fournissez l’espace de noms du fournisseur de ressources et le type de ressource de la ressource à laquelle attribuer le rôle. Vous devez également inclure le nom de la ressource dans le nom de l’attribution de rôle.
+
+Pour le type et le nom de l’attribution de rôle, utilisez le format suivant :
+
+```json
+"type": "{resource-provider-namespace}/{resource-type}/providers/roleAssignments",
+"name": "{resource-name}/Microsoft.Authorization/{role-assign-GUID}"
+```
+
+Le modèle suivant déploie un compte de stockage et lui attribue un rôle. Vous le déployez avec les commandes de groupe de ressources.
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "principalId": {
+      "type": "string",
+      "metadata": {
+        "description": "The principal to assign the role to"
+      }
+    },
+    "builtInRoleType": {
+      "type": "string",
+      "allowedValues": [
+        "Owner",
+        "Contributor",
+        "Reader"
+      ],
+      "metadata": {
+        "description": "Built-in role to assign"
+      }
+    },
+    "roleNameGuid": {
+      "type": "string",
+      "defaultValue": "[newGuid()]",
+      "metadata": {
+        "description": "A new GUID used to identify the role assignment"
+      }
+    },
+    "location": {
+        "type": "string",
+        "defaultValue": "[resourceGroup().location]"
+    }
+  },
+  "variables": {
+    "Owner": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Authorization/roleDefinitions/', '8e3af657-a8ff-443c-a75c-2fe8c4bcb635')]",
+    "Contributor": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Authorization/roleDefinitions/', 'b24988ac-6180-42a0-ab88-20f7382dd24c')]",
+    "Reader": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Authorization/roleDefinitions/', 'acdd72a7-3385-48ef-bd42-f606fba81ae7')]",
+    "storageName": "[concat('storage', uniqueString(resourceGroup().id))]"
+  },
+  "resources": [
+    {
+      "apiVersion": "2019-04-01",
+      "type": "Microsoft.Storage/storageAccounts",
+      "name": "[variables('storageName')]",
+      "location": "[parameters('location')]",
+      "sku": {
+          "name": "Standard_LRS"
+      },
+      "kind": "Storage",
+      "properties": {}
+    },
+    {
+      "type": "Microsoft.Storage/storageAccounts/providers/roleAssignments",
+      "apiVersion": "2018-09-01-preview",
+      "name": "[concat(variables('storageName'), '/Microsoft.Authorization/', parameters('roleNameGuid'))]",
+      "dependsOn": [
+          "[variables('storageName')]"
+      ],
+      "properties": {
+        "roleDefinitionId": "[variables(parameters('builtInRoleType'))]",
+        "principalId": "[parameters('principalId')]"
+      }
+    }
+  ]
+}
+```
+
+L’exemple suivant illustre une attribution de rôle contributeur à un utilisateur pour un compte de stockage après le déploiement du modèle.
+
+![Attribution de rôle à l’aide d’un modèle](./media/role-assignments-template/role-assignment-template-resource.png)
 
 ## <a name="deploy-template-using-azure-powershell"></a>Déployer le modèle à l’aide d’Azure PowerShell
 
 [!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
 
-Pour déployer le modèle précédent à l’aide d’Azure PowerShell, effectuez les étapes suivantes.
+Pour déployer le modèle précédent dans un groupe de ressources ou un abonnement à l’aide de Azure PowerShell, procédez comme suit.
 
 1. Créez un fichier nommé rbac-rg.json et copiez le modèle précédent.
 
@@ -103,10 +188,12 @@ Pour déployer le modèle précédent à l’aide d’Azure PowerShell, effectue
 1. Obtenez l’identificateur unique d’un utilisateur, d’un groupe ou d’une application. Par exemple, vous pouvez utiliser la commande [Get-AzADUser](/powershell/module/az.resources/get-azaduser) pour dresser la liste des utilisateurs Azure AD.
 
     ```azurepowershell
-    Get-AzADUser
+    $userid = (Get-AzADUser -DisplayName "{name}").id
     ```
 
-1. Utilisez un outil GUID pour générer un identificateur unique qui servira pour l’attribution de rôle. Cet identificateur est au format : `11111111-1111-1111-1111-111111111111`.
+1. Le modèle génère une valeur par défaut pour le GUID utilisé pour identifier l’attribution de rôle. Si vous devez spécifier un GUID spécifique, transmettez cette valeur dans pour le paramètre roleNameGuid. Cet identificateur est au format : `11111111-1111-1111-1111-111111111111`.
+
+Pour attribuer le rôle au niveau d’une ressource ou d’un groupe de ressources, procédez comme suit :
 
 1. Créez un exemple de groupe de ressources.
 
@@ -117,20 +204,13 @@ Pour déployer le modèle précédent à l’aide d’Azure PowerShell, effectue
 1. Utilisez la commande [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) pour démarrer le déploiement.
 
     ```azurepowershell
-    New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateFile rbac-rg.json
+    New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateFile rbac-rg.json -principalId $userid -builtInRoleType Reader
     ```
 
-    Vous êtes invité à spécifier les paramètres requis. Voici un exemple de sortie.
+    Voici un exemple de sortie.
 
     ```Output
-    PS /home/user> New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateFile rbac-rg.json
-    
-    cmdlet New-AzResourceGroupDeployment at command pipeline position 1
-    Supply values for the following parameters:
-    (Type !? for Help.)
-    principalId: 22222222-2222-2222-2222-222222222222
-    builtInRoleType: Reader
-    roleNameGuid: 11111111-1111-1111-1111-111111111111
+    PS /home/user> New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateFile rbac-rg.json -principalId $userid -builtInRoleType Reader
     
     DeploymentName          : rbac-rg
     ResourceGroupName       : ExampleGroup
@@ -149,21 +229,31 @@ Pour déployer le modèle précédent à l’aide d’Azure PowerShell, effectue
     DeploymentDebugLogLevel :
     ```
 
+Pour attribuer le rôle au niveau d’un abonnement, utilisez la commande [New-AzDeployment](/powershell/module/az.resources/new-azdeployment) et spécifiez un emplacement pour le déploiement.
+
+```azurepowershell
+New-AzDeployment -Location centralus -TemplateFile rbac-rg.json -principalId $userid -builtInRoleType Reader
+```
+
+Il présente une sortie similaire à la commande de déploiement pour les groupes de ressources.
+
 ## <a name="deploy-template-using-the-azure-cli"></a>Déployer le modèle à l’aide d’Azure CLI
 
-Pour déployer le modèle précédent à l’aide d’Azure CLI, effectuez les étapes suivantes.
+Pour déployer le modèle précédent à l’aide de Azure CLI vers un groupe de ressources ou un abonnement, procédez comme suit.
 
 1. Créez un fichier nommé rbac-rg.json et copiez le modèle précédent.
 
 1. Connectez-vous à [Azure CLI](/cli/azure/authenticate-azure-cli).
 
-1. Obtenez l’identificateur unique d’un utilisateur, d’un groupe ou d’une application. Par exemple, vous pouvez utiliser la commande [az ad user list](/cli/azure/ad/user#az-ad-user-list) pour répertorier les utilisateurs Azure AD.
+1. Obtenez l’identificateur unique d’un utilisateur, d’un groupe ou d’une application. Par exemple, vous pouvez utiliser la commande [az ad user show](/cli/azure/ad/user#az-ad-user-show) pour afficher les utilisateurs Azure AD.
 
     ```azurecli
-    az ad user list
+    userid=$(az ad user show --upn-or-object-id "{email}" --query objectId --output tsv)
     ```
 
-1. Utilisez un outil GUID pour générer un identificateur unique qui servira pour l’attribution de rôle. Cet identificateur est au format : `11111111-1111-1111-1111-111111111111`.
+1. Le modèle génère une valeur par défaut pour le GUID utilisé pour identifier l’attribution de rôle. Si vous devez spécifier un GUID spécifique, transmettez cette valeur dans pour le paramètre roleNameGuid. Cet identificateur est au format : `11111111-1111-1111-1111-111111111111`.
+
+Pour attribuer le rôle au niveau d’une ressource ou d’un groupe de ressources, procédez comme suit :
 
 1. Créez un exemple de groupe de ressources.
 
@@ -174,20 +264,14 @@ Pour déployer le modèle précédent à l’aide d’Azure CLI, effectuez les �
 1. Utilisez la commande [az group deployment create](/cli/azure/group/deployment#az-group-deployment-create) pour démarrer le déploiement.
 
     ```azurecli
-    az group deployment create --resource-group ExampleGroup --template-file rbac-rg.json
+    az group deployment create --resource-group ExampleGroup --template-file rbac-rg.json --parameters principalId=$userid builtInRoleType=Reader
     ```
 
-    Vous êtes invité à spécifier les paramètres requis. Voici un exemple de sortie.
+    Voici un exemple de sortie.
 
     ```Output
-    C:\Azure\Templates>az group deployment create --resource-group ExampleGroup --template-file rbac-rg.json
-    Please provide string value for 'principalId' (? for help): 22222222-2222-2222-2222-222222222222
-    Please provide string value for 'builtInRoleType' (? for help):
-     [1] Owner
-     [2] Contributor
-     [3] Reader
-    Please enter a choice [1]: 3
-    Please provide string value for 'roleNameGuid' (? for help): 11111111-1111-1111-1111-111111111111
+    C:\Azure\Templates>az group deployment create --resource-group ExampleGroup --template-file rbac-rg.json --parameters principalId=$userid builtInRoleType=Reader
+    
     {
       "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/ExampleGroup/providers/Microsoft.Resources/deployments/rbac-rg",
       "name": "rbac-rg",
@@ -248,7 +332,15 @@ Pour déployer le modèle précédent à l’aide d’Azure CLI, effectuez les �
       "resourceGroup": "ExampleGroup"
     }
     ```
-    
+
+Pour attribuer le rôle au niveau d’un abonnement, utilisez la commande [az deployment create](/cli/azure/deployment#az-deployment-create) et spécifiez un emplacement pour le déploiement.
+
+```azurecli
+az deployment create --location centralus --template-file rbac-rg.json --parameters principalId=$userid builtInRoleType=Reader
+```
+
+Il présente une sortie similaire à la commande de déploiement pour les groupes de ressources.
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Démarrage rapide : Créer et déployer des modèles Azure Resource Manager à l’aide du portail Azure](../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md)

@@ -5,15 +5,15 @@ services: billing
 author: rothja
 ms.service: billing
 ms.topic: include
-ms.date: 04/22/2019
+ms.date: 07/22/2019
 ms.author: jroth
 ms.custom: include file
-ms.openlocfilehash: 712b70960e09a9c2b0e7a998bc0bddbc28c1e112
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 4d13779317793b5edd971dd457a77e0bc5cae1c8
+ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67177422"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68426882"
 ---
 | Ressource | Limite par défaut | Limite maximale |
 | --- | --- | --- |
@@ -31,7 +31,7 @@ ms.locfileid: "67177422"
 | [Groupes d'affinités](../articles/virtual-network/virtual-networks-migrate-to-regional-vnet.md) par abonnement |N/A<sup>3</sup> |N/A<sup>3</sup> |
 | [Déploiements de niveau d’abonnement](../articles/azure-resource-manager/deploy-to-subscription.md) par emplacement | 800<sup>4</sup> | 800 |
 
-<sup>1</sup>Les limites par défaut varient selon le type de catégorie d’offre, comme Essai gratuit et Paiement à l’utilisation, et par gamme (Dv2, F et G).
+<sup>1</sup>Les limites par défaut varient selon le type de catégorie d’offre, comme la version d’évaluation gratuite et le paiement à l’utilisation, et selon la série, par exemple dv2, F et G. Par exemple, la valeur par défaut pour les abonnements Accord Entreprise est 350.
 
 <sup>2</sup>Vous pouvez appliquer un nombre illimité de balises par abonnement. Le nombre de balises par ressource ou groupe de ressources est limité à 15. Le Gestionnaire des ressources retourne une [liste comportant le nom et les valeurs de balise unique](/rest/api/resources/tags) dans l’abonnement uniquement lorsque le nombre de balises est inférieur ou égal à 10 000. Vous pouvez toujours trouver une ressource par balise lorsque le nombre de balises est supérieur à 10 000.  
 

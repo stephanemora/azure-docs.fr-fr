@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9e2e43f13352c56f947f5e560049ab0acf871599
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: 3e8b7cc1f3a8431986ffbaac604ec5863236f112
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67509474"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68357109"
 ---
 # <a name="require-app-protection-policy-for-cloud-app-access-with-conditional-access-preview"></a>Exiger une stratégie de protection des applications pour l’accès aux applications cloud à l’aide de l’accès conditionnel (préversion)
 
@@ -39,6 +39,9 @@ En terminologie d’accès conditionnel, on dit que ces applications clientes so
 Pour obtenir la liste des applications clientes protégées par une stratégie, consultez [Exigence relative à la stratégie de protection des applications](technical-reference.md#approved-client-app-requirement).
 
 Vous pouvez combiner des stratégies d’accès conditionnel basées sur la protection des applications avec d’autres stratégies, telles que les [stratégies d’accès conditionnel basées sur les appareils](require-managed-devices.md). De cette façon, vous pouvez adapter la protection des données selon qu’elles se trouvent sur des appareils personnels ou des appareils d’entreprise.
+
+> [!NOTE]
+> Les stratégies de protection des applications à accès conditionnel ne peuvent pas être appliquées aux utilisateurs B2B, car l’organisation qui lance l’invitation n’a aucune visibilité sur l’organisation de l’utilisateur B2B.
 
 ## <a name="benefits-of-app-protection-based-conditional-access-requirement"></a>Avantages de l’accès conditionnel basé sur la protection des applications
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: mbullwin
-ms.openlocfilehash: dd4690e27be38c3fef3053562ebee773698a70d7
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: 2ec3b620138c4ae0487c29e38062c044a5210572
+ms.sourcegitcommit: da0a8676b3c5283fddcd94cdd9044c3b99815046
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67154770"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68314806"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>API Application Insights pour les événements et les mesures personnalisés
 
@@ -50,6 +50,7 @@ Si vous n’avez pas encore de référence sur le kit SDK Application Insights :
 * Ajoutez le Kit de développement logiciel (SDK) Application Insights à votre projet :
 
   * [Projet ASP.NET](../../azure-monitor/app/asp-net.md)
+  * [ASP.NET Core project](../../azure-monitor/app/asp-net-core.md)
   * [Projet Java](../../azure-monitor/app/java-get-started.md)
   * [Projet Node.js](../../azure-monitor/app/nodejs.md)
   * [JavaScript dans chaque page web](../../azure-monitor/app/javascript.md) 
@@ -950,7 +951,7 @@ long startTime = System.currentTimeMillis();
 
 long endTime = System.currentTimeMillis();
 Map<String, Double> metrics = new HashMap<>();
-metrics.put("ProcessingTime", endTime-startTime);
+metrics.put("ProcessingTime", (double)endTime-startTime);
 
 // Setup some properties
 Map<String, String> properties = new HashMap<>();

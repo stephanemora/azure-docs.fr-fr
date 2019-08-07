@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/08/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 6cbda7d9be1617617e173c68c3d2a4a95c255ae0
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: d3d4679703f6d98cb2062144cfde7d11fe44130c
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67673323"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68386864"
 ---
 ## <a name="application-performance-indicators"></a>Indicateurs de performances d’une application
 
@@ -239,7 +239,7 @@ N’oubliez pas les disques Premium Storage délivrent des performances supérie
 Les machines virtuelles à grande échelle qui exploitent Azure Premium Storage ont une technologie de mise en cache à plusieurs niveaux appelée BlobCache. BlobCache utilise à la fois la RAM de la machine virtuelle et le SSD local pour la mise en cache. Ce cache est disponible pour les disques persistants Premium Storage et pour les disques locaux de la machine virtuelle. Par défaut, ce paramètre de cache est défini en lecture/écriture pour les disques du système d’exploitation et en lecture seule pour les disques de données hébergés sur Premium Storage. Lorsque la mise en cache du disque est activée sur les disques Premium Storage, les machines virtuelles à grande échelle peuvent atteindre des niveaux de performances extrêmement élevés qui dépassent les performances du disque sous-jacent.
 
 > [!WARNING]
-> La mise en cache du disque n’est pas prise en charge pour les disques d’une taille supérieure à 4 Tio. Si plusieurs disques sont attachés à votre machine virtuelle, chaque disque d’une taille de 4 Tio ou moins prendra en charge la mise en cache.
+> La mise en cache du disque n’est pas prise en charge pour les disques 4 Tio et supérieurs. Si plusieurs disques sont attachés à votre machine virtuelle, chaque disque d’une taille inférieure à 4 Tio prend en charge la mise en cache.
 >
 > La modification du paramètre de cache d’un disque Azure détache et rattache le disque cible. S’il s’agit du disque du système d’exploitation, la machine virtuelle redémarre. Arrêtez toutes les applications et services qui risquent d’être affectés par cette indisponibilité avant de modifier le paramètre de cache du disque.
 

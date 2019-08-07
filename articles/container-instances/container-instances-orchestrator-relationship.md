@@ -3,17 +3,18 @@ title: Azure Container Instances et l’orchestration de conteneur
 description: Découvrez comment se passe l’interaction entre Azure Container Instances et les orchestrateurs de conteneurs.
 services: container-instances
 author: dlepow
+manager: gwallace
 ms.service: container-instances
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: df9c3ecbec6dccd9ba8db2b375cfab3276005098
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c83648124f616670423b2ef459530c191d7e17e4
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65072981"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325763"
 ---
 # <a name="azure-container-instances-and-container-orchestrators"></a>Azure Container Instances et les orchestrateurs de conteneurs
 
@@ -60,7 +61,7 @@ Pour rapidement mettre à l’échelle des charges de travail dans un cluster [A
 
 Les nœuds virtuels prennent actuellement en charge les instances de conteneur Linux. Découvrez les nœuds virtuels avec [Azure CLI](https://go.microsoft.com/fwlink/?linkid=2047538) ou le [Portail Azure](https://go.microsoft.com/fwlink/?linkid=2047545).
 
-Les nœuds virtuels utilisent [Virtual Kubelet][aci-connector-k8s] open source pour imiter le [kubelet][kubelet-doc] dans Kubernetes en s’inscrivant en tant que nœud avec une capacité illimitée. Le kubelet virtuel distribue la création de [pods][pod-doc] en tant que groupes de conteneurs dans Azure Container Instances.
+Les nœuds virtuels utilisent [Virtual Kubelet][aci-connector-k8s] to mimic the Kubernetes [kubelet][kubelet-doc] open source en s’inscrivant en tant que nœud avec une capacité illimitée. Le Virtual Kubelet distribue la création de [pods][pod-doc] en tant que groupes de conteneurs dans Azure Container Instances.
 
 Consultez le projet [Virtual Kubelet](https://github.com/virtual-kubelet/virtual-kubelet) pour obtenir des exemples supplémentaires de l’extension de l’API Kubernetes aux plateformes de conteneurs serverless.
 

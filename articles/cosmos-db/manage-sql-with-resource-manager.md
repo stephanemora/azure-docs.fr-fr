@@ -4,14 +4,14 @@ description: Utiliser des modèles Azure Resource Manager pour créer et configu
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/24/2019
+ms.date: 07/25/2019
 ms.author: mjbrown
-ms.openlocfilehash: 5683fd072961c7793d8f4bbeb9ecc16a93dd7373
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4cd66c9da0650c9eb9de5b51ce82b48fe781c6f4
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66242585"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68500502"
 ---
 # <a name="manage-azure-cosmos-db-sql-core-api-resources-using-azure-resource-manager-templates"></a>Gérer les ressources de l’API SQL (Core) Azure Cosmos DB à l’aide de modèles Azure Resource Manager
 
@@ -20,7 +20,9 @@ ms.locfileid: "66242585"
 Créez des ressources Azure Cosmos DB à l’aide d’un modèle Azure Resource Manager. Ce modèle crée un compte Azure Cosmos avec deux conteneurs qui partagent un débit de 400 RU/s au niveau de la base de données. Copiez le modèle et déployez-le comme indiqué ci-dessous ou consultez la [galerie Démarrage rapide Azure](https://azure.microsoft.com/resources/templates/101-cosmosdb-sql/) et procédez au déploiement à partir du Portail Azure. Vous pouvez également télécharger le modèle vers votre ordinateur local ou créer un modèle et spécifier le chemin d’accès local avec le paramètre `--template-file`.
 
 > [!NOTE]
-> Actuellement, vous ne pouvez pas déployer les fonctions définies par l’utilisateur (UDF), les procédures stockées et les déclencheurs à l’aide de modèles Resource Manager. 
+>
+> - Actuellement, vous ne pouvez pas déployer les fonctions définies par l’utilisateur (UDF), les procédures stockées et les déclencheurs à l’aide de modèles Resource Manager.
+> - Vous ne pouvez pas ajouter ou supprimer simultanément des emplacements dans un compte Azure Cosmos et modifier d’autres propriétés. Celles-ci doivent être effectuées en tant qu’opérations distinctes.
 
 [!code-json[create-cosmosdb-sql](~/quickstart-templates/101-cosmosdb-sql/azuredeploy.json)]
 

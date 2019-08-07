@@ -3,7 +3,7 @@ title: Application mobile qui appelle des API web - acquisition d’un jeton pou
 description: Découvrez comment générer une application mobile qui appelle des API web (acquisition d’un jeton pour l’application)
 services: active-directory
 documentationcenter: dev-center-name
-author: danieldobalian
+author: jmprieur
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
@@ -16,12 +16,12 @@ ms.author: jmprieur
 ms.reviwer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 590184c25fa0aa3cb3219aa9c185a31e62090ba9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d49717355cab5441d26608fa12333bd1b8b73d44
+ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67111146"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68413539"
 ---
 # <a name="mobile-app-that-calls-web-apis---get-a-token"></a>Application mobile qui appelle des API web - acquisition d’un jeton
 
@@ -144,8 +144,10 @@ applicationContext.acquireTokenSilent(with: parameters) { (result, error) in
 
 #### <a name="xamarin"></a>Xamarin
 
+L’exemple suivant montre le code minimal permettant d’obtenir un jeton de manière interactive pour lire le profil de l’utilisateur avec Microsoft Graph.
+
 ```CSharp
-string[] scopes = new string["https://graph.microsoft.com/.default"];
+string[] scopes = new string[] {"user.read"};
 var app = PublicClientApplicationBuilder.Create(clientId).Build();
 var accounts = await app.GetAccountsAsync();
 AuthenticationResult result;
@@ -154,12 +156,48 @@ try
  result = await app.AcquireTokenSilent(scopes, accounts.FirstOrDefault())
              .ExecuteAsync();
 }
-catch(MsalUiRequiredException e)
+catch(MsalUiRequiredException)
 {
  result = await app.AcquireTokenInteractive(scopes)
              .ExecuteAsync();
 }
 ```
+
+### <a name="mandatory-parameters"></a>Paramètres obligatoires
+
+`AcquireTokenInteractive` n’a qu’un seul paramètre obligatoire, ``scopes``, qui contient une énumération de chaînes définissant les étendues pour lesquelles un jeton est nécessaire. Si le jeton est destiné à Microsoft Graph, vous trouvez les étendues nécessaires dans les informations de référence d’api de chaque API Microsoft graph, à la section intitulée « Autorisations ». Par exemple, pour [lister les contacts de l’utilisateur](https://developer.microsoft.com/graph/docs/api-reference/v1.0/api/user_list_contacts), vous aurez besoin des étendues « User.Read », « Contacts.Read ». Voir aussi [Informations de référence sur les autorisations Microsoft Graph](https://developer.microsoft.com/graph/docs/concepts/permissions_reference).
+
+Si vous ne l’avez pas spécifié lors de la création de l’application, sur Android, vous devez également spécifier l’activité parente (au moyen de `.WithParentActivityOrWindow`, voir ci-dessous), afin que le jeton retourne à cette activité parente après l’interaction. Si vous ne le précisez pas, une exception est levée lors de l’appel de `.ExecuteAsync()`.
+
+### <a name="specific-optional-parameters"></a>Paramètres facultatifs particuliers
+
+#### <a name="withprompt"></a>WithPrompt
+
+`WithPrompt()` permet de contrôler l’interactivité avec l’utilisateur en spécifiant une invite
+
+<img src="https://user-images.githubusercontent.com/13203188/53438042-3fb85700-39ff-11e9-9a9e-1ff9874197b3.png" width="25%" />
+
+La classe définit les constantes suivantes :
+
+- ``SelectAccount`` : force le service d’émission de jeton de sécurité (STS) à présenter la boîte de dialogue de sélection de compte contenant les comptes pour lesquels l’utilisateur dispose d’une session. Cette option est utile lorsque les développeurs d’applications veulent laisser l’utilisateur choisir parmi différentes identités. Cette option oblige MSAL à envoyer ``prompt=select_account`` au fournisseur d’identité. C’est l’option par défaut, et elle remplit bien sa tâche en fournissant la meilleure expérience possible en fonction des informations disponibles (compte, présence d’une session pour l’utilisateur et ainsi de suite ...). Ne la remplacez pas, à moins d’avoir une excellente raison de le faire.
+- ``Consent`` : permet au développeur d’application de forcer l’affichage d’une invite demandant à l’utilisateur son consentement, et même si celui-ci a été accordé auparavant. Dans ce cas, MSAL envoie `prompt=consent` au fournisseur d’identité. Cette option peut être utilisée dans certaines applications axées sur la sécurité, dans lesquelles la gouvernance de l’organisation exige que l’utilisateur voie s’afficher la boîte de dialogue de consentement chaque fois que l’application est utilisée.
+- ``ForceLogin`` : permet au développeur d’application de faire afficher par le service une invite demandant à l’utilisateur d’entrer des informations d’identification, et même si cette invite utilisateur n’est pas nécessaire. Cette option peut s’avérer utile si l’acquisition d’un jeton échoue, afin de permettre à l’utilisateur de se reconnecter. Dans ce cas, MSAL envoie `prompt=login` au fournisseur d’identité. D’ailleurs, nous l’avons déjà vu utilisée dans certaines applications axées sur la sécurité, pour lesquelles la gouvernance de l’organisation exige que l’utilisateur se reconnecte chaque fois qu’il accède à des parties spécifiques d’une application.
+- ``Never`` (pour .NET 4.5 et WinRT uniquement) n’affiche aucune invite utilisateur, mais tente à la place d’utiliser le cookie stocké dans l’affichage web incorporé masqué (voir ci-dessous : affichages web dans MSAL.NET). L’utilisation de cette option risque d’échouer ; dans ce cas `AcquireTokenInteractive` lève une exception pour prévenir qu’une interaction avec l’interface utilisateur est nécessaire, et que vous allez devoir utiliser un autre paramètre `Prompt`.
+- ``NoPrompt``: n’envoie pas d’invite au fournisseur d’identité. Cette option n’est utile que pour les stratégies de modification de profil Azure AD B2C (consultez [Spécificités d’Azure AD B2C](https://aka.ms/msal-net-b2c-specificities)).
+
+#### <a name="withextrascopetoconsent"></a>WithExtraScopeToConsent
+
+Ce modificateur est utilisé dans un scénario élaboré, suivant lequel vous souhaitez obtenir le consentement préalable de l’utilisateur pour plusieurs ressources en amont (et ne souhaitez pas utiliser le consentement incrémentiel, qui est normalement utilisé avec MSAL.NET / la plateforme d’identités Microsoft v2.0). Consultez les détails dans le [Guide pratique pour obtenir le consentement préalable de l’utilisateur sur plusieurs ressources](scenario-desktop-production.md#how-to-have--the-user-consent-upfront-for-several-resources).
+
+```CSharp
+var result = await app.AcquireTokenInteractive(scopesForCustomerApi)
+                     .WithExtraScopeToConsent(scopesForVendorApi)
+                     .ExecuteAsync();
+```
+
+#### <a name="other-optional-parameters"></a>Autres paramètres facultatifs
+
+Apprenez-en davantage sur tous les autres paramètres facultatifs de `AcquireTokenInteractive` en consultant la documentation de référence relative à [AcquireTokenInteractiveParameterBuilder](/dotnet/api/microsoft.identity.client.acquiretokeninteractiveparameterbuilder?view=azure-dotnet-preview#methods)
 
 ### <a name="via-the-protocol"></a>Via le protocole
 

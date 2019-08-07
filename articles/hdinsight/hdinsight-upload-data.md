@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdiseo17may2017
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: fceea6273f00fdf16d8934533f08bc3494795bc4
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: f75933940aa97606ca33ab6bfc18fe5871811eef
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67433282"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68441972"
 ---
 # <a name="upload-data-for-apache-hadoop-jobs-in-hdinsight"></a>Charger des données pour des travaux Apache Hadoop dans HDInsight
 
@@ -56,7 +56,7 @@ Pour utiliser la commande Hadoop, vous devez d’abord vous connecter au nœud p
 Une fois connecté, vous pouvez utiliser la syntaxe suivante pour télécharger un fichier dans le stockage.
 
 ```bash
-hadoop -copyFromLocal <localFilePath> <storageFilePath>
+hadoop fs -copyFromLocal <localFilePath> <storageFilePath>
 ```
 
 Par exemple, `hadoop fs -copyFromLocal data.txt /example/data/data.txt`

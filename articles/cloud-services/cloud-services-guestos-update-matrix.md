@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 7/8/2019
+ms.date: 7/18/2019
 ms.author: raiye
-ms.openlocfilehash: 88c3cd0e07e207a8b5ae1c07d39c8829a531c743
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 2dac76ef0d0d71c11291e63fdb3a7ce307638b50
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67721130"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68405545"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Versions du SE invité et matrice de compatibilité du Kit de développement logiciel (SDK) Azure
 Fournit des informations récentes sur les dernières publications du SE (système d’exploitation) invité de Microsoft Azure pour Cloud Services. Ces informations vous permettent de planifier votre mise à niveau avant la désactivation d’un SE invité. Si vous configurez vos rôles pour utiliser les mises à jour *automatiques* d’un SE invité comme cela est décrit dans [Paramètres de mise à jour du SE invité Azure][Azure Guest OS Update Settings], il n’est pas indispensable que vous lisiez cette page.
@@ -81,7 +81,7 @@ Publication du système d’exploitation invité du mois de septembre.
 ## <a name="family-6-releases"></a>Publications de famille 6
 **Windows Server 2019**
 
-.NET Framework installé : 3.5, 4.7.2, 4.8
+.NET Framework installé : 3.5, 4.7.2
 
 > [!NOTE]
 > Le SDK Windows Azure pour .NET - 3.0 peut être téléchargé [ici][Windows Azure SDK].
@@ -110,7 +110,7 @@ Publication du système d’exploitation invité du mois de septembre.
 ## <a name="family-5-releases"></a>Publications de famille 5
 **Windows Server 2016**
 
-.NET Framework installé : 3.5, 4.6.2, 4.7.2, 4.8
+.NET Framework installé : 3.5, 4.6
 
 > [!NOTE]
 > Le mot de passe RDP pour la famille 5 de SE doit comporter au moins 10 caractères.
@@ -192,7 +192,7 @@ La [stratégie de déclassement pour le Kit de développement logiciel (SDK) Azu
 
 | Famille de système d’exploitation invité | Versions de kit SDK compatibles |
 | --- | --- |
-| 6\. |Version 2.9.6+ |
+| 6 |Version 2.9.6+ |
 | 5\. |Versions 2.9.5.1 et ultérieures |
 | 4 |Versions 2.1 et ultérieures |
 | 3 |Versions 1.8 et ultérieures |
