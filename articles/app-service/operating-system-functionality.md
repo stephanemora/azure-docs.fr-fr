@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: f8087afc541dba41d23eacd2dd0f50e8f0180af1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f06b0866f5a79756f3404d7911f03bcdcc7f67d7
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66808395"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68608033"
 ---
 # <a name="operating-system-functionality-on-azure-app-service"></a>Fonctionnalités de système d’exploitation sur Azure App Service
 Cet article décrit les fonctionnalités de système d’exploitation communes de base accessibles à toutes les applications Windows exécutées sur [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). Ces fonctionnalités englobent notamment l’accès aux fichiers, l’accès réseau et l’accès au registre, ainsi que les journaux d’activité et événements de diagnostic. 
@@ -96,7 +96,7 @@ Le répertoire de base comprend le contenu d’une application, et le code d’a
 <a id="NetworkAccess"></a>
 
 ## <a name="network-access"></a>Accès réseau
-Le code d’application peut utiliser les protocoles TCP/IP et UDP pour établir des connexions réseau sortantes avec des points de terminaison accessibles par Internet qui exposent des services externes. Les applications peuvent utiliser ces mêmes protocoles pour se connecter aux services Azure, par exemple en établissant des connexions HTTPS à la base de données SQL.
+Le code d’application peut utiliser les protocoles TCP/IP et UDP pour établir des connexions réseau sortantes avec des points de terminaison accessibles par Internet qui exposent des services externes. Les applications peuvent utiliser ces mêmes protocoles pour se connecter aux services Azure, par exemple en établissant des connexions HTTPS à Azure SQL Database.
 
 La capacité des applications à établir une connexion de bouclage locale et à écouter sur le socket de bouclage local correspondant est également limitée. Cette fonctionnalité a pour principal objectif d'activer les applications configurées pour écouter sur les sockets de bouclage locaux. Chaque application voit une connexion de bouclage « privée ». Une application « A » ne peut pas écouter sur un socket de bouclage local établi par une application « B ».
 

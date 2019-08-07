@@ -1,6 +1,6 @@
 ---
-title: Scores de prédiction
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Scores de prédiction - LUIS
+titleSuffix: Azure Cognitive Services
 description: Un score de prédiction indique le degré de confiance que le service d’API LUIS a dans les résultats de prédiction, en fonction d’un énoncé utilisateur.
 services: cognitive-services
 author: diberry
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 03/11/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: 383ce4c4248f7e21f745f503c74a29cb613983e2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 34ec5588a510574f4ea9f01bd23c6f6487e288da
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60813994"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68638360"
 ---
 # <a name="prediction-scores-indicate-prediction-accuracy-for-intent-and-entities"></a>Les scores de prédiction indiquent la précision des prédictions pour les entités et l’intention
 
@@ -69,7 +69,7 @@ Les scores de prédiction peuvent utiliser la notation d’exposant, *apparaissa
 
 ## <a name="punctuation"></a>Ponctuation
 
-La ponctuation est un jeton distinct dans LUIS. Un énoncé qui se termine par un point et un énoncé qui n’en comporte pas sont deux énoncés distincts, qui sont susceptibles d’obtenir deux prédictions différentes. Veillez à ce que le modèle gère la ponctuation soit dans les [exemples d’énoncés](luis-concept-utterance.md) (avec ou sans ponctuation), soit dans les [modèles](luis-concept-patterns.md) où il est plus facile d’ignorer la ponctuation avec la syntaxe spéciale : `I am applying for the {Job} position[.]`
+[En savoir plus](luis-concept-utterance.md#punctuation-marks) sur la façon d’utiliser ou d’ignorer la ponctuation. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

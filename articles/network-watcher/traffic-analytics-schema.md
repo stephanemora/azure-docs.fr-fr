@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: vinigam
-ms.openlocfilehash: 9a02a56df85c5c6aa9fd177ad42a2f9bfb303e44
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.openlocfilehash: efa8a92ca9861c0280237ba07f4304b5c7dbbb88
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67491952"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68609993"
 ---
 # <a name="schema-and-data-aggregation-in-traffic-analytics"></a>Schéma et agrégation de données dans Traffic Analytics
 
@@ -32,8 +32,8 @@ Traffic Analytics est une solution cloud qui offre une visibilité de l’activi
 
 ### <a name="data-aggregation"></a>Agrégation de données
 
-1. Tous les journaux de flux d’un groupe de sécurité réseau (NSG) entre « FlowIntervalStartTime_t » et « FlowIntervalEndTime_t » sont capturés à des intervalles d’une minute dans le compte de stockage en tant qu’objets blob avant d’être traités par Traffic Analytics.
-2. L’intervalle de traitement par défaut de Traffic Analytics est de 60 minutes. Cela signifie que toutes les 60 minutes, Traffic Analytics récupère des objets blob du stockage en vue de l’agrégation.
+1. Tous les journaux de flux d’un groupe de sécurité réseau (NSG) entre « FlowIntervalStartTime_t » et « FlowIntervalEndTime_t » sont capturés à des intervalles d’une minute dans le compte de stockage en tant qu’objets blob avant d’être traités par Traffic Analytics. 
+2. L’intervalle de traitement par défaut de Traffic Analytics est de 60 minutes. Cela signifie que toutes les 60 minutes, Traffic Analytics récupère des objets blob du stockage en vue de l’agrégation. Si l’intervalle de traitement choisi est de 10 minutes, Traffic Analytics sélectionnera les objets blob du compte de stockage toutes les 10 minutes.
 3. Les flux qui ont les mêmes adresse IP source, adresse IP de destination, port de destination, nom NSG, règle NSG, direction de flux et protocole de transport (TCP ou UDP) (Remarque : le port source n’est pas inclus dans l’agrégation) sont regroupés en un flux unique par Traffic Analytics
 4. Cet enregistrement unique est décoré (voir les détails dans la section ci-dessous) et ingéré dans Log Analytics par Traffic Analytics. Ce processus peut prendre jusqu’à 1 heure maximum.
 5. Le champ FlowStartTime_t indique la première occurrence de ce type de flux agrégé (même tuple de quatre éléments) dans l’intervalle de traitement des journaux de flux entre « FlowIntervalStartTime_t » et « FlowIntervalEndTime_t ».

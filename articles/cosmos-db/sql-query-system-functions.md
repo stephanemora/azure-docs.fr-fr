@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/31/2019
 ms.author: mjbrown
-ms.openlocfilehash: 11a6fdad187670bcb5af4c56198fd7343680690d
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: b0e9c751d46f805af75196da464a39783c95ae6a
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67343118"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68619983"
 ---
 # <a name="system-functions"></a>Fonctions système
 
@@ -30,7 +30,7 @@ Voici une liste de fonctions au sein de chaque catégorie :
 
 | Groupe de fonctions | Opérations |
 |---------|----------|
-| Fonctions mathématiques | ABS, CEILING, EXP, FLOOR, LOG, LOG10, POWER, ROUND, SIGN, SQRT, SQUARE, TRUNC, ACOS, ASIN, ATAN, ATN2, COS, COT, DEGREES, PI, RADIANS, SIN, TAN |
+| Fonctions mathématiques | ABS, CEILING, EXP, FLOOR, LOG, LOG10, POWER, ROUND, SIGN, SQRT, SQUARE, TRUNC, ACOS, ASIN, ATAN, ATN2, COS, COT, DEGREES, PI, RADIANS, RAND, SIN, TAN |
 | Fonctions de vérification de type | IS_ARRAY, IS_BOOL, IS_NULL, IS_NUMBER, IS_OBJECT, IS_STRING, IS_DEFINED, IS_PRIMITIVE |
 | Fonctions de chaîne | CONCAT, CONTAINS, ENDSWITH, INDEX_OF, LEFT, LENGTH, LOWER, LTRIM, REPLACE, REPLICATE, REVERSE, RIGHT, RTRIM, STARTSWITH, SUBSTRING, UPPER |
 | Fonctions de tableau | ARRAY_CONCAT, ARRAY_CONTAINS, ARRAY_LENGTH et ARRAY_SLICE |
@@ -66,9 +66,9 @@ Ce tableau répertorie les fonctions mathématiques intégrées qui sont prises 
 |[COS](#bk_cos)|[COT](#bk_cot)|[DEGREES](#bk_degrees)|  
 |[EXP](#bk_exp)|[FLOOR](#bk_floor)|[LOG](#bk_log)|  
 |[LOG10](#bk_log10)|[PI](#bk_pi)|[POWER](#bk_power)|  
-|[RADIANS](#bk_radians)|[ROUND](#bk_round)|[SIN](#bk_sin)|  
-|[SQRT](#bk_sqrt)|[SQUARE](#bk_square)|[SIGN](#bk_sign)|  
-|[TAN](#bk_tan)|[TRUNC](#bk_trunc)||  
+|[RADIANS](#bk_radians)|[ROUND](#bk_round)|[RAND](#bk_rand)|
+|[SIN](#bk_sin)|[SQRT](#bk_sqrt)|[SQUARE](#bk_square)|
+|[SIGN](#bk_sign)|[TAN](#bk_tan)|[TRUNC](#bk_trunc)||  
   
 ####  <a name="bk_abs"></a> ABS  
  Retourne la valeur (positive) absolue de l'expression numérique spécifiée.  
@@ -555,13 +555,7 @@ SELECT LOG10(100) AS log10
 ```  
 PI ()  
 ```  
-  
- **Arguments**  
-  
-- `numeric_expression`  
-  
-   Est une expression numérique.  
-  
+   
   **Types de retour**  
   
   Renvoie une expression numérique.  
@@ -682,7 +676,7 @@ ROUND(<numeric_expression>)
   |<numeric_expression>|Arrondi|
   |-|-|
   |-6,5000|-7|
-  |0,5|-1|
+  |-0,5|-1|
   |0.5|1|
   |6,5000|7||
   
@@ -699,7 +693,34 @@ SELECT ROUND(2.4) AS r1, ROUND(2.6) AS r2, ROUND(2.5) AS r3, ROUND(-2.4) AS r4, 
 ```  
 [{r1: 2, r2: 3, r3: 3, r4: -2, r5: -3}]  
 ```  
+
+#### <a name="bk_rand"></a> RAND
+ Retourne une valeur numérique générée de façon aléatoire à partir de [0, 1).
+ 
+ **Syntaxe**  
   
+```  
+RAND ()  
+```  
+
+  **Types de retour**  
+  
+  Renvoie une expression numérique.  
+  
+  **Exemples**  
+  
+  L’exemple suivant retourne une valeur numérique générée de façon aléatoire.  
+  
+```  
+SELECT RAND() AS rand 
+```  
+  
+ Voici le jeu de résultats obtenu.  
+  
+```  
+[{"rand": 0.87860053195618093}]  
+``` 
+
 ####  <a name="bk_sign"></a> SIGN  
  Retourne le signe positif (+1), nul (0) ou négatif (-1) de l'expression numérique spécifiée.  
   
@@ -1716,7 +1737,7 @@ SELECT STARTSWITH("abc", "b") AS s1, STARTSWITH("abc", "a") AS s2
 [{"s1": false, "s2": true}]  
 ```  
 
-  ####  <a name="bk_stringtoarray"></a> StringToArray  
+  ####  <a name="bk_stringtoarray"></a> StringToArray  
  Retourne une expression convertie en tableau. Si l’expression ne peut pas être convertie, le résultat est indéfini.  
   
  **Syntaxe**  
@@ -2492,7 +2513,7 @@ GETCURRENTDATETIME ()
   
   **Types de retour**
   
-  Retourne la valeur de chaîne ISO 8601 des date et heure UTC actuelles. 
+  Retourne la valeur de chaîne ISO 8601 des date et heure UTC actuelles. 
 
   Cette valeur est exprimée au format YYYY-MM-DDThh:mm:ss.sssZ :
   
@@ -2508,7 +2529,7 @@ GETCURRENTDATETIME ()
   |.sss|Trois chiffres de fractions décimales d’une seconde|
   |Z|Indicateur UTC (temps universel coordonné)||
   
-  Pour plus d’informations sur le format ISO 8601, consultez [ISO_8601](https://en.wikipedia.org/wiki/ISO_8601)
+  Pour plus d’informations sur le format ISO 8601, consultez [ISO_8601](https://en.wikipedia.org/wiki/ISO_8601)
 
   **Remarques**
 
@@ -2543,7 +2564,7 @@ GETCURRENTTIMESTAMP ()
   
   **Types de retour**  
   
-  Retourne une valeur numérique représentant le nombre de millisecondes qui se sont écoulées depuis l’époque Unix, c’est-à-dire, le nombre de millisecondes qui se sont écoulées depuis le jeudi 1er janvier 1970 à 00:00:00.
+  Retourne une valeur numérique représentant le nombre de millisecondes qui se sont écoulées depuis l’époque Unix, c’est-à-dire, le nombre de millisecondes qui se sont écoulées depuis le jeudi 1er janvier 1970 à 00:00:00.
 
   **Remarques**
 

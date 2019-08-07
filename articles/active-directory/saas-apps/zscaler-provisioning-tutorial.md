@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: dd8335442cd370e0478c029a927c71e26fe6ef1b
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: d88aae8887cbfd872a8d3e82fb2166043c312e5a
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67672851"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68515399"
 ---
 # <a name="tutorial-configure-zscaler-for-automatic-user-provisioning"></a>Didacticiel : Configurer Zscaler pour le provisionnement automatique d’utilisateurs
 
@@ -30,15 +30,13 @@ L’objectif de ce tutoriel est de présenter les étapes à effectuer dans Zsca
 > Ce didacticiel décrit un connecteur reposant sur le service d’attribution d’utilisateurs Azure AD. Pour découvrir les informations importantes sur ce que fait ce service, comment il fonctionne et consulter le forum aux questions, reportez-vous à l’article [Automatiser l’attribution et l’annulation de l’attribution des utilisateurs dans les applications SaaS avec Azure Active Directory](../active-directory-saas-app-provisioning.md).
 >
 
-> Ce connecteur est actuellement en préversion publique. Pour plus d’informations sur les conditions d’utilisation Microsoft Azure générales relatives aux fonctionnalités d’évaluation, consultez [Conditions d’utilisation supplémentaires des préversions Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 ## <a name="prerequisites"></a>Prérequis
 
 Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
-* un locataire Azure AD ;
-* un locataire Zscaler ;
-* un compte d’utilisateur Zscaler ayant des autorisations d’administrateur.
+* Un locataire Azure AD.
+* Un locataire Zscaler.
+* Un compte d’utilisateur Zscaler ayant des autorisations d’administrateur.
 
 > [!NOTE]
 > L’intégration de l’approvisionnement Azure AD s’appuie sur l’API SCIM Zscaler, qui est disponible pour les développeurs Zscaler disposant de comptes pourvus du package Enterprise.

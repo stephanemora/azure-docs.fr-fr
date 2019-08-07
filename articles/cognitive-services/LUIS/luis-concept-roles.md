@@ -1,5 +1,5 @@
 ---
-title: Rôles pour les entités
+title: Rôles pour les entités - LUIS
 titleSuffix: Azure Cognitive Services
 description: Les rôles sont des sous-types contextuels nommés d’une entité utilisée uniquement dans des modèles. Par exemple, dans l’énoncé `buy a ticket from New York to London`, New York et Londres sont des villes, mais chacune a une signification différente dans la phrase. New York est la ville d’origine et Londres est la ville de destination.
 services: cognitive-services
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 04/01/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: 318e71b68bbabeeef34c75a412f9fdd5b6db754a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b4bd61ea74055a04718d8a9d8d5ccd42671af2ac
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65073024"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68638336"
 ---
 # <a name="entity-roles-for-contextual-subtypes"></a>Rôles d’entité pour les sous-types contextuels
 
@@ -35,10 +35,10 @@ buy a ticket from New York to London
 
 Les rôles donnent un nom à ces différences :
 
-|Type d’entité|Nom de l’entité|Rôle|Objectif|
+|Type d’entité|Nom de l’entité|Role|Objectif|
 |--|--|--|--|
-|Simple|Lieu|origin|où le plan part de|
-|Simple|Lieu|destination|où le plan arrive à|
+|Simple|Location|origin|où le plan part de|
+|Simple|Location|destination|où le plan arrive à|
 
 ## <a name="non-machine-learned-entity-example-of-roles"></a>Exemple de rôles d’une entité sans apprentissage automatique
 

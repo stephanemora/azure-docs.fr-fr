@@ -4,19 +4,21 @@ description: Avec la TTL, Microsoft Azure Cosmos DB offre la possibilité de vid
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/23/2019
+ms.date: 07/26/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 7a29e9446a8c3b703c2ec3140711f44f3c81535f
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: c3e1c4f56c641bf5bfa189836a4bcdf99672a3c1
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68467589"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68597489"
 ---
 # <a name="time-to-live-ttl-in-azure-cosmos-db"></a>Durée de vie (TTL) dans Azure Cosmos DB 
 
 Avec la **Durée de vie** (TTL, Time to Live), Azure Cosmos DB permet de supprimer automatiquement des éléments d’un conteneur après une période déterminée. La durée de vie par défaut peut être définie au niveau du conteneur et être substituée par élément. Une fois la durée de vie définie au niveau d'un conteneur ou d'un élément, Azure Cosmos DB supprime automatiquement les éléments correspondants au terme de la période écoulée depuis la dernière modification. La valeur de durée de vie est définie en secondes. Lorsque vous définissez la durée de vie, le système supprime automatiquement les éléments arrivés à expiration en fonction de la valeur de durée de vie, sans avoir besoin d’une opération de suppression explicitement émise par l’application cliente.
+
+La suppression des éléments expirés est une tâche en arrière-plan qui utilise des [unités de requête](request-units.md) restantes, qui sont des unités de requête qui n’ont pas été utilisées par les demandes de l’utilisateur. Les expirations peuvent être retardées si le conteneur est soumis à une charge importante et qu’aucune unité de requête n’est conservée pour les tâches de maintenance.
 
 ## <a name="time-to-live-for-containers-and-items"></a>Durée de vie pour les conteneurs et éléments
 

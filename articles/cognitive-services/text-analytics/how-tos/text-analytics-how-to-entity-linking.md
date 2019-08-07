@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 04/16/2019
+ms.date: 07/30/2019
 ms.author: aahi
-ms.openlocfilehash: ff4f9af82024e9d39ad89a39bcb2fe4130de9101
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: ea7d3f56aa512b8f5998d710451ff3b37659ca13
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67304192"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68697845"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Comment utiliser une reconnaissance d’entité nommée dans Analyse de texte
 
-L’[API Reconnaissance d’entités nommées](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634) accepte un texte non structuré et, pour chaque document JSON, retourne la liste des entités dont l’ambiguïté est levée avec des liens vers des informations supplémentaires sur le web (Wikipedia et Bing). 
+L’[API Reconnaissance d’entités nommées](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634) accepte un texte non structuré et, pour chaque document JSON, retourne la liste des entités dont l’ambiguïté est levée avec des liens vers des informations supplémentaires sur le web (Wikipedia et Bing).
 
 ## <a name="entity-linking-and-named-entity-recognition"></a>Liaison d’entités et reconnaissance d’entité nommée
 
@@ -31,7 +31,7 @@ La liaison d’entités est la possibilité d’identifier une entité présente
 ### <a name="named-entity-recognition-ner"></a>Reconnaissance d’entité nommée (NER)
 La reconnaissance d’entité nommée (NER) est la capacité d’identifier différentes entités dans du texte et de les classer en classes prédéfinies. Les classes d’entités prises en charge sont répertoriées ci-dessous.
 
-Dans Analyse de texte [version 2.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634), la liaison d’entités et la reconnaissance d’entité nommée (NER) sont toutes deux disponibles pour plusieurs langues. Pour plus d’informations, consultez l’article [Prise en charge linguistique](../language-support.md#sentiment-analysis-key-phrase-extraction-and-named-entity-recognition). 
+Dans Analyse de texte [version 2.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634), la liaison d’entités et la reconnaissance d’entité nommée (NER) sont toutes deux disponibles pour plusieurs langues. Pour plus d’informations, consultez l’article [Prise en charge linguistique](../language-support.md#sentiment-analysis-key-phrase-extraction-and-named-entity-recognition).
 
 ### <a name="language-support"></a>Support multilingue
 
@@ -44,22 +44,22 @@ L’utilisation de la liaison d'entités dans différentes langues requiert l’
 | Personne        | N/A\*         | « Jeff », « Bill Gates »     |
 | Location      | N/A\*         | « Redmond, Washington », « Paris »  |
 | Organisation  | N/A\*         | « Microsoft »   |
-| Quantité      | Number        | « 6 », « six »     | 
-| Quantité      | Pourcentage    | « 50 % », « cinquante pour cent »| 
-| Quantité      | Ordinal       | « 2nd », « second »     | 
-| Quantité      | NumberRange   | « 4 à 8 »     | 
-| Quantité      | Age           | « 90 jours », « 30 ans »    | 
-| Quantité      | Devise      | « 10,99 $ »     | 
-| Quantité      | Dimension     | « 10 miles », « 40 cm »     | 
+| Quantité      | Number        | « 6 », « six »     |
+| Quantité      | Pourcentage    | « 50 % », « cinquante pour cent »|
+| Quantité      | Ordinal       | « 2nd », « second »     |
+| Quantité      | NumberRange   | « 4 à 8 »     |
+| Quantité      | Age           | « 90 jours », « 30 ans »    |
+| Quantité      | Devise      | « 10,99 $ »     |
+| Quantité      | Dimension     | « 10 miles », « 40 cm »     |
 | Quantité      | Température   | « 32 degrés »    |
-| Datetime      | N/A\*         | « 6 h 30 le 4 février 2012 »      | 
-| Datetime      | Date          | « 2 mai 2017 », « 02/05/2017 »   | 
-| Datetime      | Temps          | « 8 h », « 8:00 »  | 
-| Datetime      | DateRange     | « Du 2 au 5 mai »    | 
-| Datetime      | TimeRange     | « De 18 à 19 h »     | 
-| Datetime      | Duration      | « 1 minute et 45 secondes »   | 
-| Datetime      | Définir           | « Chaque mardi »     | 
-| Datetime      | TimeZone      |    | 
+| DateTime      | N/A\*         | « 6 h 30 le 4 février 2012 »      |
+| DateTime      | Date          | « 2 mai 2017 », « 02/05/2017 »   |
+| DateTime      | Temps          | « 8 h », « 8:00 »  |
+| DateTime      | DateRange     | « Du 2 au 5 mai »    |
+| DateTime      | TimeRange     | « De 18 à 19 h »     |
+| DateTime      | Duration      | « 1 minute et 45 secondes »   |
+| DateTime      | Définir           | « Chaque mardi »     |
+| DateTime      | TimeZone      |    |
 | URL           | N/A\*         | "https:\//www.bing.com"    |
 | Email         | N/A\*         | "support@contoso.com" |
 
@@ -75,28 +75,32 @@ Pour connaître les langues actuellement prises en charge, consultez [cette list
 
 La taille des documents doit être inférieure à 5 120 caractères par document et vous pouvez avoir jusqu’à 1 000 éléments (ID) par collection. La collection est soumise dans le corps de la demande. L’exemple suivant illustre le contenu qui peut être soumis à l’extrémité de la liaison d'entités.
 
-```
-{"documents": [{"id": "1",
+```json
+    {
+        "documents": [
+            {
+                "id": "1",
                 "language": "en",
                 "text": "Jeff bought three dozen eggs because there was a 50% discount."
-                },
-               {"id": "2",
+            },
+            {
+                "id": "2",
                 "language": "en",
                 "text": "The Great Depression began in 1929. By 1933, the GDP in America fell by 25%."
-                }
-               ]
-}
-```    
-    
+            }
+        ]
+    }
+```
+
 ## <a name="step-1-structure-the-request"></a>Étape 1 : Structurer la requête
 
 Vous trouverez plus d’informations sur la définition d’une demande dans [Guide pratique pour appeler l’API Analyse de texte](text-analytics-how-to-call-api.md). Les points suivants sont réaffirmés pour des raisons pratiques :
 
-+ Créez une demande **POST**. Passez en revue la documentation de l’API pour cette requête : [API de liaison d’entités](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634)
++ Créez une demande **POST**. Passez en revue la documentation de l’API pour cette requête : [API des entités](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634)
 
 + Définissez le point de terminaison HTTP pour l’extraction d’entité. Il doit inclure la ressource `/entities` : `https://[your-region].api.cognitive.microsoft.com/text/analytics/v2.1/entities`
 
-+ Définissez un en-tête de demande pour inclure la clé d’accès pour les opérations d’Analyse de texte. Pour plus d’informations, consultez [Guide pratique pour rechercher des points de terminaison et des clés d’accès](text-analytics-how-to-access-key.md).
++ Définissez un en-tête de requête pour inclure la [clé d’accès](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) pour les opérations d’Analyse de texte.
 
 + Dans le corps de la demande, fournissez la collection de documents JSON que vous avez préparée pour cette analyse.
 
@@ -118,161 +122,160 @@ La sortie est retournée immédiatement. Vous pouvez diffuser en continu les ré
 Voici un exemple de sortie de liaison d'entités :
 
 ```json
-{
-    "Documents": [
-        {
-            "Id": "1",
-            "Entities": [
-                {
-                    "Name": "Jeff",
-                    "Matches": [
-                        {
-                            "Text": "Jeff",
-                            "Offset": 0,
-                            "Length": 4
-                        }
-                    ],
-                    "Type": "Person"
-                },
-                {
-                    "Name": "three dozen",
-                    "Matches": [
-                        {
-                            "Text": "three dozen",
-                            "Offset": 12,
-                            "Length": 11
-                        }
-                    ],
-                    "Type": "Quantity",
-                    "SubType": "Number"
-                },
-                {
-                    "Name": "50",
-                    "Matches": [
-                        {
-                            "Text": "50",
-                            "Offset": 49,
-                            "Length": 2
-                        }
-                    ],
-                    "Type": "Quantity",
-                    "SubType": "Number"
-                },
-                {
-                    "Name": "50%",
-                    "Matches": [
-                        {
-                            "Text": "50%",
-                            "Offset": 49,
-                            "Length": 3
-                        }
-                    ],
-                    "Type": "Quantity",
-                    "SubType": "Percentage"
-                }
-            ]
-        },
-        {
-            "Id": "2",
-            "Entities": [
-                {
-                    "Name": "Great Depression",
-                    "Matches": [
-                        {
-                            "Text": "The Great Depression",
-                            "Offset": 0,
-                            "Length": 20
-                        }
-                    ],
-                    "WikipediaLanguage": "en",
-                    "WikipediaId": "Great Depression",
-                    "WikipediaUrl": "https://en.wikipedia.org/wiki/Great_Depression",
-                    "BingId": "d9364681-98ad-1a66-f869-a3f1c8ae8ef8"
-                },
-                {
-                    "Name": "1929",
-                    "Matches": [
-                        {
-                            "Text": "1929",
-                            "Offset": 30,
-                            "Length": 4
-                        }
-                    ],
-                    "Type": "DateTime",
-                    "SubType": "DateRange"
-                },
-                {
-                    "Name": "By 1933",
-                    "Matches": [
-                        {
-                            "Text": "By 1933",
-                            "Offset": 36,
-                            "Length": 7
-                        }
-                    ],
-                    "Type": "DateTime",
-                    "SubType": "DateRange"
-                },
-                {
-                    "Name": "Gross domestic product",
-                    "Matches": [
-                        {
-                            "Text": "GDP",
-                            "Offset": 49,
-                            "Length": 3
-                        }
-                    ],
-                    "WikipediaLanguage": "en",
-                    "WikipediaId": "Gross domestic product",
-                    "WikipediaUrl": "https://en.wikipedia.org/wiki/Gross_domestic_product",
-                    "BingId": "c859ed84-c0dd-e18f-394a-530cae5468a2"
-                },
-                {
-                    "Name": "United States",
-                    "Matches": [
-                        {
-                            "Text": "America",
-                            "Offset": 56,
-                            "Length": 7
-                        }
-                    ],
-                    "WikipediaLanguage": "en",
-                    "WikipediaId": "United States",
-                    "WikipediaUrl": "https://en.wikipedia.org/wiki/United_States",
-                    "BingId": "5232ed96-85b1-2edb-12c6-63e6c597a1de",
-                    "Type": "Location"
-                },
-                {
-                    "Name": "25",
-                    "Matches": [
-                        {
-                            "Text": "25",
-                            "Offset": 72,
-                            "Length": 2
-                        }
-                    ],
-                    "Type": "Quantity",
-                    "SubType": "Number"
-                },
-                {
-                    "Name": "25%",
-                    "Matches": [
-                        {
-                            "Text": "25%",
-                            "Offset": 72,
-                            "Length": 3
-                        }
-                    ],
-                    "Type": "Quantity",
-                    "SubType": "Percentage"
-                }
-            ]
-        }
-    ],
-    "Errors": []
-}
+    {
+        "Documents": [
+            {
+                "Id": "1",
+                "Entities": [
+                    {
+                        "Name": "Jeff",
+                        "Matches": [
+                            {
+                                "Text": "Jeff",
+                                "Offset": 0,
+                                "Length": 4
+                            }
+                        ],
+                        "Type": "Person"
+                    },
+                    {
+                        "Name": "three dozen",
+                        "Matches": [
+                            {
+                                "Text": "three dozen",
+                                "Offset": 12,
+                                "Length": 11
+                            }
+                        ],
+                        "Type": "Quantity",
+                        "SubType": "Number"
+                    },
+                    {
+                        "Name": "50",
+                        "Matches": [
+                            {
+                                "Text": "50",
+                                "Offset": 49,
+                                "Length": 2
+                            }
+                        ],
+                        "Type": "Quantity",
+                        "SubType": "Number"
+                    },
+                    {
+                        "Name": "50%",
+                        "Matches": [
+                            {
+                                "Text": "50%",
+                                "Offset": 49,
+                                "Length": 3
+                            }
+                        ],
+                        "Type": "Quantity",
+                        "SubType": "Percentage"
+                    }
+                ]
+            },
+            {
+                "Id": "2",
+                "Entities": [
+                    {
+                        "Name": "Great Depression",
+                        "Matches": [
+                            {
+                                "Text": "The Great Depression",
+                                "Offset": 0,
+                                "Length": 20
+                            }
+                        ],
+                        "WikipediaLanguage": "en",
+                        "WikipediaId": "Great Depression",
+                        "WikipediaUrl": "https://en.wikipedia.org/wiki/Great_Depression",
+                        "BingId": "d9364681-98ad-1a66-f869-a3f1c8ae8ef8"
+                    },
+                    {
+                        "Name": "1929",
+                        "Matches": [
+                            {
+                                "Text": "1929",
+                                "Offset": 30,
+                                "Length": 4
+                            }
+                        ],
+                        "Type": "DateTime",
+                        "SubType": "DateRange"
+                    },
+                    {
+                        "Name": "By 1933",
+                        "Matches": [
+                            {
+                                "Text": "By 1933",
+                                "Offset": 36,
+                                "Length": 7
+                            }
+                        ],
+                        "Type": "DateTime",
+                        "SubType": "DateRange"
+                    },
+                    {
+                        "Name": "Gross domestic product",
+                        "Matches": [
+                            {
+                                "Text": "GDP",
+                                "Offset": 49,
+                                "Length": 3
+                            }
+                        ],
+                        "WikipediaLanguage": "en",
+                        "WikipediaId": "Gross domestic product",
+                        "WikipediaUrl": "https://en.wikipedia.org/wiki/Gross_domestic_product",
+                        "BingId": "c859ed84-c0dd-e18f-394a-530cae5468a2"
+                    },
+                    {
+                        "Name": "United States",
+                        "Matches": [
+                            {
+                                "Text": "America",
+                                "Offset": 56,
+                                "Length": 7
+                            }
+                        ],
+                        "WikipediaLanguage": "en",
+                        "WikipediaId": "United States",
+                        "WikipediaUrl": "https://en.wikipedia.org/wiki/United_States",
+                        "BingId": "5232ed96-85b1-2edb-12c6-63e6c597a1de",
+                        "Type": "Location"
+                    },
+                    {
+                        "Name": "25",
+                        "Matches": [
+                            {
+                                "Text": "25",
+                                "Offset": 72,
+                                "Length": 2
+                            }
+                        ],
+                        "Type": "Quantity",
+                        "SubType": "Number"
+                    },
+                    {
+                        "Name": "25%",
+                        "Matches": [
+                            {
+                                "Text": "25%",
+                                "Offset": 72,
+                                "Length": 3
+                            }
+                        ],
+                        "Type": "Quantity",
+                        "SubType": "Percentage"
+                    }
+                ]
+            }
+        ],
+        "Errors": []
+    }
 ```
-
 
 ## <a name="summary"></a>Résumé
 
@@ -280,7 +283,7 @@ Dans cet article, vous avez vu les concepts et le flux de travail de liaison d'e
 
 + L’[API Entités](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634) est disponible pour les langues sélectionnées.
 + Les documents JSON figurant dans le corps de la demande incluent un ID, un texte et un code de langue.
-+ La demande POST s’effectue sur un point de terminaison `/entities`, à l’aide [d’une clé d’accès et d’un point de terminaison](text-analytics-how-to-access-key.md) personnalisés valides pour votre abonnement.
++ La demande POST s’effectue sur un point de terminaison `/entities`, à l’aide [d’une clé d’accès et d’un point de terminaison](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) personnalisés valides pour votre abonnement.
 + La sortie de réponse, qui se compose d’entités liées (y compris des scores de confiance, des décalages et des liens web, pour chaque ID de document), peut être utilisée dans n’importe quelle application.
 
 ## <a name="next-steps"></a>Étapes suivantes
@@ -288,6 +291,6 @@ Dans cet article, vous avez vu les concepts et le flux de travail de liaison d'e
 > [!div class="nextstepaction"]
 > [API Analyse de texte](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634)
 
-* [Vue d’ensemble d’Analyse de texte](../overview.md)  
+* [Vue d’ensemble d’Analyse de texte](../overview.md)
 * [Questions fréquentes (FAQ)](../text-analytics-resource-faq.md)</br>
-* [Page produit d’Analyse de texte](//go.microsoft.com/fwlink/?LinkID=759712) 
+* [Page produit d’Analyse de texte](//go.microsoft.com/fwlink/?LinkID=759712)

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: kumud
-ms.openlocfilehash: e4e9ef4f3a50aeac4db4d2cc2f2b6cbafcc47268
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 45200e7620326dedcee92c579843e61bb07ff68e
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67051628"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68610254"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Forum aux questions pour Traffic Analytics
 
@@ -68,7 +68,7 @@ Si vous ne voyez aucune sortie, contactez l’administrateur de l’abonnement p
 Vous pouvez utiliser l’analytique du trafic pour les régions prises en charge suivantes :
 - Centre du Canada
 - USA Centre-Ouest
-- USA Est
+- East US
 - USA Est 2
 - USA Centre Nord
 - USA Centre Sud
@@ -99,7 +99,7 @@ L’espace de travail Log Analytics doit exister dans les régions suivantes :
 - USA Ouest 2
 - USA Centre Sud
 - USA Centre
-- USA Est
+- East US
 - USA Est 2
 - France Centre
 - Europe Ouest

@@ -5,14 +5,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 3/20/2019
+ms.date: 7/29/2019
 ms.author: mayg
-ms.openlocfilehash: cbea6785239c70a3cdb229d0811497f051224238
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f4b63cfc67e20158e434e1a401d47144c3e0f90c
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61472490"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68618785"
 ---
 # <a name="analyze-the-azure-site-recovery-deployment-planner-report-for-vmware-disaster-recovery-to-azure"></a>Analyser le rapport du Planificateur de déploiement Azure Site Recovery pour la récupération d’urgence VMware sur Azure
 
@@ -41,9 +41,6 @@ La feuille de calcul du résumé local fournit une vue d’ensemble de l’envir
 **Activité type des donnée observée par jour (Go)**  : activité moyenne des données observée tous les jours de profilage. Ce nombre est utilisé comme nombre d’entrées pour déterminer le nombre de serveurs de processus supplémentaires et de serveurs de configuration à utiliser dans le déploiement.
 
 ## <a name="recommendations"></a>Recommandations
-
->[!Note]
->Lors de la réplication directe vers des disques managés, ignorez la recommandation du nombre de comptes de stockage.
 
 La feuille de recommandations de VMware pour le rapport Azure présente les détails suivants selon le RPO sélectionné :
 
@@ -95,7 +92,7 @@ Si vous exécutez l’outil sur un serveur de configuration ou un serveur de pro
 Pour tous les déploiements Site Recovery d’entreprise, nous vous recommandons d’utiliser [ExpressRoute](https://aka.ms/expressroute).
 
 ### <a name="required-storage-accounts"></a>Comptes de stockage requis
-Le graphique suivant indique le nombre total de comptes de stockage (standard et premium) nécessaires pour protéger toutes les machines virtuelles compatibles. Pour savoir quel compte de stockage utiliser pour chaque machine virtuelle, consultez la section « VM-storage placement ».
+Le graphique suivant indique le nombre total de comptes de stockage (standard et premium) nécessaires pour protéger toutes les machines virtuelles compatibles. Pour savoir quel compte de stockage utiliser pour chaque machine virtuelle, consultez la section « VM-storage placement ». Si vous utilisez la version 2.5 du Planificateur de déploiement, cette recommandation indique uniquement le nombre de comptes de stockage du cache standard nécessaires à la réplication, car les données sont écrites directement dans des disques managés.
 
 ![Comptes de stockage requis dans Deployment planner](media/site-recovery-vmware-deployment-planner-analyze-report/required-storage-accounts-v2a.png)
 
@@ -160,21 +157,19 @@ Vous pouvez vous trouver dans une situation dans laquelle vous ne pouvez pas con
 ## <a name="vm-storage-placement"></a>VM-storage placement
 
 >[!Note]
->Lors de la réplication directe vers des disques managés, vous n’avez pas besoin de vous soucier du nombre de comptes de stockage. Pour le stockage, utilisez uniquement la recommandation du type (Standard ou Premium). Le même type s’applique aux disques managés.
+>À partir de la version 2.5, le Planificateur de déploiement recommande l’emplacement de stockage pour les machines qui seront répliquées directement sur les disques managés.
 
 ![VM-storage placement](media/site-recovery-vmware-deployment-planner-analyze-report/vm-storage-placement-v2a.png)
 
-**Type de stockage sur disque** : compte de stockage standard ou premium utilisé pour répliquer toutes les machines virtuelles correspondantes, mentionnées dans la colonne **Machines virtuelles à placer**.
+**Type de stockage de réplication** : disque managé standard ou premium utilisé pour répliquer toutes les machines virtuelles correspondantes, mentionnées dans la colonne **Machines virtuelles à placer**.
 
-**Préfixe suggéré** : préfixe suggéré à trois caractères qui permet de nommer le compte de stockage. Vous pouvez utiliser votre propre préfixe, mais la suggestion de l’outil suit la [convention d’affectation de noms aux partitions pour les comptes de stockage](https://aka.ms/storage-performance-checklist).
+**Enregistrer le type de compte de stockage** : tous les journaux d’activité de réplication sont stockés dans un compte de stockage standard.
 
-**Nom de compte suggéré** : nom du compte de stockage après l’ajout du préfixe suggéré. Remplacez le nom entre crochets pointus(< and >) avec votre entrée personnalisée.
+**Préfixe suggéré pour le compte de stockage** : préfixe suggéré à trois caractères qui permet de nommer le compte de stockage de cache. Vous pouvez utiliser votre propre préfixe, mais la suggestion de l’outil suit la [convention d’affectation de noms aux partitions pour les comptes de stockage](https://aka.ms/storage-performance-checklist).
 
-**Compte de stockage de journal** : tous les journaux d’activité de réplication sont stockés dans un compte de stockage standard. Pour les machines virtuelles qui répliquent vers un compte de stockage premium, configurez un compte de stockage standard supplémentaire pour le stockage des journaux. Un seul et même compte de stockage standard des journaux peut être utilisé par plusieurs comptes de stockage de réplication premium. Les machines virtuelles qui sont répliquées vers les comptes de stockage standard utilisent le même compte de stockage pour les journaux d’activité.
+**Nom de compte de journal suggéré** : nom du compte de stockage après l’ajout du préfixe suggéré. Remplacez le nom entre crochets pointus(< and >) avec votre entrée personnalisée.
 
-**Nom de compte de journal suggéré** : nom de votre compte de stockage des journaux après l’ajout du préfixe suggéré. Remplacez le nom entre crochets pointus(< and >) avec votre entrée personnalisée.
-
-**Récapitulatif du placement** : récapitulatif de la charge totale des machines virtuelles sur le compte de stockage au moment de la réplication et du test de basculement/basculement. Il inclut le nombre total de machines virtuelles mappées au compte de stockage, le total des E/S par seconde de lecture/écriture sur toutes les machines virtuelles placées dans ce compte de stockage, le total des E/S par seconde d’écriture (réplication), la taille totale configurée sur tous les disques ainsi que le nombre total de disques.
+**Récapitulatif du placement** : un résumé des disques nécessaires à la protection des machines virtuelles par type de stockage. Il inclut le nombre total de machines virtuelles, la taille totale approvisionnée sur tous les disques et le nombre total de disques.
 
 **Machines virtuelles à placer** : liste de toutes les machines virtuelles qui doivent être placées dans le compte de stockage donné pour optimiser les performances et l’utilisation.
 
@@ -195,9 +190,7 @@ Par exemple, si les caractéristiques de charge de travail d’un disque le plac
 
 **Type de stockage** : Standard ou Premium.
 
-**Préfixe suggéré** : préfixe de compte de stockage à trois caractères.
-
-**Compte de stockage** : nom utilisant le préfixe du compte de stockage suggéré.
+**Asrseeddisk (disque managé) créé pour la réplication** : le nom du disque qui est créé lorsque vous activez la réplication. Il stocke les données et ses captures instantanées dans Azure.
 
 **Pic d’IOPS en lecture/écriture (avec facteur de croissance)**  : pic d’IOPS en lecture/écriture de la charge de travail sur le disque (95e centile par défaut), ainsi que le facteur de croissance futur (30 % par défaut). Notez que les E/S par seconde en lecture/écriture d’une machine virtuelle ne sont pas toujours la somme des E/S par seconde en lecture/écriture des disques individuels de la machine virtuelle, car les E/S par seconde en lecture/écriture de pointe de la machine virtuelle représentent le pic de la somme des E/S par seconde de ses disques individuels pendant chaque minute de la période de profilage.
 
@@ -238,7 +231,7 @@ Par exemple, si les caractéristiques de charge de travail d’un disque le plac
 
 * Les E/S par seconde source excèdent la limite des E/S par seconde prise en charge par le stockage qui est de 80 000 par machine virtuelle.
 
-* L’activité moyenne des données dépasse la limite d’activité des données prise en charge par Site Recovery, qui est de 10 Mo/s pour la taille d’E/S moyenne du disque.
+* L’activité moyenne des données dépasse la limite d’activité des données prise en charge par Site Recovery, qui est de 20 Mo/s pour la taille d’E/S moyenne du disque.
 
 * L’activité moyenne des données dépasse la limite d’activité des données prise en charge par Site Recovery, qui est de 25 Mo/s pour la taille d’E/S moyenne de la machine virtuelle (sommes de toutes les activités de disque).
 

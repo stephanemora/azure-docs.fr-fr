@@ -16,12 +16,12 @@ ms.date: 07/23/2019
 ms.author: ajburnle
 ms.reviewer: hanki
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e563d86abe3817e4c77cc0d5c8df928e41563f8
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: 1654e0a8cd11ac1c7a2f4ef0667d0e99187c2374
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68489082"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68618320"
 ---
 # <a name="create-and-manage-a-catalog-in-azure-ad-entitlement-management-preview"></a>Créer et gérer un catalogue dans la gestion des droits d’utilisation Azure AD (préversion)
 
@@ -34,7 +34,7 @@ ms.locfileid: "68489082"
 
 Un catalogue est un conteneur de ressources et de packages d’accès. Vous créez un catalogue lorsque vous souhaitez regrouper des ressources et packages d’accès liés. La personne qui crée le catalogue en devient le premier propriétaire. Un propriétaire de catalogue peut ajouter d’autres propriétaires de catalogue.
 
-**Rôle prérequis :** Administrateur d’utilisateurs ou créateur de catalogue
+**Rôle prérequis :** Administrateur général, administrateur d’utilisateurs ou créateur de catalogue
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 
@@ -102,7 +102,7 @@ Vous pouvez supprimer des ressources d’un catalogue. Une ressource ne peut êt
 
 Vous pouvez modifier le nom et la description d’un catalogue. Les utilisateurs verront ces informations dans les détails d’un package d’accès.
 
-**Rôle prérequis :** Administrateur d’utilisateurs ou propriétaire de catalogue
+**Rôle prérequis :** Administrateur général, administrateur d’utilisateurs ou propriétaire de catalogue
 
 1. Dans le portail Azure, cliquez sur **Azure Active Directory**, puis sur **Identity Governance**.
 
@@ -118,7 +118,7 @@ Vous pouvez modifier le nom et la description d’un catalogue. Les utilisateurs
 
 Vous pouvez supprimer un catalogue, mais seulement s’il ne contient pas de packages d’accès.
 
-**Rôle prérequis :** Administrateur d’utilisateurs ou propriétaire de catalogue
+**Rôle prérequis :** Administrateur général, administrateur d’utilisateurs ou propriétaire de catalogue
 
 1. Dans le portail Azure, cliquez sur **Azure Active Directory**, puis sur **Identity Governance**.
 

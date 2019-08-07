@@ -9,12 +9,12 @@ ms.date: 06/01/2019
 ms.author: tamram
 ms.reviewer: hux
 ms.subservice: blobs
-ms.openlocfilehash: d58c596421cec2e69210dd39a5d4a9708c154b44
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c0b4a83b2c950683926be7fb3be3b0cbe977fef8
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66492757"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68618396"
 ---
 # <a name="store-business-critical-data-in-azure-blob-storage"></a>Stocker des données vitales pour l’entreprise dans le stockage Blob Azure
 
@@ -91,7 +91,7 @@ Le tableau suivant montre les types d’opérations blob désactivées dans chaq
 - Le nombre maximal par compte de stockage de conteneurs avec stratégies immuables limitées dans le temps verrouillées est fixé à 1 000.
 - La période de rétention minimale est de 1 jour. Le maximum est de 146 000 jours (400 ans).
 - Pour un conteneur, il est possible de modifier jusqu’à cinq fois la période de rétention définie dans des stratégies immuables verrouillées limitées dans le temps.
-- Pour un conteneur, 7 journaux d’activité de stratégie de rétention au maximum sont conservés pour la durée de la stratégie.
+- Pour un conteneur, 7 journaux d’activité de stratégie de rétention au maximum sont conservés pour une stratégie de verrouillage.
 
 ### <a name="legal-hold"></a>Conservation légale
 - Le nombre maximal par compte de stockage de conteneurs avec paramètre d’archivage juridique est de 1 000.
@@ -144,7 +144,7 @@ Les dernières versions du [Portail Azure](https://portal.azure.com), [d’Azure
 
 9. Pour supprimer une conservation légale, supprimez simplement la balise de conservation légale associée.
 
-### <a name="azure-cli"></a>Azure CLI
+### <a name="azure-cli"></a>D’Azure CLI
 
 La fonctionnalité est incluse dans les groupes de commandes suivants : `az storage container immutability-policy` et `az storage container legal-hold`. Exécutez `-h` sur ces groupes pour afficher les commandes.
 

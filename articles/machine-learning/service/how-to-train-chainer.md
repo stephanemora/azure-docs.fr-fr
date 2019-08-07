@@ -10,12 +10,12 @@ ms.author: maxluk
 author: maxluk
 ms.reviewer: sdgilley
 ms.date: 06/15/2019
-ms.openlocfilehash: 8ecefccbdf5f02652e935858b6ae8fb4cdfde640
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 7cf5650708cd951e872e3df6ea533a62bde0389d
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67840037"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68618328"
 ---
 # <a name="train-and-register-chainer-models-at-scale-with-azure-machine-learning-service"></a>Entraîner et inscrire des modèles Chainer à l’échelle avec Azure Machine Learning service
 
@@ -29,7 +29,7 @@ Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de com
 
 ## <a name="prerequisites"></a>Prérequis
 
-Exécutez ce code sur l’un de ces environnements :
+Exécutez ce code sur l’un de ces environnements :
 
 - Machine virtuelle de Notebook Azure Machine Learning : pas d’installation ou de téléchargement nécessaire
 
@@ -49,7 +49,7 @@ Cette section configure l’expérience d’apprentissage via le chargement des 
 
 ### <a name="import-packages"></a>Importer des packages
 
-Commencez par importer la bibliothèque Python azureml.core et afficher le numéro de version.
+Commencez par importer la bibliothèque Python azureml.core et par afficher le numéro de version.
 
 ```
 # Check core SDK version number
@@ -62,7 +62,7 @@ print("SDK version:", azureml.core.VERSION)
 
 L’[espace de travail Azure Machine Learning service](concept-workspace.md) est la ressource de niveau supérieur du service. Il vous fournit un emplacement centralisé dans lequel utiliser tous les artefacts que vous créez. Dans le kit de développement logiciel (SDK) Python, vous pouvez accéder aux artefacts de l’espace de travail en créant un objet [`workspace`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py).
 
-Créez un objet d’espace de travail à partir du fichier `config.json` créé dans la [section Conditions préalables](#prerequisites).
+Créez un objet d’espace de travail en lisant le fichier `config.json` créé dans la [section Conditions préalables](#prerequisites) :
 
 ```Python
 ws = Workspace.from_config()
@@ -82,7 +82,9 @@ os.makedirs(project_folder, exist_ok=True)
 
 Dans ce didacticiel, le script d’apprentissage **chainer_mnist.py** est fourni. Dans la pratique, vous devez être capable de prendre n’importe quel script d’apprentissage personnalisé et de l’exécuter avec Azure Machine Learning sans avoir à modifier votre code.
 
-Pour utiliser les fonctionnalités de suivi et de mesures d’Azure Machine Learning, vous devrez ajouter une petite quantité de code Azure Machine Learning à l’intérieur de votre script d’apprentissage.  Le script d’apprentissage **chainer_mnist.py** montre comment consigner des mesures dans votre exécution Azure Machine Learning. Pour ce faire, vous accédez à l’objet `Run` Azure Machine Learning au sein du script.
+Pour utiliser les fonctionnalités de suivi et de mesures d’Azure Machine Learning, ajoutez une petite quantité de code Azure Machine Learning à l’intérieur de votre script d’apprentissage.  Le script d’apprentissage **chainer_mnist.py** montre comment consigner des mesures dans votre exécution Azure Machine Learning à l’aide de l’objet `Run` dans le script.
+
+Le script d’apprentissage fourni utilise des exemples de données de la fonction de chaînage `datasets.mnist.get_mnist`.  Pour vos propres données, vous devrez peut-être suivre des étapes telles que [Charger un jeu de données et des scripts](how-to-train-keras.md#upload-dataset-and-scripts) pour rendre les données disponibles pendant l’apprentissage.
 
 Copiez le script d’apprentissage **chainer_mnist.py** dans votre répertoire de projet.
 
@@ -94,7 +96,7 @@ shutil.copy('chainer_mnist.py', project_folder)
 
 ### <a name="create-an-experiment"></a>Création d'une expérience
 
-Créez une expérience et un dossier pour stocker vos scripts d’apprentissage. Dans cet exemple, créez une expérience appelée « chainer-mnist ».
+Créer une expérience. Dans cet exemple, créez une expérience appelée « chainer-mnist ».
 
 ```
 from azureml.core import Experiment
@@ -106,7 +108,7 @@ experiment = Experiment(ws, name=experiment_name)
 
 ## <a name="create-or-get-a-compute-target"></a>Créer ou obtenir une cible de calcul
 
-Vous avec besoin d’une [cible de calcul](concept-compute-target.md) pour l’apprentissage de votre modèle. Dans ce didacticiel, vous allez utiliser un calcul managé Azure Machine Learning (AmlCompute) pour votre ressource de calcul d’apprentissage à distance.
+Vous avez besoin d’une [cible de calcul](concept-compute-target.md) pour l’apprentissage de votre modèle. Dans cet exemple, vous allez utiliser un calcul managé Azure Machine Learning (AmlCompute) pour votre ressource de calcul d’apprentissage à distance.
 
 **La création d’AmlCompute prend environ cinq minutes**. Si un calcul AmlCompute portant ce nom est déjà dans votre espace de travail, ce code ignore le processus de création.  
 
@@ -182,19 +184,28 @@ Lorsque l’exécution est lancée, il effectue les étapes suivantes :
 
 Une fois que vous avez entraîné le modèle, vous pouvez l’enregistrer et l’inscrire sur votre espace de travail. L’inscription du modèle vous permet de stocker vos modèles et de suivre leurs versions dans votre espace de travail afin de simplifier [la gestion et le déploiement des modèles](concept-model-management-and-deployment.md).
 
-Ajoutez le code suivant à votre script d’apprentissage, **chainer_mnist.py**, pour enregistrer le modèle. 
 
-``` Python
-    serializers.save_npz(os.path.join(args.output_dir, 'model.npz'), model)
-```
-
-Inscrivez le modèle sur votre espace de travail avec le code suivant.
+Après avoir terminé la formation du modèle, inscrivez le modèle sur votre espace de travail avec le code suivant.  
 
 ```Python
 model = run.register_model(model_name='chainer-dnn-mnist', model_path='outputs/model.npz')
 ```
 
+> [!TIP]
+> Si vous recevez une erreur indiquant que le modèle est introuvable, attendez une minute, puis réessayez.  Il y a parfois un léger décalage entre la fin de l’exécution de la formation et la disponibilité du modèle dans le répertoire des sorties.
 
+Vous pouvez également télécharger une copie du modèle. Cela peut être utile pour effectuer un travail de validation de modèle supplémentaire localement. Dans le script d’entraînement `chainer_mnist.py`, un objet de sauvegarde conserve le modèle dans un dossier local (local dans la cible de calcul). Vous pouvez utiliser l’objet d’exécution pour télécharger une copie à partir du magasin de données.
+
+```Python
+# Create a model folder in the current directory
+os.makedirs('./model', exist_ok=True)
+
+for f in run.get_file_names():
+    if f.startswith('outputs/model'):
+        output_file_path = os.path.join('./model', f.split('/')[-1])
+        print('Downloading from {} to {} ...'.format(f, output_file_path))
+        run.download_file(name=f, output_file_path=output_file_path)
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 

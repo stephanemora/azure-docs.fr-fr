@@ -16,12 +16,12 @@ ms.date: 07/23/2019
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c07f9dbcc21840bec4b4487225dfb8108586865e
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: 17c85d53d05193313f9e166b88beb2a0f82eb197
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68489201"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68618371"
 ---
 # <a name="edit-and-manage-an-existing-access-package-in-azure-ad-entitlement-management-preview"></a>Modifier et gérer l’accès à un package d’accès existant dans la gestion des droits d’utilisation d’Azure Active Directory (préversion)
 
@@ -38,7 +38,7 @@ Cet article explique comment modifier et gérer des packages d'accès existants.
 
 Un rôle de ressources est un ensemble d’autorisations associées à une ressource. Pour mettre des ressources à la disposition des utilisateurs, ajoutez des rôles de ressources à votre package d'accès. Vous pouvez ajouter des rôles de ressources pour des groupes, des applications et des sites SharePoint.
 
-**Rôle prérequis :** administrateur d’utilisateurs, propriétaire de catalogue ou gestionnaire de package d’accès
+**Rôle prérequis :** Administrateur général, administrateur d’utilisateurs ou gestionnaire de package d’accès
 
 1. Dans le portail Azure, cliquez sur **Azure Active Directory**, puis sur **Identity Governance**.
 
@@ -62,7 +62,7 @@ Vous pouvez configurer la gestion des droits d'utilisation afin d’ajouter auto
 Vous pouvez sélectionner n'importe quel groupe de sécurité Office 365 ou Azure AD.  Les administrateurs peuvent ajouter n'importe quel groupe à un catalogue ; les propriétaires de catalogue peuvent ajouter n'importe quel groupe au catalogue si ce groupe leur appartient. Gardez à l'esprit les contraintes Azure AD suivantes lors de la sélection d'un groupe :
 
 - Si un utilisateur, y compris un invité, est ajouté en tant que membre à un groupe, il peut voir tous les autres membres de ce groupe.
-- Azure AD ne peut pas modifier l'appartenance d'un groupe qui a été synchronisé à partir de Windows Server Active Directory en utilisant Azure AD Connect.  
+- Azure AD ne peut pas modifier l'appartenance d'un groupe qui a été synchronisé à partir de Windows Server Active Directory à l’aide d’Azure AD Connect ou a été créé dans Exchange Online en tant que groupe de distribution.  
 - L'adhésion à des groupes dynamiques ne peut pas être mise à jour par l'ajout ou la suppression d'un membre, de sorte que l'adhésion à des groupes dynamiques ne convient pas pour la gestion des droits d'utilisation.
 
 1. Sur la page **Ajouter des rôles de ressources à un package d'accès**, cliquez sur **Groupes** pour ouvrir le volet Sélectionner les groupes.
@@ -136,7 +136,7 @@ Azure AD peut automatiquement donner aux utilisateurs l'accès à un site ShareP
 
 ## <a name="remove-resource-roles"></a>Supprimer des rôles de ressources
 
-**Rôle prérequis :** administrateur d’utilisateurs, propriétaire de catalogue ou gestionnaire de package d’accès
+**Rôle prérequis :** Administrateur général, administrateur d’utilisateurs ou gestionnaire de package d’accès
 
 1. Dans le portail Azure, cliquez sur **Azure Active Directory**, puis sur **Identity Governance**.
 
@@ -158,7 +158,7 @@ Le diagramme suivant montre le processus de haut niveau permettant de créer une
 
 ![Créer un processus de stratégie](./media/entitlement-management-access-package-edit/policy-process.png)
 
-**Rôle prérequis :** administrateur d’utilisateurs, propriétaire de catalogue ou gestionnaire de package d’accès
+**Rôle prérequis :** Administrateur général, administrateur d’utilisateurs ou gestionnaire de package d’accès
 
 1. Dans le portail Azure, cliquez sur **Azure Active Directory**, puis sur **Identity Governance**.
 
@@ -178,7 +178,7 @@ Le diagramme suivant montre le processus de haut niveau permettant de créer une
 
 Vous pouvez à tout moment modifier une stratégie. Si vous modifiez la date d'expiration d'une stratégie, la date d'expiration des demandes en attente d'approbation ou approuvées ne change pas.
 
-**Rôle prérequis :** administrateur d’utilisateurs, propriétaire de catalogue ou gestionnaire de package d’accès
+**Rôle prérequis :** Administrateur général, administrateur d’utilisateurs ou gestionnaire de package d’accès
 
 1. Dans le portail Azure, cliquez sur **Azure Active Directory**, puis sur **Identity Governance**.
 
@@ -200,7 +200,7 @@ Vous pouvez à tout moment modifier une stratégie. Si vous modifiez la date d'e
 
 Dans certains cas, vous pouvez affecter directement des utilisateurs spécifiques à un package d'accès pour leur éviter d’avoir à passer par le processus de demande du package d'accès. Pour affecter directement des utilisateurs, le package d'accès doit avoir une stratégie qui autorise les affectations directes par l'administrateur.
 
-**Rôle prérequis :** administrateur d’utilisateurs, propriétaire de catalogue ou gestionnaire de package d’accès
+**Rôle prérequis :** Administrateur général, administrateur d’utilisateurs ou gestionnaire de package d’accès
 
 1. Dans le portail Azure, cliquez sur **Azure Active Directory**, puis sur **Identity Governance**.
 
@@ -228,7 +228,7 @@ Dans certains cas, vous pouvez affecter directement des utilisateurs spécifique
 
 ## <a name="view-who-has-an-assignment"></a>Afficher les utilisateurs qui ont une affectation
 
-**Rôle prérequis :** administrateur d’utilisateurs, propriétaire de catalogue ou gestionnaire de package d’accès
+**Rôle prérequis :** Administrateur général, administrateur d’utilisateurs ou gestionnaire de package d’accès
 
 1. Dans le portail Azure, cliquez sur **Azure Active Directory**, puis sur **Identity Governance**.
 
@@ -248,7 +248,7 @@ Dans certains cas, vous pouvez affecter directement des utilisateurs spécifique
 
 ## <a name="view-requests"></a>Afficher les requêtes
 
-**Rôle prérequis :** administrateur d’utilisateurs, propriétaire de catalogue ou gestionnaire de package d’accès
+**Rôle prérequis :** Administrateur général, administrateur d’utilisateurs ou gestionnaire de package d’accès
 
 1. Dans le portail Azure, cliquez sur **Azure Active Directory**, puis sur **Identity Governance**.
 
@@ -260,7 +260,7 @@ Dans certains cas, vous pouvez affecter directement des utilisateurs spécifique
 
 ## <a name="view-a-requests-delivery-errors"></a>Afficher les erreurs de remise d’une requête
 
-**Rôle prérequis :** administrateur d’utilisateurs, propriétaire de catalogue ou gestionnaire de package d’accès
+**Rôle prérequis :** Administrateur général, administrateur d’utilisateurs ou gestionnaire de package d’accès
 
 1. Dans le portail Azure, cliquez sur **Azure Active Directory**, puis sur **Identity Governance**.
 
@@ -280,7 +280,7 @@ Dans certains cas, vous pouvez affecter directement des utilisateurs spécifique
 
 Vous pouvez uniquement annuler une requête en attente qui n'a pas encore été remise.
 
-**Rôle prérequis :** administrateur d’utilisateurs, propriétaire de catalogue ou gestionnaire de package d’accès
+**Rôle prérequis :** Administrateur général, administrateur d’utilisateurs ou gestionnaire de package d’accès
 
 1. Dans le portail Azure, cliquez sur **Azure Active Directory**, puis sur **Identity Governance**.
 
@@ -296,7 +296,7 @@ Vous pouvez uniquement annuler une requête en attente qui n'a pas encore été 
 
 La plupart des utilisateurs de votre répertoire peuvent se connecter au portail Mon Accès et voir automatiquement la liste des packages d’accès qu’ils peuvent demander. Toutefois, pour les utilisateurs partenaires externes qui ne figurent pas encore dans votre répertoire, vous devrez leur envoyer un lien qui leur servira à demander un package d'accès. Tant que le package d'accès est activé pour les utilisateurs externes et que vous avez défini une stratégie pour le répertoire de l'utilisateur externe, ce dernier peut utiliser le lien du portail Mon Accès afin de demander le package d'accès.
 
-**Rôle prérequis :** administrateur d’utilisateurs, propriétaire de catalogue ou gestionnaire de package d’accès
+**Rôle prérequis :** Administrateur général, administrateur d’utilisateurs ou gestionnaire de package d’accès
 
 1. Dans le portail Azure, cliquez sur **Azure Active Directory**, puis sur **Identity Governance**.
 
@@ -312,7 +312,7 @@ La plupart des utilisateurs de votre répertoire peuvent se connecter au portail
 
 Par défaut, les packages d'accès sont détectables. Cela signifie que si une stratégie permet à un utilisateur de demander le package d'accès, il verra automatiquement ce package d’accès dans son portail Mon Accès.
 
-**Rôle prérequis :** administrateur d’utilisateurs, propriétaire de catalogue ou gestionnaire de package d’accès
+**Rôle prérequis :** Administrateur général, administrateur d’utilisateurs ou gestionnaire de package d’accès
 
 1. Dans le portail Azure, cliquez sur **Azure Active Directory**, puis sur **Identity Governance**.
 
@@ -330,7 +330,7 @@ Par défaut, les packages d'accès sont détectables. Cela signifie que si une s
 
 Un package d’accès ne peut être supprimé que s’il n’est affecté à aucun utilisateur.
 
-**Rôle prérequis :** administrateur d’utilisateurs, propriétaire de catalogue ou gestionnaire de package d’accès
+**Rôle prérequis :** Administrateur général, administrateur d’utilisateurs ou gestionnaire de package d’accès
 
 1. Dans le portail Azure, cliquez sur **Azure Active Directory**, puis sur **Identity Governance**.
 

@@ -1,6 +1,6 @@
 ---
-title: Gérer le compte et les clés
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Gérer le compte et les clés - LUIS
+titleSuffix: Azure Cognitive Services
 description: Les deux informations clés d’un compte LUIS sont le compte d’utilisateur et la clé de création. Vos informations de connexion sont gérées sur account.microsoft.com. Votre clé de création est gérée sur la page Paramètres du portail LUIS.
 services: cognitive-services
 author: diberry
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 03/11/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: d5a1d7ee3b8b16631f7b919f3aece0848d662e62
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 28f8a15922a3a3e4e3b464b86bdfea07d329a848
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65523516"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68638273"
 ---
 # <a name="manage-account-and-authoring-key"></a>Gérer le compte et la clé de création
 

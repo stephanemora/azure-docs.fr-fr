@@ -16,12 +16,12 @@ ms.date: 07/10/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d4c4933847a39a56084894e5bbd40e166e6b73b6
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: e4e21fdef5be09148f001ab6f66f87dd270ccf54
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67798636"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68618263"
 ---
 # <a name="delegate-tasks-in-azure-ad-entitlement-management-preview"></a>Déléguer des tâches dans la gestion des droits d’utilisation Azure AD (préversion)
 
@@ -136,7 +136,7 @@ Si vous souhaitez déléguer la création de catalogues, ajoutez des utilisateur
 
 Si vous souhaitez déléguer la gestion d’un catalogue ou de packages accès dans le catalogue, ajoutez des utilisateurs aux rôles de propriétaire de catalogue ou de gestionnaire de package d’accès. La personne qui crée un catalogue en devient le premier propriétaire. Suivez ces étapes pour affecter un utilisateur au rôle de propriétaire de catalogue ou de gestionnaire de package d’accès.
 
-**Rôle prérequis :** Administrateur d’utilisateurs ou propriétaire de catalogue
+**Rôle prérequis :** Administrateur général, administrateur d’utilisateurs ou propriétaire de catalogue
 
 1. Dans le portail Azure, cliquez sur **Azure Active Directory**, puis sur **Identity Governance**.
 

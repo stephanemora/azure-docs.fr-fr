@@ -1,6 +1,6 @@
 ---
-title: Ajouter des entités
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Ajouter des entités - LUIS
+titleSuffix: Azure Cognitive Services
 description: Créez des entités pour extraire les données clés des énoncés de l'utilisateur dans les applications LUIS (Language Understanding).
 services: cognitive-services
 author: diberry
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 04/01/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: 241e89ac7fa78184e7c55f9e8065e1534cea9143
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1b42ab9155f5b9719ef6477934722021e3fbac99
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65148725"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68638240"
 ---
 # <a name="create-entities-without-utterances"></a>Créer des entités sans énoncés
 
@@ -114,13 +114,13 @@ Dans l’énoncé `Where is Request relocation from employee new to the company 
 
 Un rôle est un sous-type nommé en fonction du contexte. Il est disponible dans toutes les entités, y compris les entités prédéfinies et non issues de l’apprentissage automatique. 
 
-La syntaxe d’un rôle est **`{Entityname:Rolename}`** , le nom de l’entité étant suivi de deux-points, puis du nom du rôle. Par exemple : `Move {personName} from {LocationUsingRoles:Origin} to {LocationUsingRoles:Destination}`.
+La syntaxe d’un rôle est **`{Entityname:Rolename}`** , le nom de l’entité étant suivi de deux-points, puis du nom du rôle. Par exemple : `Move {personName} from {Location:Origin} to {Location:Destination}`.
 
 1. Dans la section **Build**, sélectionnez **Entities** dans le volet gauche.
 
-1. Sélectionnez **Créer une entité**. Entrez le nom de `LocationUsingRoles`. Sélectionnez le type **Simple**, puis **Done**. 
+1. Sélectionnez **Créer une entité**. Entrez le nom de `Location`. Sélectionnez le type **Simple**, puis **Done**. 
 
-1. Sélectionnez **Entities** dans le volet gauche, puis la nouvelle entité **LocationUsingRoles** créée à l’étape précédente.
+1. Sélectionnez **Entités** dans le volet gauche, puis la nouvelle entité **Emplacement** créée à l’étape précédente.
 
 1. Dans la zone de texte **Nom du rôle**, entrez le nom `Origin` du rôle et entrez. Ajoutez le deuxième nom de rôle `Destination`. 
 
