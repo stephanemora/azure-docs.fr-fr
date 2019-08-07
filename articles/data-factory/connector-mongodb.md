@@ -81,7 +81,7 @@ Pour obtenir la liste complète des sections et propriétés disponibles pour la
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type du jeu de données doit être définie sur : **MongoDbV2Collection** | OUI |
+| type | La propriété type du jeu de données doit être définie sur : **MongoDbV2Collection** | OUI |
 | collectionName |Nom de la collection dans la base de données MongoDB. |OUI |
 
 **Exemple :**
