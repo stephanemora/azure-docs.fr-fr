@@ -1,28 +1,31 @@
 ---
-title: Créer un compte Cognitive Services à l’aide d’Azure CLI
+title: Créer une ressource Cognitive Services avec Azure CLI
 titlesuffix: Azure Cognitive Services
-description: Création d’un compte d’API Cognitive Services à l’aide d’Azure CLI.
+description: Commencez à utiliser Azure Cognitive Services en créant et en vous abonnant à une ressource avec Azure CLI.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 06/26/2019
+ms.date: 07/17/2019
 ms.author: aahi
-ms.openlocfilehash: acafc2c42c2946632496b646d001c58d6b48c2a6
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: 05b679fd969dc766d697070979416312c3bad622
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67657707"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68334270"
 ---
-# <a name="create-a-cognitive-services-account-using-the-azure-command-line-interfacecli"></a>Créer un compte Cognitive Services à l’aide d’Azure CLI
+# <a name="create-a-cognitive-services-resource-using-the-azure-command-line-interfacecli"></a>Créer une ressource Cognitive Services avec Azure CLI
+
+Utilisez ce guide de démarrage rapide pour commencer à utiliser Azure Cognitive Services avec [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Les services Cognitive Services sont représentés par des [ressources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal) Azure que vous créez dans votre abonnement Azure. Après avoir créé la ressource, utilisez les clés et le point de terminaison générés pour vous pour authentifier vos applications. 
+
 
 Dans ce guide de démarrage rapide, vous allez apprendre à vous inscrire à Azure Cognitive Services et à créer un compte disposant d’un abonnement monoservice ou multiservice, à l’aide d’[Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Ces services sont représentés par des [ressources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal) Azure qui vous permettent de vous connecter à une ou plusieurs des API Cognitive Services.
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Un abonnement Azure valide. [Créez un compte](https://azure.microsoft.com/free/) gratuitement.
+* Un abonnement Azure valide : [créez-en un](https://azure.microsoft.com/free/) gratuitement.
 * [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 
 [!INCLUDE [cognitive-services-subscription-types](../../includes/cognitive-services-subscription-types.md)]
@@ -39,7 +42,7 @@ Vous pouvez également utiliser le bouton vert **Essayer** pour exécuter ces co
  
 ## <a name="create-a-new-azure-cognitive-services-resource-group"></a>Créer un groupe de ressources Azure Cognitive Services
 
-Vos abonnements à Cognitive Services sont représentés par des ressources Azure. Chaque compte Cognitive Services (et ses ressources Azure associées) doivent appartenir à un groupe de ressources Azure.
+Avant de créer une ressource Cognitive Services, vous devez disposer d’un groupe de ressources Azure pour la contenir. Quand vous créez une ressource, vous avez le choix entre créer un groupe de ressources ou utiliser un groupe existant. Cet article montre comment créer un groupe de ressources.
 
 ### <a name="choose-your-resource-group-location"></a>Choisir l’emplacement de votre groupe de ressources
 
@@ -142,7 +145,7 @@ az cognitiveservices account create \
     --yes
 ```
 
-## <a name="get-the-keys-for-your-subscription"></a>Obtenir les clés pour votre abonnement
+## <a name="get-the-keys-for-your-resource"></a>Obtenir les clés pour votre ressource
 
 Pour vous connecter à votre installation locale de l’interface CLI, utilisez la commande [az login](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-login).
 
@@ -162,9 +165,9 @@ Utilisez la commande [az cognitiveservices account keys list](https://docs.micro
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
-Si vous souhaitez nettoyer et supprimer un abonnement Cognitive Services, vous pouvez supprimer la ressource ou le groupe de ressources. La suppression du groupe de ressources efface également les autres ressources liées au groupe de ressources.
+Si vous voulez nettoyer et supprimer une ressource Cognitive Services, vous pouvez supprimer la ressource ou le groupe de ressources. La suppression du groupe de ressources supprime également toutes les autres ressources se trouvant dans le groupe.
 
-Pour supprimer le groupe de ressources et les ressources associées, y compris le nouveau compte de stockage, utilisez la commande az group delete.
+Pour supprimer le groupe de ressources et les ressources associées, utilisez la commande « az group delete ».
 
 ```azurecli-interactive
 az group delete --name storage-resource-group

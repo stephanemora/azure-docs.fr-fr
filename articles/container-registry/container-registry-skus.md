@@ -3,16 +3,17 @@ title: Références (SKU) Azure Container Registry
 description: Comparez les différents niveaux de service disponibles dans Azure Container Registry.
 services: container-registry
 author: dlepow
+manager: gwallace
 ms.service: container-registry
 ms.topic: article
 ms.date: 05/06/2019
 ms.author: danlep
-ms.openlocfilehash: f36b206ff015511dea7369617febe9220282bbe5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bf620178a0c10661126b3e52c7b908ccc9a90d89
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65069037"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68311886"
 ---
 # <a name="azure-container-registry-skus"></a>Références (SKU) Azure Container Registry
 
@@ -20,15 +21,15 @@ Azure Container Registry (ACR) est disponible dans plusieurs niveaux de service,
 
 | SKU | Adresses IP gérées | Description |
 | --- | :-------: | ----------- |
-| **De base** | OUI | Point d’entrée au coût optimisé pour les développeurs apprenant Azure Container Registry. Les registres De base ont les mêmes fonctionnalités de programmation que les registres Standard et Premium (telle que l’[intégration de l’authentification](container-registry-authentication.md#individual-login-with-azure-ad) Azure Active Directory, la [suppression d’image][container-registry-delete] et les [webhooks][container-registry-webhook]). Toutefois, le stockage inclus et le débit d’image sont parfaitement appropriés pour des scénarios d’utilisation inférieure. |
+| **De base** | OUI | Point d’entrée au coût optimisé pour les développeurs apprenant Azure Container Registry. Les registres De base ont les mêmes fonctionnalités de programmation que les registres Standard et Premium (telle que l’[intégration de l’authentification](container-registry-authentication.md#individual-login-with-azure-ad) Azure Active Directory et la [suppression d’images][container-registry-delete], and [webhooks][container-registry-webhook]). Toutefois, le stockage inclus et le débit d’image sont parfaitement appropriés pour des scénarios d’utilisation inférieure. |
 | **Standard** | OUI | Les registres Standard offrent les mêmes fonctionnalités que la version De base, avec un stockage inclus et un débit d’image accrus. Les registres Standard devraient satisfaire les besoins de la plupart des scénarios de production. |
-| **Premium** | OUI | Les registres Premium fournissent la quantité la plus élevée de stockage inclus et d’opérations simultanées, permettant des scénarios impliquant des volumes importants. En plus d’un débit d’image plus élevé, un registre Premium ajoute des fonctionnalités, dont la [géoréplication][container-registry-geo-replication] pour la gestion d’un Registre dans plusieurs régions, l’[approbation de contenu](container-registry-content-trust.md) pour la signature de balise image, et les [pare-feux et réseaux virtuels (préversion)](container-registry-vnet.md) pour restreindre l’accès au registre. |
+| **Premium** | OUI | Les registres Premium fournissent la quantité la plus élevée de stockage inclus et d’opérations simultanées, permettant des scénarios impliquant des volumes importants. En plus d’un débit d’image plus élevé, un registre Premium ajoute des fonctionnalités, dont la [géoréplication][container-registry-geo-replication] pour la gestion d’un registre dans plusieurs régions, l’[approbation de contenu](container-registry-content-trust.md) pour la signature d’étiquettes d’image, et les [pare-feu et réseaux virtuels (préversion)](container-registry-vnet.md) pour restreindre l’accès au registre. |
 |  Classique (*non disponible après avril 2019*) | Non | La référence SKU a permis la publication initiale du service Azure Container Registry dans Azure. Les registres classiques sont secondés par un compte de stockage crée par Azure dans votre abonnement, qui limite la capacité d’ACR à fournir des fonctionnalités de niveau supérieur telles que l’augmentation du débit et la géoréplication. |
 
 > [!IMPORTANT]
-> La référence SKU du registre Classique est **déconseillée** et ne sera plus disponible après le mois d’**avril 2019**. Nous recommandons d’utiliser les références De base, Standard ou Premium pour tous les nouveaux registres. Tous les registres Classiques existants doivent être mis à niveau avant avril 2019. Pour plus d’informations sur la mise à niveau, voir [Mise à niveau d’un registre Classique][container-registry-upgrade].
+> La référence SKU du registre Classique est **déconseillée** et ne sera plus disponible après le mois d’**avril 2019**. Nous recommandons d’utiliser les références De base, Standard ou Premium pour tous les nouveaux registres. Tous les registres Classiques existants doivent être mis à niveau avant avril 2019. Pour plus d’informations sur la mise à niveau, consultez [Mise à niveau d’un registre Classique][container-registry-upgrade].
 
-Les références SKU De base, Standard et Premium (collectivement appelées *registres gérés*) fournissent tous des mêmes fonctionnalités de programmation. Elles bénéficient également d’un [stockage des images][container-registry-storage] entièrement managé par Azure. Une référence de niveau supérieur fournit de meilleures performances et une meilleure mise à l’échelle. Avec plusieurs niveaux de service, vous pouvez commencer avec un niveau De base, puis passer aux niveaux Standard et Premium au fur et à mesure que votre utilisation du registre augmente.
+Les références SKU De base, Standard et Premium (collectivement appelées *registres gérés*) fournissent tous des mêmes fonctionnalités de programmation. Elles bénéficient également d’un [stockage des images][container-registry-storage] complètement managé par Azure. Une référence de niveau supérieur fournit de meilleures performances et une meilleure mise à l’échelle. Avec plusieurs niveaux de service, vous pouvez commencer avec un niveau De base, puis passer aux niveaux Standard et Premium au fur et à mesure que votre utilisation du registre augmente.
 
 ## <a name="sku-feature-matrix"></a>Matrice de fonctionnalités des références SKU
 
@@ -42,7 +43,7 @@ Vous pouvez changer la référence SKU d’un registre via l’interface de lign
 
 ### <a name="azure-cli"></a>D’Azure CLI
 
-Pour changer de références SKU dans l’interface de ligne de commande Azure, utilisez la commande [az acr update][az-acr-update]. Par exemple, pour basculer vers Premium :
+Pour changer de références SKU dans Azure CLI, utilisez la commande [az acr update][az-acr-update]. Par exemple, pour basculer vers Premium :
 
 ```azurecli
 az acr update --name myregistry --sku Premium
@@ -58,7 +59,7 @@ Si vous avez un registre Classique, vous ne pouvez pas sélectionner une référ
 
 ## <a name="pricing"></a>Tarifs
 
-Pour plus d’informations sur la tarification de chacune des références SKU Azure Container Registry, voir [Tarification Container Registry][container-registry-pricing].
+Pour plus d’informations sur la tarification de chacune des références Azure Container Registry, consultez [Tarification Container Registry][container-registry-pricing].
 
 Pour plus d’informations sur la tarification des transferts de données, consultez [Détails sur la tarification de la bande passante](https://azure.microsoft.com/pricing/details/bandwidth/). 
 
@@ -66,7 +67,7 @@ Pour plus d’informations sur la tarification des transferts de données, consu
 
 **Feuille de route Azure Container Registry**
 
-Consultez la [feuille de route ACR][acr-roadmap] sur GitHub pour obtenir des informations sur les fonctionnalités à venir dans le service.
+Consultez la [Feuille de route ACR][acr-roadmap] sur GitHub pour obtenir des informations sur les fonctionnalités à venir dans le service.
 
 **Azure Container Registry UserVoice**
 

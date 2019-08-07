@@ -9,29 +9,29 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 7/3/2019
 ms.author: dapine
-ms.openlocfilehash: ab7ce8b4a538e6a286a00285069a22878c5d88d9
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 5e442f38a8e81170eeeac2f31f00a7d0eeb08d2b
+ms.sourcegitcommit: b49431b29a53efaa5b82f9be0f8a714f668c38ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67877442"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68377392"
 ---
 ## <a name="create-an-azure-kubernetes-service-cluster-resource"></a>Créer une ressource de cluster Azure Kubernetes Service
 
-1. Accédez au [Service Azure Kubernetes](https://ms.portal.azure.com/#create/microsoft.aks), puis sélectionnez **Créer**.
+1. Accédez à [Azure Kubernetes Service](https://ms.portal.azure.com/#create/microsoft.aks), puis sélectionnez **Créer**.
 
 1. Sous l’onglet **De base**, entrez les informations suivantes :
 
     |Paramètre|Valeur|
     |--|--|
-    |Subscription|Sélectionner un abonnement approprié|
-    |Resource group|Sélectionner un groupe de ressources disponible|
-    |Nom du cluster Kubernetes|Entrer un nom (en minuscules)|
-    |Région|Sélectionner un emplacement proche|
-    |Version de Kubernetes|1.12.8 (par défaut)|
-    |Préfixe du nom DNS|Créé automatiquement, mais vous pouvez le remplacer|
+    |Subscription|Sélectionnez un abonnement approprié.|
+    |Resource group|Sélectionnez un groupe de ressources disponible.|
+    |Nom du cluster Kubernetes|Entrer un nom (en minuscules).|
+    |Région|Sélectionnez un emplacement proche.|
+    |Version de Kubernetes|1.12.8 (par défaut).|
+    |Préfixe du nom DNS|Créé automatiquement, mais vous pouvez le remplacer.|
     |Taille du nœud|Standard DS2 v2 :<br>`2 vCPUs`, `7 GB`|
-    |Nombre de nœuds|Conserver la valeur par défaut pour le curseur|
+    |Nombre de nœuds|Conservez la valeur par défaut pour le curseur.|
 
 1. Sous l’onglet **Échelle**, conservez les valeurs par défaut pour les **nœuds virtuels** et les **groupes de machines virtuelles identiques (préversion)** définis sur les valeurs par défaut.
 1. Sur l’onglet **Authentification**, conservez les valeurs par défaut définies pour **Principal du service** et **Activer RBAC**.
@@ -48,4 +48,4 @@ ms.locfileid: "67877442"
 1. Une fois la validation réussie, sélectionnez **Créer**.
 
 > [!NOTE]
-> Si la validation échoue, cela peut être dû à une erreur du principal du Service. Revenez à l’onglet **Authentification**, puis à **Vérifier + créer**, où la validation doit s’exécuter et réussir.
+> Si la validation échoue, cela peut être dû à une erreur du « principal du service ». Revenez à l’onglet **Authentification**, puis à **Vérifier + créer**, où la validation doit s’exécuter et réussir.

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/10/2019
 ms.author: juergent
-ms.openlocfilehash: b26a66eaee3a107c37d64541ec6b832331a3e2c9
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 232468d9b3466759d7af2b7be68a1f553ced6e6d
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67810320"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68348642"
 ---
 [1928533]: https://launchpad.support.sap.com/#/notes/1928533
 [2015553]: https://launchpad.support.sap.com/#/notes/2015553
@@ -48,7 +48,7 @@ ms.locfileid: "67810320"
 [ascs-ha-rhel]:https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel
 [glusterfs]:https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-glusterfs
 [rhel-pcs-azr]:https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker
-[anf-rhel]:(https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-netapp-files)
+[anf-rhel]:https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-netapp-files
 
 [dbms-guide]:dbms-guide.md
 [deployment-guide]:deployment-guide.md
@@ -125,7 +125,7 @@ Pour déployer une configuration IBM Db2, vous devez procéder comme suit :
   + Déployez les machines virtuelles.
   + Mettez à jour RHEL Linux et configurez des systèmes de fichiers.
   + Installez et configurez Pacemaker.
-  + Configurez [le cluster glusterfs][glusterfs] or [Azure NetApp Files][anf-rhel]
+  + Configurer [le cluster glusterfs][glusterfs] ou [Azure NetApp Files][anf-rhel]
   + Installez [ASCS/ERS sur un cluster séparé][ascs-ha-rhel].
   + Installez la base de données IBM Db2 avec l’option Distributed/High Availability (Distribué/Haute disponibilité) (SWPM).
   + Installez et créez une instance et un nœud de base de données secondaire, et configurez HADR.

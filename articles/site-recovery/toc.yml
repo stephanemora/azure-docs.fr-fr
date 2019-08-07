@@ -23,7 +23,7 @@
           href: azure-to-azure-tutorial-failover-failback.md
         - name: Exécuter une restauration automatique
           href: azure-to-azure-tutorial-failback.md
-    - name: Déplacer des machines virtuelles Azure
+    - name: Déplacer
       items:
         - name: Déplacer des machines virtuelles Azure vers une autre région
           href: azure-to-azure-tutorial-migrate.md
@@ -31,6 +31,8 @@
           href: move-Azure-VMs-AVset-Azone.md
         - name: Déplacer des machines virtuelles Azure entre les régions Administration et Public
           href: region-move-cross-geos.md
+        - name: Déplacer un coffre vers une autre région
+          href: move-vaults-across-regions.md
     - name: Récupération d’urgence de machine virtuelle VMware vers Azure
       items:
         - name: Préparer Azure
@@ -365,8 +367,6 @@
               href: service-updates-how-to.md
             - name: Supprimer un coffre
               href: delete-vault.md
-            - name: Déplacer un coffre vers une autre région
-              href: move-vaults-across-regions.md
     - name: Récupération d’urgence pour les applications
       items:
         - name: Configurer la récupération d’urgence vers Azure pour des applications locales
@@ -441,6 +441,8 @@
       items:
         - name: Résoudre les problèmes de réplication de machines virtuelles Azure
           href: azure-to-azure-troubleshoot-errors.md
+        - name: Résoudre les problèmes de connectivité des machines virtuelles Azure
+          href: azure-to-azure-troubleshoot-network-connectivity.md
         - name: Résolution des problèmes de réplication en cours
           href: azure-to-azure-troubleshoot-replication.md
         - name: Résoudre les problèmes du service Mobilité

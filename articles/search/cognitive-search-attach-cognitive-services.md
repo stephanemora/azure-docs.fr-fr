@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 44f16b3334b991e071fa85ca4cffbc0837f0a6ec
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 56453891289654e65f8077542fca40876099061e
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66244427"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68347244"
 ---
 # <a name="attach-a-cognitive-services-resource-with-a-skillset-in-azure-search"></a>Attacher une ressource Cognitive Services à un ensemble de qualifications dans Recherche Azure 
 
@@ -34,6 +34,9 @@ Recherche Azure et Azure Cognitive Services doivent obligatoirement exister au s
 
 Il n’existe aucun moyen de changer un service de région. Si vous obtenez cette erreur, vous devez créer une ressource Cognitive Services située dans la même région que le service Recherche Azure.
 
+> [!NOTE]
+> Certaines compétences intégrées sont basées sur des services cognitifs non régionaux (par exemple la [compétence de traduction de texte](cognitive-search-skill-text-translation.md)). Sachez que si vous ajoutez l’une d’elles à vos compétences, il n’est pas garanti que vos données restent dans la même région que votre ressource Recherche Azure ou Cognitive Services. Pour plus d’informations, consultez la [page État du service](https://aka.ms/allinoneregioninfo).
+
 ## <a name="use-free-resources"></a>Utiliser des ressources gratuites
 
 Vous pouvez utiliser une option de traitement gratuite, limitée aux exercices des guides de démarrage rapide et des tutoriels de la recherche cognitive.
@@ -42,7 +45,7 @@ Les ressources de l’option Gratuit (enrichissements limités) sont limitées �
 
 1. Ouvrez l’Assistant Importation de données :
 
-   ![Ouvrir l’Assistant Importation de données](media/search-get-started-portal/import-data-cmd2.png "Ouvrir l’Assistant Importation de données")
+   ![Ouvrir l’Assistant Importation de données](media/search-get-started-portal/import-data-cmd.png "Ouvrir l’Assistant Importation de données")
 
 1. Choisissez une source de données, puis passez à **Ajouter la recherche cognitive (facultatif)** . Pour une procédure pas à pas de cet assistant, voir [Importer, indexer et interroger à l’aide des outils du portail](search-get-started-portal.md).
 

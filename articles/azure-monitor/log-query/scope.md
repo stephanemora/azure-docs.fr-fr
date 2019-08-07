@@ -6,14 +6,14 @@ author: bwren
 manager: carmonm
 ms.service: log-analytics
 ms.topic: conceptual
-ms.date: 06/19/2019
+ms.date: 06/25/2019
 ms.author: bwren
-ms.openlocfilehash: a948b80f6524339f0908a2fb19c4a83d70b3b140
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: e67dcb1236fd5ef113835dfe99de444fc2594481
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67296877"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68405751"
 ---
 # <a name="log-query-scope-and-time-range-in-azure-monitor-log-analytics"></a>Étendue de requête de journal et intervalle de temps dans la fonctionnalité Log Analytics d’Azure Monitor
 Lorsque vous exécutez un [requête de journal](log-query-overview.md) à l’aide de la fonctionnalité [Log Analytics sur le portail Azure](get-started-portal.md), le jeu de données évalué par la requête dépend de l’étendue et de l’intervalle de temps que vous sélectionnez. Cet article décrit l’étendue et l’intervalle de temps, ainsi que la manière de les définir selon vos besoins. Il décrit également le comportement des différents types d’étendues.
@@ -32,8 +32,8 @@ L’étendue est déterminée par la méthode que vous utilisez pour démarrer L
 |:---|:---|:---|:---|
 | Espace de travail Log Analytics | Tous les enregistrements dans l’espace de travail Log Analytics. | Sélectionnez **Journaux** dans le menu **Azure Monitor** ou le menu **Espaces de travail Log Analytics**.  | Peut modifier l’étendue en la définissant sur tout autre type de ressource. |
 | Application Application Insights | Tous les enregistrements dans l’application Application Insights. | Sélectionnez **Analytics** dans la page **Vue d’ensemble** d’Application Insights. | Peut modifier uniquement l’étendue en la définissant sur toute autre application Application Insights. |
-| Groupe de ressources | Enregistrements créés par toutes les ressources du groupe de ressources. Peut inclure des données de plusieurs espaces de travail Log Analytics. | Sélectionnez **Journaux** dans le menu du groupe de ressources. | Ne peut pas modifier l’étendue.|
-| Abonnement | Enregistrements créés par toutes les ressources dans l’abonnement. Peut inclure des données de plusieurs espaces de travail Log Analytics. | Sélectionnez **Journaux** dans le menu d’abonnement.   | Ne peut pas modifier l’étendue. |
+| Resource group | Enregistrements créés par toutes les ressources du groupe de ressources. Peut inclure des données de plusieurs espaces de travail Log Analytics. | Sélectionnez **Journaux** dans le menu du groupe de ressources. | Ne peut pas modifier l’étendue.|
+| Subscription | Enregistrements créés par toutes les ressources dans l’abonnement. Peut inclure des données de plusieurs espaces de travail Log Analytics. | Sélectionnez **Journaux** dans le menu d’abonnement.   | Ne peut pas modifier l’étendue. |
 | Autres ressources Azure | Enregistrements créés par la ressource. Peut inclure des données de plusieurs espaces de travail Log Analytics.  | Sélectionnez **journaux** dans le menu de ressources.<br>Ou<br>Sélectionnez **journaux** dans le menu **Azure Monitor** menu, puis sélectionnez une nouvelle étendue. | Ne peut modifier l’étendue qu’avec le même type de ressource. |
 
 ### <a name="limitations-when-scoped-to-a-resource"></a>Limitations en cas d’étendue à une ressource
@@ -49,6 +49,19 @@ Vous ne pouvez pas utiliser les commandes suivantes dans une requête étendue �
 - [app](app-expression.md)
 - [workspace](workspace-expression.md)
  
+
+## <a name="query-limits"></a>Limites de requête
+Vous pouvez avoir des besoins métier selon lesquels une ressource Azure doit écrire des données sur plusieurs espaces de travail Log Analytics. L’espace de travail n’a pas besoin d’être dans la même région que la ressource, et un espace de travail unique peut collecter des données à partir de ressources dans différentes régions.  
+
+La définition de l’étendue sur une ressource ou un ensemble de ressources est une fonctionnalité particulièrement puissante de Log Analytics dans la mesure où elle vous permet de consolider automatiquement les données distribuées dans une seule requête. Toutefois, cela peut affecter considérablement les performances si les données doivent être récupérées à partir d’espaces de travail dans plusieurs régions Azure.
+
+Log Analytics vous aide à vous protéger contre une surcharge excessive des requêtes qui s’étendent sur des espaces de travail dans plusieurs régions en émettant un avertissement ou une erreur quand un certain nombre de régions sont utilisées. Votre requête reçoit un avertissement si l’étendue comprend des espaces de travail dans 5 régions ou plus. L’exécution se déroule néanmoins, mais peut prendre un temps excessif.
+
+![Avertissement de requête](media/scope/query-warning.png)
+
+L’exécution de votre requête sera bloquée si l’étendue comprend des espaces de travail dans 20 régions ou plus. Dans ce cas, vous êtes invité à réduire le nombre de régions de l’espace de travail et à essayer de réexécuter la requête. La liste déroulante affiche toutes les régions dans l’étendue de la requête, et vous devez réduire le nombre de régions avant de tenter de réexécuter la requête.
+
+![Échec de la requête](media/scope/query-failed.png)
 
 
 ## <a name="time-range"></a>Période

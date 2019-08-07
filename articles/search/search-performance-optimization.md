@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/02/2019
 ms.author: liamca
 ms.custom: seodec2018
-ms.openlocfilehash: 32352a857f0a74dc008dc1ad76b4a5951a36b956
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a4578e26df5a6c29e80a0bbd2e0a30725e3733ee
+ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65024545"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68370638"
 ---
 # <a name="deployment-strategies-and-best-practices-for-optimizing-performance-on-azure-search"></a>Stratégies de déploiement et meilleures pratiques en matière d’optimisation des performances dans Recherche Azure
 
@@ -88,7 +88,7 @@ Voici une vue d’ensemble de l’aspect d’une telle architecture.
    ![Source de données unique avec indexeur distribué et combinaisons de service][2]
 
 ### <a name="use-rest-apis-for-pushing-content-updates-on-multiple-services"></a>Envoyer (push) les mises à jour de contenu à plusieurs services par le biais d’API REST
-Si vous utilisez l’API REST Recherche Azure pour [envoyer (push) le contenu de votre index Recherche Azure](https://docs.microsoft.com/rest/api/searchservice/update-index), vous pouvez assurer la synchronisation continue de vos différents services de recherche en envoyant les modifications à tous ces services chaque fois qu’une mise à jour est nécessaire. Dans votre code, veillez à gérer les cas dans lesquels la mise à jour d’un service de recherche échoue.
+Si vous utilisez l’API REST Recherche Azure pour [envoyer (push) le contenu de votre index Recherche Azure](https://docs.microsoft.com/rest/api/searchservice/update-index), vous pouvez assurer la synchronisation continue de vos différents services de recherche en envoyant les modifications à tous ces services chaque fois qu’une mise à jour est nécessaire. Dans votre code, veillez à gérer les cas dans lesquels la mise à jour d’un service de recherche échoue, mais réussit pour d’autres services de recherche.
 
 ## <a name="leverage-azure-traffic-manager"></a>Exploiter Azure Traffic Manager
 [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md) vous permet d’acheminer les requêtes vers plusieurs sites géo-localisés et pris en charge par plusieurs services Azure Search. Traffic Manager offre l’avantage de pouvoir tester Azure Search pour vous assurer qu’il est disponible et de rediriger les utilisateurs vers d’autres services de recherche en cas d’interruption du service. En outre, si vous acheminez des requêtes de recherche via des sites Web Azure, Azure Traffic Manager permet d’équilibrer les charges lorsque le site web est opérationnel mais pas Azure Search. Voici un exemple d’architecture tirant parti de Traffic Manager.

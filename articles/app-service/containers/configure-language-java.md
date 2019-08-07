@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 06/26/2019
 ms.author: brendm
 ms.custom: seodec18
-ms.openlocfilehash: af6fd7b99147396a70fccc7b2b11dfef3def15a8
-ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
+ms.openlocfilehash: 1488dbdcc042b29880560e7255de96b8d0409779
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67786293"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68498503"
 ---
 # <a name="configure-a-linux-java-app-for-azure-app-service"></a>Configurer une application Java Linux pour Azure App Service
 
@@ -90,6 +90,12 @@ Vous pouvez utiliser la boîte noire SQL Zulu pour profiler en continu votre app
 
 ```azurecli
 az webapp config appsettings set -g <your_resource_group> -n <your_app_name> --settings JAVA_OPTS=-XX:StartFlightRecording=disk=true,name=continuous_recording,dumponexit=true,maxsize=1024m,maxage=1d
+```
+
+Une fois l’enregistrement démarré, vous pouvez vider les données d’enregistrement à tout moment à l’aide de la commande `JFR.dump`.
+
+```shell
+jcmd <pid> JFR.dump name=continuous_recording filename="/home/recording1.jfr"
 ```
 
 Pour plus d’informations, consultez les [informations de référence sur la commande Jcmd](https://docs.oracle.com/javacomponents/jmc-5-5/jfr-runtime-guide/comline.htm#JFRRT190).
@@ -179,13 +185,13 @@ Pour améliorer les performances des applications Tomcat, vous pouvez compiler v
 
 Les applications Java exécutées dans App Service pour Linux présentent les mêmes [bonnes pratiques de sécurité](/azure/security/security-paas-applications-using-app-services) que les autres applications.
 
-### <a name="authenticate-users"></a>Authentification des utilisateurs
+### <a name="authenticate-users-easy-auth"></a>Authentifier les utilisateurs (authentification facile)
 
 Configurez l’authentification de l’application dans le portail Azure avec l’option **Authentification et autorisation**. À partir de là, vous pouvez activer l’authentification en utilisant Azure Active Directory ou des identifiants de réseaux sociaux tels que Facebook, Google ou GitHub. La configuration du portail Azure fonctionne seulement si vous configurez un seul fournisseur d’authentification. Pour plus d’informations, consultez [Configurer votre application App Service pour utiliser une connexion Azure Active Directory](../configure-authentication-provider-aad.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) et les articles connexes sur d’autres fournisseurs d’identités. Si vous devez activer plusieurs fournisseurs de connexion, suivez les instructions de l’article [Personnaliser l’authentification App Service](../app-service-authentication-how-to.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json).
 
-#### <a name="tomcat"></a>Tomcat
+#### <a name="tomcat-and-wildfly"></a>Tomcat et Wildfly
 
-Votre application Tomcat peut accéder directement aux revendications de l’utilisateur à partir du servlet Tomcat en forçant le type de l’objet Principal en objet Map. L’objet Map mappe chaque type de revendication avec une collection des revendications de ce type. Dans le code ci-dessous, `request` est une instance de `HttpServletRequest`.
+Votre application Tomcat ou Wildfly peut accéder directement aux revendications de l’utilisateur à partir du servlet en castant l’objet Principal en objet Map. L’objet Map mappe chaque type de revendication avec une collection des revendications de ce type. Dans le code ci-dessous, `request` est une instance de `HttpServletRequest`.
 
 ```java
 Map<String, Collection<String>> map = (Map<String, Collection<String>>) request.getUserPrincipal();
@@ -205,7 +211,7 @@ for (Object key : map.keySet()) {
     }
 ```
 
-Pour déconnecter les utilisateurs et effectuer d’autres actions, consultez la documentation sur l’[utilisation de l’authentification et l’autorisation d’App Service](https://docs.microsoft.com/azure/app-service/app-service-authentication-how-to). Il existe également une documentation officielle sur l’[interface HttpServletRequest](https://tomcat.apache.org/tomcat-5.5-doc/servletapi/javax/servlet/http/HttpServletRequest.html) de Tomcat et ses méthodes. Les méthodes servlet suivantes sont également alimentées en fonction de la configuration de votre App Service :
+Pour déconnecter les utilisateurs, utilisez le chemin `/.auth/ext/logout`. Pour effectuer d’autres actions, consultez la documentation sur l’[authentification et les autorisations App Service](https://docs.microsoft.com/azure/app-service/app-service-authentication-how-to). Il existe également une documentation officielle sur l’[interface HttpServletRequest](https://tomcat.apache.org/tomcat-5.5-doc/servletapi/javax/servlet/http/HttpServletRequest.html) de Tomcat et ses méthodes. Les méthodes servlet suivantes sont également alimentées en fonction de la configuration de votre App Service :
 
 ```java
 public boolean isSecure()

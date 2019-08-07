@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: edjez
-ms.openlocfilehash: 3fdedd1af9b683b221dfa4aebad7a30559b7abff
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 3d9415a99655c7866c1a6688d0e48fd0b236a63b
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67722491"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68423269"
 ---
 # <a name="offline-evaluation"></a>Évaluation hors connexion
 
@@ -48,7 +48,7 @@ Voici des considérations importantes pour une évaluation hors connexion repré
 
 Personalizer peut utiliser le processus d’évaluation hors connexion pour découvrir automatiquement une stratégie d’apprentissage plus optimale.
 
-Après avoir effectué l’évaluation hors connexion, vous pouvez voir l’efficacité comparée de Personalizer avec cette nouvelle stratégie par rapport à la stratégie en ligne en cours. Vous pouvez ensuite appliquer la stratégie d’apprentissage pour la rendre effective immédiatement dans Personalizer, ou bien la télécharger pour l’analyser ou l’utiliser plus tard.
+Après avoir effectué l’évaluation hors connexion, vous pouvez voir l’efficacité comparée de Personalizer avec cette nouvelle stratégie par rapport à la stratégie en ligne en cours. Vous pouvez ensuite appliquer la stratégie d’apprentissage pour la rendre effective immédiatement dans Personalizer, en la téléchargeant et en la chargeant dans le panneau Modèles et stratégie. Vous pouvez également la télécharger en vue d’une analyse ou d’une utilisation ultérieure.
 
 ## <a name="understanding-the-relevance-of-offline-evaluation-results"></a>Comprendre la pertinence des résultats de l’évaluation hors connexion
 
@@ -99,3 +99,4 @@ Nous vous recommandons d’examiner les évaluations des caractéristiques et de
 ## <a name="next-steps"></a>Étapes suivantes
 
 [Configurer Personalizer](how-to-settings.md)
+[Exécuter des évaluations hors connexion](how-to-offline-evaluation.md) Comprendre le [Fonctionnement de Personalizer](how-personalizer-works.md)

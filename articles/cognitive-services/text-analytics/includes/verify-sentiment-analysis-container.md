@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 06/26/2019
 ms.author: dapine
-ms.openlocfilehash: f69d573e9e70a505018e94cca354f363097cc1b8
-ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
+ms.openlocfilehash: 1303d753b1cbfabe7ddd3442e0880b0bffe089b3
+ms.sourcegitcommit: b49431b29a53efaa5b82f9be0f8a714f668c38ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68229277"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68377397"
 ---
 ## <a name="verify-the-sentiment-analysis-container-instance"></a>Vérifier l’instance de conteneur Analyse des sentiments
 
@@ -25,7 +25,7 @@ ms.locfileid: "68229277"
 
 1. Veuillez sélectionner le lien **Description de l’API de service** pour accéder à la page Swagger des conteneurs.
 
-1. Choisissez une des API **POST** et sélectionnez **Essayer**.  Les paramètres sont affichés, y compris cet exemple d’entrée :
+1. Choisissez une des API **POST** et sélectionnez **Essayer**. Les paramètres sont affichés, y compris cet exemple d’entrée :
 
     ```json
     {
@@ -93,4 +93,4 @@ ms.locfileid: "68229277"
     }
     ```
 
-Nous pouvons maintenant corréler le document `id` des données JSON de la charge utile de réponse avec le document `id` de la charge utile de la requête d’origine. Nous voyons un score supérieur à `.98`, indiquant un sentiment fortement positif.
+Nous pouvons maintenant corréler le document `id` des données JSON de la charge utile de réponse avec le document `id` de la charge utile de la requête d’origine. Le score supérieur à `.98` indique un sentiment fortement positif.

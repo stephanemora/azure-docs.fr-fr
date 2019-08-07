@@ -4,14 +4,14 @@ description: Découvrez comment configurer et modifier la stratégie d’indexat
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 06/14/2019
+ms.date: 07/23/2019
 ms.author: thweiss
-ms.openlocfilehash: 3f19668cc4fb4f4f4a900c157aa79de83ad1b79b
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 01e3e1f1c9bffee0604de1260e8e466f5b1d229d
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67163720"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68467878"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Stratégies d’indexation dans Azure Cosmos DB
 
@@ -73,6 +73,8 @@ Toute stratégie d’indexation doit inclure le chemin racine `/*` comme chemin 
 - Exclure le chemin racine pour inclure sélectivement des chemins devant être indexés.
 
 - Pour les chemins avec des caractères normaux qui incluent : des caractères alphanumériques et _ (caractère de soulignement), vous n’êtes pas obligé d’échapper la chaîne de chemin autour de guillemets doubles (par exemple, "/ path / ?"). Pour les chemins avec d’autres caractères spéciaux, vous devez avoir les caractères d’échappement que sont les guillemets doubles autour de la chaîne de chemin (par exemple, "/\"path\"/ ?"). Si vous prévoyez des caractères spéciaux dans votre chemin, vous pouvez échapper chaque chemin pour des raisons de sécurité. Du point de vue fonctionnel, que vous échappiez chaque chemin ou uniquement ceux qui ont des caractères spéciaux ne fait aucune différence.
+
+- La propriété système « etag » est exclue de l’indexation par défaut, sauf si l’etag est ajouté au chemin inclus pour l’indexation.
 
 Consultez [cette section](how-to-manage-indexing-policy.md#indexing-policy-examples) pour des exemples de stratégies d’indexation.
 

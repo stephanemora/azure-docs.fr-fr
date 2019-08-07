@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/10/2019
 ms.author: bwren
-ms.openlocfilehash: be9d3a14d5b242ba8c331cdd1f4c558e7a080af5
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 0386700c238c213fd9cde3ca1b49e5e598d05bfd
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67296826"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68405675"
 ---
 # <a name="azure-monitor-service-limits"></a>Limites du service Azure Monitor
 
@@ -30,6 +30,10 @@ Cet article répertorie les limites dans différentes zones d’Azure Monitor.
 ## <a name="action-groups"></a>Groupes d’actions
 
 [!INCLUDE [monitoring-limits](../../includes/azure-monitor-limits-action-groups.md)]
+
+## <a name="log-queries-and-language"></a>Requêtes de journal et langage
+
+[!INCLUDE [monitoring-limits](../../includes/azure-monitor-limits-log-queries.md)]
 
 ## <a name="log-analytics-workspaces"></a>Espaces de travail Log Analytics
 

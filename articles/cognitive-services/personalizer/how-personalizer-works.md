@@ -2,19 +2,19 @@
 title: Fonctionnement de Personalizer - Personalizer
 titleSuffix: Azure Cognitive Services
 description: Personalizer utilise le machine learning pour découvrir quelle action utiliser dans un contexte donné. Chaque boucle d’apprentissage a un modèle qui est entraîné exclusivement sur les données que vous avez envoyées via des appels de l’API de classement (Rank) et de récompense (Reward). Chaque boucle d’apprentissage est complètement indépendante des autres.
-author: edjez
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 06/07/2019
-ms.author: edjez
-ms.openlocfilehash: 38480d3cc32d53084b79af627e4f7e6ae7dcc03d
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.author: diberry
+ms.openlocfilehash: e55ccb508760c4473f71245c183948219f31985c
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67722361"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68663909"
 ---
 # <a name="how-personalizer-works"></a>Fonctionnement de Personalizer
 
@@ -79,6 +79,8 @@ Personalizer est basé sur la science et la recherche de pointe dans le domaine 
 * **Événements inactifs** : Un événement inactif est un événement où vous avez appelé le classement, mais où vous n’êtes pas sûr que l’utilisateur verra jamais le résultat, en raison des décisions de l’application cliente. Les événements inactifs vous permettent de créer et de stocker les résultats de la personnalisation, puis de décider de les abandonner plus tard sans affecter le modèle de machine learning.
 
 * **Modèle** : Un modèle Personalizer capture toutes les données apprises sur le comportement des utilisateurs, obtenant les données d’entraînement de la combinaison des arguments que vous envoyez aux appels de classement et de récompense, et avec un comportement d’entraînement déterminé par la stratégie d’apprentissage. 
+
+* **Stratégie d’apprentissage** : La façon dont Personalizer entraîne un modèle sur chaque événement est déterminée par certains métaparamètres qui affectent le fonctionnement des algorithmes Machine Learning. Les nouvelles boucles de Personalizer commencent par une stratégie d’apprentissage par défaut, ce qui peut donner des performances modérées. Lors de l’exécution des [Évaluations](concepts-offline-evaluation.md), Personalizer peut créer de nouvelles stratégies d’apprentissage spécifiquement optimisées pour les cas d’utilisation de votre boucle. Personalizer s’exécutera considérablement mieux avec les stratégies optimisées pour chaque boucle spécifique, générées pendant l’évaluation.
 
 ## <a name="example-use-cases-for-personalizer"></a>Exemple de cas d’utilisation pour Personalizer
 
@@ -182,3 +184,4 @@ Vous pouvez vérifier périodiquement l’efficacité de Personalizer en effectu
 ## <a name="next-steps"></a>Étapes suivantes
 
 Comprendre [où vous pouvez utiliser Personalizer](where-can-you-use-personalizer.md).
+Effectuer des [évaluations hors connexion](how-to-offline-evaluation.md)

@@ -10,12 +10,12 @@ ms.reviewer: divswa, LADocs
 ms.topic: article
 ms.date: 05/09/2019
 tags: connectors
-ms.openlocfilehash: 8232bf90b4dc160583959345a257846aaabad690
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.openlocfilehash: 9e46c51ae06920bd57f272248f06020dfad380e7
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67458927"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68326711"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Se connecter aux systèmes SAP à partir d’Azure Logic Apps
 
@@ -29,8 +29,7 @@ Le connecteur SAP utilise la [bibliothèque NCo (.NET Connector) SAP](https://su
 
 Pour ces opérations, le connecteur SAP prend en charge l’authentification de base via un nom d’utilisateur et un mot de passe. Le connecteur prend également en charge [Secure Network Communications (SNC)](https://help.sap.com/doc/saphelp_nw70/7.0.31/e6/56f466e99a11d1a5b00000e835363f/content.htm?no_cache=true). SNC peut être utilisé pour l’authentification unique SAP NetWeaver ou pour des fonctionnalités de sécurité supplémentaires fournies par un produit de sécurité externe.
 
-Le connecteur SAP s’intègre aux systèmes SAP locaux via la [passerelle de données locale](../logic-apps/logic-apps-gateway-connection.md). Dans les scénarios d’envoi, par exemple lors de l’envoi d’un message depuis une application logique à un système SAP, la passerelle de données agit comme un client RFC et transfère les demandes reçues de l’application logique à SAP.
-De même, dans les scénarios de réception, la passerelle de données agit en tant que serveur RFC qui reçoit des demandes de SAP et les transfère à l’application logique.
+Le connecteur SAP s’intègre aux systèmes SAP locaux via la [passerelle de données locale](../logic-apps/logic-apps-gateway-connection.md). Dans les scénarios d’envoi, par exemple lors de l’envoi d’un message depuis une application logique à un système SAP, la passerelle de données agit comme un client RFC et transfère les demandes reçues de l’application logique à SAP. De même, dans les scénarios de réception, la passerelle de données agit en tant que serveur RFC qui reçoit des demandes de SAP et les transfère à l’application logique.
 
 Cet article explique comment créer des exemples d’applications logiques qui s’intègrent à SAP en couvrant les scénarios d’intégration décrits précédemment.
 
@@ -41,18 +40,25 @@ Cet article explique comment créer des exemples d’applications logiques qui s
 Pour suivre cet article, vous avez besoin de ces éléments :
 
 * Un abonnement Azure. Si vous n’avez pas encore d’abonnement Azure, [inscrivez-vous pour bénéficier d’un compte Azure gratuit](https://azure.microsoft.com/free/).
+
 * L’application logique à partir de laquelle vous souhaitez accéder à votre système SAP et un déclencheur qui démarre le flux de travail de votre application logique. Si vous débutez avec les applications logiques, consultez [Qu’est-ce qu’Azure Logic Apps ?](../logic-apps/logic-apps-overview.md) et [Démarrage rapide : Créer votre première application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+
 * Votre [serveur d’applications SAP](https://wiki.scn.sap.com/wiki/display/ABAP/ABAP+Application+Server) ou [serveur de messagerie SAP](https://help.sap.com/saphelp_nw70/helpdata/en/40/c235c15ab7468bb31599cc759179ef/frameset.htm).
+
 * Téléchargez et installez la dernière [passerelle de données locale](https://www.microsoft.com/download/details.aspx?id=53127) sur n’importe quel ordinateur local. Assurez-vous de configurer votre passerelle dans le portail Azure avant de continuer. La passerelle vous permet d’accéder en toute sécurité aux données et ressources locales. Pour plus d’informations, consultez [Installer une passerelle de données locale pour Azure Logic Apps](../logic-apps/logic-apps-gateway-install.md).
+
 * Si vous utilisez SNC avec l’authentification unique, assurez-vous que la passerelle s’exécute en tant qu’utilisateur qui est mappé à l’utilisateur SAP. Pour modifier le compte par défaut, sélectionnez **Changer de compte**, puis entrez les informations d’identification de l’utilisateur.
 
   ![Modifier le compte de passerelle](./media/logic-apps-using-sap-connector/gateway-account.png)
 
 * Si vous activez SNC avec un produit de sécurité externe, copiez la bibliothèque SNC ou les fichiers sur le même ordinateur sur lequel la passerelle est installée. [sapseculib](https://help.sap.com/saphelp_nw74/helpdata/en/7a/0755dc6ef84f76890a77ad6eb13b13/frameset.htm), Kerberos et NTLM sont des exemples de produits SNC.
-* Téléchargez et installez la bibliothèque cliente SAP la plus récente, actuellement [Connecteur SAP (NCo) 3.0.21.0 pour Microsoft .NET Framework 4.0 et Windows 64 bits (x64)](https://softwaredownloads.sap.com/file/0020000001865512018), sur le même ordinateur que la passerelle de données locale. Installez cette version ou une version ultérieure pour ces raisons :
+
+* Téléchargez et installez la bibliothèque de client SAP la plus récente, actuellement [Connecteur SAP (NCo 3.0) pour Microsoft .NET 3.0.22.0 compilée avec .NET Framework 4.0 - Windows 64 bits (x64)](https://softwaredownloads.sap.com/file/0020000001000932019), sur le même ordinateur que la passerelle de données locale. Installez cette version ou une version ultérieure pour ces raisons :
 
   * Les versions antérieures du NCo SAP peuvent subir un interblocage quand plusieurs messages IDoc sont envoyés en même temps. Cette situation bloque tous les messages envoyés ultérieurement à la destination SAP, ce qui engendre une expiration des messages.
+  
   * La passerelle de données locale s’exécute uniquement sur les systèmes 64 bits. Dans le cas contraire, vous obtenez une erreur « image incorrecte », car le service hôte de la passerelle de données ne prend pas en charge les assemblys 32 bits.
+  
   * Le service hôte de la passerelle de données et l’adaptateur SAP Microsoft utilisent tous deux .NET Framework 4.5. Le NCo SAP pour .NET Framework 4.0 fonctionne avec les processus qui utilisent un runtime .NET 4.0 à 4.7.1. Le NCo SAP pour .NET Framework 2.0 fonctionne avec les processus qui utilisent un runtime .NET 2.0 à 3.5, mais ne fonctionne plus avec la passerelle de données locale la plus récente.
 
 * Le contenu du message que vous pouvez envoyer à votre serveur SAP, comme un exemple de fichier IDoc, doit être au format XML et inclure l’espace de noms pour l’action SAP que vous souhaitez utiliser.
@@ -294,21 +300,21 @@ Dans la barre d’outils du concepteur, sélectionnez **Enregistrer**.
 
    **Créer une connexion SAP locale**
 
-    1. Fournissez les informations de connexion pour votre serveur SAP. Pour la propriété **Passerelle de données**, sélectionnez la passerelle de données que vous avez créée dans le portail Azure lors de l’installation de la passerelle.
+   1. Fournissez les informations de connexion pour votre serveur SAP. Pour la propriété **Passerelle de données**, sélectionnez la passerelle de données que vous avez créée dans le portail Azure lors de l’installation de la passerelle.
 
-       - Si la propriété **Type de connexion** est définie sur **Serveur d’applications**, ces propriétés, qui apparaissent habituellement facultatives, sont obligatoires :
+      - Si la propriété **Type de connexion** est définie sur **Serveur d’applications**, ces propriétés, qui apparaissent habituellement facultatives, sont obligatoires :
 
-         ![Créer une connexion au serveur d’applications SAP](media/logic-apps-using-sap-connector/create-SAP-application-server-connection.png)
+        ![Créer une connexion au serveur d’applications SAP](media/logic-apps-using-sap-connector/create-SAP-application-server-connection.png)
 
-       - Si la propriété **Type de connexion** est définie sur **Groupe**, ces propriétés, qui apparaissent habituellement facultatives, sont obligatoires :
+      - Si la propriété **Type de connexion** est définie sur **Groupe**, ces propriétés, qui apparaissent habituellement facultatives, sont obligatoires :
 
-         ![Créer une connexion au serveur de messagerie SAP](media/logic-apps-using-sap-connector/create-SAP-message-server-connection.png)
+        ![Créer une connexion au serveur de messagerie SAP](media/logic-apps-using-sap-connector/create-SAP-message-server-connection.png)
 
-        Par défaut, le typage fort est utilisé pour rechercher des valeurs non valides en effectuant une validation XML par rapport au schéma. Ce comportement peut vous aider à détecter les problèmes plus tôt. L’option **Types sécurisés** est disponible pour la compatibilité descendante et ne vérifie que la longueur de chaîne. Apprenez-en davantage sur l’[option Types sécurisés](#safe-typing).
+      Par défaut, le typage fort est utilisé pour rechercher des valeurs non valides en effectuant une validation XML par rapport au schéma. Ce comportement peut vous aider à détecter les problèmes plus tôt. L’option **Types sécurisés** est disponible pour la compatibilité descendante et ne vérifie que la longueur de chaîne. Apprenez-en davantage sur l’[option Types sécurisés](#safe-typing).
 
-    1. Quand vous avez terminé, sélectionnez **Créer**. 
+   1. Quand vous avez terminé, sélectionnez **Créer**. 
    
-       Logic Apps configure et teste votre connexion pour vérifier son bon fonctionnement.
+      Logic Apps configure et teste votre connexion pour vérifier son bon fonctionnement.
 
 1. Indiquez le chemin de l’artefact pour lequel vous voulez générer le schéma.
 
@@ -350,16 +356,15 @@ Vous pouvez aussi télécharger ou stocker les schémas générés dans des réf
 
 1. Entrez les détails de l’action, notamment votre abonnement Azure, le groupe de ressources Azure et le compte d’intégration. Pour ajouter des jetons SAP aux champs, cliquez dans les zones pour ces champs, puis sélectionnez dans la liste de contenu dynamique qui s’affiche.
 
-    1. Ouvrez la liste **Ajouter un nouveau paramètre**, puis sélectionnez les champs **Emplacement** et **Propriétés**.
+   1. Ouvrez la liste **Ajouter un nouveau paramètre**, puis sélectionnez les champs **Emplacement** et **Propriétés**.
 
-    1. Fournissez des détails pour ces nouveaux champs comme indiqué dans cet exemple.
+   1. Fournissez des détails pour ces nouveaux champs comme indiqué dans cet exemple.
 
-       ![Entrer les détails pour l’action Azure Resource Manager](media/logic-apps-using-sap-connector/azure-resource-manager-action.png)
+      ![Entrer les détails pour l’action Azure Resource Manager](media/logic-apps-using-sap-connector/azure-resource-manager-action.png)
 
    L’action SAP **Générer les schémas** génère des schémas sous forme de collection : le concepteur ajoute donc automatiquement une boucle **For each** à l’action. Voici un exemple qui montre comment cette action apparaît :
 
    ![Action Azure Resource Manager avec une boucle « for each »](media/logic-apps-using-sap-connector/azure-resource-manager-action-foreach.png)  
-
    > [!NOTE]
    > Les schémas utilisent un format codé en base64. Pour télécharger les schémas dans un compte d’intégration, ils doivent être décodés avec la fonction `base64ToString()`. Voici un exemple qui montre le code pour l’élément `"properties"` :
    >
@@ -387,7 +392,7 @@ Avant de commencer, vérifiez que vous vous conformez aux [prérequis](#pre-reqs
 * Pour l’authentification unique, la passerelle s’exécute en tant qu’utilisateur qui est mappé à un utilisateur SAP.
 * La bibliothèque SNC qui fournit les fonctions de sécurité supplémentaire est installée sur le même ordinateur que la passerelle de données. [sapseculib](https://help.sap.com/saphelp_nw74/helpdata/en/7a/0755dc6ef84f76890a77ad6eb13b13/frameset.htm), Kerberos et NTLM en sont des exemples.
 
-Pour activer SNC pour vos demandes vers ou depuis le système SAP, cochez la case **Utiliser SNC** dans la connexion SAP et renseignez ces propriétés :
+   Pour activer SNC pour vos demandes vers ou depuis le système SAP, cochez la case **Utiliser SNC** dans la connexion SAP et renseignez ces propriétés :
 
    ![Configurer SNC SAP dans la connexion](media/logic-apps-using-sap-connector/configure-sapsnc.png)
 
@@ -449,14 +454,16 @@ Lorsque les messages sont envoyés avec l’option**Types sécurisés** activée
 <TIME>235959</TIME>
 ```
 
-
 ## <a name="known-issues-and-limitations"></a>Problèmes connus et limitations
 
 Voici les problèmes et limitations connus pour le connecteur SAP :
 
 * Un seul appel ou message Envoyer à SAP fonctionne avec tRFC. Le modèle de validation BAPI, qui permet par exemple d’effectuer plusieurs appels tRFC dans la même session, n’est pas pris en charge.
+
 * Le déclencheur SAP ne prend pas en charge la réception des IDoc par lots provenant de SAP. Cette action peut entraîner des échecs de connexion de RFC entre votre système SAP et la passerelle de données.
+
 * Le déclencheur SAP ne prend pas en charge les clusters de passerelle de données. Dans certains cas de basculement, le nœud de la passerelle de données qui communique avec le système SAP peut différer du nœud actif, ce qui entraîne un comportement inattendu. Pour les scénarios d’envoi, les clusters de passerelles de données sont pris en charge.
+
 * Le connecteur SAP ne prend actuellement pas en charge les chaînes de routeur SAP. La passerelle de données locale doit exister sur le même réseau local que le système SAP que vous voulez connecter.
 
 ## <a name="connector-reference"></a>Référence de connecteur

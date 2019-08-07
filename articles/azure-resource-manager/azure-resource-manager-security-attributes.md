@@ -1,6 +1,6 @@
 ---
-title: Attributs de sécurité courants pour Azure Resource Manager
-description: Une check-list des attributs de sécurité courants pour évaluer Azure Resource Manager
+title: Attributs de sécurité pour Azure Resource Manager
+description: Liste de contrôle des attributs de sécurité pour l’évaluation d’Azure Resource Manager
 services: azure-resource-manager
 author: msmbaldwin
 manager: barbkess
@@ -8,12 +8,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: mbaldwin
-ms.openlocfilehash: a771d4c2ae22b7bf149c13c80fe5286ef52a4545
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e3bfb79c54ff57adfa947f2dd0100f6c05c7af9f
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66002257"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68444151"
 ---
 # <a name="security-attributes-for-azure-resource-manager"></a>Attributs de sécurité pour Azure Resource Manager
 
@@ -25,8 +25,8 @@ Cet article décrit les attributs de sécurité intégrés à Azure Resource Man
 
 | Attribut de sécurité | Oui/Non | Notes |
 |---|---|--|
-| Chiffrement au repos :<ul><li>Chiffrement côté serveur</li><li>Chiffrement côté serveur avec des clés gérées par le client</li><li>Autres fonctionnalités de chiffrement (côté client, Always Encrypted, etc.)</ul>| OUI |  |
-| Chiffrement en transit :<ul><li>Chiffrement Express Route</li><li>Chiffrement dans le réseau virtuel</li><li>Chiffrement de réseau virtuel à réseau virtuel</ul>| OUI | HTTPS/TLS. |
+| Chiffrement au repos (comme le chiffrement côté serveur, le chiffrement côté serveur avec clés managées par le client et d’autres fonctions de chiffrement)| OUI |  |
+| Chiffrement en transit (ExpressRoute, de réseau virtuel et de réseau virtuel à réseau virtuel)| OUI | HTTPS/TLS. |
 | Gestion des clés de chiffrement (CMK, BYOK, etc.)| N/A | Azure Resource Manager ne stocke aucun contenu client, uniquement des données de contrôle. |
 | Chiffrement au niveau des colonnes (Azure Data Services)| OUI | |
 | Appels d’API chiffrés| OUI | |

@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: sstein, carlrab
 manager: craigg
-ms.date: 07/15/2019
-ms.openlocfilehash: fa64177dfa5bfadad5db4116224b94ffac2fadc0
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.date: 07/19/2019
+ms.openlocfilehash: 1cc8828f5a936b130480c2c7516d00b8bee6760f
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68233047"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68357281"
 ---
 # <a name="prepay-for-sql-database-compute-resources-with-azure-sql-database-reserved-capacity"></a>Prépayer des ressources de calcul SQL Database avec une capacité réservée Azure SQL Database
 
@@ -66,11 +66,11 @@ Le tableau suivant décrit les champs requis.
 
 ## <a name="cancellations-and-exchanges"></a>Annulations et échanges
 
-Si vous êtes amené à annuler votre réservation de capacité de réserve SQL Database, des frais de résiliation anticipée de 12 % sont susceptibles d’être appliqués. Les remboursements sont basés sur le tarif le plus bas de votre prix d’achat ou le prix actuel de la réservation. Les remboursements sont limités à 50 000 $ par an. Le remboursement que vous recevez correspond au solde restant au prorata moins les frais de résiliation anticipée de 12 %. Pour demander une annulation, accédez à la réservation dans le Portail Azure et sélectionnez **Remboursement** pour créer une demande de support.
+Si vous êtes amené à annuler votre réservation de capacité de réserve SQL Database, des frais de résiliation anticipée de 12 % sont susceptibles d’être appliqués. Les remboursements sont basés sur le tarif le plus bas de votre prix d’achat ou le prix actuel de la réservation. Les remboursements sont limités à 50 000 $ par an. Le remboursement que vous recevez correspond au solde restant au prorata moins les frais de résiliation anticipée de 12 %. Pour annuler, accédez à la réservation dans le portail Azure, puis sélectionnez **Remboursement**.
 
-Si vous êtes amené à modifier votre réservation de capacité de réserve SQL Database pour une autre région, un autre type de déploiement ou un autre terme, vous pouvez l’échanger contre une autre réservation de valeur égale ou supérieure. La date de début du terme de la nouvelle réservation ne couvre pas la réservation échangée. Le terme de 1 ou 3 ans commence lorsque vous créez la nouvelle réservation. Pour demander un échange, accédez à la réservation dans le Portail Azure et sélectionnez **Échange** pour créer une demande de support.
+Si vous êtes amené à modifier votre réservation de capacité de réserve SQL Database pour une autre région, un autre type de déploiement ou un autre terme, vous pouvez l’échanger contre une autre réservation de valeur égale ou supérieure. La date de début du terme de la nouvelle réservation ne couvre pas la réservation échangée. Le terme de 1 ou 3 ans commence lorsque vous créez la nouvelle réservation. Pour échanger, accédez à la réservation dans le portail Azure, puis sélectionnez **Échanger**.
 
-Pour plus d’informations sur l’échange ou le remboursement des réservations, consultez [Échanges et remboursements de réservations](../billing/billing-azure-reservations-self-service-exchange-and-refund.md).
+Pour plus d’informations sur l’échange ou le remboursement des réservations, voir [Échanges et remboursements de réservations](../billing/billing-azure-reservations-self-service-exchange-and-refund.md).
 
 ## <a name="vcore-size-flexibility"></a>Flexibilité de la taille vCore
 

@@ -1,18 +1,18 @@
 ---
 title: À propos de la sauvegarde de machine virtuelle Azure
 description: Découvrez la sauvegarde de machine virtuelle Azure et quelques bonnes pratiques.
-author: rayne-wiselman
+author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 03/04/2019
-ms.author: raynew
-ms.openlocfilehash: bf6aa07319b8029744a5c8898a4104d330fbb1d1
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: 7a470674fa9ccdde2b33bb33bfb52bead1822895
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68465228"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639729"
 ---
 # <a name="about-azure-vm-backup"></a>À propos de la sauvegarde de machine virtuelle Azure
 
@@ -111,8 +111,8 @@ Les scénarios courants ci-dessous peuvent affecter la durée de sauvegarde tota
 Lors de la configuration des sauvegardes de machines virtuelles, nous vous suggérons de suivre les pratiques suivantes :
 
 - Modifiez les heures de planification par défaut définies dans une stratégie. Par exemple, si l’heure par défaut d’une stratégie est minuit, incrémentez-la de quelques minutes pour optimiser l’utilisation des ressources.
-- Pour la sauvegarde de machines virtuelles qui utilisent un stockage Premium, nous vous recommandons d’exécuter la dernière version de Sauvegarde Azure ([Restauration instantanée](backup-instant-restore-capability.md)). Si vous n’exécutez pas la dernière version, le service Sauvegarde alloue environ 50 % de l’espace de stockage total. Le service Sauvegarde a besoin de cet espace pour copier l’instantané vers le même compte de stockage et le transférer vers le coffre.
 - Si vous restaurez des machines virtuelles à partir d’un seul coffre, nous vous recommandons vivement d’utiliser différents [comptes de stockage v2 à usage général](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade) pour être certain que le compte de stockage cible ne soit pas limité. Par exemple, chaque machine virtuelle doit avoir un compte de stockage distinct. Par exemple, si 10 machines virtuelles sont restaurées, utilisez 10 comptes de stockage distincts.
+- Pour la sauvegarde de machines virtuelles qui utilisent le stockage Premium, avec la restauration instantanée, nous vous recommandons d’allouer *50 %* de l’espace de stockage alloué total disponible, qui est nécessaire **uniquement** pour la première sauvegarde. Le fait de n’utiliser que 50 % de l’espace disponible n’est plus une obligation une fois la première sauvegarde terminée
 - Les restaurations à partir d’une couche de stockage v1 à usage général (instantané) s’effectuent en quelques minutes, car l’instantané figure dans le même compte de stockage. Les restaurations à partir de la couche de stockage v2 à usage général (coffre) peuvent prendre des heures. Dans les cas où les données sont disponibles dans un stockage v1 à usage général, nous vous recommandons d’utiliser la fonctionnalité [Restauration instantanée](backup-instant-restore-capability.md) pour accélérer les restaurations (si les données doivent être restaurées à partir d’un coffre, cela prendra plus de temps).
 - La limite du nombre de disques par compte de stockage dépend de la lourdeur des disques auxquels accèdent les applications s’exécutant sur une machine virtuelle IaaS. En règle générale, si plus de 5 disques sont présents sur un compte de stockage, équilibrez la charge en déplaçant certains disques vers des comptes de stockage distincts.
 

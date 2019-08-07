@@ -10,29 +10,31 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: jehollan
-ms.openlocfilehash: dab7561db8f223bff87f41ef756605359c3478e4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8ad09550e572c98931346b44a6c6f84da29a85e4
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66492698"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68443961"
 ---
 # <a name="azure-functions-premium-plan-preview"></a>Plan Azure Functions Premium (préversion)
 
 Le plan Azure Functions Premium est une option d’hébergement pour les applications de fonction. Il présente des avantages tels que la connectivité réseau virtuel, l’absence de démarrage à froid et du matériel de pointe.  Plusieurs applications de fonction peuvent être déployées sur le même plan Premium, et celui-ci vous permet de configurer la taille d’instance de calcul, la taille du plan de base et taille maximale de plan.  Pour une comparaison entre le plan Premium et d’autres types de plans et d’hébergements, voir [options de mise à l’échelle et d’hébergement de fonction](functions-scale.md).
 
-> [!NOTE]
-> La préversion du plan Premium prend actuellement en charge des fonctions exécutées en .NET, Node ou Java via une infrastructure Windows.
-
 ## <a name="create-a-premium-plan"></a>Créer un plan Premium
 
 [!INCLUDE [functions-premium-create](../../includes/functions-premium-create.md)]
 
-Vous pouvez également créer un plan Premium à partir d’Azure CLI
+Vous pouvez également créer un plan Premium à l’aide de la commande [az functionapp plan create](/cli/azure/functionapp/plan#az-functionapp-plan-create) dans Azure CLI. L’exemple suivant crée un plan de niveau _Élastique Premium 1_ :
 
 ```azurecli-interactive
-az functionapp plan create -g <resource-group> -n <plan-name> -l <region> --number-of-workers 1 --sku EP1
+az functionapp plan create --resource-group <RESOURCE_GROUP> --name <PLAN_NAME> \
+--location <REGION> --sku EP1
 ```
+
+Dans cet exemple, remplacez `<RESOURCE_GROUP>` par votre groupe de ressources `<PLAN_NAME>` et par le nom de votre plan, qui doit être unique dans le groupe de ressources. Spécifiez une [`<REGION>` prise en charge](#regions). Pour créer un plan Premium qui prend en charge Linux, ajoutez l’option `--is-linux`.
+
+Une fois le plan créé, vous pouvez utiliser [az functionapp create](/cli/azure/functionapp#az-functionapp-create) pour créer votre application de fonction. Dans le portail, le plan et l’application sont créés en même temps. 
 
 ## <a name="features"></a>Caractéristiques
 
@@ -101,28 +103,30 @@ Pendant la création ou la mise à l’échelle de votre plan, vous pouvez chois
 
 ## <a name="regions"></a>Régions
 
-Vous trouverez ci-dessous les régions prenant actuellement en charge la préversion publique.
+Vous trouverez ci-dessous les régions prenant actuellement en charge la préversion publique, pour chaque système d’exploitation.
 
-|Région|
-|--|
-|Australie Est|
-|Australie Sud-Est|
-|Centre du Canada|
-|USA Centre|
-|Asie Est|
-|USA Est 2|
-|France Centre|
-|Japon Ouest|
-|Centre de la Corée|
-|USA Centre Nord|
-|Europe Nord|
-|USA Centre Sud|
-|Inde Sud|
-|Asie Sud-Est|
-|Ouest du Royaume-Uni|
-|Europe Ouest|
-|Inde Ouest|
-|USA Ouest|
+|Région| Windows | Linux |
+|--| -- | -- |
+|Australie Est| ✔ | |
+|Australie Sud-Est | ✔ | ✔ |
+|Centre du Canada| ✔ |  |
+|USA Centre| ✔ |  |
+|Asie Est| ✔ |  |
+|East US | | ✔ |
+|USA Est 2| ✔ |  |
+|France Centre| ✔ |  |
+|Japon Est|  | ✔ |
+|Japon Ouest| ✔ | |
+|Centre de la Corée| ✔ |  |
+|USA Centre Nord| ✔ |  |
+|Europe Nord| ✔ | ✔ |
+|USA Centre Sud| ✔ |  |
+|Inde Sud | ✔ | |
+|Asie Sud-Est| ✔ | ✔ |
+|Ouest du Royaume-Uni| ✔ |  |
+|Europe Ouest| ✔ | ✔ |
+|Inde Ouest| ✔ |  |
+|USA Ouest| ✔ | ✔ |
 
 ## <a name="known-issues"></a>Problèmes connus
 

@@ -12,21 +12,16 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: 1e30490dbd51f541afd0b7036769cfc638a75877
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d4683a1cad5172f7104e745433bd141bcf36d56f
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66514381"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68326372"
 ---
-# <a name="status-monitor-v2-api-enable-instrumentationengine-v021-alpha"></a>API Status Monitor v2 : Enable-InstrumentationEngine (v0.2.1-alpha)
+# <a name="status-monitor-v2-api-enable-instrumentationengine"></a>API Status Monitor v2 : Enable-InstrumentationEngine
 
 Cet article décrit une cmdlet appartenant au [module PowerShell Az.ApplicationMonitor](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
-
-> [!IMPORTANT]
-> Status Monitor v2 est actuellement en préversion publique.
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou n’être pas prises en charge.
-> Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="description"></a>Description
 
@@ -34,7 +29,7 @@ Active le moteur d’instrumentation en définissant certaines clés de Registre
 Redémarrez IIS pour que les modifications soient prises en compte.
 
 Le moteur d’instrumentation peut compléter les données collectées par les kits de développement logiciel (SDK) .NET.
-Il collecte les événements et les messages qui décrivent l’exécution d’un processus managé. Ces événements et messages incluent les codes de résultat de dépendance, les verbes HTTP et le texte de commande SQL.
+Il collecte les événements et les messages qui décrivent l’exécution d’un processus managé. Ces événements et messages incluent les codes de résultat de dépendance, les verbes HTTP et le [texte de commande SQL](asp-net-dependencies.md#advanced-sql-tracking-to-get-full-sql-query).
 
 Activez le moteur d’instrumentation si :
 - Vous avez déjà activé la supervision avec la cmdlet Enable mais n’avez pas activé le moteur d’instrumentation.
@@ -82,9 +77,9 @@ Configuring registry for instrumentation engine...
  Ajoutez des données de télémétrie :
  - [Créez des tests web](monitor-web-app-availability.md) pour vous assurer que votre site reste actif.
 - [Ajoutez la télémétrie de client web](../../azure-monitor/app/javascript.md) pour afficher les exceptions à partir du code de la page web et activer le suivi des appels.
-- [Ajoutez le Kit de développement logiciel (SDK) Application Insights à votre code](../../azure-monitor/app/asp-net.md) afin de pouvoir insérer un suivi et journaliser les appels.
+- [Ajoutez le kit de développement logiciel (SDK) Application Insights à votre code](../../azure-monitor/app/asp-net.md) afin de pouvoir insérer un suivi et journaliser les appels.
  
- Plus d’opérations avec Status Monitor v2 :
+ Plus d’opérations avec Status Monitor v2 :
  - Utilisez notre guide pour [détecter un problème](status-monitor-v2-troubleshoot.md) dans Status Monitor v2.
  - [Obtenez la configuration](status-monitor-v2-api-get-config.md) pour confirmer que vos paramètres ont été enregistrés correctement.
  - [Obtenez l’état](status-monitor-v2-api-get-status.md) pour inspecter la surveillance.

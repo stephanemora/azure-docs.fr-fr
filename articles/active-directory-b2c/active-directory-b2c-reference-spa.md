@@ -1,5 +1,5 @@
 ---
-title: Connexion sur page unique à l’aide du flux implicite - Azure Active Directory B2C | Microsoft Docs
+title: Connexion monopage à l’aide du flux implicite - Azure Active Directory B2C
 description: Découvrez comment ajouter une connexion sur page unique en utilisant un flux implicite OAuth 2.0 avec Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -7,31 +7,31 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/16/2019
+ms.date: 07/19/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 1d415686e4d8a10043df59aa6bf58a5ed4be0149
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: 1196f3b186abcd914c409db06b52654f82f4158b
+ms.sourcegitcommit: b49431b29a53efaa5b82f9be0f8a714f668c38ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67154024"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68377319"
 ---
 # <a name="single-page-sign-in-using-the-oauth-20-implicit-flow-in-azure-active-directory-b2c"></a>Connexion sur page unique en utilisant un flux implicite OAuth 2.0 dans Azure Active Directory B2C
 
-De nombreuses applications modernes disposent d’un frontend d’application à page unique écrit principalement en JavaScript. Souvent, l’application est écrite en utilisant une infrastructure comme React, Angular ou Vue.js. Les applications à page unique et d’autres applications JavaScript qui s’exécutent principalement dans un navigateur présentent certaines problématiques supplémentaires pour l’authentification :
+De nombreuses applications modernes disposent d’un front-end d’application monopage écrit principalement en JavaScript. Souvent, l’application est écrite à l’aide d’un framework comme React, Angular ou Vue.js. Les applications à page unique et d’autres applications JavaScript qui s’exécutent principalement dans un navigateur présentent certaines problématiques supplémentaires pour l’authentification :
 
 - Les caractéristiques de sécurité de ces applications sont différentes de celles des applications web traditionnelles basées sur serveur.
 - Beaucoup de serveurs d’autorisation et de fournisseurs d’identité ne prennent pas en charge les demandes de partage des ressources cross-origin (CORS).
 - Chacune des redirections à partir de l’application du navigateur plein écran peut perturber l’expérience utilisateur.
 
-Pour prendre en charge ces applications, Azure Active Directory B2C (Azure AD B2C) utilise le flux implicite OAuth 2.0. Le flux d’autorisation implicite OAuth 2.0 est décrit dans la [section 4.2 de la spécification OAuth 2.0](https://tools.ietf.org/html/rfc6749) . Dans un flux implicite, l’application reçoit des jetons directement du point de terminaison d’autorisation Azure AD, sans aucun échange de serveur à serveur. Tout le traitement de la logique d’authentification et de la gestion des sessions est entièrement exécuté dans le client JavaScript, sans redirections de pages supplémentaires.
+Pour prendre en charge ces applications, Azure Active Directory B2C (Azure AD B2C) utilise le flux implicite OAuth 2.0. Le flux d’autorisation implicite OAuth 2.0 est décrit dans la [section 4.2 de la spécification OAuth 2.0](https://tools.ietf.org/html/rfc6749) . Dans un flux implicite, l’application reçoit des jetons directement du point de terminaison d’autorisation Azure AD, sans aucun échange de serveur à serveur. L’intégralité de la logique d’authentification et de la gestion des sessions est effectuée sur le client JavaScript, à l’aide d’une redirection de page ou d’une fenêtre contextuelle.
 
 Azure AD B2C étend le flux implicite OAuth 2.0 standard au-delà de la simple authentification et de la simple autorisation. Azure AD B2C introduit le [paramètre de stratégie](active-directory-b2c-reference-policies.md). Avec le paramètre de stratégie, vous pouvez utiliser OAuth 2.0 pour ajouter des stratégies à votre application, telles que des flux d’utilisateur d’inscription, de connexion et de gestion des profils. Dans les exemples de demandes HTTP de cet article, nous utilisons **fabrikamb2c.onmicrosoft.com** comme exemple. Vous pouvez remplacer `fabrikamb2c` par le nom de votre locataire si vous en avez un et que vous avez créé un flux utilisateur.
 
 Le flux de connexion implicite peut être décrit comme dans la figure suivante. Chaque étape est décrite en détail plus loin dans l’article.
 
-![Couloirs OpenId Connect](../media/active-directory-v2-flows/convergence_scenarios_implicit.png)
+![Diagramme de style couloir montrant le flux implicite OpenID Connect](../media/active-directory-v2-flows/convergence_scenarios_implicit.png)
 
 ## <a name="send-authentication-requests"></a>Envoi de demandes d’authentification
 
@@ -173,10 +173,9 @@ Si la seule chose que doit faire votre application web est exécuter des flux d�
 
 Maintenant que vous avez connecté l’utilisateur à votre application à page unique, vous pouvez obtenir des jetons d’accès pour appeler des API web sécurisées par Azure AD. Même si vous avez déjà reçu un jeton en utilisant le type de réponse `token`, vous pouvez utiliser cette méthode pour acquérir des jetons pour des ressources supplémentaires sans avoir à demander à l’utilisateur de se reconnecter.
 
-Dans le flux d’une application web standard, vous effectuez une demande au point de terminaison `/token`. Cependant, le point de terminaison ne prend pas en charge les demandes CORS : il n’est donc pas possible d’effectuer des appels AJAX pour obtenir et actualiser des jetons. Au lieu de cela, vous pouvez utiliser le flux implicite d’un élément IFrame HTML masqué pour obtenir de nouveaux jetons pour d’autres API web. Voici un exemple, avec des sauts de ligne pour une meilleure lisibilité :
+Dans le flux d’une application web standard, vous effectuez une demande au point de terminaison `/token`. Cependant, le point de terminaison ne prend pas en charge les requêtes CORS : il n’est donc pas possible d’effectuer des appels AJAX pour obtenir un jeton d’actualisation. Au lieu de cela, vous pouvez utiliser le flux implicite d’un élément IFrame HTML masqué pour obtenir de nouveaux jetons pour d’autres API web. Voici un exemple, avec des sauts de ligne pour une meilleure lisibilité :
 
 ```
-
 https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
 client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &response_type=token
@@ -186,8 +185,6 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &state=arbitrary_data_you_can_receive_in_the_response
 &nonce=12345
 &prompt=none
-&domain_hint=organizations
-&login_hint=myuser@mycompany.com
 &p=b2c_1_sign_in
 ```
 
@@ -201,8 +198,8 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 | state |Recommandé |Une valeur incluse dans la requête qui est également renvoyée dans la réponse de jeton.  Il peut s’agir d’une chaîne de n’importe quel contenu que vous voulez utiliser.  Généralement, une valeur unique générée de manière aléatoire est utilisée, de façon à empêcher les attaques par falsification de requête intersites.  L’état est également utilisé pour coder les informations sur l’état de l’utilisateur dans l’application avant la demande d’authentification. Par exemple, la page ou la vue où était l’utilisateur. |
 | nonce |Obligatoire |Valeur incluse dans la demande, générée par l’application, qui est incluse dans le jeton d’ID résultant en tant que revendication.  L’application peut ensuite vérifier cette valeur afin de contrer les attaques par relecture de jetons. La valeur est généralement une chaîne unique aléatoire qui identifie l’origine de la demande. |
 | prompt |Obligatoire |Pour actualiser et obtenir des jetons dans un IFrame masqué, utilisez `prompt=none` pour que l’IFrame ne se bloque pas sur la page de connexion et ne retourne pas immédiatement. |
-| login_hint |Obligatoire |Pour actualiser et obtenir des jetons dans un IFrame masqué, vous devez inclure dans cet indicateur le nom d’utilisateur de l’utilisateur afin de faire la distinction entre différentes sessions que l’utilisateur pourrait avoir à un moment donné. Vous pouvez extraire le nom d’utilisateur à partir d’une connexion précédente en utilisant la revendication `preferred_username`. |
-| domain_hint |Obligatoire |Peut être `consumers` ou `organizations`.  Pour actualiser et obtenir des jetons dans un IFrame masqué, incluez la valeur `domain_hint` dans la demande.  Extrayez la revendication `tid` du jeton d’ID d’une connexion précédente pour déterminer la valeur à utiliser.  Si la valeur de la revendication `tid` est `9188040d-6c67-4c5b-b112-36a304b66dad`, utilisez `domain_hint=consumers`.  Sinon, utilisez `domain_hint=organizations`. |
+| login_hint |Obligatoire |Pour actualiser et obtenir des jetons dans un IFrame masqué, vous devez inclure dans cet indicateur le nom d’utilisateur de l’utilisateur afin de faire la distinction entre différentes sessions que l’utilisateur pourrait avoir à un moment donné. Vous pouvez extraire le nom d’utilisateur à partir d’une précédente connexion à l’aide de la revendication `preferred_username` (l’étendue `profile` est nécessaire pour recevoir la revendication `preferred_username`). |
+| domain_hint |Obligatoire |Peut être `consumers` ou `organizations`.  Pour actualiser et obtenir des jetons dans un IFrame masqué, incluez la valeur `domain_hint` dans la demande.  Extrayez la revendication `tid` du jeton d’ID d’une connexion précédente pour déterminer la valeur à utiliser (l’étendue `profile` est nécessaire pour recevoir la revendication `tid`). Si la valeur de la revendication `tid` est `9188040d-6c67-4c5b-b112-36a304b66dad`, utilisez `domain_hint=consumers`.  Sinon, utilisez `domain_hint=organizations`. |
 
 Avec le paramètre `prompt=none`, cette demande réussit ou échoue immédiatement, et retourne à votre application.  Une réponse correcte est envoyée à votre application à l’URI de redirection indiqué, en utilisant la méthode spécifiée dans le paramètre `response_mode`.
 
@@ -262,6 +259,17 @@ p=b2c_1_sign_in
 | post_logout_redirect_uri |Recommandé |URL vers laquelle l’utilisateur doit être redirigé après la déconnexion. Si elle n’est pas incluse, Azure AD B2C affiche un message générique à l’utilisateur. |
 
 > [!NOTE]
-> La redirection de l’utilisateur vers le `end_session_endpoint` efface certains états de l’authentification unique de l’utilisateur auprès d’Azure AD B2C. Il ne déconnecte cependant pas l’utilisateur de la session du fournisseur d’identité sociale de l’utilisateur. Si l’utilisateur sélectionne le même fournisseur d’identité lors d’une connexion ultérieure, il est réauthentifié sans entrer ses informations d’identification. Si un utilisateur veut se déconnecter de votre application Azure AD B2C, cela ne signifie pas nécessairement qu’il veut se déconnecter complètement, par exemple de son compte Facebook. Cependant, pour des comptes locaux, la session de l’utilisateur sera terminée correctement.
-> 
+> La redirection de l’utilisateur vers le `end_session_endpoint` efface certains états de l’authentification unique de l’utilisateur auprès d’Azure AD B2C. Il ne déconnecte cependant pas l’utilisateur de la session du fournisseur d’identité sociale de l’utilisateur. Si l’utilisateur sélectionne le même fournisseur d’identité lors d’une connexion ultérieure, il sera réauthentifié sans avoir à entrer ses informations d’identification. Si un utilisateur veut se déconnecter de votre application Azure AD B2C, cela ne signifie pas nécessairement qu’il veut se déconnecter complètement, par exemple de son compte Facebook. Cependant, pour des comptes locaux, la session de l’utilisateur sera terminée correctement.
+>
 
+## <a name="next-steps"></a>Étapes suivantes
+
+### <a name="code-sample-hellojs-with-azure-ad-b2c"></a>Exemple de code : hello.js avec Azure AD B2C
+
+[Application monopage basée sur hello.js et créée à l’aide d’Azure AD B2C][github-hello-js-example] (GitHub)
+
+Cet exemple GitHub a pour but de vous aider à commencer avec Azure AD B2C. Il fournit pour cela une application web simple basée sur [hello.js][github-hello-js] qui utilise l’authentification avec fenêtre contextuelle.
+
+<!-- Links - EXTERNAL -->
+[github-hello-js-example]: https://github.com/azure-ad-b2c/apps/tree/master/spa/javascript-hellojs-singlepageapp-popup
+[github-hello-js]: https://github.com/MrSwitch/hello.js

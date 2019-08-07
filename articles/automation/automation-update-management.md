@@ -9,18 +9,21 @@ ms.author: robreed
 ms.date: 05/22/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 3bfec413430de588be6c4423702d41779a8426d0
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 4bd0b6f0652f49c16bd67bbca5a89d19e17a8b2c
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67477973"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68498417"
 ---
 # <a name="update-management-solution-in-azure"></a>Solution Update Management dans Azure
 
 Vous pouvez utiliser la solution Update Management dans Azure Automation pour gérer les mises à jour du système d’exploitation de vos ordinateurs Windows et Linux dans Azure, des environnements locaux ou d’autres fournisseurs cloud. Vous pouvez rapidement évaluer l’état des mises à jour disponibles sur tous les ordinateurs d’agent et gérer le processus d’installation des mises à jour requises pour les serveurs.
 
 Vous pouvez activer Update Management pour les machines virtuelles directement depuis votre compte Azure Automation. Pour découvrir comment activer Update Management pour les machines virtuelles depuis votre compte Automation, consultez l’article [Gérer les mises à jour pour plusieurs machines virtuelles](manage-update-multi.md). Vous pouvez également activer Update Management pour une machine virtuelle à partir de sa page dans le Portail Azure. Ce scénario est disponible pour les machines virtuelles [Linux](../virtual-machines/linux/tutorial-monitoring.md#enable-update-management) et [Windows](../virtual-machines/windows/tutorial-monitoring.md#enable-update-management).
+
+> [!NOTE]
+> La solution Update Management vous demande d’établir un lien entre l’espace de travail Log Analytics et votre compte Automation. Pour obtenir la liste définitive des régions prises en charge, consultez [./how-to/region-mappings.md]. Les mappages de région n’empêchent pas de gérer les machines virtuelles dans une autre région que celle de votre compte Automation.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -54,7 +57,7 @@ La solution rapporte l’état de mise à jour de l’ordinateur en fonction de 
 
 Vous pouvez déployer et installer des mises à jour logicielles sur des ordinateurs qui nécessitent les mises à jour en créant un déploiement planifié. Les mises à jour considérées comme *facultatives* ne sont pas incluses dans le déploiement des ordinateurs Windows. Seules les mises à jour nécessaires sont incluses dans le déploiement.
 
-Le déploiement planifié définit les ordinateurs cibles qui reçoivent les mises à jour applicables, en spécifiant explicitement les ordinateurs, en sélectionnant un [groupe d’ordinateurs](../azure-monitor/platform/computer-groups.md) d’après des recherches dans les journaux d’un ensemble spécifique d’ordinateurs ou une [requête Azure](#azure-machines) qui sélectionne des machines virtuelles Azure de manière dynamique selon des critères spécifiés. Ces groupes sont différents de la [configuration de l’étendue](../azure-monitor/insights/solution-targeting.md), qui est utilisée uniquement pour déterminer quelles machines reçoivent les packs d’administration qui activent la solution. 
+Le déploiement planifié définit les ordinateurs cibles qui reçoivent les mises à jour applicables, en spécifiant explicitement les ordinateurs, en sélectionnant un [groupe d’ordinateurs](../azure-monitor/platform/computer-groups.md) d’après des recherches dans les journaux d’un ensemble spécifique d’ordinateurs ou une [requête Azure](#azure-machines) qui sélectionne des machines virtuelles Azure de manière dynamique selon des critères spécifiés. Ces groupes sont différents de la [configuration de l’étendue](../azure-monitor/insights/solution-targeting.md), qui est utilisée uniquement pour déterminer quelles machines reçoivent les packs d’administration qui activent la solution.
 
 Vous spécifiez également une planification pour approuver et définir la période pendant laquelle les mises à jour peuvent être installées. Cette période est appelée fenêtre de maintenance. Dix minutes de la fenêtre de maintenance sont réservées aux redémarrages si un redémarrage est nécessaire et que vous avez sélectionné l’option de redémarrage approprié. Si la mise à jour corrective prend plus longtemps que prévu et qu’il reste moins de dix minutes dans la fenêtre de maintenance, aucun redémarrage ne se produit.
 
@@ -73,11 +76,14 @@ Le tableau suivant répertorie la liste des systèmes d’exploitation pris en c
 |Système d’exploitation  |Notes  |
 |---------|---------|
 |Windows Server 2008, Windows Server 2008 R2 RTM    | Prend uniquement en charge les évaluations de mises à jour.         |
-|Windows Server 2008 R2 SP1 et versions ultérieures (y compris Windows Server 2012 et 2016)    |.NET Framework 4.5.1 ou version ultérieure est requis. ([Télécharger .NET Framework](/dotnet/framework/install/guide-for-developers))<br/> Windows PowerShell 4.0 ou une version ultérieure est nécessaire. ([Télécharger WMF 4.0](https://www.microsoft.com/download/details.aspx?id=40855))<br/> Windows PowerShell 5.1 est recommandé pour accroître la fiabilité.  ([Télécharger WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616))        |
+|Windows Server 2008 R2 SP1 et ultérieur.  |.NET Framework 4.5.1 ou version ultérieure est requis. ([Télécharger .NET Framework](/dotnet/framework/install/guide-for-developers))<br/> Windows PowerShell 4.0 ou une version ultérieure est nécessaire. ([Télécharger WMF 4.0](https://www.microsoft.com/download/details.aspx?id=40855))<br/> Windows PowerShell 5.1 est recommandé pour accroître la fiabilité.  ([Télécharger WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616))        |
 |CentOS 6 (x86/x64) et 7 (x64)      | Les agents Linux doivent avoir accès à un référentiel de mise à jour. La mise à jour corrective basée sur la classification nécessite que 'yum' retourne les données de sécurité que CentOS n’a pas directement. Pour plus d’informations sur la mise à jour corrective basée sur des classifications sur CentOS, consultez [Mettre à jour des classifications sur Linux](#linux-2)          |
 |Red Hat Enterprise 6 (x86/x64) et 7 (x64)     | Les agents Linux doivent avoir accès à un référentiel de mise à jour.        |
 |SUSE Linux Enterprise Server 11 (x86/x64) et 12 (x64)     | Les agents Linux doivent avoir accès à un référentiel de mise à jour.        |
 |Ubuntu 14.04 LTS, 16.04 LTS et 18.04 (x86/x64)      |Les agents Linux doivent avoir accès à un référentiel de mise à jour.         |
+
+> [!NOTE]
+> Les groupes de machines virtuelles identiques Azure peuvent être gérés avec Update Management. Update Management fonctionne sur les instances, mais pas sur l’image de base. Vous devez planifier les mises à jour de façon incrémentielle, afin de ne pas mettre à jour toutes les instances de machines virtuelles en même temps.
 
 ### <a name="unsupported-client-types"></a>Types de clients non pris en charge
 
@@ -140,7 +146,7 @@ Pour commencer à appliquer des correctifs aux systèmes, vous devez activer la 
 * [Depuis plusieurs machines](automation-onboard-solutions-from-browse.md)
 * [Depuis votre compte Automation](automation-onboard-solutions-from-automation-account.md)
 * [Avec un runbook Azure Automation](automation-onboard-solutions.md)
-  
+
 ### <a name="confirm-that-non-azure-machines-are-onboarded"></a>Vérifier que les ordinateurs non-Azure sont intégrés
 
 Pour confirmer que les ordinateurs directement connectés communiquent avec les journaux Azure Monitor, vous pouvez exécuter l’une des recherches suivantes dans les journaux au bout de quelques minutes.
@@ -282,7 +288,7 @@ Les tableaux suivants répertorient les classifications des mises à jour dans U
 |Outils     | Utilitaire ou fonctionnalité permettant d’effectuer une ou plusieurs tâches.        |
 |Mises à jour     | Mise à jour d’une application ou d’un fichier actuellement installé.        |
 
-### <a name="linux"></a>Linux
+### <a name="linux-2"></a>Linux
 
 |classification ;  |Description  |
 |---------|---------|
@@ -578,7 +584,7 @@ Update Management permet de cibler un groupe dynamique de machines virtuelles Az
 
 Ces groupes sont définis par une requête et, au démarrage d’un déploiement de mise à jour, les membres de ce groupe sont évalués. Les groupes dynamiques ne fonctionnent pas avec des machines virtuelles classiques. Quand vous définissez votre requête, les éléments suivants peuvent être utilisés ensemble pour remplir le groupe dynamique
 
-* Abonnement
+* Subscription
 * Groupes de ressources
 * Emplacements
 * Balises

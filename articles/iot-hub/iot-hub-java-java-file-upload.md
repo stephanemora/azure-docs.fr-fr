@@ -9,18 +9,18 @@ services: iot-hub
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 06/28/2017
-ms.openlocfilehash: 27cdada0bfbb4236e16d17c263aaba0f4f5c511f
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 3893e496b41b0f3df8dc5a580daf298888578d6e
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67620131"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68404166"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>Charger des fichiers sur le cloud à partir d’un appareil avec IoT Hub
 
 [!INCLUDE [iot-hub-file-upload-language-selector](../../includes/iot-hub-file-upload-language-selector.md)]
 
-Ce tutoriel s’appuie sur le code du tutoriel [Envoyer des messages du cloud vers un appareil avec IoT Hub](iot-hub-java-java-c2d.md) pour montrer comment utiliser les [fonctions de chargement de fichiers d’IoT Hub](iot-hub-devguide-file-upload.md) afin de charger un fichier sur le [Stockage Blob Azure](../storage/index.yml). Ce didacticiel explique les procédures suivantes :
+Ce tutoriel s’appuie sur le code du tutoriel [Envoyer des messages cloud-à-appareil avec IoT Hub](iot-hub-java-java-c2d.md) pour montrer comment utiliser les [fonctions de chargement de fichiers d’IoT Hub](iot-hub-devguide-file-upload.md) afin de charger un fichier sur le [Stockage Blob Azure](../storage/index.yml). Ce didacticiel explique les procédures suivantes :
 
 * Fournissez en toute sécurité à un appareil un URI d’objet blob Azure pour le chargement d’un fichier.
 
@@ -120,11 +120,15 @@ Dans cette section, vous allez modifier l’application pour appareils que vous 
     mvn clean package -DskipTests
     ```
 
+## <a name="get-the-iot-hub-connection-string"></a>Obtention de la chaîne de connexion de l’IoT Hub
+
+Dans cet article, vous créez un service back-end pour recevoir les messages de notification de chargement de fichiers depuis l’IoT Hub que vous avez créé dans [Send telemetry from a device to an IoT hub (Envoyer des données de télémétrie d’un appareil à un IoT Hub)](quickstart-send-telemetry-java.md). Pour recevoir les messages de notification de chargement de fichiers, votre service a besoin de l'autorisation de **connexion de service**. Par défaut, chaque IoT Hub est créé avec une stratégie d’accès partagé nommée **service** qui accorde cette autorisation.
+
+[!INCLUDE [iot-hub-include-find-service-connection-string](../../includes/iot-hub-include-find-service-connection-string.md)]
+
 ## <a name="receive-a-file-upload-notification"></a>Recevoir une notification de téléchargement de fichier
 
 Dans cette section, vous allez créer une application console Java qui reçoit des messages de notification de chargement de fichiers envoyés par IoT Hub.
-
-Vous avez besoin de la chaîne de connexion **iothubowner** de votre hub IoT pour suivre cette section. Vous trouverez la chaîne de connexion sur le panneau **Stratégie d’accès partagé** du [Portail Azure](https://portal.azure.com/).
 
 1. Créez un projet Maven nommé **read-file-upload-notification** en lançant la commande ci-dessous dans votre invite de commandes. Il s’agit d’une commande unique et longue :
 
@@ -161,7 +165,7 @@ Vous avez besoin de la chaîne de connexion **iothubowner** de votre hub IoT pou
     import java.util.concurrent.Executors;
     ```
 
-7. Ajoutez les variables de niveau classe ci-après à la classe **App** :
+7. Ajoutez les variables de niveau classe suivantes à la classe **App** . Remplacez la valeur de l’espace réservé `{Your IoT Hub connection string}` par la chaîne de connexion de l’IoT Hub que vous avez précédemment copiée dans [Obtention de la chaîne de connexion de l’IoT Hub](#get-the-iot-hub-connection-string) :
 
     ```java
     private static final String connectionString = "{Your IoT Hub connection string}";

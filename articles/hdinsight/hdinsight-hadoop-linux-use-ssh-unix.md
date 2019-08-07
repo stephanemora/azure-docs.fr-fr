@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: cc60a8ca0e0b04a5fcec5300fbeb1a0f34d1c7b4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 91104b36b4821d8b1e0350d4eeb20d652de1242b
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64686377"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68406252"
 ---
 # <a name="connect-to-hdinsight-apache-hadoop-using-ssh"></a>Se connecter à HDInsight (Apache Hadoop) avec SSH
 
-Découvrez comment utiliser [Secure Shell (SSH)](https://en.wikipedia.org/wiki/Secure_Shell) pour vous connecter de façon sécurisée à Apache Hadoop sur Azure HDInsight. Pour plus d’informations sur la connexion via un réseau virtuel, consultez [Architecture de réseau virtuel Azure HDInsight](./hdinsight-virtual-network-architecture.md) et [Étendre Azure HDInsight à l’aide d’un réseau virtuel Azure](./hdinsight-extend-hadoop-virtual-network.md).
+Découvrez comment utiliser [Secure Shell (SSH)](https://en.wikipedia.org/wiki/Secure_Shell) pour vous connecter de façon sécurisée à Apache Hadoop sur Azure HDInsight. Pour plus d’informations sur la connexion par le biais d’un réseau virtuel, consultez [Architecture de réseau virtuel Azure HDInsight](./hdinsight-virtual-network-architecture.md) et [Planifier un déploiement de réseau virtuel pour des clusters Azure HDInsight](./hdinsight-plan-virtual-network-deployment.md).
 
 Le tableau suivant contient les informations d’adresse et de port nécessaires lors de la connexion à HDInsight à l’aide d’un client SSH :
 
@@ -90,7 +90,7 @@ Vous êtes invité à renseigner diverses informations pendant le processus de c
 | ------- | ------- |
 | Portail Azure | Décochez l’option __Use same password as cluster login__ (Utiliser le même mot de passe que pour la connexion au cluster), puis sélectionnez __Clé publique__ comme type d’authentification SSH. Enfin, sélectionnez le fichier de clé publique ou collez le contenu texte du fichier dans le champ __SSH public key__ (Clé publique SSH).</br>![Boîte de dialogue de clé publique SSH lors de la création du cluster HDInsight](./media/hdinsight-hadoop-linux-use-ssh-unix/create-hdinsight-ssh-public-key.png) |
 | Azure PowerShell | Utilisez le paramètre `-SshPublicKey` de l’applet de commande [New-AzHdinsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster)et transmettez le contenu de la clé publique sous forme de chaîne.|
-| Azure CLI | Utilisez le paramètre `--sshPublicKey` de la commande [az hdinsight create](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create)et transmettez le contenu de la clé publique sous forme de chaîne. |
+| D’Azure CLI | Utilisez le paramètre `--sshPublicKey` de la commande [az hdinsight create](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create)et transmettez le contenu de la clé publique sous forme de chaîne. |
 | Modèle Resource Manager | Pour obtenir un exemple d’utilisation des clés SSH avec un modèle, consultez [Deploy HDInsight on Linux (w/ Azure Storage, SSH key)](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-ssh-publickey/) (Déployer HDInsight sur Linux (avec Stockage Azure, clé SSH). L’élément `publicKeys` dans le fichier [azuredeploy.json](https://github.com/Azure/azure-quickstart-templates/blob/master/101-hdinsight-linux-ssh-publickey/azuredeploy.json) est utilisé pour transmettre les clés à Azure lors de la création du cluster. |
 
 ## <a id="sshpassword"></a>Authentification : Mot de passe
@@ -109,7 +109,7 @@ Les comptes SSH peuvent être sécurisés à l’aide d’un mot de passe. Lorsq
 | --------------- | ---------------- |
 | Portail Azure | Par défaut, le compte utilisateur SSH a le même mot de passe que le compte de connexion du cluster. Pour utiliser un autre mot de passe, décochez l’option __Use same password as cluster login__ (Utiliser le même mot de passe que pour la connexion au cluster), puis entrez le mot de passe dans le champ __SSH password__ (Mot de passe SSH).</br>![Boîte de dialogue de mot de passe SSH lors de la création du cluster HDInsight](./media/hdinsight-hadoop-linux-use-ssh-unix/create-hdinsight-ssh-password.png)|
 | Azure PowerShell | Utilisez le paramètre `--SshCredential` de l’applet de commande [New-AzHdinsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster) et transmettez un objet `PSCredential` qui contient le nom de compte et mot de passe utilisateur SSH. |
-| Azure CLI | Utilisez le paramètre `--sshPassword` de la commande [az hdinsight create](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create) et fournissez la valeur de mot de passe. |
+| D’Azure CLI | Utilisez le paramètre `--sshPassword` de la commande [az hdinsight create](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create) et fournissez la valeur de mot de passe. |
 | Modèle Resource Manager | Pour obtenir un exemple d’utilisation d’un mot de passe avec un modèle, consultez [Deploy HDInsight cluster with Storage and SSH password](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-ssh-password/) (Déployer un cluster HDInsight avec Stockage Azure et un mot de passe SSH). L’élément `linuxOperatingSystemProfile` dans le fichier [azuredeploy.json](https://github.com/Azure/azure-quickstart-templates/blob/master/101-hdinsight-linux-ssh-password/azuredeploy.json) est utilisé pour transmettre le nom de compte et mot de passe SSH à Azure lors de la création du cluster.|
 
 ### <a name="change-the-ssh-password"></a>Modifier le mot de passe SSH
@@ -182,7 +182,7 @@ Si le compte SSH est sécurisé à l’aide de __clés SSH__, assurez-vous que l
 > [!NOTE]  
 > Une autre méthode permettant d’accéder directement à tous les nœuds du cluster consiste à installer HDInsight dans un réseau virtuel Azure. Ensuite, vous pouvez joindre votre machine à distance au même réseau virtuel et accéder directement à tous les nœuds du cluster.
 >
-> Pour plus d’informations, consultez [Extension des capacités de HDInsight à l’aide d’Azure Virtual Network](hdinsight-extend-hadoop-virtual-network.md).
+> Pour plus d’informations, consultez [Planifier un réseau virtuel pour HDInsight](hdinsight-plan-virtual-network-deployment.md).
 
 ### <a name="configure-ssh-agent-forwarding"></a>Configurer le transfert de l’agent SSH
 
@@ -246,5 +246,5 @@ scp sshuser@clustername-ssh.azurehdinsight.net:test.txt .
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Utilisation de SSH Tunneling pour accéder à l’interface Web Ambari, JobHistory, NameNode, Oozie et d’autres interfaces Web](hdinsight-linux-ambari-ssh-tunnel.md)
-* [Extension des capacités de HDInsight à l’aide d’Azure Virtual Network](hdinsight-extend-hadoop-virtual-network.md)
+* [Planifier un réseau virtuel avec HDInsight](hdinsight-plan-virtual-network-deployment.md)
 * [Utiliser des nœuds de périmètre vides dans HDInsight](hdinsight-apps-use-edge-node.md#access-an-edge-node)

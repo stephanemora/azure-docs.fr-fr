@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/16/2019
-ms.openlocfilehash: 88df7ae0d4e6054d82302ad5f0adabcf656cb0f5
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 729385a2ce9feb6e69f9be29c2175b403093be3f
+ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67620813"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68413369"
 ---
 # <a name="query-examples-for-common-stream-analytics-usage-patterns"></a>Exemples de requête pour les modes d’utilisation courants dans Stream Analytics
 
@@ -121,7 +121,7 @@ Par exemple, vérifier que le résultat retourne des plaques d’immatriculation
             WHEN COUNT(*) = 1 THEN CONCAT('1 ', Make)
             ELSE CONCAT(CAST(COUNT(*) AS NVARCHAR(MAX)), ' ', Make, 's')
         END AS CarsPassed,
-        System.TimeStamp() AS Time
+        System.TimeStamp() AS AsaTime
     FROM
         Input TIMESTAMP BY Time
     GROUP BY
@@ -157,7 +157,7 @@ Par exemple, vérifier que le résultat retourne des plaques d’immatriculation
 
 **Output2**:
 
-| Marque | Temps | Nombre |
+| Marque | Temps | Count |
 | --- | --- | --- |
 | Toyota |2015-01-01T00:00:10.0000000Z |3 |
 
@@ -173,7 +173,7 @@ Par exemple, vérifier que le résultat retourne des plaques d’immatriculation
 
     SELECT
         Make,
-        System.TimeStamp() AS Time,
+        System.TimeStamp() AS AsaTime,
         COUNT(*) AS [Count]
     INTO
         AlertOutput
@@ -231,7 +231,7 @@ Par exemple :
 ```SQL
 SELECT
      COUNT(DISTINCT Make) AS CountMake,
-     System.TIMESTAMP() AS TIME
+     System.TIMESTAMP() AS AsaTIME
 FROM Input TIMESTAMP BY TIME
 GROUP BY 
      TumblingWindow(second, 2)
@@ -379,10 +379,9 @@ GROUP BY
 
 **Explication** : La requête contient deux étapes. La première recherche l’horodatage le plus récent dans les fenêtres de 10 minutes. La deuxième joint les résultats de la première requête avec le flux d’origine pour rechercher les événements qui correspondent aux derniers horodatages dans chaque fenêtre. 
 
-## <a name="query-example-detect-the-absence-of-events"></a>Exemple de requête : Détecter l’absence d’événements
+## <a name="query-example-locate-correlated-events-in-a-stream"></a>Exemple de requête : Localiser des événements corrélés dans un flux
 
-**Description** : Vérifiez qu’un flux n’a pas de valeur correspondant à un critère particulier.
-Par exemple, deux voitures consécutives de la même marque se sont-elles engagées dans la route à péage durant les 90 dernières secondes ?
+**Description** : Localisez des événements corrélés dans un flux. Par exemple, deux voitures consécutives de la même marque se sont-elles engagées dans la route à péage durant les 90 dernières secondes ?
 
 **Entrée**:
 
@@ -425,7 +424,7 @@ Par exemple, deux voitures consécutives de la même marque se sont-elles engag
 | Utilisateur | Fonctionnalité | Événement | Temps |
 | --- | --- | --- | --- |
 | user@location.com |RightMenu |Démarrer |2015-01-01T00:00:01.0000000Z |
-| user@location.com |RightMenu |Terminer |2015-01-01T00:00:08.0000000Z |
+| user@location.com |RightMenu |End |2015-01-01T00:00:08.0000000Z |
 
 **Sortie**:  
 
@@ -632,7 +631,7 @@ WHERE
 
 **Sortie**:
 
-| TollID | Nombre |
+| TollID | Count |
 | --- | --- |
 | 1 | 2 |
 | 2 | 2 |

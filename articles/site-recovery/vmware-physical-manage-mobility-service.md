@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: ramamill
-ms.openlocfilehash: 69b8e1c533747d1bade69949911ea43f299f49e9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7cd555f66bb6f65f498f9b3e5db9bbeda0505a8f
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66117320"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68384973"
 ---
 # <a name="manage-mobility-agent-on-protected-machines"></a>Gérer l’agent Mobilité sur les ordinateurs protégés
 
@@ -65,17 +65,18 @@ Désinstallez le service à partir de l’interface utilisateur ou d’une invit
 3. Exécutez la commande suivante :
     ```
     uninstall.sh -Y
+   ```
+   
+## <a name="install-site-recovery-vss-provider-on-source-machine"></a>Installer le fournisseur VSS Site Recovery sur la machine source
 
-## Install Site Recovery VSS provider on source machine
+Le fournisseur VSS Site Recovery est requis sur la machine source pour générer des points de cohérence d’application. Si l’installation du fournisseur n’a pas réussi par le biais de l’installation push, suivez les instructions ci-dessous pour l’installer manuellement.
 
-Azure Site Recovery VSS provider is required on the source machine to generate application consistency points. If the installation of the provider didn't succeed through push installation, follow the below given guidelines to install it manually.
+1. Ouvrez la fenêtre admin cmd.
+2. Accédez à l’emplacement d’installation du service Mobilité. (Par exemple C:\Program Files (x86)\Microsoft Azure Site Recovery\agent)
+3. Exécutez le script InMageVSSProvider_Uninstall.cmd. Le service sera alors désinstallé s’il existe déjà.
+4. Exécutez le script InMageVSSProvider_Install.cmd pour installer le fournisseur VSS manuellement.
 
-1. Open admin cmd window.
-2. Navigate to the mobility service installation location. (Eg - C:\Program Files (x86)\Microsoft Azure Site Recovery\agent)
-3. Run the script InMageVSSProvider_Uninstall.cmd . This will uninstall the service if it already exists.
-4. Run the script InMageVSSProvider_Install.cmd to install the VSS provider manually.
+## <a name="next-steps"></a>Étapes suivantes
 
-## Next steps
-
-- [Set up disaster recovery for VMware VMs](vmware-azure-tutorial.md)
-- [Set up disaster recovery for physical servers](physical-azure-disaster-recovery.md)
+- [Configurer la reprise d'activité pour les machines virtuelles VMware](vmware-azure-tutorial.md)
+- [Configurer la reprise d'activité pour les serveurs physiques](physical-azure-disaster-recovery.md)

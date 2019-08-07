@@ -10,12 +10,12 @@ ms.service: billing
 ms.topic: article
 ms.date: 05/30/2019
 ms.author: byvinyal
-ms.openlocfilehash: d1043f254d2a2cc2804ab8a4d68770b6d57cbed4
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 1c30d9e70facaf9ab47bd33e5ca1fc1d35c6c979
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67295937"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68405862"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Abonnement Azure et limites, quotas et contraintes de service
 Ce document répertorie quelques-unes des limites de Microsoft Azure les plus courantes, parfois appelées des quotas. Ce document ne couvre pas actuellement tous les services Azure. Ces limites seront étendues et mises à jour dans des prochaines versions pour couvrir plus de services.
@@ -289,6 +289,10 @@ Pour en savoir plus sur les limites à un niveau plus granulaire, notamment la t
 #### <a name="action-groups"></a>Groupes d’actions
 
 [!INCLUDE [monitoring-limits](../includes/azure-monitor-limits-action-groups.md)]
+
+#### <a name="log-queries-and-language"></a>Requêtes dans les journaux et langage
+
+[!INCLUDE [monitoring-limits](../includes/azure-monitor-limits-log-queries.md)]
 
 #### <a name="log-analytics-workspaces"></a>Espaces de travail Log Analytics
 

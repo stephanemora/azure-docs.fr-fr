@@ -1,6 +1,6 @@
 ---
-title: Attributs de sécurité communs pour Azure Service Bus Relay
-description: Check-list des attributs de sécurité couramment utilisés pour l’évaluation d’Azure Service Bus Relay
+title: Attributs de sécurité pour Azure Service Bus Relay
+description: Check-list des attributs de sécurité utilisés pour l’évaluation d’Azure Service Bus Relay
 services: service-bus-relay
 ms.service: service-bus-relay
 documentationcenter: ''
@@ -9,12 +9,12 @@ manager: barbkess
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: mbaldwin
-ms.openlocfilehash: d8ce3c995e8e0f20ed6d694f481cc5fc9fde4fa7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2047f64914d4a286e6de38b7b2c8524d98eba562
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66000145"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68443879"
 ---
 # <a name="security-attributes-for-azure-service-bus-relay"></a>Attributs de sécurité pour Azure Service Bus Relay
 
@@ -26,8 +26,8 @@ Cet article décrit les attributs de sécurité intégrés à Azure Service Bus 
 
 | Attribut de sécurité | Oui/Non | Notes |
 |---|---|--|
-| Chiffrement au repos :<ul><li>Chiffrement côté serveur</li><li>Chiffrement côté serveur avec des clés gérées par le client</li><li>Autres fonctionnalités de chiffrement (côté client, Always Encrypted, etc.)</ul>|  N/A | Le relais est un socket web et ne persiste pas dans les données. |
-| Chiffrement en transit :<ul><li>Chiffrement Express Route</li><li>Chiffrement dans le réseau virtuel</li><li>Chiffrement de réseau virtuel à réseau virtuel</ul>| OUI | Le service nécessite TLS. |
+| Chiffrement au repos (comme le chiffrement côté serveur, le chiffrement côté serveur avec clés managées par le client et d’autres fonctions de chiffrement)|  N/A | Le relais est un socket web et ne persiste pas dans les données. |
+| Chiffrement en transit (ExpressRoute, de réseau virtuel et de réseau virtuel à réseau virtuel)| OUI | Le service nécessite TLS. |
 | Gestion des clés de chiffrement (CMK, BYOK, etc.)| Non | Utilise uniquement les certificats Microsoft TLS.  |
 | Chiffrement au niveau des colonnes (Azure Data Services)| N/A | |
 | Appels d’API chiffrés| OUI | HTTPS. |

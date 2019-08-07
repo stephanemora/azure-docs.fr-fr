@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/01/2019
 ms.author: jehollan, glenga
 ms.custom: include file
-ms.openlocfilehash: 0f3303e7bc87ca0bd29f367405372568ed6da7a7
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 9bac92bc1cc94b88dc694b468b795049db4ac9df
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67177218"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68443974"
 ---
 1. Accédez au [portail Azure](https://portal.azure.com).
 
@@ -40,7 +40,7 @@ ms.locfileid: "67177218"
     | **Nom de l’application** | Nom globalement unique | Nom qui identifie votre nouvelle Function App. Les caractères valides sont `a-z`, `0-9` et `-`.  | 
     | **Abonnement** | Votre abonnement | Abonnement sous lequel est créée cette nouvelle application de fonction. |
     | **[Groupe de ressources](../articles/azure-resource-manager/resource-group-overview.md)** |  myResourceGroup | Nom du nouveau groupe de ressources dans lequel créer votre Function App. Vous pouvez également utiliser la valeur suggérée. |
-    | **SE** | Windows | Linux n’est pas pris en charge actuellement sur le plan Premium. |
+    | **SE** | Système d’exploitation préféré | L’abonnement Premium prend en charge Linux et Windows. |
     | **Pile d’exécution** | Langage préféré | Choisissez un runtime qui prend en charge votre langage de programmation de fonction favori. Choisissez **.NET** pour les fonctions C# et F#. Seules les langues prises en charge sur le **système d’exploitation** choisi sont affichées. |
     | **[Stockage](../articles/storage/common/storage-quickstart-create-account.md)** |  Nom globalement unique |  Créez un compte de stockage utilisé par votre application de fonction. Les noms des comptes de stockage doivent comporter entre 3 et 24 caractères, uniquement des lettres minuscules et des chiffres. Vous pouvez également utiliser un compte existant qui doit répondre aux [exigences relatives aux comptes de stockage](../articles/azure-functions/functions-scale.md#storage-account-requirements). |
     | **[Application Insights](../articles/azure-functions/functions-monitoring.md)** | Default | Crée une ressource Application Insights avec le même *nom de l’application* dans la région prise en charge la plus proche. En développant ce paramètre, vous pouvez changer le **Nouveau nom de ressource** ou choisir un autre **Emplacement** dans une [Zone géographique Azure](https://azure.microsoft.com/global-infrastructure/geographies/) où vous voulez stocker vos données. |

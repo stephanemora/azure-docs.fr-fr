@@ -9,12 +9,12 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: reference
 ms.date: 06/19/2019
-ms.openlocfilehash: 76d4fbaaea987b5d935d09b7ff1c490b6003a489
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: c109627d2a2e9190afb2c27b9fb202e93baa68cb
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68260365"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68689667"
 ---
 # <a name="reference-for-trigger-and-action-types-in-workflow-definition-language-for-azure-logic-apps"></a>Référence des types d’actions et de déclencheurs pour le langage de définition du flux de travail dans Azure Logic Apps
 
@@ -2317,7 +2317,7 @@ Cette définition d’action de boucle envoie une requête HTTP à l’URL spéc
  "Run_until_loop_succeeds_or_expires": {
     "type": "Until",
     "actions": {
-        "Http": {
+        "HTTP": {
             "type": "Http",
             "inputs": {
                 "method": "GET",
@@ -2326,7 +2326,7 @@ Cette définition d’action de boucle envoie une requête HTTP à l’URL spéc
             "runAfter": {}
         }
     },
-    "expression": "@equals(outputs('Http')['statusCode', 200])",
+    "expression": "@equals(outputs('HTTP')['statusCode'], 200)",
     "limit": {
         "count": 60,
         "timeout": "PT1H"
@@ -2380,6 +2380,7 @@ Vous pouvez changer le comportement d’exécution par défaut pour les déclenc
 | `runtimeConfiguration.concurrency.maximumWaitingRuns` | Entier | Modifiez la [*limite par défaut*](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) du nombre d’instances de flux de travail qui peuvent attendre avant de s’exécuter lorsque votre flux de travail exécute déjà le nombre maximal d’instances simultanées. Vous pouvez modifier la limite de concurrence dans la propriété `concurrency.runs`. <p>Pour changer la limite par défaut, consultez [Changer la limite d’exécutions en attente](#change-waiting-runs). | Tous les déclencheurs | 
 | `runtimeConfiguration.concurrency.repetitions` | Entier | Modifier la [*limite par défaut*](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) du nombre d’itérations de boucles « for each » qui peuvent s’exécuter en même temps ou en parallèle. <p>L’affectation de la valeur `1` à la propriété `repetitions` fonctionne de la même façon que l’affectation de la valeur `SingleInstance` à la propriété `operationOptions`. Vous pouvez définir l’une ou l’autre propriété, mais pas les deux. <p>Pour changer la limite par défaut, consultez [Changer la concurrence « for each »](#change-for-each-concurrency) ou [Exécuter des boucles « for each » séquentiellement](#sequential-for-each). | Action : <p>[Foreach](#foreach-action) | 
 | `runtimeConfiguration.paginationPolicy.minimumItemCount` | Entier | Pour des actions spécifiques qui prennent en charge la pagination activée et pour laquelle cette dernière est activée, cette valeur spécifie le nombre *minimal* de résultats à récupérer. <p>Pour savoir comment activer la pagination, voir [Obtenir d’autres données, des articles ou des enregistrements à l’aide de la pagination dans Azure Logic Apps](../logic-apps/logic-apps-exceed-default-page-size-with-pagination.md) | Action : Différentes possibilités |
+| `runtimeConfiguration.secureData.properties` | Array | Sur de nombreux déclencheurs et actions, ces paramètres permettent de masquer les entrées et/ou les sorties dans l’historique d’exécution d’une application logique. <p>Pour sécuriser ces données, voir [Masquer les entrées et sorties de l'historique d'exécution](../logic-apps/logic-apps-securing-a-logic-app.md#secure-data-code-view). | La plupart des déclencheurs et des actions |
 | `runtimeConfiguration.staticResult` | Objet JSON | Pour les actions qui prennent en charge le paramètre [Résultat statique](../logic-apps/test-logic-apps-mock-data-static-results.md) et pour lesquelles ce dernier est activé, l’objet `staticResult` possède ces attributs : <p>- `name`, qui fait référence au nom de définition du résultat statique de l’action en cours, affiché dans l’attribut `staticResults` au sein de l’attribut `definition` du flux de travail. Pour en savoir plus, consultez le schéma de référence du langage de définition du flux de travail de la section [Résultats statiques](../logic-apps/logic-apps-workflow-definition-language.md#static-results). <p> - `staticResultOptions`, qui spécifie si les résultats statiques ont la valeur `Enabled` ou non pour l’action en cours. <p>Pour en savoir plus, voir [Tester des applications logiques avec des données fictives en configurant des résultats statiques](../logic-apps/test-logic-apps-mock-data-static-results.md). | Action : Différentes possibilités |
 ||||| 
 

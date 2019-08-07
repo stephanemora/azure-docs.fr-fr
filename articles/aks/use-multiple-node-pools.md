@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/17/2019
 ms.author: mlearned
-ms.openlocfilehash: 4ba9840d745995fdf7b8b14889a0c021917f0ec3
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 72f34d9711e1ba4658288bfdeb847632d32d0fcf
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68278167"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68478326"
 ---
 # <a name="preview---create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Préversion - Créer et gérer plusieurs pools de nœuds pour un cluster dans Azure Kubernetes Service (AKS)
 
@@ -145,7 +145,9 @@ VirtualMachineScaleSets  1        110        nodepool1   1.13.5                 
 
 ## <a name="upgrade-a-node-pool"></a>Mettre à niveau un pool de nœuds
 
-Lorsque votre cluster AKS a été créé dans la première étape, un paramètre `--kubernetes-version` de *1.13.5* a été spécifié. Nous allons mettre à niveau *mynodepool* vers Kubernetes *1.13.7*. Utilisez la commande [az aks node pool upgrade][az-aks-nodepool-upgrade] pour mettre à niveau le pool de nœuds, comme illustré dans l’exemple suivant :
+Lorsque votre cluster AKS a été créé dans la première étape, un paramètre `--kubernetes-version` de *1.13.5* a été spécifié. Ceci définit la version Kubernetes à la fois pour le plan de contrôle et le pool de nœuds initial. Il existe différentes commandes pour mettre à niveau la version Kubernetes du plan de contrôle et du pool de nœuds. La commande `az aks upgrade` sert à mettre à niveau le plan de contrôle, tandis que la commande `az aks nodepool upgrade` est utilisée pour mettre à niveau un pool individuel de nœuds.
+
+Nous allons mettre à niveau *mynodepool* vers Kubernetes *1.13.7*. Utilisez la commande [az aks node pool upgrade][az-aks-nodepool-upgrade] pour mettre à niveau le pool de nœuds, comme illustré dans l’exemple suivant :
 
 ```azurecli-interactive
 az aks nodepool upgrade \
@@ -155,6 +157,9 @@ az aks nodepool upgrade \
     --kubernetes-version 1.13.7 \
     --no-wait
 ```
+
+> [!Tip]
+> Pour mettre à niveau le plan avec la version *1.13.7*, exécutez `az aks upgrade -k 1.13.7`.
 
 Listez de nouveau l’état de vos pools de nœuds à l’aide de la commande [az aks node pool list][az-aks-nodepool-list]. L’exemple suivant montre que *mynodepool* est dans l’état *Upgrading (Mise à niveau)* vers *1.13.7* :
 
@@ -170,6 +175,15 @@ VirtualMachineScaleSets  1        110        nodepool1   1.13.5                 
 Il faut quelques minutes pour mettre à niveau les nœuds vers la version spécifiée.
 
 En guise de bonne pratique, vous devez mettre à niveau tous les pools de nœuds dans un cluster AKS vers la même version de Kubernetes. La possibilité de mettre à niveau les pools de nœuds individuels vous permet d’effectuer une mise à niveau propagée et de planifier des pods entre les pools de nœuds pour maintenir la disponibilité des applications.
+
+> [!NOTE]
+> Kubernetes utilise le schéma de contrôle de version standard [Semantic Versioning](https://semver.org/). Le numéro de version est exprimé par *x.y.z*, où *x* est la version principale, *y* est la version secondaire et *z* est la version du correctif. Par exemple, dans la version *1.12.6*, 1 est la version principale, 12 est la version secondaire, et 6 est la version du correctif. La version Kubernetes du plan de contrôle et du pool de nœuds initial est définie lors de la création du cluster. Tous les pools de nœuds supplémentaires ont leur version Kubernetes définie lorsqu'ils sont ajoutés au cluster. Les versions Kubernetes peuvent différer entre les pools de nœuds ainsi qu’entre un pool de nœuds et le plan de contrôle, mais les restrictions suivantes s'appliquent :
+> 
+> * La version du pool de nœuds doit avoir la même version principale que le plan de contrôle.
+> * La version du pool de nœuds peut être une version secondaire inférieure à la version du plan de contrôle.
+> * La version du pool de nœuds peut être n'importe quelle version de correctif tant que les deux autres contraintes sont respectées.
+> 
+> Pour mettre à jour la version Kubernetes du plan de contrôle, utilisez `az aks upgrade`. Si votre cluster n'a qu'un seul pool de nœuds, la commande `az aks upgrade` mettra également à jour la version Kubernetes du pool de nœuds.
 
 ## <a name="scale-a-node-pool"></a>Mettre à l'échelle un pool de nœuds
 

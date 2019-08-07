@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: article
-ms.date: 05/20/2019
+ms.date: 07/23/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand global transit network architecture as it relates to Virtual WAN.
-ms.openlocfilehash: 114d11f98c6181a03f5ce52527b5e2efea468c42
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2376c77ecc328788c842e045aafb618cbad39b0e
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65965970"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68421433"
 ---
 # <a name="global-transit-network-architecture-and-virtual-wan"></a>Architecture du réseau de transit global Virtual WAN
 
@@ -48,7 +48,7 @@ La Figure 2 montre la vue logique du réseau global où les utilisateurs géogr
 
 ## <a name="crossregion"></a>Connectivité inter-régions
 
-Pour une entreprise, une empreinte cloud suit généralement une empreinte physique. La plupart des entreprises accèdent au cloud à partir d’une région proche de leur site physique et des utilisateurs. Un des principes clés de l’architecture du réseau global consiste à activer la connectivité inter-régions entre des entités réseau et des points de terminaison. Une empreinte cloud peut s’étendre sur plusieurs régions. Cela signifie que le trafic à partir d’une branche connectée au cloud dans une région peut atteindre une autre branche ou un réseau virtuel dans une autre région à l’aide de la connectivité de hub à hub qui est actuellement en préversion.
+Pour une entreprise, une empreinte cloud suit généralement une empreinte physique. La plupart des entreprises accèdent au cloud à partir d’une région proche de leur site physique et des utilisateurs. Un des principes clés de l’architecture du réseau global consiste à activer la connectivité inter-régions entre des entités réseau et des points de terminaison. Une empreinte cloud peut s’étendre sur plusieurs régions. Cela signifie que le trafic à partir d’une branche connectée au cloud dans une région peut atteindre une autre branche ou un réseau virtuel dans une autre région à l’aide de la connectivité de hub à hub (actuellement sur notre feuille de route).
 
 ## <a name="any"></a>Connexion universelle
 
@@ -106,5 +106,4 @@ Le hub du réseau virtuel interconnecte et voit potentiellement tout le trafic d
 Créer une connexion à l’aide de Virtual WAN.
 
 * [Connexions de site à site à l’aide de Virtual WAN](virtual-wan-site-to-site-portal.md)
-* [Connexions de point à site à l’aide de Virtual WAN](virtual-wan-point-to-site-portal.md)
 * [Connexions ExpressRoute à l’aide du Virtual WAN](virtual-wan-expressroute-portal.md)

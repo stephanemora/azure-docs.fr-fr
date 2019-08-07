@@ -10,39 +10,25 @@ ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
-manager: craigg
-ms.date: 12/13/2018
-ms.openlocfilehash: bb5890b883b6062d834b928bff28a26a3664fb64
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 07/17/2019
+ms.openlocfilehash: 588fac1fc48396584188eec44f21a7005dc8ed96
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60700405"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567560"
 ---
 # <a name="configuring-a-custom-dns-for-azure-sql-database-managed-instance"></a>Configurer un DNS personnalisé pour Azure SQL Database Managed Instance
 
-Une instance managée Azure SQL Database doit être déployée au sein d’un [réseau virtuel](../virtual-network/virtual-networks-overview.md) Azure. Quelques scénarios (comme le courrier de base de données,des serveurs liés à d’autres instances SQL dans votre cloud ou environnement hybride) nécessitent des noms d’hôte privés pour être résolus depuis Managed Instance. Si tel est le cas, vous devez configurer un DNS personnalisé dans Azure. Comme Managed Instance utilise le même DNS pour ces tâches internes, la configuration du DNS du réseau virtuel doit être compatible avec Managed Instance.
+Une instance managée Azure SQL Database doit être déployée au sein d’un [réseau virtuel](../virtual-network/virtual-networks-overview.md) Azure. Quelques scénarios (comme le courrier de base de données,des serveurs liés à d’autres instances SQL dans votre cloud ou environnement hybride) nécessitent des noms d’hôte privés pour être résolus depuis Managed Instance. Si tel est le cas, vous devez configurer un DNS personnalisé dans Azure. 
+
+Comme Managed Instance utilise le même DNS pour ses opérations internes, vous devez configurer le serveur DNS personnalisé pour qu’il puisse résoudre les noms de domaine public.
 
    > [!IMPORTANT]
    > Utilisez toujours des noms de domaine complets (FQDN) pour les serveurs de messagerie, les serveurs SQL et les autres services même s’ils se trouvent dans votre zone DNS privée. Par exemple, utilisez `smtp.contoso.com` pour le serveur de messagerie, car le simple nom `smtp` ne sera pas correctement résolu.
 
-Pour rendre une configuration d’un DNS personnalisé compatible avec Managed Instance, vous devez :
-
-- Configurer un serveur DNS personnalisé afin qu’il puisse résoudre les noms de domaine publics
-- Placez l’adresse IP DNS du programme de résolution récursif d’Azure (168.63.129.16) à la fin de la liste DNS du réseau virtuel
-
-## <a name="setting-up-custom-dns-servers-configuration"></a>Paramétrage d’une configuration de serveurs DNS personnalisés
-
-1. Dans le portail Azure, trouvez l’option DNS personnalisé pour votre réseau virtuel.
-
-   ![option DNS personnalisé](./media/sql-database-managed-instance-custom-dns/custom-dns-option.png)
-
-2. Passez sur Personnalisé et entrez l’adresse IP du serveur de votre DNS personnalisé, ainsi que l’adresse IP des programmes de résolution récursifs d’Azure, 168.63.129.16.
-
-   ![option DNS personnalisé](./media/sql-database-managed-instance-custom-dns/custom-dns-server-ip-address.png)
-
    > [!IMPORTANT]
-   > Si vous ne définissez pas le programme de résolution récursif d’Azure dans la liste DNS, l’instance managée peut connaître une défaillance si les serveurs DNS personnalisés ne sont pas disponibles pour une raison quelconque. Pour récupérer de ce statut, vous devez créer une nouvelle instance dans un réseau virtuel avec les stratégies réseau conformes, créer des données de niveau d’instance et restaurer vos bases de données. Si vous définissez le programme de résolution récursif d’Azure comme la dernière entrée de la liste DNS, les noms publics continueront d’être résolus, même en cas de défaillance des serveurs DNS personnalisés.
+   > La mise à jour des serveurs DNS du réseau virtuel n’affecte pas Managed Instance immédiatement. La configuration DNS de Managed Instance est mise à jour après l’expiration du bail DHCP ou après la mise à niveau de la plateforme, selon l’événement qui se produit en premier. **Les utilisateurs sont invités à définir la configuration DNS de leur réseau virtuel avant de créer leur première instance Managed Instance.**
 
 ## <a name="next-steps"></a>Étapes suivantes
 

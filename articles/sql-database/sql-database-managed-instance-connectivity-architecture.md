@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 manager: craigg
 ms.date: 04/16/2019
-ms.openlocfilehash: dbb5ee122e715aeaa66d786f02966beedd2447c3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 960320e280a613a537f1918d93e4584a13a0b374
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65522334"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68309977"
 ---
 # <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Architecture de connectivité pour une instance gérée dans Azure SQL Database
 
@@ -228,7 +228,7 @@ Déployer une instance gérée dans un sous-réseau dédié à l’intérieur du
 
 En outre, vous pouvez utiliser la passerelle de réseau virtuel ou une appliance de réseau virtuel (NVA) pour ajouter des entrées à la table d’itinéraires pour acheminer le trafic disposant de plages d’adresses IP privées locales en tant que destination.
 
-Si le réseau virtuel comprend un DNS personnalisé, le serveur DNS personnalisé doit pouvoir résoudre les noms d’hôte dans la zone \*.core.windows.net. Des résolutions de FQDN additionnels peuvent être nécessaires si vous utilisez des fonctionnalités supplémentaires comme Azure AD Authentication. Pour plus d’informations, consultez [Configurer un système DNS personnalisé](sql-database-managed-instance-custom-dns.md).
+Si le réseau virtuel comprend un DNS personnalisé, le serveur DNS personnalisé doit pouvoir résoudre les enregistrements DNS publics. Des résolutions de FQDN additionnels peuvent être nécessaires si vous utilisez des fonctionnalités supplémentaires comme Azure AD Authentication. Pour plus d’informations, consultez [Configurer un système DNS personnalisé](sql-database-managed-instance-custom-dns.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

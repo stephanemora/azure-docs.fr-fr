@@ -16,12 +16,12 @@ ms.date: 07/23/2019
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 83eee019ee8530297689b85e6f3300fed4392610
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: 9f033cf57c5a285e94372728677c91e021065fa9
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68489179"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68678193"
 ---
 # <a name="create-a-new-access-package-in-azure-ad-entitlement-management-preview"></a>Créer un package d’accès dans la gestion des droits d’utilisation Azure AD (préversion)
 
@@ -44,7 +44,7 @@ Le diagramme suivant montre le processus de haut niveau permettant de créer un 
 
 ## <a name="start-new-access-package"></a>Démarrer le nouveau package d’accès
 
-**Rôle prérequis :** Administrateur d’utilisateurs ou propriétaire de catalogue
+**Rôle prérequis :** Administrateur général, Administrateur d’utilisateurs ou Propriétaire de catalogue
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 
@@ -64,21 +64,20 @@ Sur l’onglet **Concepts de base**, vous donnez un nom au package d’accès et
 
 1. Dans la liste déroulante **Catalogue**, sélectionnez le catalogue dans lequel vous souhaitez créer le package d’accès. Par exemple, vous pouvez avoir un propriétaire du catalogue qui gère toutes les ressources marketing qui peuvent être demandées. Dans ce cas, vous pouvez sélectionner le catalogue marketing.
 
-    Vous verrez seulement les catalogues dans lesquels vous êtes autorisé à créer des packages d’accès. Pour créer le package d’accès dans un catalogue existant, vous devez être au moins un administrateur d’utilisateurs, le propriétaire du catalogue ou le gestionnaire de package d’accès.
+    Vous verrez seulement les catalogues dans lesquels vous êtes autorisé à créer des packages d’accès. Pour créer un package d’accès dans un catalogue existant, vous devez être au moins un Administrateur général, un Administrateur d’utilisateurs, le propriétaire du catalogue dans ce catalogue ou le gestionnaire de package d’accès dans ce catalogue.
 
     ![Package d’accès - Concepts de base](./media/entitlement-management-access-package-create/basics.png)
 
-    Si vous souhaitez créer votre package d’accès dans un nouveau catalogue, cliquez sur **Créer**. Entrez le nom du catalogue et sa description, puis cliquez sur **Créer**.
+    Si vous êtes un Administrateur général ou un Administrateur d’utilisateurs, et si vous souhaitez créer votre package d’accès dans un nouveau catalogue qui ne figure pas dans la liste, cliquez sur **Créer nouveau**. Entrez le nom du catalogue et sa description, puis cliquez sur **Créer**.
 
-    Le package d’accès que vous créez et toutes les ressources incluses sont ajoutés dans le nouveau catalogue. En outre, vous deviendrez alors automatiquement le premier propriétaire du catalogue. Vous pouvez ajouter d’autres propriétaires de catalogue.
+    Le package d’accès que vous créez et toutes les ressources incluses sont ajoutés dans le nouveau catalogue. Vous pouvez également ajouter d’autres propriétaires de catalogue plus tard.
 
-    Pour créer un nouveau catalogue, vous devez être au moins un administrateur d’utilisateurs ou le créateur du catalogue.
 
 1. Cliquez sur **Suivant**.
 
 ## <a name="resource-roles"></a>Rôles de ressources
 
-Sous l’onglet **Rôles de ressources**, sélectionnez les ressources à inclure dans le package d’accès.
+Sous l’onglet **Rôles de ressources**, sélectionnez les ressources à inclure dans le package d’accès.  Les utilisateurs qui demandent et reçoivent le package d’accès recevront tous les rôles de ressource dans le package d’accès.
 
 1. Cliquez sur le type de ressource que vous souhaitez ajouter (**Groupes**, **Applications**, ou **Sites SharePoint**).
 
@@ -86,11 +85,11 @@ Sous l’onglet **Rôles de ressources**, sélectionnez les ressources à inclur
 
     ![Package d’accès - Rôles des ressources](./media/entitlement-management-access-package-create/resource-roles.png)
 
-    Si vous créez le package d’accès dans le catalogue Général ou dans un nouveau catalogue, vous pouvez récupérer n’importe quelle ressource à partir du répertoire que vous possédez. Vous devez être au moins un administrateur d’utilisateurs ou le créateur du catalogue.
+    Si vous créez le package d’accès dans le catalogue Général ou dans un nouveau catalogue, vous pouvez récupérer n’importe quelle ressource à partir du répertoire que vous possédez. Vous devez être au moins un Administrateur général, un Administrateur d’utilisateurs ou le Créateur du catalogue.
 
     Si vous créez le package d’accès dans un catalogue existant, vous pouvez sélectionner n’importe quelle ressource déjà présente dans le catalogue sans avoir à en être propriétaire.
 
-    Si vous êtes un administrateur d’utilisateurs ou un propriétaire de catalogue, vous avez également la possibilité de sélectionner des ressources que vous possédez et qui ne sont pas encore dans le catalogue. Si vous sélectionnez des ressources qui ne sont actuellement pas présentes dans le catalogue sélectionné, ces ressources sont ajoutées au catalogue pour que d’autres administrateurs du catalogue puissent créer des packages d’accès à partir de ces dernières. Si vous souhaitez uniquement sélectionner les ressources qui se trouvent actuellement dans le catalogue sélectionné, cochez la case **Voir uniquement** en haut du volet Sélectionner.
+    Si vous êtes un Administrateur général, un Administrateur d’utilisateurs ou un propriétaire de catalogue, vous avez également la possibilité de sélectionner des ressources que vous possédez et qui ne sont pas encore dans le catalogue. Si vous sélectionnez des ressources qui ne sont actuellement pas présentes dans le catalogue sélectionné, ces ressources sont ajoutées au catalogue pour que d’autres administrateurs du catalogue puissent créer des packages d’accès à partir de ces dernières. Si vous souhaitez uniquement sélectionner les ressources qui se trouvent actuellement dans le catalogue sélectionné, cochez la case **Voir uniquement** en haut du volet Sélectionner.
 
 1. Une fois que vous avez sélectionné les ressources, dans la liste **Rôle**, sélectionnez le rôle à assigner aux utilisateurs pour les ressources.
 

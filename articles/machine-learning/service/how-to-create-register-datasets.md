@@ -11,28 +11,26 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 05/21/2019
-ms.openlocfilehash: a879fa17244977277dab3e2e66c5888a44759764
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 765ec8291ba873c6b200cf330d82e6e2ab53357d
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67444029"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68423117"
 ---
 # <a name="create-and-access-datasets-preview-in-azure-machine-learning"></a>Créer des jeux de données et y accéder (préversion) dans Azure Machine Learning
 
-Dans cet article, vous apprendrez ç créer des jeux de données Azure Machine Learning (préversion) et à accéder aux données d'expériences locales et à distance.
+Dans cet article, vous allez découvrir comment créer des jeux de données Azure Machine Learning (préversion) et accéder aux données d’expériences locales ou à distance.
 
-Grâce aux jeux de données managés, vous pouvez : 
-* **Accéder facilement aux données pendant l’apprentissage du modèle** sans vous reconnecter à des magasins sous-jacents
+Avec les jeux de données Azure Machine Learning, vous pouvez : 
 
-* **Garantir la cohérence et la reproductibilité des données** en utilisant un même pointeur entre différentes expériences : blocs-notes, Machine Learning automatisé, pipelines, interface visuelle
+* **Conserver une copie unique des données dans votre stockage** référencée par des jeux de données.
 
-* **Partager des données et collaborer** avec les autres utilisateurs
+* **Analyser des données** par le biais d’une analyse exploratoire des données. 
 
-* **Explorer les données** et gérer le cycle de vie des instantanés et des versions de données
+* **Accéder facilement aux données lors de l’entraînement du modèle** sans vous soucier de la chaîne de connexion ou du chemin de données.
 
-* **Comparer les données** en formation et en production
-
+* **Partager des données et collaborer** avec les autres utilisateurs.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -49,18 +47,18 @@ Pour créer et utiliser des jeux de données, vous avez besoin des éléments su
 
 ## <a name="data-formats"></a>Formats de données
 
-Vous pouvez créer un jeu de données Azure Machine Learning à partir des données suivantes :
+Vous pouvez créer un jeu de données Azure Machine Learning à partir des formats suivants :
 + [delimited](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset#from-delimited-files-path--separator------header--promoteheadersbehavior-all-files-have-same-headers--3---encoding--fileencoding-utf8--0---quoting-false--infer-column-types-true--skip-rows-0--skip-mode--skiplinesbehavior-no-rows--0---comment-none--include-path-false--archive-options-none-)
-+ [binary](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#from-binary-files-path-)
 + [json](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#from-json-files-path--encoding--fileencoding-utf8--0---flatten-nested-arrays-false--include-path-false-)
 + [Excel](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#from-excel-files-path--sheet-name-none--use-column-headers-false--skip-rows-0--include-path-false--infer-column-types-true-)
 + [Parquet](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#from-parquet-files-path--include-path-false-)
-+ [Azure SQL Database](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#from-sql-query-data-source--query-)
-+ [Azure Data Lake gen. 1](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#from-sql-query-data-source--query-)
++ [DataFrame Pandas](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#from-pandas-dataframe-dataframe--path-none--in-memory-false-)
++ [SQL query](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#from-sql-query-data-source--query-)
++ [binary](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#from-binary-files-path-)
 
 ## <a name="create-datasets"></a>Créez les jeux de données 
 
-Vous pouvez interagir avec vos jeux de données à l’aide du paquet azureml-datasets dans le [SDK Python Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) et spécifiquement [la classe `Dataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset(class)?view=azure-ml-py).
+En créant un jeu de données, vous créez une référence à l’emplacement de la source de données, ainsi qu’une copie de ses métadonnées. Les données restant à leur emplacement existant, aucun coût de stockage supplémentaire n’est encouru.
 
 ### <a name="create-from-local-files"></a>Créer à partir de fichiers locaux
 
@@ -82,11 +80,11 @@ Vous pouvez également utiliser des fonctions spécifiques au fichier pour contr
 
 ### <a name="create-from-azure-datastores"></a>Créer à partir d’une banque de données Azure
 
-Pour créer des jeux de données à partir d’une banque de données Azure :
+Pour créer des jeux de données à partir d’une [banque de données Azure](how-to-access-data.md)
 
-* Vérifiez que vous disposez d’un accès `contributor` ou `owner` à la banque de données Azure inscrite.
+* Veillez à disposer d’un accès `contributor` ou `owner` à la banque de données Azure inscrite.
 
-* Importez les paquets [`Workspace`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py), [`Datastore`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#definition) et `Dataset` à partir du SDK.
+* Créez le jeu de données en référençant un chemin dans la banque de données. 
 
 ```Python
 from azureml.core.workspace import Workspace
@@ -97,20 +95,16 @@ datastore_name = 'your datastore name'
 
 # get existing workspace
 workspace = Workspace.from_config()
-```
 
- La méthode `get()` récupère une banque de données existante dans l’espace de travail.
-
-```
+# retrieve an existing datastore in the workspace by name
 dstore = Datastore.get(workspace, datastore_name)
 ```
 
-Utilisez la méthode `from_delimited_files()` pour lire les fichiers délimités et créer un jeu de données non inscrit.
+Utilisez la méthode `from_delimited_files()` pour lire les fichiers délimités à partir d’un [DataReference](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py) et créer un jeu de données non inscrit.
 
 ```Python
 # create an in-memory Dataset on your local machine
-datapath = dstore.path('data/src/crime.csv')
-dataset = Dataset.from_delimited_files(datapath)
+dataset = Dataset.from_delimited_files(dstore.path('data/src/crime.csv'))
 
 # returns the first 5 rows of the Dataset as a pandas Dataframe.
 dataset.head(5)
@@ -135,19 +129,22 @@ dataset = dataset.register(workspace = workspace,
 
 ## <a name="access-data-in-datasets"></a>Accéder aux informations des jeux de données
 
-Les jeux de données inscrits sont accessibles et utilisables localement, à distance et sur des clusters de calcul comme Azure Machine Learning. Pour réutiliser votre jeu de données inscrit dans plusieurs expériences et environnements de calcul, utilisez le code suivant pour récupérer votre espace de travail et jeu de données inscrit par nom.
+Les jeux de données inscrits sont accessibles localement et à distance sur des clusters de calcul comme Azure Machine Learning. Pour accéder à votre jeu de données inscrit dans plusieurs expériences, utilisez le code suivant afin de récupérer votre espace de travail et jeu de données inscrit par nom.
 
 ```Python
 workspace = Workspace.from_config()
 
 # See list of datasets registered in workspace.
-Dataset.list(workspace)
+print(Dataset.list(workspace))
 
 # Get dataset by name
-dataset = workspace.datasets['dataset_crime']
+dataset = Dataset.get(workspace, 'dataset_crime')
+
+# Load data into pandas DataFrame
+dataset.to_pandas_dataframe()
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Explorer et préparer des jeux de données](how-to-explore-prepare-data.md).
-* Pour obtenir un exemple d’utilisation de jeux de données, consultez les [exemples de blocs-notes](https://aka.ms/dataset-tutorial).
+* Pour obtenir un exemple d’utilisation de jeux de données, consultez les [exemples de notebooks](https://aka.ms/dataset-tutorial).

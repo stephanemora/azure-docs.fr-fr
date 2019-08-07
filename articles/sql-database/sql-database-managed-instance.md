@@ -1,6 +1,6 @@
 ---
-title: Vue d’ensemble d’Advanced Data Security pour Azure SQL Database | Microsoft Docs
-description: Cette rubrique décrit Advanced Data Security pour Azure SQL Database et explique son fonctionnement ainsi que ses différences par rapport à une base de données unique ou mise en pool dans Azure SQL Database.
+title: Présentation de l’instance managée Azure SQL Database | Microsoft Docs
+description: Cet article décrit l’instance managée Azure SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: managed-instance
@@ -10,16 +10,15 @@ ms.topic: conceptual
 author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
-manager: craigg
-ms.date: 06/26/2019
-ms.openlocfilehash: b03f546b992bd9de6092dc0da8ef72aa69aa1da2
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.date: 07/18/2019
+ms.openlocfilehash: 7c10bdf5e4f47f5bb5ac97b610c605132c4b4a00
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447789"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567207"
 ---
-# <a name="use-sql-database-advanced-data-security-with-virtual-networks-and-near-100-compatibility"></a>Utiliser Advanced Data Security pour SQL Database avec des réseaux virtuels et une compatibilité de presque 100 %
+# <a name="what-is-azure-sql-database-managed-instance"></a>Qu’est-ce que l’instance managée Azure SQL Database ?
 
 L’instance managée est une nouvelle option de déploiement d’Azure SQL Database, presque 100 % compatible avec le dernier moteur de base de données local SQL Server (Édition Entreprise), qui fournit une implémentation de [réseau virtuel (VNet)](../virtual-network/virtual-networks-overview.md) native traitant les problèmes de sécurité courants, ainsi qu’un [modèle d’entreprise](https://azure.microsoft.com/pricing/details/sql-database/) favorable aux clients du serveur SQL Server local. Le modèle de déploiement d’instance managée permet aux clients de SQL Server existants d’effectuer une migration « lift-and-shift » de leurs applications locales vers le cloud en changeant le moins possible les applications et bases de données. En même temps, l’option de déploiement d’instance managée conserve toutes les fonctionnalités PaaS (correctifs et mises à jour de versions automatiques, [sauvegardes automatisées](sql-database-automated-backups.md), [haute disponibilité](sql-database-high-availability.md)), ce qui réduit considérablement le temps de gestion et le coût total de possession (TCO).
 
@@ -120,6 +119,70 @@ La liste suivante décrit les principales caractéristiques du niveau de service
 
 Vous trouverez plus d’informations sur les différences entre les niveaux de service dans les [limites de ressources d’instance managée](sql-database-managed-instance-resource-limits.md#service-tier-characteristics).
 
+
+## <a name="managed-instance-management-operations"></a>Opérations de gestion des instances managées
+
+Azure SQL Database fournit des opérations de gestion que vous pouvez utiliser pour déployer automatiquement de nouvelles instances managées, mettre à jour les propriétés des instances et supprimer des instances quand vous n’en avez plus besoin. Cette section fournit des informations sur les opérations de gestion et leurs durées habituelles.
+
+Pour prendre en charge les [déploiements sur les réseaux virtuels Azure](../virtual-network/virtual-network-for-azure-services.md#deploy-azure-services-into-virtual-networks) et assurer l’isolation et la sécurité des clients, l’instance managée s’appuie sur des [clusters virtuels](sql-database-managed-instance-connectivity-architecture.md#high-level-connectivity-architecture), qui représentent un ensemble dédié de machines virtuelles isolées déployées sur le sous-réseau du réseau virtuel du client. Fondamentalement, chaque déploiement d’instance managée sur un sous-réseau vide génère une nouvelle structure de cluster virtuel.
+
+Les opérations ultérieures sur les instances managées déployées peuvent également avoir des effets sur son cluster virtuel sous-jacent. Cela affecte la durée des opérations de gestion, car le déploiement de machines virtuelles supplémentaires entraîne une surcharge qui doit être prise en compte quand vous planifiez de nouveaux déploiements ou des mises à jour d’instances managées existantes.
+
+Toutes les opérations de gestion peuvent être classées comme suit :
+
+- Déploiement d’instance (création d’une nouvelle instance) 
+- Mise à jour d’instance (modification des propriétés d’instance, telles que vCores, stockage réservé, etc.)
+- Suppression d’instance
+
+En règle générale, les opérations sur les clusters virtuels prennent le plus de temps. La durée des opérations sur les clusters virtuels varie. Vous trouverez ci-dessous les valeurs généralement observées, en fonction des données de télémétrie de service existantes :
+
+- Création d’un cluster virtuel. Il s’agit d’une étape synchrone dans les opérations de gestion d’instance. **90 % des opérations se terminent dans les quatre heures**.
+- Redimensionnement de cluster virtuel (expansion ou réduction). L’expansion est une étape synchrone, tandis que la réduction est effectuée de façon asynchrone (sans incidence sur la durée des opérations de gestion des instances). **90 % des expansions de cluster nécessitent moins de deux heures trente**.
+- Suppression de cluster virtuel. La suppression est une étape asynchrone, mais elle peut également être [lancée manuellement](sql-database-managed-instance-delete-virtual-cluster.md) sur un cluster virtuel vide, auquel cas elle s’exécute de façon synchrone. **90 % des suppressions de cluster virtuel ne prennent pas plus d’une heure trente**.
+
+En outre, la gestion des instances peut également inclure l’une de ces opérations sur les bases de données hébergées, ce qui rallonge les durées d’exécution :
+
+- Attachement de fichiers de base de données à partir du Stockage Azure. Il s’agit d’une étape synchrone, telle qu’un scale-up ou un scale-down de la capacité de calcul (vCore) ou du stockage dans le niveau de service Usage général. **90 % de ces opérations ne prennent pas plus de cinq minutes**.
+- Amorçage de groupe de disponibilité Always On. Il s’agit d’une étape synchrone, telle qu’une mise à l’échelle de la capacité de calcul (vCore) ou du stockage dans le niveau de service Critique pour l’entreprise, ainsi que le basculement du niveau de service de Usage général à Critique pour l’entreprise (ou vice versa). La durée de cette opération est proportionnelle à la taille totale de la base de données, ainsi qu’à l’activité actuelle de la base de données (nombre de transactions actives). L’activité de la base de données lors de la mise à jour d’une instance peut faire varier considérablement la durée totale. **90 % de ces opérations s’exécutent à 220 Go/heure ou plus**.
+
+Le tableau suivant récapitule les opérations et les durées totales habituelles :
+
+|Category  |Opération  |Segment de longue durée  |Durée estimée  |
+|---------|---------|---------|---------|
+|**Déploiement** |Première instance sur un sous-réseau vide|Création de cluster virtuel|90 % des opérations se terminent dans les quatre heures|
+|Déploiement |Première instance d’une autre génération de matériel sur un sous-réseau non vide (par exemple, première instance de Génération 5 sur un sous-réseau avec des instances de Génération 4)|Création de cluster virtuel*|90 % des opérations se terminent dans les quatre heures|
+|Déploiement |Création de première instance de quatre vCores, sur un sous-réseau vide ou non vide|Création de cluster virtuel**|90 % des opérations se terminent dans les quatre heures|
+|Déploiement |Création d’instance suivante sur le sous-réseau non vide (2e instance, 3e instance, et ainsi de suite.)|Redimensionnement de cluster virtuel|90 % des opérations se terminent dans les deux heures trente|
+|**Mettre à jour** |Modification de propriété d’instance (mot de passe administrateur, connexion AAD, indicateur Azure Hybrid Benefit)|N/A|Jusqu’à une minute|
+|Mettre à jour |Scale-up ou scale-down du stockage d’instance (niveau de service Usage général)|- Redimensionnement de cluster virtuel<br>- Attachement de fichiers de base de données|90 % des opérations se terminent dans les deux heures trente|
+|Mettre à jour |Scale-up et scale-down du stockage d’instance (niveau de service Critique pour l’entreprise)|- Redimensionnement de cluster virtuel<br>- Amorçage de groupe de disponibilité Always On|90 % des opérations se terminent dans les deux heures trente + durée nécessaire pour amorcer toutes les bases de données (220 Go/heure)|
+|Mettre à jour |Scale-up et scale-down de la capacité de calcul des instances (vCores) (Usage général)|- Redimensionnement de cluster virtuel<br>- Attachement de fichiers de base de données|90 % des opérations se terminent dans les deux heures trente|
+|Mettre à jour |Scale-up et scale-down de la capacité de calcul des instances (vCores) (Critique pour l’entreprise)|- Redimensionnement de cluster virtuel<br>- Amorçage de groupe de disponibilité Always On|90 % des opérations se terminent dans les deux heures trente + durée nécessaire pour amorcer toutes les bases de données (220 Go/heure)|
+|Mettre à jour |Scale-down de l’instance à quatre vCores (Usage général)|- Redimensionnement de cluster virtuel (s’il s’agit du premier redimensionnement, il peut nécessiter la création d’un cluster virtuel**)<br>- Attachement de fichiers de base de données|90 % des opérations se terminent dans les quatre heures cinq|
+|Mettre à jour |Scale-down de l’instance à quatre vCores (Usage général)|- Redimensionnement de cluster virtuel (s’il s’agit du premier redimensionnement, il peut nécessiter la création d’un cluster virtuel**)<br>- Amorçage de groupe de disponibilité Always On|90 % des opérations se terminent dans les quatre heures + durée nécessaire pour amorcer toutes les bases de données (220 Go/heure)|
+|Mettre à jour |Modification du niveau de service de l’instance (Usage général vers Critique pour l’entreprise et vice versa)|- Redimensionnement de cluster virtuel<br>- Amorçage de groupe de disponibilité Always On|90 % des opérations se terminent dans les deux heures trente + durée nécessaire pour amorcer toutes les bases de données (220 Go/heure)|
+|**Suppression**|Suppression d’instance|Sauvegarde de la fin du journal pour toutes les bases de données|90 % des opérations se terminent en une minute.<br>Remarque : Si la dernière instance du sous-réseau est supprimée, cette opération planifiera la suppression du cluster virtuel après 12 heures***|
+|Suppression|Suppression de cluster virtuel (en tant qu’opération lancée par l’utilisateur)|Suppression de cluster virtuel|90 % des opérations ne nécessitent pas plus d’une heure trente|
+
+\* Le cluster virtuel est généré en fonction de la génération du matériel.
+
+\*\* L’option de déploiement de quatre vCores a été publiée en juin 2019 et nécessite une nouvelle version de cluster virtuel. Si vous avez des instances du sous-réseau cible qui ont été créées avant le 12 juin, un nouveau cluster virtuel sera déployé automatiquement pour héberger quatre instances de vCores.
+
+\*\*\* 12 heures est la configuration actuelle, mais cela peut changer à l’avenir. Ne prenez donc pas ce critère comme une dépendance. Si vous devez supprimer un cluster virtuel plus tôt (par exemple pour libérer le sous-réseau), consultez [Supprimer un sous-réseau après avoir supprimé une instance managée Azure SQL Database](sql-database-managed-instance-delete-virtual-cluster.md).
+
+### <a name="instance-availability-during-management"></a>Disponibilité de l’instance pendant la gestion
+
+Les instances managées ne sont pas accessibles aux applications clientes pendant les opérations de déploiement et de suppression.
+
+Les instances managées sont disponibles pendant les opérations de mise à jour, mais il y a un court temps d’arrêt dû au basculement qui se produit à la fin des mises à jour, qui ne dure généralement pas plus de 10 secondes.
+
+> [!IMPORTANT]
+> La durée d’un basculement peut varier considérablement en cas de transactions de longue durée qui se produisent sur les bases de données en raison d’une [durée de récupération prolongée](sql-database-accelerated-database-recovery.md#the-current-database-recovery-process). Par conséquent, nous vous déconseillons de mettre à l’échelle la capacité de calcul ou le stockage de l’instance managée Azure SQL Database ou de modifier le niveau de service en même temps que les transactions de longue durée (importation de données, travaux de traitement des données, régénération d’index, et ainsi de suite). Le basculement de base de données qui sera effectué à la fin de l’opération annulera les transactions en cours et allongera le temps de récupération.
+
+La [récupération accélérée de la base de données](sql-database-accelerated-database-recovery.md) n’est actuellement pas disponible pour les instances managées Azure SQL Database. Une fois activée, cette fonctionnalité réduira considérablement la variabilité de la durée de basculement, même en cas de transactions de longue durée.
+
+
+
 ## <a name="advanced-security-and-compliance"></a>Sécurité et conformité avancées
 
 L’option de déploiement d’instance managée combine les fonctionnalités de sécurité avancées fournies par le cloud Azure et le moteur de base de données SQL Server.
@@ -156,7 +219,7 @@ La migration d’une base de données chiffrée vers une instance managée est p
 
 ## <a name="azure-active-directory-integration"></a>Intégration d'Azure Active Directory
 
-L’option de déploiement d’instance managée prend en charge les connexions traditionnelles au moteur de base de données SQL Server et les connexions intégrées à Azure Active Directory (AAD). Les principaux (connexions) de serveur Azure AD (**préversion publique**) correspondent à une version cloud Azure des connexions aux bases de données locales que vous utilisez dans votre environnement local. Les principaux (connexions) de serveur Azure AD vous permettent de spécifier des utilisateurs et des groupes de votre locataire Azure Active Directory sous forme de principaux limités à une instance et capables d'effectuer toutes les opérations au niveau de l'instance, y compris les requêtes entre plusieurs bases de données au sein de la même instance managée.
+L’option de déploiement d’instance managée prend en charge les connexions traditionnelles au moteur de base de données SQL Server et les connexions intégrées à Azure Active Directory (AAD). Les principaux (connexions) de serveur Azure AD (**préversion publique**) correspondent à une version cloud Azure des connexions aux bases de données locales que vous utilisez dans votre environnement local. Les principaux (connexions) de serveur Azure AD vous permettent de spécifier des utilisateurs et des groupes de votre locataire Azure Active Directory sous forme de principaux limités à une instance et capables d’effectuer toutes les opérations au niveau de l’instance, y compris les requêtes entre plusieurs bases de données au sein de la même instance managée.
 
 Une nouvelle syntaxe a été ajoutée pour créer des principaux (connexions) de serveur Azure AD (**préversion publique**), **À PARTIR D'UN FOURNISSEUR EXTERNE**. Pour plus d’informations sur la syntaxe, consultez <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a> et lisez l’article [Provisionner un administrateur Azure Active Directory pour votre instance managée](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-managed-instance).
 

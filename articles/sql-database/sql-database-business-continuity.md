@@ -11,14 +11,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-manager: craigg
 ms.date: 06/25/2019
-ms.openlocfilehash: 26b31781ae0056999eb222981b2eea3eb4595041
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: e57427fbb7e0d3c67fc4fcbab1a50f14ef8c9501
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68228045"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68569342"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Vue d’ensemble de la continuité de l’activité avec la base de données Azure SQL
 
@@ -58,7 +57,23 @@ Vous pouvez utiliser des sauvegardes de base de données automatiques pour resta
 
 Si la période maximale de rétention de base de données prise en charge associée à la limite de restauration dans le temps n’est pas suffisante pour votre application, vous pouvez la rallonger en configurant une stratégie de conservation à long terme (LTR) pour les bases de données. Pour plus d’informations, consultez [Conservation des sauvegardes à long terme](sql-database-long-term-retention.md).
 
-## <a name="recover-a-database-to-another-azure-region"></a>Récupérer une base de données sur une autre région Azure
+## <a name="compare-geo-replication-with-failover-groups"></a>Comparer la géoréplication et des groupes de basculement
+
+Les [groupes de basculement automatique](sql-database-auto-failover-group.md#auto-failover-group-terminology-and-capabilities) simplifient le déploiement et l’utilisation de la [géo-réplication](sql-database-active-geo-replication.md) et ajoutent les fonctionnalités supplémentaires décrites dans le tableau suivant :
+
+|                                              | Géoréplication | Groupes de basculement  |
+|:---------------------------------------------| :-------------- | :----------------|
+| Basculement automatique                           |     Non          |      OUI         |
+| Basculement simultanément de plusieurs bases de données  |     Non          |      OUI         |
+| Mise à jour de la chaîne de connexion après le basculement      |     OUI         |      Non          |
+| Instance gérée prise en charge                   |     Non          |      OUI         |
+| Peut être dans la même région que l’élément principal             |     OUI         |      Non          |
+| Réplicas multiples                            |     OUI         |      Non          |
+| Prise en charge de l’échelle lecture                          |     OUI         |      OUI         |
+| &nbsp; | &nbsp; | &nbsp; |
+
+
+## <a name="recover-a-database-to-the-existing-server"></a>Récupération d’une base de données sur le serveur existant
 
 Bien que le fait soit rare, un centre de données Azure peut subir une panne. En cas de panne, il entraîne une interruption de service qui peut durer de quelques minutes à plusieurs heures.
 

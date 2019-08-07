@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.custom: seodec18
 ms.date: 04/23/2019
-ms.openlocfilehash: 8699533cd64e6b1778c5e78b8c51eb1efe518c75
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1ad3c446df2f2ce62024dfdda589669653f65ef4
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67126216"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68488709"
 ---
 # <a name="configure-a-hdinsight-cluster-with-enterprise-security-package-by-using-azure-active-directory-domain-services"></a>Configurer un cluster HDInsight avec le pack Sécurité Entreprise en utilisant Azure Active Directory Domain Services
 
@@ -34,6 +34,8 @@ Dans cet article, vous allez apprendre à configurer un cluster HDInsight avec E
 L’activation d’Azure AD-DS est une condition préalable à la création d’un cluster HDInsight avec ESP. Pour plus d’informations, consultez [Activer Azure Active Directory Domain Services à l’aide du portail Azure](../../active-directory-domain-services/create-instance.md). 
 
 Quand Azure AD-DS est activé, tous les utilisateurs et les objets commencent la synchronisation d’Azure Active Directory (AAD) avec Azure AD-DS par défaut. La longueur de l’opération de synchronisation varie selon le nombre d’objets dans Azure AD. La synchronisation pourrait prendre quelques jours pour des centaines de milliers d’objets. 
+
+Le nom de domaine que vous utilisez avec Azure AD-DS doit comporter 39 caractères au maximum pour fonctionner avec HDInsight.
 
 Vous pouvez choisir de synchroniser uniquement les groupes qui ont besoin d’accéder aux clusters HDInsight. Cette option de synchroniser uniquement certains groupes est appelée *synchronisation délimitée*. Pour des instructions, consultez [Configurer une synchronisation délimitée entre Azure AD et votre domaine managé](../../active-directory-domain-services/scoped-synchronization.md).
 
@@ -80,11 +82,11 @@ Modifiez la configuration des serveurs DNS dans le réseau virtuel Azure AD DS p
 
 Il est plus facile de placer l’instance Azure AD-DS et le cluster HDInsight dans le même réseau virtuel Azure. Si vous envisagez d’utiliser différents réseaux virtuels, vous devez les appairer de manière à ce que le contrôleur de domaine soit visible pour les machines virtuelles HDI. Pour en savoir plus, consultez [Homologation de réseaux virtuels](../../virtual-network/virtual-network-peering-overview.md). 
 
-Une fois les réseaux virtuels appairés, configurez le réseau virtuel HDInsight pour utiliser un serveur DNS personnalisé et entrez les adresses IP privées Azure AD-DS en tant qu'adresses de serveur DNS. Lorsque les deux réseaux virtuels utilisent les mêmes serveurs DNS, votre nom de domaine personnalisé est résolu vers l'adresse IP qui convient et accessible à partir de HDInsight. Par exemple, si votre nom de domaine est « contoso.com », après cette étape, le test ping « contoso.com » doit être résolu vers l'adresse IP Azure AD-DS qui convient. 
+Une fois les réseaux virtuels appairés, configurez le réseau virtuel HDInsight pour utiliser un serveur DNS personnalisé et entrez les adresses IP privées Azure AD-DS en tant qu'adresses de serveur DNS. Lorsque les deux réseaux virtuels utilisent les mêmes serveurs DNS, votre nom de domaine personnalisé est résolu vers l'adresse IP qui convient et accessible à partir de HDInsight. Par exemple, si votre nom de domaine est `contoso.com`, après cette étape, `ping contoso.com` doit être résolu à la bonne adresse IP Azure AD-DS.
 
 ![Configuration des serveurs DNS personnalisés pour le réseau virtuel appairé](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-aadds-peered-vnet-configuration.png)
 
-Si vous utilisez des règles de groupes de sécurité réseau (NSG) dans votre sous-réseau HDInsight, vous devez autoriser les [adresses IP nécessaires ](../hdinsight-extend-hadoop-virtual-network.md) pour le trafic entrant et le trafic sortant. 
+Si vous utilisez des règles de groupes de sécurité réseau (NSG) dans votre sous-réseau HDInsight, vous devez autoriser les [adresses IP nécessaires ](../hdinsight-management-ip-addresses.md) pour le trafic entrant et le trafic sortant. 
 
 **Pour vérifier** si votre mise en réseau est correctement configurée, joignez une machine virtuelle au réseau virtuel/sous-réseau HDInsight et effectuez un test ping sur le nom de domaine (il doit être résolu en adresse IP), puis exécutez **ldp.exe** pour accéder au domaine Azure AD-DS. **Joignez ensuite cette machine virtuelle Windows au domaine pour vérifier** que tous les appels RPC requis ont abouti entre le client et le serveur. Vous pouvez également utiliser **nslookup** pour vérifier l'accès de la mise en réseau à votre compte de stockage ou à n'importe quelle base de données externe que vous pourriez utiliser (par exemple, metastore Hive ou base de données Ranger externe).
 Assurez-vous que tous les [ports requis](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772723(v=ws.10)#communication-to-domain-controllers) figurent dans la liste verte des règles de groupe de sécurité réseau du sous-réseau AAD-DS, si AAD-DS est sécurisé par un groupe NSG. Si la jonction de domaine de cette machine virtuelle Windows est réussie, vous pouvez passer à l’étape suivante et créer des clusters ESP.
@@ -108,7 +110,7 @@ Quand vous créez un cluster HDInsight avec ESP, vous devez fournir les paramèt
 
 - **Groupe d’accès au cluster** : Les groupes de sécurité dont vous voulez que les utilisateurs puissent avoir accès au cluster et le synchroniser doivent être disponibles dans Azure AD-DS. Par exemple, le groupe HiveUsers. Pour plus d’informations, consultez [Créer un groupe et ajouter des membres dans Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
-- **URL LDAPS** : Exemple : ldaps://contoso.com:636.
+- **URL LDAPS** : Par exemple `ldaps://contoso.com:636`.
 
 La capture d’écran suivante montre une configuration réussie dans le portail Azure :
 

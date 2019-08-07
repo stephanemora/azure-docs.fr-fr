@@ -9,12 +9,12 @@ services: iot-hub
 ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 06/28/2017
-ms.openlocfilehash: d52e0e1093668a65e76bd6600329619240aee182
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: f78f53f259234dc949ce5b18ccc7714b32e239f9
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67612592"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68404035"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>Charger des fichiers sur le cloud à partir d’un appareil avec IoT Hub
 
@@ -117,6 +117,12 @@ Dans cette section, créez l’application d’appareil pour charger un fichier 
 
 9. Copiez un fichier image dans le dossier `simulateddevice` et renommez-le `myimage.png`.
 
+## <a name="get-the-iot-hub-connection-string"></a>Obtention de la chaîne de connexion de l’IoT Hub
+
+Dans cet article, vous créez un service back-end pour recevoir les messages de notification de chargement de fichiers depuis l’IoT Hub que vous avez créé dans [Send telemetry from a device to an IoT hub (Envoyer des données de télémétrie d’un appareil à un IoT Hub)](quickstart-send-telemetry-node.md). Pour recevoir les messages de notification de chargement de fichiers, votre service a besoin de l'autorisation de **connexion de service**. Par défaut, chaque IoT Hub est créé avec une stratégie d’accès partagé nommée **service** qui accorde cette autorisation.
+
+[!INCLUDE [iot-hub-include-find-service-connection-string](../../includes/iot-hub-include-find-service-connection-string.md)]
+
 ## <a name="receive-a-file-upload-notification"></a>Recevoir une notification de téléchargement de fichier
 
 Dans cette section, vous allez créer une application console Node.js qui reçoit des messages de notification de chargement de fichiers envoyés par IoT Hub.
@@ -145,7 +151,7 @@ Vous pouvez utiliser la chaîne de connexion **iothubowner** de votre hub IoT po
     var Client = require('azure-iothub').Client;
     ```
 
-5. Ajoutez une variable `iothubconnectionstring` et utilisez-la pour créer une instance **Client**.  Remplacez `{iothubconnectionstring}` par la chaîne de connexion du hub IoT créé dans la section _Créer un hub IoT_ :
+5. Ajoutez une variable `iothubconnectionstring` et utilisez-la pour créer une instance **Client**.  Remplacez la valeur de l’espace réservé `{iothubconnectionstring}` par la chaîne de connexion de l’IoT Hub que vous avez précédemment copiée dans [Obtention de la chaîne de connexion de l’IoT Hub](#get-the-iot-hub-connection-string) :
 
     ```javascript
     var connectionString = '{iothubconnectionstring}';

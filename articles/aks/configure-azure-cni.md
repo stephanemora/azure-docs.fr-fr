@@ -2,31 +2,31 @@
 title: Configurer un réseau Azure CNI dans AKS (Azure Kubernetes Service)
 description: Découvrez comment configurer un réseau (avancé) Azure CNI dans AKS (Azure Kubernetes Service), notamment pour déployer un cluster AKS dans un réseau et un sous-réseau virtuels existants.
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: article
 ms.date: 06/03/2019
-ms.author: iainfou
-ms.openlocfilehash: 25ff618045c65371b1bddd8aeb32166b3e168a93
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
-ms.translationtype: MT
+ms.author: mlearned
+ms.openlocfilehash: 1cc2849ffe55fff737993140a1d0f18182820eff
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66497213"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68498570"
 ---
 # <a name="configure-azure-cni-networking-in-azure-kubernetes-service-aks"></a>Configurer un réseau Azure CNI dans AKS (Azure Kubernetes Service)
 
 Par défaut, les clusters AKS utilisent [kubenet][kubenet], et un réseau et un sous-réseau virtuels sont automatiquement créés. Avec *kubenet*, les nœuds obtiennent une adresse IP d’un sous-réseau du réseau virtuel. La traduction d’adresses réseau (NAT) est ensuite configurée sur les nœuds, et les pods reçoivent une adresse IP « cachée » derrière l’adresse IP du nœud. Cette approche réduit le nombre d’adresses IP que vous avez besoin de réserver dans votre espace réseau à l’usage des pods.
 
-Avec l’interface [Azure Container Networking Interface (CNI)][cni-networking], chaque pod reçoit une adresse IP du sous-réseau et est accessible directement. Ces adresses IP doivent être uniques dans votre espace réseau, et être planifiées à l’avance. Chaque nœud possède un paramètre de configuration pour le nombre maximal de pods qu’il prend en charge. Le nombre équivalent d’adresses IP par nœud est alors réservé à l’avance pour ce nœud. Cette approche demande un plus grand travail de planification. De plus, elle conduit souvent à l’épuisement des adresses IP ou à la nécessité de regénérer les clusters dans un sous-réseau plus vaste à mesure que vos besoins d’applications augmentent.
+Avec l’interface [Azure Container Networking Interface (CNI)][cni-networking], chaque pod reçoit une adresse IP du sous-réseau et est accessible directement. Ces adresses IP doivent être uniques dans votre espace réseau et doivent être planifiées à l’avance. Chaque nœud possède un paramètre de configuration pour le nombre maximal de pods qu’il prend en charge. Le nombre équivalent d’adresses IP par nœud est alors réservé à l’avance pour ce nœud. Cette approche demande un plus grand travail de planification. De plus, elle conduit souvent à l’épuisement des adresses IP ou à la nécessité de regénérer les clusters dans un sous-réseau plus vaste à mesure que vos besoins d’applications augmentent.
 
-Cet article vous montre comment utiliser les réseaux *Azure CNI* afin de créer et d’utiliser un sous-réseau de réseau virtuel pour un cluster AKS. Pour plus d’informations sur les options et considérations relatives aux réseaux, consultez [Concepts de réseau pour Kubernetes et AKS][aks-network-concepts].
+Cet article vous montre comment utiliser les réseaux *Azure CNI* afin de créer et d’utiliser un sous-réseau de réseau virtuel pour un cluster AKS. Pour plus d’informations sur les options et considérations relatives aux réseaux, consultez [Network concepts for applications in Azure Kubernetes Service (AKS)][aks-network-concepts] (Concepts de réseau pour les applications dans Azure Kubernetes Service (AKS)).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 * Le réseau virtuel du cluster AKS doit autoriser les connexions Internet sortantes.
 * Ne créez pas plus d’un cluster AKS dans le même sous-réseau.
-* Les clusters AKS ne peuvent pas utiliser `169.254.0.0/16`, `172.30.0.0/16` ou `172.31.0.0/16` pour la plage d’adresses de service Kubernetes.
+* Les clusters AKS ne peuvent pas utiliser `169.254.0.0/16`, `172.30.0.0/16`, `172.31.0.0/16` ou `192.0.2.0/24` pour la plage d’adresses de service Kubernetes.
 * Le principal du service utilisé par le cluster AKS doit disposer au moins des autorisations [Contributeur de réseau](../role-based-access-control/built-in-roles.md#network-contributor) sur le sous-réseau de votre réseau virtuel. Si vous souhaitez définir un [rôle personnalisé](../role-based-access-control/custom-roles.md) au lieu d’utiliser le rôle de contributeur de réseau intégré, les autorisations suivantes sont nécessaires :
   * `Microsoft.Network/virtualNetworks/subnets/join/action`
   * `Microsoft.Network/virtualNetworks/subnets/read`
@@ -41,7 +41,7 @@ Les adresses IP des pods et des nœuds de cluster sont affectées à partir du s
 > Le nombre d’adresses IP requises doit prendre en compte des considérations relatives aux opérations de mise à niveau et à l’échelle. Si vous définissez la plage d’adresses IP pour prendre en charge uniquement un nombre fixe de nœuds, vous ne pouvez pas mettre à niveau ou à l’échelle votre cluster.
 >
 > - Lorsque vous **mettez à niveau** votre cluster AKS, un nouveau nœud est déployé dans le cluster. Les services et charges de travail commencent à s’exécuter sur le nouveau nœud, et le nœud plus ancien est supprimé du cluster. Ce processus de mise à niveau propagée nécessite la disponibilité d’un minimum d’adresses IP ou de bloc supplémentaires. Le nombre de nœuds est alors `n + 1`.
->   - Cette considération est particulièrement importante lorsque vous utilisez des pools de nœuds Windows Server (actuellement en version préliminaire dans ACS). Les nœuds de Windows Server dans ACS n’automatiquement s’appliquent pas mises à jour de Windows, au lieu de cela, vous effectuer une mise à niveau sur le pool de nœud. Cette mise à niveau déploie les nouveaux nœuds avec les dernière fenêtre Server 2019 nœud base image et correctifs de sécurité. Pour plus d’informations sur la mise à niveau d’un pool de nœud Windows Server, consultez [mise à niveau d’un pool de nœuds dans ACS][nodepool-upgrade].
+>   - Cette considération est particulièrement importante lorsque vous utilisez des pools de nœuds Windows Server (actuellement en version préliminaire dans AKS). Les nœuds Windows Server dans AKS n’appliquent pas automatiquement de mises à jour ; à la place, vous effectuez une mise à niveau sur le pool de nœuds. Cette mise à niveau déploie les nouveaux nœuds avec les derniers correctifs de sécurité et image de nœud de base Windows Server 2019. Pour plus d’informations sur la mise à niveau d’un pool de nœuds Windows Server, consultez [Upgrade a node pool][nodepool-upgrade] (Mettre à niveau un pool de nœuds).
 >
 > - Lorsque vous **mettez à l’échelle** un cluster AKS, un nouveau nœud est déployé dans le cluster. Les services et charges de travail commencent à s’exécuter sur le nouveau nœud. Votre plage d’adresses IP doit prendre en compte la manière dont vous voulez augmenter le nombre de nœuds et de pods que votre cluster prend en charge. Un nœud supplémentaire pour les opérations de mise à niveau doit également être inclus. Le nombre de nœuds est alors `n + number-of-additional-scaled-nodes-you-anticipate + 1`.
 
@@ -52,24 +52,24 @@ Le plan d’adressage IP pour un cluster AKS se compose d’un réseau virtuel
 | Plage Azure/ressource Azure | Limites et tailles |
 | --------- | ------------- |
 | Réseau virtuel | Le réseau virtuel Azure peut être aussi volumineux que la valeur /8, mais est limité à 65 536 adresses IP configurées. |
-| Sous-réseau | Doit pouvoir contenir les nœuds, les pods, ainsi que toutes les ressources Kubernetes et Azure qui peuvent être provisionnées dans votre cluster. Par exemple, si vous déployez un équilibreur de charge interne Azure, ses adresses IP frontend sont allouées à partir du sous-réseau du cluster, et non à partir des adresses IP non publiques. La taille du sous-réseau doit également prendre en compte les opérations de mise à niveau ou de futurs besoins de mise à l’échelle.<p />Pour calculer la taille de sous-réseau *minimale*, dont celle d’un nœud supplémentaire pour les opérations de mise à niveau : `(number of nodes + 1) + ((number of nodes + 1) * maximum pods per node that you configure)`<p/>Exemple pour un cluster à 50 nœuds : `(51) + (51  * 30 (default)) = 1,581` (/21 ou plus)<p/>Exemple pour un cluster de 50 nœuds incluant également un approvisionnement pour porter l’échelle à 10 nœuds supplémentaires : `(61) + (61 * 30 (default)) = 1,891` (/21 ou plus)<p>Si vous ne spécifiez pas de nombre maximal de pods par nœud lorsque vous créez votre cluster, le nombre maximal de pods par nœud est de *30*. Le nombre minimal d’adresses IP requises est basé sur cette valeur. Si vous calculez vos exigences d’adresse IP minimales sur une autre valeur maximale, consultez [comment configurer le nombre maximal de pods par nœud](#configure-maximum---new-clusters) pour définir cette valeur lorsque vous déployez votre cluster. |
+| Subnet | Doit pouvoir contenir les nœuds, les pods, ainsi que toutes les ressources Kubernetes et Azure qui peuvent être provisionnées dans votre cluster. Par exemple, si vous déployez un équilibreur de charge interne Azure, ses adresses IP frontend sont allouées à partir du sous-réseau du cluster, et non à partir des adresses IP non publiques. La taille du sous-réseau doit également prendre en compte les opérations de mise à niveau ou de futurs besoins de mise à l’échelle.<p />Pour calculer la taille de sous-réseau *minimale*, dont celle d’un nœud supplémentaire pour les opérations de mise à niveau : `(number of nodes + 1) + ((number of nodes + 1) * maximum pods per node that you configure)`<p/>Exemple pour un cluster à 50 nœuds : `(51) + (51  * 30 (default)) = 1,581` (/21 ou plus)<p/>Exemple pour un cluster de 50 nœuds incluant également un approvisionnement pour porter l’échelle à 10 nœuds supplémentaires : `(61) + (61 * 30 (default)) = 1,891` (/21 ou plus)<p>Si vous ne spécifiez pas de nombre maximal de pods par nœud lorsque vous créez votre cluster, le nombre maximal de pods par nœud est de *30*. Le nombre minimal d’adresses IP requises est basé sur cette valeur. Si vous calculez vos exigences d’adresse IP minimales sur une autre valeur maximale, consultez [comment configurer le nombre maximal de pods par nœud](#configure-maximum---new-clusters) pour définir cette valeur lorsque vous déployez votre cluster. |
 | Plage d’adresses de service Kubernetes | Cette plage ne doit être utilisée par aucun élément réseau sur ce réseau virtuel ou connecté à celui-ci. Le CIDR d’adresse du service doit être inférieur à /12. |
 | Adresse IP du service DNS Kubernetes | Adresse IP dans la plage d’adresses de service Kubernetes, qui sera utilisée par la détection de service de cluster (kube-dns). N’utilisez pas la première adresse IP de votre plage d’adresses (1, par exemple). La première adresse de votre plage de sous-réseaux est utilisée pour l’adresse *kubernetes.default.svc.cluster.local*. |
-| Adresse de pont Docker | Adresse IP (en notation CIDR) utilisée en tant qu’adresse IP de pont Docker sur les nœuds. Valeur par défaut : 172.17.0.1/16. |
+| Adresse de pont Docker | Adresse IP (en notation CIDR) utilisée en tant qu’adresse IP de pont Docker sur les nœuds. Ce CIDR est lié au nombre de conteneurs sur le nœud. Valeur par défaut : 172.17.0.1/16. |
 
 ## <a name="maximum-pods-per-node"></a>Nombre maximal de pods par nœud
 
-Le nombre maximal de pods par nœud dans un cluster AKS est 250. Le nombre maximal *par défaut* de pods par nœud varie selon qu’il s’agit d’un réseau *kubenet* ou *Azure CNI*, mais aussi en fonction de la méthode de déploiement du cluster.
+Le nombre maximal de pods par nœud dans un cluster AKS est de 250. Le nombre maximal *par défaut* de pods par nœud varie selon qu’il s’agit d’un réseau *kubenet* ou *Azure CNI*, mais aussi en fonction de la méthode de déploiement du cluster.
 
 | Méthode de déploiement | Kubenet par défaut | Azure CNI par défaut | Configurable au moment du déploiement |
 | -- | :--: | :--: | -- |
-| Azure CLI | 110 | 30 | Oui (jusqu'à 250) |
-| Modèle Resource Manager | 110 | 30 | Oui (jusqu'à 250) |
+| D’Azure CLI | 110 | 30 | Oui (jusqu’à 250) |
+| Modèle Resource Manager | 110 | 30 | Oui (jusqu’à 250) |
 | Portail | 110 | 30 | Non |
 
 ### <a name="configure-maximum---new-clusters"></a>Configurer un maximum : nouveaux clusters
 
-Vous pouvez configurer le nombre maximal de pods par nœud *uniquement au moment du déploiement cluster*. Si vous déployez avec Azure CLI ou avec un modèle Resource Manager, vous pouvez définir les pods maximum par la valeur du nœud avec un maximum de 250.
+Vous pouvez configurer le nombre maximal de pods par nœud *uniquement au moment du déploiement cluster*. Si vous procédez au déploiement avec Azure CLI ou avec un modèle Resource Manager, vous pouvez définir la valeur du nombre maximal de pods par nœud avec un maximum de 250.
 
 | Mise en réseau | Minimale | Maximale |
 | -- | :--: | :--: |
@@ -77,10 +77,10 @@ Vous pouvez configurer le nombre maximal de pods par nœud *uniquement au moment
 | Kubenet | 30 | 110 |
 
 > [!NOTE]
-> La valeur minimale dans le tableau ci-dessus est strictement appliquée par le service ACS. Vous ne pouvez pas définir une valeur de maxPods inférieure à la valeur minimale indiquée comme cela peut empêcher le cluster de démarrer.
+> La valeur minimale dans le tableau ci-dessus est strictement appliquée par le service AKS. Vous ne pouvez pas définir une valeur maxPods inférieure à la valeur minimale, car cela peut empêcher le cluster de démarrer.
 
-* **Azure CLI** : spécifiez l’argument `--max-pods` lorsque vous déployez un cluster avec la commande [az aks create][az-aks-create]. La valeur maximale est de 250.
-* **Modèle Resource Manager** : spécifiez la propriété `maxPods` dans l’objet [ManagedClusterAgentPoolProfile] lorsque vous déployez un cluster avec un modèle Resource Manager. La valeur maximale est de 250.
+* **Azure CLI** : spécifiez l’argument `--max-pods` lorsque vous déployez un cluster avec la commande [az aks create][az-aks-create]. La valeur maximale est 250.
+* **Modèle Resource Manager** : spécifiez la propriété `maxPods` dans l’objet [ManagedClusterAgentPoolProfile] lorsque vous déployez un cluster avec un modèle Resource Manager. La valeur maximale est 250.
 * **Portail Azure**: vous ne pouvez pas modifier le nombre maximal de pods par nœud lorsque vous déployez un cluster avec le portail Azure. Les clusters de réseau Azure CNI sont limités à 30 pods par nœud quand vous effectuez le déploiement à partir du portail Azure.
 
 ### <a name="configure-maximum---existing-clusters"></a>Configurer un maximum : clusters existants
@@ -95,18 +95,18 @@ Quand vous créez un cluster AKS, les paramètres suivants sont configurables po
 
 **Sous-réseau** : sous-réseau du réseau virtuel dans lequel vous souhaitez déployer le cluster. Si vous souhaitez créer un nouveau sous-réseau dans le réseau virtuel pour votre cluster, sélectionnez *Créer un nouveau*, puis exécutez la procédure décrite dans la section *Créer un sous-réseau*. Pour une connectivité hybride, la plage d’adresses ne doit pas chevaucher d’autres réseaux virtuels dans votre environnement.
 
-**Plage d’adresses du service Kubernetes** : il s’agit du jeu d’adresses IP virtuelles que Kubernetes attribue aux [services][services] internes dans votre cluster. Vous pouvez utiliser n’importe quelle plage d’adresses privées répondant aux exigences suivantes :
+**Plage d’adresses du service Kubernetes** : il s’agit de l’ensemble d’adresses IP virtuelles que Kubernetes attribue aux [services][services] internes dans votre cluster. Vous pouvez utiliser n’importe quelle plage d’adresses privées répondant aux exigences suivantes :
 
 * ne peut pas figurer dans la plage d’adresses IP de réseau virtuel de votre cluster ;
 * ne peut pas présenter de chevauchement avec un autre réseau virtuel avec lequel le réseau virtuel du cluster s’apparie ;
 * ne doit avoir aucun élément en commun avec des adresses IP locales ;
-* ne doit pas être dans les plages `169.254.0.0/16`, `172.30.0.0/16`, ou `172.31.0.0/16`.
+* ne doit pas être dans les plages `169.254.0.0/16`, `172.30.0.0/16`, `172.31.0.0/16` ou `192.0.2.0/24`
 
-Bien qu’il soit techniquement possible de spécifier une plage d’adresses de service dans le même réseau virtuel que votre cluster, cette manière de procéder n’est pas recommandée. Tout chevauchement entre des plages d’adresses IP est susceptible d’entraîner des comportements imprévisibles. Pour plus d’informations, consultez la section [FAQ](#frequently-asked-questions) de cet article. Pour plus d’informations sur les réplicas Kubernetes, consultez[Services][services] dans la documentation de Kubernetes.
+Bien qu’il soit techniquement possible de spécifier une plage d’adresses de service dans le même réseau virtuel que votre cluster, cette manière de procéder n’est pas recommandée. Tout chevauchement entre des plages d’adresses IP est susceptible d’entraîner des comportements imprévisibles. Pour plus d’informations, consultez la section [FAQ](#frequently-asked-questions) de cet article. Pour plus d’informations sur les services Kubernetes, consultez[Services][services] dans la documentation de Kubernetes.
 
 **Adresse IP du service DNS Kubernetes** :  adresse IP du service DNS du cluster. Cette adresse doit se situer dans la *plage d’adresses du service Kubernetes*. N’utilisez pas la première adresse IP de votre plage d’adresses (1, par exemple). La première adresse de votre plage de sous-réseaux est utilisée pour l’adresse *kubernetes.default.svc.cluster.local*.
 
-**Adresse du pont Docker** : adresse IP et masque de réseau assignés au pont Docker. Le pont Docker permet aux nœuds AKS de communiquer avec la plateforme de gestion sous-jacente. Cette adresse IP ne doit pas être dans la plage d’adresses IP du réseau virtuel de votre cluster, ni chevaucher d’autres plages d’adresses actuellement utilisées sur votre réseau.
+**Adresse du pont Docker** : L'adresse réseau du pont Docker représente l'adresse réseau *docker0* par défaut présente dans toutes les installations Docker. Bien que le pont *docker0* ne soit pas utilisé par les clusters AKS ou les pods eux-mêmes, vous devez définir cette adresse pour continuer à prendre en charge des scénarios tels que *docker build* au sein du cluster AKS. Vous devez sélectionner un CIDR pour l'adresse réseau du pont docker, sinon le docker choisira automatiquement un sous-réseau qui pourrait entrer en conflit avec d'autres CIDR. Vous devez choisir un espace d'adressage qui n'entre pas en collision avec le reste des CIDR de vos réseaux, y compris le CIDR du service du cluster et le CIDR du pod.
 
 ## <a name="configure-networking---cli"></a>Configurer la mise en réseau – Interface de ligne de commande
 
@@ -153,7 +153,7 @@ La série suivante de questions-réponses s’applique à la configuration de r�
 
 * *Puis-je configurer des stratégies de réseau spécifiques aux pods ?*
 
-  Oui, la stratégie de réseau Kubernetes est disponible dans ACS. Pour commencer, consultez [sécuriser le trafic entre les pods dans ACS à l’aide des stratégies de réseau][network-policy].
+  Oui, la stratégie de réseau Kubernetes est disponible dans AKS. Pour la prise en main, consultez [Sécuriser le trafic entre les pods avec des stratégies réseau dans Azure Kubernetes Service (AKS)][network-policy].
 
 * *Le nombre maximal de pods pouvant être déployés sur un nœud peut-il être configuré ?*
 
@@ -176,11 +176,11 @@ Pour plus d’informations sur la mise en réseau dans AKS, consultez les articl
 - [Utiliser une adresse IP statique avec l’équilibrage de charge d’Azure Kubernetes Service (AKS)](static-ip.md)
 - [Utiliser un équilibreur de charge interne avec Azure Container Service (AKS)](internal-lb.md)
 
-- [Créer un contrôleur d’entrée de base avec une connectivité réseau externe][aks-ingress-basic]
-- [Activer le module complémentaire de routage d’application HTTP][aks-http-app-routing]
-- [Créer un contrôleur d’entrée qui utilise un réseau privé interne et une adresse IP][aks-ingress-internal]
-- [Créer un contrôleur d’entrée avec une adresse IP publique dynamique et configurer Let’s Encrypt pour générer automatiquement des certificats TLS][aks-ingress-tls]
-- [Créer un contrôleur d’entrée avec une adresse IP publique statique et configurer Let’s Encrypt pour générer automatiquement des certificats TLS][aks-ingress-static-tls]
+- [Créer un contrôleur d’entrée dans Azure Kubernetes Service (AKS)][aks-ingress-basic]
+- [Routage d’applications HTTP][aks-http-app-routing]
+- [Create an ingress controller to an internal virtual network in Azure Kubernetes Service (AKS)][aks-ingress-internal] (Créer un contrôleur d’entrée pour un réseau virtuel interne dans Azure Kubernetes Service (AKS))
+- [Create an HTTPS ingress controller on Azure Kubernetes Service (AKS)][aks-ingress-tls] (Créer un contrôleur d’entrée HTTPS dans Azure Kubernetes Service (AKS))
+- [Create an ingress controller with a static public IP address in Azure Kubernetes Service (AKS)][aks-ingress-static-tls] (Créer un contrôleur d’entrée avec une adresse IP publique statique dans Azure Kubernetes Service (AKS))
 
 ### <a name="aks-engine"></a>Moteur AKS
 
@@ -211,3 +211,4 @@ Les clusters Kubernetes créés avec le moteur AKS prennent en charge les plug-i
 [aks-ingress-internal]: ingress-internal-ip.md
 [network-policy]: use-network-policies.md
 [nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
+[network-comparisons]: concepts-network.md#compare-network-models

@@ -9,12 +9,12 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 02/22/2019
 ms.author: kgremban
-ms.openlocfilehash: 00f639ec57f3d29dff1993bbc664477b8648ce9a
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: da5481af1086c14ce0961d0ac6b8ef55cfc73707
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67612558"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68403880"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-python"></a>Envoi de messages cloud-à-appareil avec IoT Hub (Python)
 
@@ -169,9 +169,15 @@ Dans cette section, vous créez une application de console Python pour simuler l
 
 7. Enregistrez et fermez le fichier **SimulatedDevice.py**.
 
+## <a name="get-the-iot-hub-connection-string"></a>Obtention de la chaîne de connexion de l’IoT Hub
+
+Dans cet article, vous créez un service back-end pour envoyer des messages cloud-à-appareil via l’IoT Hub que vous avez créé dans [Send telemetry from a device to an IoT hub (Envoyer des données de télémétrie d’un appareil à un IoT Hub)](quickstart-send-telemetry-python.md). Pour envoyer des messages cloud-à-appareil, votre service a besoin de l'autorisation de **connexion de service**. Par défaut, chaque IoT Hub est créé avec une stratégie d’accès partagé nommée **service** qui accorde cette autorisation.
+
+[!INCLUDE [iot-hub-include-find-service-connection-string](../../includes/iot-hub-include-find-service-connection-string.md)]
+
 ## <a name="send-a-cloud-to-device-message"></a>Envoi d’un message cloud vers appareil
 
-Dans cette section, vous créez une application de console Python qui envoie des messages cloud-à-appareil à l’application de l’appareil simulé. Vous avez besoin de l’ID de l’appareil que vous avez ajouté dans le guide de démarrage rapide [Envoyer des données de télémétrie d’un appareil à un hub IoT](quickstart-send-telemetry-python.md). Vous avez également besoin de la chaîne de connexion pour votre hub que vous trouverez dans le [Portail Azure](https://portal.azure.com).
+Dans cette section, vous créez une application de console Python qui envoie des messages cloud-à-appareil à l’application de l’appareil simulé. Vous avez besoin de l’ID de l’appareil que vous avez ajouté dans le guide de démarrage rapide [Envoyer des données de télémétrie d’un appareil à un hub IoT](quickstart-send-telemetry-python.md). Vous avez également besoin de la chaîne de connexion de l’IoT Hub que vous avez copiée précédemment dans [Obtention de la chaîne de connexion de l’IoT Hub](#get-the-iot-hub-connection-string).
 
 1. À l’aide d’un éditeur de texte, créez un fichier **SendCloudToDeviceMessage.py**.
 
@@ -190,7 +196,7 @@ Dans cette section, vous créez une application de console Python qui envoie des
     MSG_TXT = "{\"service client sent a message\": %.2f}"
     ```
 
-3. Ajoutez le code suivant au fichier **SendCloudToDeviceMessage.py**. Remplacez la valeur de l’espace réservé « {IoTHubConnectionString} » par la chaîne de connexion IoT Hub du hub que vous avez créé dans le guide de démarrage rapide [Envoyer des données de télémétrie d’un appareil à un hub IoT](quickstart-send-telemetry-python.md). Remplacez l’espace réservé « {deviceId} » par l’ID de l’appareil que vous avez ajouté dans le guide de démarrage rapide [Envoyer des données de télémétrie d’un appareil à un hub IoT](quickstart-send-telemetry-python.md) :
+3. Ajoutez le code suivant au fichier **SendCloudToDeviceMessage.py**. Remplacez les valeurs d’espace réservé "{iot hub connection string}" et "{device id}" par la chaîne de connexion de l’IoT Hub et l’identité d'appareil que vous avez notées précédemment :
 
     ```python
     CONNECTION_STRING = "{IoTHubConnectionString}"

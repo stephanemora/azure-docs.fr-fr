@@ -1,5 +1,5 @@
 ---
-title: Authentification de service à service Azure Active Directory qui utilise la spécification préliminaire On-Behalf-Of OAuth 2.0 | Microsoft Docs
+title: Authentification de service à service Azure AD à l’aide de la spécification préliminaire On-Behalf-Of OAuth2.0 | Microsoft Docs
 description: Cet article explique comment utiliser des messages HTTP pour implémenter l’authentification de service à service avec le flux On-Behalf-Of OAuth 2.0.
 services: active-directory
 documentationcenter: .net
@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin, nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eb64aa401838451191a830a5adbfb435ac5fdf25
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 7381a0dfb8f780900d8c2c8ba0637dcd232bdb9f
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68261933"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68380891"
 ---
 # <a name="service-to-service-calls-that-use-delegated-user-identity-in-the-on-behalf-of-flow"></a>Appels de service à service utilisant l’identité utilisateur déléguée dans le flux On-Behalf-Of
 

@@ -1,10 +1,12 @@
 ---
-title: Personnaliser des revendications émises dans des jetons pour une application spécifique dans un locataire Azure AD (préversion publique)
+title: Personnaliser des revendications pour une application dans un locataire Azure AD (préversion publique)
 description: Cette page décrit le mappage de revendications Azure Active Directory.
 services: active-directory
 author: rwike77
 manager: CelesteDG
 ms.service: active-directory
+ms.subservice: develop
+ms.custom: aaddev
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -13,12 +15,12 @@ ms.date: 03/28/2019
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8b770ee476fc5c1c334f53904539cc34cf962c62
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 97de45ef94afa9da8a5e928a3d4a8911db052107
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65546200"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68381071"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Activation Personnaliser des revendications émises dans des jetons pour une application spécifique dans un locataire (préversion)
 
@@ -177,7 +179,7 @@ Il existe des ensembles de revendications qui définissent comment et quand ils 
 | unique_name |
 | upn |
 | user_setting_sync_url |
-| username |
+| userName |
 | uti |
 | ver |
 | verified_primary_email |
@@ -284,7 +286,7 @@ L’élément ID identifie la propriété définie sur la source qui fournit la 
 
 #### <a name="table-3-valid-id-values-per-source"></a>Tableau 3 : Valeurs d’ID valides par source
 
-| Source | ID | Description |
+| Source | id | Description |
 |-----|-----|-----|
 | Utilisateur | surname | Nom de famille |
 | Utilisateur | givenname | Prénom |
@@ -319,7 +321,7 @@ L’élément ID identifie la propriété définie sur la source qui fournit la 
 | Utilisateur | extensionattribute14 | Attribut d’extension 14 |
 | Utilisateur | extensionattribute15 | Attribut d’extension 15 |
 | Utilisateur | othermail | Autre adresse e-mail |
-| Utilisateur | country | Pays |
+| Utilisateur | country | Country |
 | Utilisateur | city | City |
 | Utilisateur | state | État |
 | Utilisateur | jobtitle | Poste |
@@ -384,7 +386,7 @@ Selon la méthode choisie, un ensemble d’entrées et sorties est attendu. Déf
 
 #### <a name="table-5-attributes-allowed-as-a-data-source-for-saml-nameid"></a>Tableau 5 : Attributs autorisés en tant que sources de données pour NameID SAML
 
-|Source|ID|Description|
+|Source|id|Description|
 |-----|-----|-----|
 | Utilisateur | mail|Adresse de messagerie|
 | Utilisateur | userPrincipalName|Nom d’utilisateur principal|

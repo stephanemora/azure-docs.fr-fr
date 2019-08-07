@@ -1,5 +1,5 @@
 ---
-title: Forum Aux Questions (FAQ)
+title: Forum Aux Questions - LUIS
 titleSuffix: Azure Cognitive Services
 description: Cet article contient des réponses aux questions fréquemment posées sur Language Understanding (LUIS).
 author: diberry
@@ -9,14 +9,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 06/18/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: 7e1e61d96b066c395668ce1dd9cdba4cb4ecb2be
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 5122a5a88f5a0d67799930999236f2993bc43f8f
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204100"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68609766"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Forum aux questions (FAQ) sur Language Understanding
 
@@ -123,7 +123,7 @@ Get-AzCognitiveServicesAccountUsage -ResourceGroupName <your-resource-group> -Na
 ``` 
 
 ### <a name="my-luis-app-was-working-yesterday-but-today-im-getting-403-errors-i-didnt-change-the-app-how-do-i-fix-it"></a>Mon application LUIS fonctionnait hier, et aujourd’hui j’obtiens des erreurs 403. Je n’ai pas modifié l’application. Comment la corriger ?
-En suivant les [instructions](#how-do-i-create-and-assign-a-luis-endpoint-key) du FAQ suivant pour créer une clé de point de terminaison LUIS et l’affecter à l’application. Ensuite, vous devez modifier la requête HTTP adressée au point de terminaison de façon à [utiliser la nouvelle clé de point de terminaison](luis-concept-keys.md#use-endpoint-key-in-query).
+Suivez ces [instructions](#how-do-i-create-and-assign-a-luis-endpoint-key) pour créer une clé de point de terminaison LUIS et l’affecter à l’application. Ensuite, vous devez modifier la requête HTTP de l’application cliente adressée au point de terminaison de façon à [utiliser la nouvelle clé de point de terminaison](luis-concept-keys.md#use-endpoint-key-in-query). Si vous avez créé une nouvelle ressource dans une autre région, modifiez également la région de la requête du client HTTP.
 
 ### <a name="how-do-i-secure-my-luis-endpoint"></a>Comment faire pour sécuriser mon point de terminaison LUIS ?
 Voir [Sécurisation du point de terminaison](luis-concept-security.md#securing-the-endpoint).

@@ -5,26 +5,23 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 7/10/2019
+ms.date: 07/19/2019
 ms.author: victorh
-ms.openlocfilehash: ce47612f18ee64caa3a053001deb5448f7c27bfd
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: ba2736ae69d0bf7feff5f852da2446bfa7a722a6
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67703982"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325231"
 ---
 # <a name="deploy-an-azure-firewall-with-multiple-public-ip-addresses-using-azure-powershell"></a>Déployer un pare-feu Azure avec plusieurs adresses IP publiques à l’aide d’Azure PowerShell
 
-> [!IMPORTANT]
-> Le Pare-feu Azure avec plusieurs adresses IP publiques est disponible via Azure PowerShell, Azure CLI, REST et les modèles. L’interface utilisateur du portail est ajoutée progressivement aux régions et sera disponible dans toutes les régions après le lancement.
-
-Vous pouvez déployer un pare-feu Azure avec jusqu’à 100 adresses IP publiques.
-
-Cette fonctionnalité donne accès aux scénarios suivants :
+Cette fonctionnalité donne accès aux scénarios suivants :
 
 - **DNAT** -Vous pouvez traduire plusieurs instances de ports standard vers vos serveurs principaux. Par exemple, si vous avez deux adresses IP publiques, vous pouvez traduire le port TCP 3389 (RDP) pour ces deux adresses IP.
 - **SNAT** - Des ports supplémentaires sont disponibles pour les connexions SNAT sortantes, réduisant ainsi le risque de pénurie de ports SNAT. À ce stade, Pare-feu Azure sélectionne aléatoirement l’adresse IP publique source à utiliser pour une connexion. Si votre réseau est doté d’un filtrage en aval, vous devez autoriser toutes les adresses IP publiques associées à votre pare-feu.
+ 
+Le Pare-feu Azure avec plusieurs adresses IP publiques est disponible par le biais du portail Azure, d’Azure PowerShell, d’Azure CLI, de REST et des modèles. Vous pouvez déployer un pare-feu Azure avec jusqu’à 100 adresses IP publiques.
 
 Les exemples de Azure PowerShell suivants montrent comment vous pouvez configurer, ajouter et supprimer des adresses IP publiques pour le Pare-feu Azure.
 

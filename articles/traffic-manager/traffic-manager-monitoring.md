@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/04/2018
 ms.author: allensu
-ms.openlocfilehash: 8df1c29bc5230e925d05be9fd356de050a9b0f06
-ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
+ms.openlocfilehash: e06d2ce93ac7c534f2c729dce794e66e3ee894d8
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67550358"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68333816"
 ---
 # <a name="traffic-manager-endpoint-monitoring"></a>Surveillance des points de terminaison Traffic Manager
 
@@ -152,6 +152,46 @@ Pour plus d’informations, consultez la rubrique relative aux [méthodes de rou
 > La conséquence de ce comportement est la suivante : lorsque les contrôles d’intégrité de Traffic Manager ne sont pas configurés correctement, du point de vue du routage du trafic il semble que Traffic Manager *fonctionne* correctement. Toutefois, dans ce cas, le basculement de point de terminaison ne peut pas se produire, ce qui affecte la disponibilité globale de l’application. Il est donc important de vérifier que le profil affiche un état En ligne et non Détérioré. L’état En ligne indique que les contrôles d’intégrité de Traffic Manager fonctionnent comme prévu.
 
 Pour plus d’informations sur le dépannage des contrôles d’intégrité, consultez la section [Résolution des problèmes liés à l’état Détérioré d’Azure Traffic Manager](traffic-manager-troubleshooting-degraded.md).
+
+## <a name="faqs"></a>FAQ
+
+* [Traffic Manager est-il résistant aux défaillances de régions Azure ?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#is-traffic-manager-resilient-to-azure-region-failures)
+
+* [En quoi le choix de l’emplacement du groupe de ressources affecte-t-il Traffic Manager ?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-does-the-choice-of-resource-group-location-affect-traffic-manager)
+
+* [Comment déterminer l’état d’intégrité actuel de chaque point de terminaison ?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-do-i-determine-the-current-health-of-each-endpoint)
+
+* [Puis-je superviser les points de terminaison HTTPS ?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-monitor-https-endpoints)
+
+* [Dois-je utiliser une adresse IP ou un nom DNS lors de l’ajout d’un point de terminaison ?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#do-i-use-an-ip-address-or-a-dns-name-when-adding-an-endpoint)
+
+* [Quels types d’adresses IP puis-je utiliser lors de l’ajout d’un point de terminaison ?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-types-of-ip-addresses-can-i-use-when-adding-an-endpoint)
+
+* [Puis-je utiliser différents types d’adressage de point de terminaison dans un même profil ?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-use-different-endpoint-addressing-types-within-a-single-profile)
+
+* [Que se passe-t-il quand le type d’enregistrement d’une requête entrante est différent du type d’enregistrement associé au type d’adressage des points de terminaison ?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-happens-when-an-incoming-querys-record-type-is-different-from-the-record-type-associated-with-the-addressing-type-of-the-endpoints)
+
+* [Puis-je utiliser un profil avec des points de terminaison IPv4/IPv6 dans un profil imbriqué ?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-use-a-profile-with-ipv4--ipv6-addressed-endpoints-in-a-nested-profile)
+
+* [J’ai arrêté un point de terminaison d’application web dans mon profil Traffic Manager, mais je ne reçois pas de trafic même après un redémarrage. Comment puis-je résoudre ce problème ?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#i-stopped-an-web-application-endpoint-in-my-traffic-manager-profile-but-i-am-not-receiving-any-traffic-even-after-i-restarted-it-how-can-i-fix-this)
+
+* [Puis-je utiliser Traffic Manager même si mon application ne prend pas en charge HTTP ou HTTPS ?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-use-traffic-manager-even-if-my-application-does-not-have-support-for-http-or-https)
+
+* [Quelles réponses spécifiques du point de terminaison sont obligatoires quand la surveillance TCP est utilisée ?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-specific-responses-are-required-from-the-endpoint-when-using-tcp-monitoring)
+
+* [Avec quelle rapidité Traffic Manager éloigne-t-il mes utilisateurs d’un point de terminaison non sain ?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-fast-does-traffic-manager-move-my-users-away-from-an-unhealthy-endpoint)
+
+* [Comment spécifier différents paramètres de surveillance pour les différents points de terminaison dans un profil ?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-can-i-specify-different-monitoring-settings-for-different-endpoints-in-a-profile)
+
+* [Comment puis-je attribuer des en-têtes HTTP aux contrôles d’intégrité Traffic Manager pour mes points de terminaison ?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-can-i-assign-http-headers-to-the-traffic-manager-health-checks-to-my-endpoints)
+
+* [Quel en-tête hôte est utilisé pour les contrôles d’intégrité des points de terminaison ?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-host-header-do-endpoint-health-checks-use)
+
+* [Quelles sont les adresses IP à l’origine des contrôles d’intégrité ?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-are-the-ip-addresses-from-which-the-health-checks-originate)
+
+* [Combien de contrôles d’intégrité de mon point de terminaison Traffic Manager effectue-t-il ?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-many-health-checks-to-my-endpoint-can-i-expect-from-traffic-manager)
+
+* [Comment être informé si l’un de mes points de terminaison tombe en panne ?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-can-i-get-notified-if-one-of-my-endpoints-goes-down)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

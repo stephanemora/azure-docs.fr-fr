@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 07/22/2019
 ms.author: juliako
-ms.openlocfilehash: 2c72c7c493c0a887adab147054c725a2e1c0659f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b0d0df5d113b1d75602022085b8bb17133f07333
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65799135"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68422971"
 ---
 # <a name="what-is-video-indexer"></a>Qu’est-ce que Video Indexer ?
 
@@ -38,7 +38,7 @@ Azure Video Indexer est une application cloud créée à l’aide d’Azure Medi
 
 ## <a name="audio-insights"></a>Insights audio
 
-- **Détection de langue automatique** : Identifie automatiquement la langue parlée dominante. Les langues prises en charge incluent l’anglais, l’espagnol, le français, l’allemand, l’italien, le chinois (simplifié), le japonais, le russe et le portugais brésilien. L’anglais sera utilisé lorsque la langue n’est pas détectée.
+- **Détection de langue automatique** : Identifie automatiquement la langue parlée dominante. Les langues prises en charge incluent l’anglais, l’espagnol, le français, l’allemand, l’italien, le chinois (simplifié), le japonais, le russe et le portugais (Brésil). Si la langue ne peut pas être identifiée en toute confiance, Video Indexer suppose que la langue parlée est l’anglais. Pour plus d'informations, voir [Modèle d’identification de langues](language-identification-model.md).
 - **Transcription audio** : Convertit la parole en texte dans 12 langues et autorise les extensions. Les langues prises en charge incluent l’anglais, l’espagnol, le français, l’allemand, l’italien, le chinois (simplifié), le japonais, l’arabe, le russe, le portugais brésilien, l’hindi et le coréen.
 - **Sous-titrage** : Crée un sous-titrage dans trois formats : VTT, TTML, SRT.
 - **Traitement en deux canaux** : Détecte automatiquement, sépare la transcription et fusionne en une chronologie unique.

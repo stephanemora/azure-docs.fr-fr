@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 06/07/2019
 ms.author: juliako
-ms.openlocfilehash: b3e772ebb05f79abb70e58e63a93c3336a413e38
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: c730f41d1dbc48c6622d0a2ba43c32dd1a96c24c
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67542547"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68311803"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Notes de publication Azure Media Services v3
 
@@ -34,6 +34,14 @@ Pour vous informer des développements les plus récents, cet article détaille 
 
 Pour plus d’informations, consultez [Conseils de migration pour le passage de Media Services v2 à Media Services v3](migrate-from-v2-to-v3.md#known-issues).
 
+## <a name="july-2019"></a>Juillet 2019
+
+### <a name="content-protection"></a>Protection du contenu
+
+Lors du streaming de contenu protégé par une restriction de jeton, les utilisateurs finaux doivent obtenir un jeton envoyé dans le cadre de la requête de remise de clé. La fonctionnalité de *prévention de relecture de jeton* permet aux clients de Media Services de limiter le nombre de fois qu’un même jeton peut être utilisé pour demander une clé ou une licence. Pour plus d’informations, consultez [Prévention de la relecture de jeton](content-protection-overview.md#token-replay-prevention).
+
+Cette fonctionnalité est actuellement disponible dans les régions USA Centre et USA Centre-Ouest.
+
 ## <a name="june-2019"></a>Juin 2019
 
 ### <a name="video-subclipping"></a>Sous-découpage de vidéos
@@ -44,7 +52,7 @@ Cette fonctionnalité peut être utilisée avec n’importe quelle [transformati
 
 Consultez les exemples :
 
-* [Sous-découper une vidéo avec .NET](subclip-video-dotnet-howto.md)
+* [Sous-cliper une vidéo avec .NET](subclip-video-dotnet-howto.md)
 * [Sous-découper une vidéo avec REST](subclip-video-rest-howto.md)
 
 ## <a name="may-2019"></a>Mai 2019
@@ -82,7 +90,7 @@ Ajout de mises à jour incluant l’amélioration des performances Media Service
 * [FaceDetectorPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#facedetectorpreset) a été ajouté aux présélections d’analyseur intégrées.
 * [ContentAwareEncodingExperimental](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#encodernamedpreset) a été ajouté aux présélections d’encodeur intégrées. Pour plus d’informations, consultez [Encodage sensible au contenu](cae-experimental.md). 
 
-## <a name="march-2019"></a>Mars 2019
+## <a name="march-2019"></a>Mars 2019
 
 L’empaquetage dynamique prend désormais en charge Dolby Atmos. Pour plus d’informations, consultez [Codecs audio pris en charge par l’empaquetage dynamique](dynamic-packaging-overview.md#audio-codecs).
 

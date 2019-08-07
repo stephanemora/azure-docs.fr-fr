@@ -3,16 +3,17 @@ title: Authentification Azure Container Registry avec un principal de service
 description: Fournir un accès aux images de votre registre de conteneurs privé à l’aide d’un principal du service Azure Active Directory.
 services: container-registry
 author: dlepow
+manager: gwallace
 ms.service: container-registry
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: danlep
-ms.openlocfilehash: 5d8904b5906adbdab68989b3a5cf9c3975c23533
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 97c45a009b155eea7bc61a9dd337090b9e3c1b42
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61347063"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68309961"
 ---
 # <a name="azure-container-registry-authentication-with-service-principals"></a>Authentification Azure Container Registry avec des principaux de service
 
@@ -34,7 +35,7 @@ Par exemple, votre application web peut utiliser un principal de service qui lui
 
 Vous devez utiliser un principal de service pour fournir l’accès au registre dans les **scénarios sans affichage**. Autrement dit, pour toute application, service ou script qui doit envoyer ou extraire des images conteneur de manière automatisée ou sans assistance.
 
-Pour un accès individuel à un registre, par exemple lorsque vous extrayez manuellement une image de conteneur vers votre station de travail de développement, vous devez utiliser votre propre [identité Azure AD](container-registry-authentication.md#individual-login-with-azure-ad) pour accéder au registre (par exemple, avec [az acr login][az-acr-login]).
+Pour un accès individuel à un registre, par exemple quand vous extrayez manuellement une image conteneur vers votre station de travail de développement, vous devez utiliser votre propre [identité Azure AD](container-registry-authentication.md#individual-login-with-azure-ad) pour accéder au registre (par exemple avec [az acr login][az-acr-login]).
 
 [!INCLUDE [container-registry-service-principal](../../includes/container-registry-service-principal.md)]
 
@@ -42,7 +43,7 @@ Pour un accès individuel à un registre, par exemple lorsque vous extrayez manu
 
 Vous trouverez les exemples de scripts précédents pour Azure CLI sur GitHub, ainsi que les versions pour Azure PowerShell :
 
-* [Azure CLI][acr-scripts-cli]
+* [Interface de ligne de commande Azure][acr-scripts-cli]
 * [Azure PowerShell][acr-scripts-psh]
 
 ## <a name="next-steps"></a>Étapes suivantes

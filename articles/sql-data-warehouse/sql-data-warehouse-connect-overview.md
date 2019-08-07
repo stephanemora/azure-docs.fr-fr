@@ -2,7 +2,7 @@
 title: Se connecter à Azure SQL Data Warehouse | Microsoft Docs
 description: Connectez-vous à Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: XiaoyuL-Preview
+author: XiaoyuMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
@@ -10,12 +10,12 @@ ms.subservice: development
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 2c937285b9c54072c6d1e1b0628c3d5fbfe786f3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 71f5c8ca56bc188c0664604a78c38a05be3c3b01
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65873666"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479749"
 ---
 # <a name="connect-to-azure-sql-data-warehouse"></a>Se connecter à Azure SQL Data Warehouse
 Connectez-vous à Azure SQL Data Warehouse.
@@ -69,7 +69,7 @@ SQL Data Warehouse standardise certains paramètres pendant la connexion et la c
 | [DATEFIRST][DATEFIRST] |7 |
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour vous connecter à Visual Studio et l’utiliser pour lancer des requêtes, consultez la page [Envoyer des requêtes avec Visual Studio][Query with Visual Studio]. Pour en savoir plus sur les options d’authentification, consultez la page [Authentification sur Azure SQL Data Warehouse][Authentication to Azure SQL Data Warehouse].
+Pour vous connecter à Visual Studio et l’utiliser pour lancer des requêtes, consultez la page [Envoyer des requêtes avec Visual Studio][Query with Visual Studio]. To learn more about authentication options, see [Authentication to Azure SQL Data Warehouse][Authentication to Azure SQL Data Warehouse]. To learn more about authentication options, see <bpt id="p1">[</bpt>Authentication to Azure SQL Data Warehouse<ept id="p1">][Authentication to Azure SQL Data Warehouse]</ept>.
 
 <!--Articles-->
 [Query with Visual Studio]: ./sql-data-warehouse-query-visual-studio.md

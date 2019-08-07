@@ -2,7 +2,7 @@
 title: Se connecter à Azure SQL Data Warehouse sqlcmd | Microsoft Docs
 description: Utilisez l’utilitaire de ligne de commande sqlcmd pour établir la connexion et interroger un entrepôt de données SQL Azure.
 services: sql-data-warehouse
-author: XiaoyuL-Preview
+author: XiaoyuMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
@@ -10,12 +10,12 @@ ms.subservice: development
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 72760c5123703a664695c1be4d286a38e96ecc3f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f3b93660fb9f8f3b0bfdddc37105b9e998ed9eee
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65873318"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479500"
 ---
 # <a name="connect-to-sql-data-warehouse-with-sqlcmd"></a>Se connecter à SQL Data Warehouse avec sqlcmd
 > [!div class="op_single_selector"]
@@ -27,10 +27,10 @@ ms.locfileid: "65873318"
 > 
 > 
 
-Utilisez l’utilitaire de ligne de commande [sqlcmd][sqlcmd] pour établir la connexion et interroger un entrepôt de données Azure SQL Data Warehouse.  
+Utilisez l’utilitaire de ligne de commande [sqlcmd][sqlcmd] pour établir la connexion et interroger un entrepôt de données Azure SQL Data Warehouse.  
 
 ## <a name="1-connect"></a>1. Connecter
-Pour commencer à utiliser [sqlcmd][sqlcmd], ouvrez l’invite de commandes et entrez **sqlcmd** suivi de la chaîne de connexion de votre base de données SQL Data Warehouse. La chaîne de connexion requiert les paramètres suivants :
+Pour commencer à utiliser [sqlcmd][sqlcmd], ouvrez l’invite de commandes et entrez **sqlcmd** suivi de la chaîne de connexion de votre base de données SQL Data Warehouse. La chaîne de connexion requiert les paramètres suivants :
 
 * **Serveur (-S) :** Serveur, sous la forme `<`Nom_serveur`>`.database.windows.net
 * **Base de données (-d) :** Nom de la base de données.
@@ -83,7 +83,7 @@ sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@sswor
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-Consultez la [documentation sqlcmd][sqlcmd] pour en savoir plus sur les options disponibles dans sqlcmd.
+Pour plus d’informations sur les options disponibles dans sqlcmd, consultez la [documentation de sqlcmd][sqlcmd].
 
 <!--Image references-->
 

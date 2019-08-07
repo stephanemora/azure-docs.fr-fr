@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.openlocfilehash: 048fe0ef88e8a79e21af7bb6e39a1d7ece3ee4ae
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: f6aed5d2ac1c4672d8d8868fe127ead053512e42
+ms.sourcegitcommit: da0a8676b3c5283fddcd94cdd9044c3b99815046
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68277455"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68314834"
 ---
 # <a name="source-transformation-for-mapping-data-flow"></a>Transformation de la source d’un mappage de flux de données 
 
@@ -38,8 +38,12 @@ Data Factory a accès à près de 80 connecteurs natifs. Pour inclure dans votr
 
 Choisissez des options de schéma et d’échantillonnage pour vos données.
 
-### <a name="allow-schema-drift"></a>Autoriser la dérive de schéma
-Sélectionnez **Autoriser la dérive de schéma** si les colonnes sources seront amenées à changer souvent. Ce paramètre autorise tous les champs sources entrants à circuler jusqu’au récepteur, par le biais des transformations.
+### <a name="schema-drift"></a>Dérive de schéma
+La [dérive de schéma](concepts-data-flow-schema-drift.md) est la capacité d'ADF à gérer nativement des schémas flexibles dans vos flux de données sans avoir besoin de définir explicitement des changements de colonnes.
+
+* Sélectionnez **Autoriser la dérive de schéma** si les colonnes sources seront amenées à changer souvent. Ce paramètre autorise tous les champs sources entrants à circuler jusqu’au récepteur, par le biais des transformations.
+
+* L’option **Infer drifted column types (Inférer les types de colonnes dérivés)** demandera à ADF de définir des types de données pour chaque nouvelle colonne découverte. Lorsque cette fonction est désactivée, ADF utilise la valeur String (chaîne).
 
 ### <a name="validate-schema"></a>Valider le schéma
 

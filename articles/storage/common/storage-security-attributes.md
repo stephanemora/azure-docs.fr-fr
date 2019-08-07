@@ -1,6 +1,6 @@
 ---
-title: Attributs de sécurité communs pour Stockage Azure
-description: Liste de contrôle des attributs de sécurité communs pour l’évaluation de Stockage Azure
+title: Attributs de sécurité pour Stockage Azure
+description: Liste de contrôle des attributs de sécurité pour l’évaluation de Stockage Azure
 services: storage
 documentationcenter: ''
 author: msmbaldwin
@@ -9,12 +9,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 922273e3805004f6af068ea748c16f5675810144
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 16ec2757955b53a8bfa73ba724100f7fa61d2867
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66001462"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68444302"
 ---
 # <a name="security-attributes-for-azure-storage"></a>Attributs de sécurité pour Stockage Azure
 
@@ -26,8 +26,8 @@ Cet article décrit les attributs de sécurité intégrés à Stockage Azure.
 
 | Attribut de sécurité | Oui/Non | Notes |
 |---|---|--|
-| Chiffrement au repos :<ul><li>Chiffrement côté serveur</li><li>Chiffrement côté serveur avec des clés gérées par le client</li><li>Autres fonctionnalités de chiffrement (côté client, Always Encrypted, etc.)</ul>| OUI |  |
-| Chiffrement en transit :<ul><li>Chiffrement Express Route</li><li>Chiffrement dans le réseau virtuel</li><li>Chiffrement de réseau virtuel à réseau virtuel</ul>| OUI | Prend en charge les mécanismes HTTPS/TLS standards.  Les utilisateurs peuvent également chiffrer les données avant leur transmission au service. |
+| Chiffrement au repos (comme le chiffrement côté serveur, le chiffrement côté serveur avec clés managées par le client et d’autres fonctions de chiffrement)| OUI |  |
+| Chiffrement en transit (ExpressRoute, de réseau virtuel et de réseau virtuel à réseau virtuel)| OUI | Prend en charge les mécanismes HTTPS/TLS standards.  Les utilisateurs peuvent également chiffrer les données avant leur transmission au service. |
 | Gestion des clés de chiffrement (CMK, BYOK, etc.)| OUI | Consultez [Chiffrement du service de stockage à l’aide de clés gérées par le client dans Azure Key Vault](storage-service-encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).|
 | Chiffrement au niveau des colonnes (Azure Data Services)| N/A |  |
 | Appels d’API chiffrés| OUI |  |

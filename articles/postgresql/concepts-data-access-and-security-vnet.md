@@ -6,12 +6,12 @@ ms.author: mbolz
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: c873abcdf3c64f8357c584c8e24809270946bf74
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b03be62a634d04f41513e7cf27c3cb55f69da438
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65073475"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68609972"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-postgresql---single-server"></a>Utiliser des points de terminaison de service de réseau virtuel et des règles pour Azure Database pour PostgreSQL - Serveur unique
 
@@ -59,7 +59,7 @@ Le volet de sécurité de connexion dispose d’un bouton **ACTIVÉ/DÉSACTIVÉ*
 
 Le pare-feu du serveur Azure Database pour PostgreSQL permet de spécifier des plages d’adresses IP à partir desquelles les communications sont acceptées sur le serveur Azure Database pour PostgreSQL. Cette approche est indiquée pour les adresses IP stables qui se trouvent en dehors du réseau privé Azure. Mais un grand nombre de nœuds à l’intérieur du réseau privé Azure sont configurés avec des adresses IP *dynamiques*. Les adresses IP dynamiques peuvent changer, par exemple quand la machine virtuelle est redémarrée. Spécifier une adresse IP dynamique dans une règle de pare-feu au sein d’un environnement de production serait inimaginable.
 
-Vous pouvez récupérer l’option IP en obtenant une adresse IP *statique* pour votre machine virtuelle. Pour plus d’informations, consultez [Configurer des adresses IP privées pour une machine virtuelle à l’aide du portail Azure][vm-configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-portal-321w].
+Vous pouvez récupérer l’option IP en obtenant une adresse IP *statique* pour votre machine virtuelle. Pour plus d’informations, consultez [Configurer des adresses IP privées pour une machine virtuelle à l’aide du Portail Azure][vm-configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-portal-321w].
 
 L’approche des IP statiques peut toutefois devenir difficile à gérer, et elle est coûteuse quand elle est appliquée à grande échelle. Les règles de réseau virtuel sont plus faciles à établir et à gérer.
 
@@ -102,6 +102,7 @@ Vous avez la possibilité d’utiliser le [contrôle d’accès en fonction du r
 > Il peut arriver que l’instance Azure Database pour PostgreSQL et le sous-réseau de réseau virtuel se trouvent dans des abonnements différents. Dans ce cas, vous devez vérifier les configurations suivantes :
 > - Les deux abonnements doivent se trouver dans le même locataire Azure Active Directory.
 > - L’utilisateur dispose des autorisations requises pour lancer des opérations, telles que l’activation des points de terminaison de service et l’ajout d’un sous-réseau de réseau virtuel sur le serveur donné.
+> - Assurez-vous que le fournisseur de ressources **Microsoft.Sql** est inscrit pour les deux abonnements. Pour plus d’informations, reportez-vous à [, resource-manager-registration][resource-manager-portal]
 
 ## <a name="limitations"></a>Limites
 
@@ -121,11 +122,11 @@ Pour Azure Database pour PostgreSQL, la fonctionnalité de règle de réseau vir
 
 - Sur le pare-feu, les plages d’adresses IP s’appliquent aux éléments de mise en réseau suivants, contrairement aux règles de réseau virtuel :
     - [Réseau privé virtuel (VPN) site à site (S2S)][vpn-gateway-indexmd-608y]
-    - En local via [ExpressRoute][expressroute-indexmd-744v]
+    - Localement via [ExpressRoute][expressroute-indexmd-744v]
 
 ## <a name="expressroute"></a>ExpressRoute
 
-Si votre réseau est connecté au réseau Azure via l’utilisation [d’ExpressRoute][expressroute-indexmd-744v], chaque circuit est configuré avec deux adresses IP publiques sur Microsoft Edge. Les deux adresses IP sont utilisées pour se connecter aux services Microsoft, comme le stockage Azure, à l’aide de l’homologation publique Azure.
+Si votre réseau est connecté au réseau Azure via l’utilisation d’[ExpressRoute][expressroute-indexmd-744v], chaque circuit est configuré avec deux IP publiques sur Microsoft Edge. Les deux adresses IP sont utilisées pour se connecter aux services Microsoft, comme le stockage Azure, à l’aide de l’homologation publique Azure.
 
 Pour permettre la communication de votre circuit avec Azure Database pour PostgreSQL, vous devez créer des règles de réseau IP pour les adresses IP publiques de vos circuits. Pour rechercher les adresses IP publiques de votre circuit ExpressRoute, ouvrez un ticket de support avec ExpressRoute dans le portail Azure.
 
@@ -159,3 +160,5 @@ Pour des articles dédiés à la création de règles de réseau virtuel, consul
 [vpn-gateway-indexmd-608y]: ../vpn-gateway/index.yml
 
 [expressroute-indexmd-744v]: ../expressroute/index.yml
+
+[resource-manager-portal]: ../azure-resource-manager/resource-manager-supported-services.md

@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.date: 05/16/2019
-ms.openlocfilehash: bbbc2bc5c47821469ecf15a27195b1bf0c12e6e5
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.openlocfilehash: 090c229c5e97ede8eb7a397ce8f4d13d8735a346
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67190623"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68404613"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Guide des performances et du réglage du mappage de flux de données
 
@@ -127,7 +127,18 @@ Cliquez sur cette icône pour afficher le plan d'exécution et le profil de perf
 * Pensez-y lorsque vous choisissez cette option populaire. Il est possible que vous n’ayez plus de ressources de nœud de cluster si vous combinez de nombreux fichiers sources dans un seul partitionnement de fichier de sortie.
 * Pour éviter d’épuiser les ressources de nœud de calcul, vous pouvez conserver le schéma par défaut ou le schéma de partitionnement explicite dans ADF, ce qui optimise les performances, puis ajouter une activité de copie suivante dans le pipeline qui fusionne tous les fichiers de PARTIE du dossier de sortie vers un nouveau fichier unique. Pour l’essentiel, cette technique sépare l’action de transformation de la fusion de fichiers et donne le même résultat que la définition sur « sortir dans un fichier unique ».
 
+### <a name="looping-through-file-lists"></a>Bouclage parmi les listes de fichiers
+
+Dans la plupart des cas, les flux de données dans ADF s’exécutent mieux à partir d’un pipeline qui autorise la transformation Source de flux de données à effectuer une itération sur plusieurs fichiers. En d’autres termes, il est préférable d’utiliser des caractères génériques ou des listes de fichiers à l’intérieur de votre source dans le flux de données, plutôt que d’effectuer une itération sur une grande liste de fichiers à l’aide de ForEach dans le pipeline, en appelant une activité d’exécution de flux de données à chaque itération. Le processus Data Flow s’exécutera plus rapidement en autorisant le bouclage dans le flux de données.
+
+Par exemple, si vous avez une liste de fichiers de données de juillet 2019 que vous souhaitez traiter dans un dossier dans le Stockage Blob, il vaut mieux appeler une activité d’exécution de flux de données une seule fois à partir de votre pipeline et utiliser un caractère générique dans votre source comme suit :
+
+```DateFiles/*_201907*.txt```
+
+Cette opération sera plus performante qu’une recherche sur le magasin d’objets blob dans un pipeline qui effectue ensuite une itération sur tous les fichiers correspondants à l’aide d’une instruction ForEach avec une activité d’exécution de flux de données à l’intérieur.
+
 ## <a name="next-steps"></a>Étapes suivantes
+
 Consultez les autres articles sur les flux de données consacrés aux performances :
 
 - [Onglet Optimiser le flux de données](concepts-data-flow-optimize-tab.md)

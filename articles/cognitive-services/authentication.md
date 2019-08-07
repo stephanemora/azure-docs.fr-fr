@@ -7,14 +7,14 @@ author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 03/01/2019
+ms.date: 07/24/2019
 ms.author: erhopf
-ms.openlocfilehash: 6de5711ca977612f01943f6aaf2c9d7061116090
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: b69bd39e97cc97830142c8b1911f1116927643b2
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67435932"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68467542"
 ---
 # <a name="authenticate-requests-to-azure-cognitive-services"></a>Authentifier des requêtes auprès d’Azure Cognitive Services
 
@@ -23,12 +23,13 @@ Chaque requête adressée à un service Azure Cognitive Services doit inclure un
 * [Authentification avec une clé d’abonnement monoservice](#authenticate-with-a-single-service-subscription-key)
 * [Authentification avec une clé d’abonnement multiservice](#authenticate-with-a-multi-service-subscription-key)
 * [Authentification avec un jeton](#authenticate-with-an-authentication-token)
+* [Authentifier avec Azure Active Directory (AAD)](#authenticate-with-azure-active-directory)
 
 ## <a name="prerequisites"></a>Prérequis
 
 Pour adresser une requête, vous devez disposer d’un compte Azure et d’un abonnement Azure Cognitive Services. Si vous avez déjà un compte, passez à la section suivante. Si vous n’avez pas de compte, ce guide va vous aider à en créer un en quelques minutes : [Créer un compte Cognitive Services pour Azure](cognitive-services-apis-create-account.md).
 
-Pour obtenir votre clé d’abonnement, rendez-vous sur le [Portail Azure](cognitive-services-apis-create-account.md#get-the-keys-for-your-subscription) après avoir créé votre compte ou activé un [essai gratuit](https://azure.microsoft.com/try/cognitive-services/my-apis).
+Pour obtenir votre clé d’abonnement, rendez-vous sur le [Portail Azure](cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) après avoir créé votre compte ou activé un [essai gratuit](https://azure.microsoft.com/try/cognitive-services/my-apis).
 
 ## <a name="authentication-headers"></a>En-têtes d’authentification
 
@@ -158,8 +159,10 @@ curl -X POST 'https://api.cognitive.microsofttranslator.com/translate?api-versio
 --data-raw '[{ "text": "How much for the cup of coffee?" }]' | json_pp
 ```
 
+[!INCLUDE [](../../includes/cognitive-services-azure-active-directory-authentication.md)]
+
 ## <a name="see-also"></a>Voir aussi
 
 * [Qu’est-ce que Cognitive Services ?](welcome.md)
 * [Tarifs de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/)
-* [Créer un compte](cognitive-services-apis-create-account.md)
+* [Sous-domaines personnalisés](cognitive-services-custom-subdomains.md)

@@ -27,6 +27,17 @@
     - name: Index
       displayName: 'list, examples'
       href: ./samples/index.md
+    - name: "ISO\_27001"
+      items:
+        - name: Vue d'ensemble
+          displayName: 'standards, iso, 27001'
+          href: ./samples/iso27001/index.md
+        - name: Correspondance des contrôles
+          displayName: 'standards, iso, 27001'
+          href: ./samples/iso27001/control-mapping.md
+        - name: Étapes de déploiement
+          displayName: 'standards, iso, 27001'
+          href: ./samples/iso27001/deploy.md
     - name: "ISO\_27001 - Services partagés"
       items:
         - name: Vue d'ensemble

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/04/2019
-ms.openlocfilehash: 52fe8c05101f9647549acec276f0bdb9fa52d1c7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ced0655d2e8ff012b3043dd123a8483674b4c472
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60537827"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68404543"
 ---
 # <a name="connect-hdinsight-to-your-on-premises-network"></a>Connecter HDInsight à votre réseau local
 
@@ -73,8 +73,8 @@ Ces étapes utilisent le [portail Azure](https://portal.azure.com) pour créer u
   
     | Champ | Valeur |
     | --- | --- |
-    |Abonnement |Sélectionnez votre abonnement approprié.|
-    |Groupe de ressources |Sélectionnez le groupe de ressources qui contient le réseau virtuel créé précédemment.|
+    |Subscription |Sélectionnez votre abonnement approprié.|
+    |Resource group |Sélectionnez le groupe de ressources qui contient le réseau virtuel créé précédemment.|
     |Nom de la machine virtuelle | Entrez un nom convivial qui identifie cette machine virtuelle. Cet exemple utilise **DNSProxy**.|
     |Région | Sélectionnez la même région que celle du réseau virtuel créé précédemment.  Certaines tailles de machine virtuelle ne sont pas disponibles dans toutes les régions.  |
     |Options de disponibilité |  Sélectionnez votre niveau de disponibilité souhaité.  Azure propose une gamme d’options pour gérer la disponibilité et la résilience de vos applications.  Concevez l’architecture de votre solution pour utiliser des machines virtuelles répliquées dans des Zones de disponibilité ou des Groupes à haute disponibilité afin de protéger vos applications et données en cas de panne de centre de données ou d’événements de maintenance. Cet exemple utilise **Aucune redondance d’infrastructure nécessaire**. |
@@ -93,7 +93,7 @@ Ces étapes utilisent le [portail Azure](https://portal.azure.com) pour créer u
     | Champ | Valeur |
     | --- | --- |
     |Réseau virtuel | Sélectionnez le réseau virtuel que vous avez créé précédemment.|
-    |Sous-réseau | Sélectionnez le sous-réseau par défaut pour le réseau virtuel que vous avez créé précédemment. Ne sélectionnez __pas__ le sous-réseau utilisé par la passerelle VPN.|
+    |Subnet | Sélectionnez le sous-réseau par défaut pour le réseau virtuel que vous avez créé précédemment. Ne sélectionnez __pas__ le sous-réseau utilisé par la passerelle VPN.|
     |Adresse IP publique | Utilisez la valeur renseignée automatiquement.  |
 
     ![Paramètres de réseau virtuel](./media/connect-on-premises-network/virtual-network-settings.png)
@@ -275,14 +275,14 @@ Vous pouvez utiliser des groupes de sécurité réseau (NSG) ou des routages dé
 > [!WARNING]  
 > HDInsight requiert un accès entrant en provenance d’adresses IP spécifiques dans le cloud Azure, et un accès sortant non restreint. Lorsque vous utilisez des groupes de sécurité réseau ou des routages définis par l’utilisateur pour contrôler le trafic, procédez comme suit :
 
-1. Recherchez les adresses IP de l’emplacement contenant votre réseau virtuel. Pour obtenir la liste des adresses IP requises par emplacement, consultez [Adresses IP requises](./hdinsight-extend-hadoop-virtual-network.md#hdinsight-ip).
+1. Recherchez les adresses IP de l’emplacement contenant votre réseau virtuel. Pour obtenir la liste des adresses IP requises par emplacement, consultez [Adresses IP requises](./hdinsight-management-ip-addresses.md).
 
 2. Pour les adresses IP identifiées à l’étape 1, autorisez le trafic entrant à partir de ces adresses.
 
    * Si vous utilisez __NSG__ : autorisez le trafic __entrant__ sur le port __443__ pour les adresses IP.
    * Si vous utilisez __UDR__ : définissez le type __Tronçon suivant__ de la route sur __Internet__ pour les adresses IP.
 
-Pour un exemple d’utilisation d’Azure PowerShell ou d’Azure CLI afin de créer des groupes de sécurité réseau, consultez [Étendre HDInsight avec des réseaux virtuels Azure](./hdinsight-extend-hadoop-virtual-network.md#hdinsight-nsg).
+Pour un exemple d’utilisation d’Azure PowerShell ou d’Azure CLI afin de créer des groupes de sécurité réseau, consultez [Étendre HDInsight avec des réseaux virtuels Azure](hdinsight-create-virtual-network.md#hdinsight-nsg).
 
 ## <a name="create-the-hdinsight-cluster"></a>Créer le cluster HDInsight
 
@@ -334,9 +334,9 @@ Pour vous connecter directement à HDInsight par le biais du réseau virtuel, pr
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour plus d’informations sur l’utilisation de HDInsight dans un réseau virtuel, consultez [Étendre HDInsight à l’aide de réseaux virtuels Azure](./hdinsight-extend-hadoop-virtual-network.md).
+* Pour plus d’informations sur l’utilisation de HDInsight sur un réseau virtuel, consultez [Planifier un déploiement de réseau virtuel pour des clusters Azure HDInsight](./hdinsight-plan-virtual-network-deployment.md).
 
-* Pour plus d’informations sur les réseaux virtuels Azure, consultez [Vue d'ensemble de Réseau virtuel Azure](../virtual-network/virtual-networks-overview.md).
+* Pour plus d’informations sur les réseaux virtuels Azure, voir [Vue d'ensemble de Réseau virtuel Azure](../virtual-network/virtual-networks-overview.md).
 
 * Pour plus d’informations sur les groupes de sécurité réseau, consultez [Groupes de sécurité réseau](../virtual-network/security-overview.md).
 

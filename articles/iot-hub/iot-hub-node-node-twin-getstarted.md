@@ -8,12 +8,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 08/25/2017
 ms.author: elioda
-ms.openlocfilehash: 20b804f3d15543d0cf415d00dc81a6f55a348260
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8dd5269532e9eb6139d8debb0ee9b503cd2e4354
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65597419"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68404009"
 ---
 # <a name="get-started-with-device-twins-node"></a>Prise en main des représentations d’appareils (Node)
 
@@ -39,11 +39,13 @@ Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
-### <a name="retrieve-connection-string-for-iot-hub"></a>Récupérer la chaîne de connexion pour le hub IoT
-
-[!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
-
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
+
+## <a name="get-the-iot-hub-connection-string"></a>Obtention de la chaîne de connexion de l’IoT Hub
+
+[!INCLUDE [iot-hub-howto-twin-shared-access-policy-text](../../includes/iot-hub-howto-twin-shared-access-policy-text.md)]
+
+[!INCLUDE [iot-hub-include-find-custom-connection-string](../../includes/iot-hub-include-find-custom-connection-string.md)]
 
 ## <a name="create-the-service-app"></a>Créer l’application de service
 
@@ -63,7 +65,7 @@ Dans cette section, vous créez une application console Node.js qui ajoute des m
 
 3. À l’aide d’un éditeur de texte, créez un fichier **AddTagsAndQuery.js** dans le dossier **addtagsandqueryapp**.
 
-4. Ajoutez le code suivant au fichier **AddTagsAndQuery.js**, puis remplacez l’espace réservé **{iot hub connection string}** par la chaîne de connexion que vous avez copiée lors de la création de votre IoT Hub :
+4. Ajoutez le code suivant au fichier **AddTagsAndQuery.js**, puis remplacez la valeur de l’espace réservé **{iot hub connection string}** par la chaîne de connexion de l’IoT Hub que vous avez copiée dans [Obtention de la chaîne de connexion de l’IoT Hub](#get-the-iot-hub-connection-string) :
 
    ``` javascript
         'use strict';

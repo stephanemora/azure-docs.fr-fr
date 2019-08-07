@@ -1,5 +1,5 @@
 ---
-title: Personnaliser des revendications émises dans le jeton SAML pour les applications d’entreprise dans Azure AD | Microsoft Docs
+title: Personnaliser les revendications de jeton SAML pour les applications d’entreprise dans Azure AD | Microsoft Docs
 description: Découvrez comment personnaliser les revendications émises dans le jeton SAML pour les applications d’entreprise dans Azure AD.
 services: active-directory
 documentationcenter: ''
@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 636086ce0d055ab8de1d1b95dbbf7e5d96c7d7ef
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 3f5930f2d3db94f615321eda480aed0d4d196911
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67483062"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68380835"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Activation Personnaliser des revendications émises dans le jeton SAML pour les applications d’entreprise
 

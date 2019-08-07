@@ -1,19 +1,18 @@
 ---
 title: Tableau de prise en charge de Sauvegarde Azure pour la sauvegarde de machines virtuelles Azure
 description: Fournit un récapitulatif des limitations et des paramètres de prise en charge de la sauvegarde de machines virtuelles Azure avec le service Sauvegarde Azure.
-services: backup
-author: rayne-wiselman
+author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 05/08/2019
-ms.author: raynew
-ms.openlocfilehash: ef522785d5074187871c25c54deae84b156d69b1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 07/02/2019
+ms.author: dacurwin
+ms.openlocfilehash: 2556887008ecbe081168d3fc81fa07b45cda4bcb
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66743177"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639605"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Tableau de prise en charge pour la sauvegarde de machines virtuelles Azure
 Vous pouvez utiliser le [service Sauvegarde Azure](backup-overview.md) pour sauvegarder des machines et des charges de travail locales ainsi que des machines virtuelles Azure. Cet article récapitule les paramètres de prise en charge et les limitations de la sauvegarde de machines virtuelles Azure avec Sauvegarde Azure.
@@ -44,7 +43,7 @@ Activer la sauvegarde quand vous créez une machine virtuelle Azure Windows | Pr
 Activer la sauvegarde quand vous créez une machine virtuelle Linux | Pris en charge pour :<br/><br/> - Ubuntu Server : 18.04, 17.10, 17.04, 16.04 (LTS), 14.04 (LTS)<br/><br/> - Red Hat : RHEL 6.7, 6.8, 6.9, 7.2, 7.3, 7.4<br/><br/> - SUSE Linux Enterprise Server: 11 SP4, 12 SP2, 12 SP3, 15 <br/><br/> - Debian : 8, 9<br/><br/> - CentOS : 6.9, 7.3<br/><br/> - Oracle Linux : 6.7, 6.8, 6.9, 7.2, 7.3
 Sauvegarder une machine virtuelle arrêtée/hors connexion | Pris en charge.<br/><br/> L’instantané a une cohérence en cas d’incident uniquement, mais pas de cohérence des applications.
 Sauvegarder des disques après la migration vers des disques managés | Pris en charge.<br/><br/> La sauvegarde continuera à fonctionner. Aucune action n’est requise.
-Sauvegarder des disques managés après l’activation d’un verrou de groupe de ressources | Non pris en charge.<br/><br/> La Sauvegarde Azure ne peut pas supprimer les anciens points de ressources et les sauvegardes commenceront à échouer une fois la limite maximale de points de restauration atteinte.
+Sauvegarder des disques managés après l’activation d’un verrou de groupe de ressources | Non pris en charge.<br/><br/> La Sauvegarde Azure ne peut pas supprimer les anciens points de restauration et les sauvegardes commenceront à échouer une fois la limite maximale de points de restauration atteinte.
 Modifier la stratégie de sauvegarde pour une machine virtuelle | Pris en charge.<br/><br/> La machine virtuelle est sauvegardée selon la planification et les paramètres de conservation de la nouvelle stratégie. Si les paramètres de conservation sont étendus, les points de récupération existants sont marqués et conservés. S’ils sont réduits, les points de récupération existants sont nettoyés lors de la prochaine tâche de nettoyage et ils sont finalement supprimés.
 Annuler un travail de sauvegarde | Pris en charge pendant le processus de capture instantanée.<br/><br/> Non pris en charge quand l’instantané est transféré vers le coffre.
 Sauvegarder la machine virtuelle vers une autre région ou un autre abonnement |  Non pris en charge.
@@ -131,7 +130,7 @@ Restaurer entre abonnements/régions/zones. | Non pris en charge.
 Restaurer sur une machine virtuelle existante | Utilisez l’option de remplacement de disque.
 Restaurer un disque avec un compte de stockage activé pour Azure Storage Service Encryption (SSE) | Non pris en charge.<br/><br/> Restaurez sur un compte où SSE n’est pas est activé.
 Restaurer sur des comptes de stockage mixtes | Non pris en charge.<br/><br/> Selon le type de compte de stockage, tous les disques restaurés seront ou Premium ou Standard, mais pas mixtes.
-Revenir à un compte de stockage en utilisant le stockage redondant interzone (ZRS) | Prise en charge (pour les machines virtuelles sauvegardées après janvier 2019 et pour lesquelles la [zone de disponibilité](https://azure.microsoft.com/global-infrastructure/availability-zones/) est disponible)
+Revenir à un compte de stockage en utilisant le stockage redondant interzone (ZRS) | Prise en charge (pour une machine virtuelle sauvegardée après janvier 2019 et pour laquelle la [zone de disponibilité](https://azure.microsoft.com/global-infrastructure/availability-zones/) est disponible)
 Restaurer une machine virtuelle directement sur un groupe à haute disponibilité | Pour les disques managés, vous pouvez restaurer le disque et utiliser l’option de groupe à haute disponibilité dans le modèle.<br/><br/> Non pris en charge pour les disques non managés. Pour les disques non managés, restaurez le disque, puis créez une machine virtuelle dans le groupe à haute disponibilité.
 Restaurer une sauvegarde de machines virtuelles non managées après leur mise à niveau en machines virtuelles managées| Pris en charge.<br/><br/> Vous pouvez restaurer les disques, puis créer une machine virtuelle managée.
 Restaurer une machine virtuelle sur un point de restauration antérieur à la migration de la machine virtuelle vers des disques managés | Pris en charge.<br/><br/> Vous restaurez sur des disques non managés (par défaut), vous convertissez les disques restaurés en disques managés, et vous créez une machine virtuelle avec les disques managés.
@@ -144,8 +143,7 @@ Restaurer une machine virtuelle dans un autre réseau virtuel |   Pris en charge
 **Calcul** | **Support**
 --- | ---
 Taille de la machine virtuelle |   N’importe quelle taille de machine virtuelle Azure avec au moins 2 cœurs d’UC et 1 Go de RAM.<br/><br/> [En savoir plus.](https://docs.microsoft.com/azure/virtual-machines/windows/sizes)
-Sauvegarder des machines virtuelles dans des [groupes à haute disponibilité](https://docs.microsoft.com/azure/virtual-machines/windows/regions-and-availability#availability-sets) | Pris en charge.<br/><br/> Vous ne pouvez pas restaurer une machine virtuelle dans un groupe à haute disponibilité en utilisant l’option de création rapide d’une machine virtuelle. Au lieu de cela, quand vous restaurez la machine virtuelle, restaurez le disque et utilisez-le pour déployer une machine virtuelle, ou bien restaurez un disque et utilisez-le pour remplacer un disque existant.
-Sauvegarder des machines virtuelles dans des [zones de disponibilité](https://docs.microsoft.com/azure/availability-zones/az-overview) |  Non pris en charge.
+Sauvegarder des machines virtuelles dans des [groupes à haute disponibilité](https://docs.microsoft.com/azure/virtual-machine-scale-sets/availability#availability-sets) | Pris en charge.<br/><br/> Vous ne pouvez pas restaurer une machine virtuelle dans un groupe à haute disponibilité en utilisant l’option de création rapide d’une machine virtuelle. Au lieu de cela, quand vous restaurez la machine virtuelle, restaurez le disque et utilisez-le pour déployer une machine virtuelle, ou bien restaurez un disque et utilisez-le pour remplacer un disque existant.
 Sauvegarder des machines virtuelles déployées avec [Hybrid Use Benefit (HUB)](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing) | Pris en charge.
 Sauvegarder des machines virtuelles déployées dans un [groupe de machines virtuelles identiques](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview) |  Non pris en charge.
 Sauvegarder des machines virtuelles déployées à partir de la [Place de marché Azure](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?filters=virtual-machine-images)<br/><br/> (Publication par Microsoft ou des tiers) |  Pris en charge.<br/><br/> La machine virtuelle doit exécuter un système d’exploitation pris en charge.<br/><br/> Lors de la récupération de fichiers sur la machine virtuelle, vous pouvez restaurer seulement sur un système d’exploitation compatible (pas un système d’exploitation antérieur ou ultérieur). Nous ne restaurons pas les machines virtuelles Azure de la Place de marché Azure sauvegardées en tant que machines virtuelles, car il faut pour cela des informations d’achat, mais uniquement en tant que disques.
@@ -164,14 +162,12 @@ Taille de disque de données | La taille maximale d’un disque individuel est d
 Type de stockage | HDD Standard, SSD Standard, SSD Premium. <br/><br/> SSD Standard est pris en charge si vos coffres ont été mis à niveau vers la dernière version de la sauvegarde de machine virtuelle Azure (appelée « restauration instantanée »). [Plus d’informations](backup-instant-restore-capability.md)
 Disques managés | Pris en charge.
 Disques chiffrés | Pris en charge.<br/><br/> Les machines virtuelles Azure activées pour Azure Disk Encryption peuvent être sauvegardées (avec ou sans l’application Azure AD).<br/><br/> Les machines virtuelles chiffrées ne peuvent pas être récupérées au niveau fichier/dossier. Vous devez récupérer la totalité de la machine virtuelle.<br/><br/> Vous pouvez activer le chiffrement sur des machines virtuelles qui sont déjà protégées par Sauvegarde Azure.
-Disques avec l’accélérateur d’écriture activé | Non pris en charge.<br/><br/> Si vous exécutez la dernière version de la sauvegarde de machine virtuelle Azure (appelée [Restauration instantanée](backup-instant-restore-capability.md)), vous pouvez exclure de la sauvegarde les disques avec l’accélérateur d’écriture activé.
+Disques avec l’accélérateur d’écriture activé | Non pris en charge.<br/><br/> La sauvegarde Azure exclut automatiquement les disques avec l’accélérateur d’écriture activé lors de la sauvegarde. Dans la mesure où ils ne sont pas sauvegardés, vous ne pourrez pas restaurer ces disques à partir des points de récupération de la machine virtuelle.
 Sauvegarder les disques dédupliqués | Non pris en charge.
 Ajouter un disque à une machine virtuelle protégée | Pris en charge.
 Redimensionner un disque sur une machine virtuelle protégée | Pris en charge.
 Stockage partagé| La Sauvegarde des machines virtuelles à l’aide d’un Volume partagé de Cluster (CSV) ou d’un Serveur de fichiers avec montée en puissance parallèle n’est pas recommandée. En effet, il existe un risque d’échec pour les enregistreurs de volumes partagés de cluster lors de la sauvegarde. Lors de la restauration, les disques contenant des volumes partagés de cluster risquent de ne pas apparaître.
 
-> [!NOTE]
-> Le redimensionnement du disque n’est pas recommandé par la Sauvegarde Azure.
 
 
 ## <a name="vm-network-support"></a>Prise en charge des réseaux de machines virtuelles

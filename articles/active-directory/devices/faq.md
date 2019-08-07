@@ -9,14 +9,14 @@ ms.date: 06/28/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
-ms.reviewer: jairoc
+ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8802f9e5c84078725675d961ada7f8183c91c0ec
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: fbba3f1b753738de57aa311387e522bae1b7b523
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67481749"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68499797"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>FAQ sur la gestion des appareils Azure Active Directory
 
@@ -48,23 +48,50 @@ Seuls les appareils suivants sont répertoriés en tant **qu’appareils UTILISA
 
 ---
 
-### <a name="q-i-deleted-my-device-in-the-azure-portal-or-by-using-windows-powershell-but-the-local-state-on-the-device-says-its-still-registered"></a>Q : J’ai supprimé mon appareil dans le portail Azure ou à l’aide de Windows PowerShell. Mais l’état local sur l’appareil indique qu’il est toujours inscrit.
+### <a name="q-why-do-my-users-see-an-error-message-saying-your-organization-has-deleted-the-device-or-your-organization-has-disabled-the-device-on-their-windows-10-devices-"></a>Q : Pourquoi mes utilisateurs voient un message d’erreur du type « Votre organisation a supprimé l’appareil » ou « Votre organisation a désactivé l’appareil » sur leurs appareils Windows 10 ?
 
-**R :** Cette opération est intentionnelle. L’appareil n’a pas accès aux ressources dans le cloud. 
+**R :** Sur les appareils Windows 10 qui sont joints ou inscrits à Azure AD, les utilisateurs reçoivent un [jeton d’actualisation principal](concept-primary-refresh-token.md) qui active l’authentification unique. La validité du jeton d’actualisation principal est basée sur la validité de l’appareil. Les utilisateurs voient ce message si l’appareil a été supprimé ou désactivé dans Azure AD, mais ailleurs que sur l’appareil en question. Un appareil peut être supprimé ou désactivé dans Azure AD dans les cas suivants : 
 
-Si vous souhaitez inscrire à nouveau l’appareil, vous devez effectuer une action manuelle sur celui-ci. 
+- L’utilisateur désactive l’appareil à partir du portail Mes applications. 
+- Un administrateur (ou un utilisateur) supprime ou désactive l’appareil dans le portail Azure ou à l’aide de PowerShell.
+- Valable uniquement pour les appareils hybrides joints à Azure AD : Un administrateur supprime l’unité d’organisation Appareils de l’étendue de synchronisation, ce qui entraîne la suppression des appareils dans Azure AD.
 
-Pour effacer l’état de jointure des appareils Windows 10 et Windows Server 2016 sur site et joints à un domaine Active Directory, procédez comme suit :
+Pour savoir comment remédier à cela, lisez la section ci-dessous.
 
-1. Ouvrez une invite de commandes en tant qu’administrateur.
-1. Entrez `dsregcmd.exe /debug /leave`.
-1. Déconnectez-vous, puis reconnectez-vous pour déclencher la tâche planifiée qui inscrit à nouveau l’appareil auprès d’Azure AD. 
+---
 
-Pour les versions de système d’exploitation Windows de niveau inférieur des appareils sur site et joints à un domaine Active Directory, procédez comme suit :
+### <a name="q-i-disabled-or-deleted-my-device-in-the-azure-portal-or-by-using-windows-powershell-but-the-local-state-on-the-device-says-its-still-registered-what-should-i-do"></a>Q : J’ai désactivé ou supprimé mon appareil dans le portail Azure ou à l’aide de Windows PowerShell. Mais l’état local sur l’appareil indique qu’il est toujours inscrit. Que dois-je faire ?
 
-1. Ouvrez une invite de commandes en tant qu’administrateur.
-1. Entrez `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /l"`.
-1. Entrez `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /j"`.
+**R :** Cette opération est intentionnelle. Dans ce cas, l’appareil n’a pas accès aux ressources du cloud. Les administrateurs peuvent agir ainsi lorsque des appareils sont devenus obsolètes, ou lorsqu’ils ont été perdus ou volés, afin d’empêcher tout accès non autorisé. S’ils ont procédé à cette suppression ou à cette suppression par inadvertance, vous devez réactiver ou réinscrire l’appareil comme l’explique la section ci-dessous.
+
+- Si l’appareil a été désactivé dans Azure AD, un administrateur disposant de privilèges suffisants peut l’activer à partir du portail Azure AD.  
+
+ - Si l’appareil a été supprimé dans Azure AD, vous devez réinscrire l’appareil. Pour réinscrire l’appareil, vous devez procéder manuellement sur l’appareil en question. Pour plus d’informations sur la réinscription en fonction de l’état de l’appareil, consultez la section ci-dessous. 
+
+      Pour réinscrire des appareils hybrides Windows 10 et Windows Server 2016/2019 joints à Azure AD, effectuez les étapes suivantes :
+
+      1. Ouvrez une invite de commandes en tant qu’administrateur.
+      1. Entrez `dsregcmd.exe /debug /leave`.
+      1. Déconnectez-vous, puis reconnectez-vous pour déclencher la tâche planifiée qui inscrit à nouveau l’appareil auprès d’Azure AD. 
+
+      Pour les versions de système d’exploitation Windows de bas niveau qui se trouvent sur des appareils hybrides joints à Azure AD, effectuez les étapes suivantes :
+
+      1. Ouvrez une invite de commandes en tant qu’administrateur.
+      1. Entrez `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /l"`.
+      1. Entrez `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /j"`.
+
+      Pour les appareils Windows 10 joints à Azure AD, effectuez les étapes suivantes :
+
+      1. Ouvrez une invite de commandes en tant qu’administrateur.
+      1. Entrez `dsregcmd /forcerecovery` (Remarque : Vous devez être administrateur pour effectuer cette action).
+      1. Cliquez sur « Connexion » dans la boîte de dialogue qui s’ouvre et poursuivez le processus de connexion.
+      1. Déconnectez-vous puis reconnectez-vous à l’appareil pour finaliser la récupération.
+
+      Pour les appareils Windows 10 inscrits auprès d’Azure AD, effectuez les étapes suivantes :
+
+      1. Accédez à **Paramètres** > **Comptes** > **Accès professionnel ou scolaire**. 
+      1. Sélectionnez le compte, puis **Se déconnecter**.
+      1. Cliquez sur « +Se connecter », puis réinscrivez l’appareil en suivant le processus de connexion.
 
 ---
 
@@ -170,7 +197,7 @@ Ce comportement :
 
 ---
 
-### <a name="q-why-do-i-see-the-oops-an-error-occurred-dialog-when-i-try-to-azure-ad-join-my-pc"></a>Q : Pourquoi la boîte de dialogue *Désolé... une erreur s’est produite !* s’affiche-t-elle lorsque j’essaye de joindre mon ordinateur à Azure AD ?
+### <a name="q-why-do-i-see-the-oops-an-error-occurred-dialog-when-i-try-to-azure-ad-join-my-pc"></a>Q : Pourquoi le message *Une erreur s’est produite* s’affiche-t-il lorsque je tente de joindre mon PC à Azure AD ?
 
 **R :** Cette erreur résulte de la configuration de l’inscription Azure Active Directory avec Intune. Assurez-vous que l’utilisateur qui tente de créer la jointure Azure AD dispose de la licence Intune appropriée. Pour plus d’informations, consultez [Configurer l’inscription des appareils Windows](https://docs.microsoft.com/intune/windows-enroll).  
 

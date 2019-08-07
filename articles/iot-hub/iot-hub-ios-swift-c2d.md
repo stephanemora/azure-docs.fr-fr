@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/19/2018
 ms.author: kgremban
-ms.openlocfilehash: 6bb95bf887837fffc4196bca8d761239ac430a1a
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: af1b331836cd025bbe15665aa03faee000e7c4f0
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67620174"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68404243"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-ios"></a>Envoi de messages cloud à appareil avec IoT Hub (iOS)
 
@@ -101,6 +101,12 @@ Outre l’installation des pods nécessaires à votre projet, la commande d’in
 
    ![Exécuter le projet](media/iot-hub-ios-swift-c2d/run-sample.png)
 
+## <a name="get-the-iot-hub-connection-string"></a>Obtention de la chaîne de connexion de l’IoT Hub
+
+Dans cet article, vous créez un service back-end pour envoyer des messages cloud-à-appareil via l’IoT Hub que vous avez créé dans [Send telemetry from a device to an IoT hub (Envoyer des données de télémétrie d’un appareil à un IoT Hub)](quickstart-send-telemetry-ios.md). Pour envoyer des messages cloud-à-appareil, votre service a besoin de l'autorisation de **connexion de service**. Par défaut, chaque IoT Hub est créé avec une stratégie d’accès partagé nommée **service** qui accorde cette autorisation.
+
+[!INCLUDE [iot-hub-include-find-service-connection-string](../../includes/iot-hub-include-find-service-connection-string.md)]
+
 ## <a name="simulate-a-service-device"></a>Simuler un appareil de service
 
 Dans cette section, vous simulez un deuxième appareil iOS avec une application Swift qui envoie des messages cloud-à-appareil via l’IoT Hub. Cette configuration est utile pour les scénarios d’IoT dans lequel un iPhone ou un iPad fonctionne comme un contrôleur pour les autres appareils iOS connectés à un IoT Hub.
@@ -125,31 +131,25 @@ Outre l’installation des pods nécessaires à votre projet, la commande d’in
 
 ### <a name="run-the-sample-service-application"></a>Exécuter l’exemple d’application de service
 
-1. Récupérez la chaîne de connexion de service de votre IoT Hub. Vous pouvez copier cette chaîne depuis le [portail Azure](https://portal.azure.com), à partir de la stratégie **iothubowner** dans le panneau **Stratégies d’accès partagé**, ou la récupérer avec la commande CLI suivante :  
-
-    ```azurecli-interactive
-    az iot hub show-connection-string --name {YourIoTHubName} --output table
-    ```
-
-2. Ouvrez l’exemple d’espace de travail dans XCode.
+1. Ouvrez l’exemple d’espace de travail dans XCode.
 
    ```sh
    open AzureIoTServiceSample.xcworkspace
    ```
 
-3. Développez le projet **AzureIoTServiceSample**, puis le dossier du même nom.  
+2. Développez le projet **AzureIoTServiceSample**, puis le dossier du même nom.  
 
-4. Ouvrez **ViewController.swift** pour le modifier dans XCode. 
+3. Ouvrez **ViewController.swift** pour le modifier dans XCode. 
 
-5. Recherchez la variable **connectionString** et mettez à jour sa valeur en fonction de la chaîne de connexion de service que vous avez copiée précédemment.
+4. Recherchez la variable **connectionString** et mettez à jour sa valeur en fonction de la chaîne de connexion de service que vous avez copiée précédemment dans [Get the IoT hub connection string](#get-the-iot-hub-connection-string).
 
-6. Enregistrez vos modifications.
+5. Enregistrez vos modifications.
 
-7. Dans Xcode, remplacez les paramètres d’émulateur par un appareil iOS autre que celui utilisé pour exécuter le périphérique IoT. XCode ne peut pas exécuter plusieurs émulateurs du même type.
+6. Dans Xcode, remplacez les paramètres d’émulateur par un appareil iOS autre que celui utilisé pour exécuter le périphérique IoT. XCode ne peut pas exécuter plusieurs émulateurs du même type.
 
    ![Changer l’émulateur d’appareil](media/iot-hub-ios-swift-c2d/change-device.png)
 
-8. Exécutez le projet dans l’émulateur d’appareil avec le bouton **Build and run (Générer et exécuter)** ou la combinaison de touches **commande + r**.
+7. Exécutez le projet dans l’émulateur d’appareil avec le bouton **Build and run (Générer et exécuter)** ou la combinaison de touches **commande + r**.
 
    ![Exécuter le projet](media/iot-hub-ios-swift-c2d/run-app.png)
 

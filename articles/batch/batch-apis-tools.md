@@ -3,18 +3,18 @@ title: API et outils pour développeurs - Azure Batch | Microsoft Docs
 description: Découvrez les API et les outils disponibles pour développer des solutions avec le service Azure Batch.
 services: batch
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 ms.service: batch
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 912e3342b4e8031b4404dffb56f1add2cc705f8e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3eeb955d312e21f96f4b1029548c5e84b5e586ec
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60721757"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68323772"
 ---
 # <a name="overview-of-batch-apis-and-tools"></a>Vue d’ensemble des outils et API Batch
 
@@ -31,7 +31,7 @@ Vous pouvez efficacement traiter des charges de travail à grande échelle pour 
 Lorsque vous développez des solutions Batch, vous devez utiliser les comptes suivants de votre abonnement Azure :
 
 * **Compte Batch** : les ressources Azure Batch, notamment les pools, les nœuds de calcul, les travaux et les tâches, sont associées à un [compte Batch](batch-api-basics.md#account) Azure. Lorsque votre application effectue une requête auprès du service Batch, il authentifie la requête en utilisant le nom du compte Azure Batch, l’URL du compte et une clé d’accès ou bien un jeton de Azure Active Directory. Vous pouvez [créer un compte Batch](batch-account-create-portal.md) dans le Portail Azure ou par programme.
-* **Compte de stockage** : Batch inclut la prise en charge intégrée de l’utilisation des fichiers dans [Azure Storage][azure_storage]. Presque tous les scénarios du service Batch font appel au stockage Blob Azure pour la préparation des programmes exécutés par vos tâches et les données qu’ils traitent ainsi que pour le stockage des données de sortie qu’elles génèrent. Pour connaître les options de compte de stockage de Batch, consultez [Aperçu des fonctionnalités d’Azure Batch](batch-api-basics.md#azure-storage-account).
+* **Compte de stockage** : Batch inclut la prise en charge intégrée de l’utilisation des fichiers dans [Stockage Azure][azure_storage]. Presque tous les scénarios du service Batch font appel au stockage Blob Azure pour la préparation des programmes exécutés par vos tâches et les données qu’ils traitent ainsi que pour le stockage des données de sortie qu’elles génèrent. Pour connaître les options de compte de stockage de Batch, consultez [Aperçu des fonctionnalités d’Azure Batch](batch-api-basics.md#azure-storage-account).
 
 ## <a name="batch-service-apis"></a>API du service Batch
 
@@ -67,7 +67,7 @@ Ces outils en ligne de commande fournissent les mêmes fonctionnalités que les 
 
 Voici quelques outils supplémentaires qui peuvent être utiles pour générer et déboguer vos applications et services Batch :
 
-* [Portail Azure][portal] : vous pouvez créer, superviser et supprimer des pools, des travaux et des tâches Batch dans le portail Azure. Vous pouvez consulter les informations d’état de ces éléments et d’autres ressources pendant que vous exécutez vos travaux, et même télécharger des fichiers depuis les nœuds de calcul de vos pools. Par exemple, vous pouvez télécharger une tâche ayant échoué `stderr.txt` lors de la résolution des problèmes. Vous pouvez également télécharger des fichiers du Bureau à distance (RDP), à utiliser pour vous connecter aux nœuds de calcul.
+* [Portail Azure][portal]: vous pouvez créer, superviser et supprimer des pools, des travaux et des tâches Batch dans le portail Azure. Vous pouvez consulter les informations d’état de ces éléments et d’autres ressources pendant que vous exécutez vos travaux, et même télécharger des fichiers depuis les nœuds de calcul de vos pools. Par exemple, vous pouvez télécharger une tâche ayant échoué `stderr.txt` lors de la résolution des problèmes. Vous pouvez également télécharger des fichiers du Bureau à distance (RDP), à utiliser pour vous connecter aux nœuds de calcul.
 * [Azure Batch Explorer][batch_labs] : Batch Explorer (anciennement BatchLabs) est un outil client autonome, gratuit et doté de nombreuses fonctionnalités, qui vous aide à créer, déboguer et analyser des applications Azure Batch. Téléchargez un [package d’installation](https://azure.github.io/BatchExplorer/) pour Mac, Linux ou Windows.
 * [Azure Batch Shipyard](https://github.com/Azure/batch-shipyard) : Batch Shipyard est un outil qui permet de provisionner, exécuter et superviser le traitement par lots basé sur des conteneurs et les charges de travail HPC sur Azure Batch.
 * [Explorateur Stockage Azure][storage_explorer] : bien qu’il ne s’agisse pas à proprement parler d’un outil Azure Batch, l’Explorateur Stockage est l’un de vos meilleurs alliés pendant le développement et le débogage de vos solutions Batch.
@@ -81,7 +81,7 @@ Voici quelques outils supplémentaires qui peuvent être utiles pour générer e
 
 * Consultez la [Présentation des fonctionnalités du service Batch pour les développeurs](batch-api-basics.md). Elle contient des informations indispensables pour toute personne se préparant à l’utilisation de Batch. L’article contient des informations plus détaillées sur les ressources du service Batch telles que les pools, les nœuds, les travaux et les tâches, ainsi que sur les nombreuses fonctionnalités API que vous pouvez utiliser lors de la création de votre application Batch.
 * [Prise en main de la bibliothèque Azure Batch pour .NET](tutorial-parallel-dotnet.md) pour apprendre à utiliser C# et la bibliothèque .NET Batch pour exécuter une charge de travail simple à l’aide d’un flux de travail Batch courant. Une [version Python](tutorial-parallel-python.md) et un [didacticiel Node.js](batch-nodejs-get-started.md) sont également disponibles.
-* Téléchargez les [exemples de code sur GitHub][github_samples] pour voir comment C# et Python peuvent interagir avec Batch pour planifier et traiter des exemples de charge de travail.
+* Téléchargez les [exemples de code sur GitHub][github_samples] pour voir comment C# et Python peuvent interagir avec Batch afin de planifier et traiter des exemples de charge de travail.
 
 [azure_storage]: https://azure.microsoft.com/services/storage/
 [api_java]: /java/api/overview/azure/batch

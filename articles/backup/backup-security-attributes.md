@@ -1,19 +1,19 @@
 ---
-title: Attributs de sécurité communs pour Sauvegarde Azure
-description: Liste de contrôle des attributs de sécurité communs pour l'évaluation de Sauvegarde Azure
-services: backup
-author: utraghuv
-manager: barbkess
+title: Attributs de sécurité pour Sauvegarde Azure
+description: Liste de contrôle des attributs de sécurité pour l’évaluation de Sauvegarde Azure
+ms.reviewer: mbaldwin
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 04/16/2019
-ms.author: mbaldwin
-ms.openlocfilehash: 595cc4eff70e2df4cb6d7f1d6a0c1a2748b34bf2
-ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
+ms.author: dacurwin
+ms.openlocfilehash: e6ea701840b201c2794d81be5019d57ca531cd00
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67565636"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68688507"
 ---
 # <a name="security-attributes-for-azure-backup"></a>Attributs de sécurité pour Sauvegarde Azure
 
@@ -25,8 +25,8 @@ Cet article décrit les attributs de sécurité intégrés à Sauvegarde Azure.
 
 | Attribut de sécurité | Oui/Non | Notes |
 |---|---|--|
-| Chiffrement au repos :<ul><li>Chiffrement côté serveur</li><li>Chiffrement côté serveur avec des clés gérées par le client</li><li>Autres fonctionnalités de chiffrement (côté client, Always Encrypted, etc.)</ul>| OUI | Utilisation d’un chiffrement du service de stockage pour les comptes de stockage. |
-| Chiffrement en transit :<ul><li>Chiffrement Express Route</li><li>Chiffrement dans le réseau virtuel</li><li>Chiffrement de réseau virtuel à réseau virtuel</ul>| Non | Utilisation du protocole HTTPS. |
+| Chiffrement au repos (comme le chiffrement côté serveur, le chiffrement côté serveur avec clés managées par le client et d’autres fonctions de chiffrement)| OUI | Utilisation d’un chiffrement du service de stockage pour les comptes de stockage. |
+| Chiffrement en transit (ExpressRoute, de réseau virtuel et de réseau virtuel à réseau virtuel)| Non | Utilisation du protocole HTTPS. |
 | Gestion des clés de chiffrement (CMK, BYOK, etc.)| Non |  |
 | Chiffrement au niveau des colonnes (Azure Data Services)| Non |  |
 | Appels d’API chiffrés| OUI |  |

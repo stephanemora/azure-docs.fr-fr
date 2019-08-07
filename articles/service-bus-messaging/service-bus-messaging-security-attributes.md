@@ -1,6 +1,6 @@
 ---
-title: Attributs de sécurité communs pour la messagerie Azure Service Bus
-description: Check-list des attributs de sécurité couramment utilisés pour l’évaluation de la messagerie Azure Service Bus
+title: Attributs de sécurité pour la messagerie Azure Service Bus
+description: Check-list des attributs de sécurité utilisés pour l’évaluation de la messagerie Azure Service Bus
 services: service-bus-messaging
 ms.service: service-bus-messaging
 documentationcenter: ''
@@ -9,12 +9,12 @@ manager: barbkess
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: mbaldwin
-ms.openlocfilehash: d68ffe6561da6a23c288dfabd1d3eb6b34099bb3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0e1d6e041b47a261b549fb8b608cf09d0d6362dd
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66003107"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68443901"
 ---
 # <a name="security-attributes-for-azure-service-bus-messaging"></a>Attributs de sécurité pour la messagerie Azure Service Bus
 
@@ -26,8 +26,8 @@ Cet article décrit les attributs de sécurité intégrés à la messagerie Azur
 
 | Attribut de sécurité | Oui/Non | Notes |
 |---|---|--|
-| Chiffrement au repos :<ul><li>Chiffrement côté serveur</li><li>Chiffrement côté serveur avec des clés gérées par le client</li><li>Autres fonctionnalités de chiffrement (côté client, Always Encrypted, etc.)</ul>|  Oui pour le chiffrement côté serveur au repos par défaut. | Les clés gérées par le client et du BYOK ne sont pas encore prises en charge. Le chiffrement côté client est sous la responsabilité du client |
-| Chiffrement en transit :<ul><li>Chiffrement Express Route</li><li>Chiffrement dans le réseau virtuel</li><li>Chiffrement de réseau virtuel à réseau virtuel</ul>| OUI | Prend en charge le mécanisme HTTPS/TLS standard. |
+| Chiffrement au repos (comme le chiffrement côté serveur, le chiffrement côté serveur avec clés managées par le client et d’autres fonctions de chiffrement)|  Oui pour le chiffrement côté serveur au repos par défaut. | Les clés gérées par le client et du BYOK ne sont pas encore prises en charge. Le chiffrement côté client est sous la responsabilité du client |
+| Chiffrement en transit (ExpressRoute, de réseau virtuel et de réseau virtuel à réseau virtuel)| OUI | Prend en charge le mécanisme HTTPS/TLS standard. |
 | Gestion des clés de chiffrement (CMK, BYOK, etc.)| Non |   |
 | Chiffrement au niveau des colonnes (Azure Data Services)| N/A | |
 | Appels d’API chiffrés| OUI | Les appels d’API sont effectués via [Azure Resource Manager](../azure-resource-manager/index.yml) et HTTPS. |

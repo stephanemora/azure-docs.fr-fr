@@ -10,12 +10,12 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: cotresne
-ms.openlocfilehash: 47d8bf33fd686942326db3b1cc606978bf47a1bb
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 7f931a72eab534bc2856e9e545b684d2b8ae7a60
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67594394"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68444040"
 ---
 # <a name="deployment-technologies-in-azure-functions"></a>Technologies de déploiement dans Azure Functions
 
@@ -23,8 +23,13 @@ Vous pouvez utiliser plusieurs technologies différentes pour déployer le code 
 
 ## <a name="deployment-technology-availability"></a>Disponibilité des technologies de déploiement
 
-> [!IMPORTANT]
-> Azure Functions prend en charge le développement local multiplateforme ainsi que l’hébergement sur Windows et Linux. Trois plans d’hébergement sont actuellement disponibles : [Consommation](functions-scale.md#consumption-plan), [Premium](functions-scale.md#premium-plan) et [Dédié (Azure App Service)](functions-scale.md#app-service-plan). Chaque plan a des comportements différents. Les technologies de déploiement ne sont pas toutes disponibles pour chaque environnement d’exécution d’Azure Functions.
+Azure Functions prend en charge le développement local multiplateforme ainsi que l’hébergement sur Windows et Linux. Trois plans d’hébergement sont actuellement disponibles :
+
++ [Consommation](functions-scale.md#consumption-plan)
++ [Premium](functions-scale.md#premium-plan)
++ [Dédié (App Service)](functions-scale.md#app-service-plan)
+
+Chaque plan a des comportements différents. Les technologies de déploiement ne sont pas toutes disponibles pour chaque environnement d’exécution d’Azure Functions. Le graphique suivant indique les technologies de déploiement prises en charge pour chaque combinaison de système d'exploitation et de plan d'hébergement :
 
 | Technologie de déploiement | Consommation Windows | Windows Premium (préversion) | Dédié (Windows)  | Consommation Linux (préversion) | Dédié (Linux) |
 |-----------------------|:-------------------:|:-------------------------:|:-----------------:|:---------------------------:|:---------------:|
@@ -39,7 +44,7 @@ Vous pouvez utiliser plusieurs technologies différentes pour déployer le code 
 | Modification dans le portail |✔|✔|✔| |✔<sup>2</sup>|
 
 <sup>1</sup> Cette technologie de déploiement nécessite une [synchronisation manuelle des déclencheurs](#trigger-syncing).  
-<sup>2</sup> La modification dans le portail est disponible uniquement pour les déclencheurs HTTP et de minuteur quand Azure Functions est exécuté sur Linux dans le plan Dédié.
+<sup>2</sup> La modification dans le portail est disponible uniquement pour les déclencheurs HTTP et de minuteur quand Azure Functions est exécuté sur Linux avec des plans Premium et Dédié.
 
 ## <a name="key-concepts"></a>Concepts clés
 
@@ -75,13 +80,13 @@ Utilisez Zip Deploy pour envoyer (push) un fichier .zip contenant votre applicat
 >
 >Quand vous effectuez le déploiement à l’aide de Zip Deploy, vous pouvez définir votre application pour s’exécuter en mode [Exécuter à partir du package](run-functions-from-deployment-package.md). Pour définir le mode Exécuter à partir du package, affectez au paramètre d’application `WEBSITE_RUN_FROM_PACKAGE` la valeur `1`. Nous vous recommandons le déploiement zip. Il accélère les temps de chargement de vos applications, et il s’agit de la méthode par défaut pour VS Code, Visual Studio et Azure CLI.
 
->__Quand l’utiliser ?__ Zip Deploy est la technologie de déploiement recommandée quand Azure Functions est exécuté sur Windows, ou quand Azure Functions est exécuté sur Linux dans le plan Dédié.
+>__Quand l’utiliser ?__ Zip Deploy est la technologie de déploiement recommandée quand Functions est exécuté sur Windows et Linux dans le plan Premium ou Dédié.
 
 ### <a name="docker-container"></a>Conteneur Docker
 
 Vous pouvez déployer une image conteneur Linux qui contient votre application de fonction.
 
->__Comment l’utiliser ?__ Créez une application de fonction Linux dans le plan Dédié et spécifiez l’image conteneur à partir de laquelle exécuter l’application. Il existe deux méthodes pour le faire :
+>__Comment l’utiliser ?__ Créez une application de fonction Linux dans le plan Premium ou Dédié et spécifiez l’image conteneur à partir de laquelle exécuter l’application. Il existe deux méthodes pour le faire :
 >
 >* Créer une application de fonction Linux dans un plan Azure App Service dans le portail Azure. Pour **Publier**, sélectionnez **Image Docker**, puis configurez le conteneur. Entrez l’emplacement d’hébergement de l’image.
 >* Créer une application de fonction Linux dans un plan App Service par le biais d’Azure CLI. Pour savoir comment procéder, consultez [Créer une fonction sur Linux en utilisant une image personnalisée](functions-create-function-linux-custom-image.md#create-and-deploy-the-custom-image).
@@ -104,7 +109,7 @@ Web Deploy crée un package et déploie vos applications Windows sur n’importe
 
 Utilisez le contrôle de code source pour connecter votre application de fonction à un dépôt git. Une mise à jour du code dans ce dépôt déclenche le déploiement. Pour plus d’informations, consultez le [Wiki Kudu](https://github.com/projectkudu/kudu/wiki/VSTS-vs-Kudu-deployments).
 
->__Comment l’utiliser ?__ Utilisez le Centre de déploiement dans le portail Azure Functions pour configurer la publication à partir du contrôle de code source. Pour plus d’informations, consultez [Déploiement continu pour Azure Functions](functions-continuous-deployment.md).
+>__Comment l’utiliser ?__ Utilisez le Centre de déploiement dans la section Functions du portail pour configurer la publication à partir du contrôle de code source. Pour plus d’informations, consultez [Déploiement continu pour Azure Functions](functions-continuous-deployment.md).
 
 >__Quand l’utiliser ?__ L’utilisation du contrôle de code source est la méthode recommandée pour les équipes qui travaillent en collaboration sur leurs applications de fonction. Il s’agit d’une bonne option si vous avez des pipelines de déploiement plus complexes.
 
@@ -138,26 +143,26 @@ Dans l’éditeur du portail, vous pouvez modifier directement les fichiers dans
 
 >__Comment l’utiliser ?__ Pour avoir la possibilité de modifier vos fonctions dans le portail Azure, vous devez avoir [créé les fonctions dans le portail](functions-create-first-azure-function.md). Pour garantir l’existence d’une seule source de confiance, l’utilisation d’une autre méthode de déploiement rend votre fonction accessible en lecture seule et empêche la poursuite de la modification dans le portail. Pour revenir à un état où vous pouvez modifier vos fichiers dans le portail Azure, vous pouvez rétablir manuellement le mode d’édition à `Read/Write` et supprimer tous les paramètres d’application relatifs au déploiement (comme `WEBSITE_RUN_FROM_PACKAGE`). 
 
->__Quand l’utiliser ?__ Le portail est un excellent moyen de vous familiariser avec Azure Functions. Toutefois, pour un travail de développement plus complexe, il est recommandé d’utiliser les outils clients suivants :
+>__Quand l’utiliser ?__ Le portail est un excellent moyen de vous familiariser avec Azure Functions. Toutefois, pour un travail de développement plus complexe, nous vous recommandons l’un des outils clients suivants :
 >
->* [Bien démarrer avec VS Code](functions-create-first-function-vs-code.md)
->* [Bien démarrer avec Azure Functions Core Tools](functions-run-local.md)
->* [Bien démarrer avec Visual Studio](functions-create-your-first-function-visual-studio.md)
+>* [Visual Studio Code](functions-create-first-function-vs-code.md)
+>* [Azure Functions Core Tools (ligne de commande)](functions-run-local.md)
+>* [Visual Studio](functions-create-your-first-function-visual-studio.md)
 
 Le tableau suivant présente les systèmes d’exploitation et les langages qui prennent en charge la modification dans le portail :
 
-| | Consommation Windows | Windows Premium (préversion) | Dédié (Windows) | Consommation Linux (préversion) | Dédié (Linux) |
-|-|:-----------------: |:-------------------------:|:-----------------:|:---------------------------:|:---------------:|
+| | Consommation Windows | Windows Premium (préversion) | Dédié (Windows) | Consommation Linux (préversion) | Premium (Linux) (préversion)| Dédié (Linux) |
+|-|:-----------------: |:-------------------------:|:-----------------:|:---------------------------:|:---------------:|:---------------:|
 | C# | | | | | |
-| Script C# |✔|✔|✔| |✔<sup>*</sup>|
-| F# | | | | | |
-| Java | | | | | |
-| JavaScript (Node.js) |✔|✔|✔| |✔<sup>*</sup>|
-| Python (préversion) | | | | | |
-| PowerShell (préversion) |✔|✔|✔| | |
-| TypeScript (Node.js) | | | | | |
+| Script C# |✔|✔|✔| |✔<sup>\*</sup> |✔<sup>\*</sup>|
+| F# | | | | | | |
+| Java | | | | | | |
+| JavaScript (Node.js) |✔|✔|✔| |✔<sup>\*</sup>|✔<sup>\*</sup>|
+| Python (préversion) | | | | | | |
+| PowerShell (préversion) |✔|✔|✔| | | |
+| TypeScript (Node.js) | | | | | | |
 
-<sup>*</sup> La modification dans le portail est disponible uniquement pour les déclencheurs HTTP et de minuteur quand Azure Functions est exécuté sur Linux dans le plan Dédié.
+<sup>*</sup> La modification dans le portail est disponible uniquement pour les déclencheurs HTTP et de minuteur quand Azure Functions est exécuté sur Linux avec des plans Premium et Dédié.
 
 ## <a name="deployment-slots"></a>Emplacements de déploiement
 
@@ -176,6 +181,7 @@ Il existe deux niveaux de prise en charge des emplacements de déploiement :
 | Windows Premium (préversion) | PRÉVERSION |
 | Dédié (Windows) | Disponibilité générale |
 | Consommation Linux | Non pris en charge |
+| Premium (Linux) (préversion) | PRÉVERSION |
 | Dédié (Linux) | Disponibilité générale |
 
 ## <a name="next-steps"></a>Étapes suivantes

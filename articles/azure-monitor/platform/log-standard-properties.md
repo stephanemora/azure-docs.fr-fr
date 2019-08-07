@@ -1,6 +1,6 @@
 ---
 title: Propriétés standard dans les enregistrements de journaux Azure Monitor | Microsoft Docs
-description: Décrit les propriétés communes à plusieurs types de données dans les journaux Azure Monitor.
+description: Décrit les propriétés communes à plusieurs types de données dans les journaux d’activité Azure Monitor.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -10,22 +10,25 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 07/18/2019
 ms.author: bwren
-ms.openlocfilehash: 50804e1f6ab4f352239d3f405e5b41e4e0c58d14
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: b9a4a0a18e120a2843e23d44b03c0fe53b0d84fc
+ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67292824"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68370678"
 ---
 # <a name="standard-properties-in-azure-monitor-logs"></a>Propriétés standard dans les journaux Azure Monitor
 Les données dans les journaux Azure Monitor sont [stockées sous la forme d’un jeu d’enregistrements dans un espace de travail Log Analytics ou dans une application Application Insights](../log-query/logs-structure.md), chacun ayant un type de données particulier associé à un ensemble unique de propriétés. De nombreux types de données comportent des propriétés standard qui sont communes à plusieurs types. Cet article décrit ces propriétés et fournit des exemples sur la façon dont vous pouvez les utiliser dans des requêtes.
 
-Certaines de ces propriétés sont toujours en cours d’implémentation, vous pouvez donc les voir dans certains types de données, mais pas encore dans d’autres.
+> [!NOTE]
+> Certaines des propriétés standard n'apparaîtront pas dans la vue schéma ou IntelliSense de Log Analytics, et n'apparaîtront pas dans les résultats des requêtes, à moins de spécifier explicitement la propriété dans la sortie.
 
 ## <a name="timegenerated-and-timestamp"></a>TimeGenerated et timestamp
-Les propriétés **TimeGenerated** (espace de travail Log Analytics) et **timestamp** (application Application Insights) contiennent la date et l’heure de création de l’enregistrement. Elle fournit une propriété commune à utiliser pour le filtrage ou pour effectuer un résumé par heure. Quand vous sélectionnez un intervalle de temps pour une vue ou un tableau de bord dans le portail Azure, la propriété TimeGenerated ou timestamp permet de filtrer les résultats.
+Les propriétés **TimeGenerated** (espace de travail Log Analytics) et **timestamp** (application Application Insights) contiennent la date et l’heure de création de l’enregistrement par la source de données. Pour plus d’informations, consultez [Durée d’ingestion de données de journal dans Azure Monitor](data-ingestion-time.md).
+
+**TimeGenerated** et **timestamp** fournissent une propriété commune à utiliser pour le filtrage ou pour effectuer un résumé par heure. Quand vous sélectionnez un intervalle de temps pour une vue ou un tableau de bord dans le portail Azure, la propriété TimeGenerated ou timestamp permet de filtrer les résultats. 
 
 ### <a name="examples"></a>Exemples
 
@@ -48,6 +51,20 @@ exceptions
 | sort by timestamp asc 
 ```
 
+## <a name="_timereceived"></a>\_TimeReceived
+La propriété **\_TimeReceived** contient la date et l'heure auxquelles l'enregistrement a été reçu par le point d'ingestion Azure Monitor dans le cloud Azure. Cela peut être utile pour identifier les problèmes de latence entre la source de données et le cloud. Par exemple un problème de mise en réseau entraînant un retard dans l'envoi des données par un agent. Pour plus d’informations, consultez [Durée d’ingestion de données de journal dans Azure Monitor](data-ingestion-time.md).
+
+La requête suivante fournit la latence moyenne par heure pour les enregistrements d'événements d'un agent. Cela comprend le temps entre l'agent et le cloud et le temps total pendant lequel l'enregistrement doit être disponible pour les requêtes du journal.
+
+```Kusto
+Event
+| where TimeGenerated > ago(1d) 
+| project TimeGenerated, TimeReceived = _TimeReceived, IngestionTime = ingestion_time() 
+| extend AgentLatency = toreal(datetime_diff('Millisecond',TimeReceived,TimeGenerated)) / 1000
+| extend TotalLatency = toreal(datetime_diff('Millisecond',IngestionTime,TimeGenerated)) / 1000
+| summarize avg(AgentLatency), avg(TotalLatency) by bin(TimeGenerated,1hr)
+``` 
+
 ## <a name="type-and-itemtype"></a>Type et itemType
 Les propriétés **Type** (espace de travail Log Analytics) et **itemType** (application Application Insights) contiennent le nom de la table d’où l’enregistrement a été récupéré, qui peut également être considéré comme le type de l’enregistrement. Cette propriété est utile dans les requêtes qui combinent des enregistrements issus de plusieurs tableaux, comme ceux utilisés par l’opérateur `search`, pour distinguer les enregistrements de différents types. **$table** peut être utilisé à la place de **Type** à certains endroits.
 
@@ -58,9 +75,13 @@ La requête suivante renvoie le nombre d’enregistrements par type collectés a
 search * 
 | where TimeGenerated > ago(1h)
 | summarize count() by Type
-```
 
-## <a name="resourceid"></a>\_ResourceId
+```
+## <a name="_itemid"></a>\_ItemId
+La propriété **\_ItemId** contient un identificateur unique pour l’enregistrement.
+
+
+## <a name="_resourceid"></a>\_ResourceId
 La propriété **\_ResourceId** contient un identificateur unique de la ressource à laquelle l’enregistrement est associé. Vous disposez ainsi d’une propriété standard à utiliser pour étendre votre requêtes aux enregistrements d’une ressource particulière seulement, ou pour associer des données liées entre plusieurs tables.
 
 Pour les ressources Azure, la valeur de **_ResourceId** est l’[URL d’ID de la ressource Azure](../../azure-resource-manager/resource-group-template-functions-resource.md). La propriété est actuellement limitée aux ressources Azure, mais sera étendue aux ressources en dehors d’Azure comme des ordinateurs locaux.
@@ -106,7 +127,7 @@ union withsource = tt *
 
 L’exécution d’analyses sur différents types de données étant coûteuse, utilisez ces requêtes `union withsource = tt *` avec parcimonie.
 
-## <a name="isbillable"></a>\_IsBillable
+## <a name="_isbillable"></a>\_IsBillable
 La propriété **\_IsBillable** spécifie si les données ingérées sont facturables. Les données dont la propriété **\_IsBillable** est égale à _false_ sont collectées gratuitement et ne sont pas facturées sur votre compte Azure.
 
 ### <a name="examples"></a>Exemples
@@ -133,8 +154,9 @@ union withsource = tt *
 | summarize dcount(computerName) by bin(TimeGenerated, 1h) | sort by TimeGenerated asc
 ```
 
-## <a name="billedsize"></a>\_BilledSize
+## <a name="_billedsize"></a>\_BilledSize
 La propriété **\_BilledSize** spécifie la taille en octets des données qui seront facturées sur votre compte Azure si la propriété **\_IsBillable** est true.
+
 
 ### <a name="examples"></a>Exemples
 Pour connaître la taille des événements facturables ingérés par ordinateur, utilisez la propriété `_BilledSize` qui fournit la taille en octets :

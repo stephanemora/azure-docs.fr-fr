@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/29/2019
 ms.author: hrasheed
-ms.openlocfilehash: cf1a6ffa61b41af5abd20dac13b85024001d2ed2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d4593cd3602c5324e9cffd5eff8564c09aceaf46
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66393989"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68406278"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-by-using-the-azure-portal"></a>Créer des clusters Linux dans HDInsight à l’aide du portail Azure
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -69,7 +69,7 @@ Le portail Azure expose la plupart des propriétés du cluster. Avec les modèle
 
     * Cliquez sur **Suivant** pour passer à la page suivante.
 
-4. Dans **2 Sécurité + réseau**, vous pouvez connecter votre cluster à un réseau virtuel à partir du menu déroulant affiché. Sélectionnez un réseau virtuel Azure et le sous-réseau si vous souhaitez placer le cluster dans un réseau virtuel. Pour obtenir des informations sur l’utilisation de HDInsight avec un réseau virtuel, consultez [Étendre les capacités de HDInsight en utilisant un réseau virtuel Azure](hdinsight-extend-hadoop-virtual-network.md). L’article indique la configuration spécifique requise pour le réseau virtuel. 
+4. Dans **2 Sécurité + réseau**, vous pouvez connecter votre cluster à un réseau virtuel à partir du menu déroulant affiché. Sélectionnez un réseau virtuel Azure et le sous-réseau si vous souhaitez placer le cluster dans un réseau virtuel. Pour plus d’informations sur l’utilisation de HDInsight avec un réseau virtuel, consultez [Planifier un déploiement de réseau virtuel pour des clusters Azure HDInsight](hdinsight-plan-virtual-network-deployment.md). L’article indique la configuration spécifique requise pour le réseau virtuel. 
 
     Si vous souhaitez utiliser le **Pack Sécurité Entreprise**, suivez les instructions fournies dans [Configurer un cluster HDInsight avec le pack Sécurité Entreprise en utilisant Azure Active Directory Domain Services](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-configure-using-azure-adds).
 

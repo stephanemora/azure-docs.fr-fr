@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: conceptual
-ms.date: 05/13/2019
+ms.date: 07/19/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 66d53590e89afb1a903b22ff60e32871a1502ada
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6bd0984a78860192f507323491952e895c8de8bf
+ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65827904"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68370199"
 ---
 # <a name="how-to-give-risk-feedback-in-azure-ad-identity-protection"></a>Procédure : Indiquer des commentaires sur les risques dans Azure AD Identity Protection
 
@@ -33,13 +33,13 @@ Une détection Azure AD Identity Protection est un indicateur d’activité susp
 
 Plusieurs raisons motivent l’envoi de commentaires sur les risques dans Azure AD :
 
-1. **Vous avez jugé incorrecte l’évaluation des risques utilisateur ou de connexion d’Azure AD**. Par exemple, une connexion figurant dans le rapport « Connexions à risque » s’est révélée inoffensive, et toutes les détections correspondantes étaient des faux positifs.
-1. **Vous avez confirmé que l’évaluation des risques de connexion ou utilisateur d’Azure AD était correcte**. Par exemple, une connexion figurant dans le rapport « Connexions à risque » était en effet malveillante, et vous souhaitez que toutes les détections correspondantes soient considérées comme des vrais positifs dans Azure AD.
-1. **Vous avez réduit le risque pesant sur un utilisateur donné en dehors d’Azure AD Identity Protection**, et vous souhaitez mettre à jour le niveau de risque de cet utilisateur.
+- **Vous avez jugé incorrecte l’évaluation des risques utilisateur ou de connexion d’Azure AD**. Par exemple, une connexion figurant dans le rapport « Connexions à risque » s’est révélée inoffensive, et toutes les détections correspondantes étaient des faux positifs.
+- **Vous avez confirmé que l’évaluation des risques de connexion ou utilisateur d’Azure AD était correcte**. Par exemple, une connexion figurant dans le rapport « Connexions à risque » était en effet malveillante, et vous souhaitez que toutes les détections correspondantes soient considérées comme des vrais positifs dans Azure AD.
+- **Vous avez réduit le risque pesant sur un utilisateur donné en dehors d’Azure AD Identity Protection**, et vous souhaitez mettre à jour le niveau de risque de cet utilisateur.
 
 ## <a name="how-does-azure-ad-use-my-risk-feedback"></a>Comment mes commentaires portant sur les risques sont-ils exploités dans Azure AD ?
 
-Azure AD utilise vos commentaires pour mettre à jour le risque de l’utilisateur ou de la connexion sous-jacents. Ces commentaires contribuent à protéger les utilisateurs finals. Par exemple, après que vous avez confirmé qu’une connexion est compromise, Azure AD fait immédiatement passer le niveau de risque de l’utilisateur et de risque agrégé de connexion (risque autre qu’en temps réel) sur Élevé. Si cet utilisateur est inclus dans votre stratégie de risque utilisateur qui vise à forcer les utilisateurs à risques élevés à réinitialiser en toute sécurité leur mot de passe, l’utilisateur corrige automatiquement le risque lors de sa prochaine connexion.
+Azure AD utilise vos commentaires pour mettre à jour le risque de l’utilisateur ou de la connexion sous-jacents et la précision de ces événements. Ces commentaires contribuent à protéger les utilisateurs finals. Par exemple, après que vous avez confirmé qu’une connexion est compromise, Azure AD fait immédiatement passer le niveau de risque de l’utilisateur et de risque agrégé de connexion (risque autre qu’en temps réel) sur Élevé. Si cet utilisateur est inclus dans votre stratégie de risque utilisateur qui vise à forcer les utilisateurs à risques élevés à réinitialiser en toute sécurité leur mot de passe, l’utilisateur corrige automatiquement le risque lors de sa prochaine connexion.
 
 ## <a name="how-should-i-give-risk-feedback-and-what-happens-under-the-hood"></a>Comment fournir des commentaires sur les risques ? Quels sont les mécanismes sous-jacents ?
 

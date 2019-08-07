@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.openlocfilehash: 716c60cf5155bf0583b2d602e8f46f8ba7c1cfcd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 641fc41c25746a67b4b1fe3d5316df17f14f113c
+ms.sourcegitcommit: b49431b29a53efaa5b82f9be0f8a714f668c38ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64726819"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68377246"
 ---
 # <a name="use-extended-apache-spark-history-server-to-debug-and-diagnose-apache-spark-applications"></a>Utiliser le serveur d’historique Apache Spark étendu pour déboguer et diagnostiquer des applications Apache Spark
 
@@ -319,7 +319,7 @@ Si vous souhaitez effectuer une mise à niveau avec un correctif logiciel, utili
 
 ## <a name="known-issues"></a>Problèmes connus
 
-1.  Pour le moment, cela ne fonctionne que pour le cluster Spark 2.3.
+1.  Pour le moment, cela ne fonctionne que pour les clusters Spark 2.3 et 2.4.
 
 2.  Les données d’entrée/de sortie avec RDD ne s’affichent pas dans l’onglet Données.
 

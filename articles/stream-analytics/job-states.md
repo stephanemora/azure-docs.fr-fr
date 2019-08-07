@@ -1,6 +1,6 @@
 ---
 title: États des tâches Azure Stream Analytics
-description: Cet article décrit les différents états d’une tâche Stream Analytics
+description: 'Cet article décrit les quatre états différents d’une tâche Stream Analytics : Exécution, Arrêté, Détérioré et Échec.'
 services: stream-analytics
 author: sidram
 ms.author: sidram
@@ -8,16 +8,16 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
-ms.openlocfilehash: bef21dc35bbd2b9b50cf7b362624321866773bfe
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: c533463ff544dc315142f7fb95c34c67933f9614
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67331337"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68444245"
 ---
 # <a name="azure-stream-analytics-job-states"></a>États des tâches Azure Stream Analytics
 
-Une tâche Stream Analytics peut avoir l’un de quatre états à un moment donné. Vous pouvez trouver l’état de votre tâche sur la page Vue d’ensemble de la tâche Stream Analytics dans le portail Azure. 
+Une tâche Stream Analytics peut être dans un de ces quatre états à un moment donné : Exécution, Arrêté, Détérioré et Échec. Vous pouvez trouver l’état de votre tâche sur la page Vue d’ensemble de la tâche Stream Analytics dans le portail Azure. 
 
 | État | Description | Actions recommandées |
 | --- | --- | --- |

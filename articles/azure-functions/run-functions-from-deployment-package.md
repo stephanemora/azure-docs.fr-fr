@@ -4,27 +4,27 @@ description: Exécutez vos fonctions avec le runtime Azure Functions, en montant
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: jeconnoc
+manager: gwallace
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 02/26/2019
+ms.date: 07/15/2019
 ms.author: glenga
-ms.openlocfilehash: 83a98a493068d3427e34f3ac2ca5c24baa48dda1
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: 96dbe9b15831a349afc0e68c15c39c1cb31b1032
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67508251"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68444066"
 ---
 # <a name="run-your-azure-functions-from-a-package-file"></a>Exécuter des fonctions Azure à partir d’un fichier de package
-
-> [!NOTE]
-> La fonctionnalité décrite dans le présent article n’est pas disponible pour les application de fonctions exécutées sur Linux dans un [plan App Service](functions-scale.md#app-service-plan).
 
 Dans Azure, vous pouvez exécuter vos fonctions directement dans un fichier de package de déploiement de votre application de fonction. L’autre option consiste à déployer vos fichiers dans le répertoire `d:\home\site\wwwroot` de votre application de fonction.
 
 Cet article décrit les avantages que présente l’exécution de vos fonctions à partir d’un package. Il explique également comment activer cette fonctionnalité dans votre application de fonction.
+
+> [!IMPORTANT]
+> Lorsque vous déployez vos fonctions vers une application de fonction Linux dans un abonnement [Premium](functions-scale.md#premium-plan), vous devez toujours exécuter à partir du fichier de package et [publier votre application en utilisant Azure Functions Core Tools](functions-run-local.md#project-file-deployment).
 
 ## <a name="benefits-of-running-from-a-package-file"></a>Avantages de l’exécution à partir d’un fichier de package
   
@@ -61,7 +61,7 @@ L’exemple suivant montre une application de fonction configurée pour s’exé
 
 Le [déploiement zip][Zip deployment for Azure Functions] est une fonctionnalité d’Azure App Service qui vous permet de déployer votre projet d’application de fonction dans le répertoire `wwwroot`. Le projet est empaqueté dans un fichier de déploiement zip. Les mêmes API peuvent être utilisées pour déployer votre package dans le dossier `d:\home\data\SitePackages`. Quand le paramètre d’application `WEBSITE_RUN_FROM_PACKAGE` est défini sur `1`, les API de déploiement zip copient votre package dans le dossier `d:\home\data\SitePackages` au lieu d’extraire les fichiers dans `d:\home\site\wwwroot`. Le fichier `packagename.txt` est également créé. L’application de fonction est alors exécutée à partir du package après un redémarrage, et `wwwroot` devient en lecture seule. Pour plus d’informations sur le déploiement zip, consultez [Déploiement zip pour Azure Functions](deployment-zip-push.md).
 
-## <a name="adding-the-websiterunfrompackage-setting"></a>Ajout du paramètre WEBSITE_RUN_FROM_PACKAGE
+## <a name="adding-the-website_run_from_package-setting"></a>Ajout du paramètre WEBSITE_RUN_FROM_PACKAGE
 
 [!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
 

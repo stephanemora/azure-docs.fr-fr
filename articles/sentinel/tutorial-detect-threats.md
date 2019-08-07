@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/20/2019
+ms.date: 07/20/2019
 ms.author: rkarlin
-ms.openlocfilehash: e20f6fc0dc8dbe02b09490f62ce84af12aa31b87
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: ad9c752898733286701db2d0f0b1fc40029b7521
+ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67621235"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68370719"
 ---
 # <a name="tutorial-detect-threats-with-azure-sentinel-preview"></a>Didacticiel : Détecter les menaces avec la préversion d’Azure Sentinel
 
@@ -33,7 +33,7 @@ Après avoir [connecté vos sources de données](quickstart-onboard.md) à Azure
 Ce didacticiel vous aide à détecter les menaces avec Azure Sentinel.
 > [!div class="checklist"]
 > * Créer des règles de détection
-> * Répondre aux menaces
+> * Automatiser les réponses aux menaces
 
 ## <a name="create-detection-rules"></a>Créer des règles de détection
 
@@ -83,14 +83,24 @@ Les règles de détection sont basées sur les types de menaces et d’anomalies
 
 
 
-## <a name="respond-to-threats"></a>Répondre aux menaces
+## <a name="automate-threat-responses"></a>Automatiser les réponses aux menaces
 
-Azure Sentinel vous offre deux options principales pour répondre aux menaces à l’aide de playbooks. Vous pouvez définir un playbook pour qu’il soit exécuté automatiquement lorsqu’une alerte est déclenchée, ou vous pouvez en exécuter un manuellement en réponse à une alerte.
+Les équipes SIEM/SOC peuvent être régulièrement submergées d’alertes de sécurité. Le volume d’alertes générées est tellement important que les administrateurs de sécurité disponibles sont débordés. Il en résulte trop souvent des situations où de nombreuses alertes ne peuvent pas être examinées. L’organisation reste donc vulnérable aux attaques qui passent inaperçues. 
 
-- Lors de la configuration d’un playbook, vous pouvez faire qu’il s’exécute automatiquement lorsqu’une alerte est déclenchée. 
+Beaucoup, voire la plupart, de ces alertes sont conformes à des modèles récurrents qui peuvent être traités par des actions de correction spécifiques et définies. Azure Sentinel vous permet déjà de définir votre correction en vous basant sur des playbooks. Il est également possible de définir l’automatisation en temps réel dans le cadre de la définition de votre playbook afin de pouvoir automatiser entièrement une réponse définie à des alertes de sécurité particulières. Grâce à l’automatisation complète des réponses de routine aux types d’alertes récurrents, les équipes de réponse peuvent réduire considérablement leur charge de travail, ce qui leur permet de se concentrer sur des alertes uniques, d’analyser des modèles et de repérer les menaces, entre autres.
 
-- Exécutez un playbook manuellement depuis l’intérieur de l’alerte, en cliquant sur **Afficher les playbooks**, puis en sélectionnant un playbook à exécuter.
+Pour automatiser les réponses :
 
+1. Choisissez l’alerte pour laquelle vous souhaitez automatiser la réponse.
+1. Dans le menu de navigation de l’espace de travail Azure Sentinel, sélectionnez **Analytics**.
+1. Sélectionnez l’alerte que vous souhaitez automatiser. 
+1. Dans la page **Modifier la règle d’alerte**, sous **Automatisation en temps réel**, choisissez le **playbook déclenché** que vous souhaitez exécuter en cas d’alerte correspondante.
+1. Sélectionnez **Enregistrer**.
+
+   ![automatisation en temps réel](./media/tutorial-detect-threats/rt-configuration.png)
+
+
+Par ailleurs, vous pouvez résoudre manuellement une erreur en exécutant un playbook depuis l’intérieur de l’alerte, en cliquant sur **Afficher les playbooks** puis en sélectionnant un playbook à exécuter. Pour apprendre à créer un playbook ou à modifier un playbook existant, voir [Working with playbooks in Azure Sentinel (Utilisation de playbooks dans Azure Sentinel)](tutorial-respond-threats-playbook.md).
 
 
 

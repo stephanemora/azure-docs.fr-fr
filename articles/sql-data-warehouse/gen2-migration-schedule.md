@@ -9,13 +9,13 @@ manager: craigg
 ms.assetid: 04b05dea-c066-44a0-9751-0774eb84c689
 ms.service: sql-data-warehouse
 ms.topic: article
-ms.date: 04/03/2019
-ms.openlocfilehash: cef3036b01709847016d9523a5770febb8ff1134
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.date: 07/22/2019
+ms.openlocfilehash: d4724672510d6ccbbc819691d621400cb00d8c9a
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67839659"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68405443"
 ---
 # <a name="upgrade-your-data-warehouse-to-gen2"></a>Mettre à niveau votre entrepôt de données vers Gen2
 
@@ -32,40 +32,41 @@ Le tableau suivant récapitule par région le moment où le niveau de capacité 
 
 | **Région** | **Gen2 inférieur disponible** | **Commencement de la mise à niveau automatique** |
 |:--- |:--- |:--- |
-| Australie Est |Disponible |1er juin 2019 |
-| Australie Sud-Est |Disponible |1er mai 2019 |
-| Brésil Sud |Disponible |1er juin 2019 |
-| Centre du Canada |Disponible |1er juin 2019 |
-| Est du Canada |\* |\* |
-| USA Centre |Disponible |1er juin 2019 |
+| Australie Est |Disponible |Complete |
+| Australie Sud-Est |Disponible |Complete |
+| Brésil Sud |Disponible |Complete |
+| Centre du Canada |Disponible |Complete |
+| Est du Canada |1er juin 2020 |1er juillet 2020 |
+| USA Centre |Disponible |Complete |
 | Chine orientale |\* |\* |
-| Chine orientale 2 |Disponible |Gen2 uniquement |
+| Chine orientale 2 |Disponible |Complete |
 | Chine du Nord |\* |\* |
-| Chine Nord 2 |Disponible |Gen2 uniquement |
-| Asie Est |Disponible |1er juin 2019 |
-| USA Est |Disponible |1er juin 2019 |
-| USA Est 2 |Disponible |1er juin 2019 |
-| France Centre |Disponible |1er juin 2019 |
+| Chine Nord 2 |Disponible |Complete |
+| Asie Est |Disponible |Complete |
+| East US |Disponible |Complete |
+| USA Est 2 |Disponible |Complete |
+| France Centre |Disponible |En cours |
 | Centre de l’Allemagne |\* |\* |
-| Allemagne Centre-Ouest |1er septembre 2019|2 janvier 2020 |
-| Inde Centre |Disponible |1er juin 2019 |
-| Sud de l’Inde |Disponible |1er juin 2019 |
-| Japon Est |Disponible |1er juin 2019 |
-| Japon Ouest |Disponible |1er mai 2019 |
-| Centre de la Corée |Disponible |1er juin 2019 |
-| Corée du Sud |Disponible |1er mai 2019 |
-| USA Centre Nord |Disponible |1er mai 2019 |
-| Europe Nord |Disponible |1er juin 2019 |
-| Afrique du Sud Nord |12 juillet 2019 |Gen2 uniquement |
-| USA Centre Sud |Disponible |1er juin 2019 |
-| Asie Sud-Est |Disponible |1er juin 2019 |
-| Émirats arabes unis Nord |20 juillet 2019 |Gen2 uniquement |
-| Sud du Royaume-Uni |Disponible |1er juin 2019 |
-| Ouest du Royaume-Uni |Disponible |Gen2 uniquement |
-| USA Centre-Ouest |2 septembre 2019 |2 janvier 2020|
-| Europe Ouest |Disponible |1er juin 2019 |
-| USA Ouest |Disponible |1er juin 2019 |
-| USA Ouest 2 |Disponible |1er juin 2019 |
+| Allemagne Centre-Ouest |1er septembre 2019|1er octobre 2019 |
+| Inde Centre |Disponible |Complete |
+| Sud de l’Inde |Disponible |Complete |
+| Inde Ouest |1er juillet 2019 |En cours |
+| Japon Est |Disponible |Complete |
+| Japon Ouest |Disponible |Complete |
+| Centre de la Corée |Disponible |Complete |
+| Corée du Sud |Disponible |Complete |
+| USA Centre Nord |Disponible |Complete |
+| Europe Nord |Disponible |Complete |
+| Afrique du Sud Nord |12 juillet 2019 |Complete |
+| USA Centre Sud |Disponible |Complete |
+| Asie Sud-Est |Disponible |Complete |
+| Émirats arabes unis Nord |20 juillet 2019 |Complete |
+| Sud du Royaume-Uni |Disponible |En cours |
+| Ouest du Royaume-Uni |Disponible |En cours |
+| USA Centre-Ouest |1er septembre 2019 |1er octobre 2019|
+| Europe Ouest |Disponible |Complete |
+| USA Ouest |Disponible |Complete |
+| USA Ouest 2 |Disponible |Complete |
 
 ## <a name="automatic-upgrade-process"></a>Processus de mise à niveau automatique
 

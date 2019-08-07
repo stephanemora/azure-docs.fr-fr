@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 ms.author: copeters
 author: cody-dkdc
 ms.date: 07/08/2019
-ms.openlocfilehash: 3b8152bde8b7e44dde1b0b9c82216333778f83da
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 9852ec450b6da3814a3bd2bfc6aae7d19acaf584
+ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67806023"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68370388"
 ---
 # <a name="detect-data-drift-preview-on-models-deployed-to-azure-kubernetes-service-aks"></a>Détecter une dérive de données (préversion) sur des modèles déployés sur Azure Kubernetes Service (AKS)
 
@@ -129,9 +129,9 @@ datadrift_contribution|Importance des caractéristiques des fonctionnalités con
 
 Il existe plusieurs manières d’afficher les métriques de la dérive :
 
-* À l’aide du widget Jupyter ;
+* Utilisez le `RunDetails`[widget Jupyter](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py).
 * Utilisez la fonction [`get_metrics()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py#get-metrics-name-none--recursive-false--run-type-none--populate-false-) sur tout objet d’exécution `datadrift`.
-* Afficher les métriques dans le portail Azure sur votre modèle
+* Affichez les métriques dans le portail Azure sur votre modèle.
 
 L’exemple Python suivant montre comment représenter les métriques de dérive de données pertinentes. Vous pouvez utiliser les métriques retournées pour générer des visualisations personnalisées :
 

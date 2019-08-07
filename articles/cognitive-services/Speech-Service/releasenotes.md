@@ -3,30 +3,30 @@ title: Notes de publication - Services Speech
 titlesuffix: Azure Cognitive Services
 description: Consultez un journal constamment mis à jour des futures versions, des améliorations, des correctifs de bogues et des problèmes connus pour les services Azure Speech.
 services: cognitive-services
-author: wolfma61
+author: BrianMouncer
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 06/26/2019
-ms.author: wolfma
+ms.date: 07/23/2019
+ms.author: jhakulin
 ms.custom: seodec18
-ms.openlocfilehash: 609443a4926fabd991846faee4a0a7dffe3a696b
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.openlocfilehash: e641051b75620ef5308bc81bca21b3ceda105d09
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67490175"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68404837"
 ---
 # <a name="release-notes"></a>Notes de publication
 
 ## <a name="speech-sdk-160-2019-june-release"></a>Kit de développement logiciel (SDK) Speech 1.6.0 : version de juin 2019
 
 **Exemples**
-*   Exemples de démarrage rapide pour la synthèse vocale sur UWP et Unity
-*   Exemple de démarrage rapide pour Swift sur iOS
+*   Exemples de guide de démarrage rapide pour Synthèse vocale sur UWP et Unity
+*   Exemple de guide de démarrage rapide pour Swift sur iOS
 *   Exemples Unity supplémentaires pour Speech ainsi que la reconnaissance de l’intention et la traduction
-*   Mise à jour des exemples de démarrage rapide pour DialogServiceConnector
+*   Mise à jour des exemples de guide de démarrage rapide pour DialogServiceConnector
 
 **Améliorations/Modifications**
 * Espace de noms de boîte de dialogue :

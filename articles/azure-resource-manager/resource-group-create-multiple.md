@@ -5,14 +5,14 @@ services: azure-resource-manager
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 07/01/2019
+ms.date: 07/25/2019
 ms.author: tomfitz
-ms.openlocfilehash: 22317372a7d954286ebcb0b59aea293c746b2a58
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: dbacec6e8f91480996150e73f2a81dbcde67550b
+ms.sourcegitcommit: 5604661655840c428045eb837fb8704dca811da0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67508174"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68494804"
 ---
 # <a name="resource-property-or-variable-iteration-in-azure-resource-manager-templates"></a>Itération de variable, de propriété ou de ressource dans les modèles Azure Resource Manager
 
@@ -141,9 +141,9 @@ Crée les noms suivants :
 * storagefabrikam
 * storagecoho
 
-Par défaut, Resource Manager crée les ressources en parallèle. L’ordre de création n’est pas garanti. Toutefois, vous souhaiterez peut-être spécifier que les ressources soient déployées en séquence. Par exemple, lors de la mise à jour d’un environnement de production, vous souhaiterez échelonner les mises à jour afin que seulement un certain nombre soient mises à jour à un moment donné.
+Par défaut, Resource Manager crée les ressources en parallèle. Il n’applique aucune limite au nombre de ressources déployées en parallèle, à l’exception de la limite totale de 800 ressources dans le modèle. L’ordre de création n’est pas garanti.
 
-Pour déployer en série plusieurs instances d’une ressource, affectez à `mode` la valeur **serial** et à `batchSize` le nombre d’instances à déployer à la fois. Avec le mode série, Resource Manager crée une dépendance sur les instances précédentes de la boucle, afin de ne pas démarrer un lot tant que le précédent n’est pas terminé.
+Toutefois, vous souhaiterez peut-être spécifier que les ressources soient déployées en séquence. Par exemple, lors de la mise à jour d’un environnement de production, vous souhaiterez échelonner les mises à jour afin que seulement un certain nombre soient mises à jour à un moment donné. Pour déployer en série plusieurs instances d’une ressource, affectez à `mode` la valeur **serial** et à `batchSize` le nombre d’instances à déployer à la fois. Avec le mode série, Resource Manager crée une dépendance sur les instances précédentes de la boucle, afin de ne pas démarrer un lot tant que le précédent n’est pas terminé.
 
 Par exemple, pour déployer en série des comptes de stockage deux à la fois, utilisez :
 

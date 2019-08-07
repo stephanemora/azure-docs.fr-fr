@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: glenga
 ms.custom: 80e4ff38-5174-43
-ms.openlocfilehash: dd6259173792585a83effd42c75ff9a7a7d572e4
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: cee91de9e0a5d75be258705f636248a6a6213664
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67448381"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68444044"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Utiliser Azure Functions Core Tools
 
@@ -397,7 +397,7 @@ Pour publier votre code local dans une application de fonction sur Azure, utilis
 func azure functionapp publish <FunctionAppName>
 ```
 
-Cette commande publie du contenu vers une application de fonction existante dans Azure. Vous obtiendrez une erreur si vous tentez de publier sur une application `<FunctionAppName>` qui n’existe pas dans votre abonnement. Pour découvrir comment créer une application de fonction à partir de l’invite de commandes ou d’une fenêtre de terminal à l’aide d’Azure CLI, consultez [Créer une application de fonction pour une exécution sans serveur](./scripts/functions-cli-create-serverless.md). Par défaut, cette commande permet à votre application de s’exécuter en mode [Exécuter à partir du fichier de package](run-functions-from-deployment-package.md).
+Cette commande publie du contenu vers une application de fonction existante dans Azure. Vous obtiendrez une erreur si vous tentez de publier sur une application `<FunctionAppName>` qui n’existe pas dans votre abonnement. Pour découvrir comment créer une application de fonction à partir de l’invite de commandes ou d’une fenêtre de terminal à l’aide d’Azure CLI, consultez [Créer une application de fonction pour une exécution sans serveur](./scripts/functions-cli-create-serverless.md). Par défaut, cette commande déploie votre application pour l’[exécuter à partir du package de déploiement](run-functions-from-deployment-package.md). Pour désactiver ce mode de déploiement recommandé, utilisez l'option `--nozip`.
 
 >[!IMPORTANT]
 > Lorsque vous créez une application de fonction dans le portail Azure, elle utilise par défaut la version 2.x du runtime de Function. Pour que l’application de fonction utilise la version 1.x du runtime, suivez les instructions dans [Exécution sur la version 1.x](functions-versions.md#creating-1x-apps).
@@ -447,8 +447,6 @@ Les options de déploiement de conteneur personnalisées suivantes sont disponib
 ## <a name="monitoring-functions"></a>Surveillance des fonctions
 
 Il est recommandé de superviser l’exécution de vos fonctions par l’intégration à Azure Application Insights. Lorsque vous créez une application de fonction dans le portail Azure, cette intégration est faite pour vous par défaut. Toutefois, quand vous créez votre application de fonction à l’aide de l’interface Azure CLI, l’intégration à votre application de fonction dans Azure n’est pas effectuée.
-
-Pour activer Application Insights pour votre application de fonction :
 
 [!INCLUDE [functions-connect-new-app-insights.md](../../includes/functions-connect-new-app-insights.md)]
 

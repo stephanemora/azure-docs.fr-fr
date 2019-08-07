@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 03/06/2018
 ms.author: robinsh
-ms.openlocfilehash: f21f1eed6babee52f30c6eccc79f88dc7bee5d58
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: aceb90dbaf87ba621837c047eb114bc9be4b822e
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65864476"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68402677"
 ---
 # <a name="schedule-and-broadcast-jobs-netnet"></a>Planifier et diffuser des travaux (.NET/.NET)
 
@@ -55,10 +55,6 @@ Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 ## <a name="create-an-iot-hub"></a>Créer un hub IoT
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
-
-### <a name="retrieve-connection-string-for-iot-hub"></a>Récupérer la chaîne de connexion pour le hub IoT
-
-[!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
 
 ## <a name="register-a-new-device-in-the-iot-hub"></a>Inscrire un nouvel appareil dans le hub IoT
 
@@ -151,6 +147,12 @@ Dans cette section, vous allez créer une application console .NET qui répond �
 > Pour simplifier les choses, ce didacticiel n’implémente aucune stratégie de nouvelle tentative. Dans le code de production, vous devez implémenter des stratégies de nouvelle tentative (par exemple, une nouvelle tentative de connexion), comme suggéré dans l’article [Gestion des erreurs temporaires](/azure/architecture/best-practices/transient-faults).
 > 
 
+## <a name="get-the-iot-hub-connection-string"></a>Obtention de la chaîne de connexion de l’IoT Hub
+
+[!INCLUDE [iot-hub-howto-schedule-jobs-shared-access-policy-text](../../includes/iot-hub-howto-schedule-jobs-shared-access-policy-text.md)]
+
+[!INCLUDE [iot-hub-include-find-registryrw-connection-string](../../includes/iot-hub-include-find-registryrw-connection-string.md)]
+
 ## <a name="schedule-jobs-for-calling-a-direct-method-and-sending-device-twin-updates"></a>Planifier des travaux pour appeler une méthode directe et envoyer des mises à jour de jumeaux d’appareils
 
 Dans cette section, vous allez créer une application console .NET (en C#) qui utilise des travaux pour appeler la méthode directe **LockDoor** et envoyer les mises à jour des propriétés souhaitées à plusieurs appareils.
@@ -179,7 +181,7 @@ Dans cette section, vous allez créer une application console .NET (en C#) qui u
     using System.Threading.Tasks;
     ```
 
-6. Ajoutez les champs suivants à la classe **Program** . Remplacez les espaces réservés par la chaîne de connexion IoT Hub du Hub que vous avez créé dans la section précédente et par le nom de votre appareil.
+6. Ajoutez les champs suivants à la classe **Program** . Remplacez les espaces réservés par la chaîne de connexion de l’IoT Hub que vous avez précédemment copiée dans [Obtention de la chaîne de connexion de l’IoT Hub](#get-the-iot-hub-connection-string), puis nommez votre appareil.
 
     ```csharp
     static JobClient jobClient;

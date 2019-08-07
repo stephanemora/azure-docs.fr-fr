@@ -8,13 +8,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.topic: conceptual
-ms.date: 05/28/2019
-ms.openlocfilehash: 351b6a8e056d22fa8f2d695a2722b39b9771c8b0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 07/15/2019
+ms.openlocfilehash: 4159eed04ff1a4e81ea36a4d7f06f342a63fe367
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66299387"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68442023"
 ---
 # <a name="set-up-clusters-in-hdinsight-with-apache-hadoop-apache-spark-apache-kafka-and-more"></a>Configurer des clusters dans HDInsight avec Apache Hadoop, Apache Spark, Apache Kafka, etc.
 
@@ -49,7 +49,8 @@ Suivez les instructions à l’écran pour effectuer une configuration de cluste
 
 * [Nom de groupe ressources](#resource-group-name)
 * [Types de cluster et configuration](#cluster-types) 
-* Connexion au cluster et nom d’utilisateur SSH
+* [Nom du cluster](#cluster-name)
+* [Connexion au cluster et nom d’utilisateur SSH](#cluster-login-and-ssh-username)
 * [Lieu](#location)
 
 ## <a name="resource-group-name"></a>Nom de groupe ressources
@@ -76,12 +77,31 @@ Actuellement, Azure HDInsight propose les types de clusters suivants, chacun ave
 ### <a name="hdinsight-version"></a>Version de HDInsight
 Choisissez la version de HDInsight pour ce cluster. Pour plus d’informations, voir [Versions de HDInsight prises en charge](hdinsight-component-versioning.md#supported-hdinsight-versions).
 
+## <a name="cluster-name"></a>Nom du cluster
+
+Les noms des clusters HDInsight présentent les restrictions suivantes :
+- Caractères autorisés : a-z, 0-9, A-Z 
+- Longueur maximale : 59
+- Noms réservés : apps
+- Ils doivent être uniques
+- Les six premiers caractères doivent être uniques au sein d’un réseau virtuel
 
 ## <a name="cluster-login-and-ssh-username"></a>Connexion au cluster et nom d’utilisateur SSH
 Les clusters HDInsight vous permettent de configurer deux comptes d’utilisateur lors de la création :
 
 * Utilisateur HTTP : Le nom d’utilisateur par défaut est *admin*. Il utilise la configuration de base sur le portail Azure. Parfois, le nom par défaut est « Utilisateur du cluster ».
 * Utilisateur SSH : sert à se connecter au cluster à l’aide de SSH. Pour en savoir plus, voir [Utilisation de SSH avec Hadoop Linux sur HDInsight depuis Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
+
+Le nom d’utilisateur HTTP présente les restrictions suivantes :
+- Caractères spéciaux autorisés : _ et @ 
+- Caractères non autorisés :  #;."',\/:`!*?$(){}[]<>|&--=+%~^espace
+- Longueur maximale : 20
+
+Le nom d’utilisateur SSH présente les restrictions suivantes :
+- Caractères spéciaux autorisés : _ et @ 
+- Caractères non autorisés :  #;."',\/:`!*?$(){}[]<>|&--=+%~^espace
+- Longueur maximale : 64
+- Noms réservés : hadoop, users, oozie, hive, mapred, ambari-qa, zookeeper, tez, hdfs, sqoop, yarn, hcat, ams, hbase, storm, administrator, admin, user, user1, test, user2, test1, user3, admin1, 1, 123, a, actuser, adm, admin2, aspnet, backup, console, david, guest, john, owner, root, server, sql, support, support_388945a0, sys, test2, test3, user4, user5, spark
 
 Le package de sécurité d’entreprise vous permet d’intégrer HDInsight à Active Directory et Apache Ranger. Plusieurs utilisateurs peuvent être créés à l’aide du package de sécurité d’entreprise.
 
@@ -135,7 +155,7 @@ La configuration du cluster personnalisé s’appuie sur les paramètres de cré
  
 ## <a name="enterprise-security-package"></a>Package de sécurité d’entreprise
 
-Pour les types de cluster Hadoop, Spark, HBase, Kafka et Interactive Query, vous pouvez choisir d’activer le **Pack Sécurité Entreprise**. Vous pouvez utiliser ce package pour sécuriser une installation de cluster en utilisant Apache Ranger et en opérant une intégration à Azure Active Directory. Pour plus d’informations, consultez [Pack Sécurité Entreprise dans Azure HDInsight](./domain-joined/apache-domain-joined-introduction.md).
+Pour les types de cluster Hadoop, Spark, HBase, Kafka et Interactive Query, vous pouvez choisir d’activer le **Pack Sécurité Entreprise**. Vous pouvez utiliser ce package pour sécuriser une installation de cluster en utilisant Apache Ranger et en opérant une intégration à Azure Active Directory. Pour plus d’informations, consultez [Vue d’ensemble de la sécurité d’entreprise dans Azure HDInsight](./domain-joined/hdinsight-security-overview.md).
 
 ![hdinsight options de création choisir le package de sécurité d’entreprise](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-creation-enterprise-security-package.png)
 
@@ -229,9 +249,9 @@ Pour plus d’informations, consultez [Personnalisation de clusters HDInsight à
 ## <a name="advanced-settings-extend-clusters-with-a-virtual-network"></a>Paramètres avancés : étendre des clusters avec un réseau virtuel
 Si votre solution nécessite des technologies qui sont réparties sur plusieurs types de clusters HDInsight, un [réseau virtuel Azure](https://docs.microsoft.com/azure/virtual-network) peut connecter les types de cluster requis. Cette configuration permet aux clusters, et au code déployé sur ces clusters, de communiquer directement entre eux.
 
-Pour plus d’informations sur l’utilisation du réseau virtuel Azure avec HDInsight, consultez [Étendre HDInsight à l’aide de réseaux virtuels Azure](hdinsight-extend-hadoop-virtual-network.md).
+Pour plus d’informations sur l’utilisation d’un réseau virtuel Azure avec HDInsight, consultez [Planifier un réseau virtuel pour HDInsight](hdinsight-plan-virtual-network-deployment.md).
 
-Pour voir un exemple d’utilisation de deux types de clusters au sein d’un réseau virtuel Azure, consultez [Utiliser Apache Spark Structured Streaming avec Kafka](hdinsight-apache-kafka-spark-structured-streaming.md). Pour plus d’informations sur l’utilisation de HDInsight avec un réseau virtuel, notamment la configuration spécifique requise pour le réseau virtuel, consultez [Extension des capacités de HDInsight à l’aide d’un réseau virtuel Azure](hdinsight-extend-hadoop-virtual-network.md).
+Pour voir un exemple d’utilisation de deux types de clusters au sein d’un réseau virtuel Azure, consultez [Utiliser Apache Spark Structured Streaming avec Kafka](hdinsight-apache-kafka-spark-structured-streaming.md). Pour plus d’informations sur l’utilisation de HDInsight avec un réseau virtuel, notamment la configuration spécifique requise pour le réseau virtuel, consultez [Planifier un réseau virtuel pour HDInsight](hdinsight-plan-virtual-network-deployment.md).
 
 
 ## <a name="next-steps"></a>Étapes suivantes

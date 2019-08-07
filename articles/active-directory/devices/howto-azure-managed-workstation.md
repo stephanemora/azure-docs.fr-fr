@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: frasim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 90687d0229d3ad74c287bb4aff4885dc26932e40
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: be9e6374d92fbb7bb1c4b5a2a9e154119c5baf87
+ms.sourcegitcommit: b49431b29a53efaa5b82f9be0f8a714f668c38ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68227274"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68377496"
 ---
 # <a name="deploy-a-secure-azure-managed-workstation"></a>Déployer une station de travail sécurisée gérée par Azure
 
@@ -245,7 +245,7 @@ Une fois que le script s’est exécuté correctement, vous pouvez mettre à jou
 * Voici où vous trouverez les profils de configuration d’appareil Intune créés par les scripts : **Portail Azure** > **Microsoft Intune** > **Configuration d’appareil** > **Profils**.
 * Voici où vous trouverez les stratégies de conformité d’appareil Intune créées par les scripts : **Portail Azure** > **Microsoft Intune** > **Conformité d’appareil** > **Stratégies**.
 
-Pour passer en revue les modifications apportées par les scripts, vous pouvez exporter les profils. De cette façon, vous pouvez déterminer les renforcements supplémentaires qui peuvent s’avérer nécessaires, comme indiqué dans la documentation SECCON.
+Pour passer en revue les modifications apportées par les scripts, vous pouvez exporter les profils. De cette façon, vous pouvez déterminer les renforcements supplémentaires qui peuvent s’avérer nécessaires, comme indiqué dans la [documentation SECCON](https://docs.microsoft.com/windows/security/threat-protection/windows-security-configuration-framework/windows-security-configuration-framework).
 
 Exécutez le script d’exportation de données Intune `DeviceConfiguration_Export.ps1` à partir du [référentiel GiuHub DeviceConfiguration](https://github.com/microsoftgraph/powershell-intune-samples/tree/master/DeviceConfiguration) pour exporter tous les profils Intune actuels.
 

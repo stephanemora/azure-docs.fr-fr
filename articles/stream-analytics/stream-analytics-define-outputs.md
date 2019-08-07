@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/31/2019
-ms.openlocfilehash: 854fd5ca2bb6c27b7f8815bf85e19c6cf147e475
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: a0da13e82811d500dee50c2231500245c7e011a6
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68278058"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68383449"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Comprendre les sorties d’Azure Stream Analytics
 
@@ -70,7 +70,7 @@ Le tableau suivant répertorie les noms de propriétés et leur description pour
 
 ## <a name="blob-storage-and-azure-data-lake-gen2"></a>Stockage d’objets BLOB et Azure Data Lake Gen2
 
-La sortie vers Azure Data Lake Gen2 est fournie sous la forme d’une fonctionnalité en préversion publique.
+La sortie vers Azure Data Lake Gen2 est fournie sous la forme d’une fonctionnalité en préversion dans certaines régions. Vous pouvez demander l'accès à la préversion en fournissant des détails supplémentaires dans notre [formulaire de requête](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2EUNXd_ZNJCq_eDwZGaF5VURjFLTDRGS0Q4VVZCRFY5MUVaTVJDTkROMi4u).
 
 Le stockage d’objets blob Azure offre une solution peu coûteuse et évolutive pour stocker de grandes quantités de données non structurées dans le cloud. Pour une introduction au stockage d’objets blob et à son utilisation, consultez [Démarrage rapide : Charger, télécharger et répertorier des objets blob à l’aide du portail Microsoft Azure](../storage/blobs/storage-quickstart-blobs-portal.md).
 

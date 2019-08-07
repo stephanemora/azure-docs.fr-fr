@@ -6,12 +6,12 @@ ms.service: data-share
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: joanpo
-ms.openlocfilehash: 4e7db84666b9d3786c3fc25e3653d24d0b95f2e4
-ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
+ms.openlocfilehash: 01025acfa2fd939db8134a1e61c7902034a1d2c3
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67788560"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68424221"
 ---
 # <a name="azure-data-share-preview-concepts"></a>Concepts d’Azure Data Share en préversion 
 
@@ -55,11 +55,11 @@ Un fournisseur de données peut inviter plusieurs destinataires à son partage d
 
 Un fournisseur de données peut supprimer une invitation après qu’elle a été envoyée. Notez que si un fournisseur de données supprime une invitation après qu’elle a été acceptée, le consommateur de données continue à avoir un abonnement de partage actif. Si le fournisseur de données supprime une invitation qui n’a pas encore été acceptée, le consommateur de données ne sera pas en mesure de l’accepter. 
 
-## <a name="recipient"></a>Destinataire
+## <a name="recipient"></a>Recipient
 
 Un destinataire est une personne qui reçoit une invitation à un partage de données. En règle générale, un fournisseur de données ajoute des destinataires au partage de données qu’il crée. Une fois que le destinataire d’une invitation accepte l’invitation, il devient un consommateur de données.  
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour savoir comment commencer à partager des données, passez au didacticiel [Partager vos données](share-your-data.md).
+Pour découvrir comment commencer à partager des données, passez au tutoriel [Partager vos données](share-your-data.md).
 

@@ -3,16 +3,17 @@ title: Authentification Azure Container Registry avec une identité managée
 description: Donnez accès aux images de votre registre de conteneurs privé à l’aide d’une identité managée Azure affectée par l’utilisateur ou par le système.
 services: container-registry
 author: dlepow
+manager: gwallace
 ms.service: container-registry
 ms.topic: article
 ms.date: 01/16/2019
 ms.author: danlep
-ms.openlocfilehash: 728a2f8cf61bbe0691350b9de45a5fab6b90cadb
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 0672fb71ba4f56d0faf332df029100cb48741c8b
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60563067"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68309883"
 ---
 # <a name="use-an-azure-managed-identity-to-authenticate-to-an-azure-container-registry"></a>Utiliser une identité managée Azure pour s’authentifier auprès d’un registre de conteneurs Azure 
 
@@ -25,7 +26,7 @@ Dans cet article, vous découvrirez les identités managées et apprendrez à :
 > * autoriser cette identité à accéder à un registre de conteneurs Azure ;
 > * utiliser l’identité managée pour accéder au registre et tirer (pull) une image conteneur. 
 
-Pour créer les ressources Azure, il est nécessaire dans le cadre de cet article de disposer de la version 2.0.55 ou d’une version ultérieure d’Azure CLI. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installer Azure CLI 2.0][azure-cli].
+Pour créer les ressources Azure, il est nécessaire dans le cadre de cet article de disposer de la version 2.0.55 ou d’une version ultérieure d’Azure CLI. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI][azure-cli].
 
 Docker doit être installé localement pour que vous puissiez configurer un registre de conteneurs et y envoyer une image conteneur. Docker fournit des packages qui le configurent facilement sur n’importe quel système [macOS][docker-mac], [Windows][docker-windows] ou [Linux][docker-linux].
 
@@ -164,7 +165,7 @@ az role assignment create --assignee $spID --scope $resourceID --role acrpull
 
 Établissez une connexion SSH avec la machine virtuelle Docker configurée avec l’identité. Exécutez les commandes Azure CLI suivantes, avec l’interface Azure CLI installée sur la machine virtuelle.
 
-Tout d’abord, authentifiez-vous auprès d’Azure CLI avec la commande [az login][az-login] et de l’identité configurée sur la machine virtuelle. Remplacez `<userID>` par l’ID de l’identité que vous avez récupéré à l’étape précédente. 
+Tout d’abord, authentifiez-vous auprès d’Azure CLI avec la commande [az login][az-login] et l’identité configurée sur la machine virtuelle. Remplacez `<userID>` par l’ID de l’identité que vous avez récupéré à l’étape précédente. 
 
 ```azurecli
 az login --identity --username <userID>
@@ -192,7 +193,7 @@ La commande [az vm identity assign][az-vm-identity-assign] configure la machine 
 az vm identity assign --resource-group myResourceGroup --name myDockerVM 
 ```
 
-Utilisez la commande [az vm show][az-vm-show] pour donner à une variable la valeur `principalId` (ID du principal de service) de l’identité de la machine virtuelle, qui sera utilisée dans les étapes suivantes.
+Utilisez la commande [az vm show][az-vm-show] pour donner à une variable la valeur `principalId` (ID du principal de service) de l’identité de la machine virtuelle, qui sera utilisée lors des étapes suivantes.
 
 ```azurecli-interactive
 spID=$(az vm show --resource-group myResourceGroup --name myDockerVM --query identity.principalId --out tsv)
@@ -216,7 +217,7 @@ az role assignment create --assignee $spID --scope $resourceID --role acrpull
 
 Établissez une connexion SSH avec la machine virtuelle Docker configurée avec l’identité. Exécutez les commandes Azure CLI suivantes, avec l’interface Azure CLI installée sur la machine virtuelle.
 
-Tout d’abord, authentifiez-vous auprès d’Azure CLI avec la commande [az login][az-login] et de l’identité affectée par le système sur la machine virtuelle.
+Tout d’abord, authentifiez-vous auprès d’Azure CLI avec la commande [az login][az-login] et l’identité affectée par le système sur la machine virtuelle.
 
 ```azurecli
 az login --identity

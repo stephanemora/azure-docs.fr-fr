@@ -1,6 +1,6 @@
 ---
-title: Comment configurer l’authentification unique avec mot de passe pour une application ne relevant pas de la galerie | Microsoft Docs
-description: Comment configurer une application personnalisée ne relevant pas de la galerie pour l’authentification unique avec mot de passe lorsqu’elle n’est pas répertoriée dans la galerie d’applications Azure AD
+title: Comment configurer l’authentification unique par mot de passe pour des applications Azure AD | Microsoft Docs
+description: Comment configurer l’authentification unique par mot de passe (SSO) sur vos applications d’entreprise Azure AD dans la plateforme d’identité Microsoft (Azure AD)
 services: active-directory
 author: msmimart
 manager: CelesteDG
@@ -8,33 +8,23 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/12/2018
+ms.date: 07/10/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1df52e0c25ecaff451f133e3a9207fb04b11f4a5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d191abafbaad123ed47f8eaae6cdd4e48478da7a
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65824926"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68422638"
 ---
-# <a name="how-to-configure-password-single-sign-on-for-a-non-gallery-application"></a>Comment configurer l’authentification unique avec mot de passe pour une application ne relevant pas de la galerie
+# <a name="configure-password-single-sign-on"></a>Configurer l’authentification unique par mot de passe
 
-Outre les options présentes dans la galerie d’applications Azure AD, vous avez également la possibilité d’ajouter une **application ne relevant pas de la galerie** lorsque l’application souhaitée n’y est pas répertoriée. À l’aide de cette fonctionnalité, vous pouvez ajouter n’importe quelle application qui existe déjà dans votre organisation, ou n’importe quelle application tierce d’un fournisseur qui ne fait pas déjà partie de la [Galerie d’applications Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Lorsque vous [ajoutez une application galerie](add-gallery-app.md) ou une [application web non galerie](add-non-gallery-app.md) à vos applications d'entreprise Azure AD, l'une des options de connexion unique disponibles est [authentification unique par mot de passe](what-is-single-sign-on.md#password-based-sso). Cette option est disponible pour tout site web doté d’une page de connexion HTML. L'authentification unique basée sur un mot de passe, également appelée  archivage de mot de passe, vous permet de gérer l'accès utilisateur et les mots de passe pour les applications Web qui ne prennent pas en charge la fédération d'identité. Elle est également utile dans les scénarios où plusieurs utilisateurs doivent partager un seul compte, par exemple les comptes d’applications de médias sociaux de votre organisation. 
 
-Une fois que vous avez ajouté une application ne relevant pas de la galerie, vous pouvez ensuite configurer la méthode d’authentification unique que cette application utilise en sélectionnant l’élément de navigation **Authentification unique** sur une application d’entreprise dans le [portail Azure](https://portal.azure.com/).
-
-L’une des méthodes d’authentification unique disponibles est l’option [Authentification unique par mot de passe](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis). Avec l’expérience **d’ajout d’une application ne relevant pas de la galerie**, vous pouvez intégrer n’importe quelle application qui affiche un champ d’entrée HTML de nom d’utilisateur et de mot de passe, même si elle ne figure pas dans notre jeu d’applications pré-intégrées.
-
-Cela fonctionne grâce à la technologie de récupération de pages qui fait partie de l’extension du volet d’accès qui permet de détecter automatiquement les champs d’entrée de nom d’utilisateur et de mot de passe, et de les stocker en toute sécurité pour votre instance d’application spécifique. Puis, en toute sécurité, les noms d’utilisateur et mots de passe sont relus et transmis à ces champs lorsqu’un utilisateur accède à cette application sur le volet d’accès de l’application.
-
-Ceci est un excellent moyen pour commencer à intégrer rapidement tout type d’application dans Azure AD et vous permet d’effectuer les opérations suivantes :
-
--   intégrer **n’importe quelle application au monde** à votre client Azure AD, si elle affiche un champ d’entrée HTML de nom d’utilisateur et de mot de passe ;
+L’authentification unique par mot de passe (SSO) est un excellent moyen pour commencer à intégrer rapidement des applications dans Azure AD et vous permet d’effectuer les opérations suivantes :
 
 -   activer **l’authentification unique pour vos utilisateurs** par le stockage et la relecture en toute sécurité des noms d’utilisateur et mots de passe pour l’application que vous avez intégrée à Azure AD ;
-
--   **détecter automatiquement les champs d’entrée** de n’importe quelle application et vous permettre de détecter manuellement ces champs à l’aide de l’extension de navigateur du volet d’accès, au cas où la détection automatique ne les trouve pas ;
 
 -   **prendre en charge les applications qui requièrent plusieurs champs de connexion** pour les applications qui requièrent plus que les champs de nom d’utilisateur et de mot de passe pour la connexion ;
 
@@ -44,148 +34,65 @@ Ceci est un excellent moyen pour commencer à intégrer rapidement tout type d�
 
 -   autoriser un **membre du groupe d’entreprise** à spécifier les noms d’utilisateur et mots de passe affectés à un utilisateur à l’aide de la fonctionnalité [Accès aux applications en libre-service](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-application-access) ;
 
--   autoriser un **administrateur** à spécifier les noms d’utilisateur et mots de passe affectés à un utilisateur à l’aide de la fonctionnalité Mettre à jour les informations d’identification lors de l’affectation d’un utilisateur à une application ;
+-   Autoriser un **administrateur** à spécifier un nom d'utilisateur et un mot de passe à utiliser par des individus ou des groupes lors de la connexion à l'application à l’aide de la fonctionnalité Mettre à jour les informations d'identification 
 
--   autoriser un **administrateur** à spécifier les noms d’utilisateur et mots de passe partagés utilisés par un groupe de personnes à l’aide de la fonctionnalité Mettre à jour les informations d'identification lors de [l’affectation d’un groupe à une application](#assign-an-application-to-a-group-directly).
+## <a name="before-you-begin"></a>Avant de commencer
 
-La section ci-après décrit la procédure d’activation de la fonctionnalité [Authentification unique avec mot de passe](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) pour n’importe quelle application que vous ajoutez à l’aide de l’expérience **d’ajout d’une application ne relevant pas de la galerie**.
+Si l’application n’a pas été ajoutée à votre locataire Azure AD, consultez [Ajouter une application de la galerie](add-gallery-app.md) ou [Ajouter une application non-galerie](add-non-gallery-app.md).
 
-## <a name="overview-of-steps-required"></a>Vue d’ensemble des étapes requises
+## <a name="open-the-app-and-select-password-single-sign-on"></a>Ouvrir l'application et sélectionner l’authentification unique par mot de passe
 
-Pour configurer une application à partir de la galerie Azure AD, vous devez effectuer les opérations suivantes :
+1. Connectez-vous au [portail Azure](https://portal.azure.com) en tant qu’administrateur d’application cloud ou administrateur d’application pour votre locataire Azure AD.
 
--   [Ajouter une application ne figurant pas dans la galerie](#add-a-non-gallery-application)
+2. Accédez à **Azure Active Directory** > **Applications d’entreprise**. Un échantillon aléatoire des applications dans votre locataire Azure AD s’affiche. 
 
--   [Configurer l’application pour l’authentification unique basée sur un mot de passe](#configure-the-application-for-password-single-sign-on)
+3. Dans le menu **Type d’Application**, sélectionnez **Toutes les Applications**, puis sélectionnez **Appliquer**.
 
--   Affecter l’application à un utilisateur ou à un groupe
+4. Entrez le nom de l’application dans la zone de recherche, puis sélectionnez l’application dans les résultats.
 
-    -   [Affecter un utilisateur directement à une application](#assign-a-user-to-an-application-directly)
+5. Sous la section **Gérer**, sélectionnez **Authentification unique**. 
 
-    -   [Affecter une application directement à un groupe](#assign-an-application-to-a-group-directly)
+6. Sélectionnez **Par mot de passe**.
 
-## <a name="add-a-non-gallery-application"></a>Ajouter une application ne figurant pas dans la galerie
+7. Saisissez l'URL de la page de connexion web de l'application. Il doit s’agir de la page qui contient le champ d’entrée du nom d’utilisateur.
 
-Pour ajouter une application à partir de la galerie Azure AD, procédez comme suit :
+   ![Authentification unique par mot de passe](./media/configure-single-sign-on-non-gallery-applications/password-based-sso.png)
 
-1.  Ouvrez le [portail Azure](https://portal.azure.com) et connectez-vous en tant **qu’Administrateur général** ou que **Coadministrateur**.
+8. Sélectionnez **Enregistrer**. Azure AD tente d’analyser la page de connexion à la recherche d’entrées de nom d’utilisateur et de mot de passe. Si la tentative réussit, vous avez terminé. 
+ 
+> [!NOTE]
+> La prochaine étape consiste à [affecter des utilisateurs et des groupes à l’application](methods-for-assigning-users-and-groups.md). Après avoir affecté des utilisateurs et des groupes, vous pouvez fournir des informations d'identification à utiliser pour le compte d'un utilisateur lorsqu'il se connecte à l'application. Sélectionnez **Utilisateurs et groupes**, cochez la case de la ligne de l'utilisateur ou du groupe, puis cliquez sur **Mettre à jour les informations d'identification**. Ensuite, entrez le nom d'utilisateur et le mot de passe à utiliser pour le compte de l'utilisateur ou du groupe. Autrement, les utilisateurs devront entrer les informations d’identification eux-mêmes lors du lancement.
+ 
 
-2.  Ouvrez **l’extension Azure Active Directory** en cliquant sur **Tous les services** en haut du menu de navigation principal de gauche.
+## <a name="manual-configuration"></a>Configuration manuelle
 
-3.  Tapez « **Azure Active Directory** » dans la zone de recherche de filtre et sélectionnez l’élément **Azure Active Directory**.
+Si la tentative d'analyse Azure AD échoue, vous pouvez configurer l’authentification manuellement.
 
-4.  Cliquez sur **Applications d’entreprise** dans le menu de navigation de gauche d’Azure Active Directory.
+1. Sous **\<Configuration nom de l’application>** , sélectionnez **Configurer les paramètres d’authentification unique par mot de passe \<nom de l’application>** pour afficher la page **Configuration l’authentification**. 
 
-5.  Cliquez sur le bouton **Ajouter** dans le coin supérieur droit du volet **Applications d’entreprise**.
+2. Sélectionnez **Détecter manuellement les champs de connexion**. Des instructions supplémentaires décrivant la détection manuelle des champs de connexion s’affichent.
 
-6.  Cliquez sur **Application ne figurant pas dans la galerie**.
+   ![Configuration manuelle de l’authentification unique par mot de passe](./media/configure-password-single-sign-on/password-configure-sign-on.png)
+3. Sélectionnez **Capturer les champs de connexion**. Une page d’état de la capture s’ouvre dans un nouvel onglet affichant le message **Capture des métadonnées en cours**.
 
-7.  Entrez le nom de votre application dans la zone de texte **Nom**. Sélectionnez **Ajouter.**
+4. Si la mention **Extension Volet d’accès requise** s’affiche dans un nouvel onglet, sélectionnez **Installer maintenant** pour installer l’extension de navigateur **My Apps Secure Sign-in Extension**. (Cette extension de navigateur est compatible avec Microsoft Edge, Chrome ou Firefox.) Ensuite, installez, lancez et activez l’extension, puis actualisez la page d’état de la capture.
 
-Après un court délai, vous pouvez voir apparaître le volet de configuration de l’application.
+   L’extension de navigateur ouvre ensuite un nouvel onglet qui affiche l’URL entrée.
+5. Dans l’onglet contenant l’URL saisie, suivez le processus de connexion. Renseignez les champs de nom d’utilisateur et de mot de passe et essayez de vous connecter. (Vous n’êtes pas obligé de fournir le mot de passe correct.)
 
-## <a name="configure-the-application-for-password-single-sign-on"></a>Configurer l’application pour l’authentification unique par mot de passe
+   Un message vous invite à enregistrer les champs de connexion capturés.
+6. Sélectionnez **OK**. L’extension de navigateur met à jour la page d’état de la capture avec le message **Les métadonnées ont été mises à jour pour l’application**. L'onglet du navigateur se ferme.
 
-Pour configurer l’authentification unique pour une application, procédez comme suit :
+7. Dans la page Azure AD **Configurer l’authentification**, sélectionnez **J’ai pu me connecter à l’application**.
 
-1. Ouvrez le [**portail Azure**](https://portal.azure.com/) et connectez-vous en tant **qu’Administrateur général** ou que **Coadministrateur**.
+8. Sélectionnez **OK**.
 
-2. Ouvrez **l’extension Azure Active Directory** en cliquant sur **Tous les services** en haut du menu de navigation principal de gauche.
+Après la capture de la page de connexion, vous pouvez affecter des utilisateurs et des groupes, et vous pouvez configurer des stratégies d’informations d’identification comme pour les [applications avec authentification unique par mot de passe](what-is-single-sign-on.md) standard.
 
-3. Tapez « **Azure Active Directory** » dans la zone de recherche de filtre et sélectionnez l’élément **Azure Active Directory**.
-
-4. Cliquez sur **Applications d’entreprise** dans le menu de navigation de gauche d’Azure Active Directory.
-
-5. Cliquez sur **Toutes les applications** pour afficher la liste complète de vos applications.
-
-   * Si l’application que vous recherchez ne figure pas dans la liste, utilisez la commande **Filtre** en haut de la **liste de toutes les applications** et définissez l’option **Afficher** sur **Toutes les applications.**
-
-6. Sélectionnez l’application pour laquelle vous souhaitez configurer l’authentification unique.
-
-7. Une fois l’application chargée, cliquez sur **Authentification unique** dans le menu de navigation de gauche de l’application.
-
-8. Sélectionnez le mode **Authentification par mot de passe.**
-
-9. Entrez **l’URL de connexion**. Il s’agit de l’URL où les utilisateurs entrent leurs nom d’utilisateur et mot de passe pour se connecter. Vérifiez que les champs de connexion sont visibles dans l’URL.
-
-10. Affectez des utilisateurs à l’application.
-
-11. En outre, vous pouvez également fournir des informations d’identification pour le compte de l’utilisateur en sélectionnant les lignes des utilisateurs, en cliquant sur **Mettre à jour les informations d’identification** et en entrant le nom d’utilisateur et le mot de passe à la place des utilisateurs. Autrement, les utilisateurs doivent entrer les informations d’identification eux-mêmes lors du lancement.
-
-
-## <a name="assign-a-user-to-an-application-directly"></a>Affecter un utilisateur directement à une application
-
-Pour affecter un ou plusieurs utilisateurs directement à une application, procédez comme suit :
-
-1. Ouvrez le [**portail Azure**](https://portal.azure.com/) et connectez-vous en tant **qu’Administrateur général**.
-
-2. Ouvrez **l’extension Azure Active Directory** en cliquant sur **Tous les services** en haut du menu de navigation principal de gauche.
-
-3. Tapez « **Azure Active Directory** » dans la zone de recherche de filtre et sélectionnez l’élément **Azure Active Directory**.
-
-4. Cliquez sur **Applications d’entreprise** dans le menu de navigation de gauche d’Azure Active Directory.
-
-5. Cliquez sur **Toutes les applications** pour afficher la liste complète de vos applications.
-
-   * Si l’application que vous recherchez ne figure pas dans la liste, utilisez la commande **Filtre** en haut de la **liste de toutes les applications** et définissez l’option **Afficher** sur **Toutes les applications.**
-
-6. Dans la liste qui s’affiche, sélectionnez l’application à laquelle vous souhaitez affecter un utilisateur.
-
-7. Une fois l’application chargée, cliquez sur **Utilisateurs et groupes** dans le menu de navigation de gauche de l’application.
-
-8. Pour ouvrir le volet **Ajouter une attribution**, cliquez sur le bouton **Ajouter** en haut de la liste **Utilisateurs et groupes**.
-
-9. Cliquez sur le sélecteur **Utilisateurs et groupes** à partir du volet **Ajouter une attribution**.
-
-10. Tapez **le nom complet** ou **l’adresse de messagerie** de l’utilisateur souhaité pour l’attribution dans la zone de recherche **Rechercher par nom ou adresse de messagerie**.
-
-11. Pointez sur **l’utilisateur** dans la liste pour afficher une **case à cocher**. Cliquez sur la case à cocher en regard de la photo de profil ou du logo de l’utilisateur pour ajouter ce dernier à la liste **Sélectionné**.
-
-12. **Facultatif** : Si vous souhaitez **ajouter plusieurs utilisateurs**, entrez un autre **nom complet** ou une autre **adresse de messagerie** dans la zone de recherche **Rechercher par nom ou adresse de messagerie**, puis cochez la case pour ajouter cet utilisateur à la liste **Sélectionné**.
-
-13. Après avoir sélectionné les utilisateurs, cliquez sur le bouton **Sélectionner** pour les ajouter à la liste des utilisateurs et des groupes à affecter à l’application.
-
-14. **Facultatif :** cliquez sur le sélecteur **Sélectionner un rôle** dans le volet **Ajouter une attribution** pour sélectionner un rôle à affecter aux utilisateurs que vous avez sélectionnés.
-
-15. Cliquez sur le bouton **Attribuer** pour affecter l’application aux utilisateurs sélectionnés.
-
-## <a name="assign-an-application-to-a-group-directly"></a>Affecter une application directement à un groupe
-
-Pour affecter un ou plusieurs groupes directement à une application, procédez comme suit :
-
-1. Ouvrez le [**portail Azure**](https://portal.azure.com/) et connectez-vous en tant **qu’Administrateur général**.
-
-2. Ouvrez **l’extension Azure Active Directory** en cliquant sur **Tous les services** en haut du menu de navigation principal de gauche.
-
-3. Tapez « **Azure Active Directory** » dans la zone de recherche de filtre et sélectionnez l’élément **Azure Active Directory**.
-
-4. Cliquez sur **Applications d’entreprise** dans le menu de navigation de gauche d’Azure Active Directory.
-
-5. Cliquez sur **Toutes les applications** pour afficher la liste complète de vos applications.
-
-   * Si l’application que vous recherchez ne figure pas dans la liste, utilisez la commande **Filtre** en haut de la **liste de toutes les applications** et définissez l’option **Afficher** sur **Toutes les applications.**
-
-6. Dans la liste qui s’affiche, sélectionnez l’application à laquelle vous souhaitez affecter un utilisateur.
-
-7. Une fois l’application chargée, cliquez sur **Utilisateurs et groupes** dans le menu de navigation de gauche de l’application.
-
-8. Pour ouvrir le volet **Ajouter une attribution**, cliquez sur le bouton **Ajouter** en haut de la liste **Utilisateurs et groupes**.
-
-9. Cliquez sur le sélecteur **Utilisateurs et groupes** à partir du volet **Ajouter une attribution**.
-
-10. Tapez le **nom de groupe complet** du groupe souhaité pour l’attribution dans la zone de recherche **Rechercher par nom ou adresse de messagerie**.
-
-11. Pointez sur le **groupe** dans la liste pour afficher une **case à cocher**. Cliquez sur la case à cocher en regard de la photo de profil ou du logo du groupe pour ajouter ce dernier à la liste **Sélectionné**.
-
-12. **Facultatif** : Si vous souhaitez **ajouter plusieurs groupes**, entrez un autre **nom de groupe complet** dans la zone de recherche **Rechercher par nom ou adresse de messagerie**, puis cochez la case pour ajouter ce groupe à la liste **Sélectionné**.
-
-13. Lorsque vous avez fini de sélectionner les groupes, cliquez sur le bouton **Sélectionner** pour les ajouter à la liste des utilisateurs et des groupes à affecter à l’application.
-
-14. **Facultatif :** cliquez sur le sélecteur **Sélectionner un rôle** dans le volet **Ajouter une attribution** pour sélectionner un rôle à affecter aux groupes que vous avez sélectionnés.
-
-15. Cliquez sur le bouton **Attribuer** pour affecter l’application aux groupes sélectionnés.
-
-Après une courte période, les utilisateurs que vous avez sélectionnés sont en mesure de lancer ces applications dans le panneau d’accès.
+> [!NOTE]
+> Vous pouvez télécharger un logo de la mosaïque pour l'application avec le bouton **Télécharger un logo** sur l'onglet **Configurer** de l'application.
 
 ## <a name="next-steps"></a>Étapes suivantes
-[Fournir une authentification unique à vos applications avec le proxy d’application](application-proxy-configure-single-sign-on-with-kcd.md)
+
+- [Affecter des utilisateurs et des groupes à l’application](methods-for-assigning-users-and-groups.md)
+- [Configurer l’approvisionnement automatique d’un compte utilisateur](configure-automatic-user-provisioning-portal.md)

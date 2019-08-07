@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/28/2019
-ms.openlocfilehash: ddff9ffb00f4167cb8f64a75b129711467de739d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 395bb01247efde82dbb39733c1915bc989b1729d
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66297065"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68402784"
 ---
 # <a name="connect-to-apache-kafka-on-hdinsight-through-an-azure-virtual-network"></a>Se connecter à Apache Kafka sur HDInsight via un réseau virtuel Azure
 
@@ -56,7 +56,7 @@ HDInsight n’autorise pas la connexion directe à Kafka via l’internet public
      > * Chaque client doit se connecter à l’aide d’un client de logiciel VPN.
      > * Le client VPN ne transmet pas de demandes de résolution de noms au réseau virtuel. Vous devez donc utiliser l’adressage IP pour communiquer avec Kafka. La communication IP nécessite une configuration supplémentaire sur le cluster Kafka.
 
-Pour plus d’informations sur l’utilisation de HDInsight dans un réseau virtuel, consultez [Étendre HDInsight à l’aide de réseaux virtuels Azure](../hdinsight-extend-hadoop-virtual-network.md).
+Pour plus d’informations sur l’utilisation de HDInsight dans un réseau virtuel, voir [Plan a virtual network for Azure HDInsight clusters (Planifier un réseau virtuel pour des clusters Azure HDInsight)](../hdinsight-plan-virtual-network-deployment.md).
 
 ## <a id="on-premises"></a> Se connecter à Apache Kafka à partir d’un réseau local
 
@@ -368,7 +368,7 @@ Pour valider la connectivité à Kafka, procédez comme suit pour créer et exé
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur l’utilisation de HDInsight avec un réseau virtuel, consultez le document [Étendre HDInsight à l’aide d’un réseau virtuel Azure](../hdinsight-extend-hadoop-virtual-network.md).
+Pour plus d’informations sur l’utilisation de HDInsight dans un réseau virtuel, consultez le document [Plan a virtual network deployment for Azure HDInsight clusters (Planifier un déploiement de réseau virtuel pour des clusters Azure HDInsight)](../hdinsight-plan-virtual-network-deployment.md).
 
 Pour plus d’informations sur la création d’un réseau virtuel Azure avec une passerelle VPN de point à site, consultez les documents suivants :
 

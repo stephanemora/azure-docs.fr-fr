@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: edjez
-ms.openlocfilehash: c317cbec02b82743c233bf36f743cea808c30c69
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 2dab7447e6051d4559f7f3985579cac9376ac7be
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68253582"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68423291"
 ---
 # <a name="features-are-information-about-actions-and-context"></a>Les caractéristiques sont des informations sur les actions et sur le contexte
 
@@ -34,8 +34,8 @@ Personalizer n’impose pas, ne limite pas ou ne corrige pas les caractéristiqu
 * Vous pouvez envoyer certaines caractéristiques pour certaines actions, mais pas pour d’autres actions si vous ne les avez pas. Par exemple, les séries Télé peuvent avoir des attributs, mais pas les films.
 * Certaines caractéristiques peuvent être disponibles seulement à certains moments. Par exemple, une application mobile peut fournir plus d’informations qu’une page web. 
 * Au fil du temps, vous pouvez ajouter et supprimer des caractéristiques sur le contexte et les actions. Personalizer continue d’apprendre à partir des informations disponibles.
-* Il doit y avoir au moins une caractéristique pour le contexte. Personalizer ne prend pas en charge un contexte vide. Si vous envoyez seulement un contexte fixe à chaque fois, Personalizer choisit l’action pour les classements en regardant seulement les caractéristiques dans les actions. 
-* Personalizer va essayer de choisir les actions qui conviennent le mieux pour tout le monde quel que soit le moment.
+* Il doit y avoir au moins une caractéristique pour le contexte. Personalizer ne prend pas en charge un contexte vide. Si vous envoyez seulement un contexte fixe à chaque fois, Personalizer choisit l’action pour les classements en regardant seulement les caractéristiques dans les actions.
+* Pour les fonctions catégorielles, vous n'avez pas besoin de définir les valeurs possibles ni de prédéfinir des plages pour les valeurs numériques.
 
 ## <a name="supported-feature-types"></a>Types de caractéristiques pris en charge
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/11/2018
 ms.author: shlo
-ms.openlocfilehash: 722d77bf27e3cd7eb921b09e0a1d4732a5b5f874
-ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
+ms.openlocfilehash: 6bad74d33f5d50bb7a35de69927bf97daad07798
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67514417"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68326867"
 ---
 # <a name="alert-and-monitor-data-factories-using-azure-monitor"></a>Déclencher des alertes et surveiller les fabriques de données avec Azure Monitor
 Les applications cloud sont complexes, et se composent de nombreux éléments mobiles. L’analyse fournit des données visant à garantir que votre application reste opérationnelle et soit exécutée en toute intégrité. Elle vous permet également de parer à des problèmes potentiels ou de résoudre des problèmes déjà survenus. En outre, vous pouvez utiliser les données d’analyse pour obtenir des informations détaillées sur votre application. Ces connaissances peuvent vous aider à améliorer les performances ou la facilité de gestion de l’application, ou à automatiser des actions qui exigeraient normalement une intervention manuelle.
@@ -234,7 +234,9 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 
 ## <a name="schema-of-logs--events"></a>Schéma des journaux d’activité et des événements
 
-### <a name="activity-run-logs-attributes"></a>Attributs des journaux d’activité d’exécution d’activité
+### <a name="azure-monitor-schema"></a>Schéma Azure Monitor
+
+#### <a name="activity-run-logs-attributes"></a>Attributs des journaux d’activité d’exécution d’activité
 
 ```json
 {
@@ -289,7 +291,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 |start| Chaîne | Début de l’exécution d’activité dans l’intervalle de temps, au format UTC | `2017-06-26T20:55:29.5007959Z`|
 |end| Chaîne | Met fin à l’exécution d’activité dans l’intervalle de temps, au format UTC. Si l’activité n’est pas encore terminée (journal de diagnostic pour une activité qui démarre), une valeur par défaut de `1601-01-01T00:00:00Z` est définie.  | `2017-06-26T20:55:29.5007959Z` |
 
-### <a name="pipeline-run-logs-attributes"></a>Attributs des journaux d’activité d’exécution de pipeline
+#### <a name="pipeline-run-logs-attributes"></a>Attributs des journaux d’activité d’exécution de pipeline
 
 ```json
 {
@@ -334,7 +336,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 |end| Chaîne | Met fin aux exécutions d’activité dans l’intervalle de temps, au format UTC. Si l’activité n’est pas encore terminée (journal de diagnostic pour une activité qui démarre), une valeur par défaut de `1601-01-01T00:00:00Z` est définie.  | `2017-06-26T20:55:29.5007959Z` |
 |status| Chaîne | État final de l’exécution de pipeline (Succeeded ou Failed) | `Succeeded`|
 
-### <a name="trigger-run-logs-attributes"></a>Attributs des journaux d’activité d’exécution de déclencheur
+#### <a name="trigger-run-logs-attributes"></a>Attributs des journaux d’activité d’exécution de déclencheur
 
 ```json
 {
@@ -379,6 +381,28 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 |start| Chaîne | Début d’activation du déclencheur dans l’intervalle de temps, au format UTC | `2017-06-26T20:55:29.5007959Z`|
 |status| Chaîne | État final indiquant si le déclencheur a été activé avec succès (Succeeded ou Failed) | `Succeeded`|
 
+### <a name="log-analytics-schema"></a>Schéma Log Analytics
+
+Log Analytics hérite du schéma d’Azure Monitor avec les exceptions suivantes :
+
+* La première lettre de chaque nom de colonne est mise en majuscules. Par exemple, *correlationId* dans Azure Monitor devient *CorrelationId* dans Log Analytics.
+* Le *niveau* de colonne est supprimé.
+* Les *propriétés* des colonnes dynamiques sont conservées en tant que type d’objet blob JSON dynamique ci-dessous :
+
+    | Colonne Azure Monitor | Colonne Log Analytics | Type |
+    | --- | --- | --- |
+    | $.properties.UserProperties | UserProperties | Dynamique |
+    | $.properties.Annotations | annotations | Dynamique |
+    | $.properties.Input | Entrée | Dynamique |
+    | $.properties.Output | Output | Dynamique |
+    | $.properties.Error.errorCode | ErrorCode | int |
+    | $.properties.Error.message | ErrorMessage | string |
+    | $.properties.Error | Error | Dynamique |
+    | $.properties.Predecessors | Predecessors | Dynamique |
+    | $.properties.Parameters | parameters | Dynamique |
+    | $.properties.SystemParameters | SystemParameters | Dynamique |
+    | $.properties.Tags | Balises | Dynamique |
+    
 ## <a name="metrics"></a>Mesures
 
 Azure Monitor vous permet d’utiliser la télémétrie pour surveiller les performances et l’intégrité de vos charges de travail sur Azure. Les mesures (aussi appelées compteurs de performances) émises par la plupart des ressources Azure sont le type de données de télémétrie Azure plus important. Azure Monitor propose plusieurs façons de configurer et d’utiliser ces mesures pour l’analyse et le dépannage.
@@ -387,14 +411,14 @@ ADFV2 émet les métriques suivantes :
 
 | **Mesure**           | **Nom d’affichage de la métrique**         | **Unité** | **Type d’agrégation** | **Description**                                       |
 |----------------------|---------------------------------|----------|----------------------|-------------------------------------------------------|
-| PipelineSucceededRuns | Métriques d’exécutions de pipeline ayant abouti | Nombre    | Total                | Nombre total d’exécutions de pipeline ayant abouti en une minute |
-| PipelineFailedRuns   | Métriques d’exécutions de pipeline ayant échoué    | Nombre    | Total                | Nombre total d’exécutions de pipeline ayant échoué en une minute    |
-| ActivitySucceededRuns | Métriques d’exécutions d’activité ayant abouti | Nombre    | Total                | Nombre total d’exécutions d’activité ayant abouti en une minute  |
-| ActivityFailedRuns   | Métriques d’exécutions d’activité ayant échoué    | Nombre    | Total                | Nombre total d’exécutions d’activité ayant échoué en une minute     |
-| TriggerSucceededRuns | Métriques d’exécutions de déclencheur ayant abouti  | Nombre    | Total                | Nombre total d’exécutions de déclencheur ayant abouti en une minute   |
-| TriggerFailedRuns    | Métriques d’exécutions de déclencheur ayant échoué     | Nombre    | Total                | Nombre total d’exécutions de déclencheur ayant échoué en une minute      |
+| PipelineSucceededRuns | Métriques d’exécutions de pipeline ayant abouti | Count    | Total                | Nombre total d’exécutions de pipeline ayant abouti en une minute |
+| PipelineFailedRuns   | Métriques d’exécutions de pipeline ayant échoué    | Count    | Total                | Nombre total d’exécutions de pipeline ayant échoué en une minute    |
+| ActivitySucceededRuns | Métriques d’exécutions d’activité ayant abouti | Count    | Total                | Nombre total d’exécutions d’activité ayant abouti en une minute  |
+| ActivityFailedRuns   | Métriques d’exécutions d’activité ayant échoué    | Count    | Total                | Nombre total d’exécutions d’activité ayant échoué en une minute     |
+| TriggerSucceededRuns | Métriques d’exécutions de déclencheur ayant abouti  | Count    | Total                | Nombre total d’exécutions de déclencheur ayant abouti en une minute   |
+| TriggerFailedRuns    | Métriques d’exécutions de déclencheur ayant échoué     | Count    | Total                | Nombre total d’exécutions de déclencheur ayant échoué en une minute      |
 
-Pour accéder aux métriques, suivez les instructions de l’article suivant : https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics
+Pour accéder aux métriques, suivez les instructions fournies dans [Plateforme de données Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics).
 
 ## <a name="monitor-data-factory-metrics-with-azure-monitor"></a>Analyser les métriques Data Factory avec Azure Monitor
 
@@ -412,13 +436,28 @@ Pour voir une présentation et une démonstration de cette fonctionnalité, rega
 
 Activer les paramètres de diagnostic pour votre fabrique de données.
 
-1.  Sélectionnez **Azure Monitor** -> **Paramètres de diagnostics** -> Sélectionner la fabrique de données -> Activer les diagnostics.
+1. Sur le portail, accédez à Azure Monitor et cliquez sur **Paramètres de diagnostic** dans le menu **Paramètres**.
 
-    ![monitor-oms-image1.png](media/data-factory-monitor-oms/monitor-oms-image1.png)
+2. Sélectionnez la fabrique de données pour laquelle vous souhaitez définir un paramètre de diagnostic.
+    
+3. S’il n’existe aucun paramètre sur la fabrique de données que vous avez sélectionnée, vous êtes invité à en créer un. Cliquez sur « Activer les diagnostics ».
 
-2.  Fournissez des paramètres de diagnostic, y compris la configuration de l’espace de travail.
+   ![Ajouter le paramètre de diagnostic - aucun paramètre existant](media/data-factory-monitor-oms/monitor-oms-image1.png)
+
+   S’il existe des paramètres existants sur la fabrique de données, vous voyez une liste de paramètres déjà configurés sur cette fabrique de données. Cliquez sur « Ajouter le paramètre de diagnostic ».
+
+   ![Ajouter le paramètre de diagnostic - paramètres existants](media/data-factory-monitor-oms/add-diagnostic-setting.png)
+
+4. Donnez un nom à votre définition, cochez la case **Envoyer à Log Analytics**, puis sélectionnez un espace de travail Log Analytics.
 
     ![monitor-oms-image2.png](media/data-factory-monitor-oms/monitor-oms-image2.png)
+
+5. Cliquez sur **Enregistrer**.
+
+Après quelques instants, le nouveau paramètre apparaît dans la liste des paramètres de cette fabrique de données, et les journaux de diagnostic sont envoyés en streaming dans cet espace de travail dès que de nouvelles données d’événements sont générées. Un délai de 15 minutes peut s’écouler entre l’événement et sa consignation dans Log Analytics.
+
+> [!NOTE]
+> En raison d’une limite explicite de 500 colonnes par table de journaux Azure donnée, **il est fortement recommandé d’utiliser le mode propre aux ressources**. Pour plus d’informations, consultez [Limitations connues de Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-stream-log-store#known-limitation-column-limit-in-azurediagnostics).
 
 ### <a name="install-azure-data-factory-analytics-from-azure-marketplace"></a>Installer Azure Data Factory Analytics à partir de la Place de marché Azure
 
@@ -462,7 +501,7 @@ Vous pouvez visualiser les métriques ci-dessus, consulter les requêtes derriè
 
 ## <a name="alerts"></a>Alertes
 
-Connectez-vous au portail Azure et cliquez sur **Superviser -&gt; Alertes** pour créer des alertes.
+Connectez-vous au portail Azure et cliquez sur **Superviser**  > **Alertes** pour créer des alertes.
 
 ![Alertes dans le menu du portail](media/monitor-using-azure-monitor/alerts_image3.png)
 

@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0d9019a6b4a32066480a70f72562bc5a7a9a1e8b
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: 3a316de54600d18f7ab839b8459bfe4eb0ff86e8
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67797644"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479792"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configurer des expériences ML automatisées dans Python
 
@@ -97,50 +97,46 @@ Exemples :
 
 ## <a name="fetch-data-for-running-experiment-on-remote-compute"></a>Récupérer des données pour exécuter une expérience sur une capacité de calcul distante
 
-Si vous utilisez une capacité de calcul distante pour exécuter votre expérience, l’extraction de données doit être encapsulée dans un script Python distinct `get_data()`. Ce script est exécuté sur la capacité de calcul distante où l’expérience de machine learning automatisé est exécutée. `get_data` élimine le besoin d’extraire les données sur le réseau pour chaque itération. Sans `get_data`, votre expérience échoue si vous l’exécutez sur une capacité de calcul distante.
+Pour les exécutions à distance, vous devez rendre les données accessibles à partir du calcul distant. Pour ce faire, vous pouvez charger les données vers DataStore.
 
-Voici un exemple de `get_data` :
-
-```python
-%%writefile $project_folder/get_data.py
-import pandas as pd
-from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import LabelEncoder
-def get_data(): # Burning man 2016 data
-    df = pd.read_csv("https://automldemods.blob.core.windows.net/datasets/PlayaEvents2016,_1.6MB,_3.4k-rows.cleaned.2.tsv", delimiter="\t", quotechar='"')
-    # get integer labels
-    le = LabelEncoder()
-    le.fit(df["Label"].values)
-    y = le.transform(df["Label"].values)
-    df = df.drop(["Label"], axis=1)
-    df_train, _, y_train, _ = train_test_split(df, y, test_size=0.1, random_state=42)
-    return { "X" : df, "y" : y }
-```
-
-Dans votre objet `AutoMLConfig`, vous spécifiez le paramètre `data_script` et vous spécifiez le chemin pour le fichier de script `get_data` comme ci-dessous :
+Voici un exemple d’utilisation de `datastore` :
 
 ```python
-automl_config = AutoMLConfig(****, data_script=project_folder + "/get_data.py", **** )
+    import pandas as pd
+    from sklearn import datasets
+    
+    data_train = datasets.load_digits()
+
+    pd.DataFrame(data_train.data[100:,:]).to_csv("data/X_train.csv", index=False)
+    pd.DataFrame(data_train.target[100:]).to_csv("data/y_train.csv", index=False)
+
+    ds = ws.get_default_datastore()
+    ds.upload(src_dir='./data', target_path='digitsdata', overwrite=True, show_progress=True)
 ```
 
-Le script `get_data` peut retourner :
+### <a name="define-deprep-references"></a>Définir des références deprep
 
-Clé | Type | Mutuellement exclusif avec    | Description
----|---|---|---
-X | Tramedonnées Pandas ou tableaux Numpy | data_train, étiquette, colonnes |  Toutes les caractéristiques pour l’entraînement
-y | Tramedonnées Pandas ou tableaux Numpy |   label   | Données des étiquettes pour l’entraînement. Pour la classification, il doit s’agir d’un tableau d’entiers.
-X_valid | Tramedonnées Pandas ou tableaux Numpy   | data_train, étiquette | _Facultatif_ Les données de fonctionnalité constituant l’ensemble de validation. Si non spécifié, X est divisé entre l’entraînement et la validation
-y_valid |   Tramedonnées Pandas ou tableaux Numpy | data_train, étiquette | _Facultatif_ Les données d’étiquette pour l’entraînement. Si non spécifié, y est divisé entre l’entraînement et la validation
-sample_weight | Tramedonnées Pandas ou tableaux Numpy |   data_train, étiquette, colonnes| _Facultatif_ Une valeur de pondération pour chaque échantillon. À utiliser quand vous voulez affecter des pondérations différentes à vos points de données
-sample_weight_valid | Tramedonnées Pandas ou tableaux Numpy | data_train, étiquette, colonnes |    _Facultatif_ Une valeur de pondération pour chaque échantillon de validation. Si non spécifié, sample_weight est divisé entre l’entraînement et la validation
-data_train |    Tramedonnées Pandas |  X, y, X_valid, y_valid |    Toutes les données (caractéristiques + étiquette) pour l’entraînement
-label | string  | X, y, X_valid, y_valid |  La colonne de data_train qui représente l’étiquette
-colonnes | Tableau de chaînes  ||  _Facultatif_ Liste verte de colonnes à utiliser pour les caractéristiques
-cv_splits_indices   | Tableau d’entiers ||  _Facultatif_ Liste des index pour diviser les données pour la validation croisée
+Définissez X et y en tant que référence dprep, qui seront passées à l’objet `AutoMLConfig` du machine learning automatisé comme ci-dessous :
+
+```python
+
+    X = dprep.auto_read_file(path=ds.path('digitsdata/X_train.csv'))
+    y = dprep.auto_read_file(path=ds.path('digitsdata/y_train.csv'))
+    
+    
+    automl_config = AutoMLConfig(task = 'classification',
+                                 debug_log = 'automl_errors.log',
+                                 path = project_folder,
+                                 run_configuration=conda_run_config,
+                                 X = X,
+                                 y = y,
+                                 **automl_settings
+                                )
+```
 
 ## <a name="train-and-validation-data"></a>Données pour l’entraînement et la validation
 
-Vous pouvez spécifier des jeux de données distincts pour l’entraînement et la validation via get_data() ou directement dans la méthode `AutoMLConfig`.
+Vous pouvez spécifier des jeux de données distincts pour l’entraînement et la validation directement dans la méthode `AutoMLConfig`.
 
 ### <a name="k-folds-cross-validation"></a>Validation croisée K-Folds
 
@@ -392,17 +388,21 @@ Pour obtenir plus de détails, utilisez cette fonction d’assistance illustrée
 
 ```python
 from pprint import pprint
+
+
 def print_model(model, prefix=""):
     for step in model.steps:
         print(prefix + step[0])
         if hasattr(step[1], 'estimators') and hasattr(step[1], 'weights'):
-            pprint({'estimators': list(e[0] for e in step[1].estimators), 'weights': step[1].weights})
+            pprint({'estimators': list(
+                e[0] for e in step[1].estimators), 'weights': step[1].weights})
             print()
             for estimator in step[1].estimators:
-                print_model(estimator[1], estimator[0]+ ' - ')
+                print_model(estimator[1], estimator[0] + ' - ')
         else:
             pprint(step[1].get_params())
             print()
+
 
 print_model(fitted_model)
 ```
@@ -492,12 +492,19 @@ Il y a deux façons de générer l’importance des caractéristiques.
     print(per_class_summary)
     ```
 
-Vous pouvez visualiser le graphique d’importance des caractéristiques dans votre espace de travail du portail Azure. Le graphique apparaît également quand vous utilisez le widget Jupyter dans un notebook. Pour plus d’informations sur les graphiques, consultez l’article [Exemples de notebooks Azure Machine Learning service.](samples-notebooks.md)
+Vous pouvez visualiser le graphique d’importance des caractéristiques dans votre espace de travail du portail Azure. Affichez l’URL à l’aide de l’objet run :
+
+```
+automl_run.get_portal_url()
+```
+
+Vous pouvez visualiser le graphique d’importance des caractéristiques dans votre espace de travail du portail Azure. Le graphique apparaît également quand vous utilisez le [widget Jupyter](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py) `RunDetails` dans un notebook. Pour en savoir plus sur les graphiques, consultez [Comprendre les résultats du machine learning automatisé](how-to-understand-automated-ml.md).
 
 ```Python
 from azureml.widgets import RunDetails
-RunDetails(local_run).show()
+RunDetails(automl_run).show()
 ```
+
 ![Graphique d’importance des caractéristiques](./media/how-to-configure-auto-train/feature-importance.png)
 
 Pour plus d’informations sur la façon dont les explications des modèles et l’importance des fonctionnalités peuvent être activés dans d’autres domaines du kit de développement logiciel (SDK) en dehors de l’apprentissage automatisé, consultez l’article [concept](machine-learning-interpretability-explainability.md) sur l’interprétabilité.

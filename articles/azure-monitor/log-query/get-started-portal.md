@@ -6,14 +6,14 @@ author: bwren
 manager: carmonm
 ms.service: log-analytics
 ms.topic: conceptual
-ms.date: 08/20/2018
+ms.date: 07/19/2019
 ms.author: bwren
-ms.openlocfilehash: 2e2d13e6923535a8993a6477cbbfb921f6092d66
-ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
+ms.openlocfilehash: cf2aee475f5d3933421de45fa5b2ade687bed62f
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67565587"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68348087"
 ---
 # <a name="get-started-with-log-analytics-in-azure-monitor"></a>Prise en main de Log Analytics dans Azure Monitor
 
@@ -178,6 +178,9 @@ Une fois que vous avez créé une requête utile, vous pouvez l’enregistrer ou
 Vous pouvez enregistrer la page de l’intégralité de la requête ou une requête unique en tant que fonction. Les fonctions sont des requêtes qui peuvent également être référencées par d’autres requêtes. Pour enregistrer une requête en tant que fonction, vous devez fournir un alias de fonction, qui est le nom utilisé pour appeler cette requête quand elle est référencée par d’autres requêtes.
 
 ![Enregistrer la fonction](media/get-started-portal/save-function.png)
+
+>[!NOTE]
+>Les caractères suivants sont pris en charge : `a–z, A–Z, 0-9, -, _, ., <space>, (, ), |` dans le champ **Nom** lors de l’enregistrement ou de la modification de la requête enregistrée.
 
 Les requêtes Log Analytics sont toujours enregistrées dans un espace de travail sélectionné et partagées avec les autres utilisateurs de cet espace de travail.
 

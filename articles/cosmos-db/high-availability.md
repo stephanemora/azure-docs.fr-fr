@@ -4,15 +4,15 @@ description: Cet article décrit comment Azure Cosmos DB offre une haute disponi
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 06/28/2019
+ms.date: 07/31/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 38629ed2246f4eb67e4183354fe4feaaaee16805
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: 4b039e777748499e1b9a2a120e9498d94066b735
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68305446"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68688281"
 ---
 # <a name="high-availability-with-azure-cosmos-db"></a>Haute disponibilité avec Azure Cosmos DB
 
@@ -49,9 +49,9 @@ Les pannes régionales ne sont pas rares et Azure Cosmos DB permet de s’assure
 - Les comptes multirégion configurés avec plusieurs régions d’écriture sont hautement disponibles pour les écritures et les lectures. Les basculements régionaux sont instantanés et ne nécessitent aucune modification à partir de l’application.
 
 - **Comptes multirégion avec une seule région d’écriture (panne de région d'écriture) :** 
-  * pendant une panne de région d’écriture, ces comptes restent hautement disponibles pour les lectures. Toutefois, pour les écritures vous devez **activer le basculement automatique** sur votre compte Cosmos pour le basculement de la région impactée vers une autre région. Le basculement se produit dans l’ordre de priorité des régions que vous avez spécifié. 
-  * Lorsque la région impactée est de nouveau en ligne, les données non répliquées présentes dans la région d’écriture impactée pendant la panne sont accessibles via le [flux de conflits](how-to-manage-conflicts.md#read-from-conflict-feed). Les applications peuvent lire le flux de conflits, résoudre les conflits en fonction de la logique propre à l’application, et réécrire les données mises à jour dans le conteneur Cosmos comme il convient. 
-  * Une fois que la région d’écriture précédemment impactée a récupéré, elle devient automatiquement disponible en tant que région de lecture. Vous pouvez basculer vers la région récupérée en tant que région d’écriture. Vous pouvez basculer d’une région à l’autre en utilisant [l’interface de ligne de commande Azure ou le Portail Microsoft Azure](how-to-manage-database-account.md#manual-failover). Il n’y a **aucune perte de données ou de disponibilité** avant, pendant ou après le basculement manuel. Votre application continue d’être hautement disponible. 
+  * pendant une panne de région d’écriture, ces comptes restent hautement disponibles pour les lectures. Pour que les requêtes d'écriture réussissent, vous devez activer l'option de **basculement automatique** sur votre compte Azure Cosmos. L'activation de cette option permet de basculer la région affectée vers une autre région selon l'ordre de priorité de la région que vous avez spécifié. 
+  * Lorsque la région précédemment affectée est de nouveau en ligne, toutes les données d'écriture qui n'étaient pas dupliquées lors de l’échec de la région sont mises à disposition via le [flux de conflits](how-to-manage-conflicts.md#read-from-conflict-feed). Les applications peuvent lire le flux de conflits, résoudre les conflits en fonction de la logique propre à l’application, et réécrire les données mises à jour dans le conteneur Azure Cosmos comme il convient. 
+  * Une fois que la région d’écriture précédemment impactée a récupéré, elle devient automatiquement disponible en tant que région de lecture. Vous pouvez basculer vers la région récupérée en tant que région d’écriture. Vous pouvez basculer d’une région à l’autre en utilisant [l’interface de ligne de commande Azure ou le Portail Microsoft Azure](how-to-manage-database-account.md#manual-failover). Il n'y a **aucune perte de données ou de disponibilité** avant, pendant ou après le changement de région d'écriture, et votre application continue d’être hautement disponible. 
 
 - **Comptes multirégion avec une seule région d’écriture (panne de région de lecture) :** 
   * pendant une panne de région de lecture, ces comptes restent hautement disponibles pour les lectures et les écritures. 
@@ -78,9 +78,11 @@ Cette fonctionnalité est disponible dans les régions Azure suivantes :
 
 * Sud du Royaume-Uni
 * Asie Sud-Est 
-* USA Est
+* East US
 * USA Est 2 
 * USA Centre
+* Europe Ouest
+* USA Ouest 2
 
 > [!NOTE] 
 > L’activation des zones de disponibilité pour un compte à Azure Cosmos avec une seule région entraîne des frais équivalents à l’ajout d’une région supplémentaire à votre compte. Pour plus d’informations sur la tarification, consultez la [page de tarification](https://azure.microsoft.com/pricing/details/cosmos-db/) et les articles relatifs au [coût multirégion dans Azure Cosmos DB](optimize-cost-regions.md). 

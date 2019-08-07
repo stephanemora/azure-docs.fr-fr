@@ -1,6 +1,6 @@
 ---
-title: Attributs de sécurité courants pour les machines virtuelles Linux d’Azure — Linux
-description: Check-list des attributs de sécurité couramment utilisés pour l’évaluation des machines virtuelles Linux d’Azure
+title: Attributs de sécurité pour Machines virtuelles Linux Azure - Linux
+description: Liste de contrôle des attributs de sécurité pour l’évaluation de Machines virtuelles Linux Azure
 services: virtual-machines
 ms.service: virtual-machines
 documentationcenter: ''
@@ -9,16 +9,16 @@ manager: barbkess
 ms.topic: conceptual
 ms.date: 06/05/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 87311ca45145eb3d04a1a40b0e9210cbe1e37f9a
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: 611717f3c8ce23daa653885e90c0c30e6fbe8a2c
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67799922"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68444225"
 ---
-# <a name="common-security-attributes-for-linux--virtual-machines"></a>Attributs de sécurité courants pour les machines virtuelles Linux d’Azure
+# <a name="security-attributes-for-linux-virtual-machines"></a>Attributs de sécurité pour Machines virtuelles Linux Azure
 
-Cet article documente les attributs de sécurité courants intégrés dans les machines virtuelles Linux d’Azure.
+Cet article documente les attributs de sécurité intégrés dans Machines virtuelles Linux Azure.
 
 [!INCLUDE [Security attributes header](../../../includes/security-attributes-header.md)]
 

@@ -2,24 +2,17 @@
 title: Package et modèle Cloud Service dans Azure | Microsoft Docs
 description: Décrit le modèle de service cloud (.csdef, .cscfg) et le package (.cspkg) dans Azure.
 services: cloud-services
-documentationcenter: ''
-author: jpconnock
-manager: timlt
-editor: ''
-ms.assetid: 4ce2feb5-0437-496c-98da-1fb6dcb7f59e
+author: georgewallace
 ms.service: cloud-services
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
-ms.author: jeconnoc
-ms.openlocfilehash: 6c8833dc0db80dde96dda92c426c7840c44c1f1b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: gwallace
+ms.openlocfilehash: 47d031e339b3677e0bf6ddcbad9456041c53c6e2
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67080754"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359554"
 ---
 # <a name="what-is-the-cloud-service-model-and-how-do-i-package-it"></a>Qu’est-ce que le modèle Cloud Service, et comment en créer un package ?
 Un service cloud est créé à partir de trois composants : la définition de service *(.csdef)* , la configuration de service *(.cscfg)* et un package de service *(.cspkg)* . Les deux fichiers XML **ServiceDefinition.csdef** et **ServiceConfig.cscfg** décrivent la structure du service cloud et sa configuration, qui désignent collectivement le modèle. Le fichier ZIP **ServicePackage.cspkg** est généré à partir du fichier **ServiceDefinition.csdef** et il contient, entre autres, toutes les dépendances binaires requises. Azure crée un service cloud à partir des fichiers **ServicePackage.cspkg** et **ServiceConfig.cscfg**.
@@ -31,7 +24,7 @@ Une fois que le service cloud s’exécute dans Azure, vous pouvez le reconfigur
 * Je connais déjà cela, mais donnez-moi [quelques exemples](#next-steps) de configuration.
 * Je souhaite créer le fichier [ServicePackage.cspkg](#cspkg).
 * J’utilise Visual Studio et souhaite...
-  * [Création d'un service cloud][vs_create]
+  * [Créer un service cloud][vs_create]
   * [Reconfigurer un service cloud existant][vs_reconfigure]
   * [Déployer un projet de service cloud][vs_deploy]
   * [Un Bureau à distance sur une instance de service cloud][remotedesktop]
@@ -285,7 +278,7 @@ Je crée un package de service cloud et je souhaite...
 
 J’utilise Visual Studio et souhaite...
 
-* [Créer un nouveau service de cloud computing][vs_create]
+* [Créer un service cloud][vs_create]
 * [Reconfigurer un service cloud existant][vs_reconfigure]
 * [Déployer un projet de service cloud][vs_deploy]
 * [Configurer un Bureau à distance pour une instance de service cloud][vs_remote]

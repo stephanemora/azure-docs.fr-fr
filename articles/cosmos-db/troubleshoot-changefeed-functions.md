@@ -1,26 +1,26 @@
 ---
-title: Diagnostiquer et résoudre les problèmes lors de l’utilisation du déclencheur Azure Cosmos DB dans Azure Functions
-description: Problèmes courants, solutions de contournement et procédures de diagnostic relatifs à l’utilisation du déclencheur Azure Cosmos DB avec Azure Functions
+title: Diagnostiquer et résoudre les problèmes lors de l’utilisation du déclencheur Azure Functions pour Cosmos DB
+description: Problèmes courants, solutions de contournement et procédures de diagnostic relatifs à l’utilisation du déclencheur Azure Functions pour Cosmos DB
 author: ealsur
 ms.service: cosmos-db
-ms.date: 05/23/2019
+ms.date: 07/17/2019
 ms.author: maquaran
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 9c728a735e56e461e49dd3f594186c9c0192a3f0
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: b90986e449df7e81f97f9ef86ce3cf69621c76d6
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68250014"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68335751"
 ---
-# <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-trigger-in-azure-functions"></a>Diagnostiquer et résoudre les problèmes lors de l’utilisation du déclencheur Azure Cosmos DB dans Azure Functions
+# <a name="diagnose-and-troubleshoot-issues-when-using-azure-functions-trigger-for-cosmos-db"></a>Diagnostiquer et résoudre les problèmes lors de l’utilisation du déclencheur Azure Functions pour Cosmos DB
 
-Cet article aborde les problèmes courants, solutions de contournement et procédures de diagnostic relatifs à l’utilisation du [déclencheur Azure Cosmos DB](change-feed-functions.md) avec Azure Functions.
+Cet article aborde les problèmes courants, solutions de contournement et procédures de diagnostic relatifs à l’utilisation du [déclencheur Azure Functions pour Cosmos DB](change-feed-functions.md).
 
 ## <a name="dependencies"></a>Les dépendances
 
-Les liaisons et le déclencheur Azure Cosmos DB dépendent des packages d’extension plutôt que du runtime Azure Functions de base. Mettez systématiquement ces packages à jour, car ils peuvent comprendre des correctifs et de nouvelles fonctionnalités capables de résoudre les problèmes éventuels que vous pouvez rencontrer :
+Les liaisons et le déclencheur Azure Functions pour Cosmos DB dépendent des packages d’extension plutôt que du runtime Azure Functions de base. Mettez systématiquement ces packages à jour, car ils peuvent comprendre des correctifs et de nouvelles fonctionnalités capables de résoudre les problèmes éventuels que vous pouvez rencontrer :
 
 * Pour Azure Functions V2, consultez [Microsoft.Azure.WebJobs.Extensions.CosmosDB](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.CosmosDB).
 * Pour Azure Functions V1, consultez [Microsoft.Azure.WebJobs.Extensions.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB).
@@ -29,7 +29,7 @@ Sauf indication explicite, le runtime mentionné dans cet article fait toujours 
 
 ## <a name="consume-the-azure-cosmos-db-sdk-independently"></a>Utiliser le Kit de développement logiciel (SDK) Azure Cosmos DB de manière indépendante
 
-La prise en charge des liaisons et du déclencheur Azure Cosmos DB représente la principale fonctionnalité de ce package d’extension. Celui-ci comprend également le [Kit de développement logiciel (SDK) Azure Cosmos DB .NET](sql-api-sdk-dotnet-core.md), ce qui est utile si vous souhaitez interagir par programmation avec Azure Cosmos DB sans utiliser de déclencheurs et de liaisons.
+La prise en charge des liaisons et du déclencheur Azure Functions pour Cosmos DB représente la principale fonctionnalité de ce package d’extension. Celui-ci comprend également le [Kit de développement logiciel (SDK) Azure Cosmos DB .NET](sql-api-sdk-dotnet-core.md), ce qui est utile si vous souhaitez interagir par programmation avec Azure Cosmos DB sans utiliser de déclencheurs et de liaisons.
 
 Si souhaitez utiliser le Kit de développement logiciel (SDK) Azure Cosmos DB, assurez-vous de n’ajouter aucune autre référence de package NuGet à votre projet. Au lieu de cela, **laissez la référence du Kit de développement logiciel (SDK) résoudre l’ensemble du package d’extension d’Azure Functions**. Utiliser le Kit de développement logiciel (SDK) Azure Cosmos DB indépendamment des déclencheurs et des liaisons
 
@@ -81,7 +81,7 @@ S’il manque des modifications à la destination, cela peut signifier que des e
 Dans ce scénario, la meilleure méthode consiste à ajouter `try/catch blocks` dans votre code et à l’intérieur de boucles susceptibles de traiter les modifications afin de détecter tout échec au niveau d’un sous-ensemble d’éléments particulier, puis de s’en occuper de manière appropriée (envoyez-les vers un autre stockage pour les analyser davantage ou réessayez). 
 
 > [!NOTE]
-> Par défaut, le déclencheur Azure Cosmos DB n’essaiera pas de traiter à nouveau les modifications si une exception non prise en charge est survenue lors de l’exécution du code. Cela signifie que les modifications ne sont pas arrivées à destination en raison d’une erreur lors de leur traitement.
+> Par défaut, le déclencheur Azure Functions pour Cosmos DB n’essaiera pas de traiter à nouveau les modifications si une exception non prise en charge est survenue lors de l’exécution du code. Cela signifie que les modifications ne sont pas arrivées à destination en raison d’une erreur lors de leur traitement.
 
 Si vous découvrez que certaines modifications n’ont pas été reçues par votre déclencheur, l’existence d’une **autre fonction Azure en cours d’exécution** constitue le scénario le plus courant. Il peut s’agir d’une autre fonction Azure déployée dans Azure ou exécutée en local sur la machine d’un développeur qui a **exactement la même configuration** (conteneurs surveillés et de baux identiques). Dans ce dernier cas, cette fonction Azure vole un sous-ensemble des modifications que votre fonction Azure est censée traiter.
 

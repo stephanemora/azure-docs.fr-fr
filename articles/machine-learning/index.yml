@@ -27,64 +27,31 @@ sections:
         style: cards
         type: list
   - items:
-      - text: "Configurez le service Azure Machine Learning et commencez à l’utiliser\_:"
+      - text: Configurez Azure Machine Learning service et commencez à l’utiliser.
         type: paragraph
-      - text: "<b>Guides de démarrage rapide\_:</b>"
-        type: paragraph
-      - items:
-          - html: <a href="service/quickstart-run-cloud-notebook">Exécuter une expérience dans le cloud</a> (aucune installation requise)
-          - html: <a href="service/quickstart-run-local-notebook">Exécuter une expérience en utilisant un serveur de notebook local</a> (installation locale du SDK)
-        style: unordered
-        type: list
-      - text: "<b>Tutoriel : Entraîner et déployer votre premier modèle ML automatisé dans le portail Azure\_:</b>"
+      - text: "Utilisez le Portail Azure, une interface conviviale et sans code pour entraîner, déployer et gérer des modèles ML\_:"
         type: paragraph
       - items:
+          - html: <a href="service/ui-tutorial-automobile-price-train-score">Entraîner votre première expérimentation par glisser-déplacer dans l’interface visuelle</a>
           - html: <a href="service/tutorial-first-experiment-automated-ml">Utiliser le machine learning automatisé pour entraîner et déployer votre premier modèle de classification</a>
         style: unordered
         type: list
-      - text: "<b>Tutoriel : Entraîner votre premier modèle ML avec le kit SDK\_:</b>"
+      - text: "Utilisez le SQK Python dans les scripts et les notebooks pour entraîner, déployer et gérer des modèles ML\_:"
         type: paragraph
       - items:
-          - html: "Partie\_1\_: <a href=\"service/tutorial-1st-experiment-sdk-setup\">Configurer l’environnement et l’espace de travail</a>"
-          - html: "Partie\_2\_: <a href=\"service/tutorial-1st-experiment-sdk-train\">Entraîner votre premier modèle</a>"
+          - html: <a href="service/tutorial-1st-experiment-sdk-setup">Configurer votre environnement et entraîner votre première expérimentation ML</a>
+          - html: <a href="service/tutorial-train-models-with-aml">Entraîner et déployer des modèles de classification d’images</a>
+          - html: <a href="service/tutorial-data-prep">Préparer les données et utiliser le ML automatisé pour prédire les frais de taxi</a>
         style: unordered
         type: list
-      - text: "<b>Tutoriel : Entraîner et déployer votre première expérience avec l’interface visuelle\_:</b>"
-        type: paragraph
-      - items:
-          - html: "Partie\_1\_: <a href=\"service/ui-tutorial-automobile-price-train-score\">Entraîner un modèle de régression</a>"
-          - html: "Partie\_2\_: <a href=\"service/ui-tutorial-automobile-price-deploy\">Déployer le modèle</a>"
-        style: unordered
-        type: list
-      - text: "<b>Tutoriel : Classification d’images de données MNIST avec le SDK\_:</b>"
-        type: paragraph
-      - items:
-          - html: "Partie\_1\_: <a href=\"service/tutorial-train-models-with-aml\">Entraîner votre propre modèle</a>"
-          - html: "Partie\_2\_: <a href=\"service/tutorial-deploy-models-with-aml\">Déployer ce modèle</a>"
-        style: unordered
-        type: list
-      - text: "<b>Tutoriel : Prédire le prix de courses de taxi en utilisant le SDK\_:</b>"
-        type: paragraph
-      - items:
-          - html: "Partie\_1\_: <a href=\"service/tutorial-data-prep\">Préparer les données pour la modélisation</a>"
-          - html: "Partie\_2\_: <a href=\"service/tutorial-auto-train-models\">Laisser le machine learning automatisé entraîner des modèles pour vous </a>"
-        style: unordered
-        type: list
-      - text: "<b>Tutoriel : Prédire le prix de voitures en utilisant l’interface visuelle\_:</b>"
-        type: paragraph
-      - items:
-          - html: "Partie\_1\_: <a href=\"service/ui-tutorial-automobile-price-train-score\">Prédire le prix de voitures</a>"
-          - html: "Partie\_2\_: <a href=\"service/ui-tutorial-automobile-price-deploy\">Déployer le modèle de régression</a>"
-        style: unordered
-        type: list
-      - text: "<b>Consommer vos modèles\_:</b>"
+      - text: "Consommez vos modèles\_:"
         type: paragraph
       - items:
           - html: <a href="service/how-to-consume-web-service">Consommation de modèles de requête-réponse</a>
           - html: "<a href=\"service/how-to-run-batch-predictions\">Prédictions par lot avec des pipelines\_ML</a>"
         style: unordered
         type: list
-    title: Guides de démarrages rapides et tutoriels
+    title: Didacticiels pas à pas
   - items:
       - className: cardsM
         columns: 2

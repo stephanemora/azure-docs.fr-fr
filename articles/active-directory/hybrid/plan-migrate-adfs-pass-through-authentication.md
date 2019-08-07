@@ -12,12 +12,12 @@ ms.date: 05/31/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 27f5a7d8bb6dc347414d84d8cf536f1c2d7a9910
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ba63f9c04e062741eded9c39e44ba64281931387
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67109352"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68311348"
 ---
 # <a name="migrate-from-federation-to-pass-through-authentication-for-azure-active-directory"></a>Migrer de la fédération à l’authentification directe pour Azure Active Directory
 
@@ -77,8 +77,8 @@ Pour savoir quelle méthode utiliser, effectuez les étapes des sections suivant
    ![Capture d’écran de l’option Afficher la configuration actuelle dans la page Tâches supplémentaires](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image2.png)<br />
 3. Dans la page **Vérification de votre solution**n faites défiler jusqu’à **Services Active Directory Federation Services (ADFS)** .<br />
 
-   * Si la configuration d’AD FS apparaît dans cette section, vous pouvez considérer qu’AD FS a été initialement configuré à l’aide d’Azure AD Connect. Vous pouvez convertir vos domaines de l’identité fédérée en identité managée en utilisant l’option **Modifier la connexion utilisateur** d’Azure AD Connect. Pour plus d’informations sur le processus, consultez la section **Option 1 : Configurer l’authentification directe à l’aide d’Azure AD Connect**.
-   * Si AD FS n’est pas listé dans les paramètres actuels, vous devez convertir manuellement vos domaines de l’identité fédérée à l’identité managée avec PowerShell. Pour plus d’informations sur ce processus, consultez la section **Option 2 : Passer de la fédération à l’authentification directe avec Azure AD Connect et PowerShell**.
+   * Si la configuration d’AD FS apparaît dans cette section, vous pouvez considérer qu’AD FS a été initialement configuré à l’aide d’Azure AD Connect. Vous pouvez convertir vos domaines de l’identité fédérée en identité managée en utilisant l’option **Modifier la connexion utilisateur** d’Azure AD Connect. Pour plus d’informations sur le processus, consultez la section **Option A : Configurer l’authentification directe à l’aide d’Azure AD Connect**.
+   * Si AD FS n’est pas listé dans les paramètres actuels, vous devez convertir manuellement vos domaines de l’identité fédérée à l’identité managée avec PowerShell. Pour plus d’informations sur ce processus, consultez la section **Option B : Passer de la fédération à l’authentification directe avec Azure AD Connect et PowerShell**.
 
 ### <a name="document-current-federation-settings"></a>Documenter les paramètres de fédération actuels
 
