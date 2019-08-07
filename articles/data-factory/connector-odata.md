@@ -48,7 +48,7 @@ Les propriétés prises en charge pour le service lié OData sont les suivantes 
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété **type** doit être définie sur **OData**. |OUI |
+| type | La propriété **type** doit être définie sur **OData**. |OUI |
 | url | URL racine du service OData. |OUI |
 | authenticationType | Type d’authentification utilisé pour se connecter à la source OData. Les valeurs autorisées sont **Anonyme**, **De base**, **Windows**, **AadServicePrincipal** et **Managed Service Identity**. L’authentification OAuth par utilisateur n’est pas prise en charge. | OUI |
 | userName | Si vous utilisez l’authentification De base ou Windows, spécifiez un **nom d’utilisateur**. | Non |
