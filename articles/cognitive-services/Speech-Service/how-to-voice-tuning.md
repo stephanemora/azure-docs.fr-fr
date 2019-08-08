@@ -1,5 +1,5 @@
 ---
-title: Régler la sortie de synthèse vocale - services Speech
+title: Régler la sortie de synthèse vocale – Service Speech
 titleSuffix: Azure Cognitive Services
 description: Activez la journalisation dans le SDK Speech.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 94b58279b1a9fd4d9acdb4183f59b0a8579c17fd
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 4cf2338d76ce31f44eaf3fb235e5f8796602d819
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606447"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562751"
 ---
 # <a name="fine-tune-text-to-speech-output"></a>Régler la sortie de synthèse vocale
 

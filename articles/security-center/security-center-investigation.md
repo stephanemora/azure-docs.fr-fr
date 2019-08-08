@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/29/2018
 ms.author: rkarlin
-ms.openlocfilehash: 55def52d248babd439227cdcd4170c0a3ca91bb1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 476bdd50a56b953585a8a4e9cea05975c9922e0f
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64569827"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68662949"
 ---
-# <a name="investigate-incidents-and-alerts-in-azure-security-center-preview"></a>Examiner les incidents et les alertes dans Azure Security Center (version préliminaire)
-Ce document vous aide à utiliser la fonctionnalité d’examen dans Azure Security Center pour examiner les incidents et alertes liés à la sécurité.
+# <a name="investigate-incidents-and-alerts-in-azure-security-center-retired"></a>Examiner les incidents et les alertes dans Azure Security Center (hors service)
+Ce document vous permet d’utiliser la fonctionnalité d’enquête (préversion) dans Azure Security Center pour examiner les alertes et les incidents liés à la sécurité.
 
 > [!NOTE]
-> L’expérience d’investigation sur les alertes et les incidents sera supprimée le 31 juillet 2019. Pour en savoir plus et connaître les alternatives, voir [Retrait des fonctionnalités du Security Center (juillet 2019).](security-center-features-retirement-july2019.md#menu_investigate)
+> L’enquête sur les alertes et les incidents (préversion) a été mise hors service le 31 juillet 2019. Pour en savoir plus et connaître les alternatives, voir [Retrait des fonctionnalités du Security Center (juillet 2019).](security-center-features-retirement-july2019.md#menu_investigate)
 
 ## <a name="what-is-investigation-in-security-center"></a>Qu’est-ce que la fonctionnalité d’examen dans Security Center ?
 La fonctionnalité d’examen dans Security Center vous permet de trier, comprendre l’étendue et repérer la cause racine d’un potentiel [incident lié à la sécurité](https://docs.microsoft.com/azure/security-center/security-center-incident).
@@ -48,7 +48,7 @@ L’utilisateur peut naviguer d’une entité à une autre en cliquant dessus da
 ### <a name="investigation-path"></a>Chemin d’examen
 Le chemin d’examen aide à suivre le contexte d’examen et permet une navigation rapide à l’utilisateur qui navigue entre les différentes entités. L’incident contenant les résultats de l’examen apparaît toujours tout à gauche dans le chemin d’examen.
 
-![path](./media/security-center-investigation/security-center-investigation-fig2.png)
+![Path](./media/security-center-investigation/security-center-investigation-fig2.png)
 
 ### <a name="general-information"></a>Informations générales
 Lorsqu’une entité est présentée dans le graphique, les onglets affichent des informations supplémentaires la concernant. L’onglet **Informations** présente des informations générales sur l’entité, de différentes sources d’informations disponibles.

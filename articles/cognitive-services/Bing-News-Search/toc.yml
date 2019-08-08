@@ -47,7 +47,8 @@
 - name: Guides pratiques
   items:
     - name: Gérer la mise en surbrillance des correspondances
-      href: hit-highlighting.md
+      href: ../Bing-Web-Search/hit-highlighting.md
+      maintainContext: true
     - name: Nouveautés de la page
       href: paging-news.md
     - name: Redimensionner et rogner les miniatures

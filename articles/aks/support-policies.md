@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: jenoller
-ms.openlocfilehash: 0d2c080be727d2ae13d6d9e5274f17cadffbe640
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bf29799bc2aee12a27216ad45f7ed1e3355bab8a
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65786456"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68596131"
 ---
 # <a name="support-policies-for-azure-kubernetes-service"></a>Stratégies de support pour Azure Kubernetes Service
 
@@ -127,7 +127,7 @@ Même si les clients peuvent se connecter aux nœuds Worker et les modifier, ces
 En tant que service géré, AKS a des exigences spécifiques en termes de mise en réseau et de connectivité. Ces exigences sont moins souples que celles des composants IaaS standard. Dans AKS, les opérations telles que la personnalisation de règles de groupe de sécurité réseau, le blocage d’un port spécifique (par exemple, à l’aide de règles de pare-feu qui bloquent le port sortant 443) et la mise sur liste verte d’URL peuvent affecter le support de votre cluster.
 
 > [!NOTE]
-> Actuellement, AKS ne vous permet pas de verrouiller complètement les sorties de votre cluster (par exemple, domaine explicite ou mise sur liste verte de ports). La liste des URL et des ports est susceptible d’être modifiée sans que vous en soyez informé. Vous pouvez obtenir la liste mise à jour en créant un ticket de Support Azure. La liste est uniquement destinée aux clients qui sont prêts à accepter que la disponibilité de leur cluster peut être affectée *à tout moment.*
+> Actuellement, AKS ne vous permet pas de verrouiller intégralement le trafic de sortie depuis votre cluster. Pour contrôler la liste des URL et des ports que votre cluster peut utiliser pour le trafic sortant, consultez la section [Limiter le trafic de sortie](limit-egress-traffic.md).
 
 ## <a name="unsupported-alpha-and-beta-kubernetes-features"></a>Fonctionnalités Kubernetes alpha et bêta non supportées
 

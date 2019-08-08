@@ -5,12 +5,12 @@ ms.date: 04/30/2019
 ms.topic: include
 ms.service: virtual-machines-linux
 manager: jeconnoc
-ms.openlocfilehash: 55d73b2602a9a862375ca3e72dee4597c1d6f1d6
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: fa34baa7569b0552708cd1a9b57d79186e5acd57
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67659802"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68669640"
 ---
 Des images de machine virtuelle standardisées permettent aux organisations de migrer vers le cloud en veillant à la cohérence des déploiements. Les images incluent généralement des paramètres de sécurité et de configuration prédéfinis et les logiciels nécessaires. La mise en place de votre propre pipeline d’acquisition d’image nécessite du temps, une infrastructure et une configuration. En revanche, le Générateur d’images de machine virtuelle Azure génère une simple configuration décrivant votre image et l’envoie au service qui la produit et la distribue.
  
@@ -35,7 +35,7 @@ La préversion prend en charge les fonctionnalités suivantes :
 
 ## <a name="regions"></a>Régions
 Le service Générateur d’images Azure sera disponible en préversion dans les régions suivantes. Des images peuvent être distribuées en dehors de ces régions.
-- USA Est
+- East US
 - USA Est 2
 - USA Centre-Ouest
 - USA Ouest
@@ -47,6 +47,7 @@ Le Générateur d’images Azure prendra en charge les images de système d’ex
 - Ubuntu 16.04
 - RHEL 7.6
 - CentOS 7.6
+- Windows 10 RS5 Enterprize/Professional/Enterprise (entreprise/professionnel/entreprise) pour bureau virtuel 
 - Windows 2016
 - Windows 2019
 

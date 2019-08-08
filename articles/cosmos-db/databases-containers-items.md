@@ -4,15 +4,15 @@ description: Cet article explique comment créer et utiliser des bases de donné
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/23/2019
+ms.date: 07/26/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 277564208a5e4a209aecf8f976aca6b35ab17781
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 9c8460380755c6057f7507443d0b564e85c2ff86
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68467751"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68598485"
 ---
 # <a name="work-with-databases-containers-and-items-in-azure-cosmos-db"></a>Utiliser des bases de données, des conteneurs et des éléments dans Azure Cosmos DB
 
@@ -124,6 +124,9 @@ Chaque élément Azure Cosmos comprend des propriétés définies par le systèm
 |\_self | Générée par le système | URI adressable de l’élément | OUI | Non | Non | Non | Non |
 |id | Vous pouvez soit utiliser | Nom unique défini par l’utilisateur dans une partition logique. Si l’utilisateur ne spécifie pas d’ID, le système en génère un automatiquement. | OUI | OUI | OUI | OUI | OUI |
 |Propriétés arbitraires définies par l’utilisateur | Défini par l’utilisateur | Propriétés définies par l’utilisateur représentées sous forme d’API native (notamment JSON, BSON et CQL) | OUI | OUI | OUI | OUI | OUI |
+
+> [!NOTE]
+> L’unicité de la `id`propriété est appliqué dans chaque partition logique. Plusieurs documents peuvent avoir la même `id` propriété avec des valeurs de clé de partition différentes.
 
 ### <a name="operations-on-items"></a>Actions possibles sur les éléments
 

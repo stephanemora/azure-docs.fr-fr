@@ -5,14 +5,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 04/18/2019
+ms.date: 07/29/2019
 ms.author: mayg
-ms.openlocfilehash: 42ef6087663c48cad965be768f14920efa777a62
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4e1d27d133b2eb4e0d4d45a5de563e119513c79f
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66244326"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68620060"
 ---
 # <a name="about-the-azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>À propos du planificateur de déploiement Azure Site Recovery pour VMware sur Azure
 Cet article est le guide de l’utilisateur d’Azure Site Recovery Deployment Planner portant sur les déploiements de production de VMware vers Azure.
@@ -41,10 +41,9 @@ L’outil fournit les informations suivantes :
 
 **Exigences de l’infrastructure Azure**
 
-* Le type de stockage (compte de stockage standard ou premium) pour chaque machine virtuelle
-* Le nombre total de comptes de stockage standard et premium à configurer pour la réplication
+* Exigences relatives au type de stockage (stockage standard ou premium) pour chaque machine virtuelle
+* Nombre total de comptes de stockage standard et premium à configurer pour la réplication (y compris les comptes de stockage de cache)
 * Suggestions d’affectation de noms pour les comptes de stockage en fonction des conseils liés au stockage
-* L’emplacement du compte de stockage pour toutes les machines virtuelles
 * Le nombre de cœurs Azure à configurer avant le test de basculement ou le basculement sur l’abonnement
 * La taille recommandée de machine virtuelle Azure pour chaque machine virtuelle sur site
 
@@ -120,7 +119,7 @@ Si vous disposez d’une version précédente du planificateur de déploiement, 
 
 
 ## <a name="version-history"></a>Historique des versions
-La dernière version de l’outil Planificateur de déploiement Site Recovery est la version 2.4.
+La dernière version de l’outil Planificateur de déploiement Site Recovery est la version 2.5.
 Reportez-vous à la page [Historique des versions du Planificateur de déploiement Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-deployment-planner-history) pour voir les correctifs ajoutés à chaque mise à jour.
 
 ## <a name="next-steps"></a>Étapes suivantes

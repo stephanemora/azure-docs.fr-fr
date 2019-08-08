@@ -14,22 +14,22 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/29/2018
 ms.author: rkarlin
-ms.openlocfilehash: 984bd4d5db210679884655721be0cbcdac8c1705
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 8845cb0a91edefa0350558f35488519ec37d064d
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67485280"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68663583"
 ---
-# <a name="custom-alert-rules-in-azure-security-center-preview"></a>Règles d’alerte personnalisées dans Azure Security Center (préversion)
-Ce document est conçu pour vous aider à créer des règles d’alerte dans Azure Security Center.
+# <a name="custom-alert-rules-in-azure-security-center-retired"></a>Règles d’alerte personnalisées dans Azure Security Center (hors service)
+Ce document est conçu pour vous aider à créer des règles d’alerte (préversion) dans Azure Security Center.
 
 > [!NOTE]
-> Les alertes personnalisées ont été retirées de Security Center. 
+> Les alertes personnalisées ont été mises hors services pour Azure Security Center le 30 juin 2019. 
 
 ## <a name="retirement-of-custom-alert-rules-in-azure-security-center"></a>Retrait des règles d’alerte personnalisées dans Azure Security Center
 
-Les alertes personnalisées ont été retirées le 30 juin 2019 en raison de la suppression de l’infrastructure sous-jacente sur laquelle elles étaient basées. Toutes les alertes personnalisées configurées avant le retraitement ne sont pas prises en compte et les alertes de sécurité basées sur ces règles d’alerte personnalisées ne sont pas générées. Vous pouvez toujours afficher les requêtes des règles d’alerte personnalisées dans Security Center afin de les recréer dans les alternatives présentées ci-dessous :
+Les alertes personnalisées ont été mises hors service le 30 juin 2019 en raison de la mise hors service de l’infrastructure sous-jacente sur laquelle elles étaient basées. Toutes les alertes personnalisées configurées avant le retraitement ne sont pas prises en compte et les alertes de sécurité basées sur ces règles d’alerte personnalisées ne sont pas générées. Vous pouvez toujours afficher les requêtes des règles d’alerte personnalisées dans Security Center afin de les recréer dans les alternatives présentées ci-dessous :
 
 Nous vous recommandons aux utilisateurs de procéder de l’une des façons suivantes :
 - Activez [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/) et utilisez sa fonctionnalité [Analytics](https://docs.microsoft.com/azure/sentinel/tutorial-detect-threats) intégrée pour recréer leurs règles d’alerte.
@@ -40,7 +40,7 @@ Pour conserver vos alertes existantes et les créer à nouveau dans Azure Sentin
 > [!NOTE]
 > Les alertes personnalisées utilisant les requêtes d’instructions [Recherche](https://docs.microsoft.com/azure/azure-monitor/log-query/search-queries) ou [Union](https://docs-analytics-eus.azurewebsites.net/queryLanguage/query_language_unionoperator.html) ne sont pas prises en charge dans Azure Sentinel. Modifiez ces alertes avant d’effectuer la migration.
 
-Pour recréer vos alertes à l’aide d’alertes de journal Azure Monitor, consultez : [Créer, afficher et gérer des alertes de journal à l’aide d’Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log) pour obtenir des instructions sur la façon de créer des alertes de journal. Pour une vue d’ensemble générale des alertes de journal dans Azure Monitor, cliquez [ici](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-unified-log).
+Pour savoir comment recréer vos alertes à l’aide des alertes de journal Azure Monitor, consultez la section [Créer, afficher et gérer les alertes de journal à l’aide d’Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log). Pour une vue d’ensemble générale, consultez la section [Alertes de journal dans Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-unified-log).
 
 ## <a name="what-are-custom-alert-rules-in-security-center"></a>Qu’est-ce que les règles d’alerte personnalisées dans Azure Security Center ?
 

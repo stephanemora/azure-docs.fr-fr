@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: MightyPen
 ms.author: genemi
 ms.reviewer: billgib, stein
-manager: craigg
 ms.date: 10/16/2018
-ms.openlocfilehash: 350e67f5a1e7e1eab7abe27a6ca851ed2420af84
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2ddb1fe40507da5caa218f73284a1095035df951
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65978527"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68570380"
 ---
 # <a name="deploy-and-explore-a-sharded-multi-tenant-application"></a>Déployer et explorer une application mutualisée sharded
 
@@ -33,7 +32,7 @@ L’application s’exécute dans le cloud Azure et utilise Azure SQL Database. 
 
 L’application est déployée avec des données pour trois exemples de locataires. Les locataires sont stockés ensemble dans une base de données multilocataire.
 
-N’importe quel utilisateur peut télécharger le code source C# et PowerShell pour Wingtip Tickets à partir du [référentiel GitHub][link-github-wingtip-multitenantdb-55g].
+N’importe quel utilisateur peut télécharger le code source C# et PowerShell pour Wingtip Tickets à partir de [son référentiel GitHub][link-github-wingtip-multitenantdb-55g].
 
 ## <a name="learn-in-this-tutorial"></a>Découvrir, dans ce didacticiel, comment
 

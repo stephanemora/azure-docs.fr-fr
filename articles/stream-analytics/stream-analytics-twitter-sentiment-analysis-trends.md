@@ -2,28 +2,24 @@
 title: Analyse des sentiments Twitter en temps réel avec Azure Stream Analytics
 description: Cet article explique comment utiliser Stream Analytics pour l’analyse des sentiments Twitter en temps réel. Aide pas à pas allant de la génération d’événements à la gestion des données sur un tableau de bord en direct.
 services: stream-analytics
-author: jseb225
-ms.author: jeanb
+author: mamccrea
+ms.author: mamccrea
 ms.reviewer: jasonh
-manager: kfile
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 06/29/2017
-ms.openlocfilehash: f24ad348c681609392f83af894bf774dbee226bc
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.date: 07/9/2019
+ms.openlocfilehash: a0dd2499f3ddfaa1cd22a58e058c6adb7e40fd7e
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67620837"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68620039"
 ---
 # <a name="real-time-twitter-sentiment-analysis-in-azure-stream-analytics"></a>Analyse de sentiments Twitter en temps réel dans Azure Stream Analytics
 
-> [!IMPORTANT] 
-> La création d’applications Twitter n’est plus disponible via [apps.twitter.com](https://apps.twitter.com/). Ce tutoriel fait actuellement l’objet d’une mise à jour pour inclure la nouvelle API Twitter.
+Apprenez à créer une solution d’analyse de sentiments pour l’analyse des réseaux sociaux en intégrant des événements Twitter dans Azure Event Hubs. Écrivez ensuite une requête Azure Stream Analytics pour analyser les données, puis stocker les résultats pour une utilisation ultérieure ou créer un tableau de bord [Power BI](https://powerbi.com/) pour fournir des informations en temps réel.
 
-Apprenez à créer une solution d’analyse de sentiments pour l’analyse des réseaux sociaux en intégrant des événements Twitter dans Azure Event Hubs. Vous pouvez ensuite écrire une requête Azure Stream Analytics pour analyser les données, puis stocker les résultats pour une utilisation ultérieure ou utiliser un tableau de bord et [Power BI](https://powerbi.com/) pour fournir des informations en temps réel.
-
-Les outils d’analyse des réseaux sociaux aident les organisations à comprendre les tendances. Les sujets populaires sont les sujets significatifs et avis apparaissant dans un grand nombre de billets sur les réseaux sociaux. L’analyse de sentiments, aussi appelée *exploration d’opinions*, utilise des outils d’analyse de réseaux sociaux pour déterminer les attitudes envers un produit, une idée, etc. 
+Les outils d’analyse des réseaux sociaux aident les organisations à comprendre les tendances. Les sujets tendances sont les sujets et les attitudes apparaissant dans un grand nombre de publications sur les réseaux sociaux. L’analyse de sentiments, aussi appelée *exploration d’opinions*, utilise des outils d’analyse de réseaux sociaux pour déterminer les attitudes envers un produit ou une idée. 
 
 L’analyse de tendances Twitter en temps réel constitue un excellent exemple d’outil d’analyse, car le modèle d’abonnement mot-dièse vous permet de suivre des mots-clés spécifiques (mots-dièse) et de développer l’analyse des sentiments sur le flux.
 
@@ -31,23 +27,21 @@ L’analyse de tendances Twitter en temps réel constitue un excellent exemple d
 
 Une entreprise qui dispose d’un site web de médias souhaite obtenir un avantage sur ses concurrents en présentant des contenus immédiatement pertinents pour ses lecteurs. Elle utilise l’analyse des réseaux sociaux sur des sujets pertinents pour ses lecteurs en effectuant une analyse de sentiments en temps réel des données de Twitter.
 
-Pour identifier les tendances en temps réel sur Twitter, l’entreprise doit analyser en temps réel le volume et les sentiments des tweets relatifs aux principaux sujets. En d’autres termes, nous avons besoin d’un moteur d’analyse de sentiments basé sur le flux de ce réseau social.
+Pour identifier les tendances en temps réel sur Twitter, l’entreprise doit analyser en temps réel le volume et les sentiments des tweets relatifs aux principaux sujets.
 
 ## <a name="prerequisites"></a>Prérequis
-Dans ce didacticiel, vous utilisez une application cliente qui se connecte à Twitter, puis recherchez des tweets contenant certains mots-dièse (que vous pouvez définir). Pour exécuter l’application et analyser les tweets à l’aide d’Azure Stream Analytics, vous devez disposer des éléments suivants :
+Dans ce guide pratique, vous utilisez une application cliente qui se connecte à Twitter, puis recherchez des tweets contenant certains mots-dièse (que vous pouvez définir). Pour exécuter l’application et analyser les tweets à l’aide d’Azure Stream Analytics, vous devez disposer des éléments suivants :
 
-* Abonnement Azure
-* un compte Twitter ; 
-* Une application Twitter et le [jeton d’accès OAuth](https://dev.twitter.com/oauth/overview/application-owner-access-tokens) pour cette application. Plus loin, nous indiquons des instructions générales relatives à la création d’une application Twitter.
+* Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/).
+* Un [compte Twitter](https://twitter.com).
 * L’application TwitterWPFClient, qui lit le flux Twitter. Pour obtenir cette application, téléchargez le fichier [TwitterWPFClient.zip](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/TwitterClient/TwitterWPFClient.zip) à partir de GitHub, puis décompressez le package dans un dossier sur votre ordinateur. Pour afficher le code source et exécuter l’application dans un débogueur, vous pouvez obtenir le code source de l’application dans [GitHub](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/TwitterClient). 
 
 ## <a name="create-an-event-hub-for-streaming-analytics-input"></a>Créer un concentrateur Event Hub pour l’entrée Stream Analytics
 
 L’exemple d’application génère des événements et les transmet à un concentrateur Azure Event Hub. Les concentrateurs Azure Event Hub constituent la méthode favorite pour la réception des événements dans Stream Analytics. Pour plus d’informations, voir la [Documentation relative aux concentrateurs Azure Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md).
 
-
 ### <a name="create-an-event-hub-namespace-and-event-hub"></a>Créer un espace de noms Event Hub et un concentrateur Event Hub
-Dans cette procédure, vous allez commencer par créer un espace de noms Event Hub, puis ajouter un concentrateur Event Hub à cet espace de noms. Les espaces de noms Event Hub sont utilisés pour regrouper logiquement des instances Event Hub associées. 
+Créez un espace de noms Event Hub, puis ajouter un Event Hub à cet espace de noms. Les espaces de noms Event Hub sont utilisés pour regrouper logiquement des instances Event Hub associées. 
 
 1. Connectez-vous au portail Azure, puis cliquez sur **Créer une ressource** > **Internet des objets** > **Hub d’événements**. 
 
@@ -113,27 +107,26 @@ Pour qu’un processus puisse envoyer des données à un concentrateur Event Hu
 L’application cliente obtient les événements de tweet directement à partir de Twitter. Pour ce faire, elle a besoin de l’autorisation d’appeler les API de diffusion Twitter. Pour configurer cette autorisation, créez une application dans Twitter, qui génère des informations d’identification uniques (par exemple, un jeton OAuth). Vous pouvez ensuite configurer l’application cliente pour qu’elle utilise ces informations d’identification lorsqu’elle émet des appels d’API. 
 
 ### <a name="create-a-twitter-application"></a>Création d'une application Twitter
-Si vous ne possédez pas encore une application Twitter que vous pouvez utiliser pour ce didacticiel, vous pouvez en créer une. Vous devez déjà posséder un compte Twitter.
+Si vous ne possédez pas encore une application Twitter que vous pouvez utiliser pour ce guide pratique, vous pouvez en créer une. Vous devez déjà posséder un compte Twitter.
 
 > [!NOTE]
 > Dans Twitter, il est possible que le processus exact pour créer une application et obtenir les clés, secrets ainsi que le jeton soit différent. Si les instructions qui suivent ne correspondent pas ce que vous voyez sur le site Twitter, consultez la documentation pour développeurs Twitter.
 
-1. Accédez à la [page de gestion des applications Twitter](https://apps.twitter.com/). 
+1. Dans un navigateur web, accédez à [Twitter For Developers](https://developer.twitter.com/en/apps), puis sélectionnez **Create an app** (Créer une application). Vous voyez normalement un message indiquant que vous devez demander un compte de développeur Twitter. N’hésitez pas à le faire et, une fois votre application approuvée, vous devez voir un e-mail de confirmation. L’approbation d’un compte de développeur peut prendre plusieurs jours.
 
-2. Créez une application. 
+   ![Confirmation de compte de développeur Twitter](./media/stream-analytics-twitter-sentiment-analysis-trends/twitter-dev-confirmation.png "Confirmation de compte de développeur Twitter")
 
-   * Spécifiez une URL valide pour le site web. Il ne doit pas s’agir d’un site actif. (Vous ne pouvez pas spécifier simplement `localhost`.)
-   * Laissez le champ de rappel vide. L’application cliente que vous utilisez pour ce didacticiel ne nécessite pas de rappels.
+   ![Détails de l’application de Twitter](./media/stream-analytics-twitter-sentiment-analysis-trends/provide-twitter-app-details.png "Détails de l’application de Twitter")
 
-     ![Création d’une application dans Twitter](./media/stream-analytics-twitter-sentiment-analysis-trends/create-twitter-application.png)
+2. Sur la page **Créer une application**, renseignez les informations de la nouvelle application, puis sélectionnez **Créer votre application Twitter**.
 
-3. Modifiez éventuellement les autorisations de l’application pour les définir en lecture seule.
+   ![Détails de l’application de Twitter](./media/stream-analytics-twitter-sentiment-analysis-trends/provide-twitter-app-details-create.png "Détails de l’application de Twitter")
 
-4. Lorsque l’application est créée, accédez à la page **Clés et jetons d’accès**.
+3. Dans la page de l’application, sélectionnez l’onglet **Keys and Tokens** (Clés et jetons), et copiez les valeurs de **Consumer API Key** (Clé d’API du consommateur) et **Consumer API Secret Key** (Clé secrète d’API du consommateur). Sélectionnez aussi **Create** (Créer) sous **Access Token and Access Token Secret** (Jeton d’accès et secret du jeton d’accès) pour générer les jetons d’accès. Copiez les valeurs de **Jeton d’accès** et **Secret du jeton d’accès**.
 
-5. Cliquez sur le bouton pour générer un jeton d’accès et le secret correspondant.
+    ![Détails de l’application de Twitter](./media/stream-analytics-twitter-sentiment-analysis-trends/twitter-app-key-secret.png "Détails de l’application de Twitter")
 
-Conservez ces informations à portée de main, car vous en aurez besoin dans la procédure suivante.
+Enregistrez les valeurs que vous avez récupérées pour l’application Twitter. Vous aurez ensuite à nouveau besoin de ces valeurs dans le guide pratique.
 
 >[!NOTE]
 >Les clés et secrets de l’application Twitter permettent d’accéder à votre compte Twitter. Considérez que ces informations sont sensibles, tout comme votre mot de passe Twitter. Par exemple, ne les intégrez pas à une application que vous proposerez à d’autres utilisateurs. 
@@ -232,7 +225,7 @@ Maintenant que nous avons un flux d’événements de tweet diffusé en temps r�
 
 ## <a name="specify-the-job-query"></a>Spécification de la requête de travail
 
-Stream Analytics prend en charge un modèle de requête simple et déclaratif pour la description des transformations. Pour plus d’informations sur ce langage, consultez la page [Références sur le langage des requêtes d’Azure Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference).  Ce didacticiel aborde la création et le test de plusieurs requêtes sur des données Twitter.
+Stream Analytics prend en charge un modèle de requête simple et déclaratif pour la description des transformations. Pour plus d’informations sur ce langage, consultez la page [Références sur le langage des requêtes d’Azure Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference).  Ce guide pratique aborde la création et le test de plusieurs requêtes sur des données Twitter.
 
 Pour comparer le nombre de mentions entre les sujets, vous pouvez utiliser une [fenêtre bascule](https://docs.microsoft.com/stream-analytics-query/tumbling-window-azure-stream-analytics) pour obtenir le nombre de mentions par sujet toutes les cinq secondes.
 
@@ -292,7 +285,7 @@ Le tableau suivant répertorie les champs qui font partie des données de diffus
 
 Vous avez défini un flux d’événements, une entrée de concentrateur Event Hub pour ingérer des événements, et une requête pour effectuer une transformation sur le flux. La dernière étape consiste à définir un récepteur de sortie pour le travail.  
 
-Dans ce didacticiel, vous écrivez les événements de tweet agrégés de la requête de travail dans un stockage Blob Azure.  Selon les besoins de votre application, vous pouvez également transmettre vos résultats à Azure SQL Database, le stockage Table Azure, Event Hubs ou Power BI.
+Dans ce guide pratique, vous écrivez les événements de tweet agrégés de la requête de travail dans un stockage Blob Azure.  Selon les besoins de votre application, vous pouvez également transmettre vos résultats à Azure SQL Database, le stockage Table Azure, Event Hubs ou Power BI.
 
 ## <a name="specify-the-job-output"></a>Spécification de la sortie du travail
 
@@ -350,7 +343,7 @@ Pour afficher la sortie du travail en temps réel, vous pouvez utiliser un outil
 
 Une autre requête que vous pouvez utiliser pour comprendre les sentiments Twitter est basée sur une [fenêtre glissante](https://docs.microsoft.com/stream-analytics-query/sliding-window-azure-stream-analytics). Pour identifier les tendances, vous recherchez des sujets dépassant une valeur de seuil pour les mentions dans un laps de temps spécifié.
 
-Pour les besoins de ce didacticiel, vous allez consulter les rubriques mentionnées plus de 20 fois au cours des 5 dernières secondes.
+Pour les besoins de ce guide pratique, vous consulterez les rubriques mentionnées plus de 20 fois au cours des 5 dernières secondes.
 
 1. Dans le panneau du travail, cliquez sur **Arrêter** pour arrêter le travail. 
 

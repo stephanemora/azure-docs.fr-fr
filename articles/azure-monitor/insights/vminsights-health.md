@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/22/2019
+ms.date: 07/24/2019
 ms.author: magoedte
-ms.openlocfilehash: 2bf891f8cfecbb9e78e511dcee7ed1c61c170016
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 18297410842b432af0093a71406df71f7e03db9d
+ms.sourcegitcommit: 15f7b641a67f3d6cf4fb4b4c11eaee18cf335923
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67340140"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68602049"
 ---
 # <a name="understand-the-health-of-your-azure-virtual-machines"></a>Comprendre l’intégrité de vos machines virtuelles Azure
 
@@ -92,11 +92,13 @@ Avant d’utiliser la fonctionnalité d’intégrité pour une machine virtuelle
 
 Pour afficher l’intégrité d’une machine virtuelle Azure, sélectionnez **Insights (preview)** (Informations (préversion)) dans le volet de gauche de la machine virtuelle. Sur la page d’informations de machine virtuelle, l’onglet **Intégrité** est ouvert par défaut et affiche la vue d’intégrité de la machine virtuelle.
 
-![Vue d’ensemble de l’intégrité des machines virtuelles Azure Monitor pour une machine virtuelle Azure donnée](./media/vminsights-health/vminsights-directvm-health.png)
+![Vue d’ensemble de l’intégrité des machines virtuelles Azure Monitor pour une machine virtuelle Azure donnée](./media/vminsights-health/vminsights-directvm-health-01.png)
 
-Dans l’onglet **Intégrité**, sous **Guest VM health** (Intégrité de la machine virtuelle invitée), le tableau affiche l’état d’intégrité de la machine virtuelle et le nombre total d’alertes d’intégrité de la machine virtuelle déclenchées par un composant non sain.
+Dans la section **Guest VM health (Intégrité de la machine virtuelle invitée)** , le tableau présente le cumul d’intégrité des performances des composants surveillés par les critères d’intégrité pour la machine virtuelle, et le nombre total d’alertes d’intégrité de la machine virtuelle déclenchées par des composants défectueux. Ces composants incluent **l’UC**, la **mémoire**, le **disque** et le **réseau**. Développez le chevron à côté de Guest VM health (Intégrité de la machine virtuelle invitée) pour afficher l’intégrité de ses composants.
 
-Pour plus d'informations, consultez [Alertes](#alerts).
+![État de l’intégrité des composants des machines virtuelles Azure Monitor pour une machine virtuelle Azure donnée](./media/vminsights-health/vminsights-directvm-health-02.png)
+
+La sélection de l’état à côté du composant permet d’ouvrir l’interface des diagnostics d’intégrité dans le contexte du composant sélectionné. Elle affiche la composition de l’état de ce composant et indique les critères d’intégrité utilisés pour calculer son intégrité. Pour plus d’informations, consultez [Diagnostics d’intégrité et utilisation des critères d’intégrité](#health-diagnostics). Pour plus d’informations sur les alertes, consultez la section [Alertes](#alerts).
 
 Les états d’intégrité définis pour une machine virtuelle sont décrits dans le tableau suivant :
 
@@ -156,13 +158,19 @@ Par exemple, pour passer en revue toutes les machines virtuelles qui exécutent 
 
 ![Exemple de rollup des machines virtuelles Red Hat Linux](./media/vminsights-health/vminsights-rollup-vm-rehl-01.png)
 
+Lorsque vous cochez la case **Afficher l’intégrité**, l’état d’intégrité est renvoyé pour les résultats filtrés dans la table.  
+
+![Exemple d’état d’intégrité des machines virtuelles Red Hat Linux](./media/vminsights-health/vminsights-rollup-vm-rehl-02.png)
+
+Pour chaque élément de la liste, vous pouvez cliquer sur l’état d’intégrité correspondant pour lancer les diagnostics d’intégrité, qui indiquent la manière dont l’intégrité est évaluée pour la machine virtuelle sélectionnée. 
+
 Dans la page **Machines virtuelles**, si vous sélectionnez le nom d’une machine virtuelle sous la colonne **Nom de la machine virtuelle**, vous êtes dirigé vers la page **Instance d’ordinateur virtuel**. Cette page fournit plus d’informations sur les alertes et les problèmes de critères d’intégrité qui affectent la machine virtuelle sélectionnée. Filtrez les détails d’état d’intégrité en sélectionnant l’icône **État d’intégrité** dans le coin supérieur gauche de la page pour voir les composants non sains. Vous pouvez également afficher les alertes d’intégrité de machine virtuelle déclenchées par un composant non sain classées par gravité de l’alerte.
 
 Dans la vue de la **liste de machines virtuelles**, sélectionnez le nom d’une machine virtuelle pour ouvrir la page **Intégrité** de cette machine virtuelle, comme si vous sélectionniez directement **Insights (preview)** (Informations (préversion)) à partir de la machine virtuelle.
 
 ![VM Insights d’une machine virtuelle Azure sélectionnée](./media/vminsights-health/vminsights-directvm-health.png)
 
-La page **Insights (preview)** (Informations (préversion)) affiche un état d’intégrité de cumul de la machine virtuelle et des alertes. Cet état d’intégrité est classé par gravité, qui représente les alertes d’intégrité de machine virtuelle déclenchées lorsque l’état d’intégrité est passé de sain à non sain, en fonction de critères. Sélectionnez **VMs in critical condition** (Machines virtuelles en condition critique) pour ouvrir une page avec une liste d’une ou plusieurs machines virtuelles dans un état critique.
+La page **machines virtuelles (préversion) d’Azure Monitor** affiche le cumul d’état d’intégrité cumulatif pour la machine virtuelle et les alertes. Cet état d’intégrité est classé par gravité, qui représente les alertes d’intégrité de machine virtuelle déclenchées lorsque l’état d’intégrité est passé de sain à non sain, en fonction de critères. Sélectionnez **VMs in critical condition** (Machines virtuelles en condition critique) pour ouvrir une page avec une liste d’une ou plusieurs machines virtuelles dans un état critique.
 
 Sélectionnez l’état d’intégrité de l’une des machines virtuelles pour afficher la vue **Diagnostics de l’intégrité** de la machine virtuelle. Vous pouvez déterminer dans cette vue les critères d’intégrité reflétant un problème d’état d’intégrité. Lorsque la page **Diagnostics de l’intégrité** s’ouvre, elle affiche tous les composants de machine virtuelle et leurs critères d’intégrité associés ainsi que l’état d’intégrité actuel.
 
@@ -293,11 +301,11 @@ Vous pouvez filtrer cette vue en sélectionnant des valeurs dans les menus déro
 
 |Colonne |Description |
 |-------|------------|
-|Abonnement |Sélectionnez un abonnement Azure. Seules les alertes dans l’abonnement sélectionné sont incluses dans la vue. |
+|Subscription |Sélectionnez un abonnement Azure. Seules les alertes dans l’abonnement sélectionné sont incluses dans la vue. |
 |Groupe de ressources |Sélectionnez un seul groupe de ressources. Seules les alertes avec des cibles dans le groupe de ressources sélectionné sont incluses dans la vue. |
 |Type de ressource |Sélectionnez un ou plusieurs types de ressources. Par défaut, seules les alertes des **machines virtuelles** cibles sont sélectionnées et incluses dans cette vue. Cette colonne n’est disponible qu’après qu’un groupe de ressources a été spécifié. |
 |Ressource |Sélectionnez une ressource. Seules les alertes ayant ces ressources pour cible sont incluses dans l’affichage. Cette colonne n’est disponible qu’après qu’un type de ressource a été spécifié. |
-|Severity |Sélectionnez un niveau de gravité d’alerte ou **Tous** pour inclure les alertes de tous les niveaux de gravité. |
+|severity |Sélectionnez un niveau de gravité d’alerte ou **Tous** pour inclure les alertes de tous les niveaux de gravité. |
 |Condition d’analyse |Sélectionnez une condition de surveillance pour filtrer les alertes selon qu’elles soient déclenchées ou résolues par le système (si la condition n’est plus active). Vous pouvez également sélectionner **Tous** pour inclure les alertes de toutes les conditions. |
 |État d’alerte |Sélectionnez un état d’alerte **Nouveau**, **Reconnu**, **Fermé** ou **Tous** pour inclure les alertes de tous les états. |
 |Service de surveillance |Sélectionnez un service ou sélectionnez **Tous** pour inclure tous les services. Seules les alertes d’informations de machine virtuelle sont prises en charge pour cette fonctionnalité.|

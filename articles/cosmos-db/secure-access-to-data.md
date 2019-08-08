@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: rimman
-ms.openlocfilehash: 6ccb9afb528edf67b29c781217ca1de97b81e017
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e321091f2abcff4c385b442ac6474c0592845e2e
+ms.sourcegitcommit: 15f7b641a67f3d6cf4fb4b4c11eaee18cf335923
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65969204"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68602032"
 ---
 # <a name="secure-access-to-data-in-azure-cosmos-db"></a>Sécuriser l’accès aux données dans Azure Cosmos DB
 
@@ -28,7 +28,7 @@ Azure Cosmos DB utilise deux types de clés pour authentifier les utilisateurs e
 
 ## <a name="master-keys"></a>Clés principales 
 
-Les clés principales fournissent un accès à toutes les ressources d’administration du compte de base de données. Clés principales :  
+Les clés principales fournissent un accès à toutes les ressources administratives du compte de base de données. Clés principales :  
 - Fournissent un accès aux comptes, aux bases de données, aux utilisateurs et aux autorisations. 
 - Ne peuvent pas être utilisées pour fournir un accès précis aux conteneurs et aux documents.
 - Sont créées lors de la création d’un compte.

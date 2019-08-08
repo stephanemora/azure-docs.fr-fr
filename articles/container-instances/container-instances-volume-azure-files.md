@@ -10,10 +10,10 @@ ms.date: 07/08/2019
 ms.author: danlep
 ms.custom: mvc
 ms.openlocfilehash: 25cac6a66baeb1587e4b5ba3f0923ca9c4394706
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68325498"
 ---
 # <a name="mount-an-azure-file-share-in-azure-container-instances"></a>Monter un partage de fichiers Azure dans Azure Container Instances
@@ -83,13 +83,13 @@ La valeur `--dns-name-label` doit être unique au sein de la région Azure dans 
 
 ## <a name="manage-files-in-mounted-volume"></a>Gérer les fichiers dans le volume monté
 
-Une fois que le conteneur démarre, vous pouvez utiliser l’application web simple déployée avec la commande Microsoft [aci-hellofiles][aci-hellofiles] image to create small text files in the Azure file share at the mount path you specified. Obtain the web app's fully qualified domain name (FQDN) with the [az container show][az-container-show] :
+Après le démarrage du conteneur, vous pouvez utiliser l’application web simple déployée par l’image Microsoft [aci-hellofiles][aci-hellofiles] pour créer de petits fichiers texte dans le partage de fichiers Azure sur le chemin de montage que vous avez indiqué. Obtenir le nom de domaine complet de l’application web (FQDN) avec la commande [az container show][az-container-show] :
 
 ```azurecli-interactive
 az container show --resource-group $ACI_PERS_RESOURCE_GROUP --name hellofiles --query ipAddress.fqdn --output tsv
 ```
 
-Après avoir enregistré le texte à l’aide de l’application, vous pouvez utiliser le [portal Azure][portal] or a tool like the [Microsoft Azure Storage Explorer][storage-explorer] pour récupérer et inspecter le fichier écrit sur le partage de fichiers.
+Après avoir enregistré le texte à l’aide de l’application, vous pouvez utiliser le [portail Azure][portal] ou un outil tel que[l’Explorateur Stockage Microsoft Azure][storage-explorer] pour récupérer et inspecter le fichier écrit sur le partage de fichiers.
 
 ## <a name="deploy-container-and-mount-volume---yaml"></a>Déployer le conteneur et monter le volume - YAML
 

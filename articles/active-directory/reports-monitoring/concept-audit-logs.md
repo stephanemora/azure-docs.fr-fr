@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/13/2018
+ms.date: 07/17/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 59f716ccd7b2e02c9064f13cf1ffd6e8180858c9
-ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
+ms.openlocfilehash: c872d5151ac0b7bb650e2de68b9e631e8254ba94
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67827913"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68618925"
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Rapports d’activité d’audit dans le portail Azure Active Directory 
 
@@ -48,9 +48,9 @@ Cet article présente une vue d’ensemble du rapport d’audit.
 
 Les journaux d’audit Azure AD fournissent des enregistrements des activités du système pour la conformité. Pour accéder au rapport d’audit, sélectionnez **Journaux d’audit** dans la section **Activité** d’**Azure Active Directory**. Notez que les journaux d’audit peuvent avoir une latence de jusqu’à une heure, et il peut s’écouler un certain temps avant que les données d’activité d’audit s’affichent dans le portail une fois que vous avez terminé la tâche.
 
-![Journaux d’audit](./media/concept-audit-logs/61.png "Journaux d’activité d’Audit")
 
-Un journal d’audit a une vue de liste par défaut qui indique :
+
+Un journal d’audit inclut un mode Liste par défaut, qui indique :
 
 - la date et l’heure de l’occurrence
 - le service qui a enregistré l’occurrence
@@ -79,7 +79,7 @@ Sélectionnez un élément dans la vue sous forme de liste pour obtenir des info
 Vous pouvez filtrer les données d’audit des champs suivants :
 
 - de diffusion en continu
-- Catégorie
+- Category
 - Activité
 - Statut
 - Cible
@@ -88,7 +88,7 @@ Vous pouvez filtrer les données d’audit des champs suivants :
 
 ![Journaux d’audit](./media/concept-audit-logs/filter.png "Journaux d’activité d’Audit")
 
-Le filtre **Service** vous permet de sélectionner ce qui suit dans une liste déroulante :
+Le filtre **Service** vous permet de sélectionner les services suivants dans une liste déroulante :
 
 - Tous
 - Révisions d’accès
@@ -127,7 +127,7 @@ Le filtre **Catégorie** vous permet de sélectionner un des filtres suivants :
 
 Le filtre **Activité** est basé sur la catégorie et le type de ressource d’activité que vous choisissez. Vous pouvez sélectionner une activité spécifique que vous souhaitez voir ou toutes les choisir. 
 
-Vous pouvez obtenir la liste de toutes les activités d’audit à l’aide de l’API Graph https://graph.windows.net/ $tenantdomain/activities/auditActivityTypes?api-version=beta où $tenantdomain correspond à votre nom de domaine. Vous pouvez également consulter l’article sur [les évènements de rapports d’audit](reference-audit-activities.md).
+Vous pouvez récupérer la liste de toutes les activités d’audit en utilisant l’API Graph : `https://graph.windows.net/<tenantdomain>/activities/auditActivityTypesV2?api-version=beta`
 
 Le filtre **État** vous permet de filtrer en fonction de l’état d’une opération d’audit. Il peut s’agir d'un des états suivants :
 
@@ -149,7 +149,7 @@ Les valeurs possibles sont les suivantes :
 
 Lorsque vous sélectionnez une plage personnalisée, vous pouvez configurer une heure de début et une heure de fin.
 
-Vous pouvez également télécharger les données filtrées, jusqu'à 250 000 enregistrements, en sélectionnant le bouton **Télécharger**. Vous pouvez télécharger les journaux au format CSV ou JSON. Le nombre d’enregistrements que vous pouvez télécharger est limité par les [stratégies de rétention de rapport Azure Active Directory](reference-reports-data-retention.md).
+Vous pouvez également télécharger les données filtrées, jusqu’à 250 000 enregistrements, en sélectionnant le bouton **Télécharger**. Vous pouvez télécharger les journaux d’activité au format CSV ou JSON. Le nombre d’enregistrements que vous pouvez télécharger est limité par les [stratégies de rétention de rapport Azure Active Directory](reference-reports-data-retention.md).
 
 ![Journaux d’audit](./media/concept-audit-logs/download.png "Journaux d’activité d’Audit")
 
@@ -180,11 +180,11 @@ Les rapports d’audit basés sur les utilisateurs et les groupes vous permetten
 
 - Quelles licences ont été attribuées à un groupe ou un utilisateur ?
 
-Si vous souhaitez simplement consulter les données d’audit connexes aux utilisateurs, vous pouvez trouver une vue filtrée sous **Journaux d’audit** dans la section **Activité** de l'onglet **Utilisateurs**. La catégorie présélectionnée de ce point d'entrée est **UserManagement**.
+Si vous souhaitez simplement consulter les données d’audit connexes aux utilisateurs, vous pouvez filtrer l’affichage dans **Journaux d’activités d’audit** dans la section **Activité** de l’onglet **Utilisateurs**. La catégorie présélectionnée de ce point d'entrée est **UserManagement**.
 
 ![Journaux d’audit](./media/concept-audit-logs/users.png "Journaux d’activité d’Audit")
 
-Si vous souhaitez simplement consulter les données d’audit connexes aux groupes, vous pouvez trouver une vue filtrée sous **Journaux d’audit** dans la section **Activité** de l'onglet **Groupes**. La catégorie présélectionnée de ce point d'entrée est **GroupManagement**.
+Si vous souhaitez simplement consulter les données d’audit connexes aux groupes, vous pouvez filtrer l’affichage dans **Journaux d’activité d’audit** dans la section **Activité** de l’onglet **Groupes**. La catégorie présélectionnée de ce point d'entrée est **GroupManagement**.
 
 ![Journaux d’audit](./media/concept-audit-logs/groups.png "Journaux d’activité d’Audit")
 
@@ -206,7 +206,7 @@ Si vous souhaitez consulter les données d’audit associées à vos application
 
 Vous pouvez consulter les journaux d’activité Office 365 dans le [centre d’administration Microsoft 365](https://docs.microsoft.com/office365/admin/admin-overview/about-the-admin-center). Bien que les journaux d’activité Office 365 et Azure AD partagent une grande partie des ressources du répertoire, seul le centre d’administration Microsoft 365 offre une vue complète des journaux d’activité Office 365. 
 
-Vous pouvez également accéder par programme aux journaux d’activité d’Office 365 avec l’[API de gestion Office 365](https://docs.microsoft.com/office/office-365-management-api/office-365-management-apis-overview).
+Vous pouvez également accéder par programme aux journaux d’activité d’Office 365 en utilisant les [API de gestion Office 365](https://docs.microsoft.com/office/office-365-management-api/office-365-management-apis-overview).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

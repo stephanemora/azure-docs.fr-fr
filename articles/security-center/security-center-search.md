@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/11/2017
 ms.author: rkarlin
-ms.openlocfilehash: 90dbb33fa516d3a831d4e60969ac6b6c8312d539
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c88e2025444aa2fd83e05fdff97ea640ceefaa04
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64574142"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68662928"
 ---
-# <a name="azure-security-center-search"></a>Recherche Azure Security Center
+# <a name="azure-security-center-search-retired"></a>Recherche Azure Security Center (hors service)
 
 > [!NOTE]
-> La mise hors service du tableau de bord de recherche du Security Center est prévue pour le 31 juillet 2019. Pour en savoir plus et connaître les alternatives en matière de services, consultez [Retrait des fonctionnalités du Security Center (juillet 2019)](security-center-features-retirement-july2019.md#menu_search).
+> Le tableau de bord de recherche du Security Center a été mis hors service le 31 juillet 2019. Pour en savoir plus et connaître les alternatives, voir [Retrait des fonctionnalités du Security Center (juillet 2019).](security-center-features-retirement-july2019.md#menu_search)
 
 Azure Security Center utilise la [recherche de Journaux Azure Monitor](../log-analytics/log-analytics-log-searches.md) pour récupérer et analyser vos données de sécurité. La solution Journaux Azure Monitor inclut un langage de requête pour rapidement récupérer et regrouper les données. Dans Security Center, vous pouvez utiliser la recherche de Journaux Azure Monitor pour créer des requêtes et analyser les données collectées.
 

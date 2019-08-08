@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: jucoriol
 ms.custom: mvc
-ms.openlocfilehash: f28ea3dd2837a241c538057bd118409d4f5b858a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8990f1f8e4cda5a6cc8b8d3197b843662b1397a5
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60643580"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68598543"
 ---
 # <a name="deprecated-full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-docker-swarm-using-azure-devops-services"></a>(DÉPRÉCIÉ) Pipeline CI/CD complet pour déployer une application à plusieurs conteneurs sur Azure Container Service, avec Docker Swarm par le biais d’Azure DevOps Services
 
@@ -225,4 +225,4 @@ Maintenant que vous avez terminé la configuration, il est temps de tester ce no
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour plus d’informations sur la CI/CD avec Azure DevOps Services, voir la [vue d’ensemble de la génération dans Azure DevOps Services](https://www.visualstudio.com/docs/build/overview).
+* Pour plus d’informations sur la CI/CD avec Azure DevOps Services, consultez l’article [Documentation Azure Pipelines](/azure/devops/pipelines/?view=azure-devops).

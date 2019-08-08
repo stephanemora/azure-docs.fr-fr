@@ -1,5 +1,5 @@
 ---
-title: Comprendre l’architecture de la solution Azure Security Center pour IoT en préversion | Microsoft Docs
+title: Comprendre l’architecture de la solution Azure Security Center pour IoT | Microsoft Docs
 description: En savoir plus sur le flux d’informations dans le service Azure Security Center pour IoT.
 services: asc-for-iot
 ms.service: asc-for-iot
@@ -13,53 +13,56 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/24/2019
+ms.date: 07/23/2019
 ms.author: mlottner
-ms.openlocfilehash: 5cab57343f9675df0702cf4281b3d74ca96d86ae
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: a013d4cfcfddc709e60e91adf57bc27c98934a96
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67618546"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68596569"
 ---
 # <a name="azure-security-center-for-iot-architecture"></a>Architecture d’Azure Security Center pour IoT
 
-Cet article explique l’architecture système fonctionnelle de la solution Azure Security Center (ASC) pour IoT. 
+Cet article explique l’architecture système fonctionnelle de la solution Azure Security Center pour IoT. 
 
-> [!IMPORTANT]
-> Azure Security Center pour IoT est disponible en préversion publique.
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+## <a name="azure-security-center-for-iot-components"></a>Composants Azure Security Center pour IoT
 
-## <a name="asc-for-iot-components"></a>Composants d’ASC pour IoT
-
-ASC pour IoT est composé des éléments suivants :
-- Agents d’appareil
-- SDK d’envoi de message de sécurité
+Azure Security Center pour IoT est composé des éléments suivants :
 - Intégration d’IoT Hub
+- Agents Smart Device (facultatif)
+- SDK d’envoi de message de sécurité
 - Pipeline d’analytique
  
-### <a name="asc-for-iot-workflow"></a>Flux de travail d’ASC pour IoT
+### <a name="azure-security-center-for-iot-workflows"></a>Flux de travail Azure Security Center pour IoT
 
-Les agents d’appareil ASC pour IoT vous permettent de recueillir facilement des événements de sécurité bruts à partir de vos appareils. Les événements de sécurité bruts peuvent inclure des connexions IP, la création de processus, des connexions utilisateur et d’autres informations liées à la sécurité. Les agents d’appareil ASC pour IoT gèrent également l’agrégation d’événements afin d’éviter un débit réseau élevé. Les agents sont hautement personnalisables, vous permettant ainsi de les utiliser pour des tâches spécifiques, comme l’envoi d’informations importantes uniquement sur le contrat SLA le plus rapide, ou l’agrégation du contexte et des informations de sécurité étendues en segments plus volumineux, pour éviter des coûts de service plus élevés.
- 
-Les agents d’appareil et d’autres applications utilisent le **SDK d’envoi de message de sécurité Azure ASC** pour envoyer des informations de sécurité dans Azure IoT Hub. IoT Hub récupère ces informations et les transmet au service ASC pour IoT.
+Azure Security Center pour IoT fonctionne dans l’un des deux flux de travail de fonctionnalités : intégré et amélioré  
 
-Une fois le service ASC pour IoT activé, outre les données transférées, IoT Hub envoie également toutes ses données internes à ASC pour IoT à des fins d’analyse. Ces données incluent les journaux des opérations appareil-cloud, les identités des appareils et la configuration du Hub. Toutes ces informations permettent de créer le pipeline d’analytique ASC pour IoT.
+### <a name="built-in"></a>Intégration
+En **mode intégré**, Azure Security Center pour IOT s’active lorsque vous choisissez d’activer l’option **Sécurité** dans votre IOT Hub. Grâce à sa surveillance, ses suggestions et ses alertes en temps réel, le mode intégré offre une visibilité de l’appareil en une seule étape et une sécurité inégalée. Le mode de génération ne nécessite pas l’installation de l’agent sur un appareil et utilise des analyses avancées sur les activités journalisées pour analyser et protéger votre appareil de champ. 
+
+### <a name="enhanced"></a>Amélioré 
+En mode **étendu**, après l’activation de l’option **Sécurité** dans votre IOT Hub et l’installation des agents d’appareils Azure Security Center pour IoT sur vos appareils, les agents collectent, agrègent et analysent les événements de sécurité bruts de vos appareils. Les événements de sécurité bruts peuvent inclure des connexions IP, la création de processus, des connexions utilisateur et d’autres informations liées à la sécurité. Les agents d’appareil Azure Security Center pour IoT gèrent également l’agrégation d’événements afin d’éviter un débit réseau élevé. Les agents sont hautement personnalisables, vous permettant ainsi de les utiliser pour des tâches spécifiques, comme l’envoi d’informations importantes uniquement sur le contrat SLA le plus rapide, ou l’agrégation du contexte et des informations de sécurité étendues en segments plus volumineux, pour éviter des coûts de service plus élevés.
+
+![Architecture d’Azure Security Center pour IoT](./media/architecture/azure-iot-security-architecture.png)
  
-Le pipeline d’analytique ASC pour IoT reçoit également des flux supplémentaires d’information sur les menaces à partir de diverses sources au sein de Microsoft et des partenaires de Microsoft. Le pipeline d’analytique entier d’ASC pour IoT fonctionne avec toutes les configurations client effectuées sur le service (par exemple, des alertes personnalisées et l’utilisation du SDK d’envoi de message de sécurité).
+Les agents d’appareil et d’autres applications utilisent le **SDK d’envoi de message de sécurité Azure** pour envoyer des informations de sécurité dans Azure IoT Hub. IoT Hub récupère ces informations et les transfèrent au service Azure Security Center pour IoT.
+
+Une fois le service Azure Security Center pour IoT activé, outre les données transférées, IoT Hub envoie également toutes ses données internes à Azure Security Center pour IoT à des fins d’analyse. Ces données incluent les journaux des opérations appareil-cloud, les identités des appareils et la configuration du Hub. Toutes ces informations permettent de créer le pipeline d’analytique Azure Security Center pour IoT.
  
-À l’aide du pipeline d’analytique, ASC pour IoT combine tous les flux d’informations pour générer des alertes et des recommandations exploitables. Le pipeline contient des règles personnalisées créées par les chercheurs et les experts en sécurité, ainsi que des modèles Machine Learning recherchant toute différence par rapport à l’analyse des risques et du comportement d’appareil standard.
+Le pipeline d’analytique Azure Security Center pour IoT reçoit également des flux d’information supplémentaires sur les menaces à partir de diverses sources au sein de Microsoft et des partenaires de Microsoft. L’ensemble du pipeline d’analytique Azure Security Center pour IoT fonctionne avec toutes les configurations client effectuées sur le service (par exemple, des alertes personnalisées et l’utilisation du SDK d’envoi de message de sécurité).
  
-Les recommandations et les alertes ASC pour IoT (sortie du pipeline d’analytique) sont écrites dans l’espace de travail Log Analytics de chaque client. Le fait d’inclure les événements bruts dans l’espace de travail, ainsi que les alertes et les recommandations permet de mettre en place des enquêtes et des requêtes approfondies à l’aide des informations précises concernant les activités suspectes détectées.  
+À l’aide du pipeline d’analytique, Azure Security Center pour IoT combine tous les flux d’informations pour générer des alertes et des suggestions exploitables. Le pipeline contient des règles personnalisées créées par les chercheurs et les experts en sécurité, ainsi que des modèles Machine Learning recherchant toute différence par rapport à l’analyse des risques et du comportement d’appareil standard.
+ 
+Les suggestions et les alertes d’Azure Security Center pour IoT (sortie du pipeline d’analytique) sont écrites dans l’espace de travail Log Analytics de chaque client. Le fait d’inclure les événements bruts dans l’espace de travail, ainsi que les alertes et les recommandations permet de mettre en place des enquêtes et des requêtes approfondies à l’aide des informations précises concernant les activités suspectes détectées.  
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans cet article, vous avez découvert l’architecture de base et le flux de travail de la solution ASC pour IoT. Pour en savoir plus sur les prérequis, la prise en main et l’activation de votre solution de sécurité dans IoT Hub, consultez les articles suivants :
+Dans cet article, vous avez découvert l’architecture de base et le flux de travail de la solution Azure Security Center pour IoT. Pour en savoir plus sur les prérequis, la prise en main et l’activation de votre solution de sécurité dans IoT Hub, consultez les articles suivants :
 
 - [Prérequis du service](service-prerequisites.md)
 - [Prise en main](getting-started.md)
 - [Configurer votre solution](quickstart-configure-your-solution.md)
 - [Activer la sécurité dans IoT Hub](quickstart-onboard-iot-hub.md)
-- [FAQ ASC pour IoT](resources-frequently-asked-questions.md)
-- [Alertes de sécurité ASC pour IoT](concept-security-alerts.md)
-
+- [FAQ Azure Security Center pour IoT](resources-frequently-asked-questions.md)
+- [Alertes de sécurité Azure Security Center pour IoT](concept-security-alerts.md)

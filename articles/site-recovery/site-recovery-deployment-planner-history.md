@@ -6,18 +6,27 @@ author: Daya-Patil
 manager: carmonm
 ms.topic: article
 ms.service: site-recovery
-ms.date: 04/24/2019
+ms.date: 07/29/2019
 ms.author: dapatil
-ms.openlocfilehash: 2edf7ce3be1402a497ceab5b826a89ee43c5c39b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: acce72a5ddfaab56a7fcce92f0153bb06cb1ae71
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64927371"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68620104"
 ---
 # <a name="azure-site-recovery-deployment-planner-version-history"></a>Historique des versions du Planificateur de déploiement Azure Site Recovery
 
 Cet article fournit un historique de toutes les versions du Planificateur de déploiement Azure Site Recovery, et décrit les correctifs et limitations connues de chaque version ainsi que leurs dates de publication.
+
+## <a name="version-25"></a>Version 2.5
+
+**Date de publication : 29 juillet 2019**
+
+**Correctifs :**
+
+- Pour les machines virtuelles VMware et les machines physiques, les suggestions sont mises à jour pour être basée sur la réplication vers les disques managés.
+- Ajout de la prise en charge pour Windows 10 (x64), Windows 8.1 (x64), Windows 8 (x64), Windows 7 (x64) SP1 ou une version ultérieure
 
 ## <a name="version-24"></a>Version 2.4
 
@@ -28,8 +37,8 @@ Cet article fournit un historique de toutes les versions du Planificateur de dé
 - Amélioration de la compatibilité avec le système d’exploitation, en particulier lors du traitement d’erreurs de localisation.
 - Ajout de machines virtuelles avec jusqu’à 20 Mbits/s de taux de modifications des données (évolution) à la liste de contrôle de compatibilité.
 - Amélioration des messages d’erreur
-  - Ajout de la prise en charge de vCenter 6.7.
-  - Ajout de la prise en charge de Windows Server 2019 et de station de travail Red Hat Enterprise Linux (RHEL).
+- Ajout de la prise en charge de vCenter 6.7.
+- Ajout de la prise en charge de Windows Server 2019 et de station de travail Red Hat Enterprise Linux (RHEL).
 
 
 

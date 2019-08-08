@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: kumud
 ms.reviewer: yagup
-ms.openlocfilehash: ca3174ad69185da88bf89c843f641dd2b20d9ac5
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 03c0106d793fc7b77ccc8a9176f158a9928ab291
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67872489"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68620126"
 ---
 # <a name="traffic-analytics"></a>Traffic Analytics
 
@@ -55,7 +55,7 @@ Traffic Analytics examine les journaux de flux de groupe de sécurité réseau b
 
 ![Flux de données pour le traitement des journaux de flux de groupe de sécurité réseau](./media/traffic-analytics/data-flow-for-nsg-flow-log-processing.png)
 
-## <a name="supported-regions"></a>Régions prises en charge
+## <a name="supported-regions-nsg"></a>Régions prises en charge : Groupe de sécurité réseau 
 
 Vous pouvez utiliser l’analytique du trafic pour les régions prises en charge suivantes :
 
@@ -84,6 +84,8 @@ Vous pouvez utiliser l’analytique du trafic pour les régions prises en charge
 * Japon Est 
 * Japon Ouest
 * Gouvernement américain - Virginie
+
+## <a name="supported-regions-log-analytics-workspaces"></a>Régions prises en charge : Espaces de travail Log Analytics
 
 L’espace de travail Log Analytics doit exister dans les régions suivantes :
 * Centre du Canada
@@ -137,7 +139,7 @@ Pour plus d’informations sur la vérification des autorisations d’accès uti
 
 ### <a name="enable-network-watcher"></a>Activer Network Watcher
 
-Pour analyser le trafic, vous devez disposer d’un service Network Watcher, ou devez [activer un Network Watcher](network-watcher-create.md) dans chaque région hébergeant des groupes de sécurité réseau que vous souhaitez analyser. Traffic Analytics peut être activé pour les groupes de sécurité réseau hébergés dans les [régions prises en charge](#supported-regions).
+Pour analyser le trafic, vous devez disposer d’un service Network Watcher, ou devez [activer un Network Watcher](network-watcher-create.md) dans chaque région hébergeant des groupes de sécurité réseau que vous souhaitez analyser. Traffic Analytics peut être activé pour les groupes de sécurité réseau hébergés dans les [régions prises en charge](#supported-regions-nsg).
 
 ### <a name="select-a-network-security-group"></a>Sélectionner un groupe de sécurité réseau
 
@@ -147,7 +149,7 @@ Dans la partie gauche du portail Azure, sélectionnez **Surveiller**, puis **Obs
 
 ![Sélection de groupes de sécurité réseau qui nécessitent l’activation du journal de flux de groupe de sécurité réseau](./media/traffic-analytics/selection-of-nsgs-that-require-enablement-of-nsg-flow-logging.png)
 
-Si vous essayez d’activer Traffic Analytics pour un groupe de sécurité réseau qui est hébergé dans une région autre que les [régions prises en charge](#supported-regions), une erreur « Introuvable » s’affiche.
+Si vous essayez d’activer Traffic Analytics pour un groupe de sécurité réseau qui est hébergé dans une région autre que les [régions prises en charge](#supported-regions-nsg), une erreur « Introuvable » s’affiche.
 
 ## <a name="enable-flow-log-settings"></a>Activer les paramètres de journal de flux
 
@@ -174,17 +176,18 @@ Sélectionnez les options suivantes, comme indiqué dans l’image :
 
 1. Sélectionnez *Actif* pour **État**.
 2. Sélectionnez *Version 2* comme **version de Journaux de flux**. La version 2 contient des statistiques de session des flux (octets et paquets).
-3. Sélectionnez un compte de stockage existant dans lequel conserver les journaux de flux. Si vous souhaitez stocker les données indéfiniment, définissez la valeur sur *0*. Des frais de stockage Azure peuvent s’appliquer pour le compte de stockage.
+3. Sélectionnez un compte de stockage existant dans lequel conserver les journaux de flux. Si vous souhaitez stocker les données indéfiniment, définissez la valeur sur *0*. Des frais de stockage Azure peuvent s’appliquer pour le compte de stockage. Assurez-vous que « Data Lake Storage Gen2 Espace de noms hiérarchique activé » n’est pas défini sur True (vrai) dans votre espace de stockage. De plus, les journaux de flux de groupe de sécurité réseau ne peuvent pas être stockés dans un compte de stockage avec un pare-feu. 
 4. Définissez **Rétention** sur le nombre de jours durant lequel vous souhaitez stocker les données.
 5. Sélectionnez *Activé* pour **Traffic Analytics Status** (État Traffic Analytics).
-6. Sélectionnez un espace de travail Log Analytics (OMS) existant ou cliquez sur **Créer un espace de travail** pour en créer un. Un espace de travail Log Analytics est utilisé par Traffic Analytics pour stocker les données agrégées et indexées qui sont ensuite utilisées pour générer l’analyse. Si vous sélectionnez un espace de travail existant, il doit se trouver dans les [régions prises en charge](#supported-regions) et avoir été mis à niveau vers le nouveau langage de requête. Si vous ne souhaitez pas mettre à niveau un espace de travail existant ou si vous ne disposez pas d’un espace de travail dans une région prise en charge, créez-en un. Pour plus d’informations sur les langages de requête, consultez [Mise à niveau Azure Log Analytics avec la nouvelle recherche dans les journaux](../log-analytics/log-analytics-log-search-upgrade.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+6. Sélectionnez l’intervalle de traitement. Suivant votre choix, les journaux d’activité de flux seront collectés à partir du compte de stockage et traités par Traffic Analytics. Vous pouvez choisir un intervalle de traitement et le définir pour toutes les heures ou toutes les 10 minutes.
+7. Sélectionnez un espace de travail Log Analytics (OMS) existant ou cliquez sur **Créer un espace de travail** pour en créer un. Un espace de travail Log Analytics est utilisé par Traffic Analytics pour stocker les données agrégées et indexées qui sont ensuite utilisées pour générer l’analyse. Si vous sélectionnez un espace de travail existant, il doit se trouver dans les [régions prises en charge](#supported-regions-log-analytics-workspaces) et avoir été mis à niveau vers le nouveau langage de requête. Si vous ne souhaitez pas mettre à niveau un espace de travail existant ou si vous ne disposez pas d’un espace de travail dans une région prise en charge, créez-en un. Pour plus d’informations sur les langages de requête, consultez [Mise à niveau Azure Log Analytics avec la nouvelle recherche dans les journaux](../log-analytics/log-analytics-log-search-upgrade.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 
     L’espace de travail Log Analytics qui héberge la solution Traffic Analytics et les groupes de sécurité réseau ne doivent pas nécessairement se trouver dans la même région. Par exemple, Traffic Analytics se trouve peut-être dans un espace de travail de la région Europe Ouest, tandis que vos groupes de sécurité réseau sont hébergés dans les régions USA Est et USA Ouest. Plusieurs groupes de sécurité réseau peuvent être configurés dans le même espace de travail.
-7. Sélectionnez **Enregistrer**.
+8. Sélectionnez **Enregistrer**.
 
-    ![Sélection du compte de stockage, de l’espace de travail Log Analytics et activation de Traffic Analytics](./media/traffic-analytics/selection-of-storage-account-log-analytics-workspace-and-traffic-analytics-enablement-nsg-flowlogs-v2.png)
+    ![Sélection du compte de stockage, de l’espace de travail Log Analytics et activation de Traffic Analytics](./media/traffic-analytics/ta-customprocessinginterval.png)
 
-Répétez les étapes précédentes pour les autres groupes de sécurité réseau pour lesquels vous souhaitez activer Traffic Analytics. Les données des journaux de flux étant envoyées à l’espace de travail, assurez-vous que les lois et réglementations locales de votre pays/région autorisent le stockage de données dans la région où se trouve l’espace de travail.
+Répétez les étapes précédentes pour les autres groupes de sécurité réseau pour lesquels vous souhaitez activer Traffic Analytics. Les données des journaux de flux étant envoyées à l’espace de travail, assurez-vous que les lois et réglementations locales de votre pays autorisent le stockage de données dans la région où se trouve l’espace de travail. Si vous avez défini des intervalles de traitement différents pour plusieurs groupes de sécurité réseau, les données ne seront pas collectées aux mêmes intervalles. Par exemple :  Vous pouvez choisir d’activer l’intervalle de traitement défini sur 10 minutes pour les réseaux virtuels critiques et sur une heure pour les réseaux virtuels non critiques.
 
 Vous pouvez également configurer les analyses de trafic à l’aide de la cmdlet PowerShell [Set-AzNetworkWatcherConfigFlowLog](/powershell/module/az.network/set-aznetworkwatcherconfigflowlog) dans Azure PowerShell. Exécutez `Get-Module -ListAvailable Az` pour rechercher la version installée. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-Az-ps).
 
