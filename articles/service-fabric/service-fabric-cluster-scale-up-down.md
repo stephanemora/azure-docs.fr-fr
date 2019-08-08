@@ -3,7 +3,7 @@ title: Augmenter ou diminuer la taille des instances d’un cluster Service Fabr
 description: Augmentez ou diminuez la taille des instances d’un cluster Service Fabric pour répondre à la demande en définissant des règles de mise à l’échelle automatique pour chaque type de nœud/groupe de machines virtuelles identiques. Ajouter ou supprimer des nœuds d’un cluster Service Fabric
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: aeb76f63-7303-4753-9c64-46146340b83d
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/12/2019
-ms.author: aljo
-ms.openlocfilehash: 400e4653800d445506d4854e70034a707dcc4629
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: atsenthi
+ms.openlocfilehash: b1b3c0e6440212474bf356d4204c0dd91c1491fa
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66161804"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68599899"
 ---
 # <a name="scale-a-cluster-in-or-out"></a>Mettre à l’échelle un cluster
 
@@ -63,7 +63,7 @@ Actuellement, la fonctionnalité de mise à l’échelle automatique ne dépend 
 Suivez ces instructions afin de [configurer la mise à l’échelle automatique pour chaque groupe de machines virtuelles identiques](../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview.md).
 
 > [!NOTE]
-> Dans un scénario de descente en puissance, à moins que votre type de nœud ne possède un [niveau de durabilité][durability] Gold ou Silver, vous devez appeler la [cmdlet Remove-ServiceFabricNodeState](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricnodestate) avec le nom de nœud approprié. Pour la durabilité Bronze, il n’est pas recommandé de descendre en puissance plusieurs nœuds simultanément.
+> Dans un scénario de descente en puissance, à moins que votre type de nœud ne possède un [niveau de durabilité][durability] Gold ou Silver, vous devez appeler le [cmdlet Remove-ServiceFabricNodeState](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricnodestate) avec le nom de nœud approprié. Pour la durabilité Bronze, il n’est pas recommandé de descendre en puissance plusieurs nœuds simultanément.
 > 
 > 
 
@@ -107,7 +107,7 @@ Pour un service avec état, un certain nombre de nœuds doivent toujours fonctio
 
 ### <a name="remove-the-service-fabric-node"></a>Supprimer le nœud Service Fabric
 
-Les étapes pour supprimer manuellement un état de nœud s’appliquent uniquement aux types de nœuds avec un niveau de durabilité *Bronze*.  Pour les niveaux de durabilité *Silver* et *Gold*, ces étapes sont effectuées automatiquement par la plateforme. Pour plus d’informations sur la durabilité, consultez [Planification de la capacité des clusters Service Fabric][durability].
+Les étapes pour supprimer manuellement un état de nœud s’appliquent uniquement aux types de nœuds avec un niveau de durabilité *Bronze*.  Pour les niveaux de durabilité *Silver* et *Gold*, ces étapes sont effectuées automatiquement par la plateforme. Pour plus d’informations sur la durabilité, consultez la [Planification de la capacité des clusters Service Fabric][durability].
 
 Pour que les nœuds du cluster soient toujours répartis uniformément entre les domaines d’erreur et de mise à jour, et ainsi permettre leur utilisation homogène, le dernier nœud créé doit être supprimé en premier. En d’autres termes, les nœuds doivent être supprimés dans l’ordre inverse de leur création. Le dernier nœud créé est celui contenant la plus grande valeur de propriété `virtual machine scale set InstanceId`. Les exemples de code ci-dessous renvoient le dernier nœud créé.
 
