@@ -1,5 +1,5 @@
 ---
-title: Approvisionner automatiquement des appareils avec le service Device Provisioning à l’aide de l’attestation de clé symétrique - Azure IoT Edge | Microsoft Docs
+title: Approvisionner automatiquement des appareils avec le service Device Provisioning à l’aide de l’attestation de clé symétrique – Azure IoT Edge | Microsoft Docs
 description: Utiliser l’attestation de clé symétrique pour tester l’approvisionnement automatique des appareils pour Azure IoT Edge avec le service Device Provisioning
 author: kgremban
 manager: philmea
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: a91162271bf36e1d68e087a60723497e7fc261ec
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 3c21c0bdce6f6a5cd3c8f634bf400600b30a8ead
+ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68275740"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68414593"
 ---
 # <a name="create-and-provision-an-iot-edge-device-using-symmetric-key-attestation"></a>Créer et approvisionner un appareil IoT Edge à l’aide de l’attestation de clé symétrique
 
@@ -165,8 +165,7 @@ Vous aurez besoin des informations suivantes lors de l’approvisionnement de vo
 
 Suivez les instructions relatives à l’architecture de votre appareil. Veillez à configurer le runtime IoT Edge pour le provisionnement automatique, et non manuel.
 
-* [Installer le runtime Azure IoT Edge sur Linux (x64)](how-to-install-iot-edge-linux.md)
-* [Installer le runtime Azure IoT Edge sur Linux (ARM32v7/armhf)](how-to-install-iot-edge-linux-arm.md)
+[Installer le runtime Azure IoT Edge sur Linux](how-to-install-iot-edge-linux.md)
 
 La section du fichier de configuration pour l’approvisionnement des clés symétriques se présente comme suit :
 
@@ -188,7 +187,7 @@ Remplacez les valeurs d’espace réservé pour `{scope_id}`, `{registration_id}
 
 Suivez les instructions pour installer le runtime IoT Edge sur l’appareil pour lequel vous avez généré une clé d’appareil dérivée. Veillez à configurer le runtime IoT Edge pour le provisionnement automatique, et non manuel.
 
-[Installer et approvisionner automatiquement IoT Edge](how-to-install-iot-edge-windows.md#option-2-install-and-automatically-provision)
+[Installer et approvisionner automatiquement IoT Edge sur Windows](how-to-install-iot-edge-windows.md#option-2-install-and-automatically-provision)
 
 ## <a name="verify-successful-installation"></a>Vérifier la réussite de l’installation
 

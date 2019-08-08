@@ -11,42 +11,136 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 6/6/2019
+ms.date: 8/2/2019
 ms.author: raiye
-ms.openlocfilehash: ecf898d331ec426aa343441d29084b4f2c656fa0
-ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
-ms.translationtype: MT
+ms.openlocfilehash: 534a77ad29338ca1cdba22a3adeb8113521a6246
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66743039"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780093"
 ---
 # <a name="azure-guest-os"></a>Système d’exploitation invité d'Azure
 Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Response Center) appliquées au système d’exploitation invité d'Azure. Parcourez cet article pour déterminer si une mise à jour spécifique s'applique au système d’exploitation invité que vous utilisez. Les mises à jour vont toujours de l'avant pour la [famille][family-explain] spécifique avec laquelle elles ont été présentées.
 
-## <a name="may-2019-guest-os"></a>Système d’exploitation invité de mai 2019
+## <a name="july-2019-guest-os"></a>Système d’exploitation invité, juillet 2019
 
 | Catégorie de produit | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
 | --- | --- | --- | --- | --- |
-|  Rel 19-05   |  [4498206]  |  Correctif cumulatif IE mai   |  2,86, 3.73, 4.66  |  14 mai 2019  |
-|  Rel 19-05   |  [4505050]  |  Correctif cumulatif IE mai   |  2,86, 3.73, 4.66  |  18 mai 2019  |
-|  Rel 19-05   |  [4497932]  |  Peut clignoter mise à jour   |  3.73, 4.66, 5.31  |  14 mai 2019  |
-|  Rel 19-05   |  [4499175]  |  Correctif cumulatif de sécurité mai   |  2.86  |  14 mai 2019  |
-|  Rel 19-05   |  [4495612]  |  Correctif cumulatif de sécurité .NET 3.5 mai   |  2.86  |  14 mai 2019  |
-|  Rel 19-05   |  [4495593]  |  Correctif cumulatif de sécurité .NET 4.5.2 mai   |  2.86  |  14 mai 2019  |
-|  Rel 19-05   |  [4499158]  |  Correctif cumulatif de sécurité mai   |  3,73  |  14 mai 2019  |
-|  Rel 19-05   |  [4495607]  |  Correctif cumulatif de sécurité .NET 3.5 mai   |  3,73  |  14 mai 2019  |
-|  Rel 19-05   |  [4495591]  |  Correctif cumulatif de sécurité .NET 4.5.2 mai   |  3,73  |  14 mai 2019  |
-|  Rel 19-05   |  [4492872]  |  Cumul d’IE   |  3,73  |  16 avril 2019  |
-|  Rel 19-05   |  [4499165]  |  Cumul de sécurité de mars   |  4.66  |  14 mai 2019  |
-|  Rel 19-05   |  [4495615]  |  Correctif cumulatif de sécurité .NET 3.5 mai   |  4.66  |  14 mai 2019  |
-|  Rel 19-05   |  [4495589]  |  Correctif cumulatif de sécurité .NET 4.5.2 mai   |  4.66  |  14 mai 2019  |
-|  Rel 19-05   |  [4498947]  |  SSU mai   |  5.31  |  14 mai 2019  |
-|  Rel 19-05   |  [4494175]  |  Mise à jour du Microcode mai   |  5.31  |  14 mai 2019  |
-|  Rel 19-05   |  [4505052]  |  Correctif cumulatif de sécurité mai   |  5.31  |  19 mai 2019  |
-|  Rel 19-05   |  [4499728]  |  SSU mai   |  6.7  |  19 mai 2019  |
-|  Rel 19-05   |  [4505056]  |  Correctif cumulatif de sécurité mai   |  6.7  |  19 mai 2019  |
-|  Rel 19-05   |  [4494174]  |  Mise à jour du Microcode mai   |  6.7  |  14 mai 2019  |
-|  Rel 19-05   |  [4495590]  |  Correctif cumulatif de sécurité .NET mai   |  6.7  |  14 mai 2019  |
+|  Version 07-19   |  [4507434]  |  Internet Explorer   |  2,88 ; 3,75 ; 4,68  |  9 juillet 2019  |
+|  Version 07-19   |  [4506966]  |  Sécurité .NET 4.5.2   |  2,88  |  9 juillet 2019  |
+|  Version 07-19   |  [4506976]  |  Sécurité .NET 3.5.1   |  2,88  |  9 juillet 2019  |
+|  Version 07-19   |  [4507456]  |  Sécurité Windows   |  2,88  |  9 juillet 2019  |
+|  Version 07-19   |  [4506965]  |  Sécurité .NET 4.5.2   |  3,75  |  9 juillet 2019  |
+|  Version 07-19   |  [4506974]  |  Sécurité .NET 3.5   |  3,75  |  9 juillet 2019  |
+|  Version 07-19   |  [4507464]  |  Sécurité Windows   |  3,75  |  9 juillet 2019  |
+|  Version 07-19   |  [4506964]  |  Sécurité .NET 4.5.2   |  4.68  |  9 juillet 2019  |
+|  Version 07-19   |  [4506977]  |  Sécurité .NET 3.5   |  4.68  |  9 juillet 2019  |
+|  Version 07-19   |  [4507457]  |  Sécurité Windows   |  4.68  |  9 juillet 2019  |
+|  Version 07-19   |  [4507460]  |  Sécurité Windows   |  5.33  |  9 juillet 2019  |
+|  Version 07-19   |  [4506998]  |  Sécurité .NET 3.5 et 4.7.2   |  6.9  |  9 juillet 2019  |
+|  Version 07-19   |  [4507469]  |  Sécurité Windows   |  6.9  |  9 juillet 2019  |
+|  N/A  |  [4503537]  |  Juin 2019 – Mise à jour de la pile de maintenance pour (Server 2016)   |  5.33  |  14 mai 2019  |
+|  N/A  |  [4504369]  |  Juin 2019 – Mise à jour de la pile de maintenance pour (Server 2019)   |  6.9  |  14 mai 2019  |
+|  N/A  |  [4503292]  |  Juin 2019 – Non-sécurité (serveur 2008 R2)   |  2,88  |  20 mai 2019  |
+|  N/A  |  [4503285]  |  Juin 2019 – Non-sécurité (serveur 2012)   |  3,75  |  14 mai 2019  |
+|  N/A  |  [4503276]  |  Juin 2019 – Non-sécurité (serveur 2012 R2)   |  4.68  |  14 mai 2019  |
+
+[4507434]: https://support.microsoft.com/kb/4507434
+[4506621]: https://support.microsoft.com/kb/4506621
+[4506966]: https://support.microsoft.com/kb/4506966
+[4506976]: https://support.microsoft.com/kb/4506976
+[4507456]: https://support.microsoft.com/kb/4507456
+[4506965]: https://support.microsoft.com/kb/4506965
+[4506974]: https://support.microsoft.com/kb/4506974
+[4507464]: https://support.microsoft.com/kb/4507464
+[4506964]: https://support.microsoft.com/kb/4506964
+[4506977]: https://support.microsoft.com/kb/4506977
+[4507457]: https://support.microsoft.com/kb/4507457
+[4507460]: https://support.microsoft.com/kb/4507460
+[4506998]: https://support.microsoft.com/kb/4506998
+[4507469]: https://support.microsoft.com/kb/4507469
+[4503537]: https://support.microsoft.com/kb/4503537
+[4504369]: https://support.microsoft.com/kb/4504369
+[4503292]: https://support.microsoft.com/kb/4503292
+[4503285]: https://support.microsoft.com/kb/4503285
+[4503276]: https://support.microsoft.com/kb/4503276
+
+
+## <a name="june-2019-guest-os"></a>Système d’exploitation invité, juin 2019
+
+| Catégorie de produit | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
+| --- | --- | --- | --- | --- |
+|  Version 06-19   |  [4503327]  |  Sécurité de Windows 10   |  6.8  |  11 juin 2019  |
+|  Version 06-19   |  [4503267]  |  Sécurité de Windows 10   |  5.32  |  11 juin 2019  |
+|  Version 06-19   |  [4503290]  |  Sécurité Windows   |  4.67  |  11 juin 2019  |
+|  Version 06-19   |  [4503263]  |  Sécurité Windows   |  3.74  |  11 juin 2019  |
+|  Version 06-19   |  [4503269]  |  Sécurité Windows   |  2.87  |  11 juin 2019  |
+|  Version 06-19   |  [4494174]  |  Mise à jour du microcode   |  6.8  |  11 juin 2019  |
+|  Version 06-19   |  [4494175]  |  Mise à jour du microcode   |  5.32  |  3 juin 2019  |
+|  Version 06-19   |  [4503308]  |  Clignote   |  3.74, 4.67, 5.32, 6.8  |  11 juin 2019  |
+|  Version 06-19   |  [4503259]  |  Internet Explorer   |  2.87, 3.74, 4.67  |  13 juin 2019  |
+|  N/A  |  [4499164]  |  Non relatif à la sécurité, mai 2019  |  2.87  |  14 mai 2019  |
+|  N/A  |  [4495606]  |  .NET 3.5 non relatif à la sécurité, mai 2019  |  2.87  |  14 mai 2019  |
+|  N/A  |  [4495596]  |  .NET 4.5 non relatif à la sécurité, mai 2019  |  2.87  |  20 mai 2019  |
+|  N/A  |  [4499171]  |  Non relatif à la sécurité, mai 2019  |  3.74  |  14 mai 2019  |
+|  N/A  |  [4495602]  |  .NET 3.5 non relatif à la sécurité, mai 2019  |  3.74  |  14 mai 2019  |
+|  N/A  |  [4495594]  |  .NET 4.x non relatif à la sécurité, mai 2019  |  4.67  |  14 mai 2019  |
+|  N/A  |  [4499151]  |  Non relatif à la sécurité, mai 2019  |  4.67  |  14 mai 2019  |
+|  N/A  |  [4495608]  |  .NET 3.5 non relatif à la sécurité, mai 2019  |  4.67  |  14 mai 2019  |
+|  N/A  |  [4495592]  |  .NET 4.5.2 non relatif à la sécurité, mai 2019  |  4.67  |  14 mai 2019  |
+|  N/A  |  [4495610]  |  .NET 4.8 cumulatif, mai 2019  |  6.8  |  14 mai 2019  |
+|  N/A  |  [4495618]  |  .NET 4.8 cumulatif, mai 2019  |  6.8  |  14 mai 2019  |
+|  N/A  |  [4501226]  |  Mises à jour de l’heure d’été du fuseau horaire pour le Maroc et l’Autorité palestinienne  |  2.87, 3.74, 4.67  |  23 mai 2019  |
+|  N/A  |  [4490128]  |  Mises à jour de l’heure d’été du fuseau horaire pour Sao Tomé-et-Principe et Kyzylorda  |  2.87, 3.74, 4.67  |  17 avril 2019  |
+
+[4503327]: https://support.microsoft.com/kb/4503327
+[4503267]: https://support.microsoft.com/kb/4503267
+[4503290]: https://support.microsoft.com/kb/4503290
+[4503263]: https://support.microsoft.com/kb/4503263
+[4503269]: https://support.microsoft.com/kb/4503269
+[4494174]: https://support.microsoft.com/kb/4494174
+[4494175]: https://support.microsoft.com/kb/4494175
+[4503308]: https://support.microsoft.com/kb/4503308
+[4503259]: https://support.microsoft.com/kb/4503259
+[4499164]: https://support.microsoft.com/kb/KB4499164
+[4495606]: https://support.microsoft.com/kb/KB4495606
+[4495596]: https://support.microsoft.com/kb/KB4495596
+[4499171]: https://support.microsoft.com/kb/KB4499171
+[4495602]: https://support.microsoft.com/kb/KB4495602
+[4495594]: https://support.microsoft.com/kb/KB4495594
+[4499151]: https://support.microsoft.com/kb/KB4499151
+[4495608]: https://support.microsoft.com/kb/KB4495608
+[4495592]: https://support.microsoft.com/kb/KB4495592
+[4495610]: https://support.microsoft.com/kb/KB4495610
+[4495618]: https://support.microsoft.com/kb/KB4495618
+[4501226]: https://support.microsoft.com/kb/KB4501226
+[4490128]: https://support.microsoft.com/kb/KB4490128
+
+## <a name="may-2019-guest-os"></a>Système d’exploitation invité, mai 2019
+
+| Catégorie de produit | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
+| --- | --- | --- | --- | --- |
+|  Version 05-19   |  [4498206]  |  Correctif cumulatif IE mai   |  2.86, 3.73, 4.66  |  14 mai 2019  |
+|  Version 05-19   |  [4505050]  |  Correctif cumulatif IE mai   |  2.86, 3.73, 4.66  |  18 mai 2019  |
+|  Version 05-19   |  [4497932]  |  Mise à jour flash mai   |  3.73, 4.66, 5.31  |  14 mai 2019  |
+|  Version 05-19   |  [4499175]  |  Correctif cumulatif relatif à la sécurité de mai   |  2.86  |  14 mai 2019  |
+|  Version 05-19   |  [4495612]  |  Correctif cumulatif .NET 3.5 relatif à la sécurité de mai   |  2.86  |  14 mai 2019  |
+|  Version 05-19   |  [4495593]  |  Correctif cumulatif .NET 4.5.2 relatif à la sécurité de mai   |  2.86  |  14 mai 2019  |
+|  Version 05-19   |  [4499158]  |  Correctif cumulatif relatif à la sécurité de mai   |  3,73  |  14 mai 2019  |
+|  Version 05-19   |  [4495607]  |  Correctif cumulatif .NET 3.5 relatif à la sécurité de mai   |  3,73  |  14 mai 2019  |
+|  Version 05-19   |  [4495591]  |  Correctif cumulatif .NET 4.5.2 relatif à la sécurité de mai   |  3,73  |  14 mai 2019  |
+|  Version 05-19   |  [4492872]  |  Correctif cumulatif IE   |  3,73  |  Avril 16, 2019  |
+|  Version 05-19   |  [4499165]  |  Correctif cumulatif relatif à la sécurité de mars   |  4.66  |  14 mai 2019  |
+|  Version 05-19   |  [4495615]  |  Correctif cumulatif .NET 3.5 relatif à la sécurité de mai   |  4.66  |  14 mai 2019  |
+|  Version 05-19   |  [4495589]  |  Correctif cumulatif .NET 4.5.2 relatif à la sécurité de mai   |  4.66  |  14 mai 2019  |
+|  Version 05-19   |  [4498947]  |  SSU mai   |  5.31  |  14 mai 2019  |
+|  Version 05-19   |  [4494175]  |  Mise à jour du microcode de mai   |  5.31  |  14 mai 2019  |
+|  Version 05-19   |  [4505052]  |  Correctif cumulatif relatif à la sécurité de mai   |  5.31  |  19 mai 2019  |
+|  Version 05-19   |  [4499728]  |  SSU mai   |  6.7  |  19 mai 2019  |
+|  Version 05-19   |  [4505056]  |  Correctif cumulatif relatif à la sécurité de mai   |  6.7  |  19 mai 2019  |
+|  Version 05-19   |  [4494174]  |  Mise à jour du microcode de mai   |  6.7  |  14 mai 2019  |
+|  Version 05-19   |  [4495590]  |  Correctif cumulatif .NET relatif à la sécurité de mai   |  6.7  |  14 mai 2019  |
 
 [4498206]: https://support.microsoft.com/kb/4498206
 [4505050]: https://support.microsoft.com/kb/4505050
@@ -70,22 +164,22 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 [4495590]: https://support.microsoft.com/kb/4495590
 
 
-## <a name="april-2019-guest-os"></a>Système d’exploitation invité d’avril 2019
+## <a name="april-2019-guest-os"></a>Système d’exploitation invité, avril 2019
 
 | Catégorie de produit | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
 | --- | --- | --- | --- | --- |
-| Rel 19-04 | [4493509] | Sécurité de Windows 10 | 6.6 | 9 avril 2019 |
-| Rel 19-04 | [4493470] | Sécurité de Windows 10 | 5.30 | 9 avril 2019 |
-| Rel 19-04 | [4493467] | Sécurité Windows | 4.65 | 9 avril 2019 |
-| Rel 19-04 | [4493450] | Sécurité Windows | 3.72 | 9 avril 2019 |
-| Rel 19-04 | [4493448] | Sécurité Windows | 2.85 | 9 avril 2019 |
-| Rel 19-04 | [4493478] | Clignote | 3.72, 4.65, 5.30, 6.6 | 9 avril 2019 |
-| Rel 19-04 | [4493435] | Internet Explorer | 2.85, 3.72, 4.65 | 9 avril 2019 |
-| Rel 19-04 | [4490628] | Mise à jour de la pile de maintenance | 2.85 | 12 mars 2019 |
-| Rel 19-04 | [4474419] | Prise en charge SHA2 | 2.85 | 12 mars 2019 |
-| Rel 19-04 | [4489878] | Cumul de sécurité de mars | 2.85 | 12 mars 2019 |
-| Rel 19-04 | [4489891] | Cumul de sécurité de mars | 3.72 | 12 mars 2019 |
-| Rel 19-04 | [4489881] | Cumul de sécurité de mars | 4.65 | 12 mars 2019 |
+| Version 04-19 | [4493509] | Sécurité de Windows 10 | 6.6 | 9 avril 2019 |
+| Version 04-19 | [4493470] | Sécurité de Windows 10 | 5.30 | 9 avril 2019 |
+| Version 04-19 | [4493467] | Sécurité Windows | 4.65 | 9 avril 2019 |
+| Version 04-19 | [4493450] | Sécurité Windows | 3.72 | 9 avril 2019 |
+| Version 04-19 | [4493448] | Sécurité Windows | 2.85 | 9 avril 2019 |
+| Version 04-19 | [4493478] | Clignote | 3.72, 4.65, 5.30, 6.6 | 9 avril 2019 |
+| Version 04-19 | [4493435] | Internet Explorer | 2.85, 3.72, 4.65 | 9 avril 2019 |
+| Version 04-19 | [4490628] | Mise à jour de la pile de maintenance | 2.85 | 12 mars 2019 |
+| Version 04-19 | [4474419] | Prise en charge de SHA2 | 2.85 | 12 mars 2019 |
+| Version 04-19 | [4489878] | Correctif cumulatif non relatif à la sécurité de mars | 2.85 | 12 mars 2019 |
+| Version 04-19 | [4489891] | Correctif cumulatif non relatif à la sécurité de mars | 3.72 | 12 mars 2019 |
+| Version 04-19 | [4489881] | Correctif cumulatif non relatif à la sécurité de mars | 4.65 | 12 mars 2019 |
 
 [4493509]: https://support.microsoft.com/kb/4493509
 [4493470]: https://support.microsoft.com/kb/4493470
@@ -100,28 +194,28 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 [4489891]: https://support.microsoft.com/kb/KB4489891
 [4489881]: https://support.microsoft.com/kb/KB4489881
 
-## <a name="march-2019-guest-os"></a>Système d’exploitation invité de mars 2019
+## <a name="march-2019-guest-os"></a>Système d’exploitation invité, mars 2019
 
 | Catégorie de produit | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
 | --- | --- | --- | --- | --- |
-| Rel 19-03 | [4489873] | Internet Explorer | 2.84, 3.71, 4.64 | 12 mars 2019 |
-| Rel 19-03 | [4489907] | Clignote | 3.71, 4.64, 5.29, 6.5 | 12 mars 2019 |
-| Rel 19-03 | [4489885] | Sécurité Windows | 2.84 | 12 mars 2019 |
-| Rel 19-03 | [4489884] | Sécurité Windows | 3.71 | 12 mars 2019 |
-| Rel 19-03 | [4489883] | Sécurité Windows | 4.64 | 12 mars 2019 |
-| Rel 19-03 | [4489882] | Sécurité de Windows 10 | 5.29 | 12 mars 2019 |
-| Rel 19-03 | [4489899] | Sécurité de Windows 10 | 6.5 | 12 mars 2019 |
-| Rel 19-03 | [4486563] | Correctif cumulatif de février Non-sécurité | 2.84 | 12 février 2019 |
-| Rel 19-03 | [4483458] | Correctif cumulatif de février Non-sécurité .NET 3.x | 2.84 | 12 février 2019 |
-| Rel 19-03 | [4483455] | Correctif cumulatif de février Non-sécurité .NET 4.x | 2.84 | 12 février 2019 |
-| Rel 19-03 | [4487025] | Correctif cumulatif de février Non-sécurité | 3.71 | 12 février 2019 |
-| Rel 19-03 | [4483456] | Correctif cumulatif de février Non-sécurité .NET 3.x | 3.71 | 12 février 2019 |
-| Rel 19-03 | [4483454] | Correctif cumulatif de février Non-sécurité .NET 4.x | 3.71 | 12 février 2019 |
-| Rel 19-03 | [4487000] | Correctif cumulatif de février Non-sécurité | 4.64 | 12 février 2019 |
-| Rel 19-03 | [4483459] | Correctif cumulatif de février Non-sécurité .NET 3.x | 4.64 | 12 février 2019 |
-| Rel 19-03 | [4483453] | Correctif cumulatif de février Non-sécurité .NET 4.x | 4.64 | 12 février 2019 |
-| Rel 19-03 | [4485447] | Mise à jour février Servicing Stack | 5.29 | 12 février 2019 |
-| Rel 19-03 | [4486459] | Mise à jour du fuseau horaire | 2.84, 3.71, 4.64 | 12 février 2019 |
+| Version 03-19 | [4489873] | Internet Explorer | 2.84, 3.71, 4.64 | 12 mars 2019 |
+| Version 03-19 | [4489907] | Clignote | 3.71, 4.64, 5.29, 6.5 | 12 mars 2019 |
+| Version 03-19 | [4489885] | Sécurité Windows | 2.84 | 12 mars 2019 |
+| Version 03-19 | [4489884] | Sécurité Windows | 3.71 | 12 mars 2019 |
+| Version 03-19 | [4489883] | Sécurité Windows | 4.64 | 12 mars 2019 |
+| Version 03-19 | [4489882] | Sécurité de Windows 10 | 5.29 | 12 mars 2019 |
+| Version 03-19 | [4489899] | Sécurité de Windows 10 | 6.5 | 12 mars 2019 |
+| Version 03-19 | [4486563] | Correctif cumulatif non relatif à la sécurité de février | 2.84 | 12 février 2019 |
+| Version 03-19 | [4483458] | Correctif cumulatif .NET 3.x non relatif à la sécurité de février | 2.84 | 12 février 2019 |
+| Version 03-19 | [4483455] | Correctif cumulatif .NET 4.x non relatif à la sécurité de février | 2.84 | 12 février 2019 |
+| Version 03-19 | [4487025] | Correctif cumulatif non relatif à la sécurité de février | 3.71 | 12 février 2019 |
+| Version 03-19 | [4483456] | Correctif cumulatif .NET 3.x non relatif à la sécurité de février | 3.71 | 12 février 2019 |
+| Version 03-19 | [4483454] | Correctif cumulatif .NET 4.x non relatif à la sécurité de février | 3.71 | 12 février 2019 |
+| Version 03-19 | [4487000] | Correctif cumulatif non relatif à la sécurité de février | 4.64 | 12 février 2019 |
+| Version 03-19 | [4483459] | Correctif cumulatif .NET 3.x non relatif à la sécurité de février | 4.64 | 12 février 2019 |
+| Version 03-19 | [4483453] | Correctif cumulatif .NET 4.x non relatif à la sécurité de février | 4.64 | 12 février 2019 |
+| Version 03-19 | [4485447] | Mise à jour de la pile de maintenance de février | 5.29 | 12 février 2019 |
+| Version 03-19 | [4486459] | Mise à jour du fuseau horaire | 2.84, 3.71, 4.64 | 12 février 2019 |
 
 [4489873]: https://support.microsoft.com/kb/4489873
 [4489907]: https://support.microsoft.com/kb/4489907
@@ -142,33 +236,33 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 [4485447]: https://support.microsoft.com/kb/4485447
 [4486459]: https://support.microsoft.com/kb/4486459
 
-## <a name="february-2019-guest-os"></a>Système d’exploitation invité de février 2019
+## <a name="february-2019-guest-os"></a>Système d’exploitation invité, février 2019
 
 | Catégorie de produit | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
 | --- | --- | --- | --- | --- |
-| Rel 19-02 | [4486474] | Internet Explorer | 2.83, 3.70, 4.63 | 12 février 2019 |
-| Rel 19-02 | [4487038] | Clignote | 3.70, 4.63, 5.28, 6.4 | 12 février 2019 |
-| Rel 19-02 | [4486564] | Sécurité Windows | 2.83 | 12 février 2019 |
-| Rel 19-02 | [4483483] | .NET 3.5.1 sécurité | 2.83 | 12 février 2019 |
-| Rel 19-02 | [4483474] | .NET 4.5.2 sécurité | 2.83 | 12 février 2019 |
-| Rel 19-02 | [4486993] | Sécurité Windows | 3.70 | 12 février 2019 |
-| Rel 19-02 | [4483481] | .NET 3.5 sécurité | 3.70 | 12 février 2019 |
-| Rel 19-02 | [4483473] | .NET 4.5.2 sécurité | 3.70 | 12 février 2019 |
-| Rel 19-02 | [4487028] | Sécurité Windows | 4.63 | 12 février 2019 |
-| Rel 19-02 | [4483484] | .NET 3.5 sécurité | 4.63 | 12 février 2019 |
-| Rel 19-02 | [4483472] | .NET 4.5.2 sécurité | 4.63 | 12 février 2019 |
-| Rel 19-02 | [4487026] | Sécurité Windows | 5.28 | 12 février 2019 |
-| Rel 19-02 | [4487044] | Sécurité Windows | 6.4 | 12 février 2019 |
-| Rel 19-02 | [4483452] | .NET 3.5, 4.7.2 sécurité | 6.4 | 12 février 2019 |
-| N/A | [4480970] | Correctif cumulatif de janvier Non-sécurité | 2.83 | 8 janvier 2019 |
-| N/A | [4483483] | Correctif cumulatif de janvier Non-sécurité .NET 3.5.1  | 2.83 | 8 janvier 2019 |
-| N/A | [4480059] | Correctif cumulatif de janvier Non-sécurité .NET 4.5.2  | 2.83 | 8 janvier 2019 |
-| N/A | [4480975] | Correctif cumulatif de janvier Non-sécurité | 3.70 | 8 janvier 2019 |
-| N/A | [4480061] | Correctif cumulatif de janvier Non-sécurité .NET 3.5 | 3.70 | 8 janvier 2019 |
-| N/A | [4480058] | Correctif cumulatif de janvier Non-sécurité .NET 4.5.2 | 3.70 | 8 janvier 2019 |
-| N/A | [4480963] | Correctif cumulatif de janvier Non-sécurité | 4.63 | 8 janvier 2019 |
-| N/A | [4480064] | Correctif cumulatif de janvier Non-sécurité .NET 3.5 | 4.63 | 8 janvier 2019 |
-| N/A | [4480057] | Correctif cumulatif de janvier Non-sécurité .NET 4.5.2 | 4.63 | 8 janvier 2019 |
+| Version 02-19 | [4486474] | Internet Explorer | 2.83, 3.70, 4.63 | 12 février 2019 |
+| Version 02-19 | [4487038] | Clignote | 3.70, 4.63, 5.28, 6.4 | 12 février 2019 |
+| Version 02-19 | [4486564] | Sécurité Windows | 2.83 | 12 février 2019 |
+| Version 02-19 | [4483483] | Sécurité .NET 3.5.1 | 2.83 | 12 février 2019 |
+| Version 02-19 | [4483474] | Sécurité .NET 4.5.2 | 2.83 | 12 février 2019 |
+| Version 02-19 | [4486993] | Sécurité Windows | 3.70 | 12 février 2019 |
+| Version 02-19 | [4483481] | Sécurité .NET 3.5 | 3.70 | 12 février 2019 |
+| Version 02-19 | [4483473] | Sécurité .NET 4.5.2 | 3.70 | 12 février 2019 |
+| Version 02-19 | [4487028] | Sécurité Windows | 4.63 | 12 février 2019 |
+| Version 02-19 | [4483484] | Sécurité .NET 3.5 | 4.63 | 12 février 2019 |
+| Version 02-19 | [4483472] | Sécurité .NET 4.5.2 | 4.63 | 12 février 2019 |
+| Version 02-19 | [4487026] | Sécurité Windows | 5.28 | 12 février 2019 |
+| Version 02-19 | [4487044] | Sécurité Windows | 6.4. | 12 février 2019 |
+| Version 02-19 | [4483452] | Sécurité .NET 3.5, 4.7.2 | 6.4. | 12 février 2019 |
+| N/A | [4480970] | Correctif cumulatif non relatif à la sécurité de janvier | 2.83 | 8 janvier 2019 |
+| N/A | [4483483] | Correctif cumulatif .NET 3.5.1 non relatif à la sécurité de janvier  | 2.83 | 8 janvier 2019 |
+| N/A | [4480059] | Correctif cumulatif .NET 4.5.2 non relatif à la sécurité de janvier  | 2.83 | 8 janvier 2019 |
+| N/A | [4480975] | Correctif cumulatif non relatif à la sécurité de janvier | 3.70 | 8 janvier 2019 |
+| N/A | [4480061] | Correctif cumulatif .NET 3.5 non relatif à la sécurité de janvier | 3.70 | 8 janvier 2019 |
+| N/A | [4480058] | Correctif cumulatif .NET 4.5.2 non relatif à la sécurité de janvier | 3.70 | 8 janvier 2019 |
+| N/A | [4480963] | Correctif cumulatif non relatif à la sécurité de janvier | 4.63 | 8 janvier 2019 |
+| N/A | [4480064] | Correctif cumulatif .NET 3.5 non relatif à la sécurité de janvier | 4.63 | 8 janvier 2019 |
+| N/A | [4480057] | Correctif cumulatif .NET 4.5.2 non relatif à la sécurité de janvier | 4.63 | 8 janvier 2019 |
 
 [4486474]: https://support.microsoft.com/kb/4486474
 [4487038]: https://support.microsoft.com/kb/4487038
@@ -204,12 +298,12 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 | Version 01-19 | [4480972] | Sécurité Windows | 3.69 | 8 janvier 2019 |
 | Version 01-19 | [4480960] | Sécurité Windows | 2.82 | 8 janvier 2019 |
 | Version 01-19 | [4480056] | Sécurité .NET | 6.3 | 8 janvier 2019 |
-| Version 01-19 | [4480074] | Sécurité de .NET 4.x | 4.62 | 8 janvier 2019 |
-| Version 01-19 | [4480075] | Sécurité de .NET 4.x | 3.69 | 8 janvier 2019 |
-| Version 01-19 | [4480076] | Sécurité de .NET 4.x | 2.82 | 8 janvier 2019 |
-| Version 01-19 | [4480086] | Sécurité de .NET 3.x | 4.62 | 8 janvier 2019 |
-| Version 01-19 | [4480083] | Sécurité de .NET 3.x | 3.69 | 8 janvier 2019 |
-| Version 01-19 | [4480085] | Sécurité de .NET 3.x | 2.82 | 8 janvier 2019 |
+| Version 01-19 | [4480074] | Sécurité .NET 4.x | 4.62 | 8 janvier 2019 |
+| Version 01-19 | [4480075] | Sécurité .NET 4.x | 3.69 | 8 janvier 2019 |
+| Version 01-19 | [4480076] | Sécurité .NET 4.x | 2.82 | 8 janvier 2019 |
+| Version 01-19 | [4480086] | Sécurité .NET 3.x | 4.62 | 8 janvier 2019 |
+| Version 01-19 | [4480083] | Sécurité .NET 3.x | 3.69 | 8 janvier 2019 |
+| Version 01-19 | [4480085] | Sécurité .NET 3.x | 2.82 | 8 janvier 2019 |
 | Version 01-19 | [4480979] | Clignote | 3.69, 4.62, 5.27, 6.3 | 8 janvier 2019 |
 | Version 01-19 | [4480965] | Internet Explorer | 2.82, 3.69, 4.62 | 8 janvier 2019 |
 | N/A | [4471318] | Correctif cumulatif de décembre non relatif à la sécurité | 2.82 | 11 décembre 2018 |
@@ -254,12 +348,12 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 | Version 12-18 | [4471328] | Sécurité Windows   | 2.81 | 11 décembre 2018 |
 | Version 12-18 | [4471326] | Sécurité Windows   | 3.68 | 11 décembre 2018 |
 | Version 12-18 | [4471322] | Sécurité Windows   | 4.61 | 11 décembre 2018 |
-| Version 12-18 | [4470600] | Sécurité de .NET 3.x  | 2.81 | 11 décembre 2018 |
-| Version 12-18 | [4470601] | Sécurité de .NET 3.x  | 3.68 | 11 décembre 2018|
-| Version 12-18 | [4470602] | Sécurité de .NET 3.x  | 4.61 | 11 décembre 2018 |
-| Version 12-18 | [4470493] | Sécurité de .NET 4.x  | 2.81 | 11 décembre 2018 |
-| Version 12-18 | [4470492] | Sécurité de .NET 4.x  | 3.68 | 11 décembre 2018 |
-| Version 12-18 | [4470491] | Sécurité de .NET 4.x  | 4.61| 11 décembre 2018 |
+| Version 12-18 | [4470600] | Sécurité .NET 3.x  | 2.81 | 11 décembre 2018 |
+| Version 12-18 | [4470601] | Sécurité .NET 3.x  | 3.68 | 11 décembre 2018|
+| Version 12-18 | [4470602] | Sécurité .NET 3.x  | 4.61 | 11 décembre 2018 |
+| Version 12-18 | [4470493] | Sécurité .NET 4.x  | 2.81 | 11 décembre 2018 |
+| Version 12-18 | [4470492] | Sécurité .NET 4.x  | 3.68 | 11 décembre 2018 |
+| Version 12-18 | [4470491] | Sécurité .NET 4.x  | 4.61| 11 décembre 2018 |
 | Version 12-18 | [4471331] | Clignote  | 3.68, 4.61, 5.26 | 5 décembre 2018  |
 | Version 12-18 | [4470199] | Internet Explorer  | 2.81, 3.68, 4.61 | 11 décembre 2018 |
 | N/A | [4468323] | Mise à jour du fuseau horaire    | 2.81, 3.68, 4.61 | 13 décembre 2018 |
@@ -631,22 +725,22 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 | Éd. 17/05 | [4019472] |Améliorations de la qualité du système d’exploitation WS 2016 |5.7 | 9 mai 2017 |
 | Éd. 17/05 | [4019263] |Sécurité Windows uniquement |2.62 | 9 mai 2017 |
 | Éd. 17/05 | [4019213] |Sécurité Windows uniquement |4.42 | 9 mai 2017 |
-| Éd. 17/05 | [4019214] |Sécurité Windows uniquement |3,49 | 9 mai 2017 |
+| Éd. 17/05 | [4019214] |Sécurité Windows uniquement |3.49 | 9 mai 2017 |
 | Éd. 17/05 | [4018271] |Mise à jour cumulative de sécurité pour Internet Explorer |3.49 | 9 mai 2017 |
 | Éd. 17/05 | [4010323] |Conseils relatifs à SHA1 |2.62, 4.42, 5.7 | 9 mai 2017 |
 | Éd. 17/05 | [4022344] |Avis de sécurité Microsoft |5.7 | 9 mai 2017 |
 | Éd. 17/05 | [4022345] |Avis de sécurité Microsoft |5.7 | 9 mai 2017 |
-| Éd. 17/05 | [4021279] |Conseil de core relatifs .NET |2.62, 3.49, 4.42, 5.7 | 9 mai 2017 |
+| Éd. 17/05 | [4021279] |Conseils relatifs à ASP.NET Core/.NET |2.62, 3.49, 4.42, 5.7 | 9 mai 2017 |
 | N/A | [4012864] |Mise à jour du fuseau horaire |2.62, 3.49, 4.42 | 9 mai 2017 |
 | N/A | [4014565] |Correctif cumulatif non relatif à la sécurité d’avril pour .NET |2.62 | 11 avril 2017 |
 | N/A | [4014559] |Correctif cumulatif non relatif à la sécurité d’avril pour .NET |2.62 | 11 avril 2017 |
 | N/A | [4015549] |Correctif cumulatif non relatif à la sécurité d’avril |2.62 | 11 avril 2017 |
-| N/A | [4019990] |Mise à jour de D3DCompiler/configuration requise pour .NET 4.7 |3,49 | 9 mai 2017 |
-| N/A | [4014563] |Correctif cumulatif non relatif à la sécurité d’avril pour .NET |3,49 | 11 avril 2017 |
-| N/A | [4014557] |Correctif cumulatif non relatif à la sécurité d’avril pour .NET |3,49 | 11 avril 2017 |
-| N/A | [4014545] |Correctif cumulatif non relatif à la sécurité d’avril pour .NET |3,49 | 11 avril 2017 |
-| N/A | [4014548] |Correctif cumulatif non relatif à la sécurité d’avril pour .NET |3,49 | 11 avril 2017 |
-| N/A | [4015551] |Correctif cumulatif non relatif à la sécurité d’avril |3,49 | 11 avril 2017 |
+| N/A | [4019990] |Mise à jour de D3DCompiler/configuration requise pour .NET 4.7 |3.49 | 9 mai 2017 |
+| N/A | [4014563] |Correctif cumulatif non relatif à la sécurité d’avril pour .NET |3.49 | 11 avril 2017 |
+| N/A | [4014557] |Correctif cumulatif non relatif à la sécurité d’avril pour .NET |3.49 | 11 avril 2017 |
+| N/A | [4014545] |Correctif cumulatif non relatif à la sécurité d’avril pour .NET |3.49 | 11 avril 2017 |
+| N/A | [4014548] |Correctif cumulatif non relatif à la sécurité d’avril pour .NET |3.49 | 11 avril 2017 |
+| N/A | [4015551] |Correctif cumulatif non relatif à la sécurité d’avril |3.49 | 11 avril 2017 |
 | N/A | [3173424] |Mise à jour de la pile de maintenance  |4.42 | 12 juillet 2016 |
 | N/A | [4014555] |Correctif cumulatif non relatif à la sécurité d’avril pour .NET  |4.42 | 11 avril 2017 |
 | N/A | [4014567] |Correctif cumulatif non relatif à la sécurité d’avril pour .NET |4.42 | 11 avril 2017 |
@@ -681,7 +775,7 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 | Éd. 17/03 |  [4012213] |Mise à jour qualité de la sécurité seule de mars 2017 pour Windows 8.1 et Windows Server 2012 R2 |4.40 |14 mars 2017 |
 | Éd. 17/03 |  [4012214] |Mise à jour qualité de la sécurité seule de mars 2017 Windows Server 2012|3.47 |14 mars 2017 |
 | Éd. 17/03 |  [4012204] |Mise à jour de sécurité pour Internet Explorer |2.60, 3.47, 4.40, 5.5 |14 mars 2017 |
-| N/A |  [4012864] |Modifications de l’heure d’été dans Windows pour Chypre, la Mongolie et la région russe de Saratov |2.60, 3.47, 4.40 |14 mars 2017 |
+| N/A |  [4012864] |Modifications de l’heure d’été dans Windows pour Chypre du Nord, la Mongolie et la région russe de Saratov |2.60, 3.47, 4.40 |14 mars 2017 |
 | N/A |  [3212646] |Correctif cumulatif qualitatif mensuel de sécurité de janvier 2017 pour Windows 7 SP1 et Windows Server 2008 R2 SP1 |2.60 |14 mars 2017 |
 | N/A |  [3205409] |Correctif cumulatif qualitatif mensuel de sécurité de décembre 2016 pour Windows Server 2012 |3.47 |14 mars 2017 |
 | N/A |  [3205401] |Correctif cumulatif qualitatif mensuel de sécurité de décembre 2016 pour Windows 8.1 et Windows Server 2012 R2 |4.40 |14 mars 2017 |
@@ -743,7 +837,7 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 | MS16-124 |[3193227] |Mise à jour de sécurité pour le registre Windows |4.37, 3.44, 2.56 |11 octobre 2016 |
 | MS16-126 |[3196067] |Mise à jour de sécurité pour l’API de messagerie Microsoft Internet |2.56 |11 octobre 2016 |
 | MS16-101 |[3178465] |Mise à jour de sécurité pour les méthodes d’authentification Windows |4.37, 3.44, 2.56 |11 octobre 2016 |
-| N/A |[3182203] |Septembre 2016 Changement de fuseau horaire pour Novossibirsk |4.37, 3.44, 2.56 |11 octobre 2016 |
+| N/A |[3182203] |Septembre 2016 Changement de fuseau horaire pour Novosibirsk |4.37, 3.44, 2.56 |11 octobre 2016 |
 | N/A |[3185278] |Septembre 2016 Correctif cumulatif pour Windows 7 SP1 et Windows Server 2008 R2 SP1 |2.56 |11 octobre 2016 |
 | N/A |[3185280] |Septembre 2016 Correctif cumulatif pour Windows Server 2012 |3.44 |11 octobre 2016 |
 | N/A |[3185279] |Septembre 2016 Correctif cumulatif pour Windows 8.1 et Windows Server 2012 R2 |4.37 |11 octobre 2016 |
@@ -1715,36 +1809,36 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 [3002657]: https://support.microsoft.com/kb/3002657
 [3035126]: https://support.microsoft.com/kb/3035126
 
-[3049563]:https://support.microsoft.com/kb/3049563
-[3057110]:https://support.microsoft.com/kb/3057110
-[3046002]:https://support.microsoft.com/kb/3046002
-[3057134]:https://support.microsoft.com/kb/3057134
-[3055642]:https://support.microsoft.com/kb/3055642
-[3057191]:https://support.microsoft.com/kb/3057191
-[3050514]:https://support.microsoft.com/kb/3050514
-[3057263]:https://support.microsoft.com/kb/3057263
-[3051768]:https://support.microsoft.com/kb/3051768
-[3061518]:https://support.microsoft.com/kb/3061518
+[3049563]: https://support.microsoft.com/kb/3049563
+[3057110]: https://support.microsoft.com/kb/3057110
+[3046002]: https://support.microsoft.com/kb/3046002
+[3057134]: https://support.microsoft.com/kb/3057134
+[3055642]: https://support.microsoft.com/kb/3055642
+[3057191]: https://support.microsoft.com/kb/3057191
+[3050514]: https://support.microsoft.com/kb/3050514
+[3057263]: https://support.microsoft.com/kb/3057263
+[3051768]: https://support.microsoft.com/kb/3051768
+[3061518]: https://support.microsoft.com/kb/3061518
 
-[3038314]:https://support.microsoft.com/kb/3038314
-[3042553]:https://support.microsoft.com/kb/3042553
-[3046306]:https://support.microsoft.com/kb/3046306
-[3046269]:https://support.microsoft.com/kb/3046269
-[3049576]:https://support.microsoft.com/kb/3049576
-[3046482]:https://support.microsoft.com/kb/3046482
-[3045711]:https://support.microsoft.com/kb/3045711
-[3048010]:https://support.microsoft.com/kb/3048010
-[3047234]:https://support.microsoft.com/kb/3047234
-[3045755]:https://support.microsoft.com/kb/3045755
-[3030377]:https://support.microsoft.com/kb/3030377
-[3039976]:https://support.microsoft.com/kb/3039976
+[3038314]: https://support.microsoft.com/kb/3038314
+[3042553]: https://support.microsoft.com/kb/3042553
+[3046306]: https://support.microsoft.com/kb/3046306
+[3046269]: https://support.microsoft.com/kb/3046269
+[3049576]: https://support.microsoft.com/kb/3049576
+[3046482]: https://support.microsoft.com/kb/3046482
+[3045711]: https://support.microsoft.com/kb/3045711
+[3048010]: https://support.microsoft.com/kb/3048010
+[3047234]: https://support.microsoft.com/kb/3047234
+[3045755]: https://support.microsoft.com/kb/3045755
+[3030377]: https://support.microsoft.com/kb/3030377
+[3039976]: https://support.microsoft.com/kb/3039976
 
-[3058515]:https://support.microsoft.com/kb/3058515
-[3033890]:https://support.microsoft.com/kb/3033890
-[3059317]:https://support.microsoft.com/kb/3059317
-[3057839]:https://support.microsoft.com/kb/3057839
-[3062577]:https://support.microsoft.com/kb/3062577
-[3063858]:https://support.microsoft.com/kb/3063858
+[3058515]: https://support.microsoft.com/kb/3058515
+[3033890]: https://support.microsoft.com/kb/3033890
+[3059317]: https://support.microsoft.com/kb/3059317
+[3057839]: https://support.microsoft.com/kb/3057839
+[3062577]: https://support.microsoft.com/kb/3062577
+[3063858]: https://support.microsoft.com/kb/3063858
 
 
 [archive]: https://msdn.microsoft.com/library/azure/dn391773.aspx

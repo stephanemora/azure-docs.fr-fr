@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.custom: hdinsightactive, seodec18
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.openlocfilehash: 6ba17a3839390ed5fe503a6fe57b63d8fb119138
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 13a4831d946eb7e25e586cafae4cae51b49fd8a7
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64713502"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780770"
 ---
 # <a name="troubleshoot-apache-hbase-by-using-azure-hdinsight"></a>Résolution de problèmes Apache HBase à l’aide d’Azure HDInsight
 
@@ -68,7 +68,7 @@ hdfs dfs -D "fs.default.name=hdfs://mycluster/" -mkdir /temp
 L’erreur qui peut s’afficher lorsque vous tentez d’exécuter la commande ressemble à ce qui suit :
 
 ```apache
-hdiuser@hn0-spark2:~$ hdfs dfs -D "fs.default.name=hdfs://mycluster/" -mkdir /temp
+hdfs dfs -D "fs.default.name=hdfs://mycluster/" -mkdir /temp
 17/04/05 16:20:52 WARN retry.RetryInvocationHandler: Exception while invoking ClientNamenodeProtocolTranslatorPB.mkdirs over hn0-spark2.2oyzcdm4sfjuzjmj5dnmvscjpg.dx.internal.cloudapp.net/10.0.0.22:8020. Not retrying because try once and fail.
 org.apache.hadoop.ipc.RemoteException(org.apache.hadoop.hdfs.server.namenode.SafeModeException): Cannot create directory /temp. Name node is in safe mode.
 It was turned on manually. Use "hdfs dfsadmin -safemode leave" to turn safe mode off.
@@ -132,7 +132,7 @@ Le cluster HDInsight a été redimensionné et ne compte plus que quelques nœud
    ```
 
    ```apache
-   hdiuser@hn0-spark2:~$ hdfs dfsadmin -D "fs.default.name=hdfs://mycluster/" -report
+   hdfs dfsadmin -D "fs.default.name=hdfs://mycluster/" -report
    Safe mode is ON
    Configured Capacity: 3372381241344 (3.07 TB)
    Present Capacity: 3138625077248 (2.85 TB)
@@ -169,7 +169,7 @@ Le cluster HDInsight a été redimensionné et ne compte plus que quelques nœud
 2. Vous pouvez également vérifier l’intégrité du stockage HDFS du cluster HDInsight à l’aide des commandes suivantes :
 
    ```apache
-   hdiuser@hn0-spark2:~$ hdfs fsck -D "fs.default.name=hdfs://mycluster/" /
+   hdfs fsck -D "fs.default.name=hdfs://mycluster/" /
    ```
 
    ```apache
@@ -343,7 +343,7 @@ Il s’agit d’un problème connu avec le service HMaster. Les tâches généra
 
 ### <a name="issue"></a>Problème
 
-L’échec du redémarrage d’un serveur régional peut être évité en respectant ces meilleures pratiques. Il est recommandé d’interrompre les activités impliquant de lourdes charges de travail lorsque vous prévoyez de redémarrer les serveurs régionaux HBase. Si une application continue de se connecter aux serveurs régionaux pendant l’arrêt, cela ralentit le redémarrage de ces derniers de plusieurs minutes. En outre, il est judicieux de commencer par vider toutes les tables. Pour des informations de référence sur le vidage des tables, consultez [HDInsight HBase : Comment améliorer le délai de redémarrage de cluster Apache HBase en vidant les tables](https://web.archive.org/web/20190112153155/ https://blogs.msdn.microsoft.com/azuredatalake/2016/09/19/hdinsight-hbase-how-to-improve-hbase-cluster-restart-time-by-flushing-tables/).
+L’échec du redémarrage d’un serveur régional peut être évité en respectant ces meilleures pratiques. Il est recommandé d’interrompre les activités impliquant de lourdes charges de travail lorsque vous prévoyez de redémarrer les serveurs régionaux HBase. Si une application continue de se connecter aux serveurs régionaux pendant l’arrêt, cela ralentit le redémarrage de ces derniers de plusieurs minutes. En outre, il est judicieux de commencer par vider toutes les tables. Pour des informations de référence sur le vidage des tables, consultez [HDInsight HBase : Comment améliorer le délai de redémarrage de cluster Apache HBase en vidant les tables](https://web.archive.org/web/20190112153155/https://blogs.msdn.microsoft.com/azuredatalake/2016/09/19/hdinsight-hbase-how-to-improve-hbase-cluster-restart-time-by-flushing-tables/).
 
 Si vous lancez l’opération de redémarrage sur des serveurs régionaux HBase à partir de l’interface utilisateur d’Apache Ambari, vous voyez immédiatement que les serveurs régionaux s’arrêtent, mais qu’ils ne redémarrent pas immédiatement. 
 
