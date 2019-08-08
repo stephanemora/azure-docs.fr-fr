@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/22/2018
 ms.author: sngun
-ms.openlocfilehash: ce22efd6eccdc067b05697b8389c821c4c01a347
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 58db76401439befd476bc78c1a1a20eeed5c2342
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68638597"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779169"
 ---
 # <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>Kit SDK .NET Core Azure Cosmos DB pour l’API SQL : Notes de publication et ressources
 > [!div class="op_single_selector"]
@@ -45,13 +45,18 @@ ms.locfileid: "68638597"
 > [!NOTE]
 > Si vous utilisez .NET Core, consultez la dernière version 3. x du [SDK .NET](sql-api-sdk-dotnet-standard.md), qui cible .NET Standard. 
 
+### <a name="a-name251251"></a><a name="2.5.1"/>2.5.1
+
+* La version System.Net.Http du Kit de développement logiciel (SDK) correspond désormais à celle définie dans le package NuGet.
+* Les demandes d’écriture sont autorisées à basculer vers une autre région en cas de défaillance de la région d’origine.
+* Une stratégie de nouvelles tentatives dans une session a été ajoutée pour une requête d’écriture.
+
 ### <a name="a-name241241"></a><a name="2.4.1"/>2.4.1
 
 * La condition de concurrence de traçage a été corrigée pour les requêtes ayant généré des pages vides
 
 ### <a name="a-name240240"></a><a name="2.4.0"/>2.4.0
 
-* La version System.Net.Http du Kit de développement logiciel (SDK) correspond à celle définie dans le package NuGet.
 * Augmentation de taille de précision décimale pour les requêtes LINQ.
 * Ajout de nouvelles classes CompositePath, CompositePathSortOrder, SpatialSpec, SpatialType et PartitionKeyDefinitionVersion
 * Ajout de TimeToLivePropertyPath à DocumentCollection
@@ -250,6 +255,7 @@ Si vous avez des questions liées à ce kit SDK, postez sur [StackOverflow](http
 
 | Version | Date de lancement | Date de suppression |
 | --- | --- | --- |
+| [2.5.1](#2.5.1) |2 juillet 2019 |--- |
 | [2.4.1](#2.4.1) |20 juin 2019 |--- |
 | [2.4.0](#2.4.0) |5 mai 2019 |--- |
 | [2.3.0](#2.3.0) |4 avril 2019 |--- |

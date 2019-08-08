@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 07/02/2019
+ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 401a2e95c90602e7814353401c290e177ec3ce02
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: ce326d7284e22a8734f6be671a277795ba659522
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68640261"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68720521"
 ---
 # <a name="copy-data-from-teradata-by-using-azure-data-factory"></a>Copier des données depuis une base de données Teradata à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -150,11 +150,12 @@ Pour copier des données à partir de Teradata, les propriétés suivantes sont 
     "name": "TeradataDataset",
     "properties": {
         "type": "TeradataTable",
+        "typeProperties": {},
+        "schema": [],        
         "linkedServiceName": {
             "referenceName": "<Teradata linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {}
+        }
     }
 }
 ```
