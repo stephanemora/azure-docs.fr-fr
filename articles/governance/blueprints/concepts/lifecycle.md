@@ -3,17 +3,16 @@ title: Présentation du cycle de vie d’un blueprint
 description: Découvrez le cycle de vie d’un blueprint et les détails de chaque phase.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/01/2019
+ms.date: 07/30/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.custom: seodec18
-ms.openlocfilehash: a57085fa37efd56a46b740d8cbc4278dc53cf39f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6112f6f2834f02cec970af886360844c5314150d
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60683187"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68678984"
 ---
 # <a name="understand-the-lifecycle-of-an-azure-blueprint"></a>Présentation du cycle de vie d’un blueprint Azure
 
@@ -99,6 +98,17 @@ Quand un blueprint est affecté, l’affectation peut être mise à jour. Plusie
 - Mettre à niveau l’affectation vers une version **publiée** plus récente du blueprint
 
 Pour découvrir comment procéder, consultez [Mettre à jour des affectations existantes](../how-to/update-existing-assignments.md)
+
+### <a name="unassigning-assignments"></a>Annulation de l’affectation des affectations
+
+Si le blueprint n’est plus nécessaire, son attribution peut être annulée à partir du groupe d’administration ou de l’abonnement. Lors de la désaffectation d’un plan, voici ce qui se produit :
+
+- Suppression du [verrouillage des ressources de blueprint](resource-locking.md)
+- Suppression de l’objet d’affectation de blueprint
+- (Conditionnel) Si une **identité gérée affectée par le système** a été utilisée, elle est également supprimée
+
+> [!NOTE]
+> Toutes les ressources déployées par l’affectation du blueprint sont conservées, mais elles ne sont plus protégées par Azure Blueprints.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

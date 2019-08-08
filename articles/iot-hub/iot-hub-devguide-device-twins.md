@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 06/10/2019
-ms.openlocfilehash: fbc68b551db1f68fe253a833ad26c88de1b92f30
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f4db353e3c2f625478df6a547d1b67c5d074d18a
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67055373"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68640619"
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>Comprendre et utiliser les jumeaux d’appareil IoT Hub
 
@@ -231,7 +231,7 @@ En plus de ces opérations, le back-end de la solution peut :
 
 L’application d’appareil opère sur le jumeau d’appareil en utilisant les opérations atomiques suivantes :
 
-* **Récupérer le jumeau d’appareil**. Cette opération renvoie le contenu du document du jumeau d’appareil, à savoir les Tags (Balises) et les propriétés système souhaitées (Desired) et signalées (Reported), pour l’appareil actuellement connecté.
+* **Récupérer le jumeau d’appareil**. Cette opération renvoie le contenu du document du jumeau d’appareil, à savoir les propriétés système souhaitées (Desired) et signalées (Reported) pour l’appareil actuellement connecté. (Les balises ne sont pas visibles pour des applications d’appareil.)
 
 * **Mettre à jour partiellement les propriétés signalées (Reported)** . Cette opération permet la mise à jour partielle des propriétés signalées de l’appareil actuellement connecté. Cette opération utilise le même format de mise à jour JSON que le serveur principal de solution utilise pour une mise à jour partielle des propriétés souhaitées.
 

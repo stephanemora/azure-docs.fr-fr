@@ -1,7 +1,7 @@
 ---
-title: Prise en charge des langues – Services Speech
+title: Prise en charge des langues – Service Speech
 titleSuffix: Azure Cognitive Services
-description: Les services Azure Speech prennent en charge de nombreuses langues, que ce soit pour la reconnaissance vocale, la synthèse vocale ou la traduction vocale. Cet article fournit une liste complète des langues prise en charge par service.
+description: Le service Speech prend en charge de nombreuses langues, que ce soit pour la reconnaissance vocale, la synthèse vocale ou la traduction vocale. Cet article fournit une liste complète des langues prise en charge, par fonctionnalité de service.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 006b9401a3418e3b2b3803fa0b7897b28887d14a
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: ac3cb1d637eae1b4ee0a7db59efe631c7eb1ac6f
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606602"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68815263"
 ---
 # <a name="language-and-region-support-for-the-speech-services"></a>Prise en charge des langues et des régions des services Speech
 
@@ -31,12 +31,12 @@ Le Kit de développement logiciel (SDK) et l’API REST de reconnaissance vocale
  ar-EG | Arabe (Égypte), standard moderne | Non | OUI | Non
  ca-ES | Catalan | Non | Non | Non
  da-DK | Danois (Danemark) | Non | Non | Non
- de-DE | Allemand (Allemagne) | OUI | OUI | Non
- en-AU | Anglais (Australie) | Non | OUI | OUI
- en-CA | Anglais (Canada) | Non | OUI | OUI
- en-GB | Anglais (Royaume-Uni) | Non | OUI | OUI
- en-IN | Anglais (Inde) | OUI | OUI | OUI
- en-NZ | Anglais (Nouvelle-Zélande) | Non | OUI | OUI  
+ de-DE | Allemand (Allemagne) | OUI | OUI | OUI
+ en-AU | Anglais (Australie) | Non | OUI | Non
+ en-CA | Anglais (Canada) | Non | OUI | Non
+ en-GB | Anglais (Royaume-Uni) | Non | OUI | Non
+ en-IN | Anglais (Inde) | OUI | OUI | Non
+ en-NZ | Anglais (Nouvelle-Zélande) | Non | OUI | Non 
  en-US | Anglais (États-Unis) | OUI | OUI | OUI
  es-ES | Espagnol (Espagne) | OUI | OUI | Non
  es-MX | Espagnol (Mexique) | Non | OUI | Non
@@ -212,7 +212,7 @@ L’API **Traduction vocale** prend en charge différentes langues pour la tradu
 | Fidjien      | `fj`          |
 | Filipino      | `fil`          |
 | Finnois      | `fi`          |
-| Anglais      | `fr`          |
+| Français      | `fr`          |
 | Allemand      | `de`          |
 | Grec      | `el`          |
 | Créole haïtien      | `ht`          |

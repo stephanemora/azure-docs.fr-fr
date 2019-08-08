@@ -11,22 +11,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: b0c7c38ebabfdd142394152f735d40320a98dced
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: 507ad62a917120689bee3f1e293e23c9ab8b0f66
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67798151"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68598098"
 ---
 # <a name="get-enterprise-agreement-reservation-costs-and-usage"></a>Obtenir les données d’utilisation et de coûts de la réservation pour les Contrats Entreprise
 
 Les données d’utilisation et de coûts de la réservation sont disponibles pour les clients Contrat Entreprise dans le portail Azure et les API REST. Cet article vous aide à :
 
 - Obtenir les données d’achat de réservation
-- Obtenir les données de sous-utilisation des réservations
-- Amortir les coûts des réservations
+- Connaître l’abonnement, le groupe de ressources ou la ressource qui a utilisé la réservation
 - Rétrofacturer l’utilisation des réservations
 - Calculer les économies des réservations
+- Obtenir les données de sous-utilisation des réservations
+- Amortir les coûts des réservations
 
 Les frais de la marketplace sont consolidés dans les données d’utilisation. Vous voyez les frais liés à l’utilisation interne, à l’utilisation de la marketplace et aux achats à partir d’une source de données unique.
 
@@ -34,9 +35,9 @@ Les frais de la marketplace sont consolidés dans les données d’utilisation. 
 
 Les données sont divisées en deux jeux de données distincts : _Coût réel_ et _Coût amorti_. Comparons ces deux jeux de données :
 
-**Coût réel** : fournit les données à rapprocher avec votre facture mensuelle. Ces données contiennent les coûts d’achat des réservations. Le prix réel (EffectivePrice) est égal à zéro pour l’utilisation qui a bénéficié de la remise de réservation.
+**Coût réel** : fournit les données à rapprocher avec votre facture mensuelle. Ces données ont des coûts d’achat de réservation et des détails sur l’application de la réservation. Avec ces données, vous pouvez savoir quel abonnement ou groupe de ressources ou ressource a reçu la remise de réservation un jour particulier. Le prix réel (EffectivePrice) pour l’utilisation qui a bénéficié de la remise de réservation est égal à zéro.
 
-**Coût amorti** : le coût réel (EffectiveCost) d’une ressource qui obtient la remise de réservation est le coût au prorata de l’instance réservée. Le jeu de données contient également les coûts de la réservation inutilisée. La somme du coût de la réservation et de la réservation inutilisée fournit le coût amorti quotidien de la réservation.
+**Coût amorti** : ce jeu de données est similaire au jeu de données Coût réel, sauf que le prix réel (EffectivePrice) pour l’utilisation qui obtient une remise de réservation correspond au coût au prorata de la réservation (au lieu de zéro). Cela vous permet de connaître la valeur monétaire de la consommation de réservation d’un abonnement, d’un groupe de ressources ou d’une ressource, et peut vous aider à refacturer en interne pour l’utilisation de la réservation. Le jeu de données contient également les heures inutilisées de la réservation. Le jeu de données n’a pas d’enregistrements d’achat de réservation. 
 
 Comparaison des deux jeux de données :
 

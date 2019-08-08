@@ -56,6 +56,8 @@
       maintainContext: true
     - name: Résolution des problèmes
       items:
+        - name: Espace disque insuffisant
+          href: ./hdinsight-troubleshoot-out-disk-space.md
         - name: Blocage logiciel - Processeur
           href: ./hdinsight-troubleshoot-soft-lockup-cpu.md
         - name: InvalidNetworkConfigurationErrorCode - Échecs de création du cluster
@@ -72,6 +74,8 @@
           href: ./hdinsight-hdfs-troubleshoot-safe-mode.md
         - name: Problèmes de pulsations Apache Ambari
           href: ./apache-ambari-troubleshoot-heartbeat-issues.md
+        - name: Apache Ambari affiche que les hôtes et services ne fonctionnent pas
+          href: ./apache-ambari-troubleshoot-down-hosts-services.md
 - name: Procédures
   items:
     - name: Utiliser le bac à sable (sandbox) Apache Hadoop

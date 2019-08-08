@@ -1,6 +1,6 @@
 ---
-title: Régions - Services Speech
-titlesuffix: Azure Cognitive Services
+title: Régions – Service Speech
+titleSuffix: Azure Cognitive Services
 description: Informations de référence pour les régions du service Speech.
 services: cognitive-services
 author: mahilleb-msft
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/12/2019
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: 1ad618e9eb70fd75f433030584c0f6538532928f
-ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
+ms.openlocfilehash: c0414277b4851891911908ba4f42e92abedc86e4
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67466985"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68553191"
 ---
 # <a name="speech-service-supported-regions"></a>Régions prises en charge pour le service Speech
 
@@ -36,7 +36,7 @@ Le kit de développement logiciel (SDK) Speech est disponible dans les régions 
  ------|-------|--------
  USA Ouest | `westus` | https://westus.cris.ai
  USA Ouest 2 | `westus2` | https://westus2.cris.ai
- USA Est | `eastus` | https://eastus.cris.ai
+ East US | `eastus` | https://eastus.cris.ai
  USA Est 2 | `eastus2` | https://eastus2.cris.ai
  USA Centre | `centralus` | https://centralus.cris.ai
  USA Centre Nord | `northcentralus` | https://northcentralus.cris.ai
@@ -64,7 +64,7 @@ Les régions disponibles pour la **reconnaissance de l'intention** via le kit de
  Australie | Australie Est | `australiaeast`
  Europe | Europe Nord | `northeurope`
  Europe | Europe Ouest | `westeurope`
- Amérique du Nord | USA Est | `eastus`
+ Amérique du Nord | East US | `eastus`
  Amérique du Nord | USA Est 2 | `eastus2`
  Amérique du Nord | USA Centre Sud | `southcentralus`
  Amérique du Nord | USA Centre-Ouest | `westcentralus`
@@ -82,7 +82,7 @@ Région | Paramètre du SDK Speech
 -------|---------------------
 USA Ouest | `westus`
 USA Ouest 2 | `westus2`
-USA Est | `eastus`
+East US | `eastus`
 USA Est 2 | `eastus2`
 Europe Ouest | `westeurope`
 Europe Nord | `northeurope`

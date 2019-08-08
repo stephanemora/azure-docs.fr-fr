@@ -45,7 +45,7 @@ sections:
         items:
           - html: <a href="tutorial-1st-experiment-sdk-setup">Configurer votre environnement et entraîner votre première expérimentation ML.</a>
           - html: <a href="tutorial-train-models-with-aml">Entraîner et déployer des modèles de classification d’images</a>.
-          - html: <a href="tutorial-data-prep">Préparer les données et le ML automatisé pour prédire les frais de taxi</b>).</a>
+          - html: <a href="tutorial-data-prep">Préparer les données et utiliser le ML automatisé pour prédire les frais de taxi</b>.</a>
   - title: Exemples
     items:
       - type: paragraph

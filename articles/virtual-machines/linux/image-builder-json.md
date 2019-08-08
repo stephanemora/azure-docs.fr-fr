@@ -3,16 +3,16 @@ title: Créer un modèle de générateur d’images Azure (préversion)
 description: Découvrez comment créer un modèle à utiliser avec le générateur d’images Azure.
 author: cynthn
 ms.author: cynthn
-ms.date: 05/10/2019
+ms.date: 07/31/2019
 ms.topic: article
 ms.service: virtual-machines-linux
 manager: gwallace
-ms.openlocfilehash: 065962614d0b85c4c50f86bef0b610c9b3577e07
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: a623aa98cd26e1636e47cb0e2831eeced17935b9
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68248154"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68695398"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>Aperçu : Créer un modèle de générateur d’images Azure 
 
@@ -55,7 +55,7 @@ Voici le format de modèle de base :
 
 L’emplacement est la région dans laquelle l’image personnalisée sera créée. Pour le générateur d’images en préversion, les régions suivantes sont prises en charge :
 
-- USA Est
+- East US
 - USA Est 2
 - USA Centre-Ouest
 - USA Ouest
@@ -185,6 +185,19 @@ Définit l’image source comme une version d’image existante dans une galerie
 
 `imageVersionId` doit être l’ID de ressource de la version d’image. Utilisez [az sig image-version list](/cli/azure/sig/image-version#az-sig-image-version-list) pour répertorier les versions d’image.
 
+## <a name="properties-buildtimeoutinminutes"></a>Propriétés : buildTimeoutInMinutes
+Par défaut, Image Builder s’exécutera pendant 240 minutes. Après cela, il expire et s’arrête, que la génération de l’image soit terminée ou non. Si le délai d’expiration est atteint, une erreur semblable à celle-ci s’affiche :
+
+```text
+[ERROR] Failed while waiting for packerizer: Timeout waiting for microservice to
+[ERROR] complete: 'context deadline exceeded'
+```
+
+Si vous ne spécifiez pas de valeur buildTimeoutInMinutes ou si vous lui affectez la valeur 0, la valeur par défaut est utilisée. Vous pouvez augmenter ou diminuer la valeur, jusqu’à la valeur maximale de 960 min (16 heures). Pour Windows, nous vous déconseillons de définir cette valeur en dessous de 60 minutes. Si vous constatez que vous avez atteint le délai d’expiration, consultez les [journaux](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#collecting-and-reviewing-aib-image-build-logs) pour voir si l’étape de personnalisation attend par exemple une entrée de l’utilisateur. 
+
+Si vous avez besoin de plus de temps pour que les personnalisations se terminent, définissez ce dont vous avez besoin, avec une faible surcharge. Toutefois, ne définissez pas une valeur trop élevée, car vous devrez peut-être attendre qu’il expire avant d’afficher une erreur. 
+
+
 ## <a name="properties-customize"></a>Propriétés : personnaliser
 
 
@@ -194,7 +207,6 @@ Lorsque vous utilisez `customize` :
 - Vous pouvez utiliser plusieurs personnalisateurs, mais ils doivent avoir une valeur `name` unique.
 - Les personnalisateurs sont exécutés dans l’ordre spécifié dans le modèle.
 - En cas d’échec d’un personnalisateur, l’ensemble du composant de personnalisation échoue et renvoie une erreur.
-- Évaluez le temps nécessaire de création de votre image et ajustez la propriété « buildTimeoutInMinutes » pour laisser le temps nécessaire au générateur d’images pour terminer.
 - Il est vivement recommandé de tester rigoureusement le script avant de l’utiliser dans un modèle. Le débogage du script sur votre propre machine virtuelle en sera simplifié.
 - Ne placez pas de données sensibles dans les scripts. 
 - Les emplacements de script doivent être accessibles publiquement, sauf si vous utilisez [MSI](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts/7_Creating_Custom_Image_using_MSI_to_Access_Storage).

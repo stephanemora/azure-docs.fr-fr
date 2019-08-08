@@ -1,5 +1,5 @@
 ---
-title: Toutes les entités prédéfinies
+title: Ensemble des entités prédéfinies – LUIS
 titleSuffix: Azure Cognitive Services
 description: Cet article contient des listes des entités prédéfinies qui sont incluses dans Language Understanding (LUIS).
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: diberry
-ms.openlocfilehash: 082ebaef9a2497899cf91c24435dea6e626f0041
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 9ce6d33f6f8be844877067163630e5a7909183f6
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67485154"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563450"
 ---
 # <a name="entities-per-culture-in-your-luis-model"></a>Entités par culture dans votre modèle LUIS
 
@@ -27,7 +27,7 @@ Language Understanding (LUIS) fournit des entités prédéfinies. Quand une enti
 |Chinois|[zh-CN](#chinese-entity-support)||
 |Néerlandais|[nl-NL](#dutch-entity-support)||
 |Anglais|[en-US (États-Unis)](#english-american-entity-support)||
-|Anglais|[fr-CA (Canada)](#french-canadian-entity-support), [fr-FR (France)](#french-france-entity-support), ||
+|Français|[fr-CA (Canada)](#french-canadian-entity-support), [fr-FR (France)](#french-france-entity-support), ||
 |Allemand|[de-DE](#german-entity-support)||
 |Italien|[it-IT](#italian-entity-support)||
 |Japonais|[ja-JP](#japanese-entity-support)||

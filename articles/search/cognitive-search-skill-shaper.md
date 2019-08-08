@@ -10,28 +10,21 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
-ms.custom: seodec2018
-ms.openlocfilehash: 058b6c979346d9dcce36940432d0e222e919dba9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.subservice: cognitive-search
+ms.openlocfilehash: 16bb7d84bbf19081c146aaac13ecc798610bc4bc
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65540826"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840954"
 ---
 #   <a name="shaper-cognitive-skill"></a>Compétence cognitive Modélisation
 
 La compétence **Modélisation** regroupe plusieurs entrées dans un [type complexe](search-howto-complex-data-types.md) qui peut être référencé plus tard dans le pipeline d’enrichissement. La compétence **Modélisation** vous permet essentiellement de créer une structure, de définir le nom des membres de cette structure et d’assigner des valeurs à chaque membre. Parmi les exemples de champs regroupés utiles dans les scénarios de recherche, citons la combinaison d’un nom et d’un prénom dans une seule structure, d’une ville et d’un état dans une seule structure, ou du nom et d’une date de naissance dans une seule structure pour établir une identité unique.
 
-La version d’API détermine la profondeur de modélisation que vous pouvez obtenir. 
+De plus, la compétence **Modélisation** illustrée dans le [scénario 3](#nested-complex-types) ajoute une propriété *sourceContext* en option dans l’entrée. Les propriétés *source* et *sourceContext* s’excluent mutuellement. Si l’entrée est dans le contexte de la compétence, utilisez simplement *source*. Si l’entrée est dans un contexte *différent* de celui de la compétence, utilisez *sourceContext*. La propriété *sourceContext* implique que vous définissiez une entrée imbriquée avec l’élément spécifique traité comme source. 
 
-| Version de l'API | Comportements de modélisation | 
-|-------------|-------------------|
-| Version 2019-05-06-Preview de l’API REST (Kit de développement logiciel (SDK) .NET non pris en charge) | Objets complexes, profondeur à plusieurs niveaux, dans une définition de compétence **Modélisation**. |
-| 2019-05-06** (mise à la disposition générale), 2017-11-11-Preview| Objets complexes, profondeur à un niveau. Une forme à plusieurs niveaux requiert le chaînage de plusieurs étapes du modélisateur.|
-
-Telle que fournie par `api-version=2019-05-06-Preview`, la compétence **Modélisation** illustrée dans le [scénario 3](#nested-complex-types) ajoute une nouvelle propriété facultative *sourceContext* à l’entrée. Les propriétés *source* et *sourceContext* s’excluent mutuellement. Si l’entrée est dans le contexte de la compétence, utilisez simplement *source*. Si l’entrée est dans un contexte *différent* de celui de la compétence, utilisez *sourceContext*. La propriété *sourceContext* implique que vous définissiez une entrée imbriquée avec l’élément spécifique traité comme source. 
-
-Dans la réponse, pour toutes les versions d’API, le nom de la sortie est toujours « output ». En interne, le pipeline peut mapper un autre nom, comme « analyzedText » comme indiqué dans les exemples ci-dessous, mais la compétence **Modélisation** elle-même retourne « output » dans la réponse. Cet aspect peut être important si vous effectuez un débogage de documents enrichis et notez la différence de nommage, ou si vous générez une compétence personnalisée et que vous structurez la réponse vous-même.
+Le nom de sortie est toujours « output ». En interne, le pipeline peut mapper un autre nom, comme « analyzedText » comme indiqué dans les exemples ci-dessous, mais la compétence **Modélisation** elle-même retourne « output » dans la réponse. Cet aspect peut être important si vous effectuez un débogage de documents enrichis et notez la différence de nommage, ou si vous générez une compétence personnalisée et que vous structurez la réponse vous-même.
 
 > [!NOTE]
 > La compétence **Modélisation** n’est pas liée à une API Cognitive Services et son utilisation ne vous est pas facturée. Toutefois, vous devez toujours [attacher une ressource Cognitive Services](cognitive-search-attach-cognitive-services.md) pour remplacer l’option de ressource **Gratuit** qui vous limite à un petit nombre d’enrichissements quotidiens par jour.
@@ -195,9 +188,6 @@ Dans ce cas, la compétence **Modélisation** aplatit tous les titres de chapitr
 
 ## <a name="scenario-3-input-consolidation-from-nested-contexts"></a>Scénario 3 : regroupement des entrées à partir de contextes imbriqués
 
-> [!NOTE]
-> Les structures imbriquées prises en charge dans [la version d’API REST 2019-05-06-Preview](search-api-preview.md) peuvent être utilisées dans une [base de connaissances](knowledge-store-concept-intro.md) ou dans un index Recherche Azure.
-
 Imaginons la situation suivante : vous avez le titre, les chapitres et le contenu d’un livre et vous avez été exécuté une reconnaissance d’entité, ainsi que des expressions clés sur le contenu. À présent, vous devez agréger les résultats à partir des différentes compétences dans une seule forme avec le nom de chapitre, les entités et les expressions clés.
 
 La définition de la compétence **Modélisation** pour ce scénario peut se présenter comme dans l’exemple suivant :
@@ -237,7 +227,7 @@ La définition de la compétence **Modélisation** pour ce scénario peut se pr�
 ```
 
 ### <a name="skill-output"></a>Sortie de la compétence
-Dans ce cas, le **modélisateur** crée un type complexe. Cette structure existe en mémoire. Si vous souhaitez l’enregistrer dans une base de connaissances, vous devez créer une projection dans votre ensemble de compétences, définissant les caractéristiques de stockage.
+Dans ce cas, le **modélisateur** crée un type complexe. Cette structure existe en mémoire. Si vous souhaitez l’enregistrer dans une [base de connaissances](knowledge-store-concept-intro.md), vous devez créer une projection dans votre ensemble de compétences, définissant les caractéristiques de stockage.
 
 ```json
 {

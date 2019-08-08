@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7402778ec8170e60a623255d0d331f12d8389227
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a8163b2261601b701913e07d703f5db0ac6fa7c0
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65824302"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68688071"
 ---
 # <a name="assign-users-and-groups-to-an-application-in-azure-active-directory"></a>Assigner des utilisateurs et des groupes à une application dans Azure Active Directory
 Cet article vous montre comment assigner des utilisateurs ou des groupes à une application dans Azure Active Directory (Azure AD). Les utilisateurs doivent tout d’abord être assignés à une application avant qu’un administrateur puisse leur accorder un accès afin d’effectuer les opérations suivantes :
@@ -32,7 +32,7 @@ Cet article vous montre comment assigner des utilisateurs ou des groupes à une 
 
 -   Afficher une application qui apparaît sur leur [Lanceur d’applications Office 365](https://support.office.com/article/Meet-the-Office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a).
 
-La disponibilité de l’affectation basée sur le groupe est déterminée par votre contrat de licence. L’affectation basée sur le groupe est prise en charge uniquement pour les groupes de sécurité, et les appartenances aux groupes imbriqués ne sont pas prises en charge actuellement.
+La disponibilité de l’affectation basée sur le groupe est déterminée par votre contrat de licence. L’attribution basée sur le groupe est uniquement prise en charge pour les groupes de sécurité. L’appartenance aux groupes imbriqués et aux groupes O365 n’est pas prise en charge actuellement.
 
 ## <a name="prerequisites"></a>Prérequis
 Avant d'affecter des utilisateurs et des groupes à une application, vous devez demander l'affectation de l'utilisateur. Pour exiger l’affectation des utilisateurs :

@@ -1,6 +1,6 @@
 ---
-title: Disponibilité de scénario - Services Speech
-titlesuffix: Azure Cognitive Services
+title: Disponibilité de scénario – Service Speech
+titleSuffix: Azure Cognitive Services
 description: Informations de référence pour les régions du service Speech.
 services: cognitive-services
 author: chrisbasoglu
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: cbasoglu
-ms.openlocfilehash: 7aa2c72a01f1887ea9680f8d5706b825a49039a1
-ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
+ms.openlocfilehash: 94fd415909e86a43916ee2f510732a6a6d9c5ed3
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67561282"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68552957"
 ---
 # <a name="scenario-availability"></a>Disponibilité de scénario
 

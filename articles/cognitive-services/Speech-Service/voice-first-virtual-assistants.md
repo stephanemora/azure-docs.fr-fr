@@ -1,5 +1,5 @@
 ---
-title: Personnaliser l’assistant virtuel « voice-first » (préversion) - Services Speech
+title: Personnaliser l’assistant virtuel « voice-first » (préversion) – Service Speech
 titleSuffix: Azure Cognitive Services
 description: Vue d’ensemble des fonctionnalités et des restrictions pour les assistants virtuels « voice-first » personnalisés utilisant le canal Direct Line Speech sur Bot Framework et le SDK Cognitive Services Speech.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: travisw
-ms.openlocfilehash: c9b85895e701ff74e025d6f7895bc32513bc29a1
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 8a12c9e5d569092440552958554681c0b1d79590
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67806904"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68552543"
 ---
 # <a name="about-custom-voice-first-virtual-assistants-preview"></a>À propos de la préversion des assistants virtuels « voice-first »
 
@@ -29,7 +29,7 @@ Direct Line Speech et ses fonctionnalités pour les assistants virtuels « voic
 
 ## <a name="core-features"></a>Fonctionnalités de base
 
-| Catégorie | Caractéristiques |
+| Category | Caractéristiques |
 |----------|----------|
 |[Mot déclencheur personnalisé](speech-devices-sdk-create-kws.md) | Vous pouvez permettre aux utilisateurs de commencer des conversations avec des bots à l’aide d’un mot clé personnalisé comme « Dis Contoso ». Cette tâche est réalisée avec un moteur de mot déclencheur personnalisé dans le SDK Speech, qui peut être configuré avec un mot déclencheur personnalisé [que vous pouvez générer ici](speech-devices-sdk-create-kws.md). Le canal Direct Line Speech inclut la vérification du mot déclencheur côté service qui améliore la précision de l’activation du mot déclencheur par rapport à l’appareil uniquement.
 |[Reconnaissance vocale](speech-to-text.md) | Le canal Direct Line Speech inclut la transcription en temps réel du son dans du texte reconnu avec la [Reconnaissance vocale](speech-to-text.md) d’Azure Speech Services. Ce texte est disponible pour votre bot et votre application cliente lors de sa transcription.

@@ -1,5 +1,5 @@
 ---
-title: Augmenter le quota de points de terminaison
+title: Augmenter le quota de points de terminaison – LUIS
 titleSuffix: Azure Cognitive Services
 description: Language Understanding (LUIS) offre la possibilité d’augmenter le quota de demandes des points de terminaison au-delà du quota d’une seule clé. Il suffit de créer plusieurs clés pour LUIS et de les ajouter à l’application LUIS dans la section **Ressources et clés** de la page **Publier**.
 author: diberry
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 02/08/2019
 ms.author: diberry
-ms.openlocfilehash: 31d8f54cb05bdbba7fe05249527db3dd50385087
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 10ddbed710d3055e66bd3cb0b06cfa7949a9a1c5
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66123543"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563368"
 ---
 # <a name="use-microsoft-azure-traffic-manager-to-manage-endpoint-quota-across-keys"></a>Utiliser Microsoft Azure Traffic Manager pour gérer le quota de points de terminaison entre les clés
 Language Understanding (LUIS) offre la possibilité d’augmenter le quota de demandes des points de terminaison au-delà du quota d’une seule clé. Il suffit de créer plusieurs clés pour LUIS et de les ajouter à l’application LUIS dans la section **Ressources et clés** de la page **Publier**. 
@@ -28,7 +28,7 @@ Cet article explique comment gérer le trafic entre les clés avec Azure [Traffi
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="connect-to-powershell-in-the-azure-portal"></a>Se connecter à PowerShell sur le Portail Azure
-Sur le Portail [Azure][azure-portal], ouvrez la fenêtre PowerShell. L’icône de la fenêtre PowerShell est le signe **>_** dans la barre de navigation supérieure. La version de PowerShell qui se trouve sur le Portail est la dernière version ; par ailleurs, elle vous authentifie automatiquement. Elle requiert un compte [Stockage Azure](https://azure.microsoft.com/services/storage/). 
+Sur le Portail [Microsoft Azure][azure-portal], ouvrez la fenêtre PowerShell. L’icône de la fenêtre PowerShell est le signe **>_** dans la barre de navigation supérieure. La version de PowerShell qui se trouve sur le Portail est la dernière version ; par ailleurs, elle vous authentifie automatiquement. Elle requiert un compte [Stockage Azure](https://azure.microsoft.com/services/storage/). 
 
 ![Capture d’écran du Portail Azure avec la fenêtre PowerShell ouverte](./media/traffic-manager/azure-portal-powershell.png)
 
@@ -48,7 +48,7 @@ New-AzResourceGroup -Name luis-traffic-manager -Location "West US"
 
     ![Capture d’écran du Portail Azure avec deux clés LUIS dans le groupe de ressources luis-traffic-manager](./media/traffic-manager/luis-keys.png)
 
-2. Dans le site web [LUIS][LUIS], dans la section **Manage** (Gérer), dans la page **Keys and endpoints** (Clés et points de terminaison), affectez des clés à l’application, puis republiez l’application en sélectionnant le bouton **Publish** (Publier) dans le menu en haut à droite. 
+2. Sur le site web [LUIS][LUIS], dans la section **Manage** (Gérer), dans la page **Keys and endpoints** (Clés et points de terminaison), affectez des clés à l’application, puis republiez l’application en sélectionnant le bouton **Publish** (Publier) dans le menu en haut à droite. 
 
     L’exemple d’URL dans la colonne **Point de terminaison** utilise une demande GET avec la clé de point de terminaison comme paramètre de requête. Copiez l’URL de point de terminaison des deux nouvelles clés. Elles seront utilisées pour la configuration de Traffic Manager dans la suite de cet article.
 
@@ -101,7 +101,7 @@ Pour créer le profil Traffic Manager USA Est, il y a plusieurs étapes à suiv
     |--|--|--|
     |-EndpointName|luis-east-endpoint|Nom du point de terminaison qui s’affiche sous le profil.|
     |-TrafficManagerProfile|$eastprofile|Utilisez l’objet de profil créé à l’étape 1.|
-    |-Type|ExternalEndpoints|Pour plus d’informations, voir [Points de terminaison Traffic Manager][traffic-manager-endpoints]. |
+    |-Type|ExternalEndpoints|Pour en savoir plus, voir [Points de terminaison Traffic Manager][traffic-manager-endpoints]. |
     |-Target|eastus.api.cognitive.microsoft.com|Domaine du point de terminaison LUIS.|
     |-EndpointLocation|"eastus"|Région du point de terminaison.|
     |-EndpointStatus|activé|Active le point de terminaison lors de sa création.|
@@ -170,7 +170,7 @@ Pour créer le profil Traffic Manager USA Ouest, suivez les mêmes étapes : cr�
     |--|--|--|
     |-EndpointName|luis-west-endpoint|Nom du point de terminaison qui s’affiche sous le profil.|
     |-TrafficManagerProfile|$westprofile|Utilisez l’objet de profil créé à l’étape 1.|
-    |-Type|ExternalEndpoints|Pour plus d’informations, voir [Points de terminaison Traffic Manager][traffic-manager-endpoints]. |
+    |-Type|ExternalEndpoints|Pour en savoir plus, voir [Points de terminaison Traffic Manager][traffic-manager-endpoints]. |
     |-Target|westus.api.cognitive.microsoft.com|Domaine du point de terminaison LUIS.|
     |-EndpointLocation|"westus"|Région du point de terminaison.|
     |-EndpointStatus|activé|Active le point de terminaison lors de sa création.|

@@ -5,14 +5,14 @@ author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 07/09/2019
+ms.date: 07/29/2019
 ms.author: dacurwin
-ms.openlocfilehash: dd800c0eeb18fe45b44a72aeb58b500623b2b366
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 99f14b14e9149f79ae992834ae75bcb8fdc3c74b
+ms.sourcegitcommit: 15f7b641a67f3d6cf4fb4b4c11eaee18cf335923
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67705094"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68601988"
 ---
 # <a name="common-questions-about-backing-up-files-and-folders"></a>Questions courantes sur la sauvegarde de fichiers et de dossiers
 
@@ -106,19 +106,22 @@ La taille du dossier du cache détermine la quantité de données que vous sauve
 
     ```PS C:\> Net stop obengine```
 
-2. Ne déplacez pas les fichiers, mais copiez le dossier d’espace de cache sur un autre lecteur disposant d’un espace suffisant.
-3. Mettez à jour les entrées de registre suivantes en utilisant le chemin d’accès au nouveau dossier de cache.<br/>
+2. Si vous avez configuré la sauvegarde de l’état du système, ouvrez gestion des disques et démontez le ou les disques avec des noms au format `"CBSSBVol_<ID>"`.
+3. Ne déplacez pas les fichiers, mais copiez le dossier d’espace de cache sur un autre lecteur disposant d’un espace suffisant.
+4. Mettez à jour les entrées de registre suivantes en utilisant le chemin d’accès au nouveau dossier de cache.<br/>
 
     | Chemin d’accès au Registre | Clé de Registre | Valeur |
     | --- | --- | --- |
     | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` |ScratchLocation |*Emplacement du nouveau dossier de cache* |
     | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` |ScratchLocation |*Emplacement du nouveau dossier de cache* |
 
-4. Redémarrez le moteur de sauvegarde via une invite de commandes avec élévation de privilèges :
+5. Redémarrez le moteur de sauvegarde via une invite de commandes avec élévation de privilèges :
+
+    ```PS C:\> Net stop obengine```
 
     ```PS C:\> Net start obengine```
 
-5. Une fois la sauvegarde terminée au nouvel emplacement, vous pouvez supprimer le dossier du cache d’origine.
+6. Exécutez une sauvegarde ad hoc. Une fois la sauvegarde terminée au nouvel emplacement, vous pouvez supprimer le dossier du cache d’origine.
 
 
 ### <a name="where-should-the-cache-folder-be-located"></a>Où le dossier du cache doit-il se trouver ?

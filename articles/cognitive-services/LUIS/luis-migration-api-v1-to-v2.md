@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 04/02/2019
 ms.author: diberry
-ms.openlocfilehash: a4e176552fcbab9d54da696439c7e46750be3944
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ab42ee29e508bfa62e2dba7a6e6a06baa0da2489
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65522360"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560315"
 ---
 # <a name="api-v1-to-v2-migration-guide-for-luis-apps"></a>Guide de migration d’API v1 vers v2 pour les applications LUIS
 Les API de [point de terminaison](https://aka.ms/v1-endpoint-api-docs) et de [création](https://aka.ms/v1-authoring-api-docs) de version 1 sont dépréciées. Utilisez ce guide pour comprendre comment migrer vers la version 2 des API de [point de terminaison](https://go.microsoft.com/fwlink/?linkid=2092356) et de [création](https://go.microsoft.com/fwlink/?linkid=2092087). 
@@ -153,7 +153,7 @@ Les [Domaines prédéfinis](luis-how-to-use-prebuilt-domains.md) fournissent un 
 |/luis/api/v2.0/apps/customprebuiltdomains/{culture}  |get|
 
 ## <a name="importing-1x-app-into-2x"></a>Importation d’une application 1.x dans 2.x
-Le fichier JSON 1.x exporté de l’application a certaines zones que vous devez modifier avant l’importation dans [LUIS][LUIS] 2.0. 
+Le fichier JSON 1.x exporté de l’application inclut certaines zones que vous devez modifier avant l’importation dans [LUIS][LUIS] 2.0. 
 
 ### <a name="prebuilt-entities"></a>Entités prédéfinies 
 Les [entités prédéfinies](luis-prebuilt-entities.md) ont changé. Vérifiez que vous utilisez les entités prédéfinies V2. Cela inclut l’utilisation de [datetimeV2](luis-reference-prebuilt-datetimev2.md), au lieu de datetime. 

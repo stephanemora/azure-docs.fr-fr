@@ -1,18 +1,19 @@
 ---
 title: Fonctionnalité de restauration instantanée Azure
 description: Présentation de la fonctionnalité de restauration instantanée et questions fréquentes (FAQ) sur la pile de sauvegarde de machine virtuelle et le modèle de déploiement Resource Manager
-author: sogup
-manager: vijayts
+ms.reviewer: sogup
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.author: sogup
-ms.openlocfilehash: 8bbf24fdd05fa0d70bcadae4f21e599dc8bef3a5
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: 0f31320a638dd4741d940d0b459575b66149b829
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68465111"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698404"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Améliorer les performances de sauvegarde et de restauration avec la fonctionnalité de restauration instantanée de Sauvegarde Azure
 
@@ -25,7 +26,8 @@ Le nouveau modèle pour la restauration instantanée fournit les améliorations 
 * Réduit les temps de sauvegarde et de restauration en conservant les instantanés localement pendant deux jours par défaut. Cette valeur de rétention des instantanés par défaut peut être définie sur n’importe quelle valeur comprise entre 1 et 5 jours.
 * Prise en charge des disques d’une taille maximale de 4 To Le redimensionnement du disque n’est pas recommandé par Sauvegarde Azure.
 * Prend en charge les disques SSD Standard, ainsi que les disques HDD Standard et SSD Premium.
-*   Possibilité d’utiliser les comptes de stockage d’origine d’une machine virtuelle non gérée (par disque) lors de la restauration. Cette possibilité existe même quand la machine virtuelle a des disques répartis entre des comptes de stockage. Ceci accélère les opérations de restauration pour une grande variété de configurations de machine virtuelle.
+* Possibilité d’utiliser les comptes de stockage d’origine d’une machine virtuelle non gérée (par disque) lors de la restauration. Cette possibilité existe même quand la machine virtuelle a des disques répartis entre des comptes de stockage. Ceci accélère les opérations de restauration pour une grande variété de configurations de machine virtuelle.
+* Pour la sauvegarde de machines virtuelles qui utilisent le stockage Premium, avec la restauration instantanée, nous vous recommandons d’aller *50 %* de l’espace de stockage alloué total disponible, qui est nécessaire **uniquement** pour la première sauvegarde. Le fait de n’utiliser que 50 % de l’espace disponible n’est plus une obligation une fois la première sauvegarde terminée.
 
 
 ## <a name="whats-new-in-this-feature"></a>Nouveautés de cette fonctionnalité
@@ -103,4 +105,4 @@ Si le type de récupération est « instantané et coffre », la restauration 
 Le nouveau modèle n’autorise la suppression du point de restauration (niveau 2) que si l’instantané (niveau 1) est supprimé. Nous vous recommandons de planifier une période de rétention du point de restauration (niveau 2) supérieure à la période de rétention des instantanés.
 
 ### <a name="why-is-my-snapshot-existing-even-after-the-set-retention-period-in-backup-policy"></a>Pourquoi mon instantané existe-t-il même après la période de conservation définie dans la stratégie de sauvegarde ?
-Si le point de récupération a un instantané et qu’il s’agit du dernier point de récupération disponible, il est conservé jusqu’à la prochaine sauvegarde réussie. C’est conforme à la stratégie de GC actuelle, qui exige qu’au moins un point de récupération récent soit toujours présent au cas où toutes les sauvegardes ultérieures échoueraient en raison d’un problème sur la machine virtuelle. Dans les scénarios ordinaires, les points de récupération sont nettoyés au maximum 24 heures après leur expiration.
+Si le point de récupération a un instantané et qu’il s’agit du dernier point de récupération disponible, il est conservé jusqu’à la prochaine sauvegarde réussie. C’est conforme à la stratégie de « garbage collection » (GC) actuelle, qui exige qu’au moins un point de récupération récent soit toujours présent au cas où toutes les sauvegardes ultérieures échoueraient en raison d’un problème sur la machine virtuelle. Dans les scénarios ordinaires, les points de récupération sont nettoyés au maximum 24 heures après leur expiration.

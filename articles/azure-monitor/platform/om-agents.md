@@ -11,20 +11,20 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 03/22/2019
+ms.date: 07/30/2019
 ms.author: magoedte
-ms.openlocfilehash: 336a9d9c76114920e92de2000152e500f7dce46f
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 2ea17a4363218351eb6e5ba0678435f3707e4ab9
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67445320"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68663735"
 ---
 # <a name="connect-operations-manager-to-azure-monitor"></a>Connecter Operations Manager à Azure Monitor
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-Pour préserver vos investissements existants dans [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/key-concepts?view=sc-om-1807) et utiliser des fonctionnalités étendues avec Azure Monitor, vous pouvez intégrer Operations Manager à votre espace de travail Log Analytics. Cela vous permettra de tirer parti des possibilités qu'offrent les journaux d'activité d'Azure Monitor tout en continuant à utiliser Operations Manager pour :
+Pour préserver vos investissements existants dans [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/key-concepts?view=sc-om-1807) et utiliser des fonctionnalités étendues avec Azure Monitor, vous pouvez intégrer Operations Manager à votre espace de travail Log Analytics. Cela vous permet de tirer parti des possibilités qu’offrent les journaux d’activité d’Azure Monitor tout en continuant à utiliser Operations Manager pour :
 
 * Surveiller l’intégrité de vos services informatiques avec Operations Manager
 * Conserver l’intégration avec vos solutions ITSM pour la gestion des incidents et des problèmes
@@ -54,7 +54,7 @@ Avant de commencer, passez en revue les exigences suivantes.
     - USA Centre-Ouest
     - Sud-Est de l’Australie
     - Europe Ouest
-    - USA Est
+    - East US
     - Asie Sud-Est
     - Japon Est
     - Sud du Royaume-Uni
@@ -143,7 +143,7 @@ La configuration de l’intégration avec votre espace de travail Log Analytics 
 1. Ouvrez la console Operations Manager, puis sélectionnez l'espace de travail **Administration** .
 1. Développez le nœud Operations Management Suite, puis cliquez sur **Connexion**.
 1. Cliquez sur le lien **Ajouter un ordinateur/groupe** sous l’en-tête Actions dans la partie droite du volet.
-1. Vous pouvez rechercher des ordinateurs ou des groupes surveillés par Operations Manager dans la boîte de dialogue **Recherche d’ordinateurs**. Sélectionnez les ordinateurs ou les groupes à intégrer à Azure Monitor, puis cliquez sur **Ajouter** et sur **OK**.
+1. Vous pouvez rechercher des ordinateurs ou des groupes surveillés par Operations Manager dans la boîte de dialogue **Recherche d’ordinateurs**. Sélectionnez les ordinateurs ou les groupes, y compris le serveur d’administration Operations Manager à intégrer à Azure Monitor, cliquez sur **Ajouter**, puis sur **OK**.
 
 Vous pouvez afficher les ordinateurs et les groupes configurés pour collecter des données à partir du nœud Ordinateurs gérés, sous Operations Management Suite, dans l’espace de travail **Administration** de la console Opérateur. De là, vous pouvez ajouter ou supprimer des ordinateurs et des groupes selon les besoins.
 
@@ -180,7 +180,7 @@ Au terme de la configuration, le groupe d'administration Operations Manager éta
 * **Microsoft.SystemCenter.Advisor.MPUpdate** : met à jour les packs d'administration Azure Monitor de base. S’exécute toutes les 12 heures par défaut.
 * **Microsoft.SystemCenter.Advisor.Core.GetIntelligencePacksRule** : met à jour les packs d’administration de solution activés dans votre espace de travail. Par défaut, elle s’exécute toutes les cinq (5) minutes.
 
-Vous pouvez désactiver ces deux règles pour empêcher le téléchargement automatique, ou modifier la fréquence de la synchronisation du serveur d'administration avec Azure Monitor pour déterminer si un nouveau pack d'administration est disponible et doit être téléchargé. Suivez les étapes de la [procédure de remplacement d’une règle ou d’une analyse](https://technet.microsoft.com/library/hh212869.aspx) pour modifier la valeur en secondes du paramètre **Fréquence** afin de changer la fréquence de synchronisation, ou pour modifier le paramètre **Activé** afin de désactiver les règles. Pour le remplacement, ciblez tous les objets de la classe Groupe d’administration Operations Manager.
+Vous pouvez désactiver ces deux règles pour empêcher le téléchargement automatique, ou modifier la fréquence de la synchronisation du serveur d’administration avec Azure Monitor pour déterminer si un nouveau pack d’administration est disponible et doit être téléchargé. Suivez les étapes de la [procédure de remplacement d’une règle ou d’une analyse](https://technet.microsoft.com/library/hh212869.aspx) pour modifier la valeur en secondes du paramètre **Fréquence** afin de changer la fréquence de synchronisation, ou pour modifier le paramètre **Activé** afin de désactiver les règles. Pour le remplacement, ciblez tous les objets de la classe Groupe d’administration Operations Manager.
 
 Pour continuer à suivre votre processus habituel de contrôle des modifications pour contrôler les versions du pack d’administration dans votre groupe d’administration de production, vous pouvez désactiver les règles et les activer à des heures auxquelles les mises à jour sont autorisées. Si votre environnement dispose d’un groupe d’administration du développement ou de l’assurance qualité connecté à Internet, vous pouvez configurer ce groupe d’administration avec un espace de travail Log Analytics de façon à ce qu’il prenne en charge ce scénario. Ainsi, vous pourrez examiner et évaluer les versions itératives des packs d'administration Azure Monitor avant de les introduire dans votre groupe d'administration de production.
 

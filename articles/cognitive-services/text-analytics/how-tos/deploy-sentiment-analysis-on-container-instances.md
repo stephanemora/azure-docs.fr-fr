@@ -1,5 +1,5 @@
 ---
-title: Exécuter des Azure Container Instances
+title: Exécuter Azure Container Instances – Analyse de texte
 titleSuffix: Azure Cognitive Services
 description: Déployez les conteneurs Analyse de texte avec l’image Analyse des sentiments sur Azure Container Instance, puis testez-le dans un navigateur web.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
 ms.author: dapine
-ms.openlocfilehash: 9f174d54fcc74eed613eb69412bc0e515f15897b
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 9ef529c9d505e5b305602c80a8dbef906f52269c
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67711334"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68552533"
 ---
 # <a name="deploy-a-sentiment-analysis-container-to-azure-container-instances"></a>Déployer un conteneur Analyse des sentiments sur Azure Container Instances
 
@@ -34,4 +34,4 @@ Découvrez comment déployer les conteneurs [Analyse de texte](https://docs.micr
 ## <a name="next-steps"></a>Étapes suivantes 
 
 * Utiliser davantage de [conteneurs Cognitive Services](../../cognitive-services-container-support.md)
-* Utiliser le [service connecté Analyse de texte](../vs-text-connected-service.md)
+* Utiliser le [service connecté Analytique de texte](../vs-text-connected-service.md)
