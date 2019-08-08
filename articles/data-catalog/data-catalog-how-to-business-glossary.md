@@ -5,13 +5,13 @@ author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
-ms.date: 04/05/2019
-ms.openlocfilehash: 649a842c8c8890713bda938c8e11740c5c8be7aa
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 08/01/2019
+ms.openlocfilehash: 6ecb481245484332221e45b8f27c776291ea532d
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61001887"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736409"
 ---
 # <a name="set-up-the-business-glossary-for-governed-tagging"></a>Configurer le glossaire métier pour un balisage géré
 

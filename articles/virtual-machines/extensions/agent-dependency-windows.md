@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/29/2019
 ms.author: magoedte
-ms.openlocfilehash: 34dd872db199a4c10e9f321457188b7f7642944d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5913e33bc29541adfa1599ad5413ad3702635740
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67120220"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68775435"
 ---
 # <a name="azure-monitor-dependency-virtual-machine-extension-for-windows"></a>Extension de machine virtuelle Azure Monitor Dependency pour Windows
 
@@ -81,13 +81,13 @@ Le JSON suivant montre le schéma de l’extension de l’agent Azure VM Depende
 | apiVersion | 2015-01-01 |
 | publisher | Microsoft.Azure.Monitoring.DependencyAgent |
 | Type | DependencyAgentWindows |
-| typeHandlerVersion | 9.5 |
+| typeHandlerVersion | 9,5 |
 
 ## <a name="template-deployment"></a>Déploiement de modèle
 
 Vous pouvez déployer les extensions de machines virtuelles Azure avec des modèles Azure Resource Manager. Vous pouvez utiliser le schéma JSON détaillé dans la section précédente dans un modèle Azure Resource Manager pour exécuter l’extension de l’agent Azure VM Dependency pendant un déploiement de modèle Azure Resource Manager.
 
-Le JSON d’une extension de machine virtuelle peut être imbriqué à l’intérieur de la ressource de machine virtuelle. Vous pouvez également le placer à la racine ou au niveau supérieur d’un modèle JSON Resource Manager. Le positionnement du JSON affecte la valeur du nom de la ressource et son type. Pour plus d’informations, consultez [Définition du nom et du type des ressources enfants](../../azure-resource-manager/resource-group-authoring-templates.md#child-resources).
+Le JSON d’une extension de machine virtuelle peut être imbriqué à l’intérieur de la ressource de machine virtuelle. Vous pouvez également le placer à la racine ou au niveau supérieur d’un modèle JSON Resource Manager. Le positionnement du JSON affecte la valeur du nom de la ressource et son type. Pour plus d’informations, consultez [Définition du nom et du type des ressources enfants](../../azure-resource-manager/child-resource-name-type.md).
 
 L’exemple suivant suppose que l’extension de l’agent Dependency est imbriquée dans la ressource de machine virtuelle. Lors de l’imbrication de la ressource d’extension, le JSON est placé dans l’objet `"resources": []` de la machine virtuelle.
 

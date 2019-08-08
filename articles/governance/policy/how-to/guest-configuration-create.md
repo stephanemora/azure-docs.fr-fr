@@ -7,12 +7,12 @@ ms.date: 07/26/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 8f895b5ac1f1509869a2075c96e3d998e8b57864
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 5e707fb004af7bbce915baf4b059514fcae8e52b
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68698802"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68725925"
 ---
 # <a name="how-to-create-guest-configuration-policies"></a>Créer des stratégies Guest Configuration
 
@@ -31,7 +31,7 @@ Pour créer une stratégie Guest Configuration, le module de ressources doit êt
 
 Le module de ressource Guest Configuration nécessite les logiciels suivants :
 
-- PowerShell. S’il n’est pas installé, suivez [ces instructions](/powershell/)
+- PowerShell. S’il n’est pas installé, suivez [ces instructions](/powershell/scripting/install/installing-powershell).
 - Azure PowerShell 1.5.0 ou ultérieur. S’il n’est pas installé, suivez [ces instructions](/powershell/azure/install-az-ps).
 
 ### <a name="install-the-module"></a>Installer le module
@@ -194,7 +194,7 @@ New-GuestConfigurationPolicy
     -ContentUri 'https://storageaccountname.blob.core.windows.net/packages/AuditBitLocker.zip?st=2019-07-01T00%3A00%3A00Z&se=2024-07-01T00%3A00%3A00Z&sp=rl&sv=2018-03-28&sr=b&sig=JdUf4nOCo8fvuflOoX%2FnGo4sXqVfP5BYXHzTl3%2BovJo%3D' `
     -DisplayName 'Audit BitLocker Service.' `
     -Description 'Audit if BitLocker is not enabled on Windows machine.' `
-    -DestinationPath '.\policyDefinitions' `
+    -Path '.\policyDefinitions' `
     -Platform 'Windows' `
     -Version 1.2.3.4 `
     -Verbose
@@ -247,7 +247,7 @@ New-GuestConfigurationPolicy
     -ContentUri 'https://storageaccountname.blob.core.windows.net/packages/AuditBitLocker.zip?st=2019-07-01T00%3A00%3A00Z&se=2024-07-01T00%3A00%3A00Z&sp=rl&sv=2018-03-28&sr=b&sig=JdUf4nOCo8fvuflOoX%2FnGo4sXqVfP5BYXHzTl3%2BovJo%3D' `
     -DisplayName 'Audit Windows Service.' `
     -Description 'Audit if a Windows Service is not enabled on Windows machine.' `
-    -DestinationPath '.\policyDefinitions' `
+    -Path '.\policyDefinitions' `
     -Parameters $PolicyParameterInfo `
     -Platform 'Windows' `
     -Version 1.2.3.4 `
@@ -304,7 +304,7 @@ Publish-GuestConfigurationPolicy -Path '.\policyDefinitions' -Verbose
 La cmdlet `Publish-GuestConfigurationPolicy` accepte le chemin à partir du pipeline PowerShell. Cette fonctionnalité signifie que vous pouvez créer les fichiers de stratégie et les publier dans un ensemble unique de commandes redirigées.
 
 ```azurepowershell-interactive
-New-GuestConfigurationPolicy -ContentUri 'https://storageaccountname.blob.core.windows.net/packages/AuditBitLocker.zip?st=2019-07-01T00%3A00%3A00Z&se=2024-07-01T00%3A00%3A00Z&sp=rl&sv=2018-03-28&sr=b&sig=JdUf4nOCo8fvuflOoX%2FnGo4sXqVfP5BYXHzTl3%2BovJo%3D' -DisplayName 'Audit BitLocker service.' -Description 'Audit if the BitLocker service is not enabled on Windows machine.' -DestinationPath '.\policyDefinitions' -Platform 'Windows' -Version 1.2.3.4 -Verbose | ForEach-Object {$_.Path} | Publish-GuestConfigurationPolicy -Verbose
+New-GuestConfigurationPolicy -ContentUri 'https://storageaccountname.blob.core.windows.net/packages/AuditBitLocker.zip?st=2019-07-01T00%3A00%3A00Z&se=2024-07-01T00%3A00%3A00Z&sp=rl&sv=2018-03-28&sr=b&sig=JdUf4nOCo8fvuflOoX%2FnGo4sXqVfP5BYXHzTl3%2BovJo%3D' -DisplayName 'Audit BitLocker service.' -Description 'Audit if the BitLocker service is not enabled on Windows machine.' -Path '.\policyDefinitions' -Platform 'Windows' -Version 1.2.3.4 -Verbose | ForEach-Object {$_.Path} | Publish-GuestConfigurationPolicy -Verbose
 ```
 
 Avec les définitions de stratégie et d’initiative créées dans Azure, la dernière étape consiste à assigner l’initiative. Découvrez comment assigner l’initiative avec le [portail](../assign-policy-portal.md), [Azure CLI](../assign-policy-azurecli.md) et [Azure PowerShell](../assign-policy-powershell.md).

@@ -10,12 +10,13 @@ ms.subservice: url-preview
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: rosh
-ms.openlocfilehash: 69db722295c9c81d45913bd078fe9cc5ab74c512
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ROBOTS: NOINDEX
+ms.openlocfilehash: f92c0faaaa3aa0cd2af16a031f3bed4c6b41fc22
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60462586"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68706847"
 ---
 # <a name="project-url-preview-v7-reference"></a>Informations de référence sur l’aperçu d’URL du projet v7
 
@@ -115,7 +116,7 @@ Définit les informations concernant la page web dans l’aperçu.
 |Nom|Titre de la page (pas nécessairement le titre HTML).|Chaîne|
 |url|URL réellement analysée (potentiellement avec redirections de la demande).|Chaîne|
 |description|Brève description de la page et de son contenu.|Chaîne|
-|isFamilyFriendly|Précision maximale pour les éléments figurant dans l’index web ; les extractions en temps réel effectuent cette détection d’après l’URL uniquement, et non d’après le contenu de la page.|booléenne|
+|isFamilyFriendly|Précision maximale pour les éléments figurant dans l’index web ; les extractions en temps réel effectuent cette détection d’après l’URL uniquement, et non d’après le contenu de la page.|boolean|
 |primaryImageOfPage/contentUrl|URL d’une image représentative à inclure dans l’aperçu.|Chaîne|
 
 ### <a name="identifiable"></a>Identifiable

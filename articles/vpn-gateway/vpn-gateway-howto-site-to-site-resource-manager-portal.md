@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 12/19/2018
 ms.author: cherylmc
-ms.openlocfilehash: 032b6a4f5147d06a4613a827a0372437dca47f47
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5b4be7464a4c19cd0a71d5a786b46091cdbc074b
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60407636"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780246"
 ---
 # <a name="create-a-site-to-site-connection-in-the-azure-portal"></a>Création d’une connexion de site à site dans le portail Azure
 
@@ -42,11 +42,11 @@ Vérifiez que vous disposez des éléments ci-dessous avant de commencer votre c
 
 Nous utilisons les valeurs suivantes dans les exemples de cet article. Vous pouvez utiliser ces valeurs pour créer un environnement de test ou vous y référer pour mieux comprendre les exemples de cet article. Pour plus d’informations sur les paramètres de la passerelle VPN, voir [À propos des paramètres de la passerelle VPN](vpn-gateway-about-vpn-gateway-settings.md).
 
-* **Nom du réseau virtuel :** TestVNet1
+* **Nom du réseau virtuel :** VNet1
 * **Espace d’adressage :** 10.1.0.0/16
 * **Abonnement :** abonnement à utiliser
 * **Groupe de ressources :** TestRG1
-* **Emplacement :** USA Est
+* **Emplacement :** East US
 * **Sous-réseau :** Front-end : 10.1.0.0/24, back-end : 10.1.1.0/24 (facultatif pour cet exercice)
 * **Nom du sous-réseau de passerelle :** GatewaySubnet (renseigné automatiquement dans le portail)
 * **Plage d’adresses du sous-réseau de passerelle** : 10.1.255.0/27
@@ -66,9 +66,11 @@ Nous utilisons les valeurs suivantes dans les exemples de cet article. Vous pouv
 
 ## <a name="dns"></a>2. Spécifier un serveur DNS
 
-Aucun DNS n’est nécessaire pour créer une connexion de site à site. Toutefois, si vous souhaitez résoudre les noms des ressources qui sont déployées sur votre réseau virtuel, vous devez spécifier un serveur DNS. Ce paramètre vous permet de spécifier le serveur DNS que vous souhaitez utiliser pour la résolution de noms pour ce réseau virtuel. Il n'entraîne pas la création d'un serveur DNS. Pour plus d’informations sur la résolution de noms pour les machines virtuelles, consultez [Résolution de noms pour les machines virtuelles et instances de rôle](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
+Aucun DNS n’est nécessaire pour créer une connexion de site à site.
 
-[!INCLUDE [Specify a dns server - optional](../../includes/vpn-gateway-specify-dns-portal-include.md)]
+Toutefois, si vous souhaitez résoudre les noms des ressources qui sont déployées sur votre réseau virtuel, vous devez spécifier un serveur DNS. Ce paramètre vous permet de spécifier le serveur DNS que vous souhaitez utiliser pour la résolution de noms pour ce réseau virtuel. Il n'entraîne pas la création d'un serveur DNS. Pour plus d’informations sur la résolution de noms pour les machines virtuelles, consultez [Résolution de noms pour les machines virtuelles et instances de rôle](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
+
+[!INCLUDE [Specify a dns server - optional](../../includes/vpn-gateway-add-dns-rm-portal-include.md)]
 
 ## <a name="gatewaysubnet"></a>3. Créer le sous-réseau de passerelle
 

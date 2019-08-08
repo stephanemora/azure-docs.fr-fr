@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2018
 ms.author: cynthn
-ms.openlocfilehash: 63f66d345b88984a49b8eb18b02fd79fb0603022
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 64f287a98af6cb353117ec1de1f9f0d55b367085
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67695520"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68774360"
 ---
 # <a name="install-and-configure-remote-desktop-to-connect-to-a-linux-vm-in-azure"></a>Installer et configurer le Bureau à distance pour effectuer une connexion à une machine virtuelle Linux dans Azure
 Les machines virtuelles (VM) Linux dans Azure sont généralement gérées à partir de la ligne de commande à l’aide d’une connexion Secure Shell (SSH). Si vous découvrez Linux, ou si vous souhaitez des scénarios de dépannage rapides, l’utilisation du Bureau à distance peut se révéler plus facile. Cet article explique comment installer et configurer un environnement de bureau ([xfce](https://www.xfce.org)) et le Bureau à distance ([xrdp](https://www.xrdp.org)) pour votre machine virtuelle Linux à l’aide du modèle de déploiement Resource Manager.
@@ -56,7 +56,7 @@ sudo apt-get install xfce4
 Maintenant que vous avez installé un environnement de bureau, configurez un service de bureau à distance pour écouter les connexions entrantes. [xrdp](http://xrdp.org) est un serveur RDP (Remote Desktop Protocol) open source qui est disponible sur la plupart des distributions Linux et fonctionne bien avec xfce. Installez xrdp sur votre machine virtuelle Ubuntu comme suit :
 
 ```bash
-sudo apt-get install xrdp
+sudo apt-get install xrdp=0.6.1-2
 sudo systemctl enable xrdp
 ```
 

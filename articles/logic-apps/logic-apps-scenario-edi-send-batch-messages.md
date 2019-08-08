@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: estfan, LADocs
 ms.topic: article
 ms.date: 08/19/2018
-ms.openlocfilehash: d6d3a7111f3a5e49e32eba8ca4f09d692538cb87
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: c2b0e2ed801724b682e0c4a60d6d7dff9645aab3
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "64715790"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68827420"
 ---
 # <a name="send-edi-messages-in-batches-to-trading-partners-with-azure-logic-apps"></a>Envoyer des messages EDI par lots aux partenaires commerciaux avec Azure Logic Apps
 
@@ -114,7 +114,7 @@ Pour ce récepteur de lots, vous devez spécifier le mode et le nom du lot, les 
 
 ### <a name="test-your-logic-app"></a>Tester votre application logique
 
-Pour vérifier que votre récepteur de lots fonctionne comme prévu, vous pouvez ajouter une action HTTP à des fins de test et envoyer un message par lot au [service Request Bin](https://requestbin.fullcontact.com/). 
+Pour vérifier que votre récepteur de lots fonctionne comme prévu, vous pouvez ajouter une action HTTP à des fins de test et envoyer un message par lot au [service Request Bin](https://requestbin.com/). 
 
 1. Sous l’action d’encodage X12, choisissez **Nouvelle étape**. 
 

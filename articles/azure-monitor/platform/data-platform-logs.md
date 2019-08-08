@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: 33d7f11842d6f22a86816b590cddd91eaf76ed72
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: f6eaeb7c4a4d28fcf11ec9acda14629a79d00791
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67607049"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68814336"
 ---
 # <a name="logs-in-azure-monitor"></a>Journaux dans Azure Monitor
 
@@ -51,7 +51,7 @@ Le tableau suivant répertorie les différentes façons d’utiliser des journau
 
 
 ## <a name="how-is-data-in-azure-monitor-logs-structured"></a>Comment les données sont-elles structurées dans Azure Monitor ?
-Les données collectées par les journaux Azure Monitor sont stockées dans un [espace de travail Log Analytics](../platform/manage-access.md). Vous pouvez [créer plusieurs espaces de travail](manage-access.md#determine-the-number-of-workspaces-you-need) dans votre abonnement pour gérer différents ensembles de données de journal. Chaque espace de travail contient plusieurs tables qui stockent chacune des données à partir d’une source particulière. Si toutes les tables partagent [des propriétés communes](log-standard-properties.md), chacune a un jeu unique de propriétés unique en fonction du type de données qu’elle stocke. Un nouvel espace de travail comprend un ensemble standard de tables, et d’autres tables seront ajoutées par différentes solutions de surveillance et autres services écrivant dans l’espace de travail.
+Les données collectées par les journaux Azure Monitor sont stockées dans un [espace de travail Log Analytics](../platform/design-logs-deployment.md). Chaque espace de travail contient plusieurs tables qui stockent chacune des données à partir d’une source particulière. Si toutes les tables partagent [des propriétés communes](log-standard-properties.md), chacune a un jeu unique de propriétés unique en fonction du type de données qu’elle stocke. Un nouvel espace de travail comprend un ensemble standard de tables, et d’autres tables seront ajoutées par différentes solutions de surveillance et autres services écrivant dans l’espace de travail.
 
 Les données de journal d’Application Insights utilisent le même moteur Log Analytics que les espaces de travail, mais elles sont stockées séparément pour chaque application surveillée. Chaque application possède un ensemble standard de tables pour stocker des données telles que des demandes, des exceptions et des vues de page d’application.
 

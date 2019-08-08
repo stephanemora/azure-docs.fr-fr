@@ -6,16 +6,15 @@ manager: cgronlun
 tags: azure-portal
 services: search
 ms.service: search
-ms.topic: tutorial
+ms.topic: quickstart
 ms.date: 07/01/2019
 ms.author: laobri
-ms.custom: seodec2018
-ms.openlocfilehash: 2a4d7435383f740dc386a740062e66cd2d3585b0
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: e8baa2ae5f60926f46be577a02d3c23ad6b77b79
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67798904"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68828469"
 ---
 # <a name="quickstart-create-an-azure-search-index-using-the-azure-portal"></a>Démarrage rapide : Créer un index Azure Search à l’aide du portail Azure
 > [!div class="op_single_selector"]
@@ -268,7 +267,7 @@ Vous avez également appris à rechercher des index, des indexeurs et des source
 
 ## <a name="clean-up"></a>Nettoyer
 
-Lorsque vous travaillez au sein de votre propre abonnement, il est recommandé, à la fin de chaque projet, de déterminer si vous avez toujours besoin des ressources que vous avez créées. Les ressources laissées en cours d’exécution peuvent vous coûter de l’argent. Vous pouvez supprimer les ressources une par une, ou choisir de supprimer le groupe de ressources afin de supprimer l’ensemble des ressources.
+Lorsque vous travaillez dans votre propre abonnement, il est recommandé, à la fin de chaque projet, de déterminer si vous avez toujours besoin des ressources que vous avez créées. Les ressources laissées en cours d’exécution peuvent vous coûter de l’argent. Vous pouvez supprimer les ressources une par une, ou choisir de supprimer le groupe de ressources afin de supprimer l’ensemble des ressources.
 
 Vous pouvez rechercher et gérer les ressources dans le portail à l’aide des liens **Toutes les ressources** ou **Groupes de ressources** situés dans le volet de navigation de gauche.
 

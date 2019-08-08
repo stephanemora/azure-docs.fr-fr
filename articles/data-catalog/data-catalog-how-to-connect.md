@@ -1,19 +1,17 @@
 ---
 title: Guide pratique pour se connecter aux sources de données dans Azure Data Catalog
 description: Article de procédure relatif à la connexion aux sources de données détectées avec Azure Data Catalog.
-services: data-catalog
 author: JasonWHowell
 ms.author: jasonh
-ms.assetid: 4e6b27a5-cf75-4012-b88c-333c1fe638e8
 ms.service: data-catalog
 ms.topic: conceptual
-ms.date: 01/18/2018
-ms.openlocfilehash: c64340491dba11870364610a6c2ff62e25c1328a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 08/01/2019
+ms.openlocfilehash: c91c09da31e4ecf42257b8f9c86f25c6ec39b9df
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61001802"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68734643"
 ---
 # <a name="how-to-connect-to-data-sources"></a>Connexion aux sources de données
 ## <a name="introduction"></a>Introduction

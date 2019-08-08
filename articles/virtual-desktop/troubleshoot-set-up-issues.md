@@ -2,17 +2,17 @@
 title: Création d’un locataire Windows Virtual Desktop et d’un pool d’hôtes - Azure
 description: Découvrez comment détecter et résoudre les problèmes de locataire et de pool d’hôtes lors de la configuration d’un environnement de locataire Windows Virtual Desktop.
 services: virtual-desktop
-author: ChJenk
+author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 07/10/2019
-ms.author: v-chjenk
-ms.openlocfilehash: 9e58c3bfc0e74f9aac61085608a843954b0923c0
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.author: helohr
+ms.openlocfilehash: 7ab8ec9536af74102d2c9384ea3d0d0503f58f63
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68249553"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68816482"
 ---
 # <a name="tenant-and-host-pool-creation"></a>Création d’un pool de locataires et d’hôtes
 
@@ -128,7 +128,7 @@ Exemple d’erreur brute :
 
 **Cause :** L’abonnement que vous utilisez est d’un type qui ne peut pas accéder aux fonctionnalités requises dans la région où le client tente de déployer. Par exemple, les abonnements MSDN, Gratuit ou Éducation peuvent afficher cette erreur.
 
-**Correctif :** Modifiez votre type d’abonnement ou votre région pour pouvoir accéder aux fonctionnalités requises.
+**Correctif :** Modifiez votre type d’abonnement ou votre région pour pouvoir accéder aux fonctionnalités requises.
 
 ### <a name="error-vmextensionprovisioningerror"></a>Error: VMExtensionProvisioningError
 

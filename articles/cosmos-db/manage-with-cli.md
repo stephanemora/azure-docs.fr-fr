@@ -4,14 +4,14 @@ description: Utilisez l'interface Azure CLI pour gérer votre compte, votre base
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/23/2019
+ms.date: 08/05/2019
 ms.author: mjbrown
-ms.openlocfilehash: 82d7cdf0c9519bb8a682445e666d46d6fd7bfbd7
-ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
+ms.openlocfilehash: 9ec049311fc158b13bba45deb2974d7cdd531f90
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67550939"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68815043"
 ---
 # <a name="manage-azure-cosmos-resources-using-azure-cli"></a>Gérer les ressources Azure Cosmos à l’aide d’Azure CLI
 
@@ -27,7 +27,7 @@ Pour créer un compte Azure Cosmos DB avec prise en charge de l’API SQL et de 
 
 ```azurecli-interactive
 az cosmosdb create \
-   --name mycosmosdbaccount \
+   --name mycosmosdbaccount # must be lowercase and < 31 characters \
    --resource-group myResourceGroup \
    --kind GlobalDocumentDB \
    --default-consistency-level Session \

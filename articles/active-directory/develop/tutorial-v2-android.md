@@ -3,7 +3,7 @@ title: Prise en main d’Android - Plateforme d’identité Microsoft | Azure
 description: Cet article explique comment une application Android peut obtenir un jeton d’accès et appeler une ou plusieurs API Microsoft Graph qui nécessitent des jetons d’accès à partir de la plateforme d’identité Microsoft.
 services: active-directory
 documentationcenter: dev-center-name
-author: danieldobalian
+author: tylermsft
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
@@ -16,12 +16,12 @@ ms.author: jmprieur
 ms.reviwer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5bd19b6094d68277130916b5cda565ba9e633c59
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: 76547fd708f880bdf5167d71db121e69fc5b1d30
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68334108"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68823800"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-from-an-android-app"></a>Connecter des utilisateurs et appeler Microsoft Graph à partir d’une application Android
 
@@ -539,7 +539,7 @@ La première fois qu’un utilisateur se connecte à votre application, Microsof
 
 Si vous rencontrez des problèmes avec ce tutoriel ou avec la plateforme d’identités Microsoft, consultez le [Centre d’aide et de support](https://docs.microsoft.com/azure/active-directory/develop/developer-support-help-options).
 
-Aidez-nous à améliorer la plateforme d’identité Microsoft. Dites-nous ce que vous pensez en répondant à un court questionnaire de deux questions.
+Aidez-nous à améliorer la plateforme d’identité Microsoft. Faites-nous part de votre avis en répondant à une petite enquête de deux questions.
 
 > [!div class="nextstepaction"]
-> [Enquête sur la plateforme d’identité Microsoft](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyKrNDMV_xBIiPGgSvnbQZdUQjFIUUFGUE1SMEVFTkdaVU5YT0EyOEtJVi4u)
+> [Enquête sur la plateforme des identités Microsoft](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyKrNDMV_xBIiPGgSvnbQZdUQjFIUUFGUE1SMEVFTkdaVU5YT0EyOEtJVi4u)

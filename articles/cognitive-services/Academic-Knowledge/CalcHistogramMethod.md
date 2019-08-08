@@ -10,12 +10,13 @@ ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
-ms.openlocfilehash: a228c5b90e47c9c24c5da70484a1a28f9a3054b1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ROBOTS: NOINDEX
+ms.openlocfilehash: 9e84b1ad37b3224ec5553d0a66ba0fc84bc88f55
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60498829"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68705080"
 ---
 # <a name="calchistogram-method"></a>Méthode CalcHistogram
 

@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 06/12/2019
-ms.openlocfilehash: 5f2a959bcea533174feedb324cecf20ca12bd39b
-ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
+ms.openlocfilehash: 75b774a59d3a2a94f1f1132a79c26dcca7b4b6f7
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67137200"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780781"
 ---
 # <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-resource-manager-template"></a>Démarrage rapide : Créer un cluster Apache Kafka dans Azure HDInsight avec un modèle Resource Manager
 
@@ -40,8 +40,8 @@ Un client SSH. Pour plus d’informations, consultez [Se connecter à HDInsight 
 
     | Propriété | Valeur |
     | --- | --- |
-    | Abonnement | Votre abonnement Azure. |
-    | Groupe de ressources | Groupe de ressources dans lequel le cluster est créé. |
+    | Subscription | Votre abonnement Azure. |
+    | Resource group | Groupe de ressources dans lequel le cluster est créé. |
     | Location | Région Azure dans laquelle le cluster est créé. |
     | Nom du cluster | Le nom du cluster Kafka. |
     | Nom d’utilisateur de connexion au cluster | Nom du compte utilisé pour se connecter aux services HTTPS hébergés sur le cluster. |
@@ -67,7 +67,7 @@ Un client SSH. Pour plus d’informations, consultez [Se connecter à HDInsight 
 
     Une fois la connexion établie, des informations de ce type s’affichent :
     
-    ```text
+    ```output
     Authorized uses only. All activity may be monitored and reported.
     Welcome to Ubuntu 16.04.4 LTS (GNU/Linux 4.13.0-1011-azure x86_64)
     
@@ -85,7 +85,6 @@ Un client SSH. Pour plus d’informations, consultez [Se connecter à HDInsight 
     Welcome to Kafka on HDInsight.
     
     Last login: Thu Mar 29 13:25:27 2018 from 108.252.109.241
-    ssuhuser@hn0-mykafk:~$
     ```
 
 ## <a id="getkafkainfo"></a>Obtenir des informations sur les hôtes Apache Zookeeper et Broker

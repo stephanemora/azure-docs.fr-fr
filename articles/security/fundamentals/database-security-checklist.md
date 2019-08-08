@@ -8,18 +8,19 @@ manager: barbkess
 editor: tomsh
 ms.assetid: ''
 ms.service: security
+ms.subservice: security-fundamentals
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: 424453e70e5b62e408f408cd5ae8169cddb14dd7
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: bf11d7a9dbaa37db521da67deddbed977cc1d251
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68611716"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780552"
 ---
 # <a name="azure-database-security-checklist"></a>Liste de contrôle de la sécurité des bases de données Azure
 
@@ -40,7 +41,7 @@ Il s’agit des actions suivantes :
 Le cloud computing requiert de nouveaux modèles de sécurité avec lesquels de nombreux utilisateurs d’applications, administrateurs de bases de données et programmeurs ne sont pas familiarisés. Par conséquent, certaines organisations hésitent à implémenter une infrastructure de cloud pour la gestion des données en raison des risques de sécurité perçus. Pour une grande part toutefois, ces inquiétudes peuvent être calmées par une meilleure compréhension des fonctionnalités de sécurité intégrées dans Microsoft Azure et Microsoft Azure SQL Database.
 
 ## <a name="checklist"></a>Liste de contrôle
-Nous vous recommandons de lire l’article [Azure Database Security Best Practices](https://docs.microsoft.com/azure/security/azure-database-security-best-practices) (Meilleures pratiques en matière de sécurité des bases de données Azure) avant de passer cette liste de contrôle en revue. Vous pourrez tirer le meilleur parti de cette liste de contrôle après avoir découvert ces meilleures pratiques. Vous pourrez ensuite utiliser cette liste de contrôle pour vous assurer que vous avez géré les problèmes importants en matière de sécurité des bases de données Azure.
+Nous vous recommandons de lire l’article [Azure Database Security Best Practices](https://docs.microsoft.com/azure/security/fundamentals/database-best-practices) (Meilleures pratiques en matière de sécurité des bases de données Azure) avant de passer cette liste de contrôle en revue. Vous pourrez tirer le meilleur parti de cette liste de contrôle après avoir découvert ces meilleures pratiques. Vous pourrez ensuite utiliser cette liste de contrôle pour vous assurer que vous avez géré les problèmes importants en matière de sécurité des bases de données Azure.
 
 
 |Catégorie de la liste de contrôle| Description|

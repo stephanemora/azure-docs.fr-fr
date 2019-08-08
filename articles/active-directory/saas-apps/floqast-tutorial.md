@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: b26133c64877bcac07d2e8ba10dbee05d4e36d34
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 762e5ae1782ee037b33156e16a0503ed1e7391ff
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67102272"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68823731"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-floqast"></a>Didacticiel : Intégration d’Azure Active Directory à FloQast
 
@@ -112,7 +112,7 @@ Pour configurer l’authentification unique Azure AD avec FloQast, procédez com
 
     Dans la zone de texte **URL de connexion**, tapez une URL : `https://go.floqast.com/login/sso`
 
-6. L’application FloQast s’attend à recevoir les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à votre configuration Attributs du jeton SAML. La capture d’écran suivante montre la liste des attributs par défaut. Cliquez sur l’icône  **Modifier** pour ajouter les attributs.
+6. L’application FloQast s’attend à recevoir les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à votre configuration Attributs du jeton SAML. La capture d’écran suivante montre la liste des attributs par défaut. Cliquez sur l’icône **Modifier** pour ajouter les attributs.
 
     ![image](common/edit-attribute.png)
 
@@ -223,7 +223,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 ### <a name="create-floqast-test-user"></a>Créer un utilisateur de test FloQast
 
-Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans FloQast. Collaborez avec l’ [équipe du support technique FloQast](mailto:support@floqast.com) pour ajouter des utilisateurs à la plateforme FloQast. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
+Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans FloQast. Collaborez avec l’[équipe du support technique FloQast](mailto:support@floqast.com) pour ajouter des utilisateurs dans la plate-forme FloQast. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 
 ### <a name="test-single-sign-on"></a>Tester l’authentification unique 
 

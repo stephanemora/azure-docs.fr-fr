@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: jingwang
-ms.openlocfilehash: 360b794f0d8ba9c145a92f015f264eb624fbb0f1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 572547f4e22a4fcb63a030e64ca95a0b9d3eff00
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65144877"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68734483"
 ---
 # <a name="parquet-format-in-azure-data-factory"></a>Format Parquet dans Azure Data Factory
 
@@ -70,7 +70,7 @@ Les propriétés prises en charge dans la section ***\*source\**** de l’activi
 | Propriété      | Description                                                  | Obligatoire |
 | ------------- | ------------------------------------------------------------ | -------- |
 | Type          | La propriété type de la source de l’activité de copie doit être définie sur **ParquetSource**. | OUI      |
-| storeSettings | Groupe de propriétés sur la méthode de lecture de données d’un magasin de données. Chaque connecteur basé sur un fichier possède ses propres paramètres de lecture pris en charge sous `storeSettings`. **Consultez les détails dans l’article du connecteur -> section des propriétés de l’activité de copie**. | Non       |
+| storeSettings | Un groupe de propriétés sur la façon de lire les données d’un magasin de données. Chaque connecteur basé sur un fichier possède ses propres paramètres de lecture pris en charge sous `storeSettings`. **Consultez les détails dans l’article du connecteur -> section des propriétés de l’activité de copie**. | Non       |
 
 ### <a name="parquet-as-sink"></a>Parquet en tant que récepteur
 
@@ -102,7 +102,7 @@ Dans le cas de copies s’exécutant sur l’IR auto-hébergé avec sérialisati
 > [!TIP]
 > Si, en copiant des données au format Parquet avec le runtime d’intégration auto-hébergé, vous obtenez une erreur indiquant « An error occurred when invoking java, message: **java.lang.OutOfMemoryError:Java heap space** », vous pouvez ajouter une variable d’environnement `_JAVA_OPTIONS` sur l’ordinateur qui héberge le runtime d’intégration auto-hébergé afin d’ajuster la taille de segment de mémoire minimale/maximale nécessaire pour que la machine virtuelle Java puisse effectuer une copie de ce type, puis réexécuter le pipeline.
 
-![Définir la taille de segment de mémoire JVM sur le runtime d’intégration auto-hébergé](C:/AzureContent/azure-docs-pr/articles/data-factory/media/supported-file-formats-and-compression-codecs/set-jvm-heap-size-on-selfhosted-ir.png)
+![Définir la taille de segment de mémoire JVM sur le runtime d’intégration auto-hébergé](./media/supported-file-formats-and-compression-codecs/set-jvm-heap-size-on-selfhosted-ir.png)
 
 Exemple : donnez la valeur `-Xms256m -Xmx16g` à la variable `_JAVA_OPTIONS`. L’indicateur `Xms` spécifie le pool d’allocation de mémoire initial pour une Machine virtuelle Java (JVM), tandis que `Xmx` spécifie le pool d’allocation de mémoire maximal. En d’autres termes, JVM démarrera avec la quantité de mémoire `Xms` et pourra au maximum utiliser la quantité de mémoire `Xmx`. Par défaut, ADF applique un minimum de 64 Mo et un maximum de 1 Go.
 

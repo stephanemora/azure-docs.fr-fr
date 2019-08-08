@@ -13,12 +13,12 @@ ms.date: 05/17/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9c43238d44b2309d105ef14e696a5a16848d0b58
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: c3d681dd06f07f6174e31b59cccf42df5dc16a1e
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65896835"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779849"
 ---
 # <a name="what-is-hybrid-identity-with-azure-active-directory"></a>Présentation de l’identité hybride avec Azure Active Directory
 
@@ -36,7 +36,7 @@ Pour obtenir l’identité hybride avec Azure AD, l'une des trois méthodes d’
 
 Ces méthodes d’authentification s'accompagnent également de fonctionnalités d'[authentification unique](how-to-connect-sso.md).  L’authentification unique connecte automatiquement les utilisateurs lorsque leurs appareils d’entreprise sont connectés au réseau de l’entreprise.
 
-Pour plus d'informations, consultez [Choisir la méthode d’authentification adaptée à votre solution d’identité hybride Azure Active Directory](https://docs.microsoft.com/azure/security/azure-ad-choose-authn). 
+Pour plus d'informations, consultez [Choisir la méthode d’authentification adaptée à votre solution d’identité hybride Azure Active Directory](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn). 
 
 ## <a name="common-scenarios-and-recommendations"></a>Scénarios et recommandations courants 
 

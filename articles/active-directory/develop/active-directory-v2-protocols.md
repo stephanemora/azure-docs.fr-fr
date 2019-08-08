@@ -12,18 +12,18 @@ ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/30/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7ffef5c3a7c8dd21654b6364013b1718bea1292
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 446d7178973c1d43d55ff89c429b05c2a10118ba
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67482984"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68835278"
 ---
 # <a name="microsoft-identity-platform-protocols"></a>Protocoles de la plateforme d’identités Microsoft
 

@@ -3,7 +3,7 @@ title: Guide de démarrage rapide iOS pour la plateforme d’identités Microsof
 description: Apprenez à connecter des utilisateurs et à interroger Microsoft Graph dans une application iOS.
 services: active-directory
 documentationcenter: dev-center-name
-author: brandwe
+author: TylerMSFT
 manager: CelesteDG
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
@@ -13,16 +13,16 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/18/2019
-ms.author: brandwe
+ms.author: twhitney
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bfb136529c606cafa235a525fcbe6e03b1d583d0
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: e749e46a4a7398f7b862ce5d4dab7a1ba6d57c8f
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68335600"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68813038"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-app"></a>Démarrage rapide : Connecter des utilisateurs et appeler l’API Microsoft Graph à partir d’une application iOS
 
@@ -257,7 +257,7 @@ Essayez le didacticiel iOS pour bénéficier d'un guide pas à pas complet sur l
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 
-Aidez-nous à améliorer la plateforme des identités Microsoft. Dites-nous ce que vous pensez en répondant à un court questionnaire de deux questions.
+Aidez-nous à améliorer la plateforme des identités Microsoft. Faites-nous part de votre avis en répondant à une petite enquête de deux questions.
 
 > [!div class="nextstepaction"]
 > [Enquête sur la plateforme des identités Microsoft](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyKrNDMV_xBIiPGgSvnbQZdUQjFIUUFGUE1SMEVFTkdaVU5YT0EyOEtJVi4u)

@@ -10,12 +10,13 @@ ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 01/18/2017
 ms.author: alch
-ms.openlocfilehash: 7f692c08f8af322bf7e6ab576e2e6f516594a6c4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ROBOTS: NOINDEX
+ms.openlocfilehash: 855d29d2c55b841bbbe4e9eadce8c29ad85fad90
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61336515"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68704848"
 ---
 # <a name="similarity-method"></a>Méthode Similarity
 

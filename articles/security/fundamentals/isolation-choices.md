@@ -8,18 +8,19 @@ manager: barbkess
 editor: TomSh
 ms.assetid: ''
 ms.service: security
+ms.subservice: security-fundamentals
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: c9332af5f758a9213b0e36044d7aefac23b9c2b2
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: 0c07cbd9fef865f3fc7b782210ef44094df9f629
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68611000"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779828"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Isolation dans le cloud public Azure
 ##  <a name="introduction"></a>Introduction
@@ -239,7 +240,7 @@ Le chiffrement en transit est un mécanisme de protection des données transmise
 -   Le [chiffrement côté client](https://docs.microsoft.com/azure/storage/storage-security-guide#using-client-side-encryption-to-secure-data-that-you-send-to-storage), pour chiffrer les données avant leur transfert vers Storage et les déchiffrer après leur transfert à partir de Storage.
 
 #### <a name="encryption-at-rest"></a>Chiffrement au repos
-Pour de nombreuses organisations, le [chiffrement des données au repos](https://docs.microsoft.com/azure/security/azure-isolation) est une étape obligatoire du processus de gestion de la confidentialité, de la conformité et de la souveraineté des données. Trois fonctionnalités Azure fournissent un chiffrement des données « au repos ».
+Pour de nombreuses organisations, le [chiffrement des données au repos](https://docs.microsoft.com/azure/security/fundamentals/isolation-choices) est une étape obligatoire du processus de gestion de la confidentialité, de la conformité et de la souveraineté des données. Trois fonctionnalités Azure fournissent un chiffrement des données « au repos ».
 
 -   [Storage Service Encryption](https://docs.microsoft.com/azure/storage/storage-security-guide#encryption-at-rest) vous permet de demander que le service de stockage chiffre automatiquement les données lors de leur écriture dans Azure Storage.
 

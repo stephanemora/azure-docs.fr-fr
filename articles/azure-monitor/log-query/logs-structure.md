@@ -7,12 +7,12 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.date: 06/16/2019
 ms.author: bwren
-ms.openlocfilehash: e243ebbc31f9e941678ac76a83738276995b5ba1
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 6f5ae426018c9e7fa2ac586a2886c8e5e609069b
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67296829"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68813848"
 ---
 # <a name="structure-of-azure-monitor-logs"></a>Structure des journaux Azure Monitor
 La possibilité d’extraire rapidement des informations de vos données à l’aide d’une [requête de journal](log-query-overview.md) est une puissante fonctionnalité d’Azure Monitor. Pour créer des requêtes efficaces et utiles, vous devez comprendre certains concepts de base tels que l’emplacement où se trouvent les données que vous souhaitez et la manière dont elles sont structurées. Cet article présente les concepts de base que vous devez comprendre pour commencer.
@@ -46,7 +46,7 @@ union withsource = table *
 Consultez la documentation de chaque source de données pour plus de détails sur les tables créées. Par exemple, des articles sont disponibles sur les [sources de données d’agent](../platform/agent-data-sources.md), les [journaux de diagnostic](../platform/diagnostic-logs-schema.md) et les [solutions de surveillance](../insights/solutions-inventory.md).
 
 ### <a name="workspace-permissions"></a>Autorisations d’espace de travail
-Pour plus d’informations sur la fourniture d’accès aux données au sein d’un espace de travail, voir [Étendue et autorisations de l’espace de travail](../platform/manage-access.md#workspace-permissions-and-scope). En plus de l’accès à l’espace de travail proprement dit, vous pouvez limiter l’accès à des certaines tables en appliquant un [contrôle d’accès en fonction du rôle (RBAC) au niveau des tables](../platform/manage-access.md#table-level-rbac).
+Pour plus d’informations sur la fourniture d’accès aux données au sein d’un espace de travail, voir [Étendue et autorisations de l’espace de travail](../platform/manage-access.md#manage-accounts-and-users). En plus de l’accès à l’espace de travail proprement dit, vous pouvez limiter l’accès à des certaines tables en appliquant un [contrôle d’accès en fonction du rôle (RBAC) au niveau des tables](../platform/manage-access.md#table-level-rbac).
 
 ## <a name="application-insights-application"></a>Application Application Insights
 Lorsque vous créez une application dans Application Insights, une application correspondante est automatiquement créée dans les journaux Azure Monitor. Aucune configuration n’est requise pour collecter des données, et l’application écrit automatiquement des données de surveillance telles que les pages consultées, les demandes et les exceptions.

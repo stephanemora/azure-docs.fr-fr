@@ -4,14 +4,14 @@ description: Cet article explique le modèle de tarification d’Azure Cosmos DB
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/21/2019
+ms.date: 08/01/2019
 ms.author: rimman
-ms.openlocfilehash: c9e7afdb8927a2cdada8ae86ebf18a42327e640c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 43a4b46199277da11d2820a11ec0801c0345e62b
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65968935"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68717617"
 ---
 # <a name="pricing-model-in-azure-cosmos-db"></a>Modèle de tarification dans Azure Cosmos DB 
 

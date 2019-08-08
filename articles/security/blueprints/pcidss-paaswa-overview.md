@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/03/2018
 ms.author: meladie
-ms.openlocfilehash: 5452a1adb419a2f57e2124d5aac49f9cdcff615a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 231e3f8a43f2c1fc9e798acebbe24d6635d9f6d8
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60609980"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68781000"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-for-pci-dss"></a>Blueprint de sécurité et de conformité Azure : Application web PaaS pour PCI DSS
 
@@ -81,7 +81,7 @@ La section ci-après décrit en détail les éléments nécessaires au déploiem
 **Hôte bastion** : point d’entrée unique qui permet aux utilisateurs d’accéder aux ressources déployées dans cet environnement. L’hôte bastion fournit une connexion sécurisée à des ressources déployées en autorisant uniquement le trafic distant provenant d’adresses IP publiques figurant sur une liste verte. Pour autoriser le trafic RDP (Remote Desktop Protocol), la source du trafic doit être définie dans le groupe de sécurité réseau.
 
 Cette solution crée une machine virtuelle en tant qu’hôte bastion joint au domaine avec les configurations suivantes :
--   [Extension Antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware)
+-   [Extension Antimalware](https://docs.microsoft.com/azure/security/fundamentals/antimalware)
 -   [Extension Diagnostics Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-extensions-diagnostics-template)
 -   [Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) avec Azure Key Vault
 -   [Stratégie d’arrêt automatique](https://azure.microsoft.com/blog/announcing-auto-shutdown-for-vms-using-azure-resource-manager/) pour réduire la consommation des ressources de machine virtuelle non utilisées

@@ -2,17 +2,17 @@
 title: Connexions à un client Bureau à distance dans Windows Virtual Desktop - Azure
 description: Comment résoudre des problèmes lorsque vous configurez des connexions à un client dans un environnement de locataire Windows Virtual Desktop.
 services: virtual-desktop
-author: ChJenk
+author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 04/08/2019
-ms.author: v-chjenk
-ms.openlocfilehash: b7a6daa791e44227fd146c9c328a939560ebb3b1
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.author: helohr
+ms.openlocfilehash: 9cd754b1810595c3ae82a7e4edfd9a3abe145b3f
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67605290"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68816421"
 ---
 # <a name="remote-desktop-client-connections"></a>Connexions au client Bureau à distance
 
@@ -135,7 +135,7 @@ Suivez ces instructions de dépannage générales pour les codes d’erreur de c
     Time              : <Timestampt>
     ```
 
-### <a name="error-oaddusertogroupfailed--failed-to-add-user--username-to-group--remote-desktop-users-reason-win32errornosuchmember"></a>Error: O_ADD_USER_TO_GROUP_FAILED/échec de l’ajout de l’utilisateur = ≤nom_utilisateur≥ au groupe = Utilisateurs du Bureau à distance. Raison : Win32.ERROR_NO_SUCH_MEMBER
+### <a name="error-o_add_user_to_group_failed--failed-to-add-user--username-to-group--remote-desktop-users-reason-win32error_no_such_member"></a>Error: O_ADD_USER_TO_GROUP_FAILED/échec de l’ajout de l’utilisateur = ≤nom_utilisateur≥ au groupe = Utilisateurs du Bureau à distance. Raison : Win32.ERROR_NO_SUCH_MEMBER
 
 **Cause :** aucune machine virtuelle n’a été jointe au domaine dans lequel figure l’objet utilisateur.
 

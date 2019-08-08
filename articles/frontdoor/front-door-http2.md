@@ -11,14 +11,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 33e738f31be493d5890fc972ec71e7c6cd733bf4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c3c1721454c0b3c96071c685a764f34d4fa540b9
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60736445"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68775269"
 ---
 # <a name="http2-support-in-azure-front-door-service"></a>Prise en charge du protocole HTTP/2 dans Azure Front Door Service
+
+Actuellement, la prise en charge de HTTP/2 est active pour toutes les configurations Front Door. Aucune action supplémentaire n’est nécessaire de la part des clients.
+
 HTTP/2 est une révision majeure du protocole HTTP/1.1. Il offre des performances web plus rapides, des meilleurs temps de réponse et une expérience utilisateur améliorée, tout en conservant les méthodes HTTP, les codes d’état et la sémantique habituels. Bien que HTTP/2 soit conçu pour fonctionner avec HTTP et HTTPS, de nombreux navigateurs web clients prennent en charge seulement HTTP/2 sur TLS (Transport Layer Security).
 
 ### <a name="http2-benefits"></a>Avantages de HTTP/2
@@ -49,10 +52,6 @@ Tous les principaux navigateurs ont implémenté la prise en charge de HTTP/2 da
 |Mozilla Firefox| 38|
 |Opera| 32|
 |Safari| 9|
-
-## <a name="enabling-http2-support-in-azure-front-door-service"></a>Activation de la prise en charge de HTTP/2 dans Azure Front Door Service
-
-Actuellement, la prise en charge de HTTP/2 est active pour toutes les configurations Front Door. Aucune action supplémentaire n’est nécessaire de la part des clients.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/31/2018
 ms.author: jomolesk
-ms.openlocfilehash: b30094e264086f018acbf84144300df46c60ac4e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9e5c894cedcbfd006d9406ce2c07fc0b17033d7c
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60610266"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68781032"
 ---
 # <a name="azure-security-and-compliance-blueprint---iaas-web-application-for-nist-sp-800-171"></a>Blueprint sur la sécurité et la conformité Azure : application web IaaS pour NIST SP 800-171
 
@@ -73,7 +73,7 @@ La section ci-après décrit en détail les éléments nécessaires au déploiem
 **Hôte bastion** : point d‘entrée unique qui permet aux utilisateurs d’accéder aux ressources déployées dans cet environnement. L‘hôte bastion fournit une connexion sécurisée à des ressources déployées en autorisant uniquement le trafic distant provenant d‘adresses IP publiques figurant sur une liste verte. Pour autoriser le trafic Bureau à distance, la source du trafic doit être définie dans le groupe de sécurité réseau (NSG).
 
 Cette solution crée une machine virtuelle en tant qu‘hôte bastion joint au domaine avec les configurations suivantes :
--   [Extension Antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware).
+-   [Extension Antimalware](https://docs.microsoft.com/azure/security/fundamentals/antimalware).
 -   [Extension Diagnostics Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-extensions-diagnostics-template).
 -   [Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) avec Key Vault.
 -   [Stratégie d‘arrêt automatique](https://azure.microsoft.com/blog/announcing-auto-shutdown-for-vms-using-azure-resource-manager/) pour réduire la consommation des ressources de machine virtuelle non utilisées.
@@ -119,7 +119,7 @@ Les technologies suivantes offrent des fonctionnalités de gestion de l’accès
 - [Azure Active Directory Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection) détecte les vulnérabilités potentielles susceptibles d’affecter les identités d’une organisation. Il configure des réponses automatiques aux actions suspectes détectées et liées aux identités d’une organisation. Il examine également les incidents suspects pour prendre les mesures appropriées afin de les résoudre.
 
 ### <a name="security"></a>Sécurité
-**Gestion des secrets** : la solution utilise [Key Vault](https://azure.microsoft.com/services/key-vault/) pour gérer les clés et les secrets. Key Vault permet de protéger les clés de chiffrement et les secrets utilisés par les services et les applications cloud. Les fonctionnalités Key Vault suivantes aident les clients à protéger les données :
+**Gestion des secrets** : La solution utilise [Key Vault](https://azure.microsoft.com/services/key-vault/) pour gérer les clés et les secrets. Key Vault permet de protéger les clés de chiffrement et les secrets utilisés par les services et les applications cloud. Les fonctionnalités Key Vault suivantes aident les clients à protéger les données :
 - Les stratégies d’accès avancées sont configurées en fonction des besoins.
 - Les stratégies d’accès Key Vault sont définies avec des autorisations minimales requises pour les clés et les secrets.
 - L’ensemble des clés et secrets figurant dans Key Vault présentent des dates d’expiration.
@@ -131,7 +131,7 @@ Les technologies suivantes offrent des fonctionnalités de gestion de l’accès
 
 **Gestion des correctifs** : les machines virtuelles Windows déployées dans le cadre de cette architecture de référence sont configurées par défaut pour recevoir des mises à jour automatiques du service Windows Update. Cette solution inclut également le service [Azure Automation](https://docs.microsoft.com/azure/automation/automation-intro) qui permet de créer des déploiements mis à jour pour corriger des machines virtuelles si nécessaire.
 
-**Protection contre les programmes malveillants** : [Microsoft Antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware) pour machines virtuelles offre une fonctionnalité de protection en temps réel qui permet d’identifier et de supprimer les virus, logiciels espions et autres logiciels malveillants. Les clients peuvent configurer des alertes qui se déclenchent lorsque des logiciels malveillants ou indésirables connus tentent de s’installer ou de s’exécuter sur des machines virtuelles protégées.
+**Protection contre les programmes malveillants** : [Microsoft Antimalware](https://docs.microsoft.com/azure/security/fundamentals/antimalware) pour machines virtuelles offre une fonctionnalité de protection en temps réel qui permet d’identifier et de supprimer les virus, logiciels espions et autres logiciels malveillants. Les clients peuvent configurer des alertes qui se déclenchent lorsque des logiciels malveillants ou indésirables connus tentent de s’installer ou de s’exécuter sur des machines virtuelles protégées.
 
 **Azure Security Center** : avec [Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro), les clients peuvent appliquer et gérer de façon centralisée des stratégies de sécurité sur les charges de travail, limiter l’exposition aux menaces ainsi que détecter les attaques et y répondre. Security Center accède également aux configurations existantes des services Azure pour fournir des suggestions en matière de configuration et de service. Cela contribue à l’amélioration du dispositif de sécurité et à la protection des données.
 
@@ -141,7 +141,7 @@ Security Center fournit des alertes et incidents de sécurité classés par ordr
 
 Cette architecture de référence utilise la fonction d’[évaluation des vulnérabilités](https://docs.microsoft.com/azure/security-center/security-center-vulnerability-assessment-recommendations) dans Security Center. Une fois sa configuration terminée, un agent partenaire (par exemple, Qualys) commence à signaler les données de vulnérabilité à la plateforme de gestion du partenaire. En retour, la plateforme de gestion du partenaire fournit des données de surveillance de l’intégrité et des vulnérabilités à Security Center. Les clients peuvent utiliser ces informations pour identifier rapidement les machines virtuelles vulnérables.
 
-**Azure Application Gateway** : l’architecture réduit le risque de failles de sécurité en utilisant une passerelle d’application avec un pare-feu d’applications web configuré et l’ensemble de règles OWASP activé. Les autres fonctionnalités incluent notamment :
+**Azure Application Gateway** : L’architecture réduit le risque de failles de sécurité en utilisant une passerelle d’application avec un pare-feu d’applications web configuré et l’ensemble de règles OWASP activé. Les autres fonctionnalités incluent notamment :
 
 - [SSL de bout en bout](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell).
 - Activation du [déchargement SSL](https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-portal).
@@ -168,7 +168,7 @@ Les services Azure assurent une journalisation complète de l’activité du sys
 
 **Journaux d’activité Azure Monitor** : ces journaux sont regroupés dans [Journaux Azure Monitor](https://azure.microsoft.com/services/log-analytics/) à des fins de traitement, de stockage et de génération de rapports de tableau de bord. Une fois les données collectées, elles sont organisées dans des tables distinctes pour chaque type de données au sein des espaces de travail Log Analytics. De cette façon, toutes les données peuvent être analysées ensemble, quelle que soit leur source d’origine. Security Center s’intègre à Journaux Azure Monitor. Les clients peuvent utiliser des requêtes Kusto pour accéder à leurs données d’événement de sécurité et les combiner avec des données provenant d’autres services.
 
-Cette architecture intègre également les [solutions de supervision](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions) suivantes :
+Les [solutions de supervision](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions) Azure suivantes sont incluses dans cette architecture :
 -   [Active Directory Assessment](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment) : la solution Active Directory Health Check permet d’évaluer les risques et l’intégrité des environnements de serveur à intervalles réguliers. Elle fournit une liste hiérarchisée de suggestions propres à l’infrastructure de serveurs déployée.
 - [SQL Assessment](https://docs.microsoft.com/azure/log-analytics/log-analytics-sql-assessment) : la solution SQL Health Check permet d’évaluer les risques et l’intégrité des environnements de serveur à intervalles réguliers. Elle fournit aux clients une liste hiérarchisée de suggestions propres à l’infrastructure de serveurs déployée.
 - [Agent Health](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-agenthealth) : la solution Agent Health signale le nombre d’agents déployés et leur répartition géographique. Elle signale également le nombre d’agents qui ne répondent pas et le nombre d’agents qui envoient des données opérationnelles.

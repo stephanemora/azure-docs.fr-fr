@@ -12,12 +12,12 @@ ms.date: 05/31/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ce9c0c6d4f9002b061afd2ad09f02266d452979
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1b291f2243dfe28a8e866796e0b7375f94fa4f2e
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67109260"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779441"
 ---
 # <a name="migrate-from-federation-to-password-hash-synchronization-for-azure-active-directory"></a>Migrer de la fédération à la synchronisation de hachage de mot de passe pour Azure Active Directory
 
@@ -474,5 +474,5 @@ Pour plus d’informations, consultez [Comment puis-je substituer la clé de dé
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Découvrez plus d’informations sur les [principes de conception d’Azure AD Connect](plan-connect-design-concepts.md).
-* Choisir l’[authentification appropriée](https://docs.microsoft.com/azure/security/azure-ad-choose-authn).
+* Choisir l’[authentification appropriée](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn).
 * Découvrez plus d’informations sur les [topologies prises en charge](plan-connect-design-concepts.md).

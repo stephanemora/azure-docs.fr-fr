@@ -10,12 +10,13 @@ ms.subservice: answer-search
 ms.topic: reference
 ms.date: 04/13/2018
 ms.author: rosh
-ms.openlocfilehash: 4384bf658024f89664c5202ba10d793d7ad734e0
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ROBOTS: NOINDEX
+ms.openlocfilehash: 28449435479aef0d6a1d8aee3e53de1a78f401b3
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67592909"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68705331"
 ---
 # <a name="project-answer-search-v7-reference"></a>Informations de référence sur le projet Recherche de réponses v7
 

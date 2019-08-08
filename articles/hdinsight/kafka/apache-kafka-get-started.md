@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 06/12/2019
-ms.openlocfilehash: 61ae6cdf7c31c9a6e40860eb1dc4628bb2d37496
-ms.sourcegitcommit: 6e6813f8e5fa1f6f4661a640a49dc4c864f8a6cb
+ms.openlocfilehash: 9fa6ad3c52e9b01fe9a62a2de52f62b1b1a95aa8
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67150911"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779522"
 ---
 # <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-azure-portal"></a>Démarrage rapide : Créer un cluster Apache Kafka dans Azure HDInsight à l’aide du portail Azure
 
@@ -122,7 +122,7 @@ Pour créer un cluster Apache Kafka sur HDInsight, procédez comme suit :
 
     Une fois la connexion établie, des informations de ce type s’affichent :
     
-    ```text
+    ```output
     Authorized uses only. All activity may be monitored and reported.
     Welcome to Ubuntu 16.04.4 LTS (GNU/Linux 4.13.0-1011-azure x86_64)
     
@@ -140,7 +140,6 @@ Pour créer un cluster Apache Kafka sur HDInsight, procédez comme suit :
     Welcome to Apache Kafka on HDInsight.
     
     Last login: Thu Mar 29 13:25:27 2018 from 108.252.109.241
-    ssuhuser@hn0-mykafk:~$
     ```
 
 ## <a id="getkafkainfo"></a>Obtenir des informations sur les hôtes Apache Zookeeper et Broker

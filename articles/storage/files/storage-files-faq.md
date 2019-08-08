@@ -7,12 +7,12 @@ ms.date: 01/02/2019
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 83a13af1d3a17929591ac636add8d0eb7bc61ef3
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 622a033b73ace93e98cfa0d5179002c78ec49b35
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699662"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68704481"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Questions fréquentes (FAQ) sur Azure Files
 [Azure Files](storage-files-introduction.md) offre des partages de fichiers managés dans le cloud qui sont accessibles via le [protocole SMB (Server Message Block)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) standard. Vous pouvez monter des partages de fichiers Azure simultanément sur des déploiements cloud ou locaux de Windows, Linux et macOS. Vous pouvez également mettre en cache des partages de fichiers Azure sur des ordinateurs Windows Server à l’aide d’Azure File Sync pour bénéficier d’un accès rapide proche de l’endroit où les données sont utilisées.
@@ -275,10 +275,6 @@ Cet article répond à des questions courantes sur les fonctionnalités d’Azur
 * <a id="where-are-snapshots-stored"></a>
 **Où sont stockés mes instantanés de partage ?**  
     Les instantanés de partage sont stockés dans le même compte de stockage que celui du partage de fichiers.
-
-* <a id="snapshot-perf-impact"></a>
-**L’utilisation d’instantanés de partage a-t-elle un impact sur les performances ?**  
-    Les instantanés de partage n’affectent pas le niveau de performance.
 
 * <a id="snapshot-consistency"></a>
 **Les instantanés de partage sont-ils cohérents par rapport aux applications ?**  

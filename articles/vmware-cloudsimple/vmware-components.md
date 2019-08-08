@@ -5,15 +5,15 @@ author: sharaths-cs
 ms.author: dikamath
 ms.date: 04/30/2019
 ms.topic: article
-ms.service: vmware
+ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 62511118edb4f8b5061f90138bac2aa2b5d3cfe3
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 89bc9c07ae74da1a4269a505627a7626e478ef99
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67165152"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68812183"
 ---
 # <a name="private-cloud-vmware-components"></a>Composants VMware de cloud privé
 

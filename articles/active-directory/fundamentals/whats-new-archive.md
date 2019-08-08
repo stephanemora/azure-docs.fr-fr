@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/28/2019
+ms.date: 07/31/2019
 ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 490a4fa2fa05c688f5bfc1534d1508a87e9589ea
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: b338ad90c01c109cc9b2e222f1d7bcaa09f20346
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68693983"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68812952"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Archive des nouveautés d’Azure Active Directory
 
@@ -775,8 +775,6 @@ Pour plus d’informations sur les applications, consultez [Intégration des app
  
 Azure AD vous permet d’automatiser la création, la maintenance et la suppression d’identités utilisateur dans des applications SaaS comme Dropbox, Salesforce, ServiceNow, etc. En juillet 2018, nous avons ajouté une prise en charge de l’attribution des utilisateurs pour les applications suivantes dans la galerie d’applications Azure AD :
 
-- [Cisco Spark](https://docs.microsoft.com/azure/active-directory/saas-apps/cisco-spark-provisioning-tutorial)
-
 - [Cisco WebEx](https://docs.microsoft.com/azure/active-directory/saas-apps/cisco-webex-provisioning-tutorial)
 
 - [Bonusly](https://docs.microsoft.com/azure/active-directory/saas-apps/bonusly-provisioning-tutorial)
@@ -1221,7 +1219,7 @@ La fonctionnalité de révision d’accès des groupes et applications fait main
 
 ---
 
-### <a name="id-tokens-can-no-longer-be-returned-using-the-query-responsemode-for-new-apps"></a>Les jetons d’ID ne peuvent plus être retournés à l’aide de la requête response_mode pour les nouvelles applications. 
+### <a name="id-tokens-can-no-longer-be-returned-using-the-query-response_mode-for-new-apps"></a>Les jetons d’ID ne peuvent plus être retournés à l’aide de la requête response_mode pour les nouvelles applications. 
 
 **Type :** Fonctionnalité modifiée  
 **Catégorie de service :** Authentifications (connexions)  
@@ -1553,7 +1551,7 @@ Pour plus d’informations, consultez [Demander un code d’autorisation](https:
  
 ---
  
-### <a name="support-for-provisioning-all-user-attribute-values-available-in-the-workday-getworkers-api"></a>Prise en charge de l’approvisionnement de toutes les valeurs d’attribut utilisateur disponibles dans l’API Workday Get_Workers
+### <a name="support-for-provisioning-all-user-attribute-values-available-in-the-workday-get_workers-api"></a>Prise en charge de l’approvisionnement de toutes les valeurs d’attribut utilisateur disponibles dans l’API Workday Get_Workers
 
 **Type :** Nouvelle fonctionnalité  
 **Catégorie de service :** Provisionnement d’applications  
@@ -2362,7 +2360,7 @@ Pour plus d’informations, consultez [PIM pour les ressources Azure (préversio
 
 ### <a name="access-reviews"></a>Révisions d’accès
 
-**Type :** Nouvelle fonctionnalité  
+**Type :** Nouvelle fonctionnalité  
 **Catégorie de service :** Révisions d’accès  
 **Fonctionnalité de produit :** Conformité  
 

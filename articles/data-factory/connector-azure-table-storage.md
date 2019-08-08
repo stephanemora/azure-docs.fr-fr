@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/01/2019
+ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 7ef8f80f44c921cc1f2524351c8acb78ebd713bf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c4ea3c93daac1ebb88bae2b8cb01485d955be2bb
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66153549"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68726208"
 ---
 # <a name="copy-data-to-and-from-azure-table-storage-by-using-azure-data-factory"></a>Copier des données depuis et vers le stockage Table Azure à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -53,7 +53,7 @@ Vous pouvez créer un service lié Stockage Azure à l’aide de la clé de comp
 | connectVia | Le [runtime d’intégration](concepts-integration-runtime.md) à utiliser pour se connecter à la banque de données. Vous pouvez utiliser Azure Integration Runtime ou Integration Runtime auto-hébergé (si votre magasin de données se trouve dans un réseau privé). À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. |Non |
 
 >[!NOTE]
->Si vous utilisiez le service lié de type « AzureStorage », il est toujours pris en charge en tant que tel, même si vous êtes invité à utiliser ce nouveau service lié de type « AzureTableStorage » à l’avenir.
+>Si vous utilisiez le service lié de type « AzureStorage », il est toujours pris en charge en tant que tel, même si vous serez invité à utiliser ce nouveau service lié de type « AzureTableStorage » à l’avenir.
 
 **Exemple :**
 
@@ -205,12 +205,13 @@ Pour copier des données vers et depuis Table Azure, définissez la propriété 
     "properties":
     {
         "type": "AzureTable",
+        "typeProperties": {
+            "tableName": "MyTable"
+        },
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<Azure Table storage linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {
-            "tableName": "MyTable"
         }
     }
 }
@@ -266,7 +267,7 @@ Pour copier des données vers la Table Azure, définissez le type de récepteur 
 | azureTablePartitionKeyName |Spécifiez le nom de la colonne dont les valeurs sont utilisées comme clés de partition. Si aucune valeur n'est spécifiée, « AzureTableDefaultPartitionKeyValue » est utilisée comme clé de partition. |Non |
 | azureTableRowKeyName |Spécifiez le nom de la colonne dont les valeurs sont utilisées comme clé de ligne. Si aucune valeur n'est spécifiée, un GUID est utilisé pour chaque ligne. |Non |
 | azureTableInsertType |Le mode d’insertion des données dans Table Azure. Cette propriété détermine le remplacement ou la fusion des valeurs des lignes existantes dans la table de sortie avec des clés de partition et de ligne correspondantes. <br/><br/>Les valeurs autorisées sont **fusionner** (par défaut), et **remplacer**. <br/><br> Ce paramètre s’applique au niveau ligne et non au niveau table. Ces options ne suppriment pas de lignes dans la table de sortie qui n’existent pas dans l’entrée. Consultez [Insert Or Merge Entity](https://msdn.microsoft.com/library/azure/hh452241.aspx) (Entité d’insertion ou de fusion) et [Insert Or Replace Entity](https://msdn.microsoft.com/library/azure/hh452242.aspx) (Entité d’insertion ou de remplacement) pour en savoir plus sur le fonctionnement des paramètres fusionner et remplacer. |Non |
-| writeBatchSize |Insère des données dans Table Azure lorsque la valeur de writeBatchSize ou writeBatchTimeout est atteinte.<br/>Les valeurs autorisées sont des nombres entiers (nombre de lignes). |Non (valeur par défaut : 10 000) |
+| writeBatchSize |Insère des données dans Table Azure lorsque la valeur de writeBatchSize ou writeBatchTimeout est atteinte.<br/>Les valeurs autorisées sont des nombre entiers (nombre de lignes). |Non (valeur par défaut : 10 000) |
 | writeBatchTimeout |Insère des données dans Table Azure lorsque la valeur de writeBatchSize ou writeBatchTimeout est atteinte.<br/>Les valeurs autorisées sont des intervalles de temps. Par exemple : « 00:20:00 » (20 minutes). |Non (la valeur par défaut est 90 secondes, le délai d’expiration par défaut du client de stockage) |
 
 **Exemple :**
@@ -334,7 +335,7 @@ Pendant le déplacement de données depuis et vers Table Azure, les [mappages su
 |:--- |:--- |:--- |
 | Edm.Binary |byte[] |Tableau d’octets jusqu’à 64 Ko. |
 | Edm.Boolean |bool |Valeur booléenne. |
-| Edm.DateTime |Datetime |Valeur de 64 bits exprimée en temps universel coordonné (UTC). La plage DateHeure prise en charge commence à partir de minuit, le 1er janvier 1601 apr. J.C. (NOTRE ÈRE), UTC. La plage se termine le 31 décembre 9999. |
+| Edm.DateTime |DateTime |Valeur de 64 bits exprimée en temps universel coordonné (UTC). La plage DateHeure prise en charge commence à partir de minuit, le 1er janvier 1601 apr. J.C. (NOTRE ÈRE), UTC. La plage se termine le 31 décembre 9999. |
 | Edm.Double |double |Valeur à virgule flottante de 64 bits. |
 | Edm.Guid |Guid |Identificateur global unique de 128 bits. |
 | Edm.Int32 |Int32 |Nombre entier 32 bits. |

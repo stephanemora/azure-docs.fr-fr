@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/26/2018
 ms.author: shvija
-ms.openlocfilehash: f86dc92b4df45119930970acfe9e173f32f894fb
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 0960862da9e65cff4d957e97a7488dc7a245651a
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68356057"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68742121"
 ---
 # <a name="how-to-use-azure-event-hubs-from-a-python-application"></a>Comment utiliser Azure Event Hubs à partir d’une application Python
 Azure Event Hubs est une plateforme de diffusion de données volumineuses et un service d’ingestion d’événements, capable de recevoir et de traiter des millions d’événements par seconde. Les concentrateurs d’événements peuvent traiter et stocker des événements, des données ou la télémétrie produits par des logiciels et appareils distribués. Les données envoyées à un concentrateur d’événements peuvent être transformées et stockées à l’aide d’adaptateurs de traitement par lot/stockage ou d’un fournisseur d’analyse en temps réel. Pour plus d’informations, consultez [Présentation d’Event Hubs](event-hubs-what-is-event-hubs.md). 
@@ -162,7 +162,7 @@ startProcessing('YOUR STORAGE ACCOUNT NAME', 'YOUR KEY', 'capture')
 Pour un tutoriel complet sur la lecture de données Event Hubs capturées dans un stockage Blob Azure à partir d’une application écrite en Python, consultez [cet article](event-hubs-capture-python.md)
 
 ## <a name="github-samples"></a>Exemples GitHub
-D’autres exemples Python sont disponibles dans le [dépôt Git azure-event-hubs-python](https://github.com/Azure/azure-event-hubs-python/).
+D’autres exemples Python sont disponibles dans le [dépôt Git azure-event-hubs-python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/eventhub/azure-eventhubs).
 
 ## <a name="next-steps"></a>Étapes suivantes
 Lisez les articles de la section Concepts en commençant par [Vue d’ensemble des fonctionnalités Event Hubs](event-hubs-features.md).

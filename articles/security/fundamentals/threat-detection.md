@@ -8,18 +8,19 @@ manager: barbkess
 editor: TomSh
 ms.assetid: ''
 ms.service: security
+ms.subservice: security-fundamentals
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 5bcd17c841c3c8d981e7540172d9ca691f6ee9e8
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: 4e33b22c5bc931685f5848db55fc4b9b8fc6eafe
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68610676"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780605"
 ---
 # <a name="azure-advanced-threat-detection"></a>Détection avancée des menaces Azure
 
@@ -215,7 +216,7 @@ Ces efforts combinés aboutissent à des détections nouvelles et améliorées, 
 
 ### <a name="virtual-machines-microsoft-antimalware"></a>Machines virtuelles : Microsoft Antimalware
 
-[Microsoft Antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware) est une solution d’agent unique pour les applications et les environnements client, conçue pour s’exécuter en arrière-plan sans intervention humaine. Vous pouvez déployer la protection en fonction des besoins de vos charges de travail d’application, avec une configuration de base sécurisée par défaut ou une configuration personnalisée avancée, y compris pour la surveillance anti-programmes malveillants. Azure Antimalware est une option de sécurité dédiée aux machines virtuelles Azure qui est automatiquement installée sur toutes les machines virtuelles PaaS Azure.
+[Microsoft Antimalware](https://docs.microsoft.com/azure/security/fundamentals/antimalware) est une solution d’agent unique pour les applications et les environnements client, conçue pour s’exécuter en arrière-plan sans intervention humaine. Vous pouvez déployer la protection en fonction des besoins de vos charges de travail d’application, avec une configuration de base sécurisée par défaut ou une configuration personnalisée avancée, y compris pour la surveillance anti-programmes malveillants. Azure Antimalware est une option de sécurité dédiée aux machines virtuelles Azure qui est automatiquement installée sur toutes les machines virtuelles PaaS Azure.
 
 #### <a name="microsoft-antimalware-core-features"></a>Principales fonctionnalités de Microsoft Antimalware
 

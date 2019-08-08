@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 234b78a97c2663121d0d585154695887a58b9522
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c9ffd5a173bcfae41e08babbadae1e67047ed452
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60203412"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68725989"
 ---
 # <a name="copy-data-from-servicenow-using-azure-data-factory"></a>Copier des données à partir de ServiceNow avec Azure Data Factory
 
@@ -44,7 +44,7 @@ Les propriétés prises en charge pour le service lié ServiceNow sont les suiva
 | type | La propriété type doit être définie sur : **ServiceNow** | OUI |
 | endpoint | Point de terminaison du serveur ServiceNow (`http://<instance>.service-now.com`).  | OUI |
 | authenticationType | Type d’authentification à utiliser. <br/>Les valeurs autorisées sont les suivantes : **Basic**, **OAuth2** | OUI |
-| username | Nom d’utilisateur utilisé pour la connexion au serveur ServiceNow pour l’authentification De base et OAuth2.  | OUI |
+| userName | Nom d’utilisateur utilisé pour la connexion au serveur ServiceNow pour l’authentification De base et OAuth2.  | OUI |
 | password | Mot de passe correspondant au nom d’utilisateur pour l’authentification De base et OAuth2. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | OUI |
 | clientId | ID client pour l’authentification OAuth2.  | Non |
 | clientSecret | Secret client pour l’authentification OAuth2. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | Non |
@@ -80,7 +80,7 @@ Pour copier des données de ServiceNow, affectez la valeur **ServiceNowObject** 
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type du jeu de données doit être définie sur : **ServiceNowObject** | OUI |
+| type | La propriété type du jeu de données doit être définie sur : **ServiceNowObject** | OUI |
 | tableName | Nom de la table. | Non (si « query » dans la source de l’activité est spécifié) |
 
 **Exemple**
@@ -90,11 +90,12 @@ Pour copier des données de ServiceNow, affectez la valeur **ServiceNowObject** 
     "name": "ServiceNowDataset",
     "properties": {
         "type": "ServiceNowObject",
+        "typeProperties": {},
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<ServiceNow linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {}
+        }
     }
 }
 ```
@@ -109,7 +110,7 @@ Pour copier des données à partir de ServiceNow, définissez le type de source 
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type de la source de l’activité de copie doit être définie sur : **ServiceNowSource** | OUI |
+| type | La propriété type de la source de l’activité de copie doit être définie sur : **ServiceNowSource** | OUI |
 | query | Utiliser la requête SQL personnalisée pour lire les données. Par exemple : `"SELECT * FROM Actual.alm_asset"`. | Non (si « tableName » est spécifié dans dataset) |
 
 Notez les points suivants au moment de spécifier le schéma et la colonne pour ServiceNow dans la requête, et **reportez-vous à la section [Conseils sur les performances](#performance-tips) pour en savoir plus sur l’implication des performances de copie**.

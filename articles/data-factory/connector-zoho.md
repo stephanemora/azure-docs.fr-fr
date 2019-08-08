@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 70f300d83d904537aab61b95de876f4ac2edb66c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e795e1de32ce51d80062d30d6880abbca37f9386
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60808983"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68720281"
 ---
 # <a name="copy-data-from-zoho-using-azure-data-factory-preview"></a>Copier des données de Zoho à l’aide d’Azure Data Factory (préversion)
 
@@ -77,7 +77,7 @@ Pour copier des données de Zoho, affectez la valeur **ZohoObject** à la propri
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type du jeu de données doit être définie sur : **ZohoObject** | OUI |
+| type | La propriété type du jeu de données doit être définie sur : **ZohoObject** | OUI |
 | tableName | Nom de la table. | Non (si « query » dans la source de l’activité est spécifié) |
 
 **Exemple**
@@ -87,11 +87,12 @@ Pour copier des données de Zoho, affectez la valeur **ZohoObject** à la propri
     "name": "ZohoDataset",
     "properties": {
         "type": "ZohoObject",
+        "typeProperties": {},
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<Zoho linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {}
+        }
     }
 }
 ```
@@ -106,7 +107,7 @@ Pour copier des données de Zoho, définissez le type de source dans l’activit
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type de la source d’activité de copie doit être définie sur : **ZohoSource** | OUI |
+| type | La propriété type de la source d’activité de copie doit être définie sur : **ZohoSource** | OUI |
 | query | Utiliser la requête SQL personnalisée pour lire les données. Par exemple : `"SELECT * FROM Accounts"`. | Non (si « tableName » est spécifié dans dataset) |
 
 **Exemple :**

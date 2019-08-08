@@ -10,7 +10,7 @@ ms.assetid: a242a5ff-7300-40c2-ba83-fb6035707433
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/15/2019
@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf5ee766a1db51e14ca5bc6ee2d447e3db374683
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 4bc671080a05e2c4e27fabcbab5cc40b9717dc85
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68276771"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68834900"
 ---
 # <a name="azure-active-directory-code-samples-v10-endpoint"></a>Exemples de code Azure Active Directory (point de terminaison v1.0)
 

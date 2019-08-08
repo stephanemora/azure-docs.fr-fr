@@ -1,21 +1,21 @@
 ---
 title: Cinq étapes pour sécuriser votre infrastructure d’identité dans Azure Active Directory
 description: Ce document présente une liste d’actions importantes que les administrateurs doivent implémenter pour mieux sécuriser leur organisation à l’aide des fonctionnalités d’Azure AD
-services: active-directory
 author: martincoetzer
 manager: manmeetb
 tags: azuread
-ms.service: active-directory
+ms.service: security
+ms.subservice: security-fundamentals
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 06/18/2018
 ms.author: martinco
-ms.openlocfilehash: 78d26dffa1d60ad41c46ed449f35d82b6dedb82e
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: c5cdd12c3075d48ff32c40d686b32a650ec43d8e
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68611432"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779776"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Cinq étapes pour sécuriser votre infrastructure d’identité
 
@@ -74,7 +74,7 @@ Vous pouvez utiliser [PowerShell pour empêcher l’expiration des mots de passe
 Si votre organisation utilise une solution d’identité hybride avec authentification ou fédération directe, vous devez activer la synchronisation du hachage de mot de passe pour les deux raisons suivantes :
 
 * Le rapport [Utilisateurs avec des informations d’identification volées](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-risk-events) dans l’administration d’Azure AD vous avertit si des paires nom d’utilisateur/mot de passe ont été exposées sur le « dark web ». Un volume incroyable de mots de passe fait l’objet d’une fuite via le hameçonnage, les programmes malveillants et la réutilisation de mot de passe sur des sites tiers qui sont ensuite victimes d’une violation de la sécurité. Microsoft recherche un grand nombre de ces informations d'identification ayant fuité et vous indiquera, dans ce rapport, si elles correspondent aux informations d’identification de votre organisation, mais uniquement si vous [activez la synchronisation de hachage du mot de passe](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-implement-password-hash-synchronization) !
-* En cas de panne locale (par exemple, au cours d’une attaque de ransomware), vous pourrez basculer vers [l’authentification cloud à l’aide de la synchronisation de hachage du mot de passe](https://docs.microsoft.com/azure/security/azure-ad-choose-authn). Cette méthode d’authentification de secours vous permettra de continuer à accéder aux applications configurées pour l’authentification avec Azure Active Directory, notamment Office 365. Dans ce cas, le personnel informatique n’aura pas besoin de recourir à des comptes e-mail personnels pour partager des données jusqu’à ce que la panne locale soit résolue.
+* En cas de panne locale (par exemple, au cours d’une attaque de ransomware), vous pourrez basculer vers [l’authentification cloud à l’aide de la synchronisation de hachage du mot de passe](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn). Cette méthode d’authentification de secours vous permettra de continuer à accéder aux applications configurées pour l’authentification avec Azure Active Directory, notamment Office 365. Dans ce cas, le personnel informatique n’aura pas besoin de recourir à des comptes e-mail personnels pour partager des données jusqu’à ce que la panne locale soit résolue.
 
 En savoir plus sur le fonctionnement de la [synchronisation de hachage du mot de passe](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-implement-password-hash-synchronization).
 
@@ -146,7 +146,7 @@ L’audit et la journalisation des événements liés à la sécurité, de même
 
 ### <a name="monitor-azure-ad"></a>Surveiller Azure AD
 
-Les services et fonctionnalités Microsoft Azure vous proposent des options d’audit et de journalisation configurables qui permettent d’identifier les lacunes dans vos stratégies et mécanismes de sécurité et d’y remédier pour empêcher les violations éventuelles. Vous pouvez utiliser [l’audit et la journalisation Azure](https://docs.microsoft.com/azure/security/azure-log-audit) et les [Rapports d’activité d’audit dans le portail Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-activity-audit-logs).
+Les services et fonctionnalités Microsoft Azure vous proposent des options d’audit et de journalisation configurables qui permettent d’identifier les lacunes dans vos stratégies et mécanismes de sécurité et d’y remédier pour empêcher les violations éventuelles. Vous pouvez utiliser [l’audit et la journalisation Azure](https://docs.microsoft.com/azure/security/fundamentals/log-audit) et les [Rapports d’activité d’audit dans le portail Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-activity-audit-logs).
 
 ### <a name="monitor-azure-ad-connect-health-in-hybrid-environments"></a>Surveiller Azure AD Connect Health dans les environnements hybrides
 

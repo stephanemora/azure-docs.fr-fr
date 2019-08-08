@@ -9,7 +9,7 @@ editor: ''
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
-ms.topic: overview
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/24/2019
@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ca011ec7185b084de6d1d346556c1c270c7aee3
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: e6148f6f9d449dc5aa55da2f041119a8b706491b
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65546062"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68835080"
 ---
 # <a name="acquiring-and-caching-tokens-using-msal"></a>Acquisition et mise en cache des jetons avec MSAL
 Les [jetons d’accès](access-tokens.md) permettent aux clients d’appeler de manière sécurisée des API web protégées par Azure. Il existe de nombreuses façons d’acquérir un jeton à l’aide de Microsoft Authentication Library (MSAL). Certaines d’entre elles exigent des interactions utilisateur par le biais d’un navigateur web. D’autres non. En règle générale, la façon d’acquérir un jeton dépend de la nature de l’application : s’agit-il d’une application cliente publique (application de bureau ou mobile) ou d’une application cliente confidentielle (application web, API web ou application de démon comme un service Windows) ?
@@ -48,7 +48,7 @@ Ou, par exemple, les étendues pour une API web personnalisée sont : `api://ab
 Pour l’API Microsoft Graph uniquement, une valeur d’étendue `user.read` est mappée au format `https://graph.microsoft.com/User.Read` et peut être utilisée de manière interchangeable.
 
 > [!NOTE]
-> Certaines API web comme l’API Azure Resource Manager (https://management.core.windows.net/)) attendent une barre oblique (/) de fin dans la revendication d’audience (aud) du jeton d’accès. Le cas échéant, il est important de passer l’étendue en tant que https://management.core.windows.net//user_impersonation (notez la double barre oblique), pour que le jeton soit valide dans l’API.
+> Certaines API web comme l’API Azure Resource Manager (https://management.core.windows.net/) ) attendent une barre oblique (/) de fin dans la revendication d’audience (aud) du jeton d’accès. Le cas échéant, il est important de passer l’étendue en tant que https://management.core.windows.net//user_impersonation (notez la double barre oblique), pour que le jeton soit valide dans l’API.
 
 ### <a name="request-dynamic-scopes-for-incremental-consent"></a>Demander des étendues dynamiques pour un consentement incrémentiel
 Quand vous génériez des applications avec v1.0, vous deviez enregistrer le jeu complet d’autorisations (étendues statiques) exigé par l’application pour que l’utilisateur donne son consentement au moment de la connexion. Avec v2.0, vous pouvez demander des autorisations supplémentaires en fonction des besoins à l’aide du paramètre d’étendue. Ces étendues sont qualifiées de dynamiques et permettent à l’utilisateur de donner un consentement incrémentiel aux étendues.

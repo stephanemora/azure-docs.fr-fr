@@ -14,12 +14,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: a1dafb8e4c16a59bfed51016ce9ccb0ec3eb7d6c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 460ea15b0827ea307d64d1bd92d9bd14d5919d73
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66754751"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68704375"
 ---
 # <a name="azure-event-hubs---geo-disaster-recovery"></a>Azure Event Hubs - Géorécupération d’urgence 
 
@@ -84,7 +84,7 @@ Si vous avez fait une erreur (par exemple, vous avez associé les mauvaises rég
 
 ## <a name="samples"></a>Exemples
 
-L’[exemple sur GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/GeoDRClient) montre comment configurer et lancer un basculement. Cet exemple illustre les concepts suivants :
+L’[exemple sur GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/GeoDRClient) montre comment configurer et lancer un basculement. Cet exemple illustre les concepts suivants :
 
 - Paramètres requis dans Azure Active Directory pour utiliser Azure Resource Manager avec Event Hubs. 
 - Étapes requises pour exécuter l’exemple de code. 
@@ -115,7 +115,7 @@ Vous pouvez activer les Zones de disponibilité sur les nouveaux espaces de noms
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [L’exemple sur GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/GeoDRClient) décrit un flux de travail simple qui crée un géocouplage et déclenche un basculement pour un scénario de récupération d’urgence.
+* [L’exemple sur GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/GeoDRClient) décrit un flux de travail simple qui crée un géocouplage et déclenche un basculement pour un scénario de récupération d’urgence.
 * La [référence d’API REST](/rest/api/eventhub/disasterrecoveryconfigs) décrit les API nécessaires pour effectuer la configuration de la géorécupération.
 
 Pour plus d’informations sur les concentrateurs d’événements, accédez aux liens suivants :

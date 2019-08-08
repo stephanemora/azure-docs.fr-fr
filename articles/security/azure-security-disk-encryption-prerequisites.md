@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9a5587a6f86fa47421eff4336cc232f9f97cc20f
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: 423fad943190232d9e5e674b98b62f4f0dffb8ae
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68610324"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68728748"
 ---
 # <a name="azure-disk-encryption-prerequisites"></a>Prérequis pour Azure Disk Encryption
 
@@ -181,7 +181,7 @@ Vous trouverez un exemple des commandes permettant de monter les disques de donn
 
 
 ## <a name="prerequisite-workflow-for-key-vault"></a>Flux de travail des prérequis pour Key Vault
-Si vous êtes déjà familiarisé avec les prérequis Key Vault et Azure AD pour Azure Disk Encryption, vous pouvez utiliser le [script PowerShell des prérequis d’Azure Disk Encryption](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1 ). Pour plus d’informations sur l’utilisation du script des prérequis, consultez le [Guide de démarrage rapide du chiffrement d’une machine virtuelle](fundamentals/quick-encrypt-vm-powershell.md) et l’[Annexe Azure Disk Encryption](azure-security-disk-encryption-appendix.md#bkmk_prereq-script). 
+Si vous êtes déjà familiarisé avec les prérequis Key Vault et Azure AD pour Azure Disk Encryption, vous pouvez utiliser le [script PowerShell des prérequis d’Azure Disk Encryption](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1 ). Pour plus d’informations sur l’utilisation du script des prérequis, consultez le [Guide de démarrage rapide du chiffrement d’une machine virtuelle](azure-disk-encryption-linux-powershell-quickstart.md) et l’[Annexe Azure Disk Encryption](azure-security-disk-encryption-appendix.md#bkmk_prereq-script). 
 
 1. Si nécessaire, créez un groupe de ressources.
 2. Création d’un coffre de clés 

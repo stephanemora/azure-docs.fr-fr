@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/01/2019
+ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 27f327493fbf3d7856b9488ecd0dd2509976ccfc
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c3cd734380e2a3e3fbf35439ff807738c549a086
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60533967"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68726150"
 ---
 # <a name="copy-data-from-couchbase-using-azure-data-factory-preview"></a>Copier des données de Couchbase avec Azure Data Factory (préversion)
 
@@ -106,7 +106,7 @@ Pour copier des données de Couchbase, affectez la valeur **CouchbaseTable** à 
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type du jeu de données doit être définie sur : **CouchbaseTable** | OUI |
+| type | La propriété type du jeu de données doit être définie sur : **CouchbaseTable** | OUI |
 | tableName | Nom de la table. | Non (si « query » dans la source de l’activité est spécifié) |
 
 
@@ -117,11 +117,12 @@ Pour copier des données de Couchbase, affectez la valeur **CouchbaseTable** à 
     "name": "CouchbaseDataset",
     "properties": {
         "type": "CouchbaseTable",
+        "typeProperties": {},
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<Couchbase linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {}
+        }
     }
 }
 ```
@@ -136,7 +137,7 @@ Pour copier des données de Couchbase, affectez la valeur **CouchbaseSource** au
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type de la source d’activité de copie doit être définie sur : **CouchbaseSource** | OUI |
+| type | La propriété type de la source d’activité de copie doit être définie sur : **CouchbaseSource** | OUI |
 | query | Utiliser la requête SQL personnalisée pour lire les données. Par exemple : `"SELECT * FROM MyTable"`. | Non (si « tableName » est spécifié dans dataset) |
 
 **Exemple :**

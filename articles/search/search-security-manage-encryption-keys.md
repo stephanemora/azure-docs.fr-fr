@@ -9,12 +9,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.custom: ''
-ms.openlocfilehash: 949628fa52b4b020d70b75f4a0e7895f1e0f8bba
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 9d4494cb46bece7402b1284ee6324ca9ff86e0f3
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67485318"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779098"
 ---
 # <a name="azure-search-encryption-using-customer-managed-keys-in-azure-key-vault"></a>Chiffrement Recherche Azure à l’aide de clés gérées par le client dans Azure Key Vault
 
@@ -23,7 +23,7 @@ ms.locfileid: "67485318"
 >
 > Cette fonctionnalité n’est pas disponible pour les services gratuits. Vous devez utiliser un service de recherche facturable, créé à partir du 01-01-2019. Il n’existe aucune prise en charge sur le portail pour l’instant.
 
-Par défaut, Recherche Azure chiffre au repos le contenu de l’utilisateur avec des [clés gérées par le service](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest#data-encryption-models). Vous pouvez compléter le chiffrement par défaut avec une couche de chiffrement supplémentaire à l’aide de clés que vous créez et gérez dans Azure Key Vault. Cet article vous guide tout au long des étapes.
+Par défaut, Recherche Azure chiffre au repos le contenu de l’utilisateur avec des [clés gérées par le service](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest#data-encryption-models). Vous pouvez compléter le chiffrement par défaut avec une couche de chiffrement supplémentaire à l’aide de clés que vous créez et gérez dans Azure Key Vault. Cet article vous guide tout au long des étapes.
 
 Le chiffrement côté serveur est pris en charge via l'intégration à [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview). Vous pouvez créer vos propres clés de chiffrement et les stocker dans un coffre de clés, ou utiliser les API d’Azure Key Vault pour générer des clés de chiffrement. Avec Azure Key Vault, vous pouvez également auditer l’utilisation des clés. 
 
@@ -239,4 +239,4 @@ Pour créer une application AAD dans le portail :
 Si vous n’êtes pas familiarisé avec l’architecture de sécurité Azure, passez en revue la [documentation sur la sécurité Azure](https://docs.microsoft.com/azure/security/), et en particulier cet article :
 
 > [!div class="nextstepaction"]
-> [Chiffrement des données Azure au repos](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest)
+> [Chiffrement des données Azure au repos](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest)

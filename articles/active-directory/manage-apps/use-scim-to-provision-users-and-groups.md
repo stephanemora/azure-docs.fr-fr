@@ -11,17 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 07/31/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7e28e92da319580baa9b4cadc4bc17f862b69e2
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 48eb36151948dc6e39edd4ae0fd863c63e83a52b
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68494503"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68741361"
 ---
 # <a name="using-system-for-cross-domain-identity-management-scim-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>Utilisation du protocole SCIM (System for Cross-Domain Identity Management) pour configurer automatiquement des utilisateurs et groupes d’Azure Active Directory dans des applications
 
@@ -73,7 +73,7 @@ Les applications qui prennent en charge le profil SCIM décrit dans cet article 
    ![Exemple : Page de provisionnement d’une application dans le Portail Microsoft Azure][2]<br/>
    *Figure 3 : configuration de l’approvisionnement dans le Portail Azure*
 
-1. Dans le champ **URL du locataire**, entrez l’URL du point de terminaison SCIM de l’application. Exemple : https://api.contoso.com/scim/v2/
+1. Dans le champ **URL du locataire**, entrez l’URL du point de terminaison SCIM de l’application. Exemple : https://api.contoso.com/scim/
 1. Si le point de terminaison SCIM requiert un jeton de porteur OAuth d’un émetteur autre qu’Azure AD, copiez le jeton de porteur OAuth requis dans le champ facultatif **Secret Token** (Jeton secret). Si ce champ est laissé vide, Azure AD inclut un jeton de porteur OAuth émis par Azure AD avec chaque requête. Les applications qui utilisent Azure AD comme fournisseur d'identité peuvent valider ce jeton émis par Azure AD.
 1. Sélectionnez **Tester la connexion** pour qu’Azure Active Directory tente de se connecter au point de terminaison SCIM. Si la tentative échoue, des informations d’erreur s’affichent.  
 
@@ -678,7 +678,7 @@ Le moyen le plus simple d’implémenter un point de terminaison SCIM qui peut a
 1. Entrez un nom pour votre application, puis sélectionnez **Ajouter** pour créer un objet d’application. L’objet d’application créé doit représenter l’application cible que vous devez configurer et sur laquelle mettre en œuvre l’authentification unique. Il ne s’agit pas d’un simple point de terminaison SCIM.
 1. Dans l’écran de gestion d’application, sélectionnez **Approvisionnement** dans le volet gauche.
 1. Dans le menu **Mode d’approvisionnement**, sélectionnez **Automatique**.    
-1. Dans le champ **URL du locataire**, saisissez l’URL côté Internet et le port de votre point de terminaison SCIM. L'entrée pourrait se présenter comme suit : http://testmachine.contoso.com:9000 ou http://\< ip-address>:9000/, où \< ip-address> correspond à l'adresse IP exposée sur Internet.
+1. Dans le champ **URL du locataire**, entrez l’URL du point de terminaison SCIM de l’application. Exemple : https://api.contoso.com/scim/
 
 1. Si le point de terminaison SCIM requiert un jeton de porteur OAuth d’un émetteur autre qu’Azure AD, copiez le jeton de porteur OAuth requis dans le champ facultatif **Secret Token** (Jeton secret). Si ce champ est laissé vide, Azure AD inclut un jeton de porteur OAuth émis par Azure AD avec chaque requête. Les applications qui utilisent Azure AD comme fournisseur d'identité peuvent valider ce jeton émis par Azure AD.
 1. Sélectionnez **Tester la connexion** pour qu’Azure Active Directory tente de se connecter au point de terminaison SCIM. Si la tentative échoue, des informations d’erreur s’affichent.  
@@ -834,7 +834,7 @@ Pour héberger le service dans Internet Information Services, un développeur cr
 
 ### <a name="handling-endpoint-authentication"></a>Gestion de l’authentification du point de terminaison
 
-Les demandes d’Azure Active Directory incluent un jeton de support OAuth 2.0.   Tout service qui reçoit la demande doit authentifier l’émetteur comme étant Azure Active Directory pour le compte du client Azure Active Directory pour accéder au service web du graphique Azure Active Directory.  Dans le jeton, l’émetteur est identifié par une revendication iss, comme « iss» : « https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/ ».  Dans cet exemple, l’adresse de base de la valeur de revendication, https://sts.windows.net , identifie Azure Active Directory en tant qu’émetteur, tandis que le segment d’adresse relative, cbb1a5ac-f33b-45fa-9bf5-f37db0fed422, est un identificateur unique du locataire Azure Active Directory au nom duquel le jeton a été émis. L'audience du jeton sera l'identifiant du modèle d'application de l'application dans la galerie. L'identifiant du modèle d'application pour toutes les applications personnalisées est 8adf8e6e-67b2-4cf2-a259-e3dc5476c621. L'identifiant du modèle d'application pour chaque application de la galerie varie. Veuillez contacter ProvisioningFeedback@microsoft.com pour toute question sur l'identifiant du modèle d'application pour une application de galerie. Chaque application inscrite dans un seul abonné peut recevoir la même revendication `iss` avec des requêtes SCIM.
+Les demandes d’Azure Active Directory incluent un jeton de support OAuth 2.0.   Tout service qui reçoit la demande doit authentifier l’émetteur comme étant Azure Active Directory pour le compte du client Azure Active Directory pour accéder au service web du graphique Azure Active Directory.  Dans le jeton, l’émetteur est identifié par une revendication iss, comme « iss» : « https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/ ».  Dans cet exemple, l’adresse de base de la valeur de revendication, https://sts.windows.net, identifie Azure Active Directory en tant qu’émetteur, tandis que le segment d’adresse relative, cbb1a5ac-f33b-45fa-9bf5-f37db0fed422, est un identificateur unique du locataire Azure Active Directory au nom duquel le jeton a été émis. L'audience du jeton sera l'identifiant du modèle d'application de l'application dans la galerie. L'identifiant du modèle d'application pour toutes les applications personnalisées est 8adf8e6e-67b2-4cf2-a259-e3dc5476c621. L'identifiant du modèle d'application pour chaque application de la galerie varie. Veuillez contacter ProvisioningFeedback@microsoft.com pour toute question sur l'identifiant du modèle d'application pour une application de galerie. Chaque application inscrite dans un seul abonné peut recevoir la même revendication `iss` avec des requêtes SCIM.
 
 Les développeurs qui utilisent les bibliothèques CLI fournies par Microsoft pour la création d’un service SCIM peuvent authentifier les demandes d’Azure Active Directory à l’aide du package Microsoft.Owin.Security.ActiveDirectory en exécutant les opérations suivantes : 
 

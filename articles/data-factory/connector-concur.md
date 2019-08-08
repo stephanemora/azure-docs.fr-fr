@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: f57a83fb83152055692e6f614b7958d099b6c70d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 48ebdca1b6abf57a84927e25bca1f85b023fa208
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60808919"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68726177"
 ---
 # <a name="copy-data-from-concur-using-azure-data-factory-preview"></a>Copier des données de Concur avec Azure Data Factory (préversion)
 
@@ -49,7 +49,7 @@ Les propriétés suivantes sont prises en charge pour le service lié Concur :
 |:--- |:--- |:--- |
 | type | La propriété type doit être définie sur : **Concur** | OUI |
 | clientId | ID client d’application fourni par la gestion des applications Concur.  | OUI |
-| username | Nom d’utilisateur utilisé pour accéder au service Concur.  | OUI |
+| userName | Nom d’utilisateur utilisé pour accéder au service Concur.  | OUI |
 | password | Mot de passe correspondant au nom d’utilisateur indiqué dans le champ username. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | OUI |
 | useEncryptedEndpoints | Indique si les points de terminaison de la source de données sont chiffrés suivant le protocole HTTPS. La valeur par défaut est true.  | Non |
 | useHostVerification | Indique si le nom d’hôte du certificat du serveur doit correspondre à celui du serveur en cas de connexion SSL. La valeur par défaut est true.  | Non |
@@ -82,7 +82,7 @@ Pour copier des données de Concur, affectez la valeur **ConcurObject** à la pr
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type du jeu de données doit être définie sur : **ConcurObject** | OUI |
+| type | La propriété type du jeu de données doit être définie sur : **ConcurObject** | OUI |
 | tableName | Nom de la table. | Non (si « query » dans la source de l’activité est spécifié) |
 
 
@@ -93,11 +93,12 @@ Pour copier des données de Concur, affectez la valeur **ConcurObject** à la pr
     "name": "ConcurDataset",
     "properties": {
         "type": "ConcurObject",
+        "typeProperties": {},
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<Concur linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {}
+        }
     }
 }
 ```
@@ -112,7 +113,7 @@ Pour copier des données de Concur, affectez la valeur **ConcurSource** au type 
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type de la source d’activité de copie doit être définie sur : **ConcurSource** | OUI |
+| type | La propriété type de la source d’activité de copie doit être définie sur : **ConcurSource** | OUI |
 | query | Utiliser la requête SQL personnalisée pour lire les données. Par exemple : `"SELECT * FROM Opportunities where Id = xxx "`. | Non (si « tableName » est spécifié dans dataset) |
 
 **Exemple :**

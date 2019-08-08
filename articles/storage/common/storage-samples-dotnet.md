@@ -1,20 +1,18 @@
 ---
 title: Exemples de stockage Azure avec .NET| Microsoft Docs
 description: Affichez, téléchargez et exécutez des exemples de code et des applications pour Azure Storage. Découvrez la mise en route des exemples d’objets blob, de files d’attente, de tables et de fichiers qui utilisent des bibliothèques clientes de stockage .NET.
-services: storage
 author: mhopkins-msft
-ms.service: storage
-ms.devlang: dotnet
-ms.topic: article
-ms.date: 05/03/2019
 ms.author: mhopkins
+ms.date: 05/03/2019
+ms.service: storage
 ms.subservice: common
-ms.openlocfilehash: df7c14f1ee83015303657f9a0babde3d60c92292
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.topic: sample
+ms.openlocfilehash: cec6b0498adf55428fade7ae00db6550496a20bd
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65209670"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68721852"
 ---
 # <a name="azure-storage-samples-using-net"></a>Exemples de stockage Azure avec .NET
 

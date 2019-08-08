@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: 4350cc215c776317d3bde24c7561c317a31fb4c3
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 53f8742df0a03327069da083e6cb46a7c03118c1
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68321870"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68773075"
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-net-api"></a>Didacticiel : Exécuter une charge de travail parallèle avec Azure Batch à l’aide de l’API .NET
 
@@ -175,7 +175,7 @@ Ensuite, les fichiers sont chargés dans le conteneur d’entrée à partir du d
 
 Deux méthodes de `Program.cs` sont impliquées dans le chargement des fichiers :
 
-* `UploadResourceFilesToContainerAsync`: retourne une collection d’objets ResourceFile et appelle `UploadResourceFileToContainerAsync` en interne pour charger chaque fichier transmis dans le paramètre `inputFilePaths`.
+* `UploadFilesToContainerAsync`: retourne une collection d’objets ResourceFile et appelle `UploadResourceFileToContainerAsync` en interne pour charger chaque fichier transmis dans le paramètre `inputFilePaths`.
 * `UploadResourceFileToContainerAsync`: charge chaque fichier en tant qu’objet blob dans le conteneur d’entrée. Après le chargement du fichier, la méthode obtient une signature d’accès partagé (SAP) pour l’objet Blob et renvoie un objet ResourceFile pour la représenter.
 
 ```csharp
@@ -184,7 +184,7 @@ string inputPath = Path.Combine(Environment.CurrentDirectory, "InputFiles");
 List<string> inputFilePaths = new List<string>(Directory.GetFileSystemEntries(inputPath, "*.mp4",
     SearchOption.TopDirectoryOnly));
 
-List<ResourceFile> inputFiles = await UploadResourceFilesToContainerAsync(
+List<ResourceFile> inputFiles = await UploadFilesToContainerAsync(
   blobClient,
   inputContainerName,
   inputFilePaths);

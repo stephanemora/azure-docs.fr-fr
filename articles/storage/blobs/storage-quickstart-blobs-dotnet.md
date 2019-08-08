@@ -1,20 +1,18 @@
 ---
 title: 'Démarrage rapide : Bibliothèque cliente Stockage Blob Azure pour .NET'
 description: Dans ce guide de démarrage rapide, vous apprenez à utiliser la bibliothèque cliente Stockage Blob Azure pour .NET afin de créer un conteneur et un objet blob dans le stockage (d’objets) blob. Vous apprenez ensuite à télécharger l’objet blob sur votre ordinateur local et à lister tous les objets blob dans un conteneur.
-services: storage
 author: mhopkins-msft
-ms.custom: mvc
-ms.service: storage
-ms.topic: quickstart
-ms.date: 07/20/2019
 ms.author: mhopkins
+ms.date: 07/20/2019
+ms.service: storage
 ms.subservice: blobs
-ms.openlocfilehash: a030aee18303d20ccf91c6939d349285c4a4bac4
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.topic: quickstart
+ms.openlocfilehash: 40ee855aa01a9b24e35fb9863221e3607786d407
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68565945"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68722016"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-for-net"></a>Démarrage rapide : Bibliothèque cliente Stockage Blob Azure pour .NET
 

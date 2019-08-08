@@ -1,19 +1,17 @@
 ---
 title: Guide pratique pour annoter les sources de données dans Azure Data Catalog
 description: Article de procédure relatif à l’annotation de ressources de données dans Azure Data Catalog et abordant notamment les noms conviviaux, les balises, les descriptions et les experts.
-services: data-catalog
 author: JasonWHowell
 ms.author: jasonh
-ms.assetid: 5a7e6bb2-863c-4eca-b614-1c814920d9ed
 ms.service: data-catalog
 ms.topic: conceptual
-ms.date: 01/18/2018
-ms.openlocfilehash: 18dfd9eb66c1dc71ecb14bb748d9cdd6afeb00a7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 08/01/2019
+ms.openlocfilehash: 708c62971a20a7071accf7591a4e2914f7dbd9f3
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65953169"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736353"
 ---
 # <a name="how-to-annotate-data-sources"></a>Annotation de sources de données
 ## <a name="introduction"></a>Introduction

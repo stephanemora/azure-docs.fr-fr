@@ -8,14 +8,14 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 6/5/2018
 ms.author: dacurwin
-ms.openlocfilehash: 7214cf4c16cc4ee5e76d479d153395085a7e3a6e
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 25e511a1596c1119d1db8c9270ce216cd5186e72
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688943"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68735472"
 ---
-# <a name="back-up-files-on-azure-stack"></a>Sauvegarder des fichiers sur Azure Stack
+# <a name="back-up-files-and-applications-on-azure-stack"></a>Sauvegarder des fichiers et applications sur Azure Stack
 Vous pouvez utiliser Sauvegarde Azure pour protéger (ou sauvegarder) des fichiers et applications sur Azure Stack. Pour sauvegarder des fichiers et applications, installez un serveur Sauvegarde Microsoft Azure en tant que machine virtuelle s’exécutant sur Azure Stack. Vous pouvez protéger les fichiers sur n’importe quel serveur Azure Stack du même réseau virtuel. Après avoir installé un serveur de sauvegarde Azure, ajoutez des disques Azure pour augmenter le stockage local disponible pour les données de sauvegarde à court terme. Un serveur de sauvegarde Azure utilise un stockage Azure pour la rétention à long terme.
 
 > [!NOTE]

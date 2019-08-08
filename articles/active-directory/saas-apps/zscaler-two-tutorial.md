@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/24/2019
 ms.author: jeedes
-ms.openlocfilehash: 45ef7c61cadbf38c2f106e1fdc087f801dbefb4c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7ea4eecd5c27b6a9f14bc358c7db61da544e7530
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67085901"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68825095"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-two"></a>Didacticiel : Intégration d'Azure Active Directory à Zscaler Two
 
@@ -112,7 +112,7 @@ Pour configurer l’authentification unique Azure AD avec Zscaler Two, effectue
     > [!NOTE]
     > Remplacez la valeur par l’URL de connexion. Pour obtenir cette valeur, contactez [l’équipe du support Zscaler Two](https://www.zscaler.com/company/contact). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
-5. Votre application Zscaler Two s’attend à recevoir les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à votre configuration d’attributs du jeton SAML. La capture d’écran suivante montre la liste des attributs par défaut. Cliquez sur l’icône  **Modifier** pour ouvrir la boîte de dialogue  **Attributs utilisateur** .
+5. Votre application Zscaler Two s’attend à recevoir les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à votre configuration d’attributs du jeton SAML. La capture d’écran suivante montre la liste des attributs par défaut. Cliquez sur l’icône **Modifier** pour ouvrir la boîte de dialogue **Attributs d’utilisateur**.
 
     ![image](common/edit-attribute.png)
 

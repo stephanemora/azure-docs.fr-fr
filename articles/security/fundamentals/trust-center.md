@@ -8,18 +8,19 @@ manager: barbkess
 editor: TomSh
 ms.assetid: 0b94f9a3-8648-4860-812c-be689b0b327b
 ms.service: security
+ms.subservice: security-fundamentals
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: 289b9b0cb2532069c01fc9c687c844bd917355f7
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: a9c064e55be718109a34d72a2b95f720ac92fe4f
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68611368"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68726525"
 ---
 # <a name="microsoft-trust-center"></a>Centre de gestion de la confidentialité Microsoft
 Le site d’informations sur la sécurité Azure sur Azure.com vous donne les informations dont vous avez besoin pour planifier, concevoir, déployer, configurer et gérer vos solutions cloud en toute sécurité. Avec le Centre de gestion de la confidentialité Microsoft, vous disposez également des informations qui vous permettent de vous assurer que la plateforme Azure sur laquelle vous exécutez vos services est sécurisée.

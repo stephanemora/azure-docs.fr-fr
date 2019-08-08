@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: f4828b59ffa43365f48c002262368d383dfcff05
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f275cca664733f19d3f3c5b52d168ffad01cadad
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66389362"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68839615"
 ---
 # <a name="learn-how-to-deploy-modules-and-establish-routes-in-iot-edge"></a>Découvrez comment déployer des modules et établir des itinéraires dans IoT Edge.
 
@@ -237,7 +237,7 @@ L’exemple suivant montre à quoi peut ressembler un document de manifeste de d
           }
         },
         "modules": {
-          "tempSensor": {
+          "SimulatedTemperatureSensor": {
             "version": "1.0",
             "type": "docker",
             "status": "running",
@@ -264,7 +264,7 @@ L’exemple suivant montre à quoi peut ressembler un document de manifeste de d
       "properties.desired": {
         "schemaVersion": "1.0",
         "routes": {
-          "sensorToFilter": "FROM /messages/modules/tempSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\"/modules/filtermodule/inputs/input1\")",
+          "sensorToFilter": "FROM /messages/modules/SimulatedTemperatureSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\"/modules/filtermodule/inputs/input1\")",
           "filterToIoTHub": "FROM /messages/modules/filtermodule/outputs/output1 INTO $upstream"
         },
         "storeAndForwardConfiguration": {

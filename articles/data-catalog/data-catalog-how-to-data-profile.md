@@ -1,19 +1,17 @@
 ---
 title: Guide pratique pour utiliser des sources de données de profilage de données dans Azure Data Catalog
 description: Article de procédure mettant en avant l’inclusion de profils de données au niveau des tables et des colonnes lors de l’inscription des sources de données dans Azure Data Catalog et expliquant comment utiliser des profils de données pour comprendre les sources de données.
-services: data-catalog
 author: JasonWHowell
 ms.author: jasonh
-ms.assetid: 94a8274b-5c9c-4962-a4b1-2fed38a3d919
 ms.service: data-catalog
 ms.topic: conceptual
-ms.date: 01/18/2018
-ms.openlocfilehash: 64185a951b25b4e04ea5fc65aeede9b0e617d0c5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 08/01/2019
+ms.openlocfilehash: 0de7b6f0668c84c22b81cd9104a49599760143c1
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61001697"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68737033"
 ---
 # <a name="data-profile-data-sources"></a>Profilage de données dans des sources de données
 ## <a name="introduction"></a>Introduction

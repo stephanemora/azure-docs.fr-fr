@@ -7,12 +7,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 0a310eaeb9baf6ed2438b9f824cd6ad7eb492915
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f9b9e691c0c9f26ff765ca849777c278bc3ae03b
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64714191"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779564"
 ---
 # <a name="troubleshoot-apache-hadoop-hdfs-by-using-azure-hdinsight"></a>Résoudre les problèmes d’Apache Hadoop HDFS avec Azure HDInsight
 
@@ -28,8 +28,8 @@ Accédez au stockage HDFS local à l’aide de la ligne de commande et du code d
 
 1. Dans la ligne de commande, utilisez `hdfs dfs -D "fs.default.name=hdfs://mycluster/" ...` littéralement, comme dans la commande suivante :
 
-    ```apache
-    hdiuser@hn0-spark2:~$ hdfs dfs -D "fs.default.name=hdfs://mycluster/" -ls /
+    ```output
+    hdfs dfs -D "fs.default.name=hdfs://mycluster/" -ls /
     Found 3 items
     drwxr-xr-x   - hdiuser hdfs          0 2017-03-24 14:12 /EventCheckpoint-30-8-24-11102016-01
     drwx-wx-wx   - hive    hdfs          0 2016-11-10 18:42 /tmp
@@ -64,7 +64,7 @@ Accédez au stockage HDFS local à l’aide de la ligne de commande et du code d
 3. Exécutez le fichier .jar compilé (par exemple un fichier nommé `java-unit-tests-1.0.jar`) sur le cluster HDInsight à l’aide de la commande suivante :
 
     ```apache
-    hdiuser@hn0-spark2:~$ hadoop jar java-unit-tests-1.0.jar JavaUnitTests
+    hadoop jar java-unit-tests-1.0.jar JavaUnitTests
     hdfs://mycluster/tmp/hive/hive/5d9cf301-2503-48c7-9963-923fb5ef79a7/inuse.info
     hdfs://mycluster/tmp/hive/hive/5d9cf301-2503-48c7-9963-923fb5ef79a7/inuse.lck
     hdfs://mycluster/tmp/hive/hive/a0be04ea-ae01-4cc4-b56d-f263baf2e314/inuse.info
@@ -88,8 +88,8 @@ hdfs dfs -D "fs.default.name=hdfs://mycluster/" -mkdir /temp
 
 L’erreur suivante s’affiche lorsque vous exécutez la commande :
 
-```apache
-hdiuser@hn0-spark2:~$ hdfs dfs -D "fs.default.name=hdfs://mycluster/" -mkdir /temp
+```output
+hdfs dfs -D "fs.default.name=hdfs://mycluster/" -mkdir /temp
 17/04/05 16:20:52 WARN retry.RetryInvocationHandler: Exception while invoking ClientNamenodeProtocolTranslatorPB.mkdirs over hn0-spark2.2oyzcdm4sfjuzjmj5dnmvscjpg.dx.internal.cloudapp.net/10.0.0.22:8020. Not retrying because try once and fail.
 org.apache.hadoop.ipc.RemoteException(org.apache.hadoop.hdfs.server.namenode.SafeModeException): Cannot create directory /temp. Name node is in safe mode.
 It was turned on manually. Use "hdfs dfsadmin -safemode leave" to turn safe mode off.
@@ -148,12 +148,12 @@ Le cluster HDInsight a été redimensionné et ne compte plus que quelques nœud
 
 1. Déterminez l’état du stockage HDFS du cluster HDInsight à l’aide des commandes suivantes :
 
-    ```apache
+    ```bash
     hdfs dfsadmin -D "fs.default.name=hdfs://mycluster/" -report
     ```
 
-    ```apache
-    hdiuser@hn0-spark2:~$ hdfs dfsadmin -D "fs.default.name=hdfs://mycluster/" -report
+    ```output
+    hdfs dfsadmin -D "fs.default.name=hdfs://mycluster/" -report
     Safe mode is ON
     Configured Capacity: 3372381241344 (3.07 TB)
     Present Capacity: 3138625077248 (2.85 TB)
@@ -189,11 +189,11 @@ Le cluster HDInsight a été redimensionné et ne compte plus que quelques nœud
 
 2. Vérifiez l’intégrité du stockage HDFS du cluster HDInsight à l’aide des commandes suivantes :
 
-    ```apache
-    hdiuser@hn0-spark2:~$ hdfs fsck -D "fs.default.name=hdfs://mycluster/" /
+    ```bash
+    hdfs fsck -D "fs.default.name=hdfs://mycluster/" /
     ```
 
-    ```apache
+    ```output
     Connecting to namenode via http://hn0-spark2.2oyzcdm4sfjuzjmj5dnmvscjpg.dx.internal.cloudapp.net:30070/fsck?ugi=hdiuser&path=%2F
     FSCK started by hdiuser (auth:SIMPLE) from /10.0.0.22 for path / at Wed Apr 05 16:40:28 UTC 2017
     ....................................................................................................

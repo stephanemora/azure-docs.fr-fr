@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 7440a08bd8ceb85cc569e1bb6d7c4ee1e52178a4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f6a9e31b6b1869496e499cb7d6f02b55f495adfb
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60405900"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68720664"
 ---
 # <a name="copy-data-from-oracle-responsys-using-azure-data-factory-preview"></a>Copier des données d’Oracle Responsys avec Azure Data Factory (préversion)
 
@@ -83,7 +83,7 @@ Pour copier des données à partir d’Oracle Responsys, affectez la valeur **Re
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type du jeu de données doit être définie sur : **ResponsysObject** | OUI |
+| type | La propriété type du jeu de données doit être définie sur : **ResponsysObject** | OUI |
 | tableName | Nom de la table. | Non (si « query » dans la source de l’activité est spécifié) |
 
 **Exemple**
@@ -93,11 +93,12 @@ Pour copier des données à partir d’Oracle Responsys, affectez la valeur **Re
     "name": "OracleResponsysDataset",
     "properties": {
         "type": "ResponsysObject",
+        "typeProperties": {},
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<Oracle Responsys linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {}
+        }
     }
 }
 
@@ -113,7 +114,7 @@ Pour copier des données à partir d’Oracle Responsys, affectez la valeur **Re
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type de la source d’activité de copie doit être définie sur : **ResponsysSource** | OUI |
+| type | La propriété type de la source d’activité de copie doit être définie sur : **ResponsysSource** | OUI |
 | query | Utiliser la requête SQL personnalisée pour lire les données. Par exemple : `"SELECT * FROM MyTable"`. | Non (si « tableName » est spécifié dans dataset) |
 
 **Exemple :**

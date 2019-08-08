@@ -12,18 +12,18 @@ ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9df592272b97bded9eba64249aa7608c72f8abdf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9a82571260f5da679202e96f5e6f72aa2db6788a
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66121539"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68834692"
 ---
 # <a name="authorize-access-to-web-applications-using-openid-connect-and-azure-active-directory"></a>Autoriser l’accès aux applications web à l’aide d’OpenID Connect et d’Azure Active Directory
 
@@ -153,7 +153,7 @@ Le tableau suivant décrit les différents codes d’erreur qui peuvent être re
 | temporarily_unavailable |Le serveur est temporairement trop occupé pour traiter la demande. |relancez la requête. L’application cliente peut expliquer à l’utilisateur que sa réponse est reportée en raison d’une condition temporaire. |
 | invalid_resource |La ressource cible n’est pas valide car elle n’existe pas, Azure AD ne la trouve pas ou elle n’est pas configurée correctement. |Cela indique que la ressource, si elle existe, n’a pas été configurée dans le client. L’application peut proposer à l’utilisateur des instructions pour installer l’application et l’ajouter à Azure AD. |
 
-## <a name="validate-the-idtoken"></a>Valider le jeton id_token
+## <a name="validate-the-id_token"></a>Valider le jeton id_token
 
 La réception du jeton `id_token` ne suffit pas à authentifier l’utilisateur. Vous devez valider la signature et vérifier la conformité des revendications du jeton `id_token` par rapport à la configuration requise de votre application. Le point de terminaison Azure AD utilise les jetons web JSON (JWT) et le chiffrement de clés publiques pour signer les jetons et vérifier leur validité.
 

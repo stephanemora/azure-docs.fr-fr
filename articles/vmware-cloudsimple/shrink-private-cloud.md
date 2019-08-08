@@ -5,15 +5,15 @@ author: sharaths-cs
 ms.author: b-shsury
 ms.date: 07/01/2019
 ms.topic: article
-ms.service: vmware
+ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 6e639feb603f1654b4dcd40f16d8e3094307839a
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: 67bb7e0cd8a800c2c2ba87c768739fd573ef6888
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67544687"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68812205"
 ---
 # <a name="shrink-a-cloudsimple-private-cloud"></a>Réduire un cloud privé CloudSimple
 
@@ -57,4 +57,4 @@ La réduction du cloud privé démarre.  Vous pouvez suivre la progression dans 
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Utiliser des machines virtuelles VMware sur Azure](quickstart-create-vmware-virtual-machine.md)
-* Découvrez plus en détail les [clouds privés](cloudsimple-private-cloud.md)
+* Découvrir plus en détail les [clouds privés](cloudsimple-private-cloud.md)

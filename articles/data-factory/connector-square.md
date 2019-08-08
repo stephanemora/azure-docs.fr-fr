@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: f22311af277f860c1501287b5be0f5dc149880b9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a88c58bd52ea816aaef1c628913ccbd7fcf1cd35
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61462358"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68720634"
 ---
 # <a name="copy-data-from-square-using-azure-data-factory-preview"></a>Copier des données de Square avec Azure Data Factory (préversion)
 
@@ -81,7 +81,7 @@ Pour copier des données de Square, affectez la valeur **SquareObject** à la pr
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type du jeu de données doit être définie sur : **SquareObject** | OUI |
+| type | La propriété type du jeu de données doit être définie sur : **SquareObject** | OUI |
 | tableName | Nom de la table. | Non (si « query » dans la source de l’activité est spécifié) |
 
 **Exemple**
@@ -91,11 +91,12 @@ Pour copier des données de Square, affectez la valeur **SquareObject** à la pr
     "name": "SquareDataset",
     "properties": {
         "type": "SquareObject",
+        "typeProperties": {},
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<Square linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {}
+        }
     }
 }
 ```
@@ -110,7 +111,7 @@ Pour copier des données de Square, affectez la valeur **SquareSource** au type 
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type de la source d’activité de copie doit être définie sur : **SquareSource** | OUI |
+| type | La propriété type de la source d’activité de copie doit être définie sur : **SquareSource** | OUI |
 | query | Utiliser la requête SQL personnalisée pour lire les données. Par exemple : `"SELECT * FROM Business"`. | Non (si « tableName » est spécifié dans dataset) |
 
 **Exemple :**

@@ -8,18 +8,19 @@ manager: barbkess
 editor: tomsh
 ms.assetid: ''
 ms.service: security
+ms.subservice: security-fundamentals
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: 2acfa65ff45b94b7ca0990b79f5c3f128334829c
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: 97f061d94209d84b70626f8735d08f89870e7319
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68611520"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68828725"
 ---
 # <a name="azure-operational-security-best-practices"></a>Bonnes pratiques pour Azure Operational Security
 Cet article fournit un ensemble de meilleures pratiques opérationnelles pour protéger vos données, applications et autres ressources dans Azure.
@@ -117,7 +118,7 @@ Le degré de sécurisation, qui est basé sur les contrôles du Center for Inter
 **Détail** : la plupart des organisations avec une solution SIEM l’utilisent comme un centre d’échanges central pour les alertes de sécurité qui nécessitent la réponse d’un analyste. Les événements traités produits par Security Center sont publiés dans le journal d’activité Azure, l’un des types de journaux disponibles avec Azure Monitor. Azure Monitor offre un pipeline centralisé pour router les données de monitoring dans un outil SIEM. Consultez [Intégrer des solutions de sécurité dans Azure Security Center](../../security-center/security-center-partner-integration.md#exporting-data-to-a-siem) pour obtenir des instructions. Si vous utilisez Azure Sentinel, consultez [Connect data from Azure Security Center](../../sentinel/connect-azure-security-center.md) (Connecter des données à partir d’Azure Security Center).
 
 **Bonne pratique** : intégrez les journaux Azure à votre solution SIEM.   
-**Détail** : utilisez [Azure Monitor pour collecter et exporter des données](/azure/azure-monitor/overview.md#integrate-and-export-data). Cette pratique est critique pour permettre d’investiguer sur des incidents de sécurité, et la rétention des journaux en ligne est limitée. Si vous utilisez Azure Sentinel, consultez [Connecter des sources de données](../../sentinel/connect-data-sources.md).
+**Détail** : utilisez [Azure Monitor pour collecter et exporter des données](/azure/azure-monitor/overview#integrate-and-export-data). Cette pratique est critique pour permettre d’investiguer sur des incidents de sécurité, et la rétention des journaux en ligne est limitée. Si vous utilisez Azure Sentinel, consultez [Connecter des sources de données](../../sentinel/connect-data-sources.md).
 
 **Bonne pratique** : accélérez vos processus d’investigation et de recherche et réduisez les faux positifs en intégrant des fonctionnalités de détection de point de terminaison et de réponse (EDR) dans votre examen de l’attaque.   
 **Détail** : [activez l’intégration de Windows Defender ATP](../../security-center/security-center-wdatp.md#enable-windows-defender-atp-integration) via votre stratégie de sécurité Security Center. Envisagez d’utiliser Azure Sentinel pour rechercher les menaces et répondre aux incidents.

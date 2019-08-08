@@ -13,12 +13,12 @@ ms.date: 06/20/2019
 ms.subservice: hybrid
 ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a20a1a1009949aa2e6de8586040e918ae15c8d39
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: 0630e62a08314612cb08b5cb26b5a1563de4f40b
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67655940"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779702"
 ---
 # <a name="four-steps-to-a-strong-identity-foundation-with-azure-active-directory"></a>Une base d’identité solide en quatre étapes avec Azure Active Directory
 
@@ -111,7 +111,7 @@ Pour fournir la haute disponibilité en cas de déconnexion de votre serveur Azu
 
 ### <a name="enable-cloud-authentication"></a>Activer l’authentification cloud
 
-Les organisations disposant d’Active Directory en local doivent étendre leur annuaire à Azure AD à l’aide d’Azure AD Connect et configurer la méthode d’authentification appropriée. La [choix de la méthode d’authentification appropriée](https://docs.microsoft.com/azure/security/azure-ad-choose-authn) pour votre organisation est la première étape dans votre processus de déplacement d’applications vers le cloud. Il s’agit d’un composant critique car il contrôle l’accès à l’ensemble des données et des ressources du cloud.
+Les organisations disposant d’Active Directory en local doivent étendre leur annuaire à Azure AD à l’aide d’Azure AD Connect et configurer la méthode d’authentification appropriée. La [choix de la méthode d’authentification appropriée](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn) pour votre organisation est la première étape dans votre processus de déplacement d’applications vers le cloud. Il s’agit d’un composant critique car il contrôle l’accès à l’ensemble des données et des ressources du cloud.
 
 La méthode la plus simple et recommandée d’activation de l’authentification cloud pour les objets d’annuaire local dans Azure AD consiste à activer la [synchronisation de hachage du mot de passe](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-password-hash-synchronization). Certaines organisations peuvent également envisager d’activer l’[authentification directe](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta-quick-start).
 

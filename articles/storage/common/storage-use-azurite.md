@@ -1,19 +1,18 @@
 ---
 title: Utiliser l’émulateur open source Azurite à des fins de développement et de test pour le Stockage Blob (préversion)
 description: L’émulateur open source Azurite (préversion) fournit un environnement local gratuit, qui vous permet de tester vos applications du Stockage Blob Azure.
-services: storage
 author: mhopkins-msft
-ms.service: storage
-ms.topic: article
-ms.date: 06/12/2019
 ms.author: mhopkins
+ms.date: 06/12/2019
+ms.service: storage
 ms.subservice: common
-ms.openlocfilehash: 2ccb19253c762bad69875a7b7bba7cd11d46e132
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
+ms.topic: conceptual
+ms.openlocfilehash: ebecd6cf9af5395e4da2b395ca9b2ff974a75409
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/13/2019
-ms.locfileid: "67869408"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68721697"
 ---
 # <a name="use-the-azurite-open-source-emulator-for-blob-storage-development-and-testing-preview"></a>Utiliser l’émulateur open source Azurite à des fins de développement et de test pour le Stockage Blob (préversion)
 

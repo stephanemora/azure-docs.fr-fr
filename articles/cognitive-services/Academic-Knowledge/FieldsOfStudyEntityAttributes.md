@@ -10,12 +10,13 @@ ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/31/2017
 ms.author: alch
-ms.openlocfilehash: e9d6badf76efd03c0520a728af7b3e47b25f200a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ROBOTS: NOINDEX
+ms.openlocfilehash: d54f3c72462e6702b09068092b7c18ea50f12048
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61339583"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68704988"
 ---
 # <a name="field-of-study-entity"></a>Entité Champ d’étude
 
@@ -23,7 +24,7 @@ ms.locfileid: "61339583"
 
 Nom    |Description                            |Type       | Opérations
 ------- | ------------------------------------- | --------- | ----------------------------
-ID      |L’ID d’entité                              |Int64      |Égal à
+Id      |L’ID d’entité                              |Int64      |Égal à
 FN      |Nom normalisé du champ d’étude         |Chaîne     |Égal à
 DFN     |Nom d'affichage du champ d’étude            |Chaîne     |Aucun
 CC      |Nombre de citations total du champ d’étude    |Int32      |Aucun  

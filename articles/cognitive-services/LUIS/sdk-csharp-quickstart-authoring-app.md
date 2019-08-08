@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 07/17/2019
 ms.author: diberry
-ms.openlocfilehash: 0db00fce3a4108a65d9ab7baafbe2146b93ad39e
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 19eeb396536925d9667c8dddb09bea779de79555
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68327212"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68707182"
 ---
 # <a name="quickstart-language-understanding-luis-authoring-client-library-for-net"></a>Démarrage rapide : Bibliothèque de client de création Language Understanding (LUIS) pour .NET
 
@@ -23,12 +23,12 @@ Découvrez comment bien démarrer avec la bibliothèque de client de création L
 
 Utilisez la bibliothèque de client de création Language Understanding (LUIS) pour .NET afin de :
 
-* Créer une application.
+* Créer une application
 * Ajouter des intentions, des entités et des exemples d’énoncés.
 * Ajouter des fonctionnalités telles qu’une liste d’expressions.
 * Entraîner et publier une application.
 
-[Documentation de référence](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/languageunderstanding?view=azure-dotnet) | [Code source de la bibliothèque](https://github.com/Azure/cognitive-services-dotnet-sdk-samples/tree/master/sdk/cognitiveservices/Language.LUIS.Authoring) | [Package de création (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Authoring/) | [Exemples C#](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/documentation-samples/quickstarts/LUIS/LUIS.cs)
+[Documentation de référence](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/languageunderstanding?view=azure-dotnet) | [Code source de la bibliothèque](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Language.LUIS.Authoring) | [Package de création (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Authoring/) | [Exemples C#](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/documentation-samples/quickstarts/LUIS/LUIS.cs)
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -170,7 +170,7 @@ Appelez [Examples.BatchAsync](https://docs.microsoft.com/dotnet/api/microsoft.az
     
 Les méthodes **CreateUtterance** et **CreateLabel** sont des méthodes utilitaires pour vous aider à créer des objets.
 
-## <a name="train-the-app"></a>Entraîner l’application
+## <a name="train-the-app"></a>Effectuer l’apprentissage de l’application
 
 Une fois le modèle créé, l’application LUIS doit être entraînée pour cette version du modèle. Un modèle entraîné peut être utilisé dans un [conteneur](luis-container-howto.md) ou [publié](luis-how-to-publish-app.md) dans les emplacements intermédiaires ou produits. 
 

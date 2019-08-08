@@ -7,12 +7,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/22/2019
-ms.openlocfilehash: fbc5b18de093b2c91b17fa310c08a5b02b113a22
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: 86350f21f5c530a00560c92cc0ae2fd58c9a2c57
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68406414"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780057"
 ---
 # <a name="secure-your-cluster-in-azure-data-explorer"></a>Sécuriser votre cluster dans Azure Data Explorer
 
@@ -20,7 +20,7 @@ ms.locfileid: "68406414"
   
 ## <a name="enable-encryption-at-rest"></a>Activer le chiffrement des données au repos
   
-Activer le [chiffrement des données au repos](/azure/security/azure-security-encryption-atrest) sur votre cluster offre une protection des données pour les données stockées (au repos). 
+Activer le [chiffrement des données au repos](/azure/security/fundamentals/encryption-atrest) sur votre cluster offre une protection des données pour les données stockées (au repos). 
 
 1. Dans le portail Azure, accédez à votre ressource de cluster Azure Data Explorer. Sous l’en-tête **Paramètres**, sélectionnez **Sécurité**. 
 

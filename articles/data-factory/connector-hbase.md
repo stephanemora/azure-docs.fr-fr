@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 3bc91b1c20bb4cf4ae755ca47c8d8e0581eb3a1f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: bc13a1d0a7710a9f96110f1516fe2e48d538fe7e
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60400709"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68720759"
 ---
 # <a name="copy-data-from-hbase-using-azure-data-factory"></a>Copier des données de HBase avec Azure Data Factory 
 
@@ -46,7 +46,7 @@ Les propriétés suivantes sont prises en charge pour le service lié HBase :
 | port | Port TCP utilisé par l’instance HBase pour écouter les connexions clientes. Valeur par défaut : 9090. Si vous êtes connecté à Azure HDInsights, spécifiez le port 443. | Non |
 | httpPath | URL partielle correspondant au serveur HBase (par exemple, `/hbaserest0` lors de l’utilisation de cluster HDInsights). | Non |
 | authenticationType | Mécanisme d’authentification à utiliser pour se connecter au serveur HBase. <br/>Les valeurs autorisées sont les suivantes : **Anonyme**, **De base** | OUI |
-| username | Nom d’utilisateur utilisé pour se connecter à l’instance HBase.  | Non |
+| userName | Nom d’utilisateur utilisé pour se connecter à l’instance HBase.  | Non |
 | password | Mot de passe correspondant au nom d’utilisateur. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | Non |
 | enableSsl | Indique si les connexions au serveur sont chiffrées suivant le protocole SSL. La valeur par défaut est false.  | Non |
 | trustedCertPath | Chemin d’accès complet du fichier .pem contenant les certificats d’autorité de certification approuvés permettant de vérifier le serveur en cas de connexion via SSL. Cette propriété n’est disponible que si le protocole SSL est utilisé sur un runtime d’intégration auto-hébergé. Valeur par défaut : le fichier cacerts.pem installé avec le runtime d’intégration.  | Non |
@@ -122,7 +122,7 @@ Pour copier des données de HBase, affectez la valeur **HBaseObject** à la prop
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type du jeu de données doit être définie sur : **HBaseObject** | OUI |
+| type | La propriété type du jeu de données doit être définie sur : **HBaseObject** | OUI |
 | tableName | Nom de la table. | Non (si « query » dans la source de l’activité est spécifié) |
 
 **Exemple**
@@ -132,11 +132,12 @@ Pour copier des données de HBase, affectez la valeur **HBaseObject** à la prop
     "name": "HBaseDataset",
     "properties": {
         "type": "HBaseObject",
+        "typeProperties": {},
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<HBase linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {}
+        }
     }
 }
 ```
@@ -151,7 +152,7 @@ Pour copier des données de HBase, affectez la valeur **HBaseSource** au type so
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type de la source de l’activité de copie doit être définie sur : **HBaseSource** | OUI |
+| type | La propriété type de la source de l’activité de copie doit être définie sur : **HBaseSource** | OUI |
 | query | Utiliser la requête SQL personnalisée pour lire les données. Par exemple : `"SELECT * FROM MyTable"`. | Non (si « tableName » est spécifié dans dataset) |
 
 **Exemple :**

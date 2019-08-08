@@ -7,17 +7,17 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/13/2018
+ms.date: 08/01/2019
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 80d4fff03422beacccd3aff3cdd8cb1047d5f5af
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1c574578e6ed6ee032be01718eb3e8afd27fdf6f
+ms.sourcegitcommit: 6ad03fa28a0f60cb6dce6144f728c2ceb56ff6e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61344646"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68708006"
 ---
 # <a name="install-paid-or-licensed-custom-components-for-the-azure-ssis-integration-runtime"></a>Installer des composants personnalisés payants, ou sous licence, pour le runtime d’intégration Azure-SSIS
 
@@ -76,7 +76,7 @@ Le schéma suivant représente l’installation typique, l’activation et la li
 
 ## <a name="isv-partners"></a>Partenaires éditeurs de logiciels indépendants
 
-Vous trouverez une liste des partenaires éditeurs de logiciels indépendants qui ont adapté leurs composants et extensions pour l’IR Azure-SSIS à la fin de ce billet de blog - [Enterprise Edition, installation personnalisée et extensibilité tierce pour SSIS dans ADF](https://blogs.msdn.microsoft.com/ssis/2018/04/27/enterprise-edition-custom-setup-and-3rd-party-extensibility-for-ssis-in-adf/).
+Vous trouverez une liste des partenaires éditeurs de logiciels indépendants qui ont adapté leurs composants et extensions pour l’IR Azure-SSIS à la fin de ce billet de blog - [Enterprise Edition, installation personnalisée et extensibilité tierce pour SSIS dans ADF](https://techcommunity.microsoft.com/t5/SQL-Server-Integration-Services/Enterprise-Edition-Custom-Setup-and-3rd-Party-Extensibility-for/ba-p/388360).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

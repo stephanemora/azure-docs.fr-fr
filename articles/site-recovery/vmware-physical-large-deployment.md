@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 05/14/2019
+ms.date: 08/05/2019
 ms.author: raynew
-ms.openlocfilehash: e96aafe61c0d8547ffca9e97bfd9e90c9529155f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7ef4a9d5f63282736b010e67b467f82474bcf409
+ms.sourcegitcommit: f7998db5e6ba35cbf2a133174027dc8ccf8ce957
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66237277"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68782653"
 ---
 # <a name="set-up-disaster-recovery-at-scale-for-vmware-vmsphysical-servers"></a>Configurer la récupération d’urgence à grande échelle de machines virtuelles VMware et de serveurs physiques
 
@@ -129,7 +129,7 @@ La capacité du serveur de configuration dépend du nombre de machines à répli
 
 **UC** | **Mémoire** | **Disque cache** | **Limite de machine répliquée**
  --- | --- | --- | ---
-8 processeurs virtuels<br> 2 sockets * 4 cœurs à 2,5 GHz | 16 Go | 600 To | Jusqu’à 550 machines<br> En supposant que chaque machine source dispose de trois disques de 100 Go chacun.
+8 processeurs virtuels<br> 2 sockets * 4 cœurs à 2,5 GHz | 16 Go | 600 Go | Jusqu’à 550 machines<br> En supposant que chaque machine source dispose de trois disques de 100 Go chacun.
 
 - Ces limites sont basées sur un serveur de configuration configuré à l’aide d’un modèle OVF.
 - Les limites sont basées sur l’hypothèse que n’utilisez pas le serveur de processus qui s’exécute par défaut sur le serveur de configuration.

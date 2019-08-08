@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 13cec6f53af460a9e9372eedf3b7e17798d1c653
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: 7cbddc4b7af546396a1a5a4c86d349a96054a6f3
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68610382"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68726268"
 ---
 # <a name="appendix-for-azure-disk-encryption"></a>Annexe pour Azure Disk Encryption 
 
@@ -104,7 +104,7 @@ Avant de commencer, consultez l’article [Prérequis](azure-security-disk-encry
      ```
 
 ### <a name="bkmk_prereq-script"></a> Exécution du script PowerShell de configuration d’Azure Disk Encryption
-Si vous êtes déjà familiarisé avec les prérequis d’Azure Disk Encryption, vous pouvez utiliser le [script PowerShell des prérequis d’Azure Disk Encryption](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1 ). Vous trouverez un exemple d’utilisation de ce script PowerShell dans [Démarrage rapide du chiffrement d’une machine virtuelle](fundamentals/quick-encrypt-vm-powershell.md). Vous pouvez supprimer les commentaires d’une section du script, en commençant à la ligne 211, pour chiffrer tous les disques des machines virtuelles d’un groupe de ressources existant. 
+Si vous êtes déjà familiarisé avec les prérequis d’Azure Disk Encryption, vous pouvez utiliser le [script PowerShell des prérequis d’Azure Disk Encryption](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1 ). Vous trouverez un exemple d’utilisation de ce script PowerShell dans [Démarrage rapide du chiffrement d’une machine virtuelle](azure-disk-encryption-linux-powershell-quickstart.md). Vous pouvez supprimer les commentaires d’une section du script, en commençant à la ligne 211, pour chiffrer tous les disques des machines virtuelles d’un groupe de ressources existant. 
 
 Le tableau suivant présente les paramètres pouvant être utilisés dans le script PowerShell : 
 

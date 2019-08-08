@@ -10,12 +10,13 @@ ms.subservice: acoustics
 ms.topic: overview
 ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: 73b8980b0ea2d1adbd814026f026358e25dcbb55
-ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
+ROBOTS: NOINDEX
+ms.openlocfilehash: a654dd966c40b5b079f92b910ade52f4eda10344
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67502958"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68704754"
 ---
 # <a name="what-is-project-acoustics"></a>Qu’est-ce que Project Acoustics ?
 Project Acoustics est un moteur d’acoustique ondulatoire pour les expériences en trois dimensions interactives. Il modélise les effets ondulatoires comme la diffraction, le portage et les effets de réverbération dans des scènes complexes sans nécessiter le balisage manuel des zones. Il inclut également un moteur de jeu et l'intégration d’intergiciel audio. La philosophie de Project Acoustics est similaire à celle de l’éclairage statique : effectuer un baking physique détaillé hors connexion afin de fournir une base physique, et utiliser un runtime léger avec des contrôles de conception expressifs pour vous permettre d’atteindre vos objectifs artistiques.

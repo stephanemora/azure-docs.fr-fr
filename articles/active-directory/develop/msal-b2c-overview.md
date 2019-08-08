@@ -9,7 +9,7 @@ editor: ''
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
-ms.topic: overview
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/04/2019
@@ -17,12 +17,12 @@ ms.author: negoe
 ms.reviewer: nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: db05f59faf945e425761fe7a20bad3e263246a39
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: 784ec507027d6ec0ac1b5288c101e2a76cab436e
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67849338"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68835060"
 ---
 # <a name="use-microsoft-authentication-library-to-interoperate-with-azure-active-directory-b2c"></a>Utiliser Microsoft Authentication Library pour interagir avec Azure Active Directory B2C
 
@@ -32,7 +32,7 @@ Azure AD B2C vous permet également de personnaliser l’interface utilisateur d
 
 Ce didacticiel montre comment utiliser MSAL pour interagir avec Azure AD B2C.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Si vous n’avez pas encore créé votre propre [locataire Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant), créez-en un. Vous pouvez également utiliser un locataire Azure AD B2C existant.
 
@@ -40,11 +40,11 @@ Si vous n’avez pas encore créé votre propre [locataire Azure AD B2C](https:/
 
 Les étapes suivantes montrent comment une application monopage peut utiliser Azure AD B2C pour s’inscrire, se connecter et appeler une API web protégée.
 
-### <a name="step-1-register-your-application"></a>Étape 1 : inscrire votre application
+### <a name="step-1-register-your-application"></a>Étape 1 : Inscrivez votre application
 
 Pour implémenter l’authentification, vous devez d’abord inscrire votre application. Pour des instructions détaillées, voir [Inscrire votre application](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp#step-4-register-your-own-web-application-with-azure-ad-b2c).
 
-### <a name="step-2-download-the-sample-application"></a>Étape 2 : télécharger l'exemple d'application
+### <a name="step-2-download-the-sample-application"></a>Étape 2 : Téléchargement de l'exemple d'application
 
 Téléchargez l’exemple en tant que fichier zip ou clonez-le à partir de GitHub :
 
@@ -52,7 +52,7 @@ Téléchargez l’exemple en tant que fichier zip ou clonez-le à partir de GitH
 git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp.git
 ```
 
-### <a name="step-3-configure-authentication"></a>Étape 3 : configurer l’authentification
+### <a name="step-3-configure-authentication"></a>Étape 3 : configurer l’authentification ;
 
 1. Ouvrez le fichier **index.html** dans l’exemple.
 

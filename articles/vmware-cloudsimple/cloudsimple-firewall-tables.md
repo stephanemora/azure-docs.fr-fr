@@ -5,15 +5,15 @@ author: sharaths-cs
 ms.author: dikamath
 ms.date: 04/10/2019
 ms.topic: article
-ms.service: vmware
+ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 861c2e86d623c46c14366f19457d1f689386a316
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9d25aa9252f061cee7f4cffdca42f00d84f719a3
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64577344"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68812665"
 ---
 # <a name="firewall-tables-overview"></a>Vue d’ensemble des tables de pare-feu
 

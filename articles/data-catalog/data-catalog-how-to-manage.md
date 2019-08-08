@@ -1,19 +1,17 @@
 ---
 title: Gérer les ressources de données dans Azure Data Catalog
 description: Cet article explique comment contrôler la visibilité et la propriété des ressources de données inscrites dans Azure Data Catalog.
-services: data-catalog
 author: JasonWHowell
 ms.author: jasonh
-ms.assetid: 623f5ed4-8da7-48f5-943a-448d0b7cba69
 ms.service: data-catalog
 ms.topic: conceptual
-ms.date: 01/18/2018
-ms.openlocfilehash: 407e25b7bb1a2220448c9701bbef208195c50b63
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 08/01/2019
+ms.openlocfilehash: 9905ed72ec54304bbdb0f7ee607cbb013fc645bb
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65953116"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736341"
 ---
 # <a name="manage-data-assets-in-azure-data-catalog"></a>Gérer les ressources de données dans Azure Data Catalog
 ## <a name="introduction"></a>Introduction

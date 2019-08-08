@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 05/23/2019
 ms.author: jowargo
-ms.openlocfilehash: cd6d22e7c689bce5c325863b914c5ee8abcbf40a
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: ba392f69c0c5803768a04b94d9f9c0ed4f032fbf
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66240776"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68775019"
 ---
 # <a name="tutorial-push-notifications-to-xamarinios-apps-using-azure-notification-hubs"></a>Didacticiel : Notifications Push vers des applications Xamarin.iOS à l’aide d’Azure Notification Hubs
 
@@ -56,25 +56,6 @@ Dans ce didacticiel, vous créez/mettez à jour le code pour effectuer les tâch
 Vous devez suivre ce didacticiel avant de pouvoir suivre tous les autres didacticiels consacrés à Notification Hubs pour applications Xamarin. iOS.
 
 [!INCLUDE [Notification Hubs Enable Apple Push Notifications](../../includes/notification-hubs-enable-apple-push-notifications.md)]
-
-## <a name="configure-your-notification-hub-for-ios-push-notifications"></a>Configuration de votre hub de notification pour les notifications Push iOS
-
-Cette section vous guide dans la création d’un hub de notification et la configuration de l’authentification avec APNS à l’aide du certificat Push **.p12** que vous venez de créer. Si vous souhaitez utiliser un hub de notification que vous avez déjà créé, vous pouvez passer directement à l’étape 5.
-
-[!INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
-
-### <a name="configure-ios-settings-for-the-notification-hub"></a>Configurer les paramètres d’iOS pour le concentrateur de notification
-
-1. Sélectionnez **Apple (APN)** dans le grouoe **PARAMÈTRES DE NOTIFICATION**.
-2. Sélectionnez **Certificat**, cliquez sur l’icône **fichier**, puis sélectionnez le fichier **.p12** que vous avez exporté au préalable.
-3. Spécifiez le **mot de passe** du certificat.
-4. Sélectionnez le mode **Bac à sable**. Utilisez uniquement le mode **Production** si vous souhaitez envoyer des notifications Push aux utilisateurs ayant acheté votre application dans Windows Store.
-
-    ![Configurer APNS dans le portail Azure][6]
-
-    ![Configurer la certification APNS dans le portail Azure][7]
-
-Votre hub de notification est maintenant configuré pour APNS, et vous disposez des chaînes de connexion pour inscrire votre application et envoyer des notifications Push.
 
 ## <a name="connect-your-app-to-the-notification-hub"></a>Connexion de votre application au hub de notification
 
@@ -124,7 +105,7 @@ Votre hub de notification est maintenant configuré pour APNS, et vous disposez 
     {
         if (UIDevice.CurrentDevice.CheckSystemVersion(10, 0))
         {
-            UNUserNotificationCenter.Current.RequestAuthorization(UNAuthorizationOptions.Alert | UNAuthorizationOptions.Sound | UNAuthorizationOptions.Sound,
+            UNUserNotificationCenter.Current.RequestAuthorization(UNAuthorizationOptions.Alert | UNAuthorizationOptions.Badge | UNAuthorizationOptions.Sound,
                                                                     (granted, error) =>
             {
                 if (granted)

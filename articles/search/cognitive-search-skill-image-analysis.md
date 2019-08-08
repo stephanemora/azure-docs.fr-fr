@@ -10,13 +10,13 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
-ms.custom: seodec2018
-ms.openlocfilehash: f10ac45266eefac41f3ba9ac442c3be3f5106ef3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.subservice: cognitive-search
+ms.openlocfilehash: ebff47360aa78a7774be50bcce8518f6e30ca073
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66388411"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68841066"
 ---
 #   <a name="image-analysis-cognitive-skill"></a>Compétence cognitive Analyse d’image
 
@@ -333,7 +333,8 @@ Les paramètres respectent la casse.
                     "originalWidth": 5000,
                     "originalHeight": 3000,
                     "rotationFromOriginal": 90,
-                    "contentOffset": 500
+                    "contentOffset": 500,
+                    "pageNumber": 2
                 }
             }
         }

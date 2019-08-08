@@ -1,20 +1,19 @@
 ---
 title: Effectuer des opérations sur un Stockage File d’attente Azure avec PowerShell - Stockage Azure
 description: Guide pratique pour effectuer des opérations sur un Stockage File d’attente Azure avec PowerShell
-services: storage
 author: mhopkins-msft
-ms.service: storage
-ms.topic: conceptual
-ms.date: 05/15/2019
 ms.author: mhopkins
-ms.reviewer: cbrooks
+ms.date: 05/15/2019
+ms.service: storage
 ms.subservice: queues
-ms.openlocfilehash: 6e8640b136c52f500de010f842ab73678acdce4f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.topic: conceptual
+ms.reviewer: cbrooks
+ms.openlocfilehash: bf5cf668620eb08e0d808c2052eac59b15af740c
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65991357"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68721222"
 ---
 # <a name="perform-azure-queue-storage-operations-with-azure-powershell"></a>Effectuer des opérations sur Stockage File d’attente Azure avec Azure PowerShell
 

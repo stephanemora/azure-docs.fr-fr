@@ -1,20 +1,18 @@
 ---
 title: Guide de démarrage rapide Azure - Créer un objet blob dans un stockage d’objets à l’aide de Go | Microsoft Docs
 description: Dans le cadre de ce guide de démarrage rapide, vous allez créer un compte de stockage et un conteneur dans un stockage d’objets (blob). Ensuite, vous utilisez la bibliothèque de client de stockage pour Go, afin de charger un objet blob dans Stockage Azure, de télécharger un objet blob et de répertorier les objets blob dans un conteneur.
-services: storage
 author: mhopkins-msft
-ms.custom: mvc
-ms.service: storage
-ms.topic: quickstart
-ms.date: 11/14/2018
 ms.author: mhopkins
-ms.reviewer: seguler
-ms.openlocfilehash: 5b5d0663166c6889d25c0fdd578aadbac3436931
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.date: 11/14/2018
+ms.service: storage
+ms.subservice: blobs
+ms.topic: quickstart
+ms.openlocfilehash: f4016349e354c84e9e096ac6d5072a4870e9ef29
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65152778"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68726457"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-go"></a>Démarrage rapide : Charger, télécharger et lister des objets blob à l’aide de Go
 
@@ -112,7 +110,7 @@ Une fois que vous avez le ContainerURL, vous pouvez instancier l’objet **BlobU
 > [!IMPORTANT]
 > Les noms de conteneurs doivent être en minuscules. Pour plus d’informations sur les noms des conteneurs et des objets blob, consultez [Affectation de noms et références aux conteneurs, objets blob et métadonnées](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
 
-Dans cette section, vous créez un nouveau conteneur. Le conteneur est appelé **quickstartblobs-[chaîne aléatoire]**. 
+Dans cette section, vous créez un nouveau conteneur. Le conteneur est appelé **quickstartblobs-[chaîne aléatoire]** . 
 
 ```go 
 // From the Azure portal, get your storage account name and key and set environment variables.
@@ -153,7 +151,7 @@ Pour télécharger un fichier vers un objet blob, ouvrez le fichier à l’aide 
 
 Sinon, le kit de développement logiciel offre des [API de niveau supérieur](https://github.com/Azure/azure-storage-blob-go/blob/master/azblob/highlevel.go) qui s’appuient sur les API REST de bas niveau. Par exemple, la fonction ***UploadFileToBlockBlob*** utilise des opérations StageBlock (PutBlock) pour télécharger simultanément un fichier en plusieurs blocs afin d’optimiser le débit. Si le fichier fait moins de 256 Mo, il utilise Upload (PutBlob) à la place pour effectuer le transfert en une seule transaction.
 
-L’exemple suivant charge le fichier dans votre conteneur nommé **quickstartblobs-[chaîne aléatoire]**.
+L’exemple suivant charge le fichier dans votre conteneur nommé **quickstartblobs-[chaîne aléatoire]** .
 
 ```go
 // Create a file to test the upload and download.

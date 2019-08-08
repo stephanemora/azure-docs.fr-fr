@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 08/24/2018
 ms.author: mibender
-ms.openlocfilehash: 1f8972c89ecb0fc7d8cc7ceb9bfdeab9e905e862
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: b6f5534bc4127e11d7be4b1a52b92a22b75cbb5a
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64570609"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68828098"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Prise en main pour les opérateurs informatiques Azure
 
@@ -73,7 +73,7 @@ Azure fournit plusieurs offres de calcul PaaS, notamment le composant Web Apps d
 
 #### <a name="saas-software-as-a-service"></a>SaaS : Software as a service
 
-SaaS est un logiciel qui est hébergé et géré de manière centralisée. Il s’appuie généralement sur une architecture multilocataire, où une seule version de l’application est utilisée pour tous les clients. Il peut être monté en charge parallèle sur plusieurs instances pour garantir des performances optimales dans tous les emplacements. Le logiciel SaaS est généralement concédé sous licence, par abonnement mensuel ou annuel. Le logiciel SaaS est généralement concédé sous licence, par abonnement mensuel ou annuel. Les éditeurs de logiciels SaaS sont responsables de tous les composants de la pile logicielle afin de vous faire gérer uniquement les services fournis.
+SaaS est un logiciel qui est hébergé et géré de manière centralisée. Il s’appuie généralement sur une architecture multilocataire, où une seule version de l’application est utilisée pour tous les clients. Il peut être monté en charge parallèle sur plusieurs instances pour garantir des performances optimales dans tous les emplacements. Le logiciel SaaS est généralement concédé sous licence, par abonnement mensuel ou annuel. Les éditeurs de logiciels SaaS sont responsables de tous les composants de la pile logicielle afin de vous faire gérer uniquement les services fournis.
 
 Microsoft Office 365 constitue un bon exemple pour illustrer une offre SaaS. Les abonnés payent un abonnement mensuel ou annuel pour obtenir Microsoft Exchange, Microsoft OneDrive et le reste de la suite Microsoft Office en tant que service. Les abonnés bénéficient toujours de la version la plus récente et n’ont pas besoin de gérer le serveur Exchange. Par rapport à l’installation et à la mise à jour annuelle d’Office, cette solution est moins onéreuse et demande moins d’efforts.
 

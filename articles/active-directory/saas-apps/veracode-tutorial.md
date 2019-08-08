@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/05/2019
 ms.author: jeedes
-ms.openlocfilehash: 1024f0c09d6ab67b412a8f65d8964f3ac9d43254
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 67b4d4842bfa330e51244cee0d9ad8ad0ab6a24f
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67087782"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68825965"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-veracode"></a>Didacticiel : Intégration d’Azure AD à Veracode
 
@@ -107,7 +107,7 @@ Pour configurer l’authentification unique Azure AD avec Veracode, effectuez l
 
     ![Informations d’authentification unique dans Domaine et URL Veracode](common/preintegrated.png)
 
-5. L’application Veracode s’attend à recevoir les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à votre configuration d’attributs de jetons SAML. La capture d’écran suivante montre la liste des attributs par défaut. Cliquez sur l’icône  **Modifier** pour ouvrir la boîte de dialogue  **Attributs utilisateur** .
+5. L’application Veracode s’attend à recevoir les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à votre configuration d’attributs de jetons SAML. La capture d’écran suivante montre la liste des attributs par défaut. Cliquez sur l’icône **Modifier** pour ouvrir la boîte de dialogue **Attributs d’utilisateur**.
 
     ![image](common/edit-attribute.png)
 

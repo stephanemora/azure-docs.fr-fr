@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/31/2018
 ms.author: jomolesk
-ms.openlocfilehash: a1850ecfbb21eb9495bb0e6de362dc8dee3026a2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5a308dfd5467aecb8b0ff6c661de1cb8b1740590
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60609581"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780727"
 ---
 # <a name="azure-security-and-compliance-blueprint---data-warehouse-for-nist-sp-800-171"></a>Blueprint sur la sécurité et la conformité d’Azure : Entrepôt de données pour NIST SP 800-171
 
@@ -80,7 +80,7 @@ La section ci-après décrit en détail les éléments nécessaires au déploiem
 **Hôte bastion** : point d‘entrée unique qui permet aux utilisateurs d’accéder aux ressources déployées dans cet environnement. L‘hôte bastion fournit une connexion sécurisée à des ressources déployées en autorisant uniquement le trafic distant provenant d‘adresses IP publiques figurant sur une liste verte. Pour autoriser le trafic Bureau à distance, la source du trafic doit être définie dans le groupe de sécurité réseau.
 
 Cette solution crée une machine virtuelle en tant qu‘hôte bastion joint au domaine avec les configurations suivantes :
--   [Extension Antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware).
+-   [Extension Antimalware](https://docs.microsoft.com/azure/security/fundamentals/antimalware).
 -   [Extension Diagnostics Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-extensions-diagnostics-template).
 -   [Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) avec Key Vault.
 -   [Stratégie d‘arrêt automatique](https://azure.microsoft.com/blog/announcing-auto-shutdown-for-vms-using-azure-resource-manager/) pour réduire la consommation des ressources de machine virtuelle non utilisées.
@@ -139,7 +139,7 @@ Les technologies suivantes offrent des fonctionnalités de gestion de l’accès
 
 **Gestion des correctifs** : les machines virtuelles Windows déployées dans le cadre de cette architecture de référence sont configurées par défaut pour recevoir des mises à jour automatiques du service Windows Update. Cette solution inclut également le service [Azure Automation](https://docs.microsoft.com/azure/automation/automation-intro) qui permet de créer des déploiements mis à jour pour corriger des machines virtuelles si nécessaire.
 
-**Protection contre les programmes malveillants** : [Microsoft Antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware) pour machines virtuelles offre une fonctionnalité de protection en temps réel qui permet d’identifier et de supprimer les virus, logiciels espions et autres logiciels malveillants. Les clients peuvent configurer des alertes qui se déclenchent lorsque des logiciels malveillants ou indésirables connus tentent de s’installer ou de s’exécuter sur des machines virtuelles protégées.
+**Protection contre les programmes malveillants** : [Microsoft Antimalware](https://docs.microsoft.com/azure/security/fundamentals/antimalware) pour machines virtuelles offre une fonctionnalité de protection en temps réel qui permet d’identifier et de supprimer les virus, logiciels espions et autres logiciels malveillants. Les clients peuvent configurer des alertes qui se déclenchent lorsque des logiciels malveillants ou indésirables connus tentent de s’installer ou de s’exécuter sur des machines virtuelles protégées.
 
 **Azure Security Center** : avec [Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro), les clients peuvent appliquer et gérer de façon centralisée des stratégies de sécurité sur les charges de travail, limiter l’exposition aux menaces ainsi que détecter les attaques et y répondre. Security Center accède également aux configurations existantes des services Azure pour fournir des suggestions en matière de configuration et de service. Cela contribue à l’amélioration du dispositif de sécurité et à la protection des données.
 
@@ -162,7 +162,7 @@ Les services Azure assurent une journalisation complète de l’activité du sys
 
 **Journaux d’activité Azure Monitor** : ces journaux sont regroupés dans [Journaux Azure Monitor](https://azure.microsoft.com/services/log-analytics/) à des fins de traitement, de stockage et de génération de rapports de tableau de bord. Une fois les données collectées, elles sont organisées dans des tables distinctes pour chaque type de données au sein des espaces de travail Log Analytics. De cette façon, toutes les données peuvent être analysées ensemble, quelle que soit leur source d’origine. Security Center s’intègre à Journaux Azure Monitor. Les clients peuvent utiliser des requêtes Kusto pour accéder à leurs données d’événement de sécurité et les combiner avec des données provenant d’autres services.
 
-Cette architecture intègre également les [solutions de supervision](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions) suivantes :
+Les [solutions de supervision](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions) Azure suivantes sont incluses dans cette architecture :
 -   [Active Directory Assessment](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment) : la solution Active Directory Health Check permet d’évaluer les risques et l’intégrité des environnements de serveur à intervalles réguliers. Elle fournit une liste hiérarchisée de suggestions propres à l’infrastructure de serveurs déployée.
 - [SQL Assessment](https://docs.microsoft.com/azure/log-analytics/log-analytics-sql-assessment) : la solution SQL Health Check permet d’évaluer les risques et l’intégrité des environnements de serveur à intervalles réguliers. Elle fournit aux clients une liste hiérarchisée de suggestions propres à l’infrastructure de serveurs déployée.
 - [Agent Health](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-agenthealth) : la solution Agent Health signale le nombre d’agents déployés et leur répartition géographique. Elle signale également le nombre d’agents qui ne répondent pas et le nombre d’agents qui envoient des données opérationnelles.

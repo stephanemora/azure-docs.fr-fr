@@ -5,13 +5,13 @@ author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
 ms.topic: tutorial
-ms.date: 04/08/2019
-ms.openlocfilehash: 91f7967915fd19ae47ca207913f979aa56fcd27f
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.date: 08/01/2019
+ms.openlocfilehash: 6dcf29c1bb98d15daf652671f31ed1647d66a81b
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60011702"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68735207"
 ---
 # <a name="tutorial-register-data-assets-in-azure-data-catalog"></a>Didacticiel : Enregistrer des éléments de données dans Azure Data Catalog
 
@@ -71,7 +71,7 @@ Vous pouvez désormais inscrire des ressources de données de l’exemple de bas
 
     2. Appuyez sur la touche CTRL, puis sélectionnez **Product**, **ProductCategory**, **ProductDescription** et **ProductModel**.
 
-    3. Sélectionnez la **flèche de déplacement de la sélection** (**>**). Cette action déplace tous les objets sélectionnés dans la liste **Objets à inscrire** .
+    3. Sélectionnez la **flèche de déplacement de la sélection** ( **>** ). Cette action déplace tous les objets sélectionnés dans la liste **Objets à inscrire** .
 
           ![Didacticiel Azure Data Catalog--parcourir et sélectionner des objets](media/register-data-assets-tutorial/data-catalog-server-hierarchy.png)
 

@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 06/12/2019
-ms.openlocfilehash: a1ccfd23338e2ee18c335fe8bd9869ecdf9c2f08
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c47df581edafbb2a378e7c5e75516a44fafcab71
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67120817"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779509"
 ---
 # <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-powershell"></a>Démarrage rapide : Créer un cluster Apache Kafka dans Azure HDInsight à l’aide de PowerShell
 
@@ -151,7 +151,7 @@ Si vous envisagez d’utiliser plus de 32 nœuds de travail lors de la création
 
 Une fois la connexion établie, des informations de ce type s’affichent :
 
-```text
+```output
 Authorized uses only. All activity may be monitored and reported.
 Welcome to Ubuntu 16.04.4 LTS (GNU/Linux 4.13.0-1011-azure x86_64)
 
@@ -170,7 +170,6 @@ Welcome to Ubuntu 16.04.4 LTS (GNU/Linux 4.13.0-1011-azure x86_64)
 Welcome to Kafka on HDInsight.
 
 Last login: Thu Mar 29 13:25:27 2018 from 108.252.109.241
-ssuhuser@hn0-mykafk:~$
 ```
 
 ## <a id="getkafkainfo"></a>Obtenir des informations sur les hôtes Apache Zookeeper et Broker

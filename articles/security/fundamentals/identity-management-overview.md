@@ -8,6 +8,7 @@ manager: barbkess
 editor: TomSh
 ms.assetid: 5aa0a7ac-8f18-4ede-92a1-ae0dfe585e28
 ms.service: security
+ms.subservice: security-fundamentals
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -15,12 +16,12 @@ ms.workload: na
 ms.date: 09/19/2018
 ms.author: terrylan
 Customer intent: As an IT Pro or decision maker I am trying to learn about identity management capabilities in Azure
-ms.openlocfilehash: 71531956fb129d6a85612e1b9b48f9ccb6e8a5c1
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: 1081fa8c9c7cc64418515aabbb755ecf056196ca
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68611664"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68826295"
 ---
 # <a name="azure-identity-management-security-overview"></a>Vue d’ensemble de la sécurité et de la gestion des identités Azure
 
@@ -163,7 +164,7 @@ Azure AD Identity Protection est un service de sécurité offrant une vue centra
 
 En savoir plus :
 
-* [Azure AD Identity Protection](/azure/active-directory/active-directory-identityprotection.md)
+* [Azure AD Identity Protection](/azure/active-directory/identity-protection/overview)
 * [Channel 9: Azure AD and Identity Show: Identity Protection Preview](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
 
 ## <a name="hybrid-identity-managementazure-ad-connect"></a>Gestion des identités hybrides/Azure AD Connect

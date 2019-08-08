@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/31/2018
 ms.author: jomolesk
-ms.openlocfilehash: f9773c3b372ab22cbcd99828e147d23c185c4eb6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 101d7b621287972571fb5d3ba9ea02ace2ef1421
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62127325"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780696"
 ---
 # <a name="azure-security-and-compliance-blueprint---paas-web-application-for-nist-special-publication-800-171"></a>Blueprint sur la sécurité et la conformité Azure - Application web PaaS pour NIST Special Publication 800-171
 
@@ -60,7 +60,7 @@ Cette solution utilise les services Azure suivants. Pour plus d‘informations, 
 - Azure DNS
 - Azure Key Vault
 - Azure Load Balancer
-- Azure Monitor (journaux d’activité)
+- Azure Monitor (journaux)
 - Azure Resource Manager
 - Azure Security Center
 - Azure SQL Database
@@ -73,10 +73,10 @@ La section ci-après décrit en détail les éléments nécessaires au déploiem
 
 **Azure Resource Manager** : [Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) permet aux clients d‘utiliser les ressources de la solution en tant que groupe. Les clients peuvent déployer, mettre à jour ou supprimer toutes les ressources de la solution en une seule opération coordonnée. Les clients utilisent un modèle pour le déploiement. Ce modèle peut fonctionner pour différents environnements, par exemple des environnements de test, de préproduction et de production. Le Gestionnaire des ressources Azure Resource Manager offre des fonctionnalités de sécurité, d’audit et de marquage pour aider les clients à gérer leurs ressources après le déploiement de celles-ci.
 
-**Hôte bastion** : L’hôte bastion est le point d’entrée unique qui permet aux utilisateurs d’accéder aux ressources déployées dans cet environnement. L‘hôte bastion fournit une connexion sécurisée à des ressources déployées en autorisant uniquement le trafic distant provenant d‘adresses IP publiques figurant sur une liste verte. Pour autoriser le trafic de Bureau à distance, la source du trafic doit être définie dans le groupe de sécurité réseau.
+**Hôte bastion** : point d‘entrée unique qui permet aux utilisateurs d’accéder aux ressources déployées dans cet environnement. L‘hôte bastion fournit une connexion sécurisée à des ressources déployées en autorisant uniquement le trafic distant provenant d‘adresses IP publiques figurant sur une liste verte. Pour autoriser le trafic de Bureau à distance, la source du trafic doit être définie dans le groupe de sécurité réseau.
 
 Cette solution crée une machine virtuelle en tant qu‘hôte bastion joint au domaine avec les configurations suivantes :
--   [Extension Antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware).
+-   [Extension Antimalware](https://docs.microsoft.com/azure/security/fundamentals/antimalware).
 -   [Extension Diagnostics Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-extensions-diagnostics-template).
 -   [Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) avec Key Vault.
 -   [Stratégie d‘arrêt automatique](https://azure.microsoft.com/blog/announcing-auto-shutdown-for-vms-using-azure-resource-manager/) pour réduire la consommation des ressources de machine virtuelle non utilisées.
@@ -110,7 +110,7 @@ L’architecture définit un réseau privé virtuel avec l’espace d’adressag
 
 Chaque groupe de sécurité réseau a des ports et protocoles spécifiques ouverts afin que la solution puisse fonctionner correctement et en toute sécurité. En outre, les configurations suivantes sont activées pour chaque groupe de sécurité réseau :
   - Les [événements et journaux de diagnostic](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log) sont activés et stockés dans un compte de stockage.
-  - Les journaux Azure Monitor sont connectés aux [diagnostics du Groupe de sécurité réseau](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json).
+  - La solution Journaux Azure Monitor est connectée aux [diagnostics du groupe de sécurité réseau](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json).
 
 **Sous-réseaux** : Chaque sous-réseau est associé à son groupe de sécurité réseau correspondant.
 
@@ -179,7 +179,7 @@ Les services Azure assurent une journalisation complète de l’activité du sys
 - **Journaux d’activité** : les [journaux d’activité](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) fournissent des insights sur les opérations ayant été effectuées sur les ressources d’un abonnement. Les journaux d’activité peuvent aider à déterminer l’initiateur, l’heure d’exécution et l’état d’une opération.
 - **Journaux de diagnostic** : les [journaux de diagnostic](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) incluent l’ensemble des journaux d’activité générés par chaque ressource. Ils incluent les journaux d’activité système des événements Windows, les journaux d’activité de stockage, les journaux d’audit Key Vault, ainsi que les journaux d’activité de pare-feu et d’accès d’Application Gateway. Tous les journaux de diagnostic sont consignés dans un compte de stockage Azure centralisé et chiffré pour l’archivage. Les utilisateurs peuvent configurer la période de rétention jusqu‘à 730 jours, pour répondre à leurs besoins spécifiques.
 
-**Journaux d’activité Azure Monitor** : Les journaux d’activité sont consolidés dans [Journaux Azure Monitor](https://azure.microsoft.com/services/log-analytics/) à des fins de traitement, de stockage et de génération de rapports de tableau de bord. Une fois les données collectées, elles sont organisées dans des tables distinctes pour chaque type de données au sein des espaces de travail Log Analytics. De cette façon, toutes les données peuvent être analysées ensemble, quelle que soit leur source d’origine. Security Center s’intègre aux journaux Azure Monitor. Les clients peuvent utiliser des requêtes Kusto pour accéder à leurs données d’événement de sécurité et les combiner avec des données provenant d’autres services.
+**Journaux d’activité Azure Monitor** : Les journaux d’activité sont consolidés dans [Journaux Azure Monitor](https://azure.microsoft.com/services/log-analytics/) à des fins de traitement, de stockage et de génération de rapports de tableau de bord. Une fois les données collectées, elles sont organisées dans des tables distinctes pour chaque type de données au sein des espaces de travail Log Analytics. De cette façon, toutes les données peuvent être analysées ensemble, quelle que soit leur source d’origine. Security Center s’intègre à Journaux Azure Monitor. Les clients peuvent utiliser des requêtes Kusto pour accéder à leurs données d’événement de sécurité et les combiner avec des données provenant d’autres services.
 
 Les [solutions de supervision](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions) Azure suivantes sont incluses dans cette architecture :
 -   [Active Directory Assessment](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment) : la solution Active Directory Health Check permet d’évaluer les risques et l’intégrité des environnements de serveur à intervalles réguliers. Elle fournit une liste hiérarchisée de suggestions propres à l’infrastructure de serveurs déployée.

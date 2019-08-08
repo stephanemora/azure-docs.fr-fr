@@ -8,20 +8,20 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 05/03/2019
+ms.date: 08/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: c4f3053063ce33d2777387da2c53effd61b05f1a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 33e485e4fcee665e810c42bca6b38aac065ff668
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66399873"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68841434"
 ---
 # <a name="visualize-data-in-the-explorer-preview"></a>Visualiser des données dans l’explorateur (préversion)
 
 Ce document décrit l’interface utilisateur, les fonctionnalités d’expérience utilisateur et l’interface la préversion de l’[application web de démonstration](https://insights.timeseries.azure.com/preview/demo) Azure Time Series Insights. Plus précisément, il aborde la disposition de l’exemple hébergé, les options de personnalisation de l’interface et la navigation dans la démonstration fournie.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Pour commencer à utiliser la préversion de l’Explorateur Azure Time Series Insights, vous devez :
 
@@ -61,7 +61,7 @@ La liste déroulante de l’environnement affiche tous les environnements Time S
 
 Utilisez le menu de navigation pour sélectionner entre deux vues :
 
-* **Analyse** : permet de créer des graphiques et d’effectuer des analytiques enrichies de vos données de série chronologique basées ou non sur un modèle.
+* **Analyser** : permet de créer des graphiques et d’effectuer des analytiques enrichies de vos données de série chronologique basées ou non sur un modèle.
 * **Modèle** : permet d’envoyer de nouveaux types, hiérarchies et instances de série chronologique de la préversion de Time Series Insights à votre modèle Time Series Insights.
 
 ## <a name="hierarchy-tree"></a>Arborescence hiérarchique
@@ -105,7 +105,7 @@ Le graphique vous permet d’afficher les instances Time Series Insights sous fo
 
   [![Présentation du graphique en préversion](media/v2-update-explorer/explorer-eight.png)](media/v2-update-explorer/explorer-eight.png#lightbox)
 
-- **Plage de données sélectionnée** : contrôle quels éléments de données sont disponibles pour la visualisation.
+- **Plage de données sélectionnée** : Contrôle quels éléments de données sont disponibles pour la visualisation.
 
 - **Outil de curseur de plage de dates interne** : utilisez les deux contrôles de point de terminaison en les faisant glisser sur l’intervalle de temps souhaité.
 

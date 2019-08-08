@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: quickstart
-ms.date: 07/26/2019
+ms.date: 08/01/2019
 ms.author: aahi
-ms.openlocfilehash: b78d19841bdca100211378f71e45a41dd37aad28
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 59a4d79cc68c57faf54bde3d42370fb17a317325
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639354"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68725558"
 ---
 # <a name="quickstart-anomaly-detector-client-library-for-python"></a>Démarrage rapide : Bibliothèque de client Détecteur d’anomalies pour Python
 
@@ -77,13 +77,13 @@ Ces extraits de code vous montrent comment effectuer les opérations suivantes a
 * [Détecter des anomalies dans un jeu de données entier](#detect-anomalies-in-the-entire-data-set) 
 * [Détecter l’état d’anomalie du dernier point de données](#detect-the-anomaly-status-of-the-latest-data-point)
 
-### <a name="authenticate-the-client"></a>Authentifier le client
+## <a name="authenticate-the-client"></a>Authentifier le client
 
 Ajoutez votre variable d’emplacement Azure au point de terminaison et authentifiez le client avec votre clé.
 
 [!code-python[Client authentication](~/samples-anomaly-detector/quickstarts/sdk/python-sdk-sample.py?name=client)]
 
-### <a name="load-time-series-data-from-a-file"></a>Charger des données de séries chronologiques à partir d’un fichier
+## <a name="load-time-series-data-from-a-file"></a>Charger des données de séries chronologiques à partir d’un fichier
 
 Téléchargez l’exemple de données pour ce démarrage rapide à partir de [GitHub](https://github.com/Azure-Samples/AnomalyDetector/blob/master/example-data/request-data.csv) :
 1. Dans votre navigateur, cliquez avec le bouton droit sur **Brutes**.
@@ -100,13 +100,13 @@ Créez un objet [Request](https://docs.microsoft.com/python/api/azure-cognitives
 
 [!code-python[Create the request object](~/samples-anomaly-detector/quickstarts/sdk/python-sdk-sample.py?name=request)]
 
-### <a name="detect-anomalies-in-the-entire-data-set"></a>Détecter des anomalies dans un jeu de données entier 
+## <a name="detect-anomalies-in-the-entire-data-set"></a>Détecter des anomalies dans un jeu de données entier 
 
 Appelez l’API pour détecter les anomalies dans l'ensemble des données de séries chronologiques à l'aide de la méthode [entire_detect()](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.anomalydetectorclient?view=azure-python#entire-detect-body--custom-headers-none--raw-false----operation-config-) du client. Stockez l'objet [EntireDetectResponse](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.models.entiredetectresponse?view=azure-python) renvoyé. Itérez dans la liste `is_anomaly` de la réponse et imprimez l'index des valeurs `true`. Ces valeurs correspondent à l’indice des points de données anormaux, le cas échéant.
 
 [!code-python[Batch anomaly detection sample](~/samples-anomaly-detector/quickstarts/sdk/python-sdk-sample.py?name=detectAnomaliesBatch)]
 
-### <a name="detect-the-anomaly-status-of-the-latest-data-point"></a>Détecter l’état d’anomalie du dernier point de données
+## <a name="detect-the-anomaly-status-of-the-latest-data-point"></a>Détecter l’état d’anomalie du dernier point de données
 
 Appelez l’API Détecteur d’anomalies pour déterminer si votre dernier point de données relève d'une anomalie à l’aide de la méthode [last_detect()](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.anomalydetectorclient?view=azure-python#last-detect-body--custom-headers-none--raw-false----operation-config-) du client, et stockez l'objet [LastDetectResponse](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.models.lastdetectresponse?view=azure-python) renvoyé. La valeur `is_anomaly` de la réponse correspond à une valeur booléenne qui spécifie l’état d'anomalie de ce point.  
 

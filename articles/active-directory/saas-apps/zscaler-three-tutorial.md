@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/24/2019
 ms.author: jeedes
-ms.openlocfilehash: 3e68e7004858cf750bbe6186861442da1f9c6cdf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5fba7498f724c13297d05fc66fc57e331f096188
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67085878"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68825662"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-three"></a>Didacticiel : Intégration d’Azure Active Directory avec Zscaler Three
 
@@ -109,7 +109,7 @@ Pour configurer l’authentification unique Azure AD avec Zscaler Three, effect
 
     Dans la zone de texte **URL de connexion**, tapez une URL : `https://login.zscalerthree.net/sfc_sso`
 
-5. Votre application Zscaler Three s’attend à recevoir les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à votre configuration d’attributs du jeton SAML. La capture d’écran suivante montre la liste des attributs par défaut. Cliquez sur l’icône  **Modifier** pour ouvrir la boîte de dialogue  **Attributs utilisateur** .
+5. Votre application Zscaler Three s’attend à recevoir les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à votre configuration d’attributs du jeton SAML. La capture d’écran suivante montre la liste des attributs par défaut. Cliquez sur l’icône **Modifier** pour ouvrir la boîte de dialogue **Attributs d’utilisateur**.
 
     ![image](common/edit-attribute.png)
 

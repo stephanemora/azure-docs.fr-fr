@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: mayg
-ms.openlocfilehash: 90388d570d027aea3c897f7306a1714fd7e847b3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0974e2ed78e557168357c51b5c77a94de2f56dc5
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60772380"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68722103"
 ---
 # <a name="integrate-azure-expressroute-with-disaster-recovery-for-azure-vms"></a>Intégrer Azure ExpressRoute à la reprise d’activité pour des machines virtuelles Azure
 
@@ -166,7 +166,7 @@ Cette configuration permet de se protéger contre les défaillances du circuit E
 
 Dans cette configuration, il n’y a qu’un seul circuit ExpressRoute. Bien que le circuit ait une connexion redondante au cas où une des deux soit défaillante, un circuit avec une seule route n’offre pas de résilience si votre région d’appairage connaît une défaillance. Notez les points suivants :
 
-- Vous pouvez répliquer des machines virtuelles Azure vers n’importe quelle région Azure au [même emplacement géographique](azure-to-azure-support-matrix.md#region-support). Si la région Azure cible n’est pas au même emplacement que la source, vous devez activer ExpressRoute Premium si vous utilisez un seul circuit ExpressRoute. Découvrez plus d’informations sur les [Emplacements ExpressRoute](../expressroute/expressroute-locations.md#azure-regions-to-expressroute-locations-within-a-geopolitical-region) et la [Tarification ExpressRoute](https://azure.microsoft.com/pricing/details/expressroute/).
+- Vous pouvez répliquer des machines virtuelles Azure vers n’importe quelle région Azure au [même emplacement géographique](azure-to-azure-support-matrix.md#region-support). Si la région Azure cible n’est pas au même emplacement que la source, vous devez activer ExpressRoute Premium si vous utilisez un seul circuit ExpressRoute. Découvrez plus d’informations sur les [Emplacements ExpressRoute](../expressroute/expressroute-locations.md) et la [Tarification ExpressRoute](https://azure.microsoft.com/pricing/details/expressroute/).
 - Vous ne pouvez pas connecter simultanément les réseaux virtuels sources et cibles au circuit si le même espace d’adressage IP est utilisé sur la région cible. Dans ce scénario :    
     -  Déconnectez la connexion du côté source, puis établissez la connexion du côté cible. Cette modification de la connexion peut faire l’objet d’un script dans le cadre d’un plan de récupération Site Recovery. Notez les points suivants :
         - En cas de défaillance régionale, si la région primaire n’est pas accessible, l’opération de déconnexion peut échouer. Ceci peut affecter la création d’une connexion vers la région cible.

@@ -10,7 +10,7 @@ ms.assetid: 21206407-49f8-4c0b-84d1-c25e17cd4183
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/21/2018
@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cc42ab8a8cfb0d182c69bd0940e23cffdb2be0af
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 034c02c89c6e720311b3dc36428035e8cbdd2b3b
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67807248"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68835218"
 ---
 # <a name="how-to-get-appsource-certified-for-azure-active-directory"></a>Comment obtenir une certification AppSource pour Azure Active Directory
 

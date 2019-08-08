@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 22421d88d5d0b426b641c04cd8797c26d216c502
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 47af0a43e4d081f50fedf685d46347f0f36233fd
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67086688"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68825625"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-wrike"></a>Didacticiel : Intégration d’Azure Active Directory à Wrike
 
@@ -104,7 +104,7 @@ Pour configurer l’authentification unique Azure AD auprès de Wrike, effectue
 
     ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-4. Dans la section **Configuration SAML de base**, si vous souhaitez configurer l’application en mode lancé par le  **fournisseur d’identité** , l’utilisateur n’a rien à faire, car l’application est pré-intégrée avec Azure.
+4. Dans la section **Configuration SAML de base**, si vous souhaitez configurer l’application en mode lancé par le **fournisseur d’identité**, l’utilisateur n’a rien à faire, car l’application est pré-intégrée avec Azure.
 
     ![Informations d’authentification unique dans Domaine et URL de Wrike](common/preintegrated.png)
 

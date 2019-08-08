@@ -5,13 +5,13 @@ author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
-ms.date: 04/05/2019
-ms.openlocfilehash: b21bf1b50152130d7b6edd227c87fcaca28c1e6a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 08/01/2019
+ms.openlocfilehash: b12cb94832a1ea977fb13f5f2271984dc8780cee
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61001411"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736375"
 ---
 # <a name="how-to-discover-data-sources-in-azure-data-catalog"></a>Comment détecter les sources de données dans Azure Data Catalog
 

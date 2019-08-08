@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: emalani
-ms.openlocfilehash: 55f33821a748789fb11b44dc08c367961b4258f4
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 72614a7f804f404e3e560d944db7b3d2e496c383
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67440290"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68705670"
 ---
 # <a name="getting-started"></a>À propos de Mobile Apps dans Azure App Service
 
@@ -111,3 +111,4 @@ Pour plus d’informations sur la plateforme Azure App Service, consultez la rub
 [ExpressRoute]: ../app-service/environment/app-service-app-service-environment-network-configuration-expressroute.md
 [environnements App Service]: ../app-service/environment/intro.md
 [parcours d’apprentissage]: https://azure.microsoft.com/documentation/learning-paths/appservice-mobileapps/
+[Azure App Service]: ../app-service/overview.md

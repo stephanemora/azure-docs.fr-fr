@@ -10,12 +10,13 @@ ms.subservice: url-preview
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: rosh
-ms.openlocfilehash: 43254db734a48f3e7aaa5a26a7fbf3981c9e9d87
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ROBOTS: NOINDEX
+ms.openlocfilehash: 3ef5ebd4ec88deac8c49430f36956d3711c8c535
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67592868"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68706954"
 ---
 # <a name="project-url-preview-endpoint"></a>Point de terminaison d’aperçu de l’URL du projet
 

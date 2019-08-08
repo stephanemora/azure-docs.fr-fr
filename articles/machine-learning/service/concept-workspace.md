@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 05/21/2019
-ms.openlocfilehash: 912c064fb5ca4e7ca311f60ed04a0122809cb0ff
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: fc3f88e627e0ce19195f6df947d4f11f5f8a73ae
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67442369"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68772758"
 ---
 # <a name="what-is-an-azure-machine-learning-service-workspace"></a>Qu’est-ce qu’un espace de travail Azure Machine Learning service ?
 
@@ -30,7 +30,7 @@ Le diagramme suivant représente une taxonomie de l’espace de travail :
 
 Le diagramme montre les composants d’un espace de travail suivants :
 
-+ Un espace de travail peut contenir des [machines virtuelles de notebook](quickstart-run-cloud-notebook.md), des ressources cloud configurées avec l’environnement Python nécessaire pour exécuter Azure Machine Learning.
++ Un espace de travail peut contenir des [machines virtuelles de notebook](tutorial-1st-experiment-sdk-setup.md), des ressources cloud configurées avec l’environnement Python nécessaire pour exécuter Azure Machine Learning.
 + Les [rôles d’utilisateur](how-to-assign-roles.md) vous permettent de partager votre espace de travail avec d’autres utilisateurs, équipes ou projets.
 + Les [cibles de calcul](concept-azure-machine-learning-architecture.md#compute-targets) vous permettent d’exécuter vos expériences.
 + Lorsque vous créez l’espace de travail, les [ressources associées](#resources) sont également créées à votre place.

@@ -4,15 +4,15 @@ description: 'Cet article présente les concepts suivants : procédures stockée
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 06/14/2019
+ms.date: 08/01/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 53ff318dcc034fb11e2d554f9ad8e8814eb32879
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 1c2bf53a610c566ac58df588f6d96389f2206563
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67672584"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68717545"
 ---
 # <a name="stored-procedures-triggers-and-user-defined-functions"></a>Procédures stockées, déclencheurs et fonctions définies par l’utilisateur
 

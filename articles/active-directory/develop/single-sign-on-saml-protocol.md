@@ -12,18 +12,18 @@ ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/19/2017
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 593f07b27fec16c3df90a073479effb130bc5721
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cf512f802e0e4944e6ce949830719b87301adfc4
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65545278"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68834812"
 ---
 # <a name="single-sign-on-saml-protocol"></a>Protocole SAML d’authentification unique
 
@@ -49,7 +49,7 @@ xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
 
 | Paramètre |  | Description |
 | --- | --- | --- |
-| ID | Obligatoire | Azure AD utilise cet attribut pour compléter l’attribut `InResponseTo` de la réponse retournée. L’ID ne doit pas commencer par un nombre ; vous pouvez donc suivre la stratégie courante qui consiste à ajouter une chaîne de type « id » devant la représentation sous forme de chaîne d’un GUID. Par exemple, `id6c1c178c166d486687be4aaf5e482730` est un ID valide. |
+| id | Obligatoire | Azure AD utilise cet attribut pour compléter l’attribut `InResponseTo` de la réponse retournée. L’ID ne doit pas commencer par un nombre ; vous pouvez donc suivre la stratégie courante qui consiste à ajouter une chaîne de type « id » devant la représentation sous forme de chaîne d’un GUID. Par exemple, `id6c1c178c166d486687be4aaf5e482730` est un ID valide. |
 | Version | Obligatoire | Ce paramètre doit être défini sur **2.0**. |
 | IssueInstant | Obligatoire | Chaîne DateTime associée à une valeur UTC et comportant le [format aller-retour (« o »)](https://msdn.microsoft.com/library/az4se3k1.aspx). Azure AD attend une valeur DateHeure de ce type, sans pour autant l’évaluer ni l’utiliser. |
 | AssertionConsumerServiceUrl | Facultatif | Si ce paramètre est fourni, il doit correspondre à l’élément `RedirectUri` du service cloud dans Azure AD. |

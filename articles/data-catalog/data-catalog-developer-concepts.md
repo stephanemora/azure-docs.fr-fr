@@ -1,19 +1,17 @@
 ---
 title: Concepts de développeur Azure Data Catalog
 description: Présentation des concepts clés du modèle conceptuel d’Azure Data Catalog, tels qu’ils sont exposés via l’API REST Catalog.
-services: data-catalog
 author: JasonWHowell
 ms.author: jasonh
-ms.assetid: 89de9137-a0a4-40d1-9f8d-625acad31619
 ms.service: data-catalog
 ms.topic: conceptual
-ms.date: 01/18/2018
-ms.openlocfilehash: 3cfd6bd453cd06be4676a806997697a71afb0b59
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 08/01/2019
+ms.openlocfilehash: 81e17e1e450e45e4c163ca8231a47deeb8b9ed2c
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64727396"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68734688"
 ---
 # <a name="azure-data-catalog-developer-concepts"></a>Concepts de développeur Azure Data Catalog
 **Microsoft Azure Data Catalog** est un service cloud entièrement géré qui fournit des fonctionnalités de détection de source de données et de métadonnées de source de données de crowdsourcing. Les développeurs peuvent utiliser le service via son API REST. Il est important de comprendre les concepts du service pour l’intégrer efficacement à **Azure Data Catalog**.
@@ -78,7 +76,7 @@ L'expérience utilisateur permet alors l’affichage de la combinaison. Il exist
 Comme décrit dans la section Concepts clés, le modèle d’objet **Azure Data Catalog** comprend des éléments pouvant être des ressources ou des annotations. Les éléments ont des propriétés, qui peuvent être facultatives ou obligatoires. Certaines propriétés s'appliquent à tous les éléments. Certaines propriétés s'appliquent à toutes les ressources. Certaines propriétés s'appliquent uniquement à des types de ressources spécifiques.
 
 ### <a name="system-properties"></a>Propriétés système
-<table><tr><td><b>Nom de la propriété</b></td><td><b>Type de données</b></td><td><b>Commentaires</b></td></tr><tr><td>timestamp</td><td>Datetime</td><td>L’heure de la dernière modification de l’élément. Ce champ est généré par le serveur lors de l’insertion ou de la mise à jour d’un élément. La valeur de cette propriété est ignorée lors de l’entrée d’opérations de publication.</td></tr><tr><td>id</td><td>Uri</td><td>URL absolue de l’élément (en lecture seule). Il s’agit de l’URI adressable unique de l’élément.  La valeur de cette propriété est ignorée lors de l’entrée d’opérations de publication.</td></tr><tr><td>Type</td><td>Chaîne</td><td>Le type de ressource (lecture seule)</td></tr><tr><td>etag</td><td>Chaîne</td><td>Chaîne correspondant à la version de l’élément utilisable pour un contrôle d’accès concurrentiel optimiste lors de l’exécution d’opérations de mise à jour d’éléments dans le catalogue. « * » peut être utilisé pour correspondre à n’importe quelle valeur.</td></tr></table>
+<table><tr><td><b>Nom de la propriété</b></td><td><b>Type de données</b></td><td><b>Commentaires</b></td></tr><tr><td>timestamp</td><td>DateTime</td><td>L’heure de la dernière modification de l’élément. Ce champ est généré par le serveur lors de l’insertion ou de la mise à jour d’un élément. La valeur de cette propriété est ignorée lors de l’entrée d’opérations de publication.</td></tr><tr><td>id</td><td>Uri</td><td>URL absolue de l’élément (en lecture seule). Il s’agit de l’URI adressable unique de l’élément.  La valeur de cette propriété est ignorée lors de l’entrée d’opérations de publication.</td></tr><tr><td>Type</td><td>Chaîne</td><td>Le type de ressource (lecture seule)</td></tr><tr><td>etag</td><td>Chaîne</td><td>Chaîne correspondant à la version de l’élément utilisable pour un contrôle d’accès concurrentiel optimiste lors de l’exécution d’opérations de mise à jour d’éléments dans le catalogue. « * » peut être utilisé pour correspondre à n’importe quelle valeur.</td></tr></table>
 
 ### <a name="common-properties"></a>Propriétés communes
 Ces propriétés s'appliquent à tous les types de ressources racines et tous les types d'annotations.
@@ -115,13 +113,13 @@ Les types d'annotation représentent des types de métadonnées qui peuvent êtr
 <tr><td><b>Type d’annotation (nom de la vue imbriqué)</b></td><td><b>Propriétés supplémentaires</b></td><td><b>Type de données</b></td><td><b>Commentaires</b></td></tr>
 
 <tr><td>Description (« descriptions »)</td><td></td><td></td><td>Cette propriété contient une description de la ressource. Chaque utilisateur du système peut ajouter se propre description.  Seul cet utilisateur peut modifier l'objet Description.  (Les administrateurs et les propriétaires de ressources peuvent supprimer l’objet Description, mais pas le modifier). Le système conserve séparément les descriptions des utilisateurs.  Il y a donc un tableau des descriptions de chaque ressource (un pour chaque utilisateur qui a contribué à la ressource, en plus d’un éventuel tableau qui contient des informations dérivées de la source de données).</td></tr>
-<tr><td></td><td>description</td><td>chaîne</td><td>Brève description (2 ou 3 lignes) de la ressource.</td></tr>
+<tr><td></td><td>description</td><td>string</td><td>Brève description (2 ou 3 lignes) de la ressource.</td></tr>
 
 <tr><td>Tag (« tags »)</td><td></td><td></td><td>Cette propriété définit une balise pour une ressource. Chaque utilisateur du système peut ajouter plusieurs balises pour une ressource.  Seul l’utilisateur qui a créé des objets Tag peut modifier ceux-ci.  (Les propriétaires des ressources et les administrateurs peuvent supprimer l’objet Tag, mais pas le modifier). Le système conserve séparément les balises des utilisateurs.  Il y a donc un tableau d’objets Tag sur chaque ressource.</td></tr>
-<tr><td></td><td>tag</td><td>chaîne</td><td>Balise décrivant la ressource.</td></tr>
+<tr><td></td><td>tag</td><td>string</td><td>Balise décrivant la ressource.</td></tr>
 
 <tr><td>FriendlyName (« friendlyName »)</td><td></td><td></td><td>Cette propriété contient un nom convivial pour une ressource. FriendlyName est une annotation singleton. Il n’est possible d’ajouter qu’un seul FriendlyName à une ressource.  Seul l’utilisateur ayant créé l’objet FriendlyName peut modifier celui-ci. (Les propriétaires des ressources et les administrateurs peuvent supprimer l’objet FriendlyName, mais pas le modifier). Le système conserve séparément les noms conviviaux des utilisateurs.</td></tr>
-<tr><td></td><td>friendlyName</td><td>chaîne</td><td>Nom convivial de la ressource.</td></tr>
+<tr><td></td><td>friendlyName</td><td>string</td><td>Nom convivial de la ressource.</td></tr>
 
 <tr><td>Schema (« schema »)</td><td></td><td></td><td>Le schéma décrit la structure des données.  Il répertorie les noms, les types d’attribut (colonne, attribut, champ, etc.), ainsi que d’autres métadonnées.  Ces informations sont issues de la source de données.  Le schéma est une annotation singleton ; il n’est possible d’ajouter qu’un seul schéma pour une ressource.</td></tr>
 <tr><td></td><td>colonnes</td><td>Column[]</td><td>Un tableau d'objets de colonne. Ils décrivent la colonne avec des informations issues de la source de données.</td></tr>
@@ -141,14 +139,14 @@ Les types d'annotation représentent des types de métadonnées qui peuvent êtr
 <tr><td></td><td>preview</td><td>object[]</td><td>Tableau d'objets qui représentent une colonne.  Chaque objet possède un mappage de propriété vers une colonne avec une valeur pour cette colonne pour la ligne.</td></tr>
 
 <tr><td>AccessInstruction (« accessInstructions »)</td><td></td><td></td><td></td></tr>
-<tr><td></td><td>mimeType</td><td>chaîne</td><td>Le type mime du contenu.</td></tr>
-<tr><td></td><td>Contenu</td><td>chaîne</td><td>Les instructions pour accéder à cette ressource de données. Il peut s’agir d’une URL, d’une adresse de messagerie ou d’un ensemble d’instructions.</td></tr>
+<tr><td></td><td>mimeType</td><td>string</td><td>Le type mime du contenu.</td></tr>
+<tr><td></td><td>Contenu</td><td>string</td><td>Les instructions pour accéder à cette ressource de données. Il peut s’agir d’une URL, d’une adresse de messagerie ou d’un ensemble d’instructions.</td></tr>
 
 <tr><td>TableDataProfile (« tableDataProfiles »)</td><td></td><td></td><td></td></tr>
 <tr><td></td><td>numberOfRows</td></td><td>int</td><td>Le nombre de lignes dans le jeu de données</td></tr>
 <tr><td></td><td>size</td><td>long</td><td>La taille en octets du jeu de données.  </td></tr>
-<tr><td></td><td>schemaModifiedTime</td><td>chaîne</td><td>L'heure de dernière modification du schéma</td></tr>
-<tr><td></td><td>dataModifiedTime</td><td>chaîne</td><td>L’heure de dernière modification du jeu de données (données ajoutées, modifiées ou supprimées)</td></tr>
+<tr><td></td><td>schemaModifiedTime</td><td>string</td><td>L'heure de dernière modification du schéma</td></tr>
+<tr><td></td><td>dataModifiedTime</td><td>string</td><td>L’heure de dernière modification du jeu de données (données ajoutées, modifiées ou supprimées)</td></tr>
 
 <tr><td>ColumnsDataProfile (« columnsDataProfiles »)</td><td></td><td></td><td></td></tr>
 <tr><td></td><td>colonnes</td></td><td>ColumnDataProfile[]</td><td>Tableau de profils de données de colonne.</td></tr>
@@ -158,8 +156,8 @@ Les types d'annotation représentent des types de métadonnées qui peuvent êtr
 <tr><td></td><td>classification ;</td><td>Chaîne</td><td>La classification des données dans cette colonne.</td></tr>
 
 <tr><td>Documentation (« documentation »)</td><td></td><td></td><td>Une seule documentation peut être associée à une ressource donnée.</td></tr>
-<tr><td></td><td>mimeType</td><td>chaîne</td><td>Le type mime du contenu.</td></tr>
-<tr><td></td><td>Contenu</td><td>chaîne</td><td>Le contenu de la documentation.</td></tr>
+<tr><td></td><td>mimeType</td><td>string</td><td>Le type mime du contenu.</td></tr>
+<tr><td></td><td>Contenu</td><td>string</td><td>Le contenu de la documentation.</td></tr>
 
 </table>
 
@@ -169,34 +167,34 @@ Les types courants peuvent être utilisés comme les types de propriétés, mais
 <table>
 <tr><td><b>Type courant</b></td><td><b>Propriétés</b></td><td><b>Type de données</b></td><td><b>Commentaires</b></td></tr>
 <tr><td>DataSourceInfo</td><td></td><td></td><td></td></tr>
-<tr><td></td><td>sourceType</td><td>chaîne</td><td>Décrit le type de source de données.  Par exemple :  SQL Server, Oracle Database, etc.  </td></tr>
-<tr><td></td><td>objectType</td><td>chaîne</td><td>Décrit le type d’objet dans la source de données. Par exemple :  Table, affichage pour SQL Server.</td></tr>
+<tr><td></td><td>sourceType</td><td>string</td><td>Décrit le type de source de données.  Par exemple :  SQL Server, Oracle Database, etc.  </td></tr>
+<tr><td></td><td>objectType</td><td>string</td><td>Décrit le type d’objet dans la source de données. Par exemple :  Table, affichage pour SQL Server.</td></tr>
 
 <tr><td>DataSourceLocation</td><td></td><td></td><td></td></tr>
-<tr><td></td><td>protocol</td><td>chaîne</td><td>Requis. Décrit le protocole utilisé pour communiquer avec la source de données. Par exemple : « tds » pour SQl Server, « oracle » pour Oracle, etc. Reportez-vous à <a href="https://docs.microsoft.com/azure/data-catalog/data-catalog-dsr">Spécification de référence de la source de données - Structure DSL</a> pour obtenir la liste des protocoles actuellement pris en charge.</td></tr>
+<tr><td></td><td>protocol</td><td>string</td><td>Requis. Décrit le protocole utilisé pour communiquer avec la source de données. Par exemple : « tds » pour SQl Server, « oracle » pour Oracle, etc. Reportez-vous à <a href="https://docs.microsoft.com/azure/data-catalog/data-catalog-dsr">Spécification de référence de la source de données - Structure DSL</a> pour obtenir la liste des protocoles actuellement pris en charge.</td></tr>
 <tr><td></td><td>address</td><td>Dictionnaire&lt;chaîne, objet&gt;</td><td>Requis. Cette propriété est un jeu de données propre au protocole qui sert à identifier la source de données référencée. Les données d’adresse sont limitées à un protocole particulier, ce qui signifie qu’elles n’ont aucun sens si le protocole n’est pas connu.</td></tr>
-<tr><td></td><td>Authentification</td><td>chaîne</td><td>facultatif. Schéma d’authentification utilisé pour communiquer avec la source de données. Par exemple : windows, oauth, etc.</td></tr>
+<tr><td></td><td>Authentification</td><td>string</td><td>facultatif. Schéma d’authentification utilisé pour communiquer avec la source de données. Par exemple : windows, oauth, etc.</td></tr>
 <tr><td></td><td>connectionProperties</td><td>Dictionnaire&lt;chaîne, objet&gt;</td><td>facultatif. Informations supplémentaires sur la façon de se connecter à une source de données.</td></tr>
 
 <tr><td>SecurityPrincipal</td><td></td><td></td><td>Le serveur principal n’effectue aucune validation des propriétés fournies par rapport à AAD pendant la publication.</td></tr>
-<tr><td></td><td>upn</td><td>chaîne</td><td>Adresse de messagerie unique de l'utilisateur. Doit être spécifié si objectId n’est pas fourni ou figure dans le contexte de la propriété « lastRegisteredBy » ; sinon, facultatif.</td></tr>
+<tr><td></td><td>upn</td><td>string</td><td>Adresse de messagerie unique de l'utilisateur. Doit être spécifié si objectId n’est pas fourni ou figure dans le contexte de la propriété « lastRegisteredBy » ; sinon, facultatif.</td></tr>
 <tr><td></td><td>objectId</td><td>Guid</td><td>Identité AAD du groupe d’utilisateurs ou de sécurité. facultatif. Doit être spécifié si UPN n’est pas fourni ; sinon, facultatif.</td></tr>
-<tr><td></td><td>firstName</td><td>chaîne</td><td>Prénom de l'utilisateur (à des fins d'affichage). facultatif. Valide uniquement dans le contexte de la propriété « lastRegisteredBy ». Ne peut pas être spécifié lors de la fourniture du principal de sécurité pour « roles », « permissions » et « experts ».</td></tr>
-<tr><td></td><td>lastName</td><td>chaîne</td><td>Nom de l'utilisateur (à des fins d'affichage). facultatif. Valide uniquement dans le contexte de la propriété « lastRegisteredBy ». Ne peut pas être spécifié lors de la fourniture du principal de sécurité pour « roles », « permissions » et « experts ».</td></tr>
+<tr><td></td><td>firstName</td><td>string</td><td>Prénom de l'utilisateur (à des fins d'affichage). facultatif. Valide uniquement dans le contexte de la propriété « lastRegisteredBy ». Ne peut pas être spécifié lors de la fourniture du principal de sécurité pour « roles », « permissions » et « experts ».</td></tr>
+<tr><td></td><td>lastName</td><td>string</td><td>Nom de l'utilisateur (à des fins d'affichage). facultatif. Valide uniquement dans le contexte de la propriété « lastRegisteredBy ». Ne peut pas être spécifié lors de la fourniture du principal de sécurité pour « roles », « permissions » et « experts ».</td></tr>
 
 <tr><td>Colonne</td><td></td><td></td><td></td></tr>
-<tr><td></td><td>Nom</td><td>chaîne</td><td>Nom de la colonne ou de l'attribut.</td></tr>
-<tr><td></td><td>Type</td><td>chaîne</td><td>type de données de la colonne ou de l'attribut. Les types autorisés dépendent du sourceType de données de la ressource.  Seul un sous-ensemble des types est pris en charge.</td></tr>
+<tr><td></td><td>Nom</td><td>string</td><td>Nom de la colonne ou de l'attribut.</td></tr>
+<tr><td></td><td>Type</td><td>string</td><td>type de données de la colonne ou de l'attribut. Les types autorisés dépendent du sourceType de données de la ressource.  Seul un sous-ensemble des types est pris en charge.</td></tr>
 <tr><td></td><td>maxLength</td><td>int</td><td>La longueur maximale autorisée pour la colonne ou l'attribut. Dérivé de la source de données. Applicable uniquement à certains types de sources.</td></tr>
 <tr><td></td><td>precision</td><td>byte</td><td>La précision de la colonne ou de l'attribut. Dérivé de la source de données. Applicable uniquement à certains types de sources.</td></tr>
 <tr><td></td><td>isNullable</td><td>Boolean</td><td>Si la colonne est autorisée à avoir une valeur null ou non. Dérivé de la source de données. Applicable uniquement à certains types de sources.</td></tr>
-<tr><td></td><td>expression</td><td>chaîne</td><td>Si la valeur est une colonne calculée, ce champ contient l’expression qui exprime la valeur. Dérivé de la source de données. Applicable uniquement à certains types de sources.</td></tr>
+<tr><td></td><td>expression</td><td>string</td><td>Si la valeur est une colonne calculée, ce champ contient l’expression qui exprime la valeur. Dérivé de la source de données. Applicable uniquement à certains types de sources.</td></tr>
 
 <tr><td>ColumnDataProfile</td><td></td><td></td><td></td></tr>
-<tr><td></td><td>columnName </td><td>chaîne</td><td>Nom de la colonne</td></tr>
-<tr><td></td><td>Type </td><td>chaîne</td><td>Type de la colonne</td></tr>
-<tr><td></td><td>min </td><td>chaîne</td><td>Valeur minimale dans le jeu de données</td></tr>
-<tr><td></td><td>max </td><td>chaîne</td><td>Valeur maximale dans le jeu de données</td></tr>
+<tr><td></td><td>columnName </td><td>string</td><td>Nom de la colonne</td></tr>
+<tr><td></td><td>Type </td><td>string</td><td>Type de la colonne</td></tr>
+<tr><td></td><td>min </td><td>string</td><td>Valeur minimale dans le jeu de données</td></tr>
+<tr><td></td><td>max </td><td>string</td><td>Valeur maximale dans le jeu de données</td></tr>
 <tr><td></td><td>avg </td><td>double</td><td>Valeur moyenne dans le jeu de données</td></tr>
 <tr><td></td><td>stdev </td><td>double</td><td>Écart type pour le jeu de données</td></tr>
 <tr><td></td><td>nullCount </td><td>int</td><td>Nombre de valeurs null dans le jeu de données</td></tr>
@@ -216,19 +214,19 @@ L’ensemble des protocoles pris en charge peut être étendu par programmation 
 <tr><td><b>Type</b></td><td><b>Propriétés</b></td><td><b>Type de données</b></td><td><b>Commentaires</b></td></tr>
 
 <tr><td>DataSourceProtocol</td><td></td><td></td><td></td></tr>
-<tr><td></td><td>namespace</td><td>chaîne</td><td>Espace de noms du protocole. L’espace de noms doit se composer de 1 à 255 caractères, contenir une ou plusieurs parties non vides séparées par un point (.). Chaque partie doit se composer de 1 à 255 caractères, commencer par une lettre et contenir uniquement des chiffres et des lettres.</td></tr>
-<tr><td></td><td>Nom</td><td>chaîne</td><td>Nom du protocole. Le nom doit se composer de 1 à 255 caractères, commencer par une lettre et contenir uniquement des chiffres, des lettres et des tirets (-).</td></tr>
+<tr><td></td><td>namespace</td><td>string</td><td>Espace de noms du protocole. L’espace de noms doit se composer de 1 à 255 caractères, contenir une ou plusieurs parties non vides séparées par un point (.). Chaque partie doit se composer de 1 à 255 caractères, commencer par une lettre et contenir uniquement des chiffres et des lettres.</td></tr>
+<tr><td></td><td>Nom</td><td>string</td><td>Nom du protocole. Le nom doit se composer de 1 à 255 caractères, commencer par une lettre et contenir uniquement des chiffres, des lettres et des tirets (-).</td></tr>
 <tr><td></td><td>identityProperties</td><td>DataSourceProtocolIdentityProperty[]</td><td>Liste des propriétés d’identité ; doit contenir au moins une propriété, mais pas plus de 20. Par exemple : « server », « database », « schema », « object » sont des propriétés d’identité du protocole « tds ».</td></tr>
 <tr><td></td><td>identitySets</td><td>DataSourceProtocolIdentitySet[]</td><td>Liste de jeux d’identité. Définit des ensembles de propriétés d’identité qui représentent l’identité valide d’une ressource. Doit contenir au moins un jeu, mais pas plus de 20. Par exemple : {« server », « database », « schema » et « object »} est un jeu d’identité pour le protocole « tds », qui définit l’identité d’une ressource de table SQL Server.</td></tr>
 
 <tr><td>DataSourceProtocolIdentityProperty</td><td></td><td></td><td></td></tr>
-<tr><td></td><td>Nom</td><td>chaîne</td><td>Nom de la propriété. Le nom doit se composer de 1 à 100 caractères, commencer par une lettre et ne peut contenir que des chiffres et des lettres.</td></tr>
-<tr><td></td><td>Type</td><td>chaîne</td><td>Type de la propriété. Les valeurs prises en charge sont les suivantes : « bool, « boolean », « byte », « guid », « int », « integer », « long », « string », « url »</td></tr>
+<tr><td></td><td>Nom</td><td>string</td><td>Nom de la propriété. Le nom doit se composer de 1 à 100 caractères, commencer par une lettre et ne peut contenir que des chiffres et des lettres.</td></tr>
+<tr><td></td><td>Type</td><td>string</td><td>Type de la propriété. Les valeurs prises en charge sont les suivantes : « bool, « boolean », « byte », « guid », « int », « integer », « long », « string », « url »</td></tr>
 <tr><td></td><td>ignoreCase</td><td>bool</td><td>Indique si la casse doit être ignorée lors de l’utilisation de valeur de la propriété. Ne peut être spécifié que pour les propriétés de type « string ». La valeur par défaut est false.</td></tr>
 <tr><td></td><td>urlPathSegmentsIgnoreCase</td><td>bool[]</td><td>Indique si la casse doit être ignorée pour chaque segment du chemin de l’URL. Ne peut être spécifié que pour les propriétés de type « url ». La valeur par défaut est [false].</td></tr>
 
 <tr><td>DataSourceProtocolIdentitySet</td><td></td><td></td><td></td></tr>
-<tr><td></td><td>Nom</td><td>chaîne</td><td>Nom du jeu d’identité.</td></tr>
+<tr><td></td><td>Nom</td><td>string</td><td>Nom du jeu d’identité.</td></tr>
 <tr><td></td><td>properties</td><td>string[]</td><td>Liste des propriétés d’identité incluses dans ce jeu d’identité. Elle ne peut pas contenir de doublons. Chaque propriété référencée par un jeu d’identité doit être définie dans la liste « identityProperties » du protocole.</td></tr>
 
 </table>

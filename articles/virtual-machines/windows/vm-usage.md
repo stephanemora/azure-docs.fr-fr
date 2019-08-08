@@ -8,19 +8,19 @@ manager: gwallace
 editor: ''
 tags: azure-virtual-machine
 ms.assetid: ''
-ms.service: ''
+ms.service: virtual-machines
 ms.devlang: ''
 ms.topic: article
 ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
 ms.date: 12/04/2017
 ms.author: memccror
-ms.openlocfilehash: 4cd0f27ebfeb25724bab50069344b417f62d5f50
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 303bf41d943267c42c1311d185a4ff65baf5178f
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67707896"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68834614"
 ---
 # <a name="understanding-azure-virtual-machine-usage"></a>Présentation de l’utilisation des machines virtuelles Azure
 L’analyse de vos données d’utilisation Azure vous permet d’en savoir plus sur votre consommation, et ainsi d’optimiser la gestion et l’allocation des coûts au sein de votre organisation. Ce document offre une immersion dans les détails de votre consommation de Calcul Azure. Pour plus d’informations sur l’utilisation générale d’Azure, consultez [Présentation de votre facture](../../billing/billing-understand-your-bill.md).
@@ -82,7 +82,7 @@ Le nom de la région renseigné dans le champ Emplacement de la ressource dans l
 |    chinaeast             |    Chine orientale                            |
 |    chinanorth            |    Chine du Nord                           |
 |    eastasia              |    Asie Est                             |
-|    eastus                |    USA Est                               |
+|    eastus                |    East US                               |
 |    eastus2               |    USA Est 2                             |
 |    GermanyCentral        |    Allemagne - Centre                            |
 |    GermanyNortheast      |    Allemagne - Nord-Est                          |

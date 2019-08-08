@@ -4,15 +4,15 @@ description: Cet article fournit quelques exemples pour vous aider à mieux comp
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/21/2019
+ms.date: 08/01/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: d30cd92456218284326263d7bd3c9c7820fa435c
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: f800560aa4ddef52c2274fa8b3f5c98d68189f0f
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67621289"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68717516"
 ---
 # <a name="understand-your-azure-cosmos-db-bill"></a>Compréhension de vos factures Azure Cosmos DB
 
@@ -238,7 +238,7 @@ Votre facture totale (sans capacité réservée) serait (en supposant une durée
 
 |**Région**| **Tarif horaire pour 100 RU/s**|**Unités (RU/s)**|**Montant facturé (horaire)**| **Montant facturé (mensuel)**|
 |----|----|----|----|----|
-|USA Est|0,008 $ |50 000|4 $|2 880 $ |
+|East US|0,008 $ |50 000|4 $|2 880 $ |
 |Japon Est|0,009 $ |50 000| 4,50 $ |3 240 $ |
 |Total|||8,50 $|6 120 $ |
 
@@ -252,7 +252,7 @@ Vous avez réalité acheté un crédit de 8 $ par heure, pour 100 000 RU/s, au p
 
 |**Région**| **Tarif horaire pour 100 RU/s**|**Unités (RU/s)**| **Montant facturé (horaire)**| **Montant facturé (mensuel)**|
 |----|----|----|----|----|
-|USA Est|0,008 $ |50 000|4 $|2 880 $ |
+|East US|0,008 $ |50 000|4 $|2 880 $ |
 |Japon Est|0,009 $ |50 000| 4,50 $ |3 240 $ |
 |||Paiement à l’utilisation|8,50 $|6 120 $|
 |Capacité de réserve achetée|0,0064 $ (remise de 20 %) |100 RU/s ou 8 $ de capacité de réserve pré-achetée |-8 $|-5 760 $ |

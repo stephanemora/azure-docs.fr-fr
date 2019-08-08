@@ -1,19 +1,18 @@
 ---
 title: Exemples Azure CLI pour le stockage Blob | Microsoft Docs
 description: Exemples Azure CLI pour utiliser le stockage Blob Azure
-services: storage
 author: mhopkins-msft
-ms.custom: mvc
-ms.service: storage
-ms.topic: sample
-ms.date: 06/13/2017
 ms.author: mhopkins
-ms.openlocfilehash: 76018cd0945feef0158484f2b9442cfa946ef119
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.date: 06/13/2017
+ms.service: storage
+ms.subservice: blobs
+ms.topic: sample
+ms.openlocfilehash: 345710e1ade459d49602c18820d47826141e6f81
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65154051"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68721950"
 ---
 # <a name="azure-cli-samples-for-azure-blob-storage"></a>Exemples Azure CLI pour le stockage Blob Azure
 

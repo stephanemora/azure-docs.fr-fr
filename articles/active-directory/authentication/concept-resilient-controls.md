@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/19/2018
 ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 831ba47ea4e999219a6d8cf34cb5fb0fdcd1ead8
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: c9be48d8f403d3ddde993ebdcf0142b55e52afce
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67594956"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779676"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Créer une stratégie de gestion du contrôle d'accès résiliente avec Azure Active Directory
 
@@ -210,7 +210,7 @@ Le verrouillage des utilisateurs peut également se produire si les conditions s
 - Votre organisation utilise une solution d'identité hybride avec authentification directe ou fédération.
 - Vos systèmes d'identité locaux (tels qu'Active Directory, AD FS ou un composant dépendant) ne sont pas disponibles. 
  
-Pour être plus résiliente, votre organisation doit [activer la synchronisation du hachage de mot de passe](https://docs.microsoft.com/azure/security/azure-ad-choose-authn), car celle-ci permet d'[utiliser la synchronisation du hachage de mot de passe](https://docs.microsoft.com/azure/active-directory/hybrid/plan-connect-user-signin) si les systèmes d'identité locaux sont en panne.
+Pour être plus résiliente, votre organisation doit [activer la synchronisation du hachage de mot de passe](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn), car celle-ci permet d'[utiliser la synchronisation du hachage de mot de passe](https://docs.microsoft.com/azure/active-directory/hybrid/plan-connect-user-signin) si les systèmes d'identité locaux sont en panne.
 
 #### <a name="microsoft-recommendations"></a>Recommandations de Microsoft
  Que votre organisation utilise la fédération ou l'authentification directe, activez la synchronisation du hachage de mot de passe à l'aide de l'Assistant Azure AD Connect.

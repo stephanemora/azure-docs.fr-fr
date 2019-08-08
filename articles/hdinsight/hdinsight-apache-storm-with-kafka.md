@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 06/25/2019
-ms.openlocfilehash: 53a46c6137c3336c405eb62dc7b254ac26c13d9e
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: 181d052501b9c418fad10a2069dde928a7ff9f38
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68405999"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840241"
 ---
 # <a name="tutorial-use-apache-storm-with-apache-kafka-on-hdinsight"></a>Didacticiel : Utiliser Apache Storm avec Apache Kafka sur HDInsight
 
@@ -130,7 +130,7 @@ Deux topologies sont fournies avec ce didacticiel :
     >
     > L’action de script se trouve dans [https://hdiconfigactions.blob.core.windows.net/linuxstormextlibv01/stormextlib.sh](https://hdiconfigactions.blob.core.windows.net/linuxstormextlibv01/stormextlib.sh) et elle est appliquée aux nœuds de superviseur et Nimbus du cluster. Pour plus d’informations sur l’utilisation des actions de script, consultez le document [Personnaliser des clusters HDInsight à l’aide d’actions de script](hdinsight-hadoop-customize-cluster-linux.md).
 
-Les topologies sont définies à l’aide de [Flux](https://storm.apache.org/releases/1.1.2/flux.html). Flux a été introduit dans Storm 0.10.x et vous permet de séparer la configuration de topologie du code. Pour les topologies qui utilisent l’infrastructure Flux, la topologie est définie dans un fichier YAML. Le fichier YAML peut être inclus dans le cadre de la topologie. Il peut également s’agir d’un fichier autonome utilisé lorsque vous envoyez la topologie. Flux prend également en charge la substitution des variables au moment de l’exécution, ce qui est utilisé dans cet exemple.
+Les topologies sont définies à l’aide de [Flux](https://storm.apache.org/releases/current/flux.html). Flux a été introduit dans Storm 0.10.x et vous permet de séparer la configuration de topologie du code. Pour les topologies qui utilisent l’infrastructure Flux, la topologie est définie dans un fichier YAML. Le fichier YAML peut être inclus dans le cadre de la topologie. Il peut également s’agir d’un fichier autonome utilisé lorsque vous envoyez la topologie. Flux prend également en charge la substitution des variables au moment de l’exécution, ce qui est utilisé dans cet exemple.
 
 Les paramètres suivants sont définis au moment de l’exécution pour les topologies suivantes :
 
@@ -144,7 +144,7 @@ Les paramètres suivants sont définis au moment de l’exécution pour les topo
 
 * `${hdfs.write.dir}`: répertoire dans lequel les données sont écrites.
 
-Pour plus d’informations sur les topologies des flux, consultez [https://storm.apache.org/releases/1.1.2/flux.html](https://storm.apache.org/releases/1.1.2/flux.html).
+Pour plus d’informations sur les topologies des flux, consultez [https://storm.apache.org/releases/current/flux.html](https://storm.apache.org/releases/current/flux.html).
 
 ### <a name="kafka-writer"></a>Kafka-writer
 
@@ -471,7 +471,9 @@ Pour créer un réseau virtuel Azure puis les clusters Kafka et Storm qu’il co
 
     Les informations renvoyées sont similaire au texte suivant :
 
+        ```output
         wn0-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:9092,wn1-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:9092
+        ```
 
     > [!IMPORTANT]  
     > Votre cluster pouvant disposer de plus de deux hôtes de répartiteur, il n’est pas nécessaire de fournir une liste complète des hôtes aux clients. Un ou deux sont suffisants.

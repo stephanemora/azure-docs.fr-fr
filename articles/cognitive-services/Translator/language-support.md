@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/04/2019
 ms.author: swmachan
-ms.openlocfilehash: 14ab1988f28de214036fa80fa36a4006a3359f30
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 6ab500fe6a7f288bcfbdc9168ada8bdad5bdb6ea
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67435880"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68772945"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>Langues et régions prises en charge par l’API de traduction de texte Translator Text
 
@@ -60,7 +60,7 @@ L’**API Translator V3** est neurale par défaut et les systèmes statistiques
 |Fidjien|    `fj`    |Statistique uniquement|  Statistique|
 |Filipino|  `fil`   |Statistique uniquement|  Statistique|
 |Finnois|   `fi`    |Neural disponible|  Neuronale|
-|Anglais|    `fr`    |Neural disponible|  Neuronale|
+|Français|    `fr`    |Neural disponible|  Neuronale|
 |Allemand|    `de`    |Neural disponible|  Neuronale|
 |Grec| `el`    |Neural disponible|  Neuronale|
 |Créole haïtien|    `ht`    |Statistique uniquement   |Statistique|
@@ -82,7 +82,7 @@ L’**API Translator V3** est neurale par défaut et les systèmes statistiques
 |Malais| `ms`    |Statistique uniquement   |Statistique|
 |Maltais|   `mt`    |Statistique uniquement|  Statistique|
 |Norvégien| `nb`    |Neural disponible|  Neuronale|
-|Persan|   `fa`    |Statistique uniquement|  Statistique|
+|Persan|   `fa`    |Neural disponible|  Neuronale|
 |Polonais|    `pl`    |Neural disponible|  Neuronale|
 |Portugais|    `pt`    |Neural disponible|  Neuronale|
 |Queretaro Otomi|   `otq`   |Statistique uniquement|  Statistique|
@@ -153,7 +153,7 @@ Le dictionnaire prend en charge les langues ci-après de ou vers l’anglais à 
 | Néerlandais      | `nl`          |
 | Estonien      | `et`          |
 | Finnois      | `fi`          |
-| Anglais      | `fr`          |
+| Français      | `fr`          |
 | Allemand      | `de`          |
 | Grec      | `el`          |
 | Créole haïtien      | `ht`          |
@@ -221,7 +221,7 @@ Les langues suivantes sont disponibles pour la personnalisation vers ou depuis l
 | Anglais    | `en`     |
 | Estonien      | `et`          |
 | Finnois      | `fi`          |
-| Anglais      | `fr`          |
+| Français      | `fr`          |
 | Allemand      | `de`          |
 | Grec      | `el`          |
 | Hébreu      | `he`          |

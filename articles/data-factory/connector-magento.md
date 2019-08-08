@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: cecdb9f9af9c5194eb56cfefd63b31348f111980
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 424a2c28176813abc10011c030971047ea50e3da
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61400728"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68726125"
 ---
 # <a name="copy-data-from-magento-using-azure-data-factory-preview"></a>Copier des données de Magento avec Azure Data Factory (préversion)
 
@@ -80,7 +80,7 @@ Pour copier des données de Magento, affectez la valeur **MagentoObject** à la 
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type du jeu de données doit être définie sur : **MagentoObject** | OUI |
+| type | La propriété type du jeu de données doit être définie sur : **MagentoObject** | OUI |
 | tableName | Nom de la table. | Non (si « query » dans la source de l’activité est spécifié) |
 
 **Exemple**
@@ -90,11 +90,12 @@ Pour copier des données de Magento, affectez la valeur **MagentoObject** à la 
     "name": "MagentoDataset",
     "properties": {
         "type": "MagentoObject",
+        "typeProperties": {},
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<Magento linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {}
+        }
     }
 }
 ```
@@ -109,7 +110,7 @@ Pour copier des données de Magento, affectez la valeur **MagentoSource** au typ
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type de la source d’activité de copie doit être définie sur : **MagentoSource** | OUI |
+| type | La propriété type de la source d’activité de copie doit être définie sur : **MagentoSource** | OUI |
 | query | Utiliser la requête SQL personnalisée pour lire les données. Par exemple : `"SELECT * FROM Customers"`. | Non (si « tableName » est spécifié dans dataset) |
 
 **Exemple :**

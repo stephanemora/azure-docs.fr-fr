@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 05/02/2018
 ms.author: jomolesk
-ms.openlocfilehash: fa10ff14bf893c268d6b6b1a0d181d11a3f27dc4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 61f0b42731f98dc772a588e5840af6e8535af118
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60586297"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68781090"
 ---
 # <a name="azure-security-and-compliance-blueprint-analytics-for-fedramp"></a>Blueprint de sécurité et de conformité Azure : Analytique pour FedRAMP
 
@@ -156,7 +156,7 @@ Cette solution PaaS n’intègre pas toutes les machines virtuelles Azure IaaS. 
 -   [Change Tracking](https://docs.microsoft.com/azure/automation/automation-change-tracking) : cette solution de suivi des modifications permet aux clients d’identifier facilement des modifications dans l’environnement.
 
 ##### <a name="security"></a>Sécurité
-- **Protection contre les programmes malveillants** : [Microsoft Antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware) pour Machines Virtuelles fournit une protection en temps réel qui permet d’identifier et de supprimer les virus, les logiciels espions et autres logiciels malveillants grâce à des alertes configurables vous avertissant quand des logiciels malveillants ou indésirables connus tentent de s’installer ou de s’exécuter sur des machines virtuelles protégées.
+- **Protection contre les programmes malveillants** : [Microsoft Antimalware](https://docs.microsoft.com/azure/security/fundamentals/antimalware) pour Machines Virtuelles fournit une protection en temps réel qui permet d’identifier et de supprimer les virus, les logiciels espions et autres logiciels malveillants grâce à des alertes configurables vous avertissant quand des logiciels malveillants ou indésirables connus tentent de s’installer ou de s’exécuter sur des machines virtuelles protégées.
 - **Gestion des correctifs** : les machines virtuelles Windows déployées dans le cadre de cette architecture de référence sont configurées par défaut pour recevoir des mises à jour automatiques du service Windows Update. Cette solution inclut également le service [Azure Automation](https://docs.microsoft.com/azure/automation/automation-intro) qui permet de créer des déploiements mis à jour pour corriger des machines virtuelles si nécessaire.
 
 #### <a name="azure-commercial"></a>Azure Commercial

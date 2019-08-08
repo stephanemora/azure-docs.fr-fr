@@ -16,12 +16,12 @@ ms.date: 04/15/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd41bdfb90e5e8428a747832c10fe23a2cac4560
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6c7199cd8e5dbde1f6ff2f5cea56a4191211c853
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67109399"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779080"
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Authentification directe Azure Active Directory : Questions fréquentes (FAQ)
 
@@ -29,7 +29,7 @@ Cet article présente les réponses aux questions fréquemment posées sur l’a
 
 ## <a name="which-of-the-methods-to-sign-in-to-azure-ad-pass-through-authentication-password-hash-synchronization-and-active-directory-federation-services-ad-fs-should-i-choose"></a>Parmi les nouvelles méthodes de connexion Azure AD - authentification directe, synchronisation de hachage de mot de passe et services de fédération Active Directory (AD FS) - laquelle dois-je choisir ?
 
-Consultez [ce guide](https://docs.microsoft.com/azure/security/azure-ad-choose-authn) pour voir une comparaison entre les différentes méthodes de connexion Azure AD, et savoir comment choisir la méthode de connexion appropriée pour votre organisation.
+Consultez [ce guide](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn) pour voir une comparaison entre les différentes méthodes de connexion Azure AD, et savoir comment choisir la méthode de connexion appropriée pour votre organisation.
 
 ## <a name="is-pass-through-authentication-a-free-feature"></a>L’authentification directe est-elle une fonctionnalité gratuite ?
 

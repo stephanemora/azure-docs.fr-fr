@@ -10,12 +10,13 @@ ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
-ms.openlocfilehash: b679f1da0ada3e61fca79cdb985a43dc445877ce
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ROBOTS: NOINDEX
+ms.openlocfilehash: d960aff109e0eca70cb87463770620093e563f63
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61338450"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68706673"
 ---
 # <a name="interpret-method"></a>Méthode Interpret
 

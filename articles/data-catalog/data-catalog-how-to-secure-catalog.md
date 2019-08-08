@@ -1,18 +1,17 @@
 ---
 title: Guide pratique pour sécuriser l’accès à Azure Data Catalog
 description: Cet article explique comment sécuriser le catalogue de données et ses ressources de données.
-services: data-catalog
 author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
-ms.date: 01/18/2018
-ms.openlocfilehash: 6c09b509399647f4cacbc96427200da5a1b00ac9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 08/01/2019
+ms.openlocfilehash: c6c99eb62ba628ffc8c84799a6729540b572c580
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61000754"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736396"
 ---
 # <a name="how-to-secure-access-to-data-catalog-and-data-assets"></a>Guide pratique pour sécuriser l’accès à un catalogue de données et des ressources de données
 > [!IMPORTANT]

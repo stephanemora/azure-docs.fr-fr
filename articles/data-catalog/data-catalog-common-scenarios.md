@@ -1,19 +1,17 @@
 ---
 title: Scénarios courants avec Azure Data Catalog
 description: Vue d’ensemble des scénarios courants pour Azure Data Catalog, notamment l’inscription et la découverte des sources de données de grande valeur, l’activation du décisionnel libre-service et la capture de connaissances existantes sur les sources de données et les processus.
-services: data-catalog
 author: JasonWHowell
 ms.author: jasonh
-ms.assetid: 60930d78-d2d4-4d5d-9651-bdda50b0da0e
 ms.service: data-catalog
 ms.topic: conceptual
-ms.date: 01/18/2018
-ms.openlocfilehash: e95cc64b9086a6fb4c5e2d42521a5fd3f44244ba
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 08/01/2019
+ms.openlocfilehash: aeae505b510f563a6640726c384ea358983eb24f
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61003954"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736455"
 ---
 # <a name="azure-data-catalog-common-scenarios"></a>Scénarios courants avec Azure Data Catalog
 Cet article présente des scénarios courants dans lesquels Azure Data Catalog peut aider votre organisation à mieux exploiter ses sources de données existantes.

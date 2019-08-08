@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/24/2019
 ms.author: manayar
 ms.custom: na
-ms.openlocfilehash: 0674d8c98f4bf37bbf9417de60ff4c60910d802a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 429e201ba1d15103ae130ee2fb767cd1b4fa909a
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66258282"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779424"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>FAQ sur les groupes de machines virtuelles identiques Azure
 
@@ -174,7 +174,7 @@ Pour obtenir l’exemple le plus récent, utilisez l’instruction Azure CLI sui
 az sf cluster create -h
 ```
 
-Vous ne pouvez pas utiliser de certificats auto-signés pour une approbation distribuée fournie par une autorité de certification. Vous ne pouvez pas non plus les utiliser avec un cluster Service Fabric destiné à héberger des solutions de production d’entreprise. Pour obtenir de l’aide supplémentaire sur la sécurité dans Service Fabric, passez en revue [Bonnes pratiques pour la sécurité Azure Service Fabric](https://docs.microsoft.com/azure/security/azure-service-fabric-security-best-practices) et [Scénarios de sécurité d’un cluster Service Fabric](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security/).
+Vous ne pouvez pas utiliser de certificats auto-signés pour une approbation distribuée fournie par une autorité de certification. Vous ne pouvez pas non plus les utiliser avec un cluster Service Fabric destiné à héberger des solutions de production d’entreprise. Pour obtenir de l’aide supplémentaire sur la sécurité dans Service Fabric, passez en revue [Bonnes pratiques pour la sécurité Azure Service Fabric](https://docs.microsoft.com/azure/security/fundamentals/service-fabric-best-practices) et [Scénarios de sécurité d’un cluster Service Fabric](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security/).
 
 ### <a name="can-i-specify-an-ssh-key-pair-to-use-for-ssh-authentication-with-a-linux-virtual-machine-scale-set-from-a-resource-manager-template"></a>Puis-je spécifier une paire de clés SSH à utiliser pour l’authentification SSH avec un groupe de machines virtuelles identiques Linux à partir d’un modèle Resource Manager ?
 

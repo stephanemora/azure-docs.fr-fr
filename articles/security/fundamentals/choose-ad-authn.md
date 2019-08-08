@@ -1,20 +1,20 @@
 ---
 title: Choisir la méthode d’authentification adaptée à votre solution d’identité hybride Azure AD | Microsoft Docs
 description: Ce guide s’adresse aux directeurs d’entreprise, directeurs des systèmes d’information, responsables de la sécurité des systèmes d’information, architectes en chef de la gestion des identités, architectes d’entreprise et autres décideurs dans les domaines de la sécurité et de l’informatique en charge de choisir une méthode d’authentification pour leur solution d’identité hybride Azure AD, dans les moyennes et grandes entreprises.
-services: active-directory
 keywords: ''
 author: martincoetzer
 ms.author: martinco
 ms.date: 04/12/2018
 ms.topic: article
-ms.service: active-directory
+ms.service: security
+ms.subservice: security-fundamentals
 ms.workload: identity
-ms.openlocfilehash: 8b096720bd1f3c4d29b0077a00f887df854cc0af
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: e1910348b53cf147530037283442f453edf2694f
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68611132"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68727546"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Choisir la méthode d’authentification adaptée à votre solution d’identité hybride Azure Active Directory 
 

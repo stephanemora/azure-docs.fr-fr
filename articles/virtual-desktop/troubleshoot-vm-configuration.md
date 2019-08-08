@@ -2,17 +2,17 @@
 title: Création d’un pool de locataires et d'hôtes dans Windows Virtual Desktop - Azure
 description: Comment résoudre les problèmes lorsque vous configurez un locataire et une machine virtuelle hôte de session dans un environnement Windows Virtual Desktop ?
 services: virtual-desktop
-author: ChJenk
+author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 07/10/2019
-ms.author: v-chjenk
-ms.openlocfilehash: 96a9d8fc7495ea473b0a3250b34251afc5f30c13
-ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
+ms.author: helohr
+ms.openlocfilehash: 4e5c5f14042f7059f3d802a5e72cbf5c6a126614
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67786710"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68816342"
 ---
 # <a name="tenant-and-host-pool-creation"></a>Création d’un pool de locataires et d’hôtes
 
@@ -193,7 +193,7 @@ Examinez les entrées de registre répertoriées ci-dessous et vérifiez que leu
     Server\ClusterSettings\"SessionDirectoryListener":rdp-sxs
 ```
 
-### <a name="error-oreverseconnectstackfailure"></a>Error: O_REVERSE_CONNECT_STACK_FAILURE
+### <a name="error-o_reverse_connect_stack_failure"></a>Error: O_REVERSE_CONNECT_STACK_FAILURE
 
 ![Code d'erreur O_REVERSE_CONNECT_STACK_FAILURE.](media/23b8e5f525bb4e24494ab7f159fa6b62.png)
 
@@ -300,7 +300,7 @@ Nous nous penchons actuellement sur les problèmes d’expiration de délai d’
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Pour découvrir une vue d’ensemble de la résolution des problèmes Windows Virtual Desktop et des procédures d’escalade, consultez l’article [Vue d’ensemble du dépannage, commentaires et support](troubleshoot-set-up-overview.md).
-- Pour détecter les problèmes de création d’un pool de locataires et d'hôtes dans un environnement Windows Virtual Desktop, consultez [Création d’un pool de locataires et d’hôtes](troubleshoot-set-up-issues.md).
+- Pour détecter les problèmes de création d’un pool de locataires et d’hôtes dans un environnement Windows Virtual Desktop, consultez [Création d’un pool de locataires et d’hôtes](troubleshoot-set-up-issues.md).
 - Pour détecter les problèmes de configuration d’une machine virtuelle dans Windows Virtual Desktop, consultez l’article [Configuration d’une machine virtuelle hôte de session](troubleshoot-vm-configuration.md).
 - Pour détecter les problèmes de connexion au client Windows Virtual Desktop, consultez l’article [Connexions au client Bureau à distance](troubleshoot-client-connection.md).
 - Pour détecter les problèmes d’utilisation de PowerShell avec Windows Virtual Desktop, consultez l’article [Windows Virtual Desktop PowerShell](troubleshoot-powershell.md).

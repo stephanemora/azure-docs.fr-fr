@@ -1,20 +1,20 @@
 ---
 title: Comprendre un monde sans mot de passe avec Azure Active Directory | Microsoft Docs
 description: Ce guide s’adresse aux directeurs d’entreprise, directeurs des systèmes d’information, responsables de la sécurité des systèmes d’information, architectes en chef de la gestion des identités, architectes d’entreprise et autres décideurs dans les domaines de la sécurité et de l’informatique en charge de choisir une méthode d’authentification sans mot de passe pour leurs implémentations Azure Active Directory.
-services: active-directory
 keywords: sans mot de passe, azure ad
 author: martincoetzer
 ms.author: martinco
 ms.date: 07/09/2019
 ms.topic: article
-ms.service: active-directory
+ms.service: security
+ms.subservice: security-fundamentals
 ms.workload: identity
-ms.openlocfilehash: 09a3c14734d86738a521cf765fcfac2880eee177
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: 30c2eb2964f11b729b0ffaf58c532d5189cdc2cd
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68611876"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68727774"
 ---
 # <a name="a-world-without-passwords-with-azure-active-directory"></a>Un monde sans mot de passe avec Azure Active Directory
 

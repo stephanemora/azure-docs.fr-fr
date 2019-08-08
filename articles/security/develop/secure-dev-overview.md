@@ -7,17 +7,18 @@ ms.author: terrylan
 ms.date: 06/11/2019
 ms.topic: article
 ms.service: security
+ms.subservice: security-develop
 services: azure
 ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: ee5c043038fbb747e90bca9530cbe2e94c8a95c2
-ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
+ms.openlocfilehash: 4df8ff8abfeb7a6ba96ec3344407e95e0a9a3b3d
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67144675"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68728716"
 ---
 # <a name="secure-development-best-practices-on-azure"></a>Bonnes pratiques du développement sécurisé sur Azure
 Cette série d’articles présente les activités et contrôles de sécurité à prendre en compte lorsque vous développez des applications pour le cloud. Les phases du Microsoft Security Development Lifecycle et les questions et concepts de sécurité à prendre en compte lors de chaque phase du cycle de vie y sont abordées. L’objectif est de vous aider à définir les activités et services Azure que vous pouvez utiliser lors de chaque phase du cycle de vie pour concevoir, développer et déployer une application plus sécurisée.

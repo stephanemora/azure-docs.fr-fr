@@ -14,16 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: 4888ea8473c50b8774add7a930612c585fc9cbde
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 19ccd44888d64967baf82568c1cbb2540f3b3f68
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67074344"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780337"
 ---
 # <a name="azure-service-fabric-security"></a>Sécurité de Microsoft Azure Service Fabric 
 
-Pour plus d’informations sur les [bonnes pratiques relatives à la sécurité d’Azure](https://docs.microsoft.com/azure/security/), passez en revue [Bonnes pratiques pour la sécurité Azure Service Fabric](https://docs.microsoft.com/azure/security/azure-service-fabric-security-best-practices)
+Pour plus d’informations sur les [bonnes pratiques relatives à la sécurité d’Azure](https://docs.microsoft.com/azure/security/), passez en revue [Bonnes pratiques pour la sécurité Azure Service Fabric](https://docs.microsoft.com/azure/security/fundamentals/service-fabric-best-practices)
 
 ## <a name="key-vault"></a>Key Vault
 

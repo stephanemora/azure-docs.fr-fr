@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 06/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: c28cf4326593897dcbc90902737fc4846356078d
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: 4f2a34e63a870814c8d2a3ffe24c60083c9d7bb2
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67653380"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68781104"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms-faq"></a>FAQ Azure Disk Encryption pour machines virtuelles IaaS
 
@@ -110,7 +110,7 @@ Le workflow suivant est recommandé pour obtenir les meilleurs résultats sur Li
 
 Si ce flux de travail n’est pas possible, s’appuyer sur le [Storage Service Encryption](../storage/common/storage-service-encryption.md) (SSE) au niveau de la couche du compte de stockage de la plateforme peut être une alternative au chiffrement de disque complet avec dm-crypt.
 
-## <a name="what-is-the-disk-bek-volume-or-mntazurebekdisk"></a>À quoi correspond le disque « volume Bek » ou « /mnt/azure_bek_disk » ?
+## <a name="what-is-the-disk-bek-volume-or-mntazure_bek_disk"></a>À quoi correspond le disque « volume Bek » ou « /mnt/azure_bek_disk » ?
 
 « volume Bek » pour Windows ou « /mnt/azure_bek_disk» pour Linux est un volume de données local qui stocke de façon sécurisée les clés de chiffrement pour les machines virtuelles Azure IaaS chiffrées.
 > [!NOTE]
@@ -140,4 +140,4 @@ Ce document vous a fourni les réponses aux questions les plus courantes concern
 
 - [Vue d’ensemble d’Azure Disk Encryption](azure-security-disk-encryption-overview.md)
 - [Appliquer le chiffrement de disque dans Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-apply-disk-encryption)
-- [Chiffrement des données au repos Azure](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest)
+- [Chiffrement des données au repos Azure](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest)

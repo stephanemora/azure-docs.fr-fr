@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: kumud
 ms.reviewer: tyao
-ms.openlocfilehash: 97a3d63f94ca7e60f57177703a98b60e3f6c42ec
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: e40e99aa57d10bd69143efc8db38ac0071d8952f
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67849184"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68827773"
 ---
 # <a name="how-to-set-up-a-geo-filtering-waf-policy-for-your-front-door"></a>Guide pratique pour configurer une stratégie WAF de filtrage géographique pour votre porte d’entrée
 Dans ce didacticiel, vous allez apprendre à utiliser Azure PowerShell pour créer un exemple de stratégie de filtrage géographique et à l’associer à votre hôte frontend Front Door existant. Cet exemple de stratégie de filtrage géographique bloquera les demandes de tous les autres pays/régions, à l’exception des États-Unis.
@@ -35,8 +35,8 @@ Vous pouvez installer [Azure PowerShell](https://docs.microsoft.com/powershell/a
 
 #### <a name="connect-to-azure-with-an-interactive-dialog-for-sign-in"></a>Se connecter à Azure avec une boîte de dialogue interactive
 ```
-Connect-AzAccount
 Install-Module -Name Az
+Connect-AzAccount
 ```
 Vérifiez que la version actuelle de PowerShellGet est installée. Exécutez la commande ci-dessous, puis rouvrez PowerShell.
 

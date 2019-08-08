@@ -1,20 +1,18 @@
 ---
 title: Guide pratique pour créer un objet blob dans Stockage Azure à l’aide de la bibliothèque de client pourNode.js v2
 description: Créez un compte de stockage et un conteneur dans un stockage d’objets (blob). Ensuite, utilisez la bibliothèque de client Stockage Azure pour Node.js v2 afin de charger un objet blob dans Stockage Azure, de télécharger un objet blob et de lister les objets blob dans un conteneur.
-services: storage
 author: mhopkins-msft
-ms.custom: mvc
-ms.service: storage
-ms.topic: conceptual
-ms.date: 02/04/2019
 ms.author: mhopkins
-ms.reviewer: seguler
-ms.openlocfilehash: 7ca1eacd1add7453833b4b9ad1d4bd0fbef13ca7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 02/04/2019
+ms.service: storage
+ms.subservice: blobs
+ms.topic: conceptual
+ms.openlocfilehash: 89dbd6cc9a03398427b157fa207adb898d3bfc56
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65149419"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68721972"
 ---
 # <a name="how-to-upload-download-and-list-blobs-using-the-client-library-for-nodejs-v2"></a>Guide pratique pour charger, télécharger et lister des objets blob à l’aide de la bibliothèque de client pour Node.js v2
 

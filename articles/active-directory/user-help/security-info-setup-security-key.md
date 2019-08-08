@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 07/18/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7193b994e5749965542746627ef3de2cfe090fa3
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 25ac894db42b2b5ee2612e2e3b2906bc2bffcc4c
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68561578"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68717381"
 ---
 # <a name="set-up-security-info-to-use-a-security-key-preview"></a>Configurer des informations de sécurité pour utiliser une clé de sécurité (préversion)
 
@@ -35,7 +35,7 @@ Nous prenons actuellement en charge plusieurs conceptions et fournisseurs de cl�
 Votre administrateur ou votre organisation vous fournit une clé de sécurité si elle en a besoin pour votre compte professionnel ou scolaire. Il existe différents types de clés de sécurité que vous pouvez utiliser, par exemple une clé USB que vous connectez à votre appareil ou une clé NFC que vous connectez à un lecteur NFC. Vous pouvez obtenir plus d’informations sur votre clé de sécurité, notamment son type, dans la documentation du fabricant.
 
 > [!Note]
-> Si vous ne parvenez pas à utiliser une clé de sécurité FIDO2, vous pouvez utiliser d’autres méthodes d’authentification par mot de passe, telles que l’application Microsoft Authenticator ou Windows Hello. Pour plus d’informations sur l’application Microsoft Authenticator, consultez [Qu’est-ce que l’application Microsoft Authenticator ?](https://docs.microsoft.com/azure/active-directory/user-help/user-help-auth-app-overview) Pour plus d’informations sur Windows Hello, consultez [Vue d’ensemble de Windows Hello](https://www.microsoft.com/windows/windows-hello).
+> Si vous ne parvenez pas à utiliser une clé de sécurité FIDO2, vous pouvez utiliser d’autres méthodes d’authentification par mot de passe, telles que l’application Microsoft Authenticator ou Windows Hello. Pour plus d’informations sur l’application Microsoft Authenticator, consultez [Qu’est-ce que l’application Microsoft Authenticator ?](user-help-auth-app-overview.md) Pour plus d’informations sur Windows Hello, consultez [Vue d’ensemble de Windows Hello](https://www.microsoft.com/windows/windows-hello).
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
@@ -150,7 +150,7 @@ Pour enregistrer une clé de sécurité, vous devez avoir au moins une méthode 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour plus d’informations sur les méthodes d’authentification par mot de passe, consultez le billet de blog [Microsoft’s Azure AD begins public preview of FIDO2 security keys, enabling passwordless logins (Azure AD de Microsoft commence la préversion publique des clés de sécurité FIDO2, en activant les connexions sans mot de passe)](https://www.onmsft.com/news/microsofts-azure-ad-begins-public-preview-of-fido2-security-keys-enabling-passwordless-logins) ou lisez les articles [Présentation de l’application Microsoft Authenticator ?](https://docs.microsoft.com/azure/active-directory/user-help8user-help-auth-app-overview) et [Vue d’ensemble de Windows Hello](https://www.microsoft.com/windows/windows-hello).
+- Pour plus d’informations sur les méthodes d’authentification par mot de passe, consultez le billet de blog [Microsoft’s Azure AD begins public preview of FIDO2 security keys, enabling passwordless logins (Azure AD de Microsoft commence la préversion publique des clés de sécurité FIDO2, en activant les connexions sans mot de passe)](https://www.onmsft.com/news/microsofts-azure-ad-begins-public-preview-of-fido2-security-keys-enabling-passwordless-logins) ou lisez les articles [Présentation de l’application Microsoft Authenticator ?](user-help-auth-app-overview.md) et [Vue d’ensemble de Windows Hello](https://www.microsoft.com/windows/windows-hello).
 
 - Plus d’informations sur les [clés de sécurité conformes Microsoft](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/microsoft-compatible-security-key).
 

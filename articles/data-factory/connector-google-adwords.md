@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 0f68627e2db3c08049f0273045906057526bd6aa
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 615a2dedd8a4698bab5eaa237184266e5bef1a1b
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61094916"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68720792"
 ---
 # <a name="copy-data-from-google-adwords-using-azure-data-factory-preview"></a>Copier des données de Google AdWords à l’aide d’Azure Data Factory (préversion)
 
@@ -100,7 +100,7 @@ Pour copier des données à partir de Google AdWords, définissez la propriété
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type du jeu de données doit être définie sur : **GoogleAdWordsObject** | OUI |
+| type | La propriété type du jeu de données doit être définie sur : **GoogleAdWordsObject** | OUI |
 | tableName | Nom de la table. | Non (si « query » dans la source de l’activité est spécifié) |
 
 **Exemple**
@@ -110,11 +110,12 @@ Pour copier des données à partir de Google AdWords, définissez la propriété
     "name": "GoogleAdWordsDataset",
     "properties": {
         "type": "GoogleAdWordsObject",
+        "typeProperties": {},
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<GoogleAdWords linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {}
+        }
     }
 }
 
@@ -130,7 +131,7 @@ Pour copier des données à partir de Google AdWords, définissez le type de sou
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type de la source d’activité de copie doit être définie sur : **GoogleAdWordsSource** | OUI |
+| type | La propriété type de la source d’activité de copie doit être définie sur : **GoogleAdWordsSource** | OUI |
 | query | Utiliser la requête SQL personnalisée pour lire les données. Par exemple : `"SELECT * FROM MyTable"`. | Non (si « tableName » est spécifié dans dataset) |
 
 **Exemple :**

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 1ba5b813843ce2f5d31f337ab4d3d94e521b0e0c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a0458525eaf985ac6b1ff2afde5726bbac45b4f2
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60586144"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68778772"
 ---
 # <a name="azure-security-and-compliance-blueprint-iaas-web-application-for-fedramp"></a>Blueprint de sécurité et de conformité Azure : Application web IaaS pour FedRAMP
 
@@ -127,7 +127,7 @@ Les technologies suivantes fournissent des fonctionnalités de gestion des ident
 
 **Gestion des correctifs** : Les machines virtuelles Windows déployées par cette solution Azure Security and Compliance Blueprint Automation sont configurées par défaut pour recevoir des mises à jour automatiques du service Windows Update. Cette solution déploie également la solution Azure Automation par le biais de laquelle des déploiements de mise à jour peuvent être créés pour déployer les correctifs sur les serveurs Windows si nécessaire.
 
-**Protection contre les programmes malveillants** : [Microsoft Antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware) pour Machines Virtuelles fournit une protection en temps réel qui permet d’identifier et de supprimer les virus, les logiciels espions et autres logiciels malveillants grâce à des alertes configurables vous avertissant quand des logiciels malveillants ou indésirables connus tentent de s’installer ou de s’exécuter sur des machines virtuelles protégées.
+**Protection contre les programmes malveillants** : [Microsoft Antimalware](https://docs.microsoft.com/azure/security/fundamentals/antimalware) pour Machines Virtuelles fournit une protection en temps réel qui permet d’identifier et de supprimer les virus, les logiciels espions et autres logiciels malveillants grâce à des alertes configurables vous avertissant quand des logiciels malveillants ou indésirables connus tentent de s’installer ou de s’exécuter sur des machines virtuelles protégées.
 
 **Application Gateway** : L’architecture réduit le risque de failles de sécurité à l’aide d’Application Gateway et de son pare-feu d’applications web (WAF), dans lequel est activé l’ensemble de règles OWASP. Les autres fonctionnalités incluent notamment :
 

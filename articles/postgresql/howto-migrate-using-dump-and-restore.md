@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: aa9485ec8fcabdc0276e0598bd3e19f04d70dfa1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 43e6fe301cf28b7a342ba2e802c9fce19bfeec4d
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65066993"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68815857"
 ---
 # <a name="migrate-your-postgresql-database-using-dump-and-restore"></a>Migration de votre base de données PostgreSQL par vidage et restauration
 Vous pouvez utiliser la commande [pg_dump](https://www.postgresql.org/docs/9.3/static/app-pgdump.html) pour extraire une base de données PostgreSQL vers un fichier de vidage, et la commande [pg_restore](https://www.postgresql.org/docs/9.3/static/app-pgrestore.html) pour restaurer la base de données PostgreSQL à partir d’un fichier d’archive créé par pg_dump.
@@ -23,7 +23,7 @@ Pour parcourir ce guide pratique, vous avez besoin des éléments suivants :
 
 Suivez les étapes ci-dessous pour vider et restaurer votre base de données PostgreSQL :
 
-## <a name="create-a-dump-file-using-pgdump-that-contains-the-data-to-be-loaded"></a>Création d’un fichier de vidage à l’aide de pg_dump qui contient les données à charger
+## <a name="create-a-dump-file-using-pg_dump-that-contains-the-data-to-be-loaded"></a>Création d’un fichier de vidage à l’aide de pg_dump qui contient les données à charger
 Pour sauvegarder une base de données PostgreSQL existante en local ou sur une machine virtuelle, exécutez la commande suivante :
 ```bash
 pg_dump -Fc -v --host=<host> --username=<name> --dbname=<database name> > <database>.dump
@@ -34,10 +34,10 @@ pg_dump -Fc -v --host=localhost --username=masterlogin --dbname=testdb > testdb.
 ```
 
 
-## <a name="restore-the-data-into-the-target-azure-database-for-postrgesql-using-pgrestore"></a>Restauration des données dans la base de données cible pour PostrgeSQL à l’aide de pg_restore
+## <a name="restore-the-data-into-the-target-azure-database-for-postrgesql-using-pg_restore"></a>Restauration des données dans la base de données cible pour PostrgeSQL à l’aide de pg_restore
 Après avoir créé la base de données cible, vous pouvez utiliser la commande pg_restore et le paramètre -d, --dbname pour restaurer les données dans la base de données cible à partir du fichier de vidage.
 ```bash
-pg_restore -v --no-owner –-host=<server name> --port=<port> --username=<user@servername> --dbname=<target database name> <database>.dump
+pg_restore -v --no-owner --host=<server name> --port=<port> --username=<user@servername> --dbname=<target database name> <database>.dump
 ```
 L’ajout du paramètre --no-owner contraint tous les objets créés au cours de la restauration à appartenir à l’utilisateur désigné par --username. Pour plus d’informations, consultez la documentation PostgreSQL officielle sur [pg_restore](https://www.postgresql.org/docs/9.6/static/app-pgrestore.html).
 

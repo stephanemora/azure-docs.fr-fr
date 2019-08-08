@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: d58dc18d5513259d5c01f7ddcc54736796e5c824
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: c0d824e23a98aa14081fbd21bd6a9fbec5d583e0
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67603622"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68815942"
 ---
 # <a name="what-is-opc-twin"></a>Définition d’OPC Twin
 
@@ -42,4 +42,4 @@ OPC Twin peut être utilisé avec des applications écrites dans n’importe que
 OPC Twin et ses utilisations n’ayant plus de secrets pour vous, voici l’étape suivante que nous suggérons :
 
 > [!div class="nextstepaction"]
-> [Définition d’OPC Vault](overview-opc-twin-architecture.md)
+> [Définition d’OPC Vault](overview-opc-vault.md)

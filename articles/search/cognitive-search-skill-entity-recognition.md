@@ -10,13 +10,13 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
-ms.custom: seodec2018
-ms.openlocfilehash: 5ca3b953f84677c13908028af968d5a2bf28b57c
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.subservice: cognitive-search
+ms.openlocfilehash: 1328edfd9a049daf9244df992b55f4fb1585c8ba
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68347750"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68841084"
 ---
 #    <a name="entity-recognition-cognitive-skill"></a>Compétence cognitive Reconnaissance d’entités
 
@@ -40,7 +40,7 @@ Les paramètres respectent la casse et sont tous facultatifs.
 
 | Nom du paramètre     | Description |
 |--------------------|-------------|
-| Catégories    | Tableau des catégories à extraire.  Types de catégorie possibles : `"Person"`, `"Location"`, `"Organization"`, `"Quantity"`, `"Datetime"`, `"URL"`, `"Email"`. Si aucune catégorie n’est précisée, tous les types sont retournés.|
+| categories    | Tableau des catégories à extraire.  Types de catégorie possibles : `"Person"`, `"Location"`, `"Organization"`, `"Quantity"`, `"Datetime"`, `"URL"`, `"Email"`. Si aucune catégorie n’est précisée, tous les types sont retournés.|
 |defaultLanguageCode |  Code de langue du texte d’entrée. Langues prises en charge : `de, en, es, fr, it`.|
 |minimumPrecision | Non utilisé. Réservé pour un usage futur. |
 |includeTypelessEntities | Lorsque la valeur est true si le texte contient une entité connue, mais ne peut pas être classé dans les catégories prises en charge, il est retourné dans le cadre du champ de sortie complexe `"entities"`. 
@@ -62,7 +62,7 @@ Il s’agit d’entités qui sont bien connues, mais non classées dans le cadre
 | Nom de sortie     | Description                   |
 |---------------|-------------------------------|
 | persons      | Tableau de chaînes représentant chacune le nom d’une personne. |
-| Emplacements  | Tableau de chaînes représentant chacune un lieu. |
+| locations  | Tableau de chaînes représentant chacune un lieu. |
 | organizations  | Tableau de chaînes représentant chacune une organisation. |
 | quantities  | Tableau de chaînes représentant chacune une quantité. |
 | dateTimes  | Tableau de chaînes représentant chacune une valeur DateTime (telle qu’elle apparaît dans le texte). |

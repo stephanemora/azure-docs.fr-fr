@@ -12,18 +12,18 @@ ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/07/2017
 ms.author: ryanwi
 ms.reviewer: hirsin, dastrock
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 32f105c0d4f8807b53d400a1c198edd504c0aef3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fefaf618ff29cc2186dc555eb6f452223f4cd097
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65544500"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68835131"
 ---
 # <a name="federation-metadata"></a>Métadonnées de fédération
 Azure Active Directory (Azure AD) publie un document de métadonnées de fédération pour les services qui sont configurés pour accepter les jetons de sécurité émis par Azure AD. Le format de document des métadonnées de fédération est décrit dans la page [Web Services Federation Language (WS-Federation) Version 1.2 (Langage WS-Federation [Web Services Federation Language] version 1.2)](https://docs.oasis-open.org/wsfed/federation/v1.2/os/ws-federation-1.2-spec-os.html), qui étend les [métadonnées pour la spécification SAML (Security Assertion Markup Language) OASIS v2.0](https://docs.oasis-open.org/security/saml/v2.0/saml-metadata-2.0-os.pdf).

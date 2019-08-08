@@ -1,20 +1,18 @@
 ---
 title: Guide pratique pour créer un objet blob dans Stockage Azure à l'aide de la bibliothèque de client pour Java v7 | Microsoft Docs
 description: Créez un compte de stockage et un conteneur dans un stockage d’objets (blob). Ensuite, utilisez la bibliothèque de client Stockage Azure pour Java v7 afin de charger un objet blob dans Stockage Azure, de télécharger un objet blob et de lister les objets blob dans un conteneur.
-services: storage
 author: mhopkins-msft
-ms.custom: mvc
-ms.service: storage
-ms.topic: conceptual
-ms.date: 02/04/2019
 ms.author: mhopkins
-ms.reviewer: seguler
-ms.openlocfilehash: f7cae5b3c7b0a7da6420674635ff9c3420a6436a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 02/04/2019
+ms.service: storage
+ms.subservice: blobs
+ms.topic: conceptual
+ms.openlocfilehash: 8cb9a9c6dd2e84318cd4d05bf6e67e127fc39ce3
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65154417"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68726381"
 ---
 # <a name="how-to-upload-download-and-list-blobs-using-the-client-library-for-java-v7"></a>Guide pratique pour charger, télécharger et lister des objets blob à l'aide de la bibliothèque de client pour Java v7
 

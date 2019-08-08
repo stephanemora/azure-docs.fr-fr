@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/28/2018
 ms.author: glenga
-ms.openlocfilehash: 19a5fe4c087d477ff15d2237a36d1c4ecaa0e070
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f81337cea3ece822ea05bcc94f4e05d6e177bf93
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65908127"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68735596"
 ---
 # <a name="use-azure-functions-to-connect-to-an-azure-sql-database"></a>Utiliser Azure Functions pour se connecter à une base de données Azure SQL Database
 
@@ -127,7 +127,7 @@ Vous devez ajouter le package NuGet qui contient la bibliothèque SqlClient. Cet
 
     À la première exécution, vous devez mettre à jour 32 lignes de données. Les exécutions suivantes ne mettent à jour aucune ligne de données, sauf si vous apportez aux données de la table SalesOrderHeader des modifications qui entraînent la sélection de lignes supplémentaires par l’instruction `UPDATE`.
 
-Si vous envisagez de [publier cette fonction](functions-develop-vs.md#publish-to-azure), pensez à délaisser l’attribut `TimerTrigger` au profit d’une [planification cron](functions-bindings-timer.md#cron-expressions) plus raisonnable qu’une exécution toutes les 15 secondes.
+Si vous envisagez de [publier cette fonction](functions-develop-vs.md#publish-to-azure), pensez à délaisser l’attribut `TimerTrigger` au profit d’une [planification cron](functions-bindings-timer.md#ncrontab-expressions) plus raisonnable qu’une exécution toutes les 15 secondes.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

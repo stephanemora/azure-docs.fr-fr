@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/15/2019
+ms.date: 08/06/2019
 ms.author: b-juche
-ms.openlocfilehash: 1563b60ef26ac5e4d40f45095d0109dd9dd71570
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9a56fb27fdf9e196291942041d68b249d7f16648
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61084937"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68839239"
 ---
 # <a name="metrics-for-azure-netapp-files"></a>Métriques pour Azure NetApp Files
 
@@ -27,19 +27,25 @@ Azure NetApp Files fournit des métriques sur le stockage alloué, l'utilisation
 
 ## <a name="capacity_pools"></a>Métriques d'utilisation des pools de capacités
 
-- *Taille allouée au pool de volumes*  
-    Taille (en Gio) du pool de capacités approvisionné.  
+<!-- 
+- *Volume pool allocated size*  
+    This is the size (GiB) of the provisioned capacity pool.  
+--> 
 - *Taille allouée utilisée du pool de volumes*  
     Quota total des volumes (en Gio) d'un pool de capacités donné (autrement dit, total des tailles approvisionnées pour les volumes du pool de capacités). Il s'agit de la taille que vous avez sélectionnée lors de la création des volumes.  
 - *Taille logique totale du pool de volumes*  
     Espace logique total (en Gio) utilisé sur l'ensemble des volumes d'un pool de capacités.  
-- *Taille d'instantané totale du pool de volumes*  
-    Espace logique incrémentiel total utilisé par les captures instantanées.  
+<!-- 
+- *Volume pool total snapshot size*  
+    This is the total of incremental logical space used by the snapshots.  
+-->
 
 ## <a name="volumes"></a>Métriques d'utilisation des volumes
 
-- *Taille allouée aux volumes*   
-    Taille des volumes (quota) approvisionnée, en Gio.  
+<!-- 
+- *Volume allocated size*   
+    This is the volume size (quota) provisioned in GiB.  
+--> 
 - *Taille logique du volume*   
     Espace logique total utilisé dans un volume (en Gio). Cette taille inclut l'espace logique utilisé par les captures instantanées et les systèmes de fichiers actifs.  
 - *Taille d'instantané du volume*   

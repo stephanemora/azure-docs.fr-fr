@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: d6d6517a85997265021573b2f9d481c81283c216
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 37634a76b0c8e08d7a4688a7ba3fd913391cd408
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61400455"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68726134"
 ---
 # <a name="copy-data-from-marketo-using-azure-data-factory-preview"></a>Copier des données de Marketo avec Azure Data Factory (préversion)
 
@@ -82,7 +82,7 @@ Pour copier des données de Marketo, affectez la valeur **MarketoObject** à la 
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type du jeu de données doit être définie sur : **MarketoObject** | OUI |
+| type | La propriété type du jeu de données doit être définie sur : **MarketoObject** | OUI |
 | tableName | Nom de la table. | Non (si « query » dans la source de l’activité est spécifié) |
 
 **Exemple**
@@ -92,11 +92,12 @@ Pour copier des données de Marketo, affectez la valeur **MarketoObject** à la 
     "name": "MarketoDataset",
     "properties": {
         "type": "MarketoObject",
+        "typeProperties": {},
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<Marketo linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {}
+        }
     }
 }
 ```
@@ -111,7 +112,7 @@ Pour copier des données de Marketo, affectez la valeur **MarketoSource** au typ
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type de la source d’activité de copie doit être définie sur : **MarketoSource** | OUI |
+| type | La propriété type de la source d’activité de copie doit être définie sur : **MarketoSource** | OUI |
 | query | Utiliser la requête SQL personnalisée pour lire les données. Par exemple : `"SELECT * FROM Activitiy_Types"`. | Non (si « tableName » est spécifié dans dataset) |
 
 **Exemple :**

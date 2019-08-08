@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: bb0e146ef32ba24c3911bae86806c84768c005ef
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b62cbe6be7f48aa05bf3756580df0777aeee8cae
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60405951"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68726079"
 ---
 # <a name="copy-data-from-oracle-eloqua-using-azure-data-factory-preview"></a>Copier des données d’Oracle Eloqua à l’aide d’Azure Data Factory (préversion)
 
@@ -46,7 +46,7 @@ Les propriétés prises en charge pour le service lié Oracle Eloqua sont les su
 |:--- |:--- |:--- |
 | type | La propriété type doit être définie sur : **Eloqua** | OUI |
 | endpoint | Le point de terminaison du serveur Eloqua. Eloqua prend en charge plusieurs centres de données. Pour déterminer votre point de terminaison, connectez-vous à https://login.eloqua.com avec vos informations d’identification, puis copiez la partie **URL de base** à partir de l’URL redirigée avec le modèle `xxx.xxx.eloqua.com`. | OUI |
-| username | Nom du site et nom d’utilisateur de votre compte Eloqua au format : `SiteName\Username`, par exemple `Eloqua\Alice`.  | OUI |
+| userName | Nom du site et nom d’utilisateur de votre compte Eloqua au format : `SiteName\Username`, par exemple `Eloqua\Alice`.  | OUI |
 | password | Mot de passe correspondant au nom d’utilisateur. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | OUI |
 | useEncryptedEndpoints | Indique si les points de terminaison de la source de données sont chiffrés suivant le protocole HTTPS. La valeur par défaut est true.  | Non |
 | useHostVerification | Indique si le nom d’hôte du certificat du serveur doit correspondre à celui du serveur en cas de connexion SSL. La valeur par défaut est true.  | Non |
@@ -79,7 +79,7 @@ Pour copier des données depuis Oracle Eloqua, affectez la valeur **EloquaObject
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type du jeu de données doit être définie sur : **EloquaObject** | OUI |
+| type | La propriété type du jeu de données doit être définie sur : **EloquaObject** | OUI |
 | tableName | Nom de la table. | Non (si « query » dans la source de l’activité est spécifié) |
 
 **Exemple**
@@ -89,11 +89,12 @@ Pour copier des données depuis Oracle Eloqua, affectez la valeur **EloquaObject
     "name": "EloquaDataset",
     "properties": {
         "type": "EloquaObject",
+        "typeProperties": {},
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<Eloqua linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {}
+        }
     }
 }
 ```
@@ -108,7 +109,7 @@ Pour copier des données d’Oracle Eloqua, définissez le type de source dans l
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type de la source d’activité de copie doit être définie sur : **EloquaSource** | OUI |
+| type | La propriété type de la source d’activité de copie doit être définie sur : **EloquaSource** | OUI |
 | query | Utiliser la requête SQL personnalisée pour lire les données. Par exemple : `"SELECT * FROM Accounts"`. | Non (si « tableName » est spécifié dans dataset) |
 
 **Exemple :**

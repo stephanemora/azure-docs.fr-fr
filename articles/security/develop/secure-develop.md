@@ -7,17 +7,18 @@ ms.author: terrylan
 ms.date: 06/12/2019
 ms.topic: article
 ms.service: security
+ms.subservice: security-develop
 services: azure
 ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: f4add4bf07178aa616e86f8a64b313630466824f
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: 1b2e6e0aa74c06afea09a67dbdf65ca47727b72e
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67653260"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780564"
 ---
 # <a name="develop-secure-applications-on-azure"></a>Développer des applications sécurisées sur Azure
 Cet article présente les activités et contrôles de sécurité à prendre en compte lorsque vous développez des applications pour le cloud. Les questions et concepts de sécurité à prendre en compte pendant les phases d’implémentation et de vérification du [Microsoft Security Development Lifecycle](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) y sont abordées. L’objectif est de vous aider à définir les activités et services Azure que vous pouvez utiliser pour développer une application plus sécurisée.
@@ -98,9 +99,9 @@ Si l’application doit générer automatiquement des mots de passe, assurez-vou
 
 Si votre application autorise les [chargements de fichiers](https://www.owasp.org/index.php/Unrestricted_File_Upload), envisagez les précautions que vous pouvez prendre pour cette activité à risque. La première étape de nombreuses attaques consiste à obtenir un code malveillant dans un système subissant une attaque. Un chargement de fichier permet aux personnes malveillantes d’accomplir cette étape. OWASP propose des solutions permettant de valider un fichier afin de garantir que le fichier chargé est sécurisé.
 
-Une solution de protection contre les programmes malveillants permet d’identifier et de supprimer les virus, logiciels espions et autres logiciels malveillants. Vous pouvez installer [Microsoft Antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware) ou une solution de protection des points de terminaison d’un partenaire de Microsoft ([Trend Micro](https://www.trendmicro.com/azure/), [Symantec](https://www.symantec.com/products), [McAfee](https://www.mcafee.com/us/products.aspx), [Windows Defender](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10) ou [System Center Endpoint Protection](https://docs.microsoft.com/sccm/protect/deploy-use/endpoint-protection)).
+Une solution de protection contre les programmes malveillants permet d’identifier et de supprimer les virus, logiciels espions et autres logiciels malveillants. Vous pouvez installer [Microsoft Antimalware](https://docs.microsoft.com/azure/security/fundamentals/antimalware) ou une solution de protection des points de terminaison d’un partenaire de Microsoft ([Trend Micro](https://www.trendmicro.com/azure/), [Symantec](https://www.symantec.com/products), [McAfee](https://www.mcafee.com/us/products.aspx), [Windows Defender](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10) ou [System Center Endpoint Protection](https://docs.microsoft.com/sccm/protect/deploy-use/endpoint-protection)).
 
-Le logiciel [Microsoft Antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware) inclut des fonctionnalités telles que la protection en temps réel, l’analyse planifiée, la correction des logiciels malveillants, la mise à jour des signatures, la mise à jour des moteurs, des exemples de création de rapport et la collecte d’événements d’exclusion. Vous pouvez intégrer Microsoft Antimalware et des solutions de partenaires avec [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-partner-integration) pour bénéficier d’un déploiement simplifié et de fonctionnalités de détection intégrées (alertes et incidents).
+Le logiciel [Microsoft Antimalware](https://docs.microsoft.com/azure/security/fundamentals/antimalware) inclut des fonctionnalités telles que la protection en temps réel, l’analyse planifiée, la correction des logiciels malveillants, la mise à jour des signatures, la mise à jour des moteurs, des exemples de création de rapport et la collecte d’événements d’exclusion. Vous pouvez intégrer Microsoft Antimalware et des solutions de partenaires avec [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-partner-integration) pour bénéficier d’un déploiement simplifié et de fonctionnalités de détection intégrées (alertes et incidents).
 
 ### <a name="dont-cache-sensitive-content"></a>Ne pas mettre en cache de contenu sensible
 
@@ -127,7 +128,7 @@ Le test de sécurité des applications dynamique (DAST) est un processus de test
 
 Les tests DAST sont différents des tests de sécurité d’application statiques (SAST). Les outils SAST analysent le code source ou les versions compilées de code lorsque le code n’est pas exécuté afin de détecter des failles de sécurité.
 
-Effectuez les tests DAST de préférence avec l’aide d’un professionnel de la sécurité (un [testeur d’intrusion](https://docs.microsoft.com/azure/security/azure-security-pen-testing) ou un évaluateur des vulnérabilités). Si aucun professionnel de la sécurité n’est disponible, vous pouvez effectuer vous-même les tests DAST avec un scanneur de proxy web et une formation préalable. Connectez un scanneur DAST suffisamment tôt afin de vous assurer de ne pas introduire de problèmes de sécurité évidents dans votre code. Consultez le site [OWASP](https://www.owasp.org/index.php/Category:Vulnerability_Scanning_Tools) pour obtenir la liste des scanneurs de vulnérabilité d’application web.
+Effectuez les tests DAST de préférence avec l’aide d’un professionnel de la sécurité (un [testeur d’intrusion](https://docs.microsoft.com/azure/security/fundamentals/pen-testing) ou un évaluateur des vulnérabilités). Si aucun professionnel de la sécurité n’est disponible, vous pouvez effectuer vous-même les tests DAST avec un scanneur de proxy web et une formation préalable. Connectez un scanneur DAST suffisamment tôt afin de vous assurer de ne pas introduire de problèmes de sécurité évidents dans votre code. Consultez le site [OWASP](https://www.owasp.org/index.php/Category:Vulnerability_Scanning_Tools) pour obtenir la liste des scanneurs de vulnérabilité d’application web.
 
 ### <a name="perform-fuzz-testing"></a>Effectuer un test à données aléatoires (fuzzing)
 
@@ -143,7 +144,7 @@ Vous pouvez créer une image de la surface d’attaque en analysant l’applicat
 
 ### <a name="perform-security-penetration-testing"></a>Effectuer des tests d’intrusion sécurisés
 
-La sécurité de votre application est aussi importante que le bon fonctionnement de ses fonctionnalités. Intégrez les [tests d’intrusion](https://docs.microsoft.com/azure/security/azure-security-pen-testing) aux processus de génération et de déploiement. Planifiez régulièrement des tests de sécurité et des analyses de vulnérabilité sur les applications déployées, et surveillez les ports ouverts, les points de terminaison et les attaques.
+La sécurité de votre application est aussi importante que le bon fonctionnement de ses fonctionnalités. Intégrez les [tests d’intrusion](https://docs.microsoft.com/azure/security/fundamentals/pen-testing) aux processus de génération et de déploiement. Planifiez régulièrement des tests de sécurité et des analyses de vulnérabilité sur les applications déployées, et surveillez les ports ouverts, les points de terminaison et les attaques.
 
 ### <a name="run-security-verification-tests"></a>Exécuter des tests de vérification de sécurité
 

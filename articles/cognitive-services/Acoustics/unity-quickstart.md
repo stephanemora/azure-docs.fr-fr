@@ -10,12 +10,13 @@ ms.subservice: acoustics
 ms.topic: quickstart
 ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: 1c790e0fa726c719d5b888d42b5f59739777566b
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ROBOTS: NOINDEX
+ms.openlocfilehash: 93eb44bf91bc2c8346660a4d770ee6d83501c3ae
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64917115"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68706598"
 ---
 # <a name="project-acoustics-unity-quickstart"></a>Démarrage rapide de Project Acoustics avec Unity
 Utilisez l’exemple de contenu Project Acoustics pour Unity pour faire une expérience avec des contrôles de conception s’appuyant sur la simulation.
@@ -70,7 +71,7 @@ Project Acoustics effectue un calcul dans une zone « région de simulation »
 * Pour activer la transmission à travers les murs, déplacez le curseur **Transmission (dB)** à son niveau le plus bas. 
 
 ### <a name="modify-wetness-for-a-source"></a>Modifier l’humidité pour une source
-* Pour modifier la rapidité avec laquelle l’humidité change avec la distance, utilisez la **déformation de distance de perception**. **Project Acoustics** calcule les niveaux d’humidité dans l’espace provenant de la simulation, qui varient de façon régulière en fonction de la distance et fournissent des repères pour la perception de la distance. L’augmentation de la déformation de distance exagère cet effet en augmentant les niveaux d’humidité liés à la distance. Des valeurs de déformation inférieures à 1 rendent plus subtiles les modifications de réverbération en fonction de la distance. Cet effet peut également être ajusté de façon plus fine en ajustant les **Wetness (dB)**.
+* Pour modifier la rapidité avec laquelle l’humidité change avec la distance, utilisez la **déformation de distance de perception**. **Project Acoustics** calcule les niveaux d’humidité dans l’espace provenant de la simulation, qui varient de façon régulière en fonction de la distance et fournissent des repères pour la perception de la distance. L’augmentation de la déformation de distance exagère cet effet en augmentant les niveaux d’humidité liés à la distance. Des valeurs de déformation inférieures à 1 rendent plus subtiles les modifications de réverbération en fonction de la distance. Cet effet peut également être ajusté de façon plus fine en ajustant les **Wetness (dB)** .
 
 * Augmentez le temps d’atténuation dans l’espace en ajustant **Decay Time Scale**. Si le résultat de la simulation pour une paire particulière source/emplacement de l’auditeur a un temps d’atténuation de 1,5s et que **Decay Time Scale** est défini sur 2, le temps d’atténuation appliqué à la source est de 3s.
 

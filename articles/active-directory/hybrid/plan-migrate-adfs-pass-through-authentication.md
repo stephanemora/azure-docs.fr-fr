@@ -12,12 +12,12 @@ ms.date: 05/31/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ba63f9c04e062741eded9c39e44ba64281931387
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 6646217149cec48ca5fcee59b3dd9d850965c602
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68311348"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779918"
 ---
 # <a name="migrate-from-federation-to-pass-through-authentication-for-azure-active-directory"></a>Migrer de la fédération à l’authentification directe pour Azure Active Directory
 
@@ -454,5 +454,5 @@ Pour plus d’informations, consultez [Résoudre les problèmes de l’authentif
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Découvrez plus d’informations sur les [principes de conception d’Azure AD Connect](plan-connect-design-concepts.md).
-* Choisir l’[authentification appropriée](https://docs.microsoft.com/azure/security/azure-ad-choose-authn).
+* Choisir l’[authentification appropriée](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn).
 * Découvrez plus d’informations sur les [topologies prises en charge](plan-connect-design-concepts.md).

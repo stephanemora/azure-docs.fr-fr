@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: mbullwin
-ms.openlocfilehash: 2ec3b620138c4ae0487c29e38062c044a5210572
-ms.sourcegitcommit: da0a8676b3c5283fddcd94cdd9044c3b99815046
+ms.openlocfilehash: 9bedb74f4e882ac6e4206ee7fef676c94dc2422d
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68314806"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68717454"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>API Application Insights pour les événements et les mesures personnalisés
 
@@ -163,8 +163,6 @@ Si un [échantillonnage](../../azure-monitor/app/sampling.md) est en cours, la p
 *C#*
 
 ```csharp
-#pragma warning disable CA1716  // Namespace naming
-
 namespace User.Namespace.Example01
 {
     using System;

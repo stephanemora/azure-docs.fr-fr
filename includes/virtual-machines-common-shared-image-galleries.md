@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/06/2019
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: 3ea41a16f79f903b5ff7d2b93f74f7d3d2a0dd83
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e43b8c951d8c7d5d60904fe49d8639efaba5c89f
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67133688"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68775870"
 ---
 La galerie d’images partagées est un service qui vous permet de structurer et d’organiser vos images managées. Les galeries d’images partagées proposent les éléments suivants :
 
@@ -73,14 +73,14 @@ Voici d’autres paramètres qui peuvent être configurés sur votre définition
 
 ## <a name="regional-support"></a>Prise en charge régionale
 
-Les régions sources sont répertoriées dans la table ci-dessous. Tout les régions publiques peuvent être choisies comme cibles. Cependant, pour que vous puissiez effectuer la réplication dans les régions Australie Centre et Australie Centre 2, votre abonnement doit figurer sur la liste verte. Pour demander la mise en liste verte, accédez à : https://www.microsoft.com/en-au/central-regions-eligibility/
+Les régions sources sont répertoriées dans la table ci-dessous. Tout les régions publiques peuvent être choisies comme cibles. Cependant, pour que vous puissiez effectuer la réplication dans les régions Australie Centre et Australie Centre 2, votre abonnement doit figurer sur la liste verte. Pour demander la mise en liste verte, accédez à : https://azure.microsoft.com/en-au/global-infrastructure/australia/contact/
 
 
 | Régions sources |
 |---------------------|-----------------|------------------|-----------------|
 | Centre de l’Australie   | EUAP USA Centre | Centre de la Corée    | USA Centre-Ouest |
 | Centre de l’Australie 2 | Asie Est       | Corée du Sud      | Europe Ouest     |
-| Australie Est      | USA Est         | USA Centre Nord | Inde Ouest      |
+| Australie Est      | East US         | USA Centre Nord | Inde Ouest      |
 | Australie Sud-Est | USA Est 2       | Europe Nord     | USA Ouest         |
 | Brésil Sud        | USA Est 2 (EUAP)  | USA Centre Sud | USA Ouest 2       |
 | Centre du Canada      | France Centre  | Inde Sud      |                 |

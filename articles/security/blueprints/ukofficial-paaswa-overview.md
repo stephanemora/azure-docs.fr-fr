@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: jomolesk
-ms.openlocfilehash: e3ee5a0aa22d1231dca7d02a77d39e0a2b569314
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 54bf4512785941ae1d09ae1436deefc032ec0037
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66753865"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780668"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-hosting-for-uk-official-workloads"></a>Blueprint de sécurité et de conformité Azure : Hébergement d’applications web PaaS pour les charges de travail « UK OFFICIAL »
 
@@ -95,7 +95,7 @@ Les données en transit provenant de l’extérieur et entre les composants Azur
 
 [Azure Advisor](https://docs.microsoft.com/azure/advisor/advisor-overview) est un conseiller personnalisé basé dans le cloud qui décrit les bonnes pratiques à suivre pour optimiser vos déploiements Azure. Il analyse votre télémétrie de configuration et d’utilisation des ressources, puis recommande des solutions qui peuvent vous aider à améliorer la rentabilité, les performances, la haute disponibilité et la sécurité de vos ressources Azure.
 
-[Microsoft Antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware) est une fonctionnalité de protection en temps réel qui permet d’identifier et de supprimer les virus, les logiciels espions et d’autres logiciels malveillants. Il est installé par défaut sur l’infrastructure de machines virtuelles PaaS sous-jacente et est géré de façon transparente par l’infrastructure Azure vers le client.
+[Microsoft Antimalware](https://docs.microsoft.com/azure/security/fundamentals/antimalware) est une fonctionnalité de protection en temps réel qui permet d’identifier et de supprimer les virus, les logiciels espions et d’autres logiciels malveillants. Il est installé par défaut sur l’infrastructure de machines virtuelles PaaS sous-jacente et est géré de façon transparente par l’infrastructure Azure vers le client.
 
 ### <a name="paas-services-in-this-blueprint"></a>Services PaaS de ce blueprint
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/01/2019
 ms.author: bwren
-ms.openlocfilehash: 3f4b0ad8b7aad01472a76db67f2c07e03e978e41
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: d50b3ab68b406db47a4cc8fec081b2fc076071d1
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67673039"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68741657"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Solution de gestion Office 365 dans Azure (préversion)
 
@@ -571,12 +571,12 @@ Ces enregistrements sont créés lorsqu’un utilisateur Active Directory tente 
 
 | Propriété | Description |
 |:--- |:--- |
-| OfficeWorkload | AzureActiveDirectory |
-| RecordType     | AzureActiveDirectoryAccountLogon |
-| Application | L’application qui a déclenché l’événement de connexion du compte, telles que Office 15. |
-| Client | Détails sur le terminal client, le système d’exploitation du terminal et le navigateur du terminal qui a été utilisé pour l’événement de connexion du compte. |
-| LoginStatus | Cette propriété est directement issue de OrgIdLogon.LoginStatus. Le mappage de différentes connexions intéressantes peut être effectué par les alertes des algorithmes. |
-| UserDomain | Les informations d’identité client (TII). | 
+| `OfficeWorkload` | AzureActiveDirectory |
+| `RecordType`     | AzureActiveDirectoryAccountLogon |
+| `Application` | L’application qui a déclenché l’événement de connexion du compte, telles que Office 15. |
+| `Client` | Détails sur le terminal client, le système d’exploitation du terminal et le navigateur du terminal qui a été utilisé pour l’événement de connexion du compte. |
+| `LoginStatus` | Cette propriété est directement issue de OrgIdLogon.LoginStatus. Le mappage de différentes connexions intéressantes peut être effectué par les alertes des algorithmes. |
+| `UserDomain` | Les informations d’identité client (TII). | 
 
 
 ### <a name="azure-active-directory"></a>Azure Active Directory

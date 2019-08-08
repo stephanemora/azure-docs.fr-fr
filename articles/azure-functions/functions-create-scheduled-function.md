@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 03/28/2018
 ms.author: glenga
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: a6b1e4e1571e6ce3cee1658907efd35e9c73ca1a
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 7ac87000a6bbe7515106b42f57f9184396ed4168
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54903392"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68735672"
 ---
 # <a name="create-a-function-in-azure-that-is-triggered-by-a-timer"></a>Créez une fonction dans Azure, qui est déclenchée par un minuteur
 
@@ -58,7 +58,7 @@ Créez ensuite une fonction dans la nouvelle Function App.
     | Paramètre | Valeur suggérée | Description |
     |---|---|---|
     | **Nom** | Default | Définit le nom de votre fonction déclenchée par minuteur. |
-    | **Planification** | 0 \*/1 \* \* \* \* | Un champ de six [expressions CRON](functions-bindings-timer.md#cron-expressions) qui planifie l’exécution de votre fonction chaque minute. |
+    | **Planification** | 0 \*/1 \* \* \* \* | Un champ de six [expressions CRON](functions-bindings-timer.md#ncrontab-expressions) qui planifie l’exécution de votre fonction chaque minute. |
 
 4. Cliquez sur **Créer**. Une fonction est créée dans le langage que vous avez choisi et s’exécute chaque minute.
 

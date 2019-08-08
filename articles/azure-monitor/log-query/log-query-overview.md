@@ -7,12 +7,12 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: bwren
-ms.openlocfilehash: 7605bf36c41c5b1276d29076173efd52409afaa9
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.openlocfilehash: 89633d77a6270b5c34cd9b4f52bc7286f84b1976
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67310336"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68827306"
 ---
 # <a name="overview-of-log-queries-in-azure-monitor"></a>Vue d’ensemble des requêtes de journal dans Azure Monitor
 Les requêtes de journal vous aident à tirer pleinement parti de la valeur des données collectées dans les [journaux Azure Monitor](../platform/data-platform-logs.md). Un puissant langage de requête vous permet de joindre des données provenant de plusieurs tables, d’agréger des jeux de données volumineux et d’effectuer des opérations complexes avec un minimum de code. Vous pouvez répondre à pratiquement n’importe quelle question et effectuer n’importe quelle analyse tant que les données de soutien ont été collectées et que vous comprenez comment construire la bonne requête.
@@ -97,9 +97,9 @@ En plus de travailler de manière interactive avec les requêtes de journal et l
 - **Vues.**  Vous pouvez créer des visualisations de données à inclure dans les tableaux de bord utilisateur avec le [Concepteur de vues](../platform/view-designer.md).  Les requêtes dans les journaux fournissent les données utilisées par les [vignettes](../platform/view-designer-tiles.md) et les [composants de visualisation](../platform/view-designer-parts.md) dans chaque vue.  
 - **Exportation.**  Lorsque vous importez des données de journal d'Azure Monitor vers Excel ou [Power BI](../platform/powerbi.md), vous créez une requête de journal pour définir les données à exporter.
 - **PowerShell.** Vous pouvez exécuter un script PowerShell à partir d’une ligne de commande ou d’un runbook Azure Automation qui utilise [Get-AzOperationalInsightsSearchResults](/powershell/module/az.operationalinsights/get-azoperationalinsightssearchresult) pour récupérer des données de journal à partir d’Azure Monitor.  Cette applet de commande nécessite une requête pour déterminer les données à récupérer.
-- **API Journaux d’activité Azure Monitor.**  L’[API Journaux d’activité Azure Monitor](../platform/alerts-overview.md) permet à tout client d’API REST de récupérer des données de journal d’activité à partir de l’espace de travail.  La demande API comprend une requête qui est exécutée sur Azure Monitor pour déterminer les données à récupérer.
+- **API Journaux d’activité Azure Monitor.**  L’[API Journaux d’activité Azure Monitor](https://dev.loganalytics.io) permet à tout client d’API REST de récupérer des données de journal d’activité à partir de l’espace de travail.  La demande API comprend une requête qui est exécutée sur Azure Monitor pour déterminer les données à récupérer.
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-- Passez en revue un [didacticiel sur l’utilisation de Log Analytics dans le portail Azure](get-started-portal.md).
-- Passez en revue un [didacticiel sur l’écriture de requêtes](get-started-queries.md).
+- Suivez un [didacticiel sur l’utilisation de Log Analytics dans le portail Azure](get-started-portal.md).
+- Suive un [didacticiel sur l’écriture de requêtes](get-started-queries.md).

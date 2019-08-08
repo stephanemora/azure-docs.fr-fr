@@ -15,12 +15,12 @@ ms.workload: na
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 4caa9e78d72df37bec2351fa86ae6e60630d6047
-ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
+ms.openlocfilehash: 99b3b4b8d48ff04fc2ced686c01b2d4de12c6555
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68370768"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68742133"
 ---
 # <a name="azure-event-hubs-metrics-in-azure-monitor"></a>Métriques Azure Event Hubs dans Azure Monitor
 
@@ -30,7 +30,7 @@ Azure Monitor fournit des interfaces utilisateur unifiées pour la surveillance 
 
 ## <a name="access-metrics"></a>Accéder aux mesures
 
-Azure Monitor propose plusieurs méthodes d’accès aux mesures. Vous pouvez accéder à ces métriques depuis le [portail Azure](https://portal.azure.com), ou utiliser les API d’Azure Monitor (REST et .Net) et les solutions d’analyse comme Operation Management Suite et Event Hub. Pour plus d’informations, consultez [Supervision des données collectées par Azure Monitor](../azure-monitor/platform/data-platform.md).
+Azure Monitor propose plusieurs méthodes d’accès aux mesures. Vous pouvez accéder aux métriques via le [portail Azure](https://portal.azure.com), ou bien utiliser les API Azure Monitor (REST et .NET) et des solutions d’analyse comme Log Analytics et Event Hubs. Pour plus d’informations, consultez [Supervision des données collectées par Azure Monitor](../azure-monitor/platform/data-platform.md).
 
 Les métriques sont activées par défaut, et vous pouvez accéder aux 30 derniers jours de données. Si vous souhaitez conserver des données sur une période plus longue, vous pouvez archiver les données de mesures dans un compte de stockage Azure. Celui-ci est configuré dans les [paramètres de diagnostic](../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings) dans Azure Monitor.
 
@@ -73,7 +73,7 @@ Compte le nombre de requêtes d’opérations de données et de gestion.
 
 | Nom de métrique | Description |
 | ------------------- | ----------------- |
-|Demandes limitées |Le nombre de demandes qui ont été limitées car l’utilisation d’une unité de débit a été dépassée.<br/><br/> Unité : Count <br/> Type d’agrégation : Total <br/> Dimension : EntityName|
+|Requêtes limitées |Le nombre de demandes qui ont été limitées car l’utilisation d’une unité de débit a été dépassée.<br/><br/> Unité : Count <br/> Type d’agrégation : Total <br/> Dimension : EntityName|
 
 ## <a name="message-metrics"></a>Métriques de message
 

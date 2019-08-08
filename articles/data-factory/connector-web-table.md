@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/20/2018
+ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: e578b3a6b3905569567b568b0130c1ed1b90d915
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 09de2919b22ebb088b23c1ab59f60d182657a2f1
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60557706"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68720407"
 ---
 # <a name="copy-data-from-web-table-by-using-azure-data-factory"></a>Copier des données de Table web à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -86,7 +86,7 @@ Pour copier des données à partir de Table web, affectez la valeur **WebTable**
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type du jeu de données doit être définie sur : **WebTable** | OUI |
+| type | La propriété type du jeu de données doit être définie sur : **WebTable** | OUI |
 | chemin d’accès |URL relative de la ressource qui contient la table. |Non. Quand le chemin d’accès n’est pas spécifié, seule l’URL spécifiée dans la définition du service lié est utilisée. |
 | index |Index de la table dans la ressource. Pour savoir comment obtenir l’index d’une table dans une page HTML, consultez la section [Obtenir l’index d’une table dans une page HTML](#get-index-of-a-table-in-an-html-page) . |OUI |
 
@@ -97,13 +97,14 @@ Pour copier des données à partir de Table web, affectez la valeur **WebTable**
     "name": "WebTableInput",
     "properties": {
         "type": "WebTable",
-        "linkedServiceName": {
-            "referenceName": "<Web linked service name>",
-            "type": "LinkedServiceReference"
-        },
         "typeProperties": {
             "index": 1,
             "path": "AFI's_100_Years...100_Movies"
+        },
+        "schema": [],
+        "linkedServiceName": {
+            "referenceName": "<Web linked service name>",
+            "type": "LinkedServiceReference"
         }
     }
 }

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b3517f90d97a19740f5be8c2a755532d305522d7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 46abe367c9047616174a1e43dffd57861e6278e8
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65228167"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68811837"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Questions fréquentes relatives à Azure Multi-Factor Authentication
 
@@ -93,9 +93,7 @@ Multi-Factor Authentication pour les utilisateurs d’Office 365 propose gratui
 
 **Q : Mon organisation peut-elle passer de la facturation de consommation par utilisateur à la facturation par authentification, et inversement, à tout moment ?**
 
-Si votre organisation acquiert MFA en tant que service autonome avec une facturation à la consommation, vous choisissez un modèle de facturation lorsque vous créez un fournisseur MFA. Vous ne pouvez pas modifier le modèle de facturation après la création d’un fournisseur MFA. Toutefois, vous pouvez supprimer le fournisseur MFA, puis en créer un avec un autre modèle de facturation.
-
-Une fois le fournisseur MFA créé, il peut être associé à un Azure Active Directory (également appelé « locataire Azure AD »). Si le fournisseur MFA actuel est associé à un locataire Azure AD, vous pouvez en toute sécurité supprimer ce fournisseur et en créer un associé au même locataire Azure AD. Si vous avez acheté suffisamment de licences MFA, Azure AD Premium, ou Enterprise Mobility + Security (EMS) pour couvrir tous les utilisateurs activés pour MFA, vous pouvez également supprimer complètement le fournisseur MFA.
+Si votre organisation acquiert MFA en tant que service autonome avec une facturation à la consommation, vous choisissez un modèle de facturation lorsque vous créez un fournisseur MFA. Vous ne pouvez pas modifier le modèle de facturation après la création d’un fournisseur MFA. 
 
 Si votre fournisseur MFA n’est *pas* lié à un locataire Azure AD, ou si vous associez le nouveau fournisseur MFA à un autre locataire Azure AD, les paramètres utilisateur et les options de configuration ne sont pas transférés. Par ailleurs, les serveurs Azure MFA existants doivent être réactivés à l’aide des informations d’identification d’activation générées via le nouveau fournisseur MFA. Le fait de réactiver les serveurs MFA afin de les lier au nouveau fournisseur MFA n’a pas de conséquence sur l’authentification des appels téléphoniques et des SMS. Toutefois, les notifications d’applications mobiles cessent de fonctionner pour tous les utilisateurs jusqu’à ce qu’ils réactivent l’application mobile.
 

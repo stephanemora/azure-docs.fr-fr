@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 05/24/2018
+ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: faf0cab55ec0cef034638d218f2172f3676ff39b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: edf475ac11168c33a6b11ccda3482ac44579e8d8
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66245108"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68726217"
 ---
 # <a name="copy-data-to-an-azure-search-index-using-azure-data-factory"></a>Copier des données vers un index de recherche Azure à l’aide d’Azure Data Factory
 
@@ -81,7 +81,7 @@ Pour copier des données dans Recherche Azure, les propriétés suivantes sont p
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type du jeu de données doit être définie sur : **AzureSearchIndex** | OUI |
+| type | La propriété type du jeu de données doit être définie sur : **AzureSearchIndex** | OUI |
 | indexName | Nom de l’index Recherche Azure. Data Factory ne crée pas l’index. L’index doit exister dans Recherche Azure. | OUI |
 
 **Exemple :**
@@ -91,12 +91,13 @@ Pour copier des données dans Recherche Azure, les propriétés suivantes sont p
     "name": "AzureSearchIndexDataset",
     "properties": {
         "type": "AzureSearchIndex",
+        "typeProperties" : {
+            "indexName": "products"
+        },
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<Azure Search linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties" : {
-            "indexName": "products"
         }
    }
 }
@@ -112,7 +113,7 @@ Pour copier des données vers Recherche Azure, définissez **AzureSearchIndexSin
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type de la source d’activité de copie doit être définie sur : **AzureSearchIndexSink** | OUI |
+| type | La propriété type de la source d’activité de copie doit être définie sur : **AzureSearchIndexSink** | OUI |
 | writeBehavior | Indique s’il convient de procéder à une fusion ou à un remplacement lorsqu’un document existe déjà dans l’index. Voir la [propriété WriteBehavior](#writebehavior-property).<br/><br/>Les valeurs autorisées sont les suivantes : **Merge** (par défaut) et **Upload**. | Non |
 | writeBatchSize | Charge des données dans l’index Recherche Azure lorsque la taille du tampon atteint writeBatchSize. Pour plus d’informations, voir la [propriété WriteBatchSize](#writebatchsize-property).<br/><br/>Valeurs autorisées : entier de 1 à 1000 ; la valeur par défaut est 1000. | Non |
 

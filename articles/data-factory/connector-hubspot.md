@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 86c38818ee1632bf2d2f3fb1e1240954f3267887
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ce9a1d0fb9a5e8b242db26c433a08c2426df39d9
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62123701"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68720748"
 ---
 # <a name="copy-data-from-hubspot-using-azure-data-factory-preview"></a>Copier des données de HubSpot à l’aide d’Azure Data Factory (préversion)
 
@@ -87,7 +87,7 @@ Pour copier des données depuis HubSpot, définissez la propriété type du jeu 
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type du jeu de données doit être définie sur : **HubspotObject** | OUI |
+| type | La propriété type du jeu de données doit être définie sur : **HubspotObject** | OUI |
 | tableName | Nom de la table. | Non (si « query » dans la source de l’activité est spécifié) |
 
 **Exemple**
@@ -97,11 +97,12 @@ Pour copier des données depuis HubSpot, définissez la propriété type du jeu 
     "name": "HubspotDataset",
     "properties": {
         "type": "HubspotObject",
+        "typeProperties": {},
+        "schema": [],        
         "linkedServiceName": {
             "referenceName": "<Hubspot linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {}
+        }
     }
 }
 ```
@@ -116,7 +117,7 @@ Pour copier des données depuis HubSpot, définissez le type de source dans l’
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type de la source d’activité de copie doit être définie sur : **HubspotSource** | OUI |
+| type | La propriété type de la source d’activité de copie doit être définie sur : **HubspotSource** | OUI |
 | query | Utiliser la requête SQL personnalisée pour lire les données. Par exemple : `"SELECT * FROM Companies where Company_Id = xxx"`. | Non (si « tableName » est spécifié dans dataset) |
 
 **Exemple :**

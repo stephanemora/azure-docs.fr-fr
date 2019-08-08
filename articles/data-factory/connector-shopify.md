@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: c25232abf20bbe3d01672b7620e5d2f5e31d5c8a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b4bb56155e925f9e19570d89d091342afd594009
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60343509"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68725965"
 ---
 # <a name="copy-data-from-shopify-using-azure-data-factory-preview"></a>Copier des données de Shopify avec Azure Data Factory (préversion)
 
@@ -77,7 +77,7 @@ Pour copier des données de Shopify, affectez la valeur **ShopifyObject** à la 
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type du jeu de données doit être définie sur : **ShopifyObject** | OUI |
+| type | La propriété type du jeu de données doit être définie sur : **ShopifyObject** | OUI |
 | tableName | Nom de la table. | Non (si « query » dans la source de l’activité est spécifié) |
 
 **Exemple**
@@ -87,11 +87,12 @@ Pour copier des données de Shopify, affectez la valeur **ShopifyObject** à la 
     "name": "ShopifyDataset",
     "properties": {
         "type": "ShopifyObject",
+        "typeProperties": {},
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<Shopify linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {}
+        }
     }
 }
 ```
@@ -106,7 +107,7 @@ Pour copier des données à partir de Shopify, définissez **ShopifySource** com
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type de la source d’activité de copie doit être définie sur : **ShopifySource** | OUI |
+| type | La propriété type de la source d’activité de copie doit être définie sur : **ShopifySource** | OUI |
 | query | Utiliser la requête SQL personnalisée pour lire les données. Par exemple : `"SELECT * FROM "Products" WHERE Product_Id = '123'"`. | Non (si « tableName » est spécifié dans dataset) |
 
 **Exemple :**

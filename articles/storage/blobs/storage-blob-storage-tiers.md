@@ -1,20 +1,19 @@
 ---
 title: Niveaux d’accès chaud, froid et archive pour les objets blob - Stockage Azure
 description: Niveaux d’accès chaud, froid et archive pour les comptes de stockage Azure.
-services: storage
 author: mhopkins-msft
-ms.service: storage
-ms.topic: conceptual
-ms.date: 03/23/2019
 ms.author: mhopkins
-ms.reviewer: clausjor
+ms.date: 03/23/2019
+ms.service: storage
 ms.subservice: blobs
-ms.openlocfilehash: dcfec25cd2bf01d59a7c0b3f72d8b1a618a9f699
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.topic: conceptual
+ms.reviewer: clausjor
+ms.openlocfilehash: d370a8ac93de20596b2c15f52427d09f11c2b1bd
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68565986"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68722057"
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-access-tiers"></a>Stockage Blob Azure : niveaux d’accès chaud, froid et archive
 

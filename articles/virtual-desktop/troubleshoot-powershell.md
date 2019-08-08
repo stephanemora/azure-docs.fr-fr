@@ -2,17 +2,17 @@
 title: Windows Virtual Desktop PowerShell – Azure
 description: Comment résoudre des problèmes avec PowerShell quand vous configurez un environnement de locataire Windows Virtual Desktop.
 services: virtual-desktop
-author: ChJenk
+author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 04/08/2019
-ms.author: v-chjenk
-ms.openlocfilehash: 41c3c25962d5cb0d608a226ed77408460446bfa5
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.author: helohr
+ms.openlocfilehash: 7c5a15790c3a88e9aa3921d6cc2626576aedaa64
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68248193"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68816376"
 ---
 # <a name="windows-virtual-desktop-powershell"></a>Windows Virtual Desktop PowerShell
 
@@ -58,7 +58,7 @@ Get-RdsDiagnosticActivities -ActivityId <ActivityId>
 
 **Cause :** paramètre -TenantName
 
-**Correctif :** Émettez Get-RdsDiagnosticActivities avec -TenantName \<TenantName>.
+**Correctif :** Émettez Get-RdsDiagnosticActivities avec -TenantName \<TenantName>.
 
 ### <a name="error-get-rdsdiagnosticactivities----the-user-isnt-authorized-to-query-the-management-service"></a>Error: Get-RdsDiagnosticActivities : l’utilisateur n’est pas autorisé à interroger le service de gestion
 
@@ -86,7 +86,7 @@ Get-RdsDiagnosticActivities -Deployment -username <username>
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Pour découvrir une vue d’ensemble de la résolution des problèmes Windows Virtual Desktop et des procédures d’escalade, consultez l’article [Vue d’ensemble du dépannage, commentaires et support](troubleshoot-set-up-overview.md).
-- Pour détecter les problèmes de création d’un pool de locataires et d'hôtes dans un environnement Windows Virtual Desktop, consultez [Création d’un pool de locataires et d’hôtes](troubleshoot-set-up-issues.md).
+- Pour détecter les problèmes de création d’un pool de locataires et d’hôtes dans un environnement Windows Virtual Desktop, consultez [Création d’un pool de locataires et d’hôtes](troubleshoot-set-up-issues.md).
 - Pour détecter les problèmes de configuration d’une machine virtuelle dans Windows Virtual Desktop, consultez l’article [Configuration d’une machine virtuelle hôte de session](troubleshoot-vm-configuration.md).
 - Pour résoudre les problèmes de connexion au client Windows Virtual Desktop, voir l’article [Connexions au client Bureau à distance](troubleshoot-client-connection.md).
 - Pour plus d’informations sur le service en préversion, voir [Environnement de bureau Windows en préversion](https://docs.microsoft.com/azure/virtual-desktop/environment-setup).
