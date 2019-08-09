@@ -55,7 +55,7 @@ Les propriétés prises en charge pour le service lié REST sont les suivantes 
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété **type** doit être définie sur **RestService**. | OUI |
+| type | La propriété **type** doit être définie sur **RestService**. | OUI |
 | url | URL de base du service REST. | OUI |
 | enableServerCertificateValidation | Indique s’il faut ou non valider le certificat SSL côté serveur lors de la connexion au point de terminaison. | Non<br /> (la valeur par défaut est **true**) |
 | authenticationType | Type d’authentification utilisé pour se connecter au service REST. Les valeurs autorisées sont **Anonyme**, **De base**, **AadServicePrincipal** et **ManagedServiceIdentity**. Pour d’autres propriétés et exemples, voir les sections correspondantes ci-dessous. | OUI |
