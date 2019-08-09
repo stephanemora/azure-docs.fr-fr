@@ -27,6 +27,14 @@
     - name: Index
       displayName: 'list, examples'
       href: ./samples/index.md
+    - name: IRS 1075
+      items:
+        - name: Vue d'ensemble
+          displayName: 'standards, irs, 1075'
+          href: ./samples/irs-1075/index.md
+        - name: Correspondance des contrôles
+          displayName: 'standards, irs, 1075'
+          href: ./samples/irs-1075/control-mapping.md
     - name: "ISO\_27001"
       items:
         - name: Vue d'ensemble

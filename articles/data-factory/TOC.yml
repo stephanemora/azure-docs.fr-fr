@@ -166,6 +166,8 @@
       items:
         - name: Création visuelle de fabriques de données
           href: author-visually.md
+        - name: Contrôle de code source
+          href: source-control.md
         - name: Intégration et livraison continues
           href: continuous-integration-deployment.md
         - name: Développement et débogage itératifs

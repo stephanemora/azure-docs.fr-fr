@@ -133,12 +133,14 @@
       items:
         - name: Bien démarrer avec le contrôle de carte Android
           href: how-to-use-android-map-control-library.md
+        - name: Changer le style de la carte
+          href: set-android-map-styles.md
         - name: Ajouter un calque de symboles
           href: how-to-add-symbol-to-android-map.md
         - name: Ajouter des formes
           href: how-to-add-shapes-to-android-map.md
-        - name: Changer le style de la carte
-          href: set-android-map-styles.md
+        - name: Ajouter un calque de vignettes
+          href: how-to-add-tile-layer-android-map.md
 - name: Informations de référence
   items:
     - name: Extensions d’API et de paramètre

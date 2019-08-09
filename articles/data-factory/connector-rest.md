@@ -169,7 +169,7 @@ Pour copier des données à partir de REST, les propriétés suivantes sont pris
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété **type** du jeu de données doit être définie sur **RestResource**. | OUI |
+| type | La propriété **type** du jeu de données doit être définie sur **RestResource**. | OUI |
 | relativeUrl | URL relative de la ressource qui contient les données. Quand cette propriété n’est pas spécifiée, seule l’URL indiquée dans la définition du service lié est utilisée. | Non |
 | requestMethod | Méthode HTTP. Les valeurs autorisées sont **Get** (par défaut) et **Post**. | Non |
 | additionalHeaders | En-têtes de requête HTTP supplémentaires. | Non |
@@ -232,7 +232,7 @@ Les propriétés prises en charge dans la section **source** de l’activité de
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété **type** de la source d’activité de copie doit être définie sur **RestSource**. | OUI |
+| type | La propriété **type** de la source d’activité de copie doit être définie sur **RestSource**. | OUI |
 | httpRequestTimeout | Délai d’expiration (valeur **TimeSpan**) pour l’obtention d’une réponse par la requête HTTP. Cette valeur correspond au délai d’expiration pour l’obtention d’une réponse, et non au délai d’expiration pour la lecture des données de la réponse. La valeur par défaut est **00:01:40**.  | Non |
 | requestInterval | Durée d’attente avant d’envoyer la requête de page suivante. La valeur par défaut est **00:00:01** |  Non |
 
