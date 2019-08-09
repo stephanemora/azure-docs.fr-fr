@@ -1,19 +1,19 @@
 ---
 title: Préparer le serveur DPM pour sauvegarder des charges de travail vers Azure
 description: Introduction à la sauvegarde de données DPM dans un coffre Azure Recovery Services.
-services: backup
-author: kasinh
-manager: vvithal
+ms.reviewer: kasinh
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.author: kasinh
-ms.openlocfilehash: 82e4278a130bb67a1af61ead981259d7bb4e1aa7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: dacurwin
+ms.openlocfilehash: 0c762054ed0df3a3781dda7057ff8793dbf82565
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66427438"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68689302"
 ---
 # <a name="prepare-to-back-up-workloads-to-azure-with-system-center-dpm"></a>Préparer la sauvegarde des charges de travail dans Azure avec System Center DPM
 

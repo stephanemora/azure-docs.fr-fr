@@ -1,5 +1,5 @@
 ---
-title: Déployer le module Azure Security Center pour IoT Edge | Microsoft Docs
+title: Déploiement du module Azure Security Center pour IoT Edge (préversion) | Microsoft Docs
 description: Découvrez comment déployer un agent de sécurité Azure Security Center pour IoT sur IoT Edge.
 services: asc-for-iot
 ms.service: asc-for-iot
@@ -13,36 +13,36 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/1/2019
+ms.date: 07/23/2019
 ms.author: mlottner
-ms.openlocfilehash: 49ed4c6515f8fb63c3331b05e1bb29b13985e6b3
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 7171923e4badb3355a64b63515d40e73fadca6b0
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67618321"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68596366"
 ---
 # <a name="deploy-a-security-module-on-your-iot-edge-device"></a>Déployer un module de sécurité sur votre appareil IoT Edge
 
 > [!IMPORTANT]
-> Azure Security Center pour IoT est disponible en préversion publique.
+> La prise en charge de l’appareil Azure Security Center pour IoT sur IoT Edge est disponible en préversion publique.
 > Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Le module **Azure Security Center (ASC) pour IoT** constitue une solution de sécurité complète pour les appareils IoT Edge.
+Le module **Azure Security Center pour IoT** constitue une solution de sécurité complète pour vos appareils IoT Edge.
 Ce module de sécurité collecte, agrège et analyse des données de sécurité brutes tirées du système d’exploitation et du système de conteneur pour produire des alertes et des suggestions de sécurité actionnables.
 Pour plus d’informations, consultez [Module de sécurité pour IoT Edge](security-edge-architecture.md).
 
-Dans ce guide, vous allez apprendre à déployer un module de sécurité sur votre appareil IoT Edge.
+Dans ce article, vous apprendrez à déployer un module de sécurité sur votre appareil IoT Edge.
 
 ## <a name="deploy-security-module"></a>Déployer un module de sécurité
 
-Procédez comme suit pour déployer un module de sécurité ASC pour IoT pour IoT Edge.
+Procédez comme suit pour déployer un module de sécurité Azure Security Center pour IoT sur IoT Edge.
 
 ### <a name="prerequisites"></a>Prérequis
 
 - Dans votre instance d’IoT Hub, assurez-vous que votre appareil est [inscrit en tant qu’appareil IoT Edge](https://docs.microsoft.com/azure/iot-edge/how-to-register-device-portal).
 
-- Le module ASC pour IoT Edge nécessite l’installation du [framework AuditD](https://linux.die.net/man/8/auditd) sur l’appareil IoT Edge.
+- Le module d’Azure Security Center pour IoT Edge nécessite l’installation de [l’infrastructure AuditD](https://linux.die.net/man/8/auditd) sur l’appareil IoT Edge.
 
     - Installez le framework en exécutant la commande suivante sur votre appareil IoT Edge :
    
@@ -56,7 +56,7 @@ Procédez comme suit pour déployer un module de sécurité ASC pour IoT pour Io
 
 ### <a name="deployment-using-azure-portal"></a>Déploiement à l’aide du Portail Microsoft Azure
 
-1. À partir du Portail Microsoft Azure, ouvrez la **Place de marché**.
+1. À partir du portail Microsoft Azure, ouvrez la **Place de marché**.
 
 1. Sélectionnez **Internet des objets**, puis recherchez **Azure Security Center pour IoT** et sélectionnez-le.
 
@@ -107,9 +107,6 @@ La création d’un déploiement IoT Edge pour Azure Security Center pour IoT s�
 1. Cliquez sur **Enregistrer**.
 1. Faites défiler l’écran vers le bas de l’onglet, puis sélectionnez **Configurer les paramètres avancés du runtime Edge**.
    
-   >[!Note]
-   > Ne **désactivez pas** la communication AMQP pour IoT Edge Hub.
-   > Le module Azure Security Center pour IoT requiert une communication AMQP avec IoT Edge Hub.
    
 1. Remplacez **Image** sous **Edge Hub** par **mcr.microsoft.com/ascforiot/edgehub:1.0.9-preview**.
 
@@ -137,13 +134,20 @@ La création d’un déploiement IoT Edge pour Azure Security Center pour IoT s�
 
 #### <a name="step-2-specify-routes"></a>Étape 2 : Spécifier des itinéraires 
 
-1. Sous l’onglet **Spécifier des routes**, définissez l’itinéraire **ASCForIoTToIoTHub** sur **"FROM /messages/modules/azureiotsecurity/\* INTO $upstream"** , puis cliquez sur **Suivant**.
+1. Dans l’onglet **Spécifier les itinéraires**, vérifiez que vous disposez d’un itinéraire (explicite ou implicite) qui transférera les messages depuis le module **azureiotsecurity** vers **$upstream**. 
+1. Cliquez sur **Suivant**.
 
-   ![Spécifier des routes](media/howto/edge-onboarding-9.png)
+    ~~~Default implicit route
+    "route": "FROM /messages/* INTO $upstream 
+    ~~~
+
+    ~~~Explicit route
+    "ASCForIoTRoute": "FROM /messages/modules/azureiotsecurity/* INTO $upstream
+    ~~~
 
 #### <a name="step-3-review-deployment"></a>Étape 3 : Vérifier le déploiement
 
-1. Sous l’onglet **Vérifier le déploiement**, examinez les informations sur votre déploiement, puis sélectionnez **Envoyer** pour procéder au déploiement.
+- Sous l’onglet **Vérifier le déploiement**, examinez les informations sur votre déploiement, puis sélectionnez **Envoyer** pour procéder au déploiement.
 
 ## <a name="diagnostic-steps"></a>Étapes de diagnostic
 
@@ -171,7 +175,7 @@ Si vous rencontrez un problème, les journaux de conteneur sont la meilleure fa�
 
    `sudo docker logs azureiotsecurity`
    
-1. Pour consulter des journaux plus détaillés, ajoutez la variable d’environnement suivante au déploiement du module **azureiotsecurity** : `logLevel=Debug`.
+1. Pour consulter des journaux d’activité plus détaillés, ajoutez la variable d’environnement suivante au déploiement du module **azureiotsecurity** : `logLevel=Debug`.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

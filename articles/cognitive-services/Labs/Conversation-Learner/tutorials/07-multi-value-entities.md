@@ -10,12 +10,13 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: nitinme
-ms.openlocfilehash: 1f62def5e498f3f744beaed0cda207e1a75bfdf2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ROBOTS: NOINDEX
+ms.openlocfilehash: 7911dd561da0f1e7b62b1b457ae5b059d5d54767
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66387962"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68704089"
 ---
 # <a name="how-to-use-multi-value-entities-with-a-conversation-learner-model"></a>Utiliser des entités à valeurs multiples avec un modèle d’Apprenant de conversation
 Ce tutoriel présente la propriété « À valeur multiple » des entités.
@@ -42,7 +43,7 @@ Démarrez sur la page d’accueil de l’interface utilisateur web.
 
 1. Sélectionnez **New Model**.
 2. Entrez **MultiValueEntities** comme **Name**.
-3. Sélectionnez **Create**.
+3. Sélectionnez **Créer**.
 
 ### <a name="entity-creation"></a>Création d’entités
 
@@ -51,7 +52,7 @@ Démarrez sur la page d’accueil de l’interface utilisateur web.
 3. Entrez **garniture** comme **Entity Name**.
 4. Cochez **Multi-valued** pour permettre à l’entité d’accumuler une ou plusieurs valeurs.
 5. Cochez **Negatable**.
-6. Sélectionnez **Create**.
+6. Sélectionnez **Créer**.
 
 ![](../media/T07_entity_create.png)
 
@@ -59,7 +60,7 @@ Démarrez sur la page d’accueil de l’interface utilisateur web.
 
 1. Sélectionnez **Actions** dans le volet gauche, puis **New Action**.
 2. Entrez **Voici votre garniture : $garniture** comme **Bot’s Response...** . Le symbole dollar indique qu’il s’agit d’une référence d’entité.
-3. Sélectionnez **Create**.
+3. Sélectionnez **Créer**.
 
 ![](../media/T07_action_create_1.png)
 
@@ -68,7 +69,7 @@ Démarrez sur la page d’accueil de l’interface utilisateur web.
 1. Sélectionnez **Actions** dans le volet gauche, puis **New Action**.
 2. Entrez **Quelle garniture souhaitez-vous ?** comme **Bot’s Response...** .
 3. Entrez **garniture** comme **Disqualifying Entities**.
-4. Sélectionnez **Create**.
+4. Sélectionnez **Créer**.
 
 Vous avez maintenant deux actions.
 

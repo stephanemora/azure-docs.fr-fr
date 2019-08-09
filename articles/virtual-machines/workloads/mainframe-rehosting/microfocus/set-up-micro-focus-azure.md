@@ -4,16 +4,20 @@ description: Réhébergez vos charges de travail mainframe IBM z/OS en utilisant
 services: virtual-machines-linux
 documentationcenter: ''
 author: njray
+ms.author: edprice
 manager: edprice
 editor: edprice
+ms.topic: conceptual
+ms.date: 05/29/2019
 tags: ''
 keywords: ''
-ms.openlocfilehash: 45d6f8606c665d78783f987c2f2b49a77801639c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.service: multiple
+ms.openlocfilehash: a5426c3cd7552b24739f9a20e01d5a4b42bd383c
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66304604"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68834573"
 ---
 # <a name="install-micro-focus-enterprise-server-40-and-enterprise-developer-40-on-azure"></a>Installer Micro Focus Enterprise Server 4.0 et Enterprise Developer 4.0 sur Azure
 

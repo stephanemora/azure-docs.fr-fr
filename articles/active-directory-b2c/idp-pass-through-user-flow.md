@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: db4b799aa31a4132609b0dd158b65070fb2474b7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8e9019699d8a81d31d2b20f674fd76fcb70021d6
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66510964"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67846827"
 ---
 # <a name="pass-an-access-token-through-a-user-flow-to-your-application-in-azure-active-directory-b2c"></a>Passer un jeton d’accès par le biais d’un flux utilisateur à une application dans Azure Active Directory B2C
 
@@ -54,12 +54,8 @@ Quand vous testez vos applications dans Azure AD B2C, il peut être utile de re
 
     Vous devriez voir quelque chose de similaire à l’exemple suivant :
 
-    ![Jeton décodé](./media/idp-pass-through-user-flow/idp-pass-through-user-flow-token.png)
+    ![Jeton décodé dans jwt.ms avec bloc idp_access_token mis en surbrillance](./media/idp-pass-through-user-flow/idp-pass-through-user-flow-token.PNG)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Apprenez-en davantage dans la [présentation des jetons Azure AD B2C](active-directory-b2c-reference-tokens.md).
-
-
-
-

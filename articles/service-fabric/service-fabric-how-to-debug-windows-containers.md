@@ -3,7 +3,7 @@ title: Déboguer des conteneurs Windows avec Service Fabric et VS | Microsoft Do
 description: Découvrez comment déboguer des conteneurs Windows dans Azure Service Fabric à l’aide de Visual Studio 2019.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: msfussell
 editor: ''
 ms.service: service-fabric
@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/14/2019
-ms.author: aljo, mikhegn
-ms.openlocfilehash: 15f288d5400b49ec05c9ffb936fd2097cc61bae8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: mikhegn
+ms.openlocfilehash: 043623869163a27cdbbdd7115fca43486577ca7d
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66428152"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68599439"
 ---
 # <a name="how-to-debug-windows-containers-in-azure-service-fabric-using-visual-studio-2019"></a>Activation Déboguer des conteneurs Windows dans Azure Service Fabric à l’aide de Visual Studio 2019
 

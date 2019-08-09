@@ -3,7 +3,7 @@ title: Déploiement d’applications Azure Service Fabric | Microsoft Docs
 description: Utilisez les API FabricClient pour déployer et supprimer des applications dans Service Fabric.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: b120ffbf-f1e3-4b26-a492-347c29f8f66b
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/19/2018
-ms.author: aljo
-ms.openlocfilehash: 4b2d88004696515169ffde96b50d2771bcc1a669
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: atsenthi
+ms.openlocfilehash: c04306b417c8e68f2e93c0e5e064f5873b00ddd5
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66428132"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68599632"
 ---
 # <a name="deploy-and-remove-applications-using-fabricclient"></a>Déployer et supprimer des applications avec FabricClient
 > [!div class="op_single_selector"]
@@ -32,7 +32,7 @@ ms.locfileid: "66428132"
 
 <br/>
 
-Après avoir [packagé un type d’application][10], celui-ci peut être déployé sur un cluster Azure Service Fabric. Le déploiement implique les trois étapes suivantes :
+Après avoir [packagé un type d’application][10], il peut être déployé sur un cluster Azure Service Fabric. Le déploiement implique les trois étapes suivantes :
 
 1. Charger le package d’application dans le magasin d’images
 2. Enregistrer le type d’application

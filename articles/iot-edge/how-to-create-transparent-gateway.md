@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 5881adb7e2fc0d52cc2037d3d4a9e986b3e29d74
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a91860e9ec8d503a01d079925466093d19bbbccf
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67058359"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698601"
 ---
 # <a name="configure-an-iot-edge-device-to-act-as-a-transparent-gateway"></a>Configurer un appareil IoT Edge en tant que passerelle transparente
 
@@ -50,9 +50,8 @@ Les étapes suivantes vous guident tout au long du processus de création des ce
 ## <a name="prerequisites"></a>Prérequis
 
 Un appareil Azure IoT Edge à configurer comme passerelle. Effectuez les étapes d’installation IoT Edge pour l’un des systèmes d’exploitation suivants :
-  * [Windows](./how-to-install-iot-edge-windows.md)
-  * [Linux x64](./how-to-install-iot-edge-linux.md)
-  * [Linux ARM32](./how-to-install-iot-edge-linux-arm.md)
+  * [Windows](how-to-install-iot-edge-windows.md)
+  * [Linux](how-to-install-iot-edge-linux.md)
 
 Cet article fait référence au *nom d’hôte de passerelle* à plusieurs endroits. Le nom d’hôte de passerelle est déclaré avec le paramètre **hostname** dans le fichier config.yaml sur l’appareil de passerelle IoT Edge. Il est utilisé pour créer les certificats dans cet article et est référencé dans la chaîne de connexion des appareils en aval. Le nom d’hôte de passerelle doit être résolu en une adresse IP, à l’aide du DNS ou d’une entrée de fichier hôte.
 

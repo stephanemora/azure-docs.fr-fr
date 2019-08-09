@@ -51,7 +51,7 @@ L’opération [Grouper](https://westus.dev.cognitive.microsoft.com/docs/service
 
 ### <a name="identify"></a>Identifier
 
-L’opération [Identifier](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) accepte un ou plusieurs ID de visages issus de DetectedFace ou de PersistedFace et un objet PersonGroup, et retourne une liste d’objets Person auxquelles chaque visage peut appartenir. Les objets Person retournés sont encapsulés en tant qu’objets Candidate, lesquels ont une valeur de confiance de prédiction.
+L’opération [Identity](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) prend un ou plusieurs ID de visage à partir de DetectedFace ou de PersistedFace ainsi qu’un groupe de personnes et retourne une liste d’objets Person auxquels chaque face peut appartenir. Les objets Person retournés sont empaquetés en tant qu’objets de candidats et comportent une valeur de niveau de confiance de prédiction.
 
 ## <a name="input-data"></a>Données d’entrée
 

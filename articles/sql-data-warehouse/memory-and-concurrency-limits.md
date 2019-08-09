@@ -6,16 +6,16 @@ author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: workload management
+ms.subservice: workload-management
 ms.date: 03/15/2019
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 3bc1fef1842911e9b2cfb65b3c8cc72e4b615010
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0a92c032027e772020eda0b626a6dc6db024bf57
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66241264"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67595573"
 ---
 # <a name="memory-and-concurrency-limits-for-azure-sql-data-warehouse"></a>Limites de mémoire et de concurrence pour Azure SQL Data Warehouse
 Afficher les limites de mémoire et de concurrence allouées aux différents niveaux de performance et classes de ressources dans Azure SQL Data Warehouse. Pour plus d’informations et pour appliquer ces fonctionnalités à votre plan de gestion de la charge de travail, consultez [Classes de ressources pour la gestion des charges de travail](resource-classes-for-workload-management.md). 
@@ -40,8 +40,8 @@ Gen2 fournit 2,5 fois plus de mémoire par requête que Gen1. Cette mémoire sup
 | DW1500c           | 3             | 20                             |   900                          |
 | DW2000c           | 4             | 15                             |  1 200                          |
 | DW2500c           | 5\.             | 12                             |  1 500                          |
-| DW3000c           | 6\.             | 10                             |  1 800                          |
-| DW5000c           | 10            | 6\.                              |  3000                          |
+| DW3000c           | 6             | 10                             |  1 800                          |
+| DW5000c           | 10            | 6                              |  3000                          |
 | DW6000c           | 12            | 5\.                              |  3600                          |
 | DW7500c           | 15            | 4                              |  4500                          |
 | DW10000c          | 20            | 3                              |  6000                          |
@@ -61,8 +61,8 @@ Les niveaux de service pour Gen1 vont de DW100 à DW6000.
 | DW300             | 3             | 20                             |  72                            |
 | DW400             | 4             | 15                             |  96                            |
 | DW500             | 5\.             | 12                             | 120                            |
-| DW600             | 6\.             | 10                             | 144                            |
-| DW1000            | 10            | 6\.                              | 240                            |
+| DW600             | 6             | 10                             | 144                            |
+| DW1000            | 10            | 6                              | 240                            |
 | DW1200            | 12            | 5\.                              | 288                            |
 | DW1500            | 15            | 4                              | 360                            |
 | DW2000            | 20            | 3                              | 480                            |
@@ -114,11 +114,11 @@ Le tableau suivant indique le nombre maximal de requêtes concurrentes et d’em
 | DW400c        | 16                         |   16                        | 1                     |  1                     |  3                    |  11                    |
 | DW500c        | 20                         |   20                        | 1                     |  2                     |  4                    |  14                    |
 | DW1000c       | 32                         |   40                        | 1                     |  4                     |  8                    |  28                    |
-| DW1500c       | 32                         |   60                        | 1                     |  6\.                     |  13                   |  42                    |
+| DW1500c       | 32                         |   60                        | 1                     |  6                     |  13                   |  42                    |
 | DW2000c       | 32                         |   80                        | 2                     |  8                     |  17                   |  56                    |
 | DW2500c       | 32                         |  100                        | 3                     | 10                     |  22                   |  70                    |
 | DW3000c       | 32                         |  120                        | 3                     | 12                     |  26                   |  84                    |
-| DW5000c       | 32                         |  200                        | 6\.                     | 20                     |  44                   | 140                    |
+| DW5000c       | 32                         |  200                        | 6                     | 20                     |  44                   | 140                    |
 | DW6000c       | 32                         |  240                        | 7                     | 24                     |  52                   | 168                    |
 | DW7500c       | 32                         |  300                        | 9                     | 30                     |  66                   | 210                    |
 | DW10000c      | 32                         |  400                        | 12                    | 40                     |  88                   | 280                    |

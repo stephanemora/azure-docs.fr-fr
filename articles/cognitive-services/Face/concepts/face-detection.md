@@ -47,7 +47,7 @@ Les attributs sont un ensemble de fonctionnalités qui peuvent éventuellement �
 * **gender**. Le sexe estimé de la personne détentrice du visage donné. Les valeurs possibles sont male (homme), female (femme) et genderless (sexe indéterminé).
 * **glasses**. Indique si le visage donné porte des lunettes. Les valeurs possibles sont NoGlasses (pas de lunettes), ReadingGlasses (lunettes de lecture), Sunglasses (lunettes de soleil) et Swimming Goggles (lunettes de natation).
 * **hair**. Type de cheveux du visage. Cet attribut indique si les cheveux sont visibles, si une calvitie est détectée et les couleurs de cheveux détectées.
-* **headPose**. L’orientation du visage dans l’espace 3D. Cet attribut est décrit par l’angle d’inclinaison longitudinale (pitch), l’angle d’inclinaison latérale (roll) et l’angle de lacet (yaw) en degrés. Les plages des valeurs vont de -90 degrés à 90 degrés, de -180 degrés à 180 degrés et de -90 degrés à 90 degrés, respectivement. Consultez le schéma suivant de représentation des angles :
+* **headPose**. Orientation du visage dans l’espace 3D. Cet attribut est défini par des angles de roulis, de tangage et de lacet, mesurés en degrés Les plages de valeurs vont de -90 degrés à 90 degrés, - 180 degrés à 180 degrés, et -90 degrés à 90 degrés, respectivement. Consultez le diagramme suivant pour les mappages des angles :
 
     ![Tête avec les axes d’inclinaison longitudinale (pitch), d’inclinaison latérale (roll) et de lacet (yaw) étiquetés](../Images/headpose.1.jpg)
 * **makeup**. Indique si le visage comporte du maquillage. Cet attribut retourne une valeur booléenne pour eyeMakeup (maquillage des yeux) et lipMakeup (maquillage des lèvres).

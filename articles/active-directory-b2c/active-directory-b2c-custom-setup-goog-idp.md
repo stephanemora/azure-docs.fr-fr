@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 212243f38b153f75c08a9b4c58622d0444f0ac62
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 498fe63964e44de8f9e1bc06c1740f1a9ef9b392
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66510371"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67654168"
 ---
 # <a name="set-up-sign-in-with-a-google-account-using-custom-policies-in-azure-active-directory-b2c"></a>Configurer la connexion avec un compte Google à l’aide de stratégies personnalisées dans Azure Active Directory B2C
 
@@ -30,7 +30,7 @@ Cet article explique comment autoriser la connexion d’utilisateurs à partir d
 
 ## <a name="register-the-application"></a>Enregistrement de l’application
 
-Pour autoriser la connexion d’utilisateurs à partir d’un compte Google, vous devez créer un projet d’application Google. 
+Pour autoriser la connexion d’utilisateurs à partir d’un compte Google, vous devez créer un projet d’application Google.
 
 1. Connectez-vous à la [console Google Developers](https://console.developers.google.com/) avec les informations d’identification de votre compte.
 2. Entrez un **Nom du projet**, cliquez sur **Créer**, puis vérifiez que vous utilisez le nouveau projet.
@@ -48,9 +48,9 @@ Pour autoriser la connexion d’utilisateurs à partir d’un compte Google, vou
 Vous devez stocker la clé secrète client que vous avez enregistrée dans votre locataire Azure AD B2C.
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
-2. Veillez à utiliser l’annuaire qui contient votre locataire Azure AD B2C. Sélectionnez **Filtre de répertoire et d’abonnement** dans le menu supérieur et choisissez l’annuaire qui contient votre locataire.
+2. Veillez à bien utiliser l’annuaire qui contient votre locataire Azure AD B2C. Sélectionnez **Filtre de répertoire et d’abonnement** dans le menu supérieur et choisissez l’annuaire qui contient votre locataire.
 3. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Azure AD B2C**.
-4. Dans la page de vue d’ensemble, sélectionnez **Infrastructure d’expérience d’identité - PRÉVERSION**.
+4. Dans la page de vue d’ensemble, sélectionnez **Infrastructure d’expérience d’identité**.
 5. Sélectionnez **Clés de stratégie**, puis **Ajouter**.
 6. Pour **Options**, choisissez `Manual`.
 7. Entrez un **nom** pour la clé de stratégie. Par exemple : `GoogleSecret`. Le préfixe `B2C_1A_` est ajouté automatiquement au nom de votre clé.
@@ -60,7 +60,7 @@ Vous devez stocker la clé secrète client que vous avez enregistrée dans votre
 
 ## <a name="add-a-claims-provider"></a>Ajout d’un fournisseur de revendications
 
-Si vous souhaitez que les utilisateurs se connectent à l’aide d’un compte Google, vous devez définir le compte en tant que fournisseur de revendications avec lequel Azure AD B2C peut communiquer par le biais d’un point de terminaison. Le point de terminaison fournit un ensemble de revendications utilisées par Azure AD B2C pour vérifier qu’un utilisateur spécifique s’est authentifié. 
+Si vous souhaitez que les utilisateurs se connectent à l’aide d’un compte Google, vous devez définir le compte en tant que fournisseur de revendications avec lequel Azure AD B2C peut communiquer par le biais d’un point de terminaison. Le point de terminaison fournit un ensemble de revendications utilisées par Azure AD B2C pour vérifier qu’un utilisateur spécifique s’est authentifié.
 
 Vous pouvez définir un compte Google en tant que fournisseur de revendications en l’ajoutant à l’élément **ClaimsProviders** dans le fichier d’extension de votre stratégie.
 
@@ -152,7 +152,7 @@ Maintenant que vous avez un bouton en place, vous devez le lier à une action. D
     ```XML
     <ClaimsExchange Id="GoogleExchange" TechnicalProfileReferenceId="Google-OAuth" />
     ```
-    
+
     Mettez à jour la valeur de **TechnicalProfileReferenceId** sur l’ID du profil technique que vous avez créé. Par exemple : `Google-OAuth`.
 
 3. Enregistrez le fichier *TrustFrameworkExtensions.xml* et rechargez-le à des fins de vérification.
@@ -162,7 +162,7 @@ Maintenant que vous avez un bouton en place, vous devez le lier à une action. D
 La communication avec Azure AD B2C s’effectue via une application que vous créez dans votre locataire. Cette section indique les étapes facultatives que vous pouvez effectuer pour créer une application de test si vous ne l’avez pas déjà fait.
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
-2. Veillez à utiliser l’annuaire qui contient votre locataire Azure AD B2C. Sélectionnez **Filtre de répertoire et d’abonnement** dans le menu supérieur et choisissez l’annuaire qui contient votre locataire.
+2. Veillez à bien utiliser l’annuaire qui contient votre locataire Azure AD B2C. Sélectionnez **Filtre de répertoire et d’abonnement** dans le menu supérieur et choisissez l’annuaire qui contient votre locataire.
 3. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Azure AD B2C**.
 4. Sélectionnez **Applications**, puis **Ajouter**.
 5. Entrez un nom pour l’application (par exemple, *testapp1*).

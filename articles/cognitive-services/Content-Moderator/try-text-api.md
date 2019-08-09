@@ -1,20 +1,21 @@
 ---
 title: Modérer du texte à l’aide de l’API Modération du texte - Content Moderator
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Évaluez la modération du texte à l’aide de l’API Modération de texte dans la console en ligne.
 services: cognitive-services
 author: sanjeev3
+ms.author: sajagtap
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 05/29/2019
-ms.openlocfilehash: 21209548d1cfe7b6eebb1757e817a12c797e78a9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 49047c21f86530aac6ed3e0138a643fd08c35af8
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66688842"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561183"
 ---
 # <a name="moderate-text-from-the-api-console"></a>Modérer du texte à partir de la console d’API
 

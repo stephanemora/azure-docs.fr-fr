@@ -3,8 +3,8 @@ title: Effectuer une révision d’accès de groupes ou d’applications - Azure
 description: Découvrez comment effectuer une révision d’accès pour des membres de groupes ou pour l’accès aux applications dans les révisions d’accès Azure Active Directory.
 services: active-directory
 documentationcenter: ''
-author: rolyon
-manager: mtillman
+author: msaburnley
+manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 05/22/2019
-ms.author: rolyon
+ms.date: 07/23/2019
+ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec3909ffbb624284f999360140b7454098643062
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 97c405032368ffd06f5808bc4518302d2f6d66b9
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66473371"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68489142"
 ---
 # <a name="complete-an-access-review-of-groups-or-applications-in-azure-ad-access-reviews"></a>Effectuer une révision d’accès de groupes ou d’applications dans les révisions d’accès Azure AD
 

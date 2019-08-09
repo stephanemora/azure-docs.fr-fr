@@ -16,12 +16,12 @@ ms.date: 10/21/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cb5733f43a2b2800d5eb5031dddaaeb7d59aadc2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 814c81b6092c4af3778617e165a0bdbce09d71d7
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67109420"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779124"
 ---
 # <a name="user-sign-in-with-azure-active-directory-pass-through-authentication"></a>Connexion de l’utilisateur avec l’authentification directe Azure Active Directory
 
@@ -31,7 +31,7 @@ L’authentification directe Azure Active Directory (Azure AD) permet à vos uti
 
 >[!VIDEO https://www.youtube.com/embed/PyeAC85Gm7w]
 
-Cette fonctionnalité est une alternative à [Synchronisation du hachage de mot de passe Azure AD](how-to-connect-password-hash-synchronization.md), qui offre les mêmes fonctionnalités d’authentification sur le cloud aux organisations. Toutefois, certaines organisations souhaitant appliquer leurs stratégies de mot de passe et de sécurité Active Directory locales, peuvent choisir d’utiliser l’authentification directe à la place. Consultez [ce guide](https://docs.microsoft.com/azure/security/azure-ad-choose-authn) pour voir une comparaison entre les différentes méthodes de connexion Azure AD, et savoir comment choisir la méthode de connexion appropriée pour votre organisation.
+Cette fonctionnalité est une alternative à [Synchronisation du hachage de mot de passe Azure AD](how-to-connect-password-hash-synchronization.md), qui offre les mêmes fonctionnalités d’authentification sur le cloud aux organisations. Toutefois, certaines organisations souhaitant appliquer leurs stratégies de mot de passe et de sécurité Active Directory locales, peuvent choisir d’utiliser l’authentification directe à la place. Consultez [ce guide](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn) pour voir une comparaison entre les différentes méthodes de connexion Azure AD, et savoir comment choisir la méthode de connexion appropriée pour votre organisation.
 
 ![Authentification directe Azure AD](./media/how-to-connect-pta/pta1.png)
 

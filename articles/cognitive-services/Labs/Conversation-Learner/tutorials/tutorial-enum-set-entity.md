@@ -6,16 +6,17 @@ services: cognitive-services
 author: v-jaswel
 manager: nolachar
 ms.service: cognitive-services
-ms.component: conversation-learner
+ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
-ms.author: v-jaswel
-ms.openlocfilehash: 1393d0bd1c31a2c9c24652e260ef7f3182d91367
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: nolachar
+ROBOTS: NOINDEX
+ms.openlocfilehash: 5443b97febd6bf3831690531bceb540181e7676c
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66476493"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68706979"
 ---
 # <a name="when-to-use-enum-entities-and-set-entity-actions"></a>Quand utiliser des entités ENUM et des actions SET_ENTITY ?
 
@@ -46,7 +47,7 @@ Nous allons clarifier tout ceci avec l’exemple suivant :
 
 Bot : Aimez-vous Azure Cognitive Services ?
 Utilisateur : Oui Bot : Aimez-vous la crème glacée ?
-Utilisateur : Oui
+Utilisateur : OUI
 
 Dans les tutoriels précédents, nous avons examiné les entités [entraînées personnalisées](04-introduction-to-entities.md), et votre idée initiale pourrait consister à créer une entité nommée « likesCogServices » et à étiqueter le premier « Oui » en tant que cette entité.  Toutefois, le système étiquetterait également le second « Oui ». Quand nous tenterions de corriger l’étiquette du deuxième « Oui » sur « likesIceCream », nous créerions alors un conflit de deux mêmes entrées « Oui » signifiant différentes choses et nous serions bloqués.
 
@@ -65,13 +66,13 @@ En d’autres termes, utilisez-les pour toutes les invites « fermées », tel
 > Nous avons actuellement une limitation de cinq valeurs par entité ENUM. Chaque valeur utilise l’un des emplacements dans la limite actuelle de 64. Voir [cl-values-and-boundaries](../cl-values-and-boundaries.md).
 
 Exemple : Bot : Votre commande est-elle correcte ?
-Utilisateur : Oui
+Utilisateur : OUI
 
 Quand les valeurs possibles de l’entité sont ouvertes et non fixes, vous devez utiliser une autre caractéristique telle que l’[entité attendue](05-expected-entity.md).
 
 Exemple : Bot : Comment vous appelez-vous ?
 Utilisateur : Matt Bot : Quelle est votre couleur préférée ?
-Utilisateur : Argent
+Utilisateur : Silver
 
 Ces invites sont considérées comme ouvertes, car vous pouvez y répondre par des valeurs arbitraires.
 
@@ -116,7 +117,7 @@ Ce tutoriel nécessite que le bot tutoriel général soit en cours d’exécutio
 
 Nous allons créer un bot pour simuler les commandes dans un établissement de restauration rapide. Il aura des valeurs discrètes pour les tailles des boissons et des frites (SMALL/MEDIUM/LARGE), et des questions de confirmation avec des réponses YES / NO. Ces deux entités satisfont aux deux règles mentionnées plus haut ; il s’agit de réponses dépendant du contexte et elles ont des valeurs fixes.
 
-### <a name="create-the-model"></a>Créer le modèle
+### <a name="create-the-model"></a>Création du modèle
 
 1. Dans l’interface utilisateur web, cliquez sur « Importer ».
 2. Sélectionnez le tutoriel nommé « Tutorial-Enum-Set-Entity ».

@@ -1,6 +1,6 @@
 ---
 title: Configurer votre expérience de Recherche personnalisée Bing | Microsoft Docs
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Décrit comment créer des services de site et de recherche verticale
 services: cognitive-services
 author: aahill
@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
-ms.openlocfilehash: e4799ca099d608c3b8ecd16612b790f5654df7dd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e4ed781544d3cd11e8494e40589676adf57a9c75
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66390415"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68405117"
 ---
 # <a name="configure-your-bing-custom-search-experience"></a>Configurer votre expérience de Recherche personnalisée Bing
 

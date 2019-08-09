@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: 4bb72bc3fe8b85a8d2aed88e02f5f3150abb6899
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9f76597a91c0e22f57d1ba66ff1a16eea9002af0
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66493675"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68250091"
 ---
 # <a name="manage-consortium-members-in-azure-blockchain-service-by-using-powershell"></a>Gérer les membres d’un consortium dans Azure Blockchain Service à l’aide de PowerShell
 
@@ -145,7 +145,7 @@ Utilisez cette applet de commande pour obtenir des détails sur les membres ou p
 
 | Paramètre | Description | Obligatoire |
 |-----------|-------------|:--------:|
-| Nom | Nom du membre Blockchain Service sur lequel vous souhaitez récupérer des détails. Lorsqu’un nom est entré, il retourne les détails du membre. Lorsqu’un nom est omis, il retourne la liste de tous les membres du consortium. | Non |
+| Name | Nom du membre Blockchain Service sur lequel vous souhaitez récupérer des détails. Lorsqu’un nom est entré, il retourne les détails du membre. Lorsqu’un nom est omis, il retourne la liste de tous les membres du consortium. | Non |
 | Members | Objet de membres obtenu à partir de Import-ConsortiumManagementContracts | OUI |
 | Web3Client | Objet Web3Client obtenu à partir de New-Web3Connection | OUI |
 
@@ -174,7 +174,7 @@ Utilisez cette applet de commande pour supprimer un membre blockchain.
 
 | Paramètre | Description | Obligatoire |
 |-----------|-------------|:--------:|
-| Nom | Nom de membre à supprimer | OUI |
+| Name | Nom de membre à supprimer | OUI |
 | Members | Objet de membres obtenu à partir de Import-ConsortiumManagementContracts | OUI |
 | Web3Account | Objet Web3Account obtenu à partir de Import-Web3Account | OUI |
 | Web3Client | Objet Web3Client obtenu à partir de New-Web3Connection | OUI |
@@ -191,12 +191,14 @@ Utilisez cette applet de commande pour définir des attributs de membre blockcha
 
 Les administrateurs du consortium peuvent définir **DisplayName** et **Role** pour tous les membres. Un membre du consortium avec le rôle d’utilisateur peut modifier uniquement le nom complet de son propre membre.
 
-`Set-BlockchainMember -Name <String> [-DisplayName <String>] [-AccountAddress <String>] [-Role <String>]
- -Members <IContract> -Web3Account <IAccount> -Web3Client <IClient>`
+```
+Set-BlockchainMember -Name <String> [-DisplayName <String>] [-AccountAddress <String>] [-Role <String>]
+ -Members <IContract> -Web3Account <IAccount> -Web3Client <IClient>
+```
 
 | Paramètre | Description | Obligatoire |
 |-----------|-------------|:--------:|
-| Nom | Nom du membre blockchain | OUI |
+| Name | Nom du membre blockchain | OUI |
 | DisplayName | Nouveau nom complet | Non |
 | AccountAddress | Adresse du compte | Non |
 | Members | Objet de membres obtenu à partir de Import-ConsortiumManagementContracts | OUI |
@@ -217,13 +219,15 @@ Utilisez les applets de commande de gestion des invitations des membres du conso
 
 Utilisez cette applet de commande pour inviter de nouveaux membres dans le consortium.
 
-`New-BlockchainMemberInvitation -SubscriptionId <String> -Role <String> -Members <IContract>
- -Web3Account <IAccount> -Web3Client <IClient>`
+```
+New-BlockchainMemberInvitation -SubscriptionId <String> -Role <String> -Members <IContract>
+ -Web3Account <IAccount> -Web3Client <IClient>
+```
 
 | Paramètre | Description | Obligatoire |
 |-----------|-------------|:--------:|
 | SubscriptionId | ID d’abonnement Azure du membre à inviter | OUI |
-| Rôle | Rôle du consortium. Les valeurs peuvent être ADMIN ou USER. ADMIN correspond au rôle d’administrateur du consortium. USER correspond au rôle de membre du consortium. | OUI |
+| Role | Rôle du consortium. Les valeurs peuvent être ADMIN ou USER. ADMIN correspond au rôle d’administrateur du consortium. USER correspond au rôle de membre du consortium. | OUI |
 | Members | Objet de membres obtenu à partir de Import-ConsortiumManagementContracts | OUI |
 | Web3Account | Objet Web3Account obtenu à partir de Import-Web3Account | OUI |
 | Web3Client | Objet Web3Client obtenu à partir de New-Web3Connection | OUI |
@@ -264,8 +268,10 @@ SubscriptionId                       Role CorrelationId
 
 Utilisez cette applet de commande pour révoquer l’invitation d’un membre du consortium.
 
-`Remove-BlockchainMemberInvitation -SubscriptionId <String> -Members <IContract> -Web3Account <IAccount>
- -Web3Client <IClient>`
+```
+Remove-BlockchainMemberInvitation -SubscriptionId <String> -Members <IContract> -Web3Account <IAccount>
+ -Web3Client <IClient>
+```
 
 | Paramètre | Description | Obligatoire |
 |-----------|-------------|:--------:|
@@ -284,13 +290,15 @@ $ContractConnection | Remove-BlockchainMemberInvitation -SubscriptionId <Subscri
 
 Utilisez cette applet de commande pour définir le **rôle** pour une invitation existante. Seuls les administrateurs du consortium peuvent modifier les invitations.
 
-`Set-BlockchainMemberInvitation -SubscriptionId <String> -Role <String> -Members <IContract>
- -Web3Account <IAccount> -Web3Client <IClient>`
+```
+Set-BlockchainMemberInvitation -SubscriptionId <String> -Role <String> -Members <IContract>
+ -Web3Account <IAccount> -Web3Client <IClient>
+```
 
 | Paramètre | Description | Obligatoire |
 |-----------|-------------|:--------:|
 | SubscriptionId | ID d’abonnement Azure du membre à inviter | OUI |
-| Rôle | Nouveau rôle de consortium pour l’invitation. Les valeurs peuvent être **USER** ou **ADMIN**. | OUI |
+| Role | Nouveau rôle de consortium pour l’invitation. Les valeurs peuvent être **USER** ou **ADMIN**. | OUI |
 | Members |  Objet de membres obtenu à partir de Import-ConsortiumManagementContracts | OUI |
 | Web3Account | Objet Web3Account obtenu à partir de Import-Web3Account | OUI |
 | Web3Client | Objet Web3Client obtenu à partir de New-Web3Connection | OUI |

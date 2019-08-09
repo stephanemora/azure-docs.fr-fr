@@ -12,13 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/31/2019
-ms.author: kumud;tyao
-ms.openlocfilehash: 15a80dac0e0601480e22ad960f2827f3d8f290c0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: kumud
+ms.reviewer: tyao
+ms.openlocfilehash: abaef0fb521d848134885a06591b0656c60c67e6
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66479059"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67846386"
 ---
 # <a name="create-a-waf-policy-for-azure-front-door-by-using-the-azure-portal"></a>Créer une stratégie WAF pour Azure Front Door à l’aide du portail Azure
 
@@ -37,8 +38,8 @@ Commencez par créer une stratégie WAF de base avec un ensemble de règles mana
 
     | Paramètre                 | Valeur                                              |
     | ---                     | ---                                                |
-    | Abonnement            |Sélectionnez le nom de votre abonnement Front Door.|
-    | Groupe de ressources          |Sélectionnez le nom de votre groupe de ressources Front Door.|
+    | Subscription            |Sélectionnez le nom de votre abonnement Front Door.|
+    | Resource group          |Sélectionnez le nom de votre groupe de ressources Front Door.|
     | Nom de la stratégie             |Entrez un nom unique pour votre stratégie WAF.|
 
    ![Créer une stratégie de pare-feu d’applications web (WAF)](./media/waf-front-door-create-portal/basic.png)

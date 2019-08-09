@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Ce guide vous montre comment migrer vos données de visage stockées d’un abonnement API Visage à un autre.
 services: cognitive-services
 author: lewlu
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: lewlu
-ms.openlocfilehash: 702aed12860c090e83b997e6b56d56e06b416568
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 886e0ff353ab270bb823629d2068508531c14fc2
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65913789"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68516857"
 ---
 # <a name="migrate-your-face-data-to-a-different-face-subscription"></a>Migrer vos données de visage vers un autre abonnement API Visage
 

@@ -13,14 +13,15 @@ ms.author: lizross
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cf8484cdadcdb368c00351ca68e42652b475a7d4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 14146be73de309a7119f5c7b416c4e02f3bb4285
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66305416"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68383087"
 ---
 # <a name="update-your-profile-and-account-info-from-the-my-apps-portal"></a>Mettre à jour vos informations de profil et de compte à partir du portail Mes applications
+
 Vous pouvez utiliser votre compte professionnel ou scolaire avec le portail web **Mes applications** pour voir et démarrer la plupart des applications cloud de votre organisation, mettre à jour votre profil et vos informations de compte, consulter les informations de vos **groupes** et effectuer des **révisions d’accès** pour vos applications et vos groupes. Si vous n’avez pas accès au portail **Mes applications**, contactez le support technique pour obtenir l’autorisation.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-my-apps-portal.md)]
@@ -29,10 +30,12 @@ Vous pouvez utiliser votre compte professionnel ou scolaire avec le portail web 
 >Ce contenu est destiné aux utilisateurs. Si vous êtes administrateur, vous trouverez des informations sur la configuration et la gestion de vos applications cloud dans la [documentation sur la gestion des applications](https://docs.microsoft.com/azure/active-directory/manage-apps).
 
 ## <a name="view-your-organization-related-profile-information"></a>Consulter vos informations de profil liées à l’organisation
+
 Selon ce que votre organisation a choisi d’inclure dans votre page **Profil** du portail **Mes applications**, vous pouvez y trouver vos détails professionnels, vos appareils et activités ainsi que les autres organisations auxquels vous appartenez, le cas échéant.
 
 ### <a name="to-view-your-profile-information"></a>Pour voir vos informations de profil
-1.  Connectez-vous à votre compte professionnel ou scolaire, puis [accédez au portail **Mes applications**](my-apps-portal-end-user-access.md).
+
+1. Connectez-vous à votre compte professionnel ou scolaire, puis [accédez au portail **Mes applications**](my-apps-portal-end-user-access.md).
 
 2. À partir de la page **Applications**, sélectionnez votre photo de profil en haut à droite où figurent votre nom et votre organisation, puis sélectionnez **Profil**.
 
@@ -49,6 +52,7 @@ Selon ce que votre organisation a choisi d’inclure dans votre page **Profil** 
     - **Passer en revue vos organisations.** Vérifiez que vous collaborez toujours avec chacune des organisations spécifiées. Si vous ne travaillez plus avec une organisation, nous vous recommandons vivement de sélectionner **Se connecter pour quitter l'organisation** . Une fois que vous avez quitté l’organisation, elle est supprimée de cette page.
 
 ## <a name="manage-your-work-or-school-account-information"></a>Gérer les informations sur votre compte professionnel ou scolaire
+
 Mettez à jour et gérez les informations sur votre compte professionnel ou scolaire à partir de la page **Profil** du portail **Mes applications**. Cette page vous permet de :
 
 - Changer le mot de passe de votre compte professionnel ou scolaire.
@@ -62,9 +66,11 @@ Mettez à jour et gérez les informations sur votre compte professionnel ou scol
 - Vous déconnecter partout.
 
 ## <a name="change-your-password"></a>Changer votre mot de passe
+
 Si vous souhaitez changer le mot de passe de votre compte professionnel ou scolaire, vous pouvez sélectionner **Changer le mot de passe** dans la zone **Gérer le compte** de la page **Profil**.
 
 ### <a name="to-change-your-password"></a>Pour changer votre mot de passe
+
 1. Dans la zone **Gérer le compte** de la page **Profil**, sélectionnez **Changer le mot de passe**.
 
 2. Dans la page **Changer le mot de passe**, vérifiez que votre ID d’utilisateur est correct, puis tapez votre ancien mot de passe et le nouveau dans les zones prévues à cet effet.
@@ -76,17 +82,20 @@ Si vous souhaitez changer le mot de passe de votre compte professionnel ou scola
     Votre mot de passe est changé. Vous serez amené à vous connecter aux applications auxquelles vous étiez connecté avec votre compte professionnel ou scolaire.
 
 ## <a name="set-up-and-use-password-reset"></a>Configurer et utiliser la réinitialisation de mot de passe
+
 Si vous avez oublié votre mot de passe, que vous n’en avez jamais obtenu du support de votre entreprise ou que votre compte a été verrouillé, vous pouvez réinitialiser votre mot de passe.
 
 >[!Important]
 >Votre administrateur doit avoir activé cette fonctionnalité et vous devez vous y être inscrit pour l’utiliser. Pour savoir comment vous inscrire et réinitialiser votre mot de passe, consultez [S’inscrire à la réinitialisation de mot de passe en libre-service](active-directory-passwords-reset-register.md) et [Réinitialiser votre mot de passe professionnel ou scolaire](user-help-reset-password.md).
 
 ## <a name="change-your-security-verification-information"></a>Modifier vos informations de vérification de sécurité
+
 Si votre organisation vous impose d’utiliser une vérification à deux facteurs, vous pouvez ajouter, mettre à jour et supprimer vos informations de sécurité associées à partir de la page **Vérification de sécurité supplémentaire**.
 
 La vérification à deux facteurs vous impose d’utiliser deux informations de vérification, comme un mot de passe et un code confidentiel, avant de pouvoir accéder à votre compte ou aux informations de votre organisation. Pour plus d’informations sur la vérification à deux facteurs, consultez [Configurer mon compte pour la vérification en deux étapes](multi-factor-authentication-end-user-first-time.md).
 
 ### <a name="to-change-your-security-information"></a>Pour modifier vos informations de sécurité
+
 1. Dans la zone **Gérer le compte** de la page **Profil**, sélectionnez **Vérification de sécurité supplémentaire**.
 
     ![Page Vérification de sécurité supplémentaire](media/my-apps-portal/my-apps-portal-additional-verification-page.png)
@@ -102,6 +111,7 @@ La vérification à deux facteurs vous impose d’utiliser deux informations de 
 3. Cliquez sur **Enregistrer** pour enregistrer vos modifications.
 
 ## <a name="review-your-organizations-terms-of-use-statement"></a>Passer en revue la déclaration des conditions d’utilisation de votre organisation
+
 Vous pouvez choisir de passer en revue la déclaration des conditions d’utilisation de votre organisation, si elle est disponible.
 
 1. Dans la zone **Gérer le compte** de la page **Profil**, sélectionnez **Vérifier les conditions d’utilisation**.
@@ -113,14 +123,17 @@ Vous pouvez choisir de passer en revue la déclaration des conditions d’utilis
     Si votre organisation ne dispose de conditions d’utilisation, vous pouvez sélectionner **OK** pour revenir à la page **Profil**.
 
 ## <a name="sign-out-of-everywhere"></a>Vous déconnecter partout
+
 Vous pouvez choisir de vous déconnecter partout où vous êtes actuellement connecté avec votre compte professionnel ou scolaire. Cela concerne l’ensemble des applications et des appareils.
 
 ### <a name="to-sign-out-of-everywhere"></a>Pour vous déconnecter partout
+
 1. Dans la zone **Gérer le compte** de la page **Profil**, sélectionnez **Se déconnecter partout**.
 
 2. Dans la boîte de confirmation **Se déconnecter partout**, sélectionnez **Oui** pour confirmer que vous souhaitez vous déconnecter de l’ensemble de vos sessions et appareils. Sélectionnez **Non** si vous changez d’avis.
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 Une fois que vous avez terminé vos mises à jour dans la page **Profil**, vous pouvez :
 
 - [Accéder aux applications et les utiliser sur le portail Mes applications](my-apps-portal-end-user-access.md).

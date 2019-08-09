@@ -3,17 +3,17 @@ title: Autorisations et rôles Azure Container Registry
 description: Utilisez le contrôle d’accès en fonction du rôle (RBAC) et la gestion des identités et des accès (IAM) d’Azure pour fournir des autorisations de granularité fine aux ressources dans un registre de conteneurs Azure.
 services: container-registry
 author: dlepow
-manager: jeconnoc
+manager: gwallace
 ms.service: container-registry
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: danlep
-ms.openlocfilehash: d62dd6c65975d63a0127bb5dd1c62cd741b59ac6
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 793dbf056201a3315a9b77dfebbb9331a8ed7db1
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67067995"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68310596"
 ---
 # <a name="azure-container-registry-roles-and-permissions"></a>Autorisations et rôles Azure Container Registry
 

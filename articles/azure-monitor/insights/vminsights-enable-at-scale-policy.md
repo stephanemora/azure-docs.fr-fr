@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/07/2019
 ms.author: magoedte
-ms.openlocfilehash: fda79a7ea361a6b44798d18b79ffd763055087a7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cf06004c70609dbea59a47b207e3568299260a82
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67122597"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67594442"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-by-using-azure-policy"></a>Activer Azure Monitor pour machines virtuelles (préversion) à l’aide d’Azure Policy
 
@@ -84,13 +84,13 @@ Les définitions de stratégie pour une machine virtuelle Azure sont listées da
 
 |Nom |Description |Type |
 |-----|------------|-----|
-|[Préversion] : Activer Azure Monitor pour machines virtuelles |Activez Azure Monitor pour machines virtuelles dans l’étendue spécifiée (groupe d’administration, abonnement ou groupe de ressources). Utilise l’espace de travail Log Analytics comme paramètre. |Initiative |
-|[Préversion] : Vérifier le déploiement de l’agent de dépendances - Image de machine virtuelle (système d’exploitation) non listée |Présente les machines virtuelles comme non conformes si l’image de machine virtuelle (système d’exploitation) n’est pas définie dans la liste et si l’agent n’est pas installé. |Stratégie |
-|[Préversion] : Auditer le déploiement de l’agent Log Analytics - Image de machine virtuelle (système d’exploitation) non listée |Présente les machines virtuelles comme non conformes si l’image de machine virtuelle (système d’exploitation) n’est pas définie dans la liste et si l’agent n’est pas installé. |Stratégie |
-|[Préversion] : Déployer l’agent de dépendances pour les machines virtuelles Linux |Déployez l’agent de dépendances pour les machines virtuelles Linux si l'image de machine virtuelle (système d’exploitation) est définie dans la liste et que l'agent n'est pas installé. |Stratégie |
-|[Préversion] : Déployer l’agent de dépendances pour les machines virtuelles Windows |Déployez l’agent de dépendances pour les machines virtuelles Windows si l’image de machine virtuelle (système d’exploitation) est définie dans la liste et si l’agent n’est pas installé. |Stratégie |
-|[Préversion] : Déployer l’agent Log Analytics pour les machines virtuelles Linux |Déployez l’agent Log Analytics pour les machines virtuelles Linux si l’image de machine virtuelle (système d’exploitation) est définie dans la liste et si l’agent n’est pas installé. |Stratégie |
-|[Préversion] : Déployer l’agent Log Analytics pour les machines virtuelles Windows |Déployez l’agent Log Analytics pour les machines virtuelles Windows si l’image de machine virtuelle (système d’exploitation) est définie dans la liste et si l’agent n’est pas installé. |Stratégie |
+|\[Préversion\] : Activer Azure Monitor pour machines virtuelles |Activez Azure Monitor pour machines virtuelles dans l’étendue spécifiée (groupe d’administration, abonnement ou groupe de ressources). Utilise l’espace de travail Log Analytics comme paramètre. |Initiative |
+|\[Préversion\] : Vérifier le déploiement de l’agent de dépendances - Image de machine virtuelle (système d’exploitation) non listée |Présente les machines virtuelles comme non conformes si l’image de machine virtuelle (système d’exploitation) n’est pas définie dans la liste et si l’agent n’est pas installé. |Stratégie |
+|\[Préversion\] : Auditer le déploiement de l’agent Log Analytics - Image de machine virtuelle (système d’exploitation) non listée |Présente les machines virtuelles comme non conformes si l’image de machine virtuelle (système d’exploitation) n’est pas définie dans la liste et si l’agent n’est pas installé. |Stratégie |
+|\[Préversion\] : Déployer l’agent de dépendances pour les machines virtuelles Linux |Déployez l’agent de dépendances pour les machines virtuelles Linux si l'image de machine virtuelle (système d’exploitation) est définie dans la liste et que l'agent n'est pas installé. |Stratégie |
+|\[Préversion\] : Déployer l’agent de dépendances pour les machines virtuelles Windows |Déployez l’agent de dépendances pour les machines virtuelles Windows si l’image de machine virtuelle (système d’exploitation) est définie dans la liste et si l’agent n’est pas installé. |Stratégie |
+|\[Préversion\] : Déployer l’agent Log Analytics pour les machines virtuelles Linux |Déployez l’agent Log Analytics pour les machines virtuelles Linux si l’image de machine virtuelle (système d’exploitation) est définie dans la liste et si l’agent n’est pas installé. |Stratégie |
+|\[Préversion\] : Déployer l’agent Log Analytics pour les machines virtuelles Windows |Déployez l’agent Log Analytics pour les machines virtuelles Windows si l’image de machine virtuelle (système d’exploitation) est définie dans la liste et si l’agent n’est pas installé. |Stratégie |
 
 ### <a name="policies-for-azure-virtual-machine-scale-sets"></a>Stratégies pour les groupes de machines virtuelles identiques Azure
 
@@ -98,19 +98,19 @@ Les définitions de stratégie pour un groupe de machines virtuelles identiques 
 
 |Nom |Description |Type |
 |-----|------------|-----|
-|[Préversion] : Activer Azure Monitor pour les groupes de machines virtuelles identiques |Activez Azure Monitor pour les groupes de machines virtuelles identiques dans l’étendue spécifiée (groupe d’administration, abonnement ou groupe de ressources). Utilise l’espace de travail Log Analytics comme paramètre. Remarque : Si la stratégie de mise à niveau du groupe identique est définie sur Manuelle, appliquez l’extension à toutes les machines virtuelles du groupe en appelant une mise à niveau. Dans l’interface de ligne de commande, cela se traduirait par az vmss update-instances. |Initiative |
-|[Préversion] : Auditer le déploiement de l’agent de dépendances dans des groupes de machines virtuelles identiques - Image de machine virtuelle (système d’exploitation) non listée |Présente le groupe de machines virtuelles identiques comme non conforme si l’image de machine virtuelle (système d’exploitation) n’est pas définie dans la liste et si l’agent n’est pas installé. |Stratégie |
-|[Préversion] : Auditer le déploiement de l’agent Log Analytics dans des groupes de machines virtuelles identiques - Image de machine virtuelle (système d’exploitation) non listée |Présente le groupe de machines virtuelles identiques comme non conforme si l’image de machine virtuelle (système d’exploitation) n’est pas définie dans la liste et si l’agent n’est pas installé. |Stratégie |
-|[Préversion] : Déployer l’agent de dépendances pour les groupes de machines virtuelles identiques Linux |Déployez l’agent de dépendances pour les groupes de machines virtuelles identiques Linux si l’image de machine virtuelle (système d’exploitation) est définie dans la liste et si l’agent n’est pas installé. |Stratégie |
-|[Préversion] : Déployer l’agent de dépendances pour les groupes de machines virtuelles identiques Windows |Déployez l’agent de dépendances pour les groupes de machines virtuelles identiques Linux si l’image de machine virtuelle (système d’exploitation) est définie dans la liste et si l’agent n’est pas installé. |Stratégie |
-|[Préversion] : Déployer l’agent Log Analytics pour les groupes de machines virtuelles identiques Linux |Déployez l’agent Log Analytics pour les groupes de machines virtuelles identiques Linux si l’image de machine virtuelle (système d’exploitation) est définie dans la liste et si l’agent n’est pas installé. |Stratégie |
-|[Préversion] : Déployer l’agent Log Analytics pour les groupes de machines virtuelles identiques Windows |Déployez l’agent Log Analytics pour les groupes de machines virtuelles identiques Windows si l’image de machine virtuelle (système d’exploitation) est définie dans la liste et si l’agent n’est pas installé. |Stratégie |
+|\[Préversion\] : Activer Azure Monitor pour les groupes de machines virtuelles identiques |Activez Azure Monitor pour les groupes de machines virtuelles identiques dans l’étendue spécifiée (groupe d’administration, abonnement ou groupe de ressources). Utilise l’espace de travail Log Analytics comme paramètre. Remarque : Si la stratégie de mise à niveau du groupe identique est définie sur Manuelle, appliquez l’extension à toutes les machines virtuelles du groupe en appelant une mise à niveau. Dans l’interface de ligne de commande, cela se traduirait par az vmss update-instances. |Initiative |
+|\[Préversion\] : Auditer le déploiement de l’agent de dépendances dans des groupes de machines virtuelles identiques - Image de machine virtuelle (système d’exploitation) non listée |Présente le groupe de machines virtuelles identiques comme non conforme si l’image de machine virtuelle (système d’exploitation) n’est pas définie dans la liste et si l’agent n’est pas installé. |Stratégie |
+|\[Préversion\] : Auditer le déploiement de l’agent Log Analytics dans des groupes de machines virtuelles identiques - Image de machine virtuelle (système d’exploitation) non listée |Présente le groupe de machines virtuelles identiques comme non conforme si l’image de machine virtuelle (système d’exploitation) n’est pas définie dans la liste et si l’agent n’est pas installé. |Stratégie |
+|\[Préversion\] : Déployer l’agent de dépendances pour les groupes de machines virtuelles identiques Linux |Déployez l’agent de dépendances pour les groupes de machines virtuelles identiques Linux si l’image de machine virtuelle (système d’exploitation) est définie dans la liste et si l’agent n’est pas installé. |Stratégie |
+|\[Préversion\] : Déployer l’agent de dépendances pour les groupes de machines virtuelles identiques Windows |Déployez l’agent de dépendances pour les groupes de machines virtuelles identiques Linux si l’image de machine virtuelle (système d’exploitation) est définie dans la liste et si l’agent n’est pas installé. |Stratégie |
+|\[Préversion\] : Déployer l’agent Log Analytics pour les groupes de machines virtuelles identiques Linux |Déployez l’agent Log Analytics pour les groupes de machines virtuelles identiques Linux si l’image de machine virtuelle (système d’exploitation) est définie dans la liste et si l’agent n’est pas installé. |Stratégie |
+|\[Préversion\] : Déployer l’agent Log Analytics pour les groupes de machines virtuelles identiques Windows |Déployez l’agent Log Analytics pour les groupes de machines virtuelles identiques Windows si l’image de machine virtuelle (système d’exploitation) est définie dans la liste et si l’agent n’est pas installé. |Stratégie |
 
 La stratégie autonome (non incluse avec l’initiative) est décrite ici :
 
 |Nom |Description |Type |
 |-----|------------|-----|
-|[Préversion] : Auditer les machines virtuelles de l’espace de travail Log Analytics - Signaler les incompatibilités |Signalez les machines virtuelles comme non conformes si elles ne se connectent pas à l’espace de travail Log Analytics spécifié dans l’attribution de stratégie ou d’initiative. |Stratégie |
+|\[Préversion\] : Auditer les machines virtuelles de l’espace de travail Log Analytics - Signaler les incompatibilités |Signalez les machines virtuelles comme non conformes si elles ne se connectent pas à l’espace de travail Log Analytics spécifié dans l’attribution de stratégie ou d’initiative. |Stratégie |
 
 ### <a name="assign-the-azure-monitor-initiative"></a>Assigner l’initiative Azure Monitor
 Pour créer l’attribution de stratégie à partir de la page **Azure Monitor for VMs Policy Coverage (Couverture de stratégie Azure Monitor pour machines virtuelles)** , procédez comme suit. Pour savoir comment effectuer ces étapes, consultez  [Créer une affectation de stratégie à partir du portail Azure](../../governance/policy/assign-policy-portal.md).
@@ -180,19 +180,19 @@ Sur la base des résultats des stratégies incluses avec l’initiative, les mac
 
 * L’agent Log Analytics ou l’agent de dépendances n’est pas déployé.  
     Il s’agit d’un cas courant pour une étendue comportant des machines virtuelles existantes. Pour limiter ce risque, déployez les agents requis en [créant des tâches de correction](../../governance/policy/how-to/remediate-resources.md) sur une stratégie non conforme.  
-    - [Préversion]: Deploy Dependency agent for Linux VMs
-    - [Préversion]: Deploy Dependency agent for Windows VMs
-    - [Préversion]: Deploy Log Analytics agent for Linux VMs
-    - [Préversion]: Deploy Log Analytics agent for Windows VMs
+    - \[Préversion\] : Déployer l’agent de dépendances pour les machines virtuelles Linux
+    - \[Préversion\] : Déployer l’agent de dépendances pour les machines virtuelles Windows
+    - \[Préversion\] : Déployer l’agent Log Analytics pour les machines virtuelles Linux
+    - \[Préversion\] : Déployer l’agent Log Analytics pour les machines virtuelles Windows
 
 * L’image de machine virtuelle (système d’exploitation) n’est pas identifiée dans la définition de stratégie.  
     Les critères de la stratégie de déploiement incluent uniquement les machines virtuelles qui sont déployées à partir d’images de machine virtuelle Azure connues. Consultez la documentation pour savoir si le système d’exploitation de la machine virtuelle est pris en charge. Si ce n’est pas le cas, dupliquez la stratégie de déploiement et mettez-la à jour ou modifiez-la pour rendre l’image conforme.  
-    - [Préversion] : Vérifier le déploiement de l’agent de dépendances - Image de machine virtuelle (système d’exploitation) non listée
-    - [Préversion] : Auditer le déploiement de l’agent Log Analytics - Image de machine virtuelle (système d’exploitation) non listée
+    - \[Préversion\] : Vérifier le déploiement de l’agent de dépendances - Image de machine virtuelle (système d’exploitation) non listée
+    - \[Préversion\] : Auditer le déploiement de l’agent Log Analytics - Image de machine virtuelle (système d’exploitation) non listée
 
 * Les machines virtuelles ne sont pas connectées à l’espace de travail Log Analytics spécifié.  
     Il est possible que certaines machines virtuelles de l’étendue de l’initiative soient connectées à un espace de travail Log Analytics différent de celui spécifié dans l’affectation de stratégie. Cette stratégie est un outil qui permet d’identifier les machines virtuelles qui relèvent d’un espace de travail non conforme.  
-    - [Préversion]: Audit Log Analytics workspace for VM – Report mismatch
+    - \[Préversion\] : Auditer les machines virtuelles de l’espace de travail Log Analytics - Signaler les incompatibilités
 
 ## <a name="edit-an-initiative-assignment"></a>Modifier une attribution d’initiative
 

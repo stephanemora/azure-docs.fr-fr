@@ -8,16 +8,15 @@ ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
 author: jovanpop-msft
-ms.author: jovanpop-msft
+ms.author: jovanpop
 ms.reviewer: sstein
-manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: b972ea985a09457d8b6a17a292e18754761f5a6e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 711552501825e5d34d3547ede8dc998065083c96
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66479197"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68566746"
 ---
 # <a name="general-purpose-service-tier---azure-sql-database"></a>Niveau de service Usage général : Azure SQL Database
 

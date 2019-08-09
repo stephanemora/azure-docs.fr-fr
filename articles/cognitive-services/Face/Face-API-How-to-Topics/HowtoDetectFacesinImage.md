@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: sbowles
-ms.openlocfilehash: 46bd1bdd55725878bc7b1bd55d5e24b78d82aada
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 36cd9b560bd149fd837db09cba33ce6bb2199a20
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66124547"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68827728"
 ---
 # <a name="get-face-detection-data"></a>Obtenir des données de détection des visages
 
@@ -150,4 +150,4 @@ Dans ce guide, vous avez appris à utiliser les différentes fonctionnalités de
 ## <a name="related-topics"></a>Rubriques connexes
 
 - [Documentation de référence (REST)](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)
-- [Documentation de référence (kit SDK .NET)](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/face?view=azure-dotnet)
+- [Documentation de référence (kit SDK .NET)](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/faceapi?view=azure-dotnet)

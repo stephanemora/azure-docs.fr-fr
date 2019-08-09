@@ -2,27 +2,21 @@
 title: Manuel d’Azure Active Directory Identity Protection | Microsoft Docs
 description: Découvrez comment Azure AD Identity Protection vous permet de limiter la capacité d’un cybercriminel à exploiter une identité ou un appareil compromis et de sécuriser une identité ou un appareil déjà identifié comme potentiellement ou effectivement compromis.
 services: active-directory
-keywords: azure active directory identity protection, cloud discovery, gestion d’applications, sécurité, risque, niveau de risque, vulnérabilité, stratégie de sécurité
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-ms.assetid: 60836abf-f0e9-459d-b344-8e06b8341d25
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 24c3af12d35d07796db9255f0ac76dd1389bd013
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 273a6aca2050676650b955ec078b47b2ffcfe319
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67108844"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68333926"
 ---
 # <a name="azure-active-directory-identity-protection-playbook"></a>Manuel d’Azure Active Directory Identity Protection
 
@@ -30,7 +24,6 @@ Ce manuel vous aide à :
 
 * Remplir les données dans l’environnement d’Identity Protection en simulant par des vulnérabilités et des événements à risque
 * Définir des stratégies d’accès conditionnel en fonction des risques et tester l’impact de ces stratégies
-
 
 ## <a name="simulating-risk-events"></a>Simulation des événements à risque
 
@@ -67,7 +60,6 @@ Pour simuler des emplacements non connus, vous devez vous connecter à partir d�
 La procédure ci-après utilise les éléments nouvellement créés suivants :
 
 - connexion VPN pour simuler le nouvel emplacement ;
-
 - machine virtuelle pour simuler un nouvel appareil.
 
 L’exécution de la procédure ci-après requiert l’utilisation d’un compte d’utilisateur présentant :
@@ -75,12 +67,10 @@ L’exécution de la procédure ci-après requiert l’utilisation d’un compte
 - un historique de connexions d’au moins 30 jours ;
 - l’option d’authentification multifacteur activée.
 
-
 **Pour simuler une connexion depuis un emplacement non connu, procédez comme suit**:
 
 1. Lorsque vous vous connectez avec votre compte de test, échouez à l’authentification MFA en ne vous soumettant pas à cette dernière.
 2. En utilisant votre nouveau VPN, accédez à [https://myapps.microsoft.com](https://myapps.microsoft.com) et entrez les informations d’identification de votre compte de test.
-   
 
 La connexion s’affiche dans le tableau de bord d’Identity Protection dans un délai de 10 à 15 minutes.
 
@@ -89,7 +79,6 @@ La connexion s’affiche dans le tableau de bord d’Identity Protection dans un
 Pour plus d’informations sur cet événement à risque, consultez la section [Voyage impossible vers des emplacements inhabituels](../reports-monitoring/concept-risk-events.md#impossible-travel-to-atypical-locations). 
 
 La simulation de la condition de voyage impossible est difficile, car l’algorithme utilise l’apprentissage automatique pour éliminer les faux positifs, tels que le voyage impossible depuis des appareils connus ou les connexions depuis des VPN utilisés par d’autres utilisateurs du répertoire. En outre, l’algorithme requiert un historique de connexions de 14 jours et 10 connexions de l’utilisateur avant de commencer à générer des événements à risque. En raison des modèles d’apprentissage automatique complexes et des règles ci-dessus, les étapes ci-après n’entraîneront probablement pas d’événements à risque. Il peut être judicieux de répliquer ces étapes pour plusieurs comptes Azure AD afin de publier cet événement à risque.
-
 
 **Pour simuler un voyage impossible vers des emplacements inhabituels, procédez comme suit**:
 
@@ -108,18 +97,15 @@ Les vulnérabilités sont des points faibles exploitables par une personne malve
 * Azure AD [Cloud Discovery](https://docs.microsoft.com/cloud-app-security/).
 * Azure AD [Privileged Identity Management](../privileged-identity-management/pim-configure.md). 
 
-
 ## <a name="testing-security-policies"></a>Test des stratégies de sécurité
 
 Cette section décrit les procédures de test des stratégies de sécurité en matière de risque des utilisateurs et de risque à la connexion.
-
 
 ### <a name="user-risk-security-policy"></a>Stratégie de sécurité en matière de risque des utilisateurs
 
 Pour plus d’informations, consultez le [Guide pratique pour configurer la stratégie pour les risques liés à l’utilisateur](howto-user-risk-policy.md).
 
 ![Risque utilisateur](./media/playbook/02.png "Manuel")
-
 
 **Pour tester une stratégie de sécurité en matière de risque des utilisateurs, procédez comme suit :**
 
@@ -136,8 +122,6 @@ Pour plus d’informations, consultez le [Guide pratique pour configurer la stra
 7. Patientez quelques minutes, puis vérifiez que le niveau de risque de votre utilisateur est défini sur « Moyen ». Dans le cas contraire, simulez d’autres événements à risque pour l’utilisateur.
 8. Dans la section **Appliquer la stratégie**, sélectionnez **Actif**.
 9. Vous pouvez désormais tester l’accès conditionnel en fonction des risques utilisateur en vous connectant à l’aide d’un compte d’utilisateur présentant un niveau de risque élevé.
-    
-    
 
 ### <a name="sign-in-risk-security-policy"></a>Stratégie de sécurité en matière de risque à la connexion
 
@@ -145,34 +129,20 @@ Pour plus d’informations, consultez le [Guide pratique pour configurer la stra
 
 ![Risque à la connexion](./media/playbook/01.png "Manuel")
 
-
 **Pour tester une stratégie de risque à la connexion, procédez comme suit :**
 
 1. Connectez-vous à [https://portal.azure.com](https://portal.azure.com) à l’aide des informations d’identification d’administrateur général pour votre locataire.
-
 2. Accédez à **Azure AD Identity Protection**.
-
 3. Sur la page **Azure AD Identity Protection** principale, cliquez sur **Stratégie de connexion à risque**. 
-
 4. Dans la section **Affectations**, sélectionnez les utilisateurs (et groupes) et le niveau de risque de connexion souhaités.
 
     ![Risque à la connexion](./media/playbook/04.png "Manuel")
 
-
 5. Dans la section **Contrôles**, sélectionnez le contrôle d’accès souhaité (par exemple, **Exiger une authentification multifacteur**). 
-
 6. Dans la section **Appliquer la stratégie**, sélectionnez **Actif**.
-
 7. Cliquez sur **Enregistrer**.
-
 8. Vous pouvez désormais tester l’accès conditionnel en fonction des risques à la connexion en vous connectant à l’aide d’une session à risque (par exemple, au moyen du navigateur Tor). 
-
- 
-
-
-
 
 ## <a name="see-also"></a>Voir aussi
 
 - [Azure Active Directory Identity Protection](../active-directory-identityprotection.md)
-

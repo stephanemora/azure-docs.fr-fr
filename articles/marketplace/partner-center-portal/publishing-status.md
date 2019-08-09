@@ -7,12 +7,12 @@ ms.author: mattwoj
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 9bf3136969974abbe9a99a5632478e3cbb22307e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ae4840877ae461244a76984ed8ac3edc82d57a38
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66474529"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67653981"
 ---
 # <a name="check-the-publishing-status-of-your-commercial-marketplace-offer"></a>Vérifier l’état de publication de votre offre de Place de marché commerciale
 
@@ -75,7 +75,7 @@ Pendant la validation du contenu, la qualité et la pertinence des informations 
 - Des captures d’écran de qualité et des vidéos d’accompagnement, et
 - Une description de la façon dont l’offre utilise les outils et des plateformes Microsoft.
 
-Apprenez-en plus sur les critères de validation du contenu en lisant les [stratégies de référencement générales](https://docs.microsoft.com/legal/marketplace/general-policies#10-general-listing-policies).
+Apprenez-en plus sur les critères de validation du contenu en lisant les [stratégies de référencement générales](https://docs.microsoft.com/legal/marketplace/certification-policies#100-general-policies).
 
 #### <a name="technical-validation"></a>Validation technique
 

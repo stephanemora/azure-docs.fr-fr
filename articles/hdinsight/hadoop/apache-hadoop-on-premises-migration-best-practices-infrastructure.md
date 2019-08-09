@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/05/2019
 ms.author: hrasheed
-ms.openlocfilehash: 5bdd5049b7ddeaac4425734aa6f4d633b08cd3b4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 0707f08d7c1447ff9aaae919cabfe1a668b25e3d
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67057477"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68404376"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---infrastructure-best-practices"></a>Migrer des clusters Apache Hadoop locaux vers Azure HDInsight - bonnes pratiques sur l’infrastructure
 
@@ -160,7 +160,7 @@ L’utilisation d’un réseau virtuel Azure avec HDInsight permet les scénario
 - connexion de HDInsight à des banques de données dans un réseau virtuel Azure ;
 - accès direct aux services Hadoop qui ne sont pas disponibles publiquement sur Internet, tels que les API Kafka ou l’API Java HBase.
 
-HDInsight peut être ajouté à un réseau virtuel Azure nouveau ou existant. Si HDInsight est ajouté à un réseau virtuel existant, les groupes de sécurité réseau et itinéraires définis par l’utilisateur doivent être mis à jour pour autoriser un accès illimité à [plusieurs adresses IP](../hdinsight-extend-hadoop-virtual-network.md#hdinsight-ip) dans le centre de données Azure. En outre, ne bloquez pas le trafic vers les [ports](../hdinsight-extend-hadoop-virtual-network.md#hdinsight-ports) qui sont utilisés par les services HDInsight.
+HDInsight peut être ajouté à un réseau virtuel Azure nouveau ou existant. Si HDInsight est ajouté à un réseau virtuel existant, les groupes de sécurité réseau et itinéraires définis par l’utilisateur doivent être mis à jour pour autoriser un accès illimité à [plusieurs adresses IP](../hdinsight-management-ip-addresses.md) dans le centre de données Azure. En outre, ne bloquez pas le trafic vers les [ports](../hdinsight-plan-virtual-network-deployment.md#hdinsight-ports) qui sont utilisés par les services HDInsight.
 
 > [!Note]  
 > HDInsight ne prend pas en charge le tunneling forcé pour l’instant. Le tunneling forcé est un paramètre de sous-réseau qui force l’acheminement du trafic Internet sortant vers un appareil à des fins d’inspection et de journalisation. Supprimez le tunneling forcé avant d’installer HDInsight dans un sous-réseau, ou créez un sous-réseau pour HDInsight. HDInsight ne prend pas non plus en charge la restriction de la connectivité réseau sortante.
@@ -168,7 +168,7 @@ HDInsight peut être ajouté à un réseau virtuel Azure nouveau ou existant. Si
 Pour plus d’informations, consultez les articles suivants :
 
 - [Vue d’ensemble des réseaux virtuels Azure](../../virtual-network/virtual-networks-overview.md)
-- [Étendre HDInsight à l’aide d’un Réseau virtuel Azure](../hdinsight-extend-hadoop-virtual-network.md)
+- [Étendre HDInsight à l’aide d’un Réseau virtuel Azure](../hdinsight-plan-virtual-network-deployment.md)
 
 ## <a name="securely-connect-to-azure-services-with-azure-virtual-network-service-endpoints"></a>Se connecter en toute sécurité à des services Azure avec des points de terminaison de service de réseau virtuel Azure
 

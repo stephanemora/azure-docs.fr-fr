@@ -2,34 +2,27 @@
 title: Comment configurer la stratégie de risque utilisateur dans Azure Active Directory Identity Protection | Microsoft Docs
 description: Découvrez comment configurer la stratégie de risque utilisateur Azure AD Identity Protection.
 services: active-directory
-keywords: azure active directory identity protection, cloud app discovery, gestion d’applications, sécurité, risque, niveau de risque, vulnérabilité, stratégie de sécurité
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-ms.assetid: e7434eeb-4e98-4b6b-a895-b5598a6cccf1
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 942f7e43a549b5aa1a21284949ffc12ef3c8d75f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fc7ea05497d69a7ca833cc783e7a2bc6bf1a8b07
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67108930"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68335441"
 ---
 # <a name="how-to-configure-the-user-risk-policy"></a>Procédure : Configurer la stratégie en matière de risque à l’utilisateur
 
 Avec le risque utilisateur, Azure AD détecte la probabilité selon laquelle un compte utilisateur a été compromis. En tant qu’administrateur, vous pouvez configurer une stratégie d’accès conditionnel de risque utilisateur pour répondre automatiquement à un niveau de risque utilisateur spécifique.
  
 Cet article vous fournit les informations dont vous avez besoin pour configurer une stratégie de risque utilisateur.
-
 
 ## <a name="what-is-a-user-risk-policy"></a>Qu’est-ce qu’une stratégie de risque utilisateur ?
 
@@ -41,14 +34,11 @@ Tous les événements à risque qui ont été détectés pour un utilisateur et 
 
 La stratégie de risque utilisateur est une réponse automatisée que vous pouvez configurer pour un niveau de risque utilisateur spécifique. Avec une stratégie de risque utilisateur, vous pouvez bloquer l’accès à vos ressources ou demander une modification du mot de passe pour récupérer un compte utilisateur dans un état propre.
 
-
 ## <a name="how-do-i-access-the-user-risk-policy"></a>Comment faire pour accéder à la stratégie d’utilisateur à risque ?
    
 La stratégie de risque de connexion est disponible dans la section **Configurer** de la [page Azure AD Identity Protection](https://portal.azure.com/#blade/Microsoft_AAD_ProtectionCenter/IdentitySecurityDashboardMenuBlade/SignInPolicy).
    
 ![Stratégie de risque d’utilisateur](./media/howto-user-risk-policy/1014.png)
-
-
 
 ## <a name="policy-settings"></a>Paramètres de stratégie
 
@@ -80,7 +70,6 @@ Vous pouvez définir une stratégie de sécurité de risque utilisateur pour blo
 
 ![Blocage](./media/howto-user-risk-policy/16.png)
 
-
 Le blocage d’une connexion :
 
 * empêche la génération de nouveaux événements à risque pour l’utilisateur concerné ;
@@ -110,9 +99,6 @@ Pour une obtenir une vue d’ensemble de l’expérience utilisateur, consultez�
 - Dans le panneau **Azure AD Identity Protection**, dans la section **Configurer**, cliquez sur **Stratégie de risque d’utilisateur**.
 
     ![Stratégie de risque d’utilisateur](./media/howto-user-risk-policy/1009.png "Stratégie de risque d’utilisateur")
-
-
-
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -6,13 +6,13 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: article
 ms.date: 3/28/2019
-ms.author: amitsriva
-ms.openlocfilehash: a8b0ee159b1c4a4072ce5a86f9fb925744a415b3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: victorh
+ms.openlocfilehash: 39317c0448168bc2ed8fdd0455a210254887d496
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67048702"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67655386"
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>Intégrité du serveur principal, journaux de diagnostic et métriques pour la passerelle Application Gateway
 
@@ -237,7 +237,7 @@ Pour Application Gateway et WAF v2, les journaux contiennent un peu plus d’inf
         "receivedBytes": 65,
         "sentBytes": 553,
         "timeTaken": 205,
-        "sslEnabled": "off"
+        "sslEnabled": "off",
         "sslCipher": "",
         "sslProtocol": "",
         "serverRouted": "104.41.114.59:80",
@@ -302,7 +302,7 @@ Le journal du pare-feu n’est généré que si vous l’avez activé sur chaque
 |message     | Message convivial pour l’événement de déclenchement. La section Détails vous fournit plus d’informations.        |
 |action     |  Action effectuée sur la requête. Les valeurs disponibles sont bloquées et autorisées.      |
 |site     | Site pour lequel le journal a été généré. Actuellement, seul Global est répertorié car les règles sont globales.|
-|détails     | Détails de l’événement de déclenchement.        |
+|details     | Détails de l’événement de déclenchement.        |
 |details.message     | Description de la règle.        |
 |details.data     | Données spécifiques trouvées dans la requête correspondant à la règle.         |
 |details.file     | Fichier de configuration qui contenait la règle.        |

@@ -4,7 +4,7 @@ description: Outils d’exploration et de visualisation de données pour la mach
 keywords: outils de science des données, machine virtuelle science des données, outils pour la science des données, science des données linux
 services: machine-learning
 documentationcenter: ''
-author: gopitk
+author: vijetajo
 manager: cgronlun
 ms.assetid: ''
 ms.service: machine-learning
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
-ms.author: gokuma
-ms.openlocfilehash: 693be80e493a0ba259d147f432dc9d6c07ba876d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: vijetaj
+ms.openlocfilehash: 31b05ec4fa68c3d4804000caee94b62432bdaed9
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66427518"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68557762"
 ---
 # <a name="data-exploration-and-visualization-tools-on-the-data-science-virtual-machine"></a>Outils d’exploration et de visualisation de données sur la machine virtuelle DSVM
 
@@ -63,5 +63,5 @@ Une étape clé de la science des données consiste à comprendre les données. 
 | Versions DSVM prises en charge      | Windows  |
 | Utilisations classiques      |  Visualisation des données et création de tableaux de bord   |
 | Comment l’utiliser/l’exécuter ?      | Raccourci sur le Bureau (`C:\Program Files\Microsoft Power BI Desktop\bin\PBIDesktop.exe`)      |
-| Outils connexes sur la machine virtuelle DSVM      |   Visual Studio 2019, Visual Studio Code, Juno      |
+| Outils connexes sur la machine virtuelle DSVM      |   Visual Studio 2019, Visual Studio Code, Juno      |
 

@@ -1,6 +1,6 @@
 ---
 title: Utilisation de l’API REST d’alerte Log Analytics
-description: L’API REST d’alerte Log Analytics vous permet de créer et de gérer des alertes dans Log Analytics.  Cet article fournit des détails sur l’API et plusieurs exemples pour effectuer différentes opérations.
+description: L’API REST d’alerte Log Analytics vous permet de créer et de gérer des alertes dans Log Analytics.  Cet article fournit des détails sur l’API et plusieurs exemples pour effectuer différentes opérations.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -11,17 +11,20 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/10/2018
+ms.date: 07/29/2018
 ms.author: bwren
-ms.openlocfilehash: bee64909c7f3b295691ef1cb1840424aa7e3fe49
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e8209a2d2034818a00ab9390a9af96d5b0287b5b
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60345904"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68663208"
 ---
 # <a name="create-and-manage-alert-rules-in-log-analytics-with-rest-api"></a>Créer et gérer des règles d’alerte dans Log Analytics avec l’API REST
 L’API REST d’alerte Log Analytics vous permet de créer et de gérer des alertes dans Log Analytics.  Cet article fournit des détails sur l’API et plusieurs exemples pour effectuer différentes opérations.
+
+> [!IMPORTANT]
+> Comme [annoncé précédemment](https://azure.microsoft.com/updates/switch-api-preference-log-alerts/), le ou les espaces de travail Log Analytics créés après *le 1er juin 2019* peuvent gérer les règles d’alerte en utilisant **uniquement** l’API REST [Azure scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/), [le modèle Azure Resource Manager](../../azure-monitor/platform/alerts-log.md#managing-log-alerts-using-azure-resource-template) et [le cmdlet PowerShell](../../azure-monitor/platform/alerts-log.md#managing-log-alerts-using-powershell). Les clients peuvent facilement [modifier leurs méthodes de gestion des règles de sécurité et choisir celle qu’ils préfèrent](../../azure-monitor/platform/alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api) pour les espaces de travail plus anciens afin d’utiliser Azure Monitor scheduledQueryRules par défaut et de bénéficier de nombreux [autres avantages](../../azure-monitor/platform/alerts-log-api-switch.md#benefits-of-switching-to-new-azure-api)tels que la possibilité d’utiliser les cmdlets PowerShell natifs, d’augmenter la période de recherche arrière dans les règles, de créer des règles dans un abonnement ou un groupe de ressources distinct, et bien plus encore.
 
 L’API REST de recherche Log Analytics est un service RESTful qui est accessible par le biais de l’API REST Azure Resource Manager. Ce document présente des exemples montrant comment accéder à l’API à partir d’une ligne de commande PowerShell en utilisant [ARMClient](https://github.com/projectkudu/ARMClient), outil en ligne de commande open source qui simplifie l’appel de l’API Azure Resource Manager. L'utilisation d’ARMClient et de PowerShell est une des nombreuses options vous permettant d’accéder à l'API de recherche Log Analytics. Grâce à ces outils, vous pouvez utiliser l’API Azure Resource Manager RESTful pour effectuer des appels vers les espaces de travail Log Analytics et exécuter en leur sein des commandes de recherche. L'API produira pour vous des résultats de recherche au format JSON, qui vous permet d'utiliser ces résultats, par programme, de différentes manières.
 
@@ -71,7 +74,7 @@ Utilisez la méthode Put avec un ID de planification unique pour créer une plan
 > [!NOTE]
 > Le nom de l’ensemble des recherches enregistrées, des planifications et des actions créées avec l’API Log Analytics doit être en minuscules.
 
-    $scheduleJson = "{'properties': { 'Interval': 15, 'QueryTimeSpan':15, 'Active':'true' } }"
+    $scheduleJson = "{'properties': { 'Interval': 15, 'QueryTimeSpan':15, 'Enabled':'true' } }"
     armclient put /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/mynewschedule?api-version=2015-03-20 $scheduleJson
 
 ### <a name="editing-a-schedule"></a>Modification d’une planification
@@ -100,9 +103,6 @@ Toutes les actions des planifications sont décrites dans le tableau suivant.  D
 
 ### <a name="retrieving-actions"></a>Récupération des actions
 
-> [!NOTE]
-> Depuis le 14 mai 2018, toutes les alertes d’une instance de cloud public Azure d’un espace de travail Log Analytics sont automatiquement étendues à Azure. Un utilisateur peut volontairement étendre des alertes à Azure avant le 14 mai 2018. Pour plus d’informations, consultez [Étendre des alertes à partir de Log Analytics vers Azure Alerts](../../azure-monitor/platform/alerts-extend.md). Pour les utilisateurs qui étendent des alertes à Azure, les actions sont désormais contrôlées dans les groupes d’actions Azure. Lorsqu’un espace de travail et ses alertes sont étendus à Azure, vous pouvez récupérer ou ajouter des actions à l’aide de [l’API Groupes d’action](https://docs.microsoft.com/rest/api/monitor/actiongroups).
-
 Utilisez la méthode Get pour récupérer toutes les actions d’une planification.
 
     armclient get /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search  ID}/schedules/{Schedule ID}/actions?api-version=2015-03-20
@@ -123,9 +123,6 @@ Le format de demande pour la création d’une action variant selon le type d’
 
 ### <a name="deleting-actions"></a>Suppression des actions
 
-> [!NOTE]
-> Depuis le 14 mai 2018, toutes les alertes d’une instance de cloud public Azure d’un espace de travail Log Analytics sont automatiquement étendues à Azure. Un utilisateur peut volontairement étendre des alertes à Azure avant le 14 mai 2018. Pour plus d’informations, consultez [Étendre des alertes à partir de Log Analytics vers Azure Alerts](../../azure-monitor/platform/alerts-extend.md). Pour les utilisateurs qui étendent des alertes à Azure, les actions sont désormais contrôlées dans les groupes d’actions Azure. Lorsqu’un espace de travail et ses alertes sont étendus à Azure, vous pouvez récupérer ou ajouter des actions à l’aide de [l’API Groupes d’action](https://docs.microsoft.com/rest/api/monitor/actiongroups).
-
 Utilisez la méthode Delete avec l’ID d’action pour supprimer une action.
 
     armclient delete /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Subscription ID}/schedules/{Schedule ID}/Actions/{Action ID}?api-version=2015-03-20
@@ -136,18 +133,12 @@ Une planification doit avoir une, et une seule, action d’alerte.  Les actions 
 | Section | Description | Usage |
 |:--- |:--- |:--- |
 | Seuil |Critères d’exécution de l’action.| Obligatoire pour chaque alerte, avant ou après l’extension à Azure. |
-| Severity |Étiquette utilisée pour classer l’alerte quand elle est déclenchée.| Obligatoire pour chaque alerte, avant ou après l’extension à Azure. |
+| severity |Étiquette utilisée pour classer l’alerte quand elle est déclenchée.| Obligatoire pour chaque alerte, avant ou après l’extension à Azure. |
 | Suppress |Option permettant d’arrêter les notifications d’alerte. | Section facultative pour chaque alerte, avant ou après l’extension à Azure. |
 | Groupes d’actions |ID d’Azure ActionGroup, où les actions requises sont spécifiées. Par exemple, e-mails, SMS, appels vocaux, Webhooks, Runbooks Automation, connecteurs ITSM, etc.| Obligatoire une fois que les alertes sont étendues à Azure|
 | Personnaliser les actions|Modifier la sortie standard pour les actions sélectionnées depuis ActionGroup| Facultatif pour chaque alerte, possibilité d’utilisation après l’extension des alertes à Azure. |
-| EmailNotification |Envoyer des messages à plusieurs destinataires. | Non obligatoire si les alertes sont étendues à Azure|
-| Correction |Démarrer un runbook dans Azure Automation pour tenter de résoudre le problème identifié. |Non obligatoire si les alertes sont étendues à Azure|
-| Actions Webhook | Envoyer (push) des données à partir d’alertes au service voulu au format JSON |Non obligatoire si les alertes sont étendues à Azure|
 
-> [!NOTE]
-> Depuis le 14 mai 2018, toutes les alertes d’une instance de cloud public Azure d’un espace de travail Log Analytics sont automatiquement étendues à Azure. Un utilisateur peut volontairement étendre des alertes à Azure avant le 14 mai 2018. Pour plus d’informations, consultez [Étendre des alertes à partir de Log Analytics vers Azure Alerts](../../azure-monitor/platform/alerts-extend.md).
-
-#### <a name="thresholds"></a>Seuils
+### <a name="thresholds"></a>Seuils
 Une action d’alerte ne doit avoir qu’un seul seuil.  Quand les résultats d’une recherche enregistrée correspondent au seuil dans une action associée à cette recherche, tous les autres processus dans cette action sont exécutés.  En outre, une action peut ne contenir qu’un seuil et être ainsi utilisable avec d’autres types d’actions ne comportant pas de seuils.
 
 Les propriétés des seuils sont décrites dans le tableau suivant.
@@ -182,7 +173,7 @@ Utilisez la méthode Put avec un ID d’action existant pour modifier une action
     $thresholdJson = "{'etag': 'W/\"datetime'2016-02-25T20%3A54%3A20.1302566Z'\"','properties': { 'Name': 'My Threshold', 'Version':'1', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 10 } }"
     armclient put /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/mythreshold?api-version=2015-03-20 $thresholdJson
 
-#### <a name="severity"></a>Severity
+#### <a name="severity"></a>severity
 Log Analytics vous permet de classer vos alertes en catégories, pour faciliter la gestion et le triage. La gravité d’alerte définie est : information, avertissement et critique. Elles sont mappées par rapport à l’échelle de gravité des alertes Azure de la façon suivante :
 
 |Niveau de gravité Log Analytics  |Niveau de gravité des alertes Azure  |
@@ -350,166 +341,10 @@ Utilisez la méthode Put avec un ID d’action existant pour modifier un groupe 
     $AzNsJson = "{'etag': 'datetime'2017-12-13T10%3A52%3A21.1697364Z'\"', properties': { 'Name': 'test-alert', 'Version':'1', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 12 },'Severity': 'critical', 'AzNsNotification': {'GroupIds': ['subscriptions/1234a45-123d-4321-12aa-123b12a5678/resourcegroups/my-resource-group/providers/microsoft.insights/actiongroups/test-actiongroup']}, 'CustomEmailSubject': 'Azure Alert fired','CustomWebhookPayload': '{\"field1\":\"value1\",\"field2\":\"value2\"}' }"
     armclient put /subscriptions/{Subscription ID}/resourceGroups/{Resource Group Name}/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myAzNsaction?api-version=2015-03-20 $AzNsJson
 
-#### <a name="email-notification"></a>Notification par courrier électronique
-Les notifications par courrier électronique envoient un e-mail à un ou plusieurs destinataires.  Leurs propriétés sont décrites dans le tableau suivant.
-
-> [!NOTE]
-> Depuis le 14 mai 2018, toutes les alertes d’une instance de cloud public Azure d’un espace de travail Log Analytics sont automatiquement étendues à Azure. Un utilisateur peut volontairement étendre des alertes à Azure avant le 14 mai 2018. Pour plus d’informations, consultez [Étendre des alertes à partir de Log Analytics vers Azure Alerts](../../azure-monitor/platform/alerts-extend.md). Pour les utilisateurs qui étendent les alertes à Azure, les actions comme les notifications par e-mail sont désormais contrôlées dans les groupes d’actions Azure. Lorsqu’un espace de travail et ses alertes sont étendus à Azure, vous pouvez récupérer ou ajouter des actions à l’aide de [l’API Groupes d’action](https://docs.microsoft.com/rest/api/monitor/actiongroups).
-   
-
-| Propriété | Description |
-|:--- |:--- |
-| Recipients |Liste d’adresses de messagerie. |
-| Objet |Objet de l’e-mail. |
-| Pièce jointe |Les pièces jointes n’étant pas actuellement prises en charge, cette propriété est toujours définie sur « None ». |
-
-Voici un exemple de réponse pour une action de notification par courrier électronique comportant un seuil.  
-
-    "etag": "W/\"datetime'2016-02-25T20%3A54%3A20.1302566Z'\"",
-    "properties": {
-        "Type": "Alert",
-        "Name": "My email action",
-        "Threshold": {
-            "Operator": "gt",
-            "Value": 10
-        },
-        "EmailNotification": {
-            "Recipients": [
-                "recipient1@contoso.com",
-                "recipient2@contoso.com"
-            ],
-            "Subject": "This is the subject",
-            "Attachment": "None"
-        },
-        "Version": 1
-    }
-
-Utilisez la méthode Put avec un ID d’action unique pour créer une action de messagerie pour une planification.  L’exemple suivant crée une notification par courrier électronique avec un seuil afin que l’e-mail soit envoyé quand les résultats de la recherche enregistrée dépassent le seuil.
-
-    $emailJson = "{'properties': { 'Name': 'MyEmailAction', 'Version':'1', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 10 }, 'EmailNotification': {'Recipients': ['recipient1@contoso.com', 'recipient2@contoso.com'], 'Subject':'This is the subject', 'Attachment':'None'} }"
-    armclient put /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myemailaction?api-version=2015-03-20 $emailJson
-
-Utilisez la méthode Put avec un ID d’action existant pour modifier une action de messagerie pour une planification.  Le corps de la demande doit inclure l’ETag de l’action.
-
-    $emailJson = "{'etag': 'W/\"datetime'2016-02-25T20%3A54%3A20.1302566Z'\"','properties': { 'Name': 'MyEmailAction', 'Version':'1', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 10 }, 'EmailNotification': {'Recipients': ['recipient1@contoso.com', 'recipient2@contoso.com'], 'Subject':'This is the subject', 'Attachment':'None'} }"
-    armclient put /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myemailaction?api-version=2015-03-20 $emailJson
-
-#### <a name="remediation-actions"></a>Actions de correction
-Les corrections démarrent un runbook dans Azure Automation qui essaie de corriger le problème identifié par l’alerte.  Vous devez créer un webhook pour le runbook utilisé dans une action de correction, puis spécifier l’URI dans la propriété WebhookUri.  Quand vous créez cette action à l’aide du portail Azure, un webhook est automatiquement créé pour le runbook.
-
-> [!NOTE]
-> Depuis le 14 mai 2018, toutes les alertes d’une instance de cloud public Azure d’un espace de travail Log Analytics sont automatiquement étendues à Azure. Un utilisateur peut volontairement étendre des alertes à Azure avant le 14 mai 2018. Pour plus d’informations, consultez [Étendre des alertes à partir de Log Analytics vers Azure Alerts](../../azure-monitor/platform/alerts-extend.md). Pour les utilisateurs qui étendent les alertes à Azure, les actions comme les corrections sont désormais contrôlées dans les groupes d’actions Azure. Lorsqu’un espace de travail et ses alertes sont étendus à Azure, vous pouvez récupérer ou ajouter des actions à l’aide de [l’API Groupes d’action](https://docs.microsoft.com/rest/api/monitor/actiongroups).
-
-Les propriétés des corrections sont décrites dans le tableau suivant.
-
-| Propriété | Description |
-|:--- |:--- |
-| RunbookName |Nom du runbook. Il doit correspondre à un runbook publié dans le compte Automation configuré dans la solution Automation au sein de votre espace de travail Log Analytics. |
-| WebhookUri |URI du webhook. |
-| Expiry |Date et heure d’expiration du webhook.  Si le webhook n’a pas d’expiration, il peut s’agir de n’importe quelle date future valide. |
-
-Voici un exemple de réponse pour une action de correction comportant un seuil.
-
-    "etag": "W/\"datetime'2016-02-25T20%3A54%3A20.1302566Z'\"",
-    "properties": {
-        "Type": "Alert",
-        "Name": "My remediation action",
-        "Threshold": {
-            "Operator": "gt",
-            "Value": 10
-        },
-        "Remediation": {
-            "RunbookName": "My-Runbook",
-            "WebhookUri": "https://s1events.azure-automation.net/webhooks?token=4jCibOjO3w4W2Cfg%2b2NkjLYdafnusaG6i8tnP8h%2fNNg%3d",
-            "Expiry": "2018-02-25T18:27:20"
-            },
-        "Version": 1
-    }
-
-Utilisez la méthode Put avec un ID d’action unique pour créer une action corrective pour une planification.  L’exemple suivant crée une correction avec un seuil afin que le runbook démarre quand les résultats de la recherche enregistrée dépassent le seuil.
-
-    $remediateJson = "{'properties': { 'Type':'Alert', 'Name': 'My Remediation Action', 'Version':'1', 'Threshold': { 'Operator': 'gt', 'Value': 10 }, 'Remediation': {'RunbookName': 'My-Runbook', 'WebhookUri':'https://s1events.azure-automation.net/webhooks?token=4jCibOjO3w4W2Cfg%2b2NkjLYdafnusaG6i8tnP8h%2fNNg%3d', 'Expiry':'2018-02-25T18:27:20Z'} }"
-    armclient put /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myremediationaction?api-version=2015-03-20 $remediateJson
-
-Utilisez la méthode Put avec un ID d’action existant pour modifier une action corrective pour une planification.  Le corps de la demande doit inclure l’ETag de l’action.
-
-    $remediateJson = "{'etag': 'W/\"datetime'2016-02-25T20%3A54%3A20.1302566Z'\"','properties': { 'Type':'Alert', 'Name': 'My Remediation Action', 'Version':'1', 'Threshold': { 'Operator': 'gt', 'Value': 10 }, 'Remediation': {'RunbookName': 'My-Runbook', 'WebhookUri':'https://s1events.azure-automation.net/webhooks?token=4jCibOjO3w4W2Cfg%2b2NkjLYdafnusaG6i8tnP8h%2fNNg%3d', 'Expiry':'2018-02-25T18:27:20Z'} }"
-    armclient put /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myremediationaction?api-version=2015-03-20 $remediateJson
-
-#### <a name="example"></a>Exemples
-Voici un exemple complet pour créer une alerte par courrier électronique.  Cet exemple crée une planification avec une action qui contient un seuil et un e-mail.
-
-    $subscriptionId = "3d56705e-5b26-5bcc-9368-dbc8d2fafbfc"
-    $resourceGroup  = "MyResourceGroup"    
-    $workspaceName    = "MyWorkspace"
-    $searchId       = "MySearch"
-    $scheduleId     = "MySchedule"
-    $thresholdId    = "MyThreshold"
-    $actionId       = "MyEmailAction"
-    
-    $scheduleJson = "{'properties': { 'Interval': 15, 'QueryTimeSpan':15, 'Active':'true' }"
-    armclient put /subscriptions/$subscriptionId/resourceGroups/$resourceGroup/providers/Microsoft.OperationalInsights/workspaces/$workspaceName/savedSearches/$searchId/schedules/$scheduleId/?api-version=2015-03-20 $scheduleJson
-    
-    $emailJson = "{'properties': { 'Name': 'MyEmailAction', 'Version':'1', 'Severity':'Warning', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 10 }, 'EmailNotification': {'Recipients': ['recipient1@contoso.com', 'recipient2@contoso.com'], 'Subject':'This is the subject', 'Attachment':'None'} }"
-    armclient put /subscriptions/$subscriptionId/resourceGroups/$resourceGroup/providers/Microsoft.OperationalInsights/workspaces/$workspaceName/savedSearches/$searchId/schedules/$scheduleId/actions/$actionId/?api-version=2015-03-20 $emailJson
-
-#### <a name="webhook-actions"></a>Actions de webhook
-Les actions de webhook démarrent un processus en appelant une URL et, éventuellement, en fournissant une charge utile à envoyer.  Elles sont similaires aux actions correctives, à la différence qu’elles sont destinées à des webhooks qui peuvent appeler des processus autres que des runbooks Azure Automation.  En outre, elles permettent de fournir une charge utile à remettre au processus distant.
-
-> [!NOTE]
-> Depuis le 14 mai 2018, toutes les alertes d’une instance de cloud public Azure d’un espace de travail Log Analytics sont automatiquement étendues à Azure. Un utilisateur peut volontairement étendre des alertes à Azure avant le 14 mai 2018. Pour plus d’informations, consultez [Étendre des alertes à partir de Log Analytics vers Azure Alerts](../../azure-monitor/platform/alerts-extend.md). Pour les utilisateurs qui étendent les alertes à Azure, les actions comme les Webhooks sont désormais contrôlées dans les groupes d’actions Azure. Lorsqu’un espace de travail et ses alertes sont étendus à Azure, vous pouvez récupérer ou ajouter des actions à l’aide de [l’API Groupes d’action](https://docs.microsoft.com/rest/api/monitor/actiongroups).
-
-
-Les actions de webhook n’ont pas de seuil ; en revanche, elles doivent être ajoutées à une planification qui a une action d’alerte comportant un seuil.  
-
-Voici un exemple de réponse pour l’action webhook et une action d’alerte associée comportant un seuil.
-
-    {
-        "__metadata": {},
-        "value": [
-            {
-                "id": "subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/bwren/savedSearches/2d1b30fb-7f48-4de5-9614-79ee244b52de/schedules/b80f5621-7217-4007-b32d-165d14377093/Actions/72884702-acf9-4653-bb67-f42436b342b4",
-                "etag": "W/\"datetime'2016-02-26T20%3A25%3A00.6862124Z'\"",
-                "properties": {
-                    "Type": "Webhook",
-                    "Name": "My Webhook Action",
-                    "WebhookUri": "https://oaaswebhookdf.cloudapp.net/webhooks?token=VfkYTIlpk%2fc%2bJBP",
-                    "CustomPayload": "{\"fielld1\":\"value1\",\"field2\":\"value2\"}",
-                    "Version": 1
-                }
-            },
-            {
-                "id": "subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/bwren/savedSearches/2d1b30fb-7f48-4de5-9614-79ee244b52de/schedules/b80f5621-7217-4007-b32d-165d14377093/Actions/90a27cf8-71b7-4df2-b04f-54ed01f1e4b6",
-                "etag": "W/\"datetime'2016-02-26T20%3A25%3A00.565204Z'\"",
-                "properties": {
-                    "Type": "Alert",
-                    "Name": "Threshold for my webhook action",
-                    "Threshold": {
-                        "Operator": "gt",
-                        "Value": 10
-                    },
-                    "Version": 1
-                }
-            }
-        ]
-    }
-
-##### <a name="create-or-edit-a-webhook-action"></a>Créer ou modifier une action de webhook
-Utilisez la méthode Put avec un ID d’action unique pour créer une action webhook pour une planification.  L’exemple suivant crée une action de webhook et une action d’alerte avec un seuil pour que le webhook soit déclenché quand les résultats de la recherche enregistrée dépassent le seuil.
-
-    $thresholdAction = "{'properties': { 'Name': 'My Threshold', 'Version':'1', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 10 } }"
-    armclient put /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/mythreshold?api-version=2015-03-20 $thresholdAction
-
-    $webhookAction = "{'properties': {'Type': 'Webhook', 'Name': 'My Webhook", 'WebhookUri': 'https://oaaswebhookdf.cloudapp.net/webhooks?token=VrkYTKlhk%2fc%2bKBP', 'CustomPayload': '{\"field1\":\"value1\",\"field2\":\"value2\"}', 'Version': 1 }"
-    armclient put /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/mywebhookaction?api-version=2015-03-20 $webhookAction
-
-Utilisez la méthode Put avec un ID d’action existant pour modifier une action webhook pour une planification.  Le corps de la demande doit inclure l’ETag de l’action.
-
-    $webhookAction = "{'etag': 'W/\"datetime'2016-02-26T20%3A25%3A00.6862124Z'\"','properties': {'Type': 'Webhook', 'Name': 'My Webhook", 'WebhookUri': 'https://oaaswebhookdf.cloudapp.net/webhooks?token=VrkYTKlhk%2fc%2bKBP', 'CustomPayload': '{\"field1\":\"value1\",\"field2\":\"value2\"}', 'Version': 1 }"
-    armclient put /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/mywebhookaction?api-version=2015-03-20 $webhookAction
-
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 * Utilisez l’ [API REST pour effectuer des recherches de journaux](../../azure-monitor/log-query/log-query-overview.md) dans Log Analytics.
-* En savoir plus sur les [alertes de journal dans les alertes Azure](../../azure-monitor/platform/alerts-unified-log.md)
+* En savoir plus sur les [alertes de journal dans Azure Monitor](../../azure-monitor/platform/alerts-unified-log.md)
+* Comment [créer, modifier ou gérer des règles d’alerte de journal dans Azure Monitor](../../azure-monitor/platform/alerts-log.md)
 

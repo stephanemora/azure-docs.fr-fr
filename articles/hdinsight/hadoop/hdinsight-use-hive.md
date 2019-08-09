@@ -8,13 +8,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 03/26/2019
-ms.openlocfilehash: fbf10e992843d9297363398ca5ea13b8e0aa10a6
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.date: 06/06/2019
+ms.openlocfilehash: ea8f14a7013a937ddd77baf0f50b8dca09cabad6
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64715631"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67076325"
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>Présentation d’Apache Hive et HiveQL sur Azure HDInsight
 
@@ -48,7 +48,7 @@ Consultez le tableau suivant pour découvrir les différentes façon d’utilise
 
 ## <a name="hiveql-language-reference"></a>Référence du langage HiveQL
 
-La référence du langage HiveQL est disponible dans le [manuel de langage (https://cwiki.apache.org/confluence/display/Hive/LanguageManual)](https://cwiki.apache.org/confluence/display/Hive/LanguageManual).
+Les informations de référence sur le langage HiveQL sont disponibles dans le [manuel du langage](https://cwiki.apache.org/confluence/display/Hive/LanguageManual).
 
 ## <a name="hive-and-data-structure"></a>Hive et structure des données
 
@@ -91,11 +91,11 @@ Hive vous permet de créer deux types de tables :
     * Vous avez besoin d’un emplacement personnalisé, par exemple un compte de stockage non sélectionné par défaut.
     * Un programme autre que Hive gère le format de données, l’emplacement, etc.
 
-Pour plus d’informations, consultez le billet de blog [Introduction aux tables interne et externe Hive][cindygross-hive-tables].
+Pour plus d’informations, consultez le billet de blog [Introduction aux tables interne et externe Hive](https://blogs.msdn.microsoft.com/cindygross/2013/02/05/hdinsight-hive-internal-and-external-tables-intro/).
 
 ## <a name="user-defined-functions-udf"></a>Fonctions définies par l’utilisateur (UDF)
 
-Hive peut également être étendu via des **fonctions définies par l'utilisateur (UDF)**. Une fonction UDF vous permet d'implémenter une fonctionnalité ou une logique qui n'est pas facilement modelée en HiveQL. Pour obtenir un exemple d’utilisation des fonctions définies par l’utilisateur (UDF) avec Hive, consultez les documents suivants :
+Hive peut également être étendu via des **fonctions définies par l'utilisateur (UDF)** . Une fonction UDF vous permet d'implémenter une fonctionnalité ou une logique qui n'est pas facilement modelée en HiveQL. Pour obtenir un exemple d’utilisation des fonctions définies par l’utilisateur (UDF) avec Hive, consultez les documents suivants :
 
 * [Utiliser une fonction Java définie par l’utilisateur avec Apache Hive](../hadoop/apache-hadoop-hive-java-udf.md)
 
@@ -143,7 +143,7 @@ Dans l’exemple précédent, les instructions HiveQL effectuent les opérations
 
 * `STORED AS TEXTFILE LOCATION`: Indique à Hive où sont stockées les données (répertoire `example/data`) et qu’elles sont stockées sous forme de texte. Les données peuvent être dans un seul fichier ou réparties sur plusieurs fichiers dans le répertoire.
 
-* `SELECT`: Sélectionne toutes les lignes où la colonne **t4** contient la valeur **[ERROR]**. Cette instruction renvoie la valeur **3**, car trois lignes contiennent cette valeur.
+* `SELECT`: Sélectionne toutes les lignes où la colonne **t4** contient la valeur **[ERROR]** . Cette instruction renvoie la valeur **3**, car trois lignes contiennent cette valeur.
 
 * `INPUT__FILE__NAME LIKE '%.log'`- Hive tente d’appliquer le schéma à tous les fichiers dans le répertoire. Dans ce cas, le répertoire contient des fichiers qui ne correspondent pas au schéma. Pour éviter que des données incorrectes n’apparaissent dans les résultats, cette instruction indique à Hive de retourner uniquement des données provenant de fichiers se terminant par .log.
 
@@ -175,7 +175,7 @@ Ces instructions effectuent les opérations suivantes :
 
 * `STORED AS ORC`: Stocke les données dans un format ORC (Optimized Row Columnar). ORC est un format particulièrement efficace et optimisé pour le stockage de données Hive.
 
-* `INSERT OVERWRITE ... SELECT`: Sélectionne des lignes de la table **log4jLogs** qui contient **[ERROR]**, puis insère les données dans la table **errorLogs**.
+* `INSERT OVERWRITE ... SELECT`: Sélectionne des lignes de la table **log4jLogs** qui contient **[ERROR]** , puis insère les données dans la table **errorLogs**.
 
 > [!NOTE]  
 > Contrairement aux tables externes, la suppression d’une table interne entraîne également la suppression des données sous-jacentes.
@@ -204,50 +204,20 @@ Azure Data Factory permet d’utiliser HDInsight dans le cadre d’un pipeline D
 
 Vous pouvez utiliser les services SQL Server Integration Services (SSIS) pour exécuter un travail Hive. Le pack de fonctionnalités Azure pour SSIS fournit les composants suivants, compatibles avec les tâches Hive sur HDInsight.
 
-* [Tâche Hive d’Azure HDInsight][hivetask]
+* [Tâche Hive d’Azure HDInsight](https://docs.microsoft.com/sql/integration-services/control-flow/azure-hdinsight-hive-task)
 
-* [Gestionnaire de connexions d’abonnement Azure][connectionmanager]
+* [Gestionnaire de connexions d’abonnement Azure](https://docs.microsoft.com/sql/integration-services/connection-manager/azure-subscription-connection-manager)
 
-Pour plus d’informations, consultez la documentation relative au [Feature Pack Azure][ssispack].
+Pour plus d’informations, consultez la documentation relative au [Feature Pack Azure](https://docs.microsoft.com/sql/integration-services/azure-feature-pack-for-integration-services-ssis).
 
 ### <a name="apache-oozie"></a>Apache Oozie
 
 Apache Oozie est un workflow et un système de coordination qui gère les tâches Hadoop. Pour plus d’informations sur l’utilisation d’Oozie avec Hive, consultez le document [Utiliser Apache Oozie pour définir et exécuter un workflow](../hdinsight-use-oozie-linux-mac.md).
 
-## <a id="nextsteps"></a>Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Maintenant que vous connaissez Hive et que vous avez vu comment l’utiliser avec Hadoop dans HDInsight, utilisez les liens suivants pour découvrir d'autres façons d'utiliser Azure HDInsight.
 
-* [Téléchargement de données vers HDInsight][hdinsight-upload-data]
-* [Utilisation d’Apache Pig avec HDInsight][hdinsight-use-pig]
-* [Utilisation des tâches MapReduce avec HDInsight][hdinsight-use-mapreduce]
-
-[azure-purchase-options]: https://azure.microsoft.com/pricing/purchase-options/
-[azure-member-offers]: https://azure.microsoft.com/pricing/member-offers/
-[azure-free-trial]: https://azure.microsoft.com/pricing/free-trial/
-
-[apache-tez]: https://tez.apache.org
-[apache-hive]: https://hive.apache.org/
-[apache-log4j]: https://en.wikipedia.org/wiki/Log4j
-[hive-on-tez-wiki]: https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez
-[import-to-excel]: https://azure.microsoft.com/documentation/articles/hdinsight-connect-excel-power-query/
-[hivetask]: https://msdn.microsoft.com/library/mt146771(v=sql.120).aspx
-[connectionmanager]: https://msdn.microsoft.com/library/mt146773(v=sql.120).aspx
-[ssispack]: https://msdn.microsoft.com/library/mt146770(v=sql.120).aspx
-
-[hdinsight-use-pig]: hdinsight-use-pig.md
-[hdinsight-use-oozie]: hdinsight-use-oozie-linux-mac.md
-[hdinsight-use-mapreduce]: hdinsight-use-mapreduce.md
-
-
-[hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
-
-[hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
-[hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
-[hdinsight-upload-data]: ../hdinsight-upload-data.md
-
-[Powershell-install-configure]: /powershell/azureps-cmdlets-docs
-[powershell-here-strings]: https://technet.microsoft.com/library/ee692792.aspx
-
-
-[cindygross-hive-tables]: https://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
+* [Téléchargement de données vers HDInsight](../hdinsight-upload-data.md)
+* [Utiliser des fonctions définies par l’utilisateur (UDF) Python avec Apache Hive et Apache Pig dans HDInsight](./python-udf-hdinsight.md)
+* [Utilisation des tâches MapReduce avec HDInsight](hdinsight-use-mapreduce.md)

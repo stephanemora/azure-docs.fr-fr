@@ -1,5 +1,6 @@
 ---
-title: 'Tutoriel : Détection d’anomalie sur les données de streaming avec Azure Databricks'
+title: 'Didacticiel : Détection d’anomalie sur les données de streaming avec Azure Databricks'
+titleSuffix: Azure Cognitive Services
 description: Utilisez l’API Détecteur d’anomalies et Azure Databricks pour superviser les anomalies dans vos données.
 titlesuffix: Azure Cognitive Services
 services: cognitive-services
@@ -10,14 +11,14 @@ ms.subservice: anomaly-detector
 ms.topic: tutorial
 ms.date: 05/08/2019
 ms.author: aahi
-ms.openlocfilehash: 7009771f2b647bb582b3d8091edce99fe901a9f1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8d3f5d0e10fadd31fd8bde77339b872c1b90451f
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67080789"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67721478"
 ---
-# <a name="tutorial-anomaly-detection-on-streaming-data-using-azure-databricks"></a>Tutoriel : Détection d’anomalie sur les données de streaming avec Azure Databricks
+# <a name="tutorial-anomaly-detection-on-streaming-data-using-azure-databricks"></a>Didacticiel : Détection d’anomalie sur les données de streaming avec Azure Databricks
 
 [Azure Databricks](https://azure.microsoft.com/services/databricks/) est un service d’analytique rapide, simple et collaboratif basé sur Apache Spark. L’API Détecteur d’anomalies, qui fait partie d’Azure Cognitive Services, offre un moyen de superviser vos données de série chronologique. Utilisez ce tutoriel pour exécuter la détection d’anomalie sur un flux de données en quasi temps réel à l’aide d’Azure Databricks. Vous allez ingérer des données de twitter à l’aide d’Azure Event Hubs et les importer dans Azure Databricks en utilisant le connecteur Spark Event Hubs. Ensuite, vous utiliserez l’API pour détecter les anomalies sur les données diffusées. 
 
@@ -52,7 +53,7 @@ Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https:/
 
 - La [chaîne de connexion](../../../event-hubs/event-hubs-get-connection-string.md) pour accéder à l’espace de noms Event Hubs. La chaîne de connexion doit avoir un format similaire à :
 
-    `Endpoint=sb://<namespace>.servicebus.windows.net/;SharedAccessKeyName=<key name>;SharedAccessKey=<key value>` 
+    `Endpoint=sb://<namespace>.servicebus.windows.net/;SharedAccessKeyName=<key name>;SharedAccessKey=<key value>`. 
 
 - Le nom de stratégie d’accès partagé et la clé de stratégie pour Event Hubs
 
@@ -104,7 +105,7 @@ Dans cette section, vous allez créer un espace de travail Azure Databricks à l
 
 ## <a name="create-a-twitter-application"></a>Création d'une application Twitter
 
-Pour recevoir un flux de tweets, vous devez créer une application dans Twitter. Suivez les étapes pour créer une application Twitter et enregistrez les valeurs dont vous avez besoin pour suivre ce tutoriel.
+Pour recevoir un flux de tweets, vous devez créer une application dans Twitter. Suivez les étapes pour créer une application Twitter et enregistrez les valeurs dont vous avez besoin pour terminer ce didacticiel.
 
 1. À partir d’un navigateur web, accédez à [Gestion des applications Twitter](https://apps.twitter.com/), et sélectionnez **Créer une application**.
 
@@ -118,17 +119,17 @@ Pour recevoir un flux de tweets, vous devez créer une application dans Twitter.
 
     ![Détails de l’application de Twitter](../media/tutorials/twitter-app-key-secret.png "Détails de l’application de Twitter")
 
-Enregistrez les valeurs que vous avez récupérées pour l’application Twitter. Vous aurez besoin de ces valeurs plus loin dans le tutoriel.
+Enregistrez les valeurs que vous avez récupérées pour l’application Twitter. Vous aurez besoin de ces valeurs plus loin dans le didacticiel.
 
 ## <a name="attach-libraries-to-spark-cluster"></a>Joindre des bibliothèques au cluster Spark
 
-Dans ce tutoriel, vous allez utiliser les API Twitter pour envoyer des tweets à Event Hubs. Vous allez aussi utiliser le [connecteur Apache Spark Event Hubs](https://github.com/Azure/azure-event-hubs-spark) pour lire et écrire des données dans Azure Event Hubs. Pour utiliser ces API au sein de votre cluster, ajoutez-les en tant que bibliothèques à Azure Databricks puis associez-les à votre cluster Spark. Les instructions suivantes expliquent comment ajouter les bibliothèques au dossier **Partagé** dans votre espace de travail.
+Dans ce didacticiel, vous allez utiliser les API Twitter pour envoyer des tweets à Event Hubs. Vous allez aussi utiliser le [connecteur Apache Spark Event Hubs](https://github.com/Azure/azure-event-hubs-spark) pour lire et écrire des données dans Azure Event Hubs. Pour utiliser ces API au sein de votre cluster, ajoutez-les en tant que bibliothèques à Azure Databricks puis associez-les à votre cluster Spark. Les instructions suivantes expliquent comment ajouter les bibliothèques au dossier **Partagé** dans votre espace de travail.
 
 1. Dans l’espace de travail Azure Databricks, sélectionnez **Espace de travail**, puis cliquez avec le bouton droit sur **Partagé**. Dans le menu contextuel, sélectionnez **Créer** > **Bibliothèque**.
 
    ![Boîte de dialogue Ajouter une bibliothèque](../media/tutorials/databricks-add-library-option.png "Boîte de dialogue Ajouter une bibliothèque")
 
-2. Dans la page Nouvelle bibliothèque, pour **Source**, sélectionnez **Maven**. Pour **Coordonnées**, entrez les coordonnées du package que vous voulez ajouter. Voici les coordonnées Maven des bibliothèques utilisées dans ce tutoriel :
+2. Dans la page Nouvelle bibliothèque, pour **Source**, sélectionnez **Maven**. Pour **Coordonnées**, entrez les coordonnées du package que vous voulez ajouter. Voici les coordonnées Maven des bibliothèques utilisées dans ce didacticiel :
 
    * Connecteur Spark Event Hubs : `com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.10`
    * API Twitter : `org.twitter4j:twitter4j-core:4.0.7`
@@ -165,10 +166,10 @@ Dans ce tutoriel, vous utilisez les [API Détecteur d’anomalies d’Azure Cogn
     |Valeur |Description  |
     |---------|---------|
     |Nom     | Nom de la ressource Détecteur d’anomalies.        |
-    |Abonnement     | Abonnement Azure avec laquelle la ressource sera associée.        |
-    |Lieu     | Emplacement Azure.        |
+    |Subscription     | Abonnement Azure avec laquelle la ressource sera associée.        |
+    |Location     | Emplacement Azure.        |
     |Niveau tarifaire     | Niveau tarifaire pour le service. Pour en savoir plus sur la tarification de Détecteur d’anomalies, consultez la [page sur la tarification](https://azure.microsoft.com/pricing/details/cognitive-services/anomaly-detector/).        |
-    |Groupe de ressources     | Indiquez si vous souhaitez créer un groupe de ressources Azure ou sélectionner un groupe existant.        |
+    |Resource group     | Indiquez si vous souhaitez créer un groupe de ressources Azure ou sélectionner un groupe existant.        |
 
 
      Sélectionnez **Créer**.
@@ -685,7 +686,7 @@ Si vous n’arrêtez pas le cluster manuellement, il s’arrête automatiquement
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez appris à utiliser Azure Databricks pour diffuser des données dans Azure Event Hubs et à lire ces données depuis Event Hubs en temps réel. Passez au tutoriel suivant pour apprendre à appeler l’API Détecteur d’anomalies et à visualiser les anomalies à l’aide de Power BI Desktop. 
+Dans ce didacticiel, vous avez appris à utiliser Azure Databricks pour diffuser des données dans Azure Event Hubs et à lire ces données depuis Event Hubs en temps réel. Passez au tutoriel suivant pour apprendre à appeler l’API Détecteur d’anomalies et à visualiser les anomalies à l’aide de Power BI Desktop. 
 
 > [!div class="nextstepaction"]
 >[Détection d’anomalie par lot avec Power BI Desktop](batch-anomaly-detection-powerbi.md)
