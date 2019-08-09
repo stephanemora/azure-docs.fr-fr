@@ -1,19 +1,20 @@
 ---
 title: 'Résoudre les problèmes d’une Sauvegarde Azure : état de l’agent invité indisponible'
 description: Symptômes, causes et résolution des défaillances de la Sauvegarde Azure liées à l’agent, à l’extension et aux disques.
-author: saurabhsensharma
-manager: saurabhsensharma
+ms.reviewer: saurse
+author: dcurwin
+manager: carmonm
 keywords: Sauvegarde Azure ; agent de machine virtuelle ; connectivité réseau ;
 ms.service: backup
 ms.topic: troubleshooting
 ms.date: 07/05/2019
-ms.author: saurse
-ms.openlocfilehash: e4337c9c89ca239bb664cbb7fb953ab9eedd3ac5
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: 7fc288ad9e33088b1b5248c1b61ed439ac95a9c4
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68465329"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68688980"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Résoudre les problèmes d’une Sauvegarde Azure : Problèmes d’agent ou d’extension
 
@@ -77,9 +78,9 @@ Après avoir enregistré et planifié une machine virtuelle pour le service Azur
 **Cause 2 : [L’extension de sauvegarde ne peut être ni mise à jour ni chargée](#the-backup-extension-fails-to-update-or-load)**  
 **Cause 3 : [La machine virtuelle n’a pas accès à Internet](#the-vm-has-no-internet-access)**
 
-## <a name="ExtentionOperationFailed-vmsnapshot-extension-operation-failed"></a>ExtentionOperationFailedForManagedDisks : l’opération d’extension VMSnapshot a échoué
+## <a name="ExtensionOperationFailed-vmsnapshot-extension-operation-failed"></a>ExtensionOperationFailedForManagedDisks : l’opération d’extension VMSnapshot a échoué
 
-**Code d’erreur** : ExtentionOperationFailedForManagedDisks <br>
+**Code d’erreur** : ExtensionOperationFailedForManagedDisks <br>
 **Message d’erreur** : Échec de l’opération d’extension VMSnapshot<br>
 
 Après avoir enregistré et planifié une machine virtuelle pour le service Azure Backup , ce dernier lance le travail en communiquant avec l’extension de sauvegarde de la machine virtuelle pour prendre un instantané à un moment donné. Il est possible que l’une des conditions suivantes empêche le déclenchement de l’instantané. Si la capture instantanée n’est pas déclenchée, un échec de sauvegarde risque de se produire. Suivez les étapes de dépannage ci-dessous dans l’ordre indiqué, puis réessayez l’opération :  
@@ -106,7 +107,7 @@ Après avoir enregistré et planifié une machine virtuelle pour le service Azur
 **Code d’erreur** : UserErrorUnsupportedDiskSize <br>
 **Message d’erreur** : Actuellement, Sauvegarde Azure ne prend pas en charge les tailles de disque supérieures à 4 095 Go <br>
 
-Votre opération de sauvegarde peut échouer lors de la sauvegarde d'une machine virtuelle dont la taille de disque est supérieure à 4 095 Go. La prise en charge de disques volumineux sera bientôt disponible.  
+Votre opération de sauvegarde peut échouer lors de la sauvegarde d'une machine virtuelle dont la taille de disque est supérieure à 4 095 Go. Pour vous inscrire à la préversion privée de prise en charge de disques Sauvegarde Azure de 4 To à 30 To, envoyez-nous un message à l'adresse AskAzureBackupTeam@microsoft.com.
 
 ## <a name="usererrorbackupoperationinprogress---unable-to-initiate-backup-as-another-backup-operation-is-currently-in-progress"></a>UserErrorBackupOperationInProgress - Impossible de lancer la sauvegarde, car une autre opération de sauvegarde est en cours d’exécution
 

@@ -9,12 +9,12 @@ ms.custom: seodec18
 ms.topic: article
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 2af076153725dc91caaf07b710acf21ebc143fb0
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: d9a1dff9c44403ad14e58b3fc3cda880cf65a29c
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67273663"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68679104"
 ---
 # <a name="programming-guide-for-azure-event-hubs"></a>Guide de programmation pour Azure Event Hubs
 Cet article décrit quelques scénarios courants de l’écriture de code à l’aide du service Azure Event Hubs. Il suppose une connaissance préalable des concentrateurs d’événements. Pour une vue d’ensemble conceptuelle des concentrateurs d’événements, consultez [Vue d'ensemble des concentrateurs d’événements](event-hubs-what-is-event-hubs.md).
@@ -23,7 +23,7 @@ Cet article décrit quelques scénarios courants de l’écriture de code à l�
 
 Vous envoyez des événements vers un concentrateur d’événements soit en utilisant HTTP POST, soit via une connexion AMQP 1.0. Le choix entre les deux méthodes à utiliser et à quel moment dépend du scénario spécifique qui est adressé. Les connexions AMQP 1.0 sont limitées en tant que connexions réparties dans Service Bus et sont plus appropriées dans les scénarios avec des volumes de messages plus importants fréquents et des conditions de latence plus faible, car elles fournissent un canal de messagerie permanent.
 
-L’utilisation des API gérées avec .NET, les constructions principales pour publier des données sur les concentrateurs d’événements sont les classes [EventHubClient][] et [EventData][]. [EventHubClient][] fournit le canal de communication AMQP par le biais duquel les événements sont envoyés au concentrateur d’événements. La classe [EventData][] représente un événement et sert à publier des messages sur un concentrateur d’événements. Cette classe inclut le corps, certaines métadonnées et les informations d'en-tête sur l'événement. D’autres propriétés sont ajoutées à l’objet [EventData][] lorsqu’il traverse un concentrateur d’événements.
+L’utilisation des API gérées avec .NET, les constructions principales pour publier des données sur les concentrateurs d’événements sont les classes [EventHubClient][] et [EventData][]. [EventHubClient][] fournit le canal de communication AMQP par le biais duquel les événements sont envoyés au concentrateur d’événements. La classe [EventData][] représente un événement et sert à publier des messages sur un concentrateur d’événements. Cette classe inclut le corps, certaines métadonnées (Properties) et les informations d'en-tête (SystemProperties) sur l'événement. D’autres propriétés sont ajoutées à l’objet [EventData][] lorsqu’il traverse un concentrateur d’événements.
 
 ## <a name="get-started"></a>Prise en main
 Les classes .NET qui prennent en charge Event Hubs sont fournies dans le package NuGet [Microsoft.Azure.EventHubs](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/). Vous pouvez installer ce dernier à l’aide de l’Explorateur de solutions Visual Studio ou de la [Console du gestionnaire de package](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) dans Visual Studio. Pour cela, entrez la commande suivante dans la fenêtre de la [console du gestionnaire du package](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) :

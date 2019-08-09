@@ -1,5 +1,5 @@
 ---
-title: Guide pratique pour utiliser un modèle existant
+title: Utiliser et déployer des modèles existants
 titleSuffix: Azure Machine Learning service
 description: Découvrez comment vous pouvez utiliser le service Azure Machine Learning avec des modèles qui ont été entraînés en dehors du service. Vous pouvez inscrire des modèles créés en dehors du service Azure Machine Learning, puis les déployer comme un service web ou module Azure IoT Edge.
 services: machine-learning
@@ -10,14 +10,14 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 06/19/2019
-ms.openlocfilehash: 332129c9847c317369d5631c3af584da9430e9dd
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 4534f7e5bba2e34316be3376e2627c15c20ba81f
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67454544"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68694383"
 ---
-# <a name="how-to-use-an-existing-model-with-azure-machine-learning-service"></a>Guide pratique pour utiliser un modèle existant avec le service Azure Machine Learning
+# <a name="use-an-existing-model-with-azure-machine-learning-service"></a>Utiliser un modèle existant avec le service Azure Machine Learning
 
 Découvrez comment utiliser un modèle d’apprentissage automatique existant avec le service Azure Machine Learning.
 
@@ -211,7 +211,7 @@ Pour plus d’informations, consultez [Déployer des modèles avec le service Az
 
 ## <a name="define-deployment"></a>Définir le déploiement
 
-Le package [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice?view=azure-ml-py) contient les classes utilisées pour le déploiement. La classe que vous utilisez détermine où le modèle est déployé. Par exemple, pour déployer un modèle comme un service web sur Azure Kubernetes Service, utilisez [AksWebService.deploy_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py#deploy-configuration-autoscale-enabled-none--autoscale-min-replicas-none--autoscale-max-replicas-none--autoscale-refresh-seconds-none--autoscale-target-utilization-none--collect-model-data-none--auth-enabled-none--cpu-cores-none--memory-gb-none--enable-app-insights-none--scoring-timeout-ms-none--replica-max-concurrent-requests-none--max-request-wait-time-none--num-replicas-none--primary-key-none--secondary-key-none--tags-none--properties-none--description-none--gpu-cores-none--period-seconds-none--initial-delay-seconds-none--timeout-seconds-none--success-threshold-none--failure-threshold-none--namespace-none-) pour créer la configuration de déploiement.
+Le package [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice?view=azure-ml-py) contient les classes utilisées pour le déploiement. La classe que vous utilisez détermine où le modèle est déployé. Par exemple, pour déployer un modèle comme un service web sur Azure Kubernetes Service, utilisez [AksWebService.deploy_configuration()](/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py#deploy-configuration-autoscale-enabled-none--autoscale-min-replicas-none--autoscale-max-replicas-none--autoscale-refresh-seconds-none--autoscale-target-utilization-none--collect-model-data-none--auth-enabled-none--cpu-cores-none--memory-gb-none--enable-app-insights-none--scoring-timeout-ms-none--replica-max-concurrent-requests-none--max-request-wait-time-none--num-replicas-none--primary-key-none--secondary-key-none--tags-none--properties-none--description-none--gpu-cores-none--period-seconds-none--initial-delay-seconds-none--timeout-seconds-none--success-threshold-none--failure-threshold-none--namespace-none--token-auth-enabled-none-) pour créer la configuration de déploiement.
 
 Le code Python suivant définit une configuration de déploiement pour un déploiement local. Cette configuration déploie le modèle sous la forme d’un service web sur votre ordinateur local.
 

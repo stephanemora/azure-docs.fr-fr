@@ -8,14 +8,14 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 11/19/2018
 ms.author: ramkris
-ms.openlocfilehash: 74eddadd7fd967daa1eebb9d7cb223fdc708025f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 098cc3d76fff69b6b213514ac85835e7474b6233
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66471426"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68637729"
 ---
-# <a name="net-bulk-executor-library-download-information"></a>Bibliothèque d’exécuteurs en bloc .NET : Télécharger des informations 
+# <a name="net-bulk-executor-library-download-information"></a>Bibliothèque d’exécuteurs en bloc .NET : Télécharger des informations 
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-sdk-dotnet.md)
@@ -28,12 +28,12 @@ ms.locfileid: "66471426"
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [API REST Resource Provider](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](sql-api-query-reference.md)
-> * [Exécuteur en bloc - .NET](sql-api-sdk-bulk-executor-dot-net.md)
-> * [Exécuteur en bloc - Java](sql-api-sdk-bulk-executor-java.md)
+> * [Exécuteur en bloc – .NET](sql-api-sdk-bulk-executor-dot-net.md)
+> * [Exécuteur en bloc – Java](sql-api-sdk-bulk-executor-java.md)
 
 | |  |
 |---|---|
-| **Description**| La bibliothèque de l’exécuteur en bloc permet aux applications clientes d’effectuer des opérations en bloc sur des comptes Azure Cosmos DB. La bibliothèque de l’exécuteur en bloc fournit les espaces de noms BulkImport, BulkUpdate et BulkDelete. Le module BulkImport peut ingérer en bloc des documents de manière optimisée afin que le débit provisionné pour une collection soit consommé dans ses limites maximales. Le module BulkUpdate peut mettre à jour en bloc des données existantes dans des conteneurs Azure Cosmos DB sous forme de correctifs. Le module BulkDelete peut supprimer en bloc des documents de manière optimisée afin que le débit provisionné pour une collection soit consommé dans ses limites maximales.|
+| **Description**| La bibliothèque de l’exécuteur en bloc .Net permet aux applications clientes d’effectuer des opérations en bloc sur des comptes Azure Cosmos DB. Cette bibliothèque fournit les espaces de noms BulkImport, BulkUpdate et BulkDelete. Le module BulkImport peut ingérer en bloc des documents de manière optimisée afin que le débit provisionné pour une collection soit consommé dans ses limites maximales. Le module BulkUpdate peut mettre à jour en bloc des données existantes dans des conteneurs Azure Cosmos DB sous forme de correctifs. Le module BulkDelete peut supprimer en bloc des documents de manière optimisée afin que le débit provisionné pour une collection soit consommé dans ses limites maximales.|
 |**Téléchargement du Kit de développement logiciel (SDK)**| [NuGet](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.BulkExecutor/) |
 | **Bibliothèque BulkExecutor dans GitHub**| [GitHub](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started)|
 |**Documentation de l’API**|[Documentation de référence sur l’API .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor?view=azure-dotnet)|

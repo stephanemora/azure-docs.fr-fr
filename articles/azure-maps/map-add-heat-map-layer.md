@@ -3,22 +3,22 @@ title: Ajouter une couche de carte thermique dans Azure Maps | Microsoft Docs
 description: Comment ajouter une couche de carte thermique à une carte Javascript
 author: rbrundritt
 ms.author: richbrun
-ms.date: 12/2/2018
+ms.date: 07/29/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 82a6d6b2af7df91696844b09fb7650c547cb6bd1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 85f184603cdcadce6bf750db5765f32a0735453d
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62108632"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639019"
 ---
 # <a name="add-a-heat-map-layer"></a>Ajouter un calque de carte thermique
 
-Les cartes thermiques, également appelées « cartes de densité de points », sont un type de visualisation de données utilisé pour représenter la densité de données à l’aide d’une palette de couleurs. Souvent utilisées pour afficher les « points chauds » des données sur une carte, elles sont idéales pour restituer de grands jeux de données de points.  Par exemple, le rendu de dizaines de milliers de points sous la forme de symboles prend quasiment tout l’espace sur une carte : les symboles se chevaucheraient, ce qui rendrait les informations illisibles. Toutefois, la visualisation de ce même jeu de données sous forme de carte thermique permet de voir plus facilement où les points de données sont les plus denses ainsi que la densité relative des autres zones. Il existe de nombreux scénarios dans lesquels les cartes thermiques sont utilisées. En voici quelques exemples :
+Les cartes thermiques, également appelées « cartes de densité de points », sont un type de visualisation de données utilisé pour représenter la densité de données à l’aide d’une palette de couleurs. Souvent utilisées pour afficher les « points chauds » des données sur une carte, elles sont idéales pour restituer de grands jeux de données de points.  Par exemple, le rendu de dizaines de milliers de points sous forme de symboles prend quasiment tout l’espace sur une carte : les symboles se chevaucheraient, ce qui rendrait les informations illisibles. Toutefois, la visualisation de ce même jeu de données sous forme de carte thermique permet de voir plus facilement où les points de données sont les plus denses ainsi que la densité relative des autres zones. Il existe de nombreux scénarios dans lesquels les cartes thermiques sont utilisées. En voici quelques exemples :
 
 * Les données de température sont couramment affichées dans une carte thermique, car celle-ci fournit une estimation de la température située entre deux points de données.
 * Le rendu des données de capteurs de bruit sous forme de carte thermique permet non seulement de montrer l’intensité du bruit là où se trouve le capteur, mais également de fournir des insights sur la dissipation du bruit avec la distance. Si les zones de couverture du bruit de plusieurs capteurs se chevauchent, il est possible que la zone de chevauchement obtienne des niveaux de bruit plus élevés, qui seraient alors visibles sur la carte thermique, et ce, même si le niveau de bruit n’est pas élevé sur un site en particulier.
@@ -63,7 +63,7 @@ Voici un outil permettant de tester les options de couche de carte thermique.
 
 ## <a name="consistent-zoomable-heat-map"></a>Carte thermique homogène pouvant faire l’objet d’un zoom
 
-Par défaut, le rayon des points de données affichés dans la couche de carte thermique ont un rayon de pixels fixe pour tous les niveaux de zoom. Alors que la carte fait l’objet d’un zoom, les données sont agrégées, et la couche de carte thermique change d’aspect. Une expression `zoom` peut être utilisée pour mettre à l’échelle le rayon de chaque niveau de zoom de sorte que chaque point de données couvre la même zone physique de la carte. Cette opération fait paraître la couche de carte thermique plus statique et plus cohérente. Chaque niveau de zoom de la carte a deux fois plus de pixels verticalement et horizontalement que le niveau de zoom précédent. La mise à l’échelle du rayon de sorte qu’il soit multiplié par deux avec chaque niveau de zoom crée une carte thermique qui paraît cohérente sur tous les niveaux de zoom. Vous pouvez effectuer cette opération à l’aide de l’expression `zoom` avec une base 2 `exponential interpolation`, comme indiqué dans l’exemple ci-dessous. Effectuez un zoom sur la carte pour voir comment la carte thermique évolue avec le niveau de zoom.
+Par défaut, les rayons des points de données restitués dans la couche de carte thermique ont un rayon de pixels fixe pour tous les niveaux de zoom. Alors que la carte fait l’objet d’un zoom, les données sont agrégées et la couche de carte thermique change d’aspect. Une expression `zoom` peut être utilisée pour mettre à l’échelle le rayon de chaque niveau de zoom de sorte que chaque point de données couvre la même zone physique de la carte. Cette opération fait paraître la couche de carte thermique plus statique et plus cohérente. Chaque niveau de zoom de la carte a deux fois plus de pixels verticalement et horizontalement que le niveau de zoom précédent. La mise à l’échelle du rayon de sorte qu’il soit multiplié par deux avec chaque niveau de zoom crée une carte thermique qui paraît cohérente sur tous les niveaux de zoom. Vous pouvez effectuer cette opération à l’aide de l’expression `zoom` avec une base 2 `exponential interpolation`, comme indiqué dans l’exemple ci-dessous. Effectuez un zoom sur la carte pour voir comment la carte thermique évolue avec le niveau de zoom.
 
 <br/>
 

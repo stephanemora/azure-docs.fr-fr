@@ -7,18 +7,19 @@ manager: barbkess
 editor: TomShinder
 ms.assetid: 7f6aa45f-138f-4fde-a611-aaf7e8fe56d1
 ms.service: security
+ms.subservice: security-fundamentals
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/05/2019
 ms.author: TomSh
-ms.openlocfilehash: 148c1601013dee2fec29b72152b6350397ff6e35
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: a821ce5d9e545db2dee2adbe942eab5edcfdb01f
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68610852"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68726953"
 ---
 # <a name="azure-best-practices-for-network-security"></a>Meilleures pratiques Azure pour la sécurité réseau
 Cet article présente l’ensemble des meilleures pratiques Azure pour améliorer votre sécurité réseau. Ces meilleures pratiques sont issues de notre expérience dans le domaine de la mise en réseau Azure, mais également de celle des clients, comme vous.

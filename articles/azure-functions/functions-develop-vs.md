@@ -10,71 +10,70 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 10/08/2018
 ms.author: glenga
-ms.openlocfilehash: 8ed3b42c61456f110925e34473dbb326dafc1b80
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 6040552ccee5269e4a04d8b7a1ee072400a8506d
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447715"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68593276"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>Développer Azure Functions à l’aide de Visual Studio  
 
-Azure Functions Tools est une extension pour Visual Studio qui vous permet de développer, de tester et de déployer des fonctions C# sur Azure. S’il s’agit de votre première expérience avec Azure Functions, vous pouvez en apprendre davantage dans l’article [Présentation d’Azure Functions](functions-overview.md).
+Visual Studio vous permet de développer, de tester et de déployer des fonctions de bibliothèque de classes C# dans Azure. S’il s’agit de votre première expérience avec Azure Functions, vous pouvez en apprendre davantage dans l’article [Présentation d’Azure Functions](functions-overview.md).
 
-Azure Functions Tools propose les avantages suivants : 
+Visual Studio offre les avantages suivants lorsque vous développez vos fonctions : 
 
 * Modifier, générer et exécuter des fonctions sur votre ordinateur de développement local. 
-* Publier votre projet Azure Functions directement sur Azure. 
-* Utiliser des attributs WebJobs pour déclarer des liaisons de fonction directement dans le code C# au lieu de maintenir une fonction.json distincte pour les définitions de liaison.
+* Publiez votre projet Azure Functions directement dans Azure et créez des ressources Azure, si besoin. 
+* Utilisez des attributs C# pour déclarer des liaisons de fonction directement dans le code C#.
 * Développer et déployer des fonctions précompilées C#. Les fonctions précompilées offrent de meilleures performances de démarrage à froid que les fonctions basées sur un script C#. 
 * Coder vos fonctions en C# tout en bénéficiant de tous les avantages du développement Visual Studio. 
 
-Cet article fournit des informations sur le développement et la publication sur Azure de fonctions C#, à l’aide de Microsoft Azure Functions Tools pour Visual Studio 2019. Avant de lire cet article, lisez le [Démarrage rapide de Functions pour Visual Studio](functions-create-your-first-function-visual-studio.md). 
+Cet article fournit des informations sur l'utilisation de Visual Studio pour développer des fonctions de bibliothèque de classe C# et les publier dans Azure. Avant de lire cet article, lisez le [Démarrage rapide de Functions pour Visual Studio](functions-create-your-first-function-visual-studio.md). 
 
-> [!IMPORTANT]
-> Ne mélangez pas un développement local avec un développement de portail dans une même application de fonction. Quand vous publiez à partir d’un projet local dans une application de fonction, le processus de déploiement remplace toutes les fonctions que vous avez développées dans le portail.
+Sauf indication contraire, les procédures et exemples présentés correspondent à Visual Studio 2019. 
 
 ## <a name="prerequisites"></a>Prérequis
 
-Le logiciel Azure Functions Tools est inclus dans la charge de travail de développement Azure de [Visual Studio 2017](https://www.visualstudio.com/vs/) et versions ultérieures. Veillez à inclure la charge de travail de **développement Azure** lorsque vous installez Visual Studio 2019 :
-
-![Installer Visual Studio 2019 avec la charge de travail de développement Azure](./media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
-
-Vérifiez que Visual Studio est à jour et que vous utilisez la [dernière version](#check-your-tools-version) d’Azure Functions Tools.
-
-### <a name="azure-resources"></a>Ressources Azure
+Azure Functions Tools est inclus dans la charge de travail de développement Azure de Visual Studio, à partir de Visual Studio 2017. Veillez à inclure la charge de travail de **développement Azure** lorsque vous installez Visual Studio.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 Les autres ressources dont vous avez besoin, tel qu’un compte de stockage Azure, sont créées dans votre abonnement au cours du processus de publication.
 
-### <a name="check-your-tools-version"></a>Vérifier la version des outils
+> [!NOTE]
+> Dans Visual Studio 2017, la charge de travail de développement Azure installe Azure Functions Tools en tant qu’extension distincte. Lorsque vous mettez à jour Visual Studio 2017, vérifiez également que vous utilisez la [dernière version](#check-your-tools-version) d’Azure Functions Tools. Les sections suivantes vous montrent comment vérifier et (si besoin) mettre à jour votre extension Azure Functions Tools dans Visual Studio 2017. 
+
+### <a name="check-your-tools-version"></a>Vérifier la version de vos outils dans Visual Studio 2017
 
 1. Dans le menu **Outils**, choisissez **Extensions et mises à jour**. Développez **Installé** > **Outils** et choisissez **Outils Azure Functions et Web Jobs**.
 
     ![Vérifier la version des outils Functions](./media/functions-develop-vs/functions-vstools-check-functions-tools.png)
 
-2. Notez la **Version** installée. Vous pouvez comparer cette version avec la dernière, indiquée [dans les notes de publication](https://github.com/Azure/Azure-Functions/blob/master/VS-AzureTools-ReleaseNotes.md). 
+1. Notez la **Version** installée. Vous pouvez comparer cette version avec la dernière, indiquée [dans les notes de publication](https://github.com/Azure/Azure-Functions/blob/master/VS-AzureTools-ReleaseNotes.md). 
 
-3. Si votre version est antérieure, mettez à jour vos outils dans Visual Studio en suivant les instructions de la section suivante.
+1. Si votre version est antérieure, mettez à jour vos outils dans Visual Studio en suivant les instructions de la section suivante.
 
-### <a name="update-your-tools"></a>Mettre à jour les outils
+### <a name="update-your-tools-in-visual-studio-2017"></a>Mettre à jour vos outils dans Visual Studio 2017
 
 1. Dans la boîte de dialogue **Extensions et mises à jour**, développez **Mises à jour** > **Visual Studio Marketplace**, choisissez **Outils Azure Functions et Web Jobs** et sélectionnez **Mettre à jour**.
 
     ![Mettre à jour la version des outils Functions](./media/functions-develop-vs/functions-vstools-update-functions-tools.png)   
 
-2. Une fois la mise à jour des outils téléchargée, fermez Visual Studio pour déclencher la mise à jour des outils à l’aide du programme d’installation VSIX.
+1. Une fois la mise à jour des outils téléchargée, fermez Visual Studio pour déclencher la mise à jour des outils à l’aide du programme d’installation VSIX.
 
-3. Dans le programme d’installation, choisissez **OK** pour démarrer, puis **Modifier** pour mettre à jour les outils. 
+1. Dans le programme d’installation, choisissez **OK** pour démarrer, puis **Modifier** pour mettre à jour les outils. 
 
-4. Une fois la mise à jour terminée, choisissez **Fermer** et redémarrez Visual Studio.
+1. Une fois la mise à jour terminée, choisissez **Fermer** et redémarrez Visual Studio.
+
+> [!NOTE]  
+Dans Visual Studio 2019 ou version ultérieure, l’extension Azure Functions Tools est mise à jour avec Visual Studio.  
 
 ## <a name="create-an-azure-functions-project"></a>Créer un projet Azure Functions
 
 [!INCLUDE [Create a project using the Azure Functions](../../includes/functions-vstools-create.md)]
 
-Le modèle de projet crée un projet C#, installe le package NuGet `Microsoft.NET.Sdk.Functions` et définit le framework cible. Functions 1.x cible le .NET Framework, et Functions 2.x cible .NET Standard. Le nouveau projet comporte les fichiers suivants :
+Le modèle de projet crée un projet C#, installe le package NuGet `Microsoft.NET.Sdk.Functions` et définit le framework cible. Le nouveau projet comporte les fichiers suivants :
 
 * **host.json** : vous permet de configurer l’hôte Functions. Ces paramètres s’appliquent lors de l’exécution en local et dans Azure. Pour plus d’informations, consultez l’article de référence sur [host.json](functions-host-json.md).
 
@@ -95,19 +94,19 @@ Ces valeurs de paramètres d’application de fonction peuvent aussi être lues 
 
 ## <a name="configure-the-project-for-local-development"></a>Configurer le projet pour un développement local
 
-Le runtime de Functions utilise un compte de stockage Azure en interne. Pour tous les types de déclencheur autres que HTTP et webhooks, vous devez définir la clé **Values.AzureWebJobsStorage** sur une chaîne de connexion de compte de stockage Azure valide. Votre application de fonctions peut aussi utiliser l’[émulateur de stockage Azure](../storage/common/storage-use-emulator.md) pour le paramètre de connexion **AzureWebJobsStorage** qui est nécessaire au projet. Pour utiliser l’émulateur, définissez la valeur de **AzureWebJobsStorage** sur `UseDevelopmentStorage=true`. Modifiez ce paramètre, afin de lui associer une connexion de stockage réel avant le déploiement.
+Le runtime de Functions utilise un compte de stockage Azure en interne. Pour tous les types de déclencheur autres que HTTP et webhooks, vous devez définir la clé **Values.AzureWebJobsStorage** sur une chaîne de connexion de compte de stockage Azure valide. Votre application de fonctions peut aussi utiliser l’[émulateur de stockage Azure](../storage/common/storage-use-emulator.md) pour le paramètre de connexion **AzureWebJobsStorage** qui est nécessaire au projet. Pour utiliser l’émulateur, définissez la valeur de **AzureWebJobsStorage** sur `UseDevelopmentStorage=true`. Modifiez ce paramètre afin de lui associer une chaîne de connexion au compte de stockage réel avant le déploiement.
 
 Pour définir la chaîne de connexion de compte de stockage :
 
-1. Dans Visual Studio, ouvrez **Cloud Explorer**, développez **Compte de stockage** > **Votre compte de stockage**, puis sélectionnez **Propriétés** et copiez la valeur **Chaîne de connexion principale**.
+1. Dans Visual Studio, ouvrez **Cloud Explorer**, développez **Compte de stockage** > **Votre compte de stockage**, puis dans l'onglet **Propriétés**, copiez la valeur **Chaîne de connexion principale**.
 
 2. Dans votre projet, ouvrez le fichier local.settings.json et définissez la valeur de la clé **AzureWebJobsStorage** sur la chaîne de connexion que vous avez copiée.
 
-3. Répétez l’étape précédente pour ajouter des clés uniques au tableau **Valeurs** pour les autres connexions requises par vos fonctions.
+3. Répétez l’étape précédente pour ajouter des clés uniques au tableau **Valeurs** pour les autres connexions requises par vos fonctions. 
 
 ## <a name="add-a-function-to-your-project"></a>Ajouter une fonction à votre projet
 
-Dans les fonctions précompilées, les liaisons utilisées par la fonction sont définies en appliquant des attributs dans le code. Lorsque vous utilisez Azure Functions Tools pour créer vos fonctions à partir des modèles fournis, ces attributs sont appliqués pour vous. 
+Dans les fonctions de bibliothèque de classes C#, les liaisons utilisées par la fonction sont définies en appliquant des attributs dans le code. Lorsque vous créez vos déclencheurs de fonction à partir des modèles fournis, les attributs des déclencheurs sont appliqués pour vous. 
 
 1. Dans **l’Explorateur de solutions**, cliquez avec le bouton droit sur le nœud de projet et sélectionnez **Ajouter** > **Nouvel élément**. Sélectionnez **Fonction Azure**, tapez un **nom** pour la classe, puis cliquez sur **Ajouter**.
 
@@ -132,7 +131,8 @@ Dans les fonctions précompilées, les liaisons utilisées par la fonction sont 
         public static class Function1
         {
             [FunctionName("QueueTriggerCSharp")]
-            public static void Run([QueueTrigger("myqueue-items", Connection = "QueueStorage")]string myQueueItem, ILogger log)
+            public static void Run([QueueTrigger("myqueue-items", 
+                Connection = "QueueStorage")]string myQueueItem, ILogger log)
             {
                 log.LogInformation($"C# Queue trigger function processed: {myQueueItem}");
             }

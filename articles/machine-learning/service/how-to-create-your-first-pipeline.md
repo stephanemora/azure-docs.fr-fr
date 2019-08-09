@@ -11,12 +11,12 @@ ms.author: sanpil
 author: sanpil
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 57047069e196ab887824311374719cf2b210fe1d
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 3f0b764b16c1b550c9afa4107449c1b02815e8d1
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68361029"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68668494"
 ---
 # <a name="create-and-run-a-machine-learning-pipeline-by-using-azure-machine-learning-sdk"></a>Créer et exécuter un pipeline Machine Learning à l’aide du SDK Azure Machine Learning
 
@@ -58,7 +58,7 @@ Créez les ressources requises pour exécuter un pipeline :
 ### <a name="set-up-a-datastore"></a>Configurer un magasin de données
 Le magasin de données stocke les données accessibles par le pipeline. Chaque espace de travail dispose d’un magasin de données par défaut. Vous pouvez inscrire des magasins de données supplémentaires. 
 
-Lorsque vous créez votre espace de travail, des éléments [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) et de [stockage d’objets Blob Azure ](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction) sont joints à l’espace de travail par défaut. Le stockage de fichiers Azure représente le magasin de données par défaut pour un espace de travail, mais vous pouvez également utiliser le stockage d’objets Blob en tant que magasin de données. Pour en savoir plus , voir [Quand utiliser des fichiers Azure, des objets blob Azure, des fichiers Azure ou des disques Azure](https://docs.microsoft.com/azure/storage/common/storage-decide-blobs-files-disks). 
+Lorsque vous créez votre espace de travail, des éléments [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) et de [stockage d’objets Blob Azure ](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction) sont joints à l’espace de travail. Une banque de données par défaut est inscrite pour se connecter au stockage d’objets blob Azure. Pour en savoir plus , voir [Quand utiliser des fichiers Azure, des objets blob Azure, des fichiers Azure ou des disques Azure](https://docs.microsoft.com/azure/storage/common/storage-decide-blobs-files-disks). 
 
 ```python
 # Default datastore (Azure blob storage)
@@ -68,7 +68,7 @@ def_data_store = ws.get_default_datastore()
 def_data_store = Datastore(ws, "workspaceblobstore")
 
 # Get file storage associated with the workspace
-def_file_store = Datastore(ws, "workspacefileblobstore")
+def_file_store = Datastore(ws, "workspacefilestore")
 ```
 
 Téléchargez les fichiers de données ou les répertoires sur le magasin de données afin que vos pipelines puissent y accéder. Cet exemple utilise le stockage d’objets blob pour le magasin de données :

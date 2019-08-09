@@ -16,12 +16,12 @@ ms.date: 07/10/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 896cc495d6f369c034171833a9b90aa53e6477b6
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: 12452b4e9cc6caa64d4c81a310fbccb5d1717817
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68234655"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68678152"
 ---
 # <a name="what-is-azure-ad-entitlement-management-preview"></a>Présentation de la gestion des droits d’utilisation Azure AD (Préversion)
 
@@ -90,7 +90,7 @@ Moyennant un package d’accès et les stratégies correspondantes, le gestionna
 
 - Ressources
 - Rôles dont les utilisateurs ont besoin pour les ressources
-- Utilisateurs internes et externes autorisés à demander un accès
+- Utilisateurs internes et organisations partenaires d'utilisateurs externes autorisés à demander un accès
 - Processus d’approbation et utilisateurs autorisés à approuver ou refuser un accès
 - Durée d'accès d'un utilisateur
 
@@ -123,11 +123,11 @@ Pour mieux comprendre la gestion des droits d'utilisation et sa documentation, v
 | policy | Ensemble de règles définissant le cycle de vie d'un accès, telles que le mode d'accès des utilisateurs, les approbateurs et la durée des accès. À titre d'exemple, il peut s'agir de l'accès des employés et de l’accès externe. |
 | catalog | Conteneur de ressources connexes et de packages d’accès. |
 | catalogue Général | Catalogue intégré toujours disponible. L'ajout de ressources au catalogue Général implique certaines autorisations. |
-| resource | Ressource ou service (groupe, application ou site, par exemple) pouvant faire l'objet d'autorisations accordées à un utilisateur. |
+| resource | Ressource ou service (par exemple, un groupe Office, un groupe de sécurité, une application ou un site SharePoint Online) auquel un utilisateur peut accorder des autorisations. |
 | type de ressource | Type de ressource incluant des groupes, applications et sites SharePoint Online. |
 | rôle de ressource | Ensemble d’autorisations associées à une ressource. |
 | répertoire de ressources | Répertoire comprenant une ou plusieurs ressources à partager. |
-| utilisateurs attribués | Attribution d'un package d'accès à un utilisateur ou groupe. |
+| utilisateurs attribués | Attribution d’un package d’accès à un utilisateur pour lui permettre de disposer de tous les rôles de ressources de ce package d’accès. |
 | enable | Processus permettant aux utilisateurs de demander un package d'accès. |
 
 ## <a name="license-requirements"></a>Conditions de licence :

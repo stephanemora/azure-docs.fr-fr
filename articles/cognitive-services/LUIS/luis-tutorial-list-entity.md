@@ -1,21 +1,21 @@
 ---
-title: Extraire des entités de correspondance de texte
+title: Extraire des entités de correspondance de texte - LUIS
+titleSuffix: Azure Cognitive Services
 description: Apprenez à ajouter une entité de liste pour aider LUIS à étiqueter les variations d’un mot ou d’une phrase.
 services: cognitive-services
 author: diberry
-titleSuffix: Azure
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: 929dc7a86d141446a2070b046c6febfda4a07f0f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: da6e8e794520a737a96ba45f94459fb8c1a5ff18
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62117446"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68637832"
 ---
 # <a name="use-a-list-entity-to-increase-entity-detection"></a>Utiliser une entité de liste pour améliorer la détection d’entité 
 Ce didacticiel détaille l’utilisation d’une [entité de liste](luis-concept-entity-types.md) afin d’améliorer la détection d’entité. Les entités de liste n’ont pas besoin d’être étiquetées car elles correspondent parfaitement aux termes.  

@@ -2,14 +2,14 @@
 author: alkohli
 ms.service: databox
 ms.topic: include
-ms.date: 03/05/2019
+ms.date: 07/26/2019
 ms.author: alkohli
-ms.openlocfilehash: 7058d7f46373f8adaacbcbf90e5ea591a15f8f37
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: f3bb391dceb1948820d00c0d09229f2c106ffc0b
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67177521"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68601326"
 ---
 Sur un appareil Data Box Edge avec un rôle de calcul configuré, un sous-ensemble de commandes Docker est disponible pour des modules de dépannage et de surveillance. Pour afficher la liste des commandes disponibles, [connectez-vous à l’interface PowerShell](#connect-to-the-powershell-interface) et utilisez la fonction `dkrdbe`.
 
@@ -39,7 +39,7 @@ Le tableau ci-après contient une brève description des commandes disponibles p
 
 |command  |Description |
 |---------|---------|
-|`image`     | Gérer les images       |
+|`image`     | Gérer les images Pour supprimer les images non utilisées, utilisez : `dkrdbe image prune -a -f`       |
 |`images`     | Répertorier des images         |
 |`inspect`     | Retourner des informations détaillées sur les objets Docker         |
 |`login`     | Se connecter à un registre Docker         |

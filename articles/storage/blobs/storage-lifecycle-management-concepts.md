@@ -9,12 +9,12 @@ ms.date: 05/21/2019
 ms.author: mhopkins
 ms.reviewer: yzheng
 ms.subservice: common
-ms.openlocfilehash: 6902bf73707dc749da76cd32fe48911fcc88ba1e
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: cd02051c0ef1dfe93b1ee67a0a9605e1611f336b
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68305725"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68565974"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Gérer le cycle de vie du Stockage Blob Azure
 
@@ -29,6 +29,8 @@ La gestion du cycle de vie vous permet de :
 
 Considérez un scénario où des données sont sollicitées fréquemment durant les premières étapes du cycle de vie, mais seulement occasionnellement après deux semaines. Au-delà du premier mois, le jeu de données est rarement sollicité. Dans ce scénario, le stockage chaud est préférable durant les premiers temps. Un stockage froid est plus approprié pour un accès occasionnel. L’option Stockage archive est la meilleure une fois que les données ont plus d’un mois. En ajustant les niveaux de stockage en fonction de l’ancienneté des données, vous pouvez concevoir les options de stockage les moins coûteuses par rapport à vos besoins. Pour effectuer cette transition, les règles de stratégie de gestion du cycle de vie permettent de déplacer les données vieillissantes vers des niveaux plus froids.
 
+[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
+
 ## <a name="storage-account-support"></a>Prise en charge du compte de stockage
 
 La stratégie de gestion du cycle de vie est disponible avec les comptes Usage général v2 (GPv2), les comptes Stockage Blob et les comptes Stockage d’objet blob de blocs Premium. Dans le portail Azure, vous pouvez mettre à niveau un compte de stockage universel (GPv1) existant en compte GPv2. Pour plus d’informations sur les comptes de stockage, consultez [Vue d’ensemble des comptes de stockage Azure](../common/storage-account-overview.md).  
@@ -39,7 +41,7 @@ La fonctionnalité de gestion du cycle de vie est gratuite. Les clients sont fac
 
 ## <a name="regional-availability"></a>Disponibilité régionale
 
-La fonctionnalité de gestion du cycle de vie est disponible dans toutes les régions Azure et Azure Government.
+La fonctionnalité de gestion du cycle de vie est disponible dans toutes les régions Azure.
 
 ## <a name="add-or-remove-a-policy"></a>Ajouter ou supprimer une stratégie
 

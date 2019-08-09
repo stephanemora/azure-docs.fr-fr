@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/09/2019
+ms.date: 07/29/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 462625ce61f4538aa0769667648e07cc6307cbb3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c38b11ceda010c122e17a7fad3df1684e0a1cf42
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61023608"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68696285"
 ---
 # <a name="manage-database-roles-and-users"></a>Gérer les rôles et les utilisateurs de base de données
 
@@ -26,10 +26,10 @@ Les autorisations des rôles incluent :
 *  **Processus** : les utilisateurs peuvent se connecter et effectuer des opérations de traitement sur la base de données et analyser les données des bases de données du modèle.
 *  **Lecture** : les utilisateurs peuvent utiliser une application cliente pour se connecter et analyser les données des bases de données du modèle.
 
-Lorsque vous créez un projet de modèle tabulaire, vous créez des rôles et ajoutez des utilisateurs ou des groupes à ces rôles à l’aide du Gestionnaire de rôles dans SSDT. Lors du déploiement sur un serveur, vous utilisez SSMS, [applets de commande PowerShell Analysis Services](/sql/analysis-services/powershell/analysis-services-powershell-reference) ou [Tabular Model Scripting Language](https://msdn.microsoft.com/library/mt614797.aspx) (TMSL) pour ajouter ou supprimer des rôles et des membres utilisateur.
+Lorsque vous créez un projet de modèle tabulaire, vous créez des rôles et ajoutez des utilisateurs ou des groupes à ces rôles à l’aide du Gestionnaire de rôles dans SQL Server Data Tools (SSDT). Lors du déploiement sur un serveur, vous utilisez SQL Server Management Studio (SSMS), [cmdlets PowerShell Analysis Services](/sql/analysis-services/powershell/analysis-services-powershell-reference) ou [Tabular Model Scripting Language](https://msdn.microsoft.com/library/mt614797.aspx) (TMSL) pour ajouter ou supprimer des rôles et des membres utilisateur.
 
-> [!NOTE]
-> La propriété `MailEnabled` des groupes de sécurité doit être définie sur `True`.
+Les **groupes de sécurité** doivent être [à extension de messagerie](https://docs.microsoft.com/exchange/recipients-in-exchange-online/manage-mail-enabled-security-groups) avec la propriété `MailEnabled` définie sur `True`. Lorsque vous spécifiez un groupe par adresse e-mail, utilisez `obj:groupid@tenantid`.
+
 
 ## <a name="to-add-or-manage-roles-and-users-in-ssdt"></a>Pour ajouter ou gérer des rôles et des utilisateurs dans SSDT  
   

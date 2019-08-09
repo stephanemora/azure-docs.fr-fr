@@ -1,6 +1,6 @@
 ---
-title: Intentions
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Intentions - LUIS
+titleSuffix: Azure Cognitive Services
 description: Une intention unique représente une tâche ou une action que l’utilisateur souhaite effectuer. Il s’agit d’une finalité ou d’un objectif exprimé dans l’énoncé d’un utilisateur. Définissez un ensemble d’intentions qui correspondent aux actions que les utilisateurs souhaitent effectuer dans votre application.
 services: cognitive-services
 author: diberry
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: e635a11cb99d11befc40703d9f5d2abec8559632
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bb7fa9d930f4c1ab3c241048804060e17fe5a8e4
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60813458"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68619918"
 ---
 # <a name="concepts-about-intents-in-your-luis-app"></a>Concepts relatifs aux intentions dans votre application LUIS
 
@@ -42,12 +42,15 @@ Vous attribuez une seule intention à un énoncé. Lorsque LUIS reçoit un énon
 ## <a name="intent-compared-to-entity"></a>Différence entre intention et entité
 L’intention correspond à l’action que le chatbot doit effectuer pour l’utilisateur ; elle s’appuie sur la totalité de l’énoncé. L’entité représente des mots ou des expressions contenues dans l’énoncé. Un énoncé ne peut avoir qu’une seule meilleure intention, mais il peut comporter de nombreuses entités. 
 
-<a name="how-do-intents-relate-to-entities"></a> Créez une intention lorsque le _but_ de l’utilisateur doit déclencher une action dans votre application cliente, comme un appel à la fonction checkweather(). Ensuite, créez une entité afin de représenter les paramètres requis pour exécuter l’action. 
+<a name="how-do-intents-relate-to-entities"></a>
+
+Créez une intention lorsque le _but_ de l’utilisateur doit déclencher une action dans votre application cliente, comme un appel à la fonction checkweather(). Ensuite, créez une entité afin de représenter les paramètres requis pour exécuter l’action. 
 
 |Exemple d’intention   | Entité | Entité dans des exemples d’énoncés   | 
 |------------------|------------------------------|------------------------------|
 | BulletinMétéo | { "type": "location", "entity": "seattle" }<br>{ "type": "builtin.datetimeV2.date","entity": "demain","resolution":"2018-05-23" } | « Quel temps fait-il à `Seattle` `tomorrow` ? » |
 | BulletinMétéo | { "type": "date_range", "entity": "ce weekend" } | Montre-moi les prévisions pour `this weekend` | 
+||||
 
 ## <a name="custom-intents"></a>Intentions personnalisées
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 108ead982529d2ac6549cceffd9d2177ab6456bf
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1d96f5bb189dfd20c65fc6fc6ddcb8fff66d52ff
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60414764"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68666237"
 ---
 # <a name="azure-ad-password-protection-troubleshooting"></a>Résolution de problèmes de protection par mot de passe Azure AD
 
@@ -30,9 +30,9 @@ La cause habituelle de ce problème est qu’un proxy n’a pas encore été ins
 
 ## <a name="the-dc-agent-is-not-able-to-communicate-with-a-proxy"></a>L’agent du contrôleur de domaine ne peut pas communiquer avec un proxy
 
-Ce problème se traduit principalement par la présence d’événements 30018 dans le journal des événements d’administration de l’agent du contrôleur de domaine. Cela peut avoir plusieurs causes :
+Ce problème se traduit principalement par la présence d’événements 30018 dans le journal des événements d’administration de l’agent du contrôleur de domaine. Ce problème peut avoir plusieurs causes :
 
-1. L’agent du contrôleur de domaine se trouve dans une partie isolée du réseau qui n’autorise pas de connectivité réseau au(x) proxy(s) inscrit(s). Ce problème peut donc être attendu\bénin tant que d’autres agents du contrôleur de domaine peuvent communiquer avec le(s) proxy(s) afin de télécharger à partir d’Azure les stratégies de mot de passe qui seront ensuite obtenues par le contrôleur de domaine isolé via une réplication des fichiers de stratégie dans le partage sysvol.
+1. L’agent du contrôleur de domaine se trouve dans une partie isolée du réseau qui n’autorise pas de connectivité réseau au(x) proxy(s) inscrit(s). Ce problème peut donc être bénin tant que d’autres agents du contrôleur de domaine sont en mesure de communiquer avec le(s) proxy(s) afin de télécharger à partir d’Azure les stratégies de mot de passe qui seront ensuite obtenues par le contrôleur de domaine isolé via une réplication des fichiers de stratégie dans le partage sysvol.
 
 1. L’ordinateur hôte proxy bloque l’accès au point de terminaison du mappeur de point de terminaison RPC (port 135).
 
@@ -42,17 +42,17 @@ Ce problème se traduit principalement par la présence d’événements 30018 d
 
    Le programme d’installation du proxy de protection par mot de passe Azure AD crée automatiquement une règle de trafic entrant du Pare-feu Windows, qui autorise l’accès à tout port entrant qu’écoute le service proxy de protection par mot de passe Azure AD. En cas de suppression ou de désactivation de cette règle par la suite, les agents du contrôleur de domaine ne peuvent plus communiquer avec le service proxy. Si le Pare-feu Windows intégré a été désactivé à la place d’un autre produit de pare-feu, vous devez configurer ce pare-feu pour autoriser l’accès à tout port entrant qu’écoute le service proxy de protection par mot de passe Azure AD. Cette configuration peut être rendue plus spécifique si le service proxy a été configuré pour écouter un port RPC statique spécifique (à l’aide de l’applet de commande `Set-AzureADPasswordProtectionProxyConfiguration`).
 
-## <a name="the-proxy-service-can-receive-calls-from-dc-agents-in-the-domain-but-is-unable-to-communicate-with-azure"></a>Le service proxy peut recevoir des appels provenant d’agents du contrôleur de domaine dans le domaine, mais ne peut pas communiquer avec Azure
+## <a name="proxy-service-is-unable-to-communicate-with-azure"></a>Le service proxy n'est pas en mesure de communiquer avec Azure
 
 1. Vérifiez que l’ordinateur proxy dispose d’une connectivité aux points de terminaison répertoriés dans les [conditions requises pour le déploiement](howto-password-ban-bad-on-premises-deploy.md).
 
 1. Assurez-vous que la forêt et tous les serveurs proxy sont inscrits auprès du même locataire Azure.
 
-   Vous pouvez le vérifier en exécutant les applets de commande PowerShell `Get-AzureADPasswordProtectionProxy` et `Get-AzureADPasswordProtectionDCAgent`, puis en comparant la propriété `AzureTenant` de chaque élément retourné. Pour que tout fonctionne correctement, les propriétés doivent être identiques au sein d’une forêt, dans l’ensemble des agents du contrôleur de domaine et des serveurs proxy.
+   Vous pouvez vérifier cette exigence en exécutant les cmdlets PowerShell `Get-AzureADPasswordProtectionProxy` et `Get-AzureADPasswordProtectionDCAgent`, puis en comparant la propriété `AzureTenant` de chaque élément retourné. Pour que tout fonctionne correctement, le nom du locataire rapporté doit être identique dans l’ensemble des agents du contrôleur de domaine et des serveurs proxy.
 
-   S’il n’existe pas de condition d’incompatibilité d’inscription du locataire Azure, cela peut être réparé en exécutant les applets de commande PowerShell `Register-AzureADPasswordProtectionProxy` ou `Register-AzureADPasswordProtectionForest` selon le besoin, en veillant à utiliser les informations d’identification du même locataire Azure pour toutes les inscriptions.
+   S’il n’existe pas de condition d’incompatibilité d’inscription du locataire Azure, ce problème peut être résolu en exécutant les cmdlets PowerShell `Register-AzureADPasswordProtectionProxy` ou `Register-AzureADPasswordProtectionForest` si besoin, en veillant à utiliser les informations d’identification du même locataire Azure pour toutes les inscriptions.
 
-## <a name="the-dc-agent-is-unable-to-encrypt-or-decrypt-password-policy-files-and-other-state"></a>L’agent du contrôleur de domaine ne peut pas chiffrer ou déchiffrer des fichiers de stratégie de mot de passe
+## <a name="dc-agent-is-unable-to-encrypt-or-decrypt-password-policy-files"></a>L’agent du contrôleur de domaine ne peut pas chiffrer ou déchiffrer des fichiers de stratégie de mot de passe
 
 Ce problème peut se manifester au travers de divers symptômes, mais a généralement toujours la même cause racine.
 
@@ -62,7 +62,7 @@ Par défaut, le mode de démarrage du service de distribution de clés est Manue
 
 Si le mode de démarrage du service de distribution de clés est désactivé, cette configuration doit être corrigée pour que la protection par mot de passe Azure AD fonctionne correctement.
 
-Un test simple en lien avec ce problème consiste à démarrer manuellement le service de distribution de clés, soit via la console MMC de management des services, ou à l’aide d’autres outils de gestion des services (par exemple, en tapant la commande « net start kdssvc » dans une console d’invite de commande). Le service de distribution de clés est censé démarrer correctement et continuer à s’exécuter.
+Un test simple en lien avec ce problème consiste à démarrer manuellement le service de distribution de clés, soit via la console MMC de management des services, ou à l’aide d’autres outils de gestion (par exemple, en tapant la commande « net start kdssvc » dans une console d’invite de commande). Le service de distribution de clés est censé démarrer correctement et continuer à s’exécuter.
 
 La cause racine la plus courante de l’incapacité du service de distribution de clés à démarrer est que l’objet contrôleur de domaine Active Directory se trouve en dehors de l’unité d’organisation Contrôleurs de domaine par défaut. Cette configuration n’est pas pris en charge par le service de distribution de clés et ne constitue pas une limitation imposée par la protection par mot de passe Azure AD. La solution pour corriger cette situation consiste à déplacer l’objet contrôleur de domaine vers un emplacement situé sous l’unité d’organisation Contrôleurs de domaine par défaut.
 
@@ -84,7 +84,40 @@ Ce problème peut avoir plusieurs causes.
 
 1. En définitive, l’algorithme de validation de mot de passe fonctionne peut-être comme prévu. Voir [Comment les mots de passe sont évalués](concept-password-ban-bad.md#how-are-passwords-evaluated).
 
-## <a name="directory-services-repair-mode"></a>Mode de réparation des services d'annuaire
+## <a name="ntdsutilexe-fails-to-set-a-weak-dsrm-password"></a>Ntdsutil.exe ne parvient pas à définir un mot de passe DSRM faible
+
+Active Directory valide toujours un nouveau mot de passe en mode de réparation des services d’annuaire pour s’assurer qu’il répond aux exigences de complexité du mot de passe du domaine. Cette validation appelle aussi les dll de filtre de mot de passe, comme la protection par mot de passe Azure AD. Si le nouveau mot de passe DSRM est rejeté, le message d’erreur suivant s’affiche :
+
+```text
+C:\>ntdsutil.exe
+ntdsutil: set dsrm password
+Reset DSRM Administrator Password: reset password on server null
+Please type password for DS Restore Mode Administrator Account: ********
+Please confirm new password: ********
+Setting password failed.
+        WIN32 Error Code: 0xa91
+        Error Message: Password doesn't meet the requirements of the filter dll's
+```
+
+Lorsque la protection par mot de passe Azure AD enregistre les événements de journal des événements de validation d'un mot de passe DSRM Active Directory, il est possible que les messages du journal des événements n'inclut pas de nom d'utilisateur. Cela est dû au fait que le compte DSRM est un compte local qui ne fait pas partie du domaine Active Directory réel.  
+
+## <a name="domain-controller-replica-promotion-fails-because-of-a-weak-dsrm-password"></a>La promotion du réplica du contrôleur de domaine échoue en raison d’un mot de passe DSRM faible
+
+Lors du processus de promotion DC, le nouveau mot de passe du mode de réparation des services d'annuaire est soumis à un DC existant à des fins de validation. Si le nouveau mot de passe DSRM est rejeté, le message d’erreur suivant s’affiche :
+
+```powershell
+Install-ADDSDomainController : Verification of prerequisites for Domain Controller promotion failed. The Directory Services Restore Mode password does not meet a requirement of the password filter(s). Supply a suitable password.
+```
+
+Comme dans le problème ci-dessus, l'événement de validation du mot de passe de protection par mot de passe Azure AD ne présentera pas de nom d'utilisateur pour ce scénario.
+
+## <a name="domain-controller-demotion-fails-due-to-a-weak-local-administrator-password"></a>La rétrogradation du contrôleur de domaine échoue en raison d’un mot de passe administrateur local faible
+
+Il est possible de rétrograder un contrôleur de domaine exécutant le logiciel de l’agent DC. Les administrateurs doivent toutefois savoir que le logiciel de l’agent du contrôleur de domaine continue d’appliquer la stratégie de mot de passe en vigueur lors de la procédure de rétrogradation. Le nouveau mot de passe du compte administrateur local (spécifié dans le cadre de l’opération de rétrogradation) est validé comme n’importe quel autre mot de passe. Dans le cadre d'une procédure de régression DC, Microsoft recommande de choisir des mots de passe sécurisés pour les comptes d’administrateur local.
+
+Une fois que la rétrogradation a réussi et que le contrôleur de domaine a été redémarré et est à nouveau en cours d’exécution en tant que serveur de membre normal, le logiciel de l’agent DC repasse à une exécution en mode passif. Il peut alors être désinstallé à tout moment.
+
+## <a name="booting-into-directory-services-repair-mode"></a>Démarrage en mode de réparation des services d'annuaire
 
 Si le contrôleur de domaine est démarré en mode de réparation des services d’annuaire, le service d’agent du contrôleur de domaine le détecte, ce qui a pour effet de désactiver toutes les activités de validation ou d’application du mot de passe, quelle que soit la configuration de la stratégie active.
 
@@ -93,12 +126,6 @@ Si le contrôleur de domaine est démarré en mode de réparation des services d
 Si le service d’agent DC cause des problèmes, vous devez l’arrêter immédiatement. La DLL de filtre de mot de passe d’agent DC tente encore d’appeler le service non exécuté et enregistrera des événements d’avertissement (10012, 10013), mais tous les mots de passe entrants sont acceptés pendant ce temps. Le service d’agent DC peut également être configuré via le Gestionnaire de contrôle des services Windows avec un type de démarrage « Désactivé » en fonction des besoins.
 
 Une autre mesure de correction consisterait à définir le mode d’activation sur Non dans le portail de la protection par mot de passe Azure AD. Une fois la stratégie mise à jour téléchargée, chaque service d’agent du contrôleur de domaine passe en mode inactif où tous les mots de passe sont acceptés tels quels. Pour plus d’informations, voir [Mode d’application](howto-password-ban-bad-on-premises-operations.md#enforce-mode).
-
-## <a name="domain-controller-demotion"></a>Rétrogradation du contrôleur de domaine
-
-Il est possible de rétrograder un contrôleur de domaine exécutant le logiciel de l’agent DC. Les administrateurs doivent toutefois savoir que le logiciel de l’agent du contrôleur de domaine continue d’appliquer la stratégie de mot de passe en vigueur lors de la procédure de rétrogradation. Le nouveau mot de passe du compte administrateur local (spécifié dans le cadre de l’opération de rétrogradation) est validé comme n’importe quel autre mot de passe. Microsoft recommande de choisir des mots de passe sécurisés pour les comptes administrateur locaux dans le cadre d’une procédure de rétrogradation DC. Toutefois, la validation du nouveau mot de passe de compte administrateur local par le logiciel de l’agent DC peut perturber les procédures opérationnelles de rétrogradation pré-existantes.
-
-Une fois que la rétrogradation a réussi et que le contrôleur de domaine a été redémarré et est à nouveau en cours d’exécution en tant que serveur de membre normal, le logiciel de l’agent DC repasse à une exécution en mode passif. Il peut alors être désinstallé à tout moment.
 
 ## <a name="removal"></a>Suppression
 

@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/03/2019
-ms.openlocfilehash: 4341cbb0e24330d535f5211c088f0068eab33af7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b228dfd92fe389d196a65f7152ef22751842f4bb
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65596266"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68640288"
 ---
 # <a name="sink-transformation-for-a-data-flow"></a>Transformation de réception des flux de données
 
@@ -27,7 +27,7 @@ Pour réceptionner tous les champs entrants, activez le **Mappage automatique**.
 
 ![Options de l’onglet Mappage](media/data-flow/sink2.png "récepteur 2")
 
-## <a name="output"></a>Sortie 
+## <a name="output"></a>Output 
 Pour les récepteurs Azure Storage Blob et Data Lake Storage, envoyez les données transformées vers un dossier. Spark génère des fichiers de données de sortie partitionnés, selon le schéma de partition utilisé par la transformation de réception. 
 
 Vous pouvez configurer le schéma de partition depuis l’onglet **Optimiser**. Si vous voulez que Data Factory fusionne vos résultats dans un seul fichier, sélectionnez **Partition unique**.
@@ -35,8 +35,7 @@ Vous pouvez configurer le schéma de partition depuis l’onglet **Optimiser**. 
 ![Options de l’onglet Optimiser](media/data-flow/opt001.png "options du récepteur")
 
 ## <a name="field-mapping"></a>Mappages de champs
-
-Sous l’onglet **Mappage** de la transformation de réception, vous pouvez mapper les colonnes entrantes du côté gauche vers la destination à droite. Lorsque des fichiers réceptionnent des flux de données, Data Factory écrit toujours les nouveaux fichiers dans un dossier. Lorsque vous mappez un jeu de données d’une base de données, vous pouvez générer un nouveau tableau qui utilise ce schéma en définissant **Enregistrer la stratégie** sur **Remplacer**. Ou insérez de nouvelles rangées dans un tableau existant, avant de mapper les champs au schéma existant. 
+Sous l’onglet **Mappage** de la transformation de réception, vous pouvez mapper les colonnes entrantes du côté gauche vers la destination à droite. Lorsque des fichiers réceptionnent des flux de données, Data Factory écrit toujours les nouveaux fichiers dans un dossier. Lorsque vous mappez un jeu de données de base de données, vous devez choisir les options d’opération de table de base de données à des fins d'insertion, de mise à jour, d'upsert ou de suppression.
 
 ![Onglet Mappage](media/data-flow/sink2.png "Récepteurs")
 
@@ -53,6 +52,15 @@ Pour réinitialiser vos mappages de colonne, sélectionnez **Remapper**.
 Sélectionnez **Valider le schéma** pour faire échouer la réception si le schéma est modifié.
 
 Sélectionnez **Clear the folder** (Vider le dossier) pour tronquer le contenu du dossier récepteur avant d’écrire les fichiers de destination dans le dossier cible.
+
+## <a name="rule-based-mapping"></a>Mappage basé sur des règles
+Lorsque vous désactivez le mappage automatique, vous avez la possibilité d’ajouter un mappage basé sur des colonnes (mappage fixe) ou un mappage basé sur des règles. Le mappage basé sur des règles vous permet d’écrire des expressions avec des critères spéciaux. 
+
+![Mappage basé sur des règles](media/data-flow/rules4.png "Mappage basé sur des règles")
+
+Lorsque vous choisissez le mappage basé sur des règles, vous demandez à ADF d’évaluer votre expression correspondante pour qu’elle corresponde aux filtres de modèle entrants et de définir les noms de champs sortants. Vous pouvez ajouter n’importe quelle combinaison de mappage de champs et de mappage basé sur des règles. Les noms de champs sont ensuite générés au moment de l’exécution par ADF en fonction des métadonnées entrantes de la source. Vous pouvez afficher les noms des champs générés pendant le débogage et à l’aide du volet d'aperçu des données.
+
+Vous trouverez des informations sur les critères spéciaux [dans la documentation du modèle de colonne](concepts-data-flow-column-pattern.md).
 
 ## <a name="file-name-options"></a>Options de nom de fichier
 
@@ -88,5 +96,4 @@ Choisissez les Paramètres de base de données :
 > Lorsque vous mettez à jour ou supprimez des lignes dans votre récepteur de base de données, vous devez définir la colonne clé. Ce paramètre permet à la transformation de ligne alternative de déterminer la ligne unique dans la bibliothèque de déplacement des données (DML).
 
 ## <a name="next-steps"></a>Étapes suivantes
-
 Maintenant que vous avez créé votre flux de données, ajoutez une [activité de flux de données à votre pipeline](concepts-data-flow-overview.md).

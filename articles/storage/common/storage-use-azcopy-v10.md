@@ -5,15 +5,15 @@ services: storage
 author: normesta
 ms.service: storage
 ms.topic: article
-ms.date: 05/14/2019
+ms.date: 07/25/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 94aca33b2f12c1c39297221a856296dcca052b0f
-ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
+ms.openlocfilehash: 7ad5be0c7774beacaa15fcca0646c78e2d328ba4
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67565798"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68699842"
 ---
 # <a name="get-started-with-azcopy"></a>Bien démarrer avec AzCopy
 
@@ -28,11 +28,13 @@ AzCopy est un utilitaire de ligne de commande que vous pouvez utiliser pour copi
 
 ## <a name="download-azcopy"></a>Télécharger AzCopy
 
-Commencez par télécharger le fichier exécutable AzCopy V10 dans un répertoire sur votre ordinateur. 
+Commencez par télécharger le fichier exécutable AzCopy V10 dans un répertoire sur votre ordinateur.
 
 - [Windows](https://aka.ms/downloadazcopy-v10-windows) (zip)
 - [Linux](https://aka.ms/downloadazcopy-v10-linux) (tar)
 - [MacOS](https://aka.ms/downloadazcopy-v10-mac) (zip)
+
+AzCopy v10 est un fichier exécutable, et il n'y a donc rien à installer.
 
 > [!NOTE]
 > Si vous voulez copier des données depuis et vers le service [Table de stockage Azure](https://docs.microsoft.com/azure/storage/tables/table-storage-overview), installez [AzCopy version 7.3](https://aka.ms/downloadazcopynet).
@@ -68,19 +70,21 @@ Utilisez ce tableau pour vous guider :
 
 En utilisant Azure AD, vous pouvez fournir des informations d’identification en une seule fois au lieu d’avoir à ajouter un jeton SAS à chaque commande.  
 
+> [!NOTE]
+> Dans la version actuelle, si vous envisagez de copier des objets blob entre des comptes de stockage, vous devez ajouter un jeton SAS à chaque URL source. Vous pouvez omettre le jeton SAS uniquement à partir de l’URL de destination. Pour des exemples, consultez [Copier des objets blob entre des comptes de stockage](storage-use-azcopy-blobs.md).
+
 Le niveau d’autorisation dont vous avez besoin repose sur votre volonté de planifier le chargement des fichiers, ou juste leur téléchargement.
 
-Si vous voulez simplement télécharger les fichiers, vérifiez que le [Lecteur des données blob du stockage](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader) a été affecté à votre identité d’utilisateur ou au principal de service. 
+Si vous voulez simplement télécharger les fichiers, vérifiez que le [Lecteur des données blob du stockage](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader) a été affecté à votre identité d’utilisateur, à l'identité managée ou au principal de service.
 
-> [!NOTE]
-> Les identités d’utilisateurs et les principaux de service sont chacun un type de *principal de sécurité*, donc nous utiliserons le terme *principal de sécurité* pour le reste de cet article.
+> Les identités d’utilisateurs, les identités managées et les principaux de service correspondent chacun à un type de *principal de sécurité*, et nous utiliserons donc le terme *principal de sécurité* pour le reste de cet article.
 
 Si vous souhaitez télécharger des fichiers, vérifiez qu’un de ces rôles a été attribué à votre principal de sécurité :
 
 - [Contributeur aux données Blob du stockage](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-queue-data-contributor)
 - [Propriétaire des données Blob du stockage](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner)
 
-Ces rôles peuvent être attribués à votre identité sur l’une de ces étendues :
+Ces rôles peuvent être attribués à votre principal de service sur l’une de ces étendues :
 
 - Conteneur (système de fichiers)
 - Compte de stockage
@@ -89,7 +93,7 @@ Ces rôles peuvent être attribués à votre identité sur l’une de ces étend
 
 Pour savoir comment vérifier et attribuer des rôles, voir [Octroyer l’accès aux données blob et de file d’attente Azure avec RBAC dans le Portail Azure](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
-> [!NOTE] 
+> [!NOTE]
 > Gardez à l’esprit que les attributions de rôles RBAC peuvent prendre jusqu’à cinq minutes pour se propager.
 
 Vous n’avez pas besoin qu’un de ces rôles soit assigné à votre responsable de la sécurité si votre responsable de la sécurité est ajouté à la liste de contrôle d’accès du conteneur ou du répertoire cible. Dans la liste de contrôle d’accès, votre responsable de la sécurité a besoin de droits d’écriture sur le répertoire cible et d’autorisation d’exécution sur le conteneur et chaque répertoire parent.
@@ -122,11 +126,11 @@ Une fenêtre de connexion s’affiche. Dans cette fenêtre, connectez-vous à vo
 
 #### <a name="authenticate-a-service-principal"></a>Authentifier un principal du service
 
-C’est une excellente option si vous prévoyez d’utiliser AzCopy à l’intérieur d’un script qui fonctionne sans interaction de l’utilisateur. 
+C’est une excellente option si vous prévoyez d’utiliser AzCopy à l’intérieur d’un script qui s'exécute sans interaction de l’utilisateur, en local notamment. Si vous envisagez d’exécuter AzCopy sur des machines virtuelles s’exécutant dans Azure, une identité de service managée est plus facile à administrer. Pour plus d’informations, consultez la section [Authentifier une identité managée](#managed-identity) de cet article.
 
-Avant d’exécuter ce script, vous devez vous connecter de manière interactive au moins une fois afin de pouvoir fournir à AzCopy les informations d’identification de votre fournisseur de services.  Ces informations d’identification sont stockées dans un fichier sécurisé et chiffré afin que votre script n’ait pas à fournir ces informations sensibles.
+Avant d’exécuter un script, vous devez vous connecter de manière interactive au moins une fois afin de pouvoir fournir à AzCopy les informations d’identification de votre fournisseur de services.  Ces informations d’identification sont stockées dans un fichier sécurisé et chiffré afin que votre script n’ait pas à fournir ces informations sensibles.
 
-Vous pouvez vous connecter à votre compte en utilisant un secret client ou en utilisant le mot de passe d’un certificat qui est associé à l’enregistrement de l’application de votre directeur de service. 
+Vous pouvez vous connecter à votre compte en utilisant un secret client ou en utilisant le mot de passe d’un certificat qui est associé à l’enregistrement de l’application de votre directeur de service.
 
 Pour en savoir plus sur la création du principal du service, consultez la page [Procédure : Utilisez le portail pour créer une application Azure AD et un principal du service pouvant accéder aux ressources](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
 
@@ -134,7 +138,7 @@ Pour en savoir plus sur les principaux de service, consultez [Objets application
 
 ##### <a name="using-a-client-secret"></a>Utilisation d’une clé secrète client
 
-Commencez par définir la variable d’environnement `AZCOPY_SPA_CLIENT_SECRET` pour la clé secrète client de votre inscription d’application de principal de service. 
+Commencez par définir la variable d’environnement `AZCOPY_SPA_CLIENT_SECRET` pour la clé secrète client de votre inscription d’application de principal de service.
 
 > [!NOTE]
 > Assurez-vous de définir cette valeur à partir de votre invite de commande, et non dans les paramètres des variables d’environnement de votre système d’exploitation. De cette façon, la valeur n’est disponible que pour la session en cours.
@@ -184,6 +188,50 @@ Remplacez l’espace réservé `<path-to-certificate-file>` par le chemin d’ac
 > [!NOTE]
 > Envisagez d’utiliser une invite comme dans cet exemple. De cette façon, votre mot de passe n’apparaîtra pas dans l’historique des commandes de votre console. 
 
+<a id="managed-identity" />
+
+#### <a name="authenticate-a-managed-identity"></a>Authentifier une identité managée
+
+C’est une excellente option si vous prévoyez d’utiliser AzCopy à l’intérieur d’un script qui s'exécute sans interaction de l’utilisateur et depuis une machine virtuelle Azure. Lorsque vous utilisez cette option, vous n’êtes pas tenu de stocker les informations d’identification sur la machine virtuelle.
+
+Vous pouvez vous connecter à votre compte à l’aide d’une identité managée à l'échelle du système que vous avez activée sur votre machine virtuelle, ou à l’aide de l’ID client, de l’ID objet ou de l’ID ressource d’une identité managée attribuée par l’utilisateur que vous avez attribuée à votre machine virtuelle.
+
+Pour en savoir plus sur l’activation d’une identité managée à l'échelle du système ou la création d'une identité managée attribuée par l'utilisateur, consultez [Configurer des identités managées pour ressources Azure sur une machine virtuelle en utilisant le portail Azure](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#enable-system-assigned-managed-identity-on-an-existing-vm).
+
+##### <a name="using-a-system-wide-managed-identity"></a>Utilisation d’une identité managée à l'échelle du système
+
+Commencez par vérifier que vous avez activé une identité managée à l'échelle du système sur votre machine virtuelle. Consultez [Identité managée attribuée par le système](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#system-assigned-managed-identity).
+
+Ensuite, dans votre console de commande, entrez la commande suivante et appuyez sur la touche ENTRÉE.
+
+```azcopy
+azcopy login --identity
+```
+
+##### <a name="using-a-user-assigned-managed-identity"></a>Utilisation d'une identité managée attribuée par l’utilisateur
+
+Commencez par vérifier que vous avez activé une identité managée attribuée par l'utilisateur sur votre machine virtuelle. Consultez [Identité managée attribuée par l'utilisateur](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#user-assigned-managed-identity).
+
+Ensuite, dans votre console de commande, entrez une des commandes suivantes et appuyez sur la touche ENTRÉE.
+
+```azcopy
+azcopy login --identity --identity-client-id "<client-id>"
+```
+
+Remplacez l'espace réservé `<client-id>` par l'ID client de l’identité managée attribuée par l’utilisateur.
+
+```azcopy
+azcopy login --identity --identity-object-id "<object-id>"
+```
+
+Remplacez l'espace réservé `<object-id>` par l'ID objet de l’identité managée attribuée par l’utilisateur.
+
+```azcopy
+azcopy login --identity --identity-resource-id "<resource-id>"
+```
+
+Remplacez l'espace réservé `<resource-id>` par l'ID ressource de l’identité managée attribuée par l’utilisateur.
+
 ### <a name="option-2-use-a-sas-token"></a>Option 2 : Utiliser un jeton SAS
 
 Vous pouvez ajouter un jeton SAP à chaque URL source ou de destination utilisée dans vos commandes AzCopy.
@@ -211,8 +259,6 @@ Pour obtenir des exemples de commandes, consultez l’un de ces articles.
 - [Transfert de données avec AzCopy et le stockage Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-storage-transfer#azcopy)
 
 ## <a name="use-azcopy-in-a-script"></a>Utiliser AzCopy dans un script
-
-Avant d’exécuter ce script, vous devez vous connecter de manière interactive au moins une fois afin de pouvoir fournir à AzCopy les informations d’identification de votre fournisseur de services.  Ces informations d’identification sont stockées dans un fichier sécurisé et chiffré afin que votre script n’ait pas à fournir ces informations sensibles. Pour obtenir des exemples, consultez la section [Authentifier votre principal du service](#service-principal) de cet article.
 
 Au fil du temps, le [lien de téléchargement](#download-and-install-azcopy) AzCopy pointera vers les nouvelles versions d’AzCopy. Si votre script télécharge AzCopy, il se peut qu’il cesse de fonctionner si une version plus récente d’AzCopy modifie les fonctionnalités dont votre script dépend. 
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 05/15/2019
-ms.openlocfilehash: be07e0f3438ea93312d4eb440e7e63b8f98e11b8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1cb56386f52d1c7b1ec357b912c648c1961b4c1d
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67077374"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68677983"
 ---
 # <a name="what-is-the-visual-interface-for-azure-machine-learning-service"></a>Qu’est-ce que l’interface visuelle pour Azure Machine Learning service ? 
 
@@ -54,9 +54,8 @@ Une expérience se compose de jeux de données et de modules d’analyse que vou
 * Tous les ports d’entrée des modules doivent comporter une connexion au flux de données.
 * Tous les paramètres obligatoires de chaque module doivent être configurés.
 
-Pour obtenir un exemple de l’utilisation d’une expérience, consultez le [Guide de démarrage rapide : Préparer et visualiser des données sans écrire de code dans Azure Machine Learning](ui-quickstart-run-experiment.md).
 
-Pour obtenir une description plus complète d’une solution d’analyse prédictive, consultez [Tutoriel : Prédire le prix de voitures à l’aide de l’interface visuelle](ui-tutorial-automobile-price-train-score.md).
+Pour plus d'informations sur la prise en main de l'interface visuelle, consultez [Tutoriel : Prédire le prix de voitures à l’aide de l’interface visuelle](ui-tutorial-automobile-price-train-score.md).
 
 ## <a name="dataset"></a>Jeu de données
 
@@ -94,7 +93,7 @@ Pour savoir comment déployer votre modèle, consultez [Tutoriel : Déployer un 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Découvrez les principes fondamentaux de l’analytique prédictive et du Machine Learning à l’aide du [Guide de démarrage rapide : Préparer et visualiser des données sans écrire de code dans Azure Machine Learning](ui-quickstart-run-experiment.md).
+* Découvrez les principes fondamentaux de l’analytique prédictive et du Machine Learning à l’aide du [Tutoriel : Prédire le prix de voitures à l’aide de l’interface visuelle](ui-tutorial-automobile-price-train-score.md)
 * Utilisez un des exemples et modifiez-le selon vos besoins :
     * [Exemple 1 - Régression : Prédire le prix](ui-sample-regression-predict-automobile-price-basic.md)
     * [Exemple 2 - Régression : Algorithmes de prédiction de prix et de comparaison](ui-sample-regression-predict-automobile-price-compare-algorithms.md)

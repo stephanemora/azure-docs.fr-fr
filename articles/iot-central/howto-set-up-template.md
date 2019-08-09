@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: d27fd9460685c08a2b13936415935f5aaf893797
-ms.sourcegitcommit: dda9fc615db84e6849963b20e1dce74c9fe51821
+ms.openlocfilehash: ede7167d570c7bd2ba7e04c3a9a703555efb35cd
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67622409"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698518"
 ---
 # <a name="set-up-a-device-template"></a>Configurer un modèle d’appareil
 
@@ -63,7 +63,8 @@ Pour ajouter une nouvelle mesure de télémétrie, sélectionnez **+ Nouvelle me
 
 > [!NOTE]
 > Les noms de champs du modèle d’appareil doivent correspondre aux noms de propriétés du code d’appareil correspondant, pour que les données de télémétrie soient affichées dans l’application quand un appareil physique y est connecté. Vous devrez faire de même lorsque vous configurerez les paramètres, les propriétés de l’appareil et les commandes dans les sections qui suivent.
-.png Par exemple, vous pouvez ajouter une nouvelle mesure de télémétrie de température :
+
+Par exemple, vous pouvez ajouter une nouvelle mesure de télémétrie de température :
 
 | Nom d’affichage        | Nom du champ    |  Units    | Min   |max|
 | --------------------| ------------- |-----------|-------|---|
@@ -109,7 +110,7 @@ Indiquez les détails de l’état dans les champs **Nom d’affichage**, **Nom 
 
 Par exemple, vous pouvez ajouter un nouvel état **Mode du ventilateur**, dont les deux valeurs possibles que peut envoyer l’appareil sont **En fonctionnement** et **Arrêté**.
 
-| Nom d’affichage | Nom du champ    |  Valeur 1   | Nom d’affichage | Valeur 2    |Nom d’affichage  | 
+| Nom d’affichage | Nom du champ    |  Valeur 1   | Nom d’affichage | Valeur 2    |Nom d’affichage  |
 | -------------| ------------- |----------- | -------------| -----------| -------------|
 | Mode du ventilateur     | fanmode       |  1         | En fonctionnement    |     0      | Arrêté      |
 
@@ -147,6 +148,8 @@ assetloc: {
   alt?: floating point number
 }
 ```
+
+Une fois l’appareil physique connecté, l’emplacement que vous avez ajouté en tant que mesure est mis à jour avec la valeur envoyée par l’appareil. Après avoir configuré votre mesure d’emplacement, vous pouvez [ajouter une carte pour visualiser l’emplacement dans le tableau de bord de l’appareil](#add-a-location-measurement-in-the-dashboard).
 
 ## <a name="settings"></a>Paramètres
 
@@ -244,7 +247,7 @@ Vous pouvez créer une propriété d’emplacement sous forme de propriété d�
 
    ![Formulaire « Configurer les propriétés de l’appareil » contenant les détails de l’emplacement](./media/howto-set-up-template/locationdeviceproperty2.png)
 
-Une fois l’appareil physique connecté, l’emplacement que vous avez ajouté en tant que propriété d’appareil est mis à jour avec la valeur envoyée par l’appareil. Maintenant que vous avez configuré votre propriété d’emplacement, vous pouvez [ajouter une carte pour visualiser l’emplacement dans le tableau de bord de l’appareil](#add-a-location-in-the-dashboard).
+Une fois l’appareil physique connecté, l’emplacement que vous avez ajouté en tant que propriété d’appareil est mis à jour avec la valeur envoyée par l’appareil. Maintenant que vous avez configuré votre propriété d’emplacement, vous pouvez [ajouter une carte pour visualiser l’emplacement dans le tableau de bord de l’appareil](#add-a-location-property-in-the-dashboard).
 
 ## <a name="commands"></a>Commandes
 
@@ -252,9 +255,9 @@ Les commandes permettent de gérer un appareil à distance. Elles permettent aux
 
 En quoi une commande est-elle différente d’un paramètre ?
 
-* **Paramètre** : un paramètre est une configuration que vous souhaitez appliquer à un appareil. Vous souhaitez que l’appareil conserve cette configuration jusqu’à ce que vous la changiez. Par exemple, vous pouvez définir la température de votre congélateur et faire en sorte que ce réglage reste actif même quand le congélateur redémarre.
+- **Paramètre** : un paramètre est une configuration que vous souhaitez appliquer à un appareil. Vous souhaitez que l’appareil conserve cette configuration jusqu’à ce que vous la changiez. Par exemple, vous pouvez définir la température de votre congélateur et faire en sorte que ce réglage reste actif même quand le congélateur redémarre.
 
-* **Commande** : les commandes vous permettent d'exécuter instantanément une commande sur l'appareil à distance à partir d'IoT Central. Si aucun appareil n’est connecté, la commande expire et échoue. Tel peut être le cas si vous souhaitez redémarrer un appareil.
+- **Commande** : les commandes vous permettent d'exécuter instantanément une commande sur l'appareil à distance à partir d'IoT Central. Si aucun appareil n’est connecté, la commande expire et échoue. Tel peut être le cas si vous souhaitez redémarrer un appareil.
 
 Par exemple, vous pouvez ajouter une nouvelle commande **Echo** en sélectionnant l’onglet **Commandes**, puis en sélectionnant **+ Nouvelle commande** et en entrant les détails de la nouvelle commande :
 
@@ -265,6 +268,8 @@ Par exemple, vous pouvez ajouter une nouvelle commande **Echo** en sélectionnan
 ![Formulaire « Configurer la commande » contenant les détails de l’écho](./media/howto-set-up-template/commandsecho1.png)
 
 Une fois que vous avez sélectionné **Enregistrer**, la commande **Echo** apparaît sous forme de vignette et peut être utilisée à partir de **Device Explorer** quand votre appareil physique se connecte. Pour que les commandes puissent être exécutées correctement, les noms de champs doivent correspondre aux noms de propriétés situés dans le code d’appareil correspondant.
+
+[Voici un lien vers un exemple de code d’appareil C.](https://github.com/Azure/iot-central-firmware/blob/ad40358906aeb8f2040a822ba5292df866692c16/MXCHIP/mxchip_advanced/src/AzureIOTClient.cpp#L34)
 
 ## <a name="rules"></a>Règles
 
@@ -282,9 +287,9 @@ Par exemple, vous pouvez ajouter une vignette **Paramètres et propriétés** po
 
 Désormais, quand un opérateur affiche le tableau de bord dans **Device Explorer**, il peut voir la vignette.
 
-### <a name="add-a-location-in-the-dashboard"></a>Ajouter un emplacement dans le tableau de bord
+### <a name="add-a-location-measurement-in-the-dashboard"></a>Ajouter une mesure d'emplacement dans le tableau de bord
 
-Si vous avez configuré une mesure d’emplacement, vous pouvez visualiser l’emplacement en utilisant une carte dans le tableau de bord de votre appareil.
+Si vous avez configuré une mesure d’emplacement, vous pouvez visualiser l’emplacement en utilisant une carte dans le tableau de bord de votre appareil. Pour les mesures d’emplacement, vous avez la possibilité de tracer l’historique des emplacements.
 
 1. Accédez à l’onglet **Tableau de bord**.
 
@@ -298,13 +303,28 @@ Si vous avez configuré une mesure d’emplacement, vous pouvez visualiser l’e
 
 Vous pouvez redimensionner la mosaïque. Quand un opérateur consulte le tableau de bord dans **Device Explorer**, toutes les vignettes de tableau de bord que vous avez configurées, y compris la carte d’emplacement, sont visibles.
 
+### <a name="add-a-location-property-in-the-dashboard"></a>Ajouter une propriété d'emplacement dans le tableau de bord
+
+Si vous avez configuré une propriété d’emplacement, vous pouvez visualiser l’emplacement avec une carte dans le tableau de bord de votre appareil.
+
+1. Accédez à l’onglet **Tableau de bord**.
+
+1. Dans le tableau de l’appareil, sélectionnez **Carte** dans la bibliothèque.
+
+1. Donnez un titre à la carte. L’exemple suivant s’intitule **Device Current Location (Emplacement actuel de l’appareil)** . Ensuite, choisissez la propriété d’emplacement que vous avez configurée sous l’onglet **Propriétés**. Dans l’exemple suivant, la mesure **Emplacement de l'appareil** est sélectionnée :
+
+   ![Formulaire Configurer la carte contenant les détails de la vignette et les propriétés](./media/howto-set-up-template/locationcloudproperty6map.png)
+
+1. Sélectionnez **Enregistrer**. La vignette de la carte présente maintenant l’emplacement que vous avez sélectionné.
+
+Vous pouvez redimensionner la mosaïque. Quand un opérateur consulte le tableau de bord dans **Device Explorer**, toutes les vignettes de tableau de bord que vous avez configurées, y compris la carte d’emplacement, sont visibles.
+
 Pour en savoir plus sur l’utilisation des vignettes dans Azure IoT Central, voir [Utiliser des vignettes de tableau de bord](howto-use-tiles.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Maintenant que vous avez appris à configurer un modèle d’appareil dans votre application Azure IoT Central, vous pouvez :
 
-> [!div class="nextstepaction"]
-> [Créer une nouvelle version de modèle d’appareil](howto-version-device-template.md)
-> [Connecter un appareil IoT DevKit MXChip à votre application Azure IoT Central](howto-connect-devkit.md)
-> [Connecter une application cliente générique à votre application Azure IoT Central (Node.js)](howto-connect-nodejs.md)
+- [Créer une version d’un modèle d’appareil](howto-version-device-template.md)
+- [Connecter un appareil DevKit IoT MXChip à votre application Azure IoT Central](howto-connect-devkit.md)
+- [Connecter une application cliente Node.js générique à votre application Azure IoT Central (Node.js)](howto-connect-nodejs.md)

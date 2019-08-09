@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 07/30/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d38d93a1c9716cc3a71d904b7b1a46fb8b1c2ee0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 527dd99f122ec70cc47305947a5cbce3207b9664
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60415654"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68666296"
 ---
 # <a name="customize-the-azure-ad-functionality-for-self-service-password-reset"></a>Personnaliser les fonctionnalités d’Azure AD pour la réinitialisation du mot passe libre-service
 
@@ -24,12 +24,20 @@ Les professionnels de l’informatique qui souhaitent déployer la réinitialisa
 
 ## <a name="customize-the-contact-your-administrator-link"></a>Personnaliser le lien « Contactez votre administrateur »
 
-Même si la réinitialisation n’est pas activée, les utilisateurs disposent toujours d’un lien « Contactez votre administrateur » dans le portail de réinitialisation du mot de passe. Si l’utilisateur sélectionne ce lien, l’une des actions ci-dessous se produit :
+Les utilisateurs de la réinitialisation de mot de passe en libre-service disposent d’un lien « Contactez votre administrateur » dans le portail de réinitialisation de mot de passe. Si un utilisateur sélectionne ce lien, il effectue l’une des deux opérations suivantes :
 
-* Un e-mail est envoyé à vos administrateurs pour demander une assistance lors de la modification du mot de passe de l’utilisateur.
-* Les utilisateurs sont dirigés vers une URL que vous spécifiez pour l’assistance.
+* S'il reste dans son état par défaut :
+   * Un e-mail est envoyé à vos administrateurs pour demander une assistance lors de la modification du mot de passe de l’utilisateur. Consultez [l'exemple d'e-mail](#sample-email) ci-dessous.
+* S'il est personnalisé :
+   * Il renvoie l'utilisateur vers une page web ou une adresse e-mail spécifiée par l’administrateur afin d'obtenir de l’aide.
 
-Nous vous recommandons de définir comme contact une adresse e-mail ou un site web que vos utilisateurs utilisent déjà pour des questions de support.
+> [!TIP]
+> Si vous le personnalisez, nous vous recommandons d'opter pour une solution que les utilisateurs connaissent.
+
+> [!WARNING]
+> Si vous personnalisez ce paramètre avec une adresse e-mail et un compte nécessitant une réinitialisation du mot de passe, l’utilisateur peut ne pas être en mesure de demander de l’aide.
+
+### <a name="sample-email"></a>Exemple de message électronique
 
 ![Exemple d’e-mail de demande de réinitialisation envoyé à l’administrateur][Contact]
 

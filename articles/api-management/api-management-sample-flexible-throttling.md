@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/03/2018
 ms.author: apimpm
-ms.openlocfilehash: 22c3987121e2ab3479274c89c359c679f5f1135e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0e7c6fe10467bb68417172dc95fef874d37fc97b
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61087121"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68696244"
 ---
 # <a name="advanced-request-throttling-with-azure-api-management"></a>Limitation de requêtes avancée avec Gestion des API Azure
 La possibilité de limiter les requêtes entrantes est un rôle clé du service Gestion des API Azure. En contrôlant la fréquence des requêtes ou le nombre total de requêtes/données transférées, Gestion des API permet aux fournisseurs d’API de protéger leurs API contre les abus et de créer de la valeur pour différents niveaux de produits API.
@@ -28,6 +28,9 @@ La possibilité de limiter les requêtes entrantes est un rôle clé du service 
 À ce jour, les fonctionnalités de limitation de fréquence sont limitées afin de porter sur un abonnement produit spécifique, défini dans le portail Azure. Cela permet aux fournisseurs d’API d’appliquer des limites aux développeurs qui ont souscrit pour utiliser leurs API. Toutefois, cela ne permet pas, par exemple, de limiter les utilisateurs finaux des API. Il est possible pour un seul utilisateur de l'application du développeur de consommer le quota entier et d’empêcher d’autres clients du développeur d'être en mesure d'utiliser l'application. De la même façon, plusieurs clients générant un volume élevé de requêtes peuvent limiter l'accès aux utilisateurs occasionnels.
 
 ## <a name="custom-key-based-throttling"></a>Limitation basée sur une clé personnalisée
+
+> REMARQUE :  la stratégie `rate-limit-by-key` n’est pas disponible dans le niveau Consommation de Gestion des API Azure. 
+
 Les nouvelles stratégies [rate-limit-by-key](/azure/api-management/api-management-access-restriction-policies#LimitCallRateByKey) et [quota-by-key](/azure/api-management/api-management-access-restriction-policies#SetUsageQuotaByKey) fournissent une solution plus souple pour le contrôle du trafic. Ces nouvelles stratégies vous permettent de définir des expressions pour identifier les clés qui servent à effectuer le suivi de l’utilisation du trafic. Il est plus facile d’en comprendre le fonctionnement avec un exemple. 
 
 ## <a name="ip-address-throttling"></a>Limitation par adresse IP

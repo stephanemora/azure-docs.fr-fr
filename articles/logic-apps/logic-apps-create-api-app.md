@@ -10,12 +10,12 @@ ms.reviewer: klam, jehollan, LADocs
 ms.topic: article
 ms.assetid: bd229179-7199-4aab-bae0-1baf072c7659
 ms.date: 05/26/2017
-ms.openlocfilehash: 233aa92b30404ac7ad2b93bb37380bea984be566
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: e5dc913d682088296f84fb6bd7595a09d9d3fe7b
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68273224"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68609852"
 ---
 # <a name="create-custom-apis-you-can-call-from-azure-logic-apps"></a>Créer des API personnalisées que vous pouvez appeler à partir d’Azure Logic Apps
 
@@ -25,7 +25,7 @@ Bien qu’Azure Logic Apps offre [des centaines de connecteurs](../connectors/ap
 * Aider les clients à utiliser votre service pour gérer des tâches personnelles ou professionnelles.
 * Étendre la portée, la détectabilité et l’utilisation de votre service.
 
-En principe, les connecteurs sont des API web qui utilisent REST pour les interfaces enfichables, le [format de métadonnées Swagger](https://swagger.io/specification/) pour la documentation et JSON en tant que format d’échange de données. Étant donné que les connecteurs sont des API REST qui communiquent via des points de terminaison HTTP, vous pouvez utiliser n’importe quel langage, comme .NET, Java ou Node.js, pour la création de connecteurs. Vous pouvez également héberger votre API sur [Azure App Service](../app-service/overview.md), une offre de plateforme en tant que service (PaaS) qui fournit une des manières les plus optimales, les plus simples et les plus évolutives d’héberger des API. 
+En principe, les connecteurs sont des API web qui utilisent REST pour les interfaces enfichables, le [format de métadonnées Swagger](https://swagger.io/specification/) pour la documentation et JSON en tant que format d’échange de données. Étant donné que les connecteurs sont des API REST qui communiquent via des points de terminaison HTTP, vous pouvez utiliser n’importe quel langage, comme .NET, Java, Python ou Node.js, pour la création de connecteurs. Vous pouvez également héberger votre API sur [Azure App Service](../app-service/overview.md), une offre de plateforme en tant que service (PaaS) qui fournit une des manières les plus optimales, les plus simples et les plus évolutives d’héberger des API. 
 
 Pour que les API personnalisées fonctionnent avec les applications logiques, votre API peut fournir des [*actions*](./logic-apps-overview.md#logic-app-concepts) qui effectuent des tâches spécifiques dans les flux de travail des applications logiques. Votre API peut également faire office de [*déclencheur*](./logic-apps-overview.md#logic-app-concepts) qui démarre le flux de travail d’une application logique lorsque de nouvelles données ou un événement répondent à une condition donnée. Cette rubrique décrit les modèles courants que vous pouvez suivre pour la création d’actions et de déclencheurs dans votre API, en fonction du comportement que vous souhaitez que votre API adopte.
 
@@ -45,7 +45,7 @@ Vous pouvez héberger vos API sur [Azure App Service](../app-service/overview.md
 
 ## <a name="how-do-custom-apis-differ-from-custom-connectors"></a>Quelles sont les différences entre les API personnalisées et les connecteurs personnalisés ?
 
-Les API personnalisées et les [connecteurs personnalisés](../logic-apps/custom-connector-overview.md) sont des API Web qui utilisent REST pour les interfaces enfichables, le [format de métadonnées Swagger](https://swagger.io/specification/) pour la documentation et JSON comme format d’échange de données. Et, dans la mesure où ces API et connecteurs sont des API REST qui communiquent via des points de terminaison HTTP, vous pouvez utiliser n’importe quel langage, par exemple, .NET, Java ou Node.js, pour créer des API et des connecteurs personnalisés.
+Les API personnalisées et les [connecteurs personnalisés](../logic-apps/custom-connector-overview.md) sont des API Web qui utilisent REST pour les interfaces enfichables, le [format de métadonnées Swagger](https://swagger.io/specification/) pour la documentation et JSON comme format d’échange de données. Et, dans la mesure où ces API et connecteurs sont des API REST qui communiquent via des points de terminaison HTTP, vous pouvez utiliser n’importe quel langage, par exemple, .NET, Java, Python ou Node.js, pour créer des API et des connecteurs personnalisés.
 
 Les API personnalisées permettent d’appeler des API qui ne sont pas des connecteurs, et fournissent des points de terminaison qui peuvent être appelés avec HTTP + Swagger, la Gestion des API Azure ou App Services. Les connecteurs personnalisés fonctionnent comme des API personnalisées, avec ces attributs en plus :
 

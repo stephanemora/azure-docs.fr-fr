@@ -11,14 +11,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: billgib
-manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 963d7d44ef3ef77604fc5a9faac479a9e4c91ee6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ca534d3ffcfd1d4caeb9cf755934a846fafae26e
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61487362"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68570106"
 ---
 # <a name="the-wingtip-tickets-saas-application"></a>Application SaaS Wingtip Tickets
 

@@ -16,12 +16,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aa4f5dc7a5aceaf81f71eacd36d131471a57e5c0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6a5f15aa5264c0abf87cb15f0468e8a3a924e0b5
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65075369"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562362"
 ---
 # <a name="daemon-app-that-calls-web-apis---acquire-a-token"></a>Application démon conçue pour appeler des API web - acquisition d'un jeton
 
@@ -61,10 +61,10 @@ public final static String KEYVAULT_DEFAULT_SCOPE = "https://vault.azure.net/.de
 
 L'étendue utilisée pour les informations d'identification client doit toujours être resourceId+"/.default".
 
-### <a name="case-of-v10-resources"></a>Cas des ressources v1.0
+### <a name="case-of-azure-ad-v10-resources"></a>Cas des ressources Azure AD (v1.0)
 
 > [!IMPORTANT]
-> Concernant le point de terminaison MSAL (v2.0) qui demande un jeton d'accès pour une ressource acceptant un jeton d'accès v1.0, Azure AD analyse l'audience souhaitée d'après l'étendue demandée en prenant tout ce qui précède la dernière barre oblique et en l'utilisant comme identificateur de la ressource.
+> Concernant le point de terminaison MSAL (point de terminaison de la plateforme d'identités Microsoft) qui demande un jeton d'accès pour une ressource acceptant un jeton d'accès v1.0, Azure AD analyse l'audience souhaitée d'après l'étendue demandée en prenant tout ce qui précède la dernière barre oblique et en l'utilisant comme identificateur de la ressource.
 > Par conséquent, si, comme Azure SQL ( **https://database.windows.net** ), la ressource attend une audience se terminant par une barre oblique (pour Azure SQL : `https://database.windows.net/` ), vous devez demander une étendue de `https://database.windows.net//.default` (notez la double barre oblique). Voir aussi le problème MSAL.NET [#747](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747) : la barre oblique de fin a été omise dans l'URL de la ressource, ce qui a entraîné un échec d'authentification sql.
 
 ## <a name="acquiretokenforclient-api"></a>API AcquireTokenForClient
@@ -161,7 +161,7 @@ scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
 
 ### <a name="learn-more-about-the-protocol"></a>En savoir plus sur le protocole
 
-Pour plus d'informations, consultez la documentation du protocole : [Azure Active Directory v2.0 et le flux d'informations d'identification du client OAuth 2.0](v2-oauth2-client-creds-grant-flow.md).
+Pour plus d'informations, consultez la documentation du protocole : [Plateforme d’identités Microsoft et flux d’informations d’identification du client OAuth 2.0](v2-oauth2-client-creds-grant-flow.md).
 
 ## <a name="troubleshooting"></a>Résolution de problèmes
 

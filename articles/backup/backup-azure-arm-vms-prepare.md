@@ -2,18 +2,18 @@
 title: Sauvegarder des machines virtuelles Azure dans un coffre Recovery Services à l’aide de Sauvegarde Azure
 description: Décrit comment sauvegarder des machines virtuelles Azure dans un coffre Recovery Services à l’aide de Sauvegarde Azure
 service: backup
-author: rayne-wiselman
+author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.author: raynew
-ms.openlocfilehash: 0835c3af52a16e7549698e35b3fded0f64c71dc4
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.author: dacurwin
+ms.openlocfilehash: 9a6ea961f7433f511ef22a6ac9aaefa51b5df8aa
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447705"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68663705"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Sauvegarder des machines virtuelles Azure dans un coffre Recovery Services
 
@@ -228,9 +228,9 @@ Si un groupe de sécurité réseau gère l’accès aux machines virtuelles, aut
 4. Dans **Plages de ports sources**, entrez un astérisque (*) pour autoriser l’accès sortant à partir de n’importe quel port.
 5. Dans **Destination**, sélectionnez **Balise de service**. Dans la liste, sélectionnez **Storage.region**. La région est là où se trouvent le coffre et les machines virtuelles que vous souhaitez sauvegarder.
 6. Dans **Plages de ports de destination**, sélectionnez le port.
-    - Machine virtuelle non gérée avec un compte de stockage non chiffré : 80
-    - Machine virtuelle non gérée avec un compte de stockage chiffré : 443 (paramètre par défaut)
-    - Machine virtuelle gérée : 8443
+    - Machine virtuelle utilisant des disques non managés avec compte de stockage non chiffré : 80
+    - Machine virtuelle utilisant des disques non managés avec compte de stockage chiffré : 443 (paramètre par défaut)
+    - Machine virtuelle utilisant des disques managés : 8443
 7. Dans **Protocole**, sélectionnez **TCP**.
 8. Dans **Priorité**, spécifiez une valeur inférieure à toute règle de refus supérieure.
 

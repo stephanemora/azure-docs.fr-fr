@@ -10,14 +10,13 @@ ms.topic: conceptual
 ms.author: jaredmoo
 author: jaredmoo
 ms.reviewer: sstein
-manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 683297e32c40f73c64dc40b18f279d92e2396e8d
-ms.sourcegitcommit: 3107874d7559ea975e4d55ae33cdf45f4b5485e4
+ms.openlocfilehash: d1123affa79f401b5142af604adbd757bdfb7d73
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67568273"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68641045"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs"></a>Utiliser Transact-SQL (T-SQL) pour créer et gérer des travaux de base de données élastique
 
@@ -1195,7 +1194,7 @@ Les vues suivantes sont disponibles dans la [base de données des travaux](sql-d
 
 |Affichage  |Description  |
 |---------|---------|
-|[jobs_executions](#jobs_executions-view)     |  Afficher l'historique d'exécution des travaux.      |
+|[job_executions](#job_executions-view)     |  Afficher l'historique d'exécution des travaux.      |
 |[jobs](#jobs-view)     |   Afficher tous les travaux.      |
 |[job_versions](#job_versions-view)     |   Affiche toutes les versions du travail.      |
 |[jobsteps](#jobsteps-view)     |     Affiche toutes les étapes dans la version actuelle de chaque travail.    |
@@ -1204,9 +1203,9 @@ Les vues suivantes sont disponibles dans la [base de données des travaux](sql-d
 |[target_group_members](#target_groups_members-view)     |   Affiche tous les membres de tous les groupes cibles.      |
 
 
-### <a name="jobs_executions-view"></a>affichage de jobs_executions
+### <a name="job_executions-view"></a>job_executions view
 
-[jobs].[jobs_executions]
+[jobs].[job_executions]
 
 Afficher l'historique d'exécution des travaux.
 
