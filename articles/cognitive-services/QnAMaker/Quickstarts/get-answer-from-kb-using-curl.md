@@ -7,21 +7,21 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
-ms.topic: article
+ms.topic: quickstart
 ms.date: 04/16/2019
 ms.author: diberry
-ms.openlocfilehash: 42ca0c116521b7493c587271422fa760f2376533
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.openlocfilehash: 817a19d5cabd7d20dc17154f29b4430e6b96c5fa
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65767235"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67072056"
 ---
 # <a name="quickstart-get-answer-from-knowledge-base-using-curl"></a>Démarrage rapide : Obtenir une réponse d’une base de connaissances en utilisant cURL
 
 Ce démarrage rapide basé sur cURL vous montre pas à pas comment obtenir une réponse de votre base de connaissances.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 * Dernière version de [**cURL**](https://curl.haxx.se/).
 * Vous devez disposer d’un [service QnA Maker](../How-To/set-up-qnamaker-service-azure.md) et d’une [base de connaissances avec des questions et des réponses](../Tutorials/create-publish-query-in-portal.md).
@@ -69,7 +69,7 @@ Pour générer une réponse avec CURL, effectuez les étapes suivantes :
 
 ## <a name="use-staging-endpoint-with-curl"></a>Utiliser le point de terminaison de mise en lots avec cURL
 
-Si vous souhaitez obtenir une réponse du point de terminaison de mise en lots, utilisez le `isTest` corps de la propriété.
+Si vous voulez obtenir une réponse du point de terminaison de mise en lots, utilisez la propriété de corps `isTest`.
 
 ```json
 isTest:true

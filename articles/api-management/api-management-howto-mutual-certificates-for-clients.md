@@ -14,22 +14,22 @@ ms.topic: article
 ms.date: 05/30/2019
 ms.author: apimpm
 ms.openlocfilehash: 5427c4050b6b70c18da7a1899d16e448c41e81c6
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66427353"
 ---
 # <a name="how-to-secure-apis-using-client-certificate-authentication-in-api-management"></a>Comment sécuriser les API à l'aide d'une authentification par certificat client dans la Gestion des API
 
-La Gestion des API permet de sécuriser l'accès aux API (par ex. client à gestion des API) en utilisant des certificats client. Vous pouvez valider le certificat entrant et vérifier les propriétés du certificat sur les valeurs souhaitées à l’aide d’expressions de stratégie.
+La Gestion des API permet de sécuriser l'accès aux API (par ex. client à gestion des API) en utilisant des certificats client. Vous pouvez valider le certificat entrant et en vérifier les propriétés en les comparant aux valeurs souhaitées à l’aide d’expressions de stratégie.
 
-Pour plus d’informations sur la sécurisation des accès pour le service back-end d’une API à l’aide de certificats clients (par exemple, gestion des API au serveur principal), consultez [comment sécuriser les services principaux à l’aide du client de l’authentification par certificat](https://docs.microsoft.com/azure/api-management/api-management-howto-mutual-certificates)
+Pour savoir comment sécuriser l’accès au service back-end d’une API à l’aide de certificats clients (par exemple, de la Gestion des API vers le back-end), consultez [Comment sécuriser les services principaux à l’aide d’une authentification par certificat client dans la Gestion des API Azure](https://docs.microsoft.com/azure/api-management/api-management-howto-mutual-certificates).
 
 > [!IMPORTANT]
-> Pour recevoir et vérifier les certificats de client dans le niveau de consommation, vous devez tout d’abord activer sur « Certificat de client demande « définition sur le panneau « Domaines personnalisés » comme indiqué ci-dessous.
+> Pour recevoir et vérifier des certificats clients dans le niveau Consommation, vous devez d’abord activer le paramètre « Demande de certificat client » dans le panneau « Domaines personnalisés », comme indiqué ci-dessous.
 
-![Demander le certificat client](./media/api-management-howto-mutual-certificates-for-clients/request-client-certificate.png)
+![Demander un certificat client](./media/api-management-howto-mutual-certificates-for-clients/request-client-certificate.png)
 
 ## <a name="checking-the-issuer-and-subject"></a>Vérification de l’émetteur et du sujet
 
@@ -46,8 +46,8 @@ Les stratégies suivantes peuvent être configurées pour vérifier l’émetteu
 ```
 
 > [!NOTE]
-> Pour désactiver la vérification utilisation de liste de révocation de certificats `context.Request.Certificate.VerifyNoRevocation()` au lieu de `context.Request.Certificate.Verify()`.
-> Si le certificat client est auto-signé, racine (ou intermédiaire) ou les certificats d’autorité de certification doivent être [téléchargé](api-management-howto-ca-certificates.md) à la gestion des API pour `context.Request.Certificate.Verify()` et `context.Request.Certificate.VerifyNoRevocation()` fonctionne.
+> Pour désactiver la vérification de la liste de révocation de certificats, utilisez `context.Request.Certificate.VerifyNoRevocation()` et non `context.Request.Certificate.Verify()`.
+> Si le certificat client est auto-signé, le ou les certificats de l’autorité de certification racine (ou intermédiaire) doivent être [chargés](api-management-howto-ca-certificates.md) dans la Gestion des API pour `context.Request.Certificate.Verify()` et `context.Request.Certificate.VerifyNoRevocation()` pour fonctionner.
 
 ## <a name="checking-the-thumbprint"></a>Vérification de l’empreinte numérique
 
@@ -64,8 +64,8 @@ Les stratégies suivantes peuvent être configurées pour vérifier l’empreint
 ```
 
 > [!NOTE]
-> Pour désactiver la vérification utilisation de liste de révocation de certificats `context.Request.Certificate.VerifyNoRevocation()` au lieu de `context.Request.Certificate.Verify()`.
-> Si le certificat client est auto-signé, racine (ou intermédiaire) ou les certificats d’autorité de certification doivent être [téléchargé](api-management-howto-ca-certificates.md) à la gestion des API pour `context.Request.Certificate.Verify()` et `context.Request.Certificate.VerifyNoRevocation()` fonctionne.
+> Pour désactiver la vérification de la liste de révocation de certificats, utilisez `context.Request.Certificate.VerifyNoRevocation()` et non `context.Request.Certificate.Verify()`.
+> Si le certificat client est auto-signé, le ou les certificats de l’autorité de certification racine (ou intermédiaire) doivent être [chargés](api-management-howto-ca-certificates.md) dans la Gestion des API pour `context.Request.Certificate.Verify()` et `context.Request.Certificate.VerifyNoRevocation()` pour fonctionner.
 
 ## <a name="checking-a-thumbprint-against-certificates-uploaded-to-api-management"></a>Vérification d’une empreinte par rapport aux certificats téléchargés dans la gestion des API
 
@@ -83,12 +83,12 @@ L’exemple suivant montre comment vérifier l’empreinte d’un certificat cli
 ```
 
 > [!NOTE]
-> Pour désactiver la vérification utilisation de liste de révocation de certificats `context.Request.Certificate.VerifyNoRevocation()` au lieu de `context.Request.Certificate.Verify()`.
-> Si le certificat client est auto-signé, racine (ou intermédiaire) ou les certificats d’autorité de certification doivent être [téléchargé](api-management-howto-ca-certificates.md) à la gestion des API pour `context.Request.Certificate.Verify()` et `context.Request.Certificate.VerifyNoRevocation()` fonctionne.
+> Pour désactiver la vérification de la liste de révocation de certificats, utilisez `context.Request.Certificate.VerifyNoRevocation()` et non `context.Request.Certificate.Verify()`.
+> Si le certificat client est auto-signé, le ou les certificats de l’autorité de certification racine (ou intermédiaire) doivent être [chargés](api-management-howto-ca-certificates.md) dans la Gestion des API pour `context.Request.Certificate.Verify()` et `context.Request.Certificate.VerifyNoRevocation()` pour fonctionner.
 
 > [!TIP]
-> Problème de blocage de certificat client décrit dans cet [article](https://techcommunity.microsoft.com/t5/Networking-Blog/HTTPS-Client-Certificate-Request-freezes-when-the-Server-is/ba-p/339672) peut se manifester de différentes manières, par exemple, les demandes figer, résultats de requêtes `403 Forbidden` code d’état après expiration du délai, `context.Request.Certificate` est `null`. Ce problème affecte généralement `POST` et `PUT` demandes avec la longueur du contenu d’environ 60 Ko ou plus.
-> Pour éviter ce problème se produise activer paramètre « Certificat de client Negotiate » pour les noms d’hôte souhaité dans le panneau « Domaines personnalisés » comme indiqué ci-dessous. Cette fonctionnalité n’est pas disponible dans le niveau de consommation.
+> Le problème de blocage de certificat client décrit dans cet [article](https://techcommunity.microsoft.com/t5/Networking-Blog/HTTPS-Client-Certificate-Request-freezes-when-the-Server-is/ba-p/339672) peut se manifester de différentes manières, notamment par des demandes qui se figent, des demandes qui génèrent un code d’état `403 Forbidden` après une expiration du délai, `context.Request.Certificate` qui a la valeur `null`. Ce problème affecte généralement les demandes `POST` et `PUT` avec une longueur de contenu d’environ 60 Ko ou plus.
+> Pour éviter que ce problème se produise, activez le paramètre « Négocier le certificat client  » pour les noms d’hôte souhaités dans le panneau « Domaines personnalisés », comme indiqué ci-dessous. Cette fonctionnalité n’est pas disponible dans le niveau Consommation.
 
 ![Négocier le certificat client](./media/api-management-howto-mutual-certificates-for-clients/negotiate-client-certificate.png)
 

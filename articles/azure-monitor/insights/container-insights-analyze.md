@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/18/2019
+ms.date: 06/12/2019
 ms.author: magoedte
-ms.openlocfilehash: 531e51fbddb99ebba11284d5291b4cca26559bc1
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
-ms.translationtype: MT
+ms.openlocfilehash: a370dcb349b61f3dda544d9c5a2030b6789e34c4
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65906773"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67075425"
 ---
 # <a name="understand-aks-cluster-performance-with-azure-monitor-for-containers"></a>Comprendre les performances du cluster AKS avec Azure Monitor pour les conteneurs 
 Avec Azure Monitor pour les conteneurs, vous pouvez utiliser les graphiques de performances et l’état d’intégrité pour surveiller la charge de travail de vos clusters Azure Kubernetes Service (AKS) selon deux perspectives, directement à partir d’un cluster AKS ou tous les clusters AKS d’un abonnement à partir d’Azure Monitor. L’affichage d’ACI (Azure Container Instances) est également possible lorsque vous surveillez un cluster ACS spécifique.
@@ -27,15 +27,15 @@ Cet article vous aidera à comprendre l’expérience entre les deux perspective
 
 Pour plus d’informations sur l’activation d’Azure Monitor pour les conteneurs, consultez [Onboard Azure Monitor for containers](container-insights-onboard.md) (Intégrer Azure Monitor pour les conteneurs).
 
-Azure Monitor fournit une vue multicluster affichant l’état d’intégrité de tous les clusters AKS analysés exécutant Linux et Windows Server 2019 déployé un groupe de ressources dans vos abonnements.  Il montre les clusters AKS découverts et qui ne sont pas surveillés par la solution. Immédiatement, vous pouvez comprendre l’intégrité du cluster et à partir de là, vous pouvez explorer le nœud et la page de performances du contrôleur, ou naviguer pour voir les graphiques de performances du cluster.  Pour les clusters AKS détectés et identifiés comme non surveillés, vous pouvez activer la surveillance de ces clusters à tout moment.  
+Azure Monitor fournit une vue multicluster affichant l’état d’intégrité de tous les clusters AKS surveillés exécutant Linux et Windows Server 2019, déployés dans les groupes de ressources de vos abonnements.  Il montre les clusters AKS découverts et qui ne sont pas surveillés par la solution. Immédiatement, vous pouvez comprendre l’intégrité du cluster et à partir de là, vous pouvez explorer le nœud et la page de performances du contrôleur, ou naviguer pour voir les graphiques de performances du cluster.  Pour les clusters AKS détectés et identifiés comme non surveillés, vous pouvez activer la surveillance de ces clusters à tout moment.  
 
-Les principales différences de surveillance d’un cluster Windows Server avec Azure Monitor pour les conteneurs par rapport à un cluster Linux sont les suivantes :
+Les principales différences entre la surveillance d’un cluster Windows Server avec Azure Monitor pour conteneurs et celle d’un cluster Linux sont les suivantes :
 
-- Métrique RSS de mémoire n’est pas disponible pour les conteneurs et de nœud de Windows 
-- Informations de capacité de stockage de disque ne sont pas disponibles pour les nœuds Windows
-- Prise en charge des journaux en direct est disponible à l’exception des fichiers journaux de conteneurs Windows.
-- Uniquement pod environnements sont surveillés, pas les environnements Docker.
-- Avec la version préliminaire, un maximum de 30 conteneurs Windows Server sont prises en charge. Cette limitation ne s’applique pas aux conteneurs Linux.  
+- La métrique RSS mémoire n’est pas disponible pour les conteneurs et le nœud Windows 
+- Les informations de capacité de stockage de disque ne sont pas disponibles pour les nœuds Windows
+- La prise en charge des journaux d’activité dynamiques est disponible à l’exception des fichiers journaux de conteneurs Windows.
+- Seuls les environnements de pod sont surveillés, pas les environnements Docker.
+- Avec la préversion, un maximum de 30 conteneurs Windows Server sont pris en charge. Cette limitation ne s’applique pas aux conteneurs Linux.  
 
 ## <a name="sign-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
 Connectez-vous au [Portail Azure](https://portal.azure.com). 
@@ -49,8 +49,8 @@ Dans l’onglet **Monitored clusters** (Clusters surveillés), vous découvrez l
 
 1. Combien de clusters se trouvent dans un état critique ou non intègre, et combien sont sains ou ne rapportent aucune donnée (état inconnu).
 2. Est-ce que tous mes déploiements [Azure Kubernetes Engine (AKS-engine)](https://github.com/Azure/aks-engine) sont intègres  ?
-3. Le nombre de nœuds, utilisateur et boîtiers système sont déployés par cluster ?
-4. La quantité d’espace disque disponible et y a-t-il un problème de capacité ?
+3. Combien de nœuds et de pods utilisateur et système sont-ils déployés par cluster ?
+4. Quelle quantité d’espace disque est-il disponible et y a-t-il un problème de capacité ?
 
 Les états d’intégrité inclus sont : 
 
@@ -61,10 +61,10 @@ Les états d’intégrité inclus sont :
 * **Introuvable** : l’espace de travail, le groupe de ressources ou l’abonnement contenant l’espace de travail pour cette solution a été supprimé.
 * **Non autorisé** : l’utilisateur ne dispose pas des autorisations requises pour lire les données dans l’espace de travail.
 * **Erreur** : une erreur s’est produite lors de la tentative de lecture à partir de l’espace de travail.
-* **Mal configuré** : Azure Monitor pour les conteneurs n’a pas été configuré correctement dans l’espace de travail spécifié.
+* **Mal configuré** : Azure Monitor pour les conteneurs n’a pas été configuré correctement dans l’espace de travail spécifié.
 * **Aucune donnée** : aucune donnée n’a été signalée à l’espace de travail au cours des 30 dernières minutes.
 
-État d’intégrité calcule l’état global de cluster en tant que *pire de* les trois états à une exception près : si une des trois états est *inconnu*, état de cluster global affiche **inconnu**.  
+L’état d’intégrité calcule l’état global des clusters en fonction du *pire des* trois états à une exception près : si l’un des trois états est *inconnu*, l’état global des clusters affiche **Inconnu**.  
 
 Le tableau suivant fournit une répartition du calcul pour le contrôle des états d’intégrité pour un cluster surveillé sur la vue multicluster.
 
@@ -77,7 +77,7 @@ Le tableau suivant fournit une répartition du calcul pour le contrôle des éta
 | |Unknown |Si non signalé dans les 30 dernières minutes |  
 |**Pod système**| | |  
 | |Healthy |100 % |
-| |Avertissement |S.O. |
+| |Avertissement |N/A |
 | |Critique |< 100 % |
 | |Unknown |Si non signalé dans les 30 dernières minutes |
 |**Node** | | |
@@ -107,12 +107,12 @@ Le graphique de performances affiche quatre métriques de performance :
 - **Nombre de nœuds** : nombre et état des nœuds fournis par Kubernetes. L’état des nœuds de cluster représentés sont *All* (Tous), *Ready* (Prêts) et *Not Ready* (Non prêts). Il est possible de les filtrer individuellement ou en les combinant à l’aide du sélecteur situé au-dessus du graphique. 
 - **Nombre de pods d’activité** : nombre et état des pods fournis par Kubernetes. L’état des pods représentés sont *All* (Tous), *Pending* (En attente), *Running* (En cours d’exécution) et *Unknown* (Inconnus). Il est possible de les filtrer individuellement ou en les combinant à l’aide du sélecteur situé au-dessus du graphique. 
 
-Vous pouvez utiliser les touches de direction gauche/droite pour parcourir chaque point de données sur le graphe, et haut/bas pour faire défiler les lignes de centile.
+Vous pouvez utiliser les touches de direction gauche/droite pour parcourir chaque point de données sur le graphe, et haut/bas pour faire défiler les lignes de centile. En cliquant sur l’icône d’épingle dans le coin supérieur droit de l’un des graphiques, vous épinglez le graphique sélectionné au dernier tableau de bord Azure que vous avez consulté. À partir du tableau de bord, vous pouvez redimensionner et repositionner le graphique. En sélectionnant le graphique depuis le tableau de bord, vous allez être redirigé vers Azure Monitor pour conteneurs, et charger l’étendue et la vue appropriées.
 
-Azure Monitor pour les conteneurs prend également en charge Azure Monitor [Explorateur de mesures](../platform/metrics-getting-started.md), où vous pouvez créer votre propre traçage des graphiques, mettre en corrélation et examiner les tendances et épingler aux tableaux de bord. Dans metrics explorer, vous pouvez également utiliser les critères que vous avez défini pour visualiser vos mesures comme base d’un [mesure en fonction de règle d’alerte](../platform/alerts-metric.md).  
+Azure Monitor pour conteneurs prend également en charge Azure Monitor [Metrics Explorer](../platform/metrics-getting-started.md), où vous pouvez tracer vos propres graphiques, mettre en corrélation et examiner les tendances, et épingler aux tableaux de bord. Dans Metrics Explorer, vous pouvez également utiliser les critères que vous avez définis pour visualiser vos métriques en tant que base d’une [règle d’alerte basée sur une métrique](../platform/alerts-metric.md).  
 
-## <a name="view-container-metrics-in-metrics-explorer"></a>Afficher les métriques de conteneur dans metrics explorer
-Dans metrics explorer, vous pouvez afficher les nœud agrégée et pod des métriques d’utilisation d’Azure Monitor pour les conteneurs. Le tableau suivant récapitule les détails pour vous aider à comprendre comment utiliser les graphiques de métrique pour visualiser les métriques de conteneur.
+## <a name="view-container-metrics-in-metrics-explorer"></a>Afficher les métriques du conteneur dans Metrics Explorer
+Dans Metrics Explorer, vous pouvez afficher les métriques agrégées d’utilisation de pod et de nœud d’Azure Monitor pour conteneurs. Le tableau suivant récapitule les détails pour vous aider à comprendre comment utiliser les graphiques de métrique pour visualiser les métriques des conteneurs.
 
 |Espace de noms | Métrique |
 |----------|--------|
@@ -127,22 +127,22 @@ Dans metrics explorer, vous pouvez afficher les nœud agrégée et pod des métr
 | insights.container/pods | |
 | | PodCount |
 
-Vous pouvez appliquer [fractionnement](../platform/metrics-charts.md#apply-splitting-to-a-chart) d’une métrique à afficher par dimension et de visualiser comment les différents segments de celui-ci comparer entre eux. Pour un nœud, vous pouvez segmenter le graphique par le *hôte* dimension, et à partir d’un pod vous pouvez le segmenter par les dimensions suivantes :
+Vous pouvez appliquer le [fractionnement](../platform/metrics-charts.md#apply-splitting-to-a-chart) d’une métrique pour l’afficher par dimension et comparer différents segments de celui-ci. Pour un nœud, vous pouvez segmenter le graphique par la dimension *hôte* et, à partir d’un pod, vous pouvez le segmenter par les dimensions suivantes :
 
 * Controller
 * Espace de noms Kubernetes
 * Nœud
 * Phase
 
-## <a name="analyze-nodes-controllers-and-container-health"></a>Analyser l’intégrité des conteneurs, les contrôleurs et les nœuds
+## <a name="analyze-nodes-controllers-and-container-health"></a>Analyser l’intégrité des conteneurs, des contrôleurs et des nœuds
 
-Quand vous passez à l’onglet **Nodes** (Nœuds), **Controllers** (Contrôleurs) et **Containers** (Conteneurs), le volet des propriétés s’affiche automatiquement à droite de la page. Il montre les propriétés de l’élément sélectionné, notamment les étiquettes que vous définissez pour organiser les objets Kubernetes. Lorsqu’un nœud Linux est sélectionné, il apparaît également sous la section **capacité du disque Local** espace disque disponible et utilisé pour chaque disque présenté au nœud pour cent. Cliquez sur le lien **>>** dans le volet pour afficher ou masquer le volet. 
+Quand vous passez à l’onglet **Nodes** (Nœuds), **Controllers** (Contrôleurs) et **Containers** (Conteneurs), le volet des propriétés s’affiche automatiquement à droite de la page. Il présente les propriétés de l’élément sélectionné, notamment les étiquettes que vous définissez pour organiser les objets Kubernetes. Lorsqu’un nœud Linux est sélectionné, il apparaît également sous la section **Capacité du disque Local**, qui représente l’espace disque disponible et le pourcentage utilisé pour chaque disque présenté au nœud. Cliquez sur le lien **>>** dans le volet pour afficher ou masquer le volet. 
 
 ![Exemple du volet de propriétés des perspectives Kubernetes](./media/container-insights-analyze/perspectives-preview-pane-01.png)
 
-Quand vous développez les objets dans la hiérarchie, le volet des propriétés est mis à jour en fonction de l’objet sélectionné. Dans le volet, vous pouvez également afficher les événements Kubernetes avec des recherches dans les journaux d’activité prédéfinies en cliquant sur le lien **Afficher les journaux des événements Kubernetes** en haut du volet. Pour plus d’informations sur l’affichage des données des journaux d’activité Kubernetes, consultez [Rechercher dans les journaux d’activité pour analyser les données](container-insights-log-search.md). Lorsque vous consultez les ressources de cluster, vous pouvez voir les journaux du conteneur et les événements en temps réel. Pour plus d’informations sur cette fonctionnalité et la configuration requise pour accorder et contrôler l’accès, consultez [comment afficher les journaux en temps réel avec Azure Monitor pour les conteneurs](container-insights-live-logs.md). 
+Quand vous développez les objets dans la hiérarchie, le volet des propriétés est mis à jour en fonction de l’objet sélectionné. Dans le volet, vous pouvez également afficher les événements Kubernetes avec des recherches dans les journaux d’activité prédéfinies en cliquant sur le lien **Afficher les journaux des événements Kubernetes** en haut du volet. Pour plus d’informations sur l’affichage des données des journaux d’activité Kubernetes, consultez [Rechercher dans les journaux d’activité pour analyser les données](container-insights-log-search.md). Lorsque vous consultez les ressources de cluster, vous pouvez voir les journaux d’activité de conteneurs et les événements en temps réel. Pour plus d’informations sur cette fonctionnalité et la configuration requise pour accorder et contrôler les accès, consultez [Comment afficher les journaux d’activité en temps réel avec Azure Monitor pour conteneurs](container-insights-live-logs.md). 
 
-Utilisez le **+ ajouter un filtre** option à partir du haut de la page pour filtrer les résultats de la vue par **Service**, **nœud**, **Namespace**, ou  **Pool de nœud** et après avoir sélectionné la portée du filtre, vous puis sélectionnez une des valeurs indiquées dans le **valeurs** champ.  Une fois que le filtre est configuré, il est appliqué globalement lors de l’affichage de n’importe quel point de vue du cluster AKS.  La formule prend uniquement en charge le signe égal.  Vous pouvez ajouter des filtres supplémentaires au-dessus du premier pour affiner davantage vos résultats.  Par exemple, si vous avez spécifié un filtre par **Nœud**, votre deuxième filtre vous permet uniquement de sélectionner **Service** ou **Espace de noms**.  
+Utilisez l’option **+ Ajouter un filtre** en haut de la page pour filtrer les résultats de la vue par **Service**, **Nœud** ou **Espace de noms** ou **Pool de nœuds**, et après la sélection de l’étendue de filtre, sélectionnez l’une des valeurs indiquées dans le champ **Sélectionner une ou plusieurs valeurs**.  Une fois que le filtre est configuré, il est appliqué globalement lors de l’affichage de n’importe quel point de vue du cluster AKS.  La formule prend uniquement en charge le signe égal.  Vous pouvez ajouter des filtres supplémentaires au-dessus du premier pour affiner davantage vos résultats.  Par exemple, si vous avez spécifié un filtre par **Nœud**, votre deuxième filtre vous permet uniquement de sélectionner **Service** ou **Espace de noms**.  
 
 ![Exemple utilisant le filtre pour affiner les résultats](./media/container-insights-analyze/add-filter-option-01.png)
 
@@ -152,7 +152,7 @@ Sous l’onglet **Nodes** (Nœuds), la hiérarchie de ligne suit le modèle d’
 
 ![Exemple de hiérarchie de nœud Kubernetes dans l’affichage des performances](./media/container-insights-analyze/containers-nodes-view.png)
 
-Les conteneurs Windows Server exécutant le système d’exploitation Windows Server 2019 sont affichées après tous les nœuds basés sur Linux dans la liste. Lorsque vous développez un nœud Windows Server, vous pouvez afficher un ou plusieurs pods et les conteneurs en cours d’exécution sur le nœud. Lorsqu’un nœud est sélectionné, le volet Propriétés affiche les informations de version, à l’exclusion des informations d’agent dans la mesure où les nœuds de Windows Server n’ont pas d’un agent est installé.  
+Les conteneurs Windows Server qui exécutent le système d’exploitation Windows Server 2019 sont affichés après tous les nœuds basés sur Linux dans la liste. Lorsque vous développez un nœud Windows Server, vous pouvez afficher un ou plusieurs pods et conteneurs en cours d’exécution sur le nœud. Lorsqu’un nœud est sélectionné, le volet Propriétés affiche les informations de version, à l’exclusion des informations d’agent, dans la mesure où les nœuds Windows Server n’ont pas d’agent installé.  
 
 ![Exemple de hiérarchie de nœud avec les nœuds Windows Server répertoriés](./media/container-insights-analyze/nodes-view-windows.png) 
 
@@ -163,7 +163,7 @@ Les nœuds virtuels Azure Container Instances exécutant le système d’exploit
 À partir d’un nœud développé, vous pouvez explorer le pod ou le conteneur exécuté sur le nœud jusqu’au contrôleur pour afficher les données de performances filtrées pour ce contrôleur. Cliquez sur la valeur sous la colonne **Contrôleur** du nœud spécifique.   
 ![Exemple de zoom depuis le nœud jusqu’au contrôleur dans l’affichage des performances](./media/container-insights-analyze/drill-down-node-controller.png)
 
-Vous pouvez sélectionner des contrôleurs ou des conteneurs en haut de la page, puis examiner l’état et l’utilisation des ressources pour ces objets.  Si vous préférez afficher l’utilisation de la mémoire, dans la liste déroulante **Metric** (Métrique), sélectionnez **Memory RSS** (Mémoire RSS) ou **Memory working set** (Plage de travail de la mémoire). L’option **Memory RSS** (Mémoire RSS) est uniquement prise en charge par Kubernetes 1.8 et versions ultérieures. Sinon, vous pouvez afficher les valeurs **Min&nbsp;%** sous la forme *NaN&nbsp;%*, qui est une valeur de type données numérique représentant une valeur non définie ou non représentable. 
+Vous pouvez sélectionner des contrôleurs ou des conteneurs en haut de la page, puis examiner l’état et l’utilisation des ressources pour ces objets.  Si vous préférez afficher l’utilisation de la mémoire, dans la liste déroulante **Metric** (Métrique), sélectionnez **Memory RSS** (Mémoire RSS) ou **Memory working set** (Plage de travail de la mémoire). L’option **Memory RSS** (Mémoire RSS) est uniquement prise en charge par Kubernetes 1.8 et versions ultérieures. Sinon, vous pouvez afficher les valeurs **Min&nbsp;%** sous la forme *NaN&nbsp;%* , qui est une valeur de type données numérique représentant une valeur non définie ou non représentable. 
 
 ![Affichage des performances des nœuds d’un conteneur](./media/container-insights-analyze/containers-node-metric-dropdown.png)
 
@@ -173,9 +173,9 @@ Par défaut, les données de performances sont basées sur les six dernières he
 
 Lorsque vous placez la souris sur le graphique à barres sous la colonne **Tendance**, chaque barre indique l’utilisation du processeur ou de la mémoire, selon la métrique sélectionnée, au sein d’une période d’échantillonnage de 15 minutes. Après avoir sélectionné le graphique de tendances à l’aide d’un clavier, vous pouvez utiliser les touches Alt + Pg. préc ou Alt + Pg. suiv pour parcourir chaque barre individuellement et obtenir les mêmes détails, comme vous le feriez sur mouseover.
 
-![Pointage de graphique à barres des tendances au fil de l’exemple](./media/container-insights-analyze/containers-metric-trend-bar-01.png)    
+![Exemple de pointage sur le graphique à barres](./media/container-insights-analyze/containers-metric-trend-bar-01.png)    
 
-Dans l’exemple suivant, remarquez que, pour le premier nœud de la liste *aks-nodepool1-*, la valeur de **Containers** (Conteneurs) est 9, soit le cumul du nombre de conteneurs déployés.
+Dans l’exemple suivant, remarquez que, pour le premier nœud de la liste *aks-nodepool1-* , la valeur de **Containers** (Conteneurs) est 9, soit le cumul du nombre de conteneurs déployés.
 
 ![Cumul des conteneurs pour l’exemple de nœud](./media/container-insights-analyze/containers-nodes-containerstotal.png)
 
@@ -216,7 +216,7 @@ Les informations qui sont affichées dans les contrôleurs sont décrites dans l
 |--------|-------------|
 | NOM | Nom du contrôleur.|
 | Statut | Statut du cumul des conteneurs lorsque l’exécution est terminée, par exemple, *OK*, *Terminated* (Terminé), *Failed* (Échec), *Stopped* (Arrêt) ou *Paused* (Pause). Si le conteneur est en cours d’exécution, mais que l’état n’est pas correctement affiché, ou n’a pas été identifié par l’agent et n’a pas répondu dans un délai de 30 minutes, l’état est *Unknown* (Inconnu). Des détails supplémentaires sur l’icône d’état sont fournies dans le tableau ci-dessous.|
-| Avg&nbsp;%, Min&nbsp;%, Max&nbsp;%, 50th&nbsp;%, 90th&nbsp;% | Moyenne du pourcentage moyen de chaque entité pour la métrique sélectionnée et le centile de cumul. |
+| Avg&nbsp;%, Min&nbsp;%, Max&nbsp;%, 50th&nbsp;%, 90th&nbsp;% | Moyenne cumulée du pourcentage moyen de chaque entité pour la métrique et le centile sélectionnés. |
 | Avg, Min, Max, 50th, 90th  | Cumul de la performance moyenne du processeur ou de la mémoire du conteneur pour le centile sélectionné. La valeur moyenne est mesurée à partir de la limite Processeur/Mémoire définie pour un pod. |
 | Containers | Nombre total de conteneurs pour le contrôleur ou pod. |
 | Restarts | Cumul du nombre de redémarrages à partir des conteneurs. |
@@ -233,7 +233,7 @@ Les icônes dans le champ d’état indiquent le statut en ligne des conteneurs 
 | ![Icône de statut de dernière exécution signalée](./media/container-insights-analyze/containers-grey-icon.png) | Last reported running but hasn’t responded more than 30 minutes (Dernière exécution signalée, mais pas de réponse depuis plus de 30 minutes)|
 | ![Icône d’état de réussite](./media/container-insights-analyze/containers-green-icon.png) | Successfully stopped or failed to stop (Réussite ou échec de l’arrêt)|
 
-L’icône d’état affiche un nombre basé sur ce que fournit le pod. Elle montre les deux pires états. Lorsque vous pointez sur un état, elle affiche l’état cumulé de tous les pods du conteneur. Si l’état n’est pas Prêt, il affiche **(0)**. 
+L’icône d’état affiche un nombre basé sur ce que fournit le pod. Elle montre les deux pires états. Lorsque vous pointez sur un état, elle affiche l’état cumulé de tous les pods du conteneur. Si l’état n’est pas Prêt, il affiche **(0)** . 
 
 Dans le sélecteur, sélectionnez **Containers** (Conteneurs).
 
@@ -271,6 +271,20 @@ Les icônes du champ d’état indiquent les états en ligne des pods, comme exp
 | ![Icône de statut Terminé](./media/container-insights-analyze/containers-terminated-icon.png) | Successfully stopped or failed to stop (Réussite ou échec de l’arrêt)|  
 | ![Icône de statut Échec](./media/container-insights-analyze/containers-failed-icon.png) | Statut Échec |  
 
+## <a name="disk-capacity-workbook"></a>Classeur Capacité de disque
+Les classeurs regroupent du texte, des  [requêtes de journal](../log-query/query-language.md), des [métriques](../platform/data-platform-metrics.md) et des paramètres sous la forme de rapports interactifs complets. Les classeurs sont modifiables par tous les membres de l’équipe ayant accès aux mêmes ressources Azure.
+
+Azure Monitor pour conteneurs inclut un classeur pour vous aider à démarrer, **Capacité de disque**.  Ce classeur présente des graphiques d’utilisation interactive de disque pour chaque disque présenté au nœud au sein d’un conteneur par les perspectives suivantes :
+
+- Pourcentage d’utilisation de disque pour tous les disques
+- Espace disque disponible pour tous les disques
+- Tableau indiquant pour chaque disque de nœuds, son pourcentage d’espace utilisé, sa tendance de pourcentage d’espace utilisé, l’espace disque disponible (Gio) et la tendance d’espace disque disponible (Gio). Lorsqu’une ligne est sélectionnée dans la table, le pourcentage d’espace utilisé et l’espace disque disponible (Gio) sont indiqués ci-dessous 
+
+Vous accéder à ce classeur en sélectionnant **Capacité de disque** à partir de la liste déroulante **Voir les classeurs**.  
+
+![Liste déroulante Voir les classeurs](./media/container-insights-analyze/view-workbooks-dropdown-list.png)
+
+
 ## <a name="next-steps"></a>Étapes suivantes
-- Examinez le [créer des alertes de performances avec Azure Monitor pour les conteneurs](container-insights-alerts.md) pour apprendre à créer des alertes pour une utilisation élevée du processeur et de la mémoire prendre en charge votre DevOps ou les processus opérationnels et les procédures. 
-- Vue [connecter des exemples de requêtes](container-insights-log-search.md#search-logs-to-analyze-data) pour voir les requêtes prédéfinies et des exemples pour évaluer ou personnaliser pour génération d’alertes, la visualisation ou l’analyse de vos clusters.
+- Consultez [Créer des alertes de performances avec Azure Monitor pour conteneurs](container-insights-alerts.md) pour découvrir comment créer des alertes pour une utilisation élevée du processeur et de la mémoire, afin de prendre en charge vos procédures et processus opérationnels ou DevOps. 
+- Consultez les [exemples de requêtes de journal](container-insights-log-search.md#search-logs-to-analyze-data) pour voir les requêtes prédéfinies et des exemples permettant d’évaluer ou de personnaliser la génération d’alertes, la visualisation ou l’analyse de vos clusters.

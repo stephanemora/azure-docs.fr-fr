@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/29/2019
 ms.author: hrasheed
 ms.openlocfilehash: 3fcd1e54a8993b2693b169a2c8b4c6e9bca57119
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66393410"
 ---
 # <a name="monitor-cluster-performance"></a>Surveiller les performances du cluster
@@ -27,10 +27,10 @@ Les clusters Hadoop peuvent offrir des performances optimales lorsque la charge 
 
 Pour obtenir une vue d’ensemble des nœuds de votre cluster et de leur charge, connectez-vous à [l’interface utilisateur web Ambari](hdinsight-hadoop-manage-ambari.md), puis sélectionnez l’onglet **Hosts** (Hôtes). Vos hôtes sont répertoriés par leur nom de domaine complet. L’état de fonctionnement de chaque hôte est spécifié par un indicateur d’intégrité en couleur :
 
-| Color | Description |
+| Couleur | Description |
 | --- | --- |
 | Rouge | Au moins un composant maître de l’hôte est défaillant. Pointez sur l’indicateur pour visualiser une info-bulle répertoriant les composants concernés. |
-| Orange | Au moins un composant secondaire sur l’ordinateur hôte est défaillant. Pointez sur l’indicateur pour visualiser une info-bulle répertoriant les composants concernés. |
+| Orange | Au moins un composant secondaire de l’hôte est défaillant. Pointez sur l’indicateur pour visualiser une info-bulle répertoriant les composants concernés. |
 | Jaune | Le serveur Ambari n’a reçu aucune pulsation de l’hôte depuis plus de 3 minutes. |
 | Vert | L’état de fonctionnement est normal. |
 

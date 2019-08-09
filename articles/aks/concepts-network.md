@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: mlearned
 ms.openlocfilehash: 459c11448280b63bafdfd54c13a6cad5983ef1b5
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "67615894"
 ---
 # <a name="network-concepts-for-applications-in-azure-kubernetes-service-aks"></a>Concepts de réseau pour les applications dans AKS (Azure Kubernetes Service)
@@ -148,7 +148,7 @@ Pour plus d’informations, consultez [Sécuriser le trafic entre les pods avec 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour bien démarrer avec la mise en réseau AKS, créez et configurez un cluster AKS avec vos propres plages d’adresses IP à l’aide de [kubenet][aks-configure-kubenet-networking] or [Azure CNI][aks-configure-advanced-networking].
+Pour bien démarrer avec les réseaux AKS, créez et configurez un cluster AKS avec vos propres plages d’adresses IP à l’aide de [kubenet][aks-configure-kubenet-networking] ou d’[Azure CNI][aks-configure-advanced-networking].
 
 Pour connaître les meilleures pratiques associées, consultez [Meilleures pratiques relatives à la connectivité réseau et à la sécurité dans AKS][operator-best-practices-network].
 

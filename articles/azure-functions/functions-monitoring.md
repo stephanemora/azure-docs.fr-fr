@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: glenga
-ms.openlocfilehash: 15fd8593f950e0f553d1b7ca34ee785692043cad
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: cfdc28486cf254c4dd808824ab167489818376ab
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68304359"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68619597"
 ---
 # <a name="monitor-azure-functions"></a>Surveiller l’exécution des fonctions Azure
 
@@ -152,9 +152,9 @@ Vous pouvez utiliser Application Insights sans en personnaliser la configuration
 
 L’enregistreur d’événements d’Azure Functions inclut une *catégorie* par journal. La catégorie indique quelle partie du code d’exécution ou de votre code de fonction a écrit le journal. 
 
-Les journaux d’activité créés par le runtime d’Azure Functions avec une catégorie qui commence par « Host ». Les journaux d’activité « function started », « function executed », et « function completed » ont la catégorie « Host.Executor ». 
+Les journaux d’activité créés par le runtime d’Azure Functions avec une catégorie qui commence par « Host ». Dans la version 1.x, les journaux d’activité `function started`, `function executed` et `function completed` ont la catégorie `Host.Executor`. À partir de la version 2.x, ils ont la catégorie `Function.<YOUR_FUNCTION_NAME>`.
 
-Si vous écrivez des journaux d’activité dans votre code de fonction, leur catégorie est « Function ».
+Si vous écrivez des journaux d’activité dans votre code de fonction, la catégorie est `Function` dans la version 1.x du runtime d’Azure Functions. Dans la version 2.x, la catégorie est `Function.<YOUR_FUNCTION_NAME>.User`.
 
 ### <a name="log-levels"></a>Niveaux de journal
 
@@ -168,7 +168,7 @@ L’enregistreur d’événements d’Azure Functions inclut également un *nive
 |Avertissement     | 3 |
 |Error       | 4 |
 |Critique    | 5\. |
-|Aucun        | 6\. |
+|Aucun        | 6 |
 
 Le niveau de journal `None` est expliqué dans la section suivante. 
 

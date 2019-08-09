@@ -6,15 +6,16 @@ documentationcenter: ''
 author: msmbaldwin
 manager: barbkess
 ms.service: security
+ms.subservice: security-fundamentals
 ms.topic: conceptual
 ms.date: 07/11/2019
 ms.author: mbaldwin
-ms.openlocfilehash: caac311930f2ce4e0ecdf89b5e3a980019e38381
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: 43eb7e5c4cab722eb97f9e2fe819c9c79bae45d9
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68611768"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68828772"
 ---
 # <a name="security-attributes-for-azure-services"></a>Attributs de sécurité des services Azure
 
@@ -645,7 +646,7 @@ SQL Database inclut une [base de données unique](/azure/sql-database/sql-databa
 | Prise en charge du point de terminaison de service| OUI | S’applique exclusivement à une [base de données unique](/azure/sql-database/sql-database-single-index). |
 | Prise en charge de l’injection par Azure Virtual Network| OUI | S’applique exclusivement à une [instance gérée](/azure/sql-database/sql-database-managed-instance). |
 | Prise en charge de l’isolement et du pare-feu réseau| OUI | Pare-feu au niveau de la base de données et du serveur. L’isolement réseau est réservé à une [instance gérée](/azure/sql-database/sql-database-managed-instance). |
-| Prise en charge du tunneling forcé| OUI | [Instance gérée](/azure/sql-database/sql-database-managed-instance) via un VPN [ExpressRoute](/azure/expressroute/index.yml). |
+| Prise en charge du tunneling forcé| OUI | [Instance gérée](/azure/sql-database/sql-database-managed-instance) via un VPN [ExpressRoute](/azure/expressroute/index). |
 
 ### <a name="detection"></a>Détection
 

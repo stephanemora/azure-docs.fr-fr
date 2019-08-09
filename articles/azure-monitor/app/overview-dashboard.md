@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: mbullwin
 ms.openlocfilehash: d1823779f8a8070149811e2349fc9f4281072d38
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66497163"
 ---
 # <a name="application-insights-overview-dashboard"></a>Tableau de bord de vue d’ensemble d’Application Insights
@@ -62,7 +62,7 @@ Pour revenir à l’expérience de vue d’ensemble, sélectionnez simplement :
 
 ## <a name="troubleshooting"></a>Résolution de problèmes
 
-Si vous sélectionnez **configurer les paramètres de vignette** et définissez un intervalle de temps personnalisé dépassant votre tableau de bord n’affichera pas au-delà des 31 derniers jours de données, même avec la rétention de données par défaut de 90 jours de 31 jours. Il n’existe actuellement aucun moyen de contourner ce comportement.
+Si vous sélectionnez **Configurer les paramètres de vignette** et définissez un intervalle de temps personnalisé dépassant 31 jours, votre tableau de bord n’affichera pas au-delà de 31 jours de données, même avec la conservation de données par défaut de 90 jours. Il n’existe actuellement aucun moyen de contourner ce comportement.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

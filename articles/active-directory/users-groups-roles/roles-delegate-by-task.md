@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f3f21f552add551ac2434618b184eb18c53ad5be
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
-ms.translationtype: MT
+ms.openlocfilehash: 21136046bad8cb58432de367f0de06d1d0457eec
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66752241"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67083782"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>Rôles d'administrateur par tâche administrateur dans Azure Active Directory
 
@@ -58,7 +58,7 @@ Lire toute la configuration | Administrateur général |
 Lire les journaux d’audit B2C | Administrateur général ([consultez la documentation](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-faqs)) | 
 
 > [!NOTE]
-> Les administrateurs généraux Azure AD B2C n’ont pas les mêmes autorisations que les administrateurs généraux Azure AD. Si vous disposez des privilèges d’administrateur général Azure AD B2C, assurez-vous que vous êtes dans un annuaire Azure AD B2C et pas un annuaire Azure AD.
+> Les administrateurs généraux Azure AD B2C n’ont pas les mêmes autorisations que les administrateurs généraux Azure AD. Si vous disposez de privilèges d’administrateur général Azure AD B2C, vérifiez que vous vous trouvez dans un annuaire Azure AD B2C et non un annuaire Azure AD.
 
 ## <a name="company-branding"></a>Marque de société
 
@@ -153,8 +153,8 @@ Créer, mettre à jour ou supprimer la révision d’accès d’un groupe ou d�
 Gérer l’expiration des groupes | Administrateur d’utilisateurs | 
 Gérer les paramètres de groupe | Administrateur général | 
 Lire toutes les configurations (à l’exception de l’appartenance masquée) | Lecteurs d’annuaires | Rôle d’utilisateur par défaut ([consultez la documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions))
-Lire l’appartenance masquée | Membre de groupe | Propriétaire du groupe, mots de passe administrateur, administrateur Exchange, SharePoint administrateur, administrateur d’équipes, administrateur de l’utilisateur
-Lire l’appartenance des groupes avec une appartenance masquée | Administrateur du support technique | Utilisateur, administrateur équipes
+Lire l’appartenance masquée | Membre de groupe | Propriétaire de groupe, administrateur de mot de passe, administrateur Exchange, administrateur de services SharePoint, administrateur Teams, administrateur d’utilisateurs
+Lire l’appartenance des groupes avec une appartenance masquée | Administrateur du support technique | Administrateur d’utilisateurs, administrateur Teams
 Révoquer une licence | Administrateur de licence | Administrateur d’utilisateurs
 Mettre à jour l’appartenance à un groupe | Propriétaire de groupe ([consultez la documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Administrateur d’utilisateurs
 Mettre à jour les propriétaires de groupe | Propriétaire de groupe ([consultez la documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Administrateur d’utilisateurs
@@ -270,7 +270,7 @@ Tâche | Rôle moins privilégié | Autres rôles
 Configurer les méthodes d’authentification | Administrateur général | 
 Lire toute la configuration | Administrateur général | 
 
-## <a name="security---conditional-access"></a>Sécurité - Accès conditionnel
+## <a name="security---conditional-access"></a>Sécurité – Accès conditionnel
 
 Tâche | Rôle moins privilégié | Autres rôles
 ---- | --------------------- | ----------------
@@ -341,7 +341,7 @@ Mettre à jour les paramètres utilisateur | Administrateur général |
 
 Tâche | Rôle moins privilégié | Autres rôles
 ---- | --------------------- | ----------------
-Envoyer un ticket de support | Administrateur de services | Administrateur d’application, Azure administrateur Information Protection, mot de passe administrateur, administrateur d’Application Cloud, conformité, administrateur Dynamics 365, Analytique de bureau, administrateur Exchange, de facturation Administrateur, administrateur Intune, Skype pour administrateur d’entreprise, administrateur Power BI, administrateur de l’authentification privilégié, administrateur SharePoint, administrateur de Communications d’équipes, équipes administrateur, administrateur de l’utilisateur, Espace de travail Analytique administrateur
+Envoyer un ticket de support | Administrateur de services | Administrateur d’application, administrateur Azure Information Protection, administrateur de facturation, administrateur d’application cloud, administrateur de conformité, administrateur Dynamics 365, administrateur Desktop Analytics, administrateur Exchange, administrateur de mot de passe, administrateur Intune, administrateur Skype Entreprise, administrateur Power BI, administrateur d’authentification privilégié, administrateur SharePoint, administrateur des communications Teams, administrateur Teams, administrateur des utilisateurs, administrateur Analyse du temps de travail
 
 ## <a name="next-steps"></a>Étapes suivantes
 

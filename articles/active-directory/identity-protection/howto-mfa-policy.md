@@ -11,27 +11,27 @@ manager: daveba
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f4083ddf849842358f7699badca6598e56e4dee
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.openlocfilehash: 434d07163713a139b42a5dbe1664f81dafc2a1ca
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65139379"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67108935"
 ---
 # <a name="how-to-configure-the-azure-multi-factor-authentication-registration-policy"></a>Procédure : Configurer la stratégie d’inscription de l’authentification multifacteur Azure
 
-Azure AD Identity Protection vous permet de gérer le déploiement de l’inscription de l’authentification multifacteur (MFA) en configurant une stratégie d’accès conditionnel pour exiger l’inscription MFA indépendamment de l’application vous vous connectez. Cet article explique ce que la stratégie peut être utilisée pour et comment le configurer.
+Azure AD Identity Protection vous permet de gérer le déploiement de l’inscription de l’authentification multifacteur (MFA) en configurant une stratégie d’accès conditionnel dans le but de demander une inscription MFA, quelle que soit l’application à laquelle vous vous connectez. Cet article explique ce que cette stratégie permet de faire et comment la configurer.
 
-## <a name="what-is-the-azure-multi-factor-authentication-registration-policy"></a>Quelle est la stratégie d’inscription Azure multi-Factor Authentication ?
+## <a name="what-is-the-azure-multi-factor-authentication-registration-policy"></a>Qu’est-ce qu’une stratégie d’inscription d’authentification multifacteur ?
 
-Azure multi-Factor Authentication fournit un moyen de vérifier qui vous utilisez plus que simplement un nom d’utilisateur et un mot de passe. Il fournit une deuxième couche de sécurité à l’utilisateur se connecte. Pour que les utilisateurs à être en mesure de répondre aux invites d’authentification Multifacteur, ils doivent s’enregistrer pour l’authentification multifacteur Azure.
+L’authentification multifacteur Azure permet de vérifier votre identité, à l’aide d’une méthode plus sécurisée que la simple fourniture d’un nom d’utilisateur et d’un mot de passe. Ce service fournit une deuxième couche de sécurité pour les connexions utilisateur. Pour que les utilisateurs puissent répondre aux invites de l’authentification multifacteur, ils doivent s’inscrire pour l’authentification multifacteur Azure.
 
-Nous vous recommandons d’exiger Azure multi-Factor Authentication pour les connexions utilisateur, car elle :
+Voici les raisons pour lesquelles il est conseillé d’exiger l’authentification multifacteur d’Azure pour les connexions utilisateur :
 
 - Elle fournit une authentification renforcée avec un éventail d’options de vérification simples.
-- Joue un rôle clé dans la préparation de votre organisation pour protéger et récupérer à partir d’événements à risque dans Identity Protection
+- Elle joue un rôle clé dans la protection et la récupération en cas d’événements à risque dans Identity Protection.
 
-Pour plus d’informations sur l’authentification Multifacteur, consultez [What ' s Azure multi-Factor Authentication ?](../authentication/howto-mfa-getstarted.md)
+Pour plus d’informations sur l’authentification multifacteur, consultez [Qu’est-ce qu’Azure Multi-Factor Authentication ?](../authentication/howto-mfa-getstarted.md).
 
 ## <a name="how-do-i-access-the-registration-policy"></a>Comment accéder à la stratégie d’inscription ?
 
@@ -41,21 +41,21 @@ La stratégie d’inscription MFA se trouve dans la section **Configurer** de la
 
 ## <a name="policy-settings"></a>Paramètres de stratégie
 
-Lorsque vous configurez la stratégie d’inscription MFA, vous devez apporter les modifications de configuration suivantes :
+Lorsque vous configurez la stratégie d’inscription MFA, vous devez apporter les modifications suivantes à la configuration :
 
-- Les utilisateurs et les groupes concernés par la stratégie. Pensez à exclure de votre organisation [comptes d’accès d’urgence](../users-groups-roles/directory-emergency-access.md).
+- Les utilisateurs et les groupes auxquels la stratégie s’applique. N’oubliez pas d’exclure les [comptes d’accès d’urgence](../users-groups-roles/directory-emergency-access.md) de votre organisation.
 
     ![Utilisateurs et groupes](./media/howto-mfa-policy/11.png)
 
-- Le contrôle que vous souhaitez appliquer - **inscription nécessite Azure MFA**
+- Le contrôle que vous souhaitez appliquer - **Exiger l’inscription Azure MFA**
 
     ![Access](./media/howto-mfa-policy/12.png)
 
-- Appliquer la stratégie doit être définie sur **sur**.
+- L’option Appliquer la stratégie doit être définie sur **Activée**.
 
     ![Appliquer la stratégie](./media/howto-mfa-policy/14.png)
 
-- **Enregistrer** votre stratégie
+- **Enregistrez** votre stratégie.
 
 ## <a name="user-experience"></a>Expérience utilisateur
 

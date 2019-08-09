@@ -3,20 +3,20 @@ title: Score de confiance - QnA Maker
 titleSuffix: Azure Cognitive Services
 description: Le score de confiance indique la probabilité que la réponse corresponde à la requête de l’utilisateur.
 services: cognitive-services
-author: tulasim88
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 04/05/2019
-ms.author: tulasim
+ms.date: 06/17/2019
+ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 4fb5d1e20c4c857dedcec2dc4695f82fccd9269d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c14c607e4c563bbeeaff02b2c2478cc4b4d96ee5
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65792747"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165136"
 ---
 # <a name="confidence-score-of-a-qna-maker-knowledge-base"></a>Score de confiance d’une base de connaissances QnA Maker
 Quand une requête d’utilisateur trouve une correspondance dans une base de connaissances, QnA Maker renvoie des réponses pertinentes, ainsi qu’un score de confiance. Ce score indique la probabilité que la réponse corresponde à la requête de l’utilisateur. 
@@ -46,7 +46,7 @@ Le tableau suivant indique la confiance généralement associée à un score don
 |0|Aucune correspondance, donc aucune réponse retournée.|« Combien coûte le service ? »|
 
 ## <a name="choose-a-score-threshold"></a>Choisir un seuil de score
-Le tableau ci-dessus présente les scores attendus sur la plupart des bases de connaissances. Cependant, chaque base de connaissances étant différente et comprenant différents types de mots, d’intentions et d’objectifs, nous vous recommandons de tester et choisir le seuil optimal pour vous. Par défaut, le seuil est défini sur 0, afin que toutes les réponses possibles soient retournées. Le seuil recommandé qui devrait fonctionner pour la plupart des bases de connaissances est **50**.
+Le tableau ci-dessus présente les scores attendus sur la plupart des bases de connaissances. Cependant, comme chaque base de connaissances est différente et qu’elle comporte différents types de mots, d’intentions et d’objectifs, nous vous recommandons de tester et de choisir le seuil qui vous convient le mieux. Par défaut, le seuil est défini sur 0, afin que toutes les réponses possibles soient retournées. Le seuil recommandé qui devrait fonctionner pour la plupart des bases de connaissances est **50**.
 
 Lorsque vous choisissez votre seuil, n’oubliez pas l’équilibre entre exactitude et couverture, et ajustez votre seuil à vos besoins.
 
@@ -56,6 +56,12 @@ Lorsque vous choisissez votre seuil, n’oubliez pas l’équilibre entre exacti
 
 > [!NOTE]
 > Les nouvelles versions de QnA Maker incluent des améliorations à la logique de notation, et pourraient affecter votre seuil. Chaque fois que vous mettez à jour le service, assurez-vous de tester et d’ajuster le seuil si nécessaire. Vous pouvez vérifier votre version du service QnA [ici](https://www.qnamaker.ai/UserSettings) et voir comment obtenir les dernières mises à jour [ici](../How-To/troubleshooting-runtime.md).
+
+## <a name="set-threshold"></a>Définir le seuil 
+
+Définissez le score de seuil en tant que propriété du [corps JSON de l’API GenerateAnswer](../how-to/metadata-generateanswer-usage.md#generateanswer-request-configuration). Cela signifie que vous le définissez pour chaque appel à GenerateAnswer. 
+
+À partir de Bot Framework, définissez le score au niveau de l’objet options avec [C# ](../how-to/metadata-generateanswer-usage.md?#use-qna-maker-with-a-bot-in-c) ou [Node.js](../how-to/metadata-generateanswer-usage.md?#use-qna-maker-with-a-bot-in-nodejs).
 
 ## <a name="improve-confidence-scores"></a>Améliorer les scores de confiance
 Pour améliorer le score de confiance d’une réponse spécifique à une question de l’utilisateur, vous pouvez ajouter la question de l’utilisateur à la base de connaissances en tant que question alternative liée à cette réponse. Vous pouvez également utiliser des [altérations d’un mot](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/alterations/replace) (ignorant la casse) pour ajouter des synonymes aux mots clés dans votre base de connaissances.

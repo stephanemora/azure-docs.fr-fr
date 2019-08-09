@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: iainfou
 ms.openlocfilehash: ab818c0bded71b4566173f4a6a720fce9bc539c3
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66514527"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Concepts de base de Kubernetes pour AKS (Azure Kubernetes Service)
 
-Comme le développement d’applications se déplace vers une approche basée sur le conteneur, il est important pour orchestrer et gérer des ressources. Kubernetes est la plateforme leader du marché qui offre la possibilité de fournir une planification fiable des charges de travail d’applications à tolérance de panne. AKS (Azure Kubernetes Service) est une offre Kubernetes managés qui simplifie la gestion et le déploiement des applications basées sur des conteneurs.
+Le développement d’applications adoptant progressivement une approche basée sur les conteneurs, il est important et nécessaire d’orchestrer et de gérer les ressources. Kubernetes est la plateforme leader du marché qui offre la possibilité de fournir une planification fiable des charges de travail d’applications à tolérance de panne. AKS (Azure Kubernetes Service) est une offre Kubernetes managés qui simplifie la gestion et le déploiement des applications basées sur des conteneurs.
 
 Cet article présente les principaux composants de l’infrastructure Kubernetes, tels que le *maître de cluster*, les *nœuds* et les *pools de nœuds*. Les ressources de charge de travail telles que les *pods*, les *déploiements* et les *ensembles* sont également présentées, ainsi que le regroupement de ressources dans des *espaces de noms*.
 
@@ -28,7 +28,7 @@ Vous pouvez générer et exécuter des applications modernes, portables et basé
 
 En tant que plateforme ouverte, Kubernetes vous permet de créer des applications avec vos langage de programmation, système d’exploitation, bibliothèques ou bus de messagerie préférés. Les outils d’intégration et de livraison continues (CI/CD) existants peuvent s’intégrer à Kubernetes dans le cadre de la planification et du déploiement de versions.
 
-AKS (Azure Kubernetes Service) fournit un service Kubernetes managé qui réduit la complexité des tâches de gestion principales et de déploiement, y compris la coordination des mises à niveau. Les maîtres de cluster AKS sont gérés par la plateforme Azure ; vous ne payez que pour les nœuds AKS qui exécutent vos applications. ACS est basé sur le moteur open source Azure Kubernetes Service ([ACS-engine][aks-engine]).
+AKS (Azure Kubernetes Service) fournit un service Kubernetes managé qui réduit la complexité des tâches de gestion principales et de déploiement, y compris la coordination des mises à niveau. Les maîtres de cluster AKS sont gérés par la plateforme Azure ; vous ne payez que pour les nœuds AKS qui exécutent vos applications. AKS repose sur le moteur open source Azure Kubernetes Service ([aks-engine][aks-engine]).
 
 ## <a name="kubernetes-cluster-architecture"></a>Architecture d’un cluster Kubernetes
 
@@ -41,7 +41,7 @@ Un cluster Kubernetes comprend deux composants :
 
 ## <a name="cluster-master"></a>Maître de cluster
 
-Quand vous créez un cluster AKS, un maître de cluster est automatiquement créé et configuré. Ce maître de cluster est fourni en tant que ressource Azure managée tirée de l’utilisateur. Il n’existe aucun coût pour le masque de cluster, seuls les nœuds qui font partie du cluster AKS.
+Quand vous créez un cluster AKS, un maître de cluster est automatiquement créé et configuré. Ce maître de cluster est fourni en tant que ressource Azure managée tirée de l’utilisateur. Il n’existe aucun coût lié au maître de cluster ; seuls les nœuds qui font partie du cluster AKS occasionnent des frais.
 
 Le maître de cluster inclut les composants Kubernetes principaux suivants :
 
@@ -52,11 +52,11 @@ Le maître de cluster inclut les composants Kubernetes principaux suivants :
 
 AKS fournit un maître de cluster monolocataire doté de dispositifs dédiés (serveur d’API, planificateur, etc.). Vous définissez le nombre et la taille des nœuds, puis la plateforme Azure configure la communication sécurisée entre les nœuds et le maître de cluster. L’interaction avec le maître de cluster se produit par le biais d’API Kubernetes, telles que `kubectl` ou le tableau de bord Kubernetes.
 
-Ce masque de cluster géré signifie que vous n’avez pas besoin de configurer des composants comme hautement disponible *etcd* magasin, mais il signifie également que vous ne pouvez pas accéder directement le maître du cluster. Les mises à niveau de Kubernetes sont orchestrées par l’intermédiaire de l’interface de ligne de commande Azure ou du portail Azure, qui met à niveau le maître de cluster, puis les nœuds. Pour résoudre les problèmes éventuels, vous pouvez consulter les journaux d’activité du maître de cluster par le biais des journaux d’activité Azure Monitor.
+Ce maître de cluster managé signifie que vous n’avez pas besoin de configurer de composants tels qu’un magasin *etcd* hautement disponible, mais aussi que vous ne pouvez pas accéder directement au maître de cluster. Les mises à niveau de Kubernetes sont orchestrées par l’intermédiaire de l’interface de ligne de commande Azure ou du portail Azure, qui met à niveau le maître de cluster, puis les nœuds. Pour résoudre les problèmes éventuels, vous pouvez consulter les journaux du maître de cluster par le biais des journaux Azure Monitor.
 
 Si vous devez configurer le maître de cluster d’une façon particulière ou avez besoin d’un accès direct à ce dernier, vous pouvez déployer votre propre cluster Kubernetes à l’aide d’[aks-engine][aks-engine].
 
-Pour les recommandations associées, consultez [meilleures pratiques pour la sécurité du cluster et les mises à niveau dans AKS][operator-best-practices-cluster-security].
+Pour connaître les bonnes pratiques associées, consultez [Bonnes pratiques relatives à la sécurité et à la mise à niveau des clusters dans AKS][operator-best-practices-cluster-security].
 
 ## <a name="nodes-and-node-pools"></a>Nœuds et pools de nœuds
 
@@ -64,13 +64,13 @@ Pour exécuter vos applications et les services de prise en charge, vous avez be
 
 - `kubelet` est l’agent Kubernetes qui traite les demandes d’orchestration du maître de cluster et la planification de l’exécution des conteneurs demandés.
 - La mise en réseau virtuelle est gérée par le *kube-proxy* sur chaque nœud. Le proxy route le trafic réseau et gère l’adressage IP pour les services et les pods.
-- Le *runtime de conteneur* est le composant qui permet aux applications en conteneur de s’exécuter et d’interagir avec d’autres ressources telles que le réseau virtuel et le stockage. Dans ACS, Moby est utilisé en tant que l’exécution du conteneur.
+- Le *runtime de conteneur* est le composant qui permet aux applications en conteneur de s’exécuter et d’interagir avec d’autres ressources telles que le réseau virtuel et le stockage. Dans AKS, Moby est utilisé en tant que runtime de conteneur.
 
 ![Ressources des machines virtuelles Azure et de prise en charge pour un nœud Kubernetes](media/concepts-clusters-workloads/aks-node-resource-interactions.png)
 
-La taille des machines virtuelles Azure pour vos nœuds détermine le nombre d’UC, la quantité de mémoire, ainsi que la taille et le type de stockage disponible (par exemple, SSD hautes performances ou HDD classique). Si vous pensez avoir un jour besoin d’applications nécessitant une grande quantité d’UC et de mémoire ou un stockage hautes performances, planifiez la taille des nœuds en conséquence. Vous pouvez également augmenter le nombre de nœuds dans votre cluster AKS afin de répondre à la demande.
+La taille des machines virtuelles Azure pour vos nœuds détermine le nombre de processeurs, la quantité de mémoire, ainsi que la taille et le type de stockage disponible (par exemple, SSD hautes performances ou HDD classique). Si vous pensez avoir un jour besoin d’applications nécessitant une grande quantité de processeurs et de mémoire ou un stockage hautes performances, planifiez la taille des nœuds en conséquence. Vous pouvez également augmenter le nombre de nœuds dans votre cluster AKS afin de répondre à la demande.
 
-Dans AKS, l’image de machine virtuelle pour les nœuds de votre cluster est actuellement basée sur Ubuntu Linux ou Windows Server 2019. Quand vous créez un cluster AKS ou augmentez le nombre de nœuds, la plateforme Azure crée le nombre demandé de machines virtuelles et les configure. Il n’existe aucune configuration manuelle pour vous permettent d’effectuer. Les nœuds d’agent sont facturés en tant que machines virtuelles standard, les remises vous donc sur la taille de machine virtuelle que vous utilisez (y compris [réservations Azure][reservation-discounts]) sont automatiquement appliquées.
+Dans AKS, l’image de machine virtuelle pour les nœuds de votre cluster est actuellement basée sur Ubuntu Linux ou Windows Server 2019. Quand vous créez un cluster AKS ou augmentez le nombre de nœuds, la plateforme Azure crée le nombre demandé de machines virtuelles et les configure. Vous n’avez aucune configuration manuelle à effectuer. Les nœuds agent étant facturés en tant que machines virtuelles standard, les remises dont vous bénéficiez sur la taille de machine virtuelle que vous utilisez (y compris les [réservations Azure][reservation-discounts]) sont automatiquement appliquées.
 
 Si vous avez besoin d’utiliser un autre système d’exploitation hôte ou runtime de conteneur, ou bien d’inclure des packages personnalisés, vous pouvez déployer votre propre cluster Kubernetes à l’aide d’[aks-engine][aks-engine]. En amont, `aks-engine` assure la mise en production des fonctionnalités et fournit les options de configuration avant qu'elles ne soient officiellement prises en charge dans les clusters AKS. Par exemple, si vous souhaitez utiliser un runtime de conteneur autre que Moby, vous pouvez utiliser `aks-engine` pour configurer et déployer un cluster Kubernetes qui répond à vos besoins actuels.
 
@@ -81,7 +81,7 @@ Vous n’avez pas besoin de gérer les principaux composants de Kubernetes sur c
 - **UC** - 60 ms
 - **Mémoire** -20 % jusqu'à 4 Gio
 
-Ces réservations signifient que la quantité disponible d’UC et de mémoire pour vos applications peut apparaître inférieure à ce que le nœud lui-même contient. S’il existe des contraintes de ressources en raison du nombre d’applications que vous exécutez, ces réservations garantissent que l’UC et la mémoire restent disponibles pour les principaux composants de Kubernetes. Les réserves de ressources ne peut pas être modifiés.
+Ces réservations signifient que la quantité disponible de processeurs et de mémoire pour vos applications peut apparaître inférieure à ce que le nœud lui-même contient. S’il existe des contraintes de ressources en raison du nombre d’applications que vous exécutez, ces réservations garantissent que le processeur et la mémoire restent disponibles pour les principaux composants de Kubernetes. Vous ne pouvez pas changer les réservations de ressources.
 
 Par exemple :
 
@@ -93,23 +93,23 @@ Par exemple :
     - 20 % de 32 Gio de mémoire = 6,4 Gio, mais AKS réserve uniquement un maximum de 4 Gio
     - Un total de *(32 - 4) = 28 Gio* de mémoire est disponible pour le nœud
     
-Le système d’exploitation du nœud sous-jacent nécessite également une certaine quantité de ressources d’UC et de mémoire pour effectuer ses propres fonctions principales.
+Le système d’exploitation du nœud sous-jacent nécessite également une certaine quantité de ressources de processeur et de mémoire pour effectuer ses propres fonctions principales.
 
-Pour les recommandations associées, consultez [meilleures pratiques pour les fonctionnalités de base planificateur dans AKS][operator-best-practices-scheduler].
+Pour connaître les bonnes pratiques associées, consultez [Bonnes pratiques relatives aux fonctionnalités de base du planificateur dans AKS][operator-best-practices-scheduler].
 
 ### <a name="node-pools"></a>Pools de nœuds
 
-Les nœuds d’une même configuration sont regroupés dans des *pools de nœuds*. Un cluster Kubernetes contient un ou plusieurs pools de nœuds. Le nombre et la taille initiaux des nœuds sont définis quand vous créez un cluster AKS, opération qui engendre la création d’un *nœud de pools par défaut*. Ce pool de nœuds par défaut dans AKS contient les machines virtuelles sous-jacentes qui exécutent vos nœuds d’agent. Prise en charge de plusieurs nœuds pool est actuellement en version préliminaire dans ACS.
+Les nœuds d’une même configuration sont regroupés dans des *pools de nœuds*. Un cluster Kubernetes contient un ou plusieurs pools de nœuds. Le nombre et la taille initiaux des nœuds sont définis quand vous créez un cluster AKS, opération qui engendre la création d’un *nœud de pools par défaut*. Ce pool de nœuds par défaut dans AKS contient les machines virtuelles sous-jacentes qui exécutent vos nœuds d’agent. La prise en charge de plusieurs pools de nœuds est actuellement en préversion dans AKS.
 
-Quand vous mettez à l’échelle ou à niveau un cluster AKS, l’action est effectuée sur le pool de nœuds par défaut. Vous pouvez également choisir de mettre à l’échelle ou de mettre à niveau d’un pool de nœud spécifique. Pour les opérations de mise à niveau, les conteneurs en cours d’exécution sont planifiés sur d’autres nœuds du pool de nœuds jusqu’à ce que tous les nœuds soient mis à niveau.
+Quand vous mettez à l’échelle ou à niveau un cluster AKS, l’action est effectuée sur le pool de nœuds par défaut. Vous pouvez aussi choisir de mettre à l’échelle ou de mettre à niveau un pool de nœuds spécifique. Pour les opérations de mise à niveau, les conteneurs en cours d’exécution sont planifiés sur d’autres nœuds du pool de nœuds jusqu’à ce que tous les nœuds soient mis à niveau.
 
-Pour plus d’informations sur l’utilisation de plusieurs pools de nœuds dans ACS, consultez [créer et gérer plusieurs pools de nœuds pour un cluster dans AKS][use-multiple-node-pools].
+Pour plus d’informations sur l’utilisation de plusieurs pools de nœuds dans AKS, consultez [Créer et gérer plusieurs pools de nœuds pour un cluster dans AKS][use-multiple-node-pools].
 
 ### <a name="node-selectors"></a>Sélecteurs de nœud
 
-Dans un cluster AKS qui contient plusieurs pools de nœuds, vous devrez peut-être indiquer le planificateur Kubernetes quel pool de nœud à utiliser pour une ressource donnée. Par exemple, les contrôleurs d’entrée ne doit pas s’exécuter sur les nœuds Windows Server (actuellement en version préliminaire dans ACS). Sélecteurs de nœud vous permettent de définir différents paramètres, tels que le nœud du système d’exploitation, pour contrôler où un pod doit être planifié.
+Dans un cluster AKS qui contient plusieurs pools de nœuds, vous devrez peut-être indiquer au planificateur Kubernetes Scheduler le pool de nœuds qui devra être utilisé pour une ressource donnée. Par exemple, les contrôleurs d’entrée ne doivent pas s’exécuter sur des nœuds Windows Server (actuellement en préversion dans AKS). Les sélecteurs de nœud vous permettent de définir différents paramètres, comme le système d’exploitation des nœuds, pour contrôler à quel endroit un pod doit être planifié.
 
-L’exemple de base suivant planifie une instance NGINX sur un nœud Linux à l’aide du sélecteur de nœud *« beta.kubernetes.io/os » : linux*:
+L’exemple de base suivant planifie une instance NGINX sur un nœud Linux en utilisant le sélecteur de nœud *"beta.kubernetes.io/os": linux* :
 
 ```yaml
 kind: Pod
@@ -124,7 +124,7 @@ spec:
     "beta.kubernetes.io/os": linux
 ```
 
-Pour plus d’informations sur la manière de contrôler où les pods sont planifiées, consultez [meilleures pratiques pour les fonctionnalités avancées du planificateur dans ACS][operator-best-practices-advanced-scheduler].
+Pour plus d’informations sur la façon de contrôler l’endroit où sont planifiés les pods, consultez [Bonnes pratiques relatives aux fonctionnalités avancées du planificateur dans AKS][operator-best-practices-advanced-scheduler].
 
 ## <a name="pods"></a>Pods
 
@@ -142,7 +142,7 @@ Un *déploiement* représente un ou plusieurs pods identiques, gérés par le co
 
 Vous pouvez mettre à jour les déploiements pour changer la configuration des pods, l’image de conteneur utilisée ou le stockage attaché. Le contrôleur de déploiement draine et met fin à un certain nombre de réplicas, crée des réplicas à partir de la nouvelle définition de déploiement et poursuit le processus jusqu’à ce que tous les réplicas dans le déploiement soient mis à jour.
 
-La plupart des applications sans état dans AKS doivent utiliser le modèle de déploiement plutôt que la planification de pods individuels. Kubernetes peut superviser l’intégrité et l’état des déploiements pour s’assurer que le nombre requis de réplicas s’exécutent dans le cluster. Lorsque vous planifiez uniquement pods individuels, les blocs ne sont pas redémarrés si elles rencontrent un problème et ne sont pas replanifiées sur des nœuds sains si leur nœud actuel rencontre un problème.
+La plupart des applications sans état dans AKS doivent utiliser le modèle de déploiement plutôt que la planification de pods individuels. Kubernetes peut superviser l’intégrité et l’état des déploiements pour s’assurer que le nombre requis de réplicas s’exécutent dans le cluster. Quand vous planifiez uniquement des pods individuels, ces derniers ne sont pas redémarrés s’ils rencontrent un problème et ne sont pas replanifiés sur des nœuds sains si leur nœud actuel rencontre un problème.
 
 Si une application requiert qu’un quorum d’instances soit toujours disponible pour les prises de décisions de gestion, il convient qu’aucun processus de mise à jour ne rompe ce dispositif. Vous pouvez utiliser des *budgets d’interruption de pods* pour définir le nombre de réplicas dans un déploiement pouvant être retirés pendant une mise à niveau d’un nœud ou une mise à jour. Par exemple, si votre déploiement comprend *5* réplicas, vous pouvez définir une interruption de pods de *4* pour autoriser la suppression ou la replanification d’un seul réplica à la fois. Comme dans le cas des limites de ressources des pods, une bonne pratique consiste à définir des budgets d’interruption de pods sur les applications qui nécessitent la présence systématique d’un nombre minimal de réplicas.
 
@@ -221,7 +221,7 @@ Le contrôleur DaemonSet peut planifier des pods sur des nœuds tôt dans le pro
 Pour plus d’informations, consultez [Kubernetes DaemonSets][kubernetes-daemonset] (Ressources DaemonSet Kubernetes).
 
 > [!NOTE]
-> Si vous utilisez le [module complémentaire de nœuds virtuels](virtual-nodes-cli.md#enable-virtual-nodes-addon), les DaemonSets ne créera pas pods sur le nœud virtuel.
+> Si vous utilisez le [complément add-on Virtual Nodes](virtual-nodes-cli.md#enable-virtual-nodes-addon), les DaemonSets ne créeront pas de pods sur le nœud virtuel.
 
 ## <a name="namespaces"></a>Espaces de noms
 

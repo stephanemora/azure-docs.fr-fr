@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: diberry
 ms.openlocfilehash: 294905ccfd0ce8db6da8737277b0ce978ba837ea
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66473517"
 ---
 # <a name="collaborating-with-other-authors"></a>Collaboration avec d’autres auteurs
@@ -31,7 +31,7 @@ Pour plus d’informations sur les comptes d’utilisateur Active Directory, voi
 
 ## <a name="luis-app-owner"></a>Propriétaire d’application LUIS
 
-Le compte qui crée une application est le propriétaire, et chaque application dispose d’un seul propriétaire. Le propriétaire est répertorié dans l’application **[paramètres](luis-how-to-collaborate.md)** page. Le propriétaire reçoit le message électronique lorsque le quota de point de terminaison atteint 75 % de la limite mensuelle. 
+Le compte qui crée une application est le propriétaire, et chaque application a un seul propriétaire. Le propriétaire est mentionné dans la page **[Paramètres](luis-how-to-collaborate.md)** de l’application. Le propriétaire reçoit un e-mail quand le quota du point de terminaison atteint 75 % de la limite mensuelle. 
 
 ## <a name="authorization-roles"></a>Rôles d’autorisation
 LUIS ne prend pas en charge des rôles différents pour les propriétaires et collaborateurs, à une exception près. Le propriétaire est le seul compte qui peut supprimer l’application.
@@ -52,7 +52,7 @@ Le site web [LUIS](luis-reference-regions.md#luis-website) n’offre actuellemen
 ## <a name="manage-multiple-versions-inside-the-same-app"></a>Gérer plusieurs versions dans la même application
 Commencez par le [clonage](luis-how-to-manage-versions.md#clone-a-version), à partir d’une version de base, pour chaque auteur. 
 
-Chaque auteur apporte des modifications à leur propre version de l’application. Une fois que chaque auteur est satisfait du modèle, exportez les nouvelles versions sous forme de fichiers JSON.  
+Chaque auteur apporte des modifications à sa propre version de l’application. Une fois que chaque auteur est satisfait du modèle, exportez les nouvelles versions sous forme de fichiers JSON.  
 
 Les applications exportées sont des fichiers au format JSON, qui peuvent être utilisés pour comparer les modifications. Combinez les fichiers pour créer un seul fichier JSON de la nouvelle version. Modifiez la propriété **versionId** dans le fichier JSON pour indiquer la nouvelle version fusionnée. Importez cette version dans l’application d’origine. 
 
@@ -63,9 +63,9 @@ Cette méthode vous permet d’avoir une version active, une version intermédia
 
 Les applications exportées sont des fichiers au format JSON, qui peuvent être utilisés pour comparer les modifications avec l’exportation de base. Combinez les fichiers pour créer un seul fichier JSON de la nouvelle version. Modifiez la propriété **versionId** dans le fichier JSON pour indiquer la nouvelle version fusionnée. Importez cette version dans l’application d’origine.
 
-## <a name="collaborator-roles-vs-entity-roles"></a>Rôles d’entité collaborateur rôles vs
+## <a name="collaborator-roles-vs-entity-roles"></a>Rôles de collaborateurs et rôles d’entités
 
-[Rôles de l’entité](luis-concept-roles.md) s’appliquent au modèle de données de l’application LUIS. Rôles de collaborateur s’appliquent aux niveaux d’accès de création. 
+Les [rôles d’entités](luis-concept-roles.md) s’appliquent au modèle de données de l’application LUIS. Les rôles de collaborateurs s’appliquent aux niveaux d’accès de création. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: spelluru
 ms.openlocfilehash: 0821c749a6cb718e1b8abb74a2925bc041850eaf
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66305270"
 ---
 # <a name="concepts-in-azure-event-grid"></a>Concepts utilisés dans Azure Event Grid
@@ -22,7 +22,7 @@ Cet article décrit les principaux concepts utilisés dans Azure Event Grid.
 
 Un événement correspond à la plus petite quantité d’informations décrivant intégralement quelque chose qui s’est produit dans le système. Chaque événement possède des informations communes telles que la source de l’événement, l’heure à laquelle l’événement a eu lieu et un identificateur unique. Chaque événement comporte également des informations spécifiques qui se rapportent uniquement au type d’événement en question. Par exemple, un événement concernant un fichier en cours de création dans le Stockage Azure a des informations détaillées sur le fichier, notamment la valeur `lastTimeModified`. Ou bien, un événement Event Hubs contient l’URL du fichier Capture. 
 
-Un événement de taille jusqu'à 64 Ko est couverte par contrat de niveau Service (SLA) GA (General Availability). La prise en charge pour un événement de taille jusqu'à 1 Mo est actuellement en version préliminaire. Événements de plus de 64 Ko sont facturées par incréments de 64 Ko. 
+Tout événement d’une taille jusqu’à 64 Ko est couvert par le contrat de niveau de service (SLA) en disponibilité générale. La prise en charge des événements d’une taille jusqu’à 1 Mo est actuellement en préversion. Les événements de plus de 64 Ko donnent lieu à une facturation par incréments de 64 Ko. 
 
 
 Pour les propriétés qui sont envoyées dans un événement, consultez le [schéma d’événements Azure Event Grid](event-schema.md).
@@ -80,10 +80,10 @@ Si Event Grid ne peut pas confirmer qu’un événement a été reçu par le poi
 
 ## <a name="batching"></a>Traitement par lot
 
-Quand vous utilisez une rubrique personnalisée, les événements doivent toujours être publiés dans un tableau. Il peut s’agir d’un lot de un pour les scénarios à faible débit. Toutefois, dans les cas d’utilisation à volume élevé, il est recommandé de regrouper dans un lot plusieurs événements par publication afin d’améliorer l’efficacité. La taille maximale d’un lot est de 1 Mo. Chaque événement doit toujours être pas supérieure à 64 Ko (disponibilité générale) ou 1 Mo (version préliminaire).
+Quand vous utilisez une rubrique personnalisée, les événements doivent toujours être publiés dans un tableau. Il peut s’agir d’un lot de un pour les scénarios à faible débit. Toutefois, dans les cas d’utilisation à volume élevé, il est recommandé de regrouper dans un lot plusieurs événements par publication afin d’améliorer l’efficacité. La taille maximale d’un lot est de 1 Mo. La taille maximale de chaque événement est toujours de 64 Ko (version en disponibilité générale) ou de 1 Mo (en préversion).
 
 > [!NOTE]
-> Un événement de taille jusqu'à 64 Ko est couverte par contrat de niveau Service (SLA) GA (General Availability). La prise en charge pour un événement de taille jusqu'à 1 Mo est actuellement en version préliminaire. Événements de plus de 64 Ko sont facturées par incréments de 64 Ko. 
+> Tout événement d’une taille jusqu’à 64 Ko est couvert par le contrat de niveau de service (SLA) en disponibilité générale. La prise en charge des événements d’une taille jusqu’à 1 Mo est actuellement en préversion. Les événements de plus de 64 Ko donnent lieu à une facturation par incréments de 64 Ko. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

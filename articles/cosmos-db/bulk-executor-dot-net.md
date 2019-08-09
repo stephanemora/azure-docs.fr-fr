@@ -10,10 +10,10 @@ ms.date: 05/28/2019
 ms.author: ramkris
 ms.reviewer: sngun
 ms.openlocfilehash: a81b22d8ca538c7dc25a9c6631c2b455d5a6c90e
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66257216"
 ---
 # <a name="use-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>Utiliser la bibliothèque de l’exécuteur en bloc .NET pour effectuer des opérations en bloc dans Azure Cosmos DB
@@ -22,9 +22,9 @@ Ce tutoriel fournit des instructions sur l’utilisation de la bibliothèque de 
 
 Actuellement, la bibliothèque de l’exécuteur en bloc est prise en charge uniquement par les comptes d’API Gremlin et d’API SQL Azure Cosmos DB. Cet article décrit comment utiliser la bibliothèque .NET de l’exécuteur en bloc avec des comptes d’API SQL. Pour en savoir plus sur l’utilisation de la bibliothèque .NET de l’exécuteur en bloc avec l’API Gremlin, consultez [Effectuer des opérations en bloc dans l’API Gremlin Azure Cosmos DB](bulk-executor-graph-dotnet.md). 
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
-* Si vous ne disposez pas de Visual Studio 2019 installé, vous pouvez télécharger et utiliser le [2019 de Visual Studio Community Edition](https://www.visualstudio.com/downloads/). Veillez à activer le développement Azure lors de l’installation de Visual Studio.
+* Si vous n’avez pas encore installé Visual Studio 2019, vous pouvez télécharger et utiliser [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/). Veillez à activer le développement Azure lors de l’installation de Visual Studio.
 
 * Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) avant de commencer. 
 
@@ -72,7 +72,7 @@ L’application « BulkImportSample » génère des documents aléatoires et l
    connectionPolicy)
    ```
 
-4. L’objet BulkExecutor est initialisé avec une valeur élevée de nouvelle tentative pour les temps d’attente et des demandes limitées. Ensuite, elles sont définies sur 0 pour passer le contrôle de congestion à BulkExecutor pendant sa durée de vie.  
+4. L’objet BulkExecutor est initialisé avec une valeur de nouvelle tentative élevée pour la durée d’attente et les requêtes limitées. Ensuite, elles sont définies sur 0 pour passer le contrôle de congestion à BulkExecutor pendant sa durée de vie.  
 
    ```csharp
    // Set retry options high during initialization (default values).
@@ -102,7 +102,7 @@ L’application « BulkImportSample » génère des documents aléatoires et l
    
    |**Paramètre**  |**Description** |
    |---------|---------|
-   |enableUpsert    |   Un indicateur pour activer des upserts de documents. Si un document avec l’ID donné existe déjà, il est mis à jour. Par défaut, cet indicateur a la valeur false.      |
+   |enableUpsert    |   Indicateur permettant d’activer les opérations d’upsert des documents. Si un document avec l’ID donné existe déjà, il est mis à jour. Par défaut, cet indicateur a la valeur false.      |
    |disableAutomaticIdGeneration    |    Indicateur permettant de désactiver la génération automatique d’ID. Par défaut, il est défini sur true.     |
    |maxConcurrencyPerPartitionKeyRange    | Degré maximal de concurrence par plage de clés de partition. Si vous lui affectez la valeur null, la bibliothèque utilise la valeur par défaut 20. |
    |maxInMemorySortingBatchSize     |  Nombre maximal de documents extraits à partir de l’énumérateur de documents qui est passé à l’appel d’API à chaque étape.  Pour la phase de tri pré-traitement en mémoire avant l’importation en bloc, si vous lui affectez la valeur null, la bibliothèque utilise la valeur par défaut min(documents.count, 1000000).       |
@@ -173,7 +173,7 @@ Pour bénéficier de meilleures performances lors de l’utilisation de la bibli
 
 * Il est recommandé d’instancier un seul objet BulkExecutor pour l’ensemble de l’application dans une même machine virtuelle correspondant à un conteneur Cosmos DB spécifique.  
 
-* L’exécution d’une API d’opération en bloc consomme une grande partie des E/S réseau et du processeur de l’ordinateur client. Cela est dû à la génération automatique de plusieurs tâches en interne. Évitez de générer plusieurs tâches simultanées dans votre processus d’application, exécutant chacune des appels d’API d’opérations en bloc. Si un appel d’API d’opération en bloc unique qui s’exécute sur une seule machine virtuelle ne peut pas consommer le débit de votre conteneur entier (si débit > 1 votre conteneur millions de RU/s), il est préférable de créer plusieurs machines virtuelles distinctes à exécuter en même temps appels d’API d’opération en bloc.  
+* L’exécution d’une API d’opération en bloc consomme une grande partie des E/S réseau et du processeur de l’ordinateur client. Cela est dû à la génération automatique de plusieurs tâches en interne. Évitez de générer plusieurs tâches simultanées dans votre processus d’application, exécutant chacune des appels d’API d’opérations en bloc. Si un appel d’API d’opération en bloc en cours d’exécution sur une seule machine virtuelle ne peut pas consommer le débit complet de votre conteneur (si le débit de votre conteneur est supérieur à 1 million RU/s), il est préférable de créer des machines virtuelles distinctes pour exécuter simultanément les appels d’API d’opérations en bloc.  
 
 * Vérifiez qu’InitializeAsync() est appelé après l’instanciation d’un objet BulkExecutor pour extraire le mappage de partition de conteneur Cosmos DB cible.  
 
@@ -197,4 +197,4 @@ Pour bénéficier de meilleures performances lors de l’utilisation de la bibli
   ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Pour en savoir plus sur les détails du package Nuget et notes de publication de la bibliothèque .NET d’exécuteur en bloc, consultez[en bloc des détails sur le SDK exécuteur](sql-api-sdk-bulk-executor-dot-net.md). 
+* Pour en savoir plus sur les packages Nuget et les notes de publication de la bibliothèque .NET de l’exécuteur en bloc, consultez les [détails sur le kit SDK BulkExecutor](sql-api-sdk-bulk-executor-dot-net.md). 

@@ -11,14 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3b4879093ed80a554219b053cc5a2bc895126725
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 9f1f2e06eb6b5f8d402515ff1c07a4163174495d
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67702889"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68666358"
 ---
 # <a name="azure-ad-password-protection-on-premises---frequently-asked-questions"></a>Protection par mot de passe Azure AD en local - Questions fréquentes (FAQ)
+
+Cette section fournit des réponses à de nombreuses questions fréquemment posées sur la protection des mots de passe Azure AD.
 
 ## <a name="general-questions"></a>Questions générales
 
@@ -47,6 +49,10 @@ Le comportement de la stratégie de validation de mot de passe est toujours iden
 **Q : Pourquoi des événements de mot de passe rejetés sont-ils consignés en double lorsque je tente de définir un mot de passe faible à l’aide du composant logiciel enfichable Utilisateurs et ordinateurs Active Directory ?**
 
 Le composant logiciel enfichable Utilisateurs et ordinateurs Active Directory essaie d’abord de définir le nouveau mot de passe à l’aide du protocole Kerberos. En cas d’échec, le composant logiciel enfichable fera une seconde tentative de définition du mot de passe à l’aide d’un protocole hérité (SAM RPC - les protocoles spécifiques utilisés ne sont pas importants). Si le nouveau mot de passe est considéré comme faible par la Protection de mots de passe Azure AD, cela engendre la journalisation de deux ensembles d’événements de rejet de réinitialisation de mot de passe.
+
+**Q : Pourquoi les événements de validation de mot de passe Protection par mot de passe Azure AD sont-ils journalisés avec un nom d’utilisateur vide ?**
+
+Active Directory prend en charge la possibilité de tester un mot de passe pour voir s’il satisfait aux exigences actuelles du domaine en matière de complexité des mots de passe, par exemple à l’aide de l’API [NetValidatePasswordPolicy](https://docs.microsoft.com/windows/win32/api/lmaccess/nf-lmaccess-netvalidatepasswordpolicy). Lorsqu’un mot de passe est validé de cette manière, les tests comprennent également une validation par des produits basés sur des DLL de filtre de mots de passe, tels que la Protection par mot de passe Azure AD, mais les noms d’utilisateur passés à une DLL de filtre de mot de passe donnée seront vides. Dans ce scénario, la Protection par mot de passe Azure AD validera toujours le mot de passe à l’aide de la stratégie de mot de passe actuellement appliquée et émettra un message de journal des événements pour capturer le résultat, mais le message du journal des événements contiendra des champs de nom d’utilisateur vides.
 
 **Q : L’installation de la protection par mot de passe Azure AD simultanément avec d’autres produits basés sur le filtrage par mot de passe est-elle prise en charge ?**
 

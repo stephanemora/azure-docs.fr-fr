@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/30/2019
 ms.author: spelluru
 ms.openlocfilehash: 69b83590fb9b25c68d231b732b985ba633bb6884
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66399197"
 ---
 # <a name="create-custom-artifacts-for-your-devtest-labs-virtual-machine"></a>Créer des artefacts personnalisés pour votre machine virtuelle DevTest Labs
@@ -56,12 +56,12 @@ L'exemple suivant indique les sections qui composent la structure de base d'un f
 | Nom de l'élément | Requis ? | Description |
 | --- | --- | --- |
 | $schema |Non |Emplacement du fichier de schéma JSON. Le fichier de schéma JSON peut vous aider à tester la validité du fichier de définition. |
-| title |Oui |Nom de l'artefact affiché dans le laboratoire. |
-| description |Oui |Description de l'artefact affiché dans le laboratoire. |
-| iconUri |Non  |URI de l’icône affichée dans le laboratoire. |
-| targetOsType |Oui |Système d’exploitation de la machine virtuelle où l’artefact est installé. Les options prises en charge sont Windows et Linux. |
-| parameters |Non  |Valeurs fournies quand la commande d’installation d’artefact est exécutée sur une machine. Cela vous permet de personnaliser votre artefact. |
-| runCommand |Oui |Commande d'installation d'artefact qui est exécutée sur une machine virtuelle. |
+| title |OUI |Nom de l'artefact affiché dans le laboratoire. |
+| description |OUI |Description de l'artefact affiché dans le laboratoire. |
+| iconUri |Non |URI de l’icône affichée dans le laboratoire. |
+| targetOsType |OUI |Système d’exploitation de la machine virtuelle où l’artefact est installé. Les options prises en charge sont Windows et Linux. |
+| parameters |Non |Valeurs fournies quand la commande d’installation d’artefact est exécutée sur une machine. Cela vous permet de personnaliser votre artefact. |
+| runCommand |OUI |Commande d'installation d'artefact qui est exécutée sur une machine virtuelle. |
 
 ### <a name="artifact-parameters"></a>Paramètres d'artefact
 Dans la section des paramètres du fichier de définition, spécifiez les valeurs qu’un utilisateur peut entrer quand il installe un artefact. Vous pouvez faire référence à ces valeurs dans la commande d'installation d'artefact.
@@ -78,9 +78,9 @@ Pour définir des paramètres, utilisez la structure suivante :
 
 | Nom de l'élément | Requis ? | Description |
 | --- | --- | --- |
-| type |Oui |Type de la valeur du paramètre. Consultez la liste suivante des types autorisés. |
-| displayName |Oui |Nom du paramètre qui est affiché à un utilisateur dans le laboratoire. |
-| description |Oui |Description du paramètre qui est affiché dans le laboratoire. |
+| Type |OUI |Type de la valeur du paramètre. Consultez la liste suivante des types autorisés. |
+| displayName |OUI |Nom du paramètre qui est affiché à un utilisateur dans le laboratoire. |
+| description |OUI |Description du paramètre qui est affiché dans le laboratoire. |
 
 Les types autorisés sont :
 
@@ -89,8 +89,8 @@ Les types autorisés sont :
 * bool (n’importe quel booléen JSON valide)
 * array (n’importe quel tableau JSON valide)
 
-## <a name="secrets-as-secure-strings"></a>Secrets en tant que chaînes sécurisées
-Déclarer des secrets en tant que chaînes sécurisées. Voici la syntaxe de déclaration d’un paramètre de chaîne sécurisée dans le `parameters` section de la **artifactfile.json** fichier :
+## <a name="secrets-as-secure-strings"></a>Secrets sous forme de chaînes sécurisées
+Déclarez des secrets sous forme de chaînes sécurisées. Voici la syntaxe de déclaration d’un paramètre de chaîne sécurisée dans la section `parameters` du fichier **artifactfile.json** :
 
 ```json
 
@@ -102,7 +102,7 @@ Déclarer des secrets en tant que chaînes sécurisées. Voici la syntaxe de dé
     },
 ```
 
-Commande d’installation pour l’artefact, exécutez le script PowerShell qui accepte la chaîne sécurisée créée à l’aide de la commande de ConvertTo-SecureString. 
+Pour la commande d’installation d’artefact, exécutez le script PowerShell qui accepte la chaîne sécurisée créée à l’aide de la commande ConvertTo-SecureString. 
 
 ```json
   "runCommand": {
@@ -110,9 +110,9 @@ Commande d’installation pour l’artefact, exécutez le script PowerShell qui 
   }
 ```
 
-Pour l’exemple complet d’artifactfile.json et le artifact.ps1 (script PowerShell), consultez [cet exemple sur GitHub](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts/windows-test-paramtypes).
+Pour obtenir l’exemple de fichier artifactfile.json complet et le fichier artifact.ps1 (script PowerShell), consultez [cet exemple sur GitHub](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts/windows-test-paramtypes).
 
-Un autre point important à retenir ne pas doit consigner les secrets dans la console lors de la capture de sortie pour le débogage de l’utilisateur. 
+Un autre point important à retenir est de ne pas journaliser les secrets dans la console, car la sortie est capturée en vue du débogage utilisateur. 
 
 ## <a name="artifact-expressions-and-functions"></a>Expressions et fonctions d'artefact
 Vous pouvez utiliser des expressions et des fonctions pour construire la commande d’installation d’artefact.

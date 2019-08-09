@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 5/24/2018
 ms.author: pvrk
 ms.openlocfilehash: eac7f6ec7ec41d257317d9d2a62f0bacc046dbab
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66400198"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>Déployer et gérer une sauvegarde vers Azure pour un serveur/client Windows à l’aide de PowerShell
@@ -22,7 +22,7 @@ Cet article décrit comment utiliser PowerShell pour configurer Sauvegarde Azure
 ## <a name="install-azure-powershell"></a>Installation d’Azure PowerShell
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Prise en main, [installer la dernière version de PowerShell](/powershell/azure/install-az-ps).
+Pour commencer, [installez la dernière version de PowerShell](/powershell/azure/install-az-ps).
 
 ## <a name="create-a-recovery-services-vault"></a>Créer un coffre Recovery Services
 
@@ -40,7 +40,7 @@ Les étapes suivantes vous montrent comment créer un coffre Recovery Services. 
     New-AzResourceGroup –Name "test-rg" –Location "WestUS"
     ```
 
-3. Utilisez le **New-AzRecoveryServicesVault** applet de commande pour créer le coffre. Spécifiez pour le coffre le même emplacement que pour le groupe de ressources.
+3. Utilisez l’applet de commande **New-AzRecoveryServicesVault** pour créer le coffre. Spécifiez pour le coffre le même emplacement que pour le groupe de ressources.
 
     ```powershell
     New-AzRecoveryServicesVault -Name "testvault" -ResourceGroupName " test-rg" -Location "WestUS"
@@ -60,9 +60,9 @@ Les étapes suivantes vous montrent comment créer un coffre Recovery Services. 
 
 ## <a name="view-the-vaults-in-a-subscription"></a>Afficher les coffres dans un abonnement
 
-Utilisez **Get-AzRecoveryServicesVault** pour afficher la liste de tous les coffres dans l’abonnement actuel. Vous pouvez utiliser cette commande pour vérifier qu’un coffre a été créé, ou pour voir les coffres disponibles dans l’abonnement.
+Utilisez **Get-AzRecoveryServicesVault** pour voir la liste de tous les coffres dans l’abonnement actuel. Vous pouvez utiliser cette commande pour vérifier qu’un coffre a été créé, ou pour voir les coffres disponibles dans l’abonnement.
 
-Exécutez la commande, **Get-AzRecoveryServicesVault**, et tous les coffres dans l’abonnement sont répertoriés.
+Exécutez la commande **Get-AzRecoveryServicesVault** ; tous les coffres de l’abonnement sont alors listés.
 
 ```powershell
 Get-AzRecoveryServicesVault
@@ -200,7 +200,7 @@ Server properties updated successfully.
 
 Les données sauvegardées envoyées à Sauvegarde Azure sont chiffrées pour garantir leur confidentialité. Le mot de passe du chiffrement est le « mot de passe » permettant de déchiffrer les données lors de la restauration.
 
-Vous devez générer un code pin de sécurité en sélectionnant **générer**, sous **paramètres** > **propriétés** > **code PIN de sécurité** dans le **coffre Recovery Services** section du portail Azure. Ensuite, utilisez-le comme le `generatedPIN` dans la commande :
+Vous devez générer un code pin de sécurité en sélectionnant **Générer**, sous **Paramètres** > **Propriétés** > **Code PIN de sécurité** dans la section **Coffre Recovery Services** du portail Azure. Ensuite, utilisez-le comme `generatedPIN` dans la commande :
 
 ```powershell
 $PassPhrase = ConvertTo-SecureString -String "Complex!123_STRING" -AsPlainText -Force
@@ -391,9 +391,9 @@ RetentionPolicy : Retention Days : 7
 State           : New
 PolicyState     : Valid
 ```
-## <a name="back-up-windows-server-system-state-in-mabs-agent"></a>Sauvegarder de l’état du système Windows Server dans l’agent de serveur de sauvegarde AZURE
+## <a name="back-up-windows-server-system-state-in-mabs-agent"></a>Sauvegarder l’état du système Windows Server dans l’agent MABS
 
-Cette section traite de la commande PowerShell pour définir l’état du système de l’agent du serveur de sauvegarde AZURE
+Cette section traite de la commande PowerShell pour configurer l’état du système dans l’agent MABS
 
 ### <a name="schedule"></a>Planification
 ```powershell
@@ -406,7 +406,7 @@ $sched = New-OBSchedule -DaysOfWeek Sunday,Monday,Tuesday,Wednesday,Thursday,Fri
 $rtn = New-OBRetentionPolicy -RetentionDays 32 -RetentionWeeklyPolicy -RetentionWeeks 13 -WeekDaysOfWeek Sunday -WeekTimesOfDay 2:00  -RetentionMonthlyPolicy -RetentionMonths 13 -MonthDaysOfMonth 1 -MonthTimesOfDay 2:00
 ```
 
-### <a name="configuring-schedule-and-retention"></a>Configuration de planification et rétention
+### <a name="configuring-schedule-and-retention"></a>Configuration de la planification et de la conservation
 
 ```powershell
 New-OBPolicy | Add-OBSystemState |  Set-OBRetentionPolicy -RetentionPolicy $rtn | Set-OBSchedule -Schedule $sched | Set-OBSystemStatePolicy

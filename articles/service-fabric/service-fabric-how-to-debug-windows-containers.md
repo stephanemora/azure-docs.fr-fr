@@ -1,6 +1,6 @@
 ---
 title: Déboguer des conteneurs Windows avec Service Fabric et VS | Microsoft Docs
-description: Découvrez comment déboguer les conteneurs Windows dans Azure Service Fabric à l’aide de Visual Studio 2019.
+description: Découvrez comment déboguer des conteneurs Windows dans Azure Service Fabric à l’aide de Visual Studio 2019.
 services: service-fabric
 documentationcenter: .net
 author: aljo-microsoft
@@ -14,17 +14,17 @@ ms.workload: NA
 ms.date: 02/14/2019
 ms.author: aljo, mikhegn
 ms.openlocfilehash: 15f288d5400b49ec05c9ffb936fd2097cc61bae8
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66428152"
 ---
-# <a name="how-to-debug-windows-containers-in-azure-service-fabric-using-visual-studio-2019"></a>Activation Déboguer les conteneurs Windows dans Azure Service Fabric à l’aide de Visual Studio 2019
+# <a name="how-to-debug-windows-containers-in-azure-service-fabric-using-visual-studio-2019"></a>Activation Déboguer des conteneurs Windows dans Azure Service Fabric à l’aide de Visual Studio 2019
 
-Avec Visual Studio 2019, vous pouvez déboguer des applications .NET dans des conteneurs en tant que services Service Fabric. Cet article explique comment configurer votre environnement, puis déboguer une application .NET dans un conteneur exécuté dans un cluster Service Fabric local.
+Avec Visual Studio 2019, vous pouvez déboguer des applications .NET dans les conteneurs en tant que services Service Fabric. Cet article explique comment configurer votre environnement, puis déboguer une application .NET dans un conteneur exécuté dans un cluster Service Fabric local.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 * Dans Windows 10, suivez ce guide de démarrage rapide pour [configurer Windows 10 pour exécuter des conteneurs Windows](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-10)
 * Dans Windows Server 2016, suivez ce guide de démarrage rapide pour [configurer Windows 2016 pour exécuter des conteneurs Windows](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-server)
@@ -34,7 +34,7 @@ Avec Visual Studio 2019, vous pouvez déboguer des applications .NET dans des co
 
 1. Vérifiez que le Docker pour le service Windows est en cours d’exécution avant de procéder à l’étape suivante.
 
-1. Pour prendre en charge la résolution DNS entre des conteneurs, vous devrez configurer votre cluster de développement local, à l’aide du nom de l’ordinateur. Ces étapes sont également nécessaires si vous voulez adresser des services via le proxy inverse.
+1. Pour prendre en charge la résolution DNS entre les conteneurs, vous devez configurer votre cluster de développement local avec le nom de la machine. Ces étapes sont également nécessaires si vous voulez adresser des services via le proxy inverse.
    1. Ouvrez PowerShell en tant qu’administrateur
    2. Accédez au dossier d’installation Cluster du SDK, qui est en général `C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup`.
    3. Exécuter le script `DevClusterSetup.ps1`
@@ -53,19 +53,19 @@ Avec Visual Studio 2019, vous pouvez déboguer des applications .NET dans des co
 
 Voici une liste des limitations connues du débogage de conteneurs dans Service Fabric et des résolutions possibles :
 
-* En utilisant localhost pour ClusterFQDNorIP ne prend en charge la résolution DNS dans des conteneurs.
+* L’utilisation de localhost pour ClusterFQDNorIP ne prend pas en charge la résolution DNS dans les conteneurs.
     * Résolution : Configurez le cluster local avec le nom de la machine (voir ci-dessus).
-* Windows 10 en cours d’exécution sur une Machine virtuelle n’obtiendront pas réponse DNS pour le conteneur.
+* L’exécution de Windows 10 sur une machine virtuelle n’obtient aucune réponse DNS en retour dans le conteneur.
     * Résolution : Désactivez le déchargement de la somme de contrôle UDP pour IPv4 sur la carte réseau des machines virtuelles.
-    * En cours d’exécution Windows 10 dégrader les performances réseau sur l’ordinateur.
+    * L’exécution de Windows 10 dégrade les performances réseau de la machine.
     * https://github.com/Azure/service-fabric-issues/issues/1061
-* Résoudre des services dans la même application à l’aide de DNS nom du service ne fonctionne pas sur Windows 10, si l’application a été déployée à l’aide de Docker Compose
+* La résolution des services dans la même application en utilisant le nom du service DNS ne fonctionne pas sur Windows 10, si l’application a été déployée à l’aide de Docker Compose
     * Résolution : Utilisez servicename.applicationname pour résoudre les points de terminaison du service
     * https://github.com/Azure/service-fabric-issues/issues/1062
 * Si vous utilisez IP-address pour ClusterFQDNorIP, le changement de l’adresse IP principale sur l’hôte entraîne l’arrêt de la fonctionnalité DNS.
-    * Résolution : Recréez le cluster avec la nouvelle adresse IP principale sur l’hôte ou utilisez le nom de la machine. Cette rupture est normal.
-* Si le nom de domaine complet du cluster a été créé avec n’est pas résolu sur le réseau, DNS échoue.
-    * Résolution : Recréez le cluster local avec l’adresse IP principale de l’hôte. Cet échec est normal.
+    * Résolution : Recréez le cluster avec la nouvelle adresse IP principale sur l’hôte ou utilisez le nom de la machine. Cette rupture est intentionnelle.
+* Si le FQDN avec lequel le cluster a été créé ne peut pas être résolu sur le réseau, DNS échoue.
+    * Résolution : Recréez le cluster local avec l’adresse IP principale de l’hôte. Cette défaillance est intentionnelle.
 * Lors du débogage d’un conteneur, les journaux d’activité de docker sont disponibles uniquement dans la fenêtre de sortie de Visual Studio, ils ne le sont pas via les API Service Fabric, ni non plus dans Service Fabric Explorer.
 
 ## <a name="debug-a-net-application-running-in-docker-containers-on-service-fabric"></a>Déboguer une application .NET exécutée dans des conteneurs docker sur Service Fabric
@@ -81,4 +81,4 @@ Voici une liste des limitations connues du débogage de conteneurs dans Service 
     Visual Studio prend en charge la console et les types de projets ASP.NET pour .NET et .NET Core.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour en savoir plus sur les fonctionnalités de Service Fabric et conteneurs, consultez overview](service-fabric-containers-overview.md) de conteneurs Service Fabric.
+Pour en savoir plus sur les fonctionnalités de Service Fabric et des conteneurs, consultez Vue d’ensemble des conteneurs Service Fabric](service-fabric-containers-overview.md).

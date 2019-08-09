@@ -8,18 +8,19 @@ manager: barbkess
 editor: TomSh
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security
+ms.subservice: security-fundamentals
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/30/2019
 ms.author: terrylan
-ms.openlocfilehash: d01677271f51997064f8f18cba69e4d5f889719b
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: d41fe409b4a44a4c2af3670d76dd3a83a300feae
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68611632"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68727127"
 ---
 # <a name="management-and-operation-of-the-azure-production-network"></a>Gestion et fonctionnement du réseau de production Azure    
 Cet article décrit la façon dont Microsoft gère et exploite le réseau de production Azure pour sécuriser les centres de données Azure.

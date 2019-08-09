@@ -3,9 +3,8 @@ title: Planifier un déploiement de cluster Azure Service Fabric | Microsoft Do
 description: Découvrez-en plus sur la planification et la préparation d'un déploiement de cluster de production Service Fabric sur Azure.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
-editor: aljo
 ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -13,13 +12,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/20/2019
-ms.author: aljo
-ms.openlocfilehash: 0f3a9010805ec1a18490f6f530f60d7a3c763398
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: atsenthi
+ms.openlocfilehash: a130e9bc8859360704c9be1c0a7fe066d2ed4567
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60387857"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68600007"
 ---
 # <a name="plan-and-prepare-for-a-cluster-deployment"></a>Planifier et préparer un déploiement de cluster
 
@@ -39,7 +38,7 @@ Pour un déploiement de production, la planification de la capacité est une ét
 * Caractéristiques de fiabilité et de durabilité du cluster
 
 ### <a name="select-the-initial-number-of-node-types"></a>Sélectionner le nombre initial de types de nœuds
-Vous devez d’abord déterminer l’utilisation du cluster que vous créez. Quels types d’applications planifiez-vous de déployer dans ce cluster ? Votre application inclut-elle plusieurs services ? Si oui, ces services doivent-ils être publics ou accessibles sur Internet ? Vos services (qui composent votre application) ont-ils des besoins d’infrastructure différents tels qu’une RAM plus volumineuse ou des cycles processeur plus élevés ? Un cluster Service Fabric peut être constitué de plusieurs types de nœuds : un type de nœud principal et un ou plusieurs types de nœuds non principaux. Chaque type de nœud est mappé à un groupe de machines virtuelles identiques. Chaque type de nœud peut ensuite faire l’objet d’une montée ou descente en puissance de manière indépendante, avoir différents jeux de ports ouverts et présenter différentes métriques de capacité. Des [propriétés de nœud et contraintes de placement][ placementconstraints] peut être configurées pour limiter des services spécifiques à des types de nœuds spécifiques.  Pour plus d'informations, consultez [Nombre de types de nœuds avec lesquels votre cluster doit démarrer](service-fabric-cluster-capacity.md#the-number-of-node-types-your-cluster-needs-to-start-out-with).
+Vous devez d’abord déterminer l’utilisation du cluster que vous créez. Quels types d’applications planifiez-vous de déployer dans ce cluster ? Votre application inclut-elle plusieurs services ? Si oui, ces services doivent-ils être publics ou accessibles sur Internet ? Vos services (qui composent votre application) ont-ils des besoins d’infrastructure différents tels qu’une RAM plus volumineuse ou des cycles processeur plus élevés ? Un cluster Service Fabric peut être constitué de plusieurs types de nœuds : un type de nœud principal et un ou plusieurs types de nœuds non principaux. Chaque type de nœud est mappé à un groupe de machines virtuelles identiques. Chaque type de nœud peut ensuite faire l’objet d’une montée ou descente en puissance de manière indépendante, avoir différents jeux de ports ouverts et présenter différentes métriques de capacité. Des [propriétés de nœud et contraintes de placement][placementconstraints] peuvent être configurées pour limiter des services spécifiques à des types de nœuds spécifiques.  Pour plus d'informations, consultez [Nombre de types de nœuds avec lesquels votre cluster doit démarrer](service-fabric-cluster-capacity.md#the-number-of-node-types-your-cluster-needs-to-start-out-with).
 
 ### <a name="select-node-properties-for-each-node-type"></a>Sélectionner les propriétés de nœud pour chaque type de nœud
 Les types de nœuds définissent les références, le nombre et les propriétés des machines virtuelles du groupe identique correspondant.

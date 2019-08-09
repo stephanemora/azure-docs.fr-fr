@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 07/17/2017
 ms.author: cynthn
 ms.openlocfilehash: 55b73f5f4e6998eb1eb8c5ebc873fa20f8722a3e
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66304592"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-c"></a>Créer et gérer des machines virtuelles Windows dans Azure à l’aide de C# #
@@ -85,7 +85,7 @@ Avant de commencer cette étape, assurez-vous que vous avez accès à un [princi
 
 ### <a name="create-the-management-client"></a>Créer le client de gestion
 
-1. Ouvrez le fichier Program.cs du projet que vous avez créé. Ensuite, ajoutez les instructions aux instructions using au début du fichier :
+1. Ouvrez le fichier Program.cs du projet que vous avez créé. Ensuite, ajoutez ces instructions using aux instructions existantes en haut du fichier :
 
     ```
     using Microsoft.Azure.Management.Compute.Fluent;
@@ -365,7 +365,7 @@ Console.ReadLine();
 
 ### <a name="add-a-data-disk-to-the-vm"></a>Ajouter un disque de données à la machine virtuelle
 
-Pour ajouter un disque de données à la machine virtuelle, ajoutez ce code à la méthode Main. Cet exemple ajoute un disque de données est de 2 Go de taille, han un numéro d’unité logique de 0 et un type de mise en cache de lecture/écriture :
+Pour ajouter un disque de données à la machine virtuelle, ajoutez ce code à la méthode Main. Cet exemple ajoute un disque de données d’une taille de 2 Go, un numéro d’unité logique 0 et un type de mise en cache Lecture/écriture :
 
 ```
 Console.WriteLine("Adding data disk to vm...");

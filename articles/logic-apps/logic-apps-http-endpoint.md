@@ -1,5 +1,5 @@
 ---
-title: Appeler, déclencher ou imbriquer des workflows avec des points de terminaison HTTP - Azure Logic Apps
+title: Appeler, déclencher ou imbriquer des workflows avec des points de terminaison HTTP - Azure Logic Apps
 description: Configurer des points de terminaison HTTP pour appeler, déclencher ou imbriquer des workflows pour Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
@@ -13,10 +13,10 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 03/31/2017
 ms.openlocfilehash: b091fb8c6f0b2b655ce0595188c362206f79d702
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66495054"
 ---
 # <a name="call-trigger-or-nest-workflows-with-http-endpoints-in-azure-logic-apps"></a>Appeler, déclencher ou imbriquer des workflows avec des points de terminaison HTTP dans Azure Logic Apps
@@ -271,9 +271,9 @@ Voici à quoi ressemble désormais le schéma JSON pour l’action **Response**�
 
 ## <a name="q--a"></a>Questions et réponses
 
-#### <a name="q-what-about-url-security"></a>Q : Qu’en est-il de sécurité de l’URL ?
+#### <a name="q-what-about-url-security"></a>Q : Qu’en est-il de la sécurité de l’URL ?
 
-R : Azure génère en toute sécurité les URL de rappel d’application logique à l’aide d’une Signature d’accès partagé (SAP). Cette signature est transmise directement comme paramètre de requête et doit être validée avant que votre application logique puisse être déclenchée. Azure génère cette signature via la combinaison unique d’une clé secrète par application logique, du nom du déclencheur et de l’opération qui est effectuée. Ainsi, à moins que quelqu’un ait accès à la clé secrète de l’application logique, personne ne peut générer de signature valide.
+R : Les URL de rappel de l’application logique sont générées de façon sécurisée par Azure à l’aide d’une signature d’accès partagé (SAP). Cette signature est transmise directement comme paramètre de requête et doit être validée avant que votre application logique puisse être déclenchée. Azure génère cette signature via la combinaison unique d’une clé secrète par application logique, du nom du déclencheur et de l’opération qui est effectuée. Ainsi, à moins que quelqu’un ait accès à la clé secrète de l’application logique, personne ne peut générer de signature valide.
 
    > [!IMPORTANT]
    > Pour les systèmes de production et sécurisés, nous vous déconseillons fortement d’appeler votre application logique directement à partir du navigateur, car :
@@ -281,18 +281,18 @@ R : Azure génère en toute sécurité les URL de rappel d’application logiqu
    > * la clé d’accès partagé s’affiche dans l’URL ;
    > * vous ne pouvez pas gérer de stratégies de contenu sécurisé en raison du partage de domaines entre les clients de l’application logique.
 
-#### <a name="q-can-i-configure-http-endpoints-further"></a>Q : Puis-je configurer des points de terminaison HTTP supplémentaire ?
+#### <a name="q-can-i-configure-http-endpoints-further"></a>Q : Puis-je configurer des points de terminaison HTTP de façon plus approfondie ?
 
-R : Oui, les points de terminaison HTTP prennent en charge la configuration plus avancée via [ **gestion des API**](../api-management/api-management-key-concepts.md). Ce service vous offre également la possibilité de gérer toutes vos API de façon systématique, y compris les applications logiques, de configurer les noms de domaines personnalisés, d’utiliser plus de méthodes d’authentification et bien plus encore, comme par exemple :
+R : Oui, les points de terminaison HTTP prennent en charge une configuration plus avancée par le biais de la [**Gestion des API**](../api-management/api-management-key-concepts.md). Ce service vous offre également la possibilité de gérer toutes vos API de façon systématique, y compris les applications logiques, de configurer les noms de domaines personnalisés, d’utiliser plus de méthodes d’authentification et bien plus encore, comme par exemple :
 
 * [Modification de la méthode de la requête](https://docs.microsoft.com/azure/api-management/api-management-advanced-policies#SetRequestMethod)
 * [Modification des segments d’URL de la requête](https://docs.microsoft.com/azure/api-management/api-management-transformation-policies#RewriteURL)
 * Configuration de vos domaines Gestion des API dans le [portail Azure](https://portal.azure.com/ "portail Azure")
 * Configuration d’une stratégie pour vérifier l’authentification de base
 
-#### <a name="q-what-changed-when-the-schema-migrated-from-the-december-1-2014-preview"></a>Q : Ce qui a changé lors de la migration du schéma à partir de la version préliminaire 1 décembre 2014 ?
+#### <a name="q-what-changed-when-the-schema-migrated-from-the-december-1-2014-preview"></a>Q : Qu’est-ce qui a changé suite à la migration du schéma à partir de la préversion du 1er décembre 2014 ?
 
-R : Voici un résumé sur ces modifications :
+R : Voici un récapitulatif des changements apportés :
 
 | Version préliminaire du 1er décembre 2014 | 1er juin 2016 |
 | --- | --- |

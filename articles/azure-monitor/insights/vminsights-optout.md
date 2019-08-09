@@ -1,6 +1,6 @@
 ---
-title: Guide pratique pour désactiver la surveillance avec Azure Monitor pour machines virtuelles (préversion) | Microsoft Docs
-description: Cet article explique comment arrêter la surveillance de vos machines virtuelles avec Azure Monitor pour machines virtuelles.
+title: Désactiver la surveillance dans Azure Monitor pour machines virtuelles (préversion) | Microsoft Docs
+description: Cet article explique comment arrêter la surveillance de vos machines virtuelles dans Azure Monitor pour machines virtuelles.
 services: azure-monitor
 documentationcenter: ''
 author: mgoedtel
@@ -13,61 +13,66 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/05/2018
 ms.author: magoedte
-ms.openlocfilehash: 0f35ea3e35277ee7f1afd8278a31f45ed20c6995
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: eb667486a6e3279cb78fefe02723f14d9f7c9b4f
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65522115"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67155691"
 ---
-# <a name="how-to-disable-monitoring-of-your-virtual-machines-with-azure-monitor-for-vms-preview"></a>Guide pratique pour désactiver la surveillance de vos machines virtuelles avec Azure Monitor pour machines virtuelles (préversion)
+# <a name="disable-monitoring-of-your-vms-in-azure-monitor-for-vms-preview"></a>Désactiver la surveillance de vos machines virtuelles dans Azure Monitor pour machines virtuelles (préversion)
 
-Si après avoir activé la surveillance de vos machines virtuelles vous décidez que vous ne souhaitez plus les surveiller avec Azure Monitor pour machines virtuelles, vous pouvez désactiver cette surveillance. Cet article explique comment accomplir cette tâche pour une ou plusieurs machines virtuelles.  
+Après avoir activé la surveillance de vos machines virtuelles, vous pouvez choisir de désactiver cette surveillance dans Azure Monitor pour machines virtuelles. Cet article explique comment désactiver la surveillance d’une ou plusieurs machines virtuelles.  
 
-Actuellement, Azure Monitor pour machines virtuelles ne permet pas de désactivant individuellement la surveillance des machines virtuelles. Si votre espace de travail Log Analytics est configuré pour prendre en charge cette solution et d’autres solutions et pour collecter d’autres données d’analyse, il est important de comprendre l’impact et les méthodes décrites ci-dessous avant de continuer.
+Actuellement, Azure Monitor pour machines virtuelles ne prend pas en charge la désactivation sélective de la surveillance des machines virtuelles. Votre espace de travail Log Analytics peut prendre en charge Azure Monitor pour machines virtuelles et d’autres solutions. Il peut également collecter d’autres données de surveillance. Si votre espace de travail Log Analytics fournit ces services, vous devez comprendre l’effet et les méthodes de désactivation de la surveillance avant de commencer.
 
 Azure Monitor pour machines virtuelles s’appuie sur les composants suivants :
 
-* Un espace de travail Log Analytics, qui stocke les données d’analyse collectées sur les machines virtuelles et d’autres sources.
-* Collection de compteurs de performances configurés dans l’espace de travail, qui met à jour la configuration de la surveillance sur toutes les machines virtuelles connectées à l’espace de travail.
-* Deux solutions de surveillance configurées dans l’espace de travail : **InfrastructureInsights** et **ServiceMap**, qui mettent à jour la configuration de la surveillance sur toutes les machines virtuelles connectées à l’espace de travail.
-* Deux extensions de machine virtuelle Azure, **MicrosoftMonitoringAgent** et **DepenendencyAgent**, qui collectent et envoient les données à l’espace de travail.
+* Un espace de travail Log Analytics, qui stocke les données de surveillance collectées à partir des machines virtuelles et d’autres sources.
+* Une collection de compteurs de performances configurés dans l’espace de travail. Cette collection met à jour la configuration de la surveillance sur toutes les machines virtuelles connectées à l’espace de travail.
+* `InfrastructureInsights` et `ServiceMap`, qui sont des solutions de surveillance configurées dans l’espace de travail. Ces solutions mettent à jour la configuration de la surveillance sur toutes les machines virtuelles connectées à l’espace de travail.
+* `MicrosoftMonitoringAgent` et `DependencyAgent`, qui sont des extensions de machine virtuelle Azure. Ces extensions collectent et envoient des données à l’espace de travail.
 
-Tenez compte des points suivants lorsque vous vous préparez à désactiver la surveillance de vos machines virtuelles avec Azure Monitor pour machines virtuelles (préversion) :
+Lorsque vous vous préparez à désactiver la surveillance de vos machines virtuelles, n’oubliez pas les considérations suivantes :
 
-* Si vous évaluez avec une seule machine virtuelle et que vous avez accepté l’espace de travail Log Analytics présélectionné, vous pouvez désactiver la supervision en désinstallant l’agent de dépendances de la machine virtuelle et en déconnectant l’agent Log Analytics de cet espace de travail. Cette approche est adaptée si vous avez l’intention d’utiliser la machine virtuelle à d’autres fins et que vous décidez ultérieurement de la reconnecter à un autre espace de travail.
-* Si vous utilisez l’espace de travail Log Analytics pour prendre en charge d’autres solutions de supervision et la collecte de données à partir d’autres sources, vous pouvez supprimer les composants de la solution Azure Monitor pour machines virtuelles de l’espace de travail sans interrompre ni affecter votre espace de travail.  
-
->[!NOTE]
-> Après avoir supprimé les composants de la solution de votre espace de travail, vous pouvez continuer à voir l’état d’intégrité de vos machines virtuelles Azure, plus précisément les données de performances et de mappage lorsque vous accédez à une de ces vues dans le portail. Les données cesseront d’apparaître dans les vues de performances et de mappage après quelques temps. Toutefois la vue de contrôle d’intégrité continue d’afficher l’état de vos machines virtuelles. L’option **Essayer maintenant** sera disponible sur la machine virtuelle Azure sélectionnée pour pouvoir réactiver la surveillance plus tard.  
-
-## <a name="complete-removal-of-azure-monitor-for-vms"></a>Suppression complète d’Azure Monitor pour machines virtuelles
-
-Les étapes suivantes décrivent comment supprimer complètement Azure Monitor pour machines virtuelles, si vous avez besoin toujours l’espace de travail Log Analytics. Vous vous apprêtez à supprimer les solutions **InfastructureInsights** et **ServiceMap** de l’espace de travail.  
+* Si vous évaluiez avec une seule machine virtuelle et que vous utilisiez l’espace de travail Log Analytics présélectionné par défaut, vous pouvez désactiver la surveillance en désinstallant l’agent de dépendances de la machine virtuelle et en déconnectant l’agent Log Analytics de cet espace de travail. Cette approche est adaptée si vous avez l’intention d’utiliser la machine virtuelle à d’autres fins et que vous décidez ultérieurement de la reconnecter à un autre espace de travail.
+* Si vous avez sélectionné un espace de travail Log Analytics préexistant qui prend en charge d’autres solutions de surveillance et la collecte de données à partir d’autres sources, vous pouvez supprimer les composants de la solution de l’espace de travail sans interrompre ni affecter votre espace de travail.  
 
 >[!NOTE]
->Si vous utilisiez la solution de supervision Service Map avant d’activer Azure Monitor pour machines virtuelles et que vous l’utilisez toujours, ne supprimez pas cette solution comme décrit dans l’étape 6 ci-dessous.  
+> Après avoir supprimé les composants de la solution de votre espace de travail, vous pouvez continuer à voir l’état d’intégrité de vos machines virtuelles Azure. Plus précisément, vous voyez les données de performances et de mappage lorsque vous accédez à l’une de ces vues dans le portail. Les données cesseront éventuellement d’apparaître dans les vues **Performances** et **Mappage**. Toutefois, la vue **Intégrité** continuera d’afficher l’état d’intégrité pour vos machines virtuelles. L’option **Essayer maintenant** sera disponible sur la machine virtuelle Azure sélectionnée et vous permettra de réactiver ultérieurement la surveillance.  
+
+## <a name="remove-azure-monitor-for-vms-completely"></a>Supprimer complètement Azure Monitor pour machines virtuelles
+
+Si vous avez encore besoin de l’espace de travail Log Analytics, procédez comme suit pour supprimer complètement Azure Monitor pour machines virtuelles. Vous allez supprimer les solutions `InfrastructureInsights` et `ServiceMap` à partir de l’espace de travail.  
+
+>[!NOTE]
+>Si vous utilisiez la solution de surveillance Service Map avant d’activer Azure Monitor pour machines virtuelles et que vous l’utilisez toujours, ne supprimez pas cette solution comme cela est décrit dans la dernière étape de la procédure suivante.  
 >
 
-1. Connectez-vous au portail Azure sur [https://portal.azure.com](https://portal.azure.com).
-2. Dans le portail Azure, cliquez sur **Tous les services**. Dans la liste des ressources, tapez Log Analytics. Au fur et à mesure de la saisie, la liste est filtrée. Sélectionnez **Log Analytics**.
-3. Dans votre liste d’espaces de travail Log Analytics, sélectionnez celui que vous avez choisi lors de l’intégration d’Azure Monitor pour machines virtuelles.
-4. Dans le volet de gauche, sélectionnez **Solutions**.  
-5. Dans la liste des solutions, sélectionnez **InfrastructureInsights(nom de l’espace de travail)** , puis, dans la page **Vue d’ensemble** de la solution, cliquez sur **Supprimer**.  À l’invite de confirmation, cliquez sur **Yes**.  
-6. Dans la liste des solutions, sélectionnez **ServiceMap(nom de l’espace de travail)** , puis, dans la page **Vue d’ensemble** de la solution, cliquez sur **Supprimer**.  À l’invite de confirmation, cliquez sur **Yes**.  
+1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+2. Dans le portail Azure, sélectionnez **Tous les services**. Dans la liste de ressources, saisissez **Log Analytics**. Au fur et à mesure de la saisie, la liste filtre les suggestions. Sélectionnez **Log Analytics**.
+3. Dans votre liste d’espaces de travail Log Analytics, sélectionnez celui que vous avez choisi lors de l’activation d’Azure Monitor pour machines virtuelles.
+4. Sur la gauche, sélectionnez **Solutions**.  
+5. Dans la liste des solutions, sélectionnez **InfrastructureInsights(nom d’espace de travail)** . Dans la page **Vue d’ensemble** pour la solution, sélectionnez **Supprimer**. À l’invite de confirmation, sélectionnez **Oui**.  
+6. Dans la liste des solutions, sélectionnez **ServiceMap(nom d’espace de travail)** . Dans la page **Vue d’ensemble** pour la solution, sélectionnez **Supprimer**. À l’invite de confirmation, sélectionnez **Oui**.  
 
-Si avant d’intégrer Azure Monitor pour machines virtuelles, vous ne [collectiez pas les compteurs de performances activés](vminsights-enable-overview.md#performance-counters-enabled) pour les machines virtuelles Windows ou Linux dans votre espace de travail, vous devez désactiver ces règles selon les étapes décrites [ici](../platform/data-sources-performance-counters.md#configuring-performance-counters) pour Windows et Linux.
+Avant l’activation d’Azure Monitor pour machines virtuelles, si vous n’avez pas [collecté les compteurs de performances](vminsights-enable-overview.md#performance-counters-enabled) pour les machines virtuelles Windows ou Linux dans votre espace de travail, [désactivez ces règles](../platform/data-sources-performance-counters.md#configuring-performance-counters) pour Windows et Linux.
 
-## <a name="disable-monitoring-for-an-azure-vm-and-retain-workspace"></a>Désactiver la surveillance pour une machine virtuelle Azure et conserver l’espace de travail  
+## <a name="disable-monitoring-and-keep-the-workspace"></a>Désactiver la surveillance et conserver l’espace de travail  
 
-Les étapes suivantes décrivent comment désactiver la supervision d’une machine virtuelle qui a été activée pour évaluer Azure Monitor pour machines virtuelles, mais l’espace de travail Log Analytics est toujours nécessaire pour prendre en charge la supervision d’autres sources. S’il s’agit d’une machine virtuelle Azure, vous allez supprimer l’agent de dépendances de l’extension de machine virtuelle et l’extension de machine virtuelle de l’agent Log Analytics pour Windows/Linux directement sur la machine virtuelle. 
+Si votre espace de travail Log Analytics a encore besoin de prendre en charge la surveillance à partir d’autres sources, procédez comme suit pour désactiver la surveillance sur la machine virtuelle que vous utilisiez pour évaluer Azure Monitor pour machines virtuelles. Pour les machines virtuelles Azure, vous allez supprimer l’extension de machine virtuelle de l’agent de dépendances et l’extension de machine virtuelle de l’agent Log Analytics pour Windows ou Linux directement sur la machine virtuelle. 
 
 >[!NOTE]
->Si la machine virtuelle est gérée par Azure Automation pour orchestrer les processus, gérer la configuration ou gérer les mises à jour ou bien gérée par Azure Security Center pour la gestion de la sécurité et la détection des menaces, l’agent Log Analytics ne doit pas être supprimé. Sinon, vous empêchez ces services et ces solutions de gérer de façon proactive votre machine virtuelle. 
+>Ne supprimez pas l’agent Log Analytics si : 
+>
+> * Azure Automation gère la machine virtuelle pour orchestrer les processus ou pour gérer la configuration ou les mises à jour. 
+> * Azure Security Center gère la machine virtuelle pour la sécurité et la détection des menaces. 
+>
+> Si vous supprimez l’agent Log Analytics, vous empêchez ces services et ces solutions de gérer de façon proactive votre machine virtuelle. 
 
-1. Connectez-vous au portail Azure sur [https://portal.azure.com](https://portal.azure.com). 
+1. Connectez-vous au [Portail Azure](https://portal.azure.com). 
 2. Dans le portail Azure, sélectionnez **Machines virtuelles**. 
 3. Sélectionnez une machine virtuelle dans la liste. 
-4. Dans le volet de gauche, sélectionnez **Extensions** puis, dans la page **Extensions**, sélectionnez **DependencyAgent**.
-5. Dans la page des propriétés de l’extension, cliquez sur **Désinstaller**.
-6. Dans la page **Extensions**, sélectionnez **MicrosoftMonitoringAgent** et dans la page des propriétés de l’extension, cliquez sur **Désinstaller**.  
+4. Sur la gauche, sélectionnez **Extensions**. Dans la page **Extensions**, sélectionnez **DependencyAgent**.
+5. Dans la page des propriétés de l’extension, sélectionnez **Désinstaller**.
+6. Dans la page **Extensions**, sélectionnez **MicrosoftMonitoringAgent**. Dans la page des propriétés de l’extension, sélectionnez **Désinstaller**.  

@@ -1,6 +1,6 @@
 ---
-title: Demande de processus et les notifications électroniques dans Gestion des droits Azure AD (version préliminaire) - Azure Active Directory
-description: En savoir plus sur le processus de demande pour un package d’accès, et lorsque les notifications par courrier électronique sont envoyées dans la gestion des droits Azure Active Directory (version préliminaire).
+title: Processus de demande et notifications par e-mail dans la gestion des droits d’utilisation d’Azure Active Directory (préversion) - Azure Active Directory
+description: Découvrez le processus de demande d’un package d’accès, et les envois de notifications par e-mail dans la gestion des droits d’utilisation Azure Active Directory (préversion).
 services: active-directory
 documentationCenter: ''
 author: rolyon
@@ -17,79 +17,79 @@ ms.author: rolyon
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: aede5e315141251026867f7028ebf989d44da4d5
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66473066"
 ---
-# <a name="request-process-and-email-notifications-in-azure-ad-entitlement-management-preview"></a>Demande de processus et les notifications électroniques dans Gestion des droits Azure AD (version préliminaire)
+# <a name="request-process-and-email-notifications-in-azure-ad-entitlement-management-preview"></a>Processus de demande et notifications par e-mail dans la gestion des droits d’utilisation Azure AD (préversion)
 
 > [!IMPORTANT]
 > La gestion des droits d’utilisation Azure Active Directory (Azure AD) est actuellement en préversion publique.
 > Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge.
 > Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Lorsqu’un utilisateur soumet une demande à un package de l’accès, un processus est démarré pour fournir cette demande. Gestion des droits Azure AD envoie également des notifications par courrier électronique des approbateurs et des demandeurs lorsque des événements clés se produisent pendant le processus.
+Lorsqu’un utilisateur envoie une demande à un package d’accès, un processus est démarré pour remettre cette demande. La gestion des droits d’utilisation Azure AD envoie également des notifications par e-mail aux approbateurs et demandeurs lorsque des événements clés se produisent pendant le processus.
 
-Cet article décrit le processus de demande et les notifications par courrier électronique qui sont envoyées.
+Cet article décrit le processus de demande et les notifications par e-mail qui sont envoyées.
 
 ## <a name="request-process"></a>Processus de demande
 
-Un utilisateur qui a besoin d’accéder à un package d’accès peut soumettre une demande d’accès. Selon la configuration de la stratégie, la demande peut nécessiter une approbation. Lorsqu’une demande est approuvée, un processus commence à affecter l’accès utilisateur à chaque ressource dans le package de l’accès. Le diagramme suivant montre une vue d’ensemble du processus et les différents états.
+Un utilisateur qui a besoin d’accéder à un package d’accès peut soumettre une demande d’accès. Selon la configuration de la stratégie, la demande peut nécessiter une approbation. Lorsqu’une demande est approuvée, un processus commence à attribuer à l’utilisateur l’accès à chaque ressource dans le package d’accès. Le diagramme suivant montre une vue d’ensemble du processus et des différents états.
 
 ![Diagramme du processus d’approbation](./media/entitlement-management-process/request-process.png)
 
 | État | Description |
 | --- | --- |
-| Soumis | Utilisateur soumet une demande. |
-| Approbation en attente | Si la stratégie pour un package d’accès exige une approbation, parcours d’une demande pour en attente d’approbation. |
-| Expiré | Si aucun approbateur n’approuve une demande dans le délai d’expiration de la demande d’approbation, la demande expire. Pour réessayer, l’utilisateur devra soumettre à nouveau leur demande. |
-| Refusé | Approbateur refuse une requête. |
-| Approved | Approbateur approuve une demande. |
-| Remise | Utilisateur a **pas** été affecté un accès à toutes les ressources dans le package de l’accès. S’il s’agit d’un utilisateur externe, l’utilisateur n’a pas encore accessible de répertoire de ressources et accepté les autorisations de l’invite de commandes. |
-| Delivered (Livrée) | Utilisateur a reçu l’accès à toutes les ressources dans le package de l’accès. |
-| Accéder aux étendues | Si les extensions sont autorisées dans la stratégie, l’utilisateur étendu l’attribution. |
-| Accès expiré | L’accès utilisateur pour le package de l’accès a expiré. Pour accéder à nouveau, l’utilisateur devra soumettre une demande. |
+| Envoyée | L’utilisateur soumet une demande. |
+| Approbation en attente | Si la stratégie d’un package d’accès exige une approbation, la demande passe à l’approbation en attente. |
+| Expirée | Si aucun approbateur ne valide la demande dans le délai d’attente de la demande d’approbation, la demande expire. Pour réessayer, l’utilisateur doit soumettre de nouveau sa demande. |
+| Refusée | L’approbateur refuse une demande. |
+| Approved | L’approbateur approuve une demande. |
+| Remise | L’accès à toutes les ressources dans le package d’accès n’a **pas** été affecté à l’utilisateur. S’il s’agit d’un utilisateur externe, il n’a pas encore accédé à l’annuaire de ressources et il n’a pas accepté les invites d’autorisations. |
+| Delivered (Livrée) | L’utilisateur a reçu l’accès à toutes les ressources dans le package d’accès. |
+| Accès étendu | Si des extensions sont autorisées dans la stratégie, l’utilisateur a étendu l’attribution. |
+| Accès expiré | L’accès de l’utilisateur au package d’accès a expiré. Pour obtenir de nouveau l’accès, l’utilisateur doit soumettre une demande. |
 
 ## <a name="email-notifications"></a>Notifications par e-mail
 
-Si vous êtes un approbateur, vous sont envoyées les notifications par courrier électronique lorsque vous avez besoin d’approuver une demande d’accès et quand une demande d’accès a été effectuée. Si vous êtes un demandeur, vous sont envoyées les notifications par courrier électronique qui indiquent l’état de votre demande. Le diagramme suivant illustre lorsque ces notifications par courrier électronique est envoyé.
+Si vous êtes approbateur, des notifications par e-mail vous sont envoyées lorsque vous devez approuver une demande d’accès, et lorsqu’une demande d’accès a été validée. Si vous êtes demandeur, des notifications par e-mail indiquant l’état de votre demande vous sont envoyées. Le diagramme suivant montre quand ces notifications par e-mail sont envoyées.
 
-![Processus de gestion des droits e-mail](./media/entitlement-management-process/email-notifications.png)
+![Parcours des e-mails de la gestion des droits d’utilisation](./media/entitlement-management-process/email-notifications.png)
 
-Le tableau suivant fournit plus de détails sur chacune de ces notifications par courrier électronique.
+Le tableau suivant fournit plus de détails sur chacune de ces notifications par e-mail.
 
-| # | Objet de l’e-mail | Lors de l’envoi | Envoyé à |
+| # | Objet de l’e-mail | Moment de l’envoi | Envoyé à |
 | --- | --- | --- | --- |
-| 1 | Action requise : Demande de révision d’accès à partir de *[demandeur]* à *[package d’accès]* par *[date]* | Quand un demandeur envoie une demande pour un package d’accès | Tous les approbateurs |
-| 2 | Action requise : Demande de révision d’accès à partir de *[demandeur]* à *[package d’accès]* par *[date]* | Délai de demande de X jours avant l’approbation | Tous les approbateurs |
-| 3 | Notification d’état : *[demandeur]* de demande d’accès à *[package d’accès]* a expiré | Lorsque les approbateurs de ne pas approuver ou refuser une demande d’accès au sein de la durée de la demande | Demandeur |
-| 4 | Notification d’état : *[demandeur]* demande d’accès à *[package d’accès]* a été effectuée | Lorsque la première approbateur approuve ou refuse une demande d’accès | Tous les approbateurs |
-| 5. | Vous avez été refusé l’accès à *[package d’accès]* | Quand un demandeur n’a pas accès au package d’accès | Demandeur |
-| 6. | Vous avez maintenant accès à *[package d’accès]*  | Lorsqu’un demandeur a accès à toutes les ressources dans le package de l’accès | Demandeur |
-| 7 | Votre accès à *[package d’accès]* expire dans X jours | Expiration de X jours avant l’accès au package d’accès du demandeur | Demandeur |
-| 8 | Votre accès à *[package d’accès]* a expiré | Lorsque l’accès du demandeur à un package d’accès arrive à expiration | Demandeur |
+| 1 | Action demandée : examiner la demande d’accès de *[demandeur]* à *[package d’accès]* avant le *[date]* | Quand un demandeur soumet une demande pour un package d’accès | Tous les approbateurs |
+| 2 | Action demandée : examiner la demande d’accès de *[demandeur]* à *[package d’accès]* avant le *[date]* | X jours avant l’expiration de la demande d’approbation | Tous les approbateurs |
+| 3 | Notification d’état : la demande d’accès de *[demandeur]* à *[package d’accès]* a expiré | Quand les approbateurs n’approuvent pas ou qu’ils refusent une demande d’accès dans le délai imparti de la demande | Demandeur |
+| 4 | Notification d’état : la demande d’accès de *[demandeur]* à *[package d’accès]* a été validée | Quand le premier approbateur approuve ou refuse une demande d’accès | Tous les approbateurs |
+| 5\. | L’accès à *[package d’accès]* vous a été refusé. | Quand l’accès au package d’accès a été refusé à un demandeur | Demandeur |
+| 6\. | Vous avez maintenant accès à *[package d’accès]*  | Quand un demandeur a accès à toutes les ressources dans le package d’accès | Demandeur |
+| 7 | Votre accès à *[package d’accès]* expire dans X jour(s) | X jours avant que l’accès du demandeur au package d’accès expire | Demandeur |
+| 8 | Votre accès à *[package d’accès]* a expiré | Quand l’accès du demandeur à un package d’accès expire | Demandeur |
 
-### <a name="access-request-emails"></a>E-mails de demande d’accès
+### <a name="access-request-emails"></a>E-mails notifiant la demande d’accès
 
-Lorsqu’un demandeur envoie une demande d’accès pour un package d’accès qui est configuré pour exiger l’approbation, tous les approbateurs configurés dans la stratégie de recevoir une notification par courrier électronique avec les détails de la demande. Détails incluent le nom du demandeur, organisation, date de début et de fin s’il est fourni, justification professionnelle, lorsque la demande a été soumise et date d’expiration de la demande d’accès. Cet e-mail inclut un lien où les approbateurs peuvent approuver ou refuser la demande d’accès. Voici un exemple de notification de courrier électronique est envoyé à un approbateur lorsqu’un demandeur envoie une demande d’accès.
+Lorsqu’un demandeur envoie une demande d’accès à un package d’accès qui est configuré pour demander l’approbation, tous les approbateurs définis dans la stratégie reçoivent une notification par e-mail avec les détails de la demande. Les détails comprennent le nom du demandeur, l’organisation, la date de début et de fin le cas échéant, la justification professionnelle, la date de soumission de la demande et la date d’expiration de la demande. L’e-mail comporte un lien, dans lequel les approbateurs peuvent approuver ou refuser la demande d’accès. Voici un exemple de notification par e-mail qui est envoyé à un approbateur lorsqu’un demandeur soumet une demande d’accès.
 
-![E-mail de demande d’accès révision](./media/entitlement-management-shared/email-approve-request.png)
+![Vérification de l’e-mail de demande d’accès](./media/entitlement-management-shared/email-approve-request.png)
 
-### <a name="approved-or-denied-emails"></a>E-mails approuvées ou refusées
+### <a name="approved-or-denied-emails"></a>E-mails notifiant l’approbation ou le refus
 
-Demandeurs sont avertis lorsque leur demande d’accès est approuvé et disponibles pour l’accès, ou lorsque leur demande d’accès est refusé. Quand un approbateur reçoit une demande d’accès présentée par un demandeur, ils peuvent approuver ou refuser la demande d’accès. L’approbateur doit ajouter une justification pour leur décision.
+Les demandeurs sont avertis lorsque leur demande d’accès est approuvée et accessible, ou lorsqu’elle est refusée. Quand un approbateur reçoit une demande d’accès présentée par un demandeur, il peut approuver ou refuser la demande d’accès. L’approbateur doit ajouter une justification professionnelle motivant sa décision.
 
-Lorsqu’une demande d’accès est approuvée, gestion des habilitations démarre le processus d’octroi au demandeur un accès à chacune des ressources dans le package de l’accès. Une fois que le demandeur a accès à toutes les ressources dans le package de l’accès, une notification par courrier électronique est envoyée au demandeur que sa demande d’accès a été approuvée et qu’ils ont accès au package d’accès. Voici un exemple de notification de courrier électronique est envoyé à un demandeur lors de l’accès à un package de l’accès leur est accordé.
+Lorsqu’une demande d’accès est approuvée, la gestion des droits d’utilisation démarre le processus d’octroi au demandeur d’un accès à chacune des ressources dans le package d’accès. Une fois que le demandeur a obtenu l’accès à chacune des ressources du package d’accès, une notification par e-mail est envoyée au demandeur l’informant que sa demande d’accès a été approuvée et qu’il a maintenant accès au package d’accès. Voici un exemple de notification par e-mail qui est envoyé à un demandeur lorsque l’accès à un package d’accès lui est accordé.
 
-Lorsqu’une demande d’accès est refusée, une notification par courrier électronique est envoyée au demandeur. Voici un exemple de notification de courrier électronique est envoyé au demandeur lorsque leur demande d’accès est refusé.
+Lorsqu’une demande d’accès est refusée, une notification par e-mail est envoyée au demandeur. Voici un exemple de notification par e-mail qui est envoyé à un demandeur lorsque sa demande d’accès est refusée.
 
-### <a name="expired-access-request-emails"></a>Expiration des e-mails de demande d’accès
+### <a name="expired-access-request-emails"></a>E-mails notifiant la demande d’accès expirée
 
-Demandeurs sont avertis lorsque leur demande d’accès a expiré. Lorsqu’un demandeur envoie une demande d’accès, la requête a une durée après laquelle il arrive à expiration. S’il n’existe aucun approbateur qui soumettent une décision d’approuver ou refuser, la demande continue à rester dans un état en attente d’approbation. Lorsque la demande atteint sa durée d’expiration configuré, la demande arrive à expiration et peut ne plus être approuvée ou refusée par les approbateurs. Dans ce cas, la demande s’exécute dans un état expiré. Une requête expirée peut ne plus être approuvée ou refusée. Une notification par courrier électronique est envoyée au demandeur qui leur demande d’accès a expiré, et qu’il doit renvoyer la demande d’accès. Voici un exemple de notification de courrier électronique est envoyé au demandeur lorsque leur demande d’accès a expiré.
+Les demandeurs sont avertis lorsque leur demande d’accès a expiré. Lorsqu’un demandeur envoie une demande d’accès, la requête présente un délai au bout duquel elle expire. S’il n’y a aucun approbateur pour envoyer une décision d’approbation/de refus, la demande est maintenue dans un état d’approbation en attente. Lorsque la demande atteint son délai d’expiration configuré, elle expire et ne peut plus être approuvée ou refusée par les approbateurs. Dans ce cas, la demande prend l’état expiré. Une requête expirée ne peut plus être approuvée ou refusée. Une notification par e-mail est envoyée au demandeur l’informant que sa demande d’accès a expiré et qu’il doit soumettre sa demande à nouveau. Voici un exemple de notification par e-mail qui est envoyée à un demandeur lorsque sa demande d’accès a expiré.
 
-![Accéder à la messagerie demande arrivé à expiration](./media/entitlement-management-process/email-expired-access-request.png)
+![E-mail notifiant la demande d’accès expirée](./media/entitlement-management-process/email-expired-access-request.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

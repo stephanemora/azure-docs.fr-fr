@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
 ms.openlocfilehash: 9d5e06c3d72d87a87b41a52ed4df369ebc04dccd
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66387092"
 ---
 # <a name="monitor-scenario-in-durable-functions---weather-watcher-sample"></a>Scénario de surveillance dans l’extension Fonctions durables - Exemple d’observateur météo
@@ -89,7 +89,7 @@ Il est possible d’exécuter simultanément plusieurs instances d’orchestrate
 
 ## <a name="strongly-typed-data-transfer-net-only"></a>Transfert de données fortement typées (.NET uniquement)
 
-L’orchestrateur nécessite plusieurs éléments de données, par conséquent, [objets oct partagés](../functions-reference-csharp.md#reusing-csx-code) sont utilisés pour le transfert de données fortement typées dans C# et C# script :  
+L’orchestrateur nécessite plusieurs éléments de données. Par conséquent, des [objets OCT partagés](../functions-reference-csharp.md#reusing-csx-code) sont utilisés pour le transfert des données fortement typées en C# et dans les scripts C# :  
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/shared/MonitorRequest.csx)]
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/shared/Location.csx)]

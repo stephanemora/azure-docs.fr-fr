@@ -15,10 +15,10 @@ ms.date: 05/28/2019
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: e9c34d3cfd5ce9bb3a8f9a9072f2843331065100
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66496516"
 ---
 # <a name="use-an-app-service-environment"></a>Utilisation d’un environnement App Service #
@@ -132,7 +132,7 @@ Avec un environnement ASE externe, toutes ces options de publication ont le mêm
 
 La principale différence avec la publication concerne un environnement ASE d’équilibrage de charge interne. Avec un environnement ASE d’équilibrage de charge interne, les points de terminaison de publication sont tous disponibles uniquement via l’équilibrage de charge interne. L’équilibrage de charge interne se trouve sur une adresse IP privée dans le sous-réseau de l’environnement ASE du réseau virtuel. Si vous n’avez pas d’accès réseau à l’équilibrage de charge interne, vous ne pouvez pas publier d’applications dans cet environnement ASE. Comme indiqué dans [Create and Use an Internal Load Balancer with an App Service Environment][MakeILBASE] (Créer et utiliser un équilibreur de charge interne avec un environnement App Service), vous devez configurer le DNS pour les applications du système. Cela inclut le point de terminaison GCL. S’ils ne sont pas définis correctement, vous ne pouvez pas publier. Vos IDE doivent également avoir un accès réseau à l’équilibreur de charge interne pour publier directement dans celui-ci.
 
-Dès le départ, les systèmes CI basés sur Internet, tels que GitHub et Azure DevOps, ne fonctionnent pas avec un environnement ASE, car le point de terminaison de publication n’est pas accessible via Internet. Pour Azure DevOps, vous pouvez contourner ce en installant un agent de mise en production auto-hébergé dans votre réseau interne où il peut atteindre l’équilibrage de charge interne. Ou bien, vous pouvez également utiliser un système CI qui utilise un modèle d’extraction, par exemple Dropbox.
+À la base, les systèmes d’intégration continue sur Internet, comme GitHub et Azure DevOps, ne fonctionnent pas avec un environnement ASE d’équilibreur de charge interne, car le point de terminaison de publication n’est pas accessible via Internet. Pour Azure DevOps, vous pouvez contourner ce problème en installant un agent de mise en production auto-hébergé dans votre réseau interne où il peut accéder à l’équilibreur de charge interne. Vous pouvez aussi utiliser un système d’intégration continue qui s’appuie sur un modèle d’extraction, comme Dropbox.
 
 Les points de terminaison de publication pour les applications d’un environnement ASE d’équilibreur de charge interne utilisent le domaine avec lequel l’environnement ASE d’équilibreur de charge interne a été créé. Vous pouvez le voir dans le profil de publication de l’application et dans le panneau du portail de l’application (dans **Vue d’ensemble** > **Bases** et également dans **Propriétés**). 
 

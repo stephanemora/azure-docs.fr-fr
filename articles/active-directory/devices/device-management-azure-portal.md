@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f33b52255b1401e3595687612610a4688ad026d
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.openlocfilehash: 7f64beb80d1a11930fee74e669675b39087cade0
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67461457"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562232"
 ---
 # <a name="manage-device-identities-using-the-azure-portal"></a>Gérer les identités de l’appareil à l’aide du portail Microsoft Azure
 
@@ -91,13 +91,19 @@ Deux options vous permettent de localiser les appareils inscrits et joints :
 
 Ces deux options permettent d’accéder à une vue qui :
 
-- Permet de rechercher des appareils en utilisant leur nom d’affichage comme filtre
+- Permet de rechercher des appareils en utilisant leur nom d’affichage ou leur identité d’appareil comme filtre
 - Fournit une vue d’ensemble détaillée des appareils inscrits et joints
 - Permet d’effectuer les tâches courantes de gestion des appareils
 
 ![Tous les appareils](./media/device-management-azure-portal/51.png)
 
-Pour certains appareils iOS, les noms d’appareils qui contiennent des apostrophes peuvent utiliser d’autres caractères qui ressemblent à des apostrophes. La recherche de ces appareils peut donc être difficile. Si les résultats que vous attendez ne s’affichent pas, vérifiez que la chaîne de recherche contient les caractères d’apostrophe attendus.
+>[!TIP]
+>
+>* Si vous voyez un appareil « joint à une version hybride d’Azure AD » avec l’état « En attente » dans la colonne REGISTERED (Inscrit), cela signifie que l’appareil a été synchronisé à partir d’Azure AD Connect et qu’il attend de terminer l’inscription à partir du client. Pour en savoir plus, consultez [Planifier votre implémentation de la jointure d’Azure AD Hybride](hybrid-azuread-join-plan.md). Pour plus d’informations, consultez le [Forum aux questions sur les appareils](faq.md).
+>
+>   ![Appareils en attente](./media/device-management-azure-portal/75.png)
+>
+>* Pour certains appareils iOS, les noms d’appareils qui contiennent des apostrophes peuvent utiliser d’autres caractères qui ressemblent à des apostrophes. La recherche de ces appareils peut donc être difficile. Si les résultats que vous attendez ne s’affichent pas, vérifiez que la chaîne de recherche contient les caractères d’apostrophe attendus.
 
 ## <a name="device-identity-management-tasks"></a>Tâches de gestion des identités des appareils
 
@@ -151,7 +157,7 @@ Pour supprimer un appareil, vous avez deux options :
    - Supprime toutes les informations associées à l’appareil, par exemple, les clés BitLocker des appareils Windows.  
    - Est une action irréversible et donc non recommandée, sauf si elle est absolument nécessaire.
 
-Si un appareil est géré par une autre autorité de gestion (par exemple, Microsoft Intune), vérifiez que l’appareil a été réinitialisé ou mis hors service avant de le supprimer d’Azure AD.
+Si un appareil est géré par une autre autorité de gestion (par exemple, Microsoft Intune), vérifiez que l’appareil a été réinitialisé ou mis hors service avant de le supprimer d’Azure AD. Lisez comment [gérer des appareils obsolètes](device-management-azure-portal.md) avant de supprimer des appareils.
 
 ### <a name="view-or-copy-device-id"></a>Afficher ou copier l’ID de l’appareil
 
@@ -167,11 +173,12 @@ Vous pouvez afficher et copier les clés BitLocker pour permettre aux utilisateu
 
 Pour afficher ou copier les clés BitLocker, vous devez être le propriétaire de l’appareil ou un utilisateur possédant au moins l’un des rôles suivants attribués :
 
+- Administrateur d’appareil cloud
 - Administrateur général
 - Administrateur du support technique
+- Administrateur de services Intune
 - Security Administrator
 - Lecteur de sécurité
-- Administrateur de services Intune
 
 > [!NOTE]
 > Les appareils Windows 10 hybrides joints à Azure AD n’ont pas de propriétaire. Par conséquent, si vous cherchiez un appareil à l’aide de son propriétaire et ne l’avez pas trouvé, recherchez-le à l’aide de son ID.
@@ -203,7 +210,7 @@ Vous pouvez personnaliser le mode Liste en cliquant sur **Colonnes** dans la ba
 
 Pour limiter les données transmises à un niveau qui vous convient, vous pouvez filtrer les données d’audit à l’aide des champs suivants :
 
-- Catégorie
+- Category
 - Type de ressource d’activité
 - Activité
 - Plage de dates

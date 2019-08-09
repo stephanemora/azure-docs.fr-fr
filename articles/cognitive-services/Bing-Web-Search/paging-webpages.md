@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: aahi
 ms.openlocfilehash: a038dc2706c7cb128751630f8997851409886290
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66384809"
 ---
 # <a name="how-to-page-through-results-from-the-bing-web-search-api"></a>Découvrez comment naviguer dans les résultats de la recherche à partir de l’API Recherche Web Bing.
@@ -68,4 +68,4 @@ Si vous spécifiez le paramètre de requête `responseFilter`, mais que vous n�
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Quel est l’API de recherche Web Bing](overview.md)?
+* [Qu’est-ce que l’API Recherche Web Bing ?](overview.md)

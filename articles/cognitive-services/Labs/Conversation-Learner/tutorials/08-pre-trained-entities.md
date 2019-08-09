@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 04/30/2018
 ms.author: nitinme
 ms.openlocfilehash: fb70983c2f9fd20368bb8c6803c9568b27141af7
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66389271"
 ---
 # <a name="how-to-add-pre-trained-entities"></a>Comment ajouter des entités préentraînées
@@ -39,42 +39,42 @@ Démarrez sur la page d’accueil de l’interface utilisateur web.
 
 ### <a name="create-the-model"></a>Créer le modèle
 
-1. Sélectionnez **nouveau modèle**.
-2. Entrez **PretrainedEntities** pour **nom**.
+1. Sélectionnez **New Model**.
+2. Entrez **PretrainedEntities** comme **Name**.
 3. Sélectionnez **Créer**.
 
 ### <a name="entity-creation"></a>Création d’entités
 
-1. Sélectionnez **entités** dans le volet gauche, puis **nouvelle entité**.
-2. Sélectionnez **Trained pré/datetimeV2** pour **Type d’entité**.
-3. Vérifiez **multiples** pour activer l’entité s’accumulent une ou plusieurs valeurs. Notez que les entités Pre-Trained ne peut pas être negatable.
+1. Sélectionnez **Entities** dans le volet gauche, puis **New Entity**.
+2. Sélectionnez **Pre-Trained/datetimeV2** comme **Entity Type**.
+3. Cochez **Multi-valued** pour permettre à l’entité d’accumuler une ou plusieurs valeurs. Notez que les entités préentraînées ne peuvent pas être niées.
 4. Sélectionnez **Créer**.
 
 ![](../media/T08_entity_create.png)
 
-1. Sélectionnez **Actions** dans le volet gauche, puis **nouvelle Action**.
-2. Entrez **la date est $builtin-datetimev2** pour **réponse de robot...** .
+1. Sélectionnez **Actions** dans le volet gauche, puis **New Action**.
+2. Entrez **La date est $builtin-datetimev2** comme **Bot’s Response...** .
 3. Sélectionnez **Créer**.
 
 ![](../media/T08_action_create_1.png)
 
 ### <a name="create-the-second-action"></a>Créer la deuxième action
 
-1. Sélectionnez **Actions** dans le volet gauche, puis **nouvelle Action**.
-2. Entrez **quelle est la date ?** pour **réponse de robot...** . Entités préformées ne peut pas être **entités requises** qu’elles sont reconnues par défaut pour tous les énoncés.
-3. Entrez **builtin-datetimev2** pour **entités de cette manière**.
+1. Sélectionnez **Actions** dans le volet gauche, puis **New Action**.
+2. Entrez **Quelle est la date ?** comme **Bot’s Response...** . Les entités préentraînées ne peuvent pas être des **entités obligatoires**, puisqu’elles sont reconnues par défaut pour tous les énoncés.
+3. Entrez **builtin-datetimev2** comme **Disqualifying Entities**.
 4. Sélectionnez **Créer**.
 
 ![](../media/T08_action_create_2.png)
 
 ### <a name="train-the-model"></a>Effectuer la formation du modèle
 
-1. Sélectionnez **boîtes de dialogue Train** dans le volet gauche, puis **nouvelle boîte de dialogue de Train**.
-2. Entrez **hello** pour énoncé de l’utilisateur dans le volet gauche de conversation.
+1. Sélectionnez **Train Dialogs** dans le volet gauche, puis **New Train Dialog**.
+2. Entrez **Bonjour** comme énoncé de l’utilisateur dans le volet gauche de conversation.
 3. Sélectionnez **Score Actions**.
-4. Sélectionnez **quelle est la date ?** à partir de la liste d’Actions
-5. Entrez **aujourd'hui** pour énoncé de l’utilisateur dans le volet gauche de conversation.
-    - Le **aujourd'hui** énoncé est automatiquement reconnue par les modèles préentraînés dans LUIS.
+4. Sélectionnez **Quelle est la date ?** dans la liste d’Actions
+5. Entrez **aujourd’hui** comme énoncé de l’utilisateur dans le volet gauche de conversation.
+    - L’énoncé **aujourd’hui** est automatiquement reconnu par les modèles préentraînés dans LUIS.
     - Survoler les valeurs des entités préentraînées permet d’afficher des données supplémentaires fournies par LUIS.
 
 ![](../media/T08_training.png)

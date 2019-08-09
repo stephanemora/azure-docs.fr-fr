@@ -7,12 +7,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 12/19/2018
-ms.openlocfilehash: 8f55b6dfb7b5bc9eda675aca4ed80a66b8a25a7f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 60ec2b86e0205060f907f1fe39d084dca3aac1cd
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60445768"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68608229"
 ---
 # <a name="handle-duplicate-data-in-azure-data-explorer"></a>Traiter des données en double dans Azure Data Explorer
 
@@ -70,7 +70,7 @@ DeviceEventsAll
 
 ### <a name="solution-3-filter-duplicates-during-the-ingestion-process"></a>Solution 3 : Filtrer les doublons lors du processus d’ingestion
 
-Une autre solution consiste à filtrer les doublons pendant le processus d’ingestion. Le système ignore les données en double lors de l’ingestion dans les tables Kusto. Les données sont ingérées dans une table intermédiaire, puis copiées dans une autre table après la suppression des lignes en double. L’avantage de cette solution est que les performances des requêtes sont considérablement meilleures par rapport à la solution précédente. Les inconvénients sont des temps d’ingestion accrus et des coûts supplémentaires de stockage des données.
+Une autre solution consiste à filtrer les doublons pendant le processus d’ingestion. Le système ignore les données en double lors de l’ingestion dans les tables Kusto. Les données sont ingérées dans une table intermédiaire, puis copiées dans une autre table après la suppression des lignes en double. L’avantage de cette solution est que les performances des requêtes sont considérablement meilleures par rapport à la solution précédente. Les inconvénients sont des temps d’ingestion accrus et des coûts supplémentaires de stockage des données. En plus, cette solution ne fonctionne que si les doublons ne sont pas ingérés simultanément. S’il existe plusieurs ingestions simultanées contenant des enregistrements en double, elles peuvent toutes être ingérées, car le processus de déduplication ne trouvera pas d’enregistrements correspondants existant dans la table.    
 
 L’exemple suivant décrit cette méthode :
 

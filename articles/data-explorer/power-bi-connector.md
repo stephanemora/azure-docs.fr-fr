@@ -1,18 +1,18 @@
 ---
 title: Visualiser des données à l’aide du connecteur Azure Data Explorer pour Power BI
-description: 'Dans cet article, vous allez apprendre à utiliser une des trois options de visualisation de données dans Power BI : le connecteur Power BI pour l’Explorateur de données Azure.'
+description: 'Dans cet article, vous allez découvrir comment utiliser une des trois options de visualisation des données dans Power BI : le connecteur Power BI pour Azure Data Explorer.'
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 06/04/2019
-ms.openlocfilehash: 0bfacc968a04f8ef9e39a31cff5e81cf4e04c6fb
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
-ms.translationtype: MT
+ms.date: 07/10/2019
+ms.openlocfilehash: cfe7d5fa82197a05ddadd08a8811dc86067a05d7
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66494627"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67806484"
 ---
 # <a name="visualize-data-using-the-azure-data-explorer-connector-for-power-bi"></a>Visualiser des données à l’aide du connecteur Azure Data Explorer pour Power BI
 
@@ -22,9 +22,9 @@ Azure Data Explorer offre trois options pour se connecter à des données dans P
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte Azure gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
-Vous avez besoin de ce qui suit pour terminer cet article :
+Vous avez besoin des éléments suivants dans le cadre de cet article :
 
 * Un compte e-mail professionnel qui est membre d’Azure Active Directory pour pouvoir vous connecter au [cluster help d’Azure Data Explorer](https://dataexplorer.azure.com/clusters/help/databases/samples).
 
@@ -38,11 +38,11 @@ Connectez-vous d’abord au cluster help d’Azure Data Explorer : vous récup�
 
     ![Obtention des données](media/power-bi-connector/get-data-more.png)
 
-1. Recherchez *Explorateur de données Azure*, sélectionnez **Explorateur de données Azure** puis **Connect**.
+1. Recherchez *Azure Data Explorer*, sélectionnez **Azure Data Explorer**, puis **Se connecter**.
 
     ![Rechercher et obtenir des données](media/power-bi-connector/search-get-data.png)
 
-1. Sur le **Explorateur de données Azure (Kusto)** écran, remplissez le formulaire avec les informations suivantes.
+1. Dans l’écran **Azure Data Explorer (Kusto)** , renseignez le formulaire avec les informations suivantes.
 
     ![Options pour le cluster, la base de données et la table](media/power-bi-connector/cluster-database-table.png)
 
@@ -83,8 +83,8 @@ Connectez-vous d’abord au cluster help d’Azure Data Explorer : vous récup�
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
-Si vous n’avez plus besoin du rapport que vous avez créé pour cet article, supprimez le fichier de Power BI Desktop (.pbix).
+Si vous n’avez plus besoin du rapport que vous avez créé pour cet article, supprimez le fichier Power BI Desktop (.pbix).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Visualiser les données à l’aide d’une requête importée dans Power BI](power-bi-imported-query.md)
+[Visualiser des données avec une requête importée dans Power BI](power-bi-imported-query.md)

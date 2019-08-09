@@ -14,17 +14,17 @@ ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
 ms.openlocfilehash: f0612a688bb1e0fd79325b9a1f9b43731a210d10
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66399235"
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-with-azure-sql-database-geo-replication-and-failover"></a>Configurer Azure-SSIS Integration Runtime avec la géo-réplication et le basculement Azure SQL Database
 
 Cet article explique comment configurer Azure-SSIS Integration Runtime avec la géo-réplication Azure SQL Database pour la base de données SSISDB. Lorsqu’un basculement se produit, vous pouvez garantir le bon fonctionnement d’Azure-SSIS Integration Runtime avec la base de données secondaire.
 
-Pour plus d’informations sur la géo-réplication et basculement pour la base de données SQL, consultez [vue d’ensemble : Les groupes de géo-réplication et basculement automatique active](../sql-database/sql-database-geo-replication-overview.md).
+Pour plus d’informations sur la géoréplication et le basculement de SQL Database, consultez [Vue d’ensemble : géoréplication active et groupes de basculement automatique](../sql-database/sql-database-geo-replication-overview.md).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -72,7 +72,7 @@ En cas de basculement, vous devez effectuer les opérations suivantes :
 
 Les sections suivantes décrivent ces étapes plus en détail.
 
-### <a name="prerequisites"></a>Conditions préalables
+### <a name="prerequisites"></a>Prérequis
 
 - Activez la récupération d’urgence sur votre serveur Azure SQL Database au cas où le serveur subirait une interruption en même temps. Pour plus d’informations, voir [Vue d’ensemble de la continuité d’activité avec Azure SQL Database](../sql-database/sql-database-business-continuity.md).
 
@@ -101,11 +101,11 @@ Suivez ces étapes pour arrêter votre runtime d’intégration Azure-SSIS, basc
 
 3. Redémarrez le runtime d’intégration.
 
-## <a name="scenario-3---attaching-an-existing-ssisdb-ssis-catalog-to-a-new-azure-ssis-ir"></a>Scénario 3 : attacher un existant SSISDB (catalogue SSIS) à un nouveau runtime d’intégration Azure-SSIS
+## <a name="scenario-3---attaching-an-existing-ssisdb-ssis-catalog-to-a-new-azure-ssis-ir"></a>Scénario 3 : Attachement d’un SSISDB (catalogue SSIS) existant à un nouveau runtime d’intégration Azure-SSIS
 
-En cas d’un incident ADF ou IR Azure-SSIS dans la zone en cours, vous pouvez rendre votre conserve SSISDB fonctionne avec un nouveau runtime d’intégration de Azure-SSIS dans une nouvelle région.
+Dans le cas d’un incident ADF ou Azure-SSIS IR dans la région en cours, vous pouvez faire en sorte que votre SSISDB continue à fonctionner avec un nouveau runtime d’intégration Azure-SSIS dans une nouvelle région.
 
-### <a name="prerequisites"></a>Conditions préalables
+### <a name="prerequisites"></a>Prérequis
 
 - Si vous utilisez un réseau virtuel dans la région actuelle, utilisez un autre réseau virtuel dans la nouvelle région pour connecter votre runtime d’intégration Azure-SSIS. Pour plus d’information, voir [Joindre un runtime d’intégration Azure-SSIS à un réseau virtuel](join-azure-ssis-integration-runtime-virtual-network.md).
 
@@ -115,22 +115,22 @@ En cas d’un incident ADF ou IR Azure-SSIS dans la zone en cours, vous pouvez r
 
 Suivez ces étapes pour arrêter votre runtime d’intégration Azure-SSIS, basculez-le dans une nouvelle région et redémarrez-le.
 
-1. Exécuter une procédure stockée pour rendre SSISDB attaché à **\<new_data_factory_name\>** ou  **\<new_integration_runtime_name\>** .
+1. Exécutez une procédure stockée pour attacher SSISDB à **\<new_data_factory_name\>** ou **\<new_integration_runtime_name\>** .
    
   ```SQL
     EXEC [catalog].[failover_integration_runtime] @data_factory_name='<new_data_factory_name>', @integration_runtime_name='<new_integration_runtime_name>'
    ```
 
-2. Créer une fabrique de données nommée **\<new_data_factory_name\>** dans la nouvelle région. Pour plus d’informations, voir créer une fabrique de données.
+2. Créez une fabrique de données nommée **\<new_data_factory_name\>** dans la nouvelle région. Pour plus d’informations, consultez Créer une fabrique de données.
 
      ```powershell
      Set-AzDataFactoryV2 -ResourceGroupName "new resource group name" `
                          -Location "new region"`
                          -Name "<new_data_factory_name>"
      ```
-    Pour plus d’informations sur cette commande PowerShell, consultez [créer une fabrique de données Azure à l’aide de PowerShell](quickstart-create-data-factory-powershell.md)
+    Pour plus d’informations sur cette commande PowerShell, consultez [Créer une fabrique de données Azure à l’aide de PowerShell](quickstart-create-data-factory-powershell.md)
 
-3. Créer un nouveau runtime d’intégration d’Azure-SSIS nommé **\<new_integration_runtime_name\>** dans la nouvelle région à l’aide d’Azure PowerShell.
+3. Créez un nouveau runtime d’intégration Azure-SSIS nommé **\<new_integration_runtime_name\>** dans la nouvelle région à l’aide d’Azure PowerShell.
 
     ```powershell
     Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName "new resource group name" `

@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 11/25/2017
-ms.openlocfilehash: ef2507a15579ea3d145bfe37df281e2c044d181c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.openlocfilehash: 7554f0739626520153196472a790ab672a932331
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64722326"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67066222"
 ---
 # <a name="debug-apache-spark-applications-locally-or-remotely-on-an-hdinsight-cluster-with-azure-toolkit-for-intellij-through-ssh"></a>Déboguez les applications Apache Spark localement ou à distance, sur un cluster HDInsight, avec Azure Toolkit for IntelliJ via SSH
 
@@ -34,15 +34,15 @@ Cet article propose des instructions étape par étape sur la façon d’utilise
 
    b. Sélectionnez un modèle Java ou Scala en fonction de vos préférences. Sélectionnez entre les options suivantes :
 
-   - **Projet Spark (Java)**
+   - **Spark Project (Java)**
 
-   - **Projet Spark (Scala)**
+   - **Spark Project (Scala)**
 
-   - **Projet Spark avec exemples (Scala)**
+   - **Spark Project with Samples (Scala)**
 
-   - **Projet Spark avec la tâche d’échec (version préliminaire) (Scala) d’exemples de débogage**
+   - **Spark Project with Failure Task Debugging Samples (Preview) (Scala)**
 
-     Cet exemple utilise un **projet Spark avec exemples (Scala)** modèle.
+     Cet exemple utilise un modèle **Spark Project with Samples (Scala)** .
 
    c. Dans la liste des **outils de génération**, sélectionnez l’une des options suivantes, en fonction de vos besoins :
 
@@ -62,33 +62,33 @@ Cet article propose des instructions étape par étape sur la façon d’utilise
 
    b. Dans la liste déroulante **Kit de développement logiciel (SDK) de projet**, sélectionnez **Java 1.8** pour le cluster **Spark 2.x** ou **Java 1.7** pour le cluster **Spark 1.x**.
 
-   c. Dans la liste déroulante **Version Spark**, l’assistant de création de projets Scala intègre la version correcte pour le SDK Spark et le SDK Scala. Si la version du cluster spark est antérieure à la version 2.0, sélectionnez **Spark 1.x**. Sinon, sélectionnez **Spark 2.x.** La version utilisée dans cet exemple est **Spark 2.0.2 (Scala 2.11.8)**.
+   c. Dans la liste déroulante **Version Spark**, l’assistant de création de projets Scala intègre la version correcte pour le SDK Spark et le SDK Scala. Si la version du cluster spark est antérieure à la version 2.0, sélectionnez **Spark 1.x**. Sinon, sélectionnez **Spark 2.x.** La version utilisée dans cet exemple est **Spark 2.0.2 (Scala 2.11.8)** .
 
    d. Sélectionnez **Terminer**.
 
 1. Sélectionnez **src** > **principal** > **scala** pour ouvrir votre code dans le projet. Cet exemple utilise le script **SparkCore_wasbloTest**.
 
-### <a name="prerequisite-for-windows"></a>Configuration requise pour Windows
+### <a name="prerequisite-for-windows"></a>Prérequis pour Windows
 Quand vous exécutez l’application Spark Scala locale sur un ordinateur Windows, vous pouvez obtenir une exception, comme l’explique le document [SPARK-2356](https://issues.apache.org/jira/browse/SPARK-2356). Cette exception est liée à l’absence du fichier WinUtils.exe sur Windows. 
 
 Pour résoudre cette erreur, [téléchargez le fichier exécutable](https://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe) vers un emplacement tel que **C:\WinUtils\bin**. Ajoutez ensuite la variable d’environnement **HADOOP_HOME** et définissez la valeur de la variable sur **C:\WinUtils**.
 
 ### <a name="scenario-2-perform-local-run"></a>Scénario 2 : Effectuer une exécution locale
 1. Ouvrez le script **SparkCore_wasbloTest**, cliquez avec le bouton droit sur l’éditeur de script, puis sélectionnez l’option **Exécuter '[travail Spark] XXX'** pour effectuer l’exécution locale.
-1. Une fois l’exécution locale terminée, vous pouvez voir le fichier de sortie enregistré dans l’Explorateur de votre projet actuel **data** > **__default__**.
+1. Une fois l’exécution locale terminée, vous pouvez voir le fichier de sortie enregistré dans l’Explorateur de votre projet actuel **data** >  **__default__** .
 
     ![Résultat de l’exécution locale](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/local-run-result.png)
-1. Nos outils définissent la configuration de l’exécution locale par défaut automatiquement lorsque vous effectuez l’exécution et le débogage locaux. Ouvrez la configuration **[Spark sur HDInsight] XXX** dans le coin supérieur droit, vous pouvez voir le **[Spark sur HDInsight] XXX** déjà créée sous **Apache Spark sur HDInsight**. Basculez vers l’onglet **Locally Run (Exécuter localement)**.
+1. Nos outils définissent la configuration de l’exécution locale par défaut automatiquement lorsque vous effectuez l’exécution et le débogage locaux. Ouvrez la configuration **[Spark on HDInsight] XXX** en haut à droite. Comme vous pouvez le voir, la configuration **[Spark on HDInsight]XXX** est déjà créée sous **Apache Spark on HDInsight**. Basculez vers l’onglet **Locally Run (Exécuter localement)** .
 
     ![Configuration de l’exécution locale](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/local-run-configuration.png)
     - [Variables d’environnement](#prerequisite-for-windows) : si vous avez déjà défini la variable d’environnement système **HADOOP_HOME** sur **C:\WinUtils**, elle peut détecter automatiquement qu’aucun ajout manuel n’est nécessaire.
     - [Emplacement de WinUtils.exe](#prerequisite-for-windows) : si vous n’avez pas défini la variable d’environnement système, vous pouvez trouver l’emplacement en cliquant sur son bouton.
     - Choisissez simplement l’une des deux options ; elles ne sont pas requises sur MacOS et Linux.
-1. Vous pouvez également définir la configuration manuellement avant d’effectuer l’exécution et le débogage locaux. Dans la capture d’écran précédente, sélectionnez le signe plus (**+**). Puis sélectionnez le **Apache Spark sur HDInsight** option. Entrez les informations de **Nom** et **Nom de la classe principale** à enregistrer, puis cliquez sur le bouton d’exécution locale.
+1. Vous pouvez également définir la configuration manuellement avant d’effectuer l’exécution et le débogage locaux. Dans la capture d’écran précédente, sélectionnez le signe plus ( **+** ). Sélectionnez ensuite l’option **Apache Spark on HDInsight**. Entrez les informations de **Nom** et **Nom de la classe principale** à enregistrer, puis cliquez sur le bouton d’exécution locale.
 
 ### <a name="scenario-3-perform-local-debugging"></a>Scénario 3 : Effectuer un débogage local
 1. Ouvrez le script **SparkCore_wasbloTest**, et définissez les points d’arrêt.
-1. Avec le bouton droit de l’éditeur de script, puis sélectionnez l’option **déboguer ' [Spark sur HDInsight] XXX'** pour effectuer un débogage local.   
+1. Cliquez avec le bouton droit sur l’éditeur de script, puis sélectionnez l’option **Debug '[Spark on HDInsight]XXX'** pour effectuer le débogage local.   
 
 
 
@@ -99,14 +99,14 @@ Pour résoudre cette erreur, [téléchargez le fichier exécutable](https://publ
 
    ![Modifier les configurations](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-edit-configurations.png) 
 
-1. Dans la boîte de dialogue **Run/Debug Configurations** (Exécuter/Déboguer les configurations) sélectionnez le signe plus (**+**). Puis sélectionnez le **Apache Spark sur HDInsight** option.
+1. Dans la boîte de dialogue **Run/Debug Configurations** (Exécuter/Déboguer les configurations) sélectionnez le signe plus ( **+** ). Sélectionnez ensuite l’option **Apache Spark on HDInsight**.
 
    ![Ajouter une nouvelle configuration](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-add-new-Configuration.png)
-1. Basculez vers l’onglet **Remotely Run in Cluster (Exécuter à distance dans le cluster)**. Entrez les informations sur le **Nom**, le **Cluster Spark** et le **Nom principal de la classe**. Puis cliquez sur **configuration avancée (débogage à distance)**. Nos outils prennent en charge le débogage avec **Exécuteurs**. Pour **numExectors**, la valeur par défaut est 5. Il est déconseillé de définir une valeur supérieure à 3.
+1. Basculez vers l’onglet **Remotely Run in Cluster (Exécuter à distance dans le cluster)** . Entrez les informations sur le **Nom**, le **Cluster Spark** et le **Nom principal de la classe**. Cliquez ensuite sur **Advanced configuration (Remote Debugging)** [Configuration avancée (Débogage à distance)]. Nos outils prennent en charge le débogage avec **Exécuteurs**. Pour **numExectors**, la valeur par défaut est 5. Il est déconseillé de définir une valeur supérieure à 3.
 
    ![Exécuter le débogage des configurations](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-run-debug-configurations.png)
 
-1. Dans le **Configuration avancée (débogage à distance)** partie, sélectionnez **débogage à distance Spark activer**. Entrez le nom d’utilisateur SSH, puis entrez un mot de passe ou utilisez un fichier de clé privée. Si vous souhaitez effectuer le débogage à distance, vous devez définir cette option. Par contre, cette action n’est pas nécessaire si vous souhaitez simplement utiliser l’exécution à distance.
+1. Dans la section **Advanced Configuration (Remote Debugging)** , sélectionnez **Enable Spark remote debug**. Entrez le nom d’utilisateur SSH, puis entrez un mot de passe ou utilisez un fichier de clé privée. Si vous souhaitez effectuer le débogage à distance, vous devez définir cette option. Par contre, cette action n’est pas nécessaire si vous souhaitez simplement utiliser l’exécution à distance.
 
    ![Activer le débogage à distance Spark](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-enable-spark-remote-debug.png)
 
@@ -173,9 +173,8 @@ Pour résoudre cette erreur, [téléchargez le fichier exécutable](https://publ
 
 ### <a name="tools-and-extensions"></a>Outils et extensions
 * [Utiliser Azure Toolkit for IntelliJ afin de créer des applications Apache Spark pour un cluster HDInsight](apache-spark-intellij-tool-plugin.md)
-* [Utiliser Azure Toolkit for IntelliJ pour déboguer des applications Apache Spark à distance par VPN](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-* [Utiliser HDInsight Tools pour IntelliJ avec Hortonworks Sandbox](../hadoop/hdinsight-tools-for-intellij-with-hortonworks-sandbox.md)
-* [Utiliser HDInsight Tools dans Azure Toolkit for Eclipse pour créer des applications Apache Spark](../hdinsight-apache-spark-eclipse-tool-plugin.md)
+* [Utiliser le kit de ressources Azure pour IntelliJ pour déboguer des applications Apache Spark à distance via VPN](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+* [Utiliser HDInsight Tools dans le kit de ressources Azure pour Eclipse pour créer des applications Apache Spark](../hdinsight-apache-spark-eclipse-tool-plugin.md)
 * [Utiliser des blocs-notes Apache Zeppelin avec un cluster Apache Spark sur HDInsight](apache-spark-zeppelin-notebook.md)
 * [Noyaux disponibles pour le bloc-notes Jupyter dans le cluster Apache Spark pour HDInsight](apache-spark-jupyter-notebook-kernels.md)
 * [Utiliser des packages externes avec les blocs-notes Jupyter](apache-spark-jupyter-notebook-use-external-packages.md)

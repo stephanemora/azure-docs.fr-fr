@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 01/03/2019
 ms.author: iainfou
 ms.openlocfilehash: 256101cce5588f56a8094a7a9a98e5fe69e6ec73
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66497250"
 ---
 # <a name="enable-and-review-kubernetes-master-node-logs-in-azure-kubernetes-service-aks"></a>Activer et consulter les journaux d’activité du nœud principal Kubernetes dans Azure Kubernetes Service (AKS)
@@ -26,14 +26,14 @@ Cet article requiert l’exécution d’un cluster AKS existant dans votre compt
 
 Pour faciliter la collecte et l’analyse des données provenant de plusieurs sources, les journaux d’activité Azure Monitor fournissent un langage de requêtes et un moteur d’analyse vous permettant d’obtenir des insights sur votre environnement. Un espace de travail est utilisé pour assembler et analyser les données, et peut s’intégrer à d’autres services Azure tels qu’Application Insights et Security Center. Si vous souhaitez analyser les journaux d’activité à l’aide d’une autre plateforme, vous pouvez plutôt choisir d’envoyer les journaux de diagnostic à un compte de stockage ou à un Event Hub Azure. Pour plus d’informations, consultez [Présentation des journaux d’activité Azure Monitor][log-analytics-overview].
 
-Journaux d’Azure Monitor sont activées et gérées dans le portail Azure. Pour activer la collecte des journaux relatifs aux composants principaux Kubernetes dans votre cluster AKS, ouvrez le Portail Azure dans un navigateur web et procédez comme suit :
+Les journaux Azure Monitor sont activés et gérés sur le portail Azure. Pour activer la collecte des journaux relatifs aux composants principaux Kubernetes dans votre cluster AKS, ouvrez le Portail Azure dans un navigateur web et procédez comme suit :
 
 1. Sélectionnez le groupe de ressources de votre cluster AKS, par exemple *myResourceGroup*. Ne sélectionnez pas le groupe de ressources qui contient vos ressources de cluster AKS individuelles, comme *MC_myResourceGroup_myAKSCluster_eastus*.
 1. Sur le côté gauche, choisissez **Paramètres de diagnostic**.
-1. Sélectionnez votre cluster AKS, tel que *myAKSCluster*, puis choisissez à **ajouter le paramètre de diagnostic**.
+1. Sélectionnez votre cluster AKS, par exemple *myAKSCluster*, puis choisissez **Ajouter un paramètre de diagnostic**.
 1. Entrez un nom, par exemple *myAKSClusterLogs*, puis sélectionnez l’option pour **Envoyer à Log Analytics**.
-1. Sélectionnez un espace de travail existant ou créez-en un. Si vous créez un espace de travail, fournissez un nom d’espace de travail, un groupe de ressources et un emplacement.
-1. Dans la liste des journaux d’activité disponibles, sélectionnez les journaux d’activité que vous souhaitez activer. Journaux courants incluent le *kube-apiserver*, *kube-contrôleur-manager*, et *kube-planificateur*. Vous pouvez activer des journaux d’activité supplémentaires, tels que *kube-audit* et *cluster-autoscaler*. Vous pourrez réaccéder à cet emplacement et modifier les journaux d’activité collectés une fois les espaces de travail Log Analytics activés.
+1. Sélectionnez un espace de travail existant ou créez-en un. Si vous créez un espace de travail, indiquez un nom d’espace de travail, un groupe de ressources et un emplacement.
+1. Dans la liste des journaux d’activité disponibles, sélectionnez les journaux d’activité que vous souhaitez activer. Les journaux *kube-apiserver*, *kube-controller-manager* et *kube-scheduler* compte parmi les journaux courants. Vous pouvez activer des journaux d’activité supplémentaires, tels que *kube-audit* et *cluster-autoscaler*. Vous pourrez réaccéder à cet emplacement et modifier les journaux d’activité collectés une fois les espaces de travail Log Analytics activés.
 1. Lorsque vous avez terminé, sélectionnez **Enregistrer** pour activer la collecte des journaux d’activité sélectionnés.
 
 > [!NOTE]
@@ -49,7 +49,7 @@ Journaux d’Azure Monitor sont activées et gérées dans le portail Azure. Pou
 >
 > `az provider register --namespace Microsoft.ContainerService`
 
-L’exemple de portail capture d’écran suivante montre le *les paramètres de diagnostic* fenêtre :
+L’exemple de capture d’écran du portail ci-après présente la fenêtre *Paramètres de diagnostic* :
 
 ![Activer l’espace de travail Log Analytics pour les journaux d’activité Azure Monitor dans un cluster AKS](media/view-master-logs/enable-oms-log-analytics.png)
 
@@ -87,7 +87,7 @@ pod/nginx created
 
 ## <a name="view-collected-logs"></a>Afficher les journaux d’activité collectés
 
-L’activation et l’affichage des journaux de diagnostic dans l’espace de travail Log Analytics peuvent nécessiter quelques minutes. Dans le portail Azure, sélectionnez le groupe de ressources pour votre espace de travail Analytique de journal, tel que *myResourceGroup*, puis choisissez votre ressource d’analytique de journal, tel que *myAKSLogs*.
+L’activation et l’affichage des journaux de diagnostic dans l’espace de travail Log Analytics peuvent nécessiter quelques minutes. Sur le portail Azure, sélectionnez le groupe de ressources de votre espace de travail Log Analytics, par exemple *myResourceGroup*, puis choisissez votre ressource Log Analytics, par exemple *myAKSLogs*.
 
 ![Sélection de l’espace de travail Log Analytics pour votre cluster AKS](media/view-master-logs/select-log-analytics-workspace.png)
 
@@ -129,7 +129,7 @@ Pour faciliter votre analyse des données de journal, le tableau ci-après décr
 | *properties.log*         | Texte complet du journal provenant du composant |
 | *properties.stream*      | *stderr* ou *stdout* |
 | *properties.pod*         | Nom du pod d’où provient le journal |
-| *properties.containerID* | ID du conteneur docker que provient de ce fichier journal |
+| *properties.containerID* | ID du conteneur Docker d’où provient le journal |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

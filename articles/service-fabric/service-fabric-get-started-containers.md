@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 01/25/2019
 ms.author: aljo
 ms.openlocfilehash: 3bc67d7fdc582b6d45596b152bb5d58e41152a46
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66428117"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Créer votre première application de conteneur Service Fabric sur Windows
@@ -35,10 +35,10 @@ L’exécution d’une application existante dans un conteneur Windows sur un cl
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 * Un ordinateur de développement exécutant :
-  * Visual Studio 2015 ou Visual Studio 2019.
+  * Visual Studio 2015 ou Visual Studio 2019.
   * [Outils et SDK Service Fabric](service-fabric-get-started.md).
   *  Docker pour Windows. [Obtenez Docker CE pour Windows (stable)](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description). Après l’installation et le démarrage de Docker, cliquez avec le bouton droit de la souris sur l’icône de la barre d’état, puis sélectionnez **Switch to Windows containers** (Basculer vers les conteneurs Windows). Cette étape est nécessaire pour exécuter des images Docker basées sur Windows.
 
@@ -156,7 +156,7 @@ Si cette commande ne retourne aucun résultat, exécutez la commande suivante et
 docker inspect my-web-site
 ```
 
-Connectez le conteneur en cours d’exécution. Ouvrez un navigateur web pointant vers l’adresse IP renvoyée, par exemple « http :\//172.31.194.61 ». Vous devez voir le titre « Hello World ! » s’afficher dans le navigateur.
+Connectez le conteneur en cours d’exécution. Ouvrez un navigateur web qui pointe vers l’adresse IP renvoyée, par exemple « http:\//172.31.194.61 ». Vous devez voir le titre « Hello World ! » s’afficher dans le navigateur.
 
 Pour arrêter votre conteneur, exécutez :
 
@@ -175,9 +175,9 @@ docker rm my-web-site
 
 Après avoir vérifié que le conteneur s’exécute sur votre ordinateur de développement, envoyez l’image à votre registre dans Azure Container Registry.
 
-Exécutez ``docker login`` se connecter à votre Registre de conteneurs avec votre [informations d’identification du Registre](../container-registry/container-registry-authentication.md).
+Exécutez ``docker login`` pour vous connecter à votre registre de conteneurs à l’aide des [informations d’identification de votre registre](../container-registry/container-registry-authentication.md).
 
-L’exemple suivant transmet l’ID et le mot de passe d’un [principal du service](../active-directory/develop/app-objects-and-service-principals.md) Azure Active Directory . Par exemple, vous pouvez avoir affecté un principal du service à votre Registre pour un scénario d’automatisation. Ou bien, vous pouvez vous connecter avec votre nom d’utilisateur du Registre et le mot de passe.
+L’exemple suivant transmet l’ID et le mot de passe d’un [principal du service](../active-directory/develop/app-objects-and-service-principals.md) Azure Active Directory . Par exemple, vous pouvez avoir affecté un principal du service à votre Registre pour un scénario d’automatisation. Vous pouvez aussi vous connecter à l’aide de votre nom d’utilisateur du registre et votre mot de passe.
 
 ```
 docker login myregistry.azurecr.io -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p myPassword
@@ -361,7 +361,7 @@ Service Fabric utilise ensuite les informations d’identification de référent
 * IsDefaultContainerRepositoryPasswordEncrypted (valeur booléenne)
 * DefaultContainerRepositoryPasswordType (chaîne) --- Prise en charge par le runtime version 6.4 et supérieure
 
-Voici un exemple de ce que vous pouvez ajouter dans la section `Hosting` du fichier ClusterManifestTemplate.json. Le `Hosting` section peut être ajoutée à la création du cluster ou ultérieurement dans une mise à niveau de la configuration. Pour plus d’informations, consultez [Personnaliser les paramètres de cluster Service Fabric](service-fabric-cluster-fabric-settings.md) et [Gérer les secrets dans les applications Service Fabric](service-fabric-application-secret-management.md).
+Voici un exemple de ce que vous pouvez ajouter dans la section `Hosting` du fichier ClusterManifestTemplate.json. La section `Hosting` peut être ajoutée au moment de la création du cluster ou ultérieurement dans une mise à niveau de la configuration. Pour plus d’informations, consultez [Personnaliser les paramètres de cluster Service Fabric](service-fabric-cluster-fabric-settings.md) et [Gérer les secrets dans les applications Service Fabric](service-fabric-application-secret-management.md).
 
 ```json
 "fabricSettings": [
@@ -421,7 +421,7 @@ La [gouvernance des ressources](service-fabric-resource-governance.md) limite le
 
 En démarrant la version 6.1, Service Fabric intègre automatiquement les événements [docker HEALTHCHECK](https://docs.docker.com/engine/reference/builder/#healthcheck) à son rapport d’intégrité du système. Cela signifie que si **HEALTHCHECK** est activé dans votre conteneur, Service Fabric générera un rapport d’intégrité chaque fois que l’état d’intégrité du conteneur changera comme indiqué par Docker. Un rapport d’intégrité **OK** apparaît dans [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) lorsque *health_status* est *intègre* et  **AVERTISSEMENT** s’affiche lorsque *health_status* est *défectueux*. 
 
-À compter de la dernière version de l’actualisation de v6.4, vous avez la possibilité de spécifier que les évaluations de docker HEALTHCHECK doivent être signalées comme une erreur. Si cette option est activée, un **OK** rapport d’intégrité s’affiche lorsque *health_status* est *sain* et **erreur** s’affiche lorsque *health_status* est *défectueux*.
+À compter de la dernière version v6.4, vous avez la possibilité d’indiquer que les évaluations HEALTHCHECK docker doivent être signalées en tant qu’erreur. Si cette option est activée, un rapport d’intégrité **OK** apparaît quand *health_status* indique *sain* et **ERROR** s’affiche quand *health_status* indique *non sain*.
 
 L’instruction **HEALTHCHECK** qui pointe vers la vérification réalisée pour surveiller l’intégrité du conteneur doit être présente dans le fichier Dockerfile utilisé lors de la génération de l’image conteneur.
 
@@ -445,11 +445,11 @@ Vous pouvez configurer un comportement **HEALTHCHECK** pour chaque conteneur en 
     </Policies>
 </ServiceManifestImport>
 ```
-Par défaut *IncludeDockerHealthStatusInSystemHealthReport* a la valeur **true**, *RestartContainerOnUnhealthyDockerHealthStatus* est défini sur  **false**, et *TreatContainerUnhealthyStatusAsError* a la valeur **false**. 
+Par défaut, *IncludeDockerHealthStatusInSystemHealthReport* est défini sur **true**, *RestartContainerOnUnhealthyDockerHealthStatus* est défini sur **false** et *TreatContainerUnhealthyStatusAsError* est défini sur **false**. 
 
 Si *RestartContainerOnUnhealthyDockerHealthStatus* est défini sur **true**, un conteneur déclaré défectueux à plusieurs reprises est redémarré (éventuellement sur d’autres nœuds).
 
-Si *TreatContainerUnhealthyStatusAsError* a la valeur **true**, **erreur** rapports d’intégrité seront affiche lorsque le conteneur *health_status*est *défectueux*.
+Si *TreatContainerUnhealthyStatusAsError* est défini sur **true**, des rapports d’intégrité **ERROR** s’affichent quand *health_status* indique *non sain* pour le conteneur.
 
 Si vous souhaitez désactiver l’intégration **HEALTHCHECK** pour l’ensemble du cluster Service Fabric, vous devez définir [EnableDockerHealthCheckIntegration](service-fabric-cluster-fabric-settings.md) sur **false**.
 
@@ -479,15 +479,15 @@ docker rmi myregistry.azurecr.io/samples/helloworldapp
 
 ## <a name="windows-server-container-os-and-host-os-compatibility"></a>Système d’exploitation de conteneur Windows Server et compatibilité avec le système d’exploitation hôte
 
-Les conteneurs Windows Server ne sont pas compatibles avec toutes les versions d’un système d’exploitation hôte. Exemple :
+Les conteneurs Windows Server ne sont pas compatibles avec toutes les versions d’un système d’exploitation hôte. Par exemple :
  
 - Les conteneurs Windows Server créés à l’aide de Windows Server version 1709 ne fonctionnent pas sur un hôte exécutant Windows Server version 2016. 
-- Conteneurs Windows Server créés à l’aide de Windows Server 2016 fonctionnent en mode d’isolation Hyper-V uniquement sur un ordinateur hôte exécutant Windows Server version 1709. 
+- Les conteneurs Windows Server créés à l’aide de Windows Server 2016 fonctionnent en mode d’isolation Hyper-V uniquement sur un hôte exécutant Windows Server version 1709. 
 - Avec les conteneurs Windows Server créés à l’aide de Windows Server 2016, il peut être nécessaire de vérifier que la version du système d’exploitation du conteneur et celle du système d’exploitation hôte sont identiques lors d’une exécution en mode d’isolation des processus sur un hôte exécutant Windows Server 2016.
  
 Pour plus d’informations, consultez [Compatibilité des versions avec les conteneurs Windows](https://docs.microsoft.com/virtualization/windowscontainers/deploy-containers/version-compatibility).
 
-Examinez la compatibilité du système d’exploitation hôte et le système d’exploitation de votre conteneur pour créer et déployer des conteneurs sur votre cluster Service Fabric. Exemple :
+Examinez la compatibilité du système d’exploitation hôte et le système d’exploitation de votre conteneur pour créer et déployer des conteneurs sur votre cluster Service Fabric. Par exemple :
 
 - Vérifiez que vous déployez des conteneurs avec un système d’exploitation compatible avec le système d’exploitation exécuté sur vos nœuds de cluster.
 - Vérifiez que le mode d’isolation spécifié pour votre application de conteneur est cohérent avec la prise en charge du système d’exploitation de conteneur sur le nœud sur lequel il est en cours de déploiement.
@@ -632,7 +632,7 @@ NtTvlzhk11LIlae/5kjPv95r3lw6DHmV4kXLwiCNlcWPYIWBGIuspwyG+28EWSrHmN7Dt2WqEWqeNQ==
 
 ## <a name="configure-time-interval-before-container-is-force-terminated"></a>Configurer l’intervalle de temps d’attente avant l’arrêt forcé du conteneur
 
-Vous pouvez configurer un intervalle de temps d’attente pour le runtime avant que le conteneur ne soit supprimé après le début de la suppression du service (ou d’un déplacement vers un autre nœud). Le fait de configurer l’intervalle de temps envoie la commande `docker stop <time in seconds>` au conteneur.  Pour plus d’informations, consultez [Arrêt du docker](https://docs.docker.com/engine/reference/commandline/stop/). L’intervalle de temps d’attente est spécifié dans la section `Hosting`. Le `Hosting` section peut être ajoutée à la création du cluster ou ultérieurement dans une mise à niveau de la configuration. L’extrait de manifeste de cluster suivant montre comment définir l’intervalle d’attente :
+Vous pouvez configurer un intervalle de temps d’attente pour le runtime avant que le conteneur ne soit supprimé après le début de la suppression du service (ou d’un déplacement vers un autre nœud). Le fait de configurer l’intervalle de temps envoie la commande `docker stop <time in seconds>` au conteneur.  Pour plus d’informations, consultez [Arrêt du docker](https://docs.docker.com/engine/reference/commandline/stop/). L’intervalle de temps d’attente est spécifié dans la section `Hosting`. La section `Hosting` peut être ajoutée au moment de la création du cluster ou ultérieurement dans une mise à niveau de la configuration. L’extrait de manifeste de cluster suivant montre comment définir l’intervalle d’attente :
 
 ```json
 "fabricSettings": [

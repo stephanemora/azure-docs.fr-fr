@@ -1,5 +1,5 @@
 ---
-title: Comment utiliser le marquage de Version avec un modèle d’apprenant de Conversation - Azure Cognitive Services | Microsoft Docs
+title: Guide pratique pour utiliser le marquage de version avec un modèle Conversation Learner - Azure Cognitive Services | Microsoft Docs
 titleSuffix: Azure
 description: Découvrez comment utiliser le contrôle de version et le marquage avec un modèle d’Apprenant de conversation.
 services: cognitive-services
@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 04/30/2018
 ms.author: nitinme
 ms.openlocfilehash: 4067c7fb43cc200b8f49dbc14151c69a188e4e8e
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66475712"
 ---
 # <a name="how-to-use-version-tagging"></a>Comment utiliser le marquage de version
@@ -109,4 +109,4 @@ Vous savez maintenant comment le contrôle de version fonctionne et comment vous
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Entités d’enum et définir les actions d’entité](./tutorial-enum-set-entity.md)
+> [Entités d’énumération et actions de définition d’entité](./tutorial-enum-set-entity.md)

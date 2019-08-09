@@ -1,6 +1,6 @@
 ---
-title: Quel est le pare-feu d’applications web Azure pour Azure porte d’entrée ? (Préversion)
-description: Découvrez comment Azure pare-feu d’applications web pour le service de la porte d’entrée Azure protège vos applications web contre les attaques malveillantes.
+title: Qu’est-ce que le pare-feu d’applications web Azure pour Azure Front Door ? (Préversion)
+description: Découvrez de quelle manière le pare-feu d’applications web Azure pour Azure Front Door protège vos applications web contre les attaques malveillantes.
 services: frontdoor
 documentationcenter: ''
 author: KumudD
@@ -12,116 +12,116 @@ ms.workload: infrastructure-services
 ms.date: 05/31/2019
 ms.author: kumud;tyao
 ms.openlocfilehash: 122e9687ee313edff34e5a4fd9a44b1026a63811
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66478790"
 ---
-# <a name="what-is-azure-web-application-firewall-for-azure-front-door"></a>Quel est le pare-feu d’applications web Azure pour Azure porte d’entrée ?
+# <a name="what-is-azure-web-application-firewall-for-azure-front-door"></a>Qu’est-ce que le pare-feu d’applications web Azure pour Azure Front Door ?
 
 Le pare-feu d’applications web (WAF) Azure offre une protection centralisée à vos applications web distribuées dans le monde entier à l’aide d’Azure Front Door. Il est conçu pour défendre vos services web contre les vulnérabilités et attaques courantes, ainsi que pour assurer le haut niveau de disponibilité de votre service pour vos utilisateurs en plus de vous aider à répondre à vos obligations de conformité.
 
 
-Applications Web sont plus en plus la cible d’attaques malveillantes, telles que les refus de service, attaques par injection SQL et les saturations des attaques de script entre sites. Ces attaques peuvent entraîner une perte de données et de panne du service, représentent une menace significative aux propriétaires d’applications web.
+Les applications web sont de plus en plus la cible d’attaques malveillantes, comme les attaques par déni de service, par injection de code SQL et par exécution de script entre sites. Ces attaques malveillantes peuvent entraîner une perte de données et une interruption des services, et représentent une menace importante pour les propriétaires d’applications web.
 
-Empêcher ces attaques dans le code d’application peut se révéler difficile et nécessiter une maintenance rigoureuse, des mises à jour correctives ainsi que la surveillance au niveau de plusieurs couches de la topologie de l’application. Un pare-feu d’applications web centralisé facilite grandement la gestion de la sécurité et offre une meilleure garantie de protection aux administrateurs de l’application contre les menaces ou les intrusions. En outre, une solution WAF peut réagir à une menace de sécurité plus rapidement par la mise à jour corrective d’une vulnérabilité connue dans un emplacement central, au lieu de sécuriser chacune des applications web individuelles.
+Empêcher ces attaques dans le code d’application peut se révéler difficile et nécessiter une maintenance rigoureuse, des mises à jour correctives ainsi que la surveillance au niveau de plusieurs couches de la topologie de l’application. Un pare-feu d’applications web centralisé facilite grandement la gestion de la sécurité et offre une meilleure garantie de protection aux administrateurs de l’application contre les menaces ou les intrusions. De plus, une solution WAF peut réagir plus rapidement à une menace de sécurité en corrigeant une vulnérabilité connue dans un emplacement central plutôt que de sécuriser individuellement chacune des applications web.
 
-WAF pour porte d’entrée est une solution globale et centralisée. Il est déployé sur les emplacements de périphérie de réseau Azure dans le monde entier et que chaque requête entrante pour une application web de WAF activé remise par la porte d’entrée est inspecté à la périphérie du réseau. Cela permet de WAF empêcher les attaques malveillantes proches les sources d’attaque, avant leur entrée sur votre réseau virtuel et offre une protection globale à l’échelle sans sacrifier les performances. Une stratégie de pare-feu d’applications Web peut être facilement liée à n’importe quel profil porte d’entrée dans votre abonnement et de nouvelles règles peuvent être déployés en quelques minutes, ce qui vous permet de répondre rapidement à l’évolution des modèles de menace.
+La solution WAF pour Front Door est mondiale et centralisée. Elle est déployée aux emplacements de périphérie du réseau Azure dans le monde entier. Chaque requête entrante pour une application web avec WAF activé qui est fournie par Front Door est inspectée à la périphérie du réseau. La solution WAF peut ainsi contrer les attaques malveillantes au plus près des sources d’attaque, avant même que les attaques pénètrent votre réseau virtuel, et offrir une protection globale à grande échelle sans sacrifier les performances. Vous pouvez facilement lier une stratégie WAF à n’importe quel profil Front Door dans votre abonnement et déployer de nouvelles règles en quelques minutes afin de répondre rapidement aux changements incessants des modèles de menaces.
 
-![Pare-feu d’applications web Azure](./media/waf-overview/web-application-firewall-overview2.png)
+![Pare-feu d’applications web (WAF) d’Azure](./media/waf-overview/web-application-firewall-overview2.png)
 
-WAF Azure peut également être activée avec Application Gateway. Pour plus d’informations, consultez [pare-feu d’applications Web](../application-gateway/waf-overview.md).
+La solution WAF d’Azure peut également être activée avec Application Gateway. Pour plus d’informations, consultez [Pare-feu d’applications web (WAF)](../application-gateway/waf-overview.md).
 
-## <a name="waf-policy-and-rules"></a>Stratégies de pare-feu d’applications Web et des règles
+## <a name="waf-policy-and-rules"></a>Stratégie et règles WAF
 
-Vous pouvez configurer une stratégie de pare-feu d’applications Web et associer cette stratégie à un ou plusieurs porte frontaux pour la protection. Une stratégie de pare-feu d’applications Web se compose de deux types de règles de sécurité :
+Vous pouvez configurer une stratégie WAF et l’associer à un ou plusieurs front-ends Front Door pour la protection. Une stratégie WAF se compose de deux types de règles de sécurité :
 
-- règles personnalisées qui ont été créés par le client.
+- des règles personnalisées créées par le client ;
 
-- les ensembles de règles gérées qui sont une collection d’Azure managed préconfiguré ensemble de règles.
+- des ensembles de règles managées qui rassemblent les règles préconfigurées managées par Azure.
 
-Lorsque les deux sont présentes, les règles personnalisées sont traitées avant de traiter les règles dans un ensemble de règles managé. Une règle est constituée d’une condition de correspondance, une priorité et une action. Types d’actions prises en charge sont : Autoriser, bloquer, de journal et de redirection. Vous pouvez créer une stratégie entièrement personnalisée qui répond aux exigences de protection de votre application en combinant les règles personnalisées et non managées.
+Quand ces deux types de règles sont utilisés conjointement, les règles personnalisées sont appliquées avant celles d’un ensemble de règles managées. Une règle est constituée d’une condition de correspondance, d’une priorité et d’une action. Les types d’actions pris en charge sont : AUTORISER, BLOQUER, JOURNALISER et REDIRIGER. Vous pouvez créer une stratégie entièrement personnalisée qui répond aux exigences de protection spécifiques de votre application en combinant des règles personnalisées et des règles managées.
 
-Règles au sein d’une stratégie sont traités un par ordre de priorité dans lequel la priorité est un entier unique qui définit l’ordre des règles en cours de traitement. Valeur entière inférieure indique une priorité plus élevée et ceux sont évaluées avant les règles ayant une valeur entière supérieure. Une fois une règle est mis en correspondance, l’action correspondante qui a été définie dans la règle est appliquée à la demande. Une fois qu’une correspondance est traitée, les règles avec une priorité plus faible ne sont pas traitées davantage.
+Les règles dans une stratégie sont traitées par ordre de priorité, où la priorité est représentée par un entier unique qui définit l’ordre de traitement des règles. Plus la valeur entière est petite, plus la priorité est élevée. Les règles ayant des valeurs inférieures sont évaluées avant les règles avec des valeurs plus élevées. Une fois qu'une correspondance de règle est trouvée, l’action associée définie dans la règle est appliquée à la requête. Après le traitement de cette correspondance, aucune autre règle avec une priorité inférieure n’est traitée.
 
-Une application web fournie par la porte d’entrée peut avoir qu’une seule stratégie de pare-feu d’applications Web associée à la fois. Toutefois, vous pouvez avoir une configuration de la porte d’entrée sans les stratégies de pare-feu d’applications Web associées à elle. Si une stratégie de pare-feu d’applications Web est présente, elle est répliquée sur tous nos emplacements edge pour assurer la cohérence dans les stratégies de sécurité dans le monde entier.
+Une application web fournie par Front Door peut être associée à une seule stratégie WAF. Toutefois, il n’est pas obligatoire d’associer une stratégie WAF dans une configuration Front Door. Si une stratégie WAF est utilisée, elle est répliquée sur tous nos emplacements de périphérie pour assurer la cohérence dans toutes les stratégies de sécurité dans le monde.
 
 ## <a name="waf-modes"></a>Modes WAF
 
-Stratégie de pare-feu d’applications Web peut être configurée pour s’exécuter dans les deux modes suivants :
+Une stratégie WAF peut être configurée pour s’exécuter dans les deux modes suivants :
 
-- **Mode de détection :** Lorsque vous exécutez en mode de détection, WAF ne prend pas d’autres actions autres que des analyses et enregistre la demande et sa mise en correspondance règle WAF pour les journaux WAF. Vous pouvez activer la journalisation des diagnostics pour porte d’entrée (à l’aide du portail, cela peut être obtenue en accédant à la **Diagnostics** section dans le portail Azure).
+- **Mode Détection :** lors d’une exécution en mode Détection, le pare-feu d’applications web n’entreprend aucune autre action à part la supervision et l’enregistrement de la requête, et la mise en correspondance de la règle WAF dans les journaux WAF. Vous pouvez activer les diagnostics de journalisation pour Front Door (si vous utilisez le portail, accédez à la section **Diagnostics** dans le portail Azure).
 
-- **Mode de prévention :** Lorsque configuré pour s’exécuter en mode de prévention, effectuées par WAF l’action spécifiée si une demande correspond à une règle et si une correspondance est trouvée, aucune autre règle avec une priorité inférieure n’est évaluées. Toutes les demandes de mise en correspondance sont également enregistrés dans les journaux WAF.
+- **Mode Prévention :** quand il est configuré pour s’exécuter en mode Prévention, le pare-feu d’applications web entreprend l’action spécifiée si une requête correspond à une règle et, si une correspondance est trouvée, aucune autre règle avec une priorité inférieure n’est évaluée. Toutes les requêtes mises en correspondance sont également enregistrées dans les journaux WAF.
 
-## <a name="waf-actions"></a>Actions de pare-feu d’applications Web
+## <a name="waf-actions"></a>Actions WAF
 
-Les clients de pare-feu d’applications Web peuvent choisir d’exécuter à partir d’une des actions lorsqu’une requête correspond aux conditions d’une règle :
+Les clients de la solution WAF peuvent choisir d’exécuter l’une des actions disponibles quand une requête correspond aux conditions d’une règle :
 
-- **Autoriser :**  Demande passe par le pare-feu d’applications Web et est transférée vers le pool principal. Aucune des règles de priorité inférieure peuvent bloquer cette demande.
-- **Bloc :** La demande est bloquée et WAF envoie une réponse au client sans la transférer la demande vers le back-end.
-- **rapport :**  Demande est enregistrée dans les journaux WAF et WAF continue de l’évaluation des règles de priorité inférieure.
-- **Redirection :** WAF redirige la demande vers l’URI spécifié. L’URI spécifié est un paramètre de niveau de stratégie. Une fois configuré, toutes les demandes qui correspondent à la **rediriger** action sera envoyée à cet URI.
+- **Autoriser :**  la requête est transférée au back-end par le biais du pare-feu d'applications web. Aucune autre règle de priorité inférieure ne peut bloquer cette requête.
+- **Bloquer :** la requête est bloquée et le pare-feu d'applications web envoie une réponse au client sans transférer la requête au back-end.
+- **Journaliser :**  la requête est enregistrée dans les journaux WAF, puis le pare-feu d'applications web continue l’évaluation des règles de priorité inférieure.
+- **Rediriger :** le pare-feu d'applications web redirige la requête vers l’URI spécifié. L’URI spécifié est un paramètre défini au niveau de la stratégie. Une fois l’URI configuré, toutes les requêtes associées à l’action **Rediriger** sont envoyées à cet URI.
 
-## <a name="waf-rules"></a>Règles de pare-feu d’applications Web
+## <a name="waf-rules"></a>Règles WAF
 
-Une stratégie de pare-feu d’applications Web peut être constitué de deux types de règles de sécurité - règles personnalisées, créés par le client et les ensembles de règles managé, gérés par Azure préconfigurés l’ensemble de règles.
+Une stratégie WAF peut comporter deux types de règles de sécurité : des règles personnalisées, créées par le client, et des ensembles de règles managées, qui rassemblent les règles préconfigurées managées par Azure.
 
-### <a name="custom-authored-rules"></a>Créés par des règles personnalisées
+### <a name="custom-authored-rules"></a>Règles WAF personnalisées
 
-Vous pouvez configurer des règles personnalisées WAF comme suit :
+Vous pouvez configurer des règles WAF personnalisées comme expliqué ci-dessous :
 
-- **Liste de blocage et de liste verte d’IP :** Vous pouvez configurer des règles personnalisées pour contrôler l’accès à vos applications web basées sur une liste d’adresses IP client ou les plages d’adresses IP. Types d’adresses IPv4 et IPv6 sont prises en charge. Cette liste peut être configurée pour bloquer ou autoriser les demandes dont l’adresse IP source correspond à une adresse IP dans la liste.
+- **Listes d’adresses IP autorisées et bloquées :** vous pouvez configurer des règles personnalisées pour contrôler l’accès à vos applications web en fonction d’une liste d’adresses IP clientes ou de plages d’adresses IP. Les deux types d’adresses IPv4 et IPv6 sont pris en charge. Cette liste peut être configurée pour bloquer ou autoriser les requêtes dont l’adresse IP source correspond à l’une des adresses IP listées.
 
-- **Contrôle d’accès basé sur le géographique :** Vous pouvez configurer des règles personnalisées pour contrôler l’accès à vos applications web basées sur le code de pays associé à une adresse IP du client.
+- **Contrôle d’accès en fonction de l’emplacement géographique :** vous pouvez configurer des règles personnalisées pour contrôler l’accès à vos applications web en fonction du code pays qui est associé à l’adresse IP d’un client.
 
-- **Contrôle d’accès basé sur les paramètres HTTP :** Vous pouvez configurer des règles personnalisées en fonction de chaîne correspondant aux paramètres de demande HTTP/HTTPS, chaînes de requête POST args, URI de requête, en-tête de demande et corps de la demande.
+- **Contrôle d’accès en fonction des paramètres HTTP :** vous pouvez configurer des règles personnalisées basées sur la correspondance des chaînes dans les paramètres de requête HTTP/HTTPS, notamment des chaînes de requête, des arguments POST, de l’URI de requête, de l’en-tête de requête et du corps de requête.
 
-- **À la demande de contrôle d’accès basé sur une méthode :** Vous pouvez configurer des règles personnalisées en fonction de la méthode de demande HTTP de la demande, telles que GET, PUT ou HEAD.
+- **Contrôle d’accès en fonction de la méthode de requête :** vous pouvez configurer des règles personnalisées en fonction de la méthode de requête HTTP utilisée, telle que GET, PUT ou HEAD.
 
-- **Contrainte de taille :** Vous pouvez configurer des règles personnalisées reposant sur les longueurs des parties spécifiques d’une requête comme chaîne de requête Uri, ou le corps de la demande.
+- **Contrainte de taille :** vous pouvez configurer des règles personnalisées basées sur la longueur des différentes parties d’une requête, comme la chaîne, l’URI ou le corps de la requête.
 
-- **Taux de limitation de règles :** Une règle de contrôle du débit consiste à limiter un trafic élevé anormal en provenance de toute adresse IP de client. Vous pouvez configurer un seuil sur le nombre de demandes web autorisée à partir d’une adresse IP du client pendant une durée d’une minute. Cela est différent d’une règle de personnalisé basé sur la liste Autoriser ou bloquer des IP qui soit permet tout ou blocs de tous les demandes à partir d’une adresse IP du client. Limitation du débit peut être combinée avec des conditions de correspondance supplémentaires telles que les paramètres HTTP (S) correspondant pour le contrôle de la fréquence granulaire.
+- **Règles de limitation du débit :** Une règle de contrôle du débit consiste à limiter un trafic élevé anormal en provenance de toute adresse IP de client. Vous pouvez configurer un seuil sur le nombre de requêtes web autorisées à partir d’une adresse IP cliente pendant une durée d’une minute. Ce type de règle est différent d’une règle personnalisée basée sur une liste d’adresses autorisées ou bloquées qui autorise ou bloque toutes les requêtes provenant d’une adresse IP cliente. Pour contrôler le débit encore plus précisément, vous pouvez combiner des règles de limitation du débit avec des conditions de correspondance supplémentaires, telles que la mise en correspondance des paramètres HTTP/HTTPS.
 
-### <a name="azure-managed-rule-sets"></a>Ensembles de règles gérés par Azure
+### <a name="azure-managed-rule-sets"></a>Ensembles de règles managées par Azure
 
-Ensembles de règles gérés par Azure fournissent un moyen simple de déployer la protection contre un ensemble commun de menaces de sécurité. Dans la mesure où ces ensembles de règles sont gérées par Azure, les règles sont mises à jour en fonction des besoins pour vous protéger contre les nouvelles signatures d’attaque. En préversion publique, le gérés par Azure ensemble par défaut règle inclut des règles sur les catégories de menaces suivantes :
+Les ensembles de règles managées par Azure fournissent un moyen simple de déployer une solution de protection contre diverses menaces de sécurité courantes. Dans la mesure où ces ensembles de règles sont managées par Azure, les règles sont mises à jour comme il convient pour vous protéger contre les nouvelles signatures d’attaque. Disponible en préversion publique, l’ensemble de règles par défaut managées par Azure inclut des règles de protection contre les catégories de menaces suivantes :
 
-- Les scripts intersites
+- Scripts intersites (XSS)
 - Attaques Java
-- Inclusion d’un fichier local
-- Attaques par injection de PHP
-- Exécution de la commande à distance
-- Inclusion de fichier distant
+- Inclusion de fichier local (LFI)
+- Injection de code PHP
+- Exécution de commande à distance
+- Inclusion de fichier distant (RFI)
 - Fixation de session
 - Protection contre les injections de code SQL
 - Attaquants de protocole
 
-Incrémente le numéro de version de l’ensemble de règles par défaut lorsque de nouvelles signatures d’attaque sont ajoutés à l’ensemble de règles.
-Ensemble de règles par défaut est activée par défaut en mode de détection dans vos stratégies de pare-feu d’applications Web. Vous pouvez activer ou désactiver des règles individuelles au sein de l’ensemble par défaut règle afin de répondre aux exigences de votre application. Vous pouvez également définir des actions spécifiques (autoriser/bloquer/redirection/LOG) par règle. Action par défaut consiste à bloquer. En outre, les règles personnalisées peuvent être configurées dans la même stratégie de pare-feu d’applications Web si vous souhaitez contourner les règles préconfigurées dans l’ensemble de règles par défaut.
-Règles personnalisées sont toujours appliqués avant l’évaluation des règles dans l’ensemble de règles par défaut. Si une demande correspond à une règle personnalisée, action de règle correspondante est appliquée, et la demande est bloquée ou passée au back-end, sans appel de toutes les règles personnalisées supplémentaires ou les règles dans l’ensemble de règles par défaut. En outre, vous avez la possibilité pour supprimer l’ensemble de la règle par défaut à partir de vos stratégies de pare-feu d’applications Web.
+Le numéro de version de l’ensemble de règles par défaut s’incrémente à chaque ajout d’une nouvelle signature d’attaque à l’ensemble de règles.
+L’ensemble de règles par défaut est activé en mode Détection par défaut dans vos stratégies WAF. Vous pouvez activer ou désactiver des règles individuellement dans l’ensemble de règles par défaut en fonction des exigences propres à votre application. Vous pouvez également définir des actions spécifiques (AUTORISER/BLOQUER/REDIRIGER/JOURNALISER) pour chaque règle. L’action par défaut est BLOQUER. De plus, les règles personnalisées peuvent être configurées dans la même stratégie WAF si vous souhaitez ignorer les règles préconfigurées de l’ensemble de règles par défaut.
+Les règles personnalisées sont toujours appliquées avant l’évaluation des règles de l’ensemble de règles par défaut. Si une requête correspond à une règle personnalisée, l’action de règle correspondante est appliquée, et la requête est soit bloquée, soit transmise au back-end, sans appliquer aucune autre règle personnalisée ni règle de l’ensemble de règles par défaut. Par ailleurs, vous avez la possibilité de supprimer l’ensemble de règles par défaut de vos stratégies WAF.
 
 
-### <a name="bot-protection-rule-preview"></a>Règle de protection Bot (version préliminaire)
+### <a name="bot-protection-rule-preview"></a>Règle de protection bot (préversion)
 
-Un ensemble de règles de protection Bot géré peut être activé pour votre WAF effectuer des actions personnalisées sur les demandes provenant des adresses IP malveillantes. Les adresses IP sont issus les flux de Microsoft Threat Intelligence. [Intelligent Security Graph](https://www.microsoft.com/security/operations/intelligence) alimente les menaces de Microsoft et est utilisé par plusieurs services, dont Azure Security Center.
+Un ensemble de règles de protection bot managées peut être activé pour votre stratégie WAF afin d’effectuer des actions personnalisées sur les requêtes provenant d’adresses IP malveillantes. Ces adresses IP proviennent du flux Microsoft Threat Intelligence. [Intelligent Security Graph](https://www.microsoft.com/security/operations/intelligence) alimente Microsoft Threat Intelligence et est utilisé par de nombreux services, dont Azure Security Center.
 
-![Ensemble de règles de Protection de robot](./media/waf-front-door-configure-bot-protection/BotProtect2.png)
+![Ensemble de règles de protection bot](./media/waf-front-door-configure-bot-protection/BotProtect2.png)
 
 > [!IMPORTANT]
-> Ensemble de règles de protection de robot est actuellement en version préliminaire publique et est fourni avec un contrat de niveau de service en version préliminaire. Certaines fonctionnalités peuvent être limitées ou non prises en charge.  Consultez les [Conditions d’utilisation supplémentaires des préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Un ensemble de règles de protection bot, actuellement disponible en préversion publique, est fourni avec un contrat de niveau de service en préversion. Certaines fonctionnalités peuvent être limitées ou non prises en charge.  Consultez les [Conditions d’utilisation supplémentaires des préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Si la Protection de robot est activée, les demandes entrantes qui correspondent aux adresses IP des clients malveillants robots sont enregistrés à FrontdoorWebApplicationFirewallLog journal. Vous pouvez accéder à des journaux WAF à partir du compte de stockage, analytique de concentrateur ou le journal des événements. 
+Si la protection bot est activée, les requêtes entrantes qui correspondent à des adresses IP clientes de bots malveillants sont consignées dans le journal FrontdoorWebApplicationFirewallLog. Vous pouvez accéder aux journaux WAF à partir du compte de stockage, du hub d’événements ou de l’analytique des journaux. 
 
 ## <a name="configuration"></a>Configuration
 
-Configuration et déploiement de tous les types de règles WAF sont entièrement compatible à l’aide du portail Azure, les API REST, les modèles Azure Resource Manager et Azure PowerShell.
+La configuration et le déploiement de tous les types de règles WAF sont entièrement pris en charge si vous utilisez le portail Azure, des API REST, des modèles Azure Resource Manager ou Azure PowerShell.
 
-## <a name="monitoring"></a>Surveillance
+## <a name="monitoring"></a>Supervision
 
-Surveillance de WAF à porte est intégré avec Azure Monitor pour effectuer le suivi des alertes et de surveiller facilement les tendances du trafic.
+La supervision de WAF pour Front Door est intégrée à Azure Monitor, ce qui vous permet de suivre les alertes et d’analyser facilement les tendances du trafic.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Découvrez comment [configurer une stratégie de pare-feu d’applications Web pour la porte d’entrée à l’aide du portail Azure](waf-front-door-create-portal.md)
+- Découvrez comment [configurer une stratégie WAF pour Front Door à l’aide du portail Azure](waf-front-door-create-portal.md)

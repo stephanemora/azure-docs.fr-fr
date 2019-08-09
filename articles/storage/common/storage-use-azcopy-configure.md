@@ -5,15 +5,15 @@ services: storage
 author: normesta
 ms.service: storage
 ms.topic: article
-ms.date: 05/14/2019
+ms.date: 07/25/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 1a67846889b43d582a7a7d477a33f0e2168fd760
-ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.openlocfilehash: 3773f9a8464dc94436d6d2503b173d4674033ab1
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67147871"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68565051"
 ---
 # <a name="configure-optimize-and-troubleshoot-azcopy"></a>Configurer, optimiser et dépanner AzCopy
 
@@ -28,7 +28,7 @@ AzCopy est un utilitaire de ligne de commande que vous pouvez utiliser pour copi
 
 ## <a name="configure-proxy-settings"></a>Configuration des paramètres de proxy
 
-Pour configurer les paramètres de proxy pour AzCopy, définissez la variable d’environnement `https_proxy`.
+Pour configurer les paramètres de proxy pour AzCopy, définissez la variable d’environnement `https_proxy`. Si vous exécutez AzCopy sur Windows, AzCopy détecte automatiquement les paramètres de proxy. Vous n’avez donc pas besoin d’utiliser ce paramètre dans Windows. Si vous choisissez d’utiliser ce paramètre dans Windows, il remplace la détection automatique.
 
 | Système d’exploitation | Commande  |
 |--------|-----------|
@@ -40,7 +40,13 @@ Actuellement, AzCopy ne prend en charge les serveurs proxy qui requièrent une a
 
 ## <a name="optimize-throughput"></a>Optimiser le débit
 
-Définissez la variable d’environnement `AZCOPY_CONCURRENCY_VALUE` pour configurer le nombre de demandes simultanées et contrôler les performances du débit et la consommation des ressources. Si votre ordinateur dispose de moins de 5 unités centrales, la valeur de cette variable est définie sur `32`. Sinon, la valeur par défaut est égale à 16 multiplié par le nombre d’unités centrales. La valeur maximale par défaut de cette variable est `300`, mais vous pouvez l’augmenter ou la diminuer manuellement.
+Vous pouvez utiliser l’indicateur `cap-mbps` pour plafonner le débit de données. Par exemple, la commande suivante applique au débit un plafond de `10` mégabits (Mb) par seconde.
+
+```azcopy
+azcopy cap-mbps 10
+```
+
+Le débit peut diminuer pendant le transfert de petits fichiers. Vous pouvez augmenter le débit en définissant la variable d’environnement `AZCOPY_CONCURRENCY_VALUE`. Cette variable spécifie le nombre de demandes pouvant être effectuées simultanément.  Si votre ordinateur dispose de moins de 5 unités centrales, la valeur de cette variable est définie sur `32`. Sinon, la valeur par défaut est égale à 16 multiplié par le nombre d’unités centrales. La valeur maximale par défaut de cette variable est `300`, mais vous pouvez l’augmenter ou la diminuer manuellement.
 
 | Système d’exploitation | Commande  |
 |--------|-----------|
@@ -83,7 +89,7 @@ Par défaut, les fichiers journaux et de plan sont situés dans le répertoire `
 
 La commande suivante obtient toutes les erreurs avec l’état `UPLOADFAILED` à partir du journal `04dc9ca9-158f-7945-5933-564021086c79` :
 
-**Windows**
+**Windows (PowerShell)**
 
 ```
 Select-String UPLOADFAILED .\04dc9ca9-158f-7945-5933-564021086c79.log

@@ -15,10 +15,10 @@ ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5a0e0508babdd9ae703e38d58b079ab5fa16f68c
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66397881"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Règles d’appartenance de groupe dynamique dans Azure Active Directory
@@ -60,7 +60,7 @@ Les parenthèses sont facultatives pour une expression unique. La longueur total
 
 Il existe trois types de propriétés utilisables pour construire une règle d’appartenance.
 
-* Booléen
+* Boolean
 * Chaîne
 * Collection de chaînes
 
@@ -261,7 +261,7 @@ L’expression suivante sélectionne tous les utilisateurs qui disposent d’un 
 user.assignedPlans -any (assignedPlan.service -eq "SCO" -and assignedPlan.capabilityStatus -eq "Enabled")
 ```
 
-### <a name="using-the-underscore--syntax"></a>Utilisation de la syntaxe de trait de soulignement (\_)
+### <a name="using-the-underscore-_-syntax"></a>Utilisation de la syntaxe de trait de soulignement (\_)
 
 La syntaxe de trait de soulignement (\_) correspond aux occurrences d’une valeur spécifique dans une des propriétés de collection de chaîne à valeurs multiples pour ajouter des utilisateurs ou des appareils à un groupe dynamique. Elle est utilisée avec les opérateurs -any ou -all.
 
@@ -283,7 +283,7 @@ La règle de collaborateurs directs est construite à l’aide de la syntaxe sui
 Direct Reports for "{objectID_of_manager}"
 ```
 
-Voici un exemple d’une règle valide, où « 62e19b97-8b3d-4d4a-a106-4ce66896a863 » est l’ID d’objet du Gestionnaire de :
+Voici un exemple de règle valide où « 62e19b97-8b3d-4d4a-a106-4ce66896a863 » est l’ID d’objet du responsable :
 
 ```
 Direct Reports for "62e19b97-8b3d-4d4a-a106-4ce66896a863"
@@ -300,17 +300,17 @@ Les conseils suivants peuvent vous aider à utiliser la règle correctement.
 
 Vous pouvez créer un groupe contenant tous les utilisateurs d’un client à l’aide d’une règle d’appartenance. Lors de l’ajout ou de la suppression ultérieurs d’utilisateurs dans le client, l’appartenance du groupe est ajustée automatiquement.
 
-La règle « Tous les utilisateurs » est construite à l’aide d’une expression unique à l’aide de l’opérateur - ne et la valeur null. Cette règle ajoute au groupe les utilisateurs invités B2B, ainsi que les utilisateurs membres.
+La règle « Tous les utilisateurs » est construite à l’aide d’une expression unique utilisant l’opérateur -ne et la valeur null. Cette règle ajoute au groupe les utilisateurs invités B2B, ainsi que les utilisateurs membres.
 
 ```
 user.objectid -ne null
 ```
 
-### <a name="create-an-all-devices-rule"></a>Créer une règle de « Tous les appareils »
+### <a name="create-an-all-devices-rule"></a>Créer une règle « Tous les appareils »
 
 Vous pouvez créer un groupe contenant tous les appareils d’un client à l’aide d’une règle d’appartenance. Lors de l’ajout ou de la suppression ultérieurs d’appareils dans le client, l’appartenance du groupe est ajustée automatiquement.
 
-La règle « Tous les appareils » est construite à l’aide d’une expression unique à l’aide de l’opérateur - ne et la valeur null :
+La règle « Tous les appareils » est construite à l’aide d’une expression unique utilisant l’opérateur -ne et la valeur null :
 
 ```
 device.objectid -ne null
@@ -318,7 +318,7 @@ device.objectid -ne null
 
 ## <a name="extension-properties-and-custom-extension-properties"></a>Attributs d’extension et propriétés d’extension personnalisée
 
-Attributs d’extension et les propriétés d’extension personnalisés sont pris en charge en tant que propriétés de chaîne dans les règles d’appartenance dynamique. Les attributs d’extension sont synchronisés à partir de Windows Server AD local et prennent le format « ExtensionAttributeX », lorsque X est égal à 1-15. Voici en exemple de règle utilisant un attribut d’extension en tant que propriété :
+Les attributs d’extension et les propriétés d’extension personnalisées sont pris en charge en tant que propriétés de chaîne dans les règles d’appartenance dynamique. Les attributs d’extension sont synchronisés à partir de Windows Server AD local et prennent le format « ExtensionAttributeX », lorsque X est égal à 1-15. Voici en exemple de règle utilisant un attribut d’extension en tant que propriété :
 
 ```
 (user.extensionAttribute15 -eq "Marketing")
@@ -358,7 +358,7 @@ Les attributs d’appareil suivants peuvent être utilisés.
  managementType | Gestion des périphériques mobiles (pour les appareils mobiles).<br>PC (pour les ordinateurs gérés par l’agent PC Intune) | (device.managementType -eq "MDM")
  deviceId | Un ID d’appareil Azure AD valide. | (device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d")
  objectId | Un ID d’objet Azure AD valide. |  (device.objectId -eq 76ad43c9-32c5-45e8-a272-7b58b58f596d")
- systemLabels | n’importe quelle chaîne correspondant à la propriété d’appareil Intune pour baliser les appareils Modern Workplace | (device.systemLabels-contient « M365Managed »)
+ systemLabels | n’importe quelle chaîne correspondant à la propriété d’appareil Intune pour baliser les appareils Modern Workplace | (device.systemLabels -contains "M365Managed")
 
 > [!Note]  
 > Quand vous créez des groupes dynamiques pour des appareils, vous devez définir deviceOwnership avec la valeur « Company ». Sur Intune, la propriété de l’appareil est représentée comme Corporate. Pour plus d’informations, consultez [OwnerTypes](https://docs.microsoft.com/intune/reports-ref-devices#ownertypes). 

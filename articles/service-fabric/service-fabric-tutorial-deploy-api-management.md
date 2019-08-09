@@ -16,10 +16,10 @@ ms.date: 9/26/2018
 ms.author: aljo
 ms.custom: mvc
 ms.openlocfilehash: fc2c23d93a1800232b81c5eb2f861e8b71c3e437
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66428058"
 ---
 # <a name="integrate-api-management-with-service-fabric-in-azure"></a>Intégrer Gestion des API à Service Fabric dans Azure
@@ -36,7 +36,7 @@ Cet article vous montre comment configurer [Gestion des API Azure](../api-manage
 > [!IMPORTANT]
 > Cette fonctionnalité est disponible aux niveaux **Premium** et **Développeur** de Gestion des API en raison de la prise en charge de réseau virtuel requise.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Avant de commencer :
 
@@ -88,7 +88,7 @@ Démarrez Visual Studio en tant qu’administrateur et créez un service ASP.NET
     </Resources>
     ```
 
-    La suppression du port permet à Service Fabric spécifier un port dynamique à partir de la plage de ports d’application, ouverte via le groupe de sécurité réseau dans le modèle de Cluster Resource Manager, autorisant le trafic de circuler vers elle à partir de la gestion des API.
+    La suppression du port permet à Service Fabric de spécifier un port dynamique à partir de la plage de ports d’application, ouverte via le Groupe de sécurité réseau dans le modèle Cluster Resource Manager, autorisant le trafic à y accéder à partir du service Gestion des API.
 
  6. Appuyez sur F5 dans Visual Studio pour vérifier que l’API web est disponible localement.
 
@@ -145,7 +145,7 @@ Entrez un nom complet sous **displayName** et une **description** pour le produi
 
 * Vous pouvez indiquer sous **displayName** un nom quelconque pour votre API. Dans le cadre de cet article, utilisez « Service Fabric App ».
 * Le champ **name** contient un nom descriptif unique pour l’API, par exemple « service-fabric-app ». Il s’affiche dans les portails des développeurs et de publication.
-* **serviceUrl** indique le service HTTP implémentant l’API. La gestion des API transmet les demandes à cette adresse. Pour les principaux de Service Fabric, cette valeur d’URL n’est pas utilisée. Vous pouvez placer n’importe quelle valeur ici. Pour cet article, par exemple « http :\//servicefabric ».
+* **serviceUrl** indique le service HTTP implémentant l’API. La gestion des API transmet les demandes à cette adresse. Pour les principaux de Service Fabric, cette valeur d’URL n’est pas utilisée. Vous pouvez placer n’importe quelle valeur ici. Pour cet article, par exemple « http:\//servicefabric ».
 * Le chemin d’accès **path** est ajouté à l’URL de base du service Gestion des API. L'URL de base est commune à toutes les API hébergées par une instance de service Gestion des API. Gestion des API distingue les API selon leur suffixe. Celui-ci doit donc être unique pour chaque API d'un éditeur donné.
 * Le champ **protocols** détermine les protocoles qui peuvent être utilisés pour accéder à l’API. Pour cet article, indiquez **http** et **https**.
 * Le chemin d’accès **path** est un suffixe pour l’API. Pour cet article, utilisez « myapp ».
@@ -288,7 +288,7 @@ Vous pouvez maintenant essayer d’envoyer une requête à votre service princip
 
 Un cluster est composé d’autres ressources Azure en plus de la ressource de cluster elle-même. Le plus simple pour supprimer le cluster et toutes les ressources qu’il consomme consiste à supprimer le groupe de ressources.
 
-Connectez-vous à Azure et sélectionnez l’ID d’abonnement avec lequel vous souhaitez supprimer le cluster.  Vous pouvez trouver votre ID d’abonnement en vous connectant au [portail Azure](https://portal.azure.com). Supprimer le groupe de ressources et toutes les ressources de cluster à l’aide de la [applet de commande Remove-AzResourceGroup](/en-us/powershell/module/az.resources/remove-azresourcegroup).
+Connectez-vous à Azure et sélectionnez l’ID d’abonnement avec lequel vous souhaitez supprimer le cluster.  Vous pouvez trouver votre ID d’abonnement en vous connectant au [portail Azure](https://portal.azure.com). Supprimez le groupe de ressources et toutes les ressources de cluster à l’aide de l’[applet de commande Remove-AzResourceGroup](/en-us/powershell/module/az.resources/remove-azresourcegroup).
 
 ```powershell
 $ResourceGroupName = "sfclustertutorialgroup"

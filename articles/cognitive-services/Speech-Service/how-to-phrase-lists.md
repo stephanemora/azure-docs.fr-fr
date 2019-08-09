@@ -1,7 +1,7 @@
 ---
-title: Une phrase listes - Services de reconnaissance vocale
+title: Liste d’expressions – Speech Services
 titlesuffix: Azure Cognitive Services
-description: Découvrez comment fournir les Services de reconnaissance vocale avec une liste d’expressions à l’aide de la `PhraseListGrammar` objet afin d’améliorer les résultats de reconnaissance de la parole-texte.
+description: Découvrez comment fournir à Speech Services une liste d’expressions à l’aide de l’objet `PhraseListGrammar` pour améliorer les résultats de la reconnaissance vocale.
 services: cognitive-services
 author: rhurey
 manager: nitinme
@@ -11,23 +11,23 @@ ms.topic: conceptual
 ms.date: 5/02/2019
 ms.author: rhurey
 ms.openlocfilehash: a3be5d28ebe394771a2d8b492f1f6a9c8a82fb9e
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66515307"
 ---
-# <a name="phrase-lists-for-speech-to-text"></a>Listes d’une expression pour la parole-texte
+# <a name="phrase-lists-for-speech-to-text"></a>Listes d’expressions pour la reconnaissance vocale
 
-En fournissant les Services de reconnaissance vocale avec une liste d’expressions, vous pouvez améliorer la précision de la reconnaissance vocale. Listes d’expression sont utilisés pour identifier les expressions connues dans les données audio, tels que le nom d’une personne ou un emplacement spécifique.
+En fournissant à Speech Services une liste d’expressions, vous pouvez améliorer la précision de la reconnaissance vocale. Les listes d’expressions permettent d’identifier des expressions connues dans les données audio, comme le nom d’une personne ou un lieu spécifique.
 
-Par exemple, si vous disposez d’une commande « Atteindre » et la destination possible « Ward » qui peut être prononcé, vous pouvez ajouter une entrée de « Déplacer vers Ward ». Ajout d’une expression augmente la probabilité que lorsque l’audio est reconnu que « Déplacer vers Ward » est reconnu au lieu de « Déplacer vers ».
+Par exemple, si vous disposez d’une commande « Move to » et que parmi les destinations susceptibles d’être prononcées figurent « Ward », vous pouvez ajouter l’entrée « Move to Ward ». Ainsi, quand le contenu audio est reconnu, l’ajout de cette expression augmente la probabilité que « Move to Ward » sera reconnu et non « Move toward ».
 
-Mots ou expressions complètes peuvent être ajoutées à une liste d’expressions. Lors de la reconnaissance, une entrée dans une liste d’expressions est utilisée si une correspondance exacte n’est incluse dans le fichier audio. Création sur l’exemple précédent, si la liste d’expressions inclut « Déplacer vers Ward » et l’expression capturé est « Déplacer lentement vers », puis le résultat de reconnaissance sera « Déplacer lentement à Ward ».
+Il est possible d’ajouter des mots uniques ou des expressions entières à une liste d’expressions. Pendant la reconnaissance, une entrée de liste d’expressions est utilisée si le contenu audio contient une correspondance exacte. Pour reprendre l’exemple précédent, si la liste d’expressions contient « Move to Ward » et que l’expression détectée est « Move toward slowly », le résultat de la reconnaissance sera « Move to Ward slowly ».
 
-## <a name="how-to-use-phrase-lists"></a>Comment utiliser une expression répertorie
+## <a name="how-to-use-phrase-lists"></a>Comment utiliser les listes d’expressions
 
-Les exemples ci-dessous montrent comment créer une liste d’expressions à l’aide de la `PhraseListGrammar` objet.
+Les exemples ci-dessous montrent comment créer une liste d’expressions à l’aide de l’objet `PhraseListGrammar`.
 
 ```C++
 auto phraselist = PhraseListGrammar::FromRecognizer(recognizer);
@@ -65,9 +65,9 @@ phraseListGrammar.addPhrase("Move to Ted");
 ```
 
 >[!Note]
-> Le nombre maximal de listes de Phrase qui utilisera le Service de reconnaissance vocale pour correspondre à la reconnaissance vocale est 1024 phrases.
+> Speech Services peut utiliser au maximum 1 024 listes d’expressions pour la reconnaissance vocale.
 
-Vous pouvez également effacer les expressions associées le `PhraseListGrammar` par clear() appelant.
+Vous pouvez aussi effacer les expressions associées à `PhraseListGrammar` en appelant clear().
 
 ```C++
 phraselist->Clear();
@@ -90,8 +90,8 @@ phraseListGrammar.clear();
 ```
 
 > [!NOTE]
-> Modifications apportées à un `PhraseListGrammar` sont pris en compte sur la reconnaissance suivante ou après une reconnexion aux Services de reconnaissance vocale de l’objet.
+> Les modifications apportées à un objet `PhraseListGrammar` prennent effet à la reconnaissance suivante ou après une reconnexion à Speech Services.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Documentation de référence de kit de développement logiciel de reconnaissance vocale](speech-sdk.md)
+* [Documentation de référence du SDK Speech](speech-sdk.md)

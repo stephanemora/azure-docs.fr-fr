@@ -1,6 +1,6 @@
 ---
-title: Exemples de PowerShell et Graph pour les licences de groupes - Azure Active Directory | Microsoft Docs
-description: PowerShell + des exemples de graphique et des scénarios pour la gestion des licences par groupe Azure Active Directory
+title: Exemples PowerShell et Graph pour la gestion des licences par groupe – Azure Active Directory | Microsoft Docs
+description: Exemples et scénarios PowerShell + Graph pour les licences basées sur les groupes Azure Active Directory
 services: active-directory
 keywords: Gestion des licences Azure AD
 documentationcenter: ''
@@ -14,19 +14,19 @@ ms.date: 03/18/2019
 ms.author: curtand
 ms.reviewer: sumitp
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2fc6e31afbb7ced4699afef38b67b637914198e4
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
-ms.translationtype: MT
+ms.openlocfilehash: f95c0596d7a2b55867cdb7ed9355006500e89242
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65192411"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67065497"
 ---
-# <a name="powershell-examples-for-group-based-licensing-in-azure-ad"></a>Exemples PowerShell pour les licences basées sur les groupes dans Azure AD
+# <a name="powershell-and-graph-examples-for-group-based-licensing-in-azure-ad"></a>Exemples PowerShell et Graph pour les licences basées sur les groupes dans Azure AD
 
-Toutes les fonctionnalités pour la gestion des licences par groupe sont disponibles via le [portail Azure](https://portal.azure.com), et la prise en charge de PowerShell et Microsoft Graph est actuellement limitée. Toutefois, il existe certaines tâches utiles qui peuvent être effectuées à l’aide des [cmdlets MSOnline PowerShell](https://docs.microsoft.com/powershell/msonline/v1/azureactivedirectory) existantes et Microsoft Graph. Ce document fournit des exemples de ce qui est possible.
+Toutes les fonctionnalités pour les licences basées sur les groupes sont disponibles via le [portail Azure](https://portal.azure.com), et la prise en charge de PowerShell et Microsoft Graph est actuellement limitée aux opérations en lecture seule. Toutefois, il existe certaines tâches utiles qui peuvent être effectuées à l’aide des [cmdlets MSOnline PowerShell](https://docs.microsoft.com/powershell/msonline/v1/azureactivedirectory) existantes et Microsoft Graph. Ce document fournit des exemples de ce qui est possible.
 
 > [!NOTE]
-> Avant de commencer, les applets de commande en cours d’exécution, vérifiez que vous vous connectez à votre organisation tout d’abord, en exécutant la `Connect-MsolService`  applet de commande.
+> Avant de commencer à exécuter des applets de commande, veillez d’abord à vous connecter à votre organisation en exécutant l’applet de commande `Connect-MsolService` .
 
 > [!WARNING]
 > Ce code est fourni à titre d’exemple à des fins de démonstration. Si vous voulez l’utiliser dans votre environnement, testez-le au préalable à petite échelle ou dans un locataire de test distinct. Vous devez peut-être modifier le code pour répondre aux besoins spécifiques de votre environnement.
@@ -50,7 +50,7 @@ EMSPREMIUM
 > [!NOTE]
 > Les données sont limitées aux informations liées au produit (SKU). Il n’est pas possible de répertorier les plans de service désactivés dans la licence.
 
-L’exemple suivant permet d’obtenir les mêmes données à partir de Microsoft Graph.
+Utilisez l’exemple suivant pour obtenir les mêmes données de Microsoft Graph.
 
 ```
 GET https://graph.microsoft.com/v1.0/groups/99c4216a-56de-42c4-a4ac-e411cd8c7c41$select=assignedLicenses
@@ -227,7 +227,7 @@ ObjectId                             DisplayName      License Error
 6d325baf-22b7-46fa-a2fc-a2500613ca15 Catherine Gibson MutuallyExclusiveViolation
 ```
 
-Utilisez l’option suivante pour obtenir les mêmes données à partir de Microsoft Graph :
+Utilisez ce qui suit pour obtenir les mêmes données de Microsoft Graph :
 
 ```powershell
 GET https://graph.microsoft.com/v1.0/groups/11151866-5419-4d93-9141-0603bbf78b42/membersWithLicenseErrors
@@ -388,7 +388,7 @@ ObjectId                             SkuId       AssignedDirectly AssignedFromGr
 240622ac-b9b8-4d50-94e2-dad19a3bf4b5 contoso:EMS             True              True
 ```
 
-Graphique n’a aucun moyen simple pour afficher le résultat, mais vous pouvez le constater à partir de cette API :
+Graph n’offre aucun moyen simple de montrer les résultats, mais il est possible de les voir à partir cette API :
 
 ```powershell
 GET https://graph.microsoft.com/v1.0/users/e61ff361-5baf-41f0-b2fd-380a6a5e406a?$select=licenseAssignmentStates
@@ -617,7 +617,7 @@ UserId                               OperationResult
 aadbe4da-c4b5-4d84-800a-9400f31d7371 User has no direct license to remove. Skipping.
 ```
 > [!NOTE]
-> Mettez à jour les valeurs pour les variables `$skuId` et `$groupId`  est ciblée pour la suppression de licences directes en fonction de votre environnement de test avant d’exécuter le script ci-dessus. 
+> Avant d’exécuter le script ci-dessus, mettez à jour les valeurs des variables `$skuId` et `$groupId` qui sont visées par une suppression de licences directes comme indiqué dans votre environnement de test. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

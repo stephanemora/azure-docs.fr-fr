@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
 ms.openlocfilehash: e4799ca099d608c3b8ecd16612b790f5654df7dd
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66390415"
 ---
 # <a name="configure-your-bing-custom-search-experience"></a>Configurer votre expérience de Recherche personnalisée Bing
@@ -27,7 +27,7 @@ Utilisez les éléments suivants pour définir vos sections du web :
 
 | Nom de la section | Description                                                                                                                                                                                                                                                                                                |
 |------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Domaine     | Une section de domaine inclut tout le contenu trouvé dans un domaine internet. Par exemple : `www.microsoft.com`. L’omission de `www.` oblige Bing à rechercher également dans les sous-domaines du domaine. Par exemple, si vous spécifiez `microsoft.com`, Bing renvoie également les résultats à partir de `support.microsoft.com` ou `technet.microsoft.com`. |
+| Domaine     | Une section de domaine inclut tout le contenu trouvé dans un domaine internet. Par exemple : `www.microsoft.com`. L’omission de `www.` oblige Bing à rechercher également dans les sous-domaines du domaine. Par exemple, si vous spécifiez `microsoft.com`, Bing retourne également les résultats de `support.microsoft.com` ou `technet.microsoft.com`. |
 | Sous-page    | Une section de sous-page comprend tout le contenu trouvé dans la sous-page, et les chemins situés en dessous de celle-ci. Vous pouvez indiquer un maximum de deux sous-pages dans le chemin. Par exemple, `www.microsoft.com/en-us/windows/`                                                                                                                       |
 | Page web    | Une section de page Web ne peut inclure que cette page Web dans une recherche personnalisée. Si vous le souhaitez, vous pouvez préciser s’il faut inclure ou non les sous-pages.                                                                                                                                                                                  |
 
@@ -118,9 +118,9 @@ Le portail vous permet également d’épingler des URL en tête des résultats 
 
 Vous pouvez épingler une page web en tête des résultats de deux manières :
 
-* Dans le **épinglés** , entrez l’URL de la page Web pour épingler à la partie supérieure et de la requête correspondante.
+* Sous l’onglet **Pinned** (Épinglé), entrez l’URL de la page web à épingler en tête des résultats et la requête correspondante.
 
-* Dans le volet **Preview** (Visualisation), entrez une requête de recherche, puis cliquez sur Search (Rechercher). Rechercher la page Web que vous souhaitez épingler pour votre requête, puis cliquez sur **épingler au haut**. La page web et la requête seront ajoutées à la liste **Pinned** (Épinglé).
+* Dans le volet **Preview** (Visualisation), entrez une requête de recherche, puis cliquez sur Search (Rechercher). Recherchez la page web à épingler pour votre requête, puis cliquez sur **Pin to top** (Épingler en haut). La page web et la requête seront ajoutées à la liste **Pinned** (Épinglé).
 
 ### <a name="specify-the-pins-match-condition"></a>Spécifier la condition de correspondance de l’épingle
 

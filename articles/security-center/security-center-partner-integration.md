@@ -14,15 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/20/2019
 ms.author: rkarlin
-ms.openlocfilehash: e756a0a7af9ad89e3aad8b0dbe27a870a3f855c1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d94567800a9fd020784c9cb07b2c6824cd032509
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60907327"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67064272"
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Intégrer des solutions de sécurité dans Azure Security Center
 Ce document vous aide à gérer les solutions de sécurité déjà connectées à Azure Security Center et à en ajouter de nouvelles.
+
+> [!NOTE]
+> Un sous-ensemble de solutions de sécurité sera supprimé le 31 juillet 2019. Pour plus d’informations et connaître les alternatives, consultez [Retrait des fonctionnalités de Security Center (juillet 2019).](security-center-features-retirement-july2019.md#menu_solutions)
 
 ## <a name="integrated-azure-security-solutions"></a>Solutions de sécurité Azure intégrées
 Security Center simplifie l’activation des solutions de sécurité intégrées dans Azure. Voici les avantages :
@@ -31,11 +34,7 @@ Security Center simplifie l’activation des solutions de sécurité intégrées
 - **Détections intégrées** : les événements de sécurité des solutions de partenaire sont automatiquement collectés, agrégés et affichés dans le cadre des alertes et des incidents de Security Center. Ces événements sont également fusionnés avec les détections d’autres sources pour fournir des fonctions de détection de menaces avancées.
 - **Gestion et surveillance unifiées de l’intégrité** : Les clients peuvent utiliser des événements d’intégrité intégrés pour surveiller facilement les solutions des partenaires. La gestion de base offre un accès facile à la configuration avancée avec la solution de partenaire.
 
-Actuellement, les solutions de sécurité intégrées comprennent :
-
-- Pare-feu d’applications web ([Barracuda](https://www.barracuda.com/products/webapplicationfirewall), [F5](https://support.f5.com/kb/en-us/products/big-ip_asm/manuals/product/bigip-ve-web-application-firewall-microsoft-azure-12-0-0.html), [Imperva](https://www.imperva.com/Products/WebApplicationFirewall-WAF), [Fortinet](https://www.fortinet.com/products.html), [Azure Application Gateway](https://azure.microsoft.com/blog/azure-web-application-firewall-waf-generally-available/))
-- Pare-feu de nouvelle génération ([Check Point](https://www.checkpoint.com/products/vsec-microsoft-azure/), [Barracuda](https://campus.barracuda.com/product/nextgenfirewallf/article/NGF/AzureDeployment/), [Fortinet](https://docs.fortinet.com/d/fortigate-fortios-handbook-the-complete-guide-to-fortios-5.2), [Cisco](https://www.cisco.com/c/en/us/td/docs/security/firepower/quick_start/azure/ftdv-azure-qsg.html) et [Palo Alto Networks](https://www.paloaltonetworks.com/products))
-- Évaluation des vulnérabilités ([Qualys](https://www.qualys.com/public-clouds/microsoft-azure/) et [Rapid7](https://www.rapid7.com/products/insightvm/))
+Actuellement, les solutions de sécurité intégrées incluent l’évaluation des vulnérabilités par [Qualys](https://www.qualys.com/public-clouds/microsoft-azure/) et [Rapid7](https://www.rapid7.com/products/insightvm/), et le pare-feu d’applications web Application Gateway de Microsoft.
 
 > [!NOTE]
 > Security Center n’installe pas Microsoft Monitoring Agent sur les appliances virtuelles de partenaire, car la plupart des fournisseurs de sécurité n’autorisent pas l’exécution d’agents externes sur leur appliance.
@@ -43,12 +42,7 @@ Actuellement, les solutions de sécurité intégrées comprennent :
 >
 
 ## <a name="how-security-solutions-are-integrated"></a>Comment sont intégrées les solutions de sécurité
-Les solutions de sécurité Azure déployées à partir de Security Center sont automatiquement connectées. Vous pouvez également connecter d’autres sources de données de sécurité, notamment :
-
-- Azure AD Identity Protection
-- Ordinateurs exécutés en local ou dans d’autres clouds
-- Solution de sécurité qui prend en charge le format CEF
-- Microsoft Advanced Threat Analytics
+Les solutions de sécurité Azure déployées à partir de Security Center sont automatiquement connectées. Vous pouvez également connecter d’autres sources de données de sécurité, notamment des ordinateurs s’exécutant en local ou dans d’autres clouds.
 
 ![Intégration de solutions de partenaire](./media/security-center-partner-integration/security-center-partner-integration-fig8.png)
 
@@ -112,76 +106,6 @@ La section **Ajouter des sources de données** comprend d’autres sources de do
 
 ![Sources de données](./media/security-center-partner-integration/security-center-partner-integration-fig7.png)
 
-### <a name="connect-external-solutions"></a>Connecter des solutions externes
-
-En plus de la collecte de données de sécurité depuis vos ordinateurs, vous pouvez intégrer des données de sécurité à partir d’un éventail de solutions de sécurité, y compris celles prenant en charge le format d’événement commun (CEF). Le format CEF est un format standard du secteur en plus des messages Syslog. Il est utilisé par de nombreux fournisseurs de sécurité pour permettre l’intégration des événements entre différentes plateformes.
-
-Ce démarrage rapide vous montre comment :
-- Connecter une solution de sécurité à Security Center à l’aide des journaux d’activité CEF
-- Valider la connexion avec la solution de sécurité
-
-#### <a name="prerequisites"></a>Conditions préalables
-Pour utiliser le Centre de sécurité, vous devez disposer d’un abonnement à Microsoft Azure. Si vous n’avez pas d’abonnement, vous pouvez vous inscrire pour avoir un [compte gratuit](https://azure.microsoft.com/free/).
-
-Pour effectuer ce démarrage rapide, vous devez utiliser le niveau tarifaire Standard de Security Center. Vous pouvez essayer Security Center Standard gratuitement. Le démarrage rapide [Intégrer votre abonnement Azure à Security Center Standard](security-center-get-started.md) vous guide dans la mise à niveau vers le plan Standard. Pour en savoir plus, consultez la [page de tarification](https://azure.microsoft.com/pricing/details/security-center/).
-
-Vous avez également besoin d’une [machine Linux](https://docs.microsoft.com/azure/log-analytics/log-analytics-agent-linux), avec le service Syslog déjà connecté au Security Center.
-
-#### <a name="connect-solution-using-cef"></a>Connecter une solution à l’aide du format CEF
-
-1. Connectez-vous au [portail Azure](https://azure.microsoft.com/features/azure-portal/).
-2. Dans le menu **Microsoft Azure**, sélectionnez **Security Center**. La fenêtre **Security Center - Vue d’ensemble** s’ouvre.
-
-    ![Sélectionnez Centre de sécurité](./media/quick-security-solutions/quick-security-solutions-fig1.png)  
-
-3. Dans le menu principal de Security Center, sélectionnez **Solutions de sécurité**.
-4. Dans la page Solutions de sécurité, sous **Ajouter des sources de données (3)**, cliquez sur **Ajouter** sous **CEF (Common Event Format)**.
-
-    ![Ajouter une source de données](./media/quick-security-solutions/quick-security-solutions-fig2.png)
-
-5. Dans la page Journaux d’activité CFE, développez la deuxième étape, **Configurer le transfert Syslog pour envoyer les journaux d’activité nécessaires à l’agent sur le port UDP 25226**, suivez les instructions ci-dessous sur votre ordinateur Linux :
-
-    ![Configurer les messages Syslog](./media/quick-security-solutions/quick-security-solutions-fig3.png)
-
-6. Développez la troisième étape, **Placer le fichier de configuration de l’agent sur l’ordinateur de l’agent** et suivez les instructions ci-dessous sur votre ordinateur Linux :
-
-    ![Configuration de l’agent](./media/quick-security-solutions/quick-security-solutions-fig4.png)
-
-7. Développez la quatrième étape, **Redémarrer le démon syslog et l’agent**et suivez les instructions ci-dessous dans votre ordinateur Linux :
-
-    ![Redémarrer Syslog](./media/quick-security-solutions/quick-security-solutions-fig5.png)
-
-
-#### <a name="validate-the-connection"></a>Valider la connexion
-
-Avant de suivre les étapes suivantes, vous devrez attendre que Syslog démarre la création de rapports à Security Center. Cela peut prendre un certain temps, variable en fonction de la taille de l’environnement.
-
-1.  Dans le volet gauche du tableau de bord de Security Center, cliquez sur **Rechercher**.
-2.  Sélectionnez l’espace de travail connecté à Syslog (machine Linux).
-3.  Saisissez *CommonSecurityLog* et cliquez sur le bouton **Rechercher**.
-
-L’exemple suivant montre le résultat de ces étapes : ![CommonSecurityLog](./media/quick-security-solutions/common-sec-log.png)
-
-#### <a name="clean-up-resources"></a>Supprimer des ressources
-D’autres guides de démarrage rapide et didacticiels de cette collection reposent sur ce guide. Si vous envisagez de suivre les didacticiels et guides de démarrage rapide suivants, conservez le niveau Standard et gardez l’approvisionnement automatique activé. Dans le cas contraire, ou si vous voulez revenir au niveau Gratuit :
-
-1. Revenez au menu principal de Security Center et sélectionnez **Stratégie de sécurité**.
-2. Sélectionnez la stratégie ou l’abonnement pour lequel vous voulez revenir au niveau Gratuit. La fenêtre **Stratégie de sécurité** s’ouvre.
-3. Dans **COMPOSANTS DE LA STRATÉGIE**, sélectionnez **Niveau tarifaire**.
-4. Sélectionnez **Gratuit** pour modifier l’abonnement et passer du niveau Standard au niveau Gratuit.
-5. Sélectionnez **Enregistrer**.
-
-Si vous voulez désactiver l’approvisionnement automatique :
-
-1. Revenez au menu principal de Security Center et sélectionnez **Stratégie de sécurité**.
-2. Sélectionnez l’abonnement pour lequel vous souhaitez désactiver l’approvisionnement automatique.
-3. Dans **Stratégie de sécurité : collecte de données**, sélectionnez **Désactivé** sous **Intégration** pour désactiver l’approvisionnement automatique.
-4. Sélectionnez **Enregistrer**.
-
->[!NOTE]
-> La désactivation de l’approvisionnement automatique ne supprime pas Microsoft Monitoring Agent des machines virtuelles Azure sur lesquelles l’agent a été approvisionné. La désactivation de l’approvisionnement automatique limite la surveillance de la sécurité pour vos ressources.
->
-
 ## <a name="exporting-data-to-a-siem"></a>Exportation de données vers un serveur SIEM
 
 Les événements traités produits par Azure Security Center sont publiés dans le [journal d’activité](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) Azure, l’un des types de journaux disponibles avec Azure Monitor. Azure Monitor offre un pipeline centralisé pour router les données de monitoring dans un outil SIEM. Ces données sont acheminées vers un hub d’événements, d’où elles peuvent ensuite être extraites dans un outil partenaire.
@@ -230,6 +154,5 @@ Voici quelques exemples de requêtes Splunk que vous pouvez utiliser pour extrai
 Dans cet article, vous avez appris à intégrer des solutions de partenaires dans Security Center. Pour plus d’informations sur Security Center, consultez les articles suivants :
 
 * [Surveillance de l’intégrité de la sécurité dans Security Center](security-center-monitoring.md). découvrez comment surveiller l’intégrité de vos ressources Azure.
-* [Surveiller les solutions de partenaire avec Security Center](security-center-partner-solutions.md). découvrez comment surveiller l’état d’intégrité de vos solutions de partenaire.
 * [Questions fréquentes : Azure Security Center](security-center-faq.md). Obtenez des réponses aux questions fréquentes concernant l’utilisation de Security Center.
 * [Blog Azure Security](https://blogs.msdn.com/b/azuresecurity/). accédez à des billets de blog sur la sécurité et la conformité Azure.

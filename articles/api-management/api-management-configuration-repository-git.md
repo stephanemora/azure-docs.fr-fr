@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/12/2019
 ms.author: apimpm
 ms.openlocfilehash: c371333dcc7db0b60ffa5f94d6e2d55ae500a4f6
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66241184"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Comment enregistrer et configurer votre configuration du service Gestion des API à l’aide de Git
@@ -53,7 +53,7 @@ Pour afficher et configurer vos paramètres de configuration Git, cliquez sur le
 ![Activer GIT][api-management-enable-git]
 
 > [!IMPORTANT]
-> Tous les secrets qui ne sont pas définies en tant que valeurs nommé seront stockées dans le référentiel et resteront dans son historique jusqu'à ce que vous désactivez et réactivez l’accès de Git. Valeurs nommées fournissent un emplacement sécurisé pour gérer les valeurs de chaîne constante, notamment des secrets, dans toutes les stratégies et configuration de l’API afin que vous n’êtes pas obligé de les stocker directement dans vos instructions de stratégie. Pour plus d’informations, consultez [l’utilisation de valeurs nommé dans les stratégies de gestion des API Azure](api-management-howto-properties.md).
+> Les secrets qui ne sont pas définis comme valeurs nommées sont stockés dans le dépôt et restent dans son historique jusqu’à ce que vous désactiviez et réactiviez l’accès à Git. Les valeurs nommées offrent un emplacement sécurisé pour gérer les valeurs de chaîne constante, notamment les secrets, dans toutes les stratégies et configurations d’API ; vous n’êtes donc pas obligé de les stocker directement dans les déclarations de votre stratégie. Pour plus d’informations, consultez [Guide pratique pour utiliser des valeurs nommées dans les stratégies Gestion des API Azure](api-management-howto-properties.md).
 >
 >
 
@@ -165,7 +165,7 @@ Chaque dossier peut contenir un ou plusieurs fichiers et, dans certains cas, un 
 | --- | --- |
 | json |Informations de configuration sur l’entité concernée |
 | html |Descriptions de l’entité, souvent affichées dans le portail des développeurs |
-| xml |Policy statements |
+| Xml |Policy statements |
 | css |Feuilles de style pour la personnalisation du portail des développeurs |
 
 Ces fichiers peuvent être créés, supprimés, modifiés et gérés dans votre système de fichiers local, et les modifications peuvent être redéployées sur votre instance du service Gestion des API.

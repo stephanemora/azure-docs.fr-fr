@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 02/12/2019
 ms.author: scottwhi
 ms.openlocfilehash: e014910bc34d2c6aaf9904c5a3670e7d7b496e84
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66384377"
 ---
 # <a name="bing-image-search-api-v7-upgrade-guide"></a>Guide de mise à niveau de l’API Recherche d’images Bing v7
@@ -26,7 +26,7 @@ Ce guide de mise à niveau identifie les changements entre la version 5 et la ve
 
 ### <a name="endpoints"></a>Points de terminaison
 
-- Le numéro de version du point de terminaison a changé entre la version 5 et la version 7. Par exemple, https :\//api.cognitive.microsoft.com/bing/\*\*v7.0**/images/search.
+- Le numéro de version du point de terminaison a changé entre la version 5 et la version 7. Par exemple, https:\//api.cognitive.microsoft.com/bing/\*\*v7.0**/images/search.
 
 ### <a name="error-response-objects-and-error-codes"></a>Objets de réponse d’erreur et codes d’erreur
 

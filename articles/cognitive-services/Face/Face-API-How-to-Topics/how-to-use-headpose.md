@@ -1,30 +1,34 @@
 ---
-title: HeadPose permet d’ajuster le rectangle de face
+title: Utiliser l’attribut HeadPose
 titleSuffix: Azure Cognitive Services
-description: Découvrez comment utiliser l’attribut HeadPose pour automatiquement faire pivoter le rectangle de face.
+description: Découvrez comment utiliser l’attribut HeadPose pour faire pivoter automatiquement le rectangle du visage ou détecter les mouvements de tête dans un flux vidéo.
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
-ms.topic: conceptual
-ms.date: 04/26/2019
+ms.topic: sample
+ms.date: 05/29/2019
 ms.author: pafarley
-ms.openlocfilehash: ddc5bc522c0d3ac258581f2a48a5c3b755302f01
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.openlocfilehash: 168b4fce873206e39a32a83da3dc5509b431d6a1
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64576501"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67058578"
 ---
-# <a name="use-the-headpose-attribute-to-adjust-the-face-rectangle"></a>L’attribut HeadPose permet d’ajuster le rectangle de face
+# <a name="use-the-headpose-attribute"></a>Utiliser l’attribut HeadPose
 
-Dans ce guide, vous allez utiliser un attribut de visage détecté, HeadPose, pour faire pivoter le rectangle d’un objet de visage. L’exemple de code dans ce guide, à partir de la [WPF de visage Cognitive Services](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/Cognitive-Services-Face-WPF) exemple d’application, utilise le kit SDK .NET.
+Dans ce guide, vous allez voir comment utiliser l’attribut HeadPose d’un visage détecté pour certains scénarios clés.
 
-Le rectangle de face, retourné avec chaque face détectée, marque l’emplacement et la taille de la face de l’image. Par défaut, le rectangle est toujours aligné avec l’image (ses côtés sont parfaitement horizontale et verticale) ; Cela peut être inefficace pour visages en angle de tramage. Dans les situations où vous souhaitez découper par programmation des visages dans une image, il est avantageux de pouvoir faire pivoter le rectangle pour rogner.
+## <a name="rotate-the-face-rectangle"></a>Faire pivoter le rectangle de visage
 
-## <a name="explore-the-sample-code"></a>Explorer l’exemple de code
+Le rectangle de visage, retourné avec chaque visage détecté, marque l’emplacement et la taille du visage dans l’image. Par défaut, ce rectangle est toujours aligné avec l’image (ses côtés sont verticaux et horizontaux). Cela peut s’avérer inefficace pour encadrer des visages qui n’apparaissent pas en entier. Dans les situations où vous souhaitez découper programmatiquement des visages dans une image, il est préférable d’être en mesure de faire pivoter le rectangle à rogner.
 
-Vous pouvez par programmation faire pivoter le rectangle de face à l’aide de l’attribut HeadPose. Si vous spécifiez cet attribut lors de la détection des visages (consultez [comment détecter des visages](HowtoDetectFacesinImage.md)), vous serez en mesure d’interroger plus tard. La méthode suivante à partir de la [WPF de visage Cognitive Services](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/Cognitive-Services-Face-WPF) application accepte une liste de **DetectedFace** objets et retourne une liste de **[Face](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/app-samples/Cognitive-Services-Face-WPF/Sample-WPF/Controls/Face.cs)** objets. **Visage** ici est une classe personnalisée que magasins doivent faire face les données, y compris les coordonnées du rectangle de mise à jour. Nouvelles valeurs sont calculées pour **haut**, **gauche**, **largeur**, et **hauteur**et un nouveau champ **FaceAngle**spécifie la rotation.
+L’exemple d’application [WPF Visage de Cognitive Services](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/Cognitive-Services-Face-WPF) utilise l’attribut HeadPose pour faire pivoter les rectangles des visages détectés.
+
+### <a name="explore-the-sample-code"></a>Explorer l’exemple de code
+
+Vous pouvez faire pivoter programmatiquement le rectangle de visage à l’aide de l’attribut HeadPose. Si vous spécifiez cet attribut lors de la détection des visages (voir [Guide pratique pour détecter des visages](HowtoDetectFacesinImage.md)), vous serez en mesure de l’interroger plus tard. La méthode suivante à partir de l’application [WPF Visage de Cognitive Services](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/Cognitive-Services-Face-WPF) accepte une liste d’objets **DetectedFace** et retourne une liste d’objets **[Face](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/app-samples/Cognitive-Services-Face-WPF/Sample-WPF/Controls/Face.cs)** . Ici, **Face** est une classe personnalisée qui stocke les données de visage, notamment les coordonnées actualisées du rectangle. De nouvelles valeurs sont calculées pour **top**, **left**, **width** et **height**, et un nouveau champ **FaceAngle** spécifie la rotation.
 
 ```csharp
 /// <summary>
@@ -102,9 +106,9 @@ public static IEnumerable<Face> CalculateFaceRectangleForRendering(IList<Detecte
 }
 ```
 
-## <a name="display-the-updated-rectangle"></a>Afficher le rectangle de mise à jour
+### <a name="display-the-updated-rectangle"></a>Afficher le rectangle actualisé
 
-À ce stade, vous pouvez utiliser retourné **Face** objets dans votre affichage. Les lignes suivantes à partir de [FaceDetectionPage.xaml](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/app-samples/Cognitive-Services-Face-WPF/Sample-WPF/Controls/FaceDetectionPage.xaml) montrent comment le nouveau rectangle est rendu à partir de ces données :
+À ce stade, vous pouvez utiliser les objets **Face** retournés dans votre affichage. Les lignes suivantes de [FaceDetectionPage.xaml](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/app-samples/Cognitive-Services-Face-WPF/Sample-WPF/Controls/FaceDetectionPage.xaml) montrent comment le nouveau rectangle est rendu à partir de ces données :
 
 ```xaml
  <DataTemplate>
@@ -116,6 +120,17 @@ public static IEnumerable<Face> CalculateFaceRectangleForRendering(IList<Detecte
 </DataTemplate>
 ```
 
+## <a name="detect-head-gestures"></a>Détecter les mouvements de tête
+
+Vous pouvez détecter des mouvements de tête tels qu’un signe de tête ou un hochement de tête en effectuant le suivi en temps réel des modifications de HeadPose. Vous pouvez utiliser cette fonctionnalité comme détecteur d’activité personnalisé.
+
+La détection d’activité est la tâche consistant à déterminer qu’un sujet est une personne réelle et non pas une représentation graphique ou vidéo. Un détecteur de mouvements de tête peut contribuer à vérifier l’activité du sujet, en particulier, par opposition à une représentation graphique d’une personne.
+
+> [!CAUTION]
+> Pour détecter les mouvements de tête en temps réel, vous devez appeler l’API Visage à une fréquence élevée (plus d’une fois par seconde). Cela n’est pas possible avec un abonnement de niveau gratuit (f0). Si vous disposez d’un abonnement payant, veillez à calculer les coûts d’appels d’API fréquents pour la détection des mouvements de tête.
+
+Consultez l’[exemple HeadPose de l’API Visage](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/FaceAPIHeadPoseSample) sur GitHub pour obtenir un exemple opérationnel de détection des mouvements de tête.
+
 ## <a name="next-steps"></a>Étapes suivantes
 
-Consultez le [WPF de visage Cognitive Services](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/Cognitive-Services-Face-WPF) application sur GitHub pour obtenir un exemple de rectangles de visage pivoté. Vous pouvez aussi consulter le [Face API HeadPose exemple](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples) application, qui effectue le suivi de l’attribut HeadPose en temps réel pour détecter les mouvements principal (saluer, secouer).
+Consultez l’application [WPF Visage de Cognitive Services](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/Cognitive-Services-Face-WPF) sur GitHub pour obtenir un exemple opérationnel de rectangles de visages tournés. Vous pouvez aussi consulter l’application [HeadPose de l’API Visage](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples), qui effectue le suivi en temps réel de l’attribut HeadPose pour détecter les mouvements de tête.

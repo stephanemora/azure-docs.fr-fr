@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/20/2019
 ms.author: rkarlin
-ms.openlocfilehash: 7095992253fbbe5aafce1eab889965250f5d59a8
-ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
+ms.openlocfilehash: 8216aee1c27fd5bcb722648aa6380044e1431452
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67551367"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68662477"
 ---
-# <a name="customize-os-security-configurations-in-azure-security-center-preview"></a>Personnaliser les configurations de la sécurité du système d’exploitation dans Azure Security Center (version préliminaire)
+# <a name="customize-os-security-configurations-in-azure-security-center-retired"></a>Personnaliser les configurations de la sécurité du système d’exploitation dans Azure Security Center (hors service)
 
-Cette procédure pas à pas vous explique comment personnaliser les évaluations de configuration de la sécurité du système d’exploitation dans Azure Security Center.
+Cette procédure pas à pas explique comment personnaliser les évaluations de configuration de la sécurité du système d’exploitation (préversion) dans Azure Security Center.
 
 > [!NOTE]
-> La possibilité de personnaliser les configurations de la sécurité du système d’exploitation sera retirée le 31 juillet 2019. Pour en savoir plus et connaître les alternatives en matière de services, consultez [Retrait des fonctionnalités du Security Center (juillet 2019)](security-center-features-retirement-july2019.md#menu_securityconfigurations).
+> La possibilité de personnaliser les configurations de la sécurité du système d’exploitation (fonctionnalité d’évaluation) a été supprimée le 31 juillet 2019. Pour en savoir plus et connaître les alternatives, voir [Retrait des fonctionnalités du Security Center (juillet 2019).](security-center-features-retirement-july2019.md#menu_securityconfigurations)
 
 ## <a name="what-are-os-security-configurations"></a>Quelles sont les configurations de sécurité du système d’exploitation ?
 

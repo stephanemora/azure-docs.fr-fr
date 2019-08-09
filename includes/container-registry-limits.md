@@ -9,10 +9,10 @@ ms.date: 05/14/2019
 ms.author: danlep
 ms.custom: include file
 ms.openlocfilehash: ee8ff3529524a63ca2e54a64327570197f363538
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "67177427"
 ---
 | Ressource | De base | standard | Premium |
@@ -23,7 +23,7 @@ ms.locfileid: "67177427"
 | WriteOps par minute<sup>2, 4</sup> | 100 | 500 | 2 000 |
 | Bande passante de téléchargement en Mbits/s<sup>2</sup> | 30 | 60 | 100 |
 | Bande passante de chargement en Mbits/s<sup>2</sup> | 10 | 20 | 50 |
-| Webhooks | 2 | 10 | 100 |
+| webhooks | 2 | 10 | 100 |
 | Géoréplication | N/A | N/A | [Pris en charge][geo-replication] |
 | Approbation du contenu | N/A | N/A | [Pris en charge][content-trust] |
 

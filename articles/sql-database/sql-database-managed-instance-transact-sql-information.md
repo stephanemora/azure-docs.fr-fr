@@ -1,5 +1,5 @@
 ---
-title: Différences de SQL Database Managed Instance T-SQL Azure | Microsoft Docs
+title: Différences T-SQL avec Azure SQL Database Managed Instance | Microsoft Docs
 description: Cet article décrit les différences T-SQL entre une instance managée dans Azure SQL Database et dans SQL Server
 services: sql-database
 ms.service: sql-database
@@ -12,26 +12,26 @@ ms.reviewer: sstein, carlrab, bonova
 manager: craigg
 ms.date: 03/13/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 5c8a15aa5198983a56a0238c1bb56f9345d07acc
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
-ms.translationtype: MT
+ms.openlocfilehash: 2ca2e4e98f56f7df5e81217bcda00179f05ff69e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66258588"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67070350"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Différences T-SQL entre Azure SQL Database Managed Instance et SQL Server
 
-Cet article résume et explique les différences de syntaxe et de comportement entre Azure SQL Database Managed Instance et le moteur de base de données locale SQL Server. Les sujets suivants sont abordés : <a name="Differences"></a>
+Cet article résume et explique les différences de syntaxe et de comportement existant entre Azure SQL Database Managed Instance et le moteur de base de données SQL Server local. Les sujets suivants sont abordés : <a name="Differences"></a>
 
-- [Disponibilité](#availability) inclut les différences dans [Always On](#always-on-availability) et [sauvegardes](#backup).
-- [Sécurité](#security) inclut les différences dans [audit](#auditing), [certificats](#certificates), [informations d’identification](#credential), [fournisseurs de chiffrement](#cryptographic-providers), [connexions et utilisateurs](#logins-and-users)et le [clé du service et la clé principale du service](#service-key-and-service-master-key).
-- [Configuration](#configuration) inclut les différences dans [extension du pool de mémoires tampons](#buffer-pool-extension), [classement](#collation), [niveaux de compatibilité](#compatibility-levels), [mise en miroir de base de données ](#database-mirroring), [options de base de données](#database-options), [Agent SQL Server](#sql-server-agent), et [table options](#tables).
-- [Fonctionnalités](#functionalities) inclut [insertion en bloc/OPENROWSET](#bulk-insert--openrowset), [CLR](#clr), [DBCC](#dbcc), [les transactions distribuées](#distributed-transactions), [événements étendus](#extended-events), [bibliothèques externes](#external-libraries), [filestream et FileTable](#filestream-and-filetable), [recherche sémantique de recherche en texte intégral](#full-text-semantic-search), [serveurs liés](#linked-servers), [PolyBase](#polybase), [réplication](#replication), [restaurer](#restore-statement), [Service Broker](#service-broker), [, fonctions, déclencheurs et procédures stockées](#stored-procedures-functions-and-triggers).
-- [Paramètres d’environnement](#Environment) tels que les configurations de réseaux virtuels et le sous-réseau.
-- [Fonctionnalités qui présentent un comportement différent dans les instances gérées](#Changes).
-- [Problèmes connus et limitations temporaires](#Issues).
+- la [disponibilité](#availability) incluant les différences dans [Always On](#always-on-availability) et les [sauvegardes](#backup) ;
+- la [sécurité](#security) incluant les différences dans l’[audit](#auditing), les [certificats](#certificates), les [informations d’identification](#credential), les [fournisseurs de chiffrement](#cryptographic-providers), les [connexions et les utilisateurs](#logins-and-users) ainsi que la [clé de service et la clé principale du service](#service-key-and-service-master-key) ;
+- la [configuration](#configuration) incluant les différences dans l’[extension du pool de mémoires tampons](#buffer-pool-extension), le [classement](#collation), les [niveaux de compatibilité](#compatibility-levels), la [mise en miroir de bases de données](#database-mirroring), les [options de base de données](#database-options), le service [SQL Server Agent](#sql-server-agent) et les [options de Table](#tables) ;
+- les [fonctionnalités](#functionalities) incluant [BULK INSERT/OPENROWSET](#bulk-insert--openrowset), [CLR](#clr), [DBCC](#dbcc), les [transactions distribuées](#distributed-transactions), les [événements étendus](#extended-events), les [bibliothèques externes](#external-libraries), le [flux de fichier et FileTable](#filestream-and-filetable), la [recherche sémantique de texte intégral](#full-text-semantic-search), les [serveurs liés](#linked-servers), [Polybase](#polybase), la [réplication](#replication), [RESTORE](#restore-statement), [Service Broker](#service-broker), les [procédures stockées, fonctions et déclencheurs](#stored-procedures-functions-and-triggers) ;
+- les [paramètres d’environnement](#Environment), tels que les configurations de réseau virtuel et de sous-réseau ;
+- les [fonctionnalités qui se comportent différemment dans les instances managées](#Changes) ;
+- les [limitations temporaires et les problèmes connus](#Issues).
 
-L’option de déploiement Managed Instance est hautement compatible avec le moteur de base de données SQL Server local. La plupart des fonctionnalités du moteur de base de données SQL Server sont prises en charge dans une instance gérée.
+L’option de déploiement Managed Instance est hautement compatible avec le moteur de base de données SQL Server local. La plupart des fonctionnalités du moteur de base de données SQL Server sont prises en charge dans une instance managée.
 
 ![Migration](./media/sql-database-managed-instance/migration.png)
 
@@ -39,40 +39,40 @@ L’option de déploiement Managed Instance est hautement compatible avec le mot
 
 ### <a name="always-on-availability"></a>Always On
 
-[Haute disponibilité](sql-database-high-availability.md) est intégré à Managed Instance et ne peut pas être contrôlé par les utilisateurs. Les instructions suivantes ne sont pas prises en charge :
+La [haute disponibilité](sql-database-high-availability.md) étant intégrée à Managed Instance, les utilisateurs ne peuvent pas la contrôler. Les instructions suivantes ne sont pas prises en charge :
 
 - [CREATE ENDPOINT … FOR DATABASE_MIRRORING](https://docs.microsoft.com/sql/t-sql/statements/create-endpoint-transact-sql)
 - [CREATE AVAILABILITY GROUP](https://docs.microsoft.com/sql/t-sql/statements/create-availability-group-transact-sql)
 - [ALTER AVAILABILITY GROUP](https://docs.microsoft.com/sql/t-sql/statements/alter-availability-group-transact-sql)
 - [DROP AVAILABILITY GROUP](https://docs.microsoft.com/sql/t-sql/statements/drop-availability-group-transact-sql)
-- Le [SET HADR](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-hadr) clause de le [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql) instruction
+- La clause [SET HADR](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-hadr) de l’instruction [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql)
 
 ### <a name="backup"></a>Sauvegarde
 
-Instances managées ont des sauvegardes automatiques, les utilisateurs peuvent créer la base de données complète `COPY_ONLY` sauvegardes. Sauvegarde différentielle, journal et sauvegardes de captures instantanées de fichier ne sont pas pris en charge.
+Les instances managées étant dotées de sauvegardes automatiques, les utilisateurs peuvent créer des sauvegardes complètes `COPY_ONLY` de bases de données. Les sauvegardes différentielles de fichiers journaux et de captures instantanées de fichiers ne sont pas prises en charge.
 
-- Avec une instance gérée, vous pouvez sauvegarder une base de données d’instance uniquement pour un compte de stockage Blob Azure :
+- Avec une instance managée, vous pouvez sauvegarder une base de données d’instance seulemet vers un compte de stockage Blob Azure :
   - Seul `BACKUP TO URL` est pris en charge.
-  - `FILE`, `TAPE`, et les unités de sauvegarde ne sont pas pris en charge.
-- La plupart des générales `WITH` options sont prises en charge.
+  - `FILE`, `TAPE` et les unités de sauvegarde ne sont pas pris en charge.
+- La plupart des options générales `WITH` sont prises en charge.
   - `COPY_ONLY` est obligatoire.
   - `FILE_SNAPSHOT` n’est pas pris en charge.
-  - Options de bande : `REWIND`, `NOREWIND`, `UNLOAD`, et `NOUNLOAD` ne sont pas pris en charge.
-  - Options spécifiques au journal : `NORECOVERY`, `STANDBY`, et `NO_TRUNCATE` ne sont pas pris en charge.
+  - Options de bande : `REWIND`, `NOREWIND`, `UNLOAD` et `NOUNLOAD` ne sont pas pris en charge.
+  - Options propres au journal : `NORECOVERY`, `STANDBY` et `NO_TRUNCATE` ne sont pas pris en charge.
 
 Limites : 
 
-- Avec une instance gérée, vous pouvez sauvegarder une base de données d’instance vers une sauvegarde comprenant jusqu'à 32 bandes, ce qui est suffisant pour les bases de données jusqu'à 4 To si la compression de sauvegarde est utilisée.
-- La taille d’entrelacement de sauvegarde maximale à l’aide de la `BACKUP` commande dans une instance managée est 195 Go, ce qui est la taille maximale des objets blob. Augmentez le nombre de bandes dans la commande de sauvegarde pour réduire la taille de bande individuelle et ne pas dépasser cette limite.
+- Une instance managée permet de sauvegarder une base de données d’instance vers une sauvegarde comprenant jusqu’à 32 bandes, ce qui est suffisant pour des bases de données allant jusqu’à 4 To si la compression de sauvegarde est utilisée.
+- La taille maximale de la bande de sauvegarde en utilisant la commande `BACKUP` dans une instance managée est de 195 Go, ce qui représente la taille maximale des objets blob. Augmentez le nombre de bandes dans la commande de sauvegarde pour réduire la taille de bande individuelle et ne pas dépasser cette limite.
 
     > [!TIP]
-    > Pour contourner cette limitation, lorsque vous sauvegardez une base de données à partir de SQL Server dans un environnement sur site ou sur une machine virtuelle, vous pouvez :
+    > Pour contourner cette limitation, lorsque vous sauvegardez une base de données, soit à partir de SQL Server dans un environnement local, soit sur une machine virtuelle, vous pouvez :
     >
-    > - Sauvegarde sur `DISK` au lieu de la sauvegarde sur `URL`.
-    > - Télécharger les fichiers de sauvegarde vers le stockage Blob.
-    > - Restaurer dans l’instance gérée.
+    > - sauvegarder sur `DISK` au lieu de sauvegarder jusqu’à `URL` ;
+    > - charger les fichiers de sauvegarde sur le stockage d’objets blob ;
+    > - restaurer dans l’instance managée.
     >
-    > Le `Restore` commande dans une instance gérée prend en charge des tailles d’objet blob plus volumineuses dans les fichiers de sauvegarde, car un type de l’autre objet blob est utilisé pour le stockage des fichiers de sauvegarde chargés.
+    > La commande `Restore` dans une instance managée prend en charge des tailles d’objet blob plus volumineuses dans les fichiers de sauvegarde, car un autre type d’objet blob est utilisé pour le stockage des fichiers de sauvegarde chargés.
 
 Pour plus d’informations sur les sauvegardes à l’aide de T-SQL, consultez [BACKUP](https://docs.microsoft.com/sql/t-sql/statements/backup-transact-sql).
 
@@ -82,16 +82,16 @@ Pour plus d’informations sur les sauvegardes à l’aide de T-SQL, consultez [
 
 Les principales différences entre l’audit des bases de données dans Azure SQL Database et des bases de données dans SQL Server sont les suivantes :
 
-- Avec l’option de déploiement de Managed Instance dans la base de données SQL Azure, l’audit fonctionne au niveau du serveur. Le `.xel` fichiers journaux sont stockés dans le stockage Blob Azure.
+- Avec l’option de déploiement Managed Instance dans Azure SQL Database, l’audit s’effectue au niveau du serveur. Les fichiers journaux `.xel` sont stockés dans le stockage Blob Azure.
 - Avec les options de déploiement de base de données unique et de pool élastique dans Azure SQL Database, l’audit fonctionne au niveau de la base de données.
-- Dans SQL Server en local ou des machines virtuelles, l’audit fonctionne au niveau du serveur. Les événements sont stockés sur le système de fichiers ou les journaux des événements Windows.
+- Dans SQL Server en local ou sur machines virtuelles, l’audit s’effectue au niveau serveur. Les événements sont stockés dans le système de fichiers ou dans les journaux des événements Windows.
  
-L’audit XEvent dans Managed Instance prend en charge les cibles de Stockage Blob Azure. Journaux de fichiers et de Windows ne sont pas pris en charge.
+L’audit XEvent dans Managed Instance prend en charge les cibles de Stockage Blob Azure. Les journaux de fichiers et de Windows ne sont pas pris en charge.
 
 Les principales différences de syntaxe `CREATE AUDIT` pour l’audit du Stockage Blob Azure sont :
 
-- Une nouvelle syntaxe `TO URL` est à condition que vous pouvez utiliser pour spécifier l’URL du conteneur de stockage Blob Azure où le `.xel` fichiers sont placés.
-- La syntaxe `TO FILE` n’est pas pris en charge, car une instance gérée ne peut pas accéder aux partages de fichiers Windows.
+- Une nouvelle syntaxe `TO URL` est fournie, vous pouvez l’utiliser pour spécifier l’URL du conteneur de stockage Blob Azure où les fichiers `.xel` sont placés.
+- La syntaxe `TO FILE` n’est pas prise en charge, car une instance managée ne peut pas accéder à des partages de fichiers Windows.
 
 Pour plus d'informations, consultez les pages suivantes : 
 
@@ -101,14 +101,14 @@ Pour plus d'informations, consultez les pages suivantes :
 
 ### <a name="certificates"></a>Certificats
 
-Une instance gérée ne peut pas accéder aux partages de fichiers et dossiers Windows, donc les contraintes suivantes s’appliquent :
+Une instance managée ne pouvant pas accéder à des partages de fichiers et à des dossiers Windows, les contraintes suivantes s’appliquent :
 
-- Le `CREATE FROM` / `BACKUP TO` fichier n’est pas pris en charge pour les certificats.
-- Le `CREATE` / `BACKUP` à partir du certificat `FILE` / `ASSEMBLY` n’est pas pris en charge. Les fichiers de clés privés ne peuvent pas être utilisés 
+- le fichier `CREATE FROM`/`BACKUP TO` n’est pas pris en charge pour les certificats ;
+- le certificat `CREATE`/`BACKUP` de `FILE`/`ASSEMBLY` n’est pas pris en charge ; les fichiers de clés privés ne peuvent pas être utilisés. 
 
 Consultez [CREATE CERTIFICATE](https://docs.microsoft.com/sql/t-sql/statements/create-certificate-transact-sql) et [BACKUP CERTIFICATE](https://docs.microsoft.com/sql/t-sql/statements/backup-certificate-transact-sql). 
  
-**Solution de contournement** : Générer un script pour le certificat ou la clé privée, stockez en tant que fichier .sql et créer à partir du fichier binaire :
+**Solution de contournement** : ajoutez le certificat ou la clé privée dans un script, stockez-le dans un fichier .sql et créez-le à partir du fichier binaire :
 
 ```sql
 CREATE CERTIFICATE  
@@ -124,73 +124,73 @@ Consultez [CREATE CREDENTIAL](https://docs.microsoft.com/sql/t-sql/statements/cr
 
 ### <a name="cryptographic-providers"></a>Fournisseurs de chiffrement
 
-Une instance gérée ne peut pas accéder aux fichiers, afin de fournisseurs de chiffrement ne peut pas être créés :
+Une instance managée ne pouvant pas accéder aux fichiers, vous ne pouvez pas créer de fournisseur de chiffrement :
 
 - `CREATE CRYPTOGRAPHIC PROVIDER` n’est pas pris en charge. Consultez [CREATE CRYPTOGRAPHIC PROVIDER](https://docs.microsoft.com/sql/t-sql/statements/create-cryptographic-provider-transact-sql).
 - `ALTER CRYPTOGRAPHIC PROVIDER` n’est pas pris en charge. Consultez [ALTER CRYPTOGRAPHIC PROVIDER](https://docs.microsoft.com/sql/t-sql/statements/alter-cryptographic-provider-transact-sql).
 
 ### <a name="logins-and-users"></a>Connexions et utilisateurs
 
-- Les connexions SQL créées à l’aide de `FROM CERTIFICATE`, `FROM ASYMMETRIC KEY`, et `FROM SID` sont pris en charge. Consultez [CREATE LOGIN](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql).
-- Azure principaux de serveur Active Directory (Azure AD) (connexions) créés avec le [CREATE LOGIN](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) syntaxe ou le [créer de connexion de l’utilisateur [connexion Azure AD]](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql?view=azuresqldb-mi-current) syntaxe sont prises en charge (version préliminaire publique). Ces connexions sont créées au niveau du serveur.
+- Les connexions SQL créées à l’aide de `FROM CERTIFICATE`, `FROM ASYMMETRIC KEY` et `FROM SID` sont prises en charge. Consultez [CREATE LOGIN](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql).
+- Les principaux de serveur (connexions) Azure Active Directory (Azure AD) créés avec la syntaxe [CREATE LOGIN](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) ou la syntaxe [CREATE USER FROM LOGIN [Azure AD Login]](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql?view=azuresqldb-mi-current) sont pris en charge (préversion publique). Ces connexions sont créées au niveau du serveur.
 
-    Managed Instance prend en charge les principaux de base de données Azure AD avec la syntaxe `CREATE USER [AADUser/AAD group] FROM EXTERNAL PROVIDER`. Cette fonctionnalité est également appelé utilisateurs de base de données Azure AD contenue.
+    Managed Instance prend en charge les principaux de base de données Azure AD avec la syntaxe `CREATE USER [AADUser/AAD group] FROM EXTERNAL PROVIDER`. Cette fonctionnalité est également appelée « utilisateurs de base de données autonome Azure AD ».
 
-- Les connexions Windows créées avec le `CREATE LOGIN ... FROM WINDOWS` syntaxe ne sont pas pris en charge. Utilisez des utilisateurs et des connexions Azure Active Directory.
-- L’utilisateur Azure AD qui a créé l’instance a [privilèges d’administrateur illimités](sql-database-manage-logins.md#unrestricted-administrative-accounts).
-- Les utilisateurs de niveau de base de données ne sont pas administrateur Azure AD peuvent être créés à l’aide de la `CREATE USER ... FROM EXTERNAL PROVIDER` syntaxe. Consultez [CREATE USER ... FROM EXTERNAL PROVIDER](sql-database-manage-logins.md#non-administrator-users).
-- Principaux de serveur Azure AD (connexions) prend en charge les fonctionnalités SQL au sein d’une instance managée. Les fonctionnalités qui nécessitent une interaction entre les instances, peu importe si elles sont dans la même instance Azure AD locataire ou de différents clients, ne sont pas prises en charge pour les utilisateurs Azure AD. Il s’agit de fonctionnalités telles que :
+- Les connexions Windows créées avec la syntaxe `CREATE LOGIN ... FROM WINDOWS` ne sont pas prises en charge. Utilisez des utilisateurs et des connexions Azure Active Directory.
+- L’utilisateur Azure AD qui a créé l’instance dispose de [privilèges d’administrateur illimités](sql-database-manage-logins.md#unrestricted-administrative-accounts).
+- Les utilisateurs au niveau de la base de données Azure AD non-administrateurs peuvent être créés à l’aide de la syntaxe `CREATE USER ... FROM EXTERNAL PROVIDER`. Consultez [CREATE USER ... FROM EXTERNAL PROVIDER](sql-database-manage-logins.md#non-administrator-users).
+- Les principaux de serveur (connexions) Azure AD prennent en charge les fonctionnalités SQL dans une seule instance managée. Les fonctionnalités nécessitant une interaction entre les instances, peu importe qu’elles se trouvent au sein du même locataire Azure AD ou de locataires différents, ne sont pas prises en charge pour les utilisateurs Azure AD. Il s’agit de fonctionnalités telles que :
 
-  - Réplication transactionnelle SQL.
-  - Serveur de lien.
+  - la réplication transactionnelle SQL ;
+  - le serveur de liaisons.
 
 - La définition d’une connexion Azure AD mappée à un groupe Azure AD en tant que propriétaire de base de données n’est pas prise en charge.
-- L’emprunt d’identité des entités de sécurité Azure AD au niveau du serveur à l’aide d’autres principaux Azure AD est pris en charge, tels que le [EXECUTE AS](/sql/t-sql/statements/execute-as-transact-sql) clause. Limitations de EXECUTE AS sont :
+- L’emprunt d’identité des principaux au niveau du serveur Azure AD à l’aide d’autres principaux Azure AD est pris en charge, par exemple avec la clause [EXECUTE AS](/sql/t-sql/statements/execute-as-transact-sql). Les limitations EXECUTE AS sont les suivantes :
 
-  - EXECUTE AS USER n’est pas pris en charge pour les utilisateurs Azure AD lorsque le nom est différent du nom de connexion. Par exemple, lorsque l’utilisateur est créé via la syntaxe CREATE USER [myAadUser] FROM LOGIN [john@contoso.com] et l’emprunt d’identité est tentée via EXEC AS USER = _myAadUser_. Lorsque vous créez un **utilisateur** à partir d’un principal de serveur Azure AD (connexion), spécifiez le nom d’utilisateur en tant que le même login_name à partir de **connexion**.
-  - Uniquement les niveau de SQL Server principaux (connexions) qui font partie de la `sysadmin` du rôle peuvent exécuter les opérations suivantes qui ciblent les principaux Azure AD :
+  - EXECUTE AS USER n’est pas pris en charge pour les utilisateurs Azure AD quand le nom diffère du nom de connexion. Par exemple, quand l’utilisateur est créé par le biais de la syntaxe CREATE USER [myAadUser] FROM LOGIN [john@contoso.com] et que l’emprunt d’identité est tenté par le biais de EXEC AS USER = _myAadUser_. Quand vous créez un **USER** à partir d’un principal de serveur (connexion) Azure AD, spécifiez le même user_name que le login_name à partir de **LOGIN**.
+  - Seuls les principaux au niveau de l’instance SQL Server (connexions) faisant partie du rôle `sysadmin` peuvent exécuter les opérations suivantes qui ciblent les principaux Azure AD :
 
     - EXECUTE AS USER
     - EXECUTE AS LOGIN
 
-- Limitations de la version préliminaire publique pour les principaux de serveur Azure AD (connexions) :
+- Limitations de la préversion publique pour les principaux de serveur (connexions) Azure AD :
 
-  - Limitations d’administrateur actives Directory pour Managed Instance :
+  - Limitations concernant l’administration Active Directory pour Managed Instance :
 
-    - L’administrateur Azure AD utilisé pour configurer l’instance gérée ne peut pas être utilisé pour créer un serveur Azure AD principal (connexion) au sein de l’instance gérée. Vous devez créer le premier Azure AD serveur principal (connexion) à l’aide d’un compte SQL Server qui est un `sysadmin` rôle. Cette limitation temporaire sera supprimée une fois que les principaux de serveur Azure AD (connexions) la disposition générale. Si vous essayez d’utiliser un compte d’administrateur Azure AD pour créer la connexion, vous consultez l’erreur suivante : `Msg 15247, Level 16, State 1, Line 1 User does not have permission to perform this action.`
-      - Actuellement, la première connexion d’Azure AD créée dans la base de données master doit être créée par le compte SQL Server standard (non-Azure AD) qui est un `sysadmin` rôle à l’aide de [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) à partir d’un fournisseur externe. Après la disponibilité générale, cette limitation sera supprimée. Vous pouvez ensuite créer une initiale connexion Azure Active Directory à l’aide de l’administrateur Active Directory pour Managed Instance.
-    - DacFx (exportation/importation) utilisé avec SQL Server Management Studio ou SqlPackage n’est pas pris en charge pour les connexions d’Azure AD. Cette limitation sera supprimée une fois que les principaux de serveur Azure AD (connexions) la disposition générale.
-    - À l’aide des principaux de serveur Azure AD (connexions) avec SQL Server Management Studio :
+    - Le compte Administrateur Azure AD utilisé pour configurer l’instance managée ne peut pas être utilisé pour créer un principal de serveur (connexion) Azure AD au sein de l’instance managée. Vous devez créer le premier principal de serveur (connexion) Azure AD à l’aide d’un compte SQL Server qui soit un rôle `sysadmin`. Cette limitation temporaire sera levée après la mise en disponibilité générale des principaux de serveur (connexions) Azure AD. Si vous essayez d’utiliser un compte Administrateur Azure AD pour créer la connexion, l’erreur suivante s’affiche : `Msg 15247, Level 16, State 1, Line 1 User does not have permission to perform this action.`
+      - Actuellement, la première connexion Azure AD créée dans la base de données master doit être créée par le compte SQL Server standard (non Azure AD) qui est un rôle `sysadmin` à l’aide de [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) FROM EXTERNAL PROVIDER. Après la disponibilité générale, cette limitation sera supprimée. Vous pouvez ensuite créer une connexion Azure AD initiale à l’aide de l’administrateur Active Directory pour Managed Instance.
+    - DacFx (exportation/importation) utilisé avec SQL Server Management Studio ou SqlPackage n’est pas pris en charge pour les connexions Azure AD. Cette limitation sera levée après la mise en disponibilité générale des principaux de serveur (connexions) Azure AD.
+    - Utilisation de principaux de serveur (connexions) Azure AD avec SQL Server Management Studio :
 
-      - Script des connexions d’Azure AD qui utilisent toute connexion authentifiée n’est pas pris en charge.
-      - IntelliSense ne reconnaît pas l’instruction de créer la connexion de fournisseur externe et affiche un trait de soulignement rouge.
+      - La création de scripts de connexions Azure AD qui utilisent une connexion authentifiée n’est pas prise en charge.
+      - IntelliSense ne reconnaît pas l’instruction CREATE LOGIN FROM EXTERNAL PROVIDER et affiche un trait de soulignement rouge.
 
-- Seule au niveau du serveur de connexion principale, qui est créée par l’option Managed Instance tel que le processus, les membres des rôles de serveur, d’approvisionnement `securityadmin` ou `sysadmin`, ou d’autres connexions avec l’autorisation ALTER ANY LOGIN au niveau du serveur peuvent créer des application Azure AD principaux de serveur (connexions) dans la base de données master pour Managed Instance.
-- Si la connexion est une entité de sécurité SQL, seules les connexions qui font partie de la `sysadmin` rôle peut utiliser la commande de création de connexions de créer un compte Azure AD.
-- La connexion Azure Active Directory doit être membre d’un compte Azure AD dans le même répertoire que celui qui est utilisé pour Azure SQL Database Managed Instance.
-- Principaux de serveur Azure AD (connexions) est visibles dans l’Explorateur d’objets à partir de SQL Server Management Studio 18.0 preview 5.
-- Le chevauchement des principaux de serveur (connexions) Azure AD avec un compte d’administrateur Azure AD est autorisé. Principaux de serveur Azure AD (connexions) est prioritaires sur l’administrateur Azure AD lorsque vous résolvez le principal et appliquez des autorisations à l’instance gérée.
+- Seule la connexion du principal au niveau du serveur, qui est créée par le processus de provisionnement de Managed Instance, les membres des rôles de serveur, tels que `securityadmin` ou `sysadmin`, ou d’autres connexions disposant de l’autorisation ALTER ANY LOGIN au niveau du serveur peuvent créer les principaux de serveur (connexions) Azure AD dans la base de données master pour Managed Instance.
+- Si la connexion est un principal SQL, seules les connexions faisant partie du rôle `sysadmin` peuvent utiliser la commande create pour créer les connexions d’un compte Azure AD.
+- La connexion Azure AD doit être membre d’un compte Azure AD dans le même annuaire que celui utilisé pour Azure SQL Database Managed Instance.
+- Les principaux de serveur (connexions) Azure AD sont visibles dans l’Explorateur d’objets à compter de SQL Server Management Studio 18.0 préversion 5.
+- Le chevauchement des principaux de serveur (connexions) Azure AD avec un compte d’administrateur Azure AD est autorisé. Les principaux de serveur (connexions) Azure AD sont prioritaires par rapport à l’Administrateur Azure AD lorsque vous résolvez le principal et que vous appliquez des autorisations à l’instance managée.
 - Lors de l’authentification, la séquence suivante est appliquée pour résoudre le principal d’authentification :
 
-    1. Si le compte Azure AD existe comme étant directement mappé vers le principal de serveur Azure AD (connexion), qui est présent dans sys.server_principals en tant que type « E », accorder l’accès et appliquer des autorisations du principal de serveur Azure AD (connexion).
-    2. Si le compte Azure AD est un membre d’un groupe Azure AD qui est mappé à la principal de serveur Azure AD (connexion), qui est présent dans sys.server_principals comme type de « X », accorder l’accès et appliquer des autorisations de la connexion de groupe Azure AD.
-    3. Si le compte Azure AD est un spécial configuré de portail administrateur Azure AD pour Managed Instance, ce qui n’existe pas dans les vues système de Managed Instance, appliquer des autorisations spéciales fixes de l’administrateur Azure AD pour Managed Instance (mode hérité).
-    4. Si le compte Azure AD existe en tant que directement mappé à un utilisateur Azure AD dans une base de données, ce qui est présent dans sys.database_principals en tant que type « E », accorder l’accès et appliquer des autorisations de l’utilisateur de base de données Azure AD.
-    5. Si le compte Azure AD est un membre d’un groupe Azure AD qui est mappé à un utilisateur Azure AD dans une base de données, ce qui est présent dans sys.database_principals en tant que type « X », accorder l’accès et appliquer des autorisations de la connexion de groupe Azure AD.
-    6. S’il existe une connexion Azure Active Directory mappée à un compte d’utilisateur Azure AD ou un compte de groupe Azure AD, qui correspond à l’utilisateur qui s’authentifie, toutes les autorisations à partir de cette connexion d’Azure AD sont appliquées.
+    1. Si le compte Azure AD existe en tant que mappage direct au principal de serveur (connexion) Azure AD, qui est présent dans sys.server_principals en tant que type « E », l’accès est accordé et les autorisations du principal de serveur (connexion) Azure AD sont appliquées.
+    2. Si le compte Azure AD est membre d’un groupe Azure AD mappé au principal de serveur (connexion) Azure AD, qui est présent dans sys.server_principals en tant que type « X », l’accès est accordé et les autorisations de la connexion du groupe Azure AD sont appliquées.
+    3. Si le compte Azure AD est un administrateur Azure AD spécial configuré dans le portail pour Managed Instance, et qui n’existe pas dans les vues système de Managed Instance, les autorisations fixes spéciales de l’administrateur Azure AD pour Managed Instance (mode hérité) sont appliquées.
+    4. Si le compte Azure AD existe en tant que mappage direct à un utilisateur Azure AD dans une base de données, qui est présent dans sys.database_principals en tant que type « E », l’accès est accordé et les autorisations de l’utilisateur de base de données Azure AD sont appliquées.
+    5. Si le compte Azure AD est membre d’un groupe Azure AD mappé à un utilisateur Azure AD dans une base de données, qui est présent dans sys.database_principals en tant que type « X », l’accès est accordé et les autorisations de la connexion du groupe Azure AD sont appliquées.
+    6. S’il existe une connexion Azure AD mappée à un compte d’utilisateur Azure AD ou à un compte de groupe Azure AD, qui se résout sur l’utilisateur qui s’authentifie, toutes les autorisations de cette connexion Azure AD sont appliquées.
 
 ### <a name="service-key-and-service-master-key"></a>Clé de service et clé principale de service
 
-- [Backup master key](https://docs.microsoft.com/sql/t-sql/statements/backup-master-key-transact-sql) n’est pas pris en charge (géré par le service de base de données SQL).
-- [Restore master key](https://docs.microsoft.com/sql/t-sql/statements/restore-master-key-transact-sql) n’est pas pris en charge (géré par le service de base de données SQL).
-- [Backup service master key](https://docs.microsoft.com/sql/t-sql/statements/backup-service-master-key-transact-sql) n’est pas pris en charge (géré par le service de base de données SQL).
-- [Restore service master key](https://docs.microsoft.com/sql/t-sql/statements/restore-service-master-key-transact-sql) n’est pas pris en charge (géré par le service de base de données SQL).
+- [Backup master key](https://docs.microsoft.com/sql/t-sql/statements/backup-master-key-transact-sql) n’est pas pris en charge (géré par le service SQL Database).
+- [Restore master key](https://docs.microsoft.com/sql/t-sql/statements/restore-master-key-transact-sql) n’est pas pris en charge (géré par le service SQL Database).
+- [Backup service master key](https://docs.microsoft.com/sql/t-sql/statements/backup-service-master-key-transact-sql) n’est pas pris en charge (géré par le service SQL Database).
+- [Restore service master key](https://docs.microsoft.com/sql/t-sql/statements/restore-service-master-key-transact-sql) n’est pas pris en charge (géré par le service SQL Database).
 
 ## <a name="configuration"></a>Configuration
 
 ### <a name="buffer-pool-extension"></a>Extension du pool de mémoires tampons
 
-- [Extension du pool de mémoires tampons](https://docs.microsoft.com/sql/database-engine/configure-windows/buffer-pool-extension) n’est pas pris en charge.
+- L’[extension du pool de mémoires tampons](https://docs.microsoft.com/sql/database-engine/configure-windows/buffer-pool-extension) n’est pas prise en charge.
 - `ALTER SERVER CONFIGURATION SET BUFFER POOL EXTENSION` n’est pas pris en charge. Consultez [ALTER SERVER CONFIGURATION](https://docs.microsoft.com/sql/t-sql/statements/alter-server-configuration-transact-sql).
 
 ### <a name="collation"></a>Collation
@@ -199,9 +199,9 @@ Le classement d’instance par défaut est `SQL_Latin1_General_CP1_CI_AS` et peu
 
 ### <a name="compatibility-levels"></a>Niveaux de compatibilité
 
-- Niveaux de compatibilité pris en charge sont 100, 110, 120, 130 et 140.
+- Les niveaux de compatibilité pris en charge sont 100, 110, 120, 130, and 140.
 - Les niveaux de compatibilité inférieurs à 100 ne sont pas pris en charge.
-- Le niveau de compatibilité par défaut est de 140 pour les nouvelles bases de données. Pour les bases de données restaurées, le niveau de compatibilité reste inchangé s’il s’agissait de 100 et versions ultérieures.
+- Le niveau de compatibilité par défaut est de 140 pour les nouvelles bases de données. Pour les bases de données restaurées, le niveau de compatibilité reste inchangé s’il était de 100 et plus.
 
 Consultez [Niveau de compatibilité ALTER TABLE (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-compatibility-level).
 
@@ -218,22 +218,22 @@ Pour plus d’informations, consultez [ALTER DATABASE SET PARTNER AND SET WITNES
 
 - Les fichiers journaux multiples ne sont pas pris en charge.
 - Les objets en mémoire ne sont pas pris en charge dans le niveau de service Usage général. 
-- Il existe une limite de 280 fichiers par instance à usage général, ce qui implique un maximum de 280 fichiers par base de données. Les données et fichiers journaux dans le niveau usage général sont comptabilisés dans cette limite. [Le niveau critique pour l’entreprise prend en charge 32 767 fichiers par base de données](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics).
-- La base de données ne peut pas contenir de groupes de fichiers qui contiennent des données filestream. Restauration échoue si le fichier.bak contient `FILESTREAM` données. 
+- Il existe une limite de 280 fichiers par instance Usage général, ce qui implique un maximum de 280 fichiers par base de données. Les fichiers de données et de journaux du niveau Usage général sont tous les deux comptabilisés dans cette limite. [Le niveau Critique pour l’entreprise prend en charge 32 767 fichiers par base de données](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics).
+- La base de données ne peut pas contenir de groupes de fichiers qui contiennent des données flux de fichier. La restauration échoue si le fichier.bak contient des données `FILESTREAM`. 
 - Chaque fichier est placé dans Stockage Blob Azure. L’E/S et le débit par fichier dépendent de la taille de chaque fichier.
 
 #### <a name="create-database-statement"></a>Instruction CREATE DATABASE
 
-Les limitations suivantes s’appliquent à `CREATE DATABASE`:
+Les limites suivantes s’appliquent à `CREATE DATABASE` :
 
 - Les fichiers et les groupes de fichiers ne peuvent pas être définis. 
-- Le `CONTAINMENT` option n’est pas prise en charge. 
-- `WITH` options ne sont pas prises en charge. 
+- L’option `CONTAINMENT` n’est pas prise en charge. 
+- Les options `WITH` ne sont pas prises en charge. 
    > [!TIP]
-   > Pour résoudre ce problème, utilisez `ALTER DATABASE` après `CREATE DATABASE` pour définir les options de base de données pour ajouter des fichiers ou pour définir la relation contenant-contenu. 
+   > Comme solution de contournement, utilisez `ALTER DATABASE` après `CREATE DATABASE` pour définir les options de la base de données de manière à ajouter des fichiers ou pour définir l’autonomie. 
 
-- Le `FOR ATTACH` option n’est pas prise en charge.
-- Le `AS SNAPSHOT OF` option n’est pas prise en charge.
+- L’option `FOR ATTACH` n’est pas prise en charge.
+- L’option `AS SNAPSHOT OF` n’est pas prise en charge.
 
 Pour plus d’informations, consultez [CREATE DATABASE](https://docs.microsoft.com/sql/t-sql/statements/create-database-sql-server-transact-sql).
 
@@ -241,8 +241,8 @@ Pour plus d’informations, consultez [CREATE DATABASE](https://docs.microsoft.c
 
 Certaines propriétés de fichiers ne peuvent pas être définies ou modifiées :
 
-- Un chemin d’accès de fichier ne peut pas être spécifié dans le `ALTER DATABASE ADD FILE (FILENAME='path')` instruction T-SQL. Enlevez `FILENAME` du script car une instance gérée place les fichiers automatiquement. 
-- Un nom de fichier ne peut pas être modifié à l’aide de la `ALTER DATABASE` instruction.
+- Un chemin de fichier ne peut pas être spécifié dans l’instruction T-SQL `ALTER DATABASE ADD FILE (FILENAME='path')`. Enlevez `FILENAME` du script car une instance gérée place les fichiers automatiquement. 
+- Un nom de fichier ne peut pas être modifié à l’aide de l’instruction `ALTER DATABASE`.
 
 Les options suivantes sont définies par défaut et ne peuvent pas être modifiées :
 
@@ -276,32 +276,33 @@ Pour en savoir plus, consultez [ALTER DATABASE](https://docs.microsoft.com/sql/t
 
 ### <a name="sql-server-agent"></a>Agent SQL Server
 
-- Paramètres de l’Agent SQL Server sont en lecture seule. La procédure `sp_set_agent_properties` n’est pas pris en charge dans Managed Instance. 
+- L’activation et la désactivation de SQL Server Agent ne sont actuellement pas prises en charge dans Managed Instance. SQL Agent est toujours en cours d’exécution.
+- Les paramètres de SQL Server Agent sont en lecture seule. La procédure `sp_set_agent_properties` n’est pas prise en charge dans Managed Instance. 
 - Tâches
   - Les étapes de travail T-SQL sont prises en charge.
   - Les travaux de réplication suivants sont pris en charge :
     - Lecteur de journaux de transactions
     - Instantané
     - Serveur de distribution
-  - Étapes de travail SSIS sont pris en charge.
-  - Autres types d’étapes de travail ne sont pas actuellement pris en charge :
-    - L’étape de travail de réplication de fusion n’est pas pris en charge. 
+  - Les étapes de travail SSIS sont prises en charge.
+  - Les autres types d’étapes de travail ne sont pas pris en charge actuellement :
+    - L’étape de travail de réplication de fusion n’est pas prise en charge. 
     - L’agent de lecture de la file d’attente n’est pas pris en charge. 
-    - Interface de commande n’est pas encore pris en charge.
-  - Les instances gérées ne peut pas accéder aux ressources externes, par exemple, de partages de réseau via robocopy. 
-  - SQL Server Analysis Services ne sont pas pris en charge.
+    - L’interpréteur de commandes n’est pas encore pris en charge.
+  - Les instances managées ne peuvent pas accéder à des ressources externes, par exemple des partages réseau via robocopy. 
+  - SQL Server Analysis Services n’est pas pris en charge.
 - Les notifications sont partiellement prises en charge.
-- Notification par courrier électronique est prise en charge, bien que cela nécessite que vous configurez un profil de messagerie de base de données. L’Agent SQL Server peut utiliser qu’un seul profil de messagerie de base de données, et il doit être appelé `AzureManagedInstance_dbmail_profile`. 
+- Les notifications par e-mail sont prises en charge bien qu’elles nécessitent de votre part la configuration d’un profil Database Mail. SQL Server Agent ne peut utiliser qu’un seul profil Database Mail, et il doit être appelé `AzureManagedInstance_dbmail_profile`. 
   - Le récepteur d’appel n’est pas pris en charge. 
   - NetSend n’est pas pris en charge.
-  - Les alertes ne sont pas encore pris en charge.
-  - Serveurs proxy ne sont pas pris en charge. 
-- Journal des événements n’est pas pris en charge.
+  - Les alertes ne sont pas encore prises en charge.
+  - Les proxies ne sont pas pris en charge. 
+- EventLog n’est pas pris en charge.
 
-Les fonctionnalités suivantes ne sont pas pris en charge actuellement mais seront activées à l’avenir :
+Actuellement, les fonctionnalités suivantes ne sont pas prises en charge, mais elles seront activées à l’avenir :
 
 - Proxies
-- Planification des travaux sur une UC inactive
+- Planification de travaux sur une UC inactive
 - Activation ou désactivation d’un Agent
 - Alertes
 
@@ -309,27 +310,27 @@ Pour plus d’informations sur SQL Server Agent, consultez [SQL Server Agent](ht
 
 ### <a name="tables"></a>Tables
 
-Les tableaux suivants ne sont pas prises en charge :
+Les tables suivantes ne sont pas prises en charge :
 
 - `FILESTREAM`
 - `FILETABLE`
 - `EXTERNAL TABLE`
 - `MEMORY_OPTIMIZED` 
 
-Pour plus d’informations sur la façon de créer et modifier des tables, consultez [CREATE TABLE](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql) et [ALTER TABLE](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql).
+Pour plus d’informations sur la façon de créer et de modifier des tables, consultez [CREATE TABLE](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql) et [ALTER TABLE](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql).
 
 ## <a name="functionalities"></a>Fonctionnalités
 
 ### <a name="bulk-insert--openrowset"></a>Insertion en bloc/openrowset
 
-Une instance gérée ne peut pas accéder aux partages de fichiers et dossiers Windows, afin des fichiers doivent être importés à partir du stockage d’objets Blob Azure :
+Une instance managée ne pouvant pas accéder à des partages de fichiers et à des dossiers Windows, les fichiers doivent être importés à partir du stockage Blob Azure :
 
-- `DATASOURCE` est requis dans le `BULK INSERT` commande lors de l’importation de fichiers à partir du stockage d’objets Blob Azure. Consultez [BULK INSERT](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql).
-- `DATASOURCE` est requis dans le `OPENROWSET` fonctionner lorsque vous lisez le contenu d’un fichier à partir du stockage d’objets Blob Azure. Consultez [OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql).
+- `DATASOURCE` est requis dans la commande `BULK INSERT` lors de l’importation des fichiers depuis le Stockage Blob Azure. Consultez [BULK INSERT](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql).
+- `DATASOURCE` est nécessaire dans la fonction `OPENROWSET` lorsque vous lisez le contenu d’un fichier à partir du stockage Blob Azure. Consultez [OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql).
 
 ### <a name="clr"></a>CLR
 
-Une instance gérée ne peut pas accéder aux partages de fichiers et dossiers Windows, donc les contraintes suivantes s’appliquent :
+Une instance managée ne pouvant pas accéder à des partages de fichiers et à des dossiers Windows, les contraintes suivantes s’appliquent :
 
 - Seul `CREATE ASSEMBLY FROM BINARY` est pris en charge. Consultez [CREATE ASSEMBLY FROM BINARY](https://docs.microsoft.com/sql/t-sql/statements/create-assembly-transact-sql). 
 - `CREATE ASSEMBLY FROM FILE` n’est pas pris en charge. Consultez [CREATE ASSEMBLY FROM FILE](https://docs.microsoft.com/sql/t-sql/statements/create-assembly-transact-sql).
@@ -337,31 +338,31 @@ Une instance gérée ne peut pas accéder aux partages de fichiers et dossiers W
 
 ### <a name="dbcc"></a>DBCC
 
-Les instructions DBCC non documentées qui sont activées dans SQL Server ne sont pas pris en charge dans les instances gérées.
+Les instructions DBCC non documentées qui sont activées dans SQL Server ne sont pas prises en charge dans les instances managées.
 
-- Les `Trace flags` ne sont pas pris en charge. Consultez [indicateurs de Trace](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql).
+- Les `Trace flags` ne sont pas pris en charge. Consultez les [indicateurs de trace](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql).
 - `DBCC TRACEOFF` n’est pas pris en charge. Consultez [DBCC TRACEOFF](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceoff-transact-sql).
 - `DBCC TRACEON` n’est pas pris en charge. Consultez [DBCC TRACEOFF](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-transact-sql).
 
 ### <a name="distributed-transactions"></a>Transactions distribuées
 
-MSDTC et [transactions élastiques](sql-database-elastic-transactions-overview.md) actuellement ne sont pas pris en charge dans les instances gérées.
+MSDTC et les [transactions élastiques](sql-database-elastic-transactions-overview.md) ne sont actuellement pas pris en charge dans les instances managées.
 
 ### <a name="extended-events"></a>Événements étendus
 
-Certaines cibles spécifiques de Windows pour les événements étendus (XEvents) ne sont pas prises en charge :
+Certaines cibles propres à Windows pour les événements étendus (XEvent) ne sont pas prises en charge :
 
-- Le `etw_classic_sync` cible n’est pas pris en charge. Store `.xel` fichiers dans le stockage Blob Azure. Consultez [etw_classic_sync target](https://docs.microsoft.com/sql/relational-databases/extended-events/targets-for-extended-events-in-sql-server#etw_classic_sync_target-target).
-- Le `event_file` cible n’est pas pris en charge. Store `.xel` fichiers dans le stockage Blob Azure. Consultez [event_file target](https://docs.microsoft.com/sql/relational-databases/extended-events/targets-for-extended-events-in-sql-server#event_file-target).
+- Le `etw_classic_sync` cible n’est pas pris en charge. Stockez les fichiers `.xel` dans le stockage Blob Azure. Consultez [etw_classic_sync target](https://docs.microsoft.com/sql/relational-databases/extended-events/targets-for-extended-events-in-sql-server#etw_classic_sync_target-target).
+- Le `event_file` cible n’est pas pris en charge. Stockez les fichiers `.xel` dans le stockage Blob Azure. Consultez [event_file target](https://docs.microsoft.com/sql/relational-databases/extended-events/targets-for-extended-events-in-sql-server#event_file-target).
 
 ### <a name="external-libraries"></a>Bibliothèques externes
 
-Dans la base de données R et Python, les bibliothèques externes ne sont pas encore prises en charge. Consultez [SQL Server Machine Learning Services](https://docs.microsoft.com/sql/advanced-analytics/r/sql-server-r-services).
+Les bibliothèques externes R et Python en base de données ne sont pas encore prises en charge. Consultez [SQL Server Machine Learning Services](https://docs.microsoft.com/sql/advanced-analytics/r/sql-server-r-services).
 
-### <a name="filestream-and-filetable"></a>FileStream et FileTable
+### <a name="filestream-and-filetable"></a>Flux de fichier et Filetable
 
-- les données FileStream n’est pas pris en charge.
-- La base de données ne peut pas contenir de groupes de fichiers avec `FILESTREAM` données.
+- Les données flux de fichier ne sont pas prises en charge.
+- La base de données ne peut pas contenir de groupes de fichiers avec des données `FILESTREAM`.
 - `FILETABLE` n’est pas pris en charge.
 - Les tables ne peuvent pas avoir de types `FILESTREAM`.
 - Les fonctions suivantes ne sont pas prises en charge :
@@ -381,23 +382,23 @@ La [recherche sémantique](https://docs.microsoft.com/sql/relational-databases/s
 
 Les serveurs liés dans des instances managées prennent en charge un nombre limité de cibles :
 
-- Cibles prises en charge sont SQL Server et la base de données SQL.
-- Les cibles qui ne sont pas pris en charge sont les fichiers, Analysis Services et autres SGBDR.
+- Les cibles prises en charge sont SQL Server et SQL Database.
+- Les cibles qui ne sont pas prises en charge sont des fichiers, Analysis Services et d’autres SGBDR.
 
 Opérations
 
 - Les transactions d’écriture entre instances ne sont pas prises en charge.
 - `sp_dropserver` est pris en charge pour supprimer un serveur lié. Consultez [sp_dropserver](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-dropserver-transact-sql).
-- Le `OPENROWSET` fonction peut être utilisée pour exécuter des requêtes uniquement sur les instances de SQL Server. Ils peuvent être gérés, en local, ou dans des machines virtuelles. Consultez [OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql).
-- Le `OPENDATASOURCE` fonction peut être utilisée pour exécuter des requêtes uniquement sur les instances de SQL Server. Ils peuvent être gérés, en local, ou dans des machines virtuelles. Uniquement les `SQLNCLI`, `SQLNCLI11`, et `SQLOLEDB` valeurs sont prises en charge en tant que fournisseur. Par exemple `SELECT * FROM OPENDATASOURCE('SQLNCLI', '...').AdventureWorks2012.HumanResources.Employee`. Consultez [OPENDATASOURCE](https://docs.microsoft.com/sql/t-sql/functions/opendatasource-transact-sql).
+- La fonction `OPENROWSET` peut être utilisée pour exécuter des requêtes uniquement sur des instances SQL Server. Elles peuvent être managées, locales ou dans des machines virtuelles. Consultez [OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql).
+- La fonction `OPENDATASOURCE` peut être utilisée pour exécuter des requêtes uniquement sur des instances SQL Server. Elles peuvent être managées, locales ou dans des machines virtuelles. Seules les valeurs `SQLNCLI`, `SQLNCLI11` et `SQLOLEDB` sont prises en charge en tant que fournisseur. Par exemple `SELECT * FROM OPENDATASOURCE('SQLNCLI', '...').AdventureWorks2012.HumanResources.Employee`. Consultez [OPENDATASOURCE](https://docs.microsoft.com/sql/t-sql/functions/opendatasource-transact-sql).
 
 ### <a name="polybase"></a>PolyBase
 
-Les tables externes qui référencent que les fichiers dans HDFS ou stockage Blob Azure ne sont pas pris en charge. Pour plus d’informations sur PolyBase, consultez [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide).
+Les tables externes qui référencent les fichiers dans HDFS ou le stockage Blob Azure ne sont pas prises en charge. Pour plus d’informations sur PolyBase, consultez [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide).
 
 ### <a name="replication"></a>Réplication
 
-Une réplication est disponible en préversion publique pour Managed Instance. Pour plus d’informations sur la réplication, consultez [réplication SQL Server](https://docs.microsoft.com/sql/relational-databases/replication/replication-with-sql-database-managed-instance).
+Une réplication est disponible en préversion publique pour Managed Instance. Pour plus d’informations sur la réplication, consultez [Réplication SQL Server](https://docs.microsoft.com/sql/relational-databases/replication/replication-with-sql-database-managed-instance).
 
 ### <a name="restore-statement"></a>L’instruction RESTORE 
 
@@ -407,44 +408,44 @@ Une réplication est disponible en préversion publique pour Managed Instance. P
   - `RESTORE HEADER ONLY`
   - `RESTORE LABELONLY ONLY`
   - `RESTORE VERIFYONLY ONLY`
-- Syntaxe non pris en charge :
+- Syntaxe non prise en charge :
   - `RESTORE LOG ONLY`
   - `RESTORE REWINDONLY ONLY`
 - Source : 
-  - `FROM URL` (Stockage Blob azure) est la seule option prise en charge.
+  - `FROM URL` (Stockage Blob Azure) est l’unique option prise en charge.
   - L’unité de sauvegarde/`FROM DISK`/`TAPE` n’est pas prise en charge.
   - Les jeux de sauvegarde ne sont pas pris en charge.
-- `WITH` options ne sont pas prises en charge, tels que non `DIFFERENTIAL` ou `STATS`.
-- `ASYNC RESTORE`: Restauration continue même si la connexion cliente s’arrête. Si votre connexion est supprimée, vous pouvez vérifier le `sys.dm_operation_status` vue de l’état d’une opération de restauration, ainsi que pour une base de données CREATE et DROP. Consultez [sys.dm_operation_status](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database). 
+- Les options `WITH` ne sont pas prises en charge, par exemple non `DIFFERENTIAL` ou `STATS`.
+- `ASYNC RESTORE`: la restauration continue même si la connexion cliente s’arrête. Si votre connexion est interrompue, vous pouvez vérifier l’affichage `sys.dm_operation_status` pour l’état d’une opération de restauration, et pour la création et la suppression d’une base de données. Consultez [sys.dm_operation_status](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database). 
 
-Les options de base de données suivantes sont définies ou substitution et ne peut pas être modifié ultérieurement : 
+Les options de base de données suivantes sont fixées ou remplacées et ne peuvent pas être modifiées ultérieurement : 
 
-- `NEW_BROKER` Si le service broker n’est pas activé dans le fichier .bak. 
-- `ENABLE_BROKER` Si le service broker n’est pas activé dans le fichier .bak. 
-- `AUTO_CLOSE=OFF` Si une base de données dans le fichier .bak a `AUTO_CLOSE=ON`. 
-- `RECOVERY FULL` Si une base de données dans le fichier .bak a `SIMPLE` ou `BULK_LOGGED` en mode de récupération.
-- Un groupe de fichiers mémoire optimisé est ajouté et appelé XTP s’il n’était pas dans le fichier .bak source. 
-- N’importe quel filegroup optimisé en mémoire existant est renommé XTP. 
-- `SINGLE_USER` et `RESTRICTED_USER` options sont converties en `MULTI_USER`.
+- `NEW_BROKER` si le broker n’est pas activé dans le fichier .bak. 
+- `ENABLE_BROKER` si le broker n’est pas activé dans le fichier .bak. 
+- `AUTO_CLOSE=OFF` si une base de données dans le fichier .bak comprend `AUTO_CLOSE=ON`. 
+- `RECOVERY FULL` si une base de données dans le fichier .bak a le mode de récupération `SIMPLE` ou `BULK_LOGGED`.
+- Un groupe de fichiers à mémoire optimisée est ajouté et appelé XTP s’il n’était pas dans le fichier .bak source. 
+- Tout groupe de fichiers à mémoire optimisée existant est renommé XTP. 
+- Les options `SINGLE_USER` et `RESTRICTED_USER` sont changées en `MULTI_USER`.
 
 Limites : 
 
-- `.BAK` Impossible de restaurer les fichiers qui contiennent plusieurs jeux de sauvegarde. 
-- `.BAK` Impossible de restaurer les fichiers qui contiennent plusieurs fichiers journaux.
-- Restauration échoue si le fichier.bak contient `FILESTREAM` données.
-- Impossible de restaurer les sauvegardes qui contiennent des bases de données qui ont des objets en mémoire actives sur une instance à usage général. Pour plus d’informations sur les instructions de restauration, consultez [instructions RESTORE](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql).
+- Les fichiers `.BAK` qui contiennent plusieurs jeux de sauvegarde ne peuvent pas être restaurés. 
+- Les fichiers `.BAK` qui contiennent plusieurs fichiers journaux ne peuvent pas être restaurés.
+- La restauration échoue si le fichier.bak contient des données `FILESTREAM`.
+- Les sauvegardes contenant des bases de données qui ont des objets en mémoire actifs ne peuvent pas être restaurées sur une instance Usage général. Pour plus d’informations sur les instructions de restauration, consultez [Instructions RESTORE](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql).
 
 ### <a name="service-broker"></a>Service broker
 
 Le Service Broker entre instances n’est pas pris en charge :
 
-- `sys.routes`: Comme condition préalable, vous devez sélectionner l’adresse à partir de sys.routes. L’adresse doit être LOCAL sur tous les itinéraires. Consultez [sys.routes](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-routes-transact-sql).
-- `CREATE ROUTE`: Vous ne pouvez pas utiliser `CREATE ROUTE` avec `ADDRESS` autre que `LOCAL`. Consultez [CREATE ROUTE](https://docs.microsoft.com/sql/t-sql/statements/create-route-transact-sql).
-- `ALTER ROUTE`: Vous ne pouvez pas utiliser `ALTER ROUTE` avec `ADDRESS` autre que `LOCAL`. Consultez [ALTER ROUTE](https://docs.microsoft.com/sql/t-sql/statements/alter-route-transact-sql). 
+- `sys.routes`: Comme prérequis, vous devez sélectionner l’adresse à partir de sys.routes. L’adresse doit être LOCAL sur tous les itinéraires. Consultez [sys.routes](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-routes-transact-sql).
+- `CREATE ROUTE`: vous ne pouvez pas utiliser `CREATE ROUTE` avec `ADDRESS` si la valeur de celle-ci est différente de `LOCAL`. Consultez [CREATE ROUTE](https://docs.microsoft.com/sql/t-sql/statements/create-route-transact-sql).
+- `ALTER ROUTE`: vous ne pouvez pas utiliser `ALTER ROUTE` avec `ADDRESS` si la valeur de celle-ci est différente de `LOCAL`. Consultez [ALTER ROUTE](https://docs.microsoft.com/sql/t-sql/statements/alter-route-transact-sql). 
 
-### <a name="stored-procedures-functions-and-triggers"></a>Déclencheurs, fonctions et procédures stockées
+### <a name="stored-procedures-functions-and-triggers"></a>Procédures stockées, fonctions et déclencheurs
 
-- `NATIVE_COMPILATION` n’est pas pris en charge dans le niveau usage général.
+- `NATIVE_COMPILATION` n’est pas pris en charge dans le niveau Usage général.
 - Les options [sp_configure](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-configure-transact-sql) suivantes ne sont pas prises en charge : 
   - `allow polybase export`
   - `allow updates`
@@ -453,98 +454,98 @@ Le Service Broker entre instances n’est pas pris en charge :
   - `remote proc trans`
 - `sp_execute_external_scripts` n’est pas pris en charge. Consultez [sp_execute_external_scripts](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql#examples).
 - `xp_cmdshell` n’est pas pris en charge. Consultez [xp_cmdshell](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/xp-cmdshell-transact-sql).
-- `Extended stored procedures` ne sont pas pris en charge, qui inclut `sp_addextendedproc`  et `sp_dropextendedproc`. Consultez [les procédures stockées étendues](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/general-extended-stored-procedures-transact-sql).
+- `Extended stored procedures` ne sont pas pris en charge, ce qui inclut `sp_addextendedproc` et `sp_dropextendedproc`. Consultez [Procédures stockées étendues](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/general-extended-stored-procedures-transact-sql).
 - `sp_attach_db`, `sp_attach_single_file_db` et `sp_detach_db` ne sont pas pris en charge. Consultez [sp_attach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-db-transact-sql), [sp_attach_single_file_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-single-file-db-transact-sql) et [sp_detach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-detach-db-transact-sql).
 
-## <a name="Environment"></a>Contraintes Environmet
+## <a name="Environment"></a>Contraintes d’environnement
 
 ### <a name="subnet"></a>Sous-réseau
-- Dans le sous-réseau réservé pour votre Instance gérée, vous ne pouvez pas placer toutes les autres ressources (par exemple des machines virtuelles). Placez ces ressources dans d’autres sous-réseaux.
-- Sous-réseau doit avoir un nombre suffisant de disponibles [adresses IP](sql-database-managed-instance-connectivity-architecture.md#network-requirements). Valeur minimale est 16, tandis qu’est recommandé d’avoir au moins 32 adresses IP dans le sous-réseau.
-- [Points de terminaison de service ne peut pas être associés à sous-réseau de l’instance gérée](sql-database-managed-instance-connectivity-architecture.md#network-requirements). Assurez-vous que l’option de points de terminaison de service est désactivée lorsque vous créez le réseau virtuel.
-- Le nombre et les types d’instances que vous pouvez placer dans le sous-réseau ont certaines [limites et contraintes](sql-database-managed-instance-resource-limits.md#strategies-for-deploying-mixed-general-purpose-and-business-critical-instances)
-- Il existe certaines [des règles de sécurité qui doivent être appliquées sur le sous-réseau](sql-database-managed-instance-connectivity-architecture.md#network-requirements).
+- Dans le sous-réseau réservé pour votre instance managée, vous ne pouvez pas placer d’autres ressources (par exemple des machines virtuelles). Mettez ces ressources dans d’autres sous-réseaux.
+- Le sous-réseau doit avoir un nombre suffisant d’[adresses IP](sql-database-managed-instance-connectivity-architecture.md#network-requirements) disponibles. Le nombre minimal est 16, mais la recommandation est de disposer d’au moins 32 adresses IP dans le sous-réseau.
+- [Les points de terminaison de service ne peuvent pas être associés au sous-réseau de l’instance managée](sql-database-managed-instance-connectivity-architecture.md#network-requirements). Vérifiez que l’option Points de terminaison de service est désactivée quand vous créez le réseau virtuel.
+- Le nombre de vCores et de types d’instances que vous pouvez déployer dans une région ont certaines [contraintes et limites](sql-database-managed-instance-resource-limits.md#regional-resource-limitations).
+- Il existe certaines [règles de sécurité qui doivent être appliquées sur le sous-réseau](sql-database-managed-instance-connectivity-architecture.md#network-requirements).
 
 ### <a name="vnet"></a>Réseau virtuel
-- Réseau virtuel peut être déployé à l’aide du modèle de ressource - modèle classique pour réseau virtuel n’est pas pris en charge.
-- Certains services tels que les environnements App Service, Logic apps et les Instances gérées (utilisé pour la géo-réplication, la réplication transactionnelle, ou par le biais de serveurs liés) ne peut pas accéder aux Instances gérées dans des régions différentes si leurs réseaux virtuels sont connectés à l’aide de [l’homologation globale](../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers). Vous pouvez vous connecter à ces ressources via ExpressRoute ou réseau via des passerelles de réseau virtuel.
+- Le réseau virtuel peut être déployé à l’aide du modèle de ressource ; le modèle classique pour réseau virtuel n’est pas pris en charge.
+- Certains services, tels que App Service Environment, Logic Apps et Managed Instance (utilisés pour la géoréplication, la réplication transactionnelle ou via des serveurs liés), ne peuvent pas accéder aux instances Managed Instance dans des régions différentes si leurs réseaux virtuels sont connectés au moyen du [Peering mondial](../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers). Vous pouvez vous connecter à ces ressources via ExpressRoute ou une connexion entre deux réseaux virtuels, par l’intermédiaire de passerelles de réseau virtuel.
 
 ## <a name="Changes"></a> Changements de comportement
 
 Les variables, fonctions et vues suivantes retournent des résultats différents :
 
-- `SERVERPROPERTY('EngineEdition')` Retourne la valeur 8. Cette propriété identifie une instance gérée de façon unique. Consultez [SERVERPROPERTY](https://docs.microsoft.com/sql/t-sql/functions/serverproperty-transact-sql).
-- `SERVERPROPERTY('InstanceName')` Retourne la valeur NULL, car le concept d’instance tel qu’il existe de SQL Server ne s’applique à une instance gérée. Consultez [SERVERPROPERTY(« InstanceName »)](https://docs.microsoft.com/sql/t-sql/functions/serverproperty-transact-sql).
-- `@@SERVERNAME` Retourne un nom de « connectable » complet DNS, par exemple, my-managed-instance.wcus17662feb9ce98.database.windows.net. Consultez [@@SERVERNAME](https://docs.microsoft.com/sql/t-sql/functions/servername-transact-sql). 
-- `SYS.SERVERS` Retourne un nom de « connectable » complet DNS, tels que `myinstance.domain.database.windows.net` propriétés « nom » et « data_source ». Consultez [SYS. SERVERS](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-servers-transact-sql).
-- `@@SERVICENAME` Retourne la valeur NULL, car le concept de service tel qu’il existe de SQL Server ne s’applique à une instance gérée. Consultez [@@SERVICENAME](https://docs.microsoft.com/sql/t-sql/functions/servicename-transact-sql).
-- `SUSER_ID` est pris en charge. Elle retourne NULL si la connexion Azure Active Directory n’est pas dans sys.syslogins. Consultez [SUSER_ID](https://docs.microsoft.com/sql/t-sql/functions/suser-id-transact-sql). 
-- `SUSER_SID` n’est pas pris en charge. Données incorrect sont retournées, qui est une table temporaire problème connu. Consultez [SUSER_SID](https://docs.microsoft.com/sql/t-sql/functions/suser-sid-transact-sql). 
+- `SERVERPROPERTY('EngineEdition')` retourne la valeur 8. Cette propriété identifie une instance managée de façon unique. Consultez [SERVERPROPERTY](https://docs.microsoft.com/sql/t-sql/functions/serverproperty-transact-sql).
+- `SERVERPROPERTY('InstanceName')` retourne la valeur NULL, car le concept d’instance tel qu’il existe pour SQL Server ne s’applique pas à une instance managée. Consultez [SERVERPROPERTY(« InstanceName »)](https://docs.microsoft.com/sql/t-sql/functions/serverproperty-transact-sql).
+- `@@SERVERNAME` retourne un nom DNS « connectable » complet, par exemple, my-managed-instance.wcus17662feb9ce98.database.windows.net. Consultez [@@SERVERNAME](https://docs.microsoft.com/sql/t-sql/functions/servername-transact-sql). 
+- `SYS.SERVERS` retourne le nom DNS « connectable » complet, tel que `myinstance.domain.database.windows.net` pour les propriétés « name » et « data_source ». Consultez [SYS. SERVERS](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-servers-transact-sql).
+- `@@SERVICENAME` retourne la valeur NULL, car le concept de service tel qu’il existe pour SQL Server ne s’applique pas à une instance managée. Consultez [@@SERVICENAME](https://docs.microsoft.com/sql/t-sql/functions/servicename-transact-sql).
+- `SUSER_ID` est pris en charge. Il retourne NULL si la connexion Azure AD n’est pas dans sys.syslogins. Consultez [SUSER_ID](https://docs.microsoft.com/sql/t-sql/functions/suser-id-transact-sql). 
+- `SUSER_SID` n’est pas pris en charge. Les données incorrectes sont retournées, ce qui est un problème temporaire connu. Consultez [SUSER_SID](https://docs.microsoft.com/sql/t-sql/functions/suser-sid-transact-sql). 
 
 ## <a name="Issues"></a> Problèmes connus et limitations
 
 ### <a name="tempdb-size"></a>Taille de TEMPDB
 
-La taille de fichier maximale de `tempdb` ne peut pas être supérieure à 24 Go par cœur sur un niveau usage général. La valeur maximale `tempdb` taille sur un niveau critique pour l’entreprise est limitée avec la taille de stockage d’instance. Le `tempdb` base de données est toujours Fractionner en fichiers de 12 données. Cette taille maximale par fichier ne peut pas être modifiée, et les nouveaux fichiers ne peut pas être ajoutés à `tempdb`. Certaines requêtes peuvent retourner une erreur s’ils ont besoin de plus de 24 Go par cœur dans `tempdb`. `tempdb` est toujours recréée en tant que base de données vide lorsque le démarrage de l’instance ou de basculement et les modifier faite dans `tempdb` ne sera pas préservé. 
+La taille de fichier maximale de `tempdb` ne peut pas être supérieure à 24 Go par cœur sur un niveau Usage général. La taille maximale de `tempdb` sur un niveau Critique pour l’entreprise est limitée à la taille de stockage d’instance. La base de données `tempdb` est toujours divisée en 12 fichiers de données. Cette taille maximale par fichier n’est pas modifiable, et de nouveaux fichiers ne peuvent pas être ajoutés à `tempdb`. Certaines requêtes peuvent retourner une erreur si elles ont besoin de plus de 24 Go par cœur dans `tempdb`. `tempdb` est toujours recréé en tant que base de données vide lorsque l’instance démarre ou bascule, et les modifications apportées dans `tempdb` ne sont pas conservées. 
 
-### <a name="cant-restore-contained-database"></a>Impossible de restaurer le contenu de la base de données
+### <a name="cant-restore-contained-database"></a>Impossible de restaurer la base de données autonome
 
-Instance gérée ne peut pas restaurer [bases de données autonomes](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases). Restauration de point-à-temps des bases de données en relation contenant-contenus existants ne fonctionne pas sur Managed Instance. Ce problème sera résolu prochainement. En attendant, nous vous recommandons de supprimer l’option de relation contenant-contenu à partir de vos bases de données qui sont placés sur Managed Instance. N’utilisez pas l’option de relation contenant-contenu pour les bases de données de production. 
+Managed Instance ne peut pas restaurer les [bases de données autonomes](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases). La restauration dans le temps des bases de données autonomes existantes ne fonctionne pas sur Managed Instance. Ce problème sera résolu prochainement. En attendant, nous vous conseillons de supprimer l’option d’autonomie de vos bases de données qui sont placées sur Managed Instance. N’utilisez pas l’option d’autonomie pour les bases de données de production. 
 
 ### <a name="exceeding-storage-space-with-small-database-files"></a>Dépassement de l’espace de stockage avec des fichiers de base de données de petite taille
 
-`CREATE DATABASE`, `ALTER DATABASE ADD FILE`, et `RESTORE DATABASE` instructions risque d’échouer car l’instance peut atteindre la limite de stockage Azure.
+Les instructions `CREATE DATABASE`, `ALTER DATABASE ADD FILE` et `RESTORE DATABASE` risquent d’échouer, car l’instance peut atteindre la limite de Stockage Azure.
 
-Chaque instance gérée à usage général a jusqu'à 35 To de stockage réservé pour l’espace disque Premium Azure. Chaque fichier de base de données est placé sur un disque physique distinct. Les tailles de disque peuvent être de 128 Go, 256 Go, 512 Go, 1 To ou 4 To. Espace disponible sur le disque n’est pas facturé, mais la somme totale des tailles de disque Premium de Azure ne peut pas dépasser 35 To. Dans certains cas, une instance gérée qui n’a pas besoin de 8 To au total peut dépasser la limite de 35 To Azure sur taille de stockage en raison de la fragmentation interne.
+Chaque instance managée Usage général dispose de 35 To de stockage réservé pour l’espace disque Premium Azure. Chaque fichier de base de données est placé sur un disque physique distinct. Les tailles de disque peuvent être de 128 Go, 256 Go, 512 Go, 1 To ou 4 To. L’espace non utilisé sur le disque n’est pas facturé, mais la somme des tailles des disques Premium Azure ne peut pas dépasser 35 To. Dans certains cas, une instance managée qui n’a pas besoin de 8 To au total peut dépasser la limite Azure de 35 To en taille de stockage à cause d’une fragmentation interne.
 
-Par exemple, une instance gérée à usage général peut avoir un fichier qui est de 1,2 To taille placé sur un disque de 4 To. Il peut également avoir 248 fichiers chaque de 1 Go qui sont placés sur des disques distincts de 128 Go. Dans cet exemple :
+Par exemple, une instance managée Usage général peut avoir un fichier d’une taille de 1,2 To placé sur un disque de 4 To. Elle peut également posséder 248 fichiers, d’une taille de 1 Go chacun, qui sont placés sur des disques distincts de 128 Go. Dans cet exemple :
 
 - La taille totale du stockage de disque alloué est de 1 x 4 To + 248 x 128 Go = 35 To.
 - L’espace total réservé pour les bases de données sur l’instance est de 1 x 1,2 To + 248 x 1 Go = 1,4 To.
 
-Cet exemple illustre que dans certaines circonstances, en raison d’une distribution spécifique de fichiers, une instance gérée peut atteindre la limite de 35 To n’est réservée pour un disque Premium Azure lorsque vous ne l’espériez pouvoir.
+Cet exemple montre que, dans certaines circonstances, du fait d’une répartition spécifique des fichiers, une instance managée peut atteindre la limite des 35 To réservée pour un disque Premium Azure attaché, sans que vous vous y attendiez.
 
-Dans cet exemple, les bases de données existantes continuent de fonctionner et peuvent croître sans aucun problème tant que nouveaux fichiers ne sont pas ajoutés. Nouvelles bases de données ne peut pas être créés ou restaurées, car il n’est pas suffisamment d’espace pour les nouveaux lecteurs de disque, même si la taille totale de toutes les bases de données n’atteint pas la limite de taille d’instance. L’erreur est retournée dans ce cas n’est pas clair.
+Dans cet exemple, les bases de données existantes continuent de fonctionner et peuvent croître sans aucun problème du moment que de nouveaux fichiers ne sont pas ajoutés. La création ou la restauration de bases de données est impossible, car il n’y a pas suffisamment d’espace pour les nouveaux lecteurs de disque, même si la taille totale de toutes les bases de données n’atteint pas la limite de taille d’instance. L’erreur qui est retournée dans ce cas n’est pas claire.
 
-Vous pouvez [identifier le nombre de fichiers restants](https://medium.com/azure-sqldb-managed-instance/how-many-files-you-can-create-in-general-purpose-azure-sql-managed-instance-e1c7c32886c1) à l’aide de vues système. Si vous atteignez cette limite, essayez de [vides et de supprimer certains des fichiers plus petits à l’aide de l’instruction DBCC SHRINKFILE](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkfile-transact-sql#d-emptying-a-file) ou basculez vers le [niveau critique pour l’entreprise, ce qui n’a pas cette limite](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics).
+Vous pouvez [identifier le nombre de fichiers restants](https://medium.com/azure-sqldb-managed-instance/how-many-files-you-can-create-in-general-purpose-azure-sql-managed-instance-e1c7c32886c1) à l’aide de vues système. Si vous atteignez cette limite, essayez de [vider et de supprimer certains fichiers plus petits au moyen de l’instruction DBCC SHRINKFILE](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkfile-transact-sql#d-emptying-a-file), ou basculez vers le [niveau Critique pour l’entreprise, qui ne connaît pas cette limite](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics).
 
-### <a name="incorrect-configuration-of-the-sas-key-during-database-restore"></a>Restaurer une configuration incorrecte de la clé SAP au cours de la base de données
+### <a name="incorrect-configuration-of-the-sas-key-during-database-restore"></a>Configuration incorrecte de la clé SAP au cours d’une restauration de la base de données
 
-`RESTORE DATABASE` qui lit le fichier .bak peut être réessaie constamment de lire le .bak les fichier et renvoie une erreur après une longue période de temps si la signature d’accès partagé dans `CREDENTIAL` est incorrect. Exécutez RESTORE HEADERONLY avant de restaurer une base de données pour être sûr que la clé SAS est correcte.
-Assurez-vous que vous supprimez le caractère de début `?` à partir de la clé SAS qui est générée à l’aide du portail Azure.
+Il se peut que `RESTORE DATABASE` qui lit le fichier .bak réessaie constamment de lire le fichier .bak et retourne une erreur après une longue période si la signature d’accès partagé dans `CREDENTIAL` est incorrecte. Exécutez RESTORE HEADERONLY avant de restaurer une base de données pour vous assurer que la clé SAP est correcte.
+Veillez à supprimer le `?` au début de la clé SAP générée en utilisant le portail Azure.
 
 ### <a name="tooling"></a>Outils
 
-SQL Server Management Studio et SQL Server Data Tools peuvent rencontrer des problèmes alors qu’ils accèdent à une instance gérée.
+SQL Server Management Studio et SQL Server Data Tools peuvent rencontrer des problèmes lorsqu’ils accèdent à une instance managée.
 
-- Principaux de serveur Azure AD (connexions) et les utilisateurs (préversion publique) avec SQL Server Data Tools actuellement n’est pas pris en charge.
-- Écriture de scripts pour les principaux de serveur Azure AD (connexions) et les utilisateurs (préversion publique) n’est pas pris en charge dans SQL Server Management Studio.
+- L’utilisation de principaux de serveur (connexions) et d’utilisateurs (préversion publique) Azure AD avec SQL Server Data Tools n’est pas prise en charge actuellement.
+- La création de scripts pour les principaux de serveur (connexions) et les utilisateurs (préversion publique) Azure AD n’est pas prise en charge dans SQL Server Management Studio.
 
 ### <a name="incorrect-database-names-in-some-views-logs-and-messages"></a>Les noms des bases de données sont incorrects dans plusieurs vues, journaux d’activité et messages
 
-Plusieurs vues système, compteurs de performances, messages d’erreur, événements XEvent et entrées du journal des erreurs affichent des identificateurs de base de données GUID au lieu d’afficher les noms des bases de données. Ne vous fiez ces identificateurs GUID, car elle soient remplacées avec des noms de base de données à l’avenir.
+Plusieurs vues système, compteurs de performances, messages d’erreur, événements XEvent et entrées du journal des erreurs affichent des identificateurs de base de données GUID au lieu d’afficher les noms des bases de données. Ne prenez pas en compte ces identificateurs GUID, car ils vont être remplacés à l’avenir par les noms des bases de données.
 
 ### <a name="database-mail"></a>Messagerie de base de données
 
-Le `@query` paramètre dans le [sp_send_db_mail](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-send-dbmail-transact-sql) procédure ne fonctionne pas.
+Le paramètre `@query` dans la procédure [sp_send_db_mail](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-send-dbmail-transact-sql) ne fonctionne pas.
 
-### <a name="database-mail-profile"></a>Profil de messagerie de base de données
+### <a name="database-mail-profile"></a>Profil Database Mail
 
-Le profil de messagerie de base de données utilisé par l’Agent SQL Server doit être appelé `AzureManagedInstance_dbmail_profile`. Il n’existe aucune restriction pour les autres noms de profil de messagerie de base de données.
+Le profil Database Mail utilisé par l’instance SQL Server Agent doit être appelé `AzureManagedInstance_dbmail_profile`. Il n’existe aucune restriction pour les autres noms de profil Database Mail.
 
-### <a name="error-logs-arent-persisted"></a>Journaux d’erreurs ne sont pas conservées.
+### <a name="error-logs-arent-persisted"></a>Les journaux des erreurs ne sont pas conservés
 
-Journaux d’erreurs qui sont disponibles dans Managed Instance ne sont pas conservées, et leur taille n’est pas incluse dans la limite maximale de stockage. Journaux d’erreurs peuvent être automatiquement effacées en cas de basculement.
+Les journaux des erreurs qui sont disponibles dans Managed Instance ne sont pas persistants, et leur taille n’est pas comprise dans la limite de stockage maximale. Les journaux des erreurs peuvent être automatiquement effacés si un basculement se produit.
 
 ### <a name="error-logs-are-verbose"></a>Les journaux d’activité des erreurs contiennent des détails non pertinents
 
-Une instance gérée place les informations détaillées dans les journaux d’erreurs et une grande partie de celui-ci ne s’applique pas. Diminue la quantité d’informations dans les journaux d’erreurs à l’avenir.
+Une instance managée ajoute des informations détaillées dans les journaux des erreurs, la plupart ne sont pas pertinentes. La quantité d’informations qui s’y trouve va être réduite à l’avenir.
 
-**Solution de contournement :** Utiliser une procédure personnalisée pour lire les journaux d’erreurs qui exclut certaines entrées non pertinentes. Pour plus d’informations, consultez [Managed Instance – sp_readmierrorlog](https://blogs.msdn.microsoft.com/sqlcat/2018/05/04/azure-sql-db-managed-instance-sp_readmierrorlog/).
+**Solution de contournement :** utilisez une procédure personnalisée pour lire les journaux des erreurs en excluant les entrées non pertinentes. Pour plus d’informations, consultez [Managed Instance - sp_readmierrorlog](https://blogs.msdn.microsoft.com/sqlcat/2018/05/04/azure-sql-db-managed-instance-sp_readmierrorlog/).
 
-### <a name="transaction-scope-on-two-databases-within-the-same-instance-isnt-supported"></a>Étendue de transaction sur deux bases de données dans la même instance n’est pas pris en charge
+### <a name="transaction-scope-on-two-databases-within-the-same-instance-isnt-supported"></a>L’utilisation de la même étendue de transaction pour deux bases de données appartenant à une même instance n’est pas prise en charge
 
-Le `TransactionScope` classe dans .NET ne fonctionne pas si les deux requêtes sont envoyées aux deux bases de données dans la même instance sous la même étendue de transaction :
+Dans .NET, la classe `TransactionScope` ne fonctionne pas si deux requêtes sont envoyées à deux bases de données appartenant à la même instance et à la même étendue de transaction :
 
 ```C#
 using (var scope = new TransactionScope())
@@ -569,24 +570,24 @@ using (var scope = new TransactionScope())
 
 ```
 
-Bien que ce code fonctionne avec les données dans la même instance, il nécessaire de MSDTC.
+Même si ce code fonctionne avec les données d’une même instance, il nécessite MSDTC.
 
-**Solution de contournement :** Utilisez [SqlConnection.ChangeDatabase(String)](https://docs.microsoft.com/dotnet/api/system.data.sqlclient.sqlconnection.changedatabase) à utiliser une autre base de données dans un contexte de connexion au lieu d’utiliser deux connexions.
+**Solution de contournement :** servez-vous de [SqlConnection.ChangeDatabase(String)](https://docs.microsoft.com/dotnet/api/system.data.sqlclient.sqlconnection.changedatabase) pour utiliser une autre base de données dans un contexte de connexion au lieu d’utiliser deux connexions.
 
-### <a name="clr-modules-and-linked-servers-sometimes-cant-reference-a-local-ip-address"></a>Parfois, les serveurs liés et modules CLR ne peut pas référencer une adresse IP locale
+### <a name="clr-modules-and-linked-servers-sometimes-cant-reference-a-local-ip-address"></a>Les modules CLR et les serveurs liés parfois ne parviennent pas à référencer une adresse IP locale
 
-Modules CLR placés dans une instance gérée et des serveurs liés ou des requêtes distribuées qui font parfois référencent à une instance en cours ne peut pas résoudre l’adresse IP d’une instance locale. Cette erreur est un problème temporaire.
+Il arrive que des modules CLR placés dans une instance managée, et que des serveurs liés ou des requêtes distribuées référençant une instance active, ne parviennent pas quelquefois à résoudre l’adresse IP d’une instance locale. Cette erreur est un problème temporaire.
 
-**Solution de contournement :** Utilisez si possible les connexions de contexte dans un module CLR.
+**Solution de contournement :** utilisez des connexions contextuelles dans un module CLR, si possible.
 
-### <a name="tde-encrypted-databases-with-a-service-managed-key-dont-support-user-initiated-backups"></a>Chiffrement transparent des données chiffrées de bases de données avec une clé gérée par le service ne prennent pas en charge les sauvegardes lancées par l’utilisateur
+### <a name="tde-encrypted-databases-with-a-service-managed-key-dont-support-user-initiated-backups"></a>Les bases de données chiffrées avec TDE, au moyen d’une clé managée par le service, ne prennent pas en charge les sauvegardes initiées par l’utilisateur
 
-Vous ne pouvez pas exécuter `BACKUP DATABASE ... WITH COPY_ONLY` sur une base de données est chiffrée avec géré par le service Transparent Data Encryption (TDE). TDE géré par le service force des sauvegardes est chiffré avec une clé de chiffrement transparent des données interne. La clé ne peut pas être exportée, afin que vous ne pouvez pas restaurer la sauvegarde.
+Vous ne pouvez pas exécuter `BACKUP DATABASE ... WITH COPY_ONLY` sur une base de données qui est chiffrée avec Transparent Data Encryption (TDE) managé par le service. TDE managé par le service oblige le chiffrement des sauvegardes à l’aide d’une clé de chiffrement TDE interne. La clé ne pouvant pas être exportée, vous ne pouvez pas restaurer la sauvegarde.
 
-**Solution de contournement :** Utilisez des sauvegardes automatiques et restauration de point-à-temps ou [gérée par le client (BYOK) TDE](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql#customer-managed-transparent-data-encryption---bring-your-own-key) à la place. Vous pouvez également désactiver le chiffrement sur la base de données.
+**Solution de contournement :** utilisez des sauvegardes automatiques et la restauration dans le temps, ou utilisez [TDE managé par le client (BYOK)](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql#customer-managed-transparent-data-encryption---bring-your-own-key) à la place. Vous pouvez également désactiver le chiffrement sur la base de données.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour plus d’informations sur les instances gérées, consultez [ce qui est une instance gérée ?](sql-database-managed-instance.md)
-- Pour une fonctionnalités liste et de comparaison, consultez [comparaison des fonctionnalités de base de données SQL Azure](sql-database-features.md).
-- Pour un démarrage rapide qui vous montre comment créer une nouvelle instance managée, consultez [créer une instance gérée](sql-database-managed-instance-get-started.md).
+- Pour plus d’informations sur les instances managées, consultez [Présentation de Managed Instance](sql-database-managed-instance.md).
+- Pour consulter la liste des fonctionnalités et les comparer, voir [Comparaison des fonctionnalités Azure SQL Database](sql-database-features.md).
+- Pour obtenir un guide de démarrage rapide qui montre comment créer une instance managée, voir [Créer une instance managée](sql-database-managed-instance-get-started.md).

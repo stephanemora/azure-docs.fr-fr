@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 05/31/2019
 ms.author: iainfou
 ms.openlocfilehash: cc0c3becf21cb54b97a88e9ba35b38308af81a85
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66475427"
 ---
 # <a name="use-virtual-kubelet-with-azure-kubernetes-service-aks"></a>Utiliser Virtual Kubelet avec Azure Kubernetes Service (AKS)
@@ -30,13 +30,13 @@ Lorsque vous utilisez le fournisseur Virtual Kubelet pour Azure Container Instan
 
 Ce document suppose que vous disposez d’un cluster AKS. Si vous avez besoin d’un cluster AKS, consultez le [Guide de démarrage rapide : déployer un cluster Azure Kubernetes Service (AKS)][aks-quick-start].
 
-Vous devez également la version d’Azure CLI **2.0.65** ou version ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI](/cli/azure/install-azure-cli).
+Vous devez aussi disposer d’Azure CLI version **2.0.65** ou ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI](/cli/azure/install-azure-cli).
 
-Pour installer Virtual Kubelet, installer et configurer [Helm] [ aks-helm] dans votre cluster AKS. Assurez-vous que votre Tiller est [configuré pour une utilisation avec Kubernetes RBAC](#for-rbac-enabled-clusters), si nécessaire.
+Pour installer Virtual Kubelet, installez et configurez [Helm][aks-helm] dans votre cluster AKS. Vérifiez que votre composant Tiller est [configuré pour une utilisation avec Kubernetes RBAC](#for-rbac-enabled-clusters), si nécessaire.
 
-### <a name="register-container-instances-feature-provider"></a>Inscrire le fournisseur de fonctionnalités de Container Instances
+### <a name="register-container-instances-feature-provider"></a>Inscrire le fournisseur de fonctionnalités Container Instances
 
-Si vous n’avez pas précédemment utilisé le service Azure Container Instance (ACI), inscrire le fournisseur de services à votre abonnement. Vous pouvez vérifier l’état d’inscription du fournisseur d’ACI à l’aide de la commande [az provider list][az-provider-list], comme dans l’exemple suivant :
+Si vous n’avez pas encore utilisé le service Azure Container Instance (ACI), inscrivez le fournisseur de services avec votre abonnement. Vous pouvez vérifier l’état d’inscription du fournisseur d’ACI à l’aide de la commande [az provider list][az-provider-list], comme dans l’exemple suivant :
 
 ```azurecli-interactive
 az provider list --query "[?contains(namespace,'Microsoft.ContainerInstance')]" -o table
@@ -109,13 +109,13 @@ az aks install-connector \
     --os-type Both
 ```
 
-Ces arguments sont disponibles pour le [az aks install-connecteur] [ aks-install-connector] commande.
+Ces arguments sont disponibles pour la commande [az aks install-connector][aks-install-connector].
 
 | Argument : | Description | Obligatoire |
 |---|---|:---:|
-| `--connector-name` | Nom du connecteur ACI.| Oui |
-| `--name``-n` | Nom du cluster géré. | Oui |
-| `--resource-group``-g` | Nom du groupe de ressources. | Oui |
+| `--connector-name` | Nom du connecteur ACI.| OUI |
+| `--name``-n` | Nom du cluster géré. | OUI |
+| `--resource-group``-g` | Nom du groupe de ressources. | OUI |
 | `--os-type` | Type de système d’exploitation des instances de conteneur. Valeurs autorisées : Both, Linux, Windows. Valeur par défaut : Linux. | Non |
 | `--aci-resource-group` | Le groupe de ressources dans lequel créer les groupes de conteneurs ACI. | Non |
 | `--location``-l` | L’emplacement de création des groupes de conteneurs ACI. | Non |
@@ -126,7 +126,7 @@ Ces arguments sont disponibles pour le [az aks install-connecteur] [ aks-install
 
 ## <a name="validate-virtual-kubelet"></a>Valider Virtual Kubelet
 
-Pour valider l’installation de Virtual Kubelet, retourner une liste de nœuds Kubernetes à l’aide de la [kubectl obtenir des nœuds] [ kubectl-get] commande :
+Pour vérifier que Virtual Kubelet a bien été installé, retournez une liste de nœuds Kubernetes à l’aide de la commande [kubectl get nodes][kubectl-get] :
 
 ```console
 $ kubectl get nodes

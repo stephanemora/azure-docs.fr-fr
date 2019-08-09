@@ -17,12 +17,12 @@ ms.date: 06/27/2018
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 697bb8a60861acb120e92d8fd1dda3892a957b57
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 24c3af12d35d07796db9255f0ac76dd1389bd013
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60294332"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67108844"
 ---
 # <a name="azure-active-directory-identity-protection-playbook"></a>Manuel d’Azure Active Directory Identity Protection
 
@@ -135,7 +135,7 @@ Pour plus d’informations, consultez le [Guide pratique pour configurer la stra
 6. Élevez le risque utilisateur d’un compte de test, par exemple en simulant à plusieurs reprises l’un des événements à risque.
 7. Patientez quelques minutes, puis vérifiez que le niveau de risque de votre utilisateur est défini sur « Moyen ». Dans le cas contraire, simulez d’autres événements à risque pour l’utilisateur.
 8. Dans la section **Appliquer la stratégie**, sélectionnez **Actif**.
-9. Vous pouvez désormais tester l’accès conditionnel en fonction des risques d’utilisateur en vous connectant à l’aide d’un compte d’utilisateur présentant un niveau de risque élevé.
+9. Vous pouvez désormais tester l’accès conditionnel en fonction des risques utilisateur en vous connectant à l’aide d’un compte d’utilisateur présentant un niveau de risque élevé.
     
     
 

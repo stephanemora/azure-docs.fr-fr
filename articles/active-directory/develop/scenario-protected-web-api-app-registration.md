@@ -16,12 +16,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e4622cffedc159ce85166eafe571ccb26c2c1b4d
-ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+ms.openlocfilehash: bbccfc38a4e5e4b31cb625c614e838a3c92e7429
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67536858"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562308"
 ---
 # <a name="protected-web-api-app-registration"></a>API web protégée : Inscription d'application
 
@@ -43,7 +43,7 @@ Après avoir créé l’application, vous pouvez déterminer ou changer la versi
 3. Si vous avez modifié la version de jeton, sélectionnez **Enregistrer**.
 
 > [!NOTE]
-> L’API web spécifie la version de jeton (v1.0 ou v2.0) qu’elle accepte. Lorsque des clients demandent un jeton pour votre API web à partir du point de terminaison v2.0 de la plateforme d’identités Microsoft, ils obtiennent un jeton qui indique la version qui est acceptée par l’API web.
+> L’API web spécifie la version de jeton (v1.0 ou v2.0) qu’elle accepte. Quand des clients demandent un jeton pour votre API web à partir du point de terminaison de la plateforme d’identités Microsoft (v2.0), ils obtiennent un jeton qui indique la version qui est acceptée par l’API web.
 
 ## <a name="no-redirect-uri"></a>Aucun URI de redirection
 

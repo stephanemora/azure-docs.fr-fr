@@ -9,10 +9,10 @@ ms.date: 06/26/2019
 ms.author: mlearned
 ms.reviewer: nieberts, jomore
 ms.openlocfilehash: e1279261de8e26b9e11f55100ce01277650e251b
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "67615761"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Utiliser la mise en réseau kubenet avec vos propres plages d’adresses IP dans Azure Kubernetes Service (AKS)
@@ -62,7 +62,7 @@ Les calculs de base suivants comparent la différence entre les modèles de rés
 
 ### <a name="virtual-network-peering-and-expressroute-connections"></a>Appairage de réseau virtuel et connexions ExpressRoute
 
-Pour fournir une connectivité locale, les approches des réseaux *kubenet* et *Azure CNI* peuvent toutes les deux utiliser l’[appairage de réseau virtuel Azure][vnet-peering] or [ExpressRoute connections][express-route]. Planifiez vos plages d’adresses IP avec soin pour éviter le chevauchement et un routage incorrect du trafic. Par exemple, de nombreux réseaux locaux utilisent une plage d’adresses *10.0.0.0/8* qui est publiée sur la connexion ExpressRoute. Il est recommandé de créer vos clusters AKS dans des sous-réseaux de réseau virtuel Azure en dehors de cette plage d’adresses, comme *172.16.0.0/16*.
+Pour fournir une connectivité locale, les approches des réseaux *kubenet* et *Azure CNI* peuvent toutes les deux utiliser le [Peering de réseaux virtuels Azure][vnet-peering] ou les [connexions ExpressRoute][express-route]. Planifiez vos plages d’adresses IP avec soin pour éviter le chevauchement et un routage incorrect du trafic. Par exemple, de nombreux réseaux locaux utilisent une plage d’adresses *10.0.0.0/8* qui est publiée sur la connexion ExpressRoute. Il est recommandé de créer vos clusters AKS dans des sous-réseaux de réseau virtuel Azure en dehors de cette plage d’adresses, comme *172.16.0.0/16*.
 
 ### <a name="choose-a-network-model-to-use"></a>Choisir un modèle de réseau à utiliser
 
@@ -127,7 +127,7 @@ $ az ad sp create-for-rbac --skip-assignment
 }
 ```
 
-Pour attribuer les délégations correctes dans les étapes restantes, utilisez les commandes [az network vnet show][az-network-vnet-show] and [az network vnet subnet show][az-network-vnet-subnet-show] pour obtenir les ID de ressource nécessaires. Ces ID de ressource sont stockés sous forme de variables et référencés dans les étapes restantes :
+Pour attribuer les délégations correctes dans les étapes restantes, utilisez les commandes [az network vnet show][az-network-vnet-show] et [az network vnet subnet show][az-network-vnet-subnet-show] pour obtenir les ID de ressource nécessaires. Ces ID de ressource sont stockés sous forme de variables et référencés dans les étapes restantes :
 
 ```azurecli-interactive
 VNET_ID=$(az network vnet show --resource-group myResourceGroup --name myAKSVnet --query id -o tsv)
@@ -176,7 +176,7 @@ Quand vous créez un cluster AKS, un groupe de sécurité réseau et une table d
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Maintenant qu’un cluster AKS est déployé dans votre sous-réseau de réseau virtuel existant, vous pouvez utiliser le cluster comme d’habitude. Commencez avec la [génération d’applications à l’aide d’Azure Dev Spaces][dev-spaces] or [using Draft][use-draft], ou [déployez des applications à l’aide de Helm][use-helm].
+Maintenant qu’un cluster AKS est déployé dans votre sous-réseau de réseau virtuel existant, vous pouvez utiliser le cluster comme d’habitude. Commencez avec la [génération d’applications à l’aide d’Azure Dev Spaces][dev-spaces] ou l’[utilisation de Draft][use-draft], ou [déployez des applications à l’aide de Helm][use-helm].
 
 <!-- LINKS - External -->
 [dev-spaces]: https://docs.microsoft.com/azure/dev-spaces/

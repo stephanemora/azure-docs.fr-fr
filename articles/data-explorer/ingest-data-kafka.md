@@ -1,6 +1,6 @@
 ---
 title: Ingérer des données de Kafka dans Azure Data Explorer
-description: Dans cet article, vous allez apprendre à ingérer les données (charge) dans Explorateur de données Azure à partir de Kafka.
+description: Dans cet article, vous allez apprendre à ingérer (charger) des données dans Azure Data Explorer depuis Kafka.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
@@ -8,17 +8,17 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.openlocfilehash: 03b46ff50683149a22c71ccb155480a0f08455bd
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66497283"
 ---
 # <a name="ingest-data-from-kafka-into-azure-data-explorer"></a>Ingérer des données de Kafka dans Azure Data Explorer
  
 L’Explorateur de données Azure est un service d’exploration de données rapide et hautement évolutive pour les données des journaux et les données de télémétrie. Azure Data Explorer permet l’ingestion (le chargement de données) à partir de Kafka. Kafka est une plateforme de streaming distribuée qui permet la création de pipelines de données de streaming en temps réel, qui déplacent les données de façon fiable entre des systèmes ou des applications.
  
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
  
 * Si vous n’avez pas d’abonnement Azure, créez un [compte Azure gratuit](https://azure.microsoft.com/free/) avant de commencer. 
  
@@ -162,4 +162,4 @@ cd ./azure-kusto-samples-dotnet/kafka/
  
 ## <a name="next-steps"></a>Étapes suivantes
  
-* [Interroger des données dans l’Explorateur de données Azure](web-query-data.md)
+* [Interroger des données dans Azure Data Explorer](web-query-data.md)

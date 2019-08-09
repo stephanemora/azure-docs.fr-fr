@@ -5,14 +5,14 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/20/2019
 ms.openlocfilehash: 41ac1478b1028a847fc0d5e7e70802375e910837
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66125100"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67177397"
 ---
 > [!NOTE]
-> Pour [meilleures résultats](../articles/cognitive-services/anomaly-detector/concepts/anomaly-detection-best-practices.md) lorsque vous utilisez l’API de détecteur d’anomalie, vos données chronologiques au format JSON doivent inclure :
-> * points de données séparés par le même intervalle, avec pas plus de 10 % du nombre prévu de points manquant.
-> * points de données au moins 12 si vos données n’ont pas un modèle saisonnier clair.
-> * au moins 4 occurrences de modèle si vos données doivent d’un modèle saisonnier clair. 
+> Pour obtenir des [résultats optimaux](../articles/cognitive-services/anomaly-detector/concepts/anomaly-detection-best-practices.md) avec l’API Détecteur d’anomalies, vos données chronologiques au format JSON doivent inclure :
+> * des points de données séparés du même intervalle, avec pas plus de 10 % du nombre attendu de points manquants.
+> * au moins 12 points de données si vos données ne présentent pas de modèle saisonnier clair.
+> * au moins 4 occurrences de modèle si vos données ne présentent pas de modèle saisonnier clair. 

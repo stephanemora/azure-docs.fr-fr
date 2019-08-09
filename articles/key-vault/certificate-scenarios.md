@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 805f11d57a635f4e73309d025e185049b511570b
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66427844"
 ---
 # <a name="get-started-with-key-vault-certificates"></a>Prise en main des certificats Key Vault
@@ -39,7 +39,7 @@ Les certificats sont composés de trois ressources reliées entre elles en tant 
 -   L’embarquement en tant qu’administrateur informatique, administrateur PKI ou toute personne assurant la gestion des comptes auprès des autorités de certification, pour une société donnée (par exemple Contoso) est une condition préalable requise pour utiliser des certificats Key Vault.  
     Les autorités de certification suivantes sont les fournisseurs actuels associés à Key Vault :  
     -   DigiCert : Key Vault propose des certificats SSL OV avec DigiCert.  
-    -   Globaltrust - Key Vault offre des certificats avec Globaltrust OV SSL.  
+    -   Globaltrust - Key Vault propose des certificats SSL OV avec Globaltrust.  
 
 **Étape 2** : un administrateur de compte d’un fournisseur d’autorité de certification crée des informations d’identification à utiliser par Key Vault pour inscrire, renouveler et utiliser des certificats SSL via Key Vault.
 
@@ -97,16 +97,16 @@ Remarque : cette procédure (jusqu’à la fin de l’étape 3.1) est une opéra
 
 -   L’utilisateur peut également modifier la stratégie qui est fonctionnelle au moment de l’importation, mais qui contient des erreurs, car aucune information n’a été spécifiée lors de l’importation. P. Aucune information sur l’émetteur.  
 
-### <a name="formats-of-import-we-support"></a>Formats d’importation, nous prenons en charge
-Nous prenons en charge le type suivant de l’importation pour le format de fichier PEM. Un seul certificat PEM encodé avec un PKCS #8 codé, une clé non chiffrée qui possède les éléments suivants
+### <a name="formats-of-import-we-support"></a>Formats d’importation que nous prenons en charge
+Nous prenons en charge le type d’importation suivant pour le format de fichier PEM. Un seul certificat encodé en PEM avec une clé non chiffrée encodée en PKCS #8, avec les éléments suivants
 
----BEGIN CERTIFICATE------END CERTIFICATE---
+-----BEGIN CERTIFICATE----- -----END CERTIFICATE-----
 
----BEGIN PRIVATE KEY------END PRIVATE KEY---
+-----BEGIN PRIVATE KEY----- -----END PRIVATE KEY-----
 
-Fusion de certificat, nous prenons en charge 2 formats PEM en fonction. Vous pouvez soit fusionner un certificat codé en PKCS #8 unique ou un fichier de P7B en Base64. ---BEGIN CERTIFICATE------END CERTIFICATE---
+Pour la fusion de certificat, nous prenons en charge 2 formats PEM. Vous pouvez fusionner un seul certificat encodé en PKCS #8 ou un fichier P7B encodé en Base64. -----BEGIN CERTIFICATE----- -----END CERTIFICATE-----
 
-Nous n’actuellement en charge les clés EC au format PEM.
+Pour l’instant, nous ne prenons pas en charge les clés EC au format PEM.
 
 ## <a name="creating-a-certificate-with-a-ca-not-partnered-with-key-vault"></a>Création d’un certificat auprès d’une autorité de certification non associée à Key Vault  
  Cette méthode permet d’avoir recours à d’autres autorités de certification que les fournisseurs associés à Key Vault. Autrement dit, votre organisation peut utiliser une autorité de certification de son choix.  

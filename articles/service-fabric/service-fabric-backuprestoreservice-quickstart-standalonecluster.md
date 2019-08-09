@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/24/2019
 ms.author: hrushib
-ms.openlocfilehash: 154efffcb1f86907fefecc060419c1d9450470f8
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.openlocfilehash: f992aed6eba775052483b1657d04dead18b2b2ff
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66237343"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67059173"
 ---
 # <a name="periodic-backup-and-restore-in-azure-service-fabric"></a>Sauvegarde et restauration périodiques dans Azure Service Fabric
 > [!div class="op_single_selector"]
@@ -53,18 +53,18 @@ Service Fabric fournit un ensemble d’API pour obtenir les fonctions suivantes 
 - Suspendre temporairement les sauvegardes
 - Gérer la rétention des sauvegardes (à venir)
 
-## <a name="prerequisites"></a>Conditions préalables
-* Cluster Service Fabric avec Fabric versions 6.2 et ultérieure. Le cluster doit être configuré sur Windows Server. Consultez cet [article](service-fabric-cluster-creation-for-windows-server.md) pour la procédure de téléchargement du package nécessaire.
+## <a name="prerequisites"></a>Prérequis
+* Cluster Service Fabric avec Fabric version 6.4 ou ultérieure. Consultez cet [article](service-fabric-cluster-creation-for-windows-server.md) pour la procédure de téléchargement du package nécessaire.
 * Certificat X.509 pour le chiffrement des secrets nécessaire pour se connecter au stockage pour stocker les sauvegardes. Consultez [l’article](service-fabric-windows-cluster-x509-security.md) pour savoir comment acquérir ou créer un certificat X.509 auto-signé.
 
 * Application avec état fiable Service Fabric générée avec le kit SDK Service Fabric version 3.0 ou ultérieure. Pour les applications qui ciblent .Net Core 2.0, l’application doit être générée à l’aide du kit SDK Service Fabric version 3.1 ou ultérieure.
-* Installer le Module de Microsoft.ServiceFabric.Powershell.Http [Aperçu dans] pour effectuer des appels de configuration.
+* Installez le module Microsoft.ServiceFabric.Powershell.Http [en préversion] pour effectuer des appels de configuration.
 
 ```powershell
     Install-Module -Name Microsoft.ServiceFabric.Powershell.Http -AllowPrerelease
 ```
 
-* Assurez-vous que le Cluster est connecté à l’aide de la `Connect-SFCluster` commande avant d’apporter toute demande de configuration à l’aide du Module de Microsoft.ServiceFabric.Powershell.Http.
+* Assurez-vous que le cluster est connecté à l’aide de la commande `Connect-SFCluster` avant d’effectuer toute requête de configuration à l’aide du module Microsoft.ServiceFabric.Powershell.Http.
 
 ```powershell
 
@@ -129,14 +129,14 @@ La première étape consiste à créer la stratégie de sauvegarde qui décrit l
 Pour le stockage de sauvegarde, créez le partage de fichiers et accordez un accès Lecture/écriture à ce partage pour tous les ordinateurs du nœud Service Fabric. Cet exemple suppose que le partage nommé `BackupStore` est présent sur `StorageServer`.
 
 
-#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>PowerShell à l’aide du Module de Microsoft.ServiceFabric.Powershell.Http
+#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>PowerShell avec le module Microsoft.ServiceFabric.Powershell.Http
 
 ```powershell
 
 New-SFBackupPolicy -Name 'BackupPolicy1' -AutoRestoreOnDataLoss $true -MaxIncrementalBackups 20 -FrequencyBased -Interval 00:15:00 -FileShare -Path '\\StorageServer\BackupStore' -Basic -RetentionDuration '10.00:00:00'
 
 ```
-#### <a name="rest-call-using-powershell"></a>Appel REST à l’aide de Powershell
+#### <a name="rest-call-using-powershell"></a>Appel REST avec PowerShell
 
 Exécutez le script PowerShell suivant pour appeler l’API REST requise afin de créer une stratégie.
 
@@ -174,13 +174,13 @@ Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/j
 Après avoir défini la stratégie de sauvegarde pour répondre aux exigences de protection des données de l’application, la stratégie doit être associée à l’application. Selon les besoins, la stratégie de sauvegarde peut être associée à une application, un service ou une partition.
 
 
-#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>PowerShell à l’aide du Module de Microsoft.ServiceFabric.Powershell.Http
+#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>PowerShell avec le module Microsoft.ServiceFabric.Powershell.Http
 
 ```powershell
 Enable-SFApplicationBackup -ApplicationId 'SampleApp' -BackupPolicyName 'BackupPolicy1'
 ```
 
-#### <a name="rest-call-using-powershell"></a>Appel REST à l’aide de Powershell
+#### <a name="rest-call-using-powershell"></a>Appel REST avec PowerShell
 Exécutez le script PowerShell suivant pour appeler l’API REST requise afin d’associer la stratégie de sauvegarde nommée `BackupPolicy1` créée à l’étape ci-dessus à l’application `SampleApp`.
 
 ```powershell
@@ -204,13 +204,13 @@ Après avoir activé la sauvegarde pour l’application, toutes les partitions a
 
 Les sauvegardes associées à toutes les partitions appartenant à des services avec état fiables et des acteurs fiables (Reliable Actors) de l’application peuvent être énumérées à l’aide de l’API _GetBackups_. Selon les besoins, les sauvegardes peuvent être énumérées pour une application, un service ou une partition.
 
-#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>PowerShell à l’aide du Module de Microsoft.ServiceFabric.Powershell.Http
+#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>PowerShell avec le module Microsoft.ServiceFabric.Powershell.Http
 
 ```powershell
     Get-SFApplicationBackupList -ApplicationId WordCount     
 ```
 
-#### <a name="rest-call-using-powershell"></a>Appel REST à l’aide de Powershell
+#### <a name="rest-call-using-powershell"></a>Appel REST avec PowerShell
 
 Exécutez le script PowerShell suivant pour appeler l’API HTTP afin d’énumérer les sauvegardes créées pour toutes les partitions à l’intérieur de l’application `SampleApp`.
 
@@ -264,7 +264,7 @@ FailureError            :
 ```
 
 ## <a name="limitation-caveats"></a>Limitations/mises en garde
-- Applets de commande PowerShell service Fabric sont en mode Aperçu.
+- Les applets de commande PowerShell Service Fabric sont en mode Aperçu.
 - Pas de prise en charge des clusters Service Fabric sur Linux.
 
 ## <a name="next-steps"></a>Étapes suivantes

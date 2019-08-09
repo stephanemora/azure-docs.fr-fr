@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 10/3/2018
 ms.author: genli
-ms.openlocfilehash: 47db174042f7dd2e9d1bd1503c8e8b8f635b4dbe
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 1db5829abd52a1b010d38dd8e9151ab2df3f1de5
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67705748"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68854400"
 ---
 # <a name="troubleshooting-azure-virtual-machines"></a>Résolution des problèmes liés aux machines virtuelles Azure
 
@@ -34,10 +34,14 @@ ms.locfileid: "67705748"
     - [Résolution des problèmes SSH](troubleshoot-ssh-connection.md)
     - [Résolution des problèmes SSH détaillée](detailed-troubleshoot-ssh-connection.md)
     - [Messages d’erreur courants](error-messages.md)
-    - [Problèmes de performances avec les machines virtuelles Windows](performance-diagnostics.md  )
-    - [Guide pratique pour utiliser PerfInsights](how-to-use-perfInsights.md)
-    - [Extension de diagnostics de performance](performance-diagnostics-vm-extension.md)
 - [Installer l’agent de machine virtuelle Windows en mode hors connexion](install-vm-agent-offline.md)
+- Résoudre les problèmes de performance des machines virtuelles
+    - [Problèmes de performances avec les machines virtuelles](performance-diagnostics.md)
+    - Windows
+        - [Guide pratique pour utiliser PerfInsights](how-to-use-perfinsights.md)
+        - [Extension de diagnostics de performance](performance-diagnostics-vm-extension.md)
+    - Linux
+        - [Guide pratique pour utiliser PerfInsights](how-to-use-perfinsights-linux.md)
 - Redéploiement d’une machine virtuelle
     - [Linux](redeploy-to-new-node-linux.md)
     - [Windows](redeploy-to-new-node-windows.md)

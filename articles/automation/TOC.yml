@@ -234,7 +234,7 @@
         - name: Mise en route
           href: automation-dsc-getting-started.md
           displayName: DSC
-        - name: Création d’une configuration DSC
+        - name: Gérer une configuration Linux
           href: automation-quickstart-dsc-configuration.md
           displayName: 'DSC, state configuration, config, node configuration, node'
     - name: Mise en route

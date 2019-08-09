@@ -11,10 +11,10 @@ ms.service: cost-management
 manager: vitavor
 ms.custom: secdec18
 ms.openlocfilehash: 946a9bd7595692dddd157d01945fd15bdf1ab965
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66493752"
 ---
 # <a name="assign-access-to-cost-management-data"></a>Affecter une autorisation d’accès aux données Cost Management
@@ -23,7 +23,7 @@ Pour la plupart des utilisateurs disposant d’un Contrat Entreprise Azure, une 
 
 L’étendue sélectionnée par l’utilisateur est utilisée dans Cost Management pour regrouper les données et contrôler l’accès aux informations sur les coûts. Quand les utilisateurs emploient des étendues, ils n’effectuent pas plusieurs sélections. À la place, ils sélectionnent une étendue plus grande qui englobe les étendues enfants, puis appliquent un filtre pour voir ce qui les intéresse. Il est important de bien comprendre le fonctionnement du regroupement des données, car certaines personnes ne doivent pas avoir accès à l’étendue parente qui englobe les étendues enfants.
 
-Regardez la [comment attribuer l’accès avec Azure Cost Management](https://www.youtube.com/watch?v=J997ckmwTa8) vidéo pour en savoir plus sur l’attribution d’accès pour afficher les frais et avec le contrôle d’accès en fonction du rôle Azure.
+Regardez la vidéo servant de [guide pratique pour attribuer l’accès avec Azure Cost Management](https://www.youtube.com/watch?v=J997ckmwTa8) pour en savoir plus sur l’attribution d’accès pour voir les frais et les coûts du contrôle d’accès en fonction du rôle Azure.
 
 >[!VIDEO https://www.youtube.com/embed/J997ckmwTa8]
 
@@ -171,11 +171,11 @@ L’accès à un groupe de ressources requiert au minimum l’autorisation de le
 8. Pour affecter une autorisation d’accès, recherchez, puis sélectionnez l’utilisateur.
 9. Cliquez sur **Enregistrer**.
 
-## <a name="cross-tenant-authentication-issues"></a>Problèmes d’authentification inter-clients
+## <a name="cross-tenant-authentication-issues"></a>Problèmes d’authentification multilocataires
 
-Actuellement, Azure Cost Management prend en charge limitée pour l’authentification entre locataires. Dans certaines circonstances lorsque vous tentez de vous authentifier sur les locataires, vous pouvez recevoir un **accès refusé** erreur dans l’analyse des coûts. Ce problème peut se produire si vous configurez le contrôle d’accès en fonction du rôle (RBAC) pour l’abonnement d’un autre client et que vous essayez d’afficher les données de coût.
+Actuellement, Azure Cost Management assure une prise en charge limitée de l’authentification multilocataires. Dans certaines circonstances, lorsque vous tentez de vous authentifier entre locataires, vous pouvez recevoir une erreur **Accès refusé** dans l’analyse des coûts. Ce problème peut se produire si vous configurez le contrôle d’accès en fonction du rôle (RBAC) pour l’abonnement d’un autre locataire et que vous essayez de voir les données de coût.
 
-*Pour contourner le problème*: Après avoir configuré inter-clients RBAC, patientez une heure. Essayez d’afficher les coûts dans l’analyse des coûts ou d’accorder l’accès de la gestion des coûts pour les utilisateurs dans les deux clients.  
+*Pour contourner le problème* : Après avoir configuré une contrôle d’accès en fonction du rôle inter-locataires, patientez une heure. Ensuite, essayez d’afficher les coûts dans l’analyse des coûts ou d’accorder l’accès de la gestion des coûts aux utilisateurs figurant dans les deux locataires.  
 
 
 ## <a name="next-steps"></a>Étapes suivantes

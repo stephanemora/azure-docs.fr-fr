@@ -1,6 +1,6 @@
 ---
-title: Configurer la connexion avec un compte LinkedIn à l’aide de stratégies personnalisées - Azure Active Directory B2C | Microsoft Docs
-description: Configurer la connexion avec un compte LinkedIn dans Azure Active Directory B2C à l’aide de stratégies personnalisées.
+title: Configurer la connexion avec un compte LinkedIn à l’aide de stratégies personnalisées – Azure Active Directory B2C | Microsoft Docs
+description: Configurez la connexion avec un compte LinkedIn dans Azure Active Directory B2C à l’aide de stratégies personnalisées.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -11,10 +11,10 @@ ms.date: 04/23/2019
 ms.author: marsma
 ms.subservice: B2C
 ms.openlocfilehash: b336428592a4897319725782c994c3fae26bfae0
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66510413"
 ---
 # <a name="set-up-sign-in-with-a-linkedin-account-using-custom-policies-in-azure-active-directory-b2c"></a>Configurer la connexion avec un compte LinkedIn à l’aide de stratégies personnalisées dans Azure Active Directory B2C
@@ -23,7 +23,7 @@ ms.locfileid: "66510413"
 
 Cet article explique comment autoriser la connexion d’utilisateurs à partir d’un compte LinkedIn à l’aide de [stratégies personnalisées](active-directory-b2c-overview-custom.md) dans Azure Active Directory (Azure AD) B2C.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 - Suivez les étapes de l’article [Prise en main des stratégies personnalisées dans Azure Active Directory B2C](active-directory-b2c-get-started-custom.md).
 - Si vous ne disposez pas d’un compte LinkedIn, créez-en un sur la [page d’inscription LinkedIn](https://www.linkedin.com/start/join).
@@ -51,7 +51,7 @@ Pour utiliser LinkedIn comme fournisseur d’identité dans Azure AD B2C, vous d
 Vous devez stocker la clé secrète client que vous avez enregistrée dans votre locataire Azure AD B2C.
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
-2. Vérifiez que vous utilisez le répertoire qui contient votre locataire Azure AD B2C. Sélectionnez le **filtre Directory et abonnement** dans le menu supérieur et sélectionnez le répertoire qui contient votre client.
+2. Veillez à bien utiliser l’annuaire qui contient votre locataire Azure AD B2C. Sélectionnez **Filtre de répertoire et d’abonnement** dans le menu supérieur et choisissez l’annuaire qui contient votre locataire.
 3. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Azure AD B2C**.
 4. Dans la page de vue d’ensemble, sélectionnez **Infrastructure d’expérience d’identité**.
 5. Sélectionnez **Clés de stratégie**, puis **Ajouter**.
@@ -119,9 +119,9 @@ Vous pouvez définir un compte LinkedIn en tant que fournisseur de revendication
 
 ### <a name="add-the-claims-transformations"></a>Ajouter les transformations de revendications
 
-Le profil technique LinkedIn nécessite le **ExtractGivenNameFromLinkedInResponse** et **ExtractSurNameFromLinkedInResponse** de revendications de transformations à ajouter à la liste des ClaimsTransformations. Si vous n’avez pas un **ClaimsTransformations** élément défini dans votre fichier, ajoutez les éléments XML de parent, comme indiqué ci-dessous. Les transformations de revendications également besoin d’un nouveau type de revendication défini nommée **nullStringClaim**. 
+Le profil technique LinkedIn nécessite l’ajout des transformations de revendications **ExtractGivenNameFromLinkedInResponse** et **ExtractSurNameFromLinkedInResponse** à la liste ClaimsTransformations. Si vous n’avez pas d’élément **ClaimsTransformations** défini dans votre fichier, ajoutez les éléments XML parents, comme indiqué ci-dessous. Les transformations de revendications nécessitent en outre la définition d’un nouveau type de revendication nommé **nullStringClaim**. 
 
-Le **BuildingBlocks** élément doit être ajouté au début du fichier. Consultez le *TrustframeworkBase.xml* comme exemple.
+L’élément **BuildingBlocks** doit être ajouté vers le haut du fichier. Examinez le fichier *TrustframeworkBase.xml* en guise d’exemple.
 
 ```XML
 <BuildingBlocks>
@@ -207,7 +207,7 @@ Maintenant que vous avez un bouton en place, vous devez le lier à une action. D
 La communication avec Azure AD B2C s’effectue par le biais d’une application que vous créez dans votre locataire. Cette section indique les étapes facultatives que vous pouvez effectuer pour créer une application de test si vous ne l’avez pas déjà fait.
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
-2. Vérifiez que vous utilisez le répertoire qui contient votre locataire Azure AD B2C. Sélectionnez le **filtre Directory et abonnement** dans le menu supérieur et sélectionnez le répertoire qui contient votre client.
+2. Veillez à bien utiliser l’annuaire qui contient votre locataire Azure AD B2C. Sélectionnez **Filtre de répertoire et d’abonnement** dans le menu supérieur et choisissez l’annuaire qui contient votre locataire.
 3. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Azure AD B2C**.
 4. Sélectionnez **Applications**, puis **Ajouter**.
 5. Entrez un nom pour l’application (par exemple, *testapp1*).
@@ -225,13 +225,13 @@ Mettez à jour le fichier de partie de confiance qui lance le parcours utilisate
 5. Enregistrez vos modifications, chargez le fichier, puis sélectionnez la nouvelle stratégie dans la liste.
 6. Vérifiez que l’application Azure AD B2C que vous avez créée est sélectionnée dans le champ **Sélectionner une application**, puis testez-la en cliquant sur **Exécuter maintenant**.
 
-## <a name="migration-from-v10-to-v20"></a>Migration à partir de la version 1.0 vers v2.0
+## <a name="migration-from-v10-to-v20"></a>Migration de v1.0 vers v2.0
 
-LinkedIn récemment [mis à jour leurs API à partir de la version 1.0 pour v2.0](https://engineering.linkedin.com/blog/2018/12/developer-program-updates). Pour migrer votre configuration existante vers la nouvelle configuration, utilisez les informations dans les sections suivantes pour mettre à jour les éléments dans le profil technique.
+Dernièrement, LinkedIn a [mis à jour son API v1.0 vers v2.0](https://engineering.linkedin.com/blog/2018/12/developer-program-updates). Pour migrer votre configuration existante vers la nouvelle, servez-vous des informations contenues dans les sections suivantes pour mettre à jour les éléments du profil technique.
 
-### <a name="replace-items-in-the-metadata"></a>Remplacez les éléments dans les métadonnées
+### <a name="replace-items-in-the-metadata"></a>Remplacer des éléments dans Metadata
 
-Dans l’espace **métadonnées** élément de la **TechnicalProfile**, mettre à jour les éléments suivants **élément** éléments à partir de :
+Dans l’élément **Metadata** existant de **TechnicalProfile**, remplacez les éléments **Item** suivants :
 
 ```XML
 <Item Key="ClaimsEndpoint">https://api.linkedin.com/v1/people/~:(id,first-name,last-name,email-address,headline)</Item>
@@ -245,9 +245,9 @@ Par :
 <Item Key="scope">r_emailaddress r_liteprofile</Item>
 ```
 
-### <a name="add-items-to-the-metadata"></a>Ajouter des éléments aux métadonnées
+### <a name="add-items-to-the-metadata"></a>Ajouter des éléments à Metadata
 
-Dans le **métadonnées** de la **TechnicalProfile**, ajoutez le code suivant **élément** éléments :
+Dans l’élément **Metadata** de **TechnicalProfile**, ajoutez les éléments **Item** suivants :
 
 ```XML
 <Item Key="external_user_identity_claim_id">id</Item>
@@ -255,9 +255,9 @@ Dans le **métadonnées** de la **TechnicalProfile**, ajoutez le code suivant **
 <Item Key="ResolveJsonPathsInJsonTokens">true</Item>
 ```
 
-### <a name="update-the-outputclaims"></a>Mettre à jour le OutputClaims
+### <a name="update-the-outputclaims"></a>Mettre à jour OutputClaims
 
-Dans l’espace **OutputClaims** de la **TechnicalProfile**, mettre à jour les éléments suivants **OutputClaim** éléments à partir de :
+Dans l’élément **OutputClaims** de **TechnicalProfile**, remplacez les éléments **OutputClaim** suivants :
 
 ```XML
 <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="firstName" />
@@ -273,18 +273,18 @@ Par :
 
 ### <a name="add-new-outputclaimstransformation-elements"></a>Ajouter de nouveaux éléments OutputClaimsTransformation
 
-Dans le **OutputClaimsTransformations** de la **TechnicalProfile**, ajoutez le code suivant **OutputClaimsTransformation** éléments :
+Dans l’élément **OutputClaimsTransformations** de **TechnicalProfile**, ajoutez les éléments **OutputClaimsTransformation** suivants :
 
 ```XML
 <OutputClaimsTransformation ReferenceId="ExtractGivenNameFromLinkedInResponse" />
 <OutputClaimsTransformation ReferenceId="ExtractSurNameFromLinkedInResponse" />
 ```
 
-### <a name="define-the-new-claims-transformations-and-claim-type"></a>Type de revendication et de définir les transformations de revendications nouveau
+### <a name="define-the-new-claims-transformations-and-claim-type"></a>Définir les nouvelles transformations de revendications et le nouveau type de revendication
 
-Dans la dernière étape, vous avez ajouté de nouvelles transformations de revendications qui doivent être définis. Pour définir les transformations de revendications, ajoutez-les à la liste des **ClaimsTransformations**. Si vous n’avez pas un **ClaimsTransformations** élément défini dans votre fichier, ajoutez les éléments XML de parent, comme indiqué ci-dessous. Les transformations de revendications également besoin d’un nouveau type de revendication défini nommée **nullStringClaim**. 
+À la dernière étape, vous avez ajouté de nouvelles transformations de revendications qui doivent être définies. Pour définir les transformations de revendications, ajoutez-les à la liste **ClaimsTransformations**. Si vous n’avez pas d’élément **ClaimsTransformations** défini dans votre fichier, ajoutez les éléments XML parents, comme indiqué ci-dessous. Les transformations de revendications nécessitent en outre la définition d’un nouveau type de revendication nommé **nullStringClaim**. 
 
-Le **BuildingBlocks** élément doit être ajouté au début du fichier. Consultez le *TrustframeworkBase.xml* comme exemple.
+L’élément **BuildingBlocks** doit être ajouté vers le haut du fichier. Examinez le fichier *TrustframeworkBase.xml* en guise d’exemple.
 
 ```XML
 <BuildingBlocks>
@@ -322,13 +322,13 @@ Le **BuildingBlocks** élément doit être ajouté au début du fichier. Consult
 </BuildingBlocks>
 ```
 
-### <a name="obtain-an-email-address"></a>Obtenir une adresse de messagerie
+### <a name="obtain-an-email-address"></a>Obtenir une adresse e-mail
 
-Dans le cadre de la migration de LinkedIn à partir de la version 1.0 vers la version 2.0, un appel supplémentaire à une autre API est requis pour obtenir l’adresse de messagerie. Si vous avez besoin obtenir l’adresse de messagerie lors de l’inscription, procédez comme suit :
+Dans le cadre de la migration de LinkedIn v1.0 vers v2.0, un appel supplémentaire à une autre API est nécessaire pour obtenir l’adresse e-mail. Si vous avez besoin d’obtenir l’adresse e-mail pendant l’inscription, procédez comme suit :
 
-1. Effectuez les étapes ci-dessus pour autoriser Azure AD B2C fédérer avec LinkedIn afin de permettre à l’utilisateur de se connecter. Dans le cadre de la fédération, Azure AD B2C reçoit le jeton d’accès LinkedIn.
-2. Enregistrez le jeton d’accès LinkedIn dans une revendication. [Consultez les instructions fournies ici](idp-pass-through-custom.md).
-3. Ajouter le fournisseur de revendications suivantes qui effectue la demande auprès de LinkedIn `/emailAddress` API. Pour autoriser cette demande, vous devez le jeton d’accès LinkedIn.
+1. Effectuez les étapes ci-dessus pour permettre à Azure AD B2C de se fédérer avec LinkedIn et permettre à l’utilisateur de se connecter. Dans le cadre de la fédération, Azure AD B2C reçoit le jeton d’accès pour LinkedIn.
+2. Enregistrez le jeton d’accès LinkedIn dans une revendication. [Les instructions se trouvent ici](idp-pass-through-custom.md).
+3. Ajoutez le fournisseur de revendications ci-dessous qui effectue la demande à l’API `/emailAddress` de LinkedIn. Pour autoriser cette demande, vous avez besoin du jeton d’accès LinkedIn.
 
     ```XML
     <ClaimsProvider> 
@@ -356,7 +356,7 @@ Dans le cadre de la migration de LinkedIn à partir de la version 1.0 vers la ve
     </ClaimsProvider>
     ```
 
-4. Ajoutez l’étape d’orchestration suivante dans votre parcours utilisateur, afin que le fournisseur de revendications d’API se déclenche quand un utilisateur se connecte à l’aide de LinkedIn. Veillez à mettre à jour le `Order` numéro en conséquence. Ajouter cette étape immédiatement après l’étape d’orchestration qui déclenche le profil technique LinkedIn.
+4. Ajoutez l’étape d’orchestration ci-dessous à votre parcours utilisateur, de sorte que le fournisseur de revendications d’API se déclenche quand un utilisateur se connecte avec LinkedIn. Veillez à mettre à jour le numéro `Order` de façon appropriée. Ajoutez cette étape de suite après celle d’orchestration qui déclenche le profil technique LinkedIn.
 
     ```XML
     <!-- Extra step for LinkedIn to get the email -->
@@ -378,6 +378,6 @@ Dans le cadre de la migration de LinkedIn à partir de la version 1.0 vers la ve
     </OrchestrationStep>
     ```
 
-Obtention de l’adresse de messagerie à partir de LinkedIn pendant l’inscription est facultative. Si vous choisissez de ne pas obtenir le message électronique à partir de LinkedIn mais exiger une au cours de la connexion à, l’utilisateur est requis, entrez l’adresse e-mail et le valider manuellement.
+L’obtention de l’adresse e-mail auprès de LinkedIn pendant l’inscription est facultative. Si vous choisissez de ne pas obtenir l’adresse e-mail auprès de LinkedIn mais que vous en demandez une pendant l’inscription, l’utilisateur est tenu d’entrer manuellement l’adresse e-mail et de la valider.
 
-Pour obtenir un exemple complet d’une stratégie qui utilise le fournisseur d’identité LinkedIn, consultez le [Pack de démarrage de stratégie personnalisée](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/linkedin-identity-provider).
+Pour obtenir un exemple complet de stratégie utilisant le fournisseur d’identité LinkedIn, consultez le [pack de démarrage de stratégie personnalisée](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/linkedin-identity-provider).

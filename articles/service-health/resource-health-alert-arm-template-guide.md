@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.service: service-health
 ms.date: 9/4/2018
 ms.openlocfilehash: e552b90a4c98eff7b04cbeaef26aa10749ce672c
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66493397"
 ---
 # <a name="configure-resource-health-alerts-using-resource-manager-templates"></a>Configurer les alertes Resource Health à l’aide de modèles Resource Manager
@@ -20,11 +20,11 @@ Cet article vous montre comment créer par programmation des alertes de journal 
 Azure Resource Health vous tient informé de l’état d’intégrité actuel et précédent de vos ressources Azure. Les alertes Azure Resource Health peuvent vous signaler quasiment en temps réel tout changement de l’état d’intégrité des ressources. La création par programmation d’alertes Resource Health permet aux utilisateurs de créer et personnaliser leurs alertes en bloc.
 
 > [!NOTE]
-> Alertes d’intégrité de ressource sont actuellement en version préliminaire.
+> Les alertes Resource Health sont actuellement en préversion.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Pour suivre les instructions de cette page, vous devez effectuer ces étapes préalables :
 
@@ -76,7 +76,7 @@ Pour suivre les instructions de cette page, vous devez effectuer ces étapes pr�
 
 Notez que si vous voulez automatiser entièrement ce processus, modifiez simplement le modèle Resource Manager afin qu’il ne demande pas d’entrer les valeurs à l’étape 5.
 
-## <a name="resource-manager-template-options-for-resource-health-alerts"></a>Options de modèle Resource Manager pour les alertes d’intégrité des ressources
+## <a name="resource-manager-template-options-for-resource-health-alerts"></a>Options de modèle Resource Manager pour les alertes Resource Health
 
 Vous pouvez utiliser ce modèle simple comme base pour créer vos alertes Resource Health. Ce modèle fonctionne comme écrit dans cet extrait de code, à savoir qu’il génère des alertes pour tous les nouveaux événements d’intégrité de ressource qui se déclenchent sur l’ensemble des ressources dans un abonnement.
 
@@ -286,7 +286,7 @@ Quand une ressource signale l’état « Unknown », la raison probable est que 
 
 Dans cet exemple, nous recevons une notification uniquement pour les événements dont l’état d’intégrité actuel et précédent n’est pas « Unknown ». Ce changement peut s’avérer utile si vos alertes sont envoyées directement vers votre téléphone mobile ou votre e-mail. 
 
-Notez qu’il est possible pour les propriétés currentHealthStatus et previousHealthStatus à avoir la valeur null dans certains événements. Par exemple, lorsqu’un événement de mise à jour se produit il est probable que l’état d’intégrité de la ressource n’a pas changé depuis le dernier rapport, ces informations d’événement supplémentaire est disponibles (par exemple, provoquer). Par conséquent, à l’aide de la clause ci-dessus peut en résulter dans certaines alertes ne pas déclenchés, car les valeurs properties.currentHealthStatus et properties.previousHealthStatus seront définies avec la valeur null.
+Notez qu’il est possible pour les propriétés currentHealthStatus et previousHealthStatus d’avoir la valeur Null dans certains événements. Par exemple, quand un événement mis à jour se produit, il est probable que l’état d’intégrité de la ressource n’a pas changé depuis le dernier rapport, seules ces informations d’événement supplémentaires sont disponibles (par exemple, la cause). Par conséquent, l’utilisation de la clause ci-dessus peut empêcher le déclenchement de certaines alertes, car les propriétés properties.currentHealthStatus et properties.previousHealthStatus auront la valeur Null.
 
 ### <a name="adjusting-the-alert-to-avoid-user-initiated-events"></a>Paramétrage de l’alerte pour exclure les événements lancés par l’utilisateur
 
@@ -306,11 +306,11 @@ La configuration de votre alerte pour filtrer ces types d’événements est sim
     ]
 }
 ```
-Notez qu’il est possible pour le champ de cause à avoir la valeur null dans certains événements. Autrement dit, une transition d’intégrité a lieu (par exemple, disponible à indisponible) et l’événement est consigné immédiatement pour empêcher la notification retarde. Par conséquent, à l’aide de la clause ci-dessus peut en résulter dans une alerte ne pas déclenchée, car la valeur de propriété properties.clause est définie sur null.
+Notez qu’il est possible pour le champ de cause d’avoir la valeur Null dans certains événements. Autrement dit, une transition de l’état d’intégrité a lieu (par exemple, de disponible à non disponible) et l’événement est consigné immédiatement pour empêcher les délais de notification. Par conséquent, l’utilisation de la clause ci-dessus peut empêcher le déclenchement d’une alerte, car la propriété properties.clause aura la valeur Null.
 
-## <a name="complete-resource-health-alert-template"></a>Modèle d’alerte d’intégrité de ressource complet
+## <a name="complete-resource-health-alert-template"></a>Modèle d’alerte Resource Health complet
 
-À l’aide de différents ajustements décrits dans la section précédente, Voici un exemple de modèle qui est configuré afin d’optimiser le signal / bruit. N’oubliez pas les mises en garde indiqués ci-dessus où currentHealthStatus, previousHealthStatus, les valeurs de propriété cause peuvent être null dans certains événements.
+En reprenant les différents paramétrages décrits dans la section précédente, voici un exemple de modèle qui est configuré pour optimiser le rapport signal/bruit. N’oubliez pas les mises en garde indiquées ci-dessus qui précisent que les propriétés currentHealthStatus, previousHealthStatus et clause peuvent avoir la valeur Null dans certains événements.
 
 ```json
 {
@@ -445,4 +445,4 @@ En savoir plus sur Resource Health :
 
 Créer des alertes Service Health :
 -  [Configurer des alertes pour Service Health](../azure-monitor/platform/alerts-activity-log-service-notifications.md) 
--  [Schéma d’événement de journal d’activité Azure](../azure-monitor/platform/activity-log-schema.md)
+-  [Schéma d’événement du journal d’activité Azure](../azure-monitor/platform/activity-log-schema.md)

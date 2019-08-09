@@ -17,12 +17,12 @@ ms.date: 10/03/2018
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 37c63e32f1ee9c404e8b84a6eb17bc6eec30a761
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
-ms.translationtype: MT
+ms.openlocfilehash: 2b4f8caf03aad339cea3c3fcc732fc1af6086ea7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65956933"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67108885"
 ---
 # <a name="what-is-azure-active-directory-identity-protection-refreshed"></a>Présentation d'Azure Active Directory Identity Protection (mise à jour)
 
@@ -56,7 +56,7 @@ Pour répondre à ces menaces, Azure AD Identity Protection vous donne les moyen
 
  
 
-Azure AD Identity Protection est une fonctionnalité d'Azure Active Directory Premium P2 qui vous permet de configurer des stratégies afin de réagir automatiquement lorsque l'identité d'un utilisateur est compromise ou qu'une personne autre que le propriétaire du compte tente de se connecter avec l'identité de celui-ci. Outre les autres contrôles d'accès conditionnel fournis par Azure AD, ces stratégies peuvent automatiquement bloquer l'accès ou déclencher des actions d'atténuation telles que la réinitialisation du mot de passe et la mise en œuvre de l'authentification multifacteur. De plus, Identity Protection fournit des fonctionnalités de supervision et de création de rapports qui vous permettent de mieux comprendre les risques et les compromissions potentiels au sein de votre organisation. 
+Azure AD Identity Protection est une fonctionnalité d'Azure Active Directory Premium P2 qui vous permet de configurer des stratégies afin de réagir automatiquement lorsque l'identité d'un utilisateur est compromise ou qu'une personne autre que le propriétaire du compte tente de se connecter avec l'identité de celui-ci. Outre les autres contrôles d’accès conditionnel fournis par Azure AD, ces stratégies peuvent automatiquement bloquer l’accès ou déclencher des actions d’atténuation telles que la réinitialisation du mot de passe et la mise en œuvre de l’authentification multifacteur. De plus, Identity Protection fournit des fonctionnalités de supervision et de création de rapports qui vous permettent de mieux comprendre les risques et les compromissions potentiels au sein de votre organisation. 
 
 >[!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWsS6Q]
 
@@ -147,44 +147,44 @@ Le parcours de détection d'un risque et de réponse d'Identity Protection pour 
 
 ## <a name="common-scenarios"></a>Scénarios courants 
 
-Examinons l’exemple d’un employé de Contoso. 
+Prenons l’exemple d’une employée de Contoso. 
 
-1. Un employé tente de se connecter à Exchange Online à partir du navigateur Tor. Au moment de la connexion, Azure AD détecte des événements à risque en temps réel. 
+1. L’employée tente de se connecter à Exchange Online à partir du navigateur Tor. Au moment de la connexion, Azure AD détecte des événements à risque en temps réel. 
 
-2. Azure AD détecte que l’employé se connecte à partir d’une adresse IP anonyme, déclenchement d’un niveau de risque de connexion moyen. 
+2. Azure AD détecte que l’employée se connecte à partir d’une adresse IP anonyme, ce qui déclenche un niveau de risque de connexion moyen. 
 
-3. L’employé est mise au défi par une invite d’authentification Multifacteur, car l’administrateur informatique de Contoso configuré la stratégie d’accès conditionnel de Protection d’identité risque de connexion. Pour un risque de connexion moyen ou supérieur, la stratégie exige une authentification multifacteur (MFA). 
+3. L’employée est invitée à s’authentifier au moyen de l’authentification multifacteur (MFA), car l’administrateur informatique de Contoso a configuré la stratégie d’accès conditionnel en fonction du risque de connexion d’Identity Protection. Pour un risque de connexion moyen ou supérieur, la stratégie exige une authentification multifacteur (MFA). 
 
-4. L’employé passe de l’invite d’authentification Multifacteur et accède à Exchange Online, et leur niveau de risque d’utilisateur n’est pas modifié. 
+4. L’employée parvient à s’authentifier à l’aide de l’authentification MFA et accède à Exchange Online. Son niveau de risque utilisateur ne change pas. 
 
-Que s'est-il passé en arrière-plan ? La tentative de connexion à partir du navigateur Tor a déclenché dans Azure AD un risque de connexion en temps réel en raison de l'adresse IP anonyme utilisée. Comme Azure AD a traité la demande, il appliqué la stratégie de risque de connexion configurée dans Identity Protection, car le niveau de risque de connexion de l’employé atteint le seuil (moyenne). Étant donné que l’employé avait précédemment enregistré pour l’authentification Multifacteur, ils ont été en mesure de répondre aux et transmettre la demande MFA. Leur capacité à passer avec succès la demande MFA signalé à Azure AD qu’ils étaient sans doute le propriétaire légitime d’identité, et leur niveau de risque utilisateur n’augmente pas. 
+Que s'est-il passé en arrière-plan ? La tentative de connexion à partir du navigateur Tor a déclenché dans Azure AD un risque de connexion en temps réel en raison de l'adresse IP anonyme utilisée. Lors du traitement de la demande, Azure AD a appliqué la stratégie de risque de connexion configurée dans Identity Protection, car le niveau de risque de connexion de l’employée avait atteint le seuil Moyen. Comme l’employée s’était déjà inscrite pour l’authentification multifacteur, elle a pu s’authentifier à l’aide de cette méthode. Sa capacité à s’authentifier à l’aide de l’authentification multifacteur indique à Azure AD qu’elle est probablement la propriétaire légitime de l’identité. Par conséquent, son niveau de risque utilisateur n’augmente pas. 
 
 
-Mais que se passe-t-il si l’employé n’a pas été l’une tentative de connexion ? 
+Mais que se passerait-il si une personne autre essayait de se connecter ? 
 
-1. Un acteur malveillant avec informations d’identification de l’employé tente de se connecter à son compte Exchange Online à partir du navigateur Tor, dans la mesure où ils essaient de masquer son adresse IP. 
+1. Un acteur malveillant en possession des informations d’identification de l’employée tente de se connecter à son compte Exchange Online à partir du navigateur Tor, car il souhaite masquer sa propre adresse IP. 
 
 2. Azure AD détecte que la tentative de connexion provient d'une adresse IP anonyme, ce qui déclenche un risque de connexion en temps réel. 
 
 3. La personne malveillante reçoit une demande de MFA car l'administrateur informatique de Contoso a configuré la stratégie d'accès conditionnel en fonction du risque de connexion d'Identity Protection de manière à exiger une authentification multifacteur lorsque le risque de connexion est moyen ou supérieur. 
 
-4. L’acteur malveillant échoue l’authentification MFA et ne peut pas accéder aux compte Exchange Online de l’employé. 
+4. L’acteur malveillant ne parvient pas à s’authentifier à l’aide de l’authentification multifacteur et ne peut donc pas accéder au compte Exchange Online de l’employée. 
 
-5. L’échec MFA invite a déclenché un événement à risque doit être enregistré, déclenchement risque d’utilisateur pour les connexions futures. 
+5. L’échec de l’authentification multifacteur a déclenché le signalement d’un événement à risque et a élevé le niveau de risque associé à l’employée. 
 
-Maintenant qu’un acteur malveillant a tenté d’accéder à compte de Sarah, nous allons voir ce qui se passe la prochaine fois que l’employé tente de se connecter. 
+Maintenant qu’un acteur malveillant a tenté d’accéder au compte de l’employée, voyons ce qui se passera la prochaine fois qu’elle tentera de se connecter. 
 
-1. L’employé tente de se connecter à Exchange Online à partir d’Outlook. Au moment de la connexion, Azure AD détecte les événements à risque en temps réel ainsi que les risques utilisateur antérieurs. 
+1. L’employée tente de se connecter à Exchange Online à partir d’Outlook. Au moment de la connexion, Azure AD détecte les événements à risque en temps réel ainsi que les risques utilisateur antérieurs. 
 
 2. Azure AD ne détecte aucun risque de connexion en temps réel, mais détecte un risque utilisateur élevé en raison de l'activité à risque des scénarios précédents.  
 
-3. L’employé est mise au défi par une invite de réinitialisation de mot de passe, étant donné que Contoso de l’administrateur informatique configuré la stratégie des risques utilisateur Identity Protection pour exiger des modifications de mot de passe lorsqu’un utilisateur avec un risque élevé se connecte. 
+3. L’employée est invitée à réinitialiser son mot de passe, car l’administrateur informatique de Contoso a configuré la stratégie de risque utilisateur d’Identity Protection de manière à exiger un changement de mot de passe lorsqu’un utilisateur présentant un risque élevé se connecte. 
 
-4. Étant donné que l’employé est inscrit à SSPR et MFA, ils réinitialise correctement son mot de passe. 
+4. Étant donné que l’employée est inscrite pour la réinitialisation de mot de passe et l’authentification multifacteur, elle peut réinitialiser son mot de passe. 
 
-5. En réinitialisant son mot de passe, informations d’identification de l’employé sont compromises n’est plus et leur identité retourne à un état sécurisé. 
+5. Une fois le mot de passe réinitialisé, les informations d’identification de l’employée ne sont plus compromises et son identité est de nouveau sécurisée. 
 
-6. Événements à risque de l’employé précédent sont résolues et son niveau de risque d’utilisateur est réinitialisé automatiquement en réponse à atténuer la compromission des informations d’identification. 
+6. Les précédents événements à risque liés à l’employée sont résolus et son niveau de risque utilisateur est automatiquement réinitialisé en réponse à l’atténuation de la compromission des informations d’identification. 
 
 ## <a name="how-do-i-configure-identity-protection"></a>Comment configurer Identity Protection ? 
 
@@ -212,11 +212,11 @@ Pour plus d’informations, voir [Attribution de rôles d’administrateur dans 
 
 | Fonctionnalité | Azure AD Premium P2 | Azure AD Premium P1 | Azure AD Basic/Free |
 | --- | --- | --- | --- |
-| Stratégie de risque d’utilisateur | Oui | Non  | Non  |
-| Stratégie en matière de risque à la connexion | Oui | Non  | Non  |
+| Stratégie de risque d’utilisateur | OUI | Non | Non |
+| Stratégie en matière de risque à la connexion | OUI | Non | Non |
 | Rapport sur les utilisateurs à risque | Accès total | Informations limitées | Informations limitées |
 | Rapports sur les connexions risquées | Accès total | Informations limitées | Informations limitées |
-| Stratégie d'inscription MFA | Oui | Non  | Non  |
+| Stratégie d'inscription MFA | OUI | Non | Non |
 
 
 

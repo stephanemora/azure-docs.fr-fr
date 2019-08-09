@@ -7,24 +7,24 @@ author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
+ms.topic: quickstart
 ms.date: 01/11/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: a7713576565ca2632d7d91857040ece4d02c411b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: f5f777238b4682cfd5873ceeb34452218d4c46f3
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60621945"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67068271"
 ---
 # <a name="quickstart-convert-text-to-speech-using-nodejs"></a>Démarrage rapide : Convertir du texte par synthèse vocale à l’aide de Node.js
 
 Dans ce guide de démarrage rapide, vous allez apprendre à convertir du texte par synthèse vocale à l’aide de Node.js et de l’API REST Synthèse vocale. Le corps de la requête figurant dans ce guide est structuré en tant que [Langage de balisage de synthèse vocale (SSML)](speech-synthesis-markup.md), ce qui vous permet de choisir la voix et la langue de la réponse.
 
-Ce démarrage rapide nécessite un [compte Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) avec une ressource de Services de reconnaissance vocale. Si vous n’avez pas de compte, vous pouvez utiliser la [version d’évaluation gratuite](get-started.md) pour obtenir une clé d’abonnement.
+Ce guide de démarrage rapide nécessite un [compte Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) avec une ressource Speech Services. Si vous n’avez pas de compte, vous pouvez utiliser la [version d’évaluation gratuite](get-started.md) pour obtenir une clé d’abonnement.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Ce démarrage rapide nécessite :
 
@@ -53,9 +53,9 @@ const xmlbuilder = require('xmlbuilder');
 
 ## <a name="get-an-access-token"></a>Obtention d’un jeton d’accès
 
-L’API REST Synthèse vocale nécessite un jeton d’accès pour l’authentification. Pour obtenir un jeton d’accès, un échange est nécessaire. Cette fonction remplace votre clé d’abonnement de Services de reconnaissance vocale pour un jeton accès à l’aide du `issueToken` point de terminaison.
+L’API REST Synthèse vocale nécessite un jeton d’accès pour l’authentification. Pour obtenir un jeton d’accès, un échange est nécessaire. Cette fonction échange votre clé d’abonnement Speech Services contre un jeton d’accès utilisant le point de terminaison `issueToken`.
 
-Cet exemple suppose que votre abonnement aux Services de reconnaissance vocale est dans la région ouest des États-Unis. Si vous utilisez une autre région, mettez à jour la valeur de `uri`. Pour obtenir la liste complète, consultez [Régions](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#rest-apis).
+Cet exemple suppose que votre abonnement Speech Services se situe dans la région USA Ouest. Si vous utilisez une autre région, mettez à jour la valeur de `uri`. Pour obtenir la liste complète, consultez [Régions](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#rest-apis).
 
 Copiez ce code dans votre projet :
 
@@ -80,7 +80,7 @@ Dans la section suivante, nous allons créer la fonction pour appeler l’API de
 
 ## <a name="make-a-request-and-save-the-response"></a>Effectuer une requête et enregistrer la réponse
 
-Ici, vous allez générer la requête de l’API de reconnaissance vocale et enregistrer la réponse de la reconnaissance vocale. Cet exemple part du principe que vous utilisez le point de terminaison USA Ouest. Si votre ressource est inscrite dans une autre région, veillez à mettre à jour la valeur `uri`. Pour plus d’informations, consultez [régions des Services de reconnaissance vocale](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#text-to-speech).
+Ici, vous allez générer la requête de l’API de reconnaissance vocale et enregistrer la réponse de la reconnaissance vocale. Cet exemple part du principe que vous utilisez le point de terminaison USA Ouest. Si votre ressource est inscrite dans une autre région, veillez à mettre à jour la valeur `uri`. Pour plus d’informations, consultez [Régions Speech Services](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#text-to-speech).
 
 Ensuite, vous devez ajouter les en-têtes nécessaires pour la requête. Veillez à mettre à jour `User-Agent` avec le nom de votre ressource (située dans le portail Azure), puis définissez `X-Microsoft-OutputFormat` sur la sortie audio de votre choix. Pour obtenir la liste complète des formats de sortie, consultez [Sorties audio](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis).
 
@@ -136,9 +136,9 @@ function textToSpeech(accessToken, text) {
 
 ## <a name="put-it-all-together"></a>Assemblage
 
-Vous avez presque terminé. La dernière étape consiste à créer une fonction asynchrone. Cette fonction lira votre clé d’abonnement à partir d’une variable d’environnement invite pour le texte, obtenir un jeton, attendez que la demande terminer, puis de convertir l’application synthèse vocale et d’enregistrer l’audio en tant qu’un fichier .wav.
+Vous avez presque terminé. La dernière étape consiste à créer une fonction asynchrone. Cette fonction lira votre clé d’abonnement à partir d’une variable d’environnement, vous invitera à entrer du texte, obtiendra un jeton, attendra que la requête aboutisse, puis convertira le texte en parole et enregistrera le contenu audio sous forme de fichier .wav.
 
-Si vous n’êtes pas familiarisé avec les variables d’environnement ou que vous préférez tester avec votre codée en dur clé abonnement sous forme de chaîne, remplacez `process.env.SPEECH_SERVICE_KEY` avec votre clé d’abonnement sous forme de chaîne.
+Si les variables d’environnement ne vous sont pas familières ou si vous préférez tester avec votre clé abonnement codée en dur sous forme de chaîne, remplacez `process.env.SPEECH_SERVICE_KEY` par votre clé d’abonnement sous forme de chaîne.
 
 ```javascript
 // Use async and await to get the token before attempting

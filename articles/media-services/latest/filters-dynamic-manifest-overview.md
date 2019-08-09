@@ -11,24 +11,24 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 05/22/2019
+ms.date: 06/11/2019
 ms.author: juliako
-ms.openlocfilehash: 041a73cd2840e0b6a1840e15629d9c0e284e9890
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.openlocfilehash: ab07b87d724f2006b6b5c0e4f472140f92230dea
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66225524"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67080397"
 ---
-# <a name="pre-filtering-manifests-with-dynamic-packager"></a>Manifestes de filtrage préalable avec l’empaquetage dynamique
+# <a name="pre-filtering-manifests-with-dynamic-packager"></a>Manifestes de préfiltrage avec le Packager dynamique
 
-Lorsque vous diffusez du contenu vers des appareils de streaming à débit adaptatif, vous devez souvent publier plusieurs versions d’un manifeste pour les fonctionnalités du périphérique spécifique cible ou la bande passante réseau disponible. Le [l’empaquetage dynamique](dynamic-packaging-overview.md) permet de spécifier des filtres qui peuvent filtrer les codecs spécifiques, des résolutions et vitesses de transmission audio combinaisons à la volée évite d’avoir à créer plusieurs copies de suivre. Vous devez simplement publier une nouvelle URL avec un ensemble spécifique de filtres configurés pour vos appareils cibles (iOS, Android, SmartTV ou navigateurs) et les fonctionnalités de réseau (scénarios de bande passante élevée, mobiles ou faible bande passante). Dans ce cas, les clients peuvent manipuler la diffusion en continu de votre contenu via la chaîne de requête (en spécifiant disponible [filtres de ressource ou compte](filters-concept.md)) et utiliser des filtres pour diffuser des sections spécifiques d’un flux.
+Quand vous fournissez du contenu de streaming à débit adaptatif à des appareils, vous devez souvent publier plusieurs versions d’un manifeste pour cibler des fonctionnalités d’appareil spécifiques cible ou la bande passante réseau disponible. Le [Packager dynamique](dynamic-packaging-overview.md) vous permet de spécifier des filtres qui peuvent filtrer des codecs, des résolutions, des vitesses de transmission et des combinaisons de pistes audio spécifiques à la volée, ce qui évite d’avoir à créer plusieurs copies. Vous devez simplement publier une nouvelle URL avec un ensemble spécifique de filtres configurés pour vos appareils cibles (iOS, Android, SmartTV ou navigateurs) et les fonctionnalités réseau (scénarios de bande passante élevée, mobiles ou de bande passante faible). Dans ce cas, les clients peuvent manipuler le streaming de votre contenu par le biais de la chaîne de requête (en spécifiant les [filtres de ressources ou les filtres de comptes](filters-concept.md) disponibles) et utiliser des filtres pour diffuser des sections spécifiques d’un flux.
 
-Certains scénarios de remise requièrent que vous vous assurer qu'un client est impossible d’accéder aux pistes spécifiques. Par exemple, il pourrez que vous ne souhaitez pas publier un manifeste qui contient des pistes HD vers un niveau de l’abonné spécifique. Ou bien, vous souhaiterez Supprimer pistes spécifique à débit adaptatif (TBD) pour réduire les coûts de livraison à un appareil spécifique qui ne bénéfique pas des pistes supplémentaires. Dans ce cas, vous pouvez associer une liste de filtres créés au préalable avec votre [localisateur de diffusion en continu](streaming-locators-concept.md) lors de la création. Dans ce cas, les clients ne peut pas manipuler la façon dont le contenu est diffusé en continu, il est défini par le **localisateur de diffusion en continu**.
+Certains scénarios de distribution exigent que vous vérifiiez qu’un client est dans l’impossibilité d’accéder à des pistes spécifiques. Par exemple, vous pouvez ne pas souhaiter publier un manifeste qui contient des pistes HD vers un niveau d’abonné spécifique. Ou vous pouvez souhaiter supprimer des pistes à débit adaptatif (ABR) spécifiques pour réduire les coûts de distribution à un appareil spécifique qui ne bénéficie pas des pistes supplémentaires. Dans ce cas, vous pouvez associer une liste de filtres précréés à votre [localisateur de streaming](streaming-locators-concept.md) lors de la création. Si c’est ce cas, les clients ne peuvent pas manipuler la façon dont le contenu est diffusé. Elle est définie par le **localisateur de streaming**.
 
-Vous pouvez combiner le filtrage via la spécification [filtres sur le localisateur de diffusion en continu](filters-concept.md#associating-filters-with-streaming-locator) + filtres spécifiques supplémentaires sur les appareils qui spécifie de votre client dans l’URL. Cela peut être utile pour limiter les pistes supplémentaires tels que les flux de métadonnées ou un événement, langues audio ou des pistes audio descriptifs. 
+Vous pouvez combiner le filtrage en spécifiant des [filtres sur le localisateur de streaming](filters-concept.md#associating-filters-with-streaming-locator) et des filtres supplémentaires spécifiques à l’appareil que votre client spécifie dans l’URL. Cela peut être utile pour limiter les pistes supplémentaires comme les flux de métadonnées ou d’événements, les langues audio ou les pistes audio descriptives. 
 
-Cette possibilité de spécifier des filtres différents sur votre flux, fournit un puissant **manifeste dynamique** solution de manipulation de cibler plusieurs scénarios d’utilisation pour vos appareils cibles. Cette rubrique décrit les concepts liés aux **Manifestes dynamiques** et fournit des exemples de scénarios dans lesquels vous pouvez utiliser cette fonctionnalité.
+Cette possibilité de spécifier des filtres différents sur votre flux offre une puissante solution de manipulation de **manifeste dynamique** afin de cibler plusieurs scénarios de cas d’usage pour vos appareils cibles. Cette rubrique décrit les concepts liés aux **Manifestes dynamiques** et fournit des exemples de scénarios dans lesquels vous pouvez utiliser cette fonctionnalité.
 
 > [!NOTE]
 > Les manifestes dynamiques ne changent pas l'élément multimédia ni son manifeste par défaut. 
@@ -36,7 +36,7 @@ Cette possibilité de spécifier des filtres différents sur votre flux, fournit
 
 ## <a name="manifests-overview"></a>Vue d’ensemble des manifestes
 
-Media Services prend en charge HLS, MPEG DASH, protocoles de diffusion en continu lisse. Dans le cadre de [empaquetage dynamique](dynamic-packaging-overview.md), les manifestes de client de diffusion en continu (HLS Master Playlist DASH MPD Media Presentation Description () et Smooth Streaming) sont générées dynamiquement selon le sélecteur de format dans l’URL. Consultez les protocoles de remise dans [cette section](dynamic-packaging-overview.md#delivery-protocols). 
+Media Services prend en charge les protocoles HLS, MPEG DASH et Smooth Streaming. Dans le cadre du l’[empaquetage dynamique](dynamic-packaging-overview.md), les manifestes du client de streaming (liste de lectures principale HLS, DASH MPD (Media Presentation Description) et Smooth Streaming) sont générés de façon dynamique en fonction du sélecteur de format dans l’URL. Consultez les protocoles de remise décrits dans [cette section](dynamic-packaging-overview.md#delivery-protocols). 
 
 ### <a name="get-and-examine-manifest-files"></a>Obtenir et examiner des fichiers manifeste
 
@@ -56,7 +56,7 @@ Vous pouvez utiliser la [page de démo Azure Media Player](https://aka.ms/amp) p
 
 Il serait possible d’appliquer des filtres à des protocoles de streaming à débit adaptatif : HLS, MPEG-DASH et Smooth Streaming. Le tableau suivant présente des exemples d’URL utilisant des filtres :
 
-|Protocol|Exemples|
+|Protocole|Exemples|
 |---|---|
 |HLS|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=m3u8-aapl,filter=myAccountFilter)`|
 |MPEG DASH|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=mpd-time-csf,filter=myAssetFilter)`|
@@ -70,7 +70,7 @@ Avec un manifeste dynamique, vous pouvez créer des profils d'appareil mobile, d
 
 ![Exemple de filtrage de rendu][renditions2]
 
-Dans l’exemple suivant, un encodeur a été utilisé pour encoder un élément multimédia mezzanine en sept rendus vidéo ISO MP4s (de 180 p à 1 080 p). L’élément multimédia encodé peut être [empaqueté dynamiquement](dynamic-packaging-overview.md) dans un des protocoles de diffusion en continu suivants : HLS, MPEG DASH et Smooth.  En haut du diagramme, le manifeste HLS de l'élément multimédia sans aucun filtre apparaît (il contient les sept rendus).  Dans la partie inférieure gauche apparaît le manifeste HLS auquel un filtre nommé « ott » a été appliqué. Le filtre « ott » indique de supprimer toutes les vitesses de transmission inférieures à 1 Mbit/s, ce qui entraîne la suppression des deux niveaux de qualité les plus bas dans la réponse. Dans la partie inférieure droite apparaît le manifeste HLS auquel un filtre nommé « mobile » a été appliqué. Le filtre « mobile » indique de supprimer les rendus pour lesquels la résolution est supérieure à 720 p, ce qui entraîne la suppression des deux rendus à 1 080 p.
+Dans l’exemple suivant, un encodeur a été utilisé pour encoder un élément multimédia mezzanine en sept rendus vidéo ISO MP4s (de 180 p à 1 080 p). La ressource encodée peut être [empaquetée de manière dynamique](dynamic-packaging-overview.md) dans l’un des protocoles de streaming suivants : HLS, MPEG DASH et Smooth.  En haut du diagramme, le manifeste HLS de l'élément multimédia sans aucun filtre apparaît (il contient les sept rendus).  Dans la partie inférieure gauche apparaît le manifeste HLS auquel un filtre nommé « ott » a été appliqué. Le filtre « ott » indique de supprimer toutes les vitesses de transmission inférieures à 1 Mbit/s, ce qui entraîne la suppression des deux niveaux de qualité les plus bas dans la réponse. Dans la partie inférieure droite apparaît le manifeste HLS auquel un filtre nommé « mobile » a été appliqué. Le filtre « mobile » indique de supprimer les rendus pour lesquels la résolution est supérieure à 720 p, ce qui entraîne la suppression des deux rendus à 1 080 p.
 
 ![Filtrage de rendu][renditions1]
 
@@ -133,7 +133,7 @@ Pour plus d’informations, consultez [ce](https://azure.microsoft.com/blog/azur
 - Les valeurs **forceEndTimestamp**, **presentationWindowDuration** et **liveBackoffDuration** ne doivent pas être définies pour un filtre de vidéo à la demande (VoD). Elles sont utilisées uniquement pour les scénarios de filtre en direct. 
 - Le manifeste dynamique fonctionne dans les limites d'un groupe d'images (GOP) (images clés), par conséquent, le découpage est précis au niveau du GOP. 
 - Vous pouvez utiliser le même nom de filtre pour les filtres de compte et d’élément multimédia. Les filtres d’élément multimédia ont une priorité plus élevée et remplacent les filtres de compte.
-- Si vous mettez à jour un filtre, il peut prendre jusqu'à 2 minutes pour le point de terminaison de diffusion en continu actualise les règles. Si le contenu a été servi à l'aide de filtres (puis mis en cache dans des proxys et des caches CDN), la mise à jour de ces filtres peut entraîner des défaillances du lecteur. Il est recommandé d’effacer le cache après la mise à jour du filtre. Si cette option n'est pas possible, envisagez d'utiliser un filtre différent.
+- Si vous mettez à jour un filtre, jusqu’à 2 minutes peuvent être nécessaires pour que le point de terminaison de streaming actualise les règles. Si le contenu a été servi à l'aide de filtres (puis mis en cache dans des proxys et des caches CDN), la mise à jour de ces filtres peut entraîner des défaillances du lecteur. Il est recommandé d’effacer le cache après la mise à jour du filtre. Si cette option n'est pas possible, envisagez d'utiliser un filtre différent.
 - Les clients doivent manuellement télécharger le manifeste et analyser la valeur startTimestamp exacte et l’échelle de temps.
     
     - Pour déterminer les propriétés des pistes d’un élément multimédia, [obtenez et examinez le fichier manifeste](#get-and-examine-manifest-files).

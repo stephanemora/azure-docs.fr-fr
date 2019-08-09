@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 6/03/2019
-ms.author: monhaber
-ms.openlocfilehash: c5b5b88ee1334ac6d7b39b8ad53bd020e6042454
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
-ms.translationtype: MT
+ms.author: v-mohabe
+ms.openlocfilehash: 02d993d760338356fa29ee58a03215e14d6583f1
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66480542"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68295598"
 ---
 # <a name="platforms-and-features-supported-by-azure-security-center"></a>Plateformes et fonctionnalités prises en charge par Azure Security Center
 
@@ -51,7 +51,7 @@ Les systèmes d’exploitation Windows suivants sont pris en charge :
 Les systèmes d’exploitation Linux suivants sont pris en charge :
 
 > [!NOTE]
-> Étant donné que la liste des systèmes d’exploitation Linux constamment, si vous préférez, cliquez sur [ici](https://github.com/microsoft/OMS-Agent-for-Linux#supported-linux-operating-systems) pour afficher la liste actualisée des versions prises en charge, au cas où n’a été apportée depuis la dernière publication de cette rubrique.
+> Étant donné que la liste des systèmes d’exploitation Linux pris en charge change constamment, si vous préférez, cliquez [ici](https://github.com/microsoft/OMS-Agent-for-Linux#supported-linux-operating-systems) pour voir la liste actualisée des versions prises en charge, au cas où des modifications aient été apportées depuis la dernière publication de cette rubrique.
 
 64 bits
 * CentOS 6 et 7
@@ -78,27 +78,27 @@ Les machines virtuelles en cours d’exécution dans un service cloud sont égal
 > [!div class="mx-tableFixed"]
 > 
 
-|Serveur|Windows||Linux||||Tarifs|
+|Serveur|Windows|||Linux|||Tarifs|
 |----|----|----|----|----|----|----|----|
 |**Environment**|**Microsoft Azure**||**Non-Azure**|**Microsoft Azure**||**Non-Azure**||
 ||**Machine virtuelle**|**Groupe de machines virtuelles identiques**||**Machine virtuelle**|**Groupe de machines virtuelles identiques**|
-|Alertes de détection des menaces VMBA|✔|✔|✔|✔ (sur les versions prises en charge)|✔ (sur les versions prises en charge)|✔|Recommandations la détection des menaces (gratuit) (Standard)|
+|Alertes de détection des menaces VMBA|✔|✔|✔|✔ (sur les versions prises en charge)|✔ (sur les versions prises en charge)|✔|Recommandations (Gratuit) Détection des menaces (Standard)|
 |Alertes de détection des menaces réseau|✔|✔|X|✔|✔|X|standard|
 |Intégration de Windows Defender ATP|✔ (sur les versions prises en charge)|✔ (sur les versions prises en charge)|✔|X|X|X|standard|
 |Correctifs manquants|✔|✔|✔|✔|✔|✔|Gratuit|
 |Configurations de sécurité|✔|✔|✔|✔|✔|✔|Gratuit|
-|Évaluation de protection de point de terminaison|✔|✔|✔|X|X|X|Gratuit|
+|Évaluation de la protection des points de terminaison|✔|✔|✔|X|X|X|Gratuit|
 |Accès JIT à la machine virtuelle|✔|X|X|✔|X|X|standard|
 |Contrôles d’application adaptative|✔|X|✔|✔|X|✔|standard|
 |FIM|✔|✔|✔|✔|✔|✔|standard|
-|Évaluation de chiffrement de disque|✔|✔|X|✔|✔|X|Gratuit|
+|Évaluation du chiffrement des disques|✔|✔|X|✔|✔|X|Gratuit|
 |Déploiement tiers|✔|X|X|✔|X|X|Gratuit|
 |Évaluation du groupe de sécurité réseau|✔|✔|X|✔|✔|X|Gratuit|
 |Détection des menaces sans fichier|✔|✔|✔|X|X|X|standard|
 |Mappage réseau|✔|✔|X|✔|✔|X|standard|
 |Contrôles réseau adaptatifs|✔|✔|X|✔|✔|X|standard|
-|Rapports et tableau de bord de conformité aux réglementations|✔|✔|✔|✔|✔|✔|standard|
-|Recommandations et la détection des menaces sur les conteneurs de IaaS hébergées de Docker|X|X|X|✔|✔|✔|standard|
+|Tableau de bord et rapports de conformité à la réglementation|✔|✔|✔|✔|✔|✔|standard|
+|Recommandations et détection des menaces sur les conteneurs IaaS hébergés dans Docker|X|X|X|✔|✔|✔|standard|
 
 ### <a name="supported-endpoint-protection-solutions"></a>Solutions de protection du point de terminaison prises en charge
 
@@ -106,15 +106,15 @@ Le tableau suivant fournit une matrice de ce qui suit :
  - Si vous pouvez utiliser Azure Security Center pour installer chaque solution.
  - Les solutions de protection du point de terminaison que Security Center peut détecter. Si une de ces solutions de protection du point de terminaison est détectée, Security Center vous déconseillera d'en installer une autre.
 
-Pour savoir quand les recommandations sont générées pour chacun de ces protections, consultez [évaluation de Protection de point de terminaison et des recommandations](security-center-endpoint-protection.md).
+Pour plus d’informations sur le moment où les recommandations sont générées pour chacune de ces protections, consultez [Évaluation de la protection de point de terminaison et recommandations](security-center-endpoint-protection.md).
 
 | Protection du point de terminaison| Plateformes | Installation du centre de sécurité | Détection du centre de sécurité |
 |------|------|-----|-----|
-| Windows Defender (logiciel anti-programme malveillant de Microsoft)| Windows Server 2016| Non, intégré au système d’exploitation| Oui |
-| System Center Endpoint Protection (logiciel anti-programme malveillant de Microsoft) | Windows Server 2012 R2, 2012, 2008 R2 (voir la remarque ci-dessous) | Via l’extension | Oui |
-| Trend Micro : toutes les versions | Gamme Windows Server  | Non | Oui |
-| Symantec v12.1.1100+| Gamme Windows Server  | Non | Oui |
-| McAfee v10+ | Gamme Windows Server  | Non | Oui |
+| Windows Defender (logiciel anti-programme malveillant de Microsoft)| Windows Server 2016| Non, intégré au système d’exploitation| OUI |
+| System Center Endpoint Protection (logiciel anti-programme malveillant de Microsoft) | Windows Server 2012 R2, 2012, 2008 R2 (voir la remarque ci-dessous) | Via l’extension | OUI |
+| Trend Micro : toutes les versions | Gamme Windows Server  | Non | OUI |
+| Symantec v12.1.1100+| Gamme Windows Server  | Non | OUI |
+| McAfee v10+ | Gamme Windows Server  | Non | OUI |
 | Kaspersky| Gamme Windows Server  | Non | Non  |
 | Sophos| Gamme Windows Server  | Non | Non  |
 
@@ -124,7 +124,7 @@ Pour savoir quand les recommandations sont générées pour chacun de ces protec
 ## <a name="supported-paas-features"></a>Fonctionnalités PaaS prises en charge
 
 
-|de diffusion en continu|Recommandations (gratuites)|Détection des menaces (Standard)|
+|de diffusion en continu|Recommandations (Gratuit)|Détection des menaces (Standard)|
 |----|----|----|
 |SQL|✔| ✔|
 |PostGreSQL*|✔| ✔|
@@ -136,7 +136,7 @@ Pour savoir quand les recommandations sont générées pour chacun de ces protec
 |Sous-réseaux|✔| N/D|
 |Cartes réseau|✔| N/D|
 |Groupes de sécurité réseau|✔| N/D|
-|Abonnement|✔ **| ✔|
+|Subscription|✔ **| ✔|
 |Batch|✔| N/D|
 |Service Fabric|✔| N/D|
 |Compte Automation|✔| N/D|
@@ -156,7 +156,7 @@ Pour savoir quand les recommandations sont générées pour chacun de ces protec
 
 \* Ces fonctionnalités sont actuellement prises en charge en préversion publique.
 
-\*\* AAD recommandations sont uniquement disponibles pour les abonnements Standard
+\*\* Les recommandations AAD sont disponibles seulement pour les abonnements Standard
 
 
 

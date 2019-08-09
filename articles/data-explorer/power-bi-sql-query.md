@@ -1,6 +1,6 @@
 ---
 title: Visualiser des données Azure Data Explorer avec une requête SQL dans Power BI
-description: 'Dans cet article, vous allez apprendre à utiliser une des trois options de visualisation de données dans Power BI : une requête SQL sur un cluster de l’Explorateur de données Azure.'
+description: 'Dans cet article, vous allez découvrir comment utiliser une des trois options de visualisation des données dans Power BI : une requête SQL sur un cluster Azure Data Explorer.'
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.openlocfilehash: 13cec67a690239204bfc52d04b7cf03fd571148a
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66399271"
 ---
 # <a name="visualize-data-using-the-azure-data-explorer-connector-for-power-bi"></a>Visualiser des données à l’aide du connecteur Azure Data Explorer pour Power BI
@@ -22,9 +22,9 @@ Azure Data Explorer offre trois options pour se connecter à des données dans P
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte Azure gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
-Vous avez besoin de ce qui suit pour terminer cet article :
+Vous avez besoin des éléments suivants dans le cadre de cet article :
 
 * Un compte e-mail professionnel qui est membre d’Azure Active Directory pour pouvoir vous connecter au [cluster help d’Azure Data Explorer](https://dataexplorer.azure.com/clusters/help/databases/samples).
 
@@ -80,8 +80,8 @@ Vous utilisez généralement le langage de requête natif avec Azure Data Explor
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
-Si vous n’avez plus besoin du rapport que vous avez créé pour cet article, supprimez le fichier de Power BI Desktop (.pbix).
+Si vous n’avez plus besoin du rapport que vous avez créé pour cet article, supprimez le fichier Power BI Desktop (.pbix).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Visualiser les données à l’aide d’une requête importée dans Power BI](power-bi-connector.md)
+[Visualiser des données avec une requête importée dans Power BI](power-bi-connector.md)

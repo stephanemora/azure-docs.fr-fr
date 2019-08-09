@@ -11,10 +11,10 @@ ms.author: billmath
 ms.topic: reference
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d6b90ff82601acca1249c7d8c353944e39e89f95
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66473791"
 ---
 # <a name="azure-ad-connect--adconnectivitytools-powershell-reference"></a>Azure AD Connect :  Informations de référence sur le module PowerShell ADConnectivityTools
@@ -36,7 +36,7 @@ Confirm-DnsConnectivity [-Forest] <String> [-DCs] <Array> [-ReturnResultAsPSObje
 ### <a name="description"></a>Description
 
 Exécute des tests de connectivité DNS locaux.
-Pour configurer le connecteur Active Directory, utilisateur doit avoir les deux RÉSOLUTIONCommon de nom pour la forêt ils tente de se connecter à, ainsi que dans les contrôleurs de domaine associés à cette forêt.
+Pour configurer le connecteur Active Directory, l’utilisateur doit avoir la résolution de noms à la fois pour la forêt à laquelle il tente de se connecter et pour les contrôleurs de domaine associés à cette forêt.
 
 ### <a name="examples"></a>EXEMPLES
 
@@ -309,8 +309,8 @@ Accept wildcard characters: False
 
 #### <a name="-skipdnsport"></a>-SkipDnsPort
 
-Si l’utilisateur n’utilise pas les services DNS fournis par le AD Site / contrôleur de domaine d’ouverture de session, puis ils peuvent souhaiter vérification port 53.
-L’utilisateur doit toujours être en mesure de résoudre _.ldap._tcp. \<forestfqdn\> afin que la configuration du connecteur Active Directory réussisse.
+Si l’utilisateur n’utilise pas les services DNS fournis par le contrôleur de domaine d’ouverture de session ou le site AD, il souhaitera peut-être ignorer la vérification du port 53.
+Pour que la configuration du connecteur Active Directory réussisse, l’utilisateur doit toujours être en mesure de résoudre _.ldap._tcp.\<forestfqdn\>.
 
 ```yml
 Type: SwitchParameter

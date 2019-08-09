@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: iainfou
-ms.openlocfilehash: d8a8a2f005a92988158b3f9c36ce24936fb020b4
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
-ms.translationtype: MT
+ms.openlocfilehash: 82ceb332ca377da1953908abba3f7c52874b995e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66475628"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67066787"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>Principaux de service avec Azure Kubernetes Service (AKS)
 
@@ -24,9 +24,9 @@ Cet article montre comment créer et utiliser un principal de service pour vos c
 
 Pour créer un principal de service Azure AD, vous devez disposer des autorisations suffisantes pour inscrire une application auprès de votre client Azure AD et l’affecter à un rôle dans votre abonnement. Si vous n’avez pas les privilèges nécessaires, vous devriez demander à votre administrateur Azure AD ou administrateur d’abonnement de vous attribuer les privilèges nécessaires, de ou créer au préalable un principal de service que vous pourrez utiliser avec le cluster AKS.
 
-Si vous utilisez un principal de service à partir d’un autre annuaire Azure AD locataire, des remarques supplémentaires sur les autorisations sont disponibles lorsque vous déployez le cluster. Vous n’êtes peut-être pas les autorisations appropriées pour lire et écrire les informations d’annuaire. Pour plus d’informations, consultez [quelles sont les autorisations d’utilisateur par défaut dans Azure Active Directory ?][azure-ad-permissions]
+Si vous utilisez le principal du service d’un autre locataire Azure AD, il y a d’autres points à prendre en considération quant aux autorisations disponibles au moment de déployer le cluster. Vous n’avez peut-être pas les autorisations adéquates pour lire et écrire des informations d’annuaire. Pour plus d’informations, consultez [Quelles sont les autorisations utilisateur par défaut dans Azure Active Directory ?][azure-ad-permissions]
 
-Vous également besoin d’Azure CLI version 2.0.59 ou ultérieur installé et configuré. Exécutez  `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez  [Installation d’Azure CLI 2.0][install-azure-cli].
+Azure CLI version 2.0.59 ou ultérieure doit également être installé et configuré. Exécutez  `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez  [Installation d’Azure CLI 2.0][install-azure-cli].
 
 ## <a name="automatically-create-and-use-a-service-principal"></a>Créer et utiliser un principal de service automatiquement
 
@@ -79,9 +79,9 @@ Si vous déployez un cluster AKS à l’aide du portail Azure, sur la page *Auth
 
 ## <a name="delegate-access-to-other-azure-resources"></a>Déléguer l’accès à d’autres ressources Azure
 
-Vous pouvez utiliser le principal du service du cluster AKS pour accéder à d’autres ressources. Par exemple, si vous souhaitez déployer votre cluster AKS dans un sous-réseau de réseau virtuel Azure existant ou vous connecter à Azure Container Registry (ACR), vous devez déléguer l’accès à ces ressources au principal du service.
+Vous pouvez utiliser le principal du service du cluster AKS pour accéder à d’autres ressources. Par exemple, si vous souhaitez déployer votre cluster AKS dans un sous-réseau de réseau virtuel Azure existant ou vous connecter à ACR (Azure Container Registry), vous devez déléguer l’accès à ces ressources au principal du service.
 
-Pour déléguer des autorisations, créez une attribution de rôle à l’aide de la [créer d’attribution de rôle az] [ az-role-assignment-create] commande. Affecter le `appId` à une étendue spécifique, tel qu’un groupe de ressources ou d’une ressource de réseau virtuel. Un rôle définit ensuite les autorisations dont le principal du service dispose sur la ressource, comme indiqué dans l’exemple suivant :
+Pour déléguer des autorisations, créez une attribution de rôle avec la commande [az role assignment create][az-role-assignment-create]. Affectez `appId` à une étendue spécifique, comme un groupe de ressources ou une ressource de réseau virtuel. Un rôle définit ensuite les autorisations dont le principal du service dispose sur la ressource, comme indiqué dans l’exemple suivant :
 
 ```azurecli
 az role assignment create --assignee <appId> --scope <resourceScope> --role Contributor
@@ -102,9 +102,10 @@ Vous pouvez utiliser un réseau avancé dans lequel le réseau virtuel et le sou
 - Créez un [rôle personnalisé][rbac-custom-role] et définissez les autorisations de rôle suivantes :
   - *Microsoft.Network/virtualNetworks/subnets/join/action*
   - *Microsoft.Network/virtualNetworks/subnets/read*
+  - *Microsoft.Network/virtualNetworks/subnets/write*
+  - *Microsoft.Network/publicIPAddresses/join/action*
   - *Microsoft.Network/publicIPAddresses/read*
   - *Microsoft.Network/publicIPAddresses/write*
-  - *Microsoft.Network/publicIPAddresses/join/action*
 - Ou attribuez le rôle intégré [Contributeur de réseaux][rbac-network-contributor] sur le sous-réseau dans le réseau virtuel
 
 ### <a name="storage"></a>Stockage
@@ -125,10 +126,10 @@ Si vous utilisez Virtual Kubelet pour intégrer à AKS et choisissez d’exécut
 Lorsque vous travaillez avec des principaux de service AKS et Azure AD, gardez les points suivants à l’esprit.
 
 - Le principal de service pour Kubernetes fait partie de la configuration du cluster. Toutefois, n’utilisez pas l’identité pour déployer le cluster.
-- Par défaut, les informations d’identification du principal de service sont valides pendant un an. Vous pouvez [mettre à jour ou faire pivoter les informations d’identification du principal de service] [ update-credentials] à tout moment.
+- Par défaut, les informations d’identification du principal du service sont valides pendant un an. Vous pouvez à tout moment [mettre à jour ou faire alterner les informations d’identification du principal du service][update-credentials].
 - Chaque principal de service est associé à une application Azure AD. Le principal de service pour un cluster Kubernetes peut être associé à tout nom d’application Azure AD valide (par exemple : *https://www.contoso.org/example* ). L’URL de l’application ne doit pas être un point de terminaison réel.
 - Lorsque vous spécifiez **l’ID client** du principal de service, utilisez la valeur de `appId`.
-- Sur le nœud de l’agent machines virtuelles du cluster Kubernetes, les informations d’identification du principal de service sont stockées dans le fichier `/etc/kubernetes/azure.json`
+- Sur les machines virtuelles du nœud de l’agent du cluster Kubernetes, les informations d’identification du principal du service sont stockées dans le fichier `/etc/kubernetes/azure.json`.
 - Si vous utilisez la commande [az aks create][az-aks-create] pour générer automatiquement le principal de service, les informations d’identification du principal de service sont écrites dans le fichier `~/.azure/aksServicePrincipal.json` sur la machine utilisée pour exécuter la commande.
 - Lors de la suppression d’un cluster AKS qui a été créé par [az aks create][az-aks-create], le principal de service qui a été créé automatiquement ne sera pas supprimé.
     - Pour supprimer le principal du service, recherchez votre *servicePrincipalProfile.clientId* de cluster et procédez à la suppression au moyen de [az ad app delete][az-ad-app-delete]. Remplacez les noms de cluster et de groupe de ressources suivants par vos propres valeurs :
@@ -139,7 +140,7 @@ Lorsque vous travaillez avec des principaux de service AKS et Azure AD, gardez l
 
 ## <a name="troubleshoot"></a>Résolution des problèmes
 
-Les informations d’identification du principal de service pour un cluster ACS sont mis en cache par l’interface CLI. Si ces informations d’identification ont expiré, vous rencontrez des erreurs de déploiement de clusters AKS. Le message d’erreur suivant lors de l’exécution [créer az aks] [ az-aks-create] peut indiquer un problème avec les informations d’identification du principal de service mis en cache :
+Les informations d’identification du principal du service d’un cluster AKS sont mises en cache par Azure CLI. Si ces informations d’identification ont expiré, vous rencontrez des erreurs de déploiement des clusters AKS. Pendant l’exécution de [az aks create][az-aks-create], le message d’erreur suivant peut indiquer un problème lié aux informations d’identification du principal du service mises en cache :
 
 ```console
 Operation failed with status: 'Bad Request'.
@@ -147,19 +148,19 @@ Details: The credentials in ServicePrincipalProfile were invalid. Please see htt
 (Details: adal: Refresh request failed. Status Code = '401'.
 ```
 
-Vérifier l’âge du fichier d’informations d’identification à l’aide de la commande suivante :
+Pour vérifier l’âge du fichier d’informations d’identification, utilisez la commande suivante :
 
 ```console
 ls -la $HOME/.azure/aksServicePrincipal.json
 ```
 
-Le délai d’expiration par défaut pour les informations d’identification du principal de service est un an. Si votre *aksServicePrincipal.json* fichier est antérieure à un an, supprimez le fichier et essayez de déployer un cluster AKS à nouveau.
+Le délai d’expiration par défaut des informations d’identification du principal du service est d’une année. Si votre fichier *aksServicePrincipal.json* a plus d’un an, supprimez-le et essayez de redéployer un cluster AKS.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur les principaux de service Azure Active Directory, consultez [objets Application et service principal][service-principal].
+Pour plus d’informations sur les principaux du service Azure Active Directory, consultez [Objets application et principal du service][service-principal].
 
-Pour plus d’informations sur la façon de mettre à jour les informations d’identification, consultez [mettre à jour ou faire pivoter les informations d’identification pour un principal de service dans ACS][update-credentials].
+Pour savoir comment mettre à jour les informations d’identification, consultez [Mettre à jour ou faire alterner les informations d’identification d’un principal du service dans AKS][update-credentials].
 
 <!-- LINKS - internal -->
 [aad-service-principal]:../active-directory/develop/app-objects-and-service-principals.md

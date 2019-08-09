@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/05/2019
 ms.author: v-mohabe
 ms.openlocfilehash: 6b3cef32cf79c2448d2e254e27c332e01ea83c62
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66428366"
 ---
 # <a name="protect-your-network-resources-in-azure-security-center"></a>Protection de vos ressources réseau dans Azure Security Center
@@ -49,8 +49,8 @@ Pour ouvrir le mappage réseau :
  
 La valeur par défaut du mappage de la topologie affiche :
 - Les abonnements que vous avez sélectionné dans Azure. Le mappage prend en charge plusieurs abonnements.
-- Machines virtuelles, sous-réseaux et réseaux virtuels du type de ressource Resource Manager (ressources ne sont pas prises en charge d’Azure Classic)
-- Réseaux virtuels homologués
+- Machines virtuelles, sous-réseaux et réseaux virtuels du type de ressource Resource Manager (les ressources Azure Classic ne sont pas prises en charge)
+- Réseaux virtuels appairés
 - Uniquement les ressources disposant de [suggestions de réseau](security-center-recommendations.md) avec un niveau de gravité élevé ou moyen  
 - Ressources accessibles sur Internet
 - Le mappage est optimisé pour les abonnements que vous avez sélectionnés dans Azure. Si vous modifiez votre sélection, le mappage est recalculé et ré-optimisé en fonction de vos nouveaux paramètres.  
@@ -99,7 +99,7 @@ Par exemple, vous pouvez détecter deux machines pour lesquelles vous ignoriez q
 
 Pour explorer une ressource au niveau du détail :
 1. Lorsque vous sélectionnez une ressource spécifique sur le mappage, le volet droit s’ouvre et vous donne des informations générales sur la ressource, les solutions de sécurité connectées, s’il y en a, et les suggestions relatives à la ressource. Vous aurez le même type de comportement pour chaque type de ressource que vous sélectionnez. 
-2. Cliquez sur **Trafic** pour afficher la liste des trafics entrant et sortant possibles sur la ressource. Il s’agit d’une liste complète de ceux qui peuvent communiquer avec la ressource, et inversement, ainsi que des protocoles et ports utilisés pour communiquer. Par exemple, apparaissent lorsque vous sélectionnez une machine virtuelle, toutes les machines virtuelles que celui-ci puisse communiquer avec, et lorsque vous sélectionnez un sous-réseau, tous les sous-réseaux dont il peut communiquer avec sont affichés.
+2. Cliquez sur **Trafic** pour afficher la liste des trafics entrant et sortant possibles sur la ressource. Il s’agit d’une liste complète de ceux qui peuvent communiquer avec la ressource, et inversement, ainsi que des protocoles et ports utilisés pour communiquer. Par exemple, quand vous sélectionnez une machine virtuelle, toutes les machines virtuelles avec lesquelles elle peut communiquer sont montrées, et quand vous sélectionnez un sous-réseau, tous les sous-réseaux avec lesquels elle peut communiquer sont montrés.
 
 **Ces données sont basées sur les analyses de groupes de sécurité réseau, ainsi que sur des algorithmes de Machine Learning avancés qui analysent plusieurs règles pour en comprendre les croisements et les interactions.** 
 
@@ -131,13 +131,13 @@ Le troisième niveau affiche les machines virtuelles, ce qui est similaire à ce
 
 |Type de ressource|Degré de sécurisation|Recommandation|Description|
 |----|----|----|----|
-|Machine|40|Les groupes de sécurité réseau pour les machines virtuelles doit être activés.|Activez des groupes de sécurité réseau pour contrôler l’accès réseau de vos machines virtuelles.|
-|Sous-réseau|35|Les groupes de sécurité réseau au niveau du sous-réseau doit être activés.|Activez des groupes de sécurité réseau pour contrôler l’accès réseau aux ressources déployées sur vos réseaux virtuels.|
-|Machine|30|Contrôle d’accès juste-à-temps réseau doit être appliqué sur des machines virtuelles|Appliquer un contrôle d’accès de machine virtuelle Juste à temps pour bloquer définitivement l’accès aux ports sélectionnés et permettre aux utilisateurs autorisés de les ouvrir via le même mécanisme, pour une durée limitée.|
-|Machine|20|Restreindre l’accès via un point de terminaison accessible sur Internet|Renforcez les groupes de sécurité réseau de vos machines virtuelles accessibles sur Internet, en limitant l’accès des règles d’autorisation existantes.|
-|Machine|10|Ajouter un pare-feu de nouvelle génération|Ajoutez une solution de pare-feu nouvelle génération afin de mieux protéger les machines virtuelles accessibles sur Internet.|
-|Machine|5.|Acheminer le trafic via le pare-feu de la passerelle de réseau uniquement|Afin de finaliser le déploiement de votre solution de pare-feu nouvelle génération, le trafic vers les machines virtuelles accessible sur Internet que vous protégez doit être acheminé uniquement par le biais de la solution de pare-feu nouvelle génération.|
-|Réseau virtuel|5.|Activer la protection DDoS standard|Les applications avec des adresses IP publiques dans ces réseaux virtuels ne sont pas protégées avec le service de protection DDOS standard. Il est conseillé de l’activer pour limiter les risques d’attaques volumétrique et les attaques par protocole réseau.|
+|Ordinateur|40|Les groupes de sécurité réseau pour les machines virtuelles doivent être activés|Activez des groupes de sécurité réseau pour contrôler l’accès réseau de vos machines virtuelles.|
+|Sous-réseau|35|Les groupes de sécurité réseau sur le niveau du sous-réseau doivent être activés|Activez des groupes de sécurité réseau pour contrôler l’accès réseau aux ressources déployées sur vos réseaux virtuels.|
+|Ordinateur|30|Le contrôle d’accès réseau juste-à-temps doit être appliqué sur les machines virtuelles|Appliquer un contrôle d’accès de machine virtuelle Juste à temps pour bloquer définitivement l’accès aux ports sélectionnés et permettre aux utilisateurs autorisés de les ouvrir via le même mécanisme, pour une durée limitée.|
+|Ordinateur|20|Restreindre l’accès via un point de terminaison accessible sur Internet|Renforcez les groupes de sécurité réseau de vos machines virtuelles accessibles sur Internet, en limitant l’accès des règles d’autorisation existantes.|
+|Ordinateur|10|Ajouter un pare-feu de nouvelle génération|Ajoutez une solution de pare-feu nouvelle génération afin de mieux protéger les machines virtuelles accessibles sur Internet.|
+|Ordinateur|5\.|Acheminer le trafic via le pare-feu de la passerelle de réseau uniquement|Afin de finaliser le déploiement de votre solution de pare-feu nouvelle génération, le trafic vers les machines virtuelles accessible sur Internet que vous protégez doit être acheminé uniquement par le biais de la solution de pare-feu nouvelle génération.|
+|Réseau virtuel|5\.|Activer la protection DDoS standard|Les applications avec des adresses IP publiques dans ces réseaux virtuels ne sont pas protégées avec le service de protection DDOS standard. Il est conseillé de l’activer pour limiter les risques d’attaques volumétrique et les attaques par protocole réseau.|
 
 ## <a name="see-also"></a>Voir aussi
 Pour en savoir plus sur les recommandations qui s’appliquent à d’autres types de ressources Azure, consultez les rubriques suivantes :

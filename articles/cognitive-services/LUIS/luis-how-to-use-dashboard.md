@@ -1,7 +1,7 @@
 ---
-title: Tableau de bord - reconnaissance vocale
+title: Tableau de bord - Language Understanding
 titleSuffix: Azure Cognitive Services
-description: Résoudre les intentions avec le tableau de bord d’analytique, un outil de création de rapports visualisé.
+description: Corrigez les intentions avec le tableau de bord d’analytique, un outil de création de rapports avec visualisation.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -12,162 +12,162 @@ ms.topic: article
 ms.date: 05/22/2019
 ms.author: diberry
 ms.openlocfilehash: 055d113a2bc77f8de1b4b881718007c869470532
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66236944"
 ---
-# <a name="how-to-use-the-dashboard-to-improve-your-app"></a>Comment utiliser le tableau de bord pour améliorer votre application
+# <a name="how-to-use-the-dashboard-to-improve-your-app"></a>Guide pratique pour utiliser le tableau de bord afin d’améliorer votre application
 
-Recherchez et corrigez les problèmes avec des intentions de votre application formé lorsque vous utilisez des énoncés d’exemple. Le tableau de bord affiche des informations sur l’application globale, en soulignant intents qui devraient être corrigés. 
+Recherchez et corrigez les problèmes liés aux intentions de votre application entraînée quand vous utilisez des exemples d’énoncés. Le tableau de bord affiche des informations sur l’application globale, en soulignant les intentions qui doivent être corrigées. 
 
-Passez en revue le tableau de bord analyse est un processus itératif, répété que vous modifiez et améliorez votre modèle.
+L’examen de l’analyse du tableau de bord est un processus itératif, répété à mesure que vous changez et améliorez votre modèle.
 
-Cette page n’aura pas une analyse appropriée pour les applications qui n’ont pas les énoncés qui exemple dans les intentions, connu sous le nom _modèle seule_ applications. 
+Cette page ne contiendra pas une analyse pertinente pour les applications dont les intentions n’ont pas d’exemples d’énoncés (elles sont connues sous le nom d’applications _modèle-uniquement_). 
 
-## <a name="what-issues-can-be-fixed-from-dashboard"></a>Les problèmes peuvent être résolus à partir du tableau de bord ?
+## <a name="what-issues-can-be-fixed-from-dashboard"></a>Quels sont les problèmes qui peuvent être résolus à partir du tableau de bord ?
 
-Les trois problèmes résolus dans le tableau de bord sont :
+Les trois problèmes abordés dans le tableau de bord sont :
 
 |Problème|Couleur de graphique|Explication|
 |--|--|--|
-|Déséquilibre de données|-|Cela se produit lorsque la quantité des énoncés d’exemple varie considérablement. Tous les intentions doivent _à peu près_ le même nombre d’énoncés d’exemple - sauf aucune intention. Il doit uniquement avoir 10 à 15 % de la quantité totale d’énoncés dans l’application.<br><br> Si les données sont déséquilibrées, mais la précision intent se situe au-dessus de certain seuil, ce déséquilibre n’est pas signalé comme un problème.<br><br>**Démarrer avec ce problème : il peut être la cause racine des autres problèmes.**|
-|Prédictions incertaine|Orange|Cela se produit lorsque l’intention supérieure et les scores de l’objectif suivant sont suffisamment proches pour qu’ils peuvent retourner sur la formation suivante, en raison [l’échantillonnage négatif](luis-how-to-train.md#train-with-all-data) ou plus énoncés exemple ajoutés à l’intention. |
-|Prédictions incorrectes|Rouge|Cela se produit lorsqu’un énoncé de l’exemple n’est pas prévue pour l’intention étiquetée (l’intention dans).|
+|Déséquilibre des données|-|Cela se produit quand la quantité d’exemples d’énoncés varie considérablement. Toutes les intentions doivent avoir _à peu près_ le même nombre d’exemples d’énoncés, sauf l’intention Aucune. Elle doit avoir uniquement 10 à 15 % de la quantité totale d’énoncés dans l’application.<br><br> Si les données sont déséquilibrées, mais que la précision d’intention se situe au-dessus d’un certain seuil, ce déséquilibre n’est pas signalé comme un problème.<br><br>**Commencez par ce problème ; il peut être la cause racine des autres problèmes.**|
+|Prédictions vagues|Orange|Cela se produit quand l’intention supérieure et les scores de l’intention suivante sont suffisamment proches pour pouvoir basculer vers l’entraînement suivant, en raison d’un [échantillonnage négatif](luis-how-to-train.md#train-with-all-data) ou de l’ajout d’exemples d’énoncés supplémentaires à l’intention. |
+|Prédictions incorrectes|Rouge|Cela se produit quand un exemple d’énoncé n’est pas prédit pour l’intention étiquetée (l’intention dans laquelle il figure).|
 
-Prédictions correctes sont représentées par la couleur bleue.
+Les prédictions correctes sont représentées par la couleur bleue.
 
-Le tableau de bord affiche ces problèmes et vous indique les intentions sont affectées et suggère la procédure à suivre pour améliorer l’application. 
+Le tableau de bord affiche ces problèmes, indique les intentions affectées et suggère la procédure à suivre pour améliorer l’application. 
 
-## <a name="before-app-is-trained"></a>Avant de l’application est formée 
+## <a name="before-app-is-trained"></a>Avant l’entraînement de l’application 
 
-Avant de vous formez à l’application, le tableau de bord ne contient pas de vos suggestions concernant les correctifs. Apprentissage de votre application pour voir ces suggestions.  
+Avant l’entraînement de l’application, le tableau de bord ne contient aucune suggestion concernant les corrections. Vous devez entraîner votre application pour voir ces suggestions.  
 
-## <a name="check-your-publishing-status"></a>Vérifier votre état de publication
+## <a name="check-your-publishing-status"></a>Vérifier l’état de la publication
 
-Le **l’état de publication** carte contient des informations sur les actifs version de publication du dernier. 
+La carte **État de publication** contient des informations sur la dernière publication de la version active. 
 
-Vérifiez que la version active est la version que vous souhaitez corriger. 
+Vérifiez que la version active est celle que vous souhaitez corriger. 
 
-![Services externes de l’application de tableau de bord affiche, publié des régions et agrégée des présences dans le point de terminaison.](./media/luis-how-to-use-dashboard/analytics-card-1-shows-app-summary-and-endpoint-hits.png)
+![Le tableau de bord affiche les services externes de l’application, les régions publiées et les accès aux points de terminaison agrégés.](./media/luis-how-to-use-dashboard/analytics-card-1-shows-app-summary-and-endpoint-hits.png)
 
-Cela montre des régions publiées, les services externes et vous agrégées des présences dans le point de terminaison. 
+Il affiche également les services externes, les régions publiées et les accès aux points de terminaison agrégés. 
 
-## <a name="review-training-evaluation"></a>Passez en revue la version d’évaluation de la formation
+## <a name="review-training-evaluation"></a>Passer en revue l’évaluation de l’entraînement
 
-Le **version d’évaluation de la formation** carte contient la synthèse agrégée de la précision globale de votre application par zone. Le score indique la qualité intentionnelle. 
+La carte **Évaluation de l’apprentissage** contient la synthèse agrégée de la précision globale de votre application par zone. Le score indique la qualité des intentions. 
 
-![La carte d’évaluation de formation contient la première zone d’informations sur la précision globale de votre application.](./media/luis-how-to-use-dashboard/analytics-card-2-shows-app-overall-accuracy.png)
+![La carte Évaluation de l’apprentissage contient la première zone d’informations concernant la précision globale de votre application.](./media/luis-how-to-use-dashboard/analytics-card-2-shows-app-overall-accuracy.png)
 
-Le graphique indique les intentions prédites correctement et les domaines avec différentes couleurs. Comme vous améliorez l’application avec les suggestions, cela augmente de score. 
+Le graphique indique les intentions prédites correctement et les zones à problème avec différentes couleurs. À mesure que vous améliorez l’application avec les suggestions, ce score augmente. 
 
-Les suggestions de correction sont séparés et répartis par type de problème et sont les plus importantes pour votre application. Si vous préférez examiner et résoudre les problèmes par intention, utilisez le **[intentions avec des erreurs](#intents-with-errors)** carte en bas de la page. 
+Les suggestions de correction sont réparties par type de problème et sont les plus importantes pour votre application. Si vous préférez examiner et résoudre les problèmes par intention, utilisez la carte **[Intention présentant des erreurs de prédiction](#intents-with-errors)** en bas de la page. 
 
-Chaque domaine problématique a intents qui doivent être corrigées. Lorsque vous sélectionnez le nom d’intention, la **intention** page s’ouvre avec un filtre appliqué à énoncés. Ce filtre permet de vous concentrer sur les énoncés qui posent problème.
+Chaque zone à problème comporte des intentions qui doivent être corrigées. Quand vous sélectionnez le nom de l’intention, la page **Intention** s’ouvre avec un filtre appliqué aux énoncés. Ce filtre vous permet de vous concentrer sur les énoncés qui posent problème.
 
-### <a name="compare-changes-across-versions"></a>Comparez les modifications entre les versions
+### <a name="compare-changes-across-versions"></a>Comparer les modifications entre les versions
 
-Créer une nouvelle version avant d’apporter des modifications à l’application. Dans la nouvelle version, apportez les modifications suggérées à énoncés d’exemple de l’objectif, puis former à nouveau. Dans la page tableau de bord **version d’évaluation de la formation** de carte, utilisez le **Show diffère d’une version formée** de comparer les modifications. 
+Créez une nouvelle version avant d’apporter des modifications à l’application. Dans la nouvelle version, apportez les modifications suggérées aux exemples d’énoncés de l’intention, puis effectuez un nouvel entraînement. Dans la carte **Évaluation de l’apprentissage** de la page du tableau de bord, utilisez l’option **Afficher le changement par rapport à la version à jour dont l’apprentissage a été effectué** pour comparer les modifications. 
 
-![Comparez les modifications entre les versions](./media/luis-how-to-use-dashboard/compare-improvement-across-versions.png)
+![Comparer les modifications entre les versions](./media/luis-how-to-use-dashboard/compare-improvement-across-versions.png)
 
-### <a name="fix-version-by-adding-or-editing-example-utterances-and-retraining"></a>Corriger la version en ajoutant ou modifiant des énoncés d’exemple et reformation
+### <a name="fix-version-by-adding-or-editing-example-utterances-and-retraining"></a>Corriger la version en ajoutant ou en modifiant des exemples d’énoncés et en réentraînant l’application
 
-La principale méthode de résolution de votre application sera à ajouter ou modifier des énoncés d’exemple et recycler. Énoncés nouveaux ou modifiés doivent suivre les instructions pour [variées énoncés](luis-concept-utterance.md).
+La principale méthode de correction de votre application consiste à ajouter ou à modifier des exemples d’énoncés et à la réentraîner. Les énoncés nouveaux ou modifiés doivent être conformes aux instructions relatives aux [énoncés variés](luis-concept-utterance.md).
 
-Ajout des énoncés d’exemple doit être effectuée par une personne qui :
+L’ajout d’exemples d’énoncés doit être effectué par une personne qui :
 
-* a un degré élevé de compréhension des énoncés dans des intentions différentes
-* sait comment énoncés dans un seul objectif peuvent être confondues avec un autre objectif
-* est en mesure de décider si les deux modes, qui sont souvent confondues, doivent être rassemblées en une intention unique, et les différentes données extraites avec les entités
+* a un degré élevé de compréhension de ce que sont les énoncés dans les différentes intentions.
+* sait comment les énoncés dans une intention peuvent être confondus avec une autre intention.
+* est capable de décider si deux intentions qui sont souvent confondues doivent être rassemblées en une intention unique et si les données différentes doivent être extraites avec les entités.
 
-### <a name="patterns-and-phrase-lists"></a>Modèles et des listes d’expression
+### <a name="patterns-and-phrase-lists"></a>Modèles et listes d’expressions
 
-La page d’analytique n’indique pas quand utiliser [modèles](luis-concept-patterns.md) ou [une phrase listes](luis-concept-feature.md). Si vous les ajoutez, il peut aider aux prédictions incorrectes ou peu claire, mais sont inutiles avec un déséquilibre de données. 
+La page d’analytique n’indique pas quand utiliser des [modèles](luis-concept-patterns.md) ou des [listes d’expressions](luis-concept-feature.md). Si vous les ajoutez, cela pourra vous aider à corriger les prédictions incorrectes ou vagues, mais n’aura aucun effet sur le déséquilibre des données. 
 
-### <a name="review-data-imbalance"></a>Déséquilibre de données de révision
+### <a name="review-data-imbalance"></a>Examiner le déséquilibre des données
 
-Démarrer avec ce problème : il peut être la cause racine des autres problèmes.
+Commencez par ce problème ; il peut être la cause racine des autres problèmes.
 
-Le **déséquilibre de données** intent liste montre les intentions dont ont besoin de plus énoncés pour corriger le déséquilibre de données. 
+La liste d’intentions à **déséquilibre des données** montre les intentions qui ont besoin de plus d’énoncés pour corriger le déséquilibre des données. 
 
-**Pour résoudre ce problème**:
+**Pour résoudre ce problème**
 
-* Ajouter des énoncés plus à l’intention puis former à nouveau. 
+* Ajoutez des énoncés à l’intention, puis effectuez un nouvel entraînement. 
 
-N’ajoutez pas énoncés intent None, sauf si qui est suggéré sur le tableau de bord.
+N’ajoutez pas d’énoncé à l’intention Aucune, sauf si ceci vous est suggéré dans le tableau de bord.
 
 > [!Tip]
-> Utilisez la troisième section de la page, **énoncés par intention** avec la **énoncés (nombre)** définition, comme un guide visuel rapide des intentions doivent énoncés plus.  
-    ![Utilisez « Énoncés (nombre) » pour rechercher les intentions de déséquilibre de données.](./media/luis-how-to-use-dashboard/predictions-per-intent-number-of-utterances.png)
+> Utilisez la troisième section de la page, **Énoncés par intention**, avec le paramètre **Énoncés (nombre)** , comme guide visuel rapide indiquant les intentions qui ont besoin de davantage d’énoncés.  
+    ![Utilisez « Énoncés (nombre) » pour rechercher les intentions présentant un déséquilibre des données.](./media/luis-how-to-use-dashboard/predictions-per-intent-number-of-utterances.png)
 
-### <a name="review-incorrect-predictions"></a>Passez en revue les prédictions incorrectes
+### <a name="review-incorrect-predictions"></a>Passer en revue les prédictions incorrectes
 
-Le **prédiction incorrecte** affichent intent intents qui ont des énoncés, qui sont utilisés comme exemples pour une intention spécifique, mais sont prévues pour des intentions différentes. 
+La liste d’intentions à **prédiction incorrecte** montre les intentions ayant des énoncés qui sont utilisés comme exemples pour une intention spécifique, mais qui sont prédits pour différentes intentions. 
 
-**Pour résoudre ce problème**:
+**Pour résoudre ce problème**
 
-* Modifier les énoncés pour être plus précis pour les intentions et les former à nouveau.
-* Combiner les intentions si énoncés sont trop étroitement lié et former à nouveau.
+* Modifiez les énoncés afin qu’ils soient plus propres à l’intention, puis effectuez un nouvel entraînement.
+* Combinez les intentions si des énoncés sont trop étroitement alignés, puis effectuez un nouvel entraînement.
 
-### <a name="review-unclear-predictions"></a>Passez en revue les prédictions incertaine
+### <a name="review-unclear-predictions"></a>Passer en revue les prédictions vagues
 
-Le **prédiction incertaine** intent liste montre les intentions avec énoncés avec des scores de prédiction qui ne sont pas suffisamment loin de façon à partir de leur rival le plus proche, susceptible de changer l’intention supérieure pour l’énoncé sur la formation suivante, en raison [ l’échantillonnage négatif](luis-how-to-train.md#train-with-all-data).
+La liste d’intentions à **prédiction vague** montre les intentions ayant des énoncés avec des scores de prédiction qui ne sont pas assez loin de leur rival le plus proche, et dont l’intention supérieure de l’énoncé est susceptible de changer lors de l’entraînement suivant en raison d’un [échantillonnage négatif](luis-how-to-train.md#train-with-all-data).
 
-**Pour résoudre ce problème**;
+**Pour résoudre ce problème**
 
-* Modifier les énoncés pour être plus précis pour les intentions et les former à nouveau.
-* Combiner les intentions si énoncés sont trop étroitement lié et former à nouveau.
+* Modifiez les énoncés afin qu’ils soient plus propres à l’intention, puis effectuez un nouvel entraînement.
+* Combinez les intentions si des énoncés sont trop étroitement alignés, puis effectuez un nouvel entraînement.
 
 ## <a name="utterances-per-intent"></a>Énoncés par intention
 
-Cette carte affiche l’intégrité d’application globale sur les intentions. Comme les intentions et recyclage corrigé, vous devez continuer à coup cette carte pour les problèmes.
+Cette carte affiche l’intégrité globale de l’application parmi les intentions. À mesure que vous corrigez les intentions et effectuez de nouveaux entraînements, continuez à garder un œil sur cette carte pour voir si elle mentionne des problèmes.
 
 Le graphique suivant montre une application bien équilibrée avec presque aucun problème à résoudre.
 
 ![Le graphique suivant montre une application bien équilibrée avec presque aucun problème à résoudre.](./media/luis-how-to-use-dashboard/utterance-per-intent-shows-data-balance.png)
 
-Le graphique suivant montre une application mal à charge équilibrée avec nombreux problèmes à résoudre.
+Le graphique suivant montre une application mal équilibrée avec de nombreux problèmes à résoudre.
 
 ![Le graphique suivant montre une application bien équilibrée avec presque aucun problème à résoudre.](./media/luis-how-to-use-dashboard/utterance-per-intent-shows-data-imbalance.png)
 
-Placez le curseur au-dessus de la barre de chaque objectif pour obtenir des informations sur l’intention. 
+Placez le curseur sur la barre de chaque intention pour obtenir des informations sur l’intention. 
 
 ![Le graphique suivant montre une application bien équilibrée avec presque aucun problème à résoudre.](./media/luis-how-to-use-dashboard/utterances-per-intent-with-details-of-errors.png)
 
-Utilisez le **trier par** fonctionnalité pour organiser les intentions par type de problème afin de vous concentrer sur les intentions plus problématiques avec ce problème. 
+Utilisez la fonctionnalité **Trier par** pour organiser les intentions par type de problème et vous concentrer sur les intentions les plus problématiques. 
 
-## <a name="intents-with-errors"></a>Intentions avec des erreurs
+## <a name="intents-with-errors"></a>Intention présentant des erreurs de prédiction
 
-Cette carte permet de passer en revue les problèmes pour un objectif spécifique. La vue par défaut de cette carte est intentions plus problématiques afin de savoir où concentrer vos efforts.
+Cette carte vous permet de passer en revue les problèmes pour une intention spécifique. La vue par défaut de cette carte montre les intentions les plus problématiques, afin que vous puissiez concentrer vos efforts là où il le faut.
 
-![Les intentions de carte d’erreurs vous permet passer en revue les problèmes pour un objectif spécifique. La carte est filtrée sur les intentions plus problématiques, par défaut, afin de savoir où concentrer vos efforts.](./media/luis-how-to-use-dashboard/most-problematic-intents-with-errors.png)
+![La carte Intention présentant des erreurs de prédiction vous permet de passer en revue les problèmes pour une intention spécifique. Cette carte est filtrée par défaut afin d’afficher les intentions les plus problématiques, pour que vous puissiez concentrer vos efforts là où il le faut.](./media/luis-how-to-use-dashboard/most-problematic-intents-with-errors.png)
 
-Le graphique en anneau supérieur affiche les problèmes avec l’intention sur les trois types de problème. S’il existe des problèmes dans les trois types de problème, chaque type a son propre graphique ci-dessous, ainsi que les intentions rivales. 
+Le graphique en anneau supérieur affiche les trois types de problème au niveau de l’intention. S’il existe des problèmes des trois types, chaque type a son propre graphique en dessous, avec les éventuelles intentions rivales. 
 
-### <a name="filter-intents-by-issue-and-percentage"></a>Filtrer les intentions en problème et en pourcentage
+### <a name="filter-intents-by-issue-and-percentage"></a>Filtrer les intentions par problème et par pourcentage
 
-Cette section de la carte vous permet de trouver des énoncés d’exemple qui diminue en dehors de votre seuil d’erreur. Dans l’idéal, vous souhaitez que les prédictions correctes pour être significatif. Ce pourcentage est entreprise et pilotée par les clients. 
+Cette section de la carte vous permet de trouver des exemples d’énoncés situés en dehors de votre seuil d’erreur. Dans l’idéal, vous souhaitez que les prédictions correctes soient significatives. Ce pourcentage est basé sur les clients et l’entreprise. 
 
-Déterminer les pourcentages de seuil que vous maîtrisez pour votre entreprise. 
+Déterminez les pourcentages de seuil qui conviennent à votre entreprise. 
 
-Le filtre vous permet de trouver les intentions avec problème spécifique :
+Le filtre vous permet de trouver les intentions présentant un problème spécifique :
 
-|Filtrer|Pourcentage conseillé|Objectif|
+|Filtre|Pourcentage conseillé|Objectif|
 |--|--|--|
-|Intentions plus problématiques|-|**Commencez ici** -résolution des énoncés dans cette intention améliorera l’application, et plusieurs autres correctifs.|
+|Intentions les plus problématiques|-|**Commencez ici** : la correction des énoncés dans cette intention améliorera l’application davantage que d’autres corrections.|
 |Prédictions correctes ci-dessous|60 %|Il s’agit du pourcentage d’énoncés dans l’intention sélectionnée qui sont corrects mais qui ont un score de confiance inférieur au seuil. |
-|Difficile de savoir prédictions ci-dessus|15 %|Il s’agit du pourcentage d’énoncés dans l’intention sélectionnée sont confondu avec l’intention de rivale le plus proche.|
-|Prédictions incorrectes ci-dessus|15 %|Il s’agit du pourcentage des énoncés dans l’intention sélectionnée prédit de façon incorrecte. |
+|Prédictions vagues ci-dessus|15 %|Il s’agit du pourcentage d’énoncés dans l’intention sélectionnée qui sont confondus avec l’intention rivale la plus proche.|
+|Prédictions incorrectes ci-dessus|15 %|Il s’agit du pourcentage d’énoncés dans l’intention sélectionnée qui sont prédits de façon incorrecte. |
 
-### <a name="correct-prediction-threshold"></a>Seuil de prédiction correcte
+### <a name="correct-prediction-threshold"></a>Seuil de prédiction correct
 
-Qu’est un score de confiance de certitude de prédiction pour vous ? Au début du développement d’applications, 60 % peut être votre cible. Utilisez le **corriger des prédictions ci-dessous** avec le pourcentage de 60 % pour rechercher les énoncés qui dans l’intention sélectionnée qui doivent être corrigées.
+Quel est le score de confiance d’une prédiction correcte, pour vous ? Au début du développement d’application, votre cible peut être de 60 %. Utilisez **Prédictions correctes ci-dessous** avec le pourcentage de 60 % pour trouver les énoncés dans l’intention sélectionnée qui doivent être corrigés.
 
-### <a name="unclear-or-incorrect-prediction-threshold"></a>Seuil de prédiction vous semble abscons ou incorrect
+### <a name="unclear-or-incorrect-prediction-threshold"></a>Seuil de prédiction vague ou incorrect
 
-Ces deux filtres vous permettent de trouver énoncés dans l’intention sélectionnée au-delà de votre seuil. Vous pouvez considérer ces deux pourcentages sous forme de pourcentages d’erreur. Si vous êtes familiarisé avec un taux d’erreur de 10 à 15 % pour les prédictions, définissez le seuil de filtre à 15 % pour rechercher tous les énoncés au-dessus de cette valeur. 
+Ces deux filtres vous permettent de trouver les énoncés dans l’intention sélectionnée qui sont au-delà de votre seuil. Vous pouvez considérer ces deux pourcentages comme des pourcentages d’erreur. Si un taux d’erreur de 10 à 15 % pour les prédictions vous convient, définissez le seuil de filtre à 15 % pour rechercher tous les énoncés au-dessus de cette valeur. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 05/06/2019
 ms.author: mlearned
 ms.openlocfilehash: 6516bbcb4ea879279812d61d9fe31f1ea4268280
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "67616253"
 ---
 # <a name="preview---secure-access-to-the-api-server-using-authorized-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Préversion - Sécuriser l’accès au serveur d’API à l’aide de plages d’adresses IP autorisées dans Azure Kubernetes Service (AKS)
@@ -34,7 +34,7 @@ L’interface de ligne de commande Azure (Azure CLI) version 2.0.61 ou une versi
 
 ### <a name="install-aks-preview-cli-extension"></a>Installer l’extension CLI de préversion d’aks
 
-Pour configurer des plages d’adresses IP autorisées pour le serveur d’API, vous aurez besoin de l’extension de CLI *aks-preview* version 0.4.1 ou une version ultérieure. Installez l’extension d’Azure CLI *aks-preview* à l’aide de la commande [az extension add][az-extension-add]command, then check for any available updates using the [az extension update][az-extension-update] :
+Pour configurer des plages d’adresses IP autorisées pour le serveur d’API, vous aurez besoin de l’extension de CLI *aks-preview* version 0.4.1 ou une version ultérieure. Installez l’extension Azure CLI *aks-preview* à l’aide de la commande [az extension add][az-extension-add], puis recherchez toutes les mises à jour disponibles à l’aide de la commande [az extension update][az-extension-update] :
 
 ```azurecli-interactive
 # Install the aks-preview extension
@@ -49,13 +49,13 @@ az extension update --name aks-preview
 Pour utiliser des plages d’adresses IP autorisées pour le serveur d’API, commencez par activer un indicateur de fonctionnalité sur votre abonnement. Pour enregistrer l’indicateur de fonctionnalité *APIServerSecurityPreview*, utilisez la commande [az feature register][az-feature-register], comme indiqué dans l’exemple suivant :
 
 > [!CAUTION]
-> Lorsque vous inscrivez une fonctionnalité sur un abonnement, vous ne pouvez actuellement pas désinscrire cette fonctionnalité. Après avoir activé des fonctionnalités en préversion, des valeurs par défaut peuvent être utilisées pour tous les clusters AKS ensuite créés dans l’abonnement. N’activez pas les fonctionnalités en préversion sur les abonnements de production. Utilisez un abonnement distinct pour tester les fonctionnalités en préversion et recueillir des commentaires.
+> Lorsque vous inscrivez une fonctionnalité sur un abonnement, vous ne pouvez actuellement pas désinscrire cette fonctionnalité. Après avoir activé des fonctionnalités en préversion, des valeurs par défaut peuvent être utilisées pour tous les clusters AKS créés ultérieurement dans l’abonnement. N’activez pas les fonctionnalités d’évaluation sur les abonnements de production. Utilisez un abonnement distinct pour tester les fonctionnalités d’évaluation et recueillir des commentaires.
 
 ```azurecli-interactive
 az feature register --name APIServerSecurityPreview --namespace Microsoft.ContainerService
 ```
 
-Quelques minutes sont nécessaires pour que l’état s’affiche *Registered* (Inscrit). Vous pouvez vérifier l'état de l'enregistrement à l'aide de la commande [az feature list][az-feature-list] :
+Quelques minutes sont nécessaires pour que l’état s’affiche *Registered* (Inscrit). Vous pouvez vérifier l’état de l’enregistrement à l’aide de la commande [az feature list][az-feature-list] :
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/APIServerSecurityPreview')].{Name:name,State:properties.state}"
@@ -131,7 +131,7 @@ az network vnet subnet create \
     --address-prefixes 10.200.0.0/16
 ```
 
-Pour créer un pare-feu Azure, installez l’extension de CLI *azure-firewall* à l’aide de la commande [az extension add][az-extension-add] command. Then, create a firewall using the [az network firewall create][az-network-firewall-create]. L’exemple suivant crée un pare-feu Azure nommé *myAzureFirewall* :
+Pour créer un pare-feu Azure, installez l’extension de CLI *azure-firewall* à l’aide de la commande [az extension add][az-extension-add]. Ensuite, créez un pare-feu à l’aide de la commande [az network firewall create][az-network-firewall-create]. L’exemple suivant crée un pare-feu Azure nommé *myAzureFirewall* :
 
 ```azurecli-interactive
 # Install the CLI extension for Azure Firewall
@@ -143,7 +143,7 @@ az network firewall create \
     --name myAzureFirewall
 ```
 
-Un pare-feu Azure reçoit une adresse IP publique qui émet des flux de trafic. Créez une adresse publique à l’aide de la commande [az network public-ip create][az-network-public-ip-create] command, then create an IP configuration on the firewall using the [az network firewall ip-config create][az-network-firewall-ip-config-create] qui applique l’adresse IP publique :
+Un pare-feu Azure reçoit une adresse IP publique qui émet des flux de trafic. Créez une adresse publique à l’aide de la commande [az network public-ip create][az-network-public-ip-create], puis créez une configuration IP sur le pare-feu à l’aide de la commande [az network firewall ip-config create][az-network-firewall-ip-config-create], qui applique l’adresse IP publique :
 
 ```azurecli-interactive
 # Create a public IP address for the firewall
@@ -242,7 +242,7 @@ az aks update \
 
 Dans cet article, vous avez activé des plages d’adresses IP autorisées pour le serveur d’API. Cette approche est une partie de la façon dont vous pouvez exécuter un cluster AKS sécurisé.
 
-Pour plus d’informations, consultez les [Concepts de sécurité pour les applications et les clusters dans AKS][concepts-security] and [Best practices for cluster security and upgrades in AKS][operator-best-practices-cluster-security].
+Pour plus d’informations, consultez [Concepts de sécurité pour les applications et les clusters dans AKS][concepts-security] et [Meilleures pratiques relatives aux mises à jour et à la sécurité du cluster dans Azure Kubernetes Service][operator-best-practices-cluster-security].
 
 <!-- LINKS - external -->
 [azure-firewall-costs]: https://azure.microsoft.com/pricing/details/azure-firewall/

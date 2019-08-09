@@ -1,6 +1,6 @@
 ---
 title: Ajouter et appeler des fonctions Azure à partir d’Azure Logic Apps
-description: Ajouter et exécuter Azure functions à partir d’applications logiques
+description: Ajouter et exécuter des fonctions Azure à partir d’applications logiques
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -10,64 +10,64 @@ ms.topic: article
 ms.date: 06/04/2019
 ms.reviewer: klam, LADocs
 ms.openlocfilehash: 524b927ec0966199c51cdee93e920d7b847139ae
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66495094"
 ---
 # <a name="call-azure-functions-from-azure-logic-apps"></a>Appeler des fonctions Azure à partir d’Azure Logic Apps
 
-Lorsque vous souhaitez exécuter le code qui effectue un travail spécifique dans vos applications logiques, vous pouvez créer votre propre fonction à l’aide de [Azure Functions](../azure-functions/functions-overview.md). Ce service vous permet de créer de Node.js, C#, et F# fonctions afin que vous n’êtes pas obligé de créer une application complète ou une infrastructure pour exécuter du code. Vous pouvez également [appeler des applications logiques à l’intérieur de fonctions Azure](#call-logic-app). Azure Functions fournit une informatique sans serveur dans le cloud et est utile pour effectuer des tâches telles que les suivantes :
+Quand vous voulez exécuter du code qui effectue une tâche spécifique dans vos applications logiques, vous pouvez créer votre propre fonction à l’aide d’[Azure Functions](../azure-functions/functions-overview.md). Ce service vous permet de créer des fonctions Node.js, C# et F# pour ne pas avoir à générer une application ou une infrastructure complète en vue d’exécuter votre code. Vous pouvez également [appeler des applications logiques à l’intérieur de fonctions Azure](#call-logic-app). Azure Functions fournit une informatique sans serveur dans le cloud et est utile pour effectuer des tâches telles que les suivantes :
 
 * Étendre le comportement de votre application logique avec des fonctions dans Node.js ou C#
 * Effectuer des calculs dans le workflow de votre application logique
 * Appliquer une mise en forme avancée ou calculer des champs dans vos applications logiques
 
-Pour exécuter des extraits de code sans créer des fonctions Azure, découvrez comment [ajouter et exécuter le code inline](../logic-apps/logic-apps-add-run-inline-code.md).
+Pour exécuter des extraits de code sans créer de fonctions Azure, découvrez comment [ajouter et exécuter du code inline](../logic-apps/logic-apps-add-run-inline-code.md).
 
 > [!NOTE]
-> Intégration entre Logic Apps et Azure Functions actuellement ne fonctionne pas avec les emplacements activés.
+> L’intégration entre Logic Apps et Azure Functions ne fonctionne actuellement pas avec l’option Emplacements activée.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 * Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, [inscrivez-vous pour bénéficier d’un compte Azure gratuit](https://azure.microsoft.com/free/).
 
-* Une application de fonction Azure, qui est un conteneur pour les fonctions Azure, ainsi que votre fonction Azure. Si vous n’avez pas d’application de fonction, [créez-la en premier lieu](../azure-functions/functions-create-first-azure-function.md). Vous pouvez ensuite créer votre fonction en dehors de votre application logique dans le portail Azure, ou [à partir d’à l’intérieur de votre application logique](#create-function-designer) dans le Concepteur d’application logique.
+* Une application de fonction Azure, qui est un conteneur pour les fonctions Azure, ainsi que votre fonction Azure. Si vous n’avez pas d’application de fonction, [créez-la en premier lieu](../azure-functions/functions-create-first-azure-function.md). Vous pouvez ensuite créer votre fonction soit à l’extérieur de votre application logique dans le portail Azure, soit [à partir de votre application logique](#create-function-designer) dans le Concepteur d’application logique.
 
-* Lorsque vous travaillez avec les applications logiques, les mêmes exigences s’appliquent aux fonctions et les applications de fonction qu’elles soient nouvelles ou existantes :
+* Quand vous travaillez avec des applications logiques, les mêmes exigences s’appliquent aux applications de fonctions et aux fonctions, qu’elles soient nouvelles ou pas :
 
-  * Votre application de fonction et l’application logique doivent utiliser le même abonnement Azure.
+  * Votre application de fonction et votre application logique doivent utiliser le même abonnement Azure.
 
-  * Nouvelles applications de fonction doivent utiliser le .NET ou JavaScript en tant que la pile d’exécution. Lorsque vous ajoutez une nouvelle fonction à des applications de fonction existante, vous pouvez sélectionner C# ou JavaScript.
+  * Les nouvelles applications de fonction doivent utiliser le .NET ou JavaScript comme pile d’exécution. Quand vous ajoutez une nouvelle fonction à des applications de fonction existantes, vous pouvez sélectionner C# ou JavaScript.
 
-  * Votre fonction utilise le **déclencheur HTTP** modèle.
+  * Votre fonction utilise le modèle **Déclencheur HTTP**.
 
-    Le modèle de déclencheur HTTP peut accepter du contenu ayant le type `application/json` à partir de votre application logique. Lorsque vous ajoutez une fonction Azure à votre application logique, le Concepteur d’application logique affiche des fonctions personnalisées qui sont créées à partir de ce modèle dans votre abonnement Azure.
+    Le modèle de déclencheur HTTP peut accepter du contenu ayant le type `application/json` à partir de votre application logique. Quand vous ajoutez une fonction Azure à votre application logique, le Concepteur d’application logique affiche des fonctions personnalisées qui sont créées à partir de ce modèle dans votre abonnement Azure.
 
-  * Votre fonction n’utilise pas des itinéraires personnalisés, sauf si vous avez défini un [définition OpenAPI](../azure-functions/functions-openapi-definition.md) (anciennement un [fichier Swagger](https://swagger.io/)).
+  * Votre fonction n’utilise pas de routes personnalisées, sauf si vous avez défini une [définition OpenAPI](../azure-functions/functions-openapi-definition.md) (anciennement appelée [fichier Swagger](https://swagger.io/)).
 
-  * Si vous avez une définition OpenAPI pour votre fonction, le concepteur Logic Apps vous donne une plus riche expérience lorsque votre travail avec les paramètres de fonction. Pour que votre application logique puisse trouver les fonctions qui ont des définitions OpenAPI et y accéder, [configurez votre application de fonction en suivant ces étapes](#function-swagger).
+  * Si vous avez une définition OpenAPI pour votre fonction, le Concepteur Logic Apps vous offre une meilleure expérience quand vous travaillez avec des paramètres de fonction. Pour que votre application logique puisse trouver les fonctions qui ont des définitions OpenAPI et y accéder, [configurez votre application de fonction en suivant ces étapes](#function-swagger).
 
 * L’application logique dans laquelle vous souhaitez ajouter la fonction, y compris un [déclencheur](../logic-apps/logic-apps-overview.md#logic-app-concepts) comme première étape de votre application logique
 
-  Avant de pouvoir ajouter des actions qui s’exécutent des fonctions, votre application logique doit commencer par un déclencheur. Si vous débutez avec les applications logiques, consultez [Qu’est-ce qu’Azure Logic Apps ?](../logic-apps/logic-apps-overview.md) et [Démarrage rapide : Créer votre première application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+  Pour que vous puissiez ajouter des actions qui exécutent des fonctions, votre application logique doit démarrer avec un déclencheur. Si vous débutez avec les applications logiques, consultez [Qu’est-ce qu’Azure Logic Apps ?](../logic-apps/logic-apps-overview.md) et [Démarrage rapide : Créer votre première application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 <a name="function-swagger"></a>
 
-## <a name="find-functions-that-have-openapi-descriptions"></a>Rechercher des fonctions qui ont des descriptions d’OpenAPI
+## <a name="find-functions-that-have-openapi-descriptions"></a>Rechercher des fonctions qui ont des descriptions OpenAPI
 
-Pour une expérience plus riche lorsque vous travaillez avec des paramètres de fonction dans le Concepteur d’applications logiques, [générer une définition OpenAPI](../azure-functions/functions-openapi-definition.md), anciennement connu sous un [fichier Swagger](https://swagger.io/), pour votre fonction. Pour configurer votre application de fonction afin que votre application logique puisse trouver les fonctions qui ont des descriptions Swagger et y accéder, procédez comme suit :
+Pour bénéficier d’une expérience plus complète quand vous travaillez avec des paramètres de fonction dans le Concepteur Logic Apps, [générez une définition OpenAPI](../azure-functions/functions-openapi-definition.md) (anciennement [fichier Swagger](https://swagger.io/)) pour votre fonction. Pour configurer votre application de fonction afin que votre application logique puisse trouver les fonctions qui ont des descriptions Swagger et y accéder, procédez comme suit :
 
-1. Assurez-vous que votre application de fonction s’exécute activement.
+1. Vérifiez que votre application de fonction est en cours d’exécution.
 
-1. Définir dans votre function app, [partage des ressources Cross-Origin (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) afin que toutes les origines sont autorisées en suivant ces étapes :
+1. Dans votre application de fonction, configurez le [Partage des ressources Cross-Origin (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) afin que toutes les origines soient autorisées en procédant comme suit :
 
-   1. À partir de la **Function Apps** , sélectionnez votre application de fonction. Dans le volet de droite, sélectionnez **fonctionnalités de la plateforme** > **CORS**.
+   1. Dans la liste **Applications de fonction**, sélectionnez votre application de fonction. Dans le volet de droite, sélectionnez **Fonctionnalités de la plateforme** > **CORS**.
 
       ![Sélectionnez votre application de fonction > « Fonctionnalités de la plateforme » > « CORS »](./media/logic-apps-azure-functions/function-platform-features-cors.png)
 
-   1. Sous **CORS**, ajoutez l’astérisque ( **`*`** ) générique de caractères, mais supprimer toutes les autres origines dans la liste, puis choisissez **enregistrer**.
+   1. Sous **CORS**, ajoutez le caractère générique **`*`** (astérisque), mais supprimez toutes les autres origines de la liste, puis choisissez **Enregistrer**.
 
       ![Définir CORS* sur le caractère générique « * »](./media/logic-apps-azure-functions/function-platform-features-cors-origins.png)
 
@@ -104,7 +104,7 @@ Maintenant que vous avez créé votre fonction Azure, suivez les étapes pour d�
 
 ## <a name="create-functions-inside-logic-apps"></a>Créer des fonctions au sein d’applications logiques
 
-Avant de pouvoir créer une fonction Azure à partir d’à l’intérieur de votre application logique à l’aide du Concepteur d’application logique, vous devez tout d’abord une application de fonction Azure, qui est un conteneur pour vos fonctions. Si vous n’avez pas d’application de fonction, créez-la en premier lieu. Voir [Créer votre première fonction à l’aide du portail Azure](../azure-functions/functions-create-first-azure-function.md).
+Avant de pouvoir créer une fonction Azure à partir de votre application logique à l’aide du Concepteur d’application logique, vous devez d’abord disposer d’une application de fonction Azure, qui est un conteneur pour vos fonctions. Si vous n’avez pas d’application de fonction, créez-la en premier lieu. Voir [Créer votre première fonction à l’aide du portail Azure](../azure-functions/functions-create-first-azure-function.md).
 
 1. Dans le [portail Azure](https://portal.azure.com), ouvrez votre application logique dans le Concepteur d’applications logiques.
 
@@ -118,7 +118,7 @@ Avant de pouvoir créer une fonction Azure à partir d’à l’intérieur de vo
 
    ![Recherchez « Azure Functions »](./media/logic-apps-azure-functions/find-azure-functions-action.png)
 
-1. Dans la liste d’applications de fonction, sélectionnez la vôtre. Une fois que la liste d’actions s’ouvre, sélectionnez cette action : **Fonctions de Azure - créer une nouvelle fonction**
+1. Dans la liste d’applications de fonction, sélectionnez la vôtre. Une fois la liste des actions ouverte, sélectionnez cette action : **Azure Functions - Créer une nouvelle fonction**
 
    ![Sélectionnez votre application de fonction](./media/logic-apps-azure-functions/select-function-app-create-function.png)
 
@@ -126,7 +126,7 @@ Avant de pouvoir créer une fonction Azure à partir d’à l’intérieur de vo
 
    1. Dans la zone **Nom de la fonction**, fournissez un nom pour votre fonction.
 
-   1. Dans le **Code** zone, ajoutez votre code pour le modèle de fonction, y compris la réponse et la charge utile que vous souhaitez retourné à votre application logique après la fin de votre fonction.
+   1. Dans la zone **Code**, ajoutez votre code au modèle de fonction, notamment la réponse et la charge utile qui doivent être retournées à votre application logique une fois l’exécution de votre fonction terminée.
 
       ![Définissez votre fonction](./media/logic-apps-azure-functions/function-definition.png)
 
@@ -155,7 +155,7 @@ Avant de pouvoir créer une fonction Azure à partir d’à l’intérieur de vo
 
    ![Caster un objet en tant que chaîne](./media/logic-apps-azure-functions/function-request-body-string-cast-example.png)
 
-1. Pour spécifier d’autres détails tels que la méthode à utiliser, les en-têtes de demande ou les paramètres de requête, ouvrez le **ajouter un nouveau paramètre** liste, puis sélectionnez les options que vous voulez.
+1. Pour spécifier d’autres détails comme la méthode à utiliser, les en-têtes de demande ou les paramètres de requête, ouvrez la liste **Ajouter un nouveau paramètre**, puis sélectionnez les options souhaitées.
 
 <a name="add-function-logic-app"></a>
 
@@ -165,7 +165,7 @@ Pour appeler des fonctions Azure existantes à partir de vos applications logiqu
 
 1. Dans le [portail Azure](https://portal.azure.com), ouvrez votre application logique dans le Concepteur d’applications logiques.
 
-1. Sous l’étape où vous souhaitez ajouter la fonction, choisissez **nouvelle étape**, puis sélectionnez **ajouter une action**.
+1. Sous l’étape où vous souhaitez ajouter la fonction, choisissez **Nouvelle étape**, puis sélectionnez **Ajouter une action**.
 
 1. Dans la zone de recherche, entrez le filtre « azure functions ». Dans la liste des actions, sélectionnez cette action : **Choisissez une fonction Azure - Azure Functions**
 
@@ -181,7 +181,7 @@ Pour appeler des fonctions Azure existantes à partir de vos applications logiqu
 
 1. Dans la zone **Corps de la demande**, spécifiez l’entrée de votre fonction, qui doit être au format JSON (JavaScript Objet Notation).
 
-   Cette entrée est l’*objet de contexte* ou le message que votre application logique envoie à votre fonction. Lorsque vous cliquez dans le **corps de la demande** champ, la liste de contenu dynamique s’affiche afin que vous pouvez sélectionner des jetons pour les sorties des étapes précédentes. Cet exemple indique que la charge utile du contexte contient une propriété nommée `content` qui a la valeur du jeton **De** à partir du déclencheur d’e-mail :
+   Cette entrée est l’*objet de contexte* ou le message que votre application logique envoie à votre fonction. Quand vous cliquez dans le champ **Corps de la demande**, la liste de contenu dynamique s’affiche afin que vous puissiez sélectionner des jetons pour les sorties des étapes précédentes. Cet exemple indique que la charge utile du contexte contient une propriété nommée `content` qui a la valeur du jeton **De** à partir du déclencheur d’e-mail :
 
    ![Exemple « Corps de la demande » : charge utile d’objet de contexte](./media/logic-apps-azure-functions/function-request-body-example.png)
 
@@ -189,11 +189,11 @@ Pour appeler des fonctions Azure existantes à partir de vos applications logiqu
 
    ![Caster un objet en tant que chaîne](./media/logic-apps-azure-functions/function-request-body-string-cast-example.png)
 
-1. Pour spécifier d’autres détails tels que la méthode à utiliser, les en-têtes de demande ou les paramètres de requête, ouvrez le **ajouter un nouveau paramètre** liste, puis sélectionnez les options que vous voulez.
+1. Pour spécifier d’autres détails comme la méthode à utiliser, les en-têtes de demande ou les paramètres de requête, ouvrez la liste **Ajouter un nouveau paramètre**, puis sélectionnez les options souhaitées.
 
 <a name="call-logic-app"></a>
 
-## <a name="call-logic-apps-from-azure-functions"></a>Appeler des applications logiques à partir d’Azure functions
+## <a name="call-logic-apps-from-azure-functions"></a>Appeler des applications logiques à partir de fonctions Azure
 
 Pour déclencher une application logique à partir d’une fonction Azure, l’application logique doit démarrer avec un déclencheur fournissant un point de terminaison pouvant être appelé. Par exemple, vous pouvez démarrer l’application logique avec le déclencheur **HTTP**, **Requête**, **Files d’attente Azure** ou **Event Grid**. À partir de l’intérieur de votre fonction, envoyez une requête HTTP POST à l’URL du déclencheur et incluez la charge utile que cette application logique doit traiter. Pour plus d’informations, consultez [Appeler, déclencher ou imbriquer des applications logiques](../logic-apps/logic-apps-http-endpoint.md).
 

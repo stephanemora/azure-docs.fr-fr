@@ -12,17 +12,17 @@ ms.topic: article
 ms.date: 05/28/2019
 ms.author: juliako
 ms.openlocfilehash: a813c77e81e51bfe13e75ed6c8d0e24b4d0fa645
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66392920"
 ---
 # <a name="streaming-policies"></a>Stratégies de diffusion en continu
 
-Dans Azure Media Services v3, les [stratégies de diffusion en continu](https://docs.microsoft.com/rest/api/media/streamingpolicies) vous permettent de définir les protocoles de diffusion en continu et les options de chiffrement pour vos [StreamingLocators](streaming-locators-concept.md). Media Services v3 fournit que certaines prédéfinies des stratégies de diffusion en continu afin que vous puissiez les utiliser directement pour la version d’évaluation ou de production. 
+Dans Azure Media Services v3, les [stratégies de diffusion en continu](https://docs.microsoft.com/rest/api/media/streamingpolicies) vous permettent de définir les protocoles de diffusion en continu et les options de chiffrement pour vos [StreamingLocators](streaming-locators-concept.md). Media Services v3 fournit certaines stratégies de streaming prédéfinies pour vous permettre de les utiliser directement pour la version d’essai ou de production. 
 
-Actuellement disponible prédéfinies des stratégies de diffusion en continu :<br/>
+Voici les stratégies de streaming prédéfinies actuellement disponibles :<br/>
 * 'Predefined_DownloadOnly'
 * 'Predefined_ClearStreamingOnly'
 * 'Predefined_DownloadAndClearStreaming'
@@ -30,7 +30,7 @@ Actuellement disponible prédéfinies des stratégies de diffusion en continu :
 * 'Predefined_MultiDrmCencStreaming' 
 * 'Predefined_MultiDrmStreaming'
 
-L’arbre de décision « suivant » vous permet de choisir une stratégie prédéfinie de diffusion en continu pour votre scénario.
+L’« arbre de décision » suivant vous permet de choisir une stratégie de streaming prédéfinie pour votre scénario.
 
 > [!IMPORTANT]
 > * Les propriétés des **stratégies de diffusion en continu** de type DateHeure sont toujours au format UTC.
@@ -42,13 +42,13 @@ Cliquez sur l’image pour l’afficher en plein écran.
 
 <a href="./media/streaming-policy/large.png" target="_blank"><img src="./media/streaming-policy/large.png"></a> 
 
-Si chiffrer votre contenu, vous devez créer un [stratégie de la clé de contenu](content-key-policy-concept.md), le **stratégie de la clé de contenu** n’est pas nécessaire pour effacer de diffusion en continu ou de téléchargement. 
+Si vous chiffrez votre contenu, vous devez créer une [stratégie de clé de contenu](content-key-policy-concept.md). La **stratégie de clé de contenu** n’est pas nécessaire pour un téléchargement ou un streaming en clair. 
 
-Si vous avez des exigences particulières (par exemple, si vous souhaitez spécifier différents protocoles, avoir besoin d’utiliser un service de remise de clé personnalisé, ou que vous devez utiliser une piste audio clair), vous pouvez [créer](https://docs.microsoft.com/rest/api/media/streamingpolicies/create) une stratégie personnalisée de diffusion en continu. 
+Si vous avez des exigences particulières (par exemple, si vous souhaitez spécifier différents protocoles, que vous avez besoin d’utiliser un service de distribution de clés personnalisé ou que vous devez utiliser une piste audio claire), vous pouvez [créer](https://docs.microsoft.com/rest/api/media/streamingpolicies/create) une stratégie de streaming personnalisée. 
 
-## <a name="get-a-streaming-policy-definition"></a>Obtenir une définition de stratégie de diffusion en continu  
+## <a name="get-a-streaming-policy-definition"></a>Obtenir une définition de stratégie de streaming  
 
-Si vous souhaitez voir la définition d’une stratégie de diffusion en continu, utilisez [obtenir](https://docs.microsoft.com/rest/api/media/streamingpolicies/get) et spécifiez le nom de la stratégie. Exemple :
+Si vous voulez voir la définition d’une stratégie de streaming, utilisez [Get](https://docs.microsoft.com/rest/api/media/streamingpolicies/get) et spécifiez le nom de la stratégie. Par exemple :
 
 ### <a name="rest"></a>REST
 

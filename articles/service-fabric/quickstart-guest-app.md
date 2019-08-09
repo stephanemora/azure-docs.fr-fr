@@ -15,19 +15,19 @@ ms.workload: NA
 ms.date: 12/06/2017
 ms.author: aljo
 ms.openlocfilehash: bd19aba68f8b847e8f4800d348197f9c2b1c1289
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66428231"
 ---
 # <a name="host-a-nodejs-application-on-azure-service-fabric"></a>Héberger une application Node.js sur Microsoft Azure Service Fabric
 
 Ce démarrage rapide vous permet de déployer une application existante (Node.js dans cet exemple) dans un cluster Service Fabric s’exécutant sur Azure.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
-Avant de commencer, assurez-vous que vous avez bien [configuré votre environnement de développement](service-fabric-get-started.md). Cela inclut l’installation du SDK Service Fabric et Visual Studio 2019 ou 2015.
+Avant de commencer, assurez-vous que vous avez bien [configuré votre environnement de développement](service-fabric-get-started.md). Cela inclut l’installation du SDK Service Fabric et de Visual Studio 2019 ou 2015.
 
 Vous devez également disposer d’une application Node.js existante pour le déploiement. Ce démarrage rapide utilise un site web Node.js simple qui peut être téléchargé [ici][download-sample]. Extrayez ce fichier vers votre dossier `<path-to-project>\ApplicationPackageRoot\<package-name>\Code\` après avoir créé le projet dans l’étape suivante.
 
@@ -83,7 +83,7 @@ Pour avoir une vue d’ensemble du contenu du projet de service, consultez l’a
 
 L’exemple d’application Node.js que nous déployons utilise le port **80**, et nous devons indiquer à Service Fabric que nous avons besoin que ce port soit exposé.
 
-Ouvrez le fichier **ServiceManifest.xml** dans le projet. En bas du manifeste, il existe un `<Resources> \ <Endpoints>` avec une entrée déjà définie. Modifiez cette entrée pour ajouter `Port`, `Protocol` et `Type`. 
+Ouvrez le fichier **ServiceManifest.xml** dans le projet. Au bas du manifeste, il existe un `<Resources> \ <Endpoints>` avec une entrée déjà définie. Modifiez cette entrée pour ajouter `Port`, `Protocol` et `Type`. 
 
 ```xml
   <Resources>
@@ -108,7 +108,7 @@ Sélectionnez le profil cible **PublishProfiles\Cloud.xml**.
 
 Si vous ne l’avez pas fait précédemment, choisissez un compte Azure vers lequel effectuer le déploiement. Si vous n’en avez pas, [obtenez-en un][create-account].
 
-Sous **Point de terminaison de connexion**, sélectionnez le cluster Service Fabric vers lequel effectuer le déploiement. Si vous n’en avez pas, sélectionnez **&lt;créer un nouveau Cluster... &gt;** qui ouvre la fenêtre de navigateur web au portail Azure. Pour plus d’informations, consultez [Création d’un cluster dans le portail Azure](service-fabric-cluster-creation-via-portal.md#create-cluster-in-the-azure-portal). 
+Sous **Point de terminaison de connexion**, sélectionnez le cluster Service Fabric vers lequel effectuer le déploiement. Si vous n’en avez pas, sélectionnez **&lt;Créer un cluster...&gt;** qui ouvre la fenêtre de navigateur web dans le portail Azure. Pour plus d’informations, consultez [Création d’un cluster dans le portail Azure](service-fabric-cluster-creation-via-portal.md#create-cluster-in-the-azure-portal). 
 
 Lorsque vous créez le cluster Service Fabric, veillez à définir le paramètre **Points de terminaison personnalisés** sur **80**.
 
@@ -130,11 +130,11 @@ Consultez le panneau Vue d’ensemble de l’adresse du service. Utilisez le nom
 
 ![Panneau Vue d’ensemble de Service Fabric sur le portail Azure][overview]
 
-Accédez à cette adresse où vous pouvez voir le `HELLO WORLD` réponse.
+Accédez à cette adresse où vous verrez la réponse `HELLO WORLD`.
 
 ## <a name="delete-the-cluster"></a>Supprimer le cluster
 
-N’oubliez pas de supprimer toutes les ressources que vous avez créé pour ce démarrage rapide, car vous êtes facturé pour ces ressources.
+N’oubliez pas de supprimer toutes les ressources que vous avez créées pour ce démarrage rapide, car celles-ci vous sont facturées.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Apprenez-en davantage sur les [exécutables invités](service-fabric-guest-executables-introduction.md).

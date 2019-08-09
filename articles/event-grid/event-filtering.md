@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/21/2019
 ms.author: spelluru
 ms.openlocfilehash: 76a4c16afc9edef0a88ac9f2892de9738fd30289
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66305052"
 ---
 # <a name="understand-event-filtering-for-event-grid-subscriptions"></a>Comprendre le filtrage d’événements pour les abonnements Event Grid
@@ -43,7 +43,7 @@ Pour le filtrage simple par objet, spécifiez une valeur de départ ou de fin po
 
 Lorsque vous publiez des événements dans des rubriques personnalisées, créez des objets pour vos événements permettant aux abonnés de savoir facilement si l’événement les intéresse. Les abonnés utilisent la propriété d’objet pour filtrer et router des événements. Envisagez d’ajouter le chemin à l’origine de l’événement, de sorte que les abonnés puissent filtrer sur des segments de ce chemin. Le chemin d’accès permet aux abonnés de filtrer les événements avec précision ou à grande échelle. Si vous fournissez un chemin de trois segments comme `/A/B/C` dans l’objet, les abonnés peuvent filtrer sur le premier segment `/A` pour obtenir un vaste ensemble d’événements. Ces abonnés obtiennent des événements avec des objets tels que `/A/B/C` ou `/A/D/E`. Les autres abonnés peuvent filtrer par `/A/B` pour obtenir un ensemble plus restreint d’événements.
 
-La syntaxe JSON pour le filtrage par sujet est :
+La syntaxe JSON pour le filtrage par objet est :
 
 ```json
 "filter": {
@@ -107,9 +107,9 @@ Aucune des comparaisons de chaînes n’est sensible à la casse.
 
 Pour les événements dans le schéma Event Grid, utilisez les valeurs suivantes pour la clé :
 
-* Id
+* ID
 * Rubrique
-* Subject
+* Objet
 * Type d’événement
 * DataVersion
 * Données d’événement (comme Data.key1)
@@ -129,7 +129,7 @@ Pour le schéma d’entrée personnalisé, utilisez les champs de données d’�
 Les valeurs peuvent être les suivantes :
 
 * number
-* string
+* chaîne
 * booléenne
 * array
 

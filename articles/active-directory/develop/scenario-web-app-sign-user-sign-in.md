@@ -15,12 +15,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3fb7fbba7ec48da580d2a630ae51aa20b3307848
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: be7801515355452306cd5e7afa709a0681c7c314
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65074619"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562202"
 ---
 # <a name="web-app-that-signs-in-users---sign-in"></a>Application web qui connecte des utilisateurs - connexion
 
@@ -33,9 +33,9 @@ Le code que nous avons vu dans l’article précédent ([Configuration du code d
 ## <a name="what-sign-out-involves"></a>Implications de la déconnexion
 
 La déconnexion d’une application web ne consiste pas seulement à supprimer les informations sur le compte connecté de l’état de l’application web.
-L’application web doit également rediriger l’utilisateur vers le point de terminaison `logout` de la plateforme d’identités Microsoft v2.0 pour suivre la procédure de déconnexion. Lorsque votre application web redirige l’utilisateur vers le point de terminaison `logout`, ce dernier efface la session de l’utilisateur dans le navigateur. Si l’application n’accède pas au point de terminaison `logout`, l’utilisateur peut se réauthentifier auprès de votre application sans saisir de nouveau ses informations d’identification, puisqu’il dispose d’une session d’authentification unique valide avec le point de terminaison de la plateforme d’identités Microsoft v2.0.
+L’application web doit également rediriger l’utilisateur vers le point de terminaison `logout` de la plateforme d’identités Microsoft pour suivre la procédure de déconnexion. Lorsque votre application web redirige l’utilisateur vers le point de terminaison `logout`, ce dernier efface la session de l’utilisateur dans le navigateur. Si l’application n’accède pas au point de terminaison `logout`, l’utilisateur peut se réauthentifier auprès de votre application sans saisir de nouveau ses informations d’identification, puisqu’il dispose d’une session de connexion unique valide avec le point de terminaison de la plateforme d’identités Microsoft.
 
-Pour en savoir plus, consultez la section [Envoi d’une demande de déconnexion](v2-protocols-oidc.md#send-a-sign-out-request) dans la documentation conceptuelle de la [plateforme d’identités Microsoft v2.0 et du protocole OpenID Connect](v2-protocols-oidc.md).
+Pour en savoir plus, consultez la section [Envoi d’une demande de déconnexion](v2-protocols-oidc.md#send-a-sign-out-request) dans la documentation conceptuelle de la [plateforme d’identités Microsoft et du protocole OpenID Connect](v2-protocols-oidc.md).
 
 ## <a name="application-registration"></a>Inscription de l’application
 

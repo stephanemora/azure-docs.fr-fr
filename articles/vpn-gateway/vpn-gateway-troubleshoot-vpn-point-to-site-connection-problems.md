@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 05/31/2019
 ms.author: genli
 ms.openlocfilehash: cab40284f36f21f9de72ee4dc1faf78153621d26
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66475960"
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Résolution des problèmes : problèmes de connexion point à site Azure
@@ -58,17 +58,17 @@ Pour en savoir plus sur la façon d’installer le certificat client, consultez 
 > [!NOTE]
 > Lorsque vous importez le certificat client, ne sélectionnez pas l’option **Activer la protection renforcée par clé privée**.
 
-## <a name="the-network-connection-between-your-computer-and-the-vpn-server-could-not-be-established-because-the-remote-server-is-not-responding"></a>La connexion réseau entre votre ordinateur et le serveur VPN n’a pas pu être établie car le serveur distant ne répond pas
+## <a name="the-network-connection-between-your-computer-and-the-vpn-server-could-not-be-established-because-the-remote-server-is-not-responding"></a>La connexion réseau entre votre ordinateur et le serveur VPN n’a pas pu être établie parce que le serveur distant ne répond pas
 
 ### <a name="symptom"></a>Symptôme
 
-Lorsque vous essayez et vous connecter à une passerelle de réseau virtuel Azure à l’aide d’IKEv2 sur Windows, vous obtenez le message d’erreur suivant :
+Lorsque vous essayez de vous connecter à une passerelle de réseau virtuel Azure à l’aide d’IKEv2 sur Windows, vous obtenez le message d’erreur suivant :
 
-**La connexion réseau entre votre ordinateur et le serveur VPN n’a pas pu être établie car le serveur distant ne répond pas**
+**La connexion réseau entre votre ordinateur et le serveur VPN n’a pas pu être établie parce que le serveur distant ne répond pas**
 
 ### <a name="cause"></a>Cause :
  
- Le problème se produit si la version de Windows n’a pas de prise en charge de la fragmentation IKE
+ Ce problème se produit lorsqu’une version de Windows ne prend pas en charge la fragmentation IKE.
  
 ### <a name="solution"></a>Solution
 
@@ -246,7 +246,7 @@ Si le certificat a atteint plus de 50 % de sa durée de vie, il est restauré.
 
 ### <a name="solution"></a>Solution
 
-Pour résoudre ce problème, téléchargez à nouveau et redéployer le package Point à Site sur tous les clients.
+Pour résoudre ce problème, retéléchargez et redéployez le package point à site sur tous les clients.
 
 ## <a name="too-many-vpn-clients-connected-at-once"></a>Trop de clients VPN sont connectés
 

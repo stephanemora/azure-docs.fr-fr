@@ -1,6 +1,6 @@
 ---
-title: limites
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Limites - LUIS
+titleSuffix: Azure Cognitive Services
 description: Cet article liste les limites connues d’Azure Cognitive Services Language Understanding (LUIS). LUIS comporte plusieurs domaines limites. La limite de modèle contrôle les intentions, les entités et les caractéristiques dans LUIS. La limite de quota dépend du type de clé. La combinaison de touches contrôle le site web de LUIS.
 services: cognitive-services
 author: diberry
@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 04/18/2019
+ms.date: 07/29/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 357ed4c42cc2758766b9ccd45a3fafa541338d11
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6d4991a0a05bbdd7143987bfa227cc40732cda35
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65154567"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639249"
 ---
 # <a name="boundaries-for-your-luis-model-and-keys"></a>Limites pour vos clés et modèle LUIS
 LUIS comporte plusieurs domaines limites. Le premier est la [limite de modèle](#model-boundaries), qui contrôle les intentions, les entités et les fonctionnalités dans LUIS. Le deuxième domaine est la [limite de quota](#key-limits), qui est fonction du type de clé. Le troisième domaine de limites est la [combinaison clavier](#keyboard-controls) pour contrôler le site web LUIS. Un quatrième domaine est le [mappage de régions du monde](luis-reference-regions.md) entre le site web de création de LUIS et les API du [point de terminaison](luis-glossary.md#endpoint) de LUIS. 
@@ -73,10 +73,10 @@ La clé de création a différentes limites pour la création et le point de ter
 |--|--|--|--|
 |Création/Starter Language Understanding|1 000 000/mois, 5/seconde|1 000/mois, 5/seconde|Création de votre application LUIS|
 |[Abonnement][pricing] Language Understanding - F0 - Niveau gratuit |non valide|10 000 par mois, 5/seconde|Interrogation de votre point de terminaison LUIS|
-|[Abonnement][pricing] Language Understanding - S0 - Niveau de base|non valide|50/seconde|Interrogation de votre point de terminaison LUIS|
-|[Abonnement][pricing] Cognitive Services - S0 - Niveau standard|non valide|50/seconde|Interrogation de votre point de terminaison LUIS|
+|[Abonnement][pricing] Language Understanding - S0 - Niveau De base|non valide|50/seconde|Interrogation de votre point de terminaison LUIS|
+|[Abonnement][pricing] Cognitive Services - S0 - Niveau Standard|non valide|50/seconde|Interrogation de votre point de terminaison LUIS|
 |[Intégration de l’analyse des sentiments](luis-how-to-publish-app.md#enable-sentiment-analysis)|non valide|aucun frais|Ajout d’informations sur les sentiments, y compris l’extraction de données de phrases clés |
-|Intégration du Speech|non valide|5,50 USD/1 000 requêtes de point de terminaison|Convertir un énoncé vocal en énoncé de texte et retourner des résultats LUIS|
+|[Intégration de Speech](../speech-service/how-to-recognize-intents-from-speech-csharp.md)|non valide|5,50 USD/1 000 requêtes de point de terminaison|Convertir un énoncé vocal en énoncé de texte et retourner des résultats LUIS|
 
 ## <a name="keyboard-controls"></a>Commandes du clavier
 

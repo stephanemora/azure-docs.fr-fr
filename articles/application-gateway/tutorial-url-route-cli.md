@@ -4,16 +4,16 @@ description: Avec cet article, découvrez comment acheminer le trafic web selon 
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: tutorial
-ms.date: 5/20/2019
+ms.topic: article
+ms.date: 08/01/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: c0954d1010a6cf5ef6f8edab1470588df9fba559
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: b6bc0b00579bdef0a358f756b8cf2b6034aca017
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65955532"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68688175"
 ---
 # <a name="route-web-traffic-based-on-the-url-using-the-azure-cli"></a>Acheminer le trafic web selon l’URL à l’aide d’Azure CLI
 
@@ -70,12 +70,14 @@ az network vnet subnet create \
 
 az network public-ip create \
   --resource-group myResourceGroupAG \
-  --name myAGPublicIPAddress
+  --name myAGPublicIPAddress \
+  --allocation-method Static \
+  --sku Standard
 ```
 
 ## <a name="create-the-app-gateway-with-a-url-map"></a>Créer la passerelle d’application avec une carte URL
 
-Utilisez `az network application-gateway create` pour créer une passerelle d’application nommée *myAppGateway*. Quand vous créez une passerelle d’application avec Azure CLI, vous spécifiez des informations de configuration, telles que la capacité, la référence SKU et les paramètres HTTP. La passerelle d’application est affectée à *myAGSubnet* et à *myAGPublicIPAddress*, que vous avez créés.
+Utilisez `az network application-gateway create` pour créer une passerelle d’application nommée *myAppGateway*. Quand vous créez une passerelle d’application avec Azure CLI, vous spécifiez des informations de configuration, telles que la capacité, la référence SKU et les paramètres HTTP. La passerelle d’application est affectée à *myAGSubnet* et à *myAGPublicIPAddress*.
 
 ```azurecli-interactive
 az network application-gateway create \
@@ -85,7 +87,7 @@ az network application-gateway create \
   --vnet-name myVNet \
   --subnet myAGsubnet \
   --capacity 2 \
-  --sku Standard_Medium \
+  --sku Standard_v2 \
   --http-settings-cookie-based-affinity Disabled \
   --frontend-port 80 \
   --http-settings-port 80 \
@@ -180,7 +182,7 @@ az network application-gateway rule create \
   --address-pool appGatewayBackendPool
 ```
 
-## <a name="create-vm-scale-sets"></a>Créer des groupes de machines virtuelles identiques
+## <a name="create-virtual-machine-scale-sets"></a>Créer des groupes de machines virtuelles identiques
 
 Cet article crée trois groupes de machines virtuelles identiques prenant en charge les trois pools backend que vous avez créés. Ils sont nommés *myvmss1*, *myvmss2* et *myvmss3*. Chacun contient deux instances de machines virtuelles sur lesquelles NGINX sera installé.
 
@@ -246,11 +248,11 @@ az network public-ip show \
 
 ![Tester l’URL de base dans la passerelle d’application](./media/tutorial-url-route-cli/application-gateway-nginx.png)
 
-Remplacez l’URL par http://&lt;ip-address&gt;:8080/images/test.html, en indiquant votre adresse IP à la place de &lt;ip-address&gt;, de façon à voir apparaître quelque chose ressemblant à l’exemple suivant :
+Modifiez l’URL http://&lt;ip-address&gt;:8080/images/test.htm, en remplaçant votre adresse IP par &lt;ip-address&gt;. Vous devez ensuite voir quelque chose ressemblant à ceci :
 
 ![Tester l’URL images dans la passerelle d’application](./media/tutorial-url-route-cli/application-gateway-nginx-images.png)
 
-Changez l’URL en http://&lt;ip-address&gt;:8080/video/test.html, en remplaçant &lt;ip-address&gt; par votre adresse IP, de façon à voir apparaître quelque chose ressemblant à l’exemple suivant.
+Modifiez l’URL http://&lt;ip-address&gt;:8080/video/test.htm, en remplaçant votre adresse IP par &lt;ip-address&gt;. Vous devez ensuite voir quelque chose ressemblant à ceci.
 
 ![Tester l’URL vidéo dans la passerelle d’application](./media/tutorial-url-route-cli/application-gateway-nginx-video.png)
 
@@ -259,9 +261,9 @@ Changez l’URL en http://&lt;ip-address&gt;:8080/video/test.html, en remplaçan
 Lorsque vous n’en avez plus besoin, supprimez le groupe de ressources, la passerelle d’application et toutes les ressources associées.
 
 ```azurecli-interactive
-az group delete --name myResourceGroupAG --location eastus
+az group delete --name myResourceGroupAG
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Créer une passerelle d’application avec réacheminement par chemin d’URL](./tutorial-url-redirect-cli.md)
+[Créer une passerelle d’application avec réacheminement par chemin d’URL](./tutorial-url-redirect-cli.md)

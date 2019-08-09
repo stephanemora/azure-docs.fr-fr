@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 12/07/2018
 ms.author: iainfou
 ms.openlocfilehash: 20922f0fb6932191b8e522e4640b1ba4fecd5ca4
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66514559"
 ---
 # <a name="cluster-operator-and-developer-best-practices-to-build-and-manage-applications-on-azure-kubernetes-service-aks"></a>Meilleures pratiques à destination du développeur et de l’opérateur de clusters pour créer et gérer des applications sur Azure Kubernetes Service (AKS)
@@ -40,7 +40,7 @@ En tant qu’opérateur de cluster, travaillez avec les propriétaires d’appli
 * [Meilleures pratiques relatives à la sécurité et aux mises à niveau du cluster](operator-best-practices-cluster-security.md)
     * Inclut la sécurisation de l’accès au serveur d’API, la limitation de l’accès au conteneur et la gestion des mises à niveau et du redémarrage du nœud.
 * [Meilleures pratiques relatives à la gestion et à la sécurité des images de conteneur](operator-best-practices-container-image-management.md)
-    * Inclut la sécurisation de l’image et les runtimes et les générations automatisées sur les mises à jour de l’image de base.
+    * Inclut la sécurisation de l’image et des runtimes ainsi que les générations automatisées sur les mises à jour de l’image de base.
 * [Bonnes pratiques relatives à la sécurité de pod](developer-best-practices-pod-security.md)
     * Inclut la sécurisation de l’accès aux ressources, la limitation de l’exposition des informations d’identification et l’utilisation d’identités de pod et de coffres de clés numériques.
 

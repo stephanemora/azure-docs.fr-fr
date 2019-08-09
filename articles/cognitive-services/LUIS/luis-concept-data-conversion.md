@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 01/16/2019
 ms.author: diberry
 ms.openlocfilehash: a148c849d0935978f049e01dd254c4c18800ee3b
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66496983"
 ---
 # <a name="convert-data-format-of-utterances"></a>Convertir le format de données des énoncés
@@ -36,5 +36,5 @@ Voir les [limites de clés](luis-boundaries.md#key-limits) pour plus d’informa
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Extraction de données](luis-concept-data-extraction.md)
+> [Extraction des données](luis-concept-data-extraction.md)
 

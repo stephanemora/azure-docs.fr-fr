@@ -10,18 +10,18 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: 989c5c1cd9474999400177293d896b96c79c32b7
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
-ms.translationtype: MT
+ms.openlocfilehash: 5333f02edd6a4ff888e28ed36c2b78f75309f4d4
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65955228"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67060904"
 ---
 # <a name="azure-blockchain-workbench-architecture"></a>Architecture Azure Blockchain Workbench
 
 Azure Blockchain Workbench simplifie le développement d’applications blockchain en proposant une solution qui utilise plusieurs composants Azure. Blockchain Workbench peut être déployé à l’aide d’un modèle de solution dans la Place de marché Microsoft Azure. Ce modèle permet aux utilisateurs de choisir les modules et les composants à déployer, comme la pile blockchain, le type d’application cliente et la prise en charge de l’intégration IoT. Une fois déployé, Blockchain Workbench fournit un accès à une application web, une application iOS et une application Android.
 
-![Architecture de Blockchain Workbench](./media/architecture/architecture.png)
+![Architecture Blockchain Workbench](./media/architecture/architecture.png)
 
 ## <a name="identity-and-authentication"></a>Identité et authentification
 
@@ -45,7 +45,7 @@ Dans l’application web, les utilisateurs autorisés peuvent accéder à la con
 * Chargement et déploiement de leurs propres contrats intelligents.
 * Attribution d’un accès utilisateur au contrat intelligent dans le contexte d’un rôle spécifique.
 
-Pour plus d'informations, consultez les [exemples d'applications clientes Azure Blockchain Workbench sur GitHub](https://github.com/Azure-Samples/blockchain/tree/master/blockchain-development-kit/connect/mobile/blockchain-workbench/workbench-client).
+Pour plus d'informations, consultez les [exemples d'applications clientes Azure Blockchain Workbench sur GitHub](https://github.com/Azure-Samples/blockchain-devkit/tree/master/connect/mobile).
 
 ## <a name="gateway-service-api"></a>API de service de passerelle
 

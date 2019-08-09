@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 05/24/2019
 ms.author: mlearned
 ms.openlocfilehash: 6ddd1b160110e7a751f54f89b387a62d94e9308e
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "67614480"
 ---
 # <a name="connect-with-ssh-to-azure-kubernetes-service-aks-cluster-nodes-for-maintenance-or-troubleshooting"></a>Se connecter avec SSH à des nœuds de cluster AKS (Azure Kubernetes Service) pour effectuer des tâches de maintenance ou de dépannage
@@ -22,13 +22,13 @@ Cet article vous montre comment créer une connexion SSH avec un nœud AKS à l�
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-Cet article suppose que vous avez un cluster AKS existant. Si vous avez besoin d’un cluster AKS, consultez le guide de démarrage rapide AKS [avec Azure CLI][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal].
+Cet article suppose que vous avez un cluster AKS existant. Si vous avez besoin d’un cluster AKS, consultez le guide de démarrage rapide d’AKS [avec Azure CLI][aks-quickstart-cli]ou avec le [Portail Azure][aks-quickstart-portal].
 
-Azure CLI version 2.0.64 ou ultérieure doit également être installé et configuré. Exécutez  `az --version` pour trouver la version. Si vous devez effectuer une installation ou une mise à niveau, consultez  [Installation de l’interface de ligne de commande Azure][install-azure-cli].
+Le logiciel Azure CLI version 2.0.64 ou ultérieure doit également être installé et configuré. Exécutez  `az --version` pour trouver la version. Si vous devez effectuer une installation ou une mise à niveau, consultez  [Installation de l’interface de ligne de commande Azure][install-azure-cli].
 
 ## <a name="add-your-public-ssh-key"></a>Ajouter votre clé SSH publique
 
-Par défaut, les clés SSH sont obtenues ou générées, puis ajoutées aux nœuds lorsque vous créez un cluster AKS. Si vous avez besoin de spécifier des clés SSH différentes de celles utilisées lorsque vous avez créé votre cluster AKS, ajoutez votre clé SSH publique aux nœuds AKS Linux. Si nécessaire, vous pouvez créer une clé SSH à l’aide de [macOS ou Linux][ssh-nix] or [Windows][ssh-windows]. Si vous utilisez PuTTY Gen pour créer la paire de clés, enregistrez cette paire de clés dans un format OpenSSH plutôt que dans le format de clé privé PuTTy par défaut (fichier .ppk).
+Par défaut, les clés SSH sont obtenues ou générées, puis ajoutées aux nœuds lorsque vous créez un cluster AKS. Si vous avez besoin de spécifier des clés SSH différentes de celles utilisées lorsque vous avez créé votre cluster AKS, ajoutez votre clé SSH publique aux nœuds AKS Linux. Si nécessaire, vous pouvez créer une clé SSH à l’aide de [macOS, Linux][ssh-nix] ou [Windows][ssh-windows]. Si vous utilisez PuTTY Gen pour créer la paire de clés, enregistrez cette paire de clés dans un format OpenSSH plutôt que dans le format de clé privé PuTTy par défaut (fichier .ppk).
 
 > [!NOTE]
 > Les clés SSH peuvent actuellement uniquement être ajoutées à des nœuds Linux à l’aide de l’interface de ligne de commande Azure. Si vous utilisez des nœuds Windows Server, utilisez les clés SSH fournies lorsque vous avez créé le cluster AKS et passez à l’étape indiquant [comment obtenir l’adresse du nœud AKS](#get-the-aks-node-address). Ou [connectez-vous aux nœuds Windows Server à l’aide de connexions RDP (Remote Desktop Protocol)][aks-windows-rdp].
@@ -117,7 +117,7 @@ Les nœuds AKS ne sont pas exposés publiquement sur Internet. Pour vous connect
 
 ### <a name="ssh-to-regular-aks-clusters"></a>Se connecter via SSH à des clusters AKS ordinaires
 
-Affichez l’adresse IP privée d’un nœud de cluster AKS à l’aide de l’étape [az vm list-ip-addresses][az-vm-list-ip-addresses] command. Provide your own AKS cluster resource group name obtained in a previous [az-aks-show][az-aks-show] :
+Affichez l’adresse IP privée d’un nœud de cluster AKS à l’aide de la commande [az vm list-ip-addresses][az-vm-list-ip-addresses]. Fournissez le nom de votre propre groupe de ressources de cluster AKS obtenu à une étape [az-aks-show][az-aks-show] précédente :
 
 ```azurecli-interactive
 az vm list-ip-addresses --resource-group $CLUSTER_RESOURCE_GROUP -o table
@@ -224,7 +224,7 @@ Quand vous avez terminé, quittez (`exit`) la session SSH, puis quittez (`exit`)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Si vous avez besoin de données de dépannage supplémentaires, vous pouvez [consulter les journaux kubelet][view-kubelet-logs] or [view the Kubernetes master node logs][view-master-logs].
+Si vous avez besoin de données de dépannage supplémentaires, vous pouvez consulter [les journaux d’activité kubelet][view-kubelet-logs] ou [les journaux d’activité de nœud principal Kubernetes][view-master-logs].
 
 <!-- EXTERNAL LINKS -->
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get

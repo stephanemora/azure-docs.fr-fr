@@ -8,22 +8,22 @@ ms.topic: article
 ms.date: 04/19/2019
 ms.author: pabouwer
 ms.openlocfilehash: 9d973cb2ac210e912d93941a2f81889557379f43
-ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "67625978"
 ---
 # <a name="install-and-use-istio-in-azure-kubernetes-service-aks"></a>Installer et utiliser Istio dans AKS (Azure Kubernetes Service)
 
-[Istio][istio-github] is an open-source service mesh that provides a key set of functionality across the microservices in a Kubernetes cluster. These features include traffic management, service identity and security, policy enforcement, and observability. For more information about Istio, see the official [What is Istio?][istio-docs-concepts].
+[Istio][istio-github] est un maillage de services open source qui fournit un jeu de fonctionnalités de base dans les microservices d’un cluster Kubernetes. Ces fonctionnalités incluent la gestion du trafic, l’identité et la sécurité des services, l’application des stratégies et l’observabilité. Pour plus d’informations sur Istio, consultez la documentation officielle [What is Istio?][istio-docs-concepts].
 
 Cet article vous montre comment installer Istio. Le binaire client Istio, `istioctl`, est installé sur votre machine cliente et les composants Istio sont installés dans un cluster Kubernetes sur AKS.
 
 > [!NOTE]
 > Ces instructions référencent la version d’Istio `1.1.3`.
 >
-> Les versions Istio `1.1.x` ont été testées par l’équipe Istio par rapport aux versions Kubernetes `1.11`, `1.12` et `1.13`. Vous trouverez des versions supplémentaires d’Istio sur le site [GitHub - versions d’Istio][istio-github-releases] and information about each of the releases at [Istio - Release Notes][istio-release-notes].
+> Les versions Istio `1.1.x` ont été testées par l’équipe Istio par rapport aux versions Kubernetes `1.11`, `1.12` et `1.13`. Vous trouverez d’autres versions d’Istio sur la [page GitHub dédiée aux versions d’Istio][istio-github-releases] et des informations sur chaque version sur le site [Istio - Release Notes][istio-release-notes].
 
 Dans cet article, vous apprendrez comment :
 
@@ -215,7 +215,7 @@ Si vous en êtes arrivé à ce stade, cela signifie que vous avez correctement i
 > [!IMPORTANT]
 > Veillez à exécuter les étapes de cette section à partir du dossier de niveau supérieur de la version d’Istio que vous avez téléchargée et extraite.
 
-Nous allons installer [Grafana][grafana] and [Kiali][kiali] dans le cadre de notre installation Istio. Grafana fournit des tableaux de bord d’analyse et de surveillance, et Kiali fournit un tableau de bord d’observation du maillage de services. Dans notre configuration, chacun de ces composants requiert des informations d’identification qui doivent être fournies en tant que [secret][kubernetes-secrets].
+Nous allons installer [Grafana][grafana] et [Kiali][kiali] dans le cadre de notre installation Istio. Grafana fournit des tableaux de bord d’analyse et de surveillance, et Kiali fournit un tableau de bord d’observation du maillage de services. Dans notre configuration, chacun de ces composants nécessite des informations d’identification qui doivent être fournies en tant que [secret][kubernetes-secrets].
 
 Avant d’installer les composants Istio, nous devons créer les secrets pour Grafana et Kiali. Créez ces secrets en exécutant les commandes appropriées pour votre environnement.
 

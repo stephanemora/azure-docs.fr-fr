@@ -5,21 +5,21 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 04/29/2019
-ms.openlocfilehash: 8a78a9b8f0772a83e45ac2b926878e61e6ee2e61
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
-ms.translationtype: MT
+ms.date: 06/12/2019
+ms.openlocfilehash: 7a517be49a249b0b73c901137381bd05946aa4cc
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64926331"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67065696"
 ---
-# <a name="server-logs-in-azure-database-for-mariadb"></a>Journaux d’activité de serveur dans Azure Database for MariaDB
+# <a name="slow-query-logs-in-azure-database-for-mariadb"></a>Journaux des requêtes lentes dans Azure Database for MariaDB
 Dans Azure Database for MariaDB, le journal des requêtes lentes est accessible aux utilisateurs. L’accès aux journaux des transactions n’est pas pris en charge. Le journal des requêtes lentes peut être utilisé pour identifier les goulots d’étranglement en matière de performances, afin de les faire disparaître.
 
 Pour plus d’informations sur le journal des requêtes lentes, consultez la documentation MariaDB relative aux [journal des requêtes lentes](https://mariadb.com/kb/en/library/slow-query-log-overview/).
 
-## <a name="access-server-logs"></a>Accéder aux journaux d’activité du serveur
-Vous pouvez répertorier et télécharger les journaux d’activité des serveurs Azure Database for MariaDB à l’aide du portail Azure et de l’interface Azure CLI.
+## <a name="access-slow-query-logs"></a>Accéder aux journaux des requêtes lentes
+Vous pouvez lister et télécharger les journaux des requêtes lentes Azure Database for MariaDB à l’aide du portail Azure et de l’interface Azure CLI.
 
 Dans le portail Azure, sélectionnez votre serveur Azure Database for MariaDB. Sous l’en-tête **Supervision**, sélectionnez la page **Journaux d’activité des serveurs**.
 
@@ -30,7 +30,7 @@ Les journaux d’activité sont disponibles pendant sept jours à compter de leu
 
 Une rotation des journaux d’activité s’effectue toutes les 24 heures ou une fois les 7 Go atteints, selon ce qui se produit en premier.
 
-## <a name="configure-logging"></a>Configuration de la journalisation
+## <a name="configure-slow-query-logging"></a>Configurer la journalisation des requêtes lentes
 Par défaut, le journal des requêtes lentes est désactivé. Pour l’activer, définissez slow_query_log sur ON.
 
 Les autres paramètres que vous pouvez ajuster incluent :
@@ -43,10 +43,10 @@ Les autres paramètres que vous pouvez ajuster incluent :
 Consultez la [documentation MariaDB consacrée au journal des requêtes lentes](https://mariadb.com/kb/en/library/slow-query-log-overview/) pour obtenir une description complète des paramètres du journal des requêtes lentes.
 
 ## <a name="diagnostic-logs"></a>Journaux de diagnostic
-Azure Database pour MariaDB est intégré avec les journaux de Diagnostic Azure Monitor. Une fois que vous avez activé les journaux de requêtes lentes sur votre serveur de MariaDB, vous pouvez choisir pour qu’elles soient émis vers les journaux Azure Monitor, Event Hubs ou stockage Azure. Pour en savoir plus sur l’activation des journaux de diagnostic, consultez la section des procédures de la [documentation des journaux de diagnostic](../azure-monitor/platform/diagnostic-logs-overview.md).
+Azure Database for MariaDB est intégré aux journaux de diagnostic Azure Monitor. Une fois que vous avez activé les journaux des requêtes lentes sur votre serveur MariaDB, vous pouvez choisir qu’ils soient transmis vers des journaux Azure Monitor, des hubs d’événements et le Stockage Azure. Pour en savoir plus sur l’activation des journaux de diagnostic, consultez la section des procédures de la [documentation des journaux de diagnostic](../azure-monitor/platform/diagnostic-logs-overview.md).
 
 > [!IMPORTANT]
-> Cette fonctionnalité de diagnostique pour les journaux de serveur est uniquement disponible dans l’usage général et à mémoire optimisée [niveaux tarifaires](concepts-pricing-tiers.md).
+> Cette fonctionnalité de diagnostic des journaux de serveur n’est disponible que dans les [niveaux tarifaires](concepts-pricing-tiers.md) Usage général et Mémoire optimisée.
 
 Le tableau suivant décrit ce que contient chaque journal. En fonction de la méthode de sortie, les champs inclus et l’ordre dans lequel ils apparaissent peuvent varier.
 
@@ -72,10 +72,10 @@ Le tableau suivant décrit ce que contient chaque journal. En fonction de la mé
 | `rows_sent_s` | Nombre de lignes envoyées |
 | `rows_examined_s` | Nombre de lignes examinées |
 | `last_insert_id_s` | [last_insert_id](https://mariadb.com/kb/en/library/last_insert_id/) |
-| `insert_id_s` | Insérer des ID |
+| `insert_id_s` | ID de l’insertion |
 | `sql_text_s` | Requête complète |
-| `server_id_s` | ID de serveur |
-| `thread_id_s` | ID de thread  |
+| `server_id_s` | ID du serveur |
+| `thread_id_s` | ID du thread |
 | `\_ResourceId` | URI de ressource |
 
 ## <a name="next-steps"></a>Étapes suivantes

@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: b45fb5cbfbef334b40ccadecd32f65fa9a59a610
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.openlocfilehash: a03a778b2a057235b31d02e90e5ce87e9559b38a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64685663"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67058564"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---motivation-and-benefits"></a>Migrer des clusters Apache Hadoop locaux vers Azure HDInsight : raisons et avantages
 
@@ -21,7 +21,7 @@ Le présent document est le premier article d’une série sur les meilleures pr
 
 ## <a name="why-to-migrate-to-azure-hdinsight"></a>Pourquoi effectuer une migration vers Azure HDInsight
 
-Azure HDInsight est une distribution par cloud des composants Hadoop à partir de  [Hortonworks Data Platform(HDP)](https://hortonworks.com/products/data-center/hdp/). Azure HDInsight rend facile, rapide et économique le traitement de volumes importants de données. HDInsight inclut les infrastructures open source les plus populaires, telles que :
+Azure HDInsight est une distribution cloud des composants Hadoop. Azure HDInsight rend facile, rapide et économique le traitement de volumes importants de données. HDInsight inclut les infrastructures open source les plus populaires, telles que :
 
 - Apache Hadoop
 - Apache Spark
@@ -53,7 +53,7 @@ Azure HDInsight est une distribution par cloud des composants Hadoop à partir d
 
 - **Extensibilité grâce à des outils personnalisés ou des applications tierces** : vous pouvez étendre vos clusters HDInsight avec des composants installés, et les intégrer dans d’autres solutions de Big Data, en utilisant des déploiements [en un clic](https://azure.microsoft.com/services/hdinsight/partner-ecosystem/)  disponibles sur la Place de marché Microsoft Azure.
 
-- **Faciliter la gestion, administration et surveillance** -Azure HDInsight s’intègre avec [Azure Monitor enregistre](../hdinsight-hadoop-oms-log-analytics-tutorial.md) pour fournir une interface unique avec laquelle vous pouvez surveiller tous vos clusters.
+- **Gestion, administration et supervision simples** : Azure HDInsight s’intègre aux  [journaux Azure Monitor](../hdinsight-hadoop-oms-log-analytics-tutorial.md)  pour fournir une interface unique permettant de superviser l’ensemble des clusters.
 
 - **Intégration avec d’autres services Azure** : HDInsight s’intègre facilement avec d’autres services Azure populaires, à savoir :
 
@@ -90,19 +90,18 @@ Cette section fournit des modèles de questionnaires, afin de vous aider à coll
 | **Question** | **Exemple** | **Réponse** |
 |---|---|---|
 |**Rubrique** : **Environment**|||
-|Type de distribution du cluster|Hortonworks, Cloudera, MapR| |
 |Version de la distribution du cluster|HDP 2.6.5, CDH 5.7|
 |Composants de l’écosystème Big Data|HDFS, Yarn, Hive, LLAP, Impala, Kudu, HBase, Spark, MapReduce, Kafka, Zookeeper, Solr, Sqoop, Oozie, Ranger, Atlas, Falcon, Zeppelin, R|
 |Types de cluster|Hadoop, Spark, Confluent Kafka, Storm, Solr|
 |Nombre de clusters|4|
 |Nombre de nœuds principaux|2|
 |Nombre de nœuds Worker|100|
-|Nombre de nœuds de périphérie| 5.|
+|Nombre de nœuds de périphérie| 5\.|
 |Espace disque total|100 To|
 |Configuration des nœuds principaux|m/y, UC, disque, etc.|
 |Configuration des nœuds de données|m/y, UC, disque, etc.|
 |Configuration des nœuds de périphérie|m/y, UC, disque, etc.|
-|Chiffrement HDFS ?|Oui|
+|Chiffrement HDFS ?|OUI|
 |Haute disponibilité|HDFS, metastore|
 |Récupération d’urgence/sauvegarde|Cluster de sauvegarde ?|  
 |Systèmes dépendants du cluster|SQL Server, Teradata, Power BI, MongoDB|
@@ -168,8 +167,8 @@ Cette section fournit des modèles de questionnaires, afin de vous aider à coll
 |---|---|---|
 |**Question**|**Exemple**|**Réponse**|
 | Région recommandée|USA Est||
-|Réseau virtuel recommandé ?|Oui||
-|HA/récupération d’urgence requise(s) ?|Oui||
+|Réseau virtuel recommandé ?|OUI||
+|HA/récupération d’urgence requise(s) ?|OUI||
 |Intégration dans d’autres services cloud ?|ADF, CosmosDB||
 |**Rubrique** :   **Déplacement des données**  |||
 |Préférence en matière de charge initiale|DistCp, Data Box, ADF, WANDisco||
@@ -178,28 +177,27 @@ Cette section fournit des modèles de questionnaires, afin de vous aider à coll
 |**Rubrique** :   **Supervision et alertes** |||
 |Utilisation de fonctions de supervision et de création d’alertes Azure ou intégration d’une fonction de supervision tierce ?|Utiliser la supervision et les alertes Azure||
 |**Rubrique** :   **Préférences de sécurité** |||
-|Pipeline de données privé et protégé ?|Oui||
-|Cluster joint au domaine (ESP) ?|     Oui||
-|Synchronisation Active Directory locale vers le cloud ?|     Oui||
+|Pipeline de données privé et protégé ?|OUI||
+|Cluster joint au domaine (ESP) ?|     OUI||
+|Synchronisation Active Directory locale vers le cloud ?|     OUI||
 |Non. d’utilisateurs Active Directory à synchroniser|          100||
-|Synchroniser les mots de passe sur le cloud ?|    Oui||
-|Utilisateurs du cloud uniquement ?|                 Oui||
-|MFA requise ?|                       Non || 
-|Exigences relatives aux autorisations associées aux données ?|  Oui||
-|Contrôle d’accès en fonction du rôle|        Oui||
-|Audit nécessaire ?|                  Oui||
-|Chiffrement des données au repos ?|          Oui||
-|Chiffrement des données en transit ?|       Oui||
+|Synchroniser les mots de passe sur le cloud ?|    OUI||
+|Utilisateurs du cloud uniquement ?|                 OUI||
+|MFA requise ?|                       Non|| 
+|Exigences relatives aux autorisations associées aux données ?|  OUI||
+|Contrôle d’accès en fonction du rôle|        OUI||
+|Audit nécessaire ?|                  OUI||
+|Chiffrement des données au repos ?|          OUI||
+|Chiffrement des données en transit ?|       OUI||
 |**Rubrique** :   **Préférences de récréation d’architecture** |||
 |Cluster unique ou types de cluster spécifiques ?|Types de cluster spécifiques||
 |Stockage à distance ou stockage colocalisé ?|Stockage à distance||
 |Clusters plus petits si les données sont stockées à distance ?|Clusters plus petits||
 |Utiliser plusieurs clusters plus petits plutôt qu’un seul cluster volumineux ?|Utiliser plusieurs clusters plus petits||
-|Utiliser un metastore à distance ?|Oui||
-|Partager des metastores entre plusieurs clusters différents ?|Oui||
+|Utiliser un metastore à distance ?|OUI||
+|Partager des metastores entre plusieurs clusters différents ?|OUI||
 |Décomposer les charges de travail ?|Remplacer les travaux Hive par des travaux Spark||
-|Utiliser ADF pour l’orchestration des données ?|Non ||
-|Plateforme de données Hortonworks ou HDInsight sur l’infrastructure IaaS ?|HDInsight||
+|Utiliser ADF pour l’orchestration des données ?|Non||
 
 ## <a name="next-steps"></a>Étapes suivantes
 

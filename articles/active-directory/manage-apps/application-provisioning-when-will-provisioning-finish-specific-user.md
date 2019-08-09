@@ -16,18 +16,18 @@ ms.date: 06/12/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1fd6b70e7a4542a4cad2ee95fa280ddf8fbe6553
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.openlocfilehash: bf6190ae35a573ab4b9a37f5cd1f2bd75f06ca46
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67310030"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68667153"
 ---
 # <a name="check-the-status-of-user-provisioning"></a>Vérifier l’état de l’approvisionnement d’utilisateurs
 
 Le service d’approvisionnement d’Azure AD exécute un cycle d’approvisionnement initial sur le système source et le système cible, suivi de cycles incrémentiels périodiques. Lorsque vous configurez l’approvisionnement d’une application, vous pouvez vérifier l’état actuel du service d’approvisionnement et voir quand un utilisateur sera en mesure d’accéder à une application.
 
-## <a name="view-the-provisioning-progress-bar-preview"></a>Afficher la barre de progression de l’approvisionnement (préversion)
+## <a name="view-the-provisioning-progress-bar"></a>Afficher la barre de progression de l’approvisionnement
 
  Sur la page **Approvisionnement** d’une application, vous pouvez afficher l’état du service d’approvisionnement d’Azure AD. La section **État actuel** en bas de la page indique si le cycle a démarré l’approvisionnement de comptes d’utilisateurs. Vous pouvez surveiller la progression du cycle, voir combien d’utilisateurs et de groupes ont été approvisionnés et combien de rôles sont créés.
 

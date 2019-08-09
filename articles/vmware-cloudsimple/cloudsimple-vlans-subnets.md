@@ -1,6 +1,6 @@
 ---
-title: Réseaux locaux virtuels et sous-réseaux dans la VMware Solution par CloudSimple - Azure
-description: En savoir plus sur les réseaux locaux virtuels et sous-réseaux dans un cloud privé CloudSimple
+title: Réseaux locaux virtuels et sous-réseaux dans la solution VMware de CloudSimple - Azure
+description: En savoir plus sur les réseaux locaux virtuels et les sous-réseaux dans un cloud privé CloudSimple
 author: sharaths-cs
 ms.author: dikamath
 ms.date: 04/10/2019
@@ -9,77 +9,77 @@ ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 9d29445054848d798476fed8184b89f9b6c1210f
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66497573"
 ---
-# <a name="vlans-and-subnets-overview"></a>Vue d’ensemble des réseaux locaux virtuels et sous-réseaux
+# <a name="vlans-and-subnets-overview"></a>Vue d’ensemble des réseaux locaux virtuels et des sous-réseaux
 
-CloudSimple fournit un réseau par région où votre service CloudSimple est déployé.  Le réseau est un seul espace d’adresse TCP de couche 3 avec routage activé par défaut.  Tous les clouds privés et les sous-réseaux créés dans cette région peuvent communiquer entre eux sans aucune configuration supplémentaire.  Vous pouvez créer des groupes de ports distribué sur le serveur vCenter à l’aide des réseaux locaux virtuels.
+CloudSimple fournit un réseau par région où votre service CloudSimple est déployé.  Le réseau est un seul espace d’adressage TCP de couche 3 avec routage activé par défaut.  Tous les clouds privés et sous-réseaux créés dans cette région peuvent communiquer entre eux sans aucune configuration supplémentaire.  Vous pouvez créer des groupes de ports distribués sur le serveur vCenter à l’aide des réseaux locaux virtuels.
 
-![Topologie de réseau de CloudSimple](media/cloudsimple-network-topology.png)
+![Topologie de réseau CloudSimple](media/cloudsimple-network-topology.png)
 
 ## <a name="vlans"></a>Réseaux VLAN
 
-Réseaux locaux virtuels (réseau de couche 2) sont créés par le cloud privé.  Le trafic de couche 2 reste dans les limites d’un cloud privé, ce qui vous permet d’isoler le trafic local dans le cloud privé.  Un réseau local virtuel créé sur le cloud privé peut être utilisé pour créer des groupes de ports distribuées uniquement dans ce nuage privé.  Un réseau local virtuel créé sur un cloud privé est automatiquement configuré sur tous les commutateurs connectés aux hôtes d’un cloud privé.
+Les réseaux locaux virtuels (réseau de couche 2) sont créés par le cloud privé.  Le trafic de la couche 2 reste dans les limites d’un cloud privé, ce qui vous permet d’isoler le trafic local dans le cloud privé.  Un réseau local virtuel créé sur le cloud privé peut être utilisé pour créer des groupes de ports distribués uniquement dans ce nuage privé.  Un réseau local virtuel créé sur un cloud privé est automatiquement configuré sur tous les commutateurs connectés aux hôtes d’un cloud privé.
 
 ## <a name="subnets"></a>Sous-réseaux
 
-Vous pouvez créer un sous-réseau lorsque vous créez un réseau local virtuel, en définissant l’espace d’adressage du sous-réseau. Une adresse IP à partir de l’espace d’adressage est attribuée en tant que sous-réseau passerelle. Un seul espace d’adressage privé de couche 3 est affecté par le client et par région. Vous pouvez configurer n’importe quel espace adresse sans chevauchement de RFC 1918, avec votre réseau local ou d’un réseau virtuel Azure, dans la région de votre réseau.
+Vous pouvez créer un sous-réseau quand vous créez un réseau local virtuel, en définissant l’espace d’adressage du sous-réseau. Une adresse IP de l’espace d’adressage est affectée en tant que sous-réseau de passerelle. Un seul espace d’adressage privé de couche 3 est affecté par client et par région. Vous pouvez configurer n’importe quel espace d’adressage ne se chevauchant pas conforme à la RFC 1918, avec votre réseau local ou réseau virtuel Azure, dans la région de votre réseau.
 
-Tous les sous-réseaux peuvent communiquer entre eux par défaut, ce qui réduit la configuration de la surcharge pour le routage entre des clouds privés. Est-ouest des données sur les PC dans la même région restent dans le même réseau de couche 3 et transféré via l’infrastructure de réseau local au sein de la région. Aucune sortie n’est requise pour la communication entre des clouds privés dans une région. Cette approche permet d’éliminer toute altération des performances WAN et de sortie dans le déploiement de différentes charges de travail dans des clouds privés différents.
+Tous les sous-réseaux peuvent communiquer entre eux par défaut, ce qui réduit le temps de travail nécessaire pour configurer le routage entre des clouds privés. Les données Est-Ouest sur des PC de la même région restent dans le même réseau de couche 3 et sont transférées sur l’infrastructure du réseau local au sein de la région. Aucune sortie n’est requise pour la communication entre les clouds privés d’une même région. Cette approche permet d’éliminer toute altération des performances au niveau du réseau étendu et de la sortie lors du déploiement de différentes charges de travail sur plusieurs clouds privés.
 
-## <a name="vspherevsan-subnets-cidr-range"></a>plage CIDR vSphere/vSAN sous-réseaux
+## <a name="vspherevsan-subnets-cidr-range"></a>Plage CIDR de sous-réseaux vSphere/vSAN
 
-Un Cloud privé est créé comme une pile VMware isolée (hôtes ESXi vCenter, vSAN et NSX) environnement géré par un serveur vCenter.  Composants de gestion sont déployés dans le réseau sélectionné pour **vSphere/vSAN sous-réseaux CIDR**.  La plage CIDR du réseau est divisé en sous-réseaux différents pendant le déploiement.
+Un cloud privé est créé sous la forme d’un environnement isolé de la pile VMware (hôtes ESXi, vCenter, vSAN et NSX) géré par un serveur vCenter.  Les composants de gestion sont déployés sur le réseau sélectionné pour la **plage CIDR de sous-réseaux vSphere/vSAN**.  La plage CIDR du réseau est divisée en plusieurs sous-réseaux pendant le déploiement.
 
-Préfixe de plage minimale vSphere/vSAN sous-réseaux CIDR : **/24** sous-réseaux de vSphere/vSAN Maximum CIDR de plage préfixe :   **/21**
+Préfixe minimum de la plage CIDR de sous-réseaux vSphere/vSAN : **/24** Préfixe maximum de la plage CIDR de sous-réseaux vSphere/vSAN : **/21**
 
 > [!CAUTION]
-> Adresses IP dans la plage CIDR vSphere/vSAN sont réservés pour une utilisation par l’infrastructure de Cloud privé. N’utilisez pas une adresse IP dans cette plage sur n’importe quelle machine virtuelle.
+> L’utilisation des adresses IP de la plage CIDR vSphere/vSAN est réservée à l’infrastructure du cloud privé. N’utilisez aucune adresse IP de cette plage pour des machines virtuelles.
 
 
-### <a name="vspherevsan-subnets-cidr-range-limits"></a>limites de plage de sous-réseaux vSphere/vSAN CIDR
+### <a name="vspherevsan-subnets-cidr-range-limits"></a>Limites de la plage CIDR des sous-réseaux vSphere/vSAN
 
-En sélectionnant la taille de la plage CIDR vSphere/vSAN sous-réseaux a un impact sur la taille de votre nuage privé.  Tableau ci-dessous affiche le nombre maximal de nœuds, que vous pouvez avoir basée sur la taille des sous-réseaux vSphere/vSAN CIDR.
+La sélection de la taille de la plage CIDR de sous-réseaux vSphere/vSAN a un impact sur la taille de votre cloud privé.  Le tableau ci-dessous montre le nombre maximal de nœuds que vous pouvez avoir en fonction de la taille de la plage CIDR de sous-réseaux vSphere/vSAN.
 
-| Longueur du préfixe spécifiés vSphere/vSAN sous-réseaux CIDR | Nombre maximal de nœuds |
+| Longueur spécifiée du préfixe CIDR de sous-réseaux vSphere/vSAN | Nombre maximal de nœuds |
 |---------------------------------------------------|-------------------------|
 | /24 | 26 |
 | /23 | 58 |
 | /22 | 118 |
 | /21 | 220 |
 
-### <a name="management-subnets-created-on-a-private-cloud"></a>Sous-réseaux de gestion créés sur un Cloud privé
+### <a name="management-subnets-created-on-a-private-cloud"></a>Sous-réseaux de gestion créés sur un cloud privé
 
-Les sous-réseaux de gestion suivants sont créés lorsque vous créez un Cloud privé. 
+Les sous-réseaux de gestion suivants sont créés quand vous créez un cloud privé. 
 
-* **Gestion du système** -VLAN / sous-réseau pour la gestion des hôtes ESXi réseau, serveur DNS, serveur vCenter.
-* **VMotion** -réseau local virtuel et sous-réseau pour vMotion réseau des hôtes ESXi.
-* **VSAN** -réseau local virtuel et sous-réseau pour vSAN réseau des hôtes ESXi.
-* **NsxtEdgeUplink1** -VLAN et le sous-réseau pour les liaisons montantes de réseau local virtuel à un réseau externe.
-* **NsxtEdgeUplink2** -VLAN et le sous-réseau pour les liaisons montantes de réseau local virtuel à un réseau externe.
-* **NsxtEdgeTransport** -VLAN / sous-réseau pour les zones de transport contrôlent la portée des réseaux de couche 2 dans NSX-T.
-* **NsxtHostTransport** -zone de transport de réseau local virtuel et un sous-réseau pour l’hôte.
+* **System management** : réseau local virtuel et sous-réseau pour le réseau de gestion, le serveur DNS et le serveur vCenter des hôtes ESXi.
+* **VMotion** : réseau local virtuel et sous-réseau pour le réseau vMotion des hôtes ESXi.
+* **VSAN** : réseau local virtuel et sous-réseau pour le réseau vSAN des hôtes ESXi.
+* **NsxtEdgeUplink1** : réseau local virtuel et sous-réseau pour les liaisons montantes de réseau local virtuel à un réseau externe.
+* **NsxtEdgeUplink2** : réseau local virtuel et sous-réseau pour les liaisons montantes de réseau local virtuel à un réseau externe.
+* **NsxtEdgeTransport** : réseau local virtuel et sous-réseau pour les zones de transport contrôlant la portée des réseaux de couche 2 dans NSX-T.
+* **NsxtHostTransport** : réseau local virtuel et sous-réseau pour la zone de transport de l’hôte.
 
-### <a name="management-network-cidr-range-breakdown"></a>Répartition de plage CIDR gestion réseau
+### <a name="management-network-cidr-range-breakdown"></a>Décomposition de la plage CIDR du réseau de gestion
 
-la plage CIDR vSphere/vSAN sous-réseaux spécifiée est divisée en plusieurs sous-réseaux.  Tableau ci-dessous montre un exemple de la répartition des préfixes autorisés.  L’exemple utilise **192.168.0.0** en tant que la plage CIDR.
+La plage CIDR de sous-réseaux vSphere/vSAN spécifiée est divisée en plusieurs sous-réseaux.  Le tableau ci-dessous montre un exemple de la décomposition pour les préfixes autorisés.  L’exemple utilise **192.168.0.0** comme plage CIDR.
 
 Exemple :
 
-| Sous-réseaux vSphere/vSAN spécifiés/préfixe CIDR | 192.168.0.0/21 | 192.168.0.0/22 | 192.168.0.0/23 | 192.168.0.0/24 |
+| Plage CIDR de sous-réseaux vSphere/vSAN et préfixe spécifiés | 192.168.0.0/21 | 192.168.0.0/22 | 192.168.0.0/23 | 192.168.0.0/24 |
 |---------------------------------|----------------|----------------|----------------|----------------|
 | Gestion de systèmes | 192.168.0.0/24 | 192.168.0.0/24 | 192.168.0.0/25 | 192.168.0.0/26 |
 | vMotion | 192.168.1.0/24 | 192.168.1.0/25 | 192.168.0.128/26 | 192.168.0.64/27 |
 | vSAN | 192.168.2.0/24 | 192.168.1.128/25 | 192.168.0.192/26 | 192.168.0.96/27 |
-| Transport d’hôte NSX-T | 192.168.4.0/23 | 192.168.2.0/24 | 192.168.1.0/25 | 192.168.0.128/26 |
-| -T NSX Edge Transport | 192.168.7.208/28 | 192.168.3.208/28 | 192.168.1.208/28 | 192.168.0.208/28 |
-| -T NSX Edge Uplink1 | 192.168.7.224/28 | 192.168.3.224/28 | 192.168.1.224/28 | 192.168.0.224/28 |
-| -T NSX Edge uplink2 | 192.168.7.240/28 | 192.168.3.240/28 | 192.168.1.240/28 | 192.168.0.240/28 |
+| NSX-T Host Transport | 192.168.4.0/23 | 192.168.2.0/24 | 192.168.1.0/25 | 192.168.0.128/26 |
+| NSX-T Edge Transport | 192.168.7.208/28 | 192.168.3.208/28 | 192.168.1.208/28 | 192.168.0.208/28 |
+| NSX-T Edge Uplink1 | 192.168.7.224/28 | 192.168.3.224/28 | 192.168.1.224/28 | 192.168.0.224/28 |
+| NSX-T Edge uplink2 | 192.168.7.240/28 | 192.168.3.240/28 | 192.168.1.240/28 | 192.168.0.240/28 |
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Créer et gérer des réseaux locaux virtuels et sous-réseaux](https://docs.azure.cloudsimple.com/create-vlan-subnet/)
+* [Créer et gérer des réseaux locaux virtuels et des sous-réseaux](https://docs.azure.cloudsimple.com/create-vlan-subnet/)

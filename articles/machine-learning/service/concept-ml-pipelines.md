@@ -11,14 +11,14 @@ ms.author: sanpil
 author: sanpil
 ms.date: 05/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3e3fe64baca6e61c7eee214b84fd1ccdc88d3629
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.openlocfilehash: f49b384f6f943e8c6767a6133a835011bc1e6bac
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66237815"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67059328"
 ---
-# <a name="build-reusable-ml-pipelines-in-azure-machine-learning-service"></a>Créer des pipelines ML réutilisables dans le service Azure Machine Learning
+# <a name="build-reusable-ml-pipelines-in-azure-machine-learning-service"></a>Générer des pipelines ML réutilisables dans le service Azure Machine Learning
 
 Cet article présente les pipelines de Machine Learning que l’on peut créer avec le kit SDK Azure Machine Learning pour Python, ainsi que les avantages des pipelines.
 
@@ -34,15 +34,16 @@ Le diagramme suivant montre un exemple de pipeline :
 
 ![Pipelines de Machine Learning dans Azure Machine Learning service](./media/concept-ml-pipelines/pipelines.png)
 
+<a name="compare"></a>
 ### <a name="which-azure-pipeline-technology-should-i-use"></a>Quelle technologie de pipeline Azure dois-je utiliser ?
 
-Le cloud Azure offre plusieurs autres pipelines, chacun avec un objectif différent. Le tableau suivant répertorie les pipelines différents et qu’ils sont utilisés pour :
+Le cloud Azure offre plusieurs autres pipelines, chacun ayant un objectif différent. Le tableau suivant liste les différents pipelines et une explication de leur utilisation :
 
 | Pipeline | Résultat | Canal canonique |
 | ---- | ---- | ---- |
-| Azure Machine Learning pipelines | Définit des flux de travail qui peut être utilisé en tant que modèle pour vos scénarios d’apprentissage d’apprentissage réutilisable. | Données -> modèle |
-| [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/concepts-pipelines-activities) | Le déplacement des données de groupes, de transformation et de contrôler les activités nécessaires pour effectuer une tâche.  | Données -> données |
-| [Pipelines Azure](https://azure.microsoft.com/services/devops/pipelines/) | Intégration et livraison de votre application à tout any/plateforme cloud  | Code -> application/service |
+| Pipelines Azure Machine Learning | Définit des workflows Machine Learning réutilisables qui peuvent être utilisés comme modèle pour vos scénarios de Machine Learning. | Données -> modèle |
+| [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/concepts-pipelines-activities) | Regroupe les activités de déplacement, de transformation et de contrôle des données nécessaires pour effectuer une tâche.  | Données -> données |
+| [Pipelines Azure](https://azure.microsoft.com/services/devops/pipelines/) | Intégration et livraison continues de votre application à n’importe quelle plateforme/n’importe quel cloud  | Code -> application/service |
 
 ## <a name="why-build-pipelines-with-azure-machine-learning"></a>Pourquoi créer des pipelines dans Azure Machine Learning ?
 
@@ -50,11 +51,11 @@ Le [Kit SDK Azure Machine Learning pour Python](#the-python-sdk-for-pipelines) p
 
 Avec les pipelines, vous pouvez optimiser votre flux de travail en profitant de ces avantages : simplicité, rapidité, portabilité et réutilisation. Le fait de créer des pipelines avec Azure Machine Learning vous permet de vous concentrer sur votre domaine d’expertise, le Machine Learning, plutôt que sur l’infrastructure.
 
-Les étapes étant distinctes les unes des autres, vous pouvez réexécuter uniquement les étapes nécessaires lorsque vous modifiez et testez votre workflow. Une étape est une unité de calcul dans le pipeline. Comme l’illustre le diagramme précédent, la tâche de préparation des données peut comporter de nombreuses étapes, Ces étapes incluent, mais vous n’êtes pas limités à la normalisation, de transformation, de validation et de personnalisation de la. Les sources de données et données intermédiaires sont réutilisées dans le pipeline, ce qui permet d'économiser du temps de calcul et des ressources. 
+Les étapes étant distinctes les unes des autres, vous pouvez réexécuter uniquement les étapes nécessaires lorsque vous modifiez et testez votre workflow. Une étape est une unité de calcul dans le pipeline. Comme l’illustre le diagramme précédent, la tâche de préparation des données peut comporter de nombreuses étapes, notamment la normalisation, la transformation, la validation et la personnalisation. Les sources de données et données intermédiaires sont réutilisées dans le pipeline, ce qui permet d'économiser du temps de calcul et des ressources. 
 
 Une fois conçu, le pipeline fait souvent l’objet de réglages précis au cours du cycle d’entraînement du pipeline. Quand vous réexécutez un pipeline, l’exécution passe directement aux étapes qui doivent être réexécutées, par exemple un script d’entraînement mis à jour, et ignore ce qui n’a pas changé. Le même paradigme s’applique aux scripts inchangés utilisés pour l’exécution de l’étape. 
 
-Avec Azure Machine Learning, vous pouvez utiliser différentes boîtes à outils et infrastructures, telles que PyTorch ou TensorFlow, pour chaque étape dans votre pipeline. Azure effectue la coordination entre les différentes [cibles de calcul](concept-azure-machine-learning-architecture.md) utilisées, afin que les données intermédiaires soient faciles à partager avec les cibles de calcul en aval. 
+Avec Azure Machine Learning, vous pouvez utiliser différents kits de ressources et frameworks, comme PyTorch ou TensorFlow, à chaque étape de votre pipeline. Azure effectue la coordination entre les différentes [cibles de calcul](concept-azure-machine-learning-architecture.md) utilisées, afin que les données intermédiaires soient faciles à partager avec les cibles de calcul en aval. 
 
 Vous pouvez [suivre les mesures de vos expérimentations de pipeline](https://docs.microsoft.com/azure/machine-learning/service/how-to-track-experiments) directement dans le portail Microsoft Azure. 
 

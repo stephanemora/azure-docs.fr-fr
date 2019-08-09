@@ -1,51 +1,51 @@
 ---
-title: 'Démarrage rapide : Reconnaître l’encre numérique avec l’API REST de module de reconnaissance de l’encre etC#'
-description: Utilisez l’API de module de reconnaissance de l’encre pour démarrer la reconnaissance des traits d’encre numérique.
+title: 'Démarrage rapide : Reconnaître l’encre numérique avec l’API REST Ink Recognizer et C#'
+description: Utilisez l’API Ink Recognizer pour démarrer la reconnaissance des traits d’encre numérique.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ink-recognizer
-ms.topic: article
+ms.topic: quickstart
 ms.date: 05/02/2019
 ms.author: aahi
-ms.openlocfilehash: 9bb9c23cc1f807cae1d0d22f1652e8f4408f1f91
-ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
-ms.translationtype: MT
+ms.openlocfilehash: d661d6eca6e4916946944c48cc2e5411aeaf8f14
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65518668"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67060990"
 ---
-# <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-c"></a>Démarrage rapide : Reconnaître l’encre numérique avec l’API REST de module de reconnaissance de l’encre etC#
+# <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-c"></a>Démarrage rapide : Reconnaître l’encre numérique avec l’API REST Ink Recognizer et C#
 
-Utilisez ce guide de démarrage rapide pour commencer l’envoi des traits d’encre numérique à l’API de module de reconnaissance de l’encre. Cela C# application envoie une demande d’API contenant des données de trait d’encre au format JSON et reçoit la réponse.
+Utilisez ce guide de démarrage rapide pour commencer à envoyer des traits d’encre numérique à l’API Ink Recognizer. Cette application C# envoie une requête d’API contenant des données de trait d’encre au format JSON, puis obtient la réponse.
 
 Bien que cette application soit écrite en C#, l’API est un service web RESTful compatible avec la plupart des langages de programmation.
 
-En règle générale, vous appelez l’API à partir d’une application pour l’écriture manuscrite numérique. Ce démarrage rapide envoie des données de trait d’encre pour l’exemple suivant manuscrite à partir d’un fichier JSON.
+En règle générale, vous appelez l’API à partir d’une application d’écriture manuscrite numérique. Ce guide de démarrage rapide envoie des données de trait d’encre pour l’exemple d’écriture manuscrite suivant à partir d’un fichier JSON.
 
 ![une image de texte manuscrit](../media/handwriting-sample.jpg)
 
 Le code source de ce guide de démarrage rapide est disponible sur [GitHub](https://go.microsoft.com/fwlink/?linkid=2089502).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 - N’importe quelle édition de [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/).
 - [Newtonsoft.Json](https://www.newtonsoft.com/json)
-    - Pour installer Newtonsoft.Json sous forme de package NuGet dans Visual studio :
-        1. Cliquez avec le bouton droit sur le **Manager de la Solution**
+    - Pour installer Newtonsoft.Json en tant que package NuGet dans Visual Studio :
+        1. Cliquez avec le bouton droit sur le **Gestionnaire de solution**.
         2. Cliquez sur **Gérer les packages NuGet...**
-        3. Recherchez `Newtonsoft.Json` et installez le package
-- Si vous utilisez Linux/Mac OS, cette application peut être exécuté à l’aide de [Mono](https://www.mono-project.com/).
+        3. Recherchez `Newtonsoft.Json` et installez le package.
+- Si vous utilisez Linux/MacOS, cette application peut être exécutée à l’aide de [Mono](https://www.mono-project.com/).
 
-- Vous trouverez l’exemple de données de trait d’encre pour ce démarrage rapide sur [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/InkRecognition/quickstart/example-ink-strokes.json).
+- Vous trouverez l’exemple de données de trait d’encre utilisé dans ce guide de démarrage rapide sur [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/InkRecognition/quickstart/example-ink-strokes.json).
 
 [!INCLUDE [cognitive-services-ink-recognizer-signup-requirements](../../../../includes/cognitive-services-ink-recognizer-signup-requirements.md)]
 
 
 ## <a name="create-a-new-application"></a>Créer une application
 
-1. Dans Visual Studio, créez une nouvelle solution de console et ajoutez les packages suivants. 
+1. Dans Visual Studio, créez une solution de console et ajoutez les packages suivants. 
 
     ```csharp
     using System;
@@ -59,7 +59,7 @@ Le code source de ce guide de démarrage rapide est disponible sur [GitHub](http
     using Newtonsoft.Json.Linq;
     ```
 
-2. Créer des variables pour votre clé d’abonnement et votre point de terminaison. Voici l’URI que vous pouvez utiliser pour la reconnaissance de l’encre. Il sera ajouté à votre point de terminaison de service ultérieurement pour créer l’API URl de la demande.
+2. Créez des variables pour votre clé d’abonnement et votre point de terminaison. Vous trouverez ci-dessous l’URI que vous pouvez utiliser pour la reconnaissance de l’écriture manuscrite. Il sera ajouté ultérieurement à votre point de terminaison de service pour créer l’URI de requête d’API.
 
     ```csharp
     // Replace the subscriptionKey string with your valid subscription key.
@@ -73,13 +73,13 @@ Le code source de ce guide de démarrage rapide est disponible sur [GitHub](http
     const string inkRecognitionUrl = "/inkrecognizer/v1.0-preview/recognize";
     ```
 
-## <a name="create-a-function-to-send-requests"></a>Créer une fonction pour envoyer des demandes
+## <a name="create-a-function-to-send-requests"></a>Créer une fonction pour envoyer des requêtes
 
-1. Créez une fonction async appelée `Request` qui accepte les variables créées ci-dessus.
+1. Créez une fonction asynchrone appelée `Request` qui prend les variables créées plus haut.
 
-2. Définir le protocole de sécurité et informations d’en-tête à l’aide du client un `HttpClient` objet. Veillez à ajouter votre clé d’abonnement pour le `Ocp-Apim-Subscription-Key` en-tête. Créez ensuite un `StringContent` objet pour la requête.
+2. Définissez le protocole de sécurité et les informations d’en-tête du client à l’aide d’un objet `HttpClient`. Veillez à ajouter votre clé d’abonnement à l’en-tête `Ocp-Apim-Subscription-Key`. Créez ensuite un objet `StringContent` pour la requête.
  
-3. Envoyer la demande avec `PutAsync()`. Si la demande est acceptée, retourner la réponse.  
+3. Ensuite, envoyez la requête avec `PutAsync()`. Si la requête réussit, retournez la réponse.  
     
     ```csharp
     static async Task<string> Request(string apiAddress, string endpoint, string subscriptionKey, string requestData){
@@ -101,11 +101,11 @@ Le code source de ce guide de démarrage rapide est disponible sur [GitHub](http
     }
     ```
 
-## <a name="send-an-ink-recognition-request"></a>Envoyer une demande de reconnaissance de l’encre
+## <a name="send-an-ink-recognition-request"></a>Envoyer une requête de reconnaissance de l’écriture manuscrite
 
-1. Créer une nouvelle fonction appelée `recognizeInk()`. Construire la demande et l’envoyer en appelant le `Request()` fonction avec votre point de terminaison clé d’abonnement, l’URL de l’API et les données du trait d’encre numérique.
+1. Créez une fonction appelée `recognizeInk()`. Construisez la requête et envoyez-la en appelant la fonction `Request()` avec votre point de terminaison, la clé d’abonnement, l’URL de l’API et les données du trait d’encre numérique.
 
-2. Désérialiser l’objet JSON et l’écrire dans la console. 
+2. Désérialisez l’objet JSON et écrivez-le dans la console. 
     
     ```csharp
     static void recognizeInk(string requestData){
@@ -122,9 +122,9 @@ Le code source de ce guide de démarrage rapide est disponible sur [GitHub](http
     }
     ```
 
-## <a name="load-your-digital-ink-data"></a>Chargez vos données de l’encre numérique
+## <a name="load-your-digital-ink-data"></a>Charger vos données d’encre numérique
 
-Créer une fonction appelée `LoadJson()` pour charger le fichier JSON de données d’encre. Utilisez un `StreamReader` et `JsonTextReader` pour créer un `JObject` et renvoyez-le.
+Créez une fonction appelée `LoadJson()` pour charger le fichier JSON de données d’encre. Utilisez un `StreamReader` et un `JsonTextReader` pour créer un `JObject` et retournez-le.
     
 ```csharp
 public static JObject LoadJson(string fileLocation){
@@ -139,11 +139,11 @@ public static JObject LoadJson(string fileLocation){
 }
 ```
 
-## <a name="send-the-api-request"></a>Envoyer la demande d’API
+## <a name="send-the-api-request"></a>Envoyer la requête d’API
 
-1. Dans la méthode principale de votre application, charger vos données JSON avec la fonction créée ci-dessus. 
+1. Dans la méthode Main de votre application, chargez vos données JSON avec la fonction créée plus haut. 
 
-2. Appelez le `recognizeInk()` fonction créée ci-dessus. Utilisez `System.Console.ReadKey()` pour maintenir la fenêtre de console ouverte après l’exécution de l’application.
+2. Appelez la fonction `recognizeInk()` créée plus haut. Utilisez `System.Console.ReadKey()` pour maintenir la fenêtre de console ouverte après l’exécution de l’application.
     
     ```csharp
     static void Main(string[] args){
@@ -156,7 +156,7 @@ public static JObject LoadJson(string fileLocation){
         }
     ```
 
-## <a name="run-the-application-and-view-the-response"></a>Exécutez l’application et afficher la réponse
+## <a name="run-the-application-and-view-the-response"></a>Exécuter l’application et afficher la réponse
 
 Exécutez l'application. Une réponse correcte est retournée au format JSON. Vous pouvez également trouver la réponse JSON sur [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/InkRecognition/quickstart/example-response.json).
 

@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
 ms.openlocfilehash: 2192bad89764f20c24c85d9571bebbd6518de307
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66387277"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights pour les pages web
@@ -67,7 +67,7 @@ window[aiName]=aisdk,aisdk.queue&&0===aisdk.queue.length&&aisdk.trackPageView({}
 </script>
 ```
 
-Insérez-le juste avant la balise `</head>` de chaque page que vous voulez suivre. Si votre site Web possède une page maître, vous pouvez y placer le script. Exemple :
+Insérez-le juste avant la balise `</head>` de chaque page que vous voulez suivre. Si votre site Web possède une page maître, vous pouvez y placer le script. Par exemple :
 
 * Dans un projet ASP.NET MVC, vous devez placer le script dans `View\Shared\_Layout.cshtml`
 * Dans un site SharePoint, dans le panneau de configuration, ouvrez [Paramètres du site/Page maître](sharepoint.md).
@@ -86,7 +86,7 @@ Pour définir ces paramètres, recherchez cette ligne dans l’extrait de code e
       // Insert here
     });
 
-Pour obtenir une liste complète des paramètres de configuration, consultez le [GitHub Page](https://github.com/microsoft/applicationinsights-js#configuration). Certains paramètres disponibles incluent :
+Pour obtenir la liste complète des paramètres de configuration, consultez la [page GitHub](https://github.com/microsoft/applicationinsights-js#configuration). Les paramètres disponibles incluent :
 
     // Send telemetry immediately without batching.
     // Remember to remove this when no longer required, as it
@@ -144,17 +144,17 @@ Le graphique illustre la moyenne de tous les chargements de page dans votre appl
 
 Observez le nombre d’affichages de page et l’écart type. Si le nombre de pages est très faible, alors le problème n’a pas un impact important sur les utilisateurs. Un écart type élevé (comparable à la moyenne elle-même) indique une variation considérable entre les mesures individuelles.
 
-**Zoomez sur une URL et un affichage de page.**  Cliquez sur n’importe quel nom de page pour afficher un panneau de graphiques de navigateur filtrés en fonction de cette URL, puis sur une instance d’un affichage de page.
+**Zoomez sur une URL et un affichage de page.** Cliquez sur n’importe quel nom de page pour afficher un panneau de graphiques de navigateur filtrés en fonction de cette URL, puis sur une instance d’un affichage de page.
 
 ![](./media/javascript/35.png)
 
 Cliquez sur `...` pour obtenir une liste complète des propriétés de cet événement ou examinez les appels Ajax et les événements associés. S’ils sont synchrones, les appels Ajax lents ont un impact sur le temps de chargement de l’ensemble de la page. Les événements associés incluent les requêtes de serveur pour la même URL (si vous avez configuré Application Insights sur votre serveur web).
 
-**Historique des performances de la page.**  Dans le panneau Navigateurs, convertissez la grille Temps de chargement de la page consultée en graphique en courbes pour voir s’il y a des pics à des moments spécifiques :
+**Historique des performances de la page.** Dans le panneau Navigateurs, convertissez la grille Temps de chargement de la page consultée en graphique en courbes pour voir s’il y a des pics à des moments spécifiques :
 
 ![Cliquez sur l’en-tête de la grille et sélectionnez un nouveau type de graphique.](./media/javascript/10-page-perf-area.png)
 
-**Segmentation en fonction d’autres aspects.**  Vos pages mettent peut-être plus de temps à se charger sur un navigateur ou un système d’exploitation spécifiques, ou encore selon l’emplacement géographique de l’utilisateur ? Ajoutez un nouveau graphique et faites des essais avec l’option **Grouper par** .
+**Segmentation en fonction d’autres aspects.** Vos pages mettent peut-être plus de temps à se charger sur un navigateur ou un système d’exploitation spécifiques, ou encore selon l’emplacement géographique de l’utilisateur ? Ajoutez un nouveau graphique et faites des essais avec l’option **Grouper par** .
 
 ![](./media/javascript/21.png)
 

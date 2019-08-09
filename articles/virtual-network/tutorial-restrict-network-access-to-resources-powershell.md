@@ -18,10 +18,10 @@ ms.date: 03/14/2018
 ms.author: kumud
 ms.custom: ''
 ms.openlocfilehash: b76256ef70b85df0c504427179518d175f08b645
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66727673"
 ---
 # <a name="restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-powershell"></a>Restreindre l’accès réseau aux ressources PaaS avec des points de terminaison de service de réseau virtuel en utilisant Azure PowerShell
@@ -61,7 +61,7 @@ $virtualNetwork = New-AzVirtualNetwork `
   -AddressPrefix 10.0.0.0/16
 ```
 
-Créer une configuration de sous-réseau [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig). L’exemple suivant crée une configuration de sous-réseau pour un sous-réseau nommé *Public* :
+Créez une configuration de sous-réseau à l’aide de la commande [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig). L’exemple suivant crée une configuration de sous-réseau pour un sous-réseau nommé *Public* :
 
 ```azurepowershell-interactive
 $subnetConfigPublic = Add-AzVirtualNetworkSubnetConfig `
@@ -70,7 +70,7 @@ $subnetConfigPublic = Add-AzVirtualNetworkSubnetConfig `
   -VirtualNetwork $virtualNetwork
 ```
 
-Créer le sous-réseau dans le réseau virtuel en écrivant la configuration de sous-réseau dans le réseau virtuel avec [Set-AzVirtualNetwork](/powershell/module/az.network/Set-azVirtualNetwork):
+Créez le sous-réseau dans le réseau virtuel en écrivant la configuration du sous-réseau dans le réseau virtuel à l’aide de [Set-AzVirtualNetwork](/powershell/module/az.network/Set-azVirtualNetwork) :
 
 ```azurepowershell-interactive
 $virtualNetwork | Set-AzVirtualNetwork
@@ -78,7 +78,7 @@ $virtualNetwork | Set-AzVirtualNetwork
 
 ## <a name="enable-a-service-endpoint"></a>Activer un point de terminaison de service
 
-Vous ne pouvez activer des points de terminaison de service que pour les services qui prennent en charge les points de terminaison de service. Afficher le service point de terminaison activé les services disponibles dans un emplacement Azure avec [Get-AzVirtualNetworkAvailableEndpointService](/powershell/module/az.network/get-azvirtualnetworkavailableendpointservice). L’exemple suivant retourne la liste des services de la région *eastus* pour lesquels les points de terminaison de service ont été activés. La liste des services retournés augmente avec chaque nouvelle activation des points de terminaison de service.
+Vous ne pouvez activer des points de terminaison de service que pour les services qui prennent en charge les points de terminaison de service. Affichez les services avec points de terminaison qui se trouvent à un emplacement Azure donné avec [Get-AzVirtualNetworkAvailableEndpointService](/powershell/module/az.network/get-azvirtualnetworkavailableendpointservice). L’exemple suivant retourne la liste des services de la région *eastus* pour lesquels les points de terminaison de service ont été activés. La liste des services retournés augmente avec chaque nouvelle activation des points de terminaison de service.
 
 ```azurepowershell-interactive
 Get-AzVirtualNetworkAvailableEndpointService -Location eastus | Select Name
@@ -98,7 +98,7 @@ $virtualNetwork | Set-AzVirtualNetwork
 
 ## <a name="restrict-network-access-for-a-subnet"></a>Restreindre l’accès réseau d’un sous-réseau
 
-Créer des règles de sécurité de groupe avec la sécurité du réseau [New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig). La règle suivante autorise un accès sortant vers les adresses IP publiques affectées au service Stockage Azure : 
+Créez des règles de sécurité de groupe de sécurité réseau avec [New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig). La règle suivante autorise un accès sortant vers les adresses IP publiques affectées au service Stockage Azure : 
 
 ```azurepowershell-interactive
 $rule1 = New-AzNetworkSecurityRuleConfig `
@@ -153,7 +153,7 @@ $nsg = New-AzNetworkSecurityGroup `
   -SecurityRules $rule1,$rule2,$rule3
 ```
 
-Associer le groupe de sécurité réseau à le *privé* sous-réseau avec [Set-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/set-azvirtualnetworksubnetconfig) , puis écrivez la configuration de sous-réseau dans le réseau virtuel. L’exemple suivant associe le groupe de sécurité réseau *myNsgPrivate* au sous-réseau *Private* :
+Associez le groupe de sécurité réseau au sous-réseau *Private* avec [Set-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/set-azvirtualnetworksubnetconfig), puis écrivez la configuration du sous-réseau dans le réseau virtuel. L’exemple suivant associe le groupe de sécurité réseau *myNsgPrivate* au sous-réseau *Private* :
 
 ```azurepowershell-interactive
 Set-AzVirtualNetworkSubnetConfig `
@@ -185,7 +185,7 @@ New-AzStorageAccount `
   -Kind StorageV2
 ```
 
-Une fois le compte de stockage est créé, récupérez la clé du compte de stockage dans une variable avec [Get-AzStorageAccountKey](/powershell/module/az.storage/get-azstorageaccountkey):
+Une fois le compte de stockage créé, récupérez la clé du compte de stockage dans une variable avec [Get-AzStorageAccountKey](/powershell/module/az.storage/get-azstorageaccountkey) :
 
 ```azurepowershell-interactive
 $storageAcctKey = (Get-AzStorageAccountKey `
@@ -203,13 +203,13 @@ Créez un contexte pour votre compte de stockage et votre clé avec [New-AzStora
 $storageContext = New-AzStorageContext $storageAcctName $storageAcctKey
 ```
 
-Créer un partage de fichiers avec [New-AzStorageShare](/powershell/module/az.storage/new-azstorageshare):
+Créez un partage de fichiers avec [New-AzStorageShare](/powershell/module/az.storage/new-azstorageshare) :
 
 $share = New-AzStorageShare my-file-share -Context $storageContext
 
 ### <a name="deny-all-network-access-to-a-storage-account"></a>Refuser tout accès réseau au compte de stockage
 
-Par défaut, les comptes de stockage acceptent les connexions réseau provenant des clients de n’importe quel réseau. Pour limiter l’accès aux réseaux sélectionnés, modifiez l’action par défaut à *Deny* avec [AzStorageAccountNetworkRuleSet de mise à jour](/powershell/module/az.storage/update-azstorageaccountnetworkruleset). Une fois l’accès réseau refusé, le compte de stockage n’est plus accessible par aucun des réseaux.
+Par défaut, les comptes de stockage acceptent les connexions réseau provenant des clients de n’importe quel réseau. Pour limiter l’accès aux réseaux sélectionnés, définissez l’action par défaut sur *Refuser* avec [Update-AzStorageAccountNetworkRuleSet](/powershell/module/az.storage/update-azstorageaccountnetworkruleset). Une fois l’accès réseau refusé, le compte de stockage n’est plus accessible par aucun des réseaux.
 
 ```azurepowershell-interactive
 Update-AzStorageAccountNetworkRuleSet  `
@@ -220,7 +220,7 @@ Update-AzStorageAccountNetworkRuleSet  `
 
 ### <a name="enable-network-access-from-a-subnet"></a>Activer l’accès réseau à partir d’un sous-réseau
 
-Récupérer le réseau virtuel créé avec [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork) et comment récupérer l’objet de sous-réseau privé dans une variable avec [Get-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/get-azvirtualnetworksubnetconfig):
+Récupérez le réseau virtuel créé avec [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork), puis récupérez l’objet de sous-réseau privé dans une variable avec [Get-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/get-azvirtualnetworksubnetconfig) :
 
 ```azurepowershell-interactive
 $privateSubnet = Get-AzVirtualNetwork `
@@ -230,7 +230,7 @@ $privateSubnet = Get-AzVirtualNetwork `
   -Name "Private"
 ```
 
-Autoriser l’accès réseau au compte de stockage à partir de la *privé* sous-réseau avec [Add-AzStorageAccountNetworkRule](/powershell/module/az.network/add-aznetworksecurityruleconfig).
+Autorisez l’accès réseau au compte de stockage à partir du sous-réseau *Private* avec [Add-AzStorageAccountNetworkRule](/powershell/module/az.network/add-aznetworksecurityruleconfig).
 
 ```azurepowershell-interactive
 Add-AzStorageAccountNetworkRule `
@@ -245,7 +245,7 @@ Pour tester l’accès réseau à un compte de stockage, déployez une machine v
 
 ### <a name="create-the-first-virtual-machine"></a>Créer la première machine virtuelle
 
-Créer une machine virtuelle dans le *Public* sous-réseau avec [New-AzVM](/powershell/module/az.compute/new-azvm). Lors de l’exécution de la commande qui suit, vous êtes invité à saisir vos informations d’identification. Les valeurs que vous saisissez sont configurées comme le nom d’utilisateur et le mot de passe pour la machine virtuelle. L’option `-AsJob` crée la machine virtuelle en arrière-plan. Vous pouvez donc passer à l’étape suivante.
+Créez une machine virtuelle dans le sous-réseau *Public* avec [New-AzVM](/powershell/module/az.compute/new-azvm). Lors de l’exécution de la commande qui suit, vous êtes invité à saisir vos informations d’identification. Les valeurs que vous saisissez sont configurées comme le nom d’utilisateur et le mot de passe pour la machine virtuelle. L’option `-AsJob` crée la machine virtuelle en arrière-plan. Vous pouvez donc passer à l’étape suivante.
 
 ```azurepowershell-interactive
 New-AzVm `
@@ -364,7 +364,7 @@ Get-AzStorageFile `
   -Context $storageContext
 ```
 
-L’accès est refusé et vous recevez un *Get-AzStorageFile : Le serveur distant a retourné une erreur : (403) Interdit. Code d’état HTTP : 403 - Message d’erreur HTTP : Cette requête n’est pas autorisée à effectuer cette opération*, car votre ordinateur ne se trouve pas dans le sous-réseau *Private* du réseau virtuel *MyVirtualNetwork*.
+L’accès est refusé, et vous recevez une erreur indiquant *Get-AzStorageFile : Le serveur distant a retourné une erreur : (403) Interdit. Code d’état HTTP : 403 - Message d’erreur HTTP : Cette requête n’est pas autorisée à effectuer cette opération*, car votre ordinateur ne se trouve pas dans le sous-réseau *Private* du réseau virtuel *MyVirtualNetwork*.
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 

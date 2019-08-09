@@ -1,5 +1,5 @@
 ---
-title: Copier des données à partir d’Office 365 à l’aide d’Azure Data Factory | Microsoft Docs
+title: Copier des données depuis Office 365 avec Azure Data Factory | Microsoft Docs
 description: Découvrez comment utiliser l’activité de copie dans un pipeline Azure Data Factory pour copier des données d’Office 365 vers des banques de données réceptrices prises en charge.
 services: data-factory
 documentationcenter: ''
@@ -13,29 +13,29 @@ ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: jingwang
 ms.openlocfilehash: 1a8d622aa280794d9a4d6fe7320ddcc21ac044f4
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66475653"
 ---
-# <a name="copy-data-from-office-365-into-azure-using-azure-data-factory"></a>Copier des données à partir d’Office 365 dans Azure à l’aide d’Azure Data Factory
+# <a name="copy-data-from-office-365-into-azure-using-azure-data-factory"></a>Copier des données dans Azure depuis Office 365 avec Azure Data Factory
 
-Azure Data Factory s’intègre à [de connexion Microsoft Graph data](https://docs.microsoft.com/graph/data-connect-concept-overview), ce qui vous permet de mettre les riches en données organisationnelles dans votre Office 365 client dans Azure de manière évolutive et créer des applications d’analytique et extraire des analyses en fonction de ces précieuses ressources de données. L’intégration avec Privileged Access Management fournit un contrôle d’accès sécurisé pour les données organisées dans Office 365.  Reportez-vous à [ce lien](https://docs.microsoft.com/graph/data-connect-concept-overview) pour une vue d’ensemble sur les données de Microsoft Graph se connecter et [ce lien](https://docs.microsoft.com/graph/data-connect-policies#licensing) pour les informations de licence.
+Azure Data Factory s’intègre avec [Microsoft Graph data connect](https://docs.microsoft.com/graph/data-connect-concept-overview) et vous permet de transférer de façon progressive vers Azure les données de votre organisation présentes dans votre locataire Office 365, de créer des applications d’analytique et d’extraire des insights basés sur ces riches ressources de données. L’intégration avec Privileged Access Management fournit un contrôle d’accès sécurisé pour les données organisées dans Office 365.  Reportez-vous à [ce lien](https://docs.microsoft.com/graph/data-connect-concept-overview) pour une vue d’ensemble sur Microsoft Graph data connect et à [ce lien](https://docs.microsoft.com/graph/data-connect-policies#licensing) pour les informations de licence.
 
 Cet article explique comment utiliser l’activité de copie dans Azure Data Factory pour copier des données d’Office 365. Il s’appuie sur l’article [Vue d’ensemble de l’activité de copie](copy-activity-overview.md).
 
 ## <a name="supported-capabilities"></a>Fonctionnalités prises en charge
-Connecteur ADF Office 365 et les données de Microsoft Graph connectent permet à l’intégration à l’échelle de différents types de jeux de données à partir de boîtes aux lettres de l’extension de messagerie Exchange, y compris le carnet d’adresses, les événements de calendrier, messages électroniques, les informations utilisateur, paramètres de boîte aux lettres, et ainsi de suite.  Consultez [ici](https://docs.microsoft.com/graph/data-connect-datasets) pour afficher la liste complète des jeux de données disponibles.
+Le connecteur ADF Office 365 et Microsoft Graph data connect favorisent l’ingestion à grande échelle de différents types de jeux de données à partir de boîtes aux lettres prenant en charge l’e-mail Exchange, notamment le carnet d’adresses, les événements de calendrier, les messages, les informations utilisateur, les paramètres de boîte aux lettres, etc.  Reportez-vous [ici](https://docs.microsoft.com/graph/data-connect-datasets) pour voir la liste complète des jeux de données disponibles.
 
-Pour l’instant, au sein d’une seule activité de copie vous pouvez uniquement **copier des données à partir d’Office 365 dans [stockage Blob Azure](connector-azure-blob-storage.md), [Gen1 de stockage Azure Data Lake](connector-azure-data-lake-store.md), et [Azure Data Lake Storage Gen2 ](connector-azure-data-lake-storage.md) au format JSON** (de type setOfObjects). Si vous voulez charger des données Office 365 dans d’autres types de banques de données ou dans d’autres formats, vous pouvez faire suivre la première activité de copie d’une autre activité de copie pour charger les données dans une des [banques de données de destination ADF prises en charge](copy-activity-overview.md#supported-data-stores-and-formats) (reportez-vous à la colonne « prise en charge en tant que récepteur »du tableau « Banques de données et formats pris en charge »).
+À ce stade, au sein d’une seule activité de copie, vous pouvez seulement **copier des données depuis Office 365 dans [Stockage Blob Azure](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md) et [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) au format JSON** (type setOfObjects). Si vous voulez charger des données Office 365 dans d’autres types de banques de données ou dans d’autres formats, vous pouvez faire suivre la première activité de copie d’une autre activité de copie pour charger les données dans une des [banques de données de destination ADF prises en charge](copy-activity-overview.md#supported-data-stores-and-formats) (reportez-vous à la colonne « prise en charge en tant que récepteur »du tableau « Banques de données et formats pris en charge »).
 
 >[!IMPORTANT]
 >- L’abonnement Azure contenant la fabrique de données et la banque de données réceptrice doit être sous le même locataire Azure Active Directory (Azure AD) que le locataire Office 365.
 >- Vérifiez que la région Azure Integration Runtime utilisée pour l’activité de copie et la destination se trouvent dans la même région que celle où se trouve la boîte aux lettres des utilisateurs du locataire Office 365. Pour comprendre comment l’emplacement d’Azure Integration Runtime est déterminé, suivez [ce lien](concepts-integration-runtime.md#integration-runtime-location). Consultez [ce tableau](https://docs.microsoft.com/graph/data-connect-datasets#regions) pour obtenir la liste des régions Office et des régions Azure correspondantes prises en charge.
->- Authentification de principal du service est le seul mécanisme d’authentification pris en charge pour le stockage d’objets Blob Azure, Azure Data Lake Storage Gen1 et Gen2 de stockage Azure Data Lake comme banques de destination.
+>- L’authentification d’un principal de service est le seul mécanisme d’authentification pris en charge pour Stockage Blob Azure, Azure Data Lake Storage Gen1 et Azure Data Lake Storage Gen2 comme magasins de destination.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Pour copier des données depuis Office 365 dans Azure, vous devez effectuer les étapes prérequises suivantes :
 
@@ -79,11 +79,11 @@ Les propriétés prises en charge pour le service lié Office 365 sont les suiva
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type doit être définie sur : **Office365** | Oui |
-| office365TenantId | ID de locataire Azure auquel le compte Office 365 appartient. | Oui |
-| servicePrincipalTenantId | Spécifiez les informations du locataire où se trouve votre application web Azure AD. | Oui |
+| type | La propriété type doit être définie sur : **Office365** | OUI |
+| office365TenantId | ID de locataire Azure auquel le compte Office 365 appartient. | OUI |
+| servicePrincipalTenantId | Spécifiez les informations du locataire où se trouve votre application web Azure AD. | OUI |
 | servicePrincipalId | Spécifiez l’ID client de l’application. | OUI |
-| servicePrincipalKey | Spécifiez la clé de l’application. Marquez ce champ comme SecureString pour le stocker de façon sécurisée dans Data Factory. | Oui |
+| servicePrincipalKey | Spécifiez la clé de l’application. Marquez ce champ comme SecureString pour le stocker de façon sécurisée dans Data Factory. | OUI |
 | connectVia | Runtime d’intégration à utiliser pour la connexion à la banque de données.  À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. | Non |
 
 >[!NOTE]
@@ -119,13 +119,13 @@ Pour copier des données depuis Office 365, les propriétés suivantes sont pris
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type du jeu de données doit être définie sur : **Office365Table** | Oui |
-| tableName | Nom du jeu de données à extraire d’Office 365. Cliquez [ici](https://docs.microsoft.com/graph/data-connect-datasets#datasets) pour obtenir la liste des jeux de données Office 365 disponibles pour l’extraction. | Oui |
-| allowedGroups | Prédicat de sélection de groupe.  Cette propriété permet de sélectionner jusqu'à 10 groupes d’utilisateurs pour lesquels les données seront récupérées.  Si aucun groupe n’est spécifié, les données seront affichera pour toute l’organisation. | Non |
-| userScopeFilterUri | Lorsque `allowedGroups` propriété n’est pas spécifiée, vous pouvez utiliser une expression de prédicat est appliquée sur l’ensemble du locataire pour filtrer les lignes spécifiques à extraire à partir d’Office 365. Le format de prédicat doit correspondre au format de requête de l’API Microsoft Graph, par exemple, `https://graph.microsoft.com/v1.0/users?$filter=Department eq 'Finance'`. | Non |
-| dateFilterColumn | Nom de la colonne de filtre de date/heure. Cette propriété permet de limiter l’intervalle de temps pour les Office 365 sont extraites les données. | Oui, si le jeu de données comporte une ou plusieurs colonnes de date/heure. Consultez [ici](https://docs.microsoft.com/graph/data-connect-filtering#filtering) pour la liste des jeux de données qui nécessitent ce filtre de date/heure. |
-| startTime | Démarrer la valeur DateTime à filtrer. | Oui, si `dateFilterColumn` est spécifié |
-| endTime | Fin de valeur DateTime à filtrer. | Oui, si `dateFilterColumn` est spécifié |
+| Type | La propriété type du jeu de données doit être définie sur : **Office365Table** | OUI |
+| tableName | Nom du jeu de données à extraire d’Office 365. Cliquez [ici](https://docs.microsoft.com/graph/data-connect-datasets#datasets) pour obtenir la liste des jeux de données Office 365 disponibles pour l’extraction. | OUI |
+| allowedGroups | Prédicat de sélection de groupe.  Cette propriété permet de sélectionner jusqu'à 10 groupes d’utilisateurs pour lesquels les données seront récupérées.  Si aucun groupe n’est spécifié, les données sont retournées pour toute l’organisation. | Non |
+| userScopeFilterUri | Lorsque la propriété `allowedGroups` n’est pas spécifiée, vous pouvez utiliser une expression de prédicat appliquée sur l’ensemble du locataire pour filtrer les lignes spécifiques à extraire d’Office 365. Le format de prédicat doit correspondre au format de requête des API Microsoft Graph, par exemple, `https://graph.microsoft.com/v1.0/users?$filter=Department eq 'Finance'`. | Non |
+| dateFilterColumn | Nom de la colonne de filtre de date/heure. Cette propriété permet de limiter l’intervalle de temps pendant lequel les données Office 365 sont extraites. | Oui, si le jeu de données comporte une ou plusieurs colonnes de date/heure. Reportez-vous [ici](https://docs.microsoft.com/graph/data-connect-filtering#filtering) pour obtenir la liste des jeux de données qui nécessitent ce filtre de date/heure. |
+| startTime | Valeur de date/heure de début sur laquelle filtrer. | Oui, si `dateFilterColumn` est spécifié |
+| endTime | Valeur de date/heure de fin sur laquelle filtrer. | Oui, si `dateFilterColumn` est spécifié |
 
 **Exemple**
 

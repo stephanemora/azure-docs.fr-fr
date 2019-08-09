@@ -1,6 +1,6 @@
 ---
-title: Azure Blockchain Service pris en charge les versions de comptabilité, mise à jour corrective et mise à niveau
-description: Vue d’ensemble des versions prises en charge de registres dans Azure Blockchain Service, y compris les stratégies en matière de systèmes de mise à jour corrective et gérés par le système et gérées par l’utilisateur des mises à niveau.
+title: Versions de registre, mise à jour corrective et mise à niveau prises en charge par Azure Blockchain Service
+description: Vue d’ensemble des versions de registre prises en charge dans Azure Blockchain Service, y compris des stratégies en matière de mise à jour corrective des systèmes et de mises à niveau gérées par le système et gérées par l’utilisateur.
 services: azure-blockchain
 keywords: blockchain
 author: PatAltimore
@@ -11,32 +11,32 @@ ms.service: azure-blockchain
 ms.reviewer: janders
 manager: femila
 ms.openlocfilehash: 53f65ec91a1e0f1e5a6322f0125bf83cd3e400b2
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66399106"
 ---
-# <a name="supported-azure-blockchain-service-ledger-versions"></a>Versions de comptabilité Azure Blockchain Service prises en charge
+# <a name="supported-azure-blockchain-service-ledger-versions"></a>Versions de registre d’Azure Blockchain Service prises en charge
 
-Azure Blockchain Service utilise le Ethereum [Quorum](https://www.goquorum.com/developers) général conçu pour le traitement des transactions privés au sein d’un groupe de participants connus, identifié comme un consortium dans Azure Blockchain Service.
+Azure Blockchain Service utilise le registre [Quorum](https://www.goquorum.com/developers) basé sur Ethereum et conçu pour le traitement des transactions privées au sein d’un groupe de participants connus, identifié en tant que consortium dans Azure Blockchain Service.
 
-Actuellement, Azure Blockchain Service prend en charge [Quorum version 2.2.1](https://github.com/jpmorganchase/quorum/releases/tag/v2.2.1) et [Gestionnaire de transactions Tessera](https://github.com/jpmorganchase/tessera).
+Actuellement, Azure Blockchain Service prend en charge [Quorum version 2.2.1](https://github.com/jpmorganchase/quorum/releases/tag/v2.2.1) et le [gestionnaire de transactions Tessera](https://github.com/jpmorganchase/tessera).
 
 ## <a name="managing-updates-and-upgrades"></a>Gestion des mises à jour et des mises à niveau
 
-Le contrôle de version dans le Quorum est effectuée via une majeure, mineure et libère de correctif. Par exemple, si la version de Quorum est 2.0.1, type de version sont catégorisée comme suit :
+Le contrôle de version dans Quorum s’effectue via les versions majeure, mineure et de correctifs. Par exemple, si la version de Quorum est 2.0.1, le type de version est catégorisé comme suit :
 
-|Major | Secondaire  | Correctif  |
+|Majeure | Secondaire  | Correctif  |
 | :--- | :----- | :----- |
 | 2 | 0 | 1 | 
 
-Azure Blockchain Service met automatiquement à jour les versions de correctifs de Quorum aux membres en cours d’exécution existants dans les 30 jours de la mise à disposition à partir de Quorum.
+Azure Blockchain Service met à jour automatiquement les versions de correctifs de Quorum sur les membres en cours d’exécution dans les 30 jours de leur mise à disposition à partir de Quorum.
 
-## <a name="availability-of-new-ledger-versions"></a>Disponibilité de nouvelles versions de livre
+## <a name="availability-of-new-ledger-versions"></a>Disponibilité des nouvelles versions de registre
 
-Azure Blockchain Service fournit les dernières versions majeure et mineure de la comptabilité de Quorum dans les 60 jours d’être disponibles auprès du fabricant de Quorum. Un maximum de quatre versions mineures sont fournis pour consortiums sélectionnables lors de la configuration d’un nouveau membre et un consortium. Version de la mise à niveau à partir de des principales ou secondaire n’est actuellement pas pris en charge.
+Azure Blockchain Service fournit les dernières versions majeure et mineure du registre Quorum dans les 60 jours suivant leur mise à disposition par le fabricant de Quorum. Un maximum de quatre versions mineures sont fournies au choix aux consortiums lors du provisionnement d’un nouveau membre et d’un consortium. La mise à niveau de/vers une version majeure ou mineure n’est actuellement pas prise en charge.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Limites dans le Service Azure Blockchain](limits.md)
+[Limites dans Azure Blockchain Service](limits.md)

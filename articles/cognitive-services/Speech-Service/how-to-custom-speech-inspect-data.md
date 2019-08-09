@@ -1,7 +1,7 @@
 ---
-title: Inspecter la qualité des données pour la reconnaissance vocale personnalisée - Services de reconnaissance vocale
+title: Inspecter la qualité des données pour Custom Speech – Speech Services
 titlesuffix: Azure Cognitive Services
-description: Custom Speech fournit des outils qui vous permettent d’inspecter visuellement la qualité de la reconnaissance d’un modèle en comparant les données audio avec le résultat de reconnaissance correspondant. À partir du portail de la reconnaissance vocale personnalisé, vous pouvez lire son chargé et déterminer si le résultat de la reconnaissance fourni est correct.  Cet outil vous permet d’inspecter rapidement les qualité du modèle de reconnaissance vocale de Microsoft de référence ou un modèle formé personnalisé sans avoir à transcrire toutes les données audio.
+description: Custom Speech propose des outils qui vous permettent d’inspecter visuellement la qualité de la reconnaissance d’un modèle en comparant les données audio au résultat de la reconnaissance correspondante. À partir du portail Custom Speech, vous pouvez lire le contenu audio chargé et déterminer si le résultat proposé de la reconnaissance est correct.  Cet outil vous permet d’inspecter rapidement la qualité du modèle de reconnaissance vocale de référence de Microsoft ou d’un modèle entraîné personnalisé sans qu’il soit nécessaire de transcrire des données audio.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,50 +10,50 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: 682f3df362a7fbb0e95a07aa8a8f3a068367eef2
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
-ms.translationtype: MT
+ms.openlocfilehash: 132e355abbdbe147a843c51efd018cc759c06836
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025817"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67064036"
 ---
-# <a name="inspect-custom-speech-data"></a>Inspecter les données de la reconnaissance vocale personnalisé
+# <a name="inspect-custom-speech-data"></a>Inspecter des données Custom Speech
 
 > [!NOTE]
-> Cette page suppose que vous avez lu [préparer les données de test pour la reconnaissance vocale personnalisé](how-to-custom-speech-test-data.md) et avez chargé un jeu de données pour l’inspection.
+> Cette page suppose que vous avez lu [Préparer des données de test pour Custom Speech](how-to-custom-speech-test-data.md) et que vous avez chargé un jeu de données pour l’inspecter.
 
-Custom Speech fournit des outils qui vous permettent d’inspecter visuellement la qualité de la reconnaissance d’un modèle en comparant les données audio avec le résultat de reconnaissance correspondant. À partir du portail de la reconnaissance vocale personnalisé, vous pouvez lire son chargé et déterminer si le résultat de la reconnaissance fourni est correct. Cet outil vous permet d’inspecter rapidement les qualité du modèle de reconnaissance vocale de Microsoft de référence ou un modèle formé personnalisé sans avoir à transcrire toutes les données audio.
+Custom Speech propose des outils qui vous permettent d’inspecter visuellement la qualité de la reconnaissance d’un modèle en comparant les données audio au résultat de la reconnaissance correspondante. À partir du portail Custom Speech, vous pouvez lire le contenu audio chargé et déterminer si le résultat proposé de la reconnaissance est correct. Cet outil vous permet d’inspecter rapidement la qualité du modèle de reconnaissance vocale de référence de Microsoft ou d’un modèle entraîné personnalisé sans qu’il soit nécessaire de transcrire des données audio.
 
-Dans ce document, vous allez apprendre à inspecter visuellement la qualité d’un modèle avec les données d’apprentissage que vous avez téléchargé précédemment.
+Dans ce document, vous allez apprendre à inspecter visuellement la qualité d’un modèle en utilisant les données d’entraînement que vous avez chargées précédemment.
 
-Dans cette page, vous allez apprendre à inspecter visuellement la qualité du modèle de reconnaissance vocale de Microsoft de référence et/ou un modèle personnalisé que vous avez formé. Vous utiliserez les données que vous avez téléchargé à le **données** onglet pour le test.
+Dans cette page, vous allez apprendre à inspecter visuellement la qualité du modèle de reconnaissance vocale de référence de Microsoft et/ou d’un modèle personnalisé que vous avez entraîné. Vous allez utiliser les données que vous avez chargées sous l’onglet **Data** à des fins de test.
 
 ## <a name="create-a-test"></a>Créer un test
 
-Suivez ces instructions pour créer un test :
+Pour créer un test, suivez ces instructions :
 
-1. Accédez à **parole-texte > vocal personnalisé > test**.
-2. Cliquez sur **ajouter Test**.
-3. Sélectionnez **Inspecter qualité (données Audio-only)**. Nommez le test, description, puis sélectionnez votre jeu de données audio.
-4. Sélectionnez jusqu'à deux modèles que vous souhaitez tester.
+1. Accédez à **Speech-to-text > Custom Speech > Testing**.
+2. Cliquez sur **Add Test** (Ajouter un test).
+3. Sélectionnez **Inspect quality (Audio-only data)** [Inspecter la qualité (données audio uniquement)]. Nommez et décrivez le test et sélectionnez votre jeu de données audio.
+4. Sélectionnez les modèles que vous voulez tester (deux au maximum).
 5. Cliquez sur **Créer**.
 
-Une fois un test a été créé avec succès, vous pouvez comparer les modèles côte à côte.
+Une fois que vous avez créé un test, vous pouvez comparer les modèles côte à côte.
 
-## <a name="side-by-side-model-comparisons"></a>Comparaisons côte à côte
+## <a name="side-by-side-model-comparisons"></a>Comparaisons côte à côte de modèles
 
-Lorsque l’état de test est *Succeeded*, cliquez dans le nom d’élément de test pour afficher les détails du test. Cette page de détails répertorie tous les énoncés dans votre jeu de données, en indiquant les résultats de reconnaissance des deux modèles en même temps que la transcription du jeu de données soumis.
+Quand l’état du test est *Succeeded* (Opération réussie), cliquez sur le nom du test pour en voir les détails. Cette page de détails liste tous les énoncés de votre jeu de données, indiquant les résultats de la reconnaissance des deux modèles avec la transcription du jeu de données soumis.
 
-Pour aider à inspecter la comparaison côte à côte, vous pouvez basculer les divers types d’erreurs, y compris d’insertion, suppression et la substitution. En écoutant l’audio et de comparaison des résultats de reconnaissance dans chaque colonne (montrant la transcription étiquetés humaines et les résultats des deux modèles de reconnaissance vocale), vous pouvez décider quel modèle répond à vos besoins et où les améliorations sont nécessaires.
+Pour inspecter plus facilement la comparaison côte à côte, vous pouvez voir les différents types d’erreurs (insertion, suppression et substitution). En écoutant le contenu audio et en comparant les résultats de la reconnaissance dans chaque colonne (transcription étiquetée à la main et résultats des deux modèles de reconnaissance vocale), vous pouvez identifier le modèle qui répond à vos besoins et à quel niveau il est nécessaire d’apporter des améliorations.
 
-Inspection des tests de qualité est utile pour vérifier si la qualité d’un point de terminaison de reconnaissance vocale est suffisant pour une application.  Objectif de mesure de précision, nécessitant retranscrits audio, suivez les instructions figurant en cours de test : Évaluer la précision.
+Le test d’inspection de la qualité est utile pour vérifier si la qualité d’un point de terminaison de reconnaissance vocale est suffisante pour une application.  Pour obtenir une mesure objective de la précision, ce qui nécessite que le contenu audio soit transcrit, suivez les instructions fournies dans [Évaluer la précision](how-to-custom-speech-evaluate-data.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Évaluer vos données](how-to-custom-speech-evaluate-data.md)
-* [Formation d’un modèle](how-to-custom-speech-train-model.md)
-* [Déployer votre modèle](how-to-custom-speech-deploy-model.md)
+* [Évaluer les données](how-to-custom-speech-evaluate-data.md)
+* [Entraîner un modèle](how-to-custom-speech-train-model.md)
+* [Déployer un modèle](how-to-custom-speech-deploy-model.md)
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-* [Préparer les données de test pour la reconnaissance vocale personnalisé](how-to-custom-speech-test-data.md)
+* [Préparer les données de test pour Custom Speech](how-to-custom-speech-test-data.md)

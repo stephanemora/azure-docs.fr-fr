@@ -1,7 +1,7 @@
 ---
 title: Paramètres de l’application
 titleSuffix: Azure Cognitive Services
-description: Comprendre les paramètres de l’application pour les applications de présentation de langage.
+description: Apprenez à connaître les paramètres des applications Language Understanding.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,25 +11,25 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 05/29/2019
 ms.author: diberry
-ms.openlocfilehash: c19d328c3a5f4dd6dbe14ca94809e42c5655ea72
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
-ms.translationtype: MT
+ms.openlocfilehash: a8a1f6fe9372d013d310c557161ceb813b8a478b
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66391143"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67163633"
 ---
 # <a name="application-settings"></a>Paramètres de l’application
 
-Ces paramètres d’application sont stockés dans le [exporté](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c40) application et [mis à jour](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) avec les API REST. Modification des paramètres de version application rétablit le statut de votre formation application non formé.
+Ces paramètres d’application sont stockés dans l’application [exportée](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c40) et [mis à jour](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) avec les API REST. Le fait de modifier vos paramètres de version d’application réinitialise le statut d’entraînement de votre application sur « Non entraînée ».
 
 |Paramètre|Valeur par défaut|Notes|
 |--|--|--|
 |NormalizePunctuation|True|Supprime les signes de ponctuation.|
 |NormalizeDiacritics|True|Supprime les signes diacritiques.|
 
-## <a name="diacritics-normalization"></a>Normalisation de signes diacritiques 
+## <a name="diacritics-normalization"></a>Normalisation des signes diacritiques 
 
-Activer la normalisation énoncé pour les signes diacritiques à votre fichier d’application LUIS JSON dans le `settings` paramètre.
+Activez la normalisation de l’énoncé pour les signes diacritiques dans votre fichier d’application LUIS JSON avec le paramètre `settings`.
 
 ```JSON
 "settings": [
@@ -37,18 +37,18 @@ Activer la normalisation énoncé pour les signes diacritiques à votre fichier 
 ] 
 ```
 
-Les énoncés suivants montrent l’impact de la normalisation de signes diacritiques énoncés :
+Les énoncés suivants montrent l’impact de la normalisation des signes diacritiques sur les énoncés :
 
-|Avec la valeur false de signes diacritiques|Dont les signes diacritiques est définie sur true|
+|Avec les signes diacritiques définis sur false|Avec les signes diacritiques définis sur true|
 |--|--|
 |`quiero tomar una piña colada`|`quiero tomar una pina colada`|
 |||
 
 ### <a name="language-support-for-diacritics"></a>Prise en charge linguistique pour les signes diacritiques
 
-#### <a name="brazilian-portuguese-pt-br-diacritics"></a>Portugais (Brésil) `pt-br` les signes diacritiques
+#### <a name="brazilian-portuguese-pt-br-diacritics"></a>Signes diacritiques pour le Portugais (Brésil) `pt-br`
 
-|Les signes diacritiques défini sur false|Les signes diacritiques défini sur false|
+|Signes diacritiques définis sur false|Signes diacritiques définis sur false|
 |-|-|
 |`á`|`a`|
 |`â`|`a`|
@@ -64,9 +64,9 @@ Les énoncés suivants montrent l’impact de la normalisation de signes diacrit
 |`ú`|`u`| 
 |||
 
-#### <a name="dutch-nl-nl-diacritics"></a>Néerlandais `nl-nl` les signes diacritiques
+#### <a name="dutch-nl-nl-diacritics"></a>Signes diacritiques pour le Néerlandais `nl-nl`
 
-|Les signes diacritiques défini sur false|Les signes diacritiques défini sur false|
+|Signes diacritiques définis sur false|Signes diacritiques définis sur false|
 |-|-|
 |`á`|`a`|
 |`à`|`a`|
@@ -81,11 +81,11 @@ Les énoncés suivants montrent l’impact de la normalisation de signes diacrit
 |`ü`|`u`|
 |||
 
-#### <a name="french-fr--diacritics"></a>Français `fr-` les signes diacritiques
+#### <a name="french-fr--diacritics"></a>Signes diacritiques pour le Français `fr-`
 
-Cela inclut les sous-cultures français et canadiens.
+Cela inclut les sous-cultures Français et Canadien.
 
-|Les signes diacritiques défini sur false|Les signes diacritiques défini sur false|
+|Signes diacritiques définis sur false|Signes diacritiques définis sur false|
 |--|--|
 |`é`|`e`|
 |`à`|`a`|
@@ -102,17 +102,17 @@ Cela inclut les sous-cultures français et canadiens.
 |`ü`|`u`| 
 |`ÿ`|`y`| 
 
-#### <a name="german-de-de-diacritics"></a>Allemand `de-de` les signes diacritiques
+#### <a name="german-de-de-diacritics"></a>Signes diacritiques pour l’Allemand `de-de`
 
-|Les signes diacritiques défini sur false|Les signes diacritiques défini sur false|
+|Signes diacritiques définis sur false|Signes diacritiques définis sur false|
 |--|--|
 |`ä`|`a`|
-|`ö `|`o`| 
-|`ü `|`u`| 
+|`ö`|`o`| 
+|`ü`|`u`| 
 
-#### <a name="italian-it-it-diacritics"></a>Italien `it-it` les signes diacritiques
+#### <a name="italian-it-it-diacritics"></a>Signes diacritiques pour l’Italien `it-it`
 
-|Les signes diacritiques défini sur false|Les signes diacritiques défini sur false|
+|Signes diacritiques définis sur false|Signes diacritiques définis sur false|
 |--|--|
 |`à`|`a`|
 |`è`|`e`|
@@ -121,20 +121,20 @@ Cela inclut les sous-cultures français et canadiens.
 |`í`|`i`| 
 |`î`|`i`| 
 |`ò`|`o`| 
-|`ó `|`o`| 
+|`ó`|`o`| 
 |`ù`|`u`|
 |`ú`|`u`|
 
-#### <a name="spanish-es--diacritics"></a>Espagnol `es-` les signes diacritiques
+#### <a name="spanish-es--diacritics"></a>Signes diacritiques pour l’Espagnol `es-`
 
-Cela inclut le Mexique espagnol et canadiens.
+Cela inclut les sous-cultures Mexicain et Espagnol.
 
-|Les signes diacritiques défini sur false|Les signes diacritiques défini sur false|
+|Signes diacritiques définis sur false|Signes diacritiques définis sur false|
 |-|-|
 |`á`|`a`|
 |`é`|`e`|
 |`í`|`i`| 
-|`ó `|`o`| 
+|`ó`|`o`| 
 |`ú`|`u`|
 |`ü`|`u`|
 |`ñ`|`u`|
@@ -142,7 +142,7 @@ Cela inclut le Mexique espagnol et canadiens.
 
 ## <a name="punctuation-normalization"></a>Normalisation des signes de ponctuation
 
-Activer la normalisation énoncé d’une ponctuation à votre fichier d’application LUIS JSON dans le `settings` paramètre.
+Activez la normalisation de l’énoncé pour la ponctuation dans votre fichier d’application LUIS JSON avec le paramètre `settings`.
 
 ```JSON
 "settings": [
@@ -150,16 +150,16 @@ Activer la normalisation énoncé d’une ponctuation à votre fichier d’appli
 ] 
 ```
 
-Les énoncés suivants montrent comment les signes diacritiques a un impact sur énoncés :
+Les énoncés suivants montrent l’impact des signes diacritiques sur les énoncés :
 
-|Avec la valeur False de signes diacritiques|Avec la valeur True de signes diacritiques|
+|Avec les signes diacritiques définis sur False|Avec les signes diacritiques définis sur True|
 |--|--|
 |`Hmm..... I will take the cappuccino`|`Hmm I will take the cappuccino`|
 |||
 
-### <a name="punctuation-removed"></a>Ponctuation
+### <a name="punctuation-removed"></a>Ponctuation supprimée
 
-La ponctuation suivante est supprimée avec `NormalizePunctuation` est définie sur true.
+La ponctuation suivante est supprimée quand `NormalizePunctuation` a la valeur true.
 
 |Ponctuation|
 |--|

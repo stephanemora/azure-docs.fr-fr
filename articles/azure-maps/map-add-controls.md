@@ -3,17 +3,17 @@ title: Ajouter des contrôles de carte dans Azure Maps | Microsoft Docs
 description: Comment ajouter un contrôle de zoom, un contrôle de tonalité, un contrôle de rotation et un sélecteur de styles à une carte dans Azure Maps.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 10/08/2018
+ms.date: 07/29/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: c1f5dd329f34d64478d605c21d229d8c75a99300
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7a504b8df199a3a461d5eb4e5b7238462b4c438f
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62108717"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68638771"
 ---
 # <a name="add-map-controls-to-azure-maps"></a>Ajouter des contrôles de carte à Azure Maps
 
@@ -24,7 +24,7 @@ Cet article décrit comment ajouter des contrôles de carte à une carte. Vous a
 <iframe height='500' scrolling='no' title='Ajout d’un contrôle de zoom' src='//codepen.io/azuremaps/embed/WKOQyN/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consultez la section <a href='https://codepen.io/azuremaps/pen/WKOQyN/'>Ajout d’un contrôle de zoom</a> par Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) sur <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-Le premier bloc de code définit la clé d’abonnement et crée un objet carte sans prédéfinir le style. Pour obtenir des instructions sur la création d’une carte, consultez [Créer une carte](./map-create.md).
+Le premier bloc de code crée un objet de carte à l’aide du mécanisme d’authentification anonyme. Pour obtenir des instructions sur la création d’une carte, consultez [Créer une carte](./map-create.md).
 
 Le contrôle de zoom vous permet d’agrandir et de réduire la carte. Le deuxième bloc de code crée un objet contrôle de zoom à l’aide de l’atlas [ZoomControl](/javascript/api/azure-maps-control/atlas.control.zoomcontrol) et l’ajoute à la carte à l’aide de la méthode [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) de la carte. Le contrôle de zoom se situe dans le **détecteur d’événements** de la carte pour s’assurer du chargement une fois que la carte est entièrement chargée.
 
@@ -33,7 +33,7 @@ Le contrôle de zoom vous permet d’agrandir et de réduire la carte. Le deuxi�
 <iframe height='500' scrolling='no' title='Ajout d’un contrôle de tonalité' src='//codepen.io/azuremaps/embed/xJrwaP/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consultez la section <a href='https://codepen.io/azuremaps/pen/xJrwaP/'>Ajout d’un contrôle de tonalité</a> par Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) sur <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-Le premier bloc de code définit la clé d’abonnement et crée un objet carte sans prédéfinir le style. Pour obtenir des instructions sur la création d’une carte, consultez [Créer une carte](./map-create.md).
+Le premier bloc de code crée un objet de carte à l’aide du mécanisme d’authentification anonyme. Pour obtenir des instructions sur la création d’une carte, consultez [Créer une carte](./map-create.md).
 
 Le contrôle de tonalité vous permet de changer la tonalité de la carte. Le deuxième bloc de code crée un objet contrôle de tonalité à l’aide de l’atlas [PitchControl](/javascript/api/azure-maps-control/atlas.control.pitchcontrol) et l’ajoute à la carte à l’aide de la méthode [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) de la carte. Le contrôle de tonalité se situe dans le **détecteur d’événements** de la carte pour s’assurer du chargement une fois que la carte est entièrement chargée.
 
@@ -42,7 +42,7 @@ Le contrôle de tonalité vous permet de changer la tonalité de la carte. Le de
 <iframe height='500' scrolling='no' title='Ajout d’un contrôle de rotation' src='//codepen.io/azuremaps/embed/GBEoRb/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consultez la section <a href='https://codepen.io/azuremaps/pen/GBEoRb/'>Ajout d’un contrôle de rotation</a> par Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) sur <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-Le premier bloc de code définit la clé d’abonnement et crée un objet carte sans prédéfinir le style. Pour obtenir des instructions sur la création d’une carte, consultez [Créer une carte](./map-create.md).
+Le premier bloc de code crée un objet de carte à l’aide du mécanisme d’authentification anonyme. Pour obtenir des instructions sur la création d’une carte, consultez [Créer une carte](./map-create.md).
 
 Le deuxième bloc de code crée un objet contrôle de boussole à l’aide de l’atlas [CompassControl](/javascript/api/azure-maps-control/atlas.control.compasscontrol). Il ajoute aussi le contrôle de boussole à la carte à l’aide de la méthode [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) de la carte. Le contrôle de boussole se situe dans le **détecteur d’événements** de la carte pour s’assurer du chargement une fois que la carte est entièrement chargée.
 
@@ -51,7 +51,7 @@ Le deuxième bloc de code crée un objet contrôle de boussole à l’aide de l�
 <iframe height='500' scrolling='no' title='Une carte avec tous les contrôles' src='//codepen.io/azuremaps/embed/qyjbOM/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consultez la section <a href='https://codepen.io/azuremaps/pen/qyjbOM/'>Une carte avec tous les contrôles</a> par Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) sur <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-Le premier bloc de code définit la clé d’abonnement et crée un objet carte sans prédéfinir le style. Pour obtenir des instructions sur la création d’une carte, consultez [Créer une carte](./map-create.md).
+Le premier bloc de code crée un objet de carte à l’aide du mécanisme d’authentification anonyme. Pour obtenir des instructions sur la création d’une carte, consultez [Créer une carte](./map-create.md).
 
 Le deuxième bloc de code crée un objet contrôle de boussole à l’aide de l’atlas [CompassControl](/javascript/api/azure-maps-control/atlas.control.compasscontrol) et l’ajoute à la carte à l’aide de la méthode [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) de la carte.
 

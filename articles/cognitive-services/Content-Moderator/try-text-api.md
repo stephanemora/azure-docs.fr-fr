@@ -10,15 +10,15 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 05/29/2019
 ms.openlocfilehash: 21209548d1cfe7b6eebb1757e817a12c797e78a9
-ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66688842"
 ---
 # <a name="moderate-text-from-the-api-console"></a>Modérer du texte à partir de la console d’API
 
-Utilisez le [API de modération de texte](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f) dans Azure Content Moderator pour analyser votre contenu de texte blasphèmes sur et comparer aux listes personnalisées et partagées.
+Utilisez l’[API Modération de texte](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f) dans Azure Content Moderator pour analyser votre contenu de texte à la recherche de propos injurieux et le comparer aux listes personnalisées et partagées.
 
 ## <a name="get-your-api-key"></a>Obtenir votre clé API
 
@@ -72,7 +72,7 @@ Also, 999-99-9999 looks like a social security number (SSN).
 
 ## <a name="analyze-the-response"></a>Analyser la réponse
 
-La réponse suivante montre les différentes informations fournies par l’API. Il contient les injures potentielles, des données personnelles, la classification (version préliminaire) et la version corrigé automatiquement.
+La réponse suivante montre les différentes informations fournies par l’API. Elle contient les propos injurieux potentiels, les données personnelles, la classification (préversion) et la version corrigée automatiquement.
 
 > [!NOTE]
 > La fonctionnalité « Classification » assistée par ordinateur est en préversion et prend en charge uniquement l’anglais.
@@ -171,8 +171,8 @@ La réponse suivante montre les différentes informations fournies par l’API. 
 }
 ```
 
-Pour obtenir une explication détaillée de toutes les sections dans la réponse JSON, reportez-vous à la [modération du texte](text-moderation-api.md) guide conceptuel.
+Pour obtenir une explication détaillée de toutes les sections de la réponse JSON, reportez-vous au guide conceptuel [Modération du texte](text-moderation-api.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Utiliser l’API REST dans votre code ou démarrer avec le [démarrage rapide .NET de modération de texte](text-moderation-quickstart-dotnet.md) à intégrer à votre application.
+Utilisez l’API REST dans votre code ou commencez par le [Guide de démarrage rapide de modération du texte pour .NET](text-moderation-quickstart-dotnet.md) pour l’intégrer à votre application.

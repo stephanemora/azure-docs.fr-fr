@@ -12,10 +12,10 @@ ms.date: 09/18/2018
 ms.author: zhouwang
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: 1cbf1514ac5eba4e288ecb78944878217fc5ba3e
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65954523"
 ---
 # <a name="basic-concepts"></a>Concepts de base
@@ -32,7 +32,7 @@ Si pour la première fois vous créez une application à fonctionnalités vocale
 
 Le *flux audio* figure au premier rang des concepts de base des fonctionnalités vocales. Contrairement à un appui sur une touche, qui se produit à un instant unique et qui contient un seul élément d’information, une demande parlée s’étend sur des centaines de millisecondes et contient de nombreux kilo-octets d’informations. La durée des énoncés parlés présente certaines difficultés aux développeurs qui souhaitent fournir une expérience vocale rationalisée et élégante pour leur application. Aujourd'hui, les ordinateurs et les algorithmes effectuent la transcription de la parole dans approximativement la moitié de la durée de l’énoncé, si bien qu’un énoncé de 2 secondes peut être transcrit en environ 1 seconde, mais une application qui présente 1 seconde de délai de traitement de l’utilisateur n’est ni rationalisée, ni élégante.
 
-Heureusement, il existe des façons de « masquer » la durée de transcription en effectuant la transcription d’une partie de l’énoncé pendant que l’utilisateur énonce une autre partie. Par exemple, si vous fractionnez un énoncé de 1 seconde en 10 blocs de 100 millisecondes et en effectuant la transcription sur chaque segment à son tour, plus de 450 des 500 millisecondes total requis pour la transcription peut être « masquées » afin que l’utilisateur n’a pas connaissance transcription est en cours d’exécution pendant qu’ils sont en train. Dans le cadre de cet exemple, n’oubliez pas que le service effectue la transcription sur les 100 millisecondes précédentes de données audio pendant que l’utilisateur énonce les 100 millisecondes suivantes, si bien que lorsque l’utilisateur arrête de parler, le service n’a plus qu’à transcrire environ 100 millisecondes de données audio pour produire un résultat.
+Heureusement, il existe des façons de « masquer » la durée de transcription en effectuant la transcription d’une partie de l’énoncé pendant que l’utilisateur énonce une autre partie. Par exemple, en divisant un énoncé d’une seconde en 10 segments de 100 millisecondes et en effectuant la transcription de chaque segment, l’un après l’autre, plus de 450 des 500 millisecondes au total à transcrire peuvent être « masquées », de sorte que l’utilisateur n’a pas conscience que la transcription s’effectue pendant qu’il parle. Dans le cadre de cet exemple, n’oubliez pas que le service effectue la transcription sur les 100 millisecondes précédentes de données audio pendant que l’utilisateur énonce les 100 millisecondes suivantes, si bien que lorsque l’utilisateur arrête de parler, le service n’a plus qu’à transcrire environ 100 millisecondes de données audio pour produire un résultat.
 
 Pour réaliser une telle expérience utilisateur, les informations audio énoncées sont collectées dans des segments et transcrites au fur et à mesure que l’utilisateur parle. Ces segments audio sont extraits collectivement du *flux audio* et le processus d’envoi de ces segments audio au service est appelé *streaming audio.* Le streaming audio est une partie importante de toute application à fonctionnalités vocales. Le réglage de la taille des segments et l’optimisation de l’implémentation de streaming sont quelques-unes des manières les plus efficaces d’améliorer l’expérience des utilisateurs de votre application.
 
@@ -81,10 +81,10 @@ Le service de reconnaissance vocale Microsoft fournit aux développeurs deux fa�
 
 | Cas d'utilisation | [API REST](GetStarted/GetStartedREST.md) | [Bibliothèques clientes](GetStarted/GetStartedClientLibraries.md) |
 |-----|-----|-----|
-| Convertir un énoncé bref, tel que des commandes (durée < 15 s), sans résultats intermédiaires | Oui | Oui |
-| Convertir un long énoncé (> 15 s) | Non | Oui |
-| Diffuser en continu un énoncé avec les résultats intermédiaires souhaités | Non | Oui |
-| Comprendre le texte converti à partir d’un énoncé à l’aide de LUIS | Non | Oui |
+| Convertir un énoncé bref, tel que des commandes (durée < 15 s), sans résultats intermédiaires | OUI | OUI |
+| Convertir un long énoncé (> 15 s) | Non | OUI |
+| Diffuser en continu un énoncé avec les résultats intermédiaires souhaités | Non | OUI |
+| Comprendre le texte converti à partir d’un énoncé à l’aide de LUIS | Non | OUI |
 
  Si votre langage ou plateforme n’a pas encore de kit SDK, vous pouvez créer votre propre implémentation basée sur la [documentation du protocole](API-Reference-REST/websocketprotocol.md).
 
@@ -190,7 +190,7 @@ Le service Microsoft Speech peut retourner divers formats de charge utile dans l
 
 Vous pouvez contrôler le format des résultats d’expression en spécifiant le paramètre de requête d’URL `format`. Par défaut, le service retourne les résultats `simple`.
 
-| Format | Description  |
+| Format | Description |
 |-----|-----|
 | `simple` | Résultat d’expression simplifiée qui contient le statut de reconnaissance et le texte reconnu sous sa forme d’affichage. |
 | `detailed` | Statut de reconnaissance et liste des N meilleurs résultats d’expression où chaque résultat d’expression contient les quatre formes de reconnaissance et un score de confiance. |
@@ -307,7 +307,7 @@ Résultat du format de charge utile de l’expression `detailed` :
 
 Le service Microsoft Speech reconnaît toutes les formes du langage humain, y compris des mots et des expressions que de nombreuses personnes classeraient comme « grossièretés ». Vous pouvez contrôler la manière dont le service gère la vulgarité à l’aide du paramètre de requête de *vulgarité*. Par défaut, le service masque les grossièretés dans les résultats *speech.phrase* et ne retourne pas les messages *speech.hypothesis* qui contiennent des grossièretés.
 
-| Valeur de *vulgarité* | Description  |
+| Valeur de *vulgarité* | Description |
 | - | - |
 | `masked` | Masque les grossièretés par des astérisques. Il s’agit du comportement par défaut. |
 | `removed` | Supprime les grossièretés de tous les résultats. |

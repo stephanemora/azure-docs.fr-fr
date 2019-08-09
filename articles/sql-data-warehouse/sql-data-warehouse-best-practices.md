@@ -1,6 +1,6 @@
 ---
-title: Meilleures pratiques pour Azure SQL Data Warehouse | Microsoft Docs
-description: Recommandations et meilleures pratiques que vous devez connaître pour développer des solutions pour Azure SQL Data Warehouse.
+title: Bonnes pratiques pour Azure SQL Data Warehouse | Microsoft Docs
+description: Recommandations et bonnes pratiques que vous devez connaître pour développer des solutions pour Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: mlee3gsd
 manager: craigg
@@ -11,18 +11,18 @@ ms.date: 11/26/2018
 ms.author: martinle
 ms.reviewer: igorstan
 ms.openlocfilehash: 72a705e11a84e27a97946f33f837105614691f6a
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66515773"
 ---
-# <a name="best-practices-for-azure-sql-data-warehouse"></a>Meilleures pratiques pour Azure SQL Data Warehouse
-Cet article rassemble les meilleures pratiques qui vous permettront d’obtenir des performances optimales de votre instance Azure SQL Data Warehouse.  Certains des concepts de cet article sont basiques et faciles à expliquer, d’autres concepts sont plus avancés et nous ne faisons que les survoler dans cet article.  L’objectif de cet article est de vous donner quelques conseils de base et de vous informer des points importants à prendre en compte lorsque vous créez votre entrepôt de données.  Chaque section présente un concept et vous dirige ensuite vers des articles plus détaillés qui expliquent davantage le concept.
+# <a name="best-practices-for-azure-sql-data-warehouse"></a>Bonnes pratiques pour Azure SQL Data Warehouse
+Cet article rassemble les bonnes pratiques qui vous permettront d’obtenir des performances optimales de votre instance Azure SQL Data Warehouse.  Certains des concepts de cet article sont basiques et faciles à expliquer, d’autres concepts sont plus avancés et nous ne faisons que les survoler dans cet article.  L’objectif de cet article est de vous donner quelques conseils de base et de vous informer des points importants à prendre en compte lorsque vous créez votre entrepôt de données.  Chaque section présente un concept et vous dirige ensuite vers des articles plus détaillés qui expliquent davantage le concept.
 
 Si vous êtes novice avec Azure SQL Data Warehouse, ne laissez pas cet article vous submerger.  Les rubriques sont principalement présentées dans l’ordre d’importance.  Si vous commencez par vous intéresser aux premiers concepts, vous serez en bonne voie.  Dès que vous vous sentirez plus à l’aise avec SQL Data Warehouse, vous pourrez revenir consulter d’autres concepts.  Il faut peu de temps pour que tout devienne clair.
 
-Pour le chargement des instructions, consultez [Guidance for loading data](guidance-for-loading-data.md) (Conseils relatifs au chargement des données).
+Pour des instructions de chargement, consultez [Conseils sur le chargement des données](guidance-for-loading-data.md).
 
 ## <a name="reduce-cost-with-pause-and-scale"></a>Réduire les coûts avec les opérations de suspension et de mise à l’échelle
 Pour plus d’informations sur la réduction des coûts à l’aide de la suspension et de la mise à l’échelle, consultez la section [Gérer le calcul](sql-data-warehouse-manage-compute-overview.md). 
@@ -49,7 +49,7 @@ Si Polybase, également appelé tables externes, peut être le moyen le plus rap
 Voir aussi [Guide d’utilisation de PolyBase][Guide for using PolyBase]
 
 ## <a name="hash-distribute-large-tables"></a>Hacher et distribuer de grandes tables
-Par défaut, les tables sont distribuées par tourniquet (Round Robin).  Cela aide les utilisateurs à commencer la création de leurs tables sans avoir à déterminer comment les tables doivent être distribuées.  Les tables distribuées par tourniquet (Round Robin) peuvent offrir des performances suffisantes pour certaines charges de travail, mais souvent la sélection d’une colonne de distribution s’avérera plus efficace.  L’exemple le plus courant de meilleures performances observées avec une table distribuée par une colonne par rapport à une table Round Robin est lorsque deux grandes tables de faits sont jointes.  Par exemple, si vous avez une table de commandes, qui est distribuée par order_id, et une table de transactions, également distribuée par order_id, lorsque vous joignez votre table de commandes à votre table de transactions sur order_id, cette requête devient une requête directe, ce qui signifie que nous éliminons les opérations de déplacement de données.  Moins d’étapes signifie une requête plus rapide.  Moins de déplacement des données permet également d’obtenir des requêtes plus rapides.  Cette explication ne fait que survoler le sujet. Lors du chargement d’une table distribuée, assurez-vous que vos données entrantes ne sont pas triées sur la clé de distribution car cela ralentit vos charges.  Consultez les liens ci-dessous pour beaucoup plus d’informations sur comment en sélectionnant une colonne de distribution peut améliorer les performances et la manière de définir une table distribuée dans la clause WITH de l’instruction CREATE TABLE.
+Par défaut, les tables sont distribuées par tourniquet (Round Robin).  Cela aide les utilisateurs à commencer la création de leurs tables sans avoir à déterminer comment les tables doivent être distribuées.  Les tables distribuées par tourniquet (Round Robin) peuvent offrir des performances suffisantes pour certaines charges de travail, mais souvent la sélection d’une colonne de distribution s’avérera plus efficace.  L’exemple le plus courant de meilleures performances observées avec une table distribuée par une colonne par rapport à une table Round Robin est lorsque deux grandes tables de faits sont jointes.  Par exemple, si vous avez une table de commandes, qui est distribuée par order_id, et une table de transactions, également distribuée par order_id, lorsque vous joignez votre table de commandes à votre table de transactions sur order_id, cette requête devient une requête directe, ce qui signifie que nous éliminons les opérations de déplacement de données.  Moins d’étapes signifie une requête plus rapide.  Moins de déplacement des données permet également d’obtenir des requêtes plus rapides.  Cette explication ne fait que survoler le sujet. Lors du chargement d’une table distribuée, assurez-vous que vos données entrantes ne sont pas triées sur la clé de distribution car cela ralentit vos charges.  Consultez les liens ci-dessous pour des explications très détaillées sur la façon dont la sélection d’une colonne de distribution peut améliorer les performances et pour apprendre à définir une table distribuée dans la clause WITH de l’instruction CREATE TABLE.
 
 Voir aussi [Vue d’ensemble des tables][Table overview], [Distribution de tables][Table distribution], [Sélection d’une distribution de tables][Selecting table distribution], [CREATE TABLE][CREATE TABLE], [CREATE TABLE AS SELECT][CREATE TABLE AS SELECT]
 

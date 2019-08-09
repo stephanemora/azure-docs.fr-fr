@@ -1,6 +1,6 @@
 ---
 title: 'Visualiser des données Azure Data Explorer avec une requête importée dans Power BI '
-description: 'Dans cet article, vous allez apprendre à utiliser une des trois options de visualisation de données dans Power BI : l’importation d’une requête à partir de l’Explorateur de données Azure.'
+description: 'Dans cet article, vous allez découvrir comment utiliser une des trois options de visualisation des données dans Power BI : l’importation d’une requête depuis Azure Data Explorer.'
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
@@ -8,23 +8,23 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.openlocfilehash: ae632f7df34ca342a3dcc12bf5f011df0eb61973
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66399320"
 ---
 # <a name="visualize-data-using-a-query-imported-into-power-bi"></a>Visualiser des données avec une requête importée dans Power BI
 
 L’Explorateur de données Azure est un service d’exploration de données rapide et hautement évolutive pour les données des journaux et les données de télémétrie. Power BI est une solution d’analytique métier qui vous permet de visualiser vos données et de partager les résultats dans votre organisation.
 
-Azure Data Explorer offre trois options pour se connecter à des données dans Power BI : utiliser le connecteur intégré, importer une requête depuis Azure Data Explorer ou utiliser une requête SQL. Cet article vous montre comment importer une requête afin que vous pouvez obtenir des données et les visualiser dans un rapport Power BI.
+Azure Data Explorer offre trois options pour se connecter à des données dans Power BI : utiliser le connecteur intégré, importer une requête depuis Azure Data Explorer ou utiliser une requête SQL. Cet article vous montre comment importer une requête pour obtenir des données et les visualiser dans un rapport Power BI.
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte Azure gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
-Vous avez besoin de ce qui suit pour terminer cet article :
+Vous avez besoin des éléments suivants dans le cadre de cet article :
 
 * Un compte e-mail professionnel qui est membre d’Azure Active Directory pour pouvoir vous connecter au [cluster help d’Azure Data Explorer](https://dataexplorer.azure.com/clusters/help/databases/samples).
 
@@ -78,8 +78,8 @@ Vous créez d’abord une requête dans l’application de poste de travail Azur
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
-Si vous n’avez plus besoin du rapport que vous avez créé pour cet article, supprimez le fichier de Power BI Desktop (.pbix).
+Si vous n’avez plus besoin du rapport que vous avez créé pour cet article, supprimez le fichier Power BI Desktop (.pbix).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Visualiser les données à l’aide d’une requête importée dans Power BI](power-bi-sql-query.md)
+[Visualiser des données avec une requête importée dans Power BI](power-bi-sql-query.md)

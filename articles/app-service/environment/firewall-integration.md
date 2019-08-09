@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/12/2019
+ms.date: 06/11/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 6ae7037ad4cd532b6661a56e6e37a88df3eb54a2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 6dae2d40650b9fdb8df2d3bdb74b2df78639dc11
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60766486"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67058047"
 ---
 # <a name="locking-down-an-app-service-environment"></a>Verrouiller un environnement App Service
 
@@ -30,6 +30,21 @@ Un environnement ASE présente des dépendances entrantes. Le trafic de gestion 
 Les dépendances sortantes de l’environnement ASE sont presque entièrement définies avec des noms FQDN, qui n’ont pas d’adresses statiques derrière eux. L’absence d’adresses statiques signifie que les groupes de sécurité réseau (NSG) ne peuvent pas être utilisés pour verrouiller le trafic sortant d’un environnement ASE. Les adresses changent assez souvent et il n’est donc pas possible de définir des règles basées sur la résolution actuelle et de les utiliser pour créer des groupes NSG. 
 
 La solution pour sécuriser les adresses sortantes réside dans l’utilisation d’un dispositif de pare-feu pouvant contrôler le trafic sortant en fonction des noms de domaine. Le Pare-feu Azure peut restreindre le trafic HTTP et HTTPS sortant en fonction du nom de domaine complet de la destination.  
+
+## <a name="system-architecture"></a>Architecture du système
+
+Déployer un environnement ASE avec un trafic sortant qui transite par un pare-feu matériel nécessite un changement de routes sur le sous-réseau ASE. Les routes opèrent à un niveau IP. Si vous ne faites pas attention au moment de définir vos routes, vous risquez de forcer le trafic de réponse TCP vers la source d’une autre adresse. C’est ce qui s’appelle un routage asymétrique et cela a pour effet d’arrêter TCP.
+
+Il est indispensable de définir des routes afin que le trafic entrant à destination de l’environnement ASE puisse être retourné de la même façon qu’il est arrivé. Cela est vrai aussi bien pour les demandes de gestion entrantes que pour les demandes d’application entrantes.
+
+Le trafic à destination et en provenance de l’environnement ASE doit être conforme aux conventions suivantes :
+
+* Le trafic à destination d’Azure SQL, Stockage et Event Hub n’est pas pris en charge quand un pare-feu matériel est utilisé. Ce trafic doit être envoyé directement à ces services. Pour cela, il convient de configurer des points de terminaison de service pour ces trois services. 
+* Des règles de table de routage doivent être définies de telle sorte que le trafic de gestion entrant soit retourné d’où il est venu.
+* Des règles de table de routage doivent être définies de telle sorte que le trafic d’application entrant soit retourné d’où il est venu. 
+* Tout le reste du trafic quittant l’environnement ASE peut être envoyé à votre pare-feu matériel sans règle de table de routage.
+
+![Environnement ASE avec le flux de connexion du pare-feu Azure][5]
 
 ## <a name="configuring-azure-firewall-with-your-ase"></a>Configuration du pare-feu Azure avec votre environnement ASE 
 
@@ -69,13 +84,11 @@ Si vos applications ont des dépendances, celles-ci doivent être ajoutées à v
 
 Si vous connaissez la plage d’adresses d’où provient le trafic de demande de vos applications, vous pouvez l’ajouter dans la table de routage qui est affectée à votre sous-réseau ASE. Si la plage d’adresses est grande ou non spécifiée, vous pouvez utiliser une appliance réseau comme la passerelle Application Gateway qui vous donnera une adresse à ajouter à votre table de routage. Pour plus d’informations sur la configuration d’une passerelle d’application avec votre environnement ASE ILB, lisez [Intégration de votre environnement App Service ILB à une passerelle d’application](https://docs.microsoft.com/azure/app-service/environment/integrate-with-application-gateway)
 
-![Environnement ASE avec le flux de connexion du pare-feu Azure][5]
-
 Cette utilisation de la passerelle Application Gateway est un exemple de configuration de votre système. Si vous aviez suivi ce chemin, vous auriez dû ajouter une route dans la table de routage du sous-réseau ASE pour permettre le retour direct du trafic envoyé à Application Gateway. 
 
 ## <a name="logging"></a>Journalisation 
 
-Le Pare-feu Azure peut envoyer des journaux d’activité aux services Stockage Azure, Event Hub ou Azure Monitor. Pour intégrer votre application avec n’importe quelle destination prise en charge, accédez au portail Pare-feu Azure > Journaux de diagnostic, puis activez les journaux pour la destination choisie. Si vous intégrez des journaux d’activité Azure Monitor, vous pouvez suivre dans les journaux d’activité tout le trafic envoyé au Pare-feu Azure. Pour voir le trafic refusé, ouvrez votre portail d’espace de travail Log Analytics > Journaux et entrez une requête comme celle-ci 
+Le Pare-feu Azure peut envoyer des journaux d’activité aux services Stockage Azure, Event Hub ou Azure Monitor. Pour intégrer votre application avec n’importe quelle destination prise en charge, accédez au portail Pare-feu Azure &gt; Journaux de diagnostic, puis activez les journaux d’activité pour la destination choisie. Si vous intégrez des journaux d’activité Azure Monitor, vous pouvez suivre dans les journaux d’activité tout le trafic envoyé au Pare-feu Azure. Pour voir le trafic refusé, ouvrez votre portail d’espace de travail Log Analytics &gt; Journaux d’activité et entrez une requête comme celle-ci 
 
     AzureDiagnostics | where msg_s contains "Deny" | where TimeGenerated >= ago(1h)
  
@@ -105,14 +118,14 @@ Les informations suivantes sont requises uniquement si vous souhaitez configurer
 |----------| ----- |
 | \*:123 | Vérification de l’horloge NTP. Le trafic est vérifié à plusieurs points de terminaison sur le port 123 |
 | \*:12000 | Ce port est utilisé pour la supervision système. S’il est bloqué, certains problèmes seront plus difficiles à identifier, mais votre environnement ASE continuera de fonctionner |
-| 40.77.24.27:80 | Nécessaires pour surveiller et alerter sur les problèmes de l’ASE |
-| 40.77.24.27:443 | Nécessaires pour surveiller et alerter sur les problèmes de l’ASE |
-| 13.90.249.229:80 | Nécessaires pour surveiller et alerter sur les problèmes de l’ASE |
-| 13.90.249.229:443 | Nécessaires pour surveiller et alerter sur les problèmes de l’ASE |
-| 104.45.230.69:80 | Nécessaires pour surveiller et alerter sur les problèmes de l’ASE |
-| 104.45.230.69:443 | Nécessaires pour surveiller et alerter sur les problèmes de l’ASE |
-| 13.82.184.151:80 | Nécessaires pour surveiller et alerter sur les problèmes de l’ASE |
-| 13.82.184.151:443 | Nécessaires pour surveiller et alerter sur les problèmes de l’ASE |
+| 40.77.24.27:80 | Nécessaire pour superviser et alerter sur les problèmes de l’environnement ASE |
+| 40.77.24.27:443 | Nécessaire pour superviser et alerter sur les problèmes de l’environnement ASE |
+| 13.90.249.229:80 | Nécessaire pour superviser et alerter sur les problèmes de l’environnement ASE |
+| 13.90.249.229:443 | Nécessaire pour superviser et alerter sur les problèmes de l’environnement ASE |
+| 104.45.230.69:80 | Nécessaire pour superviser et alerter sur les problèmes de l’environnement ASE |
+| 104.45.230.69:443 | Nécessaire pour superviser et alerter sur les problèmes de l’environnement ASE |
+| 13.82.184.151:80 | Nécessaire pour superviser et alerter sur les problèmes de l’environnement ASE |
+| 13.82.184.151:443 | Nécessaire pour superviser et alerter sur les problèmes de l’environnement ASE |
 
 Avec un pare-feu Azure, tout ce qui suit est automatiquement configuré avec les balises FQDN. 
 

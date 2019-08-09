@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 5/6/2019
 ms.author: mlearned
 ms.openlocfilehash: b42cdae634a6c2d8d994225d4cb6b440a99918e5
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "67614589"
 ---
 # <a name="best-practices-for-storage-and-backups-in-azure-kubernetes-service-aks"></a>Meilleures pratiques relatives au stockage et aux sauvegardes dans Azure Kubernetes Service (AKS)
@@ -82,7 +82,7 @@ Une revendication de volume persistant vous permet de créer des espaces de stoc
 
 Pour en savoir plus sur les concepts relatifs à la création et à l’utilisation dynamique des volumes, consultez [Revendications de volume persistant][aks-concepts-storage-pvcs].
 
-Pour voir ces volumes en action, découvrez comment créer et utiliser un volume persistant de manière dynamique avec des [disques Azure][dynamic-disks] or [Azure Files][dynamic-files].
+Pour voir ces volumes en action, découvrez comment créer et utiliser un volume persistant de manière dynamique avec des [disques Azure][dynamic-disks] ou [Azure Files][dynamic-files].
 
 Dans le cadre de vos définitions de classe de stockage, définissez la propriété *reclaimPolicy* de manière appropriée. Cette stratégie de récupération contrôle le comportement de la ressource de stockage Azure sous-jacente quand le pod est supprimé et que le volume persistant n’est peut-être plus nécessaire. La ressource de stockage sous-jacente peut être supprimée ou conservée en vue de son utilisation par un pod futur. La valeur reclaimPolicy peut être définie sur *Conserver* ou *Supprimer*. Identifiez les besoins de votre application et implémentez des contrôles réguliers pour le stockage conservé afin de réduire la quantité de stockage non utilisée et facturée.
 
@@ -92,7 +92,7 @@ Pour plus d’informations sur les options de classe de stockage, consultez les 
 
 **Conseils sur les meilleures pratiques** : sauvegardez vos données à l’aide d’un outil adapté à votre type de stockage, tel que Velero ou Azure Site Recovery. Vérifiez l’intégrité et la sécurité de ces sauvegardes.
 
-Lorsque vos applications stockent et exploitent des données conservées sur des disques ou dans des fichiers, vous devez effectuer des sauvegardes ou des captures instantanées régulières de ces données. Les disques Azure peuvent utiliser des technologies de capture instantanée intégrées. Vous aurez peut-être besoin d’avoir recours à un hook pour que vos applications vident les écritures sur le disque avant d’effectuer l’opération de capture instantanée. [Velero][velero] can back up persistent volumes along with additional cluster resources and configurations. If you can't [remove state from your applications][remove-state] permet de sauvegarder les données à partir de volumes persistants et de tester régulièrement les opérations de restauration pour vérifier l’intégrité des données et les processus requis.
+Lorsque vos applications stockent et exploitent des données conservées sur des disques ou dans des fichiers, vous devez effectuer des sauvegardes ou des captures instantanées régulières de ces données. Les disques Azure peuvent utiliser des technologies de capture instantanée intégrées. Vous aurez peut-être besoin d’avoir recours à un hook pour que vos applications vident les écritures sur le disque avant d’effectuer l’opération de capture instantanée. [Velero][velero] peut sauvegarder des volumes persistants avec des ressources de cluster et des configurations supplémentaires. Si vous ne pouvez pas [supprimer l’état de vos applications][remove-state], sauvegardez les données à partir de volumes persistants et testez régulièrement les opérations de restauration pour vérifier l’intégrité des données et les processus nécessaires.
 
 Identifiez les limitations des différentes approches en matière de sauvegarde de données et déterminez si vous devez suspendre vos données avant la capture instantanée. Les sauvegardes de données ne vous permettent pas nécessairement de restaurer votre environnement d’application de déploiement de cluster. Pour plus d’informations sur ces scénarios, consultez [Best practices for business continuity and disaster recovery in AKS][best-practices-multi-region] (Meilleures pratiques pour la continuité d’activité et la récupération d’urgence dans AKS).
 

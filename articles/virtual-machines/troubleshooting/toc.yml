@@ -65,24 +65,30 @@
       href: detailed-troubleshoot-ssh-connection.md
 - name: Messages d’erreur courants
   href: error-messages.md
-- name: Problèmes de performances avec les machines virtuelles Windows
+- name: Problèmes de performances avec les machines virtuelles
   href: performance-diagnostics.md
   items:
-    - name: Utilisation de PerfInsights
-      href: how-to-use-perfInsights.md
-    - name: Extension de diagnostic de performance
-      href: performance-diagnostics-vm-extension.md
+    - name: Windows
+      items:
+        - name: Utilisation de PerfInsights
+          href: how-to-use-perfinsights.md
+        - name: Extension de diagnostic de performance
+          href: performance-diagnostics-vm-extension.md
+    - name: Linux
+      items:
+        - name: Utilisation de PerfInsights
+          href: how-to-use-perfinsights-linux.md
 - name: Installer l’agent de machine virtuelle Windows en mode hors connexion
   href: install-vm-agent-offline.md
 - name: Redéploiement d’une machine virtuelle
   items:
     - name: Linux
       href: redeploy-to-new-node-linux.md
-    - name: ' Windows'
+    - name: Windows
       href: redeploy-to-new-node-windows.md
 - name: Réinitialiser le mot de passe de la machine virtuelle
   items:
-    - name: ' Windows'
+    - name: Windows
       href: reset-local-password-without-agent.md
     - name: Linux
       href: reset-password.md
@@ -120,19 +126,19 @@
   items:
     - name: Linux
       href: troubleshoot-deployment-new-vm-linux.md
-    - name: ' Windows'
+    - name: Windows
       href: troubleshoot-deployment-new-vm-windows.md
 - name: Dépanner les déploiements
   items:
     - name: Linux
       href: troubleshoot-deploy-vm-linux.md
-    - name: ' Windows'
+    - name: Windows
       href: troubleshoot-deploy-vm-windows.md
 - name: Les noms d’appareil changent
   href: troubleshoot-device-names-problems.md
 - name: Accès à la récupération d’une machine virtuelle
   items:
-    - name: ' Windows'
+    - name: Windows
       items:
         - name: PowerShell
           href: troubleshoot-recovery-disks-windows.md

@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 12/06/2018
 ms.author: shvija
 ms.openlocfilehash: 4ba3109460616be98b5330ec7175f161a6a3b750
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68326180"
 ---
 # <a name="capture-events-through-azure-event-hubs-in-azure-blob-storage-or-azure-data-lake-storage"></a>Capturer des événements avec Azure Event Hubs dans le stockage Blob Azure ou Azure Data Lake Storage
@@ -73,7 +73,7 @@ Les fichiers générés par Event Hubs Capture présentent le schéma Avro suiva
 
 ![Schéma Avro][3]
 
-Vous pouvez explorer les fichiers Avro en toute simplicité à l’aide des [outils Avro][Avro Tools] jar from Apache. You can also use [Apache Drill][Apache Drill] pour bénéficier d’une expérience légère pilotée par SQL ou [Apache Spark][Apache Spark] pour effectuer un traitement distribué complexe sur les données ingérées. 
+Un moyen facile d’explorer les fichiers Avro consiste à utiliser la boîte à [outils Avro][Avro Tools] d’Apache. Vous pouvez également utiliser [Apache Drill][Apache Drill] pour bénéficier d’une expérience légère pilotée par SQL ou [Apache Spark][Apache Spark] pour effectuer un traitement distribué complexe sur les données ingérées. 
 
 ### <a name="use-apache-drill"></a>Utiliser Apache Drill
 
@@ -129,7 +129,7 @@ Vous pouvez également utiliser les outils Avro pour convertir le fichier au for
 
 Pour effectuer un traitement plus avancé, téléchargez et installez Avro pour la plateforme de votre choix. Au moment de la rédaction de cet article, les implémentations sont disponibles pour C, C++, C\#, Java, NodeJS, Perl, PHP, Python et Ruby.
 
-Apache Avro propose des guides de prise en main complets pour [Java][Java] and [Python][Python]. Vous pouvez également lire l’article [Prise en main d’Event Hubs Capture](event-hubs-capture-python.md).
+Apache Avro propose des guides de mise en route complets pour [Java][Java]et [Python][Python]. Vous pouvez également lire l’article [Prise en main d’Event Hubs Capture](event-hubs-capture-python.md).
 
 ## <a name="how-event-hubs-capture-is-charged"></a>Chargement d’Azure Event Hubs Capture
 

@@ -105,6 +105,8 @@
               href: clustering-point-data-web-sdk.md
             - name: Utiliser des expressions de style basées sur les données
               href: data-driven-style-expressions-web-sdk.md
+            - name: Guide pratique pour utiliser des modèles d’image
+              href: how-to-use-image-templates-web-sdk.md
             - name: Superposer une image
               href: map-add-image-layer.md
             - name: Ajouter des couches de vignettes

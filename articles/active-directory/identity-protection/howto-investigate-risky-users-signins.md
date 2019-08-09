@@ -17,12 +17,12 @@ ms.devlang: na
 ms.topic: article
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 646119f223067fac5ee36574fb10273819251cce
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 4a90195a2d0899b0a157cc67badd2f9873164987
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60295947"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67108964"
 ---
 # <a name="how-to-investigate-risky-users-and-sign-ins"></a>Procédure : Examiner les utilisateurs et les connexions à risque 
 
@@ -151,7 +151,7 @@ Le filtre **État** vous permet de sélectionner les états suivants :
 
 ### <a name="download-risky-users-data"></a>Téléchargement des données des utilisateurs à risque
 
-Vous pouvez télécharger les données d’utilisateurs à risque si vous souhaitez les utiliser en dehors du portail Azure. En cliquant sur le téléchargement crée un fichier CSV contenant les enregistrements de 2 500 plus récents. 
+Vous pouvez télécharger les données relatives aux utilisateurs à risque afin de les utiliser en dehors du portail Azure. Quand vous cliquez sur Télécharger, vous générez un fichier CSV contenant les 2 500 enregistrements les plus récents. 
 
 ![Rapport sur les utilisateurs à risque](./media/howto-investigate-risky-users-signins/07.png)
 
@@ -298,7 +298,7 @@ Le filtre **Niveau de risque (temps réel)** vous permet de sélectionner les ni
 - Faible
 
 
-Le filtre **Accès conditionnel** vous permet de sélectionner les éléments suivants :
+Le filtre **Accès conditionnel** vous permet de sélectionner les éléments suivants :
 
 - Tous
 - Non applicable
@@ -320,7 +320,7 @@ Les valeurs possibles sont les suivantes :
 
 ### <a name="download-risky-sign-ins-data"></a>Téléchargement des données des connexions à risque
 
-Vous pouvez télécharger les données de connexions risquées si vous souhaitez les utiliser en dehors du portail Azure. En cliquant sur le téléchargement crée un fichier CSV contenant les enregistrements de 2 500 plus récents. 
+Vous pouvez télécharger les données relatives aux connexions à risque afin de les utiliser en dehors du portail Azure. Quand vous cliquez sur Télécharger, vous générez un fichier CSV contenant les 2 500 enregistrements les plus récents. 
 
 ![Rapport sur les utilisateurs à risque](./media/howto-investigate-risky-users-signins/15.png)
 

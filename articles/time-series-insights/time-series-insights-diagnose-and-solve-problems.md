@@ -6,17 +6,17 @@ services: time-series-insights
 author: ashannon7
 ms.author: dpalled
 manager: cshankar
-ms.reviewer: v-mamcge, jasonh, kfile, anshan
+ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
 ms.topic: troubleshooting
 ms.date: 05/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: 68d46b54bf066724d8f3474f421d2d1f751b75e3
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.openlocfilehash: fa2e26666ce863d98b5c47201eeadb1d7f6a5d2c
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66235040"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164510"
 ---
 # <a name="diagnose-and-solve-issues-in-your-time-series-insights-environment"></a>Diagnostiquer et résoudre les problèmes dans votre environnement Time Series Insights
 
@@ -24,19 +24,19 @@ Cet article décrit certains problèmes que vous pouvez rencontrer dans votre en
 
 ## <a name="video"></a>Vidéo
 
-### <a name="learn-about-common-time-series-insights-customer-challenges-and-mitigationsbr"></a>Découvrez les atténuations et défis du client Series Insights temps commun.</br>
+### <a name="learn-about-common-time-series-insights-customer-challenges-and-mitigationsbr"></a>Découvrez des informations sur les problèmes et les atténuations des risques rencontrés par les clients Time Series Insights :</br>
 
 > [!VIDEO https://www.youtube.com/embed/7U0SwxAVSKw]
 
-## <a name="problem-no-data-is-shown"></a>Problème : aucune donnée n’est indiquée.
+## <a name="problem-no-data-is-shown"></a>Problème : Aucune donnée n’est affichée
 
 Il existe plusieurs raisons pour lesquelles vous ne pouvez pas voir vos données dans l’[explorateur Azure Time Series Insights](https://insights.timeseries.azure.com) :
 
-### <a name="cause-a-event-source-data-isnt-in-json-format"></a>Cause r : événement source données n’est pas au format JSON
+### <a name="cause-a-event-source-data-isnt-in-json-format"></a>Raison A : les données sources des événements ne sont pas au format JSON
 
 Azure Time Series Insights prend uniquement en charge les données JSON. Pour obtenir des exemples de données JSON, consultez [Structures JSON prises en charge](./how-to-shape-query-json.md).
 
-### <a name="cause-b-the-event-source-key-is-missing-a-required-permission"></a>Il manque une autorisation requise cause b : la clé source d’événement
+### <a name="cause-b-the-event-source-key-is-missing-a-required-permission"></a>Raison B : il manque une autorisation nécessaire pour la clé de la source des événements
 
 * Pour un hub IoT dans Azure IoT Hub, vous devez fournir la clé qui dispose des autorisations **Connexion de service**. Les stratégies **iothubowner** et **service** fonctionnent, car elles disposent toutes deux d’autorisations **Connexion de service**.
 
@@ -44,17 +44,17 @@ Azure Time Series Insights prend uniquement en charge les données JSON. Pour ob
 
 * Pour Event Hub dans Azure Event Hub, vous devez fournir la clé disposant des autorisations **Écouter**. Les stratégies **read** et **manage** fonctionnent, car elles disposent toutes deux d’autorisations **Écouter**.
 
-   [![Autorisations d’écouter Event hub](media/diagnose-and-solve-problems/eventhub-listen-permissions.png)](media/diagnose-and-solve-problems/eventhub-listen-permissions.png#lightbox)
+   [![Autorisations d’écoute Event Hub](media/diagnose-and-solve-problems/eventhub-listen-permissions.png)](media/diagnose-and-solve-problems/eventhub-listen-permissions.png#lightbox)
 
-### <a name="cause-c-the-consumer-group-provided-isnt-exclusive-to-time-series-insights"></a>Cause C: le groupe de consommateurs fourni n’est pas exclusif à Time Series Insights
+### <a name="cause-c-the-consumer-group-provided-isnt-exclusive-to-time-series-insights"></a>Raison C : le groupe de consommateurs fourni n’est pas exclusif pour Time Series Insights
 
 Lorsque vous inscrivez un hub IoT ou un Event Hub, il est important de définir le groupe de consommateurs que vous souhaitez utiliser pour lire les données. Ce groupe de consommateurs *ne peut pas être partagé*. Si le groupe de consommateurs est partagé, le hub IoT ou l’Event Hub sous-jacent déconnecte de manière automatique et aléatoire l’un des lecteurs. Fournissez un groupe de consommateurs unique auprès duquel Time Series Insights lira les informations.
 
-## <a name="problem-some-data-is-shown-but-data-is-missing"></a>Problème : certaines données sont affichées, mais les données sont manquantes
+## <a name="problem-some-data-is-shown-but-data-is-missing"></a>Problème : certaines données sont affichées, mais d’autres sont manquantes
 
 Lorsque les données n’apparaissent que partiellement et semblent être en décalage, vous devez envisager plusieurs possibilités.
 
-### <a name="cause-a-your-environment-is-being-throttled"></a>Cause r : votre environnement est limitée
+### <a name="cause-a-your-environment-is-being-throttled"></a>Raison A : votre environnement est sujet à des limitations
 
 La limitation est un problème courant lors de la configuration des environnements après la création d’une source de l’événement qui comporte des données. Azure IoT Hub et Azure Events Hubs stockent les données jusqu’à sept jours. Time Series Insights commence toujours par l’événement le plus ancien dans la source de l’événement (premier entré, premier sorti, ou *FIFO*).
 
@@ -73,7 +73,7 @@ La figure suivante illustre un environnement Time Series Insights ayant une réf
 
 Par exemple, supposons que cet environnement ingère les messages à partir d’un Event Hub. La figure suivante illustre le taux d’entrée :
 
-[![Taux d’entrée exemple pour un concentrateur d’événements](media/diagnose-and-solve-problems/eventhub-ingress-rate.png)](media/diagnose-and-solve-problems/eventhub-ingress-rate.png#lightbox)
+[![Exemple de débit des entrées pour un hub d’événements](media/diagnose-and-solve-problems/eventhub-ingress-rate.png)](media/diagnose-and-solve-problems/eventhub-ingress-rate.png#lightbox)
 
 Le taux d’entrée quotidien est d’environ 67 000 messages. Cela représente environ 46 messages par minute. Si chaque message de l’Event Hub est aplati dans un seul événement Time Series Insights, aucune limitation ne se produit. Si chaque message de l’Event Hub est aplati dans 100 événements Time Series Insights, 4 600 événements devraient être ingérés toutes les minutes. Un environnement de référence SKU S1 qui a une capacité de 3 unités peut seulement ingérer 2 100 événements toutes les minutes (1 million d’événements par jour = 700 événements par minute à 3 unités = 2 100 événements par minute). Pour cette configuration, les limitations qui s’appliquent provoquent un décalage.
 
@@ -83,9 +83,9 @@ Pour en savoir plus sur la logique de mise à plat, consultez [Structures JSON p
 
 Pour éviter tout décalage, augmentez la capacité de votre environnement. Pour plus d’informations, consultez [Mise à l’échelle de votre environnement Time Series Insights](time-series-insights-how-to-scale-your-environment.md).
 
-### <a name="cause-b-initial-ingestion-of-historical-data-slows-ingress"></a>Cause b : initiale ingestion des données d’historique ralentisse en entrée
+### <a name="cause-b-initial-ingestion-of-historical-data-slows-ingress"></a>Raison B : l’ingestion initiale de données d’historique ralentit l’entrée
 
-Si vous vous connectez à une source de l’événement existante, il est probable que votre hub IoT ou votre Event Hub comporte déjà des données. L’environnement démarre l’extraction des données depuis le début de la période de rétention des messages de la source d’événement. Ce traitement par défaut ne peut pas être substitué. Vous pouvez appliquer des limitations. La limitation peut prendre un certain temps en ce qui concerne le rattrapage, car elle ingère les données d’historique.
+Si vous vous connectez à une source de l’événement existante, il est probable que votre hub IoT ou votre Event Hub comporte déjà des données. L’environnement démarre l’extraction des données depuis le début de la période de rétention des messages de la source d’événement. Ce traitement par défaut ne peut pas être remplacé. Vous pouvez appliquer des limitations. La limitation peut prendre un certain temps en ce qui concerne le rattrapage, car elle ingère les données d’historique.
 
 #### <a name="recommended-resolutions-for-large-initial-ingestion"></a>Résolutions recommandées en cas d’ingestion initiale volumineuse
 
@@ -95,7 +95,7 @@ Pour corriger le décalage :
 
 2. Une fois le retard rattrapé, rétablissez la capacité de référence SKU sur votre taux d’entrée normal.
 
-## <a name="problem-my-event-sources-timestamp-property-name-setting-doesnt-work"></a>Problème : paramètre de nom de propriété timestamp ma source d’événement ne fonctionne pas
+## <a name="problem-my-event-sources-timestamp-property-name-setting-doesnt-work"></a>Problème : le paramètre du nom de la propriété d’horodatage de ma source d’événements ne fonctionne pas
 
 Vérifiez que le nom et la valeur de la propriété timestamp répondent aux critères suivants :
 

@@ -12,10 +12,10 @@ ms.date: 03/23/2016
 ms.author: lesun
 ROBOTS: NOINDEX
 ms.openlocfilehash: c989f1115bc5a85bf09270c553ac1cb51bb4f170
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65954705"
 ---
 # <a name="analyzer-names"></a>Noms d’analyseur
@@ -27,7 +27,7 @@ Nous utilisons une structure d’attribution de noms un peu complexe pour les an
 Les noms d’analyseur sont formés de quatre éléments : un ID, un type, une spécification et une implémentation.
 Le rôle de chaque composant est défini ci-dessous.
 
-## <a name="id"></a>ID
+## <a name="id"></a>id
 Tout d’abord, un analyseur a un ID unique ; un GUID.
 Ces GUID ne doivent être modifiés que très rarement, mais constituent la seule méthode pour décrire de façon unique un analyseur spécifique.
 
@@ -43,10 +43,10 @@ Actuellement, trois types distincts existent :
 Toutefois, au sein d’un type donné, différents experts peuvent être en désaccord sur la façon dont un phénomène particulier doit être analysé.
 Contrairement aux langages de programmation, il n’existe aucune définition claire et exacte à ce sujet.
 
-Par exemple, supposons que nous avons essayé de trouver les jetons de la phrase en anglais « Ils n’ont pas aller. »
+Par exemple, imaginez que vous essayez de rechercher les jetons dans la phrase en anglais « They didn’t go ».
 Examinez plus précisément la chaîne « didn’t ».
 Fractionner la phrase en deux jetons (« did » et « not ») est l’une des interprétations possibles.
-Puis l’autre phrase « ils ne sont pas passé » aurait le même ensemble de jetons.
+L’autre phrase « They did not go » aurait donc le même ensemble de jetons.
 Une autre possibilité pourrait être de la fractionner en deux jetons « did » et « n’t ».
 Ce dernier jeton ne serait pas considéré comme un mot, mais cette approche conserve plus d’informations sur la chaîne en surface, ce qui peut souvent être utile.
 Ou alors, cette contraction pourrait être considérée comme un seul mot.

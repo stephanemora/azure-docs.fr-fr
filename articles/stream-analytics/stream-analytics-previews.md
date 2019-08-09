@@ -9,10 +9,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/29/2019
 ms.openlocfilehash: e63937cedf44b1642e091a4744d898a26422be10
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66393689"
 ---
 # <a name="azure-stream-analytics-preview-features"></a>Fonctionnalités d’évaluation Azure Stream Analytics
@@ -23,13 +23,13 @@ Cet article résume toutes les fonctionnalités actuellement en préversion pour
 
 Les fonctionnalités suivantes sont disponibles en préversion publique. Vous pouvez tirer parti de ces fonctionnalités aujourd’hui, mais ne les utilisez pas dans votre environnement de production.
 
-### <a name="visual-studio-code-for-azure-stream-analytics-released-may-2019"></a>Visual Studio Code pour l’Analytique Azure Stream (publiées en mai 2019)
+### <a name="visual-studio-code-for-azure-stream-analytics-released-may-2019"></a>Visual Studio Code pour Azure Stream Analytics (publié en mai 2019)
 
-Les travaux Azure Stream Analytics peuvent être créés dans Visual Studio Code. Consultez notre [didacticiel de prise en main de VS Code](https://docs.microsoft.com/azure/stream-analytics/quick-create-vs-code).
+Les travaux Azure Stream Analytics peuvent être créés dans Visual Studio Code. Consultez notre [tutoriel de prise en main de Visual Studio Code](https://docs.microsoft.com/azure/stream-analytics/quick-create-vs-code).
 
 ### <a name="anomaly-detection"></a>Détection des anomalies
 
-Azure Stream Analytics introduit de nouveaux modèles Machine Learning avec la prise en charge de la détection de *pics* et de *chutes* qui vient s’ajouter à la détection des tendances négatives lentes, positives lentes et bidirectionnelles. Pour plus d’informations, visitez [détection d’anomalies dans Azure Stream Analytique](stream-analytics-machine-learning-anomaly-detection.md).
+Azure Stream Analytics introduit de nouveaux modèles Machine Learning avec la prise en charge de la détection de *pics* et de *chutes* qui vient s’ajouter à la détection des tendances négatives lentes, positives lentes et bidirectionnelles. Pour plus d’informations, consultez [Détection d’anomalies dans Azure Stream Analytics](stream-analytics-machine-learning-anomaly-detection.md).
 
 ### <a name="integration-with-azure-machine-learning"></a>Intégration à Azure Machine Learning
 
@@ -47,21 +47,21 @@ Visual Studio Tools pour Azure Stream Analytics améliore la fonctionnalité de 
 
 Avec les fonctions .NET standard définies par l’utilisateur, vous pouvez exécuter le code .NET Standard au sein même de votre pipeline de streaming. Vous pouvez créer des classes C# simples, ou importer des bibliothèques et un projet complet. Une expérience de création et de débogage complète est prise en charge dans Visual Studio. Pour plus d’informations, consultez [Développer des fonctions .NET Standard définies par l’utilisateur pour des tâches Azure Stream Analytics Edge](stream-analytics-edge-csharp-udf-methods.md).
 
-## <a name="other-previews"></a>Autres versions préliminaires
+## <a name="other-previews"></a>Autres préversions
 
-Les fonctionnalités suivantes sont également disponibles en version préliminaire.
+Les fonctionnalités suivantes sont également disponibles en préversion.
 
-### <a name="c-custom-deserializer-for-azure-stream-analytics-on-iot-edge-and-cloud-announced-may-2019"></a>C#désérialiseur personnalisé pour Azure Stream Analytique sur IoT Edge et le Cloud (Announced mai 2019)
+### <a name="c-custom-deserializer-for-azure-stream-analytics-on-iot-edge-and-cloud-announced-may-2019"></a>Désérialiseur C# personnalisé pour Azure Stream Analytics sur IoT Edge et Cloud (annoncé en mai 2019)
 
-Les développeurs peuvent implémenter un désérialiseur personnalisé dans C# pour désérialiser les événements reçus par Azure Stream Analytique. Parquet, Protobuf, XML ou tout format binaire sont autant d’exemples de formats pouvant être désérialisés. Inscrivez-vous pour cette version préliminaire [ici](https://aka.ms/asapreview1).
+Les développeurs peuvent implémenter des désérialiseurs personnalisés en C# pour désérialiser les événements reçus par Azure Stream Analytics. Parquet, Protobuf, XML ou tout format binaire sont autant d’exemples de formats pouvant être désérialisés. Inscrivez-vous pour cette préversion [ici](https://aka.ms/asapreview1).
 
-### <a name="parquet-output-announced-may-2019"></a>Sortie parquet (annoncée dans mai 2019)
-Parquet est un format de colonne l’activation du traitement du big data efficace. En affichant les données au format Parquet dans un lac de données, vous pouvez tirer parti d’Azure Stream Analytique à grande échelle power ETL de diffusion en continu et exécuter le traitement par lots, former des algorithmes d’apprentissage automatique ou exécuter des requêtes interactives sur vos données d’historique. Inscrivez-vous pour cette version préliminaire [ici](https://aka.ms/asapreview1).
+### <a name="parquet-output-announced-may-2019"></a>Sortie de Parquet (annoncée en mai 2019)
+Parquet est un format en colonnes permettant un traitement Big Data efficace. En produisant des données au format Parquet dans un lac de données, vous pouvez tirer parti d’Azure Stream Analytics pour mettre en œuvre un ETL en streaming à grande échelle et exécuter des traitements par lots, entraîner des algorithmes de machine learning ou exécuter des requêtes interactives sur votre historique de données. Inscrivez-vous pour cette préversion [ici](https://aka.ms/asapreview1).
 
-### <a name="one-click-integration-with-event-hubs-announced-may-2019"></a>Intégration d’un seul clic à Event Hubs (Announced mai 2019) 
-Avec cette intégration, vous serez maintenant en mesure de visualiser les données entrantes et commencer à écrire une requête Analytique de Stream en un seul clic à partir du portail du Hub d’événements. Une fois que votre requête est prête, vous ne pourrez pas il mettons en production en quelques clics et commencer à obtenir des informations en temps réel. Cela réduit considérablement le temps et les coûts pour développer des solutions d’analytique en temps réel. Inscrivez-vous pour cette version préliminaire [ici](https://aka.ms/asapreview1).
+### <a name="one-click-integration-with-event-hubs-announced-may-2019"></a>Intégration de One-click à Event Hubs (annoncée en mai 2019) 
+Avec cette intégration, vous pouvez désormais visualiser les données entrantes et commencer à écrire une requête Stream Analytics en un seul clic à partir du portail Event Hub. Une fois que votre requête est prête, vous pouvez la mettre en production en quelques clics et commencer à obtenir des insights temps réel. Ceci réduit considérablement le temps et les coûts nécessaires pour développer des solutions d’analytique temps réel. Inscrivez-vous pour cette préversion [ici](https://aka.ms/asapreview1).
 
-### <a name="support-for-azure-stack-announced-may-2019"></a>Prise en charge pour Azure Stack (annoncée dans mai 2019)
-Cette fonctionnalité est activée sur le runtime Azure IoT Edge, tire parti des fonctionnalités d’Azure Stack personnalisées, telles que la prise en charge native pour les entrées locales et génère en cours d’exécution sur Azure Stack (par exemple Event Hubs, IoT Hub, stockage d’objets Blob). Cette nouvelle intégration permet de générer des architectures hybrides qui peuvent analyser vos données à proximité où elle est générée, en réduisant la latence et optimiser des insights.
-Inscrivez-vous pour cette version préliminaire [ici](https://aka.ms/asapreview1).
+### <a name="support-for-azure-stack-announced-may-2019"></a>Prise en charge d’Azure Stack (annoncée en mai 2019)
+Cette fonctionnalité est activée sur le runtime Azure IoT Edge, tire parti de fonctionnalités Azure Stack personnalisées, comme la prise en charge native pour les entrées et les sorties locales s’exécutant sur Azure Stack (par exemple Event Hubs, IoT Hub, Stockage Blob). Cette nouvelle intégration vous permet de créer des architectures hybrides qui peuvent analyser vos données à proximité de l’endroit où elles sont générées, en réduisant la latence et en optimisant les insights.
+Inscrivez-vous pour cette préversion [ici](https://aka.ms/asapreview1).
 

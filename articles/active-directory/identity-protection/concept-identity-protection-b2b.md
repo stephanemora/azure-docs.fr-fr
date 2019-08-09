@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9128a747dcd42ada2feefd72ad8bfebdf7bfb25a
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: c5d374f4ddac2e4d013bab1c5e88a87af1da2c1f
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68334045"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68667135"
 ---
 # <a name="identity-protection-and-b2b-users"></a>Utilisateurs Identity Protection et B2B
 
@@ -47,7 +47,7 @@ Si un utilisateur B2B risqué dans votre répertoire est bloqué par votre strat
 
 ### <a name="how-do-i-prevent-b2b-collaboration-users-from-being-impacted-by-risk-based-policies"></a>Comment puis-je éviter que les utilisateurs de la collaboration B2B ne soient affectés par les politiques basées sur les risques ?
 
-L’exclusion des utilisateurs B2B des stratégies d’accès conditionnel en fonction des risques de votre organisation empêchera les utilisateurs B2B d’être affectés ou bloqués par leur évaluation des risques. Pour exclure ces utilisateurs B2B, créez un groupe dans Azure AD qui contient tous les utilisateurs invités de votre organisation. Ensuite, ajoutez ce groupe en tant qu’exclusion pour les stratégies de risque d’utilisateur et de risque de connexion intégrées à Identity Protection, ainsi que toutes les stratégies d’accès conditionnel auxquelles l’utilisateur se connecte en tant que condition.
+L’exclusion des utilisateurs B2B des stratégies d’accès conditionnel en fonction des risques de votre organisation empêchera les utilisateurs B2B d’être affectés ou bloqués par leur évaluation des risques. Pour exclure ces utilisateurs B2B, créez un groupe dans Azure AD qui contient tous les utilisateurs invités de votre organisation. Ensuite, ajoutez ce groupe en tant qu’exclusion pour vos stratégies de risque utilisateur et de risque de connexion Identity Protection, ainsi que toutes les stratégies d’accès conditionnel qui utilisent le risque de connexion en tant que condition.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

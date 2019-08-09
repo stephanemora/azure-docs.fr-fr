@@ -9,12 +9,12 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: dobett
-ms.openlocfilehash: 7d4e95d066e191e1d5b6d083ede65843dbe73f31
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 6062f8b3992732e0e0f9bbdae9549e69c393f4ff
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61450400"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67080482"
 ---
 # <a name="customize-how-the-connected-factory-solution-displays-data-from-your-opc-ua-servers"></a>Personnaliser la façon dont l’accélérateur de solution Usine connectée présente les données à partir de vos serveurs OPC UA
 
@@ -79,8 +79,6 @@ Le référentiel **azure-iot-connected-factory** inclut un script PowerShell **b
 
 Pour en savoir plus sur l’accélérateur de solution Usine connectée, consultez les articles suivants :
 
-* [Procédure pas à pas de l’accélérateur de solution Usine connectée][lnk-rm-walkthrough]
-* [Déployer une passerelle pour l’Usine connectée][lnk-connect-cf]
 * [Autorisations sur le site azureiotsolutions.com][lnk-permissions]
 * [Questions fréquentes (FAQ) sur l’Usine connectée](iot-accelerators-faq-cf.md)
 * [FAQ][lnk-faq]
@@ -93,7 +91,5 @@ Pour en savoir plus sur l’accélérateur de solution Usine connectée, consult
 [img-published]: ./media/iot-accelerators-connected-factory-customize/published.png
 
 
-[lnk-rm-walkthrough]:iot-accelerators-connected-factory-sample-walkthrough.md
-[lnk-connect-cf]:iot-accelerators-connected-factory-gateway-deployment.md
 [lnk-permissions]: iot-accelerators-permissions.md
 [lnk-faq]: iot-accelerators-faq.md

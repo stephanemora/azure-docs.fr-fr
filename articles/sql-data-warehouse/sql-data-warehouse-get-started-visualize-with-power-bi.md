@@ -11,10 +11,10 @@ ms.date: 04/17/2018
 ms.author: martinle
 ms.reviewer: igorstan
 ms.openlocfilehash: 4650e171c180653e94d78451d66bba1bcc71b136
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66241286"
 ---
 # <a name="visualize-data-with-power-bi"></a>Visualiser des données avec Power BI
@@ -24,7 +24,7 @@ Ce didacticiel vous montre comment utiliser Power BI pour vous connecter SQL Dat
 > 
 > 
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 Pour parcourir ce didacticiel, vous avez besoin des éléments suivants :
 
 * Un SQL Data Warehouse préchargé avec la base de données AdventureWorksDW. Pour provisionner un entrepôt de données, consultez [Créer un entrepôt de données SQL](create-data-warehouse-portal.md) et chargez l’exemple de données. Si vous disposez déjà d’un entrepôt de données, mais pas d’un exemple de données, vous pouvez [charger WideWorldImportersDW](load-data-wideworldimportersdw.md).
@@ -93,4 +93,4 @@ Quand vous utilisez la fonction de connexion directe :
 Ces restrictions et remarques sont susceptibles de changer à mesure que les expériences s’améliorent.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Maintenant que nous avons donné du temps pour le préchauffage avec les exemples de données, consultez Comment [développer](sql-data-warehouse-overview-develop.md) ou [charger](design-elt-data-loading.md). Vous pouvez également consulter le [site web de Power BI](https://www.powerbi.com/).
+Une fois que vous êtes familiarisé avec les exemples de données, vous pouvez découvrir les opérations de [développement](sql-data-warehouse-overview-develop.md) ou de [chargement](design-elt-data-loading.md). Vous pouvez également consulter le [site web de Power BI](https://www.powerbi.com/).

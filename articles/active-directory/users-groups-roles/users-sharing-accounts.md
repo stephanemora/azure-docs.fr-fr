@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ba9deb00b885dad1d69eb38d4977aafd3d80ab91
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 902696e35a2447b67dab74b73794b80ad5e26511
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60468019"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67083736"
 ---
 # <a name="sharing-accounts-with-azure-ad"></a>Partage de comptes avec Azure AD
 ## <a name="overview"></a>Vue d'ensemble
@@ -73,5 +73,5 @@ Vous pouvez également sécuriser votre compte partagé avec Multi-Factor Authen
 
 ## <a name="related-articles"></a>Articles connexes
 * [Gestion des applications dans Azure Active Directory](../manage-apps/what-is-application-management.md)
-* [Protection des applications avec accès conditionnel](../active-directory-conditional-access-azure-portal.md)
+* [Protection des applications avec un accès conditionnel](../active-directory-conditional-access-azure-portal.md)
 * [Gestion des groupes en libre service/accès aux applications en libre-service](groups-self-service-management.md)

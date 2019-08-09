@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/24/2019
 ms.author: hrushib
-ms.openlocfilehash: e81cc1b3d80afd39a74c3046b1f8020e0a524ae4
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: MT
+ms.openlocfilehash: 7078a1a5edc310c799690f0f7236dd0947e3290b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66237377"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67059186"
 ---
 # <a name="periodic-backup-and-restore-in-azure-service-fabric"></a>Sauvegarde et restauration périodiques dans Azure Service Fabric 
 > [!div class="op_single_selector"]
@@ -54,18 +54,18 @@ Service Fabric fournit un ensemble d’API pour obtenir les fonctions suivantes 
 - Suspendre temporairement les sauvegardes
 - Gérer la rétention des sauvegardes (à venir)
 
-## <a name="prerequisites"></a>Conditions préalables
-* Cluster Service Fabric avec Fabric versions 6.2 et ultérieure. Le cluster doit être configuré sur Windows Server. Consultez cet [article](service-fabric-cluster-creation-via-arm.md) pour la procédure de création d’un cluster Service Fabric à l’aide du modèle de ressource Azure.
+## <a name="prerequisites"></a>Prérequis
+* Cluster Service Fabric avec Fabric version 6.4 ou ultérieure. Consultez cet [article](service-fabric-cluster-creation-via-arm.md) pour la procédure de création d’un cluster Service Fabric à l’aide du modèle de ressource Azure.
 * Certificat X.509 pour le chiffrement des secrets nécessaire pour se connecter au stockage pour stocker les sauvegardes. Consultez [l’article](service-fabric-cluster-creation-via-arm.md) pour savoir comment obtenir ou créer un certificat X.509.
-* Application avec état fiable Service Fabric générée avec le kit SDK Service Fabric version 3.0 ou ultérieure. Pour les applications ciblant .NET Core 2.0, application doit être générée à l’aide du Kit de développement logiciel Service Fabric version 3.1 ou version ultérieure.
+* Application avec état fiable Service Fabric générée avec le kit SDK Service Fabric version 3.0 ou ultérieure. Pour les applications qui ciblent .NET Core 2.0, l’application doit être générée à l’aide du SDK Service Fabric version 3.1 ou ultérieure.
 * Créez un compte de stockage Azure pour stocker les sauvegardes de l’application.
-* Installer le Module de Microsoft.ServiceFabric.Powershell.Http [Aperçu dans] pour effectuer des appels de configuration.
+* Installez le module Microsoft.ServiceFabric.Powershell.Http [en préversion] pour effectuer des appels de configuration.
 
 ```powershell
     Install-Module -Name Microsoft.ServiceFabric.Powershell.Http -AllowPrerelease
 ```
 
-* Assurez-vous que le Cluster est connecté à l’aide de la `Connect-SFCluster` commande avant d’apporter toute demande de configuration à l’aide du Module de Microsoft.ServiceFabric.Powershell.Http.
+* Assurez-vous que le cluster est connecté à l’aide de la commande `Connect-SFCluster` avant d’effectuer toute requête de configuration à l’aide du module Microsoft.ServiceFabric.Powershell.Http.
 
 ```powershell
 
@@ -77,9 +77,9 @@ Service Fabric fournit un ensemble d’API pour obtenir les fonctions suivantes 
 
 ### <a name="using-azure-portal"></a>En passant par le portail Azure
 
-Activer `Include backup restore service` case à cocher sous `+ Show optional settings` dans `Cluster Configuration` onglet.
+Cochez la case `Include backup restore service` sous `+ Show optional settings` dans l’onglet `Cluster Configuration`.
 
-![Activer le Service de sauvegarde/restauration avec le portail][1]
+![Cocher Inclure le service de sauvegarde et restauration avec le portail][1]
 
 
 ### <a name="using-azure-resource-manager-template"></a>Utilisation d’un modèle Azure Resource Manager
@@ -139,9 +139,9 @@ La première étape consiste à créer la stratégie de sauvegarde qui décrit l
 
 Pour le stockage de sauvegarde, utilisez le compte de stockage Azure créé ci-dessus. Le conteneur `backup-container` est configuré pour stocker des sauvegardes. Lors du téléchargement de la sauvegarde, un conteneur portant ce nom est créé s’il n’existe pas déjà. Remplissez `ConnectionString` avec une chaîne de connexion valide pour le compte de stockage Azure, en remplaçant `account-name` par le nom de votre compte de stockage et `account-key` par la clé de votre compte de stockage.
 
-#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>PowerShell à l’aide du Module de Microsoft.ServiceFabric.Powershell.Http
+#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>PowerShell avec le module Microsoft.ServiceFabric.Powershell.Http
 
-Exécutez suivant applets de commande PowerShell pour la création de stratégie de sauvegarde. Remplacez `account-name` par le nom de votre compte de stockage et `account-key` par la clé de votre compte de stockage.
+Exécutez les applets de commande PowerShell suivantes pour la création d’une stratégie de sauvegarde. Remplacez `account-name` par le nom de votre compte de stockage et `account-key` par la clé de votre compte de stockage.
 
 ```powershell
 
@@ -149,7 +149,7 @@ New-SFBackupPolicy -Name 'BackupPolicy1' -AutoRestoreOnDataLoss $true -MaxIncrem
 
 ```
 
-#### <a name="rest-call-using-powershell"></a>Appel REST à l’aide de PowerShell
+#### <a name="rest-call-using-powershell"></a>Appel REST avec PowerShell
 
 Exécutez le script PowerShell suivant pour appeler l’API REST requise afin de créer une stratégie. Remplacez `account-name` par le nom de votre compte de stockage et `account-key` par la clé de votre compte de stockage.
 
@@ -188,14 +188,14 @@ Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/j
 ### <a name="enable-periodic-backup"></a>Activer la sauvegarde périodique
 Après avoir défini la stratégie de sauvegarde pour répondre aux exigences de protection des données de l’application, la stratégie doit être associée à l’application. Selon les besoins, la stratégie de sauvegarde peut être associée à une application, un service ou une partition.
 
-#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>PowerShell à l’aide du Module de Microsoft.ServiceFabric.Powershell.Http
+#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>PowerShell avec le module Microsoft.ServiceFabric.Powershell.Http
 
 ```powershell
 
 Enable-SFApplicationBackup -ApplicationId 'SampleApp' -BackupPolicyName 'BackupPolicy1'
 
 ```
-#### <a name="rest-call-using-powershell"></a>Appel REST à l’aide de PowerShell
+#### <a name="rest-call-using-powershell"></a>Appel REST avec PowerShell
 
 Exécutez le script PowerShell suivant pour appeler l’API REST requise afin d’associer la stratégie de sauvegarde nommée `BackupPolicy1` créée à l’étape ci-dessus à l’application `SampleApp`.
 
@@ -220,14 +220,14 @@ Après avoir activé la sauvegarde au niveau de l’application, toutes les part
 
 Les sauvegardes associées à toutes les partitions appartenant à des services avec état fiables et des acteurs fiables (Reliable Actors) de l’application peuvent être énumérées à l’aide de l’API _GetBackups_. Les sauvegardes peuvent être énumérées pour une application, un service ou une partition.
 
-#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>PowerShell à l’aide du Module de Microsoft.ServiceFabric.Powershell.Http
+#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>PowerShell avec le module Microsoft.ServiceFabric.Powershell.Http
 
 ```powershell
     
 Get-SFApplicationBackupList -ApplicationId WordCount
 ```
 
-#### <a name="rest-call-using-powershell"></a>Appel REST à l’aide de PowerShell
+#### <a name="rest-call-using-powershell"></a>Appel REST avec PowerShell
 
 Exécutez le script PowerShell suivant pour appeler l’API HTTP afin d’énumérer les sauvegardes créées pour toutes les partitions à l’intérieur de l’application `SampleApp`.
 
@@ -281,7 +281,7 @@ FailureError            :
 ```
 
 ## <a name="limitation-caveats"></a>Limitations/mises en garde
-- Applets de commande PowerShell service Fabric sont en mode Aperçu.
+- Les applets de commande PowerShell Service Fabric sont en mode Aperçu.
 - Pas de prise en charge des clusters Service Fabric sur Linux.
 
 ## <a name="next-steps"></a>Étapes suivantes

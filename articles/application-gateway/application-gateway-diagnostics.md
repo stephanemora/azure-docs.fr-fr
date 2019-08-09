@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 3/28/2019
 ms.author: amitsriva
-ms.openlocfilehash: 367da8a1948b9feb42bc82d85762ae314fe165a0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: a8b0ee159b1c4a4072ce5a86f9fb925744a415b3
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66135496"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67048702"
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>Intégrité du serveur principal, journaux de diagnostic et métriques pour la passerelle Application Gateway
 
@@ -20,7 +20,7 @@ ms.locfileid: "66135496"
 
 * [Intégrité du serveur principal](#back-end-health) : Application Gateway permet de superviser l’intégrité des serveurs dans les pools de back-ends au moyen du portail Azure et de PowerShell. Vous pouvez également accéder à l’intégrité des pools principaux via les journaux de diagnostic des performances.
 
-* [Journaux](#diagnostic-logging) : les journaux d’activité permettent d’enregistrer ou d’utiliser les performances, les accès et les autres données à partir d’une ressource à des fins de supervision.
+* [Journaux d’activité](#diagnostic-logging) : les journaux d’activité permettent d’enregistrer ou d’utiliser les performances, les accès et les autres données à partir d’une ressource à des fins de supervision.
 
 * [Métriques](#metrics) : Application Gateway a actuellement sept métriques pour afficher les compteurs de performances.
 
@@ -106,7 +106,7 @@ Pour stocker vos journaux d’activité, vous disposez de trois options :
 
 * **Compte de stockage** : les comptes de stockage conviennent parfaitement aux journaux d’activité quand ils sont stockés pour une durée plus longue et consultés quand cela est nécessaire.
 * **Hubs d’événements** : les hubs d’événements constituent une excellente solution pour l’intégration à d’autres outils SEIM (Security Information and Event Management) afin de recevoir des alertes sur vos ressources.
-* **Journaux Azure Monitor** : Les journaux d’activité Azure Monitor conviennent parfaitement pour la supervision en temps réel générale de votre application ou la recherche de tendances.
+* **Journaux d’activité Azure Monitor** : Les journaux d’activité Azure Monitor conviennent parfaitement pour la supervision en temps réel générale de votre application ou la recherche de tendances.
 
 ### <a name="enable-logging-through-powershell"></a>Activation de la journalisation avec PowerShell
 
@@ -131,7 +131,7 @@ La journalisation d’activité est automatiquement activée pour chaque ressour
 
 ### <a name="enable-logging-through-the-azure-portal"></a>Activation de la journalisation avec le portail Azure
 
-1. Dans le portail Azure, recherchez votre ressource et sélectionnez **les paramètres de Diagnostic**.
+1. Sur le portail Azure, recherchez votre ressource, puis sélectionnez **Paramètres de diagnostic**.
 
    Pour Application Gateway, trois journaux d’activité d’audit sont disponibles :
 
@@ -139,7 +139,7 @@ La journalisation d’activité est automatiquement activée pour chaque ressour
    * Journal des performances
    * Journal du pare-feu
 
-2. Pour démarrer la collecte de données, sélectionnez **activer les diagnostics**.
+2. Sélectionnez **Activer les diagnostics** pour démarrer la collecte de données.
 
    ![Activation des diagnostics][1]
 
@@ -147,7 +147,7 @@ La journalisation d’activité est automatiquement activée pour chaque ressour
 
    ![Démarrage du processus de configuration][2]
 
-5. Tapez un nom pour les paramètres, confirmez les paramètres, puis sélectionnez **enregistrer**.
+5. Tapez un nom pour les paramètres, confirmez les paramètres, puis sélectionnez **Enregistrer**.
 
 ### <a name="activity-log"></a>Journal d’activité
 
@@ -155,8 +155,7 @@ Par défaut, Azure génère le journal d’activité. Les journaux d’activité
 
 ### <a name="access-log"></a>Journal d’accès
 
-Le journal d’accès n’est généré que si vous l’avez activé sur chaque instance Application Gateway, comme détaillé dans les étapes précédentes. Les données sont stockées dans le compte de stockage spécifié lors de l’activation de la journalisation. Chaque accès à la passerelle Application Gateway est journalisé au format JSON, comme indiqué dans l’exemple suivant :
-
+Le journal d’accès n’est généré que si vous l’avez activé sur chaque instance Application Gateway, comme détaillé dans les étapes précédentes. Les données sont stockées dans le compte de stockage spécifié lors de l’activation de la journalisation. Chaque accès d’Application Gateway est journalisé au format JSON, comme le montre l’exemple ci-dessous pour v 1 :
 
 |Valeur  |Description  |
 |---------|---------|
@@ -193,6 +192,58 @@ Le journal d’accès n’est généré que si vous l’avez activé sur chaque 
         "sentBytes": 553,
         "timeTaken": 205,
         "sslEnabled": "off"
+    }
+}
+```
+Pour Application Gateway et WAF v2, les journaux contiennent un peu plus d’informations :
+
+|Valeur  |Description  |
+|---------|---------|
+|instanceId     | Instance Application Gateway ayant traité la requête.        |
+|clientIP     | Adresse IP d’origine de la requête.        |
+|clientPort     | Port d’origine de la requête.       |
+|httpMethod     | Méthode HTTP utilisée par la requête.       |
+|requestUri     | URI de la requête reçue.        |
+|RequestQuery     | **Acheminée par le serveur** : instance de pool principal à laquelle la requête a été envoyée.</br>**X-AzureApplicationGateway-LOG-ID** : ID de corrélation utilisé pour la requête. Peut être utilisée pour résoudre les problèmes de trafic sur les serveurs principaux. </br>**ÉTAT DU SERVEUR** : code de réponse HTTP reçu par Application Gateway à partir du back-end.       |
+|UserAgent     | Agent utilisateur de l’en-tête de requête HTTP.        |
+|httpStatus     | Code d’état HTTP renvoyé au client à partir de d’Application Gateway.       |
+|httpVersion     | Version HTTP de la requête.        |
+|receivedBytes     | Taille du paquet reçu, en octets.        |
+|sentBytes| Taille du paquet envoyé, en octets.|
+|timeTaken| Durée (en millisecondes) nécessaire pour le traitement d’une requête et l’envoi de la réponse. Elle est calculée en fonction de l’intervalle entre le moment où Application Gateway reçoit le premier octet d’une requête HTTP et le moment où l’opération d’envoi d’une réponse se termine. Il est important de noter que le champ Time-Taken inclut généralement l’heure à laquelle la requête et les paquets de réponse circulent sur le réseau. |
+|sslEnabled| Détermine si la communication avec les pools principaux utilisait SSL. Les valeurs valides sont On (Activé) et Off (Désactivé).|
+|sslCipher| Suite de chiffrement utilisée pour la communication SSL (si SSL est activé).|
+|sslProtocol| Protocole SSL en cours d’utilisation (si SSL est activé).|
+|serverRouted| Serveur back-end vers lequel la passerelle d’application route les demandes.|
+|serverStatus| Code d’état HTTP du serveur back-end.|
+|serverResponseLatency| Latence de la réponse du serveur back-end.|
+|host| Adresse figurant dans l’en-tête d’hôte de la demande.|
+```json
+{
+    "resourceId": "/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/PEERINGTEST/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/{applicationGatewayName}",
+    "operationName": "ApplicationGatewayAccess",
+    "time": "2017-04-26T19:27:38Z",
+    "category": "ApplicationGatewayAccessLog",
+    "properties": {
+        "instanceId": "ApplicationGatewayRole_IN_0",
+        "clientIP": "191.96.249.97",
+        "clientPort": 46886,
+        "httpMethod": "GET",
+        "requestUri": "/phpmyadmin/scripts/setup.php",
+        "requestQuery": "X-AzureApplicationGateway-CACHE-HIT=0&SERVER-ROUTED=10.4.0.4&X-AzureApplicationGateway-LOG-ID=874f1f0f-6807-41c9-b7bc-f3cfa74aa0b1&SERVER-STATUS=404",
+        "userAgent": "-",
+        "httpStatus": 404,
+        "httpVersion": "HTTP/1.0",
+        "receivedBytes": 65,
+        "sentBytes": 553,
+        "timeTaken": 205,
+        "sslEnabled": "off"
+        "sslCipher": "",
+        "sslProtocol": "",
+        "serverRouted": "104.41.114.59:80",
+        "serverStatus": "200",
+        "serverResponseLatency": "0.023",
+        "host": "52.231.230.101"
     }
 }
 ```
@@ -248,7 +299,7 @@ Le journal du pare-feu n’est généré que si vous l’avez activé sur chaque
 |ruleSetType     | Type d’ensemble de règles. La valeur disponible est OWASP.        |
 |ruleSetVersion     | Version d’ensemble de règles utilisée. Les valeurs disponibles sont 2.2.9 et 3.0.     |
 |ruleId     | ID de règle de l’événement de déclenchement.        |
-|Message     | Message convivial pour l’événement de déclenchement. La section Détails vous fournit plus d’informations.        |
+|message     | Message convivial pour l’événement de déclenchement. La section Détails vous fournit plus d’informations.        |
 |action     |  Action effectuée sur la requête. Les valeurs disponibles sont bloquées et autorisées.      |
 |site     | Site pour lequel le journal a été généré. Actuellement, seul Global est répertorié car les règles sont globales.|
 |détails     | Détails de l’événement de déclenchement.        |
@@ -294,7 +345,7 @@ Vous pouvez afficher et analyser les données du journal d’activité en utilis
 
 ### <a name="view-and-analyze-the-access-performance-and-firewall-logs"></a>Affichage et analyse des journaux d’activité d’accès, des performances et du pare-feu
 
-Les [journaux Azure Monitor](../azure-monitor/insights/azure-networking-analytics.md) peuvent collecter les fichiers du compteur et du journal d’événements à partir de votre compte de stockage d’objets Blob. Il inclut des visualisations et des fonctionnalités puissantes de recherche pour analyser vos journaux d’activité.
+Les [journaux d’activité Azure Monitor](../azure-monitor/insights/azure-networking-analytics.md) peuvent collecter les fichiers du compteur et du journal d’événements à partir de votre compte de stockage d’objets Blob. Il inclut des visualisations et des fonctionnalités puissantes de recherche pour analyser vos journaux d’activité.
 
 Vous pouvez également vous connecter à votre compte de stockage et récupérer les entrées de journal d’activité JSON pour les journaux d’activité d’accès et des performances. Après avoir téléchargé les fichiers JSON, vous pouvez les convertir en CSV et les afficher dans Excel, PowerBI ou tout autre outil de visualisation de données.
 
@@ -328,7 +379,7 @@ Les mesures représentent une fonctionnalité de certaines ressources Azure, vou
 
    Vous pouvez filtrer sur une base de pool principal pour afficher les hôtes intègres/défectueux dans un pool principal spécifique.
 
-Accédez à une passerelle d’application, sous **surveillance** sélectionnez **métriques**. Pour afficher les valeurs disponibles, sélectionnez la liste déroulante **MÉTRIQUE**.
+Accédez à une passerelle d’application, sous **Supervision**, sélectionnez **Métriques**. Pour afficher les valeurs disponibles, sélectionnez la liste déroulante **MÉTRIQUE**.
 
 Dans l’image suivante, consultez un exemple avec trois métriques affichées pour les 30 dernières minutes :
 
@@ -342,11 +393,11 @@ Vous pouvez démarrer des règles d’alerte en fonction des métriques d’une 
 
 L’exemple suivant vous guide dans la création d’une règle d’alerte qui envoie un e-mail à un administrateur lorsqu’un seuil de débit est dépassé :
 
-1. Sélectionnez **ajouter une alerte métrique** pour ouvrir le **ajouter une règle** page. Vous pouvez également atteindre cette page à partir de la page de mesures.
+1. Sélectionnez **Ajouter une alerte Métrique** pour ouvrir la page **Ajouter une règle**. Cette page est aussi accessible à partir de la page Métriques.
 
    ![Bouton Ajouter une alerte Métrique][6]
 
-2. Sur le **ajouter une règle** page, renseignez le nom, condition et notifier sections et sélectionnez **OK**.
+2. Dans la page **Ajouter une règle**, remplissez les sections Nom, Condition et Notifier, puis sélectionnez **OK**.
 
    * Dans le sélecteur **Condition**, sélectionnez une des quatre valeurs : **Supérieur à**, **Supérieur ou égal à**, **Inférieur à** ou **Inférieur ou égal à**.
 
@@ -354,7 +405,7 @@ L’exemple suivant vous guide dans la création d’une règle d’alerte qui e
 
    * Si vous sélectionnez **Envoyer des e-mails aux propriétaires, contributeurs et lecteurs** , l’e-mail peut être dynamiquement basé sur les utilisateurs qui ont accès à cette ressource. Dans le cas contraire, vous pouvez fournir une liste d’utilisateurs séparée par des virgules dans la zone **Adresse(s) de messagerie d’administrateur(s) supplémentaire(s)** .
 
-   ![Ajouter une page de la règle][7]
+   ![Page Ajouter une règle][7]
 
 Si le seuil est dépassé, un e-mail similaire à celui de l’image suivante vous est envoyé :
 

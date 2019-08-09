@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 07/14/2017
 ms.author: cynthn
 ms.openlocfilehash: 80c2a1f4b9b724058b8b573f265a3cb2a99302a0
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66305959"
 ---
 # <a name="deploy-an-azure-virtual-machine-using-c-and-a-resource-manager-template"></a>Déployer une machine virtuelle Azure à l’aide de C# et d’un modèle Resource Manager
@@ -205,7 +205,7 @@ Avant de commencer cette étape, vérifiez que vous avez accès à un [principal
     Remplacez **&lt;subscription-id&gt;** par votre identificateur d’abonnement, **&lt;application-id&gt;** par l’identificateur d’application Active Directory, **&lt;authentication-key&gt;** par la clé d’application et **&lt;tenant-id&gt;** par l’identificateur du locataire.
 
 3. Enregistrez le fichier azureauth.properties.
-4. Définir qu'une variable d’environnement dans Windows nommée AZURE_AUTH_LOCATION avec le chemin d’accès complet au fichier d’autorisation que vous avez créé, par exemple, vous pouvez utiliser la commande PowerShell suivante :
+4. Définissez une variable d’environnement dans Windows nommée AZURE_AUTH_LOCATION avec le chemin complet au fichier d’autorisation que vous avez créé. Vous pouvez par exemple utiliser la commande PowerShell suivante :
 
     ```powershell
     [Environment]::SetEnvironmentVariable("AZURE_AUTH_LOCATION", "C:\Visual Studio 2019\Projects\myDotnetProject\myDotnetProject\azureauth.properties", "User")
@@ -215,7 +215,7 @@ Avant de commencer cette étape, vérifiez que vous avez accès à un [principal
 
 ## <a name="create-the-management-client"></a>Créer le client de gestion
 
-1. Ouvrez le fichier Program.cs du projet que vous avez créé. Ensuite, ajoutez les instructions aux instructions using au début du fichier :
+1. Ouvrez le fichier Program.cs du projet que vous avez créé. Ensuite, ajoutez ces instructions using aux instructions existantes en haut du fichier :
 
     ```csharp
     using Microsoft.Azure.Management.Compute.Fluent;

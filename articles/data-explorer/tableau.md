@@ -1,6 +1,6 @@
 ---
-title: Connexion Open Database Connectivity (ODBC) à l’Explorateur de données Azure permet de visualiser les données de Tableau
-description: Dans cet article, vous allez apprendre à utiliser une connexion de la connectivité ODBC (Open Database) pour la connexion de l’Explorateur de données Azure pour visualiser les données avec un Tableau.
+title: Utiliser une connexion ODBC (Open Database Connectivity) à Azure Data Explorer pour visualiser les données avec Tableau
+description: Dans cet article, vous allez apprendre à utiliser une connexion ODBC (Open Database Connectivity) à Azure Data Explorer pour visualiser les données avec Tableau.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
@@ -8,45 +8,45 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.openlocfilehash: a0948ae35a5c23768df117979db819861ac64529
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66499083"
 ---
-# <a name="visualize-data-from-azure-data-explorer-in-tableau"></a>Visualiser les données à partir de l’Explorateur de données Azure dans le Tableau
+# <a name="visualize-data-from-azure-data-explorer-in-tableau"></a>Visualiser des données Azure Data Explorer dans Tableau
 
- [Tableau](https://www.tableau.com/) est une plateforme analytique visual pour business intelligence. Pour vous connecter à l’Explorateur de données Azure à partir du Tableau et importez des données d’un cluster de l’exemple, utilisez le pilote SQL Server ODBC Open Database Connectivity (). 
+ [Tableau](https://www.tableau.com/) est une plateforme d’analyse visuelle de Business Intelligence. Pour vous connecter à Azure Data Explorer à partir de Tableau et introduire les données d’un exemple de cluster, utilisez le pilote SQL Server ODBC (Open Database Connectivity). 
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
-Vous avez besoin de ce qui suit pour terminer cet article :
+Vous avez besoin des éléments suivants dans le cadre de cet article :
 
-* [Se connecter à l’Explorateur de données Azure avec ODBC](connect-odbc.md) à l’aide du pilote ODBC SQL Server, pour se connecter à l’Explorateur de données Azure à partir du Tableau. 
+* [Connectez-vous à Azure Data Explorer avec ODBC](connect-odbc.md) à l’aide du pilote SQL Server ODBC, pour vous connecter à Azure Data Explorer à partir de Tableau. 
 
-* Tableau Desktop, complète, ou [d’évaluation](https://www.tableau.com/products/desktop/download) version.
+* Tableau Desktop, version complète ou d’[évaluation](https://www.tableau.com/products/desktop/download).
 
-* Un cluster qui inclut l’exemple de données StormEvents. Pour plus d’informations, consultez [créer un cluster de l’Explorateur de données Azure et de la base de données](create-cluster-database-portal.md) et [ingérer les exemples de données dans l’Explorateur de données Azure](ingest-sample-data.md).
+* Un cluster qui inclut l’exemple de données StormEvents. Pour plus d’informations, consultez [Créer un cluster et une base de données Azure Data Explorer](create-cluster-database-portal.md) et [Ingérer des exemples de données dans l’Explorateur de données Azure](ingest-sample-data.md).
 
     [!INCLUDE [data-explorer-storm-events](../../includes/data-explorer-storm-events.md)]
 
-## <a name="visualize-data-in-tableau"></a>Visualiser les données dans un Tableau 
+## <a name="visualize-data-in-tableau"></a>Visualiser des données dans Tableau 
 
-Une fois que vous avez terminé la configuration d’ODBC, vous pouvez importer des exemples de données dans le Tableau.
+Une fois que vous avez terminé la configuration d’ODBC, vous pouvez introduire des exemples de données dans Tableau.
 
-1. Dans le Tableau Desktop, dans le menu de gauche, sélectionnez **autres bases de données (ODBC)** .
+1. Dans Tableau Desktop, dans le menu de gauche, sélectionnez **Other Databases (ODBC) (Autres bases de données (ODBC))** .
 
     ![Se connecter à ODBC](media/tableau/connect-odbc.png)
 
-1. Pour **DSN**, sélectionnez la source de données que vous avez créé pour ODBC, puis sélectionnez **Sign In**.
+1. Pour **DSN**, sélectionnez la source de données que vous avez créée pour ODBC, puis sélectionnez **Sign In (Se connecter)** .
 
-    ![Connexion dans ODBC](media/tableau/odbc-sign-in.png)
+    ![Connexion à ODBC](media/tableau/odbc-sign-in.png)
 
-1. Pour **base de données**, sélectionnez la base de données sur votre cluster de l’exemple, tel que *TestDatabase*. Pour **schéma**, sélectionnez *dbo*et pour **Table**, sélectionnez le *StormEvents* exemple de table.
+1. Pour **Database (Base de données)** , sélectionnez la base de données figurant dans votre exemple de cluster, telle que *TestDatabase*. Pour **Schéma**, sélectionnez *dbo* et pour **Table**, sélectionnez l’exemple de table *StormEvents*.
 
-    ![Sélectionnez la base de données et de table](media/tableau/select-database-table.png)
+    ![Sélectionner une base de données et une table](media/tableau/select-database-table.png)
 
-1. Tableau affiche maintenant le schéma pour les exemples de données. Sélectionnez **mise à jour maintenant** pour importer les données dans le Tableau.
+1. Tableau affiche maintenant le schéma pour les exemples de données. Sélectionnez **Update Now (Mettre à jour maintenant)** pour introduire les données dans Tableau.
 
     ![Mettre à jour des données](media/tableau/update-data.png)
 
@@ -54,7 +54,7 @@ Une fois que vous avez terminé la configuration d’ODBC, vous pouvez importer 
 
     ![Jeu de résultats](media/tableau/result-set.png)
 
-1. Vous pouvez désormais créer des visualisations dans le Tableau en fonction des données importées à partir de l’Explorateur de données Azure. Pour plus d’informations, consultez [Tableau Learning](https://www.tableau.com/learn).
+1. Vous pouvez désormais créer des visualisations dans Tableau en fonction des données introduites à partir d’Azure Data Explorer. Pour plus d'informations, consultez [Tableau Learning](https://www.tableau.com/learn).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

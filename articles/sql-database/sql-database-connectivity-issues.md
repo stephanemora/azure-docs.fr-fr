@@ -138,7 +138,7 @@ Lorsque vous générez la [chaîne de connexion](https://msdn.microsoft.com/libr
 
 Plus précisément, les valeurs que vous choisissez doivent vérifier la formule suivante : Délai d’expiration de connexion = ConnectRetryCount × ConnectionRetryInterval
 
-Par exemple, si le nombre est égal à 3 et que l’intervalle s’élève à 10 secondes, un délai d’expiration de 29 secondes seulement ne laisse pas suffisamment de temps au système pour sa 3e et dernière tentative de connexion, 29 étant inférieur à 3 × 10.
+Par exemple, si le nombre est égal à 3 et que l’intervalle s’élève à 10 secondes, un délai d’expiration de 29 secondes seulement ne laisse pas suffisamment de temps au système pour sa 3e et dernière tentative de connexion, 29 étant inférieur à 3 * 10.
 
 <a id="connection-versus-command" name="connection-versus-command"></a>
 
@@ -310,7 +310,7 @@ ORDER BY
 ;
 ```
 
-#### <a name="a-few-returned-rows-from-sysfnxetelemetryblobtargetreadfile"></a>quelques-unes d’entre elles ont renvoyé des lignes de sys.fn_xe_telemetry_blob_target_read_file
+#### <a name="a-few-returned-rows-from-sysfn_xe_telemetry_blob_target_read_file"></a>quelques-unes d’entre elles ont renvoyé des lignes de sys.fn_xe_telemetry_blob_target_read_file
 
 L’exemple suivant montre à quoi peut ressembler une ligne retournée. Les valeurs null indiquées ne sont en général pas nulles dans d’autres lignes.
 

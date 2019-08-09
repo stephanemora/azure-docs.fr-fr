@@ -1,7 +1,7 @@
 ---
-title: Instructions de transcriptions étiquetés humaines - Services de reconnaissance vocale
+title: Recommandations concernant les transcriptions étiquetés à la main – Speech Services
 titlesuffix: Azure Cognitive Services
-description: Si vous avez besoin pour améliorer la précision de la reconnaissance, en particulier les problèmes qui se produisent quand les mots sont supprimés ou incorrectement substituées, il allez que vous souhaitez utiliser humaines en partie les transcriptions, ainsi que vos données audio. Quelles sont les transcriptions humaines en partie ? C’est facile, elles sont des transcriptions mot par mot, textuelles d’un fichier audio.
+description: Si vous cherchez à améliorer la précision de la reconnaissance, en particulier les problèmes liés à la suppression de mots ou à leur substitution inappropriée, vous pouvez utiliser des transcriptions étiquetées à la main avec vos données audio. En quoi consistent les transcriptions étiquetées à la main ? Il s’agit tout simplement de transcriptions textuelles, mot par mot, d’un fichier audio.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,42 +10,42 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: 7f0b467284872f3d936984741c6d092705008a5a
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
-ms.translationtype: MT
+ms.openlocfilehash: ba6d137a7eb5fc2c56bfc39aa8f831d76411fb46
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025921"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67060856"
 ---
-# <a name="how-to-create-human-labeled-transcriptions"></a>Comment créer des transcriptions étiquetés humaines
+# <a name="how-to-create-human-labeled-transcriptions"></a>Comment créer des transcriptions étiquetées à la main
 
-Si vous avez besoin pour améliorer la précision de la reconnaissance, en particulier les problèmes qui se produisent quand les mots sont supprimés ou incorrectement substituées, il allez que vous souhaitez utiliser humaines en partie les transcriptions, ainsi que vos données audio. Quelles sont les transcriptions humaines en partie ? C’est facile, elles sont des transcriptions mot par mot, textuelles d’un fichier audio.
+Si vous cherchez à améliorer la précision de la reconnaissance, en particulier les problèmes liés à la suppression de mots ou à leur substitution inappropriée, vous pouvez utiliser des transcriptions étiquetées à la main avec vos données audio. En quoi consistent les transcriptions étiquetées à la main ? Il s’agit tout simplement de transcriptions textuelles, mot par mot, d’un fichier audio.
 
-Un échantillon volumineux de données de transcription est nécessaire pour améliorer la reconnaissance, nous vous suggérons fournissant comprise entre 10 et 1 000 heures de données de transcription. Dans cette page, nous allons examiner les instructions conçues pour vous aider à créer des transcriptions de haute qualité. Ce guide est divisé par les paramètres régionaux, avec des sections pour anglais (États-Unis), chinois Mandarin et allemand.
+Sachant que l’amélioration de la reconnaissance nécessite un échantillon volumineux de données de transcription, nous vous conseillons de fournir entre 10 et 1 000 heures de données de transcription. Dans cette page, nous allons passer en revue les principes à respecter pour créer des transcriptions de grande qualité. Ce guide est divisé par paramètres régionaux, avec des sections pour l’anglais des États-Unis, le chinois mandarin et l’allemand.
 
 ## <a name="us-english-en-us"></a>Anglais (États-Unis, en-US)
 
-Humaines en partie les transcriptions audio en anglais doivent être fournies sous forme de texte brut, uniquement à l’aide de caractères ASCII. Évitez d’utiliser des caractères de ponctuation Latin-1 ou Unicode. Ces caractères sont souvent par inadvertance ajoutés lors de la copie de texte à partir d’une application de traitement de texte ou de la capture des données à partir de pages web. Si ces caractères sont présents, veillez à les mettre à jour avec la substitution ASCII appropriée.
+Les transcriptions étiquetées à la main pour le contenu audio en anglais doivent être fournies sous forme de texte brut, uniquement avec des caractères ASCII. Évitez d’utiliser des caractères de ponctuation Latin-1 ou Unicode. Ces caractères sont souvent ajoutés par inadvertance pendant la copie de texte dans une application de traitement de texte la capture des données dans des pages web. Si ces caractères sont présents, veillez à les mettre à jour par une substitution ASCII appropriée.
 
 Voici quelques exemples :
 
 | Caractères à éviter | Substitution | Notes |
 |---------------------|--------------|-------|
-| « Hello world » | "Hello world" | Les marques de quotations ouvrantes et fermantes ont été substitués avec des caractères ASCII. |
-| Jours de John | Jours de John | L’apostrophe a été remplacé par le caractère ASCII approprié. |
-| it was good—no, it was great! | it was good--no, it was great! | Le tiret em a été remplacé par deux traits d’union. |
+| “Hello world” | "Hello world" | Les guillemets typographiques ouvrants et fermants ont été substitués par des caractères ASCII appropriés. |
+| John’s day | John's day | L’apostrophe a été substituée par le caractère ASCII approprié. |
+| it was good—no, it was great! | it was good--no, it was great! | Le tiret cadratin a été substitué par deux traits d’union. |
 
-### <a name="text-normalization-for-us-english"></a>Normalisation du texte anglais (États-Unis)
+### <a name="text-normalization-for-us-english"></a>Normalisation du texte pour l’anglais des États-Unis
 
-La normalisation de texte est la transformation de mots dans un format cohérent utilisé lors de l’apprentissage d’un modèle. Certaines règles de normalisation sont automatiquement appliquées au texte, toutefois, nous recommandons à l’aide de ces instructions lorsque vous vous préparez vos données de transcription étiquetés humaines :
+La normalisation du texte consiste à transformer les mots dans un format cohérent utilisé pendant l’entraînement d’un modèle. Si certaines règles de normalisation sont automatiquement appliquées au texte, nous vous recommandons cependant de suivre ces recommandations pendant la phase de préparation de données de transcription étiquetées à la main :
 
-* Écrire les abréviations dans les mots.
-* Écrire des chaînes numériques non standards dans les mots (tels que les termes du contrat de comptabilité).
-* Les caractères non alphabétiques ou des caractères alphanumériques mixtes doivent être transcrite tels prononcés.
-* Abréviations sont prononcées en tant que mots ne doit pas être modifiées (par exemple, « en radar », « laser », « RAM » ou « OTAN »).
-* Écriture des abréviations soient marquées comme des lettres distinctes avec chaque lettre séparé par un espace.
+* Développez les abréviations.
+* Écrivez les chaînes numériques non standard en lettres (comme les termes de comptabilité).
+* Les caractères non alphabétiques ou les caractères alphanumériques mixtes doivent être retranscrits comme ils se prononcent.
+* Les abréviations prononcées comme des mots n’ont pas besoin d’être modifiés (par exemple, « radar », « laser », « RAM » ou « OTAN »).
+* Écrivez les abréviations dont les lettres se prononcent en les séparant avec un espace.
 
-Voici quelques exemples de normalisation à effectuer sur la transcription :
+Voici quelques exemples de normalisation à effectuer au niveau de la transcription :
 
 | Texte d’origine | Texte après la normalisation |
 |---------------|--------------------------|
@@ -54,18 +54,18 @@ Voici quelques exemples de normalisation à effectuer sur la transcription :
 | Ke$ha | Kesha |
 | How long is the 2x4 | How long is the two by four |
 | The meeting goes from 1-3pm | The meeting goes from one to three pm |
-| mon type de sang est O + | My blood type is O positive |
-| l’eau est H20 | l’eau est O de 2 H |
-| lire OU812 par Van Halen | Lire O, U 8 1 2 par Van Halen |
+| My blood type is O+ | My blood type is O positive |
+| Water is H20 | Water is H 2 O |
+| Play OU812 by Van Halen | Play O U 8 1 2 by Van Halen |
 | UTF-8 with BOM | U T F 8 with BOM |
 
-Les règles de normalisation suivants sont automatiquement appliquées aux transcriptions :
+Les règles de normalisation suivantes sont automatiquement appliquées aux transcriptions :
 
-* Utiliser des lettres minuscules.
-* Supprimez tous les signes de ponctuation, à l’exception des apostrophes dans les mots.
-* Développez des nombres en forme parlée/mots, tels que des montants en dollars.
+* Utilisation de lettres minuscules
+* Suppression de tous les signes de ponctuation, à l’exception des apostrophes dans les mots
+* Écriture des nombres en lettres/forme parlée, comme les montants en dollars
 
-Voici quelques exemples de normalisation automatique effectuée sur la transcription :
+Voici quelques exemples de normalisation effectuée automatiquement au niveau de la transcription :
 
 | Texte d’origine | Texte après la normalisation |
 |---------------|--------------------------|
@@ -78,39 +78,39 @@ Voici quelques exemples de normalisation automatique effectuée sur la transcrip
 | Pi is about 3.14 | pi is about three point one four |
 It costs $3.14| it costs three fourteen |
 
-## <a name="mandarin-chinese-zh-cn"></a>Mandarin chinois (zh-cn)
+## <a name="mandarin-chinese-zh-cn"></a>Mandarin chinois (zh-CN)
 
-Humaines en partie les transcriptions audio chinois Mandarin doivent être encodé avec un marqueur d’ordre d’octet UTF-8. Évitez l’utilisation des signes de ponctuation de demi-largeur. Ces caractères peuvent être inclus par inadvertance lorsque vous préparez les données dans un programme de traitement de texte ou capturer des données à partir de pages web. Si ces caractères sont présents, veillez à les mettre à jour avec la substitution de pleine chasse appropriée.
+Les transcriptions étiquetées à la main pour le contenu audio en chinois mandarin doivent être encodées en UTF-8 avec un indicateur d’ordre des octets. Évitez l’utilisation des signes de ponctuation de demi-largeur. Ces caractères peuvent être inclus par inadvertance pendant la préparation des données dans un programme de traitement ou la récupération de données dans des pages web. Si ces caractères sont présents, veillez à les mettre à jour par une substitution appropriée avec des caractères à pleine chasse.
 
 Voici quelques exemples :
 
 | Caractères à éviter | Substitution | Notes |
 |---------------------|--------------|-------|
-| "你好" | "你好" | Les marques de quotations ouvrantes et fermantes ont été substitués avec des caractères appropriés. |
-| 需要什么帮助? | 需要什么帮助？ | Le point d’interrogation a été remplacé par le caractère approprié. |
+| "你好" | "你好" | Les guillemets typographiques ouvrants et fermants ont été substitués par des caractères appropriés. |
+| 需要什么帮助? | 需要什么帮助？ | Le point d’interrogation a été substitué par un caractère approprié. |
 
 ### <a name="text-normalization-for-mandarin-chinese"></a>Normalisation de texte pour le chinois Mandarin
 
-La normalisation de texte est la transformation de mots dans un format cohérent utilisé lors de l’apprentissage d’un modèle. Certaines règles de normalisation sont automatiquement appliquées au texte, toutefois, nous recommandons à l’aide de ces instructions lorsque vous vous préparez vos données de transcription étiquetés humaines :
+La normalisation du texte consiste à transformer les mots dans un format cohérent utilisé pendant l’entraînement d’un modèle. Si certaines règles de normalisation sont automatiquement appliquées au texte, nous vous recommandons cependant de suivre ces recommandations pendant la phase de préparation de données de transcription étiquetées à la main :
 
-* Écrire les abréviations dans les mots.
+* Développez les abréviations.
 * Écrivez les chaînes numériques sous leur forme orale.
 
-Voici quelques exemples de normalisation à effectuer sur la transcription :
+Voici quelques exemples de normalisation à effectuer au niveau de la transcription :
 
 | Texte d’origine | Texte après la normalisation |
 |---------------|--------------------------|
 | 我今年21 | 我今年二十一 |
 | 3号楼504 | 三号 楼 五 零 四 |
 
-Les règles de normalisation suivants sont automatiquement appliquées aux transcriptions :
+Les règles de normalisation suivantes sont automatiquement appliquées aux transcriptions :
 
-* Supprimez tous les signes de ponctuation
-* Développez des nombres à forme parlée
-* Convertir les lettres pleine chasse demi-chasse
+* Suppression de tous les signes de ponctuation
+* Écriture des nombres en forme parlée
+* Conversion des lettres à pleine chasse en lettres à demi-chasse
 * Utilisation de lettres majuscules pour tous les mots anglais
 
-Voici quelques exemples de normalisation automatique effectuée sur la transcription :
+Voici quelques exemples de normalisation effectuée automatiquement au niveau de la transcription :
 
 | Texte d’origine | Texte après la normalisation |
 |---------------|--------------------------|
@@ -122,39 +122,39 @@ Voici quelques exemples de normalisation automatique effectuée sur la transcrip
 | 下午5:00的航班 | 下午 五点 的 航班 |
 | 我今年21岁 | 我 今年 二十 一 岁 |
 
-## <a name="german-de-de-and-other-languages"></a>Allemand (fr-fr) et autres langages
+## <a name="german-de-de-and-other-languages"></a>Allemand (de-DE) et autres langages
 
-Transcriptions de légende humaines pour audio allemand (et d’autres non anglaises ou langues chinois Mandarin) doivent être encodé avec un marqueur d’ordre d’octet UTF-8. Une transcription étiquetés humaines doit être fournie pour chaque fichier audio.
+Les transcriptions étiquetées à la main pour le contenu audio en allemand (et dans d’autres langues que l’anglais et le chinois mandarin) doivent être encodées en UTF-8 avec un indicateur d’ordre des octets. Une transcription étiquetée à la main doit être fournie pour chaque fichier audio.
 
 ### <a name="text-normalization-for-german"></a>Normalisation de texte pour l’allemand
 
-La normalisation de texte est la transformation de mots dans un format cohérent utilisé lors de l’apprentissage d’un modèle. Certaines règles de normalisation sont automatiquement appliquées au texte, toutefois, nous recommandons à l’aide de ces instructions lorsque vous vous préparez vos données de transcription étiquetés humaines :
+La normalisation du texte consiste à transformer les mots dans un format cohérent utilisé pendant l’entraînement d’un modèle. Si certaines règles de normalisation sont automatiquement appliquées au texte, nous vous recommandons cependant de suivre ces recommandations pendant la phase de préparation de données de transcription étiquetées à la main :
 
-*   Écrire les décimales en tant que «, « et non ». ».
-*   Écrire des séparateurs d’heure en tant que « : « et non ». » (par exemple : 12:00 Uhr).
+*   Écrire les décimales sous la forme « , » et non « . ».
+*   Écrire des séparateurs d’heure sous la forme « : » et non « . » (par exemple : 12:00 Uhr).
 *   Les abréviations telles que « ca ». ne sont pas remplacées. Nous vous recommandons d’utiliser la forme parlée complète.
-*   Les quatre principaux opérateurs mathématiques (+, -, \*, /) sont supprimés. Nous vous recommandons de les remplacer par la forme écrite : « en outre, » « moins, » « mal » et « geteilt ».
-*   Opérateurs de comparaison sont supprimés (=, <, et >). Nous vous recommandons de les remplacer par « gleich », « kleiner als » et « grösser als ».
-*   Écrire des fractions, tel que 3/4, dans la forme écrite (par exemple : « drei viertel » au lieu de 3/4).
-*   Remplacez le symbole « €» avec sa forme écrite « Euro. »
+*   Les quatre principaux opérateurs mathématiques (+, -, \*, /) sont supprimés. Nous vous recommandons de les remplacer par leur forme écrite : « plus », « minus », « mal » et « geteilt ».
+*   Les opérateurs de comparaison sont supprimés (=, <, et >). Nous vous recommandons de les remplacer par « gleich », « kleiner als » et « grösser als ».
+*   Écrivez les fractions, telles que 3/4, sous forme écrite (par exemple, « drei viertel » au lieu de 3/4).
+*   Remplacez le symbole « € » par la forme écrite « Euro ».
 
-Voici quelques exemples de normalisation à effectuer sur la transcription :
+Voici quelques exemples de normalisation à effectuer au niveau de la transcription :
 
-| Texte d’origine | Texte après la normalisation de l’utilisateur | Texte après la normalisation du système |
+| Texte d’origine | Texte après la normalisation utilisateur | Texte après la normalisation système |
 |---------------|-------------------------------|---------------------------------|
 | Es ist 12.23 Uhr | Es ist 12:23 Uhr | es ist zwölf uhr drei und zwanzig uhr |
 | {12.45} | {12,45} | zwölf komma vier fünf |
 | 2 + 3 - 4 | 2 plus 3 minus 4 | zwei plus drei minus vier |
 
-Les règles de normalisation suivants sont automatiquement appliquées aux transcriptions :
+Les règles de normalisation suivantes sont automatiquement appliquées aux transcriptions :
 
-* Utiliser des minuscules pour tout le texte.
-* Supprimez tous les signes de ponctuation, y compris les différents types de guillemets (« test », « test », « test » et « test » est OK).
-* Ignorer les lignes avec des caractères spéciaux à partir de cet ensemble : ¢ ¤ ¥ l’objectif § © consignes ¬­® ° + ² µ × ÿ Ø¬¬.
-* Développez des nombres à forme parlée, y compris dollar ou des montants en euros.
-* Accepter des trémas uniquement pour un, o et vous. D’autres seront remplacées par « th » ou être ignorés.
+* Utilisation de lettres minuscules pour tout le texte
+* Suppression de toute la ponctuation, notamment les différents types de guillemets ("test", ’test’, "test„ et «test» sont acceptés)
+* Suppression des lignes contenant un des caractères spéciaux suivants : ¢ ¤ ¥ ¦ § © ª ¬ ® ° ± ² µ × ÿ Ø¬¬
+* Écriture des nombres en forme parlée, y compris les montants en dollars ou en euros
+* Acceptation des trémas uniquement pour a, o et u. Les autres seront remplacées par « th » ou ignorés.
 
-Voici quelques exemples de normalisation automatique effectuée sur la transcription :
+Voici quelques exemples de normalisation effectuée automatiquement au niveau de la transcription :
 
 | Texte d’origine | Texte après la normalisation |
 |---------------|--------------------------|
@@ -164,8 +164,8 @@ Voici quelques exemples de normalisation automatique effectuée sur la transcrip
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Préparer et tester vos données](how-to-custom-speech-test-data.md)
-* [Inspectez vos données](how-to-custom-speech-inspect-data.md)
-* [Évaluer vos données](how-to-custom-speech-evaluate-data.md)
-* [Formation d’un modèle](how-to-custom-speech-train-model.md)
-* [Déployer votre modèle](how-to-custom-speech-deploy-model.md)
+* [Préparer et tester les données](how-to-custom-speech-test-data.md)
+* [Inspecter les données](how-to-custom-speech-inspect-data.md)
+* [Évaluer les données](how-to-custom-speech-evaluate-data.md)
+* [Entraîner un modèle](how-to-custom-speech-train-model.md)
+* [Déployer un modèle](how-to-custom-speech-deploy-model.md)

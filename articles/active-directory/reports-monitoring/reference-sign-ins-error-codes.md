@@ -17,12 +17,12 @@ ms.date: 05/08/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3208afc7ec18013c6e70e148995d33114cf7e06c
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
-ms.translationtype: MT
+ms.openlocfilehash: 760eb5a37a09687cd98ca7abbdcb0bc42667f830
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66513669"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67107623"
 ---
 # <a name="sign-in-activity-report-error-codes"></a>Codes d’erreur du rapport d’activité de connexion 
 
@@ -66,7 +66,7 @@ Vous pouvez également accéder par programme aux données de connexion à l’a
 |50001|Le nom de principal du service est introuvable dans ce locataire. Cela peut se produire si l’application n’a pas été installée par l’administrateur du locataire ou si le principal de la ressource est introuvable dans le répertoire ou non valide.|
 |50002|La connexion a échoué en raison de l’accès proxy restreint sur le locataire. Si s’agit de votre propre stratégie de locataire, vous pouvez modifier les paramètres de locataire restreints pour résoudre ce problème.|
 |50003|La connexion a échoué en raison d’une clé de signature ou d’un certificat manquant. Il n’existe peut-être aucune clé de signature configurée dans l’application. Découvrez les procédures de résolution décrites à la rubrique [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#certificate-or-key-not-configured](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#certificate-or-key-not-configured). Si le problème persiste, contactez le propriétaire de l’application ou l’administrateur de l’application.|
-|50005|L’utilisateur a essayé de se connecter à un appareil à partir d’une plateforme qui n’est actuellement pas prise en charge via la stratégie d’accès conditionnel.|
+|50005|L’utilisateur a essayé de se connecter à un appareil à partir d’une plateforme qui n’est pas prise en charge via la stratégie d’accès conditionnel.|
 |50006| La vérification de la signature a échoué en raison d’une signature non valide. Découvrez la procédure de résolution décrite à la rubrique [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery). Si le problème persiste, contactez le propriétaire de l’application ou l’administrateur de l’application.|
 |50007|Le certificat de chiffrement de partenaire pour cette application est introuvable. [Ouvrez un ticket de support](../fundamentals/active-directory-troubleshooting-support-howto.md) auprès de Microsoft pour résoudre ce problème.|
 |50008|L’assertion SAML est manquante ou configurée de façon incorrecte dans le jeton. Contactez votre fournisseur de fédération.|
@@ -79,7 +79,7 @@ Vous pouvez également accéder par programme aux données de connexion à l’a
 |50027|Jeton JWT non valide pour l’une des raisons suivantes :<ul><li>Aucune (sous-)revendication nonce</li><li>Non-concordance de l’identificateur du sujet</li><li>Revendication en double pour idToken</li><li>Émetteur inattendu</li><li>Audience inattendue</li><li>Intervalle de temps non valide </li><li>format de jeton incorrect</li><li>Échec du jeton d’ID externe de l’émetteur lors de la vérification de la signature.</li></ul>Contactez le propriétaire de l’application.|
 |50029|URI non valide. Le nom du domaine contient des caractères non valides. Contactez l’administrateur du locataire.|
 |50034|L’utilisateur n’existe pas dans le répertoire. Contactez l’administrateur du locataire.|
-|50042|Il manque la valeur salt nécessaire pour générer un identificateur par paire en principe. Contactez l’administrateur du locataire.|
+|50042|La valeur salt nécessaire pour générer un identificateur par paire est manquante dans le principal. Contactez l’administrateur du locataire.|
 |50048|L’objet ne correspond pas à la revendication d’émetteur dans l’assertion du client. Contactez l’administrateur du locataire.|
 |50050|Le format de la requête est incorrect. Contactez le propriétaire de l’application.|
 |50053|Le compte est verrouillé, car l’utilisateur a essayé de se connecter un trop grand nombre de fois avec un ID d’utilisateur ou un mot de passe incorrect.|
@@ -129,7 +129,7 @@ Vous pouvez également accéder par programme aux données de connexion à l’a
 |50180|L’authentification Windows intégrée est nécessaire. Activez le locataire pour l’authentification unique transparente.|
 |51001|L’indicateur de domaine n’est pas présent avec identificateur de sécurité local - UPN local.|
 |51004|Le compte d’utilisateur n’existe pas dans le répertoire.|
-|51006|L’authentification Windows intégrée est nécessaire. Utilisateur connecté à l’aide du jeton de session est manquant via la revendication. Demandez à l’utilisateur de se connecter à nouveau.|
+|51006|L’authentification Windows intégrée est nécessaire. L’utilisateur s’est connecté à l’aide d’un jeton de session qui ne se trouve pas dans la revendication. Demandez à l’utilisateur de se connecter à nouveau.|
 |52004|L’utilisateur n’a pas donné son consentement pour l’accès aux ressources de LinkedIn. |
 |53000|Une stratégie d’accès conditionnel nécessite un appareil conforme, or l’appareil n’est pas conforme. Demandez à l’utilisateur d’inscrire ses appareils auprès d’un fournisseur approuvé de gestion des appareils mobiles, comme Intune.|
 |53001|Une stratégie d’accès conditionnel nécessite un appareil de jonction de domaine, or l’appareil n’est pas conforme. Demandez à l’utilisateur d’utiliser un appareil de jonction de domaine.|
@@ -174,14 +174,14 @@ Vous pouvez également accéder par programme aux données de connexion à l’a
 |81012|Ce n’est pas un état d’erreur. Cela indique que l’utilisateur qui tente de se connecter à Azure AD est différent de l’utilisateur connecté à l’appareil. Vous pouvez ignorer sans problème ce code dans les journaux d’activité.|
 |90010|La requête n’est pas prise en charge pour diverses raisons. Par exemple, la requête est effectuée à l’aide d’une méthode de requête non prise en charge (seule la méthode POST est prise en charge) ou l’algorithme de signature de jeton demandé n’est pas pris en charge. Contactez le développeur de l’application.|
 |90014| Un champ obligatoire du message de protocole n’a pas été renseigné. Contactez le propriétaire de l’application. Si vous êtes le propriétaire de l’application, vérifiez que vous disposez de tous les paramètres nécessaires pour la requête de connexion. |
-|90051| Jeton de délégation non valide. ID de Cloud national non valide ({cloudId}) est spécifié.|
+|90051| Jeton de délégation non valide. L’ID cloud national non valide ({cloudId}) a été spécifié.|
 |90072| Le compte doit d’abord être ajouté comme utilisateur externe dans le locataire. Déconnectez-vous, puis connectez-vous avec un autre compte Azure AD.|
 |90094| L’accès nécessite des autorisations d’administrateur. Demandez à l’administrateur de votre locataire de donner son consentement pour cette application.|
-|500021|Mutualisé est limité par le proxy d’entreprise. Refusez l’accès aux ressources.|
-|500121| Échec de l’authentification au cours de la demande d’authentification forte.|
+|500021|Le locataire est restreint par le proxy de l’entreprise. L’accès aux ressources est refusé.|
+|500121| Échec de l’authentification lors d’une requête d’authentification forte.|
 |500133| L’intervalle de temps de l’assertion n’est pas valide. Vérifiez que le jeton d’accès n’est pas arrivé à expiration avant de l’utiliser pour l’assertion de l’utilisateur, ou demandez-en un nouveau.|
-|530021|Application ne respecte pas les exigences d’applications approuvées de l’accès conditionnel.|
-|7000218|Le corps de la demande doit contenir le paramètre suivant : « client_assertion » ou « client_secret ».|
+|530021|L’application ne répond pas aux conditions d’accès conditionnel des applications approuvées.|
+|7000218|Le corps de la requête doit contenir le paramètre « client_assertion » ou « client_secret ».|
 
 
 ## <a name="next-steps"></a>Étapes suivantes

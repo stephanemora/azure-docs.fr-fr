@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/3/2018
 ms.author: rkarlin
-ms.openlocfilehash: 36201bad64e5516375afe1ec9ce141c3fd311d48
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0740beb3b1ffc200c36ca4b5c15b25017821587e
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64574354"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68662336"
 ---
 # <a name="security-alerts-map-and-threat-intelligence"></a>Carte des alertes de sécurité et informations sur les menaces
 Cet article vous aide à utiliser la carte des alertes de sécurité et la carte Threat Intelligence basée sur les événements de sécurité d’Azure Security Center pour résoudre les problèmes liés à la sécurité.
 
 > [!NOTE]
-> La mise hors service du bouton carte des *événements* de sécurité est prévue pour le 31 juillet 2019. Pour en savoir plus et connaître les alternatives en matière de services, consultez [Retrait des fonctionnalités du Security Center (juillet 2019)](security-center-features-retirement-july2019.md#menu_securityeventsmap).
+> Le bouton carte des *événements* de sécurité a été mis hors service le 31 juillet 2019. Pour en savoir plus et connaître les alternatives, voir [Retrait des fonctionnalités du Security Center (juillet 2019).](security-center-features-retirement-july2019.md#menu_securityeventsmap)
 
 
 ## <a name="how-the-security-alerts-map-works"></a>Fonctionnement de la carte des alertes de sécurité
@@ -55,51 +55,6 @@ La carte des alertes de sécurité est basée sur les alertes. Ces alertes sont 
 Les alertes figurant sur la carte sont affichées en fonction de l’emplacement géographique de leur origine détectée ; elles sont également à code de couleurs par niveau de gravité. 
     ![Informations Threat Intelligence](./media/security-center-threat-intel/security-center-alert-map.png)
 
-## <a name="viewing-the-event-based-threat-intelligence-dashboard"></a>Affichage du tableau de bord Threat Intelligence basé sur les événements
-Pour afficher la carte Threat Intelligence basée sur les événements de sécurité bruts, vous pouvez suivre cette procédure. Cette carte affiche uniquement les événements qui impliquent une adresse IP considérée comme risquée, par exemple une adresse IP d’un botnet connu.
-
-1. Ouvrez le tableau de bord **Security Center**.
-
-1. Dans le volet gauche, sous **Protection contre les menaces**, sélectionnez **Carte des alertes de sécurité**. La carte s’ouvre.
-2. Dans l’angle supérieur droit, cliquez sur **Accéder à la carte des événements de sécurité**.
-3. Sélectionnez l’espace de travail pour lequel vous souhaitez afficher le tableau de bord.
-4. En haut de la carte, sélectionnez **Afficher Threat intelligence classique**. Le tableau de bord **Threat intelligence** s’affiche.
-
-   > [!NOTE]
-   > Si la colonne située complètement à droite affiche **PLAN DE MISE À NIVEAU**, cet espace de travail utilise l’abonnement gratuit. Effectuez une mise à niveau vers le niveau Standard pour utiliser cette fonctionnalité. Si la colonne située complètement à droite affiche **MISE À JOUR NÉCESSAIRE**, mettez à jour [Journaux Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) pour utiliser cette fonctionnalité. Pour en savoir plus sur le plan de tarification, consultez la tarification dans Azure Security Center.
-   >
-5. Si vous avez plusieurs espaces de travail à examiner, hiérarchisez l’examen en fonction de la colonne **Adresse IP malveillante**. Elle indique le nombre actuel d’adresses IP malveillantes dans cet espace de travail. Sélectionnez l’espace de travail que vous souhaitez utiliser. Le tableau de bord **Informations sur les menaces** s’affiche.
-
-    ![Informations sur les menaces](./media/security-center-threat-intel/security-center-threat-intel-fig5.png)
-
-6. Le tableau de bord est divisé en quatre vignettes :
-
-    a.  **Types de menaces**. récapitule les types de menaces détectés dans l’espace de travail sélectionné.
-
-    b.  **Pays d’origine**. Agrège la quantité de trafic en fonction de l’emplacement d’origine.
-
-    c.  **Emplacement de la menace**. vous aide à identifier les emplacements dans le monde qui communiquent actuellement avec votre environnement. Dans le mappage indiqué, les flèches orange (entrant) et rouges (sortant) identifient le sens du trafic. Sélectionnez une de ces flèches pour afficher le type de menace et la direction du trafic.
-
-    d.  **Détails de la menace**. Montre plus de détails sur les menaces que vous avez sélectionnées dans le mappage.
-
-Quelle que soit la vignette d’option sélectionnée, le tableau de bord qui s’affiche se base sur la requête de recherche dans les journaux. Les seules différences sont le type de requête et le résultat.
-
-### <a name="threat-types"></a>Types de menaces
-Sélectionnez la vignette **Types de menace** pour ouvrir le tableau de bord **Recherche dans les journaux**. Les options de filtre s’affichent à gauche, et les résultats de la requête à droite.
-
-![Recherche dans les journaux](./media/security-center-threat-intel/security-center-threat-intel-fig3.png)
-
-Le résultat de la requête affiche les menaces par nom. Vous pouvez utiliser le volet de gauche pour sélectionner l’attribut que vous souhaitez filtrer. Par exemple, pour afficher uniquement les menaces qui sont actuellement connectées aux machines, dans **SESSIONSTATE**, sélectionnez **Connecté** > **Appliquer**.
-
-![État de la session](./media/security-center-threat-intel/security-center-threat-intel-fig4.png)
-
-Pour les machines virtuelles Azure, le tableau de bord **Informations sur les menaces** n’affiche que les données de réseau filtrées par l’agent. Les types de données suivants sont également utilisés par les informations sur les menaces :
-
-- Données CEF (Type = CommonSecurityLog)
-- WireData (Type = WireData)
-- Journaux d’activité IIS (Type = W3CIISLog)
-- Pare-feu Windows (Type = WindowsFirewall)
-- Événements DNS (Type = DnsEvents)
 
 
 ## <a name="see-also"></a>Voir aussi

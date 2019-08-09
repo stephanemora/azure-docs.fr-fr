@@ -3,7 +3,7 @@ title: Création d’un cluster Service Fabric dans le portail Azure | Microsoft
 description: Apprenez à configurer un cluster Service Fabric sécurisé dans Azure à l’aide du portail Azure et d’Azure Key Vault.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: vturecek
 ms.assetid: 426c3d13-127a-49eb-a54c-6bde7c87a83b
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/06/2018
-ms.author: aljo
-ms.openlocfilehash: 02312a19c687908b0e1c0e6417dc6b0a9df23912
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: atsenthi
+ms.openlocfilehash: 123795730e8468591bb02fa7c756ad48222dff82
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62125083"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68600017"
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Création d’un cluster Service Fabric dans Azure à partir du portail Azure
 > [!div class="op_single_selector"]
@@ -79,7 +79,7 @@ La création d’un cluster de production pour répondre aux besoins de votre ap
 
 ### <a name="search-for-the-service-fabric-cluster-resource"></a>Rechercher la ressource de cluster Service Fabric
 
-Connectez-vous au [portail Azure][azure-portal].
+Connectez-vous au [Portail Azure][azure-portal].
 Cliquez sur **Créer une ressource** pour ajouter un nouveau modèle de ressource. Recherchez le modèle de cluster Service Fabric dans **Marketplace** sous **Tout**.
 Sélectionnez **Cluster Service Fabric** dans la liste.
 
@@ -115,8 +115,8 @@ Configurez vos nœuds de cluster. Les types de nœuds définissent les tailles d
 > 
 
 1. Choisissez un nom pour votre type de nœud (1 à 12 caractères contenant uniquement des lettres et des chiffres).
-2. La **taille** minimale des machines virtuelles pour le type de nœud principal dépend de la **couche de durabilité** que vous choisissez pour le cluster. La valeur par défaut du niveau de durabilité est Bronze. Pour en savoir plus sur la durabilité, consultez la page [Comment choisir la durabilité du cluster Service Fabric][service-fabric-cluster-durability].
-3. Sélectionnez la **taille de la machine virtuelle**. Les machines virtuelles de série D ont des lecteurs de disques SSD et sont vivement recommandées pour les applications avec état. N’utilisez pas les références de machine virtuelle incluant des cœurs partiels ou présentant une capacité de disque disponible inférieure à 10 Go. Reportez-vous au document [Considérations de planification pour les clusters Service Fabric][service-fabric-cluster-capacity] pour vous aider à sélectionner la taille de machine virtuelle.
+2. La **taille** minimale des machines virtuelles pour le type de nœud principal dépend de la **couche de durabilité** que vous choisissez pour le cluster. La valeur par défaut du niveau de durabilité est Bronze. Pour en savoir plus sur la durabilité, consultez [Comment choisir la durabilité du cluster Service Fabric][service-fabric-cluster-durability].
+3. Sélectionnez la **taille de la machine virtuelle**. Les machines virtuelles de série D ont des lecteurs de disques SSD et sont vivement recommandées pour les applications avec état. N’utilisez pas les références de machine virtuelle incluant des cœurs partiels ou présentant une capacité de disque disponible inférieure à 10 Go. Reportez-vous au document [Considérations de planification pour les clusters Service Fabric][service-fabric-cluster-capacity] pour obtenir de l’aide concernant la sélection de la taille de la machine virtuelle.
 4.  **Le cluster à un seul nœud et les clusters à trois nœuds** ne servent qu’à effectuer des tests. Ils ne sont pas pris en charge pour l’exécution des charges de travail de production.
 5. Choisissez la **capacité du groupe identique de machines virtuelles initiale** pour le type de nœud. Vous pouvez augmenter ou réduire ultérieurement le nombre de machines virtuelles d’un type de nœud. Cependant, pour le type de nœud principal, le nombre de machines virtuelles minimum est de cinq pour les charges de travail de production. Les autres types de nœuds peuvent avoir au minimum une machine virtuelle. Le **nombre** minimal de machines virtuelles du type de nœud principal détermine la **fiabilité** de votre cluster.  
 6. Configurez des **points de terminaison personnalisés**. Ce champ vous permet d’entrer une liste séparée par des virgules des ports que vous souhaitez exposer par le biais de l’Azure Load Balancer à l’Internet public pour vos applications. Par exemple, si vous envisagez de déployer une application web dans votre cluster, saisissez « 80 » pour autoriser le trafic sur le port 80 dans votre cluster. Pour en savoir plus sur les points de terminaison, consultez la page [Communiquer avec des applications][service-fabric-connect-and-communicate-with-services].
@@ -199,7 +199,7 @@ Une fois votre cluster créé, vous pouvez l’inspecter dans le portail :
 2. Recherchez votre cluster et cliquez dessus.
 3. Vous pouvez maintenant voir les détails de votre cluster dans le tableau de bord, notamment le point de terminaison du cluster et un lien vers Service Fabric Explorer.
 
-La section **Surveillance des nœuds** du panneau du tableau de bord du cluster indique le nombre de machines virtuelles intègres et de machines virtuelles non intègres. Pour plus d’informations sur l’intégrité du cluster, consultez [Présentation du contrôle d’intégrité de Service Fabric][service-fabric-health-introduction].
+La section **Surveillance des nœuds** du panneau du tableau de bord du cluster indique le nombre de machines virtuelles intègres et de machines virtuelles non intègres. Pour plus d’informations sur l’intégrité du cluster, consultez [Présentation du modèle d’intégrité de Service Fabric][service-fabric-health-introduction].
 
 > [!NOTE]
 > Les clusters Service Fabric nécessitent un certain nombre de nœuds actifs en permanence pour maintenir la disponibilité et préserver l’état. Cette situation est appelée « conservation du quorum ». Ainsi, il est généralement déconseillé d’arrêter tous les ordinateurs du cluster, sauf si vous avez d’abord effectué une [sauvegarde complète de votre état][service-fabric-reliable-services-backup-restore].

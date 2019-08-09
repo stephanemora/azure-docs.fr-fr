@@ -3,18 +3,18 @@ title: Comment afficher des données personnalisées sur une carte raster dans A
 description: Affichage de données personnalisées sur une carte raster dans Azure Maps.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 04/03/2019
+ms.date: 07/29/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: a9fed8464bd19c4b8a32e37c8c97698f0a2d9503
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b6343931287ed59363db2715641ca63a814a9c32
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66734293"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68638796"
 ---
 # <a name="render-custom-data-on-a-raster-map"></a>Afficher des données personnalisées sur une carte raster
 
@@ -133,13 +133,27 @@ Vous pouvez aussi obtenir les informations sur le chemin et l’emplacement du r
     }
     ```
 
-4. Sélectionnez **Send** (Envoyer), puis examinez l’en-tête de la réponse. L’en-tête d’emplacement contient l’URI utilisée pour accéder aux données ou de les télécharger pour une utilisation ultérieure. Il contient également la valeur unique `udId` pour les données chargées.  
+4. Sélectionnez **Send** (Envoyer), puis examinez l’en-tête de la réponse. Quand une requête réussit, l’en-tête d’emplacement contient l’URI d’état, qui sert à la vérification de l’état actuel de la requête de chargement. L’URI d’état se présente comme suit.  
 
    ```HTTP
-   https://atlas.microsoft.com/mapData/{udId}/status?api-version=1.0&subscription-key={Subscription-key}
+   https://atlas.microsoft.com/mapData/{uploadStatusId}/status?api-version=1.0
    ```
 
-5. Utilisez la valeur `udId` reçue de l’API de chargement des données pour afficher les fonctions sur la carte. Pour ce faire, ouvrez un nouvel onglet dans la collection que vous avez créée dans la section précédente. Sélectionnez la méthode HTTP GET sous l’onglet Builder (Générateur), puis entrez cette URL pour envoyer une requête GET :
+5. Copiez l’URI d’état et ajoutez-lui le paramètre abonnement-clé. La valeur de ce paramètre doit correspondre à la clé d’abonnement de votre compte Azure Maps, que vous avez utilisée pour charger les données. L’URI d’état doit se présenter comme suit :
+
+   ```HTTP
+   https://atlas.microsoft.com/mapData/{uploadStatusId}/status?api-version=1.0&subscription-key={Subscription-key}
+   ```
+
+6. Pour obtenir l’udId, ouvrez un nouvel onglet dans l’application Postman, sélectionnez la méthode GET HTTP sous l’onglet Builder (Générateur) et effectuez une requête GET sur l’URI d’état. Si le chargement de données réussit, vous recevez un udId dans le corps de la réponse. Copiez l’udId.
+
+   ```JSON
+   {
+      "udid" : "{udId}"
+   }
+   ```
+
+7. Utilisez la valeur `udId` reçue de l’API de chargement des données pour afficher les fonctions sur la carte. Pour ce faire, ouvrez un nouvel onglet dans la collection que vous avez créée dans la section précédente. Sélectionnez la méthode HTTP GET sous l’onglet Builder (Générateur), puis entrez cette URL pour envoyer une requête GET :
 
     ```HTTP
     https://atlas.microsoft.com/map/static/png?subscription-key={subscription-key}&api-version=1.0&layer=basic&style=main&zoom=12&center=-73.96682739257812%2C40.78119135317995&pins=default|la-35+50|ls12|lc003C62|co9B2F15||'Times Square'-73.98516297340393 40.758781646381024|'Central Park'-73.96682739257812 40.78119135317995&path=lc0000FF|fc0000FF|lw3|la0.80|fa0.30||udid-{udId}
@@ -161,7 +175,7 @@ Vous pouvez modifier l’apparence d’un polygone en utilisant des modificateur
     
     ```HTTP
     https://atlas.microsoft.com/map/static/png?api-version=1.0&style=main&layer=basic&sku=S1&zoom=14&height=500&Width=500&center=-74.040701, 40.698666&path=lc0000FF|fc0000FF|lw3|la0.80|fa0.50||-74.03995513916016 40.70090237454063|-74.04082417488098 40.70028420372218|-74.04113531112671 40.70049568385827|-74.04298067092896 40.69899904076542|-74.04271245002747 40.69879568992435|-74.04367804527283 40.6980961582905|-74.04364585876465 40.698055487620714|-74.04368877410889 40.698022951066996|-74.04168248176573 40.696444909137|-74.03901100158691 40.69837271818651|-74.03824925422668 40.69837271818651|-74.03809905052185 40.69903971085914|-74.03771281242369 40.699340668780984|-74.03940796852112 40.70058515602143|-74.03948307037354 40.70052821920425|-74.03995513916016 40.70090237454063
-    &subscription-key={subscription--key}
+    &subscription-key={subscription-key}
     ```
 
     Voici l’image de la réponse :

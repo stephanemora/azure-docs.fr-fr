@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: danlep
-ms.openlocfilehash: b6e26bfa476c5c13e6e478f40c39978af61d83e7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: d62dd6c65975d63a0127bb5dd1c62cd741b59ac6
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60427018"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67067995"
 ---
 # <a name="azure-container-registry-roles-and-permissions"></a>Autorisations et rôles Azure Container Registry
 
@@ -23,7 +23,7 @@ Le service Azure Container Registry prend en charge un ensemble de rôles Azure 
 | ---------| --------- | --------- | --------- | --------- | --------- | --------- | --------- |
 | Propriétaire | X | X | X | X | X | X |  |  
 | Contributeur | X | X | X |  X | X | X |  |  
-| Lecteur | X |  |  | X |  |  |  |
+| Lecteur | X |  |  |  |  |  |  |
 | AcrPush |  |  | X | X | |  |  |  
 | AcrPull |  |  |  | X |  |  |  |  
 | AcrDelete |  |  |  |  | X |  |  |
@@ -63,7 +63,7 @@ Possibilité de `docker pull` une image qui n’est pas en quarantaine ou de tir
 
 ## <a name="delete-image-data"></a>Supprimer les données d’image
 
-La possibilité de [supprimer les images de conteneur](container-registry-delete.md), ou supprimer l’autre [pris en charge les artefacts](container-registry-image-formats.md) tels que des graphiques Helm, à partir d’un Registre.
+Possibilité de [supprimer des images de conteneur](container-registry-delete.md) ou de supprimer d’autres [artefacts pris en charge](container-registry-image-formats.md) tels que des graphiques Helm, à partir d’un registre.
 
 ## <a name="change-policies"></a>Changer de stratégies
 

@@ -10,12 +10,12 @@ ms.service: event-grid
 ms.topic: reference
 ms.date: 01/17/2019
 ms.author: kgremban
-ms.openlocfilehash: e770beb0470b54d8e13493bca4790323b2e96ce1
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
-ms.translationtype: MT
+ms.openlocfilehash: 4e96276a862844cea1d0800eafb952d4a0df97ab
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66393201"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67076351"
 ---
 # <a name="azure-event-grid-event-schema-for-iot-hub"></a>Schéma des événements Azure Event Grid pour IoT Hub
 
@@ -33,9 +33,9 @@ IoT Hub émet les types d’événements suivants :
 | Microsoft.Devices.DeviceDeleted | Publié quand un appareil est supprimé d’un hub IoT. | 
 | Microsoft.Devices.DeviceConnected | Publié quand un appareil est connecté à un hub IoT. |
 | Microsoft.Devices.DeviceDisconnected | Publié quand un appareil est déconnecté d’un hub IoT. | 
-| Microsoft.Devices.DeviceTelemetry | Publié lorsqu’un message de télémétrie est envoyé à un IoT hub. |
+| Microsoft.Devices.DeviceTelemetry | Publié quand un message de télémétrie est envoyé à un hub IoT. |
 
-Tous les événements de périphérique à l’exception des événements de télémétrie d’appareil sont généralement disponibles dans toutes les régions prises en charge par Event Grid. Événement de télémétrie d’appareil est en version préliminaire publique et est disponible dans toutes les régions à l’exception des États-Unis, ouest des États-Unis, Europe de l’ouest, [Azure Government](/azure-government/documentation-government-welcome.md), [Azure China 21Vianet](/azure/china/china-welcome.md), et [Azure Germany](https://azure.microsoft.com/global-infrastructure/germany/).
+Tous les événements d’appareil, à l’exception des événements de télémétrie, sont en disponibilité générale dans toutes les régions prises en charge par Event Grid. L’événement de télémétrie d’appareil est disponible en préversion publique dans toutes les régions à l’exception des suivantes : USA Est, USA Ouest, Europe Ouest, [Azure Government](../azure-government/documentation-government-welcome.md), [Azure China 21Vianet](/azure/china/china-welcome) et [Azure Allemagne](https://azure.microsoft.com/global-infrastructure/germany/).
 
 ## <a name="example-event"></a>Exemple d’événement
 
@@ -62,7 +62,7 @@ Les schémas pour les événements DeviceConnected et DeviceDisconnected ont la 
 }]
 ```
 
-L’événement DeviceTelemetry est déclenché lorsqu’un événement de télémétrie est envoyé à un IoT Hub. Vous trouverez ci-dessous un exemple de schéma pour cet événement.
+L’événement DeviceTelemetry est déclenché quand un événement de télémétrie est envoyé à un hub IoT. Voici un exemple de schéma pour cet événement.
 
 ```json
 [{
@@ -150,21 +150,21 @@ Tous les événements contiennent les mêmes données de niveau supérieur :
 
 | Propriété | Type | Description |
 | -------- | ---- | ----------- |
-| id | string | Identificateur unique de l’événement. |
-| topic | string | Chemin d’accès complet à la source de l’événement. Ce champ n’est pas modifiable. Event Grid fournit cette valeur. |
-| subject | string | Chemin de l’objet de l’événement, défini par le serveur de publication. |
-| eventType | string | Un des types d’événements inscrits pour cette source d’événement. |
-| eventTime | string | L’heure à quelle l’événement est généré selon l’heure UTC du fournisseur. |
-| data | objet | Données d’événement IoT Hub.  |
-| dataVersion | string | Version du schéma de l’objet de données. Le serveur de publication définit la version du schéma. |
-| metadataVersion | string | Version du schéma des métadonnées d’événement. Event Grid définit le schéma des propriétés de niveau supérieur. Event Grid fournit cette valeur. |
+| id | chaîne | Identificateur unique de l’événement. |
+| rubrique | chaîne | Chemin d’accès complet à la source de l’événement. Ce champ n’est pas modifiable. Event Grid fournit cette valeur. |
+| subject | chaîne | Chemin de l’objet de l’événement, défini par le serveur de publication. |
+| eventType | chaîne | Un des types d’événements inscrits pour cette source d’événement. |
+| eventTime | chaîne | L’heure à quelle l’événement est généré selon l’heure UTC du fournisseur. |
+| données | objet | Données d’événement IoT Hub.  |
+| dataVersion | chaîne | Version du schéma de l’objet de données. Le serveur de publication définit la version du schéma. |
+| metadataVersion | chaîne | Version du schéma des métadonnées d’événement. Event Grid définit le schéma des propriétés de niveau supérieur. Event Grid fournit cette valeur. |
 
 Pour tous les événements IoT Hub, l’objet de données contient les propriétés suivantes :
 
 | Propriété | Type | Description |
 | -------- | ---- | ----------- |
-| hubName | string | Nom du hub IoT où l’appareil a été créé ou supprimé. |
-| deviceId | string | Identificateur unique de l’appareil. Cette chaîne qui respecte la casse peut contenir jusqu’à 128 caractères et prend en charge les caractères alphanumériques 7 bits ASCII, ainsi que les caractères spéciaux suivants :`- : . + % _ # * ? ! ( ) , = @ ; $ '`. |
+| hubName | chaîne | Nom du hub IoT où l’appareil a été créé ou supprimé. |
+| deviceId | chaîne | Identificateur unique de l’appareil. Cette chaîne qui respecte la casse peut contenir jusqu’à 128 caractères et prend en charge les caractères alphanumériques 7 bits ASCII, ainsi que les caractères spéciaux suivants :`- : . + % _ # * ? ! ( ) , = @ ; $ '`. |
 
 Le contenu de l’objet de données est différent pour chaque serveur de publication d’événements. 
 
@@ -172,39 +172,39 @@ Pour les événements IoT Hub **DeviceConnected** et **DeviceDisconnected**, l�
 
 | Propriété | Type | Description |
 | -------- | ---- | ----------- |
-| moduleId | string | Identificateur unique du module. Ce champ est sorti uniquement pour les appareils de module. Cette chaîne qui respecte la casse peut contenir jusqu’à 128 caractères et prend en charge les caractères alphanumériques 7 bits ASCII, ainsi que les caractères spéciaux suivants :`- : . + % _ # * ? ! ( ) , = @ ; $ '`. |
+| moduleId | chaîne | Identificateur unique du module. Ce champ est sorti uniquement pour les appareils de module. Cette chaîne qui respecte la casse peut contenir jusqu’à 128 caractères et prend en charge les caractères alphanumériques 7 bits ASCII, ainsi que les caractères spéciaux suivants :`- : . + % _ # * ? ! ( ) , = @ ; $ '`. |
 | deviceConnectionStateEventInfo | objet | Informations d’événement sur l’état de connexion d’appareil
-| sequenceNumber | string | Un numéro qui vous aide à indiquer l’ordre des événements de connexion et de déconnexion d’appareils. Le dernier événement aura un numéro de séquence plus élevé que l’événement précédent. Ce numéro peut changer de plus d’une unité, mais il ne peut qu’augmenter. Consultez [comment utiliser le numéro de séquence](../iot-hub/iot-hub-how-to-order-connection-state-events.md). |
+| sequenceNumber | chaîne | Un numéro qui vous aide à indiquer l’ordre des événements de connexion et de déconnexion d’appareils. Le dernier événement aura un numéro de séquence plus élevé que l’événement précédent. Ce numéro peut changer de plus d’une unité, mais il ne peut qu’augmenter. Consultez [comment utiliser le numéro de séquence](../iot-hub/iot-hub-how-to-order-connection-state-events.md). |
 
-Pour **télémétrie d’appareil** événement IoT Hub, l’objet de données contient le message appareil-à-cloud dans [format des messages IoT hub](../iot-hub/iot-hub-devguide-messages-construct.md) et a les propriétés suivantes :
+Pour l’événement IoT Hub **DeviceTelemetry**, l’objet de données contient le message appareil-à-cloud au [format des messages IoT Hub](../iot-hub/iot-hub-devguide-messages-construct.md) et a les propriétés suivantes :
 
 | Propriété | Type | Description |
 | -------- | ---- | ----------- |
-| body | string | Le contenu du message à partir de l’appareil. |
-| properties | string | Les propriétés de l’application sont des chaînes définies par l’utilisateur qui peuvent être ajoutées au message. Ces champs sont facultatifs. |
-| Propriétés système | string | [Propriétés système](../iot-hub/iot-hub-devguide-routing-query-syntax.md#system-properties) aider à identifier le contenu et la source des messages. Message de télémétrie d’appareil doit être au format JSON valid avec le contentType défini au format JSON et contentEncoding défini sur UTF-8 dans les propriétés système du message. S’il n’est pas défini, IoT Hub écrire les messages dans un format de codé en base 64.  |
+| body | chaîne | Contenu du message reçu de l’appareil. |
+| properties | chaîne | Les propriétés de l’application sont des chaînes définies par l’utilisateur qui peuvent être ajoutées au message. Ces champs sont facultatifs. |
+| system properties | chaîne | Les [propriétés système](../iot-hub/iot-hub-devguide-routing-query-syntax.md#system-properties) permettent d’identifier le contenu et la source des messages. Le message de télémétrie d’appareil doit être dans un format JSON valide avec contentType défini sur JSON et contentEncoding défini sur UTF-8 dans les propriétés système du message. Si cela n’est pas défini, IoT Hub écrit les messages dans un format encodé en base 64.  |
 
 Pour les événements IoT Hub **DeviceCreated** et **DeviDeleted**, l’objet de données contient les propriétés suivantes :
 
 | Propriété | Type | Description |
 | -------- | ---- | ----------- |
-| twin | objet | Informations sur la représentation d’appareil, qui est la représentation sous forme de cloud de métadonnées de l’appareil. | 
-| deviceID | string | Identificateur unique du jumeau d’appareil. | 
-| etag | string | Un validateur pour garantir la cohérence des mises à jour à un jumeau d'appareil. Chaque etag est unique pour chaque jumeau d’appareil. |  
-| deviceEtag| string | Un validateur pour garantir la cohérence des mises à jour à un registre d'appareil. Chaque deviceEtag est unique pour chaque registre d’appareil. |
-| status | string | Indique si le jumeau d’appareil est activé ou désactivé. | 
-| statusUpdateTime | string | Horodatage ISO8601 de la dernière mise à jour de l’état du jumeau d’appareil. |
-| connectionState | string | Indique si l’appareil est connecté ou déconnecté. | 
-| lastActivityTime | string | Horodatage ISO8601 de la dernière activité. | 
+| twin | objet | Informations sur le jumeau d’appareil, qui est la représentation cloud des métadonnées d’appareil de l’application. | 
+| deviceID | chaîne | Identificateur unique du jumeau d’appareil. | 
+| etag | chaîne | Un validateur pour garantir la cohérence des mises à jour à un jumeau d'appareil. Chaque etag est unique pour chaque jumeau d’appareil. |  
+| deviceEtag| chaîne | Un validateur pour garantir la cohérence des mises à jour à un registre d'appareil. Chaque deviceEtag est unique pour chaque registre d’appareil. |
+| status | chaîne | Indique si le jumeau d’appareil est activé ou désactivé. | 
+| statusUpdateTime | chaîne | Horodatage ISO8601 de la dernière mise à jour de l’état du jumeau d’appareil. |
+| connectionState | chaîne | Indique si l’appareil est connecté ou déconnecté. | 
+| lastActivityTime | chaîne | Horodatage ISO8601 de la dernière activité. | 
 | cloudToDeviceMessageCount | integer | Nombre de messages cloud-à-appareil envoyés à cet appareil. | 
-| authenticationType | string | Type d’authentification utilisé pour cet appareil : `SAS`, `SelfSigned` ou `CertificateAuthority`. |
-| x509Thumbprint | string | L’empreinte numérique est une valeur unique pour le certificat x509, et sert généralement à rechercher un certificat particulier dans un magasin de certificats. L’empreinte numérique, générée dynamiquement à l’aide de l’algorithme SHA-1, n’existe pas physiquement dans le certificat. | 
-| primaryThumbprint | string | Empreinte numérique principale pour le certificat x509. |
-| secondaryThumbprint | string | Empreinte numérique secondaire pour le certificat x509. | 
+| authenticationType | chaîne | Type d’authentification utilisé pour cet appareil : `SAS`, `SelfSigned` ou `CertificateAuthority`. |
+| x509Thumbprint | chaîne | L’empreinte numérique est une valeur unique pour le certificat x509, et sert généralement à rechercher un certificat particulier dans un magasin de certificats. L’empreinte numérique, générée dynamiquement à l’aide de l’algorithme SHA-1, n’existe pas physiquement dans le certificat. | 
+| primaryThumbprint | chaîne | Empreinte numérique principale pour le certificat x509. |
+| secondaryThumbprint | chaîne | Empreinte numérique secondaire pour le certificat x509. | 
 | version | integer | Entier qui est incrémenté chaque fois que le jumeau d’appareil est mis à jour. |
 | desired | objet | Une partie des propriétés qui peuvent être écrites uniquement par le backend d’application et lues par l’appareil. | 
 | reported | objet | Une partie des propriétés qui peuvent être écrites uniquement par l’appareil et lues par le backend d’application. |
-| lastUpdated | string | Horodatage ISO8601 de la dernière mise à jour de la propriété du jumeau d’appareil. | 
+| lastUpdated | chaîne | Horodatage ISO8601 de la dernière mise à jour de la propriété du jumeau d’appareil. | 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

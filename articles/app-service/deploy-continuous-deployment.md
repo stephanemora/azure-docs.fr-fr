@@ -15,10 +15,10 @@ ms.date: 12/03/2018
 ms.author: cephalin;dariagrigoriu
 ms.custom: seodec18
 ms.openlocfilehash: 384f709bb32f973efec39518eaa895e25136fe23
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66390635"
 ---
 # <a name="continuous-deployment-to-azure-app-service"></a>Déploiement continu vers Azure App Service
@@ -48,15 +48,15 @@ Sur la page **Fournisseur de générations**, choisissez le fournisseur de gén�
 
 Sur la page **Configurer**, sélectionnez l’organisation, le référentiel et la branche à partir de laquelle vous souhaitez effectuer un déploiement continu. Lorsque vous avez terminé, cliquez sur **Continuer**.
 
-Pour déployer à partir d’un référentiel dans une organisation de GitHub, accédez à GitHub et accédez à **paramètres** > **Applications** > **autorisé OAuth applications**. Cliquez ensuite sur « Azure App Service ».
+Pour déployer à partir d’un dépôt d’organisation GitHub, accédez à GitHub et choisissez **Settings** > **Applications** > **Authorized OAuth Apps**. Cliquez ensuite sur « Azure App Service ».
 
-![Paramètres > Applications > autorisés OAuth applications > Azure App Service](media/app-service-continuous-deployment/github-settings-navigation.png)
+![Settings > Applications > Authorized OAuth Apps > Azure App Service](media/app-service-continuous-deployment/github-settings-navigation.png)
 
-Dans la page suivante, accorder l’accès d’App Service pour les référentiels de votre entreprise en cliquant sur le bouton « Grant » sur le côté droit.
+Dans la page suivante, accordez à App Service un accès aux dépôts de votre organisation en cliquant sur le bouton « Grant » à droite.
 
-![Cliquez sur « Grant » pour accorder l’accès d’App Service aux dépôts de l’organisation](media/app-service-continuous-deployment/grant-access.png)
+![Cliquer sur « Grant » pour accorder à App Service un accès aux dépôts de l’organisation](media/app-service-continuous-deployment/grant-access.png)
 
-Votre organisation doit maintenant apparaître dans la liste « Organisation » dans le **configurer** page du centre de déploiement.
+Votre organisation doit maintenant figurer dans la liste « Organisation » de la page **Configurer** du Centre de déploiement.
 
 ### <a name="option-2-use-azure-pipelines-preview"></a>Option 2 : utiliser Azure Pipelines (préversion)
 
@@ -130,7 +130,7 @@ Sur la page **Configurer**, dans la section **Build**, indiquez l’infrastructu
 
 Sur la page **Test**, choisissez si activer les tests de charge, puis cliquez sur **Continuer**.
 
-En fonction de la [tarification](https://azure.microsoft.com/pricing/details/app-service/plans/) de votre plan App Service, il peut arriver qu’une page proposant un **déploiement intermédiaire** s’affiche. Choisissez si [activer des emplacements de déploiement](deploy-staging-slots.md), puis cliquez sur **Continuer**. DevOps n’autorise pas la livraison continue à l’emplacement de production. Ceci est normal pour empêcher les déploiements accidentels en production. Vous devez définir la diffusion en continu vers un emplacement intermédiaire, vérifiez vos modifications et échanger les emplacements lorsque vous êtes prêt.
+En fonction de la [tarification](https://azure.microsoft.com/pricing/details/app-service/plans/) de votre plan App Service, il peut arriver qu’une page proposant un **déploiement intermédiaire** s’affiche. Choisissez si [activer des emplacements de déploiement](deploy-staging-slots.md), puis cliquez sur **Continuer**. DevOps n’autorise pas la livraison continue à l’emplacement de production. Cette interdiction intentionnelle vise à empêcher les déploiements accidentels en production. Vous devez configurer la livraison continue vers un emplacement de préproduction, y vérifiez les modifications et permuter les emplacements une fois que vous êtes prêt.
 
 ### <a name="finish-configuration"></a>Terminer la configuration
 

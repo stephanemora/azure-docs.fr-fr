@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.service: service-fabric-mesh
 manager: chakdan
 ms.openlocfilehash: 5ab817c65ab562f37b456cc3589624c1876084f0
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/31/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66428203"
 ---
 # <a name="set-up-your-windows-development-environment-to-build-service-fabric-mesh-apps"></a>Configurer votre environnement de développement Windows pour créer des applications Service Fabric Mesh
@@ -21,7 +21,7 @@ ms.locfileid: "66428203"
 Pour générer et exécuter des applications Azure Service Fabric Mesh sur votre machine de développement Windows, vous devez disposer de ce qui suit :
 
 * Docker
-* Visual Studio 2017 ou version ultérieure
+* Visual Studio 2017 ou version ultérieure
 * Runtime Service Fabric Mesh
 * Outils et kit de développement logiciel (SDK) Service Fabric Mesh
 
@@ -31,20 +31,20 @@ Une des versions suivantes de Windows :
 * Windows Server version 1709
 * Windows Server version 1803
 
-L’est instructions suivantes vous aident à tout installer selon la version de Windows que vous exécutez.
+Les instructions suivantes vous aideront à tout installer en fonction de la version de Windows que vous exécutez.
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]
 
 ## <a name="visual-studio"></a>Visual Studio
 
-Visual Studio 2017 ou version ultérieure est requis pour déployer des applications Service Fabric de maillage. [Installez la version 15.6.0][download-visual-studio] ou ultérieure et activez les charges de travail suivantes :
+Visual Studio 2017 ou version ultérieure est requis pour déployer des applications Service Fabric Mesh. [Installez la version 15.6.0][download-visual-studio] ou ultérieure et activez les charges de travail suivantes :
 
 * Développement web et ASP.NET
 * Développement Azure
 
 ## <a name="install-docker"></a>Installation de Docker
 
-Si vous avez déjà installé Docker, vérifiez que vous disposez de la dernière version. Docker peut vous inviter à fournir une nouvelle version est publiée, mais vérifiez manuellement que vous avez la version la plus récente.
+Si vous avez déjà installé Docker, vérifiez que vous disposez de la dernière version. Docker peut vous indiquer quand une nouvelle version est disponible, mais vérifiez manuellement pour vous assurer que vous disposez de la version la plus récente.
 
 #### <a name="install-docker-on-windows-10"></a>Installer Docker sous Windows 10
 
@@ -52,7 +52,7 @@ Téléchargez et installez la dernière version de [Docker Community Edition pou
 
 Pendant l’installation, sélectionnez **Utiliser des conteneurs Windows au lieu des conteneurs Linux** lorsque vous y êtes invité.
 
-Si Hyper-V n’est pas activé sur votre ordinateur, le programme d’installation de Docker offrira pour l’activer. Pour ce faire, cliquez sur **OK** à l’invite.
+Si Hyper-V n’est pas activé sur votre ordinateur, le programme d’installation de Docker propose de l’activer. Pour ce faire, cliquez sur **OK** à l’invite.
 
 #### <a name="install-docker-on-windows-server-2016"></a>Installer Docker sous Windows Server 2016
 
@@ -91,7 +91,7 @@ Installez le runtime, le kit de développement logiciel (SDK) et les outils Serv
 
 Si vous utilisez Visual Studio, vous pouvez ignorer cette section, car Visual Studio crée un cluster local pour vous si vous n’en avez pas.
 
-Pour obtenir de meilleurs performances du débogage et lorsque vous êtes une seule application de Service Fabric en cours d’exécution à la fois, créez un cluster de développement local à nœud unique. Si vous exécutez plusieurs applications à la fois, créez un cluster de développement local cinq nœuds. Le cluster doit être en cours d'exécution chaque fois que vous déployez ou déboguez un projet Service Fabric Mesh.
+Pour des performances de débogage optimales lorsque vous créez et exécutez une seule application Service Fabric à la fois, créez un cluster de développement local à nœud unique. Si vous exécutez plusieurs applications à la fois, créez un cluster de développement local à cinq nœuds. Le cluster doit être en cours d'exécution chaque fois que vous déployez ou déboguez un projet Service Fabric Mesh.
 
 Après avoir installé le runtime, les SDK, Visual Studio Tools et Docker, et après avoir démarré ce dernier, créez un cluster de développement.
 

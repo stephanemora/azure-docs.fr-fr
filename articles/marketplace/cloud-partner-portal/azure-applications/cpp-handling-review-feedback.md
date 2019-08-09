@@ -1,5 +1,5 @@
 ---
-title: Gestion des commentaires de révision d’application Azure | Place de marché Azure
+title: Gestion des commentaires de révision sur les applications Azure | Place de marché Azure
 description: Explique comment utiliser Azure DevOps pour gérer les commentaires de révision pour les offres d’application Azure pour la Place de marché Azure.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
@@ -7,25 +7,25 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 02/05/2019
 ms.author: pabutler
-ms.openlocfilehash: 57efbfe12df8072d619cf71f4b08da2e2e5be3ce
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.openlocfilehash: 1a45af2cb5eed8daa4b50bb6f0b504f9653c827a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64942955"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67068954"
 ---
 # <a name="handling-review-feedback"></a>Gestion des commentaires de révision
 
 Cet article explique comment accéder à l’environnement Azure DevOps utilisé par l’équipe de révision de la Place de marché Microsoft Azure.  Si vous trouvez des problèmes critiques dans votre offre d’application Azure pendant l’étape de **révision Microsoft**, vous pouvez vous connecter à ce système pour afficher des informations détaillées sur ces problèmes (commentaires de révision).  Après avoir résolu tous ces problèmes, vous devez renvoyer votre offre pour continuer à la publier sur la Place de marché Azure.  Le diagramme suivant illustre le lien entre ce processus de commentaires et le processus de publication.
 
-![Étapes de publication avec commentaires VSTS](./media/pub-flow-vsts-access.png)
+![Étapes de publication avec commentaires Azure DevOps](./media/pub-flow-vsts-access.png)
 
 En règle générale, les problèmes de révision sont référencés sous forme de demande de tirage (pull request).  Chaque demande de tirage est liée à un élément [Azure DevOps](https://azure.microsoft.com/services/devops/) (précédemment nommé Visual Studio Team Services (VSTS)) en ligne, qui contient des détails sur le problème.  L’image suivante affiche un exemple de référence de demande de tirage de révision.  Pour les cas complexes, les équipes de support et de révision peuvent aussi vous envoyer un e-mail. 
 
 ![Onglet Status affichant les commentaires de révision](./media/status-tab-ms-review.png)
 
 
-## <a name="vsts-access"></a>Accès VSTS
+## <a name="azure-devops-access"></a>Accès à Azure DevOps
 
 Pour voir les éléments de demande de tirage référencés dans les commentaires de révision, les éditeurs doivent d’abord se voir accorder l’autorisation appropriée.  Sinon, les nouveaux éditeurs reçoivent une page de réponse `401 - Not Authorized` lorsqu’ils tentent d’afficher les demandes de tirage.  Pour demander l’accès à ce référentiel Azure DevOps, procédez comme suit :
 
@@ -40,7 +40,7 @@ Pour voir les éléments de demande de tirage référencés dans les commentaire
     ![Catégorie de ticket de support](./media/support-incident1.png)
 
 4. Dans la page **Step 1 of 2**, fournissez vos informations de contact et sélectionnez **Continue**.
-5. Dans la page **Step 2 of 2**, spécifiez un titre d’incident (par exemple `Request VSTS access`) et indiquez les informations que vous avez recueillies à la première étape (ci-dessus).  Lisez et acceptez le contrat, puis sélectionnez **Submit**.
+5. Dans la page **Step 2 of 2**, spécifiez un titre d’incident (par exemple `Request Azure DevOps access`) et indiquez les informations que vous avez recueillies à la première étape (ci-dessus).  Lisez et acceptez le contrat, puis sélectionnez **Submit**.
 
 Si la création de l’incident a réussi, une page de confirmation s’affiche.  Enregistrez les informations de confirmation sur cette page à titre de référence.  L’équipe de support Microsoft doit répondre à votre demande d’accès sous quelques jours ouvrés.
 
@@ -51,14 +51,14 @@ Utilisez la procédure suivante pour passer en revue les problèmes décrits dan
 
 1. Dans la section **Révision Microsoft** du formulaire **Étapes de publication**, cliquez sur le lien d’une demande de tirage pour lancer votre navigateur et accéder à la page **Vue d’ensemble** (accueil) pour cette demande de tirage.  L’image suivante illustre un exemple de page d’accueil de problème critique pour l’exemple d’offre d’application Contoso.  Cette page contient des informations récapitulatives utiles sur les problèmes de révision trouvés dans l’application Azure.  
 
-    [![Page d’accueil de demande de tirage](./media/pr-home-page-thumb.png)](./media/pr-home-page.png)
+    [![Page d’accueil de la demande de tirage (pull request)](./media/pr-home-page-thumb.png)](./media/pr-home-page.png)
     <br/> *Cliquez sur l’image pour la développer.*
     
 2. (Facultatif) Sur le côté droit de la fenêtre, dans la section **Stratégies**, cliquez sur le message du problème (dans cet exemple : **Échec de la validation de la stratégie**) pour examiner les détails du problème, notamment les fichiers journaux associés.  Les erreurs sont généralement affichées en bas des fichiers journaux.
 
 3. Dans le menu sur le côté gauche de la page d’accueil, sélectionnez **Fichiers** pour afficher les fichiers qui composent les ressources techniques pour cette offre.  Les réviseurs de Microsoft doivent avoir ajoutés des commentaires décrivant les problèmes critiques détectés.  Dans l’exemple suivant, deux problèmes ont été détectés. 
 
-    [![Page d’accueil de demande de tirage](./media/pr-files-page-thumb.png)](./media/pr-files-page.png)
+    [![Page d’accueil de la demande de tirage (pull request)](./media/pr-files-page-thumb.png)](./media/pr-files-page.png)
     <br/> *Cliquez sur l’image pour la développer.*
 
 4. Cliquez sur chaque nœud de commentaire dans l’arborescence de gauche pour accéder au commentaire dans le contexte du code environnant.  Corrigez votre code source dans le projet de votre équipe pour corriger le problème décrit par le commentaire.

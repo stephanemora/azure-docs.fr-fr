@@ -12,10 +12,10 @@ ms.date: 12/06/2018
 ms.author: erhopf
 ms.custom: seodec18
 ms.openlocfilehash: a4a8212906f384494a9e2e005eee8c4dbdfa14a3
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65954640"
 ---
 # <a name="record-voice-samples-to-create-a-custom-voice"></a>Enregistrer des échantillons vocaux pour créer une voix personnalisée
@@ -53,7 +53,7 @@ Choisissez une personne dont la voix naturelle vous plaît. Il est possible de c
 
 Le principal facteur quant au choix de la voix professionnelle est l’homogénéité. Vos enregistrements doivent donner l’impression qu’ils ont été réalisés le même jour et dans la même pièce. Pour tendre à cet idéal, vous devez suivre de bonnes pratiques en matière d’enregistrement et d’ingénierie.
 
-Votre voix professionnelle représente l’autre moitié de l’équation. Ils doivent pouvoir parler d’un taux élevé, le niveau de volume, pitch et ton. Une parfaite diction est indispensable. Le talent doit également être en mesure de contrôler strictement leur variation de tonalité, les effets émotionnel et les tics de reconnaissance vocale.
+Votre voix professionnelle représente l’autre moitié de l’équation. Le débit, le volume, la hauteur et la tonalité de la voix doivent être réguliers. Une parfaite diction est indispensable. L’acteur doit aussi pouvoir contrôler de manière stricte ses variations de tonalité, ses émotions ou ses tics de langage.
 
 Les enregistrements d’échantillons de voix personnalisées peuvent être plus fatigants que d’autres types d’exercices vocaux. La plupart des voix professionnelles peuvent effectuer des sessions d’enregistrement de deux ou trois heures par jour. Limitez-vous à trois ou quatre sessions par semaine, en accordant si possible un jour de repos entre deux sessions.
 
@@ -105,11 +105,11 @@ Conformément à la législation, la lecture par un acteur d’un texte protég�
 
 Heureusement, il est possible d’éviter totalement ces problèmes. Il existe de nombreuses sources de texte que vous pouvez utiliser sans licence ou autorisation.
 
-|Source du texte|Description |
+|Source du texte|Description|
 |-|-|
 |[Corpus CMU Arctic](http://festvox.org/cmu_arctic/)|Environ 1 100 phrases sélectionnées provenant d’œuvres libres de droits et destinées spécifiquement à des projets de synthèse vocale. C’est un excellent point de départ.|
 |Œuvres libres<br>de droits|Il s’agit en général, d’œuvres publiées avant 1923. En anglais, le [projet Gutenberg](https://www.gutenberg.org/) propose des dizaines de milliers de ces œuvres. Vous pouvez vous concentrer sur des œuvres plus récentes car leur contenu sera plus proche de l’anglais moderne.|
-|Œuvres&nbsp;du gouvernement|Works créés par le gouvernement des États-Unis ne sont pas copyright aux États-Unis, bien que le gouvernement peut-être déclarer des droits d’auteur dans d’autres pays/régions.|
+|Œuvres&nbsp;du gouvernement|Les œuvres créées par l’état fédéral des États-Unis ne sont pas soumises au copyright, mais cela peut être le cas dans d’autres pays/régions.|
 |Domaine public|Œuvres pour lesquelles tout copyright a été explicitement exclu, ou qui sont destinées au domaine public. Certaines juridictions interdisent tout renoncement total au copyright.|
 |Œuvres cédées sous licence|Œuvres distribuées sous licence comme Creative Commons ou la Licence de documentation libre GNU (GFDL). Wikipédia utilise une licence GFDL. Certaines licences, toutefois, peuvent imposer des restrictions quant à une utilisation du contenu sous licence qui pourrait avoir un impact sur la création d’un modèle de voix personnalisée. Par conséquent, lisez attentivement la licence.|
 
@@ -117,7 +117,7 @@ Heureusement, il est possible d’éviter totalement ces problèmes. Il existe d
 
 Enregistrez votre script dans un studio d’enregistrement professionnel spécialisé dans le travail de la voix. Ce type de studio est équipé d’une cabine d’enregistrement, d’un équipement approprié et d’un personnel compétent formé à son utilisation. Veillez à ne pas négliger l’enregistrement.
 
-Discutez de votre projet avec un ingénieur de l’enregistrement de studio et écouter leurs conseils. L’enregistrement doit avoir peu voire aucune compression de plage dynamique (maximum 4:1). Il est essentiel que l’audio affiche un volume homogène et un rapport signal/bruit élevé, tout en étant exempt de sons parasites.
+Discutez de votre projet avec l’ingénieur du son chargé de l’enregistrement et écoutez ses conseils. L’enregistrement doit avoir peu voire aucune compression de plage dynamique (maximum 4:1). Il est essentiel que l’audio affiche un volume homogène et un rapport signal/bruit élevé, tout en étant exempt de sons parasites.
 
 ### <a name="do-it-yourself"></a>Faites-le vous-même
 
@@ -158,12 +158,12 @@ Dans l’idéal, différentes personnes occupent les rôles de directeur, ingén
 
 ### <a name="before-the-session"></a>Avant la session
 
-Pour éviter toute perdre de temps au studio, parcourez le script avec votre acteur avant la session d’enregistrement. Tandis que le talent de voix devient familiarisé avec le texte, ils peuvent préciser la prononciation des mots inconnus.
+Pour éviter toute perdre de temps au studio, parcourez le script avec votre acteur avant la session d’enregistrement. À mesure qu’il se familiarise avec le texte, l’acteur apprend à prononcer correctement les éventuels mots inconnus.
 
 > [!NOTE]
 > La plupart des studios d’enregistrement sont équipés d’un écran électronique pour afficher les scripts dans la cabine d’enregistrement. Dans ce cas, saisissez vos notes directement dans le document du script. Mais conservez une copie papier pour prendre des notes pendant la session. Les ingénieurs du son demandent aussi souvent une copie papier. Et gardez toujours une troisième copie imprimée en secours pour l’acteur, au cas où l’ordinateur tombe en panne.
 
-L’acteur vous demandera parfois de lui préciser le mot à mettre en relief dans un énoncé (« mot opérationnel »). Dites-leur que vous souhaitez une lecture naturel avec aucune importance particulière. Une mise en relief peut être ajoutée lorsque la reconnaissance vocale est synthétisée : elle ne doit pas faire partie de l’enregistrement d’origine.
+L’acteur vous demandera parfois de lui préciser le mot à mettre en relief dans un énoncé (« mot opérationnel »). Dites-lui que vous souhaitez une lecture naturelle, sans mise en relief particulière. Une mise en relief peut être ajoutée lorsque la reconnaissance vocale est synthétisée : elle ne doit pas faire partie de l’enregistrement d’origine.
 
 Demandez à l’acteur de prononcer distinctement tous les mots. Chaque mot du script doit être prononcé. Aucun son ne doit être omis ou avalé, comme c’est souvent le cas dans une conversation informelle,  *sauf si le script a été écrit dans ce sens.*
 
@@ -196,7 +196,7 @@ Enregistrez cinq bonnes secondes de silence avant le premier enregistrement pour
 
 Pour chaque énoncé, notez sur le script le numéro de la prise ou le code temporel. Demandez également à l’ingénieur du son de marquer si possible chaque énoncé dans les métadonnées ou le « cue sheet » de l’enregistrement.
 
-Prendre des sauts régulières et fournir une boisson pour contribuer à votre talent de voix leur voix en bonne voie.
+Faites régulièrement des pauses et proposez une boisson à l’acteur pour maintenir une bonne qualité de voix.
 
 ### <a name="after-the-session"></a>Après la session
 

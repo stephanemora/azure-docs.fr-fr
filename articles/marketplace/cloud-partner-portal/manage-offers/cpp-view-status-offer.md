@@ -1,5 +1,5 @@
 ---
-title: Afficher l’état des offres place de marché | Place de marché Azure
+title: Afficher l’état des offres de la Place de marché | Microsoft Azure
 description: Voir l’état des offres des Places de marché Microsoft Azure et AppSource à l’aide du Portail Cloud Partner
 services: Azure, AppSource, Marketplace, Cloud Partner Portal,
 author: v-miclar
@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 01/11/2019
 ms.author: pabutler
-ms.openlocfilehash: b8113552edf9dd2f886b5752b2ebc69afc0fda08
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.openlocfilehash: fff89dd8a17aaf6d45462edeaa22f1d2efc8d02b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64942404"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67064319"
 ---
 # <a name="view-the-publishing-status-of-azure-marketplace-and-appsource-offers"></a>Voir l’état de la publication des offres de la Place de marché Microsoft Azure et d’AppSource
 
@@ -39,7 +39,7 @@ L’exemple d’onglet **Status** suivant pour un service de conseil affiche une
 
 ![Onglet Status pour le service de conseil affichant une erreur](./media/consulting-service-error.png)
 
-Le dernier exemple d’état d’une application Azure montre un problème de révision Microsoft critique.  Il contient un lien hypertexte vers l’élément VSTS qui contient des informations détaillées sur ce problème de révision.  Pour plus d’informations, consultez [Publier une offre d’application Azure](cpp-publish-offer.md).
+Le dernier exemple d’état d’une application Azure montre un problème de révision Microsoft critique.  Il comprend un lien hypertexte vers l’élément Azure DevOps qui contient des informations détaillées sur ce problème de révision.  Pour plus d’informations, consultez [Publier une offre d’application Azure](cpp-publish-offer.md).
 
 ![Onglet Status de l’application Azure montrant un problème de révision](../azure-applications/media/status-tab-ms-review.png)
 

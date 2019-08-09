@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.date: 03/18/2019
 ms.author: raynew
 ms.openlocfilehash: 5a659da4bcc86544c31d7a789779253a0f571f34
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66497541"
 ---
-# <a name="monitor-site-recovery"></a>Moniteur Site Recovery
+# <a name="monitor-site-recovery"></a>Superviser Site Recovery
 
 Dans cet article, vous allez apprendre à utiliser les fonctionnalités intégrées de surveillance et de résolution des problèmes d’Azure Site Recovery. 
 
@@ -84,7 +84,7 @@ La section **Résumé des erreurs** affiche les erreurs actives qui peuvent avoi
 La section **Vue d’infrastructure** affiche les composants d’infrastructure impliqués dans la réplication, ainsi que l’intégrité de la connectivité entre les serveurs et les services Azure.
 
 - Une ligne verte indique que la connexion est opérationnelle.
-- Une ligne rouge avec l’icône d’erreur superposée signale l’existence d’un ou plusieurs symptômes d’erreur que la connectivité impact.
+- Une ligne rouge sur laquelle est superposée une icône d’erreur indique l’existence d’une ou de plusieurs erreurs qui affectent la connectivité.
 -  Placez le pointeur de la souris sur l’icône d’erreur pour afficher l’erreur et le nombre d’entités concernées. Cliquez sur l’icône pour afficher une liste filtrée des entités concernées.
 
     ![Vue d’infrastructure de Site Recovery (coffre)](./media/site-recovery-monitor-and-troubleshoot/site-recovery-vault-infra-view.png)
@@ -190,7 +190,7 @@ Vous pouvez vous abonner pour recevoir des notifications par courrier électroni
 
 Pour vous abonner, procédez comme suit :
 
-Dans le coffre > **surveillance** , cliquez sur **événements Site Recovery**.
+Dans le coffre > section **Supervision**, cliquez sur **Événements Site Recovery**.
 1. Cliquez sur **Notifications par e-mail**.
 1. Sous **Notifications par e-mail**, activez les notifications et spécifiez le destinataire des notifications. Vous pouvez choisir d’envoyer les notifications à tous les administrateurs de l’abonnement ou à des adresses e-mail spécifiques.
 

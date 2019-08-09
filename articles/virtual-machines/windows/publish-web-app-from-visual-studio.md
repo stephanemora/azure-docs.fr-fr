@@ -14,17 +14,17 @@ ms.topic: conceptual
 ms.date: 11/03/2017
 ms.author: ghogen
 ms.openlocfilehash: 4b8e3ddf1cf5d61f730ce01a35ee0813b47ad2d2
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "66305934"
 ---
 # <a name="publish-an-aspnet-web-app-to-an-azure-vm-from-visual-studio"></a>Publier une application web ASP.NET sur une machine virtuelle Azure à partir de Visual Studio
 
-Ce document décrit comment publier une application de web ASP.NET à une machine virtuelle (VM) à l’aide de la **Microsoft Azure Virtual Machines** fonctionnalité de publication dans Visual Studio 2019.  
+Ce document décrit comment publier une application web ASP.NET sur une machine virtuelle Azure avec la fonctionnalité de publication de **Machines virtuelles Microsoft Azure** dans Visual Studio 2019.  
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 Pour pouvoir publier un projet ASP.NET sur une machine virtuelle Azure à l’aide de Visual Studio, vous devez configurer la machine virtuelle correctement.
 
 - Elle doit être configurée pour exécuter une application web ASP.NET et WebDeploy doit être installé.
@@ -58,7 +58,7 @@ La section suivante décrit comment publier une application web ASP.NET existant
 
 7. Cliquez sur OK pour commencer la publication.
 
-8. Lorsque vous y êtes invité pour les informations d’identification, fournissez le nom d’utilisateur et le mot de passe d’un compte d’utilisateur sur la machine virtuelle qui est configuré avec des droits de publication cible. Ces informations d’identification sont généralement le nom d’utilisateur administrateur et le mot de passe utilisé lors de la création de la machine virtuelle.  
+8. Quand vous êtes invité à fournir les informations d’identification, spécifiez le nom d’utilisateur et le mot de passe d’un compte d’utilisateur sur la machine virtuelle cible, configuré avec des droits de publication. Il s’agit en général du nom d’utilisateur et du mot de passe d’administrateur utilisés lors de la création de la machine virtuelle.  
 
    ![Connexion à WebDeploy]
 
@@ -99,14 +99,14 @@ Vos paramètres doivent ressembler à ce qui suit :
 ![Paramètres de publication - Page Connexion]
 
 #### <a name="save-user-name-and-password"></a>Enregistrer le nom d’utilisateur et le mot de passe
-- Évitez de fournir des informations d’authentification chaque fois que vous publiez. Pour ce faire, vous devez remplir le **nom d’utilisateur** et **mot de passe** champs, puis sélectionnez le **enregistrer le mot de passe** boîte.
+- Évitez de fournir des informations d’authentification chaque fois que vous publiez. Pour cela, renseignez les champs **Nom d’utilisateur** et **Mot de passe**, puis sélectionnez la zone **Enregistrer le mot de passe**.
 - Utilisez le bouton **Valider la connexion** pour confirmer que vous avez entré les informations correctes.
 
 #### <a name="deploy-to-clean-web-server"></a>Déployer sur un nouveau serveur web
 
-- Si vous souhaitez vous assurer que le serveur web a une nouvelle copie de l’application web après chaque téléchargement et qu’aucun autre fichier il reste à partir d’un déploiement précédent, vous pouvez vérifier le **supprimer les fichiers supplémentaires à la destination** case à cocher dans la  **Paramètres** onglet.
+- Si vous voulez être sûr que le serveur web a une nouvelle copie de l’application web après chaque chargement et qu’il ne reste aucun autre fichier d’un déploiement précédent, vous pouvez cocher la case **Supprimer les fichiers supplémentaires de la destination** sous l’onglet **Paramètres**.
 
-- Avertissement : Publication avec ce paramètre supprime tous les fichiers qui existent sur le serveur web (répertoire wwwroot). Assurez-vous de connaître l’état de la machine avant de publier avec cette option activée. 
+- Avertissement : La publication avec ce paramètre supprime tous les fichiers qui existent sur le serveur web (répertoire wwwroot). Assurez-vous de connaître l’état de la machine avant de publier avec cette option activée. 
 
 ![Paramètres de publication - Page Paramètres]
 

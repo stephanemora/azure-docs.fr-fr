@@ -11,15 +11,15 @@ ms.topic: article
 ms.date: 04/26/2019
 ms.author: rosh
 ms.openlocfilehash: a65994ffb2fc707c59e507cad71699211b6a64a5
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "65896272"
 ---
 # <a name="tutorial-crop-an-image-with-the-bing-visual-search-sdk-for-c"></a>Didacticiel : Rogner une image avec le SDK Recherche visuelle Bing pour C#
 
-Le SDK de recherche Bing Visual vous permet de rogner une image avant de trouver des images en ligne similaires. Cette application rogne une seule personne à partir d’une image contenant plusieurs personnes, puis retourne les résultats de recherche contenant des images similaires disponibles en ligne.
+Le SDK Recherche visuelle Bing vous permet de rogner une image avant de rechercher des images en ligne similaires. Cette application rogne une seule personne à partir d’une image contenant plusieurs personnes, puis retourne les résultats de recherche contenant des images similaires disponibles en ligne.
 
 Le code source complet de cette application est disponible sur [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/Bing-Visual-Search/BingVisualSearchCropImage.cs) avec une gestion des erreurs et des annotations supplémentaires.
 
@@ -29,14 +29,14 @@ Le didacticiel illustre les actions suivantes :
 > * Envoyer une requête à l’aide du SDK Recherche visuelle Bing
 > * Rogner une zone d’image pour effectuer une recherche avec Recherche visuelle Bing
 > * Recevoir et gérer la réponse
-> * Trouver les URL des éléments d’action dans la réponse
+> * Rechercher les URL d’éléments d’action dans la réponse
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
-* N’importe quelle édition de [Visual Studio 2019](https://www.visualstudio.com/downloads/).
+* N’importe quelle édition de [Visual Studio 2019](https://www.visualstudio.com/downloads/).
 * Si vous utilisez Linux/MacOS, cette application peut être exécutée à l’aide de [Mono](https://www.mono-project.com/).
 * Package [NuGet Custom Search](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.CustomSearch/1.2.0) installé.
-    - À partir de l’Explorateur de solutions dans Visual Studio, cliquez sur votre projet, puis sélectionnez **gérer les Packages NuGet** à partir du menu. Installez le package `Microsoft.Azure.CognitiveServices.Search.CustomSearch`. L’installation du package NuGet Custom Search installe aussi les assemblys suivants :
+    - Dans l’Explorateur de solutions de Visual Studio, cliquez avec le bouton droit sur votre projet et sélectionnez **Gérer les packages NuGet** dans le menu. Installez le package `Microsoft.Azure.CognitiveServices.Search.CustomSearch`. L’installation du package NuGet Custom Search installe aussi les assemblys suivants :
         - Microsoft.Rest.ClientRuntime
         - Microsoft.Rest.ClientRuntime.Azure
         - Newtonsoft.Json
@@ -45,11 +45,11 @@ Le didacticiel illustre les actions suivantes :
 
 ## <a name="specify-the-image-crop-area"></a>Spécifier la zone d'image à rogner
 
-Cette application rogne une zone de cette image de l’Équipe des hauts dirigeants de Microsoft. Cette zone de la culture est définie à l’aide des coordonnées supérieur gauche et inférieur droit, représentées sous forme de pourcentage de l’image entière :  
+Cette application rogne une zone de cette image de l’Équipe des hauts dirigeants de Microsoft. Cette zone rognée est définie à l’aide des coordonnées des coins supérieur gauche et inférieur droit, représentées sous forme de pourcentage de la totalité de l’image :  
 
 ![Équipe des hauts dirigeants de Microsoft](./media/MS_SrLeaders.jpg)
 
-Cette image est rognée par la création d’un objet `ImageInfo` à partir de la zone de rognage et par le chargement de l’objet `ImageInfo` dans un `VisualSearchRequest`. Le `ImageInfo` objet inclut également l’URL de l’image :
+Cette image est rognée par la création d’un objet `ImageInfo` à partir de la zone de rognage et par le chargement de l’objet `ImageInfo` dans un `VisualSearchRequest`. L’objet `ImageInfo` inclut également l’URL de l’image :
 
 ```csharp
 CropArea CropArea = new CropArea(top: (float)0.01, bottom: (float)0.30, left: (float)0.01, right: (float)0.20);
@@ -61,7 +61,7 @@ VisualSearchRequest visualSearchRequest = new VisualSearchRequest(imageInfo: ima
 
 ## <a name="search-for-images-similar-to-the-crop-area"></a>Rechercher des images similaires à la zone de rognage
 
-La variable `VisualSearchRequest` contient des informations sur la zone de rogner l’image et son URL. Le `VisualSearchMethodAsync()` méthode obtient les résultats :
+La variable `VisualSearchRequest` contient des informations sur la zone de rognage de l’image et son URL. La méthode `VisualSearchMethodAsync()` obtient les résultats :
 
 ```csharp
 Console.WriteLine("\r\nSending visual search request with knowledgeRequest that contains URL and crop area");
@@ -71,7 +71,7 @@ var visualSearchResults = client.Images.VisualSearchMethodAsync(knowledgeRequest
 
 ## <a name="get-the-url-data-from-imagemoduleaction"></a>Obtenir les données d’URL à partir de `ImageModuleAction`
 
-Les résultats de Recherche visuelle Bing sont des objets `ImageTag`. Chaque balise contient une liste d’objets `ImageAction`. Chaque `ImageAction` contient un `Data` champ, qui est une liste de valeurs qui varient selon le type d’action.
+Les résultats de Recherche visuelle Bing sont des objets `ImageTag`. Chaque balise contient une liste d’objets `ImageAction`. Chaque `ImageAction` contient un champ `Data`, qui est une liste de valeurs variant en fonction du type d’action.
 
 Vous pouvez imprimer les différents types avec le code suivant :
 
@@ -94,9 +94,9 @@ L’application complète retourne :
 
 Comme indiqué ci-dessus, l’ActionType `Entity` contient une requête de recherche Bing qui retourne des informations sur une personne, un endroit ou une chose reconnaissable. Les types `TopicResults` et `ImageResults` contiennent des requêtes pour les images associées. Les URL dans la liste sont liées aux résultats de recherche Bing.
 
-## <a name="get-urls-for-pagesincluding-actiontype-images"></a>Obtenir les URL pour `PagesIncluding` `ActionType` images
+## <a name="get-urls-for-pagesincluding-actiontype-images"></a>Obtenir les URL pour les images `PagesIncluding` `ActionType`
 
-L’obtention des URL des images réelles nécessite un cast qui lit un `ActionType` comme `ImageModuleAction`, qui contient un élément `Data` avec une liste de valeurs. Chaque valeur est l’URL d’une image. Les conversions suivantes le `PagesIncluding` type d’action à `ImageModuleAction` et lit les valeurs :
+L’obtention des URL des images réelles nécessite un cast qui lit un `ActionType` comme `ImageModuleAction`, qui contient un élément `Data` avec une liste de valeurs. Chaque valeur est l’URL d’une image. Le code suivant convertit le type d’action `PagesIncluding` en `ImageModuleAction` et lit les valeurs :
 
 ```csharp
     if (i.ActionType == "PagesIncluding")
@@ -113,4 +113,4 @@ L’obtention des URL des images réelles nécessite un cast qui lit un `ActionT
 > [Créer une application web monopage de recherche visuelle](tutorial-bing-visual-search-single-page-app.md)
 
 ## <a name="see-also"></a>Voir aussi
-> [Qu’est l’API de recherche visuelle Bing ?](https://docs.microsoft.com/azure/cognitive-services/bing-visual-search/overview)
+> [Qu’est-ce que l’API Recherche visuelle Bing ?](https://docs.microsoft.com/azure/cognitive-services/bing-visual-search/overview)
