@@ -58,6 +58,8 @@
           href: ./Quickstarts/create-publish-kb-csharp-sdk.md
         - name: Node.js
           href: ./Quickstarts/create-publish-kb-nodejs-sdk.md
+        - name: Python
+          href: ./Quickstarts/python-sdk.md
 - name: Tutoriels
   items:
     - name: Créer et répondre à partir de la base de connaissances
