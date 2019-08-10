@@ -25,6 +25,10 @@
           href: sdk-csharp-quickstart-authoring-app.md
         - name: Interroger le point de terminaison de prédiction
           href: sdk-csharp-quickstart-query-prediction-endpoint.md
+    - name: Utilisation du Kit de développement logiciel (SDK) Python
+      items:
+        - name: Créer et gérer une application
+          href: sdk-python-quickstart-authoring-app.md
     - name: Utiliser les API REST
       items:
         - name: Reconnaître l’intention
