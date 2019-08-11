@@ -1,5 +1,5 @@
 ---
-title: Utilisation d'AMQP 1.0 avec l'API Java JMS Service Bus | Microsoft Docs
+title: Utiliser AMQP 1.0 avec l’API Java Message Service et Azure Service Bus
 description: Découvrez comment utiliser Java Message Service (JMS) avec Azure Service Bus et le protocole Advanced Message Queuing Protocol (AMQP) 1.0.
 services: service-bus-messaging
 documentationcenter: java
@@ -14,12 +14,13 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 03/05/2019
 ms.author: aschhab
-ms.openlocfilehash: 47b077dbb62088093c60a588660045529678c58f
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.custom: seo-java-july2019
+ms.openlocfilehash: f816a5c84416b7f40e3062bf22dd70cbb356c6f1
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68318456"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68662882"
 ---
 # <a name="how-to-use-the-java-message-service-jms-api-with-service-bus-and-amqp-10"></a>Utilisation de l’API Java Message Service (JMS) avec Service Bus et AMQP 1.0
 Advanced Message Queuing Protocol (AMQP) 1.0 est un protocole de messagerie « wire-level » efficace et fiable qui peut être utilisé pour créer des applications de messagerie interplateforme robustes.
@@ -374,6 +375,7 @@ En outre, Azure Service Bus sépare le plan de contrôle du plan de données et 
 | createBrowser               | non pris en charge. Utiliser la fonctionnalité Peek() de l’API Service Bus                         |
 | createQueue                 | créer une file d’attente via le portail/les outils/l’API de gestion                                           | 
 | createTemporaryQueue        | créer une file d’attente via le portail/les outils/l’API de gestion avec *AutoDeleteOnIdle* défini sur une période d’expiration |
+| receiveNoWait               | utiliser la méthode receive() fournie par le Kit de développement logiciel (SDK) Service Bus et spécifiez un délai d’expiration très court ou égal à zéro |
 
 ## <a name="summary"></a>Résumé
 Ce manuel d’utilisation vous a montré comment mettre en œuvre les fonctionnalités de messagerie répartie Service Bus (rubriques files d’attente et publication/abonnement) depuis Java en utilisant l’API JMS (Java Message Service) connue et AMQP 1.0.

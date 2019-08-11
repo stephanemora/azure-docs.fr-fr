@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 03/18/2019
 ms.author: rogarana
-ms.openlocfilehash: ef9c46c0b55f97b8931f16d751f1b1e6099e6c9d
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 8b25d2395811a2197aff6d653c5038a4380021e9
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68328605"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68669641"
 ---
 Une machine virtuelle Azure prend en charge l’attachement d’un certain nombre de disques de données. En fonction des cibles d’évolutivité et de performances des disques de données d’une machine virtuelle, vous pouvez déterminer le nombre et le type de disque dont vous avez besoin pour répondre à vos exigences de performances et de capacité.
 
@@ -18,7 +18,7 @@ Une machine virtuelle Azure prend en charge l’attachement d’un certain nombr
 
 **Pour les disques managés Azure :**
 
-Le tableau suivant illustre les limite par défaut et maximales du nombre de ressources par région et par abonnement
+Le tableau suivant illustre les limite par défaut et maximales du nombre de ressources par région et par abonnement. Il n’existe aucune limite au nombre de disques managés, d’instantanés et d’images par groupe de ressources.  
 
 > | Ressource | Limite par défaut  | Limite maximale |
 > | --- | --- | --- |

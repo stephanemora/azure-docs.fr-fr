@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 2fad585e1d37694e37c219be210f9521dbbda3a0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cd7b2cecce443e821e233d97a260b7dfb3471752
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66241649"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68667221"
 ---
 # <a name="how-to-delegate-user-registration-and-product-subscription"></a>Délégation de l'inscription des utilisateurs et des abonnements aux produits
 
@@ -38,7 +38,7 @@ Le processus final se présente comme suit :
 3. À son tour, le point de terminaison de délégation présente une interface demandant à l’utilisateur de se connecter ou de s’inscrire, ou bien le redirige vers cette interface.
 4. Si l'authentification est réussie, l'utilisateur revient à la page du portail des développeurs Gestion des API d'où il est parti.
 
-Pour commencer, configurons Gestion des API pour que les demandes soient acheminées via votre point de terminaison de délégation. Dans le portail des éditeurs de la gestion des API, cliquez sur **Sécurité**, puis sur l’onglet **Délégation**. Cochez la case pour activer « Déléguer la connexion et l’inscription ».
+Pour commencer, configurons Gestion des API pour que les demandes soient acheminées via votre point de terminaison de délégation. Sur le portail Azure, recherchez **Sécurité** dans votre ressource Gestion des API, puis cliquez sur l’ élément **Délégation**. Cochez la case pour activer « Déléguer la connexion et l’inscription ».
 
 ![Delegation page][api-management-delegation-signin-up]
 

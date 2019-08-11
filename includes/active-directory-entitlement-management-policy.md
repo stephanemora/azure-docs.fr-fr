@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 05/16/2019
 ms.author: rolyon
 ms.custom: include file
-ms.openlocfilehash: 6711506c1e489dcbd50aedd36241affc3bbed80b
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: da4bc51cdd8cdfad8212ee5a288f03874f673c2c
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67177234"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68678188"
 ---
 ### <a name="policy-for-users-in-your-directory"></a>Stratégie : Pour les utilisateurs dans votre répertoire
 
-Procédez comme suit si vous souhaitez que votre stratégie s’applique aux utilisateurs et groupes dans votre répertoire qui peuvent demander ce package d’accès.
+Si vous souhaitez que votre stratégie s’applique aux utilisateurs figurant dans votre annuaire qui peuvent demander ce package d’accès, procédez comme suit.  Les **utilisateurs figurant dans votre annuaire** sont des utilisateurs internes et externes précédemment invités dans l’annuaire, soit parce qu’ils ont demandé une gestion des droits d’utilisation avec autre package d’accès, soit parce qu’ils sont invités avec Azure AD B2B. Lors de la définition de la stratégie, vous pouvez spécifier des utilisateurs individuels ou plus souvent des groupes d’utilisateurs. Par exemple, votre organisation a peut-être déjà un groupe tel que **Tous les employés**.  Si ce groupe est ajouté dans la stratégie pour des utilisateurs qui peuvent demander l’accès, tout membre de ce groupe peut ensuite demander l’accès.
 
 1. Dans la section **Utilisateurs pouvant demander l’accès**, sélectionnez **Pour les utilisateurs dans votre annuaire**.
 
@@ -33,16 +33,16 @@ Procédez comme suit si vous souhaitez que votre stratégie s’applique aux uti
 
 ### <a name="policy-for-users-not-in-your-directory"></a>Stratégie : Pour les utilisateurs qui ne sont pas dans votre répertoire
 
-Procédez comme suit si vous souhaitez que votre stratégie s’applique aux utilisateurs qui ne sont pas dans votre répertoire et qui peuvent demander ce package d’accès. Les répertoires doivent être configurés pour être autorisés dans les paramètres de **Restrictions de collaboration des relations organisationnelles**.
+Procédez comme suit si vous souhaitez que votre stratégie s’applique aux utilisateurs qui ne sont pas dans votre répertoire et qui peuvent demander ce package d’accès. Les **utilisateurs absents de votre annuaire** sont des utilisateurs qui se trouvent dans un autre annuaire Azure AD et n’ont peut-être pas encore été invités dans votre annuaire.  Les répertoires doivent être configurés pour être autorisés dans les paramètres de **Restrictions de collaboration des relations organisationnelles**.
 
 > [!NOTE]
-> Un compte d’utilisateur invité sera créé pour un utilisateur qui n’est pas encore dans votre répertoire et dont la demande est approuvée ou approuvée automatiquement. L’invité est invité, mais ne recevra pas d’invitation par e-mail. Il recevra un e-mail une fois l’attribution au package d’accès fournie. Par défaut, lorsque cet utilisateur invité n’aura plus aucune attribution de package d’accès (pour cause d’expiration ou d’annulation), son compte ne pourra plus se connecter et sera supprimé. Si vous voulez que des utilisateurs invités demeurent indéfiniment dans votre répertoire, même s’ils n’ont plus d’attribution de package d’accès, vous pouvez modifier les paramètres de votre configuration de gestion des droits d’utilisation.
+> Un compte d’utilisateur invité externe est créé pour un utilisateur qui n’est pas encore dans votre annuaire et dont la demande est approuvée ou approuvée automatiquement. L’invité est invité, mais ne recevra pas d’invitation par e-mail. Il recevra un e-mail une fois l’attribution au package d’accès fournie. Par défaut, quand cet utilisateur invité n’a plus aucune attribution de package d’accès (pour cause d’expiration ou d’annulation), son compte ne peut plus se connecter et est supprimé par la suite. Si vous voulez que des utilisateurs invités demeurent indéfiniment dans votre répertoire, même s’ils n’ont plus d’attribution de package d’accès, vous pouvez modifier les paramètres de votre configuration de gestion des droits d’utilisation.
 
 1. Dans la section **Utilisateurs pouvant demander l’accès**, sélectionnez **Pour les utilisateurs qui ne sont pas dans votre répertoire**.
 
 1. Dans la section **Sélectionner un répertoire Azure AD externe**, cliquez sur **Ajouter des répertoires**.
 
-1. Entrez un nom de domaine et recherchez un répertoire Azure AD externe.
+1. Entrez un nom de domaine et recherchez un annuaire Azure AD ayant ce nom de domaine.
 
 1. Vérifiez qu’il s’agit du bon répertoire en fonction du nom de répertoire et du domaine initial.
 

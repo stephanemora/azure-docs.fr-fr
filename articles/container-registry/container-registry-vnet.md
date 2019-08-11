@@ -8,22 +8,25 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 07/01/2019
 ms.author: danlep
-ms.openlocfilehash: 2030496548df312b4f4cfab60c216d5f332c7ac2
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 3050a52da4d39657bd7b2fb38e235b9bd418faf4
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68310390"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68619888"
 ---
 # <a name="restrict-access-to-an-azure-container-registry-using-an-azure-virtual-network-or-firewall-rules"></a>Restreindre l’accès à un registre de conteneurs Azure à l’aide d’un réseau virtuel Azure ou de règles de pare-feu
 
 Un [réseau virtuel Azure](../virtual-network/virtual-networks-overview.md) fournit un accès réseau privé et sécurisé à vos ressources Azure et locales. En limitant l’accès à votre registre de conteneurs Azure privé à partir d’un réseau virtuel Azure, vous vous assurez que seules les ressources dans le réseau virtuel accèdent au registre. Pour les scénarios intersites, vous pouvez également configurer des règles de pare-feu pour autoriser l’accès au registre uniquement à partir d’adresses IP spécifiques.
 
-Cet article présente deux scénarios pour créer des règles d’accès réseau afin de limiter l’accès à un registre de conteneurs Azure : à partir d’une machine virtuelle déployée dans un réseau virtuel ou à partir de l’adresse IP publique d’une machine virtuelle.
+Cet article présente deux scénarios pour configurer des règles d’accès réseau entrant sur un registre de conteneurs : à partir d’une machine virtuelle déployée dans un réseau virtuel ou à partir de l’adresse IP publique d’une machine virtuelle.
 
 > [!IMPORTANT]
 > Cette fonctionnalité est actuellement en préversion et certaines [limitations s’appliquent](#preview-limitations). Les préversions sont à votre disposition, à condition que vous acceptiez les [conditions d’utilisation supplémentaires][terms-of-use]. Certains aspects de cette fonctionnalité sont susceptibles d’être modifiés avant la mise à disposition générale.
 >
+
+Si vous devez plutôt configurer des règles d’accès pour permettre à des ressources d’atteindre un registre de conteneurs derrière un pare-feu, voir [Configurer des règles pour accéder à un registre de conteneurs Azure derrière un pare-feu](container-registry-firewall-access-rules.md).
+
 
 ## <a name="preview-limitations"></a>Limitations de la version préliminaire
 
@@ -39,7 +42,7 @@ Cet article présente deux scénarios pour créer des règles d’accès réseau
 
 * Pour utiliser les étapes Azure CLI décrites dans cet article, vous devez disposer d’Azure CLI version 2.0.58 ou ultérieure. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI][azure-cli].
 
-* Si vous ne disposez pas d’un registre de conteneurs, créez-en un (référence SKU Premium requise) et envoyez (push) un exemple d’image comme `hello-world` à partir de Docker Hub. Par exemple, utiliser le [portail Azure][quickstart-portal] or the [Azure CLI][quickstart-cli] pour créer un registre. 
+* Si vous ne disposez pas d’un registre de conteneurs, créez-en un (référence SKU Premium requise) et envoyez (push) un exemple d’image comme `hello-world` à partir de Docker Hub. Par exemple, utilisez le [portail Azure][quickstart-portal] ou [Azure CLI][quickstart-cli] pour créer un registre. 
 
 * Si vous souhaitez restreindre l’accès au registre à l’aide d’un réseau virtuel dans un autre abonnement Azure, vous devez inscrire le fournisseur de ressources pour Azure Container Registry dans cet abonnement. Par exemple :
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 2eae81f357904bd5034d7409ef42b681d1085930
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 47d61f80cae926965dd71342980302c2b3045c52
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67695215"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68689650"
 ---
 # <a name="vpn-gateways-overview"></a>Vue d’ensemble des passerelles VPN
 
@@ -48,25 +48,26 @@ Une connexion VPN de site à site utilise les paramètres de chiffrement par dé
 
 #### <a name="phase-1-proposals"></a>Propositions de phase 1
 
-| Paramètre | Proposition 1 | Proposition 2 | Proposition 3 |
-|-----------|------------|------------|------------|
-| Version IKE | IKEv1 | IKEv1 | IKEv1 |
-| Chiffrement | AES 128 | AES 256 | AES 256 |
-| Algorithme de hachage| SHA 256 | SHA 256 | SHA 1 |
-| Groupe Diffie Hellman (groupe DH) | 2 | 2 | 2 |
-| Durée de vie | 28 800 secondes | 28 800 secondes | 28 800 secondes |
-| Taille des données | 4 Go | 4 Go | 4 Go |
+| Paramètre                       | Proposition 1     | Proposition 2     | Proposition 3     |
+|---------------------------------|----------------|----------------|----------------|
+| Version IKE                     | IKEv1          | IKEv1          | IKEv1          |
+| Chiffrement                      | AES 128        | AES 256        | AES 256        |
+| Algorithme de hachage                  | SHA 256        | SHA 256        | SHA 1          |
+| Groupe Diffie Hellman (groupe DH) | 2              | 2              | 2              |
+| Durée de vie                       | 28 800 secondes | 28 800 secondes | 28 800 secondes |
+| Taille des données                       | 4 Go           | 4 Go           | 4 Go           |
+| Détection d’homologue mort       | Désactivé/Off   | Désactivé/Off   | Désactivé/Off   |
 
 
 #### <a name="phase-2-proposals"></a>Propositions de phase 2 
 
-| Paramètre | Proposition 1 | Proposition 2 | Proposition 3 |
-|-----------|------------|------------|------------|
-| Chiffrement | AES 128 | AES 256 | AES 256 |
-| Algorithme de hachage| SHA 256 | SHA 256 | SHA 1 |
-| Groupe PFS (Perfect Forward Secrecy) | Aucun | Aucun | Aucun |
-| Durée de vie | 1 800 secondes | 1 800 secondes | 1 800 secondes |
-| Taille des données | 4 Go | 4 Go | 4 Go |
+| Paramètre                                 | Proposition 1    | Proposition 2    | Proposition 3    |
+|-------------------------------------------|---------------|---------------|---------------|
+| Chiffrement                                | AES 128       | AES 256       | AES 256       |
+| Algorithme de hachage                            | SHA 256       | SHA 256       | SHA 1         |
+| Groupe PFS (Perfect Forward Secrecy) | Aucun          | Aucun          | Aucun          |
+| Durée de vie                                 | 1 800 secondes | 1 800 secondes | 1 800 secondes |
+| Taille des données                                 | 4 Go          | 4 Go          | 4 Go          |
 
 ## <a name="point-to-site-vpn-gateway"></a>Passerelle VPN de point à site
 

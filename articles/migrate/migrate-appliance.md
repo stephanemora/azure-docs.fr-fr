@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 07/04/2019
 ms.author: raynew
-ms.openlocfilehash: c2c9ca3082aa9c2067a63f8d6304e8a229dac14a
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 6537bfe5df8de298593428fb21448181ad8075fc
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67810112"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68663466"
 ---
 # <a name="azure-migrate-appliance"></a>Appliance Azure Migrate
 
@@ -32,7 +32,7 @@ Machine virtuelle Hyper-V | Évaluation de machine virtuelle Hyper-V avec l'outi
 
 ## <a name="appliance-access"></a>Accès à l’appliance
 
-Après avoir configuré l'appliance, vous pouvez accéder à distance à sa machine virtuelle via le port TCP 3389. Vous pouvez également accéder à distance à l'application de gestion web de l'appliance sur le port 44368 avec URL : ``` https://<appliance-ip-or-name>:44368 ```.
+Après avoir configuré l'appliance, vous pouvez accéder à distance à sa machine virtuelle via le port TCP 3389. Vous pouvez également accéder à distance à l'application de gestion web de l'appliance sur le port 44368 avec URL : `https://<appliance-ip-or-name>:44368`.
 
 ## <a name="appliance-license"></a>Licence de l’appliance
 L’appliance est fournie avec une licence d’évaluation Windows Server 2016 qui est valide pendant 180 jours. Si la période d’évaluation est proche de l’expiration, nous vous recommandons de télécharger et de déployer une nouvelle appliance, ou d’activer la licence du système d’exploitation de la machine virtuelle de l’appliance.
@@ -152,7 +152,7 @@ Version de la machine virtuelle | Msvm_ProcessorSettingData | VirtualQuantity
 Mémoire (octets) | Msvm_MemorySettingData | VirtualQuantity
 Mémoire maximale pouvant être consommée par machine virtuelle | Msvm_MemorySettingData | Limite
 Mémoire dynamique activée | Msvm_MemorySettingData | DynamicMemoryEnabled
-Nom/version/nom de domaine complet du système d'exploitation | Msvm_KvpExchangeComponent | Données de nom GuestIntrinsciExchangeItems
+Nom/version/nom de domaine complet du système d'exploitation | Msvm_KvpExchangeComponent | Données de nom GuestIntrinsicExchangeItems
 États d’alimentation de la machine virtuelle | Msvm_ComputerSystem | EnabledState
 **Détails par disque** | 
 Identificateur de disque | Msvm_VirtualHardDiskSettingData | VirtualDiskId

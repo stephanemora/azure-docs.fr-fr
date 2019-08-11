@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: e4357007ec1cfac2cf6a10d339c6b3aa3ae41488
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1716bd64286f1882b9fc224712d227967d78058a
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66257099"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68637774"
 ---
 # <a name="azure-cosmos-db-bulk-executor-library-overview"></a>Vue d’ensemble de la bibliothèque d’exécuteur en bloc Azure Cosmos DB
  
@@ -38,17 +38,17 @@ La bibliothèque d’exécuteur en bloc vous permet de tirer parti de ces stocka
 
 * Elle peut mettre à jour en bloc des données existantes dans des conteneurs Azure Cosmos DB sous forme de correctifs. 
  
-## <a name="how-does-the-bulk-executor-operate"></a>Quel est le fonctionnement de BulkExecutor ? 
+## <a name="how-does-the-bulk-executor-operate"></a>Comment fonctionne l’exécuteur en bloc ? 
 
 Quand une opération en bloc visant à importer ou mettre à jour des documents est déclenchée avec un lot d’entités, elles sont initialement mélangées dans des compartiments correspondant à leur plage de clés de partition Azure Cosmos DB. Dans chaque compartiment qui correspond à une plage de clés de partition, elles sont divisées en mini-lots jouant chacun le rôle de charge utile validée côté serveur. La bibliothèque d’exécuteur en bloc comporte des optimisations intégrées permettant l’exécution simultanée de ces mini-lots entre les groupes de clés de partition et au sein d’un même groupe. L’image suivante montre comment l’exécuteur en bloc traite les données par lots dans différentes clés de partition :  
 
 ![Architecture de BulkExecutor](./media/bulk-executor-overview/bulk-executor-architecture.png)
 
-La bibliothèque BulkExecutor utilise de manière optimale le débit alloué à une collection. Elle utilise un  [mécanisme de contrôle de congestion de style AIMD](https://tools.ietf.org/html/rfc5681) pour chaque plage de clés de partition Azure Cosmos DB afin de gérer efficacement la limitation du taux et les délais d’attente. 
+La bibliothèque de l’exécuteur en bloc veille à utiliser au maximum le débit alloué à une collection. Elle utilise un  [mécanisme de contrôle de congestion de style AIMD](https://tools.ietf.org/html/rfc5681) pour chaque plage de clés de partition Azure Cosmos DB afin de gérer efficacement la limitation du taux et les délais d’attente. 
 
 ## <a name="next-steps"></a>Étapes suivantes 
   
-* Pour en savoir plus, essayez les exemples d’applications consommant la bibliothèque BulkExecutor dans [.NET](bulk-executor-dot-net.md) et [Java](bulk-executor-java.md).  
+* Pour en savoir plus, essayez les exemples d’applications utilisant la bibliothèque de l’exécuteur en bloc en [.NET](bulk-executor-dot-net.md) et [Java](bulk-executor-java.md).  
 * Consultez les notes de publication et les informations sur le SDK de l’exécuteur en bloc en [.NET](sql-api-sdk-bulk-executor-dot-net.md) et en [Java](sql-api-sdk-bulk-executor-java.md).
-* La bibliothèque BulkExecutor est intégrée au connecteur Spark Cosmos DB. Pour plus d’informations, consultez l’article sur le [connecteur Spark Azure Cosmos DB](spark-connector.md).  
+* La bibliothèque de l’exécuteur en bloc est intégrée au connecteur Spark Cosmos DB. Pour plus d’informations, voir [Connecteur Spark Azure Cosmos DB](spark-connector.md).  
 * La bibliothèque d’exécuteur en bloc est également intégrée à une nouvelle version du [connecteur Azure Cosmos DB](https://aka.ms/bulkexecutor-adf-v2) pour permettre à Azure Data Factory de copier des données.

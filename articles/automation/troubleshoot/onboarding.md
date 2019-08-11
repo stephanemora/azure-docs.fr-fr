@@ -8,18 +8,49 @@ ms.date: 05/22/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 3687a2fdcba9c2078bbbd9344089b5a22467682c
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 8b4ee999bb23abdcea3411720bde244b2da4e89f
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67477481"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68516399"
 ---
 # <a name="troubleshoot-errors-when-onboarding-solutions"></a>Résolution des erreurs d’intégration des solutions
 
 Vous pouvez rencontrer des erreurs lors de l’intégration d’une solution telle que Update Management, Change Tracking ou Inventory. Cet article décrit les erreurs qui peuvent se produire et explique comment les résoudre.
 
-## <a name="general-errors"></a>Erreurs générales
+## <a name="known-issues"></a>Problèmes connus
+
+### <a name="node-rename"></a>Scénario : La modification du nom d’un nœud inscrit requiert l’annulation de l’inscription et une réinscription
+
+#### <a name="issue"></a>Problème
+
+Un nœud est inscrit sur Azure Automation, puis le nom d’ordinateur du système d’exploitation est modifié.  Les rapports du nœud continuent à s’afficher avec le nom d’origine.
+
+#### <a name="cause"></a>Cause
+
+La modification du nom d’un nœud inscrit n’a pas pour effet de modifier son nom dans Azure Automation.
+
+#### <a name="resolution"></a>Résolution
+
+Annulez l’inscription du nœud dans le service State Configuration d’Azure Automation, puis réinscrivez-le.  Les rapports publiés sur le service avant ce délai ne seront plus disponibles.
+
+
+### <a name="resigning-cert"></a>Scénario : La nouvelle signature de certificats via un proxy HTTPS n’est pas prise en charge
+
+#### <a name="issue"></a>Problème
+
+Des clients ont signalé que, quand ils se connectent via une solution proxy qui met fin au trafic HTTPS, puis re-chiffre le trafic à l’aide d’un nouveau certificat, le service n’autorise pas la connexion.
+
+#### <a name="cause"></a>Cause :
+
+Azure Automation ne prend pas en charge la nouvelle signature de certificats utilisés pour chiffrer le trafic.
+
+#### <a name="resolution"></a>Résolution :
+
+Il n’existe aucune solution de contournement pour ce problème.
+
+## <a name="general-errors"></a>Erreurs générales.
 
 ### <a name="missing-write-permissions"></a>Scénario : L'intégration échoue avec le message : La solution ne peut pas être activée
 

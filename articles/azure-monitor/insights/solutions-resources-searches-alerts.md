@@ -10,20 +10,20 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/27/2019
+ms.date: 07/29/2019
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0975b23a8f96da6fc2dfcc8bd9ad046847a68aa9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e2e32fb57a5ee34da8c342649cc1740d111723ec
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62104820"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68662904"
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>Ajout de recherches et d’alertes enregistrées Log Analytics à une solution de gestion (préversion)
 
 > [!IMPORTANT]
-> Les détails présentés ici pour la création d’une alerte à l’aide d’un modèle Resource Manager sont obsolètes en raison du fait que les [alertes Log Analytics ont été étendues à Azure Monitor](../platform/alerts-extend.md). Pour plus d’informations sur la création d’une alerte de journal avec un modèle Resource Manager, consultez [Gestion des alertes de journal à l’aide du modèle de ressource Azure](../platform/alerts-log.md#managing-log-alerts-using-azure-resource-template).
+> Comme [annoncé précédemment](https://azure.microsoft.com/updates/switch-api-preference-log-alerts/), le ou les espaces de travail Log Analytics créés après *le 1er juin 2019* peuvent gérer les règles d’alerte en utilisant **uniquement** l’[API REST Azure](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) scheduledQueryRules, un [modèle Azure Resource Manager](../../azure-monitor/platform/alerts-log.md#managing-log-alerts-using-azure-resource-template) et une [cmdlet PowerShell](../../azure-monitor/platform/alerts-log.md#managing-log-alerts-using-powershell). Les clients peuvent facilement [modifier leurs méthodes de gestion des règles de sécurité et choisir celle qu’ils préfèrent](../../azure-monitor/platform/alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api) pour les espaces de travail plus anciens afin d’utiliser Azure Monitor scheduledQueryRules par défaut et de bénéficier de nombreux [autres avantages](../../azure-monitor/platform/alerts-log-api-switch.md#benefits-of-switching-to-new-azure-api)tels que la possibilité d’utiliser les cmdlets PowerShell natifs, d’augmenter la période de recherche arrière dans les règles, de créer des règles dans un abonnement ou un groupe de ressources distinct, et bien plus encore.
 
 > [!NOTE]
 > Il s’agit d’une documentation préliminaire pour la création de solutions de gestion actuellement en préversion. Tout schéma décrit ci-dessous est susceptible d’être modifié.
@@ -88,16 +88,12 @@ Chaque propriété d’une recherche enregistrée est décrite dans le tableau s
 ## <a name="alerts"></a>Alertes
 Des [alertes Azure Log](../../azure-monitor/platform/alerts-unified-log.md) sont créées par des règles Azure Alert qui exécutent des requêtes de journal spécifiées à intervalles réguliers. Si les résultats de la requête correspondent aux critères spécifiés, un enregistrement d’alerte est créé, et une ou plusieurs actions sont exécutées à l’aide de [Groupes d’actions](../../azure-monitor/platform/action-groups.md).
 
-> [!NOTE]
-> Depuis le 14 mai 2018, toutes les alertes d’une instance de cloud public Azure d’un espace de travail Log Analytics ont été étendues à Azure. Pour plus d’informations, consultez [Étendre les alertes à Azure](../../azure-monitor/platform/alerts-extend.md). Pour les utilisateurs qui étendent des alertes à Azure, les actions sont désormais contrôlées dans les groupes d’actions Azure. Lorsqu’un espace de travail et ses alertes sont étendus à Azure, vous pouvez récupérer ou ajouter des actions avec [Groupe d’actions - Modèle Azure Resource Manager](../../azure-monitor/platform/action-groups-create-resource-manager-template.md).
-Les règles d’alerte d’une solution de gestion sont constituées des trois ressources suivantes.
+Pour les utilisateurs qui étendent des alertes à Azure, les actions sont désormais contrôlées dans les groupes d’actions Azure. Lorsqu’un espace de travail et ses alertes sont étendus à Azure, vous pouvez récupérer ou ajouter des actions avec [Groupe d’actions - Modèle Azure Resource Manager](../../azure-monitor/platform/action-groups-create-resource-manager-template.md).
+Les règles d’alerte d’une solution de gestion héritée sont constituées des trois ressources suivantes.
 
 - **Recherche enregistrée.** Définit la recherche dans les journaux qui est exécutée. Plusieurs règles d’alerte peuvent partager une même recherche enregistrée.
 - **Planification.** Définit la fréquence d’exécution de la recherche dans les journaux. Chaque règle d’alerte est associée à une planification unique.
 - **Action d’alerte.** Chaque règle d’alerte est associée à une ressource de groupe d’actions ou à une ressource d’action (héritée) avec un type **Alert**, qui définit les détails de l’alerte, notamment les critères déterminant à quel moment un enregistrement d’alerte est créé, ainsi que la gravité de l’alerte. La ressource [Groupe d’actions](../../azure-monitor/platform/action-groups.md) peut comporter une liste d’actions à effectuer lorsqu’une alerte est déclenchée : appel vocal, SMS, e-mail, webhook, ITSM, runbook automation, application logique, etc.
-
-La ressource d’action (héritée) peut éventuellement définir une réponse par e-mail et par runbook.
-- **Action webhook (héritée)** Si la règle d’alerte appelle un webhook, elle nécessite une ressource d’action supplémentaire de type **Webhook**.
 
 Les ressources de recherche enregistrée sont décrites ci-dessus. Les autres ressources sont décrites ci-dessous.
 
@@ -134,8 +130,7 @@ La ressource de planification doit dépendre de la recherche enregistrée, de so
 ### <a name="actions"></a>Actions
 Une planification peut avoir plusieurs actions. Une action peut définir un ou plusieurs processus à effectuer, tels que l’envoi d’un courrier électronique ou le démarrage d’un runbook, ou elle peut définir un seuil qui détermine si les résultats d’une recherche satisfont à certains critères. Certaines actions définissent ces deux aspects afin que les processus soient exécutés quand le seuil est atteint.
 Les actions peuvent être définies à l’aide de la ressource [Groupe d’actions] ou de la ressource d’action.
-> [!NOTE]
-> Depuis le 14 mai 2018, toutes les alertes d’une instance de cloud public Azure d’un espace de travail Log Analytics ont été automatiquement étendues à Azure. Pour plus d’informations, consultez [Étendre les alertes à Azure](../../azure-monitor/platform/alerts-extend.md). Pour les utilisateurs qui étendent des alertes à Azure, les actions sont désormais contrôlées dans les groupes d’actions Azure. Lorsqu’un espace de travail et ses alertes sont étendus à Azure, vous pouvez récupérer ou ajouter des actions avec [Groupe d’actions - Modèle Azure Resource Manager](../../azure-monitor/platform/action-groups-create-resource-manager-template.md).
+
 La propriété **Type** spécifie deux types de ressources d’action. Une planification nécessite une action **Alert** qui définit les détails de la règle d’alerte et les actions appliquées lors de la création d’une alerte. Les ressources d’action ont un type `Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions`.
 
 Les actions d’alerte présentent la structure suivante. Cela inclut des variables et des paramètres courants, vous pouvez donc copier et coller cet extrait de code dans votre fichier de solution et modifier les noms des paramètres.
@@ -193,9 +188,6 @@ Cette section est obligatoire. Elle définit les propriétés du seuil d’alert
 ##### <a name="metricstrigger"></a>MetricsTrigger
 Cette section est facultative. Vous devez l’inclure pour une alerte relative aux mesures métriques.
 
-> [!NOTE]
-> Les alertes relatives aux mesures métriques sont actuellement en version préliminaire publique.
-
 | Nom de l'élément | Obligatoire | description |
 |:--|:--|:--|
 | TriggerCondition | OUI | Spécifie si le seuil est défini pour le nombre total de violations ou pour des violations consécutives selon les valeurs suivantes :<br><br>**Total<br>Consecutive** |
@@ -220,61 +212,6 @@ Pour les utilisateurs qui ont étendu leurs alertes dans Azure, une planificatio
 | AzNsNotification | OUI | ID de ressource du groupe d’actions Azure à associer à l’alerte pour entreprendre les actions nécessaires lorsque les critères d’alerte sont remplis. |
 | CustomEmailSubject | Non | Ligne d’objet personnalisée de l’e-mail envoyé à toutes les adresses spécifiées dans le groupe d’actions associé. |
 | CustomWebhookPayload | Non | Charge utile personnalisée à envoyer à tous les points de terminaison Webhook définis dans le groupe d’actions associé. Le format dépend de ce qu’attend le Webhook, et doit être un JSON sérialisé valide. |
-
-#### <a name="actions-for-oms-legacy"></a>Actions pour OMS (héritées)
-
-Chaque planification est associée à une action **Alert**. Ceci définit les détails de l’alerte et, éventuellement, les actions de notification et de correction. Une notification envoie un e-mail à une ou plusieurs adresses. Une correction démarre un runbook dans Azure Automation pour tenter de résoudre le problème détecté.
-
-> [!NOTE]
-> Depuis le 14 mai 2018, toutes les alertes d’une instance de cloud public Azure d’un espace de travail Log Analytics ont été automatiquement étendues à Azure. Pour plus d’informations, consultez [Étendre les alertes à Azure](../../azure-monitor/platform/alerts-extend.md). Pour les utilisateurs qui étendent des alertes à Azure, les actions sont désormais contrôlées dans les groupes d’actions Azure. Lorsqu’un espace de travail et ses alertes sont étendus à Azure, vous pouvez récupérer ou ajouter des actions avec [Groupe d’actions - Modèle Azure Resource Manager](../../azure-monitor/platform/action-groups-create-resource-manager-template.md).
-
-##### <a name="emailnotification"></a>EmailNotification
- Cette section est facultative. Insérez-la si vous souhaitez que l’alerte envoie un e-mail à un ou plusieurs destinataires.
-
-| Nom de l'élément | Obligatoire | description |
-|:--|:--|:--|
-| Destinataires | OUI | Liste des adresses e-mail (séparées par des virgules) auxquelles une notification est envoyée quand une alerte est créée, comme dans l’exemple suivant.<br><br>**[ "destinataire1\@contoso.com", "destinataire2\@contoso.com" ]** |
-| Objet | OUI | La ligne d’objet du message. |
-| Pièce jointe | Non | Actuellement, les pièces jointes ne sont pas prises en charge. Si cet élément est inclus, il doit avoir la valeur **None**. |
-
-##### <a name="remediation"></a>Correction
-Cette section est facultative. Insérez-la si vous souhaitez qu’un runbook démarre en réponse à l’alerte. 
-
-| Nom de l'élément | Obligatoire | description |
-|:--|:--|:--|
-| RunbookName | OUI | Le nom du runbook à démarrer. |
-| WebhookUri | OUI | L’URI du webhook pour le runbook. |
-| Expiry | Non | La date et l’heure d’expiration de la correction. |
-
-##### <a name="webhook-actions"></a>Actions de webhook
-
-Les actions de webhook démarrent un processus en appelant une URL et, éventuellement, en fournissant une charge utile à envoyer. Elles sont similaires aux actions correctives, à la différence qu’elles sont destinées à des webhooks qui peuvent appeler des processus autres que des runbooks Azure Automation. En outre, elles permettent de fournir une charge utile à remettre au processus distant.
-
-Si votre alerte appelle un webhook, elle nécessite une ressource d’action avec un type **Webhook** en plus de la ressource d’action **Alerte**.
-
-    {
-      "name": "name": "[concat(parameters('workspaceName'), '/', variables('SavedSearch').Name, '/', variables('Schedule').Name, '/', variables('Webhook').Name)]",
-      "type": "Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions/",
-      "apiVersion": "[variables('LogAnalyticsApiVersion')]",
-      "dependsOn": [
-        "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'), '/savedSearches/', variables('SavedSearch').Name, '/schedules/', variables('Schedule').Name)]"
-      ],
-      "properties": {
-        "etag": "*",
-        "type": "[variables('Alert').Webhook.Type]",
-        "name": "[variables('Alert').Webhook.Name]",
-        "webhookUri": "[variables('Alert').Webhook.webhookUri]",
-        "customPayload": "[variables('Alert').Webhook.CustomPayLoad]"
-      }
-    }
-Les propriétés des ressources d’action Webhook sont décrites dans les tableaux suivants.
-
-| Nom de l'élément | Obligatoire | description |
-|:--|:--|:--|
-| type | OUI | Type de l’action. **Webhook** pour les actions de webhook. |
-| name | OUI | Le nom d’affichage de l’action. Il n’est pas affiché dans la console. |
-| webhookUri | OUI | L’URI du webhook. |
-| customPayload | Non | Charge utile personnalisée à envoyer au webhook. Le format dépend de ce que le webhook attend. |
 
 ## <a name="sample"></a>Exemple
 

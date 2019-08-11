@@ -12,35 +12,45 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: banders
-ms.openlocfilehash: 8f4279d9ac085cdd1ded0dfdda4fad9d3fe12fb8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7756174f01e3fede17bec3e2ac185e89caddc097
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66480225"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68666446"
 ---
-# <a name="cancel-your-subscription-for-azure"></a>Annuler votre abonnement Azure
+# <a name="cancel-your-azure-subscription"></a>Annulation de votre abonnement Azure
 
-Seul un [administrateur de compte](billing-subscription-transfer.md#whoisaa) d'abonnements Azure peut annuler un abonnement Azure. Un administrateur d’abonnements Azure peut également [attribuer à un autre utilisateur un rôle d'administrateur d’abonnements](billing-add-change-azure-subscription-administrator.md#assign-a-user-as-an-administrator-of-a-subscription) pour lui permettre d'annuler un abonnement. Après l’annulation de l’abonnement, vous n’avez plus accès aux ressources ni aux services Azure.
+Vous pouvez annuler votre abonnement Azure dans le portail Azure si vous n’avez plus besoin de l’abonnement. 
 
 Avant d’annuler votre abonnement :
-
 * Sauvegardez vos données. Par exemple, si vous stockez des données dans le stockage Azure ou SQL, téléchargez une copie. Si vous avez une machine virtuelle, enregistrez une image localement.
 * Arrêtez les services. Accédez à la [page de ressources du portail de gestion](https://ms.portal.azure.com/?flight=1#blade/HubsExtension/Resources/resourceType/Microsoft.Resources%2Fresources) et **arrêtez** les machines virtuelles, les applications ou autres services en cours d’exécution.
 * Envisagez de migrer vos données. Consultez la page [Déplacer des ressources vers un nouveau groupe de ressources ou un nouvel abonnement](../azure-resource-manager/resource-group-move-resources.md).
-* Vous devez supprimer l'ensemble des ressources et groupes de ressources. Leur suppression est impérative pour vous permettre d'annuler un abonnement. Chaque groupe de ressources doit être supprimé individuellement. Lors de la suppression du groupe de ressources, vous devez confirmer cette suppression en entrant le nom du groupe de ressources.
+* Supprimez l’ensemble des ressources et des groupes de ressources. Leur suppression est impérative pour vous permettre d'annuler un abonnement. Chaque groupe de ressources doit être supprimé individuellement. Lors de la suppression du groupe de ressources, vous devez confirmer cette suppression en entrant le nom du groupe de ressources.
 * Si vous disposez de rôles personnalisés associés à cet abonnement dans `AssignableScopes`, vous devez mettre à jour ces rôles pour supprimer l’abonnement. Si vous essayez de mettre à jour un rôle personnalisé après annulation d'un abonnement, une erreur peut s'afficher. Pour plus d’informations, consultez [Résoudre les problèmes liés aux rôles personnalisés](../role-based-access-control/troubleshooting.md#problems-with-custom-roles) et [Rôles personnalisés pour les ressources Azure](../role-based-access-control/custom-roles.md).
 
 Si vous annulez un plan de support Azure, vous êtes toujours facturé du reliquat de l’abonnement. Pour plus d’informations, consultez les [Plans de support Azure](https://azure.microsoft.com/support/plans/).
 
-## <a name="cancel-subscription-using-the-azure-portal"></a>Annuler l’abonnement à l’aide du portail Azure
+## <a name="cancel-subscription-in-the-azure-portal"></a>Annuler un abonnement dans le portail Azure
 
 1. Sélectionnez votre abonnement dans la [page Abonnements du portail Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
 2. Sélectionnez l'abonnement que vous souhaitez annuler.
 3. Sélectionnez **Vue d'ensemble**, puis **Annuler l'abonnement**.
-
-    ![Capture d’écran qui montre le bouton Annuler](./media/billing-how-to-cancel-azure-subscription/cancel_ibiza.png)
+    ![Capture d’écran montrant le bouton Annuler](./media/billing-how-to-cancel-azure-subscription/cancel_ibiza.png)
 3. Suivez les invites et terminez l’annulation.
+
+
+## <a name="who-can-cancel-a-subscription"></a>Qui peut annuler un abonnement ?
+
+Le tableau ci-dessous présente l’autorisation requise pour annuler un abonnement.
+
+|Type d’abonnement     |Qui peut annuler  |
+|---------|---------|
+|Abonnements créés lorsque vous vous inscrivez à Azure via le site web Azure. Par exemple, quand vous souscrivez à un [compte gratuit Azure](https://azure.microsoft.com/offers/ms-azr-0044p/), un [compte avec tarifs de paiement à l’utilisation](https://azure.microsoft.com/offers/ms-azr-0003p/) ou en tant qu’[abonné Visual Studio](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/). |  Administrateur de compte, propriétaires et contributeurs pour l’abonnement  |
+|[Contrat Entreprise Microsoft](https://azure.microsoft.com/pricing/enterprise-agreement/) et [Enterprise Dev/Test](https://azure.microsoft.com/offers/ms-azr-0148p/)     |  Propriétaire du compte, propriétaires et contributeurs pour l’abonnement       |
+|[Offre Azure](https://azure.microsoft.com/offers/ms-azr-0017g/) et [Offre Azure pour DevTest](https://azure.microsoft.com/offers/ms-azr-0148g/)     |  Propriétaires et contributeurs pour l’abonnement      |
+
 
 ## <a name="what-happens-after-i-cancel-my-subscription"></a>Que se passe-t-il après l’annulation de mon abonnement ?
 
@@ -52,9 +62,9 @@ Nous attendons 90 jours avant de supprimer définitivement vos données au cas o
 
 ## <a name="reactivate-subscription"></a>Réactivation de l’abonnement
 
-Si vous annulez par inadvertance votre abonnement de paiement à l’utilisation, vous pouvez [le réactiver dans le Centre des comptes](billing-subscription-become-disable.md).
+Si vous annulez par inadvertance votre abonnement assorti d’un paiement à l’utilisation, vous pouvez [le réactiver dans le Centre des comptes](billing-subscription-become-disable.md).
 
-Si votre abonnement n’est pas un abonnement de paiement à l’utilisation, contactez le support dans les 90 jours suivant l’annulation pour réactiver votre abonnement.
+Si votre abonnement n’est pas un abonnement assorti d’un paiement à l’utilisation, contactez le support dans les 90 jours suivant l’annulation pour le réactiver.
 
 ## <a name="need-help-contact-us"></a>Vous avez besoin d’aide ? Contactez-nous.
 

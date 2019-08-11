@@ -7,12 +7,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 04/10/2019
 ms.author: jureid
-ms.openlocfilehash: cf325b93c626e0c7f9584449154e2d531995cdc5
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 701b35d99cb98009ec0116c23eaeab94ff967f51
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204347"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68678931"
 ---
 # <a name="programmatically-create-azure-enterprise-subscriptions-preview"></a>Créer des abonnements Azure Enterprise par programmation (préversion)
 
@@ -201,9 +201,8 @@ Pour obtenir la liste complète de tous les paramètres, consultez [az account c
 ## <a name="limitations-of-azure-enterprise-subscription-creation-api"></a>Limitations de l’API de création d’abonnement Azure Enterprise
 
 - Seuls des abonnements Azure Enterprise peuvent être créés à l’aide de cette API.
-- Il existe une limite initiale de 50 abonnements par compte, mais vous pouvez [créer une demande de support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) pour augmenter la limite à 200. Au-delà, les abonnements ne peuvent être créés qu’à l’aide du Centre des comptes.
-- Il doit y avoir au moins un abonnement EA ou EA Dev/Test sous le compte, ce qui signifie que le propriétaire du compte a effectué une inscription manuelle au moins une fois.
-- Les utilisateurs qui ne sont pas propriétaires de compte, mais qui ont été ajoutés à un compte d’inscription par le biais de RBAC, ne peuvent pas créer d’abonnements à l’aide du Centre de gestion.
+- Il existe une limite de 200 abonnements par compte d’inscription. Au-delà, les abonnements ne peuvent être créés qu’à l’aide du Centre des comptes. Si vous souhaitez créer des abonnements supplémentaires via l’API, créez un autre compte d’inscription.
+- Les utilisateurs qui ne sont pas propriétaires de compte, mais qui ont été ajoutés à un compte d’inscription par le biais de RBAC, ne peuvent pas créer d’abonnements à l’aide du Centre des comptes.
 - Vous ne pouvez pas sélectionner le locataire où l’abonnement doit être créé. L’abonnement est toujours créé dans le locataire de base du propriétaire du compte. Pour déplacer l’abonnement vers un autre locataire, consultez [Changer le locataire d’abonnement](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 
 ## <a name="next-steps"></a>Étapes suivantes

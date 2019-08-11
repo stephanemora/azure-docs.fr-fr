@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/21/2019
+ms.date: 07/31/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 12b75c2df7d11b0e90c5dccc3bc2aae4e0fb0c1e
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: e741e8d4d68c9862aaabffaccb86740a3e1e9b8a
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204481"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68694180"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Écriture d’expressions pour les mappages d’attributs dans Azure Active Directory
 Quand vous configurez l’approvisionnement pour une application SaaS, l’un des types de mappages d’attributs que vous pouvez spécifier est un mappage d’expression. Dans ce cas, vous devez écrire une expression semblable à un script qui vous permet de transformer les données des utilisateurs dans des formats plus acceptables pour l’application SaaS.
@@ -129,29 +129,32 @@ Remplace les valeurs dans une chaîne. Elle fonctionne différemment selon les p
 
 * Quand **oldValue** et **replacementValue** sont fournis :
   
-  * Remplace toutes les occurrences d’oldValue dans la source par  replacementValue.
+  * Remplace toutes les occurrences d’**oldValue** dans la **source** par  **replacementValue**.
 * Quand **oldValue** et **template** sont fournis :
   
   * Remplace toutes les occurrences d’**oldValue** dans le **template** par la valeur **source**.
+* Quand **regexPattern** et **replacementValue** sont fournis :
+
+  * La fonction applique **regexPattern** à la chaîne **source** et vous pouvez utiliser les noms de groupes regex pour construire la chaîne pour **replacementValue**.
 * Quand **regexPattern**, **regexGroupName** et **replacementValue** sont fournis :
   
-  * Remplace toutes les valeurs correspondant à oldValueRegexPattern dans la chaîne source par replacementValue.
-* Quand **regexPattern**, **regexGroupName**, **replacementPropertyName** sont fournis :
+  * La fonction applique **regexPattern** à la chaîne **source** et remplace toutes les valeurs correspondant à **regexGroupName** par **replacementValue**.
+* Quand **regexPattern**, **regexGroupName** et **replacementAttributeName** sont fournis :
   
   * Si **source** n’a pas de valeur, **source** est retourné
-  * Si **source** a une valeur, la fonction utilise **regexPattern** et **regexGroupName** pour extraire la valeur de remplacement de la propriété avec **replacementPropertyName**. La valeur de remplacement est retournée comme résultat.
+  * Si **source** a une valeur, la fonction applique **regexPattern** à la chaîne **source** et remplace toutes les valeurs correspondant à **regexGroupName** par la valeur associée à **replacementAttributeName**.
 
 **Paramètres :**<br> 
 
 | Nom | Requis / Répétition | Type | Notes |
 | --- | --- | --- | --- |
-| **source** |Obligatoire |Chaîne |Généralement le nom de l’attribut de l’objet source. |
+| **source** |Obligatoire |Chaîne |Généralement, nom de l’attribut de l’objet **source**. |
 | **oldValue** |Facultatif |Chaîne |Valeur à remplacer dans **source** ou **template**. |
-| **regexPattern** |Facultatif |Chaîne |Modèle d’expression régulière pour la valeur à remplacer dans **source**. Ou, quand replacementPropertyName est utilisé, modèle pour extraire la valeur de la propriété de remplacement. |
-| **regexGroupName** |Facultatif |Chaîne |Nom du groupe à l’intérieur de **regexPattern**. Nous extrayons la valeur de ce groupe comme replacementValue à partir de la propriété de remplacement uniquement quand replacementPropertyName est utilisé. |
+| **regexPattern** |Facultatif |Chaîne |Modèle d’expression régulière pour la valeur à remplacer dans **source**. Ou, quand **replacementPropertyName** est utilisé, modèle pour extraire la valeur de **replacementPropertyName**. |
+| **regexGroupName** |Facultatif |Chaîne |Nom du groupe à l’intérieur de **regexPattern**. Nous extrayons la valeur de ce groupe en tant que **replacementValue** à partir de **replacementPropertyName** uniquement quand **replacementPropertyName** est utilisé. |
 | **replacementValue** |Facultatif |Chaîne |Nouvelle valeur par laquelle remplacer l’ancienne. |
-| **replacementAttributeName** |Facultatif |Chaîne |Nom de l’attribut à utiliser pour la valeur de remplacement, quand la source n’a aucune valeur. |
-| **template** |Facultatif |Chaîne |Lorsque la valeur **template** est fournie, nous recherchons **oldValue** dans le modèle et la remplaçons par la valeur source. |
+| **replacementAttributeName** |Facultatif |Chaîne |Nom de l’attribut à utiliser pour la valeur de remplacement. |
+| **template** |Facultatif |Chaîne |Lorsque la valeur **template** est fournie, nous recherchons la valeur **oldValue** dans le modèle et la remplaçons par la valeur **source**. |
 
 ---
 ### <a name="selectuniquevalue"></a>SelectUniqueValue
