@@ -66,7 +66,7 @@ Pour utiliser l’authentification de base, définissez la propriété « authe
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | userName | Utilisateur ayant accès au serveur SFTP. |OUI |
-| password | Mot de passe de l’utilisateur (nom d’utilisateur). Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | OUI |
+| password | Mot de passe de l’utilisateur (userName). Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | OUI |
 
 **Exemple :**
 
@@ -182,7 +182,7 @@ Pour copier des données depuis SFTP au **format Parquet ou de texte délimité*
 
 | Propriété   | Description                                                  | Obligatoire |
 | ---------- | ------------------------------------------------------------ | -------- |
-| Type       | La propriété de type sous `location` dans le jeu de données doit être définie sur **SFTPLocation**. | OUI      |
+| type       | La propriété de type sous `location` dans le jeu de données doit être définie sur **SFTPLocation**. | OUI      |
 | folderPath | Le chemin d’accès du dossier. Si vous souhaitez utiliser un caractère générique pour filtrer le dossier, ignorez ce paramètre et spécifiez-le dans les paramètres de la source de l’activité. | Non       |
 | fileName   | Le nom de fichier sous le chemin d’accès folderPath donné. Si vous souhaitez utiliser un caractère générique pour filtrer les fichiers, ignorez ce paramètre et spécifiez-le dans les paramètres de la source de l’activité. | Non       |
 
