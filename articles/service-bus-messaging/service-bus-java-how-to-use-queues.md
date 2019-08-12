@@ -1,5 +1,5 @@
 ---
-title: Utilisation des files d’attente Azure Service Bus avec Java | Microsoft Docs
+title: Utiliser des files d’attente Service Bus avec Java
 description: Découvrez comment utiliser les files d'attente Service Bus dans Azure. Exemples de code écrits en Java.
 services: service-bus-messaging
 documentationcenter: java
@@ -14,12 +14,13 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 04/10/2019
 ms.author: aschhab
-ms.openlocfilehash: cd1db615b11259bcf1d8aff988d2817e08065ca2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.custom: seo-java-july2019
+ms.openlocfilehash: 4075ceae6c40a6be8ee2b9f6580a57fafb96e17e
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65991745"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68663422"
 ---
 # <a name="how-to-use-service-bus-queues-with-java"></a>Utilisation des files d’attente Service Bus avec Java
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
@@ -30,18 +31,18 @@ Dans ce tutoriel, vous allez apprendre à créer des applications Java afin d’
 
 ## <a name="prerequisites"></a>Prérequis
 1. Un abonnement Azure. Pour suivre ce tutoriel, vous avez besoin d’un compte Azure. Vous pouvez [activer les avantages de votre abonnement MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) ou [vous inscrire pour un compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
-2. Si vous n’avez pas de file d’attente avec laquelle travailler, suivez les étapes de l’article [Utiliser le Portail Azure pour créer une file d’attente Service Bus](service-bus-quickstart-portal.md) afin de créer une file d’attente.
+2. Si vous n’avez pas de file d’attente avec laquelle travailler, suivez les étapes de l’article [Utiliser le Portail Azure pour créer une file d’attente Service Bus](service-bus-quickstart-portal.md) pour créer une file d’attente.
     1. Consultez la **vue d’ensemble** rapide des **files d’attente Service Bus**. 
     2. Créez un **espace de noms** Service Bus. 
     3. Obtenez la **chaîne de connexion**.
     4. Créez une **file d’attente** Service Bus.
-3. Installez le [e kit de développement logiciel (SDK) Azure pour Java][Azure SDK for Java]. 
+3. Installez le [kit de développement logiciel (SDK) Azure pour Java][Azure SDK for Java]. 
 
 
 ## <a name="configure-your-application-to-use-service-bus"></a>Configuration de votre application pour l’utilisation de Service Bus
 Vérifiez que vous avez installé le [Kit de développement logiciel (SDK) Azure pour Java][Azure SDK for Java] avant de créer cet exemple. Si vous utilisez Eclipse, vous pouvez installer le [Kit de ressources Azure pour Eclipse][Azure Toolkit for Eclipse] qui inclut le Kit de développement logiciel (SDK) Azure pour Java. Vous pouvez ensuite ajouter les **bibliothèques Microsoft Azure pour Java** à votre projet :
 
-![](./media/service-bus-java-how-to-use-queues/eclipselibs.png)
+![Capture d’écran de l’onglet Bibliothèques dans lequel vous pouvez ajouter des bibliothèques](./media/service-bus-java-how-to-use-queues/eclipselibs.png)
 
 Ajoutez les instructions `import` suivantes au début du fichier Java :
 

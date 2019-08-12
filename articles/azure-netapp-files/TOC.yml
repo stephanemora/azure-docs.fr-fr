@@ -21,11 +21,11 @@
       href: azure-netapp-files-metrics.md
     - name: Performances
       items:
-        - name: Tests de performances pour Azure NetApp Files
-          href: azure-netapp-files-performance-benchmarks.md
         - name: Considérations sur les performances pour Azure NetApp Files
           href: azure-netapp-files-performance-considerations.md
-        - name: Tests de référence pour les métriques et les performances de volume avec Azure NetApp Files
+        - name: Résultats des tests de performances pour Azure NetApp Files
+          href: azure-netapp-files-performance-benchmarks.md
+        - name: Recommandations sur les tests de performances pour Azure NetApp Files
           href: azure-netapp-files-performance-metrics-volumes.md
     - name: Modèle de coût pour Azure NetApp Files
       href: azure-netapp-files-cost-model.md

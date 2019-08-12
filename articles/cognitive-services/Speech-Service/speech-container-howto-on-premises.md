@@ -1,5 +1,5 @@
 ---
-title: Utiliser Kubernetes en local
+title: Utilisation avec Kubernetes et Helm - Speech Service
 titleSuffix: Azure Cognitive Services
 description: À l’aide de Kubernetes et de Helm pour définir les images de conteneur de reconnaissance et de synthèse vocale, nous allons créer un package Kubernetes. Ce package sera déployé sur un cluster Kubernetes local.
 services: cognitive-services
@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 7/10/2019
+ms.date: 7/16/2019
 ms.author: dapine
-ms.openlocfilehash: 33d9de956a6d43145fc68f4ec46b09b8e8bf0188
-ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
+ms.openlocfilehash: 06f2db708385c4c3fbf8d005b701b633ac52776a
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67786257"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559141"
 ---
-# <a name="use-kubernetes-on-premises"></a>Utiliser Kubernetes en local
+# <a name="use-with-kubernetes-and-helm"></a>Utilisation avec Kubernetes et Helm
 
-À l’aide de Kubernetes et de Helm pour définir les images de conteneur de reconnaissance et de synthèse vocale, nous allons créer un package Kubernetes. Ce package sera déployé sur un cluster Kubernetes local. Enfin, nous allons découvrir comment tester les services déployés et diverses options de configuration.
+L’une des options permettant de gérer vos conteneurs vocaux en local consiste à utiliser Kubernetes et Helm. À l’aide de Kubernetes et de Helm pour définir les images de conteneur de reconnaissance et de synthèse vocale, nous allons créer un package Kubernetes. Ce package sera déployé sur un cluster Kubernetes local. Enfin, nous allons découvrir comment tester les services déployés et diverses options de configuration. Pour plus d'informations sur l'exécution de conteneurs Docker sans orchestration Kubernetes, consultez [Installer et exécuter des conteneurs Speech Service](speech-container-howto.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -30,7 +30,7 @@ L’utilisation locale des conteneurs Speech est soumise aux prérequis suivants
 | Compte Azure. | Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit][free-azure-account] avant de commencer. |
 | Accès à Container Registry | Pour que Kubernetes puisse extraire les images docker dans le cluster, il aura besoin d’accéder au registre de conteneurs. Vous devez d’abord [demander l’accès au registre de conteneurs][speech-preview-access]. |
 | Kubernetes CLI | L’interface [Kubernetes CLI][kubernetes-cli] est requise pour gérer les informations d’identification partagées à partir du registre de conteneurs. Kubernetes est également nécessaire avant Helm, qui est le gestionnaire de package de Kubernetes. |
-| Helm CLI | Dans le cadre de l’interface [Helm CLI][helm-install] install, you'll also need to initialize Helm which will install [Tiller][tiller-install]. |
+| Helm CLI | Dans le cadre de l’installation de l’[interface de ligne de commande Helm][helm-install], vous devrez également initialiser Helm, qui installera [Tiller][tiller-install]. |
 |Ressource Speech |Pour pouvoir utiliser ces conteneurs, vous devez avoir :<br><br>Ressource Azure de _Speech_ permettant d’obtenir la clé de facturation et l’URI du point de terminaison de facturation associés. Les deux valeurs, disponibles dans les pages Vue d’ensemble de **Speech** et Clés du portail Azure, sont nécessaires au démarrage du conteneur.<br><br>**{API_KEY}** : clé de ressource<br><br>**{ENDPOINT_URI}**  : exemple d’URI de point de terminaison : `https://westus.api.cognitive.microsoft.com/sts/v1.0`|
 
 ## <a name="the-recommended-host-computer-configuration"></a>La configuration d’ordinateur hôte recommandée

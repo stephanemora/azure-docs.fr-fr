@@ -159,6 +159,8 @@
     - name: Résolution des problèmes
       href: ../hdinsight-troubleshoot-guide.md?toc=/azure/hdinsight/kafka/toc.json&bc=/azure/hdinsight/kafka/breadcrumb/toc.json
       items:
+        - name: Domaines d’erreur insuffisants
+          href: ./kafka-troubleshoot-insufficient-domains.md
         - name: Résoudre les problèmes d’un cluster HDInsight défaillant ou lent
           href: ../hdinsight-troubleshoot-failed-cluster.md?toc=/azure/hdinsight/kafka/toc.json&bc=/azure/hdinsight/kafka/breadcrumb/toc.json
         - name: Résolution des problèmes HDFS Apache Hadoop

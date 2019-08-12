@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
-manager: craigg
 ms.date: 07/18/2019
-ms.openlocfilehash: cdd5e29fcc01639c03da70614f53ac648ee6620c
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 6b1b706e68b090090ed4268b70b7c9d254f8b629
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68318578"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68596701"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-keys-in-azure-key-vault-bring-your-own-key-support"></a>Azure SQL Transparent Data Encryption avec des clés managées dans Azure Key Vault : support Bring Your Own Key
 
@@ -74,7 +73,7 @@ Quand TDE est tout d’abord configuré pour utiliser un protecteur TDE de Key V
 - Accordez l’accès du serveur SQL Database au coffre de clés à l’aide de son identité Azure Active Directory (Azure AD).  Lorsque vous utilisez l’interface utilisateur du portail, l’identité Azure AD est automatiquement créée et les autorisations d’accès de coffre de clés sont accordées au serveur.  En utilisant PowerShell pour configurer TDE avec BYOK, l’identité Azure AD doit être créée, et sa création vérifiée une fois terminée. Consultez [Configurer TDE avec BYOK](transparent-data-encryption-byok-azure-sql-configure.md) et [Configure TDE with BYOK for Managed Instance](https://aka.ms/sqlmibyoktdepowershell) (Configurer TDE avec BYOK pour Managed Instance) pour obtenir des instructions détaillées lors de l’utilisation de PowerShell.
 
    > [!NOTE]
-   > Si l’identité Azure AD **est accidentellement supprimée ou si les autorisations du serveur sont révoquées** à l’aide de la stratégie d’accès du coffre de clés ou accidentellement par déplacement du serveur vers un locataire différent, le serveur perd l’accès au coffre de clés, les bases de données chiffrées avec TDE deviennent inaccessibles et les connexions sont refusées jusqu’à ce que l’identité Azure AD et les autorisations du serveur logique soient restaurées.  
+   > Si l’identité Azure AD **est accidentellement supprimée ou si les autorisations du serveur sont révoquées** à l’aide de la stratégie d’accès du coffre de clés ou accidentellement par déplacement du serveur vers un locataire différent, le serveur perd l’accès au coffre de clés, les bases de données chiffrées avec TDE seront inaccessibles et les connexions refusées jusqu’à ce que l’identité Azure AD et les autorisations du serveur logique soient restaurées.  
 
 - Lorsque vous utilisez des pare-feu et des réseaux virtuels avec Azure Key Vault, vous devez autoriser les services Microsoft approuvés à contourner ce pare-feu. Choisissez OUI.
 
@@ -87,14 +86,14 @@ Quand TDE est tout d’abord configuré pour utiliser un protecteur TDE de Key V
 
 ### <a name="guidelines-for-configuring-the-tde-protector-asymmetric-key"></a>Lignes directrices en matière de configuration du protecteur TDE (clé asymétrique)
 
-- Créez votre clé de chiffrement localement sur un appareil HSM local. Assurez-vous qu’il s’agit d’une clé RSA 2048 bits asymétrique afin qu’elle puisse être stockée dans Azure Key Vault.
+- Créez votre clé de chiffrement localement sur un appareil HSM local. Assurez-vous qu’il s’agit d’une clé RSA 2048 ou RSA HSM 2048 asymétrique afin qu’elle puisse être stockée dans Azure Key Vault.
 - Déposez la clé dans un système de dépôt de clé.  
 - Importez le fichier de clé de chiffrement (.pfx, .byok ou .backup) dans Azure Key Vault.
 
    > [!NOTE]
    > À des fins de test, il est possible de créer une clé avec Azure Key Vault. Toutefois, elle ne peut pas être déposée, car la clé privée ne peut jamais quitter le coffre de clés.  Sauvegardez et déposez toujours des clés utilisées pour chiffrer les données de production, car la perte de la clé (suppression accidentelle dans le coffre de clés, expiration, etc.) entraîne la perte définitive des données.
 
-- Si vous utilisez une clé avec une date d’expiration, implémentez un système d’avertissement d’expiration de manière à faire pivoter la clé avant qu’elle n’expire : **une fois la clé expirée, les bases de données chiffrées perdent l’accès à leur protecteur TDE et deviennent inaccessibles** et toutes les ouvertures de session sont refusées jusqu’à ce que la clé ait pivoté vers une nouvelle clé.
+- Si vous utilisez une clé avec une date d’expiration, implémentez un système d’avertissement d’expiration de manière à faire pivoter la clé avant qu’elle n’expire : **une fois la clé expirée, les bases de données chiffrées perdent l’accès à leur protecteur TDE et deviennent inaccessibles** et toutes les ouvertures de session sont refusées jusqu’à ce que la clé ait pivoté vers une nouvelle clé et ait été sélectionnée comme nouvelle clé et protecteur TDE par défaut pour le serveur SQL logique.
 - Vérifiez que la clé est activée et qu’elle dispose des autorisations pour effectuer les opérations *get*, *wrap key*, et *unwrap key*.
 - Créez une sauvegarde de la clé Azure Key Vault avant d’utiliser la clé dans Azure Key Vault pour la première fois. En savoir plus sur la commande [Backup-AzKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/backup-azkeyvaultkey).
 - Créez une nouvelle sauvegarde à chaque modification de la clé (par exemple, ajout d’ACL, ajout de balises, ajout d’attributs de clé).
@@ -107,7 +106,7 @@ Quand TDE est tout d’abord configuré pour utiliser un protecteur TDE de Key V
 
 Si le serveur SQL logique perd l’accès au protecteur TDE géré par le client dans Azure Key Vault, la base de données refuse toutes les connexions et semble inaccessible dans le Portail Azure.  Les causes les plus courantes sont les suivantes :
 - Le coffre de clés a été accidentellement été supprimé ou se trouve derrière un pare-feu
-- La clé du coffre de clés a accidentellement été supprimée ou a expiré
+- La clé du coffre de clés a accidentellement été supprimée, désactivée ou a expiré
 - L’AppId de l’instance de SQL Server logique a été supprimé accidentellement
 - Autorisations spécifiques à la clé pour l’AppId de l’instance de SQL Server logique révoqué
 

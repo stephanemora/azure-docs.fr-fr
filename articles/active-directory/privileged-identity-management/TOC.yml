@@ -1,6 +1,6 @@
 - name: Documentation Privileged Identity Management
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: "Qu’est-ce qu’Azure AD PIM\_?"
       href: pim-configure.md
@@ -53,6 +53,16 @@
           href: pim-how-to-change-default-settings.md
         - name: Configurer des alertes
           href: pim-how-to-configure-security-alerts.md
+        - name: Aperçu des rôles personnalisés
+          items:
+            - name: Activer un rôle personnalisé
+              href: azure-ad-custom-roles-activate.md
+            - name: Attribuer un rôle personnalisé
+              href: azure-ad-custom-roles-assign.md
+            - name: Supprimer une attribution de rôle
+              href: azure-ad-custom-roles-update-remove.md
+            - name: Configurer des rôles personnalisés
+              href: azure-ad-custom-roles-configure.md
         - name: Afficher l’historique d'audit
           href: pim-how-to-use-audit-log.md
     - name: Gérer les rôles de ressources Azure

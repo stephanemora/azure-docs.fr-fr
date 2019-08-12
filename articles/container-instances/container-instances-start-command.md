@@ -3,16 +3,17 @@ title: Utiliser une ligne de commande initiale dans Azure Container Instances
 description: Remplacez le point d’entrée configuré dans une image conteneur lorsque vous déployez une instance de conteneur Azure.
 services: container-instances
 author: dlepow
+manager: gwallace
 ms.service: container-instances
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: danlep
-ms.openlocfilehash: da94a4c79694f511d41e5c8dda8c786fc7049726
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 40d946db48a65452d2da529098c07d0d0c60d472
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64569639"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68619663"
 ---
 # <a name="set-the-command-line-in-a-container-instance-to-override-the-default-command-line-operation"></a>Définir la ligne de commande dans une instance de conteneur pour remplacer l’opération de ligne de commande par défaut
 
@@ -22,7 +23,7 @@ Lorsque vous créez une instance de conteneur, vous pouvez spécifier une comman
 
 ## <a name="command-line-guidelines"></a>Recommandations relatives aux lignes de commande
 
-* Par défaut, la ligne de commande spécifie un *processus unique qui démarre sans interpréteur de commandes* dans le conteneur. Par exemple, la ligne de commande peut exécuter un script Python ou un fichier exécutable. 
+* Par défaut, la ligne de commande spécifie un *processus unique qui démarre sans interpréteur de commandes* dans le conteneur. Par exemple, la ligne de commande peut exécuter un script Python ou un fichier exécutable. Le processus peut spécifier d'autres paramètres ou arguments.
 
 * Pour exécuter plusieurs commandes, commencez votre ligne de commande en définissant un environnement d’interpréteur de commandes qui est pris en charge dans le système d’exploitation du conteneur. Exemples :
 
@@ -44,9 +45,9 @@ Lorsque vous créez une instance de conteneur, vous pouvez spécifier une comman
 
 La syntaxe de ligne de commande varie en fonction de l’API Azure ou de l’outil utilisés pour la création des instances. Si vous spécifiez un environnement d’interpréteur de commandes, respectez également les conventions de syntaxe de commande de l’interpréteur.
 
-* Commande [az container create][az-container-create] : transmettez une chaîne avec le paramètre `--command-line`. Exemple : `--command-line "python myscript.py arg1 arg2"`.
+* Commande [az container create][az-container-create] : transmettez une chaîne avec le paramètre `--command-line`. Exemple : `--command-line "python myscript.py arg1 arg2"`.
 
-* Cmdlet Azure PowerShell [New-AzureRmContainerGroup][new-azurermcontainergroup] : transmettez une chaîne avec le paramètre `-Command`. Exemple : `-Command "echo hello"`.
+* Cmdlet Azure PowerShell [New-AzureRmContainerGroup][new-azurermcontainergroup] : transmettez une chaîne avec le paramètre `-Command`. Exemple : `-Command "echo hello"`.
 
 * Portail Azure : Dans la propriété **Remplacement de commande** de la configuration du conteneur, fournissez une liste de chaînes séparées par des virgules, sans guillemets. Exemple : `python, myscript.py, arg1, arg2`. 
 
@@ -56,7 +57,7 @@ La syntaxe de ligne de commande varie en fonction de l’API Azure ou de l’out
 
 ### <a name="examples"></a>Exemples
 
-|    |  Azure CLI   | Portail | Modèle | 
+|    |  D’Azure CLI   | Portail | Modèle | 
 | ---- | ---- | --- | --- |
 | Commande unique | `--command-line "python myscript.py arg1 arg2"` | **Remplacement de commande** : `python, myscript.py, arg1, arg2` | `"command": ["python", "myscript.py", "arg1", "arg2"]` |
 | Commandes multiples | `--command-line "/bin/bash -c 'mkdir test; touch test/myfile; tail -f /dev/null'"` |**Remplacement de commande** : `/bin/bash, -c, mkdir test; touch test/myfile; tail -f /dev/null` | `"command": ["/bin/bash", "-c", "mkdir test; touch test/myfile; tail -f /dev/null"]` |

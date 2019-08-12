@@ -62,6 +62,8 @@
           items:
             - name: Nœuds d'approvisionnement
               href: create-nodes.md
+            - name: Supprimer des nœuds
+              href: delete-nodes.md
         - name: Gérer les ressources de cloud privé
           items:
             - name: Créer un cloud privé
@@ -76,6 +78,8 @@
               href: azure-subscription-mapping.md
             - name: Élever les privilèges
               href: escalate-private-cloud-privileges.md
+            - name: Supprimer un cloud privé
+              href: delete-private-cloud.md
         - name: Superviser l’activité CloudSimple
           href: 'https://docs.azure.cloudsimple.com/activity/'
         - name: Configurer le réseau de cloud privé

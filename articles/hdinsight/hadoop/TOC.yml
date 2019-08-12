@@ -41,30 +41,6 @@
       href: ../hdinsight-hadoop-compare-storage-options.md?toc=/azure/hdinsight/hadoop/toc.json&bc=/azure/hdinsight/hadoop/breadcrumb/toc.json
     - name: Comprendre les identités managées
       href: ../hdinsight-managed-identities.md?toc=/azure/hdinsight/hadoop/toc.json&bc=/azure/hdinsight/hadoop/breadcrumb/toc.json
-    - name: Résolution des problèmes
-      items:
-        - name: Échecs de création de cluster
-          href: ./hdinsight-troubleshoot-cluster-creation-fails.md
-        - name: Espace disque insuffisant
-          href: ./hdinsight-troubleshoot-out-disk-space.md
-        - name: Blocage logiciel - Processeur
-          href: ./hdinsight-troubleshoot-soft-lockup-cpu.md
-        - name: InvalidNetworkConfigurationErrorCode - Échecs de création du cluster
-          href: ./troubleshoot-invalidnetworkconfigurationerrorcode-cluster-creation-fails.md
-        - name: InvalidNetworkSecurityGroupSecurityRules - échec de création de cluster
-          href: ./hdinsight-troubleshoot-invalidnetworksecuritygroupsecurityrules-cluster-creation-fails.md
-        - name: Impossible de se connecter au cluster HDInsight
-          href: ./hdinsight-troubleshoot-unable-log-in-cluster.md
-        - name: Impossible d’ajouter des nœuds au cluster HDInsight
-          href: ./hdinsight-troubleshoot-unable-add-nodes.md
-        - name: Conversion d’un certificat de principal de service
-          href: ./hdinsight-troubleshoot-converting-service-principal-certificate.md
-        - name: HDFS local bloqué en mode sans échec
-          href: ./hdinsight-hdfs-troubleshoot-safe-mode.md
-        - name: Problèmes de pulsations Apache Ambari
-          href: ./apache-ambari-troubleshoot-heartbeat-issues.md
-        - name: Apache Ambari affiche que les hôtes et services ne fonctionnent pas
-          href: ./apache-ambari-troubleshoot-down-hosts-services.md
 - name: Procédures
   items:
     - name: Utiliser le bac à sable (sandbox) Apache Hadoop
@@ -310,6 +286,30 @@
     - name: Résolution des problèmes
       href: ../hdinsight-troubleshoot-guide.md?toc=/azure/hdinsight/hadoop/toc.json&bc=/azure/hdinsight/hadoop/breadcrumb/toc.json
       items:
+        - name: Échecs de création de cluster
+          href: ./hdinsight-troubleshoot-cluster-creation-fails.md
+        - name: Espace disque insuffisant
+          href: ./hdinsight-troubleshoot-out-disk-space.md
+        - name: Blocage logiciel - Processeur
+          href: ./hdinsight-troubleshoot-soft-lockup-cpu.md
+        - name: InvalidNetworkConfigurationErrorCode - Échecs de création du cluster
+          href: ./troubleshoot-invalidnetworkconfigurationerrorcode-cluster-creation-fails.md
+        - name: InvalidNetworkSecurityGroupSecurityRules - échec de création de cluster
+          href: ./hdinsight-troubleshoot-invalidnetworksecuritygroupsecurityrules-cluster-creation-fails.md
+        - name: Impossible de se connecter au cluster HDInsight
+          href: ./hdinsight-troubleshoot-unable-log-in-cluster.md
+        - name: Impossible d’ajouter des nœuds au cluster HDInsight
+          href: ./hdinsight-troubleshoot-unable-add-nodes.md
+        - name: Conversion d’un certificat de principal de service
+          href: ./hdinsight-troubleshoot-converting-service-principal-certificate.md
+        - name: HDFS local bloqué en mode sans échec
+          href: ./hdinsight-hdfs-troubleshoot-safe-mode.md
+        - name: Problèmes de pulsations Apache Ambari
+          href: ./apache-ambari-troubleshoot-heartbeat-issues.md
+        - name: "Erreur\_502 de l’interface utilisateur Apache Ambari"
+          href: ./apache-ambari-troubleshoot-fivezerotwo-error.md
+        - name: Apache Ambari affiche que les hôtes et services ne fonctionnent pas
+          href: ./apache-ambari-troubleshoot-down-hosts-services.md
         - name: Résoudre les problèmes d’un cluster HDInsight défaillant ou lent
           href: ../hdinsight-troubleshoot-failed-cluster.md?toc=/azure/hdinsight/hadoop/toc.json&bc=/azure/hdinsight/hadoop/breadcrumb/toc.json
         - name: Résolution des problèmes HDFS Apache Hadoop

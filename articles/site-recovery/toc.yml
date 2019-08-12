@@ -155,6 +155,8 @@
           items:
             - name: Préparer la mise en réseau pour la récupération d’urgence de machines virtuelles Azure
               href: azure-to-azure-about-networking.md
+            - name: Personnaliser les configurations réseau de la machine virtuelle Azure cible
+              href: azure-to-azure-customize-networking.md
             - name: Configurer le mappage du réseau et conserver les adresses IP après le basculement
               href: azure-to-azure-network-mapping.md
             - name: Exemples de conservation des adresses IP après le basculement

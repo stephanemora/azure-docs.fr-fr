@@ -2,9 +2,9 @@
   href: index.yml
 - name: Service SQL Database
   items:
-    - name: Présentation de la base de données SQL
+    - name: Définition de la base de données SQL
       href: sql-database-technical-overview.md
-    - name: Choisir une version d’Azure SQL
+    - name: "Quelle option SQL dois-je choisir\_?"
       href: sql-database-paas-vs-sql-server-iaas.md
     - name: Notes de publication
       href: sql-database-release-notes.md
@@ -280,14 +280,18 @@
               href: sql-vulnerability-assessment.md
             - name: Protection avancée contre les menaces
               href: sql-database-threat-detection-overview.md
-        - name: Règles de pare-feu IP au niveau du serveur
+        - name: Sécurité du réseau
           items:
-            - name: Créer et gérer
+            - name: Vue d’ensemble des contrôles d’accès réseau
+              href: sql-database-networkaccess-overview.md
+            - name: Pare-feu basé sur IP
               href: sql-database-firewall-configure.md
-            - name: Points de terminaison du service Réseau virtuel
-              href: sql-database-vnet-service-endpoint-rule-overview.md
-            - name: Points de terminaison du service Réseau virtuel - PowerShell
-              href: sql-database-vnet-service-endpoint-rule-powershell.md
+            - name: Règles de pare-feu de réseau virtuel
+              items:
+                - name: Points de terminaison du service Réseau virtuel
+                  href: sql-database-vnet-service-endpoint-rule-overview.md
+                - name: Points de terminaison du service Réseau virtuel - PowerShell
+                  href: sql-database-vnet-service-endpoint-rule-powershell.md
         - name: Contrôle d’accès
           items:
             - name: Contrôle d’accès
