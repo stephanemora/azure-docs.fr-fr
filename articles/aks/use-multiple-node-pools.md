@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 05/17/2019
 ms.author: mlearned
 ms.openlocfilehash: 72f34d9711e1ba4658288bfdeb847632d32d0fcf
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68478326"
 ---
 # <a name="preview---create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Préversion - Créer et gérer plusieurs pools de nœuds pour un cluster dans Azure Kubernetes Service (AKS)
@@ -32,7 +32,7 @@ L’interface de ligne de commande Azure (Azure CLI) version 2.0.61 ou une versi
 
 ### <a name="install-aks-preview-cli-extension"></a>Installer l’extension CLI de préversion d’aks
 
-Pour utiliser plusieurs pools de nœuds, vous avez besoin de l’extension CLI *aks-preview* version 0.4.1 ou ultérieure. Installez l’extension Azure CLI *aks-preview* à l’aide de la commande [az extension add][az-extension-add] command, then check for any available updates using the [az extension update][az-extension-update]:
+Pour utiliser plusieurs pools de nœuds, vous avez besoin de l’extension CLI *aks-preview* version 0.4.1 ou ultérieure. Installez l’extension Azure CLI *aks-preview* à l’aide de la commande [az extension add][az-extension-add], puis recherchez toutes les mises à jour disponibles à l’aide de la commande [az extension update][az-extension-update] :
 
 ```azurecli-interactive
 # Install the aks-preview extension
@@ -47,7 +47,7 @@ az extension update --name aks-preview
 Pour créer un cluster AKS capable d’utiliser plusieurs pools de nœuds, commencez par activer deux indicateurs de fonctionnalité sur votre abonnement. Les clusters de pools multinœuds utilisent un groupe de machines virtuelles identiques pour gérer le déploiement et la configuration des nœuds Kubernetes. Inscrivez les indicateurs de fonctionnalité *MultiAgentpoolPreview* et *VMSSPreview* à l’aide de la commande [az feature register][az-feature-register], comme indiqué dans l’exemple suivant :
 
 > [!CAUTION]
-> Lorsque vous inscrivez une fonctionnalité sur un abonnement, vous ne pouvez actuellement pas désinscrire cette fonctionnalité. Après avoir activé des fonctionnalités préliminaires, des valeurs par défaut peuvent être utilisées pour tous les clusters AKS créés ultérieurement dans l’abonnement. N’activez pas les fonctionnalités d’évaluation sur les abonnements de production. Utilisez un abonnement distinct pour tester les fonctionnalités d’évaluation et recueillir des commentaires.
+> Lorsque vous inscrivez une fonctionnalité sur un abonnement, vous ne pouvez actuellement pas désinscrire cette fonctionnalité. Après avoir activé des fonctionnalités en préversion, des valeurs par défaut peuvent être utilisées pour tous les clusters AKS créés ultérieurement dans l’abonnement. N’activez pas les fonctionnalités d’évaluation sur les abonnements de production. Utilisez un abonnement distinct pour tester les fonctionnalités d’évaluation et recueillir des commentaires.
 
 ```azurecli-interactive
 az feature register --name MultiAgentpoolPreview --namespace Microsoft.ContainerService

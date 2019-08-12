@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/17/2019
+ms.date: 07/30/2019
 ms.author: cherylmc
-ms.openlocfilehash: ff747e7bc3329d3665b52f6fa8e72e1ca308a87e
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: f013ec6fa52e3c770b713d1b445341d8e9686de3
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68310348"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68689503"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Partenaires ExpressRoute et emplacements d’homologation
 
@@ -28,14 +28,23 @@ ms.locfileid: "68310348"
 > * [Fournisseurs par emplacement](expressroute-locations-providers.md)
 
 
-Les tables de cet article offrent des informations sur les fournisseurs de connectivité ExpressRoute, la couverture géographique ExpressRoute, les services cloud Microsoft pris en charge via ExpressRoute et les intégrateurs système ExpressRoute.
+Les tables de cet article offrent des informations sur les emplacements ExpressRoute, les fournisseurs de connectivité ExpressRoute, la couverture géographique ExpressRoute, les services cloud Microsoft pris en charge via ExpressRoute et les intégrateurs système ExpressRoute.
 
-## <a name="partners"></a>Fournisseurs de connectivité ExpressRoute
-ExpressRoute est pris en charge dans tous les emplacements et régions Azure. La carte ci-dessous fournit une liste des régions Azure et des emplacements ExpressRoute. Les emplacements ExpressRoute se réfèrent à ceux où Microsoft s’associe à plusieurs fournisseurs de services.
+> [!Note]
+> Les régions Azure et les emplacements ExpressRoute sont deux concepts distincts et différents, il est essentiel de comprendre ce qui les distingue pour explorer la connectivité réseau hybride Azure. 
+>
+>
 
-![Carte des emplacements][0]
+## <a name="azure-regions"></a>Régions Azure
+Les régions Azure sont des centres de données globaux où se trouvent des ressources de stockage, de mise en réseau et de calcul Azure. Lors de la création d’une ressource Azure, un client doit sélectionner un emplacement de ressource. L’emplacement de la ressource détermine le centre de ressources Azure (ou zone de disponibilité) dans lequel la ressource est créée.
+
+## <a name="expressroute-locations"></a>Emplacements ExpressRoute
+Les emplacements ExpressRoute (parfois appelés emplacements d’homologation ou emplacements de rencontre) sont des installations de colocalisation où se trouvent des appareils Microsoft Enterprise Edge (MSEE). Les emplacements ExpressRoute sont le point d’entrée du réseau de Microsoft, et sont distribués à l’échelle mondiale, ce qui offre aux clients la possibilité de se connecter au réseau Microsoft dans le monde entier. Ces emplacements sont là où les partenaires ExpressRoute et les clients ExpressRoute Direct émettent des connexions croisées au réseau de Microsoft. En général, l’emplacement ExpressRoute n’a pas besoin de correspondre à la région Azure. Par exemple, un client peut créer un circuit ExpressRoute avec l’emplacement de ressource *USA Est*, dans l’emplacement d’homologation de *Seattle*.
 
 Vous aurez accès aux services Azure dans toutes les régions au sein d’une région géopolitique si vous êtes connecté à au moins un emplacement ExpressRoute dans la région géopolitique.
+
+## <a name="partners"></a>Fournisseurs de connectivité ExpressRoute
+ExpressRoute est pris en charge dans tous les emplacements et régions Azure.
 
 ### <a name="azure-regions-to-expressroute-locations-within-a-geopolitical-region"></a>Régions Azure vers des emplacements ExpressRoute au sein d’une région géopolitique.
 Le tableau ci-dessous fournit une carte des régions Azure vers des emplacements ExpressRoute au sein d’une région géopolitique.
@@ -43,12 +52,12 @@ Le tableau ci-dessous fournit une carte des régions Azure vers des emplacements
 | **Région géopolitique** | **Zone** | **Régions Azure** | **Emplacements ExpressRoute** |
 | --- | --- | --- | --- |
 | **Secteur public australien** | 1 | Australie Centre, Australie Centre 2 |Canberra, Canberra2 |
-| **Europe** | 1 |France Centre, France Sud, Europe Nord, Europe Ouest, Royaume-Uni Ouest, Royaume-Uni Sud |Amsterdam, Amsterdam2, Dublin, Francfort, Londres, Londres2, Marseille, Newport(Wales), Paris, Zurich |
+| **Europe** | 1 |France Centre, France Sud, Europe Nord, Europe Ouest, Royaume-Uni Ouest, Royaume-Uni Sud |Amsterdam, Amsterdam2, Copenhague, Dublin, Francfort, Londres, Londres2, Marseille, Newport(Wales), Paris, Zurich |
 | **Amérique du Nord** | 1 |USA Est, USA Ouest, USA Est 2, USA Ouest 2, USA Centre, USA Centre Sud, USA Centre Nord, USA Centre-Ouest, Canada Centre, Canada Est |Atlanta, Chicago, Dallas, Denver, Las Vegas, Los Angeles, Miami, New York, San Antonio, Seattle, Silicon Valley, Silicon Valley2, Washington DC, Washington DC2, Montréal, Québec, Toronto |
 | **Asie** | 2 |Asie Est, Asie Sud-Est |Hong Kong (R.A.S.), Kuala Lumpur, Singapour, Singapour2, Taipei |
 | **Inde** | 2 |Inde Ouest, Inde Centre, Inde Sud |Chennai, Chennai2, Mumbai, Mumbai2 |
 | **Japon** | 2 |Japon Ouest, Japon Est |Osaka, Tokyo |
-| **Océanie** | 2 |Australie Sud-Est | Australie Est |Auckland, Melbourne, Perth, Sydney |
+| **Océanie** | 2 |Australie Sud-Est, Australie Est |Auckland, Melbourne, Perth, Sydney |
 | **Corée du Sud** | 2 |Centre de la Corée, Corée du Sud |Busan, Séoul|
 | **Émirats Arabes Unis** | 3 | Émirats arabes unis Centre, Émirats arabes unis Nord | Dubaï, Dubaï2 |
 | **Afrique du Sud** | 3 |Afrique du Sud Ouest, Afrique du Sud Nord |Le Cap, Johannesburg |
@@ -77,9 +86,9 @@ Le tableau suivant présente les emplacements, en fonction de chaque fournisseur
 | **Fournisseur de services** | **Microsoft Azure** | **Office 365 et Dynamics 365** | **Emplacements** |
 | --- | --- | --- | --- |
 | **[AARNet](https://www.aarnet.edu.au/network-and-services/cloud-services-applications/azure-expressroute/)** |Pris en charge |Pris en charge |Melbourne, Sydney |
-| **[Airtel](https://www.airtel.in/creatingsmiles/)** | Pris en charge | Pris en charge | Chennai2, Mumbai2 |
+| **[Airtel](https://www.airtel.in/business/#/)** | Pris en charge | Pris en charge | Chennai2, Mumbai2 |
 | **[Aryaka Networks](https://www.aryaka.com/)** |Pris en charge |Pris en charge |Amsterdam, Chicago, Dallas, Hong Kong SAR, Sao Paulo, Seattle, Silicon Valley, Singapour, Tokyo, Washington DC |
-| **[Ascenty Data Centers](https://ascenty.com/servicos/cloud-connect/microsoft-expressroute/)** |Pris en charge |Pris en charge |Sao Paulo |
+| **[Ascenty Data Centers](https://www.ascenty.com/en/cloud/microsoft-express-route)** |Pris en charge |Pris en charge |Sao Paulo |
 | **[AT&amp;T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** |Pris en charge |Pris en charge |Amsterdam, Chicago, Dallas, Londres, Silicon Valley, Singapour, Sydney, Tokyo, Toronto, Washington DC |
 | **[Bell Canada](https://business.bell.ca/shop/enterprise/cloud-connect-access-to-cloud-partner-services)** |Pris en charge |Pris en charge |Montréal, Toronto, Québec |
 | **[British Telecom](https://www.globalservices.bt.com/en/solutions/products/bt-compute-for-microsoft-azure)** |Pris en charge |Pris en charge |Amsterdam, Hong Kong (R.A.S), Johannesbourg, Londres, Newport(Wales), Sao Paulo, Silicon Valley, Singapour, Sydney, Tokyo, Washington DC |
@@ -107,7 +116,7 @@ Le tableau suivant présente les emplacements, en fonction de chaque fournisseur
 | **[Internet2](https://www.internet2.edu/products-services/cloud-services-applications/microsoft-azure/#service-cloud-connect)** |Pris en charge |Pris en charge |Chicago, Dallas, Washington DC |
 | **[Internet Initiative Japan Inc. - IIJ](https://www.iij.ad.jp/en/news/pressrelease/2015/1216-2.html)** |Pris en charge |Pris en charge |Osaka, Tokyo |
 | **[Internet Solutions - Cloud Connect](https://www.is.co.za/solution/cloud-connect/)** |Pris en charge |Pris en charge |Le Cap, Johannesburg, Londres |
-| **[Interxion](https://www.interxion.com/why-interxion/colocate-with-the-clouds/Microsoft-Azure/)** |Pris en charge |Pris en charge |Amsterdam, Amsterdam2, Dublin, Francfort, Londres, Marseille, Paris, Zurich |
+| **[Interxion](https://www.interxion.com/why-interxion/colocate-with-the-clouds/Microsoft-Azure/)** |Pris en charge |Pris en charge |Amsterdam, Amsterdam2, Copenhague, Dublin, Francfort, Londres, Marseille, Paris, Zurich |
 | **[IX Reach](https://www.ixreach.com/partners/cloud-partners/microsoft-azure/)**|Pris en charge |Pris en charge | Amsterdam, Londres2, Silicon Valley, Toronto |
 | **Jaguar Network** |Pris en charge |Pris en charge |Marseille|
 | **[Jisc](https://www.jisc.ac.uk/microsoft-azure-expressroute)** |Pris en charge |Pris en charge |Londres |
@@ -134,7 +143,7 @@ Le tableau suivant présente les emplacements, en fonction de chaque fournisseur
 | **[SIFY](http://telecom.sify.com/azure-expressroute.html)** |Pris en charge |Pris en charge |Chennai, Mumbai2 |
 | **[SingTel](http://info.singtel.com/about-us/news-releases/singtel-provide-secure-private-access-microsoft-azure-public-cloud)** |Pris en charge |Pris en charge |Singapour, Singapour2 |
 | **[Softbank](https://www.softbank.jp/biz/cloud/cloud_access/direct_access_for_az/)** |Pris en charge |Pris en charge |Osaka, Tokyo |
-| **[Spark NZ](https://www.sparkdigital.co.nz/solutions/connectivity/cloud-connect/)** |Pris en charge |Pris en charge |Sydney |
+| **[Spark NZ](https://www.sparkdigital.co.nz/solutions/connectivity/cloud-connect/)** |Pris en charge |Pris en charge |Auckland, Sydney |
 | **[Sprint](https://business.sprint.com/solutions/cloud-networking/)** |Pris en charge |Pris en charge |Chicago, Silicon Valley, Washington DC |
 | **[Tata Communications](https://www.tatacommunications.com/lp/izo/azure/azure_index.html)** |Pris en charge |Pris en charge |Amsterdam, Chennai, Hong Kong (R.A.S.), Londres, Mumbaï, Sao Paulo, Silicon Valley, Singapour, Washington DC |
 | **Telecity Group** |Pris en charge |Pris en charge |Amsterdam |

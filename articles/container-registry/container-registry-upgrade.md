@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 03/26/2019
 ms.author: danlep
 ms.openlocfilehash: 05c227e7de078c6bb371049f16e191598b9ca4e5
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68310375"
 ---
 # <a name="upgrade-a-classic-container-registry"></a>Mettre à niveau un registre de conteneurs Classique
@@ -53,7 +53,7 @@ Au terme de la migration, le compte de stockage de l'abonnement dans lequel le r
 
 ## <a name="how-to-upgrade"></a>Mise à niveau
 
-Vous pouvez mettre à niveau un registre Classique non managé vers une des références SKU managées de plusieurs façons. Dans les sections suivantes, nous décrivons le processus d’utilisation d’[Azure CLI][azure-cli]and the [Azure portal][azure-portal].
+Vous pouvez mettre à niveau un registre Classique non managé vers une des références SKU managées de plusieurs façons. Dans les sections suivantes, nous décrivons le processus d’utilisation d’[Azure CLI][azure-cli] et du [portail Azure][azure-portal].
 
 ## <a name="upgrade-in-azure-cli"></a>Mise à niveau dans Azure CLI
 

@@ -10,10 +10,10 @@ ms.date: 01/04/2019
 ms.author: danlep
 ms.custom: mvc
 ms.openlocfilehash: 502f178b66e7ba233552d7db4e095363c8bb8628
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68325557"
 ---
 # <a name="deploy-to-azure-container-instances-from-azure-container-registry"></a>Déployer sur Azure Container Instances à partir d’Azure Container Registry
@@ -50,7 +50,7 @@ az keyvault create -g $RES_GROUP -n $AKV_NAME
 
 Vous devez maintenant créer un principal de service et stocker ses informations d’identification dans votre coffre de clés.
 
-La commande suivante utilise [az ad sp create-for-rbac][az-ad-sp-create-for-rbac] to create the service principal, and [az keyvault secret set][az-keyvault-secret-set] pour stocker le **mot de passe** du principal du service dans le coffre :
+La commande suivante utilise [az ad sp create-for-rbac][az-ad-sp-create-for-rbac] pour créer le principal du service, et [az keyvault secret set][az-keyvault-secret-set] pour stocker le **mot de passe** du principal de service dans le coffre.
 
 ```azurecli
 # Create service principal, store its password in AKV (the registry *password*)

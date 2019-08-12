@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/17/2019
 ms.author: danlep
 ms.openlocfilehash: 9cd62c378270da31079a38f89b040985105a4218
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68326038"
 ---
 # <a name="set-environment-variables-in-container-instances"></a>Définir des variables d’environnement dans des instances de conteneur
@@ -33,7 +33,7 @@ Si vous devez transmettre des secrets en tant que variables d’environnement, A
 
 ## <a name="azure-cli-example"></a>Exemple Azure CLI
 
-Pour afficher la sortie par défaut de la commande [aci-wordcount][aci-wordcount]container, run it first with this [az container create][az-container-create] (aucune variable d’environnement spécifiée) :
+Pour afficher la sortie par défaut du conteneur [aci-wordcount][aci-wordcount], exécutez-le d’abord avec la commande [az container create][az-container-create] (aucune variable d’environnement spécifiée) :
 
 ```azurecli-interactive
 az container create \
@@ -54,7 +54,7 @@ az container create \
     --environment-variables 'NumWords'='5' 'MinLength'='8'
 ```
 
-Une fois que l’état des deux conteneurs est *Terminé*, utilisez [az container show][az-container-show]to check state), display their logs with [az container logs][az-container-logs] pour voir la sortie.
+Une fois que l’état de ces deux conteneurs est *Terminé* (utilisez [az container show][az-container-show] pour vérifier l’état), affichez leurs journaux d’activité avec [az container logs][az-container-logs] pour consulter leur contenu.
 
 ```azurecli-interactive
 az container logs --resource-group myResourceGroup --name mycontainer1
@@ -88,7 +88,7 @@ azureuser@Azure:~$ az container logs --resource-group myResourceGroup --name myc
 
 La définition de variables d’environnement dans PowerShell est similaire à celle effectuée dans l’interface CLI, à ceci près qu’elle utilise l’argument de ligne de commande `-EnvironmentVariable`.
 
-Commencez par lancer la commande [aci-wordcount][aci-wordcount] container in its default configuration with this [New-AzContainerGroup][new-Azcontainergroup] :
+Tout d’abord, lancez le conteneur [aci-wordcount][aci-wordcount] avec sa configuration par défaut, à l’aide de cette commande [New-AzContainerGroup][new-Azcontainergroup] :
 
 ```azurepowershell-interactive
 New-AzContainerGroup `

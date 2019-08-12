@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fbba3f1b753738de57aa311387e522bae1b7b523
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 2d5a2685b53bcd6a3e12c2cd87900ffb35e0d357
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68499797"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562100"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>FAQ sur la gestion des appareils Azure Active Directory
 
@@ -39,6 +39,11 @@ Seuls les appareils suivants sont répertoriés en tant **qu’appareils UTILISA
 
 - Pour les appareils Windows 10 et Windows Server 2016 ou versions ultérieures, exécutez `dsregcmd.exe /status`.
 - Pour les versions de système d’exploitation de niveau inférieur, exécutez `%programFiles%\Microsoft Workplace Join\autoworkplace.exe`.
+
+**R :** Pour obtenir des informations de résolution des problèmes, consultez ces articles :
+- [Dépannage des appareils à l’aide de la commande dsregcmd](troubleshoot-device-dsregcmd.md)
+- [Résolution des problèmes des appareils hybrides Windows 10 et Windows Server 2016 joints à Azure Active Directory](troubleshoot-hybrid-join-windows-current.md)
+- [Dépanner des appareils hybrides de bas niveau joints à Azure Active Directory](troubleshoot-hybrid-join-windows-legacy.md)
 
 ---
 
@@ -65,6 +70,8 @@ Pour savoir comment remédier à cela, lisez la section ci-dessous.
 **R :** Cette opération est intentionnelle. Dans ce cas, l’appareil n’a pas accès aux ressources du cloud. Les administrateurs peuvent agir ainsi lorsque des appareils sont devenus obsolètes, ou lorsqu’ils ont été perdus ou volés, afin d’empêcher tout accès non autorisé. S’ils ont procédé à cette suppression ou à cette suppression par inadvertance, vous devez réactiver ou réinscrire l’appareil comme l’explique la section ci-dessous.
 
 - Si l’appareil a été désactivé dans Azure AD, un administrateur disposant de privilèges suffisants peut l’activer à partir du portail Azure AD.  
+  > [!NOTE]
+  > Si vous synchronisez des appareils à l’aide de Azure AD Connect, les appareils Azure AD hybrides joints sont automatiquement réactivés au cours du prochain cycle de synchronisation. Par conséquent, si vous devez désactiver un appareil hybride Azure AD joint, vous devez le désactiver à partir de votre AD local.
 
  - Si l’appareil a été supprimé dans Azure AD, vous devez réinscrire l’appareil. Pour réinscrire l’appareil, vous devez procéder manuellement sur l’appareil en question. Pour plus d’informations sur la réinscription en fonction de l’état de l’appareil, consultez la section ci-dessous. 
 
@@ -114,20 +121,30 @@ Pour savoir comment remédier à cela, lisez la section ci-dessous.
 
 **Q : Pourquoi un utilisateur peut-il toujours accéder aux ressources à partir d’un appareil que j’ai désactivé dans le portail Azure ?**
 
-**R :** Une opération de révocation peut prendre jusqu’à une heure pour être entièrement appliquée.
+**R :** L’application d’une révocation peut prendre jusqu’à une heure à partir du moment où l’appareil Azure AD est marqué comme désactivé.
 
 >[!NOTE] 
 >Pour les appareils inscrits, nous vous recommandons de réinitialiser l’appareil pour vous assurer que les utilisateurs ne puissent pas accéder aux ressources. Pour plus d’informations, consultez [Qu’est-ce que l’inscription d’appareil ?](https://docs.microsoft.com/intune/deploy-use/enroll-devices-in-microsoft-intune). 
 
 ---
 
+### <a name="q-why-are-there-devices-marked-as-pending-under-the-registered-column-in-the-azure-portal"></a>Q : Pourquoi des appareils sont-ils marqués « en attente » dans la colonne INSCRITS du portail Azure ?
+
+**R** :  « En attente » informe que l’appareil n’est pas inscrit. Cet état indique qu’un appareil a été synchronisé à l’aide d’Azure AD Connect à partir d’AD local et est prêt pour l’inscription de l’appareil. Le TYPE DE JOINTURE de ces appareils est défini sur « Azure AD Hybride joint ». Découvrez comment [planifier l’implémentation de la jointure Azure Active Directory hybride](hybrid-azuread-join-plan.md).
+
+>[!NOTE]
+>Un appareil peut également passer d’un état inscrit à « en attente » :
+>* s’il est d’abord supprimé d’Azure AD et resynchronisé à partir d’Active Directory local.
+>* s’il est supprimé d’une étendue de synchronisation sur Azure AD Connect, puis rajouté.
+>
+>Dans les deux cas, vous devez réinscrire l’appareil manuellement sur chacun de ces appareils. Pour vérifier si l’appareil a déjà été inscrit, vous pouvez [résoudre les problèmes liés aux appareils à l’aide de la commande dsregcmd](troubleshoot-device-dsregcmd.md).
+
+---
 ## <a name="azure-ad-join-faq"></a>FAQ sur la jonction Azure AD
 
 ### <a name="q-how-do-i-unjoin-an-azure-ad-joined-device-locally-on-the-device"></a>Q : Comment faire pour disjoindre un appareil joint à Azure AD localement sur l’appareil ?
 
-**R :** 
-- Pour les appareils joints à Azure AD hybrides, assurez-vous de désactiver l’inscription automatique. Alors, la tâche planifiée n’inscrit pas l’appareil à nouveau. Ensuite, ouvrez une invite de commandes en tant qu’administrateur et saisissez `dsregcmd.exe /debug /leave`. Ou exécutez cette commande en tant que script sur plusieurs appareils pour les disjoindre en bloc.
-- Pour les appareils uniquement joints à Azure AD, assurez-vous d’avoir un administrateur local en mode hors connexion de compte ou créez-en un. Vous ne pouvez pas vous connecter avec des informations d’identification utilisateur Azure AD. Ensuite, accédez à **Paramètres** > **Comptes** > **Accès professionnel ou scolaire**. Sélectionnez **Se déconnecter** dans votre compte. Suivez les invites et fournissez les informations d’identification de l’administrateur local lorsque vous y êtes invité. Redémarrez l’appareil pour terminer le processus de disjonction.
+**R :** Pour les appareils uniquement joints à Azure AD, assurez-vous d’avoir un administrateur local en mode hors connexion de compte ou créez-en un. Vous ne pouvez pas vous connecter avec des informations d’identification utilisateur Azure AD. Ensuite, accédez à **Paramètres** > **Comptes** > **Accès professionnel ou scolaire**. Sélectionnez **Se déconnecter** dans votre compte. Suivez les invites et fournissez les informations d’identification de l’administrateur local lorsque vous y êtes invité. Redémarrez l’appareil pour terminer le processus de disjonction.
 
 ---
 
@@ -223,6 +240,10 @@ Ce comportement :
 
 ## <a name="hybrid-azure-ad-join-faq"></a>FAQ sur les jonctions Azure AD Hybride
 
+### <a name="q-how-do-i-unjoin-a-hybrid-azure-ad-joined-device-locally-on-the-device"></a>Q : Comment faire pour disjoindre un appareil hybride joint à Azure AD localement sur l’appareil ?
+
+**R :** Pour les appareils joints à Azure AD hybrides, assurez-vous de désactiver l’inscription automatique. Alors, la tâche planifiée n’inscrit pas l’appareil à nouveau. Ensuite, ouvrez une invite de commandes en tant qu’administrateur et saisissez `dsregcmd.exe /debug /leave`. Ou exécutez cette commande en tant que script sur plusieurs appareils pour les disjoindre en bloc.
+
 ### <a name="q-where-can-i-find-troubleshooting-information-to-diagnose-hybrid-azure-ad-join-failures"></a>Q : Où puis-je trouver des informations de résolution des problèmes concernant le diagnostic d’échecs de jonctions Azure AD ?
 
 **R :** Pour obtenir des informations de résolution des problèmes, consultez ces articles :
@@ -234,7 +255,7 @@ Ce comportement :
 
 **R :** Lorsque vos utilisateurs ajoutent leur compte aux applications sur un appareil joint à un domaine, ils peuvent être invités à **Ajouter un compte à Windows ?** Si l’utilisateur a entré **Oui** à l’invite, l’appareil est inscrit auprès d’Azure AD. Le type d’approbation est marqué comme étant inscrit à Azure AD. Dès lors que vous activez une jonction Azure AD hybride dans votre organisation, l’appareil est également joint à Azure AD hybride. Ensuite, deux états s’affichent pour le même appareil. 
 
-La jonction Azure AD Hybride est prioritaire sur l’état inscrit auprès d’Azure AD. Ainsi, votre appareil est considéré comme jonction Azure AD hybride pour toute authentification et pour toute évaluation de l’accès conditionnel. Vous pouvez supprimer sans problème l’enregistrement d’appareil inscrit à Azure AD depuis le portail Azure AD. Apprenez à [éviter ou nettoyer ce double état sur l’ordinateur Windows 10](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan#review-things-you-should-know). 
+La jonction Azure AD Hybride est prioritaire sur l’état inscrit auprès d’Azure AD. Ainsi, votre appareil est considéré comme jonction Azure AD hybride pour toute authentification et pour toute évaluation de l’accès conditionnel. Vous pouvez supprimer sans problème l’enregistrement d’appareil inscrit à Azure AD depuis le portail Azure AD. Apprenez à [éviter ou nettoyer ce double état sur l’ordinateur Windows 10](hybrid-azuread-join-plan.md#review-things-you-should-know). 
 
 ---
 
@@ -258,10 +279,19 @@ La jonction Azure AD Hybride est prioritaire sur l’état inscrit auprès d’A
 
 ## <a name="azure-ad-register-faq"></a>FAQ sur les inscriptions Azure AD
 
+### <a name="q-how-do-i-remove-an-azure-ad-registered-device-locally-on-the-device"></a>Q : Comment faire pour supprimer un appareil Azure AD inscrit localement sur l’appareil ?
+
+**R :** 
+- Pour les appareils Azure AD inscrits sur Windows 10, accédez à **Paramètres** > **Comptes** > **Accès professionnel ou scolaire**. Sélectionnez **Se déconnecter** dans votre compte. L’inscription de l’appareil est par profil utilisateur sur Windows 10.
+- Pour iOS et Android, vous pouvez utiliser l’application Microsoft Authenticator et aller dans **Paramètres** > **Inscription de l’appareil** et sélectionnez **Désinscrire l’appareil**.
+- Pour macOS, vous pouvez utiliser l’application le portail d’entreprise Microsoft Intune pour annuler l’inscription de l’appareil à partir de la gestion et supprimer toute inscription. 
+
+---
 ### <a name="q-can-i-register-android-or-ios-byod-devices"></a>Q : Puis-je inscrire des appareils BYOD Android ou iOS ?
 
 **R :** Oui, mais seulement avec le service d’inscription d’appareils d’Azure et seulement pour les clients hybrides. Cela n’est pas pris en charge avec le service DRS sur site dans Active Directory Federation Services (AD FS).
 
+---
 ### <a name="q-how-can-i-register-a-macos-device"></a>Q : Comment puis-je inscrire un appareil macOS ?
 
 **R :** Procédez comme suit :
@@ -274,6 +304,7 @@ La jonction Azure AD Hybride est prioritaire sur l’état inscrit auprès d’A
 - Les utilisateurs qui sont inclus dans votre stratégie d’accès conditionnel ont besoin d’une [version d’Office pour macOS prise en charge](../conditional-access/technical-reference.md#client-apps-condition) pour accéder aux ressources. 
 - Lors de la première tentative d’accès, vos utilisateurs sont invités à inscrire l’appareil par l’intermédiaire du portail d’entreprise.
 
+---
 ## <a name="next-steps"></a>Étapes suivantes
 
 - En savoir plus sur les [appareils inscrits Azure AD](concept-azure-ad-register.md)

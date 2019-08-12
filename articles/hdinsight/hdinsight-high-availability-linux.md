@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: hrasheed
 ms.openlocfilehash: 1828efb410849677e859d341e4e16e4f5d4ca681
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68405995"
 ---
 # <a name="availability-and-reliability-of-apache-hadoop-clusters-in-hdinsight"></a>Disponibilité et fiabilité des clusters Apache Hadoop dans HDInsight
@@ -247,7 +247,7 @@ Dans l’interface utilisateur web d’Ambari, sélectionnez le service dont vou
 
 La taille d’un nœud n’est sélectionnable que lors de la création du cluster. Pour obtenir la liste des différentes tailles de machine virtuelle disponibles pour HDInsight, voir la page [Tarification de HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
-Lorsque vous créez un cluster, vous pouvez spécifier la taille des nœuds. Les informations suivantes fournissent des conseils sur la façon de spécifier la taille à l’aide du [portail Azure][preview-portal], [Azure PowerShell module Az][azure-powershell], et [Azure CLI][azure-cli] :
+Lorsque vous créez un cluster, vous pouvez spécifier la taille des nœuds. Les informations suivantes aident à déterminer comment spécifier la taille avec le [portail Azure][preview-portal], le [module Azure PowerShell Az][azure-powershell] et [Azure CLI][azure-cli] :
 
 * **Portail Azure**: lors de la création d’un cluster, vous pouvez définir la taille des nœuds utilisés par le cluster :
 

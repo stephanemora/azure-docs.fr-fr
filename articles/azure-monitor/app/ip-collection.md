@@ -8,14 +8,14 @@ ms.assetid: 0e3b103c-6e2a-4634-9e8c-8b85cf5e9c84
 ms.service: application-insights
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 07/24/2019
+ms.date: 07/31/2019
 ms.author: mbullwin
-ms.openlocfilehash: 4c60cb78c01d7e18801cbe43c8b767f622ef4b39
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 3a504fe4475cee8e2949ee121c632b792f349758
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68473018"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68694286"
 ---
 # <a name="geolocation-and-ip-address-handling"></a>Gestion de la géolocalisation et des adresses IP
 
@@ -83,8 +83,8 @@ Si vous devez uniquement modifier le comportement d’une seule ressource de App
 
     ![Screenshot adds a comma after "IbizaAIExtension" and add a new line below with "DisableIpMasking": true](media/ip-collection/save.png)
 
-    > [!NOTE]
-    > Si vous voyez une erreur indiquant : _Le groupe de ressources se trouve dans un emplacement qui n’est pas pris en charge par une ou plusieurs ressources dans le modèle. Choisissez un autre groupe de ressources._ Sélectionnez temporairement un autre groupe de ressources dans la liste déroulante, puis sélectionnez à nouveau votre groupe de ressources d’origine pour résoudre l’erreur.
+    > [!WARNING]
+    > Si vous voyez une erreur indiquant : **_Le groupe de ressources se trouve dans un emplacement qui n’est pas pris en charge par une ou plusieurs ressources dans le modèle. Choisissez un autre groupe de ressources._** Sélectionnez temporairement un autre groupe de ressources dans la liste déroulante, puis sélectionnez à nouveau votre groupe de ressources d’origine pour résoudre l’erreur.
 
 5. Sélectionnez **J’accepte** > **Achat**. 
 
@@ -130,10 +130,11 @@ Content-Length: 54
 
 Si vous devez enregistrer la totalité de l’adresse IP au lieu des trois premiers octets, vous pouvez utiliser un [initialiseur de télémétrie](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#add-properties-itelemetryinitializer) pour copier l’adresse IP dans un champ personnalisé qui ne sera pas masqué.
 
-### <a name="aspnetaspnet-core"></a>ASP.NET/ASP.NET Core
+### <a name="aspnet--aspnet-core"></a>ASP.NET/ASP.NET Core
 
 ```csharp
 using Microsoft.ApplicationInsights.Channel;
+using Microsoft.ApplicationInsights.DataContracts;
 using Microsoft.ApplicationInsights.Extensibility;
 
 namespace MyWebApp
@@ -142,15 +143,20 @@ namespace MyWebApp
     {
         public void Initialize(ITelemetry telemetry)
         {
-            if(!string.IsNullOrEmpty(telemetry.Context.Location.Ip))
+            ISupportProperties propTelemetry = telemetry as ISupportProperties;
+
+            if (propTelemetry !=null && !propTelemetry.Properties.ContainsKey("client-ip"))
             {
-                telemetry.Context.Properties["client-ip"] = telemetry.Context.Location.Ip;
+                string clientIPValue = telemetry.Context.Location.Ip;
+                propTelemetry.Properties.Add("client-ip", clientIPValue);
             }
         }
-    }
-
+    } 
 }
 ```
+
+> [!NOTE]
+> Si vous ne parvenez pas à accéder à `ISupportProperties`, assurez-vous d’exécuter la dernière version stable du kit de développement logiciel (SDK) Application Insights. Les `ISupportProperties` sont prévues pour des valeurs de cardinalité hautes, alors que les `GlobalProperties` sont plus adaptées à des valeurs de cardinalité basses telles que le nom de région, le nom de l’environnement, etc. 
 
 ### <a name="enable-telemetry-initializer-for-aspnet"></a>Activez l’initialiseur de télémétrie pour. ASP.NET
 

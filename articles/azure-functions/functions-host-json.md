@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/08/2018
 ms.author: glenga
-ms.openlocfilehash: ecb2059e529347b7eff72bf6af74b82558a4c251
-ms.sourcegitcommit: 83a89c45253b0d432ce8dcd70084c18e9930b1fd
+ms.openlocfilehash: 4688cf6fb82eb8f726205d54d0c852fd3daf8dfb
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68371700"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564780"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x"></a>Informations de référence sur le fichier host.json pour Azure Functions 2.x  
 
@@ -147,7 +147,10 @@ Liste des fonctions que l’hôte de travail exécute. Un tableau vide désigne 
 
 ## <a name="functiontimeout"></a>functionTimeout
 
-Indique la durée avant expiration du délai de toutes les fonctions. Dans les plans de consommation serverless, la plage valide est comprise entre 1 seconde et 10 minutes, et la valeur par défaut est de 5 minutes. Dans un plan App Service, il n’existe aucune limite globale et la valeur par défaut dépend de la version du runtime. Dans la version 2.x, la valeur par défaut pour un plan App Service plan est de 30 minutes. Dans la version 1.x, elle prend la valeur *null*, ce qui signifie l’absence de délai d’expiration. Elle ne peut pas être définie sur Infinite. Si cette valeur n’est pas définie explicitement, elle prend la valeur par défaut de 30 minutes.
+Indique la durée avant expiration du délai de toutes les fonctions. Il suit le format de chaîne TimeSpan. Dans les plans de consommation serverless, la plage valide est comprise entre 1 seconde et 10 minutes, et la valeur par défaut est de 5 minutes.  
+Dans un plan dédié (App Service), il n’existe aucune limite globale et la valeur par défaut dépend de la version du runtime : 
++ Version 1.x : la valeur par défaut est *null*, ce qui signifie l’absence de délai d’expiration.   
++ Version 2.x : la valeur par défaut est de 30 minutes. La valeur `-1` indique une exécution sans limite.
 
 ```json
 {

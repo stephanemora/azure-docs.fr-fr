@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 07/26/2019
-ms.openlocfilehash: dbc92502cdab6e76ba6b8730fca7e0aed3966a43
-ms.sourcegitcommit: 5604661655840c428045eb837fb8704dca811da0
+ms.openlocfilehash: ce0ebd29427092ddc99929674735bab798d38190
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68494934"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562552"
 ---
 # <a name="deploy-azure-resource-manager-templates-for-azure-logic-apps"></a>Déployer des modèles Azure Resource Manager pour Azure Logic Apps
 
@@ -35,7 +35,7 @@ Pour déployer automatiquement un modèle d’application logique sur Azure, vou
 
 [![Déployer sur Azure](./media/logic-apps-deploy-azure-resource-manager-templates/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-logic-app-create%2Fazuredeploy.json)
 
-Par exemple, vous êtes invité à entrer ces informations une fois que vous êtes connecté au portail Azure :
+Par exemple, vous êtes invité à entrer les informations suivantes une fois que vous êtes connecté au portail Azure :
 
 * Nom de l’abonnement Azure
 * Groupe de ressources que vous souhaitez utiliser
@@ -59,7 +59,7 @@ Pour déployer un modèle d’application logique à partir d’un projet de gro
 
 ## <a name="deploy-with-azure-powershell"></a>Déployer avec Azure PowerShell
 
-Pour effectuer le déploiement dans un groupe de ressources Azure spécifique, utilisez cette commande :
+Pour effectuer le déploiement dans un *groupe de ressources Azure* spécifique, utilisez cette commande :
 
 ```powershell
 New-AzResourceGroupDeployment -ResourceGroupName <Azure-resource-group-name> -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json

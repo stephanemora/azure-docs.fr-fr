@@ -2,28 +2,28 @@
 title: Comprendre votre facture Azure
 description: Apprenez à lire et à comprendre votre utilisation et la facturation de votre abonnement Azure.
 author: bandersmsft
-manager: jureid
+manager: dougeby
 tags: billing
 ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/22/2019
+ms.date: 07/28/2019
 ms.author: banders
-ms.openlocfilehash: 69659e700ee47c8961ec21f0fb23573e13d72588
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 51143644a62a77a61c4540d9f2ad3dce401c496b
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68383634"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68610139"
 ---
 # <a name="understand-your-microsoft-azure-bill"></a>Comprendre votre facture Microsoft Azure
 Pour comprendre votre facture Azure, comparez-la avec le fichier détaillé sur l’utilisation quotidienne et les rapports de gestion des coûts dans le Portail Azure.
 
-Cet article ne s’applique pas aux clients Azure disposant d’un Contrat Entreprise (clients EA). Si vous êtes client Contrat Entreprise, consultez la section [Comprendre la facture des clients Azure ayant un Contrat Entreprise](billing-understand-your-bill-ea.md).
-
-Cet article ne s’applique pas aux clients Azure disposant d’un [Contrat client Microsoft](#check-access-to-a-microsoft-customer-agreement). Si vous disposez d’un Contrat client Microsoft, consultez [Comprendre les frais Azure sur votre facture de Contrat client Microsoft](billing-mca-understand-your-bill.md).
+Cet article ne s’applique pas aux clients suivants :
+- Clients Azure disposant d’un Contrat Entreprise (clients EA). Si vous êtes client Contrat Entreprise, consultez la section [Comprendre la facture des clients Azure ayant un Contrat Entreprise](billing-understand-your-bill-ea.md).
+- Clients Azure avec un [Contrat client Microsoft](#check-access-to-a-microsoft-customer-agreement). Si vous disposez d’un Contrat client Microsoft, consultez [Comprendre les frais Azure sur votre facture de Contrat client Microsoft](billing-mca-understand-your-bill.md).
 
 La [Présentation de la facturation Azure CSP](/azure/cloud-solution-provider/billing/azure-csp-billing-overview/) fournit une explication sur le fonctionnement de la facturation dans le programme Fournisseur de solutions Azure Cloud (Azure CSP), notamment le cycle de facturation, la tarification et l’utilisation.
 

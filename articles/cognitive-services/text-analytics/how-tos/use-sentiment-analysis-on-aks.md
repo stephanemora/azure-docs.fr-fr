@@ -1,6 +1,6 @@
 ---
-title: Exécuter Azure Kubernetes Services
-titleSuffix: Text Analytics - Azure Cognitive Services
+title: Exécuter le service Azure Kubernetes - Analyse de texte
+titleSuffix: Azure Cognitive Services
 description: Déployez les conteneurs Analyse de texte avec l’image Analyse des sentiments sur Azure Kubernetes Service, puis testez-le dans un navigateur web.
 services: cognitive-services
 author: IEvangelist
@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
 ms.author: dapine
-ms.openlocfilehash: 290a01e7e478f718607c0550702474cd31979a63
-ms.sourcegitcommit: b49431b29a53efaa5b82f9be0f8a714f668c38ab
+ms.openlocfilehash: 44ee5fab5b4e8900b823453e5674fc9bdb5fe9ac
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68377404"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68552275"
 ---
 # <a name="deploy-a-sentiment-analysis-container-to-azure-kubernetes-service"></a>Déployer un conteneur Analyse des sentiments sur Azure Kubernetes Service (AKS)
 

@@ -1,6 +1,6 @@
 ---
 title: Créer un compte Cognitive Services dans le portail Azure
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Commencez à utiliser Azure Cognitive Services en créant et en vous abonnant à une ressource dans le Portail Azure.
 services: cognitive-services
 author: aahill
@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 07/16/2019
 ms.author: aahi
-ms.openlocfilehash: e9616f3014288e4b2580f474c49c646928db5a08
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: af01c0c2586ce7df1902a0bcc502c6fd06a5215d
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68334256"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68697912"
 ---
 # <a name="create-a-cognitive-services-resource-using-the-azure-portal"></a>Créer un compte Cognitive Services dans le portail Azure
 
@@ -28,7 +28,7 @@ Utilisez ce guide de démarrage rapide pour commencer à utiliser Azure Cognitiv
 
 ## <a name="create-a-new-azure-cognitive-services-resource"></a>Créer une ressource Azure Cognitive Services
 
-Avant de créer une ressource Cognitive Services, vous devez disposer d’un groupe de ressources Azure pour contenir la ressource. Quand vous créez une nouvelle ressource, vous avez le choix entre créer un groupe de ressources ou utiliser un groupe existant. Cet article montre comment créer un groupe de ressources.
+Avant de créer une ressource Cognitive Services, vous devez disposer d’un groupe de ressources Azure pour contenir la ressource. Quand vous créez une ressource, vous avez le choix entre créer un groupe de ressources ou utiliser un groupe existant. Cet article montre comment créer un groupe de ressources.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com), puis cliquez sur **+ Créer une ressource**.
 
@@ -65,6 +65,13 @@ Avant de créer une ressource Cognitive Services, vous devez disposer d’un gro
 Après avoir créé votre ressource, vous pouvez y accéder à partir du tableau de bord Azure, si vous l’y avez épinglée. Sinon, vous pouvez y accéder dans **Groupes de ressources**. Après avoir sélectionné votre ressource, vous pouvez obtenir les clés en sélectionnant **Clés** sous **Gestion des ressources**.
 
 [!INCLUDE [cognitive-services-environment-variables](../../includes/cognitive-services-environment-variables.md)]
+
+## <a name="pricing-tiers-and-billing"></a>Niveaux tarifaires et facturation
+
+Les niveaux tarifaires (et le montant facturé) sont basés sur le nombre de transactions que vous envoyez à l’aide de vos informations d’authentification. Chaque niveau tarifaire spécifie :
+* le nombre maximal de transactions par seconde (TPS) autorisées ;
+* les fonctionnalités de service activées dans le niveau tarifaire ;
+* le coût d’un nombre prédéfini de transactions. Si vous dépassez ce nombre, des frais supplémentaires vous seront facturés, comme indiqué dans les [détails de la tarification](https://azure.microsoft.com/pricing/details/cognitive-services/custom-vision-service/) de votre service.
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 

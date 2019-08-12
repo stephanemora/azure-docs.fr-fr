@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 05/16/2019
 ms.author: zarhoads
 ms.openlocfilehash: 4eef31a050072c0413421a5490b35b765cb9557d
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68381835"
 ---
 # <a name="use-gpus-for-compute-intensive-workloads-on-azure-kubernetes-service-aks"></a>Utiliser des GPU pour les charges de travail nécessitant beaucoup de ressources système sur Azure Kubernetes Service (AKS)
@@ -20,7 +20,7 @@ ms.locfileid: "68381835"
 Les processeurs graphiques (GPU) sont souvent utilisés pour les charges de travail nécessitant beaucoup de ressources système, comme le traitement graphique et la visualisation. AKS prend en charge la création de pools de nœuds compatibles GPU pour exécuter ce type de charges de travail dans Kubernetes. Pour plus d’informations sur les machines virtuelles compatibles GPU disponibles, voir [Tailles de machines virtuelles optimisées pour les GPU dans Azure][gpu-skus]. Pour les nœuds AKS, nous recommandons la taille minimale *Standard_NC6*.
 
 > [!NOTE]
-> Les machines virtuelles compatibles GPU contiennent du matériel spécialisé, plus cher et dépendant de la disponibilité régionale. Pour plus d’informations, consultez la page des [tarifs][azure-pricing] tool and [region availability][azure-availability].
+> Les machines virtuelles compatibles GPU contiennent du matériel spécialisé, plus cher et dépendant de la disponibilité régionale. Pour plus d’informations, voir l’outil de [tarification][azure-pricing] et la [disponibilité régionale][azure-availability].
 
 Actuellement, vous ne pouvez utiliser de pools de nœuds compatibles GPU que sous Linux.
 
@@ -28,7 +28,7 @@ Actuellement, vous ne pouvez utiliser de pools de nœuds compatibles GPU que sou
 
 Cet article part du principe que vous disposez déjà d’un cluster AKS qui comporte des nœuds prenant en charge les GPU. Votre cluster AKS doit exécuter Kubernetes 1.10 ou une version ultérieure. Si vous avez besoin d’un cluster AKS qui réponde à ces exigences, consultez la première section de cet article, [Créer un cluster AKS](#create-an-aks-cluster).
 
-Le logiciel Azure CLI version 2.0.64 ou ultérieure doit également être installé et configuré. Exécutez  `az --version` pour trouver la version. Si vous devez effectuer une installation ou une mise à niveau, consultez  [Installer Azure CLI][install-azure-cli].
+Le logiciel Azure CLI version 2.0.64 ou ultérieure doit également être installé et configuré. Exécutez  `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez  [Installation d’Azure CLI][install-azure-cli].
 
 ## <a name="create-an-aks-cluster"></a>Créer un cluster AKS
 

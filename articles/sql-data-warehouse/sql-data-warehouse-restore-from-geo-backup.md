@@ -11,10 +11,10 @@ ms.date: 07/12/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.openlocfilehash: 768646522c2589c302fd7a58031d4ebdb7fcdc12
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68425876"
 ---
 # <a name="geo-restore-azure-sql-data-warehouse"></a>Restauration géo-redondante d’Azure SQL Data Warehouse
@@ -29,7 +29,7 @@ Dans cet article, vous allez apprendre à restaurer votre entrepôt de données 
 
 ## <a name="restore-from-an-azure-geographical-region-through-powershell"></a>Restaurer à partir d’une région géographique Azure à l’aide de PowerShell
 
-Pour effectuer une restauration à partir d’une sauvegarde géo-redondante, utilisez le cmdlet [Get-AzSqlDatabaseGeoBackup][Get-AzSqlDatabaseGeoBackup] and [Restore-AzSqlDatabase][Restore-AzSqlDatabase].
+Pour effectuer une restauration à partir d’une sauvegarde géo-redondante, utilisez les cmdlets [Get-AzSqlDatabaseGeoBackup][Get-AzSqlDatabaseGeoBackup] et [Restore-AzSqlDatabase][Restore-AzSqlDatabase].
 
 > [!NOTE]
 > Vous pouvez effectuer une géorestauration vers Gen2 ! Pour ce faire, spécifiez une valeur ServiceObjectiveName Gen2 (par exemple, DW1000**c**) comme paramètre facultatif.

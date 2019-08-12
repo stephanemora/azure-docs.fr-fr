@@ -10,10 +10,10 @@ ms.date: 03/20/2019
 ms.author: danlep
 ms.custom: mvc
 ms.openlocfilehash: b17004e7821bcac61ca98afdbeaf87644da2a441
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68326049"
 ---
 # <a name="container-groups-in-azure-container-instances"></a>Groupes de conteneurs dans Azure Container Instances
@@ -41,13 +41,13 @@ Le groupe de conteneurs donné en exemple :
 
 ## <a name="deployment"></a>Déploiement
 
-Voici deux façons courantes de déployer un groupe de conteneurs multiples : utilisez un [modèle Resource Manager][resource-manager template] or a [YAML file][yaml-file]. Un modèle Resource Manager est recommandé si vous avez besoin de déployer des ressources de service Azure supplémentaires (par exemple, un [partage Azure Files][azure-files]) lorsque vous déployez les instances de conteneur. En raison de la nature plus concise du format YAML, un fichier YAML est recommandé lorsque le déploiement comprend uniquement les instances de conteneur.
+Voici deux méthodes courantes de déploiement d’un groupe à plusieurs conteneurs : utilisez un [modèle Resource Manager][resource-manager template] ou un [fichier YAML][yaml-file]. Un modèle Resource Manager est recommandé si vous avez besoin de déployer des ressources de service Azure supplémentaires (par exemple, un [partage Azure Files][azure-files]) lorsque vous déployez les instances de conteneur. En raison de la nature plus concise du format YAML, un fichier YAML est recommandé lorsque le déploiement comprend uniquement les instances de conteneur.
 
 Pour conserver la configuration d’un groupe de conteneurs, vous pouvez exporter la configuration dans un fichier YAML avec la commande Azure CLI [az container export][az-container-export]. L’exportation permet de stocker ces configurations de groupe de conteneurs dans la gestion de version pour la « configuration en tant que code ». Vous pouvez également utiliser le fichier exporté comme point de départ pour développer une nouvelle configuration dans YAML.
 
 ## <a name="resource-allocation"></a>Allocation des ressources
 
-Azure Container Instances alloue des ressources telles que UC, mémoire et éventuellement [GPU][gpus](preview) to a container group by adding the [resource requests][resource-requests]des instances du groupe. Par exemple, pour les ressources d’UC, si vous créez un groupe de conteneurs avec deux instances, chacune demandant 1 UC, le groupe de conteneurs se voit allouer 2 UC.
+Azure Container Instances alloue des ressources telles que UC, mémoire et éventuellement [GPU][gpus] (préversion) à un groupe de conteneurs en ajoutant les [demandes de ressources][resource-requests] des instances du groupe. Par exemple, pour les ressources d’UC, si vous créez un groupe de conteneurs avec deux instances, chacune demandant 1 UC, le groupe de conteneurs se voit allouer 2 UC.
 
 Le nombre maximum de ressources disponibles pour un groupe de conteneurs varie selon la [région Azure][region-availability] utilisée pour le déploiement.
 

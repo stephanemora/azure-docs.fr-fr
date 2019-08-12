@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 07/26/2019
-ms.openlocfilehash: afafaa86988905329a0e4ff45f29bea9d1d57820
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.date: 07/27/2019
+ms.openlocfilehash: 7cd8b7c2accae097c971aec4b92cf38ed5d3af08
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68501036"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561505"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-sql-database"></a>Problèmes connus/limitations de migration dans le cadre des migrations en ligne vers Azure SQL Database
 
@@ -27,7 +27,9 @@ Le présent article décrit les problèmes connus et limitations associés aux m
 
 ### <a name="migration-of-temporal-tables-not-supported"></a>Migration des tables temporelles non prise en charge
 
-**Symptôme** Si votre base de données source se compose d’une ou plusieurs tables temporelles, votre migration de base de données échoue pendant l’opération de « chargement complet des données ». Le message suivant peut alors s’afficher :
+**Symptôme**
+
+Si votre base de données source se compose d’une ou plusieurs tables temporelles, votre migration de base de données échoue pendant l’opération de « chargement complet des données ». Le message suivant peut alors s’afficher :
 
 ```
 { "resourceId":"/subscriptions/<subscription id>/resourceGroups/migrateready/providers/Microsoft.DataMigration/services/<DMS Service name>", "errorType":"Database migration error", "errorEvents":"["Capture functionalities could not be set. RetCode: SQL_ERROR SqlState: 42000 NativeError: 13570 Message: [Microsoft][SQL Server Native Client 11.0][SQL Server]The use of replication is not supported with system-versioned temporal table '[Application. Cities]' Line: 1 Column: -1 "]" }
@@ -35,7 +37,9 @@ Le présent article décrit les problèmes connus et limitations associés aux m
 
  ![Exemple d’erreur avec des tables temporelles](media/known-issues-azure-sql-online/dms-temporal-tables-errors.png)
 
-**Solution** Procédez plutôt comme suit :
+**Solution de contournement**
+
+Utilisez les étapes suivantes.
 
 1. Recherchez les tables temporelles dans votre schéma source à l’aide de la requête ci-dessous.
 
@@ -47,15 +51,21 @@ Le présent article décrit les problèmes connus et limitations associés aux m
 
 3. Réexécutez l’activité de migration.
 
-**Ressources** Pour plus d’informations, consultez l’article [Tables temporelles](https://docs.microsoft.com/sql/relational-databases/tables/temporal-tables?view=sql-server-2017).
+**Ressources**
+
+Pour plus d’informations, consultez l’article [Tables temporelles](https://docs.microsoft.com/sql/relational-databases/tables/temporal-tables?view=sql-server-2017).
 
 ### <a name="migration-of-tables-includes-one-or-more-columns-with-the-hierarchyid-data-type"></a>Migration de tables incluant une ou plusieurs colonnes avec le type de données hierarchyid
 
-**Symptôme** Vous pouvez voir une exception SQL suggérer que ntext est incompatible avec le type hierarchyid pendant l’opération de « chargement complet des données » :
+**Symptôme**
+
+Vous pouvez voir une exception SQL suggérer que ntext est incompatible avec le type hierarchyid pendant l’opération de « chargement complet des données » :
 
 ![Exemple d’erreur avec hierarchyid](media/known-issues-azure-sql-online/dms-hierarchyid-errors.png)
 
-**Solution** Procédez plutôt comme suit :
+**Solution de contournement**
+
+Utilisez les étapes suivantes.
 
 1. Recherchez les tables d’utilisateur incluant des colonnes avec le type de données hierarchyid à l’aide de la requête ci-dessous.
 
@@ -69,7 +79,9 @@ Le présent article décrit les problèmes connus et limitations associés aux m
 
 ### <a name="migration-failures-with-various-integrity-violations-with-active-triggers-in-the-schema-during-full-data-load-or-incremental-data-sync"></a>Échecs de migration avec différentes violations d’intégrité avec des déclencheurs actifs dans le schéma pendant le « chargement complet des données » ou la « synchronisation des données incrémentielles »
 
-**Solution** Procédez plutôt comme suit :
+**Solution de contournement**
+
+Utilisez les étapes suivantes.
 
 1. Recherchez les déclencheurs actuellement actifs dans la base de données source à l’aide de la requête ci-dessous :
 
@@ -83,17 +95,23 @@ Le présent article décrit les problèmes connus et limitations associés aux m
 
 ### <a name="support-for-lob-data-types"></a>Prise en charge des types de données LOB
 
-**Symptôme** Si la longueur de la colonne LOB (Large Object) dépasse 32 Ko, les données peuvent être tronquées au niveau de la cible. Vous pouvez vérifier la longueur de la colonne LOB à l’aide de cette requête :
+**Symptôme**
+
+Si la longueur de la colonne LOB (Large Object) dépasse 32 Ko, les données peuvent être tronquées au niveau de la cible. Vous pouvez vérifier la longueur de la colonne LOB à l’aide de cette requête :
 
 ``` 
 SELECT max(DATALENGTH(ColumnName)) as LEN from TableName
 ```
 
-[Solution](mailto:AskAzureDatabaseMigrations@service.microsoft.com) Si vous disposez d’une colonne LOB de plus de 32 Ko, contactez l’équipe d’ingénierie en cliquant ici : **Demander à l’équipe de migration de base de données Azure**.
+**Solution de contournement**
+
+Si vous disposez d’une colonne LOB de plus de 32 Ko, contactez l’équipe d’ingénierie en cliquant ici : [Demander à l’équipe de migration de base de données Azure](mailto:AskAzureDatabaseMigrations@service.microsoft.com).
 
 ### <a name="issues-with-timestamp-columns"></a>Problèmes avec les colonnes timestamp
 
-**Symptôme** Azure Database Migration Service ne migre pas la valeur d’horodateur source ; à la place, Azure Database Migration Service génère une nouvelle valeur d’horodatage dans le tableau cible.
+**Symptôme**
+
+Azure Database Migration Service ne migre pas la valeur d’horodateur source ; à la place, Azure Database Migration Service génère une nouvelle valeur d’horodatage dans le tableau cible.
 
 **Solution de contournement**
 
@@ -101,11 +119,15 @@ Si vous souhaitez que Azure Database Migration Service fasse migrer la valeur ti
 
 ### <a name="data-migration-errors-dont-provide-additional-details-on-the-database-detailed-status-blade"></a>Les erreurs de migration de données ne fournissent pas de détails supplémentaires sur le panneau d’état détaillé des bases de données.
 
-**Symptôme** Lorsque des échecs de migration apparaissent dans l’affichage d’état détaillé des bases de données et que vous sélectionnez le lien **Erreurs de migration des données** dans le ruban supérieur, vous n’obtenez pas de détails supplémentaires spécifiques aux échecs de migration.
+**Symptôme**
+
+Lorsque des échecs de migration apparaissent dans l’affichage d’état détaillé des bases de données et que vous sélectionnez le lien **Erreurs de migration des données** dans le ruban supérieur, vous n’obtenez pas de détails supplémentaires spécifiques aux échecs de migration.
 
 ![exemple d’absence de détails concernant des erreurs de migration des données](media/known-issues-azure-sql-online/dms-data-migration-errors-no-details.png)
 
-**Solution** Pour accéder aux détails d’une défaillance spécifique, procédez comme suit.
+**Solution de contournement**
+
+Pour accéder aux détails d’une défaillance spécifique, procédez comme suit.
 
 1. Fermez le panneau d’état détaillé des bases de données pour afficher l’écran d’activité de migration.
 
@@ -115,16 +137,24 @@ Si vous souhaitez que Azure Database Migration Service fasse migrer la valeur ti
 
 ### <a name="geography-datatype-not-supported-in-sqldb-online-migration"></a>Type de données geography non pris en charge dans la migration en ligne SQLDB
 
-**Symptôme** La migration échoue avec un message d’erreur contenant le texte suivant :
+**Symptôme**
 
- « ** a rencontré une erreur irrécupérable », « errorEvents » :<Table>.<Column> est de type « GEOGRAPHY », ce qui n’est pas pris en charge par le « chargement complet » en « mode de prise en charge LOB complet ».
+La migration échoue avec un message d’erreur contenant le texte suivant :
 
-**Solution** Bien qu’Azure Database Migration Service prend en charge le type de données geography pour les migrations hors connexion vers Azure SQL Database, pour les migrations en ligne, le type de données geography n’est pas pris en charge. Essayez d’autres méthodes pour modifier le type de données de la source afin qu’il soit pris en charge avant de tenter d’utiliser Azure Database Migration Service pour une migration en ligne de cette base de données.
+     “** encountered a fatal error”, "errorEvents":<Table>.<Column> is of type 'GEOGRAPHY', which is not supported by 'Full Load' under 'Full LOB' support mode."
+
+**Solution de contournement**
+
+Bien qu’Azure Database Migration Service prend en charge le type de données geography pour les migrations hors connexion vers Azure SQL Database, pour les migrations en ligne, le type de données geography n’est pas pris en charge. Essayez d’autres méthodes pour modifier le type de données de la source afin qu’il soit pris en charge avant de tenter d’utiliser Azure Database Migration Service pour une migration en ligne de cette base de données.
 
 ### <a name="supported-editions"></a>Éditions prises en charge
 
-**Symptôme** La migration échoue avec un message d’erreur contenant le texte suivant :
+**Symptôme**
 
- Erreur de validation des paramètres de migration : L’édition du serveur [Business Intelligence Edition (64-bit)] ne correspond pas à la ou aux éditions prises en charge [Enterprise, Standard, Developer].
+La migration échoue avec un message d’erreur contenant le texte suivant :
 
-**Solution** L’assistance relative aux migrations en ligne vers Azure SQL Database à l’aide de Azure Database Migration Service est valable uniquement pour les éditions Enterprise, standard et Developer. Assurez-vous que vous utilisez une édition prise en charge avant de commencer le processus de migration.
+    Migration settings validation error: The edition of the server [Business Intelligence Edition (64-bit)] does not match the supported edition(s) [Enterprise,Standard,Developer].
+
+**Solution de contournement**
+
+L’assistance relative aux migrations en ligne vers Azure SQL Database à l’aide de Azure Database Migration Service est valable uniquement pour les éditions Enterprise, standard et Developer. Assurez-vous que vous utilisez une édition prise en charge avant de commencer le processus de migration.

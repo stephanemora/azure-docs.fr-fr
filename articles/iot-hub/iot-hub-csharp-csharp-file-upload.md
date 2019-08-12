@@ -9,14 +9,14 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 07/04/2017
 ms.author: robinsh
-ms.openlocfilehash: f1001df52b3bbb54f3b872f23276957fa01a7da5
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: 6e41b1999033c00b277cd35173b3247a727e9a8a
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68403201"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68668131"
 ---
-# <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-using-net"></a>Charger des fichiers sur le cloud à partir d’un appareil avec IoT Hub en utilisant .NET
+# <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-net"></a>Charger des fichiers sur le cloud à partir d’un appareil avec IoT Hub (.NET)
 
 [!INCLUDE [iot-hub-file-upload-language-selector](../../includes/iot-hub-file-upload-language-selector.md)]
 
@@ -42,7 +42,7 @@ Ces fichiers sont généralement traités par lot dans le cloud à l’aide d’
 * **ReadFileUploadNotification**, qui reçoit les notifications de téléchargement de fichier à partir de votre IoT Hub.
 
 > [!NOTE]
-> IoT Hub offre la prise en charge de plusieurs plateformes d’appareils et plusieurs langages (notamment C, Java et Javascript) par le biais des Kits de développement logiciel (SDK) d’appareils Azure IoT. Pour obtenir des instructions pas à pas expliquant comment connecter votre appareil à Azure IoT Hub, voir le [Centre de développement Azure IoT](https://azure.microsoft.com/develop/iot).
+> IoT Hub offre la prise en charge de plusieurs plateformes d’appareils et plusieurs langages (notamment C, Java, Python et Javascript) par le biais des Kits de développement logiciel (SDK) d’appareils Azure IoT. Pour obtenir des instructions pas à pas expliquant comment connecter votre appareil à Azure IoT Hub, voir le [Centre de développement Azure IoT](https://azure.microsoft.com/develop/iot).
 
 Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 

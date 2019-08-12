@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/24/2019
 ms.author: banders
-ms.openlocfilehash: 66b54c027cde6341b23aef2c10b43fa21bf357da
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 1afd78a0525be523f677cf0146c8a120155130ea
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68383466"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68554688"
 ---
 # <a name="understand-the-terms-in-your-azure-usage-and-charges-file"></a>Comprendre les termes du fichier sur l’utilisation et les frais Azure
 
@@ -28,7 +28,7 @@ Type de compte | Utilisation d’Azure | Utilisation de la Place de marché | Ac
 --- | --- | --- | --- | ---
 Contrat Entreprise (EA) | OUI | OUI | OUI | Non
 Contrat client Microsoft (MCA) | OUI | OUI | OUI | OUI
-Paiement à l’utilisation | OUI | Non | Non | Non
+Paiement à l’utilisation | OUI | OUI | Non | Non
 
 Pour en savoir plus sur les commandes passées sur la Place de marché (également appelées services externes), voir [Comprendre vos frais de service externe Azure](billing-understand-your-azure-marketplace-charges.md).
 
@@ -65,8 +65,6 @@ EffectivePrice | Tous | Prix unitaire unifié pour la période. Les prix unifié
 ExchangeRateDate | MCA | Date à laquelle que le taux de change a été établi.
 ExchangeRatePricingToBilling | MCA | Taux de change utilisé pour convertir le coût de la devise de tarification vers la devise de facturation.
 Fréquence | Tous | Indique si un coût est supposé se répéter. Les coûts peut être ponctuels (**OneTime**), se répéter mensuellement ou annuellement (**Recurring**) ou être basés sur l’utilisation (**UsageBased**).
-IncludedQuantity | PAYG | Montant du compteur inclus gratuitement dans votre période de facturation en cours.
-InstanceId | PAGY | Voir ResourceId.
 InvoiceId | PAYG, MCA | Référence de document unique figurant sur la facture au format PDF.
 InvoiceSection | MCA | Voir InvoiceSectionName.
 InvoiceSectionId | EA, MCA | Identificateur unique du service EA ou de la section de facture MCA.
@@ -105,6 +103,7 @@ ServicePeriodStartDate | MCA | Date de début de la période d’évaluation uti
 SubscriptionId | Tous | Identificateur unique de l’abonnement Azure.
 SubscriptionName | Tous | Nom de l’abonnement Azure.
 Balises | Tous | Balises affectées à la ressource. N’inclut pas les balises de groupe de ressources. Peut être utilisée pour grouper ou répartir des coûts de refacturation interne. Pour plus d’informations, voir [Organisation des ressources Azure à l’aide de balises](https://azure.microsoft.com/updates/organize-your-azure-resources-with-tags/).
+Terme | Tous | Affiche le terme de validité de l’offre. Par exemple :  Dans le cas d’instances réservées, le terme est de 12 mois. Pour les achats ponctuels ou les achats récurrents, le terme est de 1 mois (SaaS, support Marketplace). Cela ne s’applique pas à la consommation Azure.
 UnitOfMeasure | Tous | Unité de mesure pour la facturation du service. Par exemple, les services de calcul sont facturés à l’heure.
 UnitPrice | EA, PAYG | Prix unitaire des frais.
 

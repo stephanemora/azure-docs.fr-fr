@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.openlocfilehash: f6aed5d2ac1c4672d8d8868fe127ead053512e42
-ms.sourcegitcommit: da0a8676b3c5283fddcd94cdd9044c3b99815046
+ms.openlocfilehash: 974ece9cd035ae29ada38f34b7933d86f682194f
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68314834"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68696228"
 ---
 # <a name="source-transformation-for-mapping-data-flow"></a>Transformation de la source d’un mappage de flux de données 
 
@@ -28,8 +28,12 @@ Chaque flux de données nécessite au moins une transformation de la source. Ajo
 
 Associez la transformation de votre source de flux de données à un seul jeu de données Data Factory. Le jeu de données définit la forme et l’emplacement des données que vous voulez lire ou écrire. Pour utiliser plusieurs fichiers à la fois, vous pouvez utiliser des caractères génériques et des listes de fichiers dans votre source.
 
-## <a name="data-flow-staging-areas"></a>Zones de préproduction des flux de données
+L’utilisation d’une option **Modèle à caractère générique** demande à ADF de lire chaque dossier et fichier correspondants en boucle dans une transformation Source. Il s’agit d’un moyen très efficace de traiter plusieurs fichiers dans un seul et même flux. Pour suivre le nom de fichier en cours de traitement, définissez un nom de champ pour le champ « Colonne pour stocker le nom de fichier » dans Options de la source.
 
+> [!NOTE]
+> Définissez plusieurs modèles de correspondance à caractère générique avec le signe + à côté de votre modèle à caractère générique existant pour ajouter des règles génériques.
+
+## <a name="data-flow-staging-areas"></a>Zones de préproduction des flux de données
 Les flux de données fonctionnent avec des jeux de données de *préproduction* qui se trouvent tous dans Azure. Utilisez ces jeux de données pour la préproduction quand vous transformez vos données. 
 
 Data Factory a accès à près de 80 connecteurs natifs. Pour inclure dans votre flux de données des données provenant de ces autres sources, utilisez l’outil Copier l’activité pour effectuer une copie intermédiaire de ces données dans l’une des zones de préproduction des jeux de données Data Flow.
@@ -101,13 +105,23 @@ Exemples de caractères génériques :
 
 Un conteneur doit être spécifié dans le jeu de données. Votre chemin contenant des caractères génériques doit donc également inclure le chemin de votre dossier à partir du dossier racine.
 
+* **Chemin racine de la partition** : Si vous avez partitionné des dossiers dans votre source de fichier d'un format ```key=value``` (par exemple, année = 2019), vous pouvez demander à ADF d’affecter le niveau supérieur de cette arborescence de dossiers de partitions à un nom de colonne dans votre flux de données.
+
+Tout d’abord, définissez un caractère générique pour inclure tous les chemins d’accès aux dossiers partitionnés, ainsi qu’aux fichiers feuilles que vous souhaitez lire.
+
+![Paramètres du fichier source de la partition](media/data-flow/partfile2.png "Paramètre du fichier de la partition")
+
+Utilisez maintenant le paramètre Chemin racine de la partition pour indiquer à ADF le niveau supérieur de la structure de dossiers. Désormais, lorsque vous affichez le contenu de vos données, vous verrez qu’ADF ajoute les partitions résolues trouvées dans chacun de vos niveaux de dossiers.
+
+![Chemin racine de la partition](media/data-flow/partfile1.png "Préversion du paramètre Chemin racine de la partition")
+
 * **Liste de fichiers** : Il s’agit d’un ensemble de fichiers. Créez un fichier texte qui inclut une liste de fichiers avec chemin relatif à traiter. Pointez sur ce fichier texte.
 * **Colonne où stocker le nom du fichier** : Stockez le nom du fichier source dans une colonne de vos données. Entrez un nouveau nom pour stocker la chaîne de nom de fichier.
 * **Une fois que vous avez terminé** : après l’exécution du flux de données, choisissez de ne rien faire avec le fichier source, de le supprimer ou de le déplacer. Pour le déplacement, les chemins sont des chemins relatifs.
 
 Pour déplacer les fichiers sources vers un autre emplacement de post-traitement, sélectionnez tout d’abord « Déplacer » comme opération de fichier. Définissez ensuite le répertoire de provenance (« from »). Si vous n’utilisez pas de caractères génériques pour votre chemin, le paramètre « from » sera le même dossier que votre dossier source.
 
-Si vous avez un chemin source contenant des caractères génériques, par exemple :
+Si vous avez un chemin d’accès source avec caractère générique, votre syntaxe se présente comme suit :
 
 ```/data/sales/20??/**/*.csv```
 
@@ -119,7 +133,7 @@ et « to » sous la forme
 
 ```/backup/priorSales```
 
-Dans le cas présent, tous les sous-répertoires sous /data/sales fournis sont déplacés par rapport à /backup/priorSales.
+Dans le cas présent, tous les fichiers qui provenaient de /data/sales sont déplacés dans /backup/priorSales.
 
 ### <a name="sql-datasets"></a>Jeux de données SQL
 
@@ -152,8 +166,7 @@ Vous pouvez modifier les types de données des colonnes lors d’une transformat
 ![Paramètres pour les formats de données par défaut](media/data-flow/source2.png "Formats par défaut")
 
 ### <a name="add-dynamic-content"></a>Ajout de contenu dynamique
-
-Quand vous cliquez à l’intérieur des champs dans le volet des paramètres, vous voyez un lien hypertexte pour « Ajouter du contenu dynamique ». Le fait de cliquer dessus lance le Générateur d’expressions est lancé. C'est là que vous pouvez définir dynamiquement des valeurs pour les paramètres à l’aide d’expressions, de valeurs littérales statiques ou de paramètres.
+Quand vous cliquez à l’intérieur des champs dans le volet des paramètres, vous voyez un lien hypertexte pour « Ajouter du contenu dynamique ». Lorsque vous choisissez de lancer le générateur d’expressions, vous devez définir des valeurs de manière dynamique à l’aide d’expressions, de valeurs littérales statiques ou de paramètres.
 
 ![Paramètres](media/data-flow/params6.png "Paramètres")
 

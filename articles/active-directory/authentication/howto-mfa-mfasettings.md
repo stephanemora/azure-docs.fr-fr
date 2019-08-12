@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f6260a619ad3dfda65fcdfc1180cba4002dd23d0
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 7011025a1d94a5c99bf2338d9f80c683c2fd7b35
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68499898"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514975"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Configurer les paramètres d’Azure Multi-Factor Authentication
 
@@ -35,7 +35,7 @@ Certains de ces paramètres s’appliquent à MFA Server, à Azure MFA ou aux de
 | Verrouillage de compte | Verrouille temporairement les comptes dans le service Multi-Factor Authentication si de trop nombreuses tentatives d’authentification sont refusées à la suite. Cette fonctionnalité s’applique seulement aux utilisateurs qui entrent un code PIN pour s’authentifier. (MFA Server) |
 | [Blocage/déblocage des utilisateurs](#block-and-unblock-users) | Utilisé pour empêcher des utilisateurs spécifiques de recevoir des demandes d’authentification multifacteur. Toutes les tentatives d’authentification des utilisateurs bloqués sont automatiquement refusées. La durée de blocage de ces utilisateurs est de 90 jours à partir du moment où ils sont bloqués. |
 | [Alerte de fraude](#fraud-alert) | Configurez les paramètres liés à la possibilité pour les utilisateurs de signaler des demandes de vérification frauduleuses. |
-| Notifications | Activez les notifications des événements provenant de MFA Server. |
+| [Notifications](#notifications) | Activez les notifications des événements provenant de MFA Server. |
 | [Jetons OATH](concept-authentication-methods.md#oath-hardware-tokens-public-preview) | Utilisé dans les environnements Azure MFA cloud afin de gérer les jetons OATH pour les utilisateurs. |
 | [Paramètres de l’appel téléphonique](#phone-call-settings) | Configurez les paramètres liés aux appels téléphoniques et aux messages d’accueil pour les environnements cloud et locaux. |
 | Fournisseurs | Ceci montre tous les fournisseurs d’authentification existants que vous avez associés à votre compte. À compter du 1er septembre 2018, vous ne pouvez plus créer des fournisseurs d’authentification |
@@ -99,6 +99,12 @@ Configurez la fonctionnalité d’_alerte de fraude_ pour que vos utilisateurs p
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 2. Sélectionnez **Azure Active Directory** > **Connexions**. Le rapport de fraude fait désormais partie du rapport de connexions Azure Active Directory standard.
+
+## <a name="notifications"></a>Notifications
+
+Configurez les adresses e-mail ici pour les utilisateurs qui recevront les e-mails d’alerte en cas de fraude.
+
+![Exemple d’e-mail d’alerte en cas de fraude](./media/howto-mfa-mfasettings/multi-factor-authentication-fraud-alert-email.png)
 
 ## <a name="phone-call-settings"></a>Paramètres de l’appel téléphonique
 

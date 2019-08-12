@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: zarhoads
-ms.openlocfilehash: 2070c79a6ce0627280b1793e412002783f385cc0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c25bc316a345404c759b346b4fb877de42ee4d13
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65074040"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561559"
 ---
 # <a name="scaling-options-for-applications-in-azure-kubernetes-service-aks"></a>Options de mise à l’échelle des applications dans AKS (Azure Kubernetes Service)
 
@@ -45,9 +45,9 @@ Pour vous familiariser avec l’autoscaler de pods élastique dans AKS, consulte
 
 Étant donné que l’autoscaler de pods élastique vérifie l’API de métriques toutes les 30 secondes, les événements de mise à l’échelle précédents peuvent ne pas être totalement terminés avant la vérification suivante. Ce comportement peut pousser l’autoscaler de pods élastique à modifier le nombre de réplicas avant même que l’événement de mise à l’échelle précédent ait pu recevoir la charge de travail de l’application, et que les demandes en ressources soient ajustées en conséquence.
 
-Pour réduire ces événements de concurrence, vous pouvez définir des valeurs de ralentissement ou de délai. Ces valeurs précisent la durée pendant laquelle l’autoscaler de pods élastique doit attendre, entre la fin d’un événement de mise à l’échelle et le déclenchement d’un autre événement de mise à l’échelle. Ce comportement permet au nouveau nombre de réplicas d’être pris en compte, et à l’API de métriques de refléter la charge de travail distribuée. Par défaut, le délai des événements de mise à l’échelle par augmentation est de 3 minutes, par diminution de 5 minutes
+Pour réduire ces événements de concurrence, les valeurs de ralentissement ou de délai sont définies. Ces valeurs précisent la durée pendant laquelle l’autoscaler de pods élastique doit attendre, entre la fin d’un événement de mise à l’échelle et le déclenchement d’un autre événement de mise à l’échelle. Ce comportement permet au nouveau nombre de réplicas d’être pris en compte, et à l’API de métriques de refléter la charge de travail distribuée. Par défaut, le délai des événements de mise à l’échelle par augmentation est de 3 minutes, par diminution de 5 minutes
 
-Vous devrez peut-être ajuster ces valeurs de ralentissement. Les valeurs de ralentissement par défaut peuvent donner l’impression que l’autoscaler de pods élastique n’adapte pas le nombre de réplicas assez rapidement. Par exemple, pour augmenter plus rapidement le nombre de réplicas en cours d’utilisation, réduisez la valeur de `--horizontal-pod-autoscaler-upscale-delay` lorsque vous créez vos définitions d’autoscaler de pods élastique avec `kubectl`.
+Actuellement, vous ne pouvez pas paramétrer ces valeurs de ralentissement à partir de la valeur par défaut.
 
 ## <a name="cluster-autoscaler"></a>Autoscaler de cluster
 
@@ -57,7 +57,7 @@ Pour répondre aux demandes changeantes de pods, Kubernetes propose un autoscale
 
 L’autoscaler de cluster est généralement utilisé parallèlement à l’autoscaler de pods élastique. Lorsqu’ils sont combinés, l’autoscaler de pods élastique augmente ou diminue le nombre de pods en fonction de l’exigence des applications, tandis que l’autoscaler de cluster ajuste à proportion le nombre de nœuds nécessaires pour exécuter ces pods supplémentaires.
 
-L’autoscaler de cluster ne doit être testé qu’en préversion sur les clusters AKS avec un pool de nœuds unique.
+L’autoscaler de cluster ne doit être testé qu’en préversion sur les clusters AKS.
 
 Pour vous familiariser avec l’autoscaler de cluster dans AKS, consultez [Autoscaler de cluster sur AKS][aks-cluster-autoscaler].
 

@@ -16,10 +16,10 @@ ms.date: 12/18/2018
 ms.author: lahugh
 ms.custom: seodec18
 ms.openlocfilehash: bead5f0bec6d57c0f4aaddc6537e00c466d987f1
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68323874"
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Développer des solutions de calcul parallèles à grande échelle avec Batch
@@ -234,7 +234,7 @@ Un travail est une collection de tâches. Il gère la façon dont le calcul est 
     Notez que le service Batch considère les travaux ne présentant *aucune* tâche comme des travaux dont toutes les tâches sont terminées. C’est la raison pour laquelle cette option est généralement utilisée avec une [tâche de gestionnaire de travaux](#job-manager-task). Si vous souhaitez définir l’arrêt automatique d’un travail sans utiliser de gestionnaire de travaux, définissez initialement la propriété **onAllTasksComplete** d’un nouveau travail sur *noaction*, puis sur *terminatejob* seulement une fois que vous avez terminé d’ajouter des tâches au travail.
 
 ### <a name="job-priority"></a>priorité de travail
-Vous pouvez établir une priorité pour les travaux que vous créez dans Batch. Le service Batch utilise les valeurs de priorité du travail pour déterminer l’ordre de planification du travail dans un compte (à ne pas confondre avec le [travail planifié](#scheduled-jobs)). Les valeurs de priorité sont comprises entre -1000 et 1000, -1000 étant la priorité la plus basse et 1000 la plus élevée. Pour mettre à jour la priorité d’un travail, appelez l’opération [Mettre à jour les propriétés d’un travail][rest_update_job] operation (Batch REST), or modify the [CloudJob.Priority][net_cloudjob_priority] (Batch .NET).
+Vous pouvez établir une priorité pour les travaux que vous créez dans Batch. Le service Batch utilise les valeurs de priorité du travail pour déterminer l’ordre de planification du travail dans un compte (à ne pas confondre avec le [travail planifié](#scheduled-jobs)). Les valeurs de priorité sont comprises entre -1000 et 1000, -1000 étant la priorité la plus basse et 1000 la plus élevée. Pour mettre à jour la priorité d’un travail, appelez l’opération [Mettre à jour les propriétés d’un travail][rest_update_job] (REST Batch) ou modifiez la propriété [CloudJob.Priority][net_cloudjob_priority] (.NET Batch).
 
 Dans un même compte, les travaux de priorité supérieure sont prioritaires en termes de planification sur les travaux de priorité inférieure. Un travail à priorité supérieure dans un compte n’est pas prioritaire en termes de planification sur un autre travail à priorité inférieure dans un autre compte.
 
@@ -335,14 +335,14 @@ Avec l’interdépendance des tâches, vous pouvez configurer des scénarios tel
 * *taskC* dépend de *taskA* et de *taskB*.
 * *taskD* dépend d’une plage de tâches, notamment des tâches *1* à *10* avant de pouvoir s’exécuter.
 
-Pour plus d’informations détaillées sur cette fonctionnalité, consultez l’article [Dépendances de tâches dans Azure Batch](batch-task-dependencies.md) et le référentiel GitHub [TaskDependencies][github_sample_taskdeps]code sample in the [azure-batch-samples][github_samples].
+Pour plus d’informations détaillées sur cette fonctionnalité, consultez l’article [Dépendances de tâches dans Azure Batch](batch-task-dependencies.md) et l’exemple de code [TaskDependencies][github_sample_taskdeps] dans le référentiel GitHub [azure-batch-samples][github_samples].
 
 ## <a name="environment-settings-for-tasks"></a>Paramètres d’environnement des tâches
 Chaque tâche exécutée par le service Batch a accès aux variables d’environnement définies sur les nœuds de calcul. Cela inclut les variables d’environnement définies par le service Batch ([service-defined][msdn_env_vars]) et les variables d’environnement personnalisées que vous pouvez définir pour vos tâches. Les applications et les scripts que vos tâches exécutent sur les nœuds ont accès à ces variables d’environnement pendant l’exécution.
 
-Vous pouvez définir des variables d’environnement personnalisées au niveau de la tâche ou du travail en remplissant la propriété de *paramètres d’environnement* pour ces entités. Par exemple, consultez les propriétés [Ajouter une tâche à un travail][rest_add_task] operation (Batch REST API), or the [CloudTask.EnvironmentSettings][net_cloudtask_env] et [CloudJob.CommonEnvironmentSettings][net_job_env] dans Batch .NET.
+Vous pouvez définir des variables d’environnement personnalisées au niveau de la tâche ou du travail en remplissant la propriété de *paramètres d’environnement* pour ces entités. Par exemple, consultez l’opération [Ajouter une tâche à un travail][rest_add_task] (API REST Batch) ou les propriétés [CloudTask.EnvironmentSettings][net_cloudtask_env] et [CloudJob.CommonEnvironmentSettings dans .NET Batch][net_job_env].
 
-L’application cliente ou le service peuvent obtenir des variables d’environnement d’une tâche, à la fois définies par le service et personnalisées, à l’aide de la propriété[Obtenir des informations sur une tâche][rest_get_task_info] operation (Batch REST) or by accessing the [CloudTask.EnvironmentSettings][net_cloudtask_env] (Batch .NET). Les processus qui s’exécutent sur un nœud de calcul peuvent accéder à ces dernières ainsi qu’à d’autres variables d’environnement sur le nœud, par exemple à l’aide de la syntaxe classique `%VARIABLE_NAME%` (Windows) ou la syntaxe `$VARIABLE_NAME` (Linux).
+L’application cliente ou le service peuvent obtenir des variables d’environnement d’une tâche, à la fois définies par le service et personnalisées, à l’aide de l’opération [Obtenir des informations sur une tâche][rest_get_task_info] (REST Batch) ou en accédant à la propriété [CloudTask.EnvironmentSettings][net_cloudtask_env] (.NET Batch). Les processus qui s’exécutent sur un nœud de calcul peuvent accéder à ces dernières ainsi qu’à d’autres variables d’environnement sur le nœud, par exemple à l’aide de la syntaxe classique `%VARIABLE_NAME%` (Windows) ou la syntaxe `$VARIABLE_NAME` (Linux).
 
 Vous trouverez la liste complète des variables d’environnement définies par le service dans l’article [Compute node environment variables][msdn_env_vars] (Variables d’environnement de nœud de calcul).
 
@@ -425,7 +425,7 @@ Pour plus d’informations sur la mise à l’échelle automatique d’une appli
 ## <a name="security-with-certificates"></a>Sécurité avec certificats
 En principe, vous devez utiliser des certificats lorsque vous chiffrez ou déchiffrez des informations sensibles pour les tâches, comme la clé d’un [compte Stockage Azure][azure_storage]. Pour ce faire, vous pouvez installer des certificats sur les nœuds. Les secrets chiffrés sont transmis aux tâches dans les paramètres de ligne de commande ou incorporés dans l’une des ressources et les certificats installés peuvent être utilisés pour les déchiffrer.
 
-Vous utilisez la méthode [Ajouter un certificat][rest_add_cert] operation (Batch REST) or [CertificateOperations.CreateCertificate][net_create_cert] (Batch .NET) pour ajouter un certificat à un compte batch. Vous pouvez ensuite associer le certificat à un pool existant ou nouveau. Lorsqu’un certificat est associé à un pool, le service Batch installe le certificat sur chaque nœud du pool. Le service Batch installe les certificats appropriés au démarrage du nœud, avant de lancer une tâche quelconque (notamment les tâches de démarrage et celles du gestionnaire de travaux).
+Pour ajouter un certificat à un compte Batch, vous utilisez l’opération [Ajouter le certificat][rest_add_cert] (REST Batch) ou la méthode [CertificateOperations.CreateCertificate][net_create_cert] (.NET Batch). Vous pouvez ensuite associer le certificat à un pool existant ou nouveau. Lorsqu’un certificat est associé à un pool, le service Batch installe le certificat sur chaque nœud du pool. Le service Batch installe les certificats appropriés au démarrage du nœud, avant de lancer une tâche quelconque (notamment les tâches de démarrage et celles du gestionnaire de travaux).
 
 Si vous ajoutez des certificats à un pool *existant* , vous devez redémarrer ses nœuds de calcul afin que les certificats soient appliqués aux nœuds.
 
@@ -462,7 +462,7 @@ Les échecs de tâche peuvent être classés suivant les catégories suivantes 
 ### <a name="debugging-application-failures"></a>Débogage des échecs d’application
 * `stderr` et `stdout`
 
-    Pendant l’exécution, une application peut produire des diagnostics qui vous permettent de résoudre les problèmes. Comme mentionné dans la section plus haut [Fichiers et répertoires](#files-and-directories), le service Batch écrit des sorties et des sorties d’erreur standard dans des fichiers `stdout.txt` et `stderr.txt` du répertoire de tâche sur le nœud de calcul. Vous pouvez utiliser le portail Azure ou l’un des Kits de développement logiciel (SDK) Batch pour télécharger ces fichiers. Par exemple, vous pouvez récupérer ces fichiers et d’autres à des fins de résolution des problèmes en utilisant [ComputeNode.GetNodeFile][net_getfile_node] and [CloudTask.GetNodeFile][net_getfile_task] dans la bibliothèque Batch .NET.
+    Pendant l’exécution, une application peut produire des diagnostics qui vous permettent de résoudre les problèmes. Comme mentionné dans la section plus haut [Fichiers et répertoires](#files-and-directories), le service Batch écrit des sorties et des sorties d’erreur standard dans des fichiers `stdout.txt` et `stderr.txt` du répertoire de tâche sur le nœud de calcul. Vous pouvez utiliser le portail Azure ou l’un des Kits de développement logiciel (SDK) Batch pour télécharger ces fichiers. Par exemple, vous pouvez récupérer ces fichiers et d’autres à des fins de résolution des problèmes en utilisant [ComputeNode.GetNodeFile][net_getfile_node] et [CloudTask.GetNodeFile][net_getfile_task] dans la bibliothèque .NET Batch.
 
 * **Codes de sortie de tâche**
 
@@ -477,7 +477,7 @@ Un problème intermittent peut également provoquer la non-réponse soudaine d�
 Vous pouvez effectuer des actions supplémentaires de débogage et de résolution des problèmes en vous connectant à un nœud de calcul à distance. Vous pouvez utiliser le portail Azure pour télécharger un fichier RDP pour les nœuds Windows et obtenir des informations de connexion SSH pour les nœuds Linux. Vous pouvez également effectuer cette opération à l’aide des API Batch, par exemple [Batch .NET][net_rdpfile] ou [Python Batch](batch-linux-nodes.md#connect-to-linux-nodes-using-ssh).
 
 > [!IMPORTANT]
-> Pour vous connecter à un nœud via RDP ou SSH, vous devez d’abord créer un utilisateur sur le nœud. Pour ce faire, vous pouvez utiliser le Portail Azure, [ajouter un compte d’utilisateur à un nœud][rest_create_user] by using the Batch REST API, call the [ComputeNode.CreateComputeNodeUser][net_create_user] en utilisant la méthode Batch.NET, ou appeler la méthode [add_user][py_add_user] dans le module Batch Python.
+> Pour vous connecter à un nœud via RDP ou SSH, vous devez d’abord créer un utilisateur sur le nœud. Pour ce faire, vous pouvez utiliser le Portail Azure, [ajouter un compte d’utilisateur à un nœud][rest_create_user] en utilisant l’API REST Batch, appeler la méthode [ComputeNode.CreateComputeNodeUser][net_create_user] dans .NET Batch ou appeler la méthode [add_user][py_add_user] dans le module Python de Batch.
 >
 >
 

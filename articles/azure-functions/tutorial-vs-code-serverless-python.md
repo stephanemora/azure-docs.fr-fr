@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 07/02/2019
 ms.author: glenga
-ms.openlocfilehash: 587d8040039080e15c61292279c5e5637d296b08
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.openlocfilehash: f5591a3e0ca73649b1ffc51c75aa95e86e286768
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68349230"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639094"
 ---
 # <a name="deploy-python-to-azure-functions-with-visual-studio-code"></a>Déployer Python sur Azure Functions avec Visual Studio Code
 
@@ -253,7 +253,7 @@ Dans ces étapes, vous allez utiliser l’extension Functions pour créer une ap
 1. L’extension effectue les actions suivantes, que vous pouvez observer dans les messages contextuels Visual Studio Code et dans la fenêtre **Sortie** (ce processus prend quelques minutes) :
 
     - Créez un groupe de ressources en lui donnant le nom que vous avez attribué à l’application (en supprimant les traits d’union).
-    - Dans ce groupe de ressources, créez le compte de stockage, le plan d’hébergement et l’application de fonction. Par défaut, un [plan de consommation](functions-scale.md#consumption-plan) est créé. Pour exécuter vos fonctions dans un plan dédié, vous devez [activer la publication avec les options de création avancées](functions-develop-vs-code.md#enabled-publishing-with-advanced-create-options).
+    - Dans ce groupe de ressources, créez le compte de stockage, le plan d’hébergement et l’application de fonction. Par défaut, un [plan de consommation](functions-scale.md#consumption-plan) est créé. Pour exécuter vos fonctions dans un plan dédié, vous devez [activer la publication avec les options de création avancées](functions-develop-vs-code.md).
     - Déployez votre code dans l’application de fonction.
 
     L’explorateur **Azure : Functions** affiche également la progression :
@@ -278,7 +278,7 @@ Dans ces étapes, vous allez utiliser l’extension Functions pour créer une ap
 > [!div class="nextstepaction"]
 > [J’ai rencontré un problème](https://www.research.net/r/PWZWZ52?tutorial=python-functions-extension&step=05-deploy)
 
-### <a name="stream-logs"></a>Diffuser des journaux en streaming
+### <a name="stream-logs"></a>Diffuser les journaux d’activité en continu
 
 La prise en charge du streaming des journaux est en cours de développement (comme expliqué dans le [problème 589](https://github.com/microsoft/vscode-azurefunctions/issues/589) concernant l’extension Azure Functions). Le bouton **Stream logs** (Diffuser les journaux en streaming) situé dans la fenêtre contextuelle de déploiement permet de connecter la sortie du journal Azure à Visual Studio Code. Vous pouvez également démarrer et arrêter la diffusion en streaming des journaux dans l’Explorateur **Azure Functions** en cliquant avec le bouton droit sur le projet Functions et en sélectionnant **Start streaming logs** (Démarrer le streaming des journaux) ou **Stop streaming logs** (Arrêter le streaming des journaux).
 

@@ -1,6 +1,6 @@
 ---
 title: Créer une ressource Cognitive Services avec Azure CLI
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Commencez à utiliser Azure Cognitive Services en créant et en vous abonnant à une ressource avec Azure CLI.
 services: cognitive-services
 author: aahill
@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: aahi
-ms.openlocfilehash: 05b679fd969dc766d697070979416312c3bad622
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: 8f3d30866ac6db0cdece9af8144fcfa266871172
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68334270"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68697891"
 ---
 # <a name="create-a-cognitive-services-resource-using-the-azure-command-line-interfacecli"></a>Créer une ressource Cognitive Services avec Azure CLI
 
@@ -162,6 +162,14 @@ Utilisez la commande [az cognitiveservices account keys list](https://docs.micro
 ```
 
 [!INCLUDE [cognitive-services-environment-variables](../../includes/cognitive-services-environment-variables.md)]
+
+## <a name="pricing-tiers-and-billing"></a>Niveaux tarifaires et facturation
+
+Les niveaux tarifaires (et le montant facturé) sont basés sur le nombre de transactions que vous envoyez à l’aide de vos informations d’authentification. Chaque niveau tarifaire spécifie :
+* le nombre maximal de transactions par seconde (TPS) autorisées ;
+* les fonctionnalités de service activées dans le niveau tarifaire ;
+* le coût d’un nombre prédéfini de transactions. Si vous dépassez ce nombre, des frais supplémentaires vous seront facturés, comme indiqué dans les [détails de la tarification](https://azure.microsoft.com/pricing/details/cognitive-services/custom-vision-service/) de votre service.
+
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 

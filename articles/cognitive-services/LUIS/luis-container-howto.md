@@ -1,6 +1,6 @@
 ---
-title: Conteneurs Docker
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Conteneurs Docker - LUIS
+titleSuffix: Azure Cognitive Services
 description: Le conteneur LUIS charge votre application entraînée ou publiée dans un conteneur docker et fournit l’accès aux prédictions de requête à partir des points de terminaison d’API du conteneur.
 services: cognitive-services
 author: IEvangelist
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 07/02/2019
 ms.author: dapine
-ms.openlocfilehash: ae2f24c83cb0de054cc97bf0be8ada35a568ad82
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 2b87f9bcbaa0fd9d8a23d774e0765e1eb5b56633
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68360552"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563903"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Installer et exécuter des conteneurs Docker LUIS
  

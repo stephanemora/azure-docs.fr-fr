@@ -16,10 +16,10 @@ ms.date: 12/07/2018
 ms.author: lahugh
 ms.custom: seodec18
 ms.openlocfilehash: 3bf9ba52bc4071755918b842da477384dcd38973
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68323502"
 ---
 # <a name="create-queries-to-list-batch-resources-efficiently"></a>Créer des requêtes pour répertorier les ressources Batch efficacement
@@ -29,7 +29,7 @@ Vous allez découvrir ici comment augmenter les performances de votre applicatio
 Presque toutes les applications Batch doivent effectuer un certain type de surveillance ou une autre opération qui interroge le service Batch, souvent à intervalles réguliers. Par exemple, pour déterminer s’il existe des tâches restant en file d’attente dans un travail, vous devez obtenir des données sur chaque tâche du travail. Pour déterminer l’état des nœuds dans le pool, vous devez obtenir des données sur chacun d’eux. Cet article explique comment exécuter ces requêtes de la manière la plus efficace.
 
 > [!NOTE]
-> Le service Batch fournit une prise en charge spéciale des API pour des scénarios courants, comme le comptage des tâches d’un travail et le comptage des nœuds dans un pool Batch. Au lieu d’utiliser une requête de liste, vous pouvez appeler l’opération [Obtenir le nombre de tâches][rest_get_task_counts] and [List Pool Node Counts][rest_get_node_counts]. Ces opérations sont plus efficaces qu’une requête de liste, mais retournent des informations plus limitées. Consultez [Compter les tâches et les nœuds de calcul par état](batch-get-resource-counts.md). 
+> Le service Batch fournit une prise en charge spéciale des API pour des scénarios courants, comme le comptage des tâches d’un travail et le comptage des nœuds dans un pool Batch. Au lieu d’utiliser pour cela une requête de liste, vous pouvez appeler les opérations [Obtenir le nombre de tâches][rest_get_task_counts] et [Répertorier le nombre de nœuds des pools][rest_get_node_counts]. Ces opérations sont plus efficaces qu’une requête de liste, mais retournent des informations plus limitées. Consultez [Compter les tâches et les nœuds de calcul par état](batch-get-resource-counts.md). 
 
 
 ## <a name="meet-the-detaillevel"></a>Respecter le niveau de détail
@@ -43,7 +43,7 @@ IPagedEnumerable<CloudTask> allTasks =
     batchClient.JobOperations.ListTasks("job-001");
 ```
 
-Toutefois, vous pouvez effectuer une requête de liste beaucoup plus efficace en lui appliquant un « niveau de détail ». Pour ce faire, vous devez fournir une méthode [ODATADetailLevel][odata] object to the [JobOperations.ListTasks][net_list_tasks]. Cet extrait de code renvoie simplement les propriétés d’identifiant, de ligne de commande et d’informations du nœud de calcul pour les tâches terminées uniquement :
+Toutefois, vous pouvez effectuer une requête de liste beaucoup plus efficace en lui appliquant un « niveau de détail ». Pour ce faire, fournissez un objet [ODATADetailLevel][odata] à la méthode [JobOperations.ListTasks][net_list_tasks]. Cet extrait de code renvoie simplement les propriétés d’identifiant, de ligne de commande et d’informations du nœud de calcul pour les tâches terminées uniquement :
 
 ```csharp
 // Configure an ODATADetailLevel specifying a subset of tasks and
@@ -65,7 +65,7 @@ Si, dans l’exemple de scénario, les tâches associées au travail se comptent
 > 
 
 ## <a name="filter-select-and-expand"></a>Filtrer, sélectionner et développer
-Les API [Batch.NET][api_net] and [Batch REST][api_rest] permettent de réduire le nombre d’éléments retournés dans une liste, ainsi que la quantité d’informations retournées pour chacun d’eux. Pour ce faire, spécifiez des chaînes **filter**, **select** et **expand** lors de l’exécution des requêtes de liste.
+Les API [Batch .NET][api_net] et [REST Batch][api_rest] permettent de réduire le nombre d’éléments retournés dans une liste, ainsi que la quantité d’informations retournées pour chacun d’eux. Pour ce faire, spécifiez des chaînes **filter**, **select** et **expand** lors de l’exécution des requêtes de liste.
 
 ### <a name="filter"></a>Filtrer
 La chaîne filter est une expression permettant de réduire le nombre d’éléments renvoyés. Par exemple, vous pouvez répertorier uniquement les tâches en cours d’exécution pour un travail ou répertorier uniquement les nœuds de calcul prêts à exécuter des tâches.
@@ -94,7 +94,7 @@ La chaîne expand réduit le nombre d’appels d’API nécessaires pour obtenir
 > 
 
 ### <a name="rules-for-filter-select-and-expand-strings"></a>Règles des chaînes filter, select et expand
-* Le nom des propriétés des chaînes filter, select et expand doit être affiché comme dans l’API [Batch REST][api_rest] API--even when you use [Batch .NET][api_net] ou un des autres Batch de kits de développement logiciel (SDK).
+* Le nom des propriétés des chaînes filter, select et expand doit être affiché comme dans l’API [REST Batch][api_rest] et ce, même si vous utilisez la bibliothèque [Batch .NET][api_net] ou un des autres Kits de développement logiciel (SDK) Batch.
 * Les noms de propriété respectent la casse contrairement aux valeurs de propriété.
 * Les chaînes de date/heure peuvent être d’un format ou de l’autre et doivent être précédées de `DateTime`.
   
@@ -104,7 +104,7 @@ La chaîne expand réduit le nombre d’appels d’API nécessaires pour obtenir
 * Si une propriété ou un opérateur non valide est spécifié, une erreur `400 (Bad Request)` se produit.
 
 ## <a name="efficient-querying-in-batch-net"></a>Interrogation efficace dans Batch.NET
-Dans [Batch.NET][api_net], la classe API, the [ODATADetailLevel][odata] sert à fournir les chaînes filter, select et expand aux opérations de liste. La classe ODataDetailLevel possède trois propriétés de chaîne publiques qui peuvent être spécifiées dans le constructeur ou définies directement sur l'objet. Vous transmettez ensuite l’objet ODataDetailLevel en tant que paramètre à plusieurs opérations de liste comme [ListPools], [net_list_pools], [ListJobs][net_list_jobs], and [ListTasks][net_list_tasks].
+Dans l’API [Batch .NET][api_net], la classe [ODATADetailLevel][odata] sert à fournir les chaînes filter, select et expand aux opérations de liste. La classe ODataDetailLevel possède trois propriétés de chaîne publiques qui peuvent être spécifiées dans le constructeur ou définies directement sur l'objet. Vous transmettez ensuite l’objet ODataDetailLevel en tant que paramètre à plusieurs opérations de liste comme [ListPools][net_list_pools], [ListJobs][net_list_jobs] et [ListTasks][net_list_tasks].
 
 * [ODATADetailLevel][odata].[FilterClause][odata_filter] : limitez le nombre d’éléments qui sont retournés.
 * [ODATADetailLevel][odata].[SelectClause][odata_select] : spécifiez les valeurs de propriété retournées avec chaque élément.
@@ -177,31 +177,31 @@ Les noms de propriété dans les chaînes filter, select et expand *doivent* ref
 | [CloudTask][net_task] |[Obtenir des informations sur une tâche][rest_get_task] |
 
 ## <a name="example-construct-a-filter-string"></a>Exemple : Construire une chaîne filter
-Lorsque vous construisez une chaîne de filtrage pour [ODATADetailLevel.FilterClause][odata_filter], consult the table above under "Mappings for filter strings" to find the REST API documentation page that corresponds to the list operation that you wish to perform. You will find the filterable properties and their supported operators in the first multirow table on that page. If you wish to retrieve all tasks whose exit code was nonzero, for example, this row on [List the tasks associated with a job][rest_list_tasks] spécifie la chaîne de propriété applicable et les opérateurs autorisés : Propriété Opérations autorisées
+Lors de la construction d’une chaîne filter pour [ODATADetailLevel.FilterClause][odata_filter], consultez le tableau ci-dessous sous « Mappages pour les chaînes filter » pour rechercher la page de documentation de l’API REST correspondant à l’opération de liste que vous souhaitez effectuer. Vous trouverez les propriétés filtrables et leurs opérateurs pris en charge dans le premier tableau à plusieurs lignes de cette page. Si vous souhaitez récupérer toutes les tâches ayant un code de sortie non nul, par exemple, cette ligne de [Création de la liste des tâches associées à un travail][rest_list_tasks] spécifie la chaîne de propriétés applicable et les opérateurs autorisés :
 
-| Type | Par conséquent, la chaîne filter permettant de répertorier toutes les tâches dont le code de sortie serait autre que nul serait : | Exemple : Construire une chaîne select |
+| Propriété | Opérations autorisées | Type |
 |:--- |:--- |:--- |
 | `executionInfo/exitCode` |`eq, ge, gt, le , lt` |`Int` |
 
-Pour construire [ODATADetailLevel.SeectClause][odata_select], consult the table above under "Mappings for select strings" and navigate to the REST API page that corresponds to the type of entity that you are listing. You will find the selectable properties and their supported operators in the first multirow table on that page. If you wish to retrieve only the ID and command line for each task in a list, for example, you will find these rows in the applicable table on [Get information about a task][rest_get_task] :
+Par conséquent, la chaîne filter permettant de répertorier toutes les tâches dont le code de sortie serait autre que nul serait :
 
 `(executionInfo/exitCode lt 0) or (executionInfo/exitCode gt 0)`
 
-## <a name="example-construct-a-select-string"></a>Propriété
-Type Notes La chaîne select permettant d’inclure uniquement l’ID et la ligne de commande avec chaque tâche de la liste serait alors :
+## <a name="example-construct-a-select-string"></a>Exemple : Construire une chaîne select
+Pour construire une clause [ODATADetailLevel.SelectClause][odata_select], consultez le tableau qui précède sous « Mappages pour les chaînes select » et accédez à la page de l’API REST correspondant au type d’entité que vous listez. Vous trouverez les propriétés sélectionnables et leurs opérateurs pris en charge dans le premier tableau à plusieurs lignes de cette page. Si, par exemple, vous souhaitez récupérer uniquement l’ID et la ligne de commande de chaque tâche dans une liste, vous trouverez ces lignes dans le tableau correspondant sur [Obtenir des informations sur une tâche][rest_get_task] :
 
-| Exemples de code | Exemple de code pour des requêtes de liste efficaces | Consultez la méthode [EfficientListQueries][efficient_query_sample] sample project on GitHub to see how efficient list querying can affect performance in an application. This C# console application creates and adds a large number of tasks to a job. Then, it makes multiple calls to the [JobOperations.ListTasks][net_list_tasks] et transmet les objets [ODATADetailLevel][odata] qui sont configurés avec des valeurs de propriété différentes pour que la quantité de données à retourner soit variée. |
+| Propriété | Type | Notes |
 |:--- |:--- |:--- |
 | `id` |`String` |`The ID of the task.` |
 | `commandLine` |`String` |`The command line of the task.` |
 
-Vous générez ainsi des informations qui ressemblent à ce qui suit :
+La chaîne select permettant d’inclure uniquement l’ID et la ligne de commande avec chaque tâche de la liste serait alors :
 
 `id, commandLine`
 
-## <a name="code-samples"></a>Comme indiqué dans les temps écoulés, vous pouvez réduire de façon significative les temps de réponse de requête en limitant les propriétés et le nombre d’éléments retournés.
-### <a name="efficient-list-queries-code-sample"></a>Cet exemple et d’autres exemples de projet sont disponibles dans le dépôt [azure-batch-samples][github_samples] sur GitHub.
-Bibliothèque BatchMetrics et exemple de code En plus de l’exemple de code EfficientListQueries ci-dessus, vous pouvez trouver le référentiel GitHub [BatchMetrics][batch_metrics] project in the [azure-batch-samples][github_samples]. L’exemple de projet BatchMetrics montre comment surveiller efficacement la progression d’un travail Azure Batch à l’aide de l’API Batch. L’exemple [BatchMetrics][batch_metrics] inclut un projet de bibliothèque de classes .NET que vous pouvez incorporer dans vos propres projets ainsi qu’un programme de ligne de commande simple pour tester et démontrer l’utilisation de la bibliothèque.
+## <a name="code-samples"></a>Exemples de code
+### <a name="efficient-list-queries-code-sample"></a>Exemple de code pour des requêtes de liste efficaces
+Découvrez l’exemple de projet [EfficientListQueries][efficient_query_sample] sur GitHub pour savoir comment une interrogation efficace de liste peut affecter les performances d’une application. Cette application de console C# crée et ajoute de nombreuses tâches à un travail. Ensuite, elle effectue plusieurs appels de la méthode [JobOperations.ListTasks][net_list_tasks] et transmet des objets [ODATADetailLevel][odata] configurés avec différentes valeurs de propriété pour faire varier la quantité de données à retourner. Vous générez ainsi des informations qui ressemblent à ce qui suit :
 
 ```
 Adding 5000 tasks to job jobEffQuery...
@@ -217,19 +217,19 @@ Adding 5000 tasks to job jobEffQuery...
 Sample complete, hit ENTER to continue...
 ```
 
-L’exemple d’application au sein du projet illustre les opérations suivantes : Sélection d’attributs spécifiques afin de ne télécharger que les propriétés nécessaires
+Comme indiqué dans les temps écoulés, vous pouvez réduire de façon significative les temps de réponse de requête en limitant les propriétés et le nombre d’éléments retournés. Cet exemple et d’autres exemples de projet sont disponibles dans le dépôt [azure-batch-samples][github_samples] sur GitHub.
 
-### <a name="batchmetrics-library-and-code-sample"></a>Filtrage basé sur les heures de changement d’état afin de ne télécharger que les modifications apportées depuis la dernière requête
-Par exemple, la méthode suivante apparaît dans la bibliothèque BatchMetrics. Elle retourne un objet ODATADetailLevel qui spécifie que seules les propriétés `id` et `state` doivent être obtenues pour les entités interrogées.
+### <a name="batchmetrics-library-and-code-sample"></a>Bibliothèque BatchMetrics et exemple de code
+Outre l’exemple de code EfficientListQueries ci-dessus, vous trouverez le projet [BatchMetrics][batch_metrics] dans le dépôt GitHub [azure-batch-samples][github_samples]. L’exemple de projet BatchMetrics montre comment surveiller efficacement la progression d’un travail Azure Batch à l’aide de l’API Batch.
 
-Elle indique également que seules les entités dont l’état a changé depuis le paramètre `DateTime` spécifié doivent être retournées.
+L’exemple [BatchMetrics][batch_metrics] inclut un projet de bibliothèque de classes .NET que vous pouvez incorporer dans vos propres projets ainsi qu’un programme de ligne de commande simple pour tester et démontrer l’utilisation de la bibliothèque.
 
-Étapes suivantes
+L’exemple d’application au sein du projet illustre les opérations suivantes :
 
-1. Tâches parallèles de nœud
-2. [Optimiser l’utilisation des ressources de calcul Azure Batch avec les tâches de nœud simultanées](batch-parallel-node-tasks.md) est un autre article lié aux performances des applications Batch.
+1. Sélection d’attributs spécifiques afin de ne télécharger que les propriétés nécessaires
+2. Filtrage basé sur les heures de changement d’état afin de ne télécharger que les modifications apportées depuis la dernière requête
 
-Certains types de charge de travail peuvent tirer parti de l’exécution de tâches parallèles sur des nœuds de calcul plus volumineux, mais moins nombreux. Découvrez [l’exemple de scénario](batch-parallel-node-tasks.md#example-scenario) de l’article pour en connaître les détails. It also specifies that only entities whose state has changed since the specified <ph id="ph1">`DateTime`</ph> parameter should be returned.
+Par exemple, la méthode suivante apparaît dans la bibliothèque BatchMetrics. Elle retourne un objet ODATADetailLevel qui spécifie que seules les propriétés `id` et `state` doivent être obtenues pour les entités interrogées. Elle indique également que seules les entités dont l’état a changé depuis le paramètre `DateTime` spécifié doivent être retournées.
 
 ```csharp
 internal static ODATADetailLevel OnlyChangedAfter(DateTime time)
@@ -241,9 +241,9 @@ internal static ODATADetailLevel OnlyChangedAfter(DateTime time)
 }
 ```
 
-## <a name="next-steps"></a>Next steps
-### <a name="parallel-node-tasks"></a>Parallel node tasks
-<bpt id="p1">[</bpt>Maximize Azure Batch compute resource usage with concurrent node tasks<ept id="p1">](batch-parallel-node-tasks.md)</ept> is another article related to Batch application performance. Some types of workloads can benefit from executing parallel tasks on larger--but fewer--compute nodes. Check out the <bpt id="p1">[</bpt>example scenario<ept id="p1">](batch-parallel-node-tasks.md#example-scenario)</ept> in the article for details on such a scenario.
+## <a name="next-steps"></a>Étapes suivantes
+### <a name="parallel-node-tasks"></a>Tâches parallèles de nœud
+[Optimiser l’utilisation des ressources de calcul Azure Batch avec les tâches de nœud simultanées](batch-parallel-node-tasks.md) est un autre article lié aux performances des applications Batch. Certains types de charge de travail peuvent tirer parti de l’exécution de tâches parallèles sur des nœuds de calcul plus volumineux, mais moins nombreux. Découvrez [l’exemple de scénario](batch-parallel-node-tasks.md#example-scenario) de l’article pour en connaître les détails.
 
 
 [api_net]: https://docs.microsoft.com/dotnet/api/microsoft.azure.batch

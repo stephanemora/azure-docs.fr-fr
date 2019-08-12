@@ -3,20 +3,20 @@ title: Résolution des problèmes liés à l’état détérioré d’Azure Traf
 description: Comment résoudre les profils Traffic Manager lorsque l’état est affiché comme dégradé.
 services: traffic-manager
 documentationcenter: ''
-author: chadmath
+author: rohinkoul
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2017
-ms.author: genli
-ms.openlocfilehash: 19a654215377ba0fac7dacf800bf87a3481679c0
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.author: rohink
+ms.openlocfilehash: f8f457623dff7840ca839ef57580b744a4d916c7
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68357230"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68565872"
 ---
 # <a name="troubleshooting-degraded-state-on-azure-traffic-manager"></a>Résolution des problèmes liés à l’état détérioré d’Azure Traffic Manager
 
@@ -30,8 +30,8 @@ Si le statut de l’intégrité de votre Traffic Manager est **Inactif**, les de
 
 ## <a name="understanding-traffic-manager-probes"></a>Présentation des sondes de Traffic Manager
 
-* Traffic Manager considère qu’un point de terminaison est EN LIGNE uniquement si la sonde reçoit une réponse HTTP 200 en retour du chemin d’accès de la sonde. Toute réponse autre que 200 traduite un échec.
-* Une redirection 30 x échoue, même si l’URL redirigée retourne 200.
+* Traffic Manager considère qu’un point de terminaison est EN LIGNE uniquement si la sonde reçoit une réponse HTTP 200 en retour du chemin d’accès de la sonde. Si votre application retourne un autre code de réponse HTTP, vous devez ajouter ce code de réponse aux [Plages de codes d’état attendues](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-monitoring#configure-endpoint-monitoring) de votre profil Traffic Manager.
+* Une réponse de redirection 30x est traitée comme un échec, sauf si vous avez spécifié qu’il s'agit d’un code de réponse valide dans les [Plages de codes d’état attendues](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-monitoring#configure-endpoint-monitoring) de votre profil Traffic Manager. Traffic Manager n’effectue pas de sondage sur la cible de redirection.
 * Pour les sondes HTTPs, les erreurs de certificat sont ignorées.
 * Le contenu réel du chemin d’accès de la sonde n’importe pas, aussi longtemps que la valeur retournée est 200. Le sondage d’une URL pour détecter du contenu statique, tel que « /favicon.ico », est une technique courante. Un contenu dynamique, par exemple, des pages ASP, ne retourne pas toujours 200, même quand l’application est intègre.
 * La meilleure pratique consiste à définir le chemin d’accès de la sonde vers un élément disposant d’une logique suffisante pour déterminer si le site fonctionne ou est à l’arrêt. Dans l’exemple précédent, en définissant le chemin d’accès « /favicon.ico », vous ne faites que tester le fait que w3wp.exe répond. Cette sonde n’indique pas que votre application web est intègre. Une meilleure option consisterait à définir un chemin d’accès vers un élément tel que « /Probe.aspx » disposant de la logique nécessaire pour déterminer l’intégrité du site. Par exemple, vous pourriez utiliser des compteurs de performances pour l’utilisation du processeur, ou mesurer le nombre de demandes ayant échoué. Vous pourriez également tenter d’accéder aux ressources de base de données ou à l’état de la session pour vous assurer que l’application web fonctionne.

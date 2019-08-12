@@ -10,12 +10,12 @@ ms.service: billing
 ms.topic: article
 ms.date: 05/30/2019
 ms.author: byvinyal
-ms.openlocfilehash: 1c30d9e70facaf9ab47bd33e5ca1fc1d35c6c979
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: 7c4c80950e43f374b40085cb4e1c3e026e5f3abd
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68405862"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698284"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Abonnement Azure et limites, quotas et contraintes de service
 Ce document répertorie quelques-unes des limites de Microsoft Azure les plus courantes, parfois appelées des quotas. Ce document ne couvre pas actuellement tous les services Azure. Ces limites seront étendues et mises à jour dans des prochaines versions pour couvrir plus de services.
@@ -48,6 +48,7 @@ Dans la liste des limites ci-dessous, une nouvelle table reflète les différenc
 * [Automation](#automation-limits)
 * [Cache Azure pour Redis](#azure-cache-for-redis-limits)
 * [Azure Cloud Services](#azure-cloud-services-limits)
+* [Azure Cognitive Services](#azure-cognitive-services-limits)
 * [Azure Cosmos DB](#azure-cosmos-db-limits)
 * [Azure Database pour MySQL](#azure-database-for-mysql)
 * [Base de données Azure pour PostgreSQL](#azure-database-for-postgresql)
@@ -186,7 +187,7 @@ Sauf mention contraire, le tableau suivant s’applique aux références SKU v1,
 
 Pour plus d’informations sur les limites des comptes de stockage, consultez la page [Objectifs de performance et évolutivité de Stockage Azure](storage/common/storage-scalability-targets.md).
 
-#### <a name="storage-resource-provider-limits"></a>Limites de fournisseur de ressources de stockage 
+#### <a name="storage-resource-provider-limits"></a>Limites de fournisseur de ressources de stockage
 
 [!INCLUDE [azure-storage-limits-azure-resource-manager](../includes/azure-storage-limits-azure-resource-manager.md)]
 
@@ -225,6 +226,9 @@ Pour plus d’informations, consultez [Tailles de machines virtuelles](virtual-m
 
 ### <a name="azure-cloud-services-limits"></a>Limites d'Azure Cloud Services
 [!INCLUDE [azure-cloud-services-limits](../includes/azure-cloud-services-limits.md)]
+
+### <a name="azure-cognitive-services-limits"></a>Limites d’Azure Cognitive Services
+[!INCLUDE [azure-cloud-services-limits](../includes/azure-cognitive-services-limits.md)]
 
 ### <a name="app-service-limits"></a>Limites App Service
 Les limites App Service suivantes incluent celles de Web Apps, Mobile Apps et API Apps.

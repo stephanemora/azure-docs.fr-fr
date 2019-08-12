@@ -10,17 +10,17 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: cmacdo
-ms.custom: seodec2018
-ms.openlocfilehash: 0268a16ecc07d578e1e3dc2b15ad9208509c2a8c
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.subservice: cognitive-search
+ms.openlocfilehash: 1f4ba923cb9698a00c8c7c8be6e1b34f09ea1b72
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68349290"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840941"
 ---
-#   <a name="text-translation-cognitive-skill-preview"></a>Compétence cognitive Traduction de texte (préversion)
+#   <a name="text-translation-cognitive-skill"></a>Compétence cognitive Traduction de texte
 
-La compétence **Traduction de texte** évalue le texte et, pour chaque enregistrement, retourne le texte traduit dans la langue cible spécifiée. Cette compétence utilise l’[API de traduction de texte Translator Text v3.0](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate) disponible dans Cognitive Services.  Bien qu’actuellement disponible dans la dernière version de l’API Recherche Azure en disponibilité générale, elle est considérée comme étant en préversion et doit être traitée comme telle jusqu’à ce qu’elle soit annoncée en disponibilité générale.
+La compétence **Traduction de texte** évalue le texte et, pour chaque enregistrement, retourne le texte traduit dans la langue cible spécifiée. Cette compétence utilise l’[API de traduction de texte Translator Text v3.0](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate) disponible dans Cognitive Services.
 
 Cette fonctionnalité est utile si vous vous attendez à ce que vos documents ne soient pas tous dans la même langue, auquel cas vous pouvez normaliser le texte dans une seule langue avant l’indexation de la recherche en le traduisant.  Elle est également utile dans les cas d’usage de localisation, où vous pouvez avoir besoin de copies du même texte dans plusieurs langues.
 

@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 05/22/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 4bd0b6f0652f49c16bd67bbca5a89d19e17a8b2c
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 6d27e36e9bd571aa9c42500451787fd94d4a8a90
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68498417"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68688145"
 ---
 # <a name="update-management-solution-in-azure"></a>Solution Update Management dans Azure
 
@@ -23,7 +23,7 @@ Vous pouvez utiliser la solution Update Management dans Azure Automation pour g�
 Vous pouvez activer Update Management pour les machines virtuelles directement depuis votre compte Azure Automation. Pour découvrir comment activer Update Management pour les machines virtuelles depuis votre compte Automation, consultez l’article [Gérer les mises à jour pour plusieurs machines virtuelles](manage-update-multi.md). Vous pouvez également activer Update Management pour une machine virtuelle à partir de sa page dans le Portail Azure. Ce scénario est disponible pour les machines virtuelles [Linux](../virtual-machines/linux/tutorial-monitoring.md#enable-update-management) et [Windows](../virtual-machines/windows/tutorial-monitoring.md#enable-update-management).
 
 > [!NOTE]
-> La solution Update Management vous demande d’établir un lien entre l’espace de travail Log Analytics et votre compte Automation. Pour obtenir la liste définitive des régions prises en charge, consultez [./how-to/region-mappings.md]. Les mappages de région n’empêchent pas de gérer les machines virtuelles dans une autre région que celle de votre compte Automation.
+> La solution Update Management vous demande d’établir un lien entre l’espace de travail Log Analytics et votre compte Automation. Pour obtenir la liste définitive des régions prises en charge, consultez [https://docs.microsoft.com/en-us/azure/automation/how-to/region-mappings ]. Les mappages de région n’empêchent pas de gérer les machines virtuelles dans une autre région que celle de votre compte Automation.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 

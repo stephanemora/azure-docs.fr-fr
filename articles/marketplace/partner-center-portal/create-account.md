@@ -5,14 +5,14 @@ author: mattwojo
 manager: evansma
 ms.author: parthp
 ms.service: marketplace
-ms.topic: how-to
+ms.topic: guide
 ms.date: 07/05/2019
-ms.openlocfilehash: 24ed03cde967f0fef7abdc4c2df1f8e5d6bdb6ab
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 16ed52aa2b56a97469ae8fc47299f09593b19c45
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68327126"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68668341"
 ---
 # <a name="create-a-commercial-marketplace-account-in-partner-center"></a>Créer un compte Place de marché commerciale dans l’Espace partenaires
 
@@ -52,7 +52,7 @@ Cela vous permet de lier le compte e-mail professionnel de votre société à vo
 
 #### <a name="agree-to-terms-and-conditions"></a>Accepter les conditions générales
 
-Vous devez accepter deux ensembles de conditions générales, y compris le [Contrat d’abonnement à Microsoft Online](https://go.microsoft.com/fwlink/?LinkId=870457) et le [Contrat d’éditeur de la Place de marché Microsoft](https://go.microsoft.com/fwlink/?linkid=843476).
+Vous devez accepter les conditions générales du [contrat d’éditeur de la Place de marché Microsoft Azure](http://go.microsoft.com/fwlink/?LinkID=699560).
 
 #### <a name="provide-your-publisher-profile"></a>Fournir votre profil d’éditeur
 

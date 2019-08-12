@@ -8,13 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 07/19/2019
-ms.openlocfilehash: 3e14604955a64c7a146a947c5c320b42ea3ebcba
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.date: 07/26/2019
+ms.openlocfilehash: 831a1457d865429fd53af1887a14c363b806300c
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325409"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68516600"
 ---
 # <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>Accéder aux ressources Réseau virtuel Microsoft Azure à partir d’Azure Logic Apps à l’aide d’environnements de service d’intégration (ISE)
 
@@ -80,7 +80,22 @@ Lorsque vous créez votre environnement ISE, vous pouvez sélectionner la réfé
 
   Fournit un environnement ISE que vous pouvez utiliser pour la production et inclut la prise en charge des contrats SLA, les déclencheurs et les actions intégrés, les connecteurs standard, les connecteurs d’entreprise, un seul compte d’intégration de [niveau standard](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits), des options de mise à l’échelle de la capacité et une redondance pendant le recyclage pour un tarif mensuel fixe.
 
-Pour connaître la tarification, consultez [Tarification de Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps/). Pour plus d’informations sur la tarification et la facturation des environnements de service d’intégration, consultez [Modèle de tarification Logic Apps](../logic-apps/logic-apps-pricing.md#fixed-pricing).
+> [!IMPORTANT]
+> L’option SKU est disponible uniquement lors de la création de votre ISE et ne peut pas être modifiée ultérieurement.
+
+Pour connaître la tarification, consultez [Tarification Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps/). Pour plus d’informations sur la tarification et la facturation des environnements de service d’intégration, consultez le [modèle de tarif pour Logic Apps](../logic-apps/logic-apps-pricing.md#fixed-pricing).
+
+<a name="endpoint-access"></a>
+
+## <a name="ise-endpoint-access"></a>Point de terminaison d’accès ISE
+
+Lorsque vous créez votre ISE, vous pouvez choisir d’utiliser des points de terminaison d’accès internes ou externes. Ces points de terminaison déterminent si les déclencheurs de demande ou de webhook sur les applications logiques dans votre ISE peuvent recevoir des appels en dehors de votre réseau virtuel. Ces points de terminaison affectent également l’accès aux entrées et aux sorties dans l’historique d’exécution des applications logiques.
+
+* **Interne** : Les points de terminaison privés qui autorisent les appels à des applications logiques dans votre ISE, ainsi que l’accès aux entrées et aux sorties dans l’historique des exécutions *uniquement à partir de votre réseau virtuel*
+* **Externe** : Les points de terminaison publics qui autorisent les appels à des applications logiques dans votre ISE, ainsi que l’accès aux entrées et aux sorties dans l’historique des exécutions *hors de votre réseau virtuel*
+
+> [!IMPORTANT]
+> L’option de point de terminaison d’accès est disponible uniquement lors de la création de votre ISE et ne peut pas être modifiée ultérieurement.
 
 <a name="on-premises"></a>
 
@@ -106,6 +121,8 @@ Vous pouvez utiliser des comptes d’intégration avec des applications logiques
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Découvrir comment [se connecter à des réseaux virtuels à partir d’applications logiques isolées](../logic-apps/connect-virtual-network-vnet-isolated-environment.md)
+* [Se connecter à des réseaux virtuels à partir d’applications logiques isolées](../logic-apps/connect-virtual-network-vnet-isolated-environment.md)
+* [Ajouter des artefacts à des environnements de service d’intégration](../logic-apps/add-artifacts-integration-service-environment-ise.md)
+* [Gérer les environnements de service d’intégration](../logic-apps/ise-manage-integration-service-environment.md)
 * En apprendre davantage sur le [Réseau virtuel Azure](../virtual-network/virtual-networks-overview.md)
 * Découvrir l’[Intégration d’un réseau virtuel pour les services Azure](../virtual-network/virtual-network-for-azure-services.md)

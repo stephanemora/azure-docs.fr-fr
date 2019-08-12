@@ -1,6 +1,6 @@
 ---
-title: Type d’entité d’expression régulière
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Type d’entité d’expression régulière - LUIS
+titleSuffix: Azure Cognitive Services
 description: Une expression régulière est préférable à un texte d’énoncé brut. Elle ignore la casse et la variante culturelle.  La correspondance d’expression régulière est appliquée après les modifications de la vérification orthographique au niveau du caractère, et non au niveau du jeton.
 services: cognitive-services
 author: diberry
@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 07/24/2019
 ms.author: diberry
-ms.openlocfilehash: dfffea26ccd8dfcecea2c6a2e07234f3ab27f72b
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 82cce359f2161800c53ccce7cdb0342bba759d43
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68480137"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559939"
 ---
 # <a name="regular-expression-entity"></a>Entité d’expression régulière 
 

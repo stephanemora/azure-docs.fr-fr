@@ -18,10 +18,10 @@ ms.date: 07/24/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 70f9264357ca1a0c1a612481f4254e86f05e41d8
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68479175"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
@@ -312,11 +312,11 @@ Si vous souhaitez utiliser un partage de fichiers avec montée en puissance para
 * Vous devez utiliser des disques Azure Premium.
 * Nous vous recommandons d’utiliser Azure Disques managés.
 * Nous vous recommandons de formater les volumes à l’aide du système ReFS (Resilient File System).
-    * Pour plus d’informations, consultez le chapitre [SAP Note 1869038 - SAP support for ReFs filesystem][1869038]and the [Choosing the file system][planning-volumes-s2d-choosing-filesystem] de l’article Planification des volumes dans les espaces de stockage direct.
+    * Pour plus d’informations, consultez le document [SAP Note 1869038 - SAP support for ReFs filesystem][1869038] (Note SAP n° 1869038 - Prise en charge SAP du système de fichiers ReFs) et la section [Choix du système de fichiers][planning-volumes-s2d-choosing-filesystem] de l’article Planification des volumes dans les espaces de stockage direct.
     * Veillez à installer la [mise à jour cumulative Microsoft KB4025334][kb4025334].
 * Vous pouvez utiliser les tailles de machines virtuelles Azure séries DS ou séries DSv2.
 * Pour obtenir de bonnes performances réseau entre les machines virtuelles (nécessaires pour la synchronisation des disques d’espaces de stockage direct), utilisez un type de machine virtuelle disposant au moins d’une bande passante réseau élevée.
-    Pour plus d’informations, consultez les spécifications des [séries DSv2][dv2-series]and [DS-Series][ds-series].
+    Pour plus d’informations, consultez les spécifications des [séries DSv2][dv2-series] et des [séries DS][ds-series].
 * Nous vous recommandons de réserver une capacité non allouée dans le pool de stockage. Vous laisserez ainsi aux volumes suffisamment d’espace pour effectuer une réparation « sur place » en cas d’échec d’un disque. Cette méthode améliore les performances et la sécurité des données.  Pour plus d’informations, consultez la rubrique [Choix de la taille des volumes][choosing-the-size-of-volumes-s2d].
 * Vous n’avez pas besoin de configurer l’équilibreur de charge interne Azure avec le nom réseau du partage de fichiers avec montée en puissance parallèle, comme pour \<l’hôte global SAP\>. Cette opération s’effectue pour le \<nom d’hôte virtuel ASCS/SCS\> de l’instance SAP ASCS/SCS ou pour le système de gestion de base de données (SGBD). Un partage de fichiers avec montée en puissance parallèle fait monter en charge l’ensemble des nœuds de cluster. \<L’hôte global SAP\> utilise l’adresse IP locale pour tous les nœuds de cluster.
 

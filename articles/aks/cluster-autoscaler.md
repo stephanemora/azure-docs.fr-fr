@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 07/18/2019
 ms.author: mlearned
 ms.openlocfilehash: 09610782f211b4cfb80a1291b73ab543328376a3
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68424184"
 ---
 # <a name="preview---automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Préversion : Mettre à l’échelle automatiquement un cluster pour répondre à des demandes applicatives d’Azure Kubernetes Service (AKS)
@@ -32,7 +32,7 @@ Pour les besoins de cet article, vous devez utiliser Azure CLI version 2.0.65 ou
 
 ### <a name="install-aks-preview-cli-extension"></a>Installer l’extension CLI de préversion d’aks
 
-Pour utiliser la mise à l’échelle automatique de cluster, vous aurez besoin de l’extension de CLI *aks-preview* version 0.4.4 ou version ultérieure. Installez l’extension d’Azure CLI *aks-preview* à l’aide de la commande [az extension add][az-extension-add]command, then check for any available updates using the [az extension update][az-extension-update] :
+Pour utiliser la mise à l’échelle automatique de cluster, vous aurez besoin de l’extension de CLI *aks-preview* version 0.4.4 ou version ultérieure. Installez l’extension Azure CLI *aks-preview* à l’aide de la commande [az extension add][az-extension-add], puis recherchez toutes les mises à jour disponibles à l’aide de la commande [az extension update][az-extension-update] :
 
 ```azurecli-interactive
 # Install the aks-preview extension
@@ -47,7 +47,7 @@ az extension update --name aks-preview
 Pour créer un AKS qui utilise des groupes identiques, vous devez également activer un indicateur de fonctionnalité sur votre abonnement. Pour enregistrer l’indicateur de fonctionnalité *VMSSPreview*, utilisez la commande [az feature register][az-feature-register], comme indiqué dans l’exemple suivant :
 
 > [!CAUTION]
-> Lorsque vous inscrivez une fonctionnalité sur un abonnement, vous ne pouvez actuellement pas désinscrire cette fonctionnalité. Après avoir activé des fonctionnalités préliminaires, des valeurs par défaut peuvent être utilisées pour tous les clusters AKS créés ultérieurement dans l’abonnement. N’activez pas les fonctionnalités d’évaluation sur les abonnements de production. Utilisez un abonnement distinct pour tester les fonctionnalités d’évaluation et recueillir des commentaires.
+> Lorsque vous inscrivez une fonctionnalité sur un abonnement, vous ne pouvez actuellement pas désinscrire cette fonctionnalité. Après avoir activé des fonctionnalités en préversion, des valeurs par défaut peuvent être utilisées pour tous les clusters AKS créés ultérieurement dans l’abonnement. N’activez pas les fonctionnalités d’évaluation sur les abonnements de production. Utilisez un abonnement distinct pour tester les fonctionnalités d’évaluation et recueillir des commentaires.
 
 ```azurecli-interactive
 az feature register --name VMSSPreview --namespace Microsoft.ContainerService
