@@ -59,7 +59,7 @@ Les propriétés prises en charge pour le service lié SAP HANA sont les suivant
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | type | La propriété type doit être définie sur : **SapHana** | OUI |
-| serveur | Le nom du serveur sur lequel réside l’instance SAP HANA. Si votre serveur utilise un port personnalisé, spécifiez `server:port`. | OUI |
+| server | Le nom du serveur sur lequel réside l’instance SAP HANA. Si votre serveur utilise un port personnalisé, spécifiez `server:port`. | OUI |
 | authenticationType | Type d'authentification utilisé pour se connecter à la base de données SAP HANA.<br/>Les valeurs autorisées sont les suivantes : **Basic** et **Windows** | OUI |
 | userName | Nom de l’utilisateur ayant accès au serveur SAP. | OUI |
 | password | Mot de passe pour l’utilisateur. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | OUI |
@@ -121,7 +121,7 @@ Pour copier des données de SAP HANA, définissez **RelationalSource** comme typ
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type de la source d’activité de copie doit être définie sur : **RelationalSource** | OUI |
+| type | La propriété type de la source d’activité de copie doit être définie sur : **RelationalSource** | OUI |
 | query | Spécifie la requête SQL pour lire les données de l’instance SAP HANA. | OUI |
 
 **Exemple :**
