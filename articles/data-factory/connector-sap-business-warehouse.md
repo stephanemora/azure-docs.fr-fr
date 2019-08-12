@@ -61,7 +61,7 @@ Les propriétés prises en charge pour le service lié SAP Business Warehouse so
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | type | La propriété type doit être définie sur : **SapBw** | OUI |
-| serveur | Nom du serveur sur lequel réside l’instance SAP BW. | OUI |
+| server | Nom du serveur sur lequel réside l’instance SAP BW. | OUI |
 | systemNumber | Numéro de système du système SAP BW.<br/>Valeur autorisée : nombre décimal à deux chiffres représenté sous forme de chaîne. | OUI |
 | clientId | ID client du client dans le système SAP W.<br/>Valeur autorisée : nombre décimal à trois chiffres représenté sous forme de chaîne. | OUI |
 | userName | Nom de l’utilisateur ayant accès au serveur SAP. | OUI |
