@@ -102,7 +102,7 @@ Les propriétés prises en charge pour le service lié SAP Business Warehouse Op
 | serveur | Nom du serveur sur lequel réside l’instance SAP BW. | OUI |
 | systemNumber | Numéro de système du système SAP BW.<br/>Valeur autorisée : nombre décimal à deux chiffres représenté sous forme de chaîne. | OUI |
 | clientId | ID client du client dans le système SAP W.<br/>Valeur autorisée : nombre décimal à trois chiffres représenté sous forme de chaîne. | OUI |
-| Langage | Langue utilisée par le système SAP. | Non (la valeur par défaut est **EN**)|
+| langage | Langue utilisée par le système SAP. | Non (la valeur par défaut est **EN**)|
 | userName | Nom de l’utilisateur ayant accès au serveur SAP. | OUI |
 | password | Mot de passe pour l’utilisateur. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | OUI |
 | connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Un Runtime d’intégration autohébergé est nécessaire comme indiqué dans [Conditions préalables](#prerequisites). |OUI |
