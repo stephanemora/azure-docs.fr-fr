@@ -62,7 +62,7 @@ Les propriétés suivantes sont prises en charge pour le service lié Salesforce
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type |La propriété de type doit être définie sur **Salesforce**. |OUI |
+| type |La propriété de type doit être définie sur **Salesforce**. |OUI |
 | environmentUrl | Spécifiez l’URL de l’instance Salesforce. <br> - La valeur par défaut est `"https://login.salesforce.com"`. <br> - Pour copier des données du bac à sable, spécifiez `"https://test.salesforce.com"`. <br> - Pour copier les données du domaine personnalisé, spécifiez, par exemple, `"https://[domain].my.salesforce.com"`. |Non |
 | userName |Spécifiez un nom d’utilisateur pour le compte d’utilisateur. |OUI |
 | password |Spécifiez le mot de passe du compte d’utilisateur.<br/><br/>Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). |OUI |
