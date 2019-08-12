@@ -60,7 +60,7 @@ Pour mettre à niveau l’édition de SQL Server, procurez-vous le support d’i
 
    ![Mettre à niveau l'édition de SQL Server](media/virtual-machines-windows-sql-change-edition/edition-upgrade.png)
 
-1. Sélectionnez **Suivant** jusqu'à accéder à la page **	Prêt pour la mise à niveau de l'édition**, puis sélectionnez **Mettre à niveau**. La fenêtre d’installation peut se figer quelques minutes, le temps que la modification prenne effet. Vous accédez ensuite à une page **Terminer** qui confirme que la mise à niveau de l'édition est terminée. 
+1. Sélectionnez **Suivant** jusqu'à accéder à la page **Prêt pour la mise à niveau de l'édition**, puis sélectionnez **Mettre à niveau**. La fenêtre d’installation peut se figer quelques minutes, le temps que la modification prenne effet. Vous accédez ensuite à une page **Terminer** qui confirme que la mise à niveau de l'édition est terminée. 
 
 Une fois l’édition de SQL Server mise à niveau, modifiez la propriété « Edition » de la machine virtuelle SQL sur le portail Azure comme indiqué ci-dessus. Les métadonnées et la facturation associées à cette machine virtuelle sont ainsi mises à jour.
 
