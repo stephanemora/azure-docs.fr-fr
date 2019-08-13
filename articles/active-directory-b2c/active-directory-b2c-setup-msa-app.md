@@ -7,24 +7,25 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 06/11/2019
+ms.date: 07/08/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 63aa93e72d76d430fc7e026478d91e496f27eae6
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 82c1be335bfd39d641f0203116e68a4cb4c0a674
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67055119"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67654228"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-microsoft-account-using-azure-active-directory-b2c"></a>Configurer l’inscription et la connexion avec un compte Microsoft à l’aide d’Azure Active Directory B2C
 
 ## <a name="create-a-microsoft-account-application"></a>Créer une application de compte Microsoft
 
-Pour utiliser un compte Microsoft en tant que [fournisseur d'identité](active-directory-b2c-reference-oidc.md) dans Azure Active Directory (Azure AD) B2C, vous devez créer dans votre locataire une application qui le représente. Si vous n’avez pas encore de compte Microsoft, vous pouvez en obtenir un à l’adresse [https://www.live.com/](https://www.live.com/).
+Pour utiliser un compte Microsoft en tant que [fournisseur d'identité](active-directory-b2c-reference-oidc.md) dans Azure Active Directory (Azure AD) B2C, vous devez créer une application dans votre locataire Azure AD. Le locataire Azure AD n’est pas identique à votre locataire Azure AD B2C. Si vous n’avez pas encore de compte Microsoft, vous pouvez en créer un à l’adresse [https://www.live.com/](https://www.live.com/).
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
-1. Sélectionnez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Inscriptions d’applications**.
+1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Veillez à utiliser le répertoire contenant votre locataire Azure AD en cliquant sur le **filtre Répertoire et abonnement** dans le menu du haut et en choisissant le répertoire en question.
+1. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Inscriptions d’applications**.
 1. Sélectionnez **Nouvelle inscription**.
 1. Entrez un **nom** pour votre application. Par exemple, *MSAapp1*.
 1. Sous **Types de comptes pris en charge**, sélectionnez **Comptes dans un annuaire organisationnel et comptes personnels Microsoft (par exemple, Skype, Xbox, Outlook.com)** . Cette option cible l’ensemble le plus large d’identités Microsoft.

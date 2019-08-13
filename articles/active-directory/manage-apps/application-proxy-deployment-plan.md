@@ -7,7 +7,7 @@ author: barbaraselden
 manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: baselden
 ms.reviewer: ''
-ms.openlocfilehash: 24429c5596494082b526b9648a1405bc397b9d2f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7d40c0604f0947abe8d536eafe87545790476a98
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67108480"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67625544"
 ---
 # <a name="plan-an-azure-ad-application-proxy-deployment"></a>Planifier le déploiement d’un proxy d’application Azure AD
 
@@ -70,7 +70,8 @@ Vous devez répondre aux exigences de base suivantes pour configurer et impléme
 
 * **Certificat public** : si vous utilisez des noms de domaine personnalisés, vous devez obtenir un certificat public émis par une autorité de certification non Microsoft ayant été approuvée. En fonction des exigences de votre organisation, l’obtention d’un certificat peut prendre un certain temps. Par conséquent, nous vous recommandons de démarrer le processus aussi tôt que possible. Le proxy d’application Azure prend en charge les certificats standard, [génériques](application-proxy-wildcard.md) et SAN.
 
-* **Exigences relatives aux domaines** : Pour permettre une authentification unique de vos applications publiées à l’aide de la délégation contrainte Kerberos (KCD), un hôte connecteur doit être joint au même domaine AD que les applications que vous publiez. Pour des informations détaillées, consultez [KCD pour l’authentification unique auprès du proxy d’application](application-proxy-configure-single-sign-on-with-kcd.md). Le service du connecteur s’exécute sur un système local et ne doit pas être configuré pour utiliser une identité personnalisée.
+* **Exigences relatives aux domaines** : L’authentification unique à vos applications publiées à l’aide de la délégation Kerberos contrainte (KCD) nécessite que les serveurs exécutant le connecteur et l’application soient joints au domaine et qu’ils fassent partie du même domaine ou des domaines approuvés.
+Pour des informations détaillées, consultez [KCD pour l’authentification unique auprès du proxy d’application](application-proxy-configure-single-sign-on-with-kcd.md). Le service du connecteur s’exécute sur un système local et ne doit pas être configuré pour utiliser une identité personnalisée.
 
 * **Enregistrements DNS pour les URL**
 
