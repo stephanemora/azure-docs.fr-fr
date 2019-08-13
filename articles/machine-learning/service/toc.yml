@@ -258,7 +258,7 @@
     - name: Créer des workflows réutilisables
       displayName: pipelines
       items:
-        - name: "Pipelines ML\_: lot, calcul, réutilisation, partage"
+        - name: Pipelines ML
           href: how-to-create-your-first-pipeline.md
         - name: Pipelines Azure pour CI/CD
           displayName: 'continuous, integration, delivery'
