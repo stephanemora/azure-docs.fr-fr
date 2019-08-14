@@ -16,8 +16,6 @@
           href: learn/dotnetcore-quick-start.md
         - name: Application Node.js
           href: learn/nodejs-quick-start.md
-        - name: Application Java
-          href: learn/java-quick-start.md
         - name: Application mobile
           href: learn/mobile-center-quickstart.md
         - name: Application web

@@ -19,10 +19,6 @@
 - name: Concepts
   expanded: false
   items:
-    - name: Adoption de l’accès conditionnel
-      href: howto-conditional-access-adoption-kit.md
-    - name: Stratégies de protection de la base de référence
-      href: concept-baseline-protection.md
     - name: Conditions
       href: conditions.md
     - name: Conditions d’emplacement
@@ -33,6 +29,8 @@
       href: service-dependencies.md
     - name: Outil de simulation
       href: what-if-tool.md
+    - name: Stratégies de protection de la base de référence
+      href: concept-baseline-protection.md
 - name: Guides pratiques
   expanded: true
   items:
@@ -40,16 +38,6 @@
       href: plan-conditional-access.md
     - name: Bonnes pratiques
       href: best-practices.md
-    - name: Stratégies de base de référence
-      items:
-        - name: Demander l’authentification multifacteur pour les administrateurs
-          href: howto-baseline-protect-administrators.md
-        - name: Protection des utilisateurs finaux
-          href: howto-baseline-protect-end-users.md
-        - name: Bloquer l’authentification héritée
-          href: howto-baseline-protect-legacy-auth.md
-        - name: Exiger MFA pour le management des services
-          href: howto-baseline-protect-azure.md
     - name: Bloquer l’authentification héritée
       href: block-legacy-authentication.md
     - name: Accès conditionnel pour l’inscription MFA
@@ -68,6 +56,18 @@
       href: howto-conditional-access-session-lifetime.md
     - name: Migrer les stratégies classiques
       href: policy-migration.md
+    - name: Stratégies de base de référence
+      items:
+        - name: Demander l’authentification multifacteur pour les administrateurs
+          href: howto-baseline-protect-administrators.md
+        - name: Protection des utilisateurs finaux
+          href: howto-baseline-protect-end-users.md
+        - name: Bloquer l’authentification héritée
+          href: howto-baseline-protect-legacy-auth.md
+        - name: Exiger MFA pour le management des services
+          href: howto-baseline-protect-azure.md
+    - name: Adoption de l’accès conditionnel
+      href: howto-conditional-access-adoption-kit.md
     - name: Résolution de problèmes
       items:
         - name: Résoudre les problèmes avec l’outil What If
