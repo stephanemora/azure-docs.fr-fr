@@ -1,5 +1,5 @@
 ---
-title: Paramètres de l’application
+title: Paramètres d’application - LUIS
 titleSuffix: Azure Cognitive Services
 description: Apprenez à connaître les paramètres des applications Language Understanding.
 services: cognitive-services
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 05/29/2019
+ms.date: 07/16/2019
 ms.author: diberry
-ms.openlocfilehash: a8a1f6fe9372d013d310c557161ceb813b8a478b
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 7dec738fca6991cbcbd822c192b96bf6b1cc6d87
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67163633"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563509"
 ---
 # <a name="application-settings"></a>Paramètres de l’application
 
@@ -48,7 +48,7 @@ Les énoncés suivants montrent l’impact de la normalisation des signes diacri
 
 #### <a name="brazilian-portuguese-pt-br-diacritics"></a>Signes diacritiques pour le Portugais (Brésil) `pt-br`
 
-|Signes diacritiques définis sur false|Signes diacritiques définis sur false|
+|Signes diacritiques définis sur false|Signes diacritiques définis sur true|
 |-|-|
 |`á`|`a`|
 |`â`|`a`|
@@ -66,7 +66,7 @@ Les énoncés suivants montrent l’impact de la normalisation des signes diacri
 
 #### <a name="dutch-nl-nl-diacritics"></a>Signes diacritiques pour le Néerlandais `nl-nl`
 
-|Signes diacritiques définis sur false|Signes diacritiques définis sur false|
+|Signes diacritiques définis sur false|Signes diacritiques définis sur true|
 |-|-|
 |`á`|`a`|
 |`à`|`a`|
@@ -85,7 +85,7 @@ Les énoncés suivants montrent l’impact de la normalisation des signes diacri
 
 Cela inclut les sous-cultures Français et Canadien.
 
-|Signes diacritiques définis sur false|Signes diacritiques définis sur false|
+|Signes diacritiques définis sur false|Signes diacritiques définis sur true|
 |--|--|
 |`é`|`e`|
 |`à`|`a`|
@@ -104,7 +104,7 @@ Cela inclut les sous-cultures Français et Canadien.
 
 #### <a name="german-de-de-diacritics"></a>Signes diacritiques pour l’Allemand `de-de`
 
-|Signes diacritiques définis sur false|Signes diacritiques définis sur false|
+|Signes diacritiques définis sur false|Signes diacritiques définis sur true|
 |--|--|
 |`ä`|`a`|
 |`ö`|`o`| 
@@ -112,7 +112,7 @@ Cela inclut les sous-cultures Français et Canadien.
 
 #### <a name="italian-it-it-diacritics"></a>Signes diacritiques pour l’Italien `it-it`
 
-|Signes diacritiques définis sur false|Signes diacritiques définis sur false|
+|Signes diacritiques définis sur false|Signes diacritiques définis sur true|
 |--|--|
 |`à`|`a`|
 |`è`|`e`|
@@ -129,7 +129,7 @@ Cela inclut les sous-cultures Français et Canadien.
 
 Cela inclut les sous-cultures Mexicain et Espagnol.
 
-|Signes diacritiques définis sur false|Signes diacritiques définis sur false|
+|Signes diacritiques définis sur false|Signes diacritiques définis sur true|
 |-|-|
 |`á`|`a`|
 |`é`|`e`|

@@ -1,5 +1,5 @@
 ---
-title: Transcrire des conversations à plusieurs participants avec le SDK Speech – Speech Services
+title: Transcrire des conversations à plusieurs participants avec le Kit de développement logiciel (SDK) Speech – Service Speech
 titleSuffix: Azure Cognitive Services
 description: Découvrez comment utiliser la transcription de conversation avec le SDK Speech. Disponible pour C++, C# et Java.
 services: cognitive-services
@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/13/2019
+ms.date: 07/05/2019
 ms.author: jhakulin
-ms.openlocfilehash: f0838d345abfcfdf69ca6ea44d3206c23010b457
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8c4ecc017d058900297f2220173e064700e7051b
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67073083"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559462"
 ---
 # <a name="transcribe-multi-participant-conversations-with-the-speech-sdk"></a>Transcrire des conversations à plusieurs participants avec le SDK Speech
 
@@ -159,7 +159,7 @@ public class MyConversationTranscriber
                 transcriber.ConversationId = "AConversationFromTeams";
 
                 // Add participants to the conversation.
-                // Create voice signatures using REST API described in the earlier section in this document. 
+                // Create voice signatures using REST API described in the earlier section in this document.
                 // Voice signature needs to be in the following format:
                 // { "Version": <Numeric value>, "Tag": "string", "Data": "string" }
 

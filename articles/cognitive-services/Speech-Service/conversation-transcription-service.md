@@ -1,5 +1,5 @@
 ---
-title: Transcription de conversation – Speech Services
+title: Transcription de conversation – Service Speech
 titleSuffix: Azure Cognitive Services
 description: La transcription de conversation est une fonctionnalité avancée de Speech Services qui combine la reconnaissance vocale en temps réel, l’identification de l’orateur et la diarisation. La transcription de conversation est idéale pour transcrire les réunions en direct, avec la possibilité de faire la distinction entre les orateurs. Elle vous permet de savoir qui a dit quoi et quand, ce qui permet aux participants de se concentrer sur la réunion et de passer rapidement aux étapes suivantes. Cette fonctionnalité permet aussi d’améliorer l’accessibilité. Avec la transcription, vous pouvez faire participer activement les personnes présentant des troubles auditifs.
 services: cognitive-services
@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: a31921e229a4bbfccd6fdd871666aad1eeef3232
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: acbf82335523ee226f4b899180f0f22cb94cca5e
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66243870"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562875"
 ---
 # <a name="what-is-conversation-transcription"></a>Qu’est-ce que la transcription de conversation ?
 

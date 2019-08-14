@@ -1,22 +1,21 @@
 ---
-title: Traduction vocale avec Azure Speech Services
-titlesuffix: Azure Cognitive Services
-description: Speech Services vous permet d’ajouter une fonctionnalité de traduction vocale multilingue complète et en temps réel à vos applications, outils et appareils. La même API peut être utilisée pour la traduction de parole en parole et de parole en texte.
+title: Traduction vocale avec le service Speech
+titleSuffix: Azure Cognitive Services
+description: Le service Speech vous permet d’ajouter une traduction de bout en bout, en temps réel et multilingue de la parole à vos applications, outils et appareils. La même API peut être utilisée pour la traduction de parole en parole et de parole en texte.
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/13/2019
+ms.date: 07/05/2019
 ms.author: erhopf
-ms.custom: seodec18
-ms.openlocfilehash: 84d212129c5225fd0efebfca5640cfc3d32e8a40
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: cfcefd0b18831163324519b61dbea305f90f44bc
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67072408"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68552644"
 ---
 # <a name="what-is-speech-translation"></a>Qu’est-ce que la traduction vocale ?
 
@@ -56,10 +55,7 @@ Un exemple de code pour le SDK Speech est disponible sur GitHub. Ces exemples co
 
 ## <a name="migration-guides"></a>Guides de migration
 
-> [!WARNING]
-> La traduction de conversation Translator Speech sera mise hors service le 15 octobre 2019.
-
-Si vos applications, outils ou produits utilisent la traduction de conversation Translator Speech, nous avons créé des guides pour vous aider à migrer vers Speech Services.
+Si vos applications, outils ou produits utilisent l’[API Traduction de conversation Translator Speech](https://docs.microsoft.com/azure/cognitive-services/translator-speech/overview), nous avons créé des guides pour vous aider à migrer vers Speech Services.
 
 * [Migrer de l’API Traduction de conversation Translator Speech vers Speech Services](how-to-migrate-from-translator-speech-api.md)
 

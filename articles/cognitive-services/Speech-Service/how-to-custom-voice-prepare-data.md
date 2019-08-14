@@ -1,21 +1,21 @@
 ---
-title: Guide pratique pour préparer des données pour Custom Voice – Speech Services
-titlesuffix: Azure Cognitive Services
-description: Créez une voix personnalisée pour votre marque avec Azure Speech Services. Vous fournissez des enregistrements en studio et les scripts associés et le service génère un modèle de voix unique à partir de la voix enregistrée. Cette voix assure alors la synthèse vocale dans vos produits, outils et applications.
+title: Guide pratique pour préparer des données de voix personnalisée – Service Speech
+titleSuffix: Azure Cognitive Services
+description: Créez une voix personnalisée pour votre marque avec le service Speech. Vous fournissez des enregistrements en studio et les scripts associés et le service génère un modèle de voix unique à partir de la voix enregistrée. Cette voix assure alors la synthèse vocale dans vos produits, outils et applications.
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 23ba45804632163cc5de41ac2353091b7cf850c1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6a29117ff6e5173063bc2aced87f08f1a6aea425
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67063197"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559579"
 ---
 # <a name="prepare-data-to-create-a-custom-voice"></a>Préparer des données en vue de créer une voix personnalisée
 
@@ -33,7 +33,7 @@ Ce tableau liste les types de données et la façon dont chacun est utilisé pou
 
 | Type de données | Description | Quand utiliser | Autre service nécessaire | Quantité nécessaire pour l’entraînement d’un modèle | Paramètres régionaux |
 | --------- | ----------- | ----------- | --------------------------- | ----------------------------- | --------- |
-| **Énoncés individuels + transcription correspondante** | Collection (.zip) de fichiers audio (.wav) correspondant à des énoncés individuels. Chaque fichier audio est limité à 15 secondes et est associé à une transcription formatée (.txt). | Enregistrements professionnels avec transcriptions correspondantes | Prêt pour l’entraînement. | Pas d’exigence spécifique pour les langues en-US et zh-CN. Plus de 2 000 énoncés distinctes pour les autres paramètres régionaux. | Tous les paramètres régionaux de Custom Voice |
+| **Énoncés individuels + transcription correspondante** | Collection (.zip) de fichiers audio (.wav) correspondant à des énoncés individuels. Chaque fichier audio est limité à 15 secondes et est associé à une transcription formatée (.txt). | Enregistrements professionnels avec transcriptions correspondantes | Prêt pour l’entraînement. | Pas d’exigence spécifique pour les langues en-US et zh-CN. Plus de 2 000 énoncés distincts pour les autres paramètres régionaux. | Tous les paramètres régionaux de Custom Voice |
 | **Contenu audio long + transcription (bêta)** | Collection (.zip) de fichiers audio longs et non segmentés (plus de 20 secondes), associés à une transcription (.txt) qui contient tous les mots prononcés. | Vous disposez de fichiers audio et des transcriptions correspondantes, mais ils ne sont pas segmentés en énoncés. | Segmentation (à l’aide de la transcription Batch).<br>Transformation du format audio, si nécessaire. | Pas d’exigence spécifique pour les langues en-US et zh-CN. | `en-US` et `zh-CN` |
 | **Audio uniquement (bêta)** | Collection (.zip) de fichiers audio sans transcription. | Vous disposez uniquement de fichiers audio, sans transcriptions. | Segmentation + génération de transcriptions (à l’aide de la transcription Batch).<br>Transformation du format audio, si nécessaire.| Pas d’exigence précise pour `en-US` et `zh-CN`. | `en-US` et `zh-CN` |
 
@@ -72,7 +72,7 @@ Suivez ces recommandations pendant la préparation du contenu audio.
 
 ### <a name="transcripts"></a>Transcriptions
 
-Le fichier de transcription est un fichier texte brut. Suivez ces recommandations pour préparer votre transcriptions.
+Le fichier de transcription est un fichier texte brut. Suivez ces recommandations pour préparer votre transcription.
 
 | Propriété | Valeur |
 | -------- | ----- |
@@ -98,7 +98,7 @@ Il est important que les transcriptions soient parfaitement fidèles au contenu 
 Dans certains cas, vous n’aurez peut-être pas de contenu audio segmenté à disposition. Nous proposons un service (en version bêta) via le Custom Voice destiné à vous aider à segmenter les fichiers audio longs et à créer des transcriptions. Gardez à l’esprit que l’utilisation de ce service vous sera facturée au titre de votre abonnement de reconnaissance vocale.
 
 > [!NOTE]
-> Le service de segmentation de contenu audio de longue durée exploite la fonctionnalité de transcription Batch de la reconnaissance vocale, qui prend uniquement en charge les utilisateurs disposant d’un abonnement standard (S0). Pendant le traitement de la segmentation, vos fichiers audio et les transcriptions seront aussi être envoyés au service Custom Speech de façon à affiner le modèle de reconnaissance et ainsi améliorer la précision de vos données. Aucune donnée ne sera conservée pendant ce processus. À l’issue de la segmentation, seuls les énoncés segmentés et leurs transcriptions correspondantes seront stockés pour vos besoins de téléchargement et d’entraînement.
+> Le service de segmentation de contenu audio de longue durée exploite la fonctionnalité de transcription Batch de la reconnaissance vocale, qui prend uniquement en charge les utilisateurs disposant d’un abonnement standard (S0). Pendant le traitement de la segmentation, vos fichiers audio et les transcriptions seront aussi envoyés au service Custom Speech de façon à affiner le modèle de reconnaissance et ainsi améliorer la précision de vos données. Aucune donnée ne sera conservée pendant ce processus. À l’issue de la segmentation, seuls les énoncés segmentés et leurs transcriptions correspondantes seront stockés pour vos besoins de téléchargement et d’entraînement.
 
 ### <a name="audio-files"></a>Fichiers audio
 

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 05/30/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: cb2ca7229524cf8d84041140129c7b9ca6876ea3
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: 87216317a965e85d83aede468163f43b1716c45a
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66417811"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68827239"
 ---
 # <a name="prepare-azure-resources-for-disaster-recovery-of-on-premises-machines"></a>Préparer les ressources Azure pour la récupération d’urgence de machines locales
 
@@ -55,7 +55,7 @@ Pour effectuer ces tâches, le rôle prédéfini de contributeur de machines vir
 ## <a name="create-a-recovery-services-vault"></a>Créer un coffre Recovery Services
 
 1. Dans le portail Azure, cliquez sur **+ Créer une ressource** et recherchez **Recovery** dans la Place de marché.
-2. Cliquez sur **Backup and Site Recovery (OMS)** , puis dans la page éponyme, cliquez sur **Créer**. 
+2. Cliquez sur **Sauvegarde et Site Recovery**, puis dans la page éponyme, cliquez sur **Créer**. 
 1. Dans le **coffre Recovery Services** > **Nom**, entrez un nom convivial permettant d’identifier le coffre. Pour cette série de didacticiels, nous utilisons **ContosoVMVault**.
 2. Dans **Groupe de ressources**, sélectionnez un groupe de ressources existant ou créez-en un. Pour ce tutoriel, nous utilisons **contosoRG**.
 3. Dans **Emplacement**, sélectionnez la région dans laquelle le coffre doit se trouver. Nous utilisons **Europe Ouest**.

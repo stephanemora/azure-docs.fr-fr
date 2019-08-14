@@ -1,6 +1,6 @@
 ---
-title: Types d’entités
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Types d’entités - LUIS
+titleSuffix: Azure Cognitive Services
 description: 'Les entités extraient des données à partir de l’énoncé. Les types d’entités vous donnent une extraction prévisible des données. Il existe deux types d’entités : celles apprises par la machine et celles non apprises par la machine. Il est important de savoir avec quel type d’entité vous travaillez dans les énoncés.'
 services: cognitive-services
 author: diberry
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 06/12/2019
+ms.date: 07/24/2019
 ms.author: diberry
-ms.openlocfilehash: 628a96c4e912341226d67a7ed8f241194e7b7825
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9919b6d07e874bd306bdba9da2cd3357bedc48f0
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67080040"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564012"
 ---
 # <a name="entity-types-and-their-purposes-in-luis"></a>Types d’entités et leurs objectifs dans LUIS
 
@@ -90,20 +90,20 @@ Pour plus d’informations, voir [Prédictions de l’état de l’entité](luis
 
 LUIS offre de nombreux types d’entités. Choisissez l’entité en fonction de la façon dont les données doivent être extraites et être représentées une fois extraites.
 
-Les entités peuvent être extraites avec le machine learning, ce qui permet à LUIS de continuer à apprendre la façon dont elles apparaissent dans l’énoncé. Les entités peuvent être extraites sans machine learning, en établissant une correspondance soit avec un texte exact, soit avec une expression régulière. Les entités dans les modèles peuvent être extraites avec une implémentation mixte. 
+Les entités peuvent être extraites à l’aide d’un apprentissage automatique, ce qui permet à LUIS de continuer à apprendre la façon dont elles apparaissent dans l’énoncé. Les entités peuvent être extraites sans apprentissage automatique, en établissant une correspondance soit avec un texte exact, soit avec une expression régulière. Les entités dans les modèles peuvent être extraites avec une implémentation mixte. 
 
 Une fois que l’entité extraite, ses données peuvent être représentées comme une seule unité d’informations ou combinées avec d’autres entités pour former une unité d’informations que l’application cliente peut utiliser.
 
-|Appris par la machine|Peut marquer|Tutoriel|Exemples<br>Réponse|Type d’entité|Objectif|
+|Issue de l’apprentissage automatique|Peut marquer|Didacticiel|Exemples<br>response|Type d’entité|Objectif|
 |--|--|--|--|--|--|
 |✔|✔|[✔](luis-tutorial-composite-entity.md)|[✔](luis-concept-data-extraction.md#composite-entity-data)|[**Composite**](#composite-entity)|Regroupement d’entités, quel que soit le type d’entité.|
 |||[✔](luis-quickstart-intent-and-list-entity.md)|[✔](luis-concept-data-extraction.md#list-entity-data)|[**Liste**](#list-entity)|Liste d’éléments et de leurs synonymes extraits avec une correspondance de texte exact.|
 |Mixte||[✔](luis-tutorial-pattern.md)|[✔](luis-concept-data-extraction.md#patternany-entity-data)|[**Pattern.any**](#patternany-entity)|Entité dont la fin est difficile à déterminer.|
-|||[✔](luis-tutorial-prebuilt-intents-entities.md)|[✔](luis-concept-data-extraction.md#prebuilt-entity-data)|[**Prédéfinie**](#prebuilt-entity)|Déjà entraînée pour extraire différents types de données.|
+|||[✔](luis-tutorial-prebuilt-intents-entities.md)|[✔](luis-concept-data-extraction.md#prebuilt-entity-data)|[**Prédéfinie**](#prebuilt-entity)|Déjà formée pour extraire différents types de données.|
 |||[✔](luis-quickstart-intents-regex-entity.md)|[✔](luis-concept-data-extraction.md#regular-expression-entity-data)|[**Expression régulière**](#regular-expression-entity)|Utilise une expression régulière pour établir une correspondance de texte.|
 |✔|✔|[✔](luis-quickstart-primary-and-secondary-data.md)|[✔](luis-concept-data-extraction.md#simple-entity-data)|[**Simple**](#simple-entity)|Contient un concept unique dans un mot ou une expression.|
 
-Seules les entités apprises par la machine doivent être marquées dans les exemples d’énoncés. Les entités apprises par la machine fonctionnent mieux quand elles sont testées via des [requêtes du point de terminaison](luis-concept-test.md#endpoint-testing) et [l’examen des énoncés du point de terminaison](luis-how-to-review-endoint-utt.md). 
+Seules les entités apprises par la machine doivent être marquées dans les exemples d’énoncés. Les entités issues de l’apprentissage automatique fonctionnent mieux quand elles sont testées via des [requêtes du point de terminaison](luis-concept-test.md#endpoint-testing) et [l’examen des énoncés du point de terminaison](luis-how-to-review-endoint-utt.md). 
 
 Les entités pattern.any doivent être marquées dans les exemples de modèles [Pattern](luis-how-to-model-intent-pattern.md), et non dans les exemples d’utilisateurs d’intention. 
 
@@ -135,59 +135,15 @@ Si vous avez une entité non apprise par la machine, par exemple une [entité pr
 
 ## <a name="composite-entity"></a>Entité composite
 
-Une entité composite est constituée d’autres entités (prédéfinies, simples, expressions régulières et listes). Les entités distinctes forment une entité entière. 
-
-Cette entité convient bien lorsque les données :
-
-* Sont associées. 
-* Sont liés l’un à l’autre dans le contexte de l’énoncé.
-* Utilisent divers types d’entités.
-* Doivent être regroupées et traitées par l’application cliente en tant qu’unité d’informations.
-* Ont divers énoncés d’utilisateur nécessitant le machine learning.
-
-![entité composite](./media/luis-concept-entities/composite-entity.png)
-
-[Tutoriel](luis-tutorial-composite-entity.md)<br>
-[Exemple de réponse JSON pour une entité](luis-concept-data-extraction.md#composite-entity-data)<br>
+Une [entité composite](reference-entity-composite.md) est constituée d’autres entités (prédéfinies, simples, expressions régulières et listes). Les entités distinctes forment une entité entière. 
 
 ## <a name="list-entity"></a>Entité de liste
 
-Les entités de liste représentent un ensemble fixe, fermé de mots associés, ainsi que leurs synonymes. LUIS ne détecte pas les valeurs supplémentaires pour les entités de liste. Utilisez la fonctionnalité **Recommander** pour trouver des suggestions de nouveaux mots à partir de la liste actuelle. S’il existe plusieurs entités de liste avec la même valeur, chaque entité est retournée dans la requête du point de terminaison. 
-
-L’entité convient bien lorsque les données de texte :
-
-* Sont un ensemble connu.
-* Ne changent pas souvent. Si vous avez besoin de modifier la liste souvent ou si vous souhaitez que la liste se développe automatiquement, une entité simple améliorée avec une liste d’expressions est un meilleur choix. 
-* L’ensemble ne dépasse pas les [limites](luis-boundaries.md) maximum de LUIS pour ce type d’entité.
-* Le texte de l’énoncé est une correspondance exacte avec un synonyme ou le nom canonique. LUIS n’utilise pas la liste au-delà des correspondances de texte exactes. Une simple entité de liste ne suffit pas pour résoudre la correspondance approximative, la recherche de radicaux, de pluriels et d’autres variantes. Pour gérer les variantes, envisagez d’utiliser un [modèle](luis-concept-patterns.md#syntax-to-mark-optional-text-in-a-template-utterance) avec la syntaxe de texte facultative.
-
-![entité de liste](./media/luis-concept-entities/list-entity.png)
-
-[Tutoriel](luis-quickstart-intent-and-list-entity.md)<br>
-[Exemple de réponse JSON pour une entité](luis-concept-data-extraction.md#list-entity-data)
+Les [entités de liste](reference-entity-list.md) représentent un ensemble fixe, fermé de mots associés, ainsi que leurs synonymes. LUIS ne détecte pas les valeurs supplémentaires pour les entités de liste. Utilisez la fonctionnalité **Recommander** pour trouver des suggestions de nouveaux mots à partir de la liste actuelle. S’il existe plusieurs entités de liste avec la même valeur, chaque entité est retournée dans la requête du point de terminaison. 
 
 ## <a name="patternany-entity"></a>Entité Pattern.any
 
-Pattern.any est un espace réservé à longueur variable utilisé uniquement dans le gabarit d’énoncé d’un modèle pour marquer où l’entité commence et se termine.  
-
-L’entité convient bien quand :
-
-* La fin de l’entité peut être confondue avec le reste du texte de l’énoncé. 
-[Tutoriel](luis-tutorial-pattern.md)<br>
-[Exemple de réponse JSON pour une entité](luis-concept-data-extraction.md#patternany-entity-data)
-
-**Exemple**  
-Si une application cliente recherche des livres en fonction du titre, pattern.any extrait le titre complet. Un modèle d’énoncé utilisant pattern.any pour cette recherche de livre est `Was {BookTitle} written by an American this year[?]`. 
-
-Dans le tableau suivant, chaque ligne contient deux versions de l’énoncé. L’énoncé du haut est la manière dont LUIS voit initialement l’énoncé, où il est difficile de déterminer où le titre du livre commence et finit. L’énoncé du bas est la manière dont LUIS reconnaîtra le titre du livre quand un modèle sera en place pour l’extraction. 
-
-|Énoncé|
-|--|
-|L’Homme qui prenait sa femme pour un chapeau a-t-il été écrit par un Americain cette année ?<br><br>**L’Homme qui prenait sa femme pour un chapeau** a-t-il été écrit par un Americain cette année ?|
-|Nature morte avec pivert a-t-il été par un Américain cette année ?<br><br>**Nature morte avec pivert** a-t-il été par un Américain cette année ?|
-|La singulière tristesse du gâteau au citron : est-il un roman écrit par un Américain cette année ?<br><br>La **singulière tristesse du gâteau au citron** est-il un roman écrit par un Américain cette année ?|
-|Le Petit Prince a-t-il été écrit par un Américain cette année ?<br><br>**Le Petit Prince** a-t-il été écrit par un Américain cette année ?|
-||
+[Pattern.any](reference-entity-pattern-any.md) est un espace réservé à longueur variable utilisé uniquement dans le gabarit d’énoncé d’un modèle pour marquer où l’entité commence et se termine.  
 
 ## <a name="prebuilt-entity"></a>Entité prédéfinie
 
@@ -201,7 +157,7 @@ Des entités prédéfinies peuvent être ajoutées et supprimées à tout moment
 
 ![Entité prédéfinie Number (nombre)](./media/luis-concept-entities/number-entity.png)
 
-[Tutoriel](luis-tutorial-prebuilt-intents-entities.md)<br>
+[Didacticiel](luis-tutorial-prebuilt-intents-entities.md)<br>
 [Exemple de réponse JSON pour une entité](luis-concept-data-extraction.md#prebuilt-entity-data)
 
 Certaines de ces entités prédéfinies dans le projet open source [Recognizers-Text](https://github.com/Microsoft/Recognizers-Text). Si votre culture ou entité spécifique n’est pas encore prise en charge, vous pouvez contribuer au projet. 
@@ -235,48 +191,16 @@ Votre premier choix consiste à supprimer l’exemple d’énoncé.
 
 1. Supprimez l’entité prédéfinie de l’application. 
 1. Dans la page **Intention**, marquez l’entité personnalisée dans l’exemple d’énoncé.
-1. Effectuez l’entraînement de l’application.
+1. Effectuez l’apprentissage de l’application.
 1. Rajoutez l’entité prédéfinie à l’application et effectuez un nouvel entraînement de l’application. Ce correctif part du principe que l’entité prédéfinie ne fait pas partie d’une entité composite.
 
 ## <a name="regular-expression-entity"></a>Entité d’expression régulière 
 
-Une expression régulière est préférable à un texte d’énoncé brut. Elle ignore la casse et la variante culturelle.  La correspondance d’expression régulière est appliquée après les modifications de la vérification orthographique au niveau du caractère, et non au niveau du jeton. Si l’expression régulière est trop complexe (par exemple, si elle utilise de nombreux crochets), vous ne pouvez pas l’ajouter au modèle. Utilise une partie seulement de la bibliothèque [.Net Regex](https://docs.microsoft.com/dotnet/standard/base-types/regular-expressions). 
+Une [entité d’expression régulière](reference-entity-regular-expression.md) extrait une entité en fonction du modèle d’expression régulière que vous fournissez.
 
-L’entité convient bien quand :
+## <a name="simple-entity"></a>Entité simple
 
-* Les données sont constamment mis en forme avec toute variation également cohérente.
-* L’expression régulière n’a pas besoin de plus de 2 niveaux d’imbrication. 
-
-![Entité d’expression régulière](./media/luis-concept-entities/regex-entity.png)
-
-[Tutoriel](luis-quickstart-intents-regex-entity.md)<br>
-[Exemple de réponse JSON pour une entité](luis-concept-data-extraction.md#regular-expression-entity-data)<br>
-
-Les expressions régulières peuvent correspondre à plus que ce à quoi vous vous attendez. La correspondance de mots numériques comme `one` et `two` en est un exemple. L’expression régulière suivante, qui fait correspondre le nombre `one` avec d’autres nombres, en est un exemple :
-
-```javascript
-(plus )?(zero|one|two|three|four|five|six|seven|eight|nine)(\s+(zero|one|two|three|four|five|six|seven|eight|nine))*
-``` 
-
-Cette expression régulière fait également correspondre les mots qui se terminent par ces nombres, comme `phone`. Pour résoudre les problèmes de ce type, veillez à ce que les correspondances des expressions régulières prennent en compte les limites des mots. L’expression régulière pour utiliser les limites des mots pour cet exemple est utilisée dans l’expression régulière suivante :
-
-```javascript
-\b(plus )?(zero|one|two|three|four|five|six|seven|eight|nine)(\s+(zero|one|two|three|four|five|six|seven|eight|nine))*\b
-```
-
-## <a name="simple-entity"></a>Entité simple 
-
-Une entité simple est une entité générique qui décrit un concept unique et est apprise à partir d’un contexte appris par la machine. Les entités simples étant généralement des noms tels que des noms de société, des noms de produits ou d’autres catégories de noms, ajoutez une [liste de phrases](luis-concept-feature.md) lorsque vous utilisez une entité simple pour renforcer le signal des noms utilisés. 
-
-L’entité convient bien quand :
-
-* Les données ne sont mises en forme de façon cohérente, mais indiquent la même chose. 
-
-![entité simple](./media/luis-concept-entities/simple-entity.png)
-
-[Tutoriel](luis-quickstart-primary-and-secondary-data.md)<br/>
-[Exemple de réponse pour l’entité](luis-concept-data-extraction.md#simple-entity-data)<br/>
-
+Une [entité simple](reference-entity-simple.md) est une valeur issue du Machine Learning. Il peut s’agir d’un mot ou d’une expression.
 ## <a name="entity-limits"></a>Limites de l’entité
 
 Consultez les [limites](luis-boundaries.md#model-boundaries) pour comprendre le nombre de chaque type d’entité que vous pouvez ajouter à un modèle.
@@ -287,7 +211,7 @@ Vous devrez peut-être utiliser des entités composites conjointement avec des r
 
 Les entités composites représentent les parties d’un ensemble. Par exemple, une entité composite nommée PlaneTicketOrder peut avoir les entités enfants Airline, Destination, DepartureCity, DepartureDate et PlaneTicketClass.
 
-LUIS fournit également le type d’entité de liste qui n’est pas appris par la machine, mais qui permet à votre application LUIS de spécifier une liste fixe de valeurs. Consultez les [Limites de LUIS](luis-boundaries.md) pour passer en revue les limites du type d’entité de liste. 
+LUIS fournit également le type d’entité de liste qui n’est pas issu de l’apprentissage automatique, mais qui permet à votre application LUIS de spécifier une liste fixe de valeurs. Consultez les [Limites de LUIS](luis-boundaries.md) pour passer en revue les limites du type d’entité de liste. 
 
 Si vous avez envisagé ces entités mais que vous avez besoin d’aller au-delà de la limite, contactez le support technique. Pour cela, rassemblez des informations détaillées sur votre système, accédez au site web [LUIS](luis-reference-regions.md#luis-website), puis sélectionnez **Support**. Si votre abonnement Azure comprend des services de support, contactez le [support technique Azure](https://azure.microsoft.com/support/options/). 
 

@@ -51,7 +51,9 @@ sections:
       - type: list
         style: unordered
         items:
-          - html: <a href="tutorial.md">Lancer le lecteur immersif à l’aide de Node.js</a>
+          - html: <a href="tutorial-nodejs.md">Lancer le lecteur immersif avec Node.js</a>
+          - html: <a href="tutorial-python.md">Lancer le lecteur immersif avec Python</a>
+          - html: <a href="tutorial-ios-picture-immersive-reader.md">Lancer le lecteur immersif avec Swift</a>
   - title: Informations de référence
     items:
       - type: list

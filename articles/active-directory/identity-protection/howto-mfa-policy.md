@@ -4,23 +4,25 @@ description: Découvrez comment configurer la stratégie d’inscription d’aut
 services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/01/2019
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 434d07163713a139b42a5dbe1664f81dafc2a1ca
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 27ff7512bb3f9422ed4c8edd7ab50fce23f0ed07
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67108935"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68499558"
 ---
 # <a name="how-to-configure-the-azure-multi-factor-authentication-registration-policy"></a>Procédure : Configurer la stratégie d’inscription de l’authentification multifacteur Azure
 
-Azure AD Identity Protection vous permet de gérer le déploiement de l’inscription de l’authentification multifacteur (MFA) en configurant une stratégie d’accès conditionnel dans le but de demander une inscription MFA, quelle que soit l’application à laquelle vous vous connectez. Cet article explique ce que cette stratégie permet de faire et comment la configurer.
+Azure AD Identity Protection vous permet de gérer le déploiement de l’inscription de l’authentification multifacteur (MFA) en configurant une stratégie d’accès conditionnel dans le but de demander une inscription MFA, quelle que soit l’application avec authentification moderne à laquelle vous vous connectez. Cet article explique ce que cette stratégie permet de faire et comment la configurer.
+
+
 
 ## <a name="what-is-the-azure-multi-factor-authentication-registration-policy"></a>Qu’est-ce qu’une stratégie d’inscription d’authentification multifacteur ?
 
@@ -58,6 +60,8 @@ Lorsque vous configurez la stratégie d’inscription MFA, vous devez apporter 
 - **Enregistrez** votre stratégie.
 
 ## <a name="user-experience"></a>Expérience utilisateur
+
+Azure Active Directory Identity Protection invite vos utilisateurs à s’inscrire la prochaine fois qu’ils se connectent de façon interactive.
 
 Pour une obtenir une vue d’ensemble de l’expérience utilisateur, consultez :
 

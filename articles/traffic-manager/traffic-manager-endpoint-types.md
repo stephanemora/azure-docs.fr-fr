@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/29/2017
 ms.author: allensu
-ms.openlocfilehash: 469b6543b380cb6b3b10c3def8484bed944f8556
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1b72fc510543ff57f5fac1b03e76df7ffed3fbfe
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67071206"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68333827"
 ---
 # <a name="traffic-manager-endpoints"></a>Points de terminaison Traffic Manager
 
@@ -91,6 +91,17 @@ Pour plus d’informations, consultez la rubrique relative à la [surveillance d
 
 Si tous les points de terminaison d’un profil sont désactivés, ou si le profil lui-même est désactivé, Traffic Manager envoie une réponse NXDOMAIN à une nouvelle requête DNS.
 
+## <a name="faqs"></a>FAQ
+
+* [Puis-je utiliser Traffic Manager avec des points de terminaison de plusieurs abonnements ?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-use-traffic-manager-with-endpoints-from-multiple-subscriptions)
+
+* [Puis-je utiliser Traffic Manager avec les emplacements intermédiaires de services cloud ?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-use-traffic-manager-with-cloud-service-staging-slots)
+
+* [Traffic Manager prend-il en charge les points de terminaison IPv6 ?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#does-traffic-manager-support-ipv6-endpoints)
+
+* [Puis-je utiliser Traffic Manager avec plusieurs applications web dans la même région ?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-use-traffic-manager-with-more-than-one-web-app-in-the-same-region)
+
+* [Comment déplacer les points de terminaison Azure de mon profil Traffic Manager vers un autre groupe de ressources ?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-do-i-move-my-traffic-manager-profiles-azure-endpoints-to-a-different-resource-group)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

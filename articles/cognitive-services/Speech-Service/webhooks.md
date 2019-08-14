@@ -1,6 +1,6 @@
 ---
-title: Webhooks – Services Speech
-titlesuffix: Azure Cognitive Services
+title: Webhooks – Service Speech
+titleSuffix: Azure Cognitive Services
 description: Les webhooks sont des rappels HTTP parfaits pour optimiser votre solution quand vous avez affaire à des traitements de longue durée comme les importations, les adaptations, les tests de précision ou les transcriptions de fichiers volumineux.
 services: cognitive-services
 author: PanosPeriorellis
@@ -8,15 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 04/11/2019
+ms.date: 07/05/2019
 ms.author: panosper
-ms.custom: seodec18
-ms.openlocfilehash: fbe6fe25b5ff0cd5148e3bba22dec4648399510d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3d07e540bf88c956f61b5d3b2a98702cad616985
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67072309"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68558805"
 ---
 # <a name="webhooks-for-speech-services"></a>Webhooks pour Speech Services
 
@@ -24,7 +23,7 @@ Les webhooks sont comparables à des rappels HTTP qui permettent à votre applic
 
 ## <a name="supported-operations"></a>Opérations prises en charge
 
-Speech Services prend en charge les webhooks pour toutes les opérations de longue durée. Chacune des opérations listées ci-dessous peut déclencher un rappel HTTP une fois qu’elle a abouti. 
+Speech Services prend en charge les webhooks pour toutes les opérations de longue durée. Chacune des opérations listées ci-dessous peut déclencher un rappel HTTP une fois qu’elle a abouti.
 
 * DataImportCompletion
 * ModelAdaptationCompletion
@@ -37,7 +36,7 @@ Maintenant, créons un webhook.
 
 ## <a name="create-a-webhook"></a>Créer un webhook
 
-Nous allons créer un webhook pour une transcription en mode hors connexion. Le scénario : un utilisateur dispose d’un fichier audio de longue durée qu’il souhaite transcrire de façon asynchrone avec l’API de transcription Batch. 
+Nous allons créer un webhook pour une transcription en mode hors connexion. Le scénario : un utilisateur dispose d’un fichier audio de longue durée qu’il souhaite transcrire de façon asynchrone avec l’API de transcription Batch.
 
 Des webhooks peuvent être créés en adressant une requête POST à https://\<région\>.cris.ai/api/speechtotext/v2.1/transcriptions/hooks.
 
@@ -65,7 +64,7 @@ Toutes les requêtes POST adressées à l’API de transcription Batch nécessit
 
 La propriété `Active` sert à activer et à désactiver le rappel dans votre URL sans avoir à supprimer et recréer l’inscription du webhook. Si vous n’avez besoin que d’un seul rappel à l’issue du processus, supprimez le webhook et définissez la propriété `Active` sur false.
 
-Le type d’événement `TranscriptionCompletion` est fourni dans le tableau des événements. Il rappelle votre point de terminaison quand une transcription obtient un état terminal (`Succeeded` ou `Failed`). Quand le rappel s’adresse à l’URL inscrite, la requête comporte un en-tête `X-MicrosoftSpeechServices-Event` contenant un des types d’événement inscrits. À chaque type d’événement inscrit correspond une requête. 
+Le type d’événement `TranscriptionCompletion` est fourni dans le tableau des événements. Il rappelle votre point de terminaison quand une transcription obtient un état terminal (`Succeeded` ou `Failed`). Quand le rappel s’adresse à l’URL inscrite, la requête comporte un en-tête `X-MicrosoftSpeechServices-Event` contenant un des types d’événement inscrits. À chaque type d’événement inscrit correspond une requête.
 
 Il y a un type d’événement auquel vous ne vous pouvez pas vous abonner. Il s’agit du type d’événement `Ping`. Une requête associée à ce type est envoyée à l’URL une fois qu’un webhook est créé et que l’URL ping est utilisée (voir ci-dessous).  
 
@@ -94,7 +93,7 @@ public async Task<IActionResult> PostAsync([FromHeader(Name = EventTypeHeaderNam
             var validated = contentHash.SequenceEqual(storedHash);
         }
     }
- 
+
     switch (eventTypeHeader)
     {
         case WebHookEventType.Ping:
@@ -106,7 +105,7 @@ public async Task<IActionResult> PostAsync([FromHeader(Name = EventTypeHeaderNam
         default:
             break;
     }
- 
+
     return this.Ok();
 }
 
@@ -121,12 +120,12 @@ Pour obtenir un webhook spécifique : GET https://westus.cris.ai/api/speechtote
 
 Pour supprimer un webhook spécifique : DELETE https://westus.cris.ai/api/speechtotext/v2.1/transcriptions/hooks/:id
 
-> [!Note] 
+> [!Note]
 > Dans l’exemple ci-dessus, la région est « westus ». Cette valeur doit être remplacée par la région dans laquelle vous avez créé votre ressource Speech Services sur le portail Azure.
 
 POST https://westus.cris.ai/api/speechtotext/v2.1/transcriptions/hooks/:id/ping Body : empty
 
-Envoie une requête POST à l’URL inscrite. La requête contient un en-tête `X-MicrosoftSpeechServices-Event` avec une valeur ping. Si le webhook a été inscrit avec un secret, il contient un en-tête `X-MicrosoftSpeechServices-Signature` avec un hachage SHA256 de la charge utile, le secret étant une clé HMAC. Le hachage est encodé en Base64. 
+Envoie une requête POST à l’URL inscrite. La requête contient un en-tête `X-MicrosoftSpeechServices-Event` avec une valeur ping. Si le webhook a été inscrit avec un secret, il contient un en-tête `X-MicrosoftSpeechServices-Signature` avec un hachage SHA256 de la charge utile, le secret étant une clé HMAC. Le hachage est encodé en Base64.
 
 POST https://westus.cris.ai/api/speechtotext/v2.1/transcriptions/hooks/:id/test Body : empty
 

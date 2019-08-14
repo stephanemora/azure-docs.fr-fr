@@ -1,24 +1,24 @@
 ---
-title: Sauvegarder des bases de données SQL Server dans Azure | Microsoft Docs
-description: Ce tutoriel explique comment sauvegarder SQL Server avec Azure,
+title: Tutoriel - Sauvegarder des bases de données SQL Server sur Azure
+description: Ce tutoriel explique comment sauvegarder SQL Server avec Azure.
 author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: tutorial
 ms.date: 06/18/2019
 ms.author: dacurwin
-ms.openlocfilehash: 99e1e8194594d204a5080287794362dbe028a1f5
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 729eb0d77cee85356e359dc475f4e439b8236ebb
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688417"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736568"
 ---
-# <a name="back-up-sql-server-databases-in-azure-vms"></a>Sauvegarder des bases de données SQL Server sur des machines virtuelles Azure
+# <a name="back-up-a-sql-server-database-in-an-azure-vm"></a>Sauvegarder une base de données SQL Server dans une machine virtuelle Azure
 
 
 
-Cet article vous explique comment sauvegarder dans un coffre Recovery Services de la sauvegarde Azure une base de données SQL Server s’exécutant sur une machine virtuelle Azure. Dans cet article, vous apprendrez comment :
+Ce tutoriel vous explique comment sauvegarder, dans un coffre Recovery Services de la sauvegarde Azure, une base de données SQL Server s’exécutant sur une machine virtuelle Azure. Dans cet article, vous apprendrez comment :
 
 > [!div class="checklist"]
 > * Créer et configurer un coffre

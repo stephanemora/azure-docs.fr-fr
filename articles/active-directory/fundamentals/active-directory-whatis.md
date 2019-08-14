@@ -10,12 +10,12 @@ ms.date: 07/31/2019
 ms.author: ajburnle
 ms.custom: it-pro, seodec18, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c3087f0ac69126c6d509eee77abe15cc35319dfb
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: eda457747a6a3e374e7fdea571f64446e15ded21
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68693916"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68774176"
 ---
 # <a name="what-is-azure-active-directory"></a>Qu’est-ce qu’Azure Active Directory ?
 
@@ -33,7 +33,7 @@ Azure AD s’adresse aux utilisateurs suivants :
 
 - **Les administrateurs informatiques.** En tant qu’administrateur informatique, vous pouvez utiliser Azure AD pour contrôler l’accès à vos applications et à leurs ressources en fonction des besoins de votre entreprise. Par exemple, vous pouvez utiliser Azure AD pour exiger que l’accès aux ressources importantes de l’organisation soit soumis à l’authentification multifacteur. Vous pouvez également utiliser Azure AD pour automatiser le provisionnement des utilisateurs entre votre AD Windows Server existant et vos applications cloud, notamment Office 365. Azure AD vous offre enfin des outils puissants pour vous aider à protéger automatiquement les identités et informations d’identification des utilisateurs et à répondre à vos exigences en matière de gouvernance. Pour commencer, inscrivez-vous pour [essayer gratuitement Azure Active Directory Premium pendant 30 jours](https://azure.microsoft.com/trial/get-started-active-directory/).
 
-- **Les développeurs d’applications.** En tant que développeur d’applications, Azure AD vous permet de suivre une approche normalisée pour ajouter l’authentification unique à votre application, laquelle peut alors fonctionner avec les informations d’identification existantes d’un utilisateur. Azure AD fournit également des API qui peuvent vous aider à créer des expériences d’application personnalisées qui utilisent des données organisationnelles existantes. Pour commencer, inscrivez-vous pour [essayer gratuitement Azure Active Directory Premium pendant 30 jours](https://azure.microsoft.com/trial/get-started-active-directory/). Pour plus d’informations, vous pouvez également consulter [Azure Active Directory pour les développeurs](../develop/index.yml).
+- **Les développeurs d’applications.** En tant que développeur d’applications, vous pouvez utiliser Azure AD dans le cadre d’une approche normalisée pour ajouter l’authentification unique à votre application, laquelle peut alors fonctionner avec les informations d’identification existantes d’un utilisateur. Azure AD fournit également des API qui peuvent vous aider à créer des expériences d’application personnalisées qui utilisent des données organisationnelles existantes. Pour commencer, inscrivez-vous pour [essayer gratuitement Azure Active Directory Premium pendant 30 jours](https://azure.microsoft.com/trial/get-started-active-directory/). Pour plus d’informations, vous pouvez également consulter [Azure Active Directory pour les développeurs](../develop/index.yml).
 
 - **Les abonnées à Microsoft 365, Office 365, Azure ou Dynamics CRM Online.** En tant qu’abonné, vous utilisez déjà Azure AD. Chaque locataire Microsoft 365, Office 365, Azure et Dynamics CRM Online est automatiquement un locataire Azure AD. Vous pouvez immédiatement commencer à gérer l’accès à vos applications cloud intégrées.
 

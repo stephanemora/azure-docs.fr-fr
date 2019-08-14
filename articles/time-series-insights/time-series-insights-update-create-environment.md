@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: tutorial
 ms.date: 07/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: b462f0c427020b1422b91fbd7ac34e3023e546b8
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 998471d99a785eeff39ef7c99e60e1d9b49e0d7a
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68677876"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68725830"
 ---
 # <a name="tutorial-set-up-an-azure-time-series-insights-preview-environment"></a>Tutoriel : Configurer un environnement Azure Time Series Insights (préversion)
 
@@ -62,7 +62,7 @@ Dans cette section, vous créez trois appareils simulés qui envoient des donné
 
     [![Page pour créer une solution de simulation d’appareil](media/v2-update-provision/device-two-create.png)](media/v2-update-provision/device-two-create.png#lightbox)
 
-## <a name="create-a-time-series-insights-preview-payg-environment"></a>Créer un environnement Time Series Insights (préversion) avec paiement à l'utilisation
+## <a name="create-a-preview-payg-environment"></a>Créer un environnement PAYG (préversion)
 
 Cette section décrit comment créer un environnement Azure Time Series Insights (préversion) et le connecter à l’IoT hub créé par l’accélérateur de solution IoT à l’aide du [portail Azure](https://portal.azure.com/).
 
@@ -130,7 +130,9 @@ Cette section décrit comment créer un environnement Azure Time Series Insights
 
    Si vos informations d’identification ne sont pas listées, vous devez vous octroyer l’autorisation d’accéder à l’environnement. Pour en savoir plus sur la définition des autorisations, consultez [Octroyer l’accès aux données](./time-series-insights-data-access.md).
 
-## <a name="stream-data-into-your-environment"></a>Diffusion de données dans votre environnement
+## <a name="stream-data"></a>Transmettre des données en continu
+
+Maintenant que vous avez déployé votre environnement Time Series Insights, transmettez-lui des données en continu pour analyse.
 
 1. Revenez à la [page des accélérateurs de solution Azure IoT](https://www.azureiotsolutions.com/Accelerators). Localisez votre solution dans votre tableau de bord d’accélérateur de solution. Sélectionnez ensuite **Launch** (Lancer) :
 
@@ -158,7 +160,7 @@ Cette section décrit comment créer un environnement Azure Time Series Insights
 
     [![Tableau de bord Simulation Azure IoT](media/v2-update-provision/device-seven-dashboard.png)](media/v2-update-provision/device-seven-dashboard.png#lightbox)
 
-## <a name="analyze-data-in-your-environment"></a>Analyser les données dans votre environnement
+## <a name="analyze-data"></a>Analyser des données
 
 Dans cette section, vous procédez à l'analyse de base de vos données de séries chronologiques à l'aide de [l'explorateur Azure Time Series Insights (préversion)](./time-series-insights-update-explorer.md).
 
@@ -332,7 +334,7 @@ Dans cette section, vous appliquez un modèle pour structurer vos données. Pour
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
-Maintenant que vous avez terminé le tutoriel, nettoyez les ressources que vous avez créées :
+Maintenant que vous avez terminé le didacticiel, nettoyez les ressources que vous avez créées :
 
 1. Dans le menu de gauche du [portail Azure](https://portal.azure.com), sélectionnez **Toutes les ressources**, puis votre groupe de ressources Azure Time Series Insights.
 1. Vous pouvez supprimer l’intégralité du groupe de ressources (et toutes les ressources qu’il contient) en sélectionnant **Supprimer** ou supprimer chaque ressource individuellement.

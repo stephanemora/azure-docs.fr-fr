@@ -1,21 +1,21 @@
 ---
-title: Bien démarrer avec Custom Speech – Speech Services
-titlesuffix: Azure Cognitive Services
-description: Custom Speech est un ensemble d’outils en ligne qui vous permet d’évaluer et d’améliorer la précision de la reconnaissance vocale de Microsoft pour vos applications, outils et produits. Pour bien démarrer, il vous suffit de quelques fichiers audio de test. Suivez les liens ci-dessous pour commencer à créer une expérience de reconnaissance vocale personnalisée.
+title: Prise en main de Custom Speech – Service Speech
+titleSuffix: Azure Cognitive Services
+description: Custom Speech est un ensemble d’outils en ligne qui vous permet d’évaluer et d’améliorer la précision de notre reconnaissance vocale pour vos applications, outils et produits. Pour bien démarrer, il vous suffit de quelques fichiers audio de test. Suivez les liens ci-dessous pour commencer à créer une expérience de reconnaissance vocale personnalisée.
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: f9b9fc0a2939f601cbddafb6ac400130e794da2b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a5ced51eabe708dc7883fc91e5b6fa67f9211381
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67060887"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559643"
 ---
 # <a name="what-is-custom-speech"></a>Qu’est-ce que Custom Speech ?
 

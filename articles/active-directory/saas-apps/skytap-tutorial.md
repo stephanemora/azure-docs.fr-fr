@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/08/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6eb4ce8cbbfec58d9c7980954691fd6c71266d23
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 7eae1c9a42547c73cc42868bac1f1f484b6354fa
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67588034"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68717413"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skytap"></a>Didacticiel : Intégration d'Azure Active Directory à Skytap
 
@@ -191,7 +191,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 ### <a name="create-skytap-test-user"></a>Créer un utilisateur de test Skytap
 
-Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans Skytap. Collaborez avec l' [équipe du support technique de Skytap](mailto:support@skytap.com) pour ajouter des utilisateurs à la plateforme Skytap. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
+Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans Skytap. Tout administrateur ou gestionnaire d’utilisateur au sein d’un compte Skytap peut créer des utilisateurs. Pour plus d’informations sur la façon de procéder, consultez les fichiers d’aide de Skytap : https://help.skytap.com/users-create.html
 
 ### <a name="test-single-sign-on"></a>Tester l’authentification unique 
 

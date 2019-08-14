@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e15cf9b2e10a581c72a5035b52be47c3e2c9dfda
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 05c93c9fe2b34ae3b87c44608cc5c5c8947ecc73
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67112337"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68499854"
 ---
 # <a name="configure-authentication-session-management-with-conditional-access"></a>Configurer la gestion de session d’authentification avec l’accès conditionnel
 
@@ -39,7 +39,7 @@ La configuration par défaut d’Azure Active Directory (Azure AD) pour la fréq
 
 Il peut paraître alarmant de ne pas demander à un utilisateur de se reconnecter pendant 90 jours, en réalité toute violation des stratégies informatiques révoquera la session. Certains exemples incluent (mais ne sont pas limités à) une modification de mot de passe, un appareil non conforme ou une désactivation de compte. Vous pouvez aussi explicitement [révoquer les sessions des utilisateurs avec PowerShell](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0). La configuration Azure AD par défaut se résume à « ne pas demander aux utilisateurs de fournir leurs informations d’identification si l’état de la sécurité de leurs sessions n’a pas changé ».
 
-Le paramètre de fréquence de connexion fonctionne avec les applications qui ont implémenté les protocoles OATH2 ou OIDC selon les normes. La plupart des applications natives de Microsoft pour Windows, Mac et Mobile sont conformes au paramètre.
+Le paramètre de fréquence de connexion fonctionne avec les applications qui ont implémenté les protocoles OAUTH2 ou OIDC conformément aux standards. La plupart des applications natives de Microsoft pour Windows, Mac et Mobile sont conformes au paramètre.
 
 ## <a name="persistence-of-browsing-sessions"></a>Persistance des sessions de navigation
 

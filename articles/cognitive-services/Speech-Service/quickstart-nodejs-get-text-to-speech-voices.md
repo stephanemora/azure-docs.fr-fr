@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Lister les voix de la synthèse vocale, Node.js – Speech Services'
+title: 'Démarrage rapide : Répertorier les voix de la synthèse vocale, Node.js – Service Speech'
 titleSuffix: Azure Cognitive Services
 description: Dans ce guide de démarrage rapide, vous allez apprendre à obtenir la liste complète des voix standard et neuronales pour une région/un point de terminaison avec Node.js. La liste est retournée au format JSON, et la disponibilité des voix varie selon la région.
 services: cognitive-services
@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 04/02/2019
+ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 08936ca0fe2fe10c332df146edd541c75df325e0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1044519110d8b0ae7b5a50860c8116d73b6b70bc
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67067574"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559378"
 ---
 # <a name="quickstart-get-the-list-of-text-to-speech-voices-using-nodejs"></a>Démarrage rapide : Obtenir la liste des voix de synthèse vocale à l’aide de Node.js
 

@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Wandera | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Wandera | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Wandera.
 services: active-directory
 documentationCenter: na
@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 07/04/2019
+ms.date: 07/30/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e556ce95107e820dc04d34c05bea3a2840aab7e8
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: d4f5004571c849d90b7d811906684e66c10ee487
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67798550"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68825285"
 ---
-# <a name="tutorial-integrate-wandera-with-azure-active-directory"></a>Didacticiel : Intégrer Wandera à Azure Active Directory
+# <a name="tutorial-integrate-wandera-with-azure-active-directory"></a>Tutoriel : Intégrer Wandera à Azure Active Directory
 
 Dans ce tutoriel, vous allez apprendre à intégrer Wandera à Azure Active Directory (Azure AD). Quand vous intégrez Wandera à Azure AD, vous pouvez :
 
@@ -37,7 +37,7 @@ Pour en savoir plus sur l’intégration des applications SaaS à Azure AD, cons
 
 Pour commencer, vous devez disposer de ce qui suit :
 
-* Un abonnement Azure AD Si vous n’en avez pas, vous pouvez obtenir un essai gratuit d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
+* Un abonnement Azure AD Si vous ne disposez d’aucun abonnement, vous pouvez obtenir [un compte gratuit](https://azure.microsoft.com/free/).
 * Un abonnement Wandera pour lequel l’authentification unique (SSO) est activée
 
 ## <a name="scenario-description"></a>Description du scénario
@@ -48,7 +48,7 @@ Dans ce tutoriel, vous allez configurer et tester l’authentification unique Az
 
 ## <a name="adding-wandera-from-the-gallery"></a>Ajout de Wandera à partir de la galerie
 
-Pour configurer l’intégration de Wandera à Azure AD, vous devez ajouter Wandera à votre liste d’applications SaaS gérées à partir de la galerie.
+Pour configurer l’intégration de Wandera à Azure AD, vous devez ajouter Wandera à votre liste d’applications SaaS managées à partir de la galerie.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
 1. Dans le panneau de navigation gauche, sélectionnez le service **Azure Active Directory**.
@@ -66,9 +66,9 @@ Pour configurer et tester l’authentification unique Azure AD avec Wandera, sui
 
 1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-sso)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
 2. **[Configurer l’authentification unique Wandera](#configure-wandera-sso)** pour configurer les paramètres de l’authentification unique côté application.
-3. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
-5. **[Créer un utilisateur de test Wandera](#create-wandera-test-user)** pour avoir un équivalent de Britta Simon dans Wandera lié à la représentation Azure AD associée.
+3. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec B. Simon.
+4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à B. Simon d’utiliser l’authentification unique Azure AD.
+5. **[Créer un utilisateur de test Wandera](#create-wandera-test-user)** pour avoir dans Wandera un équivalent de B. Simon lié à la représentation Azure AD associée.
 6. **[Tester l’authentification unique](#test-sso)** pour vérifier si la configuration fonctionne.
 
 ### <a name="configure-azure-ad-sso"></a>Configurer l’authentification unique Azure AD
@@ -88,7 +88,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
     > [!NOTE]
     > Cette valeur n’est pas la valeur réelle. Mettez à jour la valeur avec l’URL de réponse réelle. Contactez [l’équipe de support client de Wandera](https://www.wandera.com/about-wandera/contact/#supportsection) pour obtenir la valeur. Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
-1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **XML des métadonnées**, puis sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
+1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **XML de métadonnées de fédération**, puis sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
 
     ![Lien Téléchargement de certificat](common/metadataxml.png)
 
@@ -106,7 +106,27 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 ### <a name="configure-wandera-sso"></a>Configurer l’authentification unique Wandera
 
-Pour configurer l’authentification unique côté **Wandera**, vous devez envoyer le **XML des métadonnées** téléchargé et les URL copiées correspondantes à partir du portail Azure à l’[équipe du support technique Wandera](https://www.wandera.com/about-wandera/contact/#supportsection). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
+1. Afin d’automatiser la configuration dans Wandera, vous devez installer l’**extension de navigateur permettant la connexion sécurisée à Mes applications** en cliquant sur **Installer l’extension**.
+
+    ![Extension My apps](common/install-myappssecure-extension.png)
+
+2. Après l’ajout de l’extension au navigateur, cliquez sur **Configurer Wandera**, vous êtes alors orienté vers l’application Wandera. À partir de là, indiquez les informations d’identification de l’administrateur pour vous connecter à Wandera. Cette extension de navigateur configure automatiquement l’application et automatise les étapes 3 et 4.
+
+    ![Configuration](common/setup-sso.png)
+
+3. Si vous souhaitez configurer manuellement Wandera, ouvrez une nouvelle fenêtre de navigateur web, connectez-vous à votre site d’entreprise Wandera en tant qu’administrateur et effectuez les étapes suivantes :
+
+4. En haut à droite de la page, cliquez sur **Settings** > **Administration** > **Single Sign-On** (Authentification unique), puis cochez l’option **Enable SAML 2.0** (Activer SAML 2.0) pour effectuer les étapes suivantes.
+
+    ![Configuration de Wandera](./media/wandera-tutorial/config01.png)
+
+    a. Cliquez sur **Or manually enter the required fields** (Ou entrer manuellement les champs obligatoires).
+
+    b. Dans la zone de texte **IdP EntityId**, collez la valeur **Azure AD Identifier** que vous avez copiée dans le portail Azure.
+
+    c. Ouvrez le XML de métadonnées de fédération dans le Bloc-notes, copiez son contenu et collez-le dans la zone de texte **IdP Public X.509 Certificate**.
+
+    d. Cliquez sur **Enregistrer**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
@@ -140,7 +160,7 @@ Dans cette section, vous allez autoriser B. Simon à utiliser l’authentificati
 
 ### <a name="create-wandera-test-user"></a>Créer un utilisateur de test Wandera
 
-Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans Wandera. Demandez l’aide de  [l’équipe du support technique Wandera](https://www.wandera.com/about-wandera/contact/#supportsection) pour ajouter des utilisateurs dans la plateforme Wandera. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
+Dans cette section, vous créez un utilisateur appelé B.Simon dans Wandera. Demandez l’aide de  [l’équipe du support technique Wandera](https://www.wandera.com/about-wandera/contact/#supportsection) pour ajouter des utilisateurs dans la plateforme Wandera. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 
 ### <a name="test-sso"></a>Tester l’authentification unique (SSO)
 

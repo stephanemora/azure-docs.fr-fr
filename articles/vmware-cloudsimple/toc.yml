@@ -58,6 +58,8 @@
           href: create-cloudsimple-service.md
         - name: Accéder au portail CloudSimple
           href: access-cloudsimple-portal.md
+        - name: Configuration du pare-feu local
+          href: on-premises-firewall-configuration.md
         - name: Gérer les nœuds
           items:
             - name: Nœuds d'approvisionnement

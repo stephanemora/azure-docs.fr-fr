@@ -10,28 +10,31 @@ ms.topic: conceptual
 author: bonova
 ms.author: bonova
 ms.reviewer: douglas, carlrab
-manager: craigg
-ms.date: 02/11/2019
-ms.openlocfilehash: 9fe6ab797eaa325ad802702e95f5a0e5b8e4fef4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 11/07/2019
+ms.openlocfilehash: 19a7f749ffb1af4f712d23abcd52d91653ad4544
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67070428"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567376"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>Migration d’une instance SQL Server vers une instance managée Azure SQL Database
 
-Dans cet article, vous allez découvrir les méthodes possibles pour la migration d’une instance SQL Server 2005 ou ultérieure vers une [instance managée Azure SQL Database](sql-database-managed-instance.md). Pour obtenir des informations sur la migration vers une base de données unique ou un pool élastique, consultez [Migration vers une base de données unique ou mise en pool](sql-database-cloud-migrate.md). Pour obtenir des informations sur la migration à partir d’autres plateformes, consultez [Guide de migration des bases de données Azure](https://datamigration.microsoft.com/).
+Dans cet article, vous allez découvrir les méthodes possibles pour la migration d’une instance SQL Server 2005 ou ultérieure vers une [instance managée Azure SQL Database](sql-database-managed-instance.md). Pour obtenir des informations sur la migration vers une base de données unique ou un pool élastique, consultez [Migration vers une base de données unique ou mise en pool](sql-database-cloud-migrate.md). Pour obtenir des informations sur la migration à partir d’autres plateformes, consultez le [Guide de migration des bases de données Azure](https://datamigration.microsoft.com/).
+
+> [!NOTE]
+> Si vous souhaitez démarrer rapidement et essayer Managed Instance, vous souhaiterez peut-être accéder au [guide de démarrage rapide](sql-database-managed-instance-quickstart-guide.md) plutôt qu’à cette page. 
 
 Le processus général de migration d’une base de données ressemble à ce qui suit :
 
 ![processus de migration](./media/sql-database-managed-instance-migration/migration-process.png)
 
-- [Évaluer la compatibilité d’instance gérée](#assess-managed-instance-compatibility)
-- [Choisir une option de connectivité des applications](sql-database-managed-instance-connect-app.md)
-- [Déployer sur une instance gérée dimensionnée de façon optimale](#deploy-to-an-optimally-sized-managed-instance)
-- [Sélectionner une méthode de migration et effectuer la migration](#select-migration-method-and-migrate)
-- [Surveillance des applications](#monitor-applications)
+- [Évaluer la compatibilité d’instance gérée](#assess-managed-instance-compatibility) où vous devez vous assurer qu’aucun problème bloquant ne peut empêcher vos migrations.
+  - Cette étape comprend également la création d’une [ligne de base des performances](#create-performance-baseline) pour déterminer l’utilisation des ressources sur votre instance de SQL Server source. Cette étape est nécessaire si vous souhaitez déployer une Managed Instance correctement dimensionnée et vérifier que les performances après la migration ne sont pas affectées.
+- [Choisir des options de connectivité des applications](sql-database-managed-instance-connect-app.md)
+- [Déployer sur une instance gérée dimensionnée de façon optimale](#deploy-to-an-optimally-sized-managed-instance) où vous allez choisir les caractéristiques techniques (nombre de vCores, quantité de mémoire) et le niveau de performance (critique pour l’entreprise, usage général) de votre Managed Instance.
+- [Sélectionner une méthode de migration et effectuer la migration](#select-migration-method-and-migrate) où vous migrez vos bases de données à l’aide de la migration hors connexion (sauvegarde/restauration native, importation/exportation de base de données) ou de la migration en ligne (service de migration des données, réplication transactionnelle).
+- [Surveiller les applications](#monitor-applications) pour vous assurer que vous disposez des performances attendues.
 
 > [!NOTE]
 > Pour effectuer la migration d’une base de données individuelle vers une base de données unique ou un pool élastique, consultez [Effectuer la migration d’une base de données SQL Server vers Azure SQL Database](sql-database-single-database-migrate.md).
@@ -58,7 +61,11 @@ Managed Instance garantit une disponibilité de 99,99 % même dans les scénari
 
 ### <a name="create-performance-baseline"></a>Créer un référentiel de performance
 
-Si vous avez besoin de comparer les performances de votre charge de travail sur Managed Instance avec votre charge de travail d’origine s’exécutant sur SQL Server, vous devez créer un référentiel de performance qui sera utilisé pour la comparaison. Voici quelques paramètres à mesurer sur votre instance SQL Server : 
+Si vous avez besoin de comparer les performances de votre charge de travail sur Managed Instance avec votre charge de travail d’origine s’exécutant sur SQL Server, vous devez créer un référentiel de performance qui sera utilisé pour la comparaison. 
+
+La ligne de base des performances est un ensemble de paramètres tels que l’utilisation moyenne/maximale de l’UC, la latence moyenne/maximale d’E/S de disque, le débit, les IOPS, l’espérance de vie moyenne/maximale d’une page, la taille maximale de Tempdb. Vous aimeriez avoir des paramètres similaires voire mieux adaptés après la migration. Il est donc important de mesurer et de noter les valeurs de référence pour ces paramètres. En plus des paramètres système, vous devriez sélectionner un ensemble de requêtes représentatives ou les requêtes les plus importantes dans votre charge de travail et mesurer la durée minimale/moyenne/maximale, l’utilisation de l’UC pour les requêtes sélectionnées. Ces valeurs vous permettraient de comparer les performances de la charge de travail en cours d’exécution sur Managed Instance aux valeurs d’origine sur votre SQL Server source.
+
+Voici quelques paramètres à mesurer sur votre instance SQL Server : 
 - [Analysez l’utilisation du processeur sur votre instance SQL Server](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Monitor-CPU-usage-on-SQL-Server/ba-p/680777#M131) et enregistrez l’utilisation moyenne et maximale du processeur.
 - [Analysez l’utilisation de la mémoire sur votre instance SQL Server](https://docs.microsoft.com/sql/relational-databases/performance-monitor/monitor-memory-usage) et déterminez la quantité de mémoire utilisée par différents composants, tels que le pool de mémoires tampons, le cache du plan, le pool de stockage en colonne, l’[OLTP en mémoire](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/monitor-and-troubleshoot-memory-usage?view=sql-server-2017), etc. Par ailleurs, vous devez rechercher les valeurs moyennes et maximales du compteur de performance de la mémoire Espérance de vie d’une page.
 - Analysez l’utilisation des E/S disque sur l’instance SQL Server source à l’aide de la vue [sys.dm_io_virtual_file_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql) ou des [compteurs de performance](https://docs.microsoft.com/sql/relational-databases/performance-monitor/monitor-disk-usage).
@@ -72,9 +79,10 @@ Si vous avez besoin de comparer les performances de votre charge de travail sur 
 ## <a name="deploy-to-an-optimally-sized-managed-instance"></a>Déployer sur une instance gérée dimensionnée de façon optimale
 
 Une instance gérée est adaptée pour des charges de travail locales qui planifient une migration vers le cloud. Un [nouveau modèle d’achat](sql-database-service-tiers-vcore.md) est ainsi présenté. Il offre davantage de flexibilité dans le choix du niveau de ressources pour vos charges de travail. Localement, vous êtes probablement habitué à dimensionner ces charges de travail à l’aide de cœurs physiques et de bandes passantes E/S. Le modèle d’achat pour une instance gérée repose sur des mémoires à tores magnétiques virtuelle, ou « vCore », avec un stockage et des E/S supplémentaires disponibles séparément. Le modèle vCore vous permet de comprendre plus facilement vos exigences de calcul dans le cloud par rapport à ce que vous utilisez localement aujourd’hui. Ce nouveau modèle vous permet de dimensionner au mieux votre environnement de destination dans le cloud. Quelques conseils généraux pouvant vous aider à choisir les caractéristiques et le niveau de service appropriés sont décrits ici :
-- [Analysez l’utilisation du processeur sur votre instance SQL Server](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Monitor-CPU-usage-on-SQL-Server/ba-p/680777#M131) et vérifiez la puissance de calcul que vous utilisez actuellement (au moyen de vues de gestion dynamique, de SQL Server Management Studio ou d’autres outils de supervision). Vous pouvez provisionner une instance Managed Instance correspondant au nombre de cœurs que vous utilisez sur SQL Server, tout en tenant compte des caractéristiques du processeur qui sont susceptibles d’être mises à l’échelle, afin de satisfaire aux [caractéristiques des machines virtuelles où est installée Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-resource-limits#hardware-generation-characteristics).
-- Vérifiez la quantité de mémoire disponible sur votre instance SQL Server, puis choisissez [le niveau de service disposant de la mémoire appropriée](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-resource-limits#hardware-generation-characteristics). Il peut s’avérer utile de mesurer l’espérance de vie d’une page sur votre instance SQL Server pour déterminer [si vous avez besoin de mémoire supplémentaire](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Do-you-need-more-memory-on-Azure-SQL-Managed-Instance/ba-p/563444).
-- Mesurez la latence des E/S du sous-système de fichiers pour décider entre les niveaux de service Usage général et Critique pour l’entreprise.
+- En fonction de l’utilisation de l’UC de référence, vous pouvez approvisionner une Managed Instance correspondant au nombre de cœurs que vous utilisez sur SQL Server, tout en tenant compte des caractéristiques de l’UC qui sont susceptibles d’être mises à l’échelle, afin de satisfaire aux [caractéristiques des machines virtuelles où est installée Managed Instance](sql-database-managed-instance-resource-limits.md#hardware-generation-characteristics).
+- En fonction de l’utilisation de la mémoire de référence, choisissez [le niveau de service disposant de la mémoire correspondante](sql-database-managed-instance-resource-limits.md#hardware-generation-characteristics). La quantité de mémoire ne peut pas être choisie directement. Vous devez donc sélectionner la Managed Instance avec la quantité de vCores disposant de la mémoire correspondante (par exemple, 5,1 Go/vCore dans Gen5). 
+- En fonction de la latence d’E/S de référence du sous-système de fichiers, choisissez entre les niveaux de service Usage général (latence supérieure à 5 ms) et Critique pour l’entreprise (latence inférieure à 3 ms).
+- En fonction du débit de référence, pré-allouez la taille des fichiers de données ou des fichiers journaux pour atteindre les performances d’E/S attendues.
 
 Vous pouvez choisir des ressources de calcul et de stockage au moment du déploiement, puis les modifier plus tard sans temps d’arrêt pour votre application par le biais du [portail Azure](sql-database-scale-resources.md) :
 
@@ -169,6 +177,13 @@ Le résultat de la comparaison des performances peut se résumer ainsi :
 Effectuez la modification des paramètres ou mettez à niveau les niveaux de service pour converger vers la configuration optimale, jusqu’à atteindre les performances de charge de travail convenant à vos besoins.
 
 ### <a name="monitor-performance"></a>Analyser les performances
+
+Managed Instance fournit de nombreux outils avancés de surveillance et de résolution des problèmes, et vous devez les utiliser pour surveiller les performances de votre instance. Voici quelques-uns des paramètres que vous devez surveiller :
+- L’utilisation de l’UC sur l’instance pour déterminer le nombre de vCores que vous avez approvisionnés convient pour votre charge de travail.
+- L’espérance de vie d’une page sur votre Managed Instance pour déterminer [si vous avez besoin de mémoire supplémentaire](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Do-you-need-more-memory-on-Azure-SQL-Managed-Instance/ba-p/563444).
+- Des statistiques d’attente telles que `INSTANCE_LOG_GOVERNOR` et `PAGEIOLATCH` qui indiquent si vous rencontrez des problèmes d’E/S de stockage, plus particulièrement au niveau Usage général où vous devrez peut-être pré-allouer des fichiers pour obtenir de meilleures performances d’E/S.
+
+## <a name="leverage-advanced-paas-features"></a>Tirer parti de fonctionnalités PaaS avancées
 
 Lorsque vous êtes sur une plateforme complètement managée et que vous avez vérifié la correspondance des performances de charge de travail avec celles de SQL Server, profitez des avantages qui sont fournis automatiquement dans le cadre du service SQL Database. 
 

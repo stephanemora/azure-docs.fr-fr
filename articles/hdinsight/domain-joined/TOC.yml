@@ -58,19 +58,25 @@
   items:
     - name: Créer des clusters ESP et synchroniser avec les utilisateurs locaux
       href: apache-domain-joined-create-configure-enterprise-security-cluster.md
+    - name: Résolution des problèmes
+      items:
+        - name: Problèmes d’authentification
+          href: ./domain-joined-authentication-issues.md
+        - name: Impossible de se connecter à Zeppelin
+          href: ./domain-joined-zeppelin-signin.md
 - name: Informations de référence
   items:
     - name: Exemples de code
       href: 'https://azure.microsoft.com/resources/samples/?service=hdinsight'
     - name: Azure PowerShell
       href: /powershell/module/az.hdinsight
-    - name: Kit de développement logiciel (SDK) .NET
+    - name: Kit SDK .NET
       href: 'https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet'
-    - name: Kit de développement logiciel (SDK) Python
+    - name: Kit SDK Python
       href: 'https://docs.microsoft.com/python/api/overview/azure/hdinsight?view=azure-python'
-    - name: Kit de développement logiciel (SDK) Java
+    - name: Kit SDK Java
       href: 'https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-preview'
-    - name: Kit de développement logiciel (SDK) Go
+    - name: Kit SDK Go
       href: ../hdinsight-go-sdk-overview.md?toc=/azure/hdinsight/domain-joined/toc.json&bc=/azure/hdinsight/domain-joined/breadcrumb/toc.json
     - name: .NET (Apache HBase)
       href: 'https://www.nuget.org/packages/Microsoft.HBase.Client/'

@@ -1,21 +1,21 @@
 ---
-title: Inspecter la qualité des données pour Custom Speech – Speech Services
-titlesuffix: Azure Cognitive Services
-description: Custom Speech propose des outils qui vous permettent d’inspecter visuellement la qualité de la reconnaissance d’un modèle en comparant les données audio au résultat de la reconnaissance correspondante. À partir du portail Custom Speech, vous pouvez lire le contenu audio chargé et déterminer si le résultat proposé de la reconnaissance est correct.  Cet outil vous permet d’inspecter rapidement la qualité du modèle de reconnaissance vocale de référence de Microsoft ou d’un modèle entraîné personnalisé sans qu’il soit nécessaire de transcrire des données audio.
+title: Inspecter la qualité des données pour Custom Speech – Service Speech
+titleSuffix: Azure Cognitive Services
+description: Custom Speech propose des outils qui vous permettent d’inspecter visuellement la qualité de la reconnaissance d’un modèle en comparant les données audio au résultat de la reconnaissance correspondante. À partir du portail Custom Speech, vous pouvez lire le contenu audio chargé et déterminer si le résultat proposé de la reconnaissance est correct.  Cet outil vous permet d’inspecter rapidement la qualité de notre modèle de reconnaissance vocale de référence ou d’un modèle entraîné personnalisé sans qu’il soit nécessaire de transcrire des données audio.
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 132e355abbdbe147a843c51efd018cc759c06836
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b58f9c17995128091b5c4badd228356dbacc6ae9
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67064036"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562841"
 ---
 # <a name="inspect-custom-speech-data"></a>Inspecter des données Custom Speech
 

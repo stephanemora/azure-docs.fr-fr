@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: overview
 ms.date: 6/12/2019
 ms.author: victorh
-ms.openlocfilehash: aedace031eaedf2709993b5185979e8777821759
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 0921a1ac7aa1192fae78f168c2eb51ee3e74e24a
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67444834"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68774618"
 ---
 # <a name="what-is-azure-private-dns"></a>Qu’est-ce qu’Azure Private DNS ?
 
@@ -71,10 +71,11 @@ Voici les bogues et problèmes connus dans la préversion :
 
 Azure DNS présente les limites suivantes :
 
-* Un réseau virtuel ne peut être lié qu’à une seule zone privée, car l’inscription automatique des enregistrements DNS de machine virtuelle est activée. Vous pouvez toutefois lier plusieurs réseaux virtuels à une seule zone DNS.
+* Un réseau virtuel ne peut être lié qu’à une seule zone privée si l’inscription automatique des enregistrements DNS de machine virtuelle est activée. Vous pouvez toutefois lier plusieurs réseaux virtuels à une seule zone DNS.
 * Un DNS inversé ne fonctionne que pour un espace d’adressage IP privé sur le réseau virtuel lié
-* Un DNS inversé pour une adresse IP privée de réseau virtuel lié retourne « internal.cloudapp.net » en tant que suffixe par défaut pour la machine virtuelle. Pour les réseaux virtuels liés à une zone privée avec l’inscription automatique activée, un DNS inversé pour une adresse IP privée renvoie 2 noms de domaine complets, l’un avec le suffixe par défaut *internal.cloudapp.net*, et l’autre avec le suffixe de la zone privée.
-* Actuellement, le transfert conditionnel n’est pas pris en charge en mode natif. Pour activer la résolution entre réseaux Azure et locaux. Consultez [Résolution de noms pour les machines virtuelles et les instances de rôle](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
+* Un DNS inversé pour une adresse IP privée de réseau virtuel lié retourne « internal.cloudapp.net » en tant que suffixe par défaut pour la machine virtuelle. Pour les réseaux virtuels liés à une zone privée avec l’inscription automatique activée, un DNS inversé pour une adresse IP privée retourne 2 noms de domaine complets : l’un avec le suffixe par défaut *internal.cloudapp.net* et l’autre avec le suffixe de la zone privée.
+* Actuellement, le transfert conditionnel n’est pas pris en charge en mode natif. Pour activer la résolution entre des réseaux Azure et locaux, consultez [Résolution de noms pour les machines virtuelles et les instances de rôle](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
+
  
 ## <a name="pricing"></a>Tarifs
 

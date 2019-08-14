@@ -1,5 +1,5 @@
 ---
-title: Tableau de bord - Language Understanding
+title: Tableau de bord - Language Understanding - LUIS
 titleSuffix: Azure Cognitive Services
 description: Corrigez les intentions avec le tableau de bord d’analytique, un outil de création de rapports avec visualisation.
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 05/22/2019
 ms.author: diberry
-ms.openlocfilehash: 055d113a2bc77f8de1b4b881718007c869470532
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 42dfe4af56149e4305d076b0427f15038a01fadc
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66236944"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563629"
 ---
 # <a name="how-to-use-the-dashboard-to-improve-your-app"></a>Guide pratique pour utiliser le tableau de bord afin d’améliorer votre application
 
@@ -154,7 +154,7 @@ Déterminez les pourcentages de seuil qui conviennent à votre entreprise.
 
 Le filtre vous permet de trouver les intentions présentant un problème spécifique :
 
-|Filtre|Pourcentage conseillé|Objectif|
+|Filtrer|Pourcentage conseillé|Objectif|
 |--|--|--|
 |Intentions les plus problématiques|-|**Commencez ici** : la correction des énoncés dans cette intention améliorera l’application davantage que d’autres corrections.|
 |Prédictions correctes ci-dessous|60 %|Il s’agit du pourcentage d’énoncés dans l’intention sélectionnée qui sont corrects mais qui ont un score de confiance inférieur au seuil. |

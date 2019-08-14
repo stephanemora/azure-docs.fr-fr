@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/29/2019
 ms.author: dpalled
 ms.custom: seodec18
-ms.openlocfilehash: 2c1013829a7e6e94712e22ae235a47490c8c5eaa
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 3e56792673c33ac641ce23213f2b3662b889ec2a
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68677660"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68725659"
 ---
 # <a name="tutorial-explore-the-azure-time-series-insights-javascript-client-library"></a>Didacticiel : Explorer la bibliothèque cliente JavaScript de Azure Time Series Insights
 
@@ -40,14 +40,14 @@ Souscrivez un [abonnement Azure gratuit](https://azure.microsoft.com/free/) si v
 
 * Ce tutoriel utilise la fonctionnalité **Outils de développement** de votre navigateur. Les navigateurs web modernes ([Microsoft Edge](/microsoft-edge/devtools-guide), [Chrome](https://developers.google.com/web/tools/chrome-devtools/), [Firefox](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_are_browser_developer_tools), [Safari](https://developer.apple.com/safari/tools/), etc.) donnent généralement accès à la **Vue Inspecteur web** par le biais de la touche d’accès rapide F12 de votre clavier. Une autre façon d’accéder à cette vue consiste à cliquer avec le bouton droit sur une page web, puis à sélectionner **Inspecter l’élément**.
 
-## <a name="video"></a>Vidéo
+## <a name="review-video"></a>Regarder la vidéo
 
 Dans cette vidéo, nous présentons le kit SDK JavaScript open source de Time Series Insights :
 <br /><br />
 
 > [!VIDEO https://www.youtube.com/embed/X8sSm7Pl9aA]
 
-## <a name="time-series-insights-sample-application"></a>Exemple d’application Time Series Insights
+## <a name="sample-application"></a>Exemple d’application
 
 Ce tutoriel s’appuie sur un exemple d’application Time Series Insights hébergé, gratuit, qui permet d’explorer le code source s’exécutant derrière l’application, et la bibliothèque de client JavaScript Time Series Insights. En utilisant cet exemple d’application, vous allez apprendre à interagir avec Time Series Insights en JavaScript, et à visualiser les données sous forme de graphiques et de graphes.
 
@@ -100,7 +100,7 @@ Examinons tout d’abord le [code source HTML et JavaScript](https://github.com/
 
    [![Script du corps](media/tutorial-explore-js-client-lib/tcs-devtools-callouts-body-script.png)](media/tutorial-explore-js-client-lib/tcs-devtools-callouts-body-script.png#lightbox)
 
-## <a name="time-series-insights-javascript-client-library-concepts"></a>Concepts de la bibliothèque de client JavaScript Time Series Insights
+## <a name="javascript-client-library"></a>Bibliothèque cliente JavaScript
 
 La bibliothèque de client Time Series Insights (*tsiclient.js*) fournit les abstractions de deux fonctionnalités JavaScript importantes :
 
@@ -231,7 +231,7 @@ Ces trois graphiques apparaissent comme suit lors de leur affichage :
 
 [![Plusieurs types de graphiques à partir des mêmes données](media/tutorial-explore-js-client-lib/tcs-multiple-chart-types-from-the-same-data.png)](media/tutorial-explore-js-client-lib/tcs-multiple-chart-types-from-the-same-data.png#lightbox)
 
-## <a name="advanced-features"></a>Fonctionnalités avancées
+## <a name="learn-about-advanced-features"></a>Découvrir les fonctionnalités avancées
 
 La bibliothèque de client Time Series Insights comporte d’autres fonctionnalités permettant d’implémenter des visualisations de données créatives.
 
@@ -312,7 +312,7 @@ Le code qui est utilisé pour illustrer les pinceaux est montré dans l’exempl
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
-Maintenant que vous avez terminé le tutoriel, nettoyez les ressources que vous avez créées :
+Maintenant que vous avez terminé le didacticiel, nettoyez les ressources que vous avez créées :
 
 1. Dans le menu de gauche du [portail Azure](https://portal.azure.com), sélectionnez **Toutes les ressources**, puis votre groupe de ressources Azure Time Series Insights.
 1. Vous pouvez supprimer l’intégralité du groupe de ressources (et toutes les ressources qu’il contient) en sélectionnant **Supprimer** ou supprimer chaque ressource individuellement.

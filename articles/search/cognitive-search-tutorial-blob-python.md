@@ -1,20 +1,21 @@
 ---
-title: 'Tutoriel Python : Appeler des Cognitive Services dans un pipeline d’indexation - Recherche Azure'
+title: 'Tutoriel Python : Appeler Cognitive Services dans un pipeline d’enrichissement IA - Recherche Azure'
 description: Parcourez un exemple d’extraction de données, de langage naturel et de traitement AI d’image dans Recherche Azure à l’aide d’un notebook Jupyter Python. Les données extraites sont indexées et sont facilement accessibles au moyen d’une requête.
 manager: cgronlun
 author: LisaLeib
 services: search
 ms.service: search
+ms.subservice: cognitive-search
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 06/04/2019
 ms.author: v-lilei
-ms.openlocfilehash: b7f1baa473ca28db696835a7b0895f1603c74770
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: af355ec353e12c30723597927883cb23dfa31e71
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359395"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840926"
 ---
 # <a name="python-tutorial-call-cognitive-services-apis-in-an-azure-search-indexing-pipeline"></a>Tutoriel Python : Appeler des API Cognitive Services dans un pipeline d’indexation Recherche Azure
 

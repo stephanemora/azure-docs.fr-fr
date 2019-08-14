@@ -1,28 +1,27 @@
 ---
-title: Reconnaissance vocale avec Azure Speech Services
+title: Reconnaissance vocale - Service Speech
 titleSuffix: Azure Cognitive Services
-description: La reconnaissance vocale d’Azure Speech Services, également appelée conversion de parole en texte, permet de transcrire en temps réel des flux audio en texte que vos applications, outils ou appareils peuvent utiliser, afficher et manipuler sous forme d’entrée de commande. Ce service repose sur la même technologie de reconnaissance que celle utilisée par Microsoft pour Cortana et les produits Office et fonctionne de façon continue avec la traduction et la synthèse vocale.
+description: La fonctionnalité de reconnaissance vocale dans le service Speech, également appelée conversion de parole en texte, permet de transcrire en temps réel des flux audio en texte que vos applications, outils ou appareils peuvent utiliser, afficher et manipuler sous forme d’entrée de commande. Ce service repose sur la même technologie de reconnaissance que celle utilisée par Microsoft pour Cortana et les produits Office et fonctionne de façon continue avec la traduction et la synthèse vocale.
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/13/2019
+ms.date: 07/05/2019
 ms.author: erhopf
-ms.custom: seodec18
-ms.openlocfilehash: fcb09720d188150736dbe7da0c925f5762ff6a10
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 435de6e6516256d350ad93b121dd5a38d1512ddc
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67072316"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68558848"
 ---
 # <a name="what-is-speech-to-text"></a>Qu’est-ce que la reconnaissance vocale ?
 
 La reconnaissance vocale d’Azure Speech Services, également appelée conversion de parole en texte, permet de transcrire en temps réel des flux audio en texte que vos applications, outils ou appareils peuvent utiliser, afficher et manipuler sous forme d’entrée de commande. Ce service repose sur la même technologie de reconnaissance que celle utilisée par Microsoft pour Cortana et les produits Office et fonctionne de façon continue avec la traduction et la synthèse vocale.  Vous trouverez une liste complète des langues compatibles avec la reconnaissance vocale dans [Langues prises en charge](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#speech-to-text).
 
-Par défaut, le service de reconnaissance vocale utilise le modèle de langage universel. Ce modèle a été entraîné avec des données qui sont la propriété de Microsoft et est déployé dans le cloud. Il est particulièrement adapté aux scénarios de conversation et de dictée. Si vous utilisez la reconnaissance vocale pour la reconnaissance et la transcription dans un environnement unique, vous pouvez créer et former des modèles de prononciation, de langue et acoustiques personnalisés pour prendre en compte un bruit ambiant ou le vocabulaire spécifique d’un secteur. 
+Par défaut, le service de reconnaissance vocale utilise le modèle de langage universel. Ce modèle a été entraîné avec des données qui sont la propriété de Microsoft et est déployé dans le cloud. Il est particulièrement adapté aux scénarios de conversation et de dictée. Si vous utilisez la reconnaissance vocale pour la reconnaissance et la transcription dans un environnement unique, vous pouvez créer et former des modèles de prononciation, de langue et acoustiques personnalisés pour prendre en compte un bruit ambiant ou le vocabulaire spécifique d’un secteur.
 
 Vous pouvez facilement capturer du contenu audio à partir d’un microphone, lire un flux ou accéder à des fichiers audio dans un espace de stockage avec le kit SDK Speech et les API REST. Le SDK Speech prend en charge le contenu audio monocanal WAV/PCM 16 bits, 16 kHz/8 kHz pour la reconnaissance vocale. D’autres formats audio sont pris en charge en utilisant le [point de terminaison REST de reconnaissance vocale](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) ou le [service de transcription Batch](https://docs.microsoft.com/azure/cognitive-services/speech-service/batch-transcription#supported-formats).
 
@@ -47,21 +46,7 @@ Les fonctionnalités disponibles via le SDK Speech et les API REST sont les suiv
 
 ## <a name="get-started-with-speech-to-text"></a>Commencer avec la reconnaissance vocale
 
-Nous proposons des démarrages rapides pour la plupart des langages de programmation populaires, conçus pour que votre code soit opérationnel en moins de 10 minutes. Ce tableau comprend une liste complète de guides de démarrage rapide pour le SDK Speech organisés par langage.
-
-| Démarrage rapide | Plateforme | Informations de référence sur l'API |
-|------------|----------|---------------|
-| [C#, .NET Core](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-csharp-dotnetcore-windows) | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
-| [C#, .NET Framework](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-csharp-dotnet-windows) | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
-| [C#, UWP](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-csharp-uwp) | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
-| [C++](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-cpp-windows) | Windows | [Browse](https://aka.ms/csspeech/cppref)|
-| [C++](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-cpp-linux) | Linux | [Browse](https://aka.ms/csspeech/cppref) |
-| [Java](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-java-android) | Android | [Browse](https://aka.ms/csspeech/javaref) |
-| [Java](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-java-jre) | Windows, Linux, macOS | [Browse](https://aka.ms/csspeech/javaref) |
-| [JavaScript, navigateur](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-js-browser) | Browser, Windows, Linux, macOS | [Browse](https://aka.ms/AA434tv) |
-| [JavaScript, Node.js](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-js-node) | Windows, Linux, macOS | [Browse](https://aka.ms/AA434tv) |
-| [Objective-C](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-objectivec-ios) | iOS | [Browse](https://aka.ms/csspeech/objectivecref) |
-| [Python](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-python) | Windows, Linux, macOS | [Browse](https://aka.ms/AA434tr)  |
+Nous proposons des démarrages rapides pour la plupart des langages de programmation populaires, conçus pour que votre code soit opérationnel en moins de 10 minutes. [Ce tableau](https://aka.ms/csspeech#5-minute-quickstarts) comprend une liste complète de guides de démarrage rapide pour le Kit de développement logiciel (SDK) Speech organisés par plateforme et langage.  Vous trouverez également des informations de référence sur l’API [ici](https://aka.ms/csspeech#reference).
 
 Si vous préférez utiliser le service REST de reconnaissance vocale, consultez [API REST](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis).
 
@@ -101,7 +86,7 @@ Si vos applications, outils ou produits utilisent les API Reconnaissance vocale 
 
 ## <a name="reference-docs"></a>Documents de référence
 
-* [Kit de développement logiciel (SDK) de reconnaissance vocale](speech-sdk-reference.md)
+* [Kit de développement logiciel (SDK) de reconnaissance vocale](https://aka.ms/csspeech)
 * [SDK Speech Devices](speech-devices-sdk.md)
 * [API REST : Reconnaissance vocale](rest-speech-to-text.md)
 * [API REST : Synthèse vocale](rest-text-to-speech.md)

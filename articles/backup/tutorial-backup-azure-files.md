@@ -7,15 +7,15 @@ ms.date: 06/10/2019
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: a06504438340f62d5b338165cb8b159459ae35dc
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: e63ad75effb03cf9dd5eb5c66b142cce629ea290
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68467072"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736229"
 ---
-# <a name="back-up-azure-file-shares"></a>Sauvegarder des partages de fichiers Azure
-Cet article explique comment utiliser le portail Azure pour sauvegarder et restaurer des [partages de fichiers Azure](../storage/files/storage-files-introduction.md).
+# <a name="back-up-azure-file-shares-in-the-azure-portal"></a>Sauvegarder les partages de fichiers Azure dans le portail Azure
+Ce tutoriel explique comment utiliser le portail Azure pour sauvegarder des [partages de fichiers Azure](../storage/files/storage-files-introduction.md).
 
 Dans ce guide, vous apprendrez comment :
 > [!div class="checklist"]

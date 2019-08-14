@@ -8,12 +8,12 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 01/22/2019
 ms.author: lbosq
-ms.openlocfilehash: 18f54e64498c7809e662ceb71d1e497a0f275ad6
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 545f679b11295485567a817d144225b361a262ce
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66480452"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68815192"
 ---
 # <a name="quickstart-create-a-graph-database-in-azure-cosmos-db-using-python-and-the-azure-portal"></a>Démarrage rapide : Créer une base de données de graphe dans Azure Cosmos DB à l’aide de Python et du portail Azure
 
@@ -173,13 +173,13 @@ Maintenant, retournez dans le portail Azure afin d’obtenir vos informations de
 <a id="add-sample-data"></a>
 ## <a name="review-and-add-sample-data"></a>Examiner et ajouter des exemples de données
 
-Vous pouvez à présent revenir à l’Explorateur de données et voir les vertex ajoutés au graphique, ainsi qu’ajouter des points de données supplémentaires.
+Après insertion des sommets et arêtes, vous pouvez revenir à l’Explorateur de données et voir les sommets ajoutés au graphe. Vous pouvez également ajouter des points de données supplémentaires.
 
 1. Cliquez sur **Explorateur de données**, développez **sample-graph**, cliquez sur **Graphique**, puis cliquez sur **Appliquer un filtre**. 
 
    ![Créer des documents dans l’Explorateur de données, dans le Portail Azure](./media/create-graph-python/azure-cosmosdb-data-explorer-expanded.png)
 
-2. Dans la liste **Résultats**, observez les nouveaux utilisateurs ajoutés au graphique. Sélectionnez **ben** et notez qu’il est connecté à robin. Vous pouvez glisser-déplacez les vertex, effectuer un zoom avant et arrière à l’aide de la roulette de la souris et augmenter la taille du graphique avec la double flèche. 
+2. Dans la liste **Résultats**, vous voyez que trois nouveaux utilisateurs ont été ajoutés au graphe. Vous pouvez glisser-déplacez les vertex, effectuer un zoom avant et arrière à l’aide de la roulette de la souris et augmenter la taille du graphique avec la double flèche. 
 
    ![Nouveaux vertex dans le graphique de l’Explorateur de données du portail Azure](./media/create-graph-python/azure-cosmosdb-graph-explorer-new.png)
 
@@ -193,6 +193,7 @@ Vous pouvez à présent revenir à l’Explorateur de données et voir les verte
 
     key|value|Notes
     ----|----|----
+    pk|/pk| 
     id|ashley|Identificateur unique du vertex. Si vous ne spécifiez aucun id, le système en génère un pour vous.
     gender|female| 
     tech | java | 
@@ -210,6 +211,7 @@ Vous pouvez à présent revenir à l’Explorateur de données et voir les verte
 
     key|value|Notes
     ----|----|----
+    pk|/pk| 
     id|rakesh|Identificateur unique du vertex. Si vous ne spécifiez aucun id, le système en génère un pour vous.
     gender|male| 
     school|MIT| 

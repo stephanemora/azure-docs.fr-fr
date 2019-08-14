@@ -1,6 +1,6 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Inativ Portal de Viareport (Europe) | Microsoft Docs'
-description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Inativ Portal de Viareport (Europe).
+title: 'Tutoriel : Intégration d’Azure Active Directory à Viareport (Europe) | Microsoft Docs'
+description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Viareport (Europe).
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,22 +13,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 07/19/2019
+ms.date: 07/30/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e4a7e8359d3c4b80a4dc29a4845749ea690b57fc
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: e7589875356c3d40248c798e753a0e95d900c5b4
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68480282"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68825512"
 ---
-# <a name="tutorial-integrate-viareports-inativ-portal-europe-with-azure-active-directory"></a>Didacticiel : Intégrer Inativ Portal de Viareport (Europe) à Azure Active Directory
+# <a name="tutorial-integrate-viareport-europe-with-azure-active-directory"></a>Tutoriel : Intégrer Viareport (Europe) à Azure Active Directory
 
-Dans ce tutoriel, vous allez découvrir comment intégrer Inativ Portal de Viareport (Europe) à Azure Active Directory (Azure AD). Quand vous intégrez Inativ Portal de Viareport (Europe) à Azure AD, vous pouvez :
+Dans ce tutoriel, vous allez découvrir comment intégrer Viareport (Europe) à Azure Active Directory (Azure AD). Quand vous intégrez Viareport (Europe) à Azure AD, vous pouvez :
 
-* Contrôler dans Azure AD qui a accès à Inativ Portal de Viareport (Europe).
-* Permettre à vos utilisateurs de se connecter automatiquement à Inativ Portal de Viareport (Europe) avec leur compte Azure AD.
+* Contrôler qui a accès à Viareport (Europe) dans Azure AD
+* Permettre à vos utilisateurs de se connecter automatiquement à Viareport (Europe) avec leur compte Azure AD
 * Gérer vos comptes à un emplacement central : le Portail Azure.
 
 Pour en savoir plus sur l’intégration des applications SaaS à Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
@@ -37,45 +37,45 @@ Pour en savoir plus sur l’intégration des applications SaaS à Azure AD, cons
 
 Pour commencer, vous devez disposer de ce qui suit :
 
-* Un abonnement Azure AD Si vous ne disposez d’aucun abonnement, vous pouvez obtenir [un compte gratuit](https://azure.microsoft.com/free/).
-* Un abonnement Inativ Portal de Viareport (Europe) pour lequel l’authentification unique (SSO) est activée.
+* Un abonnement Azure AD. Si vous ne disposez d’aucun abonnement, vous pouvez obtenir [un compte gratuit](https://azure.microsoft.com/free/).
+* Abonnement Viareport (Europe) pour lequel l’authentification unique (SSO) est activée.
 
 ## <a name="scenario-description"></a>Description du scénario
 
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
-* Inativ Portal de Viareport (Europe) prend en charge l’authentification unique lancée par le **fournisseur de services et le fournisseur d’identité**
+* Viareport (Europe) prend en charge l’authentification unique initiée par **le fournisseur de services et le fournisseur d’identité**
 
-## <a name="adding-viareports-inativ-portal-europe-from-the-gallery"></a>Ajout d’Inativ Portal de Viareport (Europe) à partir de la galerie
+## <a name="adding-viareport-europe-from-the-gallery"></a>Ajout de Viareport (Europe) à partir de la galerie
 
-Pour configurer l’intégration d’Inativ Portal de Viareport (Europe) à Azure AD, vous devez ajouter Inativ Portal de Viareport (Europe) depuis la galerie à votre liste d’applications SaaS gérées.
+Pour configurer l’intégration de Viareport (Europe) à Azure AD, vous devez ajouter Viareport (Europe) à votre liste d’applications SaaS managées depuis la galerie.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
 1. Dans le panneau de navigation gauche, sélectionnez le service **Azure Active Directory**.
 1. Accédez à **Applications d’entreprise**, puis sélectionnez **Toutes les applications**.
 1. Pour ajouter une nouvelle application, sélectionnez **Nouvelle application**.
-1. Dans la section **Ajouter à partir de la galerie**, tapez **Inativ Portal de Viareport (Europe)** dans la zone de recherche.
-1. Sélectionnez **Inativ Portal de Viareport (Europe)** dans le volet de résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
+1. Dans la section **Ajouter à partir de la galerie**, tapez **Viareport (Europe)** dans la zone de recherche.
+1. Sélectionnez **Viareport (Europe)** dans le volet de résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
 
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurer et tester l’authentification unique Azure AD
 
-Configurez et testez l’authentification unique Azure AD avec Inativ Portal de Viareport (Europe) en utilisant un utilisateur de test appelé **B.Simon**. Pour que l’authentification unique fonctionne, vous devez établir un lien entre un utilisateur Azure AD et l’utilisateur Inativ Portal de Viareport (Europe) associé.
+Configurez et testez l’authentification unique Azure AD avec Viareport (Europe) en utilisant un utilisateur de test appelé **B.Simon**. Pour que l’authentification unique fonctionne, vous devez établir un lien entre un utilisateur Azure AD et l’utilisateur Viareport (Europe) associé.
 
-Pour configurer et tester l’authentification unique Azure AD avec Inativ Portal de Viareport (Europe), suivez les indications des sections ci-après :
+Pour configurer et tester l’authentification unique Azure AD avec Viareport (Europe), suivez les indications des sections ci-après :
 
 1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-sso)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-2. **[Configurer l’authentification unique Inativ Portal de Viareport (Europe)](#configure-viareports-inativ-portal-europe-sso)**  : pour configurer les paramètres de l’authentification unique côté application.
+2. **[Configurer Viareport (Europe)](#configure-viareport-europe-sso)**  pour configurer les paramètres de l’authentification unique côté application.
 3. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec B. Simon.
 4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à B. Simon d’utiliser l’authentification unique Azure AD.
-5. **[Créer l’utilisateur de test d’Inativ Portal de Viareport (Europe)](#create-viareports-inativ-portal-europe-test-user)**  : pour avoir un équivalent de B.Simon dans Inativ Portal de Viareport (Europe) lié à la représentation Azure AD associée.
+5. **[Créer l’utilisateur de test de Viareport (Europe)](#create-viareport-europe-test-user)**  pour avoir dans Viareport (Europe) un équivalent de B.Simon lié à la représentation Azure AD associée.
 6. **[Tester l’authentification unique](#test-sso)** pour vérifier si la configuration fonctionne.
 
 ### <a name="configure-azure-ad-sso"></a>Configurer l’authentification unique Azure AD
 
 Effectuez les étapes suivantes pour activer l’authentification unique Azure AD dans le Portail Azure.
 
-1. Dans le [portail Azure](https://portal.azure.com/), accédez à la page d’intégration de l’application **Inativ Portal de Viareport (Europe)** , recherchez la section **Gérer** et sélectionnez **Authentification unique**.
+1. Dans le [portail Azure](https://portal.azure.com/), accédez à la page d’intégration de l’application **Viareport (Europe)** , recherchez la section **Gérer** et sélectionnez **Authentification unique**.
 1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
 1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de modification/stylet pour **Configuration SAML de base** afin de modifier les paramètres.
 
@@ -90,15 +90,15 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
     Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://inativ.viareport.com/SSO/<tenant_id>/login`
 
     > [!NOTE]
-    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de réponse et l’URL de connexion réelles. Pour obtenir ces valeurs, contactez [l’équipe du support client Inativ Portal de Viareport (Europe)](mailto:ycezard@viareport.com). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
+    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de réponse et l’URL de connexion réelles. Pour obtenir ces valeurs, contactez [l’équipe du support client de Viareport (Europe)](mailto:ycezard@viareport.com). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
 4. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur le bouton Copier pour copier l’**URL des métadonnées de fédération d’application**, puis enregistrez-la sur votre ordinateur.
 
     ![Lien Téléchargement de certificat](common/copy-metadataurl.png)
 
-### <a name="configure-viareports-inativ-portal-europe-sso"></a>Configurer l’authentification unique d’Inativ Portal de Viareport (Europe)
+### <a name="configure-viareport-europe-sso"></a>Configurer l’authentification unique Viareport (Europe)
 
-Pour configurer l’authentification unique côté **Inativ Portal de Viareport (Europe)** , vous devez envoyer l’**URL des métadonnées de fédération d’application** à l’[équipe du support technique Inativ Portal de Viareport (Europe)](mailto:ycezard@viareport.com). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
+Pour configurer l’authentification unique côté **Viareport (Europe)** , vous devez envoyer l’**URL des métadonnées de fédération d’application** à l’[équipe du support technique de Viareport (Europe)](mailto:ycezard@viareport.com). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
 Dans cette section, vous allez créer un utilisateur de test appelé B. Simon dans le portail Azure.
@@ -113,10 +113,10 @@ Dans cette section, vous allez créer un utilisateur de test appelé B. Simon da
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 
-Dans cette section, vous allez autoriser B.Simon à utiliser l’authentification unique Azure en lui accordant l’accès à Inativ Portal de Viareport (Europe).
+Dans cette section, vous allez autoriser B. Simon à utiliser l’authentification unique Azure en accordant l’accès à Viareport (Europe).
 
 1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
-1. Dans la liste des applications, sélectionnez **Inativ Portal de Viareport (Europe)** .
+1. Dans la liste des applications, sélectionnez **Viareport (Europe)** .
 1. Dans la page de vue d’ensemble de l’application, recherchez la section **Gérer** et sélectionnez **Utilisateurs et groupes**.
 
    ![Lien « Utilisateurs et groupes »](common/users-groups-blade.png)
@@ -129,15 +129,15 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 1. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle**, sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
 1. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
 
-### <a name="create-viareports-inativ-portal-europe-test-user"></a>Créer un utilisateur de test Inativ Portal de Viareport (Europe)
+### <a name="create-viareport-europe-test-user"></a>Créer un utilisateur de test Viareport (Europe)
 
-Dans cette section, vous créez un utilisateur appelé B.Simon dans Inativ Portal de Viareport (Europe). Collaborez avec l’ [équipe du support technique Inativ Portal de Viareport (Europe)](mailto:ycezard@viareport.com) pour ajouter les utilisateurs dans la plateforme Inativ Portal de Viareport (Europe). Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
+Dans cette section, vous créez un utilisateur appelé B.Simon dans Viareport (Europe). Collaborez avec l’ [équipe du support technique de Viareport (Europe)](mailto:ycezard@viareport.com) pour ajouter les utilisateurs à la plateforme Viareport (Europe). Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 
 ### <a name="test-sso"></a>Tester l’authentification unique (SSO) 
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
-Quand vous cliquez sur la vignette Inativ Portal de Viareport (Europe) dans le volet d’accès, vous devez vous connecter automatiquement à l’application Inativ Portal de Viareport (Europe) pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quand vous cliquez sur la vignette Viareport (Europe) dans le panneau d’accès, vous devez vous connecter automatiquement à l’application Viareport (Europe) pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

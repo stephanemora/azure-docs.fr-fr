@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Indexer les données de bases de données Azure SQL dans un exemple de code C# - Recherche Azure'
+title: 'Tutoriel C# : Indexer les données de bases de données Azure SQL - Recherche Azure'
 description: Exemple de code C# montrant comment se connecter à Azure SQL Database, extraire des données pouvant faire l’objet de recherches et charger ces données dans un index Recherche Azure.
 author: HeidiSteen
 manager: cgronlun
@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: bb082fb83f8c2521b0deabced6f851e62b785e8f
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: c88ff0d7e408e03216707ff9282d640fb7d28500
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67485384"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840693"
 ---
 # <a name="c-tutorial-crawl-an-azure-sql-database-using-azure-search-indexers"></a>Tutoriel C# : Analyser une base de données Azure SQL à l’aide d’indexeurs Recherche Azure
 

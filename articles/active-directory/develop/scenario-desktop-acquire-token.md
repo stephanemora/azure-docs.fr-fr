@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 07/16/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ecf5b874345a94e8fd3d3a0783f8e48c7484377d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6e952b011eb760ebc9dcf5fe7250cf56ec67465f
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67111269"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562342"
 ---
 # <a name="desktop-app-that-calls-web-apis---acquire-a-token"></a>Application de bureau conçue pour appeler des API web - acquérir un jeton
 
@@ -58,7 +58,7 @@ Voici à présent la description détaillée des différentes étapes permettant
 L’exemple suivant montre le code minimal permettant d’obtenir un jeton de manière interactive pour lire le profil de l’utilisateur avec Microsoft Graph.
 
 ```CSharp
-string[] scopes = new string["user.read"];
+string[] scopes = new string[] {"user.read"};
 var app = PublicClientApplicationBuilder.Create(clientId).Build();
 var accounts = await app.GetAccountsAsync();
 AuthenticationResult result;
@@ -118,15 +118,15 @@ Remarques :
 
 La classe définit les constantes suivantes :
 
-- ``SelectAccount`` : force le service d’émission de jeton de sécurité (STS) à présenter la boîte de dialogue de sélection de compte contenant les comptes pour lesquels l’utilisateur dispose d’une session. Cette option est utile lorsque les développeurs d’applications veulent laisser l’utilisateur choisir parmi différentes identités. Cette option oblige MSAL à envoyer ``prompt=select_account`` au fournisseur d’identité. C’est l’option par défaut, et elle remplit bien sa tâche en fournissant la meilleure expérience possible en fonction des informations disponibles (compte, présence d’une session pour l’utilisateur et ainsi de suite) . Ne la remplacez pas, à moins d’avoir une excellente raison de le faire.
-- ``Consent``: permet au développeur d’application de forcer l’affichage d’une invite demandant à l’utilisateur son consentement, et même si celui-ci a été accordé auparavant. Dans ce cas, MSAL envoie `prompt=consent` au fournisseur d’identité. Cette option peut être utilisée dans certaines applications axées sur la sécurité, dans lesquelles la gouvernance de l’organisation exige que l’utilisateur voie s’afficher la boîte de dialogue de consentement chaque fois que l’application est utilisée.
+- ``SelectAccount`` : force le service d’émission de jeton de sécurité (STS) à présenter la boîte de dialogue de sélection de compte contenant les comptes pour lesquels l’utilisateur dispose d’une session. Cette option est utile lorsque les développeurs d’applications veulent laisser l’utilisateur choisir parmi différentes identités. Cette option oblige MSAL à envoyer ``prompt=select_account`` au fournisseur d’identité. C’est l’option par défaut, et elle remplit bien sa tâche en fournissant la meilleure expérience possible en fonction des informations disponibles (compte, présence d’une session pour l’utilisateur et ainsi de suite ...). Ne la remplacez pas, à moins d’avoir une excellente raison de le faire.
+- ``Consent`` : permet au développeur d’application de forcer l’affichage d’une invite demandant à l’utilisateur son consentement, et même si celui-ci a été accordé auparavant. Dans ce cas, MSAL envoie `prompt=consent` au fournisseur d’identité. Cette option peut être utilisée dans certaines applications axées sur la sécurité, dans lesquelles la gouvernance de l’organisation exige que l’utilisateur voie s’afficher la boîte de dialogue de consentement chaque fois que l’application est utilisée.
 - ``ForceLogin`` : permet au développeur d’application de faire afficher par le service une invite demandant à l’utilisateur d’entrer des informations d’identification, et même si cette invite utilisateur n’est pas nécessaire. Cette option peut s’avérer utile si l’acquisition d’un jeton échoue, afin de permettre à l’utilisateur de se reconnecter. Dans ce cas, MSAL envoie `prompt=login` au fournisseur d’identité. D’ailleurs, nous l’avons déjà vu utilisée dans certaines applications axées sur la sécurité, pour lesquelles la gouvernance de l’organisation exige que l’utilisateur se reconnecte chaque fois qu’il accède à des parties spécifiques d’une application.
 - ``Never`` (pour .NET 4.5 et WinRT uniquement) n’affiche aucune invite utilisateur, mais tente à la place d’utiliser le cookie stocké dans l’affichage web incorporé masqué (voir ci-dessous : affichages web dans MSAL.NET). L’utilisation de cette option risque d’échouer ; dans ce cas `AcquireTokenInteractive` lève une exception pour prévenir qu’une interaction avec l’interface utilisateur est nécessaire, et que vous allez devoir utiliser un autre paramètre `Prompt`.
 - ``NoPrompt``: n’envoie pas d’invite au fournisseur d’identité. Cette option n’est utile que pour les stratégies de modification de profil Azure AD B2C (consultez [Spécificités d’Azure AD B2C](https://aka.ms/msal-net-b2c-specificities)).
 
 #### <a name="withextrascopetoconsent"></a>WithExtraScopeToConsent
 
-Ce modificateur est utilisé dans un scénario élaboré, suivant lequel vous souhaitez obtenir le consentement préalable de l’utilisateur pour plusieurs ressources en amont (et ne souhaitez pas utiliser le consentement incrémentiel, qui est normalement utilisé avec MSAL.NET / la plateforme d’identités Microsoft v2.0). Consultez les détails dans le [Guide pratique pour obtenir le consentement préalable de l’utilisateur sur plusieurs ressources](scenario-desktop-production.md#how-to-have--the-user-consent-upfront-for-several-resources).
+Ce modificateur est utilisé dans un scénario élaboré, suivant lequel vous souhaitez obtenir le consentement préalable de l’utilisateur pour plusieurs ressources en amont (et ne souhaitez pas utiliser le consentement incrémentiel, qui est normalement utilisé avec MSAL.NET / la plateforme d’identités Microsoft). Consultez les détails dans le [Guide pratique pour obtenir le consentement préalable de l’utilisateur sur plusieurs ressources](scenario-desktop-production.md#how-to-have--the-user-consent-upfront-for-several-resources).
 
 ```CSharp
 var result = await app.AcquireTokenInteractive(scopesForCustomerApi)
@@ -179,7 +179,7 @@ AcquireTokenByIntegratedWindowsAuth(IEnumerable<string> scopes)
 - L’authentification Windows intégrée (IWA) est destinée aux applications écrites pour les plateformes .NET Framework, .NET Core et la plateforme Windows universelle (UWP).
 - IWA ne permet PAS de contourner MFA (l’authentification multifacteur). Si l’authentification MFA est configurée, IWA peut échouer en cas de demande MFA exigée, car MFA a besoin d’une interaction utilisateur.
   > [!NOTE]
-  > Voilà qui est délicat. L’authentification IWA est non interactive, mais 2FA nécessite l’interactivité avec l’utilisateur. Vous n’avez pas le contrôle lorsque le fournisseur d’identité demande l’exécution de l’authentification 2FA, l’administrateur de locataire, si. D’après ce que nous avons pu observer, l’authentification 2FA est demandée lorsque vous vous connectez depuis un autre pays, alors que vous n’êtes pas connecté à un réseau d’entreprise via un VPN, et parfois même avec une connexion via un VPN. N’espérez pas un ensemble de règles déterministes, Azure Active Directory utilise l’IA pour savoir en permanence si 2FA est exigée. Vous devriez recourir à une invite utilisateur de secours (authentification interactive ou flux de code d’appareil) si l’IWA échoue.
+  > Voilà qui est délicat. L’authentification IWA est non interactive, mais MFA nécessite l’interactivité avec l’utilisateur. Vous n’avez pas le contrôle lorsque le fournisseur d’identité demande l’exécution de l’authentification MFA, l’administrateur de locataire, si. D’après ce que nous avons pu observer, l’authentification MFA est demandée lorsque vous vous connectez depuis un autre pays, alors que vous n’êtes pas connecté à un réseau d’entreprise via un VPN, et parfois même avec une connexion via un VPN. N’espérez pas un ensemble de règles déterministes, Azure Active Directory utilise l’IA pour savoir en permanence si MFA est exigée. Vous devriez recourir à une invite utilisateur de secours (authentification interactive ou flux de code d’appareil) si l’IWA échoue.
 
 - L’autorité transmise dans `PublicClientApplicationBuilder` doit être :
   - avec locataire, sous la forme `https://login.microsoftonline.com/{tenant}/`, où `tenant` est le GUID représentant l’ID de locataire ou un domaine associé au locataire ;
@@ -198,7 +198,7 @@ AcquireTokenByIntegratedWindowsAuth(IEnumerable<string> scopes)
 
 - Ce flux est activé pour les applications .NET Desktop, .NET Core et les applications Windows universelles (UWP). Sur .NET Core, seule la surcharge acceptant le nom d’utilisateur est disponible, car la plateforme .NET Core ne peut pas demander le nom d’utilisateur au système d’exploitation.
   
-Pour plus d’informations sur le consentement, consultez [Autorisations et consentement dans v2.0](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent).
+Pour plus d’informations sur le consentement, consultez [Autorisations et consentement de la plateforme d’identité Microsoft](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent)
 
 ### <a name="how-to-use-it"></a>Comment l’utiliser ?
 
@@ -293,9 +293,10 @@ Vous pouvez également acquérir un jeton en fournissant le nom d’utilisateur 
 
 Ce flux est **déconseillé**, car votre application, qui demande un utilisateur pour son mot de passe, n’est pas sécurisée. Pour des informations plus détaillées sur ce problème, voyez [cet article](https://news.microsoft.com/features/whats-solution-growing-problem-passwords-says-microsoft/). Le flux par défaut pour l’acquisition d’un jeton silencieusement sur les machines Windows jointes à un domaine est [l’authentification Windows intégrée](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Integrated-Windows-Authentication). Vous pouvez également utiliser le [Flux de code d’appareil](https://aka.ms/msal-net-device-code-flow).
 
+> [!NOTE] 
 > Bien que cette méthode puisse parfois s’avérer utile (scénarios DevOps), si vous souhaitez utiliser le Nom d’utilisateur/mot de passe dans des scénarios interactifs pour lesquels vous fournissez votre propre interface utilisateur, prenez le temps de réfléchir à un moyen qui pourrait vous en détourner. En utilisant le nom d’utilisateur/mot de passe, vous renoncez à un certain nombre de choses :
-
-> - les locataires principaux d’identité moderne : le mot de passe est récupéré, relu. En raison de ce concept de secret partagé qui peut être intercepté.
+>
+> - les locataires principaux d’identité moderne : le mot de passe est récupéré, relu. Du fait de ce concept d’un secret partagé qui peut être intercepté.
 > C’est incompatible avec l’authentification sans mot de passe ;
 > - Les utilisateurs devant passer par MFA ne pourront pas se connecter (en l’absence de toute interaction) ;
 > - Les utilisateurs ne pourront pas se servir de l’authentification unique.
@@ -324,7 +325,7 @@ static async Task GetATokenForGraph()
  string authority = "https://login.microsoftonline.com/contoso.com";
  string[] scopes = new string[] { "user.read" };
  IPublicClientApplication app;
- app = PublicClientApplicationBuild.Create(clientId)
+ app = PublicClientApplicationBuilder.Create(clientId)
        .WithAuthority(authority)
        .Build();
  var accounts = await app.GetAccountsAsync();
@@ -365,7 +366,7 @@ static async Task GetATokenForGraph()
  string authority = "https://login.microsoftonline.com/contoso.com";
  string[] scopes = new string[] { "user.read" };
  IPublicClientApplication app;
- app = PublicClientApplicationBuild.Create(clientId)
+ app = PublicClientApplicationBuilder.Create(clientId)
                                    .WithAuthority(authority)
                                    .Build();
  var accounts = await app.GetAccountsAsync();
@@ -649,9 +650,9 @@ Les classes et interfaces concernées par la sérialisation du cache de jeton pr
   ![image](https://user-images.githubusercontent.com/13203188/56027172-d58d1480-5d15-11e9-8ada-c0292f1800b3.png)
 
 > [!IMPORTANT]
-> MSAL.NET crée les caches de jetons automatiquement et vous fournit le cache `IToken` quand vous appelez les méthodes `GetUserTokenCache` et `GetAppTokenCache` d’une application. Vous n’êtes pas censé implémenter l’interface vous-même. Votre responsabilité, lorsque vous implémentez une sérialisation du cache de jetons personnalisée, consiste à :
+> MSAL.NET crée les caches de jetons automatiquement et vous fournit le cache `IToken` quand vous appelez les propriétés `UserTokenCache` et `AppTokenCache` d’une application. Vous n’êtes pas censé implémenter l’interface vous-même. Votre responsabilité, lorsque vous implémentez une sérialisation du cache de jetons personnalisée, consiste à :
 >
-> - Réagir aux « événements » `BeforeAccess` et `AfterAccess`. Le délégué `BeforeAccess` se charge de désérialiser le cache, tandis que le délégué `AfterAccess` est responsable de la sérialisation du cache.
+> - Réagir aux « événements » `BeforeAccess` et `AfterAccess` (ou à leurs équivalents *Async*). Le délégué `BeforeAccess` se charge de désérialiser le cache, tandis que le délégué `AfterAccess` est responsable de la sérialisation du cache.
 > - Une partie de ces événements stockent ou chargent des objets blob, lesquels sont transmis par le biais de l’argument de l’événement au stockage voulu.
 
 Les stratégies diffèrent selon que vous écrivez une sérialisation du cache de jeton pour une application cliente publique (Desktop) ou une application cliente confidentielle (application web/API web, application de démon).
@@ -724,6 +725,7 @@ static class TokenCacheHelper
 
 Une préversion de sérialiseur basé sur un fichier de cache de jeton de qualité produit, pour des applications clientes publiques (applications de bureau s’exécutant sur Windows, Mac et Linux) est disponible depuis la bibliothèque open source [Microsoft.Identity.Client.Extensions.Msal](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet/tree/master/src/Microsoft.Identity.Client.Extensions.Msal). Vous pouvez l’inclure dans vos applications à partir du package nuget suivant : [Microsoft.Identity.Client.Extensions.Msal](https://www.nuget.org/packages/Microsoft.Identity.Client.Extensions.Msal/).
 
+> [!NOTE]
 > Clause d’exclusion de responsabilité. La bibliothèque Microsoft.Identity.Client.Extensions.Msal est une extension sur MSAL.NET. Il est possible que les classes de ces bibliothèques soient intégrées à MSAL.NET à l’avenir, en l’état ou avec des changements cassants.
 
 ### <a name="dual-token-cache-serialization-msal-unified-cache--adal-v3"></a>Sérialisation d’un cache de jeton double (cache unifié MSAL + ADAL V3)
@@ -775,18 +777,12 @@ namespace CommonCacheMsalV3
   /// <returns></returns>
   public static void EnableSerialization(ITokenCache cache, string unifiedCacheFileName, string adalV3CacheFileName)
   {
-   usertokenCache = cache;
    UnifiedCacheFileName = unifiedCacheFileName;
    AdalV3CacheFileName = adalV3CacheFileName;
 
-   usertokenCache.SetBeforeAccess(BeforeAccessNotification);
-   usertokenCache.SetAfterAccess(AfterAccessNotification);
+   cache.SetBeforeAccess(BeforeAccessNotification);
+   cache.SetAfterAccess(AfterAccessNotification);
   }
-
-  /// <summary>
-  /// Token cache
-  /// </summary>
-  static ITokenCache usertokenCache;
 
   /// <summary>
   /// File path where the token cache is serialized with the unified cache format

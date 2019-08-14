@@ -3,8 +3,8 @@ title: Résoudre les problèmes de gestion des droits d’utilisation Azure AD (
 description: Découvrez certains éléments à vérifier pour vous aider à résoudre les problèmes de gestion des droits d'utilisation Azure Active Directory (préversion).
 services: active-directory
 documentationCenter: ''
-author: rolyon
-manager: mtillman
+author: msaburnley
+manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
 ms.date: 05/30/2019
-ms.author: rolyon
+ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c2526ef10c3080dae1b32881a109a9436a0fd390
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 420a7079a7961868277a2d78ffbac4adba240d9f
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66473828"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68678086"
 ---
 # <a name="troubleshoot-azure-ad-entitlement-management-preview"></a>Résoudre les problèmes de gestion des droits d’utilisation Azure AD (préversion)
 
@@ -41,7 +41,7 @@ Cet article décrit certains éléments que vous devriez vérifier pour vous aid
 
 * Pour qu’une application soit une ressource dans un package d’accès, elle doit disposer d’au moins un rôle de ressource attribuable. Les rôles sont définis par l’application elle-même, et ils sont managés dans Azure AD. Notez que le portail Azure peut également afficher les principaux de service des services qui ne peuvent pas être sélectionnés en tant qu’applications.  Plus particulièrement, **Exchange Online** et **SharePoint Online** sont des services, pas des applications disposant de rôles de ressources dans l’annuaire, ils ne peuvent donc pas être dans un package d’accès.  Utilisez plutôt la gestion des licences par groupe pour établir une licence appropriée, destinée à un utilisateur qui a besoin d’accéder à ces services.
 
-* Pour qu’un groupe soit une ressource dans un package d’accès, il doit pouvoir être modifiable dans Azure AD.  Les groupes issus d’une instance Active Directory locale ne peuvent pas être attribués en tant que ressources, car leurs attributs de propriétaire ou de membre ne sont pas modifiables dans Azure AD.  
+* Pour qu’un groupe soit une ressource dans un package d’accès, il doit pouvoir être modifiable dans Azure AD.  Les groupes issus d’une instance Active Directory locale ne peuvent pas être attribués en tant que ressources, car leurs attributs de propriétaire ou de membre ne sont pas modifiables dans Azure AD.   Les groupes qui proviennent d’Exchange Online en tant que groupes de distribution ne peuvent pas être modifiés dans Azure AD. 
 
 * Les documents individuels et les bibliothèques SharePoint Online ne peuvent pas être ajoutés en tant que ressources.  Créez plutôt un groupe de sécurité Azure AD, incluez ce groupe et un rôle de site dans le package d’accès, puis dans SharePoint Online, utilisez ce groupe pour contrôler l’accès au document ou à la bibliothèque de documents.
 
@@ -55,9 +55,9 @@ Cet article décrit certains éléments que vous devriez vérifier pour vous aid
 
 ## <a name="checklist-for-request-issues"></a>Check-list pour les problèmes de demande
 
-* Lorsqu’un utilisateur souhaite demander l’accès à un package d’accès, assurez-vous qu’il utilise le **lien du portail Mon accès** pour le package d’accès. Pour plus d’informations, consultez [Copier le lien du portail Mon Accès](entitlement-management-access-package-edit.md#copy-my-access-portal-link).
+* Lorsqu’un utilisateur souhaite demander l’accès à un package d’accès, assurez-vous qu’il utilise le **lien du portail Mon accès** pour le package d’accès. Pour plus d’informations, consultez [Copier le lien du portail Mon Accès](entitlement-management-access-package-edit.md#copy-my-access-portal-link).  Si un utilisateur externe visite **myaccess.microsoft.com**, il verra les packages d’accès disponibles dans sa propre organisation.
 
-* Lorsqu’un utilisateur se connecte au portail Mon accès pour demander un package d’accès, assurez-vous qu’il s’authentifie à l’aide de son compte professionnel ou scolaire. Le compte professionnel ou scolaire peut être un compte présent dans l’annuaire de ressources, ou dans un annuaire qui est inclus dans l’une des stratégies du package d’accès. Si le compte de l’utilisateur n’est pas un compte professionnel ou scolaire, ou si l’annuaire n’est pas inclus dans la stratégie, l’utilisateur ne voit pas le package d’accès. Pour plus d’informations, consultez [Demander l’accès à un package d’accès](entitlement-management-request-access.md).
+* Lorsqu’un utilisateur qui ne figure pas encore dans votre annuaire se connecte au portail Mon Accès pour demander un package d’accès, assurez-vous qu’il s’authentifie à l’aide de son compte professionnel ou scolaire. Le compte professionnel ou scolaire peut être un compte présent dans l’annuaire de ressources, ou dans un annuaire qui est inclus dans l’une des stratégies du package d’accès. Si le compte de l’utilisateur n’est pas un compte professionnel ou scolaire, ou si l’annuaire auquel il s’authentifie n’est pas inclus dans la stratégie, l’utilisateur ne voit pas le package d’accès. Pour plus d’informations, consultez [Demander l’accès à un package d’accès](entitlement-management-request-access.md).
 
 * Si un utilisateur est empêché de se connecter à l’annuaire de ressources, il est dans l’incapacité de demander l’accès dans le portail Mon accès. Avant que l’utilisateur puisse demander l’accès, vous devez supprimer le bloc de connexion du profil de l’utilisateur. Pour supprimer le bloc de connexion, dans le portail Azure, cliquez sur **Azure Active Directory**, puis sur **Utilisateurs** ; cliquez ensuite sur l’utilisateur concerné, puis sur **Profil**. Modifiez la section **Paramètres** et remplacez **Bloquer la connexion** par **Non**. Pour plus d’informations, consultez [Ajouter ou mettre à jour les informations du profil utilisateur avec Azure Active Directory](../fundamentals/active-directory-users-profile-azure-portal.md).  Vous pouvez également vérifier si l’utilisateur a été bloqué à cause d’une [Stratégie dIdentity Protection](../identity-protection/howto-unblock-user.md).
 

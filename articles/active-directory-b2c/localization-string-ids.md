@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 41a72013f1538b0a857c76bc949a7109e1cd54b4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: da1390de4e2eb0624032dc490416e7b6e5d61baa
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66510921"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "67846848"
 ---
 # <a name="localization-string-ids"></a>ID de chaînes de localisation
 
@@ -27,7 +27,7 @@ L’élément **Localization** vous permet de prendre en charge plusieurs param�
 
 Les ID suivants sont utilisés pour une définition de contenu avec un ID `api.signuporsignin`.
 
-| ID | Valeur par défaut |
+| id | Valeur par défaut |
 | -- | ------------- |
 | **local_intro_email** | Connectez-vous avec votre compte existant |
 | **logonIdentifier_email** | Adresse de messagerie |
@@ -81,21 +81,21 @@ L’exemple suivant localise le fournisseur d’identité Facebook pour l’arab
 
 ## <a name="sign-up-or-sign-in-error-messages"></a>Messages d’erreur d’inscription ou de connexion
 
-| ID | Valeur par défaut |
+| id | Valeur par défaut |
 | -- | ------------- |
 | **UserMessageIfInvalidPassword** | Votre mot de passe est incorrect. |
 | **UserMessageIfClaimsPrincipalDoesNotExist** | Nous ne trouvons pas votre compte. |
-| **UserMessageIfOldPasswordUsed** | Apparemment, vous utilisez un ancien mot de passe. |  
-| **DefaultMessage** | Nom d’utilisateur ou mot de passe non valide. |  
-| **UserMessageIfUserAccountDisabled** | Votre compte a été verrouillé. Contactez votre support technique pour le déverrouiller, puis réessayez. |  
-| **UserMessageIfUserAccountLocked** | Votre compte est temporairement verrouillé pour éviter toute utilisation non autorisée. Réessayez ultérieurement. |  
-| **AADRequestsThrottled** | Il y a trop de demandes pour l’instant. Veuillez patienter quelques instants, puis réessayez. |  
+| **UserMessageIfOldPasswordUsed** | Apparemment, vous utilisez un ancien mot de passe. |
+| **DefaultMessage** | Nom d’utilisateur ou mot de passe non valide. |
+| **UserMessageIfUserAccountDisabled** | Votre compte a été verrouillé. Contactez votre support technique pour le déverrouiller, puis réessayez. |
+| **UserMessageIfUserAccountLocked** | Votre compte est temporairement verrouillé pour éviter toute utilisation non autorisée. Réessayez ultérieurement. |
+| **AADRequestsThrottled** | Il y a trop de demandes pour l’instant. Veuillez patienter quelques instants, puis réessayez. |
 
 ## <a name="sign-up-and-self-asserted-pages-user-interface-elements"></a>Éléments d’interface utilisateur des pages d’inscription et autodéclarées
 
 Voici les ID pour une définition de contenu avec un ID `api.localaccountsignup` ou pour toute définition de contenu qui commence par `api.selfasserted`, telle que `api.selfasserted.profileupdate` et `api.localaccountpasswordreset`.
 
-| ID | Valeur par défaut |
+| id | Valeur par défaut |
 | -- | ------------- |
 | **ver_sent** | Le code de vérification a été envoyé à : |
 | **ver_but_default** | Default |
@@ -134,7 +134,7 @@ Voici les ID pour une définition de contenu avec un ID `api.localaccountsignup`
 
 ## <a name="sign-up-and-self-asserted-pages-error-messages"></a>Messages d’erreur des pages d’inscription et autodéclarées
 
-| ID | Valeur par défaut |
+| id | Valeur par défaut |
 | -- | ------------- |
 | **UserMessageIfClaimsPrincipalAlreadyExists** | Un utilisateur avec l’ID spécifié existe déjà. Choisissez-en un autre. |
 | **UserMessageIfClaimNotVerified** | Revendication non vérifiée : {0} |
@@ -146,7 +146,7 @@ Voici les ID pour une définition de contenu avec un ID `api.localaccountsignup`
 
 L’exemple suivant illustre l’utilisation de certains des éléments d’interface utilisateur dans la page d’inscription :
 
-![Éléments de l’expérience utilisateur de page d’inscription](./media/localization-string-ids/localization-sign-up.png)
+![Page d’inscription avec ses noms d’éléments d’interface utilisateur étiquetés](./media/localization-string-ids/localization-sign-up.png)
 
 L’exemple suivant illustre l’utilisation de certains des éléments d’interface utilisateur dans la page d’inscription, une fois que l’utilisateur a cliqué sur le bouton Envoyer le code de vérification :
 
@@ -155,9 +155,9 @@ L’exemple suivant illustre l’utilisation de certains des éléments d’inte
 
 ## <a name="phone-factor-authentication-page-user-interface-elements"></a>Éléments d’interface utilisateur de la page d’authentification (facteur de forme de téléphone)
 
-Voici les ID pour une définition de contenu avec un ID `api.phonefactor`. 
+Voici les ID pour une définition de contenu avec un ID `api.phonefactor`.
 
-| ID | Valeur par défaut |
+| id | Valeur par défaut |
 | -- | ------------- |
 | **button_verify** | M’appeler |
 | **country_code_label** | Indicatif de pays |

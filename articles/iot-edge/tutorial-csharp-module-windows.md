@@ -9,12 +9,12 @@ ms.date: 04/23/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: d7ccce1f21b1caa2268317b7239617a80ddce10b
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 5a1e487b52cb6f146ccc7fd3208ecc90de9aa080
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67485929"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840161"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>Didacticiel : Développer un module IoT Edge en C# pour les appareils Windows
 
@@ -268,7 +268,7 @@ Le code du module par défaut reçoit des messages dans une file d’attente d�
 
 8. Enregistrez le fichier Program.cs.
 
-9. Ouvrez le fichier **deployment.template.json** dans votre solution IoT Edge. Ce fichier indique à l’agent IoT Edge quels modules déployer, dans cet exemple, **tempSensor** et **CSharpModule**, puis indique au hub IoT Edge comment router les messages entre eux.
+9. Ouvrez le fichier **deployment.template.json** dans votre solution IoT Edge. Ce fichier indique à l’agent IoT Edge quels modules déployer, dans cet exemple **SimulatedTemperatureSensor** et **CSharpModule**, puis indique au hub IoT Edge comment router les messages entre eux.
 
 10. Ajoutez le jumeau de module **CSharpModule** au manifeste de déploiement. Insérez le contenu JSON suivant en bas de la section **modulesContent**, après le jumeau de module **$edgeHub**: 
 

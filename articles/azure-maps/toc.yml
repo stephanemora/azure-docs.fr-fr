@@ -91,23 +91,27 @@
               href: choose-map-style.md
             - name: Ajouter des commandes à la carte
               href: map-add-controls.md
+            - name: Création d'une source de données
+              href: create-data-source-web-sdk.md
             - name: Ajouter un calque de symboles
               href: map-add-pin.md
-            - name: Ajouter une fenêtre contextuelle
-              href: map-add-popup.md
             - name: Ajouter un calque de bulles
               href: map-add-bubble-layer.md
-            - name: Ajouter des formes
+            - name: Ajouter une couche de lignes
+              href: map-add-line-layer.md
+            - name: Ajouter une couche de polygones
               href: map-add-shape.md
             - name: Ajouter un calque de carte thermique
               href: map-add-heat-map-layer.md
+            - name: Ajouter une fenêtre contextuelle
+              href: map-add-popup.md
             - name: Données de point de cluster
               href: clustering-point-data-web-sdk.md
             - name: Utiliser des expressions de style basées sur les données
               href: data-driven-style-expressions-web-sdk.md
             - name: Guide pratique pour utiliser des modèles d’image
               href: how-to-use-image-templates-web-sdk.md
-            - name: Superposer une image
+            - name: Ajouter un calque d’images
               href: map-add-image-layer.md
             - name: Ajouter des couches de vignettes
               href: map-add-tile-layer.md
@@ -139,6 +143,8 @@
           href: how-to-add-symbol-to-android-map.md
         - name: Ajouter des formes
           href: how-to-add-shapes-to-android-map.md
+        - name: Afficher des informations sur les fonctionnalités
+          href: display-feature-information-android.md
         - name: Ajouter un calque de vignettes
           href: how-to-add-tile-layer-android-map.md
 - name: Informations de référence

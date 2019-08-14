@@ -8,12 +8,12 @@ ms.date: 06/13/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 16c32fc14805ac8ae1412671b2bb400456b4ab7d
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 4d03e5ee5faf39425e1bf927a3c0557b0ad01b82
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67603641"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840107"
 ---
 # <a name="tutorial-create-and-deploy-custom-iot-edge-modules"></a>Didacticiel : Créer et déployer des modules IoT Edge personnalisés
 
@@ -92,11 +92,11 @@ Pendant l’exécution du deuxième de nos deux notebooks Azure, nous avons cré
        }
        ```
 
-     * **Modules :** Cette section contient l’ensemble des modules définis par l’utilisateur associés à cette solution. Notez que cette section contient actuellement deux modules : tempSensor et turbofanRulClassifier. Le module tempSensor a été installé par le modèle Visual Studio Code, mais nous n’en avons pas besoin pour cette solution. Vous pouvez supprimer la définition du module tempSensor dans la section des modules. Notez que la définition du module turbofanRulClassifier pointe vers l’image dans votre registre de conteneurs. Les différents modules que nous ajoutons à la solution apparaissent dans cette section.
+     * **Modules :** Cette section contient l’ensemble des modules définis par l’utilisateur associés à cette solution. Notez que cette section contient actuellement deux modules : SimulatedTemperatureSensor et turbofanRulClassifier. Le module SimulatedTemperatureSensor a été installé par le modèle Visual Studio Code, mais nous n’en avons pas besoin pour cette solution. Vous pouvez supprimer la définition du module SimulatedTemperatureSensor de la section des modules. Notez que la définition du module turbofanRulClassifier pointe vers l’image dans votre registre de conteneurs. Les différents modules que nous ajoutons à la solution apparaissent dans cette section.
 
        ```json
        "modules": {
-         "tempSensor": {
+         "SimulatedTemperatureSensor": {
            "version": "1.0",
            "type": "docker",
            "status": "running",
@@ -119,7 +119,7 @@ Pendant l’exécution du deuxième de nos deux notebooks Azure, nous avons cré
        }
        ```
 
-     * **Routes :** nous utilisons beaucoup les routes dans ce tutoriel. Les routes définissent la façon dont les modules communiquent les uns avec les autres. Les deux routes définies par le modèle ne correspondent pas au routage dont nous avons besoin. La première route envoie toutes les données des sorties du classifieur au hub IoT ($upstream). L’autre route concerne tempSensor, que nous venons de supprimer. Supprimez les deux routes par défaut.
+     * **Routes :** nous utilisons beaucoup les routes dans ce tutoriel. Les routes définissent la façon dont les modules communiquent les uns avec les autres. Les deux routes définies par le modèle ne correspondent pas au routage dont nous avons besoin. La première route envoie toutes les données des sorties du classifieur au hub IoT ($upstream). L’autre route concerne SimulatedTemperatureSensor, que nous venons de supprimer. Supprimez les deux routes par défaut.
 
        ```json
        "$edgeHub": {
@@ -127,7 +127,7 @@ Pendant l’exécution du deuxième de nos deux notebooks Azure, nous avons cré
            "schemaVersion": "1.0",
            "routes": {
              "turbofanRulClassifierToIoTHub": "FROM /messages/modules/turbofanRulClassifier/outputs/\* INTO $upstream",
-             "sensorToturbofanRulClassifier": "FROM /messages/modules/tempSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\\"/modules/turbofanRulClassifier/inputs/input1\\")"
+             "sensorToturbofanRulClassifier": "FROM /messages/modules/SimulatedTemperatureSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\\"/modules/turbofanRulClassifier/inputs/input1\\")"
            },
            "storeAndForwardConfiguration": {
              "timeToLiveSecs": 7200

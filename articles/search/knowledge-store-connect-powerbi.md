@@ -4,16 +4,17 @@ description: Créez une base de connaissances à l’aide de l’Assistant Impor
 author: heidisteen
 services: search
 ms.service: search
+ms.subservice: cognitive-search
 ms.devlang: NA
 ms.topic: tutorial
 ms.date: 07/30/2019
 ms.author: heidist
-ms.openlocfilehash: 04b04e8080590aa6e9fe1c17369e83fa5bb6b894
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: 518a96ae8ace5c9630d594fe70487635b6ec1d2c
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68668232"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840839"
 ---
 # <a name="create-an-azure-search-knowledge-store-and-connect-using-power-bi"></a>Créer une base de connaissances Recherche Azure et se connecter à l’aide de Power BI
 
@@ -156,7 +157,7 @@ Utilisez l’Assistant Importation de données pour créer la base de connaissan
 
 1. Cliquez sur **Fermer et appliquer** à l’extrême gauche de la barre de commandes Power Query.
 
-1. Vérifiez que Power BI reconnaît les relations créées par la base de connaissances au sein de vos données. Cliquez sur la vignette Relations dans le volet de navigation gauche. Les trois tables doivent être liées.
+1. Vérifiez que Power BI reconnaît les relations créées par la base de connaissances au sein de vos données. Cliquez sur la vignette Relations dans le volet de navigation gauche. Les trois tables doivent être liées. Modifiez les relations et assurez-vous que la « direction du filtrage croisé » est définie sur les deux ; tous les visuels sont ainsi actualisés lorsqu’un filtre est appliqué.
 
    ![Valider les relations](media/knowledge-store-howto-powerbi/powerbi-relationships.png "Valider les relations")
 

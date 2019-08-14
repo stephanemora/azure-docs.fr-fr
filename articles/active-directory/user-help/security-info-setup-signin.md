@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: overview
-ms.date: 02/13/2019
+ms.date: 08/05/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c20256fb712d9381ba2adc90e2e68ce4fdc8911a
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: d4ca21ecf7ad0707ad33220a8e8c2700638f8e25
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68382783"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68824828"
 ---
 # <a name="set-up-your-security-info-preview-from-the-sign-in-page-prompt"></a>Configurer des informations de sécurité (préversion) à partir de l’invite de la page de connexion
 
@@ -75,7 +75,7 @@ Suivez ces étapes pour configurer les informations de sécurité de votre compt
 
 8. Approuvez la notification dans l’application Microsoft Authenticator, puis sélectionnez **Suivant**.
 
-    ![Notification de réussite, connexion de l’application et de votre compte](media/security-info/securityinfo-prompt-auth-app-success.png).
+    ![Notification de réussite, connexion de l’application et de votre compte](media/security-info/securityinfo-prompt-auth-app-success.png)
 
     Vos informations de sécurité sont mises à jour pour utiliser l’application Microsoft Authenticator par défaut et vérifier votre identité quand vous utilisez la vérification en deux étapes ou la réinitialisation de mot de passe.
 
@@ -98,6 +98,40 @@ Suivez ces étapes pour configurer les informations de sécurité de votre compt
 12. Passez en revue la page **Réussite** pour vérifier que vous avez correctement configuré l’application Microsoft Authenticator et une méthode (SMS ou appel téléphonique) pour vos informations de sécurité, puis sélectionnez **Terminé** .
 
     ![Page de réussite de l’Assistant](media/security-info/securityinfo-prompt-setup-success.png)
+
+    >[!Note]
+    >Si votre organisation vous impose d’utiliser des mots de passe d’application, cet Assistant peut présenter une section supplémentaire vous permettant de les configurer. Si une troisième section intitulée **Mots de passe d’application** s’affiche, vous devez la renseigner pour pouvoir suivre l’Assistant. Pour consulter la procédure d’ajout de mot de passe d’application, reportez-vous à la section [Gérer les mots de passe d’application](#manage-your-app-passwords) de cet article.
+
+### <a name="manage-your-app-passwords"></a>Gérer les mots de passe d’application
+
+Certaines applications, telles qu’Outlook 2010, ne prennent pas en charge la vérification en deux étapes. Cela signifie que si vous utilisez la vérification en deux étapes dans votre organisation, l’application ne fonctionnera pas. Pour contourner ce problème, vous pouvez créer un mot de passe généré automatiquement, distinct de votre mot de passe normal, que vous devrez utiliser avec chaque application sans navigateur.
+
+>[!Note]
+>Si vous ne voyez pas cette option dans l’Assistant, cela signifie que votre administrateur ne l’a pas configurée. Dans ce cas, si vous savez que vous devez utiliser des mots de passe d’application, vous pouvez procéder comme indiqué dans [Définir les mots de passe d’application à partir de la page Informations de sécurité (préversion)](security-info-app-passwords.md).
+
+Lorsque vous utilisez des mots de passe d’application, gardez à l’esprit les points suivants :
+
+- Les mots de passe d’application sont générés automatiquement et ne sont entrés qu’une seule fois par application.
+
+- Un utilisateur peut posséder jusqu’à 40 mots de passe. Si vous essayez de créer un mot de passe supplémentaire au-delà de cette limite, vous serez invité à supprimer un mot de passe existant avant d’être autorisé à en créer un autre.
+
+- Utilisez un mot de passe d’application par appareil, et non par application. Par exemple, créez un mot de passe unique pour toutes les applications de votre ordinateur portable, et un autre mot de passe unique pour toutes les applications de votre Bureau.
+
+#### <a name="to-add-app-passwords-in-the-sign-in-wizard"></a>Pour ajouter des mots de passe d’application dans l’Assistant de connexion
+
+1. Après avoir terminé les sections précédentes de l’Assistant, sélectionnez **Suivant** et renseignez la section **Mot de passe d’application**.
+
+2. Tapez le nom de l’application qui nécessite le mot de passe, par exemple `Outlook 2010`, puis sélectionnez **Suivant**.
+
+    ![Ajouter le nom du mot de passe d’application dans l’Assistant](media/security-info/app-password-app-password.png)
+
+3. Copiez le code de mot de passe à partir de l’écran **Mot de passe d’application** et collez-le dans la zone **Mot de passe** de l’application (dans cet exemple, Outlook 2010).
+
+    ![Page Mot de passe d’application avec le mot de passe à copier](media/security-info/app-password-copy-password.png)
+
+4. Une fois que vous avez copié le mot de passe et que vous l’avez collé dans l’application, revenez à cet Assistant pour vous assurer que toutes les informations de la méthode de connexion sont exactes, puis sélectionnez **Terminé**.
+
+    ![Page Mot de passe d’application avec notification de réussite](media/security-info/app-password-complete.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

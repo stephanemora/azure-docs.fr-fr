@@ -1,7 +1,7 @@
 ---
 title: 'Didacticiel : Configuration de l’environnement et de l’espace de travail.'
 titleSuffix: Azure Machine Learning service
-description: Dans ce tutoriel, vous allez effectuer des étapes de bout en bout pour vous familiariser avec le kit de développement logiciel (SDK) Python pour Azure Machine Learning s’exécutant dans des notebooks Jupyter.
+description: Dans cette série de tutoriels, vous allez effectuer des étapes de bout en bout pour vous familiariser avec le kit SDK Python Azure Machine Learning s’exécutant dans des notebooks Jupyter.  La première partie aborde la création d’un environnement serveur de notebooks cloud, ainsi que la création d’un espace de travail pour gérer vos expériences et vos modèles de Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 07/20/2019
-ms.openlocfilehash: e17d9286453aeb5c7eac688555177c2c42faad21
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: b3fdcfbb9869c0199c91f5bbc6ca1f02fec996cf
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68668596"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68828630"
 ---
 # <a name="tutorial-setup-environment-and-workspace"></a>Didacticiel : Configuration de l’environnement et de l’espace de travail
 
@@ -25,7 +25,7 @@ Dans ce tutoriel, vous allez :
 
 > [!div class="checklist"]
 > * Créer un espace de travail Machine Learning à utiliser dans le tutoriel suivant.
-> * Créer un environnement serveur de notebooks cloud.
+> * Avec le kit SDK Python Azure Machine Learning préinstallé et préconfiguré, créez une machine virtuelle Notebook ainsi qu’un serveur de notebooks Jupyter basé sur le cloud.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -49,14 +49,12 @@ Cet exemple utilise le serveur de notebook cloud dans votre espace de travail po
 
 1. Sélectionnez **+Nouveau** pour créer un machine virtuelle Notebook.
 
-     ![Sélectionner Nouvelle machine virtuelle](./media/quickstart-run-cloud-notebook/add-workstation.png)
+     ![Sélectionner Nouvelle machine virtuelle](./media/tutorial-1st-experiment-sdk-setup/add-workstation.png)
 
 1. Attribuez un nom à votre machine virtuelle. Sélectionnez ensuite **Créer**.
 
     > [!NOTE]
     > Le nom de votre machine virtuelle Notebook doit comprendre entre 2 et 16 caractères. Les caractères valides sont les lettres, les chiffres et le caractère « - ».  Le nom doit aussi être unique dans votre abonnement Azure.
-
-    ![Créer une machine virtuelle](media/quickstart-run-cloud-notebook/create-new-workstation.png)
 
 1. Attendez que l’état du travail passe à **Exécution**.
 
@@ -66,7 +64,7 @@ Dès lors que votre machine virtuelle s’exécute, lancez l’interface web Jup
 
 1. Sélectionnez **Jupyter** dans la colonne **URI** correspondant à votre machine virtuelle.
 
-    ![Démarrer le serveur de notebooks Jupyter](./media/quickstart-run-cloud-notebook/start-server.png)
+    ![Démarrer le serveur de notebooks Jupyter](./media/tutorial-1st-experiment-sdk-setup/start-server.png)
 
     Le lien démarre votre serveur de notebooks et ouvre la page web de notebook Jupyter dans un nouvel onglet du navigateur.  Ce lien fonctionne uniquement pour la personne qui crée la machine virtuelle. Chaque utilisateur de l’espace de travail doit créer sa propre machine virtuelle.
 
@@ -87,7 +85,7 @@ Si vous avez utilisé un serveur de notebook cloud, arrêtez la machine virtuell
 
 1. Dans votre espace de travail, sélectionnez **Machines virtuelles Notebook**.
 
-   ![Arrêter le serveur de machines virtuelles](./media/quickstart-run-cloud-notebook/stop-server.png)
+   ![Arrêter le serveur de machines virtuelles](./media/tutorial-1st-experiment-sdk-setup/stop-server.png)
 
 1. Sélectionnez la machine virtuelle dans la liste.
 

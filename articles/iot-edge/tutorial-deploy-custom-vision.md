@@ -9,12 +9,12 @@ ms.date: 06/25/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 629b484d27d863727d180bb3e2d01b605ca539a6
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: 63485a41016033b00f787fc8c938b8da7135d657
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67850136"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840140"
 ---
 # <a name="tutorial-perform-image-classification-at-the-edge-with-custom-vision-service"></a>Tutoriel : Effectuer la classification d'images en périphérie avec le service Vision personnalisée
 
@@ -369,9 +369,9 @@ L’extension IoT Edge pour Visual Studio Code fournit un modèle dans chaque so
 
 1. Ouvrez le fichier **deployment.template.json** dans le dossier de la solution. 
 
-2. Localisez la section **modules**, qui doit contenir trois modules : les deux que vous avez créés (classifier et cameraCapture) et un troisième qui est inclus par défaut, tempSensor. 
+2. Localisez la section **modules**, qui doit contenir trois modules : les deux que vous avez créés (classifier et cameraCapture) et un troisième qui est inclus par défaut, SimulatedTemperatureSensor. 
 
-3. Supprimez le module **tempSensor** avec tous ses paramètres. Ce module est inclus pour fournir des exemples de données pour les scénarios de test, mais nous n’en avons pas besoin pour ce déploiement. 
+3. Supprimez le module **SimulatedTemperatureSensor** avec tous ses paramètres. Ce module est inclus pour fournir des exemples de données pour les scénarios de test, mais nous n’en avons pas besoin pour ce déploiement. 
 
 4. Si vous avez nommé le module de classification d’images autrement que **classifier**, vérifiez le nom maintenant et assurez-vous qu’il est écrit en minuscules. Le module cameraCapture appelle le module classifier à l’aide d’une bibliothèque de requêtes qui met en forme toutes les requêtes en minuscules, et IoT Edge respecte la casse. 
 

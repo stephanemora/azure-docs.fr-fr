@@ -3,8 +3,8 @@ title: Processus de demande et notifications par e-mail dans la gestion des droi
 description: Découvrez le processus de demande d’un package d’accès, et les envois de notifications par e-mail dans la gestion des droits d’utilisation Azure Active Directory (préversion).
 services: active-directory
 documentationCenter: ''
-author: rolyon
-manager: mtillman
+author: msaburnley
+manager: daveba
 editor: mamtakumar
 ms.service: active-directory
 ms.workload: identity
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
 ms.date: 05/30/2019
-ms.author: rolyon
+ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aede5e315141251026867f7028ebf989d44da4d5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: eb5f322d8bc974274f7f2da7811b124499224635
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66473066"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68678142"
 ---
 # <a name="request-process-and-email-notifications-in-azure-ad-entitlement-management-preview"></a>Processus de demande et notifications par e-mail dans la gestion des droits d’utilisation Azure AD (préversion)
 
@@ -44,10 +44,10 @@ Un utilisateur qui a besoin d’accéder à un package d’accès peut soumettre
 | --- | --- |
 | Envoyée | L’utilisateur soumet une demande. |
 | Approbation en attente | Si la stratégie d’un package d’accès exige une approbation, la demande passe à l’approbation en attente. |
-| Expirée | Si aucun approbateur ne valide la demande dans le délai d’attente de la demande d’approbation, la demande expire. Pour réessayer, l’utilisateur doit soumettre de nouveau sa demande. |
+| Expiré | Si aucun approbateur ne valide la demande dans le délai d’attente de la demande d’approbation, la demande expire. Pour réessayer, l’utilisateur doit soumettre de nouveau sa demande. |
 | Refusée | L’approbateur refuse une demande. |
 | Approved | L’approbateur approuve une demande. |
-| Remise | L’accès à toutes les ressources dans le package d’accès n’a **pas** été affecté à l’utilisateur. S’il s’agit d’un utilisateur externe, il n’a pas encore accédé à l’annuaire de ressources et il n’a pas accepté les invites d’autorisations. |
+| Remise | L’accès à toutes les ressources dans le package d’accès n’a **pas** été affecté à l’utilisateur. S’il s’agit d’un utilisateur externe, il n’a peut-être pas encore accédé au répertoire de ressources ni accepté l’invite de consentement. |
 | Delivered (Livrée) | L’utilisateur a reçu l’accès à toutes les ressources dans le package d’accès. |
 | Accès étendu | Si des extensions sont autorisées dans la stratégie, l’utilisateur a étendu l’attribution. |
 | Accès expiré | L’accès de l’utilisateur au package d’accès a expiré. Pour obtenir de nouveau l’accès, l’utilisateur doit soumettre une demande. |
@@ -67,7 +67,7 @@ Le tableau suivant fournit plus de détails sur chacune de ces notifications par
 | 3 | Notification d’état : la demande d’accès de *[demandeur]* à *[package d’accès]* a expiré | Quand les approbateurs n’approuvent pas ou qu’ils refusent une demande d’accès dans le délai imparti de la demande | Demandeur |
 | 4 | Notification d’état : la demande d’accès de *[demandeur]* à *[package d’accès]* a été validée | Quand le premier approbateur approuve ou refuse une demande d’accès | Tous les approbateurs |
 | 5\. | L’accès à *[package d’accès]* vous a été refusé. | Quand l’accès au package d’accès a été refusé à un demandeur | Demandeur |
-| 6\. | Vous avez maintenant accès à *[package d’accès]*  | Quand un demandeur a accès à toutes les ressources dans le package d’accès | Demandeur |
+| 6 | Vous avez maintenant accès à *[package d’accès]*  | Quand un demandeur a accès à toutes les ressources dans le package d’accès | Demandeur |
 | 7 | Votre accès à *[package d’accès]* expire dans X jour(s) | X jours avant que l’accès du demandeur au package d’accès expire | Demandeur |
 | 8 | Votre accès à *[package d’accès]* a expiré | Quand l’accès du demandeur à un package d’accès expire | Demandeur |
 

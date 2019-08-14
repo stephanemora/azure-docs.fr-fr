@@ -9,15 +9,14 @@ ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova
-manager: craigg
-ms.date: 03/13/2019
+ms.date: 07/07/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 2ca2e4e98f56f7df5e81217bcda00179f05ff69e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: fd029c1e7b67d308e3e1fdbedbdc90ea430b4f5b
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67070350"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567246"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Différences T-SQL entre Azure SQL Database Managed Instance et SQL Server
 
@@ -31,7 +30,7 @@ Cet article résume et explique les différences de syntaxe et de comportement e
 - les [fonctionnalités qui se comportent différemment dans les instances managées](#Changes) ;
 - les [limitations temporaires et les problèmes connus](#Issues).
 
-L’option de déploiement Managed Instance est hautement compatible avec le moteur de base de données SQL Server local. La plupart des fonctionnalités du moteur de base de données SQL Server sont prises en charge dans une instance managée.
+L’option de déploiement Managed Instance est hautement compatible avec le moteur de base de données SQL Server local. La plupart des fonctionnalités du moteur de base de données SQL Server sont prises en charge dans une instance gérée.
 
 ![Migration](./media/sql-database-managed-instance/migration.png)
 
@@ -104,7 +103,7 @@ Pour plus d'informations, consultez les pages suivantes :
 Une instance managée ne pouvant pas accéder à des partages de fichiers et à des dossiers Windows, les contraintes suivantes s’appliquent :
 
 - le fichier `CREATE FROM`/`BACKUP TO` n’est pas pris en charge pour les certificats ;
-- le certificat `CREATE`/`BACKUP` de `FILE`/`ASSEMBLY` n’est pas pris en charge ; les fichiers de clés privés ne peuvent pas être utilisés. 
+- le certificat `CREATE`/`BACKUP` de `FILE`/`ASSEMBLY` n’est pas pris en charge ; Les fichiers de clés privés ne peuvent pas être utilisés 
 
 Consultez [CREATE CERTIFICATE](https://docs.microsoft.com/sql/t-sql/statements/create-certificate-transact-sql) et [BACKUP CERTIFICATE](https://docs.microsoft.com/sql/t-sql/statements/backup-certificate-transact-sql). 
  
@@ -293,13 +292,13 @@ Pour en savoir plus, consultez [ALTER DATABASE](https://docs.microsoft.com/sql/t
   - SQL Server Analysis Services n’est pas pris en charge.
 - Les notifications sont partiellement prises en charge.
 - Les notifications par e-mail sont prises en charge bien qu’elles nécessitent de votre part la configuration d’un profil Database Mail. SQL Server Agent ne peut utiliser qu’un seul profil Database Mail, et il doit être appelé `AzureManagedInstance_dbmail_profile`. 
-  - Le récepteur d’appel n’est pas pris en charge. 
+  - Le récepteur d’appel n’est pas pris en charge.
   - NetSend n’est pas pris en charge.
   - Les alertes ne sont pas encore prises en charge.
-  - Les proxies ne sont pas pris en charge. 
+  - Les proxies ne sont pas pris en charge.
 - EventLog n’est pas pris en charge.
 
-Actuellement, les fonctionnalités suivantes ne sont pas prises en charge, mais elles seront activées à l’avenir :
+Les fonctionnalités suivantes de l’agent SQL ne sont pas prises en charge actuellement :
 
 - Proxies
 - Planification de travaux sur une UC inactive
@@ -382,8 +381,9 @@ La [recherche sémantique](https://docs.microsoft.com/sql/relational-databases/s
 
 Les serveurs liés dans des instances managées prennent en charge un nombre limité de cibles :
 
-- Les cibles prises en charge sont SQL Server et SQL Database.
-- Les cibles qui ne sont pas prises en charge sont des fichiers, Analysis Services et d’autres SGBDR.
+- Les cibles prises en charge sont les instances managées, les bases de données uniques et les instances de SQL Server. 
+- Les serveurs liés ne prennent pas en charge les transactions accessibles en écriture distribuées (MS DTC).
+- Les cibles qui ne sont pas prises en charge sont des fichiers, Analysis Services et d’autres SGBDR. Essayez d’utiliser l’importation CSV native à partir de Stockage Blob Azure à l’aide de `BULK INSERT` ou `OPENROWSET` comme alternative pour l’importation de fichiers.
 
 Opérations
 
@@ -391,6 +391,7 @@ Opérations
 - `sp_dropserver` est pris en charge pour supprimer un serveur lié. Consultez [sp_dropserver](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-dropserver-transact-sql).
 - La fonction `OPENROWSET` peut être utilisée pour exécuter des requêtes uniquement sur des instances SQL Server. Elles peuvent être managées, locales ou dans des machines virtuelles. Consultez [OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql).
 - La fonction `OPENDATASOURCE` peut être utilisée pour exécuter des requêtes uniquement sur des instances SQL Server. Elles peuvent être managées, locales ou dans des machines virtuelles. Seules les valeurs `SQLNCLI`, `SQLNCLI11` et `SQLOLEDB` sont prises en charge en tant que fournisseur. Par exemple `SELECT * FROM OPENDATASOURCE('SQLNCLI', '...').AdventureWorks2012.HumanResources.Employee`. Consultez [OPENDATASOURCE](https://docs.microsoft.com/sql/t-sql/functions/opendatasource-transact-sql).
+- Les serveurs liés ne peuvent pas être utilisés pour lire des fichiers (Excel, CSV) à partir des partages réseau. Essayez d’utiliser [BULK INSERT](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql#e-importing-data-from-a-csv-file) ou [OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql#g-accessing-data-from-a-csv-file-with-a-format-file) qui lit les fichiers CSV à partir de Stockage Blob Azure. Suivez ces requêtes sur l’[élément de commentaires de Managed Instance](https://feedback.azure.com/forums/915676-sql-managed-instance/suggestions/35657887-linked-server-to-non-sql-sources)|
 
 ### <a name="polybase"></a>PolyBase
 
@@ -398,7 +399,13 @@ Les tables externes qui référencent les fichiers dans HDFS ou le stockage Blob
 
 ### <a name="replication"></a>Réplication
 
-Une réplication est disponible en préversion publique pour Managed Instance. Pour plus d’informations sur la réplication, consultez [Réplication SQL Server](https://docs.microsoft.com/sql/relational-databases/replication/replication-with-sql-database-managed-instance).
+La [réplication transactionnelle](sql-database-managed-instance-transactional-replication.md) est disponible en préversion publique dans Managed Instance avec certaines contraintes :
+- Tous les types de participants de réplication (serveur de publication, serveur de distribution, abonné d’extraction et abonné de type push) peuvent être placés sur Managed Instance, mais le serveur de publication et le serveur de distribution ne peuvent pas être placés sur des instances différentes.
+- Les types de réplication transactionnelle, d’instantané et bidirectionnelle sont pris en charge. La réplication de fusion, la réplication d’égal à égal et les abonnements modifiables ne sont pas pris en charge.
+- Managed Instance peut communiquer avec les versions récentes de SQL Server. Consultez les versions prises en charge [ici](sql-database-managed-instance-transactional-replication.md#supportability-matrix-for-instance-databases-and-on-premises-systems).
+- La réplication transactionnelle présente des [exigences de mise en réseau supplémentaires](sql-database-managed-instance-transactional-replication.md#requirements).
+
+Pour plus d’informations sur la configuration de la réplication, consultez le [didacticiel de réplication](replication-with-sql-database-managed-instance.md).
 
 ### <a name="restore-statement"></a>L’instruction RESTORE 
 
@@ -459,7 +466,7 @@ Le Service Broker entre instances n’est pas pris en charge :
 
 ## <a name="Environment"></a>Contraintes d’environnement
 
-### <a name="subnet"></a>Sous-réseau
+### <a name="subnet"></a>Subnet
 - Dans le sous-réseau réservé pour votre instance managée, vous ne pouvez pas placer d’autres ressources (par exemple des machines virtuelles). Mettez ces ressources dans d’autres sous-réseaux.
 - Le sous-réseau doit avoir un nombre suffisant d’[adresses IP](sql-database-managed-instance-connectivity-architecture.md#network-requirements) disponibles. Le nombre minimal est 16, mais la recommandation est de disposer d’au moins 32 adresses IP dans le sous-réseau.
 - [Les points de terminaison de service ne peuvent pas être associés au sous-réseau de l’instance managée](sql-database-managed-instance-connectivity-architecture.md#network-requirements). Vérifiez que l’option Points de terminaison de service est désactivée quand vous créez le réseau virtuel.
@@ -468,13 +475,14 @@ Le Service Broker entre instances n’est pas pris en charge :
 
 ### <a name="vnet"></a>Réseau virtuel
 - Le réseau virtuel peut être déployé à l’aide du modèle de ressource ; le modèle classique pour réseau virtuel n’est pas pris en charge.
+- Après la création d’une instance managée, le déplacement de l’instance managée ou du réseau virtuel vers un autre groupe de ressources ou vers un autre abonnement n’est pas pris en charge.
 - Certains services, tels que App Service Environment, Logic Apps et Managed Instance (utilisés pour la géoréplication, la réplication transactionnelle ou via des serveurs liés), ne peuvent pas accéder aux instances Managed Instance dans des régions différentes si leurs réseaux virtuels sont connectés au moyen du [Peering mondial](../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers). Vous pouvez vous connecter à ces ressources via ExpressRoute ou une connexion entre deux réseaux virtuels, par l’intermédiaire de passerelles de réseau virtuel.
 
 ## <a name="Changes"></a> Changements de comportement
 
 Les variables, fonctions et vues suivantes retournent des résultats différents :
 
-- `SERVERPROPERTY('EngineEdition')` retourne la valeur 8. Cette propriété identifie une instance managée de façon unique. Consultez [SERVERPROPERTY](https://docs.microsoft.com/sql/t-sql/functions/serverproperty-transact-sql).
+- `SERVERPROPERTY('EngineEdition')` retourne la valeur 8. Cette propriété identifie une instance gérée de façon unique. Consultez [SERVERPROPERTY](https://docs.microsoft.com/sql/t-sql/functions/serverproperty-transact-sql).
 - `SERVERPROPERTY('InstanceName')` retourne la valeur NULL, car le concept d’instance tel qu’il existe pour SQL Server ne s’applique pas à une instance managée. Consultez [SERVERPROPERTY(« InstanceName »)](https://docs.microsoft.com/sql/t-sql/functions/serverproperty-transact-sql).
 - `@@SERVERNAME` retourne un nom DNS « connectable » complet, par exemple, my-managed-instance.wcus17662feb9ce98.database.windows.net. Consultez [@@SERVERNAME](https://docs.microsoft.com/sql/t-sql/functions/servername-transact-sql). 
 - `SYS.SERVERS` retourne le nom DNS « connectable » complet, tel que `myinstance.domain.database.windows.net` pour les propriétés « name » et « data_source ». Consultez [SYS. SERVERS](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-servers-transact-sql).
@@ -486,7 +494,7 @@ Les variables, fonctions et vues suivantes retournent des résultats différents
 
 ### <a name="tempdb-size"></a>Taille de TEMPDB
 
-La taille de fichier maximale de `tempdb` ne peut pas être supérieure à 24 Go par cœur sur un niveau Usage général. La taille maximale de `tempdb` sur un niveau Critique pour l’entreprise est limitée à la taille de stockage d’instance. La base de données `tempdb` est toujours divisée en 12 fichiers de données. Cette taille maximale par fichier n’est pas modifiable, et de nouveaux fichiers ne peuvent pas être ajoutés à `tempdb`. Certaines requêtes peuvent retourner une erreur si elles ont besoin de plus de 24 Go par cœur dans `tempdb`. `tempdb` est toujours recréé en tant que base de données vide lorsque l’instance démarre ou bascule, et les modifications apportées dans `tempdb` ne sont pas conservées. 
+La taille de fichier maximale de `tempdb` ne peut pas être supérieure à 24 Go par cœur sur un niveau Usage général. La taille maximale de `tempdb` sur un niveau Critique pour l’entreprise est limitée à la taille de stockage d’instance. La taille du fichier journal `tempdb` est limitée à 120 Go sur les niveaux usage général et critique pour l’entreprise. La base de données `tempdb` est toujours divisée en 12 fichiers de données. Cette taille maximale par fichier n’est pas modifiable, et de nouveaux fichiers ne peuvent pas être ajoutés à `tempdb`. Certaines requêtes peuvent retourner une erreur si elles ont besoin de plus de 24 Go par cœur dans `tempdb` ou si elles produisent plus de 120 Go de journal. `tempdb` est toujours recréé en tant que base de données vide lorsque l’instance démarre ou bascule, et les modifications apportées dans `tempdb` ne sont pas conservées. 
 
 ### <a name="cant-restore-contained-database"></a>Impossible de restaurer la base de données autonome
 
@@ -547,7 +555,7 @@ Une instance managée ajoute des informations détaillées dans les journaux des
 
 Dans .NET, la classe `TransactionScope` ne fonctionne pas si deux requêtes sont envoyées à deux bases de données appartenant à la même instance et à la même étendue de transaction :
 
-```C#
+```csharp
 using (var scope = new TransactionScope())
 {
     using (var conn1 = new SqlConnection("Server=quickstartbmi.neu15011648751ff.database.windows.net;Database=b;User ID=myuser;Password=mypassword;Encrypt=true"))
@@ -585,6 +593,11 @@ Il arrive que des modules CLR placés dans une instance managée, et que des ser
 Vous ne pouvez pas exécuter `BACKUP DATABASE ... WITH COPY_ONLY` sur une base de données qui est chiffrée avec Transparent Data Encryption (TDE) managé par le service. TDE managé par le service oblige le chiffrement des sauvegardes à l’aide d’une clé de chiffrement TDE interne. La clé ne pouvant pas être exportée, vous ne pouvez pas restaurer la sauvegarde.
 
 **Solution de contournement :** utilisez des sauvegardes automatiques et la restauration dans le temps, ou utilisez [TDE managé par le client (BYOK)](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql#customer-managed-transparent-data-encryption---bring-your-own-key) à la place. Vous pouvez également désactiver le chiffrement sur la base de données.
+
+### <a name="point-in-time-restore-follows-time-by-the-time-zone-set-on-the-source-instance"></a>La restauration dans le temps suit le fuseau horaire défini sur l’instance source
+
+La restauration dans le temps interprète actuellement le temps de restauration en suivant le fuseau horaire de l’instance source plutôt qu’en suivant l’heure UTC.
+Pour plus d’informations, consultez [Problèmes connus de fuseau horaire de Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-timezone#known-issues).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -4,14 +4,14 @@ description: Découvrez comment gérer les conflits dans Azure Cosmos DB
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 06/25/2019
+ms.date: 08/05/2019
 ms.author: mjbrown
-ms.openlocfilehash: 96171d4729187ca03f1e9529551a7fb6a26c6976
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 77fb0e195cee03405c4a601fe8c57d4a2690a4b2
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68360364"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68815078"
 ---
 # <a name="manage-conflict-resolution-policies-in-azure-cosmos-db"></a>Gérer les stratégies de résolution des conflits dans Azure Cosmos DB
 
@@ -19,7 +19,7 @@ Avec les écritures multirégions, quand plusieurs clients écrivent dans le mê
 
 ## <a name="create-a-last-writer-wins-conflict-resolution-policy"></a>Créer une stratégie de résolution de conflit de type last-writer-wins (dernière version valide)
 
-Ces exemples montrent comment configurer un conteneur avec une stratégie de résolution de conflit de type last-writer-wins (dernière version valide). Le chemin par défaut de la stratégie last-writer-wins est le champ d’horodatage ou la propriété `_ts`. Il peut aussi être défini comme étant un chemin défini par l’utilisateur pour un type numérique. En cas de conflit, la valeur la plus élevée l’emporte. Si le chemin n’est pas défini ou n’est pas valide, il suit par défaut la propriété `_ts`. Les conflits résolus avec cette stratégie ne s’affichent pas dans le flux de conflit. Cette stratégie peut être utilisée par toutes les API.
+Ces exemples montrent comment configurer un conteneur avec une stratégie de résolution de conflit de type last-writer-wins (dernière version valide). Le chemin par défaut de la stratégie last-writer-wins est le champ d’horodatage ou la propriété `_ts`. Pour l’API SQL, il peut aussi s’agir d’un chemin défini par l’utilisateur avec un type numérique. En cas de conflit, la valeur la plus élevée l’emporte. Si le chemin n’est pas défini ou n’est pas valide, il suit par défaut la propriété `_ts`. Les conflits résolus avec cette stratégie ne s’affichent pas dans le flux de conflit. Cette stratégie peut être utilisée par toutes les API.
 
 ### <a id="create-custom-conflict-resolution-policy-lww-dotnet"></a>Kit SDK .NET V2
 
@@ -114,7 +114,6 @@ Les procédures stockées de résolution de conflit personnalisées doivent êtr
 
 > [!IMPORTANT]
 > Comme n’importe quelle procédure stockée, une procédure de résolution de conflit personnalisée peut accéder à des données avec la même clé de partition et peut effectuer une opération d’insertion, de mise à jour ou de suppression pour résoudre des conflits.
-
 
 Cet exemple de procédure stockée résout des conflits en sélectionnant la valeur la plus basse dans le chemin `/myCustomId`.
 
@@ -273,7 +272,6 @@ udp_collection = self.try_create_document_collection(
 
 Après la création de votre conteneur, vous devez créer la procédure stockée `resolver`.
 
-
 ## <a name="create-a-custom-conflict-resolution-policy"></a>Créer une stratégie de résolution de conflits personnalisée
 
 Ces exemples montrent comment configurer un conteneur avec une stratégie de résolution de conflits personnalisée. Ces conflits apparaissent dans le flux de conflit.
@@ -428,10 +426,10 @@ while conflict:
 
 Découvrez les concepts Azure Cosmos DB suivants :
 
-* [Article relatif au principe de la distribution mondiale d’Azure Cosmos DB](global-dist-under-the-hood.md)
-* [Configurer la fonction multimaître dans vos applications](how-to-multi-master.md)
-* [Configurer les clients pour la multirésidence](how-to-manage-database-account.md#configure-multiple-write-regions)
-* [Ajouter ou supprimer des régions de votre compte Azure Cosmos DB](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
-* [Guide pratique pour configurer les fonctionnalités multimaîtres dans vos applications](how-to-multi-master.md).
-* [Partitionnement et distribution des données](partition-data.md)
-* [Indexation dans Azure Cosmos DB](indexing-policies.md)
+- [Article relatif au principe de la distribution mondiale d’Azure Cosmos DB](global-dist-under-the-hood.md)
+- [Configurer la fonction multimaître dans vos applications](how-to-multi-master.md)
+- [Configurer les clients pour la multirésidence](how-to-manage-database-account.md#configure-multiple-write-regions)
+- [Ajouter ou supprimer des régions de votre compte Azure Cosmos DB](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
+- [Guide pratique pour configurer les fonctionnalités multimaîtres dans vos applications](how-to-multi-master.md).
+- [Partitionnement et distribution des données](partition-data.md)
+- [Indexation dans Azure Cosmos DB](indexing-policies.md)

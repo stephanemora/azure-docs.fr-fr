@@ -11,12 +11,12 @@ ms.author: sgilley
 ms.reviewer: sgilley
 ms.date: 07/31/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7fdf9c52df502bc94519ab6c65be2e9fb546ce48
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: e5088cfa417c76933be6785188f2b173b7b461d0
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699132"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68772574"
 ---
 # <a name="explore-azure-machine-learning-service-with-jupyter-notebooks"></a>Explorer Azure Machine Learning service avec des notebooks Jupyter
 
@@ -25,7 +25,7 @@ L’[exemple de dépôt Azure Machine Learning Notebooks](https://github.com/azu
 Cet article vous montre comment accéder au dépôt dans les environnements suivants :
 
 - [Machine virtuelle Notebook Azure Machine Learning](#notebookvm)
-- [Utiliser son propre serveur de notebook](#byo)
+- [Utiliser son propre serveur de notebooks](#byo)
 - [Data Science Virtual Machine](#dsvm) (Machine virtuelle Science des données)
 - [Azure Notebooks](#aznb)
 
@@ -35,7 +35,7 @@ Cet article vous montre comment accéder au dépôt dans les environnements suiv
 <a name="notebookvm"></a>
 ## <a name="get-samples-on-azure-machine-learning-notebook-vm"></a>Recevoir des exemples sur une machine virtuelle Notebook Azure Machine Learning
 
-Pour bien démarrer avec les exemples, le plus simple est de suivre le [guide de démarrage rapide des notebooks cloud](quickstart-run-cloud-notebook.md). Une fois que vous l’aurez suivi, vous disposerez d’un serveur de notebook dédié dans lequel auront été préchargés le SDK et l’exemple de dépôt. Aucune installation ni aucun téléchargement ne sont nécessaires.
+Pour bien démarrer avec les exemples, le plus simple est de suivre le [Tutoriel : Configurer l’environnement et l’espace de travail](tutorial-1st-experiment-sdk-setup.md). Une fois que vous l’aurez suivi, vous disposerez d’un serveur de notebook dédié dans lequel auront été préchargés le SDK et l’exemple de dépôt. Aucune installation ni aucun téléchargement ne sont nécessaires.
 
 <a name="byo"></a>
 

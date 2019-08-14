@@ -11,10 +11,10 @@ metadata:
   ms.service: search
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 05/02/2019
+  ms.date: 08/12/2019
   ms.author: heidist
 abstract:
-  description: 'Découvrez comment créer une solution de recherche de contenu d’entreprise sur le contenu privé et hétérogène à l’aide de Recherche Azure. Les tutoriels, les informations de référence d’API ainsi que les autres documents vous montrent comment consolider le contenu pouvant faire l’objet d’une recherche dans un index unique et rapide. Ce dernier peut être interrogé à l’aide de syntaxes simples à avancées pour un large éventail de scénarios. <p/>La <a href="/azure/search/cognitive-search-concept-intro"><b>Recherche cognitive</b> </a> est maintenant en disponibilité générale avec les enrichissements IA pris en charge pour les scénarios de production.<p/>Le <a href="/azure/search/knowledge-store-concept-intro"><b>Magasin de connaissances (préversion)</b> </a> étend la recherche cognitive. Enregistrez les enrichissements IA à des fins de stockage pour les afficher, les remodeler et les utiliser dans d''autres applications, en plus de Recherche Azure. <a href="/azure/search/knowledge-store-howto"><b>Commencez dès</b></a> aujourd''hui.'
+  description: 'Découvrez comment créer une solution de recherche de contenu d’entreprise sur le contenu privé et hétérogène à l’aide de Recherche Azure. Les tutoriels, les informations de référence d’API ainsi que les autres documents vous montrent comment consolider le contenu pouvant faire l’objet d’une recherche dans un index unique et rapide. Ce dernier peut être interrogé à l’aide de syntaxes simples à avancées pour un large éventail de scénarios. <p/><a href="/azure/search/cognitive-search-concept-intro"><b>La recherche cognitive</b></a> est une fonctionnalité Recherche Azure qui associe les processus IA à l’indexation, à la détection de texte et aux caractéristiques des fichiers image, ainsi qu’à la recherche de modèles dans les grands blocs de texte non structuré.<p/>Le <a href="/azure/search/knowledge-store-concept-intro"><b>Magasin de connaissances (préversion)</b> </a> étend la recherche cognitive. Enregistrez les enrichissements IA dans un espace de stockage où vous pouvez les voir, les remodeler et les consommer dans des applications clientes ou des processus en aval. <a href="/azure/search/knowledge-store-howto"><b>Commencez dès</b></a> aujourd''hui.'
   aside:
     image:
       alt: null

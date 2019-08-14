@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 07/12/2019
 ms.author: hamusa
-ms.openlocfilehash: 5f70037b1e6ce284b55ff5ff0ae38eb50c320122
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
+ms.openlocfilehash: 7b27637ca63ec69d7f4c33f05e7c037d67676b2d
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/13/2019
-ms.locfileid: "67868655"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68828306"
 ---
 # <a name="assess-vmware-vms-with-azure-migrate-server-assessment"></a>Évaluer les machines virtuelles VMware avec Azure Migrate : Server Assessment
 
@@ -82,8 +82,8 @@ Azure Migrate : Server Assessment exécute une appliance de machine virtuelle V
 
 - Cette appliance effectue la découverte des machines virtuelles, puis envoie les métadonnées et les données de performances des machines virtuelles à Azure Migrate Server Assessment.
 - Pour configurer l’appliance, vous devez :
-    - Télécharger un fichier de modèle OVA, puis l’importer dans vCenter Server
-    - Créer l’appliance et vérifier qu’elle peut se connecter à Azure Migrate Server Assessment
+    - Téléchargez un fichier de modèle OVA, puis importez-le dans vCenter Server.
+    - Créez l’appliance et vérifiez qu’elle peut se connecter à Azure Migrate Server Assessment.
     - Configurer l’appliance pour la première fois, puis l’inscrire auprès du projet Azure Migrate
 - Vous pouvez configurer plusieurs appliances pour un seul projet Azure Migrate. Sur l’ensemble des appliances, la découverte de 35 000 machines virtuelles au maximum est prise en charge. 10 000 serveurs au maximum peuvent être découverts par appliance.
 
@@ -104,12 +104,12 @@ Vérifiez que le fichier .OVA est sécurisé avant de le déployer.
 2. Exécutez la commande suivante pour générer le code de hachage du fichier OVA :
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Exemple d’utilisation : ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
-3. Pour la version 1.19.06.27, le code de hachage généré doit correspondre aux valeurs ci-après. 
+3. Pour la version 2.19.07.30, le code de hachage généré doit correspondre aux valeurs ci-après. 
 
   **Algorithme** | **Valeur de hachage**
   --- | ---
-  MD5 | 605d208ac5f4173383f616913441144e
-  SHA256 | 447d16bd55f20f945164a1189381ef6e98475b573d6d1c694f3e5c172cfc30d4
+  MD5 | 27230f3b012187860281b912ee661709
+  SHA256 | c0a5b5998b7f38ac6e57ea9a808ecc4295795e18f9ca99c367585068883f06e7
 
 
 ### <a name="create-the-appliance-vm"></a>Créer la machine virtuelle de l’appliance
@@ -121,11 +121,11 @@ Importez le fichier téléchargé, puis créez une machine virtuelle.
     ![Déployer le modèle OVF](./media/tutorial-assess-vmware/deploy-ovf.png)
 
 2. Dans l’Assistant de déploiement du modèle OVF > **Source**, spécifiez l’emplacement du fichier .OVA.
-3. Dans **Name** (Nom) et **Location** (Emplacement), spécifiez un nom convivial pour la machine virtuelle. Sélectionnez l’objet d’inventaire dans lequel la machine virtuelle doit être hébergé.
-5. Dans **Host/Cluster** (Hôte/Cluster), spécifiez l’hôte ou le cluster sur lequel la machine virtuelle doit s’exécuter.
+3. Dans **Name** (Nom) et **Location** (Emplacement), spécifiez un nom convivial pour la machine virtuelle. Sélectionnez l’objet d’inventaire dans lequel la machine virtuelle doit être hébergée.
+5. Dans **Host/Cluster** (Hôte/Cluster), spécifiez l’hôte ou le cluster sur lequel s’exécute la machine virtuelle.
 6. Dans **Storage** (Stockage), spécifiez la destination du stockage de la machine virtuelle.
 7. Dans **Disk Format** (Format de disque), spécifiez le type de disque et la taille.
-8. Dans **Network Mapping** (Mappage réseau), spécifiez le réseau auquel la machine virtuelle doit se connecter. Le réseau a besoin d’une connexion à Internet pour envoyer des métadonnées à Azure Migrate Server Assessment.
+8. Dans **Network Mapping** (Mappage réseau), spécifiez le réseau auquel se connectera la machine virtuelle. Le réseau a besoin d’une connexion à Internet pour envoyer des métadonnées à Azure Migrate Server Assessment.
 9. Passez en revue les paramètres, confirmez-les, puis cliquez sur **Finish** (Terminer).
 
 
@@ -139,14 +139,14 @@ Vérifiez que la machine virtuelle de l’appliance peut se connecter aux [URL A
 Configurez l’appliance en suivant les étapes ci-après.
 
 1. Dans la console du client vSphere, cliquez avec le bouton droit sur la machine virtuelle, puis choisissez **Open Console** (Ouvrir la console).
-2. Indiquez la langue, le fuseau horaire et le mot de passe de l’appliance.
-3. Ouvrez un navigateur sur une machine qui peut se connecter à la machine virtuelle, puis ouvrez l’URL de l’application web de l’appliance : **https://*nom ou adresse IP de l’appliance* : 44368**.
+2. Spécifiez la langue, le fuseau horaire et le mot de passe pour l’appliance.
+3. Ouvrez un navigateur sur une machine qui peut se connecter à la machine virtuelle, puis ouvrez l’URL de l’application web de l’appliance : **https://*nom ou adresse IP de l’appliance* : 44368**.
 
    Vous pouvez aussi ouvrir l’application à partir du Bureau de l’appliance en cliquant sur le raccourci de l’application.
-4. Dans l’application web > **Configurer les prérequis**, effectuez ce qui suit :
+4. Dans l’application web > **Configurer les prérequis**, procédez comme suit :
     - **Licence** : Acceptez les termes de licence et lisez les informations relatives aux tiers.
     - **Connectivité** : L’application vérifie que la machine virtuelle a accès à Internet. Si la machine virtuelle utilise un proxy :
-        - Cliquez sur **Paramètres du proxy**, puis spécifiez l’adresse et le port d’écoute du proxy, sous la forme http://ProxyIPAddress ou http://ProxyFQDN.
+        - Cliquez sur **Paramètres du proxy** et spécifiez l’adresse du proxy et le port d’écoute, sous la forme http://ProxyIPAddress ou http://ProxyFQDN.
         - Spécifiez les informations d’identification si le proxy nécessite une authentification.
         - Seuls les proxys HTTP sont pris en charge.
     - **Synchronisation de l’heure** : l’heure de l’appliance doit être synchronisée avec l’heure Internet pour que la découverte fonctionne correctement.
@@ -155,9 +155,9 @@ Configurez l’appliance en suivant les étapes ci-après.
         - Azure Migrate : Server Migration utilise VDDK pour répliquer les machines durant la migration vers Azure.
         - Téléchargez VDDK 6.7 à partir de VMware, puis extrayez le contenu du fichier zip téléchargé à l’emplacement spécifié sur l’appliance.
 
-### <a name="register-the-appliance-with-azure-migrate"></a>Inscrivez l’appliance auprès d’Azure Migrate
+### <a name="register-the-appliance-with-azure-migrate"></a>Inscrire l’appliance auprès d’Azure Migrate
 
-1. Cliquez sur **Se connecter**. Si elle n’apparaît pas, vérifiez que vous avez désactivé le bloqueur de fenêtres publicitaires dans le navigateur.
+1. Cliquez sur **Se connecter**. S’il n’apparaît pas, vérifiez que vous avez désactivé le bloqueur de fenêtres publicitaires dans le navigateur.
 2. Sous le nouvel onglet, connectez-vous avec vos informations d’identification Azure.
     - Connectez-vous avec votre nom d’utilisateur et votre mot de passe.
     - La connexion avec un code PIN n’est pas prise en charge.
@@ -167,16 +167,16 @@ Configurez l’appliance en suivant les étapes ci-après.
 4. Cliquez sur **S'inscrire**.
 
 
-## <a name="start-continuous-discovery"></a>Démarrer la découverte continue
+## <a name="start-continuous-discovery"></a>Démarrer la découverte en continu
 
-Connectez-vous ensuite depuis l’appliance à vCenter Server, puis démarrez la découverte des machine virtuelles.
+Connectez-vous ensuite depuis l’appliance à vCenter Server, puis démarrez la découverte des machines virtuelles.
 
 1. Dans **Spécifier les détails vCenter Server**, spécifiez le nom (FQDN) ou l’adresse IP du serveur vCenter Server. Vous pouvez laisser le port par défaut, ou spécifier un port personnalisé sur lequel votre serveur vCenter Server est à l’écoute.
-2. Dans **Nom d’utilisateur** et **Mot de passe**, spécifiez les informations d’identification du compte en lecture seule que l’appliance va utiliser pour découvrir les machines virtuelles sur le serveur vCenter Server. Vérifiez que le compte dispose des [autorisations nécessaires pour la découverte](migrate-support-matrix-vmware.md#assessment-vcenter-server-permissions). Vous pouvez définir l’étendue de la découverte en limitant l’accès au compte vCenter. Pour en savoir plus sur la découverte délimitée, cliquez [ici](tutorial-assess-vmware.md#scoping-discovery).
+2. Dans **Nom d’utilisateur** et **Mot de passe**, spécifiez les informations d’identification du compte en lecture seule que l’appliance utilisera pour découvrir les machines virtuelles sur le vCenter Server. Vérifiez que le compte dispose des [autorisations nécessaires pour la découverte](migrate-support-matrix-vmware.md#assessment-vcenter-server-permissions). Vous pouvez définir l’étendue de la découverte en limitant l’accès au compte vCenter. Pour en savoir plus sur la découverte délimitée, cliquez [ici](tutorial-assess-vmware.md#scoping-discovery).
 3. Cliquez sur **Valider la connexion** pour vérifier que l’appliance peut se connecter à vCenter Server.
 4. Une fois la connexion établie, cliquez sur **Enregistrer et lancer la découverte**.
 
-Cela entraîne le démarrage de la découverte. Environ 15 minutes sont nécessaires pour que les métadonnées des machines virtuelles découvertes apparaissent dans le portail.
+Ceci démarre la découverte. Environ 15 minutes sont nécessaires pour que les métadonnées des machines virtuelles découvertes apparaissent dans le portail.
 
 ### <a name="scoping-discovery"></a>Définition de l’étendue de la découverte
 
@@ -200,7 +200,7 @@ Une fois la découverte effectuée, vous pouvez vérifier que les machines virtu
 
 ## <a name="set-up-an-assessment"></a>Configurer une évaluation
 
-Vous pouvez créer deux types d’évaluation à l’aide d’Azure Migrate : Server Assessment.
+Vous pouvez créer deux types d’évaluation à l’aide d’Azure Migrate : Évaluation de serveur.
 
 **Évaluation** | **Détails** | **Données**
 --- | --- | ---
@@ -212,8 +212,8 @@ Vous pouvez créer deux types d’évaluation à l’aide d’Azure Migrate : S
 
 Exécutez une évaluation comme suit :
 
-1. Passez en revue les [bonnes pratiques](best-practices-assessment.md) liées à la création d’évaluations.
-2. Sous l’onglet **Serveurs**, dans la vignette **Azure Migrate : Server Assessment**, cliquez sur **Évaluer**.
+1. Passez en revue les [meilleures pratiques](best-practices-assessment.md) liées à la création d’évaluations.
+2. Sous l’onglet **Serveurs**, dans la vignette **Azure Migrate : Mosaïque**  d’évaluation de serveur, cliquez sur **Évaluer**.
 
     ![Évaluation](./media/tutorial-assess-vmware/assess.png)
 
@@ -233,29 +233,29 @@ Exécutez une évaluation comme suit :
 
 
 
-## <a name="review-an-assessment"></a>Passer en revue une évaluation
+## <a name="review-an-assessment"></a>Réviser une évaluation
 
 Une évaluation décrit les éléments suivants :
 
-- **Préparé pour Azure** : indique si les machines virtuelles peuvent faire l’objet d’une migration vers Azure.
-- **Estimation des coûts mensuels** : coûts mensuels de calcul et de stockage estimés pour l’exécution des machines virtuelles dans Azure.
-- **Estimation des coûts de stockage mensuels** : coûts estimés pour le stockage sur disque après la migration.
+- **Préparé pour Azure** : Indique si les machines virtuelles peuvent faire l’objet d’une migration vers Azure.
+- **Estimation des coûts mensuels** : Coûts mensuels de calcul et de stockage estimés pour l’exécution des machines virtuelles dans Azure.
+- **Estimation des coûts de stockage mensuels** : Coûts estimés pour le stockage sur disque après la migration.
 
 ### <a name="view-an-assessment"></a>Voir une évaluation
 
-1. Dans **Objectifs de migration** >  **Serveurs**, cliquez sur **Évaluations** dans **Azure Migrate : Server Assessment**.
+1. Dans **Objectifs de migration** >  **Serveurs**, cliquez sur **Évaluations** dans **Azure Migrate : Évaluation de serveur**.
 2. Dans **Évaluations**, cliquez sur une évaluation pour l’ouvrir.
 
     ![Récapitulatif de l’évaluation](./media/tutorial-assess-vmware/assessment-summary.png)
 
-### <a name="review-azure-readiness"></a>Passer en revue l’état de préparation pour Azure
+### <a name="review-azure-readiness"></a>Examiner la préparation pour Azure
 
 1. Dans **Préparé pour Azure**, vérifiez si les machines virtuelles sont prêtes pour la migration vers Azure.
 2. Passez en revue l’état des machines virtuelles :
     - **Disponible pour Azure** : Azure Migrate recommande une taille de machine virtuelle et donne des estimations de coût pour les machines virtuelles de l’évaluation.
-    - **Disponible sous conditions** : montre des problèmes et leur correction suggérée.
-    - **Non disponible pour Azure** : montre des problèmes et leur correction suggérée.
-    - **État de la préparation inconnu** : utilisé quand Azure Migrate ne peut pas évaluer la préparation, en raison de problèmes de disponibilité des données.
+    - **Disponible sous conditions** : Montre des problèmes et leur correction suggérée.
+    - **Non disponible pour Azure** : Montre des problèmes et leur correction suggérée.
+    - **État de la préparation inconnu** : Utilisé quand Azure Migrate ne peut pas évaluer la préparation, en raison de problèmes de disponibilité des données.
 
 2. Cliquez sur un état **Préparé pour Azure**. Vous pouvez voir les informations relatives à l’état de préparation des machines virtuelles et explorer ces dernières en détail, notamment en ce qui concerne les valeurs pour le calcul, le stockage et le réseau.
 

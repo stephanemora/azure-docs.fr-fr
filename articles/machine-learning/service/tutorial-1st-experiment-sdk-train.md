@@ -10,12 +10,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 07/20/2019
-ms.openlocfilehash: 8b89f5572ae94986590fe76096daeb0ad088fe59
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: 66a0c625d300a74787e3640992675d5a3f31610c
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68668576"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68828561"
 ---
 # <a name="tutorial-train-your-first-model"></a>Didacticiel : Entraîner votre premier modèle
 
@@ -111,7 +111,7 @@ Une fois l’apprentissage terminé, appelez la variable `experiment` pour extra
 experiment
 ```
 
-<table style="width:100%"><tr><th>Nom</th><th>Espace de travail</th><th>Page du rapport</th><th>Page des documents</th></tr><tr><td>diabetes-experiment</td><td>your-workspace-name</td><td><a href="" target="_blank" rel="noopener">Lien vers le portail Azure</a></td><td><a href="" target="_blank" rel="noopener">Lien vers la documentation</a></td></tr></table>
+<table style="width:100%"><tr><th>Nom</th><th>Espace de travail</th><th>Page du rapport</th><th>Page des documents</th></tr><tr><td>diabetes-experiment</td><td>your-workspace-name</td><td>Lien vers le portail Azure</td><td>Lien vers la documentation</td></tr></table>
 
 ## <a name="view-training-results-in-portal"></a>Afficher les résultats de l’apprentissage sur le portail
 
@@ -181,7 +181,7 @@ Si vous avez utilisé un serveur de notebook cloud, arrêtez la machine virtuell
 
 1. Dans votre espace de travail, sélectionnez **Machines virtuelles Notebook**.
 
-   ![Arrêter le serveur de machines virtuelles](./media/quickstart-run-cloud-notebook/stop-server.png)
+   ![Arrêter le serveur de machines virtuelles](./media/tutorial-1st-experiment-sdk-setup/stop-server.png)
 
 1. Sélectionnez la machine virtuelle dans la liste.
 

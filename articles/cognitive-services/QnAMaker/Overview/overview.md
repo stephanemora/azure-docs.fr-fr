@@ -1,77 +1,105 @@
 ---
-title: Qu’est-ce que QnA Maker ?
+title: Qu’est-ce que le service QnA Maker ?
 titleSuffix: Azure Cognitive Services
-description: QnA Maker est un service API informatique qui utilise l’intelligence personnalisée du Machine Learning pour répondre au mieux aux questions en langage naturel d’un utilisateur.
+description: QnA Maker est un service NLP cloud qui permet de créer facilement une couche conversationnelle naturelle sur vos données. Il peut être utilisé pour trouver la réponse la plus appropriée à une entrée donnée en langage naturel à partir de votre base de connaissances personnalisée (base d’informations).
 services: cognitive-services
 author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: overview
-ms.date: 04/05/2019
+ms.date: 08/01/2019
 ms.author: diberry
-ms.openlocfilehash: bfb6c5b7cc5a4bd1717fdd96f6d232cc269e702d
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: f56798359cdc8739a363bed3bfddadd584617adf
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67439591"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68815484"
 ---
-# <a name="what-is-qna-maker"></a>Qu’est-ce que QnA Maker ?
+# <a name="what-is-the-qna-maker-service"></a>Qu’est-ce que le service QnA Maker ?
 
-QnA Maker est un service API informatique qui crée un calque conversation, question et réponse sur vos données. 
+QnA Maker est un service cloud de traitement en langage naturel (NLP, Natural Language Processing) qui permet de créer facilement une couche conversationnelle naturelle sur vos données. Il peut être utilisé pour trouver la réponse la plus appropriée à une entrée donnée en langage naturel à partir de votre base de connaissances personnalisée (base d’informations).
 
-QnA Maker vous permet de créer une base de connaissances à partir de vos contenus semi-structurés tels que la Foire aux questions (FAQ), les URL, les manuels produits, les documents supports ainsi que les questions et réponses personnalisées. Le service QnA Maker répond aux questions en langage naturel de vos utilisateurs en les faisant correspondre avec la meilleure réponse possible à partir des entités QnA de votre base de connaissances.
+Toute application de conversation qui communique avec un utilisateur en langage naturel pour répondre à une question peut être une application cliente pour QnA Maker. Les applications clientes comprennent notamment les applications de réseaux sociaux, les chatbots et les applications de bureau à reconnaissance vocale.
 
-Le [portail Web](https://qnamaker.ai) facile à utiliser vous permet de créer, de gérer, d’entraîner et de publier votre service sans aucune expérience en développement. Une fois le service publié sur un point de terminaison, une application client comme un chatbot peut gérer la conversation avec un utilisateur pour répondre aux questions. 
+## <a name="when-to-use-qna-maker"></a>Quand utiliser QnA Maker ?
 
-![Vue d'ensemble](../media/qnamaker-overview-learnabout/overview.png)
+* **Quand vous avez des informations statiques** : utilisez QnA Maker quand vous avez des informations statiques dans votre base de connaissances de réponses. Cette base de connaissances, créée avec des documents tels que [des PDF et des contenus accessibles par des URL](../concepts/data-sources-supported.md), est personnalisée en fonction de vos besoins.
+* **Quand vous souhaitez fournir la même réponse à une requête, une question ou une commande** : quand différents utilisateurs soumettent la même question, la même réponse est retournée à chacun d’eux. 
+* **Quand vous souhaitez filtrer des informations statiques en fonction de méta-informations** : ajoutez des balises de [métadonnées](../how-to/metadata-generateanswer-usage.md) pour fournir des options de filtrage supplémentaires relatives aux utilisateurs et informations de votre application cliente. Les [échanges](../how-to/chit-chat-knowledge-base.md), types ou formats de contenu, objets de contenu et actualisations de contenu représentent des informations de métadonnées courantes.
+* **Quand vous souhaitez gérer une conversation de bot incluant des informations statiques** : votre base de connaissances répond à une commande ou au texte conversationnel d’un utilisateur. Si la réponse fait partie d’un flux de conversation prédéterminé, représenté dans votre base de connaissances avec un [contexte multitour](../how-to/multiturn-conversation.md), le bot peut facilement fournir ce flux.  
 
-## <a name="key-qna-maker-processes"></a>Processus clés de QnA Maker
+## <a name="use-qna-maker-knowledge-base-in-a-chat-bot"></a>Utiliser une base de connaissances QnA Maker dans un chatbot
 
-QnA Maker fournit deux services essentiels pour vos données :
+Une fois qu’une base de connaissances QnA Maker est publiée, une application cliente envoie une question au point de terminaison de votre base de connaissances et reçoit les résultats sous forme de réponse JSON. Un chatbot est un exemple d’application cliente courante pour QnA Maker.
 
-* **Extraction** : les données de question-réponse structurées sont extraites de [sources de données](../Concepts/data-sources-supported.md) structurées et semi-structurées comme des FAQ et des guides d’utilisation de produits. Cette extraction peut se faire lors de la [création](https://aka.ms/qnamaker-docs-createkb) de la base de connaissance ou ultérieurement, lors du processus de modification.
+![Poser une question à un bot et obtenir une réponse à partir du contenu de la base de connaissances](../media/qnamaker-overview-learnabout/bot-chat-with-qnamaker.png)
 
-* **Mise en correspondance** : une fois votre base de connaissances [entraînée et testée](https://aka.ms/qnamaker-docs-trainkb), vous la [publiez](https://aka.ms/qnamaker-docs-publishkb). Cela active un point de terminaison vers votre base de connaissances QnA Maker, que vous pouvez ensuite utiliser dans votre robot ou application client. Ce point de terminaison accepte une question utilisateur et répond avec la meilleure réponse dans la base de connaissances, ainsi qu’avec un score de confiance pour la correspondance.
+|Étape|Action|
+|:--|:--|
+|1|L’application cliente envoie la _question_ de l’utilisateur (texte dans ses propres mots) « How do I programmatically update my Knowledge Base? » au point de terminaison de votre base de connaissances.|
+|2|QnA Maker utilise la base de connaissances entraînée pour fournir la réponse correcte et les invites de suivi qui peuvent être utilisées pour affiner la recherche de la meilleure réponse. QnA Maker retourne une réponse au format JSON.|
+|3|L’application cliente utilise la réponse JSON pour prendre des décisions concernant la manière de poursuivre la conversation. Ces décisions peuvent inclure l’affichage de la réponse principale ou la présentation de choix supplémentaires pour affiner la recherche de la meilleure réponse. |
+|||
 
-```JSON
-{
-    "answers": [
-        {
-            "questions": [
-                "How do I share a knowledge base with other?"
-            ],
-            "answer": "Sharing works at the level of a QnA Maker service, i.e. all knowledge bases in the services will be shared. Read [here](https://docs.microsoft.com/azure/cognitive-services/qnamaker/how-to/collaborate-knowledge-base)how to collaborate on a knowledge base.",
-            "score": 70.95,
-            "id": 4,
-            "source": "https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs",
-            "metadata": []
-        }
-    ]
-}
+## <a name="what-is-a-knowledge-base"></a>Qu’est-ce qu’une base de connaissances ? 
 
-```
+QnA Maker [importe votre contenu](../concepts/data-sources-supported.md) dans une base de connaissances comprenant des ensembles de questions et de réponses. Le processus d’importation extrait des informations sur la relation entre les différentes parties de votre contenu structuré et semi-structuré pour définir des relations entre les ensembles de questions et de réponses. Vous pouvez modifier ces ensembles de questions et de réponses ou en ajouter de nouveaux.  
 
-## <a name="qna-maker-architecture"></a>Architecture de QnA Maker
+Le contenu de l’ensemble de questions et de réponses inclut toutes les questions alternatives correspondant à une réponse spécifique, les balises de métadonnées utilisées pour filtrer les choix de réponses lors de la recherche et les invites de suivi pour continuer à affiner la recherche.
 
-L’architecture de QnA Maker est constituée des deux composants suivants :
+![Exemple de question et de réponse avec des métadonnées](../media/qnamaker-overview-learnabout/example-question-and-answer-with-metadata.png)
 
-1. **Services de gestion QnA Maker** : expérience de gestion d’une base de connaissances QnA Maker, qui inclut la création initiale, la mise à jour, l’entraînement et la publication. Ces activités peuvent être effectuées via le [portail](https://qnamaker.ai) ou les [API de gestion](https://go.microsoft.com/fwlink/?linkid=2092179). 
+Une fois que vous avez publié votre base de connaissances, une application cliente envoie la question d’un utilisateur au point de terminaison. Votre service QnA Maker traite la question et y répond avec la meilleure réponse. 
 
-2. **Données et runtime QnA Maker** : ce composant est déployé dans le cadre de votre abonnement Azure dans la région spécifiée. Le contenu de votre base de connaissances client est stocké dans [Recherche Azure](https://azure.microsoft.com/services/search/), et le point de terminaison est déployé en tant que [service d’application](https://azure.microsoft.com/services/app-service/). Vous pouvez également choisir de déployer une ressource [Application Insights](https://azure.microsoft.com/services/application-insights/) à des fins d’analyse.
+## <a name="create-manage-and-publish-to-a-bot-without-code"></a>Créer un bot, le gérer et publier sur le bot sans code
 
-![Architecture](../media/qnamaker-overview-learnabout/architecture.png)
+Le portail QnA Maker offre tout l’environnement nécessaire pour créer une base de connaissances. Vous pouvez importer des documents sous leur forme actuelle dans votre base de connaissances. Ces documents (tels qu’un FAQ, un manuel produit, une feuille de calcul ou une page web) sont convertis en ensembles de questions et de réponses. Chaque ensemble est analysé pour identifier des invites de suivi et est connecté à d’autres ensembles. Le format Markdown final prend en charge les présentations riches et notamment les images et les liens. 
 
+Une fois votre base de connaissances modifiée, publiez-la sur un [bot Azure Web App](https://azure.microsoft.com/services/bot-service/) de travail sans écrire le moindre code. Testez votre bot dans le [portail Azure](https://portal.azure.com) ou procédez au téléchargement et poursuivez le développement. 
 
-## <a name="service-highlights"></a>Présentation du service
+## <a name="search-quality-and-ranking-provides-the-best-possible-answer"></a>La qualité de la recherche et le classement permettent de fournir la meilleure réponse possible
 
-- Une expérience complète **sans code** pour [créer un bot](../Quickstarts/create-publish-knowledge-base.md#create-a-bot) à partir d’une base de connaissances.
-- **Aucune limitation de requêtes réseau pour les prédictions**. Vous payez pour héberger le service et non pour le nombre de transactions. Pour plus d’informations, consultez la [page sur la tarification](https://aka.ms/qnamaker-docs-pricing).
-- **Mise à l’échelle au besoin**. Choisissez les références SKU appropriées pour les composants individuels, selon votre scénario. Découvrez comment [choisir la capacité](https://aka.ms/qnamaker-docs-capacity) pour votre service QnA Maker.
+Le système de QnA Maker s’appuie sur une approche de classement par couches. Les données sont stockées dans la Recherche Azure, qui sert également de première couche de classement. Les meilleurs résultats de la Recherche Azure sont ensuite transmis par le biais du modèle de reclassement NLP de QnA Maker pour produire les résultats finaux et le score de confiance.
 
+## <a name="qna-maker-improves-the-conversation-process"></a>QnA Maker améliore le processus de conversation
+
+QnA Maker fournit des invites multitours et applique un apprentissage actif pour vous aider à améliorer vos ensembles de questions et réponses de base. 
+
+Les **invites multitours** vous donnent la possibilité d’associer les paires de questions et réponses. Cette association permet à l’application cliente de fournir une réponse principale et fournit davantage de questions pour affiner la recherche d’une réponse finale. 
+
+Dès lors que la base de connaissances reçoit des questions des utilisateurs au point de terminaison publié, QnA Maker applique l’**apprentissage actif** à ces questions réelles pour suggérer des modifications à apporter à la base de connaissances afin d’en améliorer la qualité. 
+
+## <a name="development-lifecycle"></a>Cycle de vie de développement
+
+QnA Maker offre des fonctionnalités de création, d’entraînement et de publication ainsi que des autorisations de collaboration, s’intégrant à l’ensemble du cycle de vie de développement. 
+
+## <a name="how-do-i-start"></a>Par où commencer ?
+
+**Étape 1** : Créez une ressource QnA Maker dans le [portail Azure](https://portal.azure.com). 
+
+**Étape 2** : Créez une base de connaissances dans le portail [QnA Maker](https://www.qnamaker.ai). Ajoutez des [fichiers et des URL](../concepts/data-sources-supported.md) pour créer la base de connaissances.  
+
+**Étape 3** : Publiez votre base de connaissances et testez-la à partir de votre point de terminaison personnalisé à l’aide de [cURL](../quickstarts/get-answer-from-kb-using-curl.md) ou [Postman](../quickstarts/get-answer-from-kb-using-postman.md). 
+
+**Étape 4** : À partir de votre application cliente, appelez programmatiquement le point de terminaison de votre base de connaissances et lisez la réponse JSON qui présente la meilleure réponse à l’utilisateur.  
+
+## <a name="news-and-updates"></a>Nouveautés et mises à jour
+
+Découvrez les nouveautés de QnA Maker.
+
+* Juin 2019
+    * Amélioration du modèle d’outil de classement pour le français, l’italien, l’allemand, l’espagnol et le portugais
+* Avril 2019
+    * Prise en charge de l’extraction de contenu de site web
+    * Prise en charge des documents SharePoint
+* Mars 2019
+    * Apprentissage actif 
+    * Amélioration du modèle d’outil de classement NLP pour l’anglais 
 
 ## <a name="next-steps"></a>Étapes suivantes
+QnA Maker fournit tout ce dont vous avez besoin pour créer, gérer et déployer une base de connaissances personnalisée. 
 
 > [!div class="nextstepaction"]
 > [Créer un service QnA Maker](../how-to/set-up-qnamaker-service-azure.md)

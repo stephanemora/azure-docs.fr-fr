@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bae13de156d502cdd731005d460641ca452448d5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5d721e750ddb77ba293643ad978cecf4bd2dbac0
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67108670"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68618814"
 ---
 # <a name="working-with-custom-domains-in-azure-ad-application-proxy"></a>Utilisation des domaines personnalisés dans le proxy d'application Azure AD
 
@@ -73,7 +73,7 @@ Il n’existe aucune restriction sur les méthodes de signature de certificat. C
 
 Vous pouvez utiliser un certificat avec caractère générique tant que ce dernier correspond à l’URL externe de votre choix.
 
-Pour des raisons de sécurité, vous ne pouvez pas utiliser un certificat émis par votre propre infrastructure à clé publique.
+Les certificats émis par votre propre infrastructure à clé publique (PKI) peuvent être utilisés si la chaîne d’approbation est installée sur vos appareils clients. Intune peut être utilisé pour déployer ces certificats sur des appareils gérés. Pour les appareils non gérés, ces certificats doivent être installés manuellement.
 
 ### <a name="changing-the-domain"></a>Modification de domaine
 Tous les domaines vérifiés s’affichent dans la liste déroulante de l’URL externe pour votre application. Pour modifier le domaine, mettez simplement ce champ à jour pour l’application. Si le domaine n’est pas dans la liste, [ajoutez-le en tant que domaine vérifié](../fundamentals/add-custom-domain.md). Si vous sélectionnez un domaine dont le certificat n’est pas encore associé, suivez les étapes 5 à 7 pour ajouter le certificat. Ensuite, assurez-vous que vous mettez à jour l’enregistrement DNS pour la redirection à partir de la nouvelle URL externe. 

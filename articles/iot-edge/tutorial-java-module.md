@@ -9,12 +9,12 @@ ms.date: 04/04/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 95fab84fb6472339c9d6b847f8c09139b55e1466
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 1aebe97b27902d37587ec6ac7009a5076b732f0f
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66303843"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840133"
 ---
 # <a name="tutorial-develop-a-java-iot-edge-module-for-linux-devices"></a>Didacticiel : Développer des modules Java IoT Edge pour les appareils Linux
 
@@ -251,7 +251,7 @@ Vérifiez que votre appareil IoT Edge est opérationnel.
 
 3. Sélectionnez le fichier **deployment.json** dans le dossier **config**, puis cliquez sur **Sélectionner un manifeste de déploiement Edge**. N’utilisez pas le fichier deployment.template.json.
 
-4. Cliquez sur le bouton Actualiser. Vous devez voir le nouveau module **JavaModule** en cours d’exécution avec le module **TempSensor** ainsi que **$edgeAgent** et **$edgeHub**.  
+4. Cliquez sur le bouton Actualiser. Vous devez voir le nouveau module **JavaModule** en cours d’exécution avec le module **SimulatedTemperatureSensor** ainsi que **$edgeAgent** et **$edgeHub**.  
 
 ## <a name="view-generated-data"></a>Afficher les données générées
 
@@ -259,7 +259,7 @@ Une fois que vous appliquez le manifeste de déploiement à votre appareil IoT E
 
 Vous pouvez afficher l’état de votre appareil IoT Edge dans la section **Appareils Azure IoT Hub** de l’explorateur de Visual Studio Code. Développez les détails de votre appareil pour afficher la liste des modules déployés et en cours d’exécution.
 
-1. Dans l’explorateur Visual Studio Code, cliquez avec le bouton droit sur le nom de votre appareil IoT Edge, puis sélectionnez **Start Monitoring Built-in Event Endpoint** (Démarrer la supervision du point de terminaison d’événements intégré).
+1. Dans l’explorateur Visual Studio Code, cliquez avec le bouton droit sur le nom de votre appareil IoT Edge, puis sélectionnez **Démarrer la supervision du point de terminaison d’événements intégré**.
 
 2. Affichez les messages reçus dans votre hub IoT. Les messages peuvent mettre un certain temps à arriver car l’appareil IoT Edge doit recevoir son nouveau déploiement et démarrer tous les modules. Ensuite, les modifications que nous avons apportées au code du module Java n’enverront pas de message avant que la température de la machine n’atteigne 25 degrés. Le type de message **Alerte** est également ajouté à chaque message qui atteint ce seuil de température. 
 

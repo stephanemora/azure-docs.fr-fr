@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: overview
 author: j-martens
 ms.author: jmartens
-ms.date: 05/02/2019
+ms.date: 08/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: c1ec9db2b026dd1853eceb1f110878d6b2beb4d4
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 5323c996b8d974c9db11a508503f767cfee80301
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68678027"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68828112"
 ---
 # <a name="what-is-azure-machine-learning-service"></a>Qu'est-ce que le service Azure Machine Learning ?
 
@@ -29,7 +29,7 @@ Les prévisions ou prédictions générées à partir de Machine Learning peuven
 
 ## <a name="what-is-azure-machine-learning-service"></a>Qu'est-ce que le service Azure Machine Learning ?
 
-Le service Azure Machine Learning fournit un environnement cloud que vous pouvez utiliser pour préparer les données, entraîner, tester, déployer, gérer et suivre des modèles Machine Learning. Commencez à vous entraîner sur votre ordinateur local, puis effectuez un scale-out sur le cloud. Le service prend entièrement en charge les technologies open source comme PyTorch, TensorFlow et scikit-learn et peut être utilisé pour n’importe quel type de machine learning, du machine learning classique au deep learning (apprentissage profond), pour l’apprentissage supervisé ou non supervisé. 
+Le service Azure Machine Learning fournit un environnement cloud que vous pouvez utiliser pour préparer les données, entraîner, tester, déployer, gérer et suivre des modèles Machine Learning. Commencez à vous entraîner sur votre ordinateur local, puis effectuez un scale-out sur le cloud. Le service prend entièrement en charge les technologies open source comme PyTorch, TensorFlow et scikit-learn et peut être utilisé pour n’importe quel type de machine learning, du machine learning classique au deep learning (apprentissage profond), pour l’apprentissage supervisé ou non supervisé.
 
 Explorez et préparez des données, entraînez et testez des modèles, puis déployez-les à l’aide d’outils élaborés comme :
 + Une [interface visuelle](ui-tutorial-automobile-price-train-score.md) dans laquelle vous pouvez glisser-déplacer des modules afin de générer vos expériences et déployer des modèles
@@ -55,20 +55,25 @@ Vous pouvez aussi [automatiser l’entraînement et l’optimisation de modèle]
 Pour l’entraînement sans code, essayez :
 
 + L’interface visuelle pour l’expérimentation et le déploiement par glisser-déplacer
-    
+
     ![L’interface visuelle pour Azure Machine Learning service](media/overview-what-is-azure-ml/visual-interface.png)
 
 + L’option du portail Azure pour les expériences ML automatisées
 
 ### <a name="operationalization-mlops"></a>Opérationnalisation (MLOps)
 
-Quand vous disposez du modèle adéquat, vous pouvez facilement l’utiliser dans un service web, sur un appareil IoT ou à partir de Power BI. Pour plus d’informations, consultez l’article qui explique [comment et où effectuer le déploiement](how-to-deploy-and-where.md). 
+Quand vous disposez du modèle adéquat, vous pouvez facilement l’utiliser dans un service web, sur un appareil IoT ou à partir de Power BI. Pour plus d’informations, consultez l’article qui explique [comment et où effectuer le déploiement](how-to-deploy-and-where.md).
 
-Vous pouvez ensuite gérer vos modèles déployés à l’aide du [SDK Azure Machine Learning pour Python](https://aka.ms/aml-sdk) ou du [portail Azure](https://portal.azure.com/). 
+Vous pouvez ensuite gérer vos modèles déployés à l’aide du [SDK Azure Machine Learning pour Python](https://aka.ms/aml-sdk) ou du [portail Azure](https://portal.azure.com/).
 
 Une fois déployé, votre modèle peut retourner des prédictions [en temps réel](how-to-consume-web-service.md) ou [de manière asynchrone](how-to-run-batch-predictions.md) sur de grandes quantités de données.
 
-Et avec les [pipelines de machine learning](concept-ml-pipelines.md) avancés, vous pouvez collaborer à chaque étape, de la préparation des données jusqu’à l’entraînement et à l’évaluation des modèles, en passant par le déploiement.
+Et avec les [pipelines de machine learning](concept-ml-pipelines.md) avancés, vous pouvez collaborer à chaque étape, de la préparation des données jusqu’à l’entraînement et à l’évaluation des modèles, en passant par le déploiement. Les pipelines vous permettent d’effectuer les opérations suivantes :
+
+* Automatiser le processus de machine learning de bout en bout dans le cloud
+* Réutiliser des composants et réexécuter les étapes uniquement si vous en avez besoin
+* Utiliser des ressources de calcul différentes à chaque étape
+* Exécuter des tâches de scoring par lots
 
 Pour commencer à utiliser le service Azure Machine Learning, consultez [Étapes suivantes](#next-steps).
 
@@ -86,7 +91,7 @@ Voici une comparaison rapide.
 |Modules pour l’interface| Divers | Jeu initial de modules courants|
 |Cibles de calcul d’entraînement| Cible de calcul propriétaire, prise en charge CPU uniquement| Prend en charge le calcul Azure Machine Learning, GPU ou CPU<br/>(Autres calculs pris en charge dans le SDK)|
 |Cibles de calcul de déploiement| Format de service web propriétaire, non personnalisable | Options de sécurité d’entreprise et Azure Kubernetes Service. <br/>([Autres calculs](how-to-deploy-and-where.md) pris en charge dans le SDK) |
-|Entraînement de modèle automatisé et optimisation des hyperparamètres | Non | Pas encore dans l’interface visuelle. <br/> (Pris en charge dans le SDK et sur le portail Azure). | 
+|Entraînement de modèle automatisé et optimisation des hyperparamètres | Non | Pas encore dans l’interface visuelle. <br/> (Pris en charge dans le SDK et sur le portail Azure). |
 
 Essayer l’interface visuelle (préversion) avec le [Didacticiel : Prédire le prix de voitures à l’aide de l’interface visuelle](ui-tutorial-automobile-price-train-score.md).
 
@@ -103,8 +108,8 @@ Vous obtenez des crédits à dépenser en services Azure. Une fois ceux-ci épui
 
 - [Créez un espace de travail du service Machine Learning](setup-create-workspace.md) pour démarrer.
 
-- Suivez les tutoriels complets : 
-  + [Entraîner un modèle de classification d’images avec le service Azure Machine Learning](tutorial-train-models-with-aml.md) 
+- Suivez les tutoriels complets :
+  + [Entraîner un modèle de classification d’images avec le service Azure Machine Learning](tutorial-train-models-with-aml.md)
   + [Préparer des données et utiliser le machine learning automatisé pour entraîner automatiquement un modèle de régression](tutorial-data-prep.md)
 
 - Découvrez les [pipelines de machine learning](/azure/machine-learning/service/concept-ml-pipelines) pour générer, optimiser et gérer vos scénarios d’apprentissage.

@@ -1,5 +1,5 @@
 ---
-title: Journalisation du kit SDK Speech – Services Speech
+title: Journalisation du Kit de développement logiciel (SDK) Speech – Service Speech
 titleSuffix: Azure Cognitive Services
 description: Activez la journalisation dans le SDK Speech.
 services: cognitive-services
@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 04/03/2019
+ms.date: 07/05/2019
 ms.author: amishu
-ms.openlocfilehash: 4573ff14c5326a47cf7b15ae2660614661d45d80
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 31ff21e33860f75d91d01e80e3ee77bd7192f780
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67073070"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559489"
 ---
 # <a name="enable-logging-in-the-speech-sdk"></a>Activer la journalisation dans le SDK Speech
 
@@ -119,4 +119,3 @@ Vous trouverez des informations complémentaires sur le système de fichiers iOS
 
 > [!div class="nextstepaction"]
 > [Explorer nos exemples sur GitHub](https://aka.ms/csspeech/samples)
-

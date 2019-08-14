@@ -1,6 +1,6 @@
 ---
-title: Entraîner un modèle pour Custom Speech – Speech Services
-titlesuffix: Azure Cognitive Services
+title: Entraîner un modèle pour Custom Speech – Service Speech
+titleSuffix: Azure Cognitive Services
 description: L’entraînement de la reconnaissance vocale est nécessaire pour améliorer la précision de la reconnaissance du modèle de référence de Microsoft ou d’un modèle personnalisé que vous avez l’intention de créer. L’entraînement d’un modèle s’appuie sur des transcriptions étiquetées à la main et sur le texte associé. Ces jeux de données et les données audio chargées précédemment servent à affiner et entraîner le modèle de reconnaissance vocale pour reconnaître les mots, les expressions, les acronymes, les noms et d’autres termes propres à un produit.
 services: cognitive-services
 author: erhopf
@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: e12cef052db6aabad94b47283eda11f60f3b2b13
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b5893b4f07444b07bf142971a5df4776e549d307
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67063915"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562821"
 ---
 # <a name="train-a-model-for-custom-speech"></a>Entraîner un modèle pour Custom Speech
 
@@ -25,12 +25,11 @@ L’entraînement de la reconnaissance vocale est nécessaire pour améliorer la
 
 Si vous rencontrez des problèmes de reconnaissance avec votre modèle, l’utilisation de transcriptions étiquetées à la main et de données associées peuvent contribuer à améliorer la précision. Servez-vous de ce tableau pour savoir quel jeu de données utiliser pour résoudre vos problèmes :
 
-| Cas d’utilisation | Type de données | Quantité de données |
-|----------|-----------|---------------|
-| Les noms propres sont mal reconnus | Texte associé (phrases/énoncés) | De 10 à 500 Mo |
-| Les mots accentués sont mal reconnus | Texte associé (prononciation) | Fournir les mots mal reconnus |
-| Des mots communs sont supprimés ou mal reconnus | Transcriptions audio + étiquetées à la main | de 10 à 1 000 heures de transcription |
-
+| Cas d’utilisation | Type de données |
+|----------|-----------|
+| Améliorez la précision de la reconnaissance du vocabulaire ou de la grammaire spécifiques d’un secteur, par exemple, la terminologie médicale ou le jargon informatique | Texte associé (phrases/énoncés) |
+| Définissez la forme phonétique et affichée d’un mot ou d’un terme dont la prononciation n’est pas standard, par exemple, les noms de produits ou les acronymes. | Texte associé (prononciation) |
+| Améliorez la précision de la reconnaissance des styles de discours, des accents ou des bruits de fond spécifiques | Transcriptions audio + étiquetées à la main |
 > [!IMPORTANT]
 > Si vous n’avez pas chargé de jeu de données, consultez [Préparer et tester les données](how-to-custom-speech-test-data.md). Ce document donne des instructions pour charger des données et des recommandations visant à créer des jeux de données de grande qualité.
 

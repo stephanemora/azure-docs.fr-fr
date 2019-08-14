@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: bcaa990cc2186a5f1eecdbbca91804c92370277c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cfbbd0b353699c4b04ede07df0450e66bd59612f
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66357181"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68311966"
 ---
 # <a name="recognize-printed-and-handwritten-text"></a>Reconnaître le texte imprimé et manuscrit
 
@@ -36,7 +36,7 @@ L’opération de lecture conserve les groupements de lignes d’origine des mot
 L’API Lire fonctionne avec des images qui répondent aux exigences suivantes :
 
 - L’image doit être au format JPEG, PNG, BMP, PDF ou TIFF.
-- Les dimensions de l’image doivent être comprises entre 50 x 50 et 4200 x 4200 pixels. Les pages PDF doivent être de 17 x 17 pouces ou moins.
+- Les dimensions de l’image doivent être comprises entre 50 x 50 et 10 000 x 10 000 pixels. Les pages PDF doivent être de 17 x 17 pouces ou moins.
 - La taille de fichier de l’image doit être inférieure à 20 mégaoctets (Mo).
 
 ### <a name="limitations"></a>Limites

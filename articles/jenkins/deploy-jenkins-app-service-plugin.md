@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 07/31/2018
-ms.openlocfilehash: 29a842f7dfcf720f29fcff80d2e736893c824f5a
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 9f7e0e23a04c6b141c6e0c5ff88b3d5ff2d76e1d
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65949560"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840432"
 ---
 # <a name="deploy-to-azure-app-service-by-using-the-jenkins-plugin"></a>Déployer sur Azure App Service à l’aide du plug-in Jenkins 
 
@@ -35,7 +35,7 @@ Si vous ne disposez pas encore d’un serveur maître Jenkins, commencez par uti
 * [Informations d’identification Azure](https://plugins.jenkins.io/azure-credentials) version 1.2
 * [Azure App Service](https://plugins.jenkins.io/azure-app-service) version 0.1
 
-Vous pouvez utiliser le plug-in Jenkins pour déployer une application web dans n’importe quel langage pris en charge par Web Apps, comme C#, PHP, Java et Node.js. Dans ce didacticiel, nous utilisons une [simple application web Java pour Azure](https://github.com/azure-devops/javawebappsample). Pour dupliquer (fork) le référentiel dans votre propre compte GitHub, cliquez sur le bouton **Fork** dans l’angle supérieur droit de l’interface GitHub.  
+Vous pouvez utiliser le plug-in Jenkins pour déployer une application web dans n’importe quel langage pris en charge par Web Apps, comme C#, PHP, Python, Java et Node.js. Dans ce didacticiel, nous utilisons une [simple application web Java pour Azure](https://github.com/azure-devops/javawebappsample). Pour dupliquer (fork) le référentiel dans votre propre compte GitHub, cliquez sur le bouton **Fork** dans l’angle supérieur droit de l’interface GitHub.  
 
 > [!NOTE]
 > Java JDK et Maven sont obligatoires pour la génération du projet Java. Installez ces composants sur le serveur maître Jenkins ou l’agent de la machine virtuelle si vous utilisez l’agent à des fins d’intégration continue. Si vous déployez une application Java SE, ZIP est également nécessaire sur le serveur de builds.
@@ -56,7 +56,7 @@ Un principal de service Azure est nécessaire pour les déploiements sur Azure.
 
 
 1. Pour créer un principal de service Azure, utilisez [Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json)  ou le [portail Azure](/azure/azure-resource-manager/resource-group-create-service-principal-portal).
-2. Dans le tableau de bord Jenkins, sélectionnez **Informations d’identification** > **Système**. Puis, sélectionnez **Informations d’identification globales (sans restriction)**.
+2. Dans le tableau de bord Jenkins, sélectionnez **Informations d’identification** > **Système**. Puis, sélectionnez **Informations d’identification globales (sans restriction)** .
 3. Pour ajouter un principal de service Microsoft Azure, sélectionnez **Ajouter les informations d’identification**. Entrez des valeurs pour les champs **ID d’abonnement**, **ID client**, **Secret client** et **Point de terminaison de jeton OAuth 2.0**. Définissez le champ **ID** sur **mySp**. Nous utilisons cet ID dans les étapes suivantes de cet article.
 
 

@@ -9,12 +9,12 @@ ms.date: 01/04/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 6c94ca3a82095736ef7d242987d1fbf66a825950
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: f6304c554858a29e8c6c886bcdec3b51efd635b6
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66306501"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840099"
 ---
 # <a name="tutorial-develop-and-deploy-a-nodejs-iot-edge-module-for-linux-devices"></a>Didacticiel : Développer et déployer un module IoT Edge Node.js pour des appareils Linux
 
@@ -39,7 +39,7 @@ Ce tutoriel montre comment développer un module dans **Node.js** à l’aide de
 
 Utilisez le tableau suivant pour comprendre les options dont vous disposez pour développer et déployer des modules Node.js : 
 
-| Node.js | Visual Studio Code | Visual Studio 2017/2019 | 
+| Node.js | Visual Studio Code | Visual Studio 2017/2019 | 
 | - | ------------------ | ------------------ |
 | **Linux AMD64** | ![Utilisez VS Code pour modules Node.js sur Linux AMD64](./media/tutorial-c-module/green-check.png) |  |
 | **Linux ARM32** | ![Utilisez VS Code pour modules Node.js sur Linux AMD32](./media/tutorial-c-module/green-check.png) |  |
@@ -108,7 +108,7 @@ Actuellement, Visual Studio Code peut développer des modules Node.js pour Linux
 
 ### <a name="update-the-module-with-custom-code"></a>Mettre à jour le module avec du code personnalisé
 
-Chaque modèle est fourni avec un exemple de code, qui utilise des données de capteur simulées du module **tempSensor** et les achemine vers IoT Hub. Dans cette section, ajoutez du code pour que NodeModule analyse les messages avant leur envoi. 
+Chaque modèle est fourni avec un exemple de code, qui utilise des simulations de données de capteur du module **SimulatedTemperatureSensor** et les achemine vers IoT Hub. Dans cette section, ajoutez du code pour que NodeModule analyse les messages avant leur envoi. 
 
 1. Dans l’Explorateur VS Code, ouvrez **modules** > **NodeModule** > **app.js**.
 
@@ -212,7 +212,7 @@ Vérifiez que votre appareil IoT Edge est opérationnel.
 
 3. Sélectionnez le fichier **deployment.json** dans le dossier **config**, puis cliquez sur **Sélectionner un manifeste de déploiement Edge**. N’utilisez pas le fichier deployment.template.json.
 
-4. Cliquez sur le bouton Actualiser. Vous devez voir le nouveau module **NodeModule** en cours d’exécution avec le module **TempSensor** ainsi que **$edgeAgent** et **$edgeHub**.
+4. Cliquez sur le bouton Actualiser. Vous devez voir le nouveau module **NodeModule** en cours d’exécution avec le module **SimulatedTemperatureSensor** ainsi que **$edgeAgent** et **$edgeHub**.
 
 ## <a name="view-generated-data"></a>Afficher les données générées
 
@@ -220,7 +220,7 @@ Une fois que vous appliquez le manifeste de déploiement à votre appareil IoT E
 
 Vous pouvez afficher l’état de votre appareil IoT Edge dans la section **Appareils Azure IoT Hub** de l’explorateur de Visual Studio Code. Développez les détails de votre appareil pour afficher la liste des modules déployés et en cours d’exécution.
 
-1. Dans l’explorateur Visual Studio Code, cliquez avec le bouton droit sur le nom de votre appareil IoT Edge, puis sélectionnez **Start Monitoring Built-in Event Endpoint** (Démarrer la supervision du point de terminaison d’événements intégré).
+1. Dans l’explorateur Visual Studio Code, cliquez avec le bouton droit sur le nom de votre appareil IoT Edge, puis sélectionnez **Démarrer la supervision du point de terminaison d’événements intégré**.
 
 2. Affichez les messages reçus dans votre hub IoT. Les messages peuvent mettre un certain temps à arriver car l’appareil IoT Edge doit recevoir son nouveau déploiement et démarrer tous les modules. Ensuite, les modifications que nous avons apportées au code du module Node n’enverront pas de message avant que la température de la machine n’atteigne 25 degrés. Le type de message **Alerte** est également ajouté à chaque message qui atteint ce seuil de température. 
 

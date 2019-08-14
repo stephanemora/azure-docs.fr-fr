@@ -1,56 +1,69 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Documentation sur Azure AD Identity Governance
+### YamlMime:Landing
+title: Documentation Azure Active Directory Identity Governance
+summary: Azure Active Directory (Azure AD) Identity Governance vous permet de protéger, surveiller et auditer l’accès aux ressources critiques tout en assurant la productivité des employés.
 metadata:
-  document_id: null
-  title: "Documentation Azure Active Directory Identity Governance\_| Microsoft Docs"
-  description: Découvrez la gouvernance du cycle de vie des identités et des accès et sécurisez l’administration entre employés et partenaires.
-  services: active-directory
   author: msaburnley
+  description: Découvrez comment protéger, surveiller et auditer l’accès aux ressources critiques tout en assurant la productivité des employés.
   manager: daveba
-  ms.service: active-directory
-  ms.tgt_pltfrm: na
-  ms.devlang: na
-  ms.topic: landing-page
-  ms.date: 04/18/2019
   ms.author: ajburnle
-abstract:
-  description: Azure Active Directory Identity Governance permet aux entreprises de régir le cycle de vie des identités et des accès ainsi que de sécuriser l’administration entre employés et partenaires.
-  aside:
-    image:
-      alt: null
-      height: 112
-      src: media/index/video-thumb-identity-governance.png
-      width: 200
-    title: 'Gouverner l’accès à vos ressources (1:17:24)'
-    href: 'https://www.youtube.com/embed/aY7A0Br8u5M'
-    width: 200
-sections:
-  - title: Gouvernance des identités
-    items:
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="/azure/active-directory/governance/identity-governance-overview">Présentation de la gouvernance des identités</a>
-  - title: Gestion des droits d’utilisation (préversion)
-    items:
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="/azure/active-directory/governance/entitlement-management-overview">Présentation de la gestion des droits d’utilisation Azure AD</a>
-          - html: "<a href=\"/azure/active-directory/governance/entitlement-management-access-package-first\">Tutoriel\_: Créer votre premier package d’accès</a>"
-          - html: <a href="/azure/active-directory/governance/entitlement-management-access-package-edit">Modifier et gérer un package d’accès existant</a>
-  - title: Révisions d’accès
-    items:
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="/azure/active-directory/governance/access-reviews-overview">Présentation des révisions d’accès Azure AD</a>
-          - html: <a href="/azure/active-directory/governance/create-access-review">Créer une révision d’accès des groupes ou des applications</a>
-          - html: <a href="/azure/active-directory/governance/perform-access-review">Vérifier l’accès à des groupes ou applications</a>
-  - title: Conditions d’utilisation
-    items:
-      - type: list
-        style: unordered
-        items:
-          - html: "<a href=\"/azure/active-directory/conditional-access/terms-of-use\">Des conditions d’utilisation sont requises\_?</a>"
+  ms.collection: na
+  ms.date: 08/08/2019
+  ms.service: active-directory
+  ms.subservice: na
+  ms.topic: landing-page
+  services: active-directory
+  ms.openlocfilehash: fa7577ea7ef212242a903b20d44db80c22c55842
+  ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 08/12/2019
+  ms.locfileid: "68949546"
+landingContent:
+- title: En savoir plus sur Identity Governance
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Qu’est-ce qu’Azure AD Identity Governance ?
+      url: identity-governance-overview.md
+  - linkListType: learn
+    links:
+    - text: Gouverner l’accès à vos ressources
+      url: https://www.youtube.com/watch?v=bFfowdpApu4&list=PLQXpv_NQsPIBg3op2xONM9KgwlayFDue6
+- title: Gouverner le cycle de vie de l’accès aux groupes, aux applications et aux sites
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Présentation de la gestion des droits d’utilisation Azure AD (Préversion)
+      url: entitlement-management-overview.md
+  - linkListType: tutorial
+    links:
+    - text: Créer votre premier package d’accès qui aide les utilisateurs à demander l’accès dont ils ont besoin
+      url: entitlement-management-access-package-first.md
+  - linkListType: how-to-guide
+    links:
+    - text: Modifier et gérer un package d’accès existant
+      url: entitlement-management-access-package-edit.md
+- title: Recertifier l’accès à des groupes, des applications et des rôles privilégiés
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Présentation des révisions d’accès Azure AD
+      url: access-reviews-overview.md
+  - linkListType: how-to-guide
+    links:
+    - text: Créer une révision d’accès pour vous assurer que les utilisateurs ne gardent pas un accès excessif
+      url: create-access-review.md
+    - text: Vérifier l’accès à des groupes ou des applications
+      url: perform-access-review.md
+- title: Rendre les utilisateurs éligibles à des rôles privilégiés
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Qu’est-ce qu’Azure AD Privileged Identity Management ?
+      url: ../privileged-identity-management/pim-configure.md
+- title: S’assurer que les utilisateurs voient les exclusions
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Demander aux utilisateurs d’accepter les conditions d’utilisation d’une application
+      url: ../conditional-access/terms-of-use.md

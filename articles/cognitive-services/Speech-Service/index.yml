@@ -44,7 +44,7 @@ sections:
   - title: Introduction
     items:
       - type: paragraph
-        text: "Vous pouvez utiliser le SDK Speech (<a href=\"releasenotes.md\">notes de publication</a>) pour ajouter les fonctionnalités suivantes (et d’autres) à vos applications&colon; \n<div class=\"row\"><div class=\"column\"><ul>\n<li><b><a href=\"speech-to-text.md\">Reconnaissance vocale</a></b> (speech-recognition/SR)</li>\n<li><b><a href=\"speech-devices-sdk-create-kws.md\">Mot de mise en éveil personnalisé</a></b> (keyword-spotter/KWS)</li>\n<li><b><a href=\"how-to-recognize-intents-from-speech-csharp.md\">Intention</a></b></li>\n<li><b><a href=\"speech-translation.md\">Traduction</a></b></li>\n<li><b><a href=\"speech-container-howto.md\">Conteneur en local</a></b></li></ul></div><div class=\"column\"><ul>\n<li><b><a href=\"text-to-speech.md\">Synthèse vocale</a></b> (TTS)</li>\n<li><b><a href=\"conversation-transcription-service.md\">Transcription de conversation</a></b> (CTS)</li>\n<li><b><a href=\"how-to-phrase-lists.md\">Personnalisation de la liste d’expressions</a>/<a href=\"how-to-custom-speech.md\">Adaptation vocale personnalisée</a></b></li>\n<li><b><a href=\"voice-first-virtual-assistants.md\">Assistant virtuel «\_voice-first\_»</a></b></li>\n<li><b><a href=\"call-center-transcription.md\">Transcription de centre d’appel</a></b></li></ul></div></div>\n"
+        text: "Vous pouvez utiliser le SDK Speech (<a href=\"releasenotes.md\">notes de publication</a>) pour ajouter les fonctionnalités suivantes (et d’autres) à vos applications&colon;\n<div class=\"row\"><div class=\"column\"><ul>\n<li><b><a href=\"speech-to-text.md\">Reconnaissance vocale</a></b> (speech-recognition/SR)</li>\n<li><b><a href=\"speech-devices-sdk-create-kws.md\">Mot de mise en éveil personnalisé</a></b> (keyword-spotter/KWS)</li>\n<li><b><a href=\"how-to-recognize-intents-from-speech-csharp.md\">Intention</a></b></li>\n<li><b><a href=\"speech-translation.md\">Traduction</a></b></li>\n<li><b><a href=\"speech-container-howto.md\">Conteneur en local</a></b></li></ul></div><div class=\"column\"><ul>\n<li><b><a href=\"text-to-speech.md\">Synthèse vocale</a></b> (TTS)</li>\n<li><b><a href=\"conversation-transcription-service.md\">Transcription de conversation</a></b> (CTS)</li>\n<li><b><a href=\"how-to-phrase-lists.md\">Personnalisation de la liste d’expressions</a>/<a href=\"how-to-custom-speech.md\">Adaptation vocale personnalisée</a></b></li>\n<li><b><a href=\"voice-first-virtual-assistants.md\">Assistant virtuel «\_voice-first\_»</a></b></li>\n<li><b><a href=\"call-center-transcription.md\">Transcription de centre d’appel</a></b></li></ul></div></div>\n"
   - title: "Démarrages en 5\_minutes"
     items:
       - type: paragraph
@@ -241,10 +241,9 @@ sections:
       - type: list
         style: unordered
         items:
-          - html: <a href="speech-to-text-sample.md">Reconnaissance vocale</a><br/>
-          - html: <a href="intent.md">Reconnaissance de l'intention</a><br/>
-          - html: <a href="translation.md">Traduction</a>
-          - html: <a href="quickstart-text-to-speech-dotnet-windows.md">Synthèse vocale</a><br/>
+          - html: '<a href="how-to-recognize-intents-from-speech-csharp.md">Reconnaître les intentions vocales avec LUIS,C#</a><br/>'
+          - html: '<a href="tutorial-voice-enable-your-bot-speech-sdk.md">Activer les fonctions vocales sur votre bot avec le SDK Speech, C#</a><br/>'
+          - html: '<a href="../translator/tutorial-build-flask-app-translation-synthesis.md?toc=%2fazure%2fcognitive-services%2fspeech-service%2ftoc.json&bc=%2fazure%2fcognitive-services%2fspeech-service%2fbreadcrumb%2ftoc.json">Créer une application Flask pour la traduction de texte et la synthèse vocale, REST</a><br/>'
   - title: Exemples
     items:
       - type: paragraph

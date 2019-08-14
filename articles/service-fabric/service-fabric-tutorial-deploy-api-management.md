@@ -3,7 +3,7 @@ title: Intégrer la gestion des API avec Service Fabric dans Azure | Microsoft D
 description: Découvrez comment démarrer rapidement avec Gestion des API Azure et comment router le trafic vers un service backend dans Service Fabric.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: ''
@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 9/26/2018
-ms.author: aljo
+ms.date: 07/10/2019
+ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: fc2c23d93a1800232b81c5eb2f861e8b71c3e437
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 470eacee5c71742678497edf48169e14a4073829
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66428058"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68598832"
 ---
 # <a name="integrate-api-management-with-service-fabric-in-azure"></a>Intégrer Gestion des API à Service Fabric dans Azure
 
@@ -77,7 +77,7 @@ Démarrez Visual Studio en tant qu’administrateur et créez un service ASP.NET
  1. Dans Visual Studio, sélectionnez Fichier -> Nouveau projet.
  2. Sélectionnez le modèle d’application Service Fabric sous Cloud et nommez-le **« ApiApplication »** .
  3. Sélectionnez le modèle de service ASP.NET Core et nommez le projet **« WebApiService »** .
- 4. Sélectionnez le modèle de projet API Web ASP.NET Core 2.0.
+ 4. Sélectionnez le modèle de projet API web ASP.NET Core 2.1.
  5. Une fois le projet créé, ouvrez `PackageRoot\ServiceManifest.xml` et supprimez l’attribut `Port` de la configuration des ressources du point de terminaison :
 
     ```xml

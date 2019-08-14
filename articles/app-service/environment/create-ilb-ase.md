@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 05/28/2019
+ms.date: 08/05/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 5b05755502ad5836a21080a122d2e1721825f10c
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.openlocfilehash: 4b41772a4e904603309f45244cf4df22af876a32
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66734688"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68812748"
 ---
 # <a name="create-and-use-an-internal-load-balancer-app-service-environment"></a>Créer et utiliser un environnement App Service Environment avec équilibreur de charge interne 
 
@@ -28,7 +28,7 @@ L’environnement Azure App Service est un déploiement d’Azure App Service da
 - avec une adresse IP virtuelle sur une adresse IP externe, solution souvent appelée ASE externe ;
 - avec une adresse IP virtuelle sur une adresse IP interne, solution souvent appelée ASE ILB, car le point de terminaison interne est un équilibreur de charge interne (ILB, Internal Load Balancer). 
 
-Cet article explique comment créer un ASE ILB. Pour une présentation de l’ASE, consultez [Présentation des environnements App Service][Intro]. Pour savoir comment créer un ASE externe, voir [Créer un environnement App Service externe][MakeExternalASE].
+Cet article explique comment créer un ASE ILB. Pour une présentation de l’ASE, consultez [Présentation des environnements App Service][Intro]. Pour savoir comment créer un ASE externe, consultez [Créer un environnement App Service externe][MakeExternalASE].
 
 ## <a name="overview"></a>Vue d'ensemble 
 
@@ -109,14 +109,14 @@ Pour configurer votre DNS :
 
 - créez une zone pour *&lt;nom ASE&gt;.appserviceenvironment.net*
 - créez un enregistrement A dans cette zone qui pointe * vers l’adresse IP ILB 
-- créez une zone dans le scm nommé *&lt;nom ASE&gt;.scm.appserviceenvironment.net*
+- créez une zone dans le scm nommé *&lt;nom ASE&gt;.appserviceenvironment.net*
 - créez un enregistrement A dans la zone scm qui pointe vers l’adresse IP ILB
 
 ## <a name="publish-with-an-ilb-ase"></a>Publier avec un ASE ILB
 
 Pour chaque application créée, il existe deux points de terminaison. Dans un ASE ILB, vous avez *&lt;nom d’application&gt;.&lt;Domaine ASE ILB&gt;* et *&lt;nom d’application&gt;.scm&lt;Domaine ASE ILB&gt;* . 
 
-Le nom du site SCM vous dirige vers la console Kudu nommée **Portail avancé** au sein du portail Azure. La console Kudu vous permet d’afficher des variables d’environnement, d’explorer le disque, d’utiliser une console, et bien plus encore. Pour plus d’informations, voir [Kudu console for Azure App Service (Console Kudu pour Azure App Service)][Kudu]. 
+Le nom du site SCM vous dirige vers la console Kudu nommée **Portail avancé** au sein du portail Azure. La console Kudu vous permet d’afficher des variables d’environnement, d’explorer le disque, d’utiliser une console, et bien plus encore. Pour plus d’informations, consultez [Console Kudu pour Azure App Service][Kudu]. 
 
 Les systèmes d’intégration continue basés sur Internet, comme GitHub et Azure DevOps, continueront de fonctionner avec un environnement ASE d’équilibreur de charge interne si l’agent de build est accessible par Internet et se trouve sur le même réseau que l’environnement ASE d’équilibreur de charge interne. Par conséquent, avec Azure DevOps, si l’agent de build est créé sur le même réseau virtuel que l’environnement ASE d’équilibreur de charge interne (vous pouvez utiliser un autre sous-réseau), il ne pourra pas extraire le code d’Azure DevOps Git et se déployer dans l’environnement ASE d’équilibreur de charge interne. Si vous ne souhaitez pas créer votre propre agent de build, vous devez utiliser un système d’intégration continue qui utilise un modèle d’extraction, par exemple Dropbox.
 
@@ -126,7 +126,7 @@ Les points de terminaison de publication pour les applications d’un environnem
 
 Vous pouvez combiner un appareil de pare-feu d’application web (WAF) avec votre ASE ILB pour exposer uniquement les applications souhaitées sur Internet et conserver le reste accessible uniquement à partir du réseau virtuel. Cela vous permet de créer des applications à plusieurs niveaux sécurisées, entre autres choses.
 
-Pour en savoir plus sur la configuration de votre ASE ILB avec un appareil WAF, consultez [Configurer un pare-feu d’applications web avec votre environnement App Service][ASEWAF]. Cet article explique comment utiliser une appliance virtuelle Barracuda avec votre ASE. Une autre option consiste à utiliser Azure Application Gateway. Azure Application Gateway utilise les règles de base OWASP pour sécuriser les applications placées derrière lui. Pour plus d’informations sur Azure Application Gateway, voir [Pare-feu d’applications web (WAF)][AppGW].
+Pour en savoir plus sur la configuration de votre ASE ILB avec un appareil WAF, consultez [Configurer un pare-feu d’applications web avec votre environnement App Service][ASEWAF]. Cet article explique comment utiliser une appliance virtuelle Barracuda avec votre ASE. Une autre option consiste à utiliser Azure Application Gateway. Azure Application Gateway utilise les règles de base OWASP pour sécuriser les applications placées derrière lui. Pour plus d’informations sur Application Gateway, consultez [Introduction au pare-feu d’applications web Azure][AppGW].
 
 ## <a name="ilb-ases-made-before-may-2019"></a>ASE ILB créés avant mai 2019
 
@@ -134,7 +134,7 @@ Pour les ASE ILB créés avant mai 2019, vous deviez définir le suffixe de doma
 
 ## <a name="get-started"></a>Prise en main ##
 
-* Pour bien démarrer avec les ASE, voir [Présentation de l’environnement App Service Environment][Intro]. 
+* Pour bien démarrer avec les ASE, consultez [Présentation des environnements App Service][Intro]. 
 
 <!--Image references-->
 [1]: ./media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase-network.png

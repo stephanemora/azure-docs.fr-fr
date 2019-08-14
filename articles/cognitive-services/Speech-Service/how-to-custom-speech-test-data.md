@@ -1,6 +1,6 @@
 ---
-title: Préparer des données de test pour Custom Speech – Speech Services
-titlesuffix: Azure Cognitive Services
+title: Préparer des données de test pour Custom Speech – Service Speech
+titleSuffix: Azure Cognitive Services
 description: Qu’il s’agisse de tester la précision de la reconnaissance vocale Microsoft ou d’entraîner vos propres modèles, vous avez besoin de données (sous forme de contenu audio et/ou de texte). Dans cette page, nous nous intéressons aux types de données, à la façon dont ils sont utilisés et à leur gestion.
 services: cognitive-services
 author: erhopf
@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: c3e77a8ec46ae18cb9daa855d842969cc2ba4bb9
-ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
+ms.openlocfilehash: fad0fada4d9dd888b0b2a37b59e4eac1e016aec4
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67137256"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68663596"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Préparer des données pour Custom Speech
 
@@ -29,9 +29,9 @@ Ce tableau liste les types de données acceptés, les cas d’utilisation pour c
 |-----------|-----------------|----------|-------------------|----------|
 | [Audio](#audio-data-for-testing) | OUI<br>Utilisé pour l’inspection visuelle | 5 fichiers audio et plus | Non | n/a |
 | [Transcriptions audio + étiquetées à la main](#audio--human-labeled-transcript-data-for-testingtraining) | OUI<br>Utilisé pour évaluer la précision | 0,5 – 5 heures de contenu audio | OUI | 1 – 1 000 heures de contenu audio |
-| [Texte associé](##related-text-data-for-training) | Non | n/a | OUI | 1 – 200 Mo de texte associé |
+| [Texte associé](#related-text-data-for-training) | Non | n/a | OUI | 1 – 200 Mo de texte associé |
 
-Les fichiers doivent être regroupées par type dans un jeu de données et chargés sous forme de fichier zip. Chaque jeu de données ne peut contenir qu’un seul type de données.
+Les fichiers doivent être regroupés par type dans un jeu de données et chargés sous forme de fichier zip. Chaque jeu de données ne peut contenir qu’un seul type de données.
 
 ## <a name="upload-data"></a>Télécharger des données
 
@@ -39,7 +39,7 @@ Une fois que vous êtes prêt à charger vos données, cliquez sur **Upload data
 
 ![Sélectionner du contenu audio à partir du portail Speech](./media/custom-speech/custom-speech-select-audio.png)
 
-Chaque jeu de données que vous chargez doit respecter les exigences associé au type de données choisi. Il est important de bien formater les données avant de les charger pour qu’elles soient correctement traitées par le service Custom Speech. Les exigences sont listées dans les sections suivantes.
+Chaque jeu de données que vous chargez doit respecter les exigences associées au type de données choisi. Il est important de bien formater les données avant de les charger pour qu’elles soient correctement traitées par le service Custom Speech. Les exigences sont listées dans les sections suivantes.
 
 Une fois que votre jeu de données est chargé, vous disposez de plusieurs options :
 

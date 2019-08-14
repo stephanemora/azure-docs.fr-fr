@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 6/06/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 28e85f2e9caacc0cc30dcc1a073414c34bc2ab0e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7bd18ab0cedf94f0ecc08c3523a608a8d554e6b2
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67064324"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68827925"
 ---
 # <a name="what-is-azure-security-center"></a>Qu’est-ce que le Centre de sécurité Azure ?
 
@@ -34,7 +34,7 @@ Azure Security Center traite les trois problèmes de sécurité les plus urgents
 
 -   **Attaques de plus en plus sophistiquées**  : quel que soit l’emplacement d’exécution de vos charges de travail, les attaques gagnent en sophistication. Vous devez sécuriser vos charges de travail de cloud public, qui sont des charges de travail sur Internet ouvrant la porte à davantage de vulnérabilités si vous ne suivez pas les meilleures pratiques de sécurité.
 
--   **Rareté des compétences de sécurité**  : le nombre d’alertes de sécurité et de systèmes d’alertes dépasse de loin celui des administrateurs dotés de l’expérience et de la formation nécessaires pour garantir la protection de vos environnements. Se tenir au courant des dernières attaques est un défi constant et requiert un certain dynamisme pour suivre le rythme de l’évolution du monde de la sécurité.
+-   **Rareté des compétences de sécurité**  : le nombre d’alertes de sécurité et de systèmes d’alertes dépasse de loin celui des administrateurs dotés de l’expérience et de la formation nécessaires pour garantir la protection de vos environnements. Se tenir au courant des dernières attaques est un défi constant et requiert un certain dynamisme pour suivre le rythme de l’évolution du monde de la sécurité.
 
 Pour vous aider à vous protéger contre ces problèmes, Security Center vous offre les outils nécessaires pour :
 
@@ -126,9 +126,9 @@ Security Center vous permet de limiter l’exposition aux attaques par force bru
 
 Security Center inclut des fonctionnalités qui vous aident à effectuer la classification automatique de vos données dans Azure SQL. Vous pouvez également obtenir des évaluations pour les vulnérabilités potentielles sur les services Stockage et Azure SQL, ainsi que des recommandations pour les atténuer.
 
-### <a name="protect-iot-and-hybrid-cloud-workloads-preview"></a>Protéger les charges de travail de cloud hybride et IoT (préversion)
+### <a name="protect-iot-and-hybrid-cloud-workloads"></a>Protéger les charges de travail de cloud hybride et IoT
 
-Azure Security Center pour IoT (Internet des objets) simplifie la protection des charges de travail hybrides en offrant une visibilité et un contrôle unifiés, une prévention adaptative des menaces, ainsi qu’une détection et une réponse intelligentes des menaces sur l'ensemble des charges de travail exécutées dans le périmètre, sur site, dans Azure et dans d’autres clouds. Pour plus d’informations, consultez l’article [Azure Security Center pour IoT (préversion)](https://docs.microsoft.com/azure/asc-for-iot/).
+Azure Security Center pour IoT (Internet des objets) simplifie la protection des charges de travail hybrides en offrant une visibilité et un contrôle unifiés, une prévention adaptative des menaces, ainsi qu’une détection et une réponse intelligentes des menaces sur l'ensemble des charges de travail exécutées dans le périmètre, sur site, dans Azure et dans d’autres clouds. Pour plus d’informations, consultez [Azure Security Center pour IoT](https://docs.microsoft.com/azure/asc-for-iot/).
 
 ## <a name="get-secure-faster"></a>Être plus rapidement en sécurité
 

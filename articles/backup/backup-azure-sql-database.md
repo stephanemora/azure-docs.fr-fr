@@ -1,5 +1,5 @@
 ---
-title: Sauvegarder des bases de données SQL Server dans Azure | Microsoft Docs
+title: Sauvegarder des bases de données SQL Server sur Azure
 description: Ce tutoriel explique comment sauvegarder SQL Server avec Azure, ainsi que la récupération de SQL Server.
 author: dcurwin
 manager: carmonm
@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: tutorial
 ms.date: 06/18/2019
 ms.author: dacurwin
-ms.openlocfilehash: cddb540eb0d6892426c4857b152ab6caa746f6da
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 7312821320084c766f5b3357fe64c061df83673b
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639807"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68827649"
 ---
 # <a name="about-sql-server-backup-in-azure-vms"></a>À propos de la sauvegarde SQL Server sur des machines virtuelles Azure
 
@@ -25,7 +25,7 @@ Cette solution exploite les API natives de SQL pour effectuer des sauvegardes de
 * Une fois que vous spécifiez la machine virtuelle SQL Server que vous voulez protéger et dont vous voulez interroger des bases de données, le service Sauvegarde Azure installe une extension de sauvegarde de charge de travail sur la machine virtuelle portant le nom de `AzureBackupWindowsWorkload` .
 * Cette extension se compose d’un coordinateur et d’un plug-in SQL. Alors que le coordinateur est responsable du déclenchement des flux de travail pour diverses opérations, comme le configuration de la sauvegarde, la sauvegarde et la restauration, le plug-in est responsable du flux de données réel.
 * Pour pouvoir découvrir les bases de données sur cette machine virtuelle, la Sauvegarde Azure crée le compte `NT SERVICE\AzureWLBackupPluginSvc`. Ce compte est utilisé pour la sauvegarde et la restauration. Il doit disposer d’autorisations d’administrateur système SQL. La Sauvegarde Azure utilise le compte `NT AUTHORITY\SYSTEM`  pour la découverte et l’interrogation des bases de données. Ce compte doit donc être une connexion publique sur SQL. Si vous n’avez pas créé la machine virtuelle SQL Server à partir de la Place de marché Azure, vous pouvez recevoir une erreur  **UserErrorSQLNoSysadminMembership**. Si cela se produit, [suivez ces instructions](backup-azure-sql-database.md).
-* Une fois que vous déclenchez la configuration de la protection sur les bases de données sélectionnées, le service de sauvegarde configure le coordinateur avec les planifications de sauvegarde et d’autres détails de stratégie, que l’extension met en cache localement sur la machine virtuelle. 
+* Lorsque vous déclenchez la configuration de la protection sur les bases de données sélectionnées, le service de sauvegarde configure le coordinateur avec les planifications de sauvegarde et d’autres détails de stratégie, ce que l’extension met en cache localement sur la machine virtuelle.
 * À l’heure planifiée, le coordinateur communique avec le plug-in et démarre le streaming des données de sauvegarde à partir du serveur SQL avec l’infrastructure VDI.  
 * Le plug-in envoie les données directement au coffre Recovery Services, ce qui élimine la nécessité d’un emplacement intermédiaire. Les données sont chiffrées et stockées par le service de Sauvegarde Azure dans des comptes de stockage.
 * Une fois le transfert de données terminé, le coordinateur confirme la validation avec le service de sauvegarde.
@@ -45,7 +45,7 @@ Avant de commencer, contrôlez les points suivants :
 **Support** | **Détails**
 --- | ---
 **Déploiements pris en charge** | Les machines virtuelles Azure de la Place de marché SQL et les machines virtuelles autres que celles de la Place de marché (sur lesquelles SQL Server est installé manuellement) sont prises en charge.
-**Zones géographiques prises en charge** | Australie Sud-Est (ASE), Australie Est (AE) <br> Brésil Sud (BRS)<br> Canada Centre (CNC), Canada Est (CE)<br> Asie Sud-Est (SEA), Asie Est (EA) <br> USA Est (EUS), USA Est 2 (EUS2), West Central US (WCUS), USA Ouest (WUS), USA Ouest 2 (WUS 2), USA Centre Nord (NCUS), USA Centre (CUS), USA Centre Sud (SCUS) <br> Inde Centre (INC), Inde Sud (INS) <br> Japon Est (JPE), Japon Ouest (JPW) <br> Corée Centre (KRC), Corée Sud (KRS) <br> Europe Nord (NE), Europe Ouest (WE) <br> Royaume-Uni Sud (UKS), Royaume-Uni Ouest (UKW)
+**Zones géographiques prises en charge** | Australie Sud-Est (ASE), Australie Est (AE) <br> Brésil Sud (BRS)<br> Canada Centre (CNC), Canada Est (CE)<br> Asie Sud-Est (SEA), Asie Est (EA) <br> USA Est (EUS), USA Est 2 (EUS2), West Central US (WCUS), USA Ouest (WUS), USA Ouest 2 (WUS 2), USA Centre Nord (NCUS), USA Centre (CUS), USA Centre Sud (SCUS) <br> Inde Centre (INC), Inde Sud (INS) <br> Japon Est (JPE), Japon Ouest (JPW) <br> Corée Centre (KRC), Corée Sud (KRS) <br> Europe Nord (NE), Europe Ouest (WE) <br> Royaume-Uni Sud (UKS), Royaume-Uni Ouest (UKW) <br> US Gov Arizona, US Gov Virginie, US Gov Texas, US DoD Centre, US DoD Est
 **Systèmes d’exploitation pris en charge** | Windows Server 2016, Windows Server 2012 R2, Windows Server 2012<br/><br/> Linux n’est pas actuellement pris en charge.
 **Versions de SQL Server prises en charge** | SQL Server 2017 comme indiqué [ici](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202017), SQL Server 2016 et Service Packs comme indiqué [ici](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202016%20service%20pack), SQL Server 2014, SQL Server 2012.<br/><br/> Enterprise, Standard, Web, Developer, Express.
 **Versions .NET prises en charge** | .NET Framework 4.5.2 et versions ultérieures installées sur la machine virtuelle

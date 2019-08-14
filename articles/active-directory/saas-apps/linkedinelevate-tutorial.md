@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3b16d928e2e4fc4b5376d30b81eb39e5a46e54b0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5b7cb8d6ab34a632e36ea2fd1c87005a038bc523
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67098042"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68823717"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-linkedin-elevate"></a>Didacticiel : Intégration d'Azure Active Directory à LinkedIn Elevate
 
@@ -120,11 +120,11 @@ Pour configurer l’authentification unique Azure AD avec LinkedIn Elevate, eff
 
     Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://www.linkedin.com/checkpoint/enterprise/login/<AccountId>?application=elevate&applicationInstanceId=<InstanceId>`
 
-6. L’application LinkedIn Elevate attend les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à votre configuration Attributs du jeton SAML. La capture d’écran suivante montre la liste des attributs par défaut, où  **nameidentifier** est mappé à **user.userprincipalname**. L’application LinkedIn Elevate s’attend à ce que nameidentifier soit mappé à **user.mail**. Vous devez donc modifier le mappage d’attribut en cliquant sur l’icône Modifier.
+6. L’application LinkedIn Elevate attend les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à votre configuration Attributs du jeton SAML. La capture d’écran suivante montre la liste des attributs par défaut, où **nameidentifier** est mappé avec **user.userprincipalname**. L’application LinkedIn Elevate s’attend à ce que nameidentifier soit mappé à **user.mail**. Vous devez donc modifier le mappage d’attribut en cliquant sur l’icône Modifier et en procédant aux changements.
 
     ![image](common/edit-attribute.png)
 
-7. Outre ceux mentionnés ci-dessus, l’application LinkedIn Elevate s’attend également à ce que quelques attributs de plus soient passés dans la réponse SAML. Dans la section Revendications des utilisateurs de la boîte de dialogue **Attributs utilisateur**, effectuez les étapes suivantes pour ajouter le jeton SAML comme indiqué dans le tableau ci-dessous :
+7. Outre ceux mentionnés ci-dessus, l’application LinkedIn Elevate s’attend également à ce que quelques attributs de plus soient passés dans la réponse SAML. Dans la section Revendications des utilisateurs de la boîte de dialogue **Attributs utilisateur**, effectuez les étapes suivantes pour ajouter le jeton SAML, comme indiqué dans le tableau ci-dessous :
 
     | Nom | Attribut source|
     | -------| -------------|

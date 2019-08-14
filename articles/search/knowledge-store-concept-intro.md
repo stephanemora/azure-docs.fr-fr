@@ -1,20 +1,21 @@
 ---
-title: Présentation générale de la Base de connaissances (préversion) – Recherche Azure
+title: Présentation de la base de connaissances (préversion) - Recherche Azure
 description: Envoyez des documents enrichis vers Stockage Azure afin de pouvoir consulter, remodeler et utiliser des documents enrichis dans Recherche Azure et dans d'autres applications.
 manager: cgronlun
 author: HeidiSteen
 services: search
 ms.service: search
+ms.subservice: cognitive-search
 ms.devlang: NA
 ms.topic: overview
 ms.date: 08/02/2019
 ms.author: heidist
-ms.openlocfilehash: 6cbf8dfe51e8b553fd84e9eb81a2ea37a65c387e
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: 107478f7e2d3c6726d3b8fb9c503ef13271c6571
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68668282"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840823"
 ---
 # <a name="what-is-knowledge-store-in-azure-search"></a>Qu'est-ce que la base de connaissances de Recherche Azure ?
 

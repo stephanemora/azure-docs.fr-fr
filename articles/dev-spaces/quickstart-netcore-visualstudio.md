@@ -1,5 +1,5 @@
 ---
-title: Développer avec .NET Core sur AKS avec Azure Dev Spaces et Visual Studio
+title: Déboguer et itérer avec Visual Studio et .NET Core sur AKS avec Azure Dev Spaces
 titleSuffix: Azure Dev Spaces
 author: zr-msft
 services: azure-dev-spaces
@@ -12,14 +12,14 @@ keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs, 
 manager: gwallace
 ms.custom: vs-azure
 ms.workload: azure-vs
-ms.openlocfilehash: bb23de0dfe2d717ee2e41d69eec211f1fde26687
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: ece47c86fba6bc975a4146f596fa001014352a4f
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67707200"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68725840"
 ---
-# <a name="quickstart-develop-with-net-core-on-kubernetes-with-azure-dev-spaces-visual-studio"></a>Démarrage rapide : Développer avec .NET Core sur Kubernetes avec Azure Dev Spaces (Visual Studio)
+# <a name="quickstart-debug-and-iterate-with-visual-studio-and-net-core-on-kubernetes-with-azure-dev-spaces"></a>Démarrage rapide : Déboguer et itérer avec Visual Studio et .NET Core sur Kubernetes avec Azure Dev Spaces
 
 Dans ce guide, vous allez apprendre à :
 

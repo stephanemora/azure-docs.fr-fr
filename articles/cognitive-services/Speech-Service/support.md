@@ -1,21 +1,21 @@
 ---
-title: Options d’aide et de support
-titlesuffix: Azure Cognitive Services
+title: Options d’aide et de support - Service Speech
+titleSuffix: Azure Cognitive Services
 description: Comment obtenir une assistance par rapport à des questions et à des problèmes rencontrés quand vous créez des applications s’intégrant au service Speech
 services: cognitive-services
-author: wolfma61
+author: jhakulin
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/26/2018
-ms.author: wolfma
-ms.openlocfilehash: 4099bc7bfce6de620504e03be3afc5392281d8d8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 07/23/2019
+ms.author: jhakulin
+ms.openlocfilehash: 26d66868ab4c003dbd962e0c94009bc38bb36345
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67072373"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68558840"
 ---
 # <a name="support-and-help-options"></a>Options d’aide et de support
 
@@ -71,7 +71,7 @@ Si vous ne trouvez pas de solution par l’intermédiaire de la recherche, soume
 |Traduction vocale |[[microsoft-cognitive+translation]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+translation)|
 |Intention vocale |[[microsoft-cognitive+luis]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+luis)|
 |Kit de développement logiciel (SDK) Speech général |[[microsoft-cognitive+microsoft-speech-api]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+microsoft-speech-api)|
-| Assistants virtuels « voice-first » (Préversion) | [[microsoft-cognitive+virtual-assistant+botframework]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+virtual-assistant+botframework) | 
+| Assistants virtuels « voice-first » (Préversion) | [[microsoft-cognitive+virtual-assistant+botframework]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+virtual-assistant+botframework) |
 
 > [!TIP]
 > Les publications suivantes de Stack Overflow présentent des conseils sur la façon de formuler des questions et d’ajouter du code source. En suivant ces recommandations, vous augmentez vos chances que des membres de la communauté comprennent votre question et y répondent rapidement :  

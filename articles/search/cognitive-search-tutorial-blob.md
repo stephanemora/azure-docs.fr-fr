@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Appeler des API REST Cognitive Services dans un pipeline d’indexation - Recherche Azure'
+title: 'Tutoriel REST : Appeler Cognitive Services dans un pipeline d’enrichissement IA - Recherche Azure'
 description: Examinez en détail un exemple d’extraction de données, de traitement du langage naturel et d’image par l’IA dans l’indexation Recherche Azure pour l’extraction et la transformation de données sur des objets blobs JSON à l’aide de Postman et de l’API REST.
 manager: pablocas
 author: luiscabrer
@@ -9,13 +9,13 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.date: 05/28/2019
 ms.author: luisca
-ms.custom: seodec2018
-ms.openlocfilehash: cedcc1be5525cc6932ff168e6549de84fa02a4ca
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.subservice: cognitive-search
+ms.openlocfilehash: d431f0ced5b417e178e064dca347ae8d78f14e5d
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67669101"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840880"
 ---
 # <a name="rest-tutorial-call-cognitive-services-apis-in-an-azure-search-indexing-pipeline"></a>Tutoriel REST : Appeler des API Cognitive Services dans un pipeline d’indexation Recherche Azure
 

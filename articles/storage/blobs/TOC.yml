@@ -137,6 +137,8 @@
           items:
             - name: Niveaux d’accès
               href: storage-blob-storage-tiers.md
+            - name: Réalimenter les données à partir de Stockage archive
+              href: storage-blob-rehydration.md
             - name: Gérer le cycle de vie du stockage Blob Azure
               href: storage-lifecycle-management-concepts.md
         - name: Performances et mise à l’échelle
