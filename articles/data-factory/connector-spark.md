@@ -86,7 +86,7 @@ Pour copier des données de Spark, affectez la valeur **SparkObject** à la prop
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type du jeu de données doit être définie sur : **SparkObject** | OUI |
+| type | La propriété type du jeu de données doit être définie sur : **SparkObject** | OUI |
 | tableName | Nom de la table. | Non (si « query » dans la source de l’activité est spécifié) |
 
 **Exemple**
@@ -115,7 +115,7 @@ Pour copier des données de Spark, affectez la valeur **SparkSource** au type so
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type de la source d’activité de copie doit être définie sur : **SparkSource** | OUI |
+| type | La propriété type de la source d’activité de copie doit être définie sur : **SparkSource** | OUI |
 | query | Utiliser la requête SQL personnalisée pour lire les données. Par exemple : `"SELECT * FROM MyTable"`. | Non (si « tableName » est spécifié dans dataset) |
 
 **Exemple :**
