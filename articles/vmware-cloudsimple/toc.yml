@@ -83,7 +83,7 @@
             - name: Supprimer un cloud privé
               href: delete-private-cloud.md
         - name: Superviser l’activité CloudSimple
-          href: 'https://docs.azure.cloudsimple.com/activity/'
+          href: monitor-activity.md
         - name: Configurer le réseau de cloud privé
           items:
             - name: Créer et gérer des réseaux locaux virtuels et des sous-réseaux
