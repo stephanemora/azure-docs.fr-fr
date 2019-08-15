@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: article
 ms.date: 06/18/2019
 ms.author: dacurwin
-ms.openlocfilehash: 323470adfe56ee20fe0fb64aeba38b6af4330351
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: c456dfec72f98dc4ae06f1d7d5d9fb461182d579
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827601"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69018982"
 ---
 # <a name="troubleshoot-sql-server-database-backup-by-using-azure-backup"></a>Résoudre les problèmes de sauvegarde des bases de données SQL Server avec Sauvegarde Azure
 
@@ -163,7 +163,7 @@ Dans les scénarios précédents, nous vous recommandons de déclencher une opé
 
 La taille totale de la chaîne de fichiers dépend non seulement du nombre de fichiers, mais aussi de leurs noms et de leurs chemins. Obtenez le nom de fichier logique et le chemin physique de chacun des fichiers de base de données. Vous pouvez utiliser cette requête SQL :
 
-```
+```sql
 SELECT mf.name AS LogicalName, Physical_Name AS Location FROM sys.master_files mf
                INNER JOIN sys.databases db ON db.database_id = mf.database_id
                WHERE db.name = N'<Database Name>'"
@@ -171,13 +171,13 @@ SELECT mf.name AS LogicalName, Physical_Name AS Location FROM sys.master_files m
 
 Réorganisez-les à présent selon le format suivant :
 
-```
+```json
 [{"path":"<Location>","logicalName":"<LogicalName>","isDir":false},{"path":"<Location>","logicalName":"<LogicalName>","isDir":false}]}
 ```
 
 Voici un exemple :
 
-```
+```json
 [{"path":"F:\\Data\\TestDB12.mdf","logicalName":"TestDB12","isDir":false},{"path":"F:\\Log\\TestDB12_log.ldf","logicalName":"TestDB12_log","isDir":false}]}
 ```
 
@@ -188,7 +188,7 @@ Si la taille de la chaîne du contenu dépasse 20 000 octets, les fichiers de b
 Vous pouvez remplacer le chemin du fichier de restauration cible pendant l’opération de restauration en plaçant un fichier JSON contenant le mappage du fichier de base de données au chemin de restauration cible. Créez un fichier `database_name.json` et placez-le à l’emplacement *C:\Program Files\Azure Workload Backup\bin\plugins\SQL*.
 
 Le contenu du fichier doit être à ce format :
-```
+```json
 [
   {
     "Path": "<Restore_Path>",
@@ -205,7 +205,7 @@ Le contenu du fichier doit être à ce format :
 
 Voici un exemple :
 
-```
+```json
 [
   {
    "Path": "F:\\Data\\testdb2_1546408741449456.mdf",
@@ -222,7 +222,7 @@ Voici un exemple :
 
 Dans le contenu précédent, vous pouvez obtenir le nom logique du fichier de base de données avec la requête SQL suivante :
 
-```
+```sql
 SELECT mf.name AS LogicalName FROM sys.master_files mf
                 INNER JOIN sys.databases db ON db.database_id = mf.database_id
                 WHERE db.name = N'<Database Name>'"

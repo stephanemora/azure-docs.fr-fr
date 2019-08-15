@@ -66,7 +66,7 @@ La prise en charge de toute taille de machine virtuelle en préversion ou en pro
 
 <sup>1</sup> Certaines séries de machines virtuelles plus récentes sont au départ partiellement prises en charge. Ces séries de machines virtuelles peuvent être allouées par comptes Batch avec le **mode d’allocation de pool** défini sur **abonnement utilisateur**. Consultez [Gérer des comptes Batch](batch-account-create-portal.md#additional-configuration-for-user-subscription-mode) pour en savoir plus sur la configuration du compte Batch. Consultez [Quotas et limites](batch-quota-limit.md) pour savoir comment demander des quotas pour ces séries de machines virtuelles partiellement prises en charge pour les comptes Batch d’**abonnement utilisateur**.  
 
-[2](batch-quota-limit.md#increase-a-quota) Ces tailles de machines virtuelles peuvent être allouées dans des pools Batch dans la configuration de la machine virtuelle, mais vous devez demander une <sup>augmentation du quota</sup> spécifique.
+<sup>2</sup> Ces tailles de machines virtuelles peuvent être allouées dans des pools Batch dans la configuration de la machine virtuelle, mais vous devez demander une augmentation du [quota spécifique](batch-quota-limit.md#increase-a-quota).
 
 ### <a name="pools-in-cloud-service-configuration"></a>Pools dans la configuration de service cloud
 

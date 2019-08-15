@@ -9,12 +9,12 @@ ms.author: mbaldwin
 ms.date: 07/06/2019
 ms.topic: conceptual
 ms.service: key-vault
-ms.openlocfilehash: d34c94ccca47d29afc4f3d83bec58db737be270c
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: f6a95f56b7b617b42c1cec9f64aae73b88b813da
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68840421"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934335"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>Authentification de service à service auprès d’Azure Key Vault à l’aide de .NET
 
@@ -270,21 +270,21 @@ AzureServiceTokenProvider recherche Azure CLI à ses emplacements d’installati
 
 #### <a name="unauthorized-access-access-denied-forbidden-etc-error"></a>Accès non autorisé, accès refusé, interdit, etc., erreur
  
-Le principal utilisé n’a pas accès à la ressource à laquelle il tente d’accéder. Octroyez à votre compte d’utilisateur ou au « contributeur » MSI de l’App Service l’accès à la ressource souhaitée, selon que vous exécutez l’exemple sur votre machine de développement local ou que vous l’avez déployé dans Azure sur votre App Service. Certaines ressources, telles que les coffres de clés, disposent également de leurs propres [stratégies d’accès](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-secure-your-key-vault#data-plane-and-access-policies) que vous pouvez utiliser pour accorder l’accès aux principaux (utilisateurs, applications, groupes, etc.).
+Le principal utilisé n’a pas accès à la ressource à laquelle il tente d’accéder. Octroyez à votre compte d’utilisateur ou au « contributeur » MSI de l’App Service l’accès à la ressource souhaitée, selon que vous exécutez l’exemple sur votre machine de développement local ou que vous l’avez déployé dans Azure sur votre App Service. Certaines ressources, telles que les coffres de clés, disposent également de leurs propres [stratégies d’accès](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault#data-plane-and-access-policies) que vous pouvez utiliser pour accorder l’accès aux principaux (utilisateurs, applications, groupes, etc.).
 
 ### <a name="common-issues-when-deployed-to-azure-app-service"></a>Problèmes courants lors du déploiement sur Azure App Service
 
 #### <a name="managed-identity-is-not-setup-on-the-app-service"></a>L’identité gérée n’est pas configurée sur le App Service
  
-Vérifiez que les variables d’environnement MSI_ENDPOINT et MSI_SECRET existent à l’aide de la [console de débogage Kudu](https://azure.microsoft.com/en-us/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/). Si ces variables d’environnement n’existent pas, l’identité managée n’est pas activée sur le App Service. 
+Vérifiez que les variables d’environnement MSI_ENDPOINT et MSI_SECRET existent à l’aide de la [console de débogage Kudu](https://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/). Si ces variables d’environnement n’existent pas, l’identité managée n’est pas activée sur le App Service. 
  
 ### <a name="common-issues-when-deployed-locally-with-iis"></a>Problèmes courants lors du déploiement local avec IIS
 
 #### <a name="cant-retrieve-tokens-when-debugging-app-in-iis"></a>Impossible de récupérer les jetons lors du débogage de l’application dans IIS
 
 Par défaut, AppAuth s’exécute dans un contexte d’utilisateur différent dans IIS et, par conséquent, n’a pas accès à l’utilisation de votre identité de développeur pour récupérer les jetons d’accès. Vous pouvez configurer IIS pour qu’il s’exécute avec votre contexte utilisateur en suivant les deux étapes suivantes :
-- Configurez le pool d’applications pour que l’application Web s’exécute en tant que compte d’utilisateur actuel. Plus d’informations, cliquez [ici](https://docs.microsoft.com/en-us/iis/manage/configuring-security/application-pool-identities#configuring-iis-application-pool-identities)
-- Configurez « setProfileEnvironment » sur « true ». Plus d’informations, cliquez [ici](https://docs.microsoft.com/en-us/iis/configuration/system.applicationhost/applicationpools/add/processmodel#configuration). 
+- Configurez le pool d’applications pour que l’application Web s’exécute en tant que compte d’utilisateur actuel. Plus d’informations, cliquez [ici](https://docs.microsoft.com/iis/manage/configuring-security/application-pool-identities#configuring-iis-application-pool-identities)
+- Configurez « setProfileEnvironment » sur « true ». Plus d’informations, cliquez [ici](https://docs.microsoft.com/iis/configuration/system.applicationhost/applicationpools/add/processmodel#configuration). 
 
     - Accédez à %windir%\System32\inetsrv\config\applicationHost.config
     - Recherchez « setProfileEnvironment ». S’il est défini sur « false », remplacez-le par « true ». Si la valeur n’est pas définie, ajoutez-la en tant qu’attribut à l'élément processModel (/configuration/system.applicationHost/applicationPools/applicationPoolDefaults/processModel/@setProfileEnvironment) et affectez-lui la valeur « true ».

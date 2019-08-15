@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/10/2019
 ms.author: juergent
-ms.openlocfilehash: 232468d9b3466759d7af2b7be68a1f553ced6e6d
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: c649b93284a48df705d389f4de728d83f793af04
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68348642"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69036638"
 ---
 [1928533]: https://launchpad.support.sap.com/#/notes/1928533
 [2015553]: https://launchpad.support.sap.com/#/notes/2015553
@@ -517,11 +517,11 @@ Si vous avez effectué l’installation avant de créer la configuration HADR Db
 Utilisez l’outil de configuration J2EE pour vérifier ou mettre à jour l’URL JDBC. Étant donné que l’outil de configuration J2EE est un outil graphique, le serveur X doit être installé :
  
 1. Connectez-vous au serveur d’applications principal de l’instance J2EE et exécutez :
-     <pre><code>sudo /usr/sap/*SID*/*Instance*/j2ee/configtool/configtool.sh</code></pre>
+     <pre><code>sudo /usr/sap/*SID*/*Instance*/j2ee/configtool/configtool.sh</code></pre>  
 1. Dans le cadre de gauche, choisissez **security store** (magasin de sécurité).
 1. Dans le cadre de droite, choisissez la clé jdbc/pool/\<SAPSID>/url.
 1. Remplacez le nom d’hôte dans l’URL JDBC par le nom d’hôte virtuel.
-     <pre><code>jdbc:db2://db-virt-hostname:5912/TSP:deferPrepares=0</code></pre>
+     <pre><code>jdbc:db2://db-virt-hostname:5912/TSP:deferPrepares=0</code></pre>  
 1. Sélectionnez **Ajouter**.
 1. Pour enregistrer vos modifications, sélectionnez l’icône de disque en haut à gauche.
 1. Fermez l’outil de configuration.

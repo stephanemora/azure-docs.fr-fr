@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: iainfou
-ms.openlocfilehash: 2df1ac6325f692e2d433238ae0b92d8e3f8482b5
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: acb001417b85b8ff45b2617e148e8b1961f3cbfa
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67472279"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68772991"
 ---
 # <a name="azure-ad-domain-services---troubleshooting-guide"></a>Services de domaine Azure AD : guide de dépannage
 Cet article fournit des conseils de dépannage pour les problèmes que vous pouvez rencontrer pendant la configuration ou l’administration des services de domaine Azure Active Directory (AD).
@@ -147,6 +147,9 @@ Si un ou plusieurs utilisateurs de votre locataire Azure AD sont incapables de s
     1. net stop 'Microsoft Azure AD Sync'
     2. net start 'Microsoft Azure AD Sync'
 * **Comptes cloud uniquement** : si le compte d’utilisateur affecté est un compte d’utilisateur dans le cloud uniquement : assurez-vous que l’utilisateur a modifié son mot de passe après que vous avez activé Azure AD Domain Services. Cette étape permet de générer les hachures d’informations d'identification requises pour les services de domaine Azure AD.
+* **Vérifiez que le compte d’utilisateur est actif**: Si le compte d’un utilisateur est verrouillé, il ne peut pas se connecter tant que son compte n’est pas de nouveau actif. Cinq tentatives de saisie de mot de passe non valide en 2 minutes dans le domaine managé entraînent le verrouillage d’un compte d’utilisateur pendant 30 minutes. Après ces 30 minutes, le compte d’utilisateur est automatiquement déverrouillé.
+  * Les tentatives de saisie de mot de passe non valide dans le domaine managé ne verrouillent pas le compte d’utilisateur dans Azure AD. Le compte d’utilisateur est verrouillé uniquement dans votre domaine managé Azure AD Domain Services. Vérifiez le statut du compte d’utilisateur à l’aide de la console d’administration Active Directory (ADAC) pour le domaine managé Azure AD DS, et non dans Azure AD.
+  * Vous pouvez également [configurer des stratégies de mot de passe affinées qui modifient le seuil de verrouillage et la durée par défaut](https://docs.microsoft.com/azure/active-directory-domain-services/password-policy).
 
 ## <a name="there-are-one-or-more-alerts-on-your-managed-domain"></a>Il existe une ou plusieurs alertes sur votre domaine géré
 

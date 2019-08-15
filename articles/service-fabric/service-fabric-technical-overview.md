@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/17/2018
 ms.author: masnider
-ms.openlocfilehash: 085d5e560eec090ab76c263f8f93140786f2d734
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 82672114722db843fcb5d0bdff28cf14cddb1aef
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60543204"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68811913"
 ---
 # <a name="service-fabric-terminology-overview"></a>Présentation de la terminologie Service Fabric
 Azure Service Fabric est une plateforme de systèmes distribués qui permet d’empaqueter, de déployer et de gérer facilement des microservices scalables et fiables.  Vous pouvez [héberger des clusters Service Fabric n'importe où](service-fabric-deploy-anywhere.md) : dans Azure, dans un centre de données local ou auprès de n'importe quel fournisseur de services cloud.  Service Fabric est l’orchestrateur qui alimente [Azure Service Fabric Mesh](/azure/service-fabric-mesh). Vous pouvez utiliser n’importe quelle infrastructure pour écrire vos services, et choisir l’emplacement où exécuter l’application parmi plusieurs options d’environnement. Cet article décrit en détail la terminologie utilisée dans Service Fabric pour que vous compreniez les termes utilisés dans la documentation.
@@ -27,7 +27,7 @@ Azure Service Fabric est une plateforme de systèmes distribués qui permet d’
 ## <a name="infrastructure-concepts"></a>Concepts d’infrastructure
 **Cluster** : groupe de machines virtuelles ou physiques connectées au réseau et au sein duquel vos microservices sont déployés et gérés.  Les clusters peuvent être mis à l’échelle pour des milliers de machines.
 
-**Nœud** : machine ou machine virtuelle faisant partie d'un cluster. Un nom (chaîne) est affecté à chaque nœud. Les nœuds présentent des caractéristiques, telles que des propriétés de placement. Chaque machine ou machine virtuelle a un service Windows à démarrage automatique, `FabricHost.exe`, qui commence à s’exécuter dès le démarrage, puis démarre deux exécutables : `Fabric.exe` et `FabricGateway.exe`. Ces deux exécutables constituent le nœud. Pour les scénarios de test, vous pouvez héberger plusieurs nœuds sur une seule et même machine ou sur une seule et même machine virtuelle en exécutant plusieurs instances de `Fabric.exe` et `FabricGateway.exe`.
+**Nœud** : machine ou machine virtuelle faisant partie d'un cluster. ** Un nom (chaîne) est affecté à chaque nœud. Les nœuds présentent des caractéristiques, telles que des propriétés de placement. Chaque machine ou machine virtuelle a un service Windows à démarrage automatique, `FabricHost.exe`, qui commence à s’exécuter dès le démarrage, puis démarre deux exécutables : `Fabric.exe` et `FabricGateway.exe`. Ces deux exécutables constituent le nœud. Pour les scénarios de test, vous pouvez héberger plusieurs nœuds sur une seule et même machine ou sur une seule et même machine virtuelle en exécutant plusieurs instances de `Fabric.exe` et `FabricGateway.exe`.
 
 ## <a name="application-and-service-concepts"></a>Concepts de l’application et du service
 
@@ -142,7 +142,7 @@ Vous pouvez également exécuter vos applications existantes sur Service Fabric�
 
 **Conteneurs** :  Service Fabric prend en charge le déploiement de conteneurs Docker sous Linux et de conteneurs Windows Server sous Windows Server 2016. Il gère également le mode d’isolation Hyper-V. Dans le [modèle d’application](service-fabric-application-model.md)Service Fabric, un conteneur représente un hôte d’application sur lequel sont placés plusieurs réplicas de service. Service Fabric peut exécuter n’importe quel conteneur et le scénario est identique au scénario des exécutables invités, dans lequel vous empaquetez une application existante au sein d’un conteneur. Vous pouvez également exécuter des [services Service Fabric à l’intérieur de conteneurs](service-fabric-services-inside-containers.md).
 
-**Exécutables invités** : Vous pouvez exécuter n’importe quel type de code, comme Node.js, Java ou C++ dans Azure Service Fabric en tant que service. Dans la terminologie Service Fabric, ces types de services sont appelés exécutables invités et traités comme des services sans état. La haute disponibilité, le contrôle d’intégrité, la gestion du cycle de vie des applications, la haute densité et la fonctionnalité de découverte font partie des avantages de l’exécution d’un exécutable invité dans un cluster Service Fabric.
+**Exécutables invités** : Vous pouvez exécuter n’importe quel type de code, tel que Node.js, Python, Java C++ ou dans Azure Service Fabric en tant que service. Dans la terminologie Service Fabric, ces types de services sont appelés exécutables invités et traités comme des services sans état. La haute disponibilité, le contrôle d’intégrité, la gestion du cycle de vie des applications, la haute densité et la fonctionnalité de découverte font partie des avantages de l’exécution d’un exécutable invité dans un cluster Service Fabric.
 
 Pour plus d’informations, consultez l’article [Choisir un modèle de programmation pour votre service](service-fabric-choose-framework.md).
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/08/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: d3d4679703f6d98cb2062144cfde7d11fe44130c
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 8aeb32ecddc0ef368b615a201179f17178ececad
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68386864"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68817215"
 ---
 ## <a name="application-performance-indicators"></a>Indicateurs de performances d’une application
 
@@ -268,6 +268,9 @@ En configurant une mise en cache en lecture seule sur des disques de données Pr
 
 *Lecture/écriture*  
 Par défaut, le cache en lecture/écriture est activé sur les disques du système d’exploitation. Nous avons récemment ajouté la prise en charge de la mise en cache en lecture/écriture sur les données des disques. Si vous utilisez la mise en cache en lecture/écriture, vous devez disposer d’un moyen approprié d’écrire les données du cache sur des disques persistants. Par exemple, SQL Server gère lui-même l’écriture de données mises en cache sur les disques de stockage persistants. L’utilisation d’un cache en lecture/écriture avec une application qui ne gère pas la persistance des données requises peut entraîner des pertes de données en cas de panne de la machine virtuelle.
+
+*Aucun*  
+Actuellement, l’option **Aucune** n’est prise en charge que sur les disques de données. Elle n’est pas prise en charge sur les disques du système d’exploitation. Si vous définissez l’option **Aucun** sur un disque de système d’exploitation, il est remplacé en interne et défini sur **Lecture seule**.
 
 Par exemple, vous pouvez appliquer ces instructions à une instance SQL Server exécutée sur Premium Storage de la manière suivante :
 

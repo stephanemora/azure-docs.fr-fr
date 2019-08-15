@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/05/2019
 ms.author: TomSh
-ms.openlocfilehash: a821ce5d9e545db2dee2adbe942eab5edcfdb01f
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 09caffcfdad4b132858b6ec52b36fe037f488b3a
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68726953"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934707"
 ---
 # <a name="azure-best-practices-for-network-security"></a>Meilleures pratiques Azure pour la sécurité réseau
 Cet article présente l’ensemble des meilleures pratiques Azure pour améliorer votre sécurité réseau. Ces meilleures pratiques sont issues de notre expérience dans le domaine de la mise en réseau Azure, mais également de celle des clients, comme vous.
@@ -35,7 +35,7 @@ Cet article détaille les points suivants pour chaque bonne pratique :
 Ces meilleures pratiques reposent sur un consensus, ainsi que sur les ensembles de possibilités et de fonctionnalités de la plateforme Azure disponibles au moment de la rédaction de cet article. Les opinions et avis évoluent au fil du temps ; cet article sera régulièrement mis à jour de manière à tenir compte de ces changements.
 
 ## <a name="use-strong-network-controls"></a>Utiliser des contrôles réseau renforcés
-Vous pouvez connecter des [machines virtuelles Azure](https://azure.microsoft.com/services/virtual-machines/) et des appliances à d’autres appareils en réseau, en les plaçant sur des [réseaux virtuels Azure](https://docs.microsoft.com/azure/virtual-network/). Autrement dit, vous pouvez connecter des cartes d’interface réseau virtuel à un réseau virtuel afin de permettre des communications TCP/IP entre les appareils en réseau. Les machines virtuelles connectées à un réseau virtuel Azure peuvent se connecter à des appareils se trouvant sur le même réseau virtuel, sur des réseaux virtuels différents, sur Internet ou sur vos réseaux locaux.
+Vous pouvez connecter des [machines virtuelles Azure](https://azure.microsoft.com/services/virtual-machines/) et des appliances à d’autres appareils en réseau, en les plaçant sur des [réseaux virtuels Azure](../../virtual-network/index.yml). Autrement dit, vous pouvez connecter des cartes d’interface réseau virtuel à un réseau virtuel afin de permettre des communications TCP/IP entre les appareils en réseau. Les machines virtuelles connectées à un réseau virtuel Azure peuvent se connecter à des appareils se trouvant sur le même réseau virtuel, sur des réseaux virtuels différents, sur Internet ou sur vos réseaux locaux.
 
 Lors de la planification de votre réseau et de la sécurité de votre réseau, nous vous conseillons de centraliser :
 
@@ -74,7 +74,7 @@ Les réseaux doivent se développer à partir des défenses traditionnelles, car
 Les meilleures pratiques sont :
 
 **Bonne pratique** : Donnez l’accès conditionnel aux ressources en fonction de l’appareil, de l’identité, de l’assurance, de l’emplacement réseau, etc.  
-**Détail** : [L’accès conditionnel Azure AD](/azure/active-directory/conditional-access/overview) vous permet d’appliquer les contrôles d’accès appropriés en implémentant des décisions de contrôle d’accès automatisées, basées sur les conditions exigées. Pour plus d’informations, voir [Gérer l’accès à la gestion Azure avec l’accès conditionnel](../../role-based-access-control/conditional-access-azure-management.md).
+**Détail** : [L’accès conditionnel Azure AD](/azure/active-directory/conditional-access/overview) vous permet d’appliquer les contrôles d’accès appropriés en implémentant des décisions de contrôle d’accès automatisées, basées sur les conditions exigées. Pour plus informations, consultez [Gérer l’accès à la gestion Azure avec l’accès conditionnel](../../role-based-access-control/conditional-access-azure-management.md).
 
 **Bonne pratique** : Activez l’accès au port uniquement après l’approbation du flux de travail.  
 **Détail** : Vous pouvez utiliser [l’accès juste-à-temps aux machines virtuelles dans Azure Security Center](../../security-center/security-center-just-in-time.md) pour verrouiller le trafic entrant vers vos machines virtuelles Azure, ce qui réduit l’exposition aux attaques et facilite la connexion aux machines virtuelles en cas de besoin.
@@ -114,7 +114,7 @@ Les appliances de sécurité réseau Azure peuvent offrir des niveaux de sécuri
 Pour trouver les appliances de sécurité de réseau virtuel Azure disponibles, accédez à la [Place de marché Microsoft Azure](https://azure.microsoft.com/marketplace/) et recherchez les termes « sécurité » et « sécurité réseau ».
 
 ## <a name="deploy-perimeter-networks-for-security-zones"></a>Déploiement des réseaux de périmètre pour les zones de sécurité
-Un [réseau de périmètre](https://docs.microsoft.com/azure/best-practices-network-security) (également appelé zone DMZ) est un segment de réseau logique ou physique qui fournit une couche de sécurité supplémentaire entre vos ressources et Internet. Les périphériques de contrôle d’accès réseau spécialisés situés à la périphérie d’un réseau de périmètre autorisent uniquement le trafic souhaité entrant dans votre réseau virtuel.
+Un [réseau de périmètre](./https://docs.microsoft.com/azure/architecture/vdc/networking-virtual-datacenter) (également appelé zone DMZ) est un segment de réseau logique ou physique qui fournit une couche de sécurité supplémentaire entre vos ressources et Internet. Les périphériques de contrôle d’accès réseau spécialisés situés à la périphérie d’un réseau de périmètre autorisent uniquement le trafic souhaité entrant dans votre réseau virtuel.
 
 Les réseaux de périmètre sont utiles, car vous pouvez concentrer la gestion des contrôles d’accès réseau, la surveillance, la journalisation et la création de rapports sur les appareils situés à la périphérie de votre réseau virtuel Azure. Un réseau de périmètre est l’endroit où vous activez généralement la prévention de déni de service distribué (DDoS), les systèmes de détection et de prévention des intrusions (IDS/IPS), les règles et les stratégies de pare-feu, le filtrage web, les logiciels anti-programme malveillant du réseau, etc. Les appareils dédiés à la sécurité réseau se trouvent entre Internet et le réseau virtuel Azure, et disposent d’une interface sur les deux réseaux.
 
