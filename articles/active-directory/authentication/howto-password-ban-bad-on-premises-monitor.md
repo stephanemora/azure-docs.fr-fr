@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a029135da79d1a0b24b2941873a0fe3187ac9f7c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1bd6d3abc6080c0ab1b6137511af719b23e5bcd4
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60414798"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736839"
 ---
 # <a name="azure-ad-password-protection-monitoring-and-logging"></a>Supervision et journalisation dans la protection par mot de passe Azure AD
 
@@ -271,6 +271,27 @@ Si la valeur HeartbeatUTC est périmée, cela peut indiquer que l’agent DC de
 
 Si la valeur PasswordPolicyDateUTC est périmée, cela peut indiquer que l’agent DC de la protection par mot de passe Azure AD sur cette machine ne fonctionne pas correctement.
 
+## <a name="dc-agent-newer-version-available"></a>Version plus récente de l’agent DC disponible
+
+Le service de l’agent DC enregistre un événement d’avertissement 30034 dans le journal des opérations lors de la détection d’une version plus récente du logiciel de l’agent DC, par exemple :
+
+```text
+An update for Azure AD Password Protection DC Agent is available.
+
+If autoupgrade is enabled, this message may be ignored.
+
+If autoupgrade is disabled, refer to the following link for the latest version available:
+
+https://aka.ms/AzureADPasswordProtectionAgentSoftwareVersions
+
+Current version: 1.2.116.0
+```
+
+L’événement ci-dessus ne spécifie pas la version du logiciel le plus récent. Vous devez accéder au lien dans le message d’événement pour obtenir ces informations.
+
+> [!NOTE]
+> Malgré les références à « AutoUpgrade » dans le message d’événement ci-dessus, le logiciel de l’agent DC ne prend pas en charge cette fonctionnalité pour le moment.
+
 ## <a name="proxy-service-event-logging"></a>Journalisation des événements du service Proxy
 
 Le service Proxy émet un jeu minimal d’événements pour les journaux d’événements suivants :
@@ -339,6 +360,27 @@ Les différentes propriétés sont mises à jour par chaque service Proxy enviro
 La portée de la requête de la cmdlet peut être influencée à l’aide des paramètres –Forest ou –Domain.
 
 Si la valeur HeartbeatUTC est périmée, cela peut indiquer que le service Proxy de la protection par mot de passe Azure AD sur cette machine n’est pas actuellement exécuté ou qu’il a été désinstallé.
+
+## <a name="proxy-agent-newer-version-available"></a>Version plus récente de l’agent proxy disponible
+
+Le service proxy enregistre un événement d’avertissement 20002 dans le journal des opérations lors de la détection d’une version plus récente du logiciel proxy, par exemple :
+
+```text
+An update for Azure AD Password Protection Proxy is available.
+
+If autoupgrade is enabled, this message may be ignored.
+
+If autoupgrade is disabled, refer to the following link for the latest version available:
+
+https://aka.ms/AzureADPasswordProtectionAgentSoftwareVersions
+
+Current version: 1.2.116.0
+.
+```
+
+L’événement ci-dessus ne spécifie pas la version du logiciel le plus récent. Vous devez accéder au lien dans le message d’événement pour obtenir ces informations.
+
+Cet événement est émis même si l’agent proxy est configuré avec la mise à jour automatique activée.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

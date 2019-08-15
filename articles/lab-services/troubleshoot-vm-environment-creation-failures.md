@@ -10,22 +10,28 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/12/2019
+ms.date: 08/02/2019
 ms.author: spelluru
-ms.openlocfilehash: 7baa5e4c113e6c21c6123ac7c8399533a7dfb358
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bcdb549ce5b522b2d456e2cbeb5471b9df984514
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65410296"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68774413"
 ---
 # <a name="troubleshoot-virtual-machine-vm-and-environment-creation-failures-in-azure-devtest-labs"></a>Résoudre les échecs de création de machine virtuelle et d’environnement dans Azure DevTest Labs
 DevTest Labs vous communique des avertissements si un nom d’ordinateur n’est pas valide ou si vous êtes sur le point de violer une stratégie de laboratoire. Parfois, un symbole `X` rouge apparaît en regard de l’état de l’environnement ou de la machine virtuelle de laboratoire, vous indiquant qu’une erreur est survenue.  Cet article fournit quelques astuces que vous pouvez utiliser pour identifier le problème sous-jacent et, nous l’espérons, pour éviter que le problème ne se reproduise.
 
 ## <a name="portal-notifications"></a>Notifications du portail
-Si vous utilisez le Portail Azure, la première chose à examiner est la **panneau de notifications**.  Vous pouvez accéder au panneau de notifications en cliquant sur **l’icône représentant une cloche**. Il indique si la création de l’environnement ou de la machine virtuelle de laboratoire a réussi ou non.  En cas d’échec, vous voyez un message d’erreur associé à l’échec de la création. Il offre souvent des informations supplémentaires vous aidant à résoudre le problème. Dans l’exemple suivant, la création de la machine virtuelle a échoué en raison du nombre insuffisant de cœurs. Le message détaillé vous indique comment résoudre le problème et demander une augmentation du quota de cœurs.
+Si vous utilisez le Portail Azure, la première chose à examiner est le **panneau de notifications**.  Vous pouvez accéder au panneau de notifications en cliquant sur **l’icône représentant une cloche**. Il indique si la création de l’environnement ou de la machine virtuelle de laboratoire a réussi ou non.  En cas d’échec, vous voyez un message d’erreur associé à l’échec de la création. Il offre souvent des informations supplémentaires vous aidant à résoudre le problème. Dans l’exemple suivant, la création de la machine virtuelle a échoué en raison du nombre insuffisant de cœurs. Le message détaillé vous indique comment résoudre le problème et demander une augmentation du quota de cœurs.
 
 ![Notification du Portail Azure](./media/troubleshoot-vm-environment-creation-failures/portal-notification.png)
+
+### <a name="vm-in-corruption-state"></a>Machine virtuelle endommagée
+Si vous voyez que le statut de votre machine virtuelle dans le laboratoire est **Endommagée**, la machine virtuelle sous-jacente a peut-être été supprimée de la page **Machine virtuelle** à laquelle l’utilisateur peut accéder à partir de la page **Machines virtuelles** (pas la page DevTest Labs). Nettoyez votre laboratoire dans DevTest Labs en supprimant la machine virtuelle du laboratoire. Ensuite, recréez votre machine virtuelle dans le laboratoire. 
+
+![Machine virtuelle endommagée](./media/troubleshoot-vm-environment-creation-failures/vm-corrupted-state.png)
+
 
 
 ## <a name="activity-logs"></a>Journaux d’activité

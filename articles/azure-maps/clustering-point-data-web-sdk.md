@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.custom: codepen
-ms.openlocfilehash: 69e95a9e6c76da5d502314a7190e99fc10e968f7
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 5f51c1166364a3470a1cc943e66d429c32cdc49b
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639070"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68839482"
 ---
 # <a name="clustering-point-data"></a>Clustering de données de point
 
@@ -35,7 +35,7 @@ var datasource = new atlas.source.DataSource(null, {
 
     //The maximum zoom level in which clustering occurs.
     //If you zoom in more than this, all points are rendered as symbols.
-    clusterMaxZoom: 15 
+    clusterMaxZoom: 15
 });
 ```
 
@@ -107,6 +107,16 @@ Les données de point représentées par un cluster sont réparties sur une zone
 
  <iframe height="500" style="width: 100%;" scrolling="no" title="Enveloppe convexe de la zone du cluster" src="//codepen.io/azuremaps/embed/QoXqWJ/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
 Consultez le rendu <a href='https://codepen.io/azuremaps/pen/QoXqWJ/'>Enveloppe convexe de la zone du cluster</a> Pen par Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) sur <a href='https://codepen.io'>CodePen</a>.
+</iframe>
+
+## <a name="aggregating-data-in-clusters"></a>Agrégation de données dans des clusters
+
+Souvent, les clusters sont représentés à l’aide d’un symbole avec le nombre de points qui se trouvent dans le cluster. Toutefois, il est parfois souhaitable de personnaliser davantage le style des clusters en fonction d’un indicateur de performance, comme le total de tous les points au sein d’un cluster. Avec les agrégats de cluster, les propriétés personnalisées peuvent être créées et remplies à l’aide d’un calcul [d’expression d’agrégation](data-driven-style-expressions-web-sdk.md#aggregate-expression).  Les agrégats de cluster peuvent être définis dans l'option `clusterProperties` de `DataSource`.
+
+L’exemple suivant utilise une expression d’agrégation pour calculer un nombre basé sur la propriété de type d’entité de chaque point de données dans un cluster.
+
+<iframe height="500" style="width: 100%;" scrolling="no" title="Agrégats de cluster" src="//codepen.io/azuremaps/embed/jgYyRL/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+Consultez le <a href='https://codepen.io/azuremaps/pen/jgYyRL/'>Agrégats de cluster</a> Pen par Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) sur <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="next-steps"></a>Étapes suivantes

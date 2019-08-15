@@ -1,6 +1,6 @@
 ---
 title: Gérer les réservations Azure
-description: Découvrez comment changer l’étendue de l’abonnement et gérer l’accès pour les réservations Azure.
+description: Découvrez comment gérer les réservations Azure.
 ms.service: billing
 author: bandersmsft
 manager: yashesvi
@@ -8,20 +8,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/01/2019
+ms.date: 08/06/2019
 ms.author: banders
-ms.openlocfilehash: 89279387b3630ea654070eef671f131ec757d55f
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.openlocfilehash: b161fc7cd4faa75dd87613c297c12f1edd862510
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67491178"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840037"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Gérer les réservations pour les ressources Azure
 
-Après avoir acheté une réservation Azure, il se peut que vous deviez l’appliquer à un autre abonnement, modifier la personne autorisée à la gérer, ou en modifier l’étendue. Vous pouvez également diviser une réservation en deux pour appliquer certaines des instances que vous avez achetées à un autre abonnement.
+Après avoir acheté une réservation Azure, il se peut que vous deviez l’appliquer à un autre abonnement, modifier la personne autorisés à la gérer, ou en modifier l’étendue. Vous pouvez également diviser une réservation en deux pour appliquer certaines des instances que vous avez achetées à un autre abonnement.
 
-Si vous avez acheté Azure Reserved Virtual Machine Instances, vous pouvez modifier le paramètre d’optimisation de la réservation. La remise sur la réservation peut s’appliquer à des machines virtuelles de la même série, ou vous pouvez réserver de la capacité du centre de données pour une taille de machine virtuelle spécifique.
+Si vous avez acheté des instances de machine virtuelle réservées d’Azure, vous pouvez modifier le paramètre d’optimisation de la réservation. La remise sur la réservation peut s’appliquer à des machines virtuelles de la même série, ou vous pouvez réserver de la capacité du centre de données pour une taille de machine virtuelle spécifique. Et, vous devez essayer d’optimiser les réservations afin qu’elles soient entièrement utilisées.
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -106,13 +106,9 @@ Pour déléguer la gestion de l’accès à une réservation :
     Update-AzReservation -ReservationOrderId a08160d4-ce6b-4295-bf52-b90a5d4c96a0 -ReservationId 5257501b-d3e8-449d-a1ab-4879b1863aca -AppliedScopeType Single -AppliedScope /subscriptions/15bb3be0-76d5-491c-8078-61fe3468d414
     ```
 
-## <a name="cancellations-and-exchanges"></a>Annulations et échanges
+## <a name="cancel-exchange-or-refund-reservations"></a>Annuler, échanger ou rembourser des réservations
 
-Selon le type de réservation, vous pourrez peut-être annuler ou échanger une réservation. Pour plus d’informations, consultez les sections relatives aux annulations et échanges dans les rubriques suivantes :
-
-- [Prépayer des machines virtuelles avec des instances de machines virtuelles réservées Azure](..//virtual-machines/windows/prepay-reserved-vm-instances.md#cancellations-and-exchanges)
-- [Prépayer des logiciels SUSE avec des réservations Azure](../virtual-machines/linux/prepay-suse-software-charges.md#cancellation-and-exchanges-not-allowed)
-- [Prépayer des ressources de calcul SQL Database avec une capacité réservée Azure SQL Database](../sql-database/sql-database-reserved-capacity.md#cancellations-and-exchanges)
+Vous pouvez annuler, échanger ou rembourser des réservations avec certaines limitations. Pour plus d’informations, consultez [Échanges et remboursements en libre-service pour les réservations Azure](billing-azure-reservations-self-service-exchange-and-refund.md).
 
 ## <a name="change-optimize-setting-for-reserved-vm-instances"></a>Modifier le paramètre d’optimisation pour des instances de machine virtuelle réservées
 
@@ -129,6 +125,37 @@ Pour mettre à jour le paramètre d’optimisation de la réservation :
 3. Sélectionnez la réservation.
 4. Sélectionnez **Paramètres** > **Configuration**.
 5. Modifiez le paramètre **Optimiser pour**.
+
+## <a name="optimize-reservation-use"></a>Optimiser l’utilisation de la réservation
+
+Les économies de réservation Azure résultent uniquement d’une utilisation soutenue des ressources. Lorsque vous effectuez un achat de réservation, vous payez un coût initial pour ce qui correspond essentiellement à 100 % de l’utilisation des ressources possibles sur une période d’un an ou trois ans. Essayez d’optimiser votre réservation pour en tirer le meilleur parti et réaliser des économies. Les sections suivantes expliquent comment surveiller une réservation et optimiser son utilisation.
+
+### <a name="view-reservation-use-in-the-azure-portal"></a>Afficher l’utilisation de réservation dans le Portail Azure
+
+L’un des moyens d’afficher l’utilisation des réservations est le Portail Azure.
+
+1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
+2. Sélectionnez **Réservations de**  > [**tous les services**](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade) et notez l’**utilisation (%)** pour une réservation.  
+  ![Image représentant la liste des réservations](./media/billing-manage-reserved-vm-instance/reservation-list.png)
+3. Sélectionnez une réservation.
+4. Passez en revue la tendance d’utilisation des réservations dans le temps.  
+  ![Image représentant l’utilisation de réservation ](./media/billing-manage-reserved-vm-instance/reservation-utilization-trend.png)
+
+### <a name="view-reservation-use-with-api"></a>Afficher l’utilisation de réservation avec l’API
+
+Si vous êtes client Contrat Entreprise (EA), vous pouvez afficher par programmation la manière dont les réservations sont utilisées dans votre organisation. Vous bénéficiez d’une réservation inutilisée par le biais des données d’utilisation. Lorsque vous examinez les frais de réservation, gardez à l’esprit que les données sont réparties entre le coût réel et les coûts amortis. Le coût réel fournit les données à rapprocher avec votre facture mensuelle. Il comporte également des détails sur l’application de réservation et le coût d’achat des réservations. Le coût amorti est semblable au coût réel, sauf que le prix effectif de l’utilisation de la réservation est calculé au prorata. Les heures de réservation inutilisées sont affichées dans les données de coût amorties. Pour plus d’informations sur les données d’utilisation pour les clients EA, consultez [Obtenir les données d’utilisation et de coûts de la réservation pour les Contrats Entreprise](billing-understand-reserved-instance-usage-ea.md).
+
+Pour les autres abonnements, utilisez l’API [de résumés de réservations – Liste par commande de réservation et réservation](/rest/api/consumption/reservationssummaries/listbyreservationorderandreservation).
+
+### <a name="optimize-your-reservation"></a>Optimiser votre réservation
+
+Si vous constatez que les réservations de votre organisation sont sous-utilisées :
+
+- Assurez-vous que les machines virtuelles créées par votre organisation correspondent à la taille de machine virtuelle qui se trouve sur la réservation.
+- Assurez-vous que la flexibilité de taille d’instance est activée. Pour plus d’informations, consultez [Gérer les réservations - Modifier le paramètre d’optimisation pour des instances de machine virtuelle réservées](#change-optimize-setting-for-reserved-vm-instances).
+- Modifiez l’étendue de réservation en _partage_ afin qu’elle s’applique plus largement. Pour plus d’informations, consultez [Modifier l’étendue d’une réservation](#change-the-reservation-scope).
+- Envisagez d’échanger la quantité inutilisée. Pour plus d’informations, consultez [Annulations et échanges](#cancel-exchange-or-refund-reservations).
+
 
 ## <a name="need-help-contact-us"></a>Vous avez besoin d’aide ? Contactez-nous.
 

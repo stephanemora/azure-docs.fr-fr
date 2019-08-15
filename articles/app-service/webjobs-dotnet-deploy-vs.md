@@ -15,12 +15,12 @@ ms.workload: azure-vs
 ms.date: 02/18/2019
 ms.author: glenga
 ms.reviewer: david.ebbo;suwatch;pbatum;naren.soni
-ms.openlocfilehash: e66a2ffa6578ed0c9eb5eb19659adf9ba253bbeb
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: d50acc50880229626c847d41d9abe9a9e13d9c6e
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67613357"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736113"
 ---
 # <a name="develop-and-deploy-webjobs-using-visual-studio---azure-app-service"></a>Développer et déployer des tâches web à l’aide de Visual Studio - Azure App Service
 
@@ -71,10 +71,7 @@ Vous pouvez utiliser Visual Studio pour modifier la tâche web afin qu’elle s�
 
 ## <a name="webjobs-as-net-framework-console-apps"></a>Tâches web en tant qu’applications de console .NET Framework  
 
-Lorsque Visual Studio déploie un projet d'application de console .NET Framework compatible avec des tâches web, il exécute deux tâches :
-
-* Il copie des fichiers exécutables dans le dossier approprié de l’application web (*App_Data/jobs/continuous* pour les tâches web continues, et *App_Data/jobs/triggered* pour les tâches web planifiées ou à la demande).
-* Il configure des [tâches Azure Scheduler](https://docs.microsoft.com/azure/scheduler/) pour WebJobs dont l’exécution est prévue à des heures précises. (inutile pour les tâches web continues).
+Lorsque Visual Studio déploie un projet d’application de console .NET Framework pour les tâches Web, il copie les fichiers d’exécution dans le dossier approprié de l’application Web (*App_Data /jobs/continuous* pour les tâches Web continues et *App_ Dat/jobs/triggered* pour les tâches Web planifiées ou à la demande).
 
 Un projet compatible avec les tâches web se voit ajouter les éléments suivants :
 
@@ -231,7 +228,7 @@ Lorsque vous [créez une tâche web à partir du portail Azure](webjobs-create.m
 
 ### <a name="cron-expressions"></a>Expressions CRON
 
-Un projet WebJobs utilise les mêmes expressions CRON pour la planification que le déclencheur de minuteur dans Azure Functions. Pour en savoir plus sur la prise en charge de CRON, consultez l’[article de référence du déclencheur de minuteur](../azure-functions/functions-bindings-timer.md#cron-expressions).
+Un projet WebJobs utilise les mêmes expressions CRON pour la planification que le déclencheur de minuteur dans Azure Functions. Pour en savoir plus sur la prise en charge de CRON, consultez l’[article de référence du déclencheur de minuteur](../azure-functions/functions-bindings-timer.md#ncrontab-expressions).
 
 ### <a name="settingjob-reference"></a>Référence de setting.job
 
@@ -241,7 +238,7 @@ Les paramètres suivants sont pris en charge par les tâches web :
 | ----------- | --------- | --------------- |
 | `is_in_place` | Tous | Autorise la tâche à s’exécuter sur place sans être d’abord copiée vers un dossier temporaire. Pour plus d’informations, consultez [Répertoire de travail des tâches web](https://github.com/projectkudu/kudu/wiki/WebJobs#webjob-working-directory). |
 | `is_singleton` | Continue | Exécutez uniquement les tâches web sur une seule instance lors d’une montée en charge. Pour plus d’informations, consultez [Set a continuous job as singleton](https://github.com/projectkudu/kudu/wiki/WebJobs-API#set-a-continuous-job-as-singleton) (Définir une tâche continue comme singleton). |
-| `schedule` | Déclenchée | Exécutez la tâche web selon une planification basée sur CRON. Pour en savoir plus, consultez l’[article de référence du déclencheur de minuteur](../azure-functions/functions-bindings-timer.md#cron-expressions). |
+| `schedule` | Déclenchée | Exécutez la tâche web selon une planification basée sur CRON. Pour en savoir plus, consultez l’[article de référence du déclencheur de minuteur](../azure-functions/functions-bindings-timer.md#ncrontab-expressions). |
 | `stopping_wait_time`| Tous | Permet de contrôler le comportement d’arrêt. Pour plus d’informations, consultez [Arrêt approprié](https://github.com/projectkudu/kudu/wiki/WebJobs#graceful-shutdown). |
 
 ## <a name="next-steps"></a>Étapes suivantes

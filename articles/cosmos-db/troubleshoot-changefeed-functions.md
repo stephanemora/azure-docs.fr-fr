@@ -7,12 +7,12 @@ ms.date: 07/17/2019
 ms.author: maquaran
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: b90986e449df7e81f97f9ef86ce3cf69621c76d6
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: 17fa443c3b0113d80a020f2a43c7099cf5a832d2
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68335751"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68772900"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-functions-trigger-for-cosmos-db"></a>Diagnostiquer et résoudre les problèmes lors de l’utilisation du déclencheur Azure Functions pour Cosmos DB
 
@@ -88,6 +88,15 @@ Si vous découvrez que certaines modifications n’ont pas été reçues par vot
 En outre, il est possible de confirmer ce scénario si vous connaissez le nombre d’instances d’application de fonction Azure en cours d’exécution dont vous disposez. Si vous examinez votre conteneur de baux et comptez le nombre d’éléments de bail qu’il contient, les valeurs distinctes de la propriété `Owner` devraient correspondre au nombre d’instances de votre application de fonction. Si les instances d’application de fonction Azure ont plus de propriétaires que prévu, cela signifie que ces propriétaires supplémentaires « volent » les modifications.
 
 Un moyen simple pour contourner cette situation consiste à appliquer un préfixe `LeaseCollectionPrefix/leaseCollectionPrefix` à votre fonction avec une valeur nouvelle/différente. Vous pouvez également tester en utilisant un nouveau conteneur de baux.
+
+### <a name="need-to-restart-and-re-process-all-the-items-in-my-container-from-the-beginning"></a>Vous devez redémarrer et retraiter tous les éléments de mon conteneur depuis le début 
+Pour traiter à nouveau tous les éléments d’un conteneur à partir du début :
+1. Arrêtez votre fonction Azure si elle est en cours d’exécution. 
+1. Supprimez les documents de la collection de baux (ou supprimez et recréez la collection de baux pour qu’elle soit vide)
+1. Affectez la valeur True à l’attribut [StartFromBeginning](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---configuration) CosmosDBTrigger dans votre fonction. 
+1. Redémarrez la fonction Azure. Elle va maintenant lire et traiter toutes les modifications depuis le début. 
+
+La définition de [StartFromBeginning](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---configuration) sur True indique à la fonction Azure de commencer à lire les modifications à partir du début de l’historique de la collection au lieu de l’heure actuelle. Cela ne fonctionne que si aucun bail n’est déjà créé (c’est-à-dire des documents dans la collection de baux). L’affectation de la valeur True à cette propriété lorsque des baux ont déjà été créés n’a aucun effet. Dans ce scénario, lorsqu’une fonction est arrêtée et redémarrée, elle commence la lecture à partir du dernier point de contrôle, tel que défini dans la collection de baux. Pour effectuer un nouveau traitement à partir du début, suivez les étapes ci-dessus 1-4.  
 
 ### <a name="binding-can-only-be-done-with-ireadonlylistdocument-or-jarray"></a>Une liaison peut uniquement être établie avec IReadOnlyList\<Document> ou JArray
 

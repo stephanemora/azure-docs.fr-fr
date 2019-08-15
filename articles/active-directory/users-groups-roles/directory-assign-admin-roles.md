@@ -9,23 +9,37 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 07/17/2019
+ms.date: 08/04/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 24d3da81fabf55bc0c3944f0c03829dee4fcce46
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: a4d692110a304cbfbbfda69bb2b10e3a065b2450
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68304410"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68851525"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Autorisations des rôles d’administrateur dans Azure Active Directory
 
 À l’aide d’Azure Active Directory (Azure AD), vous pouvez désigner des administrateurs limités pour gérer des tâches liées aux identités dans des rôles moins privilégiés. Les administrateurs peuvent se voir attribuer des responsabilités comme l’ajout ou le changement d’utilisateurs, l’attribution de rôles d’administrateur, la réinitialisation des mots de passe utilisateur, la gestion des licences utilisateur et la gestion des noms de domaine. Les autorisations d’utilisateur par défaut ne peuvent être modifiées que dans les paramètres utilisateur dans Azure AD.
 
-L’administrateur général a accès à toutes les fonctionnalités d’administration. Par défaut, le rôle d’administrateur général de l’annuaire est affecté à la personne qui souscrit un abonnement Azure. Seuls les administrateurs généraux et les administrateurs disposant d'un rôle privilégié peuvent déléguer des rôles d'administrateur. Pour limiter les risques, nous vous conseillons de réserver ce rôle à quelques membres de votre entreprise uniquement.
+## <a name="limit-the-use-of-global-administrator"></a>Limiter l’utilisation de l’administrateur d’entreprise
+
+Les utilisateurs qui sont affectés au rôle d’administrateur d’entreprise peuvent lire et modifier chaque paramètre d’administration de votre organisation Azure AD. Par défaut, la personne qui s’inscrit à un abonnement Azure se voit attribuer le rôle d’administrateur d’entreprise pour l’organisation Azure AD. Seuls les administrateurs généraux et les administrateurs disposant d'un rôle privilégié peuvent déléguer des rôles d'administrateur. Pour limiter les risques pour votre entreprise, nous vous recommandons d’attribuer ce rôle à un nombre restreint de personnes de votre organisation.
+
+## <a name="best-practices"></a>Bonnes pratiques
+
+Nous vous recommandons d’attribuer ce rôle à moins de 5 personnes au sein de votre organisation. Si vous avez plus de cinq utilisateurs affectés au rôle d’administrateur général dans votre organisation, voici quelques façons de réduire son utilisation.
+
+### <a name="find-the-role-you-need"></a>Trouvez le rôle dont vous avez besoin
+
+Si vous ne trouvez pas le rôle dont vous avez besoin dans une liste composée de plusieurs rôles, Azure AD peut vous fournir des listes plus courtes en fonction des catégories de rôles. Consultez notre nouveau filtre de **Type** pour [Rôles et administrateurs Azure AD](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RolesAndAdministrators) afin de ne montrer que les rôles du type sélectionné.
+
+### <a name="a-role-exists-now-that-didnt-exist-when-you-assigned-the-global-administrator-role"></a>Vous découvrez un rôle qui n’existait pas lorsque vous avez attribué le rôle d’administrateur d’entreprise
+
+Il est possible qu’un ou plusieurs rôles aient été ajoutés à Azure AD pour fournir des autorisations plus granulaires qui n’étaient pas en option lorsque vous avez attribué à certains utilisateurs le rôle d’administrateur d’entreprise. Au fil du temps, nous déployons des rôles supplémentaires pour des tâches que seul le rôle d’administrateur d’entreprise pouvait accomplir auparavant. Vous pouvez voir ces éléments reflétés dans les [Rôles disponibles](#available-roles) suivants.
 
 ## <a name="assign-or-remove-administrator-roles"></a>Attribution ou suppression de rôles d’administrateur
 
@@ -138,24 +152,7 @@ Les rôles d’administrateur disponibles sont les suivants :
 
 * **[Inviteur d’invités](#guest-inviter)**  : les utilisateurs auxquels ce rôle est assigné peuvent gérer les invitations d’utilisateurs invités Azure Active Directory B2B lorsque le paramètre utilisateur **Les membres peuvent inviter** est défini sur Non. Pour plus d’informations sur B2B Collaboration, consultez la page [À propos d’Azure AD B2B Collaboration](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b). Il n’inclut pas d’autres autorisations.
 
-* **[Administrateur Intune](#intune-service-administrator)**  : Les utilisateurs avec ce rôle ont des autorisations générales dans Microsoft Intune Online, quand le service est présent. Ce rôle donne aussi la possibilité de gérer les utilisateurs et les appareils afin d’associer la stratégie, ainsi que de créer et de gérer des groupes. Pour plus d’informations, consultez la page [Contrôle d’accès en fonction du rôle (RBAC) avec Microsoft Intune](https://docs.microsoft.com/intune/role-based-access-control).
-  > [!NOTE]
-  > Dans l’API Microsoft Graph, l’API Azure AD Graph et Azure AD PowerShell, ce rôle est identifié comme « Administrateur de service Intune ». Il est « Administrateur Intune » dans le [portail Azure](https://portal.azure.com).
-  
- * **[Administrateur Kaizala](#kaizala-administrator)**  : Les utilisateurs dotés de ce rôle ont des autorisations générales de gérer des paramètres au sein de Microsoft Kaizala, quand le service est présent, et ils peuvent gérer les tickets de support et superviser l’intégrité du service.
-De plus, l’utilisateur peut accéder à des rapports liés à l’adoption et à l’utilisation de Kaizala par les membres de l’organisation, ainsi qu’à des rapports d’entreprise générés avec les actions Kaizala. 
-
-* **[Administrateur de licence](#license-administrator)**  : Les utilisateurs dans ce rôle peuvent ajouter, supprimer et mettre à jour des attributions de licence pour les utilisateurs, les groupes (à l’aide de la gestion des licences par groupe) et gérer l’emplacement d’utilisation pour les utilisateurs. Le rôle ne permet pas d’acheter ou de gérer des abonnements, de créer ou de gérer des groupes, ni de créer ou de gérer les utilisateurs au-delà de leur emplacement d’utilisation. Ce rôle n’a pas d'accès pour afficher, créer ou gérer des tickets de support.
-
-* **[Lecteur de confidentialité du Centre de messages](#message-center-privacy-reader)**  : Les utilisateurs dotés de ce rôle peuvent superviser toutes les notifications dans le Centre de messages, notamment les messages de confidentialité des données. Les lecteurs de confidentialité du Centre de messages reçoivent des notifications par e-mail, notamment celles liées à la confidentialité des données, et ils peuvent se désabonner à l’aide des préférences du Centre de messages. Seuls l’administrateur général et le lecteur de confidentialité du Centre de messages peuvent lire les messages de confidentialité des données. De plus, ce rôle permet de voir les groupes, les domaines et les abonnements. Il n’est pas autorisé à voir, créer ou gérer des demandes de service.
-
-* **[Lecteur du Centre de messages](#message-center-reader)**  : Les utilisateurs dans ce rôle peuvent superviser les notifications et les mises à jour d’avis d’intégrité dans le [Centre de messages Office 365](https://support.office.com/article/Message-center-in-Office-365-38FB3333-BFCC-4340-A37B-DEDA509C2093) pour leur organisation sur les services configurés comme Exchange, Intune et Microsoft Teams. Les lecteurs du Centre de messages reçoivent par e-mail des résumés hebdomadaires des publications, mises à jour, et peuvent partager les messages publiés sur le Centre de messages dans Office 365. Dans Azure AD, les utilisateurs affectés à ce rôle disposeront d’un accès en lecture seule aux services Azure AD comme les utilisateurs et les groupes. Ce rôle n’a pas d'accès pour afficher, créer ou gérer des tickets de support.
-
-* **[Prise en charge de niveau 1 de partenaire](#partner-tier1-support)**  : Ne pas utiliser. Ce rôle est déconseillé et sera prochainement supprimé d’Azure AD. Il s’adresse à un petit nombre de partenaires revendeurs Microsoft et n’est pas destiné à une utilisation générale.
-
-* **[Prise en charge de niveau 2 de partenaire](#partner-tier2-support)**  : Ne pas utiliser. Ce rôle est déconseillé et sera prochainement supprimé d’Azure AD. Il s’adresse à un petit nombre de partenaires revendeurs Microsoft et n’est pas destiné à une utilisation générale.
-
-* **[Administrateur du support (mot de passe)](#helpdesk-administrator)**  : Les utilisateurs avec ce rôle peuvent changer des mots de passe, rendre non valides les jetons d’actualisation, gérer les demandes de service et superviser l’intégrité du service. L’invalidation d’un jeton d’actualisation oblige l’utilisateur à se reconnecter. Les administrateurs du support peuvent réinitialiser les mots de passe et invalider les jetons d’actualisation des autres utilisateurs qui ne sont pas administrateurs ni dotés des rôles suivants uniquement :
+* **[Administrateur du support technique](#helpdesk-administrator)** : Les utilisateurs avec ce rôle peuvent changer des mots de passe, rendre non valides les jetons d’actualisation, gérer les demandes de service et superviser l’intégrité du service. L’invalidation d’un jeton d’actualisation oblige l’utilisateur à se reconnecter. Les administrateurs du support peuvent réinitialiser les mots de passe et invalider les jetons d’actualisation des autres utilisateurs qui ne sont pas administrateurs ni dotés des rôles suivants uniquement :
   * Lecteurs de répertoires
   * Inviteur
   * Administrateur du support technique
@@ -175,16 +172,35 @@ De plus, l’utilisateur peut accéder à des rapports liés à l’adoption et 
 
 
   > [!NOTE]
-  > Ce rôle était auparavant appelé « administrateur de mot de passe » dans le [portail Azure](https://portal.azure.com/). Nous en changeons le nom par « administrateur du support » pour le faire correspondre à celui utilisé dans Azure AD PowerShell, l’API Azure AD Graph et l’API Microsoft Graph. Pendant une courte période, nous allons remplacer ce nom par « administrateur du support (mot de passe) » dans le portail Azure avant de le remplacer par « administrateur du support technique ».
+  > Ce rôle était auparavant appelé « administrateur de mot de passe » dans le [portail Azure](https://portal.azure.com/). Nous en changeons le nom par « administrateur du support » pour le faire correspondre à celui utilisé dans Azure AD PowerShell, l’API Azure AD Graph et l’API Microsoft Graph.
 
+* **[Administrateur Intune](#intune-service-administrator)**  : Les utilisateurs avec ce rôle ont des autorisations générales dans Microsoft Intune Online, quand le service est présent. Ce rôle donne aussi la possibilité de gérer les utilisateurs et les appareils afin d’associer la stratégie, ainsi que de créer et de gérer des groupes. Pour plus d’informations, consultez la page [Contrôle d’accès en fonction du rôle (RBAC) avec Microsoft Intune](https://docs.microsoft.com/intune/role-based-access-control).
+  > [!NOTE]
+  > Dans l’API Microsoft Graph, l’API Azure AD Graph et Azure AD PowerShell, ce rôle est identifié comme « Administrateur de service Intune ». Il est « Administrateur Intune » dans le [portail Azure](https://portal.azure.com).
+  
+ * **[Administrateur Kaizala](#kaizala-administrator)**  : Les utilisateurs dotés de ce rôle ont des autorisations générales de gérer des paramètres au sein de Microsoft Kaizala, quand le service est présent, et ils peuvent gérer les tickets de support et superviser l’intégrité du service.
+De plus, l’utilisateur peut accéder à des rapports liés à l’adoption et à l’utilisation de Kaizala par les membres de l’organisation, ainsi qu’à des rapports d’entreprise générés avec les actions Kaizala. 
+
+* **[Administrateur de licence](#license-administrator)**  : Les utilisateurs dans ce rôle peuvent ajouter, supprimer et mettre à jour des attributions de licence pour les utilisateurs, les groupes (à l’aide de la gestion des licences par groupe) et gérer l’emplacement d’utilisation pour les utilisateurs. Le rôle ne permet pas d’acheter ou de gérer des abonnements, de créer ou de gérer des groupes, ni de créer ou de gérer les utilisateurs au-delà de leur emplacement d’utilisation. Ce rôle n’a pas d'accès pour afficher, créer ou gérer des tickets de support.
+
+* **[Lecteur de confidentialité du Centre de messages](#message-center-privacy-reader)**  : Les utilisateurs dotés de ce rôle peuvent superviser toutes les notifications dans le Centre de messages, notamment les messages de confidentialité des données. Les lecteurs de confidentialité du Centre de messages reçoivent des notifications par e-mail, notamment celles liées à la confidentialité des données, et ils peuvent se désabonner à l’aide des préférences du Centre de messages. Seuls l’administrateur général et le lecteur de confidentialité du Centre de messages peuvent lire les messages de confidentialité des données. De plus, ce rôle permet de voir les groupes, les domaines et les abonnements. Il n’est pas autorisé à voir, créer ou gérer des demandes de service.
+
+* **[Lecteur du Centre de messages](#message-center-reader)**  : Les utilisateurs dans ce rôle peuvent superviser les notifications et les mises à jour d’avis d’intégrité dans le [Centre de messages Office 365](https://support.office.com/article/Message-center-in-Office-365-38FB3333-BFCC-4340-A37B-DEDA509C2093) pour leur organisation sur les services configurés comme Exchange, Intune et Microsoft Teams. Les lecteurs du Centre de messages reçoivent par e-mail des résumés hebdomadaires des publications, mises à jour, et peuvent partager les messages publiés sur le Centre de messages dans Office 365. Dans Azure AD, les utilisateurs affectés à ce rôle disposeront d’un accès en lecture seule aux services Azure AD comme les utilisateurs et les groupes. Ce rôle n’a pas d'accès pour afficher, créer ou gérer des tickets de support.
+
+* **[Prise en charge de niveau 1 de partenaire](#partner-tier1-support)**  : Ne pas utiliser. Ce rôle est déconseillé et sera prochainement supprimé d’Azure AD. Il s’adresse à un petit nombre de partenaires revendeurs Microsoft et n’est pas destiné à une utilisation générale.
+
+* **[Prise en charge de niveau 2 de partenaire](#partner-tier2-support)**  : Ne pas utiliser. Ce rôle est déconseillé et sera prochainement supprimé d’Azure AD. Il s’adresse à un petit nombre de partenaires revendeurs Microsoft et n’est pas destiné à une utilisation générale.
+
+* **[Administrateur de mots de passe](#password-administrator)**  : Les utilisateurs disposant de ce rôle ont une capacité limitée à gérer les mots de passe. Ce rôle n’accorde pas la possibilité de gérer les demandes de service ou de surveiller l’intégrité du service. Les administrateurs de mot de passe peuvent réinitialiser les mots de passe d’autres utilisateurs qui ne sont pas administrateurs ou membres des rôles suivants uniquement :
+  * Lecteurs de répertoires
+  * Inviteur
+  * Administrateur de mots de passe
 
 * **[Administrateur Power BI](#power-bi-service-administrator)**  : Les utilisateurs avec ce rôle ont des autorisations générales dans Microsoft Power BI, quand le service est présent, et peuvent gérer les tickets de support et superviser l’intégrité du service. Pour plus d’informations, consultez la page [Présentation du rôle d’administrateur Power BI](https://docs.microsoft.com/power-bi/service-admin-role).
   > [!NOTE]
   > Dans l’API Microsoft Graph, l’API Azure AD Graph et Azure AD PowerShell, ce rôle est identifié comme « Administrateur de service Power BI ». Il est appelé « Administrateur Power BI » dans le [portail Azure](https://portal.azure.com).
 
-* **[Administrateur d’authentification privilégié](#privileged-authentication-administrator)**  : Les utilisateurs dotés de ce rôle peuvent définir ou réinitialiser les informations d’identification de tous les utilisateurs, y compris des administrateurs généraux, et mettre à jour les mots de passe de tous les utilisateurs. Les administrateurs d’authentification privilégiés peuvent forcer les utilisateurs à se réinscrire avec des informations d’identification sans mot de passe existantes (par exemple, MFA, FIDO) et à révoquer la mémorisation de l’authentification multifacteur sur l’appareil, ce qui permet de demander une authentification multifacteur lors de la prochaine connexion de tous les utilisateurs. Les administrateurs d’authentification privilégiés peuvent :
-  * Forcer les utilisateurs à se réinscrire avec des informations d’identification sans mot de passe existantes (par exemple, MFA, FIDO)
-  * Révoquer la mémorisation de l’authentification multifacteur sur l’appareil, ce qui permet de demander une authentification multifacteur lors de la prochaine connexion
+* **[Administrateur d’authentification privilégié](#privileged-authentication-administrator)**  : Les utilisateurs dotés de ce rôle peuvent définir ou réinitialiser les informations d’identification de tous les utilisateurs, y compris des administrateurs généraux, et mettre à jour les mots de passe de tous les utilisateurs. Les administrateurs d’authentification privilégiés peuvent forcer les utilisateurs à se réinscrire avec des informations d’identification sans mot de passe existantes (par exemple, MFA, FIDO) et à révoquer la mémorisation de l’authentification multifacteur sur l’appareil, ce qui permet de demander une authentification multifacteur lors de la prochaine connexion de tous les utilisateurs.
 
 * **[Administrateur de rôle privilégié](#privileged-role-administrator)**  : Les utilisateurs avec ce rôle peuvent gérer les attributions de rôles dans Azure Active Directory et Azure AD Privileged Identity Management. De plus, ce rôle permet de gérer tous les aspects de Privileged Identity Management et des unités administratives.
 
@@ -984,6 +1000,14 @@ Ne pas utiliser - non destiné à une utilisation générale.
 | microsoft.office365.serviceHealth/allEntities/allTasks | Lisez et configurez Office 365 Service Health. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Créez et gérez des tickets de support Office 365. |
 
+### <a name="password-administrator"></a>Administrateur de mots de passe
+Peut réinitialiser les mots de passe pour les utilisateurs non administrateurs et les administrateurs de mot de passe.
+
+| **Actions** | **Description** |
+| --- | --- |
+| microsoft.aad.directory/users/password/update | Mettez à jour des mots de passe pour tous les utilisateurs dans Azure Active Directory. Pour plus d’informations, consultez la documentation en ligne. |
+| microsoft.office365.webPortal/allEntities/basic/read | Lisez les propriétés de base sur toutes les ressources dans microsoft.office365.webPortal. |
+
 ### <a name="power-bi-service-administrator"></a>Administrateur du service Power BI
 Peut gérer tous les aspects du produit Power BI.
 
@@ -1333,6 +1357,7 @@ Lecteur de confidentialité du Centre de messages | Lecteur de confidentialité 
 Lecteur du Centre de messages | Lecteur du Centre de messages | 790c1fb9-7f7d-4f88-86a1-ef1f95c05c1b
 Prise en charge de niveau 1 de partenaire | Prise en charge de niveau 1 de partenaire | 4ba39ca4-527c-499a-b93d-d9b492c50246
 Prise en charge de niveau 2 de partenaire | Prise en charge de niveau 2 de partenaire | e00e864a-17c5-4a4b-9c06-f5b95a8d5bd8
+Administrateur de mots de passe | Administrateur de mots de passe | 966707d0-3269-4727-9be2-8c3a10f19b9d
 Administrateur du service Power BI | Administrateur Power BI | a9ea8996-122f-4c74-9520-8edcd192826c
 Administrateur d’authentification privilégié | Administrateur d’authentification privilégié | 7be44c8a-adaf-4e2a-84d6-ab2649e08a13
 Administrateur de rôle privilégié | Administrateur de rôle privilégié | e8611ab8-c189-46e8-94e1-60213ab1f814

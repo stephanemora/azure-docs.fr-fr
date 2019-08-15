@@ -5,14 +5,14 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 07/22/2019
+ms.date: 08/06/2019
 ms.author: danlep
-ms.openlocfilehash: 5100418651e24d74ad747e8c436ffce53c899a92
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 4e41bcaff8faef2c4eaec9ae852955d4b7ce354b
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68500909"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68839898"
 ---
 # <a name="build-and-push-an-image-from-an-app-using-a-cloud-native-buildpack"></a>Générer et envoyer (push) une image à partir d’une application à l’aide d’un Cloud Native Buildpack
 
@@ -44,11 +44,13 @@ L’exemple suivant crée une image conteneur à partir de l’application Node.
 az acr pack build \
     --registry myregistry \
     --image {{.Run.Registry}}/node-app:1.0 \
-    --builder cloudfoundry/cnb:bionic \
+    --pull --builder cloudfoundry/cnb:bionic \
     https://github.com/Azure-Samples/nodejs-docs-hello-world.git
 ```
 
 Cet exemple génère l'image `node-app` avec la balise `1.0` et l'envoie (push) au registre de conteneurs *myregistry*. Ici, le nom du registre cible est explicitement ajouté au nom de l’image. Si cette valeur n’est pas spécifiée, l’URL du registre est automatiquement ajoutée au nom de l’image.
+
+Le paramètre `--pull` spécifie que la commande extrait la dernière image du générateur.
 
 La sortie de la commande affiche la progression de la génération et de l’envoi de l’image. 
 
@@ -80,7 +82,7 @@ az acr pack build \
 
 Cet exemple génère l'image `java-app` marquée avec l’ID d’exécution de la commande et l'envoie (push) au registre de conteneurs *myregistry*.
 
-Le paramètre `--pull` spécifie que la commande extrait la dernière image du générateur, ce qui est nécessaire car l’image du générateur Heroku n’est pas mise en cache par les tâches ACR.
+Le paramètre `--pull` spécifie que la commande extrait la dernière image du générateur.
 
 La sortie de la commande affiche la progression de la génération et de l’envoi de l’image. 
 

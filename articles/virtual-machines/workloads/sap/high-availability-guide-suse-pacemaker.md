@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: cd377e78abe328814795bb1f75465b090a13e456
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: 551f140c22677bea363ad5d8f43bf9670f783a1d
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68228365"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68725600"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Configuration de Pacemaker sur SUSE Linux Enterprise Server dans Azure
 
@@ -37,7 +37,7 @@ Pour configurer un cluster Pacemaker dans Azure, deux options s’offrent à vou
 
 L’appareil SBD nécessite au moins une machine virtuelle supplémentaire pour jouer le rôle de serveur cible iSCSI et fournir un appareil SBD. Ces serveurs cibles iSCSI peuvent toutefois être partagés avec d’autres clusters Pacemaker. L’utilisation d’un appareil SBD présente l’avantage de garantir un temps de basculement plus rapide et, si vous faites appel à des appareils SBD en local, de ne pas vous obliger à revoir la façon dont vous exploitez le cluster Pacemaker. Vous pouvez utiliser jusqu’à trois appareils SBD pour qu’un cluster Pacemaker autorise l’indisponibilité d’un appareil SBD, par exemple lors de la mise à jour corrective du système d’exploitation du serveur cible iSCSI. Si vous souhaitez utiliser plusieurs appareil SBD par Pacemaker, veillez à déployer plusieurs serveurs cibles iSCSI et à connecter un SBD depuis chaque serveur cible iSCSI. Nous vous recommandons d’utiliser soit un appareil SBD, soit trois appareils SBD. Pacemaker n’est pas en mesure d’isoler automatiquement un nœud de cluster si vous ne configurez que deux appareils SBD et que l’un d’eux n’est pas disponible. Si vous souhaitez pouvoir procéder à une isolation lorsqu’un serveur cible iSCSI est inactif, vous devez utiliser trois appareils SBD, et donc trois serveurs cibles iSCSI.
 
-Si vous ne voulez pas investir dans une machine virtuelle supplémentaire, vous pouvez également utiliser l’agent d’isolation Azure. L’inconvénient, c’est qu’un basculement peut prendre entre 10 et 15 minutes si une ressource échoue ou si les nœuds de cluster ne peuvent plus communiquer entre eux.
+Si vous ne voulez pas investir dans une machine virtuelle supplémentaire, vous pouvez également utiliser l’agent Azure Fence. L’inconvénient, c’est qu’un basculement peut prendre entre 10 et 15 minutes si une ressource échoue ou si les nœuds de cluster ne peuvent plus communiquer entre eux.
 
 ![Vue d’ensemble de Pacemaker sur SLES](./media/high-availability-guide-suse-pacemaker/pacemaker.png)
 
@@ -53,7 +53,7 @@ Si vous souhaitez utiliser un appareil SBD pour l’isolation, procédez comme s
 
 Vous devez tout d’abord créer les machines virtuelles cibles iSCSI. Les serveurs cibles iSCSI peuvent être partagés avec plusieurs clusters Pacemaker.
 
-1. Déployez de nouvelles machines virtuelles SLES 12 SP1 ou version ultérieure, et connectez-vous à ces machines via le protocole SSH. Les tailles des machines n’ont pas besoin d’être importantes. Une taille de machine virtuelle telle que Standard_E2s_v3 ou Standard_D2s_v3 est suffisante. Veillez à utiliser le disque de système d’exploitation en stockage Premium.
+1. Déployez de nouvelles machines virtuelles SLES 12 SP1 ou version ultérieure, et connectez-vous à ces machines via le protocole SSH. Les machines n’ont pas besoin d’être volumineuses. Une taille de machine virtuelle telle que Standard_E2s_v3 ou Standard_D2s_v3 est suffisante. Veillez à utiliser le disque de système d’exploitation en stockage Premium.
 
 Exécutez les commandes suivantes sur toutes les **machines virtuelles cibles iSCSI**.
 
@@ -398,6 +398,28 @@ Les éléments suivants sont précédés de **[A]** (applicable à tous les nœu
    <pre><code>sudo zypper install fence-agents
    </code></pre>
 
+   >[!IMPORTANT]
+   > Si vous utilisez Suse Linux Enterprise Server pour SAP 15, sachez que vous devez activer le module supplémentaire et installer un composant supplémentaire, ce qui est la condition préalable à l’utilisation de l’agent Azure Fence. Pour en savoir plus sur les extensions et les modules SUSE, consultez [Modules et extensions expliqués](https://www.suse.com/documentation/sles-15/singlehtml/art_modules/art_modules.html). Suivez les instructions pour installer le kit de développement logiciel (SDK) Azure Python. 
+
+   Les instructions suivantes sur l’installation du kit de développement logiciel (SDK) Azure Python s’appliquent **uniquement**à Suse Enterprise Server pour SAP 15.  
+
+    - Si vous utilisez un abonnement Apportez votre propre licence, suivez ces instructions.  
+
+    <pre><code>
+    #Activate module PackageHub/15/x86_64
+    sudo SUSEConnect -p PackageHub/15/x86_64
+    #Install Azure Python SDK
+    sudo zypper in python3-azure-sdk
+    </code></pre>
+
+     - Si vous utilisez un abonnement Paiement à l’utilisation, suivez ces instructions.  
+
+    <pre><code>#Activate module PackageHub/15/x86_64
+    zypper ar https://download.opensuse.org/repositories/openSUSE:/Backports:/SLE-15/standard/ SLE15-PackageHub
+    #Install Azure Python SDK
+    sudo zypper in python3-azure-sdk
+    </code></pre>
+
 1. **[A]** Configurer la résolution de nom d’hôte
 
    Vous pouvez utiliser un serveur DNS ou modifier le fichier /etc/hosts sur tous les nœuds. Cet exemple montre comment utiliser le fichier /etc/hosts.
@@ -448,7 +470,7 @@ Les éléments suivants sont précédés de **[A]** (applicable à tous les nœu
    <pre><code>sudo vi /etc/corosync/corosync.conf
    </code></pre>
 
-   Ajoutez le contenu ci-dessous en gras dans le fichier si les valeurs sont absentes ou différentes. Veillez à modifier le jeton sur 30 000 pour autoriser la maintenance avec préservation de la mémoire. Pour plus d’informations, consultez [cet article pour Linux][virtual-machines-linux-maintenance] or [Windows][virtual-machines-windows-maintenance]. N’oubliez pas non plus de supprimer le paramètre mcastaddr.
+   Ajoutez le contenu ci-dessous en gras dans le fichier si les valeurs sont absentes ou différentes. Veillez à modifier le jeton sur 30 000 pour autoriser la maintenance avec préservation de la mémoire. Pour en savoir plus, consultez [cet article pour Linux][virtual-machines-linux-maintenance] ou [Windows][virtual-machines-windows-maintenance]. N’oubliez pas non plus de supprimer le paramètre mcastaddr.
 
    <pre><code>[...]
      <b>token:          30000

@@ -1,5 +1,5 @@
 ---
-title: Tableau de prise en charge de la sauvegarde de machines exécutant l’agent MARS (Microsoft Azure Recovery Services) avec Sauvegarde Azure
+title: Tableau de prise en charge pour l’agent Microsoft Azure Recovery Services (MARS) – Sauvegarde Azure
 description: Cet article décrit la prise en charge de Sauvegarde Azure quand vous sauvegardez des machines qui exécutent l’agent MARS (Microsoft Azure Recovery Services).
 author: dcurwin
 ms.service: backup
@@ -7,12 +7,12 @@ ms.date: 02/17/2019
 ms.topic: conceptual
 ms.author: dacurwin
 manager: carmonm
-ms.openlocfilehash: 46863b2eed8e5c5c4074a713b50739820a1e5bc9
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 8c983772f58c1ea01db175b47225ccfafa515b96
+ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639540"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68951984"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>Tableau de prise en charge de la sauvegarde avec l’agent MARS (Microsoft Azure Recovery Services)
 
@@ -72,8 +72,8 @@ Limitation du réseau | Non disponible pour les machines sauvegardées qui exéc
 
 Vous pouvez utiliser l’agent MARS pour sauvegarder directement sur Azure, sur certains systèmes d’exploitation qui s’exécutent sur des machines locales et sur des machines virtuelles Azure. Les systèmes d’exploitation doivent être des systèmes d’exploitation 64 bits et doivent utiliser les derniers Service Packs et les dernières mises à jour. Ces systèmes d’exploitation sont décrits dans le tableau suivant :
 
-**Système d’exploitation** | **Fichiers/dossiers** | **État du système**
---- | --- | ---
+**Système d’exploitation** | **Fichiers/dossiers** | **État du système** 
+--- | --- | --- 
 Windows 10 (Entreprise, Professionnel, Famille) | OUI | Non
 Windows 8.1 (Entreprise, Professionnel)| OUI |Non
 Windows 8 (Entreprise, Professionnel) | OUI | Non

@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: 8f1fa6f7823c643278e52ffd0faa1c0ce4972ef8
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 41037e0687274d123bea742cee5cf2887548aa0f
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68640243"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68775206"
 ---
 # <a name="mapping-data-flows-column-patterns"></a>Modèles de colonne de flux de données de mappage
 
@@ -45,6 +45,16 @@ Pour créer des modèles basés sur des colonnes, vous pouvez faire correspondre
 Lorsque vous mappez des colonnes dans les transformations Source et Sélection, vous avez la possibilité de choisir « Mappage fixe » ou « Mappage basé sur les règles ». Lorsque vous connaissez le schéma de vos données et que vous vous attendez à des colonnes spécifiques du jeu de données source qui correspondent toujours à des noms statiques spécifiques, vous pouvez utiliser le mappage fixe. Toutefois, lorsque vous travaillez avec des schémas flexibles, utilisez le mappage basé sur les règles. Vous serez en mesure de créer une correspondance de modèle à l’aide des règles décrites ci-dessus.
 
 ![mappage basé sur des règles](media/data-flow/rule2.png "Mappage basé sur des règles")
+
+Construisez vos règles à l’aide du générateur d’expressions. Vos expressions retournent une valeur booléenne pour faire correspondre les colonnes (true) ou les exclure (false).
+
+## <a name="pattern-matching-special-columns"></a>Critères spéciaux pour les colonnes spéciales
+
+* `$$` désigne le nom de chaque correspondance au moment de la conception en mode débogage et au moment de l’exécution
+* `name` représente le nom de chaque colonne entrante
+* `type` représente le type de données de chaque colonne entrante
+* `stream` représente le nom associé à chaque flux ou transformation dans votre flux
+* `position` est la position ordinale des colonnes dans votre flux de données
 
 ## <a name="next-steps"></a>Étapes suivantes
 * En savoir plus sur le flux de données de mappage ADF [langage d’expression](http://aka.ms/dataflowexpressions) pour les transformations de données

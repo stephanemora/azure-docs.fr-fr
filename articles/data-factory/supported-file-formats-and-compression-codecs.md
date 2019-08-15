@@ -7,14 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 05/22/2019
+ms.date: 08/06/2019
 ms.author: jingwang
-ms.openlocfilehash: 9f6edc45316eaeceb75da643ed64b39382712852
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f2ffd88b21d8cf331435a030199b562e6b5b979f
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66165939"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840269"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Formats de fichier et codecs de compression pris en charge dans Azure Data Factory
 
@@ -27,6 +27,7 @@ Si vous souhaitez **copier des fichiers en l’état** entre des magasins de fic
 * [Format Parquet](#parquet-format)
 * [Format ORC](#orc-format)
 * [Format Avro](#avro-format)
+* [Format binaire](#binary-format)
 
 > [!TIP]
 > Découvrez la manière dont l'activité de copie mappe vos données sources au récepteur dans [Mappage de schéma dans l’activité de copie](copy-activity-schema-and-type-mapping.md).
@@ -534,6 +535,10 @@ Pour utiliser le format Avro dans une table Hive, vous pouvez faire référence 
 Notez les points suivants :
 
 * [Les types de données complexes](https://avro.apache.org/docs/current/spec.html#schema_complex) ne sont pas pris en charge (enregistrements, enums, tables, cartes, unions et fixes).
+
+## <a name="binary-format"></a>Format binaire
+
+Pour plus d’informations, consultez l’article [Format binaire](format-binary.md).
 
 ## <a name="compression-support"></a>Prise en charge de la compression
 

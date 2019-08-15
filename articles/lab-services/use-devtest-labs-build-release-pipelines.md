@@ -1,6 +1,6 @@
 ---
-title: Utiliser DevTest Labs dans les pipelines de build et de mise en production Azure DevOps | Microsoft Docs
-description: Découvrez comment utiliser Azure DevTest Labs dans les pipelines de build et de mise en production Azure DevOps.
+title: Utiliser DevTest Labs dans les pipelines de build et de mise en production Azure | Microsoft Docs
+description: Découvrez comment utiliser Azure DevTest Labs dans les pipelines de build et de mise en production Azure.
 services: devtest-lab, lab-services
 documentationcenter: na
 author: spelluru
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/29/2019
 ms.author: spelluru
-ms.openlocfilehash: 606563cd7d7adcdd79bf9561876eb0640fb68b21
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: 032f598fed765b281d4a6a124f8855abc201ee94
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68620621"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68774486"
 ---
-# <a name="use-devtest-labs-in-azure-devops-build-and-release-pipelines"></a>Utiliser DevTest Labs dans les pipelines de build et de mise en production Azure DevOps
-Cet article fournit des informations sur la façon dont DevTest Labs peut être utilisé dans les pipelines de build et de mise en production Azure DevOps. 
+# <a name="use-devtest-labs-in-azure-pipelines-build-and-release-pipelines"></a>Utiliser DevTest Labs dans les pipelines de build et de mise en production Azure
+Cet article fournit des informations sur la façon dont DevTest Labs peut être utilisé dans les pipelines de build et de mise en production Azure. 
 
 ## <a name="overall-flow"></a>Flux général
 Le flux de base consiste à disposer d’un **pipeline de build** qui effectue les tâches suivantes :
@@ -49,7 +49,7 @@ Quelques éléments doivent être créés au préalable :
 Le pipeline de build crée un environnement DevTest Labs et déploie le code à des fins de test.
 
 ## <a name="set-up-a-build-pipeline"></a>Configurer un pipeline de build
-Dans Azure DevOps, créez un pipeline de build à l’aide du code du [Didacticiel : Créer une application web .NET Core et SQL Database dans Azure App Service](../app-service/app-service-web-tutorial-dotnetcore-sqldb.md). Utilisez le modèle **ASP.NET Core**, qui exécutera la tâche nécessaire pour générer, tester et publier le code.
+Dans Azure Pipelines, créez un pipeline de build à l’aide du code du [didacticiel : Créer une application web .NET Core et SQL Database dans Azure App Service](../app-service/app-service-web-tutorial-dotnetcore-sqldb.md). Utilisez le modèle **ASP.NET Core**, qui exécutera la tâche nécessaire pour générer, tester et publier le code.
 
 ![Sélectionner le modèle ASP.NET](./media/use-devtest-labs-build-release-pipelines/select-asp-net.png)
 
@@ -85,7 +85,7 @@ La troisième tâche est **Déployer Azure App Service**. Le type d’applicatio
 
 ![Tâche Déployer App Service](./media/use-devtest-labs-build-release-pipelines/app-service-deploy.png)
 
-## <a name="setup-release-pipeline"></a>Configurer le pipeline de mise en production
+## <a name="set-up-release-pipeline"></a>Configurer un pipeline de mise en production
 Vous créez un pipeline de mise en production avec deux tâches : **Déploiement Azure : Créer ou mettre à jour un groupe de ressources** et **Déployer Azure App Service**. 
 
 Pour la première tâche, spécifiez le nom et l’emplacement du groupe de ressources. L’emplacement du modèle est un artefact lié. Si le modèle Resource Manager comprend des modèles liés, un déploiement de groupe de ressources personnalisé doit être implémenté. Le modèle se trouve dans l’artefact de dépôt publié. Remplacez les paramètres de modèle pour le modèle Resource Manager. Vous pouvez conserver les valeurs par défaut des autres paramètres. 
@@ -98,5 +98,5 @@ Maintenant que les deux pipelines sont configurés, vous pouvez mettre en file d
 ## <a name="next-steps"></a>Étapes suivantes
 Consultez les articles suivants :
 
-- [Intégrer Azure DevTest Labs à votre pipeline de livraison et d’intégration continue Azure DevOps](devtest-lab-integrate-ci-cd-vsts.md)
-- [Intégrer des environnements à vos pipelines CI/CD Azure DevOps](integrate-environments-devops-pipeline.md)
+- [Intégrer Azure DevTest Labs à votre pipeline de livraison et d’intégration continue d’Azure Pipelines](devtest-lab-integrate-ci-cd-vsts.md)
+- [Intégrer des environnements à vos pipelines CI/CD Azure Pipelines](integrate-environments-devops-pipeline.md)

@@ -4,14 +4,14 @@ description: Décrit la structure et les propriétés des modèles Azure Resourc
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 05/31/2019
+ms.date: 08/02/2019
 ms.author: tomfitz
-ms.openlocfilehash: ab8e4f5f6506f80b62c112298f73f95bc7fedeaf
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 9858e8a52888304edd48893db02faa992b356b3b
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204361"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68774901"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Comprendre la structure et la syntaxe des modèles Azure Resource Manager
 
@@ -129,8 +129,8 @@ Les propriétés disponibles pour un paramètre sont :
 
 | Nom de l'élément | Obligatoire | Description |
 |:--- |:--- |:--- |
-| parameterName |Oui |Nom du paramètre. Doit être un identificateur JavaScript valide. |
-| type |Oui |Type de la valeur du paramètre. Les types et valeurs autorisés sont : **string**, **secureString**, **int**, **bool**, **object**, **secureObject** et **array**. |
+| parameterName |OUI |Nom du paramètre. Doit être un identificateur JavaScript valide. |
+| Type |OUI |Type de la valeur du paramètre. Les types et valeurs autorisés sont : **string**, **secureString**, **int**, **bool**, **object**, **secureObject** et **array**. |
 | defaultValue |Non |Valeur par défaut du paramètre, si aucune valeur n'est fournie pour le paramètre. |
 | allowedValues |Non |Tableau des valeurs autorisées pour le paramètre afin de vous assurer que la bonne valeur a bien été fournie. |
 | minValue |Non |Valeur minimale pour les paramètres de type int, cette valeur est inclusive. |
@@ -503,8 +503,8 @@ Vous définissez des ressources avec la structure suivante :
 |:--- |:--- |:--- |
 | condition | Non | Valeur booléenne qui indique si la ressource sera provisionnée pendant ce déploiement. Quand la valeur est `true`, la ressource est créée pendant le déploiement. Quand la valeur est `false`, la ressource est ignorée pour ce déploiement. Voir [condition](#condition). |
 | apiVersion |OUI |La version de l'API REST à utiliser pour la création de la ressource. Pour déterminer les valeurs disponibles, consultez [référence de modèle](/azure/templates/). |
-| Type |OUI |Type de la ressource. Cette valeur est une combinaison de l’espace de noms du fournisseur de ressources et du type de ressource (comme **Microsoft.Storage/storageAccounts**). Pour déterminer les valeurs disponibles, consultez [référence de modèle](/azure/templates/). Pour une ressource enfant, le format du type dépend de si elle est imbriquée dans la ressource parente ou définie en dehors de la ressource parente. Voir [Ressources enfants](#child-resources). |
-| Nom |OUI |Nom de la ressource. Le nom doit respecter les restrictions de composant d'URI définies dans le document RFC3986. Par ailleurs, les services Azure qui exposent le nom de la ressource à des parties externes valident le nom pour vérifier qu’il ne s’agit pas d’une tentative d’usurpation d’identité. Pour une ressource enfant, le format du nom dépend de si elle est imbriquée dans la ressource parente ou définie en dehors de la ressource parente. Voir [Ressources enfants](#child-resources). |
+| Type |OUI |Type de la ressource. Cette valeur est une combinaison de l’espace de noms du fournisseur de ressources et du type de ressource (comme **Microsoft.Storage/storageAccounts**). Pour déterminer les valeurs disponibles, consultez [référence de modèle](/azure/templates/). Pour une ressource enfant, le format du type dépend de si elle est imbriquée dans la ressource parente ou définie en dehors de la ressource parente. Consultez [Définition du nom et du type des ressources enfants](child-resource-name-type.md). |
+| Nom |OUI |Nom de la ressource. Le nom doit respecter les restrictions de composant d'URI définies dans le document RFC3986. Par ailleurs, les services Azure qui exposent le nom de la ressource à des parties externes valident le nom pour vérifier qu’il ne s’agit pas d’une tentative d’usurpation d’identité. Pour une ressource enfant, le format du nom dépend de si elle est imbriquée dans la ressource parente ou définie en dehors de la ressource parente. Consultez [Définition du nom et du type des ressources enfants](child-resource-name-type.md). |
 | location |Varie |Emplacements géographiques de la ressource fournie pris en charge. Vous pouvez sélectionner l’un des emplacements disponibles, mais en général, il est judicieux de choisir celui qui est proche de vos utilisateurs. En règle générale, il est également judicieux de placer dans la même région les ressources qui interagissent entre elles. La plupart des types de ressources nécessitent un emplacement, mais certains types (comme une attribution de rôle) n’ont pas besoin d’emplacement. |
 | tags |Non |Balises associées à la ressource. Appliquer des balises pour organiser logiquement des ressources dans votre abonnement. |
 | commentaires |Non |Vos commentaires pour documenter les ressources dans votre modèle. Pour plus d’informations, consultez [Commentaires dans les modèles](resource-group-authoring-templates.md#comments). |
@@ -514,7 +514,7 @@ Vous définissez des ressources avec la structure suivante :
 | sku | Non | Certaines ressources autorisent les valeurs qui définissent la référence SKU à déployer. Par exemple, vous pouvez spécifier le type de redondance pour un compte de stockage. |
 | kind | Non | Certaines ressources autorisent une valeur qui définit le type de ressource que vous déployez. Par exemple, vous pouvez spécifier le type Cosmos DB à créer. |
 | Plan | Non | Certaines ressources autorisent les valeurs qui définissent le plan à déployer. Par exemple, vous pouvez spécifier l’image de marketplace pour une machine virtuelle. | 
-| les ressources |Non |Ressources enfants qui dépendent de la ressource qui est définie. Fournissez uniquement des types de ressources qui sont autorisés par le schéma de la ressource parente. La dépendance sur la ressource parente n’est pas induite. Vous devez la définir explicitement. Voir [Ressources enfants](#child-resources). |
+| les ressources |Non |Ressources enfants qui dépendent de la ressource qui est définie. Fournissez uniquement des types de ressources qui sont autorisés par le schéma de la ressource parente. La dépendance sur la ressource parente n’est pas induite. Vous devez la définir explicitement. Consultez [Définition du nom et du type des ressources enfants](child-resource-name-type.md). |
 
 ### <a name="condition"></a>Condition
 
@@ -653,74 +653,6 @@ L’exemple suivant illustre le déploiement d’un compte de stockage dans un e
   }
 }
 ```
-
-### <a name="child-resources"></a>Ressources enfants
-
-Dans certains types de ressources, vous pouvez également définir un tableau de ressources enfants. Les ressources enfants sont des ressources qui n’existent que dans le contexte d’une autre ressource. Par exemple, une base de données SQL ne peut pas exister sans serveur SQL. Elle est donc un enfant du serveur. Vous pouvez définir la base de données dans la définition du serveur.
-
-```json
-{
-  "apiVersion": "2015-05-01-preview",
-  "type": "Microsoft.Sql/servers",
-  "name": "exampleserver",
-  ...
-  "resources": [
-    {
-      "apiVersion": "2017-10-01-preview",
-      "type": "databases",
-      "name": "exampledatabase",
-      ...
-    }
-  ]
-}
-```
-
-Toutefois, vous n’êtes pas obligé de définir la base de données dans le serveur. Vous pouvez définir la ressource enfant au niveau supérieur. Vous pouvez utiliser cette approche si la ressource parente n’est pas déployée dans le même modèle ou si voulez utiliser `copy` pour créer plusieurs ressources enfants. Dans le cadre de cette approche, vous devez fournir le type de ressource complet et inclure le nom de la ressource parent dans le nom de la ressource enfant.
-
-```json
-{
-  "apiVersion": "2015-05-01-preview",
-  "type": "Microsoft.Sql/servers",
-  "name": "exampleserver",
-  "resources": [ 
-  ],
-  ...
-},
-{
-  "apiVersion": "2017-10-01-preview",
-  "type": "Microsoft.Sql/servers/databases",
-  "name": "exampleserver/exampledatabase",
-  ...
-}
-```
-
-Les valeurs que vous fournissez pour le type et le nom varient selon que la ressource enfant est définie dans la ressource parente ou en dehors de la ressource parente.
-
-Si elle est imbriquée dans la ressource parente, utilisez :
-
-```json
-"type": "{child-resource-type}",
-"name": "{child-resource-name}",
-```
-
-Si elle est définie en dehors de la ressource parente, utilisez :
-
-```json
-"type": "{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}",
-"name": "{parent-resource-name}/{child-resource-name}",
-```
-
-En cas d’imbrication, le type est défini sur `databases`, mais son type de ressource complet est toujours `Microsoft.Sql/servers/databases`. Vous ne fournissez pas `Microsoft.Sql/servers/`, car il est déduit du type de ressource parent. Le nom de la ressource enfant est défini sur `exampledatabase`, mais le nom complet inclut le nom parent. Vous ne fournissez pas `exampleserver`, car il est déduit de la ressource parente.
-
-Quand vous créez une référence complète à une ressource, l’ordre utilisé pour combiner les segments de type et de nom n’est pas une simple concaténation des deux. Au lieu de cela, utilisez après l’espace de noms une séquence de paires *type/nom* du moins spécifique au plus spécifique :
-
-```json
-{resource-provider-namespace}/{parent-resource-type}/{parent-resource-name}[/{child-resource-type}/{child-resource-name}]*
-```
-
-Par exemple :
-
-`Microsoft.Compute/virtualMachines/myVM/extensions/myExt` est correct `Microsoft.Compute/virtualMachines/extensions/myVM/myExt` n’est pas correct
 
 ## <a name="outputs"></a>Outputs
 

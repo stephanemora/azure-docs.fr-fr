@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/08/2018
+ms.date: 08/01/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 712cc5ce62225987f8cc3ea13b5e4fd10a7d5eaf
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 64de004a1d9b3aa011c447fdded51658582586b0
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60515785"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68825780"
 ---
 # <a name="tutorial-configure-salesforce-for-automatic-user-provisioning"></a>Didacticiel : Configurer Salesforce pour l’approvisionnement automatique d’utilisateurs
 
@@ -111,6 +111,9 @@ Cette section décrit comment activer l’approvisionnement des utilisateurs des
 17. Pour activer le service d’approvisionnement Azure AD pour Salesforce, accédez à la section Paramètres et définissez le **Statut de l’approvisionnement** sur **Activé**.
 
 18. Cliquez sur **Enregistrer.**
+
+> [!NOTE]
+> Une fois les utilisateurs approvisionnés dans l’application Salesforce, l’administrateur doit configurer les paramètres propres à leur langue. Pour plus d' informations sur la configuration de la langue, consultez [cet](https://help.salesforce.com/articleView?id=setting_your_language.htm&type=5) article.
 
 Cette commande démarre la synchronisation initiale des utilisateurs et/ou des groupes affectés à Salesforce dans la section Utilisateurs et Groupes. Notez que la synchronisation initiale prend plus de temps que les synchronisations suivantes, qui se produisent toutes les 40 minutes environ tant que le service est en cours d’exécution. Vous pouvez utiliser la section **Détails de la synchronisation** pour surveiller la progression et suivre les liens vers les journaux d’activité de provisionnement, qui décrivent toutes les actions effectuées par le service de provisionnement dans votre application Salesforce.
 

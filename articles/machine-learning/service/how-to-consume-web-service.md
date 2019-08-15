@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 07/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 070dd07aa6705e97a532bdc5f53a08a9abe0f83d
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: a007e3adb72148cfde1590e996f7df9082159445
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68361017"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840503"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Utiliser un modèle Azure Machine Learning déployé en tant que service web
 
@@ -30,6 +30,9 @@ Le flux de travail général pour la création d’un client qui utilise un serv
 1. Déterminer le type de données de demande utilisées par le modèle.
 1. Créer une application qui appelle le service web.
 
+> [!TIP]
+> Les exemples de ce document sont créés manuellement sans l’utilisation de spécifications OpenAPI (Swagger). Si vous avez activé une spécification OpenAPI pour votre déploiement, vous pouvez utiliser des outils tels que [swagger-codegen](https://github.com/swagger-api/swagger-codegen) pour créer des bibliothèques client pour votre service.
+
 ## <a name="connection-information"></a>informations de connexion
 
 > [!NOTE]
@@ -37,8 +40,10 @@ Le flux de travail général pour la création d’un client qui utilise un serv
 
 La classe [azureml.core.Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py) fournit les informations nécessaires pour créer un client. Les propriétés `Webservice` suivantes sont utiles pour créer une application cliente :
 
-* `auth_enabled` -Si l’authentification est activée, `True` ; sinon, `False`.
+* `auth_enabled` -Si l’authentification par clé est activée, `True` ; sinon, `False`.
+* `token_auth_enabled` -Si l’authentification par jeton est activée, `True` ; sinon, `False`.
 * `scoring_uri` -L’adresse de l’API REST.
+
 
 Il y a trois manières de récupérer ces informations pour les services web déployés :
 
@@ -67,7 +72,15 @@ Il y a trois manières de récupérer ces informations pour les services web dé
     print(service.scoring_uri)
     ```
 
-### <a name="authentication-key"></a>Clé d’authentification
+### <a name="authentication-for-services"></a>Authentification pour les services
+
+Azure Machine Learning offre deux moyens de contrôler l’accès à vos services Web. 
+
+|Méthode d'authentification|ACI|AKS|
+|---|---|---|
+|Clé|Désactivé par défaut| Activée par défaut|
+|par jeton| Non disponible| Désactivé par défaut |
+#### <a name="authentication-with-keys"></a>Authentification avec clés
 
 Lorsque vous activez l’authentification pour un déploiement, vous créez automatiquement des clés d’authentification.
 
@@ -85,6 +98,26 @@ print(primary)
 
 > [!IMPORTANT]
 > Si vous devez régénérer une clé, utilisez [`service.regen_key`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py).
+
+
+#### <a name="authentication-with-tokens"></a>Authentification avec jetons
+
+Lorsque vous activez l’authentification par jeton pour un service Web, un utilisateur doit fournir un jeton Azure Machine Learning JWT au service Web pour y accéder. 
+
+* L’authentification par jeton est désactivée par défaut lors du déploiement sur le service Azure Kubernetes.
+* L’authentification par jeton n’est pas prise en charge lorsque vous déployez sur instances de conteneur Azure.
+
+Pour contrôler l’authentification par jeton, utilisez le paramètre `token_auth_enabled` lorsque vous créez ou mettez à jour un déploiement.
+
+Si l’authentification par jeton est activée, vous pouvez utiliser la méthode `get_token` pour récupérer un jeton de porteur et le délai d’expiration des jetons :
+
+```python
+token, refresh_by = service.get_tokens()
+print(token)
+```
+
+> [!IMPORTANT]
+> Vous devrez demander un nouveau jeton après l’heure du `refresh_by` du jeton. 
 
 ## <a name="request-data"></a>Données de la demande
 

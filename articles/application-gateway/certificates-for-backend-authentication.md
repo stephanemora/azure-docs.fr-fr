@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 07/23/2019
 ms.author: absha
-ms.openlocfilehash: 2d808548ef91ed416f27b0dbb3e3e93d79ade30c
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: ae1ac3df3da4e5c25e5538f0e8cc4cd12f9186c6
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68382043"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68774793"
 ---
 # <a name="create-certificates-to-allow-the-backend-with-azure-application-gateway"></a>Créer des certificats pour autoriser le serveur back-end dans Azure Application Gateway
 
@@ -73,7 +73,7 @@ Un certificat d’authentification est nécessaire pour autoriser les instances 
 
 ## <a name="export-trusted-root-certificate-for-v2-sku"></a>Exporter le certificat racine approuvé (pour le SKU v2)
 
-Un certificat racine approuvé est nécessaire pour autoriser les instances back-end sans la référence SKU v2 d’Application Gateway. Le certificat racine est un certificat racine au format X.509 avec codage base 64 (.CER) provenant des certificats de serveur back-end. Dans cet exemple, vous allez utiliser un certificat SSL pour le certificat de serveur back-end et exporter sa clé publique. Vous exporterez ensuite le certificat racine de l'autorité de certification de confiance à partir de la clé publique au format encodé base64 pour obtenir le certificat racine approuvé. 
+Un certificat racine approuvé est nécessaire pour mettre les instances back-end en liste verte dans le SKU v2 d’Application Gateway. Le certificat racine est un certificat racine au format X.509 avec codage base 64 (.CER) provenant des certificats de serveur back-end. Dans cet exemple, nous allons utiliser un certificat SSL pour le certificat de serveur back-end, nous allons exporter sa clé publique, puis le certificat racine de l’autorité de certification approuvée à partir de la clé publique au format de codage base64 afin d’obtenir le certificat racine approuvé. Le ou les certificats intermédiaires doivent être regroupés avec le certificat de serveur et installés sur le serveur principal.
 
 Les étapes suivantes vous aident à exporter le fichier .cer de votre certificat :
 
@@ -105,4 +105,5 @@ Les étapes suivantes vous aident à exporter le fichier .cer de votre certifica
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Vous disposez maintenant du certificat d’authentification/certificat racine approuvé au format X.509 avec codage base 64 (.CER). Vous pouvez l’ajouter à la passerelle d’application afin d’autoriser vos serveurs back-end pour le chiffrement SSL de bout en bout. Consultez [Comment configurer le chiffrement SSL de bout en bout](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell).
+Vous disposez maintenant du certificat d’authentification/certificat racine approuvé au format X.509 avec codage base 64 (.CER). Vous pouvez l’ajouter à la passerelle d’application afin de mettre vos serveurs back-end en liste verte pour le chiffrement SSL de bout en bout. Consultez [Comment configurer le chiffrement SSL de bout en bout](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell).
+

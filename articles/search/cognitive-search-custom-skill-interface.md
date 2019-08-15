@@ -9,13 +9,13 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
-ms.custom: seodec2018
-ms.openlocfilehash: e181aab3d92d8111a0a7d1d41bbddac20687a547
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.subservice: cognitive-search
+ms.openlocfilehash: c708cd282e38b5da73915e427485bb8990afd6c2
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67668876"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68841202"
 ---
 # <a name="how-to-add-a-custom-skill-to-a-cognitive-search-pipeline"></a>Comment ajouter une compétence personnalisée à un pipeline de recherche cognitive
 
@@ -27,13 +27,13 @@ Construire une compétence personnalisée vous donne un moyen d’insérer des t
 
 ## <a name="web-api-custom-skill-interface"></a>Interface de compétence personnalisée d’API web
 
-Par défaut, les points de terminaison des compétences WebAPI personnalisées expirent si aucune réponse n'est renvoyée dans les 30 secondes. Le pipeline d'indexation est synchrone et l'indexation produit une erreur de délai d'expiration si aucune réponse n'est reçue au terme de ces 30 secondes.  Le paramètre d'expiration peut être allongé (jusqu'à 90 secondes) :
+Par défaut, les points de terminaison des compétences WebAPI personnalisées expirent si aucune réponse n'est renvoyée dans les 30 secondes. Le pipeline d'indexation est synchrone et l'indexation produit une erreur de délai d'expiration si aucune réponse n'est reçue au terme de ces 30 secondes.  Le paramètre d'expiration peut être allongé jusqu'à 230 secondes en définissant le paramètre Expiration :
 
 ```json
         "@odata.type": "#Microsoft.Skills.Custom.WebApiSkill",
-        "description": "This skill has a 90 second timeout",
+        "description": "This skill has a 230 second timeout",
         "uri": "https://[your custom skill uri goes here]",
-        "timeout": "PT90S",
+        "timeout": "PT230S",
 ```
 
 Actuellement, le seul mécanisme d’interaction avec une compétence personnalisée est l’interface d’API web. L’API web doit satisfaire les exigences décrites dans cette section.

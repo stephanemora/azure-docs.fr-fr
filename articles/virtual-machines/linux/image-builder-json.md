@@ -7,12 +7,12 @@ ms.date: 07/31/2019
 ms.topic: article
 ms.service: virtual-machines-linux
 manager: gwallace
-ms.openlocfilehash: a623aa98cd26e1636e47cb0e2831eeced17935b9
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: abaf96b11abee0bf519a276f825b9c47cd333c1b
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68695398"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68816310"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>Aperçu : Créer un modèle de générateur d’images Azure 
 
@@ -65,7 +65,11 @@ L’emplacement est la région dans laquelle l’image personnalisée sera cré�
 ```json
     "location": "<region>",
 ```
-    
+
+## <a name="tags"></a>Balises
+
+Il s’agit de paires clé/valeur que vous pouvez spécifier pour l’image générée.
+
 ## <a name="depends-on-optional"></a>Dépend de (facultatif)
 
 Cette section facultative peut être utilisée pour s’assurer que les dépendances sont terminées avant de continuer. 
@@ -344,7 +348,8 @@ Cela est pris en charge par les répertoires Windows et les chemins d’accès L
  
 Si une erreur se produit lors de la tentative de téléchargement du fichier, ou de son placement dans un répertoire spécifié, l’étape de personnalisation échoue, et sera consignée dans le fichier customization.log.
 
->> Remarque : le Personnalisateur de fichier est uniquement adapté au téléchargement de fichiers de petite taille (moins de 20 Mo); Pour le téléchargement de fichiers plus volumineux, utilisez un script ou une commande incluse, le code d’utilisation pour télécharger des fichiers, tel que `wget` ou `curl` pour Linux et `Invoke-WebRequest` pour Windows.
+> [!NOTE]
+> le Personnalisateur de fichier est uniquement adapté au téléchargement de fichiers de petite taille (moins de 20 Mo); Pour le téléchargement de fichiers plus volumineux, utilisez un script ou une commande incluse, le code d’utilisation pour télécharger des fichiers, tel que `wget` ou `curl` pour Linux et `Invoke-WebRequest` pour Windows.
 
 Les fichiers dans le personnalisateur de fichier peuvent être téléchargés depuis le Stockage Azure à l’aide de [MSI](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts/7_Creating_Custom_Image_using_MSI_to_Access_Storage).
 

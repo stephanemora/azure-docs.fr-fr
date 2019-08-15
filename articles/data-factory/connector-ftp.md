@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/29/2019
+ms.date: 08/06/2019
 ms.author: jingwang
-ms.openlocfilehash: 0e1127d90aeb4c59687ac4df7fb7ebae1901cee8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e07d976ba1d4fbb77a995056b3596967b686200b
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65228425"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68839841"
 ---
 # <a name="copy-data-from-ftp-server-by-using-azure-data-factory"></a>Copier des données à partir d’un serveur FTP à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -118,21 +118,21 @@ Les propriétés prises en charge pour le service lié FTP sont les suivantes :
 
 Pour obtenir la liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez l’article [Jeux de données](concepts-datasets-linked-services.md). 
 
-- Pour les **formats Parquet et de texte délimité**, reportez-vous à la section [Jeu de données aux formats Parquet et de texte délimité](#parquet-and-delimited-text-format-dataset).
-- Pour les autres formats tels que les **formats ORC/Avro/JSON/binaire**, reportez-vous à la section [Autres formats de jeu de données](#other-format-dataset).
+- Pour les **formats Parquet, Texte délimité et Binaire**, reportez-vous à la section [Jeu de données aux formats Parquet, Texte délimité et Binaire](#format-based-dataset).
+- Pour les autres formats tels que les **formats ORC/Avro/JSON**, reportez-vous à la section [Autres formats de jeu de données](#other-format-dataset).
 
-### <a name="parquet-and-delimited-text-format-dataset"></a>Jeu de données aux formats Parquet et de texte délimité
+### <a name="format-based-dataset"></a>Jeu de données aux formats Parquet, Texte délimité et Binaire
 
-Pour copier des données depuis FTP au **format Parquet ou de texte délimité**, reportez-vous aux articles [Format Parquet](format-parquet.md) et [Format de texte délimité](format-delimited-text.md) sur le jeu de données basé sur le format et les paramètres pris en charge. Les propriétés suivantes sont prises en charge pour FTP sous les paramètres `location` dans le jeu de données basé sur le format :
+Pour copier des données depuis les **formats Parquet, Texte délimité et Binaire**, reportez-vous aux articles [Format Parquet](format-parquet.md), [Format Texte délimité](format-delimited-text.md) et [Format Binaire](format-binary.md) sur le jeu de données basé sur le format et les paramètres pris en charge. Les propriétés suivantes sont prises en charge pour FTP sous les paramètres `location` dans le jeu de données basé sur le format :
 
 | Propriété   | Description                                                  | Obligatoire |
 | ---------- | ------------------------------------------------------------ | -------- |
 | type       | La propriété de type sous `location` dans le jeu de données doit être définie sur **FtpServerLocation**. | OUI      |
-| folderPath | Le chemin d’accès du dossier. Si vous souhaitez utiliser un caractère générique pour filtrer le dossier, ignorez ce paramètre et spécifiez-le dans les paramètres de la source de l’activité. | Non       |
-| fileName   | Le nom de fichier sous le chemin d’accès folderPath donné. Si vous souhaitez utiliser un caractère générique pour filtrer les fichiers, ignorez ce paramètre et spécifiez-le dans les paramètres de la source de l’activité. | Non       |
+| folderPath | Chemin d’accès du dossier. Si vous souhaitez utiliser un caractère générique pour filtrer le dossier, ignorez ce paramètre et spécifiez-le dans les paramètres de la source de l’activité. | Non       |
+| fileName   | Nom de fichier dans le chemin d’accès folderPath donné. Si vous souhaitez utiliser un caractère générique pour filtrer les fichiers, ignorez ce paramètre et spécifiez-le dans les paramètres de la source de l’activité. | Non       |
 
 > [!NOTE]
-> Le jeu de données de type **FileShare** au format Parquet/texte mentionné dans la section suivante est toujours pris en charge tel quel pour l’activité de copie/de recherche/GetMetadata pour la compatibilité descendante. Il est recommandé d’utiliser ce nouveau modèle à partir de maintenant. L’IU de création ADF peut désormais générer ces nouveaux types.
+> Le jeu de données de type **FileShare** au format Parquet/texte mentionné dans la section suivante est toujours pris en charge tel quel pour l’activité Copy/Lookup/GetMetadata pour la compatibilité descendante. Il est recommandé d’utiliser ce nouveau modèle à partir de maintenant. L’IU de création ADF peut désormais générer ces nouveaux types.
 
 **Exemple :**
 
@@ -162,7 +162,7 @@ Pour copier des données depuis FTP au **format Parquet ou de texte délimité**
 
 ### <a name="other-format-dataset"></a>Autres formats de jeu de données
 
-Pour la copie de données depuis FTP au **format ORC/Avro/JSON/binaire**, les propriétés suivantes sont prises en charge :
+Pour la copie de données depuis FTP au **format ORC/Avro/JSON**, les propriétés suivantes sont prises en charge :
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
@@ -213,26 +213,26 @@ Pour obtenir la liste complète des sections et des propriétés disponibles pou
 
 ### <a name="ftp-as-source"></a>FTP en tant que source
 
-- Pour copier à partir des **formats Parquet et de texte délimité**, reportez-vous à la section [Source aux formats Parquet et de texte délimité](#parquet-and-delimited-text-format-source).
-- Pour copier à partir d’autres formats tels que les **formats ORC/Avro/JSON/binaire**, reportez-vous à la section [Autres formats de source](#other-format-source).
+- Pour effectuer une copie à partir des **formats Parquet, Texte délimité et Binaire**, reportez-vous à la section [Source des formats Parquet, Texte délimité et Binaire](#format-based-source).
+- Pour copier des données à partir d’autres formats tels que les **formats ORC/Avro/JSON**, reportez-vous à la section [Autre source de format](#other-format-source).
 
-#### <a name="parquet-and-delimited-text-format-source"></a>Source aux formats Parquet et de texte délimité
+#### <a name="format-based-source"></a>Source de formats Parquet, Texte délimité et Binaire
 
-Pour copier des données depuis FTP au **format Parquet ou de texte délimité**, reportez-vous aux articles [Format Parquet](format-parquet.md) et [Format de texte délimité](format-delimited-text.md) sur la source de l’activité de copie basée sur le format et les paramètres pris en charge. Les propriétés suivantes sont prises en charge pour FTP sous les paramètres `storeSettings` dans la source de la copie basée sur le format :
+Pour effectuer une copie à partir des **formats Parquet, Texte délimité et Binaire**, reportez-vous aux articles [Format Parquet](format-parquet.md), [Format Texte délimité](format-delimited-text.md) et [Format Binaire](format-binary.md) sur la source de l’activité de copie basée sur le format et les paramètres pris en charge. Les propriétés suivantes sont prises en charge pour FTP sous les paramètres `storeSettings` dans la source de la copie basée sur le format :
 
 | Propriété                 | Description                                                  | Obligatoire                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
 | type                     | La propriété type sous `storeSettings` doit être définie sur **FtpReadSetting**. | OUI                                           |
 | recursive                | Indique si les données sont lues de manière récursive à partir des sous-dossiers ou uniquement du dossier spécifié. Notez que lorsque l’option « recursive » est définie sur true et que le récepteur est un magasin basé sur un fichier, un dossier vide ou un sous-dossier n’est pas copié ou créé sur le récepteur. Les valeurs autorisées sont **true** (par défaut) et **false**. | Non                                            |
-| wildcardFolderPath       | Le chemin d’accès du dossier avec des caractères génériques pour filtrer les dossiers sources. <br>Les caractères génériques autorisés sont : `*` (correspond à zéro ou plusieurs caractères) et `?` (correspond à zéro ou un caractère) ; utilisez `^` en guise d’échappement si votre nom de dossier contient effectivement ce caractère d’échappement ou générique. <br>Consultez d’autres exemples dans les [exemples de filtre de dossier et de fichier](#folder-and-file-filter-examples). | Non                                            |
-| wildcardFileName         | Le nom du fichier avec des caractères génériques situé sous le chemin d’accès folderPath/wildcardFolderPath donné pour filtrer les fichiers sources. <br>Les caractères génériques autorisés sont : `*` (correspond à zéro ou plusieurs caractères) et `?` (correspond à zéro ou un caractère) ; utilisez `^` en guise d’échappement si votre nom de dossier contient effectivement ce caractère d’échappement ou générique.  Consultez d’autres exemples dans les [exemples de filtre de dossier et de fichier](#folder-and-file-filter-examples). | Oui, si `fileName` n’est pas spécifié dans le jeu de données |
+| wildcardFolderPath       | Chemin d’accès du dossier avec des caractères génériques pour filtrer les dossiers sources. <br>Les caractères génériques autorisés sont : `*` (correspond à zéro ou plusieurs caractères) et `?` (correspond à zéro ou un caractère) ; utilisez `^` en guise d’échappement si votre nom de dossier contient effectivement ce caractère d’échappement ou générique. <br>Consultez d’autres exemples dans les [exemples de filtre de dossier et de fichier](#folder-and-file-filter-examples). | Non                                            |
+| wildcardFileName         | Nom du fichier avec des caractères génériques situé dans le chemin d’accès folderPath/wildcardFolderPath donné pour filtrer les fichiers sources. <br>Les caractères génériques autorisés sont : `*` (correspond à zéro ou plusieurs caractères) et `?` (correspond à zéro ou un caractère) ; utilisez `^` en guise d’échappement si votre nom de dossier contient effectivement ce caractère d’échappement ou générique.  Consultez d’autres exemples dans les [exemples de filtre de dossier et de fichier](#folder-and-file-filter-examples). | Oui, si `fileName` n’est pas spécifié dans le jeu de données |
 | modifiedDatetimeStart    | Filtre de fichiers en fonction de l’attribut : Dernière modification. Les fichiers seront sélectionnés si leur heure de dernière modification se trouve dans l’intervalle de temps situé entre `modifiedDatetimeStart` et `modifiedDatetimeEnd`. L’heure est appliquée au fuseau horaire UTC au format « 2018-12-01T05:00:00Z ». <br> Les propriétés peuvent être Null, ce qui signifie qu’aucun filtre d’attribut de fichier n’est appliqué au jeu de données.  Lorsque `modifiedDatetimeStart` a une valeur DateHeure, mais que `modifiedDatetimeEnd` est NULL, cela signifie que les fichiers dont l’attribut de dernière modification est supérieur ou égal à la valeur DateHeure sont sélectionnés.  Lorsque `modifiedDatetimeEnd` a une valeur DateHeure, mais que `modifiedDatetimeStart` est NULL, cela signifie que les fichiers dont l’attribut de dernière modification est inférieur à la valeur DateHeure sont sélectionnés. | Non                                            |
 | modifiedDatetimeEnd      | Identique à ce qui précède.                                               | Non                                            |
 | useBinaryTransfer        | Spécifiez s’il faut utiliser le mode de transfert binaire pour les magasins FTP. Les valeurs sont true pour le mode binaire (par défaut) et false pour ASCII. | Non                                            |
-| maxConcurrentConnections | Le nombre de connexions simultanées au magasin de stockage. Spécifiez uniquement lorsque vous souhaitez limiter les connexions simultanées au magasin de données. | Non                                            |
+| maxConcurrentConnections | Nombre de connexions simultanées au magasin de stockage. Spécifiez-le uniquement lorsque vous souhaitez limiter les connexions simultanées au magasin de données. | Non                                            |
 
 > [!NOTE]
-> Pour les formats Parquet et de texte délimité, la source de l’activité de copie de type **FileSystemSource** mentionnée dans la section suivante est toujours prise en charge tel quel pour la compatibilité descendante. Il est recommandé d’utiliser ce nouveau modèle à partir de maintenant. L’IU de création ADF peut désormais générer ces nouveaux types.
+> Pour les formats Parquet et de texte délimité, la source de l’activité de copie de type **FileSystemSource** mentionnée dans la section suivante est toujours prise en charge telle quelle pour la compatibilité descendante. Il est recommandé d’utiliser ce nouveau modèle à partir de maintenant. L’IU de création ADF peut désormais générer ces nouveaux types.
 
 **Exemple :**
 
@@ -277,13 +277,13 @@ Pour copier des données depuis FTP au **format Parquet ou de texte délimité**
 
 #### <a name="other-format-source"></a>Autres formats de source
 
-Pour la copie de données depuis FTP au **format ORC/Avro/JSON/binaire**, les propriétés suivantes sont prises en charge dans la section **source** de l’activité de copie :
+Pour la copie de données depuis FTP au **format ORC/Avro/JSON**, les propriétés suivantes sont prises en charge dans la section **source** de l’activité de copie :
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | type | La propriété type de la source d’activité de copie doit être définie sur : **FileSystemSource** |OUI |
 | recursive | Indique si les données sont lues de manière récursive dans les sous-dossiers ou uniquement dans le dossier spécifié. Remarque : Quand l’option récursive a la valeur true et que le récepteur est un magasin basé sur des fichiers, le dossier/sous-dossier vide n’est pas copié/créé dans le récepteur.<br/>Valeurs autorisées : **true** (par défaut) et **false** | Non |
-| maxConcurrentConnections | Le nombre de connexions simultanées au magasin de stockage. Spécifiez uniquement lorsque vous souhaitez limiter les connexions simultanées au magasin de données. | Non |
+| maxConcurrentConnections | Nombre de connexions simultanées au magasin de stockage. Spécifiez-le uniquement lorsque vous souhaitez limiter les connexions simultanées au magasin de données. | Non |
 
 **Exemple :**
 

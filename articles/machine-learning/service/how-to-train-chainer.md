@@ -1,7 +1,7 @@
 ---
-title: Entraîner et inscrire des modèles Chainer
+title: Former un réseau neural d’apprentissage profond avec Chainer
 titleSuffix: Azure Machine Learning service
-description: Cet article explique comment entraîner et inscrire un modèle Chainer à l’aide d’Azure Machine Learning service.
+description: Découvrez comment exécuter vos scripts de formation PyTorch à l’échelle de l’entreprise à l’aide de la classe d’estimateur Chainer de Azure Machine Learning.  L’exemple de script classifie les images de chiffres manuscrits pour créer un réseau neural d’apprentissage profond à l’aide de la bibliothèque python Chainer qui s’exécute sur numpy.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,21 +9,21 @@ ms.topic: conceptual
 ms.author: maxluk
 author: maxluk
 ms.reviewer: sdgilley
-ms.date: 06/15/2019
-ms.openlocfilehash: 7cf5650708cd951e872e3df6ea533a62bde0389d
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.date: 08/02/2019
+ms.openlocfilehash: f95a7efd8b9303db0a9ba98c1be32e13d0c5e984
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68618328"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780882"
 ---
 # <a name="train-and-register-chainer-models-at-scale-with-azure-machine-learning-service"></a>Entraîner et inscrire des modèles Chainer à l’échelle avec Azure Machine Learning service
 
-Cet article explique comment entraîner et inscrire un modèle Chainer à l’aide d’Azure Machine Learning service. Il utilise le jeu de données populaire [MNIST](http://yann.lecun.com/exdb/mnist/) pour classer les nombres manuscrits à l’aide d’un réseau neuronal profond (DNN) construit à l’aide de la [bibliothèque Python Chainer](https://Chainer.org) s’exécutant par-dessus [numpy](https://www.numpy.org/).
+Dans cet article, vous allez découvrir comment exécuter vos scripts de formation [Chainer](https://chainer.org/) à l’échelle de l’entreprise à l’aide de la classe d’[estimateur Chainer](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) de Azure Machine Learning. L’exemple de script de formation de cet article utilise le [jeu de données MNIST](http://yann.lecun.com/exdb/mnist/) populaire pour classifier les chiffres manuscrits à l’aide d’un réseau neural profond (DNN) créé à l’aide de la bibliothèque python Chainer qui s’exécute par-dessus [numpy](https://www.numpy.org/).
 
-Chainer est une API de réseau neuronal de haut niveau capable de s’exécuter par-dessus d’autres infrastructures DNN populaires afin de simplifier le développement. Azure Machine Learning service vous permet de rapidement faire monter en charge des tâches de formation à l’aide de ressources de calcul cloud élastiques. Vous pouvez également suivre vos sessions de formation, contrôler les versions des modèles, déployer les modèles, et bien plus encore.
+Que vous soyez en train de former un modèle Chainer d’apprentissage approfondi ou que vous transmettez un modèle existant dans le Cloud, vous pouvez utiliser Azure Machine Learning pour faire évoluer les travaux de formation Open source à l’aide de ressources de calcul élastiques dans le Cloud. Vous pouvez créer, déployer, mettre à jour et surveiller des modèles de niveau production avec Azure Machine Learning. 
 
-Que vous développiez un modèle Chainer de A à Z ou importiez un modèle existant dans le cloud, Azure Machine Learning service peut vous aider à créer des modèles prêts pour la production.
+En savoir plus la [comparaison entre Deep Learning et Machine Learning](concept-deep-learning-vs-machine-learning.md).
 
 Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de commencer. Essayez dès aujourd'hui la [version gratuite ou payante d’Azure Machine Learning service](https://aka.ms/AMLFree).
 
@@ -33,8 +33,8 @@ Exécutez ce code sur l’un de ces environnements :
 
 - Machine virtuelle de Notebook Azure Machine Learning : pas d’installation ou de téléchargement nécessaire
 
-    - Suivez le [guide de démarrage rapide des notebooks cloud](quickstart-run-cloud-notebook.md) pour créer un serveur de notebooks dédié et préchargé avec le Kit de développement logiciel (SDK) et l’exemple de dépôt.
-    - Dans le dossier des exemples du serveur de notebooks, recherchez un notebook terminé et des fichiers dans le dossier **how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-chainer**.  Le notebook inclut des sections développées couvrant l’optimisation des hyperparamètres intelligents, les modèles de déploiement et les widgets de notebook.
+    - Suivre le [Tutoriel : Configurez l’environnement et l’espace de travail](tutorial-1st-experiment-sdk-setup.md) pour créer un serveur Notebook dédié préchargé avec le kit de développement logiciel (SDK) et l’exemple de référentiel.
+    - Dans le dossier Samples Deep Learning sur le serveur Notebook, recherchez un bloc-notes et des fichiers terminés dans le dossier **how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-chainer**.  Le notebook inclut des sections développées couvrant l’optimisation des hyperparamètres intelligents, les modèles de déploiement et les widgets de notebook.
 
 - Votre propre serveur de notebooks Jupyter
 
@@ -94,7 +94,7 @@ import shutil
 shutil.copy('chainer_mnist.py', project_folder)
 ```
 
-### <a name="create-an-experiment"></a>Création d'une expérience
+### <a name="create-a-deep-learning-experiment"></a>Créer une expérience d’apprentissage approfondi
 
 Créer une expérience. Dans cet exemple, créez une expérience appelée « chainer-mnist ».
 
@@ -209,9 +209,7 @@ for f in run.get_file_names():
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans cet article, vous avez effectué l’apprentissage d’un modèle Chainer sur Azure Machine Learning service. 
-
-* Pour savoir comment déployer un modèle, passez à notre article relatif aux [Modèles de déploiement](how-to-deploy-and-where.md).
+Dans cet article, vous avez formé et enregistré une formation profonde, un réseau neural utilisant Chainer sur Azure Machine Learning service. Pour savoir comment déployer un modèle, passez à notre article relatif aux [modèles de déploiement](how-to-deploy-and-where.md).
 
 * [Optimiser les hyperparamètres](how-to-tune-hyperparameters.md)
 

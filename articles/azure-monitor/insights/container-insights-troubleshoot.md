@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/27/2018
 ms.author: magoedte
-ms.openlocfilehash: 2e3e39ef24d82393d981c0ce276b3338419e0b2d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b6c245142eea12bcec5ed642ec9bd91a58e10eb0
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65521767"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68813775"
 ---
 # <a name="troubleshooting-azure-monitor-for-containers"></a>Dépannage d’Azure Monitor for containers
 
@@ -112,10 +112,11 @@ Le tableau ci-dessous récapitule les erreurs connues que vous pouvez rencontrer
 | messages d'erreur  | Action |  
 | ---- | --- |  
 | Message d’erreur `No data for selected filters`  | L’établissement de la supervision du flux de données pour les nouveaux clusters peut prendre un certain temps. Patientez au moins 10 à 15 minutes avant l’affichage des données de votre cluster. |   
-| Message d’erreur `Error retrieving data` | Bien que le cluster Azure Kubernetes Service soit configuré pour la supervision de l’intégrité et des performances, une connexion est établie entre le cluster et l’espace de travail Azure Log Analytics. Un espace de travail Log Analytics est utilisé pour stocker toutes les données de supervision de votre cluster. Cette erreur peut se produire lorsque votre espace de travail Log Analytics a été supprimé ou perdu. Vérifiez si votre espace de travail est disponible en consultant [Gérer l’accès](../platform/manage-access.md#view-workspace-details). Si l’espace de travail est manquant, vous devez réactiver la surveillance de votre cluster avec Azure Monitor pour conteneurs. Pour réactiver, vous devez [désactiver](container-insights-optout.md) la supervision du cluster et [réactiver](container-insights-enable-new-cluster.md) Azure Monitor pour conteneurs. |  
+| Message d’erreur `Error retrieving data` | Bien que le cluster Azure Kubernetes Service soit configuré pour la supervision de l’intégrité et des performances, une connexion est établie entre le cluster et l’espace de travail Azure Log Analytics. Un espace de travail Log Analytics est utilisé pour stocker toutes les données de supervision de votre cluster. Cette erreur peut se produire lorsque votre espace de travail Log Analytics a été supprimé. Vérifiez si l’espace de travail a été supprimé et, si c’est le cas, vous devrez réactiver l’analyse de votre cluster avec Azure Monitor pour les conteneurs et spécifier un espace de travail existant ou créer un nouvel espace de travail. Pour réactiver, vous devez [désactiver](container-insights-optout.md) la supervision du cluster et [réactiver](container-insights-enable-new-cluster.md) Azure Monitor pour conteneurs. |  
 | `Error retrieving data` après l’ajout d’Azure Monitor pour conteneurs à l’aide de la commande az aks cli | Lorsque vous activez la surveillance avec `az aks cli`, Azure Monitor pour conteneurs peut ne pas être correctement déployé. Vérifiez si la solution est déployée. Pour cela, accédez à votre espace de travail Log Analytics et voyez si la solution est disponible en sélectionnant **Solutions** dans le volet de gauche. Pour résoudre ce problème, vous devez redéployer la solution en suivant les instructions de [déploiement d’Azure Monitor pour conteneurs](container-insights-onboard.md) |  
 
 Pour vous aider à diagnostiquer le problème, nous vous fournissons un script de résolution des problèmes disponible [ici](https://github.com/Microsoft/OMS-docker/tree/ci_feature_prod/Troubleshoot#troubleshooting-script).  
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 Vous pouvez activer la fonctionnalité de supervision pour collecter des métriques d’intégrité pour les nœuds et pods du cluster AKS et les consulter dans le Portail Azure. Pour savoir comment utiliser Azure Monitor pour les conteneurs, consultez l’article [Connaître l’état d’Azure Kubernetes Service](container-insights-analyze.md).

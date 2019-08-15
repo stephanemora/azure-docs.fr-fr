@@ -9,12 +9,12 @@ ms.topic: article
 author: maxluk
 ms.author: maxluk
 ms.date: 06/28/2019
-ms.openlocfilehash: fde2b6d1d298e89227951c376d584452fbff2679
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: f65882cb851f8e35bb1d6c319d52fcfadb36ae91
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67707063"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68772714"
 ---
 # <a name="visualize-experiment-runs-and-metrics-with-tensorboard-and-azure-machine-learning"></a>Visualiser des exécutions d’expériences et des métriques avec TensorBoard et le service Azure Machine Learning
 
@@ -33,9 +33,9 @@ La façon dont vous lancez TensorBoard avec des expériences Azure Machine Learn
 
 * Le code dans cette procédure peut être exécuté dans l’un des environnements suivants : 
 
-    * Machine virtuelle Notebook Azure Machine Learning : pas de téléchargement ni d’installation nécessaire
+    * Machine virtuelle de Notebook Azure Machine Learning : pas d’installation ou de téléchargement nécessaire
 
-        * Suivez le [guide de démarrage rapide des notebooks cloud](quickstart-run-cloud-notebook.md#create-notebook) pour créer un serveur de notebooks dédié et préchargé avec le kit SDK et l’exemple de dépôt.
+        * Suivre le [Tutoriel : Configurez l’environnement et l’espace de travail](tutorial-1st-experiment-sdk-setup.md) pour créer un serveur Notebook dédié préchargé avec le kit de développement logiciel (SDK) et l’exemple de référentiel.
 
         * Dans le dossier des exemples du serveur de notebooks, recherchez deux notebooks terminés et développés en accédant à ce répertoire : **how-to-use-azureml > training-with-deep-learning**.
         * export-run-history-to-run-history.ipynb

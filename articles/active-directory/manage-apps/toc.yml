@@ -9,7 +9,7 @@
       href: user-provisioning.md
     - name: "Qu’est-ce que le Proxy d’application pour les applications locales\_?"
       href: what-is-application-proxy.md
-- name: Guides de démarrage rapide
+- name: Démarrages rapides
   items:
     - name: Ajouter une application cloud à partir de la galerie
       href: add-application-portal.md
@@ -284,6 +284,8 @@
                   href: application-proxy-configure-single-sign-on-on-premises-apps.md
             - name: Publication de procédures pas à pas
               items:
+                - name: Intégrer à Power BI
+                  href: application-proxy-integrate-with-power-bi.md
                 - name: Intégrer avec Cloud App Security
                   href: application-proxy-integrate-with-microsoft-cloud-application-security.md
                 - name: Intégrer au Bureau à distance

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/07/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 2c469b333c6896d33b440bfadf0ebbdbeece71a3
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 595f8a174e615fb08a042b0e9c4cfe6da6ac1b7e
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67272134"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68773426"
 ---
 # <a name="add-adfs-as-a-saml-identity-provider-using-custom-policies-in-azure-active-directory-b2c"></a>Ajouter ADFS en tant que fournisseur d’identités SAML à l’aide de stratégies personnalisées dans Azure Active Directory B2C
 
@@ -178,6 +178,8 @@ Ouvrez un navigateur et accédez à l’URL. Veillez à taper l’URL est correc
     | Given-Name | given_name |
     | E-Mail-Address | email |
     | Display-Name | Nom |
+    
+    Notez que ces noms ne s’affichent pas dans la liste déroulante Type de revendication sortante. Vous devez les saisir manuellement. (La liste déroulante est modifiable). 
     
 12.  Selon votre type de certificat, il se peut que vous deviez définir l’algorithme de hachage. Dans la fenêtre de propriétés de l’approbation de partie de confiance (Démo B2C), sélectionnez l’onglet **Avancé**, remplacez l’**Algorithme de hachage sécurisé** par `SHA-256`, puis cliquez sur **OK**.  
 13. Dans Gestionnaire de serveur, sélectionnez **Outils**, puis **Gestion ADFS**.

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ebeed3636ea6da77e05a9a790e51c7771ebe685
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: 596020952fd02a414c050ac7fe7ab37d7137c391
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68666287"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779656"
 ---
 # <a name="deploy-azure-ad-password-protection"></a>Déployer la protection par mot de passe d’Azure AD
 
@@ -282,12 +282,29 @@ Deux programmes d’installation sont requis pour la protection de mot de passe 
 
    Vous pouvez automatiser l’installation du logiciel à l’aide de procédures MSI standard. Par exemple :
 
-   `msiexec.exe /i AzureADPasswordProtectionDCAgentSetup.msi /quiet /qn`
+   `msiexec.exe /i AzureADPasswordProtectionDCAgentSetup.msi /quiet /qn /norestart`
 
-   > [!WARNING]
-   > L’exemple de commande msiexec provoque ici un redémarrage immédiat. Pour éviter cela, utilisez l’indicateur `/norestart`.
+   Vous pouvez omettre l'indicateur `/norestart` si vous préférez que le programme d’installation redémarre automatiquement l’ordinateur.
 
 L’installation se termine une fois que le logiciel de l’agent DC a été installé sur un contrôleur de domaine et que cet ordinateur a été redémarré. Aucune configuration supplémentaire n'est nécessaire ou possible.
+
+## <a name="upgrading-the-proxy-agent"></a>Mise à niveau de l’agent proxy
+
+Lorsqu’une version plus récente du logiciel proxy de protection par mot de passe Azure AD est disponible, la mise à niveau s’effectue en exécutant la dernière version du programme d’installation du logiciel `AzureADPasswordProtectionProxySetup.exe`. Il n’est pas nécessaire de désinstaller la version actuelle du logiciel proxy : le programme d’installation effectuera une mise à niveau sur place. Aucun redémarrage n’est nécessaire lors de la mise à niveau du logiciel proxy. La mise à niveau du logiciel peut être automatisée à l’aide de procédures MSI standard, par exemple : `AzureADPasswordProtectionProxySetup.exe /quiet`.
+
+L’agent proxy prend en charge la mise à niveau automatique. La mise à niveau automatique utilise le service de mise à jour de l'agent Microsoft Azure AD Connect qui est installé parallèlement au service proxy. La mise à niveau automatique est activée par défaut et peut être activée ou désactivée à l’aide de l’applet de commande Set-AzureADPasswordProtectionProxyConfiguration. Le paramètre actuel peut être interrogé à l'aide de la cmdlet Get-AzureADPasswordProtectionProxyConfiguration. Microsoft recommande de laisser la mise à niveau automatique activée.
+
+L'applet de commande `Get-AzureADPasswordProtectionProxy` peut être utilisée pour interroger la version logicielle de tous les agents proxy actuellement installés dans une forêt.
+
+## <a name="upgrading-the-dc-agent"></a>Mise à niveau de l’agent DC
+
+Lorsqu’une version plus récente du logiciel de l’agent DC de protection par mot de passe Azure AD est disponible, la mise à niveau s'effectue en exécutant la dernière version du package logiciel `AzureADPasswordProtectionDCAgentSetup.msi`. Il n’est pas nécessaire de désinstaller la version actuelle du logiciel de l’agent DC : le programme d’installation effectuera une mise à niveau sur place. Un redémarrage est toujours nécessaire lors de la mise à niveau du logiciel de l’agent DC. Cela est dû au comportement de base de Windows. 
+
+La mise à niveau du logiciel peut être automatisée à l’aide de procédures MSI standard, par exemple : `msiexec.exe /i AzureADPasswordProtectionDCAgentSetup.msi /quiet /qn /norestart`.
+
+Vous pouvez omettre l'indicateur `/norestart` si vous préférez que le programme d’installation redémarre automatiquement l’ordinateur.
+
+L'applet de commande `Get-AzureADPasswordProtectionDCAgent` peut être utilisée pour interroger la version logicielle de tous les agents DC actuellement installés dans une forêt.
 
 ## <a name="multiple-forest-deployments"></a>Déploiement de plusieurs forêts
 
@@ -301,7 +318,7 @@ Les modifications/définitions de mot de passe ne sont pas traitées ni rendues 
 
 La préoccupation principale concernant la disponibilité de la protection par mot de passe est la disponibilité des serveurs proxy quand les contrôleurs de domaine d’une forêt tentent de télécharger les nouvelles stratégies ou d’autres données à partir d’Azure. Chaque agent DC utilise un algorithme de style tourniquet (round-robin) simple lorsqu’il décide quel serveur proxy appeler. L’agent ignore les serveurs proxy qui ne répondent pas. Pour la plupart des déploiements Active Directory totalement connectés avec réplication saine de l’état de l’annuaire et du dossier sysvol, deux serveurs proxy suffisent pour garantir la disponibilité. Cela entraîne un téléchargement en temps voulu des nouvelles stratégies et d’autres données. Toutefois, vous pouvez déployer des serveurs proxy supplémentaires.
 
-La conception du logiciel de l’agent DC atténue les problèmes habituels associés à la haute disponibilité. L’agent DC gère un cache local de la stratégie de mot de passe la plus récemment téléchargée. Même si tous les serveurs proxy inscrits deviennent indisponibles, les agents DC continuent d’appliquer leur stratégie de mot de passe mis en cache. Une fréquence de mise à jour raisonnable pour les stratégies de mot de passe dans un déploiement à grande échelle se compte généralement en *jours*, pas en heures, ni moins. Par conséquent, les pannes brèves des serveurs proxy n’ont pas d’impact important sur la protection par mot de passe Azure AD.
+La conception du logiciel de l’agent DC atténue les problèmes habituels associés à la haute disponibilité. L’agent DC gère un cache local de la stratégie de mot de passe la plus récemment téléchargée. Même si tous les serveurs proxy inscrits deviennent indisponibles, les agents DC continuent d’appliquer leur stratégie de mot de passe mis en cache. Une fréquence de mise à jour raisonnable pour les stratégies de mot de passe dans un déploiement à grande échelle se compte généralement en jours, pas en heures, ni moins. Par conséquent, les pannes brèves des serveurs proxy n’ont pas d’impact important sur la protection par mot de passe Azure AD.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

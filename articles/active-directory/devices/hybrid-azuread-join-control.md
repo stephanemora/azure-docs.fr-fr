@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d59104bf9c7675fdac2c245fff89ab1483b96b67
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: d5d8cd7799dd23dabc2cbb423e82b8c7203b7bed
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67481717"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68834634"
 ---
 # <a name="controlled-validation-of-hybrid-azure-ad-join"></a>Validation contrôlée de la jonction Azure AD hybride
 
@@ -72,14 +72,17 @@ Utilisez l’exemple suivant pour créer un objet de stratégie de groupe afin d
       1. Chemin de la clé : **SOFTWARE\Microsoft\Windows\CurrentVersion\CDJ\AAD**
       1. Nom de la valeur : **TenantName**
       1. Type de valeur : **REG_SZ**
-      1. Données de la valeur : Votre **nom de domaine** vérifié dans Azure AD (par exemple `contoso.onmicrosoft.com` ou tout autre nom de domaine vérifié dans votre répertoire)
+      1. Données de la valeur : Votre **nom de domaine** vérifié si vous utilisez un environnement fédéré comme AD FS. Votre nom de domaine vérifié** ou votre nom de domaine onmicrosoft.com, par exemple, `contoso.onmicrosoft.com` si vous utilisez un environnement géré
    1. Cliquez sur **OK**
 1. Fermez l’éditeur pour l’objet de stratégie de groupe nouvellement créé.
 1. Liez l’objet de stratégie de groupe nouvellement créé à l’unité d’organisation souhaitée contenant des ordinateurs joints au domaine qui appartiennent à votre analyse de lancement contrôlée.
 
 ### <a name="configure-ad-fs-settings"></a>Configurer les paramètres AD FS
 
-Si vous utilisez AD FS, vous devez d’abord configurer le point de connexion de service côté client en suivant les instructions mentionnées ci-dessus, mais en liant l’objet de stratégie de groupe à vos serveurs AD FS. Cette configuration est nécessaire pour qu’AD FS établisse la source des identités d’appareils comme étant Azure AD.
+Si vous utilisez AD FS, vous devez d’abord configurer le point de connexion de service côté client en suivant les instructions mentionnées ci-dessus, mais en liant l’objet de stratégie de groupe à vos serveurs AD FS. L’objet SCP définit la source d’autorité pour les objets d’appareil. Il peut être local ou Azure AD. Lorsque cette configuration est configurée pour AD FS, la source des objets d’appareil est définie comme Azure AD.
+
+> [!NOTE]
+> Si vous n’avez pas pu configurer SCP côté client sur vos serveurs AD FS, la source des identités d’appareil est considérée comme locale et AD FS commencerait à supprimer des objets d’appareil à partir de l’annuaire local après une période prévue.
 
 ## <a name="controlled-validation-of-hybrid-azure-ad-join-on-windows-down-level-devices"></a>Validation contrôlée de la jonction Azure AD hybride sur des appareils Windows de bas niveau
 

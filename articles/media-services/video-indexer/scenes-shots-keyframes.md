@@ -8,23 +8,23 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 07/05/2019
 ms.author: juliako
-ms.openlocfilehash: d312a93f83ef38fa1ae855a1e313280fc608948d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cdabc1b6bfed519098f656710ef49a946e676cf2
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65799397"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68815655"
 ---
 # <a name="scenes-shots-and-keyframes"></a>Scènes, captures et images clés
 
-Video Indexer prend en charge la segmentation de vidéos en unités temporelles basées sur des propriétés sémantiques et structurelles. Cette fonctionnalité permet aux clients de facilement parcourir, gérer et modifier leur contenu vidéo en fonction des niveaux de détail. Par exemple, en fonction des scènes, des captures et des images clés, décrites dans cette rubrique. Actuellement, la fonctionnalité de **détection de scène** est disponible en tant que préversion.   
+Video Indexer prend en charge la segmentation de vidéos en unités temporelles basées sur des propriétés sémantiques et structurelles. Cette fonctionnalité permet aux clients de facilement parcourir, gérer et modifier leur contenu vidéo en fonction des niveaux de détail. Par exemple, en fonction des scènes, des captures et des images clés, décrites dans cette rubrique.   
 
 ![Scènes, captures et images clés](./media/scenes-shots-keyframes/scenes-shots-keyframes.png)
-
-## <a name="scene-detection-preview"></a>Détection de scène (préversion)
-
+ 
+## <a name="scene-detection"></a>Détection de scène  
+ 
 Video Indexer détermine quand une scène change dans la vidéo via des signaux visuels. Une scène représente un événement unique et est composée d’une série de captures consécutives, qui sont sémantiquement liées. Une miniature de la scène constitue la première image clé de sa capture sous-jacente. Video Indexer segmente une vidéo en scènes en fonction de la cohérence des couleurs sur des captures consécutives et récupère le début et la fin de chaque scène. La détection de scène est considérée comme étant une tâche ardue, car elle implique de quantifier des aspects sémantiques d’une vidéo.
 
 > [!NOTE]

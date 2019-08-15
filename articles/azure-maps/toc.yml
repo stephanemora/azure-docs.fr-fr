@@ -25,6 +25,8 @@
       items:
         - name: Définir une limite géographique
           href: tutorial-geofence.md
+        - name: Analytique spatiale
+          href: tutorial-iot-hub-maps.md
 - name: Concepts
   items:
     - name: Authentification avec Azure Maps

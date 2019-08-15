@@ -6,14 +6,14 @@ author: yashesvi
 manager: yashar
 ms.service: billing
 ms.topic: conceptual
-ms.date: 07/19/2019
+ms.date: 08/02/2019
 ms.author: banders
-ms.openlocfilehash: 08c9f958f5103da9961f4c2d29be97f455cecc4b
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 6ee7a661434bb756c6cf196937229db19d06b373
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359270"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779981"
 ---
 # <a name="prepay-for-sql-data-warehouse-charges-with-reserved-capacity"></a>Prépayer SQL Data Warehouse avec une capacité réservée
 
@@ -61,13 +61,9 @@ Par exemple, supposons que votre consommation totale de SQL Data Warehouse est D
 8. Sélectionnez **Achat**.
 9. Sélectionnez **Afficher cette réservation** pour voir le statut de votre achat.
 
-## <a name="cancellations-and-exchanges"></a>Annulations et échanges
+## <a name="cancel-exchange-or-refund-reservations"></a>Annuler, échanger ou rembourser des réservations
 
-Si vous êtes amené à annuler votre capacité réservée Azure SQL Data Warehouse, des frais de résiliation anticipée de 12 % peuvent s’appliquer. Les remboursements sont basés sur le tarif le plus bas de votre prix d’achat ou le prix actuel de la réservation. Les remboursements sont limités à 50 000 USD par an. Le remboursement que vous recevez correspond au solde restant au prorata moins les frais de résiliation anticipée de 12 %. Pour annuler, accédez à la réservation dans le portail Azure, puis sélectionnez **Remboursement**.
-
-Si vous devez modifier la région ou la durée de votre capacité réservée SQL Data Warehouse, vous pouvez l’échanger contre une autre réservation de valeur égale ou supérieure. La date de début du terme de la nouvelle réservation ne couvre pas la réservation échangée. La terme d’un an ou de trois ans commence à courir lorsque vous créez la nouvelle réservation. Pour échanger, ouvrez la réservation dans le portail Azure, puis sélectionnez **Échanger**.
-
-Pour plus d’informations sur l’échange ou le remboursement des réservations, voir [Échanges et remboursements de réservations](billing-azure-reservations-self-service-exchange-and-refund.md).
+Vous pouvez annuler, échanger ou rembourser des réservations avec certaines limitations. Pour plus d’informations, consultez [Échanges et remboursements en libre-service pour les réservations Azure](billing-azure-reservations-self-service-exchange-and-refund.md).
 
 La remise sur réservation est appliquée automatiquement au nombre d’instances SQL Data Warehouse correspondant à l’étendue et à la région de la capacité réservée SQL Data Warehouse. Vous pouvez mettre à jour l’étendue de la capacité réservée SQL Data Warehouse par le biais du [portail Azure](https://portal.azure.com/), de PowerShell, de CLI ou de l’API.
 

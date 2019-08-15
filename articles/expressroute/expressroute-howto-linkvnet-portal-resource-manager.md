@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 66c43556e698063b95ce1c3787458e40c9d71504
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1545e2e7eba23b0bedbfe297c292fc94e1659ae3
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60365507"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68775284"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-the-portal"></a>Connecter un réseau virtuel à un circuit ExpressRoute à l’aide du portail
 > [!div class="op_single_selector"]
@@ -121,7 +121,7 @@ L’utilisateur du circuit a besoin de l’ID de ressource et d’une clé d’a
 
    ![Page De base](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection3.png)
 5. Dans la page **Paramètres**, sélectionnez **Passerelle de réseau virtuel**, puis cochez la case **Utiliser l’autorisation**.
-6. Entrez la **clé d’autorisation** et **l’URI du circuit appairé**, puis donnez un nom à la connexion. Cliquez sur **OK**.
+6. Entrez la **clé d’autorisation** et **l’URI du circuit appairé**, puis donnez un nom à la connexion. Cliquez sur **OK**. L'**URI du circuit homologue** est l’ID de ressource du circuit ExpressRoute (que vous pouvez trouver dans le volet des paramètres des propriétés du circuit ExpressRoute).
 
    ![Page Paramètres](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection4.png)
 7. Passez en revue les informations contenues dans la page **Résumé**, puis cliquez sur **OK**.

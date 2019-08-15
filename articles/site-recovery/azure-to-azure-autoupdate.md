@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 05/20/2019
 ms.author: rajanaki
-ms.openlocfilehash: 1d36145b2a38c0f1106b4468eab226996e270ae1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 92a46f7be116d0664b438c9039e311f802c873e5
+ms.sourcegitcommit: 6ad03fa28a0f60cb6dce6144f728c2ceb56ff6e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65922083"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68708081"
 ---
 # <a name="automatic-update-of-the-mobility-service-in-azure-to-azure-replication"></a>Mise à jour automatique du service Mobilité dans la réplication interne à Azure
 
@@ -64,7 +64,7 @@ Lorsque vous activez la réplication pour une machine virtuelle [à partir de la
 
 
 > [!Note]
-> Chaque option vous informe du compte Automation utilisé pour la gestion des mises à jour. Si vous activez cette fonctionnalité dans un coffre pour la première fois, un nouveau compte Automation est créé par défaut. Vous pouvez également personnaliser le paramètre et choisir un compte Automation existant. Toutes les activations de réplications suivantes dans le même coffre utilisent celui créé précédemment.
+> Chaque option vous informe du compte Automation utilisé pour la gestion des mises à jour. Si vous activez cette fonctionnalité dans un coffre pour la première fois, un nouveau compte Automation est créé par défaut. Vous pouvez également personnaliser le paramètre et choisir un compte Automation existant. Toutes les activations de réplications suivantes dans le même coffre utilisent celui créé précédemment. Actuellement, la liste déroulante répertorie uniquement les comptes Automation qui se trouvent dans le même groupe de ressources que le coffre.  
 
 Pour un compte Automation personnalisé, utilisez le script suivant :
 

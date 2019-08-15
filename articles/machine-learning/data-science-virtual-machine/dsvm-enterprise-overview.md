@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2018
 ms.author: vijetaj
-ms.openlocfilehash: 81aac356f49f7bf8dc57f77054d10aa3e09d473f
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 40b8f101d968514ac599b43a79b7e62b7fd837a4
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68565260"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779480"
 ---
 # <a name="data-science-virtual-machine-based-team-analytics-and-ai-environment"></a>Environnement analytique d’équipe et d’intelligence artificielle basé sur Data Science Virtual Machine 
 La machine virtuelle [Data Science Virtual Machine](overview.md) (DSVM) fournit un environnement riche dans la plateforme Azure avec des logiciels prédéfinis pour l’intelligence artificielle (AI) et l’analytique données. 
@@ -43,12 +43,12 @@ Exemples de blocs de construction principaux d’un environnement d’analyse d�
 
 Cette série d’articles contient des conseils et des pointeurs qui couvrent chacun des aspects précédents. Elle n’aborde ni toutes les considérations, ni tous les besoins liés au déploiement de machines virtuelles DSVM dans les configurations de grande entreprise. Voici une autre documentation Azure que vous pouvez utiliser lors de l’implémentation d’instances de machines virtuelles DSVM dans votre entreprise : 
 
-* [Sécurité du réseau](https://docs.microsoft.com/azure/security/azure-network-security)
+* [Sécurité réseau](https://docs.microsoft.com/azure/security/fundamentals/network-security
 * [Surveillance](https://docs.microsoft.com/azure/virtual-machines/windows/monitor) et [gestion](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates)
-* [Journalisation et audit](https://docs.microsoft.com/azure/security/azure-log-audit)
+* [Journalisation et audit](https://docs.microsoft.com/azure/security/fundamentals/log-audit)
 * [Contrôle d’accès en fonction du rôle](https://docs.microsoft.com/azure/role-based-access-control/overview)
 * [Définition et application de stratégies](../../governance/policy/overview.md)
-* [Logiciel anti-programme malveillant](https://docs.microsoft.com/azure/security/azure-security-antimalware)
+* [Logiciel anti-programme malveillant](https://docs.microsoft.com/azure/security/fundamentals/antimalware)
 * [Chiffrement](https://docs.microsoft.com/azure/virtual-machines/windows/encrypt-disks)
 * [Découverte et gouvernance des données](https://docs.microsoft.com/azure/data-catalog/)
 

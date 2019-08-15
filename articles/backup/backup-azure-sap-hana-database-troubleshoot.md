@@ -6,18 +6,18 @@ author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 07/22/2019
+ms.date: 08/03/2019
 ms.author: dacurwin
-ms.openlocfilehash: a2711339f5e952747adeeb6217b283770cb6cc6b
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 0512facbdf5f2222aee1e9bb5d2be64e22bf1a69
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68689041"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68774626"
 ---
 # <a name="troubleshoot-backup-of-sap-hana-databases-on-azure"></a>Résoudre les problèmes de sauvegarde des bases de données SAP HANA sur Azure
 
-Cet article fournit des informations de dépannage pour la sauvegarde des bases de données SAP HANA sur les machines virtuelles Azure.
+Cet article fournit des informations de dépannage pour la sauvegarde des bases de données SAP HANA sur les machines virtuelles Azure. La section suivante décrit les données conceptuelles importantes requises pour diagnostiquer les erreurs courantes dans une sauvegarde SAP HANA.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -56,6 +56,26 @@ Après avoir choisi une base de données pour la sauvegarde, le service Sauvegar
 
 > [!NOTE]
 > Assurez-vous que ces paramètres *ne sont pas* situés au niveau de l’HÔTE. Les paramètres au niveau de l’hôte remplacent ces paramètres et peuvent entraîner un comportement inattendu.
+
+## <a name="restore-checks"></a>Restaurer les vérifications
+
+### <a name="single-container-database-sdc-restore"></a>Restauration d’une base de données à conteneur unique (SDC)
+
+Prenez en charge les entrées lors de la restauration d’une base de données à conteneur unique (SDC) pour HANA sur un autre ordinateur SDC. Le nom de la base de données doit être indiqué en minuscules et « sdc » ajouté entre crochets. L’instance HANA s’affiche en majuscules.
+
+Supposez qu’une instance SDC HANA « H21 » est sauvegardée. La page Éléments de sauvegarde affiche le nom de l’élément de sauvegarde sous la forme **« H21 (SDC) »** . Si vous tentez de restaurer cette base de données sur un autre SDC cible, par exemple H11, les entrées suivantes doivent être fournies.
+
+![Entrées de restauration SDC](media/backup-azure-sap-hana-database/hana-sdc-restore.png)
+
+Notez les points suivants :
+- Par défaut, le nom de la base de données restaurée est renseigné avec le nom de l’élément de sauvegarde, c.-à-d., H21 (SDC)
+- La sélection de la cible en tant que H11 ne modifie pas automatiquement le nom de la base de données restaurée. **Elle doit être modifiée en H11 (SDC)** . Dans le cas de SDC, le nom de la base de code restaurée sera l’ID d’instance cible avec des lettres minuscules et « sdc » est ajouté entre crochets.
+- Étant donné que SDC ne peut avoir qu’une seule base de données, vous devez également activer la case à cocher pour autoriser le remplacement des données de la base de données existantes par les données du point de récupération.
+- Linux est sensible à la casse alors assurez-vous de respecter la casse.
+
+### <a name="multiple-container-database-mdc-restore"></a>Restauration de la base de données à conteneurs multiples (MDC)
+
+Dans plusieurs bases de données de conteneur pour HANA, la configuration standard est SYSTEMDB + 1 ou plusieurs bases de données de locataire. La restauration d’une instance de SAP HANA entière signifie qu’il faut restaurer les bases de données SYSTEMDB et de locataire. L’une restaure d’abord SYSTEMDB, puis procède à la restauration de la base de données du locataire. La base de données système signifie essentiellement remplacer les informations système sur la cible sélectionnée. Cela remplace également les informations relatives à BackInt dans l’instance cible. Par conséquent, une fois que la base de référence système est restaurée vers une instance cible, vous devez réexécuter le script de pré-inscription. C’est uniquement à ce moment-là que les restaurations ultérieures de la base de données locataire réussiront.
 
 ## <a name="common-user-errors"></a>Erreurs utilisateur courantes
 

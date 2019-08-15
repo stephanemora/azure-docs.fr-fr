@@ -8,14 +8,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 04/29/2019
+ms.date: 08/06/2019
 ms.author: jingwang
-ms.openlocfilehash: 9c9a4b41dbb9b9acc2982ae2af1f3a611f9d3beb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fba6feb035e47cfdfbe830ea628fc91cb483a907
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65228280"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840278"
 ---
 # <a name="copy-data-from-google-cloud-storage-using-azure-data-factory"></a>Copier des données à partir de Google Cloud Storage avec Azure Data Factory
 
@@ -84,19 +84,19 @@ Voici un exemple :
 
 ## <a name="dataset-properties"></a>Propriétés du jeu de données
 
-- Pour les **formats Parquet et de texte délimité**, reportez-vous à la section [Jeu de données aux formats Parquet et de texte délimité](#parquet-and-delimited-text-format-dataset).
-- Pour les autres formats tels que les **formats ORC/Avro/JSON/binaire**, reportez-vous à la section [Autres formats de jeu de données](#other-format-dataset).
+- Pour les **formats Parquet, Texte délimité et Binaire**, reportez-vous à la section [Jeu de données aux formats Parquet, Texte délimité et Binaire](#format-based-dataset).
+- Pour les autres formats tels que les **formats ORC/Avro/JSON**, reportez-vous à la section [Autres formats de jeu de données](#other-format-dataset).
 
-### <a name="parquet-and-delimited-text-format-dataset"></a>Jeu de données aux formats Parquet et de texte délimité
+### <a name="format-based-dataset"></a>Jeu de données aux formats Parquet, Texte délimité et Binaire
 
-Pour copier des données à partir de Google Cloud Storage au [format Parquet ou de texte délimité](format-delimited-text.md), reportez-vous aux articles **Format Parquet** et [Format de texte délimité](format-parquet.md) sur le jeu de données basé sur le format et les paramètres pris en charge. Les propriétés suivantes sont prises en charge pour Google Cloud Storage sous les paramètres `location` dans le jeu de données basé sur le format :
+Pour copier des données depuis les **formats Parquet, Texte délimité et Binaire**, reportez-vous aux articles [Format Parquet](format-parquet.md), [Format Texte délimité](format-delimited-text.md) et [Format Binaire](format-binary.md) sur le jeu de données basé sur le format et les paramètres pris en charge. Les propriétés suivantes sont prises en charge pour Google Cloud Storage sous les paramètres `location` dans le jeu de données basé sur le format :
 
 | Propriété   | Description                                                  | Obligatoire |
 | ---------- | ------------------------------------------------------------ | -------- |
 | type       | La propriété de type sous `location` dans le jeu de données doit être définie sur **AmazonS3Location**. | OUI      |
 | bucketName | Le nom de compartiment S3.                                          | OUI      |
 | folderPath | Le chemin d’accès au dossier sous le compartiment donné. Si vous souhaitez utiliser un caractère générique pour filtrer le dossier, ignorez ce paramètre et spécifiez-le dans les paramètres de la source de l’activité. | Non       |
-| fileName   | Le nom de fichier sous le compartiment et le chemin d’accès donnés. Si vous souhaitez utiliser un caractère générique pour filtrer les fichiers, ignorez ce paramètre et spécifiez-le dans les paramètres de la source de l’activité. | Non       |
+| fileName   | Le nom de fichier sous le compartiment et le chemin d’accès folderPath donnés. Si vous souhaitez utiliser un caractère générique pour filtrer les fichiers, ignorez ce paramètre et spécifiez-le dans les paramètres de la source de l’activité. | Non       |
 
 > [!NOTE]
 > Le jeu de données de type **AmazonS3Object** au format Parquet/texte mentionné dans la section suivante est toujours pris en charge tel quel pour l’activité de copie/de recherche/GetMetadata pour la compatibilité descendante. Il est recommandé d’utiliser ce nouveau modèle à partir de maintenant. L’IU de création ADF génère désormais ces nouveaux types.
@@ -128,9 +128,9 @@ Pour copier des données à partir de Google Cloud Storage au [format Parquet ou
 }
 ```
 
-### <a name="other-format-dataset"></a>Autre format de jeu de données
+### <a name="other-format-dataset"></a>Autres formats de jeu de données
 
-Pour la copie de données à partir de Google Cloud Storage au **format ORC/Avro/JSON/binaire**, les propriétés suivantes sont prises en charge :
+Pour la copie de données à partir de Google Cloud Storage au **format ORC/Avro/JSON**, les propriétés suivantes sont prises en charge :
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
@@ -183,12 +183,12 @@ Pour obtenir la liste complète des sections et des propriétés disponibles pou
 
 ### <a name="google-cloud-storage-as-source"></a>Google Cloud Storage comme source
 
-- Pour copier à partir des **formats Parquet et de texte délimité**, reportez-vous à la section [Source aux formats Parquet et de texte délimité](#parquet-and-delimited-text-format-source).
-- Pour copier à partir d’autres formats tels que les **formats ORC/Avro/JSON/binaire**, reportez-vous à la section [Autres formats de source](#other-format-source).
+- Pour effectuer une copie à partir des **formats Parquet, Texte délimité et Binaire**, reportez-vous à la section [Source des formats Parquet, Texte délimité et Binaire](#format-based-source).
+- Pour copier des données à partir d’autres formats tels que les **formats ORC/Avro/JSON**, reportez-vous à la section [Autre source de format](#other-format-source).
 
-#### <a name="parquet-and-delimited-text-format-source"></a>Source aux formats Parquet et de texte délimité
+#### <a name="format-based-source"></a>Source de formats Parquet, Texte délimité et Binaire
 
-Pour copier des données à partir de Google Cloud Storage au **format Parquet ou de texte délimité**, reportez-vous aux articles [Format Parquet](format-parquet.md) et [Format de texte délimité](format-delimited-text.md) sur la source de l’activité de copie basée sur le format et les paramètres pris en charge. Les propriétés suivantes sont prises en charge pour Google Cloud Storage sous les paramètres `storeSettings` dans la source de la copie basée sur le format :
+Pour effectuer une copie à partir des **formats Parquet, Texte délimité et Binaire**, reportez-vous aux articles [Format Parquet](format-parquet.md), [Format Texte délimité](format-delimited-text.md) et [Format Binaire](format-binary.md) sur la source de l’activité de copie basée sur le format et les paramètres pris en charge. Les propriétés suivantes sont prises en charge pour Google Cloud Storage sous les paramètres `storeSettings` dans la source de la copie basée sur le format :
 
 | Propriété                 | Description                                                  | Obligatoire                                                    |
 | ------------------------ | ------------------------------------------------------------ | ----------------------------------------------------------- |
@@ -199,10 +199,10 @@ Pour copier des données à partir de Google Cloud Storage au **format Parquet o
 | wildcardFileName         | Le nom du fichier avec des caractères génériques situé sous le compartiment et le chemin d’accès folderPath/wildcardFolderPath donnés pour filtrer les fichiers sources. <br>Les caractères génériques autorisés sont : `*` (correspond à zéro ou plusieurs caractères) et `?` (correspond à zéro ou un caractère) ; utilisez `^` en guise d’échappement si votre nom de dossier contient effectivement ce caractère d’échappement ou générique.  Consultez d’autres exemples dans les [exemples de filtre de dossier et de fichier](#folder-and-file-filter-examples). | Oui, si `fileName` dans le jeu de données et `prefix` ne sont pas spécifiés |
 | modifiedDatetimeStart    | Filtre de fichiers en fonction de l’attribut : Dernière modification. Les fichiers seront sélectionnés si leur heure de dernière modification se trouve dans l’intervalle de temps situé entre `modifiedDatetimeStart` et `modifiedDatetimeEnd`. L’heure est appliquée au fuseau horaire UTC au format « 2018-12-01T05:00:00Z ». <br> Les propriétés peuvent être Null, ce qui signifie qu’aucun filtre d’attribut de fichier n’est appliqué au jeu de données.  Lorsque `modifiedDatetimeStart` a une valeur DateHeure, mais que `modifiedDatetimeEnd` est NULL, cela signifie que les fichiers dont l’attribut de dernière modification est supérieur ou égal à la valeur DateHeure sont sélectionnés.  Lorsque `modifiedDatetimeEnd` a une valeur DateHeure, mais que `modifiedDatetimeStart` est NULL, cela signifie que les fichiers dont l’attribut de dernière modification est inférieur à la valeur DateHeure sont sélectionnés. | Non                                                          |
 | modifiedDatetimeEnd      | Identique à ce qui précède.                                               | Non                                                          |
-| maxConcurrentConnections | Le nombre de connexions simultanées au magasin de stockage. Spécifiez uniquement lorsque vous souhaitez limiter les connexions simultanées au magasin de données. | Non                                                          |
+| maxConcurrentConnections | Nombre de connexions simultanées au magasin de stockage. Spécifiez-le uniquement lorsque vous souhaitez limiter les connexions simultanées au magasin de données. | Non                                                          |
 
 > [!NOTE]
-> Pour les formats Parquet et de texte délimité, la source de l’activité de copie de type **FileSystemSource** mentionnée dans la section suivante est toujours prise en charge telle quelle pour la compatibilité descendante. Il est recommandé d’utiliser ce nouveau modèle à partir de maintenant. L’IU de création ADF génère désormais ces nouveaux types.
+> Pour les formats Parquet et de texte délimité, la source de l’activité de copie de type **FileSystemSource** mentionnée dans la section suivante est toujours prise en charge telle quelle pour la compatibilité descendante. Il est recommandé d’utiliser ce nouveau modèle à partir de maintenant. L’IU de création ADF peut désormais générer ces nouveaux types.
 
 **Exemple :**
 
@@ -247,13 +247,13 @@ Pour copier des données à partir de Google Cloud Storage au **format Parquet o
 
 #### <a name="other-format-source"></a>Autres formats de source
 
-Pour copier des données à partir de Google Cloud Storage au **format ORC/Avro/JSON/binaire**, les propriétés suivantes sont prises en charge dans la section **source** de l’activité de copie :
+Pour copier des données à partir de Google Cloud Storage au **format ORC/Avro/JSON**, les propriétés suivantes sont prises en charge dans la section **source** de l’activité de copie :
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | type | La propriété type de la source d’activité de copie doit être définie sur : **FileSystemSource** |OUI |
 | recursive | Indique si les données sont lues de manière récursive dans les sous-dossiers ou uniquement dans le dossier spécifié. Remarque : Quand l’option récursive a la valeur true et que le récepteur est un magasin basé sur des fichiers, le dossier/sous-dossier vide n’est pas copié/créé dans le récepteur.<br/>Valeurs autorisées : **true** (par défaut) et **false** | Non |
-| maxConcurrentConnections | Le nombre de connexions simultanées au magasin de stockage. Spécifiez uniquement lorsque vous souhaitez limiter les connexions simultanées au magasin de données. | Non |
+| maxConcurrentConnections | Nombre de connexions simultanées au magasin de stockage. Spécifiez-le uniquement lorsque vous souhaitez limiter les connexions simultanées au magasin de données. | Non |
 
 **Exemple :**
 

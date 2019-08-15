@@ -1,50 +1,51 @@
 ---
-title: Détection des menaces - Azure SQL Database | Microsoft Docs
-description: La Détection des menaces permet de détecter les activités de base de données anormales indiquant la présence potentielle de menaces pour la sécurité dans une base de données unique ou un pool élastique.
+title: Advanced Threat Protection - Azure SQL Database | Microsoft Docs
+description: Advanced Threat Protection détecte les activités de base de données anormales indiquant des menaces de sécurité potentielles pour la base de données dans une base de données unique ou un pool élastique.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.custom: ''
-ms.devlang: ''
 ms.topic: conceptual
 author: rmatchoro
 ms.author: ronmat
 ms.reviewer: vanto, carlrab
-ms.date: 02/08/2019
-ms.openlocfilehash: 5549d016978e8bf9491c3745e335e3c4c793212c
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.date: 08/05/2019
+ms.openlocfilehash: 755a3b391cb7b4909169b034cc8d89892ec2ed05
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566324"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68816541"
 ---
-# <a name="azure-sql-database-threat-detection-for-single-or-pooled-databases"></a>Détection des menaces Azure SQL Database pour bases de données uniques et mises en pool
+# <a name="azure-sql-database-advanced-threat-protection-for-single-or-pooled-databases"></a>Advanced Threat Protection d’Azure SQL Database pour les bases de données uniques ou mises en pool
 
-La [Détection des menaces](sql-database-threat-detection-overview.md) pour bases de données uniques et mises en pool détecte les activités anormales indiquant des tentatives inhabituelles et potentiellement dangereuses d'accès aux bases de données ou d'attaque de celles-ci. La Détection des menaces peut identifier une **injection SQL potentielle**, un **accès à partir d'un emplacement ou d'un centre de données inhabituel**, un **accès à partir d'un principal inconnu ou d'une application potentiellement dangereuse** et des **informations d'identification SQL par force brute**. Pour plus d'informations, consultez [Alertes de détection des menaces](sql-database-threat-detection-overview.md#advanced-threat-protection-alerts).
+[Advanced Threat Protection](sql-database-threat-detection-overview.md) pour les bases de données uniques et mises en pool détecte les activités anormales indiquant des tentatives inhabituelles et potentiellement dangereuses pour accéder à des bases de données ou les exploiter. La protection avancée des menaces peut identifier une **injection SQL potentielle**, un **accès à partir d'un emplacement ou d'un centre de données inhabituel**, un **accès à partir d'un principal inconnu ou d'une application potentiellement dangereuse** et des **informations d'identification SQL par force brute**. Pour plus d'informations, consultez [Alertes d’Advanced Threat Protection](sql-database-threat-detection-overview.md#advanced-threat-protection-alerts).
 
 Vous pouvez recevoir des notifications à propos des menaces détectées par l’intermédiaire de [notifications par e-mail](sql-database-threat-detection-overview.md#explore-anomalous-database-activities-upon-detection-of-a-suspicious-event) ou du [portail Azure](sql-database-threat-detection-overview.md#explore-advanced-threat-protection-alerts-for-your-database-in-the-azure-portal).
 
-La [Détection des menaces](sql-database-threat-detection-overview.md) fait partie de l'offre [Advanced Data Security](sql-database-advanced-data-security.md) (ADS), qui est un package unifié de fonctionnalités de sécurité SQL avancées. La Détection des menaces est accessible et gérable via le portail SQL ADS central. Le package Advanced Data Security est facturé 15 USD par mois et par serveur logique, les 30 premiers jours étant gratuits.
+[Advanced Threat Protection](sql-database-threat-detection-overview.md) fait partie de l’offre [Advanced Data Security](sql-database-advanced-data-security.md) (ADS) qui est un package unifié de fonctionnalités de sécurité SQL avancées. Advanced Threat Protection est accessible et gérable par le biais du portail SQL ADS central.
 
-## <a name="set-up-threat-detection-for-your-database-in-the-azure-portal"></a>Configurer la détection des menaces pour votre base de données dans le portail Azure
+## <a name="set-up-advanced-threat-protection-in-the-azure-portal"></a>Configurer Advanced Threat Protection dans le portail Azure
 
 1. Lancez le portail Azure sur [https://portal.azure.com](https://portal.azure.com).
 2. Accédez à la page de configuration du serveur Azure SQL Database que vous voulez protéger. Dans les paramètres de sécurité, sélectionnez **Advanced Data Security**.
 3. Sur la page de configuration **Advanced Data Security** :
 
    - Activez Advanced Data Security sur le serveur.
-   - Dans **Threat Detection Settings** (Paramètres de détection des menaces), dans la zone de texte **Envoyer les alertes à**, fournissez la liste d’adresses e-mail devant recevoir des alertes de sécurité lors de la détection d’activités de base de données anormales.
+   - Dans les **paramètres de protection avancée contre les menaces**, dans la zone de texte **Envoyer les alertes à**, fournissez la liste d’adresses e-mail devant recevoir des alertes de sécurité lors de la détection d’activités de base de données anormales.
   
-   ![Configurer la détection des menaces](./media/sql-database-threat-detection/set_up_threat_detection.png)
+   ![Configurer Advanced Threat Protection](./media/sql-database-threat-detection/set_up_threat_detection.png)
 
-## <a name="set-up-threat-detection-using-powershell"></a>Configurer la détection des menaces avec PowerShell
+   > [!NOTE]
+   > Les prix dans les captures d’écran ne reflètent pas toujours le prix actuel et sont donnés à titre d’exemple.
 
-Pour obtenir un exemple de script, consultez [Configurer l’audit et la détection des menaces avec PowerShell](scripts/sql-database-auditing-and-threat-detection-powershell.md).
+## <a name="set-up-advanced-threat-protection-using-powershell"></a>Configurer Advanced Threat Protection avec PowerShell
+
+Pour obtenir un exemple de script, consultez [Configurer l’audit et Advanced Threat Protection avec PowerShell](scripts/sql-database-auditing-and-threat-detection-powershell.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- En savoir plus sur la [détection des menaces](sql-database-threat-detection-overview.md)
-- En savoir plus sur la [détection des menaces dans une instance gérée](sql-database-managed-instance-threat-detection.md)  
+- En savoir plus sur [Advanced Threat Protection](sql-database-threat-detection-overview.md)
+- Découvrez-en plus sur [Advanced Threat Protection dans une instance gérée](sql-database-managed-instance-threat-detection.md).  
 - En savoir plus sur [Advanced Data Security](sql-database-advanced-data-security.md)
 - En savoir plus sur l'[audit](sql-database-auditing.md)
 - En savoir plus sur [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)

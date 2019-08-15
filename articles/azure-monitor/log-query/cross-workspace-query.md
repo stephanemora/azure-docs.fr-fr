@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/05/2019
 ms.author: magoedte
-ms.openlocfilehash: 5e411182a26e370ef82a20e67ee18cedd5d96d86
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 597944d03e685a9a2933a04847f78c9d54f3ea36
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67296107"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68722699"
 ---
 # <a name="perform-cross-resource-log-queries-in-azure-monitor"></a>Effectuer des requêtes de journal inter-ressources dans Azure Monitor  
 
@@ -44,9 +44,6 @@ Il est possible d’identifier un espace de travail de plusieurs manières :
 * Nom de la ressource : il s’agit d’un nom convivial de l’espace de travail, parfois appelé *nom du composant*. 
 
     `workspace("contosoretail-it").Update | count`
- 
-    >[!NOTE]
-    >L’identification d’un espace de travail par nom suppose une unicité entre tous les abonnements accessibles. Si plusieurs applications portent le nom spécifié, la requête échoue en raison de l’ambiguïté. Dans ce cas, vous devez utiliser l’un des autres identificateurs.
 
 * Nom qualifié : il s’agit du « nom complet » de l’espace de travail, composé du nom de l’abonnement, du groupe de ressources et du nom du composant au format suivant : *nomAbonnement/groupeRessources/nomComposant*. 
 
@@ -75,6 +72,9 @@ Vous pouvez identifier une application dans Application Insights avec l’expres
 * Nom de la ressource : il s’agit d’un nom convivial de l’application, parfois appelé *nom du composant*.  
 
     `app("fabrikamapp")`
+
+    >[!NOTE]
+    >L’identification d’une application par son nom est supposée être unique pour tous les abonnements accessibles. Si plusieurs applications portent le nom spécifié, la requête échoue en raison de l’ambiguïté. Dans ce cas, vous devez utiliser l’un des autres identificateurs.
 
 * Nom qualifié : il s’agit du « nom complet » de l’application, composé du nom de l’abonnement, du groupe de ressources et du nom du composant au format suivant : *nomAbonnement/groupeRessources/nomComposant*. 
 

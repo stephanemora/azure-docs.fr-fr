@@ -5,15 +5,15 @@ author: sharaths-cs
 ms.author: b-shsury
 ms.date: 06/10/2019
 ms.topic: article
-ms.service: vmware
+ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: e5c03c1d8a865b792ce79e3e2b576a629b71e02c
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 02a2bd311ea1e89a49eb12ef57a167a08eea5f98
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67332314"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68812255"
 ---
 # <a name="create-a-cloudsimple-private-cloud"></a>Créer un cloud privé CloudSimple
 
@@ -32,6 +32,11 @@ Lorsque vous créez un cloud privé, vous obtenez un cluster vSphere unique et t
 ## <a name="before-you-begin"></a>Avant de commencer
 
 Les nœuds doivent être configurés avant de pouvoir créer votre cloud privé.  Pour plus d’informations sur l’approvisionnement des nœuds, consultez l’article [Approvisionner des nœuds pour la Solution VMware de CloudSimple - Azure](create-nodes.md).
+
+Allouez une plage CIDR pour les sous-réseaux vSphere/vSAN pour le cloud privé. Un cloud privé est créé sous la forme d’un environnement isolé de la pile VMware (hôtes ESXi, vCenter, vSAN et NSX) géré par un serveur vCenter. Les composants de gestion sont déployés sur le réseau sélectionné pour la plage CIDR de sous-réseaux vSphere/vSAN. La plage CIDR du réseau est divisée en plusieurs sous-réseaux pendant le déploiement.  L’espace d’adressage du sous-réseau vSphere/vSAN doit être unique. Il ne doit chevaucher aucun réseau qui communique avec l’environnement CloudSimple.  Les réseaux qui communiquent avec CloudSimple incluent les réseaux locaux et les réseaux virtuels Azure.  Pour plus d’informations sur les sous-réseaux vSphere/vSAN, consultez [Vue d’ensemble des réseaux locaux virtuels et des sous-réseaux](cloudsimple-vlans-subnets.md).
+
+* Préfixe de plage CIDR de sous-réseaux vSphere/vSAN minimum : /24 
+* Préfixe de plage CIDR de sous-réseaux vSphere/vSAN maximum : /21
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
 

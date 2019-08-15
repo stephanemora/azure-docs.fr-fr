@@ -11,12 +11,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 08/18/2018
 ms.author: apimpm
-ms.openlocfilehash: ed3c5790dcb51d12a38b85aa95e9c9178b6f44cd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6bafd5ed5f2d7080b0f2a2db71ac96e4f97a1f76
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65408857"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68774940"
 ---
 # <a name="upgrade-and-scale-an-azure-api-management-instance"></a>Mettre à niveau une instance du service Gestion des API Azure et la mettre à l’échelle  
 
@@ -66,6 +66,10 @@ Vous pouvez effectuer la mise à niveau et la rétrogradation vers n’importe q
 4. Spécifiez le nombre d’**unités** à ajouter. Vous pouvez utiliser le curseur ou saisir le nombre d’unités.  
     Si vous choisissez le niveau **Premium**, vous devez d’abord sélectionner une région.
 5. Appuyez sur **Enregistrer**.
+
+## <a name="downtime-during-scaling-up-and-down"></a>Temps d’arrêt pendant la montée et la descente en puissance
+Si vous effectuez une mise à l’échelle à partir de ou vers le niveau développeur, il y aura des temps d’arrêt. Dans le cas contraire, il n’y a aucun temps d’arrêt. 
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

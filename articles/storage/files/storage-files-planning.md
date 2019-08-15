@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 1845107998bfefde4c604744c3c09f5356010f7b
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 287902c149fd3a8732ce9ce95b05b0d9fa36147b
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699690"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68816611"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planification d’un déploiement Azure Files
 
@@ -205,12 +205,16 @@ Cette section s’applique uniquement aux partages de fichiers Standard. Tous le
 
 Le partage de fichiers Standard est disponible dans toutes les régions, jusqu’à 5 Tio. Dans certaines régions, il est disponible avec une limite de 100 Tio ; ces régions sont listées dans le tableau suivant :
 
-|Région  |Redondance prise en charge  |Prend en charge les comptes de stockage existants  |
-|---------|---------|---------|
-|Australie Est     |LRS|Non         |
-|Asie Sud-Est     |LRS|Non         |
-|Europe Ouest     |LRS, ZRS|Non         |
-|USA Ouest 2     |LRS, ZRS|Non         |
+|Région |Redondance prise en charge |Prend en charge les comptes de stockage existants |Prise en charge du portail*   |
+|-------|---------|---------|---------|
+|Australie Est  |LRS     |Non    |OUI|
+|France Centre  |LRS     |Non    |Pas encore|
+|France Sud    |LRS     |Non    |Pas encore|
+|Asie Sud-Est  |LRS, ZRS|Non    |OUI|
+|Europe Ouest     |LRS, ZRS|Non    |OUI|
+|USA Ouest 2       |LRS, ZRS|Non    |OUI|
+
+*Pour les régions sans prise en charge du portail, vous pouvez toujours utiliser PowerShell ou l’interface de ligne de commande (CLI) Azure pour créer plus de 5 partages TiO. Vous pouvez également créer un nouveau partage via le portail sans spécifier le quota. Cette opération crée un partage avec une taille par défaut de 100 TiO, qui peut être mis à jour ultérieurement via PowerShell ou Azure CLI.
 
 Pour nous aider à hiérarchiser les nouvelles régions et les nouvelles fonctionnalités, veuillez répondre à ce [sondage](https://aka.ms/azurefilesatscalesurvey).
 

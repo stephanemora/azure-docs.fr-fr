@@ -10,20 +10,20 @@ ms.workload: infrastructure-services
 ms.date: 04/07/2019
 ms.author: kumud
 ms.reviewer: tyao
-ms.openlocfilehash: 02b335de7f105d768168d5f798ec9109136d7430
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: 344e04985c52945b2917d3b5f616d5fca6051ab9
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67846258"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68839772"
 ---
 #  <a name="custom-rules-for-web-application-firewall-with-azure-front-door"></a>Règles personnalisées pour le pare-feu d’applications web avec Azure Front Door
-Le pare-feu d’applications web Azure (WAF) doté du service Front Door vous permet de contrôler l’accès à vos applications web basées sur les conditions que vous définissez. Une règle WAF personnalisée se compose d’un numéro de priorité, d’un type de règle, de conditions de correspondance et d’une action. Il existe deux types de règles personnalisées : les règles de correspondance et les règles de limite de taux. Une règle de correspondance contrôle un accès en fonction de conditions de correspondance, alors qu’une règle de limite de taux contrôle d’accès basée sur la correspondance des conditions et les taux de requêtes entrantes. Vous pouvez désactiver une règle personnalisée pour l’empêcher d’être évaluée, tout en conservant la configuration. Cet article décrit les règles de correspondance qui reposent sur les paramètres http.
+Le pare-feu d’applications web Azure (WAF) doté du service Front Door vous permet de contrôler l’accès à vos applications web basées sur les conditions que vous définissez. Une règle WAF personnalisée se compose d’un numéro de priorité, d’un type de règle, de conditions de correspondance et d’une action. Il existe deux types de règles personnalisées : les règles de correspondance et les règles de limite de taux. Une règle de correspondance contrôle un accès en fonction de conditions de correspondance, alors qu’une règle de limite de taux contrôle d’accès basée sur la correspondance des conditions et les taux de requêtes entrantes. Vous pouvez désactiver une règle personnalisée pour l’empêcher d’être évaluée, tout en conservant la configuration. 
 
 ## <a name="priority-match-conditions-and-action-types"></a>Priorité, conditions de correspondance et les types d’action
-Vous pouvez contrôler l’accès avec une règle de pare-feu d’applications web (WAF) personnalisée qui définit un numéro de priorité, un type de règle, des conditions de correspondance et une action. 
+Vous pouvez contrôler l’accès à l’aide d’une règle WAF personnalisée qui définit un numéro de priorité, un type de règle, des conditions de correspondance et une action. 
 
-- **Priorité :** est un entier unique qui décrit l’ordre des évaluation des règles de pare-feu d'applications web (WAF). Les règles ayant des valeurs inférieures sont évaluées avant les règles ayant des valeurs plus élevées
+- **Priorité :** est un entier unique qui décrit l’ordre des évaluation des règles de pare-feu d'applications web (WAF). Les règles avec des valeurs de priorité inférieure sont évaluées avant les règles avec des valeurs plus élevées. Les numéros de priorité doivent être uniques parmi toutes les règles personnalisées.
 
 - **Action :** définit comment acheminer une requête si une règle de pare-feu d'applications web (WAF) est mise en correspondance. Vous pouvez choisir parmi les actions ci-dessous pour qu’elle soit appliquée quand une requête correspond à une règle personnalisée.
 
@@ -32,19 +32,17 @@ Vous pouvez contrôler l’accès avec une règle de pare-feu d’applications w
     - *Journaliser :* le pare-feu d'applications web (WAF) enregistre une entrée dans ses journaux, puis passe à l’évaluation de la règle suivante.
     - *Rediriger :* le pare-feu d'applications web (WAF) redirige la requête vers un URI spécifié, enregistre une entrée dans ses journaux, puis s’arrête.
 
-- **Condition de correspondance :** définit une variable de correspondance, un opérateur et une valeur de correspondance. Chaque règle peut contenir plusieurs conditions de correspondance. Une condition de correspondance peut être basée sur les *variables de correspondance* suivantes :
-    - RemoteAddr (IP du client)
+- **Condition de correspondance :** définit une variable de correspondance, un opérateur et une valeur de correspondance. Chaque règle peut contenir plusieurs conditions de correspondance. Une condition de correspondance peut être basée sur l’emplacement géographique, les adresses IP du client (CIDR), la taille ou la correspondance de chaîne. La correspondance de chaîne peut correspondre à une liste de variables de correspondance.
+  - **Variable de correspondance :**
     - RequestMethod
     - QueryString
     - PostArgs
     - RequestUri
     - RequestHeader
     - RequestBody
-
-- La liste **Opérateur** inclut les éléments suivants :
+    - Cookies
+  - **Opérateur :**
     - Any : souvent utilisé pour définir l’action par défaut si aucune règle n’est mise en correspondance. Any est un opérateur qui fait correspondre tous les éléments.
-    - IPMatch : définit des restrictions d’adresse IP pour la variable RemoteAddr
-    - GeoMatch : définir le filtrage géographique pour la variable RemoteAddr
     - Égal à
     - Contains
     - LessThan : contrainte de taille
@@ -52,26 +50,46 @@ Vous pouvez contrôler l’accès avec une règle de pare-feu d’applications w
     - LessThanOrEqual : contrainte de taille
     - GreaterThanOrEqual : contrainte de taille
     - BeginsWith
-     - EndsWith
+    - EndsWith
+    - Expression régulière
+  
+  - **Regex** ne prend pas en charge les opérations ci-dessous : 
+    - Références arrière et capture de sous-expressions
+    - Assertions arbitraires de largeur nulle
+    - Références de sous-routines et modèles récursifs
+    - Modèles conditionnels
+    - Verbes de contrôle de retours sur trace
+    - La directive \C mono-octet
+    - La directive de correspondance de saut de ligne \R
+    - La directive de début de correspondance de réinitialisation \K
+    - Légendes et code incorporé
+    - Regroupement atomique et quantificateurs de possession
 
-Vous pouvez définir la condition *negate* sur la valeur true si le résultat d’une condition doit être inversé.
-
-*Valeur de correspondance* définit la liste de valeurs de correspondance possible.
-Les valeurs de la méthode de requête HTTP prises en charge incluent :
-- GET
-- POST
-- PUT
-- HEAD
-- SUPPRIMER
-- LOCK
-- UNLOCK
-- PROFILE
-- OPTIONS
-- PROPFIND
-- PROPPATCH
-- MKCOL
-- COPY
-- MOVE
+  - **Négation [facultatif] :** Vous pouvez définir la condition *negate* sur la valeur true si le résultat d’une condition doit être inversé.
+      
+  - **Transformation [facultatif] :** Liste de chaînes avec les noms des transformations à effectuer avant la tentative de la mise en correspondance. Il peut s’agir des transformations suivantes :
+     - Majuscules 
+     - Minuscules
+     - Trim
+     - RemoveNulls
+     - UrlDecode
+     - UrlEncode
+     
+   - **Valeur de correspondance :** Les valeurs de la méthode de requête HTTP prises en charge incluent :
+     - GET
+     - POST
+     - PUT
+     - HEAD
+     - SUPPRIMER
+     - LOCK
+     - UNLOCK
+     - PROFILE
+     - OPTIONS
+     - PROPFIND
+     - PROPPATCH
+     - MKCOL
+     - COPY
+     - MOVE
 
 ## <a name="examples"></a>Exemples
 

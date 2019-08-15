@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 07/02/2019
+ms.date: 08/06/2019
 ms.author: jingwang
-ms.openlocfilehash: df88c3e2e07165182c917eaf30a5f37451fbd073
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: e0626d847b22c11ce5acca5633c9b1291c03742d
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67509588"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68839878"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen1-using-azure-data-factory"></a>Copier des données vers ou depuis Azure Data Lake Storage Gen1 à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version Azure Data Factory que vous utilisez :"]
@@ -163,12 +163,13 @@ Dans Azure Data Factory, vous n’avez pas besoin de spécifier des propriétés
 
 Pour obtenir la liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez l’article [Jeux de données](concepts-datasets-linked-services.md). 
 
-- Pour les formats Parquet et de texte délimité, reportez-vous à la section [Jeu de données aux formats Parquet et de texte délimité](#parquet-and-delimited-text-format-dataset).
-- Pour les autres formats (par exemple, ORC, Avro, JSON ou binaire), reportez-vous à la section [Autres formats de jeu de données](#other-format-dataset).
+- Pour les **formats Parquet, Texte délimité et Binaire**, reportez-vous à la section [Jeu de données aux formats Parquet, Texte délimité et Binaire](#format-based-dataset).
+- Pour les autres formats tels que les **formats ORC/Avro/JSON**, reportez-vous à la section [Autres formats de jeu de données](#other-format-dataset).
 
-### <a name="parquet-and-delimited-text-format-dataset"></a>Jeu de données aux formats Parquet et de texte délimité
+### <a name="format-based-dataset"></a>Jeu de données aux formats Parquet, Texte délimité et Binaire
 
-Pour copier des données vers et depuis Azure Data Lake Store Gen1 au format Parquet ou de texte délimité, reportez-vous aux articles [Format Parquet](format-parquet.md) et [Format de texte délimité](format-delimited-text.md) sur le jeu de données basé sur le format et les paramètres pris en charge. Les propriétés suivantes sont prises en charge pour Azure Data Lake Store Gen1 dans les paramètres `location` du jeu de données basé sur le format :
+Pour copier des données vers et depuis les **formats Parquet, Texte délimité et Binaire**, reportez-vous aux articles [Format Parquet](format-parquet.md), [Format Texte délimité](format-delimited-text.md) et [Format Binaire](format-binary.md) sur le jeu de données basé sur le format et les paramètres pris en charge.
+Les propriétés suivantes sont prises en charge pour Azure Data Lake Store Gen1 dans les paramètres `location` du jeu de données basé sur le format :
 
 | Propriété   | Description                                                  | Obligatoire |
 | ---------- | ------------------------------------------------------------ | -------- |
@@ -208,15 +209,15 @@ Pour copier des données vers et depuis Azure Data Lake Store Gen1 au format Par
 
 ### <a name="other-format-dataset"></a>Autres formats de jeu de données
 
-Pour copier des données depuis et vers Azure Data Lake Store Gen1 au format ORC, Avro, JSON ou binaire, les propriétés suivantes sont prises en charge :
+Pour copier des données depuis et vers Azure Data Lake Store Gen1 au **format ORC, Avro, JSON**, les propriétés suivantes sont prises en charge :
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | type | La propriété de type du jeu de données doit être définie sur **AzureDataLakeStoreFile**. |OUI |
 | folderPath | Chemin vers le dossier dans Data Lake Store. Si non spécifié, il pointe vers la racine. <br/><br/>Le filtre de caractères génériques est pris en charge. Les caractères génériques autorisés sont les suivants : `*` (correspond à zéro ou plusieurs caractères) et `?` (correspond à zéro ou un caractère). Utilisez `^` comme caractère d’échappement si le nom réel de votre dossier contient un caractère générique ou ce caractère d’échappement. <br/><br/>Par exemple : dossierracine/sous-dossier/. Consultez d’autres exemples dans les [exemples de filtre de dossier et de fichier](#folder-and-file-filter-examples). |Non |
 | fileName | Filtre de nom ou de caractère générique pour les fichiers sous le « folderPath » spécifié. Si vous ne spécifiez pas de valeur pour cette propriété, le jeu de données pointe vers tous les fichiers du dossier. <br/><br/>Dans le filtre, les caractères génériques autorisés sont `*` (correspond à zéro caractère ou plus) et `?` (correspond à zéro ou un caractère).<br/>- Exemple 1 : `"fileName": "*.csv"`<br/>- Exemple 2 : `"fileName": "???20180427.txt"`<br/>Utilisez `^` comme caractère d’échappement si votre nom de fichier réel contient des caractères génériques ou ce caractère d’échappement.<br/><br/>Lorsque fileName n’est pas spécifié pour un jeu de données de sortie et que **preserveHierarchy** n’est pas spécifié dans le récepteur d’activité, l’activité de copie génère automatiquement le nom de fichier suivant ce modèle : « *Data.[ID GUID d’exécution d’activité].[GUID si FlattenHierarchy].[format si configuré].[compression si configurée]*  », par exemple, « Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.gz ». Si vous effectuez la copie à partir d’une source tabulaire à l’aide d’un nom de tableau au lieu d’une requête, le modèle du nom est «  *[nom_tableau].[format].[compression si configurée]*  », par exemple « MyTable.csv ». |Non |
-| modifiedDatetimeStart | Filtre de fichiers en fonction de l’attribut Dernière modification. Les fichiers sont sélectionnés si leur heure de dernière modification se trouve dans l’intervalle de temps situé entre `modifiedDatetimeStart` et `modifiedDatetimeEnd`. L’heure est appliquée au fuseau horaire UTC au format « 2018-12-01T05:00:00Z ». <br/><br/> Les performances globales du déplacement des données sont influencées par l’activation de ce paramètre lorsque vous souhaitez appliquer un filtre sur de grandes quantités de fichiers. <br/><br/> Les propriétés peuvent être Null, ce qui signifie qu’aucun filtre d’attribut de fichier n’est appliqué au jeu de données. Lorsque `modifiedDatetimeStart` a une valeur DateHeure, mais que `modifiedDatetimeEnd` est NULL, cela signifie que les fichiers dont l’attribut de dernière modification est supérieur ou égal à la valeur DateHeure sont sélectionnés. Lorsque `modifiedDatetimeEnd` a une valeur DateHeure, mais que `modifiedDatetimeStart` est NULL, cela signifie que les fichiers dont l’attribut de dernière modification est inférieur à la valeur DateHeure sont sélectionnés.| Non |
-| modifiedDatetimeEnd | Filtre de fichiers en fonction de l’attribut Dernière modification. Les fichiers sont sélectionnés si leur heure de dernière modification se trouve dans l’intervalle de temps situé entre `modifiedDatetimeStart` et `modifiedDatetimeEnd`. L’heure est appliquée au fuseau horaire UTC au format « 2018-12-01T05:00:00Z ». <br/><br/> Les performances globales du déplacement des données sont influencées par l’activation de ce paramètre lorsque vous souhaitez appliquer un filtre sur de grandes quantités de fichiers. <br/><br/> Les propriétés peuvent être Null, ce qui signifie qu’aucun filtre d’attribut de fichier n’est appliqué au jeu de données. Lorsque `modifiedDatetimeStart` a une valeur DateHeure, mais que `modifiedDatetimeEnd` est NULL, cela signifie que les fichiers dont l’attribut de dernière modification est supérieur ou égal à la valeur DateHeure sont sélectionnés. Lorsque `modifiedDatetimeEnd` a une valeur DateHeure, mais que `modifiedDatetimeStart` est NULL, cela signifie que les fichiers dont l’attribut de dernière modification est inférieur à la valeur DateHeure sont sélectionnés.| Non |
+| modifiedDatetimeStart | Filtre de fichiers en fonction de l’attribut Dernière modification. Les fichiers sont sélectionnés si leur heure de dernière modification se trouve dans l’intervalle de temps situé entre `modifiedDatetimeStart` et `modifiedDatetimeEnd`. L’heure est appliquée au fuseau horaire UTC au format « 2018-12-01T05:00:00Z ». <br/><br/> Les performances globales du déplacement des données sont influencées par l’activation de ce paramètre lorsque vous souhaitez appliquer un filtre sur de grandes quantités de fichiers. <br/><br/> Les propriétés peuvent être NULL, ce qui signifie qu’aucun filtre d’attribut de fichier n’est appliqué au jeu de données. Lorsque `modifiedDatetimeStart` a une valeur DateHeure, mais que `modifiedDatetimeEnd` est NULL, cela signifie que les fichiers dont l’attribut de dernière modification est supérieur ou égal à la valeur DateHeure sont sélectionnés. Lorsque `modifiedDatetimeEnd` a une valeur DateHeure, mais que `modifiedDatetimeStart` est NULL, cela signifie que les fichiers dont l’attribut de dernière modification est inférieur à la valeur DateHeure sont sélectionnés.| Non |
+| modifiedDatetimeEnd | Filtre de fichiers en fonction de l’attribut Dernière modification. Les fichiers sont sélectionnés si leur heure de dernière modification se trouve dans l’intervalle de temps situé entre `modifiedDatetimeStart` et `modifiedDatetimeEnd`. L’heure est appliquée au fuseau horaire UTC au format « 2018-12-01T05:00:00Z ». <br/><br/> Les performances globales du déplacement des données sont influencées par l’activation de ce paramètre lorsque vous souhaitez appliquer un filtre sur de grandes quantités de fichiers. <br/><br/> Les propriétés peuvent être NULL, ce qui signifie qu’aucun filtre d’attribut de fichier n’est appliqué au jeu de données. Lorsque `modifiedDatetimeStart` a une valeur DateHeure, mais que `modifiedDatetimeEnd` est NULL, cela signifie que les fichiers dont l’attribut de dernière modification est supérieur ou égal à la valeur DateHeure sont sélectionnés. Lorsque `modifiedDatetimeEnd` a une valeur DateHeure, mais que `modifiedDatetimeStart` est NULL, cela signifie que les fichiers dont l’attribut de dernière modification est inférieur à la valeur DateHeure sont sélectionnés.| Non |
 | format | Si vous souhaitez copier des fichiers en l’état entre des magasins de fichiers (copie binaire), ignorez la section Format dans les deux définitions de jeu de données d’entrée et de sortie.<br/><br/>Si vous souhaitez analyser ou générer des fichiers dans un format spécifique, les types de format de fichier suivants sont pris en charge : **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** et **ParquetFormat**. Définissez la propriété **type** située sous **Format** sur l’une de ces valeurs. Pour en savoir plus, voir les sections [Format Text](supported-file-formats-and-compression-codecs.md#text-format), [Format JSON](supported-file-formats-and-compression-codecs.md#json-format), [Format Avro](supported-file-formats-and-compression-codecs.md#avro-format), [Format Orc](supported-file-formats-and-compression-codecs.md#orc-format) et [Format Parquet](supported-file-formats-and-compression-codecs.md#parquet-format). |Non (uniquement pour un scénario de copie binaire) |
 | compression | Spécifiez le type et le niveau de compression pour les données. Pour plus d’informations, voir [Formats de fichier et de codecs de compression pris en charge](supported-file-formats-and-compression-codecs.md#compression-support).<br/>Les types pris en charge sont : **GZip**, **Deflate**, **BZip2** et **ZipDeflate**.<br/>Les niveaux pris en charge sont **Optimal** et **Fastest**. |Non |
 
@@ -260,12 +261,12 @@ Pour obtenir la liste complète des sections et propriétés disponibles pour la
 
 ### <a name="azure-data-lake-store-as-source"></a>Azure Data Lake Store en tant que source
 
-- Pour copier des données à partir des formats Parquet et de texte délimité, reportez-vous à la section [Source aux formats Parquet et de texte délimité](#parquet-and-delimited-text-format-source).
-- Pour copier des données à partir d’autres formats (ORC, Avro, JSON ou binaire), reportez-vous à la section [Autres formats de source](#other-format-source).
+- Pour effectuer une copie à partir des **formats Parquet, Texte délimité et Binaire**, reportez-vous à la section [Source des formats Parquet, Texte délimité et Binaire](#format-based-source).
+- Pour copier des données à partir d’autres formats tels que les **formats ORC/Avro/JSON**, reportez-vous à la section [Autre source de format](#other-format-source).
 
-#### <a name="parquet-and-delimited-text-format-source"></a>Source aux formats Parquet et de texte délimité
+#### <a name="format-based-source"></a>Source de formats Parquet, Texte délimité et Binaire
 
-Pour copier des données depuis Azure Data Lake Store Gen1 au format Parquet ou de texte délimité, reportez-vous aux articles [Format Parquet](format-parquet.md) et [Format de texte délimité](format-delimited-text.md) sur la source de l’activité de copie basée sur le format et les paramètres pris en charge. Les propriétés suivantes sont prises en charge pour Azure Data Lake Store Gen1 dans les paramètres `storeSettings` de la source de copie basée sur le format :
+Pour effectuer une copie à partir des **formats Parquet, Texte délimité et Binaire**, reportez-vous aux articles [Format Parquet](format-parquet.md), [Format Texte délimité](format-delimited-text.md) et [Format Binaire](format-binary.md) sur la source de l’activité de copie basée sur le format et les paramètres pris en charge.  Les propriétés suivantes sont prises en charge pour Azure Data Lake Store Gen1 dans les paramètres `storeSettings` de la source de copie basée sur le format :
 
 | Propriété                 | Description                                                  | Obligatoire                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
@@ -323,7 +324,7 @@ Pour copier des données depuis Azure Data Lake Store Gen1 au format Parquet ou 
 
 #### <a name="other-format-source"></a>Autres formats de source
 
-Pour copier des données depuis Azure Data Lake Store Gen1 au format ORC, Avro, JSON ou binaire, les propriétés suivantes sont prises en charge dans la section **source** de l’activité de copie :
+Pour copier des données depuis Azure Data Lake Store Gen1 au format **ORC, Avro ou JSON**, les propriétés suivantes sont prises en charge dans la section **source** de l’activité de copie :
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
@@ -365,12 +366,12 @@ Pour copier des données depuis Azure Data Lake Store Gen1 au format ORC, Avro, 
 
 ### <a name="azure-data-lake-store-as-sink"></a>Azure Data Lake Store en tant que récepteur
 
-- Pour copier des données vers des formats Parquet et de texte délimité, reportez-vous à la section [Récepteur aux formats Parquet et de texte délimité](#parquet-and-delimited-text-format-sink).
-- Pour copier des données vers d’autres formats (ORC, Avro, JSON ou binaire), reportez-vous à la section [Autres formats de récepteur](#other-format-sink).
+- Pour effectuer une copie à partir des **formats Parquet, Texte délimité et Binaire**, reportez-vous à la section [Récepteur aux formats Parquet, Texte délimité et Binaire](#format-based-sink).
+- Pour copier vers d’autres formats tels que les **formats ORC/Avro/JSON**, reportez-vous à la section [Autres formats de récepteur](#other-format-sink).
 
-#### <a name="parquet-and-delimited-text-format-sink"></a>Récepteur aux formats Parquet et de texte délimité
+#### <a name="format-based-sink"></a>Récepteur aux formats Parquet, Texte délimité et Binaire
 
-Pour copier des données vers Azure Data Lake Store Gen1 au format Parquet ou de texte délimité, reportez-vous aux articles [Format Parquet](format-parquet.md) et [Format de texte délimité](format-delimited-text.md) sur le récepteur de l’activité de copie basée sur le format et les paramètres pris en charge. Les propriétés suivantes sont prises en charge pour Azure Data Lake Store Gen1 dans les paramètres `storeSettings` du récepteur de copie basée sur le format :
+Pour effectuer une copie à partir des **formats Parquet, Texte délimité et Binaire**, reportez-vous aux articles [Format Parquet](format-parquet.md), [Format Texte délimité](format-delimited-text.md) et [Format Binaire](format-binary.md) sur le récepteur de l’activité de copie basée sur le format et les paramètres pris en charge.  Les propriétés suivantes sont prises en charge pour Azure Data Lake Store Gen1 dans les paramètres `storeSettings` du récepteur de copie basée sur le format :
 
 | Propriété                 | Description                                                  | Obligatoire |
 | ------------------------ | ------------------------------------------------------------ | -------- |
@@ -418,7 +419,7 @@ Pour copier des données vers Azure Data Lake Store Gen1 au format Parquet ou de
 
 #### <a name="other-format-sink"></a>Autres formats de récepteur
 
-Pour copier des données vers Azure Data Lake Store Gen1 au format ORC, Avro, JSON ou binaire, les propriétés suivantes sont prises en charge dans la section du **récepteur** :
+Pour copier des données vers Azure Data Lake Store Gen1 au **format ORC, Avro ou JSON**, les propriétés suivantes sont prises en charge dans la section du **récepteur** :
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |

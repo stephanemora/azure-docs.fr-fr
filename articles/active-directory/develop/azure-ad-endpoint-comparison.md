@@ -11,17 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/07/2019
+ms.date: 08/01/2019
 ms.author: ryanwi
 ms.reviewer: saeeda, hirsin, jmprieur, sureshja, jesakowi, lenalepa, kkrishna, negoe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 22f3e4cde892a70ec331523524508a50008a4073
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 815ff980abdde7ab91861d8550030476312fb6d3
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67483003"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68835163"
 ---
 # <a name="why-update-to-microsoft-identity-platform-v20"></a>Pourquoi mettre à jour à la plateforme d’identités Microsoft (v2.0) ?
 
@@ -115,6 +115,9 @@ Ces étendues vous permettent de coder votre application en divulguant le moins 
 ## <a name="token-claims"></a>Revendications de jetons
 
 Le point de terminaison de la Plateforme d’identités Microsoft émet un ensemble plus restreint de revendications dans ses jetons par défaut, pour limiter la taille des charges utiles. Si vous avez des applications et des services qui dépendent d’une revendication particulière dans un jeton v1.0 qui n’est plus fourni par défaut dans un jeton de la Plateforme d’identités Microsoft, envisagez d’utiliser la fonctionnalité des [revendications facultatives](active-directory-optional-claims.md) pour inclure cette revendication.
+
+> [!IMPORTANT]
+> Les jetons v1.0 et v2.0 peuvent être émis par les points de terminaison v1.0 et v2.0 ! id_tokens corresponde *toujours* au point de terminaison à partir duquel ils sont demandés, et les jetons d’accès correspondent *toujours* au format attendu par l’API Web que votre client appellera à l’aide de ce jeton.  Par conséquent, si votre application utilise le point de terminaison v2.0 pour obtenir un jeton pour appeler Microsoft Graph, qui attend des jetons d’accès au format v1.0, votre application reçoit un jeton au format v1.0.  
 
 ## <a name="limitations"></a>Limites
 

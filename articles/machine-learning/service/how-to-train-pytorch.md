@@ -1,7 +1,7 @@
 ---
-title: Former et enregistrer des modèles PyTorch
+title: Apprentissage du réseau neural d’apprentissage profond avec PyTorch
 titleSuffix: Azure Machine Learning service
-description: Cet article vous explique comment entraîner et inscrire un modèle PyTorch à l’aide d’Azure Machine Learning service.
+description: Découvrez comment exécuter vos scripts de formation PyTorch à l’échelle de l’entreprise à l’aide de la classe d’estimateur PyTorch de Azure Machine Learning.  Les exemples de scripts classifient des images de poulets et de dindes pour créer un réseau neural d’apprentissage profond basé sur le didacticiel sur le transfert d’apprentissage de PyTorch.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,31 +9,33 @@ ms.topic: conceptual
 ms.author: maxluk
 author: maxluk
 ms.reviewer: peterlu
-ms.date: 06/18/2019
+ms.date: 08/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: d9c953eeecedf14a8f3fae43c5d4713252d58b4c
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 99217106c456adcc338138190be2060b0c9a195b
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67840083"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68772672"
 ---
-# <a name="train-and-register-pytorch-models-at-scale-with-azure-machine-learning-service"></a>Entraîner et inscrire des modèles PyTorch à l’échelle avec Azure Machine Learning service
+# <a name="train-pytorch-deep-learning-models-at-scale-with-azure-machine-learning"></a>Former des modèles d’apprentissage profond Pytorch à l’échelle avec Azure Machine Learning
 
-Cet article vous explique comment entraîner et inscrire un modèle PyTorch à l’aide d’Azure Machine Learning service. Il se base sur un [didacticiel d’apprentissage du transfert PyTorch](https://pytorch.org/tutorials/beginner/transfer_learning_tutorial.html) qui crée un classifieur de réseau neuronal profond (DNN) pour des images de poules et de dindes.
+Dans cet article, découvrez comment exécuter vos scripts de formation [PyTorch](https://pytorch.org/) à l’échelle de l’entreprise à l'aide de la classe d’[estimateur PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py) de Azure Machine Learning.  
 
-[PyTorch](https://pytorch.org/) est une infrastructure de calcul open source couramment utilisée pour créer des réseaux neuronaux profonds (DNN). Avec Azure Machine Learning service, vous pouvez rapidement faire monter en charge des tâches de formation open source à l’aide de ressources de calcul cloud élastiques. Vous pouvez également suivre vos sessions de formation, les modèles de version, les modèles de déploiement et bien plus encore.
+Les exemples de scripts dans cet article classifient des images de poulets et de dindes pour créer un réseau neural d’apprentissage profond basé sur le [didacticiel](https://pytorch.org/tutorials/beginner/transfer_learning_tutorial.html) sur le transfert d’apprentissage de PyTorch. 
 
-Que vous développiez un modèle PyTorch de A à Z ou importiez un modèle existant dans le cloud, Azure Machine Learning service peut vous aider à créer des modèles prêts pour la production.
+Que vous soyez en train de former un modèle PyTorch d’apprentissage profond ou que vous déposez un modèle existant dans le Cloud, vous pouvez utiliser Azure Machine Learning pour faire évoluer les tâches de formation Open source à l’aide des ressources de calcul de Cloud élastique. Vous pouvez créer, déployer, mettre à jour et surveiller des modèles de niveau production avec Azure Machine Learning. 
+
+En savoir plus la [comparaison entre apprentissage profond et apprentissage automatique](concept-deep-learning-vs-machine-learning.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
-Exécutez ce code sur l’un de ces environnements :
+Exécutez ce code sur l’un de ces environnements :
 
  - Machine virtuelle de Notebook Azure Machine Learning : pas d’installation ou de téléchargement nécessaire
 
-    - Effectuez un [démarrage rapide du notebook informatique](quickstart-run-cloud-notebook.md) pour créer un serveur de notebook dédié dans lequel le kit de développement logiciel (SDK) et l’exemple de référentiel auront été préchargés.
-    - Dans le dossier des exemples du serveur de notebook, recherchez un notebook terminé et développé en accédant à ce répertoire : le dossier **how-to-use-azureml > training-with-deep-learning > train-hyperparameter-tune-deploy-with-pytorch**. 
+    - Suivre le [Tutoriel : Configurez l’environnement et l’espace de travail](tutorial-1st-experiment-sdk-setup.md) pour créer un serveur Notebook dédié préchargé avec le kit de développement logiciel (SDK) et l’exemple de référentiel.
+    - Dans le dossier des exemples d’apprentissage profond sur le serveur de notebook, recherchez un notebook terminé et développé en accédant à ce répertoire : le dossier **how-to-use-azureml > training-with-deep-learning > train-hyperparameter-tune-deploy-with-pytorch**. 
  
  - Votre propre serveur de notebooks Jupyter
 
@@ -73,9 +75,9 @@ Créez un objet d’espace de travail à partir du fichier `config.json` créé 
 ws = Workspace.from_config()
 ```
 
-### <a name="create-an-experiment"></a>Création d'une expérience
+### <a name="create-a-deep-learning-experiment"></a>Créer une expérience d’apprentissage profond
 
-Créez une expérience et un dossier pour stocker vos scripts de formation. Dans cet exemple, créez une expérience appelée « pytorch-birds ».
+Créez une expérience et un dossier pour stocker vos scripts d’apprentissage. Dans cet exemple, créez une expérience appelée « pytorch-birds ».
 
 ```Python
 project_folder = './pytorch-birds'
@@ -220,7 +222,7 @@ Pour optimiser l’inférence avec le [Runtime ONNX](concept-onnx.md), convertis
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans cet article, vous avez entraîné et inscrit un modèle PyTorch sur Azure Machine Learning service. Pour savoir comment déployer un modèle, passez à notre article relatif aux modèles de déploiement.
+Dans cet article, vous avez formé et inscrit un apprentissage profond, un réseau neural à l’aide de PyTorch sur Azure Machine Learning service. Pour savoir comment déployer un modèle, passez à notre article relatif aux modèles de déploiement.
 
 > [!div class="nextstepaction"]
 > [Comment et où déployer des modèles ?](how-to-deploy-and-where.md)

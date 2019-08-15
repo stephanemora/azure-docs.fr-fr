@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 7b9c9a7639ed7a9938052197758e5796fb9fc879
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 6fe08c15de7ea388a5194054791eb394dc2f6e01
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699419"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840607"
 ---
 # <a name="deploy-azure-file-sync"></a>Déployer Azure File Sync
 Utilisez Azure File Sync pour centraliser les partages de fichiers de votre organisation dans Azure Files tout en conservant la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Azure File Sync transforme Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible dans Windows Server pour accéder à vos données localement, notamment SMB, NFS et FTPS. Vous pouvez avoir autant de caches que nécessaire dans le monde entier.
@@ -237,7 +237,7 @@ $registeredServer = Register-AzStorageSyncServer -ParentObject $storageSync
 ---
 
 ## <a name="create-a-sync-group-and-a-cloud-endpoint"></a>Créer un groupe de synchronisation et un point de terminaison du cloud
-Un groupe de synchronisation définit la topologie de synchronisation d’un ensemble de fichiers. Les points de terminaison dans un groupe de synchronisation sont synchronisés entre eux. Un groupe de synchronisation doit contenir un seul point de terminaison cloud, qui représente un partage de fichiers Azure, et un ou plusieurs points de terminaison de serveur. Un point de terminaison de serveur représente un chemin d’accès vers le serveur inscrit. Un serveur peut avoir des points de terminaison de serveur dans plusieurs groupes de synchronisation. Vous pouvez créer autant de groupes de synchronisation que nécessaire pour décrire de manière appropriée votre topologie de synchronisation.
+Un groupe de synchronisation définit la topologie de synchronisation d’un ensemble de fichiers. Les points de terminaison dans un groupe de synchronisation sont synchronisés entre eux. Un groupe de synchronisation doit contenir un seul point de terminaison cloud, qui représente un partage de fichiers Azure, et un ou plusieurs points de terminaison de serveur. Un point de terminaison de serveur représente un chemin d’accès vers un serveur inscrit. Un serveur peut avoir des points de terminaison de serveur dans plusieurs groupes de synchronisation. Vous pouvez créer autant de groupes de synchronisation que nécessaire pour décrire de manière appropriée votre topologie de synchronisation.
 
 Un point de terminaison cloud est un pointeur vers un partage de fichiers Azure. Tous les points de terminaison de serveur seront synchronisés avec un point de terminaison cloud, en faisant ainsi un concentrateur. Le compte de stockage pour le partage de fichiers Azure doit se trouver dans la même région que le service de synchronisation de stockage. L’intégralité du partage de fichiers Azure est synchronisée, à une exception près : un dossier spécial, comparable au dossier « System Volume Information » masqué sur un volume NTFS, peut être configuré. Ce répertoire est appelé «.SystemShareInformation». Il contient des métadonnées de synchronisation importantes qui ne seront pas synchronisées avec d’autres points de terminaison. Ne pas l’utiliser ni le supprimer !
 

@@ -9,12 +9,12 @@ ms.author: mbaldwin
 ms.date: 07/06/2019
 ms.topic: conceptual
 ms.service: key-vault
-ms.openlocfilehash: 6a748031f9d35e26eeb544f154477ea3449903f5
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: d34c94ccca47d29afc4f3d83bec58db737be270c
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67796099"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840421"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>Authentification de service à service auprès d’Azure Key Vault à l’aide de .NET
 
@@ -250,7 +250,44 @@ Pour voir la bibliothèque `Microsoft.Azure.Services.AppAuthentication` en actio
 
 3. [Utilisation d’un exemple .NET Core et d’une identité managée pour appeler des services Azure à partir d’une machine virtuelle Linux Azure](https://github.com/Azure-Samples/linuxvm-msi-keyvault-arm-dotnet/).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="appauthentication-troubleshooting"></a>Résolution des problèmes AppAuthentication
+
+### <a name="common-issues-during-local-development"></a>Problèmes courants lors du développement local
+
+#### <a name="azure-cli-is-not-installed-you-are-not-logged-in-or-you-do-not-have-the-latest-version"></a>Azure CLI n’est pas installé, vous n’êtes pas connecté ou vous ne disposez pas de la dernière version
+
+Exécutez **az account get-access-token** pour déterminer si Azure CLI affiche un jeton pour vous. Si aucun programme de ce type n’est trouvé, installez [la dernière version de Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest). Si vous l’avez installé, vous pouvez être invité à vous connecter. 
+ 
+#### <a name="azureservicetokenprovider-cannot-find-the-path-for-azure-cli"></a>AzureServiceTokenProvider ne peut pas trouver le chemin d’accès pour Azure CLI
+
+AzureServiceTokenProvider recherche Azure CLI à ses emplacements d’installation par défaut. S’il ne trouve pas Azure CLI, définissez la variable d'environnement **AzureCLIPath** sur le dossier d’installation Azure CLI. AzureServiceTokenProvider ajoute la variable d’environnement à la variable d’environnement de chemin.
+ 
+#### <a name="you-are-logged-into-azure-cli-using-multiple-accounts-the-same-account-has-access-to-subscriptions-in-multiple-tenants-or-you-get-an-access-denied-error-when-trying-to-make-calls-during-local-development"></a>Vous êtes connecté à Azure CLI à l’aide de plusieurs comptes, le même compte a accès aux abonnements dans plusieurs locataires, ou vous recevez une erreur d’accès refusé lorsque vous essayez d’effectuer des appels pendant le développement local
+
+À l’aide de l’interface de ligne de commande Azure, définissez l’abonnement par défaut sur celui qui contient le compte que vous souhaitez utiliser et se trouve dans le même client hébergé que la ressource à laquelle vous souhaitez accéder : **az account set --subscription [subscription-id]** . Si aucune sortie n’est visible, cela signifie que la procédure a réussi. Vérifiez que le compte approprié est désormais le compte par défaut à l’aide de la commande **az account list**.
+
+### <a name="common-issues-across-environments"></a>Problèmes courants dans les environnements
+
+#### <a name="unauthorized-access-access-denied-forbidden-etc-error"></a>Accès non autorisé, accès refusé, interdit, etc., erreur
+ 
+Le principal utilisé n’a pas accès à la ressource à laquelle il tente d’accéder. Octroyez à votre compte d’utilisateur ou au « contributeur » MSI de l’App Service l’accès à la ressource souhaitée, selon que vous exécutez l’exemple sur votre machine de développement local ou que vous l’avez déployé dans Azure sur votre App Service. Certaines ressources, telles que les coffres de clés, disposent également de leurs propres [stratégies d’accès](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-secure-your-key-vault#data-plane-and-access-policies) que vous pouvez utiliser pour accorder l’accès aux principaux (utilisateurs, applications, groupes, etc.).
+
+### <a name="common-issues-when-deployed-to-azure-app-service"></a>Problèmes courants lors du déploiement sur Azure App Service
+
+#### <a name="managed-identity-is-not-setup-on-the-app-service"></a>L’identité gérée n’est pas configurée sur le App Service
+ 
+Vérifiez que les variables d’environnement MSI_ENDPOINT et MSI_SECRET existent à l’aide de la [console de débogage Kudu](https://azure.microsoft.com/en-us/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/). Si ces variables d’environnement n’existent pas, l’identité managée n’est pas activée sur le App Service. 
+ 
+### <a name="common-issues-when-deployed-locally-with-iis"></a>Problèmes courants lors du déploiement local avec IIS
+
+#### <a name="cant-retrieve-tokens-when-debugging-app-in-iis"></a>Impossible de récupérer les jetons lors du débogage de l’application dans IIS
+
+Par défaut, AppAuth s’exécute dans un contexte d’utilisateur différent dans IIS et, par conséquent, n’a pas accès à l’utilisation de votre identité de développeur pour récupérer les jetons d’accès. Vous pouvez configurer IIS pour qu’il s’exécute avec votre contexte utilisateur en suivant les deux étapes suivantes :
+- Configurez le pool d’applications pour que l’application Web s’exécute en tant que compte d’utilisateur actuel. Plus d’informations, cliquez [ici](https://docs.microsoft.com/en-us/iis/manage/configuring-security/application-pool-identities#configuring-iis-application-pool-identities)
+- Configurez « setProfileEnvironment » sur « true ». Plus d’informations, cliquez [ici](https://docs.microsoft.com/en-us/iis/configuration/system.applicationhost/applicationpools/add/processmodel#configuration). 
+
+    - Accédez à %windir%\System32\inetsrv\config\applicationHost.config
+    - Recherchez « setProfileEnvironment ». S’il est défini sur « false », remplacez-le par « true ». Si la valeur n’est pas définie, ajoutez-la en tant qu’attribut à l'élément processModel (/configuration/system.applicationHost/applicationPools/applicationPoolDefaults/processModel/@setProfileEnvironment) et affectez-lui la valeur « true ».
 
 - En savoir plus sur les [identités managées pour les ressources Azure](../active-directory/managed-identities-azure-resources/index.yml).
 - Apprenez-en davantage sur les [scénarios d’authentification Azure AD](../active-directory/develop/active-directory-authentication-scenarios.md).

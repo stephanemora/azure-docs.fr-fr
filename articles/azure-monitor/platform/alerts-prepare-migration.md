@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/19/2018
 ms.author: snmuvva
 ms.subservice: alerts
-ms.openlocfilehash: bdbd45c2b10dec8f1c0a85110747a470e818dbf9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5235db5cab39be6e36bdf145d3edc7c73fe9da54
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66015605"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68827395"
 ---
 # <a name="prepare-your-logic-apps-and-runbooks-for-migration-of-classic-alert-rules"></a>Préparer les applications logiques et les runbooks pour la migration des règles d’alerte classiques
 
@@ -32,7 +32,7 @@ Le tableau suivant référence les interfaces de programmation pour les alertes 
 |         |Alertes classiques  |Nouvelles alertes de métrique |
 |---------|---------|---------|
 |API REST     | [microsoft.insights/alertrules](https://docs.microsoft.com/rest/api/monitor/alertrules)         | [microsoft.insights/metricalerts](https://docs.microsoft.com/rest/api/monitor/metricalerts)       |
-|Azure CLI     | [az monitor alert](https://docs.microsoft.com/cli/azure/monitor/alert?view=azure-cli-latest)        | [az monitor metrics alert](https://docs.microsoft.com/cli/azure/monitor/metrics/alert?view=azure-cli-latest)        |
+|D’Azure CLI     | [az monitor alert](https://docs.microsoft.com/cli/azure/monitor/alert?view=azure-cli-latest)        | [az monitor metrics alert](https://docs.microsoft.com/cli/azure/monitor/metrics/alert?view=azure-cli-latest)        |
 |PowerShell      | [Référence](https://docs.microsoft.com/powershell/module/az.monitor/add-azmetricalertrule)       |  [Référence](https://docs.microsoft.com/powershell/module/az.monitor/add-azmetricalertrulev2)    |
 | Modèle Azure Resource Manager | [Pour les alertes classiques](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-enable-template)|[Pour les nouvelles alertes de métrique](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-create-templates)|
 
@@ -52,7 +52,7 @@ Utilisez le tableau suivant pour mapper les champs de charge utile de webhook du
 | Description de la règle d’alerte | **context.description** | **data.context.description** |
 | Condition de règle d’alerte | **context.condition** | **data.context.condition** |
 | Nom de métrique | **context.condition.metricName** | **data.context.condition.allOf[0].metricName** |
-| Agrégation de temps (agrégation de la métrique sur la fenêtre d’évaluation)| **data.context.condition.timeAggregation** | **data.context.condition.timeAggregation** |
+| Agrégation de temps (agrégation de la métrique sur la fenêtre d’évaluation)| **context.condition.timeAggregation** | **context.condition.timeAggregation** |
 | Période d’évaluation | **context.condition.windowSize** | **data.context.condition.windowSize** |
 | Opérateur (comparaison entre la valeur de métrique agrégée et le seuil) | **context.condition.operator** | **data.context.condition.operator** |
 | Seuil | **context.condition.threshold** | **data.context.condition.allOf[0].threshold** |

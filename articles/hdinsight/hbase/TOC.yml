@@ -162,6 +162,8 @@
       items:
         - name: Résoudre les problèmes de ressources
           href: ../hdinsight-troubleshoot-guide.md?toc=/azure/hdinsight/hbase/toc.json&bc=/azure/hdinsight/hbase/breadcrumb/toc.json
+        - name: hbase hbck retourne des incohérences
+          href: ./hbase-troubleshoot-hbase-hbck-inconsistencies.md
         - name: Exception de stockage après la réinitialisation de la connexion
           href: ./hbase-troubleshoot-storage-exception-reset.md
         - name: Aucune donnée dans les vues Apache Phoenix

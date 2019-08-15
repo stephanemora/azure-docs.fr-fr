@@ -7,12 +7,12 @@ ms.service: governance
 ms.topic: article
 ms.date: 12/06/2018
 ms.author: dacoulte
-ms.openlocfilehash: 520b84722d9434b309d3eb6da0baa3c1e4da33d0
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: 958f82ef94a08adaf2bbae1ef8ceefae5db289ea
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68608193"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780795"
 ---
 # <a name="overview-of-management-services-in-azure"></a>Vue d’ensemble des services de gestion dans Azure
 
@@ -40,7 +40,7 @@ L’automatisation de ces tâches vous permet d’éviter la redondance, en réd
 ## <a name="govern"></a>Gouvernance
 
 La gouvernance propose des mécanismes et des processus pour garder le contrôle sur vos applications et ressources dans Azure. Elle implique la planification de vos initiatives et la définition de priorités stratégiques.
-La gouvernance dans Azure est principalement mise en œuvre à l’aide de deux services. [Azure Policy](./policy/overview.md) vous permet de créer, d’attribuer et de gérer des définitions de stratégie afin d’appliquer des règles pour vos ressources. Cette fonctionnalité maintient ces ressources conformes aux standards de votre entreprise. [Azure Cost Management par Cloudyn](../cost-management/overview.md) vous permet de suivre l’utilisation du cloud et les dépenses liées à vos ressources Azure et celles d’autres fournisseurs de services cloud.
+La gouvernance dans Azure est principalement mise en œuvre à l’aide de deux services. [Azure Policy](./policy/overview.md) vous permet de créer, d’attribuer et de gérer des définitions de stratégie afin d’appliquer des règles pour vos ressources. Cette fonctionnalité maintient ces ressources conformes aux standards de votre entreprise. [Azure Cost Management](../cost-management/overview-cost-mgt.md) vous permet de suivre l’utilisation du Cloud et les dépenses liées à vos ressources Azure et à d’autres fournisseurs de Cloud.
 
 ## <a name="secure"></a>Sécuriser
 

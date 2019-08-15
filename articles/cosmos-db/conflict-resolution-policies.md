@@ -4,15 +4,15 @@ description: Cet article décrit les catégories de conflits et les stratégies 
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/23/2019
+ms.date: 08/05/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 45b7257f67be8ba5c134717d73488916056b7a7d
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: f69a70ef3bfc8830ed12173fddee41095937a1c0
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68384217"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68815099"
 ---
 # <a name="conflict-types-and-resolution-policies"></a>Types de conflits et stratégies de résolution
 
@@ -30,16 +30,16 @@ Pour les comptes Azure Cosmos configurés avec plusieurs régions d’écriture,
 
 Azure Cosmos DB offre un mécanisme souple, piloté par les stratégies, pour résoudre les conflits d’écriture. Vous pouvez choisir entre deux stratégies de résolution de conflits sur un conteneur Azure Cosmos :
 
-- **Dernière écriture prioritaire (LWW)** : cette stratégie de résolution, par défaut, utilise une propriété d’horodatage définie par le système. Elle est basée sur le protocole d’horloge de synchronisation de l’heure. Si vous utilisez l’API SQL, vous pouvez spécifier toute autre propriété numérique personnalisée (par exemple, votre propre notion de timestamp) à utiliser pour la résolution de conflits. Une propriété numérique personnalisée est également appelée *chemin de résolution du conflit*. 
+* **Dernière écriture prioritaire (LWW)** : cette stratégie de résolution, par défaut, utilise une propriété d’horodatage définie par le système. Elle est basée sur le protocole d’horloge de synchronisation de l’heure. Si vous utilisez l’API SQL, vous pouvez spécifier toute autre propriété numérique personnalisée (par exemple, votre propre notion de timestamp) à utiliser pour la résolution de conflits. Une propriété numérique personnalisée est également appelée *chemin de résolution du conflit*. 
 
   Si deux ou plusieurs éléments sont en conflit lors d’opérations d’insertion ou de remplacement, l’élément ayant la valeur la plus élevée pour le chemin de résolution du conflit l’emporte. Le système détermine le gagnant si plusieurs éléments présentent la même valeur numérique pour le chemin de résolution du conflit. Toutes les régions sont assurées de converger vers un seul gagnant et obtiennent une version identique de l’élément validé. Lorsque des conflits de suppression sont impliqués, la version supprimée l’emporte toujours sur les conflits d’insertion ou de remplacement. Ce résultat se produit quelle que soit la valeur du chemin de résolution du conflit.
 
   > [!NOTE]
-  > La stratégie Dernière écriture prioritaire (LWW) est la stratégie de résolution de conflit par défaut. Elle est disponible pour les API suivantes : SQL, MongoDB, Cassandra, Gremlin et Table.
+  > La dernière écriture prévaut est la stratégie de résolution de conflit par défaut et utilise l'horodatage `_ts` pour les API suivantes : SQL, MongoDB, Cassandra, Gremlin et Table. La propriété numérique personnalisée est disponible uniquement pour l’API SQL.
 
   Pour plus d’informations, consultez les [exemples qui utilisent des stratégies de résolution de conflit LWW](how-to-manage-conflicts.md).
 
-- **Personnalisé** : cette stratégie de résolution est destinée à la sémantique définie au niveau de l’application pour le rapprochement des conflits. Lorsque vous définissez cette stratégie sur votre conteneur Azure Cosmos, vous devez également inscrire une *procédure stockée de fusion*. Cette procédure est automatiquement appelée lorsque des conflits sont détectés sous une transaction de base de données côté serveur. Le système fournit exactement une garantie pour l’exécution d’une procédure de fusion dans le cadre du protocole d’engagement.  
+* **Personnalisé** : cette stratégie de résolution est destinée à la sémantique définie au niveau de l’application pour le rapprochement des conflits. Lorsque vous définissez cette stratégie sur votre conteneur Azure Cosmos, vous devez également inscrire une *procédure stockée de fusion*. Cette procédure est automatiquement appelée lorsque des conflits sont détectés sous une transaction de base de données côté serveur. Le système fournit exactement une garantie pour l’exécution d’une procédure de fusion dans le cadre du protocole d’engagement.  
 
   Si vous configurez votre conteneur avec l’option de résolution personnalisée mais ne pouvez pas inscrire une procédure de fusion sur le conteneur, ou si la procédure de fusion lève une exception lors de l’exécution, les conflits sont écrits dans le *flux de conflits*. Les conflits de l’application doivent ensuite être résolus manuellement dans le flux de conflits. Pour plus d’informations, consultez les [exemples illustrant la façon d’utiliser la stratégie de résolution personnalisée, et comment utiliser le flux de conflits](how-to-manage-conflicts.md).
 

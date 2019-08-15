@@ -5,15 +5,15 @@ author: rajani-janaki-ram
 manager: gauravd
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 07/31/2019
 ms.author: rajanaki
 ms.custom: mvc
-ms.openlocfilehash: 51754021f5029a751be90bfc4194ac6347c1e278
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 780db0cc5a99adfd2e7f8cd5be20a191bba009e8
+ms.sourcegitcommit: 6ad03fa28a0f60cb6dce6144f728c2ceb56ff6e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60772137"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68708138"
 ---
 # <a name="protect-a-file-server-by-using-azure-site-recovery"></a>Protéger un serveur de fichiers avec Azure Site Recovery 
 
@@ -56,7 +56,7 @@ Le diagramme suivant vous permet de déterminer la stratégie à utiliser pour v
 
 |Environnement  |Recommandation  |Éléments à prendre en considération |
 |---------|---------|---------|
-|Environnement de serveurs de fichiers avec ou sans DFSR|   [Utiliser Site Recovery pour la réplication](#replicate-an-on-premises-file-server-by-using-site-recovery)   |    Site Recovery ne prend pas en charge les clusters de disque partagés ni le périphérique de stockage NAS. Si votre environnement utilise ces configurations, utilisez l’une des autres approches, le cas échéant. <br> Site Recovery ne prend pas en charge SMB 3.0. La machine virtuelle répliquée intègre les modifications uniquement lorsque celles qui sont apportées aux fichiers sont mises à jour dans l’emplacement d’origine des fichiers.
+|Environnement de serveurs de fichiers avec ou sans DFSR|   [Utiliser Site Recovery pour la réplication](#replicate-an-on-premises-file-server-by-using-site-recovery)   |    Site Recovery ne prend pas en charge les clusters de disque partagés ni le périphérique de stockage NAS. Si votre environnement utilise ces configurations, utilisez l’une des autres approches, le cas échéant. <br> Site Recovery ne prend pas en charge SMB 3.0. La machine virtuelle répliquée intègre les modifications uniquement lorsque celles qui sont apportées aux fichiers sont mises à jour dans l’emplacement d’origine des fichiers.<br>  Site Recovery offre un processus de réplication de données quasi synchrone. Par conséquent, en cas de basculement non planifié, une perte de données potentielle est susceptible de se produire et peut créer des problèmes de non-correspondance USN.
 |Environnement de serveurs de fichiers avec DFSR     |  [Étendre la DFSR à une machine virtuelle Azure IaaS](#extend-dfsr-to-an-azure-iaas-virtual-machine)  |      La DFSR fonctionne bien dans des environnements avec une bande passante extrêmement faible. Cette approche nécessite une machine virtuelle Azure opérationnelle en permanence. Vous devez prendre en compte le coût de la machine virtuelle dans votre planification.         |
 |Machine virtuelle Azure IaaS     |     File Sync    |     Si vous utilisez la synchronisation de fichiers dans un scénario de récupération d’urgence, pendant le basculement, vous devez prendre des mesures manuelles pour vous assurer que les partages de fichiers sont accessibles à la machine du client de manière transparente. La synchronisation de fichiers exige que le port 445 soit ouvert à partir de la machine du client.     |
 
@@ -74,6 +74,8 @@ Le diagramme suivant vous permet de déterminer la stratégie à utiliser pour v
 
 > [!IMPORTANT]
 > Avant de passer à l’une des trois approches suivantes, vérifiez que ces dépendances sont prises en charge.
+
+
 
 **Connectivité de site à site** : Une connexion directe entre le site local et le réseau Azure doit être établie pour permettre la communication entre les serveurs. Utilisez une connexion VPN de site à site sécurisée vers un réseau virtuel Azure utilisé en tant que site de récupération d’urgence. Pour plus d’informations, consultez [Établir une connexion VPN de site à site entre un site local et un réseau virtuel Azure](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal).
 

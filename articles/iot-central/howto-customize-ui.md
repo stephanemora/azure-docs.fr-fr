@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 4d385f1e8c883453b4153ca4c9119d3be0a608bb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cef0014fb47aeddcad785fb3f938ab928964a942
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66495559"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68725699"
 ---
 # <a name="customize-the-azure-iot-central-ui"></a>Personnaliser l’interface utilisateur d’Azure IoT Central 
 
-*Cet article concerne les administrateurs.*
+Cet article explique comment, en tant qu’administrateur, vous pouvez personnaliser l’interface utilisateur de votre application en appliquant des thèmes personnalisés et en modifiant les liens d’aide pour pointer vers vos propres ressources d’aide personnalisées. 
 
-IoT Central vous permet de personnaliser l’interface utilisateur de votre application en appliquant des thèmes personnalisés et en modifiant les liens d’aide pour pointer vers vos propres ressources d’aide personnalisée. La capture d’écran suivante montre une page utilisant le thème standard :
+La capture d’écran suivante montre une page utilisant le thème standard :
 
 ![Thème standard de IoT Central](./media/howto-customize-ui/standard-ui.png)
 
@@ -39,7 +39,7 @@ Dans cette page, vous pouvez personnaliser les aspects suivants de votre applica
 
 Une image PNG, ne dépassant pas 1 Mo, avec un fond transparent. Ce logo s’affiche à gauche sur la barre de titre de l’application IoT Central.
 
-Si l’image de votre logo inclut le nom de votre application, vous pouvez masquer le texte du nom de votre application. Pour en savoir plus, veuillez consulter la section [Gérer les paramètres d’application](./howto-administer.md#manage-application-settings).
+Si l’image de votre logo inclut le nom de votre application, vous pouvez masquer le texte du nom de votre application. Pour en savoir plus, veuillez consulter la section [Gérer votre application](./howto-administer.md#change-application-name-and-url).
 
 ### <a name="browser-icon-favicon"></a>Icône de navigateur (favicon)
 

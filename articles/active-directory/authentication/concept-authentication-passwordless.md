@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/09/2019
+ms.date: 08/05/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2d80b359be0a6249327ba1ba1d51ffbc330bb073
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 3ae8f6854241240249cb3b7494872cbbd8fd41e6
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67711966"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68823768"
 ---
 # <a name="what-is-passwordless"></a>Présentation de l’authentification sans mot de passe
 
@@ -26,11 +26,13 @@ L’authentification multifacteur (MFA) est un excellent moyen de sécuriser vot
 | --- | --- | --- |
 | Sans mot de passe | Téléphone ou clé de sécurité | Biométrie ou code confidentiel |
 
-Nous reconnaissons que chaque organisation a des besoins différents lorsqu’il s’agit de l’authentification. Microsoft propose actuellement Windows Hello, notre première expérience sans mot de passe pour les PC Windows. Nous avons ajouté de nouvelles informations d’identification pour la famille sans mot de passe : L’application Microsoft Authenticator les clés de sécurité FIDO2.
+Chaque organisation a des besoins différents en matière d’authentification. Microsoft propose actuellement Windows Hello, notre pour les PC Windows. Nous ajoutons l’application Microsoft Authenticator et les clés de sécurité FIDO2 à la famille de mots de passe.
 
 ## <a name="microsoft-authenticator-app"></a>Application Microsoft Authenticator
 
 Autorisez le téléphone de votre employé à devenir une méthode d’authentification sans mot de passe. Vous utilisez peut-être déjà l’application Microsoft Authenticator comme une option pratique d’authentification multifacteur en plus d’un mot de passe. Elle est désormais disponible en tant qu’option sans mot de passe.
+
+![Connectez-vous à Microsoft Edge avec l’application Microsoft Authenticator](./media/concept-authentication-passwordless/concept-web-sign-in-microsoft-authenticator-app.png)
 
 Elle transforme n’importe quel téléphone iOS ou Android en méthode d’identification forte et sans mot de passe permettant aux utilisateurs de se connecter à toute plateforme ou tout navigateur en obtenant une notification sur leur téléphone, en faisant correspondre un numéro affiché sur l’écran à celui affiché sur le téléphone puis en utilisant leurs données biométriques (toucher ou visage) ou un code confidentiel pour confirmer.
 
@@ -40,11 +42,13 @@ Les clés de sécurité FIDO2 sont une méthode d’authentification sans mot de
 
 Avec la préversion publique, les employés peuvent utiliser des clés de sécurité externes pour se connecter à leurs machines Windows 10 (version 1809 ou ultérieure) jointes à Azure Active Directory et bénéficier de l’authentification unique pour leurs ressources cloud. Ils peuvent également se connecter sur les navigateurs pris en charge.
 
+![Connectez-vous à Microsoft Edge avec une clé de sécurité](./media/concept-authentication-passwordless/concept-web-sign-in-security-key.png)
+
 Bien qu’il existe de nombreuses clés FIDO2 certifiées par la FIDO Alliance, Microsoft exige que certaines des extensions facultatives de la spécification FIDO2 CTAP soient implémentées par le fournisseur afin de garantir une sécurité maximale et la meilleure expérience possible.
 
 Une clé de sécurité **doit** implémenter les fonctionnalités et extensions du protocole FIDO2 CTAP suivantes pour être compatible avec Microsoft :
 
-| # | Fonctionnalité/Extension de confiance | Pourquoi est-ce nécessaire ? |
+| # | Fonctionnalité/Extension de confiance | Pourquoi cette fonctionnalité ou extension est-elle nécessaire ? |
 | --- | --- | --- |
 | 1 | Clé résidente | Cette fonctionnalité permet à la clé de sécurité d’être portable ; vos informations d’identification sont stockées sur la clé de sécurité. |
 | 2 | Code confidentiel client | Cette fonctionnalité vous permet de protéger vos informations d’identification avec un deuxième facteur et s’applique aux clés de sécurité qui n’ont pas d’interface utilisateur. |
@@ -67,16 +71,18 @@ Les clés de sécurité FIDO2 constituent une excellente solution pour les entre
 
 ## <a name="what-scenarios-work-with-the-preview"></a>Scénarios fonctionnant avec la préversion
 
-1. Les administrateurs peuvent activer des méthodes d’authentification sans mot de passe pour leur locataire
-1. Les administrateurs peuvent cibler tous les utilisateurs ou sélectionner des utilisateurs/groupes au sein de leur locataire pour chaque méthode
-1. Les utilisateurs finaux peuvent inscrire et gérer ces méthodes d’authentification sans mot de passe sur le portail de leur compte
-1. Les utilisateurs finaux peuvent se connecter avec ces méthodes d’authentification sans mot de passe
-   1. Application Microsoft Authenticator : Fonctionnera dans chaque scénario dans lequel l’authentification Azure AD est utilisée, y compris sur tous les navigateurs, pendant la configuration de Windows 10 (OOBE) et avec les applications mobiles intégrées sur n’importe quel système d’exploitation.
-   1. Clés de sécurité : Fonctionnent sur l’écran de verrouillage Windows 10 version 1809 ou ultérieure et les navigateurs web pris en charge, comme Microsoft Edge.
+- Les administrateurs peuvent activer des méthodes d’authentification sans mot de passe pour leur locataire
+- Les administrateurs peuvent cibler tous les utilisateurs ou sélectionner des utilisateurs/groupes au sein de leur locataire pour chaque méthode
+- Les utilisateurs finaux peuvent inscrire et gérer ces méthodes d’authentification sans mot de passe sur le portail de leur compte
+- Les utilisateurs finaux peuvent se connecter avec ces méthodes d’authentification sans mot de passe
+   - Application Microsoft Authenticator : Fonctionnera dans les scénarios dans lequel l’authentification Azure AD est utilisée, y compris sur tous les navigateurs, pendant la configuration de Windows 10 (OOBE) et avec les applications mobiles intégrées sur n’importe quel système d’exploitation.
+   - Clés de sécurité : Fonctionnent sur l’écran de verrouillage Windows 10 version 1809 ou ultérieure et les navigateurs web pris en charge, comme Microsoft Edge.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Activer les options sans mot de passe dans votre organisation](howto-authentication-passwordless-enable.md)
+[Activer les options de clé de sécurité FIDO2 sans mot de passe dans votre organisation](howto-authentication-passwordless-security-key.md)
+
+[Activer les options sans mot de passe par téléphone dans votre organisation](howto-authentication-passwordless-phone.md)
 
 ### <a name="external-links"></a>Liens externes
 

@@ -1,5 +1,5 @@
 ---
-title: Forum aux questions sur Sauvegarde Azure
+title: Réponses aux questions les plus fréquentes sur les fonctionnalités de Sauvegarde Azure
 description: 'Réponses aux questions courantes sur : les fonctionnalités de la sauvegarde Azure, y compris les coffres Recovery Services ce qu’il peut sauvegarder, son fonctionnement, son chiffrement, et ses limites. '
 author: dcurwin
 manager: carmonm
@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/07/2019
 ms.author: dacurwin
-ms.openlocfilehash: c60b2bfae0d974d454c03b7eba655cbdacab5943
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: c41381dd3e53c80e74da3dc0d0a08e1ac83daec6
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68466692"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68827638"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Sauvegarde Azure - Forum Aux Questions
 Cet article répond aux questions courantes sur le service Sauvegarde Azure.
@@ -24,6 +24,13 @@ Oui. Vous pouvez créer jusqu’à 500 coffres Recovery Services par région de
 
 ### <a name="are-there-limits-on-the-number-of-serversmachines-that-can-be-registered-against-each-vault"></a>Le nombre de serveurs/ordinateurs pouvant être inscrits dans chaque coffre est-il limité ?
 Vous pouvez inscrire jusqu’à 1 000 machines virtuelles Azure par coffre. Si vous utilisez l’agent Sauvegarde Microsoft Azure, vous pouvez inscrire jusqu’à 50 agents MAB par coffre. Et vous pouvez inscrire 50 serveurs MAB/DPM dans un coffre.
+
+### <a name="how-many-datasourcesitems-can-be-protected-in-a-vault"></a>Combien de sources de données/éléments peuvent être protégés dans un coffre ? 
+Vous pouvez protéger jusqu’à 2000 sources de données/éléments sur toutes les charges de travail (machine virtuelle IaaS, SQL, AFS, etc.) dans un coffre.<br>  
+Par exemple, si vous avez déjà protégé 500 machines virtuelles et 400 partages de fichiers Azure dans le coffre, vous ne pouvez protéger que jusqu’à 1 100 bases de données SQL. 
+
+### <a name="how-many-policies-can-i-create-per-vault"></a>Combien de stratégies puis-je créer par coffre ? 
+Vous ne pouvez avoir que jusqu’à 200 stratégies par coffre.
 
 ### <a name="if-my-organization-has-one-vault-how-can-i-isolate-data-from-different-servers-in-the-vault-when-restoring-data"></a>Si mon organisation possède un coffre, comment isoler les données de différents serveurs lors de la restauration des données ?
 Les données que vous souhaitez récupérer ensemble doivent utiliser la même phrase secrète lorsque vous configurez la sauvegarde. Si vous souhaitez isoler la récupération vers un serveur ou des serveurs spécifiques, utilisez une phrase secrète unique aux serveurs voulus. Par exemple, les serveurs des ressources humaines peuvent utiliser une phrase secrète de chiffrement, les serveurs de comptabilité peuvent en utiliser une autre et les serveurs de stockage une troisième.

@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/29/2019
+ms.date: 08/06/2019
 ms.author: jingwang
-ms.openlocfilehash: a668bb2e0e3381abefaac93a0fb63f0d33bac5a1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8d6cc131c0c2baf7cc0a6600946870615d99e030
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65234064"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68839807"
 ---
 # <a name="copy-data-from-an-http-endpoint-by-using-azure-data-factory"></a>Copier des données d’un point de terminaison HTTP à l’aide d’Azure Data Factory
 
@@ -162,12 +162,12 @@ Si vous utilisez **certThumbprint** pour l’authentification et que le certific
 
 Pour obtenir la liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez l’article [Jeux de données](concepts-datasets-linked-services.md). 
 
-- Pour les **formats Parquet et de texte délimité**, reportez-vous à la section [Jeu de données aux formats Parquet et de texte délimité](#parquet-and-delimited-text-format-dataset).
-- Pour les autres formats tels que les **formats ORC/Avro/JSON/binaire**, reportez-vous à la section [Autres formats de jeu de données](#other-format-dataset).
+- Pour les **formats Parquet, Texte délimité et Binaire**, reportez-vous à la section [Jeu de données aux formats Parquet, Texte délimité et Binaire](#format-based-dataset).
+- Pour les autres formats tels que les **formats ORC/Avro/JSON**, reportez-vous à la section [Autres formats de jeu de données](#other-format-dataset).
 
-### <a name="parquet-and-delimited-text-format-dataset"></a>Jeu de données aux formats Parquet et de texte délimité
+### <a name="format-based-dataset"></a>Jeu de données aux formats Parquet, Texte délimité et Binaire
 
-Pour copier des données depuis HTTP au format P**arquet ou de texte délimité**, reportez-vous aux articles [Format Parquet](format-parquet.md) et [Format de texte délimité](format-delimited-text.md) sur le jeu de données basé sur le format et les paramètres pris en charge. Les propriétés suivantes sont prises en charge pour HTTP sous les paramètres `location` dans le jeu de données basé sur le format :
+Pour copier des données vers et depuis les **formats Parquet, Texte délimité et Binaire**, reportez-vous aux articles [Format Parquet](format-parquet.md), [Format Texte délimité](format-delimited-text.md) et [Format Binaire](format-binary.md) sur le jeu de données basé sur le format et les paramètres pris en charge. Les propriétés suivantes sont prises en charge pour HTTP sous les paramètres `location` dans le jeu de données basé sur le format :
 
 | Propriété    | Description                                                  | Obligatoire |
 | ----------- | ------------------------------------------------------------ | -------- |
@@ -208,7 +208,7 @@ Pour copier des données depuis HTTP au format P**arquet ou de texte délimité*
 
 ### <a name="other-format-dataset"></a>Autres formats de jeu de données
 
-Pour la copie de données depuis HTTP au **format ORC/Avro/JSON/binaire**, les propriétés suivantes sont prises en charge :
+Pour la copie de données depuis HTTP au **format ORC/Avro/JSON**, les propriétés suivantes sont prises en charge :
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
@@ -216,7 +216,7 @@ Pour la copie de données depuis HTTP au **format ORC/Avro/JSON/binaire**, les p
 | relativeUrl | URL relative de la ressource qui contient les données. Quand cette propriété n’est pas spécifiée, seule l’URL indiquée dans la définition du service lié est utilisée. | Non |
 | requestMethod | Méthode HTTP. Les valeurs autorisées sont **Get** (par défaut) et **Post**. | Non |
 | additionalHeaders | En-têtes de requête HTTP supplémentaires. | Non |
-| RequestBody | Corps de la requête HTTP. | Non |
+| requestBody | Corps de la requête HTTP. | Non |
 | format | Si vous souhaitez récupérer des données du point de terminaison HTTP en l’état sans les analyser, puis les copier dans un magasin basé sur un fichier, ignorez la section **format** dans les définitions de jeu de données d’entrée et de sortie.<br/><br/>Si vous souhaitez analyser le contenu de la réponse HTTP pendant la copie, les types de formats de fichiers suivants sont pris en charge : **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** et **ParquetFormat**. Sous **format**, définissez la propriété **type** sur l’une de ces valeurs. Pour plus d’informations, consultez [Format JSON](supported-file-formats-and-compression-codecs.md#json-format), [Format Texte](supported-file-formats-and-compression-codecs.md#text-format), [Format Avro](supported-file-formats-and-compression-codecs.md#avro-format), [Format Orc](supported-file-formats-and-compression-codecs.md#orc-format) et [Format Parquet](supported-file-formats-and-compression-codecs.md#parquet-format). |Non |
 | compression | Spécifiez le type et le niveau de compression pour les données. Pour plus d’informations, voir [Formats de fichier et de codecs de compression pris en charge](supported-file-formats-and-compression-codecs.md#compression-support).<br/><br/>Types pris en charge : **GZip**, **Deflate**, **BZip2** et **ZipDeflate**.<br/>Niveaux pris en charge :  **Optimal** et **Fastest**. |Non |
 
@@ -270,21 +270,21 @@ Pour obtenir la liste complète des sections et des propriétés permettant de d
 
 ### <a name="http-as-source"></a>HTTP en tant que source
 
-- Pour copier à partir des **formats Parquet et de texte délimité**, reportez-vous à la section [Source aux formats Parquet et de texte délimité](#parquet-and-delimited-text-format-source).
-- Pour copier à partir d’autres formats tels que les **formats ORC/Avro/JSON/binaire**, reportez-vous à la section [Autres formats de source](#other-format-source).
+- Pour effectuer une copie à partir des **formats Parquet, Texte délimité et Binaire**, reportez-vous à la section [Source des formats Parquet, Texte délimité et Binaire](#format-based-source).
+- Pour copier des données à partir d’autres formats tels que les **formats ORC/Avro/JSON**, reportez-vous à la section [Autre source de format](#other-format-source).
 
-#### <a name="parquet-and-delimited-text-format-source"></a>Source aux formats Parquet et de texte délimité
+#### <a name="format-based-source"></a>Source de formats Parquet, Texte délimité et Binaire
 
-Pour copier des données depuis HTTP au format **Parquet ou de texte délimité**, reportez-vous aux articles [Format Parquet](format-parquet.md) et [Format de texte délimité](format-delimited-text.md) sur la source de l’activité de copie basée sur le format et les paramètres pris en charge. Les propriétés suivantes sont prises en charge pour HTTP sous les paramètres `storeSettings` dans la source de la copie basée sur le format :
+Pour effectuer une copie à partir des **formats Parquet, Texte délimité et Binaire**, reportez-vous aux articles [Format Parquet](format-parquet.md), [Format Texte délimité](format-delimited-text.md) et [Format Binaire](format-binary.md) sur la source de l’activité de copie basée sur le format et les paramètres pris en charge. Les propriétés suivantes sont prises en charge pour HTTP sous les paramètres `storeSettings` dans la source de la copie basée sur le format :
 
 | Propriété                 | Description                                                  | Obligatoire |
 | ------------------------ | ------------------------------------------------------------ | -------- |
 | type                     | La propriété type sous `storeSettings` doit être définie sur **HttpReadSetting**. | OUI      |
 | requestMethod            | Méthode HTTP. <br>Les valeurs autorisées sont **Get** (par défaut) et **Post**. | Non       |
 | addtionalHeaders         | En-têtes de requête HTTP supplémentaires.                             | Non       |
-| RequestBody              | Corps de la requête HTTP.                               | Non       |
+| requestBody              | Corps de la requête HTTP.                               | Non       |
 | requestTimeout           | Délai d’expiration (valeur **TimeSpan**) pour l’obtention d’une réponse par la requête HTTP. Cette valeur correspond au délai d’expiration pour l’obtention d’une réponse, et non au délai d’expiration pour la lecture des données de la réponse. La valeur par défaut est **00:01:40**. | Non       |
-| maxConcurrentConnections | Nombre de connexions simultanées au magasin de stockage. Spécifiez uniquement lorsque vous souhaitez limiter les connexions simultanées au magasin de données. | Non       |
+| maxConcurrentConnections | Nombre de connexions simultanées au magasin de stockage. Spécifiez-le uniquement lorsque vous souhaitez limiter les connexions simultanées au magasin de données. | Non       |
 
 > [!NOTE]
 > Pour les formats Parquet et de texte délimité, la source de l’activité de copie de type **HttpSource** mentionnée dans la section suivante est toujours prise en charge pour la compatibilité descendante. Il est recommandé d’utiliser ce nouveau modèle à partir de maintenant. L’IU de création ADF peut désormais générer ces nouveaux types.
@@ -332,7 +332,7 @@ Pour copier des données depuis HTTP au format **Parquet ou de texte délimité*
 
 #### <a name="other-format-source"></a>Autres formats de source
 
-Pour la copie de données depuis HTTP au **format ORC/Avro/JSON/binaire**, les propriétés suivantes sont prises en charge dans la section **source** de l’activité de copie :
+Pour la copie de données depuis HTTP au **format ORC/Avro/JSON**, les propriétés suivantes sont prises en charge dans la section **source** de l’activité de copie :
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |

@@ -1,23 +1,21 @@
 ---
-title: Échanges et remboursements en libre-service de réservations Azure | Microsoft Docs
+title: Échanges et remboursements en libre-service de réservations Azure
 description: Découvrez comment vous pouvez échanger des réservations Azure ou en obtenir le remboursement.
-documentationcenter: ''
 author: yashesvi
 manager: yashesvi
-editor: ''
 ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/13/2019
+ms.date: 08/05/2019
 ms.author: banders
-ms.openlocfilehash: 54578746ea8029a760663edc456660f98358abc5
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5e38684500520d4565835456b94200aea399c938
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60615986"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68814102"
 ---
 # <a name="self-service-exchanges-and-refunds-for-azure-reservations"></a>Échanges et remboursements en libre-service de réservations Azure
 
@@ -58,10 +56,19 @@ La facture d’achat de réservation d’origine est annulée, puis une facture 
 
 La facture d’origine est annulée, puis une facture est créée. L’argent est crédité sur la carte de crédit qui a été utilisée pour l’achat d’origine. Si vous avez changé de carte, [contactez le support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
-## <a name="exchange-policies"></a>Politique d’échange
+## <a name="cancel-exchange-and-refund-policies"></a>Stratégies d’annulation, d’échange et de remboursement
+
+Azure dispose des stratégies suivantes pour les annulations, les échanges et les remboursements.
+
+**Stratégies d’annulation**
+
+- Si vous annulez une réservation, des frais de résiliation anticipée de 12 % sont susceptibles d’être appliqués.
+- Le remboursement que vous recevez pour une annulation est le solde au prorata moins les 12 % des frais de résiliation anticipée. Pour annuler, accédez à la réservation dans le portail Azure, puis sélectionnez **Remboursement**.
+
+**Stratégies d’échange**
 
 - Vous pouvez retourner plusieurs réservations existantes pour acheter une nouvelle réservation du même type. Vous ne pouvez pas échanger une réservation d’un type contre une réservation d’un autre type. Par exemple, vous ne pouvez pas retourner une réservation de machine virtuelle pour acheter une réservation SQL.
-- Seuls les propriétaires de réservation peuvent traiter un échange. [Découvrez comment ajouter ou changer les utilisateurs qui peuvent gérer une réservation](https://docs.microsoft.com/azure/billing/billing-manage-reserved-vm-instance#add-or-change-users-who-can-manage-a-reservation).
+- Seuls les propriétaires de réservation peuvent traiter un échange. [Découvrez comment ajouter ou changer les utilisateurs qui peuvent gérer une réservation](billing-manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).
 - Un échange est traité comme un remboursement et un rachat : différentes transactions sont créées pour l’annulation et le nouvel achat. Le montant de la réservation au prorata est remboursé pour les réservations que vous échangez. Vous êtes facturé entièrement pour le nouvel achat. Le montant de la réservation au prorata est la valeur résiduelle au prorata quotidienne de la réservation qui fait l’objet d’un retour.
 - Vous pouvez échanger une réservation ou en obtenir le remboursement même si le contrat entreprise utilisé pour son achat a expiré et a été renouvelé sous la forme d’un nouveau contrat.
 - Vous pouvez modifier n’importe quelle propriété d’une réservation telle que la taille, la région, la quantité et la période avec un échange.
@@ -69,9 +76,9 @@ La facture d’origine est annulée, puis une facture est créée. L’argent es
 - La nouvelle réservation achetée dans le cadre d’un échange a une nouvelle période qui commence à la date de cet échange.
 - Il n’y a aucune pénalité ou limite annuelle pour les échanges.
 
-## <a name="refund-policies"></a>Politique de remboursement
-
+**Stratégies de remboursement**
 - Le montant total du remboursement ne peut pas dépasser 50 000 USD sur 12 mois consécutifs.
+- Les remboursements sont calculés en fonction du prix le plus bas de votre prix d’achat ou du prix actuel de la réservation.
 - Seuls les propriétaires de réservation peuvent traiter un remboursement. [Découvrez comment ajouter ou changer les utilisateurs qui peuvent gérer une réservation](billing-manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).
 - Microsoft se réserve le droit de facturer une pénalité de 12 % pour tout retour, bien que la pénalité ne soit pas actuellement facturée.
 

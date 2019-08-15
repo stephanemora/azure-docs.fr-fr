@@ -5,18 +5,19 @@ services: search
 manager: pablocas
 author: luiscabrer
 ms.service: search
+ms.subservice: cognitive-search
 ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 589f8c8f11138b4fb5c3c3096229e28c633efb0d
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: e60eeb601a0a5796609b9c38b7394c2de0610cdf
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68423008"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68841285"
 ---
 #  <a name="how-to-process-and-extract-information-from-images-in-cognitive-search-scenarios"></a>Comment traiter et extraire des informations d’images dans des scénarios de recherche cognitive
 
@@ -72,7 +73,8 @@ Si la propriété *imageAction* est définie sur une valeur autre que « none 
 | originalWidth      | Largeur d’origine de l’image avant la normalisation. |
 | originalHeight      | Hauteur d’origine de l’image avant la normalisation. |
 | rotationFromOriginal |  Rotation dans le sens inverse des aiguilles d’une montre exprimée en degrés pour créer l’image normalisée. Valeur comprise entre 0 et 360 degrés. Cette étape lit les métadonnées de l’image générée par un appareil photo ou un scanneur. La valeur est généralement un multiple de 90 degrés. |
-| contentOffset |Offset de caractère à l’intérieur du champ de contenu dont l’image a été extraite. Ce champ est applicable uniquement aux fichiers contenant des images incorporées. |
+| contentOffset | Offset de caractère à l’intérieur du champ de contenu dont l’image a été extraite. Ce champ est applicable uniquement aux fichiers contenant des images incorporées. |
+| pageNumber | Si l'image a été extraite ou rendue à partir d'un PDF, ce champ contient le numéro de page du PDF à partir de laquelle elle a été extraite ou rendue, à partir de 1.  Si l’image ne provient pas d’un fichier PDF, ce champ a la valeur 0.  |
 
  Exemple de valeur de *normalized_images* :
 ```json
@@ -84,7 +86,8 @@ Si la propriété *imageAction* est définie sur une valeur autre que « none 
     "originalWidth": 5000,  
     "originalHeight": 3000,
     "rotationFromOriginal": 90,
-    "contentOffset": 500  
+    "contentOffset": 500,
+    "pageNumber": 2
   }
 ]
 ```

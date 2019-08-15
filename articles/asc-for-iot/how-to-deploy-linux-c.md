@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2019
 ms.author: mlottner
-ms.openlocfilehash: 3fd4287c6dd1cc42f419cfa6b252c1d276d1d5a5
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 7578811c37cd0bbe47821dadacce5fa5974f56cf
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68597227"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68812733"
 ---
 # <a name="deploy-azure-security-center-for-iot-c-based-security-agent-for-linux"></a>Déployer l’agent de sécurité Azure Security Center pour IoT basé sur C pour Linux
 
@@ -48,7 +48,7 @@ Pour installer et déployer l’agent de sécurité, procédez comme suit :
 
 1. Téléchargez la version la plus récente sur votre machine, depuis [GitHub](https://aka.ms/iot-security-github-c).
 
-1. Extrayez le contenu du package et accédez au dossier _/Install_.
+1. Extrayez le contenu du package et accédez au dossier _/src/installation_.
 
 1. Ajoutez des autorisations en cours d’exécution au **script InstallSecurityAgent** en exécutant la commande suivante :
     

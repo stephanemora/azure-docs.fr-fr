@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 09/21/2018
 ms.author: cherylmc
-ms.openlocfilehash: 0ba818ef3c24d0e88e662adf87b22cc938fe5fab
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d076e2b0057f0ba666fa47ffd0b3d7d1fcc14631
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60391048"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68725596"
 ---
 # <a name="about-zone-redundant-virtual-network-gateways-in-azure-availability-zones"></a>À propos des passerelles de réseau virtuel redondantes interzone dans les Zones de disponibilité Azure
 
@@ -86,7 +86,7 @@ Oui, vous pouvez utiliser le Portail Azure pour déployer les nouvelles référe
 
 ### <a name="what-regions-are-available-for-me-to-use-the-new-skus"></a>Dans quelles régions puis-je utiliser les nouvelles références SKU ?
 
-Les nouvelles références SKU sont disponibles dans les régions Azure disposant de Zones de disponibilité Azure, c’est-à-dire les régions USA Centre, France Centre, Europe Nord, Europe Ouest et USA Ouest 2. Prochainement, des passerelles redondantes interzone seront disponibles dans d’autres régions Azure publiques.
+Les nouvelles références SKU sont disponibles dans les régions Azure qui possèdent les régions Zones de disponibilité Azure – USA Centre, France Centre, Europe Nord, Europe Ouest et USA Ouest 2, USA Est, USA Est 2, Asie du sud-est, est du Japon, Royaume-Uni Sud. Prochainement, des passerelles redondantes interzone seront disponibles dans d’autres régions Azure publiques.
 
 ### <a name="can-i-changemigrateupgrade-my-existing-virtual-network-gateways-to-zone-redundant-or-zonal-gateways"></a>Puis-je changer/migrer/mettre à niveau mes passerelles de réseau virtuel existantes vers des passerelles zonales ou redondantes interzone ?
 

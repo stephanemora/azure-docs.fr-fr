@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: dacurwin
-ms.openlocfilehash: 8948a620c27311f0371a557c91a971da37111cb9
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 078c8763a08df339b9291807102e2d187d2a882f
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688595"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68827572"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Forum aux questions - Sauvegarde de machines virtuelles Azure
 
@@ -64,14 +64,14 @@ Oui. Les sauvegardes s’exécutent quand une machine est arrêtée. Le point de
 ### <a name="can-i-cancel-an-in-progress-backup-job"></a>Puis-je annuler un travail de sauvegarde en cours ?
 Oui. Vous pouvez annuler un travail de sauvegarde dont la **prise de l’instantané est en cours**. Vous ne pouvez pas annuler un travail si un transfert de données à partir de l’instantané est en cours.
 
-### <a name="i-enabled-lock-on-resource-group-created-by-azure-backup-service-ie-azurebackuprggeonumber-will-my-backups-continue-to-work"></a>J’ai verrouillé le groupe de ressources créé par le Service de sauvegarde Azure (ex. `AzureBackupRG_<geo>_<number>`). Est-ce que mes sauvegardes continueront de fonctionner ?
+### <a name="i-enabled-lock-on-resource-group-created-by-azure-backup-service-ie-azurebackuprg_geo_number-will-my-backups-continue-to-work"></a>J’ai verrouillé le groupe de ressources créé par le Service de sauvegarde Azure (ex. `AzureBackupRG_<geo>_<number>`). Est-ce que mes sauvegardes continueront de fonctionner ?
 Si vous verrouillez le groupe de ressources créé par le Service de sauvegarde Azure, les sauvegardes échoueront, car il existe une limite maximale de 18 points de restauration.
 
 L’utilisateur doit supprimer le verrou et effacer la collection des points de restauration à partir de ce groupe de ressources afin d’assurer la réussite des futures sauvegardes, [suivez ces étapes](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#clean-up-restore-point-collection-from-azure-portal) pour supprimer la collection des points de restauration.
 
 
 ### <a name="does-azure-backup-support-standard-ssd-managed-disk"></a>Le service Sauvegarde Azure prend-il en charge les disques managés SSD standard ?
-Le service Sauvegarde Azure prend en charge les [disques managés SSD standard](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/). Les disques managés SSD offrent un nouveau type de stockage durable aux machines virtuelles Azure. Une prise en charge disques managés SSD est fournie dans la [restauration instantanée](backup-instant-restore-capability.md).
+Oui, le service Sauvegarde Azure prend en charge les [disques managés SSD standard](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/).
 
 ### <a name="can-we-back-up-a-vm-with-a-write-accelerator-wa-enabled-disk"></a>Pouvons-nous sauvegarder une machine virtuelle dotée d’un disque avec Accélérateur d’écriture ?
 Il n’est pas possible de prendre des instantanés sur un disque avec Accélérateur d’écriture. Toutefois, le service Sauvegarde Azure peut exclure un tel disque de la sauvegarde.
@@ -119,7 +119,7 @@ Oui. Même si vous supprimez la machine virtuelle, vous pouvez accéder à l’�
 Pour une machine virtuelle Azure à disque managé, la restauration dans des groupes à haute disponibilité est activée en proposant une option dans un modèle lors de la restauration en tant que disque managé. Ce modèle dispose du paramètre d’entrée appelé **Groupes à haute disponibilité**.
 
 ### <a name="how-do-we-get-faster-restore-performances"></a>Comment accélérer les performances de restauration ?
-Pour des performances de restauration plus rapides, nous utilisons la fonctionnalité de [restauration instantanée](backup-instant-restore-capability.md).
+La fonctionnalité [Restauration instantanée](backup-instant-restore-capability.md) permet d’accélérer les sauvegardes et les restaurations instantanées à partir des captures instantanées.
 
 ## <a name="manage-vm-backups"></a>Gérer les sauvegardes de machine virtuelle
 

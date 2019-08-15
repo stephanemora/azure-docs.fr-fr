@@ -14,10 +14,12 @@
 - name: Tutoriels
   items:
     - name: Lancer le lecteur immersif (Node.js)
-      href: tutorial.md
+      href: tutorial-nodejs.md
+    - name: Lancer le lecteur immersif (Python)
+      href: tutorial-python.md
     - name: Photo avec le lecteur immersif (Swift)
-      href: ios-picture-immersive-reader-tutorial.md
-- name: Guides pratiques
+      href: tutorial-ios-picture-immersive-reader.md
+- name: Procédure
   items:
     - name: Authentification Azure Active Directory
       href: azure-active-directory-authentication.md

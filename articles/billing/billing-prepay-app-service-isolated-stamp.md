@@ -6,14 +6,14 @@ author: yashesvi
 manager: yashar
 ms.service: billing
 ms.topic: conceptual
-ms.date: 07/16/2019
+ms.date: 08/02/2019
 ms.author: banders
-ms.openlocfilehash: 40ccee7a993ce39a9b4c7a86309b0554daa56026
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: f122ec2474c09cdd6c9ada4ddc59b1adb44f619f
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68298165"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780001"
 ---
 # <a name="prepay-for-azure-app-service-isolated-stamp-fee-with-reserved-capacity"></a>Prépayer des frais de timbre avec une capacité réservée pour Azure App Service Isolé
 
@@ -62,13 +62,9 @@ Vous pouvez acheter une capacité réservée d’horodatage Isolé dans le [port
 
 Après l’achat, accédez à [Réservations](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade) pour afficher l’état de l’achat et le surveiller à tout moment.
 
-## <a name="cancellations-and-exchanges"></a>Annulations et échanges
+## <a name="cancel-exchange-or-refund-reservations"></a>Annuler, échanger ou rembourser des réservations
 
-Si vous êtes amené à annuler votre capacité réservée d’horodatage Isolé, des frais de résiliation anticipée de 12 % peuvent s’appliquer. Les remboursements sont basés sur le tarif le plus bas de votre prix d’achat ou le prix actuel de la réservation. Les remboursements sont limités à 50 000 USD par an. Le remboursement que vous recevez correspond au solde restant au prorata moins les frais de résiliation anticipée de 12 %. Pour annuler, accédez à la réservation dans le portail Azure, puis sélectionnez **Remboursement**.
-
-Si vous devez déplacer votre capacité réservée Isolé vers une autre région, vous pouvez l’échanger contre une autre réservation de valeur égale ou supérieure. La date de début du terme de la nouvelle réservation ne couvre pas la réservation échangée. Une période de trois ans commence à courir lorsque vous créez la nouvelle réservation. Pour effectuer l’échange, accédez au portail Azure, sélectionnez la réservation que vous souhaitez échanger, puis sélectionnez **Échanger**.
-
-Pour plus d’informations sur l’échange ou le remboursement des réservations, voir [Échanges et remboursements de réservations](billing-azure-reservations-self-service-exchange-and-refund.md).
+Vous pouvez annuler, échanger ou rembourser des réservations avec certaines limitations. Pour plus d’informations, consultez [Échanges et remboursements en libre-service pour les réservations Azure](billing-azure-reservations-self-service-exchange-and-refund.md).
 
 ## <a name="discount-application-shown-in-usage-data"></a>Application de remise dans les données d’utilisation
 

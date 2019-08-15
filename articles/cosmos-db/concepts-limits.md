@@ -5,13 +5,13 @@ author: arramac
 ms.author: arramac
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/10/2019
-ms.openlocfilehash: 74df0038676e8459028084890da569ed3b75a682
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.date: 08/05/2019
+ms.openlocfilehash: d3d09d466e05c97de215542c66987aa6b723afce
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67797285"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68827987"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Quotas du service Azure Cosmos DB
 
@@ -23,8 +23,8 @@ Une fois que vous avez créé un compte Azure Cosmos dans votre abonnement, vous
 
 | Ressource | Limite par défaut |
 | --- | --- |
-| Nombre maximal d’unités de requête par conteneur ([mode provisionné avec débit dédié](databases-containers-items.md#azure-cosmos-containers)) | 1 000 000 par défaut. Vous pouvez l’augmenter en [soumettant un ticket de support Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) ou en contactant [Cosmos DB](mailto:askcosmosdb@microsoft.com). |
-| Nombre maximal d’unités de requête par base de données ([mode provisionné avec débit partagé](databases-containers-items.md#azure-cosmos-containers)) | 1 000 000 par défaut. Vous pouvez l’augmenter en [soumettant un ticket de support Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) ou en contactant [Cosmos DB](mailto:askcosmosdb@microsoft.com). |
+| Nombre maximal d’unités de requête par conteneur ([mode provisionné avec débit dédié](databases-containers-items.md#azure-cosmos-containers)) | 1 000 000 par défaut. Vous pouvez l’augmenter en [soumettant un ticket de support Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). |
+| Nombre maximal d’unités de requête par base de données ([mode provisionné avec débit partagé](databases-containers-items.md#azure-cosmos-containers)) | 1 000 000 par défaut. Vous pouvez l’augmenter en [soumettant un ticket de support Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). |
 | Nombre maximal d’unités de requête par clé de partition (logique) | 10 000 |
 | Volume de stockage maximal sur tous les éléments par clé de partition (logique)| 10 Go |
 | Nombre maximal de clés de partition (logiques) distinctes | Illimité |
@@ -37,10 +37,16 @@ Une fois que vous avez créé un compte Azure Cosmos dans votre abonnement, vous
 
 Un conteneur Cosmos (ou une base de données de débit partagé) doit avoir un débit minimum de 400 unités de requête. À mesure que le conteneur croît, le débit minimal pris en charge dépend également des facteurs suivants :
 
-* Le débit maximal provisionné jusqu’ici sur le conteneur. Le service prend en charge la réduction du débit d’un conteneur jusqu’à 10 % du maximum provisionné. Par exemple, si votre débit a été porté à 10 000 RU, le plus petit débit provisionné possible serait de 1000 unités de requête.
-* Le nombre total de conteneurs que vous avez déjà créé dans une base de données de débit partagé, à raison de 100 unités de requête par conteneur. Par exemple, si vous avez créé cinq conteneurs au sein d’une base de données de débit partagé, le débit doit être au moins de 500 unités de requête.
+* Le débit minimal que vous pouvez définir sur un conteneur dépend du débit maximal déjà approvisionné sur le conteneur. Le service prend en charge la réduction du débit d’un conteneur jusqu’à 10 % du maximum provisionné. Par exemple, si votre débit a été porté à 10 000 RU, le plus petit débit provisionné possible serait de 1000 unités de requête.
+* Le débit minimal sur une base de données de débit partagé dépend également du nombre total de conteneurs que vous avez créés dans une base de données de débit partagé, mesuré à 100 unités de requête par conteneur. Par exemple, si vous avez créé cinq conteneurs au sein d’une base de données de débit partagé, le débit doit être au moins de 500 unités de requête.
 
-Les débits actuel et minimal d’un conteneur ou d’une base de données peuvent être récupérés à partir du portail Azure ou des SDK. Pour plus d’informations, consultez [Provisionner le débit sur les conteneurs et les bases de données](set-throughput.md). En résumé, voici les limites minimales de RU provisionnées. 
+Les débits actuel et minimal d’un conteneur ou d’une base de données peuvent être récupérés à partir du portail Azure ou des SDK. Pour plus d’informations, consultez [Provisionner le débit sur les conteneurs et les bases de données](set-throughput.md). 
+
+> [!NOTE]
+> Dans certains cas, vous pourrez peut-être réduire le débit à moins de 10 %. Utilisez l’API pour récupérer le nombre minimal d’unités de requête par conteneur.
+>
+
+En résumé, voici les limites minimales de RU provisionnées. 
 
 | Ressource | Limite par défaut |
 | --- | --- |
@@ -56,13 +62,21 @@ Vous pouvez [provisionner et gérer votre compte Azure Cosmos](how-to-manage-dat
 
 | Ressource | Limite par défaut |
 | --- | --- |
-| Nombre maximal de comptes de base de données par abonnement | 50 par défaut. Vous pouvez l’augmenter en [soumettant un ticket de support Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) ou en contactant [Cosmos DB](mailto:askcosmosdb@microsoft.com).|
-| Nombre maximal de basculements régionaux | 1/heure par défaut. Vous pouvez l’augmenter en [soumettant un ticket de support Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) ou en contactant [Cosmos DB](mailto:askcosmosdb@microsoft.com).|
+| Nombre maximal de comptes de base de données par abonnement | 50 par défaut. Vous pouvez l’augmenter en [soumettant un ticket de support Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request).|
+| Nombre maximal de basculements régionaux | 1/heure par défaut. Vous pouvez l’augmenter en [soumettant un ticket de support Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request).|
 
 > [!NOTE]
 > Les basculements régionaux s’appliquent uniquement à des comptes d’écriture monorégions. Les comptes d’écriture multirégions ne requièrent pas ou n’ont pas de limite quant au changement de région d’écriture.
 
 Cosmos DB sauvegarde automatiquement vos données à intervalles réguliers. Pour plus d’informations sur les fenêtres et intervalles de conservation des sauvegardes, consultez [Sauvegarde en ligne et restauration de données à la demande dans Azure Cosmos DB](online-backup-and-restore.md).
+
+## <a name="per-account-limits"></a>Limites par compte
+
+| Ressource | Limite par défaut |
+| --- | --- |
+| Nombre maximal de bases de données | Illimité |
+| Nombre maximal de conteneurs par base de données (ou compte) | Illimité |
+| Nombre maximal de régions | Aucune limite (toutes les régions Azure) |
 
 ## <a name="per-container-limits"></a>Limites par conteneur
 
@@ -77,7 +91,7 @@ En fonction de l’API que vous utilisez, un conteneur Azure Cosmos peut représ
 | Nombre maximal de clés uniques par conteneur|10 <sup>*</sup>|
 | Nombre maximal de chemins par contrainte de clé unique|16 <sup>*</sup>|
 
-<sup>*</sup> Vous pouvez augmenter ces limites par conteneur en contactant le Support Azure ou [Cosmos DB](mailto:askcosmosdb@microsoft.com).
+<sup>*</sup> Vous pouvez augmenter ces limites par conteneur en contactant le Support Azure.
 
 ## <a name="per-item-limits"></a>Limites par élément
 
@@ -115,7 +129,7 @@ Cosmos DB utilise HMAC pour l’autorisation. Vous pouvez utiliser une clé prin
 | --- | --- |
 | Délai d’expiration maximal d’un jeton principal | 15 min  |
 | Délai d’expiration minimal d’un jeton de ressource | 10 min  |
-| Délai d’expiration maximal d’un jeton de ressource | 24 h par défaut. Vous pouvez l’augmenter en [soumettant un ticket de support Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) ou en contactant [Cosmos DB](mailto:askcosmosdb@microsoft.com).|
+| Délai d’expiration maximal d’un jeton de ressource | 24 h par défaut. Vous pouvez l’augmenter en [soumettant un ticket de support Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request).|
 | Variation d’horloge maximale pour l’autorisation de jeton| 15 min |
 
 Cosmos DB prend en charge l’exécution de déclencheurs pendant les écritures. Le service prend en charge un maximum d’un pré-déclencheur et d’un post-déclencheur par opération d’écriture. 
@@ -134,7 +148,7 @@ Cosmos DB prend en charge l’interrogation d’éléments à l’aide de [SQL](
 | Nombre maximal d’arguments par expression IN| 6 000 <sup>*</sup>|
 | Nombre maximal de points par polygone| 4 096 <sup>*</sup>|
 
-<sup>*</sup> Vous pouvez augmenter ces limites de requête SQL en contactant le Support Azure ou [Cosmos DB](mailto:askcosmosdb@microsoft.com).
+<sup>*</sup> Vous pouvez augmenter ces limites de requête SQL en contactant le Support Azure.
 
 ## <a name="mongodb-api-specific-limits"></a>Limites propres à l’API MongoDB
 

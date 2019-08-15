@@ -1,7 +1,7 @@
 ---
 title: Optimiser les hyperparamètres pour votre modèle
 titleSuffix: Azure Machine Learning service
-description: Ajustez avec efficacité les hyperparamètres de votre modèle d’apprentissage profond (deep learning) / machine learning avec le service Azure Machine Learning. Vous allez apprendre à définir l’espace de recherche de paramètres, à spécifier une métrique principale à optimiser et à arrêter de façon anticipée les exécutions peu performantes.
+description: Ajustez avec efficacité les hyperparamètres de votre modèle d’apprentissage profond (deep learning) / machine learning avec le service Azure Machine Learning. Vous allez apprendre à définir l’espace de recherche de paramètres, à spécifier un indicateur de performance à optimiser et à arrêter de façon anticipée les exécutions peu performantes.
 ms.author: swatig
 author: swatig007
 ms.reviewer: sgilley
@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 07/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 730f39bf0b05ef33bbbca150532f96f1e495a9ed
-ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
+ms.openlocfilehash: cb4378047f34f3f635b2f1dd2425bbee28f91178
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68302345"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68815720"
 ---
 # <a name="tune-hyperparameters-for-your-model-with-azure-machine-learning-service"></a>Optimiser les hyperparamètres de votre modèle avec le service Azure Machine Learning
 
@@ -45,7 +45,7 @@ Optimisez automatiquement les hyperparamètres en explorant la plage de valeurs 
 
 ### <a name="types-of-hyperparameters"></a>Types d’hyperparamètres
 
-Chaque hyperparamètre peut être discret ou continu.
+Chaque hyperparamètre peut être discret ou continu et a une distribution des valeurs décrites par une [expression de paramètre](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.parameter_expressions?view=azure-ml-py).
 
 #### <a name="discrete-hyperparameters"></a>Hyperparamètres discrets 
 
@@ -129,7 +129,7 @@ L’[échantillonnage bayésien](https://docs.microsoft.com/python/api/azureml-t
 
 Quand vous utilisez l’échantillonnage bayésien, le nombre d’exécutions simultanées a un impact sur l’efficacité du processus d’optimisation. En règle générale, un nombre inférieur d’exécutions simultanées peut déboucher sur une meilleure convergence d’échantillonnage, car le plus faible degré de parallélisme accroît le nombre d’exécutions qui bénéficient des exécutions ayant abouti précédemment.
 
-L’échantillonnage bayésien prend en charge seulement les distributions `choice` et `uniform` sur l’espace de recherche. 
+L’échantillonnage bayésien prend en charge seulement les distributions `choice`, `uniform` et `quniform` sur l’espace de recherche.
 
 ```Python
 from azureml.train.hyperdrive import BayesianParameterSampling

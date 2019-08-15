@@ -12,12 +12,12 @@ ms.date: 02/08/2019
 ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f172151b3b385cf936f7335048e172fa32ffa2ac
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: a19c78efb7d81dcdcd3c221f58d4e4cc7be5ccd1
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562022"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68722188"
 ---
 # <a name="azure-active-directory-deployment-plans"></a>Plans de déploiement Azure Active Directory
 Vous souhaitez des conseils de bout en bout sur la façon de déployer certaines fonctionnalités Azure Active Directory (Azure AD) ? Les plans de déploiement suivants aborderont les notions de base (valeur commerciale, planification, conception et procédures opérationnelles) nécessaires pour réussir le lancement de quelques-unes des fonctionnalités Azure AD les plus courantes. 
@@ -69,3 +69,4 @@ Les rôles peuvent inclure :
 |[Proxy d’application Azure AD](https://aka.ms/deploymentplans/appproxy)|Aujourd’hui, les employés veulent être productifs partout, tout le temps, depuis n’importe quel appareil. Ils veulent pouvoir travailler sur leurs propres appareils (tablettes, téléphones ou ordinateurs portables). Ils veulent aussi pouvoir accéder à toutes leurs applications, qu’il s’agisse d’applications SaaS dans le cloud ou d’applications métier installées en local. La fourniture d’un accès aux applications locales implique généralement le recours à des réseaux privés virtuels (VPN) ou à des zones démilitarisées (DMZ). Non seulement ces solutions sont complexes et difficiles à sécuriser, mais leur configuration et leur gestion ont un coût élevé. Il y a une meilleure solution. - Proxy d’application Azure AD|
 |[Approvisionnement d’utilisateurs](https://aka.ms/UserProvisioningDPDownload)|Azure AD vous permet d’automatiser la création, la maintenance et la suppression d’identités utilisateur dans les applications cloud (SaaS) comme Dropbox, Salesforce, ServiceNow, etc.|
 |[Provisionnement entrant des utilisateurs piloté par Workday](https://aka.ms/WorkdayDeploymentPlan)|Le provisionnement entrant des utilisateurs vers Active Directory piloté par Workday crée une base pour la gouvernance continue des identités et améliore la qualité des processus métier qui s’appuient sur les données d’identité faisant autorité. À l’aide de cette fonctionnalité, vous pouvez gérer en toute transparence le cycle de vie des identités des employés et des intérimaires en configurant des règles qui mappent les processus JLM (Joiner-Mover-Leaver) (nouveau recrutement, résiliation ou transfert, par exemple) aux actions d’approvisionnement du service informatique (telles que la création, l’activation, la désactivation et la suppression de comptes).|
+|[Création de rapports et surveillance](https://aka.ms/deploymentplans/reporting)| La conception de votre solution de rapports et de surveillance Azure AD dépend de vos exigences légales, de sécurité et opérationnelles, ainsi que de votre environnement et de vos processus existants. Cet article présente les différentes options de conception et vous aide à choisir la stratégie de déploiement qui convient.|

@@ -4,14 +4,14 @@ description: Utiliser des modèles Azure Resource Manager pour créer et configu
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/25/2019
+ms.date: 08/05/2019
 ms.author: mjbrown
-ms.openlocfilehash: 4cd66c9da0650c9eb9de5b51ce82b48fe781c6f4
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: b4d121e0628512f7bbd6aedc0a9067b31d46d0ed
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68500502"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68814976"
 ---
 # <a name="manage-azure-cosmos-db-sql-core-api-resources-using-azure-resource-manager-templates"></a>Gérer les ressources de l’API SQL (Core) Azure Cosmos DB à l’aide de modèles Azure Resource Manager
 
@@ -23,6 +23,7 @@ Créez des ressources Azure Cosmos DB à l’aide d’un modèle Azure Resource 
 >
 > - Actuellement, vous ne pouvez pas déployer les fonctions définies par l’utilisateur (UDF), les procédures stockées et les déclencheurs à l’aide de modèles Resource Manager.
 > - Vous ne pouvez pas ajouter ou supprimer simultanément des emplacements dans un compte Azure Cosmos et modifier d’autres propriétés. Celles-ci doivent être effectuées en tant qu’opérations distinctes.
+> - Les noms de comptes doivent être en minuscules et inférieures à 31 caractères.
 
 [!code-json[create-cosmosdb-sql](~/quickstart-templates/101-cosmosdb-sql/azuredeploy.json)]
 

@@ -1,5 +1,5 @@
 ---
-title: Gérer et surveiller des bases de données SQL Server sur une machine virtuelle Azure sauvegardée par le service Sauvegarde Azure | Microsoft Docs
+title: Gérer et surveiller les bases de données SQL Server sur une machine virtuelle Azure avec Sauvegarde Azure
 description: Cet article décrit comment gérer et surveiller des bases de données SQL Server s’exécutant sur une machine virtuelle Azure.
 author: dcurwin
 manager: carmonm
@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/14/2018
 ms.author: dacurwin
-ms.openlocfilehash: c5f61c778849a57d9143580e0e1041c7fe992d52
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 7cd916c8e52b40dee3ce2d63d43dc88f09001b32
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639591"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68827565"
 ---
 # <a name="manage-and-monitor-backed-up-sql-server-databases"></a>Gérer et surveiller des bases de données SQL Server sauvegardées
 
@@ -120,7 +120,7 @@ Vous pouvez exécuter différents types de sauvegardes à la demande :
 * Sauvegarde différentielle
 * Sauvegarde du journal
 
-Bien que vous deviez spécifier la durée de rétention de l’option Copier uniquement la sauvegarde complète, la plage de rétention des autres types de sauvegardes est automatiquement définie sur 30 jours à compter de l’heure actuelle. <br/>
+Si vous devez spécifier la durée de rétention de l’option Copier uniquement la sauvegarde complète, la durée de rétention pour la sauvegarde complète ad hoc sera automatiquement définie à 45 jours à partir de l’heure actuelle. <br/>
 Pour plus d’informations, voir [Types de sauvegardes SQL Server](backup-architecture.md#sql-server-backup-types).
 
 ## <a name="unregister-a-sql-server-instance"></a>Supprimer l'inscription d'une instance SQL Server

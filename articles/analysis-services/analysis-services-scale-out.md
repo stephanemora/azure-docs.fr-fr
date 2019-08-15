@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 08/01/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 8297a2b1e78da6685b3129071612dc4457990bc1
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 29188013b75dbefbaf80f3c59360f203ae5b5a82
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68696406"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736744"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Montée en charge d’Azure Analysis Services
 
@@ -143,9 +143,9 @@ Pour SSMS, SSDT et les chaînes de connexion dans PowerShell, les applications d
 
 ![Noms de serveur](media/analysis-services-scale-out/aas-scale-out-name.png)
 
-## <a name="scale-up--down-vs-scale-out"></a>Effectuer un scale-up/scale-down et Montée en charge
+## <a name="scale-up-scale-down-vs-scale-out"></a>Montée en puissance, descente en puissance vs. Montée en charge
 
-Vous pouvez modifier le niveau tarifaire du serveur sur un serveur avec plusieurs réplicas. Le même niveau tarifaire s’applique à tous les réplicas. L’opération de scale up et scale down affiche tout d’abord tous les réplicas à la fois, puis affiche tous les réplicas sur le nouveau niveau tarifaire.
+Vous pouvez modifier le niveau tarifaire sur un serveur avec plusieurs réplicas. Le même niveau tarifaire s’applique à tous les réplicas. Une opération de mise à l’échelle entraînera d’abord la mise à niveau de tous les réplicas à la fois, puis affichera tous les réplicas sur le nouveau niveau tarifaire.
 
 ## <a name="troubleshoot"></a>Résolution des problèmes
 

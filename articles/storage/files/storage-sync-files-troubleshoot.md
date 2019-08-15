@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 98f8ce49e42858c5d8d019905887e7ed24a2459e
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 3395159e1427fa3d174b62c74c777d2f2ddd4900
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699236"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68721681"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Résoudre les problèmes de synchronisation de fichiers Azure
 Utilisez Azure File Sync pour centraliser les partages de fichiers de votre organisation dans Azure Files tout en conservant la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Azure File Sync transforme Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible dans Windows Server pour accéder à vos données localement, notamment SMB, NFS et FTPS. Vous pouvez avoir autant de caches que nécessaire dans le monde entier.
@@ -116,13 +116,13 @@ Pour déterminer si votre rôle de compte d’utilisateur a les autorisations n�
     * **Attribution de rôle** doit avoir les autorisations **Lecture** et **Écriture**.
     * **Définition de rôle** doit avoir les autorisations **Lecture** et **Écriture**.
 
-<a id="server-endpoint-createjobfailed"></a>**La création du point de terminaison de serveur échoue, avec cette erreur : « MgmtServerJobFailed » (Code d'erreur : -2134375898 ou 0x80c80226)**  
+<a id="-2134375898"></a>**La création du point de terminaison de serveur échoue, avec cette erreur : « MgmtServerJobFailed » (Code d'erreur : -2134375898 ou 0x80c80226)**  
 Cette erreur se produit si le chemin du point de terminaison de serveur se trouve sur le volume système et que la hiérarchisation cloud est activée. La hiérarchisation cloud n’est pas prise en charge sur le volume système. Pour créer un point de terminaison de serveur sur le volume système, désactivez la hiérarchisation cloud quand vous créez le point de terminaison de serveur.
 
-<a id="server-endpoint-createjobfailed-invalidpath"></a>**La création du point de terminaison de serveur échoue, avec cette erreur : « MgmtServerJobFailed » (Code d'erreur : -2147024894 ou 0x80070002)**  
+<a id="-2147024894"></a>**La création du point de terminaison de serveur échoue, avec cette erreur : « MgmtServerJobFailed » (Code d'erreur : -2147024894 ou 0x80070002)**  
 Cette erreur se produit si le chemin d’accès au point de terminaison du serveur spécifié n’est pas valide. Vérifiez que le chemin d’accès au point de terminaison du serveur spécifié est un volume NTFS attaché localement. Notez que Azure File Sync ne prend pas en charge les lecteurs mappés comme un chemin de point de terminaison de serveur.
 
-<a id="server-endpoint-createjobfailed-compression"></a>**La création du point de terminaison de serveur échoue, avec cette erreur : « MgmtServerJobFailed » (Code d'erreur : -2134347507 ou 0x80c8710d)**  
+<a id="-2134347507"></a>**La création du point de terminaison de serveur échoue, avec cette erreur : « MgmtServerJobFailed » (Code d'erreur : -2134347507 ou 0x80c8710d)**  
 Cette erreur se produit parce que Azure File Sync ne prend pas en charge les points de terminaison de serveur sur les volumes qui comportent un dossier System Volume Information compressé. Pour résoudre ce problème, décompressez le dossier System Volume Information. Si le dossier System Volume Information est le seul dossier compressé sur le volume, procédez comme suit :
 
 1. Téléchargez l’outil [PsExec](https://docs.microsoft.com/sysinternals/downloads/psexec).
@@ -131,10 +131,13 @@ Cette erreur se produit parce que Azure File Sync ne prend pas en charge les poi
     **cd /d "drive letter:\System Volume Information"**  
     **compact /u /s**
 
-<a id="server-endpoint-createjobfailed-limitreached"></a>**La création du point de terminaison de serveur échoue, avec cette erreur : « MgmtServerJobFailed » (Code d'erreur : -2134376345 ou 0x80C80067)**  
+<a id="-2134376345"></a>**La création du point de terminaison de serveur échoue, avec cette erreur : « MgmtServerJobFailed » (Code d'erreur : -2134376345 ou 0x80C80067)**  
 Cette erreur se produit si la limite des points de terminaison de serveur par serveur est atteinte. Azure File Sync prend actuellement en charge jusqu’à 30 points de terminaison de serveur par serveur. Pour plus d’informations, consultez la page sur la [de tarification Azure File Sync](https://docs.microsoft.com/azure/storage/files/storage-files-scale-targets#azure-file-sync-scale-targets).
 
-<a id="server-endpoint-deletejobexpired"></a>**La suppression du point de terminaison de serveur échoue, avec cette erreur : « MgmtServerJobExpired » (Code d'erreur : -2134347757 ou 0x80c87013)**  
+<a id="-2134376427"></a>**La création du point de terminaison de serveur échoue, avec cette erreur : « MgmtServerJobFailed » (Code d’erreur : -2134376427 or 0x80c80015)**  
+Cette erreur se produit si un autre nœud final de serveur est déjà en train de synchroniser le chemin du nœud final de serveur spécifié. Azure File Sync ne prend pas en charge plusieurs points de terminaison de serveur qui synchronisent le même répertoire ou volume.
+
+<a id="-2134347757"></a>**La suppression du point de terminaison de serveur échoue, avec cette erreur : « MgmtServerJobExpired » (Code d'erreur : -2134347757 ou 0x80c87013)**  
 Cette erreur se produit si le serveur est hors connexion ou n’a pas de connectivité réseau. Si le serveur n’est plus disponible, désinscrivez le serveur dans le portail pour supprimer les points de terminaison de serveur. Pour supprimer les points de terminaison de serveur, suivez les étapes décrites dans [Désinscrire un serveur dans Azure File Sync](storage-sync-files-server-registration.md#unregister-the-server-with-storage-sync-service).
 
 <a id="server-endpoint-provisioningfailed"></a>**Impossible d’ouvrir la page de propriétés du point de terminaison serveur ou de mettre à jour de la stratégie de hiérarchisation du cloud**  
@@ -560,7 +563,7 @@ Pour vérifier si le certificat a expiré, effectuez les étapes suivantes :
 Si le certificat d’authentification client a expiré, procédez comme suit pour résoudre le problème :
 
 1. Vérifiez que la version 4.0.1.0 (ou ultérieure) de l'agent Azure File Sync est installée.
-2. Exécutez les commandes PowerShell suivantes :
+2. Exécutez la commande PowerShell suivante :
 
     ```powershell
     Reset-AzStorageSyncServerCertificate -ResourceGroupName <string> -StorageSyncServiceName <string>
@@ -761,6 +764,25 @@ Pour résoudre ce problème, procédez comme suit :
 3. À partir de l’invite de commandes qui s’exécute sous le compte système, exécutez la commande suivante pour confirmer que le compte NT AUTHORITY\SYSTEM n’a pas accès au dossier System Volume Information : **cacls "drive letter:\system volume information" /T /C**
 4. Si le compte NT AUTHORITY\SYSTEM n’a pas accès au dossier System Volume Information, exécutez la commande suivante: **cacls  "drive letter:\system volume information" /T /E /G "NT AUTHORITY\SYSTEM:F"**
     - Si l’étape n°4 échoue avec l’accès refusé, exécutez la commande suivante pour prendre possession du dossier System Volume Information, puis répétez l'étape n°4 : **takeown /A /R /F "drive letter:\System Volume Information"**
+
+<a id="-2134375810"></a>**La synchronisation a échoué car le partage de fichiers Azure a été supprimé et recréé.**  
+
+| | |
+|-|-|
+| **HRESULT** | 0x80c8027e |
+| **HRESULT (décimal)** | -2134375810 |
+| **Chaîne d’erreur** | ECS_E_SYNC_REPLICA_ROOT_CHANGED |
+| **Correction requise** | OUI |
+
+Cette erreur se produit parce que Azure File Sync ne prend pas en charge la suppression et la recréation d’un partage de fichiers Azure dans le même groupe de synchronisation. 
+
+Pour résoudre ce problème, supprimez et recréez le groupe de synchronisation en procédant comme suit :
+
+1. Supprimez tous les points de terminaison de serveur dans le groupe de synchronisation.
+2. Supprimez le point de terminaison cloud. 
+3. Supprimez le groupe de synchronisation.
+4. Si la hiérarchisation cloud a été activée sur un point de terminaison de serveur, supprimez les fichiers hiérarchisés orphelins sur le serveur en effectuant les étapes décrites dans la section [Les fichiers hiérarchisés ne sont pas accessibles sur le serveur après la suppression d’une section de point de terminaison de serveur](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint).
+5. Recréez le groupe de synchronisation.
 
 ### <a name="common-troubleshooting-steps"></a>Ouvrir les étapes de résolution des problèmes
 <a id="troubleshoot-storage-account"></a>**Vérifiez l’existence du compte de stockage.**  

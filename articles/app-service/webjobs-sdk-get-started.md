@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: 20bb8d5380f5a905a827dfb12dcc032e327267e0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8f33e36568171ab7b37f536a3c7883b004cb71c0
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66418229"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68838036"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Prise en main du Kit de développement logiciel (SDK) Azure WebJobs pour le traitement en arrière-plan basé sur les événements
 
@@ -370,7 +370,7 @@ Dans cette section, vous allez effectuer les tâches suivantes pour configurer l
 Pour tirer parti de la journalisation [Application Insights](../azure-monitor/app/app-insights-overview.md), mettez à jour votre code de journalisation pour effectuer les opérations suivantes :
 
 * Ajouter un fournisseur de journalisation Application Insights avec le [filtrage](webjobs-sdk-how-to.md#log-filtering) par défaut. Tous les journaux d’activité d’information et de niveau supérieur accèdent à la console et à Application Insights lorsque vous l’exécutez localement.
-* Placer l’objet `LoggerFactory` dans un bloc `using` pour garantir le vidage de la sortie du journal lorsque l’hôte s’arrête.
+* Placez l'objet [LoggerFactory](./webjobs-sdk-how-to.md#logging-and-monitoring) dans un bloc `using` pour vous assurer que la sortie du journal est vidée lorsque l’hôte s’arrête.
 
 1. Installez la dernière version 3.x stable du package NuGet pour le fournisseur de journalisation Application Insights : `Microsoft.Azure.WebJobs.Logging.ApplicationInsights`.
 

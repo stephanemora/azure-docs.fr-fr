@@ -10,13 +10,13 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
-ms.custom: seojan2018
-ms.openlocfilehash: e1ca8a5ce7b615ed8d84c91d8a0d72098c175c44
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.subservice: cognitive-search
+ms.openlocfilehash: 0451778d9b3bb29d06551c881b9f674ef7a74ab3
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67672136"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68841209"
 ---
 # <a name="custom-web-api-skill"></a>Compétence API web personnalisée
 
@@ -26,6 +26,7 @@ La structure des charges utiles JSON est décrite plus bas dans ce document.
 
 > [!NOTE]
 > L’indexeur réessaie deux fois pour certains codes d’état HTTP standard retournés par l’API web. Ces codes d’état HTTP sont les suivants : 
+> * `502 Bad Gateway`
 > * `503 Service Unavailable`
 > * `429 Too Many Requests`
 
@@ -41,7 +42,7 @@ Les paramètres respectent la casse.
 | URI | URI de l’API web à laquelle la charge utile _JSON_ est envoyée. Seul le schéma d’URI **https** est autorisé |
 | httpMethod | Méthode à utiliser pour envoyer la charge utile. Les méthodes autorisées sont `PUT` ou `POST` |
 | httpHeaders | Collection de paires clé-valeur où les clés représentent les noms d’en-tête et les valeurs représentent les valeurs d’en-tête à envoyer à votre API web avec la charge utile. Les en-têtes suivants sont interdits dans cette collection : `Accept`, `Accept-Charset`, `Accept-Encoding`, `Content-Length`, `Content-Type`, `Cookie`, `Host`, `TE`, `Upgrade`, `Via` |
-| timeout | (Facultatif) Si spécifié, indique le délai d’expiration pour le client http qui effectue l’appel d’API. Il doit être formaté en tant que valeur « dayTimeDuration » XSD (un sous-ensemble limité d'une valeur de [durée ISO 8601](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) ). Par exemple, `PT60S` pour 60 secondes. S’il n’est pas défini, une valeur par défaut de 30 secondes est choisie. Le délai d’expiration peut être défini sur 90 secondes maximum et 1 seconde minimum. |
+| timeout | (Facultatif) Si spécifié, indique le délai d’expiration pour le client http qui effectue l’appel d’API. Il doit être formaté en tant que valeur « dayTimeDuration » XSD (un sous-ensemble limité d'une valeur de [durée ISO 8601](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) ). Par exemple, `PT60S` pour 60 secondes. S’il n’est pas défini, une valeur par défaut de 30 secondes est choisie. Le délai d’expiration peut être défini sur 230 secondes maximum et 1 seconde minimum. |
 | batchSize | (Facultatif) Indique le nombre « d’enregistrements de données » (voir la structure de charge utile _JSON_ ci-dessous) à envoyer par appel d’API. S’il n’est pas défini, une valeur par défaut de 1000 est choisie. Nous vous recommandons d’utiliser ce paramètre pour avoir un compromis entre le débit d’indexation et la charge sur votre API |
 
 ## <a name="skill-inputs"></a>Entrées de la compétence

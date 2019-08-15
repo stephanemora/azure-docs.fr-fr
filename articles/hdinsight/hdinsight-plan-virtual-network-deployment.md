@@ -7,12 +7,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 07/23/2019
-ms.openlocfilehash: 9906fe5de9c24f1b1a8c3f713fa772e56ed4e13f
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: 135855ee33f783e85b398c7f9716c2c897633de9
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68441956"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779536"
 ---
 # <a name="plan-a-virtual-network-for-azure-hdinsight"></a>Planifier un réseau virtuel pour Azure HDInsight
 
@@ -117,7 +117,7 @@ Azure assure la résolution de noms pour les services Azure installés dans un r
 
 * Toute ressource disponible sur Internet. Par exemple, microsoft.com ou windowsupdate.com.
 
-* Toute ressource figurant dans le même réseau virtuel Azure, en utilisant le __nom DNS interne__ de la ressource. Par exemple, lorsque vous utilisez la résolution de noms par défaut, les éléments suivants sont des exemples de noms DNS internes attribués aux nœuds worker HDInsight :
+* Toute ressource figurant dans le même réseau virtuel Azure, en utilisant le __nom DNS interne__ de la ressource. Par exemple, lors de l’utilisation de la résolution de noms par défaut, voici des exemples de noms DNS internes attribués aux nœuds Worker HDInsight :
 
   * wn0-hdinsi.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net
   * wn2-hdinsi.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net

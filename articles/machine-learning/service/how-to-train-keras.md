@@ -1,7 +1,7 @@
 ---
-title: Entraîner et inscrire des modèles Keras exécutés sur TensorFlow
+title: Apprentissage du réseau neural d’apprentissage profond avec Keras
 titleSuffix: Azure Machine Learning service
-description: Cet article vous explique comment entraîner et inscrire un modèle Keras sur TensorFlow à l’aide d’Azure Machine Learning service.
+description: Découvrez comment former et enregistrer un modèle de classification de réseau neural profond Keras s’exécutant sur TensorFlow à l’aide d’Azure Machine Learning Service.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,22 +9,24 @@ ms.topic: conceptual
 ms.author: maxluk
 author: maxluk
 ms.reviewer: peterlu
-ms.date: 06/07/2019
+ms.date: 08/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9d405b454d755e0c848e9422c8d4cf6e7c505b68
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: bfe7f975539c76c1d369d111729820f4d0ada470
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67840046"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68775082"
 ---
-# <a name="train-and-register-keras-models-at-scale-with-azure-machine-learning-service"></a>Entraîner et inscrire des modèles Keras à l’échelle avec Azure Machine Learning service
+# <a name="train-and-register-a-keras-classification-model-with-azure-machine-learning-service"></a>Former et enregistrer un modèle de classification Keras avec Azure Machine Learning service
 
-Cet article vous explique comment entraîner et inscrire un modèle Keras intégré à TensorFlow à l’aide d’Azure Machine Learning service. Il utilise le jeu de données populaire [MNIST](http://yann.lecun.com/exdb/mnist/) pour classer les nombres manuscrits à l’aide d’un réseau neuronal profond (DNN) construit à l’aide de la [bibliothèque Python Keras](https://keras.io) s’exécutant par-dessus [TensorFlow](https://www.tensorflow.org/overview).
+Cet article explique comment effectuer l’apprentissage et l’inscription d’un modèle de classification Keras basé sur TensorFlow à l’aide d’Azure Machine Learning Service. Il utilise le jeu de données populaire [MNIST](http://yann.lecun.com/exdb/mnist/) pour classer les nombres manuscrits à l’aide d’un réseau neuronal profond (DNN) construit à l’aide de la [bibliothèque Python Keras](https://keras.io) s’exécutant par-dessus [TensorFlow](https://www.tensorflow.org/overview).
 
 Keras est une API de réseau neuronal de haut niveau capable de s’exécuter par-dessus d’autres infrastructures DNN populaires afin de simplifier le développement. Azure Machine Learning service vous permet de rapidement faire monter en charge des tâches de formation à l’aide de ressources de calcul cloud élastiques. Vous pouvez également suivre vos sessions de formation, contrôler les versions des modèles, déployer les modèles, et bien plus encore.
 
 Que vous développiez un modèle Keras de A à Z ou importiez un modèle existant dans le cloud, Azure Machine Learning service peut vous aider à créer des modèles prêts pour la production.
+
+Pour plus d’informations sur les différences entre l’apprentissage automatique et l’apprentissage approfondi, consultez l’[article conceptuel](concept-deep-learning-vs-machine-learning.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -32,15 +34,15 @@ Exécutez ce code sur l’un de ces environnements :
 
  - Machine virtuelle de Notebook Azure Machine Learning : pas d’installation ou de téléchargement nécessaire
 
-     - Effectuez un [démarrage rapide du notebook informatique](quickstart-run-cloud-notebook.md) pour créer un serveur de notebook dédié dans lequel le kit de développement logiciel (SDK) et l’exemple de référentiel auront été préchargés.
-    - Dans le dossier des exemples du serveur de notebook, recherchez un notebook terminé et développé en accédant à ce répertoire : le dossier **how-to-use-azureml > training-with-deep-learning > train-hyperparameter-tune-deploy-with-keras**. 
- 
+     - Suivre le [Tutoriel : Configurez l’environnement et l’espace de travail](tutorial-1st-experiment-sdk-setup.md) pour créer un serveur Notebook dédié préchargé avec le kit de développement logiciel (SDK) et l’exemple de référentiel.
+    - Dans le dossier des exemples du serveur de notebook, recherchez un notebook terminé et développé en accédant à ce répertoire : le dossier **how-to-use-azureml > training-with-deep-learning > train-hyperparameter-tune-deploy-with-keras**.
+
  - Votre propre serveur de notebooks Jupyter
 
      - [Installer le kit de développement logiciel (SDK) Azure Machine Learning pour Python](setup-create-workspace.md#sdk)
     - [Créer un fichier de configuration d’espace de travail](setup-create-workspace.md#write-a-configuration-file)
     - [Télécharger les exemples de fichiers de script](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-keras) `mnist-keras.py` et `utils.py`
-     
+
     Vous trouverez également une [version Jupyter Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-keras/train-hyperparameter-tune-deploy-with-keras.ipynb) complète de ce guide sur la page des exemples GitHub. Le notebook inclut des sections développées couvrant l’optimisation des hyperparamètres intelligents, les modèles de déploiement et les widgets de notebook.
 
 ## <a name="set-up-the-experiment"></a>Configurer l’expérience
@@ -126,7 +128,7 @@ try:
     print('Found existing compute target')
 except ComputeTargetException:
     print('Creating a new compute target...')
-    compute_config = AmlCompute.provisioning_configuration(vm_size='STANDARD_NC6', 
+    compute_config = AmlCompute.provisioning_configuration(vm_size='STANDARD_NC6',
                                                            max_nodes=4)
 
     compute_target = ComputeTarget.create(ws, cluster_name, compute_config)
@@ -140,7 +142,7 @@ Pour plus d’informations sur les cibles de calcul, consultez l’article [Qu�
 
 [L’estimateur TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py) fournit un moyen simple de lancer des travaux d’entraînement TensorFlow sur une cible de calcul. Dans la mesure où Keras s’exécute sur TensorFlow, vous pouvez utiliser l’estimateur TensorFlow et importer la bibliothèque Keras à l’aide de l’argument `pip_packages`.
 
-L’estimateur TensorFlow est implémenté via la classe générique [`estimator`](https://docs.microsoft.com//python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py), qui peut être utilisée pour prendre en charge n’importe quelle infrastructure. Pour plus d’informations sur l’apprentissage des modèles à l’aide de l’estimateur générique, voir [Effectuer l’apprentissage de modèles avec Azure Machine Learning à l’aide de l’estimateur](how-to-train-ml-models.md)
+L’estimateur TensorFlow est implémenté via la classe générique [`estimator`](https://docs.microsoft.com//python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py), qui peut être utilisée pour prendre en charge n’importe quelle infrastructure. En outre, créez un dictionnaire `script_params` qui contient les paramètres d’hyperparamètre DNN. Pour plus d’informations sur l’apprentissage des modèles à l’aide de l’estimateur générique, voir [Effectuer l’apprentissage de modèles avec Azure Machine Learning à l’aide de l’estimateur](how-to-train-ml-models.md)
 
 ```Python
 script_params = {
@@ -180,7 +182,7 @@ Lorsque l’exécution est lancée, il effectue les étapes suivantes :
 
 ## <a name="register-the-model"></a>Inscrire le modèle
 
-Une fois que vous avez entraîné le modèle, vous pouvez l’inscrire sur votre espace de travail. L’inscription du modèle vous permet de stocker vos modèles et de suivre leurs versions dans votre espace de travail afin de simplifier [la gestion et le déploiement des modèles](concept-model-management-and-deployment.md).
+Une fois que vous avez formé le modèle DNN, vous pouvez l’inscrire dans votre espace de travail. L’inscription du modèle vous permet de stocker vos modèles et de suivre leurs versions dans votre espace de travail afin de simplifier [la gestion et le déploiement des modèles](concept-model-management-and-deployment.md).
 
 ```Python
 model = run.register_model(model_name='keras-dnn-mnist', model_path='outputs/model')

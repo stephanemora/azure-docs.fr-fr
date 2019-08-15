@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 08/05/2019
 ms.author: juliako
-ms.openlocfilehash: 33493f1bdff6071737aad4bfb8c7d0e5e22896db
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0f67b2e37e264febf11f3fa55b4469d392c59712
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65799841"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68815673"
 ---
 # <a name="create-a-video-indexer-account-connected-to-azure"></a>Créer un compte Video Indexer connecté à Azure
 
@@ -33,7 +33,7 @@ Cet article explique comment créer un compte Video Indexer connecté à un abo
 
     Si vous n’avez pas de domaine Azure AD, créez-en un avec votre abonnement Azure. Pour plus d’informations, consultez la rubrique [Gestion des noms de domaine personnalisés dans Azure Active Directory](../../active-directory/users-groups-roles/domains-manage.md).
 
-* Un utilisateur et un membre dans votre domaine Azure AD. Vous allez utiliser ce membre lors de la connexion de votre compte Video Indexer à Azure.
+* Un utilisateur de votre domaine Azure AD avec un rôle d'**administrateur d’application**. Vous allez utiliser ce membre lors de la connexion de votre compte Video Indexer à Azure.
 
     Cet utilisateur doit être un utilisateur Azure AD avec un compte professionnel ou scolaire, et non un compte personnel, tel que outlook.com, live.com ou hotmail.com.
 
@@ -58,6 +58,9 @@ Recherchez **Microsoft.Media** et **Microsoft.EventGrid**. S’il n’a pas l’
 ![EventGrid](./media/create-account/event-grid.png)
 
 ## <a name="connect-to-azure"></a>Connexion à Azure
+
+> [!NOTE]
+> Si votre abonnement Azure utilise l’authentification multifacteur basée sur des certificats, il est essentiel d’effectuer les opérations suivantes sur un appareil sur lequel les certificats requis sont installés.
 
 1. Accédez au site web [Video Indexer](https://www.videoindexer.ai/) et connectez-vous.
 

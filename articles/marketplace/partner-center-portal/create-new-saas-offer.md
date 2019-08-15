@@ -7,12 +7,12 @@ ms.author: mattwoj
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 06/27/2019
-ms.openlocfilehash: a4947349e64d5f9bf95a9213701dc62a0e018b8f
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 300dd634cc99e5203145619b475d813705f09553
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68501303"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68815691"
 ---
 # <a name="create-a-new-saas-offer"></a>Créer une nouvelle offre SaaS
 
@@ -431,7 +431,7 @@ Si vous avez déjà fixé des prix pour votre plan en dollar américain (USD) et
 
 **Taux fixe :** Autorisez l’accès à votre offre via un tarif unique et fixe mensuel ou annuel. Cela est parfois désigné sous le nom de « tarification en fonction du site ». Avec ce modèle de tarification, vous pouvez éventuellement définir des plans contrôlés qui utilisent l’API du service de contrôle de place de marché pour payer les clients en fonction d’unités non standard.  Pour plus d’informations sur la facturation limitée, consultez [facturation limitée à l’aide du service de contrôle de la place de marché](./saas-metered-billing.md).
 
-**Selon l’occupation :** Autorisez l’accès à votre offre via un prix basé sur le nombre d’utilisateurs ou de *sièges* occupés. Ce modèle basé sur l’occupation vous permet de définir le nombre minimum et maximum de d’utilisateurs autorisés en fonction du prix. Ainsi, plusieurs gammes de prix peuvent être configurées en fonction du nombre d’utilisateurs en configurant plusieurs plans.  Ces champs sont facultatifs. Si vides, le nombre d’utilisateurs sera considéré sans limite (avec un minimum de 1 et un maximum d’autant d’utilisateurs que peut prendre en charge le système). Ces champs peuvent être modifiés dans le cadre d’une mise à jour de votre plan.
+**Par utilisateur :** Autorisez l’accès à votre offre via un prix basé sur le nombre d’utilisateurs ou de sièges occupés. Ce modèle basé sur l’utilisateur vous permet de définir le nombre minimal et maximal d’utilisateurs autorisés en fonction du prix. Ainsi, plusieurs gammes de prix peuvent être configurées en fonction du nombre d’utilisateurs en configurant plusieurs plans.  Ces champs sont facultatifs. Si vous ne sélectionnez pas cette option, le nombre d’utilisateurs sera considéré sans limite (avec un minimum de 1 et un maximum d’autant d’utilisateurs que peut prendre en charge le système). Ces champs peuvent être modifiés dans le cadre d’une mise à jour de votre plan.
 
 Une fois publié, le choix du modèle de tarification ne peut plus être modifié. En outre, tous les plans d’une même offre doivent partager le même modèle de tarification.
 

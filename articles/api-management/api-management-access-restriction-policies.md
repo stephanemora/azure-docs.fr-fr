@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/21/2019
 ms.author: apimpm
-ms.openlocfilehash: 8ee7db3ade594958729deeb12007f528376d5179
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: 4f06e579e8548f4220d8f3fb4b618902f18b538e
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68442418"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68774804"
 ---
 # <a name="api-management-access-restriction-policies"></a>Stratégies de restriction des accès de la Gestion des API
 
@@ -34,6 +34,9 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 -   [Set usage quota by subscription](api-management-access-restriction-policies.md#SetUsageQuota) : vous permet d’appliquer un volume d’appel et/ou un quota de bande passante renouvelable ou illimité par abonnement.
 -   [Set usage quota by key](#SetUsageQuotaByKey) : vous permet d’appliquer un volume d’appel et/ou un quota de bande passante renouvelable ou illimité par clé.
 -   [Validate JWT](api-management-access-restriction-policies.md#ValidateJWT) : applique l’existence et la validité d’un JWT extrait d’un en-tête HTTP ou d’un paramètre de requête spécifié.
+
+> [!TIP]
+> Vous pouvez utiliser des stratégies de restriction d’accès dans différentes étendues à des fins différentes. Par exemple, vous pouvez sécuriser l’intégralité de l’API avec l’authentification AAD en appliquant la stratégie `validate-jwt` au niveau de l’API ou vous pouvez l’appliquer au niveau de l’opération d’API et utiliser `claims` pour un contrôle plus granulaire.
 
 ## <a name="CheckHTTPHeader"></a> Check HTTP header
 

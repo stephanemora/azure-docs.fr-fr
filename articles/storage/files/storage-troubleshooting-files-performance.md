@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 6b28d004ceacda3cec13e96ceae84d5d1ff1a2e5
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 240b2110db66af0982e4e1bf95d3715cbe733a60
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699171"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68816518"
 ---
 # <a name="troubleshoot-azure-files-performance-issues"></a>Résoudre les problèmes de niveau de performance d’Azure Files
 
@@ -22,7 +22,7 @@ Cet article répertorie certains problèmes courants liés à des partages de fi
 
 ### <a name="cause-1-share-experiencing-throttling"></a>Cause 1 : Limitation de bande passante lors du partage
 
-Le quota par défaut sur un partage premium est de 100 Gio, ce qui fournit 100 IOPS de ligne de base (avec un nombre potentiel en rafale pouvant atteindre 300 en une heure). Pour plus d’informations sur la fourniture et sa relation avec les IOPS, consultez la section [Partages approvisionnés](storage-files-planning.md#provisioned-shares) du guide de planification.
+Le quota par défaut sur un partage premium est de 100 Gio, ce qui fournit 100 IOPS de ligne de base (avec un nombre potentiel en rafale pouvant atteindre 300 en une heure). Pour plus d’informations sur l’approvisionnement et sa relation avec les IOPS, consultez la section [Partages approvisionnés](storage-files-planning.md#provisioned-shares) du guide de planification.
 
 Pour confirmer la limitation de votre partage, vous pouvez utiliser les métriques Azure dans le portail.
 

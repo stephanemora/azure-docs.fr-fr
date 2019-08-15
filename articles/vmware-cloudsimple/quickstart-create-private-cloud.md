@@ -5,19 +5,26 @@ author: sharaths-cs
 ms.author: dikamath
 ms.date: 04/10/2019
 ms.topic: article
-ms.service: vmware
+ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 85a8840ccf6f6fe6390b5eeaccd715d87169f157
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 6b68dcd47377ee56c4ebedc94905e1f0a8b70b38
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67476029"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68812344"
 ---
 # <a name="quickstart---configure-a-private-cloud-environment"></a>Démarrage rapide - Configurer un environnement de cloud privé
 
 Dans cet article, découvrez comment créer un cloud privé CloudSimple et configurer votre environnement de cloud privé.
+
+## <a name="before-you-begin"></a>Avant de commencer
+
+Allouez une plage CIDR pour les sous-réseaux vSphere/vSAN pour le cloud privé. Un cloud privé est créé sous la forme d’un environnement isolé de la pile VMware (hôtes ESXi, vCenter, vSAN et NSX) géré par un serveur vCenter. Les composants de gestion sont déployés sur le réseau sélectionné pour la plage CIDR de sous-réseaux vSphere/vSAN. La plage CIDR du réseau est divisée en plusieurs sous-réseaux pendant le déploiement.  L’espace d’adressage du sous-réseau vSphere/vSAN doit être unique. Il ne doit chevaucher aucun réseau qui communique avec l’environnement CloudSimple.  Les réseaux qui communiquent avec CloudSimple incluent les réseaux locaux et les réseaux virtuels Azure.  Pour plus d’informations sur les sous-réseaux vSphere/vSAN, consultez [Vue d’ensemble des réseaux locaux virtuels et des sous-réseaux](cloudsimple-vlans-subnets.md).
+
+* Préfixe de plage CIDR de sous-réseaux vSphere/vSAN minimum : /24 
+* Préfixe de plage CIDR de sous-réseaux vSphere/vSAN maximum : /21
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
 Connectez-vous au portail Azure sur [https://portal.azure.com](https://portal.azure.com).

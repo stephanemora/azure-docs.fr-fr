@@ -13,12 +13,12 @@ ms.topic: reference
 ms.date: 09/08/2018
 ms.author: cshoe
 ms.custom: ''
-ms.openlocfilehash: ef02c8120775aa119aff44ff7a06bccf2bc70a21
-ms.sourcegitcommit: b49431b29a53efaa5b82f9be0f8a714f668c38ab
+ms.openlocfilehash: 962c28c8b081980c2715d4d78739662e86748bd1
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68377334"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68814453"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Déclencheur de minuteur pour Azure Functions 
 
@@ -125,7 +125,7 @@ L’exemple suivant lance et exécute la fonction toutes les cinq minutes. L’a
 ```java
 @FunctionName("keepAlive")
 public void keepAlive(
-  @TimerTrigger(name = "keepAliveTrigger", schedule = "0 *&#47;5 * * * *") String timerInfo,
+  @TimerTrigger(name = "keepAliveTrigger", schedule = "0 */5 * * * *") String timerInfo,
       ExecutionContext context
  ) {
      // timeInfo is a JSON string, you can deserialize it to an object using your favorite JSON library
@@ -225,7 +225,7 @@ Le tableau suivant décrit les propriétés de configuration de liaison que vous
 |**type** | n/a | Doit avoir la valeur « timerTrigger ». Cette propriété est définie automatiquement lorsque vous créez le déclencheur dans le portail Azure.|
 |**direction** | n/a | Doit être défini sur « in ». Cette propriété est définie automatiquement lorsque vous créez le déclencheur dans le portail Azure. |
 |**name** | n/a | Nom de la variable qui représente l’objet de minuteur dans le code de la fonction. | 
-|**schedule**|**ScheduleExpression**|Une [expression CRON](#cron-expressions) ou une valeur [TimeSpan](#timespan). `TimeSpan` peut être utilisé uniquement pour une application de fonction qui s’exécute sur un plan App Service. Vous pouvez placer l’expression de planification dans un paramètre d’application et définir cette propriété selon le nom du paramètre d’application encapsulé dans les signes **%** , comme sur cet exemple : « %ScheduleAppSetting% ». |
+|**schedule**|**ScheduleExpression**|Une [expression CRON](#ncrontab-expressions) ou une valeur [TimeSpan](#timespan). `TimeSpan` peut être utilisé uniquement pour une application de fonction qui s’exécute sur un plan App Service. Vous pouvez placer l’expression de planification dans un paramètre d’application et définir cette propriété selon le nom du paramètre d’application encapsulé dans les signes **%** , comme sur cet exemple : « %ScheduleAppSetting% ». |
 |**runOnStartup**|**RunOnStartup**|Si la valeur est `true`, la fonction est appelée au démarrage du runtime. Par exemple, le runtime démarre lorsque l’application de fonction sort de veille après une période d’inactivité. Lorsque l’application de fonction redémarre en raison de modifications apportées à la fonction, et lorsque l’application de fonction augmente la taille des instances. Par conséquent, la propriété **runOnStartup** doit être rarement, voire jamais, définie sur `true`, notamment en production. |
 |**useMonitor**|**UseMonitor**|Peut-être défini sur la valeur `true` ou `false` pour indiquer si la planification doit être surveillée ou non. La surveillance de planification conserve les occurrences de planification pour garantir la maintenance correcte de cette dernière même en cas de redémarrage des instances de l’application de fonction. Si elle n’est pas définie explicitement, la valeur par défaut est `true` pour les planifications dont l’intervalle de récurrence est supérieur à 1 minute. Pour les planifications qui se déclenchent plusieurs fois par minute, la valeur par défaut est `false`.
 
@@ -253,9 +253,9 @@ Lorsqu’une fonction de déclencheur de minuteur est appelée, l’objet minute
 
 La propriété `IsPastDue` est `true` lorsque l’appel de fonction en cours arrive plus tard que prévu. Par exemple, un redémarrage de la fonction d’application peut entraîner l’échec d’un appel.
 
-## <a name="cron-expressions"></a>Expressions CRON 
+## <a name="ncrontab-expressions"></a>Expressions NCRONTAB 
 
-Azure Functions utilise la bibliothèque [NCronTab](https://github.com/atifaziz/NCrontab) pour interpréter les expressions CRON. Une expression CRON comprend six champs :
+Azure Functions utilise la bibliothèque [NCronTab](https://github.com/atifaziz/NCrontab) pour interpréter les expressions NCRONTAB. Une expression NCRONTAB est semblable à une expression CRON, à ceci près qu’elle comprend un sixième champ supplémentaire au début pour utiliser la précision de temps en secondes :
 
 `{second} {minute} {hour} {day} {month} {day-of-week}`
 
@@ -271,9 +271,9 @@ Chaque champ peut être associé aux types de valeurs suivants :
 
 [!INCLUDE [functions-cron-expressions-months-days](../../includes/functions-cron-expressions-months-days.md)]
 
-### <a name="cron-examples"></a>Exemples CRON
+### <a name="ncrontab-examples"></a>Exemples NCRONTAB
 
-Voici quelques exemples d’expressions CRON que vous pouvez utiliser pour le déclencheur de minuteur dans Azure Functions.
+Voici quelques exemples d’expressions NCRONTAB que vous pouvez utiliser pour le déclencheur de minuteur dans Azure Functions.
 
 |Exemples|En cas de déclenchement  |
 |---------|---------|
@@ -284,25 +284,24 @@ Voici quelques exemples d’expressions CRON que vous pouvez utiliser pour le d�
 |`"0 30 9 * * *"`|à 9h30 tous les jours|
 |`"0 30 9 * * 1-5"`|à 9h30 tous les jours de la semaine|
 |`"0 30 9 * Jan Mon"`|à 9h30 tous les lundis en janvier|
->[!NOTE]   
->Vous trouverez des exemples d’expressions CRON en ligne, mais nombre d’entre elles omettent le champ `{second}`. Si vous copiez à partir de l’une d’elles, ajoutez le champ `{second}` manquant. Il est généralement plus judicieux de le renseigner avec un zéro plutôt qu’un astérisque.
 
-### <a name="cron-time-zones"></a>Fuseaux horaires CRON
+
+### <a name="ncrontab-time-zones"></a>Fuseaux horaires NCRONTAB
 
 Les nombres d’une expression CRON font référence à une heure et à une date, pas à un intervalle de temps. Par exemple, un 5 dans le champ `hour` correspond à 17h, pas à toutes les 5 heures.
 
 Le fuseau horaire par défaut utilisé avec les expressions CRON est le Temps universel coordonné (UTC). Pour baser votre expression CRON sur un autre fuseau horaire, créez un paramètre d’application nommé `WEBSITE_TIME_ZONE` pour votre application de fonction. Définissez la valeur sur le nom du fuseau horaire souhaité comme indiqué dans l’[index des fuseaux horaires de Microsoft](https://technet.microsoft.com/library/cc749073). 
 
-Par exemple, *l’heure de l’Est* correspond à UTC-05:00. Pour que votre déclencheur de minuteur se déclenche chaque jour à 10 h 00 (heure de l’Est), vous pouvez utiliser l’expression CRON suivante, qui tient compte du fuseau horaire UTC :
+Par exemple, *l’heure de l’Est* correspond à UTC-05:00. Pour que votre déclencheur de minuteur se déclenche à 10:00 AM est tous les jours, utilisez l’expression NCRONTAB suivante qui compte pour le fuseau horaire UTC :
 
-```json
-"schedule": "0 0 15 * * *"
+```
+"0 0 15 * * *"
 ``` 
 
-Sinon, vous pouvez créer un paramètre d’application pour votre application de fonction nommé `WEBSITE_TIME_ZONE` et définir la valeur sur **Est**.  Utilisez ensuite l’expression CRON suivante : 
+Sinon, vous pouvez créer un paramètre d’application pour votre application de fonction nommé `WEBSITE_TIME_ZONE` et définir la valeur sur **Est**.  Utilisez ensuite l’expression NCRONTAB suivante : 
 
-```json
-"schedule": "0 0 10 * * *"
+```
+"0 0 10 * * *"
 ``` 
 
 Quand vous utilisez `WEBSITE_TIME_ZONE`, l’heure est ajustée en fonction des changements d’heure du fuseau horaire spécifique (par exemple, pour tenir compte de l’heure d’été). 

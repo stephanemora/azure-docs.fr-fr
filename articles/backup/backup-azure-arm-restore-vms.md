@@ -9,14 +9,14 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: dacurwin
-ms.openlocfilehash: 0130dde483db4563926076f9bf9e641c14b1c117
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 126e33d4bedb56eb479361f16c02e7e167e49392
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688760"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736689"
 ---
-# <a name="restore-azure-vms"></a>Restaurer des machines virtuelles Azure
+# <a name="how-to-restore-azure-vm-data-in-azure-portal"></a>Comment restaurer des données de machine virtuelle Azure dans le Portail Azure
 
 Cet article décrit comment restaurer les données de machines virtuelles Azure à partir de points de récupération stockés dans des coffres Recovery Services [Sauvegarde Azure](backup-overview.md).
 
@@ -112,7 +112,8 @@ Cette [option de restauration](#restore-options) vous permet de créer un disque
 
 4. Dans **Configuration de la restauration**, sélectionnez **OK**. Dans **Restaurer**, cliquez sur **Restaurer** pour déclencher l’opération de restauration.
 
-Pendant la restauration de la machine virtuelle, la Sauvegarde Azure n’utilise pas le compte de stockage. Mais dans le cas d’une **restauration de disques** et d’une **restauration instantanée**, le compte de stockage est utilisé pour stocker le modèle.
+Lorsque votre machine virtuelle utilise des disques managés et que vous sélectionnez l’option **Créer une machine virtuelle**, la sauvegarde Azure n’utilise pas le compte de stockage spécifié. Dans le cas d’une **restauration de disques** et d’une **restauration instantanée**, le compte de stockage est utilisé uniquement pour stocker le modèle. Les disques managés sont créés dans le groupe de ressources spécifié.
+Lorsque votre machine virtuelle utilise des disques non gérés, ceux-ci sont restaurés en tant qu’objets blob dans le compte de stockage.
 
 ### <a name="use-templates-to-customize-a-restored-vm"></a>Utiliser des modèles pour personnaliser une machine virtuelle restaurée
 
@@ -163,7 +164,7 @@ Il existe un certain nombre de scénarios courants dans lesquels vous pouvez avo
 **Machines virtuelles épinglées à des zones** | La Sauvegarde Azure prend en charge la sauvegarde et la restauration de machines virtuelles épinglées à des zones. [En savoir plus](https://azure.microsoft.com/global-infrastructure/availability-zones/)
 
 ## <a name="track-the-restore-operation"></a>Suivi de l’opération de restauration
-Une fois que vous déclenchez l’opération de restauration, le service de sauvegarde crée un travail à des fins de suivi. Sauvegarde Azure affiche des notifications sur le travail dans le portail. Si elles ne sont pas visibles, cliquez sur le symbole **Notifications** pour les afficher.
+Une fois que vous déclenchez l’opération de restauration, le service de sauvegarde crée un travail à des fins de suivi. Sauvegarde Azure affiche des notifications sur le travail dans le portail. Si elles ne sont pas visibles, sélectionnez le symbole **Notifications**, puis sélectionnez **Afficher tous les travaux** pour afficher le statut du processus de restauration.
 
 ![Restauration déclenchée](./media/backup-azure-arm-restore-vms/restore-notification1.png)
 

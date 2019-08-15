@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.openlocfilehash: 974243da07a2570e851b7d44eac2556c201c2782
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 3c81ec5e213364ed6f159fd20e12879a098caad4
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68678527"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68774986"
 ---
 # <a name="mapping-data-flow-select-transformation"></a>Transformation de sélection de mappage de flux de données
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
@@ -32,9 +32,11 @@ Le flux Select peut également être utilisé comme un moyen de désélectionner
 ## <a name="options"></a>Options
 * Le paramètre par défaut pour « Sélectionner » consiste à inclure toutes les colonnes d’entrée et de conserver ces noms d’origine. Vous pouvez appliquer un alias au flux de données en définissant le nom de la transformation de sélection (Select).
 * Pour appliquer des alias à des colonnes individuelles, désactivez l’option « Sélectionner tout » et utilisez le mappage de colonnes en bas.
-* Choisissez Skip Duplicates (Ignorer les doublons) pour éliminer les colonnes dupliquées des métadonnées d’entrée ou de sortie.
+* Choisissez Ignorer les doublons pour éliminer les colonnes dupliquées des métadonnées d’entrée ou de sortie.
 
 ![Ignorer les doublons](media/data-flow/select-skip-dup.png "Ignorer les doublons")
+
+* Lorsque vous choisissez d’ignorer les doublons, les résultats sont visibles sous l’onglet Inspection. ADF conservera la première occurrence de la colonne et vous verrez que chaque occurrence suivante de cette même colonne a été supprimée de votre flux.
 
 > [!NOTE]
 > Pour effacer les règles de mappage, cliquez sur le bouton **Réinitialiser**.

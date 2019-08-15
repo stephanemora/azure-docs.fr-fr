@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: apimpm
-ms.openlocfilehash: 5ca9bd4964cf190eaa2be6d66d57c7ada971d675
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: bd31d711c58a63b5c15712c1774d48433c62f18d
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68442403"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68774975"
 ---
 # <a name="api-management-authentication-policies"></a>Stratégies d’authentification dans Gestion des API
 Cette rubrique est une ressource de référence au sujet des stratégies Gestion des API suivantes. Pour plus d'informations sur l'ajout et la configuration des stratégies, consultez la page [Stratégies dans Gestion des API](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -83,64 +83,73 @@ Dans cet exemple, le certificat client est identifié par son empreinte.
 <authentication-certificate thumbprint="CA06F56B258B7A0D4F2B05470939478651151984" />
 ```
 Dans cet exemple, le certificat client est identifié par le nom de ressource.
-```xml
-<authentication-certificate certificate-id="544fe9ddf3b8f30fb490d90f" />
+```xml  
+<authentication-certificate certificate-id="544fe9ddf3b8f30fb490d90f" />  
+```  
+
+### <a name="elements"></a>Éléments  
+  
+|Nom|Description|Obligatoire|  
+|----------|-----------------|--------------|  
+|authentication-certificate|Élément racine.|OUI|  
+  
+### <a name="attributes"></a>Attributs  
+  
+|Nom|Description|Obligatoire|Default|  
+|----------|-----------------|--------------|-------------|  
+|thumbprint|Empreinte du certificat client.|`thumbprint` ou `certificate-id` doit être présent.|N/A|  
+|certificate-id|Le nom de ressource du certificat.|`thumbprint` ou `certificate-id` doit être présent.|N/A|  
+  
+### <a name="usage"></a>Usage  
+ Cette stratégie peut être utilisée dans les [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.  
+  
+-   **Sections de la stratégie :** inbound  
+  
+-   **Étendues de la stratégie :** toutes les étendues  
+
+##  <a name="ManagedIdentity"></a> Authentifier avec l’identité managée  
+ Utilisez la stratégie `authentication-managed-identity` pour vous authentifier auprès d’un service principal à l’aide de l’identité managée du service Gestion des API. Cette stratégie utilise essentiellement l’identité managée pour obtenir un jeton d’accès auprès d’Azure Active Directory afin d’accéder à la ressource spécifiée. Une fois le jeton obtenu, la stratégie définit la valeur du jeton dans l'en-tête `Authorization` à l’aide du schéma `Bearer`.
+  
+### <a name="policy-statement"></a>Instruction de la stratégie  
+  
+```xml  
+<authentication-managed-identity resource="resource" output-token-variable-name="token-variable" ignore-error="true|false"/>  
+```  
+  
+### <a name="example"></a>Exemples  
+#### <a name="use-managed-identity-to-authenticate-with-a-backend-service"></a>Utiliser Identité managée pour s’authentifier auprès d’un service principal
+```xml  
+<authentication-managed-identity resource="https://graph.windows.net"/> 
+```
+  
+#### <a name="use-managed-identity-in-send-request-policy"></a>Utiliser Identité managée dans la stratégie d’envoi de requête
+```xml  
+<send-request mode="new" timeout="20" ignore-error="false">
+    <set-url>https://example.com/</set-url>
+    <set-method>GET</set-method>
+    <authentication-managed-identity resource="ResourceID"/>
+</send-request>
 ```
 
-### <a name="elements"></a>Éléments
-
-|Nom|Description|Obligatoire|
-|----------|-----------------|--------------|
-|authentication-certificate|Élément racine.|OUI|
-
-### <a name="attributes"></a>Attributs
-
-|Nom|Description|Obligatoire|Default|
-|----------|-----------------|--------------|-------------|
-|thumbprint|Empreinte du certificat client.|`thumbprint` ou `certificate-id` doit être présent.|N/A|
-|certificate-id|Le nom de ressource du certificat.|`thumbprint` ou `certificate-id` doit être présent.|N/A|
-
-### <a name="usage"></a>Usage
- Cette stratégie peut être utilisée dans les [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.
-
--   **Sections de la stratégie :** inbound
-
--   **Étendues de la stratégie :** toutes les étendues
-
-##  <a name="ManagedIdentity"></a> Authentifier avec l’identité managée
- Utilisez la stratégie `authentication-managed-identity` pour vous authentifier auprès d’un service principal à l’aide de l’identité managée du service Gestion des API. Cette stratégie utilise efficacement l’identité managée pour obtenir un jeton d’accès auprès d’Azure Active Directory afin d’accéder à la ressource spécifiée.
-
-### <a name="policy-statement"></a>Instruction de la stratégie
-
-```xml
-<authentication-managed-identity resource="resource" output-token-variable-name="token-variable" ignore-error="true|false"/>
-```
-
-### <a name="example"></a>Exemples
-
-```xml
-<authentication-managed-identity resource="https://graph.windows.net" output-token-variable-name="test-access-token" ignore-error="true" />
-```
-
-### <a name="elements"></a>Éléments
-
-|Nom|Description|Obligatoire|
-|----------|-----------------|--------------|
-|authentication-managed-identity |Élément racine.|OUI|
-
-### <a name="attributes"></a>Attributs
-
-|Nom|Description|Obligatoire|Default|
-|----------|-----------------|--------------|-------------|
-|resource|Chaîne. URI de l’ID d’application de l’API web cible (ressource sécurisée) dans Azure Active Directory.|OUI|N/A|
-|output-token-variable-name|Chaîne. Nom de la variable de contexte qui recevra la valeur du jeton en tant que type d’objet `string`.|Non|N/A|
-|ignore-error|Booléen. Si cet attribut a la valeur `true`, le pipeline de stratégie continuera à s’exécuter même si aucun jeton d’accès n’est obtenu.|Non|false|
-
-### <a name="usage"></a>Usage
- Cette stratégie peut être utilisée dans les [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.
-
--   **Sections de la stratégie :** inbound
-
+### <a name="elements"></a>Éléments  
+  
+|Nom|Description|Obligatoire|  
+|----------|-----------------|--------------|  
+|authentication-managed-identity |Élément racine.|OUI|  
+  
+### <a name="attributes"></a>Attributs  
+  
+|Nom|Description|Obligatoire|Default|  
+|----------|-----------------|--------------|-------------|  
+|resource|Chaîne. URI de l’ID d’application de l’API web cible (ressource sécurisée) dans Azure Active Directory.|OUI|N/A|  
+|output-token-variable-name|Chaîne. Nom de la variable de contexte qui recevra la valeur du jeton en tant que type d’objet `string`. |Non|N/A|  
+|ignore-error|Booléen. Si cet attribut a la valeur `true`, le pipeline de stratégie continuera à s’exécuter même si aucun jeton d’accès n’est obtenu.|Non|false|  
+  
+### <a name="usage"></a>Usage  
+ Cette stratégie peut être utilisée dans les [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.  
+  
+-   **Sections de la stratégie :** inbound  
+  
 -   **Étendues de la stratégie :** toutes les étendues
 
 ## <a name="next-steps"></a>Étapes suivantes

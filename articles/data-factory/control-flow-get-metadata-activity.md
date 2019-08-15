@@ -11,14 +11,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 03/11/2019
+ms.date: 08/06/2019
 ms.author: jingwang
-ms.openlocfilehash: 78f63b4f46fe5479d4d0fd5849ad80536d8a137c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b819a990b9f607aaf70bf2e16a5857de3f7306cc
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61346850"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68827500"
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Activité d’obtention des métadonnées dans Azure Data Factory
 
@@ -45,27 +45,27 @@ L’activité GetMetadata sélectionne un jeu de données comme entrée requise,
 
 | Connecteur/Métadonnées | itemName<br>(fichier/dossier) | itemType<br>(fichier/dossier) | size<br>(fichier) | created<br>(fichier/dossier) | lastModified<br>(fichier/dossier) |childItems<br>(dossier) |contentMD5<br>(fichier) | structure<br/>(fichier) | columnCount<br>(fichier) | exists<br>(fichier/dossier) |
 |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |
-| Amazon S3 | √/√ | √/√ | √ | x/x | √/√* | √ | x | √ | √ | √/√* |
-| Google Cloud Storage | √/√ | √/√ | √ | x/x | √/√* | √ | x | √ | √ | √/√* |
-| Objets blob Azure | √/√ | √/√ | √ | x/x | √/√* | √ | √ | √ | √ | √/√ |
-| Azure Data Lake Storage Gen1 | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
-| Azure Data Lake Storage Gen2 | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
-| Stockage Fichier Azure | √/√ | √/√ | √ | √/√ | √/√ | √ | x | √ | √ | √/√ |
-| Système de fichiers | √/√ | √/√ | √ | √/√ | √/√ | √ | x | √ | √ | √/√ |
-| SFTP | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
-| FTP | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
+| [Amazon S3](connector-amazon-simple-storage-service.md) | √/√ | √/√ | √ | x/x | √/√* | √ | x | √ | √ | √/√* |
+| [Google Cloud Storage](connector-google-cloud-storage.md) | √/√ | √/√ | √ | x/x | √/√* | √ | x | √ | √ | √/√* |
+| [Blob Azure](connector-azure-blob-storage.md) | √/√ | √/√ | √ | x/x | √/√* | √ | √ | √ | √ | √/√ |
+| [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
+| [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
+| [Stockage Fichier Azure](connector-azure-file-storage.md) | √/√ | √/√ | √ | √/√ | √/√ | √ | x | √ | √ | √/√ |
+| [Système de fichiers](connector-file-system.md) | √/√ | √/√ | √ | √/√ | √/√ | √ | x | √ | √ | √/√ |
+| [SFTP](connector-sftp.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
+| [FTP](connector-ftp.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
 
-- Pour Amazon S3 et Google Sloud Storage, `lastModified` s’applique à un compartiment et à une clé, mais pas à un dossier virtuel ; `exists` s’applique à un compartiment et à une clé, mais pas à un préfixe ou à un dossier virtuel.
+- Pour Amazon S3 et Google Cloud Storage, `lastModified` s’applique à un compartiment et à une clé, mais pas à un dossier virtuel ; `exists` s’applique à un compartiment et à une clé, mais pas à un préfixe ou à un dossier virtuel.
 - Pour Azure Stockage Blob, `lastModified` s’applique à un conteneur et à un objet blob, mais pas à un dossier virtuel.
 
 **Base de données relationnelle :**
 
 | Connecteur/Métadonnées | structure | columnCount | exists |
 |:--- |:--- |:--- |:--- |
-| Azure SQL Database | √ | √ | √ |
-| Azure SQL Database Managed Instance | √ | √ | √ |
-| Azure SQL Data Warehouse | √ | √ | √ |
-| SQL Server | √ | √ | √ |
+| [Azure SQL Database](connector-azure-sql-database.md) | √ | √ | √ |
+| [Azure SQL Database Managed Instance](connector-azure-sql-database-managed-instance.md) | √ | √ | √ |
+| [Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md) | √ | √ | √ |
+| [SQL Server](connector-sql-server.md) | √ | √ | √ |
 
 ### <a name="metadata-options"></a>Options de métadonnées
 
@@ -86,6 +86,9 @@ Les types de métadonnées suivants peuvent être spécifiés dans la liste de c
 
 >[!TIP]
 >Quand vous voulez vérifier si un fichier/un dossier/une table existe ou non, spécifiez `exists` dans la liste de champs d’activité GetMetadata, puis examinez le résultat `exists: true/false` de la sortie de l’activité. Si `exists` n’est pas configuré dans la liste de champs, l’activité GetMetadata échoue quand l’objet est introuvable.
+
+>[!NOTE]
+>Lorsque vous récupérez des métadonnées à partir de magasins de fichiers et configurez `modifiedDatetimeStart` et/ou `modifiedDatetimeEnd`, le `childItems` en sortie ne retourne que les fichiers sous le chemin d’accès spécifié avec l’heure de dernière modification entre la plage, mais aucun sous-dossier.
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -135,6 +138,8 @@ Propriété | Description | Obligatoire
 -------- | ----------- | --------
 fieldList | Répertorie les types d’informations de métadonnées requis. Consultez les détails dans la section [Options de métadonnées](#metadata-options) sur les métadonnées prises en charge. | OUI 
 dataset | Jeu de données de référence à partir duquel l’activité de métadonnées doit être récupérée par l’activité d’obtention des métadonnées. Consultez la section [Fonctionnalités prises en charge](#supported-capabilities) sur les connecteurs pris en charge et reportez-vous à la rubrique des connecteurs pour plus d’informations sur la syntaxe de jeu de données. | OUI
+formatSettings | S’applique lors de l’utilisation du type de format Jeu de données (Parquet, DelimitedText). | Non
+storeSettings | S’applique lors de l’utilisation du type de format Jeu de données (Parquet, DelimitedText). | Non
 
 ## <a name="sample-output"></a>Exemple de sortie
 

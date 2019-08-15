@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: gwallace
-ms.openlocfilehash: 802ece106099e8a475b83c820130c3c238d330d2
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 3f2c60be29d679d0b0d30b6bf471f083c66ba93f
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359216"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68827661"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Prise en main des services cloud Azure et d'ASP.NET
 
@@ -514,7 +514,7 @@ var imagesQueue = queueClient.GetQueueReference("images");
 imagesQueue.CreateIfNotExists();
 ```
 
-### <a name="contosoadsweb---layoutcshtml"></a>ContosoAdsWeb - \_Layout.cshtml
+### <a name="contosoadsweb---_layoutcshtml"></a>ContosoAdsWeb - \_Layout.cshtml
 Le fichier *_Layout.cshtml* définit le nom de l’application dans l’en-tête et le pied de page, puis crée une entrée de menu « Ads ».
 
 ### <a name="contosoadsweb---viewshomeindexcshtml"></a>ContosoAdsWeb - Views\Home\Index.cshtml
@@ -696,7 +696,7 @@ public override void Run()
 }
 ```
 
-Après chaque itération de la boucle, si aucun message de file d'attente n'a été trouvé, le programme se met en veille pendant une seconde. Cela évite au rôle de travail un temps processeur et des coûts de transaction de stockage trop élevés. L’équipe de conseil clientèle Microsoft raconte une anecdote sur un développeur qui, avant de partir en vacances, avait oublié d’inclure ce point et avait procédé au déploiement en production. À son retour, les coûts de surveillance étaient plus élevés que le coût de ses vacances.
+Après chaque itération de la boucle, si aucun message de file d'attente n'a été trouvé, le programme se met en veille pendant une seconde. Cela évite au rôle de travail un temps processeur et des coûts de transaction de stockage trop élevés. L’équipe de conseil clientèle Microsoft raconte une anecdote sur un développeur qui, avant de partir en vacances, avait oublié d’inclure ce point et avait procédé au déploiement en production. Lorsqu’ils sont arrivés en retour, leurs coûts de surveillance sont plus coûteuses que les congés.
 
 Il arrive que le contenu d'un message de file d'attente provoque une erreur de traitement. On parle alors de *message empoisonné*, et si vous relancez la boucle après avoir consigné une erreur, vous risquez d'essayer sans fin de traiter ce message.  Le bloc catch inclut donc une instruction If qui vérifie combien de fois l'application a tenté de traiter le message actuel, et si le nombre de tentatives est supérieur à 5, le message est supprimé de la file d'attente.
 

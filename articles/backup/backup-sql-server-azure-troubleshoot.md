@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: article
 ms.date: 06/18/2019
 ms.author: dacurwin
-ms.openlocfilehash: 849065460acda36426f8a594a984ad1cc8590c34
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 323470adfe56ee20fe0fb64aeba38b6af4330351
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688832"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68827601"
 ---
 # <a name="troubleshoot-sql-server-database-backup-by-using-azure-backup"></a>Résoudre les problèmes de sauvegarde des bases de données SQL Server avec Sauvegarde Azure
 
@@ -119,6 +119,19 @@ Pour configurer la protection d’une base de données SQL Server sur une machin
 | Message d’erreur | Causes possibles | Action recommandée |
 |---|---|---|
 | L’intention de protection automatique a été supprimée ou n’est pas plus valide. | Quand vous activez la protection automatique sur une instance SQL Server, les travaux **Configurer la sauvegarde** s’exécutent pour toutes les bases de données de cette instance. Si vous désactivez la protection automatique pendant l’exécution des tâches, les tâches **En cours** sont annulées avec ce code d’erreur. | Réactivez la protection automatique pour protéger toutes les bases de données restantes. |
+
+### <a name="clouddosabsolutelimitreached"></a>CloudDosAbsoluteLimitReached
+
+| Message d’erreur | Causes possibles | Action recommandée |
+|---|---|---|
+L’opération est bloquée, car vous avez atteint la limite du nombre d’opérations autorisées en 24 heures. | Lorsque vous avez atteint la limite maximale autorisée pour une opération dans une plage de 24 heures, cette erreur est survenue. <br> Par exemple :  Si vous avez atteint la limite du nombre de tâches de sauvegarde de configuration qui peuvent être déclenchées par jour et que vous essayez de configurer la sauvegarde sur un nouvel élément, cette erreur s’affiche. | En règle générale, le fait de retenter l’opération après 24 heures résout ce problème. Toutefois, si le problème persiste, vous pouvez contacter le support technique Microsoft pour obtenir de l’aide.
+
+### <a name="clouddosabsolutelimitreachedwithretry"></a>CloudDosAbsoluteLimitReachedWithRetry
+
+| Message d’erreur | Causes possibles | Action recommandée |
+|---|---|---|
+L’opération est bloquée, car le coffre a atteint sa limite maximale pour ces opérations autorisées dans une plage de 24 heures. | Lorsque vous avez atteint la limite maximale autorisée pour une opération dans une plage de 24 heures, cette erreur est survenue. Cette erreur est généralement liée à des opérations à l’échelle, telles que la modification de la stratégie ou la protection automatique. Contrairement au cas de CloudDosAbsoluteLimitReached, il n’y a pas grand-chose à faire pour résoudre cet état. En fait, le service Sauvegarde Azure réessaiera les opérations en interne pour tous les éléments en question.<br> Par exemple :  si vous avez un grand nombre de sources de données protégées par une stratégie et que vous essayez de modifier cette stratégie, des tâches de protection de configuration sont déclenchées pour chaque élément protégé et peuvent parfois atteindre la limite maximale autorisée pour de telles opérations par jour.| Le service Sauvegarde Azure réessaiera automatiquement cette opération après 24 heures. 
+
 
 ## <a name="re-registration-failures"></a>Échecs de réinscription
 

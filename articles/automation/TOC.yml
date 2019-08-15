@@ -20,10 +20,14 @@
       displayName: RBAC
     - name: Déplacer votre compte Automation vers un autre abonnement
       href: how-to/move-account.md
+    - name: Automatiser l’intégration des services Automation
+      href: /azure/architecture/cloud-adoption/operations/azure-server-management/onboarding-automation
 - name: Automatisation de processus
   items:
     - name: Vue d'ensemble des Runbooks Workers hybrides
       href: automation-hybrid-runbook-worker.md
+    - name: galerie de runbooks
+      href: automation-runbook-gallery.md
     - name: Concepts
       items:
         - name: Types de runbook
@@ -297,8 +301,6 @@
   items:
     - name: Envoyer un e-mail depuis un runbook à l’aide de SendGrid
       href: automation-send-email.md
-    - name: galerie de runbooks
-      href: automation-runbook-gallery.md
     - name: Surveiller des runbooks avec des alertes de métrique
       href: automation-alert-metric.md
     - name: Démarrer un runbook depuis des alertes Azure

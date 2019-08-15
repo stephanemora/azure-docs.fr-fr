@@ -9,14 +9,14 @@ editor: ''
 ms.service: api-management
 ms.workload: integration
 ms.topic: article
-ms.date: 07/01/2019
+ms.date: 08/01/2019
 ms.author: apimpm
-ms.openlocfilehash: 9eb03be5cd9704c3b124bfb16fd30c5c3466890d
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: b3513ab2583939943ff188b582f57f49530e5ded
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326137"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736261"
 ---
 # <a name="configure-a-custom-domain-name"></a>Configuration d’un nom de domaine personnalisé
 
@@ -40,17 +40,19 @@ Pour effectuer les étapes décrites dans cet article, vous devez disposer des �
 ## <a name="use-the-azure-portal-to-set-a-custom-domain-name"></a>Utiliser le portail Azure pour définir un nom de domaine personnalisé
 
 1. Accédez à votre instance APIM dans le [portail Azure](https://portal.azure.com/).
-1. Sélectionnez **Domaines personnalisés et SSL**.
+1. Sélectionnez **Domaines personnalisés**.
 
     Vous pouvez attribuer un nom de domaine personnalisé à plusieurs points de terminaison. Actuellement, les points de terminaison disponibles sont les suivants :
 
-    - **Proxy** (valeur par défaut : `<apim-service-name>.azure-api.net`)
+    - **Passerelle** (valeur par défaut : `<apim-service-name>.azure-api.net`)
     - **Portail** (valeur par défaut : `<apim-service-name>.portal.azure-api.net`)
     - **Gestion** (valeur par défaut : `<apim-service-name>.management.azure-api.net`)
     - **SCM** (valeur par défaut : `<apim-service-name>.scm.azure-api.net`)
 
     > [!NOTE]
-    > Vous pouvez mettre à jour tous les points de terminaison ou certains d’entre eux. En règle générale, les clients mettent à jour les points de terminaison **Proxy** (cette URL est utilisée pour appeler l’API exposée via la gestion des API) et **Portal** (URL du portail des développeurs). Les points de terminaison **Gestion** et **SCM** sont utilisés en interne par les propriétaires d’instance APIM uniquement. Pour cette raison, ils se voient moins fréquemment attribuer un nom de domaine personnalisé. Dans la plupart des cas, vous pouvez définir un seul nom de domaine personnalisé pour un point de terminaison donné. Toutefois, le niveau **Premium** prend en charge la définition de plusieurs noms d’hôte pour le point de terminaison **Proxy**.
+    > Seul le point de terminaison de la **passerelle** peut être configuré dans le niveau de consommation.
+    > Vous pouvez mettre à jour tous les points de terminaison ou certains d’entre eux. En règle générale, les clients mettent à jour les points de terminaison **Passerelle** (cette URL est utilisée pour appeler l’API exposée via la gestion des API) et **Portail** (URL du portail des développeurs).
+    > Les points de terminaison **Gestion** et **SCM** sont utilisés en interne par les propriétaires d’instance APIM uniquement. Pour cette raison, ils se voient moins fréquemment attribuer un nom de domaine personnalisé. Toutefois, le niveau **Premium** prend en charge la définition de plusieurs noms d’hôte pour le point de terminaison **Passerelle**.
 
 1. Sélectionnez le point de terminaison que vous souhaitez mettre à jour.
 1. Dans la fenêtre de droite, cliquez sur **Personnalisé**.

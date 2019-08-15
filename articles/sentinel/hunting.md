@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2019
 ms.author: rkarlin
-ms.openlocfilehash: 23e7db25e5ebed2a23b4d38bcfe9597b77c6b04b
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 5e6ad3c0b415722349dc584434add1031b7c3cb1
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67620739"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780458"
 ---
 # <a name="hunt-for-threats-with-in-azure-sentinel-preview"></a>Repérer les menaces à l’aide d’Azure Sentinel en préversion
 
@@ -41,7 +41,7 @@ La fonctionnalité de repérage d’Azure Sentinel vous offre les avantages suiv
 
 - Langage de requête performant avec IntelliSense : repose sur un langage de requête suffisamment flexible pour garantir des fonctionnalités de repérage de niveau supérieur.
 
-- Création de vos propres signets : lors du processus de repérage, vous pouvez rencontrer des correspondances, conclusions, tableaux de bord ou activités qui vous semblent inhabituels ou suspects. Pour marquer ces éléments afin d’y réaccéder plus facilement par la suite, utilisez la fonctionnalité de création de signets. Les signets vous permettent d’enregistrer des éléments en vue de leur intégration ultérieure dans un dossier d’examen. Pour plus d’informations sur les signets, consultez l’article [Use bookmarks to hunt] (Utiliser des signets pour le repérage).
+- Création de vos propres signets : lors du processus de repérage, vous pouvez rencontrer des correspondances, conclusions, tableaux de bord ou activités qui vous semblent inhabituels ou suspects. Pour marquer ces éléments afin d’y réaccéder plus facilement par la suite, utilisez la fonctionnalité de création de signets. Les signets vous permettent d’enregistrer des éléments pour plus tard, afin de les utiliser pour créer un incident à des fins d’investigation. Pour plus d’informations sur les signets, consultez l’article [Use bookmarks to hunt] (Utiliser des signets pour le repérage).
 
 - Automatisation de l’examen à l’aide de notebooks : les notebooks sont semblables à des playbooks pas à pas que vous pouvez générer pour suivre les différentes étapes d’une procédure d’examen et de repérage.  Les notebooks encapsulent toutes les étapes de repérage dans un playbook réutilisable qui peut être partagé avec d’autres personnes de votre organisation. 
 - Interrogation des données stockées : les données sont accessibles dans des tables sur lesquelles vous pouvez exécuter des requêtes. Par exemple, vous pouvez interroger les événements de création de processus, les événements DNS (Domain Name Service), ainsi que de nombreux autres types d’événements.

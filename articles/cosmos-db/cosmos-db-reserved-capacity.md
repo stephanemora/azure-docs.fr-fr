@@ -4,15 +4,15 @@ description: Découvrez comment acheter une capacité réservée Azure Cosmos DB
 author: bandersmsft
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/01/2019
+ms.date: 08/02/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: b74fcc2e08f02be7adeeab4cfee5f36d5194392c
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: ab42c600b975adac9f13e8e75da9696e51e7e94d
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67508638"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779861"
 ---
 # <a name="optimize-cost-with-reserved-capacity-in-azure-cosmos-db"></a>Optimiser les coûts avec une capacité réservée dans Azure Cosmos DB
 
@@ -53,12 +53,12 @@ La taille de la réservation doit être basée sur la quantité totale de débit
    |Champ  |Description  |
    |---------|---------|
    |Étendue   |   Option qui contrôle le nombre d’abonnements pouvant bénéficier de la remise sur la facturation associé à la réservation. Elle contrôle également la manière dont la réservation est appliquée à des abonnements spécifiques. <br/><br/>  Si vous sélectionnez **Partagé**, la remise de réservation est appliquée aux instances Azure Cosmos DB qui sont exécutées dans tous les abonnements de votre contexte de facturation. Le contexte de facturation est basé sur la façon dont vous vous êtes inscrit dans Azure. Pour les clients Entreprise, l'étendue partagée correspond à l'inscription et inclut tous les abonnements compris dans l'inscription. Pour les clients avec paiement à l’utilisation, l’étendue partagée correspond à tous les abonnements individuels avec des tarifs de paiement à l’utilisation créés par l’administrateur de compte.  <br/><br/>  Si vous sélectionnez **Abonnement unique**, la remise de réservation est appliquée aux instances Azure Cosmos DB incluses dans l’abonnement sélectionné. <br/><br/> Si vous sélectionnez **Groupe de ressources unique**, la remise de réservation est appliquée aux instances Azure Cosmos DB incluses dans l’abonnement sélectionné et dans le groupe de ressources sélectionné dans cet abonnement. <br/><br/> Vous pouvez changer l’étendue de la réservation après l’achat de la capacité réservée.  |
-   |Abonnement  |   Abonnement utilisé pour payer la capacité réservée Azure Cosmos DB. Les coûts initiaux sont facturés selon le mode de paiement défini sur l’abonnement sélectionné. Le type d’abonnement doit être un des types suivants : <br/><br/>  Contrat Entreprise (références de l’offre : MS-AZR-0017P ou MS-AZR-0148P) : Pour un abonnement Entreprise, les frais sont déduits du solde de l’engagement financier de l’inscription, ou facturés comme un dépassement. <br/><br/> Abonnement individuel avec tarifs de paiement à l’utilisation (références de l’offre : MS-AZR-0003P ou MS-AZR-0023P) : Pour un abonnement individuel avec tarifs de paiement à l’utilisation, les frais sont facturés sur le mode de paiement par carte de crédit ou par facture, défini sur l’abonnement.    |
+   |Subscription  |   Abonnement utilisé pour payer la capacité réservée Azure Cosmos DB. Les coûts initiaux sont facturés selon le mode de paiement défini sur l’abonnement sélectionné. L’abonnement doit être de l’un des types suivants : <br/><br/>  Contrat Entreprise (références de l’offre : MS-AZR-0017P ou MS-AZR-0148P) : Pour un abonnement Entreprise, les frais sont déduits du solde de l’engagement financier de l’inscription, ou facturés comme un dépassement. <br/><br/> Abonnement individuel avec tarifs de paiement à l’utilisation (références de l’offre : MS-AZR-0003P ou MS-AZR-0023P) : Pour un abonnement individuel avec tarifs de paiement à l’utilisation, les frais sont facturés sur le mode de paiement par carte de crédit ou par facture, défini sur l’abonnement.    |
    | Groupe de ressources | Groupe de ressources auquel la remise de capacité réservée est appliquée. |
    |Terme  |   Une année ou trois ans.   |
    |Type de débit   |  Le débit est provisionné en unités de requête. Vous pouvez acheter une réservation pour le débit approvisionné pour les deux configurations (écritures dans une seule région et écritures dans plusieurs régions). Le type de débit propose deux valeurs à sélectionner : 100 RU/s par heure et 100 RU multimaîtres/s par heure.|
    | Unités de capacité réservée| Quantité de débit que vous souhaitez réserver. Pour calculer cette valeur, déterminez d’abord le débit nécessaire pour toutes vos ressources Cosmos DB (par exemple, les bases de données ou les conteneurs) par région. Ensuite, multipliez cette quantité par le nombre de régions à associer à votre base de données Cosmos DB. Par exemple :  Si vous avez cinq régions avec chacune 1 million d’unités de requête par seconde (RU/s), sélectionnez 5 millions de RU/s comme capacité réservée à acheter. |
- 
+
 
 5. Le prix requis pour acheter la capacité réservée est calculé une fois le formulaire rempli. La sortie indique également le pourcentage de remise que vous obtenez avec les options sélectionnées. Cliquez ensuite sur **Sélectionner**
 
@@ -72,9 +72,11 @@ Une fois achetée, une réservation est immédiatement appliquée à toutes les 
 
 Quand votre réservation expire, vos instances Azure Cosmos DB continuent de s’exécuter et sont facturées aux prix habituels du paiement à l’utilisation.
 
-## <a name="cancellation-and-exchanges"></a>Annulations et échanges
+## <a name="cancel-exchange-or-refund-reservations"></a>Annuler, échanger ou rembourser des réservations
 
-Pour vous aider à identifier la capacité réservée appropriée, consultez [Comprendre comment la remise de réservation est appliquée à Azure Cosmos DB](../billing/billing-understand-cosmosdb-reservation-charges.md). Si vous devez annuler ou échanger une réservation Azure Cosmos DB, consultez [Échanges et remboursements de réservations](../billing/billing-azure-reservations-self-service-exchange-and-refund.md).
+Pour obtenir de l’aide sur l’identification de la capacité réservée appropriée, consultez [Comprendre comment la remise de réservation est appliquée à Azure Cosmos DB](../billing/billing-understand-cosmosdb-reservation-charges.md).
+
+Vous pouvez annuler, échanger ou rembourser des réservations avec certaines limitations. Pour plus d’informations, consultez [Échanges et remboursements en libre-service pour les réservations Azure](../billing/billing-azure-reservations-self-service-exchange-and-refund.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

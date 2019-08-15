@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: bwren
-ms.openlocfilehash: 05d9dc8f676589dcb301c19b0a2e80e9fd4c1fa0
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: cc0fcbb2005ce2aaa70c9e1d2a9993d341169209
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68249744"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68814227"
 ---
 # <a name="collect-iis-logs-in-azure-monitor"></a>Collecter des journaux d’activité IIS dans Azure Monitor
 Internet Information Services (IIS) enregistre l'activité des utilisateurs dans des fichiers journaux qui peuvent être collectés par Azure Monitor et stockés en tant que [données de journal](data-platform.md).
@@ -34,7 +34,7 @@ Configurez les journaux d’activité IIS dans Azure Monitor à partir du [menu 
 
 
 ## <a name="data-collection"></a>Collecte des données
-Azure Monitor collecte les entrées de journal IIS à partir de chaque agent, à chaque fois que l’horodateur du journal est modifié ou qu’un fichier est créé. Le journal est lu toutes les 5 minutes. Cette fréquence de création de fichier est contrôlée par le paramètre de **planification de la substitution de fichier journal** pour le site IIS qui est, par défaut, défini sur une fois par jour. Si, pour une raison quelconque, IIS ne met pas à jour l’horodateur avant l’heure de substitution, si le paramètre est **Horaire**, Azure Monitor collecte le journal toutes les heures. Si le paramètre est **Quotidien**, Azure Monitor collecte le journal toutes les 24 heures.
+Azure Monitor collecte les entrées de journal IIS de chaque agent à chaque fois que l’horodateur du journal est modifié. Le journal est lu toutes les **5 minutes**. Si, pour une raison quelconque, IIS ne met pas à jour l’horodateur avant l’heure de substitution lors de la création d’un nouveau fichier, les entrées sont collectées après la création du nouveau fichier. Cette fréquence de création de fichier est contrôlée par le paramètre de **planification de la substitution de fichier journal** pour le site IIS qui est, par défaut, défini sur une fois par jour. Si le paramètre est **Toutes les heures**, Azure Monitor collecte le journal toutes les heures. Si le paramètre est **Quotidien**, Azure Monitor collecte le journal toutes les 24 heures.
 
 
 ## <a name="iis-log-record-properties"></a>Propriétés d’enregistrement de journal IIS

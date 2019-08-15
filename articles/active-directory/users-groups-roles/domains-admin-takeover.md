@@ -10,17 +10,17 @@ ms.service: active-directory
 ms.subservice: users-groups-roles
 ms.topic: article
 ms.workload: identity
-ms.date: 03/18/2019
+ms.date: 08/01/2019
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b32ef37c6d61c88a18acd5ddc80cc6154369ca29
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 553118486d1148f63e79ca25c32ed7dd8a3b7414
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65780534"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736793"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Prendre le contrôle d’un annuaire non géré en tant qu’administrateur dans Azure Active Directory
 
@@ -102,7 +102,7 @@ Les plans de service pris en charge sont les suivants :
 - Microsoft Stream
 - Version d’évaluation gratuite de Dynamics 365
 
-La prise de contrôle par administrateur externe n’est prise en charge par aucun service dont les plans de service incluent SharePoint, OneDrive ou Skype Entreprise, par exemple, via un abonnement gratuit Office ou la référence (SKU) de base Office. Sinon, vous pouvez recourir à l’option [**ForceTakeover**](#azure-ad-powershell-cmdlets-for-the-forcetakeover-option) pour retirer le nom de domaine du client non géré et le vérifier sur le client souhaité. L’option ForceTakeover ne déplace pas les utilisateurs ; elle ne conserve pas non plus l’accès à l’abonnement. Au lieu de cela, cette option déplace simplement le nom de domaine. 
+La prise de contrôle par administration externe n’est pas prise en charge pour les services dont les plans de service incluent SharePoint, OneDrive ou Skype entreprise, par exemple, via un abonnement gratuit à Office. Sinon, vous pouvez recourir à l’option [**ForceTakeover**](#azure-ad-powershell-cmdlets-for-the-forcetakeover-option) pour retirer le nom de domaine du client non géré et le vérifier sur le client souhaité. L’option ForceTakeover ne déplace pas les utilisateurs ; elle ne conserve pas non plus l’accès à l’abonnement. Au lieu de cela, cette option déplace simplement le nom de domaine. 
 
 #### <a name="more-information-about-rms-for-individuals"></a>En savoir plus sur RMS pour les particuliers
 

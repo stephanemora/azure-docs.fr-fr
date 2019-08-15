@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/22/2018
 ms.author: glenga
-ms.openlocfilehash: 50056d4d05d2426ff644518aea04a2c9f4d817f3
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: 3aa3176b1d6d9e5665fd3a8988b71159a4fc20c0
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68667167"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68735709"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Informations de référence sur les paramètres d’application d’Azure Functions
 
@@ -115,6 +115,15 @@ Version du runtime Azure Functions à utiliser dans cette application de fonctio
 |Clé|Exemple de valeur|
 |---|------------|
 |FUNCTIONS\_EXTENSION\_VERSION|~2|
+
+## <a name="functions_worker_process_count"></a>FUNCTIONS\_WORKER\_PROCESS\_COUNT
+
+Spécifie le nombre maximal de processus de traitement de langue, avec la valeur `1` par défaut. La valeur maximale autorisée est `10`. Les appels de fonction sont répartis uniformément entre les processus de travail de langage. Les processus de travail de langage sont générés toutes les 10 secondes jusqu’à ce que le nombre défini par \_WORKER\_PROCESS\_COUNT soit atteint. L’utilisation de plusieurs processus de traitement de langue n’a pas le même effet qu’une [mise à l’échelle](functions-scale.md). Envisagez d’utiliser ce paramètre lorsque votre charge de travail a une combinaison d’appels liés à l’UC et aux E/S. Ce paramètre s’applique à toutes les langues non-.NET.
+
+|Clé|Exemple de valeur|
+|---|------------|
+|FUNCTIONS\_WORKER\_PROCESS\_COUNT|2|
+
 
 ## <a name="functions_worker_runtime"></a>FUNCTIONS\_WORKER\_RUNTIME
 

@@ -1,44 +1,46 @@
 ---
-title: Entraîner et inscrire les modèles scikit-learn
+title: Entraîner des modèles Machine Learning avec scikit-Learn
 titleSuffix: Azure Machine Learning service
-description: Cet article vous explique comment entraîner et inscrire un modèle scikit-learn à l’aide d’Azure Machine Learning service.
+description: Découvrez comment exécuter vos scripts de formation scikit-Learn à l’échelle de l’entreprise à l’aide de la classe SKlearn estimateur d’Azure Machine Learning. Les exemples de scripts classifient les images de fleurs d'iris afin de créer un modèle d'apprentissage automatique basé sur le jeu de données iris de scikit-learn.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.author: maxluk
 author: maxluk
-ms.date: 06/30/2019
+ms.date: 08/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: c9e983f7981c1155964617694d2cce86aba741b7
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 98c04c50bc4a52e9b2e4e267895fdd94888885f5
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67840017"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68775163"
 ---
-# <a name="train-and-register-scikit-learn-models-at-scale-with-azure-machine-learning-service"></a>Entraîner et inscrire des modèles Scikit-learn à l’échelle avec Azure Machine Learning service
+# <a name="build-scikit-learn-models-at-scale-with-azure-machine-learning-service"></a>Créer des modèles scikit-Learn à l’échelle avec Azure Machine Learning service
 
-Cet article vous explique comment entraîner et inscrire un modèle Scikit-learn à l’aide d’Azure Machine Learning service. Il utilise le populaire [jeu de données Iris](https://archive.ics.uci.edu/ml/datasets/iris) pour classer des images de fleurs d’iris avec la classe [scikit-learn](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py) personnalisée.
+Dans cet article, découvrez comment exécuter vos scripts de formation scikit-Learn à l’échelle de l’entreprise à l’aide de la classe [SKlearn estimateur](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py) d’Azure Machine Learning. 
 
-Scikit-learn est une infrastructure de calcul open source couramment utilisée pour le Machine Learning. Avec Azure Machine Learning service, vous pouvez rapidement faire monter en charge des tâches de formation open source à l’aide de ressources de calcul cloud élastiques. Vous pouvez également suivre vos sessions de formation, les modèles de version, les modèles de déploiement et bien plus encore.
+Dans cet article, les exemples de scripts classifient les images de fleurs d'iris afin de créer un modèle d'apprentissage automatique basé sur le [jeu de données iris](https://archive.ics.uci.edu/ml/datasets/iris) de scikit-learn.
 
-Que vous développiez un modèle Scikit-learn de A à Z ou importiez un modèle existant dans le cloud, Azure Machine Learning service peut vous aider à créer des modèles prêts pour la production.
+Que vous soyez en train d’entraîner un modèle Machine Learning scikit-Learn à partir de zéro ou que vous transfériez un modèle existant dans le cloud, vous pouvez utiliser Azure Machine Learning pour faire mettre à l’échelle les travaux d’apprentissage open source à l’aide de ressources de calcul élastiques dans le cloud. Vous pouvez créer, déployer, mettre à jour et surveiller des modèles de niveau production avec Azure Machine Learning.
 
 ## <a name="prerequisites"></a>Prérequis
 
-Exécutez ce code sur l’un de ces environnements :
+Exécutez ce code sur l’un de ces environnements :
  - Machine virtuelle de Notebook Azure Machine Learning : pas d’installation ou de téléchargement nécessaire
 
-    - Effectuez un [démarrage rapide du notebook informatique](quickstart-run-cloud-notebook.md) pour créer un serveur de notebook dédié dans lequel auront été préchargés le kit de développement logiciel (SDK) et l’exemple de référentiel.
+    - Suivre le [Tutoriel : Configurez l’environnement et l’espace de travail](tutorial-1st-experiment-sdk-setup.md) pour créer un serveur Notebook dédié préchargé avec le kit de développement logiciel (SDK) et l’exemple de référentiel.
     - Dans le dossier des exemples du serveur de notebook, recherchez un notebook terminé et développé en accédant à ce répertoire : le dossier **how-to-use-azureml > training > train-hyperparameter-tune-deploy-with-sklearn**.
 
  - Votre propre serveur de notebooks Jupyter
 
     - [Installer le kit de développement logiciel (SDK) Azure Machine Learning pour Python](setup-create-workspace.md#sdk)
     - [Créer un fichier de configuration d’espace de travail](setup-create-workspace.md#write-a-configuration-file)
-    - [Télécharger l’exemple de fichier de script](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training/train-hyperparameter-tune-deploy-with-sklearn) `train_iris.py`
-    - Vous trouverez également une [version Jupyter Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-hyperparameter-tune-deploy-with-keras/train-hyperparameter-tune-deploy-with-sklearn.ipynb) complète de ce guide sur la page des exemples GitHub. Le notebook comprend une section plus détaillée couvrant le paramétrage des hyperparamètres intelligents et la récupération du meilleur modèle par les métriques primaires.
+    - Télécharger le jeu de données et l’exemple de fichier de script 
+        - [jeu de données iris](https://archive.ics.uci.edu/ml/datasets/iris)
+        - [`train_iris.py`](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training/train-hyperparameter-tune-deploy-with-sklearn)
+    - Vous trouverez également une [version Jupyter Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-hyperparameter-tune-deploy-with-sklearn/train-hyperparameter-tune-deploy-with-sklearn.ipynb) complète de ce guide sur la page des exemples GitHub. Le notebook comprend une section plus détaillée couvrant le paramétrage des hyperparamètres intelligents et la récupération du meilleur modèle par les métriques primaires.
 
 ## <a name="set-up-the-experiment"></a>Configurer l’expérience
 
@@ -71,9 +73,9 @@ Créez un objet d’espace de travail à partir du fichier `config.json` créé 
 ws = Workspace.from_config()
 ```
 
-### <a name="create-an-experiment"></a>Création d'une expérience
+### <a name="create-a-machine-learning-experiment"></a>Créer une expérience d’apprentissage automatique
 
-Créer une expérience et un dossier pour stocker vos scripts de formation. Dans cet exemple, créez une expérience appelée « sklearn-iris ».
+Créez une expérience et un dossier pour stocker vos scripts d’apprentissage. Dans cet exemple, créez une expérience appelée « sklearn-iris ».
 
 ```Python
 project_folder = './sklearn-iris'
@@ -131,7 +133,7 @@ Pour plus d’informations sur les cibles de calcul, consultez l’article [Qu�
 
 ## <a name="create-a-scikit-learn-estimator"></a>Créer un estimateur Scikit-learn
 
-L’[estimateur Scikit-learn](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py) fournit un moyen pour lancer simplement la tâche de formation de Scikit-learn sur une cible de calcul. Il est implémenté via la classe [`SKLearn`](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py) qui peut être utilisé pour prendre en charge de la formation d’UC à nœud unique.
+L’[estimateur Scikit-learn](https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.sklearn?view=azure-ml-py) fournit un moyen pour lancer simplement la tâche de formation de Scikit-learn sur une cible de calcul. Il est implémenté via la classe [`SKLearn`](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py) qui peut être utilisé pour prendre en charge de la formation d’UC à nœud unique.
 
 Si l’exécution de votre script de formation exige des packages PIP ou Conda supplémentaires, vous pouvez installer les packages sur l’image docker obtenue en transmettant leurs noms via les arguments `pip_packages` et `conda_packages`.
 
@@ -162,7 +164,7 @@ run.wait_for_completion(show_output=True)
 
 Lorsque l’exécution est lancée, il effectue les étapes suivantes :
 
-- **Préparation** : une image docker est créée en fonction de l’estimateur TensorFlow. L’image est chargée dans le registre de conteneurs de l’espace de travail et mise en cache pour des exécutions ultérieures. Les journaux sont également transmis en continu à l’historique des exécutions et peuvent être affichés afin de surveiller la progression.
+- **Préparation** : une image docker est créée en fonction de l’estimateur TensorFlow. L’image est chargée dans le registre de conteneurs de l’espace de travail et mise en cache pour des exécutions ultérieures. Les journaux sont également transmis en continu à l’historique des exécutions et peuvent être affichés afin de surveiller la progression.
 
 - **Mise à l’échelle** : le cluster tente de monter en puissance si le cluster Batch AI nécessite plus de nœuds pour l’exécution que la quantité disponible actuellement.
 
@@ -190,10 +192,12 @@ model = run.register_model(model_name='sklearn-iris', model_path='model.joblib')
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans cet article, vous avez entraîné et inscrit un modèle Scikit-learn sur Azure Machine Learning service.
+Dans cet article, vous avez formé et inscrit un modèle d’apprentissage automatique de classification à l’aide de scikit-Learn sur Azure Machine Learning service.
 
 * Pour savoir comment déployer un modèle, passez à notre article relatif aux [Modèles de déploiement](how-to-deploy-and-where.md).
 
-* [Optimiser les hyperparamètres](how-to-tune-hyperparameters.md)
+* [Optimiser les hyperparamètres](how-to-tune-hyperparameters.md).
 
-* [Effectuer le suivi des métriques d’exécution pendant l’entraînement](how-to-track-experiments.md)
+* [Effectuer le suivi des indicateurs de performance d’exécution pendant l’entraînement](how-to-track-experiments.md).
+
+* En savoir plus la [comparaison entre Deep Learning et Machine Learning](concept-deep-learning-vs-machine-learning.md).

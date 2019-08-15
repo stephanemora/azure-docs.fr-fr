@@ -15,12 +15,12 @@ ms.author: billmath
 search.appverid:
 - MET150
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d74eb91b5122f63088f3344836eab8decf5c57d2
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: 98101973627750f87fd06d3f617a1af764a837ee
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68227365"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68774248"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Implémenter la synchronisation de hachage de mot de passe avec la synchronisation Azure AD Connect
 Cet article vous fournit les informations nécessaires pour synchroniser vos mots de passe utilisateur à partir d’une instance Active Directory (AD) locale vers une instance Azure Active Directory (Azure AD) dans le cloud.
@@ -63,9 +63,6 @@ La section suivante explique en détail comment fonctionne la synchronisation du
 >[!Note] 
 >Le hachage MD4 d’origine n’est pas transmis à Azure AD. Au lieu de cela, le hachage SHA256 du hachage MD4 d’origine est transmis. Par conséquent, si le hachage stocké dans Azure AD est obtenu, il ne peut pas être utilisé dans une attaque de type pass-the-hash locale.
 
-### <a name="how-password-hash-synchronization-works-with-azure-active-directory-domain-services"></a>Fonctionnement de la synchronisation de hachage de mot de passe avec Azure Active Directory Domain Services
-Vous pouvez également utiliser la fonctionnalité de synchronisation de hachage de mot de passe pour synchroniser vos mots de passe locaux avec [Azure Active Directory Domain Services](../../active-directory-domain-services/overview.md). Ce scénario permet à l’instance Azure Active Directory Domain Services d’authentifier vos utilisateurs dans le cloud avec toutes les méthodes disponibles dans votre instance Active Directory locale. L’expérience de ce scénario est similaire à l’utilisation de l’outil de migration Active Directory (ADMT) dans un environnement local.
-
 ### <a name="security-considerations"></a>Considérations relatives à la sécurité
 Lors de la synchronisation des mots de passe, la version en texte brut de votre mot de passe n’est exposée ni à la fonctionnalité de synchronisation de hachage de mot de passe, ni à Azure AD, ni à l’un des services associés.
 
@@ -104,6 +101,39 @@ La synchronisation d’un mot de passe n’a aucun impact sur l’utilisateur Az
 
 - En règle générale, la synchronisation de hachage de mot de passe est plus simple à implémenter qu’un service de fédération. Elle ne nécessite pas de serveurs supplémentaires et élimine la dépendance vis-à-vis d’un service de fédération hautement disponible pour authentifier les utilisateurs.
 - La synchronisation de hachage de mot de passe peut également être activée en plus de la fédération. Vous pouvez l’utiliser comme solution de secours si votre service de fédération connaît une défaillance.
+
+## <a name="password-hash-sync-process-for-azure-ad-domain-services"></a>Processus de synchronisation du hachage de mot de passe pour Azure AD Domain Services
+
+Si vous utilisez Azure AD Domain Services pour fournir une authentification héritée pour les applications et les services qui doivent utiliser Keberos, LDAP ou NTLM, certains processus supplémentaires font partie du flux de travail de synchronisation de hachage de mot de passe. Azure AD Connect utilise le processus suivant supplémentaire pour synchroniser les hachages de mot de passe vers Azure AD pour une utilisation dans Azure AD Domain Services :
+
+> [!IMPORTANT]
+> Azure AD Connect synchronise uniquement les hachages de mot de passe hérités lorsque vous activez Azure AD DS pour votre client Azure AD. Les étapes suivantes ne sont pas utilisées si vous utilisez uniquement Azure AD Connect pour synchroniser un environnement AD DS local avec Azure AD.
+>
+> Si vos applications héritées n’utilisent pas l’authentification NTLM ou les liaisons simples LDAP, nous vous recommandons de désactiver la synchronisation de hachage de mot de passe NTLM pour Azure AD DS. Pour plus d’informations, consultez [Désactiver les suites de chiffrement faible et la synchronisation des hachages des informations d’identification NTLM](../../active-directory-domain-services/secure-your-domain.md).
+
+1. Azure AD Connect récupère la clé publique pour l’instance de Azure AD Domain Services du locataire.
+1. Lorsqu’un utilisateur modifie son mot de passe, le contrôleur de domaine local stocke le résultat de la modification du mot de passe (hachages) dans deux attributs :
+    * *unicodePwd* pour le hachage de mot de passe NTLM.
+    * *supplementalCredentials* pour le hachage de mot de passe Kerberos.
+1. Azure AD Connect détecte les modifications de mot de passe via le canal de duplication d’annuaire (modifications d’attributs nécessitant une réplication vers d’autres contrôleurs de domaine).
+1. Pour chaque utilisateur dont le mot de passe a changé, Azure AD Connect effectue les étapes suivantes :
+    * Génère une clé symétrique AES 256 bits aléatoire.
+    * Génère un vecteur d’initialisation aléatoire requis pour le premier cycle de chiffrement.
+    * Extrait les hachages de mot de passe Kerberos à partir des attributs *supplementalCredentials*.
+    * Vérifie le paramètre *SyncNtlmPassword* de configuration de sécurité Azure AD Domain Services.
+        * Si ce paramètre est désactivé, génère un hachage NTLM aléatoire à forte entropie (différent du mot de passe de l’utilisateur). Ce hachage est ensuite combiné avec les hachages de mot de passe Kerberos exacts de l'attribut *supplementalCredentials* dans une structure de données.
+        * S’il est activé, combine la valeur de l’attribut *unicodePwd* avec les hachages de mot de passe Kerberos extraits de l’attribut *supplementalCredentials* dans une structure de données.
+    * Chiffre la structure de données unique à l’aide de la clé symétrique AES.
+    * Chiffre la clé symétrique AES à l’aide de la clé publique Azure AD Domain Services du locataire.
+1. Azure AD Connect transmet la clé symétrique AES chiffrée, la structure de données chiffrées contenant les hachages de mot de passe et le vecteur d’initialisation à Azure AD.
+1. Azure AD stocke la clé symétrique AES chiffrée, la structure de données chiffrée et le vecteur d’initialisation de l’utilisateur.
+1. Azure AD pousse la clé symétrique AES chiffrée, la structure de données chiffrée et le vecteur d’initialisation à l’aide d’un mécanisme de synchronisation interne sur une session HTTP chiffrée à Azure AD Domain Services.
+1. Azure AD Domain Services récupère la clé privée pour l’instance du locataire à partir du coffre de clés Azure.
+1. Pour chaque ensemble de données chiffré (représentant la modification du mot de passe d’un seul utilisateur), Azure AD Domain Services effectue les étapes suivantes :
+    * Utilise sa clé privée pour déchiffrer la clé symétrique AES.
+    * Utilise la clé symétrique AES avec le vecteur d’initialisation pour déchiffrer la structure de données chiffrée qui contient les hachages de mot de passe.
+    * Écrit les hachages de mot de passe Kerberos qu’il reçoit sur le contrôleur de domaine Azure AD Domain Services. Les hachages sont enregistrés dans l’attribut *supplementalCredentials* de l’objet utilisateur, qui est chiffré sur la clé publique du contrôleur de domaine Azure AD Domain Services.
+    * Azure AD Domain Services écrit le hachage de mot de passe NTLM reçu dans le contrôleur de domaine Azure AD Domain Services. Le hachage est enregistré dans l’attribut *unicodePwd* de l’objet utilisateur, qui est chiffré à la clé publique du contrôleur de domaine Azure AD Domain Services.
 
 ## <a name="enable-password-hash-synchronization"></a>Activer la synchronisation de hachage de mot de passe
 

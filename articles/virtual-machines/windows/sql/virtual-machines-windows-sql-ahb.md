@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 02/13/2019
+ms.date: 08/05/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 78ad784a45d2b0063932791daedc9b1ec1aafd72
-ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
+ms.openlocfilehash: 37457d8ce1189f9282f4763633e944e3c2d639c9
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67786759"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68816721"
 ---
 # <a name="how-to-change-licensing-model-for-a-sql-server-virtual-machine-in-azure"></a>Guide pratique pour changer le modèle de licence d’une machine virtuelle SQL Server dans Azure
 Cet article décrit comment changer le modèle de licence d’une machine virtuelle SQL Server dans Azure à l’aide du nouveau fournisseur de ressources de machine virtuelle SQL, **Microsoft.SqlVirtualMachine**.
@@ -140,7 +140,7 @@ Vous ne pouvez changer le type de licence d'une machine virtuelle SQL Server en 
 
  - Un changement de modèle de licence est disponible uniquement pour les clients disposant de la Software Assurance.
  - Un changement de modèle de licence pris en charge uniquement pour les éditions standard et entreprise de SQL Server. Les changements de licence ne sont pas pris en charge pour les versions Express, Web et Développeur. 
- - Un changement de modèle de licence est uniquement possible pour les machines virtuelles déployées à l’aide du modèle Resource Manager. Les machines virtuelles déployées à l’aide du modèle classique ne sont pas prises en charge. 
+ - Un changement de modèle de licence est uniquement possible pour les machines virtuelles déployées à l’aide du modèle Resource Manager. Les machines virtuelles déployées à l’aide du modèle classique ne sont pas prises en charge. Vous pouvez migrer votre machine virtuelle du modèle Classic vers le modèle ARM (Resource Manager) et vous inscrire auprès du fournisseur de ressources de machine virtuelle SQL. Une fois que la machine virtuelle est inscrite auprès du fournisseur de ressources de machine virtuelle SQL, les modifications du modèle de licence sont disponibles sur la machine virtuelle. 
  - Un changement de modèle de licence est uniquement possible pour les installations de cloud public.
  - Un changement de modèle de licence est uniquement possible sur les machines virtuelles dotée d'une seule carte réseau (interface réseau). Sur les machines virtuelles dotées de plusieurs cartes réseau, vous devez d’abord supprimer une des cartes réseau (via le portail Azure) avant de suivre la procédure. Sinon, vous vous heurterez à une erreur similaire à la suivante : `The virtual machine '\<vmname\>' has more than one NIC associated.` Bien qu’il vous soit possible d’ajouter à nouveau la carte réseau à la machine virtuelle après avoir changé de modèle de licence, les opérations effectuées via la page de configuration SQL dans le Portail Azure (mise à jour corrective automatique et sauvegarde, par exemple) ne seront plus considérées comme prises en charge.
 

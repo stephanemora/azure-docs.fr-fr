@@ -5,15 +5,15 @@ author: sharaths-cs
 ms.author: dikamath
 ms.date: 04/10/2019
 ms.topic: article
-ms.service: vmware
+ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 5732ea726bdecc10d0757224870ee5d8be83a2b2
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 13b07b3b50bdb03373275ca9594baa6357e9f66f
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67164217"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68812292"
 ---
 # <a name="quickstart---create-service"></a>Démarrage rapide - Créer le service
 
@@ -21,29 +21,17 @@ Pour commencer, créez la Solution Azure VMware de CloudSimple dans le portail A
 
 ## <a name="vmware-solution-by-cloudsimple---service-overview"></a>Solution VMware de CloudSimple - Vue d’ensemble du service
 
-Le service CloudSimple vous permet d'utiliser la Solution Azure VMware de CloudSimple.  En créant ce service, vous pouvez approvisionner, réserver des nœuds et créer des clouds privés.  Vous ajoutez le service de CloudSimple à chaque région Azure où ce service est disponible.  Le service définit le réseau de périmètre de la Solution Azure VMware de CloudSimple.  Ce réseau de périmètre est destiné aux services comprenant une connectivité VPN, ExpressRoute et Internet vers vos clouds privés.
+Le service CloudSimple vous permet d’utiliser la Solution Azure VMware de CloudSimple.  En créant ce service, vous pouvez approvisionner, réserver des nœuds et créer des clouds privés.  Vous ajoutez le service de CloudSimple à chaque région Azure où ce service est disponible.  Le service définit le réseau de périmètre de la Solution Azure VMware de CloudSimple.  Ce réseau de périmètre est destiné aux services comprenant une connectivité VPN, ExpressRoute et Internet vers vos clouds privés.
 
 Pour ajouter le service CloudSimple, vous devez créer un sous-réseau de passerelle. Le sous-réseau de passerelle est utilisé lors de la création du réseau de périmètre et requiert un bloc CIDR /28. L’espace d’adressage du sous-réseau de passerelle doit être unique. Il ne peut pas chevaucher un de vos espaces d'adressage de réseau local ni l'espace d'adressage du réseau virtuel Azure.
+
+## <a name="before-you-begin"></a>Avant de commencer
+
+Allouez un bloc /28 CIDR pour le sous-réseau de passerelle.  Un sous-réseau de passerelle est requis par le service CloudSimple et est propre à la région dans laquelle il est créé. Le sous-réseau de passerelle est utilisé pour les services de réseau Edge et nécessite un bloc CIDR /28. L’espace d’adressage du sous-réseau de passerelle doit être unique. Il ne doit chevaucher aucun réseau qui communique avec l’environnement CloudSimple.  Les réseaux qui communiquent avec CloudSimple incluent les réseaux locaux et les réseaux virtuels Azure. 
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
 
 Connectez-vous au portail Azure sur [https://portal.azure.com](https://portal.azure.com).
-
-## <a name="enable-microsoftvmwarecloudsimple-resource-provider"></a>Activer le fournisseur de ressources Microsoft.VMwareCloudSimple
-
-Suivez les étapes ci-dessous pour activer le fournisseur de ressources du service CloudSimple.
-
-1. Sélectionnez **Tous les services**.
-2. Recherchez et sélectionnez des **abonnements**.
-
-    ![Sélectionner des abonnements](media/cloudsimple-service-select-subscriptions.png)
-
-3. Sélectionnez l’abonnement sur lequel activer le service CloudSimple.
-4. Cliquer sur **Fournisseurs de ressources** pour l’abonnement
-5. Utiliser **Microsoft.VMwareCloudSimple** pour filtrer le fournisseur de ressources
-6. Sélectionner le fournisseur de ressources **Microsoft.VMwareCloudSimple**, puis cliquer sur **S'inscrire**
-
-    ![S’inscrire auprès du fournisseur de ressources](media/cloudsimple-service-enable-resource-provider.png)
 
 ## <a name="create-the-service"></a>Créer le service
 

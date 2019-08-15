@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/13/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: b993b34f81298b40c8849084380b2d1770708351
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 21fe92bf4a33dc44545f1bd54c718db6c0a38532
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66482276"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68843196"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Forum aux questions sur les disques de machines virtuelles et les disques Premium gérés et non gérés Azure IaaS
 
@@ -223,7 +223,7 @@ Oui, vous pouvez choisir de basculer vers une machine virtuelle avec la fonction
 
 **La migration impacte-t-elle les machines virtuelles Azure protégées par Azure Site Recovery par le biais de la réplication Azure vers Azure ?**
 
-Oui. La protection Azure Site Recovery vers Azure pour machines virtuelles avec la fonctionnalité Disques managés est disponible en tant que service GA.
+Non. La protection Azure Site Recovery vers Azure pour machines virtuelles avec la fonctionnalité Disques managés est disponible.
 
 **Puis-je convertir des machines virtuelles avec des disques non managés résidant sur des comptes de stockage qui sont ou ont été chiffrés sur des disques managés ?**
 
