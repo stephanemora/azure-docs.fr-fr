@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 09/05/2018
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: 5e8c29e033d895e24047754e686420fb4db86142
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 5ca6289b1af02a54d8c66d5a9835e24f61c58559
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236646"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934455"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-by-using-a-node-web-app"></a>Démarrage rapide : Définir et récupérer un secret à partir d’Azure Key Vault à l’aide d’une application web Node 
 
@@ -24,7 +24,7 @@ Ce démarrage rapide vous montre comment stocker un secret dans Azure Key Vault 
 * Stockage d’un secret dans le coffre de clés.
 * Récupération d’un secret à partir du coffre de clés.
 * Création d’une application web Azure.
-* Activer une [identité managée](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) pour l’application web.
+* Activer une [identité managée](../active-directory/managed-service-identity/overview.md) pour l’application web.
 * Octroi des autorisations requises à l’application web pour lire des données venant du coffre de clés.
 
 Avant de procéder, assurez-vous d’être familiarisé avec les [concepts de base](key-vault-whatis.md#basic-concepts) de Key Vault.

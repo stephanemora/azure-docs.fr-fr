@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 2639d47a6c9d8da53c9d6bccde0d317698d5d9fd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5f242018abfb15cea1b76cbcaad00942ec25d78d
+ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61127854"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "69015073"
 ---
 # <a name="publish-content-in-the-azure-portal"></a>Publier du contenu dans le portail Azure  
 > [!div class="op_single_selector"]
@@ -89,7 +89,7 @@ Sélectionnez la vidéo, puis cliquez sur le bouton **Lecture**.
 Certaines considérations s’appliquent :
 
 * Vérifiez que la vidéo a été publiée.
-* Le lecteur multimédia du portail Azure effectue la lecture à partir du point de terminaison de streaming par défaut. Si vous souhaitez lire à partir d’un autre point de terminaison de streaming que celui par défaut, sélectionnez et copiez l’URL dans un autre lecteur. Par exemple, vous pouvez tester votre vidéo avec le lecteur [Azure Media Player](https://amsplayer.azurewebsites.net/azuremediaplayer.html).
+* Le lecteur multimédia du portail Azure effectue la lecture à partir du point de terminaison de streaming par défaut. Si vous souhaitez lire à partir d’un autre point de terminaison de streaming que celui par défaut, sélectionnez et copiez l’URL dans un autre lecteur. Par exemple, vous pouvez tester votre vidéo avec le lecteur [Azure Media Player](https://aka.ms/azuremediaplayer).
 * Le point de terminaison de streaming à partir duquel vous diffusez en continu doit être en cours d’exécution.  
 
 ## <a name="provide-feedback"></a>Fournir des commentaires

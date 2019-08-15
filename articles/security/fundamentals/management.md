@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: ca0067090924428a50ad2360f23a86576fff6cd3
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 5efd82a2cb0652f6dd2aab621c578ff90aca0111
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68727021"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68927866"
 ---
 # <a name="security-management-in-azure"></a>Gestion de la sécurité dans Azure
 Les abonnés Azure peuvent gérer leurs environnements cloud à partir de différents périphériques, comme les stations de travail de gestion, les ordinateurs de développement ou encore les périphériques d’utilisateurs finaux privilégiés, qui disposent d’autorisations spécifiques. Dans certains cas, les fonctions d’administration sont effectuées par le biais de consoles Web, comme le [portail Azure](https://azure.microsoft.com/features/azure-portal/). Des connexions directes peuvent aussi être établies avec Azure à partir de systèmes locaux sur des réseaux privés virtuels (VPN), Terminal Services, des protocoles d’application cliente ou l’API de gestion des services Azure (SMAPI) (par programmation). Par ailleurs, les points de terminaison de client peuvent être joints au domaine ou isolés et non gérés, comme les tablettes ou les smartphones.
@@ -94,7 +94,7 @@ Sur une station de travail renforcée, l’administrateur exécute un compte d�
 * Restriction d’exécution. Autorisez uniquement un ensemble de fichiers exécutables prédéfinis qui sont nécessaires à la gestion de l’exécution (refus par défaut). Par défaut, les utilisateurs ne doivent pas être autorisés à exécuter n’importe quel programme, sauf mention spécifique dans la liste verte.
 * Séparation des privilèges. Les utilisateurs de la station de travail de gestion ne doivent pas disposer de privilèges d’administration sur l’ordinateur local lui-même. Ainsi, ils sont dans l’impossibilité de modifier la configuration du système et les fichiers système, que ce soit de manière intentionnelle ou non.
 
-Vous pouvez mettre en œuvre toutes ces règles à l’aide [d’objets de stratégie de groupe](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-admin-guide-administer-group-policy) dans les services de domaine Active Directory (AD DS) et les appliquer à tous les comptes de gestion par le biais de votre domaine de gestion (local).
+Vous pouvez mettre en œuvre toutes ces règles à l’aide [d’objets de stratégie de groupe](../../active-directory-domain-services/manage-group-policy.md) dans les services de domaine Active Directory (AD DS) et les appliquer à tous les comptes de gestion par le biais de votre domaine de gestion (local).
 
 ### <a name="managing-services-applications-and-data"></a>Gestion des services, des applications et des données
 La configuration des services cloud Azure s’effectue sur le portail Azure ou SMAPI grâce à l’interface de ligne de commande Windows PowerShell ou à une application personnalisée tirant parti de ces interfaces RESTful. Azure Active Directory (Azure AD), Azure Storage, les sites Web Azure et Azure Virtual Network font partie des services qui utilisent ces mécanismes.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: f286881341e527d3f01e57768cd48405c85a9a69
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 77fe6f1ce416df049928697d2c166e2aba0abfe2
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67710607"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68935217"
 ---
 # <a name="windows-commands---cmd-and-powershell"></a>Commandes Windows - CMD et PowerShell
 
@@ -241,7 +241,7 @@ L’ajout de `/f` force la fermeture des applications en cours d’exécution sa
 ### <a name="detect-safe-mode-boot"></a>Détecter le démarrage en mode sans échec
 `bcdedit /enum | find /i "safeboot"` 
 
-# <a name="windows-commands---powershell"></a>Commandes Windows - PowerShell
+## <a name="windows-commands---powershell"></a>Commandes Windows - PowerShell
 
 Pour exécuter PowerShell dans la console SAC, après avoir accédé à une invite de commandes, entrez :
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 1/24/2019
-ms.openlocfilehash: c89764d746f07e6100b1f250d4c107bb700fe014
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8081d7112d67e3bb4e72c6f6e88d765a159e047f
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61098726"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68933914"
 ---
 # <a name="incrementally-copy-new-files-based-on-time-partitioned-file-name-by-using-the-copy-data-tool"></a>Copier de nouveaux fichiers de façon incrémentielle sur la base du nom de fichier partitionné dans le temps à l’aide de l’outil Copier des données
 
@@ -56,15 +56,13 @@ Préparez votre stockage d’objets blob pour ce tutoriel en effectuant les éta
 
 1. Dans le menu de gauche, sélectionnez **Créer une ressource** > **Données + Analytique** > **Data Factory** : 
    
-   ![Sélection Data Factory dans le volet « Nouveau »](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
+   ![Sélection Data Factory dans le volet « Nouveau »](./media/doc-common-process/new-azure-data-factory-menu.png)
 
 2. Sur la page **Nouvelle fabrique de données**, entrez **ADFTutorialDataFactory** dans le champ **Nom**. 
-      
-    ![Nouvelle fabrique de données](./media/tutorial-copy-data-tool/new-azure-data-factory.png)
     
     Le nom de votre fabrique de données doit être un _nom global unique_. Vous pouvez recevoir le message d’erreur suivant :
    
-   ![Message d’erreur de nouvelle fabrique de données](./media/tutorial-copy-data-tool/name-not-available-error.png)
+   ![Message d’erreur de nouvelle fabrique de données](./media/doc-common-process/name-not-available-error.png)
    
    Si vous recevez un message d’erreur concernant la valeur du nom, saisissez un autre nom pour la fabrique de données. Par exemple, utilisez le nom _**votrenom**_ **ADFTutorialDataFactory**. Pour savoir comment nommer les artefacts Data Factory, consultez la rubrique [Data Factory - Règles d'affectation des noms](naming-rules.md).
 3. Sélectionnez l’**abonnement** Azure dans lequel vous créez la nouvelle fabrique de données. 
@@ -85,14 +83,14 @@ Préparez votre stockage d’objets blob pour ce tutoriel en effectuant les éta
     ![Vignette Déploiement de Data Factory](media/tutorial-copy-data-tool/deploying-data-factory.png)
 10. Une fois la création terminée, la page d’accueil **Data Factory** s’affiche.
    
-    ![Page d’accueil Data Factory](./media/tutorial-copy-data-tool/data-factory-home-page.png)
+    ![Page d’accueil Data Factory](./media/doc-common-process/data-factory-home-page.png)
 11. Pour lancer l’interface utilisateur d’Azure Data Factory dans un onglet séparé, cliquez sur la vignette **Créer et surveiller**. 
 
 ## <a name="use-the-copy-data-tool-to-create-a-pipeline"></a>Utiliser l’outil Copier les données pour créer un pipeline
 
 1. Dans la page **Prise en main**, sélectionnez la vignette **Copier des données** pour démarrer l’outil Copier des données. 
 
-   ![Vignette de l’outil Copier les données](./media/tutorial-copy-data-tool/copy-data-tool-tile.png)
+   ![Vignette de l’outil Copier les données](./media/doc-common-process/get-started-page.png)
    
 2. Dans la page **Propriétés**, effectuez les opérations suivantes :
 

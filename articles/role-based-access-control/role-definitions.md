@@ -15,12 +15,12 @@ ms.date: 06/18/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 9f5f9b3595074c26c80c824052727e962b01162a
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: ece5d8f9733dde57c2990bfbb6bb90305d8bc37d
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67275047"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68977182"
 ---
 # <a name="understand-role-definitions-for-azure-resources"></a>Comprendre les définitions de rôle relatives aux ressources Azure
 
@@ -163,7 +163,7 @@ Pour afficher et utiliser des opérations sur les données, vous devez disposer 
 | [Azure PowerShell](/powershell/azure/install-az-ps) | 1.1.0 ou ultérieure |
 | [Interface de ligne de commande Azure](/cli/azure/install-azure-cli) | 2.0.30 ou version ultérieure |
 | [Azure pour .NET](/dotnet/azure/) | 2.8.0-preview ou version ultérieure |
-| [Kit de développement logiciel (SDK) Azure pour Go](/go/azure/azure-sdk-go-install) | 15.0.0 ou version ultérieure |
+| [Kit de développement logiciel (SDK) Azure pour Go](/azure/go/azure-sdk-go-install) | 15.0.0 ou version ultérieure |
 | [Azure pour Java](/java/azure/) | 1.9.0 ou version ultérieure |
 | [Azure pour Python](/python/azure) | 0.40.0 ou version ultérieure |
 | [Kit de développement logiciel (SDK) Azure pour Ruby](https://rubygems.org/gems/azure_sdk) | 0.17.1 ou version ultérieure |

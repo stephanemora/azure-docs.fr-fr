@@ -2,17 +2,17 @@
 title: Personnaliser le flux pour les utilisateurs de Windows Virtual Desktop - Azure
 description: Comment personnaliser le flux pour les utilisateurs de Windows Virtual Desktop avec des applets de commande PowerShell
 services: virtual-desktop
-author: v-hevem
+author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.author: v-hevem
-ms.openlocfilehash: 5fe2a8b8ee5870ff7986ca2d91739f82a5128882
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.author: helohr
+ms.openlocfilehash: 40fd863d9ad92b91b8e691fbb7be233e16b82c17
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67618985"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68950748"
 ---
 # <a name="customize-feed-for-windows-virtual-desktop-users"></a>Personnaliser le flux pour les utilisateurs de Windows Virtual Desktop
 

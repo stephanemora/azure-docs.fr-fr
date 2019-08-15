@@ -1,20 +1,19 @@
 ---
 title: Définir des autorisations pour Data Lake Storage Gen2 avec l’Explorateur de stockage Azure
 description: Dans cette procédure, vous allez apprendre à définir des autorisations avec l’Explorateur Stockage Azure sur des fichiers et des répertoires à l’intérieur de votre compte de stockage compatible Azure Data Lake Storage Gen2.
-services: storage
 author: normesta
-ms.custom: mvc
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: quickstart
 ms.date: 12/11/2018
 ms.author: normesta
-ms.openlocfilehash: 5f0211765c96cad668abaad7d42da87ec88298c3
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.reviewer: stewu
+ms.openlocfilehash: 530e37400881ace2de603aed6875ed236e45f2c7
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64939309"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68847410"
 ---
 # <a name="set-file-and-directory-level-permissions-using-azure-storage-explorer-with-azure-data-lake-storage-gen2"></a>Définir des autorisations au niveau de fichiers et de répertoires à l’aide de l’Explorateur Stockage Azure avec Azure Data Lake Storage Gen2
 

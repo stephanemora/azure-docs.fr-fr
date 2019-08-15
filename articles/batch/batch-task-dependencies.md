@@ -16,10 +16,10 @@ ms.date: 05/22/2017
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: a0a258630fcb3639f20de4c72591611b7af15b90
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "68322978"
 ---
 # <a name="create-task-dependencies-to-run-tasks-that-depend-on-other-tasks"></a>Créer des dépendances de tâches pour exécuter des tâches qui dépendent d’autres tâches
@@ -41,7 +41,7 @@ Vous pouvez créer des tâches qui dépendent d’autres tâches dans une relati
 Cet article explique comment configurer les dépendances de tâches à l’aide de la bibliothèque [Batch .NET][net_msdn]. Nous allons tout d’abord vous montrer comment [activer la dépendance de tâches](#enable-task-dependencies) dans vos travaux, puis vous expliquer comment [configurer une tâche avec des dépendances](#create-dependent-tasks). Nous décrivons également comment spécifier une action de dépendance pour exécuter des tâches dépendantes en cas d’échec de la tâche parente. Pour finir, nous passerons en revue les [scénarios de dépendance](#dependency-scenarios) pris en charge par Batch.
 
 ## <a name="enable-task-dependencies"></a>Activation des dépendances de tâches
-Pour utiliser les dépendances de tâches dans votre application Batch, vous devez d’abord configurer la tâche afin d’utiliser des dépendances de tâches. Dans Batch .NET, activez-le sur votre propriété [CloudJob][net_cloudjob] by setting its [UsesTaskDependencies][net_usestaskdependencies] à `true` :
+Pour utiliser les dépendances de tâches dans votre application Batch, vous devez d’abord configurer la tâche afin d’utiliser des dépendances de tâches. Dans Batch.NET, activez la dépendance de tâches sur votre [CloudJob][net_cloudjob] en définissant sa propriété [UsesTaskDependencies][net_usestaskdependencies] sur `true` :
 
 ```csharp
 CloudJob unboundJob = batchClient.JobOperations.CreateJob( "job001",
@@ -54,7 +54,7 @@ unboundJob.UsesTaskDependencies = true;
 Dans l’extrait de code précédent, « batchClient » est une instance de la classe [BatchClient][net_batchclient].
 
 ## <a name="create-dependent-tasks"></a>Création de tâches dépendantes
-Pour créer une tâche qui dépend de l’exécution d’une ou plusieurs tâches parentes, vous devez indiquer que la tâche « dépend » des autres tâches. Dans Batch.NET, configurez la propriété [CloudTask][net_cloudtask].[DependsOn][net_dependson] avec une instance de la classe [TaskDependencies][net_taskdependencies] :
+Pour créer une tâche qui dépend de l’exécution d’une ou plusieurs tâches parentes, vous devez indiquer que la tâche « dépend » des autres tâches. Dans Batch.NET, configurez la propriété [CloudTask][net_cloudtask].[DependsOn][net_dependson] avec une instance de la classe [TaskDependencies][net_taskdependencies] :
 
 ```csharp
 // Task 'Flowers' depends on completion of both 'Rain' and 'Sun'
@@ -68,7 +68,7 @@ new CloudTask("Flowers", "cmd.exe /c echo Flowers")
 Cet extrait de code crée une tâche dépendante avec l’ID de tâche « Flowers ». La tâche « Flowers » dépend des tâches « Rain » et « Sun ». La tâche « Flowers » est programmée pour s’exécuter sur un nœud de calcul uniquement après la réussite de l’exécution des tâches « Rain » et « Sun ».
 
 > [!NOTE]
-> Par défaut, une tâche est considérée comme réussie lorsqu’elle se trouve à l’état **terminé** et que son **code de sortie** est `0`. Dans batch .NET, cela signifie qu’une valeur de propriété [CloudTask][net_cloudtask].[State][net_taskstate] property value of `Completed` and the CloudTask's [TaskExecutionInformation][net_taskexecutioninformation].[ExitCode][net_exitcode] est `0`. Pour savoir comment modifier cela, consultez la section [Actions de dépendance](#dependency-actions).
+> Par défaut, une tâche est considérée comme réussie lorsqu’elle se trouve à l’état **terminé** et que son **code de sortie** est `0`. Dans Batch.NET, la valeur de propriété [CloudTask][net_cloudtask].[State][net_taskstate] doit être `Completed` et la valeur de propriété [TaskExecutionInformation][net_taskexecutioninformation].[ExitCode][net_exitcode] de CloudTask doit être de `0`. Pour savoir comment modifier cela, consultez la section [Actions de dépendance](#dependency-actions).
 > 
 > 
 
@@ -101,7 +101,7 @@ new CloudTask("taskB", "cmd.exe /c echo taskB")
 ```
 
 ### <a name="one-to-many"></a>Un-à-plusieurs
-Dans une relation un-à-plusieurs, une tâche dépend de la bonne exécution de plusieurs tâches parentes. Pour créer la dépendance, fournissez une collection d’ID de tâche à la méthode statique [TaskDependencies][net_taskdependencies].[OnIds][net_onids] lorsque vous renseignez la propriété [DependsOn][net_dependson] de [CloudTask][net_cloudtask].
+Dans une relation un-à-plusieurs, une tâche dépend de la bonne exécution de plusieurs tâches parentes. Pour créer la dépendance, fournissez une collection d’ID de tâche à la méthode statique [TaskDependencies][net_taskdependencies].[OnId][net_onids] lorsque vous renseignez la propriété [DependsOn][net_dependson] de [CloudTask][net_cloudtask].
 
 ```csharp
 // 'Rain' and 'Sun' don't depend on any other tasks
@@ -204,7 +204,7 @@ new CloudTask("B", "cmd.exe /c echo B")
 ```
 
 ## <a name="code-sample"></a>Exemple de code
-La [TaskDependencies][github_taskdependencies] sample project is one of the [Azure Batch code samples][github_samples] sur GitHub. La solution Visual Studio montre :
+L’exemple de projet [TaskDependencies][github_taskdependencies] est l’un des [exemples de code Azure Batch][github_samples] disponibles sur GitHub. La solution Visual Studio montre :
 
 - Comment activer la dépendance d’une tâche
 - Comment créer des tâches qui dépendent d’autres tâches

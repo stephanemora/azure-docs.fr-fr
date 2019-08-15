@@ -3,17 +3,17 @@ title: Navigateurs pris en charge pour Azure IoT Central | Microsoft Docs
 description: Azure IoT Central est accessible sur les postes de travail, tablettes et navigateurs modernes. Cet article présente la liste des navigateurs pris en charge.
 author: lmasieri
 ms.author: lmasieri
-ms.date: 04/24/2109
+ms.date: 04/24/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 66bff6dfbb355bd0cb62f2e68b2805b5ccebfe8b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7d9429507e39d975c5534e33052c56d77eeb3eb7
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64720101"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68880007"
 ---
 # <a name="supported-browsers-for-azure-iot-central"></a>Navigateurs pris en charge pour Azure IoT Central
 

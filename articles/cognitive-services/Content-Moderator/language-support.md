@@ -7,15 +7,15 @@ author: sanjeev3
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: cf1dc352068747ab2f77beec8802407d15699d17
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2692dc5fea1b9ec60d930a9fdf9e54f624b31bdc
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60607164"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881088"
 ---
 # <a name="language-support-for-content-moderator-api"></a>Prise en charge linguistique pour l’API Content Moderator
 
@@ -32,17 +32,17 @@ ms.locfileid: "60607164"
 | Bengali | Amharique | Chinois (traditionnel)     | Néerlandais | |
 | Bugi | Arabe | Tchèque                     | Anglais | |
 | Bouhid | Arménien | Danois                     | Finnois | |
-| Carien | Assamais | Néerlandais                     | Anglais | |
+| Carien | Assamais | Néerlandais                     | Français | |
 | Chinois (simplifié) | Azéri | Anglais  | Grec (moderne) | |
 | Chinois (traditionnel) | Bengali - Bangladesh | Finnois  | Italien | |
-| Slavon d’église (slave) | Bengali - Inde | Anglais     | Coréen | |
+| Slavon d’église (slave) | Bengali - Inde | Français     | Coréen | |
 | Copte | Basque | Allemand                      | Norvégien | |
 | Tchèque |  Biélorusse | Grec (moderne)         | Polonais | |
 | Maldivien | Bosniaque - cyrillique | Hongrois      | Portugais | |
 | Néerlandais | Bosniaque - latin | Italien             | Roumain | |
 | Anglais | (Créole) | Breton [non géopol] | Japonais  | Russe |
 | Farsi | Bulgare | Coréen                        | Slovaque | |
-| Anglais | Catalan | Norvégien                        | Espagnol ||
+| Français | Catalan | Norvégien                        | Espagnol ||
 | Allemand | Kurde central | Polonais        | Turc | |
 | Grec | Cherokee | Portugais | | |
 | Haïtien | Chinois (simplifié) | Roumain | | |
@@ -57,7 +57,7 @@ ms.locfileid: "60607164"
 | Kurde (latin) | Estonien | | | |
 | Lepcha | Filipino | | | |
 | Limbu | Finnois | | | |
-| Lu | Anglais | | | |
+| Lu | Français | | | |
 | Lycien | Galicien | | | |
 | Lydien | Géorgien | | | |
 | Mycénien (grec) | Allemand | | | |

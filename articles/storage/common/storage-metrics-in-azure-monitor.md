@@ -1,20 +1,19 @@
 ---
 title: Mesures de Stockage Azure dans Azure Monitor | Microsoft Docs
 description: Découvrez les nouvelles mesures proposées par Azure Monitor.
-services: storage
 author: normesta
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/05/2017
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: 8b091ecce98a626f18fe6547445d898b6710e1a5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e31ad78e24f329eb46cd85ba4a5962442a216779
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65510543"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68844833"
 ---
 # <a name="azure-storage-metrics-in-azure-monitor"></a>Mesures de stockage Azure dans Azure Monitor
 
@@ -344,8 +343,8 @@ Stockage Azure fournit les mesures de capacité suivantes dans Azure Monitor.
 | Nom de métrique | Description |
 | ------------------- | ----------------- |
 | BlobCapacity | Total de stockage d’objets blob utilisé dans le compte de stockage. <br/><br/> Unité : Octets <br/> Type d’agrégation : Moyenne <br/> Exemple de valeur : 1 024 <br/> Dimensions : **BlobType** et **BlobTier** ([définition](#metrics-dimensions)) |
-| BlobCount    | Nombre d’objets blob stockés dans le compte de stockage. <br/><br/> Unité : Nombre <br/> Type d’agrégation : Moyenne <br/> Exemple de valeur : 1 024 <br/> Dimensions : **BlobType** et **BlobTier** ([définition](#metrics-dimensions)) |
-| ContainerCount    | Nombre de conteneurs dans le compte de stockage. <br/><br/> Unité : Nombre <br/> Type d’agrégation : Moyenne <br/> Exemple de valeur : 1 024 |
+| BlobCount    | Nombre d’objets blob stockés dans le compte de stockage. <br/><br/> Unité : Count <br/> Type d’agrégation : Moyenne <br/> Exemple de valeur : 1 024 <br/> Dimensions : **BlobType** et **BlobTier** ([définition](#metrics-dimensions)) |
+| ContainerCount    | Nombre de conteneurs dans le compte de stockage. <br/><br/> Unité : Count <br/> Type d’agrégation : Moyenne <br/> Exemple de valeur : 1 024 |
 | IndexCapacity     | Espace utilisé par l'index hiérarchique d'ADLS Gen2 <br/><br/> Unité : Octets <br/> Type d’agrégation : Moyenne <br/> Exemple de valeur : 1 024 |
 
 ### <a name="table-storage"></a>Stockage de tables
@@ -353,24 +352,24 @@ Stockage Azure fournit les mesures de capacité suivantes dans Azure Monitor.
 | Nom de métrique | Description |
 | ------------------- | ----------------- |
 | TableCapacity | Quantité de stockage de tables utilisée par le compte de stockage. <br/><br/> Unité : Octets <br/> Type d’agrégation : Moyenne <br/> Exemple de valeur : 1 024 |
-| TableCount   | Nombre de tables dans le compte de stockage. <br/><br/> Unité : Nombre <br/> Type d’agrégation : Moyenne <br/> Exemple de valeur : 1 024 |
-| TableEntityCount | Nombre d’entités de table dans le compte de stockage. <br/><br/> Unité : Nombre <br/> Type d’agrégation : Moyenne <br/> Exemple de valeur : 1 024 |
+| TableCount   | Nombre de tables dans le compte de stockage. <br/><br/> Unité : Count <br/> Type d’agrégation : Moyenne <br/> Exemple de valeur : 1 024 |
+| TableEntityCount | Nombre d’entités de table dans le compte de stockage. <br/><br/> Unité : Count <br/> Type d’agrégation : Moyenne <br/> Exemple de valeur : 1 024 |
 
 ### <a name="queue-storage"></a>Stockage de files d'attente
 
 | Nom de métrique | Description |
 | ------------------- | ----------------- |
 | QueueCapacity | Quantité de stockage de files d’attente utilisée par le compte de stockage. <br/><br/> Unité : Octets <br/> Type d’agrégation : Moyenne <br/> Exemple de valeur : 1 024 |
-| QueueCount   | Nombre de files d’attente dans le compte de stockage. <br/><br/> Unité : Nombre <br/> Type d’agrégation : Moyenne <br/> Exemple de valeur : 1 024 |
-| QueueMessageCount | Nombre de messages de file d’attente non expirés dans le compte de stockage. <br/><br/>Unité : Nombre <br/> Type d’agrégation : Moyenne <br/> Exemple de valeur : 1 024 |
+| QueueCount   | Nombre de files d’attente dans le compte de stockage. <br/><br/> Unité : Count <br/> Type d’agrégation : Moyenne <br/> Exemple de valeur : 1 024 |
+| QueueMessageCount | Nombre de messages de file d’attente non expirés dans le compte de stockage. <br/><br/>Unité : Count <br/> Type d’agrégation : Moyenne <br/> Exemple de valeur : 1 024 |
 
 ### <a name="file-storage"></a>Stockage Fichier
 
 | Nom de métrique | Description |
 | ------------------- | ----------------- |
 | FileCapacity | Quantité de stockage de fichiers utilisée par le compte de stockage. <br/><br/> Unité : Octets <br/> Type d’agrégation : Moyenne <br/> Exemple de valeur : 1 024 |
-| FileCount   | Nombre de fichiers dans le compte de stockage. <br/><br/> Unité : Nombre <br/> Type d’agrégation : Moyenne <br/> Exemple de valeur : 1 024 |
-| FileShareCount | Nombre de partages de fichiers dans le compte de stockage. <br/><br/> Unité : Nombre <br/> Type d’agrégation : Moyenne <br/> Exemple de valeur : 1 024 |
+| FileCount   | Nombre de fichiers dans le compte de stockage. <br/><br/> Unité : Count <br/> Type d’agrégation : Moyenne <br/> Exemple de valeur : 1 024 |
+| FileShareCount | Nombre de partages de fichiers dans le compte de stockage. <br/><br/> Unité : Count <br/> Type d’agrégation : Moyenne <br/> Exemple de valeur : 1 024 |
 
 ## <a name="transaction-metrics"></a>Métriques de transaction
 
@@ -380,7 +379,7 @@ Stockage Azure fournit les mesures de transaction suivantes dans Azure Monitor.
 
 | Nom de métrique | Description |
 | ------------------- | ----------------- |
-| Transactions | Nombre de requêtes envoyées à un service de stockage ou à l’opération API spécifiée. Ce nombre inclut les requêtes réussies et celles ayant échoué, ainsi que les requêtes qui ont généré des erreurs. <br/><br/> Unité : Nombre <br/> Type d’agrégation : Total <br/> Dimensions applicables : ResponseType, GeoType, ApiName et Authentication ([Définition](#metrics-dimensions))<br/> Exemple de valeur : 1 024 |
+| Transactions | Nombre de requêtes envoyées à un service de stockage ou à l’opération API spécifiée. Ce nombre inclut les requêtes réussies et celles ayant échoué, ainsi que les requêtes qui ont généré des erreurs. <br/><br/> Unité : Count <br/> Type d’agrégation : Total <br/> Dimensions applicables : ResponseType, GeoType, ApiName et Authentication ([Définition](#metrics-dimensions))<br/> Exemple de valeur : 1 024 |
 | Entrée | Quantité de données d’entrée. Ce nombre inclut les entrées d’un client externe dans Stockage Microsoft Azure ainsi que les entrées dans Azure. <br/><br/> Unité : Octets <br/> Type d’agrégation : Total <br/> Dimensions applicables : GeoType, ApiName et Authentication ([Définition](#metrics-dimensions)) <br/> Exemple de valeur : 1 024 |
 | Sortie | Quantité de données de sortie. Ce nombre inclut les sorties d’un client externe dans Stockage Azure ainsi que les sorties dans Azure. Par conséquent, ce nombre ne reflète pas les sorties facturables. <br/><br/> Unité : Octets <br/> Type d’agrégation : Total <br/> Dimensions applicables : GeoType, ApiName et Authentication ([Définition](#metrics-dimensions)) <br/> Exemple de valeur : 1 024 |
 | SuccessServerLatency | Durée moyenne utilisée pour traiter une requête réussie par Stockage Azure. Cette valeur n’inclut pas la latence réseau spécifiée dans SuccessE2ELatency. <br/><br/> Unité : Millisecondes <br/> Type d’agrégation : Moyenne <br/> Dimensions applicables : GeoType, ApiName et Authentication ([Définition](#metrics-dimensions)) <br/> Exemple de valeur : 1 024 |

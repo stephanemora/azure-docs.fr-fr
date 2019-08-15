@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/20/2019
 ms.author: rkarlin
-ms.openlocfilehash: 14bf7dc62bb97cb14232660db6d0649e3d77d4fa
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: 2c43a3c046243c4802fb433f3b755cee158002b6
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68662935"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68950559"
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Intégrer des solutions de sécurité dans Azure Security Center
 Ce document vous aide à gérer les solutions de sécurité déjà connectées à Azure Security Center et à en ajouter de nouvelles.
@@ -56,7 +56,7 @@ Les solutions de sécurité Azure déployées à partir de Security Center sont 
 
    ![Vue d’ensemble de Security Center](./media/security-center-partner-integration/overview.png)
 
-Sous **Solutions de sécurité**, vous pouvez consulter des informations sur le fonctionnement des solutions de sécurité Azure intégrées et effectuer des tâches de gestion de base. Vous pouvez également connecter d’autres types de sources de données de sécurité, telles que des journaux d’activité de pare-feu et des alertes Azure AD Identity Protection au format CEF.
+Sous **Solutions de sécurité**, vous pouvez consulter des informations sur le fonctionnement des solutions de sécurité Azure intégrées et effectuer des tâches de gestion de base.
 
 ### <a name="connected-solutions"></a>Solutions connectées
 
@@ -97,8 +97,6 @@ Security Center découvre automatiquement les solutions exécutées dans Azure m
 Sélectionne **CONNECTER** sous une solution pour l’intégrer à Security Center et être notifié sur les alertes de sécurité.
 
 ![Solutions découvertes](./media/security-center-partner-integration/security-center-partner-integration-fig5.png)
-
-Security Center découvre aussi les solutions déployées dans l’abonnement, capables d’envoyer des journaux d’activité CEF (Common Event Format). Découvrez comment [Connecter une solution de sécurité](quick-security-solutions.md) qui utilise des journaux d’activité CEF dans Security Center.
 
 ### <a name="add-data-sources"></a>Ajouter des sources de données
 

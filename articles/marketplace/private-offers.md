@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 11/1/2018
 ms.author: pabutler
-ms.openlocfilehash: dcba2b40bdcf4558f7a06f7e14d0ce654a9c1ec1
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 35134d828098af0cff3d585dee600ee1808b00c4
+ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67876076"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69013629"
 ---
 # <a name="private-offers"></a>Offres privées
 
@@ -49,9 +49,6 @@ Les offres privées ne sont accessibles que sur le [Portail Azure](https://azure
 ![[Offres privées]](./media/marketplace-publishers-guide/private-offer.png)
 
 Les offres privées apparaissent également dans les résultats de recherche. Recherchez simplement le badge « Private » (« Privé »).
-
-> [!Note]
-> Les offres privées ne sont pas prises en charge avec les abonnements souscrits via un revendeur participant au programme des fournisseurs de solutions cloud (CSP).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

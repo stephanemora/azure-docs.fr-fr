@@ -10,15 +10,15 @@ ms.tgt_pltfrm: ''
 ms.topic: reference
 ms.assetid: 85368e4e-a0db-4c02-8dbc-8e2928fa6091
 caps.latest.revision: 60
-author: jpconnock
-ms.author: jeconnoc
-manager: timlt
-ms.openlocfilehash: 0bb0946ea48a4c206d6bfe683da0835aca9b198b
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+author: georgewallace
+ms.author: gwallace
+manager: gwallace
+ms.openlocfilehash: bafc8780368f58a7076ae472636d852d698d276c
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "60613246"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68941344"
 ---
 # <a name="azure-cloud-services-definition-webrole-schema"></a>Schéma WebRole de définition d’Azure Cloud Services
 Le rôle web Azure est un rôle personnalisé pour la programmation d’applications web, tel que pris en charge par IIS 7, ASP.NET, PHP, Windows Communication Foundation et FastCGI.
@@ -472,7 +472,7 @@ Le tableau suivant décrit les attributs d’un de l’élément `SourceDirector
 
 | Attribut | Type | Description |  
 | --------- | ---- | ----------- |  
-|chemin d’accès|string|Requis. Chemin relatif ou absolu d’un répertoire local dont le contenu doit être copié sur la machine virtuelle Azure. L’extension des variables d’environnement dans le chemin du répertoire est prise en charge.|  
+|path|string|Requis. Chemin relatif ou absolu d’un répertoire local dont le contenu doit être copié sur la machine virtuelle Azure. L’extension des variables d’environnement dans le chemin du répertoire est prise en charge.|  
   
 ## <a name="see-also"></a>Voir aussi
 [Schéma de définition de services cloud (classique)](schema-csdef-file.md)

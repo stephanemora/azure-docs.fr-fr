@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 11/19/2018
+ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: f14c8f8ef9f0e59ac35dd7346bf37cc07f2cfb19
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9ee0f4ccfcd75504be6bb636e7ee54a845a10280
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60711456"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68966915"
 ---
 # <a name="copy-data-from-and-to-odbc-data-stores-using-azure-data-factory"></a>Copier des données depuis/vers des banques de données ODBC à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -120,7 +120,7 @@ Pour copier des données depuis/vers une banque de données ODBC, affectez la va
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type du jeu de données doit être définie sur : **RelationalTable** | OUI |
+| type | La propriété type du jeu de données doit être définie sur : **RelationalTable** | OUI |
 | tableName | Nom de la table dans le magasin de données ODBC. | Non pour la source (si « query » est spécifié dans la source de l’activité) ;<br/>Oui pour le récepteur |
 
 **Exemple**
@@ -151,7 +151,7 @@ Pour copier des données d’une banque de données compatible ODBC, définissez
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type de la source d’activité de copie doit être définie sur : **RelationalSource** | OUI |
+| type | La propriété type de la source d’activité de copie doit être définie sur : **RelationalSource** | OUI |
 | query | Utiliser la requête SQL personnalisée pour lire les données. Par exemple : `"SELECT * FROM MyTable"`. | Non (si « tableName » est spécifié dans dataset) |
 
 **Exemple :**
@@ -192,7 +192,7 @@ Pour copier des données vers une banque de données compatible ODBC, définisse
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type du récepteur d’activité de copie doit être définie sur : **OdbcSink** | OUI |
+| type | La propriété type du récepteur d’activité de copie doit être définie sur : **OdbcSink** | OUI |
 | writeBatchTimeout |Temps d’attente pour que l’opération d’insertion de lot soit terminée avant d’expirer.<br/>Valeurs autorisées : timespan. Exemple : “00:30:00” (30 minutes). |Non |
 | writeBatchSize |Insère des données dans la table SQL lorsque la taille du tampon atteint writeBatchSize<br/>Valeurs autorisées : integer (nombre de lignes). |Non (la valeur par défaut est 0, détectée automatiquement) |
 | preCopyScript |Spécifiez une requête SQL pour l’activité de copie à exécuter avant l’écriture de données dans la banque de données à chaque exécution. Vous pouvez utiliser cette propriété pour nettoyer des données préchargées. |Non |
@@ -231,80 +231,6 @@ Pour copier des données vers une banque de données compatible ODBC, définisse
     }
 ]
 ```
-
-## <a name="ibm-informix-source"></a>Source IBM Informix
-
-Vous pouvez copier des données à partir d’une base de données IBM Informix à l’aide du connecteur ODBC générique.
-
-Configurez un runtime d’intégration auto-hébergé sur une machine ayant accès à votre banque de données. L’Integration Runtime utilise le pilote ODBC pour Informix pour se connecter à la banque de données. Par conséquent, installez le pilote s’il ne l’est pas encore sur la même machine. Par exemple, vous pouvez utiliser le pilote « IBM INFORMIX ODBC DRIVER (64 bits) ». Pour plus d’informations, voir la section [Conditions préalables](#prerequisites).
-
-Avant d’utiliser la source Informix dans une solution de fabrique de données, vérifiez si l’Integration Runtime peut se connecter à la banque de données en suivant les instructions de la section [Résoudre les problèmes de connectivité](#troubleshoot-connectivity-issues).
-
-Créez un service lié ODBC pour lier une banque de données IBM Informix à une fabrique de données Azure comme dans l’exemple suivant :
-
-```json
-{
-    "name": "InformixLinkedService",
-    "properties": {
-        "type": "Odbc",
-        "typeProperties": {
-            "connectionString": {
-                "type": "SecureString",
-                "value": "<Informix connection string or DSN>"
-            },
-            "authenticationType": "Basic",
-            "userName": "<username>",
-            "password": {
-                "type": "SecureString",
-                "value": "<password>"
-            }
-        },
-        "connectVia": {
-            "referenceName": "<name of Integration Runtime>",
-            "type": "IntegrationRuntimeReference"
-        }
-    }
-}
-```
-
-Pour une présentation détaillée de l'utilisation de banques de données ODBC en tant que banques de données de sources/réceptrices dans une opération de copie, lisez l'article depuis le début.
-
-## <a name="microsoft-access-source"></a>Source Microsoft Access
-
-Vous pouvez copier des données à partir d’une base de données Microsoft Access à l’aide du connecteur ODBC générique.
-
-Configurez un runtime d’intégration auto-hébergé sur une machine ayant accès à votre banque de données. L’Integration Runtime utilise le pilote ODBC pour Microsoft Access pour se connecter à la banque de données. Par conséquent, installez le pilote s’il ne l’est pas encore sur la même machine. Pour plus d’informations, voir la section [Conditions préalables](#prerequisites).
-
-Avant d’utiliser la source Microsoft Access dans une solution de fabrique de données, vérifiez si l’Integration Runtime peut se connecter à la banque de données en suivant les instructions de la section [Résoudre les problèmes de connectivité](#troubleshoot-connectivity-issues).
-
-Créez un service lié ODBC pour lier une base de données Microsoft Access à une fabrique de données Azure comme dans l’exemple suivant :
-
-```json
-{
-    "name": "MicrosoftAccessLinkedService",
-    "properties": {
-        "type": "Odbc",
-        "typeProperties": {
-            "connectionString": {
-                "type": "SecureString",
-                "value": "Driver={Microsoft Access Driver (*.mdb, *.accdb)};Dbq=<path to your DB file e.g. C:\\mydatabase.accdb>;"
-            },
-            "authenticationType": "Basic",
-            "userName": "<username>",
-            "password": {
-                "type": "SecureString",
-                "value": "<password>"
-            }
-        },
-        "connectVia": {
-            "referenceName": "<name of Integration Runtime>",
-            "type": "IntegrationRuntimeReference"
-        }
-    }
-}
-```
-
-Pour une présentation détaillée de l'utilisation de banques de données ODBC en tant que banques de données de sources/réceptrices dans une opération de copie, lisez l'article depuis le début.
 
 ## <a name="sap-hana-sink"></a>Récepteur SAP HANA
 

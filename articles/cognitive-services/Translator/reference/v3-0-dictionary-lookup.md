@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: swmachan
-ms.openlocfilehash: 9a06c8e3b50c3f54971694f8d3924a3a5ba5f071
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 0bbdba343888bc91521245d0c9a0e4eaa87c5538
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68595037"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932006"
 ---
 # <a name="translator-text-api-30-dictionary-lookup"></a>API de traduction de texte Translator Text 3.0 : Recherche dans le dictionnaire
 
@@ -140,15 +140,11 @@ Une réponse correcte est un tableau JSON avec un résultat pour chaque chaîne 
 
 Cet exemple montre comment rechercher d’autres traductions en espagnol du terme anglais `fly`.
 
-# <a name="curltabcurl"></a>[curl](#tab/curl)
-
-```
+```curl
 curl -X POST "https://api.cognitive.microsofttranslator.com/dictionary/lookup?api-version=3.0&from=en&to=es" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'fly'}]"
 ```
 
----
-
-Le corps de la réponse (abrégé pour plus de clarté) est :
+Le corps de réponse (abrégé pour plus de clarté) est :
 
 ```
 [
@@ -191,13 +187,9 @@ Le corps de la réponse (abrégé pour plus de clarté) est :
 
 Cet exemple montre ce qui se passe lorsque le terme recherché n’existe pas pour la paire de dictionnaire valide.
 
-# <a name="curltabcurl"></a>[curl](#tab/curl)
-
-```
+```curl
 curl -X POST "https://api.cognitive.microsofttranslator.com/dictionary/lookup?api-version=3.0&from=en&to=es" -H "X-ClientTraceId: 875030C7-5380-40B8-8A03-63DACCF69C11" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'fly123456'}]"
 ```
-
----
 
 Étant donné que le terme ne figure pas dans le dictionnaire, le corps de réponse inclut une liste `translations` vide.
 

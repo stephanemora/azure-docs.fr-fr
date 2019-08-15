@@ -2,19 +2,19 @@
 title: Journalisation d’Azure Key Vault | Microsoft Docs
 description: Utilisez ce didacticiel pour vous aider à vous familiariser avec la journalisation du coffre de clés.
 services: key-vault
-author: barclayn
-manager: barbkess
+author: msmbaldwin
+manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
-ms.topic: conceptual
-ms.date: 01/18/2019
-ms.author: barclayn
-ms.openlocfilehash: 0ae977215e52883e190ad3859eefac9e97462968
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.topic: tutorial
+ms.date: 08/12/2019
+ms.author: mbaldwin
+ms.openlocfilehash: fc0f259a4866f7eb2438938c7a10989db9200aa4
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67205943"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976971"
 ---
 # <a name="azure-key-vault-logging"></a>Journalisation d’Azure Key Vault
 

@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.topic: conceptual
 ms.date: 04/02/2019
-ms.openlocfilehash: 295b64b10f9f78ca6224d60fb84c6d1310aaa42e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 12ac5c44a0ee479d84616b138f9e2369a195c275
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60770601"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976464"
 ---
 # <a name="quickstart-create-an-azure-databricks-workspace-in-a-virtual-network"></a>Démarrage rapide : Créer un espace de travail Azure Databricks dans un réseau virtuel
 
@@ -25,6 +25,10 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 Connectez-vous au [Portail Azure](https://portal.azure.com/).
 
+> [!Note]
+> Ce didacticiel ne peut pas être suivi avec un **abonnement d’essai gratuit Azure**.
+> Si vous avez un compte gratuit, accédez à votre profil et modifiez votre abonnement sur **Paiement à l’utilisation**. Pour plus d’informations, consultez la page [Compte Azure gratuit](https://azure.microsoft.com/free/). Ensuite, [supprimez la limite de dépense](https://docs.microsoft.com/azure/billing/billing-spending-limit#remove-the-spending-limit-in-account-center), et [demandez une augmentation du quota](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) pour les processeurs virtuels dans votre région. Lorsque vous créez votre espace de travail Azure Databricks, vous pouvez sélectionner le tarif **Version d’évaluation (Premium - 14 jours de DBU offerts)** pour donner à l’accès de l’espace de travail un accès gratuit aux DBU d’Azure Databricks pendant 14 jours.
+
 ## <a name="create-a-virtual-network"></a>Créez un réseau virtuel
 
 1. Dans le portail Azure, sélectionnez **Créer une ressource** > **Mise en réseau** > **Réseau virtuel**.
@@ -35,9 +39,9 @@ Connectez-vous au [Portail Azure](https://portal.azure.com/).
     |-------|---------------|-----------|
     |Nom|databricks-quickstart|Sélectionnez un nom pour votre réseau virtuel.|
     |Espace d’adressage|10.1.0.0/16|Plage d’adresses du réseau virtuel en notation CIDR.|
-    |Abonnement|\<Votre abonnement\>|Sélectionnez l’abonnement Azure que vous souhaitez utiliser.|
-    |Groupe de ressources|databricks-quickstart|Sélectionnez **Créer** et saisissez le nom du nouveau groupe de ressources pour votre compte.|
-    |Lieu|\<Sélectionnez la région la plus proche de vos utilisateurs\>|Sélectionnez l’emplacement géographique où vous pouvez héberger votre réseau virtuel. Utilisez l’emplacement le plus proche de vos utilisateurs.|
+    |Subscription|\<Votre abonnement\>|Sélectionnez l’abonnement Azure que vous souhaitez utiliser.|
+    |Resource group|databricks-quickstart|Sélectionnez **Créer** et saisissez le nom du nouveau groupe de ressources pour votre compte.|
+    |Location|\<Sélectionnez la région la plus proche de vos utilisateurs\>|Sélectionnez l’emplacement géographique où vous pouvez héberger votre réseau virtuel. Utilisez l’emplacement le plus proche de vos utilisateurs.|
     |Nom du sous-réseau|default|Sélectionnez un nom pour le sous-réseau par défaut de votre réseau virtuel.|
     |Plage d’adresses de sous-réseau|10.1.0.0/24|Plage d’adresses du sous-réseau en notation CIDR. Elle doit être contenue dans l’espace d’adressage du réseau virtuel. La plage d’adresses d’un sous-réseau qui est en cours d’utilisation ne peut pas être modifiée.|
 
@@ -56,9 +60,9 @@ Connectez-vous au [Portail Azure](https://portal.azure.com/).
     |Paramètre|Valeur suggérée|Description|
     |-------|---------------|-----------|
     |Nom de l’espace de travail|databricks-quickstart|Sélectionnez un nom pour votre espace de travail Azure Databricks.|
-    |Abonnement|\<Votre abonnement\>|Sélectionnez l’abonnement Azure que vous souhaitez utiliser.|
-    |Groupe de ressources|databricks-quickstart|Sélectionnez le même groupe de ressources que celui que vous avez utilisé pour le réseau virtuel.|
-    |Lieu|\<Sélectionnez la région la plus proche de vos utilisateurs\>|Choisissez le même emplacement que pour votre réseau virtuel.|
+    |Subscription|\<Votre abonnement\>|Sélectionnez l’abonnement Azure que vous souhaitez utiliser.|
+    |Resource group|databricks-quickstart|Sélectionnez le même groupe de ressources que celui que vous avez utilisé pour le réseau virtuel.|
+    |Location|\<Sélectionnez la région la plus proche de vos utilisateurs\>|Choisissez le même emplacement que pour votre réseau virtuel.|
     |Niveau de tarification|Choisissez entre Standard ou Premium.|Pour plus d’informations sur les niveaux de tarification, consultez la [page de tarification Databricks](https://azure.microsoft.com/pricing/details/databricks/).|
     |Déployer l’espace de travail Azure Databricks dans votre réseau virtuel|OUI|Ce paramètre vous permet de déployer un espace de travail Azure Databricks dans votre réseau virtuel.|
     |Réseau virtuel|databricks-quickstart|Sélectionnez le réseau virtuel créé dans la section précédente.|

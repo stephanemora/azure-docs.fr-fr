@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 03/18/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: de2e848bd587f3b9bf2efe3fa8df3710e24243e4
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 11eae0e3bae501cdf39d7fe1d5d39524c1f83e6c
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66241380"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69035992"
 ---
 # <a name="tutorial-create-linked-azure-resource-manager-templates"></a>Tutoriel : Créer des modèles Azure Resource Manager liés
 
@@ -227,7 +227,7 @@ echo "Linked template URI with SAS token: $templateURI"
 4. Prenez note des deux valeurs (nom de groupe de ressources et URI du modèle lié) à la fin du volet de l’interpréteur de commandes. Vous aurez besoin de ces valeurs plus loin dans le didacticiel.
 5. Sélectionnez **Quitter le mode focus** pour fermer le volet de l’interpréteur de commandes.
 
-Dans la pratique, vous générez un jeton SAS quand vous déployez le modèle principal et affectez à l’expiration du jeton SAS une fenêtre plus petite pour renforcer la sécurité. Pour plus d’informations, consultez [Fournir un jeton SAS au cours du déploiement](./resource-manager-powershell-sas-token.md#provide-sas-token-during-deployment).
+Dans la pratique, vous générez un jeton SAS quand vous déployez le modèle principal et affectez à l’expiration du jeton SAS une fenêtre plus petite pour renforcer la sécurité. Pour plus d’informations, consultez [Fournir un jeton SAS au cours du déploiement](./secure-template-with-sas-token.md#provide-sas-token-during-deployment).
 
 ## <a name="call-the-linked-template"></a>Appeler le modèle lié
 
@@ -327,7 +327,7 @@ Lorsque vous n’en avez plus besoin, nettoyez les ressources Azure que vous ave
 Pour améliorer le projet, apportez les modifications supplémentaires suivantes au projet terminé :
 
 1. Modifiez le modèle principal (azuredeploy.json) afin qu’il accepte la valeur d’URI du modèle lié par le biais d’un paramètre.
-2. Au lieu de générer un jeton SAS quand vous chargez le modèle lié, générez le jeton quand vous déployez le modèle principal. Pour plus d’informations, consultez [Fournir un jeton SAS au cours du déploiement](./resource-manager-powershell-sas-token.md#provide-sas-token-during-deployment).
+2. Au lieu de générer un jeton SAS quand vous chargez le modèle lié, générez le jeton quand vous déployez le modèle principal. Pour plus d’informations, consultez [Fournir un jeton SAS au cours du déploiement](./secure-template-with-sas-token.md#provide-sas-token-during-deployment).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

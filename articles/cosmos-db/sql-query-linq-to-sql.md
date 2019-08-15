@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.author: tisande
-ms.openlocfilehash: 057614da8fd29e1208c2788049c5d6d1a985eed5
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: ce9d96a90a2463d1ab8e1a9774a019e38ca681f4
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67343206"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69036025"
 ---
 # <a name="linq-to-sql-translation"></a>Conversion LINQ en SQL
 
@@ -56,19 +56,19 @@ Le fournisseur de requêtes prend en charge les expressions scalaires suivantes�
 
 ## <a id="SupportedLinqOperators"></a>Opérateurs LINQ pris en charge
 
-Le fournisseur LINQ inclus avec le SDK .NET SQL prend en charge les opérateurs suivants :
+Le fournisseur LINQ inclus avec le kit SDK .NET SQL prend en charge les opérateurs suivants :
 
-- **Select** : les projections sont converties en SQL SELECT, y compris la construction d’objets.
-- **Where** : les filtres sont convertis en SQL WHERE et prennent en charge la conversion de `&&`, `||` et `!` vers les opérateurs SQL
+- **Select** : les projections sont converties en instructions SQL SELECT, y compris la construction d’objets.
+- **Where** : les filtres sont convertis en instructions SQL WHERE et prennent en charge la conversion de `&&`, `||` et `!` en opérateurs SQL
 - **SelectMany** : autorise le déroulement de tableaux vers la clause SQL JOIN. Permet d’associer/imbriquer des expressions afin de filtrer les éléments de tableau.
-- **OrderBy** et **OrderByDescending** : se convertissent en ORDER BY avec ASC ou DESC.
+- **OrderBy** et **OrderByDescending** : sont convertis en ORDER BY avec ASC ou DESC.
 - Les opérateurs **Count**, **Sum**, **Min**, **Max** et **Average** pour l’agrégation, et leurs équivalents asynchrones **CountAsync**, **SumAsync**, **MinAsync**, **MaxAsync** et **AverageAsync**.
-- **CompareTo** : se traduit par des comparaisons de plages. Généralement utilisés pour les chaînes, car ils ne sont pas comparables dans .NET.
-- **Take** : se convertit en SQL TOP pour limiter les résultats provenant d’une requête.
-- **Fonctions mathématiques** : prend en charge la conversion de .NET `Abs`, `Acos`, `Asin`, `Atan`, `Ceiling`, `Cos`, `Exp`, `Floor`, `Log`, `Log10`, `Pow`, `Round`, `Sign`, `Sin`, `Sqrt`, `Tan` et `Truncate` vers les fonctions intégrées SQL équivalentes.
-- **Fonctions de chaîne** : prend en charge la conversion de .NET `Concat`, `Contains`, `Count`, `EndsWith`,`IndexOf`, `Replace`, `Reverse`, `StartsWith`, `SubString`, `ToLower`, `ToUpper`, `TrimEnd` et `TrimStart` vers les fonctions intégrées SQL équivalentes.
-- **Fonctions de tableau** : prend en charge la conversion de .NET `Concat`, `Contains` et `Count` vers les fonctions intégrées SQL équivalentes.
-- **Fonctions d’extension géospatiale** : prend en charge la conversion des méthodes stub `Distance`, `IsValid`, `IsValidDetailed` et `Within` vers les fonctions intégrées SQL équivalentes.
+- **CompareTo** : se traduit par des comparaisons de plages. Généralement utilisés pour les chaînes, car elles ne sont pas comparables dans .NET.
+- **Take** : est converti en SQL TOP pour limiter les résultats provenant d’une requête.
+- **Fonctions mathématiques** : prennent en charge la conversion des fonctions .NET `Abs`, `Acos`, `Asin`, `Atan`, `Ceiling`, `Cos`, `Exp`, `Floor`, `Log`, `Log10`, `Pow`, `Round`, `Sign`, `Sin`, `Sqrt`, `Tan` et `Truncate` vers les fonctions intégrées SQL équivalentes.
+- **Fonctions de chaîne** : prennent en charge la conversion des fonctions .NET `Concat`, `Contains`, `Count`, `EndsWith`,`IndexOf`, `Replace`, `Reverse`, `StartsWith`, `SubString`, `ToLower`, `ToUpper`, `TrimEnd` et `TrimStart` vers les fonctions intégrées SQL équivalentes.
+- **Fonctions de tableau** : prennent en charge la conversion des fonctions .NET `Concat`, `Contains` et `Count` vers les fonctions intégrées SQL équivalentes.
+- **Fonctions d’extension géospatiale** : prennent en charge la conversion des méthodes stub `Distance`, `IsValid`, `IsValidDetailed` et `Within` vers les fonctions intégrées SQL équivalentes.
 - **Fonction d’extension de fonction définie par l’utilisateur** : prend en charge la conversion de la méthode stub `UserDefinedFunctionProvider.Invoke` vers la fonction définie par l’utilisateur correspondante.
 - **Miscellaneous** : prend en charge la conversion des opérateurs conditionnels et `Coalesce`. Peut convertir traduire `Contains` en chaîne CONTAINS, ARRAY_CONTAINS ou SQL IN, selon le contexte.
 
@@ -199,8 +199,8 @@ La syntaxe est `input(.|.SelectMany())(.Select()|.Where())*`. Une requête conca
 - **Expression Lambda LINQ**
   
   ```csharp
-      input.Select(family=>family.parents[0])
-          .Where(familyName == "Wakefield");
+      input.Select(family => family.parents[0])
+          .Where(parent => parent.familyName == "Wakefield");
   ```
 
 - **SQL**

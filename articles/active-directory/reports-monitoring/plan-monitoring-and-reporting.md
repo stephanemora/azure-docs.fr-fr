@@ -2,27 +2,22 @@
 title: Planifier un déploiement de création de rapports et de supervision Azure Active Directory
 description: Explique comment planifier et exécuter l’implémentation de la création de rapports et de la supervision.
 services: active-directory
-documentationcenter: ''
 author: BarbaraSelden
 manager: daveba
-editor: ''
-ms.assetid: ''
 ms.service: active-directory
-ms.devlang: na
-ms.topic: plan
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 11/13/2018
 ms.author: baselden
 ms.reviewer: plenzke
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f68b3a312ff7681fde65154542a66767c5195ff
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: f974b3564857a439f1ac1c40ddd572633b761862
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68406394"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68879866"
 ---
 # <a name="plan-an-azure-active-directory-reporting-and-monitoring-deployment"></a>Planifier un déploiement de création de rapports et de supervision Azure Active Directory
 
@@ -52,7 +47,7 @@ Avec la supervision Azure AD, vous pouvez router les journaux vers :
 * Un hub d’événements Azure, dans lequel vous pouvez intégrer vos outils SIEM existants tels que Splunk, Sumologic ou QRadar.
 
 > [!NOTE]
-Désormais, nous n’utilisons plus le terme « Log Analytics », mais le terme « journaux Azure Monitor ». Les données de journal sont toujours stockées dans un espace de travail Log Analytics, et elles sont toujours collectées et analysées par le même service Log Analytics. Nous mettons la terminologie à jour pour mieux refléter le rôle des [journaux dans Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-collection). Pour plus d'informations, consultez [Modifications de la terminologie d'Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/azure-monitor-rebrand).
+Désormais, nous n’utilisons plus le terme « Log Analytics », mais le terme « journaux Azure Monitor ». Les données de journal sont toujours stockées dans un espace de travail Log Analytics, et elles sont toujours collectées et analysées par le même service Log Analytics. Nous mettons la terminologie à jour pour mieux refléter le rôle des [journaux d’activité dans Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-collection). Pour plus d'informations, consultez [Modifications de la terminologie d'Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/azure-monitor-rebrand).
 
 [En savoir plus sur nos stratégies de conservation des rapports](https://docs.microsoft.com/azure/active-directory/reports-monitoring/reference-reports-data-retention)
 
@@ -70,7 +65,7 @@ En fonction de la destination finale de vos données de journal, vous aurez beso
 
 * Un espace de noms Azure Event Hubs pour intégrer avec des solutions SIEM tierces.
 
-* Un espace de travail Azure Log Analytics pour l’envoi de journaux aux journaux Azure Monitor.
+* Un espace de travail Azure Log Analytics pour l’envoi de journaux d’activité aux journaux d’activité Azure Monitor.
 
 ## <a name="plan-an-azure-reporting-and-monitoring-deployment-project"></a>Planifier un projet de déploiement pour la création de rapports et la supervision Azure
 
@@ -106,7 +101,7 @@ La création de rapports et la supervision permettent de répondre aux exigences
 
 |Domaine |Description |
 |-|-|
-|Conservation| **Conservation des journaux pendant plus de 30 jours**. ‎En raison des exigences juridiques ou métier, il est nécessaire de stocker les journaux d’audit et les journaux des connexions Azure AD pendant plus de 30 jours. |
+|Rétention| **Conservation des journaux pendant plus de 30 jours**. ‎En raison des exigences juridiques ou métier, il est nécessaire de stocker les journaux d’audit et les journaux des connexions Azure AD pendant plus de 30 jours. |
 |Analytics| **Les journaux doivent pouvoir faire l’objet de recherches**. ‎Les journaux stockés doivent pouvoir faire l’objet de recherches à l’aide des outils d’analytique. |
 | Operational Insights| **Insights pour les différentes équipes**. Nécessité d’accorder l’accès à différents utilisateurs pour obtenir des insights opérationnels, comme l’utilisation des applications, les erreurs de connexion, l’utilisation en libre-service, les tendances, etc. |
 | Insights sur la sécurité| **Insights pour les différentes équipes**. Nécessité d’accorder l’accès à différents utilisateurs pour obtenir des insights opérationnels, comme l’utilisation des applications, les erreurs de connexion, l’utilisation en libre-service, les tendances, etc. |
@@ -124,11 +119,11 @@ Si vous routez les journaux vers un compte de stockage Azure, vous pouvez les co
 
 Découvrez comment [acheminer les données vers votre compte de stockage](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account).
 
-#### <a name="send-logs-to-azure-monitor-logs"></a>Envoyer des journaux aux journaux Azure Monitor
+#### <a name="send-logs-to-azure-monitor-logs"></a>Envoyer des journaux d’activité aux journaux d’activité Azure Monitor
 
 Les [journaux Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) consolident les données de supervision provenant de différentes sources. Ils fournissent un langage de requête et un moteur d’analytique permettant d’obtenir des insights sur le fonctionnement de vos applications et l’utilisation de vos ressources. Si vous envoyez les journaux d’activité Azure AD aux journaux Azure Monitor, vous pouvez rapidement récupérer, superviser et signaler les données collectées. Utilisez cette méthode si vous n’avez pas de solution SIEM existante à laquelle envoyer vos données directement, mais souhaitez effectuer des requêtes et des analyses. Une fois que vos données se trouvent dans les journaux Azure Monitor, vous pouvez les envoyer au hub d’événements, puis au système SIEM de votre choix.
 
-Découvrez comment [envoyer des données aux journaux Azure Monitor](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics).
+Découvrez comment [envoyer des données aux journaux d’activité Azure Monitor](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics).
 
 Vous pouvez également installer les vues prédéfinies des journaux d’activité d’Azure AD afin de superviser les scénarios courants qui impliquent des événements de connexion et d’audit.
 
@@ -138,7 +133,7 @@ Découvrez comment [installer et utiliser les vues Log Analytics pour les journa
 
 Le routage des journaux vers un hub d’événements Azure permet leur intégration à des outils SIEM tiers. Cette intégration vous permet d’associer les données du journal d’activité d’Azure AD à d’autres données gérées par votre SIEM pour offrir des insights plus fournis sur votre environnement. 
 
-Découvrez comment [envoyer en streaming les journaux à un hub d’événements](https://docs.microsoft.com//azure/active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub).
+Découvrez comment [transmettre les journaux d’activité à un Event Hub](https://docs.microsoft.com//azure/active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub).
 
 ## <a name="plan-operations-and-security-for-azure-ad-reporting-and-monitoring"></a>Planifier les opérations et la sécurité pour la création de rapports et la supervision Azure AD
 
@@ -180,7 +175,7 @@ Selon les décisions que vous avez prises précédemment en vous aidant des cons
 
 [Installer et utiliser les vues Log Analytics pour Azure Active Directory](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-install-use-log-analytics-views)
 
-[Analyser les journaux d’activité Azure AD avec les journaux Azure Monitor](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-analyze-activity-logs-log-analytics)
+[Analyser les journaux d’activité Azure AD avec les journaux d’activité Azure Monitor](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-analyze-activity-logs-log-analytics)
 
 * [Interpréter le schéma des journaux d’audit dans Azure Monitor](https://docs.microsoft.com/azure/active-directory/reports-monitoring/reference-azure-monitor-audit-log-schema)
 
@@ -188,9 +183,9 @@ Selon les décisions que vous avez prises précédemment en vous aidant des cons
 
  * [Envoyer en streaming les journaux Azure AD à un hub d’événements Azure](https://docs.microsoft.com/azure/active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub)
 
-* [Intégrer les journaux Azure AD à Splunk à l’aide d’Azure Monitor](https://docs.microsoft.com/azure/active-directory/reports-monitoring/tutorial-integrate-activity-logs-with-splunk)
+* [Intégrer les journaux d’activité Azure AD à Splunk à l’aide d’Azure Monitor](https://docs.microsoft.com/azure/active-directory/reports-monitoring/tutorial-integrate-activity-logs-with-splunk)
 
-* [Intégrer les journaux Azure AD avec SumoLogic à l’aide d’Azure Monitor](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-sumologic)
+* [Intégrer des journaux d’activité Azure AD avec SumoLogic à l’aide d’Azure Monitor](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-sumologic)
 
  
 

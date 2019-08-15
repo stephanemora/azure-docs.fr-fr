@@ -1,21 +1,19 @@
 ---
 title: Utiliser Azure Storage Analytics pour collecter les journaux d’activité et les données de mesure | Microsoft Docs
 description: Storage Analytics vous permet d’une part d’effectuer le suivi des données de métriques pour tous les services de stockage et, d’autre part, de collecter les journaux d’activité de Blob Storage, Queue Storage et Table Storage.
-services: storage
 author: normesta
 ms.service: storage
-ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/03/2017
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: e812bf03bf2adb852becf56954e7039aa3eb0633
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 04206a45a3322a1b0d28e3dfeed65225773e9038
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68565910"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68844847"
 ---
 # <a name="storage-analytics"></a>Storage Analytics
 

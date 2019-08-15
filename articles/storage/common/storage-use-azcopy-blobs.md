@@ -1,19 +1,19 @@
 ---
 title: Transférer des données vers ou depuis le stockage Blob Azure à l’aide d’AzCopy v10 | Microsoft Docs
 description: Cet article contient une collection d’exemples de commandes AzCopy qui vous permettent de créer des conteneurs, de copier des fichiers et de synchroniser les répertoires entre les systèmes de fichiers locaux et les conteneurs.
-services: storage
 author: normesta
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/14/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 2ab561c387467086a40aa6676af347a107c2c452
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.reviewer: dineshm
+ms.openlocfilehash: 62859dde7cd4f2335b696eedb2cdfbd1daad9456
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68641116"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934952"
 ---
 # <a name="transfer-data-with-azcopy-and-blob-storage"></a>Transférer des données avec AzCopy et le stockage Blob
 
@@ -42,7 +42,7 @@ Vous pouvez utiliser la commande `make` AzCopy pour créer un conteneur. Les exe
 
 ## <a name="upload-files"></a>Charger des fichiers
 
-Vous pouvez utiliser la commande `copy` AzCopy pour charger des fichiers et répertoires à partir de votre ordinateur local.
+Vous pouvez utiliser la commande `copy` AzCopy pour charger des fichiers et répertoires à partir de votre machine locale.
 
 Cette section contient les exemples suivants :
 
@@ -129,7 +129,7 @@ Cette section contient les exemples suivants :
 
 Cet exemple illustre la création d’un répertoire nommé `C:\myDirectory\myBlobDirectory` qui contient tous les fichiers téléchargés.
 
-### <a name="download-the-contents-of-a-directory"></a>Télécharger le contenu d’un répertoire
+### <a name="download-the-contents-of-a-directory"></a>Télécharger le contenu d’un annuaire
 
 Vous pouvez télécharger le contenu d’un répertoire sans copier le répertoire proprement dit en utilisant le caractère générique (*).
 
@@ -151,7 +151,7 @@ Vous pouvez utiliser AzCopy pour copier des objets blob vers d’autres comptes 
 > [!NOTE]
 > Actuellement, ce scénario est pris en charge uniquement pour les comptes qui ne disposent pas d’un espace de noms hiérarchique. 
 
-AzCopy utilise des [API](https://docs.microsoft.com/rest/api/storageservices/put-block-from-url) de [serveur à serveur](https://docs.microsoft.com/en-us/rest/api/storageservices/put-page-from-url), de sorte que les données sont copiées directement entre les serveurs de stockage. Ces opérations de copie n’utilisent pas la bande passante réseau de votre ordinateur.
+AzCopy utilise des [API](https://docs.microsoft.com/rest/api/storageservices/put-block-from-url) de [serveur à serveur](https://docs.microsoft.com/rest/api/storageservices/put-page-from-url), de sorte que les données sont copiées directement entre les serveurs de stockage. Ces opérations de copie n’utilisent pas la bande passante réseau de votre ordinateur.
 
 Cette section contient les exemples suivants :
 
@@ -227,7 +227,7 @@ Dans ce cas, le système de fichiers local est la destination, et le conteneur e
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Plus d’exemples dans ces articles :
+Plus d’exemples dans ces articles :
 
 - [Bien démarrer avec AzCopy](storage-use-azcopy-v10.md)
 

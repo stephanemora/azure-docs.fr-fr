@@ -6,15 +6,14 @@ manager: jlembicz
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 07/11/2019
+ms.date: 08/08/2019
 ms.author: jlembicz
-ms.custom: seodec2018
-ms.openlocfilehash: 403febfcb54194602051aaebe2952265c0675e9d
-ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
+ms.openlocfilehash: 5383ad44f665ce809772143e23817932c3e2b7e6
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67854414"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68883885"
 ---
 # <a name="how-to-create-an-index-for-multiple-languages-in-azure-search"></a>Comment créer un index dans plusieurs langues dans Recherche Azure
 
@@ -35,7 +34,7 @@ L’analyseur de langue est spécifié lors de la création d’un champ. L’aj
 
 ![Affecter des analyseurs de langue lors de la définition d’un champ](media/search-language-support/select-analyzer.png "Affecter des analyseurs de langue lors de la définition d’un champ")
 
-Par défaut, tous les champs pouvant faire l’objet d’une recherche utilisent l’[analyseur Lucene Standard](https://lucene.apache.org/core/4_10_0/analyzers-common/org/apache/lucene/analysis/standard/StandardAnalyzer.html) qui est indépendant de la langue. Pour afficher la liste complète des analyseurs pris en charge, consultez [Ajouter des analyseurs linguistiques à un index de Recherche Azure](index-add-language-analyzers.md).
+Par défaut, tous les champs pouvant faire l’objet d’une recherche utilisent l’[analyseur Lucene Standard](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/analysis/standard/StandardAnalyzer.html) qui est indépendant de la langue. Pour afficher la liste complète des analyseurs pris en charge, consultez [Ajouter des analyseurs linguistiques à un index de Recherche Azure](index-add-language-analyzers.md).
 
 Dans le portail, les analyseurs sont conçus pour être utilisés tels quels. Si vous avez besoin d’une personnalisation ou d’une configuration spécifique des filtres et des générateurs de jetons, vous devez [créer un analyseur personnalisé](index-add-custom-analyzers.md) dans le code. Le portail ne prend pas en charge la sélection ou la configuration d’analyseurs personnalisés.
 

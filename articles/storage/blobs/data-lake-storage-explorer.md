@@ -1,20 +1,19 @@
 ---
-title: 'Utiliser l’Explorateur Stockage Azure pour gérer les données dans Azure Data Lake Storage Gen2 '
+title: Utiliser l’Explorateur Stockage Azure pour gérer les données dans Azure Data Lake Storage Gen2
 description: Dans ce guide de démarrage rapide, vous allez apprendre à utiliser l’Explorateur Stockage Azure pour créer un système de fichiers dans un compte Azure Data Lake Storage Gen2, ainsi qu’un répertoire et un fichier. Vous apprenez ensuite à télécharger le fichier sur votre ordinateur local, et à afficher tout le fichier dans un répertoire.
-services: storage
 author: normesta
 ms.subservice: data-lake-storage-gen2
-ms.custom: mvc
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/19/2019
 ms.author: normesta
-ms.openlocfilehash: 38cc0533d3e993dd90a037ee6a504c2dcd575e6f
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.reviewer: stewu
+ms.openlocfilehash: 3450de26c12d91f4be00fe39bd5703564c786190
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68360862"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68855610"
 ---
 # <a name="use-azure-storage-explorer-to-manage-data-in-an-azure-data-lake-storage-gen2-account"></a>Utiliser l’Explorateur Stockage Azure pour gérer les données dans un compte Azure Data Lake Storage Gen2
 

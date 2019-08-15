@@ -3,7 +3,7 @@ title: Présentation des rapports Azure Active Directory | Microsoft Docs
 description: Fournit une vue d’ensemble des rapports Azure Active Directory.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: cawrites
 manager: daveba
 editor: ''
 ms.assetid: 6141a333-38db-478a-927e-526f1e7614f4
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: markvi
+ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 66ccf8014938e813676e9338e9bfc4eaa18f63f9
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 8cf5770cf052a478ea56f906efc19698554a1cd0
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58436946"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68989720"
 ---
 # <a name="what-are-azure-active-directory-reports"></a>Présentation des rapports Azure Active Directory
 
@@ -103,4 +103,4 @@ En plus de l’interface utilisateur, Azure AD vous fournit également un [acc�
 
 - [Rapport sur les connexions à risque](concept-risky-sign-ins.md)
 - [Rapport de journaux d’audit](concept-audit-logs.md)
-- [Rapport de journaux de connexions](concept-sign-ins.md)
+- [Rapport de journaux d’activité de connexions](concept-sign-ins.md)

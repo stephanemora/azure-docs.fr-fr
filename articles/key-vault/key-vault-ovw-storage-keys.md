@@ -8,12 +8,12 @@ author: msmbaldwin
 ms.author: mbaldwin
 manager: barbkess
 ms.date: 03/01/2019
-ms.openlocfilehash: 6ac054bc9750e4297080c4ab64030c9c6a5fb55a
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.openlocfilehash: 7ba85d74f9126f4586313dc4e2b365d1e11f3798
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67312846"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934177"
 ---
 # <a name="manage-storage-account-keys-with-azure-key-vault-and-the-azure-cli"></a>Gérer les clés de compte de stockage avec Azure Key Vault et l’interface de ligne de commande Azure 
 
@@ -31,7 +31,7 @@ Lorsque vous utilisez la fonctionnalité de clé de compte de stockage managé, 
 
 > [!NOTE]
 > L’intégration de Stockage Azure avec Azure Active Directory (Azure AD) est le service Microsoft basé sur le cloud qui gère les identités et les accès.
-> L’intégration Azure AD est disponible pour les [objets blob et files d’attente Azure](https://docs.microsoft.com/azure/storage/common/storage-auth-aad).
+> L’intégration Azure AD est disponible pour les [objets blob et files d’attente Azure](../storage/common/storage-auth-aad.md).
 > Utilisez Azure AD pour l’authentification et l’autorisation.
 > Azure AD offre un accès au stockage Azure via un jeton OAuth2, à l’instar d’Azure Key Vault.
 >
@@ -58,7 +58,7 @@ Key Vault est une application Microsoft préinscrite dans tous les locataires Az
 Avant d’utiliser Key Vault pour gérer votre clé de compte de stockage, passez en revue les conditions préalables suivantes :
 
 - Installez [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
-- Créez un [compte de stockage Azure](https://azure.microsoft.com/services/storage/). Procédez [comme suit](https://docs.microsoft.com/azure/storage/).
+- Créez un [compte de stockage Azure](https://azure.microsoft.com/services/storage/). Procédez [comme suit](../storage/index.yml).
 - Le nom du compte de stockage doit contenir uniquement des lettres minuscules et des chiffres. Le nom doit compter 3 à 24 caractères.        
       
 ## <a name="manage-storage-account-keys"></a>Gérer les clés de compte de stockage
@@ -150,7 +150,7 @@ Après avoir terminé les étapes de la section précédente, exécutez les comm
 
 ## <a name="fetch-tokens-in-code"></a>Récupérer des jetons dans le code
 
-Exécutez des opérations sur votre compte de stockage en extrayant des [jetons d’accès partagé](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) à partir de Key Vault.
+Exécutez des opérations sur votre compte de stockage en extrayant des [jetons d’accès partagé](../storage/common/storage-dotnet-shared-access-signature-part-1.md) à partir de Key Vault.
 
 Il existe trois façons de s’authentifier auprès de Key Vault :
 

@@ -10,12 +10,12 @@ ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 06/26/2019
 ms.author: aahi
-ms.openlocfilehash: ab3d1e71515df80b5bdba1edf8cd16ba3ed6b0a9
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 786302b882fbd59932af17ccc6a390fa41b30ac9
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68500117"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932955"
 ---
 # <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-nodejs"></a>Démarrage rapide : Rechercher des vidéos à l’aide de l’API REST Recherche de vidéos Bing et Node.js
 
@@ -75,7 +75,7 @@ Utilisez ce guide de démarrage rapide pour effectuer votre premier appel à l�
        });
        ```
 
-# <a name="create-and-send-the-search-request"></a>Créer et envoyer la requête de recherche
+## <a name="create-and-send-the-search-request"></a>Créer et envoyer la requête de recherche
 
 1. Créez une fonction nommée `bing_video_search()`. Ajoutez les paramètres de votre requête, notamment votre nom d’hôte et les en-têtes. Encodez votre terme de recherche et ajoutez-le à votre paramètre de chemin avec le paramètre `?q=`. Ensuite, envoyez la requête avec `req.end()`.
 

@@ -7,15 +7,14 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 08/08/2019
 ms.author: jlembicz
-ms.custom: seodec2018
-ms.openlocfilehash: bc183cb8ac2155b8dd31dc603d70506ad3d5e20a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6e54bc91ff60ce4f3c2340282410923225601df4
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65797477"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68883907"
 ---
 # <a name="how-full-text-search-works-in-azure-search"></a>Fonctionnement de la recherche en texte intégral dans la recherche Azure
 
@@ -351,7 +350,7 @@ search=Spacious, air-condition* +"Ocean view"
 }
 ~~~~
 
-Le document 1 correspond mieux à la requête, car le terme *spacieux* et l’expression requise *vue mer* se trouvent tous les deux dans le champ Description. Les documents2 et 3 correspondent uniquement à l’expression *vue mer*. Il peut être surprenant que le score de pertinence des documents 2 et 3 soit différent, bien qu’ils correspondent à la requête de la même façon. Cela signifie que la formule de notation a plus de composants que la formule TF/IDF. Dans ce cas, un score légèrement plus élevé a été affecté au document 3, car sa description est plus courte. En savoir plus sur la [formule de notation pratique Lucene](https://lucene.apache.org/core/4_0_0/core/org/apache/lucene/search/similarities/TFIDFSimilarity.html) pour comprendre comment la longueur de champ et d’autres facteurs peuvent influencer le score de pertinence.
+Le document 1 correspond mieux à la requête, car le terme *spacieux* et l’expression requise *vue mer* se trouvent tous les deux dans le champ Description. Les documents2 et 3 correspondent uniquement à l’expression *vue mer*. Il peut être surprenant que le score de pertinence des documents 2 et 3 soit différent, bien qu’ils correspondent à la requête de la même façon. Cela signifie que la formule de notation a plus de composants que la formule TF/IDF. Dans ce cas, un score légèrement plus élevé a été affecté au document 3, car sa description est plus courte. En savoir plus sur la [formule de notation pratique Lucene](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/search/similarities/TFIDFSimilarity.html) pour comprendre comment la longueur de champ et d’autres facteurs peuvent influencer le score de pertinence.
 
 Certains types de requête (caractère générique, préfixe, expression régulière) contribuent toujours à un score constant dans le score général du document. Ainsi, les correspondances trouvées par le biais de l’extension de requête sont incluses dans les résultats, sans affecter le classement. 
 

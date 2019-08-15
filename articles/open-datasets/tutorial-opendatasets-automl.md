@@ -9,12 +9,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 05/02/2019
-ms.openlocfilehash: 963e4f7e9db638450a89dd4ae0091019fc58e2a4
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 6f72daa4a601df0e3592910645c2f9b35ab64431
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359435"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68845816"
 ---
 # <a name="tutorial-build-a-regression-model-with-automated-machine-learning-and-open-datasets"></a>Didacticiel : Créer un modèle de régression avec Machine Learning automatisé et Open Datasets
 
@@ -37,7 +37,7 @@ Ce didacticiel requiert les conditions préalables suivantes.
 
 ### <a name="create-a-workspace"></a>Créer un espace de travail
 
-Suivez les [instructions](https://docs.microsoft.com/azure/machine-learning/service/setup-create-workspace#portal) pour créer un espace de travail via le portail Azure, si vous n’en avez pas. Lorsque c'est chose faite, notez le nom de votre espace de travail, le nom du groupe de ressources et l’ID d’abonnement.
+Suivez les [instructions](https://docs.microsoft.com/azure/machine-learning/service/how-to-manage-workspace) pour créer un espace de travail via le portail Azure, si vous n’en avez pas. Lorsque c'est chose faite, notez le nom de votre espace de travail, le nom du groupe de ressources et l’ID d’abonnement.
 
 ### <a name="create-a-python-environment"></a>Créer un environnement Python
 

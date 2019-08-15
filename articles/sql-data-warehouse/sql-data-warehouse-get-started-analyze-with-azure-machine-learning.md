@@ -11,10 +11,10 @@ ms.date: 03/22/2019
 ms.author: martinle
 ms.reviewer: igorstan
 ms.openlocfilehash: cae2acf98f39030f4ff340d32f1911bb2b5763ae
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "65860842"
 ---
 # <a name="analyze-data-with-azure-machine-learning"></a>Analyse des données avec Azure Machine Learning
@@ -36,12 +36,12 @@ Ce didacticiel utilise Azure Machine Learning pour générer un modèle Machine 
 ## <a name="prerequisites"></a>Prérequis
 Pour parcourir ce didacticiel, vous avez besoin des éléments suivants :
 
-* un entrepôt SQL Data Warehouse préchargé avec les exemples de données AdventureWorksDW. Pour le configurer, consultez [Créer un Azure SQL Data Warehouse][Create a SQL Data Warehouse] et chargez les données d’exemple. Si vous disposez déjà d’un entrepôt de données, mais sans disposer d’exemples de données, vous pouvez [charger manuellement des exemples de données][load sample data manually].
+* un entrepôt SQL Data Warehouse préchargé avec les exemples de données AdventureWorksDW. Pour le configurer, consultez [Créer un Azure SQL Data Warehouse][Create a SQL Data Warehouse] et chargez les exemples de données. Si vous disposez déjà d’un entrepôt de données, mais sans disposer d’exemples de données, vous pouvez [charger manuellement des exemples de données][load sample data manually].
 
 ## <a name="1-get-the-data"></a>1. Obtenir les données
 Les données sont indiquées dans la vue dbo.vTargetMail de la base de données AdventureWorksDW. Pour lire ces données :
 
-1. Connectez-vous à [Azure Machine Learning Studio][Azure Machine Learning studio], puis cliquez sur Mes expériences.
+1. Connectez-vous à [Azure Machine Learning Studio][Azure Machine Learning studio] , puis cliquez sur Mes expériences.
 2. Cliquez sur **+NOUVEAU** dans le coin inférieur gauche de l’écran et sélectionnez **Expérience vide**.
 3. Entrez un nom pour votre expérience : marketing ciblé.
 4. Faites glisser le module **Importer des données** sous **Entrée et sortie de données** dans le volet de modules du canevas.

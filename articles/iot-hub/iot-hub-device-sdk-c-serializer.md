@@ -1,19 +1,19 @@
 ---
 title: Azure IoT device SDK pour C - Serializer | Microsoft Docs
 description: Guide d’utilisation de la bibliothèque Serializer dans Azure IoT device SDK pour C pour créer des applications d’appareil qui communiquent avec un IoT Hub.
-author: yzhong94
+author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: c
 ms.topic: conceptual
 ms.date: 09/06/2016
-ms.author: yizhon
-ms.openlocfilehash: 0a7e30be374ae5095e206ce0e519e51bb58f1f00
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: robinsh
+ms.openlocfilehash: a18f52f0d0979477ff8d6de6745694676f4b4d0e
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60399238"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68883162"
 ---
 # <a name="azure-iot-device-sdk-for-c--more-about-serializer"></a>Kit de développement logiciel (SDK) Azure IoT device pour C : en savoir plus sur serializer
 
@@ -74,7 +74,7 @@ Les types de données suivants sont pris en charge dans les modèles créés ave
 | int16\_t |entier 16 bits |
 | int32\_t |entier 32 bits |
 | int64\_t |entier 64 bits |
-| bool |booléenne |
+| bool |boolean |
 | ascii\_char\_ptr |Chaîne ASCII |
 | EDM\_DATE\_TIME\_OFFSET |décalage de date et d’heure |
 | EDM\_GUID |GUID |

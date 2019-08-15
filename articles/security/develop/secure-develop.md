@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 1b2e6e0aa74c06afea09a67dbdf65ca47727b72e
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: c1c7dd0bd017852144139a841ff609dabf0f1a27
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68780564"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68928070"
 ---
 # <a name="develop-secure-applications-on-azure"></a>Développer des applications sécurisées sur Azure
 Cet article présente les activités et contrôles de sécurité à prendre en compte lorsque vous développez des applications pour le cloud. Les questions et concepts de sécurité à prendre en compte pendant les phases d’implémentation et de vérification du [Microsoft Security Development Lifecycle](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) y sont abordées. L’objectif est de vous aider à définir les activités et services Azure que vous pouvez utiliser pour développer une application plus sécurisée.
@@ -89,7 +89,7 @@ En d’autres termes, moins de personnes ont accès à vos données réelles, pl
 
 Pour se défendre contre les attaques en force brute et les vols basés sur le dictionnaire, vous devez implémenter une stratégie de mot de passe fort pour garantir que les utilisateurs créent des mots de passe complexes (par exemple, longueur minimale de 12 caractères, caractères spéciaux et alphanumériques).
 
-Vous pouvez utiliser une infrastructure d’identité pour créer et appliquer des stratégies de mot de passe. Azure AD B2C permet de gérer les mots de passe en proposant des [stratégies intégrées](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-user-flows#create-a-password-reset-user-flow), la [réinitialisation de mot de passe en libre-service](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-sspr) et bien plus encore.
+Vous pouvez utiliser une infrastructure d’identité pour créer et appliquer des stratégies de mot de passe. Azure AD B2C permet de gérer les mots de passe en proposant des [stratégies intégrées](../../active-directory-b2c/tutorial-create-user-flows.md#create-a-password-reset-user-flow), la [réinitialisation de mot de passe en libre-service](../../active-directory-b2c/active-directory-b2c-reference-sspr.md) et bien plus encore.
 
 Pour se défendre contre les attaques sur les comptes par défaut, vérifiez que toutes les clés et que tous les mots de passe sont remplaçables et qu’ils sont générés ou remplacés après l’installation des ressources.
 
@@ -99,9 +99,9 @@ Si l’application doit générer automatiquement des mots de passe, assurez-vou
 
 Si votre application autorise les [chargements de fichiers](https://www.owasp.org/index.php/Unrestricted_File_Upload), envisagez les précautions que vous pouvez prendre pour cette activité à risque. La première étape de nombreuses attaques consiste à obtenir un code malveillant dans un système subissant une attaque. Un chargement de fichier permet aux personnes malveillantes d’accomplir cette étape. OWASP propose des solutions permettant de valider un fichier afin de garantir que le fichier chargé est sécurisé.
 
-Une solution de protection contre les programmes malveillants permet d’identifier et de supprimer les virus, logiciels espions et autres logiciels malveillants. Vous pouvez installer [Microsoft Antimalware](https://docs.microsoft.com/azure/security/fundamentals/antimalware) ou une solution de protection des points de terminaison d’un partenaire de Microsoft ([Trend Micro](https://www.trendmicro.com/azure/), [Symantec](https://www.symantec.com/products), [McAfee](https://www.mcafee.com/us/products.aspx), [Windows Defender](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10) ou [System Center Endpoint Protection](https://docs.microsoft.com/sccm/protect/deploy-use/endpoint-protection)).
+Une solution de protection contre les programmes malveillants permet d’identifier et de supprimer les virus, logiciels espions et autres logiciels malveillants. Vous pouvez installer [Microsoft Antimalware](../fundamentals/antimalware.md) ou une solution de protection des points de terminaison d’un partenaire de Microsoft ([Trend Micro](https://www.trendmicro.com/azure/), [Symantec](https://www.symantec.com/products), [McAfee](https://www.mcafee.com/us/products.aspx), [Windows Defender](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10) ou [System Center Endpoint Protection](https://docs.microsoft.com/sccm/protect/deploy-use/endpoint-protection)).
 
-Le logiciel [Microsoft Antimalware](https://docs.microsoft.com/azure/security/fundamentals/antimalware) inclut des fonctionnalités telles que la protection en temps réel, l’analyse planifiée, la correction des logiciels malveillants, la mise à jour des signatures, la mise à jour des moteurs, des exemples de création de rapport et la collecte d’événements d’exclusion. Vous pouvez intégrer Microsoft Antimalware et des solutions de partenaires avec [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-partner-integration) pour bénéficier d’un déploiement simplifié et de fonctionnalités de détection intégrées (alertes et incidents).
+Le logiciel [Microsoft Antimalware](../fundamentals/antimalware.md) inclut des fonctionnalités telles que la protection en temps réel, l’analyse planifiée, la correction des logiciels malveillants, la mise à jour des signatures, la mise à jour des moteurs, des exemples de création de rapport et la collecte d’événements d’exclusion. Vous pouvez intégrer Microsoft Antimalware et des solutions de partenaires avec [Azure Security Center](../../security-center/security-center-partner-integration.md) pour bénéficier d’un déploiement simplifié et de fonctionnalités de détection intégrées (alertes et incidents).
 
 ### <a name="dont-cache-sensitive-content"></a>Ne pas mettre en cache de contenu sensible
 
@@ -117,7 +117,7 @@ Vous analysez votre application et ses bibliothèques dépendantes pour identifi
 L’analyse des vulnérabilités s’appuyant sur [Tinfoil Security](https://www.tinfoilsecurity.com/) est disponible pour Azure App Service Web Apps. [L’analyse Tinfoil Security via App Service](https://azure.microsoft.com/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/) offre aux développeurs et administrateurs un moyen rapide, économique et intégré de détecter et corriger les vulnérabilités avant qu’un acteur malveillant puisse en tirer parti.
 
 > [!NOTE]
-> Vous pouvez également [intégrer Tinfoil Security à Azure AD](https://docs.microsoft.com/azure/active-directory/saas-apps/tinfoil-security-tutorial). L’intégration de Tinfoil Security à Azure AD vous fait bénéficier des avantages suivants :
+> Vous pouvez également [intégrer Tinfoil Security à Azure AD](../../active-directory/saas-apps/tinfoil-security-tutorial.md). L’intégration de Tinfoil Security à Azure AD vous fait bénéficier des avantages suivants :
 >  - Dans Azure AD, vous pouvez contrôler qui a accès à Tinfoil Security.
 >  - Vos utilisateurs peuvent se connecter automatiquement à Tinfoil Security (par le biais de l’authentification unique) avec leur compte Azure AD.
 >  - Vous pouvez centraliser la gestion de vos comptes à un seul emplacement : le Portail Azure.
@@ -128,7 +128,7 @@ Le test de sécurité des applications dynamique (DAST) est un processus de test
 
 Les tests DAST sont différents des tests de sécurité d’application statiques (SAST). Les outils SAST analysent le code source ou les versions compilées de code lorsque le code n’est pas exécuté afin de détecter des failles de sécurité.
 
-Effectuez les tests DAST de préférence avec l’aide d’un professionnel de la sécurité (un [testeur d’intrusion](https://docs.microsoft.com/azure/security/fundamentals/pen-testing) ou un évaluateur des vulnérabilités). Si aucun professionnel de la sécurité n’est disponible, vous pouvez effectuer vous-même les tests DAST avec un scanneur de proxy web et une formation préalable. Connectez un scanneur DAST suffisamment tôt afin de vous assurer de ne pas introduire de problèmes de sécurité évidents dans votre code. Consultez le site [OWASP](https://www.owasp.org/index.php/Category:Vulnerability_Scanning_Tools) pour obtenir la liste des scanneurs de vulnérabilité d’application web.
+Effectuez les tests DAST de préférence avec l’aide d’un professionnel de la sécurité (un [testeur d’intrusion](../fundamentals/pen-testing.md) ou un évaluateur des vulnérabilités). Si aucun professionnel de la sécurité n’est disponible, vous pouvez effectuer vous-même les tests DAST avec un scanneur de proxy web et une formation préalable. Connectez un scanneur DAST suffisamment tôt afin de vous assurer de ne pas introduire de problèmes de sécurité évidents dans votre code. Consultez le site [OWASP](https://www.owasp.org/index.php/Category:Vulnerability_Scanning_Tools) pour obtenir la liste des scanneurs de vulnérabilité d’application web.
 
 ### <a name="perform-fuzz-testing"></a>Effectuer un test à données aléatoires (fuzzing)
 
@@ -144,7 +144,7 @@ Vous pouvez créer une image de la surface d’attaque en analysant l’applicat
 
 ### <a name="perform-security-penetration-testing"></a>Effectuer des tests d’intrusion sécurisés
 
-La sécurité de votre application est aussi importante que le bon fonctionnement de ses fonctionnalités. Intégrez les [tests d’intrusion](https://docs.microsoft.com/azure/security/fundamentals/pen-testing) aux processus de génération et de déploiement. Planifiez régulièrement des tests de sécurité et des analyses de vulnérabilité sur les applications déployées, et surveillez les ports ouverts, les points de terminaison et les attaques.
+La sécurité de votre application est aussi importante que le bon fonctionnement de ses fonctionnalités. Intégrez les [tests d’intrusion](../fundamentals/pen-testing.md) aux processus de génération et de déploiement. Planifiez régulièrement des tests de sécurité et des analyses de vulnérabilité sur les applications déployées, et surveillez les ports ouverts, les points de terminaison et les attaques.
 
 ### <a name="run-security-verification-tests"></a>Exécuter des tests de vérification de sécurité
 

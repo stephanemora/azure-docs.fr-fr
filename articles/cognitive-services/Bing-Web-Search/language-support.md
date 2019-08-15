@@ -7,15 +7,15 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: aahi
-ms.openlocfilehash: 18b124ca7f6f270488fa8e010d2b1c0404f8e9e2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9425de6e75a9a46d71ff85ce49b0650c8e7a9a16
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66384774"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68882688"
 ---
 # <a name="language-and-region-support-for-the-bing-web-search-api"></a>Langages et régions pris en charge par l’API Recherche Web Bing
 
@@ -42,7 +42,7 @@ Vous pouvez également indiquer le marché à l’aide du paramètre de requête
 |Allemagne|DE|
 |Hong Kong (R.A.S.)|HK|
 |Inde|IN|
-|Indonésie|ID|
+|Indonésie|id|
 |Italie|IT|
 |Japon|JP|
 |Corée du Sud|KR|
@@ -74,14 +74,14 @@ Vous pouvez également indiquer le marché à l’aide du paramètre de requête
 |Australie|Anglais|en-AU|
 |Autriche|Allemand|de-AT|
 |Belgique|Néerlandais|nl-BE|
-|Belgique|Anglais|fr-BE|
+|Belgique|Français|fr-BE|
 |Brésil|Portugais|pt-br|
 |Canada|Anglais|en-CA|
-|Canada|Anglais|fr-CA|
+|Canada|Français|fr-CA|
 |Chili|Espagnol|es-CL|
 |Danemark|Danois|da-DK|
 |Finlande|Finnois|fi-FI|
-|France|Anglais|fr-FR|
+|France|Français|fr-FR|
 |Allemagne|Allemand|de-DE|
 |Hong Kong (R.A.S.)|Chinois traditionnel|zh-HK|
 |Inde|Anglais|en-IN|
@@ -103,7 +103,7 @@ Vous pouvez également indiquer le marché à l’aide du paramètre de requête
 |Afrique du Sud|Anglais|en-ZA|
 |Espagne|Espagnol|es-ES|
 |Suède|Suédois|sv-SE|
-|Suisse|Anglais|fr-CH|
+|Suisse|Français|fr-CH|
 |Suisse|Allemand|de-CH|
 |Taïwan|Chinois traditionnel|zh-TW|
 |Turquie|Turc|tr-TR|

@@ -14,14 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/16/2017
 ms.author: alkohli
-ms.openlocfilehash: e290feb278a1cddf1cfecfcb66458d8290ec122a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5b41f738c2419f806aef60374a545ff004a6f19e
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64943590"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68965142"
 ---
 # <a name="available-regions-for-your-storsimple"></a>Régions disponibles pour votre appareil StorSimple
+
+[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
 
 ## <a name="overview"></a>Vue d'ensemble
 
@@ -74,7 +76,7 @@ Si vous utilisez un appareils physique StorSimple 8100 ou 8600, il est disponibl
 | 3  | Bahreïn               | 18 | Islande            | 33 | Norvège              | 48 | Espagne                      |
 | 4  | Belgique               | 19 | Inde              | 34 | Pérou                | 49 | Sri Lanka                  |
 | 5\.  | Brésil                | 20 | Indonésie          | 35 | Philippines         | 50 | Suède                     |
-| 6\.  | Canada                | 21 | Irlande            | 36 | Pologne              | 51 | Suisse                |
+| 6  | Canada                | 21 | Irlande            | 36 | Pologne              | 51 | Suisse                |
 | 7  | Chili                 | 22 | Israël             | 37 | Portugal            | 52 | Taïwan                     |
 | 8  | Colombie              | 23 | Italie              | 38 | Porto Rico         | 53 | Thaïlande                   |
 | 9  | République tchèque        | 24 | Japon              | 39 | Qatar               | 54 | Turquie                     |

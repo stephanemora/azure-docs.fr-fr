@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 04/18/2018
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: cd37880be6d518105e880b93a0bd748f7c729d88
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: 8f98808aa0f8a2c32e2117447824114747091a82
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68286285"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68912355"
 ---
 ## <a name="registration-of-secrets-or-certificates"></a>Enregistrement de secrets ou de certificats
 
@@ -29,7 +29,7 @@ Comme pour toute application de client confidentiel, vous devez inscrire un cert
 
 La gestion des informations d’identification du client est effectuée dans la page des **certificats et secrets** d’une application :
 
-![image](../articles/active-directory/develop/media/quickstart-update-azure-ad-app-preview/credentials-certificates-secrets-expanded.png)
+![image](../articles/active-directory/develop/media/quickstart-update-azure-ad-app-preview/credentials-certificates-secrets.png)
 
 - Le secret d’une application (également appelé secret client) est généré par Azure AD, lors de l’inscription de l’application de client confidentiel. Cette génération est effectuée via l’option **Nouveau secret client**. À ce stade, vous devez copier la chaîne du secret dans le Presse-papiers pour pouvoir l’utiliser dans votre application, avant de cliquer sur **Enregistrer**. Cette chaîne ne s’affichera plus.
 - Le certificat est chargé lors de l’inscription d’application à l'aide du bouton **Charger un certificat**. Azure AD prend uniquement en charge les certificats directement inscrits sur l’application et ne suit pas les chaînes de certificats.

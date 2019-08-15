@@ -6,15 +6,15 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: article
-ms.date: 06/06/2019
+ms.date: 08/12/2019
 ms.author: alinast
 ms.custom: seodec18
-ms.openlocfilehash: be05cec8e3d755f1b04e5ecc5ec7c740053a74d4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 14c153a6e5837da28060122a629c8cc5df8262cf
+ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67073035"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69013770"
 ---
 # <a name="user-defined-functions-client-library-reference"></a>Informations de référence sur la bibliothèque cliente des fonctions définies par l’utilisateur
 
@@ -30,7 +30,7 @@ La bibliothèque cliente définit les méthodes d’assistance pour les opérati
 
 **Genre** : fonction globale
 
-| Paramètre  | Type                | Description  |
+| Paramètre  | type                | Description  |
 | ---------- | ------------------- | ------------ |
 | *id*  | `guid` | Identificateur d’espace |
 
@@ -40,7 +40,7 @@ La bibliothèque cliente définit les méthodes d’assistance pour les opérati
 
 **Genre** : fonction globale
 
-| Paramètre  | Type                | Description  |
+| Paramètre  | type                | Description  |
 | ---------- | ------------------- | ------------ |
 | *id*  | `guid` | Identificateur de capteur |
 
@@ -50,7 +50,7 @@ La bibliothèque cliente définit les méthodes d’assistance pour les opérati
 
 **Genre** : fonction globale
 
-| Paramètre  | Type                | Description  |
+| Paramètre  | type                | Description  |
 | ------ | ------------------- | ------------ |
 | *id* | `guid` | Identificateur d’appareil |
 
@@ -60,7 +60,7 @@ La bibliothèque cliente définit les méthodes d’assistance pour les opérati
 
 **Genre** : fonction globale
 
-| Paramètre  | Type                | Description  |
+| Paramètre  | type                | Description  |
 | ------ | ------------------- | ------------ |
 | *sensorId*  | `guid` | Identificateur de capteur |
 | *dataType*  | `string` | Type de données du capteur |
@@ -71,7 +71,7 @@ La bibliothèque cliente définit les méthodes d’assistance pour les opérati
 
 **Genre** : fonction globale
 
-| Paramètre  | Type                | Description  |
+| Paramètre  | type                | Description  |
 | ------ | ------------------- | ------------ |
 | *spaceId*  | `guid` | Identificateur d’espace |
 | *valueName* | `string` | Nom de la propriété d’espace |
@@ -82,7 +82,7 @@ La bibliothèque cliente définit les méthodes d’assistance pour les opérati
 
 **Genre** : fonction globale
 
-| Paramètre  | Type                | Description  |
+| Paramètre  | type                | Description  |
 | ------ | ------------------- | ------------ |
 | *sensorId* | `guid` | Identificateur de capteur |
 | *dataType* | `string` | Type de données du capteur |
@@ -93,7 +93,7 @@ La bibliothèque cliente définit les méthodes d’assistance pour les opérati
 
 **Genre** : fonction globale
 
-| Paramètre  | Type                | Description  |
+| Paramètre  | type                | Description  |
 | ------ | ------------------- | ------------ |
 | *spaceId* | `guid` | Identificateur d’espace |
 | *valueName* | `string` | Nom de la propriété d’espace |
@@ -104,7 +104,7 @@ La bibliothèque cliente définit les méthodes d’assistance pour les opérati
 
 **Genre** : fonction globale
 
-| Paramètre  | Type                | Description  |
+| Paramètre  | type                | Description  |
 | ------ | ------------------- | ------------ |
 | *spaceId* | `guid` | Identificateur d’espace |
 
@@ -114,7 +114,7 @@ La bibliothèque cliente définit les méthodes d’assistance pour les opérati
 
 **Genre** : fonction globale
 
-| Paramètre  | Type                | Description  |
+| Paramètre  | type                | Description  |
 | ------ | ------------------- | ------------ |
 | *spaceId* | `guid` | Identificateur d’espace |
 
@@ -124,7 +124,7 @@ La bibliothèque cliente définit les méthodes d’assistance pour les opérati
 
 **Genre** : fonction globale
 
-| Paramètre  | Type                | Description  |
+| Paramètre  | type                | Description  |
 | ------ | ------------------- | ------------ |
 | *spaceId* | `guid` | Identificateur d’espace |
 
@@ -134,7 +134,7 @@ La bibliothèque cliente définit les méthodes d’assistance pour les opérati
 
 **Genre** : fonction globale
 
-| Paramètre  | Type                | Description  |
+| Paramètre  | type                | Description  |
 | ------ | ------------------- | ------------ |
 | *deviceId* | `guid` | Identificateur d’appareil |
 
@@ -144,7 +144,7 @@ La bibliothèque cliente définit les méthodes d’assistance pour les opérati
 
 **Genre** : fonction globale
 
-| Paramètre  | Type                | Description  |
+| Paramètre  | type                | Description  |
 | ------ | ------------------- | ------------ |
 | *childSpaceId* | `guid` | Identificateur d’espace |
 
@@ -154,7 +154,7 @@ La bibliothèque cliente définit les méthodes d’assistance pour les opérati
 
 **Genre** : fonction globale
 
-| Paramètre  | Type                | Description  |
+| Paramètre  | type                | Description  |
 | ------ | ------------------- | ------------ |
 | *childSensorId* | `guid` | Identificateur de capteur |
 
@@ -164,7 +164,7 @@ La bibliothèque cliente définit les méthodes d’assistance pour les opérati
 
 **Genre** : fonction globale
 
-| Paramètre  | Type                | Description  |
+| Paramètre  | type                | Description  |
 | ------ | ------------------- | ------------ |
 | *childDeviceId* | `guid` | Identificateur d’appareil |
 
@@ -174,7 +174,7 @@ La bibliothèque cliente définit les méthodes d’assistance pour les opérati
 
 **Genre** : fonction globale
 
-| Paramètre  | Type                | Description  |
+| Paramètre  | type                | Description  |
 | ------ | ------------------- | ------------ |
 | *childSensorId* | `guid` | Identificateur de capteur |
 
@@ -184,7 +184,7 @@ La bibliothèque cliente définit les méthodes d’assistance pour les opérati
 
 **Genre** : fonction globale
 
-| Paramètre  | Type                | Description  |
+| Paramètre  | type                | Description  |
 | ------ | ------------------- | ------------ |
 | *spaceId* | `guid` | Identificateur d’espace |
 | *propertyName* | `string` | Nom de la propriété d’espace |
@@ -195,7 +195,7 @@ La bibliothèque cliente définit les méthodes d’assistance pour les opérati
 
 **Genre** : fonction globale
 
-| Paramètre  | Type                | Description  |
+| Paramètre  | type                | Description  |
 | ------ | ------------------- | ------------ |
 | *sensorId* | `guid` | Identificateur de capteur |
 | *propertyName* | `string` | Nom de propriété de capteur |
@@ -206,7 +206,7 @@ La bibliothèque cliente définit les méthodes d’assistance pour les opérati
 
 **Genre** : fonction globale
 
-| Paramètre  | Type                | Description  |
+| Paramètre  | type                | Description  |
 | ------ | ------------------- | ------------ |
 | *deviceId* | `guid` | Identificateur d’appareil |
 | *propertyName* | `string` | Nom de propriété d’appareil |
@@ -217,7 +217,7 @@ Cette fonction définit une valeur pour l’objet de capteur avec le type de don
 
 **Genre** : fonction globale
 
-| Paramètre  | Type                | Description  |
+| Paramètre  | type                | Description  |
 | ------ | ------------------- | ------------ |
 | *sensorId* | `guid` | Identificateur de capteur |
 | *dataType*  | `string` | Type de données du capteur |
@@ -229,7 +229,7 @@ Cette fonction définit une valeur pour l’objet d’espace avec le type de don
 
 **Genre** : fonction globale
 
-| Paramètre  | Type                | Description  |
+| Paramètre  | type                | Description  |
 | ------ | ------------------- | ------------ |
 | *spaceId* | `guid` | Identificateur d’espace |
 | *dataType* | `string` | Type de données |
@@ -241,7 +241,7 @@ Cette fonction journalise le message suivant dans la fonction définie par l’u
 
 **Genre** : fonction globale
 
-| Paramètre  | Type                | Description  |
+| Paramètre  | type                | Description  |
 | ------ | ------------------- | ------------ |
 | *message* | `string` | Message à journaliser |
 
@@ -251,7 +251,7 @@ Cette fonction envoie une notification personnalisée à distribuer.
 
 **Genre** : fonction globale
 
-| Paramètre  | Type                | Description  |
+| Paramètre  | type                | Description  |
 | ------ | ------------------- | ------------ |
 | *topologyObjectId*  | `guid` | Identificateur d’objet de graphe. Exemples : espace, capteur et ID d’appareil.|
 | *topologyObjectType*  | `string` | Exemples : capteur et appareil.|
@@ -292,7 +292,7 @@ Cette fonction retourne les appareils enfants de l’espace actuel.
 
 Cette fonction retourne la propriété étendue et sa valeur pour l’espace actuel.
 
-| Paramètre  | Type                | Description  |
+| Paramètre  | type                | Description  |
 | ------ | ------------------- | ------------ |
 | *propertyName* | `string` | Nom de la propriété étendue |
 
@@ -300,7 +300,7 @@ Cette fonction retourne la propriété étendue et sa valeur pour l’espace act
 
 Cette fonction retourne la valeur de l’espace actuel.
 
-| Paramètre  | Type                | Description  |
+| Paramètre  | type                | Description  |
 | ------ | ------------------- | ------------ |
 | *valueName* | `string` | Nom de la valeur |
 
@@ -308,7 +308,7 @@ Cette fonction retourne la valeur de l’espace actuel.
 
 Cette fonction retourne les valeurs historiques de l’espace actuel.
 
-| Paramètre  | Type                | Description  |
+| Paramètre  | type                | Description  |
 | ------ | ------------------- | ------------ |
 | *valueName* | `string` | Nom de la valeur |
 
@@ -316,7 +316,7 @@ Cette fonction retourne les valeurs historiques de l’espace actuel.
 
 Cette fonction envoie une notification avec la charge utile spécifiée.
 
-| Paramètre  | Type                | Description  |
+| Paramètre  | type                | Description  |
 | ------ | ------------------- | ------------ |
 | *payload* | `string` | Charge utile JSON à inclure dans la notification |
 
@@ -352,7 +352,7 @@ Cette fonction retourne les capteurs enfants de l’appareil actuel.
 
 Cette fonction retourne la propriété étendue et sa valeur pour l’appareil actuel.
 
-| Paramètre  | Type                | Description  |
+| Paramètre  | type                | Description  |
 | ------ | ------------------- | ------------ |
 | *propertyName* | `string` | Nom de la propriété étendue |
 
@@ -360,7 +360,7 @@ Cette fonction retourne la propriété étendue et sa valeur pour l’appareil a
 
 Cette fonction envoie une notification avec la charge utile spécifiée.
 
-| Paramètre  | Type                | Description  |
+| Paramètre  | type                | Description  |
 | ------ | ------------------- | ------------ |
 | *payload* | `string` | Charge utile JSON à inclure dans la notification |
 
@@ -400,7 +400,7 @@ Cette fonction retourne l’appareil parent du capteur actuel.
 
 Cette fonction retourne la propriété étendue et sa valeur pour le capteur actuel.
 
-| Paramètre  | Type                | Description  |
+| Paramètre  | type                | Description  |
 | ------ | ------------------- | ------------ |
 | *propertyName* | `string` | Nom de la propriété étendue |
 
@@ -416,7 +416,7 @@ Cette fonction retourne les valeurs historiques du capteur actuel.
 
 Cette fonction envoie une notification avec la charge utile spécifiée.
 
-| Paramètre  | Type                | Description  |
+| Paramètre  | type                | Description  |
 | ------ | ------------------- | ------------ |
 | *payload* | `string` | Charge utile JSON à inclure dans la notification |
 

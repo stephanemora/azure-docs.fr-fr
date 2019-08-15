@@ -8,16 +8,16 @@ ms.topic: tutorial
 ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: owend
-ms.openlocfilehash: 4c1a3f52c37dcaad4bc2f84d6d2fa04b61376cf1
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: b36541cde457b7faf8b3a020cdde01f049ceb652
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54188774"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932216"
 ---
 # <a name="tutorial-configure-server-administrator-and-user-roles"></a>Didacticiel : Configurer l’administrateur du serveur et les rôles d’utilisateur
 
- Dans ce tutoriel, vous utiliserez SQL Server Management Studio (SSMS) pour vous connecter à votre serveur dans Azure afin de configurer l’administrateur du serveur et les rôles de base de données model. Vous serez également initié au [Langage TMSL (Tabular Model Scripting Language)](https://docs.microsoft.com/sql/analysis-services/tabular-model-programming-compatibility-level-1200/tabular-model-programming-for-compatibility-level-1200). TMSL est un langage de script JSON pour les modèles tabulaires de niveau de compatibilité 1200 et supérieurs. Il peut être utilisé pour automatiser de nombreuses tâches de modélisation tabulaire. TMSL est souvent utilisé avec PowerShell, mais dans ce didacticiel, vous utilisez l’éditeur de requête XMLA dans SSMS. Durant ce tutoriel, vous effectuerez les tâches suivantes : 
+ Dans ce tutoriel, vous utiliserez SQL Server Management Studio (SSMS) pour vous connecter à votre serveur dans Azure afin de configurer l’administrateur du serveur et les rôles de base de données model. Vous serez également initié au [Langage TMSL (Tabular Model Scripting Language)](https://docs.microsoft.com/analysis-services/tabular-model-programming-compatibility-level-1200/tabular-model-programming-for-compatibility-level-1200). TMSL est un langage de script JSON pour les modèles tabulaires de niveau de compatibilité 1200 et supérieurs. Il peut être utilisé pour automatiser de nombreuses tâches de modélisation tabulaire. TMSL est souvent utilisé avec PowerShell, mais dans ce didacticiel, vous utilisez l’éditeur de requête XMLA dans SSMS. Durant ce tutoriel, vous effectuerez les tâches suivantes : 
   
 > [!div class="checklist"]
 > * Obtenir votre nom de serveur à partir du portail
@@ -83,7 +83,7 @@ Dans cette tâche, vous ajoutez un compte d’utilisateur ou de groupe à partir
 
 ## <a name="add-a-user-to-the-model-database-administrator-role"></a>Ajouter un utilisateur au rôle d’administrateur de la base de données model
 
-Dans cette tâche, vous ajoutez un compte d’utilisateur ou de groupe au rôle d’administrateur des ventes sur Internet qui existe déjà dans le modèle. Ce rôle dispose des autorisations de contrôle total (administrateur) pour l’exemple de base de données model adventureworks. Cette tâche utilise la commande TMSL [CreateOrReplace](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/createorreplace-command-tmsl) dans un script créé pour vous.
+Dans cette tâche, vous ajoutez un compte d’utilisateur ou de groupe au rôle d’administrateur des ventes sur Internet qui existe déjà dans le modèle. Ce rôle dispose des autorisations de contrôle total (administrateur) pour l’exemple de base de données model adventureworks. Cette tâche utilise la commande TMSL [CreateOrReplace](https://docs.microsoft.com/bi-reference/tmsl/createorreplace-command-tmsl) dans un script créé pour vous.
 
 1. Dans l’**Explorateur d’objets**, développez **Bases de données** > **adventureworks** > **Rôles**. 
 2. Cliquez avec le bouton droit de la souris sur **Administrateur des ventes sur Internet**, puis cliquez sur **Générer un script du rôle en tant que** > **CRÉER OU REMPLACER PAR** > **Nouvelle fenêtre d’éditeur de requête**.
@@ -99,7 +99,7 @@ Dans cette tâche, vous ajoutez un compte d’utilisateur ou de groupe au rôle 
 
 ## <a name="add-a-new-model-database-role-and-add-a-user-or-group"></a>Ajouter un nouveau rôle de base de données model et ajouter un utilisateur ou un groupe
 
-Dans cette tâche, vous utilisez la commande [Créer](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/create-command-tmsl?view=sql-analysis-services-2017) dans un script TMSL pour créer un nouveau rôle Ventes sur Internet global, spécifier les autorisations de *lecture* pour le rôle et ajouter un compte d’utilisateur ou de groupe à partir d’Azure AD.
+Dans cette tâche, vous utilisez la commande [Créer](https://docs.microsoft.com/bi-reference/tmsl/create-command-tmsl) dans un script TMSL pour créer un nouveau rôle Ventes sur Internet global, spécifier les autorisations de *lecture* pour le rôle et ajouter un compte d’utilisateur ou de groupe à partir d’Azure AD.
 
 1. Dans l’**Explorateur d’objets**, cliquez avec le bouton droit sur **adventureworks**, puis cliquez sur **Nouvelle requête** > **XMLA**. 
 2. Copiez et collez le script TMSL suivant dans l’éditeur de requête :

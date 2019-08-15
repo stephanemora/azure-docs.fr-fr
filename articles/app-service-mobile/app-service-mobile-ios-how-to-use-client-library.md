@@ -13,12 +13,12 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: emalani
-ms.openlocfilehash: 38d992e55a8e1f0a057a96f3e13c93c9dbd0c4a9
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 898bf082874a1e9bf26dd094a6a0fe55417c9d8e
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67440388"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68851077"
 ---
 # <a name="how-to-use-ios-client-library-for-azure-mobile-apps"></a>Utilisation de la bibliothèque cliente iOS pour Azure Mobile Apps
 
@@ -438,7 +438,7 @@ Au minimum, l'attribut `id` doit être défini quand vous effectuez des suppress
 
 ## <a name="customapi"></a>Procédure : Appeler une API personnalisée
 
-Une API personnalisée vous permet d’exposer toutes les fonctionnalités du serveur principal. Il n’est pas nécessaire de la mapper à une opération de table. Non seulement vous avez davantage de contrôle sur la messagerie, mais vous pouvez également lire/définir des en-têtes et modifier le format du corps de réponse. Pour savoir comment créer une API personnalisée sur le serveur principal, consultez la rubrique [API personnalisées](app-service-mobile-node-backend-how-to-use-server-sdk.md#work-easy-apis)
+Une API personnalisée vous permet d’exposer toutes les fonctionnalités du serveur principal. Il n’est pas nécessaire de la mapper à une opération de table. Non seulement vous avez davantage de contrôle sur la messagerie, mais vous pouvez également lire/définir des en-têtes et modifier le format du corps de réponse.
 
 Pour appeler une API personnalisée, appelez `MSClient.invokeAPI`. Le contenu de la requête et de la réponse est traité au format JSON. Pour utiliser d’autres types de média, [utilisez l’autre surcharge de `invokeAPI`][5].  Pour exécuter une requête `GET` à la place d’une requête `POST`, définissez le paramètre `HTTPMethod` sur `"GET"` et le paramètre `body` sur `nil` (étant donné que les requêtes GET ne comportent pas de corps de message). Si votre API personnalisée prend en charge les autres verbes HTTP, modifiez `HTTPMethod` en conséquence.
 

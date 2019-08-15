@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 07/01/2019
-ms.openlocfilehash: 11e8b26c81d3a8f672abbeafc153df73d063cb6e
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: 84de9d53b19f5aa9b73570aa0d115d204e8b6596
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68610660"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68848217"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-app-service-preview"></a>Déployer des modèles Machine Learning sur Azure App Service (préversion)
 
@@ -34,27 +34,27 @@ Pour plus d’informations sur les fonctionnalités fournies par Azure App Servi
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Un espace de travail de service Microsoft Azure Machine Learning. Pour plus d’informations, consultez l’article [Créer un espace de travail](setup-create-workspace.md).
+* Un espace de travail de service Microsoft Azure Machine Learning. Pour plus d’informations, consultez l’article [Créer un espace de travail](how-to-manage-workspace.md).
 * Un modèle Machine Learning entraîné inscrit dans votre espace de travail. Si vous n’avez pas de modèle, utilisez le [tutoriel de classification d’image : entraîner un modèle](tutorial-train-models-with-aml.md) pour entraîner et inscrire un modèle.
 * Image Docker créée à partir du modèle. Si vous n’avez pas d’image, utilisez la [classification d’image : déployer un modèle](tutorial-deploy-models-with-aml.md) pour en créer une.
 
 ## <a name="deploy-image-as-a-web-app"></a>Déployer une image en tant qu’application web
 
-1. À partir du [portail Azure](https://portal.azure.com), sélectionnez votre espace de travail Azure Machine Learning. Dans la section __Présentation__ , utilisez le lien __Registre__ pour accéder à l’instance Azure Container Registry de l’espace de travail.
+1. À partir du [portail Azure](https://portal.azure.com), sélectionnez votre espace de travail Azure Machine Learning. Dans la section __Présentation__, utilisez le lien __Registre__ pour accéder à l’instance Azure Container Registry de l’espace de travail.
 
     ![Capture d’écran de la présentation de l’espace de travail](media/how-to-deploy-app-service/workspace-overview.png)
 
-2. Dans Azure Container Registry, sélectionnez __Dépôts__ , puis sélectionnez le __nom de l’image__ que vous souhaitez déployer. Pour la version que vous souhaitez déployer, sélectionnez l’entrée __...__ , puis __Déployer sur l’application web__ .
+2. Dans Azure Container Registry, sélectionnez __Dépôts__, puis sélectionnez le __nom de l’image__ que vous souhaitez déployer. Pour la version que vous souhaitez déployer, sélectionnez l’entrée __...__ , puis __Déployer sur l’application web__.
 
     ![Capture d’écran du déploiement d’ACR vers une application web](media/how-to-deploy-app-service/deploy-to-web-app.png)
 
-3. Pour créer l’application web, spécifiez un nom de site, un abonnement, un groupe de ressources, puis sélectionnez le plan/emplacement App Service. Pour finir, sélectionnez __Créer__ .
+3. Pour créer l’application web, spécifiez un nom de site, un abonnement, un groupe de ressources, puis sélectionnez le plan/emplacement App Service. Pour finir, sélectionnez __Créer__.
 
     ![Capture d’écran de la boîte de dialogue Nouvelle application web](media/how-to-deploy-app-service/web-app-for-containers.png)
 
 ## <a name="use-the-web-app"></a>Utiliser l’application web
 
-Dans le [portail Azure](https://portal.azure.com), sélectionnez l’application web créée à l’étape précédente. Dans la section __Présentation__ , copiez l’ __. Cette valeur est l’ __ du service.
+Dans le [portail Azure](https://portal.azure.com), sélectionnez l’application web créée à l’étape précédente. Dans la section __Présentation__, copiez l’__URL__. Cette valeur est l’__URL de base__ du service.
 
 ![Capture d’écran de la présentation de l’application web](media/how-to-deploy-app-service/web-app-overview.png)
 

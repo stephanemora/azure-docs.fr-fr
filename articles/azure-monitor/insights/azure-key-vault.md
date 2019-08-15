@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: bwren
-ms.openlocfilehash: 481b643f2f7201a2a1745c7aef9ddd81883da020
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b7d9ff760bac06602d8d770a358c8a2e22a72c81
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60498346"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68849195"
 ---
 # <a name="azure-key-vault-analytics-solution-in-azure-monitor"></a>Solution Azure Key Vault Analytics dans Azure Monitor
 
@@ -79,7 +79,7 @@ Le tableau suivant présente les méthodes de collecte des données et d’autre
 | Azure |  |  |&#8226; |  |  | à l'arrivée |
 
 ## <a name="use-azure-key-vault"></a>Utiliser Azure Key Vault
-Une fois la [solution installée](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.KeyVaultAnalyticsOMS?tab=Overview), affichez les données Key Vault en cliquant sur la vignette **Key Vault Analytics** située dans la page **Vue d’ensemble** d’Azure Monitor. Ouvrez cette page à partir du menu **Azure Monitor** en cliquant sur **Plus** sous la section **Insights**. 
+Une fois la [solution installée](https://azuremarketplace.microsoft.com/en-usrketplace/marketplace/apps/Microsoft.KeyVaultAnalyticsOMS?tab=Overview), affichez les données Key Vault en cliquant sur la vignette **Key Vault Analytics** située dans la page **Vue d’ensemble** d’Azure Monitor. Ouvrez cette page à partir du menu **Azure Monitor** en cliquant sur **Plus** sous la section **Insights**. 
 
 ![Image de la vignette Azure Key Vault](media/azure-key-vault/log-analytics-keyvault-tile.png)
 
@@ -108,7 +108,7 @@ La solution Azure Key Vault analyse les enregistrements de type **KeyVaults** qu
 | Type |*AzureDiagnostics* |
 | SourceSystem |*Microsoft Azure* |
 | callerIpAddress |Adresse IP du client qui a effectué la demande. |
-| Catégorie | *AuditEvent* |
+| Category | *AuditEvent* |
 | CorrelationId |GUID facultatif que le client peut transférer pour mettre en corrélation les journaux d’activité côté client avec les journaux d’activité côté service (Key Vault). |
 | DurationMs |Délai nécessaire pour répondre à la demande API REST, en millisecondes. La latence du réseau n’étant pas incluse dans ce chiffre, le temps mesuré côté client peut ne pas correspondre à cette durée. |
 | httpStatusCode_d |Code d’état HTTP retourné par la demande (par exemple, *200*) |

@@ -3,7 +3,7 @@ title: Schéma des journaux de connexion Azure Active Directory dans Azure Monit
 description: Décrire le schéma des journaux de connexion Azure AD pour une utilisation dans Azure Monitor
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: cawrites
 manager: daveba
 editor: ''
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 04/18/2019
-ms.author: markvi
+ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e7ae7e90642a6adfd35e71765e2753334660c56
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 7a82cc4da3b9f4f0c654c95b9889a8bf73fd8ec5
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68261863"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68989620"
 ---
 # <a name="interpret-the-azure-ad-sign-in-logs-schema-in-azure-monitor"></a>Interpréter le schéma des journaux de connexion Azure Active Directory dans Azure Monitor
 
@@ -149,7 +149,7 @@ Cet article décrit le schéma de journal de connexion Azure Active Directory (A
 | ResourceId | Valeur non mappée, vous pouvez ignorer ce champ.  |
 | OperationName | Pour les connexions, cette valeur est toujours *Activité de connexion*. |
 | operationVersion | Version d’API REST demandée par le client. |
-| Catégorie | Pour les connexions, cette valeur est toujours *SignIn*. | 
+| Category | Pour les connexions, cette valeur est toujours *SignIn*. | 
 | TenantId | GUID de locataire associé aux journaux d’activité. |
 | ResultType | Le résultat de l’opération de connexion peut être *Success* (Réussite) ou *Failure* (Échec). | 
 | ResultSignature | Contient le code d’erreur éventuel de l’opération de connexion. |

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: dbe3526444bc35815dd4323a3a5290696619e3f9
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 986bed758229d639bb40d0803f7be4a89a0f6e49
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68728347"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934807"
 ---
 # <a name="security-frame-configuration-management--mitigations"></a>Infrastructure de sécurité : gestion des configurations | Atténuation des risques 
 | Produit/Service | Article |
@@ -563,7 +563,7 @@ Pour désactiver une stratégie CORS pour un contrôleur ou une action, utilisez
 | **Phase SDL**               | Créer |  
 | **Technologies applicables** | Générique |
 | **Attributs**              | Choix de passerelle - Azure IoT Hub |
-| **Informations de référence**              | [Vue d’ensemble de la gestion des appareils avec IoT Hub](https://azure.microsoft.com/documentation/articles/iot-hub-device-management-overview/), [How to update Device Firmware (Mise à jour du micrologiciel des appareils)](https://docs.microsoft.com/azure/iot-hub/tutorial-firmware-update) |
+| **Informations de référence**              | [Vue d’ensemble de la gestion des appareils avec IoT Hub](https://azure.microsoft.com/documentation/articles/iot-hub-device-management-overview/), [How to update Device Firmware (Mise à jour du micrologiciel des appareils)](../../iot-hub/tutorial-firmware-update.md) |
 | **Étapes** | LWM2M est un protocole défini par l’organisme Open Mobile Alliance pour la gestion des appareils IoT. La gestion des appareils IoT Azure permet d’interagir avec les appareils physiques à l’aide de travaux d’appareil. Assurez-vous que la passerelle cloud implémente un processus pour garantir la mise à jour continue des données de l’appareil et d’autres données de configuration à l’aide de la gestion des appareils Azure IoT Hub. |
 
 ## <a id="controls-policies"></a>S’assurer que les appareils disposent de contrôles de sécurité des points de terminaison configurés conformément aux directives organisationnelles

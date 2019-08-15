@@ -8,26 +8,13 @@ ms.topic: include
 ms.date: 07/26/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 438f450efe207999947795878a9815fca64f45ca
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: a627592bdfcbebc3c7fcda911e31c0ae6f4a630f
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68702964"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976614"
 ---
-Un hôte dédié Azure est un service qui fournit des serveurs physiques capables d’héberger une ou plusieurs machines virtuelles, dédiés à un abonnement Azure. Les hôtes dédiés sont les mêmes serveurs physiques que ceux utilisés dans nos centres de données, fournis en tant que ressource. Vous pouvez approvisionner des hôtes dédiés au sein d’une région, d’une zone de disponibilité et d’un domaine d’erreur. Ensuite, vous pouvez placer des machines virtuelles directement dans vos hôtes approvisionnés, dans la configuration qui répond le mieux à vos besoins.
-
-> [!IMPORTANT]
-> Les hôtes dédiés Azure sont actuellement en préversion publique.
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
->
-> **Limitations connues de la préversion**
-> - Actuellement, les hôtes dédiés ne prennent pas en charge les groupes de machines virtuelles identiques.
-> - La préversion initiale prend en charge les séries de machines virtuelles suivantes : DSv3 et ESv3. 
-> - Pendant la préversion, vous ne pouvez pas redimensionner une machine virtuelle déployée sur un hôte dédié.
-> - Le contrôle des fonctionnalités de maintenance est en préversion limitée. Commencez par suivre cette [enquête de nomination](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR6lJf7DwiQxNmz51ksQvxV9UNUM3UllWUjBMTFZQUFhHUDI0VTBPQlJFNS4u) pour les essayer.  
-> Au cours de la préversion, nous n’offrons pas l’option de capacité réservée. 
-
 ## <a name="benefits"></a>Avantages 
 
 La réservation de l’intégralité de l’hôte offre les avantages suivants:

@@ -7,12 +7,12 @@ ms.author: parthp
 ms.service: marketplace
 ms.topic: guide
 ms.date: 07/05/2019
-ms.openlocfilehash: 16ed52aa2b56a97469ae8fc47299f09593b19c45
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: d6a0fec6e2efbd943a9b240df0db2c270a1b7e45
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68668341"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68955585"
 ---
 # <a name="create-a-commercial-marketplace-account-in-partner-center"></a>Créer un compte Place de marché commerciale dans l’Espace partenaires
 
@@ -71,7 +71,7 @@ Nous vous remercions d’avoir créé un compte dans l’Espace partenaires. Vou
 
 Si votre compte a été migré à partir de [Cloud Partner Portal (CPP)](https://cloudpartner.azure.com), vous n’avez pas besoin de créer un nouveau compte Espace partenaires : dans ce cas, vous avez reçu un lien personnalisé vers votre nouveau compte Espace partenaires par e-mail et une notification de bannière s’est affichée après que vous vous êtes connecté à votre compte CPP existant.
 
-Une fois que vous avez activé votre nouveau compte Espace partenaires en cliquant sur ce lien personnalisé, vous pouvez revenir à votre compte en vous rendant sur le [Tableau de bord de la Place de marché commerciale](https://partner.microsoft.com/dashboard/commercial-marketplace/) dans l’Espace partenaires.
+Une fois que vous avez activé votre nouveau compte Espace partenaires en cliquant sur ce lien personnalisé, vous pouvez revenir à votre compte en vous rendant sur le [Tableau de bord de la Place de marché commerciale](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) dans l’Espace partenaires.
 
 Le contrat d’éditeur et les informations sur le profil de l’entreprise seront migrés vers votre nouveau compte Espace partenaires, ainsi que les informations de profil et de paiement précédemment configurées, les comptes d’utilisateur et les autorisations, ainsi que les offres actives associées à votre compte CPP. 
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.subservice: common
-ms.openlocfilehash: cf1cba6f6d26d66fc560c86ea42459fa276cc880
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2ba09496ed8c110e3bf0e431da20f09c82d5ea0b
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66114902"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68985583"
 ---
 # <a name="frequently-asked-questions-about-azure-storage-migration"></a>Questions fréquemment posées (FAQ) sur la migration de Stockage Azure
 
@@ -280,7 +280,7 @@ Pour autoriser d'autres personnes à accéder aux ressources de stockage :
      
       https://storageaccountname-secondary.blob.core.windows.net/vhds/BlobName.vhd
 
-    - **Jeton SAS** : Utilisez un jeton SAS pour accéder aux données du point de terminaison. Pour plus d’informations, consultez [Utilisation des signatures d’accès partagé](storage-dotnet-shared-access-signature-part-1.md).
+    - **Jeton SAS** : Utilisez un jeton SAS pour accéder aux données du point de terminaison. Pour plus d’informations, consultez [Utilisation des signatures d’accès partagé](storage-sas-overview.md).
 
 **Comment je utiliser un domaine personnalisé HTTPS avec mon compte de stockage ? Par exemple, comment faire apparaître « https:\//mystorageaccountname.blob.core.windows.net/images/image.gif » sous la forme « https:\//www.contoso.com/images/image.gif » ?**
 
@@ -291,7 +291,7 @@ Mais vous pouvez utiliser des domaines personnalisés non-HTTPS. Pour plus d’i
 
 Il n'existe aucun moyen d'accéder directement à un compte de stockage via FTP. Toutefois, vous pouvez configurer une machine virtuelle Azure puis installer un serveur FTP sur cette machine virtuelle. Vous pouvez faire en sorte que le serveur FTP stocke les fichiers dans un partage Azure Files ou sur un disque de données disponible pour la machine virtuelle.
 
-Si vous souhaitez uniquement télécharger des données sans avoir à utiliser l'Explorateur de stockage ou une application similaire, vous pouvez utiliser un jeton SAS. Pour plus d’informations, consultez [Utilisation des signatures d’accès partagé](storage-dotnet-shared-access-signature-part-1.md).
+Si vous souhaitez uniquement télécharger des données sans avoir à utiliser l'Explorateur de stockage ou une application similaire, vous pouvez utiliser un jeton SAS. Pour plus d’informations, consultez [Utilisation des signatures d’accès partagé](storage-sas-overview.md).
 
 **Comment migrer des objets blob d’un compte de stockage vers un autre ?**
 

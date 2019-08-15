@@ -10,12 +10,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 07/20/2019
-ms.openlocfilehash: 66a0c625d300a74787e3640992675d5a3f31610c
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: a3db70925d59f9d0e2793b04824b2e8606719dd4
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68828561"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934231"
 ---
 # <a name="tutorial-train-your-first-model"></a>Didacticiel : Entraîner votre premier modèle
 
@@ -23,6 +23,7 @@ Ce tutoriel est le **deuxième d’une série de deux**. Dans le didacticiel pr�
 
 Dans ce tutoriel, vous avez appris à effectuer les tâches suivantes :
 
+> [!div class="checklist"]
 > * Connecter votre espace de travail et créer une expérience
 > * Charger des données et effectuer l’apprentissage de modèles scikit-Learn
 > * Afficher les résultats de l’apprentissage sur le portail

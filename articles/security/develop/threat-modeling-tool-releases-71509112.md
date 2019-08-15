@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2019
 ms.author: jegeib
-ms.openlocfilehash: 554e3259fb386abbdaebc167c852f88cb63bf50a
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: ce5f2b5541da3b3a3db046ba0dc768e3fbe2431e
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68728084"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68928113"
 ---
 # <a name="threat-modeling-tool-ga-release-71509112---9122018"></a>Version en disponibilité générale de Threat Modeling Tool v 7.1.50911.2 - 12/09/2018
 
@@ -97,7 +97,7 @@ Oui, vous pouvez ! L’[ensemble de stencils Azure est disponible sur github](h
 
 ## <a name="documentation-and-feedback"></a>Documentation et commentaires
 
-- La documentation de Threat Modeling Tool se trouve sur [docs.microsoft.com](https://docs.microsoft.com/azure/security/azure-security-threat-modeling-tool) et contient des informations [sur l’utilisation de l’outil](https://docs.microsoft.com/azure/security/azure-security-threat-modeling-tool-getting-started).
+- La documentation de Threat Modeling Tool se trouve sur [docs.microsoft.com](threat-modeling-tool.md) et contient des informations [sur l’utilisation de l’outil](threat-modeling-tool-getting-started.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

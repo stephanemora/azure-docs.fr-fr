@@ -13,13 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2019
-ms.author: Mingfeiy;willzhan;Juliako
-ms.openlocfilehash: dfb82e91b0f65b85d34b7e20d57ed9929469321f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: Juliako
+ms.reviewer: willzhan
+ms.openlocfilehash: 9c61fad333037074f392b019ae61c161673e4008
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61232574"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "69016688"
 ---
 # <a name="using-castlabs-to-deliver-widevine-licenses-to-azure-media-services"></a>Utilisation de castLabs pour fournir des licences Widevine à Azure Media Services 
 > [!div class="op_single_selector"]
@@ -32,7 +33,7 @@ ms.locfileid: "61232574"
 
 Cet article décrit comment vous pouvez utiliser Azure Media Services (AMS) pour fournir un flux chiffré dynamiquement par AMS avec des DRM PlayReady et Widevine. La licence PlayReady provient du serveur de licences Media Services PlayReady et la licence Widevine est délivrée par le serveur de licences **castLabs** .
 
-Pour lire un contenu en streaming protégé par CENC (PlayReady et/ou Widevine), vous pouvez utiliser le [Lecteur multimédia Azure](https://amsplayer.azurewebsites.net/azuremediaplayer.html). Pour plus d’informations, consultez le [document AMP](https://amp.azure.net/libs/amp/latest/docs/) .
+Pour lire un contenu en streaming protégé par CENC (PlayReady et/ou Widevine), vous pouvez utiliser le [Lecteur multimédia Azure](https://aka.ms/azuremediaplayer). Pour plus d’informations, consultez le [document AMP](https://amp.azure.net/libs/amp/latest/docs/) .
 
 Le diagramme suivant représente une architecture qui intègre Azure Media Services et castLabs.
 
@@ -101,10 +102,10 @@ Pour utiliser l'application web (STS) :
 
 ## <a name="playing-back-a-video"></a>Lecture d'une vidéo
 
-Pour lire une vidéo chiffrée par chiffrement commun (PlayReady et/ou Widevine), vous pouvez utiliser le [Lecteur multimédia Azure ](https://amsplayer.azurewebsites.net/azuremediaplayer.html). Pendant l'exécution de l'application console, l'ID de la clé de contenu et l'URL du manifeste sont renvoyés.
+Pour lire une vidéo chiffrée par chiffrement commun (PlayReady et/ou Widevine), vous pouvez utiliser le [Lecteur multimédia Azure ](https://aka.ms/azuremediaplayer). Pendant l'exécution de l'application console, l'ID de la clé de contenu et l'URL du manifeste sont renvoyés.
 
 1. Ouvrez un nouvel onglet et lancez votre STS : http://[nom_sts].azurewebsites.net/api/token/assetid/[id_élément_multimédia_castlabs]/contentkeyid/[id_clé_contenu].
-2. Accédez à [Azure Media Player](https://amsplayer.azurewebsites.net/azuremediaplayer.html).
+2. Accédez à [Azure Media Player](https://aka.ms/azuremediaplayer).
 3. Collez l'URL de diffusion en continu.
 4. Cochez la case **Options avancées** .
 5. Dans la liste déroulante **Protection** , sélectionnez PlayReady et/ou Widevine.

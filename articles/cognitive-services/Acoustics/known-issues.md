@@ -3,20 +3,20 @@ title: Problèmes connus avec le plug-in Project Acoustics
 titlesuffix: Azure Cognitive Services
 description: Vous pourriez rencontrer les problèmes connus suivants lors de l’utilisation de Designer Preview for Project Acoustics.
 services: cognitive-services
-author: kylestorck
+author: NoelCross
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: conceptual
 ms.date: 03/20/2019
-ms.author: kylsto
+ms.author: noelc
 ROBOTS: NOINDEX
-ms.openlocfilehash: df5a4ce62af0405ffab8f711fb40b3d92083a3a4
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: 37084480423de90f50beced187eda202b39f8bf1
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68706659"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68933061"
 ---
 # <a name="project-acoustics-known-issues"></a>Problèmes connus avec Project Acoustics
 Vous pourriez rencontrer les problèmes connus suivants lors de l’utilisation de Designer Preview for Project Acoustics.
@@ -24,10 +24,6 @@ Vous pourriez rencontrer les problèmes connus suivants lors de l’utilisation 
 ## <a name="acoustic-parameters-are-lost-when-you-rename-a-scene"></a>Les paramètres Acoustic sont perdus lorsque vous renommez une scène
 
 Si vous renommez une scène, tous les paramètres Acoustic qui lui appartiennent ne seront pas transférés automatiquement vers la nouvelle scène. Toutefois, ils existeront toujours dans l’ancien fichier de ressource. Recherchez le fichier **SceneName_AcousticParameters.asset** dans le répertoire **Editor** en regard de votre fichier de scène. Renommez votre fichier afin de refléter le nouveau nom de la scène.
-
-## <a name="unity-crashes-when-closing-project"></a>Unity se bloque lors de la fermeture du projet
-
-Dans les dernières versions d’Unity (2018.2+), il existe un bogue connu où Unity se bloque lorsque vous fermez votre projet. Cela est suivi par [ce problème Unity](https://issuetracker.unity3d.com/issues/crash-on-assetdatabase-getassetimporterversions-when-closing-a-specific-unity-project).
 
 ## <a name="deploying-to-android-from-some-unity-versions"></a>Déploiement vers Android à partir de certaines versions d'Unity
 

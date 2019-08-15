@@ -11,12 +11,12 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: vanto, carlrab
 ms.date: 02/11/2019
-ms.openlocfilehash: 7adced4088b1e155d6776f71e8f23a9eceae2297
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: d13ee8c46df9433530df1d26a86978daab709a52
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566786"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68883053"
 ---
 # <a name="quickstart-create-a-server-level-firewall-rule-for-single-and-pooled-databases-using-the-azure-portal"></a>Démarrage rapide : Créer une règle de pare-feu au niveau du serveur pour des bases de données uniques et mises en pool à l’aide du portail Azure
 
@@ -37,7 +37,7 @@ Le service SQL Database crée un pare-feu au niveau du serveur de base de donné
 > [!NOTE]
 > SQL Database communique par le biais du port 1433. Si vous essayez de vous connecter à partir d’un réseau d’entreprise, le trafic sortant sur le port 1433 peut être bloqué par le pare-feu de votre réseau. Dans ce cas, vous ne pouvez pas vous connecter à votre serveur Azure SQL Database, sauf si votre service informatique ouvre le port 1433.
 > [!IMPORTANT]
-> La règle de pare-feu 0.0.0.0 permet à tous les services Azure de franchir la règle de pare-feu au niveau du serveur et de tenter de se connecter à une base de données unique ou mise en pool par le biais du serveur. Pour en savoir plus sur l’utilisation de règles de réseau virtuel, consultez [Règles de réseau virtuel comme alternatives aux règles d’adresses IP](sql-database-firewall-configure.md#virtual-network-rules-as-alternatives-to-ip-rules).
+> La règle de pare-feu 0.0.0.0 permet à tous les services Azure de franchir la règle de pare-feu au niveau du serveur et de tenter de se connecter à une base de données unique ou mise en pool par le biais du serveur. 
 
 Suivez ces étapes pour créer une règle de pare-feu IP au niveau du serveur pour l’adresse IP de votre client afin de permettre la connectivité externe par le biais du pare-feu SQL Database pour votre adresse IP uniquement.
 

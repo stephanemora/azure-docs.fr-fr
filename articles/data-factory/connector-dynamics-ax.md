@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: jingwang
 ms.openlocfilehash: f2b1e8b9829bab56f0e49eafc50b7c56594de96b
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "68720816"
 ---
 # <a name="copy-data-from-dynamics-ax-by-using-azure-data-factory-preview"></a>Copier des données de Dynamics AX en utilisant Azure Data Factory (préversion)
@@ -101,7 +101,7 @@ Pour copier des données de Dynamics AX, définissez la propriété **type** du 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété **type** du jeu de données doit être définie sur **DynamicsAXResource**. | OUI |
-| chemin d’accès | Chemin de l’entité OData Dynamics AX. | OUI |
+| path | Chemin de l’entité OData Dynamics AX. | OUI |
 
 **Exemple**
 

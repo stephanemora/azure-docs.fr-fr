@@ -11,12 +11,12 @@ ms.date: 01/09/2019
 author: sharonlo101
 ms.author: shlo
 manager: craigg
-ms.openlocfilehash: 96ea8142e2f7794d3c15c6efb436eafa585bc8fd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e4d204e9bcf601bf968f06b5d9df3f36414bd5a5
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60780923"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68884186"
 ---
 # <a name="copy-or-clone-a-data-factory-in-azure-data-factory"></a>Copier ou cloner une fabrique de données dans Azure Data Factory
 
@@ -36,7 +36,7 @@ Voici quelques-uns des cas dans lesquels il peut être utile de copier ou cloner
 
 1. Comme condition préalable, vous devez créer votre fabrique de données cible à partir du portail Azure.
 
-1. Si vous avez un runtime d’intégration auto-hébergé dans votre fabrique source, vous devez le précréer avec le même nom dans la fabrique cible. Si vous souhaitez que différentes fabriques partagent le runtime d’intégration auto-hébergé, vous pouvez utiliser le modèle publié [ici](author-visually.md#best-practices-for-git-integration).
+1. Si vous avez un runtime d’intégration auto-hébergé dans votre fabrique source, vous devez le précréer avec le même nom dans la fabrique cible. Si vous souhaitez que différentes fabriques partagent le runtime d’intégration auto-hébergé, vous pouvez utiliser le modèle publié [ici](source-control.md#best-practices-for-git-integration).
 
 1. Si vous êtes en mode GIT, chaque fois que vous publiez à partir du portail, le modèle Resource Manager de la fabrique est enregistré dans la branche adf_publish du référentiel GIT.
 

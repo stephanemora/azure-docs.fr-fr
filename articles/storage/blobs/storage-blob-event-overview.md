@@ -1,19 +1,19 @@
 ---
 title: Réaction aux événements Stockage Blob Azure (préversion) | Microsoft Docs
 description: Utilisez Azure Event Grid pour vous abonner à des événements de stockage Blob.
-services: storage,event-grid
-author: cbrooksmsft
-ms.author: cbrooks
+author: normesta
+ms.author: normesta
 ms.date: 01/30/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: storage
 ms.subservice: blobs
-ms.openlocfilehash: c0655d02fd5d0d64c22db286236b2a26f9e70619
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.reviewer: cbrooks
+ms.openlocfilehash: 13eef9beb6c86683c56efc744dc42b4614b84fe9
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67444676"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68946479"
 ---
 # <a name="reacting-to-blob-storage-events"></a>Réaction aux événements de Stockage Blob
 
@@ -30,8 +30,8 @@ Si vous souhaitez faire un essai maintenant, consultez l’un des articles de d�
 |Si vous souhaitez utiliser cet outil :    |Lisez l’article : |
 |--|-|
 |Portail Azure    |[Démarrage rapide : Acheminer des événements de stockage Blob vers un point de terminaison web avec le portail Azure](https://docs.microsoft.com/azure/event-grid/blob-event-quickstart-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
-|D’Azure CLI    |[Démarrage rapide : Acheminer des événements de stockage vers un point de terminaison web avec PowerShell](https://docs.microsoft.com/azure/storage/blobs/storage-blob-event-quickstart-powershell?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
-|PowerShell    |[Démarrage rapide : Acheminer des événements de stockage vers un point de terminaison web avec Azure CLI](https://docs.microsoft.com/azure/storage/blobs/storage-blob-event-quickstart?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
+|PowerShell    |[Démarrage rapide : Acheminer des événements de stockage vers un point de terminaison web avec PowerShell](https://docs.microsoft.com/azure/storage/blobs/storage-blob-event-quickstart-powershell?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
+|D’Azure CLI    |[Démarrage rapide : Acheminer des événements de stockage vers un point de terminaison web avec Azure CLI](https://docs.microsoft.com/azure/storage/blobs/storage-blob-event-quickstart?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 
 ## <a name="the-event-model"></a>Le modèle d’événement
 

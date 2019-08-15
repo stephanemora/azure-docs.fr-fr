@@ -8,11 +8,11 @@ ms.topic: tutorial
 ms.date: 10/24/2018
 ms.author: victorh
 ms.openlocfilehash: 393441e7ff620f3795e42c2cb376f99f8763f25b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59044859"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "60193186"
 ---
 # <a name="tutorial-monitor-azure-firewall-logs-and-metrics"></a>Didacticiel : Superviser les journaux d’activité et les métriques du Pare-feu Azure
 
@@ -71,11 +71,11 @@ La journalisation d’activité est automatiquement activée pour chaque ressour
 
 Pour activer la journalisation des diagnostics, procédez comme suit :
 
-1. Notez l’ID de ressource de votre compte de stockage, où les données de journalisation sont stockées. Cette valeur a le format suivant : */subscriptions/\<subscriptionId\>/resourceGroups/\<nom du groupe de ressources\>/providers/Microsoft.Storage/storageAccounts/\<nom du compte de stockage\>*.
+1. Notez l’ID de ressource de votre compte de stockage, où les données de journalisation sont stockées. Cette valeur a le format suivant : */subscriptions/\<subscriptionId\>/resourceGroups/\<nom du groupe de ressources\>/providers/Microsoft.Storage/storageAccounts/\<nom du compte de stockage\>* .
 
    Vous pouvez utiliser n’importe quel compte de stockage dans votre abonnement. Vous pouvez utiliser le portail Azure pour rechercher ces informations. Les informations se trouvent dans la page **Propriété** de la ressource.
 
-2. Notez l’ID de ressource de votre pare-feu pour lequel la journalisation est activée. Cette valeur a le format suivant : */subscriptions/\<subscriptionId\>/resourceGroups/\<nom du groupe de ressources\>/providers/Microsoft.Network/azureFirewalls/\<nom du pare-feu\>*.
+2. Notez l’ID de ressource de votre pare-feu pour lequel la journalisation est activée. Cette valeur a le format suivant : */subscriptions/\<subscriptionId\>/resourceGroups/\<nom du groupe de ressources\>/providers/Microsoft.Network/azureFirewalls/\<nom du pare-feu\>* .
 
    Vous pouvez utiliser le portail pour rechercher ces informations.
 

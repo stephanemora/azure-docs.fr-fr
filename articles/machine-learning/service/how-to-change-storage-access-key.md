@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 05/17/2019
-ms.openlocfilehash: 0721542811709e9b938fea3f31bc2a0a28ecdc74
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.date: 08/08/2019
+ms.openlocfilehash: 7c6b85bd1f5935fb3722f82efcdfc921fc9cb2ec
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68358773"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68990554"
 ---
 # <a name="regenerate-storage-account-access-keys"></a>Régénérer des clés d’accès de compte de stockage
 
@@ -25,7 +25,7 @@ Pour des raisons de sécurité, vous devrez peut-être modifier les clés d’ac
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Un espace de travail de service Microsoft Azure Machine Learning. Pour plus d’informations, consultez l’article [Créer un espace de travail](setup-create-workspace.md).
+* Un espace de travail de service Microsoft Azure Machine Learning. Pour plus d’informations, consultez l’article [Créer un espace de travail](how-to-manage-workspace.md).
 
 * Le [Kit de développement logiciel (SDK) Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
 
@@ -84,17 +84,13 @@ Pour mettre à jour le service Azure Machine Learning afin d’utiliser la nouve
         az login
         ```
 
-    1. Pour installer l’extension Azure Machine Learning, utilisez la commande suivante :
-
-        ```azurecli-interactive
-        az extension add -n azure-cli-ml 
-        ```
-
     1. Pour mettre à jour l’espace de travail afin d’utiliser la nouvelle clé, utilisez la commande suivante. Remplacez `myworkspace` par le nom de votre espace de travail Azure Machine Learning et remplacez `myresourcegroup` par le nom du groupe de ressources Azure qui contient l’espace de travail.
 
         ```azurecli-interactive
         az ml workspace sync-keys -w myworkspace -g myresourcegroup
         ```
+
+        [!INCLUDE [install extension](../../../includes/machine-learning-service-install-extension.md)]
 
         Cette commande synchronise automatiquement les nouvelles clés du compte de stockage Azure utilisé par l’espace de travail.
 

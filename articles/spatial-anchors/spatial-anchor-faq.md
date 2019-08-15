@@ -8,12 +8,12 @@ ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: overview
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 435ad986a9f0b96d42c88d450f40e5900ad33b7c
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: 06936a196813dacfc1fc9d02945bee4119b7eea8
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67653247"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68927511"
 ---
 # <a name="frequently-asked-questions-about-azure-spatial-anchors"></a>Questions fréquentes (FAQ) sur Azure Spatial Anchors
 
@@ -121,10 +121,6 @@ Lancez-vous dans le [développement ici](index.yml).
 **Q : Le service fonctionne-t-il avec Unreal ?**
 
 **R :** La prise en charge de Unreal sera envisagée prochainement.
-
-**Q : Le service fonctionne-t-il avec Xamarin ?**
-
-**R :** La prise en charge de Xamarin sera envisagée prochainement.
 
 **Q : Quels ports et protocoles Azure Spatial Anchors utilise-t-il ?**
 

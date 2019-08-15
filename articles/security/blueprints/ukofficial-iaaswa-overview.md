@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 13ea2b68027c81bca7b43cef62cf7039aa0ea8dd
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2fa9db20554df813e5da94e2bbea122ac6cc9b60
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60609498"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68946545"
 ---
 # <a name="azure-security-and-compliance-blueprint---three-tier-iaas-web-application-for-uk-official"></a>Azure Blueprint Sécurité et conformité : application web IaaS à trois niveaux pour UK OFFICIAL
 
@@ -141,7 +141,7 @@ Stockage
 
 **Passerelle** : la [passerelle VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways) assure la connectivité entre les routeurs du réseau local et ceux du réseau virtuel de production.
 
-**Passerelle Internet et adresse IP publique** : la passerelle Internet expose les services d’application aux utilisateurs via Internet. Le trafic qui accède à ces services est sécurisé avec [Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction), qui propose des fonctionnalités de routage de couche 7 et des fonctionnalités d’équilibrage de charge avec la protection par pare-feu d’applications web (WAF).
+**Passerelle Internet et adresse IP publique** : la passerelle Internet expose les services d’application aux utilisateurs via Internet. Le trafic qui accède à ces services est sécurisé avec [Application Gateway](../../application-gateway/overview.md), qui propose des fonctionnalités de routage de couche 7 et des fonctionnalités d’équilibrage de charge avec la protection par pare-feu d’applications web (WAF).
 
 **Réseau virtuel de gestion** : ce [réseau virtuel](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) contient des ressources qui implémentent des fonctionnalités de gestion et de supervision pour les charges de travail exécutées dans le réseau virtuel de production.
 
@@ -152,11 +152,11 @@ Stockage
 **Réseaux virtuels appairés** : les réseaux virtuels de production et de gestion sont connectés à l’aide de [VNET Peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview).
 Ces réseaux virtuels sont toujours gérés comme des ressources distinctes. Toutefois, lorsque les machines virtuelles souhaitent s’y connecter, ils n’apparaissent que comme un seul et même réseau. Ces réseaux communiquent entre eux directement à l’aide d’adresses IP privées. Pour utiliser VNET Peering, les réseaux virtuels doivent se trouver dans la même région Azure.
 
-**Groupes de sécurité réseau** : les [groupes de sécurité réseau](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) contiennent des listes de contrôle d’accès qui autorisent ou refusent le trafic au sein d’un réseau virtuel. Les groupes de sécurité réseau peuvent être utilisés pour sécuriser le trafic au niveau d’un sous-réseau ou d’une machine virtuelle.
+**Groupes de sécurité réseau** : les [groupes de sécurité réseau](../../virtual-network/virtual-network-vnet-plan-design-arm.md) contiennent des listes de contrôle d’accès qui autorisent ou refusent le trafic au sein d’un réseau virtuel. Les groupes de sécurité réseau peuvent être utilisés pour sécuriser le trafic au niveau d’un sous-réseau ou d’une machine virtuelle.
 
 **Active Directory Domain Services (AD DS)**  : cette architecture permet un déploiement dédié d’[Active Directory Domain Services](https://technet.microsoft.com/library/hh831484.aspx).
 
-**Journalisation et audit** : le [journal d’activité Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) capture les opérations effectuées sur les ressources de votre abonnement (par exemple, qui a démarré l’opération, quand l’opération a eu lieu ou l’état de l’opération) ainsi que les valeurs des autres propriétés qui peuvent vous aider à analyser l’opération. Le journal d’activité Azure est un service de plateforme Azure qui capture toutes les actions effectuées dans un abonnement. Les journaux d’activité peuvent être archivés ou exportés si nécessaire.
+**Journalisation et audit** : le [journal d’activité Azure](../../azure-monitor/platform/activity-logs-overview.md) capture les opérations effectuées sur les ressources de votre abonnement (par exemple, qui a démarré l’opération, quand l’opération a eu lieu ou l’état de l’opération) ainsi que les valeurs des autres propriétés qui peuvent vous aider à analyser l’opération. Le journal d’activité Azure est un service de plateforme Azure qui capture toutes les actions effectuées dans un abonnement. Les journaux d’activité peuvent être archivés ou exportés si nécessaire.
 
 **Supervision réseau et alertes** : [Azure Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview) est un service de plateforme qui fournit une fonctionnalité de capture des paquets réseau, une fonctionnalité de journalisation des flux, des outils de topologie et une fonctionnalité de diagnostic pour le trafic sur vos réseaux virtuels.
 
@@ -168,11 +168,11 @@ Ces réseaux virtuels sont toujours gérés comme des ressources distinctes. Tou
 
 ### <a name="logging-and-audit"></a>Journalisation et audit
 
-**Supervision** : [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-get-started) est le service de plateforme qui permet de superviser en un seul et même endroit le journal d’activité, les métriques et les journaux de diagnostic de toutes vos ressources Azure. Azure Monitor peut être configuré pour visualiser, interroger, acheminer, archiver et agir sur les métriques et les journaux d’activité provenant des ressources Azure. Il est recommandé d’utiliser le contrôle d’accès basé sur les ressources pour sécuriser la piste d’audit et garantir que les utilisateurs ne puissent pas modifier les journaux d’activité.
+**Supervision** : [Azure Monitor](../../azure-monitor/overview.md) est le service de plateforme qui permet de superviser en un seul et même endroit le journal d’activité, les métriques et les journaux de diagnostic de toutes vos ressources Azure. Azure Monitor peut être configuré pour visualiser, interroger, acheminer, archiver et agir sur les métriques et les journaux d’activité provenant des ressources Azure. Il est recommandé d’utiliser le contrôle d’accès basé sur les ressources pour sécuriser la piste d’audit et garantir que les utilisateurs ne puissent pas modifier les journaux d’activité.
 
-**Journaux d’activité** : configurez les [journaux d’activité Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) pour fournir un insight des opérations qui ont été effectuées sur les ressources de votre abonnement.
+**Journaux d’activité** : configurez les [journaux d’activité Azure](../../azure-monitor/platform/activity-logs-overview.md) pour fournir un insight des opérations qui ont été effectuées sur les ressources de votre abonnement.
 
-**Journaux de diagnostic** : les [journaux de diagnostic](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) correspondent à l’ensemble des journaux d’activité émis par une ressource. Ces journaux d’activité incluent les journaux des événements système Windows, ainsi que les journaux d’activité des objets blob, des tables et des files d’attente.
+**Journaux de diagnostic** : les [journaux de diagnostic](../../azure-monitor/platform/diagnostic-logs-overview.md) correspondent à l’ensemble des journaux d’activité émis par une ressource. Ces journaux d’activité incluent les journaux des événements système Windows, ainsi que les journaux d’activité des objets blob, des tables et des files d’attente.
 
 **Journaux d’activité du pare-feu** : Application Gateway fournit des journaux de diagnostic et d’accès complets. Les journaux d’activité de pare-feu sont disponibles pour les ressources de passerelle d’application avec WAF activé.
 
@@ -182,11 +182,11 @@ Ces réseaux virtuels sont toujours gérés comme des ressources distinctes. Tou
 
 **Active Directory Domain Services** : cette architecture permet un déploiement d’Active Directory Domain Services dans Azure. Pour obtenir des recommandations spécifiques sur l’implémentation d’Active Directory dans Azure, consultez les articles suivants :
 
-[Extension d’Active Directory Domain Services (AD DS) à Azure](https://docs.microsoft.com/azure/guidance/guidance-identity-adds-extend-domain).
+[Extension d’Active Directory Domain Services (AD DS) à Azure](/azure/architecture/reference-architectures/identity/adds-extend-domain).
 
 [Recommandations concernant le déploiement de Windows Server Active Directory sur des machines virtuelles Azure](https://msdn.microsoft.com/library/azure/jj156090.aspx).
 
-**Intégration Active Directory** : comme alternative à une architecture AD DS dédiée, les clients peuvent utiliser l’intégration [Azure Active Directory](https://docs.microsoft.com/azure/guidance/guidance-ra-identity) ou [Active Directory dans Azure joint à une forêt locale](https://docs.microsoft.com/azure/guidance/guidance-ra-identity).
+**Intégration Active Directory** : comme alternative à une architecture AD DS dédiée, les clients peuvent utiliser l’intégration [Azure Active Directory](/azure/architecture/reference-architectures/identity.md) ou [Active Directory dans Azure joint à une forêt locale](/azure/architecture/reference-architectures/identity.md).
 
 ### <a name="security"></a>Sécurité
 
@@ -194,21 +194,21 @@ Ces réseaux virtuels sont toujours gérés comme des ressources distinctes. Tou
 
 Les clients peuvent également envisager d’utiliser un [modèle administratif de sécurité renforcée](https://technet.microsoft.com/windows-server-docs/security/securing-privileged-access/securing-privileged-access) pour sécuriser l’environnement lors de la connexion au réseau virtuel de gestion et au serveur de rebond. Pour renforcer la sécurité, il est conseillé aux clients d’utiliser une [station de travail avec accès privilégié](https://technet.microsoft.com/windows-server-docs/security/securing-privileged-access/privileged-access-workstations#what-is-a-privileged-access-workstation-paw) et une configuration RDGateway. L’utilisation des appliances virtuelles de réseau et des zones DMZ publiques/privées proposent des améliorations de sécurité supplémentaires.
 
-**Sécurisation du réseau** : les [groupes de sécurité réseau](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) sont recommandés pour chaque sous-réseau afin de fournir un deuxième niveau de protection contre le trafic qui rentre en contournant une passerelle mal configurée ou désactivée. Exemple : [Modèle Resource Manager pour le déploiement d’un groupe de sécurité réseau](https://github.com/mspnp/template-building-blocks/tree/v1.0.0/templates/buildingBlocks/networkSecurityGroups).
+**Sécurisation du réseau** : les [groupes de sécurité réseau](../../virtual-network/virtual-network-vnet-plan-design-arm.md) sont recommandés pour chaque sous-réseau afin de fournir un deuxième niveau de protection contre le trafic qui rentre en contournant une passerelle mal configurée ou désactivée. Exemple : [Modèle Resource Manager pour le déploiement d’un groupe de sécurité réseau](https://github.com/mspnp/template-building-blocks/tree/v1.0.0/templates/buildingBlocks/networkSecurityGroups).
 
-**Sécurisation des points de terminaison publics** : la passerelle Internet expose les services d’application aux utilisateurs via Internet. Le trafic qui accède à ces services est sécurisé avec [Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction), qui fournit un pare-feu d’applications web et une gestion du protocole HTTPS.
+**Sécurisation des points de terminaison publics** : la passerelle Internet expose les services d’application aux utilisateurs via Internet. Le trafic qui accède à ces services est sécurisé avec [Application Gateway](../../application-gateway/overview.md), qui fournit un pare-feu d’applications web et une gestion du protocole HTTPS.
 
 **Plages d’adresses IP** : les plages d’adresses IP de l’architecture sont des suggestions. Il est conseillé aux clients de tenir compte de leur environnement et d’utiliser les plages adaptées à celui-ci.
 
-**Connectivité hybride** : les charges de travail cloud sont connectées au centre de données local via un réseau VPN IPSEC qui utilise la passerelle VPN Azure. Les clients doivent vérifier qu’ils utilisent une passerelle VPN appropriée pour se connecter à Azure. Example : [Modèle Resource Manager de passerelle VPN](https://github.com/mspnp/template-building-blocks/tree/v1.0.0/templates/buildingBlocks/vpn-gateway-vpn-connection). Les clients qui exécutent des charges de travail stratégiques à grande échelle avec des exigences de Big Data peuvent utiliser une architecture réseau hybride avec [ExpressRoute](https://docs.microsoft.com/azure/guidance/guidance-hybrid-network-expressroute) pour connecter un réseau privé aux services cloud Microsoft.
+**Connectivité hybride** : les charges de travail cloud sont connectées au centre de données local via un réseau VPN IPSEC qui utilise la passerelle VPN Azure. Les clients doivent vérifier qu’ils utilisent une passerelle VPN appropriée pour se connecter à Azure. Example : [Modèle Resource Manager de passerelle VPN](https://github.com/mspnp/template-building-blocks/tree/v1.0.0/templates/buildingBlocks/vpn-gateway-vpn-connection). Les clients qui exécutent des charges de travail stratégiques à grande échelle avec des exigences de Big Data peuvent utiliser une architecture réseau hybride avec [ExpressRoute](/azure/architecture/reference-architectures/hybrid-networking/expressroute.md) pour connecter un réseau privé aux services cloud Microsoft.
 
-**Séparation des préoccupations** : cette architecture de référence attribue un réseau virtuel à chaque type d’opérations (administratives et commerciales). La séparation des réseaux virtuels et des sous-réseaux permet de gérer le trafic, notamment de restreindre le trafic entrant et sortant, en utilisant des groupes de sécurité réseau entre les segments réseau, et en suivant les bonnes pratiques de la rubrique [Services cloud et sécurité réseau Microsoft](https://docs.microsoft.com/azure/best-practices-network-security).
+**Séparation des préoccupations** : cette architecture de référence attribue un réseau virtuel à chaque type d’opérations (administratives et commerciales). La séparation des réseaux virtuels et des sous-réseaux permet de gérer le trafic, notamment de restreindre le trafic entrant et sortant, en utilisant des groupes de sécurité réseau entre les segments réseau, et en suivant les bonnes pratiques de la rubrique [Services cloud et sécurité réseau Microsoft](/azure/architecture/vdc/networking-virtual-datacenter.md).
 
-**Gestion des ressources** : les ressources Azure, telles que les machines virtuelles, les réseaux virtuels et les équilibreurs de charge, sont regroupées dans des [groupes de ressources Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) pour être gérées. Les rôles du contrôle d’accès basé sur les ressources peuvent ensuite être affectés à chaque groupe de ressources pour restreindre l’accès aux seuls utilisateurs autorisés.
+**Gestion des ressources** : les ressources Azure, telles que les machines virtuelles, les réseaux virtuels et les équilibreurs de charge, sont regroupées dans des [groupes de ressources Azure](../../azure-resource-manager/resource-group-overview.md) pour être gérées. Les rôles du contrôle d’accès basé sur les ressources peuvent ensuite être affectés à chaque groupe de ressources pour restreindre l’accès aux seuls utilisateurs autorisés.
 
-**Restrictions de contrôle d’accès** : utilisez le [contrôle d’accès en fonction du rôle](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) (RBAC) pour gérer les ressources de votre application à l’aide de [rôles personnalisés](https://docs.microsoft.com/azure/role-based-access-control/custom-roles). Le contrôle RBAC peut être utilisé pour restreindre les opérations que DevOps peut effectuer sur chaque couche. Lorsque vous accordez des autorisations, utilisez le [principe des privilèges minimum](https://msdn.microsoft.com/library/hdb58b2f(v=vs.110).aspx#Anchor_1). Journalisez toutes les opérations d’administration et réalisez des audits réguliers pour vérifier qu’aucune modification de configuration n’est prévue.
+**Restrictions de contrôle d’accès** : utilisez le [contrôle d’accès en fonction du rôle](../../role-based-access-control/role-assignments-portal.md) (RBAC) pour gérer les ressources de votre application à l’aide de [rôles personnalisés](../../role-based-access-control/custom-roles.md). Le contrôle RBAC peut être utilisé pour restreindre les opérations que DevOps peut effectuer sur chaque couche. Lorsque vous accordez des autorisations, utilisez le [principe des privilèges minimum](https://msdn.microsoft.com/library/hdb58b2f(v=vs.110).aspx#Anchor_1). Journalisez toutes les opérations d’administration et réalisez des audits réguliers pour vérifier qu’aucune modification de configuration n’est prévue.
 
-**Accès à Internet** : cette architecture de référence utilise [Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction) comme passerelle Internet et équilibreur de charge. Certains clients peuvent également envisager d’utiliser des appliances virtuelles réseau tierces pour d’autres couches de réseau, en guise d’alternative à [Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction).
+**Accès à Internet** : cette architecture de référence utilise [Azure Application Gateway](../../application-gateway/overview.md) comme passerelle Internet et équilibreur de charge. Certains clients peuvent également envisager d’utiliser des appliances virtuelles réseau tierces pour d’autres couches de réseau, en guise d’alternative à [Azure Application Gateway](../../application-gateway/overview.md).
 
 **Azure Security Center** : [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro) fournit une vue centralisée de l’état de la sécurité des ressources dans l’abonnement et fournit des recommandations qui aident à empêcher la compromission des ressources. Il peut également être utilisé pour appliquer des stratégies plus granulaires. Par exemple, les stratégies peuvent être appliquées à certains groupes de ressources, ce qui permet à l’entreprise d’adapter sa posture face aux risques. Il est recommandé aux clients d’activer Azure Security Center dans leur abonnement Azure.
 

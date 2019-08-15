@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: cb414abcbbf2db7b7cd6a3d724e50010beeef647
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 26301e9a8aef29f1ff786f4fcd28b806eb10b8df
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60318354"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68846780"
 ---
 # <a name="how-to-use-perfinsights"></a>Utilisation de PerfInsights
 
@@ -194,7 +194,7 @@ Pour exécuter l’outil PerfInsights, suivez ces étapes :
 
 2. Débloquez le fichier PerfInsights.zip. Pour ce faire, cliquez avec le bouton droit sur le fichier PerfInsights.zip, puis sélectionnez **Propriétés**. Sous l’onglet **Général**, sélectionnez **Débloquer**, puis **OK**. Cela garantit que l’outil s’exécute sans invite de sécurité supplémentaire.  
 
-    ![Capture d’écran des propriétés PerfInsights, avec mise en surbrillance du déblocage](media/how-to-use-perfInsights/unlock-file.png)
+    ![Capture d’écran des propriétés PerfInsights, avec mise en surbrillance du déblocage](media/how-to-use-perfInsights/pi-unlock-file.png)
 
 3.  Développez le fichier compressé PerfInsights.zip dans votre disque temporaire (par défaut, il s’agit généralement du disque D). 
 
@@ -204,7 +204,7 @@ Pour exécuter l’outil PerfInsights, suivez ces étapes :
     cd <the path of PerfInsights folder>
     PerfInsights
     ```
-    ![Capture d’écran de la sortie de ligne de commande de PerfInsights](media/how-to-use-perfInsights/PerfInsightsCommandline.png)
+    ![Capture d’écran de la sortie de ligne de commande de PerfInsights](media/how-to-use-perfInsights/pi-commandline.png)
     
     La syntaxe de base pour l’exécution de scénarios PerfInsights est la suivante :
     
@@ -253,8 +253,8 @@ Le fichier **PerformanceDiagnostics\_aaaa-MM-jj\_hh-mm-ss-fff.zip** peut inclure
 
 Sélectionnez l’onglet **Conclusions**.
 
-![Capture d’écran du rapport de PerfInsights](media/how-to-use-perfInsights/findingtab.png)
-![Capture d’écran du rapport de PerfInsights](media/how-to-use-perfInsights/findings.PNG)
+![Capture d’écran du rapport de PerfInsights](media/how-to-use-perfInsights/pi-finding-tab.png)
+![Capture d’écran du rapport de PerfInsights](media/how-to-use-perfInsights/pi-findings.png)
 
 > [!NOTE] 
 > Les conclusions identifiées comme étant d’importance élevée sont des problèmes connus qui peuvent conduire à des problèmes de performances. Les conclusions identifiées comme étant d’importance moyenne représentent des configurations non optimales ne provoquant pas forcément de problèmes de performances. Les conclusions identifiées comme étant d’importance faible sont des instructions données à titre informatif uniquement.
@@ -269,17 +269,17 @@ Les sections **Mappage de disque** et **Mappage de volume** décrivent les liens
 
 Dans la perspective du disque physique (Mappage de disque), le tableau affiche tous les volumes logiques en cours d’exécution sur le disque. Dans l’exemple suivant, **PhysicalDrive2** exécute deux volumes logiques créés sur plusieurs partitions (J et H) :
 
-![Capture d’écran de l’onglet du disque](media/how-to-use-perfInsights/disktab.png)
+![Capture d’écran de l’onglet du disque](media/how-to-use-perfInsights/pi-disk-tab.png)
 
 Dans la perspective du volume (Mappage de volume), les tables affichent tous les disques physiques sous chaque volume logique. Pour les disques RAID/dynamiques, vous pouvez exécuter un volume logique sur plusieurs disques physiques. Dans l’exemple suivant, *C:\\mount* est un point de montage configuré en tant que *SpannedDisk* sur les disques physiques 2 et 3 :
 
-![Capture d’écran de l’onglet de volume](media/how-to-use-perfInsights/volumetab.png)
+![Capture d’écran de l’onglet de volume](media/how-to-use-perfInsights/pi-volume-tab.png)
 
 ### <a name="sql-tab"></a>Onglet SQL
 
 Si la machine virtuelle cible héberge des instances SQL Server, un onglet supplémentaire appelé **SQL** apparaît dans le rapport :
 
-![Capture d’écran de l’onglet SQL](media/how-to-use-perfInsights/sqltab.png)
+![Capture d’écran de l’onglet SQL](media/how-to-use-perfInsights/pi-sql-tab.png)
 
 Cette section contient un onglet **Conclusions**, et des sous-onglets supplémentaires pour chacune des instances SQL Server hébergées sur la machine virtuelle.
 
@@ -287,7 +287,7 @@ L’onglet **Conclusions** contient une liste de tous les problèmes de performa
 
 Dans l’exemple suivant, **PhysicalDrive0** (en cours d’exécution du lecteur C) s’affiche. Cela est dû au fait que les fichiers **modeldev** et **modellog** se trouvent sur le disque C, et ils sont de types différents (par exemple, fichier de données et journal des transactions, respectivement).
 
-![Capture d’écran des informations du journal](media/how-to-use-perfInsights/loginfo.png)
+![Capture d’écran des informations du journal](media/how-to-use-perfInsights/pi-log-info.png)
 
 Les onglets des instances spécifiques de SQL Server contiennent une section générale qui affiche des informations de base sur l’instance sélectionnée. Les onglets contiennent également des sections supplémentaires pour les informations avancées, notamment les paramètres, les configurations et les options utilisateur.
 
@@ -310,7 +310,7 @@ Vous pouvez charger les journaux de diagnostic et les rapports vers le Support M
 
 La capture d’écran suivante affiche un message semblable à ce que vous pouvez recevoir :
 
-![Capture d’écran de l’exemple de message envoyé par le Support Microsoft](media/how-to-use-perfInsights/supportemail.png)
+![Capture d’écran de l’exemple de message envoyé par le Support Microsoft](media/how-to-use-perfInsights/pi-support-email.png)
 
 Suivez les instructions dans le message pour accéder à l’espace de travail de transfert de fichier. Pour plus de sécurité, vous devez modifier votre mot de passe à la première utilisation.
 

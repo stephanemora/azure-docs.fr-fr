@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/03/2019
 ms.author: barclayn
-ms.openlocfilehash: 46850ad430aa5fb8ad25a71515bdd640855350c2
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 371c3b9fde17bba33fb6f2526be68fe89aec6b01
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68727258"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934686"
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Meilleures pratiques en matière de sécurité du contrôle d’accès et de la gestion des identités Azure
 Dans cet article, nous étudions une collection de bonnes pratiques en matière de sécurité du contrôle d’accès et de la gestion des identités Azure. Ces meilleures pratiques sont issues de notre expérience avec [Azure AD](../../active-directory/fundamentals/active-directory-whatis.md), mais également de celle des clients, comme vous.
@@ -84,8 +84,8 @@ Pour plus d’informations, consultez [Implémenter la synchronisation de hachag
 **Détail** : Utilisez les fonctionnalités appropriées pour prendre en charge l’authentification :
 
   - Azure AD pour les employés
-  - [Azure AD B2B](https://docs.microsoft.com/azure/active-directory/b2b/) pour les utilisateurs invités et les partenaires externes
-  - [Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/) pour contrôler la façon dont les clients s’inscrivent, se connectent et gèrent leurs profils lorsqu’ils utilisent vos applications
+  - [Azure AD B2B](../../active-directory/b2b/index.yml) pour les utilisateurs invités et les partenaires externes
+  - [Azure AD B2C](../../active-directory-b2c/index.yml) pour contrôler la façon dont les clients s’inscrivent, se connectent et gèrent leurs profils lorsqu’ils utilisent vos applications
 
 Les organisations qui n’intègrent pas leur identité locale avec leur identité cloud peuvent avoir une charge plus importante dans la gestion des comptes. Cette surcharge augmente la probabilité d’erreurs et de failles de sécurité.
 

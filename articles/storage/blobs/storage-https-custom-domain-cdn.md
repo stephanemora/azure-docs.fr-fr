@@ -1,20 +1,19 @@
 ---
 title: Utiliser Azure CDN pour accéder aux objets blob avec des domaines personnalisés via HTTPS
 description: Découvrez comment intégrer le CDN Azure avec le stockage d’objets blob pour accéder aux objets blob avec des domaines personnalisés via HTTPS
-services: storage
 author: normesta
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/26/2018
 ms.author: normesta
-ms.reviewer: seguler
+ms.reviewer: dineshm
 ms.subservice: blobs
-ms.openlocfilehash: da3a6dcb0d125ac4666bc375e843c57cf12fb2fc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f3386d04cd3316b38a094524d0d5d4f3c5ab36bb
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65148401"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68986842"
 ---
 # <a name="use-azure-cdn-to-access-blobs-with-custom-domains-over-https"></a>Utiliser Azure CDN pour accéder aux objets blob avec des domaines personnalisés via HTTPS
 
@@ -41,7 +40,7 @@ Pour activer le protocole HTTPS pour votre point de terminaison du stockage d’
 
 ## <a name="shared-access-signatures"></a>Signatures d’accès partagé
 
-Par défaut, les points de terminaison de stockage d’objets blob interdisent l’accès en lecture anonyme. Si le point de terminaison de votre stockage d’objets blob est configuré de sorte que l’accès en lecture anonyme est interdit, fournissez un jeton [Signature d’accès partagé (SAP)](../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) pour chaque requête effectuée auprès de votre domaine personnalisé. Pour plus d’informations, consultez [Gestion de l’accès en lecture anonyme aux conteneurs et aux objets blob](storage-manage-access-to-resources.md).
+Par défaut, les points de terminaison de stockage d’objets blob interdisent l’accès en lecture anonyme. Si le point de terminaison de votre stockage d’objets blob est configuré de sorte que l’accès en lecture anonyme est interdit, fournissez un jeton [Signature d’accès partagé (SAP)](../common/storage-sas-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) pour chaque requête effectuée auprès de votre domaine personnalisé. Pour plus d’informations, consultez [Gestion de l’accès en lecture anonyme aux conteneurs et aux objets blob](storage-manage-access-to-resources.md).
 
 Azure CDN ne respecte pas les restrictions ajoutées au jeton Signature d’accès partagé. Par exemple, tous les jetons Signature d’accès partagé expirent. Vous pouvez toujours accéder au contenu avec une signature d’accès partagé expirée jusqu'à ce que ce contenu soit supprimé des nœuds de périphérie Azure CDN. Vous pouvez contrôler la durée de mise en cache sur Azure CDN en définissant l’en-tête de réponse du cache. Pour en savoir plus, voir [Gérer l’expiration des objets blob d’Azure Storage dans Azure CDN](../../cdn/cdn-manage-expiration-of-blob-content.md).
 

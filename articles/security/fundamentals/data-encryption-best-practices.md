@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: 4df024f9ff37121df4d9be51ae1fa540028ddd3d
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 83b4f2fce3dbae2168627194a45e62a2d4479936
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68727433"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934749"
 ---
 # <a name="azure-data-security-and-encryption-best-practices"></a>Bonnes pratiques relatives au chiffrement et à la sécurité des données dans Azure
 Cet article décrit les bonnes pratiques relatives au chiffrement et à la sécurité des données.
@@ -97,7 +97,7 @@ Les organisations qui ne chiffrent pas leurs données sont plus exposées aux pr
 
 La protection des données en transit doit être un aspect essentiel de votre stratégie de protection des données. Comme les données transitent entre différents emplacements, dans les deux sens, nous vous recommandons d’utiliser systématiquement les protocoles SSL/TLS pour ces déplacements de données. Dans certains cas, vous souhaiterez isoler l’intégralité du canal de communication entre vos infrastructures locales et sur le cloud, via un réseau privé virtuel (VPN).
 
-Pour les données qui transitent entre votre infrastructure locale et Azure, vous devez envisager le recours aux dispositifs de protection appropriés, comme HTTPS ou VPN. Lors de l’envoi du trafic chiffré entre un réseau virtuel Azure et un emplacement local sur l’Internet public, utilisez la [passerelle VPN Azure](https://docs.microsoft.com/azure/vpn-gateway/).
+Pour les données qui transitent entre votre infrastructure locale et Azure, vous devez envisager le recours aux dispositifs de protection appropriés, comme HTTPS ou VPN. Lors de l’envoi du trafic chiffré entre un réseau virtuel Azure et un emplacement local sur l’Internet public, utilisez la [passerelle VPN Azure](../../vpn-gateway/index.yml).
 
 Voici les bonnes pratiques relatives à la passerelle VPN Azure, et les protocoles SSL/TLS et HTTPS.
 

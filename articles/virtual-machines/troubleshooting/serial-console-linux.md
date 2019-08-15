@@ -14,16 +14,16 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: f3fa646fcca99d5762f480b3fd12c5e249eabaf8
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 0eda9fe0e16a945dcb9f9a1b686afcd2aebe6306
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67710581"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68854388"
 ---
 # <a name="azure-serial-console-for-linux"></a>Console série Azure pour Linux
 
-La console série du Portail Azure permet aux machines virtuelles et aux instances de groupe de machines virtuelles identiques Linux d’accéder à une console texte. Cette connexion série s’effectue par le biais du port série ttys0 de la machine virtuelle ou de l’instance du groupe de machines virtuelles identiques. Elle fournit l’accès à la machine virtuelle ou à l’instance et n’est pas liée au réseau ni à l’état du système d’exploitation. La console série est uniquement accessible à l’aide du Portail Azure et est autorisée uniquement pour les utilisateurs disposant d’un rôle d’accès de contributeur supérieur ou égal à la machine virtuelle ou au groupe de machines virtuelles identiques.
+La console série du Portail Azure permet aux machines virtuelles et aux instances de groupe de machines virtuelles identiques Linux d’accéder à une console texte. Cette connexion série s’effectue par le biais du port série ttys0 de la machine virtuelle ou de l’instance du groupe de machines virtuelles identiques. Elle fournit l’accès à la machine virtuelle ou à l’instance et n’est pas liée au réseau ni à l’état du système d’exploitation. La console série est accessible seulement avec le portail Azure et est autorisée seulement pour les utilisateurs disposant d’un rôle d’accès de contributeur ou supérieur à la machine virtuelle ou au groupe de machines virtuelles identiques.
 
 La console série fonctionne de la même manière pour les machines virtuelles et les instances de groupe de machines virtuelles identiques. Dans ce document, toutes les mentions aux machines virtuelles incluent implicitement les instances de groupe de machines virtuelles identiques, sauf indication contraire.
 
@@ -35,9 +35,9 @@ Pour en savoir plus sur la console série Windows, consultez [Console série Win
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Votre machine virtuelle ou instance de groupe de machines virtuelles identiques doit utiliser le modèle de déploiement Resource Manager. Les déploiements classiques ne sont pas pris en charge.
+- Votre machine virtuelle ou votre instance de groupe de machines virtuelles identiques doit utiliser le modèle de déploiement Resource Manager. Les déploiements classiques ne sont pas pris en charge.
 
-- Le compte qui utilise une console série doit disposer du [rôle Contributeur de machine virtuelle](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) pour la machine virtuelle et du compte de stockage de [diagnostics de démarrage](boot-diagnostics.md)
+- Le compte qui utilise une console série doit disposer du [rôle Contributeur de machine virtuelle](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) pour la machine virtuelle et le compte de stockage des [diagnostics de démarrage](boot-diagnostics.md)
 
 - Votre machine virtuelle ou instance de groupe de machines virtuelles identiques doit avoir une authentification de l’utilisateur par mot de passe. Vous pouvez en créer un avec la fonction [Réinitialiser le mot de passe](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) de l’extension d’accès aux machines virtuelles. Sélectionnez **Réinitialiser le mot de passe** dans la section **Support + dépannage**.
 
@@ -54,7 +54,7 @@ Pour en savoir plus sur la console série Windows, consultez [Console série Win
 Pour les machines virtuelles et les groupes de machines virtuelles identiques, la console série est accessible uniquement sur le Portail Azure :
 
 ### <a name="serial-console-for-virtual-machines"></a>Console série pour machines virtuelles
-La console série pour machines virtuelles est aussi simple que de cliquer sur **Console série** dans la section **Support + dépannage** dans le Portail Azure.
+La console série pour machines virtuelles est accessible en cliquant simplement sur **Console série** dans la section **Support + dépannage** dans le portail Azure.
   1. Ouvrez le [portail Azure](https://portal.azure.com).
 
   1. Accédez à **Toutes les ressources** et sélectionnez une machine virtuelle. La page de présentation de la machine virtuelle s’ouvre.
@@ -64,14 +64,14 @@ La console série pour machines virtuelles est aussi simple que de cliquer sur *
      ![Fenêtre de console série Linux](./media/virtual-machines-serial-console/virtual-machine-linux-serial-console-connect.gif)
 
 ### <a name="serial-console-for-virtual-machine-scale-sets"></a>Console série pour les groupes de machines virtuelles identiques
-La console série est disponible sur une base par instance pour les groupes de machines virtuelles identiques. Vous devrez accéder à l’instance individuelle d’un groupe de machines virtuelles identiques avant de voir le bouton **Console série**. Si votre groupe de machines virtuelles identiques n’a pas activé les diagnostics de démarrage, assurez-vous de mettre à jour votre modèle de groupe de machines virtuelles identiques pour activer les diagnostics de démarrage, puis mettez à niveau toutes les instances vers le nouveau modèle afin d’accéder à la console série.
+La console série est disponible sur une base par instance pour les groupes de machines virtuelles identiques. Vous devez accéder à l’instance individuelle d’un groupe de machines virtuelles identiques avant de voir le bouton **Console série**. Si les diagnostics de démarrage ne sont pas activés sur votre groupe de machines virtuelles identiques, veillez à mettre à jour votre modèle de groupe de machines virtuelles identiques pour activer les diagnostics de démarrage, puis mettez à niveau toutes les instances vers le nouveau modèle afin d’accéder à la console série.
   1. Ouvrez le [portail Azure](https://portal.azure.com).
 
-  1. Accédez à **Toutes les ressources** et sélectionnez un groupe de machines virtuelles identiques. La page Vue d’ensemble du groupe de machines virtuelles identiques s’affiche.
+  1. Accédez à **Toutes les ressources** et sélectionnez un groupe de machines virtuelles identiques. La page Vue d’ensemble du groupe de machines virtuelles identiques s’ouvre.
 
   1. Accédez à **Instances**
 
-  1. Sélectionnez une instance de groupe de machines virtuelles identiques
+  1. Sélectionner une instance de groupe de machines virtuelles identiques
 
   1. Dans la section **Support + dépannage**, sélectionnez **Console série**. Un nouveau volet s’ouvre avec la console série, puis démarre la connexion.
 
@@ -102,7 +102,7 @@ Afin d’activer la console série pour votre image Linux personnalisée de mach
 
 Vous devez également ajouter ttys0 comme destination de la sortie en série. Pour plus d’informations sur la configuration d’une image personnalisée pour que cette dernière fonctionne avec la console série, consultez les exigences générales du système sous [Création et téléchargement d’un disque dur virtuel Linux dans Azure](https://aka.ms/createuploadvhd#general-linux-system-requirements).
 
-Si vous générez un noyau personnalisé, envisagez d’activer les indicateurs de noyau `CONFIG_SERIAL_8250=y` et `CONFIG_MAGIC_SYSRQ_SERIAL=y`. Le fichier config se trouve généralement sous */boot/* . |
+Si vous générez un noyau personnalisé, envisagez d’activer les indicateurs de noyau `CONFIG_SERIAL_8250=y` et `CONFIG_MAGIC_SYSRQ_SERIAL=y`. Le fichier config se trouve généralement sous */boot/* .
 
 ## <a name="common-scenarios-for-accessing-the-serial-console"></a>Scénarios courants d’accès à la console série
 
@@ -118,13 +118,13 @@ Interaction avec le chargeur de démarrage | Redémarrez votre machine virtuelle
 Par défaut, tous les abonnements ont accès à la console série. Vous pouvez désactiver la console série au niveau de l’abonnement ou de la machine virtuelle/du groupe de machines virtuelles identiques. Notez que les diagnostics de démarrage doivent être activés sur une machine virtuelle pour la console série puisse fonctionner.
 
 ### <a name="vmvirtual-machine-scale-set-level-disable"></a>Désactiver les niveaux de machine virtuelle/groupe de machines virtuelles identiques
-La console série peut être désactivée pour une machine virtuelle ou un groupe de machines virtuelles identiques spécifique en désactivant les paramètres de diagnostics de démarrage. Désactivez les diagnostics de démarrage à partir du Portail Azure afin de désactiver la console série pour la machine virtuelle ou le groupe de machines virtuelles identiques. Si vous utilisez la console série sur un groupe de machines virtuelles identiques, assurez-vous de mettre à niveau les instances de groupe de machines virtuelles identiques vers les modèles les plus récents.
+La console série peut être désactivée pour une machine virtuelle ou un groupe de machines virtuelles identiques spécifique en désactivant le paramètre des diagnostics de démarrage. Désactivez les diagnostics de démarrage à partir du portail Azure afin de désactiver la console série pour la machine virtuelle ou le groupe de machines virtuelles identiques. Si vous utilisez la console série sur un groupe de machines virtuelles identiques, veillez à mettre à niveau vos instances de groupe de machines virtuelles identiques vers les modèles les plus récents.
 
 > [!NOTE]
 > Afin d’activer ou de désactiver la console série pour un abonnement, vous devez disposer des autorisations en écriture sur l’abonnement. Ces autorisations incluent les rôles administrateur et propriétaire. Des rôles personnalisés peuvent aussi disposer d’autorisations en écriture.
 
 ### <a name="subscription-level-disable"></a>Désactiver au niveau de l’abonnement
-La console série peut être désactivée pour un abonnement complet par le biais de l’[appel d’API REST Disable Console](/rest/api/serialconsole/console/disableconsole). Cette action nécessite un accès au niveau collaborateur ou supérieur à l’abonnement. Vous pouvez utiliser la fonctionnalité **Essayez** disponible sur la page de documentation de l’API afin de désactiver et d’activer la console série pour un abonnement. Entrez votre ID d’abonnement pour **subscriptionId**, entrez **par défaut** pour **par défaut**, puis sélectionnez **Exécuter**. Les commandes Azure CLI ne sont pas encore disponibles.
+La console série peut être désactivée pour un abonnement complet par le biais de l’[appel d’API REST Disable Console](/rest/api/serialconsole/console/disableconsole). Cette action nécessite un accès de niveau contributeur ou supérieur à l’abonnement. Vous pouvez utiliser la fonctionnalité **Essayez** disponible sur la page de documentation de l’API afin de désactiver et d’activer la console série pour un abonnement. Entrez votre ID d’abonnement pour **subscriptionId**, entrez **par défaut** pour **par défaut**, puis sélectionnez **Exécuter**. Les commandes Azure CLI ne sont pas encore disponibles.
 
 Pour réactiver la console série pour un abonnement, utilisez l’[appel à l’API REST Enable Console](/rest/api/serialconsole/console/enableconsole).
 
@@ -207,7 +207,7 @@ L’utilisation de la touche **Entrée** après la bannière de connexion n’en
 Le texte de la console série n’occupe l’écran que partiellement (souvent après l’utilisation d’un éditeur de texte). | Les consoles série ne gèrent pas la négociation sur la taille de fenêtre ([RFC 1073](https://www.ietf.org/rfc/rfc1073.txt)), ce qui signifie qu’aucun signal SIGWINCH ne sera envoyé pour mettre à jour la taille de l’écran et la machine virtuelle ne connaîtra pas la taille de votre terminal. Installez xterm ou un utilitaire similaire pour disposer de la commande `resize`, puis exécutez `resize`.
 Le collage de chaînes longues ne fonctionne pas. | La console série limite la longueur des chaînes collées dans le terminal à 2 048 caractères afin d’empêcher toute surcharge de la bande passante du port série.
 Serial console ne fonctionne pas avec un pare-feu de compte de stockage. | Serial console, de par sa conception, ne peut pas fonctionner avec des pare-feu de compte de stockage activés sur le compte de stockage des diagnostics de démarrage.
-La console série ne fonctionne pas avec un compte de stockage utilisant Azure Data Lake Storage Gen2 avec des espaces de noms hiérarchiques. | Il s’agit d’un problème connu avec les espaces de noms hiérarchiques. Pour atténuer ce problème, assurez-vous que le compte de stockage des diagnostics de démarrage de la machine virtuelle n’est pas créé avec Azure Data Lake Storage Gen2. Cette option peut uniquement être définie durant la création du compte de stockage. Vous devrez peut-être créer un compte de stockage des diagnostics de démarrage distinct sans Azure Data Lake Storage Gen2 pour atténuer ce problème.
+La console série ne fonctionne pas avec un compte de stockage utilisant Azure Data Lake Storage Gen2 avec des espaces de noms hiérarchiques. | Il s’agit d’un problème connu avec les espaces de noms hiérarchiques. Pour atténuer ce problème, vérifiez que le compte de stockage des diagnostics de démarrage de la machine virtuelle n’est pas créé avec Azure Data Lake Storage Gen2. Cette option peut être définie seulement lors de la création du compte de stockage. Vous devrez peut-être créer un compte de stockage des diagnostics de démarrage distinct sans Azure Data Lake Storage Gen2 pour atténuer ce problème.
 Entrée de clavier erratique dans les images SLES BYOS. L’entrée de clavier n’est reconnue que de manière sporadique. | Il s’agit d’un problème avec le package Plymouth. Plymouth ne doit pas être exécuté dans Azure tant que vous n’avez pas besoin d’un écran de démarrage. Plymouth interfère avec la capacité de la plateforme à utiliser la console série. Supprimez Plymouth avec `sudo zypper remove plymouth`, puis redémarrez. Vous pouvez également modifier la ligne du noyau de votre configuration GRUB en ajoutant `plymouth.enable=0` à la fin de la ligne. Vous pouvez le faire en [modifiant l’entrée de démarrage au moment du démarrage](https://aka.ms/serialconsolegrub#single-user-mode-in-suse-sles), ou en modifiant la ligne GRUB_CMDLINE_LINUX dans `/etc/default/grub`, en regénérant GRUB avec `grub2-mkconfig -o /boot/grub2/grub.cfg`, puis en redémarrant la machine.
 
 

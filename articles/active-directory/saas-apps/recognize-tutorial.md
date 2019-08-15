@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 82d231eff4690dc060c01d41356933693d08c443
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c0a513ad8fe772839813615d065616f2c911a031
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67093259"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68943334"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-recognize"></a>Didacticiel : Intégration d'Azure Active Directory à Recognize
 
@@ -101,7 +101,7 @@ Pour configurer l’authentification unique Azure AD avec Recognize, effectuez 
 
     ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-4. Dans la section  **Configuration SAML de base**, si vous disposez d’un  **fichier de métadonnées du fournisseur de services**, effectuez les étapes suivantes :
+4. Dans la section **Configuration SAML de base**, si vous disposez d’un **fichier de métadonnées du fournisseur de services**, suivez les étapes ci-dessous :
 
     >[!NOTE]
     >Vous obtiendrez le **fichier de métadonnées de fournisseur de services** dans la section **Configurer l’authentification unique Recognize** du tutoriel.

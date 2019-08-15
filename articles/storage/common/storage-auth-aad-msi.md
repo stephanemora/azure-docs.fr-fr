@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 07/15/2019
+ms.date: 07/18/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 2d0697567bfd2fcf95a1fe6ebf246646af5650c3
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 0f1c66126a1aa9a6ebf6f78ac6fb1ba37ba41829
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564893"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68985423"
 ---
 # <a name="authorize-access-to-blobs-and-queues-with-azure-active-directory-and-managed-identities-for-azure-resources"></a>Autoriser l’accès aux objets blob et files d’attente avec Azure Active Directory et les identités managées pour les ressources Azure
 
@@ -50,17 +50,7 @@ Pour plus d’informations sur l’attribution de rôles RBAC, consultez l’un 
 
 L’exemple de code montre comment obtenir un jeton OAuth 2.0 à partir d’Azure AD et l’utiliser pour autoriser une requête de création d’un objet blob de blocs. Pour que cet exemple fonctionne, suivez d’abord les étapes décrites dans les sections précédentes.
 
-La bibliothèque de client [Microsoft Azure App Authentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) pour .NET (préversion) simplifie le processus d’acquisition et de renouvellement d’un jeton à partir de votre code. La bibliothèque de client App Authentication gère l’authentification de manière automatique. Elle utilise les informations d’identification du développeur pour l’authentification au cours du développement local. Il est plus sûr d’utiliser les informations d’identification du développeur pendant le développement local, car vous n’avez pas besoin de créer des informations d’identification Azure AD ou de partager des informations d’identification entre les développeurs. Lorsque la solution est déployée ultérieurement vers Azure, la bibliothèque bascule automatiquement vers l’utilisation des informations d’identification de l’application.
-
-### <a name="install-packages"></a>Installer des packages
-
-Pour utiliser la bibliothèque App Authentication dans une application de stockage Azure, installez le dernier package en préversion à partir de [Nuget](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication), ainsi que la dernière version de la [bibliothèque de client commune de stockage Azure pour .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/) et la [bibliothèque de client de stockage d’objets blob Azure pour .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/). Ajoutez les instructions **using** suivantes à votre code :
-
-```csharp
-using Microsoft.Azure.Services.AppAuthentication;
-using Microsoft.Azure.Storage.Auth;
-using Microsoft.Azure.Storage.Blob;
-```
+[!INCLUDE [storage-app-auth-lib-include](../../../includes/storage-app-auth-lib-include.md)]
 
 ### <a name="add-the-callback-method"></a>Ajouter la méthode de rappel
 

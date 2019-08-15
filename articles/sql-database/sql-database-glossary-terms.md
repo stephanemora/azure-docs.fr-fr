@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 04/26/2019
-ms.openlocfilehash: d940cfa91890d26a48b682a6eb09410b3b7de045
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 5fccf1ffc76c824c81f8b8b826f90bf8314ff1e3
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568080"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68883341"
 ---
 # <a name="azure-sql-database-glossary-of-terms"></a>Lexique Azure SQL Database
 
@@ -49,6 +49,6 @@ Objets de base de données|Base de données Azure SQL|Toute base de données dan
 ||Quantité de stockage|Quantité de stockage disponible pour une base de données unique, un pool élastique ou une instance gérée|
 ||Génération de calcul|Génération de processeur à l’intérieur d’un niveau de service|
 |Règles de pare-feu IP du serveur de base de données|Règles de pare-feu IP|[Règles de pare-feu IP](sql-database-firewall-configure.md)|
-||Règles de pare-feu IP au niveau du serveur|[Règles de pare-feu IP au niveau du serveur](sql-database-firewall-configure.md#overview)|
-|| Règles de pare-feu IP au niveau de la base de données|[Règles de pare-feu IP au niveau de la base de données](sql-database-firewall-configure.md#overview)|
+||Règles de pare-feu IP au niveau du serveur|[Règles de pare-feu IP au niveau du serveur](sql-database-firewall-configure.md)|
+|| Règles de pare-feu IP au niveau de la base de données|[Règles de pare-feu IP au niveau de la base de données](sql-database-firewall-configure.md)|
 ||Règles et points de terminaison du réseau virtuel|[Règles et points de terminaison du réseau virtuel](sql-database-vnet-service-endpoint-rule-overview.md)|

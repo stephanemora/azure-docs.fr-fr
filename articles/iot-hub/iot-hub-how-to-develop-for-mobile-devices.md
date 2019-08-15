@@ -1,18 +1,18 @@
 ---
 title: Développer pour les appareils mobiles à l’aide des Kits de développement logiciels (SDK) Azure IoT | Microsoft Docs
 description: 'Guide du développeur : découvrez comment développer pour les appareils mobiles à l’aide des Kits de développement logiciels (SDK) Azure IoT Hub.'
-author: yzhong94
+author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 04/16/2018
-ms.author: yizhon
-ms.openlocfilehash: 5256a58a2b68584888abcac915392d8e389e9772
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: robinsh
+ms.openlocfilehash: 945b02003a443c04e692fdc06ca5714de362d074
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60399366"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68883097"
 ---
 # <a name="develop-for-mobile-devices-using-azure-iot-sdks"></a>Développer pour les appareils mobiles à l’aide des Kits de développement logiciels (SDK) Azure IoT
 

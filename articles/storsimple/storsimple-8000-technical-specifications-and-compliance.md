@@ -14,16 +14,18 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
-ms.openlocfilehash: 33becd46747f957cce67fb7b2ace170a9aa402ff
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 061194422a8c1bc449dbef0c4f04bb8e1db10dea
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65606925"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68965291"
 ---
 # <a name="technical-specifications-and-compliance-for-the-storsimple-device"></a>Caractéristiques techniques et conformité de l’appareil StorSimple
 
 ## <a name="overview"></a>Vue d'ensemble
+
+[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
 
 Les composants matériels de l’appareil Microsoft Azure StorSimple sont conformes aux caractéristiques techniques et normes réglementaires présentées dans cet article. Les caractéristiques techniques décrivent les modules d’alimentation et de refroidissement (PCM), les lecteurs de disque, la capacité de stockage et les boîtiers. Les informations de conformité couvrent les éléments tels que les normes internationales, la sécurité et les émissions et le câblage.
 
@@ -41,7 +43,7 @@ Le boîtier EBOD utilise un PCM de 580 W et le boîtier principal un PCM de 764
 | Courant d’appel maximal |20 A |20 A |
 | Correction du facteur de puissance |> 95 % de la tension d’entrée nominale |> 95 % de la tension d’entrée nominale |
 | Harmonique |Conforme à la norme EN61000-3-2 |Conforme à la norme EN61000-3-2 |
-| Sortie |Tension en mode veille 5 V \@ 2,0 A |Tension en mode veille 5 V \@ 2,7 A |
+| Output |Tension en mode veille 5 V \@ 2,0 A |Tension en mode veille 5 V \@ 2,7 A |
 | +5V \@ 42 A |+5V \@ 40 A | |
 | +12V \@ 38 A |+12V \@ 38 A | |
 | Enfichable à chaud |OUI |OUI |

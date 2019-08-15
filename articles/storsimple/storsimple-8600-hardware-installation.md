@@ -14,14 +14,17 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: be3f68a00647840801e7c205d7abb34b718bd61c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 571c8b729408d7b9e805b875baccfd9ac8d6b9be
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60630878"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68965265"
 ---
 # <a name="unpack-rack-mount-and-cable-your-storsimple-8600-device"></a>Déballer, monter en rack et câbler votre appareil StorSimple 8600
+
+[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
+
 ## <a name="overview"></a>Vue d'ensemble
 Microsoft Azure StorSimple 8600 est un appareil composé d’un boîtier principal et d’un boîtier EBOD. Ce didacticiel explique comment déballer, monter en rack et brancher les câbles de votre appareil StorSimple 8600 avant de configurer son logiciel.
 
@@ -53,7 +56,7 @@ Ensuite, procédez comme suit pour déballer votre appareil.
    |   3 |Polystyrène de protection inférieur |
    |   4 |Appareil |
    |   5\. |Polystyrène de protection supérieur |
-   |   6\. |Carton contenant les accessoires |
+   |   6 |Carton contenant les accessoires |
 3. Une fois les cartons déballés, vérifiez que vous disposez des éléments suivants :
    
    * 1 boîtier principal (le boîtier principal et le boîtier EBOD sont dans deux cartons distincts)
@@ -206,7 +209,7 @@ Pour prendre en charge ce basculement de contrôleur redondant, vous devez branc
    | --- | --- |
    |   0/1/4/5 |Interfaces réseau de 1 Gigabit Ethernet |
    |   2/3 |Interfaces réseau de 10 Gigabit Ethernet |
-   |   6\. |Ports série |
+   |   6 |Ports série |
 2. Consultez le schéma suivant pour le branchement des câbles réseau. (La configuration réseau minimale est indiquée par des lignes bleues pleines. Pour une haute disponibilité et des performances, la configuration supplémentaire requise est représentée par des lignes en pointillés.)
 
 ![Câble réseau de votre appareil 4U](./media/storsimple-8600-hardware-installation/HCSCableYour4UDeviceforNetwork.png)
@@ -224,7 +227,7 @@ Pour prendre en charge ce basculement de contrôleur redondant, vous devez branc
 | G |Contrôleur 1 du boîtier EBOD |
 | H/I |Hôtes (par exemple, les serveurs de fichiers) |
 | 0-5 |Interfaces réseau |
-| 6\. |Boîtier principal |
+| 6 |Boîtier principal |
 | 7 |Boîtier EBOD |
 
 Lors du câblage de l’appareil, la configuration minimale requiert les éléments suivants :

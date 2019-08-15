@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: d0f7eb1f5662ce0b901af2fd82a75556cacbca62
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b95c6defcef7fdc112487988fc9bdd1ea3bb59c2
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67095586"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68943908"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-opal"></a>Didacticiel : Intégration d’Azure Active Directory à Opal
 
@@ -112,7 +112,7 @@ Pour configurer l’authentification unique Azure AD avec Opal, effectuez les é
     > [!NOTE]
     > La valeur de l’URL de réponse n’est pas réelle. Mettez à jour la valeur avec l’URL de réponse réelle. Pour obtenir cette valeur, contactez l’[équipe du support technique Opal](mailto:support@workwithopal.com). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
-5. Votre application Opal s’attend à recevoir les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à votre configuration des attributs du jeton SAML. La capture d’écran suivante montre la liste des attributs par défaut. Cliquez sur l’icône  **Modifier** pour ouvrir la boîte de dialogue  **Attributs utilisateur** .
+5. Votre application Opal s’attend à recevoir les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à votre configuration des attributs du jeton SAML. La capture d’écran suivante montre la liste des attributs par défaut. Cliquez sur l’icône **Modifier** pour ouvrir la boîte de dialogue **Attributs d’utilisateur**.
 
     ![image](common/edit-attribute.png)
 
@@ -212,7 +212,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 ### <a name="create-opal-test-user"></a>Créer un utilisateur de test Opal
 
-Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans Opal. Collaborez avec l’ [équipe de support technique Opal](mailto:support@workwithopal.com) pour ajouter des utilisateurs à la plateforme Opal. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
+Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans Opal. Collaborez avec [l’équipe de support technique Opal](mailto:support@workwithopal.com) pour ajouter des utilisateurs dans la plateforme Opal. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 
 ### <a name="test-single-sign-on"></a>Tester l’authentification unique 
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8b566bfc3f6c49f6cb9fe31f166356f6ae351e38
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 7033c7bd3e783157280709b2c7e889473166ac84
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67440939"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68879228"
 ---
 # <a name="deploy-azure-ad-self-service-password-reset"></a>Déployer la réinitialisation de mot de passe en libre-service Azure AD
 
@@ -38,9 +38,6 @@ Avant de déployer SSPR, les organisations ont tout intérêt à déterminer le 
 ## <a name="licensing-considerations"></a>Considérations relatives aux licences
 
 Azure Active Directory fonctionne sur la base d’une licence unique par utilisateur, c’est-à-dire que chaque utilisateur doit disposer d’une licence appropriée pour les fonctionnalités qu’il utilise.
-
-- La réinitialisation de mot de passe en libre-service pour les utilisateurs cloud uniquement est disponible avec Azure AD Basic ou une version supérieure.
-- La réinitialisation de mot de passe en libre-service avec écriture différée en local pour les environnements hybrides nécessite Azure AD Premium P1 ou supérieur.
 
 Pour plus d’informations sur les licences, consultez la [page des tarifs Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 

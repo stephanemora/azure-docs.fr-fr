@@ -1,18 +1,18 @@
 ---
 title: Développer avec Azure IoT Hub pour des appareils limités avec le kit SDK IoT Hub C | Microsoft Docs
 description: Guide du développeur - Aide sur la façon de développer avec les kits SDK Azure IoT pour les appareils contraints.
-author: yzhong94
+author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 05/24/2018
-ms.author: yizhon
-ms.openlocfilehash: 7788bca621a59ec8cdfe36edf73a99efca8c460c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: robinsh
+ms.openlocfilehash: d69fe6b845d3af04e42ee91daa9359dcb9a88fc5
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61320875"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68880968"
 ---
 # <a name="develop-for-constrained-devices-using-azure-iot-c-sdk"></a>Développer pour des appareils limités avec le kit SDK Azure IoT C
 
@@ -73,7 +73,7 @@ Ensuite, regardez les modèles de programmation pour les appareils limités.
 
 Le SDK C a un [sérialiseur SDK C](https://github.com/Azure/azure-iot-sdk-c/tree/master/serializer) facultatif, qui vous permet d’utiliser des tables de mappage déclaratives pour définir des méthodes et des propriétés de jumeau d’appareil. Le sérialiseur est conçu pour simplifier le développement, mais il ajoute une charge supplémentaire, ce qui n’est pas optimal pour les appareils contraints. Dans ce cas, vous pouvez envisager d’utiliser les API clientes primitives et d’analyser le JSON avec un analyseur léger, comme [parson](https://github.com/kgabis/parson).
 
-### <a name="use-the-lower-layer-ll"></a>Utiliser la couche inférieure (_LL_)
+### <a name="use-the-lower-layer-_ll_"></a>Utiliser la couche inférieure (_LL_)
 
 Le SDK C prend en charge deux modèles de programmation. Un ensemble a des API avec un infixe _LL_, qui correspond à la couche inférieure. Cet ensemble d’API est léger et ne déclenche pas de threads de travail, ce qui signifie que l’utilisateur doit contrôler manuellement la planification. Par exemple, pour le client d’appareil, les API _LL_ se trouvent dans ce [fichier d’en-tête](https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/inc/iothub_device_client_ll.h). 
 

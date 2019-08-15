@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 5380713af17a751ab695fee90895b4f6b0d2369b
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: f19454868ad7be21777d725f61e09a84f6c7a313
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67542809"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68854727"
 ---
 # <a name="bing-web-search-api-response-structure-and-answer-types"></a>Types et structure de la réponse de l’API Recherche Web Bing  
 
@@ -123,7 +123,7 @@ La réponse [relatedSearches](https://docs.microsoft.com/rest/api/cognitiveservi
 
 Utilisez la chaîne de requête `displayText` et l’URL `webSearchUrl` pour créer un lien hypertexte permettant à l’utilisateur d’accéder à la page de résultats de recherche Bing relative à la requête connexe. Vous pouvez également utiliser la chaîne de requête `text` dans votre propre requête à l’API Recherche Web Bing et afficher vous-même les résultats.
 
-Pour plus d’informations sur la façon de gérer les marqueurs de mise en surbrillance dans `displayText`, consultez [Mise en surbrillance des correspondances](./hit-highlighting.md).
+Pour plus d’informations sur la façon de gérer les marqueurs de mise en surbrillance dans `displayText`, consultez [Mise en surbrillance des correspondances](../bing-web-search/hit-highlighting.md).
 
 L’exemple suivant illustre l’utilisation des requêtes connexes dans Bing.com.
 
