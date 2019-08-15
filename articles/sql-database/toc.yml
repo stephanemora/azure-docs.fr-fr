@@ -107,6 +107,8 @@
       items:
         - name: Effectuer une migration en ligne avec DMS
           href: ../dms/tutorial-sql-server-to-managed-instance.md?toc=/azure/sql-database/toc.json
+        - name: Ajouter à un groupe de basculement
+          href: sql-database-managed-instance-failover-group-tutorial.md
         - name: Configurer la réplication transactionnelle
           href: replication-with-sql-database-managed-instance.md
     - name: Sécurité dans SQL Database
