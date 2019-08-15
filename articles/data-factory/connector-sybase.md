@@ -55,7 +55,7 @@ Les propriétés suivantes sont prises en charge pour le service lié Sybase :
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | type | La propriété type doit être définie sur : **Sybase** | OUI |
-| serveur | Nom du serveur Sybase. |OUI |
+| server | Nom du serveur Sybase. |OUI |
 | database | Nom de la base de données Sybase. |OUI |
 | authenticationType | Type d'authentification utilisé pour se connecter à la base de données Sybase.<br/>Les valeurs autorisées sont les suivantes : **Basic** et **Windows**. |OUI |
 | username | Spécifiez le nom d’utilisateur associé à la connexion à la base de données Sybase. |OUI |
