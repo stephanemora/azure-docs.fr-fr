@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/8/2019
 ms.author: tyfox
 ms.custom: seodec18
-ms.openlocfilehash: 113948d77d87a34822f81f020b03f6628b9c5e84
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 299e99d291e593ec01d2951c62541a7666565528
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65466218"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68977046"
 ---
 # <a name="hdinsight-sdk-for-go-preview"></a>HDInsight SDK for Go (préversion)
 
@@ -36,7 +36,7 @@ HDInsight SDK for Go fournit des classes et des fonctions qui vous permettent de
 Le kit de développement logiciel (SDK) doit d’abord être authentifié avec votre abonnement Azure.  Suivez l’exemple ci-dessous pour créer un principal de service et l’utiliser pour s’authentifier. Une fois cette opération terminée, vous avez une instance de `ClustersClient`, qui contient de nombreuses fonctions (décrites dans les sections suivantes) pouvant être utilisées pour effectuer des opérations de gestion.
 
 > [!NOTE]  
-> Il existe d’autres façons de s’authentifier, en plus de l’exemple suivant, peut-être mieux adaptées à vos besoins. Toutes les fonctions sont décrites ici : [Fonctions d’authentification dans le SDK Azure pour Go](https://docs.microsoft.com/go/azure/azure-sdk-go-authorization)
+> Il existe d’autres façons de s’authentifier, en plus de l’exemple suivant, peut-être mieux adaptées à vos besoins. Toutes les fonctions sont décrites ici : [Fonctions d’authentification dans le SDK Azure pour Go](https://docs.microsoft.com/azure/go/azure-sdk-go-authorization)
 
 ### <a name="authentication-example-using-a-service-principal"></a>Exemple d’authentification avec un principal de service
 

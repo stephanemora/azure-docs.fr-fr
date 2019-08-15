@@ -1,7 +1,6 @@
 ---
 title: Envoyer des événements de Stockage Blob Azure à un point de terminaison web - Powershell | Microsoft Docs
 description: Utilisez Azure Event Grid pour vous abonner à des événements de stockage Blob.
-services: storage,event-grid
 author: normesta
 ms.author: normesta
 ms.reviewer: dastanfo
@@ -9,13 +8,12 @@ ms.date: 08/23/2018
 ms.topic: article
 ms.service: storage
 ms.subservice: blobs
-ms.custom: seodec18
-ms.openlocfilehash: cf1b0ba5d70ed0934418a147c09791725b5465bb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f0dae5ae79234ea29e6b17627fc07abcb3b5dfcb
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65143365"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68847158"
 ---
 # <a name="quickstart-route-storage-events-to-web-endpoint-with-powershell"></a>Démarrage rapide : Router des événements de stockage vers un point de terminaison web avec PowerShell
 

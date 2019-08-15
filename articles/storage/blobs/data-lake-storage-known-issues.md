@@ -1,19 +1,19 @@
 ---
 title: Problèmes connus avec Azure Data Lake Storage Gen2 | Microsoft Docs
 description: En savoir plus sur les limitations et les problèmes connus avec Azure Data Lake Storage Gen2
-services: storage
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: normesta
-ms.openlocfilehash: 910e23814b627233395a2f7a646513d9cb6874d8
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.reviewer: jamesbak
+ms.openlocfilehash: 369069ef9a9c562ef6ba88a46dc0ef82c4debba1
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699032"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68950681"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Problèmes connus avec Azure Data Lake Storage Gen2
 
@@ -100,7 +100,7 @@ Le tableau suivant liste tous les autres outils et fonctionnalités qui ne sont 
 | **Blobfuse** |Pas encore pris en charge|
 | **Domaines personnalisés** |Pas encore pris en charge|
 | **Explorateur de système de fichiers** | Prise en charge limitée |
-| **Journalisation de diagnostic** |Les journaux de diagnostic sont pris en charge uniquement si vous vous inscrivez à la préversion [d’accès multiprotocole sur Data Lake Storage](data-lake-storage-multi-protocol-access.md). <br><br>L’activation des journaux dans le Portail Azure n’est pas prise en charge actuellement. Voici un exemple d’activation des journaux à l’aide de PowerShell. <br><br>`$storageAccount = Get-AzStorageAccount -ResourceGroupName <resourceGroup> -Name <storageAccountName>`<br><br>`Set-AzureStorageServiceLoggingProperty -Context $storageAccount.Context -ServiceType Blob -LoggingOperations read,write,delete -RetentionDays <days>`. <br><br>Veillez à spécifier `Blob` comme valeur du paramètre `-ServiceType`, comme indiqué dans cet exemple. 
+| **Journalisation de diagnostic** |Les journaux de diagnostic sont pris en charge uniquement si vous vous inscrivez à la préversion [d’accès multiprotocole sur Data Lake Storage](data-lake-storage-multi-protocol-access.md). <br><br>L’activation des journaux dans le Portail Azure n’est pas prise en charge actuellement. Voici un exemple d’activation des journaux à l’aide de PowerShell. <br><br>`$storageAccount = Get-AzStorageAccount -ResourceGroupName <resourceGroup> -Name <storageAccountName>`<br><br>`Set-AzStorageServiceLoggingProperty -Context $storageAccount.Context -ServiceType Blob -LoggingOperations read,write,delete -RetentionDays <days>`. <br><br>Veillez à spécifier `Blob` comme valeur du paramètre `-ServiceType`, comme indiqué dans cet exemple. 
 | **Stockage non modifiable** |Pas encore pris en charge <br><br>Le stockage non modifiable vous donne la possibilité de stocker des données dans un état [WORM (Write Once, Read Many)](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutable-storage).|
 | **Couches de niveau objet** |Les niveaux froid et archive sont pris en charge uniquement si vous vous inscrivez à la préversion d’[accès multiprotocole sur Data Lake Storage](data-lake-storage-multi-protocol-access.md). <br><br> Tous les autres niveaux d’accès ne sont pas encore pris en charge.|
 | **Prise en charge de PowerShell et de l’interface CLI** | Fonctionnalité limitée <br><br>Les opérations de gestion, telles que la création d’un compte, sont prises en charge. Les opérations de plan de données telles que le chargement et le téléchargement de fichiers sont en préversion publique dans le cadre de l’[accès multiprotocole sur Data Lake Storage](data-lake-storage-multi-protocol-access.md). L’utilisation de répertoires et la définition de listes de contrôle d’accès (ACL) ne sont pas encore prises en charge. |

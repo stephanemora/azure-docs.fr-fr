@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2df72d03bae8987de4998276a0be0f3ce1ec0333
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 75bc067bfe8a98ef2337f368243b3221be1677d6
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65230046"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68949906"
 ---
 # <a name="set-up-my-account-for-two-step-verification"></a>Configurer mon compte pour la vérification en deux étapes
 La vérification en deux étapes est une mesure de sécurité supplémentaire qui renforce la protection de votre compte contre les tentatives d’intrusion. Si vous lisez cet article, c’est que vous avez probablement reçu un e-mail de la part de l’administrateur de votre entreprise ou établissement scolaire concernant Multi-Factor Authentication. Ou peut-être avez-vous reçu un message vous invitant à configurer la vérification de sécurité supplémentaire à la suite d’une tentative de connexion. Si tel est le cas, **vous devez compléter le processus d’inscription automatique avant de pouvoir vous connecter**.
@@ -34,7 +34,7 @@ Si le support de votre entreprise vous impose d’utiliser la vérification en d
 
 Pour commencer, sélectionnez **Le configurer maintenant**.
 
-Si vous ne voyez pas un écran semblable à celui-ci quand vous vous connectez, suivez les instructions indiquées dans [Gérer les paramètres de la vérification en deux étapes](multi-factor-authentication-end-user-manage-settings.md#where-to-find-the-settings-page) pour accéder à la page de paramètres où vous pouvez gérer vos options de vérification.
+Si vous ne voyez pas un écran semblable à celui-ci quand vous vous connectez, suivez les instructions indiquées dans [Gérer les paramètres de la vérification en deux étapes](multi-factor-authentication-end-user-manage-settings.md#using-the-additional-security-verification-page) pour accéder à la page de paramètres où vous pouvez gérer vos options de vérification.
 
 ## <a name="decide-how-you-want-to-verify-your-sign-ins"></a>Décider du mode de vérification de vos connexions
 

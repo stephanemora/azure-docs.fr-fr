@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 04/18/2019
 ms.author: kasing
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a7cccd36c619e58b8dedb9a52e70c478dc7b857c
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 5d255662f7db12537365f57eb71355ca2e11cc51
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67707918"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68947250"
 ---
 # <a name="vertically-scale-windows-vms-with-azure-automation"></a>Mettre à l’échelle verticalement des machines virtuelles Windows avec Azure Automation
 
@@ -36,6 +36,7 @@ Les grandes lignes des étapes sont présentées ci-dessous.
 2. Importer les runbooks de mise à l’échelle verticale Azure Automation dans votre abonnement
 3. Ajouter un webhook à votre runbook
 4. Ajouter une alerte à votre machine virtuelle
+
 
 ## <a name="scale-limitations"></a>Limitations relatives à la mise à l’échelle
 
@@ -224,6 +225,7 @@ Vous pouvez choisir d’effectuer une mise à l’échelle entre les paires de t
 | Standard_NV12 | Standard_NV24 |
 | Standard_NV6s_v2 | Standard_NV12s_v2 |
 | Standard_NV12s_v2 | Standard_NV24s_v2 |
+| Standard_NV12s_v3 |Standard_NV48s_v3 |
 
 ## <a name="setup-azure-automation-to-access-your-virtual-machines"></a>Configuration d’Azure Automation pour accéder à vos machines virtuelles
 La première chose à faire est de créer un compte Azure Automation qui hébergera les runbooks utilisés pour mettre à l’échelle une machine virtuelle. Depuis peu, le service Automation dispose de la fonctionnalité « Compte d'identification » qui facilite la configuration du Principal du service permettant d'exécuter automatiquement les runbooks au nom de l’utilisateur de façon très simple. Pour en savoir plus à ce sujet, consultez l’article ci-dessous :

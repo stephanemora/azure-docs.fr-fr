@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: overview
 ms.date: 06/12/2019
-ms.openlocfilehash: a5e4c7acd407cef1bb5fc43d7e40014a6b088a0a
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 5108424c4e39c1c47710c0e25e4e22c4474e68ad
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67448887"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68941693"
 ---
 # <a name="what-is-ml-services-in-azure-hdinsight"></a>Qu’est-ce que ML Services dans Azure HDInsight
 
@@ -90,7 +90,7 @@ Pour noter dans HDInsight, écrivez une fonction R qui appelle votre modèle pou
 
 ### <a name="score-in-azure-machine-learning-aml"></a>Noter dans Azure Machine Learning (AML)
 
-Pour noter à l’aide d’Azure Machine Learning, utilisez le package R Azure Machine Learning open source nommé [AzureML](https://cran.r-project.org/web/packages/AzureML/vignettes/getting_started.html) pour publier votre modèle en tant que service web Azure. Pour plus de commodité, ce package est déjà installé sur le nœud de périphérie. Ensuite, utilisez les fonctionnalités d’Azure Machine Learning pour créer une interface utilisateur pour le service web, puis appelez le service web en fonction des besoins de notation.
+Pour noter à l’aide d’Azure Machine Learning, utilisez le package R Azure Machine Learning open source nommé [AzureML](https://cran.r-project.org/src/contrib/Archive/AzureML/) pour publier votre modèle en tant que service web Azure. Pour plus de commodité, ce package est déjà installé sur le nœud de périphérie. Ensuite, utilisez les fonctionnalités d’Azure Machine Learning pour créer une interface utilisateur pour le service web, puis appelez le service web en fonction des besoins de notation.
 
 Si vous choisissez cette option, vous devez convertir tous les objets de modèle ScaleR en objets de modèle open source équivalents pour les utiliser avec le service web. Utilisez les fonctions de forçage de ScaleR, notamment `as.randomForest()` dans le cas des modèles basés sur un ensemble, pour cette conversion.
 

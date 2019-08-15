@@ -1,13 +1,10 @@
 ---
 title: Comment diagnostiquer des erreurs avec le service connecté Azure Active Directory
 description: Le service connecté Active Directory a détecté un type d’authentification incompatible
-services: active-directory
-ms.service: active-directory
-ms.subservice: develop
 author: ghogen
-manager: douge
+manager: jillfra
 ms.assetid: dd89ea63-4e45-4da1-9642-645b9309670a
-ms.prod: visual-studio-dev15
+ms.prod: visual-studio-windows
 ms.technology: vs-azure
 ms.workload: azure-vs
 ms.topic: conceptual
@@ -15,12 +12,12 @@ ms.date: 03/12/2018
 ms.author: ghogen
 ms.custom: aaddev, vs-azure
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1c54db2ab923a9de5f07f12e0b0202649ef76cb8
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 3e544942029532fdbe998c36917e688d70ce4ed5
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326105"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68851997"
 ---
 # <a name="diagnosing-errors-with-the-azure-active-directory-connected-service"></a>Diagnostic d’erreurs avec le service connecté Azure Active Directory
 

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/29/2018
 ms.author: asgang
-ms.openlocfilehash: 19a1e13815f1d83f13392892dd9c87b84a40a1c1
-ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
+ms.openlocfilehash: 7559bfd3d97f7b430b92578473501b519eb0a07f
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67551693"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934554"
 ---
 # <a name="replicate-azure-vms-to-another-azure-region"></a>Répliquer des machines virtuelles Azure dans une autre région Azure
 
@@ -123,6 +123,6 @@ Vous pouvez modifier les paramètres de cible par défaut utilisés par Site Rec
 >Pendant la réplication initiale, l’état des peut prendre un certain temps à s’actualiser à défaut de progression. Cliquez sur le bouton **Actualiser** pour obtenir le dernier état.
 >
 
-# <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 [En savoir plus](site-recovery-test-failover-to-azure.md) sur l’exécution d’un test de basculement.

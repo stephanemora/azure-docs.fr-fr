@@ -2,7 +2,7 @@
 title: Utilisation du pack de contenu Power BI Azure Active Directory | Microsoft Docs
 description: Découvrir comment utiliser le pack de contenu Power BI Azure Active Directory
 services: active-directory
-author: MarkusVi
+author: cawrites
 manager: daveba
 ms.assetid: addd60fe-d5ac-4b8b-983c-0736c80ace02
 ms.service: active-directory
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: markvi
+ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 934562147fedcc81b16fd1ad2534af5662ef4b78
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4d56802e96028b6b01b6be749405c56df2648161
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60437678"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68988231"
 ---
 # <a name="how-to-use-the-azure-active-directory-power-bi-content-pack"></a>Utilisation du pack de contenu Power BI Azure Active Directory
 
@@ -59,7 +59,7 @@ Vous pouvez également filtrer les résultats en sélectionnant une date ou un e
 
 - User Name
 - Adresse IP
-- Lieu 
+- Location 
 - État de la connexion 
 
 **Synthèse SSPR** : ce rapport vous aide à comprendre l’utilisation de l’outil SSPR au sein de votre organisation. Vous pouvez voir le nombre de tentatives de réinitialisation de mot de passe via l’outil SSPR et du nombre de celles ayant abouti. Vous pouvez aussi approfondir les échecs de réinitialisation de mot de passe pour comprendre les raisons pour lesquelles certains échecs se sont produits. 

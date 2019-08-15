@@ -9,14 +9,14 @@ manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 05/01/2019
+ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 21e054aefab0ee5535376ac86ebbaf1316e671b5
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 8403c8fbc4faf35e0ccd3c87347e88a46f0769ff
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67165700"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68854472"
 ---
 # <a name="add-an-event-hub-event-source-to-your-time-series-insights-environment"></a>Ajouter une source d’événement Event Hub à votre environnement Time Series Insights
 
@@ -90,7 +90,7 @@ Pour ajouter un groupe de consommateurs dans votre Event Hub :
       | Propriété | Description |
       | --- | --- |
       | Identifiant d’abonnement | Abonnement dans lequel ce Event Hub a été créé.
-      | Groupe de ressources | Le groupe de ressources dans lequel ce Event Hub a été créé.
+      | Resource group | Le groupe de ressources dans lequel ce Event Hub a été créé.
       | Espace de noms Service Bus | Un espace de noms Service Bus est un conteneur pour un jeu d’entités de messagerie. En créant un Event Hub, vous avez créé un espace de noms Service Bus.
       | Nom du hub d’événements | Nom de votre Event Hub. Lorsque vous avez créé votre Event Hub, vous lui avez également donné un nom spécifique.
       | Nom de la stratégie du hub d’événements | Stratégie d’accès partagé. Vous pouvez créer une stratégie d’accès partagé dans l’onglet **Configurer** de l’Event Hub. Chaque stratégie d’accès partagé a un nom, les autorisations que vous définissez ainsi que des clés d’accès. La stratégie d’accès partagé pour votre source d’événements *doit* avoir des autorisations de **lecture**.

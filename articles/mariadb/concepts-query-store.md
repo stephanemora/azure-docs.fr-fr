@@ -6,18 +6,18 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 06/27/2019
-ms.openlocfilehash: 883f780059e38c53dedda309dd059cc714539f80
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.openlocfilehash: 5d4d01f9f85c78d0e864ec9d11c1d8cd43542e57
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67462088"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68950637"
 ---
 # <a name="monitor-azure-database-for-mariadb-performance-with-query-store"></a>Surveiller les performances de Azure Database for MariaDB avec Magasin de données des requêtes
 
 **S’applique à :**  Azure Database for MariaDB 10.2
 
-> [!NOTE]
+> [!IMPORTANT]
 > Magasin de données des requêtes est disponible en préversion.
 
 La fonctionnalité Magasin de données des requêtes dans Azure Database pour Mariadb fournit un moyen de suivre les performances des requêtes dans le temps. Le Magasin des requêtes simplifie la résolution des problèmes de performances en vous aidant à identifier rapidement les requête dont l’exécution est la plus longue et qui consomment le plus de ressources. Le Magasin des requêtes capture automatiquement un historique des requêtes et des statistiques d’exécution, et les conserve pour que vous les passiez en revue. Il sépare les données par fenêtres de temps afin que vous puissiez voir les modèles d’utilisation des bases de données. Les données de tous les utilisateurs, des bases de données et des requêtes sont stockées dans une base de données de schéma **mysql** dans l’instance Azure Database for MariaDB.
@@ -112,14 +112,14 @@ Affichez et gérez le Magasin des requêtes à l’aide des fonctions et vues su
 
 Les requêtes sont normalisées en examinant leur structure après la suppression des littéraux et des constantes. Si deux requêtes sont identiques à l’exception des valeurs littérales, elle ont le même hachage.
 
-### <a name="mysqlquerystore"></a>mysql.query_store
+### <a name="mysqlquery_store"></a>mysql.query_store
 
 Cette vue retourne toutes les données du Magasin des requêtes. Il existe une ligne pour chaque ID de base de données distinct, ID d’utilisateur et ID de requête.
 
 | **Nom** | **Type de données** | **IS_NULLABLE** | **Description** |
 |---|---|---|---|
 | `schema_name`| varchar(64) | NON | Nom du schéma |
-| `query_id`| bigint(20) | NON| ID unique généré pour la requête spécifique, si la même requête s’exécute dans un schéma différent, un nouvel ID sera généré. |
+| `query_id`| bigint(20) | NON| ID unique généré pour la requête spécifique, si la même requête s’exécute dans un schéma différent, un nouvel ID sera généré |
 | `timestamp_id` | timestamp| NON| Horodatage dans lequel la requête est exécutée. Celui-ci repose sur la configuration de query_store_interval|
 | `query_digest_text`| longtext| NON| Texte de requête normalisé après la suppression de tous les littéraux|
 | `query_sample_text` | longtext| NON| Première apparition de la requête réelle avec des littéraux|
@@ -145,7 +145,7 @@ Cette vue retourne toutes les données du Magasin des requêtes. Il existe une l
 | `first_seen` | timestamp| NON| La première occurrence (UTC) de la requête au cours de la période d’agrégation|
 | `last_seen` | timestamp| NON| La dernière occurrence (UTC) de la requête au cours de cette période d’agrégation|
 
-### <a name="mysqlquerystorewaitstats"></a>mysql.query_store_wait_stats
+### <a name="mysqlquery_store_wait_stats"></a>mysql.query_store_wait_stats
 
 Cette vue retourne les données des événements d’attente du Magasin des requêtes. Il existe une ligne pour chaque ID de base de données, ID d’utilisateur, ID de requête et événement distinct.
 

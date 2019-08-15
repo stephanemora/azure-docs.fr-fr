@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: barclayn
-ms.openlocfilehash: 43794b8ef4e0272362c7695eda75f5af36a77d1e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2786ec387d528e1593e2687d906060f8a2673a8c
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64683458"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934475"
 ---
 # <a name="what-is-azure-key-vault"></a>Qu’est-ce qu’Azure Key Vault ?
 
@@ -56,7 +56,7 @@ Voici d’autres termes importants :
 ## <a name="authentication"></a>Authentication
 Pour effectuer des opérations avec un coffre de clés, vous devez vous authentifier auprès de celui-ci. Il existe trois façons de s’authentifier auprès de Key Vault :
 
-- [Identités managées pour les ressources Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) : quand vous déployez une application sur une machine virtuelle dans Azure, vous pouvez attribuer une identité à votre machine virtuelle qui a accès à Key Vault. Vous pouvez également assigner une identité aux [autres ressources Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview). L’avantage de cette approche est que l’application ou le service ne gère pas la rotation du premier secret. Azure fait alterner automatiquement l’identité. Nous recommandons cette approche en tant que meilleure pratique. 
+- [Identités managées pour les ressources Azure](../active-directory/managed-identities-azure-resources/overview.md) : quand vous déployez une application sur une machine virtuelle dans Azure, vous pouvez attribuer une identité à votre machine virtuelle qui a accès à Key Vault. Vous pouvez également assigner une identité aux [autres ressources Azure](../active-directory/managed-identities-azure-resources/overview.md). L’avantage de cette approche est que l’application ou le service ne gère pas la rotation du premier secret. Azure fait alterner automatiquement l’identité. Nous recommandons cette approche en tant que meilleure pratique. 
 - **Principal de service et certificat** : vous pouvez utiliser un principal de service et un certificat associé qui a accès à Key Vault. Nous ne recommandons pas cette approche, car le propriétaire de l’application ou son développeur doit régulièrement renouveler le certificat.
 - **Principal de service et secret** : bien que vous puissiez utiliser un principal de service et un secret pour vous authentifier auprès de Key Vault, cette option n’est pas recommandée. Il est difficile de renouveler automatiquement le secret de démarrage qui sert à l’authentification auprès de Key Vault.
 
@@ -65,7 +65,7 @@ Pour effectuer des opérations avec un coffre de clés, vous devez vous authenti
 
 Utilisez le tableau suivant afin de mieux comprendre comment Key Vault peut permettre de répondre aux besoins des développeurs et des administrateurs de sécurité.
 
-| Rôle | Définition du problème | Résolu par Azure Key Vault |
+| Role | Définition du problème | Résolu par Azure Key Vault |
 | --- | --- | --- |
 | Développeur d’une application Azure |« Je souhaite écrire une application Azure qui utilise des clés pour la signature et le chiffrement. Mais ces clés doivent être externes à mon application, afin que la solution soit adaptée à une application répartie au niveau géographique. <br/><br/>Je souhaite protéger ces clés et secrets, sans avoir à écrire le code moi-même, et je veux qu’ils soient faciles à utiliser pour moi à partir de mes applications, avec des performances optimales. » |√ Les clés sont stockées dans un coffre et appelées par un URI, si nécessaire.<br/><br/> √ Les clés sont protégées par Azure, à l’aide d’algorithmes standard, de longueurs de clé et de modules de sécurité matériel.<br/><br/> √ Les clés sont traitées dans des modules de sécurité matériels situés dans les mêmes centres de données Azure que les applications. Cette méthode garantit une meilleure fiabilité et une latence plus faible que si les clés résidaient dans un emplacement séparé, par exemple localement. |
 | Développeur de logiciels SaaS (Software as a service) |« Je ne veux pas prendre la responsabilité des clés et secrets de mes clients. <br/><br/>Je veux que les clients détiennent et gèrent leurs clés, pour pouvoir me concentrer sur ce que je fais le mieux, c’est-à-dire fournir les principales fonctionnalités du logiciel. » |√ Les clients peuvent importer leurs propres clés dans Azure et les gérer. Lorsqu’une application SaaS doit effectuer des opérations de chiffrement à l’aide des clés des clients, Key Vault s’en charge à sa place. L’application ne voit pas les clés des clients. |

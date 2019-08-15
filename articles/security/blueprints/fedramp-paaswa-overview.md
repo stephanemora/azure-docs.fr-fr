@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 06/01/2018
 ms.author: jomolesk
-ms.openlocfilehash: 46c72191ee17f63311b041d798cccec279e4b000
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b74373201db26405653584fc4000993b9d6fdf43
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60585991"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68946825"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-for-fedramp"></a>Blueprint de sécurité et de conformité Azure : Application web PaaS pour FedRAMP
 
@@ -63,12 +63,12 @@ L’utilisation d’un environnement App Service est autorisée pour les contrô
 
 - Hébergement dans un réseau virtuel Azure sécurisé avec application de règles de sécurité réseau
 - Configuration des environnements ASE avec un certificat ILB auto-signé pour la communication HTTPS
-- [Mode d’équilibrage de charge interne](https://docs.microsoft.com/azure/app-service-web/app-service-environment-with-internal-load-balancer)
-- Désactivation de [TLS 1.0](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-custom-settings)
-- Modification du [chiffrement TLS](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-custom-settings)
-- Contrôle des [ports réseau de trafic entrant](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-control-inbound-traffic)
-- [Pare-feu d’applications web – Restreindre les données](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-web-application-firewall)
-- Autorisation du [trafic Azure SQL Database](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-network-architecture-overview)
+- [Mode d’équilibrage de charge interne](../../app-service/environment/app-service-environment-with-internal-load-balancer.md)
+- Désactivation de [TLS 1.0](../../app-service/environment/app-service-app-service-environment-custom-settings.md)
+- Modification du [chiffrement TLS](../../app-service/environment/app-service-app-service-environment-custom-settings.md)
+- Contrôle des [ports réseau de trafic entrant](../../app-service/environment/app-service-app-service-environment-control-inbound-traffic.md)
+- [Pare-feu d’applications web – Restreindre les données](../../app-service/environment/app-service-app-service-environment-web-application-firewall.md)
+- Autorisation du [trafic Azure SQL Database](../../app-service/environment/app-service-app-service-environment-network-architecture-overview.md)
 
 La section [Instructions et recommandations](#guidance-and-recommendations) contient des informations supplémentaires sur les ASE.
 
@@ -77,7 +77,7 @@ La section [Instructions et recommandations](#guidance-and-recommendations) cont
 ### <a name="virtual-network"></a>Réseau virtuel
 L’architecture définit un réseau privé virtuel avec l’espace d’adressage 10.200.0.0/16.
 
-**Groupes de sécurité réseau** : Les [groupes de sécurité réseau](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) (NSG) contiennent des listes de contrôle d’accès qui autorisent ou interdisent le trafic au sein d’un réseau virtuel. Les groupes de sécurité réseau peuvent être utilisés pour sécuriser le trafic au niveau d’un sous-réseau ou d’une machine virtuelle. Les groupes de sécurité réseau disponibles sont les suivants :
+**Groupes de sécurité réseau** : Les [groupes de sécurité réseau](../../virtual-network/virtual-network-vnet-plan-design-arm.md) (NSG) contiennent des listes de contrôle d’accès qui autorisent ou interdisent le trafic au sein d’un réseau virtuel. Les groupes de sécurité réseau peuvent être utilisés pour sécuriser le trafic au niveau d’un sous-réseau ou d’une machine virtuelle. Les groupes de sécurité réseau disponibles sont les suivants :
 - 1 groupe de sécurité réseau pour la passerelle d’application (Application Gateway) ;
 - 1 groupe de sécurité réseau pour l’environnement App Service (App Service Environment) ;
 - 1 groupe de sécurité réseau pour Azure SQL Database.
@@ -98,17 +98,17 @@ Par défaut, Azure chiffre toutes les communications avec les centres de donnée
 ### <a name="data-at-rest"></a>Données au repos
 L’architecture protège les données au repos à l’aide d’un chiffrement, d’un audit de base de données et d’autres mesures.
 
-**Stockage Azure** : pour répondre aux exigences du chiffrement des données au repos, l’ensemble du [Stockage Azure](https://azure.microsoft.com/services/storage/) utilise la fonctionnalité [Storage Service Encryption](https://docs.microsoft.com/azure/storage/storage-service-encryption).
+**Stockage Azure** : pour répondre aux exigences du chiffrement des données au repos, l’ensemble du [Stockage Azure](https://azure.microsoft.com/services/storage/) utilise la fonctionnalité [Storage Service Encryption](../../storage/common/storage-service-encryption.md).
 
 **Azure Disk Encryption** : 
-[Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) tire profit de la fonctionnalité BitLocker de Windows pour assurer le chiffrement de volume des disques de données. La solution s’intègre à Azure Key Vault pour faciliter le contrôle et la gestion des clés de chiffrement de disque.
+[Azure Disk Encryption](../azure-security-disk-encryption-overview.md) tire profit de la fonctionnalité BitLocker de Windows pour assurer le chiffrement de volume des disques de données. La solution s’intègre à Azure Key Vault pour faciliter le contrôle et la gestion des clés de chiffrement de disque.
 
 **Azure SQL Database** : L’instance Azure SQL Database utilise les mesures suivantes pour la sécurité des bases de données :
 -   La solution [d’authentification et d’autorisation Active Directory](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication) permet la gestion des identités des utilisateurs de bases de données et d’autres services Microsoft dans un emplacement central.
--   [L’audit Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-auditing-get-started) suit les événements de base de données et les consigne dans un journal d’audit conservé dans un compte de stockage Azure.
+-   [L’audit Azure SQL Database](../../sql-database/sql-database-auditing.md) suit les événements de base de données et les consigne dans un journal d’audit conservé dans un compte de stockage Azure.
 -   Azure SQL Database est configuré pour utiliser [Transparent Data Encryption (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql), une solution de chiffrement transparent des données qui effectue le chiffrement et le déchiffrement en temps réel de la base de données, des sauvegardes associées et des fichiers journaux de transactions afin de protéger les informations au repos.
 -   Des [règles de pare-feu](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) empêchent tout accès aux serveurs de base de données sans autorisation appropriée. Le pare-feu octroie l’accès à la base de données en fonction de l’adresse IP d’origine de chaque demande.
--   La [détection des menaces SQL](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-get-started) permet de détecter et traiter les menaces potentielles à mesure qu’elles surviennent en déclenchant des alertes de sécurité en cas d’activités de base de données suspectes, de vulnérabilités potentielles, d’attaques par injection de code SQL et de modèles d’accès anormaux aux bases de données.
+-   La [détection des menaces SQL](../../sql-database/sql-database-threat-detection.md) permet de détecter et traiter les menaces potentielles à mesure qu’elles surviennent en déclenchant des alertes de sécurité en cas d’activités de base de données suspectes, de vulnérabilités potentielles, d’attaques par injection de code SQL et de modèles d’accès anormaux aux bases de données.
 -   Des [colonnes Always Encrypted](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault) garantissent que les données sensibles n’apparaissent jamais en tant que texte en clair à l’intérieur du système de base de données. Une fois le chiffrement des données activé, seules des applications clientes ou des serveurs d’applications ayant accès aux clés peuvent accéder aux données en texte clair.
 - La [Sécurité au niveau des lignes](https://docs.microsoft.com/sql/relational-databases/security/row-level-security) permet aux utilisateurs de définir des stratégies de restriction d’accès aux données afin d’interrompre le traitement de celles-ci.
 - Le [masquage de données dynamiques SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-dynamic-data-masking-get-started) peut être effectué après le déploiement de l’architecture de référence. Les clients doivent ajuster les paramètres de masquage de données dynamiques pour respecter leur schéma de base de données.
@@ -116,10 +116,10 @@ L’architecture protège les données au repos à l’aide d’un chiffrement, 
 ### <a name="identity-management"></a>Gestion des identités
 Les technologies suivantes fournissent des fonctionnalités de gestion des identités dans l’environnement Azure :
 -   [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) est le service mutualisé basé sur le cloud de Microsoft pour la gestion des annuaires et des identités. Tous les utilisateurs de cette solution, y compris ceux qui accèdent à Azure SQL Database, sont créés dans AAD.
--   L’authentification auprès de l’application est effectuée à l’aide d’AAD. Pour plus d’informations, consultez [Intégration d’applications dans Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications). En outre, le chiffrement des colonnes de base de données utilise Azure Active Directory pour authentifier l’application auprès d’Azure SQL Database. Pour plus d’informations, découvrez comment [protéger des données sensibles dans Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault).
--   Le [contrôle d’accès en fonction du rôle Azure](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) permet une gestion précise de l’accès pour Azure. L’accès aux abonnements est limité à l’administrateur des abonnements, tandis que l’accès aux ressources peut être limité en fonction du rôle d’utilisateur.
-- La solution [Azure Active Directory Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-getting-started) permet aux clients de minimiser le nombre d’utilisateurs qui ont accès à des informations spécifiques.  Les administrateurs peuvent utiliser AAD Privileged Identity Management pour découvrir, restreindre et surveiller les identités privilégiées et leur accès aux ressources. Cette fonctionnalité permet également d’appliquer un accès administratif juste-à-temps à la demande si nécessaire.
-- La solution [Azure Active Directory Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection) détecte les vulnérabilités risquant d’affecter les identités d’une organisation, configure des réponses automatiques aux actions suspectes détectées en lien avec les identités d’une organisation, et examine les incidents suspects afin de prendre les mesures appropriées pour résoudre ces derniers.
+-   L’authentification auprès de l’application est effectuée à l’aide d’AAD. Pour plus d’informations, consultez [Intégration d’applications dans Azure Active Directory](../../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md). En outre, le chiffrement des colonnes de base de données utilise Azure Active Directory pour authentifier l’application auprès d’Azure SQL Database. Pour plus d’informations, découvrez comment [protéger des données sensibles dans Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault).
+-   Le [contrôle d’accès en fonction du rôle Azure](../../role-based-access-control/role-assignments-portal.md) permet une gestion précise de l’accès pour Azure. L’accès aux abonnements est limité à l’administrateur des abonnements, tandis que l’accès aux ressources peut être limité en fonction du rôle d’utilisateur.
+- La solution [Azure Active Directory Privileged Identity Management](../../active-directory/privileged-identity-management/pim-getting-started.md) permet aux clients de minimiser le nombre d’utilisateurs qui ont accès à des informations spécifiques.  Les administrateurs peuvent utiliser AAD Privileged Identity Management pour découvrir, restreindre et surveiller les identités privilégiées et leur accès aux ressources. Cette fonctionnalité permet également d’appliquer un accès administratif juste-à-temps à la demande si nécessaire.
+- La solution [Azure Active Directory Identity Protection](../../active-directory/identity-protection/overview.md) détecte les vulnérabilités risquant d’affecter les identités d’une organisation, configure des réponses automatiques aux actions suspectes détectées en lien avec les identités d’une organisation, et examine les incidents suspects afin de prendre les mesures appropriées pour résoudre ces derniers.
 
 ### <a name="security"></a>Sécurité
 La solution **Gestion des secrets** utilise [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) pour gérer les clés et secrets. Azure Key Vault permet de protéger les clés de chiffrement et les secrets utilisés par les services et les applications cloud. Les fonctionnalités d’Azure Key Vault ci-après aident les clients à protéger les données ainsi que l’accès à ces dernières :
@@ -133,30 +133,30 @@ La solution **Gestion des secrets** utilise [Azure Key Vault](https://azure.micr
 
 **Application Gateway** : l’architecture réduit le risque de failles de sécurité à l’aide d’Application Gateway avec le pare-feu d’applications web et l’ensemble de règles OWASP activé. Les autres fonctionnalités incluent notamment :
 - [SSL de bout en bout](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)
-- Activation du [déchargement SSL](https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-portal)
+- Activation du [déchargement SSL](../../application-gateway/create-ssl-portal.md)
 - Désactivation de [TLS versions 1.0 et 1.1](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)
-- [Pare-feu d’applications web](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-application-firewall-overview)
+- [Pare-feu d’applications web](../../application-gateway/waf-overview.md)
 - [Mode Prévention](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-application-firewall-portal) avec l’ensemble de règles OWASP 3.0
 - Activation de la [journalisation des diagnostics](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics)
-- [Sondes d’intégrité personnalisées](https://docs.microsoft.com/azure/application-gateway/application-gateway-create-gateway-portal)
+- [Sondes d’intégrité personnalisées](../../application-gateway/quick-create-portal.md)
 - [Azure Security Center](https://azure.microsoft.com/services/security-center) et [Azure Advisor](https://docs.microsoft.com/azure/advisor/advisor-security-recommendations) fournissent une protection supplémentaire et des notifications. Azure Security Center fournit également un système de réputation.
 
 ### <a name="logging-and-auditing"></a>Journalisation et audit
 Azure Monitor assure une journalisation complète de l’activité du système et des utilisateurs, ainsi que de l’intégrité du système. Ce service collecte et analyse les données générées par les ressources des environnements Azure et locaux.
-- **Journaux d’activité** : les [journaux d’activité](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) fournissent des insights sur les opérations ayant été effectuées sur les ressources d’un abonnement. Les journaux d’activité peuvent aider à déterminer l’initiateur, l’heure d’exécution et l’état d’une opération.
-- **Journaux de diagnostic** : les [journaux de diagnostic](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) incluent l’ensemble des journaux d’activité générés par chaque ressource. Ils incluent les journaux des événements système de Windows, les journaux d’activité de Stockage Azure, les journaux d’audit du Key Vault, ainsi que les journaux d’activité de pare-feu et d’accès d’Application Gateway.
+- **Journaux d’activité** : les [journaux d’activité](../../azure-monitor/platform/activity-logs-overview.md) fournissent des insights sur les opérations ayant été effectuées sur les ressources d’un abonnement. Les journaux d’activité peuvent aider à déterminer l’initiateur, l’heure d’exécution et l’état d’une opération.
+- **Journaux de diagnostic** : les [journaux de diagnostic](../../azure-monitor/platform/diagnostic-logs-overview.md) incluent l’ensemble des journaux d’activité générés par chaque ressource. Ils incluent les journaux des événements système de Windows, les journaux d’activité de Stockage Azure, les journaux d’audit du Key Vault, ainsi que les journaux d’activité de pare-feu et d’accès d’Application Gateway.
 - **Archivage des journaux** : Tous les journaux de diagnostic sont consignés dans un compte de stockage Azure centralisé et chiffré pour l’archivage. L’utilisateur peut configurer la rétention jusqu’à 730 jours pour répondre aux exigences de rétention spécifiques de l’entreprise. Ces journaux se connectent à Journaux Azure Monitor à des fins de traitement, de stockage et de génération de rapports de tableau de bord.
 
 En outre, cette architecture intègre également les solutions de supervision suivantes :
--   [Active Directory Assessment](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment) : la solution Active Directory Health Check évalue les risques et l’intégrité des environnements de serveur à intervalles réguliers, et fournit une liste hiérarchisée de suggestions spécifiques pour l’infrastructure de serveur déployée.
--   [Antimalware Assessment](https://docs.microsoft.com/azure/log-analytics/log-analytics-malware) : la solution de logiciel anti-programme malveillant signale les programmes malveillants, les menaces et l’état de protection.
+-   [Active Directory Assessment](../../azure-monitor/insights/ad-assessment.md) : la solution Active Directory Health Check évalue les risques et l’intégrité des environnements de serveur à intervalles réguliers, et fournit une liste hiérarchisée de suggestions spécifiques pour l’infrastructure de serveur déployée.
+-   [Antimalware Assessment](../../security-center/security-center-install-endpoint-protection.md) : la solution de logiciel anti-programme malveillant signale les programmes malveillants, les menaces et l’état de protection.
 -   [Azure Automation](https://docs.microsoft.com/azure/automation/automation-hybrid-runbook-worker) : la solution Azure Automation stocke, exécute et gère les runbooks. Dans cette solution, des runbooks aident à collecter les journaux d’activité d’Application Insights et d’Azure SQL Database.
--   [Security and Audit](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started) : le tableau de bord Security and Audit donne une vue d’ensemble de l’état de sécurité des ressources en affichant des métriques concernant des domaines de sécurité, des problèmes notables, des détections, des menaces et des requêtes de sécurité courantes.
--   [SQL Assessment](https://docs.microsoft.com/azure/log-analytics/log-analytics-sql-assessment) : la solution SQL Health Check évalue les risques et l’intégrité des environnements de serveur à intervalles réguliers, et fournit aux clients une liste hiérarchisée de suggestions spécifiques pour l’infrastructure de serveur déployée.
--   [Update Management](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-update-management) : cette solution de gestion des mises à jour aide les clients à gérer les mises à jour de sécurité du système d’exploitation, notamment en leur indiquant l’état des mises à jour disponibles et le processus d’installation des mises à jour requises.
--   [Agent Health](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-agenthealth) : cette solution de contrôle d’intégrité des agents indique le nombre d’agents déployés et leur répartition géographique, ainsi que le nombre d’agents qui ne répondent pas ou qui envoient des données opérationnelles.
--   [Journaux d’activité Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-activity) : la solution Activity Log Analytics facilite l’analyse des journaux d’activité Azure de tous les abonnements Azure d’un client.
--   [Change Tracking](https://docs.microsoft.com/azure/automation/automation-change-tracking) : cette solution de suivi des modifications permet aux clients d’identifier facilement des modifications dans l’environnement.
+-   [Security and Audit](../../security-center/security-center-intro.md) : le tableau de bord Security and Audit donne une vue d’ensemble de l’état de sécurité des ressources en affichant des métriques concernant des domaines de sécurité, des problèmes notables, des détections, des menaces et des requêtes de sécurité courantes.
+-   [SQL Assessment](../../azure-monitor/insights/sql-assessment.md) : la solution SQL Health Check évalue les risques et l’intégrité des environnements de serveur à intervalles réguliers, et fournit aux clients une liste hiérarchisée de suggestions spécifiques pour l’infrastructure de serveur déployée.
+-   [Update Management](../../automation/automation-update-management.md) : cette solution de gestion des mises à jour aide les clients à gérer les mises à jour de sécurité du système d’exploitation, notamment en leur indiquant l’état des mises à jour disponibles et le processus d’installation des mises à jour requises.
+-   [Agent Health](../../monitoring/monitoring-solution-agenthealth.md) : cette solution de contrôle d’intégrité des agents indique le nombre d’agents déployés et leur répartition géographique, ainsi que le nombre d’agents qui ne répondent pas ou qui envoient des données opérationnelles.
+-   [Journaux d’activité Azure](../../azure-monitor/platform/collect-activity-logs.md) : la solution Activity Log Analytics facilite l’analyse des journaux d’activité Azure de tous les abonnements Azure d’un client.
+-   [Change Tracking](../../automation/change-tracking.md) : cette solution de suivi des modifications permet aux clients d’identifier facilement des modifications dans l’environnement.
 
 **Azure Monitor**
 la solution [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) permet aux utilisateurs de suivre les performances, de tenir à jour la sécurité et d’identifier les tendances en permettant aux entreprises d’auditer, de créer des alertes et d’archiver des données, notamment en lien avec le suivi des appels d’API dans les ressources Azure des clients.

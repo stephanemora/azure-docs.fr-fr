@@ -1,18 +1,19 @@
 ---
 title: Azure Key Vault - Utilisation de la suppression réversible avec PowerShell
 description: Exemples d’utilisation de la suppression réversible avec extraits de code PowerShell
+services: key-vault
 author: msmbaldwin
-manager: barbkess
+manager: rkarlin
 ms.service: key-vault
-ms.topic: conceptual
-ms.date: 03/19/2019
+ms.topic: tutorial
+ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: ecc87e03a80ce10bedbe26b3ebb452ec704eefcb
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6a24f2dd52c3ac3c51df54bf5c01c7b31ca16147
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60461363"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68985751"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-powershell"></a>Utilisation de la suppression réversible Key Vault avec l’interface PowerShell
 
@@ -49,6 +50,9 @@ Pour plus d’informations sur les autorisations et le contrôle d’accès, con
 ## <a name="enabling-soft-delete"></a>Activation de la suppression réversible
 
 L’activation de la « suppression réversible » permet de récupérer un coffre de clés supprimé ou des objets stockés dans un coffre de clés.
+
+> [!IMPORTANT]
+> L’activation de la « suppression réversible » sur un coffre de clés est une action irréversible. Une fois que la propriété de suppression réversible a été définie sur « true », elle ne peut pas être changée ou supprimée.  
 
 ### <a name="existing-key-vault"></a>Coffre de clés existant
 

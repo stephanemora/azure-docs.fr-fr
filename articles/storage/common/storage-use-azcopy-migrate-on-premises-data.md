@@ -1,7 +1,6 @@
 ---
 title: 'Didacticiel : Migrer des données locales vers le Stockage Azure à l’aide d’AzCopy | Microsoft Docs'
 description: Dans ce tutoriel, vous utilisez AzCopy pour migrer ou copier des données vers ou depuis un blob, une table ou un fichier. Migrez facilement des données de votre stockage local vers le Stockage Azure.
-services: storage
 author: normesta
 ms.service: storage
 ms.topic: tutorial
@@ -9,12 +8,12 @@ ms.date: 05/14/2019
 ms.author: normesta
 ms.reviewer: seguler
 ms.subservice: common
-ms.openlocfilehash: 193c00354b6222152e26476d0b06cfb1555c207e
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.openlocfilehash: 5f09ae7dc625ad579e31fd49d70331f30e6a708a
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66754883"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68844893"
 ---
 #  <a name="tutorial-migrate-on-premises-data-to-cloud-storage-by-using-azcopy"></a>Didacticiel : Migrer des données locales vers un stockage cloud à l’aide d’AzCopy
 

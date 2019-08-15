@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 07/26/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e0725988ff88baea2458f0a5e459440874e66088
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 579a553f151cf34215af3188cfddada6da42e691
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68596427"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68943630"
 ---
 # <a name="tutorial-integrate-oracle-cloud-infrastructure-console-with-azure-active-directory"></a>Didacticiel : Intégrer Oracle Cloud Infrastructure Console à Azure Active Directory
 
@@ -101,11 +101,11 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
    ![Lien Téléchargement de certificat](common/metadataxml.png)
 
-1. L’application Oracle Cloud Infrastructure Console attend les assertions SAML dans un certain format, ce qui oblige à ajouter des mappages d’attributs personnalisés à la configuration des attributs du jeton SAML. La capture d’écran suivante montre la liste des attributs par défaut. Cliquez sur l’icône  **Modifier** pour ouvrir la boîte de dialogue Attributs d’utilisateur.
+1. L’application Oracle Cloud Infrastructure Console attend les assertions SAML dans un certain format, ce qui oblige à ajouter des mappages d’attributs personnalisés à la configuration des attributs du jeton SAML. La capture d’écran suivante montre la liste des attributs par défaut. Cliquez sur l’icône **Modifier** pour ouvrir la boîte de dialogue Attributs d’utilisateur.
 
    ![image](common/edit-attribute.png)
 
-1. En plus de ce qui précède, l’application Oracle Cloud Infrastructure Console s’attend à ce que quelques attributs supplémentaires soient passés dans la réponse SAML. Dans la section  **Attributs et revendications de l’utilisateur**  de la boîte de dialogue  **Revendications de groupe (préversion)**  , procédez comme suit :
+1. En plus de ce qui précède, l’application Oracle Cloud Infrastructure Console s’attend à ce que quelques attributs supplémentaires soient passés dans la réponse SAML. Dans la section **Attributs et revendications de l’utilisateur** de la boîte de dialogue **Revendications de groupe (préversion)** , effectuez les étapes suivantes :
 
    1. Cliquez sur **stylet** en regard de **Valeur de l’identificateur de nom**.
 

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/05/2018
 ms.author: mbaldwin
 ms.custom: mvc
-ms.openlocfilehash: cdc540f2f6fa834a97c4c405276414f29672e5c7
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: ae9aaea91f62a7e79835e65a5a9f9c76017afdb1
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67876667"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934380"
 ---
 # <a name="tutorial-use-azure-key-vault-with-a-windows-virtual-machine-in-python"></a>Didacticiel : Utiliser Azure Key Vault avec une machine virtuelle Windows dans Python
 
@@ -103,9 +103,9 @@ Ce secret stocke la valeur **MySecret**.
 ## <a name="create-a-virtual-machine"></a>Création d'une machine virtuelle
 Vous pouvez créer une machine virtuelle à l’aide de l’une des méthodes suivantes :
 
-* [L’interface de ligne de commande Microsoft Azure](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-cli)
-* [PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-powershell)
-* [Le portail Azure](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal)
+* [L’interface de ligne de commande Microsoft Azure](../virtual-machines/windows/quick-create-cli.md)
+* [PowerShell](../virtual-machines/windows/quick-create-powershell.md)
+* [Le portail Azure](../virtual-machines/windows/quick-create-portal.md)
 
 ## <a name="assign-an-identity-to-the-vm"></a>Affecter une identité à la machine virtuelle
 Dans cette étape, vous créez une identité affectée par le système pour la machine virtuelle en exécutant la commande suivante dans Azure CLI :
@@ -132,7 +132,7 @@ az keyvault set-policy --name '<YourKeyVaultName>' --object-id <VMSystemAssigned
 
 ## <a name="log-on-to-the-virtual-machine"></a>Connexion à la machine virtuelle
 
-Pour vous connecter à la machine virtuelle, suivez les instructions de l’article [Se connecter à une machine virtuelle Azure exécutant Windows](https://docs.microsoft.com/azure/virtual-machines/windows/connect-logon).
+Pour vous connecter à la machine virtuelle, suivez les instructions de l’article [Se connecter à une machine virtuelle Azure exécutant Windows](../virtual-machines/windows/connect-logon.md).
 
 ## <a name="create-and-run-a-sample-python-app"></a>Créer et exécuter l’exemple d’application Python
 

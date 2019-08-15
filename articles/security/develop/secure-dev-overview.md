@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 4df8ff8abfeb7a6ba96ec3344407e95e0a9a3b3d
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: c4314a0dcbbcb907ef4d6de0a2788cf04dfe1641
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68728716"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934865"
 ---
 # <a name="secure-development-best-practices-on-azure"></a>Bonnes pratiques du développement sécurisé sur Azure
 Cette série d’articles présente les activités et contrôles de sécurité à prendre en compte lorsque vous développez des applications pour le cloud. Les phases du Microsoft Security Development Lifecycle et les questions et concepts de sécurité à prendre en compte lors de chaque phase du cycle de vie y sont abordées. L’objectif est de vous aider à définir les activités et services Azure que vous pouvez utiliser lors de chaque phase du cycle de vie pour concevoir, développer et déployer une application plus sécurisée.
@@ -69,7 +69,7 @@ Utilisez les ressources suivantes pour en savoir plus sur le développement d’
 
 [Pushing Left, Like a Boss](https://code.likeagirl.io/pushing-left-like-a-boss-part-1-80f1f007da95?WT.mc_id=docs-blog-tajanca) : série d’articles en ligne décrivant les différents types d’activités de sécurité des applications que les développeurs doivent effectuer pour créer un code plus sécurisé.
 
-[Plateforme d’identités Microsoft](https://docs.microsoft.com/azure/active-directory/develop/) : évolution du service d’identité Azure Active Directory (Azure AD) et de la plateforme de développement. C’est une plateforme complète qui se compose d’un service d’authentification, de bibliothèques open source, de fonctionnalités d’inscription et de configuration d’application, d’une documentation de développement exhaustive et d’exemples de code et autres contenus destinés aux développeurs. La plateforme d’identités Microsoft prend en charge les protocoles standard, tels qu’OAuth 2.0 et OpenID Connect.
+[Plateforme d’identités Microsoft](../../active-directory/develop/index.yml) : évolution du service d’identité Azure Active Directory (Azure AD) et de la plateforme de développement. C’est une plateforme complète qui se compose d’un service d’authentification, de bibliothèques open source, de fonctionnalités d’inscription et de configuration d’application, d’une documentation de développement exhaustive et d’exemples de code et autres contenus destinés aux développeurs. La plateforme d’identités Microsoft prend en charge les protocoles standard, tels qu’OAuth 2.0 et OpenID Connect.
 
 [Bonnes pratiques de sécurité pour les solutions Azure](https://azure.microsoft.com/resources/security-best-practices-for-azure-solutions/) : collection de bonnes pratiques en matière de sécurité à utiliser lorsque vous concevez, déployez et gérez des solutions cloud à l’aide d’Azure. Ce document est destiné à constituer une ressource pour les professionnels de l’informatique. Ceux-ci peuvent être des concepteurs, architectes, développeurs et testeurs qui génèrent et déploient des solutions Azure sécurisées.
 
