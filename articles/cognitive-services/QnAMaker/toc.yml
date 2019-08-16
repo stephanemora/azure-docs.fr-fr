@@ -108,7 +108,7 @@
           displayName: 'create bot, bot, publish to bot, test, edit'
         - name: Obtenir des réponses à l’aide de métadonnées
           href: How-To/metadata-generateanswer-usage.md
-          displayName: 'isTest, test, route, request, http, post, body, header, json, metadata, top, strictFilters, GenerateAnswer, API, answer, RankerType, id, text, question, context'
+          displayName: 'isTest, test, route, request, http, post, body, header, json, metadata, top, strictFilters, GenerateAnswer, API, answer, RankerType, id, text, question, context, 200, 2xx, 400, 401, 403, 404'
         - name: Créer un bot avec une base de connaissances
           href: Tutorials/integrate-qnamaker-luis.md
         - name: Créer une base de connaissances dans une autre langue
@@ -166,11 +166,6 @@
       href: troubleshooting.md
     - name: limites
       href: limits.md
-    - name: Glossaire
-      href: glossary.md
-    - name: Codes de réponse HTTP
-      displayName: '200, 2xx, 400, 401, 403, 404'
-      href: http-response-codes.md
     - name: Exemples
       items:
         - name: Bot d’aide QnA Maker

@@ -1,14 +1,14 @@
-- name: Documentation Data Science Virtual Machine
+- name: Documentation sur la machine virtuelle de science des données
   href: index.yml
   items: null
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   expanded: true
   items:
-    - name: "Qu’est-ce que la Data Science VM\_?"
+    - name: "Qu’est-ce que la machine virtuelle de science des données\_?"
       href: overview.md
-    - name: "Qu’est-ce que la Deep Learning VM\_?"
+    - name: "Qu’est-ce que la machine virtuelle d’apprentissage approfondi\_?"
       href: deep-learning-dsvm-overview.md
-    - name: "Qu’est-ce que la Geo AI Data Science VM\_?"
+    - name: "Qu’est-ce que la machine virtuelle de science des données\_Geo AI ?"
       href: geo-ai-dsvm-overview.md
 - name: Démarrages rapides
   expanded: true
@@ -19,15 +19,13 @@
       href: dsvm-ubuntu-intro.md
     - name: Créer une DSVM CentOS
       href: linux-dsvm-intro.md
-    - name: Créer une Deep Learning VM
-      href: provision-deep-learning-dsvm.md
-    - name: Créer une Geo AI DSVM
+    - name: "Créer la machine virtuelle de science des données\_Geo AI"
       href: provision-geo-ai-dsvm.md
 - name: Concepts
   items:
     - name: Découvrir DSVM
       href: dsvm-tools-overview.md
-    - name: Frameworks Deep Learning et IA
+    - name: Frameworks d’apprentissage profond et d’intelligence artificielle
       href: dsvm-deep-learning-ai-frameworks.md
     - name: Langages de programmation
       href: dsvm-languages.md
@@ -37,7 +35,7 @@
       href: dsvm-ml-data-science-tools.md
     - name: Plateformes de données
       href: dsvm-data-platforms.md
-    - name: Outils d’ingestion de données
+    - name: Code d’ingestion de données
       href: dsvm-tools-ingestion.md
     - name: Outils d’exploration et de visualisation de données
       href: dsvm-tools-explore-and-visualize.md
@@ -51,7 +49,7 @@
       href: vm-do-ten-things.md
     - name: Utiliser une DSVM Linux
       href: linux-dsvm-walkthrough.md
-    - name: Utiliser une Deep Learning VM
+    - name: Utiliser une machine virtuelle d’apprentissage approfondi
       href: use-deep-learning-dsvm.md
     - name: Utiliser une Geo AI DSVM
       href: use-geo-ai-dsvm.md

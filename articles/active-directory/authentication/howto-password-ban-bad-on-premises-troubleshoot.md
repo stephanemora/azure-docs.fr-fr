@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1d96f5bb189dfd20c65fc6fc6ddcb8fff66d52ff
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: 07c035f4823ea8c8eaa96ca9bda22450246811cd
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68666237"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779628"
 ---
 # <a name="azure-ad-password-protection-troubleshooting"></a>Résolution de problèmes de protection par mot de passe Azure AD
 
@@ -32,7 +32,7 @@ La cause habituelle de ce problème est qu’un proxy n’a pas encore été ins
 
 Ce problème se traduit principalement par la présence d’événements 30018 dans le journal des événements d’administration de l’agent du contrôleur de domaine. Ce problème peut avoir plusieurs causes :
 
-1. L’agent du contrôleur de domaine se trouve dans une partie isolée du réseau qui n’autorise pas de connectivité réseau au(x) proxy(s) inscrit(s). Ce problème peut donc être bénin tant que d’autres agents du contrôleur de domaine sont en mesure de communiquer avec le(s) proxy(s) afin de télécharger à partir d’Azure les stratégies de mot de passe qui seront ensuite obtenues par le contrôleur de domaine isolé via une réplication des fichiers de stratégie dans le partage sysvol.
+1. L’agent du contrôleur de domaine se trouve dans une partie isolée du réseau qui n’autorise pas de connectivité réseau au(x) proxy(s) inscrit(s). Ce problème peut être sans gravité tant que d’autres agents du contrôleur de domaine peuvent communiquer avec les proxys pour télécharger des stratégies de mot de passe à partir d’Azure. Une fois ces stratégies téléchargées, le contrôleur de domaine isolé l’obtient via une réplication des fichiers de stratégie du partage sysvol.
 
 1. L’ordinateur hôte proxy bloque l’accès au point de terminaison du mappeur de point de terminaison RPC (port 135).
 
@@ -48,7 +48,7 @@ Ce problème se traduit principalement par la présence d’événements 30018 d
 
 1. Assurez-vous que la forêt et tous les serveurs proxy sont inscrits auprès du même locataire Azure.
 
-   Vous pouvez vérifier cette exigence en exécutant les cmdlets PowerShell `Get-AzureADPasswordProtectionProxy` et `Get-AzureADPasswordProtectionDCAgent`, puis en comparant la propriété `AzureTenant` de chaque élément retourné. Pour que tout fonctionne correctement, le nom du locataire rapporté doit être identique dans l’ensemble des agents du contrôleur de domaine et des serveurs proxy.
+   Vous pouvez vérifier cette exigence en exécutant les cmdlets PowerShell `Get-AzureADPasswordProtectionProxy` et `Get-AzureADPasswordProtectionDCAgent`, puis en comparant la propriété `AzureTenant` de chaque élément retourné. Pour que tout fonctionne correctement, le nom du locataire rapporté doit être identique pour l’ensemble des agents du contrôleur de domaine et des serveurs proxy.
 
    S’il n’existe pas de condition d’incompatibilité d’inscription du locataire Azure, ce problème peut être résolu en exécutant les cmdlets PowerShell `Register-AzureADPasswordProtectionProxy` ou `Register-AzureADPasswordProtectionForest` si besoin, en veillant à utiliser les informations d’identification du même locataire Azure pour toutes les inscriptions.
 
@@ -69,6 +69,8 @@ La cause racine la plus courante de l’incapacité du service de distribution d
 ## <a name="weak-passwords-are-being-accepted-but-should-not-be"></a>Les mots de passe faibles sont acceptés alors qu’ils ne devraient pas l’être
 
 Ce problème peut avoir plusieurs causes.
+
+1. Vos agents du contrôleur de domaine exécutent une préversion publique du logiciel qui a expiré. Voir [Expiration de la préversion publique du logiciel de l’agent de contrôleur de domaine](howto-password-ban-bad-on-premises-troubleshoot.md#public-preview-dc-agent-software-has-expired).
 
 1. Les agents de votre contrôleur de domaine ne peuvent pas télécharger une stratégie ou déchiffrer des stratégies existantes. Recherchez les causes possibles dans les rubriques ci-dessus.
 
@@ -99,7 +101,7 @@ Setting password failed.
         Error Message: Password doesn't meet the requirements of the filter dll's
 ```
 
-Lorsque la protection par mot de passe Azure AD enregistre les événements de journal des événements de validation d'un mot de passe DSRM Active Directory, il est possible que les messages du journal des événements n'inclut pas de nom d'utilisateur. Cela est dû au fait que le compte DSRM est un compte local qui ne fait pas partie du domaine Active Directory réel.  
+Lorsque la protection par mot de passe Azure AD enregistre les événements de journal des événements de validation d'un mot de passe DSRM Active Directory, il est possible que les messages du journal des événements n'inclut pas de nom d'utilisateur. Ce comportement est dû au fait que le compte DSRM est un compte local qui ne fait pas partie du domaine Active Directory réel.  
 
 ## <a name="domain-controller-replica-promotion-fails-because-of-a-weak-dsrm-password"></a>La promotion du réplica du contrôleur de domaine échoue en raison d’un mot de passe DSRM faible
 
@@ -119,7 +121,67 @@ Une fois que la rétrogradation a réussi et que le contrôleur de domaine a ét
 
 ## <a name="booting-into-directory-services-repair-mode"></a>Démarrage en mode de réparation des services d'annuaire
 
-Si le contrôleur de domaine est démarré en mode de réparation des services d’annuaire, le service d’agent du contrôleur de domaine le détecte, ce qui a pour effet de désactiver toutes les activités de validation ou d’application du mot de passe, quelle que soit la configuration de la stratégie active.
+Si le contrôleur de domaine est démarré en mode de réparation des services d’annuaire, la DLL de filtre de mots de passe de l’agent du contrôleur de domaine le détecte, ce qui a pour effet de désactiver toutes les activités de validation ou d’application du mot de passe, quelle que soit la configuration de la stratégie active. La DLL de filtre de mots de passe de l’agent du contrôleur de domaine consigne un événement d’avertissement 10023 dans le journal des événements de l’administrateur, par exemple :
+
+```text
+The password filter dll is loaded but the machine appears to be a domain controller that has been booted into Directory Services Repair Mode. All password change and set requests will be automatically approved. No further messages will be logged until after the next reboot.
+```
+## <a name="public-preview-dc-agent-software-has-expired"></a>Le logiciel de l’agent du contrôleur de domaine en préversion publique a expiré
+
+Au cours de la période de préversion publique de la protection par mot de passe Azure AD, le logiciel de l’agent du contrôleur de domaine est codé en dur pour arrêter le traitement des demandes de validation de mot de passe aux dates suivantes :
+
+* La version 1.2.65.0 cessera de traiter les demandes de validation de mot de passe le 1er septembre 2019.
+* Les versions 1.2.25.0 et antérieures ont cessé de traiter les demandes de validation de mot de passe le 1er juillet 2019.
+
+À l’approche de la date d’échéance, toutes les versions de l’agent de contrôleur de domaine limitées dans le temps émettront dans le journal des événements Admin de l’agent du contrôleur de domaine un événement 10021 au démarrage :
+
+```text
+The password filter dll has successfully loaded and initialized.
+
+The allowable trial period is nearing expiration. Once the trial period has expired, the password filter dll will no longer process passwords. Please contact Microsoft for an newer supported version of the software.
+
+Expiration date:  9/01/2019 0:00:00 AM
+
+This message will not be repeated until the next reboot.
+```
+
+Une fois la date d’échéance atteinte, toutes les versions de l’agent de contrôleur de domaine limitées dans le temps émettront dans le journal des événements Admin de l’agent du contrôleur de domaine un événement 10022 au démarrage :
+
+```text
+The password filter dll is loaded but the allowable trial period has expired. All password change and set requests will be automatically approved. Please contact Microsoft for a newer supported version of the software.
+
+No further messages will be logged until after the next reboot.
+```
+
+Étant donné que la date d’échéance n’est vérifiée qu’au démarrage initial, vous ne verrez peut-être pas ces événements avant longtemps après le dépassement de l’échéance du calendrier. Une fois l’échéance reconnue, le seul effet sur le contrôleur de domaine ou l’environnement au sens large est que tous les mots de passe sont automatiquement approuvés.
+
+> [!IMPORTANT]
+> Microsoft recommande que les agents du contrôleur de domaine en préversion publique expirés soient immédiatement mis à niveau vers la dernière version.
+
+Pour découvrir facilement les agents du contrôleur de domaine dans votre environnement qui doivent être mis à niveau, exécutez la cmdlet `Get-AzureADPasswordProtectionDCAgent`, par exemple :
+
+```powershell
+PS C:\> Get-AzureADPasswordProtectionDCAgent
+
+ServerFQDN            : bpl1.bpl.com
+SoftwareVersion       : 1.2.125.0
+Domain                : bpl.com
+Forest                : bpl.com
+PasswordPolicyDateUTC : 8/1/2019 9:18:05 PM
+HeartbeatUTC          : 8/1/2019 10:00:00 PM
+AzureTenant           : bpltest.onmicrosoft.com
+```
+
+Pour cette rubrique, le champ SoftwareVersion est à l’évidence la propriété de clé à examiner. Vous pouvez également utiliser un filtrage PowerShell pour filtrer les agents du contrôleur de domaine qui sont déjà au niveau de la version de référence requise ou à un niveau supérieur, par exemple :
+
+```powershell
+PS C:\> $LatestAzureADPasswordProtectionVersion = "1.2.125.0"
+PS C:\> Get-AzureADPasswordProtectionDCAgent | Where-Object {$_.SoftwareVersion -lt $LatestAzureADPasswordProtectionVersion}
+```
+
+Le logiciel proxy de protection par mot de passe Azure AD n’est limité dans le temps dans aucune version. Microsoft recommande toujours de mettre à niveau les agents de contrôleur de domaine et de proxy vers les dernières versions à mesure que celles-ci sont publiées. La cmdlet `Get-AzureADPasswordProtectionProxy` permet de rechercher des agents proxy qui nécessitent des mises à niveau, comme dans l’exemple ci-dessus pour les agents du contrôleur de domaine.
+
+Pour plus d’informations sur les procédures de mise à niveau spécifiques, voir [Mise à niveau de l’agent du contrôleur de domaine](howto-password-ban-bad-on-premises-deploy.md#upgrading-the-dc-agent) et [Mise à niveau de l’agent proxy](howto-password-ban-bad-on-premises-deploy.md#upgrading-the-proxy-agent).
 
 ## <a name="emergency-remediation"></a>Correction d’urgence
 

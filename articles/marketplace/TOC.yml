@@ -471,14 +471,6 @@
                   href: ./partner-center-portal/pc-saas-fulfillment-api-v1.md
                 - name: API de traitement SaaS - Questions fréquentes (FAQ)
                   href: ./partner-center-portal/saas-fulfillment-apis-faq.md
-            - name: Inscrire une application SaaS
-              href: ./partner-center-portal/pc-saas-registration.md
-            - name: API de traitement SaaS v2
-              href: ./partner-center-portal/pc-saas-fulfillment-api-v2.md
-            - name: API de traitement SaaS v1 (dépréciées)
-              href: ./partner-center-portal/pc-saas-fulfillment-api-v1.md
-            - name: API de traitement SaaS - Questions fréquentes (FAQ)
-              href: ./partner-center-portal/saas-fulfillment-apis-faq.md
         - name: Tester votre offre
           href: ./partner-center-portal/test-drive.md
     - name: État de publication
