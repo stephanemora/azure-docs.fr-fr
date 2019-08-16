@@ -2,17 +2,17 @@
 title: Afficher les journaux d’activité de contrôleur Azure Kubernetes Service (AKS)
 description: Découvrez comment activer et afficher les journaux d’activité relatifs au nœud principal Kubernetes dans Azure Kubernetes Service (AKS)
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: article
 ms.date: 01/03/2019
-ms.author: iainfou
-ms.openlocfilehash: 256101cce5588f56a8094a7a9a98e5fe69e6ec73
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: mlearned
+ms.openlocfilehash: dc72a8d448a189918def35da0250d83c81da7fa0
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66497250"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68812819"
 ---
 # <a name="enable-and-review-kubernetes-master-node-logs-in-azure-kubernetes-service-aks"></a>Activer et consulter les journaux d’activité du nœud principal Kubernetes dans Azure Kubernetes Service (AKS)
 
@@ -20,11 +20,11 @@ Avec Azure Kubernetes Service (AKS), les composants principaux tels que *kube-ap
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-Cet article requiert l’exécution d’un cluster AKS existant dans votre compte Azure. Si vous ne disposez pas encore d’un cluster AKS, créez-en un à l’aide de [l’interface de ligne de commande Azure (Azure CLI)][cli-quickstart] ou du [Portail Azure][portal-quickstart]. Les journaux d’activité Azure Monitor fonctionne avec des clusters AKS sur lesquels le contrôle d’accès en fonction du rôle (RBAC) est activé ou non.
+Cet article requiert l’exécution d’un cluster AKS existant dans votre compte Azure. Si vous ne disposez pas encore d’un cluster AKS, créez-en un à l’aide de l’[interface de ligne de commande Azure (Azure CLI)][cli-quickstart] ou du [portail Azure][portal-quickstart]. Les journaux d’activité Azure Monitor fonctionne avec des clusters AKS sur lesquels le contrôle d’accès en fonction du rôle (RBAC) est activé ou non.
 
 ## <a name="enable-diagnostics-logs"></a>Activer les journaux de diagnostic
 
-Pour faciliter la collecte et l’analyse des données provenant de plusieurs sources, les journaux d’activité Azure Monitor fournissent un langage de requêtes et un moteur d’analyse vous permettant d’obtenir des insights sur votre environnement. Un espace de travail est utilisé pour assembler et analyser les données, et peut s’intégrer à d’autres services Azure tels qu’Application Insights et Security Center. Si vous souhaitez analyser les journaux d’activité à l’aide d’une autre plateforme, vous pouvez plutôt choisir d’envoyer les journaux de diagnostic à un compte de stockage ou à un Event Hub Azure. Pour plus d’informations, consultez [Présentation des journaux d’activité Azure Monitor][log-analytics-overview].
+Pour faciliter la collecte et l’analyse des données provenant de plusieurs sources, les journaux d’activité Azure Monitor fournissent un langage de requêtes et un moteur d’analyse vous permettant d’obtenir des insights sur votre environnement. Un espace de travail est utilisé pour assembler et analyser les données, et peut s’intégrer à d’autres services Azure tels qu’Application Insights et Security Center. Si vous souhaitez analyser les journaux d’activité à l’aide d’une autre plateforme, vous pouvez plutôt choisir d’envoyer les journaux de diagnostic à un compte de stockage ou à un Event Hub Azure. Pour plus d’informations, voir [Présentation des journaux d’activité Azure Monitor][log-analytics-overview].
 
 Les journaux Azure Monitor sont activés et gérés sur le portail Azure. Pour activer la collecte des journaux relatifs aux composants principaux Kubernetes dans votre cluster AKS, ouvrez le Portail Azure dans un navigateur web et procédez comme suit :
 
@@ -35,19 +35,6 @@ Les journaux Azure Monitor sont activés et gérés sur le portail Azure. Pour a
 1. Sélectionnez un espace de travail existant ou créez-en un. Si vous créez un espace de travail, indiquez un nom d’espace de travail, un groupe de ressources et un emplacement.
 1. Dans la liste des journaux d’activité disponibles, sélectionnez les journaux d’activité que vous souhaitez activer. Les journaux *kube-apiserver*, *kube-controller-manager* et *kube-scheduler* compte parmi les journaux courants. Vous pouvez activer des journaux d’activité supplémentaires, tels que *kube-audit* et *cluster-autoscaler*. Vous pourrez réaccéder à cet emplacement et modifier les journaux d’activité collectés une fois les espaces de travail Log Analytics activés.
 1. Lorsque vous avez terminé, sélectionnez **Enregistrer** pour activer la collecte des journaux d’activité sélectionnés.
-
-> [!NOTE]
-> AKS ne capture les journaux d’audit que pour les clusters créés ou mis à niveau après l’activation d’un indicateur de fonctionnalité sur votre abonnement. Pour enregistrer l'indicateur de fonctionnalité *AKSAuditLog*, utilisez la commande [az feature register][az-feature-register], comme indiqué dans l'exemple suivant :
->
-> `az feature register --name AKSAuditLog --namespace Microsoft.ContainerService`
->
-> Attendez que l'état affiche *Enregistré*. Vous pouvez vérifier l'état de l'enregistrement à l'aide de la commande [az feature list][az-feature-list] :
->
-> `az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKSAuditLog')].{Name:name,State:properties.state}"`
->
-> Lorsque vous êtes prêt, actualisez l'enregistrement du fournisseur de ressources AKS à l'aide de la commande [az provider register][az-provider-register] :
->
-> `az provider register --namespace Microsoft.ContainerService`
 
 L’exemple de capture d’écran du portail ci-après présente la fenêtre *Paramètres de diagnostic* :
 
@@ -114,7 +101,7 @@ Les journaux d’activité propres à votre pod NGINX s’affichent, comme illus
 
 Pour afficher des journaux d’activité supplémentaires, vous pouvez mettre à jour la requête en redéfinissant le nom *Catégorie* sur *kube-controller-manager* ou sur *kube-scheduler*, selon les autres journaux d’activité que vous activez. Vous pouvez ensuite utiliser des instructions *where* supplémentaires pour restreindre l’étendue de la requête aux événements qui vous intéressent.
 
-Pour plus d’informations sur l’interrogation et le filtrage des données de journal d’activité, consultez l’article [Consulter ou analyser les données collectées avec la recherche dans les journaux d’activité de l’analytique des journaux d’activité][analyze-log-analytics].
+Pour plus d’informations sur l’interrogation et le filtrage des données de journal d’activité, voir [Consulter ou analyser les données collectées avec la recherche dans les journaux d’activité de l’analytique des journaux d’activité][analyze-log-analytics].
 
 ## <a name="log-event-schema"></a>Schéma d’événement de journal
 
@@ -130,6 +117,14 @@ Pour faciliter votre analyse des données de journal, le tableau ci-après décr
 | *properties.stream*      | *stderr* ou *stdout* |
 | *properties.pod*         | Nom du pod d’où provient le journal |
 | *properties.containerID* | ID du conteneur Docker d’où provient le journal |
+
+## <a name="log-roles"></a>Rôles de journal
+
+| Role                     | Description |
+|--------------------------|-------------|
+| *aksService*             | Nom d’affichage dans le journal d’audit de l’opération de plan de contrôle (à partir de hcpService) |
+| *masterclient*           | Nom d’affichage dans le journal d’audit pour MasterClientCertificate, le certificat obtenu à partir de la commande az aks get-credentials |
+| *nodeclient*             | Nom d’affichage du ClientCertificate utilisé par les nœuds d’agent |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -9,25 +9,27 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 07/26/2019
-ms.openlocfilehash: 7d216a3706c13a5fff312850e244a521ab22ae9e
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 9e62dd25c3ff16e280eda1ad11053ef520a85e4d
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68386738"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68706521"
 ---
 # <a name="create-azure-resource-manager-templates-to-automate-deployment-for-azure-logic-apps"></a>Créez des modèles Azure Resource Manager afin d’automatiser le déploiement pour le service Azure Logic Apps
 
-Pour vous aider à automatiser la création et le déploiement de votre application logique, cet article décrit les méthodes permettant de créer un [modèle de Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) pour votre application logique. Pour obtenir une vue d’ensemble de la structure et de la syntaxe d’un modèle qui comprend votre définition de flux de travail et d’autres ressources nécessaires pour le déploiement, consultez [Vue d’ensemble : Automatiser le déploiement pour les applications logiques avec des modèles de Azure Resource Manager](logic-apps-azure-resource-manager-templates-overview.md).
+Pour vous aider à automatiser la création et le déploiement de votre application logique, cet article décrit les méthodes permettant de créer un [modèle de Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) pour votre application logique. Pour obtenir une vue d’ensemble de la structure et de la syntaxe d’un modèle qui comprend votre définition de flux de travail et d’autres ressources nécessaires pour le déploiement, consultez [Vue d’ensemble : Automatiser le déploiement pour les applications logiques avec des modèles Azure Resource Manager](logic-apps-azure-resource-manager-templates-overview.md).
 
-Azure Logic Apps fournit un [modèle Azure Resource Manager prédéfini pour les applications logiques](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create/azuredeploy.json). À l’aide de ce modèle, vous pouvez créer des applications logiques, mais aussi définir les ressources et les paramètres à utiliser pour les déployer. Vous pouvez utiliser ce modèle pour vos propres scénarios professionnels, ou le personnaliser selon vos besoins. Pour plus d’informations sur les modèles Azure Resource Manager, consultez ces articles :
+Azure Logic Apps fournit un [modèle Azure Resource Manager prédéfini pour les applications logiques](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create/azuredeploy.json). Ce modèle vous permet non seulement de créer des applications logiques, mais aussi de définir les ressources et les paramètres à utiliser pour les déployer. Vous pouvez utiliser ce modèle pour vos propres scénarios professionnels, ou le personnaliser selon vos besoins.
+
+> [!IMPORTANT]
+> Assurez-vous que les connexions dans votre modèle utilisent les mêmes groupe de ressources et même emplacement Azure que votre application logique.
+
+Pour plus d’informations sur les modèles Azure Resource Manager, consultez ces articles :
 
 * [Structure et syntaxe du modèle Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md)
 * [Création de modèles Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md)
 * [Développer des modèles Azure Resource Manager pour la cohérence du cloud](../azure-resource-manager/templates-cloud-consistency.md)
-
-> [!IMPORTANT]
-> Les connexions de votre modèle doivent utiliser le même groupe de ressources et le même emplacement Azure que votre application logique.
 
 <a name="visual-studio"></a>
 
@@ -47,6 +49,13 @@ En téléchargeant votre application logique, vous recevez un modèle qui compre
 Vous pouvez également créer des modèles Resource Manager en utilisant Azure PowerShell avec le [module LogicAppTemplate](https://github.com/jeffhollan/LogicAppTemplateCreator). Ce module open source évalue d’abord votre application logique et toutes les connexions que celle-ci utilise. Il génère ensuite les ressources de modèle avec les paramètres nécessaires pour le déploiement.
 
 Par exemple, supposons que votre application logique reçoive un message d’une file d’attente Azure Service Bus et qu’elle ajoute des données à une base de données Azure SQL Azure. Le module conserve toute la logique d’orchestration et paramètre les chaînes de connexion SQL et Service Bus afin que vous puissiez fournir et modifier ces valeurs en fonction de vos besoins en matière de déploiement.
+
+Ces exemples montrent comment créer et déployer des applications logiques à l’aide de modèles Azure Resource Manager, d’Azure Pipelines dans Azure DevOps et d’Azure PowerShell :
+
+* [Exemple : se connecter à des files d’attente Azure Service Bus à partir d’Azure Logic Apps](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-service-bus-queues-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
+* [Exemple : se connecter à des comptes de stockage Azure à partir d’Azure Logic Apps](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-storage-accounts-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
+* [Exemple : configurer une action Function App pour Azure Logic Apps](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/set-up-an-azure-function-app-action-for-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
+* [Exemple : se connecter à un compte d’intégration à partir d’Azure Logic Apps](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-an-integration-account-from-azure-logic-apps-and-deploy-by-using-azure-devops-pipelines/)
 
 ### <a name="install-powershell-modules"></a>Installer des modules PowerShell
 

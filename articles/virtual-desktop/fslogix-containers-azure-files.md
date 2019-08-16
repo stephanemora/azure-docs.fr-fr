@@ -2,17 +2,17 @@
 title: Conteneurs de profil FSLogix et Azure Files dans Windows Virtual Desktop - Azure
 description: Cet article décrit les conteneurs de profil FSLogix dans Windows Virtual Desktop et Azure Files.
 services: virtual-desktop
-author: ChJenk
+author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 05/16/2019
-ms.author: v-chjenk
-ms.openlocfilehash: b3032aa796b3c79572bbf8b2beb85efc252ff73b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: helohr
+ms.openlocfilehash: c01e138c8afcdd59fcb0c87f189d98bec10e16d7
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66497539"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68828143"
 ---
 # <a name="fslogix-profile-containers-and-azure-files"></a>Conteneurs de profil FSLogix et fichiers Azure
 
@@ -59,7 +59,7 @@ UPD nécessite des [espaces de stockage direct (S2D, Storage Spaces Direct)](htt
 
 #### <a name="cost"></a>Coût
 
-Si les clusters S2D atteignent bien les performances nécessaires, le coût est élevé pour les entreprises clientes, mais il l’est encore davantage pour les PME clientes. Pour cette solution, les entreprises paient pour des disques de stockage Premium, et paient aussi le coût des machines virtuelles qui utilisent les disques pour un partage.
+Si les clusters S2D atteignent bien les performances nécessaires, le coût est élevé pour les entreprises clientes, mais il l’est encore davantage pour les PME clientes. Pour cette solution, les entreprises paient pour des disques de stockage ainsi que pour les machines virtuelles qui utilisent les disques pour un partage.
 
 #### <a name="administrative-overhead"></a>Charge d’administration importante
 

@@ -8,14 +8,14 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: dacurwin
-ms.openlocfilehash: bfc9d01284bb5623989676afbdeadc1c91c14ab0
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 025052a5005702232eb9eaf255e6aac2c58fec98
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688382"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68735566"
 ---
-# <a name="manage-azure-vm-backups"></a>Gérer les sauvegardes de machines virtuelles Azure
+# <a name="manage-azure-vm-backups-with-azure-backup-service"></a>Gérer les sauvegardes de machines virtuelles Azure avec le service Sauvegarde Azure
 
 Cet article explique comment gérer des machines virtuelles qui sont sauvegardées à l’aide du [service Sauvegarde Azure](backup-overview.md). De plus, cet article récapitule les informations de sauvegarde que vous pouvez trouver sur le tableau de bord du coffre.
 

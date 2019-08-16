@@ -7,12 +7,12 @@ author: vhorne
 ms.service: application-gateway
 ms.date: 6/18/2019
 ms.author: victorh
-ms.openlocfilehash: f6ea831771a8ffecfdd4c7c0d6374c16894e25ed
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 9c04f805cf410d2306eda76c84a201a67b022b84
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67164662"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68716620"
 ---
 # <a name="custom-rules-for-web-application-firewall-v2"></a>Règles personnalisées du pare-feu d’applications web v2
 
@@ -110,10 +110,10 @@ Doit être l’une des variables suivantes :
 - Remaddr - Adresse IP/nom d’hôte de la connexion de l’ordinateur distant
 - RequestMethod - Méthode de requête HTTP (GET, POST, PUT, DELETE etc.)
 - Chaîne de requête - Variable de l’URI
-- PostArgs - Arguments envoyés dans le corps POST
-- RequestUri - URI de la requête
-- RequestHeaders - En-têtes de la requête
-- RequestBody - Corps de la requête
+- PostArgs – Arguments envoyés dans le corps POST. Les règles personnalisées utilisant cette variable de correspondance ne sont appliquées que si l’en-tête « Content-Type » est défini sur « application/x-www-form-urlencoded » et « multipart/form-data ».
+- RequestUri : URI de la requête
+- RequestHeaders : en-têtes de la demande
+- RequestBody : contient le corps de la demande en tant que tout. Les règles personnalisées utilisant cette variable de correspondance ne sont appliquées que si l’en-tête « Content-Type » est défini sur « application/x-www-form-urlencoded ». 
 - RequestCookies - Cookies de la requête
 
 ### <a name="selector-optional"></a>Sélecteur [facultatif]

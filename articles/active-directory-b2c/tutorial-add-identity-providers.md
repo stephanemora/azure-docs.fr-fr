@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 07/08/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 33f595dd36ac9448cc1276647f9943326b0b74c1
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: 5710ccfe5d6450714e029827a795b484b1bcd2b4
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67655223"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68716659"
 ---
 # <a name="tutorial-add-identity-providers-to-your-applications-in-azure-active-directory-b2c"></a>Didacticiel : Ajouter des fournisseurs d’identité à vos applications dans Azure Active Directory B2C
 
@@ -79,7 +79,7 @@ Pour utiliser un compte Facebook en tant que fournisseur d’identité dans Azur
 1. Choisissez une **Catégorie**, par exemple `Business and Pages`. Cette valeur est requise par Facebook, mais n’est pas utilisée par Azure AD B2C.
 1. Au bas de la page, sélectionnez **Ajouter une plateforme**, puis sélectionnez **Site web**.
 1. Dans **URL du site**, entrez `https://your-tenant-name.b2clogin.com/`, en remplaçant `your-tenant-name` par le nom de votre locataire.
-1. Entrez une URL pour l’**URL de politique de confidentialité**, par exemple `http://www.contoso.com/`. L’URL de politique de confidentialité est celle d’une page que vous tenez à jour pour fournir des informations de confidentialité pour votre application.
+1. Entrez une URL pour l’**URL de stratégie de confidentialité**, par exemple `http://www.contoso.com/`. L’URL de politique de confidentialité est celle d’une page que vous tenez à jour pour fournir des informations de confidentialité pour votre application.
 1. Sélectionnez **Enregistrer les modifications**.
 1. Consignez la valeur d’**ID d’application** affichée en haut de la page.
 1. En regard de **Secret d’application**, sélectionnez **Afficher**, puis consignez cette valeur. Vous avez besoin de l’ID d’application et du secret d’application pour configurer Facebook en tant que fournisseur d’identité dans votre client. Le **Secret d’application** est une information d’identification de sécurité importante que vous devez conserver en lieu sûr.
@@ -98,7 +98,7 @@ Après avoir créé l’application pour le fournisseur d’identité que vous s
 1. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Azure AD B2C**.
 1. Cliquez sur **Fournisseurs d’identité**, puis sélectionnez **Ajouter**.
 1. Saisissez un **Nom**. Par exemple, entrez *Contoso Azure AD*.
-1. Sélectionnez **Type de fournisseur d’identité**, sélectionnez **Open ID Connect (préversion)** , puis cliquez sur **OK**.
+1. Sélectionnez **Type de fournisseur d’identité**, sélectionnez **OpenID Connect (préversion)** , puis cliquez sur **OK**.
 1. Cliquez sur **Configurer ce fournisseur d’identité**.
 1. Pour **URL des métadonnées**, entrez l’URL suivante en remplaçant `your-AD-tenant-domain` par le nom de domaine de votre locataire Azure AD.
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 2938ae075bbd4c38b686ca6654bede678f876857
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: be6d54886f23b0fa219b1e4b8948b4a4c51f5864
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66509798"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68716823"
 ---
 # <a name="custom-policies-in-azure-active-directory-b2c"></a>Stratégies personnalisées dans Azure Active Directory B2C
 
@@ -27,7 +27,7 @@ Les stratégies personnalisées sont des fichiers de configuration qui définiss
 
 | | Flux d’utilisateurs | Stratégies personnalisées |
 |-|-------------------|-----------------|
-| Utilisateurs cibles | Tous les développeurs d’applications avec ou sans expertise de l’identité | Professionnels de l’identité, intégrateurs système, consultants et équipes d’identité internes. Ils sont à l’aise avec les flux OpenIDConnect et comprennent les fournisseurs d’identité et l’authentification basée sur les revendications. |
+| Utilisateurs cibles | Tous les développeurs d’applications avec ou sans expertise de l’identité | Professionnels de l’identité, intégrateurs système, consultants et équipes d’identité internes. Ils sont à l’aise avec les flux OpenID Connect et comprennent les fournisseurs d’identité et l’authentification basée sur les revendications. |
 | Mode de configuration | Portail Azure avec interface utilisateur (UI) conviviale | Modification directe des fichiers XML, puis chargement sur le portail Azure |
 | Personnalisation de l’interface utilisateur | Personnalisation complète de l’interface utilisateur incluant HTML, CSS et JavaScript<br><br>Prise en charge multilingue avec chaînes personnalisées | Identique |
 | Personnalisation des attributs | Attributs standard et personnalisés | Identique |
@@ -50,12 +50,12 @@ Les flux d’utilisateur dans Azure AD B2C suivent le modèle à trois fichiers 
 Le service de gestion des accès et des identités clients d’Azure inclut :
 
 - Un annuaire d’utilisateurs accessible via Microsoft Graph, qui contient des données utilisateur pour les comptes locaux et les comptes fédérés.
-- L’accès à l’**infrastructure d’expérience d’identité**, qui orchestre les relations de confiance entre les utilisateurs et les entités et transmet les revendications des uns aux autres pour mener à bien une tâche de gestion d’identité ou d’accès. 
+- L’accès à l’**infrastructure d’expérience d’identité**, qui orchestre les relations de confiance entre les utilisateurs et les entités et transmet les revendications des uns aux autres pour mener à bien une tâche de gestion d’identité ou d’accès.
 - Un service d’émission de jeton de sécurité (STS), qui émet des jetons d’ID, des jetons d’actualisation et des jetons d’accès (ainsi que les assertions SAML équivalentes) et les valide afin de protéger les ressources.
 
 Azure AD B2C interagit de façon séquentielle avec les fournisseurs d’identité, les utilisateurs, d’autres systèmes et l’annuaire d’utilisateurs locaux pour effectuer une tâche d’identité. Par exemple, connecter un utilisateur, inscrire un nouvel utilisateur ou réinitialiser un mot de passe. L’infrastructure d’expérience d’identité et une stratégie (également appelée « parcours utilisateur » ou « stratégie d’infrastructure de confiance ») établissent la confiance mutuelle et définissent explicitement les acteurs, les actions, les protocoles et la séquence d’étapes à effectuer.
 
-L’infrastructure d’expérience d’identité est une plateforme Azure cloud, entièrement configurable et pilotée par des stratégies, qui orchestre les relations de confiance entre les entités dans des formats de protocoles standard, notamment OpenIDConnect, OAuth, SAML, WSFed, ainsi que quelques protocoles non standard (par exemple, des échanges de revendications intersystèmes basés sur l’API REST). L’infrastructure crée des expériences conviviales en marque blanche qui prennent en charge HTML et CSS.
+Identity Experience Framework est une plateforme Azure cloud, entièrement configurable et pilotée par des stratégies, qui orchestre les relations de confiance entre les entités dans des formats de protocoles standard, notamment OpenID Connect, OAuth, SAML, WSFed, ainsi que quelques protocoles non standard, par exemple, des échanges de revendications entre systèmes basés sur l’API REST. L’infrastructure crée des expériences conviviales en marque blanche qui prennent en charge HTML et CSS.
 
 Une stratégie personnalisée est représentée par un ou plusieurs fichiers au format XML qui se font mutuellement référence dans une chaîne hiérarchique. Les éléments XML définissent notamment les éléments suivants : schéma de revendications, transformations de revendications, définitions de contenu, fournisseurs de revendications, profils techniques et étapes d’orchestration du parcours utilisateur. Une stratégie personnalisée est accessible sous la forme d’un ou plusieurs fichiers XML qui sont exécutés par l’infrastructure d’expérience d’identité lorsqu’ils sont appelés par une partie de confiance. Les développeurs qui configurent des stratégies personnalisées doivent définir les relations de confiance dans leurs moindres détails pour inclure les points de terminaison de métadonnées et les définitions exactes des échanges de revendications, et configurer les secrets, les clés et les certificats selon les besoins de chaque fournisseur d’identité.
 

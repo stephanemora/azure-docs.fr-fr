@@ -10,20 +10,22 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 01/31/2019
+ms.date: 08/01/2019
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 902696e35a2447b67dab74b73794b80ad5e26511
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a01ebde09517cbe7f093dd56a8a4116e76e64e38
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67083736"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736772"
 ---
 # <a name="sharing-accounts-with-azure-ad"></a>Partage de comptes avec Azure AD
+
 ## <a name="overview"></a>Vue d'ensemble
+
 Parfois, les organisations doivent utiliser les mêmes nom d’utilisateur et mot de passe pour plusieurs personnes, généralement dans deux cas :
 
 * Au moment d’accéder à des applications qui nécessitent un nom de connexion et un mot de passe uniques pour chaque utilisateur, qu’il s’agisse d’applications locales ou de services cloud grand public (par exemple, les comptes de réseaux sociaux d’entreprise).
@@ -40,6 +42,7 @@ Le modèle traditionnel de partage présente plusieurs inconvénients :
 * Quand vous supprimez l’accès à une application, vous devez mettre à jour les informations d’identification et les redistribuer à toutes les personnes qui ont besoin d’accéder à cette application.
 
 ## <a name="azure-active-directory-account-sharing"></a>Partage de compte Azure Active Directory
+
 Azure AD introduit une nouvelle approche de l’utilisation des comptes partagés, qui élimine ces inconvénients.
 
 L’administrateur Azure AD configure les applications auxquelles un utilisateur peut accéder en utilisant le volet d’accès et en choisissant le type d’authentification unique le mieux adapté pour l’application. Un de ces types, l’ *authentification unique avec mot de passe*, permet à Azure AD d’agir comme un genre d’intermédiaire pendant le processus d’ouverture de session pour cette application.
@@ -48,7 +51,7 @@ Les utilisateurs se connectent une fois avec leur compte professionnel. Ce compt
 
 Outre accroître la supervision et améliorer la facilité d’utilisation, les comptes partagés renforcent votre sécurité. Les utilisateurs autorisés à utiliser les informations d’identification ne voient pas le mot de passe partagé, mais plutôt obtiennent l’autorisation d’utiliser le mot de passe dans le cadre d’un flux d’authentification orchestré. De plus, certaines applications d’authentification unique par mot de passe vous permettent d’utiliser Azure AD pour substituer (mettre à jour) régulièrement les mots de passe. Le système utilise des mots de passe longs et complexes, ce qui renforce la sécurité du compte. L’administrateur peut facilement accorder ou révoquer l’accès à une application et sait qui a accès au compte et qui y a accédé dans le passé.
 
-Azure AD prend en charge les comptes partagés pour tous les utilisateurs détenteurs d’une licence Enterprise Mobility Suite (EMS), Premium ou De base, quel que le soit le type d’applications d’authentification unique avec mot de passe. Vous pouvez partager des comptes pour des milliers d’applications déjà intégrées dans la galerie d’applications et vous pouvez ajouter votre propre application d’authentification avec mot de passe aux [applications d’authentification unique personnalisées](../manage-apps/configure-single-sign-on-portal.md).
+Azure AD prend en charge les comptes partagés pour tous les plans de licence Enterprise Mobility Suite (EMS) ou Azure AD Premium, quel que le soit le type d’applications d’authentification unique avec mot de passe. Vous pouvez partager des comptes pour des milliers d’applications déjà intégrées dans la galerie d’applications et vous pouvez ajouter votre propre application d’authentification avec mot de passe aux [applications d’authentification unique personnalisées](../manage-apps/configure-single-sign-on-portal.md).
 
 Les fonctionnalités Azure AD qui permettent le partage de compte sont les suivantes :
 
@@ -62,16 +65,17 @@ Les fonctionnalités Azure AD qui permettent le partage de compte sont les suiva
 * [Marketplace Active Directory](https://azure.microsoft.com/marketplace/active-directory/all/)
 
 ## <a name="sharing-an-account"></a>Partage d’un compte
+
 Pour utiliser Azure AD pour partager un compte, vous devez effectuer les opérations suivantes :
 
 * Ajouter une application à la [galerie d’applications](https://azure.microsoft.com/marketplace/active-directory/) ou aux [applications personnalisées](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-now-in-preview/).
 * Configurer l’application pour l’authentification unique avec mot de passe.
 * Utiliser [l’affectation basée sur le groupe](groups-saasapps.md) et sélectionner l’option permettant d’entrer des informations d’identification partagées.
-* Facultatif : dans certaines applications, telles que Facebook, Twitter ou LinkedIn, vous pouvez activer l’option de [substitution automatisée du mot de passe Azure AD](https://cloudblogs.microsoft.com/enterprisemobility/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview/)
 
 Vous pouvez également sécuriser votre compte partagé avec Multi-Factor Authentication (MFA) (en savoir plus sur la [sécurisation des applications avec Azure AD](../authentication/concept-mfa-whichversion.md)) et déléguer la capacité de gérer les utilisateurs ayant accès à l’application à l’aide de la gestion de groupe [Libre-service Azure AD](groups-self-service-management.md).
 
-## <a name="related-articles"></a>Articles connexes
+## <a name="next-steps"></a>Étapes suivantes
+
 * [Gestion des applications dans Azure Active Directory](../manage-apps/what-is-application-management.md)
 * [Protection des applications avec un accès conditionnel](../active-directory-conditional-access-azure-portal.md)
 * [Gestion des groupes en libre service/accès aux applications en libre-service](groups-self-service-management.md)

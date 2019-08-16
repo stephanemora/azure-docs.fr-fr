@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: asrastog
-ms.openlocfilehash: 094641baaa1472b481140072cd5d3d35d27d5ed7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d2d4d39cc7b330794094745851856365ef54b42f
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66390522"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68828185"
 ---
 # <a name="use-iot-hub-message-routing-to-send-device-to-cloud-messages-to-different-endpoints"></a>Utiliser le routage des messages IoT Hub pour envoyer des messages appareil-à-cloud à différents points de terminaison
 
@@ -42,6 +42,8 @@ Vous pouvez utiliser [l’intégration et les SDK standard Event Hubs](iot-hub-d
 IoT Hub prend en charge l’écriture de données sur Stockage Blob Azure au format [Apache Avro](https://avro.apache.org/) ainsi qu’au format JSON. La fonctionnalité permettant d’encoder au format JSON est généralement disponible dans toutes les régions où IoT Hub est disponible. La valeur par défaut est AVRO. Le format d’encodage ne peut être défini qu’au moment de configurer le point de terminaison du stockage d’objets blob. Le format ne peut pas être modifié pour un point de terminaison existant. Quand vous utilisez l’encodage JSON, vous devez définir contentType sur JSON, et contentEncoding sur UTF-8 dans les [propriétés système](iot-hub-devguide-routing-query-syntax.md#system-properties) de message. S’il n’est pas défini, IoT Hub écrit les messages dans un format codé base-64. Vous pouvez sélectionner le format d’encodage à l’aide de l’API REST de création ou de mise à jour d’IoT Hub, en particulier [RoutingStorageContainerProperties](https://docs.microsoft.com/rest/api/iothub/iothubresource/createorupdate#routingstoragecontainerproperties), le portail Azure, [Azure CLI](https://docs.microsoft.com/cli/azure/iot/hub/routing-endpoint?view=azure-cli-latest) ou [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.iothub/add-aziothubroutingendpoint?view=azps-1.3.0). Le schéma suivant illustre la façon de sélectionner le format d’encodage dans le portail Azure.
 
 ![Encodage du point de terminaison de stockage Blob](./media/iot-hub-devguide-messages-d2c/blobencoding.png)
+
+IoT Hub prend également en charge le routage des messages vers les comptes ADLS Gen2 qui sont des comptes de stockage compatibles avec l’[espace de noms hiérarchique](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-namespace) basés sur le Stockage Blob. Cette fonctionnalité en préversion public est disponible pour les nouveaux comptes ADLS Gen2 dans les régions USA Ouest 2 et USA Centre-Ouest. Nous la déploierons bientôt dans toutes les régions du cloud.
 
 IoT Hub regroupe les messages dans des lots et écrit les données dans un objet blob quand le lot atteint une certaine taille ou après un certain laps de temps. IoT Hub utilise par défaut la convention d’affectation de noms de fichiers suivante :
 

@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 05/04/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 6723adb3fb8987a127eee419c9ac188c7a33d50b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b1fa24f919888e4454096e1ef84d2ba2948b865a
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67076136"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68774289"
 ---
 # <a name="how-to-provision-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>Guide pratique pour provisionner une machine virtuelle Windows SQL Server dans le portail Azure
 
@@ -85,7 +85,7 @@ Sous l’onglet **De base**, fournissez les informations suivantes :
 * Sous **Détails du projet**, vérifiez que l’abonnement approprié est sélectionné. 
 *  Dans la section **Groupe de ressources**, sélectionnez un groupe de ressources existant dans la liste déroulante ou choisissez **Créer** pour en créer un. Un groupe de ressources est une collection de ressources liées dans Azure (machines virtuelles, comptes de stockage, réseaux virtuels, etc.). 
 
-    ![Abonnement](media/quickstart-sql-vm-create-portal/basics-project-details.png)
+    ![Subscription](media/quickstart-sql-vm-create-portal/basics-project-details.png)
 
   > [!NOTE]
   > L’utilisation d’un nouveau groupe de ressources est utile si vous testez ou découvrez les déploiements SQL Server dans Azure. Une fois que vous avez terminé votre test, supprimez le groupe de ressources pour supprimer automatiquement la machine virtuelle et toutes les ressources associées à ce groupe de ressources. Pour plus d’informations sur les groupes de ressources, consultez [Vue d’ensemble d’Azure Resource Manager](../../../azure-resource-manager/resource-group-overview.md).
@@ -94,9 +94,9 @@ Sous l’onglet **De base**, fournissez les informations suivantes :
 * Sous **Détails de l’instance** :
     1. Entrez un **nom** unique pour la machine virtuelle.  
     1. Choisissez un emplacement pour votre **Région**. 
-    1. Pour les besoins de ce guide, laissez **Options de disponibilité** défini sur _Aucune redondance d’infrastructure requise_. Pour plus d’informations sur les options de disponibilité, consultez [Régions Azure et disponibilité](../../windows/regions-and-availability.md). 
+    1. Pour les besoins de ce guide, laissez **Options de disponibilité** défini sur _Aucune redondance d’infrastructure requise_. Pour plus d’informations sur les options de disponibilité, voir [Disponibilité](../../windows/availability.md). 
     1. Dans la liste **Image**, sélectionnez _Licence SQL Server gratuite : SQL Server 2017 Developer sous Windows Server 2016_.  
-    1. Choisissez **Modifier la taille** pour la **taille** de la machine virtuelle, puis sélectionnez l’offre **A2 de base**. Nettoyez vos ressources lorsque vous n’en avez plus besoin afin d’éviter des frais imprévus. Pour les charges de travail de production, consultez les tailles de machine et la configuration recommandées dans l’article [Bonnes pratiques relatives aux performances de SQL Server dans les machines virtuelles Azure](virtual-machines-windows-sql-performance.md).
+    1. Choisissez **Modifier la taille** pour la **taille** de la machine virtuelle, puis sélectionnez l’offre **A2 de base**. Nettoyez vos ressources lorsque vous n’en avez plus besoin afin d’éviter des frais imprévus. Pour les charges de travail de production, consultez les tailles de machine et la configuration recommandées dans l’article [Meilleures pratiques relatives aux performances de SQL Server dans les machines virtuelles Azure](virtual-machines-windows-sql-performance.md).
 
     ![Détails de l’instance](media/quickstart-sql-vm-create-portal/basics-instance-details.png)
 
@@ -133,17 +133,17 @@ Sous l’onglet **Réseau**, configurez vos options pour le réseau.
 
 * Créez un **réseau virtuel** ou utilisez un réseau virtuel existant pour votre machine virtuelle SQL Server. Désignez aussi un **sous-réseau**. 
 
-* Sous **Groupe de sécurité de carte réseau**, sélectionnez un groupe de sécurité De base ou le groupe de sécurité Avancé. Choisir l’option de base vous permet de sélectionner des ports d’entrée pour la machine virtuelle SQL Server (les mêmes valeurs que celles qui ont été configurées sous l’onglet **De base**). Sélectionner l’option Avancé vous permet de choisir un groupe de sécurité réseau existant ou d’en créer un. 
+* Sous **Groupe de sécurité réseau de la carte réseau**, sélectionnez un groupe de sécurité de base ou le groupe de sécurité Avancé. Choisir l’option de base vous permet de sélectionner des ports d’entrée pour la machine virtuelle SQL Server (les mêmes valeurs que celles qui ont été configurées sous l’onglet **De base**). Sélectionner l’option Avancé vous permet de choisir un groupe de sécurité réseau existant ou d’en créer un. 
 
 * Vous pouvez changer d’autres paramètres réseau ou conserver les valeurs par défaut.
 
 ![Paramètres réseau des machines virtuelles SQL](media/virtual-machines-windows-portal-sql-server-provision/azure-sqlvm-networking.png)
 
-#### <a name="monitoring"></a>Supervision
+#### <a name="monitoring"></a>Surveillance
 
 Sous l’onglet **Supervision**, configurez la supervision et l’arrêt automatique. 
 
-* Azure active par défaut **Supervision du démarrage** avec le même compte de stockage désigné pour la machine virtuelle. Vous pouvez changer ces paramètres ici et activer **Diagnostic du système d’exploitation invité**. 
+* Par défaut, Azure active **Diagnostics de démarrage** avec le compte de stockage désigné pour la machine virtuelle. Vous pouvez changer ces paramètres ici et activer **Diagnostic du système d’exploitation invité**. 
 * Vous pouvez également activer sous cet onglet **Identité managée affectée par le système** et **Arrêt automatique**. 
 
 ![Paramètres d’administration des machines virtuelles SQL](media/virtual-machines-windows-portal-sql-server-provision/azure-sqlvm-management.png)

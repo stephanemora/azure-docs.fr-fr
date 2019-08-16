@@ -9,16 +9,16 @@ ms.author: robreed
 ms.date: 03/11/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a82358a2194f10a2112ed89109f0f2933dfd5fe2
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 8187e4c6f2c7dc721c178bad50b6c3ada2a65367
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67478611"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68717239"
 ---
 # <a name="move-your-azure-automation-account-to-another-subscription"></a>Déplacer votre compte Azure Automation vers un autre abonnement
 
-Azure vous permet de déplacer certaines ressources vers un nouveau groupe de ressources ou un nouvel abonnement. Vous pouvez déplacer des ressources via le portail Azure, PowerShell, Azure CLI ou l’API REST. Pour en savoir plus sur le processus, consultez [Déplacer des ressources vers un nouveau groupe de ressources ou un nouvel abonnement](../../azure-resource-manager/resource-group-move-resources.md). 
+Azure vous permet de déplacer certaines ressources vers un nouveau groupe de ressources ou un nouvel abonnement. Vous pouvez déplacer des ressources via le portail Azure, PowerShell, Azure CLI ou l’API REST. Pour en savoir plus sur le processus, consultez [Déplacer des ressources vers un nouveau groupe de ressources ou un nouvel abonnement](../../azure-resource-manager/resource-group-move-resources.md).
 
 Les comptes Azure Automation font partie des ressources que vous pouvez déplacer. Dans cet article, vous allez découvrir les étapes à suivre pour déplacer des comptes Automation vers une autre ressource ou un autre abonnement.
 
@@ -34,8 +34,8 @@ Les étapes générales du déplacement de votre compte Automation sont les suiv
 
 Pour dissocier votre espace de travail de votre compte Automation, vous devez supprimer les solutions suivantes de votre espace de travail :
 - **Change Tracking and Inventory**
-- **Gestion des mises à jour** 
-- **Start/Stop VMs during off-hours** 
+- **Gestion des mises à jour**
+- **Start/Stop VMs during off-hours**
 
 Dans votre groupe de ressources, recherchez chaque solution, puis sélectionnez **Supprimer**. Dans la page **Supprimer des ressources**, vérifiez les ressources à supprimer, puis sélectionnez **Supprimer**.
 
@@ -127,7 +127,7 @@ Les machines intégrées à vos solutions sont visibles une fois que vous vous �
 
 Pour activer la solution **Start/Stop VMs during off-hours**, vous devez la redéployer. Sous **Ressources liées**, sélectionnez **Start/Stop VMs** > **En savoir plus sur la solution et l’activer** > **Créer** pour démarrer le déploiement.
 
-Dans la page **Ajouter une solution**, choisissez votre espace de travail Log Analytics Workspace et votre compte Automation.  
+Dans la page **Ajouter une solution**, choisissez votre espace de travail Log Analytics Workspace et votre compte Automation.
 
 ![Menu Ajouter une solution](../media/move-account/add-solution-vm.png)
 
@@ -140,9 +140,10 @@ Une fois le déplacement effectué, consultez la liste suivante des tâches à v
 |Fonctionnalité|Tests|Lien de résolution des problèmes|
 |---|---|---|
 |Runbooks|Un runbook peut s’exécuter et se connecter correctement aux ressources Azure.|[Résolution des problèmes des runbooks](../troubleshoot/runbooks.md)
-| Contrôle de code source|Vous pouvez exécuter une synchronisation manuelle sur votre dépôt de contrôle de code source.|[Intégration du contrôle de code source](../source-control-integration.md)|
+|Contrôle de code source|Vous pouvez exécuter une synchronisation manuelle sur votre dépôt de contrôle de code source.|[Intégration du contrôle de code source](../source-control-integration.md)|
 |Suivi des modifications et inventaire|Vérifiez si vous voyez les données d’inventaire actuelles de vos machines.|[Résoudre les problèmes liés au suivi des modifications](../troubleshoot/change-tracking.md)|
 |Gestion des mises à jour|Vérifiez si vous voyez vos machines et si elles sont saines.</br>Exécutez un test de déploiement de mise à jour de logiciel.|[Résoudre les problèmes liés à Update Management](../troubleshoot/update-management.md)|
+|Ressources partagées|Vérifiez que vous voyez toutes vos ressources partagées, telles que [Informations d’identification](../shared-resources/credentials.md), [Variables](../shared-resources/variables.md), etc.|
 
 ## <a name="next-steps"></a>Étapes suivantes
 

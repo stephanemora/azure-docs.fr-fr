@@ -10,19 +10,19 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 48633b195df997f0e9a8f06bd4f5c553ca620e98
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5dd82cbb8370fd4c3ee0dca6a9acd0046c73c0ef
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66509393"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68716790"
 ---
 # <a name="language-customization-in-azure-active-directory-b2c"></a>Personnalisation de la langue dans Azure Active Directory B2C
 
-La personnalisation de la langue dans Azure Active Directory B2C (Azure AD B2C) permet à votre flux utilisateur de prendre en charge plusieurs langues pour répondre aux besoins de votre client.  Microsoft fournit les traductions en [36 langues](#supported-languages), mais vous pouvez également fournir vos propres traductions pour n’importe quelle langue. Même si votre expérience est disponible dans une seule langue, vous pouvez personnaliser n’importe quel texte sur les pages.  
+La personnalisation de la langue dans Azure Active Directory B2C (Azure AD B2C) permet à votre flux utilisateur de prendre en charge plusieurs langues pour répondre aux besoins de votre client.  Microsoft fournit les traductions en [36 langues](#supported-languages), mais vous pouvez également fournir vos propres traductions pour n’importe quelle langue. Même si votre expérience est disponible dans une seule langue, vous pouvez personnaliser n’importe quel texte sur les pages.
 
 ## <a name="how-language-customization-works"></a>Fonctionnement de la personnalisation de la langue
-La personnalisation de la langue vous permet de sélectionner les langues dans lesquelles votre flux utilisateur est disponible. Une fois que la fonctionnalité est activée, vous pouvez fournir le paramètre de chaîne de requête, `ui_locales`, de votre application. Lorsque vous appelez dans Azure AD B2C, votre page est traduite dans la langue régionale que vous avez indiquée. Ce type de configuration vous permet de contrôler intégralement les langues de votre flux utilisateur et ignore les paramètres de langue du navigateur du client. 
+La personnalisation de la langue vous permet de sélectionner les langues dans lesquelles votre flux utilisateur est disponible. Une fois que la fonctionnalité est activée, vous pouvez fournir le paramètre de chaîne de requête, `ui_locales`, de votre application. Lorsque vous appelez dans Azure AD B2C, votre page est traduite dans la langue régionale que vous avez indiquée. Ce type de configuration vous permet de contrôler intégralement les langues de votre flux utilisateur et ignore les paramètres de langue du navigateur du client.
 
 Vous pouvez ne pas avoir besoin de ce niveau de contrôle sur les langues que votre client voit. Si vous n’indiquez pas de paramètre `ui_locales`, l’expérience du client est régie par les paramètres de son navigateur.  Vous pouvez toujours contrôler les langues dans lesquelles votre flux utilisateur est traduit en les ajoutant en tant que langues prises en charge. Si le navigateur d’un client est défini pour afficher une langue que vous ne souhaitez pas prendre en charge, c’est la langue sélectionnée par défaut dans les cultures prises en charge qui est affichée à la place.
 
@@ -34,20 +34,20 @@ Vous pouvez ne pas avoir besoin de ce niveau de contrôle sur les langues que vo
 >Si vous utilisez des attributs utilisateur personnalisés, vous devez fournir vos propres traductions. Pour plus d’informations, consultez [Personnaliser vos chaînes](#customize-your-strings).
 >
 
-## <a name="support-requested-languages-for-uilocales"></a>Prendre en charge les langues demandées par le paramètre ui_locales 
-Les stratégies créées avant la disponibilité générale de la personnalisation de la langue doivent d’abord activer cette fonctionnalité. La personnalisation de la langue est activée par défaut dans les stratégies et flux d’utilisateurs créés après. 
+## <a name="support-requested-languages-for-ui_locales"></a>Prendre en charge les langues demandées par le paramètre ui_locales
+Les stratégies créées avant la disponibilité générale de la personnalisation de la langue doivent d’abord activer cette fonctionnalité. La personnalisation de la langue est activée par défaut dans les stratégies et flux d’utilisateurs créés après.
 
 En activant la personnalisation de la langue sur un flux utilisateur, vous pouvez contrôler la langue de ce flux utilisateur en ajoutant le paramètre `ui_locales`.
 1. Dans votre locataire Azure AD B2C, sélectionnez **Flux d’utilisateurs**.
 2. Cliquez sur le flux utilisateur pour lequel vous souhaitez activer la traduction.
-3. Sélectionnez **Langues**.  
+3. Sélectionnez **Langues**.
 4. Sélectionnez **Activer la personnalisation de la langue**.
 
-## <a name="select-which-languages-in-your-user-flow-are-enabled"></a>Sélectionnez les langues activées dans votre flux utilisateur 
+## <a name="select-which-languages-in-your-user-flow-are-enabled"></a>Sélectionnez les langues activées dans votre flux utilisateur
 Activez un ensemble de langues dans lesquelles votre flux utilisateur peut être traduit lorsque le navigateur le demande sans paramètre `ui_locales`.
 1. Vérifiez que la personnalisation de la langue est activée dans votre flux utilisateur, comme vu précédemment.
 2. Dans la page **Langues** du flux utilisateur, sélectionnez une langue que vous souhaitez prendre en charge.
-3. Dans le volet Propriétés, configurez **Activé** sur **Oui**.  
+3. Dans le volet Propriétés, configurez **Activé** sur **Oui**.
 4. Sélectionnez **Enregistrer** dans la partie supérieure du volet.
 
 >[!NOTE]
@@ -68,10 +68,10 @@ La personnalisation de la langue vous permet de personnaliser les chaînes de vo
 2. Recherchez l’élément que vous souhaitez modifier.  Vous pouvez trouver le `StringId` de la chaîne que vous recherchez, ou recherchez l’attribut `Value` que vous souhaitez modifier.
 3. Mettez à jour l’attribut `Value` avec ce que vous souhaitez afficher.
 4. Pour chaque chaîne que vous souhaitez modifier, modifiez `Override` en `true`.
-5. Enregistrez le fichier et chargez vos modifications. (Vous pouvez trouver le contrôle de téléchargement au même emplacement que celui d’où vous avez téléchargé le fichier JSON). 
+5. Enregistrez le fichier et chargez vos modifications. (Vous pouvez trouver le contrôle de téléchargement au même emplacement que celui d’où vous avez téléchargé le fichier JSON).
 
 >[!IMPORTANT]
->Si vous devez remplacer une chaîne, veillez à définir la valeur `Override` sur `true`.  Si la valeur n’est pas modifiée, l’entrée est ignorée. 
+>Si vous devez remplacer une chaîne, veillez à définir la valeur `Override` sur `true`.  Si la valeur n’est pas modifiée, l’entrée est ignorée.
 >
 
 ### <a name="change-extension-attributes"></a>Modifier les attributs d’extension
@@ -90,7 +90,7 @@ Si vous souhaitez modifier la chaîne d’un attribut utilisateur personnalisé,
 }
 ```
 
-Remplacez `<ExtensionAttribute>` par le nom de votre attribut utilisateur personnalisé.  
+Remplacez `<ExtensionAttribute>` par le nom de votre attribut utilisateur personnalisé.
 
 Remplacez `<ExtensionAttributeValue>` par la nouvelle chaîne à afficher.
 
@@ -101,7 +101,7 @@ Si vous souhaitez fournir une liste définie de valeurs pour les réponses, vous
 {
   "LocalizedStrings": [...],
   "LocalizedCollections": [{
-      "ElementType":"ClaimType", 
+      "ElementType":"ClaimType",
       "ElementId":"<UserAttribute>",
       "TargetCollection":"Restriction",
       "Override": true,
@@ -130,12 +130,12 @@ Si vous souhaitez fournir une liste définie de valeurs pour les réponses, vous
 4. Sélectionnez la langue dans laquelle vous voulez traduire.
 5. Sélectionnez la page pour laquelle vous souhaitez fournir des traductions.
 6. Sélectionnez l’icône de dossier et sélectionnez le fichier JSON à charger.
- 
+
 Ces changements sont automatiquement enregistrés dans votre flux utilisateur.
 
 ## <a name="customize-the-page-ui-by-using-language-customization"></a>Personnaliser l’interface utilisateur de la page à l’aide de la personnalisation de la langue
 
-Il existe deux façons de traduire votre contenu HTML. Vous pouvez tout d’abord activer la [personnalisation de la langue](active-directory-b2c-reference-language-customization.md). L’activation de cette fonctionnalité permet à Azure AD B2C de transmettre le paramètre Open ID Connect, `ui-locales`, à votre point de terminaison.  Votre serveur de contenu peut utiliser ce paramètre pour fournir des pages HTML personnalisées qui sont spécifiques à la langue.
+Il existe deux façons de traduire votre contenu HTML. Vous pouvez tout d’abord activer la [personnalisation de la langue](active-directory-b2c-reference-language-customization.md). L’activation de cette fonctionnalité permet à Azure AD B2C de transmettre le paramètre Open ID Connect `ui-locales` à votre point de terminaison.  Votre serveur de contenu peut utiliser ce paramètre pour fournir des pages HTML personnalisées qui sont spécifiques à la langue.
 
 Vous pouvez également extraire le contenu de plusieurs emplacements selon les paramètres régionaux utilisés. Dans votre point de terminaison avec CORS activé, vous pouvez configurer une structure de dossiers pour héberger du contenu pour des langues spécifiques. Vous devez appeler celui qui convient si vous utilisez la valeur générique `{Culture:RFC5646}`.  Imaginons, par exemple, qu’il s’agit de l’URI de votre page personnalisée :
 
@@ -149,7 +149,7 @@ https://wingtiptoysb2c.blob.core.windows.net/fr/wingtip/unified.html
 
 ## <a name="add-custom-languages"></a>Ajouter des langues personnalisées
 
-Vous pouvez également ajouter des langues pour lesquelles Microsoft ne fournit pas encore de traductions. Vous devrez fournir les traductions de toutes les chaînes du flux utilisateur.  Les codes de langues et de paramètres régionaux se limitent à ceux de la norme ISO 639-1. 
+Vous pouvez également ajouter des langues pour lesquelles Microsoft ne fournit pas encore de traductions. Vous devrez fournir les traductions de toutes les chaînes du flux utilisateur.  Les codes de langues et de paramètres régionaux se limitent à ceux de la norme ISO 639-1.
 
 1. Dans votre locataire Azure AD B2C, sélectionnez **Flux d’utilisateurs**.
 2. Sélectionnez le flux utilisateur dans lequel vous souhaitez ajouter des langues personnalisées, puis cliquez sur **Langues**.
@@ -173,7 +173,7 @@ Microsoft s’engage à fournir des traductions à jour pour que vous puissiez l
 ### <a name="support-for-right-to-left-languages"></a>Prise en charge des langues s’écrivant de droite à gauche
 Microsoft n’assure actuellement pas la prise en charge des langues s’écrivant de droite à gauche. Pour cela, vous pouvez utiliser des paramètres régionaux personnalisés et modifier la manière dont les chaînes sont affichées à l’aide de CSS.  Si vous avez besoin de cette fonctionnalité, votez pour elle sur [Azure Feedback](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/19393000-provide-language-support-for-right-to-left-languag).
 ### <a name="social-identity-provider-translations"></a>Traductions des fournisseurs d’identité de réseaux sociaux
-Microsoft fournit le paramètre OIDC `ui_locales` pour les connexions aux réseaux sociaux. Mais certains fournisseurs d’identité de réseaux sociaux, notamment Facebook et Google, ne les respectent pas. 
+Microsoft fournit le paramètre OIDC `ui_locales` pour les connexions aux réseaux sociaux. Mais certains fournisseurs d’identité de réseaux sociaux, notamment Facebook et Google, ne les respectent pas.
 ### <a name="browser-behavior"></a>Comportement du navigateur
 Chrome et Firefox nécessitent la langue qui a été définie. S’il s’agit d’une langue prise en charge, elle s’affiche avant la langue par défaut. Actuellement, Microsoft Edge n’exige pas de langue particulière et affiche directement la langue par défaut.
 
@@ -189,7 +189,7 @@ Chrome et Firefox nécessitent la langue qui a été définie. S’il s’agit d
 | Français               | en            |
 | Espagnol               | es            |
 | Finnois               | fi            |
-| Anglais                | fr            |
+| Français                | fr            |
 | Goudjrati              | gu            |
 | Hindi                 | hi            |
 | Croate              | hr            |

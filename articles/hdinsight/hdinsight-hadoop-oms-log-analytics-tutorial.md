@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 06/03/2019
-ms.openlocfilehash: 16659a335ef6126e75f5a9a99784e71afa056bef
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 08/05/2019
+ms.openlocfilehash: 7d015f485a51ae1f929e2ecaf1a05811d21594a2
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66479262"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68816034"
 ---
 # <a name="use-azure-monitor-logs-to-monitor-hdinsight-clusters"></a>Utiliser les journaux d’activité Azure Monitor pour superviser les clusters HDInsight
 
@@ -105,6 +105,10 @@ Pour obtenir des instructions sur l’installation d’une solution de gestion, 
 ![Vue de la solution de supervision HDInsight](media/hdinsight-hadoop-oms-log-analytics-tutorial/hdinsight-oms-hdinsight-hadoop-monitoring-solution.png)
 
 Étant donné que le cluster est tout nouveau, le rapport ne contient aucune activité.
+
+## <a name="configuring-performance-counters"></a>Configuration des compteurs de performances
+
+Azure Monitor prend également en charge la collecte et l’analyse des métriques de performances pour les nœuds de votre cluster. Pour plus d’informations sur l’activation et la configuration de cette fonctionnalité, voir [Sources de données de performances Linux dans Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-sources-performance-counters#linux-performance-counters).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 07/02/2019
 ms.author: danlep
-ms.openlocfilehash: 4585749c83432c19b6e62f57c1d954b3afc5ee33
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: 3bb81f33823fff5fb47f5bbbf6bb9b798b26d8af
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68608402"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840361"
 ---
 # <a name="health-check-error-reference"></a>Référence d’erreur pour le contrôle d’intégrité
 
@@ -90,6 +90,12 @@ Cette erreur signifie que le serveur de connexion du Registre n’a pas répondu
 Cette erreur signifie que le serveur de connexion du Registre n’a pas répondu avec un jeton d’accès, de sorte que l’accès au Registre cible a été refusé. Cette erreur peut se produire si l’utilisateur ne dispose pas des autorisations appropriées sur le Registre ou si les informations d’identification d’utilisateur pour Azure CLI sont obsolètes.
 
 *Solutions potentielles* : vérifier si l’utilisateur dispose des autorisations appropriées sur le Registre ; exécuter `az login` pour actualiser les autorisations, les jetons et les informations d’identification.
+
+## <a name="connectivity_ssl_error"></a>CONNECTIVITY_SSL_ERROR
+
+Cette erreur signifie que le client n’a pas pu établir de connexion sécurisée au registre de conteneurs. Cette erreur se produit généralement si vous exécutez ou utilisez un serveur proxy.
+
+*Solutions potentielles* : Pour plus d’informations sur le travail derrière un proxy, voir [ici](https://github.com/Azure/azure-cli/blob/master/doc/use_cli_effectively.md#working-behind-a-proxy).
 
 ## <a name="login_server_error"></a>LOGIN_SERVER_ERROR
 

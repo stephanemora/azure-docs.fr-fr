@@ -4,7 +4,7 @@ description: Console série bidirectionnelle pour les machines virtuelles Azure 
 services: virtual-machines-windows
 documentationcenter: ''
 author: asinn826
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-windows
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: 32d385416c83f81553e734d9471d0b502a458b07
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a6e303c26278eff290a2d4efb6f96e9962cf2f87
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66390501"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68775362"
 ---
 # <a name="azure-serial-console-for-windows"></a>Console série Azure pour Windows
 
@@ -128,7 +128,7 @@ Si vous souhaitez que les invites de commandes du chargeur de démarrage Windows
 
 1.  Entrez `cmd` pour créer un canal qui a une instance CMD.
 
-1.  Entrez `ch -si 1` pour basculer vers le canal qui exécute l’instance CMD.
+1.  Entrez `ch -si 1` ou appuyez sur les touches de raccourci `<esc>+<tab>` pour basculer vers le canal qui exécute l’instance CMD.
 
 1.  Appuyez sur **Entrée**, puis entrez des informations de connexion disposant d’autorisations administratives.
 

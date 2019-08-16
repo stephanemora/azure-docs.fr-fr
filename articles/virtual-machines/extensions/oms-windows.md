@@ -4,7 +4,7 @@ description: Déployez l’agent Log Analytics sur une machine virtuelle Windows
 services: virtual-machines-windows
 documentationcenter: ''
 author: roiyz-msft
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: feae6176-2373-4034-b5d9-a32c6b4e1f10
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 04/29/2019
+ms.date: 08/06/2019
 ms.author: roiyz
-ms.openlocfilehash: fb931d5ce72b21cb17abbcd11095dbc8d611f0c9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 43da116753723470efddc92bffc11038a80a35fb
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67064423"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68827060"
 ---
 # <a name="azure-monitor-virtual-machine-extension-for-windows"></a>Extension de machine virtuelle Azure Monitor pour Windows
 
@@ -32,16 +32,14 @@ Les journaux Azure Monitor fournissent des fonctionnalités permettant de superv
 
 ### <a name="operating-system"></a>Système d’exploitation
 
-L’extension de l’agent Log Analytics pour Windows prend en charge les versions suivantes du système d’exploitation Windows :
-
-- Windows Server 2019
-- Windows Server 2008 R2, 2012, 2012 R2, 2016, version 1709 et 1803
+Pour plus d’informations sur les systèmes d’exploitation Windows pris en charge, voir l’article [vue d’ensemble de l’agent Log Analytics](../../azure-monitor/platform/log-analytics-agent.md#supported-windows-operating-systems).
 
 ### <a name="agent-and-vm-extension-version"></a>Version de l’agent et de l’extension de machine virtuelle
 Le tableau ci-après établit une correspondance entre chaque version de l’extension de machine virtuelle Azure Monitor pour Windows et chaque version du bundle de l’agent Log Analytics. 
 
 | Version du bundle de l’agent Log Analytics pour Windows | Version de l’extension de machine virtuelle Azure Monitor pour Windows | Date de lancement | Notes de publication |
 |--------------------------------|--------------------------|--------------------------|--------------------------|
+| 10.20.18011 | 1.0.18011 | Juillet 2019 | <ul><li> Correctifs de bogues mineurs et meilleure stabilité </li><li> Augmentation de MaxExpressionDepth à 10 000 </li></ul> |
 | 10.20.18001 | 1.0.18001 | Juin 2019 | <ul><li> Correctifs de bogues mineurs et meilleure stabilité </li><li> Ajout de la possibilité de désactiver les informations d’identification par défaut lors d’une connexion proxy (prise en charge de WINHTTP_AUTOLOGON_SECURITY_LEVEL_HIGH) </li></ul>|
 | 10.19.13515 | 1.0.13515 | Mars 2019 | <ul><li>Correctifs mineurs relatifs à la stabilité </li></ul> |
 | 10.19.10006 | n/a | Décembre 2018 | <ul><li> Correctifs mineurs relatifs à la stabilité </li></ul> | 
@@ -105,7 +103,7 @@ Les extensions de machines virtuelles Azure peuvent être déployées avec des m
 >[!NOTE]
 >Si vous souhaitez configurer l’agent de sorte qu’il communique avec plusieurs espaces de travail, notez que le modèle ne permet pas de spécifier plusieurs ID d’espace de travail et plusieurs clés d’espace de travail. Pour configurer l’agent de sorte qu’il communique avec plusieurs espaces de travail, consultez [Ajout ou suppression d’un espace de travail](../../azure-monitor/platform/agent-manage.md#adding-or-removing-a-workspace).  
 
-Le code JSON pour une extension de machine virtuelle peut être imbriqué à l’intérieur de la ressource de machine virtuelle ou placé à la racine ou au niveau supérieur d’un modèle de Resource Manager JSON. Le positionnement du JSON affecte la valeur du nom de la ressource et son type. Pour plus d’informations, consultez [Définition du nom et du type des ressources enfants](../../azure-resource-manager/resource-group-authoring-templates.md#child-resources). 
+Le code JSON pour une extension de machine virtuelle peut être imbriqué à l’intérieur de la ressource de machine virtuelle ou placé à la racine ou au niveau supérieur d’un modèle de Resource Manager JSON. Le positionnement du JSON affecte la valeur du nom de la ressource et son type. Pour plus d’informations, consultez [Définition du nom et du type des ressources enfants](../../azure-resource-manager/child-resource-name-type.md). 
 
 L’exemple suivant suppose que l’extension Azure Monitor est imbriquée dans la ressource de machine virtuelle. Lors de l’imbrication de la ressource d’extension, le JSON est placé dans l’objet `"resources": []` de la machine virtuelle.
 

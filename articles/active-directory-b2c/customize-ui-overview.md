@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 13ae1b74acbcab8d623c24d6a7b8d7e1355b80e8
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: bbce41271914df4bb8a75804bc66ae538fe766fa
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68227155"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68716762"
 ---
 # <a name="about-user-interface-customization-in-azure-active-directory-b2c"></a>À propos de la personnalisation de l’interface utilisateur dans Azure Active Directory B2C
 
@@ -124,7 +124,7 @@ Le tableau suivant répertorie les fragments HTML qu’Azure AD B2C fusionne dan
 
 ## <a name="how-do-i-localize-content"></a>Comment localiser le contenu ?
 
-Vous localisez votre contenu HTML en activant la [personnalisation de la langue](active-directory-b2c-reference-language-customization.md) dans votre locataire Azure AD B2C. L’activation de cette fonctionnalité permet à Azure AD B2C de transmettre le paramètre Open ID Connect `ui-locales` à votre point de terminaison. Votre serveur de contenu peut utiliser ce paramètre pour fournir des pages HTML propres à la langue.
+Vous localisez votre contenu HTML en activant la [personnalisation de la langue](active-directory-b2c-reference-language-customization.md) dans votre locataire Azure AD B2C. L’activation de cette fonctionnalité permet à Azure AD B2C de transmettre le paramètre OpenID Connect `ui-locales` à votre point de terminaison. Votre serveur de contenu peut utiliser ce paramètre pour fournir des pages HTML propres à la langue.
 
 Le contenu peut être extrait de différents emplacements en fonction des paramètres régionaux utilisés. Dans votre point de terminaison avec CORS activé, vous configurez une structure de dossiers pour héberger du contenu pour des langues spécifiques. Vous devez appeler celui qui convient si vous utilisez la valeur générique {Culture:RFC5646}. Par exemple, votre URI de page personnalisée peut ressembler à `https://contoso.blob.core.windows.net/{Culture:RFC5646}/myHTML/unified.html`. Vous pouvez charger la page en français en extrayant le contenu à partir de `https://contoso.blob.core.windows.net/fr/myHTML/unified.html`.
 

@@ -12,12 +12,12 @@ ms.date: 05/22/2019
 ms.author: baselden
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e5278d504c43688bf064b869982938db52b1b1bf
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 733b0d7650d68bddae60cf524947590c2b689968
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67164954"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779379"
 ---
 # <a name="plan-a-single-sign-on-deployment"></a>Planifier un déploiement de l’authentification unique
 
@@ -54,7 +54,7 @@ Il existe deux principales façons de permettre à vos utilisateurs d’utiliser
 ### <a name="considerations-for-federation-based-sso"></a>Points à noter concernant l’authentification unique basée sur la fédération
 
 - **Utilisation d’OpenID Connect et d’OAuth** : si l’application à laquelle vous vous connectez la prend en charge, utilisez la méthode OIDC/OAuth 2.0 afin d’activer l’authentification unique pour cette application. Cette méthode nécessite moins de configuration et offre une expérience utilisateur plus riche. Pour plus d’informations, consultez [OAuth 2.0](../develop/v2-oauth2-auth-code-flow.md), [OpenID Connect 1.0](../develop/v2-protocols-oidc.md) et [Guide du développeur Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide).
-- **Configuration des point de terminaison pour l’authentification unique SAML** - Si vous utilisez le SAML, vos développeurs auront besoin de certaines informations avant de configurer l’application. Pour plus d’informations, consultez [Configurer des options SAML de base](configure-single-sign-on-portal.md).
+- **Configuration des point de terminaison pour l’authentification unique SAML** - Si vous utilisez le SAML, vos développeurs auront besoin de certaines informations avant de configurer l’application. Pour plus d’informations, voir [Modifier la configuration SAML de base](configure-single-sign-on-non-gallery-applications.md).
 - **Gestion des certificats pour l’authentification unique SAML** : lorsque vous activez l’authentification unique fédérée pour votre application, Azure AD crée un certificat qui est par défaut valide pendant trois ans. Vous pouvez personnaliser la date d’expiration de ce certificat si nécessaire. Vérifiez que vous disposez de processus permettant de renouveler les certificats avant leur expiration. Pour plus d’informations, consultez [Gestion des certificats Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-sso-certs).
 
 ### <a name="considerations-for-password-based-sso"></a>Points à noter concernant l’authentification basée sur les mots de passe
@@ -95,7 +95,7 @@ Du point de vue de la connexion, les applications avec comptes partagés ne sont
 
 Le choix de la méthode d’authentification est une première décision essentielle dans la configuration d’une solution d’identité hybride Azure AD. L’implémentation de la méthode d’authentification est configurée à l’aide d’Azure AD Connect, qui provisionne également les utilisateurs dans le cloud.
 
-Pour choisir une méthode d’authentification, vous devez prendre en compte l’infrastructure existante, le temps nécessaire à l’implémentation, sa complexité et les coûts associés. Ces facteurs sont différents pour chaque organisation et peuvent varier au fil du temps. Vous devez choisir celle qui est la mieux adaptée à votre cas. Pour plus d’informations, consultez [Choisir la méthode d’authentification adaptée à votre solution d’identité hybride Azure Active Directory](https://docs.microsoft.com/azure/security/azure-ad-choose-authn).
+Pour choisir une méthode d’authentification, vous devez prendre en compte l’infrastructure existante, le temps nécessaire à l’implémentation, sa complexité et les coûts associés. Ces facteurs sont différents pour chaque organisation et peuvent varier au fil du temps. Vous devez choisir celle qui est la mieux adaptée à votre cas. Pour plus d’informations, consultez [Choisir la méthode d’authentification adaptée à votre solution d’identité hybride Azure Active Directory](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn).
 
 ## <a name="plan-your-security-and-governance"></a>Planifier la sécurité et la gouvernance 
 

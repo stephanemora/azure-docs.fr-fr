@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/06/2019
 ms.author: mlearned
-ms.openlocfilehash: 6516bbcb4ea879279812d61d9fe31f1ea4268280
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 7dcf962345a2453fca52825c4be33a439d25df54
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "67616253"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68740935"
 ---
 # <a name="preview---secure-access-to-the-api-server-using-authorized-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Préversion - Sécuriser l’accès au serveur d’API à l’aide de plages d’adresses IP autorisées dans Azure Kubernetes Service (AKS)
 
@@ -218,13 +218,13 @@ Pour activer des plages d’adresses IP autorisées pour le serveur d’API, vou
 
 Utilisez la commande [az aks update][az-aks-update] et spécifiez les plages d’adresses IP *--api-server-authorized-ip-ranges* à autoriser. Ces plages d’adresses IP sont généralement des plages d’adresses utilisées par vos réseaux locaux. Ajoutez l’adresse IP publique de votre propre pare-feu Azure obtenue à l’étape précédente, par exemple *20.42.25.196/32*.
 
-L’exemple suivant active les plages d’adresses IP autorisées pour le serveur d’API sur le cluster nommé *myAKSCluster* dans le groupe de ressources nommé *myResourceGroup*. Les plages d’adresses IP à autoriser sont *20.42.25.196/32* (l’adresse IP publique du pare-feu Azure), puis *172.0.0.10/16* et *168.10.0.10/18* :
+L’exemple suivant active les plages d’adresses IP autorisées pour le serveur d’API sur le cluster nommé *myAKSCluster* dans le groupe de ressources nommé *myResourceGroup*. Les plages d’adresses IP à autoriser sont *20.42.25.196/32* (adresse IP publique du pare-feu Azure), puis *172.0.0.0/16* et *168.10.0.0/18* :
 
 ```azurecli-interactive
 az aks update \
     --resource-group myResourceGroup \
     --name myAKSCluster \
-    --api-server-authorized-ip-ranges 20.42.25.196/32,172.0.0.10/16,168.10.0.10/18
+    --api-server-authorized-ip-ranges 20.42.25.196/32,172.0.0.0/16,168.10.0.0/18
 ```
 
 ## <a name="update-or-disable-authorized-ip-ranges"></a>Mettre à jour ou désactiver des plages d’adresses IP autorisées
