@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 97866a1f1299c028cdc8f86245308ae4a8b5db88
-ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
+ms.openlocfilehash: 0448ffbccddc913bd6359f5f6bbf42988239afb4
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67502681"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68706404"
 ---
 # <a name="link-a-partner-id-to-your-azure-accounts"></a>Lier un ID partenaire à vos comptes Azure
 
@@ -54,7 +54,7 @@ Lorsque vous avez accès aux ressources du client, utilisez le portail Azure, Po
 
 ### <a name="use-powershell-to-link-to-a-new-partner-id"></a>Utiliser PowerShell pour lier vers un nouvel ID partenaire
 
-1. Installez le module PowerShell [AzureRM.ManagementPartner](https://www.powershellgallery.com/packages/AzureRM.ManagementPartner).
+1. Installez le module PowerShell [Az.ManagementPartner](https://www.powershellgallery.com/packages/Az.ManagementPartner/).
 
 2. Connectez-vous au locataire du client avec le compte d’utilisateur ou le principal du service. Pour plus d’informations, consultez [Se connecter avec PowerShell](https://docs.microsoft.com/powershell/azure/authenticate-azureps).
 

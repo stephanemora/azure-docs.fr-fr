@@ -8,13 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 07/26/2019
-ms.openlocfilehash: ce0ebd29427092ddc99929674735bab798d38190
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.date: 08/01/2019
+ms.openlocfilehash: 083c908609ebcf1bdc6dcad5e37ae03daa41758f
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562552"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68706508"
 ---
 # <a name="deploy-azure-resource-manager-templates-for-azure-logic-apps"></a>Déployer des modèles Azure Resource Manager pour Azure Logic Apps
 
@@ -91,10 +91,14 @@ Pour plus d’informations, consultez les rubriques suivantes :
 
 Pour déployer des modèles d’application logique et gérer les environnements, les équipes se servent généralement d’un outil comme [Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/get-started/what-is-azure-pipelines) dans [Azure DevOps](https://docs.microsoft.com/azure/devops/user-guide/what-is-azure-devops-services). Azure Pipelines fournit une [tâche de déploiement de groupe de ressources Azure](https://github.com/Microsoft/azure-pipelines-tasks/tree/master/Tasks/AzureResourceGroupDeploymentV2) que vous pouvez ajouter à n’importe quel pipeline de build ou de mise en production. Pour l’autorisation de déployer et générer le pipeline de mise en production, vous avez également besoin d’un [principal de service](../active-directory/develop/app-objects-and-service-principals.md) Azure Active Directory. Découvrez-en plus sur l’[utilisation des principaux de service avec Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/library/connect-to-azure).
 
-Pour plus d’informations sur l’intégration continue et le déploiement continu (CI/CD) pour les modèles Azure Resource Manager avec Azure Pipelines, consultez les rubriques suivantes :
+Pour plus d'informations sur l'intégration continue et le déploiement continu (CI/CD) pour les modèles Azure Resource Manager avec Azure Pipelines, consultez les rubriques et exemples suivants :
 
 * [Intégrer des modèles Azure Resource Manager avec Azure Pipelines](../azure-resource-manager/vs-resource-groups-project-devops-pipelines.md)
 * [Tutoriel : Intégration continue pour les modèles Azure Resource Manager avec Azure Pipelines](../azure-resource-manager/resource-manager-tutorial-use-azure-pipelines.md)
+* [Exemple : Se connecter à des files d'attente Azure Service Bus à partir d'Azure Logic Apps et déployer avec Azure Pipelines dans Azure DevOps](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-service-bus-queues-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
+* [Exemple : Se connecter à des comptes Stockage Azure à partir d'Azure Logic Apps et déployer avec Azure Pipelines dans Azure DevOps](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-storage-accounts-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
+* [Exemple : Configurer une action Function App pour Azure Logic Apps et déployer avec Azure Pipelines dans Azure DevOps](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/set-up-an-azure-function-app-action-for-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
+* [Exemple : Se connecter à un compte d'intégration à partir d'Azure Logic Apps et déployer avec Azure Pipelines dans Azure DevOps](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-an-integration-account-from-azure-logic-apps-and-deploy-by-using-azure-devops-pipelines/)
 
 Voici les principales étapes pour utiliser Azure Pipelines :
 

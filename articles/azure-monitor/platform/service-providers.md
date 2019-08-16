@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 08/06/2019
 ms.author: meirm
-ms.openlocfilehash: 97d8d6fac93ebabac8fb319ce2f1ab8719f5f86b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 971757a4778dd50be486bead0c50fd6b3a25002e
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60452651"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68839277"
 ---
 # <a name="azure-monitor-for-service-providers"></a>Azure Monitor pour les fournisseurs de services
 Les espaces de travail Log Analytics dans Azure Monitor permettent aux fournisseurs de services managés (MSP), aux grandes entreprises, aux éditeurs de logiciels indépendants (ISV) et aux fournisseurs de service d’hébergement de gérer et de surveiller les serveurs situés dans l’infrastructure locale ou cloud d’un client. 
@@ -29,7 +29,7 @@ Pour les partenaires et fournisseurs de services qui font partie du programme [F
 
 ## <a name="architectures-for-service-providers"></a>Architecture des fournisseurs de services
 
-Les espaces de travail Log Analytics fournissent une méthode à l’administrateur pour qu’il contrôle le flux et l’isolation des journaux d’activité, et pour qu’il crée une architecture de journaux d’activité qui réponde à ses besoins métier. [Cet article](https://docs.microsoft.com/azure/log-analytics/log-analytics-manage-access) apporte des informations générales sur la gestion des espaces de travail. Les fournisseurs de services n’y sont pas abordés.
+Les espaces de travail Log Analytics fournissent une méthode permettant à l'administrateur de contrôler le flux et l'isolation des données des [journaux](data-platform-logs.md), et de créer une architecture répondant à ses besoins métier. [Cet article](design-logs-deployment.md) traite de la conception, du déploiement et de la migration d'un espace de travail, et l'article consacré à la [gestion des accès](manage-access.md) explique comment appliquer et gérer les autorisations pour journaliser les données. Les fournisseurs de services n’y sont pas abordés.
 
 En ce qui concerne les espaces de travail Log Analytics, il existe trois architectures possibles pour les fournisseurs de services :
 
@@ -55,16 +55,21 @@ Dans cette architecture, les journaux d’activité ne sont pas stockés dans le
 
 Les avantages de cette architecture sont les suivants :
 * Il est facile de gérer de nombreux clients et de les intégrer à différents systèmes backend.
+
 * Le fournisseur de services dispose d’une propriété complète sur les journaux d’activité et les divers artefacts, tels que les fonctions et les requêtes enregistrées.
+
 * Le fournisseur de services peut effectuer des analyses sur l’ensemble de ses clients.
 
 Les désavantages de cette architecture sont les suivants :
 * Cette architecture est applicable uniquement pour les données de machines virtuelles basées sur agent. Elle ne prend pas en compte les sources de données PaaS, SaaS et Azure Fabric.
-* Il peut être difficile de distinguer les données des différents clients lorsqu’elles sont fusionnées dans un même espace de travail. La seule bonne méthode consiste à utiliser le nom de domaine complet (FQDN) de l’ordinateur ou l’ID de l’abonnement Azure. 
-* Toutes les données de tous les clients sont stockées dans la même région avec une seule facture, et les mêmes paramètres de rétention et de configuration.
-* Les services Azure Fabric et PaaS, par exemple Diagnostics Azure et les journaux d’audit Azure, nécessitent que l’espace de travail se trouve dans le même locataire que la ressource. Ils ne peuvent donc pas envoyer les journaux vers l’espace de travail central.
-* Tous les agents de machine virtuelle de l’ensemble des clients sont authentifiés auprès de l’espace de travail central à l’aide du même ID et de la même clé d’espace de travail. Il n’existe aucune méthode permettant de bloquer les journaux d’activité d’un client sans interrompre les autres clients.
 
+* Il peut être difficile de distinguer les données des différents clients lorsqu’elles sont fusionnées dans un même espace de travail. La seule bonne méthode consiste à utiliser le nom de domaine complet (FQDN) de l’ordinateur ou l’ID de l’abonnement Azure. 
+
+* Toutes les données de tous les clients sont stockées dans la même région avec une seule facture, et les mêmes paramètres de rétention et de configuration.
+
+* Les services Azure Fabric et PaaS, par exemple Diagnostics Azure et les journaux d’audit Azure, nécessitent que l’espace de travail se trouve dans le même locataire que la ressource. Ils ne peuvent donc pas envoyer les journaux vers l’espace de travail central.
+
+* Tous les agents de machine virtuelle de l’ensemble des clients sont authentifiés auprès de l’espace de travail central à l’aide du même ID et de la même clé d’espace de travail. Il n’existe aucune méthode permettant de bloquer les journaux d’activité d’un client sans interrompre les autres clients.
 
 ### <a name="3-hybrid---logs-are-stored-in-workspace-located-in-the-customers-tenant-and-some-of-them-are-pulled-to-a-central-location"></a>3. Hybride : les journaux d’activité sont stockés dans l’espace de travail situé dans le locataire du client, et certains d’entre eux sont envoyés vers un emplacement central.
 
@@ -76,10 +81,14 @@ Il existe deux options pour implémenter des journaux dans un emplacement centra
 
 2. Power BI comme emplacement central : Power BI peut servir d’emplacement central quand les différents espaces de travail exportent des données vers lui en utilisant l’intégration entre l’espace de travail Log Analytics et [Power BI](../../azure-monitor/platform/powerbi.md). 
 
-
 ## <a name="next-steps"></a>Étapes suivantes
+
 * Automatiser la création et la configuration des espaces de travail à l’aide de [modèles Resource Manager](template-workspace-configuration.md)
+
 * Automatiser la création des espaces de travail à l’aide de [PowerShell](../../azure-monitor/platform/powershell-workspace-configuration.md) 
+
 * Utiliser [Alertes](../../azure-monitor/platform/alerts-overview.md) pour intégrer les espaces de travail aux systèmes existants
+
 * Générer des rapports de synthèse à l’aide de [Power BI](../../azure-monitor/platform/powerbi.md)
+
 * Passez en revue le processus de [configuration de Log Analytics et de Power BI pour surveiller plusieurs clients CSP](https://docs.microsoft.com/azure/cloud-solution-provider/support/monitor-multiple-customers)

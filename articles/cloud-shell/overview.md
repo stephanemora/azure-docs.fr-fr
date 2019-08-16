@@ -3,7 +3,7 @@ title: Vue d’ensemble d’Azure Cloud Shell | Microsoft Docs
 description: Vue d’ensemble d’Azure Cloud Shell.
 services: ''
 documentationcenter: ''
-author: jluk
+author: maertendMSFT
 manager: timlt
 tags: azure-resource-manager
 ms.assetid: ''
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2018
 ms.author: damaerte
-ms.openlocfilehash: 5608b3e0f9b98db62d22245de5a864f757f48799
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f3d7edf21edf116732eceb332cb8725a0dee85dc
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60199669"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68742017"
 ---
 # <a name="overview-of-azure-cloud-shell"></a>Vue d’ensemble d’Azure Cloud Shell
 Azure Cloud Shell est un shell interactif, accessible par navigateur pour la gestion des ressources Azure.
@@ -71,11 +71,9 @@ Cloud Shell est un outil flexible qui s’utilise à partir de :
 * [Extension Azure Account pour Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)
 
 ### <a name="connect-your-microsoft-azure-files-storage"></a>Connecter votre stockage Microsoft Azure Files
-Les machines Cloud Shell, temporaires, ont besoin qu’un partage Azure Files (nouveau ou existant) soit monté en tant que `clouddrive` pour pouvoir conserver les fichiers.
+Les machines Cloud Shell sont temporaires, mais vos fichiers sont conservés de deux manières : via une image disque et via un partage de fichiers monté nommé `clouddrive`.  Lors du premier lancement, Cloud Shell vous invite à créer un groupe de ressources, un compte de stockage et un partage Azure Files en votre nom. Il s’agit d’une étape unique, et ces ressources sont automatiquement jointes pour toutes les sessions. Un partage de fichier unique peut être mappé et sera utilisé par Bash et PowerShell dans Cloud Shell.
 
-Lors du premier lancement, Cloud Shell vous invite à créer un groupe de ressources, un compte de stockage et un partage Azure Files en votre nom. Il s’agit d’une étape unique, et ces ressources sont automatiquement jointes pour toutes les sessions. Un partage de fichier unique peut être mappé et sera utilisé par Bash et PowerShell dans Cloud Shell.
-
-En savoir plus pour la façon de monter un [compte de stockage nouveau ou existant](persisting-shell-storage.md).
+Apprenez à monter un [compte de stockage nouveau ou existant](persisting-shell-storage.md) ou découvrez-en plus sur les [mécanismes de persistance utilisés dans Cloud Shell](persisting-shell-storage.md#how-cloud-shell-storage-works).
 
 ## <a name="concepts"></a>Concepts
 * Cloud Shell s’exécute sur un hôte temporaire fourni par session et par utilisateur

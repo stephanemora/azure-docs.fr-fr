@@ -9,12 +9,12 @@ services: iot-hub
 ms.devlang: javascript
 ms.topic: conceptual
 ms.date: 06/16/2017
-ms.openlocfilehash: 52f2236b8c0a63d8a34f14843d7d6752411d2663
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: d3e4e0f4e7b1f8d3e100b3f1b3446907cfd587c5
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68668051"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68716969"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-nodejs"></a>Envoi de messages cloud à appareil avec IoT Hub (Node.js)
 
@@ -51,49 +51,42 @@ Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
 ## <a name="receive-messages-in-the-simulated-device-app"></a>Recevoir des messages dans l’application d’appareil simulé
 
-Dans cette section, vous modifiez l’application d’appareil simulé créée dans [Envoyer des données de télémétrie d’un appareil à un hub IoT](quickstart-send-telemetry-node.md) pour recevoir des messages cloud-à-appareil en provenance du hub IoT.
+Dans cette section, vous modifiez l’application d’appareil simulé créée dans [Envoyer des données de télémétrie d’un appareil à un IoT Hub](quickstart-send-telemetry-node.md) pour recevoir des messages cloud-à-appareil en provenance du hub IoT.
 
-1. À l’aide d’un éditeur de texte, ouvrez le fichier SimulatedDevice.js.
+1. À l'aide d'un éditeur de texte, ouvrez le fichier **SimulatedDevice.js**. Ce fichier se trouve dans le dossier **iot-hub\Quickstarts\simulated-device** du dossier racine de l'exemple de code Node.js que vous avez téléchargé dans le guide de démarrage rapide [Envoyer des données de télémétrie d'un appareil vers un hub IoT](quickstart-send-telemetry-node.md).
 
-2. Modifiez la fonction **connectCallback** pour gérer les messages envoyés à partir d’IoT Hub. Dans cet exemple, l’appareil appelle toujours la fonction **complete** afin de notifier IoT Hub qu’il a traité le message. La nouvelle version de la fonction **connectCallback** ressemble à l’extrait de code suivant :
+2. Enregistrez un gestionnaire sur le client d'appareil pour recevoir les messages envoyés depuis IoT Hub. Ajoutez l'appel à `client.on` juste après la ligne qui crée le client d'appareil, comme dans l'extrait de code suivant :
 
     ```javascript
-    var connectCallback = function (err) {
-      if (err) {
-        console.log('Could not connect: ' + err);
-      } else {
-        console.log('Client connected');
-        client.on('message', function (msg) {
-          console.log('Id: ' + msg.messageId + ' Body: ' + msg.data);
-          client.complete(msg, printResultFor('completed'));
-        });
-        // Create a message and send it to the IoT Hub every second
-        setInterval(function(){
-            var temperature = 20 + (Math.random() * 15);
-            var humidity = 60 + (Math.random() * 20);
-            var data = JSON.stringify({ deviceId: 'myFirstNodeDevice', temperature: temperature, humidity: humidity });
-            var message = new Message(data);
-            message.properties.add('temperatureAlert', (temperature > 30) ? 'true' : 'false');
-            console.log("Sending message: " + message.getData());
-            client.sendEvent(message, printResultFor('send'));
-        }, 1000);
-      }
-    };
+    var client = DeviceClient.fromConnectionString(connectionString, Mqtt);
+
+    client.on('message', function (msg) {
+      console.log('Id: ' + msg.messageId + ' Body: ' + msg.data);
+      client.complete(msg, function (err) {
+        if (err) {
+          console.error('complete error: ' + err.toString());
+        } else {
+          console.log('complete sent');
+        }
+      });
+    });
     ```
+
+    Dans cet exemple, l'appareil appelle la fonction **complete** afin de notifier IoT Hub qu'il a traité le message. L'appel de la fonction **complete** n'est pas nécessaire et peut être omis si vous utilisez le transport MQTT. En revanche, il est obligatoire pour HTTPS et AMQP.
   
    > [!NOTE]
    > Si vous utilisez HTTPS au lieu de MQTT ou d’AMQP comme moyen de transport, l’instance **DeviceClient** vérifie les messages à partir d’IoT Hub peu fréquemment (moins de toutes les 25 minutes). Pour plus d’informations sur les différences entre la prise en charge de MQTT, d’AMQP et de HTTPS ainsi que la limitation d’IoT Hub, consultez le [Guide du développeur IoT Hub](iot-hub-devguide-messaging.md).
    >
 
-## <a name="get-the-iot-hub-connection-string"></a>Obtention de la chaîne de connexion de l’IoT Hub
+## <a name="get-the-iot-hub-connection-string"></a>Obtenir la chaîne de connexion du hub IoT
 
-Dans cet article, vous créez un service back-end pour envoyer des messages cloud-à-appareil via l’IoT Hub que vous avez créé dans [Send telemetry from a device to an IoT hub (Envoyer des données de télémétrie d’un appareil à un IoT Hub)](quickstart-send-telemetry-node.md). Pour envoyer des messages cloud-à-appareil, votre service a besoin de l'autorisation de **connexion de service**. Par défaut, chaque IoT Hub est créé avec une stratégie d’accès partagé nommée **service** qui accorde cette autorisation.
+Dans cet article, vous créez un service back-end pour envoyer des messages cloud-à-appareil via le hub IoT que vous avez créé dans [Envoyer des données de télémétrie d'un appareil vers un hub IoT](quickstart-send-telemetry-node.md). Pour envoyer des messages cloud-à-appareil, votre service a besoin de l'autorisation de **connexion de service**. Par défaut, chaque IoT Hub est créé avec une stratégie d’accès partagé nommée **service** qui accorde cette autorisation.
 
 [!INCLUDE [iot-hub-include-find-service-connection-string](../../includes/iot-hub-include-find-service-connection-string.md)]
 
 ## <a name="send-a-cloud-to-device-message"></a>Envoi d’un message cloud vers appareil
 
-Dans cette section, vous allez créer une application de console Node.js qui envoie des messages cloud-à-appareil à l’application de l’appareil simulé. Vous avez besoin de l’ID de l’appareil que vous avez ajouté dans le guide de démarrage rapide [Envoyer des données de télémétrie d’un appareil à un hub IoT](quickstart-send-telemetry-node.md). Vous avez également besoin de la chaîne de connexion de l’IoT Hub que vous avez copiée précédemment dans [Obtention de la chaîne de connexion de l’IoT Hub](#get-the-iot-hub-connection-string).
+Dans cette section, vous allez créer une application de console Node.js qui envoie des messages cloud-à-appareil à l’application de l’appareil simulé. Vous avez besoin de l’ID de l’appareil que vous avez ajouté dans le guide de démarrage rapide [Envoyer des données de télémétrie d’un appareil à un hub IoT](quickstart-send-telemetry-node.md). Vous avez également besoin de la chaîne de connexion du hub IoT que vous avez précédemment copiée dans [Obtenir la chaîne de connexion du hub IoT](#get-the-iot-hub-connection-string).
 
 1. Créez un dossier vide appelé **sendcloudtodevicemessage**. Dans le dossier **sendcloudtodevicemessage** , créez un fichier package.json à l’aide de la commande ci-dessous, à l’invite de commandes. Acceptez toutes les valeurs par défaut :
 
@@ -173,7 +166,7 @@ Dans cette section, vous allez créer une application de console Node.js qui env
 
 Vous êtes maintenant prêt à exécuter les applications.
 
-1. À l’invite de commandes du dossier **simulateddevice** , exécutez la commande suivante pour envoyer la télémétrie à IoT hub et écouter les messages cloud-à-appareil :
+1. À l'invite de commandes du dossier **simulated-device**, exécutez la commande suivante pour envoyer les données de télémétrie à IoT Hub et écouter les messages cloud-à-appareil :
 
     ```shell
     node SimulatedDevice.js

@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/22/2019
+ms.date: 08/05/2019
 ms.author: raynew
-ms.openlocfilehash: 787bcf28a64c98f82deb0725e2362bf8144d6c4e
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: da68c0ae1dc92f5b854c30c90b93856248c43281
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68640851"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68828355"
 ---
 # <a name="support-matrix-for-hyper-v-assessment-and-migration"></a>Tableau de prise en charge pour l’évaluation et la migration Hyper-V
 
@@ -36,14 +36,18 @@ Le tableau récapitule les scénarios pris en charge pour les machines virtuelle
 **Support** | **Détails**
 --- | ---
 Autorisations Azure | Vous avez besoin d’autorisations Contributeur ou Propriétaire dans l’abonnement pour créer un projet Azure Migrate.
-Machines virtuelles Hyper-V | Évaluez jusqu’à 10 000 machines virtuelles Hyper-V au sein d’un même projet. Vous pouvez avoir plusieurs projets dans un abonnement Azure. Un projet peut inclure à la fois des machines virtuelles VMware et des machines virtuelles Hyper-V, jusqu’aux limites d’évaluation.
+Machines virtuelles Hyper-V | Évaluez jusqu'à 35 000 machines virtuelles Hyper-V au sein d'un même projet. Vous pouvez avoir plusieurs projets dans un abonnement Azure. Un projet peut inclure à la fois des machines virtuelles VMware et des machines virtuelles Hyper-V, jusqu’aux limites d’évaluation.
 Geography | Vous pouvez créer un projet Azure Migrate dans un certain nombre de zones géographiques. Même si vous pouvez créer des projets dans des zones spécifiques, vous pouvez néanmoins évaluer ou migrer des machines pour d’autres emplacements cibles. La zone géographique du projet est uniquement utilisée pour stocker les métadonnées détectées.
 
   **Zone géographique** | **Emplacement de stockage des métadonnées**
   --- | ---
   Azure Government | Gouvernement américain - Virginie
-  Asie-Pacifique | Asie Sud-Est ou Asie Est
-  Europe | Europe Sud ou Europe Ouest
+  Asie-Pacifique | Asie Est ou Asie Sud-Est
+  Australie | Australie Est ou Australie Sud-Est
+  Canada | Canada Centre ou Canada Est
+  Europe | Europe Nord ou Europe Ouest
+  Inde | Inde Centre ou Inde Sud
+  Japon |  Japon Est ou Japon Ouest
   Royaume-Uni | Royaume-Uni Sud ou Royaume-Uni Ouest
   États-Unis | USA Centre ou USA Ouest 2
 
@@ -84,7 +88,7 @@ Pour l’évaluation, Azure Migrate exécute une appliance légère pour découv
 | **Support**                | **Détails**               
 | :-------------------       | :------------------- |
 | **Projet Azure Migrate**  |  Une appliance peut être associée à un seul projet.<br/> Vous pouvez découvrir jusqu'à 5 000 machines virtuelles Hyper-V avec une seule appliance.
-| **Hyper-V**    |  Vous déployez l’appliance en tant que machine virtuelle Hyper-V.<br/> La machine virtuelle de l’appliance fournie est la version 5.0 de la machine virtuelle Hyper-V.<br/> L’hôte de la machine virtuelle doit exécuter Windows Server 2012 R2 ou une version ultérieure.<br/> Il a besoin de suffisamment d'espace pour allouer 16 Go de RAM, 4 processeurs virtuels et 1 commutateur externe pour la machine virtuelle de l'appliance.<br/> L'appliance nécessite une adresse IP statique ou dynamique et un accès Internet.
+| **Hyper-V**    |  Vous déployez l’appliance en tant que machine virtuelle Hyper-V.<br/> La machine virtuelle de l’appliance fournie est la version 5.0 de la machine virtuelle Hyper-V.<br/> L’hôte de la machine virtuelle doit exécuter Windows Server 2012 R2 ou une version ultérieure.<br/> Il a besoin de suffisamment d'espace pour allouer 16 Go de RAM, 8 processeurs virtuels et 1 commutateur externe à la machine virtuelle de l'appliance.<br/> L'appliance nécessite une adresse IP statique ou dynamique et un accès Internet.
 
 
 ## <a name="assessment-appliance-url-access"></a>Évaluation - accès à l’URL de l’appliance

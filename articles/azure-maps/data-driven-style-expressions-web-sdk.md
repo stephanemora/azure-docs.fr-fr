@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.custom: codepen
-ms.openlocfilehash: 3b234ca37783fe557baf307f198de9636b06a382
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 18d8f2a974fb192578163f71a57d00824ae6b0fa
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60904917"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68839461"
 ---
 # <a name="data-driven-style-expressions-web-sdk"></a>Expressions de style basé sur les données (SDK web)
 
@@ -39,10 +39,11 @@ Les expressions sont représentées sous forme de tableaux JSON. Le premier él�
 ] 
 ```
 
-Le SDK web Azure Maps prend en charge de nombreux types d’expressions qui peuvent être utilisées seules ou en combinaison avec d’autres expressions.
+Le kit de développement logiciel (SDK) web Azure Maps prend en charge de nombreux types qui peuvent être utilisés seuls ou en combinaison avec d'autres expressions.
 
 | Type d’expressions | Description |
 |---------------------|-------------|
+| [Expression d'agrégation](#aggregate-expression) | Expression définissant un calcul traité sur un jeu de données et pouvant être utilisée avec l'option `clusterProperties` d'une `DataSource`. |
 | [Expressions booléennes](#boolean-expressions) | Les expressions booléennes fournissent un ensemble d’expressions d’opérateurs booléens pour l’évaluation de comparaisons booléennes. |
 | [Expressions de couleur](#color-expressions) | Les expressions de couleur simplifient la création et la manipulation de valeurs de couleurs. |
 | [Expressions conditionnelles](#conditional-expressions) | Les expressions conditionnelles fournissent des opérations de logique qui ressemblent à des instructions if. |
@@ -82,11 +83,11 @@ Les expressions de données permettent d’accéder aux données de propriété 
 | Expression | Type de retour | Description |
 |------------|-------------|-------------|
 | `['at', number, array]` | objet | Récupère un élément à partir d’un tableau. |
-| `['geometry-type']` | chaîne | Obtient le type de géométrie de la fonctionnalité : Point, MultiPoint, LineString, MultiLineString, Polygon, MultiPolygon. |
+| `['geometry-type']` | string | Obtient le type de géométrie de la fonctionnalité : Point, MultiPoint, LineString, MultiLineString, Polygon, MultiPolygon. |
 | `['get', string]` | value | Obtient la valeur de propriété à partir des propriétés de la fonctionnalité actuelle. Retourne la valeur null si la propriété demandée est manquante. |
 | `['get', string, object]` | value | Obtient la valeur de propriété à partir des propriétés de l’objet fourni. Retourne la valeur null si la propriété demandée est manquante. |
-| `['has', string]` | booléenne | Détermine si les propriétés d’une fonctionnalité ont la propriété spécifiée. |
-| `['has', string, object]` | booléenne | Détermine si les propriétés de l’objet ont la propriété spécifiée. |
+| `['has', string]` | boolean | Détermine si les propriétés d’une fonctionnalité ont la propriété spécifiée. |
+| `['has', string, object]` | boolean | Détermine si les propriétés de l’objet ont la propriété spécifiée. |
 | `['id']` | value | Obtient l’ID de la fonctionnalité, le cas échéant. |
 | `['length', string | array]` | number | Obtient la longueur d’une chaîne ou d’un tableau. |
 
@@ -152,7 +153,7 @@ Les expressions mathématiques fournissent des opérateurs mathématiques pour e
 | `['atan', number]` | number | Calcule l’arc tangente du nombre spécifié. |
 | `['ceil', number]` | number | Arrondit le nombre à l’entier supérieur suivant. |
 | `['cos', number]` | number | Calcule le cosinus du nombre spécifié. |
-| `['e']` | number | Retourne la constante mathématique `e`. |
+| `['e']` | number | Retourne la constante mathématique `e`. |
 | `['floor', number]` | number | Arrondit le nombre à l’entier inférieur précédent. |
 | `['ln', number]` | number | Calcule le logarithme naturel du nombre spécifié. |
 | `['ln2']` | number | Retourne la constante mathématique `ln(2)`. |
@@ -165,6 +166,27 @@ Les expressions mathématiques fournissent des opérateurs mathématiques pour e
 | `['sin', number]` | number | Calcule le sinus du nombre spécifié. |
 | `['sqrt', number]` | number | Calcule la racine carrée du nombre spécifié. |
 | `['tan', number]` | number | Calcule la tangente du nombre spécifié. |
+
+## <a name="aggregate-expression"></a>Expression d'agrégation
+
+Une expression d'agrégation définit un calcul traité sur un jeu de données et peut être utilisée avec l'option `clusterProperties` d'une `DataSource`. Le résultat de ces expressions doit être un nombre ou une valeur booléenne. 
+
+Une expression d'agrégation accepte trois valeurs : une valeur d'opérateur, une valeur initiale et une expression permettant d'extraire une propriété à partir de chaque élément d'une donnée afin d'y appliquer l'opération d'agrégation. Le format de cette expression est le suivant :
+
+```javascript
+[operator: string, initialValue: boolean | number, mapExpression: Expression]
+```
+
+- operator : fonction d'expression qui est ensuite appliquée à toutes les valeurs calculées par `mapExpression` pour chaque point du cluster. Opérateurs pris en charge ; 
+    - Pour les nombres : `+`, `*`, `max`, `min`
+    - Pour les valeurs booléennes : `all`, `any`
+- initialValue : valeur initiale à partir de laquelle la première valeur calculée est agrégée.
+- mapExpression : expression appliquée à chaque point du jeu de données.
+
+**Exemples**
+
+Si tous les éléments d'un jeu de données possèdent une propriété `revenue` correspondant à un nombre. Le revenu total de tous les points d'un cluster créé à partir du jeu de données peut être calculé à l'aide de l'expression d'agrégation suivante : `['+', 0, ['get', 'revenue']]`
+
 ## <a name="boolean-expressions"></a>Expressions booléennes
 
 Les expressions booléennes fournissent un ensemble d’expressions d’opérateurs booléens pour l’évaluation de comparaisons booléennes.
@@ -173,15 +195,15 @@ Lors de la comparaison de valeurs, la comparaison est strictement typée. Les va
 
 | Expression | Type de retour | Description |
 |------------|-------------|-------------|
-| `['! ', boolean]` | booléenne | Négation logique. Retourne `true` si l’entrée est `false`, et `false` si l’entrée est `true`. |
-| `['!= ', value, value]` | booléenne | Retourne `true` si les valeurs d’entrée ne sont pas égales ; `false` dans le cas contraire. |
-| `['<', value, value]` | booléenne | Retourne `true` si la première entrée est strictement inférieure à la deuxième ; `false` dans le cas contraire. Les arguments doivent obligatoirement être tous les deux des chaînes ou des nombres. |
-| `['<=', value, value]` | booléenne | Retourne `true` si la première entrée est inférieure ou égale à la deuxième ; `false` dans le cas contraire. Les arguments doivent obligatoirement être tous les deux des chaînes ou des nombres. |
-| `['==', value, value]` | booléenne | Retourne `true` si les valeurs d’entrée sont égales ; `false` dans le cas contraire. Les arguments doivent obligatoirement être tous les deux des chaînes ou des nombres. |
-| `['>', value, value]` | booléenne | Retourne `true` si la première entrée est strictement supérieure à la deuxième ; `false` dans le cas contraire. Les arguments doivent obligatoirement être tous les deux des chaînes ou des nombres. |
-| `['>=' value, value]` | booléenne | Retourne `true` si la première entrée est supérieure ou égale à la deuxième ; `false` dans le cas contraire. Les arguments doivent obligatoirement être tous les deux des chaînes ou des nombres. |
-| `['all', boolean, boolean, …]` | booléenne | Retourne `true` si toutes les entrées ont la valeur `true` ; retourne `false` dans le cas contraire. |
-| `['any', boolean, boolean, …]` | booléenne | Retourne `true` si l’une des entrées a la valeur `true` ; retourne `false` si ce n’est pas le cas. |
+| `['! ', boolean]` | boolean | Négation logique. Retourne `true` si l’entrée est `false`, et `false` si l’entrée est `true`. |
+| `['!= ', value, value]` | boolean | Retourne `true` si les valeurs d’entrée ne sont pas égales ; `false` dans le cas contraire. |
+| `['<', value, value]` | boolean | Retourne `true` si la première entrée est strictement inférieure à la deuxième ; `false` dans le cas contraire. Les arguments doivent obligatoirement être tous les deux des chaînes ou des nombres. |
+| `['<=', value, value]` | boolean | Retourne `true` si la première entrée est inférieure ou égale à la deuxième ; `false` dans le cas contraire. Les arguments doivent obligatoirement être tous les deux des chaînes ou des nombres. |
+| `['==', value, value]` | boolean | Retourne `true` si les valeurs d’entrée sont égales ; `false` dans le cas contraire. Les arguments doivent obligatoirement être tous les deux des chaînes ou des nombres. |
+| `['>', value, value]` | boolean | Retourne `true` si la première entrée est strictement supérieure à la deuxième ; `false` dans le cas contraire. Les arguments doivent obligatoirement être tous les deux des chaînes ou des nombres. |
+| `['>=' value, value]` | boolean | Retourne `true` si la première entrée est supérieure ou égale à la deuxième ; `false` dans le cas contraire. Les arguments doivent obligatoirement être tous les deux des chaînes ou des nombres. |
+| `['all', boolean, boolean, …]` | boolean | Retourne `true` si toutes les entrées ont la valeur `true` ; retourne `false` dans le cas contraire. |
+| `['any', boolean, boolean, …]` | boolean | Retourne `true` si l’une des entrées a la valeur `true` ; retourne `false` si ce n’est pas le cas. |
 
 ## <a name="conditional-expressions"></a>Expressions conditionnelles
 
@@ -337,11 +359,11 @@ Les expressions du type fournissent des outils permettant de tester et de conver
 | Expression | Type de retour | Description |
 |------------|-------------|-------------|
 | `['literal', array]`<br/><br/>`['literal', object]` | tableau\|objet | Retourne une valeur littérale d’objet ou de tableau. Utilisez cette expression pour empêcher qu’un tableau ou un objet soit évalué en tant qu’expression. Cela est nécessaire quand un tableau ou un objet doit être retourné par une expression. |
-| `['to-boolean', value]` | booléenne | Convertit la valeur d’entrée en une valeur booléenne. Le résultat est `false` quand l’entrée est une chaîne vide, `0`, `false`, `null` ou `NaN` ; sinon, il prend la valeur `true`. |
+| `['to-boolean', value]` | boolean | Convertit la valeur d’entrée en une valeur booléenne. Le résultat est `false` quand l’entrée est une chaîne vide, `0`, `false`, `null` ou `NaN` ; sinon, il prend la valeur `true`. |
 | `['to-color', value]`<br/><br/>`['to-color', value1, value2…]` | color | Convertit la valeur d’entrée en une couleur. Si plusieurs valeurs sont fournies, chacune est évaluée dans l’ordre jusqu’à ce que la première conversion réussie soit obtenue. Si aucune des entrées ne peut être convertie, l’expression est une erreur. |
 | `['to-number', value]`<br/><br/>`['to-number', value1, value2, …]` | number | Convertit la valeur d’entrée en un nombre, si cela est possible. Si l’entrée est `null` ou `false`, le résultat est 0. Si l’entrée est `true`, le résultat est 1. Si l’entrée est une chaîne, elle est convertie en un nombre à l’aide de la fonction de chaîne [ToNumber](https://tc39.github.io/ecma262/#sec-tonumber-applied-to-the-string-type) de la spécification de langage ECMAScript. Si plusieurs valeurs sont fournies, chacune est évaluée dans l’ordre jusqu’à ce que la première conversion réussie soit obtenue. Si aucune des entrées ne peut être convertie, l’expression est une erreur. |
-| `['to-string', value]` | chaîne | Convertit la valeur d’entrée en une chaîne. Si l’entrée est `null`, le résultat est `""`. Si l’entrée est une valeur booléenne, le résultat est `"true"` ou `"false"`. Si l’entrée est un nombre, elle est convertie en une chaîne à l’aide de la fonction de nombre [ToString](https://tc39.github.io/ecma262/#sec-tostring-applied-to-the-number-type) de la spécification de langage ECMAScript. Si l’entrée est une couleur, elle est convertie en une chaîne de couleur RVBA CSS `"rgba(r,g,b,a)"`. Sinon, l’entrée est convertie en une chaîne à l’aide de la fonction [JSON.stringify](https://tc39.github.io/ecma262/#sec-json.stringify) de la spécification de langage ECMAScript. |
-| `['typeof', value]` | chaîne | Retourne une chaîne décrivant le type de la valeur donnée. |
+| `['to-string', value]` | string | Convertit la valeur d’entrée en une chaîne. Si l’entrée est `null`, le résultat est `""`. Si l’entrée est une valeur booléenne, le résultat est `"true"` ou `"false"`. Si l’entrée est un nombre, elle est convertie en une chaîne à l’aide de la fonction de nombre [ToString](https://tc39.github.io/ecma262/#sec-tostring-applied-to-the-number-type) de la spécification de langage ECMAScript. Si l’entrée est une couleur, elle est convertie en une chaîne de couleur RVBA CSS `"rgba(r,g,b,a)"`. Sinon, l’entrée est convertie en une chaîne à l’aide de la fonction [JSON.stringify](https://tc39.github.io/ecma262/#sec-json.stringify) de la spécification de langage ECMAScript. |
+| `['typeof', value]` | string | Retourne une chaîne décrivant le type de la valeur donnée. |
 
 > [!TIP]
 > Si un message d’erreur semblable à `Expression name must be a string, but found number instead. If you wanted a literal array, use ["literal", [...]].` s’affiche dans la console du navigateur, cela signifie qu’il existe, quelque part dans votre code, une expression comportant un tableau qui n’a pas de chaîne pour sa première valeur. Si vous voulez que l’expression retourne un tableau, wrappez le tableau avec l’expression `literal`. L’exemple suivant définit l’option d’icône `offset` d’une couche de symboles, qui doit être un tableau contenant deux nombres, à l’aide d’une expression `match` permettant de choisir entre deux valeurs de décalage en fonction de la valeur de la propriété `entityType` de la fonctionnalité de point.
@@ -399,9 +421,9 @@ Les expressions d’opérateur de chaîne effectuent des opérations de conversi
 
 | Expression | Type de retour | Description |
 |------------|-------------|-------------|
-| `['concat', string, string, …]` | chaîne | Concatène plusieurs chaînes. Chaque valeur doit être une chaîne. Utilisez l’expression du type `to-string` pour convertir d’autres types de valeurs en chaîne, si nécessaire. |
-| `['downcase', string]` | chaîne | Convertit la chaîne spécifiée en minuscules. |
-| `['upcase', string]` | chaîne | Convertit la chaîne spécifiée en majuscules. |
+| `['concat', string, string, …]` | string | Concatène plusieurs chaînes. Chaque valeur doit être une chaîne. Utilisez l’expression du type `to-string` pour convertir d’autres types de valeurs en chaîne, si nécessaire. |
+| `['downcase', string]` | string | Convertit la chaîne spécifiée en minuscules. |
+| `['upcase', string]` | string | Convertit la chaîne spécifiée en majuscules. |
 
 **Exemple**
 

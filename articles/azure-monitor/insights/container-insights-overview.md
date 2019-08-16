@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/22/2019
+ms.date: 08/02/2019
 ms.author: magoedte
-ms.openlocfilehash: 96a312630c92048f36f79e3bec18f83ed5a445ff
-ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
+ms.openlocfilehash: e1fca1532352c4955f478df70f818ee3151053c1
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68414134"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68742209"
 ---
 # <a name="azure-monitor-for-containers-overview"></a>Vue d’ensemble d’Azure Monitor pour les conteneurs
 
@@ -40,9 +40,11 @@ Azure Monitor pour conteneurs offre une expérience de surveillance complète vi
 * Configurer des alertes pour être notifié de façon proactive ou pour enregistrer lorsque l’utilisation de la mémoire et du processeur sur des nœuds ou des conteneurs dépasse vos seuils.
 * Bénéficier d’une intégration à [Prometheus](https://prometheus.io/docs/introduction/overview/) pour afficher les métriques d’application et de charge de travail qu’il collecte à partir des nœuds et Kubernetes à l’aide de [requêtes](container-insights-log-search.md) pour créer des alertes personnalisées, des tableaux de bord et une analyse détaillée des performances.
 
->[!NOTE]
->La prise en charge de Prometheus est une fonctionnalité de la préversion publique actuellement.
->
+    >[!NOTE]
+    >La prise en charge de Prometheus est une fonctionnalité de la préversion publique actuellement.
+    >
+
+* Surveillez les charges de travail de conteneur [déployées sur AKS-Engine](https://github.com/microsoft/OMS-docker/tree/aks-engine).
 
 Regardez la vidéo suivante qui fournit une présentation approfondie de niveau intermédiaire pour vous apprendre à surveiller votre cluster AKS avec Azure Monitor pour les conteneurs.
 

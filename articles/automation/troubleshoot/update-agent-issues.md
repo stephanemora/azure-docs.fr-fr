@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: automation
 ms.subservice: update-management
 manager: carmonm
-ms.openlocfilehash: 3555ec74b7e7c8a0f7606f24f8c6f2c4fe36b52d
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: bbccb9beab374a4a514d527c22b3861f0752d5fd
+ms.sourcegitcommit: f7998db5e6ba35cbf2a133174027dc8ccf8ce957
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67477096"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68782387"
 ---
 # <a name="understand-the-windows-agent-check-results-in-update-management"></a>Comprendre les résultats de la vérification de l’agent Windows dans Update Management
 
@@ -55,15 +55,15 @@ La vérification du système d’exploitation vérifie si le Runbook Worker hybr
 |Système d’exploitation  |Notes  |
 |---------|---------|
 |Windows Server 2008 R2 RTM, Windows Server 2008 | Prend uniquement en charge les évaluations de mises à jour.         |
-|Windows Server 2008 R2 SP1 et versions ultérieures |.NET Framework 4.5.1 ou version ultérieure est requis. ([Télécharger le .NET Framework](/dotnet/framework/install/guide-for-developers))<br/> Windows PowerShell 4.0 ou une version ultérieure est nécessaire. ([Télécharger Windows Management Framework 4.0](https://www.microsoft.com/download/details.aspx?id=40855))<br/> Windows PowerShell 5.1 est recommandé pour accroître la fiabilité.  ([Télécharger Windows Management Framework 5.1](https://www.microsoft.com/download/details.aspx?id=54616))        |
+|Windows Server 2008 R2 SP1 et versions ultérieures |.NET Framework 4.6.1 ou version ultérieure est requis. ([Télécharger le .NET Framework](/dotnet/framework/install/guide-for-developers))<br/> Windows PowerShell 5.1 est requis.  ([Télécharger Windows Management Framework 5.1](https://www.microsoft.com/download/details.aspx?id=54616))        |
 
-### <a name="net-451"></a>.NET 4.5.1
+### <a name="net-461"></a>.NET 4.6.1+
 
-La vérification du .NET Framework vérifie si le système a au moins [.NET Framework 4.5.1](https://www.microsoft.com/download/details.aspx?id=30653).
+La fonctionnalité de vérification de .NET Framework vérifie que [.NET Framework 4.6.1](https://www.microsoft.com/en-us/download/details.aspx?id=49981) ou version ultérieure est installé sur le système.
 
 ### <a name="wmf-51"></a>WMF 5.1
 
-La vérification de WMF vérifie si le système a la version nécessaire de Windows Management Framework (WMF). [Windows Management Framework 4.0](https://www.microsoft.com/download/details.aspx?id=40855) est la version la plus ancienne prise en charge. Nous vous recommandons d’installer [Windows Management Framework 5.1](https://www.microsoft.com/download/details.aspx?id=54616) pour renforcer la fiabilité du Runbook Worker hybride.
+La fonctionnalité de vérification de WMF vérifie que le système dispose de la version requise de Windows Management Framework (WMF), [Windows Management Framework 5.1](https://www.microsoft.com/download/details.aspx?id=54616).
 
 ### <a name="tls-12"></a>TLS 1.2
 
@@ -144,7 +144,7 @@ RuleId                      : AutomationAgentServiceConnectivityCheck1
 RuleGroupId                 : connectivity
 RuleName                    : Registration endpoint
 RuleGroupName               : connectivity
-RuleDescription             : 
+RuleDescription             :
 CheckResult                 : Failed
 CheckResultMessage          : Unable to find Workspace registration information in registry
 CheckResultMessageId        : AutomationAgentServiceConnectivityCheck1.Failed.NoRegistrationFound

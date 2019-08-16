@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/30/2019
+ms.date: 07/31/2019
 ms.author: cherylmc
-ms.openlocfilehash: f013ec6fa52e3c770b713d1b445341d8e9686de3
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 721f4038090021c526a8878f15c07874074effd5
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68689503"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68725944"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Partenaires ExpressRoute et emplacements d’homologation
 
@@ -28,7 +28,7 @@ ms.locfileid: "68689503"
 > * [Fournisseurs par emplacement](expressroute-locations-providers.md)
 
 
-Les tables de cet article offrent des informations sur les emplacements ExpressRoute, les fournisseurs de connectivité ExpressRoute, la couverture géographique ExpressRoute, les services cloud Microsoft pris en charge via ExpressRoute et les intégrateurs système ExpressRoute.
+Les tableaux de cet article fournissent des informations sur la couverture géographique et les emplacements ExpressRoute, les fournisseurs de connectivité ExpressRoute et les intégrateurs système ExpressRoute.
 
 > [!Note]
 > Les régions Azure et les emplacements ExpressRoute sont deux concepts distincts et différents, il est essentiel de comprendre ce qui les distingue pour explorer la connectivité réseau hybride Azure. 
@@ -43,16 +43,13 @@ Les emplacements ExpressRoute (parfois appelés emplacements d’homologation ou
 
 Vous aurez accès aux services Azure dans toutes les régions au sein d’une région géopolitique si vous êtes connecté à au moins un emplacement ExpressRoute dans la région géopolitique.
 
-## <a name="partners"></a>Fournisseurs de connectivité ExpressRoute
-ExpressRoute est pris en charge dans tous les emplacements et régions Azure.
-
-### <a name="azure-regions-to-expressroute-locations-within-a-geopolitical-region"></a>Régions Azure vers des emplacements ExpressRoute au sein d’une région géopolitique.
+## <a name="locations"></a>Régions Azure vers des emplacements ExpressRoute au sein d'une région géopolitique.
 Le tableau ci-dessous fournit une carte des régions Azure vers des emplacements ExpressRoute au sein d’une région géopolitique.
 
 | **Région géopolitique** | **Zone** | **Régions Azure** | **Emplacements ExpressRoute** |
 | --- | --- | --- | --- |
 | **Secteur public australien** | 1 | Australie Centre, Australie Centre 2 |Canberra, Canberra2 |
-| **Europe** | 1 |France Centre, France Sud, Europe Nord, Europe Ouest, Royaume-Uni Ouest, Royaume-Uni Sud |Amsterdam, Amsterdam2, Copenhague, Dublin, Francfort, Londres, Londres2, Marseille, Newport(Wales), Paris, Zurich |
+| **Europe** | 1 |France Centre, France Sud, Europe Nord, Europe Ouest, Royaume-Uni Ouest, Royaume-Uni Sud |Amsterdam, Amsterdam2, Copenhague, Dublin, Francfort, Londres, Londres2, Marseille, Newport(Pays de Galles), Paris, Stockholm, Zurich |
 | **Amérique du Nord** | 1 |USA Est, USA Ouest, USA Est 2, USA Ouest 2, USA Centre, USA Centre Sud, USA Centre Nord, USA Centre-Ouest, Canada Centre, Canada Est |Atlanta, Chicago, Dallas, Denver, Las Vegas, Los Angeles, Miami, New York, San Antonio, Seattle, Silicon Valley, Silicon Valley2, Washington DC, Washington DC2, Montréal, Québec, Toronto |
 | **Asie** | 2 |Asie Est, Asie Sud-Est |Hong Kong (R.A.S.), Kuala Lumpur, Singapour, Singapour2, Taipei |
 | **Inde** | 2 |Inde Ouest, Inde Centre, Inde Sud |Chennai, Chennai2, Mumbai, Mumbai2 |
@@ -64,7 +61,7 @@ Le tableau ci-dessous fournit une carte des régions Azure vers des emplacements
 | **Amérique du Sud** | 3 |Brésil Sud |Sao Paulo |
 
 
-### <a name="regions-and-geopolitical-boundaries-for-national-clouds"></a>Régions et limites géopolitiques pour les clouds nationaux
+## <a name="regions-and-geopolitical-boundaries-for-national-clouds"></a>Régions et limites géopolitiques pour les clouds nationaux
 Le tableau ci-dessous fournit des informations sur les régions et les limites géopolitiques et des clouds nationaux.
 
 | **Région géopolitique** | **Régions Azure** | **Emplacements ExpressRoute** |
@@ -76,9 +73,9 @@ Le tableau ci-dessous fournit des informations sur les régions et les limites g
 
 La connectivité entre les régions géopolitiques n’est pas prise en charge dans la référence ExpressRoute Standard. Vous devez activer le module complémentaire ExpressRoute Premium pour prendre en charge la connectivité globale. La connectivité à des environnements de cloud nationaux n’est pas prise en charge. En cas de besoin, vous pouvez collaborer avec votre fournisseur de connectivité.
 
-## <a name="locations"></a>Emplacements de fournisseur de connectivité
+## <a name="partners"></a>Fournisseurs de connectivité ExpressRoute
 
-Le tableau suivant présente les emplacements, en fonction de chaque fournisseur de services. Si vous souhaitez afficher les fournisseurs disponibles par emplacement, consultez la liste des [fournisseurs de services par emplacement](expressroute-locations-providers.md#locations).
+Le tableau suivant présente les emplacements, en fonction de chaque fournisseur de services. Si vous souhaitez afficher les fournisseurs disponibles par emplacement, consultez la liste des [fournisseurs de services par emplacement](expressroute-locations-providers.md).
 
 
 ### <a name="production-azure"></a>Production Azure
@@ -150,7 +147,7 @@ Le tableau suivant présente les emplacements, en fonction de chaque fournisseur
 | **[Telefonica](https://www.business-solutions.telefonica.com/es/enterprise/solutions/efficient-infrastructure/managed-voice-data-connectivity/)** |Pris en charge |Pris en charge |Amsterdam, Sao Paulo |
 | **[Telehouse - KDDI](https://www.telehouse.net/solutions/cloud-services/cloud-link)**  |Pris en charge |Pris en charge |Londres |
 | **Telenor** |Pris en charge |Pris en charge |Amsterdam, Londres |
-| **[Telia Carrier](https://teliacarrier.com/our-services/connectivity/cloud-connect.html?title=Cloud%20Connect)** | Pris en charge | Pris en charge |Amsterdam, Chicago, Dallas, Hong Kong, Londres, Paris, Washington DC |
+| **[Telia Carrier](https://teliacarrier.com/our-services/connectivity/cloud-connect.html?title=Cloud%20Connect)** | Pris en charge | Pris en charge |Amsterdam, Chicago, Dallas, Hong Kong (R.A.S.), Londres, Paris, Silicon Valley, Stockholm, Washington DC |
 | **Telmex Uninet**| Pris en charge | Pris en charge | Dallas |
 | **[Telstra Corporation](https://www.telstra.com.au/business-enterprise/network-services/networks/cloud-direct-connect/)** |Pris en charge |Pris en charge |Melbourne, Singapour, Sydney |
 | **[Telus](https://www.telus.com)** |Pris en charge |Pris en charge |Montréal, Seattle, Toronto |

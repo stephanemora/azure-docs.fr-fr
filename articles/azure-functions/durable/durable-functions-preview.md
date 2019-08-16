@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 07/08/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 7356541ed6288603a66d5caa43138284d8d4d918
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 1609931cd5fcab0977ff64f680fbb1f253f3caaf
+ms.sourcegitcommit: f7998db5e6ba35cbf2a133174027dc8ccf8ce957
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68320486"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68782192"
 ---
 # <a name="durable-functions-20-preview-azure-functions"></a>Préversion de Durable Functions 2.0 (Azure Functions)
 
@@ -242,6 +242,16 @@ public static async Task AddValueClient(
 ```
 
 Dans l’exemple précédent, le paramètre `proxy` est une instance générée dynamiquement de `ICounter`, qui traduit en interne l’appel à `Add` en un appel (non typé) équivalent à `SignalEntityAsync`.
+
+Les restrictions suivantes s'appliquent au paramètre de type de `SignalEntityAsync<T>` :
+
+* Le paramètre de type doit être une interface.
+* Seules des méthodes peuvent être définies sur l'interface. Les propriétés ne sont pas prises en charge.
+* Chaque méthode doit définir un paramètre ou aucun.
+* Chaque méthode doit renvoyer `void`, `Task` ou `Task<T>`, où `T` est un type sérialisable JSON.
+* L'interface doit être implémentée par un seul type dans l'assembly de l'interface.
+
+Dans la plupart des cas, les interfaces non conformes à ces exigences entraînent une exception d'exécution.
 
 > [!NOTE]
 > Il est important de noter que les méthodes `ReadEntityStateAsync` et `SignalEntityAsync` de `IDurableOrchestrationClient` privilégie les performances par rapport à la cohérence. `ReadEntityStateAsync` peut retourner une valeur périmée et `SignalEntityAsync` peut être retournée avant la fin de l’opération.

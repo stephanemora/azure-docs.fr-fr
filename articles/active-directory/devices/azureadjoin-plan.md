@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e58762bd5bf4342804767a200c94b432dd152a0
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: e5dc1c3fb7ae12c36a8c1fe383290435c03ee0c4
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562216"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68741368"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Activation Planifier votre implémentation de la jointure d’Azure AD
 
@@ -68,7 +68,11 @@ Ces scénarios ne nécessitent pas la configuration d’un serveur de fédérati
 Un environnement fédéré doit avoir un fournisseur d’identité qui prend en charge les protocoles WS-Trust et WS-Fed :
 
 - **WS-Fed :** ce protocole est nécessaire pour joindre un appareil à Azure AD.
-- **WS-Trust :** ce protocole est nécessaire pour se connecter à un appareil joint à Azure AD. 
+- **WS-Trust :** ce protocole est nécessaire pour se connecter à un appareil joint à Azure AD.
+Lorsque vous utilisez AD FS, vous devez activer les points de terminaison WS-Trust suivants : `/adfs/services/trust/2005/usernamemixed`
+ `/adfs/services/trust/13/usernamemixed`
+ `/adfs/services/trust/2005/certificatemixed`
+ `/adfs/services/trust/13/certificatemixed`
 
 Si votre fournisseur d’identité ne prend pas en charge ces protocoles, la jonction Azure AD ne fonctionne pas en mode natif. À compter de Windows 10 1809, vos utilisateurs peuvent se connecter à un appareil joint à Azure AD avec un fournisseur d’identité SAML via la [connexion web sur Windows 10](https://docs.microsoft.com/windows/whats-new/whats-new-windows-10-version-1809#web-sign-in-to-windows-10). Actuellement, la connexion web est une fonctionnalité d’évaluation et n’est pas recommandée pour les déploiements de production.
 

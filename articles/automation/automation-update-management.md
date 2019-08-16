@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 05/22/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 6d27e36e9bd571aa9c42500451787fd94d4a8a90
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 1bb437511ed89de626489516ce5b06664ace6fba
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688145"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68741857"
 ---
 # <a name="update-management-solution-in-azure"></a>Solution Update Management dans Azure
 
@@ -23,7 +23,7 @@ Vous pouvez utiliser la solution Update Management dans Azure Automation pour g�
 Vous pouvez activer Update Management pour les machines virtuelles directement depuis votre compte Azure Automation. Pour découvrir comment activer Update Management pour les machines virtuelles depuis votre compte Automation, consultez l’article [Gérer les mises à jour pour plusieurs machines virtuelles](manage-update-multi.md). Vous pouvez également activer Update Management pour une machine virtuelle à partir de sa page dans le Portail Azure. Ce scénario est disponible pour les machines virtuelles [Linux](../virtual-machines/linux/tutorial-monitoring.md#enable-update-management) et [Windows](../virtual-machines/windows/tutorial-monitoring.md#enable-update-management).
 
 > [!NOTE]
-> La solution Update Management vous demande d’établir un lien entre l’espace de travail Log Analytics et votre compte Automation. Pour obtenir la liste définitive des régions prises en charge, consultez [https://docs.microsoft.com/en-us/azure/automation/how-to/region-mappings ]. Les mappages de région n’empêchent pas de gérer les machines virtuelles dans une autre région que celle de votre compte Automation.
+> La solution Update Management vous demande d’établir un lien entre l’espace de travail Log Analytics et votre compte Automation. Pour obtenir la liste définitive des régions prises en charge, consultez [Mappages Azure Workspace](./how-to/region-mappings.md). Les mappages de région n’empêchent pas de gérer les machines virtuelles dans une autre région que celle de votre compte Automation.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -99,6 +99,11 @@ Le tableau suivant répertorie les systèmes d’exploitation qui ne sont pas pr
 #### <a name="windows"></a>Windows
 
 Les agents Windows doivent être configurés pour communiquer avec un serveur WSUS ou avoir accès à Microsoft Update. Vous pouvez utiliser Update Management avec System Center Configuration Manager. Pour en savoir plus sur les scénarios d’intégration, consultez la section [Intégrer System Center Configuration Manager à Update Management](oms-solution-updatemgmt-sccmintegration.md#configuration). L’[agent Windows](../azure-monitor/platform/agent-windows.md) est obligatoire. L’agent est automatiquement installé si vous intégrez une machine virtuelle Azure.
+
+> [!NOTE]
+> Un utilisateur peut modifier la stratégie de groupe afin que le redémarrage de la machine ne puisse être effectué que par lui et non par le système. Les machines managées peuvent rester bloquées si Update Management ne dispose pas des droits nécessaires pour les redémarrer sans intervention manuelle de l'utilisateur.
+>
+> Pour plus d'informations, consultez [Configurer les paramètres de stratégie de groupe pour les mises à jour automatiques](https://docs.microsoft.com/en-us/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates).
 
 #### <a name="linux"></a>Linux
 

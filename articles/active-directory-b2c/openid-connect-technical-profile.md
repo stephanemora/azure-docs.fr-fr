@@ -1,6 +1,6 @@
 ---
-title: Définir un profil technique OpenId Connect dans une stratégie personnalisée dans Azure Active Directory B2C | Microsoft Docs
-description: Définissez un profil technique OpenId Connect dans une stratégie personnalisée dans Azure Active Directory B2C.
+title: Définir un profil technique OpenID Connect dans une stratégie personnalisée d'Azure Active Directory B2C | Microsoft Docs
+description: Définissez un profil technique OpenID Connect dans une stratégie personnalisée d'Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,18 +10,18 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 6d16415aa5111388ec2d2a1009ff477574ae42c5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1e8f03b17c5e8ea68affa9fe83875382fd5d8512
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66512917"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68716715"
 ---
-# <a name="define-an-openid-connect-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Définir un profil technique OpenId Connect dans une stratégie personnalisée Azure Active Directory B2C
+# <a name="define-an-openid-connect-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Définir un profil technique OpenID Connect dans une stratégie personnalisée Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory (Azure AD) B2C assure le support pour le fournisseur d’identité de protocole [OpenId Connect](https://openid.net/2015/04/17/openid-connect-certification-program/). OpenID Connect 1.0 définit une couche d’identité par dessus OAuth 2.0, et est à la pointe des protocoles d’authentification modernes. Un profil technique OpenId Connect vous permet d’opérer une fédération avec un fournisseur d’identité basée sur OpenId Connect, tel qu'Azure AD. Fédérer avec un fournisseur d'identité permet aux utilisateurs de se connecter avec leurs identités existantes de réseaux sociaux ou d’entreprise.
+Azure Active Directory (Azure AD) B2C assure le support pour le fournisseur d'identité du protocole [OpenID Connect](https://openid.net/2015/04/17/openid-connect-certification-program/). OpenID Connect 1.0 définit une couche d’identité par dessus OAuth 2.0, et est à la pointe des protocoles d’authentification modernes. Un profil technique OpenID Connect vous permet d'opérer une fédération avec un fournisseur d'identité reposant sur OpenID Connect, comme Azure AD. Fédérer avec un fournisseur d’identité permet aux utilisateurs de se connecter avec leurs identités existantes de réseaux sociaux ou d’entreprise.
 
 ## <a name="protocol"></a>Protocole
 
@@ -31,7 +31,7 @@ L’attribut **Name** de l’élément **Protocol** doit être défini sur `Open
 <TechnicalProfile Id="MSA-OIDC">
   <DisplayName>Microsoft Account</DisplayName>
   <Protocol Name="OpenIdConnect" />
-  ...    
+  ...
 ```
 
 ## <a name="input-claims"></a>Revendications d’entrée
@@ -46,7 +46,7 @@ Les éléments **InputClaims** et **InputClaimsTransformations** ne sont pas obl
 
 ## <a name="output-claims"></a>Revendications de sortie
 
-L’élément **OutputClaims** contient une liste de revendications retournée par le fournisseur d'identité OpenId Connect. Il se peut que vous deviez mapper le nom de la revendication définie dans votre stratégie au nom défini dans le fournisseur d'identité. Vous pouvez également inclure des revendications qui ne sont pas retournées par le fournisseur d’identité, pour autant que vous définissiez l’attribut `DefaultValue`.
+L’élément **OutputClaims** contient une liste de revendications renvoyée par le fournisseur d'identité OpenID Connect. Il se peut que vous deviez mapper le nom de la revendication définie dans votre stratégie au nom défini dans le fournisseur d'identité. Vous pouvez également inclure des revendications qui ne sont pas retournées par le fournisseur d’identité, pour autant que vous définissiez l’attribut `DefaultValue`.
 
 L’élément **OutputClaimsTransformations** peut contenir une collection d’éléments **OutputClaimsTransformation** qui sont utilisés pour modifier les revendications de sortie ou en générer de nouvelles.
 
@@ -94,10 +94,10 @@ L’élément **CryptographicKeys** contient l’attribut suivant :
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| client_secret | OUI | Clé secrète client de l’application du fournisseur d’identité. La clé de chiffrement est requise uniquement si les métadonnées **response_types** sont définies sur `code`. Dans ce cas, Azure AD B2C émet un autre appel pour échanger le code d’autorisation pour un jeton d’accès. Si les métadonnées sont définies sur `id_token`, vous pouvez omettre la clé de chiffrement.  |  
+| client_secret | OUI | Clé secrète client de l’application du fournisseur d’identité. La clé de chiffrement est requise uniquement si les métadonnées **response_types** sont définies sur `code`. Dans ce cas, Azure AD B2C émet un autre appel pour échanger le code d’autorisation pour un jeton d’accès. Si les métadonnées sont définies sur `id_token`, vous pouvez omettre la clé de chiffrement.  |
 
 ## <a name="redirect-uri"></a>URI de redirection
- 
+
 Lorsque vous configurez l’URI de redirection de votre fournisseur d’identité, entrez `https://login.microsoftonline.com/te/tenant/oauth2/authresp`. Veillez à remplacer **tenant** par le nom de votre locataire (par exemple, contosob2c.onmicrosoft.com) ou l’ID du locataire. L’URI de redirection doit être en minuscules.
 
 Si vous utilisez le domaine **b2clogin.com** à la place de **login.microsoftonline.com**, veillez à utiliser b2clogin.com au lieu de login.microsoftonline.com.

@@ -10,12 +10,12 @@ ms.date: 11/27/2018
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 806654b7586895b62b014a49b8b3a00fb18f008f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e063875e4c619b65290511d61923fd7c715aba49
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60764405"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68742175"
 ---
 # <a name="transform-data-by-using-the-sql-server-stored-procedure-activity-in-azure-data-factory"></a>Transformer des données à l’aide de l’activité de procédure stockée SQL Server dans Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -67,12 +67,23 @@ Le tableau suivant décrit ces paramètres JSON :
 
 | Propriété                  | Description                              | Obligatoire |
 | ------------------------- | ---------------------------------------- | -------- |
-| Nom                      | Nom de l’activité                     | OUI      |
+| name                      | Nom de l’activité                     | OUI      |
 | description               | Texte décrivant la raison motivant l’activité. | Non       |
 | Type                      | Pour l’activité de procédure stockée, le type d’activité est **SqlServerStoredProcedure**. | OUI      |
 | linkedServiceName         | Référence au service **Azure SQL Database**, **Azure SQL Data Warehouse** ou **SQL Server** enregistré en tant que service lié dans Data Factory. Pour en savoir plus sur ce service lié, consultez l’article [Services liés de calcul](compute-linked-services.md). | OUI      |
 | storedProcedureName       | Spécifiez le nom de la procédure stockée à appeler. | OUI      |
 | storedProcedureParameters | Spécifiez les valeurs des paramètres de procédure stockée. Utilisez `"param1": { "value": "param1Value","type":"param1Type" }` pour transmettre les valeurs des paramètres et leur type pris en charge par la source de données. Pour passer la valeur Null en paramètre, utilisez `"param1": { "value": null }` (tout en minuscules). | Non       |
+
+## <a name="parameter-data-type-mapping"></a>Mappage du type de données du paramètre
+Le type de données que vous spécifiez pour le paramètre est le type Azure Data Factory correspondant à celui de la source de données que vous utilisez. Vous trouverez les mappages de type de données de votre source de données dans la zone des connecteurs. Exemples :
+
+| source de données          | Mappage de type de données |
+| ---------------------|-------------------|
+| Azure SQL Data Warehouse | https://docs.microsoft.com/en-us/azure/data-factory/connector-azure-sql-data-warehouse#data-type-mapping-for-azure-sql-data-warehouse |
+| Azure SQL Database   | https://docs.microsoft.com/en-us/azure/data-factory/connector-azure-sql-database#data-type-mapping-for-azure-sql-database | 
+| Oracle               | https://docs.microsoft.com/en-us/azure/data-factory/connector-oracle#data-type-mapping-for-oracle |
+| SQL Server           | https://docs.microsoft.com/en-us/azure/data-factory/connector-sql-server#data-type-mapping-for-sql-server |
+
 
 ## <a name="error-info"></a>Informations sur l’erreur
 

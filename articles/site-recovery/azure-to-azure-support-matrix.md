@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/22/2019
+ms.date: 08/06/2019
 ms.author: raynew
-ms.openlocfilehash: 87362b785ecbb17c5a49a8c087b6a70715480877
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: d0e24d7621218ccac23842072a5f08be94c80d9d
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68679379"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840591"
 ---
 # <a name="support-matrix-for-replicating-azure-vms-from-one-region-to-another"></a>Matrice de support pour la réplication de machines virtuelles Azure d'une région vers une autre
 
@@ -117,7 +117,7 @@ Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5
 14.04 LTS | 9.25 | 3.13.0-24-generic à 3.13.0-169-generic,<br/>3.16.0-25-generic à 3.16.0-77-generic,<br/>3.19.0-18-generic à 3.19.0-80-generic,<br/>4.2.0-18-generic à 4.2.0-42-generic,<br/>4.4.0-21-generic à 4.4.0-146-generic,<br/>4.15.0-1023-azure à 4.15.0-1042-azure |
 14.04 LTS | 9.24 | 3.13.0-24-generic à 3.13.0-167-generic,<br/>3.16.0-25-generic à 3.16.0-77-generic,<br/>3.19.0-18-generic à 3.19.0-80-generic,<br/>4.2.0-18-generic à 4.2.0-42-generic,<br/>4.4.0-21-generic à 4.4.0-143-generic,<br/>4.15.0-1023-azure à 4.15.0-1040-azure |
 |||
-LTS 16.04 | 9.27 | 4.4.0-21-generic à 4.4.0-154-generic,<br/>4.8.0-34-generic à 4.8.0-58-generic,<br/>4.10.0-14-generic à 4.10.0-42-generic<br/>4.11.0-13-generic à 4.11.0-14-generic,<br/>4.13.0-16-generic à 4.13.0-45-generic,<br/>4.15.0-13-generic à 4.15.0-54-generic<br/>4.11.0-1009-azure à 4.11.0-1016-azure,<br/>4.13.0-1005-azure à 4.13.0-1018-azure <br/>4.15.0-1012-azure à 4.15.0-1050-azure|
+LTS 16.04 | 9.27 | 4.4.0-21-generic à 4.4.0-154-generic,<br/>4.8.0-34-generic à 4.8.0-58-generic,<br/>4.10.0-14-generic à 4.10.0-42-generic<br/>4.11.0-13-generic à 4.11.0-14-generic,<br/>4.13.0-16-generic à 4.13.0-45-generic,<br/>4.15.0-13-generic à 4.15.0-55-generic<br/>4.11.0-1009-azure à 4.11.0-1016-azure,<br/>4.13.0-1005-azure à 4.13.0-1018-azure <br/>4.15.0-1012-azure à 4.15.0-1051-azure|
 LTS 16.04 | 9.26 | 4.4.0-21-generic à 4.4.0-148-generic,<br/>4.8.0-34-generic à 4.8.0-58-generic,<br/>4.10.0-14-generic à 4.10.0-42-generic<br/>4.11.0-13-generic à 4.11.0-14-generic,<br/>4.13.0-16-generic à 4.13.0-45-generic,<br/>4.15.0-13-generic à 4.15.0-50-generic<br/>4.11.0-1009-azure à 4.11.0-1016-azure,<br/>4.13.0-1005-azure à 4.13.0-1018-azure <br/>4.15.0-1012-azure à 4.15.0-1045-azure|
 LTS 16.04 | 9.25 | 4.4.0-21-generic à 4.4.0-146-generic,<br/>4.8.0-34-generic à 4.8.0-58-generic,<br/>4.10.0-14-generic à 4.10.0-42-generic,<br/>4.11.0-13-generic à 4.11.0-14-generic,<br/>4.13.0-16-generic à 4.13.0-45-generic,<br/>4.15.0-13-generic à 4.15.0-48-generic,<br/>4.11.0-1009-azure à 4.11.0-1016-azure,<br/>4.13.0-1005-azure à 4.13.0-1018-azure <br/>4.15.0-1012-azure à 4.15.0-1042-azure|
 LTS 16.04 | 9.24 | 4.4.0-21-generic à 4.4.0-143-generic,<br/>4.8.0-34-generic à 4.8.0-58-generic,<br/>4.10.0-14-generic à 4.10.0-42-generic,<br/>4.11.0-13-generic à 4.11.0-14-generic,<br/>4.13.0-16-generic à 4.13.0-45-generic,<br/>4.15.0-13-generic à 4.15.0-46-generic,<br/>4.11.0-1009-azure à 4.11.0-1016-azure,<br/>4.13.0-1005-azure à 4.13.0-1018-azure <br/>4.15.0-1012-azure à 4.15.0-1040-azure|
@@ -136,7 +136,7 @@ Debian 8 | 9.24 | 3.16.0-4-amd64 à 3.16.0-7-amd64, 4.9.0-0.bpo.4-amd64 à 4.9.0
 
 **Version release** | **Version du service Mobilité** | **Version du noyau** |
 --- | --- | --- |
-SUSE Linux Enterprise Server 12 (SP1, SP2, SP3,SP4) | 9.27 | SP1 3.12.49-11-default à 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default à 3.12.74-60.64.115-default</br></br> SP2 4.4.21-69-default à 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default à 4.4.121-92.114-default</br></br>SP3 4.4.73-5-default à 4.4.180-94.97-default</br></br>SP3 4.4.138-4.7-azure à 4.4.180-4.31-azure</br></br>SP4 4.12.14-94.41-default à 4.12.14-95.19-default</br>SP4 4.12.14-6.3-azure à 4.12.14-6.15-azure |
+SUSE Linux Enterprise Server 12 (SP1, SP2, SP3,SP4) | 9.27 | SP1 3.12.49-11-default à 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default à 3.12.74-60.64.115-default</br></br> SP2 4.4.21-69-default à 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default à 4.4.121-92.117-default</br></br>SP3 4.4.73-5-default à 4.4.180-94.97-default</br></br>SP3 4.4.138-4.7-azure à 4.4.180-4.31-azure</br></br>SP4 4.12.14-94.41-default à 4.12.14-95.24-default</br>SP4 4.12.14-6.3-azure à 4.12.14-6.18-azure |
 SUSE Linux Enterprise Server 12 (SP1, SP2, SP3,SP4) | 9.26 | SP1 3.12.49-11-default à 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default à 3.12.74-60.64.110-default</br></br> SP2 4.4.21-69-default à 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default à 4.4.121-92.109-default</br></br>SP3 4.4.73-5-default à 4.4.178-94.91-default</br></br>SP3 4.4.138-4.7-azure à 4.4.178-4.28-azure</br></br>SP4 4.12.14-94.41-default à 4.12.14-95.16-default</br>SP4 4.12.14-6.3-azure à 4.12.14-6.9-azure |
 SUSE Linux Enterprise Server 12 (SP1, SP2, SP3,SP4) | 9.25 | SP1 3.12.49-11-default à 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default à 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default à 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default à 4.4.121-92.104-default</br></br>SP3 4.4.73-5-default à 4.4.176-94.88-default</br></br>SP3 4.4.138-4.7-azure à 4.4.176-4.25-azure</br></br>SP4 4.12.14-94.41-default à 4.12.14-95.13-default</br>SP4 4.12.14-6.3-azure à 4.12.14-6.9-azure |
 SUSE Linux Enterprise Server 12 (SP1, SP2, SP3,SP4) | 9.24 | SP1 3.12.49-11-default à 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default à 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default à 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default à 4.4.121-92.104-default</br></br>SP3 4.4.73-5-default à 4.4.176-94.88-default</br></br>SP4 4.12.14-94.41-default à 4.12.14-95.13-default |
@@ -197,7 +197,7 @@ Redondance | LRS et GRS sont pris en charge.<br/><br/> ZRS n’est pas pris en c
 Stockage à froid et à chaud | Non pris en charge | Les disques de machine virtuelle ne sont pas pris en charge sur le stockage à froid et à chaud
 Espaces de stockage | Pris en charge |
 Chiffrement au repos (SSE) | Pris en charge | SSE est le paramètre par défaut sur les comptes de stockage.   
-Azure Disk Encryption (ADE) pour système d’exploitation Windows | Prise en charge des machines virtuelles activées pour le [chiffrement avec Azure AD app](https://aka.ms/ade-aad-app) |
+Azure Disk Encryption (ADE) pour système d’exploitation Windows | Pris en charge |
 Azure Disk Encryption (ADE) pour système d’exploitation Linux | Non pris en charge |
 Ajout à chaud | Pris en charge | L'activation de la réplication pour un disque de données que vous ajoutez à une machine virtuelle Azure répliquée est prise en charge pour les machines virtuelles utilisant des disques managés.
 Retrait de disque à chaud | Non pris en charge | Si vous retirez un disque de données de la machine virtuelle, vous devez désactiver la réplication puis la réactiver pour la machine virtuelle.

@@ -1,6 +1,6 @@
 ---
-title: Démarrage rapide de PowerShell dans Azure Cloud Shell | Microsoft Docs
-description: Démarrage rapide de PowerShell dans Cloud Shell
+title: Azure Cloud Shell - Démarrage rapide | Microsoft Docs
+description: Démarrage rapide pour Azure Cloud Shell
 services: Azure
 documentationcenter: ''
 author: maertendmsft
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2018
 ms.author: damaerte
-ms.openlocfilehash: 1fc9883e0ea35c384c3bfc83e76b8eded48cbcba
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 36683d04b6f087f1d326458a07b043a0932191f1
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60199509"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68742002"
 ---
 # <a name="quickstart-for-powershell-in-azure-cloud-shell"></a>Démarrage rapide de PowerShell dans Azure Cloud Shell
 
@@ -147,7 +147,7 @@ La chaîne de connexion vous permet d’utiliser la commande suivante pour monte
 net use <DesiredDriveLetter>: \\<MyStorageAccountName>.file.core.windows.net\<MyFileShareName> <AccountKey> /user:Azure\<MyStorageAccountName>
 ```
 
-Pour en savoir plus, consultez [Montage d’un partage Azure Files et accès au partage dans Windows][azmount].
+Pour en savoir plus, consultez [Montage d'un partage Azure Files et accès au partage dans Windows][azmount].
 
 Vous pouvez également parcourir les répertoires sous le partage Azure Files comme suit :
 
@@ -338,7 +338,7 @@ Pour savoir comment créer un profil, consultez [À propos des profils][profile]
 
 ## <a name="use-git"></a>Utiliser Git
 
-Pour cloner un dépôt Git dans le Cloud Shell, vous devez créer un [jeton d’accès personnel][githubtoken] et l’utiliser comme nom d’utilisateur. Dès que vous disposez de votre jeton, clonez le dépôt comme suit :
+Pour cloner un référentiel Git dans Cloud Shell, vous devez créer un [jeton d'accès personnel][githubtoken] et l'utiliser comme nom d'utilisateur. Dès que vous disposez de votre jeton, clonez le dépôt comme suit :
 
 ```azurepowershell-interactive
   git clone https://<your-access-token>@github.com/username/repo.git

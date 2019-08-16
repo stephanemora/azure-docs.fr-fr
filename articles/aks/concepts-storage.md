@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: mlearned
-ms.openlocfilehash: eb9141d363bdb09b5773f80dfc5a1c4b9b92728f
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: fb15063e41e83b4c9a9f2e01b6ad18c8afed7f5f
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67615808"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68741006"
 ---
 # <a name="storage-options-for-applications-in-azure-kubernetes-service-aks"></a>Options de stockage pour les applications dans AKS (Azure Kubernetes Service)
 
@@ -34,7 +34,9 @@ Les applications doivent souvent être en mesure de stocker et de récupérer de
 Les volumes traditionnels pour stocker et récupérer les données sont créés en tant que ressources Kubernetes soutenues par Stockage Azure. Vous pouvez créer manuellement ces volumes de données en vue de les assigner à des pods directement, ou laisser Kubernetes les créer automatiquement. Ces volumes de données peuvent utiliser des disques Azure ou Azure Files :
 
 - Les *disques Azure* permettent de créer une ressource *DataDisk* Kubernetes. Les disques peuvent utiliser un stockage Azure Premium, assorti de disques SSD hautes performances, ou le stockage Azure Standard, assorti de disques HDD standards. Pour la plupart des charges de travail de production et de développement, utilisez le stockage Premium. Les disques Azure étant montés avec le mode d’accès *ReadWriteOnce*, ils ne sont disponibles que pour un seul nœud. Pour les volumes de stockage accessibles par plusieurs nœuds simultanément, utiliser Azure Files.
-- *Azure Files* permet de monter un partage SMB 3.0 assorti d’un compte Stockage Azure sur des pods. Avec Azure Files, vous pouvez partager des données entre plusieurs nœuds et pods. Azure Files peut utiliser uniquement un stockage Azure Standard assorti de disques HDD standards.
+- *Azure Files* permet de monter un partage SMB 3.0 assorti d’un compte Stockage Azure sur des pods. Avec Azure Files, vous pouvez partager des données entre plusieurs nœuds et pods. Les fichiers peuvent utiliser un stockage Azure Standard, assorti de disques HDD standard, ou un stockage Azure Premium, assorti de disques SSD hautes performances.
+> [!NOTE] 
+> Azure Files prend en charge le stockage premium dans les clusters AKS qui exécutent Kubernetes 1.13 ou une version ultérieure.
 
 Dans Kubernetes, les volumes ne se limitent pas forcément à un disque classique sur lequel des informations peuvent être stockées et récupérées. Les volumes Kubernetes peuvent également servir à injecter des données dans un pod en vue de leur utilisation par les conteneurs. Voici certains types de volume supplémentaires courants dans Kubernetes :
 

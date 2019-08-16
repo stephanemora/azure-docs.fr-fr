@@ -16,12 +16,12 @@ ms.author: curtand
 ms.reviewer: ajayanti1
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f96a7ad1c67fab9354daaafa129d15dfbff12064
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a624920a6763be54735f7cc470d0ae4a3c97d2e3
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64729378"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68740868"
 ---
 # <a name="product-names-and-service-plan-identifiers-for-licensing"></a>Noms de produits et identificateurs de plans de service pour la gestion des licences
 
@@ -103,6 +103,7 @@ Lors de la gestion des licences dans le [Portail Azure](https://portal.azure.com
 | SKYPE FOR BUSINESS PSTN CONFERENCING  | MCOMEETADV    | 0c266dff-15dd-4b49-8397-2bb16070ed52  | MCOMEETADV (3e26ee1f-8a5f-4d52-aee2-b81ce45c8f40) | AUDIOCONFÉRENCE (3e26ee1f-8a5f-4d52-aee2-b81ce45c8f40) |
 | SKYPE FOR BUSINESS PSTN DOMESTIC AND INTERNATIONAL CALLING    | MCOPSTN2  | d3b4fe1f-9992-4930-8acb-ca6ec609365e  | MCOPSTN2 (5a10155d-f5c1-411a-a8ec-e99aae125390) | PLAN D’APPELS NATIONAUX ET INTERNATIONAUX (5a10155d-f5c1-411a-a8ec-e99aae125390) |
 | SKYPE FOR BUSINESS PSTN DOMESTIC CALLING  | MCOPSTN1  | 0dab259f-bf13-4952-b7f8-7db8f131b28d  | MCOPSTN1 (4ed3ff63-69d7-4fb7-b984-5aec7f605ca8) | PLAN D’APPELS NATIONAUX (4ed3ff63-69d7-4fb7-b984-5aec7f605ca8) |
+| APPELS NATIONAUX PSTN SKYPE ENTREPRISE (120 minutes)| MCOPSTN5 | 54a152dc-90de-4996-93d2-bc47e670fc06  | MCOPSTN5 (54a152dc-90de-4996-93d2-bc47e670fc06) | PLAN D'APPELS NATIONAUX (54a152dc-90de-4996-93d2-bc47e670fc06) |
 | VISIO ONLINE PLAN 1   | VISIOONLINE_PLAN1 | 4b244418-9658-4451-a2b8-b5e2b364e9bd  | ONEDRIVE_BASIC (da792a53-cbc0-4184-a10d-e544dd34b3c1)<br/>VISIOONLINE (2bdbaf8f-738f-4ac7-9234-3c3ee2ce7d0f) | ONEDRIVE_BASIC (da792a53-cbc0-4184-a10d-e544dd34b3c1)<br/>VISIOONLINE (2bdbaf8f-738f-4ac7-9234-3c3ee2ce7d0f) |
 | VISIO Online Plan 2   | VISIOCLIENT   | c5928f49-12ba-48f7-ada3-0d743a3601d5  | ONEDRIVE_BASIC (da792a53-cbc0-4184-a10d-e544dd34b3c1)<br/>VISIO_CLIENT_SUBSCRIPTION (663a804f-1c30-4ff0-9915-9db84f0d1cea)<br/>VISIOONLINE (2bdbaf8f-738f-4ac7-9234-3c3ee2ce7d0f) | ONEDRIVE_BASIC (da792a53-cbc0-4184-a10d-e544dd34b3c1)<br/>VISIO_CLIENT_SUBSCRIPTION (663a804f-1c30-4ff0-9915-9db84f0d1cea)<br/>VISIOONLINE (2bdbaf8f-738f-4ac7-9234-3c3ee2ce7d0f) |
 | WINDOWS 10 ENTERPRISE E3  | WIN10_PRO_ENT_SUB | cb10e6cd-9da4-4992-867b-67546b1db821  | WIN10_PRO_ENT_SUB (21b439ba-a0ca-424f-a6cc-52f954a5b111) | WINDOWS 10 ENTERPRISE (21b439ba-a0ca-424f-a6cc-52f954a5b111)

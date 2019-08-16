@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/12/2018
 ms.author: vinigam
-ms.openlocfilehash: 71eb789c92452353029613265fe97411c8c00649
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: b3274c214aa60c930e62e651af960d5f01cbdd20
+ms.sourcegitcommit: f7998db5e6ba35cbf2a133174027dc8ccf8ce957
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67706327"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68782122"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>FAQ relative à la solution Network Performance Monitor
 
@@ -147,7 +147,17 @@ Un tronçon peut ne pas répondre à une détermination d’itinéraire dans un 
 * Les périphériques réseau n'autorisent pas le trafic ICMP_TTL_EXCEEDED.
 * Un pare-feu bloque la réponse ICMP_TTL_EXCEEDED à partir du périphérique réseau.
 
-### <a name="why-does-my-link-show-unhealthy-but-the-topology-does-not"></a>Pourquoi mon lien apparaît-il comme non sain, alors que ce n’est pas le cas de la topologie ? 
+### <a name="i-get-alerts-for-unhealthy-tests-but-i-do-not-see-the-high-values-in-npms-loss-and-latency-graph-how-do-i-check-what-is-unhealthy-"></a>Je reçois des alertes de tests non sains, mais aucune valeur élevée n'apparaît sur le graphique de perte et de latence de NPM. Comment vérifier ce qui n'est pas sain ?
+NPM déclenche une alerte si une latence de bout en bout entre une source et une destination dépasse le seuil de tout chemin qui les sépare. Certains réseaux disposent de plusieurs chemins pour relier la même source et la même destination. NPM déclenche une alerte si un chemin n'est pas sain. La perte et la latence représentées sur les graphiques correspondent à la valeur moyenne de tous les chemins. Par conséquent, la valeur exacte d'un chemin individuel n'est pas nécessairement indiquée. Pour comprendre où le seuil a été dépassé, recherchez la colonne « SubType » dans l'alerte. Si le problème est dû à un chemin, la valeur de SubType est NetworkPath (pour les tests de Performance Monitor), EndpointPath (pour les tests de Service Connectivity Monitor) et ExpressRoutePath (pour les tests d'ExpressRoute Monitor). 
+
+Exemple de requête pour déterminer si un chemin n'est pas sain :
+
+    NetworkMonitoring 
+    | where ( SubType == "ExpressRoutePath")
+    | where (LossHealthState == "Unhealthy" or LatencyHealthState == "Unhealthy" or UtilizationHealthState == "Unhealthy") and          CircuitResourceID =="<your ER circuit ID>" and ConnectionResourceId == "<your ER connection resource id>"
+    | project SubType, LossHealthState, LatencyHealthState, MedianLatency 
+
+### <a name="why-does-my-test-show-unhealthy-but-the-topology-does-not"></a>Pourquoi mon test apparaît-il comme non sain alors que ce n'est pas le cas de la topologie ? 
 NPM surveille la perte de bout en bout, la latence et la topologie à différents intervalles. La perte et la latence sont mesurées toutes les 5 secondes et agrégées toutes les trois minutes (pour l’Analyseur de performances et le Moniteur ExpressRoute) alors que la topologie est calculée à l’aide de la détermination d’itinéraire toutes les 10 minutes. Par exemple, entre 3:44 et 4:04, la topologie peut être mise à jour trois fois (3:44, 3:54, 4:04), mais la perte et la latence sont mises à jour environ sept fois (3:44, 3:47, 3:50, 3:53, 3:56, 3:59, 4:02). La topologie générée à 3:54 sera affichée selon la perte et la latence calculées à 3:56, 3:59 et 4:02. Supposons la situation suivante : vous recevez une alerte indiquant que votre circuit ER était défectueux à 3:59. Vous ouvrez une session NPM et vous essayez de définir l’heure de la topologie à 3:59. NPM affichera la topologie générée à 3:54. Pour comprendre la dernière topologie connue de votre réseau, comparez les champs TimeProcessed (heure à laquelle la perte et la latence ont été calculées) et TracerouteCompletedTime (heure à laquelle la topologie a été calculée). 
 
 ### <a name="what-is-the-difference-between-the-fields-e2emedianlatency-and-avghoplatencylist-in-the-networkmonitoring-table"></a>Quelle est la différence entre les champs E2EMedianLatency et AvgHopLatencyList dans la table NetworkMonitoring ?

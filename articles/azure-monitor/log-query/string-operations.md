@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
-ms.openlocfilehash: f53d3bd64b4f837fe29baa338cd338158d59d95d
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 0dd61deb372822c5c564758d26d4c4a4938c1064
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68466951"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68741459"
 ---
 # <a name="work-with-strings-in-azure-monitor-log-queries"></a>Utilisation de chaînes dans des requêtes de journal Azure Monitor
 
@@ -30,11 +30,11 @@ ms.locfileid: "68466951"
 
 Cet article décrit comment modifier et comparer des chaînes ainsi qu’effectuer des recherches et de nombreuses autres opérations sur celles-ci.
 
-Chaque caractère dans une chaîne a un numéro d’index, en fonction de son emplacement. Le premier caractère est à l’index 0, le caractère suivant à l’index 1, et ainsi de suite. Différentes fonctions de chaîne utilisent des numéros d’index comme indiqué dans les sections suivantes. La plupart des exemples suivants utilisent la commande **print** pour illustrer la manipulation de chaînes sans utiliser de source de données spécifique.
+Chaque caractère dans une chaîne a un numéro d’index, en fonction de son emplacement. Le premier caractère est à l'index 0, le caractère suivant à l'index 1, et ainsi de suite. Différentes fonctions de chaîne utilisent des numéros d’index comme indiqué dans les sections suivantes. La plupart des exemples suivants utilisent la commande **print** pour illustrer la manipulation de chaînes sans utiliser de source de données spécifique.
 
 
 ## <a name="strings-and-escaping-them"></a>Chaînes et échappement
-Les valeurs de chaîne sont entourées de guillemets simples ou doubles. La barre oblique inverse (\) est utilisée pour échapper les caractères vers le caractère suivant, comme \t pour la tabulation, \n pour le saut de ligne et \" pour le guillemet lui-même.
+Les valeurs de chaîne sont entourées de guillemets simples ou doubles. La barre oblique inverse (\\) est utilisée pour échapper les caractères vers le caractère suivant, comme \t pour la tabulation, \n pour le saut de ligne et \" pour le guillemet lui-même.
 
 ```Kusto
 print "this is a 'string' literal in double \" quotes"
@@ -129,7 +129,7 @@ print countof("abcabc", "a.c", "regex");  // result: 2
 
 ## <a name="extract"></a>extract
 
-Obtient une correspondance pour une expression régulière à partir d’une chaîne donnée. Éventuellement, convertit aussi la sous-chaîne extraite dans le type indiqué.
+Obtient une correspondance pour une expression régulière à partir d’une chaîne donnée. Peut également convertir la sous-chaîne extraite selon le type indiqué.
 
 ### <a name="syntax"></a>Syntaxe
 

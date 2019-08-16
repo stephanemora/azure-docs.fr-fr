@@ -7,25 +7,57 @@ author: ggailey777
 manager: jeconnoc
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 07/24/2018
+ms.date: 08/05/2019
 ms.author: glenga
-ms.openlocfilehash: a32b4815a2716428ceeec034ddc5589e3aa062e8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 183056d01146194b2854a70df790802e1a0bb839
+ms.sourcegitcommit: f7998db5e6ba35cbf2a133174027dc8ccf8ce957
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60710565"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68782232"
 ---
 # <a name="how-to-disable-functions-in-azure-functions"></a>Guide pratique pour désactiver des fonctions dans Azure Functions
 
 Cet article explique comment désactiver une fonction dans Azure Functions. Quand vous *désactivez* une fonction, le runtime ignore le déclencheur automatique défini pour la fonction. La procédure à suivre pour y parvenir dépend de la version du runtime et du langage de programmation :
 
-* Functions 1.x
-  * Langages de script
-  * Bibliothèque de classes C#
-* Functions 2.x
+* Functions 2.x :
   * Méthode pour tous les langages
   * Méthode facultative pour les bibliothèques de classes C#
+* Functions 1.x :
+  * Langages de script
+  * Bibliothèque de classes C#
+
+## <a name="functions-2x---all-languages"></a>Functions 2.x - Tous les langages
+
+Dans Functions 2.x, vous désactivez une fonction à l'aide d'un paramètre d'application au format `AzureWebJobs.<FUNCTION_NAME>.Disabled`. Vous pouvez créer et modifier ce paramètre par programmation à l'aide de l'interface de ligne de commande Azure. Vous pouvez également le faire à partir de l'onglet **Gérer** de votre fonction sur le [Portail Azure](https://portal.azure.com). 
+
+### <a name="azure-cli"></a>D’Azure CLI
+
+Dans l'interface de ligne de commande Azure, vous utilisez la commande [`az functionapp config appsettings set`](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set) pour créer et modifier le paramètre d'application. La commande suivante désactive une fonction nommée `QueueTrigger` en créant un paramètre d'application nommé `AzureWebJobs.QueueTrigger.Disabled` et en le définissant sur `true`. 
+
+```azurecli-interactive
+az functionapp config appsettings set --name <myFunctionApp> \
+--resource-group <myResourceGroup> \
+--settings AzureWebJobs.QueueTrigger.Disabled=true
+```
+
+Pour réactiver la fonction, réexécutez la même commande avec la valeur `false`.
+
+```azurecli-interactive
+az functionapp config appsettings set --name <myFunctionApp> \
+--resource-group <myResourceGroup> \
+--settings AzureWebJobs.QueueTrigger.Disabled=false
+```
+
+### <a name="portal"></a>Portail
+
+Vous pouvez également utiliser le commutateur **État de la fonction** sous l’onglet **Gérer** de la fonction. Le commutateur crée et supprime le paramètre d’application `AzureWebJobs.<FUNCTION_NAME>.Disabled`.
+
+![Commutateur d’état de la fonction](media/disable-function/function-state-switch.png)
+
+## <a name="functions-2x---c-class-libraries"></a>Functions 2.x - Bibliothèques de classes C#
+
+Dans une bibliothèque de classes Functions 2.x, nous vous recommandons d’utiliser la méthode qui fonctionne pour tous les langages. Toutefois, si vous préférez, vous pouvez [utiliser l’attribut Disable comme dans Functions 1.x](#functions-1x---c-class-libraries).
 
 ## <a name="functions-1x---scripting-languages"></a>Functions 1.x - Langages de script
 
@@ -102,18 +134,6 @@ Cette méthode vous permet d’activer et de désactiver la fonction en changean
 > Il en va de même pour le commutateur **État de fonction**, sous l’onglet **Gérer**, dans la mesure où il change le fichier *function.json*.
 >
 > Notez également que le portail peut indiquer que la fonction est désactivée alors qu’elle ne l’est pas.
-
-
-
-## <a name="functions-2x---all-languages"></a>Functions 2.x - Tous les langages
-
-Dans Functions 2.x, vous désactivez une fonction à l’aide d’un paramètre d’application. Par exemple, pour désactiver une fonction nommée `QueueTrigger`, vous créez un paramètre d’application nommé `AzureWebJobs.QueueTrigger.Disabled` et lui affectez la valeur `true`. Pour activer la fonction, affectez au paramètre d’application la valeur `false`. Vous pouvez également utiliser le commutateur **État de la fonction** sous l’onglet **Gérer** de la fonction. Le commutateur crée et supprime le paramètre d’application `AzureWebJobs.<functionname>.Disabled`.
-
-![Commutateur d’état de la fonction](media/disable-function/function-state-switch.png)
-
-## <a name="functions-2x---c-class-libraries"></a>Functions 2.x - Bibliothèques de classes C#
-
-Dans une bibliothèque de classes Functions 2.x, nous vous recommandons d’utiliser la méthode qui fonctionne pour tous les langages. Toutefois, si vous préférez, vous pouvez [utiliser l’attribut Disable comme dans Functions 1.x](#functions-1x---c-class-libraries).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

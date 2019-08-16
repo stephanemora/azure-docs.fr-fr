@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/15/2019
-ms.openlocfilehash: 0850fb5995902ce82132e813ecb7d4126aff03af
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: 03bcde2049178aa5e9c347a3c60aa7be328adbc3
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68516737"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68716901"
 ---
 # <a name="data-transformation-expressions-in-mapping-data-flow"></a>Expressions de transformation de données dans le flux de données de mappage 
 
@@ -106,6 +106,16 @@ Calcule la racine cubique d’un nombre * ``cbrt(8) -> 2.0``
 ### <code>ceil</code>
 <code><b>ceil(<i>&lt;value1&gt;</i> : number) => number</b></code><br/><br/>
 Retourne le plus petit entier qui n’est pas inférieur au nombre * ``ceil(-0.1) -> 0``
+---
+### <code>coalesce</code>
+<code><b>coalesce(<i>&lt;value1&gt;</i> : any, ...) => any</b></code><br/><br/>
+Renvoie la première valeur non nulle d'un jeu d'entrées. Toutes les entrées doivent être du même type * ``coalesce(10, 20) -> 10``
+* ``coalesce(toString(null), toString(null), 'dumbo', 'bo', 'go') -> 'dumbo'``
+---
+### <code>compare</code>
+<code><b>compare(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => integer</b></code><br/><br/>
+Compare deux valeurs du même type. Renvoie un entier négatif si valeur1 < valeur2, 0 si valeur1 == valeur2, une valeur positive si valeur1 > valeur2 * ``(compare(12, 24) < 1) -> true``
+* ``(compare('dumbo', 'dum') > 0) -> true``
 ---
 ### <code>concat</code>
 <code><b>concat(<i>&lt;this&gt;</i> : string, <i>&lt;that&gt;</i> : string, ...) => string</b></code><br/><br/>
@@ -433,6 +443,11 @@ Obtient la moyenne des valeurs d’une colonne. Identique à AVG * ``mean(sales)
 ### <code>meanIf</code>
 <code><b>meanIf(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : number) => number</b></code><br/><br/>
 Selon certains critères, obtient la moyenne des valeurs d’une colonne. Identique à avgIf * ``meanIf(region == 'West', sales) -> 7523420.234``
+---
+### <code>millisecond</code>
+<code><b>millisecond(<i>&lt;value1&gt;</i> : timestamp, [<i>&lt;value2&gt;</i> : string]) => integer</b></code><br/><br/>
+Obtient la valeur en millisecondes d'une date. Vous pouvez passer un fuseau horaire facultatif au format 'GMT', 'PST', 'UTC', 'Amérique/Caïmans'. Le fuseau horaire local est utilisé par défaut.
+* ``millisecond(toTimestamp('2009-07-30 12:58:59.871', 'yyyy-MM-dd HH:mm:ss.SSS')) -> 871``
 ---
 ### <code>min</code>
 <code><b>min(<i>&lt;value1&gt;</i> : any) => any</b></code><br/><br/>

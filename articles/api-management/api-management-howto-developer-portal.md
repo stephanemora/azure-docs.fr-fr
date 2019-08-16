@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/12/2019
 ms.author: apimpm
-ms.openlocfilehash: d902a65c4e36ff698e486e2af899d055de1afca0
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 27d5dcc99db040036ba296911aa33d8a312bb23f
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68638543"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68851505"
 ---
 # <a name="access-and-customize-the-new-developer-portal-in-azure-api-management"></a>Accès et personnalisation du nouveau portail des développeurs pour la gestion des API Azure
 
@@ -78,6 +78,10 @@ L’objectif de la disponibilité générale est de fournir une parité de fonct
 
 Les exceptions concernent les sections *Applications* et les *Problèmes* de l’ancien portail, qui ne seront pas disponibles dans le nouveau portail. Si vous utilisez la section *Problèmes* de l’ancien portail et que vous en avez besoin dans le nouveau, publiez un commentaire [sur le site GitHub dédié](https://github.com/Azure/api-management-developer-portal/issues/122).
 
+### <a name="ive-found-bugs-andor-id-like-to-request-a-feature"></a>J'ai trouvé des bogues et/ou j'aimerais demander une fonctionnalité.
+
+Parfait ! Vous pouvez nous faire part de vos commentaires, soumettre une demande de fonctionnalité ou déposer un rapport de bogue via [la section Problèmes du référentiel GitHub](https://github.com/Azure/api-management-developer-portal/issues). Et tant que vous y êtes, n'hésitez pas à nous donner votre avis sur les problèmes accompagnés de l'étiquette `community`.
+
 ### <a name="i-want-to-move-the-content-of-the-new-portal-between-environments-how-can-i-do-that-and-do-i-need-to-go-with-the-self-hosted-version"></a>Je souhaite déplacer le contenu du nouveau portail entre des environnements. Comment puis-je effectuer cette opération ? Dois-je utiliser la version auto-hébergée ?
 
 Vous pouvez le faire dans les deux versions du portail, managée et auto-hébergée. Le nouveau portail des développeurs prend en charge l’extraction de contenu via l’API de gestion de votre service Gestion des API. Les API sont documentées [dans la section wiki du référentiel GitHub](https://github.com/Azure/api-management-developer-portal/wiki/). Nous avons également écrit [un script](https://github.com/Azure/api-management-developer-portal/blob/master/scripts/migrate.bat), qui peut vous aider à démarrer.
@@ -91,10 +95,6 @@ Une *disposition* est appliquée à une page en faisant correspondre son modèle
 ### <a name="why-doesnt-the-interactive-developer-console-work"></a>Pourquoi la console de développement interactive ne fonctionne-t-elle pas ?
 
 Ce problème est probablement lié à CORS. La console interactive effectue une requête d’API côté client à partir du navigateur. Vous pouvez résoudre le problème CORS en ajoutant une [stratégie CORS ](https://docs.microsoft.com/azure/api-management/api-management-cross-domain-policies#CORS)sur vos API. Vous pouvez spécifier tous les paramètres manuellement (par exemple, https://contoso.com) comme origine, ou utiliser une valeur de caractère générique `*`.
-
-### <a name="where-can-i-file-bugs"></a>Où puis-je signaler des bogues ?
-
-[Dans le référentiel GitHub](http://aka.ms/apimdevportal).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

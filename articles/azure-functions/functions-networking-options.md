@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: alkarche
-ms.openlocfilehash: a0bb34f8a43199a5d3a18064bce92ef4bec543af
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f4f081001f2573bccc58205ccc7955739b7f5c4c
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67050650"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779294"
 ---
 # <a name="azure-functions-networking-options"></a>Options de mise en réseau d’Azure Functions
 
@@ -33,53 +33,80 @@ Vous pouvez héberger des applications de fonction de deux façons :
 
 |                |[Plan Consommation](functions-scale.md#consumption-plan)|[Plan Premium (préversion)](functions-scale.md#premium-plan)|[Plan App Service](functions-scale.md#app-service-plan)|[Environnement App Service](../app-service/environment/intro.md)|
 |----------------|-----------|----------------|---------|-----------------------|  
-|[Restrictions d’adresse IP entrantes](#inbound-ip-restrictions)|✅ Oui|✅ Oui|✅ Oui|✅ Oui|
-|[Restrictions d’adresse IP sortantes](#private-site-access)|❌Non| ❌Non|❌Non|✅ Oui|
-|[Intégration du réseau virtuel](#virtual-network-integration)|❌Non|❌Non|✅ Oui|✅ Oui|
-|[Intégration du réseau virtuel en préversion (Azure ExpressRoute et points de terminaison de service sortants)](#preview-version-of-virtual-network-integration)|❌Non|✅ Oui|✅ Oui|✅ Oui|
-|[connexions hybrides](#hybrid-connections)|❌Non|❌Non|✅ Oui|✅ Oui|
-|[Accès aux sites privés](#private-site-access)|❌Non| ✅ Oui|✅ Oui|✅ Oui|
+|[Restrictions d'adresses IP entrantes et accès privé aux sites](#inbound-ip-restrictions)|Oui|Oui|Oui|Oui|
+|[Intégration du réseau virtuel](#virtual-network-integration)|Non|Oui (Zones géographiques)|Oui (Zones géographiques et Passerelle)|Oui|
+|[Déclencheurs de réseau virtuel (non HTTP)](#virtual-network-triggers-non-http)|Non| Non|Oui|Oui|
+|[connexions hybrides](#hybrid-connections)|Non|Non|Oui|Oui|
+|[Restrictions d’adresse IP sortantes](#outbound-ip-restrictions)|Non| Non|Non|Oui|
+
 
 ## <a name="inbound-ip-restrictions"></a>Restrictions d’adresse IP entrantes
 
 Vous pouvez utiliser des restrictions d’adresse IP pour définir la liste des adresses IP classées par ordre de priorité qui sont autorisées ou non à accéder à votre application. La liste peut inclure des adresses IPv4 et IPv6. Lorsqu’il y a une ou plusieurs entrées, une règle implicite « Tout refuser » se trouve à la fin de la liste. Les restrictions d’adresse IP fonctionnent avec toutes les options d’hébergement de fonction.
 
 > [!NOTE]
-> Pour utiliser l’éditeur du portail Azure, le portail doit être en mesure d’accéder directement à votre Function App en cours d’exécution. En outre, l’adresse IP de l’appareil que vous utilisez pour accéder au portail doit être sur la liste verte. Lorsque des restrictions de réseau sont appliquées, vous pouvez aussi accéder aux fonctionnalités dans l’onglet **Fonctionnalités de la plateforme**.
+> Une fois les restrictions réseau en place, vous ne pouvez utiliser l'éditeur du portail qu'à partir de votre réseau virtuel ou après avoir ajouté à la liste verte l'adresse IP de la machine que vous utilisez pour accéder au Portail Azure. Néanmoins, vous pouvez aussi accéder aux fonctionnalités à partir de l'onglet **Fonctionnalités de la plateforme** de n'importe quel ordinateur.
 
 Pour en savoir plus, consultez [Restrictions d’accès statique Azure App Service](../app-service/app-service-ip-restrictions.md).
 
-## <a name="outbound-ip-restrictions"></a>Restrictions d’adresse IP sortantes
+## <a name="private-site-access"></a>Accès aux sites privés
 
-Les restrictions d’adresse IP sortantes sont uniquement disponibles pour les fonctions déployées sur un Azure App Service Environment. Vous pouvez configurer des restrictions sortantes pour le réseau virtuel sur lequel votre Azure App Service Environment est déployé.
+L’accès aux sites privés fait référence au fait de rendre votre application accessible uniquement à partir d’un réseau privé, par exemple à partir d’un réseau virtuel Azure. 
+* L'accès aux sites privés est disponible dans les plans [Premium](./functions-premium-plan.md) et [App Service](functions-scale.md#app-service-plan) lorsque des **points de terminaison de service** sont configurés. Pour plus d’informations, consultez [Points de terminaison de service de réseau virtuel](../virtual-network/virtual-network-service-endpoints-overview.md)
+    * N'oubliez pas qu'avec les points de terminaison de service, votre fonction dispose toujours d'un accès sortant complet à Internet, même si l'intégration au réseau virtuel est configurée.
+* L'accès aux sites privés est également disponible via une instance d'Azure App Service Environment configurée avec un équilibreur de charge interne (ILB). Pour plus d’informations, consultez [Créer et utiliser un équilibreur de charge interne avec un Azure App Service Environment](../app-service/environment/create-ilb-ase.md).
 
 ## <a name="virtual-network-integration"></a>Intégration du réseau virtuel
 
 L’intégration de réseau virtuel permet à votre Function App d’accéder aux ressources au sein d’un réseau virtuel. Cette fonctionnalité est disponible dans le plan Premium et le plan App Service. Si votre application se trouve dans un Azure App Service Environment, elle se trouve déjà dans un réseau virtuel et il n’est pas nécessaire d’utiliser l’intégration de réseau virtuel pour accéder aux ressources de ce même réseau virtuel.
 
-L’intégration de réseau virtuel permet à votre Function App d’accéder aux ressources de votre réseau virtuel, mais n’accorde pas d’[accès aux sites privés](#private-site-access) à votre Function App à partir du réseau virtuel.
-
 Vous pouvez utiliser l’intégration de réseau virtuel pour permettre l’accès depuis des applications à des bases de données et à des services web qui s’exécutent dans votre réseau virtuel. Avec l’intégration de réseau virtuel, vous n’avez pas besoin d’exposer un point de terminaison public pour les applications sur votre machine virtuelle. Vous pouvez utiliser des adresses routables non Internet privées à la place.
 
-La version en disponibilité générale de l’intégration de réseau virtuel s’appuie sur une passerelle VPN pour connecter des applications de fonction à un réseau virtuel. Elle est disponible dans des fonctions hébergées dans un plan App Service. Pour en savoir plus sur la configuration de cette fonctionnalité, consultez [Intégrer une application à un réseau virtuel Azure](../app-service/web-sites-integrate-with-vnet.md).
+La fonctionnalité d'intégration au réseau virtuel se présente sous deux formes :
 
-### <a name="preview-version-of-virtual-network-integration"></a>Préversion de l’intégration de réseau virtuel
+1. L'intégration au réseau virtuel régional permet une intégration aux réseaux virtuels de la même région. Sous cette forme, la fonctionnalité nécessite un sous-réseau dans un réseau virtuel de la même région. Bien que cette fonctionnalité soit toujours en préversion, elle est prise en charge pour les charges de travail de production des applications Windows. Il existe cependant certaines restrictions qui sont mentionnées ci-dessous.
+2. L'intégration au réseau virtuel avec passerelle obligatoire permet une intégration à des réseaux virtuels situés dans des régions distantes ou à des réseaux virtuels classiques. Cette version de la fonctionnalité nécessite le déploiement d'une passerelle de réseau virtuel dans votre réseau virtuel. Il s'agit de la fonctionnalité VPN point à site et elle est uniquement prise en charge par les applications Windows.
 
-Une nouvelle version de la fonctionnalité d’intégration de réseau virtuel est en préversion. Elle ne dépend pas de VPN de point à site. Elle prend en charge l’accès aux ressources via ExpressRoute ou des points de terminaison de service. Elle est disponible dans le plan Premium et dans les plans App Service mis à l’échelle vers PremiumV2.
+Une application ne peut utiliser qu'une seule forme de la fonctionnalité d'intégration au réseau virtuel à la fois. Il convient donc de déterminer quelle fonctionnalité utiliser. Les deux peuvent être utilisées dans des cas divers et variés. Il existe néanmoins des facteurs de différenciation clairs :
 
-Voici certaines caractéristiques de cette version :
+| Problème  | Solution | 
+|----------|----------|
+| Nécessité d'accéder à une adresse RFC 1918 (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16) dans la même région | Intégration au réseau virtuel régional |
+| Nécessité d'accéder aux ressources d'un réseau virtuel classique ou d'un réseau virtuel situé dans une autre région | Intégration au réseau virtuel avec passerelle obligatoire |
+| Nécessité d'accéder à des points de terminaison RFC 1918 via ExpressRoute | Intégration au réseau virtuel régional |
+| Nécessité d'accéder à des ressources via des points de terminaison de service | Intégration au réseau virtuel régional |
 
-* Vous n’avez pas besoin de passerelle pour l’utiliser.
-* Vous pouvez accéder à des ressources de connexions ExpressRoute sans autre configuration que l’intégration avec le réseau virtuel connecté à ExpressRoute.
-* Vous pouvez utiliser des ressources sécurisées de point de terminaison de service à partir de fonctions en cours d’exécution. Pour cela, activez des points de terminaison de service sur le sous-réseau utilisé pour l’intégration de réseau virtuel.
-* Vous ne pouvez pas configurer de déclencheurs pour utiliser des ressources sécurisées de point de terminaison de service. 
-* La Function App et le réseau virtuel doivent se trouver dans la même région.
-* La nouvelle fonctionnalité nécessite un sous-réseau non utilisé dans le réseau virtuel que vous avez déployé via Azure Resource Manager.
-* Les charges de travail de production ne sont pas prises en charge tant que la fonctionnalité est en préversion.
-* Les tables de routage et de peering mondial ne sont pas encore disponibles avec la fonctionnalité.
-* Une adresse est utilisée pour chaque instance potentielle de Function App. Étant donné que vous ne pouvez pas changer la taille du sous-réseau après l’avoir affectée, utilisez un sous-réseau qui peut facilement prendre en charge que votre taille d’échelle maximale. Par exemple, pour prendre en charge un plan Premium qui peut être mis à l’échelle jusqu’à 80 instances, nous recommandons un sous-réseau `/25` qui fournit 126 adresses d’hôte.
+Aucune des fonctionnalités ne vous permet d'accéder à des adresses non compatibles avec RFC 1918 via ExpressRoute. Pour cela, vous devez pour le moment utiliser un environnement ASE.
 
-Pour en savoir plus sur l’utilisation de la préversion de l’intégration de réseau virtuel, consultez [Intégrer une application de fonction à un réseau virtuel Azure](functions-create-vnet.md).
+L'utilisation de l'intégration au réseau virtuel régional n'a pas pour effet de connecter votre réseau virtuel à des ressources locales ou de configurer des points de terminaison de service. Il s'agit d'une configuration de mise en réseau distincte. L'intégration au réseau virtuel régional permet simplement à votre application de passer des appels via ces types de connexion.
+
+Quelle que soit la version utilisée, l'intégration au réseau virtuel permet à votre application de fonction d'accéder aux ressources de votre réseau virtuel, mais ne lui accorde pas d'accès aux sites privés à partir du réseau virtuel. L’accès au site privé fait référence au fait de rendre votre application accessible uniquement à partir d’un réseau privé, par exemple à partir d’un réseau virtuel Azure. L'intégration au réseau virtuel sert uniquement à passer des appels sortants de votre application vers votre réseau virtuel. 
+
+La fonctionnalité d’intégration au réseau virtuel :
+
+* requiert un plan App Service Standard, Premium ou PremiumV2 ;
+* prend en charge les protocoles TCP et UDP ;
+* fonctionne avec les applications App Service et les applications de fonction.
+
+L’intégration au réseau virtuel ne prend pas en charge certaines choses, notamment :
+
+* montage d’un lecteur ;
+* intégration AD ; 
+* NetBios ;
+
+Dans Functions, l'intégration au réseau virtuel utilise une infrastructure partagée avec les applications Web App Service. Pour en savoir plus sur les deux types d'intégration au réseau virtuel, consultez :
+* [Intégration au réseau virtuel régional](../app-service/web-sites-integrate-with-vnet.md#regional-vnet-integration)
+* [Intégration au réseau virtuel avec passerelle obligatoire](../app-service/web-sites-integrate-with-vnet.md#gateway-required-vnet-integration)
+
+Pour en savoir plus sur l'utilisation de l'intégration au réseau virtuel, consultez [Intégrer une application de fonction à un réseau virtuel Azure](functions-create-vnet.md).
+
+## <a name="virtual-network-triggers-non-http"></a>Déclencheurs de réseau virtuel (non HTTP)
+
+Actuellement, pour pouvoir utiliser des déclencheurs Function autres que HTTP à partir d'un réseau virtuel, vous devez exécuter votre application de fonction dans le cadre d'un plan App Service ou dans un environnement App Service Environment.
+
+Par exemple, si vous configurez Azure Cosmos DB de manière à accepter uniquement le trafic en provenance d'un réseau virtuel, vous devez déployer votre application de fonction dans le cadre d'un plan App Service avec intégration à ce réseau virtuel pour configurer les déclencheurs Azure Cosmos DB à partir de cette ressource. Pendant la phase de préversion, la configuration de l'intégration au réseau virtuel ne permettra pas au plan Premium d'utiliser des déclencheurs à partir de cette ressource Azure Cosmos DB.
+
+Consultez la [liste de tous les déclencheurs non HTTP](./functions-triggers-bindings.md#supported-bindings) pour déterminer ce qui est pris en charge.
 
 ## <a name="hybrid-connections"></a>les connexions hybrides
 
@@ -89,14 +116,11 @@ Utilisée dans Azure Functions, chaque connexion hybride correspond à une combi
 
 Pour en savoir plus, consultez la [documentation App Service pour les connexions hybrides](../app-service/app-service-hybrid-connections.md), qui prend en charge les fonctions dans un plan App Service.
 
-## <a name="private-site-access"></a>Accès aux sites privés
+## <a name="outbound-ip-restrictions"></a>Restrictions d’adresse IP sortantes
 
-L’accès aux sites privés fait référence au fait de rendre votre application accessible uniquement à partir d’un réseau privé, par exemple à partir d’un réseau virtuel Azure. 
-* L’accès aux sites privés est disponible dans les plans Premium et App Service lorsque des **points de terminaison de service** sont configurés. Pour plus d’informations, consultez [Points de terminaison de service de réseau virtuel](../virtual-network/virtual-network-service-endpoints-overview.md)
-    * N’oubliez pas qu’avec les points de terminaison de service, votre fonction a toujours un accès complet sortant à Internet, même si l’intégration de réseau virtuel est configurée.
-* L’accès aux sites privés est disponible uniquement via un Azure App Service Environment configuré avec un équilibreur de charge interne (ILB). Pour plus d’informations, consultez [Créer et utiliser un équilibreur de charge interne avec un Azure App Service Environment](../app-service/environment/create-ilb-ase.md).
+Les restrictions d’adresse IP sortantes sont uniquement disponibles pour les fonctions déployées sur un Azure App Service Environment. Vous pouvez configurer des restrictions sortantes pour le réseau virtuel sur lequel votre Azure App Service Environment est déployé.
 
-Différentes méthodes permettent d’accéder aux ressources de réseau virtuel dans d’autres options d’hébergement. Toutefois, un Azure App Service Environment est la seule méthode pour autoriser des déclencheurs pour une fonction sur un réseau virtuel.
+Lors de l'intégration d'une application Function App à un réseau virtuel dans le cadre d'un plan Premium ou App Service, l'application est toujours en mesure de passer des appels sortants vers Internet.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour en savoir plus sur la mise en réseau et Azure Functions : 

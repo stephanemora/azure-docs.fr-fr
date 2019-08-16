@@ -5,13 +5,13 @@ ms.author: rimman
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/23/2019
-ms.openlocfilehash: 1bfa7104425b5013f9cdf36ff3c1dd88107d3ec7
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.date: 08/01/2019
+ms.openlocfilehash: e80e548ceae2149fe7061da42c71ee8b61f00a72
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68467854"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68717553"
 ---
 # <a name="partitioning-in-azure-cosmos-db"></a>Partitionnement dans Azure Cosmos DB
 
@@ -39,7 +39,7 @@ Lors du choix d’une clé de partition, tenez compte des détails suivants :
 
 * La limite supérieure de stockage d’une même partition logique est de 10 Go.  
 
-* Les conteneurs Azure Cosmos ont un débit minimal de 400 unités de requête par seconde (RU/s). Les requêtes pour la même clé de partition ne peuvent pas dépasser le débit alloué à une partition. Si elles dépassent le débit alloué, le débit des requêtes est limité. Il est donc important de choisir une clé de partition qui ne crée pas de « zones réactives » au sein de votre application.
+* Les conteneurs Azure Cosmos ont un débit minimal de 400 unités de requête par seconde (RU/s). Lorsque le débit est approvisionné sur une base de données, le nombre minimum de RU par conteneur est de 100 unités de requête par seconde (RU/s). Les requêtes pour la même clé de partition ne peuvent pas dépasser le débit alloué à une partition. Si elles dépassent le débit alloué, le débit des requêtes est limité. Il est donc important de choisir une clé de partition qui ne crée pas de « zones réactives » au sein de votre application.
 
 * Choisissez une clé de partition dotée d'un large éventail de valeurs et de modèles d'accès répartis uniformément sur les partitions logiques. Cela permet de répartir les données et l’activité de votre conteneur sur l’ensemble des partitions logiques afin que les ressources de débit et de stockage des données puissent être réparties sur les partitions logiques.
 
