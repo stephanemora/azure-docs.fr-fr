@@ -10,18 +10,75 @@ ms.author: jmartens
 author: j-martens
 ms.date: 07/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: ade107f51fabb133e8e4046bf645f4dff284102b
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: ec913133ef97a632b12db2859bd4ac32df70a1c5
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68565112"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68828619"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Notes de publication du service Azure Machine Learning
 
 Dans cet article, découvrez les versions du service Azure Machine Learning.  Pour obtenir le contenu complet de la référence SDK, consultez la page de référence du [**SDK principal pour Python**](https://aka.ms/aml-sdk) d’Azure Machine Learning.
 
 Consultez la [liste des problèmes connus](resource-known-issues.md) pour en savoir plus sur les bogues connus et les solutions de contournement.
+
+## <a name="2019-08-05"></a>05-08-2019
+
+### <a name="azure-machine-learning-sdk-for-python-v1055"></a>Kit de développement logiciel (SDK) Azure Machine Learning pour Python v1.0.55
+
++ **Nouvelles fonctionnalités**
+  + L’authentification basée sur des jetons est désormais prise en charge pour les appels établis vers le point de terminaison de scoring déployé sur AKS. Nous continuons de prendre en charge l’authentification par clé actuelle, et les utilisateurs peuvent utiliser un de ces mécanismes d’authentification à la fois.
+  + Possibilité d’inscrire un stockage blob situé derrière le réseau virtuel en tant que banque de données.
+  
++ **Résolutions de bogue et améliorations**
+  + **azureml-automl-core**
+    + Corrige un bogue où la taille de validation pour les fractionnements CV est petite et entraîne des prédictions erronées par rapport aux graphiques réels pour la régression et la prévision.
+    + La journalisation des tâches de prévision sur les exécutions distantes a été améliorée. Désormais, l’utilisateur reçoit un message d’erreur complet en cas d’échec d’exécution.
+    + Correction d’échecs de TimeSeries si la valeur de l’indicateur de prétraitement est True.
+    + Messages d’erreur de validation des données de prévision rendus plus actionnables.
+    + Réduction de la consommation de mémoire des exécutions AutoML par la suppression ou le chargement différé de jeux de données, en particulier entre les déclenchements de processus
+  + **azureml-contrib-explain-model**
+    + Ajout de l’indicateur model_task aux explications afin de permettre à l’utilisateur de modifier la logique d’inférence automatique par défaut pour le type de modèle
+    + Modifications du widget : Installation automatique avec contrib, sans plus aucune installation/activation de nbextension – Explication de prise en charge avec seulement l’importance globale de la fonctionnalité (par exemple, Permutative)
+    + Modifications du tableau de bord : Diagrammes en boîte et en violon, en plus du diagramme en essaim d’abeilles sur la page de résumé – Réitération beaucoup plus rapide du diagramme en essaim d’abeilles en cas de déplacement du curseur « top-k » – Message utile expliquant le mode de calcul de top-k – Messages personnalisables utiles au lieu de graphiques en l’absence de données
+  + **azureml-core**
+    + Ajout de la méthode Model.package() pour créer des images Docker et des Dockerfiles qui encapsulent des modèles et leurs dépendances.
+    + Mise à jour des services web locaux pour accepter des InferenceConfigs contenant des objets Environnement.
+    + Model.Register() fixe produisant des modèles non valides quand ’.’ (pour le répertoire actif) est transmis en tant que paramètre model_path.
+    + Ajout de Run.submit_child. La fonctionnalité reflète Experiment.submit lors de la spécification de l’exécution en tant que parent de l’exécution enfant envoyée.
+    + Prise en charge des options de configuration de Model.Register dans Run.register_model.
+    + Possibilité d’exécuter des travaux JAR sur un cluster existant.
+    + Prise en charge des paramètres instance_pool_id et cluster_log_dbfs_path.
+    + Ajout de la prise en charge de l’utilisation d’un objet Environnement lors du déploiement d’un modèle sur un service web. L’objet Environnement peut désormais être fourni en tant que composant de l’objet InferenceConfig.
+    + Ajout de mappage appinsifht pour les nouvelles régions centralus - westus - northcentralus
+    + Ajout de documentation pour tous les attributs de toutes les classes de banque de données.
+    + Ajout du paramètre blob_cache_timeout à `Datastore.register_azure_blob_container`.
+    + Ajout des méthodes save_to_directory et load_from_directory à azureml.core.environment.Environment.
+    + Ajout des commandes « az ml environment show » et « az ml environment list » à l’interface de ligne de commande.
+    + Ajout de la méthode Environment.add_private_pip_wheel.
+  + **azureml-explain-model**
+    + Ajout du suivi des jeux de données aux explications à l’aide du service de jeu de données (préversion).
+    + Réduction de la taille de lot par défaut lors de la diffusion en continu d’explications globales de 10 à 100 Ko.
+    + Ajout de l’indicateur model_task aux explications pour permettre à l’utilisateur de modifier la logique d’inférence automatique par défaut pour le type de modèle.
+  + **azureml-mlflow**
+    + Correction du bogue dans mlflow.azureml.build_image qui avait pour effet que des répertoires imbriqués étaient ignorés.
+  + **azureml-pipeline-steps**
+    + Ajout de la possibilité d’exécuter des travaux JAR sur un cluster Azure Databricks existant.
+    + Ajout de la prise en charge des paramètres instance_pool_id et cluster_log_dbfs_path pour l’étape DatabricksStep.
+    + Ajout de la prise en charge des paramètres de pipeline dans l’étape DatabricksStep.
+  + **azureml-train-automl**
+    + Ajout de docstrings pour les fichiers associés à l’ensemble.
+    + Mise à jour de la documentation dans un langage plus approprié pour `max_cores_per_iteration` et `max_concurrent_iterations`
+    + La journalisation des tâches de prévision sur les exécutions distantes a été améliorée. Désormais, l’utilisateur reçoit un message d’erreur complet en cas d’échec d’exécution.
+    + Suppression de get_Data du bloc-notes automlstep du pipeline.
+    + Début de la prise en charge de dataprep dans automlstep.
+
+### <a name="azure-machine-learning-data-prep-sdk-v1110"></a>Kit de développement logiciel (SDK) v1.1.10 pour la préparation de données Azure Machine Learning
+
++ **Nouvelles fonctionnalités**
+  + Vous pouvez désormais demander d’exécuter des inspecteurs spécifiques (par exemple, histogramme, nuage de points, etc.) sur des colonnes spécifiques.
+  + Ajout d’un argument de parallélisation à `append_columns`. Si la valeur est True, les données sont chargées en mémoire, mais l’exécution se fait en parallèle. Si la valeur est False, l’exécution se fait en continu, mais dans un thread unique.
 
 ## <a name="2019-07-23"></a>2019-07-23
 
@@ -206,7 +263,7 @@ Nous avons rétabli une modification qui a amélioré les performances, car elle
 + **Nouvelles fonctionnalités**
   + Ajouter le modèle de substitution de l’arbre de décision pour imiter l’explicatif dans azureml-explain-model package
   + Possibilité de spécifier une version CUDA à installer sur les images d’inférence. Prise en charge CUDA 9.0, 9.1 et 10.0.
-  + Les informations sur les images de base de formation d’Azure Machine Learning sont maintenant disponibles dans le [Dépôt GitHub Azure ML Containers](https://github.com/Azure/AzureML-Containers) et [DockerHub](https://hub.docker.com/_/microsoft-azureml).
+  + Les informations sur les images de base de formation d’Azure Machine Learning sont maintenant disponibles sur le [Référentiel GitHub des conteneurs Azure Machine Learning](https://github.com/Azure/AzureML-Containers) et [DockerHub](https://hub.docker.com/_/microsoft-azureml).
   + Ajout de la prise en charge de l’interface CLI pour la planification du pipeline. Exécuter « az ml pipeline -h » pour en savoir plus
   + Ajout du paramètre d’espace de noms Kubernetes dans la CLI et la configuration du déploiement du service web AKS.
   + Paramètre hash_paths déconseillé pour toutes les étapes de pipeline
@@ -221,9 +278,9 @@ Nous avons rétabli une modification qui a amélioré les performances, car elle
   + Dépendance paramiko supprimée de azureml-core. Ajout d’avertissements d’obsolescence pour les méthodes d’attache cible de calcul héritées.
   + Amélioration des performances de run.create_children
   + Dans un explicatif mimique avec classifieur binaire, résolution de l’ordre des probabilités lorsque la probabilité de professeur est utilisée pour la mise à l’échelle des valeurs de forme
-  + Amélioration de la gestion des erreurs et des messages pour le machine learning automatisé. 
-  + Résolution du problème de délai d’attente d’itération pour le machine learning automatisé.
-  + Amélioration des performances de transformation de séries chronologiques pour le machine learning automatisé.
+  + Amélioration de la gestion des erreurs et des messages pour l’apprentissage automatique. 
+  + Résolution du problème de délai d’attente d’itération pour l’apprentissage automatique.
+  + Amélioration des performances de transformation de séries chronologiques pour l’apprentissage automatique.
 
 ## <a name="2019-06-24"></a>2019-06-24
 
@@ -249,7 +306,7 @@ Nous avons rétabli une modification qui a amélioré les performances, car elle
   + Ajout de la prise en charge de la création de ModuleStep dans les pipelines ainsi que des classes Module et ModuleVersion pour gérer des unités de calcul réutilisables.
   + Les services ACI webServices prennent désormais en charge scoring_uri persistantes par le biais des mises à jour. Le scoring_uri changera à partir de l’adresse IP pour le nom de domaine complet. L’étiquette du nom Dns pour le nom de domaine complet peut être configurée en définissant le dns_name_label sur deploy_configuration. 
   + Nouvelles fonctionnalités de Machine Learning automatisé :
-    + Caractériseur STL pour la prévision
+    + Préapprentissage STL pour la prévision
     + Le clustering k-moyennes est activé pour le balayage de fonctionnalité
   + Les approbations de Quota de AmlCompute ont gagné en vitesse ! Nous avons maintenant automatisé le processus pour approuver des demandes de votre quota dans un seuil. Pour plus d’informations sur le fonctionnement des quotas, Découvrez [comment gérer les quotas](https://docs.microsoft.com/azure/machine-learning/service/how-to-manage-quotas).
 
@@ -347,12 +404,12 @@ Dans le portail Azure, vous pouvez désormais :
   + Si la création de l’espace de travail échoue, les ressources dépendantes sont nettoyées.
   + La référence (SKU) par défaut d’Azure Container Registry a été basculée en De base.
   + Azure Container Registry est créé en différé, si nécessaire pour la création d’image ou d’exécution.
-  + Prise en charge des environnements pour les exécutions d’entraînement.
+  + Prise en charge des environnements pour les exécutions d’apprentissage.
 
 ### <a name="notebook-virtual-machine"></a>Machine virtuelle de notebook 
 
 Utiliser une machine virtuelle de notebook comme un environnement d’hébergement sécurisé et adapté aux entreprises pour les notebooks Jupyter dans lesquels vous pouvez programmer des expériences d’apprentissage automatique, déployer des modèles en tant que points de terminaison web et effectuer toutes les autres opérations prises en charge par le kit de développement logiciel (SDK) Azure Machine Learning à l’aide de Python. Elle offre plusieurs fonctions :
-+ [Faites tourner rapidement une machine virtuelle de notebook préconfigurée](quickstart-run-cloud-notebook.md) qui dispose de la dernière version du Kit de développement logiciel Azure Machine Learning et les packages associés.
++ [Faites tourner rapidement une machine virtuelle de notebook préconfigurée](tutorial-1st-experiment-sdk-setup.md) qui dispose de la dernière version du Kit de développement logiciel Azure Machine Learning et les packages associés.
 + L’accès est sécurisé par le biais de technologies éprouvées, tel que HTTPS, l’authentification et l’autorisation Azure Active Directory.
 + Stockage cloud fiable de notebooks et de code dans votre compte de stockage d’objets blob de votre espace de travail Azure Machine Learning. Vous pouvez supprimer en toute sécurité votre machine virtuelle de notebook sans perdre votre travail.
 + Exemples de notebooks préinstallés pour explorer et tester les fonctionnalités Azure Machine Learning service.
@@ -387,7 +444,7 @@ Utiliser une machine virtuelle de notebook comme un environnement d’hébergeme
   + Vous pouvez maintenant utiliser la validation croisée d’origine propagée sur les données de séries chronologiques
   + Nouvelles fonctionnalités ajoutées pour configurer les séries chronologiques en retard 
   + Nouvelles fonctionnalités ajoutées pour prendre en charge des fonctionnalités de regroupement de la fenêtre propagée
-  + Nouvelle détection de vacances et caractériseur lorsque le code de pays est défini dans les paramètres d’expérience
+  + Nouvelle détection de vacances et préapprentissage lorsque le code de pays est défini dans les paramètres d’expérience
 
 + Azure Databricks
   + Capacité de prévision des séries chronologiques et d’interprétabilité/explication de modèle activée
@@ -399,7 +456,7 @@ Utiliser une machine virtuelle de notebook comme un environnement d’hébergeme
 
 + **Introduction de InferenceConfig et Model.deploy()**<br/> Le modèle de déploiement prend maintenant en charge la spécification d’un dossier source avec un script d’entrée, identique à un Runconfig.  En outre, le déploiement de modèle a été simplifié à une seule commande.
 
-+ **Suivi de référence Git**<br/> Les clients demandent des fonctionnalités d’intégration Git de base depuis un moment, car elles contribuent à conserver une piste d’audit de bout en bout. Nous avons implémenté le suivi dans les entités principales dans Azure ML pour les métadonnées liées à Git (dépôt, commit, état propre). Ces informations seront collectées automatiquement par le Kit de développement logiciel et l’interface CLI.
++ **Suivi de référence Git**<br/> Les clients demandent des fonctionnalités d’intégration Git de base depuis un moment, car elles contribuent à conserver une piste d’audit de bout en bout. Nous avons implémenté le suivi dans les entités principales dans Azure ML pour les métadonnées liées à Git (référentiel, commit, état propre). Ces informations seront collectées automatiquement par le Kit de développement logiciel et l’interface CLI.
 
 + **Service de profilage et de validation de modèle**<br/> Les clients se plaignent souvent de la difficulté à dimensionner correctement le calcul associé à leur service d’inférence. Avec notre service de profilage de modèle, le client peut donner des exemples d’entrées et nous établirons le profil entre 16 UC / configurations de mémoire différents afin de déterminer le dimensionnement optimal pour le déploiement.
 

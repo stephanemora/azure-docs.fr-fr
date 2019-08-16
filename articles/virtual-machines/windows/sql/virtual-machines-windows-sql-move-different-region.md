@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 07/30/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 7b9a24161c76f9fbb0993ffb6719c1ea1b51dc55
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: 846b4d95c7eb32af7c1c0ff42c2526612075a033
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68775821"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68882408"
 ---
 # <a name="move-sql-server-vm-to-another-region-within-azure-with-azure-site-recovery-services"></a>Déplacer une machine virtuelle SQL Server vers une autre région dans Azure avec les services Azure Site Recovery
 
@@ -54,7 +54,7 @@ Préparez la machine virtuelle SQL Server source et la région cible pour le dé
 - Pour des machines virtuelles Linux, suivez les instructions fournies par votre distributeur Linux pour obtenir les certificats racines approuvés les plus récents et la dernière liste de révocation de certificats sur la machine virtuelle. 
 - N’utilisez pas de proxy d’authentification pour contrôler la connectivité réseau pour les machines virtuelles que vous voulez déplacer. 
 - Si la machine virtuelle que vous voulez déplacer n’a pas d’accès à Internet, ou si elle utilise un proxy de pare-feu pour contrôler l’accès sortant, vérifiez la configuration requise. 
-- Identifiez la configuration du réseau source et toutes les ressources que vous utilisez actuellement. Cela comprend notamment les équilibreurs de charge, les groupes de sécurité réseau et les adresses IP publiques. 
+- Identifiez la topologie du réseau source et toutes les ressources que vous utilisez actuellement. Cela comprend notamment les équilibreurs de charge, les groupes de sécurité réseau et les adresses IP publiques. 
 
 ### <a name="prepare-the-target-region"></a>Préparer la région cible
 
