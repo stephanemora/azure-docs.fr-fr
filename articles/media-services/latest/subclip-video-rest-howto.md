@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 06/10/2019
 ms.author: juliako
-ms.openlocfilehash: df8c8a4040b4aae4379b4bfe0e9a16337588dd1b
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: 3557aef6213955ef77542bffafe0a2b0c374ed68
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67304836"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68704447"
 ---
 # <a name="subclip-a-video-when-encoding-with-media-services---rest"></a>Sous-découper une vidéo lors de l’encodage avec Media Services - REST
 
@@ -82,7 +82,7 @@ Pour suivre les étapes décrites dans cette rubrique, vous devez :
     ```
 1. Appuyez sur **Envoyer**.
 
-    Vous voyez la **réponse** avec les informations sur le travail créé et envoyé, et l’état de ce travail. 
+    Vous voyez la **réponse** avec les informations sur le travail créé et envoyé, et l’état de celui-ci. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

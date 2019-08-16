@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/03/2019
 ms.author: tamram
 ms.reviewer: cbrooks
-ms.openlocfilehash: bb2d5733704b0b31dc010cec2a90e99e1be07b56
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 7d4f36be51591d6be2b4c42eb8a8950ab52a0258
+ms.sourcegitcommit: f7998db5e6ba35cbf2a133174027dc8ccf8ce957
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68592032"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68782577"
 ---
 # <a name="advanced-threat-protection-for-azure-storage"></a>Advanced Threat Protection pour le stockage Azure
 
@@ -117,62 +117,7 @@ Vous pouvez examiner et gérer vos alertes de sécurité actuelles à partir de 
 
 ## <a name="protection-alerts"></a>Alertes de collection
 
-Les alertes sont générées en cas de détection de tentatives d’accès ou d’exploitation inhabituelles et potentiellement dangereuses des comptes de stockage. Ces événements peuvent déclencher les alertes suivantes :
-
-### <a name="anomalous-access-pattern-alerts"></a>Alertes de modèle d’accès anormal
-
-* **Accès à partir d’un emplacement inhabituel** : Cette alerte est déclenchée quand quelqu’un a accédé à un compte de stockage à partir d’un emplacement géographique inhabituel.
-Causes potentielles :
-   * Un attaquant a accédé à votre compte de stockage
-   * Un utilisateur légitime a accédé à votre compte de stockage à partir d’un nouvel emplacement
- 
-* **Anomalie d’application** : Cette alerte indique qu’une application inhabituelle a accédé à ce compte de stockage. Causes potentielles :
-   * Un attaquant a accédé à votre compte de stockage à l’aide d’une nouvelle application.
-   * Un utilisateur légitime a utilisé une nouvelle application/un nouveau navigateur pour accéder à votre compte de stockage.
-
-* **Accès anonyme** : Cette alerte indique que ce compte a fait l’objet d’un accès anonyme (c’est-à-dire sans authentification), ce qui est inattendu comparé au modèle d’accès récent à ce compte.
-Causes potentielles :
-   * Un attaquant a exploité l’accès en lecture public à un conteneur.
-   * Un utilisateur ou une application légitime a utilisé un accès en lecture public à un conteneur.
-
-* **Anomalie Tor** : cette alerte indique que ce compte a fait l’objet d’un accès à partir d’une adresse IP connue comme étant un nœud de sortie actif de Tor (proxy d’anonymisation). La gravité de cette alerte considère le type d’authentification utilisé (le cas échéant) et le fait qu’il s’agit ou non du premier cas de ce type d’accès.
-Causes potentielles :
-   * Un attaquant a accédé à votre compte de stockage à l’aide de Tor.
-   * Un utilisateur légitime a accédé à votre compte de stockage à l’aide de Tor.
-
-
-### <a name="anomalous-extractupload-alerts"></a>Alertes d’extraction/de chargement anormal(e)
-
-* **Exfiltration de données** : Cette alerte indique qu’une quantité anormalement élevée de données a été extraite par rapport à l’activité récente sur ce conteneur de stockage. Causes potentielles :
-   * Un attaquant a extrait une grande quantité de données à partir d’un conteneur. (Par exemple : exfiltration/divulgation de données, transfert non autorisé de données)
-   * Un utilisateur ou une application légitime a extrait une quantité inhabituelle de données à partir d’un conteneur. (Par exemple : activité de maintenance)
-
-* **Suppression inattendue** : Cette alerte indique qu’une ou plusieurs opérations de suppression inattendues se sont produites dans un compte de stockage, par rapport à l’activité récente sur ce compte. Causes potentielles :
-   * Un attaquant a supprimé des données à partir de votre compte de stockage.
-   * Un utilisateur légitime a effectué une suppression inhabituelle.
-
-* **Chargement de package de service cloud Azure** : Cette alerte indique qu’un package de service cloud Azure (fichier .cspkg) a été chargé dans un compte de stockage de façon inhabituelle, par rapport à l’activité récente sur ce compte. Causes potentielles : 
-   * Un attaquant se prépare à déployer un code malveillant à partir de votre compte de stockage vers un service cloud Azure.
-   * Un utilisateur légitime prépare un déploiement de service légitime.
-
-### <a name="suspicious-storage-activities-alerts"></a>Alertes d’activités suspectes de stockage
-
-* **Modification d’autorisation d’accès** : Cette alerte indique que les autorisations d’accès de ce conteneur de stockage ont été modifiées de façon inhabituelle. Causes potentielles : 
-   * Un attaquant a modifié les autorisations du conteneur pour en affaiblir la sécurité.
-   * Un utilisateur légitime a modifié les autorisations du conteneur.
-
-* **Inspection d’accès** : Cette alerte indique que les autorisations d’accès d’un compte de stockage ont été inspectées de façon inhabituelle, par rapport à l’activité récente sur ce compte. Causes potentielles : 
-   * Un attaquant a effectué une reconnaissance en vue d’une attaque future.
-   * Un utilisateur légitime a effectué une maintenance sur le compte de stockage.
-
-* **Exploration des données** : Cette alerte indique que les objets blob ou les conteneurs dans un compte de stockage ont été énumérés de manière inhabituelle, par rapport à l’activité récente sur ce compte. Causes potentielles : 
-   * Un attaquant a effectué une reconnaissance en vue d’une attaque future.
-   * Un utilisateur ou une logique d’application légitime a exploré les données au sein du compte de stockage.
-
-
-
-
-
+Les alertes sont générées en cas de détection de tentatives d’accès ou d’exploitation inhabituelles et potentiellement dangereuses des comptes de stockage. Pour obtenir la liste de ces alertes, consultez [Alertes de Stockage Azure](../../security-center/security-center-alerts-data-services.md#azure-storage).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

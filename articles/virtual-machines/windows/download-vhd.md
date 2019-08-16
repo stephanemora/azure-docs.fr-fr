@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2018
 ms.author: cynthn
-ms.openlocfilehash: 7128413e48fdeef9b9284bc6db11649016a06153
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: ebcc8301fa3693880974e45b594be218905e8311
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67722808"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68775410"
 ---
 # <a name="download-a-windows-vhd-from-azure"></a>Télécharger un VHD Windows à partir d’Azure
 
@@ -52,11 +52,11 @@ Pour utiliser le VHD en tant que disque d’une nouvelle instance d’une machin
 Pour télécharger le fichier VHD, vous devez générer une URL de [signature d’accès partagé (SAP)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Un délai d’expiration est affecté à l’URL lors de sa génération.
 
 1.  Dans le menu du panneau de la machine virtuelle, cliquez sur **Disques**.
-2.  Sélectionnez le disque de système d’exploitation de la machine virtuelle, puis cliquez sur **Exporter**.
+2.  Sélectionnez le disque de système d’exploitation de la machine virtuelle, puis cliquez sur **Exportation de disque**.
 3.  Fixez le délai d’expiration de l’URL sur *36000*.
 4.  Cliquez sur **Générer l’URL**.
 
-    ![Générer une URL](./media/download-vhd/export-generate.png)
+    ![Générer une URL](./media/download-vhd/export-generate-new.png)
 
 > [!NOTE]
 > Le délai d’expiration est augmenté par rapport à la valeur par défaut afin de laisser suffisamment de temps pour télécharger le fichier volumineux de VHD pour un système d’exploitation Windows Server. En général, le téléchargement d’un fichier de VHD contenant le système d’exploitation Windows prend plusieurs heures, en fonction de la connexion. Si vous téléchargez un VHD pour un disque de données, le délai par défaut est suffisant. 

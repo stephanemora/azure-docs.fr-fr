@@ -5,32 +5,29 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 03/21/2018
+ms.date: 08/02/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: d9825ea41937dc9436fe8b465b48b378e13407c1
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 9c18a2c74d03a636a0865f3008eb421ab8d7412d
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67176935"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68781447"
 ---
-1. Dans le portail, à partir de **Toutes les ressources**, cliquez sur **+ Ajouter**.
-2. Dans la zone de recherche de la page **Tout**, tapez **passerelle de réseau local**, puis cliquez pour obtenir une liste de ressources. Cliquez sur **Passerelle de réseau local** pour ouvrir la page correspondante, puis cliquez sur **Créer** pour ouvrir la page **Créer une passerelle de réseau local**.
+1. Dans le portail, cliquez sur **+Créer une ressource**.
+2. Dans la zone de recherche, tapez **passerelle de réseau local**, puis appuyez sur **Entrée** pour lancer la recherche. Une liste de résultats apparaîtra. Cliquez sur **Passerelle de réseau local**, puis cliquez sur le bouton **Créer** pour ouvrir la page **Créer une passerelle de réseau local**.
 
-   ![créer une passerelle de réseau local](./media/vpn-gateway-add-lng-rm-portal-include/lng.png)
+   ![Créer la passerelle de réseau local](./media/vpn-gateway-add-lng-rm-portal-include/local-network-gateway.png "Créer la passerelle de réseau local")
+
 3. Dans la page **Créer une passerelle de réseau local**, spécifiez les valeurs de votre passerelle de réseau local.
 
-   - **Nom :** Spécifiez un nom pour votre objet de passerelle de réseau local. Dans la mesure du possible, utilisez un nom intuitif, tel que **RéseauVirtuelClassicLocal** ou **RéseauVirtuel1TestLocal**. Cette approche vous aidera à identifier plus facilement la passerelle de réseau local dans le portail.
-   - **Adresse IP :** Spécifiez une **adresse IP** publique valide pour la passerelle de réseau virtuel ou le périphérique VPN auquel vous souhaitez vous connecter.
-
-     * **Si ce réseau local représente un emplacement local :** Spécifiez l’adresse IP publique du périphérique VPN auquel vous souhaitez vous connecter. Il ne peut pas se trouver derrière NAT et doit être accessible par Azure.
-     * **Si ce réseau local représente un autre réseau virtuel :** Spécifiez l’adresse IP publique affectée à la passerelle de réseau virtuel pour ce réseau virtuel.
-     * **Si vous n’avez pas encore l’adresse IP :** Vous pouvez créer une adresse IP avec espace réservé valide, puis revenir modifier ce paramètre avant de vous connecter.
-   - **Espace d’adressage** fait référence aux plages d’adresses du réseau qui représente ce réseau local. Vous pouvez ajouter plusieurs plages d’espaces d’adressage. Assurez-vous que les plages que vous spécifiez ici ne chevauchent pas les plages d’autres réseaux auxquels vous vous connectez.
+   - **Nom :** Spécifiez un nom pour votre objet de passerelle de réseau local.
+   - **Adresse IP :** Il s’agit de l’adresse IP publique du périphérique VPN auquel vous souhaitez qu’Azure se connecte. Spécifiez une adresse IP publique valide. Si vous ne disposez pas de l’adresse IP actuellement, vous pouvez utiliser les valeurs indiquées dans l’exemple. Toutefois, vous devrez revenir en arrière et remplacer votre adresse IP d’espace réservé par l’adresse IP publique de votre périphérique VPN. Dans le cas contraire, Azure ne sera pas en mesure de se connecter.
+   - **Espace d’adressage** fait référence aux plages d’adresses du réseau qui représente ce réseau local. Vous pouvez ajouter plusieurs plages d’espaces d’adressage. Assurez-vous que les plages que vous spécifiez ici ne se chevauchent pas avec les plages d’autres réseaux auxquels vous souhaitez vous connecter. Azure achemine la plage d’adresses que vous spécifiez vers l’adresse IP du périphérique VPN local. *Utilisez ici vos propres valeurs (et non les valeurs indiquées dans l’exemple) si vous voulez vous connecter à votre site local*.
    - **Configurer les paramètres BGP :** À utiliser uniquement durant la configuration de BGP. pour la configuration du protocole BGP.
    - **Abonnement :** Vérifiez que l’abonnement approprié s’affiche.
    - **Groupe de ressources :** Sélectionnez le groupe de ressources à utiliser. Vous pouvez créer un groupe de ressources ou en sélectionner un déjà créé.
    - **Emplacement :** Sélectionnez l’emplacement dans lequel cet objet va être créé. Vous pouvez sélectionner l’emplacement dans lequel se trouve votre réseau virtuel, mais vous n’êtes pas obligé de le faire.
 
-4. Cliquez sur **Créer** pour créer la passerelle de réseau local.
+4. Quand vous avez terminé de spécifier les valeurs, cliquez sur le bouton **Créer** pour créer la passerelle.

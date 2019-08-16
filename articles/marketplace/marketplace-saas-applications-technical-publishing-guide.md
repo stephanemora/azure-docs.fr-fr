@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: kevidal
-ms.openlocfilehash: 92c3452e07dee126666e6ee1fe0c46b1f8f6dfa4
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: f9ff6e19a0f0091cb5b831279eee90727bbb89fd
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67876530"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68742258"
 ---
 # <a name="saas-applications-offer-publishing-guide"></a>Guide de publication de l’offre des applications SaaS
 
@@ -126,13 +126,13 @@ Si vous découvrez l’authentification unique fédérée Azure AD, procédez co
 ## <a name="saas-subscriptions"></a>Abonnements SaaS
 
 Utilisez le type d’offre Application SaaS pour permettre à votre client d’acheter votre solution technique SaaS sous la forme d’un abonnement. Les conditions suivantes doivent être remplies pour votre application SaaS :
-- Le prix et la facturation du service doivent respecter un tarif mensuel fixe.
+- Appliquez au service un tarif forfaitaire (mensuel ou annuel), ou un tarif par utilisateur.
 - Offrez une méthode de mise à niveau ou d’annulation du service à tout moment.
-Microsoft héberge la transaction commerciale. Microsoft facture votre client pour votre compte. Pour facturer une application SaaS comme un abonnement, vous devez activer votre propre API de service de gestion d’abonnement. Votre API de service de gestion d’abonnement doit communiquer directement avec les API Azure Resource Manager. Votre API de service de gestion d’abonnement doit prendre en charge l’approvisionnement du service, la mise à niveau et l’annulation.
+Microsoft héberge la transaction commerciale. Microsoft facture votre client pour votre compte. Pour proposer une application SaaS sous la forme d’un abonnement, vous devez l’intégrer aux API de traitement SaaS.  Votre service doit prendre en charge le provisionnement, la mise à niveau et l’annulation.
 
 | Prérequis | Détails |  
 |:--- |:--- |  
-|Facturation et mesure | Votre offre est facturée selon un tarif mensuel forfaitaire. La tarification basée sur l’utilisation et les capacités d’égalisation basées sur l’utilisation ne sont pas prises en charge pour l’instant. |  
+|Facturation et mesure | Votre offre est facturée en fonction du modèle tarifaire que vous sélectionnez avant la publication (forfaitaire ou par utilisateur).  Si vous utilisez le modèle forfaitaire, vous pouvez inclure des dimensions supplémentaires afin de facturer aux clients une utilisation non comprise dans le forfait. |  
 |Annulation | Votre offre peut être annulée par le client à tout moment. |  
 |Page d’accueil de transaction | Vous hébergez une page d’accueil de transaction conjointe avec Azure, sur laquelle les utilisateurs peuvent créer et gérer leur compte de service SaaS. |   
 | API d’abonnement | Vous exposez un service qui peut interagir avec l’abonnement SaaS pour créer, mettre à jour et supprimer un compte utilisateur et un plan de service. Les modifications critiques de l’API doivent être effectuées dans les 24 heures. Des modifications non critiques de l’API sont publiées régulièrement. |  

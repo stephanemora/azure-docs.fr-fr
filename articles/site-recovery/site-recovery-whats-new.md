@@ -5,20 +5,45 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 06/18/2019
+ms.date: 07/30/2019
 ms.author: raynew
-ms.openlocfilehash: 0bfaf848b0b700c8d745acf8c6a63c898dc91140
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 1ce71665a924c6681af418075d8cc635c73f8a1a
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67272869"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68717673"
 ---
 # <a name="whats-new-in-site-recovery"></a>Nouveautés de Site Recovery
 
 Le service [Azure Site Recovery](site-recovery-overview.md) fait l’objet de mises à jour et d’améliorations continues. Pour vous aider à rester à jour, cet article vous donne des informations sur les versions les plus récentes, les nouvelles fonctionnalités et le nouveau contenu. Cette page est régulièrement mise à jour.
 
 Si vous avez des suggestions concernant les fonctionnalités de Site Recovery, [faites-nous part de vos commentaires](https://feedback.azure.com/forums/256299-site-recovery).
+
+
+## <a name="installing-updates"></a>Installation des mises à jour
+
+[Consultez cet article](service-updates-how-to.md) pour obtenir des instructions et du support sur la mise à jour de Site Recovery.
+
+## <a name="updates-july-2019"></a>Mises à jour (juillet 2019)
+
+### <a name="update-rollup-38"></a>Correctif cumulatif 38
+
+Le [Correctif cumulatif 38](https://support.microsoft.com/help/4513507/) fournit les mises à jour suivantes.
+
+**Mettre à jour** | **Détails**
+--- | ---
+**Fournisseurs et agents** | Mises à jour des agents et des fournisseurs Site Recovery (comme décrit dans le correctif cumulatif)
+**Correctifs/améliorations** | Un certain nombre de correctifs et d’améliorations (comme décrit dans le correctif cumulatif)
+
+
+### <a name="general"></a>Généralités
+
+Site Recovery prend désormais en charge l’utilisation de comptes de stockage universel v2 pour le stockage de cache ou le stockage cible. Auparavant, seul v1 était pris en charge.
+
+### <a name="vmware-to-azure-disaster-recovery"></a>Récupération d’urgence VMware vers Azure
+
+Vous pouvez désormais répliquer des disques jusqu’à 8 To lors de la réplication d’une machine virtuelle Azure avec des disques managés.
 
 
 ## <a name="updates-june-2019"></a>Mises à jour (juin 2019)
@@ -94,7 +119,7 @@ Les fonctionnalités ajoutées ce mois-ci sont résumées dans le tableau.
 **Fonctionnalité** | **Détails**
 --- | ---
 **Disques managés** | La réplication de machines virtuelles locales VMware et de serveurs physiques s’effectue désormais directement sur les disques managés dans Azure. Les données locales sont envoyées vers un compte de stockage de cache dans Azure et les points de récupération sont créés sur des disques managés à l’emplacement cible. Ainsi, vous n’avez pas besoin de gérer plusieurs comptes de stockage cible.
-**Serveur de configuration** | Site Recovery prend désormais en charge les serveurs de configuration avec plusieurs cartes réseau. Vous pouvez ajouter des adaptateurs supplémentaires sur la machine virtuelle du serveur de configuration avant d’inscrire ce dernier dans le coffre. Ensuite, vous devez réinscrire le serveur dans le coffre.
+**Serveur de configuration** | Site Recovery prend désormais en charge les serveurs de configuration avec plusieurs cartes réseau. Ajoutez des adaptateurs supplémentaires sur la machine virtuelle du serveur de configuration avant d’inscrire ce dernier dans le coffre. Ensuite, vous devez réinscrire le serveur dans le coffre.
 
 
 ## <a name="updates-february-2019"></a>Mises à jour (février 2019)
@@ -143,7 +168,7 @@ Les fonctionnalités ajoutées ce mois-ci sont résumées dans le tableau.
 
 ### <a name="accelerated-networking-azure-vms"></a>Mise en réseau accélérée (machines virtuelles Azure)
 
-L’accélération réseau permet d’opérer la virtualisation d’E/S d’une racine unique (SR-IOV) sur une machine virtuelle, améliorant ainsi les performances réseau. Quand vous activez la réplication pour une machine virtuelle Azure, Site Recovery détecte si l’accélération réseau est activée ou non. Si elle l’est, Site Recovery configure automatiquement l’accélération réseau sur la machine virtuelle Azure du réplica cible après le basculement, à la fois sur [Windows](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-powershell#enable-accelerated-networking-on-existing-vms) et sur [Linux](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli#enable-accelerated-networking-on-existing-vms).
+L’accélération réseau permet la virtualisation d’E/S de racine unique (SR-IOV) sur une machine virtuelle, améliorant ainsi les performances réseau. Quand vous activez la réplication pour une machine virtuelle Azure, Site Recovery détecte si l’accélération réseau est activée ou non. Si elle l’est, Site Recovery configure automatiquement l’accélération réseau sur la machine virtuelle Azure du réplica cible après le basculement, à la fois sur [Windows](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-powershell#enable-accelerated-networking-on-existing-vms) et sur [Linux](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli#enable-accelerated-networking-on-existing-vms).
 
 [Plus d’informations](azure-vm-disaster-recovery-with-accelerated-networking.md)
 
@@ -267,7 +292,7 @@ Le [Correctif cumulatif 28](https://support.microsoft.com/help/4460079/update-ro
 **Fournisseurs et agents** | Une mise à jour des agents et des fournisseurs Site Recovery (comme décrit dans le correctif cumulatif).
 **Correctifs/améliorations** | Un certain nombre de correctifs et d’améliorations (comme décrit dans le correctif cumulatif).
 
-### <a name="azure-vms-disaster-recovery"></a>Récupération d’urgence des machines virtuelles Azure 
+### <a name="azure-vm-disaster-recovery"></a>Récupération d’urgence de machine virtuelle Azure 
 Les fonctionnalités ajoutées ce mois-ci sont résumées dans le tableau.
 
 **Fonctionnalité** | **Détails**
@@ -296,7 +321,7 @@ Le [Correctif cumulatif 27](https://support.microsoft.com/help/4055712/update-ro
 **Fournisseurs et agents** | Une mise à jour des agents et des fournisseurs Site Recovery (comme décrit dans le correctif cumulatif).
 **Correctifs/améliorations** | Un certain nombre de correctifs et d’améliorations (comme décrit dans le correctif cumulatif).
 
-### <a name="azure-vms-disaster-recovery"></a>Récupération d’urgence des machines virtuelles Azure 
+### <a name="azure-vm-disaster-recovery"></a>Récupération d’urgence de machine virtuelle Azure 
 
 Les fonctionnalités ajoutées ce mois-ci sont résumées dans le tableau.
 

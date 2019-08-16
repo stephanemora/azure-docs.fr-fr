@@ -6,12 +6,12 @@ ms.service: azure-australia
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: grgale
-ms.openlocfilehash: 808a615885129af1be9b7fdcdb64d5a8c5a25e40
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 3885b9fa346047a50a49c7b2f9b96b6a8f95e51f
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68571177"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779349"
 ---
 # <a name="controlling-ingress-traffic-in-azure-australia"></a>Contrôle du trafic d’entrée dans Azure Australie
 
@@ -23,7 +23,7 @@ Les contrôles réseau s’alignent sur les préconisations à l’adresse du gr
 
 ## <a name="requirements"></a>Configuration requise
 
-Les exigences de sécurité globales pour les systèmes du Commonwealth sont définies dans l’ISM. Pour aider les entités du Commonwealth à implémenter la sécurité réseau, l’ACSC a publié le document [ACSC Protect: Implementing Network Segmentation and Segregation](https://www.acsc.gov.au/publications/protect/network_segmentation_segregation.htm) et, pour aider à la sécurisation des systèmes dans des environnements cloud, elle a publié le document [Cloud Computing Security for Tenants](https://www.acsc.gov.au/publications/protect/Cloud_Computing_Security_for_Tenants.pdf).
+Les exigences de sécurité globales pour les systèmes du Commonwealth sont définies dans l’ISM. Pour aider les entités du Commonwealth à implémenter la sécurité réseau, l’ACSC a publié [ACSC Protect: Implementing Network Segmentation and Segregation](https://www.acsc.gov.au/publications/protect/network_segmentation_segregation.htm) et, pour aider à la sécurisation des systèmes dans des environnements cloud, elle a publié le document [Cloud Computing Security for Tenants](https://www.acsc.gov.au/publications/protect/Cloud_Computing_Security_for_Tenants.pdf).
 
 Ces guides décrivent le contexte d’implémentation de la sécurité réseau et du contrôle du trafic, et fournissent des recommandations pratiques en matière de conception et de configuration de réseau.
 
@@ -72,7 +72,7 @@ Le diagramme architectural présenté ici décrit les chemins possibles que le t
 |**Interface réseau** | Une interface réseau est une ressource qui existe dans Azure. Elle est connectée à une machine virtuelle et reçoit une adresse IP routable non-Internet privée du sous-réseau auquel elle est associée. Cette adresse IP est affectée de façon dynamique ou statique via Azure Resource Manager.|
 |**Sous-réseau** | Un sous-réseau est une plage d’adresses IP créée au sein d’un réseau virtuel. Il est possible de créer plusieurs sous-réseaux au sein d’un réseau virtuel afin de segmenter celui-ci.|
 | **Réseau virtuel** | Un réseau virtuel est une ressource fondamentale dans Azure, qui fournit une plateforme et un périmètre pour le déploiement de ressources et la communication. Le réseau virtuel existe dans une région Azure et définit l’espace d’adressage IP ainsi que les limites de routage pour les ressources qui y sont intégrées, telles que les machines virtuelles.|
-| **VNET Peering** | VNet peering est une option de configuration Azure qui permet une communication directe entre deux réseaux virtuels sans avoir besoin de passerelle réseau virtuel. Une fois appairés, les deux réseaux virtuels peuvent communiquer directement et une configuration supplémentaire peut contrôler l’utilisation des passerelles réseau virtuel et d’autres options de transit.|
+| **Homologation de réseaux virtuels** | VNet peering est une option de configuration Azure qui permet une communication directe entre deux réseaux virtuels sans avoir besoin de passerelle réseau virtuel. Une fois appairés, les deux réseaux virtuels peuvent communiquer directement et une configuration supplémentaire peut contrôler l’utilisation des passerelles réseau virtuel et d’autres options de transit.|
 | **Adresse IP publique** | Une adresse IP publique est une ressource qui réserve l’une des adresses IP publiques routables via Internet appartenant à Microsoft de la région spécifiée en vue de son utilisation dans le réseau virtuel. Elle peut être associée à une interface réseau spécifique, ce qui permet d’accéder à la ressource à partir d’Internet, de ExpressRoute et d’autres systèmes PaaS.|
 | **Passerelle ExpressRoute** | Une passerelle ExpressRoute est un objet dans un réseau virtuel, qui assure la connectivité et le routage à partir du réseau virtuel vers des réseaux locaux via un appairage privé sur un circuit ExpressRoute.|
 | **Passerelle VPN** | Une passerelle VPN est un objet dans un réseau virtuel, qui fournit un tunnel chiffré reliant un réseau virtuel à un réseau externe. Le tunnel chiffré peut être une connexion site à site pour une communication bidirectionnelle avec un environnement local, un autre réseau virtuel ou un environnement cloud, ou une connexion point à site pour une communication avec un point de terminaison unique.|
@@ -100,7 +100,7 @@ Le diagramme architectural présenté ici décrit les chemins possibles que le t
 
 ## <a name="general-guidance"></a>Règle générale
 
-Pour concevoir et créer des solutions sécurisées dans Azure, il est essentiel de comprendre et de contrôler le trafic réseau afin que seules des communications identifiées et autorisées puissent se produire. L’objectif de ce guide et des conseils relatifs à des composants spécifiques dans les sections ultérieures est de décrire les outils et les services qui peuvent être utilisés pour appliquer les principes décrits dans _ACSC Protect: Implementing Network Segmentation and Segregation_ aux charges de travail Azure. Cela comprend la description de la manière de créer une architecture virtuelle pour sécuriser des ressources quand il n’est pas possible d’appliquer les mêmes contrôles physiques et de réseau traditionnels que dans un environnement local.
+Pour concevoir et créer des solutions sécurisées dans Azure, il est essentiel de comprendre et de contrôler le trafic réseau afin que seules des communications identifiées et autorisées puissent se produire. L’objectif de ce guide et des conseils relatifs à des composants spécifiques dans les sections ultérieures est de décrire les outils et les services qui peuvent être utilisés pour appliquer les principes décrits dans _ACSC Protect: Implementing Network Segmentation and Segregation_ dans l’ensemble des charges de travail Azure. Cela comprend la description de la manière de créer une architecture virtuelle pour sécuriser des ressources quand il n’est pas possible d’appliquer les mêmes contrôles physiques et de réseau traditionnels que dans un environnement local.
 
 ### <a name="specific-focus-areas"></a>Domaines stratégiques spécifiques
 
@@ -146,7 +146,7 @@ Standard : fournit des fonctionnalités d’atténuation supplémentaires par ra
 |Ressource|Lien|
 |---|---|
 |Vue d’ensemble d’Azure DDoS Protection|[https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview](https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview)|
-|Meilleures pratiques Azure DDoS|[https://docs.microsoft.com/azure/security/azure-ddos-best-practices](https://docs.microsoft.com/azure/security/azure-ddos-best-practices)|
+|Meilleures pratiques Azure DDoS|[https://docs.microsoft.com/azure/security/fundamentals/ddos-best-practices](https://docs.microsoft.com/azure/security/fundamentals/ddos-best-practices)|
 |Gestion d’Azure DDoS Protection|[https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection](https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection)|
 |
 

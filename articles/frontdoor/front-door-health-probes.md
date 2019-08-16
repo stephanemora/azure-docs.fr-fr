@@ -11,16 +11,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 59a3bac39437b91eeee3b005bd23476a34a308b7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 289b05a2c50a2b4af50eb2114515a49bb653cf1a
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60736579"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68742389"
 ---
 # <a name="health-probes"></a>Sondes d’intégrité
 
-Pour déterminer l’intégrité de chaque backend, chaque environnement de porte d’entrée envoie régulièrement une requête HTTP/HTTPS synthétique à chacun de vos backends configurés. Sur la base des réponses fournies par les sondes, la porte d’entrée identifie les « meilleurs » backends vers lesquels elle doit acheminer les demandes réelles des clients.
+Pour déterminer l’intégrité de chaque backend, chaque environnement de porte d’entrée envoie régulièrement une requête HTTP/HTTPS synthétique à chacun de vos backends configurés. Sur la base des réponses fournies par les sondes, la porte d’entrée identifie les « meilleurs » backends vers lesquels elle doit acheminer les demandes réelles des clients. Notez que dans la mesure où Front Door a de nombreux environnements de périphérie dans le monde entier, le volume des demandes de sonde d’intégrité sur vos backends peut être aussi élevé que celui des requêtes par seconde, selon la fréquence de sonde d’intégrité configurée. 
+
 
 
 ## <a name="supported-protocols"></a>Protocoles pris en charge

@@ -120,12 +120,8 @@
         - name: Déployer - API REST
           displayName: 'deployment,rollback on error,redeploy'
           href: resource-group-template-deploy-rest.md
-        - name: Sécuriser les modèles avec un jeton SAS
-          items:
-            - name: "Utilisation de l’interface de ligne de commande Microsoft\_Azure"
-              href: resource-manager-cli-sas-token.md
-            - name: Utilisation d'Azure PowerShell
-              href: resource-manager-powershell-sas-token.md
+        - name: Sécuriser un modèle avec un jeton SAS
+          href: secure-template-with-sas-token.md
         - name: Déployer sur plusieurs groupes de ressources ou abonnements
           href: resource-manager-cross-resource-group-deployment.md
     - name: Intégration/déploiement continues

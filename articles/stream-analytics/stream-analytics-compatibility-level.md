@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 5/2/2019
-ms.openlocfilehash: 8e3ae84242a1a9b76fbb18a8d8164c97a62a97d9
-ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
+ms.openlocfilehash: a6e5cd69a0655bf8235bf5755ab596ca2bde0387
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68003910"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68716156"
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Niveau de compatibilité pour les travaux Azure Stream Analytics
 
@@ -90,6 +90,12 @@ Le comportement de l’opération upsert est *insert or replace* (insérer ou re
 **Niveaux précédents :** Les valeurs ont été tronquées en fonction du type cible.
 
 **Niveau 1.2 :** Les valeurs qui ne tiennent pas dans le type cible sont traitées en fonction de la stratégie d’erreur de sortie.
+
+### <a name="record-and-array-serialization-when-writing-to-sql-output"></a>Sérialisation des enregistrements et des tableaux lors de l’écriture dans la sortie SQL
+
+**Niveaux précédents :** Les enregistrements étaient écrits en tant que « Record » (Enregistrement) et les tableaux l’étaient en tant que « Array » (Tableau).
+
+**Niveau 1.2 :** Les enregistrements et les tableaux sont sérialisés au format JSON.
 
 ### <a name="strict-validation-of-prefix-of-functions"></a>Validation stricte des préfixes de fonction
 

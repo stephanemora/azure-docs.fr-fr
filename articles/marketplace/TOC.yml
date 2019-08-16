@@ -439,20 +439,38 @@
           href: ./partner-center-portal/account-migration-from-cpp-to-pc.md
     - name: Créer une offre
       items:
-        - name: Liste de vérification de la création d’offre
-          href: ./partner-center-portal/offer-creation-checklist.md
-        - name: Créer une offre SaaS
-          href: ./partner-center-portal/create-new-saas-offer.md
-        - name: Facturation à l’usage SaaS
-          href: ./partner-center-portal/saas-metered-billing.md
+        - name: "Offres Dynamics\_365"
           items:
-            - name: API de service de mesure de la Place de marché - Questions fréquentes (FAQ)
-              href: ./partner-center-portal/marketplace-metering-service-apis-faq.md
-            - name: API de service de mesure de la Place de marché
-              href: ./partner-center-portal/marketplace-metering-service-apis.md
-        - name: API de traitement SaaS
-          href: ./partner-center-portal/pc-saas-fulfillment-apis.md
+            - name: "Créer une offre Dynamics\_365 for Customer Engagement et PowerApps"
+              href: ./partner-center-portal/create-new-customer-engagement-offer.md
+            - name: "Créer une offre Dynamics\_365 for Operations"
+              href: ./partner-center-portal/create-new-operations-offer.md
+            - name: "Créer une offre Dynamics\_365 Business Central"
+              href: ./partner-center-portal/create-new-business-central-offer.md
+        - name: Offres SaaS
           items:
+            - name: Check-list pour la création d’une offre SaaS
+              href: ./partner-center-portal/offer-creation-checklist.md
+            - name: Créer une offre SaaS
+              href: ./partner-center-portal/create-new-saas-offer.md
+            - name: Facturation à l’usage SaaS
+              href: ./partner-center-portal/saas-metered-billing.md
+              items:
+                - name: API de service de mesure de la Place de marché - Questions fréquentes (FAQ)
+                  href: ./partner-center-portal/marketplace-metering-service-apis-faq.md
+                - name: API de service de mesure de la Place de marché
+                  href: ./partner-center-portal/marketplace-metering-service-apis.md
+            - name: API de traitement SaaS
+              href: ./partner-center-portal/pc-saas-fulfillment-apis.md
+              items:
+                - name: Inscrire une application SaaS
+                  href: ./partner-center-portal/pc-saas-registration.md
+                - name: API de traitement SaaS v2
+                  href: ./partner-center-portal/pc-saas-fulfillment-api-v2.md
+                - name: API de traitement SaaS v1 (dépréciées)
+                  href: ./partner-center-portal/pc-saas-fulfillment-api-v1.md
+                - name: API de traitement SaaS - Questions fréquentes (FAQ)
+                  href: ./partner-center-portal/saas-fulfillment-apis-faq.md
             - name: Inscrire une application SaaS
               href: ./partner-center-portal/pc-saas-registration.md
             - name: API de traitement SaaS v2

@@ -53,7 +53,7 @@
       href: tutorial-secure-web-server.md
 - name: Exemples
   items:
-    - name: D’Azure CLI
+    - name: Azure CLI
       href: cli-samples.md
     - name: Azure PowerShell
       href: powershell-samples.md
@@ -478,7 +478,7 @@
           items:
             - name: Utilisation d’un accélérateur des écritures
               href: how-to-enable-write-accelerator.md
-            - name: Activer des disques SSD Ultra
+            - name: Utilisation de disques Ultra
               href: disks-enable-ultra-ssd.md
             - name: Évaluer un disque
               href: disks-benchmarks.md

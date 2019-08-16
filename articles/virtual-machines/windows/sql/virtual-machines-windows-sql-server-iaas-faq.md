@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 07/12/2018
+ms.date: 08/05/2019
 ms.author: mathoma
-ms.openlocfilehash: 7f6ec1ee65727fb8c3c7d98f696c288e95ec880a
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 4b50b4acf6ea655c40821e7c49824af11aeeb9ab
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67876190"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68816303"
 ---
 # <a name="frequently-asked-questions-for-sql-server-running-on-windows-virtual-machines-in-azure"></a>Forum aux questions (FAQ) relatives à l’exécution de SQL Server sur les machines virtuelles Windows dans Azure
 
@@ -121,6 +121,11 @@ Cet article fournit des réponses à certaines des questions les plus courantes 
 1. **Est-il possible d’inscrire des machines virtuelles SQL Server auto-déployées auprès du fournisseur de ressources de machine virtuelle SQL ?**
 
     Oui. Si vous avez déployé SQL Server à partir de votre propre support et installé l’extension SQL IaaS, vous pouvez inscrire votre machine virtuelle SQL Server auprès du fournisseur de ressources pour profiter des avantages de facilité de gestion fournis par l’extension IaaS de SQL. Toutefois, vous ne pouvez pas convertir une machine virtuelle SQL auto-déployée en paiement à l’utilisation.
+
+1. **Est-il possible de changer le modèle de licence sur une machine virtuelle SQL Server déployée avec le modèle Classique ?**
+
+   Non. Le changement du modèle de licence n’est pas pris en charge sur une machine virtuelle classique. Vous pouvez migrer votre machine virtuelle vers le modèle Resource Manager (ARM) et l’inscrire auprès du fournisseur de ressources de machine virtuelle SQL. Une fois que la machine virtuelle est inscrite auprès du fournisseur de ressources de machine virtuelle SQL, les changements du modèle de licence sont disponibles sur la machine virtuelle. 
+   
 
 ## <a name="administration"></a>Administration
 

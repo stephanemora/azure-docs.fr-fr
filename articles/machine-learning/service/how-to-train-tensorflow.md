@@ -10,12 +10,12 @@ ms.author: maxluk
 author: maxluk
 ms.date: 06/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 67263df319063cdf21dadea257dcab05ba0d5f7b
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 1f6aaa4f1b8f58f7cd6c1f02f424614d33863fc5
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67839995"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68815872"
 ---
 # <a name="train-and-register-tensorflow-models-at-scale-with-azure-machine-learning-service"></a>Entraîner et inscrire des modèles TensorFlow à l’échelle avec Azure Machine Learning service
 
@@ -27,11 +27,11 @@ Que vous développiez un modèle TensorFlow de A à Z ou importiez un [modèle e
 
 ## <a name="prerequisites"></a>Prérequis
 
-Exécutez ce code sur l’un de ces environnements :
+Exécutez ce code sur l’un de ces environnements :
 
  - Machine virtuelle de Notebook Azure Machine Learning : pas d’installation ou de téléchargement nécessaire
 
-     - Suivez le [guide de démarrage rapide des notebooks cloud](quickstart-run-cloud-notebook.md) pour créer un serveur de notebooks dédié et préchargé avec le kit SDK et l’exemple de référentiel.
+     - Suivre le [Tutoriel : Configurer l’environnement et l’espace de travail](tutorial-1st-experiment-sdk-setup.md) pour créer un serveur de notebook dédié préchargé avec le kit SDK et l’exemple de dépôt.
     - Dans le dossier des exemples du serveur de notebook, recherchez un notebook terminé et développé en accédant à ce répertoire : le dossier **how-to-use-azureml > training-with-deep-learning > train-hyperparameter-tune-deploy-with-tensorflow**. 
  
  - Votre propre serveur de notebooks Jupyter
@@ -44,7 +44,7 @@ Exécutez ce code sur l’un de ces environnements :
 
 ## <a name="set-up-the-experiment"></a>Configurer l’expérience
 
-Cette section configure l’expérience d’apprentissage via le chargement des packages Python requis, l’initialisation d’un espace de travail, la création d’une expérience et le chargement des données et des scripts d’apprentissage.
+Cette section configure l’expérience d’entraînement via le chargement des packages Python requis, l’initialisation d’un espace de travail, la création d’une expérience et le chargement des données et des scripts d’entraînement.
 
 ### <a name="import-packages"></a>Importer des packages
 
@@ -139,9 +139,9 @@ Pour plus d’informations sur les cibles de calcul, consultez l’article [Qu�
 
 [L’estimateur TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py) fournit un moyen simple de lancer un travail d’entraînement TensorFlow sur une cible de calcul.
 
-L’estimateur TensorFlow est implémenté via la classe générique [`estimator`](https://docs.microsoft.com//python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py), qui peut être utilisée pour prendre en charge n’importe quelle infrastructure. Pour plus d’informations sur l’entraînement des modèles à l’aide de l’estimateur générique, consultez [Entraîner des modèles avec Azure Machine Learning à l’aide de l’estimateur](how-to-train-ml-models.md)
+L’estimateur TensorFlow est implémenté via la classe générique [`estimator`](https://docs.microsoft.com//python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py), qui peut être utilisée pour prendre en charge n’importe quelle infrastructure. Pour plus d’informations sur l’apprentissage des modèles à l’aide de l’estimateur générique, voir [Effectuer l’apprentissage de modèles avec Azure Machine Learning à l’aide de l’estimateur](how-to-train-ml-models.md)
 
-Si l’exécution de votre script de formation exige des packages PIP ou Conda supplémentaires, vous pouvez installer les packages sur l’image docker obtenue en transmettant leurs noms via les arguments `pip_packages` et `conda_packages`.
+Si l’exécution de votre script d’entraînement exige des packages PIP ou Conda supplémentaires, vous pouvez installer les packages sur l’image Docker obtenue en transmettant leurs noms via les arguments `pip_packages` et `conda_packages`.
 
 ```Python
 script_params = {
@@ -170,7 +170,7 @@ run.wait_for_completion(show_output=True)
 
 Lorsque l’exécution est lancée, il effectue les étapes suivantes :
 
-- **Préparation** : une image docker est créée en fonction de l’estimateur TensorFlow. L’image est chargée dans le registre de conteneurs de l’espace de travail et mise en cache pour des exécutions ultérieures. Les journaux sont également transmis en continu à l’historique des exécutions et peuvent être affichés afin de surveiller la progression.
+- **Préparation** : une image Docker est créée en fonction de l’estimateur TensorFlow. L’image est chargée dans le registre de conteneurs de l’espace de travail et mise en cache pour des exécutions ultérieures. Les journaux sont également transmis en continu à l’historique des exécutions et peuvent être affichés afin de surveiller la progression.
 
 - **Mise à l’échelle** : le cluster tente de monter en puissance si le cluster Batch AI nécessite plus de nœuds pour l’exécution que la quantité disponible actuellement.
 
@@ -255,7 +255,7 @@ estimator= TensorFlow(source_directory=project_folder,
 run = exp.submit(tf_est)
 ```
 
-#### <a name="define-cluster-specifications-in-tfconfig"></a>Définir des spécifications de cluster « TF_CONFIG »
+#### <a name="define-cluster-specifications-in-tf_config"></a>Définir des spécifications de cluster « TF_CONFIG »
 
 Vous avez également besoin des adresses réseau et des ports du cluster pour [`tf.train.ClusterSpec`](https://www.tensorflow.org/api_docs/python/tf/train/ClusterSpec). Par conséquent, Azure Machine Learning définit la variable d’environnement `TF_CONFIG`.
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/08/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: b867a7f9ffeab3d243c8c094830aa0984cffd04a
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: 58c6d1b032f5b492c5641ff51da80426124069b1
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67654197"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68716781"
 ---
 # <a name="set-up-sign-in-for-a-specific-azure-active-directory-organization-in-azure-active-directory-b2c"></a>Configurer la connexion pour une organisation Azure Active Directory spécifique dans Azure Active Directory B2C
 
@@ -54,7 +54,7 @@ Pour autoriser la connexion des utilisateurs d’une organisation Azure AD spé
 2. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Azure AD B2C**.
 3. Cliquez sur **Fournisseurs d’identité**, puis sélectionnez **Ajouter**.
 4. Saisissez un **Nom**. Par exemple, entrez : `Contoso Azure AD`.
-5. Sélectionnez **Type de fournisseur d’identité**, sélectionnez **Open ID Connect (préversion)** , puis cliquez sur **OK**.
+5. Sélectionnez **Type de fournisseur d’identité**, sélectionnez **OpenID Connect (préversion)** , puis cliquez sur **OK**.
 6. Sélectionnez **Configurer ce fournisseur d’identité**
 7. Pour **URL des métadonnées**, entrez l’URL suivante qui remplace `your-AD-tenant-domain` par le nom de domaine de votre locataire Azure AD. Exemple `https://login.microsoftonline.com/contoso.onmicrosoft.com/.well-known/openid-configuration` :
 

@@ -8,13 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: reference
-ms.date: 08/15/2018
-ms.openlocfilehash: 8ad7d7497a0fbe6fcf20ad5b50ef4e6cac9ed51f
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
+ms.date: 07/27/2019
+ms.openlocfilehash: 30123e03a686eed8df0595c8562f2f9d9351bbde
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/13/2019
-ms.locfileid: "67868903"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68706445"
 ---
 # <a name="functions-reference-for-workflow-definition-language-in-azure-logic-apps-and-microsoft-flow"></a>Référence de fonctions du langage de définition de flux de travail dans Azure Logic Apps et Microsoft Flow
 
@@ -240,7 +240,7 @@ Pour obtenir des informations complètes sur chaque fonction, consultez la [list
 | ----------------- | ---- |
 | [action](../logic-apps/workflow-definition-language-functions-reference.md#action) | Renvoyer la sortie de l’action lors de l’exécution ou les valeurs d’autres paires nom-valeur JSON. Voir aussi [actions](../logic-apps/workflow-definition-language-functions-reference.md#actions). |
 | [actionBody](../logic-apps/workflow-definition-language-functions-reference.md#actionBody) | Renvoyer la sortie `body` d’une action lors de l’exécution. Voir aussi [body](../logic-apps/workflow-definition-language-functions-reference.md#body). |
-| [actionOutputs](../logic-apps/workflow-definition-language-functions-reference.md#actionOutputs) | Renvoyer la sortie d’une action lors de l’exécution. Voir [actions](../logic-apps/workflow-definition-language-functions-reference.md#actions). |
+| [actionOutputs](../logic-apps/workflow-definition-language-functions-reference.md#actionOutputs) | Retourne la sortie d’une action lors de l’exécution. Consultez les [sorties](../logic-apps/workflow-definition-language-functions-reference.md#outputs) et les [actions](../logic-apps/workflow-definition-language-functions-reference.md#actions). |
 | [actions](../logic-apps/workflow-definition-language-functions-reference.md#actions) | Renvoyer la sortie d’une action lors de l’exécution ou les valeurs d’autres paires nom-valeur JSON. Voir aussi [action](../logic-apps/workflow-definition-language-functions-reference.md#action).  |
 | [body](#body) | Retourne la sortie `body` d’une action lors de l’exécution. Voir aussi [actionBody](../logic-apps/workflow-definition-language-functions-reference.md#actionBody). |
 | [formDataMultiValues](../logic-apps/workflow-definition-language-functions-reference.md#formDataMultiValues) | Créer un tableau contenant les valeurs qui correspondent à un nom de clé dans la sortie *form-data* ou *form-encoded* d’une action. |
@@ -250,6 +250,7 @@ Pour obtenir des informations complètes sur chaque fonction, consultez la [list
 | [iterationIndexes](../logic-apps/workflow-definition-language-functions-reference.md#iterationIndexes) | À l’intérieur d’une boucle Until, retourne la valeur d’index de l’itération actuelle. Vous pouvez utiliser cette fonction à l’intérieur de boucles Until imbriquées. |
 | [listCallbackUrl](../logic-apps/workflow-definition-language-functions-reference.md#listCallbackUrl) | Renvoyer l’« URL de rappel » qui appelle un déclencheur ou une action. |
 | [multipartBody](../logic-apps/workflow-definition-language-functions-reference.md#multipartBody) | Renvoyer le corps correspondant à une partie spécifique de la sortie d’une action qui comporte plusieurs parties. |
+| [outputs](../logic-apps/workflow-definition-language-functions-reference.md#outputs) | Retourne la sortie d’une action lors de l’exécution. |
 | [parameters](../logic-apps/workflow-definition-language-functions-reference.md#parameters) | Retourne la valeur d’un paramètre décrit dans la définition de votre flux de travail. |
 | [trigger](../logic-apps/workflow-definition-language-functions-reference.md#trigger) | Renvoyer la sortie d’un déclencheur lors de l’exécution ou d’autres paires nom-valeur JSON. Voir aussi [triggerOutputs](#triggerOutputs) et [triggerBody](../logic-apps/workflow-definition-language-functions-reference.md#triggerBody). |
 | [triggerBody](../logic-apps/workflow-definition-language-functions-reference.md#triggerBody) | Renvoyer la sortie `body` d’un déclencheur lors de l’exécution. Voir [trigger](../logic-apps/workflow-definition-language-functions-reference.md#trigger). |
@@ -380,9 +381,7 @@ Et retourne ce résultat :
 
 ### <a name="actionoutputs"></a>actionOutputs
 
-Retourne la sortie d’une action lors de l’exécution.
-Raccourci de `actions('<actionName>').outputs`.
-Voir [actions()](#actions).
+Retourne la sortie d’une action lors de l’exécution.  Raccourci de `actions('<actionName>').outputs`. Voir [actions()](#actions). La fonction `actionOutputs()` est résolue en`outputs()` dans le concepteur d’application logique. Pensez donc à utiliser [outputs()](#outputs), plutôt que `actionOutputs()`. Bien que les deux fonctions agissent de manière identique, la fonction `outputs()` est préférée.
 
 ```
 actionOutputs('<actionName>')
@@ -2953,6 +2952,69 @@ Et retournent les résultats suivants :
 
 * Premier exemple : comme au moins une expression est vraie, la fonction retourne `true`.
 * Deuxième exemple : comme les deux expressions sont fausses, la fonction retourne `false`.
+
+<a name="outputs"></a>
+
+### <a name="outputs"></a>outputs
+
+Retourne les sorties d’une action lors de l’exécution. Utilisez cette fonction plutôt que `actionOutputs()`, qui correspond à `outputs()` dans le concepteur d’application logique. Bien que les deux fonctions agissent de manière identique, la fonction `outputs()` est préférée.
+
+```
+outputs('<actionName>')
+```
+
+| Paramètre | Obligatoire | Type | Description |
+| --------- | -------- | ---- | ----------- |
+| <*actionName*> | OUI | Chaîne | Nom de la sortie de l’action souhaitée |
+|||||
+
+| Valeur de retour | Type | Description |
+| ------------ | -----| ----------- |
+| <*output*> | Chaîne | Sortie de l’action spécifiée |
+||||
+
+*Exemple*
+
+Cet exemple illustre l’obtention de la sortie de l’action Twitter `Get user` :
+
+```
+outputs('Get_user')
+```
+
+Et retourne ce résultat :
+
+```json
+{
+  "statusCode": 200,
+  "headers": {
+    "Pragma": "no-cache",
+    "Vary": "Accept-Encoding",
+    "x-ms-request-id": "a916ec8f52211265d98159adde2efe0b",
+    "X-Content-Type-Options": "nosniff",
+    "Timing-Allow-Origin": "*",
+    "Cache-Control": "no-cache",
+    "Date": "Mon, 09 Apr 2018 18:47:12 GMT",
+    "Set-Cookie": "ARRAffinity=b9400932367ab5e3b6802e3d6158afffb12fcde8666715f5a5fbd4142d0f0b7d;Path=/;HttpOnly;Domain=twitter-wus.azconn-wus.p.azurewebsites.net",
+    "X-AspNet-Version": "4.0.30319",
+    "X-Powered-By": "ASP.NET",
+    "Content-Type": "application/json; charset=utf-8",
+    "Expires": "-1",
+    "Content-Length": "339"
+  },
+  "body": {
+    "FullName": "Contoso Corporation",
+    "Location": "Generic Town, USA",
+    "Id": 283541717,
+    "UserName": "ContosoInc",
+    "FollowersCount": 172,
+    "Description": "Leading the way in transforming the digital workplace.",
+    "StatusesCount": 93,
+    "FriendsCount": 126,
+    "FavouritesCount": 46,
+    "ProfileImageUrl": "https://pbs.twimg.com/profile_images/908820389907722240/gG9zaHcd_400x400.jpg"
+  }
+}
+```
 
 <a name="parameters"></a>
 

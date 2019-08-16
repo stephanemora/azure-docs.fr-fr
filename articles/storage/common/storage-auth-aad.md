@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 07/25/2019
+ms.date: 08/02/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 236d880af780114dfb906021f53d5c09aee75332
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: f33193e3102afca73344fcd640d14d9af9c1d46e
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514896"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68775344"
 ---
 # <a name="authorize-access-to-azure-blobs-and-queues-using-azure-active-directory"></a>Autoriser l’accès aux objets blob et aux files d’attente Azure avec Azure Active Directory
 
@@ -22,7 +22,7 @@ Le stockage Azure prend en charge l’utilisation d’Azure Active Directory pou
 
 Autoriser des utilisateurs ou des applications à l’aide d’un jeton OAuth 2.0 retourné par Azure AD offre une meilleure sécurité et une plus grande facilité d’utilisation de l’autorisation de clé partagée et des signatures d’accès partagé (SAS). Avec Azure AD, il n’est pas nécessaire de stocker la clé d’accès du compte avec votre code, et risquer des failles de sécurité potentielles. Même si vous pouvez continuer à utiliser l’autorisation de clé partagée avec vos applications, avec Azure AD, vous n’avez plus besoin de stocker votre clé d’accès de compte avec votre code. Vous pouvez également continuer à utiliser des signatures d’accès partagé (SAP) pour accorder un accès affiné aux ressources de votre compte de stockage. Toutefois, Azure AD offre des fonctionnalités similaires sans nécessiter de gestion des jetons SAP, ni de révocation des SAP compromises. Dans la mesure du possible, Microsoft recommande d’utiliser l’autorisation Azure AD avec les applications du stockage Azure.
 
-L’autorisation avec Azure AD est disponible pour tous les comptes de stockage universels et comptes de stockage Blob, dans la totalité des régions publiques et clouds nationaux. Seuls les comptes de stockage créés avec le modèle de déploiement Azure Resource Manager prennent en charge l’autorisation Azure AD.
+L’autorisation avec Azure AD est disponible pour tous les comptes de stockage universels et comptes de stockage Blob, dans la totalité des régions publiques et clouds nationaux. Seuls les comptes de stockage créés avec le modèle de déploiement Azure Resource Manager prennent en charge l’autorisation Azure AD. L’autorisation avec Azure AD n’est pas prise en charge pour Stockage Table Azure.
 
 ## <a name="overview-of-azure-ad-for-blobs-and-queues"></a>Vue d’ensemble d’Azure AD pour les objets blob et les files d’attente
 

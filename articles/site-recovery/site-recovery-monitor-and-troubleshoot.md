@@ -5,35 +5,46 @@ author: raynew
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 03/18/2019
+ms.date: 07/30/2019
 ms.author: raynew
-ms.openlocfilehash: 5a659da4bcc86544c31d7a789779253a0f571f34
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: aa9d776df50306ab1705426c923413b5a5d545a5
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66497541"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68717353"
 ---
 # <a name="monitor-site-recovery"></a>Superviser Site Recovery
 
-Dans cet article, vous allez apprendre à utiliser les fonctionnalités intégrées de surveillance et de résolution des problèmes d’Azure Site Recovery. 
+Cet article explique comment surveiller [Azure Site Recovery](site-recovery-overview.md) à l’aide de la surveillance intégrée de Site Recovery.  Vous pouvez surveiller les aspects suivants :
 
-## <a name="use-the-dashboard"></a>Utiliser le tableau de bord
+- Intégrité et état des machines répliquées par Site Recovery
+- État de test de basculement des machines
+- Problèmes et erreurs affectant la configuration et la réplication
+- Composants d’infrastructure tels que des serveurs locaux
 
-1. Dans le coffre, cliquez sur **Vue d’ensemble** pour ouvrir le tableau de bord Site Recovery. Le tableau de bord comprend des pages pour Site Recovery et Azure Backup, que vous pouvez afficher à tour de rôle.
+
+## <a name="before-you-start"></a>Avant de commencer
+
+Avant de commencer, vous pouvez consulter les [questions courantes concernant la surveillance](monitoring-common-questions.md).
+
+## <a name="monitor-in-the-dashboard"></a>Surveiller sur le tableau de bord
+
+1. Dans le coffre, cliquez sur **Vue d’ensemble**. Le tableau de bord Recovery Services regroupe toutes les informations de surveillance pour le coffre dans un emplacement unique. Il comprend des pages pour les services Site Recovery et Sauvegarde Azure, entre lesquels vous pouvez basculer.
 
     ![Tableau de bord Site Recovery](./media/site-recovery-monitor-and-troubleshoot/dashboard.png)
 
-2.  Le tableau de bord regroupe toutes les informations de surveillance pour le coffre dans un emplacement unique. À partir du tableau de bord, vous pouvez explorer plus en détail différentes zones. 
+2. À partir du tableau de bord, faites défiler vers le bas dans différentes zones. 
 
     ![Tableau de bord Site Recovery](./media/site-recovery-monitor-and-troubleshoot/site-recovery-overview-page.png).
 
-3. Sous **Éléments répliqués**, cliquez sur **Afficher tout** pour voir tous les serveurs dans le coffre.
-4. Effectuez un zoom avant en cliquant sur les informations d’état de chaque section. Sous **Vue d’infrastructure**, vous pouvez trier les informations de surveillance selon le type de machines que vous répliquez.
+3. Dans **Éléments répliqués**, cliquez sur **Afficher tout** pour voir tous les serveurs dans le coffre.
+4. Cliquez sur les informations d’état de chaque section pour faire défiler vers le bas.
+5. Sous **Affichage de l’infrastructure**, triez les informations de surveillance par type de machines que vous répliquez.
 
 ## <a name="monitor-replicated-items"></a>Surveiller les éléments répliqués
 
-La section Éléments répliqués affiche l’intégrité de toutes les machines pour lesquelles la réplication est activée dans le coffre.
+Dans **Éléments répliqués**, surveillez l’intégrité de toutes les machines dans le coffre pour lesquelles la réplication est activée.
 
 **State** | **Détails**
 --- | ---
@@ -44,7 +55,7 @@ Non applicable | Serveurs ne devant pas être répliqués pour le moment. Cela p
 
 ## <a name="monitor-test-failovers"></a>Surveiller les tests de basculement
 
-Vous pouvez afficher l’état du test de basculement pour les machines présentes dans le coffre.
+Dans **Réussite du test de basculement**, surveillez l’état du basculement des ordinateurs figurant dans le coffre.
 
 - Nous vous recommandons d’exécuter un test de basculement sur les machines répliquées au moins une fois tous les six mois. Cela vous permet de vérifier que le basculement fonctionne comme prévu, sans interrompre votre environnement de production. 
 - Un test de basculement est considéré comme réussi uniquement une fois que le basculement et le nettoyage après basculement sont terminés.
@@ -57,10 +68,10 @@ Non applicable | Machines actuellement non éligibles à un test de basculement.
 
 ## <a name="monitor-configuration-issues"></a>Surveiller les problèmes de configuration
 
-La section **Problèmes de configuration** affiche la liste des problèmes qui peuvent affecter votre capacité à réussir le basculement.
+Dans **Problèmes de configuration**, surveillez tous les problèmes susceptibles d’avoir une incidence sur votre capacité à opérer correctement le basculement.
 
 - Les problèmes de configuration (autres que la disponibilité des mises à jour logicielles) sont détectés par une validation périodique qui s’exécute toutes les 12 heures par défaut. Vous pouvez forcer l’exécution immédiate de l’opération de validation en cliquant sur l’icône d’actualisation en regard de l’intitulé de la section **Problèmes de configuration**.
-- Cliquez sur les liens pour obtenir plus d’informations. Pour les problèmes affectant des machines spécifiques, cliquez sur **Doit être surveillé** dans la colonne **Configurations cibles**. Les détails incluent des recommandations de correction.
+- Cliquez sur les liens pour obtenir plus d’informations. Pour les problèmes affectant des machines spécifiques, dans la colonne **Configurations cibles**, cliquez sur **Doit être surveillé**. Les détails incluent des recommandations de correction.
 
 **State** | **Détails**
 --- | ---
@@ -70,18 +81,19 @@ Quota d’abonnement |  Le quota de ressources disponibles dans l’abonnement e
 Mises à jour logicielles | La disponibilité des nouvelles mises à jour logicielles et des informations sur les versions logicielles arrivant à expiration.
 
 
-## <a name="monitoring-errors"></a>Surveillance des erreurs 
-La section **Résumé des erreurs** affiche les erreurs actives qui peuvent avoir un impact sur la réplication des serveurs dans le coffre, ainsi que le nombre de machines affectées.
+## <a name="monitor-errors"></a>Surveiller les erreurs
 
-- Au début de la section, les erreurs ayant un impact sur les composants d’infrastructure locaux sont affichées. Par exemple, la non réception d’une pulsation du fournisseur Azure Site Recovery en cours d’exécution sur le serveur de configuration local, le serveur VMM ou l’hôte Hyper-V.
+Dans **Résumé des erreurs**, surveillez les symptômes d’erreurs actives susceptibles d’avoir une incidence sur la réplication des serveurs dans le coffre, ainsi que le nombre de machines concernées.
+
+- Les erreurs ayant une incidence sur les composants de l’infrastructure locale sont présentées au début de cette section. Par exemple, la non-réception d’une pulsation en provenance du fournisseur Azure Site Recovery sur le serveur de configuration local, ou l’hôte Hyper-V.
 - Les erreurs de réplication ayant un impact sur les serveurs répliqués apparaissent ensuite.
 - Le tableau est trié par ordre décroissant de la gravité des erreurs, puis par ordre décroissant du nombre de machines concernées.
-- Le nombre de serveurs concernés est une information qui permet de comprendre si un même problème sous-jacent peut concerner plusieurs machines. Par exemple, un problème réseau peut avoir un impact sur toutes les machines en cours de réplication vers Azure. 
+- Le nombre de serveurs concernés est une information qui permet de comprendre si un même problème sous-jacent peut avoir une incidence sur plusieurs machines. Par exemple, un problème réseau peut avoir une incidence sur toutes les machines répliquant sur Azure. 
 - Plusieurs erreurs de réplication peuvent se produire sur un seul serveur. Dans ce cas, chaque erreur inclut ce serveur dans la liste de ses serveurs affectés. Une fois le problème est résolu, les paramètres de réplication sont optimisés et l’erreur est résolue à partir de la machine.
 
 ## <a name="monitor-the-infrastructure"></a>Surveiller l’infrastructure
 
-La section **Vue d’infrastructure** affiche les composants d’infrastructure impliqués dans la réplication, ainsi que l’intégrité de la connectivité entre les serveurs et les services Azure.
+Dans**Affichage de l’infrastructure**, surveillez les composants d’infrastructure impliqués dans la réplication, ainsi que l’intégrité de la connectivité entre les serveurs et les services Azure.
 
 - Une ligne verte indique que la connexion est opérationnelle.
 - Une ligne rouge sur laquelle est superposée une icône d’erreur indique l’existence d’une ou de plusieurs erreurs qui affectent la connectivité.
@@ -89,7 +101,7 @@ La section **Vue d’infrastructure** affiche les composants d’infrastructure 
 
     ![Vue d’infrastructure de Site Recovery (coffre)](./media/site-recovery-monitor-and-troubleshoot/site-recovery-vault-infra-view.png)
 
-## <a name="tips-for-monitoring-the-infrastructure"></a>Conseils relatifs à la surveillance de l’infrastructure
+### <a name="tips-for-monitoring-the-infrastructure"></a>Conseils relatifs à la surveillance de l’infrastructure
 
 - Assurez-vous que les composants d’infrastructure locaux (serveur de configuration, serveurs de traitement, serveurs VMM, hôtes Hyper-V, machines virtuelles VMware) exécutent les dernières versions du fournisseur et/ou des agents Site Recovery.
 - Pour utiliser toutes les fonctionnalités de la vue d’infrastructure, vous devez exécuter le [Correctif cumulatif 22](https://support.microsoft.com/help/4072852) pour ces composants.
@@ -106,21 +118,12 @@ La section **Vue d’infrastructure** affiche les composants d’infrastructure 
 
 - Pour afficher la vue d’infrastructure pour une seule machine en cours de réplication, dans le menu du coffre, cliquez sur **Éléments répliqués**, puis sélectionnez un serveur.  
 
-### <a name="common-questions"></a>Questions courantes
 
-
-**Pourquoi le nombre de machines virtuelles dans la vue d’infrastructure du coffre diffère-t-il du nombre total affiché dans la section des éléments répliqués ?**
-
-La vue d’infrastructure du coffre est limitée par les scénarios de réplication. Seules les machines incluses dans le scénario de réplication sélectionné sont comptabilisées dans la vue d’infrastructure. En outre, nous comptabilisons uniquement les machines virtuelles qui sont configurées pour être répliquées vers Azure. Les machines ayant basculé ou en cours de réplication vers un site local ne sont pas comptabilisées dans la vue.
-
-**Pourquoi le nombre d’éléments répliqués affichés dans la section des éléments principaux diffère-t-il du nombre total d’éléments répliqués indiqué dans le tableau de bord ?**
-
-Seules les machines sur lesquelles la réplication initiale est terminée sont incluses dans le nombre indiqué dans la section des éléments principaux. Dans la section des éléments répliqués, le total inclut toutes les machines présentes dans le coffre, y compris celles dont la réplication initiale est en cours.
 
 
 ## <a name="monitor-recovery-plans"></a>Surveiller les plans de récupération
 
-Dans la **section Plans de récupération**, vous pouvez consulter le nombre de plans, créer des plans et modifier des plans existants.  
+Dans **Plans de récupération**, surveillez le nombre de plans, créer des plans et modifiez des plans existants.  
 
 ## <a name="monitor-jobs"></a>Surveiller des travaux
 
@@ -142,13 +145,10 @@ Pour surveiller les travaux, procédez comme suit :
 
 ## <a name="monitor-virtual-machines"></a>Surveillance des machines virtuelles
 
-Parallèlement au tableau de bord, vous pouvez surveiller les machines à partir de la page de machines virtuelles. 
-
-1. Dans le coffre, cliquez sur **Éléments répliqués** pour obtenir la liste des machines répliquées.  L’autre méthode consiste à afficher la liste filtrée des éléments protégés en cliquant sur l’un des raccourcis limités disponibles sur la page du tableau de bord.
-
+Dans **Éléments répliqués**, obtenez la liste des machines répliquées. 
     ![Vue de la liste des éléments répliqués dans Azure Site Recovery](./media/site-recovery-monitor-and-troubleshoot/site-recovery-virtual-machine-list-view.png)
 
-2. Dans la page **Éléments répliqués**, vous pouvez afficher et filtrer les informations. Dans le menu d’action supérieur, vous pouvez effectuer des actions pour une machine donnée, y compris exécuter un test de basculement ou afficher des erreurs spécifiques.
+2. Vous pouvez afficher et filtrer les informations. Dans le menu d’action supérieur, vous pouvez effectuer des actions pour une machine donnée, y compris exécuter un test de basculement ou afficher des erreurs spécifiques.
 3. Cliquez sur **Colonnes** pour afficher des colonnes supplémentaires, par exemple pour afficher le RPO, les problèmes de configuration cible et les erreurs de réplication.
 4. Cliquez sur **Filtre** pour afficher les informations en fonction de paramètres spécifiques telles que l’intégrité de la réplication, ou une stratégie de réplication particulière.
 5. Cliquez avec le bouton droit sur une machine pour y lancer des opérations telles qu’un test de basculement, ou pour afficher les détails des erreurs qui lui sont associées.
@@ -162,23 +162,6 @@ Parallèlement au tableau de bord, vous pouvez surveiller les machines à partir
    - **Vue d’infrastructure** : affiche l’état de l’infrastructure pour le scénario de réplication des machines vers Azure.
 
      ![Vue d’ensemble/détails des éléments répliqués d’Azure Site Recovery](./media/site-recovery-monitor-and-troubleshoot/site-recovery-virtual-machine-details.png)
-
-
-### <a name="common-questions"></a>Questions courantes
-
-**En quoi l’objectif de point de récupération (ou RPO) est-il différent du dernier point de récupération disponible ?**
-
-
-- Site Recovery utilise un processus asynchrone en plusieurs étapes pour répliquer des machines vers Azure.
-- À l’avant-dernière étape de la réplication, les modifications récentes apportées à la machine, ainsi que les métadonnées, sont copiées dans un compte de stockage de cache/du journal.
-- Ces modifications, ainsi que la balise qui identifie un point récupérable, sont écrites dans le compte de stockage de la région cible.
--  Site Recovery peut désormais générer un point récupérable pour la machine virtuelle.
-- À ce stade, le RPO a été atteint pour les modifications téléchargées jusqu’à présent au compte de stockage. En d’autres termes, le RPO de la machine est à ce stade égal au temps écoulé depuis l’horodatage correspondant au point récupérable.
-- À présent, Site Recovery récupère les données téléchargées à partir du compte de stockage et les applique aux disques de réplica créés pour la machine.
-- Site Recovery génère ensuite un point de récupération et le fournit pour effectuer la récupération lors du basculement. Le dernier point de récupération disponible indique l’horodatage correspondant au dernier point de récupération déjà traité et appliqué aux disques de réplica.
-
-> [!NOTE]
-> Une heure système incorrecte sur la machine source en cours de réplication ou les serveurs d’infrastructure locaux fausse la valeur de RPO calculée. Pour obtenir un RPO précis, assurez-vous que l’horloge système affiche la même heure sur l’ensemble des serveurs et des machines. 
 
 ## <a name="subscribe-to-email-notifications"></a>S’abonner aux notifications par courrier électronique
 
@@ -195,3 +178,7 @@ Dans le coffre > section **Supervision**, cliquez sur **Événements Site Recove
 1. Sous **Notifications par e-mail**, activez les notifications et spécifiez le destinataire des notifications. Vous pouvez choisir d’envoyer les notifications à tous les administrateurs de l’abonnement ou à des adresses e-mail spécifiques.
 
     ![Notifications par e-mail](./media/site-recovery-monitor-and-troubleshoot/email.png)
+
+## <a name="next-steps"></a>Étapes suivantes
+
+[Découvrez](monitor-log-analytics.md) la surveillance de Site Recovery avec Azure Monitor.

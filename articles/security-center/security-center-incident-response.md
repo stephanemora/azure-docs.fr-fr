@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 99bfab5a5f80fc0a49c7cc6405154394391f43e0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3a55de2d5f47274ea112e52ddbcc0d946db56470
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60908170"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68775332"
 ---
 # <a name="using-azure-security-center-for-an-incident-response"></a>Utilisation d’Azure Security Center pour la réponse aux incidents
 De nombreuses organisations apprennent à répondre aux incidents uniquement après avoir subi une attaque. Pour réduire les coûts et les dommages, il est important de disposer d’un plan de réponse aux incidents avant qu’une attaque ne survienne. Vous pouvez utiliser Azure Security Center à différentes étapes de la réponse à un incident.
@@ -56,7 +56,7 @@ Judy travaille aux opérations de sécurité. Ses responsabilités incluent :
 * La surveillance et l’élimination en continu des menaces de sécurité.
 * La remontée des problèmes au propriétaire des charges de travail de cloud ou à l’analyste de la sécurité en fonction des besoins.
 
-Sam est analyste de la sécurité et ses responsabilités incluent :
+Sam est analyste sécurité et ses responsabilités incluent :
 
 * L’examen des attaques.
 * La correction des alertes.
@@ -65,17 +65,17 @@ Sam est analyste de la sécurité et ses responsabilités incluent :
 Comme vous pouvez le voir, Judy et Sam ont des responsabilités différentes, et ils doivent travailler ensemble en se partageant les informations d’Azure Security Center.
 
 ## <a name="recommended-solution"></a>Solution recommandée
-Comme Judy et Sam ont des rôles différents, ils utilisent différentes sections d’Azure Security Center afin d’obtenir des informations pertinentes pour leurs activités quotidiennes. Judy utilise les **alertes de sécurité** dans le cadre de sa surveillance quotidienne.
+Comme Judy et Sam ont des rôles différents, ils utilisent différentes sections d’Azure Security Center afin d’obtenir des informations pertinentes pour leurs activités quotidiennes. Judy utilise les **alertes de sécurité** dans le cadre de sa supervision quotidienne.
 
 ![Alertes de sécurité](./media/security-center-incident-response/security-center-incident-response-fig3.png)
 
-Judy utilise les alertes de sécurité pendant les étapes de détection et d’évaluation. Une fois l’évaluation initiale terminée, Judy peut faire remonter le problème à Sam si un examen complémentaire est requis. À ce stade, Sam doit utiliser les informations fournies par Azure Security Center, parfois conjointement avec d’autres sources de données, pour passer à l’étape de diagnostic.
+Judy utilise les alertes de sécurité pendant les étapes de détection et d’évaluation. Une fois l’évaluation initiale terminée, Judy peut faire remonter le problème à Sam si un examen complémentaire est nécessaire. À ce stade, Sam doit utiliser les informations fournies par Azure Security Center, parfois conjointement avec d’autres sources de données, pour passer à l’étape de diagnostic.
 
 ## <a name="how-to-implement-this-solution"></a>Mise en œuvre de cette solution
 Pour découvrir comment utiliser Azure Security Center dans un scénario de réponse aux incidents, nous allons suivre Judy pendant les étapes de détection et d’évaluation, puis voir ce que Sam fait pour diagnostiquer le problème.
 
 ### <a name="detect-and-assess-incident-response-stages"></a>Étapes de détection et d’évaluation de la réponse aux incidents
-Judy s’est connectée au portail Azure et se trouve dans la console Azure Security Center. Dans le cadre de ses activités de surveillance quotidiennes, elle a commencé à examiner les alertes de sécurité à priorité élevée en suivant cette procédure :
+Judy s’est connectée au portail Azure et se trouve dans la console Azure Security Center. Dans le cadre de ses activités de supervision quotidiennes, elle a commencé à examiner les alertes de sécurité à priorité élevée en suivant cette procédure :
 
 1. Cliquer sur la mosaïque **Alertes de sécurité** et accédez au panneau **Alertes de sécurité**.
     ![Panneau Alertes de sécurité](./media/security-center-incident-response/security-center-incident-response-fig4.png)

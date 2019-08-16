@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 07/04/2019
 ms.author: raynew
-ms.openlocfilehash: 6537bfe5df8de298593428fb21448181ad8075fc
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: c31a9fde50de8190cdd7bc19600344a8e58cf60b
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68663466"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68827326"
 ---
 # <a name="azure-migrate-appliance"></a>Appliance Azure Migrate
 
@@ -42,7 +42,7 @@ Ces agents sont installés sur l’appliance.
 
 **Agent** | **Détails**
 --- | ---
-Agent de découverte | Collecte les données de configuration à partir des machines virtuelles locales.
+Agent de découverte | Recueille les données de configuration des machines virtuelles locales
 Agent d’évaluation | Définit le profil de l'environnement local pour collecter les données de performance des machines virtuelles.
 Adaptateur de migration | Orchestre la réplication des machines virtuelles et coordonne la communication entre les machines virtuelles et Azure.
 Passerelle de migration | Envoie à Azure les données répliquées des machines virtuelles.
@@ -200,8 +200,8 @@ L'appliance est mise à niveau à mesure que les agents Azure Migrate fonctionna
 
 - Cela se produit automatiquement car la mise à jour automatique est activée par défaut sur l'appliance.
 - Vous pouvez modifier ce paramètre par défaut pour mettre à jour les agents manuellement.
-- Pour désactiver les mises à jour automatiques, définissez la clé de registre Appliance Auto Update dans HKLM\SOFTWAREMicrosoft\Azure.
-
+- Pour désactiver la mise à jour automatique, accédez à l’éditeur du Registre > HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance et définissez la clé de Registre « AutoUpdate » sur 0 (DWORD).
+ 
 ### <a name="set-agent-updates-to-manual"></a>Définir des mises à jour manuelles de l'agent
 
 Pour les mises à jour manuelles, assurez-vous de mettre à jour tous les agents de l'appliance en même temps en utilisant le bouton **Update** (Mettre à jour) pour chaque agent obsolète de l'appliance. Vous pouvez à tout moment repasser en mode de mise à jour automatique.

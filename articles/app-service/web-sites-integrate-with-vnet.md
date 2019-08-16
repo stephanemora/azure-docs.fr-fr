@@ -15,10 +15,10 @@ ms.date: 07/25/2019
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 8321a9dd779406b2d1de44bd4c9313e4d855548d
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "68740891"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Intégrer une application à un réseau Azure Virtual Network
@@ -34,22 +34,22 @@ Ce document passe en revue les deux fonctionnalités d’intégration au réseau
 La fonctionnalité d’intégration au réseau virtuel se présente sous deux formes :
 
 1. La première version permet une intégration aux réseaux virtuels d’une même région. Sous cette forme, la fonctionnalité nécessite un sous-réseau dans un réseau virtuel de la même région. Bien que cette fonctionnalité soit toujours en préversion, elle est prise en charge pour les charges de travail de production d’applications Windows. Il existe cependant certaines restrictions qui sont mentionnées ci-dessous.
-2. L’autre version permet une intégration à des réseaux virtuels d’autres régions ou à des réseaux virtuels classiques. Cette version de la fonctionnalité nécessite le déploiement d’une passerelle de réseau virtuel dans votre réseau virtuel. Il s’agit de la fonctionnalité VPN point à site et elle est uniquement prise en charge par les applications Windows.
+2. L’autre version permet une intégration à des réseaux virtuels d’autres régions ou à des réseaux virtuels classiques. Cette version de la fonctionnalité nécessite le déploiement d'une passerelle de réseau virtuel dans votre réseau virtuel. Il s’agit de la fonctionnalité VPN point à site et elle est uniquement prise en charge par les applications Windows.
 
-Une application ne peut utiliser qu’une seule forme de la fonctionnalité d’intégration au réseau virtuel à la fois. Il convient donc de déterminer quelle fonctionnalité utiliser. Les deux peuvent être utilisées dans des cas divers et variés. Il existe néanmoins des facteurs de différenciation clairs :
+Une application ne peut utiliser qu'une seule forme de la fonctionnalité d'intégration au réseau virtuel à la fois. Il convient donc de déterminer quelle fonctionnalité utiliser. Les deux peuvent être utilisées dans des cas divers et variés. Il existe néanmoins des facteurs de différenciation clairs :
 
 | Problème  | Solution | 
 |----------|----------|
-| Nécessité d’accéder à une adresse RFC 1918 (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16) dans la même région | Intégration au réseau virtuel régional |
+| Nécessité d'accéder à une adresse RFC 1918 (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16) dans la même région | Intégration au réseau virtuel régional |
 | Nécessité d’accéder aux ressources d’un réseau virtuel classique ou d’un réseau virtuel situé dans une autre région | Intégration au réseau virtuel avec passerelle obligatoire |
-| Nécessité d’accéder à des points de terminaison RFC 1918 via ExpressRoute | Intégration au réseau virtuel régional |
-| Nécessité d’accéder à des ressources via des points de terminaison de service | Intégration au réseau virtuel régional |
+| Nécessité d'accéder à des points de terminaison RFC 1918 via ExpressRoute | Intégration au réseau virtuel régional |
+| Nécessité d'accéder à des ressources via des points de terminaison de service | Intégration au réseau virtuel régional |
 
-Aucune des fonctionnalités ne vous permet d’accéder à des adresses non compatibles avec RFC 1918 via ExpressRoute. Pour cela, vous devez pour le moment utiliser un environnement ASE.
+Aucune des fonctionnalités ne vous permet d'accéder à des adresses non compatibles avec RFC 1918 via ExpressRoute. Pour cela, vous devez pour le moment utiliser un environnement ASE.
 
-L’utilisation de l’intégration au réseau virtuel régional n’a pas pour effet de connecter votre réseau virtuel à des ressources locales ou de configurer des points de terminaison de service. Il s’agit d’une configuration de mise en réseau distincte. L’intégration au réseau virtuel régional permet simplement à votre application d’effectuer des appels via ces types de connexion.
+L'utilisation de l'intégration au réseau virtuel régional n'a pas pour effet de connecter votre réseau virtuel à des ressources locales ou de configurer des points de terminaison de service. Il s'agit d'une configuration de mise en réseau distincte. L’intégration au réseau virtuel régional permet simplement à votre application d’effectuer des appels via ces types de connexion.
 
-Quelle que soit la version utilisée, l’intégration au réseau virtuel permet à votre application web d’accéder aux ressources de votre réseau virtuel, mais n’accorde pas d’accès privé entrant à votre application web à partir du réseau virtuel. L’accès au site privé fait référence au fait de rendre votre application accessible uniquement à partir d’un réseau privé, par exemple à partir d’un réseau virtuel Azure. L’intégration au réseau virtuel sert uniquement à effectuer des appels sortants de votre application vers votre réseau virtuel. 
+Quelle que soit la version utilisée, l’intégration au réseau virtuel permet à votre application web d’accéder aux ressources de votre réseau virtuel, mais n’accorde pas d’accès privé entrant à votre application web à partir du réseau virtuel. L’accès au site privé fait référence au fait de rendre votre application accessible uniquement à partir d’un réseau privé, par exemple à partir d’un réseau virtuel Azure. L'intégration au réseau virtuel sert uniquement à passer des appels sortants de votre application vers votre réseau virtuel. 
 
 La fonctionnalité d’intégration au réseau virtuel :
 

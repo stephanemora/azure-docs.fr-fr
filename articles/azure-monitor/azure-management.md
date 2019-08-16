@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/07/2018
 ms.author: bwren
-ms.openlocfilehash: a0d3ea3f4a63e7c69a190cf856929437d6f0b9d8
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: 4096ee477dc1d40ff6b98b20dd384c6ffad17e5f
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68608297"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779265"
 ---
 # <a name="azure-management---monitoring"></a>Gestion et surveillance Azure
 
@@ -40,7 +40,7 @@ La surveillance consiste à recueillir et à analyser des données afin de déte
 La configuration fait référence au déploiement initial et à la configuration des applications et des ressources, ainsi qu’à leur maintenance continue au moyen de correctifs et de mises à jour.  L’automatisation de ces tâches au moyen de script et de stratégie vous permet d’éviter la redondance, en réduisant le temps et les efforts et en augmentant votre précision et efficacité.  [Azure Automation](../automation/automation-intro.md) fournit la majeure partie des services d’automatisation des tâches de configuration.  En plus des runbooks pour automatiser les processus, il fournit la configuration et la gestion des mises à jour, ce qui vous aide à gérer la configuration via la stratégie et à identifier et déployer les mises à jour.
 
 ## <a name="govern"></a>Gouvernance
-La gouvernance propose des mécanismes et des processus pour garder le contrôle sur vos applications et ressources dans Azure.  Elle implique la planification de vos initiatives et la définition de priorités stratégiques.  La gouvernance dans Azure est principalement mise en œuvre à l’aide de deux services.  [Azure Policy](../governance/policy/overview.md) vous permet de créer, assigner et gérer des définitions de stratégie qui appliquent différentes règles et actions sur vos ressources, qui restent donc conformes aux standards et aux contrats de niveau de service de l’entreprise. [Azure Cost Management par Cloudyn](../cost-management/overview.md) vous permet de suivre l’utilisation du cloud et les dépenses liées à vos ressources Azure et celles d’autres fournisseurs de services cloud, notamment AWS et Google.
+La gouvernance propose des mécanismes et des processus pour garder le contrôle sur vos applications et ressources dans Azure.  Elle implique la planification de vos initiatives et la définition de priorités stratégiques.  La gouvernance dans Azure est principalement mise en œuvre à l’aide de deux services.  [Azure Policy](../governance/policy/overview.md) vous permet de créer, assigner et gérer des définitions de stratégie qui appliquent différentes règles et actions sur vos ressources, qui restent donc conformes aux standards et aux contrats de niveau de service de l’entreprise. [Azure Cost Management](../cost-management/overview-cost-mgt.md) vous permet de suivre l’utilisation du cloud et les dépenses liées à vos ressources Azure et celles d’autres fournisseurs de services cloud, notamment AWS et Google.
 
 ## <a name="secure"></a>Sécuriser
 La gestion de la sécurité de vos applications, ressources et données implique d’évaluer les menaces, de collecter et d’analyser les données de sécurité, et de garantir que vos applications et ressources sont conçues et configurées de manière sécurisée.  [Azure Security Center](../security-center/security-center-intro.md) assure la surveillance de la sécurité et l’analyse des menaces, et inclut des fonctionnalités unifiées de gestion de la sécurité et de protection avancée contre les menaces sur l’ensemble des charges de travail cloud hybrides.  Consultez également la [Présentation d’Azure Security](../security/fundamentals/overview.md) pour plus d’informations sur la sécurité dans Azure et des conseils sur la configuration des ressources Azure en toute sécurité.

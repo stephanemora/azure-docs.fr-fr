@@ -66,7 +66,11 @@
         - name: Verrouiller les images conteneur
           href: container-registry-image-lock.md
         - name: Supprimer des images de conteneur
-          href: container-registry-delete.md
+          items:
+            - name: Supprimer les données d’image - CLI
+              href: container-registry-delete.md
+            - name: Vider automatiquement les balises et les manifestes (préversion)
+              href: container-registry-auto-purge.md
         - name: Mise à niveau d’un registre Classique
           href: container-registry-upgrade.md
         - name: Utiliser des webhooks ACR

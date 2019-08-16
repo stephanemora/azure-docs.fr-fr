@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: shlo
-ms.openlocfilehash: df684860cd3d1b6a002a300682ca4c6398461ba6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 53ead1caed47ae442670f0b6bcd54cd84956a759
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60716902"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68720614"
 ---
 # <a name="visually-monitor-azure-data-factories"></a>Surveiller visuellement des fabriques de données Azure
 Azure Data Factory est un service d’intégration de données basé sur le cloud qui vous permet de créer des flux de travail orientés données dans le cloud pour orchestrer et automatiser le déplacement et la transformation des données. Grâce à Azure Data Factory, vous pouvez créer et planifier des flux de travail orientés données (appelés pipelines) capables d’ingérer des données provenant de différents magasins de données, de traiter/transformer les données à l’aide de services de calcul comme Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics et Azure Machine Learning, et de publier des données de sortie dans des magasins de données tels qu’Azure SQL Data Warehouse pour que des applications décisionnelles (BI) puissent les utiliser.
@@ -62,7 +62,7 @@ Liste montrant les exécutions d’activités correspondant à chaque exécution
 | Duration | Durée d’exécution (HH:MM:SS) |
 | Statut | Échec, Réussite, En cours |
 | Entrée | Tableau JSON décrivant les entrées de l’activité |
-| Sortie | Tableau JSON décrivant les sorties de l’activité |
+| Output | Tableau JSON décrivant les sorties de l’activité |
 | Error | Erreur d’exécution d’activité (le cas échéant) |
 
 ![Surveiller des exécutions d’activités](media/monitor-visually/activity-runs.png)
@@ -133,6 +133,18 @@ Vous pouvez voir l’historique des réexécutions de toutes les exécutions du 
 Vous pouvez également voir l’historique des réexécutions d’une exécution de pipeline spécifique.
 
 ![Voir l’historique d’une exécution de pipeline](media/monitor-visually/rerun-history-image2.png)
+
+## <a name="gantt-views"></a>Vues Gantt
+
+Utilisez des vues Gantt pour visualiser rapidement vos pipelines et vos exécutions d’activités. Vous pouvez afficher la vue Gantt par pipeline ou effectuer un regroupement en fonction d’annotations ou de balises que vous avez créées sur vos pipelines.
+
+![Diagramme de Gantt](media/monitor-visually/gantt1.png)
+
+![Annotations du diagramme de Gantt](media/monitor-visually/gantt2.png)
+
+La longueur de la barre indique la durée du pipeline. Vous pouvez également cliquer sur la barre pour afficher plus de détails.
+
+![Durée du diagramme de Gantt](media/monitor-visually/gantt3.png)
 
 ## <a name="guided-tours"></a>Visites guidées
 Cliquez sur l’icône « Informations » dans l’angle inférieur gauche, puis cliquez sur « Visites guidées » pour obtenir des instructions détaillées sur la façon de surveiller vos exécutions d’activités et de pipelines.

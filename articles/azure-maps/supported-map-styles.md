@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: db396ad06bf46cbbaf486696b68393a6a4214c2f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1aad2284c0f64c92efaefe3f9145d95c4aabec67
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65230831"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68839453"
 ---
 # <a name="azure-maps-supported-map-styles"></a>Styles de cartes pris en charge dans Azure Maps
 Azure Maps prend en charge plusieurs styles de mappage intégrés, qui sont décrits ci-dessous.
@@ -26,8 +26,18 @@ Une carte **routière** est une carte standard qui affiche les routes, les élé
 **API applicables :**
 * [Image de la carte](https://docs.microsoft.com/rest/api/maps/render/getmapimage)
 * [Vignette de la carte](https://docs.microsoft.com/rest/api/maps/render/getmaptile)
-* Commandes de la carte JS
+* Contrôle de carte du SDK web
 * Commandes de carte Android
+
+## <a name="blank-and-blank_accessible"></a>blank et blank_accessible
+
+Les styles de carte **blank** et **blank_accessible** fournissent un canevas vide sur lequel visualiser les données. Le type **blank_accessible** continue de fournir des mises à jour de lecteur d’écran avec les détails de l’emplacement où se trouve la carte, même si la carte de base n’est pas affichée.
+
+> [!Note]
+> Dans le SDK web, vous pouvez modifier la couleur d’arrière-plan de la carte en définissant le style `background-color` CSS de l’élément div de la carte.
+
+**API applicables :**
+* Contrôle de carte du SDK web
 
 ## <a name="satellite"></a>Satellite 
 Le style **satellite** est une combinaison d’imagerie satellite et d’imagerie aérienne.
@@ -36,35 +46,35 @@ Le style **satellite** est une combinaison d’imagerie satellite et d’imageri
 
 **API applicables :**
 * [Vignette Satellite](https://docs.microsoft.com/rest/api/maps/render/getmapimagerytilepreview)
-* Commandes de la carte JS
+* Contrôle de carte du SDK web
 * Commandes de carte Android
 
-## <a name="satelliteroadlabels"></a>satellite_road_labels
+## <a name="satellite_road_labels"></a>satellite_road_labels
 Ce style de carte est un hybride qui montre des routes et des noms superposés à une imagerie satellite et aérienne.
 
 ![satellite_road_labels](./media/supported-map-styles/satellite_road_labels.png)
 
 **API applicables :**
-* Commandes de la carte JS
+* Contrôle de carte du SDK web
 * Commandes de carte Android
 
-## <a name="grayscaledark"></a>grayscale_dark
+## <a name="grayscale_dark"></a>grayscale_dark
 **Nuances de gris foncé** est une version plus sombre du style carte routière.
 
 ![gray_scale](./media/supported-map-styles/grayscale_dark.png)
 
 **API applicables :**
-* Commandes de la carte JS 
+* Contrôle de carte du SDK web 
 * Commandes de carte Android
 
 
-## <a name="grayscalelight"></a>grayscale_light
+## <a name="grayscale_light"></a>grayscale_light
 **Nuances de gris clair** est une version plus claire du style carte routière.
 
 ![grayscale light](./media/supported-map-styles/grayscale_light.png)
 
 **API applicables :**
-* Commandes de la carte JS
+* Contrôle de carte du SDK web
 * Commandes de carte Android
 
 
@@ -74,15 +84,15 @@ Ce style de carte est un hybride qui montre des routes et des noms superposés �
 ![nuit](./media/supported-map-styles/night.png)
 
 **API applicables :**
-* Commandes de la carte JS
+* Contrôle de carte du SDK web
 * Commandes de carte Android
 
-## <a name="roadshadedrelief"></a>road_shaded_relief
+## <a name="road_shaded_relief"></a>road_shaded_relief
 Le **relief par ombres portées** est un style d’Azure Maps qui reprend le relief terrestre.
 
 ![relief par ombres portées](./media/supported-map-styles/shaded-relief.png)
 
 **API applicables :**
 * [Vignette de la carte](https://docs.microsoft.com/rest/api/maps/render/getmaptile)
-* Commandes de la carte JS
+* Contrôle de carte du SDK web
 * Commandes de carte Android

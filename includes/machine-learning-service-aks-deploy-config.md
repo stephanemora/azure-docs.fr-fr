@@ -4,12 +4,12 @@ ms.service: machine-learning
 ms.topic: include
 ms.date: 07/26/2019
 ms.author: larryfr
-ms.openlocfilehash: d59482c04c4875cb6b17ceb405e9d3ab97a741d6
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: b8913836baffdad200c198afa11475d617fe5d50
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68565137"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68729335"
 ---
 Les entrées dans le document `deploymentconfig.json` correspondent aux paramètres pour [AksWebservice.deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aks.aksservicedeploymentconfiguration?view=azure-ml-py). Le tableau suivant décrit le mappage entre les entités dans le document JSON et les paramètres de la méthode :
 
@@ -24,7 +24,8 @@ Les entrées dans le document `deploymentconfig.json` correspondent aux paramèt
 | &emsp;&emsp;`targetUtilization` | `autoscale_target_utilization` | Utilisation cible (en pourcentage sur 100) que la mise à l’échelle automatique doit tenter de gérer pour ce service web. Par défaut, `70`. |
 | `dataCollection` | N/D | Contient les éléments de configuration pour la collecte de données. |
 | &emsp;&emsp;`storageEnabled` | `collect_model_data` | Indique s’il faut activer la collecte des données de modèle pour le service Web. Par défaut, `False`. |
-| `authEnabled` | `auth_enabled` | Indique s’il faut activer l’authentification ou pas pour le service web. Par défaut, `True`. |
+| `authEnabled` | `auth_enabled` | Indique s’il faut ou non activer l’authentification de clé pour le service web. `tokenAuthEnabled` et `authEnabled` ne peuvent pas tous deux avoir la valeur `True`. Par défaut, `True`. |
+| `tokenAuthEnabled` | `token_auth_enabled` | Indique s’il faut ou non activer l’authentification de jeton pour le service web. `tokenAuthEnabled` et `authEnabled` ne peuvent pas tous deux avoir la valeur `True`. Par défaut, `False`. |
 | `containerResourceRequirements` | N/D | Conteneur pour les entités UC et mémoire. |
 | &emsp;&emsp;`cpu` | `cpu_cores` | Nombre de cœurs de processeur à allouer pour ce service web. Par défaut, `0.1` |
 | &emsp;&emsp;`memoryInGB` | `memory_gb` | Quantité de mémoire (en Go) à allouer à ce service web. Par défaut, `0.5` |

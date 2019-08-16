@@ -6,14 +6,14 @@ author: asgang
 manager: rochakm
 ms.service: site-recovery
 ms.topic: troubleshooting
-ms.date: 11/27/2018
+ms.date: 8/2/2019
 ms.author: asgang
-ms.openlocfilehash: bf24b2d1395e128dc73361670ea93ac938574146
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 02f3dff4c9649beeadade942f4b32595f8543c2d
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66258781"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68742546"
 ---
 # <a name="troubleshoot-ongoing-problems-in-azure-to-azure-vm-replication"></a>Résoudre les problèmes continus de réplication de machine virtuelle Azure vers Azure
 
@@ -63,7 +63,11 @@ Les limites du taux de changement de données d’Azure Site Recovery dépendent
 S’il s’agit d’une rafale de données occasionnelle, que le taux de modification des données est supérieur à 10 Mo/s (pour Premium) et 2 Mo/s (pour Standard) pendant un certain laps de temps et qu’il redescend par la suite, la réplication peut rattraper le retard. Toutefois, si le taux d’activité de données est bien au-delà de la limite prise en charge la plupart du temps, envisagez, si possible, l’une des options ci-dessous :
 
 * **Exclure le disque, ce qui provoque un taux de changement de données élevé** : Vous pouvez exclure le disque à l’aide de [PowerShell](./azure-to-azure-exclude-disks.md). Pour exclure le disque, vous devez d’abord désactiver la réplication. 
-* **Modifier le niveau du disque de stockage après sinistre** : Cette option n’est possible que si l’activité des données de disque est inférieure à 10 Mo/s. Supposons qu’une machine virtuelle avec un disque P10 disque a un taux d’activité des données supérieur à 8 Mo/s, mais inférieur à 10 Mo/s. Si le client peut utiliser le disque P30 pour le stockage cible pendant la protection, le problème peut être résolu.
+* **Modifier le niveau du disque de stockage après sinistre** : Cette option est possible seulement si le débit de données du disque est inférieur à 20 Mo/s. Supposons qu’une machine virtuelle avec un disque P10 disque a un taux d’activité des données supérieur à 8 Mo/s, mais inférieur à 10 Mo/s. Si le client peut utiliser le disque P30 pour le stockage cible pendant la protection, le problème peut être résolu. Notez que cette solution est possible seulement pour les machines qui utilisent des disques managés Premium. Effectuez les étapes suivantes :
+    - Accédez au panneau Disques de la machine répliquée concernée et copiez le nom du disque de réplica.
+    - Accédez à ce disque managé de réplica.
+    - Vous pouvez voir une bannière dans le panneau Vue d’ensemble indiquant qu’une URL de signature d’accès partagé a été générée. Cliquez sur cette bannière et annulez l’exportation. Ignorez cette étape si vous ne voyez pas la bannière.
+    - Dès que l’URL de la signature d’accès partagé est révoquée, accédez au panneau Configuration du disque managé et augmentez la taille de manière à ce que la récupération automatique du système prenne en charge le débit observé sur le disque source.
 
 ## <a name="Network-connectivity-problem"></a>Problèmes de connectivité réseau
 
@@ -84,7 +88,7 @@ Certains des problèmes les plus courants sont répertoriés ci-dessous
 #### <a name="cause-1-known-issue-in-sql-server-20082008-r2"></a>Cause 1 : Problème connu dans SQL Server 2008/2008 R2 
 **Procédure de résolution** : Il existe un problème connu dans SQL Server 2008/2008 R2. Référez-vous à cet article de la base de connaissances : [Azure Site Recovery Agent or other non-component VSS backup fails for a server hosting SQL Server 2008 R2](https://support.microsoft.com/help/4504103/non-component-vss-backup-fails-for-server-hosting-sql-server-2008-r2) (L’agent Azure Site Recovery ou une autre sauvegarde VSS sans composant échoue sur un serveur hébergeant une instance SQL Server 2008 R2)
 
-#### <a name="cause-2-azure-site-recovery-jobs-fail-on-servers-hosting-any-version-of-sql-server-instances-with-autoclose-dbs"></a>Cause 2 : Les tâches Azure Site Recovery échouent lorsque des serveurs hébergent les instances de n’importe quelle version de SQL Server avec des bases de données AUTO_CLOSE 
+#### <a name="cause-2-azure-site-recovery-jobs-fail-on-servers-hosting-any-version-of-sql-server-instances-with-auto_close-dbs"></a>Cause 2 : Les tâches Azure Site Recovery échouent lorsque des serveurs hébergent les instances de n’importe quelle version de SQL Server avec des bases de données AUTO_CLOSE 
 **Procédure de résolution** : Référez-vous à cet [article](https://support.microsoft.com/help/4504104/non-component-vss-backups-such-as-azure-site-recovery-jobs-fail-on-ser) de la base de connaissances 
 
 
@@ -123,7 +127,7 @@ Consultez [l’article relatif au dépannage de l’installation de l’enregist
         - Fournisseur VSS d’Azure Site Recovery
         - Service VDS (Virtual Disk Service)
 
-####  <a name="vss-provider-notregistered---error-2147754756"></a>VSS PROVIDER NOT_REGISTERED - erreur 2147754756
+####  <a name="vss-provider-not_registered---error-2147754756"></a>VSS PROVIDER NOT_REGISTERED - erreur 2147754756
 
 **Procédure de résolution** : Pour générer une balise de cohérence d’application, Azure Site Recovery utilise le service VSS (cliché instantané de volume) de Microsoft. Vérifiez si le service de fournisseur VSS d’Azure Site Recovery est installé. </br>
 

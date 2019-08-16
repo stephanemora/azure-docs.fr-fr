@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 07/22/2019
+ms.date: 08/05/2019
 ms.author: raynew
-ms.openlocfilehash: bbbec680cd2575cc63761c9fbe1335d548ec4d3b
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: ed7e53570127f12dbe41932481a3286a78865dde
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68640788"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68828284"
 ---
 # <a name="support-matrix-for-vmware-assessment-and-migration"></a>Tableau de prise en charge pour l’évaluation et la migration VMware
 
@@ -42,10 +42,14 @@ Le tableau récapitule les scénarios pris en charge pour les machines virtuelle
 **Zone géographique** | **Emplacement de stockage des métadonnées**
 --- | ---
 Azure Government | Gouvernement américain - Virginie
-Asie-Pacifique | Asie Sud-Est ou Asie Est
-Europe | Europe Sud ou Europe Ouest
+Asie-Pacifique | Asie Est ou Asie Sud-Est
+Australie | Australie Est ou Australie Sud-Est
+Canada | Canada Centre ou Canada Est
+Europe | Europe Nord ou Europe Ouest
+Inde | Inde Centre ou Inde Sud
+Japon |  Japon Est ou Japon Ouest
 Royaume-Uni | Royaume-Uni Sud ou Royaume-Uni Ouest
-États-Unis | USA Centre ou USA Ouest 2
+États-Unis | USA Centre ou USA Ouest 2
 
 
  > [!NOTE]
@@ -70,7 +74,7 @@ L’appliance Azure Migrate pour VMware est déployée à l’aide d’un modèl
 
 **Support** | **Détails**
 --- | ---
-**vCenter Server** | Vous devez disposer de suffisamment de ressources sur vCenter Server pour allouer une machine virtuelle avec 32 Go de mémoire, 4 processeurs virtuels et un commutateur virtuel externe.<br/><br/> L’appliance nécessite un accès à Internet, directement ou via un proxy.
+**vCenter Server** | Vous devez disposer de suffisamment de ressources sur vCenter Server pour allouer une machine virtuelle avec 32 Go de RAM, 8 processeurs virtuels et un commutateur virtuel externe.<br/><br/> L’appliance nécessite un accès à Internet, directement ou via un proxy.
 **ESXi** | La machine virtuelle de l’appliance doit être déployée sur un hôte ESXi exécutant la version 5.5 ou ultérieure.
 **Projet Azure Migrate** | Une appliance peut être associée à un seul projet.
 **vCenter Server** | Une appliance peut découvrir jusqu’à 10 000 machines virtuelles VMware sur un serveur vCenter.<br/> Une appliance ne peut se connecter qu’à un seul serveur vCenter.

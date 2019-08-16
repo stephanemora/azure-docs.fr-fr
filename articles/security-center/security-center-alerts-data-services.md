@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 7/24/2019
 ms.author: v-mohabe
-ms.openlocfilehash: f33b69ac443a1bb8f6b7d6e1b19f2f077bf38f58
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 8812ac325e6bfd5ee019f6ddd6bf86c846ed5c10
+ms.sourcegitcommit: f7998db5e6ba35cbf2a133174027dc8ccf8ce957
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68501481"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68782462"
 ---
 # <a name="threat-detection-for-data-services-in-azure-security-center"></a>Détection des menaces pour les services de données dans Azure Security Center
 
@@ -44,7 +44,7 @@ SQL Threat Detection détecte les activités anormales indiquant des tentatives 
 
 Pour plus d’informations sur les alertes SQL Threat Detection, consultez [Détection des menaces sur Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview), et plus particulièrement la section relative aux alertes de détection des menaces. Consultez également [Comment Azure Security Center peut révéler une cyberattaque](https://azure.microsoft.com/blog/how-azure-security-center-helps-reveal-a-cyberattack/) pour découvrir comment Security Center peut utiliser la détection d'activités SQL malveillantes pour détecter une attaque.
 
-## Stockage Azure<a name="azure-storage"></a>
+## Stockage Azure <a name="azure-storage"></a>
 
 >[!NOTE]
 > Advanced Threat Protection pour Stockage Azure n’est actuellement disponible que pour le Stockage Blob uniquement.
@@ -60,6 +60,7 @@ Security Center analyse les journaux de diagnostic des requêtes de lecture, éc
 |**Anomalies d'accès inhabituel à l'emplacement**|L’analyse d’un échantillon du trafic réseau a détecté une communication RDP (Remote Desktop Protocol) sortante anormale à partir d’une ressource dans votre déploiement. Cette activité est considérée comme anormale pour cet environnement et peut indiquer que votre ressource a été compromise et qu’elle est désormais utilisée pour mener une attaque par force brute sur le point de terminaison RDP externe. Notez que ce type d’activité peut entraîner le marquage de votre adresse IP par des entités externes comme étant malveillante.|
 |**Anomalie d'accès aux applications**|Indique qu’une application inhabituelle a accédé à ce compte de stockage. Il est possible qu'un attaquant ait accédé à votre compte de stockage à l’aide d’une nouvelle application.|
 |**Anomalie d'accès anonyme**|Indique un changement dans le modèle d’accès à un compte de stockage. Par exemple, le compte a fait l’objet d’un accès anonyme (sans authentification), ce qui est inattendu comparé au modèle d’accès récent à ce compte. Il est possible qu'un attaquant ait exploité un accès en lecture public pour un conteneur contenant des objets blob.|
+|**Anomalie Tor**|Indique que ce compte a fait l’objet d’un accès à partir d’une adresse IP connue comme étant un nœud de sortie actif de Tor (proxy d’anonymisation). Le niveau de gravité de cette alerte prend en compte le type d’authentification utilisé (le cas échéant) et s’il s’agit du premier accès de ce type. Les causes possibles peuvent être un attaquant qui a accédé à votre compte de stockage à l’aide de Tor, ou un utilisateur légitime qui a accédé à votre compte de stockage à l’aide de Tor.|
 |**Anomalie d'exfiltration de données**|Indique qu’une quantité anormalement élevée de données a été extraite par rapport à l’activité récente sur ce conteneur de stockage. Il est possible qu'un attaquant ait extrait une grande quantité de données à partir d’un conteneur contenant des objets blob.|
 |**Anomalie de suppression inattendue**|Indique qu’une ou plusieurs opérations de suppression inattendues se sont produites dans un compte de stockage, par rapport à l’activité récente sur ce compte. Il est possible qu'un attaquant ait supprimé des données à partir de votre compte de stockage.|
 |**Chargement de package de service cloud Azure**|Indique qu’un package de service cloud Azure (fichier .cspkg) a été chargé dans un compte de stockage de façon inhabituelle, par rapport à l’activité récente sur ce compte. Il est possible qu'un attaquant se prépare à déployer un code malveillant à partir de votre compte de stockage vers un service cloud Azure.|
@@ -70,7 +71,7 @@ Security Center analyse les journaux de diagnostic des requêtes de lecture, éc
 >[!NOTE]
 >Advanced Threat Protection pour Stockage Azure n’est actuellement pas disponible dans les régions de cloud souverain et Azure Government.
 
-Pour plus d’informations sur les alertes relatives au stockage, consultez l'article [Advanced Threat Protection pour le stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-advanced-threat-protection), et plus particulièrement la section Alertes de protection.
+Pour plus d’informations sur les alertes relatives au stockage, consultez l'article [Advanced Threat Protection pour le stockage Azure](../storage/common/storage-advanced-threat-protection.md), et plus particulièrement la section Alertes de protection.
 
 ## Cosmos DB<a name="cosmos-db"></a>
 

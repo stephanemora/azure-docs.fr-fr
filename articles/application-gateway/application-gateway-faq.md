@@ -8,12 +8,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 6/1/2019
 ms.author: victorh
-ms.openlocfilehash: 71f1beb68171613fe926ba4d87a13ef58cac1edf
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: 5bfb3a093cd101f30daf4439dc8f58b5b4f693ca
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67655273"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68740884"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Forum aux questions sur Application Gateway
 
@@ -101,7 +101,7 @@ Oui. Consultez [Modifications apportées à une requête](https://docs.microsoft
 
 La configuration des déploiements de nouvelles références SKU v1 d’Application Gateway peut prendre jusqu’à 20 minutes. Les modifications apportées à la taille ou au nombre des instances n’entraînent pas d’interruption, et la passerelle reste active pendant ce temps.
 
-L'approvisionnement des déploiements utilisant la référence SKU v2 peut prendre jusqu'à 6 minutes.
+Pour la plupart des déploiements qui utilisent la référence SKU v2, le provisionnement prend environ 6 minutes. Toutefois, cette opération peut prendre plus de temps en fonction du type de déploiement. Par exemple, les déploiements sur plusieurs zones de disponibilité avec de nombreuses instances peuvent prendre plus de 6 minutes. 
 
 ### <a name="can-i-use-exchange-server-as-a-backend-with-application-gateway"></a>Puis-je utiliser Exchange Server en tant que serveur principal avec Application Gateway ?
 

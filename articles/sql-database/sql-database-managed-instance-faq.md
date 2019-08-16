@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab
 ms.date: 07/16/2019
-ms.openlocfilehash: 32da92fb3c5573d24eb18a01a4ede8fe6a0bf36a
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 3637676a330b324d5620885f0cbe50d4aa68ed51
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567450"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779044"
 ---
 # <a name="sql-database-managed-instance-frequently-asked-questions-faq"></a>Forum aux questions sur les instances gérées SQL Database
 
@@ -79,9 +79,9 @@ Si les deux générations de matériel ne sont pas prises en charge dans la mêm
 
 ## <a name="how-do-i-tune-performance-of-my-managed-instance"></a>Comment régler les performances de mon instance gérée ? 
 
-L’instance gérée à usage général utilise le stockage à distance en raison de la taille des données et des fichiers journaux importants pour le niveau de performance. Pour régler les performances du niveau de service à usage général, suivez les instructions de ce billet de blog.
+L’instance gérée à usage général utilise le stockage à distance en raison de la taille des données et des fichiers journaux importants pour le niveau de performance. Pour plus d’informations, consultez [Impact of log file size on General Purpose Managed Instance performance](https://medium.com/azure-sqldb-managed-instance/impact-of-log-file-size-on-general-purpose-managed-instance-performance-21ad170c823e).
 
-Pour les charges de travail intensives E/S, envisagez d’utiliser du matériel Gen 5, plutôt que Gen 4 pour les calculer. Pour plus d’informations, consultez la section FAQ sur le choix entre plusieurs générations de matériel.
+Pour les charges de travail intensives E/S, envisagez d’utiliser du matériel Gen 5, plutôt que Gen 4 pour les calculer. Pour plus d’informations, consultez [Comment choisir entre Gen 4 et Gen 5](#how-do-i-choose-between-gen-4-and-gen-5-hardware-generation-for-managed-instance).
 
 Si votre charge de travail est constituée d’un grand nombre de petites transactions, envisagez de passer le type de connexion du mode proxy au mode redirection.
 

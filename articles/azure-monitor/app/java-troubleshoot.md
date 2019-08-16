@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: mbullwin
-ms.openlocfilehash: c55828244d73e612da7a7da2d050252cce04aa2c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a26302b0c0b4361fe3e7aae6aba798f433c72ade
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67061141"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68742195"
 ---
 # <a name="troubleshooting-and-q-and-a-for-application-insights-for-java"></a>Guide de dépannage et questions-réponses concernant Application Insights pour Java
 Vous avez des questions concernant [Azure Application Insights dans Java][java] ou vous rencontrez des problèmes ? Voici quelques conseils.
@@ -35,7 +35,7 @@ Vous avez des questions concernant [Azure Application Insights dans Java][java]
 * Vérifiez qu’aucun nœud `<DisableTelemetry>true</DisableTelemetry>` ne se trouve dans le fichier .xml.
 * Vous devrez ouvrir les ports TCP 80 et 443 de votre pare-feu pour le trafic sortant vers dc.services.visualstudio.com. Consultez la [liste complète des exceptions de pare-feu](../../azure-monitor/app/ip-addresses.md)
 * Dans le panneau de démarrage Microsoft Azure, examinez la carte d'état du service. Si des alertes sont indiquées, attendez qu'elles soient corrigées (OK), puis fermez et rouvrez le volet de votre application Application Insights.
-* Activez la journalisation dans la fenêtre de console IDE en ajoutant un élément `<SDKLogger />` sous le nœud racine dans le fichier ApplicationInsights.xml (situé dans le dossier de ressources de votre projet), puis vérifiez les entrées précédées de AI: INFO/WARN/ERROR pour tout journal d’activité suspect.
+* [Activez la journalisation](#debug-data-from-the-sdk) en ajoutant un élément `<SDKLogger />` sous le nœud racine dans le fichier ApplicationInsights.xml (situé dans le dossier de ressources de votre projet), puis vérifiez les entrées précédées de AI : INFO/WARN/ERROR pour tout journal d’activité suspect. 
 * Assurez-vous que le fichier ApplicationInsights.xml approprié a été correctement chargé par le Kit de développement logiciel (SDK) Java, en vérifiant que le message de sortie de la console « Le fichier de configuration a été trouvé » s’affiche.
 * Si le fichier de configuration est introuvable, vérifiez les messages de sortie pour voir où cette recherche a été effectuée et vous assurer que le fichier ApplicationInsights.xml se trouve dans l’un des emplacements de recherche. En règle générale, vous pouvez placer le fichier de configuration près du JAR du Kit de développement logiciel (SDK) Application Insights. Par exemple, il s’agit du dossier WEB-INF/classes dans Tomcat. Au cours du développement, vous pouvez placer le fichier ApplicationInsights.xml dans le dossier des ressources de votre projet web.
 * Consultez également la [page des incidents GitHub](https://github.com/Microsoft/ApplicationInsights-Java/issues) pour en savoir plus sur les problèmes connus avec le kit de développement logiciel (SDK).
@@ -110,7 +110,7 @@ Pour obtenir plus d’informations sur ce qui se passe dans l’API, ajoutez `<S
 Vous pouvez également demander à l’enregistreur d’événements une sortie vers un fichier :
 
 ```XML
-  <SDKLogger type="FILE">
+  <SDKLogger type="FILE"><!-- or "CONSOLE" to print to stderr -->
     <Level>TRACE</Level>
     <UniquePrefix>AI</UniquePrefix>
     <BaseFolderPath>C:/agent/AISDK</BaseFolderPath>
@@ -119,7 +119,7 @@ Vous pouvez également demander à l’enregistreur d’événements une sortie 
 
 ### <a name="spring-boot-starter"></a>Spring Boot Starter
 
-Pour activer la journalisation du Kit de développement logiciel (SDK) avec les applications Spring Boot à l’aide d’Application Insights Spring Boot Starter, ajoutez le code suivant au fichier `application.properties` :
+Pour activer la journalisation du SDK avec les applications Spring Boot à l’aide d’Application Insights Spring Boot Starter, ajoutez le code suivant au fichier `application.properties` :
 
 ```yaml
 azure.application-insights.logger.type=file
@@ -127,16 +127,38 @@ azure.application-insights.logger.base-folder-path=C:/agent/AISDK
 azure.application-insights.logger.level=trace
 ```
 
+ou pour imprimer une erreur standard :
+
+```yaml
+azure.application-insights.logger.type=console
+azure.application-insights.logger.level=trace
+```
+
 ### <a name="java-agent"></a>Agent Java
 
-Pour activer la journalisation de l’Agent JVM, mettez à jour le [fichier AI-Agent.xml](java-agent.md).
+Pour activer la journalisation de l’Agent JVM, mettez à jour le [fichier AI-Agent.xml](java-agent.md) :
 
 ```xml
-<AgentLogger type="FILE">
+<AgentLogger type="FILE"><!-- or "CONSOLE" to print to stderr -->
     <Level>TRACE</Level>
     <UniquePrefix>AI</UniquePrefix>
     <BaseFolderPath>C:/agent/AIAGENT</BaseFolderPath>
 </AgentLogger>
+```
+
+### <a name="java-command-line-properties"></a>Propriétés de la ligne de commande Java
+_Depuis la version 2.4.0_
+
+Pour activer la journalisation à l’aide des options en ligne de commande, sans modifier les fichiers de configuration :
+
+```
+java -Dapplicationinsights.logger.file.level=trace -Dapplicationinsights.logger.file.uniquePrefix=AI -Dapplicationinsights.logger.baseFolderPath="C:/my/log/dir" -jar MyApp.jar
+```
+
+ou pour imprimer une erreur standard :
+
+```
+java -Dapplicationinsights.logger.console.level=trace -jar MyApp.jar
 ```
 
 ## <a name="the-azure-start-screen"></a>L'écran d'accueil Azure
@@ -146,7 +168,7 @@ Non, elle montre l'intégrité des serveurs Azure dans le monde entier.
 
 *Depuis le panneau de démarrage Azure (l’écran d’accueil), comment trouver les données relatives à mon application ?*
 
-En supposant que vous ayez [configuré votre application pour Application Insights][java], cliquez sur Parcourir, sélectionnez Application Insights, puis sélectionnez la ressource d’application que vous avez créée pour votre application. Pour aller plus vite la prochaine fois, vous pouvez épingler votre application au panneau de démarrage.
+En supposant que vous avez [configuré votre application pour Application Insights][java], cliquez sur Parcourir, sélectionnez Application Insights, puis sélectionnez la ressource d’application que vous avez créée pour votre application. Pour aller plus vite la prochaine fois, vous pouvez épingler votre application au panneau de démarrage.
 
 ## <a name="intranet-servers"></a>Serveurs intranet
 **Puis-je surveiller un serveur sur mon intranet ?**

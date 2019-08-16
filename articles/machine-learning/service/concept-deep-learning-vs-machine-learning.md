@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: lazzeri
 author: FrancescaLazzeri
-ms.date: 07/30/2019
-ms.openlocfilehash: d97c3d47a277ecd8b1de635e3d835f9ee1f42057
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.date: 08/07/2019
+ms.openlocfilehash: 4b66d015e8a182e305a36dacaa2e082288a3e19e
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68700153"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840542"
 ---
 # <a name="introduction-to-deep-learning-vs-machine-learning"></a>Deep Learning et Machine Learning
 
@@ -24,7 +24,7 @@ Cet article vous aide à comprendre la relation entre le Deep Learning et le Mac
 
 ![Diagramme des relations : Intelligence artificielle, Machine Learning et Deep Learning](./media/concept-deep-learning-vs-machine-learning/ai-vs-machine-learning-vs-deep-learning.png)
 
-Pour comprendre la différence entre le Deep Learning, le Machine Learning et  l’intelligence artificielle, découvrez chacun des domaines d’étude suivants :
+Pour comprendre la différence entre le Deep Learning, le Machine Learning et l’intelligence artificielle, découvrez chacun des domaines d’étude suivants :
 
 - Le **Deep Learning**, ou apprentissage profond, est un sous-ensemble du Machine Learning, ou apprentissage automatique, basé sur des réseaux neuronaux artificiels permettant à une machine d’apprendre par elle-même. En l’occurrence, le _processus d’apprentissage_ est qualifié de _profond_ parce que la structure des réseaux neuronaux artificiels se compose de plusieurs couches d’entrée, de sortie et masquées. Chaque couche contient des unités qui transforment les données d’entrée en informations que la couche suivante peut utiliser pour effectuer une tâche prédictive spécifique. Grâce à cette structure, une machine est capable d’apprendre via son propre traitement de données.
 
@@ -43,9 +43,9 @@ Pour comprendre la différence entre le Deep Learning, le Machine Learning et  l
 
 Le tableau ci-dessous compare les deux techniques de manière plus détaillée :
 
-| |Apprentissage machine |L'apprentissage en profondeur|
+| |Machine Learning dans sa globalité |Uniquement le Deep Learning|
 |---|---|---|
-|  **Nombre de points de données** | Peut utiliser de petites quantités de données fournies par les utilisateurs | Requiert une grande quantité de données d’apprentissage non étiquetées pour en tirer des conclusions concises |
+|  **Nombre de points de données** | Peut utiliser de petites quantités de données fournies par les utilisateurs | Requiert une grande quantité de données d’entraînement pour en tirer des conclusions concises |
 |  **Dépendances matérielles** | Peut fonctionner sur des machines bas de gamme. Ne nécessite pas beaucoup de puissance de calcul. | Nécessite des machines haut de gamme. Effectue fondamentalement un grand nombre d’opérations de multiplication de matrices. Ces opérations peuvent être efficacement optimisées à l’aide d’un processeur GPU. |
 |  **Processus de personnalisation** | Nécessite que les fonctionnalités soient identifiées et créées avec précision par les utilisateurs | Apprend des caractéristiques de haut niveau à partir de données, et crée de nouvelles caractéristiques de façon autonome. |
 |  **Approche d’apprentissage** | Fractionne les tâches en petits morceaux, puis combine les résultats reçus dans une conclusion. | Résout le problème de bout en bout. |
@@ -60,7 +60,7 @@ En raison de sa structure de réseau neuronal artificiel, le Deep Learning excel
 
 L’une des utilisations des réseaux de Deep Learning est la reconnaissance d’entité nommée, qui permet d’extraire de données non structurées et non étiquetées certains types d’informations telles que des personnes, des lieux, des entreprises ou des objets. Ces informations peuvent ensuite être stockées dans un schéma structuré afin d’établir une liste d’adresses ou de servir de référence pour un moteur de validation d’identité.
 
-### <a name="object-detection"></a>Détection d'objet
+### <a name="object-detection"></a>Détection d’objets
 
 le Deep Learning est souvent utilisé pour la détection d’objets. La détection d’objet est un processus qui s’opère en deux temps : classification d’images, puis localisation d’images. La classification d’images consiste à déterminer la nature des objets figurant dans des images : voiture, personne, , etc. La localisation d’images consiste à fournir l’emplacement spécifique de ces objets. La détection d’objets est déjà utilisée dans les secteurs du jeu, de la vente au détail, du tourisme et des véhicules autonomes.
 
@@ -92,7 +92,7 @@ Les réseaux de neurones récurrents constituent un type de réseau neuronal art
 
 Un réseau neuronal convolutif est un type particulièrement efficace de réseau neuronal artificiel, qui présente une architecture unique. Premièrement, les couches sont organisées en trois dimensions : largeur, hauteur et profondeur. Ensuite, les neurones d’une couche ne sont pas connectés à tous les neurones de la couche suivante, mais uniquement à une petite région de celle-ci. Enfin, le résultat final est réduit à un seul vecteur de scores de probabilité, organisés dans la dimension de la profondeur. Ces réseaux neuronaux sont utilisés dans des domaines tels que la reconnaissance et la classification d’images.
 
-## <a name="next-steps"></a>Prochaines étapes
+## <a name="next-steps"></a>Étapes suivantes
 
 Les articles suivants expliquent comment utiliser la technologie de Deep Learning sur [Azure Machine Learning service](/azure/machine-learning/service/) :
 
