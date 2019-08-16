@@ -59,7 +59,7 @@ Le service lié Teradata prend en charge les propriétés suivantes :
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété de type doit être définie sur **Teradata**. | OUI |
+| type | La propriété de type doit être définie sur **Teradata**. | OUI |
 | connectionString | Spécifie les informations requises pour se connecter à l’instance de base de données Teradata. Consultez les exemples suivants.<br/>Vous pouvez également définir un mot de passe dans Azure Key Vault et extraire la configuration `password` de la chaîne de connexion. Pour plus d’informations, consultez la section [Stocker des informations d’identification dans Azure Key Vault](store-credentials-in-key-vault.md). | OUI |
 | userName | Spécifiez le nom d’utilisateur associé à la connexion à la base de données Teradata. S’applique lors de l’utilisation de l’authentification Windows. | Non |
 | password | Spécifiez un mot de passe pour le compte d’utilisateur que vous avez spécifié pour le nom d’utilisateur. Vous pouvez également choisir de [référencer un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). <br>S’applique lors de l’utilisation de l’authentification Windows ou du référencement du mot de passe dans Key Vault pour l’authentification de base. | Non |
