@@ -95,7 +95,7 @@ Pour copier des données de Xero, affectez la valeur **XeroObject** à la propri
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type du jeu de données doit être définie sur : **XeroObject** | OUI |
+| type | La propriété type du jeu de données doit être définie sur : **XeroObject** | OUI |
 | tableName | Nom de la table. | Non (si « query » dans la source de l’activité est spécifié) |
 
 **Exemple**
@@ -124,7 +124,7 @@ Pour copier des données de Xero, définissez le type de source dans l’activit
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type de la source d’activité de copie doit être définie sur : **XeroSource** | OUI |
+| type | La propriété type de la source d’activité de copie doit être définie sur : **XeroSource** | OUI |
 | query | Utiliser la requête SQL personnalisée pour lire les données. Par exemple : `"SELECT * FROM Contacts"`. | Non (si « tableName » est spécifié dans dataset) |
 
 **Exemple :**
