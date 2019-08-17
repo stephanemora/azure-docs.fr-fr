@@ -54,7 +54,7 @@ Les propriétés prises en charge pour le service lié Table web sont les suivan
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type doit être définie sur : **web** |OUI |
+| type | La propriété type doit être définie sur : **Web** |OUI |
 | url | URL de la source web |OUI |
 | authenticationType | Valeur autorisée : **Anonymous**. |OUI |
 | connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Un Runtime d’intégration autohébergé est nécessaire comme indiqué dans [Prérequis](#prerequisites). |OUI |
