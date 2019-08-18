@@ -103,7 +103,7 @@ Pour copier des données de Vertica, affectez la valeur **VerticaTable** à la p
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type du jeu de données doit être définie sur : **VerticaTable** | OUI |
+| type | La propriété type du jeu de données doit être définie sur : **VerticaTable** | OUI |
 | tableName | Nom de la table. | Non (si « query » dans la source de l’activité est spécifié) |
 
 **Exemple**
@@ -132,7 +132,7 @@ Pour copier des données de Vertica, définissez **VerticaSource** comme type de
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type de la source d’activité de copie doit être définie sur : **VerticaSource** | OUI |
+| type | La propriété type de la source d’activité de copie doit être définie sur : **VerticaSource** | OUI |
 | query | Utiliser la requête SQL personnalisée pour lire les données. Par exemple : `"SELECT * FROM MyTable"`. | Non (si « tableName » est spécifié dans dataset) |
 
 **Exemple :**
