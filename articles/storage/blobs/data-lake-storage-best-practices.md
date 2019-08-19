@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 12/06/2018
 ms.author: normesta
 ms.reviewer: sachins
-ms.openlocfilehash: 7cfe19614b2107161dcce9c80690333212162045
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c1a298584b2444d52f84c0e599462bc26c63a898
+ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67061313"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68302620"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen2"></a>Bonnes pratiques d’utilisation d’Azure Data Lake Storage Gen2
 
@@ -42,7 +42,7 @@ Les principaux de service Azure Active Directory sont en général utilisés par
 
 Data Lake Storage Gen2 prend en charge l’option d’activation d’un pare-feu et de limitation de l’accès uniquement aux services Azure, ce qui est recommandé pour limiter le vecteur d’attaques extérieures. Le pare-feu peut être activé sur un compte de stockage dans le portail Azure par le biais des options **Pare-feu** > **Activer le pare-feu (ON)**  > **Autoriser l’accès aux services Azure**.
 
-L’ajout de clusters Azure Databricks à un réseau virtuel susceptible de se voir accorder un accès par le biais du pare-feu de stockage nécessite l’utilisation d’une fonctionnalité en préversion de Databricks. Pour activer cette fonctionnalité, soumettez une demande de support.
+Pour accéder à votre compte de stockage depuis Azure Databricks, déployez Azure Databricks sur votre réseau virtuel, puis ajoutez ce réseau virtuel à votre pare-feu. Consultez [Configurer des pare-feu Stockage Azure et des réseaux virtuels](https://docs.microsoft.com/azure/storage/common/storage-network-security).
 
 ## <a name="resiliency-considerations"></a>Remarques relatives à la résilience
 

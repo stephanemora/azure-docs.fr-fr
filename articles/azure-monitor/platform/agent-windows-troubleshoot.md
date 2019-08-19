@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/12/2019
 ms.author: magoedte
-ms.openlocfilehash: afa4483677336e9a887908a8cccf9590eed27af3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9df389b6e6a73530c9bbf5a2187d6735946e309f
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67120793"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68249768"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-windows"></a>Guide pratique pour résoudre les problèmes liés à l’agent Log Analytics pour Windows 
 
@@ -53,7 +53,7 @@ Plusieurs méthodes vous permettent de vérifier si l’agent communique correct
 
 - Activez l’[évaluation d’intégrité de l’agent Azure Log Analytics](../insights/solution-agenthealth.md) dans l’espace de travail. Dans le tableau de bord Agent Health, consultez la colonne **Nombre d’agents inactifs** pour voir rapidement si l’agent est répertorié.  
 
-- Exécutez la requête suivante pour vérifier que l’agent envoie une pulsation à l’espace de travail auquel il doit rendre compte. Remplacez <ComputerName> par le nom réel de la machine.
+- Exécutez la requête suivante pour vérifier que l’agent envoie une pulsation à l’espace de travail auquel il doit rendre compte. Remplacez `<ComputerName>` par le nom réel de la machine.
 
     ```
     Heartbeat 
@@ -77,7 +77,7 @@ Plusieurs méthodes vous permettent de vérifier si l’agent communique correct
     |2127 |Modules du service de contrôle d’intégrité |Échec d’envoi de données avec code d'erreur reçu |Si cela se produit uniquement périodiquement pendant la journée, il peut s’agir d’une simple anomalie aléatoire qui peut être ignorée. Surveillez pour comprendre la fréquence à laquelle cela se produit. Si cela se produit souvent au cours de la journée, vérifiez tout d’abord votre configuration réseau et les paramètres de proxy. Si la description inclut le code d’erreur HTTP 404 et qu’il s’agit de la première fois où l’agent tente d’envoyer des données au service, elle inclura une erreur 500 avec un code d’erreur 404 interne. 404 signifie qu’un élément est introuvable, ce qui indique que la zone de stockage pour le nouvel espace de travail est toujours en cours de provisionnement. Lors de la tentative suivante, les données seront correctement écrites dans l’espace de travail, comme prévu. Une erreur HTTP 403 peut indiquer un problème d’autorisation ou d’informations d’identification. Des informations supplémentaires sont incluses avec l’erreur 403 pour aider à résoudre le problème.|
     |4000 |Connecteur de service |Échec de la résolution de nom DNS |La machine n’a pas pu résoudre l’adresse Internet utilisée lors de l’envoi de données au service. Cela peut être des paramètres de résolution DNS sur votre machine, des paramètres de proxy incorrects ou peut-être un problème DNS temporaire avec votre fournisseur. Si cela se produit régulièrement, cela peut provenir d’un problème temporaire de réseau.|
     |4001 |Connecteur de service |La connexion au service a échoué. |Cette erreur peut se produire lorsque l’agent ne peut pas communiquer directement ou via un pare-feu/serveur proxy avec le service Azure Monitor. Vérifiez les paramètres de proxy de l’agent ou que le pare-feu/proxy réseau autorise le trafic TCP de l’ordinateur au service.|
-    |4002 |Connecteur de service |Le service a retourné le code d’état HTTP 403 en réponse à une requête. Vérifiez l’intégrité du service auprès de l’administrateur de service. La requête sera retentée ultérieurement. |Cette erreur est consignée pendant la phase d’inscription initiale de l’agent et vous verrez une URL semblable à ce qui suit : *https://<workspaceID>.oms.opinsights.azure.com/AgentService.svc/AgentTopologyRequest*. Une erreur 403 se rapporte à une interdiction et peut résulter d’une erreur de saisie de la clé ou de l’ID de l’espace de travail, ou d’une date et d’une heure incorrectes sur l’ordinateur. Si l’heure est à +/-15 minutes de l’heure actuelle, l’intégration échoue. Pour corriger ce problème, mettez à jour la date et/ou le fuseau horaire de votre ordinateur Windows.|
+    |4002 |Connecteur de service |Le service a retourné le code d’état HTTP 403 en réponse à une requête. Vérifiez l’intégrité du service auprès de l’administrateur de service. La requête sera retentée ultérieurement. |Cette erreur est consignée pendant la phase d'inscription initiale de l'agent et vous verrez une URL semblable à la suivante : *https://\<workspaceID>.oms.opinsights.azure.com/AgentService.svc/AgentTopologyRequest*. Une erreur 403 se rapporte à une interdiction et peut résulter d’une erreur de saisie de la clé ou de l’ID de l’espace de travail, ou d’une date et d’une heure incorrectes sur l’ordinateur. Si l’heure est à +/-15 minutes de l’heure actuelle, l’intégration échoue. Pour corriger ce problème, mettez à jour la date et/ou le fuseau horaire de votre ordinateur Windows.|
 
 ## <a name="data-collection-issues"></a>Problèmes de collecte de données
 

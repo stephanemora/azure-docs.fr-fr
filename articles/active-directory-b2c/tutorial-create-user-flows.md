@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 06/07/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 111196388d0e17ecde8a2055959f2f573e43ade8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 130186af13b9207326cd52b46b880c1f13a16100
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67056355"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67848092"
 ---
 # <a name="tutorial-create-user-flows-in-azure-active-directory-b2c"></a>Didacticiel : Créer des flux d’utilisateur dans Azure Active Directory B2C
 
@@ -43,25 +43,25 @@ Le flux d’utilisateur Inscription et connexion gère les expériences d’insc
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 1. Veillez à utiliser l’annuaire qui contient votre locataire Azure AD B2C en cliquant sur le **filtre Répertoire et abonnement** dans le menu du haut et en choisissant l’annuaire qui contient votre locataire.
 
-    ![Basculer vers l’annuaire de l’abonnement](./media/tutorial-create-user-flows/switch-directories.PNG)
+    ![Filtre Répertoire et abonnement avec locataire B2C sélectionné](./media/tutorial-create-user-flows/switch-directories.PNG)
 
 1. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Azure AD B2C**.
 1. Dans le menu de gauche, sous **Stratégies**, sélectionnez **Flux utilisateur (stratégies)** , puis **Nouveau flux d’utilisateur**.
 
-    ![Sélectionnez Nouveau flux utilisateur](./media/tutorial-create-user-flows/signup-signin-user-flow.png)
+    ![Page Flux d'utilisateur du portail avec bouton Nouveau flux d'utilisateur en surbrillance](./media/tutorial-create-user-flows/signup-signin-user-flow.png)
 
 1. Sous l’onglet **Recommandé**, sélectionnez le flux utilisateur **Inscription et connexion**.
 
-    ![Sélectionner le flux d’utilisateur Inscription et connexion](./media/tutorial-create-user-flows/signup-signin-type.png)
+    ![Page Sélectionner un flux d'utilisateur avec Inscription et connexion en surbrillance](./media/tutorial-create-user-flows/signup-signin-type.png)
 
 1. Entrez un **Nom** pour le flux d’utilisateur. Par exemple, *signupsignin1*.
 1. Pour **Fournisseurs d’identité**, sélectionnez **Inscription par e-mail**.
 
-    ![Définir les propriétés de flux](./media/tutorial-create-user-flows/signup-signin-properties.png)
+    ![Page Créer un flux d'utilisateur du Portail Azure avec propriétés en surbrillance](./media/tutorial-create-user-flows/signup-signin-properties.png)
 
 1. Pour **Attributs utilisateur et revendications**, choisissez les revendications et les attributs à collecter et envoyer par l’utilisateur pendant l’inscription. Par exemple, sélectionnez **Afficher plus**, puis choisissez des attributs et des revendications pour **Pays/région**, **Nom d’affichage** et **Code postal**. Cliquez sur **OK**.
 
-    ![Sélectionner des attributs et des revendications](./media/tutorial-create-user-flows/signup-signin-attributes.png)
+    ![Page de sélection des attributs et revendications avec trois revendications sélectionnées](./media/tutorial-create-user-flows/signup-signin-attributes.png)
 
 1. Cliquez sur **Créer** pour ajouter le flux utilisateur. Un préfixe *B2C_1* est automatiquement ajouté au nom.
 
@@ -71,7 +71,7 @@ Le flux d’utilisateur Inscription et connexion gère les expériences d’insc
 1. Pour **Application**, sélectionnez l’application web *webapp1* que vous avez précédemment inscrite. L’**URL de réponse** doit être `https://jwt.ms`.
 1. Cliquez sur **Exécuter le flux d’utilisateur**, puis sélectionnez **S’inscrire maintenant**.
 
-    ![Exécuter le flux d’utilisateur](./media/tutorial-create-user-flows/signup-signin-run-now.PNG)
+    ![Page Exécuter le flux d'utilisateur du portail avec bouton Exécuter le flux d'utilisateur en surbrillance](./media/tutorial-create-user-flows/signup-signin-run-now.PNG)
 
 1. Entrez une adresse e-mail valide, cliquez sur **Envoyer un code de vérification**, entrez le code de vérification que vous recevez, puis sélectionnez **Vérifier le code**.
 1. Entrez un nouveau mot de passe et confirmez-le.

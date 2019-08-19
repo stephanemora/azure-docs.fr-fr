@@ -6,15 +6,15 @@ ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 05/30/2019
-ms.openlocfilehash: 13cec67a690239204bfc52d04b7cf03fd571148a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 07/10/2019
+ms.openlocfilehash: 5378a49ba5a4f3770ec9d9b3f723c063b4ef1a61
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66399271"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67806432"
 ---
-# <a name="visualize-data-using-the-azure-data-explorer-connector-for-power-bi"></a>Visualiser des données à l’aide du connecteur Azure Data Explorer pour Power BI
+# <a name="visualize-data-from-azure-data-explorer-using-a-sql-query-in-power-bi"></a>Visualiser des données Azure Data Explorer avec une requête SQL dans Power BI
 
 L’Explorateur de données Azure est un service d’exploration de données rapide et hautement évolutive pour les données des journaux et les données de télémétrie. Power BI est une solution d’analytique métier qui vous permet de visualiser vos données et de partager les résultats dans votre organisation.
 
@@ -84,4 +84,4 @@ Si vous n’avez plus besoin du rapport que vous avez créé pour cet article, s
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Visualiser des données avec une requête importée dans Power BI](power-bi-connector.md)
+[Visualiser des données à l'aide du connecteur Azure Data Explorer pour Power BI](power-bi-connector.md)

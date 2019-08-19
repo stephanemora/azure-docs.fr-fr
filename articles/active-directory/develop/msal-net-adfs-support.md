@@ -12,25 +12,26 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/03/2019
+ms.date: 07/16/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e5963c5e83b5af3848edd934328caa1f095bd184
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 13e1f80f3a0a10466ead60d828d28aa9916fe26b
+ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66676727"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68302687"
 ---
 # <a name="active-directory-federation-services-support-in-msalnet"></a>Prendre en charge les services de fédération Active Directory (AD FS) dans MSAL.NET
-Les services de fédération Active Directory (AD FS) dans Windows Server vous permettent d’ajouter authentification et autorisation OpenID Connect et OAuth 2.0 aux applications que vous développez, applications qui peuvent ensuite authentifier les utilisateurs directement auprès d’AD FS. Pour plus d’informations, consultez [Scénarios AD FS pour développeurs](/windows-server/identity/ad-fs/overview/ad-fs-scenarios-for-developers).
+Les services de fédération Active Directory (AD FS) de Windows Server vous permettent d'ajouter l'authentification et l'autorisation OpenID Connect et OAuth 2.0 aux applications que vous développez. Ces applications peuvent ensuite authentifier les utilisateurs directement auprès d'AD FS. Pour plus d’informations, consultez [Scénarios AD FS pour développeurs](/windows-server/identity/ad-fs/overview/ad-fs-scenarios-for-developers).
 
 La bibliothèque d’authentification Microsoft pour .NET (MSAL.NET) prend en charge deux scénarios pour l’authentification auprès d’AD FS :
 
 - MSAL.NET communique avec le service Azure Active Directory, qui lui-même est *fédéré* à AD FS.
-- MSAL.NET communique *directement* avec une autorité d’AD FS, pour laquelle la version d’AD FS est compatible avec OpenID Connect (à partir d’AD FS 2019). La connexion directe à AD FS permet à MSAL.NET de s’authentifier auprès d’applications qui s’exécutent dans [Azure Stack](https://azure.microsoft.com/overview/azure-stack/).
+- MSAL.NET communique **directement** avec une autorité ADFS. Cette fonctionnalité est uniquement prise en charge par AD FS 2019 et versions ultérieures. L'un des scénarios mis en évidence est la prise en charge d'[Azure Stack](https://azure.microsoft.com/overview/azure-stack/)
+
 
 ## <a name="msal-connects-to-azure-ad-which-is-federated-with-ad-fs"></a>MSAL se connecte à Azure AD, qui est fédéré à AD FS
 MSAL.NET prend en charge la connexion à Azure AD, qui connecte les utilisateurs managés (utilisateurs managés dans Azure AD) ou fédérés (utilisateurs managés par un autre fournisseur d’identité, tel qu’AD FS). MSAL.NET ignore le fait que les utilisateurs sont fédérés. En ce qui le concerne, il communique avec Azure AD.
@@ -50,6 +51,15 @@ Les versions AD FS prises en charge dans ce scénario fédéré sont AD FS v2, 
 Lors de l’acquisition d’un jeton à l’aide des méthodes `AcquireTokenByIntegratedAuthentication` ou `AcquireTokenByUsernamePassword`, MSAL.NET obtient le fournisseur d’identité à contacter en fonction du nom d’utilisateur.  MSAL.NET reçoit un [jeton SAML 1.1](reference-saml-tokens.md) après avoir contacté le fournisseur d’identité.  MSAL.NET fournit ensuite le jeton SAML à Azure AD, sous la forme d’une assertion d’utilisateur (similaire au [flux on-behalf-of](msal-authentication-flows.md#on-behalf-of)) pour récupérer un jeton JWT.
 
 ## <a name="msal-connects-directly-to-ad-fs"></a>MSAL se connecte directement à AD FS
-MSAL.NET prend en charge la connexion à AD FS 2019, qui est compatible avec Open ID Connect. Lorsque vous vous connectez directement à AD FS, l’autorité que vous voulez utiliser pour générer votre application est similaire à `https://mysite.contoso.com/adfs/`.
+MSAL.NET prend en charge la connexion à AD FS 2019, qui est conforme à Open ID Connect et comprend PKCE et les étendues. Cette prise en charge n'est possible que si un Service Pack [KB 4490481](https://support.microsoft.com/en-us/help/4490481/windows-10-update-kb4490481) est appliqué à Windows Server. Lorsque vous vous connectez directement à AD FS, l’autorité que vous voulez utiliser pour générer votre application est similaire à `https://mysite.contoso.com/adfs/`.
 
-Actuellement, il n’existe aucun plan pour prendre en charge une connexion directe à AD FS 2016 ou à AD FS v2 (qui ne sont pas compatibles avec OpenID Connect). Si vous avez besoin de prendre en charge des scénarios qui exigent une connexion directe à AD FS 2016, utilisez la dernière version en date de [Bibliothèque d’authentification Azure Active Directory](active-directory-authentication-libraries.md#microsoft-supported-client-libraries). Lorsque vous aurez mis à niveau votre système local vers AD FS 2019, vous serez en mesure d’utiliser MSAL.NET.
+Pour le moment, il n'est pas prévu de prendre en charge une connexion directe à :
+
+- AD FS 16, car il ne prend pas en charge PKCE et utilise encore les ressources, et non l'étendue.
+- AD FS v2, qui n'est pas conforme à OIDC.
+
+ Si vous avez besoin de prendre en charge des scénarios qui exigent une connexion directe à AD FS 2016, utilisez la dernière version en date de la [Bibliothèque d'authentification Azure Active Directory](active-directory-authentication-libraries.md#microsoft-supported-client-libraries). Lorsque vous aurez mis à niveau votre système local vers AD FS 2019, vous serez en mesure d’utiliser MSAL.NET.
+
+## <a name="see-also"></a>Voir aussi
+
+Pour l'authentification fédérée, consultez [Configurer le comportement de la connexion Azure Active Directory pour une application à l'aide d'une stratégie de découverte du domaine d'accueil](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-authentication-for-federated-users-portal).

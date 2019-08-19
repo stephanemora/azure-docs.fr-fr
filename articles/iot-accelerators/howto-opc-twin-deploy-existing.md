@@ -5,15 +5,15 @@ author: dominicbetts
 ms.author: dobett
 ms.date: 11/26/2018
 ms.topic: conceptual
-ms.service: iot-industrialiot
+ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 6eeca062bdc17ec207910b9ba4aa8cea4048f849
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: fc70d140479be100e6aa52cf8105d3e466342cd7
+ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67080502"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68302666"
 ---
 # <a name="deploy-opc-twin-to-an-existing-project"></a>Déployer OPC Twin dans un projet existant
 
@@ -21,7 +21,7 @@ Le module OPC Twin s’exécute sur IoT Edge et fournit plusieurs services de p�
 
 Avec son module IoT Edge, le microservice OPC Twin facilite la communication entre les opérateurs en usine et les appareils industriels du serveur OPC UA. Il expose des services OPC UA (Parcourir, Lire, Écrire et Exécuter) par le biais de ses API REST. 
 
-Le microservice Registre d’appareil OPC UA fournit l’accès aux applications OPC UA inscrites et à leurs points de terminaison. Les opérateurs et les administrateurs peuvent inscrire de nouvelles applications OPC UA et en désinscrire, et parcourir les applications existantes, y compris leurs points de terminaison. En plus de gérer les applications et les points de terminaison associés, le service de Registre liste également les modules IoT Edge OPC Twin inscrits. L’API de service vous permet de contrôler les fonctionnalités du module de périphérie, par exemple, le démarrage ou l’arrêt de la découverte des serveurs (services d’analyse), ou l’activation de nouveaux jumeaux de points de terminaison qui sont accessibles via le microservice OPC Twin.
+Le microservice Registre d’appareil OPC UA fournit l’accès aux applications OPC UA inscrites et à leurs points de terminaison. Les opérateurs et les administrateurs peuvent inscrire de nouvelles applications OPC UA et en désinscrire, et parcourir les applications existantes, y compris leurs points de terminaison. En plus de gérer les applications et les points de terminaison associés, le service de Registre liste également les modules IoT Edge OPC Twin inscrits. L'API de service vous permet de contrôler les fonctionnalités du module de périphérie, par exemple, le démarrage ou l'arrêt de la découverte des serveurs (services d'analyse), ou l'activation de nouveaux jumeaux de points de terminaison qui sont accessibles via le microservice OPC Twin.
 
 Le cœur du module est l’identité Superviseur. Le superviseur gère les jumeaux de point de terminaison, qui correspondent aux points de terminaison du serveur OPC UA activés avec l’API du Registre OPC UA correspondante. Les jumeaux de point de terminaison traduisent le code JSON OPC UA reçu du microservice OPC Twin exécuté dans le cloud en messages binaires OPC UA, lesquels sont ensuite envoyés via un canal sécurisé avec état au point de terminaison managé. Le superviseur fournit également des services de découverte qui envoient les événements de découverte d’appareil au service d’intégration d’appareil OPC UA en vue de leur traitement, ces événements donnant lieu à des mises à jour dans le Registre OPC UA.  Cet article vous montre comment déployer le module OPC Twin dans un projet existant.
 
@@ -30,7 +30,7 @@ Le cœur du module est l’identité Superviseur. Le superviseur gère les jumea
 
 ## <a name="prerequisites"></a>Prérequis
 
-Vérifiez que PowerShell et les extensions [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps) sont installés. Si ce n’est déjà fait, clonez ce dépôt GitHub. Exécutez les commandes suivantes dans PowerShell :
+Vérifiez que PowerShell et les extensions [AzureRM PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) sont installés. Si ce n’est déjà fait, clonez ce dépôt GitHub. Exécutez les commandes suivantes dans PowerShell :
 
 ```powershell
 git clone --recursive https://github.com/Azure/azure-iiot-components.git
@@ -52,7 +52,7 @@ cd azure-iiot-components
 
    La sortie inclut l’URL du point de terminaison public. 
 
-3. À la fin du script, choisissez si vous souhaitez enregistrer le fichier .env.  Vous avez besoin du fichier d’environnement .env si vous prévoyez de vous connecter au point de terminaison cloud à l’aide de certains outils comme la console, ou de déployer des modules de développement et de débogage.
+3. À la fin du script, choisissez si vous souhaitez enregistrer le fichier `.env`.  Vous avez besoin du fichier d'environnement `.env` si vous prévoyez de vous connecter au point de terminaison cloud à l'aide de certains outils comme la console, ou de déployer des modules de développement et de débogage.
 
 ## <a name="troubleshooting-deployment-failures"></a>Résoudre les problèmes de déploiement
 
@@ -76,7 +76,7 @@ Le script de déploiement essaie d’inscrire deux applications AAD dans Azure A
 
 ## <a name="deploy-an-all-in-one-industrial-iot-services-demo"></a>Déployer une démonstration tout-en-un de services IoT industriels
 
-Au lieu de juste déployer les services et les dépendances, vous pouvez aussi déployer une démonstration tout-en-un.  La démonstration tout-en-un contient trois serveurs OPC UA, le module OPC Twin, tous les microservices et un exemple d’application web.  Cet exemple sert à des fins de démonstration.
+Au lieu de juste déployer les services et les dépendances, vous pouvez aussi déployer une démonstration tout-en-un.  La démonstration tout-en-un contient trois serveurs OPC UA, le module OPC Twin, tous les microservices et un exemple d'application web.  Cet exemple sert à des fins de démonstration.
 
 1. Assurez-vous d’avoir un clone du dépôt (voir ci-dessus). Ouvrez une invite PowerShell à la racine du dépôt et exécutez :
 
