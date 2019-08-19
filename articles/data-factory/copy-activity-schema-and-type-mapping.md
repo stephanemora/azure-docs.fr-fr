@@ -203,7 +203,7 @@ Vous pouvez spécifier l’activité de copie -> `translator` -> `schemaMapping`
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type du traducteur d’activité de copie doit être définie sur : **TabularTranslator** | OUI |
+| type | La propriété type du traducteur d’activité de copie doit être définie sur : **TabularTranslator** | OUI |
 | schemaMapping | Une collection de paires clé-valeur, qui représente la relation de mappage **du côté source au côté récepteur**.<br/>- **Clé :** représente la source. Pour une **source tabulaire**, spécifiez le nom de colonne tel que défini dans la structure du jeu de données ; pour une **source hiérarchique**, spécifiez l’expression de chemin JSON pour chaque champ à extraire et mapper.<br>- **Valeur :** représente le récepteur. Pour un **récepteur tabulaire**, spécifiez le nom de colonne tel que défini dans la structure du jeu de données ; pour un **récepteur hiérarchique**, spécifiez l’expression de chemin JSON pour chaque champ à extraire et mapper. <br>Dans le cas de données hiérarchiques, pour les champs situés sous l’objet racine, le chemin JSON commence par $ racine ; pour ceux qui se trouvent dans le tableau sélectionné par la propriété `collectionReference`, le chemin JSON commence par l’élément de tableau.  | OUI |
 | collectionReference | Si vous souhaitez effectuer une itération et extraire des données à partir des objets situés **à l’intérieur d’un champ de tableau** présentant le même modèle et effectuer une conversion par ligne et par objet, spécifiez le chemin JSON de ce tableau afin d’effectuer une application croisée. Cette propriété est prise en charge uniquement quand des données hiérarchiques sont la source. | Non |
 

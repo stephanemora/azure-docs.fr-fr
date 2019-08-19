@@ -213,29 +213,29 @@
         - name: Où et comment déployer
           displayName: 'publish, web, service, operationalize, aks, kubernetes, aci, container, cli, consume, docker'
           href: how-to-deploy-and-where.md
-        - name: Machines virtuelles Notebook
-          href: how-to-deploy-local-container-notebook-vm.md
-        - name: Azure Container Instances
-          displayName: aci
-          href: how-to-deploy-azure-container-instance.md
-        - name: Azure Kubernetes Service
+        - name: Déployer sur Azure Kubernetes Service
           displayName: 'aks, aad, authentication, azure active directory'
           href: how-to-deploy-azure-kubernetes-service.md
-        - name: Inférence des GPU
+        - name: Déployer pour l’inférence GPU
           href: how-to-deploy-inferencing-gpus.md
-        - name: Inférence des FPGA
-          href: how-to-deploy-fpga-web-service.md
-        - name: IoT Edge
-          href: /azure/iot-edge/tutorial-deploy-machine-learning?context=azure/machine-learning/service/context/ml-context
-        - name: Azure App Service
+        - name: Déployer dans Azure App Service
           displayName: web app
           href: how-to-deploy-app-service.md
-        - name: Image Docker personnalisée
+        - name: Déployer vers Azure Container Instances
+          displayName: aci
+          href: how-to-deploy-azure-container-instance.md
+        - name: Déployer sur des machines virtuelles Notebook
+          href: how-to-deploy-local-container-notebook-vm.md
+        - name: Utiliser une image Docker personnalisée
           href: how-to-deploy-custom-docker-image.md
         - name: Déployer des modèles existants
           displayName: publish existing model
           href: how-to-deploy-existing-model.md
-        - name: Résoudre les problèmes et déboguer
+        - name: Déployer sur IoT Edge
+          href: /azure/iot-edge/tutorial-deploy-machine-learning?context=azure/machine-learning/service/context/ml-context
+        - name: Déployer pour l’inférence FPGAs
+          href: how-to-deploy-fpga-web-service.md
+        - name: Dépanner et déboguer les déploiements
           href: how-to-troubleshoot-deployment.md
     - name: Utiliser des services web
       items:

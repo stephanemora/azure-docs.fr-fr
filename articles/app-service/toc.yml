@@ -67,6 +67,8 @@
       href: overview-hosting-plans.md
     - name: Fonctionnalités du système d’exploitation
       href: operating-system-functionality.md
+    - name: Bonnes pratiques de déploiement
+      href: deploy-best-practices.md
     - name: Sécurité
       items:
         - name: Recommandations
@@ -207,7 +209,7 @@
           href: webjobs-sdk-how-to.md
 - name: Informations de référence
   items:
-    - name: D’Azure CLI
+    - name: Azure CLI
       href: /cli/azure/appservice
     - name: Azure PowerShell
       href: /powershell
@@ -217,6 +219,8 @@
       href: /azure/templates/microsoft.web/allversions
 - name: Ressources
   items:
+    - name: Blog App Service
+      href: 'https://aka.ms/appserviceblog'
     - name: Développer vos compétences avec Microsoft Learn
       href: /learn/browse/
     - name: Feuille de route Azure

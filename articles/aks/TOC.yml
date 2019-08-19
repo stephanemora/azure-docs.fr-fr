@@ -116,6 +116,8 @@
         - name: Supprimer un cluster AKS
           href: '/cli/azure/aks#az-aks-delete'
           maintainContext: true
+        - name: Créer un ACR avec un cluster AKS (préversion)
+          href: cluster-container-registry-integration.md
         - name: Créer des nœuds virtuels
           items:
             - name: "Utilisation de l’interface de ligne de commande Microsoft\_Azure"
@@ -323,7 +325,7 @@
       items:
         - name: Problèmes courants
           href: troubleshooting.md
-        - name: Recherche de bonnes pratiques
+        - name: Vérification des meilleures pratiques
           href: kube-advisor-tool.md
         - name: Accès au nœud SSH
           href: ssh.md

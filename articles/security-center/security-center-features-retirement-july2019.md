@@ -42,7 +42,7 @@ Voici une liste des fonctionnalités de Security Center que nous mettrons hors s
 
 Cet article fournit des informations détaillées pour chaque fonctionnalité mise hors service, ainsi que les étapes à suivre pour implémenter les fonctionnalités prévues pour les remplacer.
 
-## <a name="menu_events">Tableau de bord des événements</a>
+## Tableau de bord des événements<a name="menu_events"></a>
 
 Security Center utilise Microsoft Monitoring Agent pour collecter différents événements et configurations liées à la sécurité à partir de vos machines. Il stocke ces événements dans vos espaces de travail. Le [tableau de bord des événements](https://docs.microsoft.com/azure/security-center/security-center-events-dashboard) vous permet d’afficher ces données et vous donne un point d’entrée vers Log Analytics.
 
@@ -96,7 +96,7 @@ Vous pouvez accéder à toutes les fonctionnalités du tableau de bord **Identit
 
 ![Mise hors service de l’ancienne version de la page Identité][9]
 
-## <a name="menu_securityeventsmap">Carte des événements de sécurité</a>
+## Carte des événements de sécurité<a name="menu_securityeventsmap"></a>
 
 Security Center fournit une [Carte des événements de sécurité](https://docs.microsoft.com/azure/security-center/security-center-threat-intel) pour vous aider à identifier les menaces de sécurité. Le bouton **Accéder à la carte des événements de sécurité** dans cette carte ouvre un tableau de bord qui vous permet de consulter les événements de sécurité bruts sur l’espace de travail sélectionné.
 

@@ -68,7 +68,7 @@ Avec la détection des attaques sans fichier, les techniques d’investigation a
 Elle trouve des preuves de l’exploitation, de l’injection de code et de l’exécution de charges utiles malveillantes. La détection des attaques sans fichier génère des alertes de sécurité détaillées afin d’accélérer le tri des alertes, la corrélation et le temps de réponse en aval. Cette approche complète les solutions EDR basées sur les événements en élargissant la couverture de détection.
 
 > [!NOTE]
-> Vous pouvez simuler des alertes Windows en téléchargeant le document [Azure Security Center Playbook: Security Alerts et en suivant les instructions fournies.
+> Vous pouvez simuler des alertes Windows en téléchargeant le document [Azure Security Center Playbook:](https://gallery.technet.microsoft.com/Azure-Security-Center-0ac8a5ef) Security Alerts et en suivant les instructions fournies.
 
 > [!div class="mx-tableFixed"]
 
