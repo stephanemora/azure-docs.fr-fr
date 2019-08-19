@@ -6,8 +6,6 @@
   items:
     - name: "Qu’est-ce que la machine virtuelle de science des données\_?"
       href: overview.md
-    - name: "Qu’est-ce que la machine virtuelle d’apprentissage approfondi\_?"
-      href: deep-learning-dsvm-overview.md
     - name: "Qu’est-ce que la machine virtuelle de science des données\_Geo AI ?"
       href: geo-ai-dsvm-overview.md
 - name: Démarrages rapides
@@ -23,8 +21,6 @@
       href: provision-geo-ai-dsvm.md
 - name: Concepts
   items:
-    - name: Découvrir DSVM
-      href: dsvm-tools-overview.md
     - name: Frameworks d’apprentissage profond et d’intelligence artificielle
       href: dsvm-deep-learning-ai-frameworks.md
     - name: Langages de programmation
@@ -49,8 +45,6 @@
       href: vm-do-ten-things.md
     - name: Utiliser une DSVM Linux
       href: linux-dsvm-walkthrough.md
-    - name: Utiliser une machine virtuelle d’apprentissage approfondi
-      href: use-deep-learning-dsvm.md
     - name: Utiliser une Geo AI DSVM
       href: use-geo-ai-dsvm.md
     - name: Créer un pool DSVM mis à l’échelle automatiquement
