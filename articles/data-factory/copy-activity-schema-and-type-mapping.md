@@ -90,10 +90,10 @@ Les propriétés suivantes sont prises en charge sous `translator` -> `mappings`
 
 | Propriété | Description                                                  | Obligatoire |
 | -------- | ------------------------------------------------------------ | -------- |
-| Nom     | Nom de la colonne source ou récepteur.                           | OUI      |
+| name     | Nom de la colonne source ou récepteur.                           | OUI      |
 | ordinal  | Index de colonne. Commence par 1. <br>À appliquer et requis lors de l’utilisation de texte sans ligne d’en-tête délimité. | Non       |
-| chemin d’accès     | Expression de chemin JSON pour l’extraction ou le mappage de chaque champ. À appliquer aux données hiérarchiques, par exemple MongoDB/REST.<br>Pour les champs situés sous l’objet racine, le chemin JSON commence par $ racine ; pour ceux qui se trouvent dans le tableau sélectionné par la propriété `collectionReference`, le chemin JSON commence par l’élément de tableau. | Non       |
-| Type     | Type de données intermédiaires Data Factory de la colonne source ou récepteur. | Non       |
+| path     | Expression de chemin JSON pour l’extraction ou le mappage de chaque champ. À appliquer aux données hiérarchiques, par exemple MongoDB/REST.<br>Pour les champs situés sous l’objet racine, le chemin JSON commence par $ racine ; pour ceux qui se trouvent dans le tableau sélectionné par la propriété `collectionReference`, le chemin JSON commence par l’élément de tableau. | Non       |
+| type     | Type de données intermédiaires Data Factory de la colonne source ou récepteur. | Non       |
 | culture  | Culture de la colonne source ou récepteur. <br>À appliquer lorsque le type est `Datetime` ou `Datetimeoffset`. Par défaut, il s’agit de `en-us`. | Non       |
 | format   | Chaîne de format à utiliser lorsque le type est `Datetime` ou `Datetimeoffset`. Reportez-vous à [Chaînes de format Date et Heure personnalisées](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) sur la mise en forme des date/heure. | Non       |
 
