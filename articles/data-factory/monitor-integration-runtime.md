@@ -43,9 +43,9 @@ Le tableau suivant fournit des descriptions des propriétés renvoyées par la c
 
 | Propriété | Description |
 -------- | ------------- | 
-| Nom | Nom du runtime d’intégration Azure. |  
-| État | État du runtime d’intégration Azure. | 
-| Lieu | Emplacement du runtime d’intégration Azure. Pour plus d’informations sur l’emplacement d’un runtime d’intégration d’Azure, voir [Introduction au runtime d’intégration](concepts-integration-runtime.md). |
+| Name | Nom du runtime d’intégration Azure. |  
+| State | État du runtime d’intégration Azure. | 
+| LocAtion | Emplacement du runtime d’intégration Azure. Pour plus d’informations sur l’emplacement d’un runtime d’intégration d’Azure, voir [Introduction au runtime d’intégration](concepts-integration-runtime.md). |
 | DataFactoryName | Nom de la fabrique de données à laquelle le runtime d’intégration Azure appartient. | 
 | ResourceGroupName | Nom du groupe de ressources auquel la fabrique de données appartient.  |
 | Description | Description du runtime d’intégration Azure.  |
