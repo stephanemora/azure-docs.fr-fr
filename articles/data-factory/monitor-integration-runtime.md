@@ -70,7 +70,7 @@ Le tableau suivant fournit des descriptions des propriétés de surveillance pou
 
 | Propriété | Description | 
 | -------- | ----------- | 
-| Nom | Nom du runtime d’intégration auto-hébergé et des nœuds qui lui sont associés. Le nœud est un ordinateur Windows local sur lequel le runtime d’intégration auto-hébergé est installé. |  
+| Name | Nom du runtime d’intégration auto-hébergé et des nœuds qui lui sont associés. Le nœud est un ordinateur Windows local sur lequel le runtime d’intégration auto-hébergé est installé. |  
 | Statut | État du runtime d’intégration auto-hébergé dans son ensemble et de chacun des nœuds. Exemple : En ligne/Hors connexion/Limité/etc. Pour plus d’informations sur ces états, voir la section suivante. | 
 | Version | Version du runtime d’intégration auto-hébergé et de chacun des nœuds. La version du runtime d’intégration auto-hébergé est déterminée d’après la version de la majorité des nœuds dans le groupe. S’il existe des nœuds de différentes versions dans la configuration du runtime d’intégration auto-hébergé, seuls les nœuds dont le numéro de version est identique à celui du runtime d’intégration auto-hébergé logique fonctionnent correctement. Les autres sont en mode limité et ont besoin d’une mise à jour manuelle (uniquement si la mise à jour automatique échoue). | 
 | Mémoire disponible | Mémoire disponible dans un nœud de runtime d’intégration auto-hébergé. Cette valeur est un instantané en quasi temps réel. | 
@@ -163,8 +163,8 @@ Le runtime d’intégration Azure-SSIS est un cluster entièrement géré de mac
 | Nœuds | Nœuds disponibles ou alloués de votre runtime d’intégration Azure-SSIS avec états spécifiques aux nœuds (démarrage/disponibilité/recyclage/indisponibilité) et erreurs exploitables. |
 | OtherErrors | Erreurs exploitables non spécifiques aux nœuds de votre runtime d’intégration Azure-SSIS. |
 | LastOperation | Résultat de la dernière opération de démarrage ou d’arrêt de votre runtime d’intégration Azure-SSIS avec erreurs exploitables en cas d’échec. |
-| État | État d’ensemble (initial/démarrage/arrêt/arrêté) de votre runtime d’intégration Azure-SSIS. |
-| Lieu | Emplacement de votre runtime d’intégration Azure-SSIS. |
+| State | État d’ensemble (initial/démarrage/arrêt/arrêté) de votre runtime d’intégration Azure-SSIS. |
+| LocAtion | Emplacement de votre runtime d’intégration Azure-SSIS. |
 | NodeSize | Taille de chacun des nœuds de votre runtime d’intégration Azure-SSIS. |
 | NodeCount | Nombre de nœuds de votre runtime d’intégration Azure-SSIS. |
 | MaxParallelExecutionsPerNode | Nombre d’exécutions en parallèle par nœud dans votre runtime d’intégration Azure-SSIS. |
@@ -178,7 +178,7 @@ Le runtime d’intégration Azure-SSIS est un cluster entièrement géré de mac
 | Type | Type (managé/auto-hébergé) de votre runtime d’intégration Azure-SSIS. |
 | ResourceGroupName | Nom du groupe de ressources Azure dans lequel votre fabrique de données et le runtime d’intégration Azure-SSIS ont été créés. |
 | DataFactoryName | Nom de votre service Azure Data Factory. |
-| Nom | Nom de votre runtime d’intégration Azure-SSIS. |
+| Name | Nom de votre runtime d’intégration Azure-SSIS. |
 | Description | Description de votre runtime d’intégration Azure-SSIS. |
 
   

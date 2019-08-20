@@ -46,7 +46,7 @@
       href: 'https://docs.microsoft.com/azure/app-service/containers/quickstart-docker-go'
 - name: Exemples
   items:
-    - name: Azure CLI
+    - name: D’Azure CLI
       items:
         - name: "Web\_Apps"
           href: 'https://docs.microsoft.com/azure/app-service/samples-cli'
@@ -127,7 +127,7 @@
     - name: Scale
       items:
         - name: Applications web et mobiles
-          href: 'https://docs.microsoft.com/azure/app-service/web-sites-scale'
+          href: 'https://docs.microsoft.com/azure/app-service/manage-scale-up'
         - name: Machines virtuelles
           href: 'https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview'
         - name: Applications de microservice
@@ -180,7 +180,7 @@
           href: 'https://github.com/Azure/azure-sdk-for-ruby/blob/master/README.md'
     - name: Interfaces de ligne de commande
       items:
-        - name: Azure CLI
+        - name: D’Azure CLI
           href: 'https://docs.microsoft.com/cli/azure/'
         - name: Azure PowerShell
           href: 'https://docs.microsoft.com/powershell/'

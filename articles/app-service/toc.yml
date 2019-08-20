@@ -170,7 +170,7 @@
     - name: Mettre à l’échelle une application
       items:
         - name: Faire monter en puissance la capacité du serveur
-          href: web-sites-scale.md
+          href: manage-scale-up.md
         - name: Configurer le niveau PremiumV2
           href: app-service-configure-premium-tier.md
         - name: Augmenter la taille de plusieurs instances
@@ -209,7 +209,7 @@
           href: webjobs-sdk-how-to.md
 - name: Informations de référence
   items:
-    - name: Azure CLI
+    - name: D’Azure CLI
       href: /cli/azure/appservice
     - name: Azure PowerShell
       href: /powershell

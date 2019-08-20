@@ -7,9 +7,8 @@ metadata:
   description: 'Découvrez comment créer une solution de recherche de contenu d’entreprise sur le contenu privé et hétérogène à l’aide de Recherche Azure. Les tutoriels, les informations de référence d’API ainsi que les autres documents vous montrent comment consolider le contenu pouvant faire l’objet d’une recherche dans un index unique et rapide. Ce dernier peut être interrogé à l’aide de syntaxes simples à avancées pour un large éventail de scénarios.'
   services: search
   author: HeidiSteen
-  manager: cgronlun
+  manager: nitinme
   ms.service: search
-  ms.devlang: na
   ms.topic: landing-page
   ms.date: 08/12/2019
   ms.author: heidist

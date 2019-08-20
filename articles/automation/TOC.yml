@@ -216,9 +216,6 @@
         - name: Résoudre les modifications sur une machine virtuelle
           href: automation-tutorial-troubleshoot-changes.md
           displayName: inventory
-        - name: Gérer une machine virtuelle avec la collecte d’inventaire
-          href: automation-vm-inventory.md
-          displayName: inventory
     - name: Résolution des problèmes
       items:
         - name: Mise en route
