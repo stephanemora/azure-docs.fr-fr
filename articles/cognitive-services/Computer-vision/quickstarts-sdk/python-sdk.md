@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 04/17/2019
 ms.author: pafarley
 ms.openlocfilehash: c03568ece97bdaad86f4564debf9f3b2fa14c6ed
-ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "67786644"
 ---
 # <a name="azure-cognitive-services-computer-vision-sdk-for-python"></a>SDK Vision par ordinateur d’Azure Cognitive Services pour Python
@@ -37,8 +37,8 @@ Vous cherchez plus de documentation ?
 
 ## <a name="prerequisites"></a>Prérequis
 
-* [Python 3.6+][python]
-* [Clé Vision par ordinateur][computervision_resource] gratuite and associated endpoint. You need these values when you create the instance of the [ComputerVisionClient][ref_computervisionclient] (objet client). Utilisez l’une des méthodes suivantes pour obtenir ces valeurs.
+* [Python 3.6+][python]
+* [Clé Vision par ordinateur][computervision_resource] gratuite et point de terminaison associé. Vous avez besoin de ces valeurs quand vous créez l’instance de l’objet client [ComputerVisionClient][ref_computervisionclient]. Utilisez l’une des méthodes suivantes pour obtenir ces valeurs.
 
 ### <a name="if-you-dont-have-an-azure-subscription"></a>Si vous n’avez pas d’abonnement Azure
 
@@ -84,7 +84,7 @@ source cogsrv-vision-env/bin/activate
 
 ### <a name="install-the-sdk"></a>Installer le Kit de développement logiciel (SDK)
 
-Installez le [package][pypi_computervision] du kit SDK Vision par ordinateur d’Azure Cognitive Services pour Python with [pip][pip] :
+Installez le [package][pypi_computervision] du kit SDK Vision par ordinateur Azure Cognitive Services pour Python avec [pip][pip] :
 
 ```Bash
 pip install azure-cognitiveservices-vision-computervision
@@ -154,7 +154,7 @@ Vous avez besoin d’un objet client [ComputerVisionClient][ref_computervisioncl
 
 ### <a name="analyze-an-image"></a>Analyser une image
 
-Vous pouvez analyser certaines caractéristiques d’une image avec [`analyze_image`][ref_computervisionclient_analyze_image]. Use the [`visual_features`][ref_computervision_model_visualfeatures] pour définir les types d’analyse à effectuer sur l’image. Les valeurs courantes sont `VisualFeatureTypes.tags` et `VisualFeatureTypes.description`.
+Vous pouvez analyser une image à la recherche de certaines caractéristiques avec [`analyze_image`][ref_computervisionclient_analyze_image]. Utilisez la propriété [`visual_features`][ref_computervision_model_visualfeatures] pour définir les types d’analyse à effectuer sur l’image. Les valeurs courantes sont `VisualFeatureTypes.tags` et `VisualFeatureTypes.description`.
 
 ```Python
 url = "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Broadway_and_Times_Square_by_night.jpg/450px-Broadway_and_Times_Square_by_night.jpg"
@@ -286,7 +286,7 @@ image.save('thumbnail.jpg')
 
 ### <a name="general"></a>Généralités
 
-Quand vous interagissez avec l’objet client [ComputerVisionClient][ref_computervisionclient] client object using the Python SDK, the [`ComputerVisionErrorException`][ref_computervision_computervisionerrorexception] pour retourner des erreurs. Les erreurs retournées par le service correspondent aux codes d’état HTTP retournés pour les demandes d’API REST.
+Quand vous interagissez avec l’objet client [ComputerVisionClient][ref_computervisionclient] à l’aide du kit SDK Python, utilisez la classe [`ComputerVisionErrorException`][ref_computervision_computervisionerrorexception] pour retourner des erreurs. Les erreurs retournées par le service correspondent aux codes d’état HTTP retournés pour les demandes d’API REST.
 
 Par exemple, si vous essayez d’analyser une image avec une clé non valide, une erreur `401` est retournée. Dans l’extrait suivant, l’[erreur][ref_httpfailure] est prise en charge correctement via l’interception de l’exception et l’affichage d’informations supplémentaires sur l’erreur en question.
 
@@ -312,7 +312,7 @@ except HTTPFailure as e:
 
 ### <a name="handle-transient-errors-with-retries"></a>Gérer les erreurs temporaires avec de nouvelles tentatives
 
-Quand vous utilisez le client [ComputerVisionClient][ref_computervisionclient] client, you might encounter transient failures caused by [rate limits][computervision_request_units] appliquées par le service ou d’autres problèmes passagers comme des pannes du réseau. Pour plus d’informations sur la prise en charge de ces types de panne, consultez le [modèle Nouvelle tentative][azure_pattern_retry] dans le guide des modèles de conception de cloud, et le [modèle Disjoncteur][azure_pattern_circuit_breaker] connexe.
+Quand vous utilisez le client [ComputerVisionClient][ref_computervisionclient], vous pouvez rencontrer des échecs passagers causés par des [limites de débit][computervision_request_units] appliquées par le service ou d’autres problèmes passagers comme des pannes du réseau. Pour plus d’informations sur la gestion de ces types d’échecs, consultez le [modèle Nouvelle tentative][azure_pattern_retry] dans le guide des modèles de conception de cloud et le [modèle Disjoncteur][azure_pattern_circuit_breaker] connexe.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

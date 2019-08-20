@@ -8,18 +8,18 @@ ms.topic: sample
 ms.date: 04/05/2018
 author: wmengmsft
 ms.author: wmeng
-ms.openlocfilehash: 977b59c3344eaf2c4877f51afea176455d22ecc9
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 45925b1c4252b0ff0080a2c287e7ed2fae444168
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59546685"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68986276"
 ---
 # <a name="how-to-use-azure-table-storage-or-the-azure-cosmos-db-table-api-from-nodejs"></a>Guide pratique pour utiliser le Stockage Table Azure ou l’API Table d’Azure Cosmos DB avec Node.js
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 [!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Vue d'ensemble
 Cet article décrit le déroulement de scénarios courants impliquant le service de Table de Stockage Azure ou Azure Cosmos DB dans une application Node.js.
 
 ## <a name="create-an-azure-service-account"></a>Créer un compte de service Azure
@@ -68,7 +68,7 @@ var tableSvc = azure.createTableService('myaccount', 'myaccesskey');
 ```
 
 ## <a name="add-an-azure-cosmos-db-connection"></a>Ajouter une connexion à Azure Cosmos DB
-Pour ajouter une connexion Azure Cosmos DB, créez un objet **TableService** et spécifiez le nom de votre compte, la clé primaire et le point de terminaison. Vous pouvez copier ces valeurs depuis **Paramètres** > **Chaîne de connexion** dans le portail Azure pour votre compte Cosmos DB. Par exemple : 
+Pour ajouter une connexion Azure Cosmos DB, créez un objet **TableService** et spécifiez le nom de votre compte, la clé primaire et le point de terminaison. Vous pouvez copier ces valeurs depuis **Paramètres** > **Chaîne de connexion** dans le portail Azure pour votre compte Cosmos DB. Par exemple :
 
 ```javascript
 var tableSvc = azure.createTableService('myaccount', 'myprimarykey', 'myendpoint');
@@ -198,7 +198,7 @@ tableSvc.replaceEntity('mytable', updatedTask, function(error, result, response)
 > Par défaut, la mise à jour d'une entité ne vérifie pas si les données en cours de mise à jour ont déjà été modifiées par un autre processus. Pour activer la prise en charge de mises à jour simultanées :
 >
 > 1. Obtenez l'ETag de l'objet mis à jour. Il est renvoyé dans la `response` d’une opération sur une entité et peut être extrait dans `response['.metadata'].etag`.
-> 2. Lors d'une opération de mise à jour sur une entité, ajoutez les informations ETag précédemment extraites dans la nouvelle entité. Par exemple : 
+> 2. Lors d'une opération de mise à jour sur une entité, ajoutez les informations ETag précédemment extraites dans la nouvelle entité. Par exemple :
 >
 >       entity2['.metadata'].etag = currentEtag;
 > 3. Effectuez l'opération de mise à jour. Si l’entité a été modifiée depuis que vous avez récupéré la valeur ETag, par exemple une autre instance de votre application, une `error` est renvoyée, indiquant que la condition de mise à jour spécifiée dans la requête n’est pas remplie.
@@ -394,7 +394,7 @@ var host = tableSvc.host;
 
 Notez que vous devez également fournir les informations sur l'hôte, car elles sont obligatoires lorsque le détenteur de la signature d'accès partagé tente d'accéder à la table.
 
-L'application cliente utilise les signatures d'accès partagé avec **TableServiceWithSAS** pour effectuer les opérations sur la table. L'exemple suivant se connecte à la table et exécute une requête. Consultez l’article sur l’[utilisation de signatures d’accès partagé](../storage/common/storage-dotnet-shared-access-signature-part-1.md#examples-of-sas-uris) pour le format de table SAS. 
+L'application cliente utilise les signatures d'accès partagé avec **TableServiceWithSAS** pour effectuer les opérations sur la table. L'exemple suivant se connecte à la table et exécute une requête. Consultez l’article [Accorder un accès limité aux ressources du Stockage Azure à l’aide de la signature d’accès partagé (SAS)](../storage/common/storage-sas-overview.md) pour connaître le format de la signature d’accès partagé (SAS) à une table. 
 
 ```javascript
 // Note in the following command, host is in the format: `https://<your_storage_account_name>.table.core.windows.net` and the tableSAS is in the format: `sv=2018-03-28&si=saspolicy&tn=mytable&sig=9aCzs76n0E7y5BpEi2GvsSv433BZa22leDOZXX%2BXXIU%3D`;

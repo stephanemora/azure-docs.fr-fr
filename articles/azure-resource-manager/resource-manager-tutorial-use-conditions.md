@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 05/21/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 0d27eef8ee2c70449bacaced0de89bdc5e6989ff
-ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
+ms.openlocfilehash: b997451a25f8a093491a322376db95ea53165893
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66357807"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68989156"
 ---
 # <a name="tutorial-use-condition-in-azure-resource-manager-templates"></a>Didacticiel : Utiliser une condition dans des modèles Azure Resource Manager
 
@@ -86,7 +86,7 @@ Modèles de démarrage rapide Azure est un référentiel pour les modèles Resou
 Apportez deux modifications au modèle existant :
 
 * Ajoutez un paramètre de nom de compte de stockage. Les utilisateurs peuvent spécifier un nouveau nom de compte de stockage ou un nom de compte de stockage existant.
-* Ajoutez un nouveau paramètre appelé **newOrExisting**. Le déploiement utilise ce paramètre pour déterminer où créer un compte de stockage ou utiliser un compte de stockage existant.
+* Ajoutez un nouveau paramètre appelé **newOrExisting**. Le déploiement utilise ce paramètre pour déterminer s’il faut créer un compte de stockage ou utiliser un compte de stockage existant.
 
 Voici la procédure pour apporter les modifications :
 
@@ -163,7 +163,7 @@ New-AzResourceGroupDeployment `
 > [!NOTE]
 > Le déploiement échoue si **newOrExisting** est **nouveau**, mais le compte de stockage avec le nom de compte de stockage spécifié déjà existe.
 
-Essayez d’effectuer un autre déploiement avec **newOrExisting** défini sur « existant » et spécifiez un compte de stockage existant. Pour créer un compte de stockage au préalable, consultez [Créer un compte de stockage](../storage/common/storage-quickstart-create-account.md).
+Essayez d’effectuer un autre déploiement avec **newOrExisting** défini sur « existing » (existant) et spécifiez un compte de stockage existant. Pour créer un compte de stockage au préalable, consultez [Créer un compte de stockage](../storage/common/storage-quickstart-create-account.md).
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 

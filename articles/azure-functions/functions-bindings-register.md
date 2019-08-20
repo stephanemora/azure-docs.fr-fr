@@ -36,7 +36,7 @@ Le tableau suivant indique quand et comment vous inscrivez des liaisons.
 |Bibliothèque de classes C# avec Visual Studio|[Utiliser les outils NuGet](#vs)|[Utiliser les outils NuGet](#vs)|
 |Bibliothèque de classes C# avec Visual Studio Code|N/A|[Utiliser CLI .NET Core](#vs-code)|
 
-## <a name="extension-bundles">Offres groupées d’extension pour développement local</a>
+## <a name="extension-bundles"></a>Offres groupées d’extension pour développement local
 
 Les offres groupées d’extension constituent une technologie de développement local pour le runtime version 2.x qui vous permet d’ajouter un jeu d’extensions de liaison Functions compatible à votre projet d’application de fonction. Ces packages d’extension sont ensuite inclus dans le package de déploiement lorsque vous déployez sur Azure. Les offres groupées permettent de mettre à disposition toutes les liaisons publiées par Microsoft via un paramètre dans le fichier *host.json*. Les packages d’extension définis dans une offre groupée sont compatibles entre eux, vous permettant ainsi d’éviter les conflits entre les packages. Lors d’un développement local, vérifiez que vous utilisez la dernière version d’[Azure Functions Core Tools](functions-run-local.md#v2).
 

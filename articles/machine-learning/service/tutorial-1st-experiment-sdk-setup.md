@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Configuration de l’environnement et de l’espace de travail.'
+title: 'Didacticiel : Configurez l’environnement et l’espace de travail.'
 titleSuffix: Azure Machine Learning service
 description: Dans cette série de tutoriels, vous allez effectuer des étapes de bout en bout pour vous familiariser avec le kit SDK Python Azure Machine Learning s’exécutant dans des notebooks Jupyter.  La première partie aborde la création d’un environnement serveur de notebooks cloud, ainsi que la création d’un espace de travail pour gérer vos expériences et vos modèles de Machine Learning.
 services: machine-learning
@@ -10,14 +10,14 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 07/20/2019
-ms.openlocfilehash: b3fdcfbb9869c0199c91f5bbc6ca1f02fec996cf
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 70fee90fb82618a409d2566a3235ad8ca42e1760
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68828630"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934428"
 ---
-# <a name="tutorial-setup-environment-and-workspace"></a>Didacticiel : Configuration de l’environnement et de l’espace de travail
+# <a name="tutorial-set-up-environment-and-workspace"></a>Didacticiel : Configurer l’environnement et l’espace de travail
 
 Dans ce tutoriel, vous allez effectuer des étapes de bout en bout pour vous familiariser avec le kit de développement logiciel (SDK) Python pour Azure Machine Learning s’exécutant dans des notebooks Jupyter. Ce tutoriel **fait partie d’une série de tutoriels en deux parties** et aborde l’installation et la configuration de l’environnement Python, ainsi que la création d’un espace de travail pour gérer vos expériences et vos modèles Machine Learning. [**La deuxième partie**](tutorial-1st-experiment-sdk-train.md) se poursuit avec l’apprentissage de plusieurs modèles Machine Learning et présente le processus de gestion des modèles avec le portail Azure et le kit de développement logiciel (SDK).
 
@@ -25,7 +25,7 @@ Dans ce tutoriel, vous allez :
 
 > [!div class="checklist"]
 > * Créer un espace de travail Machine Learning à utiliser dans le tutoriel suivant.
-> * Avec le kit SDK Python Azure Machine Learning préinstallé et préconfiguré, créez une machine virtuelle Notebook ainsi qu’un serveur de notebooks Jupyter basé sur le cloud.
+> * Préinstallez et préconfigurez le SDK Python Azure Machine Learning, puis créez une machine virtuelle Notebook Jupyter basée sur le cloud.
 
 ## <a name="prerequisites"></a>Prérequis
 

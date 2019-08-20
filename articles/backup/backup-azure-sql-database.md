@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: tutorial
 ms.date: 06/18/2019
 ms.author: dacurwin
-ms.openlocfilehash: 7312821320084c766f5b3357fe64c061df83673b
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 647ab76760d0c5ce5315a60d0a671163b902be0f
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827649"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954535"
 ---
 # <a name="about-sql-server-backup-in-azure-vms"></a>À propos de la sauvegarde SQL Server sur des machines virtuelles Azure
 
@@ -58,7 +58,7 @@ Sauvegarde Azure a récemment annoncé la prise en charge des serveurs [EOS SQL 
 2. .NET Framework 4.5.2 et versions ultérieures à installer sur la machine virtuelle
 3. La sauvegarde pour l’ICF et les bases de données miroir n’est pas prise en charge
 
-Les utilisateurs ne seront pas facturés pour cette fonctionnalité tant qu’elle ne sera pas généralement disponible. Toutes les autres [considérations et limitations en lien avec les fonctionnalités](#feature-consideration-and-limitations) s’appliquent à ces versions également. Nous vous invitons à consulter les [conditions préalables](backup-sql-server-database-azure-vms.md#prerequisites) avant de configurer la protection sur les serveurs SQL Server 2008 et 2008 R2, qui incluent la définition de la [clé de registre](backup-sql-server-database-azure-vms.md#add-registry-key-to-enable-registration) (cette étape ne sera pas nécessaire lorsque la fonctionnalité sera généralement disponible).
+Les utilisateurs ne seront pas facturés pour cette fonctionnalité tant qu’elle ne sera pas généralement disponible. Toutes les autres [considérations et limitations en lien avec les fonctionnalités](#feature-consideration-and-limitations) s’appliquent à ces versions également. Nous vous invitons à consulter les [prérequis](backup-sql-server-database-azure-vms.md#prerequisites) avant de configurer la protection sur les serveurs SQL Server 2008 et 2008 R2 qui incluent la définition de la [clé de registre](backup-sql-server-database-azure-vms.md#add-registry-key-to-enable-registration) (cette étape ne sera pas nécessaire quand la fonctionnalité sera généralement disponible).
 
 
 ## <a name="feature-consideration-and-limitations"></a>Considérations et limitations relatives aux fonctionnalités
@@ -74,8 +74,8 @@ Les utilisateurs ne seront pas facturés pour cette fonctionnalité tant qu’el
 - Les bases de données comprenant un grand nombre de fichiers ne peuvent pas être protégées. Le nombre maximal de fichiers pris en charge est d’**environ 1 000**.  
 - Vous pouvez sauvegarder jusqu’à **environ 2 000** bases de données SQL Server dans un coffre. Vous pouvez créer plusieurs coffres au cas où vous auriez un plus grand nombre de bases de données.
 - Vous pouvez configurer la sauvegarde pour au maximum **50** bases de données en une seule fois. Cette restriction permet d’optimiser les charges de sauvegardes.
-- Nous prenons en charge une taille maximale de **2 To**. Pour les tailles supérieures, des problèmes de performance peuvent survenir.
-- Pour avoir une idée du nombre de bases de données qui peuvent être protégées par serveur, nous devons tenir compte de facteurs tels que la bande passante, la taille de la machine virtuelle, la fréquence des sauvegardes, la taille des bases de données, etc. [Téléchargez](http://download.microsoft.com/download/A/B/5/AB5D86F0-DCB7-4DC3-9872-6155C96DE500/SQL%20Server%20in%20Azure%20VM%20Backup%20Scale%20Calculator.xlsx) le planificateur de ressources qui donne le nombre approximatif de bases de données que vous pouvez avoir par serveur en fonction des ressources de la machine virtuelle et de la stratégie de sauvegarde.
+- Nous prenons en charge les bases de données d’une taille maximale de **2 To**. Pour les tailles supérieures, des problèmes de performance peuvent survenir.
+- Pour avoir une idée du nombre de bases de données qui peuvent être protégées par serveur, nous devons tenir compte de facteurs tels que la bande passante, la taille de la machine virtuelle, la fréquence des sauvegardes, la taille des bases de données, etc. [Téléchargez](https://download.microsoft.com/download/A/B/5/AB5D86F0-DCB7-4DC3-9872-6155C96DE500/SQL%20Server%20in%20Azure%20VM%20Backup%20Scale%20Calculator.xlsx) le planificateur de ressources qui donne le nombre approximatif de bases de données que vous pouvez avoir par serveur en fonction des ressources de la machine virtuelle et de la stratégie de sauvegarde.
 - Dans le cas des groupes de disponibilité, les sauvegardes sont effectuées à partir des différents nœuds en fonction de plusieurs facteurs. Le comportement des sauvegardes pour un groupe de disponibilité est récapitulé ci-dessous.
 
 ### <a name="back-up-behavior-in-case-of-always-on-availability-groups"></a>Comportement des sauvegardes dans le cas des groupes de disponibilité AlwaysOn
@@ -83,7 +83,7 @@ Les utilisateurs ne seront pas facturés pour cette fonctionnalité tant qu’el
 Dans un groupe de disponibilité, il est recommandé de ne configurer une sauvegarde que sur un seul nœud. Les sauvegardes doivent toujours être configurées dans la même région que le nœud principal. En d’autres termes, le nœud principal doit toujours se trouver dans la région où vous configurez la sauvegarde. Si tous les nœuds du groupe de disponibilité se trouvent dans la même région où la sauvegarde est configurée, cela ne pose pas de problème.
 
 **Groupe de disponibilité interrégional**
-- Quelle que soit la préférence de sauvegarde, les sauvegardes ne peuvent pas être effectuées sur les nœuds qui ne se trouvent pas dans la région où la sauvegarde est configurée. Ceci est dû au fait que les sauvegardes interrégionales ne sont pas prises en charge. Si vous ne disposez que de deux nœuds et si le nœud secondaire se trouve dans l’autre région, les sauvegardes continueront à s’effectuer sur le nœud principal (sauf si votre préférence de sauvegarde est « Secondaire uniquement »).
+- Quelle que soit la préférence de sauvegarde, les sauvegardes ne peuvent pas être effectuées sur les nœuds qui ne se trouvent pas dans la région où la sauvegarde est configurée. Ceci est dû au fait que les sauvegardes interrégionales ne sont pas prises en charge. Si vous ne disposez que de deux nœuds et que le nœud secondaire se trouve dans l’autre région, les sauvegardes continueront alors à s’effectuer sur le nœud principal (sauf si votre préférence de sauvegarde est « Secondaire uniquement »).
 - Si un basculement se produit vers une région différente de celle dans laquelle la sauvegarde est configurée, les sauvegardes échouent sur les nœuds de la région ayant basculé.
 
 En fonction de la préférence de sauvegarde et des types de sauvegardes (complète/différentielle/de fichier journal/copie complète uniquement), les sauvegardes sont effectuées à partir d’un nœud particulier (principal/secondaire).

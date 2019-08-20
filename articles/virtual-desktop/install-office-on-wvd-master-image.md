@@ -130,7 +130,7 @@ OneDrive s’installe normalement utilisateur par utilisateur. Dans cet environn
 
 Voici la marche à suivre pour installer OneDrive en mode ordinateur par ordinateur :
 
-1. Commencez par créer un emplacement pour le programme d’installation de OneDrive. Un dossier de disque local ou [\\\\unc](file://unc) conviendra.
+1. Commencez par créer un emplacement pour le programme d’installation de OneDrive. Un dossier de disque local ou [\\\\unc] (file://unc) conviendra.
 
 2. Téléchargez OneDriveSetup.exe dans votre emplacement intermédiaire avec ce lien : <https://aka.ms/OneDriveWVD-Installer>.
 

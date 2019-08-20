@@ -37,7 +37,7 @@ Azure SQL Database est une solution DBaaS relationnelle dans Microsoft Cloud (A
 
 Une installation de [Visual Studio 2019](https://www.visualstudio.com/downloads/) ou ultérieur.
 
-## <a name="create-a-blank-single-database"></a>créer une base de données unique vide.
+## <a name="create-a-blank-single-database"></a>Créer une base de données unique vide.
 
 Une base de données unique dans Azure SQL Database est créée avec un ensemble défini de ressources de calcul et de stockage. Cette base de données est créée dans un [groupe de ressources Azure](../azure-resource-manager/resource-group-overview.md) et elle est gérée à l’aide d’un [serveur de base de données](sql-database-servers.md).
 
@@ -113,13 +113,13 @@ Votre adresse IP peut désormais traverser le pare-feu IP. Vous pouvez maintenan
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez appris à effectuer certaines tâches de base sur les bases de données, comme créer une base de données et des tables,vous connecter à la base de données, charger des données et exécuter des requêtes. Vous avez appris à effectuer les actions suivantes :
+Dans ce tutoriel, vous avez appris à effectuer certaines tâches de base sur les bases de données, comme créer une base de données et des tables, vous connecter à la base de données, charger des données et exécuter des requêtes. Vous avez appris à effectuer les actions suivantes :
 
 > [!div class="checklist"]
 > * Créer une base de données
 > * Configurer une règle de pare-feu
 > * Se connecter à la base de données avec [Visual Studio et C#](sql-database-connect-query-dotnet-visual-studio.md)
-> * créez des tables
+> * Créer des tables
 > * Insérer, mettre à jour, supprimer et interroger des données
 
 Passez au tutoriel suivant pour en savoir plus sur la migration des données.

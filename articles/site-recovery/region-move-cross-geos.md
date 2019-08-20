@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: fe2620c7a07389b2a86d36420eadd2ef5883f5da
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 63150b8924438df8d77fdd088811d9fbe3ec2d84
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60012817"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967306"
 ---
 # <a name="move-azure-vms-between-azure-government-and-public-regions"></a>Déplacer des machines virtuelles Azure entre Azure Government et des régions publiques 
 
@@ -47,7 +47,7 @@ Ce tutoriel vous montre comment déplacer des machines virtuelles Azure entre Az
 - Assurez-vous que les serveurs que vous souhaitez répliquer sont conformes aux [conditions requises pour les machines virtuelles Azure](vmware-physical-secondary-support-matrix.md#replicated-vm-support).
 - Préparez un compte pour l’installation automatique du service Mobilité sur chacun des serveurs que vous souhaitez répliquer.
 
-- Notez qu’après des défaillances dans la région cible dans Azure, vous ne pouvez pas effectuer directement un basculement pour revenir dans la région source. Vous devrez configurer à nouveau la réplication sur la cible.
+- Notez qu’après avoir basculé vers la région cible dans Azure, vous ne pouvez pas effectuer directement un basculement pour revenir dans la région source. Vous devrez configurer à nouveau la réplication sur la cible.
 
 ### <a name="verify-azure-account-permissions"></a>Vérifier les autorisations de compte Azure
 
@@ -115,7 +115,7 @@ Suivez les étapes ci-dessous pour copier les données vers la région cible à 
 3. Dans **Nom**, indiquez le nom convivial **ContosoVMVault**. Si vous avez plusieurs abonnements, sélectionnez l’abonnement approprié.
 4. Créez un groupe de ressources **ContosoRG**.
 5. Spécifiez une région Azure. Pour découvrir les régions prises en charge, référez-vous à la disponibilité géographique de la page [Tarification de Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/).
-6. Dans Coffres Recovery Services, cliquez sur **Vue d’ensemble** > **ConsotoVMVault** > **+ Répliquer**
+6. Dans Coffres Recovery Services, cliquez sur **Vue d’ensemble** > **ConsotoVMVault** >  **+ Répliquer**
 7. Sélectionnez **Vers Azure** > **Non virtualisé / Autre**.
 
 ### <a name="set-up-the-configuration-server-to-discover-vms"></a>Configurer le serveur de configuration pour détecter des machines virtuelles.
@@ -169,7 +169,7 @@ Sélectionnez et vérifiez les ressources cibles.
 
 ### <a name="create-a-replication-policy"></a>Créer une stratégie de réplication
 
-1. Pour créer une nouvelle stratégie de réplication, cliquez sur **Infrastructure de Site Recovery** > **Stratégies de réplication** > **+Stratégie de réplication**.
+1. Pour créer une nouvelle stratégie de réplication, cliquez sur **Infrastructure de Site Recovery** > **Stratégies de réplication** >  **+Stratégie de réplication**.
 2. Dans **Créer une stratégie de réplication**, indiquez le nom de la stratégie.
 3. Dans **Seuil d’objectif de point de récupération**, spécifiez la limite de l’objectif de point de récupération (RPO). Cette valeur spécifie la fréquence à laquelle les points de récupération des données sont créés. Une alerte est générée lorsque la réplication continue dépasse cette limite.
 4. Dans **Rétention des points de récupération**, spécifiez la durée de la fenêtre de rétention pour chaque point de récupération (en heures). Les machines virtuelles répliquées peuvent être récupérées à n’importe quel point dans une fenêtre. Les machines virtuelles répliquées vers Premium Storage peuvent prendre en charge jusqu’à 24 heures de rétention et 72 heures en cas de stockage standard.

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 279f6970c34acbfea645366f7e965c830873fdbf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: efd64830c0d9afa83838adef96cf1c103b4485e8
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67089173"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68943275"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tas"></a>Didacticiel : Intégration d’Azure Active Directory à TAS
 
@@ -150,7 +150,7 @@ Pour configurer l’authentification unique Azure AD avec TAS, effectuez les é
 
     c. Dans la zone de texte **Enter URL** (Entrer l’URL), collez la valeur **URL de connexion** que vous avez copiée dans le portail Azure.
 
-    d. Dans le Bloc-notes, ouvrez le certificat codé en base 64 téléchargé dans le portail Azure, copiez son contenu, puis collez-le dans la zone  **Entrer la certification** .
+    d. Dans le Bloc-notes, ouvrez le certificat codé en base 64 téléchargé depuis le portail Azure, copiez son contenu, puis collez-le dans la zone **Enter Certification** (Entrer la certification).
 
     e. Dans la zone de texte **Enter New IP** (Entrez la nouvelle adresse IP), tapez l’adresse IP.
 
@@ -216,7 +216,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 ### <a name="create-tas-test-user"></a>Créer un utilisateur de test TAS
 
-Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans TAS. Collaborez avec l’ [équipe du support technique de TAS](mailto:support@combtas.com) pour ajouter des utilisateurs à la plateforme TAS. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
+Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans TAS. Collaborez avec l’[équipe de support TAS](mailto:support@combtas.com) pour ajouter les utilisateurs à la plateforme TAS. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 
 ### <a name="test-single-sign-on"></a>Tester l’authentification unique 
 

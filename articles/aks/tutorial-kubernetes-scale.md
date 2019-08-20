@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 5a942aa10f36df55ac232defa610102700e3995b
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 9bccd826a37b66f7f89e70c57260a0db08342421
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67614193"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69019187"
 ---
 # <a name="tutorial-scale-applications-in-azure-kubernetes-service-aks"></a>Didacticiel : Mettre à l’échelle des applications dans Azure Kubernetes Service (AKS)
 
@@ -70,18 +70,19 @@ azure-vote-front-3309479140-qphz8   1/1       Running   0          3m
 
 ## <a name="autoscale-pods"></a>Mettre à l’échelle les pods automatiquement
 
-Kubernetes prend en charge la [mise à l’échelle automatique horizontale de pods][kubernetes-hpa]to adjust the number of pods in a deployment depending on CPU utilization or other select metrics. The [Metrics Server][metrics-server] sert à fournir des informations sur l’utilisation des ressources à Kubernetes, et est déployé automatiquement dans les clusters AKS 1.10 et ultérieur. Pour voir la version de votre cluster AKS, utilisez la commande [az aks show][az-aks-show], comme illustré dans l’exemple suivant :
+Kubernetes prend en charge la [mise à l’échelle automatique des pods horizontaux][kubernetes-hpa] pour ajuster le nombre de pods dans un déploiement en fonction de l’utilisation du processeur ou d’autres métriques. [Metrics Server][metrics-server] est utilisé pour indiquer l’utilisation des ressources à Kubernetes et est automatiquement déployé dans les clusters AKS versions 1.10 et ultérieures. Pour voir la version de votre cluster AKS, utilisez la commande [az aks show][az-aks-show], comme indiqué dans l’exemple suivant :
 
 ```azurecli
 az aks show --resource-group myResourceGroup --name myAKSCluster --query kubernetesVersion
 ```
 
-Si la version de votre cluster AKS est inférieure à *1.10*, installez Metrics Server. Sinon, ignorez cette étape. Pour effectuer l’installation, clonez le dépôt GitHub `metrics-server` et installez les exemples de définitions de ressources. Pour voir le contenu de ces définitions YAML, consultez [Serveur de métriques pour Kubernetes 1.8+][metrics-server-github].
-
-```console
-git clone https://github.com/kubernetes-incubator/metrics-server.git
-kubectl create -f metrics-server/deploy/1.8+/
-```
+> [!NOTE]
+> Si votre cluster AKS est inférieur à *1.10*, Metrics Server n’est pas installé automatiquement. Pour effectuer l’installation, clonez le dépôt GitHub `metrics-server` et installez les exemples de définitions de ressources. Pour voir le contenu de ces définitions YAML, consultez [Serveur de métriques pour Kubernetes 1.8+][metrics-server-github].
+> 
+> ```console
+> git clone https://github.com/kubernetes-incubator/metrics-server.git
+> kubectl create -f metrics-server/deploy/1.8+/
+> ```
 
 Pour utiliser la mise à l’échelle automatique, tous les conteneurs de vos pods et vos pods doivent avoir des demandes et limites de processeur définies. Dans le déploiement `azure-vote-front`, le conteneur front-end demande déjà 0,25 processeur, avec une limite de 0,5 processeur. Ces demandes et limites de ressources sont définies comme indiqué dans l’exemple d’extrait suivant :
 

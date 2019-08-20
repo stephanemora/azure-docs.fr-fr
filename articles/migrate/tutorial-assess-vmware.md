@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 07/12/2019
 ms.author: hamusa
-ms.openlocfilehash: 7b27637ca63ec69d7f4c33f05e7c037d67676b2d
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 04162f074dba05ac6492c16acb446912296cd673
+ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68828306"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68952097"
 ---
 # <a name="assess-vmware-vms-with-azure-migrate-server-assessment"></a>Évaluer les machines virtuelles VMware avec Azure Migrate : Server Assessment
 
@@ -180,8 +180,39 @@ Ceci démarre la découverte. Environ 15 minutes sont nécessaires pour que les
 
 ### <a name="scoping-discovery"></a>Définition de l’étendue de la découverte
 
-Vous pouvez définir l’étendue de la découverte en limitant l’accès du compte vCenter utilisé à cet effet. Vous pouvez définir une étendue et l’appliquer à des centres de données, des clusters, un dossier de clusters, des hôtes, un dossier d’hôtes ou des machines virtuelles individuelles vCenter Server. 
+Vous pouvez définir l’étendue de la découverte en limitant l’accès du compte vCenter utilisé à cet effet. Vous pouvez définir une étendue et l’appliquer à des centres de données, des clusters, un dossier de clusters, des hôtes, un dossier d’hôtes ou des machines virtuelles individuelles vCenter Server.
 
+Pour définir l’étendue, vous devez exécuter la procédure suivante :
+1.  Créez un compte d’utilisateur vCenter.
+2.  Définissez un nouveau rôle avec les privilèges requis. (<em>requis pour la migration de serveur sans agent</em>)
+3.  Affectez des autorisations au compte d’utilisateur sur les objets vCenter.
+
+**Créer un compte d’utilisateur vCenter**
+1.  Connectez-vous au client web vSphere en tant qu’administrateur de serveur vCenter.
+2.  Cliquez sur **Administration** > **SSO users and Groups (Groupes et utilisateurs SSO)**  >  onglet **Utilisateurs**.
+3.  Cliquez sur l’icône **Nouvel utilisateur**.
+4.  Renseignez les informations requises pour créer un utilisateur, puis cliquez sur **OK**.
+
+**Définir un nouveau rôle avec les privilèges requis** (<em>requis pour la migration de serveur sans agent</em>)
+1.  Connectez-vous au client web vSphere en tant qu’administrateur de serveur vCenter.
+2.  Accédez à **Administration** > **Gestionnaire de rôles**.
+3.  Sélectionnez votre serveur vCenter dans le menu déroulant.
+4.  Cliquez sur l’action **Créer un rôle**.
+5.  Tapez un nom pour le nouveau rôle (par exemple, <em>Azure_Migrate</em>).
+6.  Attribuez ces [autorisations](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#agentless-migration-vcenter-server-permissions) au rôle qui vient d’être défini.
+7.  Cliquez sur **OK**.
+
+**Affecter des autorisations sur les objets vCenter**
+
+Il existe deux approches pour affecter des autorisations sur des objets d’inventaire dans vCenter au compte d’utilisateur vCenter avec un rôle qui lui est affecté.
+- Pour l’évaluation de serveur, le rôle en **lecture seule** doit être appliqué au compte d’utilisateur vCenter pour tous les objets parents sur lesquels les machines virtuelles à découvrir sont hébergées. Tous les objets parents (hôte, dossier des hôtes, cluster, dossier des clusters) de la hiérarchie jusqu’au centre de données doivent être inclus. Ces autorisations doivent être propagées aux objets enfants dans la hiérarchie. 
+
+    De même pour la migration de serveur, un rôle défini par l’utilisateur (peut être nommé  <em>Azure _Migrate</em>) avec ces [privilèges](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#agentless-migration-vcenter-server-permissions) attribués doit être appliqué au compte d’utilisateur vCenter pour tous les objets parents sur lesquels les machines virtuelles à migrer sont hébergées.
+
+![Assigner des autorisations](./media/tutorial-assess-vmware/assign-perms.png)
+
+- L’approche alternative consiste à affecter le compte d’utilisateur et le rôle au niveau du centre de données et à les propager aux objets enfants. Attribuez ensuite au compte un rôle **Aucun accès** pour chaque objet (comme les machines virtuelles) que vous ne souhaitez pas découvrir/migrer. Cette configuration est fastidieuse. Elle entraîne des contrôles d’accès accidentels, car chaque nouvel objet enfant créé hérite automatiquement de l’accès de son parent. Nous vous recommandons donc d’utiliser la première approche.
+ 
 > [!NOTE]
 > Pour le moment, Server Assessment ne peut pas découvrir les machines virtuelles si le compte vCenter s’est vu octroyer un accès au niveau du dossier de machine virtuelle vCenter. Si vous souhaitez définir l’étendue de la découverte en fonction de dossiers de machines virtuelles, vous pouvez le faire en vérifiant que le compte vCenter dispose d’un accès en lecture seule affecté au niveau de la machine virtuelle.  Voici des instructions sur la façon de procéder :
 >

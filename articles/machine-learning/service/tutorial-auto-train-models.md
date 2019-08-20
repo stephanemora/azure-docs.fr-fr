@@ -9,14 +9,14 @@ ms.topic: tutorial
 author: nacharya1
 ms.author: nilesha
 ms.reviewer: trbye
-ms.date: 04/11/2019
+ms.date: 08/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: bbb9653173925e1443504aa3f2e9c5e6edbfc486
-ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
+ms.openlocfilehash: 060257ef144309e37208db80c7731ed96b995b2c
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68371037"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68990479"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-build-your-regression-model"></a>Didacticiel : Utiliser le Machine Learning automatisé pour générer votre modèle de régression
 
@@ -54,7 +54,7 @@ Passez à la section [Configurer votre environnement de développement](#start) 
 
 Obtenir tous ces prérequis à partir de l’une des sections ci-dessous.
 
-* Utiliser un [serveur de notebooks cloud dans votre espace de travail](#azure) 
+* Utiliser un [serveur de notebooks cloud dans votre espace de travail](#azure)
 * Utiliser [votre propre serveur de notebooks](#server)
 
 ### <a name="azure"></a>Utiliser un serveur de notebooks cloud dans votre espace de travail
@@ -688,6 +688,9 @@ automated_ml_config = AutoMLConfig(task='regression',
                                    **automl_settings)
 ```
 
+> [!NOTE]
+> Les étapes de prétraitement du Machine Learning automatisé (normalisation des fonctionnalités, gestion des données manquantes, conversion de texte en valeurs numériques, etc.) font partie du modèle sous-jacent. Lorsque vous utilisez le modèle pour des prédictions, les étapes de prétraitement qui sont appliquées pendant l’entraînement sont appliquées automatiquement à vos données d’entrée.
+
 ### <a name="train-the-automatic-regression-model"></a>Entraîner le modèle de régression automatique
 
 Lancez l’exécution de l’expérience en local. Passez l’objet `automated_ml_config` défini à l’expérience. Affectez la valeur `True` à la sortie pour afficher la progression au cours de l’expérience :
@@ -764,7 +767,7 @@ Les mêmes résultats sont stockés dans votre espace de travail.  Vous pouvez o
 ```
 local_run.get_portal_url()
 ```
-  
+
 
 ### <a name="option-2-get-and-examine-all-run-iterations-in-python"></a>Option 2 : Obtenir et examiner toutes les itérations d’exécution dans Python
 

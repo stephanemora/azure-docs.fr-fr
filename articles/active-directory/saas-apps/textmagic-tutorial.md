@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 1184e282c8dc52cb616bcc47068d96fe61651da9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 53711a80f35177c911b754a0ce3f189ac106adb2
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67088871"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68943300"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-textmagic"></a>Didacticiel : Intégration d’Azure Active Directory dans TextMagic
 
@@ -166,13 +166,13 @@ Pour configurer l’authentification unique Azure AD avec TextMagic, effectuez 
 
     ![Configuration de TextMagic](./media/textmagic-tutorial/config2.png)
 
-    a. Dans la zone de texte  **ID d’entité du fournisseur d’identité** , collez la valeur  **Identificateur Azure AD** copiée à partir du Portail Azure.
+    a. Dans la zone de texte **Identity provider Entity ID:** (ID d’entité du fournisseur d’identité), collez la valeur de l’**identificateur Azure AD**, que vous avez copiée à partir du portail Azure.
 
-    b. Dans la zone de texte  **URL SSO du fournisseur d’identité** , collez la valeur  **URL de connexion** copiée à partir du Portail Azure.
+    b. Dans la zone de texte **Identity provider SSO URL:** (URL d’authentification unique du fournisseur d’identité), collez la valeur de l’**URL de connexion** que vous avez copiée dans le portail Azure.
 
-    c. Dans la zone de texte  **URL SLO du fournisseur d’identité** , collez la valeur  **URL de déconnexion** copiée à partir du Portail Azure.
+    c. Dans la zone de texte **Identity provider SLO URL:** (URL SLO du fournisseur d’identité), collez la valeur d’**URL de déconnexion** que vous avez copiée à partir du portail Azure.
 
-    d. Ouvrez dans le Bloc-notes votre **certificat codé en base 64** téléchargé à partir du Portail Azure, copiez son contenu dans le Presse-papiers, puis collez-le dans la zone de texte  **Certificat x509 public** .
+    d. Ouvrez dans le Bloc-notes votre **certificat codé en base 64** téléchargé à partir du portail Azure, copiez son contenu dans le Presse-papiers, puis collez-le dans la zone de texte **Certificat x509 public**.
 
     e. Cliquez sur **Enregistrer**.
 

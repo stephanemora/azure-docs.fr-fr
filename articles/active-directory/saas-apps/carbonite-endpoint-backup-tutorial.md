@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Carbonite Endpoint Backup | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à Carbonite Endpoint Backup | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Carbonite Endpoint Backup.
 services: active-directory
 documentationCenter: na
@@ -13,23 +13,23 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 07/30/2019
+ms.date: 08/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf5bf49538823ea50bca197a78ec54d4ddcae1ff
-ms.sourcegitcommit: 6ad03fa28a0f60cb6dce6144f728c2ceb56ff6e2
+ms.openlocfilehash: e078cb7daa787b9fe5e8bc996b36f0fef198f41c
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68708442"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68879668"
 ---
-# <a name="tutorial-integrate-carbonite-endpoint-backup-with-azure-active-directory"></a>Tutoriel : Intégrer Carbonite Endpoint Backup à Azure Active Directory
+# <a name="tutorial-integrate-carbonite-endpoint-backup-with-azure-active-directory"></a>Didacticiel : Intégrer Carbonite Endpoint Backup à Azure Active Directory
 
 Dans ce tutoriel, vous allez apprendre à intégrer Carbonite Endpoint Backup à Azure Active Directory (Azure AD). Lorsque vous intégrez Carbonite Endpoint Backup à Azure AD, vous pouvez :
 
 * Contrôler dans Azure AD qui a accès à Carbonite Endpoint Backup
 * Permettre à vos utilisateurs de se connecter automatiquement à Carbonite Endpoint Backup avec leur compte Azure AD
-* Gérer vos comptes à un emplacement central : le Portail Azure
+* Gérer vos comptes à un emplacement central : le Portail Azure.
 
 Pour en savoir plus sur l’intégration des applications SaaS à Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
@@ -37,7 +37,7 @@ Pour en savoir plus sur l’intégration des applications SaaS à Azure AD, cons
 
 Pour commencer, vous devez disposer de ce qui suit :
 
-* Un abonnement Azure AD. Si vous ne disposez d’aucun abonnement, vous pouvez obtenir [un compte gratuit](https://azure.microsoft.com/free/).
+* Un abonnement Azure AD Si vous ne disposez d’aucun abonnement, vous pouvez obtenir [un compte gratuit](https://azure.microsoft.com/free/).
 * Abonnement à Carbonite Endpoint Backup pour lequel l’authentification unique (SSO) est activée.
 
 ## <a name="scenario-description"></a>Description du scénario
@@ -125,27 +125,35 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 ### <a name="configure-carbonite-endpoint-backup-sso"></a>Configurer l’authentification unique de Carbonite Endpoint Backup
 
-1. Dans une autre fenêtre de navigateur web, connectez-vous à votre site d’entreprise Carbonite Endpoint Backup en tant qu’administrateur.
+1. Pour automatiser la configuration dans Carbonite Endpoint Backup, vous devez installer l’**extension de navigateur My Apps Secure Sign-in** en cliquant sur **Installer l’extension**.
 
-1. Cliquez sur **Company** dans le volet gauche.
+    ![Extension My apps](common/install-myappssecure-extension.png)
+
+2. Après avoir ajouté l’extension au navigateur, cliquez sur **Installer Carbonite Endpoint Backup** pour être redirigé vers l’application Carbonite Endpoint Backup. Indiquez ici les informations d’identification de l’administrateur pour vous connecter à Carbonite Endpoint Backup. Cette extension de navigateur configure automatiquement l’application pour vous et automatise les étapes 3 à 7.
+
+    ![Configuration](common/setup-sso.png)
+
+3. Si vous voulez configurer manuellement Carbonite Endpoint Backup, ouvrez une nouvelle fenêtre de navigateur web, connectez-vous à votre site d’entreprise Carbonite Endpoint Backup en tant qu’administrateur et procédez comme suit :
+
+4. Cliquez sur **Company** dans le volet gauche.
 
     ![Configuration de Carbonite Endpoint Backup ](media/carbonite-endpoint-backup-tutorial/configure1.png)
 
-1. Cliquez sur **Single sign-on** (Authentification unique).
+5. Cliquez sur **Single sign-on** (Authentification unique).
 
     ![Configuration de Carbonite Endpoint Backup ](media/carbonite-endpoint-backup-tutorial/configure2.png)
 
-1. Cliquez sur **Enable** (Activer), puis sur **Edit settings** (Modifier les paramètres) pour configurer.
+6. Cliquez sur **Enable** (Activer), puis sur **Edit settings** (Modifier les paramètres) pour configurer.
 
     ![Configuration de Carbonite Endpoint Backup ](media/carbonite-endpoint-backup-tutorial/configure3.png)
 
-1. Dans la page des paramètres **Single Sign on** (Authentification unique), effectuez les étapes suivantes :
+7. Dans la page des paramètres **Single Sign on** (Authentification unique), effectuez les étapes suivantes :
 
     ![Configuration de Carbonite Endpoint Backup ](media/carbonite-endpoint-backup-tutorial/configure4.png)
 
-    1. Dans la zone de texte **Identity provider name** (Nom du fournisseur d’identité), entrez le nom du fournisseur d’identité, par exemple **Microsoft Azure AD**.
+    1. Dans la zone de texte **Identity provider URL** (ID du fournisseur d’identité), collez la valeur de **Identificateur Azure AD** que vous avez copiée à partir du portail Azure.
 
-    1. Dans la zone de texte **Identity provider URL** (ID du fournisseur d’identité), collez la valeur de **Azure AD Identifier** (Identificateur Azure AD) que vous avez copiée à partir du portail Azure.
+    1. Dans la zone de texte **Identity Provider Login URL** (URL de connexion du fournisseur d’identité), collez la valeur de l’**URL de connexion** que vous avez copiée à partir du portail Azure.
 
     1. Cliquez sur **Choose file** (Choisir un fichier) pour charger le fichier **Certificate (Base64)** que vous avez téléchargé depuis le portail Azure.
 

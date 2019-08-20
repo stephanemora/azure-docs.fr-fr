@@ -1,5 +1,5 @@
 ---
-title: 'SSMS : Se connecter à une base de données Azure SQL et interroger les données | Microsoft Docs'
+title: 'SSMS : Se connecter à la base de données Azure SQL et interroger les données | Microsoft Docs'
 description: Découvrez comment vous connecter à Base de données SQL sur Azure avec SQL Server Management Studio (SSMS). Ensuite, exécutez des instructions Transact-SQL (T-SQL) pour interroger et modifier des données.
 keywords: connexion à une base de données sql, sql server management studio
 services: sql-database
@@ -77,7 +77,7 @@ Dans SMSS, connectez-vous à votre serveur Azure SQL Database.
 
    ![connect to server](./media/sql-database-connect-query-ssms/connect.png)  
 
-3. Sélectionnez **Options** dans la boîte de dialogue **Se connecter au serveur**. Dans le menu déroulant **Se connecter à une base de données**, sélectionnez **mySampleDatabase**.
+3. Sélectionnez **Options** dans la boîte de dialogue **Se connecter au serveur**. Dans le menu déroulant **Se connecter à la base de données**, sélectionnez **mySampleDatabase**.
 
    ![connexion à la base de données sur le serveur](./media/sql-database-connect-query-ssms/options-connect-to-db.png)  
 

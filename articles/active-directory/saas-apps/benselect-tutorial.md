@@ -4,237 +4,170 @@ description: Découvrez comment configurer l’authentification unique entre Azu
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: ffa17478-3ea1-4356-a289-545b5b9a4494
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 06/23/2017
+ms.topic: tutorial
+ms.date: 08/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 699afd4703efc5e8f63bb13fe1dd753a0c72594d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f5ca12f89615cd4b3110b0d67268c048b8e44561
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60282653"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68879715"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-benselect"></a>Didacticiel : Intégration d'Azure Active Directory à BenSelect
+# <a name="tutorial-integrate-benselect-with-azure-active-directory"></a>Didacticiel : Intégrer BenSelect à Azure Active Directory
 
-Dans ce didacticiel, vous allez apprendre à intégrer BenSelect à Azure Active Directory (Azure AD).
+Dans ce tutoriel, vous allez apprendre à intégrer BenSelect à Azure Active Directory (Azure AD). Quand vous intégrez BenSelect à Azure AD, vous pouvez :
 
-L’intégration de BenSelect à Azure AD vous offre les avantages suivants :
+* Contrôler qui a accès à BenSelect
+* Autoriser les utilisateurs à se connecter automatiquement à BenSelect avec leur compte Azure AD
+* Gérer vos comptes à un emplacement central : le Portail Azure.
 
-- Dans Azure AD, vous pouvez contrôler qui a accès à BenSelect
-- Vous pouvez autoriser les utilisateurs à se connecter automatiquement à BenSelect (via l’authentification unique) avec leur compte Azure AD
-- Vous pouvez gérer vos comptes à partir d’un emplacement central : le portail Azure.
-
-Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
+Pour en savoir plus sur l’intégration des applications SaaS à Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour configurer l’intégration d’Azure AD à BenSelect, vous avez besoin des éléments suivants :
+Pour commencer, vous devez disposer de ce qui suit :
 
-- Un abonnement Azure AD
-- Un abonnement BenSelect pour lequel l’authentification unique est activée
-
-> [!NOTE]
-> Pour tester les étapes de ce didacticiel, nous déconseillons l’utilisation d’un environnement de production.
-
-Vous devez en outre suivre les recommandations ci-dessous :
-
-- N’utilisez pas votre environnement de production, sauf si cela est nécessaire.
-- Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
+* Un abonnement Azure AD Si vous ne disposez d’aucun abonnement, vous pouvez obtenir [un compte gratuit](https://azure.microsoft.com/free/).
+* Abonnement BenSelect pour lequel l’authentification unique est activée
 
 ## <a name="scenario-description"></a>Description du scénario
-Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
-1. Ajout de BenSelect à partir de la galerie
-1. Configuration et test de l’authentification unique Azure AD
+Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
+
+* BenSelect prend en charge l’authentification unique lancée par le **fournisseur d’identité**
 
 ## <a name="adding-benselect-from-the-gallery"></a>Ajout de BenSelect à partir de la galerie
+
 Pour configurer l’intégration de BenSelect à Azure AD, vous devez ajouter BenSelect à partir de la galerie à votre liste d’applications SaaS gérées.
 
-**Pour ajouter BenSelect à partir de la galerie, procédez comme suit :**
+1. Connectez-vous au [portail Azure](https://portal.azure.com) avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
+1. Dans le panneau de navigation gauche, sélectionnez le service **Azure Active Directory**.
+1. Accédez à **Applications d’entreprise**, puis sélectionnez **Toutes les applications**.
+1. Pour ajouter une nouvelle application, sélectionnez **Nouvelle application**.
+1. Dans la section **Ajouter à partir de la galerie**, tapez **BenSelect** dans la zone de recherche.
+1. Sélectionnez **BenSelect** dans le volet de résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**. 
 
-    ![Active Directory][1]
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurer et tester l’authentification unique Azure AD
 
-1. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
+Configurez et testez l’authentification unique Azure AD avec BenSelect pour un utilisateur de test nommé **B.Simon**. Pour que l’authentification unique fonctionne, vous devez établir un lien entre un utilisateur Azure AD et l’utilisateur BenSelect associé.
 
-    ![APPLICATIONS][2]
-    
-1. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
+Pour configurer et tester l’authentification unique Azure AD avec BenSelect, suivez les indications des sections ci-après :
 
-    ![APPLICATIONS][3]
+1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-sso)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
+2. **[Configurer l’authentification unique BenSelect](#configure-benselect-sso)** pour configurer les paramètres de l’authentification unique côté application.
+3. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec B. Simon.
+4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à B. Simon d’utiliser l’authentification unique Azure AD.
+5. **[Créer un utilisateur de test BenSelect](#create-benselect-test-user)** pour avoir un équivalent de B.Simon dans BenSelect, lié à la représentation Azure AD associée.
+6. **[Tester l’authentification unique](#test-sso)** pour vérifier si la configuration fonctionne.
 
-1. Dans la zone de recherche, tapez **BenSelect**.
+### <a name="configure-azure-ad-sso"></a>Configurer l’authentification unique Azure AD
 
-    ![Création d’un utilisateur de test Azure AD](./media/benselect-tutorial/tutorial_benselect_search.png)
+Effectuez les étapes suivantes pour activer l’authentification unique Azure AD dans le Portail Azure.
 
-1. Dans le volet de résultats, sélectionnez **BenSelect**, puis cliquez sur **Ajouter** pour ajouter l’application.
+1. Dans le [portail Azure](https://portal.azure.com/), accédez à la page d’intégration de l’application **BenSelect**, recherchez la section **Gérer** et sélectionnez **Authentification unique**.
+1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
+1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de modification/stylet pour **Configuration SAML de base** afin de modifier les paramètres.
 
-    ![Création d’un utilisateur de test Azure AD](./media/benselect-tutorial/tutorial_benselect_addfromgallery.png)
+   ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuration et test de l’authentification unique Azure AD
-Dans cette section, vous allez configurer et tester l’authentification unique Azure AD avec BenSelect avec un utilisateur de test appelé « Britta Simon ».
+1. Dans la section **Configuration SAML de base**, entrez les valeurs pour les champs suivants :
 
-Pour que l’authentification unique fonctionne, Azure AD doit savoir qui est l’utilisateur BenSelect équivalent dans Azure AD. En d’autres termes, une relation entre l’utilisateur Azure AD et l’utilisateur BenSelect associé doit être établie.
+    Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://www.benselect.com/enroll/login.aspx?Path=<tenant name>`
 
-Dans BenSelect, affectez la valeur de **nom d’utilisateur** dans Azure AD comme valeur de **nom d’utilisateur** pour établir la relation.
+    > [!NOTE]
+    > Cette valeur n’est pas la valeur réelle. Mettez à jour la valeur avec l’URL de réponse réelle. Pour obtenir la valeur, contactez [l’équipe de support de BenSelect](mailto:support@selerix.com). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
-Pour configurer et tester l’authentification unique Azure AD avec BenSelect, vous devez suivre les indications des sections suivantes :
+1. L’application BenSelect attend les assertions SAML dans un format spécifique. Configurez les revendications suivantes pour cette application. Vous pouvez gérer les valeurs de ces attributs à partir de la section **Attributs utilisateur** sur la page d’intégration des applications. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur le bouton **Modifier** pour ouvrir la boîte de dialogue **Attributs utilisateur**.
 
-1. **[Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-1. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-1. **[Création d’un utilisateur de test BenSelect](#creating-a-benselect-test-user)** pour avoir un équivalent de Britta Simon dans BenSelect, lié à la représentation Azure AD associée.
-1. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** : permet à Britta Simon d’utiliser l’authentification unique Azure AD.
-1. **[Testing Single Sign-On](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
+    ![image](common/edit-attribute.png)
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configuration de l’authentification unique Azure AD
+1. Cliquez sur l’icône **Modifier** pour changer la **Valeur de nom d’identificateur**.
 
-Dans cette section, vous allez activer l’authentification unique Azure AD dans le portail Azure et configurer l’authentification unique dans votre application BenSelect.
+    ![image](media/benselect-tutorial/mail-prefix1.png)
 
-**Pour configurer l’authentification unique Azure AD avec BenSelect, procédez comme suit :**
+1. Dans la section **Gérer les revendications des utilisateurs** , effectuez les étapes suivantes :
 
-1. Dans le portail Azure, dans la page d’intégration de l’application **BenSelect**, cliquez sur **Authentification unique**.
+    ![image](media/benselect-tutorial/mail-prefix2.png)
 
-    ![Configurer l'authentification unique][4]
+    a. Sélectionnez **Transformation** dans le champ **Source**.
 
-1. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
- 
-    ![Configurer l'authentification unique](./media/benselect-tutorial/tutorial_benselect_samlbase.png)
+    b. Dans la liste déroulante **Transformation**, sélectionnez **ExtractMailPrefix()** .
 
-1. Dans la section **Domaine et URL BenSelect**, effectuez les étapes suivantes :
+    c. Dans la liste déroulante **Paramètre 1**, sélectionnez **user.userprincipalname**.
 
-    ![Configurer l'authentification unique](./media/benselect-tutorial/tutorial_benselect_url.png)
+    d. Cliquez sur **Enregistrer**.
 
-    Dans la zone de texte **URL de réponse** , tapez une URL au format suivant : `https://www.benselect.com/enroll/login.aspx?Path=<tenant name>`
+1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **Certificat (brut)** , puis sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
 
-    > [!NOTE] 
-    > Cette valeur n’est pas la valeur réelle. Mettez à jour la valeur avec l’URL de réponse réelle. Pour obtenir cette valeur, contactez [l’équipe du support BenSelect](mailto:support@selerix.com).
- 
-1. Dans la section **Certificat de signature SAML**, cliquez sur **Certificat (brut)** , puis enregistrez le fichier du certificat sur votre ordinateur.
+    ![Lien Téléchargement de certificat](common/certificateraw.png)
 
-    ![Configurer l'authentification unique](./media/benselect-tutorial/tutorial_benselect_certificate.png) 
+1. Dans la section **Configurer BenSelect**, copiez l’URL ou les URL appropriées en fonction de vos besoins.
 
-1. L’application BenSelect attend les assertions SAML dans un format spécifique. Configurez les revendications suivantes pour cette application. Vous pouvez gérer les valeurs de ces attributs à partir de la section **Attributs utilisateur** sur la page d’intégration des applications. La capture d’écran suivante montre un exemple :
+    ![Copier les URL de configuration](common/copy-configuration-urls.png)
 
-    ![Configurer l'authentification unique](./media/benselect-tutorial/tutorial_benselect_06.png)
+### <a name="configure-benselect-sso"></a>Configurer l’authentification unique BenSelect
 
-1. Dans la section **Attributs utilisateur** de la boîte de dialogue **Authentification unique** :
+Pour configurer l’authentification unique côté **BenSelect**, vous devez envoyer le **Certificat (brut)** téléchargé ainsi que les URL copiées sur le portail Azure à l’[équipe du support technique BenSelect](mailto:support@selerix.com). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
-    a. Dans la liste déroulante **Identificateur de l’utilisateur**, sélectionnez **ExtractMailPrefix**.
+> [!NOTE]
+> Vous devez indiquer que cette intégration nécessite l’algorithme SHA256 (SHA1 n’est pas pris en charge) pour définir l’authentification unique sur le serveur approprié, comme app2101, etc.
 
-    b. Dans la liste déroulante **E-mail**, sélectionnez **user.userprincipalname**.
+### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
-1. Cliquez sur le bouton **Enregistrer** .
+Dans cette section, vous allez créer un utilisateur de test appelé B. Simon dans le portail Azure.
 
-    ![Configurer l'authentification unique](./media/benselect-tutorial/tutorial_general_400.png)
+1. Dans le volet gauche du Portail Azure, sélectionnez **Azure Active Directory**, **Utilisateurs**, puis **Tous les utilisateurs**.
+1. Sélectionnez **Nouvel utilisateur** dans la partie supérieure de l’écran.
+1. Dans les propriétés **Utilisateur**, effectuez les étapes suivantes :
+   1. Dans le champ **Nom**, entrez `B.Simon`.  
+   1. Dans le champ **Nom de l’utilisateur**, entrez username@companydomain.extension. Par exemple : `B.Simon@contoso.com`.
+   1. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ **Mot de passe**.
+   1. Cliquez sur **Créer**.
 
-1. Dans la section **Configuration de BenSelect**, cliquez sur **Configurer BenSelect** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez **l’URL de déconnexion, l’ID d’entité SAML et l’URL du service d’authentification unique SAML** à partir de la **section Référence rapide.**
+### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 
-    ![Configurer l'authentification unique](./media/benselect-tutorial/tutorial_benselect_configure.png) 
+Dans cette section, vous allez autoriser B.Simon à utiliser l’authentification unique Azure en accordant l’accès à BenSelect.
 
-1. Pour configurer l’authentification unique côté **BenSelect**, vous devez envoyer le **Certificat (brut)** téléchargé et **l’URL de déconnexion, l’ID d’entité SAML et l’URL du service d’authentification unique SAML** à [l’équipe du support BenSelect](mailto:support@selerix.com).
-
-   >[!NOTE]
-   >Vous devez indiquer que cette intégration nécessite l’algorithme SHA256 (SHA1 n’est pas pris en charge) pour définir l’authentification unique sur le serveur approprié, comme app2101, etc. 
-   
-> [!TIP]
-> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Pour en savoir plus sur la fonctionnalité de documentation incorporée, accédez à : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
-
-### <a name="creating-an-azure-ad-test-user"></a>Création d’un utilisateur de test Azure AD
-L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure.
-
-![Créer un utilisateur Azure AD][100]
-
-**Pour créer un utilisateur de test dans Azure AD, procédez comme suit :**
-
-1. Dans le panneau de navigation gauche du **portail Azure**, cliquez sur l’icône **Azure Active Directory**.
-
-    ![Création d’un utilisateur de test Azure AD](./media/benselect-tutorial/create_aaduser_01.png) 
-
-1. Pour afficher la liste des utilisateurs, accédez à **Utilisateurs et groupes**, puis cliquez sur **Tous les utilisateurs**.
-    
-    ![Création d’un utilisateur de test Azure AD](./media/benselect-tutorial/create_aaduser_02.png) 
-
-1. Pour ouvrir la boîte de dialogue **Utilisateur**, cliquez sur **Ajouter** en haut de la boîte de dialogue.
- 
-    ![Création d’un utilisateur de test Azure AD](./media/benselect-tutorial/create_aaduser_03.png) 
-
-1. Dans la boîte de dialogue **Utilisateur**, procédez comme suit :
- 
-    ![Création d’un utilisateur de test Azure AD](./media/benselect-tutorial/create_aaduser_04.png) 
-
-    a. Dans la zone de texte **Nom**, entrez **BrittaSimon**.
-
-    b. Dans la zone de texte **Nom d’utilisateur**, tapez **l’adresse e-mail** de Britta Simon.
-
-    c. Sélectionnez **Afficher le mot de passe** et notez la valeur du **mot de passe**.
-
-    d. Cliquez sur **Créer**.
- 
-### <a name="creating-a-benselect-test-user"></a>Création d’un utilisateur test BenSelect
-
-L’objectif de cette section est de créer un utilisateur appelé Britta Simon dans BenSelect. Pour ajouter des utilisateurs dans le compte BenSelect, contactez [l’équipe du support BenSelect](mailto:support@selerix.com).
-
-### <a name="assigning-the-azure-ad-test-user"></a>Affectation de l’utilisateur de test Azure AD
-
-Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentification unique Azure en lui accordant l’accès à BenSelect.
-
-![Affecter des utilisateurs][200] 
-
-**Pour affecter Britta Simon à BenSelect, procédez comme suit :**
-
-1. Dans le portail Azure, ouvrez la vue des applications, accédez à la vue des répertoires, accédez à **Applications d’entreprise**, puis cliquez sur **Toutes les applications**.
-
-    ![Affecter des utilisateurs][201] 
-
+1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
 1. Dans la liste des applications, sélectionnez **BenSelect**.
+1. Dans la page de vue d’ensemble de l’application, recherchez la section **Gérer** et sélectionnez **Utilisateurs et groupes**.
 
-    ![Configurer l'authentification unique](./media/benselect-tutorial/tutorial_benselect_app.png) 
+   ![Lien « Utilisateurs et groupes »](common/users-groups-blade.png)
 
-1. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
+1. Sélectionnez **Ajouter un utilisateur**, puis **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
 
-    ![Affecter des utilisateurs][202] 
+    ![Lien Ajouter un utilisateur](common/add-assign-user.png)
 
-1. Cliquez sur le bouton **Ajouter**. Ensuite, sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une affectation**.
+1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **B. Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** au bas de l’écran.
+1. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle**, sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
+1. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
 
-    ![Affecter des utilisateurs][203]
+### <a name="create-benselect-test-user"></a>Créer un utilisateur de test BenSelect
 
-1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste des utilisateurs.
+Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans BenSelect. Pour ajouter des utilisateurs dans la plateforme BenSelect, contactez  [l’équipe du support BenSelect](mailto:support@selerix.com). Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 
-1. Cliquez sur le bouton **Sélectionner** dans la boîte de dialogue **Utilisateurs et groupes**.
+### <a name="test-sso"></a>Tester l’authentification unique (SSO)
 
-1. Cliquez sur le bouton **Affecter** dans la boîte de dialogue **Ajouter une affectation**.
-    
-### <a name="testing-single-sign-on"></a>Test de l’authentification unique
+Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
-Dans cette section, vous allez tester la configuration SSO Azure AD à l’aide du volet d’accès.
-
-Quand vous cliquez sur la vignette BenSelect dans le volet d’accès, vous devez être connecté automatiquement à votre application BenSelect.
+Quand vous cliquez sur la vignette BenSelect dans le volet d’accès, vous devez être connecté automatiquement à l’application BenSelect pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-* [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](tutorial-list.md)
-* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md)
+- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-<!--Image references-->
+- [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-[1]: ./media/benselect-tutorial/tutorial_general_01.png
-[2]: ./media/benselect-tutorial/tutorial_general_02.png
-[3]: ./media/benselect-tutorial/tutorial_general_03.png
-[4]: ./media/benselect-tutorial/tutorial_general_04.png
-
-[100]: ./media/benselect-tutorial/tutorial_general_100.png
-
-[200]: ./media/benselect-tutorial/tutorial_general_200.png
-[201]: ./media/benselect-tutorial/tutorial_general_201.png
-[202]: ./media/benselect-tutorial/tutorial_general_202.png
-[203]: ./media/benselect-tutorial/tutorial_general_203.png
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

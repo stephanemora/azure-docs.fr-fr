@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/22/2019
 ms.author: jeedes
-ms.openlocfilehash: e18c5dfe3649f74a9f84c605785ca99748298bea
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cc78b08c25ada2bf1ed67f4c27246bc873823516
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67086130"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68943119"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zivver"></a>Didacticiel : Intégration d’Azure Active Directory à ZIVVER
 
@@ -107,7 +107,7 @@ Pour configurer l’authentification unique Azure AD avec ZIVVER, effectuez les
 
     Dans la zone de texte **Identificateur**, tapez une URL :  `https://app.zivver.com/SAML/Zivver`
 
-5. L’application ZIVVER s’attend à recevoir les assertions SAML dans un certain format, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à la configuration des attributs de jetons SAML. La capture d’écran suivante montre la liste des attributs par défaut, où  **nameidentifier** est mappé à **user.userprincipalname**. L’application ZIVVER s’attend à ce que  **nameidentifier** soit mappé à  **user.mail**. Vous devez donc modifier le mappage d’attribut en cliquant sur l’icône  **Modifier** .
+5. L’application ZIVVER s’attend à recevoir les assertions SAML dans un certain format, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à la configuration des attributs de jetons SAML. La capture d’écran suivante montre la liste des attributs par défaut, où **nameidentifier** est mappé avec **user.userprincipalname**. L’application ZIVVER s’attend à ce que **nameidentifier** soit mappé sur **user.mail**. Vous devez donc modifier le mappage d’attribut en cliquant sur l’icône **Modifier**.
 
     ![image](common/edit-attribute.png)
 
@@ -218,7 +218,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 ### <a name="create-zivver-test-user"></a>Créer un utilisateur de test ZIVVER
 
-Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans ZIVVER. Collaborez avec l’ [équipe du support technique ZIVVER](https://support.zivver.com/) pour ajouter les utilisateurs à la plateforme ZIVVER. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
+Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans ZIVVER. Collaborez avec l’[équipe du support technique ZIVVER](https://support.zivver.com/) pour ajouter des utilisateurs dans la plate-forme ZIVVER. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 
 ### <a name="test-single-sign-on"></a>Tester l’authentification unique 
 

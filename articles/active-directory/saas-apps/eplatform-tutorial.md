@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: jeedes
-ms.openlocfilehash: 61946f77ddffe999e55acd09e3957d91c621492b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 557f07f3e99365bbfca7f0b0d70c0c0cd928c2e6
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67103236"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68944403"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-eplatform"></a>Didacticiel : Intégration d’Azure Active Directory à ePlatform
 
@@ -117,7 +117,7 @@ Pour configurer l’authentification unique Azure AD avec ePlatform, effectuez l
 
     ![Copier la valeur de l’empreinte](common/copy-thumbprint.png)
 
-7. L’application ePlatform s’attend à recevoir les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à votre configuration Attributs du jeton SAML. La capture d’écran suivante montre la liste des attributs par défaut. Cliquez sur l’icône  **Modifier** pour ouvrir la boîte de dialogue  **Attributs utilisateur** .
+7. L’application ePlatform s’attend à recevoir les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à votre configuration Attributs du jeton SAML. La capture d’écran suivante montre la liste des attributs par défaut. Cliquez sur l’icône **Modifier** pour ouvrir la boîte de dialogue **Attributs d’utilisateur**.
 
     ![image](common/edit-attribute.png)
 
@@ -212,7 +212,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 ### <a name="create-eplatform-test-user"></a>Créer un utilisateur de test ePlatform
 
-Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans ePlatform. Collaborez avec l’ [équipe du support technique ePlatform](https://help.eplatform.co/hc/en-us) pour ajouter des utilisateurs dans la plateforme ePlatform. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
+Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans ePlatform. Collaborez avec l’[équipe du support technique ePlatform](https://help.eplatform.co/hc/en-us) pour ajouter des utilisateurs dans la plateforme ePlatform. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 
 ### <a name="test-single-sign-on"></a>Tester l’authentification unique 
 

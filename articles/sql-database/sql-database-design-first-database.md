@@ -23,7 +23,7 @@ Azure SQL Database est une solution DBaaS relationnelle dans Microsoft Cloud (A
 > [!div class="checklist"]
 > - Créer une base de données unique à l’aide du portail Azure*
 > - Configurer une règle de pare-feu IP au niveau du serveur à l’aide du portail Azure
-> - Connexion à la base de données avec SSMS
+> - Se connecter à la base de données avec SSMS
 > - Créer des tables avec SSMS
 > - Charger en masse des données avec BCP
 > - Interroger des données avec SSMS
@@ -46,7 +46,7 @@ Pour suivre ce tutoriel, vérifiez que les éléments suivants sont installés 
 
 Connectez-vous au [Portail Azure](https://portal.azure.com/).
 
-## <a name="create-a-blank-single-database"></a>créer une base de données unique vide.
+## <a name="create-a-blank-single-database"></a>Créer une base de données unique vide.
 
 Une base de données unique dans Azure SQL Database est créée avec un ensemble défini de ressources de calcul et de stockage. Cette base de données est créée dans un [groupe de ressources Azure](../azure-resource-manager/resource-group-overview.md) et elle est gérée à l’aide d’un [serveur de base de données](sql-database-servers.md).
 
@@ -206,7 +206,7 @@ Le diagramme suivant montre comment ces tables sont liées entre elles. Certaine
    )
    ```
 
-   ![créez des tables](./media/sql-database-design-first-database/create-tables.png)
+   ![Créer des tables](./media/sql-database-design-first-database/create-tables.png)
 
 3. Développez le nœud **Tables** sous *yourDatabase* dans l’**Explorateur d’objets** pour afficher les tables que vous avez créées.
 
@@ -274,7 +274,7 @@ Dans ce tutoriel, vous avez découvert de nombreuses tâches de base de données
 > - Créer une base de données unique
 > - Configurer une règle de pare-feu IP au niveau du serveur
 > - Vous connecter à la base de données avec [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS)
-> - créez des tables
+> - Créer des tables
 > - Charger des données en bloc
 > - Interroger ces données
 

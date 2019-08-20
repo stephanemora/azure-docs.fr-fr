@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/24/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 07341c1ad30f1242bdff430826fdc82c45e09dac
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 07b0f8112f724c857ffb46378f7aa7ef605b9bbb
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67086068"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68943290"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-beta"></a>Didacticiel : Intégration d’Azure Active Directory à Zscaler Beta
 
@@ -112,7 +112,7 @@ Pour configurer l’authentification unique Azure AD avec Zscaler Beta, effectue
     > [!NOTE]
     > Cette valeur n’est pas réelle. Remplacez-la par la valeur d’URL de connexion réelle. Pour obtenir la valeur, contactez l’[équipe de support technique de Zscaler Beta](https://www.zscaler.com/company/contact).
 
-5. L’application Zscaler Beta attend les assertions SAML dans un format spécifique. L’utilisateur doit ajouter des mappages d’attributs personnalisés à la configuration d’attributs de jeton SAML. La capture d’écran suivante montre la liste des attributs par défaut. Sélectionnez  **Modifier** pour ouvrir la boîte de dialogue **Attributs utilisateur** .
+5. L’application Zscaler Beta attend les assertions SAML dans un format spécifique. L’utilisateur doit ajouter des mappages d’attributs personnalisés à la configuration d’attributs de jeton SAML. La capture d’écran suivante montre la liste des attributs par défaut. Sélectionnez **Modifier** pour ouvrir la boîte de dialogue **Attributs utilisateur**.
 
     ![Boîte de dialogue Attributs utilisateur](common/edit-attribute.png)
 

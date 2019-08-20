@@ -10,12 +10,12 @@ ms.subservice: anomaly-detector
 ms.topic: overview
 ms.date: 03/26/2019
 ms.author: aahi
-ms.openlocfilehash: 80e0984deff83726fd96a462a1ae8a4375db9d2e
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 70cb4a008391ad55562bc55fb45d877988e68643
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67721607"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68854770"
 ---
 # <a name="what-is-the-anomaly-detector-api"></a>Présentation de l’API Détecteur d’anomalies
 
@@ -38,15 +38,22 @@ Grâce au détecteur d’anomalies, vous pouvez automatiquement détecter des an
 
 ## <a name="demo"></a>Démonstration
 
-Pour commencer rapidement à utiliser l’API Détecteur d’anomalies, testez une [démonstration en ligne](https://notebooks.azure.com/AzureAnomalyDetection/projects/anomalydetector) qui peut être exécutée dans votre navigateur. Cette démonstration s’exécute dans un notebook Jupyter hébergé sur le web et vous montre comment envoyer une demande d’API et visualiser le résultat.
+Consultez cette [démonstration interactive](https://aka.ms/adDemo) pour comprendre le fonctionnement du détecteur d’anomalies.
+Pour exécuter la démonstration, vous devez créer une ressource Détecteur d’anomalies et récupérer la clé API ainsi que le point de terminaison.
 
-Pour exécuter la démonstration, procédez comme suit :
+## <a name="notebook"></a>Bloc-notes
 
-1. Obtenez une clé d’abonnement valide pour l’API Détecteur d’anomalies et un point de terminaison d’API. La section ci-dessous donne les instructions pour s’inscrire. 
-2. Connectez-vous, puis cliquez sur Cloner en haut à droite.
-3. Cliquez sur **Exécuter sur le calcul gratuit**
-4. Sélectionnez un des notebooks pour cet exemple.
-5. Ajoutez votre clé d’abonnement à l’API Détecteur d'anomalies valide à la variable `subscription_key`. Modifiez la variable `endpoint` à votre point de terminaison. Par exemple : `https://westus2.api.cognitive.microsoft.com`
+Pour savoir comment appeler l’API Détecteur d’anomalies, essayez ce [notebook Azure](https://aka.ms/adNotebook). Ce notebook Jupyter hébergé sur le web vous montre comment envoyer une demande d’API et visualiser le résultat.
+
+Pour exécuter le notebook, procédez comme suit :
+
+1. Obtenez une clé d’abonnement valide pour l’API Détecteur d’anomalies et un point de terminaison d’API. La section ci-dessous donne les instructions pour s’inscrire.
+1. Connectez-vous, puis cliquez sur Cloner en haut à droite.
+1. Désactivez l’option « public » dans la boîte de dialogue avant de procéder à l’opération de clonage. Dans le cas contraire, votre notebook, avec toutes les clés d’abonnement, sera public.
+1. Cliquez sur **Exécuter sur le calcul gratuit**
+1. Sélectionnez l’un des notebooks.
+1. Ajoutez votre clé d’abonnement à l’API Détecteur d'anomalies valide à la variable `subscription_key`. 
+1. Modifiez la variable `endpoint` à votre point de terminaison. Par exemple : `https://westus2.api.cognitive.microsoft.com/anomalydetector/v1.0/timeseries/last/detect`
 1. Dans la barre de menus supérieure, cliquez sur **Cellule**, puis sur **Exécuter tout**.
 
 ## <a name="workflow"></a>Workflow
@@ -62,6 +69,13 @@ Après l’inscription :
 1. Prenez vos données de série chronologique et convertissez-les en format JSON valide. Utilisez les [meilleures pratiques](concepts/anomaly-detection-best-practices.md) lors de la préparation de vos données pour obtenir les meilleurs résultats.
 1. Envoyez une demande à l’API Détecteur d’anomalies avec vos données.
 1. Traitez la réponse de l’API en analysant le message JSON renvoyé.
+
+## <a name="algorithms"></a>Algorithmes
+
+* Reportez-vous au blog technique [Introducing Azure Anomaly Detector API](https://techcommunity.microsoft.com/t5/AI-Customer-Engineering-Team/Introducing-Azure-Anomaly-Detector-API/ba-p/490162) sur les algorithmes sous-jacents.
+* Reportez-vous au document [Time-Series Anomaly Detection Service at Microsoft](https://arxiv.org/abs/1906.03821) (accepté par KDD 2019) pour les algorithmes SR-CNN de pointe développés par Microsoft.
+
+> [!VIDEO https://www.youtube.com/embed/ERTaAnwCarM]
 
 ## <a name="next-steps"></a>Étapes suivantes
 
