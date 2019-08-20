@@ -19,6 +19,10 @@
 - name: Concepts
   expanded: false
   items:
+    - name: Adoption de l’accès conditionnel
+      href: howto-conditional-access-adoption-kit.md
+    - name: Stratégies d’accès conditionnel courantes
+      href: concept-conditional-access-policy-common.md
     - name: Conditions
       href: conditions.md
     - name: Conditions d’emplacement
@@ -38,6 +42,22 @@
       href: plan-conditional-access.md
     - name: Bonnes pratiques
       href: best-practices.md
+    - name: Modèles de stratégie courants
+      items:
+        - name: Exiger MFA pour les administrateurs
+          href: howto-conditional-access-policy-admin-mfa.md
+        - name: Exiger MFA pour la gestion Azure
+          href: howto-conditional-access-policy-azure-management.md
+        - name: Bloquer l’authentification héritée
+          href: howto-conditional-access-policy-block-legacy.md
+        - name: Accès conditionnel basé sur les risques
+          href: howto-conditional-access-policy-risk.md
+        - name: Exiger un emplacement approuvé pour l’inscription MFA
+          href: howto-conditional-access-policy-registration.md
+        - name: Bloquer l’accès par emplacement
+          href: howto-conditional-access-policy-location.md
+        - name: Exiger un appareil conforme
+          href: howto-conditional-access-policy-compliant-device.md
     - name: Bloquer l’authentification héritée
       href: block-legacy-authentication.md
     - name: Accès conditionnel pour l’inscription MFA

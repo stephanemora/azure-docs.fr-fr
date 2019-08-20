@@ -273,6 +273,8 @@
       items:
         - name: Mettre à niveau vers la 2e génération
           href: upgrade-to-latest-generation.md
+        - name: Gérer le calcul
+          href: manage-compute-with-azure-functions.md
         - name: Superviser votre charge de travail - Portail
           href: sql-data-warehouse-monitor-workload-portal.md
         - name: Superviser votre charge de travail - DMV

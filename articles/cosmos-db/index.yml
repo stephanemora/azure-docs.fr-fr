@@ -64,7 +64,7 @@ sections:
               src: media/index/spark-logo.png
             title: Analytique intégrée à Apache Spark
           - href: /azure/cosmos-db/change-feed/
-            html: <p>Effectuez des analyses en temps réel avec prise en charge du flux de modification en lisant la liste triée des documents d’un conteneur Azure Cosmos DB dans l’ordre dans lequel ils ont été modifiés. </p>
+            html: <p>Procédez à une analytique en temps réel avec prise en charge du flux de modification en lisant la liste triée des documents d’un conteneur Azure Cosmos dans l’ordre dans lequel ils ont été modifiés. </p>
             image:
               src: media/index/change-feed-logo.png
             title: Modifier le flux

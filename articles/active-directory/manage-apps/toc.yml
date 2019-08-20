@@ -29,6 +29,8 @@
           items:
             - name: Bien démarrer avec l’intégration d’applications
               href: plan-an-application-integration.md
+            - name: Planifier le déploiement d’un volet d’accès
+              href: access-panel-deployment-plan.md
             - name: Aide pour les développeurs
               href: developer-guidance-for-integrating-applications.md
         - name: Authentification unique
