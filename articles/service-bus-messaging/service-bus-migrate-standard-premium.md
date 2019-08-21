@@ -109,7 +109,7 @@ La migration à l’aide du portail Azure suit le même flux logique que la migr
    1. Sélectionnez **Démarrer la synchronisation** pour lancer la synchronisation des entités.
    1. Sélectionnez **Oui** dans la boîte de dialogue pour confirmer et démarrer la synchronisation.
    1. Attendez la fin de la synchronisation. Le statut est disponible dans la barre d'état.
-        ![Configurer l'espace de noms - synchroniser les entités - avancement][].
+        ![Configurer l'espace de noms - synchroniser les entités - avancement][]
         >[!IMPORTANT]
         > Si vous avez besoin d'interrompre la migration pour une raison quelconque, veuillez consulter la section FAQ de ce document.
    1. Une fois la synchronisation terminée, sélectionnez **Suivant** en bas de la page.
