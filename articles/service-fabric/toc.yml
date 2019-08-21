@@ -4,7 +4,7 @@
   items:
     - name: Qu’est-ce que Service Fabric ?
       href: service-fabric-overview.md
-- name: Guides de démarrage rapide
+- name: Démarrages rapides
   expanded: true
   items:
     - name: Créer une application .NET
@@ -108,7 +108,7 @@
 - name: Exemples
   items:
     - name: Exemples de code
-      href: 'https://azure.microsoft.com/resources/samples/?service=service-fabric'
+      href: 'https://docs.microsoft.com/samples/browse/'
     - name: Azure PowerShell
       href: service-fabric-powershell-samples.md
     - name: CLI Service Fabric
@@ -354,7 +354,7 @@
       href: service-fabric-api-management-overview.md
     - name: Modèle de ressource d’application
       href: service-fabric-concept-resource-model.md
-    - name: Identité managée
+    - name: Identité managée (préversion)
       href: concepts-managed-identity.md
 - name: Guides pratiques
   items:
@@ -747,7 +747,7 @@
           href: service-fabric-reverse-proxy-diagnostics.md
         - name: Résoudre les problèmes de votre cluster local
           href: service-fabric-troubleshoot-local-cluster-setup.md
-    - name: Utiliser Managed Identity pour les applications Service Fabric
+    - name: Utiliser Managed Identity pour les applications Service Fabric (préversion)
       items:
         - name: Configuration des clusters
           items:

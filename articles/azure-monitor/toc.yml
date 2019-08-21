@@ -930,6 +930,8 @@
               href: platform/alerts-understand-migration.md
             - name: Utiliser l’outil de migration
               href: platform/alerts-using-migration-tool.md
+            - name: Processus de migration automatique
+              href: platform/alerts-automatic-migration.md
             - name: Gérer les alertes de métrique classiques
               href: platform/alerts-classic-portal.md
             - name: Alerte de métrique classique avec un modèle Resource Manager
@@ -1048,7 +1050,7 @@
               href: app/data-model-metric-telemetry.md
             - name: Context
               href: app/data-model-context.md
-    - name: Azure CLI
+    - name: D’Azure CLI
       href: /cli/azure/monitor?view=azure-cli-latest
     - name: Azure CLI - Application Insights (préversion)
       href: 'https://docs.microsoft.com/cli/azure/ext/application-insights/monitor?view=azure-cli-latest'

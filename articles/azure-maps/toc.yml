@@ -149,6 +149,8 @@
           href: display-feature-information-android.md
         - name: Ajouter un calque de vignettes
           href: how-to-add-tile-layer-android-map.md
+    - name: Fournir des commentaires sur les données
+      href: how-to-use-feedback-tool.md
 - name: Informations de référence
   items:
     - name: Extensions d’API et de paramètre

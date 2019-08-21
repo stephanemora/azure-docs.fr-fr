@@ -72,7 +72,7 @@
   items:
     - name: Laboratoires de salle de classe
       items:
-        - name: Créer et configurer des comptes lab
+        - name: Créer et configurer des comptes lab (propriétaire de compte lab)
           items:
             - name: Créer et gérer des comptes lab
               href: classroom-labs/how-to-manage-lab-accounts.md
@@ -82,7 +82,7 @@
               href: classroom-labs/how-to-connect-peer-virtual-network.md
             - name: Attacher ou détacher une galerie d’images partagées
               href: classroom-labs/how-to-attach-detach-shared-image-gallery.md
-        - name: 'Créer, configurer et utiliser des laboratoires de classe'
+        - name: Créer et configurer des laboratoires de classe (enseignant)
           items:
             - name: Créer et gérer des laboratoires de classe
               href: classroom-labs/how-to-manage-classroom-labs.md
@@ -90,8 +90,6 @@
               href: classroom-labs/how-to-create-manage-template.md
             - name: Configurer et contrôler l’utilisation
               href: classroom-labs/how-to-configure-student-usage.md
-            - name: Accéder aux laboratoires de salle de classe
-              href: classroom-labs/how-to-use-classroom-lab.md
             - name: Créer et gérer des planifications
               href: classroom-labs/how-to-create-schedules.md
             - name: Créer un environnement avec plusieurs machines virtuelles dans une machine virtuelle modèle
@@ -102,6 +100,10 @@
               href: classroom-labs/how-to-enable-remote-desktop-linux.md
             - name: Définir ou réinitialiser les mots de passe des machines virtuelles
               href: classroom-labs/how-to-set-virtual-machine-passwords.md
+        - name: Se connecter à des machines virtuelles dans des laboratoires de classe (étudiant)
+          items:
+            - name: Accéder aux laboratoires de salle de classe
+              href: classroom-labs/how-to-use-classroom-lab.md
     - name: DevTest Labs
       items:
         - name: Configurer un laboratoire
@@ -120,6 +122,8 @@
               href: configure-lab-remote-desktop-gateway.md
             - name: Publier une annonce dans un laboratoire
               href: devtest-lab-announcements.md
+            - name: Activer la connexion du navigateur sur les machines virtuelles
+              href: enable-browser-connection-lab-virtual-machines.md
             - name: Configurer la gestion des coûts
               href: devtest-lab-configure-cost-management.md
             - name: Envoyer des notifications d’arrêt automatique
@@ -166,6 +170,8 @@
               href: devtest-lab-use-resource-manager-template.md
             - name: Créer une machine virtuelle avec une image Shared Image Gallery
               href: add-vm-use-shared-image.md
+            - name: Se connecter à votre machine virtuelle via un navigateur
+              href: connect-virtual-machine-through-browser.md
             - name: Démarrer ou arrêter une machine virtuelle avec PowerShell ou CLI
               href: use-command-line-start-stop-virtual-machines.md
             - name: Redémarrer une machine virtuelle
