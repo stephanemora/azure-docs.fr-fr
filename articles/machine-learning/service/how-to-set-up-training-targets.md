@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 06/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 267872f2036a0e697f4b2da65064805a0cfbd2b7
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 72155e072acb8006b48f6951fc60081126c80691
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68358741"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68990457"
 ---
 # <a name="set-up-compute-targets-for-model-training"></a>Configurer des cibles de calcul pour l’entraînement des modèles 
 
@@ -47,7 +47,7 @@ La prise en charge par Azure Machine Learning service varie selon les cibles de 
 
 Lors de l’apprentissage, il est courant de commencer par exécuter le script d’apprentissage sur l’ordinateur local, avant de l’exécuter sur une autre cible de calcul. Avec Azure Machine Learning service, vous pouvez exécuter votre script sur différentes cibles de calcul sans avoir à le modifier. 
 
-Il vous suffit de définir l’environnement pour chaque cible de calcul avec une **configuration de série de tests**.  Ensuite, lorsque vous souhaitez exécuter votre expérience de formation sur une autre cible de calcul, spécifiez la configuration de série de tests pour celle-ci. 
+Il vous suffit de définir l’environnement pour chaque cible de calcul avec une **configuration de série de tests**.  Ensuite, lorsque vous souhaitez exécuter votre expérience de formation sur une autre cible de calcul, spécifiez la configuration de série de tests pour celle-ci.
 
 Pour en savoir plus, voir [Envoi d’expériences](#submit) à la fin de cet article.
 
@@ -74,7 +74,26 @@ Pour un environnement géré par l'utilisateur, vous êtes responsable de la con
 Le code suivant présente un exemple de configuration d’exécutions d’apprentissage pour un environnement géré par l’utilisateur :
 
 [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/runconfig.py?name=run_user_managed)]
-  
+
+## <a name="whats-an-estimator"></a>Est-ce qu’un estimateur ?
+
+Pour faciliter une formation de modèles à l’aide d’infrastructures populaires, le kit de développement logiciel (SDK) Python d’Azure Machine Learning fournit une alternative d’abstraction de plus haut niveau, la classe d’estimateur. Cette classe vous permet de construire facilement des configurations de série de tests. Vous pouvez créer et utiliser un [estimateur](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py) générique pour envoyer des scripts d’apprentissage qui utilisent toute infrastructure de formation que vous choisissez (comme scikit-Learn).
+
+Pour les tâches PyTorch, TensorFlow et Chainer, Azure Machine Learning fournit aussi les estimateurs [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py), [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py) et [Chainer](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py), qui simplifient l’utilisation de ces frameworks.
+
+Pour plus d’informations, consultez [Former des modèles ML avec estimateurs](how-to-train-ml-models.md).
+
+## <a name="whats-an-ml-pipeline"></a>Qu’est-ce qu’un pipeline ML ?
+
+Avec les pipelines ML, vous pouvez optimiser votre flux de travail en profitant de ces avantages : simplicité, rapidité, portabilité et réutilisation. Le fait de créer des pipelines avec Azure Machine Learning vous permet de vous concentrer sur votre domaine d’expertise, le Machine Learning, plutôt que sur l’infrastructure et l’automatisation.
+
+Les pipelines ML sont construits à partir de plusieurs **étapes**, qui sont des unités de calcul distinctes dans le pipeline. Chaque étape peut s’exécuter indépendamment et utiliser des ressources de calcul isolées. Cela permet à plusieurs scientifiques de données de travailler sur le même pipeline en même temps sans surcharge des ressources de calcul, et cela facilite également l’utilisation de différents types/tailles de calcul pour chaque étape.
+
+> [!TIP]
+> Les pipelines ML peuvent utiliser la configuration de série de tests ou des estimateurs lors de l’apprentissage des modèles.
+
+Alors que des pipelines ML peuvent former des modèles, ils peuvent également préparer des données avant de former et déployer des modèles après l’apprentissage. L’un des principaux cas d’utilisation pour les pipelines est la notation par lots. Pour plus d’informations, consultez [Pipelines : optimiser les workflows Machine Learning](concept-ml-pipelines.md).
+
 ## <a name="set-up-in-python"></a>Configurer dans Python
 
 Reportez-vous aux sections ci-dessous pour configurer ces cibles de calcul :

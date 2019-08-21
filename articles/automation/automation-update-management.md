@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 05/22/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 1bb437511ed89de626489516ce5b06664ace6fba
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.openlocfilehash: 51ef55247d3262d8707403ed09cc8643403dda23
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68741857"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68952980"
 ---
 # <a name="update-management-solution-in-azure"></a>Solution Update Management dans Azure
 
@@ -84,6 +84,7 @@ Le tableau suivant répertorie la liste des systèmes d’exploitation pris en c
 
 > [!NOTE]
 > Les groupes de machines virtuelles identiques Azure peuvent être gérés avec Update Management. Update Management fonctionne sur les instances, mais pas sur l’image de base. Vous devez planifier les mises à jour de façon incrémentielle, afin de ne pas mettre à jour toutes les instances de machines virtuelles en même temps.
+> Vous pouvez ajouter des nœuds VMSS en suivant les étapes figurant sous [Intégrer une machine non-Azure](automation-tutorial-installed-software.md#onboard-a-non-azure-machine).
 
 ### <a name="unsupported-client-types"></a>Types de clients non pris en charge
 
@@ -93,6 +94,7 @@ Le tableau suivant répertorie les systèmes d’exploitation qui ne sont pas pr
 |---------|---------|
 |Client Windows     | Les systèmes d’exploitation client (par exemple, Windows 7 et Windows 10) ne sont pas pris en charge.        |
 |Windows Server 2016 Nano Server     | Non pris en charge.       |
+|Nœuds Azure Kubernetes Service (AKS) | Non pris en charge. Utilisez le processus de correction détaillé dans [Appliquer des mises à jour de sécurité et du noyau à des nœuds Linux dans Azure Kubernetes Service (AKS)](../aks/node-updates-kured.md)|
 
 ### <a name="client-requirements"></a>Configuration requise des clients
 
@@ -359,6 +361,10 @@ Les adresses suivantes sont exigées particulièrement pour Update Management. L
 |*.oms.opinsights.azure.com     | *.oms.opinsights.azure.us        |
 |*.blob.core.windows.net|*.blob.core.usgovcloudapi.net|
 |\* .azure-automation.net|*.azure-automation.us|
+
+Pour les machines Windows, vous devez également autoriser le trafic vers tous les points de terminaison requis par Windows Update.  Vous trouverez une liste actualisée des points de terminaison requis dans [Problèmes liés à HTTP/au Proxy](/windows/deployment/update/windows-update-troubleshooting#issues-related-to-httpproxy). Si vous disposez d’un [Windows Update Server](/windows-server/administration/windows-server-update-services/plan/plan-your-wsus-deployment) local, vous devez également autoriser le trafic vers le serveur spécifié dans votre [clé WSUS](/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-registry).
+
+Pour les machines Red Hat Linux, reportez-vous aux [adresses IP des serveurs de distribution de contenu RHUI](../virtual-machines/linux/update-infrastructure-redhat.md#the-ips-for-the-rhui-content-delivery-servers) pour les points de terminaison requis. Pour les autres distributions Linux, reportez-vous à la documentation du fournisseur.
 
 Pour plus d’informations sur les ports exigés par le Runbook Worker hybride, consultez [Ports du rôle de Worker hybride](automation-hybrid-runbook-worker.md#hybrid-worker-role).
 

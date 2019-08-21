@@ -6,21 +6,24 @@ author: asgang
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 04/08/2019
+ms.date: 08/08/2019
 ms.author: sutalasi
-ms.openlocfilehash: 5e5ae11a00b2a3656deceeeaf928536238a325fc
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 1bb94b70510be30d676ad707ab2fbfbbcbf50833
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68840635"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68884128"
 ---
 # <a name="replicate-azure-disk-encryption-enabled-virtual-machines-to-another-azure-region"></a>Répliquer des machines virtuelles prenant en charge Azure Disk Encryption vers une autre région Azure
 
 Cet article décrit comment répliquer des machines virtuelles prenant en charge Azure Disk Encryption d’une région Azure vers une autre.
 
 >[!NOTE]
->Azure Site Recovery prend actuellement en charge uniquement les machines virtuelles Azure qui exécutent un système d’exploitation Windows.
+>Azure Site Recovery prend actuellement en charge uniquement les machines virtuelles Azure Disk Encryption qui exécutent un système d’exploitation Windows. Les machines virtuelles Azure Disk Encryption sans application Azure AD ne sont prises en charge que si elles utilisent des disques managés. Les machines virtuelles avec des disques non managés ne sont pas prises en charge.
+
+>[!NOTE]
+>Si vous passez d’ADE v1 (avec application Azure AD) à ADE v2 (sans application Azure AD), vous devez désactiver la réplication puis activer la réplication après avoir activé ADE v2.
 
 ## <a id="required-user-permissions"></a> Autorisations utilisateur requises
 Site Recovery a besoin que l’utilisateur dispose d’une autorisation de création du coffre de clés dans la région cible et d’une autorisation de copie des clés du coffre de clés de la région source dans le coffre de la région cible.

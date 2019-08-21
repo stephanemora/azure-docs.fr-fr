@@ -9,14 +9,14 @@ editor: ''
 ms.service: api-management
 ms.workload: integration
 ms.topic: article
-ms.date: 08/01/2019
+ms.date: 08/12/2019
 ms.author: apimpm
-ms.openlocfilehash: b3513ab2583939943ff188b582f57f49530e5ded
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 45e1ad6bd757ec5acaf784c94e4cfb5e487ce9ba
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68736261"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68975735"
 ---
 # <a name="configure-a-custom-domain-name"></a>Configuration d’un nom de domaine personnalisé
 
@@ -34,7 +34,8 @@ Pour effectuer les étapes décrites dans cet article, vous devez disposer des �
     [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 -   Une instance APIM. Pour en savoir plus, voir [Créer une instance de gestion des API Azure](get-started-create-service-instance.md).
--   Un nom de domaine personnalisé qui vous appartient. Vous devez vous procurer séparément le nom de domaine personnalisé que vous souhaitez utiliser. De plus, il doit être hébergé sur un serveur DNS. Cette rubrique ne donne aucune instruction sur l’hébergement d’un nom de domaine personnalisé.
+-   Un nom de domaine personnalisé qui vous appartient ou à votre organisation. Cette rubrique ne fournit aucune instruction sur l’approvisionnement d’un nom de domaine personnalisé.
+-   Un enregistrement CNAME hébergé sur un serveur DNS qui mappe le nom de domaine personnalisé au nom de domaine par défaut de votre instance Gestion des API. Cette rubrique ne fournit aucune instruction sur l’hébergement d’un enregistrement CNAME.
 -   Vous devez disposer d’un certificat valide et d’une clé publique et privée (.PFX). L’objet ou l’autre nom de l’objet (SAN) doit correspondre au nom du domaine. Cela permet à l’instance APIM d’exposer des URL de manière sécurisée, via SSL.
 
 ## <a name="use-the-azure-portal-to-set-a-custom-domain-name"></a>Utiliser le portail Azure pour définir un nom de domaine personnalisé
@@ -52,13 +53,17 @@ Pour effectuer les étapes décrites dans cet article, vous devez disposer des �
     > [!NOTE]
     > Seul le point de terminaison de la **passerelle** peut être configuré dans le niveau de consommation.
     > Vous pouvez mettre à jour tous les points de terminaison ou certains d’entre eux. En règle générale, les clients mettent à jour les points de terminaison **Passerelle** (cette URL est utilisée pour appeler l’API exposée via la gestion des API) et **Portail** (URL du portail des développeurs).
-    > Les points de terminaison **Gestion** et **SCM** sont utilisés en interne par les propriétaires d’instance APIM uniquement. Pour cette raison, ils se voient moins fréquemment attribuer un nom de domaine personnalisé. Toutefois, le niveau **Premium** prend en charge la définition de plusieurs noms d’hôte pour le point de terminaison **Passerelle**.
+    > Les points de terminaison **Gestion** et **SCM** sont utilisés en interne par les propriétaires d’instance APIM uniquement. Pour cette raison, ils se voient moins fréquemment attribuer un nom de domaine personnalisé.
+    > Toutefois, le niveau **Premium** prend en charge la définition de plusieurs noms d’hôte pour le point de terminaison **Passerelle**.
 
 1. Sélectionnez le point de terminaison que vous souhaitez mettre à jour.
 1. Dans la fenêtre de droite, cliquez sur **Personnalisé**.
 
-    - Dans la zone **Nom de domaine personnalisé**, spécifiez le nom que vous souhaitez utiliser. Par exemple : `api.contoso.com`. Les noms de domaine avec des caractères génériques (par exemple, \*.domaine.com) sont également pris en charge.
+    - Dans la zone **Nom de domaine personnalisé**, spécifiez le nom que vous souhaitez utiliser. Par exemple : `api.contoso.com`.
     - Dans le **certificat**, sélectionnez un certificat de Key Vault. Vous pouvez également charger un fichier .PFX valide et fournir son **mot de passe** si le certificat est protégé par un mot de passe.
+
+    > [!NOTE]
+    > Les noms de domaine génériques, `*.contoso.com` par exemple, sont pris en charge à tous les niveaux, à l’exception du niveau Consommation.
 
     > [!TIP]
     > Nous vous recommandons d’utiliser Azure Key Vault pour gérer les certificats et les définir sur Rotation automatique.
@@ -79,8 +84,8 @@ Pour effectuer les étapes décrites dans cet article, vous devez disposer des �
 
 Lorsque vous configurez DNS pour votre nom de domaine personnalisé, vous avez le choix entre deux options :
 
-- Configurer un enregistrement CNAME qui pointe vers le point de terminaison de votre nom de domaine personnalisé configuré.
-- Configurer un enregistrement A qui pointe vers l’adresse IP de votre passerelle de gestion des API.
+-   Configurer un enregistrement CNAME qui pointe vers le point de terminaison de votre nom de domaine personnalisé configuré.
+-   Configurer un enregistrement A qui pointe vers l’adresse IP de votre passerelle de gestion des API.
 
 > [!NOTE]
 > Bien que l’adresse IP de l’instance de gestion des API soit statique, elle peut changer dans quelques scénarios. Pour cette raison, il est recommandé d’utiliser CNAME lors de la configuration d’un domaine personnalisé. Tenez-en compte lorsque vous choisissez la méthode de configuration DNS. Pour plus d’informations, consultez le [FAQ sur la gestion des API](https://docs.microsoft.com/azure/api-management/api-management-faq#is-the-api-management-gateway-ip-address-constant-can-i-use-it-in-firewall-rules).

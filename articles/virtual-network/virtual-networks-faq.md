@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/12/2019
 ms.author: kumud
-ms.openlocfilehash: b088b4d0e21819411c7329f3cb1e6ca9761665fd
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: ebb9028aab8626554d0f5fede15129c141d441cb
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68610205"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69035334"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>FAQ sur les réseaux virtuels Azure
 
@@ -67,9 +67,11 @@ Oui. Pour plus d’informations sur les plages d’adresses IP publiques, consul
 Oui. Pour plus d’informations, consultez [Limites de mise en réseau](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits). Les espaces d’adressage de sous-réseau ne peuvent pas se chevaucher.
 
 ### <a name="are-there-any-restrictions-on-using-ip-addresses-within-these-subnets"></a>Existe-t-il des restrictions sur l’utilisation des adresses IP au sein de ces sous-réseaux ?
-Oui. Azure réserve 5 adresses IP dans chaque sous-réseau. Il s’agit des adresses x.x.x.0-x.x.x.3 et de la dernière adresse du sous-réseau.    
-- x.x.x.0 et la dernière adresse du sous-réseau sont réservées à la conformité au protocole.
-- Dans chaque sous-réseau, la plage x.x.x.1-x.x.x.3 est réservée aux services Azure.
+Oui. Azure réserve 5 adresses IP dans chaque sous-réseau. Il s’agit des adresses x.x.x.0-x.x.x.3 et de la dernière adresse du sous-réseau. Dans chaque sous-réseau, la plage x.x.x.1-x.x.x.3 est réservée aux services Azure.   
+- x.x.x.0 : Adresse du réseau
+- x.x.x.1 : Réservée par Azure pour la passerelle par défaut
+- x.x.x.2, x.x.x.3 : Réservée par Azure pour mapper les adresses IP Azure DNS à l’espace du réseau virtuel
+- x.x.x.255 : Adresse de diffusion réseau
 
 ### <a name="how-small-and-how-large-can-vnets-and-subnets-be"></a>Quelle taille peuvent avoir les réseaux virtuels et les sous-réseaux ?
 Le plus petit sous-réseau pris en charge est /29 et le plus grand est /8 (à l’aide de définitions de sous-réseau CIDR).

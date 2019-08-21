@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 50779f8a37713bda8b27c1cfd2ca37eed4edbd11
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6b7feb1b980054ba224173d5054907879a88cdd5
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67054712"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68952871"
 ---
 # <a name="forward-azure-automation-state-configuration-reporting-data-to-azure-monitor-logs"></a>Transférer des données de rapport Azure Automation State Configuration vers des journaux Azure Monitor
 
@@ -39,8 +39,9 @@ Pour commencer à envoyer vos rapports Automation State Configuration vers les j
 - Un compte Azure Automation. Pour plus d’informations, consultez la page [Prise en main d’Azure Automation](automation-offering-get-started.md).
 - Un espace de travail Log Analytics avec une offre de service **Automation & Control**. Pour plus d’informations, consultez [Prise en main des journaux Azure Monitor](../log-analytics/log-analytics-get-started.md).
 - Au moins un nœud Azure Automation State Configuration. Pour plus d’informations, consultez [Intégration des machines pour la gestion avec Azure Automation State Configuration](automation-dsc-onboarding.md).
+- Module [xDscDiagnostics](https://www.powershellgallery.com/packages/xDscDiagnostics/2.7.0.0) , version 2.7.0.0 ou ultérieure. Pour connaître les étapes d’installation, consultez [Afficher les journaux DSC sur votre nœud](./troubleshoot/desired-state-configuration.md#steps-to-troubleshoot-desired-state-configuration-dsc).
 
-## <a name="set-up-integration-with-azure-monitor-logs"></a>Configurer l’intégration avec les journaux Azure Monitor
+## <a name="set-up-integration-with-azure-monitor-logs"></a>Configurer l’intégration aux journaux d’Azure Monitor
 
 Pour commencer l’importation de données d’Azure Automation DSC vers les journaux Azure Monitor, effectuez les étapes suivantes :
 
@@ -98,8 +99,8 @@ Pour créer une règle d’alerte, vous commencez par créer une recherche dans 
 1. Dans la page Vue d’ensemble de l’espace de travail Log Analytics, cliquez sur **Journaux**.
 1. Créez une requête de recherche dans les journaux pour votre alerte en tapant la recherche suivante dans le champ de requête : `Type=AzureDiagnostics Category='DscNodeStatus' NodeName_s='DSCTEST1' OperationName='DscNodeStatusData' ResultType='Failed'`.
 
-   Si vous avez configuré des journaux d’activité dans votre espace de travail à partir de plusieurs abonnements ou comptes Automation, vous pouvez également regrouper vos alertes par abonnement ou par compte Automation.  
-   Le nom du compte Automation peut être dérivé du champ Ressource dans la recherche de DscNodeStatusData.  
+   Si vous avez configuré des journaux d’activité dans votre espace de travail à partir de plusieurs abonnements ou comptes Automation, vous pouvez également regrouper vos alertes par abonnement ou par compte Automation.
+   Le nom du compte Automation peut être dérivé du champ Ressource dans la recherche de DscNodeStatusData.
 1. Pour ouvrir l’écran **Créer une règle**, cliquez sur **+ Nouvelle règle d’alerte** en haut de la page. Pour plus d’informations sur les options de configuration de l’alerte, consultez [Créer une règle d’alerte](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md).
 
 ### <a name="find-failed-dsc-resources-across-all-nodes"></a>Rechercher les ressources DSC ayant échoué dans tous les nœuds
@@ -112,10 +113,10 @@ Pour rechercher toutes les instances de ressources DSC ayant échoué.
 
 ### <a name="view-historical-dsc-node-status"></a>Afficher l’état de nœud DSC historique
 
-Enfin, vous pouvez souhaiter visualiser l’historique de l’état de votre nœud DSC au fil du temps.  
+Enfin, vous pouvez souhaiter visualiser l’historique de l’état de votre nœud DSC au fil du temps.
 Vous pouvez utiliser cette requête pour rechercher l’état de votre nœud DSC au fil du temps.
 
-`Type=AzureDiagnostics ResourceProvider="MICROSOFT.AUTOMATION" Category=DscNodeStatus NOT(ResultType="started") | measure Count() by ResultType interval 1hour`  
+`Type=AzureDiagnostics ResourceProvider="MICROSOFT.AUTOMATION" Category=DscNodeStatus NOT(ResultType="started") | measure Count() by ResultType interval 1hour`
 
 Cela affichera un graphique de l’état du nœud au fil du temps.
 
@@ -136,7 +137,7 @@ La fonction de diagnostic d’Azure Automation crée deux catégories d’enregi
 | ConfigurationMode | La façon dont la configuration est appliquée au nœud. Les valeurs possibles sont __« ApplyOnly »__ , __« ApplyandMonitor »__ et __« ApplyandAutoCorrect »__ . <ul><li>__ApplyOnly__ : DSC applique la configuration et ne fait rien de plus, sauf si une nouvelle configuration est envoyée au nœud cible ou quand une nouvelle configuration est extraite d’un serveur. Après l’application initiale d’une nouvelle configuration, DSC ne vérifie pas l’écart par rapport à un état configuré précédemment. DSC tente d’appliquer la configuration jusqu’à ce que l’opération réussisse avant que la valeur __ApplyOnly__ prenne effet. </li><li> __ApplyAndMonitor__ : Il s’agit de la valeur par défaut. Le gestionnaire de configuration locale applique toutes les nouvelles configurations. Après l’application initiale d’une nouvelle configuration, si le nœud cible s’écarte de l’état désiré, DSC signale l’écart dans les journaux d’activité. DSC tente d’appliquer la configuration jusqu’à ce que l’opération réussisse avant que la valeur __ApplyAndMonitor__ prenne effet.</li><li>__ApplyAndAutoCorrect__ : DSC applique toutes les nouvelles configurations. Après l’application initiale d’une nouvelle configuration, si le nœud cible s’écarte de l’état désiré, DSC signale l’écart dans les journaux d’activité puis applique à nouveau la configuration actuelle.</li></ul> |
 | HostName_s | Le nom du nœud géré. |
 | IPAddress | L’adresse IPv4 du nœud géré. |
-| Catégorie | DscNodeStatus |
+| Category | DscNodeStatus |
 | Ressource | Le nom du compte Azure Automation. |
 | Tenant_g | GUID identifiant le locataire pour l’appelant. |
 | NodeId_g |GUID qui identifie le nœud géré. |
@@ -162,7 +163,7 @@ La fonction de diagnostic d’Azure Automation crée deux catégories d’enregi
 | OperationName |DscResourceStatusData|
 | ResultType |Indique si la ressource est conforme. |
 | NodeName_s |Le nom du nœud géré. |
-| Catégorie | DscNodeStatus |
+| Category | DscNodeStatus |
 | Ressource | Le nom du compte Azure Automation. |
 | Tenant_g | GUID identifiant le locataire pour l’appelant. |
 | NodeId_g |GUID qui identifie le nœud géré. |
@@ -190,7 +191,7 @@ La fonction de diagnostic d’Azure Automation crée deux catégories d’enregi
 L’envoi de vos données Automation State Configuration vers les journaux Azure Monitor vous permet d’obtenir de meilleurs insights sur l’état de vos nœuds Automation State Configuration en :
 
 - Configurant des alertes pour vous avertir lorsqu’il y a un problème
-- Utilisant des vues et des requêtes de recherche personnalisées pour visualiser les résultats de votre runbook, l’état du travail de runbook et d’autres indicateurs ou mesures clés associées.  
+- Utilisant des vues et des requêtes de recherche personnalisées pour visualiser les résultats de votre runbook, l’état du travail de runbook et d’autres indicateurs ou mesures clés associées.
 
 Les journaux Azure Monitor offrent une plus grande visibilité opérationnelle sur vos données Automation State Configuration et peuvent vous aider à traiter les incidents plus rapidement.
 

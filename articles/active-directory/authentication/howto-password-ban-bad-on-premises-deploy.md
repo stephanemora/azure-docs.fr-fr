@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 596020952fd02a414c050ac7fe7ab37d7137c391
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: c0b15c9730f7e469fde8fabd1bc4cbcd28efa66c
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779656"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68953008"
 ---
 # <a name="deploy-azure-ad-password-protection"></a>Déployer la protection par mot de passe d’Azure AD
 
@@ -60,6 +60,7 @@ Une fois que la fonctionnalité a été exécutée en mode audit pendant une pé
     |`https://login.microsoftonline.com`|Demandes d’authentification|
     |`https://enterpriseregistration.windows.net`|Fonctionnalité de protection par mot de passe Azure AD|
 
+* Toutes les machines qui hébergent le service proxy de protection par mot de passe doivent être configurés pour autoriser les contrôleurs de domaine à ouvrir une session sur le service proxy. Ceci est contrôlé par le biais de l’affectation du privilège « Accéder à cet ordinateur à partir du réseau ».
 * Toutes les machines qui hébergent le service proxy de protection par mot de passe doivent être configurées de manière à autoriser le trafic HTTP TLS 1.2 sortant.
 * Un compte d’administrateur général pour inscrire la forêt et le service proxy de protection par mot de passe auprès d’Azure AD.
 * Un compte disposant des privilèges d’administrateur de domaine Active Directory dans le domaine racine de la forêt pour inscrire la forêt Windows Server Active Directory auprès d’Azure AD.
@@ -290,7 +291,9 @@ L’installation se termine une fois que le logiciel de l’agent DC a été in
 
 ## <a name="upgrading-the-proxy-agent"></a>Mise à niveau de l’agent proxy
 
-Lorsqu’une version plus récente du logiciel proxy de protection par mot de passe Azure AD est disponible, la mise à niveau s’effectue en exécutant la dernière version du programme d’installation du logiciel `AzureADPasswordProtectionProxySetup.exe`. Il n’est pas nécessaire de désinstaller la version actuelle du logiciel proxy : le programme d’installation effectuera une mise à niveau sur place. Aucun redémarrage n’est nécessaire lors de la mise à niveau du logiciel proxy. La mise à niveau du logiciel peut être automatisée à l’aide de procédures MSI standard, par exemple : `AzureADPasswordProtectionProxySetup.exe /quiet`.
+Lorsqu’une version plus récente du logiciel proxy de protection par mot de passe Azure AD est disponible, la mise à niveau s’effectue en exécutant la dernière version du programme d’installation du logiciel `AzureADPasswordProtectionProxySetup.exe`. La dernière version du logiciel est disponible dans le [Centre de téléchargement Microsoft](https://www.microsoft.com/download/details.aspx?id=57071).
+
+Il n’est pas nécessaire de désinstaller la version actuelle du logiciel proxy : le programme d’installation effectuera une mise à niveau sur place. Aucun redémarrage n’est nécessaire lors de la mise à niveau du logiciel proxy. La mise à niveau du logiciel peut être automatisée à l’aide de procédures MSI standard, par exemple : `AzureADPasswordProtectionProxySetup.exe /quiet`.
 
 L’agent proxy prend en charge la mise à niveau automatique. La mise à niveau automatique utilise le service de mise à jour de l'agent Microsoft Azure AD Connect qui est installé parallèlement au service proxy. La mise à niveau automatique est activée par défaut et peut être activée ou désactivée à l’aide de l’applet de commande Set-AzureADPasswordProtectionProxyConfiguration. Le paramètre actuel peut être interrogé à l'aide de la cmdlet Get-AzureADPasswordProtectionProxyConfiguration. Microsoft recommande de laisser la mise à niveau automatique activée.
 
@@ -298,7 +301,9 @@ L'applet de commande `Get-AzureADPasswordProtectionProxy` peut être utilisée p
 
 ## <a name="upgrading-the-dc-agent"></a>Mise à niveau de l’agent DC
 
-Lorsqu’une version plus récente du logiciel de l’agent DC de protection par mot de passe Azure AD est disponible, la mise à niveau s'effectue en exécutant la dernière version du package logiciel `AzureADPasswordProtectionDCAgentSetup.msi`. Il n’est pas nécessaire de désinstaller la version actuelle du logiciel de l’agent DC : le programme d’installation effectuera une mise à niveau sur place. Un redémarrage est toujours nécessaire lors de la mise à niveau du logiciel de l’agent DC. Cela est dû au comportement de base de Windows. 
+Lorsqu’une version plus récente du logiciel de l’agent DC de protection par mot de passe Azure AD est disponible, la mise à niveau s'effectue en exécutant la dernière version du package logiciel `AzureADPasswordProtectionDCAgentSetup.msi`. La dernière version du logiciel est disponible dans le [Centre de téléchargement Microsoft](https://www.microsoft.com/download/details.aspx?id=57071).
+
+Il n’est pas nécessaire de désinstaller la version actuelle du logiciel de l’agent DC : le programme d’installation effectuera une mise à niveau sur place. Un redémarrage est toujours nécessaire lors de la mise à niveau du logiciel de l’agent DC. Cela est dû au comportement de base de Windows. 
 
 La mise à niveau du logiciel peut être automatisée à l’aide de procédures MSI standard, par exemple : `msiexec.exe /i AzureADPasswordProtectionDCAgentSetup.msi /quiet /qn /norestart`.
 

@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: ramamill
-ms.openlocfilehash: 628be573d03d42ec62a358071074facfe228852d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f1a96302d180f3b4b179f42013232f3b48d4e2b0
+ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60318167"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69016366"
 ---
 # <a name="prepare-source-machine-for-push-installation-of-mobility-agent"></a>Préparer la machine source pour l’installation Push de l’agent de mobilité
 
@@ -66,6 +66,6 @@ Si les machines que vous souhaitez répliquer ont un logiciel antivirus actif en
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Une fois le service Mobilité installé, sélectionnez **+ Répliquer** sur le Portail Azure pour protéger ces machines virtuelles. Découvrez plus en détail comment activer la réplication pour les [machines virtuelles VMware(vmware-azure-enable-replication.md) et les [serveurs physiques](physical-azure-disaster-recovery.md#enable-replication).
+Une fois le service Mobilité installé, sélectionnez **+ Répliquer** sur le Portail Azure pour protéger ces machines virtuelles. En savoir plus sur l’activation de la réplication pour les [machines virtuelles VMware](vmware-azure-enable-replication.md) et les [serveurs physiques VMware](physical-azure-disaster-recovery.md#enable-replication).
 
 

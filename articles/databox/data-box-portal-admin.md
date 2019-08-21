@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 05/30/2019
+ms.date: 08/07/2019
 ms.author: alkohli
-ms.openlocfilehash: 5ece12e117db7b334bce8edfd49a5a622e46e13c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 581f95bd813445d2cc9bd83d91917ea83f0bf04f
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66427723"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68987467"
 ---
 # <a name="use-the-azure-portal-to-administer-your-azure-data-box-and-azure-data-box-heavy"></a>Utiliser le Portail Azure pour administrer votre Azure Data Box et Azure Data Box Heavy
 
@@ -123,7 +123,7 @@ Procédez comme suit pour télécharger l’historique des commandes.
 2. Cliquez sur **Télécharger l’historique des commandes**. Dans l’historique téléchargé, vous verrez un enregistrement des journaux d’activité de suivi de l’opérateur. Il existe deux ensembles de journaux correspondant aux deux nœuds présents sur un Data Box Heavy. Si vous faites défiler jusqu’en bas de ce journal, vous pouvez voir des liens vers :
     
    - **Copier les journaux d’activité** - affiche la liste des fichiers en erreur pendant la copie des données entre la zone de données et votre compte de stockage Azure.
-   - **Journaux d’audit** - contiennent des informations sur la mise sous tension et l’accès au partage sur la Data Box lorsqu’elle est hors du centre de données Azure.
+   - **Journaux d’audit** - contiennent des informations sur la façon de mettre sous tension et d’accéder aux partages sur la Data Box lorsqu’elle est hors du centre de données Azure.
    - **Fichiers de nomenclature** - obtenez la liste des fichiers (également connue sous le nom de manifeste de fichier) que vous pouvez télécharger pendant **Préparer l’expédition** et qui comporte les noms, les tailles et les sommes de contrôle des fichiers.
 
        ```
@@ -207,7 +207,8 @@ Vous êtes informé par courrier électronique dès que l’état de l’apparei
 |Reçu     | Votre appareil a été reçu et scanné au centre de données Azure. <br> Une fois le colis inspecté, le téléchargement de l’appareil commencera.      |
 |Copie de données     | La copie des données est en cours. Suivez la progression de la copie de votre commande sur le portail Azure. <br> Attendez que la copie des données se termine. |
 |Completed       |La commande a été terminée avec succès.<br> Vérifiez que vos données se trouvent bien dans Azure avant de supprimer les données locales des serveurs.         |
-|Completed with errors (Terminée avec des erreurs)| La copie des données a été effectuée mais des erreurs se sont produites pendant l’opération. <br> Consultez les journaux d’activité de copie en utilisant le chemin d’accès spécifié dans le portail Azure.   |
+|Completed with errors (Terminée avec des erreurs)| La copie des données a été effectuée mais des erreurs se sont produites pendant l’opération. <br> Consultez les journaux d’activité de copie en utilisant le chemin d’accès spécifié dans le portail Azure. Consultez [des exemples de journaux de copie lorsque le téléchargement s’est terminé avec des erreurs](https://docs.microsoft.com/azure/databox/data-box-logs#upload-completed-with-errors).   |
+|Terminé avec des avertissements| La copie des données a été effectuée, mais vos données ont été modifiées. Les données comportaient des erreurs non critiques d’objet BLOB ou de nom de fichier qui ont été corrigées en modifiant les noms des fichiers ou des objets BLOB. <br> Consultez les journaux d’activité de copie en utilisant le chemin d’accès spécifié dans le portail Azure. Prenez note des modifications apportées à vos données. Consultez [des exemples de journaux de copie lorsque le téléchargement s’est terminé avec des avertissements](https://docs.microsoft.com/azure/databox/data-box-logs#upload-completed-with-warnings).   |
 |Canceled            |La commande a été annulée. <br> Soit vous avez annulé la commande, soit une erreur s’est produite et le service a annulé la commande. Si elle ne peut pas être traitée sous 90 jours, la commande est également annulée et vous en êtes informé.     |
 |Nettoyer | Les données sur les disques de l’appareil sont effacées. Le nettoyage de l’appareil est considéré comme terminé lorsque l’historique de la commande est disponible au téléchargement dans le portail Azure.|
 

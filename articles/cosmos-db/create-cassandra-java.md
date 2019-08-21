@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : API Cassandra avec Java - Azure Cosmos DB'
+title: Utiliser l’API Cassandra et Java pour créer une application - Azure Cosmos DB
 description: Ce guide de démarrage rapide montre comment utiliser l’API Cassandra Azure Cosmos DB pour créer une application de profil avec le portail Azure et Java
 ms.service: cosmos-db
 author: SnehaGunda
@@ -8,12 +8,13 @@ ms.subservice: cosmosdb-cassandra
 ms.devlang: java
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: 968c43ed78c59e5c1f147aaaa5bb33484d95c7a9
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.custom: seo-java-august2019
+ms.openlocfilehash: e8ca40ec86bc3af92fd23bb7acce3d6c39b082fb
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325478"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68933921"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-java-sdk-and-azure-cosmos-db"></a>Démarrage rapide : Créer une application Cassandra avec le SDK Java et Azure Cosmos DB
 
@@ -203,7 +204,7 @@ Maintenant, retournez dans le portail Azure afin d’obtenir les informations de
 
     La fenêtre de terminal affiche des notifications indiquant que l’espace de clé et la table sont créés. Elle sélectionne et retourne ensuite tous les utilisateurs dans la table et affiche la sortie, avant de sélectionner une ligne par ID et d’afficher sa valeur.  
 
-    Appuyez sur CTRL + C pour arrêter l’exécution du programme et fermer la fenêtre de console.
+    Appuyez sur **CTRL + C** pour arrêter l’exécution du programme et fermer la fenêtre de console.
 
 4. Dans le portail Azure, ouvrez **l’Explorateur de données** pour interroger, modifier et utiliser ces nouvelles données. 
 

@@ -7,18 +7,18 @@ ms.topic: overview
 ms.date: 07/11/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 5409ed799454a6bb64077ee884065fc518556142
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: 03918976935f9071ba2a7951e29195118943a8ef
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68227806"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68845838"
 ---
 # <a name="about-azure-migrate"></a>À propos d’Azure Migrate
 
 Cet article donne une vue d’ensemble du service Azure Migrate.
 
-Azure Migrate vous aide à migrer vers Azure. Azure Migrate offre un hub centralisé pour suivre la découverte, l’évaluation et la migration d’une infrastructure, d’applications et de données locales vers Azure. Le hub fournit des outils Azure pour l’évaluation et la migration, ainsi que des offres d’éditeurs de logiciels indépendant (ISV) tiers. Il fournit :
+Azure Migrate vous aide à migrer vers Azure. Azure Migrate offre un hub centralisé pour suivre la découverte, l’évaluation et la migration d’une infrastructure, d’applications et de données locales vers Azure. Le hub fournit des outils Azure pour l’évaluation et la migration, ainsi que des offres d’éditeurs de logiciels indépendant (ISV) tiers. Elle fournit :
 
 - **Plateforme de migration unifiée** : utilisez un portail unique pour démarrer, exécuter et suivre votre parcours de votre migration vers Azure.
 - **Panoplie d’outils** : Azure Migrate fournit des outils natifs et s’intègre avec d’autres services Azure, ainsi qu’avec des outils d’éditeurs de logiciels indépendants. Sélectionnez les outils d’évaluation et de migration appropriée, en fonction des exigences de votre organisation. 
@@ -50,7 +50,7 @@ En plus des outils Azure natifs, Azure Migrate s’intègre avec un certain nomb
 
 ### <a name="selecting-an-isv-tool"></a>Sélection d’un outil d’éditeur de logiciels indépendant
 
-Après avoir ajouté un outil d’éditeur de logiciels indépendant à un projet Azure Migrate, commencez à vous servir de l’outil pour obtenir une licence ou vous inscrire pour un essai gratuit, conformément à la stratégie de l’éditeur de logiciels indépendant. Dans chaque outil, il existe une option permettant de se connecter à Azure Migrate. Suivez les instructions et la documentation de l’outil pour connecter celui-ci avec Azure Migrate.
+Après avoir ajouté un outil d’éditeur de logiciels indépendant à un projet Azure Migrate, commencez à vous servir de l’outil pour obtenir une licence ou vous inscrire pour un essai gratuit, conformément à la stratégie de l’éditeur de logiciels indépendant. Dans chaque outil, il existe une option permettant de se connecter à Azure Migrate. Suivez les instructions et la documentation de l’outil pour connecter celui-ci avec Azure Migrate. La gestion des licences pour les outils ISV est conforme au modèle de licence ISV.
 
 ## <a name="azure-migrate-server-assessment"></a>Évaluation de serveur Azure Migrate
 

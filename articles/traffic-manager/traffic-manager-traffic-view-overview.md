@@ -12,12 +12,12 @@ ms.workload: infrastructure
 ms.date: 03/16/2018
 ms.author: allensu
 ms.custom: ''
-ms.openlocfilehash: 39d6090b14a16f505413154df2a78d42b3fb3f3c
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: 5b451378fcc14106cb8731a89bcf6ccf415d0a92
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68333710"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69035465"
 ---
 # <a name="traffic-manager-traffic-view"></a>Traffic View de Traffic Manager
 
@@ -44,6 +44,8 @@ La fréquence de mise à jour des données de la Vue du trafic dépend de plusie
 ## <a name="visual-overview"></a>Présentation visuelle
 
 Lorsque vous accédez à la section **Vue du trafic** de votre page Microsoft Azure Traffic Manager, vous voyez apparaître une carte géographique incluant une superposition des aperçus de la Vue du trafic. Cette carte fournit des informations sur la base d’utilisateurs et les points de terminaison de votre profil Traffic Manager.
+
+![Vue géographique Vue du trafic Traffic Manager][1]
 
 ### <a name="user-base-information"></a>Informations de la base d’utilisateurs
 
@@ -94,3 +96,5 @@ Lorsque vous utilisez Traffic View, vous êtes facturé en fonction du nombre de
 - En savoir plus sur les [méthodes de routage du trafic](traffic-manager-routing-methods.md) prises en charge par Traffic Manager
 - En savoir plus sur la [création d’un profil Traffic Manager](traffic-manager-create-profile.md)
 
+<!--Image references-->
+[1]: ./media/traffic-manager-traffic-view-overview/trafficview.png

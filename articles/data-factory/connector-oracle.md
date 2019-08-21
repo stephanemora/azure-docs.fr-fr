@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 06/25/2019
+ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: 0a71c7ffe9040c3002b1f5378ce298a047554b15
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 142c99b2471a9010a00bf9b5d50549c5e84548f1
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68640191"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68966458"
 ---
 # <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>Copier des données depuis/vers Oracle à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -33,11 +33,13 @@ Vous pouvez copier des données d’une base de données Oracle vers toute banqu
 Plus précisément, ce connecteur Oracle prend en charge :
 
 - Les versions suivantes d’une base de données Oracle :
-  - Oracle 12c R1 (12.1)
-  - Oracle 11g R1, R2 (11.1, 11.2)
-  - Oracle 10g R1, R2 (10.1, 10.2)
-  - Oracle 9i R1, R2 (9.0.1, 9.2)
-  - Oracle 8i R3 (8.1.7)
+    - Oracle 18c R1 (18.1) et versions ultérieures
+    - Oracle 12c R1 (12.1) et versions ultérieures
+    - Oracle 11g R1 (11.1) et versions ultérieures
+    - Oracle 10g R1 (10.1) et versions ultérieures
+    - Oracle 9i R2 (9.2) et versions ultérieures
+    - Oracle 8i R3 (8.1.7) et versions ultérieures
+    - Service Exadata Oracle Database Cloud
 - La copie des données avec l’authentification De base ou OID.
 - Copie en parallèle à partir d’une source Oracle. Pour en savoir plus, voir [Copie en parallèle à partir d’Oracle](#parallel-copy-from-oracle).
 
@@ -46,7 +48,9 @@ Plus précisément, ce connecteur Oracle prend en charge :
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour copier des données depuis et vers une base de données Oracle qui n’est pas accessible publiquement, vous devez configurer un [runtime d’intégration auto-hébergé](create-self-hosted-integration-runtime.md). Le runtime d’intégration intègre un pilote Oracle. Par conséquent, vous n’avez pas besoin d’installer manuellement un pilote pour copier des données depuis et vers Oracle.
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)] 
+
+Le runtime d’intégration intègre un pilote Oracle. Par conséquent, vous n’avez pas besoin d’installer manuellement un pilote pour copier des données depuis et vers Oracle.
 
 ## <a name="get-started"></a>Prise en main
 
@@ -62,7 +66,7 @@ Le service lié Oracle prend en charge les propriétés suivantes :
 |:--- |:--- |:--- |
 | type | La propriété type doit être définie sur **Oracle**. | OUI |
 | connectionString | Spécifie les informations requises pour se connecter à l’instance Oracle Database. <br/>Marquez ce champ comme `SecureString` pour le stocker de façon sécurisée dans Data Factory. Vous pouvez également définir un mot de passe dans Azure Key Vault et extraire la configuration `password` de la chaîne de connexion. Pour plus d’informations, reportez-vous aux exemples suivants et à [Stocker des informations d’identification dans Azure Key Vault](store-credentials-in-key-vault.md). <br><br>**Type de connexion pris en charge** : Vous pouvez utiliser le **SID Oracle** ou le **nom du service Oracle** pour identifier votre base de données :<br>- Si vous utilisez le SID : `Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;`<br>- Si vous utilisez le nom du service : `Host=<host>;Port=<port>;ServiceName=<servicename>;User Id=<username>;Password=<password>;` | OUI |
-| connectVia | Le [runtime d’intégration](concepts-integration-runtime.md) à utiliser pour se connecter à la banque de données. Vous pouvez utiliser un runtime d’intégration auto-hébergé ou un runtime d’intégration Azure (si votre banque de données est accessible publiquement). À défaut de spécification, cette propriété utilise le runtime d'intégration Azure par défaut. |Non |
+| connectVia | Le [runtime d’intégration](concepts-integration-runtime.md) à utiliser pour se connecter à la banque de données. Pour plus d’informations, consultez la section [Conditions préalables](#prerequisites). À défaut de spécification, l’Azure Integration Runtime par défaut est utilisé. |Non |
 
 >[!TIP]
 >En cas d’erreur, « ORA-01025 : UPI parameter out of range » et que votre version d’Oracle est 8i, ajoutez `WireProtocolMode=1` à votre chaîne de connexion, puis réessayez.
@@ -191,11 +195,10 @@ Pour copier des données depuis et vers Oracle, affectez la valeur `OracleTable`
 
 Cette section fournit la liste des propriétés prises en charge par Oracle en tant que source et récepteur. Pour obtenir la liste complète des sections et propriétés disponibles pour la définition des activités, consultez [Pipelines](concepts-pipelines-activities.md). 
 
-### <a name="oracle-as-a-source-type"></a>Oracle comme un type de source
+### <a name="oracle-as-source"></a>Oracle en tant que source
 
-> [!TIP]
->
-> Pour savoir comment charger efficacement des données à partir d’Oracle à l’aide du partitionnement, consultez [Copie en parallèle à partir d’Oracle](#parallel-copy-from-oracle).
+>[!TIP]
+>Pour savoir comment charger efficacement des données à partir d’Oracle à l’aide du partitionnement, consultez [Copie en parallèle à partir d’Oracle](#parallel-copy-from-oracle).
 
 Pour copier des données à partir d’Oracle, définissez le type de source dans l’activité de copie sur `OracleSource`. Les propriétés suivantes sont prises en charge dans la section **source** de l’activité de copie.
 
@@ -242,7 +245,7 @@ Pour copier des données à partir d’Oracle, définissez le type de source dan
 ]
 ```
 
-### <a name="oracle-as-a-sink-type"></a>Oracle comme type de récepteur
+### <a name="oracle-as-sink"></a>Oracle en tant que récepteur
 
 Pour copier des données vers Oracle, définissez `OracleSink` comme type de récepteur dans l’activité de copie. Les propriétés suivantes sont prises en charge dans la section **récepteur** de l’activité de copie.
 

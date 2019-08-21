@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 5fdbd8092abcc51fc03e8b00106b7e25ec4be905
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: a152f32ef7d68686539b7d6edee57db8a5da9553
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68839387"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976238"
 ---
 # <a name="use-the-azure-maps-map-control"></a>Utiliser le contrôle de carte Azure Maps
 
@@ -102,7 +102,7 @@ Vous pouvez intégrer une carte dans une page web à l’aide de la bibliothèqu
     </script>
     ```
 
-    Pour plus d’informations, consultez [Authentification avec Azure Maps](azure-maps-authentication.md).
+    Pour plus d’informations, voir le document [Authentification avec Azure Maps](azure-maps-authentication.md).
 
 6. Si vous le souhaitez, vous pouvez ajouter les éléments de balises META suivants à l’en-tête de votre page :
 
@@ -214,3 +214,11 @@ Découvrez comment appliquer un style à un mappage :
 
 > [!div class="nextstepaction"]
 > [Choisir un style de carte](choose-map-style.md)
+
+Pour ajouter des données à votre carte :
+
+> [!div class="nextstepaction"]
+> [Créer une carte](map-create.md)
+
+> [!div class="nextstepaction"]
+> [Exemples de code](https://docs.microsoft.com/samples/browse/?products=azure-maps)

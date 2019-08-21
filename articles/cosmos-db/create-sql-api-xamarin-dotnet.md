@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 05/30/2018
 ms.author: masoucou
-ms.openlocfilehash: 3c2e9ad080c3b3f54040db9a57897847f4c5a52a
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 28ba47c1c0ec053af8632475ad52ab50672eab64
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68828034"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68855150"
 ---
 # <a name="quickstart-build-a-todo-app-with-xamarin-using-azure-cosmos-db-sql-api-account"></a>Démarrage rapide : Générer une application todo avec Xamarin à l’aide du compte d’API SQL Azure Cosmos DB
 
@@ -30,7 +30,7 @@ Azure Cosmos DB est le service de base de données multi-modèle de Microsoft di
 > [!NOTE]
 > Des exemples de code pour un exemple d’application Xamarin complète incluant plusieurs offres Azure, y compris CosmosDB, sont disponibles sur GitHub, [ici](https://github.com/xamarinhq/app-geocontacts). Cette application montre l’affichage de contacts géographiquement dispersés et indique comment autoriser ces contacts à mettre à jour leur emplacement.
 
-Ce démarrage rapide explique comment créer, à l’aide du portail Azure, un compte d’API SQL Azure Cosmos DB, une base de données de documents, ainsi qu’une collection. Vous allez ensuite générer et déployer une application web de liste de tâches qui repose sur [l’API .NET SQL](sql-api-sdk-dotnet.md) et [Xamarin](https://docs.microsoft.com/xamarin/) en utilisant [Xamarin.Forms](https://docs.microsoft.com/xamarin/) et le [modèle d’architecture MVVM](https://docs.microsoft.com/xamarin/xamarin-forms/xaml/xaml-basics/data-bindings-to-mvvm).
+Ce démarrage rapide explique comment créer, à l’aide du portail Azure, un compte API SQL d’Azure Cosmos DB, une base de données de documents, ainsi qu’un conteneur. Vous allez ensuite générer et déployer une application web de liste de tâches qui repose sur [l’API .NET SQL](sql-api-sdk-dotnet.md) et [Xamarin](https://docs.microsoft.com/xamarin/) en utilisant [Xamarin.Forms](https://docs.microsoft.com/xamarin/) et le [modèle d’architecture MVVM](https://docs.microsoft.com/xamarin/xamarin-forms/xaml/xaml-basics/data-bindings-to-mvvm).
 
 ![Application de liste de tâches Xamarin s’exécutant sur iOS](./media/create-sql-api-xamarin-dotnet/ios-todo-screen.png)
 
@@ -118,7 +118,7 @@ Le code de la solution ToDoItems contient :
 Maintenant, examinons rapidement la façon dont l’application communique avec Azure Cosmos DB.
 
 * Le package NuGet [Microsoft.Azure.DocumentDb.Core](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/) doit être ajouté à tous les projets.
-* La classe `ToDoItem` dans le dossier azure-documentdb-dotnet/samples/xamarin/ToDoItems/ToDoItems.Core/Models modélise les documents dans la collection **Éléments** créée ci-dessus. Notez que le nom de la propriété est sensible à la casse.
+* La classe `ToDoItem` dans le dossier azure-documentdb-dotnet/samples/xamarin/ToDoItems/ToDoItems.Core/Models modélise les documents dans le conteneur **Éléments** créé ci-dessus. Notez que le nom de la propriété est sensible à la casse.
 * La classe `CosmosDBService` dans le dossier azure-documentdb-dotnet/samples/xamarin/ToDoItems/ToDoItems.Core/Services encapsule la communication avec Azure Cosmos DB.
 * Dans la classe `CosmosDBService`, une variable de type `DocumentClient` est disponible. `DocumentClient` permet de configurer et d’exécuter des requêtes sur le compte Azure Cosmos DB et est instancié :
 
@@ -126,30 +126,30 @@ Maintenant, examinons rapidement la façon dont l’application communique avec 
     docClient = new DocumentClient(new Uri(APIKeys.CosmosEndpointUrl), APIKeys.CosmosAuthKey);
     ```
 
-* Lorsque vous interrogez une collection pour obtenir des documents, la méthode `DocumentClient.CreateDocumentQuery<T>` est utilisée, comme illustré ici dans la fonction `CosmosDBService.GetToDoItems` :
+* Lorsque vous interrogez un conteneur pour obtenir des documents, la méthode `DocumentClient.CreateDocumentQuery<T>` est utilisée, comme illustré ici dans la fonction `CosmosDBService.GetToDoItems` :
 
    [!code-csharp[](~/samples-cosmosdb-xamarin/src/ToDoItems.Core/Services/CosmosDBService.cs?name=GetToDoItems)] 
 
-    `CreateDocumentQuery<T>` accepte un URI qui pointe vers la collection créée lors de l’étape précédente. Vous avez également la possibilité de spécifier des opérateurs LINQ, tels qu’une clause `Where`. Dans ce cas, seuls les éléments de liste de tâches non terminés sont renvoyés.
+    `CreateDocumentQuery<T>` accepte un URI qui pointe vers le conteneur créé lors de l’étape précédente. Vous avez également la possibilité de spécifier des opérateurs LINQ, tels qu’une clause `Where`. Dans ce cas, seuls les éléments de liste de tâches non terminés sont renvoyés.
 
     La fonction `CreateDocumentQuery<T>` est exécutée de façon synchrone et renvoie un objet `IQueryable<T>`. Toutefois, la méthode `AsDocumentQuery` convertit l’objet `IQueryable<T>` en objet `IDocumentQuery<T>` qui peut être exécuté de façon asynchrone. Cela permet de ne pas bloquer le thread d’UI pour les applications mobiles.
 
     La fonction `IDocumentQuery<T>.ExecuteNextAsync<T>` récupère la page de résultats d’Azure Cosmos DB, avec `HasMoreResults` pour vérifier si des résultats supplémentaires doivent encore être renvoyés.
 
 > [!TIP]
-> Plusieurs fonctions s’exécutant sur des documents et collections Azure Cosmos DB acceptent un URI en tant que paramètre spécifiant l’adresse de la collection ou du document. Cet URI est construit à l’aide de la classe `URIFactory`. Tous les URI de bases de données, collections et documents peuvent être créés avec cette classe.
+> Plusieurs fonctions s’exécutant sur des documents et conteneurs Azure Cosmos DB acceptent un URI en tant que paramètre spécifiant l’adresse du conteneur ou du document. Cet URI est construit à l’aide de la classe `URIFactory`. Tous les URI de bases de données, conteneurs et documents peuvent être créés avec cette classe.
 
 * La fonction `ComsmosDBService.InsertToDoItem` montre comment insérer un nouveau document :
 
    [!code-csharp[](~/samples-cosmosdb-xamarin/src/ToDoItems.Core/Services/CosmosDBService.cs?name=InsertToDoItem)] 
 
-    L’URI d’une collection de documents est indiqué, ainsi que l’élément à insérer.
+    L’URI d’élément est indiqué, ainsi que l’élément à insérer.
 
 * La fonction `CosmosDBService.UpdateToDoItem` montre comment remplacer un document existant par un autre :
 
    [!code-csharp[](~/samples-cosmosdb-xamarin/src/ToDoItems.Core/Services/CosmosDBService.cs?name=UpdateToDoItem)] 
 
-    Ici, un nouvel URI est nécessaire pour identifier de façon unique le document à remplacer. Il est obtenu à l’aide de `UriFactory.CreateDocumentUri`, en lui transmettant les noms de base de données et de collection, ainsi que l’ID du document.
+    Ici, un nouvel URI est nécessaire pour identifier de façon unique le document à remplacer. Il est obtenu à l’aide de `UriFactory.CreateDocumentUri`, en lui transmettant les noms de base de données et de conteneur, ainsi que l’ID du document.
 
     `DocumentClient.ReplaceDocumentAsync` remplace le document identifié par l’URI par celui spécifié en tant que paramètre.
 

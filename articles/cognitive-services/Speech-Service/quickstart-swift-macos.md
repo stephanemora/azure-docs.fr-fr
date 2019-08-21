@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 06/28/2019
 ms.author: cbasoglu
-ms.openlocfilehash: a952d6ea46f601cc0bc97e3b0af7343defe19f68
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: c1407e8a133013054ef33d4fe55fb8ecb46de654
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68559275"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69035679"
 ---
 # <a name="quickstart-recognize-speech-in-swift-on-macos-using-the-speech-sdk"></a>Démarrage rapide : Reconnaissance vocale en Swift sur macOS avec le SDK Speech
 
@@ -30,7 +30,7 @@ Avant de commencer, voici une liste de prérequis :
 * [Clé d’abonnement](get-started.md) pour le service Speech.
 * Une machine macOS avec [Xcode 9.4.1](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12) ou ultérieur, et [CocoaPods](https://cocoapods.org/) installé.
 
-## <a name="get-the-speech-sdk-for-ios"></a>Obtenir le SDK Speech pour iOS
+## <a name="get-the-speech-sdk-for-macos"></a>Obtenir le SDK Speech pour macOS
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
@@ -42,7 +42,7 @@ Il peut être utilisé dans les projets Xcode comme [CocoaPod](https://cocoapods
 ## <a name="create-an-xcode-project"></a>Créer un projet Xcode
 
 Démarrez Xcode et démarrez un nouveau projet en cliquant sur **File** > **New** > **Project** (Fichier->Nouveau->Projet).
-Dans la boîte de dialogue de sélection de modèle, choisissez le modèle « iOS Single View App ».
+Dans la boîte de dialogue de sélection du modèle, choisissez le modèle « Application Cocoa ».
 
 Dans les boîtes de dialogue qui suivent, effectuez les sélections suivantes :
 
@@ -55,36 +55,34 @@ Dans les boîtes de dialogue qui suivent, effectuez les sélections suivantes :
 1. Sélectionner le répertoire du projet
     1. Choisissez un répertoire où placer le projet. Cela crée un répertoire `helloworld` dans le répertoire choisi pour stocker tous les fichiers du projet Xcode.
     1. Désactivez la création d’un dépôt Git pour cet exemple de projet.
+1. Définissez les droits d’accès au réseau et au microphone. Cliquez sur le nom de l’application dans la première ligne de la vue d’ensemble sur la gauche pour accéder à la configuration de l’application, puis choisissez l’onglet « Fonctionnalités ».
+    1. Activez le paramètre « App Sandbox » pour l’application.
+    1. Cochez les cases pour l’accès « Connexions sortantes » et « Microphone ».
+    ![Paramètres du bac à sable (sandbox)](media/sdk/qs-swift-macos-sandbox.png)
 1. L’application doit également déclarer l’utilisation du microphone dans le fichier `Info.plist`. Cliquez sur le fichier dans la vue d’ensemble, puis ajoutez la clé « Confidentialité - Description de l’utilisation du microphone » avec une valeur comme « Microphone is needed for speech recognition » (Le microphone est nécessaire pour la reconnaissance vocale).
-    ![Paramètres dans Info.plist](media/sdk/qs-swift-ios-info-plist.png)
+    ![Paramètres dans Info.plist](media/sdk/qs-swift-macos-info-plist.png)
 1. Fermez le projet Xcode. Vous allez utiliser une autre instance de celui-ci ultérieurement, après avoir configuré les CocoaPods.
 
 ## <a name="add-the-sample-code"></a>Ajouter l’exemple de code
 
-1. Placez un nouveau fichier d’en-tête avec le nom `MicrosoftCognitiveServicesSpeech-Bridging-Header.h` dans le répertoire `helloworld` dans le projet helloworld, puis collez le code suivant dedans :  
-   [!code-swift[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/swift-ios/helloworld/helloworld/MicrosoftCognitiveServicesSpeech-Bridging-Header.h#code)]
-1. Ajoutez le chemin d’accès relatif `helloworld/MicrosoftCognitiveServicesSpeech-Bridging-Header.h` à l’en-tête de pontage dans les paramètres de projet Swift pour la cible helloworld dans le champ *En-tête de pontage Objective-C* ![Propriétés d’en-tête](media/sdk/qs-swift-ios-bridging-header.png)
-1. Remplacez le contenu du fichier `AppDelegate.swift` généré automatiquement par :  
-   [!code-swift[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/swift-ios/helloworld/helloworld/AppDelegate.swift#code)]
-1. Remplacez le contenu du fichier `ViewController.swift` généré automatiquement par :  
-   [!code-swift[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/swift-ios/helloworld/helloworld/ViewController.swift#code)]
-1. Dans `ViewController.swift`, remplacez la chaîne `YourSubscriptionKey` par votre clé d’abonnement.
-1. Remplacez la chaîne `YourServiceRegion` par la [région](regions.md) associée à votre abonnement (par exemple, `westus` pour l’abonnement à un essai gratuit).
+1. Placez un nouveau fichier d’en-tête avec le nom `MicrosoftCognitiveServicesSpeech-Bridging-Header.h` dans le répertoire `helloworld` dans le projet helloworld, puis collez le code suivant dedans : [!code-cpp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/swift-macos/helloworld/helloworld/MicrosoftCognitiveServicesSpeech-Bridging-Header.h#code)]
+1. Ajoutez le chemin d’accès relatif `helloworld/MicrosoftCognitiveServicesSpeech-Bridging-Header.h` à l’en-tête de pontage dans les paramètres de projet Swift pour la cible helloworld dans le champ *En-tête de pontage Objective-C* ![Propriétés d’en-tête](media/sdk/qs-swift-macos-bridging-header.png)
+1. Remplacez le contenu du fichier `AppDelegate.swift` généré automatiquement par : [!code-swift[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/swift-macos/helloworld/helloworld/AppDelegate.swift#code)]
+1. Dans `AppDelegate.swift`, remplacez la chaîne `YourSubscriptionKey` par votre clé d’abonnement.
+1. Remplacez la chaîne `YourServiceRegion` par la région associée à votre abonnement (par exemple, `westus` pour l’abonnement à un essai gratuit).
 
 ## <a name="install-the-sdk-as-a-cocoapod"></a>Installer le SDK en tant que CocoaPod
 
 1. Installez le gestionnaire de dépendances de CocoaPod comme décrit dans ses [instructions d’installation](https://guides.cocoapods.org/using/getting-started.html).
-1. Accédez au répertoire de votre exemple d’application (`helloworld`). Placez un fichier texte avec le nom `Podfile` et le contenu suivant dans ce répertoire :  
-   [!code-swift[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/swift-ios/helloworld/Podfile)]
+1. Accédez au répertoire de votre exemple d’application (`helloworld`). Placez un fichier texte avec le nom `Podfile` et le contenu suivant dans ce répertoire :[!code-ruby[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/swift-macos/helloworld/Podfile)]
 1. Accédez au répertoire `helloworld` dans un terminal et exécutez la commande `pod install`. Ceci génère espace de travail Xcode `helloworld.xcworkspace` contenant l’exemple d’application et le SDK Speech en tant que dépendance. Cet espace de travail sera utilisé par la suite.
 
 ## <a name="build-and-run-the-sample"></a>Créer et exécuter l’exemple.
 
 1. Ouvrez l’espace de travail `helloworld.xcworkspace` dans Xcode.
 1. Affichez la sortie de débogage (**View** > **Debug Area** > **Activate Console**).
-1. Choisissez le simulateur iOS ou un appareil iOS connecté à votre machine de développement comme destination pour l’application à partir de la liste présentée dans le menu **Produit** > **Destination**.
-1. Générez et exécutez l’exemple de code dans le simulateur iOS en sélectionnant **Product** > **Run** dans le menu ou en cliquant sur le bouton **Play**.
-1. Après avoir cliqué sur le bouton « Recognize » dans l’application et prononcé quelques mots, vous devez voir le texte énoncé sur la partie inférieure de l’écran.
+1. Générez et exécutez l’exemple de code en sélectionnant **Product** > **Run** dans le menu, ou en cliquant sur le bouton **Play**.
+1. Après avoir cliqué sur le bouton « Recognize » dans l’application et prononcé quelques mots, vous devez voir le texte énoncé sur la partie inférieure de la fenêtre de l’application.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

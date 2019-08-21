@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 07c035f4823ea8c8eaa96ca9bda22450246811cd
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 1cb4d3e35ae743dbae4c049f515d61b3042e7efe
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779628"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68952800"
 ---
 # <a name="azure-ad-password-protection-troubleshooting"></a>Résolution de problèmes de protection par mot de passe Azure AD
 
@@ -41,6 +41,8 @@ Ce problème se traduit principalement par la présence d’événements 30018 d
 1. L’ordinateur hôte proxy bloque l’accès au point de terminaison RPC (dynamique ou statique) qu’écoute le service proxy.
 
    Le programme d’installation du proxy de protection par mot de passe Azure AD crée automatiquement une règle de trafic entrant du Pare-feu Windows, qui autorise l’accès à tout port entrant qu’écoute le service proxy de protection par mot de passe Azure AD. En cas de suppression ou de désactivation de cette règle par la suite, les agents du contrôleur de domaine ne peuvent plus communiquer avec le service proxy. Si le Pare-feu Windows intégré a été désactivé à la place d’un autre produit de pare-feu, vous devez configurer ce pare-feu pour autoriser l’accès à tout port entrant qu’écoute le service proxy de protection par mot de passe Azure AD. Cette configuration peut être rendue plus spécifique si le service proxy a été configuré pour écouter un port RPC statique spécifique (à l’aide de l’applet de commande `Set-AzureADPasswordProtectionProxyConfiguration`).
+
+1. L’ordinateur hôte proxy n’est pas configuré pour autoriser les contrôleurs de domaine à se connecter à l’ordinateur. Ce comportement est contrôlé par le biais de l’affectation du privilège utilisateur « Accéder à cet ordinateur à partir du réseau ». Ce privilège doit être accordé à tous les contrôleurs de domaine de tous les domaines de la forêt. Ce paramètre est souvent restreint dans le cadre d’un plus grand effort de renforcement du réseau.
 
 ## <a name="proxy-service-is-unable-to-communicate-with-azure"></a>Le service proxy n'est pas en mesure de communiquer avec Azure
 

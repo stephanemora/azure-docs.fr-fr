@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.custom: codepen
-ms.openlocfilehash: 18d8f2a974fb192578163f71a57d00824ae6b0fa
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 507af54b8b4c2e7c67538a1a25a040c7ee5fdfd5
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68839461"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976318"
 ---
 # <a name="data-driven-style-expressions-web-sdk"></a>Expressions de style basé sur les données (SDK web)
 
@@ -65,7 +65,8 @@ Tous les exemples de ce document utilisent la fonctionnalité suivante pour illu
         "type": "Point",
         "coordinates": [-122.13284, 47.63699]
     },
-    "properties": {     
+    "properties": { 
+        "id": 123,
         "entityType": "restaurant",
         "revenue": 12345,
         "subTitle": "Building 40", 
@@ -310,6 +311,28 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 
         //Specify a default value to return if no match is found.
         'black'
+    ]
+});
+```
+
+L’exemple suivant utilise une expression de correspondance pour appliquer un filtre de type « in array » ou « array contains ». Dans ce cas, en filtrant les données qui ont une valeur d’ID figurant dans une liste d’ID autorisés. Lorsque vous utilisez des expressions avec des filtres, le résultat doit être une valeur booléenne.
+
+```javascript
+var layer = new atlas.layer.BubbleLayer(datasource, null, {
+    filter: [
+        'match',  
+
+        //Get the property to match.
+        ['get', 'id'],  
+
+         //List of values to match.
+        [24, 53, 98], 
+
+        //If there is a match, return true.
+        true,
+    
+        //Otherwise return false.
+        false
     ]
 });
 ```
@@ -634,7 +657,7 @@ var layer = new atlas.layer.LineLayer(datasource, null, {
 });
 ```
 
-[Consulter un exemple en direct](map-add-shape.md#line-stroke-gradient)
+[Consulter un exemple en direct](map-add-line-layer.md#line-stroke-gradient)
 
 ### <a name="text-field-format-expression"></a>Expression de format de champ de texte
 
@@ -816,8 +839,11 @@ Pour obtenir plus d’exemples de code qui implémentent des expressions, consul
 > [!div class="nextstepaction"] 
 > [Ajouter une couche de bulles](map-add-bubble-layer.md)
 
-> [!div class="nextstepaction"] 
-> [Ajouter des formes](map-add-shape.md)
+> [!div class="nextstepaction"]
+> [Ajouter une couche de lignes](map-add-line-layer.md)
+
+> [!div class="nextstepaction"]
+> [Ajouter une couche de polygones](map-add-shape.md)
 
 > [!div class="nextstepaction"] 
 > [Ajouter une couche de carte thermique](map-add-heat-map-layer.md)

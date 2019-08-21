@@ -1,5 +1,5 @@
 ---
-title: Déployer des modèles avec une image Docker personnalisée
+title: Déployer des modèles à l’aide d’une image Docker personnalisée
 titleSuffix: Azure Machine Learning service
 description: Découvrez comment utiliser une image Docker personnalisée lors du déploiement de vos modèles de service Azure Machine Learning. Lorsque vous déployez un modèle entraîné, une image Docker est créée pour héberger l’image, le serveur web et d’autres composants nécessaires pour exécuter le service. Même si le service Azure Machine Learning vous fournit une image par défaut, vous pouvez également utiliser votre propre image.
 services: machine-learning
@@ -10,16 +10,16 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 07/11/2019
-ms.openlocfilehash: f51c6bdc6cb2e381d5d5b855bf2f87b07d7fc180
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: f41ccef7803366e63247e6862c59ddb983527d26
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68638430"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68990518"
 ---
-# <a name="deploy-a-model-using-a-custom-docker-image"></a>Déployer un modèle à l’aide d’une image Docker personnalisée
+# <a name="deploy-a-model-by-using-a-custom-docker-image"></a>Déployer un modèle à l’aide d’une image Docker personnalisée
 
-Découvrez comment utiliser une image Docker personnalisée lors du déploiement de modèles entraînés avec le service Azure Machine Learning.
+Découvrez comment utiliser une image Docker personnalisée lorsque vous déployez des modèles entraînés avec le service Azure Machine Learning.
 
 Lorsque vous déployez un modèle entraîné sur un service web ou un appareil IoT Edge, une image Docker est créée. Cette image contient le modèle, l’environnement conda et les ressources nécessaires pour utiliser le modèle. Elle contient également un serveur web pour gérer les demandes entrantes lors du déploiement du modèle en tant que service web et les composants nécessaires pour travailler avec Azure IoT Hub.
 
@@ -40,8 +40,8 @@ Ce document est divisé en deux sections :
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Espace de travail de service Azure Machine Learning. Pour plus d’informations, consultez l’article [Créer un espace de travail](setup-create-workspace.md).
-* Kit SDK Azure Machine Learning. Pour plus d’informations, consultez la section du kit SDK Python de l’article [Créer un espace de travail](setup-create-workspace.md#sdk).
+* Espace de travail de service Azure Machine Learning. Pour plus d’informations, consultez l’article [Créer un espace de travail](how-to-manage-workspace.md).
+* Le [Kit de développement logiciel (SDK) Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py). 
 * [Interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 * [Extension CLI pour Azure Machine Learning](reference-azure-machine-learning-cli.md).
 * Registre [Azure Container Registry](/azure/container-registry) ou autre registre Docker accessible sur Internet.
@@ -98,6 +98,8 @@ Si vous avez déjà entraîné ou déployé des modèles à l’aide du service 
     ```azurecli-interactive
     az ml workspace show -w <myworkspace> -g <resourcegroup> --query containerRegistry
     ```
+
+    [!INCLUDE [install extension](../../../includes/machine-learning-service-install-extension.md)]
 
     Les informations renvoyées sont semblables à ce qui suit :
 

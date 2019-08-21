@@ -8,14 +8,30 @@ ms.date: 01/24/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: f732ab6ceb17dcd013c6d032ef3943f6ad9bef71
-ms.sourcegitcommit: f7998db5e6ba35cbf2a133174027dc8ccf8ce957
+ms.openlocfilehash: 759422ea8c327ae67278354217dac4c60b32f7a9
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68782339"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68850316"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Résoudre les erreurs avec les runbooks
+
+Cet article explique en détail les problèmes courants liés aux runbooks et leur résolution.
+
+## <a name="steps-to-troubleshoot-runbooks"></a>Étapes de résolution des problèmes liés aux runbooks
+
+Lorsque des erreurs surviennent lors de l’exécution de runbooks dans Azure Automation, vous pouvez utiliser les étapes suivantes pour diagnostiquer le problème.
+
+1. **Veillez à ce que le script de votre runbook s’exécute avec succès sur votre ordinateur local :**  Reportez-vous à la [documentation de PowerShell](/powershell/scripting/overview) ou à la [documentation de Python](https://docs.python.org/3/) pour obtenir des modules de référence et d’entraînement du langage.
+
+   L’exécution en local de votre script peut détecter et résoudre les erreurs courantes, telles que :
+
+   - **Modules manquants**
+   - **Erreurs de syntaxe**
+   - **Erreurs logiques**
+
+2. **Veillez à ce que vos nœuds et votre espace de travail Automation disposent des modules nécessaires :** Si votre runbook importe des modules, assurez-vous qu’ils sont disponibles dans votre compte Automation à l’aide des étapes répertoriées dans [Importer des modules](../shared-resources/modules.md#import-modules). Pour plus d’informations, consultez [Résoudre les problèmes liés aux modules](shared-resources.md#modules).
 
 ## <a name="authentication-errors-when-working-with-azure-automation-runbooks"></a>Erreurs d’authentification avec des runbooks Azure Automation
 

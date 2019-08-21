@@ -16,12 +16,12 @@ ms.date: 07/23/2019
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1688651466ba6748e1254c9d33bb24435602868b
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: 76ba284ec1a30322a24c762a1829b399f2583c6c
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68489163"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69032926"
 ---
 # <a name="tutorial-create-your-first-access-package-in-azure-ad-entitlement-management-preview"></a>Didacticiel : Créer votre premier package d’accès dans la gestion des droits d’utilisation Azure AD (préversion)
 
@@ -44,7 +44,9 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > * Montrer comment un utilisateur interne peut demander le package d’accès
 > * Approuver la demande d’accès
 
-Si vous ne disposez pas d’une licence Azure AD Premium P2 ou Enterprise Mobility + Security E5, créez un [essai gratuit Enterprise Mobility + Security E5](https://signup.microsoft.com/Signup?OfferId=87dd2714-d452-48a0-a809-d2f58c4f68b7&ali=1).
+Pour obtenir une démonstration pas à pas du processus de déploiement de la gestion des droits d'utilisation d’Azure Active Directory, notamment la création de votre premier package d’accès, regardez la vidéo suivante :
+
+>[!VIDEO https://www.youtube.com/embed/zaaKvaaYwI4]
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -52,6 +54,8 @@ Pour utiliser la gestion des droits d’utilisation Azure AD (préversion), vous
 
 - Azure AD Premium P2
 - Licence Enterprise Mobility + Security (EMS) E5
+
+Si vous ne disposez pas d’une licence Azure AD Premium P2 ou Enterprise Mobility + Security E5, créez un [essai gratuit Enterprise Mobility + Security E5](https://signup.microsoft.com/Signup?OfferId=87dd2714-d452-48a0-a809-d2f58c4f68b7&ali=1).
 
 ## <a name="step-1-set-up-users-and-group"></a>Étape 1 : Configurer des utilisateurs et un groupe
 

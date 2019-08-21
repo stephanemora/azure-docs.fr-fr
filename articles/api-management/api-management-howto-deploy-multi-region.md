@@ -11,32 +11,32 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2019
+ms.date: 08/12/2019
 ms.author: apimpm
-ms.openlocfilehash: d22da92355616c208c7616b4b0e8c26b7f9e7006
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a37df18d91f77dbeb306fd8b028cb14eded812e7
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60658153"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68975753"
 ---
 # <a name="how-to-deploy-an-azure-api-management-service-instance-to-multiple-azure-regions"></a>Comment déployer une instance de service Gestion des API Azure dans plusieurs régions Azure
 
-La Gestion des API Azure prend en charge le déploiement sur plusieurs régions, ce qui permet aux éditeurs d’API de ne distribuer qu’un seul service de Gestion des API Azure sur un nombre de régions Azure au choix. Ceci permet de réduire la latence de la demande telle qu’elle est perçue par les utilisateurs distribués de l’API. La disponibilité du service est également améliorée si une région est mise hors connexion.
+La Gestion des API Azure prend en charge le déploiement sur plusieurs régions, ce qui permet aux éditeurs d’API de ne distribuer qu’un seul service de Gestion des API Azure sur un nombre de régions Azure prises en charge. Cette fonctionnalité sur plusieurs régions permet de réduire la latence de la demande telle qu’elle est perçue par les utilisateurs distribués de l’API. La disponibilité du service est améliorée si une région est mise hors connexion.
 
-Un nouveau service de Gestion des API Azure contient initialement une seule [unité][unit] dans une seule région Azure, la Région primaire. D’autres régions peuvent être facilement ajoutées via le portail Azure. Un serveur de passerelle du service Gestion des API est déployé sur chaque région et le trafic d’appel est routé vers la passerelle la plus proche en termes de latence. Si une région est déconnectée, le trafic est automatiquement redirigé vers la passerelle suivante la plus proche.
+Un nouveau service de Gestion des API Azure contient initialement une seule [unité][unit] dans une seule région Azure, la Région primaire. Des régions supplémentaires peuvent être ajoutées aux régions primaires ou secondaires. Un composant de passerelle de gestion des API est déployé sur chaque région principale et secondaire sélectionnée. Les requêtes d’API entrantes sont dirigées automatiquement vers la région la plus proche. Si une région est déconnectée, les requêtes d’API sont acheminées automatiquement autour de la région défaillante vers la passerelle suivante la plus proche.
 
 > [!NOTE]
-> La Gestion des API Azure réplique uniquement le composant de la passerelle API dans les différentes régions. Le composant du service de gestion est hébergé uniquement dans la région primaire. En cas de panne dans la région primaire, il est impossible d’appliquer les modifications de configuration sur une instance de service de Gestion des API Azure, y compris pour les paramètres et les mises à jour de stratégies.
+> Seul le composant passerelle de la gestion des API est déployé dans toutes les régions. Le composant de gestion des services et le portail des développeurs sont hébergés uniquement dans la région principale. Par conséquent, en cas de panne de la région primaire, l’accès au portail des développeurs et la possibilité de modifier la configuration (par exemple, l’ajout d’API et l’application de stratégies) seront altérés jusqu’à ce que la région primaire soit de nouveau en ligne. Lorsque la région primaire n’est pas en ligne, les régions secondaires disponibles continuent de servir le trafic d’API à l’aide de la dernière configuration disponible.
 
 [!INCLUDE [premium.md](../../includes/api-management-availability-premium.md)]
 
 ## <a name="add-region"></a>Déploiement d’une instance de service Gestion des API sur une nouvelle région
 
 > [!NOTE]
-> Si vous n’avez pas encore créé d’instance de service Gestion des API, consultez la page [Création d’une instance de service Gestion des API][Create an API Management service instance].
+> Si vous n’avez pas encore créé d’instance de service Gestion des API, consultez la page [Création d’une instance de service Gestion des API][create an api management service instance].
 
-Dans le portail Azure, accédez à la page **Mise à l’échelle et tarification** de votre instance de service de Gestion des API. 
+Dans le portail Azure, accédez à la page **Mise à l’échelle et tarification** de votre instance de service de Gestion des API.
 
 ![Onglet Mettre à l’échelle][api-management-scale-service]
 
@@ -48,13 +48,13 @@ Sélectionnez l’emplacement dans la liste déroulante et définissez le nombre
 
 ![Spécifier les unités][api-management-select-location-units]
 
-Cliquez sur **Ajouter** pour placer votre sélection dans la table des emplacements. 
+Cliquez sur **Ajouter** pour placer votre sélection dans la table des emplacements.
 
 Répétez cette procédure jusqu’à ce que vous ayez configuré tous les emplacements, puis cliquez sur **Enregistrer** dans la barre d’outils pour démarrer le déploiement.
 
 ## <a name="remove-region"></a>Suppression d’une instance de service Gestion des API dans un emplacement
 
-Dans le portail Azure, accédez à la page **Mise à l’échelle et tarification** de votre instance de service de Gestion des API. 
+Dans le portail Azure, accédez à la page **Mise à l’échelle et tarification** de votre instance de service de Gestion des API.
 
 ![Onglet Mettre à l’échelle][api-management-scale-service]
 
@@ -111,7 +111,7 @@ Pour tirer pleinement parti de la distribution géographique de votre système, 
 
 ## <a name="custom-routing"> </a>Utiliser le routage personnalisé vers des passerelles régionales du service Gestion des API
 
-Le service Gestion des API route les demandes vers une *passerelle* régionale selon la [plus faible latence](../traffic-manager/traffic-manager-routing-methods.md#performance). Même s’il n’est pas possible de remplacer ce paramètre dans le service Gestion des API, vous pouvez utiliser votre propre Traffic Manager avec des règles de routage personnalisées.
+Le service Gestion des API route les demandes vers une _passerelle_ régionale selon la [plus faible latence](../traffic-manager/traffic-manager-routing-methods.md#performance). Même s’il n’est pas possible de remplacer ce paramètre dans le service Gestion des API, vous pouvez utiliser votre propre Traffic Manager avec des règles de routage personnalisées.
 
 1. Créez votre propre [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/).
 1. Si vous utilisez un domaine personnalisé, [utilisez-le avec Traffic Manager](../traffic-manager/traffic-manager-point-internet-domain.md) plutôt qu’avec le service Gestion des API.
@@ -119,19 +119,14 @@ Le service Gestion des API route les demandes vers une *passerelle* régionale s
 1. [Configurez les points de terminaison d’état régionaux du service Gestion des API dans Traffic Manager](../traffic-manager/traffic-manager-monitoring.md). Les points de terminaison d’état régionaux suivent le modèle d’URL `https://<service-name>-<region>-01.regional.azure-api.net/status-0123456789abcdef`, par exemple `https://contoso-westus2-01.regional.azure-api.net/status-0123456789abcdef`.
 1. Spécifiez [la méthode de routage](../traffic-manager/traffic-manager-routing-methods.md) de Traffic Manager.
 
-
 [api-management-management-console]: ./media/api-management-howto-deploy-multi-region/api-management-management-console.png
-
 [api-management-scale-service]: ./media/api-management-howto-deploy-multi-region/api-management-scale-service.png
 [api-management-add-region]: ./media/api-management-howto-deploy-multi-region/api-management-add-region.png
 [api-management-select-location-units]: ./media/api-management-howto-deploy-multi-region/api-management-select-location-units.png
 [api-management-remove-region]: ./media/api-management-howto-deploy-multi-region/api-management-remove-region.png
-
-[Create an API Management service instance]: get-started-create-service-instance.md
-[Get started with Azure API Management]: get-started-create-service-instance.md
-
-[Deploy an API Management service instance to a new region]: #add-region
-[Delete an API Management service instance from a region]: #remove-region
-
+[create an api management service instance]: get-started-create-service-instance.md
+[get started with azure api management]: get-started-create-service-instance.md
+[deploy an api management service instance to a new region]: #add-region
+[delete an api management service instance from a region]: #remove-region
 [unit]: https://azure.microsoft.com/pricing/details/api-management/
-[Premium]: https://azure.microsoft.com/pricing/details/api-management/
+[premium]: https://azure.microsoft.com/pricing/details/api-management/

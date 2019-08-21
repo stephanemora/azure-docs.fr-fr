@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 189e4f280e8aba28c4d1af449aa8a3428e303911
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: 4aa8f9a7c6807a2f9505559ea13fb0b4f410346d
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68298209"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68987165"
 ---
 # <a name="troubleshooting-devices-using-the-dsregcmd-command"></a>Dépannage des appareils à l’aide de la commande dsregcmd
 
@@ -295,6 +295,9 @@ Cette section affiche la sortie des vérifications d’intégrité effectuées s
 ## <a name="ngc-prerequisite-check"></a>Vérification du prérequis NGC
 
 Cette section effectue les vérifications prérequises pour le provisionnement d’une clé NGC. 
+
+> [!NOTE]
+> Vous ne verrez peut-être pas les détails de la vérification des conditions préalables NGC dans dsregcmd/status si l’utilisateur a déjà réussi à configurer les informations d’identification NGC.
 
 ### <a name="sample-ngc-prerequisite-check-output"></a>Exemple de sortie de vérification du prérequis NGC
 

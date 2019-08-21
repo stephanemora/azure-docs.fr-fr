@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/08/2019
+ms.date: 08/14/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: aragra, lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f770539e2f60a960a52a877dd4eaa79c60a1af4a
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: f9c8e4a2e5dadf64312481f33993911177c90bc7
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67482674"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68989269"
 ---
 # <a name="quickstart-configure-an-application-to-expose-web-apis"></a>Démarrage rapide : Configurer une application pour exposer des API web
 
@@ -116,8 +116,9 @@ Pour exposer une nouvelle étendue via le manifeste de l'application vous devez.
 ## <a name="verify-the-web-api-is-exposed-to-other-applications"></a>Vérifier que l’API web est exposée à d’autres applications
 
 1. Revenez à votre locataire Azure AD, sélectionnez **Inscriptions des applications**, puis recherchez et sélectionnez l’application cliente que vous souhaitez configurer.
-1. Répétez l’étape décrite dans la section Configurer une application cliente pour accéder aux API web.
-1. Lorsque vous arrivez à l’étape intitulée **Sélectionner une API**, sélectionnez votre ressource. Vous devriez voir la nouvelle étendue, disponible pour les demandes d’autorisations clientes.
+1. Répétez l’étape décrite dans la section [Configurer une application cliente pour accéder aux API web](quickstart-configure-app-access-web-apis.md).
+1. Lorsque vous arrivez à l’étape intitulée [Sélectionner une API](quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis
+), sélectionnez votre ressource. Vous devriez voir la nouvelle étendue, disponible pour les demandes d’autorisations clientes.
 
 ## <a name="more-on-the-application-manifest"></a>Informations complémentaires concernant le manifeste d’application
 

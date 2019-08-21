@@ -11,14 +11,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/06/2019
+ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: b819a990b9f607aaf70bf2e16a5857de3f7306cc
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 320e92e45f319e394b5a38b3f1e8ef3f314920b8
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827500"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68966344"
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Activité d’obtention des métadonnées dans Azure Data Factory
 
@@ -138,8 +138,8 @@ Propriété | Description | Obligatoire
 -------- | ----------- | --------
 fieldList | Répertorie les types d’informations de métadonnées requis. Consultez les détails dans la section [Options de métadonnées](#metadata-options) sur les métadonnées prises en charge. | OUI 
 dataset | Jeu de données de référence à partir duquel l’activité de métadonnées doit être récupérée par l’activité d’obtention des métadonnées. Consultez la section [Fonctionnalités prises en charge](#supported-capabilities) sur les connecteurs pris en charge et reportez-vous à la rubrique des connecteurs pour plus d’informations sur la syntaxe de jeu de données. | OUI
-formatSettings | S’applique lors de l’utilisation du type de format Jeu de données (Parquet, DelimitedText). | Non
-storeSettings | S’applique lors de l’utilisation du type de format Jeu de données (Parquet, DelimitedText). | Non
+formatSettings | S’applique lors de l’utilisation du type de format Jeu de données. | Non
+storeSettings | S’applique lors de l’utilisation du type de format Jeu de données. | Non
 
 ## <a name="sample-output"></a>Exemple de sortie
 

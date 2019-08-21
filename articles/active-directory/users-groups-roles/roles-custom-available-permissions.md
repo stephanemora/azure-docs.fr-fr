@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e5ff6755f1391ff19e65df669fb51967a904f4f
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: 99f31c5928273973a9089ae9ef1fd184cdb78bbb
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68707434"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69033382"
 ---
 # <a name="application-registration-subtypes-and-permissions-in-azure-active-directory"></a>Les sous-types et les autorisations d’inscription de l’application dans Azure Active Directory
 
@@ -46,12 +46,12 @@ Les informations relatives aux autorisations suivantes pour la version prélimin
 
 ### <a name="create-and-delete"></a>Créer et supprimer
 
-Deux autorisations sont disponibles pour accorder la possibilité de créer des inscriptions d’applications :
+Deux autorisations sont disponibles pour accorder la possibilité de créer des inscriptions d’applications, chacune avec un comportement différent :
 
-- **microsoft.directory/applications/createAsOwner**
-- **microsoft.directory/applications/create**
+- **microsoft.directory/applications/createAsOwner** : En attribuant cette autorisation, le créateur est ajouté en tant que premier propriétaire de l'enregistrement de l'application créée. L'enregistrement de l'application créée est comptabilisé dans le quota de 250 objets créés du créateur.
+- **microsoft.directory/applicationPolicies/create** : En attribuant cette autorisation, le créateur n’est pas ajouté en tant que premier propriétaire de l'enregistrement de l'application créée. L'enregistrement de l'application créée est comptabilisé dans le quota de 250 objets créés du créateur. Utilisez cette autorisation avec précaution, car rien n’empêche l’intervenant de créer des inscriptions d’applications tant que le quota au niveau du répertoire n’a pas été atteint. Si les deux autorisations sont affectées, l’autorisation est prioritaire.
 
-Si les deux autorisations sont affectées, l’autorisation de création est prioritaire. Bien que l’autorisation createAsOwner n’ajoute pas automatiquement le créateur comme premier propriétaire, les propriétaires peuvent être spécifiés lors de la création de l’inscription de l’application lors de l’utilisation des API Graph ou des applets de commande PowerShell.
+Si les deux autorisations sont affectées, l’autorisation /create est prioritaire. Bien que l’autorisation /createAsOwner n’ajoute pas automatiquement le créateur comme premier propriétaire, les propriétaires peuvent être spécifiés lors de la création de l’inscription de l’application lors de l’utilisation des API Graph ou des cmdlets PowerShell.
 
 Les autorisations de création autorisent l’accès à la commande **Nouvelle inscription**.
 

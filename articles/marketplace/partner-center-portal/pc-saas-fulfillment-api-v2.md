@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: reference
 ms.date: 05/23/2019
 ms.author: evansma
-ms.openlocfilehash: a8196370a93a6ce8eed83002397c2f09efbc777f
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 276699b9316a0c4fd428038f2c967bdf934f449c
+ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68358583"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69016039"
 ---
 # <a name="saas-fulfillment-apis-version-2"></a>API de traitement SaaS, version 2 
 
@@ -282,7 +282,7 @@ Response Body:
           "term": { //This gives the free trial term start and end date
             "startDate": "2019-05-31",
             "endDate": "2019-06-29",
-            "termUnit": "P1M"
+            "termUnit": "P1M" //where P1M: Monthly, P1Y: Yearly 
         },
 }
 ```
@@ -789,6 +789,8 @@ Code : 500<br> Erreur interne du serveur.
 ## <a name="implementing-a-webhook-on-the-saas-service"></a>Implémentation d’un webhook sur le service SaaS
 
 L’éditeur doit implémenter un webhook dans ce service SaaS pour informer les utilisateurs des changements dans son service. Le service SaaS est censé appeler l’API Opérations pour valider et autoriser avant d’entreprendre une action sur la notification de Webhook.
+
+Pour garantir des communications sécurisées, Microsoft comprend le jeton JWT Azure Active Directory dans l’en-tête d’autorisation dans le cadre de l’appel. Les fournisseurs Saas sont encouragés à valider le jeton JWT comme décrit dans l’article [Jetons d’accès de la plateforme d’identité Microsoft](https://docs.microsoft.com/azure/active-directory/develop/access-tokens) afin de garantir que seuls les appels valides sont acceptés.
 
 ```json
 {

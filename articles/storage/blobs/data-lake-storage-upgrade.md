@@ -1,19 +1,19 @@
 ---
 title: Mettre à niveau vos solutions d’analytique de Big Data d’Azure Data Lake Storage Gen1 vers Azure Data Lake Storage Gen2
 description: Mettre à niveau votre solution pour utiliser Azure Data Lake Storage Gen2
-services: storage
 author: normesta
 ms.topic: conceptual
 ms.author: normesta
 ms.date: 02/07/2019
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 4d5bf318a86e989ce66bffbd2aa72638ea477ab1
-ms.sourcegitcommit: 80aaf27e3ad2cc4a6599a3b6af0196c6239e6918
+ms.reviewer: rugopala
+ms.openlocfilehash: 850d580d4eb1ca41932a28005d3375ced709db60
+ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67673923"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69016388"
 ---
 # <a name="upgrade-your-big-data-analytics-solutions-from-azure-data-lake-storage-gen1-to-azure-data-lake-storage-gen2"></a>Mettre à niveau vos solutions d’analytique de Big Data d’Azure Data Lake Storage Gen1 vers Azure Data Lake Storage Gen2
 
@@ -82,7 +82,7 @@ Cette section décrit les fonctionnalités de la plateforme Data Lake Storage Ge
 | |Optimisation des performances pour les charges de travail d’analyses parallèles. Débit et nombre d’E/S par seconde élevés. | Optimisation des performances pour les charges de travail d’analyses parallèles. Débit et nombre d’E/S par seconde élevés. | *Déjà disponible* |
 | Prise en charge du réseau virtuel  | [Utilisation de l’intégration du Réseau virtuel](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-network-security)  | [Utilisation d’un point de terminaison de service pour Stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-network-security?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) | *Déjà disponible* |
 | Limites de taille | Aucune limite de taille pour les comptes, les fichiers ou le nombre de fichiers | Aucune limite sur la taille des comptes ou le nombre de fichiers. Taille de fichier limitée à 5 To. | *Déjà disponible*|
-| Géo-redondance| Localement redondant (LRS) | Localement redondant (LRS), redondant dans une zone (ZRS), globalement redondant (GRS), accès en lecture redondant globalement (RA-GRS) Pour plus d’informations, voir [ici](https://docs.microsoft.com/azure/storage/common/storage-redundancy)| *Déjà disponible* |
+| Géo-redondance| Localement redondant (LRS) | Localement redondant (LRS), redondant dans une zone (ZRS), géo-redondant (GRS), géo-redobdabt avec accès en lecture (RA-GRS) Pour plus d’informations, voir [ici](https://docs.microsoft.com/azure/storage/common/storage-redundancy)| *Déjà disponible* |
 | Disponibilité régionale | Voir [ici](https://azure.microsoft.com/regions/) | Toutes les [régions Azure](https://azure.microsoft.com/global-infrastructure/regions/)                                                                                                                                                                                                                                                                                                                                       | *Déjà disponible*                                                                                                                           |
 | Prix                                       | Consultez la page [Tarification](https://azure.microsoft.com/pricing/details/data-lake-store/)                                                                            | Consultez la page [Tarification](https://azure.microsoft.com/pricing/details/storage/data-lake/)                                                                                                                                                                                                                                                                                                                                         |                                                                                                                                           |
 | Contrat SLA de disponibilité                            | [Voir contrat SLA](https://azure.microsoft.com/support/legal/sla/data-lake-store/v1_0/)                                                                   | [Voir contrat SLA](https://azure.microsoft.com/support/legal/sla/storage/v1_3/)                                                                                                                                                                                                                                                                                                                                                | *Déjà disponible*                                                                                                                           |

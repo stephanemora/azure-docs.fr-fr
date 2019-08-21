@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: overview
-ms.date: 07/17/2019
+ms.date: 08/07/2019
 ms.author: helohr
-ms.openlocfilehash: 03105232cb92a65f8c38d6d755910739a3fc4720
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: 7c331a4a7395069dc4dc3ab1dcfc89415be0898c
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68305046"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68854453"
 ---
 # <a name="what-is-windows-virtual-desktop-preview"></a>Qu’est-ce que Windows Virtual Desktop Preview ? 
 
@@ -29,9 +29,11 @@ Voici ce que vous pouvez faire quand vous exécutez Windows Virtual Desktop sur 
 
 ## <a name="introductory-video"></a>Vidéo d’introduction
 
-Dans la vidéo suivante, Scott Manchester présente certaines des fonctionnalités Windows Virtual Desktop :
+Découvrez Windows Virtual Desktop, pourquoi cette solution est unique et les nouveautés de cette vidéo :
 
-<br></br><iframe src="https://www.youtube-nocookie.com/embed/30dOLcZ4_9U" width="640" height="320" allowFullScreen="true" frameBorder="0"></iframe>
+<br></br><iframe src="https://www.youtube.com/embed/NQFtI3JLtaU" width="640" height="320" allowFullScreen="true" frameBorder="0"></iframe>
+
+Pour obtenir d’autres vidéos sur Windows Virtual Desktop, consultez [notre sélection](https://www.youtube.com/watch?v=NQFtI3JLtaU&list=PLXtHYVsvn_b8KAKw44YUpghpD6lg-EHev).
 
 ## <a name="key-capabilities"></a>Fonctionnalités clés
 

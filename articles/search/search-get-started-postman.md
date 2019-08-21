@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.topic: quickstart
 ms.date: 07/11/2019
 ms.author: heidist
-ms.openlocfilehash: 5ad1708475200475669c5de8f4fbd316f04ebd04
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: e3912e90762977bc801279fde481fc26516e51a6
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68840791"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68882655"
 ---
 # <a name="quickstart-create-an-azure-search-index-in-postman-using-rest-apis"></a>Démarrage rapide : Créer un index Recherche Azure dans Postman à l’aide des API REST
 > [!div class="op_single_selector"]
@@ -80,7 +80,7 @@ Pour faire cela dans Postman :
 
 1. Remplacez le verbe par **PUT**.
 
-2. Copiez dans cette URL `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels?api-version=2019-05-06`.
+2. Copiez dans cette URL `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels-quickstart?api-version=2019-05-06`.
 
 3. Fournissez la définition d’index (un code prêt à copier est fourni ci-dessous) dans le corps de la demande.
 
@@ -298,6 +298,7 @@ Si vous utilisez un service gratuit, n’oubliez pas que vous êtes limité à t
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Les clients REST sont très utiles pour l’exploration ad hoc, mais vous connaissez le fonctionnement de l’API REST, donc vous pouvez avancer avec le code. Pour les étapes suivantes, suivez les liens suivants :
+Maintenant que vous savez effectuer les tâches de base, vous pouvez aller plus loin avec les appels d’API REST supplémentaires pour des fonctionnalités plus avancées, telles que les indexeurs ou la [configuration d’un pipeline de recherche cognitive](cognitive-search-tutorial-blob.md). Pour les étapes suivantes, nous vous recommandons le lien suivant :
 
-+ [Démarrage rapide : Créer un index à l’aide du Kit de développement logiciel .NET](search-get-started-dotnet.md)
+> [!div class="nextstepaction"]
+> [Tutoriel REST : Indexer et rechercher des données semi-structurées (objets blob JSON) dans Recherche Azure](search-semi-structured-data.md)

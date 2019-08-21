@@ -1,21 +1,21 @@
 ---
 title: Authentification Azure Active Directory (Azure AD)
 titleSuffix: Azure Cognitive Services
-description: Référence correspondant au kit de développement logiciel (SDK) du lecteur immersif
+description: Cet article vous montre comment créer une ressource de lecteur immersif avec un sous-domaine personnalisé et comment configurer Azure AD dans votre locataire Azure.
 services: cognitive-services
 author: rwaller
 manager: guillasi
 ms.service: cognitive-services
 ms.subservice: immersive-reader
-ms.topic: reference
+ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: rwaller
-ms.openlocfilehash: de6a29e1c4c102aa7d4038185c1635544ba9dfe2
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: e4b792a04b4926fdb56f37c089e73b90cde905d3
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688791"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68990142"
 ---
 # <a name="use-azure-active-directory-azure-ad-authentication-with-the-immersive-reader-service"></a>Utiliser l’authentification Azure Active Directory (Azure AD) avec le service Lecteur immersif
 
@@ -134,5 +134,7 @@ Le principal du service peut également être authentifié avec un certificat. O
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Consulter le [didacticiel](./tutorial.md) pour voir que vous pouvez faire d’autre avec le SDK Lecteur immersif
-* Explorer le [SDK Lecteur Immersive](https://github.com/microsoft/immersive-reader-sdk) et la [référence du SDK Lecteur immersif](./reference.md)
+* Consulter le [didacticiel Node.js](./tutorial-nodejs.md) pour voir ce que vous pouvez faire d’autre avec le kit SDK Lecteur immersif à l’aide de Node.js
+* Consulter le [didacticiel Python](./tutorial-python.md) pour voir ce que vous pouvez faire d’autre avec le kit SDK Lecteur immersif à l’aide de Python
+* Consulter le [didacticiel Swift](./tutorial-ios-picture-immersive-reader.md) pour voir ce que vous pouvez faire d’autre avec le kit SDK Lecteur immersif à l’aide de Swift
+* Explorer le [SDK Lecteur Immersif](https://github.com/microsoft/immersive-reader-sdk) et la [référence du SDK Lecteur immersif](./reference.md)

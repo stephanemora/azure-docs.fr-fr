@@ -10,12 +10,12 @@ ms.date: 04/29/2019
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 109c2817b95f535acfb3d6987a7dad57135ee7a0
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: a681daa60503ff08320b25155e201ca0e7a4a001
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67478622"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68952998"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Suivre les modifications apportées à votre environnement grâce à la solution Suivi des modifications
 
@@ -34,7 +34,7 @@ Les versions suivantes du système d’exploitation Windows sont officiellement 
 
 ## <a name="supported-linux-operating-systems"></a>Systèmes d’exploitation Linux pris en charge
 
-Les distributions Linux suivantes sont officiellement prises en charge. Toutefois, l’agent Linux peut également s’exécuter sur d’autres distributions, qui ne se trouvent pas dans la liste. Sauf indication contraire, toutes les versions mineures sont prises en charge pour chaque version majeure répertoriée.  
+Les distributions Linux suivantes sont officiellement prises en charge. Toutefois, l’agent Linux peut également s’exécuter sur d’autres distributions, qui ne se trouvent pas dans la liste. Sauf indication contraire, toutes les versions mineures sont prises en charge pour chaque version majeure répertoriée.
 
 ### <a name="64-bit"></a>64 bits
 
@@ -68,6 +68,24 @@ Pour commencer à suivre les modifications, vous devez activer la solution Chang
 Pour découvrir comment intégrer des ordinateurs à la solution, visitez : [Intégration de solutions Automation](automation-onboard-solutions-from-automation-account.md). Une fois que vous avez une machine intégrée à la solution Change Tracking and Inventory, vous pouvez configurer les éléments à suivre. Quand vous activez le suivi d’un nouveau fichier ou d’une nouvelle clé de Registre, ceux-ci sont activés à la fois pour Change Tracking et Inventory.
 
 Pour suivre les modifications apportées à des fichiers sur Windows et Linux, les hachages MD5 de fichiers sont utilisés. Ces hachages sont ensuite utilisés pour détecter si une modification a été apportée depuis le dernier inventaire.
+
+### <a name="file-integrity-monitoring-in-azure-security-center"></a>Supervision d’intégrité de fichier dans Azure Security Center
+
+Azure Security Center a ajouté le contrôle d’intégrité des fichiers (FIM) basé sur Azure Change Tracking. Alors que FIM surveille uniquement les fichiers et les registres, la solution complète de suivi des modifications comprend également les éléments suivants :
+
+- Modifications de logiciel
+- Services Windows
+- Démons Linux
+
+Si vous avez déjà activé FIM et que vous souhaitez essayer la solution complète de suivi des modifications, vous devez effectuer les étapes suivantes. Vos paramètres ne sont pas supprimés par ce processus.
+
+> [!NOTE]
+> L’activation de la solution complète de suivi des modifications peut entraîner des frais supplémentaires. Pour plus d’informations, consultez [Tarification d’Automation](https://azure.microsoft.com/en-us/pricing/details/automation/).
+
+1. Supprimez la solution de surveillance en accédant à l’espace de travail et en la recherchant dans la [liste des solutions de surveillance installées](../azure-monitor/insights/solutions.md#list-installed-monitoring-solutions).
+2. Cliquez sur le nom de la solution pour ouvrir la page de résumé correspondante, puis cliquez sur Supprimer, comme indiqué dans [Supprimer une solution de surveillance](../azure-monitor/insights/solutions.md#remove-a-monitoring-solution).
+3. Pour réactiver la solution, accédez au compte Automation et sélectionnez **Suivi des modifications** dans le menu des ressources sous **Gestion de la configuration**.
+4. Confirmez les détails de votre paramètre d’espace de travail, puis cliquez sur **Activer**.
 
 ### <a name="configure-linux-files-to-track"></a>Configuration des fichiers Linux à suivre
 
@@ -197,7 +215,7 @@ L’agent effectue uniquement le suivi des modifications, ce qui permet d’opti
 
 > [!NOTE]
 > Même si l’agent peut enregistrer les modifications toutes les 10 secondes, les données mettent quelques minutes à s’afficher dans le portail. Les modifications effectuées pendant l’affichage des données dans le portail continuent d’être suivies et enregistrées.
-  
+
 ### <a name="registry-key-change-tracking"></a>Suivi des modifications des clés de Registre
 
 Le contrôle des modifications apportées aux clés de Registre a pour objectif d’identifier les points d’extension où peuvent s’activer du code tiers et des logiciels malveillants. La liste suivante présente les clés de Registre préconfigurées. Ces clés sont configurées, mais pas activées. Pour suivre ces clés de Registre, vous devez les activer.
@@ -278,7 +296,7 @@ Le tableau suivant fournit des exemples de recherches dans les journaux d’enre
 
 ## <a name="alert-on-changes"></a>Alerte sur les modifications
 
-L'une des principales caractéristiques de la solution Change Tracking and Inventory est sa capacité à alerter sur l'état de la configuration et sur les modifications apportées à l'état de la configuration de votre environnement hybride.  
+L'une des principales caractéristiques de la solution Change Tracking and Inventory est sa capacité à alerter sur l'état de la configuration et sur les modifications apportées à l'état de la configuration de votre environnement hybride.
 
 Dans l'exemple suivant, la capture d'écran montre que le fichier `C:\windows\system32\drivers\etc\hosts` a été modifié sur une machine. Ce fichier est important car le fichier Hosts est utilisé par Windows pour associer des noms d'hôtes à des adresses IP et il prime même sur le DNS, ce qui a pu entraîner des problèmes de connectivité ou la redirection du trafic vers des sites web malveillants ou dangereux.
 

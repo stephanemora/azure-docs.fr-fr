@@ -407,7 +407,7 @@ Informations essentielles :
 
 - Spécifiez plusieurs noms d’hôte en les séparant par un espace.
 - Cette condition de correspondance prend en charge les [valeurs de caractère générique](cdn-verizon-premium-rules-engine-reference.md#wildcard-values).
-- Si la valeur spécifiée ne contient pas d’astérisque, elle doit correspondre à la valeur exacte du nom d’hôte du point d’accès. Par exemple, « mydomain.com » ne correspond pas à « www.mydomain.com ».
+- Si la valeur spécifiée ne contient pas d’astérisque, elle doit correspondre à la valeur exacte du nom d’hôte du point d’accès. Par exemple, «mydomain.com» ne correspond pas à «www.mydomain.com».
 - Utilisez l’option **Ignorer la casse** pour contrôler si une comparaison respectant la casse est effectuée.
 - En raison du type de suivi des paramètres de cache, cette condition de correspondance est incompatible avec les fonctionnalités suivantes :
   - Remplissage de cache complet

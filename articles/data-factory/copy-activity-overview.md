@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/29/2019
+ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: 8f5a7d3f6300be100feffd23b98bd7dcd8f48148
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a8265496c475566ec7a87a19eab6d975838e9da4
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65150854"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68966385"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Activité de copie dans Azure Data Factory
 
@@ -27,13 +27,13 @@ ms.locfileid: "65150854"
 > * [Version 1](v1/data-factory-data-movement-activities.md)
 > * [Version actuelle](copy-activity-overview.md)
 
-Dans Azure Data Factory, vous pouvez utiliser l’activité de copie pour copier des données entre des banques de données locales et dans cloud. Une fois les données copiées, elles peuvent être transformées et analysées plus avant. Vous pouvez également utiliser l’activité de copie pour publier les résultats de transformation et d’analyse pour l’aide à la décision (BI) et l’utilisation d’application.
+Dans Azure Data Factory, vous pouvez utiliser l’activité de copie pour copier des données entre des banques de données locales et dans cloud. Une fois les données copiées, elles peuvent être transformées et analysées à l’aide d’autres activités. Vous pouvez également utiliser l’activité de copie pour publier les résultats de transformation et d’analyse pour l’aide à la décision (BI) et l’utilisation d’application.
 
 ![Rôle d’activité de copie](media/copy-activity-overview/copy-activity.png)
 
-L’activité de copie est exécutée sur un [runtime d’intégration](concepts-integration-runtime.md). Pour un scénario de copie des données différent, une version différente du runtime d’intégration peut être utilisée :
+L’activité de copie est exécutée sur un [runtime d’intégration](concepts-integration-runtime.md). Pour différents scénarios de copie de données, différentes versions du runtime d’intégration peuvent être exploitées :
 
-* Lors de la copie de données entre banques de données accessibles publiquement, l’activité de copie peut être dynamisée par un **runtime d’intégration Azure** qui est sécurisé, fiable et évolutif et [disponible globalement](concepts-integration-runtime.md#integration-runtime-location).
+* Lors de la copie de données entre banques de données accessibles publiquement via Internet à partir de n’importe quelle adresse IP, l’activité de copie peut être dynamisée par un **runtime d’intégration Azure** qui est sécurisé, fiable et évolutif et [disponible globalement](concepts-integration-runtime.md#integration-runtime-location).
 * Lors de la copie de données entre banques de données locales ou en réseau avec contrôle d’accès (par exemple, Réseau virtuel Microsoft Azure), vous devez configurer un **runtime intégré auto-hébergé** pour dynamiser la copie des données.
 
 Un runtime d’intégration doit être associé à chaque banque de données source et réceptrice. Découvrez plus de détails sur la manière dont l’activité de copie [détermine le runtime intégré à utiliser](concepts-integration-runtime.md#determining-which-ir-to-use).
@@ -73,7 +73,7 @@ Le service qui propose l’activité de copie est disponible mondialement, dans 
 Pour utiliser l’activité de copie dans Azure Data Factory, vous devez :
 
 1. **Créer des services liés pour les banques de données source et réceptrice.** Pour connaître la configuration et les propriétés prises en charge, voir la section « Propriétés du service lié » de l’article relatif au connecteur. La liste des connecteurs pris en charge figure dans la section [Banques de données et formats pris en charge](#supported-data-stores-and-formats).
-2. **Créer des jeux de données pour les banques de données source et réceptrice.** Pour connaître la configuration et les propriétés prises en charge, voir la section « Propriétés du jeu de données » des articles relatifs aux connecteurs source et récepteur.
+2. **Créer des jeux de données pour les banques de données source et réceptrice.** Reportez-vous à la section « Propriétés du jeu de données » des articles relatifs au connecteur source et récepteur pour connaître la configuration et les propriétés prises en charge.
 3. **Créer un pipeline avec une activité de copie.** La section suivante fournit un exemple.
 
 ### <a name="syntax"></a>Syntaxe
@@ -130,7 +130,7 @@ Le modèle suivant d’activité de copie contient une liste exhaustive des prop
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type d’une activité de copie doit être définie sur : **Copy** | OUI |
+| Type | La propriété type d’une activité de copie doit être définie sur : **Copy** | OUI |
 | inputs | Spécifiez le jeu de données que vous avez créé qui pointe vers les données sources. L’activité de copie ne prend en charge qu’une seule entrée. | OUI |
 | outputs | Spécifiez le jeu de données que vous avez créé qui pointe vers les données du récepteur. L’activité de copie ne prend en charge qu’une seule sortie. | OUI |
 | typeProperties | Groupe de propriétés pour configurer l’activité de copie. | OUI |
@@ -169,7 +169,7 @@ Cliquez sur le lien « **Détails** » sous **Actions** pour afficher les détai
 
 ### <a name="monitor-programmatically"></a>Surveiller par programmation
 
-Les détails de l’exécution de l’activité de copie et les caractéristiques de performances sont également retournés dans le résultat d’exécution de l’activité copie -> section Sortie. Voici une liste exhaustive ; seuls les détails applicables à votre scénario de copie seront affichés. Découvrez comment surveiller l’exécution de l’activité dans la [section relative à la surveillance du démarrage rapide](quickstart-create-data-factory-dot-net.md#monitor-a-pipeline-run).
+Les détails de l’exécution de l’activité de copie et les caractéristiques de performances sont également retournés dans la section résultat d’exécution de l’activité copie -> section Sortie. Voici une liste exhaustive ; seuls les détails applicables à votre scénario de copie seront affichés. Découvrez comment surveiller l’exécution de l’activité dans la [section relative à la surveillance du démarrage rapide](quickstart-create-data-factory-dot-net.md#monitor-a-pipeline-run).
 
 | Nom de la propriété  | Description | Unité |
 |:--- |:--- |:--- |
@@ -177,11 +177,13 @@ Les détails de l’exécution de l’activité de copie et les caractéristique
 | dataWritten | Taille des données écrites dans le récepteur | Valeur Int64 en **octets** |
 | filesRead | Nombre de fichiers copiés lors de la copie de données à partir du stockage de fichier. | Valeur Int64 (aucune unité) |
 | filesWritten | Nombre de fichiers copiés lors de la copie de données vers le stockage de fichier. | Valeur Int64 (aucune unité) |
+| sourcePeakConnections | Nombre maximal de connexions simultanées établies au magasin de données source lors de l’exécution de l’activité de copie. | Valeur Int64 (aucune unité) |
+| sinkPeakConnections | Nombre maximal de connexions simultanées établies pour recevoir le magasin de données lors de l’exécution de l’activité de copie. | Valeur Int64 (aucune unité) |
 | rowsRead | Nombre de lignes lues à partir de la source (non applicable pour une copie binaire). | Valeur Int64 (aucune unité) |
 | rowsCopied | Nombre de lignes copiées dans le récepteur (non applicable pour une copie binaire). | Valeur Int64 (aucune unité) |
 | rowsSkipped | Nombre de lignes incompatibles ignorées. Vous pouvez activer la fonctionnalité en définissant « enableSkipIncompatibleRow » sur true. | Valeur Int64 (aucune unité) |
-| throughput | Taux de transfert des données. | Nombre à virgule flottante exprimé en **Ko/s** |
 | copyDuration | Durée de la copie. | Valeur Int32 en secondes |
+| throughput | Taux de transfert des données. | Nombre à virgule flottante exprimé en **Ko/s** |
 | sourcePeakConnections | Nombre maximal de connexions simultanées établies au magasin de données source pendant la copie. | Valeur Int32 |
 | sinkPeakConnections| Nombre maximal de connexions simultanées établies au magasin de données récepteur pendant la copie.| Valeur Int32 |
 | sqlDwPolyBase | Si PolyBase est utilisé lors de la copie de données dans SQL Data Warehouse. | Boolean |
@@ -189,39 +191,51 @@ Les détails de l’exécution de l’activité de copie et les caractéristique
 | hdfsDistcp | Si DistCp est utilisé lors de la copie de données à partir de HDFS. | Boolean |
 | effectiveIntegrationRuntime | Affichez la ou les infrastructures Integration Runtime permettant de dynamiser l’exécution d’activité au format « `<IR name> (<region if it's Azure IR>)` ». | Texte (chaîne) |
 | usedDataIntegrationUnits | Unités d’intégration de données effectives pendant la copie. | Valeur Int32 |
-| usedParallelCopies | Nombre effectif de parallelCopies pendant la copie. | Valeur Int32|
+| usedParallelCopies | Nombre effectif de parallelCopies pendant la copie. | Valeur Int32 |
 | redirectRowPath | Chemin d’accès du journal des lignes incompatibles ignorées dans le stockage blob que vous configurez sous « redirectIncompatibleRowSettings ». Voir exemple ci-dessous. | Texte (chaîne) |
-| executionDetails | Détails supplémentaires sur les étapes effectuées lors de l’activité de copie, ainsi que les étapes correspondantes, la durée, les configurations utilisées, et ainsi de suite. Il n’est pas recommandé d’analyser cette section, car elle peut changer. | Tableau |
+| executionDetails | Détails supplémentaires sur les étapes effectuées lors de l’activité de copie, ainsi que les étapes correspondantes, la durée, les configurations utilisées, et ainsi de suite. Il n’est pas recommandé d’analyser cette section, car elle peut changer.<br/><br/>ADF indique également les durées détaillées (en secondes) passées sur les étapes respectives dans `detailedDurations`. Les durées de ces étapes sont exclusives et seules celles qui s’appliquent à l’exécution de l’activité de copie donnée s’affichent :<br/>- **Durée de mise en file d’attente** (`queuingDuration`): Temps écoulé jusqu’à ce que l’activité de copie commence sur le runtime d’intégration. Si vous utilisez le runtime d’intégration auto-hébergé et si cette valeur est importante, suggérez de vérifier la capacité et l’utilisation du runtime d’intégration, puis adaptez en fonction de votre charge de travail. <br/>- **Durée du script de pré-copie** (`preCopyScriptDuration`) : Temps écoulé entre le début de l’activité de copie sur le runtime d’intégration et la fin de l’exécution du script de pré-copie de l’activité de copie dans la banque de données réceptrice. S’applique lorsque vous configurez le script de pré-copie. <br/>- **Durée jusqu’au premier octet** (`timeToFirstByte`): Temps écoulé entre la fin de l’étape précédente et la réception par le runtime du premier octet de la banque de données source. S’applique à une source non basée sur un fichier. Si cette valeur est élevée, suggérez de vérifier et d’optimiser la requête ou le serveur.<br/>- **Durée du transfert** (`transferDuration`) : Temps écoulé entre la fin de l’étape précédente et le transfert par le runtime de toutes les données de la source vers le récepteur. | Array |
+| perfRecommendation | Copier les conseils sur le réglage des performances Pour plus d’informations, consultez la section [Performances et réglage](#performance-and-tuning). | Array |
 
 ```json
 "output": {
-    "dataRead": 107280845500,
-    "dataWritten": 107280845500,
-    "filesRead": 10,
-    "filesWritten": 10,
-    "copyDuration": 224,
-    "throughput": 467707.344,
+    "dataRead": 6198358,
+    "dataWritten": 19169324,
+    "filesRead": 1,
+    "sourcePeakConnections": 1,
+    "sinkPeakConnections": 2,
+    "rowsRead": 39614,
+    "rowsCopied": 39614,
+    "copyDuration": 1325,
+    "throughput": 4.568,
     "errors": [],
-    "effectiveIntegrationRuntime": "DefaultIntegrationRuntime (East US 2)",
-    "usedDataIntegrationUnits": 32,
-    "usedParallelCopies": 8,
+    "effectiveIntegrationRuntime": "DefaultIntegrationRuntime (West US)",
+    "usedDataIntegrationUnits": 4,
+    "usedParallelCopies": 1,
     "executionDetails": [
         {
             "source": {
-                "type": "AmazonS3"
+                "type": "AzureBlobStorage"
             },
             "sink": {
-                "type": "AzureDataLakeStore"
+                "type": "AzureSqlDatabase"
             },
             "status": "Succeeded",
-            "start": "2018-01-17T15:13:00.3515165Z",
-            "duration": 221,
-            "usedDataIntegrationUnits": 32,
-            "usedParallelCopies": 8,
+            "start": "2019-08-06T01:01:36.7778286Z",
+            "duration": 1325,
+            "usedDataIntegrationUnits": 4,
+            "usedParallelCopies": 1,
             "detailedDurations": {
                 "queuingDuration": 2,
-                "transferDuration": 219
+                "preCopyScriptDuration": 12,
+                "transferDuration": 1311
             }
+        }
+    ],
+    "perfRecommendation": [
+        {
+            "Tip": "Sink Azure SQL Database: The DTU utilization was high during the copy activity run. To achieve better performance, you are suggested to scale the database to a higher tier than the current 1600 DTUs.",
+            "ReferUrl": "https://go.microsoft.com/fwlink/?linkid=2043368",
+            "RuleName": "AzureDBTierUpgradePerfRecommendRule"
         }
     ]
 }
@@ -243,12 +257,12 @@ Dans certains cas, lorsque vous exécutez une activité de copie dans ADF, vous 
 
 **Exemple : copier dans Azure SQL Database avec des conseils pour le réglage des performances**
 
-Dans cet exemple, lors l’exécution de la copie, ADF remarque que l’instance Azure SQL DB de réception atteint une utilisation d’unités de transaction de base de données élevée qui ralentit les opérations d’écriture. La suggestion est d’augmenter le niveau Azure SQL DB avec plus de DTU.
+Dans cet exemple, lors de l’exécution de la copie, ADF constate que le récepteur Azure SQL DB atteint une utilisation d’unité de transaction de base de données élevée, ce qui ralentit les opérations d’écriture. La suggestion est donc d’augmenter le niveau de base de code SQL Azure avec plus d’unités de transaction de bases de données.
 
-![Surveillance de la copie avec des conseils pour le réglage des performances](./media/copy-activity-overview/copy-monitoring-with-performance-tuning-tips.png)
+![Surveillance de la copie avec conseils d'optimisation des performances](./media/copy-activity-overview/copy-monitoring-with-performance-tuning-tips.png)
 
 ## <a name="incremental-copy"></a>Copie incrémentielle
-Data Factory prend en charge les scénarios de copie incrémentielle de données delta d’un magasin de données source vers un magasin de données de destination. Consultez [Didacticiel : Copier de façon incrémentielle des données](tutorial-incremental-copy-overview.md).
+Data Factory prend en charge les scénarios de copie incrémentielle de données delta d’un magasin de données source vers un magasin de données récepteur. Consultez [Didacticiel : Copier de façon incrémentielle des données](tutorial-incremental-copy-overview.md).
 
 ## <a name="read-and-write-partitioned-data"></a>Lire et écrire des données partitionnées
 Dans la version 1, Azure Data Factory prenait en charge la lecture et l’écriture de données partitionnées à l’aide des variables système SliceStart/SliceEnd/WindowStart/WindowEnd. Dans la version actuelle, ce comportement est obtenu à l’aide d’un paramètre de pipeline ayant comme valeur une heure de début ou une heure planifiée de déclencheur. Pour plus d’informations, consultez la page [Guide pratique pour lire ou écrire des données partitionnées](how-to-read-write-partitioned-data.md).

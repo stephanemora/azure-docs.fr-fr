@@ -14,12 +14,12 @@ ms.author: ajburnle
 ms.reviewer: krbain
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a89443062f7d5cc697e83cc4039d0f3a47ad3077
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: a455f0e1959ad496a04f531cc0c3ece240c757ad
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68561851"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68987144"
 ---
 # <a name="what-is-group-based-licensing-in-azure-active-directory"></a>À quoi correspondent les licences basées sur les groupes dans Azure Active Directory ?
 
@@ -32,7 +32,7 @@ Pour relever ces défis, Azure AD inclut maintenant une gestion des licences par
 ## <a name="licensing-requirements"></a>Exigences en termes de licence
 Vous devez disposer d’une des licences suivantes pour utiliser les licences basées sur le groupe :
 
-- Abonnement d’essai ou payant pour Azure AD Basic et versions ultérieures
+- Abonnement d’essai ou payant pour Azure AD Premium P1 et versions ultérieures
 
 - Édition d’essai ou payante d’Office 365 Enterprise E3 ou Office 365 A3 ou Office 365 GCC G3 et versions ultérieures
 

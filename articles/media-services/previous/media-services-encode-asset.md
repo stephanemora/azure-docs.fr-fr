@@ -1,6 +1,6 @@
 ---
-title: Vue d’ensemble et comparaison d’encodeurs multimédia à la demande Azure | Microsoft Docs
-description: Cette rubrique donne une vue d’ensemble des encodeurs multimédia à la demande Azure et les compare.
+title: Vue d’ensemble d’encodeurs multimédia à la demande Azure | Microsoft Docs
+description: Cette rubrique donne une vue d’ensemble des encodeurs multimédia à la demande Azure.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/01/2019
+ms.date: 06/25/2019
 ms.author: juliako
-ms.openlocfilehash: a976b7c1f697c09082ca0f7978bb23bb4e467e5d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7e8c49815ed5e9294739a840dd0314d1c8c6c174
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61464179"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "69015821"
 ---
-# <a name="overview-and-comparison-of-azure-on-demand-media-encoders"></a>Vue d’ensemble et comparaison d’encodeurs multimédia à la demande Azure 
+# <a name="overview-of-azure-on-demand-media-encoders"></a>Vue d’ensemble d’encodeurs multimédia à la demande Azure 
 
 ## <a name="encoding-overview"></a>Vue d’ensemble de l’encodage
 
@@ -35,7 +35,10 @@ Les codecs sont les logiciels qui implémentent les algorithmes de compression/d
 
 Media Services fournit l’empaquetage dynamique qui permet de distribuer un contenu en diffusion continue en MP4 ou Smooth Streaming dans un format pris en charge par Media Services (MPEG DASH, HLS, Smooth Streaming) sans avoir à recréer de nouveaux packages dans ces formats.
 
-Une fois votre compte AMS créé, un point de terminaison de diffusion continue **par défaut** est ajouté à l’état **Arrêté**. Pour démarrer la diffusion en continu de votre contenu et tirer parti de l’empaquetage et du chiffrement dynamiques, le point de terminaison de streaming à partir duquel vous souhaitez diffuser du contenu doit se trouver à l’état **En cours d’exécution**. 
+Une fois votre compte AMS créé, un point de terminaison de diffusion continue **par défaut** est ajouté à l’état **Arrêté**. Pour démarrer la diffusion en continu de votre contenu et tirer parti de l’empaquetage et du chiffrement dynamiques, le point de terminaison de streaming à partir duquel vous souhaitez diffuser du contenu doit se trouver à l’état **En cours d’exécution**.
+
+> [!Note]
+> La facturation des points de terminaison de streaming se produit chaque fois que le point de terminaison est **en cours d’exécution**.
 
 Media Services prend en charge les éléments suivants sur les encodeurs à la demande décrits dans cet article :
 
@@ -84,7 +87,6 @@ Media Encoder Premium Workflow se configure à l’aide de flux de travail compl
 
 ### <a name="known-issues"></a>Problèmes connus
 Si votre vidéo d’entrée ne contient pas de sous-titres, l’élément multimédia de sortie actif comportera toujours un fichier TTML vide.
-
 
 ## <a name="media-services-learning-paths"></a>Parcours d’apprentissage de Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

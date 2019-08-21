@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: overview
 ms.date: 05/24/2019
 ms.author: stevelas
-ms.openlocfilehash: e17b70843fcda1d183de1b81a98da53138835340
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 2fffa3b063969cbe68fb9a405f4198f15b3f9809
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68309588"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68845210"
 ---
 # <a name="geo-replication-in-azure-container-registry"></a>Géoréplication dans Azure Container Registry
 
@@ -60,7 +60,7 @@ La fonctionnalité de géoréplication d’Azure Container Registry permet de b�
 
 * Gérer un registre unique dans toutes les régions : `contoso.azurecr.io`
 * Gérer une configuration unique pour le déploiement des images, car toutes les régions utilisent la même URL d’image : `contoso.azurecr.io/public/products/web:1.2`
-* Envoyer (push) vers un registre unique, tandis qu’ACR gère la géoréplication. Vous pouvez configurer des [webhooks](container-registry-webhook.md) régionaux pour avertir de vos événements dans des réplicas spécifiques.
+* Envoyer (push) vers un registre unique, tandis qu’ACR gère la géoréplication. Vous pouvez configurer des [webhooks](container-registry-webhook.md) régionaux pour avertir des événements dans des réplicas spécifiques.
 
 ## <a name="configure-geo-replication"></a>Configuration de la géo-réplication
 

@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 02/15/2018
+ms.date: 08/13/2019
 ms.author: alkohli
-ms.openlocfilehash: c83326212dc84348a04d54f04348a6c4c7699bde
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 046558007f1a2f2c86f80af610be56b77fa63da1
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60631513"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68990388"
 ---
 # <a name="storsimple-solution-support"></a>Support de la solution StorSimple
 
@@ -81,7 +81,7 @@ Microsoft offre des options de support flexibles aux clients des solutions de st
 Si votre contrat de support a expiré, gardez à l’esprit, en fonction de la date d’expiration du contrat de support, qu’il peut s’écouler jusqu'à trois semaines après la fin du traitement de renouvellement d’avant la livraison d’une pièce, car l’emplacement de stockage local pour votre contrat ne sera stocké avec les pièces de rechange pour votre appareil qu’après le traitement de votre contrat.
 
 ## <a name="local-language-support"></a>Support en langue locale
-Outre l’anglais, le support est fourni pendant les heures ouvrées dans les langues locales suivantes : japonais, coréen, taïwanais et chinois traditionnel.
+Outre l’anglais, le support est fourni pendant les heures ouvrées dans les langues locales suivantes : Espagnol, portugais, japonais, coréen, taïwanais et chinois traditionnel.
 
 ## <a name="support-scope"></a>Étendue du support 
 Le support des problèmes liés à la gestion de la facturation et des abonnements est disponible à tous les niveaux de support. Pour bénéficier du support StorSimple, les clients doivent être inscrits activement aux offres de support StorSimple standard ou premium. L’équipe de support StorSimple est chargée de résoudre tous les problèmes affectant la solution StorSimple. Afin de bénéficier du support concernant des problèmes liés à Azure, mais non directement liés à StorSimple, le client doit être inscrit à un plan de support Azure approprié. Pour plus de détails, reportez-vous [ici](https://azure.microsoft.com/support/plans/). L’équipe de support envoie les cas de support non liés à StorSimple à l’équipe Azure à des fins de suivi, en fonction des droits du client au support Azure. 

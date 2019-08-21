@@ -6,15 +6,15 @@ author: tamram
 ms.custom: mvc
 ms.service: storage
 ms.topic: article
-ms.date: 05/06/2019
+ms.date: 06/28/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 8375f4c54dc436ecf0694ec5f629c81d3591594d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e72f8c3ed0658765827c4a9b0669c08fefd9044f
+ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65234184"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69016329"
 ---
 # <a name="create-a-storage-account"></a>Créez un compte de stockage.
 
@@ -141,6 +141,8 @@ Pour créer un compte de stockage universel v2 avec une option de réplication d
 |Stockage redondant interzone (ZRS)     |Standard_ZRS         |
 |Stockage géo-redondant (GRS)     |Standard_GRS         |
 |Stockage géo-redondant avec accès en lecture (RA-GRS)     |Standard_RAGRS         |
+|Stockage géoredondant interzone (GZRS) (préversion)    |Standard_GZRS         |
+|Stockage géo-redondant interzone avec accès en lecture (RA-GRS) (préversion)    |Standard_RAGZRS         |
 
 # <a name="azure-clitabazure-cli"></a>[Interface de ligne de commande Azure](#tab/azure-cli)
 
@@ -179,6 +181,8 @@ Pour créer un compte de stockage universel v2 avec une option de réplication d
 |Stockage redondant interzone (ZRS)     |Standard_ZRS         |
 |Stockage géo-redondant (GRS)     |Standard_GRS         |
 |Stockage géo-redondant avec accès en lecture (RA-GRS)     |Standard_RAGRS         |
+|Stockage géoredondant interzone (GZRS) (préversion)    |Standard_GZRS         |
+|Stockage géo-redondant interzone avec accès en lecture (RA-GRS) (préversion)    |Standard_RAGZRS         |
 
 # <a name="templatetabtemplate"></a>[Modèle](#tab/template)
 

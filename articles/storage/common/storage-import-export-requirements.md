@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 04/15/2019
+ms.date: 08/12/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 4d002a82e3968e0462e5f6e775ec147669c01b0d
-ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.openlocfilehash: 448d416ce4915aeae048639f6021197ed8c1d334
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67147948"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967873"
 ---
 # <a name="azure-importexport-system-requirements"></a>Configuration système requise du service Azure Import/Export
 
@@ -72,11 +72,15 @@ Dans le cadre du service Azure Import/Export, vous avez besoin de disques pris e
 Les types de disques suivants sont pris en charge avec le service Azure Import/Export.
 
 
-|Type de disque  |Size  |Pris en charge |Non pris en charge  |
-|---------|---------|---------|---------|
-|SSD    |   2,5"      |SATA III          |  USB       |
-|HDD     |  2,5"<br>3,5"       |SATA II, SATA III         |Disque dur externe avec adaptateur USB intégré <br> Disque situé à l’intérieur du boîtier d’un disque dur externe         |
+|Type de disque  |Size  |Pris en charge |
+|---------|---------|---------|
+|SSD    |   2,5"      |SATA III          | 
+|HDD     |  2,5"<br>3,5"       |SATA II, SATA III         |
 
+Les types de disque suivants ne sont pas pris en charge :
+- USB.
+- Disque dur externe avec adaptateur USB intégré.
+- Disques situés à l’intérieur du boîtier d’un disque dur externe.
 
 Un travail d’importation/exportation peut avoir à lui seul :
 - Un maximum de 10 disques HHD/SSD

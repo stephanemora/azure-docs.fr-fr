@@ -6,18 +6,18 @@ author: JasonWHowell
 ms.author: jasonh
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: cdf90029d02680de4ce55e33b3ed0fe810d70b4c
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: 7d0e27802745dda62f87e412053650907e9b812c
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68775244"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68950153"
 ---
 # <a name="azure-data-catalog-developer-samples"></a>Exemples de développement Azure Data Catalog
 
 Commencez à développer des applications Azure Data Catalog à l’aide de l’API REST Data Catalog. L’API REST Data Catalog est une API REST qui fournit un accès par programme aux ressources Data Catalog pour enregistrer, annoter et rechercher des ressources de données par programmation.
 
-Voici les exemples disponibles sur GitHub :
+## <a name="samples-available-on-githubcom"></a>Exemples disponibles sur GitHub.com
 
 * [Prise en main d’Azure Data Catalog](https://github.com/Azure-Samples/data-catalog-dotnet-get-started/)
   

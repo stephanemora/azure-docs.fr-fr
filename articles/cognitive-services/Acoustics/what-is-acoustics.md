@@ -3,20 +3,20 @@ title: Vue d’ensemble de Project Acoustics
 titlesuffix: Azure Cognitive Services
 description: Project Acoustics est un moteur acoustique pour des expériences 3D interactives, intégrant la simulation de la physique des ondes de baking acoustique avec des contrôles de conception interactifs.
 services: cognitive-services
-author: kegodin
+author: NoelCross
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: overview
 ms.date: 03/20/2019
-ms.author: kegodin
+ms.author: noelc
 ROBOTS: NOINDEX
-ms.openlocfilehash: a654dd966c40b5b079f92b910ade52f4eda10344
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: f0685b65ce9204221e93a1ea4aa47a5e09eaac9f
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68704754"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932981"
 ---
 # <a name="what-is-project-acoustics"></a>Qu’est-ce que Project Acoustics ?
 Project Acoustics est un moteur d’acoustique ondulatoire pour les expériences en trois dimensions interactives. Il modélise les effets ondulatoires comme la diffraction, le portage et les effets de réverbération dans des scènes complexes sans nécessiter le balisage manuel des zones. Il inclut également un moteur de jeu et l'intégration d’intergiciel audio. La philosophie de Project Acoustics est similaire à celle de l’éclairage statique : effectuer un baking physique détaillé hors connexion afin de fournir une base physique, et utiliser un runtime léger avec des contrôles de conception expressifs pour vous permettre d’atteindre vos objectifs artistiques.
@@ -40,11 +40,17 @@ L’innovation clé de Project Acoustics est de coupler la simulation acoustique
 * **Baking :** Une étape d'analyse exécutée localement effectue la voxélisation et d’autres analyses géométriques sur la scène en fonction des sélections ci-dessus. Les résultats sont visualisés dans l’éditeur dans le cadre de la vérification de la configuration de la scène. Lors de la soumission du baking, les données de voxel sont envoyées à Azure et vous récupérez une ressource de jeu acoustique.
 * **Runtime :** Chargez la ressource dans votre niveau : vous pouvoir alors évaluer l’acoustique. Concevez l’acoustique en direct dans l'éditeur en utilisant les contrôles de code source qui permettent d’effectuer des réglages fins. Les contrôles peuvent également être commandés à partir d’un script.
 
-## <a name="platforms"></a>Plateformes
+## <a name="runtime-platforms"></a>Plateformes Runtime
 Les plug-ins de runtime Project Acoustics peuvent actuellement être déployés sur les plateformes suivantes :
 * Windows
+* MacOS
 * Android
 * Xbox One
+
+## <a name="editor-platforms"></a>Plateformes d’éditeur
+Le plug-in de l’éditeur Project Acoustics est disponible pour les plateformes suivantes :
+* Windows
+* MacOS (Unity uniquement)
 
 ## <a name="download"></a>Téléchargement
 * [Plug-ins et exemples Project Acoustics Unity](https://www.microsoft.com/en-us/download/details.aspx?id=57346)

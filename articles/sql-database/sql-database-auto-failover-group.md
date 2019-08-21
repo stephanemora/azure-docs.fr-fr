@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 07/18/2019
-ms.openlocfilehash: 5d79edc4db07a2c5916725efc312d9f94fe985dc
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 05e16a67e6b01ce3bd1f03f0649baa1358414ea7
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68640086"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69035064"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Utiliser les groupes de basculement automatique pour permettre le basculement transparent et coordonné de plusieurs bases de données
 
@@ -133,9 +133,13 @@ Pour faire basculer un groupe de basculement, vous devez disposer d’un accès 
 
 ## <a name="best-practices-of-using-failover-groups-with-single-databases-and-elastic-pools"></a>Meilleures pratiques relatives à l’utilisation des groupes de basculement avec des bases de données uniques et des pools élastiques
 
-Le groupe de basculement automatique doit être configuré sur le serveur SQL Database primaire, qu’il connectera au serveur SQL Database secondaire dans une autre région Azure.  Les groupes peuvent inclure une partie ou la totalité des bases de données dans ces serveurs. Le diagramme suivant illustre la configuration standard d’une application cloud géoredondante avec plusieurs bases de données et un groupe de basculement automatique.
+Le groupe de basculement automatique doit être configuré sur le serveur SQL Database primaire, qu’il connectera au serveur SQL Database secondaire dans une autre région Azure. Les groupes peuvent inclure une partie ou la totalité des bases de données dans ces serveurs. Le diagramme suivant illustre la configuration standard d’une application cloud géoredondante avec plusieurs bases de données et un groupe de basculement automatique.
 
 ![basculement automatique](./media/sql-database-auto-failover-group/auto-failover-group.png)
+
+> [!NOTE]
+> Consultez [Ajouter une base de données unique à un groupe de basculement](sql-database-single-database-failover-group-tutorial.md) pour obtenir un didacticiel détaillé sur l’ajout d’une base de données unique à un groupe de basculement. 
+
 
 Quand vous concevez un service en pensant à la continuité d’activité, suivez ces instructions générales :
 
@@ -167,12 +171,17 @@ Quand vous concevez un service en pensant à la continuité d’activité, suive
 
 ## <a name="best-practices-of-using-failover-groups-with-managed-instances"></a>Meilleures pratiques relatives à l’utilisation de groupes de basculement avec les instances managées
 
-Le groupe de basculement automatique doit être configuré sur l’instance primaire, qu’il connectera à l’instance secondaire dans une autre région Azure.  Toutes les bases de données de l’instance seront répliquées sur l’instance secondaire. Le diagramme suivant illustre la configuration standard d’une application cloud géoredondante avec une instance managée et un groupe de basculement automatique.
+> [!IMPORTANT]
+> Groupes de basculement automatique pour Managed Instance est en préversion publique.
+
+Le groupe de basculement automatique doit être configuré sur l’instance primaire, qu’il connectera à l’instance secondaire dans une autre région Azure.  Toutes les bases de données de l’instance seront répliquées sur l’instance secondaire. 
+
+Le diagramme suivant illustre la configuration standard d’une application cloud géoredondante avec une instance managée et un groupe de basculement automatique.
 
 ![basculement automatique](./media/sql-database-auto-failover-group/auto-failover-group-mi.png)
 
-> [!IMPORTANT]
-> Groupes de basculement automatique pour Managed Instance est en préversion publique.
+> [!NOTE]
+> Consultez [Ajouter une instance gérée à un groupe de basculement](sql-database-managed-instance-failover-group-tutorial.md) pour obtenir un didacticiel détaillé sur l’ajout d’une instance gérée afin d’utiliser un groupe de basculement. 
 
 Si votre application utilise une instance gérée comme couche Données, suivez ces recommandations générales lors de la conception des éléments en rapport avec la continuité d’activité :
 
@@ -260,7 +269,7 @@ Lorsque vous configurez des groupes de basculement entre les instances gérées 
 1. Les deux instances gérées doivent se trouver dans différentes régions Azure.
 1. Les deux instances gérées doivent avoir le même niveau de service et la même capacité de stockage. 
 1. Votre instance gérée secondaire doit être vide (aucune base de données utilisateur).
-1. Les réseaux virtuels utilisés par les instances gérées doivent être connectés via une[passerelle VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) ou un itinéraire Express. Lorsque deux réseaux virtuels se connectent via un réseau local, assurez-vous qu’il n’existe pas de ports de blocage de règle de pare-feu 5022 et 11000-11999. L’homologation Global VNet Peering n’est pas prise en charge.
+1. Les réseaux virtuels utilisés par les instances gérées doivent être connectés via une[passerelle VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) ou Express Route. Lorsque deux réseaux virtuels se connectent via un réseau local, assurez-vous qu’il n’existe pas de ports de blocage de règle de pare-feu 5022 et 11000-11999. L’homologation Global VNet Peering n’est pas prise en charge.
 1. Les adresses IP des deux réseaux virtuels des instances gérées ne peuvent pas se chevaucher.
 1. Vous devez configurer vos groupes de sécurité réseau (NSG) de telle sorte que les ports 5022 et 11000 à 12000 soient ouverts en entrée et en sortie pour les connexions provenant du sous-réseau de l’autre instance gérée. Il s’agit d’autoriser le trafic de réplication entre les instances
 
@@ -367,6 +376,10 @@ Comme indiqué plus haut, les groupes de basculement automatique et la géo-rép
 
 ## <a name="next-steps"></a>Étapes suivantes
 
+- Pour obtenir des didacticiels détaillés, consultez
+    - [Ajouter une base de données unique à un groupe de basculement](sql-database-single-database-failover-group-tutorial.md)
+    - [Ajouter un pool élastique à un groupe de basculement](sql-database-elastic-pool-failover-group-tutorial.md)
+    - [Ajouter une instance gérée à un groupe de basculement](sql-database-managed-instance-failover-group-tutorial.md)
 - Pour obtenir des exemples de scripts, consultez :
   - [Utiliser PowerShell afin de configurer la géoréplication active pour avoir une base de données unique dans Azure SQL Database](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
   - [Utiliser PowerShell afin de configurer la géoréplication active pour avoir une base de données mise en pool dans Azure SQL Database](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md)

@@ -4,213 +4,142 @@ description: Découvrez comment configurer l’authentification unique entre Azu
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: f9aaac2e-cdba-4f01-a57f-2c5c26287085
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 08/08/2018
+ms.topic: tutorial
+ms.date: 08/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cbb94c28d56b0492fe3488d7c9e2e1257a8b9388
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 701e4ef37e9508923409a7ce65991b9174678f4f
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60624350"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68880199"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-safeconnect"></a>Didacticiel : Intégration d’Azure Active Directory avec SafeConnect
+# <a name="tutorial-integrate-safeconnect-with-azure-active-directory"></a>Didacticiel : Intégrer SafeConnect à Azure Active Directory
 
-L’objectif de ce didacticiel est de vous apprendre à intégrer SafeConnect à Azure Active Directory (Azure AD).
+L’objectif de ce didacticiel est de vous apprendre à intégrer SafeConnect à Azure Active Directory (Azure AD). Quand vous intégrez SafeConnect à Azure AD, vous pouvez :
 
-L’intégration de SafeConnect à Azure AD vous offre les avantages suivants :
+* Contrôler dans Azure AD qui a accès à SafeConnect.
+* Permettre à vos utilisateurs de se connecter automatiquement à SafeConnect avec leur compte Azure AD.
+* Gérer vos comptes à un emplacement central : le Portail Azure.
 
-- Dans Azure AD, vous pouvez contrôler qui a accès à SafeConnect.
-- Vous pouvez autoriser les utilisateurs à se connecter automatiquement à SafeConnect (par le biais de l’authentification unique) avec leur compte Azure AD.
-- Vous pouvez gérer vos comptes dans un emplacement central : le portail Azure
-
-Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
+Pour en savoir plus sur l’intégration des applications SaaS à Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour configurer l’intégration de SafeConnect à Azure AD, vous avez besoin des éléments suivants :
+Pour commencer, vous devez disposer de ce qui suit :
 
-- Un abonnement Azure AD
-- Un abonnement pour lequel l’authentification unique SafeConnect est activée
-
-> [!NOTE]
-> Pour tester les étapes de ce didacticiel, nous déconseillons l’utilisation d’un environnement de production.
-
-Vous devez en outre suivre les recommandations ci-dessous :
-
-- N’utilisez pas votre environnement de production, sauf si cela est nécessaire.
-- Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez [obtenir un essai d’un mois](https://azure.microsoft.com/pricing/free-trial/).
+* Un abonnement Azure AD Si vous ne disposez d’aucun abonnement, vous pouvez obtenir [un compte gratuit](https://azure.microsoft.com/free/).
+* Un abonnement SafeConnect pour lequel l’authentification unique (SSO) est activée.
 
 ## <a name="scenario-description"></a>Description du scénario
-Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
-1. Ajout de SafeConnect à partir de la galerie
-2. Configuration et test de l’authentification unique Azure AD
+Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
+
+* SafeConnect prend en charge l’authentification unique initiée par le **fournisseur de services**
 
 ## <a name="adding-safeconnect-from-the-gallery"></a>Ajout de SafeConnect à partir de la galerie
+
 Pour configurer l’intégration de SafeConnect à Azure AD, vous devez ajouter SafeConnect, disponible dans la galerie, à votre liste d’applications SaaS gérées.
 
-**Pour ajouter SafeConnect à partir de la galerie, procédez comme suit :**
-
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**. 
-
-    ![Bouton Azure Active Directory][1]
-
-2. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
-
-    ![Panneau Applications d’entreprise][2]
-    
-3. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
-
-    ![Bouton Nouvelle application][3]
-
-4. Dans la zone de recherche, tapez **SafeConnect**, sélectionnez **SafeConnect** dans le volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
-
-    ![SafeConnect dans la liste des résultats](./media/safeconnect-tutorial/tutorial_safeconnect_addfromgallery.png)
+1. Connectez-vous au [portail Azure](https://portal.azure.com) avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
+1. Dans le panneau de navigation gauche, sélectionnez le service **Azure Active Directory**.
+1. Accédez à **Applications d’entreprise**, puis sélectionnez **Toutes les applications**.
+1. Pour ajouter une nouvelle application, sélectionnez **Nouvelle application**.
+1. Dans la section **Ajouter à partir de la galerie**, tapez **SafeConnect** dans la zone de recherche.
+1. Sélectionnez **SafeConnect** dans le volet de résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurer et tester l’authentification unique Azure AD
 
-Dans cette section, vous allez configurer et tester l’authentification unique Azure AD avec SafeConnect avec un utilisateur de test appelé « Britta Simon ».
+Configurez et testez l’authentification unique Azure AD avec SafeConnect pour un utilisateur de test nommé **B. Simon**. Pour que l’authentification unique fonctionne, vous devez établir un lien entre un utilisateur Azure AD et l’utilisateur SafeConnect associé.
 
-Pour que l’authentification unique fonctionne, Azure AD doit savoir qui est l’utilisateur SafeConnect équivalent dans Azure AD. En d’autres termes, une relation entre l’utilisateur Azure AD et l’utilisateur SafeConnect associé doit être établie.
+Pour configurer et tester l’authentification unique Azure AD avec SafeConnect, suivez les indications des sections ci-après :
 
-Pour configurer et tester l’authentification unique Azure AD avec SafeConnect, vous devez suivre les indications des sections suivantes :
+1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-sso)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
+2. **[Configurer l’authentification unique SafeConnect](#configure-safeconnect-sso)** pour configurer les paramètres de l’authentification unique côté application.
+3. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec B. Simon.
+4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à B. Simon d’utiliser l’authentification unique Azure AD.
+5. **[Créer un utilisateur de test SafeConnect](#create-safeconnect-test-user)** pour avoir un équivalent de B. Simon dans SafeConnect lié à la représentation Azure AD de l’utilisateur.
+6. **[Tester l’authentification unique](#test-sso)** pour vérifier si la configuration fonctionne.
 
-1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-2. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-3. **[Créer un utilisateur de test SafeConnect](#create-a-safeconnect-test-user)** pour avoir un équivalent de Britta Simon dans SafeConnect lié à la représentation Azure AD de l’utilisateur.
-4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
-5. **[Tester l’authentification unique](#test-single-sign-on)** : pour vérifier si la configuration fonctionne.
+### <a name="configure-azure-ad-sso"></a>Configurer l’authentification unique Azure AD
 
-### <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD
+Effectuez les étapes suivantes pour activer l’authentification unique Azure AD dans le Portail Azure.
 
-Dans cette section, vous allez activer l’authentification unique Azure AD dans le portail Azure et configurer l’authentification unique dans votre application SafeConnect.
+1. Dans le [Portail Azure](https://portal.azure.com/), accédez à la page d’intégration de l’application **SafeConnect**, recherchez la section **Gérer** et sélectionnez **Authentification unique**.
+1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
+1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de modification/stylet pour **Configuration SAML de base** afin de modifier les paramètres.
 
-**Pour configurer l’authentification unique Azure AD avec SafeConnect, procédez comme suit :**
+   ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-1. Dans le Portail Azure, dans la page d’intégration de l’application **SafeConnect**, cliquez sur **Authentification unique**.
+1. Dans la section **Configuration SAML de base**, entrez les valeurs pour les champs suivants :
 
-    ![Lien Configurer l’authentification unique][4]
+    Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://portal.myweblogon.com:8443/saml/login`
 
-2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
- 
-    ![Boîte de dialogue Authentification unique](./media/safeconnect-tutorial/tutorial_safeconnect_samlbase.png)
+1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **XML des métadonnées**, puis sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
 
-3. Dans la section **Domaine et URL SafeConnect**, procédez comme suit :
+    ![Lien Téléchargement de certificat](common/metadataxml.png)
 
-    ![Informations d’authentification unique dans Domaine et URL SafeConnect](./media/safeconnect-tutorial/tutorial_safeconnect_url.png)
+1. Dans la section **Configurer SafeConnect**, copiez l’URL ou les URL appropriées en fonction de vos besoins.
 
-     Dans la zone de texte **URL d’authentification**, tapez l’URL `https://portal.myweblogon.com:8443/saml/login`
+    ![Copier les URL de configuration](common/copy-configuration-urls.png)
 
-4. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier de métadonnées sur votre ordinateur.
+### <a name="configure-safeconnect-sso"></a>Configurer l’authentification unique SafeConnect
 
-    ![Lien Téléchargement de certificat](./media/safeconnect-tutorial/tutorial_safeconnect_certificate.png) 
-
-5. Cliquez sur le bouton **Enregistrer** .
-
-    ![Bouton Enregistrer de la page Configurer l’authentification unique](./media/safeconnect-tutorial/tutorial_general_400.png)
-
-6. Pour configurer l’authentification unique du côté **SafeConnect**, vous devez envoyer le **XML de métadonnées** téléchargé à [l’équipe de support technique de SafeConnect](mailto:support@impulse.com). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
+Pour configurer l’authentification unique côté **SafeConnect**, vous devez envoyer le **XML des métadonnées** téléchargé et les URL copiées correspondantes depuis le Portail Azure à l’[équipe du support technique SafeConnect](mailto:support@impulse.com). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
-L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure.
+Dans cette section, vous allez créer un utilisateur de test appelé B. Simon dans le portail Azure.
 
-   ![Créer un utilisateur de test Azure AD][100]
-
-**Pour créer un utilisateur de test dans Azure AD, procédez comme suit :**
-
-1. Dans le volet gauche du Portail Azure, cliquez sur le bouton **Azure Active Directory**.
-
-    ![Bouton Azure Active Directory](./media/safeconnect-tutorial/create_aaduser_01.png)
-
-2. Pour afficher la liste des utilisateurs, accédez à **Utilisateurs et groupes**, puis cliquez sur **Tous les utilisateurs**.
-
-    ![Liens « Utilisateurs et groupes » et « Tous les utilisateurs »](./media/safeconnect-tutorial/create_aaduser_02.png)
-
-3. Pour ouvrir la boîte de dialogue **Utilisateur**, cliquez sur **Ajouter** en haut de la boîte de dialogue **Tous les utilisateurs**.
-
-    ![Bouton Ajouter](./media/safeconnect-tutorial/create_aaduser_03.png)
-
-4. Dans la boîte de dialogue **Utilisateur**, procédez comme suit :
-
-    ![Boîte de dialogue Utilisateur](./media/safeconnect-tutorial/create_aaduser_04.png)
-
-    a. Dans la zone **Nom**, tapez **BrittaSimon**.
-
-    b. Dans la zone **Nom d’utilisateur** , tapez l’adresse e-mail de l’utilisateur Britta Simon.
-
-    c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ **Mot de passe**.
-
-    d. Cliquez sur **Créer**.
- 
-### <a name="create-a-safeconnect-test-user"></a>Créer un utilisateur de test SafeConnect
-
-Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans SafeConnect. Collaborez avec l’ [équipe de support SafeConnect](mailto:support@impulse.com) pour ajouter des utilisateurs dans la plateforme SafeConnect. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique. 
+1. Dans le volet gauche du Portail Azure, sélectionnez **Azure Active Directory**, **Utilisateurs**, puis **Tous les utilisateurs**.
+1. Sélectionnez **Nouvel utilisateur** dans la partie supérieure de l’écran.
+1. Dans les propriétés **Utilisateur**, effectuez les étapes suivantes :
+   1. Dans le champ **Nom**, entrez `B.Simon`.  
+   1. Dans le champ **Nom de l’utilisateur**, entrez username@companydomain.extension. Par exemple : `B.Simon@contoso.com`.
+   1. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ **Mot de passe**.
+   1. Cliquez sur **Créer**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 
-Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentification unique Azure en lui accordant l’accès à SafeConnect.
+Dans cette section, vous allez autoriser B. Simon à utiliser l’authentification unique Azure en lui accordant l’accès à SafeConnect.
 
-![Attribuer le rôle utilisateur][200] 
+1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
+1. Dans la liste des applications, sélectionnez **SafeConnect**.
+1. Dans la page de vue d’ensemble de l’application, recherchez la section **Gérer** et sélectionnez **Utilisateurs et groupes**.
 
-**Pour affecter Britta Simon à SafeConnect, procédez comme suit :**
+   ![Lien « Utilisateurs et groupes »](common/users-groups-blade.png)
 
-1. Dans le portail Azure, ouvrez la vue des applications, accédez à la vue des répertoires, accédez à **Applications d’entreprise**, puis cliquez sur **Toutes les applications**.
+1. Sélectionnez **Ajouter un utilisateur**, puis **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
 
-    ![Affecter des utilisateurs][201] 
+    ![Lien Ajouter un utilisateur](common/add-assign-user.png)
 
-2. Dans la liste des applications, sélectionnez **SafeConnect**.
+1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **B. Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** au bas de l’écran.
+1. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle**, sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
+1. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
 
-    ![Lien SafeConnect dans la liste des applications](./media/safeconnect-tutorial/tutorial_safeconnect_app.png)  
+### <a name="create-safeconnect-test-user"></a>Créer un utilisateur de test SafeConnect
 
-3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
+Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans SafeConnect. Collaborez avec l’ [équipe de support SafeConnect](mailto:support@impulse.com) pour ajouter des utilisateurs dans la plateforme SafeConnect. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 
-    ![Lien « Utilisateurs et groupes »][202]
-
-4. Cliquez sur le bouton **Ajouter**. Ensuite, sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une affectation**.
-
-    ![Volet Ajouter une attribution][203]
-
-5. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste des utilisateurs.
-
-6. Cliquez sur le bouton **Sélectionner** dans la boîte de dialogue **Utilisateurs et groupes**.
-
-7. Cliquez sur le bouton **Affecter** dans la boîte de dialogue **Ajouter une affectation**.
-    
-### <a name="test-single-sign-on"></a>Tester l’authentification unique
+### <a name="test-sso"></a>Tester l’authentification unique (SSO)
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
-Lorsque vous cliquez sur la mosaïque SafeConnect dans le volet d’accès, vous devez être connecté automatiquement à votre application SafeConnect.
-Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../active-directory-saas-access-panel-introduction.md). 
+Le fait de cliquer sur la vignette SafeConnect dans le panneau d’accès doit vous connecter automatiquement à l’application SafeConnect pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-* [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](tutorial-list.md)
-* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md)
+- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
+- [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-
-<!--Image references-->
-
-[1]: ./media/safeconnect-tutorial/tutorial_general_01.png
-[2]: ./media/safeconnect-tutorial/tutorial_general_02.png
-[3]: ./media/safeconnect-tutorial/tutorial_general_03.png
-[4]: ./media/safeconnect-tutorial/tutorial_general_04.png
-
-[100]: ./media/safeconnect-tutorial/tutorial_general_100.png
-
-[200]: ./media/safeconnect-tutorial/tutorial_general_200.png
-[201]: ./media/safeconnect-tutorial/tutorial_general_201.png
-[202]: ./media/safeconnect-tutorial/tutorial_general_202.png
-[203]: ./media/safeconnect-tutorial/tutorial_general_203.png
-
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

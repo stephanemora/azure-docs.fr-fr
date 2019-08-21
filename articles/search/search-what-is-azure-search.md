@@ -1,33 +1,44 @@
 ---
 title: Présentation du service Recherche Azure - Recherche Azure
-description: Recherche Azure est un service de recherche cloud hébergé et complètement managé de Microsoft. Passez en revue les descriptions des fonctionnalités, un workflow de développement, une comparaison de Recherche Azure à d’autres produits de recherche Microsoft et la façon de le prendre en main.
-manager: cgronlun
+description: Recherche Azure est un service de recherche cloud hébergé et complètement managé de Microsoft. Passez en revue les descriptions des fonctionnalités, le workflow de développement, les comparaisons à d’autres produits de recherche Microsoft et la façon de le prendre en main.
+manager: nitinme
 author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: overview
-ms.date: 05/02/2019
+ms.date: 08/13/2019
 ms.author: heidist
-ms.custom: seodec2018
-ms.openlocfilehash: 7a12c9153332e9d6fc70512bc55fe0a53f7c78fc
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: eefa0eb5d1e15df34089d7baa3241cbbed4724c2
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827156"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69034850"
 ---
 # <a name="what-is-azure-search"></a>Présentation de Recherche Azure
-La Recherche Azure est une solution cloud de recherche en tant que service, qui offre aux développeurs des API et des outils permettant d’ajouter une expérience de recherche riche concernant du contenu privé et hétérogène dans les applications web, mobiles et d’entreprise. L’exécution d’une requête est effectué sur un index défini par l’utilisateur.
 
-+ Générez un index de recherche contenant uniquement les données issues de plusieurs plateformes et types de contenu. 
+La Recherche Azure est une solution cloud de recherche en tant que service, qui offre aux développeurs des API et des outils permettant d’ajouter une expérience de recherche riche concernant du contenu privé et hétérogène dans les applications web, mobiles et d’entreprise. Votre code personnalisé appelle l’ingestion des données (indexation), émet des demandes de requête et gère les réponses. L’expérience de recherche est définie dans votre code client via la fonctionnalité de Recherche Azure, avec l’exécution de requête sur un index persistant que vous créez, possédez et stockez sur Recherche Azure.
 
-+ Tirez parti des enrichissements IA pour extraire du texte et des fonctionnalités à partir de fichiers image, ou des entités et expressions clés à partir de texte brut.
+![Architecture Recherche Azure](media/search-what-is-azure-search/azure-search-diagram.png "Architecture Recherche Azure")
 
-+ Créez des expériences de recherche intuitives avec la navigation par facettes, les filtres, les synonymes, l'autocomplétion et l'analyse de texte pour les termes de recherche corrigés automatiquement par « Vous voulez dire ». Améliorez la pertinence grâce à des fonctions et à une logique d'optimisation.
-
-+ Créez des applications de recherche pour des cas d'utilisation spécifiques. La géo-recherche prend en charge l'expérience « rechercher à proximité ». La recherche multilingue est prise en charge par l'intermédiaire d'analyseurs de langue pour la recherche en texte intégral dans une langue autre que l'anglais.
+<!-- + Build a search index containing only your data, sourced from multiple content types and platforms. 
++ Leverage AI enrichments to extract text and features from image files, or entities and key phrases from raw text.
++ Create intuitive search experiences with facet navigation and filters, synonyms, autocomplete, and text analysis for "did you mean" autocorrected search terms. Get relevance tuning through functions and boosting logic.
++ Create search apps for specific use-cases. Geo-search supports a "find near me" experience. Multi-lingual search is supported through language analyzers for non-English full text search. -->
 
 Cette fonctionnalité est exposée par le biais d’une [API REST](/rest/api/searchservice/) ou d’un [SDK.NET](search-howto-dotnet-sdk.md) simple, qui masque la complexité inhérente de la récupération d’informations. En plus des API, le portail Azure offre la prise en charge de l’administration et de la gestion de contenu, avec des outils de prototypage et d’interrogation de vos index. Étant donné que le service s’exécute dans le cloud, infrastructure et la disponibilité sont gérées par Microsoft.
+
+## <a name="when-to-use-azure-search"></a>Quand utiliser Recherche Azure
+
+Recherche Azure est adapté aux scénarios d’application suivants :
+
++ Consolidation de types de contenu hétérogènes dans un index privé, unique et pouvant faire l’objet d’une recherche. Les requêtes sont toujours sur un index que vous créez et chargez avec des documents, et l’index réside toujours dans le Cloud de votre service Recherche Azure. Vous pouvez remplir un index avec des flux de documents JSON à partir de n’importe quelle source ou plateforme. Autrement pour du contenu provenant d’Azure, vous pouvez utiliser un *indexeur* pour extraire des données dans un index. La définition et la gestion/propriété d’index est un motif clé de l’utilisation de Recherche Azure.
+
++ Implémentation facile des fonctionnalités de recherche. Les API Recherche Azure simplifient la construction des requêtes, la navigation par facettes, les filtres (y compris la recherche spatiale), le mappage des synonymes, les requêtes TypeAhead et le paramétrage de la pertinence. À l’aide des fonctionnalités intégrées, vous pouvez répondre aux attentes des utilisateurs finaux en matière de recherche, de la même façon que les moteurs de recherche Web commerciaux.
+
++ Indexation de texte non structuré ou extraction de texte et d’informations à partir de fichiers image. La fonctionnalité de recherche cognitive de Recherche Azure ajoute un traitement IA à un pipeline d’indexation. Certains cas d’utilisation courants incluent la reconnaissance optique des documents numérisés, la reconnaissance d’entités et l’extraction d’expressions clés sur les documents volumineux, la détection de la langue et la traduction de texte, et l’analyse des sentiments.
+
++ Exigences linguistiques respectées à l’aide des analyseurs personnalisés et linguistiques de Recherche Azure. Si vous disposez d’un contenu autre que l’anglais, Recherche Azure prend en charge les analyseurs Lucene et les processeurs de langage naturel de Microsoft. Vous pouvez également configurer des analyseurs pour obtenir un traitement spécialisé de contenu brut, tel que le filtrage des signes diacritiques.
 
 <a name="feature-drilldown"></a>
 
@@ -101,6 +112,7 @@ Voici les principaux atouts :
 + Intégration de données Azure (robots) au niveau de la couche d’indexation
 + Portail Azure de gestion centralisée
 + Mise à l’échelle Azure, fiabilité et disponibilité de premier ordre
++ Traitement IA de données brutes pour faciliter la recherche, y compris le texte dans des images ou la recherche de séquences dans un contenu non structuré.
 + Analyse linguistique et personnalisée, incluant des analyseurs de recherche en texte intégral solide en 56 langues
 + [Principales fonctionnalités communes aux applications centrées sur les recherches](#feature-drilldown) : notation, recherche par facettes, suggestions, synonymes, recherche basée sur la localisation, etc.
 

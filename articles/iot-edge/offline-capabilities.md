@@ -2,19 +2,18 @@
 title: Faire fonctionner des appareils hors connexion - Azure IoT Edge | Microsoft Docs
 description: Découvrez comment des appareils et des modules IoT Edge peuvent fonctionner sans connexion Internet pendant de longues périodes de temps, et comment IoT Edge permet aussi aux appareils IoT standard de continuer à fonctionner hors connexion.
 author: kgremban
-manager: philmea
 ms.author: kgremban
-ms.date: 06/04/2019
+ms.date: 08/04/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 4a46128d3b0e77ff7921e1f4875c318a95309769
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 6d82b353f8b485b4441853b7ff8e70e7d69f4d6a
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68598610"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68986983"
 ---
 # <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices"></a>Comprendre les fonctionnalités hors connexion étendues pour les appareils, modules et appareils enfants IoT Edge
 
@@ -137,43 +136,71 @@ Ce paramètre est une propriété désirée du hub IoT Edge, qui est stockée da
 }
 ```
 
-### <a name="additional-offline-storage"></a>Stockage hors connexion supplémentaire
+### <a name="host-storage-for-system-modules"></a>Stockage hôte pour les modules système
 
-Les messages sont stockés par défaut dans le système de fichiers du conteneur du hub IoT Edge. Si l’espace de stockage n’est pas suffisant pour vos besoins hors connexion, vous pouvez dédier un stockage local sur l’appareil IoT Edge. Créez une variable d’environnement pour le hub IoT Edge qui pointe vers un dossier de stockage dans le conteneur. Utilisez ensuite les options de création pour lier ce dossier de stockage à un dossier situé sur la machine hôte. 
+Les messages et les informations d’état du module sont stockés dans le système de fichiers du conteneur local du hub IoT Edge par défaut. Pour améliorer la fiabilité, en particulier lors d’une mise hors connexion, vous pouvez également dédier un stockage sur l’appareil hôte IoT Edge.
 
-Vous pouvez configurer des variables d’environnement et les options de création pour le module du hub IoT Edge dans la section **Configurer les paramètres avancés du runtime Edge** du Portail Microsoft Azure. Vous pouvez aussi les configurer directement dans le manifeste de déploiement. 
+Pour configurer le stockage sur le système hôte, créez des variables d’environnement pour le hub IoT Edge et l’agent IoT Edge qui pointent vers un dossier de stockage dans le conteneur. Utilisez ensuite les options de création pour lier ce dossier de stockage à un dossier situé sur la machine hôte. 
+
+Vous pouvez configurer des variables d’environnement et les options de création pour le module du hub IoT Edge dans la section **Configurer les paramètres avancés du runtime Edge** du Portail Microsoft Azure. 
+
+1. Pour le hub IoT Edge et l’agent IoT Edge, ajoutez une variable d’environnement appelée **storageFolder** qui pointe vers un répertoire dans le module.
+1. Pour le hub IoT Edge et l’agent IoT Edge, ajoutez des liaisons pour connecter un répertoire local sur la machine hôte à un répertoire du module. Par exemple : 
+
+   ![Ajouter des options de création et des variables d’environnement pour le stockage local](./media/offline-capabilities/offline-storage.png)
+
+Vous pouvez aussi configurer le stockage local directement dans le manifeste de déploiement. Par exemple : 
 
 ```json
-"edgeHub": {
-    "type": "docker",
-    "settings": {
-        "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
-        "createOptions": {
-            "HostConfig": {
-                "Binds": ["<HostStoragePath>:<ModuleStoragePath>"],
-                "PortBindings": {
-                    "8883/tcp": [{"HostPort":"8883"}],
-                    "443/tcp": [{"HostPort":"443"}],
-                    "5671/tcp": [{"HostPort":"5671"}]
+"systemModules": {
+    "edgeAgent": {
+        "settings": {
+            "image": "mcr.microsoft.com/azureiotedge-agent:1.0",
+            "createOptions": {
+                "HostConfig": {
+                    "Binds":["<HostStoragePath>:<ModuleStoragePath>"]
                 }
+            }
+        },
+        "type": "docker",
+        "env": {
+            "storageFolder": {
+                "value": "<ModuleStoragePath>"
             }
         }
     },
-    "env": {
-        "storageFolder": {
-            "value": "<ModuleStoragePath>"
-        }
-    },
-    "status": "running",
-    "restartPolicy": "always"
+    "edgeHub": {
+        "settings": {
+            "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
+            "createOptions": {
+                "HostConfig": {
+                    "Binds":["<HostStoragePath>:<ModuleStoragePath"],
+                    "PortBindings":{"5671/tcp":[{"HostPort":"5671"}],"8883/tcp":[{"HostPort":"8883"}],"443/tcp":[{"HostPort":"443"}]}}}
+        },
+        "type": "docker",
+        "env": {
+            "storageFolder": {
+                "value": "<ModuleStoragePath>"
+            }
+        },
+        "status": "running",
+        "restartPolicy": "always"
+    }
 }
 ```
 
-Remplacez `<HostStoragePath>` et `<ModuleStoragePath>` par le chemin de stockage de votre hôte et de votre module. Les deux chemins doivent être des chemins absolus. Dans les options de création, liez les chemins d’accès de stockage de l’hôte et du module. Ensuite, créez une variable d’environnement qui pointe vers le chemin d’accès de stockage du module.  
+Remplacez `<HostStoragePath>` et `<ModuleStoragePath>` par le chemin de stockage de votre hôte et de votre module. Les deux valeurs doivent être des chemins absolus. 
 
 Par exemple, `"Binds":["/etc/iotedge/storage/:/iotedge/storage/"]` signifie que le répertoire **/etc/iotedge/storage** sur votre système hôte est mappé au répertoire **/iotedge/stockage/** sur le conteneur. Ou autre exemple pour les systèmes Windows, `"Binds":["C:\\temp:C:\\contemp"]` signifie que le répertoire **C:\\temp** sur votre système hôte est mappé au répertoire **C:\\contemp** sur le conteneur. 
 
-Vous trouverez aussi plus de détails sur les options de création dans la [documentation de docker](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate).
+Sur les appareils Linux, assurez-vous que le profil utilisateur du hub IoT Edge, UID 1000, dispose des autorisations de lecture, d’écriture et d’exécution sur le répertoire système de l’ordinateur hôte. Ces autorisations sont nécessaires pour que le hub IoT Edge puisse stocker des messages dans le répertoire et les récupérer ultérieurement. (L’agent IoT Edge fonctionne comme root, donc il n’a pas besoin d’autorisations supplémentaires.) Il existe plusieurs façons de gérer les autorisations de répertoire sur les systèmes Linux , notamment l’utilisation de `chown` pour modifier le propriétaire du répertoire, puis `chmod` pour modifier les autorisations. Par exemple :
+
+```bash
+sudo chown 1000 <HostStoragePath>
+sudo chmod 700 <HostStoragePath>
+```
+
+Vous trouverez plus de détails sur les options de création dans la [documentation de docker](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

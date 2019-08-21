@@ -9,12 +9,12 @@ ms.date: 02/25/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: f9d68af12f6b2e98c77d0bd1b65a82c69588f203
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7785c6b5c575bf862b1ba0edccc75fc1c6031b08
+ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65147612"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69015658"
 ---
 # <a name="disaster-recovery-and-storage-account-failover-preview-in-azure-storage"></a>Reprise d’activité après sinistre et basculement de compte de stockage (préversion) dans Stockage Azure
 
@@ -37,8 +37,11 @@ Le **stockage géoredondant avec accès en lecture (RA-GRS)** offre un stockage 
 
 Parmi les autres options de redondance de Stockage Azure, citons le stockage redondant interzone (ZRS), qui réplique vos données dans des zones de disponibilité dans une seule région, et le stockage localement redondant (LRS), qui réplique vos données dans un centre de données unique dans une seule région. Si votre compte de stockage est configuré pour le stockage ZRS ou LRS, vous pouvez le convertir pour qu’il utilise GRS ou RA-GRS. La configuration de votre compte pour le stockage géoredondant implique un coût supplémentaire. Pour plus d’informations, consultez l’article [Réplication de Stockage Azure](storage-redundancy.md).
 
+> [!NOTE]
+> Le stockage géo-redondant dans une zone (GZRS) et le stockage géo-redondant avec accès en lecture (RA-GZRS) sont actuellement en préversion, mais ne sont pas encore disponibles dans les mêmes régions que le basculement de compte géré par le client. Pour cette raison, les clients ne peuvent pour l’instant pas gérer les événements de basculement de compte avec des comptes GZRS et RA-GZRS. Au cours de la préversion, Microsoft gérera les événements de basculement affectant les comptes GZRS/RA-GZRS.
+
 > [!WARNING]
-> Le stockage géoredondant comporte un risque de perte de données. Les données sont répliquées vers la région secondaire de façon asynchrone, ce qui signifie qu’il existe un délai entre l’écriture des données dans la région primaire et dans la région secondaire. En cas de panne, les opérations d’écriture sur le point de terminaison principal qui n’ont pas encore été répliquées vers le point de terminaison secondaire seront perdues. 
+> Le stockage géoredondant comporte un risque de perte de données. Les données sont répliquées vers la région secondaire de façon asynchrone, ce qui signifie qu’il existe un délai entre l’écriture des données dans la région primaire et dans la région secondaire. En cas de panne, les opérations d’écriture sur le point de terminaison principal qui n’ont pas encore été répliquées vers le point de terminaison secondaire seront perdues.
 
 ## <a name="design-for-high-availability"></a>Concevoir pour la haute disponibilité
 

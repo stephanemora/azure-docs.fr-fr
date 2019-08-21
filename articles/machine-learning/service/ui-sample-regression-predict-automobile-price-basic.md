@@ -1,21 +1,21 @@
 ---
-title: 'Régression : Prédire le prix'
+title: 'Exemple d’interface visuelle n°1 : régression pour prédire le prix'
 titleSuffix: Azure Machine Learning service
 description: Découvrez comment créer un modèle Machine Learning pour prédire le prix d’un véhicule automobile sans écrire une seule ligne de code.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: article
+ms.topic: conceptual
 author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
 ms.date: 05/10/2019
-ms.openlocfilehash: ddc7ae10581075127f72dd020c59cf28bbfc9ae2
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 0c86955e0b10111bf9b6db0d884b73867a4467c5
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606133"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68990406"
 ---
 # <a name="sample-1---regression-predict-price"></a>Exemple 1 - Régression : Prédire le prix
 

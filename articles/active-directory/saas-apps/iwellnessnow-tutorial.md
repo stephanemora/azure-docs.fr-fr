@@ -4,239 +4,173 @@ description: Découvrez comment configurer l’authentification unique entre Azu
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 24ffc841-7a77-481c-9cc4-6f8bda58fe66
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 05/16/2018
+ms.topic: tutorial
+ms.date: 08/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 02b831df98db5b9d63873a0da93e603cd7cbf308
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8ff8fd2eb14f1af5133669ad20f303d36ff5af80
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60269452"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68931818"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-iwellnessnow"></a>Didacticiel : Intégration d’Azure Active Directory dans iWellnessNow
+# <a name="tutorial-integrate-iwellnessnow-with-azure-active-directory"></a>Didacticiel : Intégrer iWellnessNow à Azure Active Directory
 
-Dans ce tutoriel, vous allez apprendre à intégrer iWellnessNow à Azure Active Directory (Azure AD).
+Dans ce tutoriel, vous allez apprendre à intégrer iWellnessNow à Azure Active Directory (Azure AD). Quand vous intégrez iWellnessNow à Azure AD, vous pouvez :
 
-L’intégration d’iWellnessNow à Azure AD vous offre les avantages suivants :
+* Dans Azure AD, vous pouvez contrôler qui a accès à iWellnessNow.
+* Permettre à vos utilisateurs de se connecter automatiquement à iWellnessNow avec leur compte Azure AD.
+* Gérer vos comptes à un emplacement central : le Portail Azure.
 
-- Dans Azure AD, vous pouvez contrôler qui a accès à iWellnessNow.
-- Vous pouvez autoriser vos utilisateurs à se connecter automatiquement à iWellnessNow (via l’authentification unique) avec leur compte Azure AD.
-- Vous pouvez gérer vos comptes dans un emplacement central : le portail Azure
-
-Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
+Pour en savoir plus sur l’intégration des applications SaaS à Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour configurer l’intégration d’Azure AD à iWellnessNow, vous avez besoin des éléments suivants :
+Pour commencer, vous devez disposer de ce qui suit :
 
-- Un abonnement Azure AD
-- Un abonnement iWellnessNow pour lequel l’authentification unique est activée
-
-> [!NOTE]
-> Pour tester les étapes de ce didacticiel, nous déconseillons l’utilisation d’un environnement de production.
-
-Vous devez en outre suivre les recommandations ci-dessous :
-
-- N’utilisez pas votre environnement de production, sauf si cela est nécessaire.
-- Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez [obtenir un essai d’un mois](https://azure.microsoft.com/pricing/free-trial/).
+* Un abonnement Azure AD Si vous ne disposez d’aucun abonnement, vous pouvez obtenir [un compte gratuit](https://azure.microsoft.com/free/).
+* Un abonnement iWellnessNow pour lequel l’authentification unique est activée.
 
 ## <a name="scenario-description"></a>Description du scénario
-Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
-1. Ajout d’iWellnessNow à partir de la galerie
-1. Configuration et test de l’authentification unique Azure AD
+Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
+
+* iWellnessNow prend en charge l’authentification unique lancée par **le fournisseur de services et le fournisseur d’identité**
 
 ## <a name="adding-iwellnessnow-from-the-gallery"></a>Ajout d’iWellnessNow à partir de la galerie
+
 Pour configurer l’intégration d’iWellnessNow à Azure AD, vous devez ajouter iWellnessNow à votre liste d’applications SaaS gérées à partir de la galerie.
 
-**Pour ajouter iWellnessNow à partir de la galerie, procédez comme suit :**
-
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**. 
-
-    ![Bouton Azure Active Directory][1]
-
-1. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
-
-    ![Panneau Applications d’entreprise][2]
-    
-1. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
-
-    ![Bouton Nouvelle application][3]
-
-1. Dans la zone de recherche, tapez **iWellnessNow**, sélectionnez **iWellnessNow** dans le panneau de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
-
-    ![iWellnessNow dans la liste des résultats](./media/iwellnessnow-tutorial/tutorial_iwellnessnow_addfromgallery.png)
+1. Connectez-vous au [portail Azure](https://portal.azure.com) avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
+1. Dans le panneau de navigation gauche, sélectionnez le service **Azure Active Directory**.
+1. Accédez à **Applications d’entreprise**, puis sélectionnez **Toutes les applications**.
+1. Pour ajouter une nouvelle application, sélectionnez **Nouvelle application**.
+1. Dans la section **Ajouter à partir de la galerie**, tapez **iWellnessNow** dans la zone de recherche.
+1. Sélectionnez **iWellnessNow** dans le volet de résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurer et tester l’authentification unique Azure AD
 
-Dans cette section, vous allez configurer et tester l’authentification unique Azure AD avec iWellnessNow avec un utilisateur de test appelé « Britta Simon ».
+Configurez et testez l’authentification unique Azure AD avec iWellnessNow pour un utilisateur de test nommé **B. Simon**. Pour que l’authentification unique fonctionne, vous devez établir un lien entre un utilisateur Azure AD et l’utilisateur iWellnessNow associé.
 
-Pour que l’authentification unique fonctionne, Azure AD doit savoir qui est l’utilisateur iWellnessNow équivalent dans Azure AD. En d’autres termes, une relation entre un utilisateur Azure AD et l’utilisateur iWellnessNow associé doit être établie.
+Pour configurer et tester l’authentification unique Azure AD avec iWellnessNow, suivez les indications des sections ci-après :
 
-Pour configurer et tester l’authentification unique Azure AD avec iWellnessNow, vous devez suivre les indications des sections suivantes :
+1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-sso)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
+2. **[Configurer l’authentification unique iWellnessNow](#configure-iwellnessnow-sso)** pour configurer les paramètres de l’authentification unique côté application.
+3. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec B. Simon.
+4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à B. Simon d’utiliser l’authentification unique Azure AD.
+5. **[Créer un utilisateur de test iWellnessNow](#create-iwellnessnow-test-user)** pour avoir un équivalent de B.Simon dans iWellnessNow qui soit associé à la représentation Azure AD.
+6. **[Tester l’authentification unique](#test-sso)** pour vérifier si la configuration fonctionne.
 
-1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-1. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-1. **[Créer un utilisateur de test iWellnessNow](#create-an-iwellnessnow-test-user)** pour avoir un équivalent de Britta Simon dans iWellnessNow qui soit associé à la représentation Azure AD.
-1. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
-1. **[Tester l’authentification unique](#test-single-sign-on)** : pour vérifier si la configuration fonctionne.
+### <a name="configure-azure-ad-sso"></a>Configurer l’authentification unique Azure AD
 
-### <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD
+Effectuez les étapes suivantes pour activer l’authentification unique Azure AD dans le Portail Azure.
 
-Dans cette section, vous allez activer l’authentification unique Azure AD dans le portail Azure et configurer l’authentification unique dans votre application iWellnessNow.
+1. Dans le [portail Azure](https://portal.azure.com/), accédez à la page d’intégration de l’application **iWellnessNow**, recherchez la section **Gérer** et sélectionnez **Authentification unique**.
+1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
+1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de modification/stylet pour **Configuration SAML de base** afin de modifier les paramètres.
 
-**Pour configurer l’authentification unique Azure AD avec iWellnessNow, procédez comme suit :**
+   ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-1. Dans le portail Azure, dans la page d’intégration de l’application **iWellnessNow**, cliquez sur **Authentification unique**.
-
-    ![Lien Configurer l’authentification unique][4]
-
-1. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
- 
-    ![Boîte de dialogue Authentification unique](./media/iwellnessnow-tutorial/tutorial_iwellnessnow_samlbase.png)
-
-1. Dans la section **Domaines et URL iWellnessNow**, si vous disposez du **fichier de métadonnées du fournisseur de services** et que vous souhaitez configurer l’application en Mode initié par **IDP**, procédez comme suit :
-
-    ![Chargement de l’authentification unique dans Domaine et URL iWellnessNow](./media/iwellnessnow-tutorial/tutorial_iwellnessnow_upload.png)
+1. Dans la section **Configuration SAML de base**, si vous avez un **fichier de métadonnées de fournisseur de services** et voulez une configuration en mode initié par le **fournisseur d’identité** (IDP), effectuez les étapes suivantes :
 
     a. Cliquez sur **Charger un fichier de métadonnées**.
 
-    ![Configuration du chargement de l’authentification unique dans Domaine et URL iWellnessNow](./media/iwellnessnow-tutorial/tutorial_iwellnessnow_uploadconfig.png)
+    ![Charger le fichier de métadonnées](common/upload-metadata.png)
 
     b. Cliquez sur le **logo du dossier** pour sélectionner le fichier de métadonnées, puis cliquez sur **Charger**.
-    
-    c. Une fois le chargement du **fichier de métadonnées du fournisseur de services** terminé, les valeurs **Identificateur** et **URL de réponse** sont automatiquement remplies dans la zone de texte de la section **Domaine et URL iWellnessNow**, comme indiqué ci-dessous :
 
-    ![Informations d’authentification unique dans Domaine et URL iWellnessNow](./media/iwellnessnow-tutorial/tutorial_iwellnessnow_url3.png)
+    ![choisir le fichier de métadonnées](common/browse-upload-metadata.png)
+
+    c. Une fois le fichier de métadonnées chargé, les valeurs **Identificateur** et **URL de réponse** sont automatiquement renseignées dans la section Configuration SAML de base.
+
+    ![image](common/idp-intiated.png)
+
+    > [!Note]
+    > Si les valeurs **Identificateur** et **URL de réponse** ne sont pas automatiquement renseignées, renseignez-les manuellement en fonction de vos besoins.
 
 1. Si vous ne disposez pas du **fichier de métadonnées du fournisseur de services** et que vous souhaitez configurer l’application en mode initié par **IDP**, procédez comme suit :
 
-    ![Informations d’authentification unique dans Domaine et URL iWellnessNow](./media/iwellnessnow-tutorial/tutorial_iwellnessnow_url.png)
+    ![Informations d’authentification unique dans Domaine et URL iWellnessNow](common/idp-intiated.png)
 
     a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `http://<CustomerName>.iwellnessnow.com`
 
     b. Dans la zone de texte **URL de réponse** , tapez une URL au format suivant : `https://<CustomerName>.iwellnessnow.com/ssologin`
 
-1. Si vous souhaitez configurer l’application en **mode démarré par le fournisseur de service**, cochez **Afficher les paramètres d’URL avancés**, puis effectuez les étapes suivantes :
+1. Si vous souhaitez configurer l’application en **mode démarré par le fournisseur de services**, cliquez sur **Définir des URL supplémentaires**, puis effectuez les étapes suivantes :
 
-    ![Informations d’authentification unique dans Domaine et URL iWellnessNow](./media/iwellnessnow-tutorial/tutorial_iwellnessnow_url1.png)
+    ![image](common/metadata-upload-additional-signon.png)
 
     Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<CustomerName>.iwellnessnow.com/`
-     
-    > [!NOTE] 
-    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur, l’URL de réponse et l’URL de connexion réels. Pour obtenir ces valeurs, contactez l’[équipe de support technique d’iWellnessNow](mailto:info@iwellnessnow.com).
 
-1. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier de métadonnées sur votre ordinateur.
+    > [!NOTE]
+    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de réponse, l’identificateur et l’URL de connexion réels. Pour obtenir ces valeurs, contactez l’[équipe de support technique d’iWellnessNow](mailto:info@iwellnessnow.com). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
-    ![Lien Téléchargement de certificat](./media/iwellnessnow-tutorial/tutorial_iwellnessnow_certificate.png) 
+1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **XML des métadonnées**, puis sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
 
-1. Cliquez sur le bouton **Enregistrer** .
+    ![Lien Téléchargement de certificat](common/metadataxml.png)
 
-    ![Bouton Enregistrer de la page Configurer l’authentification unique](./media/iwellnessnow-tutorial/tutorial_general_400.png)
-    
-1. Pour configurer l’authentification unique du côté **iWellnessNow**, vous devez envoyer le fichier **XML de métadonnées** téléchargé à [l’équipe de support technique iWellnessNow](mailto:info@iwellnessnow.com). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
+1. Dans la section **Configurer iWellnessNow**, copiez la ou les URL appropriées en fonction de vos besoins.
+
+    ![Copier les URL de configuration](common/copy-configuration-urls.png)
+
+### <a name="configure-iwellnessnow-sso"></a>Configurer l’authentification unique iWellnessNow
+
+Pour configurer l’authentification unique côté **iWellnessNow**, vous devez envoyer le fichier **XML des métadonnées de fédération** téléchargé et les URL appropriées copiées depuis le portail Azure à l’[équipe du support technique iWellnessNow](mailto:info@iwellnessnow.com). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
-L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure.
+Dans cette section, vous allez créer un utilisateur de test appelé B. Simon dans le portail Azure.
 
-   ![Créer un utilisateur de test Azure AD][100]
-
-**Pour créer un utilisateur de test dans Azure AD, procédez comme suit :**
-
-1. Dans le volet gauche du Portail Azure, cliquez sur le bouton **Azure Active Directory**.
-
-    ![Bouton Azure Active Directory](./media/iwellnessnow-tutorial/create_aaduser_01.png)
-
-1. Pour afficher la liste des utilisateurs, accédez à **Utilisateurs et groupes**, puis cliquez sur **Tous les utilisateurs**.
-
-    ![Liens « Utilisateurs et groupes » et « Tous les utilisateurs »](./media/iwellnessnow-tutorial/create_aaduser_02.png)
-
-1. Pour ouvrir la boîte de dialogue **Utilisateur**, cliquez sur **Ajouter** en haut de la boîte de dialogue **Tous les utilisateurs**.
-
-    ![Bouton Ajouter](./media/iwellnessnow-tutorial/create_aaduser_03.png)
-
-1. Dans la boîte de dialogue **Utilisateur**, procédez comme suit :
-
-    ![Boîte de dialogue Utilisateur](./media/iwellnessnow-tutorial/create_aaduser_04.png)
-
-    a. Dans la zone **Nom**, tapez **BrittaSimon**.
-
-    b. Dans la zone **Nom d’utilisateur** , tapez l’adresse e-mail de l’utilisateur Britta Simon.
-
-    c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ **Mot de passe**.
-
-    d. Cliquez sur **Créer**.
- 
-### <a name="create-an-iwellnessnow-test-user"></a>Créer un utilisateur de test iWellnessNow
-
-Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans iWellnessNow. Collaborez avec l’ [équipe de support iWellnessNow](mailto:info@iwellnessnow.com) pour ajouter les utilisateurs sur la plateforme iWellnessNow. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
+1. Dans le volet gauche du Portail Azure, sélectionnez **Azure Active Directory**, **Utilisateurs**, puis **Tous les utilisateurs**.
+1. Sélectionnez **Nouvel utilisateur** dans la partie supérieure de l’écran.
+1. Dans les propriétés **Utilisateur**, effectuez les étapes suivantes :
+   1. Dans le champ **Nom**, entrez `B.Simon`.  
+   1. Dans le champ **Nom de l’utilisateur**, entrez username@companydomain.extension. Par exemple : `B.Simon@contoso.com`.
+   1. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ **Mot de passe**.
+   1. Cliquez sur **Créer**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 
-Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentification unique Azure en lui accordant l’accès à iWellnessNow.
+Dans cette section, vous allez autoriser B.Simon à utiliser l’authentification unique Azure en lui octroyant l’accès à iWellnessNow.
 
-![Attribuer le rôle utilisateur][200] 
-
-**Pour attribuer Britta Simon à iWellnessNow, procédez comme suit :**
-
-1. Dans le portail Azure, ouvrez la vue des applications, accédez à la vue des répertoires, accédez à **Applications d’entreprise**, puis cliquez sur **Toutes les applications**.
-
-    ![Affecter des utilisateurs][201] 
-
+1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
 1. Dans la liste des applications, sélectionnez **iWellnessNow**.
+1. Dans la page de vue d’ensemble de l’application, recherchez la section **Gérer** et sélectionnez **Utilisateurs et groupes**.
 
-    ![Lien iWellnessNow dans la liste des applications](./media/iwellnessnow-tutorial/tutorial_iwellnessnow_app.png)  
+   ![Lien « Utilisateurs et groupes »](common/users-groups-blade.png)
 
-1. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
+1. Sélectionnez **Ajouter un utilisateur**, puis **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
 
-    ![Lien « Utilisateurs et groupes »][202]
+    ![Lien Ajouter un utilisateur](common/add-assign-user.png)
 
-1. Cliquez sur le bouton **Ajouter**. Ensuite, sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une affectation**.
+1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **B. Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** au bas de l’écran.
+1. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle**, sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
+1. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
 
-    ![Volet Ajouter une attribution][203]
+### <a name="create-iwellnessnow-test-user"></a>Créer un utilisateur de test iWellnessNow
 
-1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste des utilisateurs.
+Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans iWellnessNow. Collaborez avec l’[équipe de support iWellnessNow](mailto:info@iwellnessnow.com) pour ajouter les utilisateurs à la plateforme iWellnessNow. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 
-1. Cliquez sur le bouton **Sélectionner** dans la boîte de dialogue **Utilisateurs et groupes**.
-
-1. Cliquez sur le bouton **Affecter** dans la boîte de dialogue **Ajouter une affectation**.
-    
-### <a name="test-single-sign-on"></a>Tester l’authentification unique
+### <a name="test-sso"></a>Tester l’authentification unique (SSO)
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
-Lorsque vous cliquez sur la mosaïque iWellnessNow dans le panneau d’accès, vous devriez être connecté automatiquement à votre application iWellnessNow.
-Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md). 
+Le fait de cliquer sur la vignette iWellnessNow dans le panneau d’accès doit vous connecter automatiquement à l’application iWellnessNow pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-* [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](tutorial-list.md)
-* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md)
+- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
+- [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-
-<!--Image references-->
-
-[1]: ./media/iwellnessnow-tutorial/tutorial_general_01.png
-[2]: ./media/iwellnessnow-tutorial/tutorial_general_02.png
-[3]: ./media/iwellnessnow-tutorial/tutorial_general_03.png
-[4]: ./media/iwellnessnow-tutorial/tutorial_general_04.png
-
-[100]: ./media/iwellnessnow-tutorial/tutorial_general_100.png
-
-[200]: ./media/iwellnessnow-tutorial/tutorial_general_200.png
-[201]: ./media/iwellnessnow-tutorial/tutorial_general_201.png
-[202]: ./media/iwellnessnow-tutorial/tutorial_general_202.png
-[203]: ./media/iwellnessnow-tutorial/tutorial_general_203.png
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -1,33 +1,34 @@
 ---
 title: Stocker des objets blob de blocs sur des appareils - Azure IoT Edge | Microsoft Docs
 description: Comprendre les fonctionnalités de hiérarchisation et durée de vie, consulter les opérations de stockage blob prises en charge et se connecter à votre compte de stockage d’objets blob.
-author: arduppal
+author: kgremban
 manager: mchad
-ms.author: arduppal
-ms.reviewer: arduppal
-ms.date: 06/19/2019
+ms.author: kgremban
+ms.reviewer: kgremban
+ms.date: 08/07/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 5932d51ecaca3c827ae6de268711c7f4d1b28d0a
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 861b5c3ee6d5661339788e7a27ba70557d0ea267
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68640656"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68947038"
 ---
-# <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge-preview"></a>Stocker des données à la périphérie avec le Stockage Blob Azure sur IoT Edge (préversion)
+# <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge"></a>Stocker des données en périphérie avec le Stockage Blob Azure sur IoT Edge
 
 Le Stockage Blob Azure sur IoT Edge fournit une solution de stockage des [objets blob de blocs](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-block-blobs) en périphérie. Un module de stockage d’objets blob sur votre appareil IoT Edge se comporte comme un service d’objets blob de blocs Azure, à ceci près que ces derniers sont stockés localement sur votre appareil IoT Edge. Vous pouvez accéder à vos objets blob avec les mêmes méthodes que celles du kit SDK de stockage Azure, ou aux appels d’API objets blob de blocs auxquels vous êtes déjà habitué. Cet article explique les concepts relatifs au Stockage Blob Azure sur le conteneur IoT Edge qui exécute un service d’objets blob sur votre appareil IoT Edge.
 
-Ce module est utile dans des scénarios où les données doivent être stockées localement jusqu'à ce qu'elles puissent être traitées ou transférées vers le cloud. Ces données peuvent être des vidéos, des images, des données financières, des données médicales ou toute autre donnée non structurée.
-
-> [!NOTE]
-> Le Stockage Blob Azure sur IoT Edge est disponible en [préversion publique](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+Ce module est utile dans les scénarios suivants :
+* où les données doivent être stockées localement jusqu’à ce qu’elles puissent être traitées ou transférées vers le cloud. Ces données peuvent être des vidéos, des images, des données financières, des données médicales ou toute autre donnée non structurée.
+* lorsque les appareils se trouvent dans un emplacement où la connectivité est limitée.
+* lorsque vous souhaitez traiter efficacement les données en local pour obtenir une faible latence d’accès aux données, afin de pouvoir réagir à des situations d’urgence le plus rapidement possible.
+* lorsque vous souhaitez réduire les coûts de bande passante et éviter de transférer des téraoctets de données vers le cloud. Vous pouvez traiter les données en local et envoyez uniquement les données traitées vers le cloud.
 
 Regardez la vidéo de présentation rapide
-> [!VIDEO https://www.youtube.com/embed/QhCYCvu3tiM]
+> [!VIDEO https://www.youtube.com/embed/xbwgMNGB_3Y]
 
 Ce module est fourni avec les fonctionnalités **deviceToCloudUpload** et **deviceAutoDelete**.
 
@@ -60,16 +61,11 @@ Un appareil Azure IoT Edge :
 
 - Vous pouvez utiliser votre ordinateur de développement ou une machine virtuelle comme un appareil IoT Edge, en suivant les étapes décrites dans le Guide de démarrage rapide pour [Linux](quickstart-linux.md) ou pour les [Appareils Windows](quickstart.md).
 
-- Le module de stockage Blob Azure sur IoT Edge prend en charge les configurations d’appareil suivantes :
-
-  | Système d’exploitation | AMD64 | ARM32v7 | ARM64 |
-  | ---------------- | ----- | ----- | ---- |
-  | Raspbian-stretch | Non | OUI | Non |  
-  | Ubuntu Server 16.04 | OUI | Non | OUI |
-  | Ubuntu Server 18.04 | OUI | Non | OUI |
-  | Windows 10 IoT Enterprise, build 17763 | OUI | Non | Non |
-  | Windows Server 2019, build 17763 | OUI | Non | Non |
-  
+- Reportez-vous à [Systèmes Azure IoT Edge pris en charge](support.md#operating-systems) pour obtenir une liste des systèmes d’exploitation et architectures pris en charge. Le module de Stockage Blob Azure sur IoT Edge prend en charge les architectures suivantes :
+    - Windows AMD64
+    - Linux AMD64
+    - Linux ARM32
+    - Linux ARM64 (préversion)
 
 Ressources cloud :
 
@@ -104,7 +100,10 @@ Le nom de ce paramètre est `deviceAutoDeleteProperties`
 
 ## <a name="using-smb-share-as-your-local-storage"></a>Utilisation du partage SMB comme stockage local
 Vous pouvez fournir le partage SMB comme chemin de stockage local lorsque vous déployez le conteneur Windows de ce module sur l’hôte Windows.
-Vous pouvez exécuter la commande PowerShell `New-SmbGlobalMapping` pour mapper le partage SMB localement sur l’appareil IoT exécutant Windows. Assurez-vous que l’appareil IoT peut lire/écrire sur le partage SMB distant.
+
+Assurez-vous que le partage SMB et l’appareil IoT se trouvent dans des domaines mutuellement approuvés.
+
+Vous pouvez exécuter la commande PowerShell `New-SmbGlobalMapping` pour mapper le partage SMB localement sur l’appareil IoT exécutant Windows.
 
 Voici les étapes de configuration :
 ```PowerShell
@@ -112,12 +111,44 @@ $creds = Get-Credential
 New-SmbGlobalMapping -RemotePath <remote SMB path> -Credential $creds -LocalPath <Any available drive letter>
 ```
 Exemple : <br>
-`$creds = Get-Credentials` <br>
+`$creds = Get-Credential` <br>
 `New-SmbGlobalMapping -RemotePath \\contosofileserver\share1 -Credential $creds -LocalPath G: `
 
 Cette commande utilise les informations d’identification pour s’authentifier auprès du serveur SMB distant. Ensuite, mappez le chemin d’accès du partage distant au disque G: (ou toute autre lettre de disque disponible). Le volume de données de l’appareil IoT est maintenant mappé à un chemin d’accès sur le lecteur G:. 
 
-Pour votre déploiement, la valeur de `<storage directory bind>` peut être **G:/ContainerData:C:/BlobRoot**.
+Assurez-vous que l’utilisateur de l’appareil IoT peut lire/écrire sur le partage SMB distant.
+
+Pour votre déploiement, la valeur de `<storage mount>` peut être **G:/ContainerData:C:/BlobRoot**. 
+
+## <a name="granting-directory-access-to-container-user-on-linux"></a>Octroi de l’accès aux annuaires à l’utilisateur de conteneur sur Linux
+Si vous avez utilisé le [montage de volume](https://docs.docker.com/storage/volumes/) pour le stockage dans vos options de création pour les conteneurs Linux, vous ne devez pas effectuer d’étapes supplémentaires, mais si vous avez utilisé le [montage de liaison](https://docs.docker.com/storage/bind-mounts/), ces étapes sont requises pour exécuter le service correctement.
+
+En suivant le principe du moindre privilège pour limiter les droits d’accès des utilisateurs aux autorisations minimales dont ils ont besoin pour effectuer leur travail, ce module comprend un utilisateur (nom : absie, ID : 11000) et un groupe d’utilisateurs (nom : absie, ID : 11000). Si le conteneur est démarré en tant que **root** (l’utilisateur par défaut est **root**), notre service est démarré en tant qu’utilisateur **absie** à faibles privilèges. 
+
+Avec ce comportement, la configuration des autorisations sur des liaisons de chemin d’accès d’ordinateur hôte est essentielle pour que le service fonctionne correctement ; sinon, le service se bloque avec des erreurs d’accès refusé. Le chemin d’accès utilisé dans la liaison de répertoire doit être accessible à l’utilisateur de conteneur (par exemple : absie 11000). Vous pouvez autoriser l’utilisateur de conteneur à accéder au répertoire en exécutant les commandes ci-dessous sur l’hôte :
+
+```terminal
+sudo chown -R 11000:11000 <blob-dir> 
+sudo chmod -R 700 <blob-dir> 
+```
+
+Exemple :<br>
+`sudo chown -R 11000:11000 /srv/containerdata` <br>
+`sudo chmod -R 700 /srv/containerdata `
+
+
+Si vous devez exécuter le service en tant qu’utilisateur autre que **absie**, vous pouvez spécifier votre ID d’utilisateur personnalisé dans createOptions, sous la propriété « User » de votre manifeste de déploiement. Dans ce cas, vous devez utiliser l’ID de groupe par défaut ou racine `0`.
+
+```json
+“createOptions”: { 
+  “User”: “<custom user ID>:0” 
+} 
+```
+Accordez maintenant à l’utilisateur de conteneur un accès au répertoire
+```terminal
+sudo chown -R <user ID>:<group ID> <blob-dir> 
+sudo chmod -R 700 <blob-dir> 
+```
 
 ## <a name="configure-log-files"></a>Configurer des fichiers journaux
 
@@ -142,9 +173,9 @@ La documentation du Stockage Blob Azure comprend des guides de démarrage rapide
 Les exemples de guides de démarrage rapide suivants utilisent des langages qui sont également pris en charge par IoT Edge, vous pouvez donc les déployer en tant que modules IoT Edge en même temps que le module de stockage d’objets blob :
 
 - [.NET](../storage/blobs/storage-quickstart-blobs-dotnet.md)
-- [Java](../storage/blobs/storage-quickstart-blobs-java.md)
+- [Java](../storage/blobs/storage-quickstart-blobs-java-v10.md)
 - [Python](../storage/blobs/storage-quickstart-blobs-python.md)
-- [Node.JS](../storage/blobs/storage-quickstart-blobs-nodejs.md)
+- [Node.JS](../storage/blobs/storage-quickstart-blobs-nodejs-v10.md)
 
 ## <a name="connect-to-your-local-storage-with-azure-storage-explorer"></a>Se connecter à votre stockage local avec l’Explorateur Stockage Microsoft Azure
 
@@ -239,3 +270,5 @@ Vous pouvez nous contacter au absiotfeedback@microsoft.com
 ## <a name="next-steps"></a>Étapes suivantes
 
 En savoir plus sur le [Déploiement du Stockage Blob Azure sur IoT Edge](how-to-deploy-blob.md)
+
+Restez informé des dernières mises à jour et annonces en consultant le [blog relatif au stockage Blob Azure sur IoT Edge.](https://aka.ms/abs-iot-blogpost)

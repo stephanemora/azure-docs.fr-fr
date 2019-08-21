@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 95c2130727c0cef889771c181fec53557a2a4b0f
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: cb07899b51280cff8613d637640c0da23debbc8e
+ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67603711"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69016512"
 ---
 # <a name="deploying-dependencies-for-local-development"></a>Déploiement de dépendances pour un développement local
 
@@ -21,7 +21,7 @@ Cet article explique comment déployer seulement les services de plateforme Azur
 
 ## <a name="deploy-azure-platform-services"></a>Déployer des services de plateforme Azure
 
-1. Vérifiez que PowerShell et les extensions [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-1.1.0) sont installés.  Ouvrez une invite de commandes ou un terminal, et exécutez :
+1. Vérifiez que PowerShell et les extensions [AzureRM PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) sont installés.  Ouvrez une invite de commandes ou un terminal, et exécutez :
 
    ```bash
    git clone https://github.com/Azure/azure-iiot-components
@@ -40,11 +40,11 @@ Cet article explique comment déployer seulement les services de plateforme Azur
 
 ### <a name="resource-group-name"></a>Nom de groupe ressources
 
-Vérifiez que vous utilisez un nom de groupe de ressources court et simple.  Le nom est également utilisé pour nommer les ressources : il doit donc être conforme aux spécifications de nommage des ressources.  
+Veillez à utiliser un nom de groupe de ressources court et simple.  Le nom est également utilisé pour nommer les ressources : il doit donc être conforme aux spécifications de nommage des ressources.  
 
 ### <a name="azure-active-directory-aad-registration"></a>Inscription Azure Active Directory
 
-Le script de déploiement essaie d’inscrire les applications AAD dans Azure Active Directory.  En fonction de vos droits sur le locataire AAD sélectionné, cette opération peut échouer.   Il y a 3 options :
+Le script de déploiement essaie d’inscrire les applications AAD dans Azure Active Directory.  En fonction de vos droits sur le locataire AAD sélectionné, cette opération peut échouer.   Vous disposez de trois options :
 
 1. Si vous avez choisi un locataire AAD dans une liste de locataires, redémarrez le script et choisissez un autre locataire dans la liste.
 2. Vous pouvez aussi déployer un locataire AAD privé, redémarrer le script et choisir de l’utiliser.

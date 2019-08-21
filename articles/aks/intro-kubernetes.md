@@ -9,10 +9,10 @@ ms.date: 05/06/2019
 ms.author: mlearned
 ms.custom: mvc
 ms.openlocfilehash: 5515951a9bde596935f4c603ffd9e088f74dee45
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "67615158"
 ---
 # <a name="azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS)
@@ -23,7 +23,7 @@ Vous pouvez créer un cluster AKS dans le portail Azure, avec Azure CLI ou des o
 
 Pour plus d’informations sur les principes fondamentaux de Kubernetes, consultez [Concepts de base de Kubernetes pour AKS][concepts-clusters-workloads].
 
-Pour commencer, suivez le guide de démarrage rapide d’AKS [dans le portail Azure][aks-portal] or [with the Azure CLI][aks-cli].
+Pour commencer, effectuez le démarrage rapide d’AKS [dans le Portail Azure][aks-portal] ou [avec Azure CLI][aks-cli].
 
 ## <a name="access-security-and-monitoring"></a>Accès, sécurité et surveillance
 
@@ -57,7 +57,7 @@ Pour plus d’informations, consultez [Mettre à l’échelle un cluster Azure K
 
 Azure Kubernetes Service offre plusieurs versions de Kubernetes. Au fur et à mesure que de nouvelles versions sont disponibles dans AKS, votre cluster peut être mis à niveau via le portail Azure ou Azure CLI. Pendant le processus de mise à niveau, les nœuds sont soigneusement coordonnés et purgés afin de limiter les perturbations pour les applications en cours d’exécution.
 
-Pour plus d’informations sur les versions du cycle de vie, consultez [Versions de Kubernetes prises en charge dans AKS][aks-supported versions]. For steps on how to upgrade, see [Upgrade an Azure Kubernetes Service (AKS) cluster][aks-upgrade].
+Pour plus d’informations sur les versions du cycle de vie, consultez [Versions de Kubernetes prises en charge dans AKS][aks-supported versions]. Pour connaître les étapes de la mise à niveau, consultez [Mettre à niveau un cluster Azure Kubernetes Service (AKS)][aks-upgrade].
 
 ### <a name="gpu-enabled-nodes"></a>Nœuds avec processeur graphique (GPU)
 
@@ -71,7 +71,7 @@ Pour supporter les charges de travail d’application, vous pouvez monter des vo
 
 Pour plus d’informations, consultez [Options de stockage pour les applications dans AKS][concepts-storage].
 
-Démarrez avec les volumes persistants dynamiques en utilisant [Azure Disks][azure-disk] or [Azure Files][azure-files].
+Démarrez avec les volumes persistants dynamiques en utilisant [Disques Azure][azure-disk] ou [Azure Files][azure-files].
 
 ## <a name="virtual-networks-and-ingress"></a>Réseaux virtuels et entrée
 

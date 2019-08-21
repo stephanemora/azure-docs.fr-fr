@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: dacurwin
-ms.openlocfilehash: 126e33d4bedb56eb479361f16c02e7e167e49392
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 41e01531535fe41fa894f8de3181a56885ab3bcf
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68736689"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68955070"
 ---
 # <a name="how-to-restore-azure-vm-data-in-azure-portal"></a>Comment restaurer des données de machine virtuelle Azure dans le Portail Azure
 
@@ -45,7 +45,7 @@ Informations sur les comptes de stockage :
 - **Créer une machine virtuelle** : lorsque vous créez une machine virtuelle, celle-ci est placée dans le compte de stockage que vous spécifiez.
 - **Restaurer un disque** : lorsque vous restaurez un disque, celui-ci est copié dans le compte de stockage que vous spécifiez. Le travail de restauration génère un modèle que vous pouvez télécharger et utiliser pour spécifier des paramètres de machine virtuelle personnalisés. Ce modèle est placé dans le compte de stockage spécifié.
 - **Remplacer un disque** : lorsque vous remplacez un disque sur une machine virtuelle existante, la Sauvegarde Azure prend un instantané de cette machine avant de remplacer le disque. L’instantané est stocké dans l’emplacement intermédiaire (compte de stockage) que vous spécifiez. Ce compte de stockage est utilisé pour stocker temporairement l’instantané pendant le processus de restauration. Nous vous recommandons de créer un compte à cet effet, que vous pouvez facilement supprimer par la suite.
-- **Emplacement du compte de stockage** : le compte de stockage doit se trouver dans la même région que le coffre. Seuls ces comptes sont affichés. S’il n’y a aucun compte de stockage à cet emplacement, vous devez en créer un.
+- **Emplacement du compte de stockage** : le compte de stockage doit se trouver dans la même région que le coffre. Seuls ces comptes sont affichés. S’il n’y a aucun compte de stockage à cet emplacement, vous devez en créer un.
 - **Type de stockage** : le stockage d'objets blob n’est pas pris en charge.
 - **Redondance du stockage** : Le stockage redondant interzone (ZRS) n’est pas pris en charge. Les informations de réplication et de redondance pour le compte sont indiquées entre parenthèses après le nom du compte. 
 - **Stockage Premium** :
@@ -174,7 +174,7 @@ Une fois que vous déclenchez l’opération de restauration, le service de sauv
 
     ![Liste des machines virtuelles d’un coffre](./media/backup-azure-arm-restore-vms/restore-job-in-progress1.png)
 
-2. Pour suivre la progression de la restauration, cliquez sur n’importe quel travail de restauration avec l’état **En cours**. Vous obtenez une barre de progression qui affiche des informations sur l’avancement de la restauration :
+2. Pour suivre la progression de la restauration, cliquez sur n’importe quel travail de restauration avec l’état **En cours**. Vous obtenez une barre de progression qui affiche des informations sur l’avancement de la restauration :
 
     - **Estimation de la durée de la restauration** : indique initialement le temps nécessaire pour terminer l’opération de restauration. Au fur et à mesure que l’opération progresse, le temps nécessaire se réduit pour atteindre zéro une fois l’opération de restauration terminée.
     - **Pourcentage de la restauration** : affiche le pourcentage de l’opération de restauration terminée.

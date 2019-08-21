@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/07/2019
 ms.author: dacurwin
-ms.openlocfilehash: c41381dd3e53c80e74da3dc0d0a08e1ac83daec6
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 415a25dbe63b8942509827cd8434cc0f50fde87a
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827638"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954811"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Sauvegarde Azure - Forum Aux Questions
 Cet article répond aux questions courantes sur le service Sauvegarde Azure.
@@ -27,7 +27,7 @@ Vous pouvez inscrire jusqu’à 1 000 machines virtuelles Azure par coffre. Si
 
 ### <a name="how-many-datasourcesitems-can-be-protected-in-a-vault"></a>Combien de sources de données/éléments peuvent être protégés dans un coffre ? 
 Vous pouvez protéger jusqu’à 2000 sources de données/éléments sur toutes les charges de travail (machine virtuelle IaaS, SQL, AFS, etc.) dans un coffre.<br>  
-Par exemple, si vous avez déjà protégé 500 machines virtuelles et 400 partages de fichiers Azure dans le coffre, vous ne pouvez protéger que jusqu’à 1 100 bases de données SQL. 
+Par exemple, si vous avez déjà protégé 500 machines virtuelles et 400 partages de fichiers Azure dans le coffre, vous ne pouvez protéger que jusqu’à 1 100 bases de données SQL. 
 
 ### <a name="how-many-policies-can-i-create-per-vault"></a>Combien de stratégies puis-je créer par coffre ? 
 Vous ne pouvez avoir que jusqu’à 200 stratégies par coffre.
@@ -54,7 +54,7 @@ Non. Dans un coffre Recovery Services, vous pouvez uniquement changer les option
 ### <a name="where-can-i-find-common-questions-about-the-azure-backup-agent-for-azure-vm-backup"></a>Où puis-je trouver des questions courantes sur l’agent Sauvegarde Azure pour la sauvegarde de machines virtuelles Azure ?
 
 - Pour les agents sur des machines virtuelles Azure, consultez ce [FAQ](backup-azure-vm-backup-faq.md).
-- Pour les agent permettant de sauvegarde des dossiers de fichiers Azure, lisez ce [FAQ](backup-azure-file-folder-backup-faq.md).
+- Pour les agents permettant de sauvegarde des dossiers de fichiers Azure, lisez ce [FAQ](backup-azure-file-folder-backup-faq.md).
 
 
 ## <a name="general-backup"></a>Sauvegarde générale
@@ -138,7 +138,7 @@ Oui, elles ont toutes les deux des stratégies quotidienne, hebdomadaire, mensue
 Oui, vous pouvez personnaliser les stratégies. Par exemple, vous pouvez configurer une rétention hebdomadaire et quotidienne, mais pas annuelle ou mensuelle.
 
 ### <a name="can-i-use-different-times-for-backup-scheduling-and-retention-policies"></a>Puis-je utiliser des heures différentes pour la planification de la sauvegarde et les stratégies de rétention ?
-Non. Les stratégies de rétention ne peuvent être appliquées que sur les points de sauvegarde. Par exemple, ces images montrent une stratégie de rétention pour les sauvegardes effectuées à 0h00 et 18h00.
+Non. Les stratégies de rétention ne peuvent être appliquées que sur les points de sauvegarde. Par exemple, cette image montre une stratégie de rétention pour les sauvegardes effectuées à 0h00 et 18h00.
 
 ![Planification de sauvegarde et rétention](./media/backup-azure-backup-faq/Schedule.png)
 

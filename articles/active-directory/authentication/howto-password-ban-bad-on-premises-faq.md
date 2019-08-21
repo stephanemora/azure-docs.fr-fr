@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8ccefec9e548b7981f696712bb4a983f4b577a9b
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 8ece7f93b5397db16e03c1eab1d2dc1e568113d9
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779645"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68879259"
 ---
 # <a name="azure-ad-password-protection-on-premises---frequently-asked-questions"></a>Protection par mot de passe Azure AD en local - Questions fréquentes (FAQ)
 
@@ -33,6 +33,8 @@ Les conseils de Microsoft sur ce sujet se trouvent sur le lien suivant :
 **Q : La protection par mot de passe Azure AD en local est-elle prise en charge sur les clouds non publics ?**
 
 Non. La protection par mot de passe Azure AD en local est prise en charge uniquement sur le cloud public. Aucune date n’a été annoncée concernant la disponibilité sur les clouds non publics.
+
+Le portail Azure AD autorise la modification de la configuration spécifique en local « Protection par mot de passe pour Windows Server Active Directory », même dans les clouds non publics. Ces modifications sont rendues persistantes, sans quoi elles ne prennent pas effet. L’inscription d’agents proxys ou de forêts en local n’est pas prise en charge lorsque des informations d’identification de cloud non publics sont utilisées, ce qui entraîne l’échec de toute tentative d’inscription.
 
 **Q : Comment puis-je appliquer des avantages de la protection par mot de passe Azure AD à un sous-ensemble de mes utilisateurs en local ?**
 
@@ -64,7 +66,7 @@ Non pris en charge. La protection par mot de passe Azure AD est une fonctionnali
 
 **Q : Comment puis-je modifier le contenu de la stratégie au niveau d’Active Directory ?**
 
-Non pris en charge. La stratégie ne peut être administrée que par le biais du portail de gestion Azure AD. Consultez également la question précédente.
+Non pris en charge. La stratégie ne peut être administrée que par le biais du portail Azure AD. Consultez également la question précédente.
 
 **Q : Pourquoi la technologie DFSR est-elle nécessaire pour la réplication sysvol ?**
 
@@ -118,15 +120,15 @@ En résumé, le déploiement du service d’agent contrôleur de domaine de la p
 
 **Q : Pourquoi le verrouillage intelligent personnalisé ne fonctionne-t-il pas même après l’installation des agents dans mon environnement Active Directory local ?**
 
-Le verrouillage intelligent personnalisé est pris en charge uniquement dans Azure. Les modifications apportées aux paramètres de verrouillage intelligent personnalisé dans le portail de gestion Azure n’ont aucune incidence sur l’environnement Active Directory local, même avec les agents installés.
+Le verrouillage intelligent personnalisé est pris en charge uniquement dans Azure AD. Les modifications apportées aux paramètres de verrouillage intelligent personnalisé dans le portail Azure n’ont aucune incidence sur l’environnement Active Directory local, même avec les agents installés.
 
 **Q : Existe-il un pack d’administration System Center Operations Manager disponible pour la protection par mot de passe Azure AD ?**
 
 Non.
 
-**Q : Pourquoi Azure refuse-t-il toujours les mots de passe faibles, même si j’ai configuré la stratégie en mode Audit ?**
+**Q : Pourquoi Azure AD refuse-t-il toujours les mots de passe faibles, même si j’ai configuré la stratégie en mode Audit ?**
 
-Le mode Audit est uniquement pris en charge dans l’environnement Active Directory local. Azure est implicitement toujours en mode « appliquer » lorsqu’il évalue les mots de passe.
+Le mode Audit est uniquement pris en charge dans l’environnement Active Directory local. Azure AD est implicitement toujours en mode « appliquer » lorsqu’il évalue les mots de passe.
 
 ## <a name="additional-content"></a>Contenu supplémentaire
 

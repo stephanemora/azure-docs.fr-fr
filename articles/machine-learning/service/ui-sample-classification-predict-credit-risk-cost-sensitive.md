@@ -1,21 +1,21 @@
 ---
-title: 'Classification : Prédire le risque de crédit (sensible au coût)'
+title: 'Exemple n°4 d’interface visuelle : Classification pour prédire le risque de crédit (sensible au coût)'
 titleSuffix: Azure Machine Learning service
 description: Cet article vous montre comment créer une expérience d’apprentissage automatique complexe à l’aide de l’interface visuelle. Vous allez apprendre à implémenter des scripts Python personnalisés et à comparer plusieurs modèles, afin de choisir la meilleure option.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: article
+ms.topic: conceptual
 author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
 ms.date: 05/10/2019
-ms.openlocfilehash: efed981b500ff14a66c2355a1d14bd762000622f
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: ee4b67c82ef2bf5a1ef9c060687cc1c937328e66
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606162"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68990428"
 ---
 # <a name="sample-4---classification-predict-credit-risk-cost-sensitive"></a>Exemple 4 - Classification : Prédire le risque de crédit (sensible au coût)
 
