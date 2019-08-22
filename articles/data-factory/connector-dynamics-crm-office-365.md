@@ -69,7 +69,7 @@ Les propriétés prises en charge pour le service lié Dynamics sont les suivant
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type doit être définie sur **Dynamics**. | OUI |
+| type | La propriété type doit être définie sur **Dynamics**. | OUI |
 | deploymentType | Type de déploiement de l’instance Dynamics. Il doit être **« en ligne »** pour Dynamics en ligne. | OUI |
 | serviceUri | L’URL de service de votre instance Dynamics, par exemple `https://adfdynamics.crm.dynamics.com`. | OUI |
 | authenticationType | Type d’authentification pour se connecter à un serveur Dynamics. Spécifiez **« Office365 »** pour Dynamics en ligne. | OUI |
