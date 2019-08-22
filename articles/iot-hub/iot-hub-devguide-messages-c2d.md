@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 03/15/2018
-ms.openlocfilehash: b0057815bee46d6708886302ff5b598c89b47e8f
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: d4a51a44b48e94669e92a9d525c1b0966df53c18
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68335731"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68964130"
 ---
 # <a name="send-cloud-to-device-messages-from-an-iot-hub"></a>Envoyer des messages cloud-à-appareil à partir d’IoT Hub
 
@@ -121,6 +121,12 @@ Le code suivant montre le corps d’un message de commentaire :
   ...
 ]
 ```
+
+**Commentaires en attente pour les appareils supprimés**
+
+Quand un appareil est supprimé, les commentaires en attente sont également supprimés. Les commentaires des appareils sont envoyés par lots. Si un appareil est supprimé dans la fenêtre étroite (souvent inférieure à 1 seconde) entre le moment où l’appareil confirme la réception du message et le moment où le lot de commentaires suivant est préparé, les commentaires ne se produisent pas.
+
+Vous pouvez résoudre ce problème en attendant un certain temps que les commentaires en attente arrivent avant de supprimer votre appareil. Les commentaires des messages associés doivent être présumés perdus une fois qu’un appareil est supprimé.
 
 ## <a name="cloud-to-device-configuration-options"></a>Options de configuration cloud-à-appareil
 

@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 08/07/2019
 ms.author: b-juche
-ms.openlocfilehash: fe8d46c897ef68563f2e0e5a1da106174ae504c5
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: b9dd89e38f5cab6dceca36201695c068e0521943
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68424092"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69034864"
 ---
 # <a name="resource-limits-for-azure-netapp-files"></a>Limites des ressources pour Azure NetApp Files
 
@@ -40,10 +40,8 @@ Le tableau suivant décrit les limites des ressources pour Azure NetApp Files :
 |  Taille minimale d’un pool de capacités   |  4 Tio     |    Non  |
 |  Taille maximale d’un pool de capacités    |  500 Tio   |   Non   |
 |  Taille minimale d’un volume    |    100 Gio    |    Non    |
-|  Quota maximal assigné d’un volume*   |   92 Tio   |    Non   |
-|  Taille maximale d’un volume*     |    100 Tio    |    Non       |
-
-*Vous pouvez créer un volume manuellement ou en augmenter la taille jusqu’à 92 Tio. La taille d’un volume peut cependant augmenter jusqu’à 100 Tio en cas de nécessité de dépassement. Pour plus d’informations sur le dépassement de capacité, voir [Modèle de coût pour Azure NetApp Files](azure-netapp-files-cost-model.md). 
+|  Taille maximale d’un volume     |    100 Tio    |    Non       |
+|  Nombre maximal de fichiers (inodes) par volume     |    50 millions    |    Non    |    
 
 ## <a name="request-limit-increase"></a>Augmentation de la limite de demandes 
 

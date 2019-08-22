@@ -4,7 +4,7 @@ description: Référence et présentation conceptuelles de la fonctionnalité d�
 services: app-service
 documentationcenter: ''
 author: cephalin
-manager: erikre
+manager: gwallace
 editor: ''
 ms.assetid: b7151b57-09e5-4c77-a10c-375a262f17e5
 ms.service: app-service
@@ -12,16 +12,16 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 08/24/2018
+ms.date: 08/12/2019
 ms.author: cephalin
 ms.reviewer: mahender
 ms.custom: seodec18
-ms.openlocfilehash: 53733774968f94ac95d9b3fea6d8fcb422b4e02c
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: d01994dc4d01baed71bb3de56e069fac5597dc77
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68515186"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69030852"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service"></a>Authentification et autorisation dans Azure App Service
 
@@ -119,17 +119,17 @@ Dans le cas des navigateurs clients, App Service peut diriger automatiquement to
 
 ## <a name="authorization-behavior"></a>Comportement d’autorisation
 
-Sur le [Portail Azure](https://portal.azure.com), vous pouvez configurer l’autorisation App Service avec différents comportements.
+Sur le [Portail Azure](https://portal.azure.com), vous pouvez configurer l’autorisation App Service avec différents comportements lorsque la requête entrante n’est pas authentifiée.
 
 ![](media/app-service-authentication-overview/authorization-flow.png)
 
 Les titres suivants décrivent les options possibles.
 
-### <a name="allow-all-requests-default"></a>Autoriser toutes les demandes (par défaut)
+### <a name="allow-anonymous-requests-no-action"></a>Autoriser les requêtes anonymes (aucune action)
 
-L’authentification et l’autorisation ne sont pas gérées par App Service (désactivé). 
+Cette option permet de confier l’autorisation de trafic non authentifié à votre code d’application. Dans le cas des demandes authentifiées, App Service transmet également les informations d’authentification dans les en-têtes HTTP. 
 
-Choisissez cette option si vous n’avez pas besoin d’authentification ni d’autorisation, ou que vous souhaitez écrire votre propre code d’authentification et d’autorisation.
+Cette option assure un traitement plus souple des requêtes anonymes. Par exemple, il permet de [présenter plusieurs fournisseurs de connexion](app-service-authentication-how-to.md#use-multiple-sign-in-providers) aux utilisateurs. Vous devez cependant écrire du code. 
 
 ### <a name="allow-only-authenticated-requests"></a>Autoriser uniquement les demandes authentifiées
 
@@ -137,11 +137,8 @@ L’option est **Se connecter avec \<fournisseur >** . App Service redirige tout
 
 Cette option évite d’avoir à écrire du code d’authentification dans l’application. Une autorisation plus fine, par exemple propre au rôle, peut être gérée en examinant les revendications de l’utilisateur (consultez la section [Accéder aux revendications utilisateur](app-service-authentication-how-to.md#access-user-claims)).
 
-### <a name="allow-all-requests-but-validate-authenticated-requests"></a>Autoriser toutes les demandes, mais valider les demandes authentifiées
-
-L’option est **Autoriser les requêtes anonymes**. Cette option active l’authentification et l’autorisation dans App Service, mais délègue les décisions d’autorisation au code de l’application. Dans le cas des demandes authentifiées, App Service transmet également les informations d’authentification dans les en-têtes HTTP. 
-
-Cette option assure un traitement plus souple des requêtes anonymes. Par exemple, il permet de [présenter plusieurs fournisseurs de connexion](app-service-authentication-how-to.md#use-multiple-sign-in-providers) aux utilisateurs. Vous devez cependant écrire du code. 
+> [!CAUTION]
+> Cette manière de restreindre l’accès s’applique à tous les appels à votre application qui peuvent ne pas être souhaitables pour les applications souhaitant une page d’accès publique disponible, comme dans de nombreuses applications à page unique.
 
 ## <a name="more-resources"></a>Autres ressources
 

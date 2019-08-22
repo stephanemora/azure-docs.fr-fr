@@ -12,16 +12,16 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/24/2019
 ms.author: lagayhar
-ms.openlocfilehash: d3edfa1ca63560f447d2c9ea3da3588e069b7af1
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: 27610280bafa6d8e9e33f84af2d3e9f6c2c9ea5c
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68226819"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967815"
 ---
 # <a name="get-started-with-application-insights-in-a-java-web-project"></a>Prise en main d'Application Insights dans un projet web Java
 
-[Application Insights](https://azure.microsoft.com/services/application-insights/) est un service d’analyse extensible pour développeurs web qui vous permet de comprendre les performances et l’utilisation de votre application en direct. Utilisez-le pour [instrumenter automatiquement les requêtes, effectuer le suivi des dépendances et recueillir les compteurs de performances](auto-collect-dependencies.md#java), diagnostiquer les problèmes de performances et les exceptions, et [écrire du code][api] pour suivre l’utilisation de votre application par les utilisateurs. 
+[Application Insights](https://azure.microsoft.com/services/application-insights/) est un service d’analyse extensible pour développeurs web qui vous permet de comprendre les performances et l’utilisation de votre application en direct. Utilisez-le pour [instrumenter automatiquement des requêtes, effectuer le suivi des dépendances et recueillir les compteurs de performances](auto-collect-dependencies.md#java), diagnostiquer les problèmes de performances et les exceptions, et [écrire du code][api] pour suivre l’utilisation de votre application par les utilisateurs. 
 
 ![Capture d’écran des exemples de données de vue d’ensemble](./media/java-get-started/overview-graphs.png)
 
@@ -91,7 +91,7 @@ Actualisez ensuite les dépendances du projet pour télécharger les fichiers bi
 ```
 
 #### <a name="if-youre-using-eclipse-to-create-a-dynamic-web-project-"></a>Si vous utilisez Eclipse pour créer un projet Web dynamique...
-Utilisez le [kit de développement logiciel (SDK) Application Insights pour plug-in Java][eclipse]. Remarque : bien que ce plug-in vous permette d’être opérationnel avec Application Insights plus rapidement (en supposant que vous n’utilisez pas Maven ou Gradle), il ne s’agit pas un système de gestion des dépendances. Par conséquent, la mise à jour du plug-in ne mettra pas automatiquement les bibliothèques d’Application Insights à jour dans votre projet.
+Utilisez le Kit de développement logiciel (SDK) Application Insights pour le plug-in Java. Remarque : bien que ce plug-in vous permette d’être opérationnel avec Application Insights plus rapidement (en supposant que vous n’utilisez pas Maven ou Gradle), il ne s’agit pas un système de gestion des dépendances. Par conséquent, la mise à jour du plug-in ne mettra pas automatiquement les bibliothèques d’Application Insights à jour dans votre projet.
 
 * *Des erreurs de validation de build ou de somme de contrôle ?* Essayez d’utiliser une version spécifique, telle que : `version:'2.0.n'`. Vous trouverez la version la plus récente dans les [notes de publication du Kit de développement logiciel (SDK)](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) ou dans les [artefacts Maven](https://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
 * *Pour effectuer une mise à jour vers un Kit de développement logiciel (SDK)* , actualisez les dépendances de votre projet.
@@ -170,7 +170,7 @@ Vous pouvez également [définir la clé dans le code](../../azure-monitor/app/a
     }
 ```
 
-Notez que les [métriques en temps réel](https://docs.microsoft.com/azure/azure-monitor/app/live-stream) ne prennent pas en charge la lecture de la clé d’instrumentation à partir du code.
+Notez que les [métriques temps réel](https://docs.microsoft.com/azure/azure-monitor/app/live-stream) ne prennent pas en charge la lecture de la clé d’instrumentation à partir du code.
 
 ## <a name="4-add-an-http-filter"></a>4. Ajouter un filtre HTTP
 La dernière étape de la configuration permet au composant de demande HTTP de consigner toutes les demandes web. (Non requis si vous voulez juste l'API seule.)
@@ -448,7 +448,7 @@ Vous pouvez utiliser Application Insights pour traiter les journaux d’activit�
 ## <a name="send-your-own-telemetry"></a>Envoyer votre propre télémétrie
 Maintenant que vous avez installé le Kit de développement logiciel (SDK), vous pouvez utiliser l'API pour envoyer votre propre télémétrie.
 
-* [Suivez des événements et des mesures personnalisés][api] pour savoir ce que les utilisateurs font avec votre application.
+* [Suivez des événements et des métriques personnalisés][api] pour savoir ce que les utilisateurs font avec votre application.
 * [Recherchez les événements et les journaux d’activité][diagnostic] pour diagnostiquer les problèmes.
 
 ## <a name="availability-web-tests"></a>Tests web de disponibilité
@@ -473,7 +473,6 @@ Application Insights peut tester votre site web à intervalles réguliers pour v
 [apiexceptions]: ../../azure-monitor/app/api-custom-events-metrics.md#trackexception
 [availability]: ../../azure-monitor/app/monitor-web-app-availability.md
 [diagnostic]: ../../azure-monitor/app/diagnostic-search.md
-[eclipse]: ../../azure-monitor/learn/java-quick-start.md
 [javalogs]: java-trace-logs.md
 [metrics]: ../../azure-monitor/app/metrics-explorer.md
 [usage]: javascript.md

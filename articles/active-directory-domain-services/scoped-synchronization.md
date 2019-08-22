@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/20/2019
 ms.author: iainfou
-ms.openlocfilehash: bb96e7ccbc38a71d24178c31f8eb9a077c06b8f0
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 7d3bd8c6c62c0b8a1be6203e426337fcee7d2126
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67472525"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69617114"
 ---
 # <a name="configure-scoped-synchronization-from-azure-ad-to-your-managed-domain"></a>Configurer la synchronisation étendue depuis Azure AD vers votre domaine managé
 Cet article vous montre comment configurer uniquement des comptes utilisateurs spécifiques à synchroniser depuis votre annuaire Azure AD vers votre domaine managé Azure AD Domain Services.
@@ -47,7 +47,7 @@ Le tableau suivant vous permet de déterminer comment utiliser la synchronisatio
 
 ## <a name="create-a-new-managed-domain-and-enable-group-based-scoped-synchronization-using-azure-portal"></a>Créer un domaine managé et activer la synchronisation étendue basée sur les groupes avec le portail Azure
 
-1. Suivez le guide de [Prise en main](create-instance.md) pour créer un domaine géré.
+1. Suivez le guide de [Prise en main](tutorial-create-instance.md) pour créer un domaine géré.
 2. Choisissez **étendue** lors de la sélection de style de synchronisation dans l’Assistant de création dans Azure AD Domain Services.
 
 ## <a name="create-a-new-managed-domain-and-enable-group-based-scoped-synchronization-using-powershell"></a>Créer un domaine managé et activer la synchronisation étendue basée sur les groupes avec PowerShell
@@ -81,7 +81,7 @@ Procédez comme suit pour configurer la synchronisation étendue basée sur les 
 
    ```powershell
    $AzureSubscriptionId = "YOUR_AZURE_SUBSCRIPTION_ID"
-   $ManagedDomainName = "contoso100.com"
+   $ManagedDomainName = "contoso.com"
    $ResourceGroupName = "ContosoAaddsRg"
    $VnetName = "DomainServicesVNet_WUS"
    $AzureLocation = "westus"

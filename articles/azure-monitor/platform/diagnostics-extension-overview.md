@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: robb
 ms.subservice: diagnostic-extension
-ms.openlocfilehash: 8a287f118c126967d2cf8cad77a434cfecc098eb
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e0325a3bda912c95d8d27646bc1e80fff5ce10a8
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60236244"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69639428"
 ---
 # <a name="what-is-azure-diagnostics-extension"></a>Présentation de l’extension Diagnostics Azure
 L’extension Diagnostics Azure est un agent au sein d’Azure qui permet la collecte de données de diagnostic d’une application déployée. Vous pouvez utiliser l'extension de diagnostic à partir de plusieurs sources différentes. Les sources actuellement prises en charge sont les rôles Web et Worker Azure Cloud Service (classique), les machines virtuelles, les groupes de machines virtuelles identiques et Service Fabric. Les autres services Azure ont des méthodes de diagnostic différentes. Consultez [Vue d’ensemble du monitoring dans Azure](../../azure-monitor/overview.md).
@@ -74,7 +74,7 @@ Pour des rubriques plus avancées, voir
 
 ## <a name="virtual-machines"></a>Virtual Machines
 * Si vous utilisez Visual Studio, consultez [Utilisation de Visual Studio pour suivre les machines virtuelles Azure](/visualstudio/azure/vs-azure-tools-debug-cloud-services-virtual-machines) pour commencer. Sinon, voir
-* [Configurer les diagnostics Azure sur une machine virtuelle Azure](/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines)
+* [Configurer les diagnostics Azure sur une machine virtuelle Azure](/azure/virtual-machines/extensions/diagnostics-windows)
 
 Pour des rubriques plus avancées, voir
 

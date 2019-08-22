@@ -16,12 +16,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/27/2018
 ms.author: cynthn
-ms.openlocfilehash: a91bbceb3cb55cf3e7f8e0f84581af07f1ffb80d
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.openlocfilehash: 388583b42d36a21ceb53a59e7c37392bf0eb8333
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66728908"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69534307"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-scale-set-with-an-azure-template"></a>Démarrage rapide : Créer un groupe de machines virtuelles identiques Windows à l’aide d’un modèle Azure
 
@@ -43,7 +43,7 @@ Un modèle définit la configuration de chaque type de ressource. Un type de res
 |------------------------------|----------------------------------------------------------|-------------------------------------------|
 | Type                         | Type de ressource Azure à créer                            | Microsoft.Compute/virtualMachineScaleSets |
 | Nom                         | Nom du groupe identique                                       | myScaleSet                                |
-| location                     | Emplacement de création du groupe identique                     | USA Est                                   |
+| location                     | Emplacement de création du groupe identique                     | East US                                   |
 | sku.name                     | Taille de machine virtuelle pour chaque instance de groupe identique                  | Standard_A1                               |
 | sku.capacity                 | Nombre d’instances de machines virtuelles à créer initialement           | 2                                         |
 | upgradePolicy.mode           | Mode de mise à niveau d’instance de machine virtuelle lorsque des modifications se produisent              | Automatique                                 |
@@ -149,7 +149,7 @@ New-AzResourceGroup -Name myResourceGroup -Location EastUS
 # Deploy template into resource group
 New-AzResourceGroupDeployment `
     -ResourceGroupName myResourceGroup `
-    -TemplateFile https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-windows-webapp-dsc-autoscale/azuredeploy.json
+    -TemplateURI https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-windows-webapp-dsc-autoscale/azuredeploy.json
 
 # Update the scale set and apply the extension
 Update-AzVmss `

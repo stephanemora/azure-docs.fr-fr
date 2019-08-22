@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 03/08/2019
+ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: 6fb989632d3165ac5e54e540aae4385fc2258c85
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e94c4f179174a3957aef8828687ebf1fbb299903
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66256909"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967435"
 ---
 # <a name="copy-data-from-sap-business-warehouse-via-open-hub-using-azure-data-factory"></a>Copier des données à partir de SAP Business Warehouse via Open Hub à l'aide d'Azure Data Factory
 
@@ -65,7 +65,7 @@ Vous stockez généralement l’ID de requête max copié lors de la dernière e
 
 Pour un traitement de delta approprié, il ne peut pas y avoir d’ID de demande provenant de traitements de transfert de données différents dans la même table Open Hub. Vous ne devez donc pas créer plus d’un traitement de transfert de données pour chaque destination Open Hub. Si vous avec besoin d’extractions complète et de delta du même fournisseur d’informations, vous devez créer deux destinations Open Hub pour le même fournisseur d’informations. 
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Pour utiliser ce connecteur SAP Business Warehouse Open Hub, vous devez suivre les instructions ci-dessous :
 
@@ -99,13 +99,13 @@ Les propriétés prises en charge pour le service lié SAP Business Warehouse Op
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | type | La propriété type doit être définie sur : **SapOpenHub** | OUI |
-| serveur | Nom du serveur sur lequel réside l’instance SAP BW. | OUI |
+| server | Nom du serveur sur lequel réside l’instance SAP BW. | OUI |
 | systemNumber | Numéro de système du système SAP BW.<br/>Valeur autorisée : nombre décimal à deux chiffres représenté sous forme de chaîne. | OUI |
 | clientId | ID client du client dans le système SAP W.<br/>Valeur autorisée : nombre décimal à trois chiffres représenté sous forme de chaîne. | OUI |
 | langage | Langue utilisée par le système SAP. | Non (la valeur par défaut est **EN**)|
 | userName | Nom de l’utilisateur ayant accès au serveur SAP. | OUI |
 | password | Mot de passe pour l’utilisateur. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | OUI |
-| connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Un Runtime d’intégration autohébergé est nécessaire comme indiqué dans [Conditions préalables](#prerequisites). |OUI |
+| connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Un Runtime d’intégration autohébergé est nécessaire comme indiqué dans [Prérequis](#prerequisites). |OUI |
 
 **Exemple :**
 
@@ -174,6 +174,8 @@ Pour obtenir la liste complète des sections et des propriétés disponibles pou
 
 Pour copier des données à partir de SAP BW Open Hub, définissez **SapOpenHubSource** comme type de source dans l'activité de copie. Aucune autre propriété spécifique du type n’est nécessaire dans la section **source** de l’activité de copie.
 
+Pour accélérer le chargement des données, vous pouvez définir [`parallelCopies`](copy-activity-performance.md#parallel-copy) sur l’activité de copie pour charger des données à partir du hub ouvert SAP BW en parallèle. Par exemple, si vous définissez `parallelCopies` sur quatre, Data Factory exécute simultanément quatre appels RFC et chaque appel RFC récupère une partie des données de votre table de hubs ouverts SAP BW partitionnée par l’ID de la requête de PAO et l’ID du package. Cela s’applique lorsque le nombre d’ID de la requête de PAO unique et d’ID de package est supérieur à la valeur de `parallelCopies`.
+
 **Exemple :**
 
 ```json
@@ -199,7 +201,8 @@ Pour copier des données à partir de SAP BW Open Hub, définissez **SapOpenHubS
             },
             "sink": {
                 "type": "<sink type>"
-            }
+            },
+            "parallelCopies": 4
         }
     }
 ]

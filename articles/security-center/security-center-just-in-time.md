@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 6/17/2019
+ms.date: 8/20/2019
 ms.author: v-mohabe
-ms.openlocfilehash: eb9366acf82c94bdf99c4d4f0c7c6bdf4f51e06d
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: f3e6cc0464c8f395db7cac0ebf8a16230f5ebcbe
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67295003"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69872925"
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time"></a>Gérer l’accès juste-à-temps à la machine virtuelle
 
@@ -54,9 +54,9 @@ Quand un utilisateur demande l’accès à une machine virtuelle, Security Cente
 
 | Pour permettre à un utilisateur de : | Autorisations à définir|
 | --- | --- |
-| Configurer ou modifier une stratégie juste-à-temps pour une machine virtuelle | *Attribuez ces actions au rôle :*  Sur l’étendue d’un abonnement ou d’un groupe de ressources qui est associé à la machine virtuelle : ```Microsoft.Security/locations/jitNetworkAccessPolicies/write``` Sur l’étendue d’un abonnement, d’un groupe de ressources ou d’une machine virtuelle : ```Microsoft.Compute/virtualMachines/write``` | 
+| Configurer ou modifier une stratégie juste-à-temps pour une machine virtuelle | *Attribuez ces actions au rôle :*  <ul><li>Sur l’étendue d’un abonnement ou d’un groupe de ressources qui est associé à la machine virtuelle :<br/> ```Microsoft.Security/locations/jitNetworkAccessPolicies/write``` </li><li> Sur l’étendue d’un abonnement, d’un groupe de ressources ou d’une machine virtuelle : <br/>```Microsoft.Compute/virtualMachines/write```</li></ul> | 
 | ||
-|Demander l’accès JIT à une machine virtuelle | *Attribuez ces actions à l’utilisateur :*  Sur l’étendue d’un abonnement ou d’un groupe de ressources qui est associé à la machine virtuelle :  ```Microsoft.Security/locations/{the_location_of_the_VM}/jitNetworkAccessPolicies/initiate/action``` Sur l’étendue d’un abonnement, d’un groupe de ressources ou d’une machine virtuelle : ```Microsoft.Compute/virtualMachines/read``` |
+|Demander l’accès JIT à une machine virtuelle | *Attribuez ces actions à l’utilisateur :*  <ul><li>Sur l’étendue d’un abonnement ou d’un groupe de ressources qui est associé à la machine virtuelle :<br/>  ```Microsoft.Security/locations/jitNetworkAccessPolicies/initiate/action``` </li><li>  Sur l’étendue d’un abonnement, d’un groupe de ressources ou d’une machine virtuelle :<br/> ```Microsoft.Compute/virtualMachines/read``` </li></ul>|
 
 
 ## <a name="configure-jit-on-a-vm"></a>Configurer une stratégie juste-à-temps sur une machine virtuelle

@@ -1,5 +1,5 @@
 ---
-title: Envoyer et recevoir des événements à l’aide de Java - Azure Event Hubs | Microsoft Docs
+title: Utiliser Java pour envoyer des données vers et à partir d’Azure Event Hubs
 description: Cet article décrit la procédure de création d’une application Java qui envoie des événements à Azure Event Hubs.
 services: event-hubs
 author: ShubhaVijayasarathy
@@ -7,15 +7,15 @@ manager: timlt
 ms.service: event-hubs
 ms.workload: core
 ms.topic: article
-ms.custom: seodec18
+ms.custom: seodec18, seo-java-august2019
 ms.date: 04/15/2019
 ms.author: shvija
-ms.openlocfilehash: 0487cac6a0cf7d37befdf0d7cfab33ad6a62cf7f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c85d69b823956a5cf5e7f9d6dfa3c39b918cd465
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60822885"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69034804"
 ---
 # <a name="send-events-to-or-receive-events-from-azure-event-hubs-using-java"></a>Envoyer ou recevoir des événements d’Azure Event Hubs avec Java
 
@@ -178,12 +178,12 @@ Le code de ce didacticiel est basé sur le [code EventProcessorSample sur GitHub
 
 Pour utiliser EventProcessorHost, vous devez disposer d’un [compte Stockage Azure][compte Stockage Azure] :
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com), puis cliquez sur **+ Créer une ressource** sur la gauche de l’écran.
-2. Cliquez sur **Stockage**, puis sur **Compte de stockage**. Dans la fenêtre **Créer un compte de stockage**, saisissez un nom pour votre compte de stockage. Renseignez les autres champs, sélectionnez la région souhaitée, puis cliquez sur **Créer**.
+1. Connectez-vous au [Portail Azure](https://portal.azure.com), puis sélectionnez sur **Créer une ressource** sur la gauche de l’écran.
+2. Sélectionnez **Stockage**, puis **Compte de stockage**. Dans la fenêtre **Créer un compte de stockage**, saisissez un nom pour votre compte de stockage. Renseignez les autres champs, sélectionnez la région souhaitée, puis sélectionnez **Créer**.
    
     ![Créer un compte de stockage](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage2.png)
 
-3. Cliquez sur le compte de stockage que vous venez de créer, puis cliquez sur **Clés d'accès** :
+3. Sélectionnez le compte de stockage que vous venez de créer, puis sélectionnez **Clés d'accès** :
    
     ![Obtenir les clés d’accès](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage3.png)
 

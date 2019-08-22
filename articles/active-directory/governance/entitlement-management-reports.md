@@ -16,12 +16,12 @@ ms.date: 04/19/2019
 ms.author: ajburnle
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d33b4751b421f5af1536af9a88d15e060ab59bdb
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: 2420fc25795ec74939649fb8a17ead7c8cfdd1df
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68489056"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69032442"
 ---
 # <a name="view-reports-and-logs-in-azure-ad-entitlement-management-preview"></a>Afficher les rapports et les journaux dans la gestion des droits d’utilisation Azure AD (préversion)
 
@@ -29,6 +29,12 @@ ms.locfileid: "68489056"
 > La gestion des droits d’utilisation Azure Active Directory (Azure AD) est actuellement en préversion publique.
 > Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge.
 > Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+Le rapport sur les attributions d’utilisateurs et le journal d’audit Azure Active Directory fournissent des détails supplémentaires sur les utilisateurs de votre annuaire. En tant qu’administrateur, vous pouvez afficher les ressources auxquelles un utilisateur a accès et afficher les journaux des requêtes à des fins d’audit, ou pour déterminer l’état de la requête d’un utilisateur. Cet article explique comment utiliser le rapport des attributions des utilisateurs et les journaux d’audit Azure AD.
+
+Regardez la vidéo suivante pour savoir comment utiliser la gestion des droits pour gérer l’accès des utilisateurs dans Azure Active Directory :
+
+>[!VIDEO https://www.youtube.com/embed/omtNJ7ySjS0]
 
 ## <a name="view-resources-a-user-has-access-to"></a>Afficher les ressources auxquelles un utilisateur a accès
 
@@ -62,7 +68,7 @@ Lorsqu’Azure AD reçoit une nouvelle demande, il écrit un enregistrement d’
 
 Azure AD écrira des enregistrements d’audit supplémentaires lorsque la demande est en cours, y compris :
 
-| Catégorie | Activité | État de la demande |
+| Category | Activité | État de la demande |
 | :---- | :------------ | :------------ |
 | `EntitlementManagement` | `Auto approve access package assignment request` | La demande ne nécessite pas d’approbation |
 | `UserManagement` | `Create request approval` | La demande nécessite une approbation |

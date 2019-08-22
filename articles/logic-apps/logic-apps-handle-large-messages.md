@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ''
 ms.topic: article
 ms.date: 4/27/2018
 ms.author: shhurst
-ms.openlocfilehash: 5aa5ea2a39a0fb9f969e965fed14063522197cda
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4a37345cf33cbb02a6bd9a70b0253a55ee4c9478
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60303769"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69035591"
 ---
 # <a name="handle-large-messages-with-chunking-in-azure-logic-apps"></a>Gérer les messages volumineux avec la segmentation dans Azure Logic Apps
 
@@ -144,7 +144,13 @@ Ces étapes décrivent le processus détaillé utilisé par Logic Apps pour char
      | **Content-Length** | <*content-length*> | Chaîne | La longueur, en octets, du segment actuel |
      |||||
 
-4. Après chaque requête PATCH, le point de terminaison confirme la réception de chaque segment en renvoyant le code d’état « 200 ».
+4. Après chaque requête PATCH, le point de terminaison confirme la réception de chaque segment en renvoyant le code d’état « 200 » et les en-têtes de réponse suivants :
+
+   | Champ d’en-tête de réponse de point de terminaison | Type | Obligatoire | Description |
+   |--------------------------------|------|----------|-------------|
+   | **Plage** | Chaîne | OUI | La plage d’octets pour le contenu qui a été reçu par le point de terminaison, par exemple: « octets = 0-1023 » |   
+   | **x-ms-chunk-size** | Entier | Non | La taille de segment suggérée en octets |
+   ||||
 
 Par exemple, cette définition d’action affiche une requête HTTP POST pour le chargement de contenu segmenté vers un point de terminaison. Dans la propriété `runTimeConfiguration` de l’action, la propriété `contentTransfer` définit `transferMode` sur `chunked` :
 

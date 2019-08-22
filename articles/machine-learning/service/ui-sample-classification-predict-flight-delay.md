@@ -1,21 +1,21 @@
 ---
-title: 'Classification : Prédire les retards de vols'
+title: 'Exemple n°6 d’interface visuelle : Classification pour prédire les retards de vol'
 titleSuffix: Azure Machine Learning service
 description: Cet article vous montre comment générer un modèle Machine Learning pour prédire les retards de vols à l’aide de l’interface visuelle par glisser-déplacer et du code R personnalisé.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: article
+ms.topic: conceptual
 author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: peterlu
 ms.date: 07/02/2019
-ms.openlocfilehash: 773e55fe4b5ca5acf27ba1765e5a16075f625187
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 4c0a990ae3f45fc7b08c157f180d8ecf805c24e6
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67607381"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68990021"
 ---
 # <a name="sample-6---classification-predict-flight-delays-using-r"></a>Exemple 6 - Classification : Prédire les retards de vols avec R
 

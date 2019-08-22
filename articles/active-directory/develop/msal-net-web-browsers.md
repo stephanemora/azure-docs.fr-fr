@@ -3,7 +3,7 @@ title: Navigateurs web dans la bibliothèque d’authentification pour .NET | Az
 description: En savoir plus sur les considérations spécifiques lors de l’utilisation de Xamarin Android avec la bibliothèque d’authentification Microsoft pour .NET (MSAL.NET).
 services: active-directory
 documentationcenter: dev-center-name
-author: rwike77
+author: TylerMSFT
 manager: CelesteDG
 editor: ''
 ms.service: active-directory
@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/16/2019
-ms.author: jmprieur
+ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: abb04a30719f7603610b323a4bb271666371ba97
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: e1285c5c61cee25e387ca5fb598f0e062088e549
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68276868"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69532502"
 ---
 # <a name="using-web-browsers-in-msalnet"></a>Utilisation de navigateurs web dans MSAL.NET
 Des navigateurs web sont nécessaires pour l’authentification interactive. Par défaut, MSAL.NET prend en charge le [navigateur web du système](#system-web-browser-on-xamarinios-xamarinandroid) sur Xamarin.iOS et Xamarin.Android. Par contre, [vous pouvez aussi activer le navigateur web intégré](#enable-embedded-webviews-on-ios-and-android) en fonction de vos exigences (UX, besoin de l’authentification unique (SSO), sécurité) dans les applications [Xamarin.iOS](#choosing-between-embedded-web-browser-or-system-browser-on-xamarinios) et [Xamarin.Android](#detecting-the-presence-of-custom-tabs-on-xamarinandroid). Et vous pouvez même [choisir de façon dynamique](#detecting-the-presence-of-custom-tabs-on-xamarinandroid) le navigateur web à utiliser en fonction de la présence de Chrome, ou d’un navigateur prenant en charge les onglets personnalisés de Chrome dans Android. Dans les applications de bureau .NET Core, MSAL.NET prend uniquement en charge le navigateur du système.

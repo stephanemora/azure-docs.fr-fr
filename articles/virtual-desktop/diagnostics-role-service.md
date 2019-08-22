@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: f5869cbb51cf1c968ee8ca1e2286416fd263d647
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: d6cde04d122d20c4aad5920c29995d9d33165163
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68224637"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69515524"
 ---
 # <a name="identify-issues-with-the-diagnostics-feature"></a>Identifier les problèmes relatifs à la fonctionnalité de diagnostic
 
@@ -153,7 +153,7 @@ Le tableau suivant répertorie les erreurs courantes que pourraient rencontrer v
 |8000|InvalidAuthorizationRoleScope|Le nom du rôle que vous avez saisi ne correspond à aucun nom de rôle existant. Vérifiez que vous n’avez fait aucune faute de frappe et réessayez. |
 |8001|UserNotFound |Le nom d’utilisateur que vous avez saisi ne correspond à aucun nom d’utilisateur existant. Vérifiez que vous n’avez fait aucune faute de frappe et réessayez.|
 |8005|UserNotFoundInAAD |Le nom d’utilisateur que vous avez saisi ne correspond à aucun nom d’utilisateur existant. Vérifiez que vous n’avez fait aucune faute de frappe et réessayez.|
-|8008|TenantConsentRequired|Suivez les instructions [ici](tenant-setup-azure-active-directory.md#grant-azure-active-directory-permissions-to-the-windows-virtual-desktop-preview-service) pour donner votre consentement à votre abonné.|
+|8008|TenantConsentRequired|Suivez les instructions [ici](tenant-setup-azure-active-directory.md#grant-permissions-to-windows-virtual-desktop) pour donner votre consentement à votre abonné.|
 
 ### <a name="external-connection-error-codes"></a>Codes d’erreur de connexion externe
 

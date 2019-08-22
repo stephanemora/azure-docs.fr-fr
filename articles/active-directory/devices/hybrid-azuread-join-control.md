@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d5d8cd7799dd23dabc2cbb423e82b8c7203b7bed
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: c897d52c10efdb8824f676d7640dcc7275915a9e
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68834634"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68851793"
 ---
 # <a name="controlled-validation-of-hybrid-azure-ad-join"></a>Validation contrôlée de la jonction Azure AD hybride
 
@@ -72,7 +72,7 @@ Utilisez l’exemple suivant pour créer un objet de stratégie de groupe afin d
       1. Chemin de la clé : **SOFTWARE\Microsoft\Windows\CurrentVersion\CDJ\AAD**
       1. Nom de la valeur : **TenantName**
       1. Type de valeur : **REG_SZ**
-      1. Données de la valeur : Votre **nom de domaine** vérifié si vous utilisez un environnement fédéré comme AD FS. Votre nom de domaine vérifié** ou votre nom de domaine onmicrosoft.com, par exemple, `contoso.onmicrosoft.com` si vous utilisez un environnement géré
+      1. Données de la valeur : Votre **nom de domaine** vérifié si vous utilisez un environnement fédéré comme AD FS. Votre **nom de domaine** vérifié ou votre nom de domaine onmicrosoft.com, par exemple `contoso.onmicrosoft.com`, si vous utilisez un environnement géré
    1. Cliquez sur **OK**
 1. Fermez l’éditeur pour l’objet de stratégie de groupe nouvellement créé.
 1. Liez l’objet de stratégie de groupe nouvellement créé à l’unité d’organisation souhaitée contenant des ordinateurs joints au domaine qui appartiennent à votre analyse de lancement contrôlée.

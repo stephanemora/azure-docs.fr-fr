@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 08/13/2019
 ms.author: alkohli
-ms.openlocfilehash: d1bad50f2d97434865bb02ad54b1643c54e01790
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: db6e2eadbf19d78a203a4d4ba6111ad88430b192
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65953029"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68985948"
 ---
 # <a name="safely-install-and-operate-your-azure-data-box"></a>Installer et utiliser en toute sécurité votre Azure Data Box
 ![Icône Avertissement](./media/data-box-safety/warning_icon.png)
@@ -40,8 +40,8 @@ Voici les icônes utilisées dans les précautions de sécurité à observer lor
 
 ![Icône d’avertissement](./media/data-box-safety/warning_icon.png) ![Icône risque d’électrocution](./media/data-box-safety/electrical_shock_hazard_icon.png)![Icône Aucune pièce remplaçable par l’utilisateur](./media/data-box-safety/no_user_serviceable_parts_icon.png) **ATTENTION** 
 
-* Inspectez l’appareil *à réception* pour identifier les dommages éventuels. Si le boîtier de l’appareil est endommagé, contactez le Support Microsoft pour bénéficier d’un remplacement. N’essayez pas d’utiliser l’appareil. 
-* L’appareil est équipé de vis inviolables. Si vous pensez que l’appareil est défectueux, contactez le Support Microsoft pour bénéficier d’un remplacement. N’essayez pas de réparer l’appareil. 
+* Inspectez l’appareil *à réception* pour identifier les dommages éventuels. Si le boîtier de l’appareil est endommagé, [contactez le Support Microsoft](data-box-disk-contact-microsoft-support.md) pour bénéficier d’un remplacement. N’essayez pas d’utiliser l’appareil. 
+* L’appareil est équipé de vis inviolables. Si vous pensez que l’appareil est défectueux, [contactez le Support Microsoft](data-box-disk-contact-microsoft-support.md) pour bénéficier d’un remplacement. N’essayez pas de réparer l’appareil. 
 * L’appareil ne contient aucune pièce remplaçable par l’utilisateur. L’intérieur de l’appareil présente des niveaux de tension, de courant et d’énergie dangereux. N’ouvrez pas l’appareil. Retournez l’appareil à Microsoft pour toute réparation.
 
 ![Icône Avertissement](./media/data-box-safety/warning_icon.png)![Icône Objet lourd](./media/data-box-safety/heavy_weight_hazard_icon.png)**AVERTISSEMENT !** 
@@ -77,7 +77,7 @@ Voici les icônes utilisées dans les précautions de sécurité à observer lor
 * Débranchez l’unité de façon permanente avant de la déplacer ou si vous pensez qu’elle a été endommagée d’une quelconque façon.
 * Prévoyez une source d’alimentation appropriée offrant une protection contre les surcharges, conforme aux spécifications d’alimentation suivantes :
 
-    - Tension : 100 V CA à 240 V CA
+    - Tension : 100 V CA à 240 V CA
     - Intensité : 6 A maximum
     - Fréquence : 50 Hz à 60 Hz
 
@@ -132,7 +132,7 @@ Canada : (800) 933-4750
 
 **UNION EUROPÉENNE :**
 
-Une copie de la déclaration de conformité UE est disponible ici.
+[Demander une copie de la déclaration de conformité de l’Union européenne](mailto:CSI_Compliance@microsoft.com).
 
 ![Icône Avertissement](./media/data-box-safety/warning_icon.png) **AVERTISSEMENT :** 
 

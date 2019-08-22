@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 04/16/2019
+ms.date: 08/21/2019
 ms.author: alkohli
-ms.openlocfilehash: 230d1a28ba15a8736e46c02cb08217a28fc18599
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 89f981fcda8f40daff49ebdf796b896d90ce1754
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64695183"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69900627"
 ---
 # <a name="azure-data-box-gateway-security-and-data-protection"></a>Protection des données et sécurité Azure Data Box Gateway
 
@@ -33,7 +33,7 @@ La solution Data Box Gateway repose sur l’interaction de quatre composants pri
 
 Le service Data Box Gateway est un service de gestion hébergé dans Azure. Ce service est utilisé pour configurer et gérer l’appareil.
 
-[!INCLUDE [data-box-edge-gateway-data-rest](../../includes/data-box-edge-gateway-service-protection.md)]
+[!INCLUDE [data-box-edge-gateway-service-protection](../../includes/data-box-edge-gateway-service-protection.md)]
 
 ## <a name="data-box-gateway-device-protection"></a>Protection d’appareil Data Box Gateway
 
@@ -48,7 +48,7 @@ L’appareil Data Box Gateway est un appareil virtuel qui est approvisionné dan
 
 Seul les appareils Data Box Gateway autorisés sont autorisés à rejoindre le service Data Box Gateway que vous avez créé dans votre abonnement Azure. Pour autoriser un appareil, vous devez utiliser une clé d’activation pour activer l’appareil auprès du service Data Box Gateway.
 
-[!INCLUDE [data-box-edge-gateway-data-rest](../../includes/data-box-edge-gateway-activation-key.md)]
+[!INCLUDE [data-box-edge-gateway-activation-key](../../includes/data-box-edge-gateway-activation-key.md)]
 
 Pour plus d’informations, consultez [Obtenir une clé d’activation](data-box-gateway-deploy-prep.md#get-the-activation-key).
 
@@ -61,7 +61,7 @@ Vous pouvez :
 - Vous connecter à l’interface utilisateur web locale de l’appareil via un navigateur, puis indiquer un mot de passe pour vous connecter à l’appareil.
 - Vous connecter à distance à l’interface PowerShell de l’appareil via HTTP. La gestion à distance est désactivée par défaut. Vous pouvez ensuite fournir le mot de passe pour vous connecter à l’appareil. Pour plus d’informations, consultez [Connexion à distance à votre appareil Data Box Gateway](data-box-gateway-connect-powershell-interface.md#connect-to-the-powershell-interface).
 
-[!INCLUDE [data-box-edge-gateway-data-rest](../../includes/data-box-edge-gateway-password-best-practices.md)]
+[!INCLUDE [data-box-edge-gateway-password-best-practices](../../includes/data-box-edge-gateway-password-best-practices.md)]
 - Utiliser l’interface utilisateur web locale pour [modifier le mot de passe](data-box-gateway-manage-access-power-connectivity-mode.md#manage-device-access). Si vous modifiez le mot de passe, veillez à informer tous les utilisateurs à distance afin qu’ils ne connaissent pas de problème de connexion.
 
 
@@ -75,18 +75,18 @@ Cette section décrit les fonctionnalités de sécurité Data Box Gateway visant
 
 ### <a name="protect-data-in-flight"></a>Protection des données à la volée
 
-[!INCLUDE [data-box-edge-gateway-data-rest](../../includes/data-box-edge-gateway-data-flight.md)]
+[!INCLUDE [data-box-edge-gateway-data-flight](../../includes/data-box-edge-gateway-data-flight.md)]
 
 ### <a name="protect-data-via-storage-accounts"></a>Protection des données par les comptes de stockage
 
-[!INCLUDE [data-box-edge-gateway-data-rest](../../includes/data-box-edge-gateway-protect-data-storage-accounts.md)]
+[!INCLUDE [data-box-edge-gateway-data-storage-accounts](../../includes/data-box-edge-gateway-protect-data-storage-accounts.md)]
 - Faites tourner puis [synchronisez vos clés de compte de stockage](data-box-gateway-manage-shares.md#sync-storage-keys) régulièrement pour mieux protéger votre compte de stockage des utilisateurs non autorisés.
 
 ## <a name="manage-personal-information"></a>Gestion des informations personnelles
 
 Le service Data Box Gateway collecte des informations personnelles dans les scénarios suivants :
 
-[!INCLUDE [data-box-edge-gateway-data-rest](../../includes/data-box-edge-gateway-manage-personal-data.md)]
+[!INCLUDE [data-box-edge-gateway-manage-personal-data](../../includes/data-box-edge-gateway-manage-personal-data.md)]
 
 Pour afficher la liste des utilisateurs qui ont accès à un partage ou qui peuvent supprimer un partage, suivez les étapes de la page [Gérer les partages sur Data Box Gateway](data-box-gateway-manage-shares.md).
 

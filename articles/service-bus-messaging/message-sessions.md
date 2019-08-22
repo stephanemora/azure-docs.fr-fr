@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 2c206d42e220534225cfef0415a65c1f9494f761
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 67f3fd8f3166abac987e8fefbbf4a020f165c8bf
+ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64569795"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68951867"
 ---
 # <a name="message-sessions-first-in-first-out-fifo"></a>Sessions de messagerie : premier entré, premier sorti (FIFO) 
 
@@ -76,6 +76,16 @@ Notez que l’état de session reste tant qu’il n’est pas libéré (retour d
 Toutes les sessions existantes dans une file d’attente ou un abonnement peuvent être énumérées à l’aide de la méthode **SessionBrowser** de l’API Java et au moyen de [GetMessageSessions](/dotnet/api/microsoft.servicebus.messaging.queueclient.getmessagesessions#Microsoft_ServiceBus_Messaging_QueueClient_GetMessageSessions) sur [QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient) et [SubscriptionClient](/dotnet/api/microsoft.azure.servicebus.subscriptionclient) dans le client .NET.
 
 L’état de session stocké dans une file d’attente ou dans un abonnement est pris en compte dans le quota de stockage de cette entité. Lorsque l’application a terminé avec une session, il est donc recommandé de faire en sorte que l’application supprime l’état de session conservé afin d’éviter un coût de gestion externe.
+
+## <a name="impact-of-delivery-count"></a>Impact du nombre de livraisons
+
+La définition du nombre de livraisons par message dans le contexte des sessions varie légèrement de la définition dans l’absence de sessions. Voici une table résumant le moment où le nombre de livraisons est incrémenté.
+
+| Scénario | Le nombre de livraisons du message est-il incrémenté |
+|----------|---------------------------------------------|
+| La session est acceptée, mais le verrouillage de session expire (en raison du délai d’expiration) | OUI |
+| La session est acceptée, les messages de la session ne sont pas terminés (même s’ils sont verrouillés) et la session est fermée | Non |
+| La session est acceptée, les messages sont terminés, puis la session est explicitement fermée | S.O. (il s'agit du flux standard. Ici, les messages sont supprimés de la session) |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

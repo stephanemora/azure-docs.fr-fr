@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: a8265496c475566ec7a87a19eab6d975838e9da4
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 23ae7b5cfec26fb2483a3e4ac13a1220888d76ee
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68966385"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69614264"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Activité de copie dans Azure Data Factory
 
@@ -130,7 +130,7 @@ Le modèle suivant d’activité de copie contient une liste exhaustive des prop
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type d’une activité de copie doit être définie sur : **Copy** | OUI |
+| Type | La propriété type d’une activité de copie doit être définie sur : **Copy** | OUI |
 | inputs | Spécifiez le jeu de données que vous avez créé qui pointe vers les données sources. L’activité de copie ne prend en charge qu’une seule entrée. | OUI |
 | outputs | Spécifiez le jeu de données que vous avez créé qui pointe vers les données du récepteur. L’activité de copie ne prend en charge qu’une seule sortie. | OUI |
 | typeProperties | Groupe de propriétés pour configurer l’activité de copie. | OUI |
@@ -144,7 +144,7 @@ Le modèle suivant d’activité de copie contient une liste exhaustive des prop
 
 ## <a name="monitoring"></a>Surveillance
 
-Vous pouvez surveiller l’exécution de l’activité de copie dans l’interface utilisateur « Créer et surveiller » d’Azure Data Factory ou par programmation. Vous pouvez ensuite comparer les performances et la configuration de votre scénario aux [performances de référence](copy-activity-performance.md#performance-reference) de l’activité de copie testée en interne.
+Vous pouvez surveiller l’exécution de l’activité de copie dans l’interface utilisateur « Créer et surveiller » d’Azure Data Factory ou par programmation.
 
 ### <a name="monitor-visually"></a>Surveiller visuellement
 

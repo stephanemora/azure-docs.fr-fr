@@ -9,13 +9,13 @@ ms.topic: conceptual
 author: MladjoA
 ms.author: mlandzic
 ms.reviewer: ''
-ms.date: 07/05/2019
-ms.openlocfilehash: 33c844374d6d2b8e64cde6c7c9633e54a292d95f
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.date: 08/14/2019
+ms.openlocfilehash: a02709ffde144e7bd5e4d05fcd0e07c5d84a15fb
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567274"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69035822"
 ---
 # <a name="time-zones-in-azure-sql-database-managed-instance"></a>Fuseaux horaires dans Azure SQL Database Managed Instance
 
@@ -83,10 +83,10 @@ Vous pouvez restaurer un fichier de sauvegarde ou importer des données vers une
 
 ### <a name="point-in-time-restore"></a>Limite de restauration dans le temps
 
-<del>Lorsque vous effectuez une restauration dans le temps, l’heure de la restauration est interprétée comme une heure UTC. Ce réglage évite toute ambiguïté due à l’heure d’été et à ses éventuelles modifications.<del>
+<del>Lorsque vous effectuez une restauration dans le temps, l’heure de la restauration est interprétée comme une heure UTC. Toute ambiguïté due à l’heure d’été et à ses éventuelles modifications est ainsi évitée.<del>
 
  >[!WARNING]
-  > Le comportement actuel ne correspond pas à la déclaration ci-dessus et l’heure de restauration est interprétée en fonction du fuseau horaire de l’instance gérée source des sauvegardes automatiques de base de données. Nous travaillons à la correction de ce comportement pour interpréter un moment donné en heure UTC. Pour plus de détails, voir [Problèmes connus](sql-database-managed-instance-timezone.md#known-issues).
+  > Le comportement actuel ne correspond pas à la déclaration ci-dessus et l’heure de restauration est interprétée en fonction du fuseau horaire de l’instance gérée source des sauvegardes automatiques de base de données. Nous travaillons à la correction de ce comportement pour interpréter un moment donné en heure UTC.
 
 ### <a name="auto-failover-groups"></a>Groupes de basculement automatique
 

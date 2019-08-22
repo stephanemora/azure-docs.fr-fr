@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: ec571555415a912a31b094722bd47f67210a0372
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 10452590c9415291cb2a5913aeef5c8a00cdfe12
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67617354"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69562998"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>FAQ d’Azure App Service sur Linux
 
@@ -60,7 +60,7 @@ Cette action revient à redémarrer Docker.
 Oui, vous pouvez le faire via le site de gestion de contrôle de code source (SCM).
 
 > [!NOTE]
-> Vous pouvez également vous connecter au conteneur d’application directement à partir de votre ordinateur de développement local à l’aide de SSH, SFTP ou Visual Studio Code (pour le débogage dynamique des applications Node.js). Pour plus d’informations, consultez [Remote debugging and SSH in App Service on Linux (Débogage à distance et technologie SSH dans App Service sur Linux)](https://aka.ms/linux-debug).
+> Vous pouvez également vous connecter au conteneur d’application directement à partir de votre ordinateur de développement local à l’aide de SSH, SFTP ou Visual Studio Code (pour le débogage dynamique des applications Node.js). Pour plus d’informations, consultez [Remote debugging and SSH in App Service on Linux (Débogage à distance et technologie SSH dans App Service sur Linux)](https://azure.github.io/AppService/2018/05/07/New-SSH-Experience-and-Remote-Debugging-for-Linux-Web-Apps.html).
 >
 
 **Comment puis-je créer un plan App Service Linux via un kit de développement ou un modèle Azure Resource Manager ?**

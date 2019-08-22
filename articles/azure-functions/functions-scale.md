@@ -1,24 +1,21 @@
 ---
 title: Échelle et hébergement dans Azure Functions | Microsoft Docs
 description: Découvrez comment choisir entre le plan Consommation et le plan Premium d’Azure Functions.
-services: functions
-documentationcenter: na
 author: ggailey777
-manager: jeconnoc
+manager: gwallace
 keywords: azure functions, fonctions, plan consommation, plan premium, traitement des événements, webhooks, calcul dynamique, architecture serverless
 ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.service: azure-functions
-ms.devlang: multiple
-ms.topic: reference
+ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 94ef85836ef524b34cd1c51e4eda83695bc70507
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: c39ee29b9a4449000d44e44bc6feae407cf4cd38
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68443955"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69874948"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Échelle et hébergement dans Azure Functions
 
@@ -51,7 +48,7 @@ Le tableau suivant indique le niveau actuel de prise en charge pour les trois pl
 | | Plan de consommation | Plan Premium | Plan dédié |
 |-|:----------------:|:------------:|:----------------:|
 | Windows | GA | preview | GA |
-| Linux | preview | preview | GA |
+| Linux | GA | preview | GA |
 
 ## <a name="consumption-plan"></a>Plan de consommation
 
@@ -101,7 +98,7 @@ Envisagez un plan App Service dans les situations suivantes :
 
 Le coût des Function App dans un plan App Service est le même que pour d’autres ressources App Service, par exemple les applications web. Pour plus d’informations sur le fonctionnement du plan App Service, consultez l’article [Présentation détaillée des plans d’Azure App Service](../app-service/overview-hosting-plans.md).
 
-Avec un plan App Service, vous pouvez effectuer un scale-out manuel en ajoutant des instances de machine virtuelle supplémentaires. Vous pouvez également activer la mise à l’échelle automatique. Pour plus d’informations, consultez [Mettre à l’échelle le nombre d’instances manuellement ou automatiquement](../azure-monitor/platform/autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json). Vous pouvez également effectuer une montée en puissance en choisissant un autre plan App Service. Pour plus d’informations, consultez [Faire monter en puissance une application web dans Azure](../app-service/web-sites-scale.md). 
+Avec un plan App Service, vous pouvez effectuer un scale-out manuel en ajoutant des instances de machine virtuelle supplémentaires. Vous pouvez également activer la mise à l’échelle automatique. Pour plus d’informations, consultez [Mettre à l’échelle le nombre d’instances manuellement ou automatiquement](../azure-monitor/platform/autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json). Vous pouvez également effectuer une montée en puissance en choisissant un autre plan App Service. Pour plus d’informations, consultez [Faire monter en puissance une application web dans Azure](../app-service/manage-scale-up.md). 
 
 Lorsque vous exécutez des fonctions JavaScript dans un plan App Service, vous devez choisir un plan qui comporte moins de processeurs virtuels. Pour plus d’informations, consultez [Choisir des plans App Service à cœur unique](functions-reference-node.md#choose-single-vcpu-app-service-plans). 
 <!-- Note: the portal links to this section via fwlink https://go.microsoft.com/fwlink/?linkid=830855 --> 
@@ -143,9 +140,6 @@ Pour en savoir plus sur les types de compte de stockage, consultez [Présentatio
 Dans les plans Consommation et Premium, l’infrastructure d’Azure Functions met à l’échelle les ressources processeur et mémoire en ajoutant des instances de l’hôte Functions selon le nombre d’événements sur lesquels ses fonctions sont déclenchées. Chaque instance de l’hôte Functions dans le plan Consommation est limitée à 1,5 Go de mémoire et un seul UC.  Une instance de l’hôte constitue l’intégralité de la Function App, ce qui signifie que toutes les fonctions dans une Function App partagent des ressources au sein d’une instance et sont mises à l’échelle simultanément. Les Function App qui partagent le même plan Consommation sont mises à l’échelle indépendamment.  Dans le plan Premium, la taille de votre plan détermine la mémoire et les processeurs disponibles pour toutes les applications de ce plan, sur cette instance.  
 
 Les fichiers de code de fonction sont stockés dans des partages Azure Files du compte de stockage principal de la fonction. Lorsque vous supprimez le compte de stockage principal de l’application de fonction, les fichiers de code de fonction sont supprimés et ne peuvent pas être récupérés.
-
-> [!NOTE]
-> Quand vous utilisez un déclencheur d’objet blob dans un plan Consommation, il peut y avoir jusqu’à 10 minutes de délai dans le traitement des nouveaux objets blob. Ce délai intervient lorsqu’une application de fonction est devenue inactive. Une fois l’application de fonction en cours d’exécution, les objets blob sont traités immédiatement. Pour éviter le délai dû au démarrage à froid, utilisez le plan Premium ou le [déclencheur Event Grid](functions-bindings-event-grid.md). Pour plus d’informations, consultez [l’article de référence sur la liaison de déclencheur blob](functions-bindings-storage-blob.md#trigger).
 
 ### <a name="runtime-scaling"></a>Mise à l’échelle du runtime
 

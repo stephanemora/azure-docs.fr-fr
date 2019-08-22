@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: iainfou
-ms.openlocfilehash: 8a542f7927ddd834c7273f6ef8b251ddc35e8436
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: 8f9f4a8b52548dad011f5e825fa42c50da970ea7
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68234190"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69613161"
 ---
 # <a name="azure-ad-domain-services---troubleshooting-secure-ldap-configuration"></a>Azure AD Domain Services : Résolution des problèmes de la configuration du protocole LDAP sécurisé
 
-Cet article donne la résolution des problèmes couramment rencontrés lors de la [configuration du protocole LDAP sécurisé](configure-ldaps.md) pour Azure AD Domain Services.
+Cet article donne la résolution des problèmes couramment rencontrés lors de la [configuration du protocole LDAP sécurisé](tutorial-configure-ldaps.md) pour Azure AD Domain Services.
 
 ## <a name="aadds101-secure-ldap-network-security-group-configuration"></a>AADDS101 : Configuration du Groupe de sécurité réseau du protocole LDAP sécurisé
 
@@ -62,7 +62,7 @@ Lorsque le protocole LDAP sécurisé est activé, nous recommandons de créer de
 
 **Résolution :**
 
-Créez un certificat LDAP sécurisé en suivant les étapes décrites dans l’article [Configurer le protocole LDAPS](configure-ldaps.md).
+Créez un certificat LDAP sécurisé en suivant les étapes décrites dans l’article [Configurer le protocole LDAPS](tutorial-configure-ldaps.md).
 
 ## <a name="contact-us"></a>Nous contacter
 Contactez l’équipe produit des Services de domaine Azure Active Directory pour [partager vos commentaires ou pour obtenir de l’aide](contact-us.md).

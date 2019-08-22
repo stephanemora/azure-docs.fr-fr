@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/01/2019
 ms.author: b-juche
-ms.openlocfilehash: b06e3366224b90899dd3f9f9439edf897de82794
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 563416418b3f387f103fddc88b3ba9ad4c93fdd4
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65524219"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69030793"
 ---
 # <a name="cost-model-for-azure-netapp-files"></a>Modèle de coût pour Azure NetApp Files 
 
@@ -27,7 +27,7 @@ Une bonne compréhension du modèle de coût d’Azure NetApp Files vous aidera 
 
 ## <a name="calculation-of-capacity-consumption"></a>Calcul de la consommation de capacité
 
-Azure NetApp Files est facturé en fonction de la capacité de stockage approvisionnée.  La capacité approvisionnée est allouée par la création de pools de capacité.  Les pools de capacité sont facturés en €/Gio approvisionnés/mois par incréments horaires. La taille minimale d’un pool de capacité est de 4 Tio, et les pools de capacité peuvent ensuite être étendus par incréments de 1 Tio. Des volumes sont créés dans les pools de capacité.  Chaque volume reçoit un quota qui se décrémente de la capacité approvisionnée pour les pools. Le quota pouvant être attribué aux volumes est compris entre 100 Gio et 92 Tio.  
+Azure NetApp Files est facturé en fonction de la capacité de stockage approvisionnée.  La capacité approvisionnée est allouée par la création de pools de capacité.  Les pools de capacité sont facturés en €/Gio approvisionnés/mois par incréments horaires. La taille minimale d’un pool de capacité est de 4 Tio, et les pools de capacité peuvent ensuite être étendus par incréments de 1 Tio. Des volumes sont créés dans les pools de capacité.  Chaque volume reçoit un quota qui se décrémente de la capacité approvisionnée pour les pools. Le quota pouvant être attribué aux volumes est compris entre 100 Gio et 100 Tio.  
 
 Dans le cas d’un volume actif, la consommation de capacité par rapport au quota repose sur la capacité (effective) logique.
 

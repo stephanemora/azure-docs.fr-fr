@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/13/2019
 ms.author: iainfou
-ms.openlocfilehash: 404160c895a8d0a72921fe202adba82c3d069aaf
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: 3742aed7ff39e0a2f6bdf353fb9f261176027422
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68234128"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69612947"
 ---
 # <a name="create-a-group-managed-service-account-gmsa-on-an-azure-ad-domain-services-managed-domain"></a>Créer un compte de service administré de groupe dans un domaine managé Azure AD Domain Services
 Cet article montre comment créer des comptes de service administrés dans un domaine managé Azure AD Domain Services.
@@ -49,16 +49,16 @@ L’exemple suivant montre comment créer une unité d’organisation personnali
 
 ```powershell
 # Create a new custom OU on the managed domain
-New-ADOrganizationalUnit -Name "MyNewOU" -Path "DC=CONTOSO100,DC=COM"
+New-ADOrganizationalUnit -Name "MyNewOU" -Path "DC=contoso,DC=COM"
 
 # Create a service account 'WebFarmSvc' within the custom OU.
 New-ADServiceAccount -Name WebFarmSvc  `
--DNSHostName ` WebFarmSvc.contoso100.com  `
--Path "OU=MYNEWOU,DC=CONTOSO100,DC=com"  `
+-DNSHostName ` WebFarmSvc.contoso.com  `
+-Path "OU=MYNEWOU,DC=contoso,DC=com"  `
 -KerberosEncryptionType AES128, AES256  ` -ManagedPasswordIntervalInDays 30  `
--ServicePrincipalNames http/WebFarmSvc.contoso100.com/contoso100.com, `
-http/WebFarmSvc.contoso100.com/contoso100,  `
-http/WebFarmSvc/contoso100.com, http/WebFarmSvc/contoso100  `
+-ServicePrincipalNames http/WebFarmSvc.contoso.com/contoso.com, `
+http/WebFarmSvc.contoso.com/contoso,  `
+http/WebFarmSvc/contoso.com, http/WebFarmSvc/contoso  `
 -PrincipalsAllowedToRetrieveManagedPassword CONTOSO-SERVER$
 ```
 

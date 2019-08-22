@@ -2,18 +2,18 @@
 title: 'Exemple : Modéliser la base de données d’inventaire AdventureWorks - Recherche Azure'
 description: Découvrez comment modéliser des données relationnelles, en les transformant en un jeu de données aplati, pour l’indexation et la recherche en texte intégral dans Recherche Azure.
 author: cstone
-manager: cgronlun
+manager: nitinme
 services: search
 ms.service: search
 ms.topic: conceptual
 ms.date: 01/25/2019
 ms.author: chstone
-ms.openlocfilehash: 6d5d01dfbbcfda56818f5c38b06117a87e021445
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 52ccf3edfca5b3481b038bd5d3449c1dd6354179
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61291887"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69649920"
 ---
 # <a name="example-model-the-adventureworks-inventory-database-for-azure-search"></a>Exemple : Modéliser la base de données d’inventaire AdventureWorks pour la Recherche Azure
 

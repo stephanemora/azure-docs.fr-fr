@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/18/2019
 ms.author: cephalin
-ms.openlocfilehash: fd488d475e24bc1aeebfa49b9d81b04ebae449ff
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: a6d659d558c15a9a224196c471f7798b1a7f2660
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67445594"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69623688"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configurer des environnements intermédiaires dans Azure App Service
 <a name="Overview"></a>
@@ -102,38 +102,8 @@ Lorsque vous échangez deux emplacements (en général, vous passez d’un empla
 Lors d’une opération d’échange, l’intégralité du processus d’initialisation des applications échangées se déroule dans l’emplacement source. L’emplacement cible reste en ligne pendant la préparation et l’initialisation de l’emplacement source, que l’échange ait réussi ou échoué. Pour échanger un emplacement de préproduction avec un emplacement de production, vérifiez que l’emplacement de production est toujours l’emplacement cible. De cette façon, l’opération d’échange n’affectera pas votre application de production.
 
 ### <a name="which-settings-are-swapped"></a>Quels sont les paramètres échangés ?
-Lorsque vous clonez la configuration depuis un autre emplacement de déploiement, celle-ci est modifiable. Au cours d’un échange, certains éléments de configuration suivent le contenu (éléments non propres à un emplacement) tandis que d’autres restent dans le même emplacement après l’échange (éléments propres à un emplacement). Les listes suivantes représentent les paramètres qui évoluent lorsque vous échangez les emplacements.
 
-**Paramètres échangés**:
-
-* Paramètres généraux, par exemple versions du framework, 32/64 bits, sockets web
-* Paramètres d’application (peuvent être configurés pour respecter un emplacement)
-* Chaînes de connexion (peuvent être configurées pour respecter un emplacement)
-* Mappages de gestionnaires
-* Paramètres de surveillance et de diagnostics
-* Certificats publics
-* Contenu WebJobs
-* Connexions hybrides*
-* Intégration du réseau virtuel*
-* Points de terminaison de service*
-* Azure Content Delivery Network*
-
-Prochainement, les fonctionnalités marquées d’un astérisque (*) ne pourront plus être échangées. 
-
-**Paramètres non échangés** :
-
-* Points de terminaison de publication
-* Noms de domaine personnalisés
-* Certificats privés et liaisons SSL
-* Paramètres de mise à l'échelle
-* Planificateurs WebJobs
-* Restrictions d’adresse IP
-* Always On
-* Paramètres de protocole (HTTPS, version TLS, certificats clients)
-* Paramètres des journaux de diagnostic
-* Partage des ressources cross-origin (CORS)
-
-<!-- VNET and hybrid connections not yet sticky to slot -->
+[!INCLUDE [app-service-deployment-slots-settings](../../includes/app-service-deployment-slots-settings.md)]
 
 Si vous souhaitez configurer un paramètre d’application ou une chaîne de connexion pour qu’ils restent dans leur emplacement d’origine (et ne puissent donc pas être échangés), accédez à la page **Configuration** de l’emplacement en question. Ajoutez ou modifiez un paramètre, puis sélectionnez **Paramètre d’emplacement de déploiement**. Le fait de cocher cette case indique à App Service que le paramètre n’est pas échangeable. 
 

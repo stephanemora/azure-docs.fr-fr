@@ -2,17 +2,17 @@
 title: API de traitement SaaS v2 | Place de marché Azure
 description: Cet article explique comment créer et gérer une offre SaaS sur AppSource et la Place de marché Azure à l’aide des API de traitement v2 associées.
 services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+author: qianw211
 ms.service: marketplace
 ms.topic: reference
 ms.date: 05/23/2019
 ms.author: evansma
-ms.openlocfilehash: 276699b9316a0c4fd428038f2c967bdf934f449c
-ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
+ms.openlocfilehash: a2041aefcfdcb1746e64f50c7cb53b3bfaec3299
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69016039"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69872809"
 ---
 # <a name="saas-fulfillment-apis-version-2"></a>API de traitement SaaS, version 2 
 
@@ -790,7 +790,6 @@ Code : 500<br> Erreur interne du serveur.
 
 L’éditeur doit implémenter un webhook dans ce service SaaS pour informer les utilisateurs des changements dans son service. Le service SaaS est censé appeler l’API Opérations pour valider et autoriser avant d’entreprendre une action sur la notification de Webhook.
 
-Pour garantir des communications sécurisées, Microsoft comprend le jeton JWT Azure Active Directory dans l’en-tête d’autorisation dans le cadre de l’appel. Les fournisseurs Saas sont encouragés à valider le jeton JWT comme décrit dans l’article [Jetons d’accès de la plateforme d’identité Microsoft](https://docs.microsoft.com/azure/active-directory/develop/access-tokens) afin de garantir que seuls les appels valides sont acceptés.
 
 ```json
 {

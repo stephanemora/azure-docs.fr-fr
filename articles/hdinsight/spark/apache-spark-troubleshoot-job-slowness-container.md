@@ -5,13 +5,13 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
-ms.date: 07/29/2019
-ms.openlocfilehash: 78dff1b9d9db4e54ab1a8f7203088753e206c610
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.date: 08/21/2019
+ms.openlocfilehash: 635b7adb8753b7e9490e8f14a0699c09297fdbbb
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68641486"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69899096"
 ---
 # <a name="scenario-apache-spark-job-run-slowly-when-the-azure-storage-container-contains-many-files-in-azure-hdinsight"></a>Scénario : Un travail Apache Spark s’exécute lentement quand le conteneur de stockage Azure contient de nombreux fichiers dans Azure HDInsight
 
@@ -27,8 +27,6 @@ Il s’agit d’un problème connu avec Spark. La lenteur est due aux opération
 
 Pour suivre les partitions, Spark doit gérer un `FileStatusCache` qui contient des informations sur la structure de répertoires. À l’aide de ce cache, Spark peut analyser les chemins et connaître les partitions disponibles. Avec le suivi des partitions, Spark accède uniquement aux fichiers nécessaires quand vous lisez des données. Pour garder ces informations à jour, quand vous écrivez de nouvelles données, Spark doit lister tous les fichiers sous le répertoire et mettre à jour ce cache.
 
-Dans Spark 1,6, chaque fois que vous mettez le répertoire à jour, vous (1) effacez le cache, (2) listez tous les fichiers de manière récursive et (3) mettez à jour l’ensemble du cache. Ceci entraîne de nombreuses opérations de listing.
-
 Dans Spark 2,1, même si nous n’avons pas besoin de mettre à jour le cache après chaque écriture, Spark vérifie si une colonne de partition existante correspond à celle proposée dans la demande d’écriture actuelle. Cette opération entraîne de nombreuses opérations de listing au début de chaque écriture.
 
 Dans Spark 2,2, quand des données sont écrites avec le mode Append, ce problème de performances doit être résolu.
@@ -43,8 +41,8 @@ Pour chaque énième micro-lot où N % 100 == 0 (100 n’est qu’un exemple),
 
 Si votre problème ne figure pas dans cet article ou si vous ne parvenez pas à le résoudre, utilisez un des canaux suivants pour obtenir de l’aide :
 
-* Obtenez des réponses de la part d’experts Azure avec le [Support de la communauté Azure](https://azure.microsoft.com/support/community/).
+* Obtenez des réponses de la part d’experts Azure en faisant appel au [Support de la communauté Azure](https://azure.microsoft.com/support/community/).
 
-* Connectez-vous avec [@AzureSupport](https://twitter.com/azuresupport), le compte Microsoft Azure officiel pour améliorer l’expérience client en connectant la communauté Azure aux ressources appropriées : réponses, support et experts.
+* Connectez-vous avec [@AzureSupport](https://twitter.com/azuresupport), le compte Microsoft Azure officiel pour améliorer l’expérience client en connectant la communauté Azure aux ressources appropriées (réponses, support et experts).
 
-* Si vous avez besoin d’une aide supplémentaire, vous pouvez envoyer une demande de support à partir du [Portail Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Sélectionnez **Support** dans la barre de menus ou ouvrez le hub **Aide + support**. Pour plus d’informations, consultez [Création d’une demande de support Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). L’accès au support relatif à la gestion et à la facturation des abonnements est inclus avec votre abonnement Microsoft Azure. En outre, le support technique est fourni avec l’un des [plans de support Azure](https://azure.microsoft.com/support/plans/).
+* Si vous avez besoin d’une aide supplémentaire, vous pouvez envoyer une requête de support à partir du [Portail Microsoft Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Sélectionnez **Support** dans la barre de menus, ou ouvrez le hub **Aide + Support**. Pour en savoir plus, voir [Création d’une requête de support Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). L’accès au support relatif à la gestion et à la facturation des abonnements est inclus avec votre abonnement Microsoft Azure. En outre, le support technique est fourni avec l’un des [plans de support Azure](https://azure.microsoft.com/support/plans/).

@@ -9,12 +9,12 @@ ms.date: 04/16/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: baabc5a8e1d063cb51a3edea3a7218591e85aa1a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c8ec6b1e90eb6638c99ca43715c5e8bea6e48c22
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65154153"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69030950"
 ---
 # <a name="configure-customer-managed-keys-for-azure-storage-encryption-from-the-azure-portal"></a>Configurer les clés gérées par le client pour le chiffrement du stockage Azure depuis le portail Azure
 
@@ -25,6 +25,7 @@ Cet article explique comment configurer un coffre de clés avec des clés géré
 
 > [!IMPORTANT]
 > Pour utiliser des clés gérées par le client avec un chiffrement Azure Storage, le coffre de clés doit contenir deux propriétés requises configurées, **Soft Delete** (Suppression réversible) et **Do Not Purge** (Ne pas purger). Ces propriétés sont activées par défaut lorsque vous créez un coffre de clés dans le portail Azure. Toutefois, si vous devez activer ces propriétés sur un coffre de clés existant, vous devez utiliser PowerShell ou Azure CLI.
+> Seules les clés RSA et la taille de clé 2048 sont prises en charge.
 
 ## <a name="enable-customer-managed-keys"></a>Activer des clés gérées par le client
 
@@ -72,4 +73,4 @@ Lors de la création d’une version d’une clé, vous devez mettre à jour le 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Chiffrement du stockage Azure pour les données au repos](storage-service-encryption.md)
-- [Qu’est-ce qu’Azure Key Vault ](https://docs.microsoft.com/azure/key-vault/key-vault-whatis)?
+- [Qu’est-ce qu’Azure Key Vault ?](https://docs.microsoft.com/azure/key-vault/key-vault-whatis)

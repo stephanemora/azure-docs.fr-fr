@@ -9,14 +9,16 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 54884728533aeff0472ed99660be00478227fbcd
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: fd3ec276fdc95ad326d14a5b21e8ab793b154080
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67056781"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69875777"
 ---
 # <a name="tutorial-define-a-new-device-type-in-your-azure-iot-central-application"></a>Didacticiel : Définir un nouveau type d’appareil dans votre application Azure IoT Central
+
+[!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp-note.md)]
 
 Ce didacticiel vous indique comment utiliser un modèle d’appareil pour définir un nouveau type d’appareil dans votre application Microsoft Azure IoT Central en votre qualité de générateur. Un modèle d’appareil définit la télémétrie, l’état, les propriétés et les paramètres pour votre type d’appareil.
 
@@ -176,7 +178,7 @@ Utilisez des événements pour définir les données dans le temps que l’appar
      | -------------------- | -----------       |
      | Nom d’affichage         | Erreur du moteur du ventilateur   |
      | Nom du champ           | fanmotorerr       |
-     | Severity             | Error             |
+     | severity             | Error             |
 
      Pour enregistrer la définition de l’événement, sélectionnez **Enregistrer** :
 

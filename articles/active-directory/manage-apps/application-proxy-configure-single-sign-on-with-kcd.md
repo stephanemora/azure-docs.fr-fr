@@ -11,17 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/17/2019
+ms.date: 08/13/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.custom: H1Hack27Feb2017, it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 545906af882be6e53297bf7a9ff2cd12e86d55f0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ab378fe1e06de49df0fe6481a1aa475d426648dc
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65859624"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69032560"
 ---
 # <a name="kerberos-constrained-delegation-for-single-sign-on-to-your-apps-with-application-proxy"></a>Délégation contrainte Kerberos pour l’authentification unique à vos applications avec le proxy d’application
 
@@ -112,7 +112,7 @@ Pour plus d’informations sur Kerberos, consultez la page [All you want to know
 Les applications non Windows utilisent en général les noms d’utilisateur ou les noms de compte SAM au lieu des adresses e-mail de domaine. Si cette situation s’applique à vos applications, vous devez configurer le champ d’identité de connexion déléguée pour connecter vos identités cloud à vos identités d’application. 
 
 ## <a name="working-with-different-on-premises-and-cloud-identities"></a>Utilisation d’identités cloud et locales différentes
-Le proxy d’application suppose que les utilisateurs ont exactement la même identité dans le cloud et localement. Dans le cas contraire, vous pouvez toujours utiliser KCD pour l’authentification unique. Configurez une **Identité de connexion déléguée** pour chaque application afin de spécifier l’identité qui doit être utilisée pendant l’exécution d’une authentification unique.  
+Le proxy d’application suppose que les utilisateurs ont exactement la même identité dans le cloud et localement. Mais dans certains environnements, en raison des stratégies d’entreprise ou des dépendances d’application, les organisations devront peut-être utiliser d’autres ID pour la connexion. Dans ces cas-là, vous pouvez toujours utiliser KCD pour l’authentification unique. Configurez une **Identité de connexion déléguée** pour chaque application afin de spécifier l’identité qui doit être utilisée pendant l’exécution d’une authentification unique.  
 
 Grâce à cette fonctionnalité, de nombreuses organisations disposant d’identités locales et cloud différentes peuvent mettre en œuvre l’authentification unique des applications cloud aux applications locales sans contraindre les utilisateurs à entrer des noms d’utilisateur et des mots de passe différents. Cela inclut les organisations qui :
 

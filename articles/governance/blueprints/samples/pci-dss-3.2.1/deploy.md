@@ -8,12 +8,12 @@ ms.date: 06/24/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: b4e9435e5f569a076fc5beb6441b9da935b87f3a
-ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
+ms.openlocfilehash: 237444cde6e9ccd709f61d13669da03094e5be10
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67561361"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69019423"
 ---
 # <a name="deploy-the-pci-dss-v321-blueprint-sample"></a>Déployer l’exemple de blueprint PCI-DSS v3.2.1
 
@@ -98,7 +98,7 @@ Le tableau suivant fournit la liste des paramètres d’artefact de blueprint :
 
 |Nom de l’artefact|Type d’artefact|Nom du paramètre|Description|
 |-|-|-|-|
-|[Préversion] : Auditer les contrôles PCI v3.2.1:2018 v3 et déployer des extensions de machine virtuelle spécifiques pour prendre en charge les exigences d’audit|Affectation de rôle|Liste des types de ressources | Auditez le paramètre de diagnostic pour les types de ressources sélectionnés. Par défaut, toutes les ressources sont sélectionnées.| 
+|\[Prévisualiser\] les contrôles d’audit PCI v3.2.1:2018 et déployer des extensions de machine virtuelle spécifiques pour prendre en charge les exigences d’audit|Affectation de rôle|Liste des types de ressources | Auditez le paramètre de diagnostic pour les types de ressources sélectionnés. Par défaut, toutes les ressources sont sélectionnées.| 
 |Emplacements autorisés|Affectation de rôle|Liste des emplacements autorisés|Liste des emplacements de centre de données autorisés sur lesquels toutes vos ressources peuvent êtres déployées. Vous pouvez personnaliser cette liste pour indiquer les emplacements Azure de votre choix de manière globale. Sélectionnez les emplacements que vous voulez autoriser.| 
 |Emplacements autorisés pour les groupes de ressources|Affectation de rôle |Emplacement autorisé |Cette stratégie vous permet de restreindre les emplacements où votre organisation peut créer des groupes de ressources. Utilisez-la pour appliquer vos exigences de conformité géographique.| 
 |Déployer l’audit sur des serveurs SQL|Affectation de rôle|Jours de conservation|Rétention des données en nombre de jours. La valeur par défaut est 180, mais PCI nécessite une valeur de 365.| 

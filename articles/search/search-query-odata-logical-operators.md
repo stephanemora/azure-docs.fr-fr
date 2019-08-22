@@ -7,7 +7,7 @@ ms.service: search
 ms.topic: conceptual
 author: brjohnstmsft
 ms.author: brjohnst
-ms.manager: cgronlun
+manager: nitinme
 translation.priority.mt:
 - de-de
 - es-es
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: de93765117b4cafe70e5ad277e32ca0a1fa8d90a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: bf4939a40a2fdf1c8fc6cf97beca0184b1604c98
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67081870"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69647993"
 ---
 # <a name="odata-logical-operators-in-azure-search---and-or-not"></a>Opérateurs logiques OData dans Recherche Azure - `and`, `or`, `not`
 

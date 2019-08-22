@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2019
 ms.author: iainfou
-ms.openlocfilehash: 63f2e12b9b769e806f8bd052af5bc78aed6a1fe0
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 5a8f3401de0dc452193efbcf79aef87a19aed081
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67472303"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69617086"
 ---
 # <a name="azure-ad-domain-services---troubleshoot-alerts"></a>Azure AD Domain Services : dépannage des alertes
 Cet article fournit des guides de dépannage pour les alertes que vous pouvez rencontrer sur votre domaine géré.
@@ -81,7 +81,7 @@ Pour restaurer votre service, procédez comme suit :
 
 1. [Supprimez votre domaine géré](delete-aadds.md) de votre annuaire Azure AD existant.
 2. Créez un répertoire qui n’est pas un répertoire Azure AD B2C.
-3. Suivez le guide de [Prise en main](create-instance.md) pour recréer un domaine géré.
+3. Suivez le guide de [Prise en main](tutorial-create-instance.md) pour recréer un domaine géré.
 
 ## <a name="aadds103-address-is-in-a-public-ip-range"></a>AADDS103 : L’adresse est dans une plage d’adresses IP publiques
 
@@ -110,7 +110,7 @@ Avant de commencer, lisez la section **Espace d’adressage IPv4** de [cet artic
    5. Cliquez sur **Sous-réseaux** dans la navigation de gauche.
    6. Cliquez sur le sous-réseau que vous souhaitez modifier dans la table.
    7. Mettez à jour la plage d’adresses et enregistrez vos modifications.
-3. Suivez [le guide Prise en main des services de domaine Azure AD](create-instance.md) pour recréer votre domaine géré. Veillez à sélectionner un réseau virtuel avec une plage d’adresses IP privées.
+3. Suivez [le guide Prise en main des services de domaine Azure AD](tutorial-create-instance.md) pour recréer votre domaine géré. Veillez à sélectionner un réseau virtuel avec une plage d’adresses IP privées.
 4. Pour joindre vos machines virtuelles à votre nouveau domaine, suivez [ce guide](join-windows-vm.md).
 8. Pour vérifier que l’alerte est résolue, vérifiez l’intégrité de votre domaine dans deux heures.
 
@@ -126,7 +126,7 @@ Azure AD Domain Services requiert un abonnement pour fonctionner et ne peut pas 
 
 1. Crée un abonnement Azure
 2. [Supprimez votre domaine géré](delete-aadds.md) de votre annuaire Azure AD existant.
-3. Suivez le guide de [Prise en main](create-instance.md) pour recréer un domaine géré.
+3. Suivez le guide de [Prise en main](tutorial-create-instance.md) pour recréer un domaine géré.
 
 ## <a name="aadds107-your-azure-subscription-is-disabled"></a>AADDS107 : Votre abonnement Azure est désactivé
 
@@ -177,7 +177,7 @@ Azure AD Domain Services crée des ressources spécifiques lors du déploiement 
 
 **Résolution :**
 
-Cette erreur est irrécupérable. Pour résoudre ce problème, vous devez [supprimer votre domaine managé existant](delete-aadds.md), puis [recréer votre domaine managé](create-instance.md).
+Cette erreur est irrécupérable. Pour résoudre ce problème, vous devez [supprimer votre domaine managé existant](delete-aadds.md), puis [recréer votre domaine managé](tutorial-create-instance.md).
 
 ## <a name="aadds111-service-principal-unauthorized"></a>AADDS111 : Principal du service non autorisé
 
@@ -222,7 +222,7 @@ Nos principaux de service ont besoin d’un accès pour pouvoir gérer et créer
 
 **Résolution :**
 
-Cette erreur est irrécupérable. Pour résoudre ce problème, vous devez [supprimer votre domaine managé existant](delete-aadds.md), puis [recréer votre domaine managé](create-instance.md).
+Cette erreur est irrécupérable. Pour résoudre ce problème, vous devez [supprimer votre domaine managé existant](delete-aadds.md), puis [recréer votre domaine managé](tutorial-create-instance.md).
 
 ## <a name="aadds114-subnet-invalid"></a>AADDS114 : Sous-réseau non valide
 
@@ -232,7 +232,7 @@ Cette erreur est irrécupérable. Pour résoudre ce problème, vous devez [suppr
 
 **Résolution :**
 
-Cette erreur est irrécupérable. Pour résoudre ce problème, vous devez [supprimer votre domaine managé existant](delete-aadds.md), puis [recréer votre domaine managé](create-instance.md).
+Cette erreur est irrécupérable. Pour résoudre ce problème, vous devez [supprimer votre domaine managé existant](delete-aadds.md), puis [recréer votre domaine managé](tutorial-create-instance.md).
 
 ## <a name="aadds115-resources-are-locked"></a>AADDS115 : Des ressources sont verrouillées
 
@@ -270,7 +270,7 @@ Cette erreur est irrécupérable. Pour résoudre ce problème, vous devez [suppr
 
 Voici quelques-unes des raisons courantes de l’arrêt de la synchronisation sur des domaines gérés :
 - La connexion réseau est bloquée sur le domaine managé. Pour en savoir plus sur la vérification de votre réseau afin de détecter des problèmes, lisez [Résoudre les problèmes relatifs aux groupes de sécurité réseau](alert-nsg.md) et [Configuration réseau requise pour Azure AD Domain Services](network-considerations.md).
--  La synchronisation de mot de passe n’a jamais configurée ou terminée. Pour configurer la synchronisation de mot de passe lisez [cet article](active-directory-ds-getting-started-password-sync.md).
+-  La synchronisation de mot de passe n’a jamais configurée ou terminée. Pour configurer la synchronisation de mot de passe lisez [cet article](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds).
 
 ## <a name="aadds501-a-backup-has-not-been-taken-in-a-while"></a>AADDS501 : Il n’y a pas eu de sauvegarde depuis un certain temps
 

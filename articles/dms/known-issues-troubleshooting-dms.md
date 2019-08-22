@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 06/18/2019
-ms.openlocfilehash: e33f195ea821b34147c748e9c0aa64cb63b58fdc
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: a72a0e26c2af34942faaa6a7e62feef86082e196
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68249979"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69034834"
 ---
 # <a name="troubleshoot-common-azure-database-migration-service-issues-and-errors"></a>Résoudre certains problèmes et erreurs courants liés à l’utilisation d’Azure Database Migration Service
 
@@ -98,9 +98,9 @@ Quand vous essayez de vous connecter à une source dans l’Assistant Projet Azu
 | ------------- | ------------- |
 | Quand [ExpressRoute](https://azure.microsoft.com/services/expressroute/) est utilisé, Azure Database Migration Service [requiert](https://docs.microsoft.com/azure/dms/tutorial-sql-server-azure-sql-online) le provisionnement de trois points de terminaison de service sur le sous-réseau du réseau virtuel associé au service :<br> -- Point de terminaison Service Bus<br> -- Point de terminaison de stockage<br> -- Point de terminaison de base de données cible (un point de terminaison SQL ou Cosmos DB, par exemple)<br><br><br><br><br> | [Activez](https://docs.microsoft.com/azure/dms/tutorial-sql-server-azure-sql-online) les points de terminaison de service requis pour la connectivité ExpressRoute entre la source et Azure Database Migration Service. <br><br><br><br><br><br><br><br> |
 
-## <a name="timeout-error-when-migrating-a-mysql-database-to-azure-mysql"></a>Erreur de délai d’attente lors de la migration d’une base de données MySQL vers Azure MySQL
+## <a name="lock-wait-timeout-error-when-migrating-a-mysql-database-to-azure-db-for-mysql"></a>Verrouiller l’erreur de délai d’expiration lors de la migration d’une base de données MySQL vers une base de données Azure pour MySQL
 
-Quand vous migrez une base de données MySQL vers une instance Azure Database pour MySQL en utilisant Azure Database Migration Service, la migration échoue avec l’erreur de délai d’attente suivante :
+Quand vous migrez une base de données MySQL vers une instance Azure Database pour MySQL en utilisant Azure Database Migration Service, la migration échoue avec l’erreur de délai d’expiration de verrouillage suivante :
 
 * **Erreur** : Erreur de migration de base de données - Échec du chargement du fichier - Échec du démarrage du processus de chargement du fichier 'n' RetCode: SQL_ERROR SqlState : HY000 NativeError: 1205 Message: [MySQL][ODBC Driver][mysqld] Dépassement du délai d’attente des verrous. Essayez de redémarrer la transaction
 

@@ -1,7 +1,7 @@
 ---
 title: Exemple C# pour les synonymes - Recherche Azure
 description: Avec cet exemple C#, découvrez comment ajouter la fonctionnalité des synonymes à un index dans Recherche Azure. Une carte de synonymes est une liste de termes équivalents. Les champs avec prise en charge des synonymes étendent les requêtes afin d'inclure le terme fourni par l’utilisateur et tous les synonymes associés.
-manager: cgronlun
+manager: nitinme
 author: HeidiSteen
 services: search
 ms.service: search
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 5b81e4b9a8773cc8e4cc76582ccf2df88565d3d8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ad71a6ab5090e601ef075617edf08c421abebdb0
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65025166"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69647753"
 ---
 # <a name="example-add-synonyms-for-azure-search-in-c"></a>Exemple : Ajouter des synonymes pour le service Recherche Azure en C#
 

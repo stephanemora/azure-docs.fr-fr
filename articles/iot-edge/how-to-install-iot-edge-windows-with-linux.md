@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: kgremban
-ms.openlocfilehash: b7386cbbe18d7e05c2fbffb96f6214b468956192
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9e9028d0c9aeff19dc221b81defa5e2057927fa6
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66151699"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69034189"
 ---
 # <a name="use-iot-edge-on-windows-to-run-linux-containers"></a>Utiliser IoT Edge sur Windows pour exécuter des conteneurs Linux
 
@@ -30,9 +30,7 @@ Cette section a pour but de vous aider à déterminer si votre appareil Windows 
 
 ### <a name="supported-windows-versions"></a>Versions de Windows prises en charge
 
-Azure IoT Edge avec conteneurs Linux peut s'exécuter sur les versions suivantes de Windows : 
-* Mise à jour anniversaire Windows 10 (build 14393) ou une version ultérieure
-* Windows Server 2016 ou version ultérieure
+Azure IOT Edge avec des conteneurs Linux peut s’exécuter sur n’importe quelle version de Windows qui correspond à la [configuration requise pour Docker Desktop](https://docs.docker.com/docker-for-windows/install/#what-to-know-before-you-install)
 
 Pour plus d’informations sur qu’inclut la dernière version d’IoT Edge, voir les [publications d’Azure IoT Edge](https://github.com/Azure/azure-iotedge/releases).
 
@@ -106,7 +104,8 @@ Examinez les journaux d’activité du service des 5 dernières minutes.
 . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Get-IoTEdgeLog
 ```
 
-Répertoriez les modules en cours d’exécution. Après une nouvelle installation, le seul module que vous devez voir en cours d’exécution est **edgeAgent**. Après avoir [déployé les modules IoT Edge](how-to-deploy-modules-portal.md), vous verrez les autres. 
+Répertoriez les modules en cours d’exécution. Après une nouvelle installation, le seul module que vous devez voir en cours d’exécution est **edgeAgent**. Une fois que vous avez [déployé les modules IoT Edge](how-to-deploy-modules-portal.md) pour la première fois, l’autre module système, **edgeHub**, démarre également sur l’appareil. 
+
 
 ```powershell
 iotedge list
