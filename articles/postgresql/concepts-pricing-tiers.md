@@ -6,12 +6,12 @@ ms.author: janeng
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 07/31/2019
-ms.openlocfilehash: 376620459a0ab2f0f170b0743c0ab51a51bca9c4
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: f65bc0a9969ac713c2fb9f8629b97fbe522e9fe0
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68698950"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624841"
 ---
 # <a name="pricing-tiers-in-azure-database-for-postgresql---single-server"></a>Créer des utilisateurs dans Azure Database pour PostgreSQL - Serveur unique
 
@@ -67,7 +67,7 @@ Nous avons augmenté les limites de stockage dans nos niveaux de service Usage g
 |              | **Usage général** | **Mémoire optimisée** |
 |:-------------|:--------------------|:---------------------|
 | Type de stockage | Stockage Premium Azure | Stockage Premium Azure |
-| Taille de stockage | 32 Go à 16 To| 32 à 16 To |
+| Taille de stockage | 32 Go à 16 To| 32 Go à 16 To |
 | Taille d’incrément de stockage | 1 Go | 1 Go |
 | E/S par seconde | 3 E/S par seconde/Go<br/>Min 100 E/S par seconde<br/>Max 20 000 IOPS | 3 E/S par seconde/Go<br/>Min 100 E/S par seconde<br/>Max 20 000 IOPS |
 
@@ -107,6 +107,9 @@ Le service effectue automatiquement des sauvegardes de votre serveur. La périod
 ## <a name="scale-resources"></a>Mettre les ressources à l’échelle
 
 Après avoir créé votre serveur, vous pouvez modifier de manière indépendante les vCores, la génération du matériel, le niveau tarifaire (excepté à partir de la version De base), la quantité de stockage et la période de rétention de sauvegarde. Vous ne pouvez pas modifier le type de stockage de sauvegarde après la création d’un serveur. Le nombre de vCores peut être augmenté ou diminué. La période de rétention de sauvegarde peut être augmentée ou diminuée et va de 7 à 35 jours. La taille de stockage ne peut être qu’augmentée. La mise à l’échelle des ressources peut être effectuée par le biais du portail ou d’Azure CLI. Pour obtenir un exemple de mise à l’échelle à l’aide d’Azure CLI, consultez [Surveiller et mettre à l’échelle un serveur Azure Database pour PostgreSQL à l’aide d’Azure CLI](scripts/sample-scale-server-up-or-down.md).
+
+> [!NOTE] 
+> La taille de stockage ne peut être qu’augmentée. Vous ne pouvez pas revenir à une taille de stockage inférieure après l’augmentation.
 
 Lorsque vous modifiez le nombre de vCores, la génération du matériel ou le niveau tarifaire, une copie du serveur d’origine est créée avec la nouvelle allocation du calcul. Une fois que le nouveau serveur est opérationnel, les connexions sont basculées vers le nouveau serveur. Pendant le moment durant lequel le système bascule vers le nouveau serveur, aucune nouvelle connexion ne peut être établie, et toutes les transactions non validées sont restaurées. Cette fenêtre varie, mais dans la plupart des cas elle dure moins d’une minute.
 

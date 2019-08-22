@@ -5,21 +5,21 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 07/15/2019
+ms.date: 08/07/2019
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 113e178d39ec776b63a0b38c55035f3493586ea2
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: f3aea108ed87debac56b18b5959d492f2bcb291d
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68233872"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68853597"
 ---
-# <a name="direct-federation-with-ad-fs-and-third-party-providers-for-guest-users-preview"></a>Fédération directe avec AD FS et des fournisseurs tiers pour les utilisateurs invités (version préliminaire)
+# <a name="direct-federation-with-ad-fs-and-third-party-providers-for-guest-users-preview"></a>Fédération directe avec AD FS et des fournisseurs tiers pour les utilisateurs invités (préversion)
 |     |
 | --- |
 | La fédération directe est une fonctionnalité d’évaluation publique d’Azure Active Directory. Pour plus d’informations sur les préversions, consultez [Conditions d’utilisation supplémentaires pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
@@ -46,7 +46,7 @@ Avec la fédération directe, les utilisateurs invités se connectent à votre c
 ## <a name="limitations"></a>Limites
 
 ### <a name="dns-verified-domains-in-azure-ad"></a>Domaines vérifiés par DNS dans Azure AD
-La fédération directe est autorisée uniquement pour les domaines qui ne sont ***pas*** vérifiés par DNS dans Azure AD. La fédération directe est autorisée pour les locataires non managés (vérifiés par e-mail ou « viraux ») Azure AD, car ils ne sont pas vérifiés par DNS.
+Le domaine avec lequel vous voulez vous fédérer ne doit ***pas*** être vérifié par le système DNS dans Azure AD. Vous êtes autorisé à configurer la fédération directe avec des locataires Azure AD non managés (vérifiés par e-mail ou « viraux »), car ils ne sont pas vérifiés par le système DNS.
 ### <a name="authentication-url"></a>URL d’authentification
 La fédération directe est uniquement autorisée pour les stratégies où le domaine de l’URL d’authentification correspond au domaine cible, ou lorsque l’URL d’authentification correspond à l’un de ces fournisseurs d’identité autorisés (cette liste est susceptible de changer) :
 -   accounts.google.com
@@ -66,7 +66,7 @@ Si vous spécifiez l’URL de métadonnées dans les paramètres du fournisseur 
 Pour le moment, le nombre de relations de fédération maximum pris en charge est limité à 1 000. Cette limite concerne à la fois les [fédérations internes et les fédérations directes](https://docs.microsoft.com/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0).
 ## <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
 ### <a name="can-i-set-up-direct-federation-with-a-domain-for-which-an-unmanaged-email-verified-tenant-exists"></a>Puis-je configurer la fédération directe avec un domaine pour lequel un client non géré (vérifié par e-mail) existe ? 
-Oui. Si le domaine n’a pas été vérifié et que le client n’a pas encore subi une [prise en charge administrateur](../users-groups-roles/domains-admin-takeover.md), vous pouvez configurer la fédération directe. Les clients non gérés, ou vérifiés par e-mail, sont créés lorsqu’un utilisateur a utilisé une invitation B2B ou effectue une inscription libre-service pour Azure AD à l’aide d’un domaine qui n’existe pas actuellement. Vous pouvez configurer la fédération directe avec ces domaines. Si vous essayez de configurer la fédération directe avec un domaine vérifié par DNS, dans le portail Azure ou via PowerShell, vous rencontrerez une erreur.
+Oui. Si le domaine n’a pas été vérifié et que le locataire n’a pas subi de [prise en charge administrateur](../users-groups-roles/domains-admin-takeover.md), vous pouvez configurer la fédération directe avec de domaine. Les clients non gérés, ou vérifiés par e-mail, sont créés lorsqu’un utilisateur a utilisé une invitation B2B ou effectue une inscription libre-service pour Azure AD à l’aide d’un domaine qui n’existe pas actuellement. Vous pouvez configurer la fédération directe avec ces domaines. Si vous essayez de configurer la fédération directe avec un domaine vérifié par DNS, dans le portail Azure ou via PowerShell, vous rencontrerez une erreur.
 ### <a name="if-direct-federation-and-email-one-time-passcode-authentication-are-both-enabled-which-method-takes-precedence"></a>Si la fédération directe et l’authentification par code secret à usage unique par e-mail sont activées, quelle méthode est prioritaire ?
 Lorsque la fédération directe est établie avec une organisation partenaire, elle est prioritaire sur l’authentification par code secret à usage unique par e-mail pour les nouveaux utilisateurs invités de cette organisation. Si un utilisateur invité a utilisé une invitation à l’aide de l’authentification par code secret à usage unique avant que vous n’ayez configuré la fédération directe, il continue d’utiliser l’authentification par code secret à usage unique. 
 ### <a name="does-direct-federation-address-sign-in-issues-due-to-a-partially-synced-tenancy"></a>La fédération directe répond-elle aux problèmes de connexion, étant une location partiellement synchronisée ?

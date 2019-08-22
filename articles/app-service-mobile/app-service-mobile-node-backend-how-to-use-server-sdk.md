@@ -14,12 +14,12 @@ ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 831f6b4bdc99e63859b390f8a9bb88d74301284e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6eaaeba8a36bcba8134d605889185fb8827dd05c
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62128098"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68851188"
 ---
 # <a name="how-to-use-the-mobile-apps-nodejs-sdk"></a>Utiliser le Kit de développement logiciel (SDK) Node.js pour Mobile Apps
 
@@ -372,7 +372,7 @@ La plupart des paramètres du fichier azureMobile.js ont un paramètre équivale
 
 | Paramètre d’application | Paramètre azureMobile.js | Description | Valeurs valides |
 |:--- |:--- |:--- |:--- |
-| **MS_MobileAppName** |Nom |Le nom de l’application |chaîne |
+| **MS_MobileAppName** |Nom |Le nom de l’application |string |
 | **MS_MobileLoggingLevel** |logging.level |Niveau minimal de journal pour les messages à consigner |error, warning, info, verbose, debug, silly |
 | **MS_DebugMode** |debug |Active ou désactive le mode de débogage |true, false |
 | **MS_TableSchema** |data.schema |Nom de schéma par défaut pour les tables SQL |string (valeur par défaut : dbo) |
@@ -891,7 +891,7 @@ api.get.access = 'authenticated';
 module.exports = api;
 ```
 
-## <a name="Debugging"></a>Débogage, Tables facile et API simples
+## <a name="Debugging"></a>Débogage
 
 ### <a name="howto-diagnostic-logs"></a>Déboguer, diagnostiquer et résoudre des problèmes sur Mobile Apps
 
@@ -903,47 +903,6 @@ Consultez les articles suivants pour prendre en main la résolution des problèm
 * [Dépanner une application web dans le Service d’application Microsoft Azure à l’aide de Visual Studio]
 
 Les applications Node.js ont accès à un large éventail d’outils de journaux de diagnostic. En interne, le Kit de développement logiciel (SDK) Node.js dans Azure Mobile Apps utilise [Winston] pour la journalisation des diagnostics. La journalisation est activée automatiquement lorsque vous activez le mode de débogage ou définissez le paramètre d’application `MS_DebugMode` sur true dans le [portail Azure]. Les journaux d’activité générés s’affichent dans les journaux de diagnostic sur le [portail Azure].
-
-### <a name="in-portal-editing"></a><a name="work-easy-tables"></a>Utiliser l’outil Tables faciles dans le portail Azure
-
-Vous pouvez faire appel à l’outil Tables faciles pour créer et utiliser des tables directement dans le portail. Vous pouvez télécharger le jeu de données vers Tables faciles au format CSV. Notez que vous ne pouvez pas utiliser de noms de propriétés (dans votre jeu de données CSV) qui sont en conflit avec des noms de propriétés système du serveur principal Mobile Apps. Les noms de propriétés système sont :
-* createdAt
-* updatedAt
-* deleted
-* version
-
-Vous pouvez même modifier les opérations de table à l’aide de l’éditeur App Service. Lorsque vous cliquez sur **Tables faciles** dans vos paramètres de site principal, vous pouvez ajouter, modifier ou supprimer une table. Vous pouvez également voir les données de la table.
-
-![Utilisation de l’outil Easy Tables](./media/app-service-mobile-node-backend-how-to-use-server-sdk/mobile-apps-easy-tables.png)
-
-Les commandes suivantes sont disponibles dans la barre de commandes d’une table :
-
-* **Modifier les autorisations** : Modifiez l’autorisation pour les opérations de lecture, d’insertion, de mise à jour et de suppression sur la table.
- Vous avez la possibilité d’autoriser l’accès anonyme, d’exiger une authentification ou de désactiver tous les accès à l’opération.
-* **Modifier le script** : Le fichier de script de la table est ouvert dans l’éditeur App Service.
-* **Gérer le schéma** : Ajoutez ou supprimez des colonnes ou modifiez l’index de la table.
-* **Effacer la table** : Tronquez une table existante en supprimant toutes les lignes de données tout en conservant le schéma à l’identique.
-* **Supprimer les lignes** : Supprimez des lignes de données spécifiques.
-* **Afficher les journaux d’activité de diffusion en continu** : Connectez-vous au service de journaux de diffusion en continu de votre site.
-
-### <a name="work-easy-apis"></a>Utiliser l’outil API faciles dans le portail Azure
-
-Vous pouvez faire appel à l’outil API faciles pour créer et utiliser des API personnalisées directement dans le portail. Vous pouvez modifier des scripts API à l’aide de l’éditeur App Service.
-
-Lorsque vous sélectionnez **API faciles** dans vos paramètres de site principal, vous pouvez ajouter, modifier ou supprimer un point de terminaison d’API personnalisée.
-
-![Utilisation de l’outil Easy APIs](./media/app-service-mobile-node-backend-how-to-use-server-sdk/mobile-apps-easy-apis.png)
-
-Dans le portail, vous pouvez modifier les autorisations d’accès pour une action HTTP, modifier le fichier de script d’API dans l’éditeur App Service ou afficher les journaux d’activité de diffusion en continu.
-
-### <a name="online-editor"></a>Modifier le code dans l’éditeur App Service
-
-Le portail Azure vous permet de modifier les fichiers de script de votre serveur principal Node.js dans l’éditeur App Service sans avoir à télécharger le projet sur votre ordinateur local. Pour modifier les fichiers de script dans l’éditeur en ligne :
-
-1. Dans le volet de votre serveur principal Mobile Apps, sélectionnez **All settings** (Tous les paramètres) > **Tables faciles** ou **API faciles**. Sélectionnez une table ou une API, puis **Modifier le script**. Le fichier de script s’ouvre dans l’éditeur App Service.
-
-   ![Éditeur App Service](./media/app-service-mobile-node-backend-how-to-use-server-sdk/mobile-apps-visual-studio-editor.png)
-1. Apportez vos modifications au fichier de code dans l’éditeur en ligne. Les modifications sont enregistrées automatiquement au fil de la saisie.
 
 <!-- Images -->
 [0]: ./media/app-service-mobile-node-backend-how-to-use-server-sdk/npm-init.png

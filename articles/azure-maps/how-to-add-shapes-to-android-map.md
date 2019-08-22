@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: c53a3e01d471f2ca9b0878c374b00ce83848ca28
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c8e3f16b939d05a4c055fba3a9f1ab5e47e54070
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64871001"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976595"
 ---
 # <a name="add-a-shape-to-a-map-using-azure-maps-android-sdk"></a>Ajouter une forme à une carte à l’aide d'Android SDK Azure Maps
 
@@ -82,6 +82,7 @@ Vous pouvez ajouter une ligne à la carte en utilisant une **couche de lignes**.
     
     ```Java
     package com.example.myapplication;
+
     import android.app.Activity;
     import android.os.Bundle;
     import com.mapbox.geojson.LineString;
@@ -96,8 +97,7 @@ Vous pouvez ajouter une ligne à la carte en utilisant une **couche de lignes**.
     import com.microsoft.azure.maps.mapcontrol.MapControl;
     import static com.microsoft.azure.maps.mapcontrol.options.LineLayerOptions.strokeColor;
     import static com.microsoft.azure.maps.mapcontrol.options.LineLayerOptions.strokeWidth;
-    
-    
+        
     public class MainActivity extends AppCompatActivity {
     
         static{
@@ -133,8 +133,7 @@ Vous pouvez ajouter une ligne à la carte en utilisant une **couche de lignes**.
                 map.layers.add(new LineLayer(dataSource,
                     strokeColor("blue"),
                     strokeWidth(5f)));
-            });
-    
+            });    
         }
     
         @Override
@@ -171,8 +170,7 @@ Vous pouvez ajouter une ligne à la carte en utilisant une **couche de lignes**.
         protected void onSaveInstanceState(Bundle outState) {
             super.onSaveInstanceState(outState);
             mapControl.onSaveInstanceState(outState);
-        }
-    
+        }    
     }
     ```
 
@@ -240,7 +238,7 @@ Le **couche de polygones** vous permet d'afficher la surface du polygone sur la 
     });
     ```
 
-    L’extrait de code ci-dessus obtient d’abord une instance de contrôle de carte Azure Maps à l'aide de la méthode de rappel **onReady()** . Il crée alors un objet de source de données à l’aide de la classe **DataSource**, puis l'ajoute à la carte. Un objet **Polygone** est ensuite créé à partir d’une liste d'objets **Point** et ajouté à la source de données. Une **couche de polygones** affiche les données encapsulées dans la source de données sur la carte. Ensuite, il crée une couche de polygones pour afficher la zone de polygone et y ajoute la source de données. Une **couche de lignes** affiche les objets ligne encapsulés dans une source de données. La dernière partie de l’extrait de code crée une couche de lignes permettant d'afficher le contour du polygone et d'y ajouter la source de données.
+    L’extrait de code ci-dessus commence par obtenir une instance de contrôle de carte Azure Maps en utilisant la méthode de rappel **onReady()** . Il crée alors un objet de source de données à l’aide de la classe **DataSource**, puis l'ajoute à la carte. Un objet **Polygone** est ensuite créé à partir d’une liste d'objets **Point** et ajouté à la source de données. Une **couche de polygones** affiche les données encapsulées dans la source de données sur la carte. Ensuite, il crée une couche de polygones pour afficher la zone de polygone et y ajoute la source de données. Une **couche de lignes** affiche les objets ligne encapsulés dans une source de données. La dernière partie de l’extrait de code crée une couche de lignes permettant d'afficher le contour du polygone et d'y ajouter la source de données.
 
     Après avoir ajouté l’extrait de code ci-dessus, votre `MainActivity.java` doit se présenter comme suit :
 
@@ -307,8 +305,7 @@ Le **couche de polygones** vous permet d'afficher la surface du polygone sur la 
                 map.layers.add(new LineLayer(dataSource,
                     strokeColor("blue"),
                     strokeWidth(2f)));
-            });
-    
+            });    
         }
     
         @Override
@@ -345,8 +342,7 @@ Le **couche de polygones** vous permet d'afficher la surface du polygone sur la 
         protected void onSaveInstanceState(Bundle outState) {
             super.onSaveInstanceState(outState);
             mapControl.onSaveInstanceState(outState);
-        }
-    
+        }    
     }
     ```
 
@@ -359,7 +355,13 @@ Le **couche de polygones** vous permet d'afficher la surface du polygone sur la 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur les différentes manières de définir des styles de carte, consultez l'article
+Pour ajouter des données à votre carte :
 
 > [!div class="nextstepaction"]
-> [Modifier les styles de carte sur les cartes Android](https://docs.microsoft.com/azure/azure-maps/set-android-map-styles)
+> [Ajouter un calque de symboles](how-to-add-symbol-to-android-map.md)
+
+> [!div class="nextstepaction"]
+> [Ajouter un calque de mosaïques](how-to-add-tile-layer-android-map.md)
+
+> [!div class="nextstepaction"]
+> [Afficher des informations sur les caractéristiques](display-feature-information-android.md)

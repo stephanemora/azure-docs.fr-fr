@@ -16,12 +16,12 @@ ms.date: 07/10/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 12452b4e9cc6caa64d4c81a310fbccb5d1717817
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: d93a20494886bb7d563439e2699f60bedb646dcd
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68678152"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69032545"
 ---
 # <a name="what-is-azure-ad-entitlement-management-preview"></a>Présentation de la gestion des droits d’utilisation Azure AD (Préversion)
 
@@ -33,6 +33,10 @@ ms.locfileid: "68678152"
 Pour travailler, les employés d'une organisation doivent pouvoir accéder à différents groupes, applications et sites. Gérer cet accès n'est pas facile. La plupart du temps, aucune liste organisée ne répertorie toutes les ressources dont un utilisateur a besoin pour un projet. Le chef de projet a une bonne compréhension des ressources requises, des personnes impliquées et de la durée du projet. Pour autant, le chef de projet ne dispose généralement pas des autorisations nécessaires pour approuver ou accorder un accès à d'autres personnes. Ce scénario se complique lorsqu'il vous faut collaborer avec des personnes ou entreprises externes.
 
 La gestion des droits d'utilisation Azure Active Directory (Azure AD) vous aide à gérer l'accès aux groupes, applications et sites SharePoint Online pour les utilisateurs internes et externes à votre organisation.
+
+Cette vidéo fournit une vue d’ensemble de la gestion des droits d’utilisation et de leur valeur métier :
+
+>[!VIDEO https://www.youtube.com/embed/_Lss6bFrnQ8]
 
 ## <a name="why-use-entitlement-management"></a>Pourquoi utiliser la gestion des droits d’utilisation ?
 

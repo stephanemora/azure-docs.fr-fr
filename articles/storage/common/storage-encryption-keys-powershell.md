@@ -9,18 +9,22 @@ ms.date: 04/16/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: be876b370cd476bee2af7d90a9f0433fd80de3b4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6c9adf1c00503ec7f1cbf4a3405c303eea2d2292
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65233683"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69034872"
 ---
 # <a name="configure-customer-managed-keys-for-azure-storage-encryption-from-powershell"></a>Configurer les clés gérées par le client pour le chiffrement du stockage Azure depuis PowerShell
 
 [!INCLUDE [storage-encryption-configure-keys-include](../../../includes/storage-encryption-configure-keys-include.md)]
 
 Cet article explique comment configurer un coffre de clés avec des clés gérées par le client à l’aide de PowerShell.
+
+> [!IMPORTANT]
+> Pour utiliser des clés gérées par le client avec un chiffrement Azure Storage, le coffre de clés doit contenir deux propriétés requises configurées, **Soft Delete** (Suppression réversible) et **Do Not Purge** (Ne pas purger). Ces propriétés sont activées par défaut lorsque vous créez un coffre de clés dans le portail Azure. Toutefois, si vous devez activer ces propriétés sur un coffre de clés existant, vous devez utiliser PowerShell ou Azure CLI.
+> Seules les clés RSA et la taille de clé 2048 sont prises en charge.
 
 ## <a name="assign-an-identity-to-the-storage-account"></a>Affecter une identité au compte de stockage
 
@@ -50,9 +54,9 @@ $keyVault = New-AzKeyVault -Name <key-vault> `
     -EnablePurgeProtection
 ```
 
-## <a name="configure-the-key-vault-access-policy"></a>Configurer une stratégie d’accès au coffre de clés
+## <a name="configure-the-key-vault-access-policy"></a>Configurer la stratégie d’accès au coffre de clés
 
-Configurez ensuite la stratégie d'accès au coffre de clés de sorte que le compte de stockage dispose des autorisations nécessaires pour y accéder. Dans cette étape, vous utiliserez l’identité managée que vous avez précédemment affectée au compte de stockage.
+Configurez ensuite la stratégie d’accès au coffre de clés de sorte que le compte de stockage dispose des autorisations nécessaires pour y accéder. Dans cette étape, vous utiliserez l’identité managée que vous avez précédemment affectée au compte de stockage.
 
 Pour définir la stratégie d’accès du coffre de clés, appelez la commande [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy). N’oubliez pas de remplacer les valeurs de l’espace réservé entre crochets par vos propres valeurs et d’utiliser les variables définies dans les exemples précédents.
 

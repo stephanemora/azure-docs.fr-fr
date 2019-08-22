@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: dacurwin
-ms.openlocfilehash: 34484c309cb186aabec519e54269fefae316165e
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 9c63170b60a871182042acab8a35e505c603f260
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639915"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69018884"
 ---
 # <a name="delete-a-recovery-services-vault"></a>Supprimer un coffre Recovery Services
 
@@ -29,7 +29,7 @@ Vous ne pouvez pas supprimer un coffre de Recovery Services qui a des dépendanc
 
   ![Erreur de suppression du coffre](./media/backup-azure-delete-vault/error.png)
 
-- Si vous supprimez un élément protégé local (MARS, MABS ou DPM pour Azure) à partir du portail contenant les dépendances, un message d’avertissement s’affiche :
+- Si vous supprimez un élément protégé local (MARS, MABS ou DPM dans Azure) à partir du portail contenant des dépendances, un message d’avertissement s’affiche :
 
   ![Erreur de suppression de serveur protégé](./media/backup-azure-delete-vault/error-message.jpg)
 
@@ -51,7 +51,7 @@ Avant de poursuivre, lisez **[cette section](#before-you-start)** pour comprendr
 
 Pour arrêter la protection et supprimer les données de sauvegarde, procédez comme suit :
 
-1. Depuis le portail > **Coffre Recovery Services** > **Éléments de sauvegarde**, choisissez les éléments protégés dans le cloud (exemple Machine virtuelle Azure, Stockage Azure (Azure Files), SQL sur machine virtuelle Azure, etc.).
+1. Dans le portail > **Coffre Recovery Services** > **Éléments de sauvegarde**, choisissez les éléments protégés dans le cloud (par exemple, une machine virtuelle Azure, le Stockage Azure (Azure Files), SQL sur une machine virtuelle Azure, etc.).
 
     ![sélectionner le type de sauvegarde](./media/backup-azure-delete-vault/azure-storage-selected.png)
 
@@ -126,12 +126,12 @@ Pour supprimer des éléments de sauvegarde de la console de gestion MARS
 - Vous êtes invité à entrer un code PIN de sécurité. Pour générer le code PIN, vous devez effectuer les étapes ci-dessous :
   - Connectez-vous au portail Azure.
   - Accédez à **Coffre Recovery Services** > **Paramètres** > **Propriétés**.
-  - Sous **Code PIN de sécurité**, cliquez sur **Générer**. Copiez ce code PIN. (Ce dernier n’est valide que pendant cinq minutes.)
+  - Sous **Code PIN de sécurité**, cliquez sur **Générer**. Copiez ce code PIN. (Il n’est valide que pendant cinq minutes.)
 - Dans la console de gestion (application cliente), collez le code PIN et cliquez sur **Ok**.
 
   ![Code PIN de sécurité](./media/backup-azure-delete-vault/security-pin.png)
 
-- Dans l’Assistant **Modification de la progression de la sauvegarde**, vous verrez le message *Les données supprimées sont conservées pendant 14 jours. Passé ce délai, les données de sauvegarde sont définitivement supprimées.*  
+- Dans l’Assistant **Modifier la progression de la sauvegarde**, le message suivant s’affiche : *Les données de sauvegarde supprimées sont conservées pendant 14 jours. Passé ce délai, les données de sauvegarde sont définitivement supprimées.*  
 
     ![Supprimer l’infrastructure de sauvegarde](./media/backup-azure-delete-vault/deleted-backup-data.png)
 
@@ -159,7 +159,7 @@ L’état du membre protégé est désormais **Réplica inactif disponible**.
 
     ![Supprimer les réplicas sur le disque et en ligne](./media/backup-azure-delete-vault/remove-replica-on-disk-and-online.png)
 
-**La méthode 2** lance la console de **gestion MABS**. Dans la section **Sélectionner la méthode de protection des données**, désélectionnez **Je voudrais une protection en ligne**.
+**La méthode 2** lance la console de **gestion MABS**. Dans la section **Sélectionner la méthode de protection des données**, décochez **Je voudrais une protection en ligne**.
 
   ![Sélectionner la méthode de protection des données](./media/backup-azure-delete-vault/data-protection-method.png)
 
@@ -183,7 +183,7 @@ Cette option qui permet de supprimer le coffre de Recovery Services est recomman
 
 - Dans le volet **Essentials** du menu du coffre, vérifiez qu’il n’y a pas d’**éléments de sauvegarde**, de **serveurs de gestion des sauvegardes** ou d’**éléments répliqués** listés. S’il existe des éléments de sauvegarde, voir la section [Avant de commencer](#before-you-start).
 - Réessayez [de supprimer le coffre à partir du portail](#delete-the-recovery-services-vault).
-- Si toutes les dépendances sont supprimées et que vous obtenez toujours le *message d’erreur de suppression du coffre*, utilisez l’outil ARMClient pour effectuer les étapes indiquées ci-dessous ;
+- Si toutes les dépendances sont supprimées et que vous obtenez toujours l’*erreur de suppression du coffre*, utilisez l’outil ARMClient pour effectuer les étapes indiquées ci-dessous.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -202,12 +202,12 @@ Pour plus d’informations sur la commande ARMClient, consultez ce [document](ht
 
 1. Exécutez la commande suivante à l’aide de votre ID d’abonnement, du nom du groupe de ressources et du nom du coffre. Quand vous exécutez la commande, celle-ci supprime le coffre si vous n’avez pas de dépendances.
 
-   ```
+   ```azurepowershell
    ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<recovery services vault name>?api-version=2015-03-15
    ```
 2. Si le coffre n’est pas vide, vous recevez le message d’erreur « Impossible de supprimer le coffre car celui-ci contient des ressources ». Pour supprimer un conteneur/élément protégé au sein d’un coffre, procédez comme suit :
 
-   ```
+   ```azurepowershell
    ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<recovery services vault name>/registeredIdentities/<container name>?api-version=2016-06-01
    ```
 

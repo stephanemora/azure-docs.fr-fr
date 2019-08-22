@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 1c12007e04ff8cd08ddb7afdf9a3c2add9638de3
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: d8e80594e0c56f57527d1703b0cf1323571cf351
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68277446"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68855704"
 ---
 # <a name="monitor-performance-and-storage-metrics-in-azure-cosmos-db"></a>Superviser les métriques de performances et de stockage dans Azure Cosmos DB
 
@@ -50,7 +50,7 @@ Vous pouvez consulter les mesures sur la page Compte, sur la nouvelle page Mesur
 ## <a name="set-up-alerts-in-the-portal"></a>Configuration d’alertes dans le portail
 
 > [!NOTE]
-> Les alertes classiques Azure Monitor seront mises hors service le 31 août 2019. Le portail Azure propose un [outil de migration](../azure-monitor/platform/alerts-using-migration-tool.md) pour migrer les règles d’alerte classiques. Toutefois, les alertes classiques ayant trait aux métriques Azure Cosmos DB ne peuvent pas toutes être migrées, certaines font exception. Pour la liste des alertes classiques ne pouvant être migrées, consultez l'article [Azure Monitor](../azure-monitor/platform/alerts-understand-migration.md#cosmos-db-metrics). 
+> Les alertes classiques Azure Monitor seront mises hors service bientôt. Le portail Azure propose un [outil de migration](../azure-monitor/platform/alerts-using-migration-tool.md) pour migrer les règles d’alerte classiques. Toutefois, les alertes classiques ayant trait aux métriques Azure Cosmos DB ne peuvent pas toutes être migrées, certaines font exception. Pour la liste des alertes classiques ne pouvant être migrées, consultez l’article [Azure Monitor](../azure-monitor/platform/alerts-understand-migration.md#cosmos-db-metrics). 
 
 1. Dans le [portail Azure](https://portal.azure.com/), cliquez sur **Tous les services**, puis sur **Azure Cosmos DB**. Cliquez ensuite sur le nom du compte Azure Cosmos DB pour lequel vous souhaitez configurer les alertes de métriques de performances.
 2. Dans le menu de ressources, cliquez sur **Règles d’alerte** pour ouvrir la page Règles d’alerte.  

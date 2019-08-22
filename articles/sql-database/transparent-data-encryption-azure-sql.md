@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
-ms.date: 04/19/2019
-ms.openlocfilehash: 1d5baf4b7f8a28638c5dbd50fb407035a5b9ea89
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.date: 08/12/2019
+ms.openlocfilehash: 07fcd0f1ec33aa9a7520e35eb7e53a76295009ba
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566128"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967898"
 ---
 # <a name="transparent-data-encryption-for-sql-database-and-data-warehouse"></a>Transparent Data Encryption pour SQL Database et Data Warehouse
 
@@ -37,7 +37,7 @@ Pour le chiffrement transparent des données dans Azure, la clé de chiffrement 
 En outre, Microsoft déplace et gère en toute transparence les clés en fonction des besoins en matière de géoréplication et de restaurations.
 
 > [!IMPORTANT]
-> Toutes les bases de données SQL nouvellement créées sont chiffrées par défaut à l’aide du chiffrement transparent des données géré par le service. Les bases de données Azure SQL Managed Instance, les bases de données SQL existantes créées avant mai 2017 et les bases de données SQL créées via restauration, géoréplication et copie de base de données, ne sont pas chiffrées par défaut.
+> Toutes les bases de données SQL et les bases de données Managed Instance nouvellement créées sont chiffrées par défaut à l’aide du chiffrement transparent des données géré par le service. Les bases de données SQL existantes créées avant mai 2017 et les bases de données SQL créées via restauration, géoréplication et copie de base de données, ne sont pas chiffrées par défaut. Les bases de données Managed Instance existantes créées avant février 2019 ne sont pas chiffrées par défaut. Les bases de données Managed Instance créées par le biais de la restauration héritent de l’état de chiffrement de la source.
 
 ## <a name="customer-managed-transparent-data-encryption---bring-your-own-key"></a>Chiffrement transparent des données géré par le client - Bring Your Own Key
 

@@ -9,12 +9,12 @@ ms.date: 08/12/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs
-ms.openlocfilehash: 1c60c4b868854952771ba297107904762a2357d8
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: ef51a1b130323a8799d5334d8d043fda08fcc7ef
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69032988"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69896960"
 ---
 # <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-the-azure-cli-preview"></a>Créer une SAP de délégation d’utilisateur pour un conteneur ou un objet BLOB avec l’interface de ligne de commande Azure (préversion)
 
@@ -49,7 +49,7 @@ az role assignment create \
     --scope "/subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>"
 ```
 
-Pour plus d’informations sur les rôles intégrés qui incluent l’action **Microsoft. Storage/storageAccounts/blobServices/generateUserDelegationKey** , consultez [Rôles intégrés pour les ressources Azure](/role-based-access-control/built-in-roles).
+Pour plus d’informations sur les rôles intégrés qui incluent l’action **Microsoft. Storage/storageAccounts/blobServices/generateUserDelegationKey** , consultez [Rôles intégrés pour les ressources Azure](../../role-based-access-control/built-in-roles.md).
 
 ## <a name="use-azure-ad-credentials-to-secure-a-sas"></a>Utiliser des informations d’identification Azure AD pour sécuriser une SAP
 
@@ -63,7 +63,7 @@ Lors de la création d’une SAP de délégation d’utilisateur, `--auth-mode l
 
 Pour créer une SAP de délégation d’utilisateur pour un conteneur avec l’interface de ligne de commande Azure, appelez la commande [az storage container generate-sas](/cli/azure/storage/container#az-storage-container-generate-sas).
 
-Les autorisations prises en charge pour une SAP sur un conteneur incluent Ajouter, Créer, Supprimer, Répertorier, Lire et Écrire. Les autorisations peuvent être spécifiées séparément ou combinées. Pour plus d’informations sur ces permissions, consultez [Créer une SAP de délégation d’utilisateur](/rest/api/storageservices/create-a-user-delegation-sas).
+Les autorisations prises en charge pour une SAP sur un conteneur incluent Ajouter, Créer, Supprimer, Répertorier, Lire et Écrire. Les autorisations peuvent être spécifiées séparément ou combinées. Pour plus d’informations sur ces permissions, consultez [Créer une SAP de délégation d’utilisateur](/rest/api/storageservices/create-user-delegation-sas).
 
 L’exemple suivant retourne un jeton SAS de délégation d’utilisateur pour un conteneur. N’oubliez pas de remplacer les valeurs d’espace réservé entre crochets par vos propres valeurs :
 
@@ -87,7 +87,7 @@ se=2019-07-27&sp=r&sv=2018-11-09&sr=c&skoid=<skoid>&sktid=<sktid>&skt=2019-07-26
 
 Pour créer une SAP de délégation d’utilisateur pour un objet bloc avec l’interface de ligne de commande Azure, appelez la commande [az storage blob generate-sas](/cli/azure/storage/blob#az-storage-blob-generate-sas).
 
-Les autorisations prises en charge pour une SAP sur un objet blob incluent Ajouter, Créer, Supprimer, Lire et Écrire. Les autorisations peuvent être spécifiées séparément ou combinées. Pour plus d’informations sur ces permissions, consultez [Créer une SAP de délégation d’utilisateur](/rest/api/storageservices/create-a-user-delegation-sas).
+Les autorisations prises en charge pour une SAP sur un objet blob incluent Ajouter, Créer, Supprimer, Lire et Écrire. Les autorisations peuvent être spécifiées séparément ou combinées. Pour plus d’informations sur ces permissions, consultez [Créer une SAP de délégation d’utilisateur](/rest/api/storageservices/create-user-delegation-sas).
 
 La syntaxe suivante retourne une SAP de délégation d’utilisateur pour un objet blob. L’exemple spécifie le paramètre `--full-uri`, qui retourne l’URI de l’objet blob auquel le jeton SAS est ajouté. N’oubliez pas de remplacer les valeurs d’espace réservé entre crochets par vos propres valeurs :
 
@@ -115,5 +115,5 @@ https://storagesamples.blob.core.windows.net/sample-container/blob1.txt?se=2019-
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Créer une SAP de délégation d’utilisateur (API REST)](/rest/api/storageservices/create-a-user-delegation-sas)
+- [Créer une SAP de délégation d’utilisateur (API REST)](/rest/api/storageservices/create-user-delegation-sas)
 - [Obtenir une opération de clé de délégation d’utilisateur](/rest/api/storageservices/get-user-delegation-key)

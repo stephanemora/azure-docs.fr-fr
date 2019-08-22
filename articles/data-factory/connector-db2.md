@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/17/2018
+ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: 797db8d0dd321676a3fa436a328a9981a3d3ca3b
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.openlocfilehash: 49f86a6a8858fd0ef3085ed571f3348d33f70c8d
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67312042"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68966586"
 ---
 # <a name="copy-data-from-db2-by-using-azure-data-factory"></a>Copier des données de DB2 à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -48,7 +48,9 @@ En particulier, ce connecteur DB2 prend en charge les plateformes et versions IB
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour copier des données depuis/vers une base de données DB2 qui n’est pas accessible publiquement, vous devez configurer un runtime d’intégration auto-hébergé. Pour en savoir plus sur les runtimes d’intégration auto-hébergés, voir l’article [Runtime d’intégration auto-hébergé](create-self-hosted-integration-runtime.md). Le runtime d’intégration fournit un pilote DB2 intégré. Ainsi, vous n’avez pas besoin d’installer manuellement un pilote lors de la copie des données de DB2.
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
+
+Le runtime d’intégration fournit un pilote DB2 intégré. Ainsi, vous n’avez pas besoin d’installer manuellement un pilote lors de la copie des données de DB2.
 
 ## <a name="getting-started"></a>Prise en main
 
@@ -63,12 +65,12 @@ Les propriétés prises en charge pour le service lié DB2 sont les suivantes :
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | type | La propriété type doit être définie sur : **Db2** | OUI |
-| serveur |Nom du serveur DB2. Vous pouvez spécifier le numéro de port à la suite du nom du serveur en le séparant par un signe deux-points, par exemple, `server:port`. |OUI |
+| server |Nom du serveur DB2. Vous pouvez spécifier le numéro de port à la suite du nom du serveur en le séparant par un signe deux-points, par exemple, `server:port`. |OUI |
 | database |Nom de la base de données DB2. |OUI |
 | authenticationType |Type d'authentification utilisé pour se connecter à la base de données DB2.<br/>Valeur autorisée : **De base**. |OUI |
 | username |Spécifiez le nom d’utilisateur pour la connexion à la base de données DB2. |OUI |
 | password |Spécifiez le mot de passe du compte d’utilisateur que vous avez spécifié pour le nom d’utilisateur. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). |OUI |
-| connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Vous pouvez utiliser un runtime d’intégration auto-hébergé ou un runtime d’intégration Azure (si votre banque de données est accessible publiquement). À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. |Non |
+| connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Pour plus d’informations, consultez la section [Prérequis](#prerequisites). À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. |Non |
 
 **Exemple :**
 
@@ -103,7 +105,7 @@ Pour copier des données de DB2, affectez la valeur **RelationalTable** à la pr
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type du jeu de données doit être définie sur : **RelationalTable** | OUI |
+| type | La propriété type du jeu de données doit être définie sur : **RelationalTable** | OUI |
 | tableName | Nom de la table dans la base de données DB2. | Non (si « query » dans la source de l’activité est spécifié) |
 
 **Exemple**
@@ -133,7 +135,7 @@ Pour copier des données de DB2, définissez **RelationalSource** comme type de 
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type de la source d’activité de copie doit être définie sur : **RelationalSource** | OUI |
+| type | La propriété type de la source d’activité de copie doit être définie sur : **RelationalSource** | OUI |
 | query | Utiliser la requête SQL personnalisée pour lire les données. Par exemple : `"query": "SELECT * FROM \"DB2ADMIN\".\"Customers\""`. | Non (si « tableName » est spécifié dans dataset) |
 
 **Exemple :**
@@ -195,7 +197,7 @@ Lors de la copie de données de DB2, les mappages suivants sont utilisés entre 
 | Real |Single |
 | SmallInt |Int16 |
 | Temps |TimeSpan |
-| Timestamp |Datetime |
+| Timestamp |DateTime |
 | VarBinary |Byte[] |
 | VarChar |Chaîne |
 | VarGraphic |Chaîne |

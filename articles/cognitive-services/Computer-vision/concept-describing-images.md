@@ -1,5 +1,5 @@
 ---
-title: Description d’images - Vision par ordinateur
+title: Descriptions des images - Vision par ordinateur
 titleSuffix: Azure Cognitive Services
 description: Concepts liés à la description d’images de l’API Vision par ordinateur.
 services: cognitive-services
@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 91618b211fdd869daf74491b175d6359ffa3f30c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: dcf61c642a9f8ad7aa68d72736ce8fdb0e9a6e3c
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60368377"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68945260"
 ---
 # <a name="describe-images-with-human-readable-language"></a>Décrire les images dans le langage humain
 
-Le service Vision par ordinateur peut analyser une image et générer une phrase explicite qui décrit son contenu. En fait, l'algorithme renvoie plusieurs descriptions basées sur différentes caractéristiques visuelles, et chaque description reçoit un score de confiance. Le résultat final est une liste de descriptions classées de la confiance la plus élevée à la plus faible.
+Le service Vision par ordinateur peut analyser une image et générer une phrase explicite qui décrit son contenu. En fait, l’algorithme retourne plusieurs descriptions basées sur différentes caractéristiques visuelles, et chaque description reçoit un score de confiance. Le résultat final est une liste de descriptions classées de la confiance la plus élevée à la plus faible.
 
 ## <a name="image-description-example"></a>Exemple de description d’image
 

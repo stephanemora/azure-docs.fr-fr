@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 12/10/2018
 ms.author: mlearned
 ms.openlocfilehash: d1bc865b38b52c8a7c3ac6ec4dab6408a1d0430c
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "67614751"
 ---
 # <a name="best-practices-for-network-connectivity-and-security-in-azure-kubernetes-service-aks"></a>Meilleures pratiques pour la connectivité réseau et la sécurité dans Azure Kubernetes Service (AKS)
@@ -99,7 +99,7 @@ spec:
          servicePort: 80
 ```
 
-Un contrôleur d’entrée est un démon qui s’exécute sur un nœud AKS et surveille les demandes entrantes. Le trafic est ensuite distribué selon les règles définies dans la ressource d’entrée. Le contrôleur d’entrée le plus courant est basé sur [NGINX], mais AKS ne limite pas à un contrôleur spécifique : vous pouvez utiliser d’autres contrôleurs comme [Contour][contour], [HAProxy][haproxy] ou [Traefik][traefik].
+Un contrôleur d’entrée est un démon qui s’exécute sur un nœud AKS et surveille les demandes entrantes. Le trafic est ensuite distribué selon les règles définies dans la ressource d’entrée. Le contrôleur d’entrée le plus courant est basé sur [NGINX], mais AKS ne limite pas à un contrôleur spécifique : vous pouvez utiliser d’autres contrôleurs comme [Contour][contour], [HAProxy][haproxy] ou [Traefik][traefik].
 
 Les contrôleurs d’entrée doivent être planifiés sur un nœud Linux. Les nœuds Windows Server (actuellement en préversion dans AKS) ne doivent pas exécuter le contrôleur d’entrée. Utilisez un sélecteur de nœud dans votre manifeste YAML ou votre déploiement de graphique Helm pour indiquer que la ressource doit s’exécuter sur un nœud Linux. Pour plus d’informations, consultez [Use node selectors to control where pods are scheduled in AKS (Utiliser des sélecteurs de nœud pour contrôler l’emplacement de planification des pods dans AKS)][concepts-node-selectors].
 
@@ -108,7 +108,7 @@ Il existe de nombreux scénarios pour l’entrée, notamment ceux des guides pra
 * [Créer un contrôleur d’entrée dans Azure Kubernetes Service (AKS)][aks-ingress-basic]
 * [Create an ingress controller to an internal virtual network in Azure Kubernetes Service (AKS)][aks-ingress-internal] (Créer un contrôleur d’entrée pour un réseau virtuel interne dans Azure Kubernetes Service (AKS))
 * [Créer un contrôleur d’entrée qui utilise vos propres certificats TLS][aks-ingress-own-tls]
-* Créer un contrôleur d’entrée qui utilise Let’s Encrypt pour générer automatiquement des certificats TLS [avec une adresse IP publique dynamique][aks-ingress-tls] or [with a static public IP address][aks-ingress-static-tls]
+* Créer un contrôleur d’entrée qui utilise Let’s Encrypt pour générer automatiquement des certificats TLS [avec une adresse IP publique dynamique][aks-ingress-tls] ou [avec une adresse IP publique statique][aks-ingress-static-tls]
 
 ## <a name="secure-traffic-with-a-web-application-firewall-waf"></a>Sécuriser le trafic avec un pare-feu d’applications web (WAF)
 
@@ -158,7 +158,7 @@ La plupart des opérations effectuées dans AKS peuvent exploiter des outils de 
 
 ![Se connecter à des nœuds AKS à l’aide d’un hôte bastion ou d’une jumpbox](media/operator-best-practices-network/connect-using-bastion-host-simplified.png)
 
-Le réseau de gestion de l’hôte bastion doit lui aussi être sécurisé. Utilisez [Azure ExpressRoute][expressroute] or [VPN gateway][vpn-gateway] pour vous connecter à un réseau local et contrôler l’accès avec des groupes de sécurité réseau.
+Le réseau de gestion de l’hôte bastion doit lui aussi être sécurisé. Utilisez [Azure ExpressRoute][expressroute] ou une [passerelle VPN][vpn-gateway] pour vous connecter à un réseau local et contrôler l’accès avec des groupes de sécurité réseau.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

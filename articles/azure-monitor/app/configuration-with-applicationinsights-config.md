@@ -13,17 +13,17 @@ ms.topic: conceptual
 ms.date: 05/22/2019
 ms.reviewer: olegan
 ms.author: mbullwin
-ms.openlocfilehash: 382f43156ab450600ff0d2e5e2db763cd6bd94df
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 02ad74e5b1f8b86a0072b413db2a572f8ed92781
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67875051"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932142"
 ---
 # <a name="configuring-the-application-insights-sdk-with-applicationinsightsconfig-or-xml"></a>Configuration du kit de développement logiciel (SDK) Application Insights à l’aide du fichier ApplicationInsights.config ou .xml
 Le kit de développement logiciel (SDK) .NET Application Insights se compose d’un certain nombre de packages NuGet. Le [package principal](https://www.nuget.org/packages/Microsoft.ApplicationInsights) fournit l'API pour l'envoi des données télémétriques à Application Insights. Des [packages supplémentaires](https://www.nuget.org/packages?q=Microsoft.ApplicationInsights) fournissent les *modules* et les *initialiseurs* de télémétrie pour le suivi télémétrique automatique de votre application et de son contexte. La modification du fichier config permet d’activer ou de désactiver les modules et initialiseurs de télémétrie, et de définir les paramètres pour certains d’entre eux.
 
-Le fichier de configuration est nommé `ApplicationInsights.config` ou `ApplicationInsights.xml`, selon le type de votre application. Il est automatiquement ajouté à votre projet lorsque vous [installez la plupart des versions du kit de développement logiciel (SDK)][start]. Il est également ajouté à une application web par [Status Monitor sur un serveur IIS][redfield]. Le fichier de configuration est ignoré si l'[extension pour le site web Azure](azure-web-apps.md) ou l'[extension pour la machine virtuelle Azure et le groupe de machines virtuelles identiques](azure-vm-vmss-apps.md) est utilisée.
+Le fichier de configuration est nommé `ApplicationInsights.config` ou `ApplicationInsights.xml`, selon le type de votre application. Il est automatiquement ajouté à votre projet lorsque vous [installez la plupart des versions du kit de développement logiciel (SDK)][start]. Par défaut, quand vous utilisez l’expérience automatisée des projets de modèle Visual Studio qui prennent en charge **Ajouter > Application Insights Telemetry**, le fichier ApplicationInsights.config est créé dans le dossier racine du projet et, quand il est compilé, il est copié dans le dossier Bin. Il est également ajouté à une application web par [Status Monitor sur un serveur IIS][redfield]. Le fichier de configuration est ignoré si l'[extension pour le site web Azure](azure-web-apps.md) ou l'[extension pour la machine virtuelle Azure et le groupe de machines virtuelles identiques](azure-vm-vmss-apps.md) est utilisée.
 
 Il n’existe aucun fichier équivalent permettant de contrôler le [kit de développement logiciel (SDK) dans une page web][client].
 
@@ -45,7 +45,7 @@ Vous pouvez également écrire votre propre code de suivi des dépendances à l'
 * `Microsoft.ApplicationInsights.DependencyCollector.DependencyTrackingTelemetryModule`
 * [Microsoft.ApplicationInsights.DependencyCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector) .
 
-Les dépendances peuvent être collectées automatiquement, sans modification de votre code, à l’aide de la jonction (sans code) basée sur l'agent. Pour l’utiliser dans des applications web Azure, activez l'[extension Application Insights](azure-web-apps.md). Pour l’utiliser dans une machine virtuelle Azure ou un groupe de machines virtuelles identiques Azure, activez l’[extension Surveillance des applications pour machine virtuelle et groupe de machines virtuelles identiques](azure-vm-vmss-apps.md).
+Les dépendances peuvent être collectées automatiquement, sans modification de votre code, à l’aide de la jonction (sans code) basée sur l'agent. Pour l’utiliser dans des applications web Azure, activez l’[extension Application Insights](azure-web-apps.md). Pour l’utiliser dans une machine virtuelle Azure ou un groupe de machines virtuelles identiques Azure, activez l’[extension Surveillance des applications pour machine virtuelle et groupe de machines virtuelles identiques](azure-vm-vmss-apps.md).
 
 ### <a name="performance-collector"></a>Collecteur de performances
 [Collecte les compteurs de performances système](../../azure-monitor/app/performance-counters.md), notamment l’UC, la mémoire et la charge réseau, à partir des installations IIS. Vous pouvez spécifier les compteurs à collecter, y compris les compteurs de performances que vous avez configurés vous-même.

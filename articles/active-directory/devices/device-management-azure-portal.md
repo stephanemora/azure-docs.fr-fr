@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7f64beb80d1a11930fee74e669675b39087cade0
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 03c9f0908d8b5290dc4585a330a7ea78a6577ab9
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562232"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68942971"
 ---
 # <a name="manage-device-identities-using-the-azure-portal"></a>Gérer les identités de l’appareil à l’aide du portail Microsoft Azure
 
@@ -116,7 +116,7 @@ Cette section fournit des informations sur les tâches courantes de gestion des 
 
 ### <a name="manage-an-intune-device"></a>Gérer un appareil Intune
 
-Si vous êtes administrateur Intune, vous pouvez gérer les appareils marqués comme étant des appareils **Microsoft Intune**.
+Si vous êtes administrateur Intune, vous pouvez gérer les appareils marqués comme étant des appareils **Microsoft Intune**. Si l’appareil n’est pas inscrit auprès de Microsoft Intune, l’option « Gérer » est grisée.
 
 ![Gérer un appareil Intune](./media/device-management-azure-portal/31.png)
 

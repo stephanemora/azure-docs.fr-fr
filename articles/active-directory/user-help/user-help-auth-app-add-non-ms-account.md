@@ -12,12 +12,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: effe48c859e711f0efc41c1a4d651e5d15d5ada9
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: e1521d2b3d47667466636a1ac15f107826e40942
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68382608"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68942925"
 ---
 # <a name="add-your-non-microsoft-accounts"></a>Ajouter vos comptes non-Microsoft
 
@@ -33,6 +33,9 @@ En règle générale, pour tous vos comptes personnels, vous devez :
 1. Vous connecter à votre compte, puis activer la vérification en deux étapes en utilisant votre appareil ou votre ordinateur.
 
 2. Ajouter le compte à l'application Microsoft Authenticator. Dans le cadre de ce processus, vous pouvez être invité à scanner un code QR.
+
+    >[!Note]
+    >S’il s’agit de la première fois que vous configurez l’application Microsoft Authenticator, vous pouvez recevoir une invite vous demandant si vous souhaitez autoriser l’application à accéder à votre appareil photo (iOS) ou à prendre des photos et à enregistrer des vidéos (Android). Vous devez sélectionner **Autoriser** pour que l’application Authenticator puisse accéder à votre appareil photo pour prendre une photo du code QR à l’étape suivante. Si vous n’autorisez pas l’accès à l’appareil photo, vous pouvez toujours installer l’application Authenticator, mais vous devrez ajouter les informations de code manuellement. Pour plus d’informations sur l’ajout manuel du code, consultez [Ajouter manuellement un compte à l’application](user-help-auth-app-add-account-manual.md).
 
 Nous vous présentons ici le processus correspondant aux comptes Facebook, Google, GitHub et Amazon, mais ce processus est identique pour les autres applications, telles que Netflix, Instagram ou Adobe.
 

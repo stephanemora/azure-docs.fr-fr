@@ -16,10 +16,10 @@ ms.date: 06/06/2019
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 4b125649dee51680625ac5a92b31bdc9f6830529
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "67069654"
 ---
 # <a name="azure-app-service-hybrid-connections"></a>Connexions hybrides d’Azure App Service #
@@ -197,7 +197,7 @@ L’objet JSON associé à une connexion hybride ressemble à :
       }
     }
 
-On peut utiliser ces informations avec l’armclient, que vous pouvez obtenir à partir du projet GitHub [ARMClient][armclient]. Voici un exemple d’attachement d’une connexion hybride existante à votre application. Créez un fichier JSON similaire au schéma ci-dessus :
+Vous pouvez utiliser ces informations avec l’armclient, que vous pouvez obtenir à partir du projet GitHub [ARMClient][armclient]. Voici un exemple d’attachement d’une connexion hybride existante à votre application. Créez un fichier JSON similaire au schéma ci-dessus :
 
     {
       "name": "relay-demo-hc",

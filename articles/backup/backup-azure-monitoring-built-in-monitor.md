@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/05/2019
 ms.author: dacurwin
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
-ms.openlocfilehash: 5fde581f322504c7e329da7fa153671b8a91183d
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: bae05e890ef76ada9f775293c673cb8baa82c8bf
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688374"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954580"
 ---
 # <a name="monitoring-azure-backup-workloads"></a>Surveillance des charges de travail de Sauvegarde Azure
 
@@ -87,6 +87,9 @@ Lorsqu’une alerte est déclenchée, les utilisateurs en sont informés. Le ser
 
 ![Notification par e-mail intégrée du coffre Recovery Services](media/backup-azure-monitoring-laworkspace/rs-vault-inbuiltnotification.png)
 
+> [!NOTE]
+> Les alertes correspondant aux sauvegardes SQL seront consolidées et l’e-mail est envoyé uniquement pour la première occurrence. Toutefois, si l’alerte est désactivée par l’utilisateur, l’occurrence suivante déclenche un autre e-mail.
+
 Lorsque la notification est configurée, vous recevez un e-mail de bienvenue ou d’introduction. Il confirme que le service Sauvegarde Azure peut envoyer des e-mails à ces adresses lorsqu’une alerte est déclenchée.<br>
 
 Si la fréquence était définie sur une synthèse horaire et qu’une alerte a été déclenchée et résolue dans l’heure, elle ne fera pas partie de la synthèse horaire à venir.
@@ -95,6 +98,14 @@ Si la fréquence était définie sur une synthèse horaire et qu’une alerte a 
 >
 > * Si une opération destructive comme **l’arrêt de la protection avec suppression des données** est effectuée, une alerte est déclenchée et un e-mail est envoyé aux administrateurs, coadministrateurs et propriétaires de l’abonnement, même si les notifications ne sont PAS configurées pour le coffre Recovery Services.
 > * Pour configurer la notification pour les travaux réussis, utilisez [Log Analytics](backup-azure-monitoring-use-azuremonitor.md#using-log-analytics-workspace).
+
+## <a name="inactivating-alerts"></a>Désactivation des alertes
+
+Pour désactiver/résoudre une alerte active, vous pouvez cliquer sur l’élément de liste correspondant à l’alerte que vous voulez désactiver. Cette opération ouvre un écran qui affiche des informations détaillées sur l’alerte, avec un bouton « Désactiver » en haut. Le fait de cliquer sur ce bouton change l’état de l’alerte en « Inactif ». Vous pouvez également désactiver une alerte en cliquant simplement avec le bouton droit sur l’élément de liste correspondant à cette alerte et en sélectionnant « Désactiver ».
+
+![Désactivation d’alerte de coffre Recovery Services](media/backup-azure-monitoring-laworkspace/vault-alert-inactivation.png)
+
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

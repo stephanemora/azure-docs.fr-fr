@@ -6,14 +6,14 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 06/06/2019
+ms.date: 08/12/2019
 ms.author: alinast
-ms.openlocfilehash: 478fe1859dd9067e8097df0384657793602c1378
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3c33992ce3c130d6c06e0709a9c4ddcab4fff159
+ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67071454"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69013939"
 ---
 # <a name="egress-and-endpoints"></a>Sortie et points de terminaison
 
@@ -49,14 +49,14 @@ Les événements sont envoyés par des objets IoT (tels que les appareils et cap
 
 | Attribut | Type | Description |
 | --- | --- | --- |
-| id | chaîne | Identificateur unique de l’événement. |
-| subject | chaîne | Chemin de l’objet de l’événement, défini par le serveur de publication. |
+| id | string | Identificateur unique de l’événement. |
+| subject | string | Chemin de l’objet de l’événement, défini par le serveur de publication. |
 | données | objet | Données d’événement spécifiques au fournisseur de ressources. |
-| eventType | chaîne | Un des types d’événements inscrits pour cette source d’événement. |
-| eventTime | chaîne | L’heure à quelle l’événement est généré selon l’heure UTC du fournisseur. |
-| dataVersion | chaîne | Version du schéma de l’objet de données. Le serveur de publication définit la version du schéma. |
-| metadataVersion | chaîne | Version du schéma des métadonnées d’événement. Event Grid définit le schéma des propriétés de niveau supérieur. Event Grid fournit cette valeur. |
-| rubrique | chaîne | Chemin d’accès complet à la source de l’événement. Ce champ n’est pas modifiable. Event Grid fournit cette valeur. |
+| eventType | string | Un des types d’événements inscrits pour cette source d’événement. |
+| eventTime | string | L’heure à quelle l’événement est généré selon l’heure UTC du fournisseur. |
+| dataVersion | string | Version du schéma de l’objet de données. Le serveur de publication définit la version du schéma. |
+| metadataVersion | string | Version du schéma des métadonnées d’événement. Event Grid définit le schéma des propriétés de niveau supérieur. Event Grid fournit cette valeur. |
+| topic | string | Chemin d’accès complet à la source de l’événement. Ce champ n’est pas modifiable. Event Grid fournit cette valeur. |
 
 Pour plus d’informations sur le schéma d’événement Event Grid :
 
@@ -246,7 +246,7 @@ Les exemples suivants illustrent la configuration des différents points de term
 >[!IMPORTANT]
 > Soyez attentif à l’attribut **eventTypes**. Il définit quels types d’événements sont gérés par le point de terminaison, ce qui détermine leurs routages.
 
-Une requête HTTP POST authentifiée sur
+Une requête HTTP POST authentifiée sur :
 
 ```plaintext
 YOUR_MANAGEMENT_API_URL/endpoints

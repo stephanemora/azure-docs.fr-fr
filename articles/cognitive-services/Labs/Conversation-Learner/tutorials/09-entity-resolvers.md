@@ -64,7 +64,7 @@ Démarrez sur la page d’accueil de l’interface utilisateur web.
     - Notez que le champ **Required Entities** recevra également ces Entités, qui ne peuvent pas être supprimées. Ainsi, cette action n’est disponible qu’en présence de ces deux entités requises.
 3. Sélectionnez **Créer**.
 4. Sélectionnez **New Action** pour créer une deuxième Action.
-5. Entrez **When are you planning to travel?** comme **Bot’s Response...** .
+5. Entrez **When are you planning to travel?** (Quand comptez-vous voyager ?) comme  **Bot’s Response...** (Réponse du bot).
 6. Entrez **departure** et **return** comme **Disqualifying Entities**. Cela ordonne à notre bot de NE PAS effectuer cette action si l’une de ces entités contient une valeur.
 7. Sélectionnez **Créer**.
 
@@ -82,7 +82,7 @@ Démarrez sur la page d’accueil de l’interface utilisateur web.
 5. Sélectionnez la réponse « When are you planning to travel? » (« Quand comptez-vous voyager ? »).
 6. En tant qu’utilisateur, répondez par « leaving tomorrow and returning Sunday next week » (« pars demain et reviens dimanche la semaine prochaine »).
     - Remarquez la façon dont Conversation Learner a détecté deux Entités « Pre-Trained date » (« Date de pré-formation ») dans ce tour de rôle.
-7. Dans le panneau « Entity Detection » (« Détection d’entité », sélectionnez le texte « tomorrow » (« demain ») et identifiez-le comme « departure » (« départ »)
+7. Dans le panneau « Entity Detection » (« Détection d’entité »), sélectionnez le texte « tomorrow » (« demain ») et identifiez-le comme « departure » (« départ »)
 8. Indiquez également « Sunday next week » (« Dimanche prochain ») pour « return » (« retour »)
 9. Cliquez sur le bouton « Score Actions ».
     - Notez que le volet « Memory » (« Mémoire ») contient vos dates de départ et de retour.

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 6/6/2019
 ms.author: borisb
-ms.openlocfilehash: f7ae82b0376489e21b35e4e94dce32805bea69c6
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 7d34e480dd3cf90f1948e83ea1d18c04f1dcdce2
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67708378"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68854439"
 ---
 # <a name="red-hat-enterprise-linux-images-in-azure"></a>Images Red Hat Enterprise Linux dans Azure
 Cet article décrit les images Red Hat Enterprise Linux (RHEL) disponibles sur la Place de marché Azure, ainsi que les stratégies relatives à leur dénomination et à leur rétention.
@@ -132,6 +132,12 @@ RHEL-SAP-HANA | 6.7      | RAW    | Agent Linux | RHEL 6.7 pour SAP HANA
 |             | 7.3      | LVM    | Agent Linux | RHEL 7.3 pour SAP HANA
 RHEL-SAP-APPS | 6.8      | RAW    | Agent Linux | RHEL 6.8 pour applications métiers SAP
 |             | 7.3      | LVM    | Agent Linux | RHEL 7.3 pour applications métiers SAP
+RHEL-HA       | 7.4      | RAW    | Agent Linux | RHEL 7.4 avec add-on HA
+|             | 7.5      | RAW    | Agent Linux | RHEL 7.5 avec add-on HA
+|             | 7.6      | RAW    | Agent Linux | RHEL 7.6 avec add-on HA
+RHEL-SAP-HA   | 7.4      | RAW    | Agent Linux | RHEL 7.4 pour SAP avec add-on HA
+|             | 7.5      | RAW    | Agent Linux | RHEL 7.5 pour SAP avec add-on HA
+|             | 7.6      | RAW    | Agent Linux | RHEL 7.6 pour SAP avec add-on HA
 
 ### <a name="old-naming-convention"></a>Ancienne convention d’affectation de noms
 La famille RHEL 7 d’images et la famille RHEL 6 d’images utilisaient des versions spécifiques dans leurs références SKU jusqu’à l’application du changement de convention d’affectation de noms expliqué ci-dessus.

@@ -1,22 +1,22 @@
 ---
-title: Liste de contrôle de création d’offre – Place de marché Azure commerciale pour Azure
-description: Détails que vous pouvez fournir dans le cadre du processus de création d’offre – Place de marché commerciale pour Azure
+title: Liste de contrôle de création d’offre SaaS – Place de marché commerciale pour Azure
+description: Détails que vous pouvez fournir dans le cadre du processus de création d’offre SaaS. – Place de marché commerciale pour Azure
 author: qianw211
 manager: evansma
 ms.author: v-qiwe
 ms.service: marketplace
 ms.topic: conceptual
-ms.date: 05/30/2019
-ms.openlocfilehash: eb824eb67e84ec4bdb93bc355ac6a6afa844ceb9
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.date: 08/14/2019
+ms.openlocfilehash: 66c28039f9126ed9e3f56c3ac15b1b3d82279b64
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67701153"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69036381"
 ---
-# <a name="offer-creation-checklist"></a>Liste de vérification de la création d’offre
+# <a name="saas-offer-creation-checklist"></a>Check-list pour la création d’une offre SaaS
 
-Le processus de création d’offre vous amène à visiter plusieurs pages. Voici les détails que vous pouvez fournir sur chacune d’elles, avec des liens pour en apprendre davantage plus sur chaque élément.
+Le processus de création d’offre SaaS vous amène à visiter plusieurs pages. Voici les détails que vous pouvez fournir sur chacune d’elles, avec des liens pour en apprendre davantage plus sur chaque élément.
 
 Les éléments que vous devez fournir ou spécifier sont indiqués ci-dessous. Certaines zones sont facultatives ou comportent des valeurs par défaut que vous pouvez modifier à votre guise. Vous n’êtes pas obligé de travailler sur ces sections dans l’ordre indiqué ici.
 

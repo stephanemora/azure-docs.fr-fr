@@ -16,12 +16,12 @@ ms.date: 05/23/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b13b23e59595acf8c637a2ef58c8098256920bea
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: 196ee5546a5065aebfae36d0af1fccff6b271a70
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67654055"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69032470"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect : Historique de publication des versions
 L’équipe Azure Active Directory (Azure AD) met régulièrement à jour Azure AD Connect avec de nouvelles fonctions et fonctionnalités. Tous les ajouts ne sont pas applicables à toutes les configurations.
@@ -508,7 +508,7 @@ Pour plus d’informations, consultez [Avis de sécurité Microsoft 4056318](htt
 
 ### <a name="azure-ad-connect-sync"></a>Synchronisation d’Azure AD Connect
 > [!NOTE]
-> Remarque : Le service de synchronisation comprend une interface WMI qui vous permet de développer votre propre planificateur personnalisé. Cette interface est désormais dépréciée et sera supprimée des prochaines versions d’Azure AD Connect après le 30 juin 2018. Les clients qui souhaitent personnaliser le calendrier de synchronisation doivent utiliser le [Planificateur intégré (https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-feature-scheduler).
+> Remarque : Le service de synchronisation comprend une interface WMI qui vous permet de développer votre propre planificateur personnalisé. Cette interface est désormais dépréciée et sera supprimée des prochaines versions d’Azure AD Connect après le 30 juin 2018. Les clients qui souhaitent personnaliser le calendrier de synchronisation doivent utiliser le [planificateur intégré](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-feature-scheduler).
 
 #### <a name="fixed-issues"></a>Problèmes résolus
 * Lorsque l’Assistant Azure AD Connect créait le compte de connecteur AD pour la synchronisation des modifications apportées dans l’instance locale d’Active Directory, il n’attribuait pas l’autorisation au compte pour lire les objets PublicFolder. Ce problème concernait l’installation Express et l’installation personnalisée. Ce problème a été résolu.

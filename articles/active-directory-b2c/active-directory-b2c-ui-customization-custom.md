@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 12/18/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 0a051b0e853b60dfc1f5b6c3453d9ed8361f1748
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 0c6186334820d0e419a06b9c60a8279825bf54c2
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67438815"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68927291"
 ---
 # <a name="customize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Personnaliser l’interface utilisateur de votre application à l’aide d’une stratégie personnalisée dans Azure Active Directory B2C
 
@@ -52,6 +52,9 @@ Créez du contenu HTML dont le titre intègre le nom de la marque de votre produ
    ```
 
 2. Collez l’extrait de code que vous venez de copier dans un éditeur de texte, puis enregistrez le fichier sous *customize-ui.html*.
+
+> [!NOTE]
+> Les éléments de formulaire HTML seront supprimés à cause des restrictions de sécurité si vous utilisez login.microsoftonline.com. Utilisez b2clogin.com si vous souhaitez utiliser des éléments de formulaire HTML dans votre contenu HTML personnalisé. Pour connaître les autres avantages, consultez [Utiliser b2clogin.com](b2clogin.md).
 
 ## <a name="create-an-azure-blob-storage-account"></a>Créer un compte de stockage d’objets blob Azure
 

@@ -5,15 +5,15 @@ services: expressroute
 author: jaredr80
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 07/10/2019
+ms.date: 08/12/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: e598cc03a1b7b4999719152540866c7168130e03
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: a294c444f10719f69716b25b97cd137874a3e0be
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67807477"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954147"
 ---
 # <a name="about-expressroute-direct"></a>À propose de ExpressRoute Direct
 
@@ -41,7 +41,7 @@ Vous devez commencer par inscrire votre abonnement pour pouvoir utiliser Express
 | Utilisation de fournisseurs de services pour permettre une intégration et une connectivité rapides dans l’infrastructure existante | Infrastructure de 100 Gbits/s / 10 Gbits/s et gestion complète de toutes les couches obligatoires
 | Intégration avec des centaines de fournisseurs, y compris Ethernet et MPLS | Capacité directe dédiée pour les secteurs réglementés et ingestion massive de données |
 | Références SKU de circuits de 50 Mbit/s à 10 Gbit/s | Possibilité pour le client de sélectionner une combinaison entre les références SKU de circuits suivantes sur ExpressRoute Direct 100 Gbits/s : <ul><li>5 Gbit/s</li><li>10 Gbits/s</li><li>40 Gbits/s</li><li>100 Gbits/s</li></ul> Possibilité pour le client de sélectionner une combinaison entre les références SKU de circuits suivantes sur ExpressRoute Direct 10 Gbits/s :<ul><li>1 Gbit/s</li><li>2 Gbit/s</li><li>5 Gbit/s</li><li>10 Gbits/s</li></ul>
-| Optimisé pour monolocataire | Optimisé pour monolocataire/fournisseurs de services cloud/unités commerciales multiples
+| Optimisé pour monolocataire | Optimisé pour un seul locataire avec plusieurs unités commerciales et plusieurs environnements de travail
 
 ## <a name="expressroute-direct-circuits"></a>Circuits ExpressRoute Direct
 

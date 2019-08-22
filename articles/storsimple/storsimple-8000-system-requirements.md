@@ -14,16 +14,18 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 09/28/2017
 ms.author: alkohli
-ms.openlocfilehash: f05e3e85d36ffc23a193a6771a0271c71b2f8544
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2e7c1eedf02c8a7783ee90f403dbd77ec2ee53ea
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60631904"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68963349"
 ---
 # <a name="storsimple-8000-series-software-high-availability-and-networking-requirements"></a>Configurations logicielles, de haute disponibilité et réseau requises pour StorSimple 8000 Series
 
 ## <a name="overview"></a>Vue d'ensemble
+
+[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
 
 Bienvenue dans Microsoft Azure StorSimple. Cet article décrit les configurations système requises et les meilleures pratiques pour votre appareil StorSimple et pour les clients de stockage accédant à l’appareil. Nous vous recommandons de lire attentivement les informations suivantes avant de déployer votre système Azure StorSimple, puis d’y revenir si nécessaire pendant le déploiement et les opérations suivantes.
 
@@ -134,7 +136,7 @@ L’algorithme de métrique de routage utilisé pour la mise à jour 2 et versi
     | Data 2  | 3            | 30                       |
     | Data 3  | 4            | 40                       |
     | Data 4  | 5\.            | 50                       |
-    | Data 5  | 6\.            | 60                       |
+    | Data 5  | 6            | 60                       |
 
 
 * L'ordre dans lequel le trafic cloud sera acheminé sur l’ensemble des interfaces réseau est le suivant :

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: dacurwin
-ms.openlocfilehash: 9a6ea961f7433f511ef22a6ac9aaefa51b5df8aa
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: 1f8086580d60d13251052636d4d771855e9605a5
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68663705"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954952"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Sauvegarder des machines virtuelles Azure dans un coffre Recovery Services
 
@@ -164,12 +164,12 @@ La sauvegarde initiale s’exécutera conformément à la planification, mais vo
 
 ## <a name="verify-backup-job-status"></a>Vérifier l’état du travail de sauvegarde
 
-Les détails du travail de sauvegarde pour chaque sauvegarde de machine virtuelle se compose de 2 phases : la phase **Prendre un instantané**, suivie de la phase **Transférer les données vers le coffre**.<br/>
-La phase de prise d’instantané garantit la disponibilité d’un point de récupération stocké avec les disques pour les **restaurations instantanées**, et les instantanés sont disponibles pendant au maximum 5 jours en fonction de la conservation des instantanés configurée par l’utilisateur. Le transfert des données vers le coffre crée un point de récupération dans le coffre pour la conservation à long terme. Le transfert des données vers le coffre ne démarre qu’une fois la phase de prise d’instantané terminée.
+Les détails du travail de sauvegarde pour chaque sauvegarde de machine virtuelle se composent de deux phases : la phase **Capture instantanée**, suivie de la phase **Transférer les données vers le coffre**.<br/>
+La phase de capture instantanée garantit la disponibilité d’un point de récupération stocké avec les disques pour les **restaurations instantanées**, et les captures instantanées sont disponibles pendant au maximum cinq jours en fonction de la conservation des captures instantanées configurée par l’utilisateur. Le transfert des données vers le coffre crée un point de récupération dans le coffre pour la conservation à long terme. Le transfert des données vers le coffre ne démarre qu’une fois la phase de prise d’instantané terminée.
 
   ![État du travail de sauvegarde](./media/backup-azure-arm-vms-prepare/backup-job-status.png)
 
-Il existe deux **sous-tâches** s’exécutant sur le back-end, dont une pour le travail de sauvegarde front-end que vous pouvez consulter à partir du panneau des détails du **travail de sauvegarde**, comme indiqué ci-dessous :
+Il existe deux **sous-tâches** en cours d’exécution sur le back-end, dont une pour le travail de sauvegarde front-end que vous pouvez consulter à partir du panneau des détails du **travail de sauvegarde**, comme indiqué ci-dessous :
 
   ![État du travail de sauvegarde](./media/backup-azure-arm-vms-prepare/backup-job-phase.png)
 

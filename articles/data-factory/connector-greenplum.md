@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/01/2019
+ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: cdd1810ec1120e9918974e0978880aa894ff62e0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 50b3b04170f3544017446613a46d4c2ed6537d95
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60927574"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68966523"
 ---
 # <a name="copy-data-from-greenplum-using-azure-data-factory"></a>Copier des données de Greenplum avec Azure Data Factory
 
@@ -28,6 +28,10 @@ Cet article décrit comment utiliser l’activité de copie dans Azure Data Fact
 Vous pouvez copier les données depuis Greenplum vers tout magasin de données récepteur pris en charge. Pour obtenir la liste des banques de données prises en charge en tant que sources ou récepteurs par l’activité de copie, consultez le tableau [Banques de données prises en charge](copy-activity-overview.md#supported-data-stores-and-formats).
 
 Azure Data Factory fournit un pilote intégré qui permet la connexion. Vous n’avez donc pas besoin d’installer manuellement un pilote à l’aide de ce connecteur.
+
+## <a name="prerequisites"></a>Prérequis
+
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
 ## <a name="getting-started"></a>Prise en main
 
@@ -43,7 +47,7 @@ Les propriétés prises en charge pour le service lié Greenplum sont les suivan
 |:--- |:--- |:--- |
 | type | La propriété type doit être définie sur : **Greenplum** | OUI |
 | connectionString | Chaîne de connexion ODBC permettant de se connecter à Greenplum. <br/>Marquez ce champ comme SecureString pour le stocker de façon sécurisée dans Data Factory. Vous pouvez également définir un mot de passe dans Azure Key Vault et extraire la configuration `pwd` de la chaîne de connexion. Pour plus d’informations, reportez-vous aux exemples suivants et à l’article [Stocker des informations d’identification dans Azure Key Vault](store-credentials-in-key-vault.md). | OUI |
-| connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Vous pouvez utiliser un runtime d’intégration auto-hébergé ou un runtime d’intégration Azure (si votre banque de données est accessible publiquement). À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. |Non |
+| connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Pour plus d’informations, consultez la section [Prérequis](#prerequisites). À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. |Non |
 
 **Exemple :**
 
@@ -103,7 +107,7 @@ Pour copier des données depuis Greenplum, affectez la valeur **GreenplumTable**
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type du jeu de données doit être définie sur : **GreenplumTable** | OUI |
+| type | La propriété type du jeu de données doit être définie sur : **GreenplumTable** | OUI |
 | tableName | Nom de la table. | Non (si « query » dans la source de l’activité est spécifié) |
 
 **Exemple**
@@ -132,7 +136,7 @@ Pour copier des données depuis Greenplum, définissez **GreenplumSource** comme
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type de la source de l’activité de copie doit être définie sur : **GreenplumSource** | OUI |
+| type | La propriété type de la source de l’activité de copie doit être définie sur : **GreenplumSource** | OUI |
 | query | Utiliser la requête SQL personnalisée pour lire les données. Par exemple : `"SELECT * FROM MyTable"`. | Non (si « tableName » est spécifié dans dataset) |
 
 **Exemple :**

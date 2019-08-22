@@ -9,12 +9,12 @@ ms.date: 06/01/2019
 ms.author: tamram
 ms.reviewer: hux
 ms.subservice: blobs
-ms.openlocfilehash: c0b4a83b2c950683926be7fb3be3b0cbe977fef8
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: 06e1d881a14367c579bd58ffae04dc0970eb041a
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68618396"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68941953"
 ---
 # <a name="store-business-critical-data-in-azure-blob-storage"></a>Stocker des données vitales pour l’entreprise dans le stockage Blob Azure
 
@@ -175,7 +175,7 @@ Oui. Pour documenter la conformité, Microsoft a choisi les services de Cohasset
 
 **Cette fonctionnalité s’applique-t-elle uniquement aux objets blob de blocs, ou aussi aux objets blob de page et d’ajout ?**
 
-Le stockage immuable peut être utilisé avec n’importe quel type d’objet blob, mais nous recommandons de l’utiliser principalement pour les objets blob de blocs. Contrairement aux objets blob de blocs, les objets blob de page et d’ajout doivent être créés hors d’un conteneur WORM, avant d’y être copiés. Une fois la copie faite, il n’est plus possible de faire des *ajouts* à un objet blob d’ajout ni de modifier un objet blob de pages.
+Le stockage immuable peut être utilisé avec tout type d’objet blob car il est défini au niveau du conteneur, mais nous vous recommandons d’utiliser WORM pour les conteneurs qui stockent principalement des objets blob de blocs. Contrairement aux objets blob de blocs, tous les nouveaux objets blob de pages et d’ajout doivent être créés hors d’un conteneur WORM, avant d’y être copiés. Une fois la copie faite, il n’est plus possible de faire des *ajouts* à un objet blob d’ajout ni de modifier un objet blob de pages. Par conséquent, la définition d’une stratégie WORM sur un conteneur qui stocke des disques durs virtuels (objets blob de pages) pour toute machine virtuelle active est fortement déconseillée, car elle verrouille le disque de la machine virtuelle.
 
 **Dois-je créer un compte de stockage pour utiliser cette fonctionnalité ?**
 

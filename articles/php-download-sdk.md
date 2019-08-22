@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/01/2016
 ms.author: yaya
 ms.openlocfilehash: 9dd336ef973b603108aad62c90e4dab385d20317
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "67873894"
 ---
 # <a name="download-the-azure-sdk-for-php"></a>Téléchargement du Kit de développement logiciel (SDK) Azure pour PHP
@@ -45,7 +45,7 @@ Les instructions de cette rubrique partent du principe que [PHP][install-php] es
 
 Les bibliothèques clientes PHP pour Azure fournissent une interface permettant d'accéder aux fonctionnalités Azure, telles que les services cloud et de gestion des données à partir d'un système d'exploitation. Ces bibliothèques peuvent être installées via le compositeur.
 
-Pour plus d’informations sur l’utilisation des bibliothèques clientes PHP pour Azure, consultez les pages [Utilisation du service Blob][blob-service], [How to Use the Table Service][table-service] et [Utilisation du service File d’attente][queue-service].
+Pour plus d’informations sur l’utilisation des bibliothèques clientes PHP pour Azure, consultez [Comment utiliser le service Blob][blob-service], [Comment utiliser le service Table][table-service] et [Comment utiliser le service File d’attente][queue-service].
 
 ### <a name="install-via-composer"></a>Installation via Composer
 

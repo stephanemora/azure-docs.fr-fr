@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: dacurwin
-ms.openlocfilehash: 0c762054ed0df3a3781dda7057ff8793dbf82565
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 71070a778e54e51cdb528041f746489bb64e979c
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68689302"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954708"
 ---
 # <a name="prepare-to-back-up-workloads-to-azure-with-system-center-dpm"></a>Préparer la sauvegarde des charges de travail dans Azure avec System Center DPM
 
@@ -91,7 +91,7 @@ Vous utilisez les informations d’identification du coffre lorsque vous inscriv
 
 ### <a name="best-practices-for-vault-credentials"></a>Meilleures pratiques pour les informations d’identification des coffres
 
-Pour obtenir les informations d’identification, téléchargez le fichier d’informations d’identification du coffre via un canal sécurisé depuis le portail Azure :
+Pour obtenir les informations d’identification, téléchargez le fichier d’informations d’identification du coffre via un canal sécurisé à partir du portail Azure :
 
 - Les informations d’identification de coffre sont utilisées uniquement pendant le flux de travail d’inscription.
 - Il est de votre responsabilité de vous assurer que le fichier d’informations d’identification de coffre est sûr et n’est pas compromis.
@@ -183,7 +183,7 @@ Le fichier d’informations d’identification d’archivage est valide uniqueme
 
 ### <a name="access-error"></a>Erreur d’accès
 
-Assurez-vous que le fichier d’informations d’identification d’archivage se trouve dans un emplacement accessible par l’application d’installation. Si vous rencontrez des erreurs liées à l’accès, copiez le fichier d’informations d’identification d’archivage dans un emplacement temporaire sur cet ordinateur et recommencez l’opération.
+Vérifiez que le fichier d’informations d’identification du coffre se trouve dans un emplacement accessible par l’application d’installation. Si vous rencontrez des erreurs liées à l’accès, copiez le fichier d’informations d’identification d’archivage dans un emplacement temporaire sur cet ordinateur et recommencez l’opération.
 
 ### <a name="invalid-credentials-error"></a>Erreur d’informations d’identification non valides
 

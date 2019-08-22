@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: dacurwin
-ms.openlocfilehash: 744c954c9192f75489911f09a1ef7195c5bbd1fa
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: d564cc16a1261cdf71d783ce9f40e577177ff74c
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68689373"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954802"
 ---
 # <a name="back-up-sql-server-to-azure-as-a-dpm-workload"></a>Sauvegarde de SQL Server sur Azure en tant que charge de travail DPM
 Cet article vous guide tout au long des étapes de configuration de la sauvegarde des bases de données SQL Server à l’aide de la Sauvegarde Azure.
@@ -46,9 +46,9 @@ Avant de commencer, vérifiez que toutes les [conditions préalables](backup-azu
     ![Méthode de Protection des données - disque à court terme et Azure en ligne](./media/backup-azure-backup-sql/pg-name.png)
 7. Dans l'écran **Spécifier les objectifs à court terme** , incluez les entrées nécessaires à la création de points de sauvegarde sur disque.
 
-    Nous voyons ici que la **Durée de rétention** est définie sur *5 jours*, **la fréquence de synchronisation** sur une fois toutes les *15 minutes* qui est la fréquence à laquelle la sauvegarde est effectuée. **sauvegarde expresse rapide** est définie sur *20h00*.
+    Nous voyons ici que la **Durée de rétention** est définie sur *5 jours* et la **Fréquence de synchronisation** sur une fois toutes les *15 minutes*, qui est la fréquence à laquelle la sauvegarde est effectuée. **sauvegarde expresse rapide** est définie sur *20h00*.
 
-    ![Spécifier les objectifs à court terme](./media/backup-azure-backup-sql/pg-shortterm.png)
+    ![Objectifs à court terme](./media/backup-azure-backup-sql/pg-shortterm.png)
 
    > [!NOTE]
    > À 20 h 00 (selon la saisie de l’écran), un point de sauvegarde est créé chaque jour par le transfert de données modifiées depuis le point de sauvegarde de 20 h 00 du jour précédent. Ce processus est appelé **Sauvegarde expresse rapide**. Lorsque les journaux d’activité de transaction sont synchronisés toutes les 15 minutes, s’il faut récupérer la base de données à 21h00, le point est créé suite à la relecture des journaux d’activité à partir du point de sauvegarde complète rapide (20h00 dans le cas présent).
@@ -131,7 +131,7 @@ Alors que les étapes précédentes ont créé une stratégie de sauvegarde, un 
 ## <a name="recover-a-sql-server-database-from-azure"></a>Récupération d'une base de données SQL Server à partir d'Azure
 Les étapes suivantes sont nécessaires pour récupérer une entité protégée (base de données SQL Server) à partir d'Azure.
 
-1. Ouvrir la Console de gestion du serveur DPM. Accédez à l’espace de travail **Récupération** où vous pourrez voir les serveurs sauvegardés par DPM. Accédez à la base de données requise (dans ce cas, ReportServer $MSDPM2012). Sélectionnez une durée **Restauration depuis** qui se termine par **En ligne**.
+1. Ouvrir la Console de gestion du serveur DPM. Accédez à l’espace de travail **Récupération** où vous pourrez voir les serveurs sauvegardés par DPM. Accédez à la base de données requise (dans ce cas, ReportServer $MSDPM2012). Sélectionnez un heure **Restauration depuis** qui se termine par **En ligne**.
 
     ![Sélectionner un point de récupération](./media/backup-azure-backup-sql/sqlbackup-restorepoint.png)
 2. Cliquez avec le bouton droit sur le nom de base de données et cliquez sur **Récupérer**.

@@ -7,19 +7,24 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/17/2019
 ms.author: aahi
-ms.openlocfilehash: 7fc1ed9928bd988faca4537202ac57fee74b0b00
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 32728b5c1ede303cc4000ef8c10e4456e784df9b
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67721422"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68882462"
 ---
 # <a name="featured-user-generated-content-for-the-anomaly-detector-api"></a>Contenu généré par l’utilisateur pour l’API Détecteur d'anomalies
 
 Utilisez cet article pour découvrir comment les autres clients approchent et utilisent l’API Détecteur d'anomalies. Les ressources suivantes ont été créées par la Communauté d’utilisateurs de Détecteur d’anomalies. Elles comprennent des blogs techniques, des projets open source et d’autres contributions créées par Microsoft et des utilisateurs tiers. Certains des liens suivants sont hébergés sur des sites web qui sont externes à Microsoft, et Microsoft n’est pas responsable de leur contenu. Faites preuve de discernement lorsque vous faites référence à ces ressources.
+
+## <a name="demos"></a>Démonstrations
+
+* [Démonstration interactive avec animation](https://aka.ms/adDemo)
+* [Démonstration d’un notebook Azure](https://aka.ms/adNotebook)
 
 ## <a name="technical-blogs"></a>Blogs techniques
 

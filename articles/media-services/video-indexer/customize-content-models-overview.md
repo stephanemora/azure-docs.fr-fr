@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 06/26/2019
 ms.author: anzaman
-ms.openlocfilehash: 855004c23df933fc2ebc71455b7b946d667fe7dc
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 8499e816f60b9d6605bdbdc392f6d2b3e134b863
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67454640"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68878817"
 ---
 # <a name="customizing-content-models-in-video-indexer"></a>Personnalisation des modèles de contenu dans Video Indexer
 
@@ -38,7 +38,7 @@ Cet article fournit des liens vers des articles conceptuels qui expliquent les a
 ## <a name="person-model"></a>Modèle de personne
 
 * [Vue d’ensemble de la personnalisation des modèles de personne](customize-person-model-overview.md)
-* [Personnalisation des modèles de langue à l’aide du site web Video Indexer](customize-language-model-with-website.md)
+* [Personnalisation des modèles de personne à l’aide du site web Video Indexer](customize-person-model-with-website.md)
 * [Personnalisation des modèles de personne à l’aide de l’API Video Indexer](customize-person-model-with-api.md)
 
 ## <a name="next-steps"></a>Étapes suivantes

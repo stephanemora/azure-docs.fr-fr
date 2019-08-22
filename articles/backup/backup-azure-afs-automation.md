@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: dacurwin
 ms.reviewer: pullabhk
-ms.openlocfilehash: 5f62bd0456bfbf5882d6d8c3ee822433fbb58302
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: f933b926aa0e277976416ae1b3b2eb684d9fcc85
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688772"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68955083"
 ---
 # <a name="back-up-and-restore-azure-files-with-powershell"></a>Sauvegarder et restaurer Azure Files avec PowerShell
 
@@ -282,7 +282,7 @@ Vous pouvez restaurer un partage de fichiers entier ou des fichiers spécifiques
 
 ### <a name="fetch-recovery-points"></a>Récupérer des points de récupération
 
-Utilisez [Get-AzRecoveryServicesBackupRecoveryPoint](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackuprecoverypoint?view=azps-1.4.0) afin de répertorier tous les points de récupération correspondant à l’élément de sauvegarde.
+Utilisez [Get-AzRecoveryServicesBackupRecoveryPoint](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackuprecoverypoint?view=azps-1.4.0) pour lister tous les points de récupération correspondant à l’élément sauvegardé.
 
 Dans le script suivant :
 

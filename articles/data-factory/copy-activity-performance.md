@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 07/02/2019
 ms.author: jingwang
-ms.openlocfilehash: face3719f32ccb44e7479150e94417496141f90b
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: d8ce0a4f6bacdd1c8c858d474e6f3957a23c6357
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67509564"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967357"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Guide sur les performances et le réglage de l’activité de copie
 > [!div class="op_single_selector" title1="Sélectionnez la version Azure Data Factory que vous utilisez :"]
@@ -163,7 +163,7 @@ Pour contrôler la charge sur les machines qui hébergent vos banques de donnée
 **Points à noter :**
 
 * Lorsque vous copiez des données entre des banques basées sur fichier, **parallelCopies** détermine le parallélisme au niveau du fichier. La segmentation dans un seul fichier se produit en arrière-plan de manière automatique et transparente. Elle est conçue pour utiliser la meilleure taille de segment appropriée pour un type de banque de données source donnée pour charger des données de manière parallèle et orthogonale à la valeur **parallelCopies**. Le nombre réel de copies en parallèle que le service de déplacement de données utilise pour l’opération de copie au moment de l’exécution ne peut pas être supérieur au nombre de fichiers dont vous disposez. Si le comportement de copie est défini sur **mergeFile**, l’activité de copie ne peut pas tirer parti du parallélisme au niveau du fichier.
-* Lorsque vous copiez des données à partir de banques qui ne sont pas basées sur fichier (à l’exception de la base de données Oracle comme source avec le partitionnement des données activé) vers des banques basées sur fichier, le service de déplacement de données ignore la propriété **parallelCopies**. Même si le parallélisme est spécifié, il n’est pas appliqué dans ce cas.
+* Lorsque vous copiez des données à partir de magasins qui ne sont pas basés sur des fichiers (sauf [Oracle](connector-oracle.md#oracle-as-source), [Teradata](connector-teradata.md#teradata-as-source), [SAP Table](connector-sap-table.md#sap-table-as-source) et le connecteur [SAP Open Hub](connector-sap-business-warehouse-open-hub.md#sap-bw-open-hub-as-source) en tant que source avec le partitionnement des données activé) vers des magasins qui sont basés sur des fichiers, le service de déplacement des données ignore la propriété **parallelCopies**. Même si le parallélisme est spécifié, il n’est pas appliqué dans ce cas.
 * La propriété **parallelCopies** est orthogonale par rapport à **dataIntegrationUnits**. La première valeur est calculée à partir de toutes les unités d’intégration de données.
 * Lorsque vous spécifiez une valeur pour la propriété **parallelCopies**, songez à l’augmentation de la charge sur vos banques de données source et réceptrice. Envisagez également l’augmentation de la charge pour le runtime d’intégration auto-hébergé si l’activité de copie repose sur celui-ci, par exemple, pour une copie hybride. Cela se produit en particulier lorsque plusieurs activités ou exécutions simultanées des mêmes activités ont lieu en même temps dans la même banque de données. Si vous remarquez que la banque de données ou le runtime d’intégration auto-hébergé est submergé par la charge, diminuez la valeur **parallelCopies** pour alléger la charge.
 
@@ -193,7 +193,7 @@ Configurez le paramètre **enableStaging** sur l’activité de copie pour spéc
 | --- | --- | --- | --- |
 | enableStaging |Indiquez si vous souhaitez copier les données via un magasin de données intermédiaire. |False |Non |
 | linkedServiceName |Spécifiez le nom d’un service lié [AzureStorage](connector-azure-blob-storage.md#linked-service-properties) faisant référence à l’instance de stockage que vous utilisez comme magasin de données intermédiaire. <br/><br/> Vous ne pouvez pas utiliser le stockage avec une signature d’accès partagé pour charger les données dans SQL Data Warehouse via PolyBase. Vous pouvez l’utiliser dans tous les autres scénarios. |N/A |Oui, quand **enableStaging** est défini sur TRUE |
-| chemin d’accès |Spécifiez le chemin du stockage Blob où vous souhaitez placer les données intermédiaires. Si vous ne renseignez pas le chemin d’accès, le service crée un conteneur pour stocker les données temporaires. <br/><br/> Ne spécifiez un chemin d’accès que si vous utilisez le stockage avec une signature d’accès partagé, ou si vous avez besoin de données temporaires dans un emplacement spécifique. |N/A |Non |
+| path |Spécifiez le chemin du stockage Blob où vous souhaitez placer les données intermédiaires. Si vous ne renseignez pas le chemin d’accès, le service crée un conteneur pour stocker les données temporaires. <br/><br/> Ne spécifiez un chemin d’accès que si vous utilisez le stockage avec une signature d’accès partagé, ou si vous avez besoin de données temporaires dans un emplacement spécifique. |N/A |Non |
 | enableCompression |Spécifie si les données doivent être compressées avant d’être copiées vers la destination. Ce paramètre réduit le volume de données transférées. |False |Non |
 
 >[!NOTE]

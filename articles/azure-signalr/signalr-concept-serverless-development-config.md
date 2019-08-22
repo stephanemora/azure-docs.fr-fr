@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: antchu
-ms.openlocfilehash: 9b68b9d0bbac984c29759cf4b7b026a559a9d819
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: be77704f562a1e05485e6f3704dff265635b1dc2
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60809003"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68882306"
 ---
 # <a name="azure-functions-development-and-configuration-with-azure-signalr-service"></a>Développement et configuration Azure Functions avec Azure SignalR Service
 
@@ -122,15 +122,44 @@ Exemple :
 }
 ```
 
-#### <a name="azure"></a>Azure
+#### <a name="cloud---azure-functions-cors"></a>Cloud - CORS Azure Functions
 
 Pour activer CORS sur une application de fonction Azure, accédez à l’écran de configuration de CORS sous l’onglet *Fonctionnalités de la plateforme* de votre application de fonction dans le portail Azure.
+
+> [!NOTE]
+> La configuration CORS n’est pas encore disponible dans le plan de consommation Linux Azure Functions. Utilisez [Gestion des API Azure](#cloud---azure-api-management) pour activer CORS.
 
 CORS avec Access-Control-Allow-Credentials doit être activé pour que le client SignalR appelle la fonction negotiate. Cochez la case pour l’activer.
 
 Dans la section *Origines autorisées*, ajoutez une entrée contenant l’URL de base d’origine de votre application web.
 
 ![Configuration de CORS](media/signalr-concept-serverless-development-config/cors-settings.png)
+
+#### <a name="cloud---azure-api-management"></a>Cloud - Gestion des API Azure
+
+La gestion des API Azure fournit une passerelle API qui ajoute des capacités aux services back-end existants. Vous pouvez l’utiliser pour ajouter CORS à votre application de fonction. Elle offre un niveau de consommation avec un tarif de paiement par action et un octroi gratuit mensuel.
+
+Pour plus d’informations sur la façon d’[importer une application Azure Function](../api-management/import-function-app-as-api.md), reportez-vous à la documentation Gestion des API. Une fois l’importation effectuée, vous pouvez ajouter une stratégie de trafic entrant pour activer CORS avec une prise en charge d’Access-Control-Allow-Credentials.
+
+```xml
+<cors allow-credentials="true">
+  <allowed-origins>
+    <origin>https://azure-samples.github.io</origin>
+  </allowed-origins>
+  <allowed-methods>
+    <method>GET</method>
+    <method>POST</method>
+  </allowed-methods>
+  <allowed-headers>
+    <header>*</header>
+  </allowed-headers>
+  <expose-headers>
+    <header>*</header>
+  </expose-headers>
+</cors>
+```
+
+Configurez vos clients SignalR pour qu’ils utilisent l’URL de gestion des API.
 
 ### <a name="using-app-service-authentication"></a>Utilisation de l’authentification App Service
 

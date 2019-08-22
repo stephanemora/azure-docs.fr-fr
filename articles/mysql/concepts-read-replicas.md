@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 04/30/2019
-ms.openlocfilehash: 2d70e1b5434b2fb263d1f4587888d4758fac2828
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 08/12/2019
+ms.openlocfilehash: 00cace13a1d3db2bca45791960ca9bf2fb9260bd
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66225361"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976901"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Réplicas en lecture dans Azure Database pour MySQL
 
@@ -34,7 +34,32 @@ Dans la mesure où les réplicas sont en lecture seule, ils ne réduisent pas di
 
 La fonctionnalité de réplica en lecture utilise la réplication asynchrone MySQL. La fonctionnalité n’est pas destinée aux scénarios de réplication synchrone. Il y aura un délai mesurable entre le maître et le réplica. Les données du réplica finissent par devenir cohérentes avec les données du serveur maître. Utilisez cette fonctionnalité pour les charges de travail pouvant s’adapter à ce délai.
 
-Les réplicas en lecture peuvent améliorer votre plan de récupération d’urgence. En cas de sinistre régional et si votre serveur maître n’est pas disponible, vous pouvez diriger votre charge de travail vers un réplica dans une autre région. Pour ce faire, permettez d’abord au réplica d’accepter des écritures en utilisant la fonction Arrêter la réplication. Vous pouvez ensuite rediriger l’application en mettant à jour la chaîne de connexion. Découvrez plus d’informations dans la section relative à [l’arrêt de la réplication](#stop-replication).
+## <a name="cross-region-replication"></a>Réplication entre régions
+Vous pouvez créer un réplica en lecture dans une autre région à partir de votre serveur maître. La réplication entre régions peut être utile pour des scénarios tels que la planification de la récupération d’urgence ou le rapprochement des données de vos utilisateurs.
+
+> [!IMPORTANT]
+> La réplication entre plusieurs régions est actuellement disponible en préversion publique.
+
+Vous pouvez disposer d’un serveur maître dans toute [région Azure Database pour MySQL](https://azure.microsoft.com/global-infrastructure/services/?products=mysql).  Un serveur maître peut avoir un réplica dans sa région jumelée ou dans les régions de réplica universelles.
+
+### <a name="universal-replica-regions"></a>Régions de réplica universelles
+Vous pouvez toujours créer un réplica en lecture dans les régions suivantes, quel que soit l’emplacement de votre serveur maître. Les régions de réplica universelles sont les suivantes :
+
+Australie Est, Australie Sud-Est, USA Centre, Asie Est, USA Est, USA Est 2, Japon Est, Japon Ouest, Corée Centre, Corée Sud, USA Centre Nord, Europe Nord, USA Centre Sud, Asie Sud-Est, Royaume-Uni Sud, Royaume-Uni Ouest, Europe Ouest, USA Ouest, USA Ouest 2.
+
+
+### <a name="paired-regions"></a>Régions jumelées
+Outre les régions de réplica universelles, vous pouvez créer un réplica en lecture dans la région Azure jumelée de votre serveur maître. Si vous ne connaissez pas la région jumelée de votre région, vous trouverez plus d’informations dans l’[article sur les régions jumelées Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
+
+Si vous utilisez des réplicas entre régions pour la planification de la récupération d’urgence, nous vous recommandons de créer le réplica dans la région jumelée plutôt que dans une autre région. Les régions jumelées évitent les mises à jour simultanées et hiérarchisent l’isolement physique et la résidence des données.  
+
+Il existe toutefois quelques limitations à prendre en compte : 
+
+* Disponibilité régionale : Azure Database pour MySQL est disponible dans les régions USA Ouest 2, France Centre, Émirats arabes unis Nord et Allemagne Centre. Toutefois, leurs régions jumelées ne sont pas disponibles.
+    
+* Paires unidirectionnelles : certaines régions Azure sont jumelées dans une seule direction. Ces régions incluent Inde Ouest, Brésil Sud et US Gov Virginie. 
+   Cela signifie qu’un serveur maître dans la région Inde Ouest peut créer un réplica dans la région Inde Sud. Toutefois, un serveur maître dans la région Inde Sud ne peut pas créer de réplica dans la région Inde Ouest. En effet, la région secondaire de la région Inde Ouest est Inde Sud, mais la région secondaire de la région Inde Sud n’est pas Inde Ouest.
+
 
 ## <a name="create-a-replica"></a>Créer un réplica
 

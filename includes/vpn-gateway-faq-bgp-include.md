@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/12/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 23386139364a72b0275936cdc458c8cd2a5771c9
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 0e3f996ab2a42057198368759c75f10e911d5f54
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68386866"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68936798"
 ---
 ### <a name="is-bgp-supported-on-all-azure-vpn-gateway-skus"></a>Le protocole BGP est-il pris en charge sur toutes les références de passerelle VPN Azure ?
 Non, le protocole BGP est pris en charge sur les passerelles VPN Azure **VpnGw1**, **VpnGw2**, **VpnGw3**, **Standard** et **HighPerformance**. La référence **De base** N’EST PAS prise en charge.
@@ -39,6 +39,13 @@ Vous ne pouvez pas spécifier ces NSA pour vos périphériques VPN locaux lors d
 Oui, les NSA ci-après sont [réservés par l’IANA](http://www.iana.org/assignments/iana-as-numbers-special-registry/iana-as-numbers-special-registry.xhtml) et ne sont pas configurables sur votre passerelle VPN Azure :
 
 23456, 64496-64511, 65535-65551 et 429496729.
+
+### <a name="what-private-asns-can-i-use"></a>Quels sont les ASN privés que je peux utiliser ?
+Voici la plage des ASN pouvant être utilisés :
+
+* 64512-65514, 65521-65534
+
+Ces ASN ne sont pas réservés pour IANA ou Azure. Ils peuvent donc être affectés à votre passerelle VPN Azure.
 
 ### <a name="can-i-use-the-same-asn-for-both-on-premises-vpn-networks-and-azure-vnets"></a>Puis-je utiliser le même NSA pour les réseaux VPN locaux et les réseaux virtuels Azure ?
 Non. Vous devez attribuer des NSA différents à vos réseaux locaux et vos réseaux virtuels Azure si vous les interconnectez avec le protocole BGP. Le NSA 65515 est attribué aux passerelles VPN Azure par défaut, et ce, que le protocole BGP soit activé ou non pour la connectivité entre les sites locaux. Vous pouvez remplacer cette valeur par défaut en attribuant un NSA différent lors de la création de la passerelle VPN, ou modifier le NSA après avoir créé la passerelle. Vous devez affecter vos NSA locaux aux passerelles de réseau local Azure correspondantes.

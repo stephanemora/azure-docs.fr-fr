@@ -14,19 +14,19 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2019
 ms.author: rogirdh
-ms.openlocfilehash: 3b901f7aba40f3548a259d36b83fedca0ff2a5c2
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 18dbc60c1a29fbc26f4bbc73faa58aeafc66c32f
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68781293"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68880092"
 ---
 # <a name="set-up-a-direct-interconnection-between-azure-and-oracle-cloud-infrastructure"></a>Configurer une interconnexion directe entre Azure et Oracle Cloud Infrastructure  
 
 Pour créer une [expérience multicloud intégrée](oracle-oci-overview.md) (préversion), Microsoft et Oracle offrent une interconnexion directe entre Azure et Oracle Cloud Infrastructure (OCI) via [ExpressRoute](../../../expressroute/expressroute-introduction.md) et [FastConnect](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/fastconnectoverview.htm). Via l’interconnexion ExpressRoute et FastConnect, les clients peuvent profiter d’une latence faible, d’un débit élevé et d’une connectivité directe entre deux clouds privés.
 
 > [!IMPORTANT]
-> La connexion entre Microsoft Azure et OCI est, pour l’instant, en préversion. Pour permettre un connectivité à latence faible entre Azure et OCI, l’abonnement Azure doit d’abord être dans la liste verte de cette fonctionnalité.
+> La connexion entre Microsoft Azure et OCI est, pour l’instant, en préversion. Pour permettre un connectivité à latence faible entre Azure et OCI, l’abonnement Azure doit d’abord être dans la liste verte de cette fonctionnalité. Vous devez vous inscrire à la préversion en envoyant un e-mail à oracleconnect@microsoft.com avec votre ID d’abonnement. Vous recevrez un e-mail une fois votre abonnement inscrit. Vous ne pouvez pas utiliser la fonctionnalité tant que vous n’avez pas reçu l’e-mail de confirmation. Vous pouvez également contacter votre représentant commercial Microsoft pour prétendre à cette préversion. Cette préversion est fournie sans contrat de niveau de service et ne doit pas être utilisée pour les charges de travail de production. Certaines fonctionnalités peuvent ne pas être prises en charge, disposer de capacités limitées ou ne pas être disponibles dans tous les emplacements Azure. Consultez les [Conditions d’utilisation supplémentaires des préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 L’image suivante illustre une vue d’ensemble de l’interconnexion :
 
@@ -38,7 +38,7 @@ L’image suivante illustre une vue d’ensemble de l’interconnexion :
 
 * Cette connectivité est uniquement possible là où un emplacement d’appairage ExpressRoute est à proximité ou dans le même emplacement d’appairage que le FastConnect OCI. Pour en savoir plus, veuillez consulter la section [Limitations de la préversion](oracle-oci-overview.md#preview-limitations).
 
-* Votre abonnement Azure doit être dans la liste verte de cette fonctionnalité en préversion. Contactez votre représentant Microsoft pour activer cette fonctionnalité sur votre abonnement.
+* Votre abonnement Azure doit être dans la liste verte de cette fonctionnalité en préversion.
 
 ## <a name="configure-direct-connectivity-between-expressroute-and-fastconnect"></a>Configurer une connexion directe entre ExpressRoute et FastConnect
 

@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: pabutler
-ms.openlocfilehash: 0637491a1d7799bcaef594123aab53f89690c86f
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: 1270dff0bcb8de117247a454ab9c144250cfb17c
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67654030"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68880362"
 ---
 # <a name="configure-the-azure-hosted-vm"></a>Configurer la machine virtuelle hébergée sur Azure
 
@@ -70,7 +70,7 @@ Pour plus d’informations sur l’exécution de sysprep, voir [Étapes de gén�
 
 ### <a name="linux"></a>Linux
 
-Ce processus en deux étapes généralise une machine virtuelle Linux et la redéploie sous la forme d’une machine virtuelle distincte.  Pour plus d’informations, consultez l’article [Créer une image d’une machine virtuelle ou d’un disque dur virtuel](../../../virtual-machines/linux/capture-image.md). 
+Le processus en deux étapes suivant généralise une machine virtuelle Linux et la redéploie sous la forme d’une machine virtuelle distincte. Ces deux étapes sont simplement les éléments essentiels du processus. Pour plus d’informations sur ces deux étapes et la raison pour laquelle elles doivent être effectuées, consultez [Créer une image d’une machine virtuelle ou d’un disque dur virtuel](../../../virtual-machines/linux/capture-image.md). Dans le but de créer le disque dur virtuel pour votre offre de la Place de marché Azure, vous pouvez vous arrêter lorsque vous atteignez la section « Créer une machine virtuelle à partir de l’image capturée ».
 
 #### <a name="remove-the-azure-linux-agent"></a>Supprimer l’agent Linux Azure
 1.  Connectez-vous à votre machine virtuelle Linux en utilisant un client SSH.
@@ -95,4 +95,4 @@ La création de copies de machine virtuelle est souvent utile pour les tâches d
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Une fois votre machine virtuelle configurée, vous êtes en mesure de [déployer une machine virtuelle à partir d’un disque dur virtuel](./cpp-deploy-vm-vhd.md).
+Une fois que votre machine virtuelle est généralisée, qu’elle a été libérée et que vous avez créé une image de la machine virtuelle, vous êtes prêt à [déployer une machine virtuelle à partir d’un disque dur virtuel](./cpp-deploy-vm-vhd.md).

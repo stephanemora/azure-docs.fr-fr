@@ -12,12 +12,12 @@ ms.date: 04/11/2019
 ms.author: mimart
 ms.reviewer: luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 249dfeeb231c61b05af2e89f0dc02822cc18e627
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 15f7e830079c224e9e15dd45d14c1741376f8762
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67702184"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68851693"
 ---
 # <a name="assign-a-user-or-group-to-an-enterprise-app-in-azure-active-directory"></a>Affecter un utilisateur ou un groupe à une application d’entreprise dans Azure Active Directory
 
@@ -54,9 +54,11 @@ Pour affecter un utilisateur ou un groupe à une application d’entreprise, vou
 
 L’option **Affectation utilisateur requise ?**  :
 
+- Si cette option est définie sur Oui, les utilisateurs doivent tout d’abord être affectés à cette application avant de pouvoir y accéder.
+- Si cette option est définie sur Non, tous les utilisateurs qui naviguent directement vers l’URL de l’application ou vers l’URL de lien ciblé de l’application se voient accorder l’accès
 - N’a pas d’impact sur l’apparition ou non d’une application dans le volet Accès à l’application. Pour montrer l’application dans le volet d’accès, vous devez affecter un utilisateur ou un groupe approprié à l’application.
-- Fonctionne seulement avec les applications cloud qui sont configurées pour l’authentification unique SAML et avec les applications locales configurées avec le proxy d’application. Consultez [Authentification unique pour les applications](what-is-single-sign-on.md).
-- Nécessite que les utilisateurs donnent leur consentement à une application. Un administrateur peut accorder un consentement pour tous les utilisateurs.  Consultez [Configurer le consentement de l’utilisateur final pour une application](configure-user-consent.md).
+- Fonctionne uniquement avec les applications cloud qui sont configurées pour l’authentification unique SAML, les applications de proxy d’application qui utilisent la pré-authentification Azure Active Directory, ou les applications créées directement sur la plateforme d’application Azure AD qui utilisent l’authentification OAuth 2.0 / OpenID Connect après qu’un utilisateur ou un administrateur a donné son consentement pour cette application. Consultez [Authentification unique pour les applications](what-is-single-sign-on.md). Consultez [Configurer le consentement de l’utilisateur final pour une application](configure-user-consent.md).
+- Cette option n’a aucun effet quand une application est configurée pour les autres modes d’authentification unique.
 
 ## <a name="assign-a-user-to-an-app---powershell"></a>Affecter un utilisateur à une application - PowerShell
 

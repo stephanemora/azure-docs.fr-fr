@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 3b98db361a8ec888eb8bf9e1bf3658a7e38111c6
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: d7b91e3e74c65919a3afe80addfbd0fadd23b03c
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67620418"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68931803"
 ---
 # <a name="automatically-scale-session-hosts"></a>Mettre automatiquement à l’échelle vos hôtes de session
 
@@ -65,7 +65,7 @@ Ensuite, vous devez créer des informations d’identification stockées en tout
     Install-Module Microsoft.RdInfra.RdPowershell
     ```
     
-3. Ouvrez le volet d’édition et chargez le fichier **Function-PSStoredCredentials.ps1**.
+3. Ouvrez le volet d’édition et chargez le fichier **Function-PSStoredCredentials.ps1**, puis exécutez l’intégralité du script (F5).
 4. Exécutez l’applet de commande suivante :
     
     ```powershell
@@ -111,7 +111,7 @@ Après avoir configuré le fichier .xml de configuration, vous devez configurer 
 4. Accédez à l’onglet **Déclencheurs**, puis sélectionnez **Nouveau...**
 5. Dans la boîte de dialogue **Nouveau déclencheur**, sous **Paramètres avancés**, vérifiez **Répéter chaque tâche** et sélectionnez la période et la durée appropriées (par exemple, **15 minutes** ou **Indéfiniment**).
 6. Sélectionnez l’onglet **Actions** et **Nouveau...**
-7. Dans la boîte de dialogue **Nouvelle Action**, entrez **powershell.exe** dans le champ **Programme/script**. Ensuite, entrez **C:\\scaling\\RDSScaler.ps1** dans le champ **Ajouter des arguments (facultatif)** .
+7. Dans la boîte de dialogue **Nouvelle Action**, entrez **powershell.exe** dans le champ **Programme/script**. Ensuite, entrez **C:\\scaling\\basicScale.ps1** dans le champ **Ajouter des arguments (facultatif)** .
 8. Accédez aux onglets **Conditions** et **Paramètres**, puis sélectionnez **OK** pour accepter les paramètres par défaut pour chacun.
 9. Entrez le mot de passe du compte d’administration dans lequel vous souhaitez exécuter le script de mise à l’échelle.
 

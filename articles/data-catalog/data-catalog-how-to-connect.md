@@ -6,12 +6,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: c91c09da31e4ecf42257b8f9c86f25c6ec39b9df
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 1190a0f34206004b72730a6af85bbe5db7d9961a
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68734643"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976786"
 ---
 # <a name="how-to-connect-to-data-sources"></a>Connexion aux sources de données
 ## <a name="introduction"></a>Introduction
@@ -28,7 +28,7 @@ Lorsque vous utilisez l’affichage en mosaïque par défaut, ce menu est dispon
 
 Lorsque vous utilisez l’affichage par liste, le menu est disponible dans la barre de recherche, en haut de la fenêtre du portail.
 
- ![Ouverture d’un rapport SQL Server Reporting Services dans le Gestionnaire de rapports à partir de la barre de recherche](./media/data-catalog-how-to-connect/data-catalog-how-to-connect2.png)
+ ![Ouverture d’un rapport SQL Server Reporting Services dans le Gestionnaire de rapports](./media/data-catalog-how-to-connect/data-catalog-how-to-connect2.png)
 
 ## <a name="supported-client-applications"></a>Applications clientes prises en charge
 Lorsque vous utilisez le menu « Ouvrir dans... » pour les sources de données dans le portail Azure Data Catalog, l’application cliente appropriée doit être installée sur l’ordinateur client.

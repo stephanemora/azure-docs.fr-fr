@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/24/2019
 ms.author: banders
-ms.openlocfilehash: 1afd78a0525be523f677cf0146c8a120155130ea
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 1842d32a838470d9b2af3a778c44c37464d32294
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68554688"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954337"
 ---
 # <a name="understand-the-terms-in-your-azure-usage-and-charges-file"></a>Comprendre les termes du fichier sur l’utilisation et les frais Azure
 
@@ -43,46 +43,46 @@ La liste couvre les comptes associés à un paiement à l’utilisation (PAYG), 
 Terme | Type de compte | Description
 --- | --- | ---
 AccountName | EA, PAYG | Nom complet du compte d’inscription EA ou du compte de facturation PAYG.
-AccountOwnerId | EA, PAYG | Identificateur unique pour le compte d’inscription EA ou le compte de facturation PAYG.
+AccountOwnerId<sup>1</sup> | EA, PAYG | Identificateur unique pour le compte d’inscription EA ou le compte de facturation PAYG.
 AdditionalInfo | Tous | Métadonnées relatives au service. Par exemple, le type d’image d’une machine virtuelle.
-BillingAccountId | Tous | Identificateur unique pour le compte de facturation racine.
+BillingAccountId<sup>1</sup> | Tous | Identificateur unique pour le compte de facturation racine.
 BillingAccountName | Tous | Nom du compte de facturation.
 BillingCurrency | Tous | Devise associée au compte de facturation.
 BillingPeriod | EA, PAYG | Période de facturation des frais.
 BillingPeriodEndDate | Tous | Date de fin de la période de facturation.
 BillingPeriodStartDate | Tous | La date de début de la période de facturation.
-BillingProfileId | Tous | Identificateur unique de l’inscription EA, de l’abonnement PAYG, du profil de facturation MCA ou du compte regroupé AWS.
+BillingProfileId<sup>1</sup> | Tous | Identificateur unique de l’inscription EA, de l’abonnement PAYG, du profil de facturation MCA ou du compte regroupé AWS.
 BillingProfileName | Tous | Nom de l’inscription EA, de l’abonnement PAYG, du profil de facturation MCA ou du compte regroupé AWS.
 ChargeType | Tous | Indique si les frais ont trait à l’utilisation (**Usage**), à un achat (**Purchase**) ou à un remboursement (**Refund**).
 ConsumedService | Tous | Nom du service auquel les frais sont associés.
-CostCenter | EA, MCA | Centre de coûts défini pour l’abonnement au fins de suivi des coûts (uniquement disponible dans les des périodes de facturation ouvertes pour les comptes MCA).
+CostCenter<sup>1</sup> | EA, MCA | Centre de coûts défini pour l’abonnement au fins de suivi des coûts (uniquement disponible dans les des périodes de facturation ouvertes pour les comptes MCA).
 Coût | EA, PAYG | Voir CostInBillingCurrency.
 CostInBillingCurrency | MCA | Coût des frais dans la devise de facturation avant crédits ou taxes.
 CostInPricingCurrency | MCA | Coût des frais dans la devise de tarification avant crédits ou taxes.
 Devise | EA, PAYG | Voir BillingCurrency.
-Date | Tous | Date d’achat ou d’utilisation à laquelle les frais correspondent.
+Date<sup>1</sup> | Tous | Date d’achat ou d’utilisation à laquelle les frais correspondent.
 EffectivePrice | Tous | Prix unitaire unifié pour la période. Les prix unifiés établissent la moyenne des fluctuations du prix unitaire, comme un nivellement progressif, ce qui réduit le prix à mesure que la quantité augmente au fil du temps.
 ExchangeRateDate | MCA | Date à laquelle que le taux de change a été établi.
 ExchangeRatePricingToBilling | MCA | Taux de change utilisé pour convertir le coût de la devise de tarification vers la devise de facturation.
 Fréquence | Tous | Indique si un coût est supposé se répéter. Les coûts peut être ponctuels (**OneTime**), se répéter mensuellement ou annuellement (**Recurring**) ou être basés sur l’utilisation (**UsageBased**).
 InvoiceId | PAYG, MCA | Référence de document unique figurant sur la facture au format PDF.
 InvoiceSection | MCA | Voir InvoiceSectionName.
-InvoiceSectionId | EA, MCA | Identificateur unique du service EA ou de la section de facture MCA.
+InvoiceSectionId<sup>1</sup> | EA, MCA | Identificateur unique du service EA ou de la section de facture MCA.
 InvoiceSectionName | EA, MCA | Nom du service EA ou de la section de facture MCA.
 IsAzureCreditEligible | Tous | Indique si les frais sont éligibles pour un paiement à l’aide de crédits Azure (valeurs : True, False).
 Location | MCA | Emplacement du centre de données où la ressource est exécutée.
 MeterCategory | Tous | Nom de la catégorie de classification du compteur. Par exemple, *Services cloud* ou *Mise en réseau*.
-ID du compteur | Tous | Identificateur unique du compteur.
+MeterId<sup>1</sup> | Tous | Identificateur unique du compteur.
 MeterName | Tous | Nom du compteur.
 MeterRegion | Tous | Nom de l’emplacement du centre de données pour des services tarifés en fonction de l’emplacement. Voir Location.
 MeterSubCategory | Tous | Nom de la catégorie de sous-classification du compteur.
-OfferId | Tous | Nom de l’offre achetée.
-PartNumber | EA, PAYG | Identificateur utilisé pour obtenir la tarification du compteur spécifique.
+OfferId<sup>1</sup> | Tous | Nom de l’offre achetée.
+PartNumber<sup>1</sup> | EA, PAYG | Identificateur utilisé pour obtenir la tarification du compteur spécifique.
 PlanName | EA, PAYG | Nom du plan sur la Place de marché.
 PreviousInvoiceId | MCA | Référence à une facture d’origine si cette ligne correspond à un remboursement.
 PricingCurrency | MCA | Devise utilisée lors de l’évaluation basée sur les prix négociés.
 Produit | Tous | Nom du produit.
-ProductId | MCA | Identificateur unique pour le produit.
+ProductId<sup>1</sup> | MCA | Identificateur unique pour le produit.
 ProductOrderId | Tous | Identificateur unique de la commande du produit.
 ProductOrderName | Tous | Nom unique de la commande du produit.
 PublisherName | Tous | Éditeur pour les services de la Place de marché.
@@ -91,7 +91,7 @@ Quantité | Tous | Nombre d’unités achetées ou consommés.
 ID de réservation | EA, MCA | Identificateur unique de l’instance de réservation achetée.
 ReservationName | EA, MCA | Nom de l’instance de réservation achetée.
 ResourceGroup | Tous | Nom du [groupe de ressources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) dans lequel figure la ressource.
-ResourceId | Tous | Identificateur unique de la ressources [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/resources).
+ResourceId<sup>1</sup> | Tous | Identificateur unique de la ressources [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/resources).
 ResourceLocation | Tous | Emplacement du centre de données où la ressource est exécutée. Voir Location.
 ResourceName | EA, PAYG | Nom de la ressource.
 ResourceType | MCA | Type d’instance de ressource.
@@ -100,12 +100,14 @@ ServiceInfo1 | Tous | Métadonnées relatives au service.
 ServiceInfo2 | Tous | Champ hérité avec des métadonnées facultatives spécifiques du service.
 ServicePeriodEndDate | MCA | Date de fin de la période d’évaluation utilisée pour définir et fixer la tarification correspondant au service consommé ou acheté.
 ServicePeriodStartDate | MCA | Date de début de la période d’évaluation utilisée pour définir et fixer la tarification correspondant au service consommé ou acheté.
-SubscriptionId | Tous | Identificateur unique de l’abonnement Azure.
+SubscriptionId<sup>1</sup> | Tous | Identificateur unique de l’abonnement Azure.
 SubscriptionName | Tous | Nom de l’abonnement Azure.
-Balises | Tous | Balises affectées à la ressource. N’inclut pas les balises de groupe de ressources. Peut être utilisée pour grouper ou répartir des coûts de refacturation interne. Pour plus d’informations, voir [Organisation des ressources Azure à l’aide de balises](https://azure.microsoft.com/updates/organize-your-azure-resources-with-tags/).
+Tags<sup>1</sup> | Tous | Balises affectées à la ressource. N’inclut pas les balises de groupe de ressources. Peut être utilisée pour grouper ou répartir des coûts de refacturation interne. Pour plus d’informations, voir [Organisation des ressources Azure à l’aide de balises](https://azure.microsoft.com/updates/organize-your-azure-resources-with-tags/).
 Terme | Tous | Affiche le terme de validité de l’offre. Par exemple :  Dans le cas d’instances réservées, le terme est de 12 mois. Pour les achats ponctuels ou les achats récurrents, le terme est de 1 mois (SaaS, support Marketplace). Cela ne s’applique pas à la consommation Azure.
 UnitOfMeasure | Tous | Unité de mesure pour la facturation du service. Par exemple, les services de calcul sont facturés à l’heure.
 UnitPrice | EA, PAYG | Prix unitaire des frais.
+
+_<sup>**1**</sup> Champs utilisés pour générer un ID unique pour un enregistrement de coût unique._
 
 Notez que certains champs peuvent différer par leur casse ou leur espacement d’un type de compte à l’autre.
 Les versions antérieures des fichiers sur le paiement à l’utilisation comportent des sections séparées pour le relevé et l’utilisation quotidienne.

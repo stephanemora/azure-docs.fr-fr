@@ -12,14 +12,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/11/2019
+ms.date: 07/31/2019
 ms.author: apimpm
-ms.openlocfilehash: a5d8a724a0b4dd6899a71187176b9d444e5fe19c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a23572642df99f00e278b6ba74367a30b0604640
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67051676"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68851468"
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>Utiliser le service Gestion des API Azure avec un réseau virtuel interne
 Avec les réseaux virtuels Azure, la Gestion des API Azure peut gérer des API inaccessibles sur Internet. Plusieurs technologies VPN sont disponibles pour établir la connexion. La Gestion des API peut être déployée selon deux modes principaux à l’intérieur d’un réseau virtuel :
@@ -63,7 +63,7 @@ Le service Gestion des API dans un réseau virtuel interne est hébergé derriè
 
 4. Sélectionnez **Enregistrer**.
 
-Une fois le déploiement réussi, l'adresse IP virtuelle **privée** et l'adresse IP virtuelle **publique** de votre service Gestion des API doivent s'afficher dans le panneau Vue d’ensemble. L'adresse IP virtuelle **privée** est une adresse IP à charge équilibrée dans le sous-réseau délégué Gestion des API via lequel les points de terminaison `gateway`, `portal`, `management` et `scm` sont accessibles. L'adresse IP virtuelle **publique** est **uniquement** utilisée pour le trafic du plan de contrôle vers le point de terminaison `management` via le port 3443 et peut être verrouillée sur la balise de service [ApiManagement][ServiceTags].
+Une fois le déploiement réussi, l'adresse IP virtuelle **privée** et l'adresse IP virtuelle **publique** de votre service Gestion des API doivent s'afficher dans le panneau Vue d’ensemble. L'adresse IP virtuelle **privée** est une adresse IP à charge équilibrée dans le sous-réseau délégué Gestion des API via lequel les points de terminaison `gateway`, `portal`, `management` et `scm` sont accessibles. L’adresse IP virtuelle **publique** est **uniquement** utilisée pour le trafic du plan de contrôle vers le point de terminaison `management` par le biais du port 3443, et peut être verrouillée sur la balise de service [ApiManagement][ServiceTags].
 
 ![Tableau de bord Gestion des API avec réseau virtuel interne configuré][api-management-internal-vnet-dashboard]
 
@@ -91,7 +91,9 @@ Lorsque vous créez un service Gestion des API, nommé « contosointernalvnet 
 
    * Passerelle ou proxy : contosointernalvnet.azure-api.net
 
-   * Portail Azure et portail des développeurs : contosointernalvnet.portal.azure-api.net
+   * Portail des développeurs : contosointernalvnet.portal.azure-api.net
+
+   * Nouveau portail des développeurs : contosointernalvnet.developer.azure-api.net
 
    * Point de terminaison de gestion directe : contosointernalvnet.management.azure-api.net
 
@@ -102,6 +104,8 @@ Pour accéder à ces points de terminaison de service Gestion des API, vous pouv
    * 10.1.0.5     contosointernalvnet.azure-api.net
 
    * 10.1.0.5     contosointernalvnet.portal.azure-api.net
+
+   * 10.1.0.5     contosointernalvnet.developer.azure-api.net
 
    * 10.1.0.5     contosointernalvnet.management.azure-api.net
 
@@ -121,7 +125,7 @@ Si vous utilisez un serveur DNS personnalisé dans un réseau virtuel, vous pouv
 ## <a name="routing"> </a> Routage
 
 * Une adresse IP virtuelle *privée* à charge équilibrée de la plage de sous-réseau est réservée et utilisée pour accéder aux points de terminaison du service Gestion des API à partir du réseau virtuel. Cette adresse IP *privée* se trouve dans le panneau Vue d’ensemble du service sur le portail Azure. Cette adresse doit être inscrite sur les serveurs DNS utilisés par le réseau virtuel.
-* Une adresse IP *publique* à charge équilibrée (adresse IP virtuelle) est également réservée pour fournir l’accès au point de terminaison de service de gestion sur le port 3443. Cette adresse IP *publique* se trouve dans le panneau Vue d’ensemble du service sur le portail Azure. L'adresse IP *publique* est uniquement utilisée pour le trafic du plan de contrôle vers le point de terminaison `management` via le port 3443 et peut être verrouillée sur la balise de service [ApiManagement][ServiceTags].
+* Une adresse IP *publique* à charge équilibrée (adresse IP virtuelle) est également réservée pour fournir l’accès au point de terminaison de service de gestion sur le port 3443. Cette adresse IP *publique* se trouve dans le panneau Vue d’ensemble du service sur le portail Azure. L’adresse IP *publique* est uniquement utilisée pour le trafic du plan de contrôle vers le point de terminaison `management` par le biais du port 3443, et peut être verrouillée sur la balise de service [ApiManagement][ServiceTags].
 * Les adresses IP de la plage d'adresses IP de sous-réseau (DIP) sont attribuées à chaque machine virtuelle du service et utilisées pour accéder aux ressources du réseau virtuel. Une adresse IP publique est utilisée pour accéder aux ressources extérieures au réseau virtuel. Si des listes de restriction d'adresses IP sont utilisées pour sécuriser les ressources au sein du réseau virtuel, la plage entière du sous-réseau où le service Gestion des API est déployé doit pouvoir accorder ou restreindre l'accès à partir du service.
 * Les adresses IP privée et publique à charge équilibrée se trouvent dans le panneau Vue d’ensemble sur le portail Azure.
 * Les adresses IP attribuées pour un accès public et privé peuvent changer si le service est supprimé, puis rajouté au réseau virtuel. Dans ce cas, il peut être nécessaire de mettre à jour les enregistrements DNS, règles d'acheminement et listes de restriction d'adresses IP au sein du réseau virtuel.

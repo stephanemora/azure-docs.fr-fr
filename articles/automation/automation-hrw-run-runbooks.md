@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 01/29/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 88e3c0514861da0bd11acffd26cced54717e4418
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 6f41263bfb930d3aab41fd8ace86cd6afb0ace26
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67478484"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68850582"
 ---
 # <a name="running-runbooks-on-a-hybrid-runbook-worker"></a>Exécution de Runbooks sur un Runbook Worker hybride
 
@@ -271,7 +271,7 @@ sudo gpg --generate-key
 
 GPG va vous guider tout au long des étapes de la création de la paire de clés. Vous devrez fournir un nom, une adresse e-mail, une heure d'expiration, une phrase secrète et attendre suffisamment d'entropie sur la machine pour que la clé soit générée.
 
-Le répertoire GPG ayant été généré avec sudo, vous devez remplacer son propriétaire par `nxautomation`. 
+Le répertoire GPG ayant été généré avec sudo, vous devez remplacer son propriétaire par `nxautomation`.
 
 Exécutez la commande suivante pour modifier le propriétaire.
 
@@ -312,3 +312,4 @@ Le runbook signé peut désormais être téléchargé dans Azure Automation et p
 * Pour en savoir plus sur les différentes méthodes qui peuvent être utilisées pour démarrer un Runbook, consultez [Démarrage d’un Runbook dans Azure Automation](automation-starting-a-runbook.md).
 * Pour comprendre les différentes manières d’utiliser des runbooks PowerShell dans Azure Automation à l’aide de l’éditeur de texte, consultez [Modification d’un runbook dans Azure Automation](automation-edit-textual-runbook.md)
 * Si l’exécution de vos runbooks ne se termine pas correctement, consultez le guide de dépannage sur les [échecs d’exécution des runbooks](troubleshoot/hybrid-runbook-worker.md#runbook-execution-fails).
+* Pour plus d’informations sur PowerShell, notamment le langage de référence et les modules d’apprentissage, consultez la [Documentation PowerShell](https://docs.microsoft.com/en-us/powershell/scripting/overview).

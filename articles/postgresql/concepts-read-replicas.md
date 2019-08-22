@@ -5,20 +5,17 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 06/14/2019
-ms.openlocfilehash: c98247b0ba8b670a59dec9aa3ec87e949f1dda78
-ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.date: 08/12/2019
+ms.openlocfilehash: 928a85c9d03148198fe3e965636740812ce732f7
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67147923"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976284"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql---single-server"></a>Réplicas en lecture dans Azure Database pour PostgreSQL - Serveur unique
 
 La fonctionnalité de réplica en lecture vous permet de répliquer les données d’un serveur Azure Database pour PostgreSQL sur un serveur en lecture seule. Vous pouvez effectuer la réplication à partir du serveur maître vers cinq réplicas au maximum. Les réplicas sont mis à jour de manière asynchrone à l’aide de la technologie de réplication native du moteur PostgreSQL.
-
-> [!IMPORTANT]
-> Vous pouvez créer un réplica en lecture dans la même région que votre serveur principal, ou dans n’importe quelle autre région Azure de votre choix. La réplication entre plusieurs régions est actuellement disponible en préversion publique.
 
 Les réplicas sont de nouveaux serveurs que vous gérez de manière similaire aux serveurs Azure Database pour PostgreSQL classiques. Pour chaque réplica en lecture, vous êtes facturé en fonction de la capacité de calcul provisionnée dans les vCores et du stockage provisionné en Go/mois.
 
@@ -33,7 +30,32 @@ Dans la mesure où les réplicas sont en lecture seule, ils ne réduisent pas di
 
 La fonctionnalité de réplica en lecture utilise la réplication asynchrone PostgreSQL. La fonctionnalité n’est pas destinée aux scénarios de réplication synchrone. Il y aura un délai mesurable entre le maître et le réplica. Les données du réplica finissent par devenir cohérentes avec les données du serveur maître. Utilisez cette fonctionnalité pour les charges de travail pouvant s’adapter à ce délai.
 
-Les réplicas en lecture peuvent améliorer votre plan de récupération d’urgence. Tout d’abord, vous devez disposer d’un réplica se trouvant dans une région Azure différente de celle du maître. En cas d’incident de région, vous pouvez arrêter la réplication vers ce réplica et rediriger votre charge de travail vers elle. Si vous arrêtez la réplication, cela signifie que le réplica va commencer à accepter les écritures et les lectures. Découvrez plus d’informations dans la section relative à [l’arrêt de la réplication](#stop-replication). 
+## <a name="cross-region-replication"></a>Réplication entre régions
+Vous pouvez créer un réplica en lecture dans une autre région à partir de votre serveur maître. La réplication entre régions peut être utile pour des scénarios tels que la planification de la récupération d’urgence ou le rapprochement des données de vos utilisateurs.
+
+> [!IMPORTANT]
+> La réplication entre plusieurs régions est actuellement disponible en préversion publique.
+
+Vous pouvez disposer d’un serveur maître dans toute [région Azure Database pour PostgreSQL](https://azure.microsoft.com/global-infrastructure/services/?products=postgresql).  Un serveur maître peut avoir un réplica dans sa région jumelée ou dans les régions de réplica universelles.
+
+### <a name="universal-replica-regions"></a>Régions de réplica universelles
+Vous pouvez toujours créer un réplica en lecture dans les régions suivantes, quel que soit l’emplacement de votre serveur maître. Les régions de réplica universelles sont les suivantes :
+
+Australie Est, Australie Sud-Est, USA Centre, Asie Est, USA Est, USA Est 2, Japon Est, Japon Ouest, Corée Centre, Corée Sud, USA Centre Nord, Europe Nord, USA Centre Sud, Asie Sud-Est, Royaume-Uni Sud, Royaume-Uni Ouest, Europe Ouest, USA Ouest, USA Ouest 2.
+
+
+### <a name="paired-regions"></a>Régions jumelées
+Outre les régions de réplica universelles, vous pouvez créer un réplica en lecture dans la région Azure jumelée de votre serveur maître. Si vous ne connaissez pas la région jumelée de votre région, vous trouverez plus d’informations dans l’[article sur les régions jumelées Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
+
+Si vous utilisez des réplicas entre régions pour la planification de la récupération d’urgence, nous vous recommandons de créer le réplica dans la région jumelée plutôt que dans une autre région. Les régions jumelées évitent les mises à jour simultanées et hiérarchisent l’isolement physique et la résidence des données.  
+
+Il existe toutefois quelques limitations à prendre en compte : 
+
+* Disponibilité régionale : Azure Database pour PostgreSQL est disponible dans les régions USA Ouest 2, France Centre, Émirats arabes unis Nord et Allemagne Centre. Toutefois, leurs régions jumelées ne sont pas disponibles.
+    
+* Paires unidirectionnelles : certaines régions Azure sont jumelées dans une seule direction. Ces régions incluent Inde Ouest, Brésil Sud et US Gov Virginie. 
+   Cela signifie qu’un serveur maître dans la région Inde Ouest peut créer un réplica dans la région Inde Sud. Toutefois, un serveur maître dans la région Inde Sud ne peut pas créer de réplica dans la région Inde Ouest. En effet, la région secondaire de la région Inde Ouest est Inde Sud, mais la région secondaire de la région Inde Sud n’est pas Inde Ouest.
+
 
 ## <a name="create-a-replica"></a>Créer un réplica
 Le serveur maître doit comporter le paramètre `azure.replication_support` avec la valeur **REPLICA**. Quand vous changez ce paramètre, un redémarrage du serveur est nécessaire pour que la modification soit prise en compte. (Le paramètre `azure.replication_support` s’applique uniquement aux niveaux à usage général et à mémoire optimisée).
@@ -123,7 +145,7 @@ Avec PostgreSQL, la valeur du paramètre `max_connections` sur le réplica en le
 
 Si vous tentez de mettre à jour les valeurs du serveur sans respecter les limites, vous recevez un message d’erreur.
 
-### <a name="maxpreparedtransactions"></a>max_prepared_transactions
+### <a name="max_prepared_transactions"></a>max_prepared_transactions
 Avec [PostgreSQL](https://www.postgresql.org/docs/10/runtime-config-resource.html#GUC-MAX-PREPARED-TRANSACTIONS), la valeur du paramètre `max_prepared_transactions` sur le réplica en lecture doit être supérieure ou égale à la valeur du serveur maître. Sinon, le réplica ne démarre pas. Si vous souhaitez modifier `max_prepared_transactions` sur le serveur maître, modifiez-le d’abord sur les réplicas.
 
 ### <a name="stopped-replicas"></a>Réplicas arrêtés

@@ -3,20 +3,20 @@ title: Intégration et déploiement de Project Acoustics Unity
 titlesuffix: Azure Cognitive Services
 description: Cette section décrit l'intégration du plug-in Project Acoustics Unity à votre projet Unity.
 services: cognitive-services
-author: kegodin
+author: NoelCross
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: conceptual
 ms.date: 03/20/2019
-ms.author: kegodin
+ms.author: noelc
 ROBOTS: NOINDEX
-ms.openlocfilehash: 1a90f6102d35dc1a3bb97c840f2955b54f35bbad
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: 54bc98e0ddba0292c6a5dbb07f2bbdfce6a1cb45
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68706642"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68933141"
 ---
 # <a name="project-acoustics-unity-integration"></a>Intégration de Project Acoustics Unity
 Cette section décrit l'intégration du plug-in Project Acoustics Unity à votre projet Unity.
@@ -32,6 +32,10 @@ Importez le package Unity d’acoustique dans votre projet.
     ![Capture d’écran du menu Import Package d’Unity](media/import-package.png)  
 
 * Choisissez **ProjectAcoustics.unitypackage**
+
+* Cliquez sur le bouton **Import** pour intégrer le package Unity dans votre projet.  
+
+    ![Capture d’écran de la boîte de dialogue Import Package d’Unity](media/import-dialog.png)  
 
 Si vous importez le plug-in dans un projet existant, il est possible que votre projet ait déjà un fichier **mcs.rsp** à la racine du projet, qui spécifie les options du compilateur C#. Vous devrez fusionner le contenu de ce fichier avec le fichier mcs.rsp fourni avec le plug-in Project Acoustics.
 

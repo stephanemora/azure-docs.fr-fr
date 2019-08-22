@@ -1,21 +1,20 @@
 ---
-title: Restauration automatique pendant la récupération d’urgence avec Azure Site Recovery | Microsoft Docs
-description: Cet article donne une vue d’ensemble des différents types de restaurations automatiques et d’avertissements à prendre en compte lors d’une restauration automatique locale avec le service Azure Site Recovery pendant la récupération d’urgence.
-services: site-recovery
+title: Restauration automatique pendant la reprise d’activité avec Azure Site Recovery | Microsoft Docs
+description: Cet article donne une vue d’ensemble des différents types de restaurations automatiques et d’avertissements à prendre en compte lors d’une restauration automatique locale avec le service Azure Site Recovery pendant la reprise d’activité après sinistre.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 05/19/2019
+ms.date: 08/07/2019
 ms.author: raynew
-ms.openlocfilehash: 1e5dc91018df822c72381e4a162c5af5d74ed83c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c0eaf28f9aeb4050fd35a6036a53e3e91d00f3eb
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66399470"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68847481"
 ---
-# <a name="failback-after-disaster-recovery-of-vmware-vms"></a>Restauration automatique après la récupération d’urgence des machines virtuelles VMware
+# <a name="failback-of-vmware-vms-after-disaster-recovery-to-azure"></a>Restauration automatique après la reprise d’activité des machines virtuelles VMware
 
 Une fois que vous avez basculé vers Azure dans le cadre du processus de récupération d’urgence, vous pouvez opérer une restauration automatique sur votre site local. Deux types de restaurations automatiques sont possibles avec Azure Site Recovery : 
 

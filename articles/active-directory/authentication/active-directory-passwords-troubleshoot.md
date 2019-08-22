@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sahenry
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 89c76ad0739edea4c0541ace76ca2311453de71d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 30fd1ebf8a59c80764335be47c986ea77f5d1438
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65963027"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68879169"
 ---
 # <a name="troubleshoot-self-service-password-reset"></a>Résoudre les problèmes relatifs à la réinitialisation de mot de passe libre-service
 
@@ -40,7 +40,7 @@ Vous rencontrez un problème avec la réinitialisation de mot de passe libre-ser
 
 | Error | Solution |
 | --- | --- |
-| Je ne vois pas la section **Réinitialisation de mot de passe** sous Azure AD dans le portail Azure. | Cela peut se produire si vous n’avez pas de licence Azure AD Premium ou Basic affectée à l’administrateur qui effectue l’opération. <br> <br> Affectez une licence au compte d’administrateur en question. Vous pouvez suivre les étapes décrites dans l’article [Affecter, vérifier et résoudre les problèmes de licences](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses).|
+| Je ne vois pas la section **Réinitialisation de mot de passe** sous Azure AD dans le portail Azure. | Cela peut se produire si vous n’avez pas de licence Azure AD affectée à l’administrateur qui effectue l’opération. <br> <br> Affectez une licence au compte d’administrateur en question. Vous pouvez suivre les étapes décrites dans l’article [Affecter, vérifier et résoudre les problèmes de licences](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses).|
 | Je ne vois pas d’option de configuration spécifique. | De nombreux éléments de l’interface utilisateur sont masqués jusqu’à ce qu’ils soient nécessaires. Essayez d’activer toutes les options que vous souhaitez afficher. |
 | Je ne vois pas l’onglet **Intégration locale**. | Cette option est visible uniquement si vous avez téléchargé Azure AD Connect et configuré l’écriture différée de mot de passe. Pour plus d’informations, consultez [Prise en main d’Azure AD Connect à l’aide de paramètres express](../hybrid/how-to-connect-install-express.md). |
 
@@ -48,7 +48,7 @@ Vous rencontrez un problème avec la réinitialisation de mot de passe libre-ser
 
 | Error | Solution |
 | --- | --- |
-| Aucun type d’activité de gestion des mots de passe ne s’affiche dans la catégorie d’événement d’audit **Self-Service Password Management** (Gestion des mots de passe en libre-service). | Cela peut se produire si vous n’avez pas de licence Azure AD Premium ou Basic affectée à l’administrateur qui effectue l’opération. <br> <br> Vous pouvez résoudre ce problème en attribuant une licence au compte d’administrateur en question. Suivez les étapes décrites dans l’article [Affecter, vérifier et résoudre les problèmes de licences](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses). |
+| Aucun type d’activité de gestion des mots de passe ne s’affiche dans la catégorie d’événement d’audit **Self-Service Password Management** (Gestion des mots de passe en libre-service). | Cela peut se produire si vous n’avez pas de licence Azure AD affectée à l’administrateur qui effectue l’opération. <br> <br> Vous pouvez résoudre ce problème en attribuant une licence au compte d’administrateur en question. Suivez les étapes décrites dans l’article [Affecter, vérifier et résoudre les problèmes de licences](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses). |
 | Les inscriptions de l’utilisateur apparaissent plusieurs fois. | Quand un utilisateur s’enregistre, nous journalisons chaque élément de données individuel sous la forme d’un événement distinct. <br> <br> Si vous souhaitez agréger ces données et bénéficier d’une plus grande souplesse pour les afficher, vous pouvez télécharger le rapport et ouvrir les données dans un tableau croisé dynamique dans Excel.
 
 ## <a name="troubleshoot-the-password-reset-registration-portal"></a>Résolution des problèmes du portail d’inscription à la réinitialisation de mot de passe
@@ -56,7 +56,7 @@ Vous rencontrez un problème avec la réinitialisation de mot de passe libre-ser
 | Error | Solution |
 | --- | --- |
 | L’annuaire n’est pas activé pour la réinitialisation du mot de passe. **Votre administrateur ne vous a pas autorisé à utiliser cette fonctionnalité.** | Basculez le marqueur **Réinitialisation de mot de passe en libre-service activée** sur **Sélectionné** ou **Tout le monde**, puis sélectionnez **Enregistrer**. |
-| L’utilisateur ne dispose pas d’une licence Azure AD Premium ou Basic. **Votre administrateur ne vous a pas autorisé à utiliser cette fonctionnalité.** | Cela peut se produire si vous n’avez pas de licence Azure AD Premium ou Basic affectée à l’administrateur qui effectue l’opération. <br> <br> Vous pouvez résoudre ce problème en attribuant une licence au compte d’administrateur en question. Suivez les étapes décrites dans l’article [Affecter, vérifier et résoudre les problèmes de licences](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses).|
+| L’utilisateur n’a pas de licence Azure AD. **Votre administrateur ne vous a pas autorisé à utiliser cette fonctionnalité.** | Cela peut se produire si vous n’avez pas de licence Azure AD affectée à l’administrateur qui effectue l’opération. <br> <br> Vous pouvez résoudre ce problème en attribuant une licence au compte d’administrateur en question. Suivez les étapes décrites dans l’article [Affecter, vérifier et résoudre les problèmes de licences](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses).|
 | Une erreur s’est produite pendant le traitement de la demande. | Cela peut être dû à de nombreux problèmes, mais en général, cette erreur est due à une panne ou à un problème de configuration du service. Si cette erreur se produit et qu’elle affecte votre entreprise, contactez Microsoft pour obtenir une assistance supplémentaire. |
 
 ## <a name="troubleshoot-the-password-reset-portal"></a>Résolution des problèmes du portail de réinitialisation du mot de passe
@@ -64,7 +64,7 @@ Vous rencontrez un problème avec la réinitialisation de mot de passe libre-ser
 | Error | Solution |
 | --- | --- |
 | L’annuaire n’est pas activé pour la réinitialisation du mot de passe. | Basculez le marqueur **Réinitialisation de mot de passe en libre-service activée** sur **Sélectionné** ou **Tout le monde**, puis sélectionnez **Enregistrer**. |
-| L’utilisateur ne dispose pas d’une licence Azure AD Premium ou Basic. | Cela peut se produire si vous n’avez pas de licence Azure AD Premium ou Basic affectée à l’administrateur qui effectue l’opération. <br> <br> Vous pouvez résoudre ce problème si vous attribuez une licence au compte d’administrateur en question. Suivez les étapes décrites dans l’article [Affecter, vérifier et résoudre les problèmes de licences](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses). |
+| L’utilisateur n’a pas de licence Azure AD. | Cela peut se produire si vous n’avez pas de licence Azure AD affectée à l’administrateur qui effectue l’opération. <br> <br> Vous pouvez résoudre ce problème si vous attribuez une licence au compte d’administrateur en question. Suivez les étapes décrites dans l’article [Affecter, vérifier et résoudre les problèmes de licences](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses). |
 | L’annuaire est activé pour la réinitialisation du mot de passe, mais il manque une information d’authentification ou celle-ci n’est pas bien formée. | Avant de poursuivre, vérifiez que l’utilisateur dispose de données de contact correctes dans l’annuaire. Pour plus d’informations, consultez [Données utilisées par la réinitialisation du mot de passe en libre-service Azure AD](howto-sspr-authenticationdata.md). |
 | L’annuaire est activé pour la réinitialisation du mot de passe. Toutefois, l’utilisateur n’a fourni qu’une seule partie des données de contact alors que la stratégie nécessite deux méthodes de vérification. | Avant de continuer, vérifiez que l’utilisateur a configuré correctement au moins deux méthodes de contact. Par exemple, il peut combiner un téléphone mobile *et* un téléphone fixe. |
 | L’annuaire est activé pour la réinitialisation du mot de passe et l’utilisateur est correctement configuré, mais l’utilisateur est injoignable. | Cela peut être dû à une erreur de service temporaire ou à des données de contact incorrectement configurées qui n’ont pas été signalées comme telles. <br> <br> Si l’utilisateur patiente pendant 10 secondes, les liens « Réessayez » et « Contactez votre administrateur » apparaissent. Si l’utilisateur sélectionne « Réessayez », il renouvelle l’appel. S’il sélectionne « Contactez votre administrateur », un e-mail est envoyé aux administrateurs leur demandant d’effectuer une réinitialisation de mot de passe pour ce compte d’utilisateur. |
@@ -275,7 +275,7 @@ Pour que nous puissions mieux vous aider, nous vous demandons de fournir autant 
    * S’agit-il d’un utilisateur de l’authentification directe ?
    * S’agit-il d’un utilisateur disposant de la synchronisation du hachage de mot de passe ?
    * S’agit-il d’un utilisateur cloud uniquement ?
-* **Licences**. L’utilisateur dispose-t-il d’une licence Azure AD Premium ou Azure AD Basic ?
+* **Licences**. L’utilisateur a-t-il une licence Azure AD ?
 * **Journal des événements de l’application**. Si vous utilisez la réécriture de mot de passe et que l’erreur se produit dans votre infrastructure locale, veuillez inclure une copie compressée du journal des événements de l’application provenant de votre serveur Azure AD Connect.
 
 [Service restart]: ./media/active-directory-passwords-troubleshoot/servicerestart.png "Redémarrer le service de synchronisation Azure AD"

@@ -5,21 +5,23 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 10/24/2018
+ms.date: 06/28/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 5fefe469bfac4816a67c6ceb344f12c1e52de60c
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: f4e36edf86823453e663ed875c7d5e4ffdc2e524
+ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68550461"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69016437"
 ---
-# <a name="zone-redundant-storage-zrs-highly-available-azure-storage-applications"></a>Stockage redondant interzone (ZRS) : applications Stockage Azure hautement disponibles
+# <a name="zone-redundant-storage-zrs-for-building-highly-available-azure-storage-applications"></a>Stockage redondant interzone (ZRS) pour la création d’applications Stockage Azure hautement disponibles
+
 [!INCLUDE [storage-common-redundancy-ZRS](../../../includes/storage-common-redundancy-zrs.md)]
 
 ## <a name="support-coverage-and-regional-availability"></a>Couverture du support et disponibilité régionale
+
 Le stockage ZRS prend actuellement en charge les types de comptes de stockage standard à usage général v2. Pour plus d’informations sur les types de comptes de stockage, voir [Vue d’ensemble des comptes de stockage Azure](storage-account-overview.md).
 
 Le stockage ZRS est disponible pour les objets blob de blocs, les objets blob de pages non-disque, les fichiers, les tables et les files d’attente.
@@ -45,6 +47,7 @@ Microsoft continue d’activer le stockage ZRS dans d’autres régions Azure. C
 - Les disques managés ne prennent pas en charge le stockage ZRS. Vous pouvez stocker des images et des instantanés de disques managés SSD Standard sur le stockage HDD Standard et [choisir entre les options LRS et ZRS](https://azure.microsoft.com/pricing/details/managed-disks/).
 
 ## <a name="what-happens-when-a-zone-becomes-unavailable"></a>Que se passe-t-il lorsqu’une zone n’est plus disponible ?
+
 Vos données restent accessibles pour des opérations de lecture et d’écriture, même si une zone devient indisponible. Microsoft recommande de continuer à suivre les pratiques de gestion des erreurs temporaires. Ces pratiques incluent l’implémentation de stratégies de nouvelle tentative avec une interruption exponentielle.
 
 Lorsqu’une zone n’est pas disponible, Azure procède à des mises à jour des réseaux, telles que le rejointoiement DNS. Ces mises à jour peuvent affecter votre application si vous accédez à vos données avant qu’elles soient terminées.
@@ -52,6 +55,7 @@ Lorsqu’une zone n’est pas disponible, Azure procède à des mises à jour de
 Le stockage ZRS ne peut pas protéger vos données contre un sinistre régional, lorsque plusieurs zones sont affectées définitivement. Au lieu de cela, le stockage ZRS contribue à la résilience de vos données s’il devient temporairement indisponible. En guise de protection face à des sinistres régionaux, Microsoft recommande l’utilisation d’un stockage géoredondant (GRS). Pour plus d’informations sur GRS, consultez [Stockage géoredondant (GRS) : réplication interrégion pour le stockage Azure](storage-redundancy-grs.md).
 
 ## <a name="converting-to-zrs-replication"></a>Conversion en réplication ZRS
+
 Une migration vers ou à partir de LRS, GRS et RA-GRS est simple. Utilisez le portail Azure ou l’API Fournisseur de ressources de stockage pour modifier le type de redondance de votre compte. Azure va ensuite répliquer vos données en conséquence. 
 
 Une migration de données vers un stockage redondant interzone (ZRS) nécessite une stratégie différente. Une migration de ZRS implique le déplacement physique de données à partir d’un tampon de stockage unique vers plusieurs tampons au sein d’une région.
@@ -61,14 +65,14 @@ Vous avez deux options principales pour migrer vers ZRS :
 - Copier ou déplacer manuellement les données vers un nouveau compte ZRS à partir d’un compte existant.
 - Demander une migration dynamique.
 
-Microsoft recommande vivement d’effectuer une migration manuelle. Une migration manuelle offre plus de souplesse qu’une migration dynamique. Avec une migration manuelle, vous contrôlez le minutage.
+Si vous avez besoin que la migration se termine à une certaine date, envisagez d’effectuer une migration manuelle. Une migration manuelle offre plus de souplesse qu’une migration dynamique. Avec une migration manuelle, vous contrôlez le minutage.
 
 Pour effectuer une migration manuelle, vous disposez de plusieurs options :
 - Vous pouvez vous servir d’outils existants tels qu’AzCopy, une des bibliothèques clientes de Stockage Azure, ou d’outils tiers fiables.
 - Si vous êtes familiarisé avec Hadoop ou HDInsight, vous pouvez attacher les comptes (ZRS) source et de destination à votre cluster. Ensuite, vous parallélisez le processus de copie de données avec un outil tel que DistCp.
 - Vous pouvez créer vos propres outils en utilisant l’une des bibliothèques clientes de Stockage Azure.
 
-Une migration manuelle peut entraîner un temps d’arrêt de l’application. Si votre application requiert une haute disponibilité, Microsoft offre également une option de migration dynamique. Une migration dynamique est une migration sur place. 
+Une migration manuelle peut entraîner un temps d’arrêt de l’application. Si votre application requiert une haute disponibilité, Microsoft offre également une option de migration dynamique. Une migration dynamique est une migration sur place sans temps d’arrêt. 
 
 Lors d’une migration dynamique, vous pouvez utiliser votre compte de stockage pendant le transfert de vos données entre les tampons de stockage source et de destination. Pendant le processus migration, vous bénéficiez toujours du même niveau de SLA pour la durabilité et la disponibilité que d’habitude.
 
@@ -137,9 +141,9 @@ ZRS classique est disponible uniquement pour les **objets blob de blocs** dans l
 
 Pour migrer manuellement des données de compte ZRS vers ou à partir d’un compte LRS, ZRS classique, GRS ou RA-GRS, servez-vous de l’un des outils suivants : AzCopy, Explorateur Stockage Azure, Azure PowerShell ou Azure CLI. Vous pouvez également créer votre propre solution de migration avec l’une des bibliothèques clientes de Stockage Azure.
 
-Vous pouvez également mettre à niveau vos comptes ZRS classiques vers ZRS via le portail ou à l’aide d’Azure PowerShell ou d’Azure CLI dans les régions où ZRS est disponible.
+Vous pouvez également mettre à niveau vos comptes ZRS classiques vers ZRS via le portail ou à l’aide d’Azure PowerShell ou d’Azure CLI dans les régions où ZRS est disponible. Pour effectuer une mise à niveau vers ZRS via le portail Azure, accédez à la section **Configuration** du compte, puis choisissez **Mettre à niveau** :
 
-Pour effectuer une mise à niveau vers ZRS via le portail, accédez à la section Configuration du compte, puis choisissez Mettre à niveau :![Mettre à niveau ZRS classique vers ZRS via le portail](media/storage-redundancy-zrs/portal-zrs-classic-upgrade.jpg)
+![Mettre à niveau ZRS classique vers ZRS via le portail](media/storage-redundancy-zrs/portal-zrs-classic-upgrade.png)
 
 Pour mettre à niveau vers ZRS à l’aide de PowerShell, appelez la commande suivante :
 ```powershell

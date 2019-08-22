@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: mlearned
 ms.openlocfilehash: 3feadaca361950df2a09f8da33fe380fc3763763
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "67614831"
 ---
 # <a name="best-practices-for-container-image-management-and-security-in-azure-kubernetes-service-aks"></a>Meilleures pratiques relatives à la gestion et à la sécurisation des images de conteneur dans Azure Kubernetes Services (AKS)
@@ -24,13 +24,13 @@ Cet article est dédié à la sécurisation de votre conteneur dans AKS. Vous al
 > * Rechercher et corriger les vulnérabilités de l’image
 > * Déclencher et redéployer automatiquement les images de conteneur lors de la mise à jour d’une image de base
 
-Vous pouvez également consulter les bonnes pratiques relatives à la [sécurité des clusters][best-practices-cluster-security] and for [pod security][best-practices-pod-security].
+Vous pouvez également consulter les bonnes pratiques relatives à la [sécurité des clusters][best-practices-cluster-security] et à la [sécurité du pod][best-practices-pod-security].
 
 ## <a name="secure-the-images-and-run-time"></a>Sécuriser les images et le runtime
 
 **Meilleures pratiques** : analysez vos images de conteneur à la recherche de vulnérabilités et déployez uniquement les images ayant réussi la validation. Mettez régulièrement à jour les images de base et le runtime de l’application, puis redéployez les charges de travail dans le cluster AKS.
 
-Un problème avec l’adoption de charges de travail basées sur les conteneurs concerne la vérification de la sécurité des images et du runtime utilisés pour générer vos propres applications. Comment vous assurer que vous n’introduisez pas de failles de sécurité dans vos déploiements ? Votre workflow de déploiement doit inclure un processus d’analyse des images conteneur s’appuyant sur des outils tels que [Twistlock][twistlock] or [Aqua][aqua], puis autoriser uniquement les images vérifiées à être déployées.
+Un problème avec l’adoption de charges de travail basées sur les conteneurs concerne la vérification de la sécurité des images et du runtime utilisés pour générer vos propres applications. Comment vous assurer que vous n’introduisez pas de failles de sécurité dans vos déploiements ? Votre flux de travail de déploiement doit inclure un processus d’analyse des images conteneur s’appuyant sur des outils tels que [Twistlock][twistlock] ou [Aqua][aqua], puis autoriser uniquement les images vérifiées à être déployées.
 
 ![Analyser et corriger les images de conteneur, les valider et les déployer](media/operator-best-practices-container-security/scan-container-images-simplified.png)
 

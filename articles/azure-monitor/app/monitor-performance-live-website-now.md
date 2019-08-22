@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 05/24/2019
 ms.author: mbullwin
 ms.openlocfilehash: ea324d616928b0d517c00dc9cab3e282f1e3415e
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "67876437"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-codeless-attach"></a>Instrumenter des applications web au runtime avec jonction sans code Application Insights
@@ -64,7 +64,7 @@ Si votre application est hébergée sur un serveur IIS, activez Application Insi
 2. Si Application Insights Status Monitor n’est pas encore installé, téléchargez et exécutez le [programme d’installation](#download).
 3. Dans Status Monitor, sélectionnez l’application web installée ou le site Web à surveiller. Connectez-vous avec vos informations d’identification Azure.
 
-    Configurez la ressource où vous souhaitez afficher les résultats dans le portail Application Insights. (En règle générale, il est préférable de créer une ressource. Sélectionnez une ressource existante si vous disposez déjà de [tests web][availability] or [client monitoring][client] pour cette application.) 
+    Configurez la ressource où vous souhaitez afficher les résultats dans le portail Application Insights. (En règle générale, il est préférable de créer une ressource. Sélectionnez une ressource existante si vous avez déjà configuré des [tests web][availability] ou une [supervision du client][client] pour cette application.) 
 
     ![Choisissez une application et une ressource.](./media/monitor-performance-live-website-now/appinsights-036-configAIC.png)
 

@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
-ms.date: 05/21/2019
-ms.openlocfilehash: fc3f88e627e0ce19195f6df947d4f11f5f8a73ae
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.date: 08/06/2019
+ms.openlocfilehash: cb1fd8e98a5eba350774ff6ccb8f86dcd3e4d734
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68772758"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68856213"
 ---
 # <a name="what-is-an-azure-machine-learning-service-workspace"></a>Qu’est-ce qu’un espace de travail Azure Machine Learning service ?
 
@@ -65,6 +65,9 @@ Les tâches de Machine Learning lisent et/ou écrivent des artefacts sur votre e
 + Affichez les artefacts de Machine Learning (expériences, pipelines, modèles, déploiements, etc.).
 + Suivez et supervisez les modèles.
 
+
+
+
 ## <a name="workspace-management"></a>Gestion de l’espace de travail
 
 Vous pouvez également effectuer les tâches de gestion de l’espace de travail suivantes :
@@ -76,7 +79,14 @@ Vous pouvez également effectuer les tâches de gestion de l’espace de travail
 | Gérer les accès à l’espace de travail    | **&check;**   | |  **&check;**    |
 | Création d’une machine virtuelle Notebook | **&check;**   | |     |
 
-Découvrez le service en [créant un espace de travail](setup-create-workspace.md).
+### <a name='create-workspace'></a> Créer un espace de travail
+
+Il existe plusieurs moyens de créer un espace de travail.
+
+* Utilisez le [portail Azure](how-to-manage-workspace.md) comme interface de type pointer-cliquer pour vous guider dans chaque étape.
+* Utilisez le [kit SDK Azure Machine Learning pour Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py#workspace) pour créer un espace de travail à la volée à partir de scripts Python ou de notebooks Jupyter
+* Utilisez un [modèle Azure Resource Manager](how-to-create-workspace-template.md) ou l’[interface CLI Azure Machine Learning](reference-azure-machine-learning-cli.md) lorsque vous devez automatiser ou personnaliser la création avec des normes de sécurité d’entreprise.
+* Si vous travaillez dans Visual Studio Code, utilisez l'[extension VS Code](how-to-vscode-tools.md#get-started-with-azure-machine-learning).
 
 ## <a name="resources"></a> Ressources associées
 
@@ -95,6 +105,6 @@ Lorsque vous créez un nouvel espace de travail, celui-ci crée automatiquement 
 Pour prendre en main le service Azure Machine Learning, consultez :
 
 + [Vue d’ensemble d’Azure Machine Learning service](overview-what-is-azure-ml.md)
-+ [Créer un espace de travail](setup-create-workspace.md)
++ [Créer un espace de travail](how-to-manage-workspace.md)
 + [Gérer un espace de travail](how-to-manage-workspace.md)
 + [Tutoriel : Effectuer l'apprentissage d’un modèle](tutorial-train-models-with-aml.md)

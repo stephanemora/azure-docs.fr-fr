@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 04/16/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 6de348a19081eba685deafebd8a7c9b9d6556444
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 67e5364996be2945d67aa1a95cbc3ab8137e077e
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688115"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68850253"
 ---
 # <a name="troubleshoot-desired-state-configuration-dsc"></a>Dépanner la Configuration de l’état souhaité
 
@@ -24,13 +24,14 @@ Cet article fournit des informations sur la résolution des problèmes de la Con
 
 Si vous rencontrez des erreurs en compilant ou en déployant des configurations dans Azure State Configuration, voici quelques étapes pour diagnostiquer le problème.
 
-1. **Veillez à ce que votre configuration compile avec succès sur votre ordinateur local :**  Azure State configuration repose sur PowerShell DSC. Vous trouverez la documentation relative à la syntaxe et au langage DSC dans les [documents PowerShell DSC](/powershell/dsc/overview/overview).
+1. **Veillez à ce que votre configuration compile avec succès sur votre ordinateur local :**  Azure State configuration repose sur PowerShell DSC. Vous trouverez la documentation relative à la syntaxe et au langage DSC dans la [documentation PowerShell DSC](https://docs.microsoft.com/en-us/powershell/scripting/overview).
 
-   En compilant votre configuration DSC sur votre ordinateur local, vous pouvez détecter et résoudre les erreurs courantes, telles que :
+   En compilant votre configuration DSC sur votre ordinateur local, vous pouvez détecter et résoudre les erreurs courantes, telles que :
 
    - **Modules manquants**
    - **Erreurs de syntaxe**
    - **Erreurs logiques**
+
 2. **Afficher les journaux DSC sur votre nœud :** Si votre configuration compile avec succès, mais échoue lorsqu’elle est appliquée à un nœud, vous pouvez trouver les informations détaillées dans les journaux. Pour plus d’informations sur l’emplacement des journaux DSC, consultez [Où sont les journaux d’activité DSC](/powershell/dsc/troubleshooting/troubleshooting#where-are-dsc-event-logs).
 
    De plus, le [xDscDiagnostics](https://github.com/PowerShell/xDscDiagnostics) peut vous aider à analyser des informations détaillées dans les journaux DSC. Si vous contactez le support technique, vous aurez besoin de ces journaux pour diagnostiquer votre problème.
@@ -130,7 +131,7 @@ Quand l’expression qui suit le mot-clé **Node** dans la configuration DSC s�
 Une des solutions suivantes corrige ce problème :
 
 * Vérifiez que l’expression en regard du mot clé **Node** dans la définition de la configuration n’est pas $null.
-* Si vous effectuez une transmission de ConfigurationData pendant la compilation de la configuration, vérifiez que vous transmettez les valeurs attendues nécessaires à la configuration depuis [ConfigurationData](../automation-dsc-compile.md#configurationdata).
+* Si vous effectuez une transmission de ConfigurationData pendant la compilation de la configuration, vérifiez que vous transmettez les valeurs attendues nécessaires à la configuration depuis [ConfigurationData](../automation-dsc-compile.md).
 
 ### <a name="dsc-in-progress"></a>Scénario : Le rapport du nœud DSC se bloque à l’état « en cours »
 
@@ -166,7 +167,7 @@ Vous avez utilisé des informations d’identification dans une configuration, m
 
 #### <a name="resolution"></a>Résolution :
 
-* Assurez-vous de transmettre la bonne valeur **ConfigurationData** pour définir **PSDscAllowPlainTextPassword** sur true pour chaque configuration de nœud mentionnée dans la configuration. Pour plus d’informations, consultez les [ressources d’Azure Automation DSC](../automation-dsc-compile.md#assets).
+* Assurez-vous de transmettre la bonne valeur **ConfigurationData** pour définir **PSDscAllowPlainTextPassword** sur true pour chaque configuration de nœud mentionnée dans la configuration. Pour plus d’informations, consultez les [ressources d’Azure Automation DSC](../automation-dsc-compile.md#working-with-assets-in-azure-automation-during-compilation).
 
 ### <a name="failure-processing-extension"></a>Scénario : Intégration à partir de l’extension dsc, erreur « Échec lors du traitement de l’extension »
 
@@ -199,11 +200,27 @@ This event indicates that failure happens when LCM is processing the configurati
 
 #### <a name="cause"></a>Cause :
 
-Les clients ont déterminé que si l’emplacement /tmp est défini sur noexec, la version actuelle de DSC ne parvient pas à appliquer les configurations.
+Les clients ont déterminé que si l’emplacement `/tmp` est défini sur `noexec`, la version actuelle de DSC ne parvient pas à appliquer les configurations.
 
 #### <a name="resolution"></a>Résolution :
 
-* Supprimez l’option noexec de l’emplacement /tmp.
+* Supprimez l’option `noexec` de l’emplacement `/tmp`.
+
+### <a name="compilation-node-name-overlap"></a>Scénario : Les noms des configurations de nœuds qui se chevauchent peuvent entraîner une version incorrecte
+
+#### <a name="issue"></a>Problème
+
+Si un script de configuration unique est utilisé pour générer plusieurs configurations de nœuds et que certaines des configurations de nœuds ont un nom qui est un sous-ensemble d’autres, un problème dans le service de compilation peut entraîner l’attribution d’une configuration incorrecte.  Cela se produit uniquement lors de l’utilisation d’un seul script pour générer des configurations avec des données de configuration par nœud, et uniquement quand le chevauchement de nom se produit au début de la chaîne.
+
+Par exemple, si un script de configuration unique est utilisé pour générer des configurations en fonction de données de nœuds transmises sous forme de table de hachage à l’aide d’applets de commande, et que les données de nœuds incluent un serveur nommé « serveur » et « 1serveur ».
+
+#### <a name="cause"></a>Cause :
+
+Problème connu avec le service de compilation.
+
+#### <a name="resolution"></a>Résolution :
+
+La meilleure solution de contournement consiste à compiler localement ou dans un pipeline CI/CD, et à charger les fichiers MOF directement dans le service.  Si la compilation dans le service est une exigence, la meilleure solution suivante consiste à fractionner les travaux de compilation afin qu’il n’y ait pas de chevauchement des noms.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

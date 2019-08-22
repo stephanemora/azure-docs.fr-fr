@@ -3,7 +3,7 @@ title: Codes d’erreur des rapports d’activité des connexions dans le portai
 description: Informations de référence des codes d’erreur des rapports d’activité des connexions.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: cawrites
 manager: daveba
 editor: ''
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 05/08/2019
-ms.author: markvi
+ms.date: 08/08/2019
+ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6972c91a18f9deb240871d8c64a14647474d9d78
-ms.sourcegitcommit: b49431b29a53efaa5b82f9be0f8a714f668c38ab
+ms.openlocfilehash: 4c5f7e45a1e1daa5d8504db2506a79e88c28bcc1
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68377272"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68989591"
 ---
 # <a name="sign-in-activity-report-error-codes"></a>Codes d’erreur du rapport d’activité de connexion 
 
@@ -127,6 +127,7 @@ Vous pouvez également accéder par programme aux données de connexion à l’a
 |50177|La vérification externe n’est pas prise en charge pour les utilisateurs PassThrough.|
 |50178|Le contrôle de session n’est pas pris en charge pour les utilisateurs PassThrough.|
 |50180|L’authentification Windows intégrée est nécessaire. Activez le locataire pour l’authentification unique transparente.|
+|50201|Ce message d’invite s’affiche lors de la connexion quand des informations supplémentaires doivent être fournies à l’utilisateur.|
 |51001|L’indicateur de domaine n’est pas présent avec identificateur de sécurité local - UPN local.|
 |51004|Le compte d’utilisateur n’existe pas dans le répertoire.|
 |51006|L’authentification Windows intégrée est nécessaire. L’utilisateur s’est connecté à l’aide d’un jeton de session qui ne se trouve pas dans la revendication. Demandez à l’utilisateur de se connecter à nouveau.|
@@ -181,6 +182,9 @@ Vous pouvez également accéder par programme aux données de connexion à l’a
 |500121| Échec de l’authentification lors d’une requête d’authentification forte.|
 |500133| L’intervalle de temps de l’assertion n’est pas valide. Vérifiez que le jeton d’accès n’est pas arrivé à expiration avant de l’utiliser pour l’assertion de l’utilisateur, ou demandez-en un nouveau.|
 |530021|L’application ne répond pas aux conditions d’accès conditionnel des applications approuvées.|
+|530032|Bloqué par la stratégie de sécurité.| 
+|700016|L’application associée à l’identificateur « {appIdentifier} » est introuvable dans le répertoire « {tenantName} ». Cela peut se produire si l’application n’a pas été installée par l’administrateur du locataire ni acceptée par un utilisateur dans le locataire. Vous avez peut-être envoyé votre requête d’authentification au locataire incorrect.|
+|900432|Le client confidentiel n’est pas pris en charge dans une requête intercloud.|
 |7000218|Le corps de la requête doit contenir le paramètre « client_assertion » ou « client_secret ».|
 
 

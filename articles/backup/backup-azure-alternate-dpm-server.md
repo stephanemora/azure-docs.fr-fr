@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/09/2019
 ms.author: dacurwin
-ms.openlocfilehash: e3d38e9b5e1b9b9f827476acf7e2e2ecab632424
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 0a6d1fd73d99cf15137e937dbfe2336d49a63d90
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688811"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68955056"
 ---
 # <a name="recover-data-from-azure-backup-server"></a>Récupérer des données depuis Azure Backup Server
 Vous pouvez utiliser Azure Backup Server pour récupérer les données sauvegardées dans un coffre Recovery Services. Le processus pour cette opération est intégré dans la console de gestion Azure Backup Server et est similaire au flux de travail de récupération pour les autres composants Azure Backup.
@@ -45,7 +45,7 @@ Pour récupérer des données depuis un serveur de sauvegarde Azure :
     Une liste de fichiers et de dossiers s'affiche dans le volet inférieur, qui peut être parcourue et récupérée sur n'importe quel emplacement.
 
     ![Points de récupération d’un serveur DPM externe](./media/backup-azure-alternate-dpm-server/external-dpm-recoverypoint.png)
-5. Cliquez avec le bouton droit sur l'élément approprié puis cliquez sur **Récupérer**.
+5. Cliquez avec le bouton droit sur l’élément approprié, puis cliquez sur **Récupérer**.
 
     ![Récupération d’un serveur DPM externe](./media/backup-azure-alternate-dpm-server/recover.png)
 6. Vérifiez la **sélection à récupérer**. Vérifiez les données et l’heure de la copie de sauvegarde à récupérer, ainsi que la source à partir de laquelle la copie de sauvegarde a été créée. Si la sélection est incorrecte, cliquez sur **Annuler** pour revenir à l'onglet Récupération et sélectionnez le point de récupération approprié. Si la sélection est correcte, cliquez sur **Suivant**.
@@ -57,7 +57,7 @@ Pour récupérer des données depuis un serveur de sauvegarde Azure :
 8. Choisissez entre les options **Créer une copie**, **Ignorer** et **Remplacer**.
 
    * **Créer une copie** : crée une copie du fichier en cas de conflit de noms.
-   * **Ignorer** : s’il existe un conflit de noms, ne récupère pas le fichier, ce qui laisse le fichier d’origine en place.
+   * **Ignorer** : s’il existe un conflit de noms, ne récupère pas le fichier, ce qui laisse le fichier d’origine en place.
    * **Remplacer** : s’il existe un conflit de noms, remplace la copie existante du fichier.
 
      Choisissez l'option appropriée pour **Restaurer la sécurité**. Vous pouvez appliquer les paramètres de sécurité de l'ordinateur de destination sur lequel les données sont récupérées ou les paramètres de sécurité qui étaient applicables au produit au moment de la création du point de récupération.

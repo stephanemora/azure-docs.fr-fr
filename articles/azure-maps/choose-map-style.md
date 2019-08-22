@@ -8,43 +8,46 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 52936b14264bd4fe1846ae365e1de447d594b612
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: eb667c398be0bd51e05a6b65d416d5bce54e4386
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639058"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881966"
 ---
 # <a name="choose-a-map-style-in-azure-maps"></a>Choisir un style de carte dans Azure Maps
 
-Azure Maps offre le choix entre quatre styles de carte. Pour plus d’informations sur les styles de carte, voir [Styles de carte pris en charge dans Azure Maps](./supported-map-styles.md). Cet article explique comment utiliser les fonctionnalités liées au style pour définir un style lors du chargement de carte, définir un nouveau style et utiliser le contrôle du sélecteur de styles.
+Un grand nombre des [styles de carte pris en charge dans Azure Maps](./supported-map-styles.md) sont disponibles dans le SDK web. Cet article explique comment utiliser les fonctionnalités liées au style pour définir un style lors du chargement de carte, définir un nouveau style et utiliser le contrôle du sélecteur de styles.
 
 ## <a name="set-style-on-map-load"></a>Définir un style lors du chargement de carte
+
+Dans le code suivant, l’option `style` de la carte est définie sur `grayscale_dark` au moment de l’initialisation.
+
+<br/>
 
 <iframe height='500' scrolling='no' title='Définition du style lors du chargement de carte' src='//codepen.io/azuremaps/embed/WKOQRq/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Voir la page <a href='https://codepen.io/azuremaps/pen/WKOQRq/'>Définition du style lors du chargement de carte</a> d’Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) sur <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-Le bloc de code ci-dessus définit la clé d’abonnement et crée un objet carte sans définir le style sur grayscale_dark. Pour obtenir des instructions sur la création d’une carte, consultez [Créer une carte](./map-create.md).
-
 ## <a name="update-the-style"></a>Mettre à jour le style
+
+Dans le code suivant, après le chargement d’une instance de carte, le style de carte est mis à jour de `road` en `satellite` à l’aide de la fonction [setStyle](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) de la carte.
+
+<br/>
 
 <iframe height='500' scrolling='no' title='Mise à jour du style' src='//codepen.io/azuremaps/embed/yqXYzY/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Voir la page <a href='https://codepen.io/azuremaps/pen/yqXYzY/'>Mise à jour du style</a> d’Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) sur <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-Le bloc de code ci-dessus définit la clé d’abonnement et crée un objet carte sans prédéfinir le style. Pour obtenir des instructions sur la création d’une carte, consultez [Créer une carte](./map-create.md).
-
-La deuxième bloc de code utilise la méthode [setStyle](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) de la carte pour définir le style de carte sur satellite.
-
 ## <a name="add-the-style-picker"></a>Ajouter le sélecteur de styles
+
+Le code suivant ajoute un [StyleControl](/javascript/api/azure-maps-control/atlas.control.stylecontrol) à la carte afin que l’utilisateur puisse facilement basculer entre les différents styles de carte. 
+
+<br/>
 
 <iframe height='500' scrolling='no' title='Ajout du sélecteur de styles' src='//codepen.io/azuremaps/embed/OwgyvG/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Voir la page <a href='https://codepen.io/azuremaps/pen/OwgyvG/'>Ajout du sélecteur de styles</a> d’Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) sur <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-Le premier bloc de code dans les ensembles de code ci-dessus définit la clé d’abonnement et crée un objet carte avec le style de carte prédéfini sur grayscale_dark. Pour obtenir des instructions sur la création d’une carte, consultez [Créer une carte](./map-create.md).
-
-Le deuxième bloc de code construit un sélecteur de styles à l’aide du constructeur [StyleControl](/javascript/api/azure-maps-control/atlas.control.stylecontrol) Atlas.
-
-Un sélecteur de styles permet de sélectionner un style pour la carte. Le troisième bloc de code ajoute le sélecteur de styles à la carte en utilisant la méthode [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) de la carte. Le sélecteur de styles se situe dans le **détecteur d’événements** de la carte pour garantir le chargement une fois que la carte est entièrement chargée.
+> [!TIP]
+> Par défaut, le contrôle de sélecteur de styles liste tous les styles disponibles quand vous utilisez le niveau tarifaire S0 par défaut d’Azure Maps. Si vous voulez réduire le nombre de styles figurant dans cette liste, passez dans l’option `mapStyle` du sélecteur de styles un tableau des styles que vous voulez voir apparaître dans la liste. Si vous utilisez S1 et que vous voulez afficher tous les styles disponibles, affectez à l’option `mapStyles` du sélecteur de styles la valeur `"all"`.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -53,12 +56,10 @@ Pour en savoir plus sur les classes et les méthodes utilisées dans cet article
 > [!div class="nextstepaction"]
 > [Map](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
 
-Ajouter un contrôle à carte :
+Ajouter des contrôle à vos cartes :
 
 > [!div class="nextstepaction"]
-> [Ajouter des contrôles de carte](./map-add-controls.md)
-
-Ajouter un repère de carte :
+> [Ajouter des contrôles de carte](map-add-controls.md)
 
 > [!div class="nextstepaction"]
-> [Ajouter un repère](./map-add-pin.md)
+> [Ajouter un repère](map-add-pin.md)

@@ -8,18 +8,23 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 9eb02f04b5873e5906782a27ce833a724ceecfe3
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 898b07d05abf3bfad644fb590d90c7a90c5a1c0d
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68812365"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68883222"
 ---
 # <a name="provision-nodes-for-vmware-solution-by-cloudsimple---azure"></a>Approvisionner des nœuds pour la solution VMware de CloudSimple - Azure
 
 Approvisionnez des nœuds sur le portail Azure. Vous pouvez ensuite configurer la capacité avec un paiement à l’utilisation pour votre environnement de cloud privé CloudSimple.
 
-## <a name="add-a-provisioned-node-to-your-cloudsimple-private-cloud"></a>Ajouter un nœud approvisionné à votre cloud privé CloudSimple
+## <a name="sign-in-to-azure"></a>Connexion à Azure
+
+Connectez-vous au portail Azure sur [https://portal.azure.com](https://portal.azure.com).
+
+
+## <a name="add-a-node-to-your-cloudsimple-private-cloud"></a>Ajouter un nœud à votre cloud privé CloudSimple
 
 1. Sélectionnez **Tous les services**.
 2. Recherchez **Nœuds CloudSimple**.
@@ -44,4 +49,4 @@ Approvisionnez des nœuds sur le portail Azure. Vous pouvez ensuite configurer l
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Créer un cloud privé](https://docs.azure.cloudsimple.com/create-private-cloud/)
+* [Créer un cloud privé](create-private-cloud.md)

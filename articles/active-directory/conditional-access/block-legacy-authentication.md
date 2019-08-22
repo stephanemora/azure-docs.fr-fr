@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 60fc168a6c15e7cb8d6e4271154d99fb4136226e
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: 0d227b4cf7090cdc3177c7045d6137f30a13f71b
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67509025"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68931949"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>Activation Bloquer l’authentification héritée à Microsoft Azure AD avec l’accès conditionnel   
 
@@ -50,13 +50,13 @@ Cette section explique comment configurer une stratégie d’accès conditionnel
 
 ### <a name="identify-legacy-authentication-use"></a>Une authentification héritée est utilisée
 
-Pour pouvoir bloquer l’authentification héritée dans votre annuaire, vous devez comprendre si vos utilisateurs disposent d’applications qui utilisent l’authentification héritée, puis déterminer son effet sur l’annuaire dans son ensemble. Les journaux de connexion Microsoft Azure Active Directory peuvent servir à déterminer si vous utilisez une authentification héritée.
+Avant de pouvoir bloquer l’authentification héritée dans votre annuaire, vous devez savoir si vos utilisateurs disposent d’applications qui utilisent l’authentification héritée, puis déterminer quel impact cela a sur l’ensemble de votre annuaire. Les journaux de connexion Azure AD peuvent servir à déterminer si vous utilisez une authentification héritée.
 
-1. Accédez au **portail Microsoft Azure** > **Azure Active Directory** > **Connexions**.
+1. Accédez au **portail Azure** > **Azure Active Directory** > **Connexions**.
 1. Si elle n’est pas affichée, ajoutez la colonne Application cliente en cliquant sur **Colonnes** > **Application cliente**.
-1. Filtrez les résultats par **Application cliente** > **Autres Clients** et cliquez sur **Appliquer**.
+1. **Ajouter des filtres** > **Application cliente** > sélectionnez toutes les options pour **Autres clients**, puis cliquez sur **Appliquer**.
 
-Grâce au filtrage, vous afficherez uniquement les tentatives de connexion effectuées via des protocoles d’authentification héritée. Cliquez sur chaque tentative de connexion individuelle pour afficher des détails supplémentaires. Le champ **Application cliente** affiché sous l’onglet **Informations de base** indique quel protocole d’authentification héritée a été utilisé.
+Grâce au filtrage, vous afficherez uniquement les tentatives de connexion effectuées via des protocoles d’authentification héritée. Cliquez sur chaque tentative de connexion pour afficher des détails supplémentaires. Le champ **Application cliente** affiché sous l’onglet **Informations de base** indique quel protocole d’authentification héritée a été utilisé.
 
 Ces journaux identifie les utilisateurs qui continuent de tirer parti de la fonction d’authentification héritée, ainsi que les applications qui utilisent les protocoles hérités pour effectuer des requêtes d’authentification. Implémentez une stratégie d’accès conditionnel réservée aux utilisateurs non affichés dans ces journaux et dont vous êtes certain qu’ils n’utilisent pas l’authentification héritée.
 

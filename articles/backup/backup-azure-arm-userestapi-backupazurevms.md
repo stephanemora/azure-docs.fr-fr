@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: dacurwin
 ms.assetid: b80b3a41-87bf-49ca-8ef2-68e43c04c1a3
-ms.openlocfilehash: 7a69fc7c9077fa10ddf808f1cd953f6739eabe20
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 701972c32f3e80682e2a20d04b02bcd555532e08
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688722"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954975"
 ---
 # <a name="back-up-an-azure-vm-using-azure-backup-via-rest-api"></a>Sauvegarder une machine virtuelle Azure à l’aide de la sauvegarde Azure via une API REST
 
-Cet article décrit comment gérer des sauvegardes pour une machine virtuelle Azure à l’aide de la sauvegarde Azure via une API REST. Configurez la protection pour la première fois pour une machine virtuelle Azure précédemment non protégée, déclenchez une sauvegarde à la demande pour une machine virtuelle Azure protégée et modifiez les propriétés de la sauvegarde d’une machine virtuelle sauvegardée via une API REST comme expliqué ici.
+Cet article décrit comment gérer des sauvegardes pour une machine virtuelle Azure à l’aide de la sauvegarde Azure via une API REST. Configurez la protection pour la première fois pour une machine virtuelle Azure précédemment non protégée, déclenchez une sauvegarde à la demande pour une machine virtuelle Azure protégée et modifiez les propriétés de sauvegarde d’une machine virtuelle sauvegardée par le biais d’une API REST, comme expliqué ici.
 
 Reportez-vous aux tutoriels sur les API REST [créer un coffre](backup-azure-arm-userestapi-createorupdatevault.md) et [créer une stratégie](backup-azure-arm-userestapi-createorupdatepolicy.md) pour la création de coffres et de stratégies.
 
@@ -393,7 +393,7 @@ Comme le travail de sauvegarde est une opération longue, il doit être suivi co
 
 ### <a name="changing-the-policy-of-protection"></a>Changement de la stratégie de protection
 
-Pour changer la stratégie avec laquelle la machine virtuelle est protégée, vous pouvez utiliser le même format que pour l’[activation de la protection](#enabling-protection-for-the-azure-vm). Il vous suffit d’indiquer le nouvel ID de stratégie dans [le corps de la demande](#example-request-body) et d’envoyer la demande. Par exemple : Pour remplacer la stratégie « DefaultPolicy » de testVM par « ProdPolicy », indiquez l’ID « ProdPolicy » dans le corps de la requête.
+Pour changer la stratégie avec laquelle la machine virtuelle est protégée, vous pouvez utiliser le même format que pour l’[activation de la protection](#enabling-protection-for-the-azure-vm). Il vous suffit d’indiquer le nouvel ID de stratégie dans [le corps de la demande](#example-request-body) et d’envoyer la demande. Par exemple :  Pour remplacer la stratégie « DefaultPolicy » de testVM par « ProdPolicy », indiquez l’ID « ProdPolicy » dans le corps de la requête.
 
 ```http
 {

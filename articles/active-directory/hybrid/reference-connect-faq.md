@@ -15,12 +15,12 @@ ms.date: 05/03/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2caca430de5ad666f4f4341e0723bc3173d6d91a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d6b551ee9a0a9c7ef9a8f5ff1bd7452a24dc04b7
+ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65137800"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69014190"
 ---
 # <a name="azure-active-directory-connect-faq"></a>FAQ Azure Active Directory Connect
 
@@ -136,7 +136,7 @@ Non, Azure AD Connect ne prend pas en charge les forêts ni les domaines locaux 
 Non, Azure AD Connect ne prend pas en charge les environnements IPv6 purs.
 
 **Q : j’ai un environnement à forêts multiples et le réseau entre les deux forêts utilise la traduction d’adresses réseau (Network Address Translation). Est-il possible d’utiliser Azure AD Connect entre ces deux forêts ?**</br>
- Non, l’utilisation d’Azure AD Connect sur NAT n’est pas prise en charge. 
+Non, l’utilisation d’Azure AD Connect sur NAT n’est pas prise en charge. 
 
 ## <a name="federation"></a>Fédération
 **Q : Que faire si je reçois un e-mail me demandant de renouveler mon certificat Office 365 ?**  
@@ -151,6 +151,12 @@ Non. Lorsque le nom du serveur est modifié, le moteur de synchronisation n’es
 
 **Q : Les règles de synchronisation de chiffrement nouvelle génération (NGC, Next Generation Cryptographic) sont-elles prises en charge sur une machine FIPS ?**  
 Non.  Elles ne sont pas prises en charge.
+
+**Q. Si j’ai désactivé un appareil synchronisé (par exemple : HAADJ) dans le portail Azure, pourquoi est-il réactivé ?**<br>
+Les appareils synchronisés peuvent être créés ou contrôlés localement. Si un appareil synchronisé est activé localement, il peut être réactivé dans le portail Azure même s’il a été précédemment désactivé par un administrateur. Pour désactiver un appareil synchronisé, utilisez le répertoire Active Directory local pour désactiver le compte d’ordinateur.
+
+**Q. Si je bloque la connexion de l’utilisateur sur le portail Office 365 ou Azure AD pour les utilisateurs synchronisés, pourquoi est-elle débloquée lors de la connexion ?**<br>
+Les utilisateurs synchronisés peuvent être créés ou contrôlés localement. Si le compte est activé localement, il peut débloquer le blocage de connexion placé par l’administrateur.
 
 ## <a name="identity-data"></a>Données d’identité
 **Q : Pourquoi l’attribut userPrincipalName (UPN) dans Azure AD ne correspond-t-il à l’UPN local ?**  

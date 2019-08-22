@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/28/2019
 ms.author: iainfou
-ms.openlocfilehash: e94cd9ca049cfdfd2321ce046714506ed1f23390
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 923ecae9dc649b8f5cdcfd447b78fdec0805927a
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67483277"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68879163"
 ---
 # <a name="secure-your-azure-ad-domain-services-managed-domain"></a>Sécuriser votre domaine managé Azure AD Domain Services
 Cet article vous permet de sécuriser votre domaine géré. Vous pouvez désactiver l’utilisation des suites de chiffrement faibles ainsi que la synchronisation de hachage des informations d’identification NTLM.
@@ -36,9 +36,12 @@ Suivez les instructions de l’article pour [Installer le module Azure PowerShel
 
 ## <a name="disable-weak-cipher-suites-and-ntlm-credential-hash-synchronization"></a>Désactiver les suites de chiffrement faibles et la synchronisation de hachage des informations d’identification NTLM
 Utilisez le script PowerShell suivant pour :
+
 1. Désactiver le support NTLM v1 sur le domaine managé.
 2. Désactiver la synchronisation des hachages de mots de passe NTLM à partir de votre instance Active Directory locale.
 3. Désactiver TLS v1 sur le domaine managé.
+
+Si vous recevez une erreur avec la commande `Get-AzResource` indiquant que la ressource *Microsoft.AAD/DomainServices* n’existe pas, [vous devez élever votre accès pour gérer tous les abonnements et groupes d’administration Azure](../role-based-access-control/elevate-access-global-admin.md).
 
 ```powershell
 // Login to your Azure AD tenant

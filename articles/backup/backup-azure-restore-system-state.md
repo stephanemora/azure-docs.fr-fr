@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/18/2017
 ms.author: dacurwin
-ms.openlocfilehash: 6dc478f569b94450921e56c05b148bae357fef8e
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 83c4d8a90bf9ae348026c14beaec4975636b29b5
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68689130"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69018801"
 ---
 # <a name="restore-system-state-to-windows-server"></a>Restaurer l’état du système sur Windows Server
 
@@ -124,9 +124,9 @@ Une fois que vous avez récupéré l’état du système sous forme de fichiers 
 
 1. Exécutez les commandes suivantes pour redémarrer votre serveur en *Mode de réparation des services d’annuaire*. À partir d’une invite de commandes avec élévation de privilèges :
 
-    ```
-    PS C:\> Bcdedit /set safeboot dsrepair
-    PS C:\> Shutdown /r /t 0
+    ```cmd
+    Bcdedit /set safeboot dsrepair
+    Shutdown /r /t 0
     ```
 
 2. Après le redémarrage, ouvrez le composant logiciel enfichable Sauvegarde Windows Server. Si vous ne savez pas où il a été installé, recherchez **Sauvegarde Windows Server** sur l’ordinateur ou le serveur.
@@ -189,14 +189,14 @@ Si le processus précédent d’application de l’état du système ne se termi
 
 5. Quand vous ouvrez l’invite de commandes en mode administrateur, exécutez la commande suivante pour obtenir les versions de sauvegarde de l’état du système.
 
-    ```
+    ```cmd
     Wbadmin get versions -backuptarget:<Volume where WindowsImageBackup folder is copied>:
     ```
     ![obtenir les versions de sauvegarde de l’état du système](./media/backup-azure-restore-system-state/winre-4.png)
 
 6. Exécutez la commande suivante pour obtenir tous les volumes disponibles dans la sauvegarde.
 
-    ```
+    ```cmd
     Wbadmin get items -version:<copy version from above step> -backuptarget:<Backup volume>
     ```
 
@@ -204,7 +204,7 @@ Si le processus précédent d’application de l’état du système ne se termi
 
 7. La commande suivante récupère tous les volumes qui font partie de la sauvegarde de l’état du système. Notez que cette étape récupère uniquement les volumes critiques qui font partie de l’état du système. Toutes les données autres que les données système sont effacées.
 
-    ```
+    ```cmd
     Wbadmin start recovery -items:C: -itemtype:Volume -version:<Backupversion> -backuptarget:<backup target volume>
     ```
      ![obtenir les versions de sauvegarde de l’état du système](./media/backup-azure-restore-system-state/winre-6.png)

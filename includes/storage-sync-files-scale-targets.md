@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/05/2019
 ms.author: wgries
 ms.custom: include file
-ms.openlocfilehash: 2614c9290bf31813d59ee753a31622bccf0682b8
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: e7aa2b4389fe60eed80b15aff04d6f7fcbc7b013
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67177270"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68968860"
 ---
 | Ressource | Cible | Limite inconditionnelle |
 |----------|--------------|------------|
@@ -23,8 +23,8 @@ ms.locfileid: "67177270"
 | Points de terminaison cloud par groupe de synchronisation | 1 point de terminaison cloud | OUI |
 | Points de terminaison de serveur par groupe de synchronisation | 50 points de terminaison de serveur | Non |
 | Points de terminaison de serveur par serveur | 30 points de terminaison de serveur | OUI |
-| Objets du système de fichiers (répertoires et fichiers) par groupe de synchronisation | 25 millions d’objets | Non |
-| Nombre maximal d’objets de système de fichiers (répertoires et fichiers) dans un répertoire | 1 million d’objets | OUI |
+| Objets du système de fichiers (répertoires et fichiers) par groupe de synchronisation | 50 millions d’objets | Non |
+| Nombre maximal d’objets de système de fichiers (répertoires et fichiers) dans un répertoire | 5 millions d’objets | OUI |
 | Taille maximale du descripteur de sécurité d’objet (répertoires et fichiers) | 64 Kio | OUI |
 | Taille du fichier | 100 Gio | Non |
 | Taille minimale d’un fichier à hiérarchiser | 64 Kio | OUI |

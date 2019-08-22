@@ -11,12 +11,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 02/08/2019
-ms.openlocfilehash: db295f7644cae96eb00670cecf6e4eeba9bb6bed
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 86bd479eff48a7feb42557eb1d175345728f0a69
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567235"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68879052"
 ---
 # <a name="transactional-replication-with-single-pooled-and-instance-databases-in-azure-sql-database"></a>Réplication transactionnelle avec des bases de données uniques, mises en pool, et d’instance dans Azure SQL Database
 
@@ -27,7 +27,7 @@ La réplication transactionnelle est une fonctionnalité d'Azure SQL Database et
 La réplication transactionnelle est utile dans les scénarios suivants :
 - Publier les changements apportés dans une ou plusieurs tables d’une base de données et les distribuer à une ou plusieurs bases de données SQL Server ou Azure SQL abonnées aux changements.
 - Maintenir plusieurs bases de données distribuées dans un état synchronisé.
-- Migrer des bases de données d’un serveur SQL Server ou d’une instance Managed Instance vers une autre base de données en publiant les modifications en continu.
+- Migrer des bases de données d’un serveur SQL Server ou d’une instance managée vers une autre base de données en publiant les modifications en continu.
 
 ## <a name="overview"></a>Vue d'ensemble
 
@@ -94,10 +94,12 @@ Il existe différents [types de réplications](https://docs.microsoft.com/sql/re
 - La connectivité doit utiliser l’authentification SQL entre les participants de la réplication. 
 - Un partage de compte de stockage Azure pour le répertoire de travail utilisé par la réplication. 
 - Le port 445 (TCP sortant) doit être ouvert dans les règles de sécurité du sous-réseau de l’instance managée pour accéder au partage de fichiers Azure. 
-- Le port 1433 (TCP sortant) doit être ouvert si les serveurs de publication/distribution se trouvent sur une instance Managed Instance et que l’Abonné est local.
+- Le port 1433 (TCP sortant) doit être ouvert si les serveurs de publication/distribution se trouvent sur une instance managée et que l’Abonné est local.
 
-  >[!NOTE]
-  > Vous pouvez rencontrer l’erreur 53 lors de la connexion à un fichier de stockage Azure si le port 445 du groupe de sécurité réseau sortant (NSG) est bloqué lorsque le distributeur est une base de données d’instances et que l’abonné est en local. Pour résoudre ce problème, [mettez à jour le NSG vNet](/azure/storage/files/storage-troubleshoot-windows-file-connection-problems). 
+
+>[!NOTE]
+> - Vous pouvez rencontrer l’erreur 53 lors de la connexion à un fichier de stockage Azure si le port 445 du groupe de sécurité réseau sortant (NSG) est bloqué lorsque le distributeur est une base de données d’instances et que l’abonné est en local. Pour résoudre ce problème, [mettez à jour le NSG vNet](/azure/storage/files/storage-troubleshoot-windows-file-connection-problems). 
+> - Si les bases de données du serveur de publication et du serveur de distribution sur des instances managées utilisent des [groupes de basculement automatique](sql-database-auto-failover-group.md), l’administrateur de l’instance managée doit [supprimer toutes les publications de l’ancienne base de données primaire et les reconfigurer sur la nouvelle après un basculement](sql-database-managed-instance-transact-sql-information.md#replication).
 
 ### <a name="compare-data-sync-with-transactional-replication"></a>Comparaison entre synchronisation des données et réplication transactionnelle
 
@@ -111,23 +113,23 @@ Il existe différents [types de réplications](https://docs.microsoft.com/sql/re
 
 En règle générale, le serveur de publication et le serveur de distribution doivent se trouver dans le cloud ou en local. Les configurations suivantes sont prises en charge : 
 
-### <a name="publisher-with-local-distributor-on-a-managed-instance"></a>Serveur de publication avec un serveur de distribution local sur une instance Managed Instance
+### <a name="publisher-with-local-distributor-on-a-managed-instance"></a>Serveur de publication avec un serveur de distribution local sur une instance managée
 
 ![Instance unique faisant office de serveur de publication et de serveur de distribution](media/replication-with-sql-database-managed-instance/01-single-instance-asdbmi-pubdist.png)
 
-Le serveur de publication et le serveur de distribution sont configurés dans une même instance Managed Instance, et les changements sont distribués à d’autres instances Managed Instance, bases de données uniques, bases de données mises en pool ou serveurs SQL Server en local. Dans cette configuration, l’instance Managed Instance faisant office de serveur de publication et de serveur de distribution ne peut pas être configurée avec [la géoréplication et des groupes de basculement automatique](sql-database-auto-failover-group.md).
+Le serveur de publication et le serveur de distribution sont configurés dans une même instance managée, et les changements sont distribués à d’autres instances managées, bases de données uniques, bases de données mises en pool ou SQL Server en local. 
 
-### <a name="publisher-with-remote-distributor-on-a-managed-instance"></a>Serveur de publication avec un serveur de distribution distant sur une instance Managed Instance
+### <a name="publisher-with-remote-distributor-on-a-managed-instance"></a>Serveur de publication avec un serveur de distribution distant sur une instance managée
 
-Dans cette configuration, une instance Managed Instance publie les changements sur le serveur de distribution placé sur une autre instance Managed Instance qui peut servir plusieurs instances Managed Instance sources et distribuer les changements à une ou plusieurs cibles sur une instance Managed Instance, une base de données unique, une base de données mise en pool ou un serveur SQL Server.
+Dans cette configuration, une instance managée publie les changements sur le serveur de distribution placé sur une autre instance managée qui peut servir plusieurs instances managées sources et distribuer les changements à une ou plusieurs cibles sur une instance managée, une base de données unique, une base de données mise en pool ou SQL Server.
 
 ![Instances séparées pour le serveur de publication et le serveur de distribution](media/replication-with-sql-database-managed-instance/02-separate-instances-asdbmi-pubdist.png)
 
-Le serveur de publication et le serveur de distribution sont configurés sur deux instances Managed Instance. Dans cette configuration
+Le serveur de publication et le serveur de distribution sont configurés sur deux instances managées. Il existe des contraintes avec cette configuration : 
 
-- Les deux instances Managed Instance sont sur le même réseau virtuel.
-- Les deux instances Managed Instance se trouvent au même emplacement.
-- Les instances Managed Instance qui hébergent les bases de données du serveur de publication et du serveur de distribution ne peuvent pas être [géorépliquées à l’aide de groupes de basculement automatique](sql-database-auto-failover-group.md).
+- Les deux instances managées sont sur le même réseau virtuel.
+- Les deux instances managées se trouvent au même emplacement.
+
 
 ### <a name="publisher-and-distributor-on-premises-with-a-subscriber-on-a-single-pooled-and-instance-database"></a>Serveurs de publication et de distribution locaux avec un abonné sur une base de données unique, mise en pool et d’instance 
 
@@ -138,16 +140,18 @@ Dans cette configuration, une Azure SQL Database (base de données unique, mise 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-1. [Configurer la réplication entre deux instances gérées](replication-with-sql-database-managed-instance.md). 
+1. [Configurer la réplication entre deux instances managées](replication-with-sql-database-managed-instance.md). 
 1. [Créer une publication](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication).
 1. [Créer un abonnement par push](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription) en utilisant le nom du serveur Azure SQL Database en tant qu’abonné (par exemple, `N'azuresqldbdns.database.windows.net`) et le nom de la base de données Azure SQL comme base de données de destination (par exemple, **Adventureworks**). )
+1. Découvrir les [Limitations de la réplication transactionnelle pour une instance managée](sql-database-managed-instance-transact-sql-information.md#replication)
 
 
 
 ## <a name="see-also"></a>Voir aussi  
 
+- [Réplication avec une instance managée et un groupe de basculement](sql-database-managed-instance-transact-sql-information.md#replication)
 - [Réplication sur SQL Database](replication-to-sql-database.md)
-- [Réplication sur une instance Managed Instance](replication-with-sql-database-managed-instance.md)
+- [Réplication sur une instance managée](replication-with-sql-database-managed-instance.md)
 - [Créer une publication](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)
 - [Créer un abonnement par émission de données](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/)
 - [Types de réplication](https://docs.microsoft.com/sql/relational-databases/replication/types-of-replication)

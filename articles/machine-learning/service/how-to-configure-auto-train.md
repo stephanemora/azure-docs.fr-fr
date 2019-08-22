@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5dee966f8664bc14d81004e625ad9632066ffcb2
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.openlocfilehash: 6e29e0f89d9270a143d48cf6e85b479813e19d9d
+ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68742302"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69013641"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configurer des expériences ML automatisées dans Python
 
@@ -72,6 +72,11 @@ automl_config = AutoMLConfig(task="classification")
 Le machine learning automatisé prend en charge les données qui se trouvent sur votre poste de travail local ou dans le cloud, comme Stockage Blob Azure. Les données peuvent être lues dans les formats de données pris en charge par scikit-learn. Vous pouvez lire les données dans :
 * Tableaux Numpy X (caractéristiques) et Y (variable cible, également appelée « étiquette »)
 * Tramedonnées Pandas
+
+>[!Important]
+> Configuration requise pour les données de formation :
+>* Les données doivent être sous forme tabulaire.
+>* La valeur que vous souhaitez prédire (colonne cible) doit être présente dans les données.
 
 Exemples :
 
@@ -215,6 +220,9 @@ La métrique principale ; comme indiqué dans les exemples ci-dessus, elle dét
 Dans chaque expérience d’apprentissage automatique automatisé, vos données sont [automatiquement mises à l’échelle et normalisées](concept-automated-ml.md#preprocess) pour aider les algorithmes à s’exécuter correctement.  Toutefois, vous pouvez également activer un prétraitement/une personnalisation supplémentaires, tels que l’absence d’imputation des valeurs, de codage et de transformations. [En savoir plus sur la personnalisation incluse](how-to-create-portal-experiments.md#preprocess).
 
 Pour activer cette personnalisation, spécifiez `"preprocess": True` pour la classe [`AutoMLConfig` ](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py).
+
+> [!NOTE]
+> Les étapes de prétraitement du Machine Learning automatisé (normalisation des fonctionnalités, gestion des données manquantes, conversion de texte en valeurs numériques, etc.) font partie du modèle sous-jacent. Lorsque vous utilisez le modèle pour des prédictions, les étapes de prétraitement qui sont appliquées pendant la formation sont appliquées automatiquement à vos données d’entrée.
 
 ### <a name="time-series-forecasting"></a>Prévision de séries chronologiques
 Pour le type de tâche prévision de séries chronologiques, vous devez définir des paramètres supplémentaires.

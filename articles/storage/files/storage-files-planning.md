@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 287902c149fd3a8732ce9ce95b05b0d9fa36147b
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 7591cefddd6e7217c885293a2f5c878d7a82e158
+ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68816611"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69015918"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planification d’un déploiement Azure Files
 
@@ -26,7 +26,7 @@ ms.locfileid: "68816611"
 
 * **Compte de stockage** : Tous les accès à Azure Storage passent par un compte de stockage. Pour plus d’informations sur la capacité du compte de stockage, consultez la page [Objectifs de performance et évolutivité](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
-* **Partage** : un partage Stockage Fichier est un partage de fichiers SMB dans Azure. Tous les répertoires et fichiers doivent être créés dans un partage parent. Un compte peut contenir un nombre illimité de partages, et un partage peut stocker un nombre illimité de fichiers, dans la limite de la capacité totale de 5 Tio du partage de fichiers.
+* **Partage** : un partage Stockage Fichier est un partage de fichiers SMB dans Azure. Tous les répertoires et fichiers doivent être créés dans un partage parent. Un compte peut contenir un nombre illimité de partages, et un partage peut stocker un nombre illimité de fichiers, dans la limite de la capacité totale du partage de fichiers. Pour les partages de fichiers standard, la capacité totale peut atteindre 5 TiO (GA) ou 100 TiO (préversion), pour les partages de fichiers Premium, la capacité totale peut atteindre 100 TiO.
 
 * **Répertoire** : hiérarchie facultative de répertoires.
 
@@ -155,7 +155,7 @@ Au départ, les nouveaux partages de fichiers se voient attribuer un nombre tota
 
 ## <a name="file-share-redundancy"></a>Redondance de partage de fichiers
 
-Les partages Azure Files prennent en charge trois options de redondance des données : le stockage localement redondant (LRS), le stockage redondant interzone (ZRS) et le stockage géoredondant (GRS).
+Les partages Azure Files prennent en charge quatre options de redondance des données : le stockage localement redondant (LRS), le stockage redondant interzone (ZRS), le stockage géoredondant (GRS) et le stockage géoredondant interzone (GZRS) (préversion).
 
 Les partages Premium d’Azure Files prennent uniquement en charge le stockage localement redondant (LRS).
 
@@ -186,6 +186,7 @@ Les régions primaire et secondaire gèrent les réplicas dans des domaines d’
 
 Gardez ces points à l’esprit au moment de choisir une option de réplication :
 
+* Le stockage géoredondant interzone (GZRS) (préversion) offre une haute disponibilité et une durabilité maximale en répliquant les données de manière synchrone sur trois zones de disponibilité Azure, puis en répliquant les données de manière asynchrone dans la région secondaire. Vous pouvez également activer l’accès en lecture à la région secondaire. Le stockage GZRS est conçu pour fournir une durabilité des objets d’au moins 99,99999999999999 % (16 chiffres 9) sur une année donnée. Pour plus d’informations sur le stockage GZRS, consultez l’article [Stockage géo-redondant dans une zone pour la haute disponibilité et la durabilité maximale (préversion)](../common/storage-redundancy-gzrs.md).
 * Le stockage redondant interzone (ZRS), qui assure la haute disponibilité avec réplication synchrone, peut représenter dans certains scénarios un meilleur choix que le stockage géoredondant. Pour plus d’informations sur le stockage redondant dans une zone, voir [ZRS](../common/storage-redundancy-zrs.md).
 * Une réplication asynchrone implique un délai entre le moment où les données sont écrites dans la région primaire et celui où elles sont répliquées dans la région secondaire. En cas de sinistre régional, les modifications qui n’ont pas encore été répliquées vers la région secondaire risquent d’être perdues si ces données ne peuvent pas être récupérées à partir de la région primaire.
 * Avec le stockage géoredondant, le réplica n’est disponible pour l’accès en lecture ou écriture que si Microsoft lance un basculement vers la région secondaire. En cas de basculement, vous aurez accès en lecture et écriture à ces données après le basculement. Pour plus d’informations, voir [Conseils sur la récupération d’urgence](../common/storage-disaster-recovery-guidance.md).
@@ -198,7 +199,7 @@ Cette section s’applique uniquement aux partages de fichiers Standard. Tous le
 
 - Les [Conditions d’utilisation supplémentaires des Préversions Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) s’appliquent aux partages de fichiers volumineux en préversion, y compris lorsqu’ils sont utilisés avec des déploiements Azure File Sync.
 - Vous oblige à créer un compte de stockage à usage général (impossibilité de développer des comptes de stockage existants).
-- La conversion de comptes LRS/ZRS en GRS ne sera pas possible sur les nouveaux comptes de stockage, créés après l’acceptation de l’abonnement pour la préversion de partages de fichiers plus volumineux.
+- La conversion de comptes LRS/ZRS en GRS/GZRS ne sera pas possible sur les nouveaux comptes de stockage, créés après l’acceptation de l’abonnement pour la préversion de partages de fichiers plus volumineux.
 
 
 ### <a name="regional-availability"></a>Disponibilité régionale

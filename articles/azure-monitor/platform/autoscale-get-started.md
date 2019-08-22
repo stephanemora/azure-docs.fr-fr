@@ -9,10 +9,10 @@ ms.date: 07/07/2017
 ms.author: rajram
 ms.subservice: autoscale
 ms.openlocfilehash: 0535c84a8ee0776c2c35a46d3c7510a2cd615cf6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "60788494"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Bien démarrer avec la mise à l’échelle automatique dans Azure
@@ -23,7 +23,7 @@ La mise à l’échelle automatique Azure Monitor s’applique uniquement aux [g
 ## <a name="discover-the-autoscale-settings-in-your-subscription"></a>Découvrir les paramètres de mise à l’échelle automatique dans votre abonnement
 Vous pouvez découvrir toutes les ressources pour lesquelles la mise à l’échelle automatique est applicable dans Azure Monitor. Pour une procédure pas à pas, procédez comme suit :
 
-1. Ouvrez le [portail Azure][1]
+1. Ouvrez le [portail Azure][1].
 1. Cliquez sur l’icône Azure Monitor dans le volet gauche.
   ![Ouvrez Azure Monitor][2]
 1. Cliquez sur **Mise à l’échelle automatique** pour afficher toutes les ressources pour lesquelles la mise à l’échelle automatique est applicable, ainsi que leur état actuel de mise à l’échelle automatique.
@@ -41,7 +41,7 @@ Pour chaque ressource, vous trouverez le nombre d’instances en cours ainsi que
 
 Suivons maintenant une procédure simple pour créer votre premier paramètre de mise à l’échelle automatique.
 
-1. Ouvrez la panneau **Mise à l’échelle automatique** dans Azure Monitor et sélectionnez une ressource à mettre à l’échelle. (les étapes ci-dessous utilisent un plan App Service associé à une application Web. Vous pouvez [créer votre première application Web ASP.NET dans Azure en 5 minutes][4])
+1. Ouvrez la panneau **Mise à l’échelle automatique** dans Azure Monitor et sélectionnez une ressource à mettre à l’échelle. (les étapes ci-dessous utilisent un plan App Service associé à une application Web. Vous pouvez [créer votre première application web ASP.NET dans Azure en 5 minutes][4].)
 1. Notez que le nombre d’instances actuel est 1. Cliquez sur **Activer la mise à l’échelle automatique**.
   ![Paramètre d’échelle pour la nouvelle application web][5]
 1. Fournissez un nom pour le paramètre de mise à l’échelle, puis cliquez sur **Ajouter une règle**. Notez les options de règle de mise à l’échelle qui s’ouvrent dans un volet contextuel dans la partie droite. Par défaut, l’option de mise à l’échelle du nombre d’instances est définie sur 1 si le pourcentage processeur de la ressource dépasse 70 %. Laissez les valeurs par défaut et cliquez sur **Ajouter**.

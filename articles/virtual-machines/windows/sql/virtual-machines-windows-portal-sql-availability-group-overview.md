@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/13/2017
 ms.author: mikeray
-ms.openlocfilehash: b9977965dc076ec36aa90680a1732b6640b1e41a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4a65465528ea2ffd8ba7af705d92efbb23a96d9e
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60325811"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68883457"
 ---
 # <a name="introducing-sql-server-always-on-availability-groups-on-azure-virtual-machines"></a>Présentation des groupes de disponibilité SQL Server AlwaysOn sur des machines virtuelles Azure #
 
@@ -35,6 +35,8 @@ Ce schéma illustre les parties d’un groupe de disponibilité SQL Server compl
 La différence principale d’un groupe de disponibilité dans les machines virtuelles Azure est que les machines virtuelles, nécessitent un [équilibrage de charge](../../../load-balancer/load-balancer-overview.md). Cet équilibrage de charge stocke les adresses IP de l’écouteur du groupe de disponibilité. Si vous avez plusieurs groupes de disponibilité, chacun requiert un écouteur. Un équilibrage de charge prend en charge plusieurs écouteurs.
 
 En outre, sur un cluster de basculement invité de machine virtuelle IaaS Azure, nous vous recommandons d'utiliser une seule carte réseau par serveur (nœud de cluster) et un seul sous-réseau. Les réseaux Azure intègrent une redondance physique, ce qui rend inutiles les cartes réseau et les sous-réseaux supplémentaires sur un cluster invité de machine virtuelle IaaS Azure. Même si le rapport de validation de cluster émet un avertissement stipulant que les nœuds sont uniquement accessibles sur un seul réseau, vous pouvez ignorer ce dernier en toute sécurité sur les clusters de basculement invités de machine virtuelle IaaS Azure. 
+
+Pour accroître la redondance et la haute disponibilité, les machines virtuelles SQL Server doivent se trouver dans le même [groupe à haute disponibilité](virtual-machines-windows-portal-sql-availability-group-prereq.md#create-availability-sets) ou dans des [zones de disponibilité](/azure/availability-zones/az-overview) différentes. 
 
 |  | Version de Windows Server | Version de SQL Server | Édition SQL Server | Configuration de Quorum WSFC | Récupération d'urgence avec plusieurs régions | Prise en charge de plusieurs sous-réseaux | Prise en charge d'un domaine d'application existant | Récupération d'urgence dans plusieurs zones de la même région | Prise en charge Dist-AG sans domaine AD | Prise en charge Dist-AG sans cluster |  
 | :------ | :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----|
@@ -54,7 +56,7 @@ Pour plus d'informations, consultez [Utiliser l'interface CLI de machine virtuel
 ## <a name="automatically-with-azure-quickstart-templates"></a>Automatiquement avec les modèles de démarrage rapide Azure
 Les modèles de démarrage rapide Azure utilisent le fournisseur de ressources de machines virtuelles SQL pour déployer le cluster de basculement Windows, y joindre des machines virtuelles SQL Server, créer l'écouteur et configurer l'équilibreur de charge interne. Cette option nécessite toujours une création manuelle du groupe de disponibilité et de l'équilibreur de charge interne (ILB) mais automatise et simplifie toutes les autres étapes de configuration nécessaires (y compris la configuration de l'ILB). 
 
-Pour plus d'informations, consultez [Utiliser un modèle de démarrage rapide Azure pour configurer un groupe de disponibilité Always On pour SQL Server sur une machine virtuelle Azure](virtual-machines-windows-sql-availability-group-quickstart-template.md).
+Pour plus d’informations, consultez [Utiliser un modèle de démarrage rapide Azure pour configurer un groupe de disponibilité Always On pour SQL Server sur une machine virtuelle Azure](virtual-machines-windows-sql-availability-group-quickstart-template.md).
 
 
 ## <a name="automatically-with-an-azure-portal-template"></a>Automatiquement avec un modèle du portail Azure

@@ -19,10 +19,10 @@ ms.reviewer: jmprieur, lenalepa, sureshja
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d53ed0c9a8ae63c2cb0ced635c6f0a8e8a3222fd
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "67482740"
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>Activation Connecter un utilisateur Azure Active Directory à l’aide du modèle d’application multilocataire
@@ -119,7 +119,7 @@ Certaines autorisations peuvent être accordées par un utilisateur standard, ta
 
 Les autorisations application seule nécessitent toujours le consentement de l’administrateur d’un client. Si votre application demande une autorisation application seule et qu’un utilisateur tente de se connecter à l’application, un message d’erreur indiquant que l’utilisateur n’est pas en mesure de donner son consentement s’affiche.
 
-Certaines autorisations déléguées nécessitent également le consentement de l’administrateur d’un client. Par exemple, la possibilité de réécrire dans Azure AD en tant que l’utilisateur connecté requiert le consentement de l’administrateur d’un client. Comme pour les autorisations application seule, si un utilisateur standard tente de se connecter à une application qui demande une autorisation déléguée nécessitant le consentement de l’administrateur, votre application reçoit une erreur. Le fait qu’une autorisation nécessite le consentement d’un administrateur est déterminé par le développeur qui a publié la ressource, et ces informations sont disponibles dans la documentation de cette ressource. La documentation sur les autorisations pour l’[API Azure AD Graph][AAD-Graph-Perm-Scopes] and [Microsoft Graph API][MSFT-Graph-permission-scopes] indique les autorisations qui nécessitent le consentement de l’administrateur.
+Certaines autorisations déléguées nécessitent également le consentement de l’administrateur d’un client. Par exemple, la possibilité de réécrire dans Azure AD en tant que l’utilisateur connecté requiert le consentement de l’administrateur d’un client. Comme pour les autorisations application seule, si un utilisateur standard tente de se connecter à une application qui demande une autorisation déléguée nécessitant le consentement de l’administrateur, votre application reçoit une erreur. Le fait qu’une autorisation nécessite le consentement d’un administrateur est déterminé par le développeur qui a publié la ressource, et ces informations sont disponibles dans la documentation de cette ressource. La documentation sur les autorisations pour l’[API Azure AD Graph][AAD-Graph-Perm-Scopes] et l’[API Microsoft Graph][MSFT-Graph-permission-scopes] indique les autorisations qui nécessitent le consentement de l’administrateur.
 
 Si votre application utilise des autorisations qui nécessitent le consentement de l’administrateur, vous devez y intégrer une option comme un bouton ou un lien afin que l’administrateur puisse initier l’action. La requête que votre application envoie pour cette action est une demande d’autorisation OAuth2/OpenID Connect ordinaire, mais qui inclut également le paramètre de chaîne de requête `prompt=admin_consent`. Une fois que l’administrateur a donné son consentement et que le principal de service est créé dans le client, les connexions ultérieures n’ont plus besoin du paramètre `prompt=admin_consent`. Comme l’administrateur a décidé que les autorisations demandées sont acceptables, les autres utilisateurs n’ont plus à donner leur consentement par la suite.
 

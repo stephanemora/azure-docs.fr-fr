@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: zarhoads
-ms.openlocfilehash: a9cf3db3a15fab5a2f067a146950e02923a20379
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 1dcf08f4fefb53ed46038c82e0ce8f9d3dd94de2
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67476806"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69032238"
 ---
 # <a name="preview---use-a-standard-sku-load-balancer-in-azure-kubernetes-service-aks"></a>Préversion - Utiliser un équilibreur de charge de référence (SKU) Standard dans Azure Kubernetes Service (AKS)
 
@@ -22,7 +22,7 @@ Azure Load Balancer se décline en deux références SKU : *De base* et *Standa
 
 Cet article explique comment créer et utiliser un Azure Load Balancer avec la référence SKU *Standard* avec Azure Kubernetes Service (AKS).
 
-Cet article suppose une compréhension élémentaire des concepts de Kubernetes et d’Azure Load Balancer. Pour plus d’informations, consultez [Concepts de base de Kubernetes pour AKS (Azure Kubernetes Service)][kubernetes-concepts]and [What is Azure Load Balancer?][azure-lb].
+Cet article suppose une compréhension élémentaire des concepts de Kubernetes et d’Azure Load Balancer. Pour plus d’informations, consultez [Concepts de base de Kubernetes pour AKS (Azure Kubernetes Service)][kubernetes-concepts] et [Qu’est-ce qu’Azure Load Balancer ?][azure-lb].
 
 Actuellement, cette fonctionnalité est uniquement disponible en tant que version préliminaire.
 
@@ -39,14 +39,14 @@ Le principal de service du cluster AKS a besoin de l’autorisation de gérer le
 Vous devez créer un cluster AKS qui définit la référence SKU pour l’équilibreur de charge sur *Standard* au lieu de la valeur par défaut, *De base*. La création d’un cluster AKS est couverte dans une étape ultérieure, mais vous devez d’abord activer quelques fonctionnalités d’évaluation.
 
 > [!IMPORTANT]
-> Les fonctionnalités d’évaluation AKS sont en libre-service et font l’objet d’un abonnement. Elles sont fournies pour que notre communauté puisse faire part de ses commentaires et des bogues éventuels. En préversion, ces fonctionnalités ne sont pas destinées à une utilisation en production. Les fonctionnalités en préversion publique font l’objet d’un support relatif. L’assistance des équipes de support technique AKS est disponible pendant les heures de bureau du fuseau horaire Heure du Pacifique uniquement. Pour obtenir des informations supplémentaires, veuillez lire les articles de support suivants :
+> Les fonctionnalités d’évaluation AKS sont en libre-service et font l’objet d’un abonnement. Les versions préliminaires sont fournies « en-l’état », « avec toutes les erreurs » et « en fonction des disponibilités », et sont exclues des contrats de niveau de service (sla) et de la garantie limitée. Les versions préliminaires AKS sont partiellement couvertes par le service clientèle sur la base du meilleur effort. En tant que tel, ces fonctionnalités ne sont pas destinées à une utilisation en production. Pour obtenir des informations supplémentaires, veuillez lire les articles de support suivants :
 >
 > * [Stratégies de support AKS][aks-support-policies]
 > * [FAQ du support Azure][aks-faq]
 
 ### <a name="install-aks-preview-cli-extension"></a>Installer l’extension CLI de préversion d’aks
 
-Pour utiliser la référence SKU d’équilibrage de charge Azure Standard, vous aurez besoin de l’extension de CLI *aks-preview* version 0.4.1 ou version ultérieure. Installez l’extension d’Azure CLI *aks-preview* à l’aide de la commande [az extension add][az-extension-add] command, then check for any available updates using the [az extension update][az-extension-update] :
+Pour utiliser la référence SKU d’équilibrage de charge Azure Standard, vous aurez besoin de l’extension de CLI *aks-preview* version 0.4.1 ou version ultérieure. Installez l’extension Azure CLI *aks-preview* à l’aide de la commande [az extension add][az-extension-add], puis recherchez toutes les mises à jour disponibles à l’aide de la commande [az extension update][az-extension-update] :
 
 ```azurecli-interactive
 # Install the aks-preview extension
@@ -61,7 +61,7 @@ az extension update --name aks-preview
 Pour créer un cluster AKS qui peut utiliser un équilibreur de charge avec la référence SKU *Standard*, vous devez activer l’indicateur de fonctionnalité *AKSAzureStandardLoadBalancer* sur votre abonnement. La fonctionnalité *AKSAzureStandardLoadBalancer* utilise également *VMSSPreview* lors de la création d’un cluster à l’aide de jeux de mise à l’échelle de machine virtuelle. Cette fonctionnalité fournit la dernière série d’améliorations de service lors de la configuration d’un cluster. Si ce n’est pas obligatoire, il vous est recommandé d’activer l’indicateur de fonctionnalité *VMSSPreview* aussi.
 
 > [!CAUTION]
-> Lorsque vous inscrivez une fonctionnalité sur un abonnement, vous ne pouvez actuellement pas désinscrire cette fonctionnalité. Après avoir activé des fonctionnalités en préversion, des valeurs par défaut peuvent être utilisées pour tous les clusters AKS ensuite créés dans l’abonnement. N’activez pas les fonctionnalités en préversion sur les abonnements de production. Utilisez un abonnement distinct pour tester les fonctionnalités en préversion et recueillir des commentaires.
+> Lorsque vous inscrivez une fonctionnalité sur un abonnement, vous ne pouvez actuellement pas désinscrire cette fonctionnalité. Après avoir activé des fonctionnalités en préversion, des valeurs par défaut peuvent être utilisées pour tous les clusters AKS créés ultérieurement dans l’abonnement. N’activez pas les fonctionnalités d’évaluation sur les abonnements de production. Utilisez un abonnement distinct pour tester les fonctionnalités en préversion et recueillir des commentaires.
 
 Inscrivez les indicateurs de fonctionnalité *VMSSPreview* et *AKSAzureStandardLoadBalancer* à l’aide de la commande [az feature register][az-feature-register], comme indiqué dans l’exemple suivant :
 
@@ -73,7 +73,7 @@ az feature register --namespace "Microsoft.ContainerService" --name "AKSAzureSta
 > [!NOTE]
 > Tous les clusters AKS que vous créez après avoir enregistré les indicateurs de fonctionnalité *VMSSPreview* ou *AKSAzureStandardLoadBalancer* utilisent l’expérience de cluster en préversion. Pour continuer à créer des clusters standard et entièrement supportés, n’activez pas les fonctionnalités en préversion sur les abonnements de production. Utilisez abonnement Azure de test ou de développement pour tester les fonctionnalités en préversion.
 
-Quelques minutes sont nécessaires pour que l’état s’affiche *Registered* (Inscrit). Vous pouvez vérifier l'état de l'enregistrement à l'aide de la commande [az feature list][az-feature-list] :
+Quelques minutes sont nécessaires pour que l’état s’affiche *Registered* (Inscrit). Vous pouvez vérifier l’état de l’enregistrement à l’aide de la commande [az feature list][az-feature-list] :
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/VMSSPreview')].{Name:name,State:properties.state}"
@@ -92,6 +92,7 @@ Les limitations suivantes s’appliquent lorsque vous créez et gérez des clust
 
 * Lorsque vous utilisez la référence SKU *Standard* pour un équilibreur de charge, vous devez autoriser des adresses publiques et éviter de créer une Azure Policy qui interdit la création d’IP. Le cluster AKS crée automatiquement une adresse IP publique pour la référence SKU *Standard* dans le même groupe de ressources que celui créé pour le cluster AKS, généralement nommé avec *MC_* au début. AKS attribue l’adresse IP publique pour l’équilibreur de charge de référence SKU *Standard*. L’adresse IP publique est requise pour autoriser le trafic sortant à partir du cluster AKS. Cette adresse IP publique est également nécessaire pour maintenir la connectivité entre le plan de contrôle et les nœuds d’agent, ainsi que pour assurer la compatibilité avec les versions précédentes d’AKS.
 * Lorsque vous utilisez la référence SKU *Standard* pour un équilibreur de charge, vous devez utiliser Kubernetes version 1.13.5 ou version ultérieure.
+* Si vous utilisez la [fonctionnalité Adresse publique du nœud](use-multiple-node-pools.md#assign-a-public-ip-per-node-in-a-node-pool) avec des équilibreurs de charge standard, vous pouvez définir une règle de trafic sortant SLB ou une adresse IP publique pour le nœud. Vous devez sélectionner l’une ou l’autre, car une machine virtuelle ne peut pas être attachée simultanément à une règle de trafic sortant SLB et à une adresse IP publique.
 
 Même si cette fonctionnalité est en préversion préliminaire, les limitations supplémentaires suivantes s’appliquent :
 
@@ -135,7 +136,6 @@ az aks create \
     --name myAKSCluster \
     --enable-vmss \
     --node-count 1 \
-    --kubernetes-version 1.14.0 \
     --load-balancer-sku standard \
     --generate-ssh-keys
 ```
@@ -166,7 +166,7 @@ L’exemple de sortie suivant montre le nœud unique créé au cours des étapes
 
 ```
 NAME                       STATUS   ROLES   AGE     VERSION
-aks-nodepool1-31718369-0   Ready    agent   6m44s   v1.14.0
+aks-nodepool1-31718369-0   Ready    agent   6m44s   v1.13.9
 ```
 
 ## <a name="verify-your-cluster-uses-the-standard-sku"></a>Vérifier que votre cluster utilise la référence SKU *Standard*

@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/23/2019
+ms.date: 08/08/2019
 ms.author: v-mohabe
-ms.openlocfilehash: b17e5f16b988bfa562b00bc6f5b9dfd34be4ca43
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4d3fc90a722b9f4043e891a14b542e6b90c94c55
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66247963"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881033"
 ---
 # <a name="endpoint-protection-assessment-and-recommendations-in-azure-security-center"></a>Évaluation de la protection de point de terminaison et recommandations dans Azure Security Center
 
@@ -116,8 +116,8 @@ La recommandation **« Résoudre les problèmes d'intégrité de la protection 
 
 Chemins d’accès au Registre :
 
-**"HKLM:\Software\Symantec\Symantec Endpoint Protection" + $Path;** 
- **"HKLM:\Software\Wow6432Node\Symantec\Symantec Endpoint Protection" + $Path**
+* **"HKLM:\Software\Symantec\Symantec Endpoint Protection" + $Path;**
+* **"HKLM:\Software\Wow6432Node\Symantec\Symantec Endpoint Protection" + $Path**
 
 ## <a name="mcafee-endpoint-protection-for-windows"></a>Protection de point de terminaison McAfee pour Windows
 
@@ -136,6 +136,42 @@ La recommandation **« Résoudre les problèmes d'intégrité de la protection 
 * Rechercher la date signature : **HKLM:\Software\McAfee\AVSolution\DS\DS -Value "szContentCreationDate" >= 7 days**
 
 * Rechercher la date d'analyser : **HKLM:\Software\McAfee\Endpoint\AV\ODS -Value "LastFullScanOdsRunTime" >= 7 days**
+
+## <a name="mcafee-endpoint-security-for-linux-threat-prevention"></a>McAfee Endpoint Security for Linux Threat Prevention 
+
+La recommandation **Installer les solutions de protection de point de terminaison sur la machine virtuelle** est générée si au moins une des vérifications suivantes n’est pas satisfaite :  
+
+- Le fichier **/opt/isec/ens/threatprevention/bin/isecav** se ferme 
+
+- La sortie **"/opt/isec/ens/threatprevention/bin/isecav --version"** est : **McAfee name = McAfee Endpoint Security for Linux Threat Prevention and McAfee version >= 10**
+
+La recommandation **Résoudre les problèmes d'intégrité de la protection de point de terminaison sur vos machines** est générée si au moins une des vérifications suivantes n'est pas satisfaite :
+
+- **"/opt/isec/ens/threatprevention/bin/isecav --listtask"** retourne **Quick scan, Full scan** et les deux analyses <= 7 jours
+
+- **"/opt/isec/ens/threatprevention/bin/isecav --listtask"** retourne **DAT and engine Update time** et les deux <= 7 jours
+
+- **"/opt/isec/ens/threatprevention/bin/isecav --getoasconfig --summary"** retourne l’état **On Access Scan**
+
+## <a name="sophos-antivirus-for-linux"></a>Sophos Anti-Virus pour Linux 
+
+La recommandation **Installer les solutions de protection de point de terminaison sur la machine virtuelle** est générée si au moins une des vérifications suivantes n’est pas satisfaite :
+
+- Le fichier **/opt/sophos-av/bin/savdstatus** se ferme ou recherche l'emplacement personnalisé **"readlink $(which savscan)"**
+
+- **"/opt/sophos-av/bin/savdstatus --version"** retourne **Sophos name = Sophos Anti-Virus and Sophos version >= 9**
+
+La recommandation **Résoudre les problèmes d'intégrité de la protection de point de terminaison sur vos machines** est générée si au moins une des vérifications suivantes n'est pas satisfaite :
+
+- **"/opt/sophos-av/bin/savlog --maxage=7 | grep -i "Scheduled scan .\* completed" | tail -1"** , retourne une valeur   
+
+- **"/opt/sophos-av/bin/savlog --maxage=7 | grep "scan finished"** | tail -1", retourne une valeur   
+
+- **"/opt/sophos-av/bin/savdstatus --lastupdate"** retourne lastUpdate qui doit être <= 7 jours 
+
+- **"/opt/sophos-av/bin/savdstatus -v"** est égal à **"On-access scanning is running"** 
+
+- **"/opt/sophos-av/bin/savconfig get LiveProtection"** retourne activé  
 
 ## <a name="troubleshoot-and-support"></a>Dépannage et support technique
 

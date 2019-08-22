@@ -6,12 +6,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: troubleshooting
 ms.date: 08/01/2019
-ms.openlocfilehash: f37110138ae62272e56b155b7e8a9aac2f80cdf8
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 84bd14f8ae18527b4f6e9d8509a12555baec8771
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68734580"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68879557"
 ---
 # <a name="troubleshooting-azure-data-catalog"></a>Résolution des problèmes liés à Azure Data Catalog
 
@@ -21,7 +21,7 @@ Cet article décrit les considérations courantes concernant la résolution des 
 
 Quand vous utilisez Azure Data Catalog, les fonctionnalités suivantes sont limitées :
 
-- Les comptes avec le type **Rôle Invité** ne sont pas pris en charge. Vous ne pouvez pas ajouter de comptes Invité en tant qu’utilisateurs d’Azure Data Catalog, et les utilisateurs invités ne peuvent pas utiliser le portail sur www.azuredatacatalog.com.
+- Les comptes avec le type **Rôle Invité** ne sont pas pris en charge. Vous ne pouvez pas ajouter de comptes Invité en tant qu’utilisateurs d’Azure Data Catalog, et les utilisateurs invités ne peuvent pas utiliser le portail sur [https://www.azuredatacatalog.com](https://www.azuredatacatalog.com).
 
 - La création de ressources Azure Data Catalog à l’aide de modèles Azure Resource Manager ou de commandes Azure PowerShell n’est pas prise en charge.
 

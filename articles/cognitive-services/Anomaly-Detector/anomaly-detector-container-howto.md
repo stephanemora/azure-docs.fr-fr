@@ -10,12 +10,12 @@ ms.subservice: anomaly-detector
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: dapine
-ms.openlocfilehash: 8d107aed75904c27b9ed231d50c884f96318a324
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: e3f6ad4338863fcbb35bad4f286b71993cf6fa2a
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68321427"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68854836"
 ---
 # <a name="install-and-run-anomaly-detector-containers"></a>Installer et exécuter des conteneurs Détecteur d’anomalies
 
@@ -38,7 +38,7 @@ L’utilisation des conteneurs Détecteur d’anomalies est soumise aux prérequ
 |--|--|
 |Moteur Docker| Vous avez besoin d’un moteur Docker installé sur un [ordinateur hôte](#the-host-computer). Docker fournit des packages qui configurent l’environnement Docker sur [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) et [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Pour apprendre les principes de base de Docker et des conteneurs, consultez la [vue d’ensemble de Docker](https://docs.docker.com/engine/docker-overview/).<br><br> Vous devez configurer Docker pour permettre aux conteneurs de se connecter à Azure et de lui envoyer des données de facturation. <br><br> **Sur Windows**, vous devez également configurer Docker pour prendre en charge les conteneurs Linux.<br><br>|
 |Bonne connaissance de Docker | Vous devez avoir une compréhension élémentaire des concepts Docker, notamment les registres, référentiels, conteneurs et images conteneurs, ainsi qu’une maîtrise des commandes `docker` de base.| 
-|Ressource Détecteur d’anomalies |Pour pouvoir utiliser ces conteneurs, vous devez avoir :<br><br>une ressource _Détecteur d'anomalies_ d’Azure afin d’obtenir la clé API et l’URI du point de terminaison associés. Les deux valeurs disponibles dans les pages Clés et Vue d’ensemble de **Détecteur d’anomalies** du Portail Azure sont nécessaires pour le démarrage du conteneur.<br><br>**{API_KEY}**  : l’une des deux clés de ressource disponibles à la page **Clés**<br><br>**{ENDPOINT_URI}**  : le point de terminaison tel qu'il est fourni à la page **Vue d’ensemble**|
+|Ressource Détecteur d’anomalies |Pour pouvoir utiliser ces conteneurs, vous devez avoir :<br><br>une ressource _Détecteur d'anomalies_ d’Azure afin d’obtenir la clé API et l’URI du point de terminaison associés. Les deux valeurs disponibles dans les pages Clés et Vue d’ensemble de **Détecteur d’anomalies** du Portail Azure sont nécessaires pour le démarrage du conteneur.<br><br>**{API_KEY}**  : L’une des deux clés de ressource disponibles à la page **Clés**<br><br>**{ENDPOINT_URI}**  : le point de terminaison tel qu'il est fourni à la page **Vue d’ensemble**|
 
 ## <a name="request-access-to-the-container-registry"></a>Demander l’accès au registre de conteneurs
 
@@ -198,4 +198,5 @@ Dans cet article, vous avez découvert les concepts et le workflow du téléchar
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Pour obtenir les paramètres de configuration, passez en revue [Configurer des conteneurs](anomaly-detector-container-configuration.md).
+* [Déployer un conteneur Détecteur d’anomalies sur Azure Container Instances](how-to/deploy-anomaly-detection-on-container-instances.md)
 * [En savoir plus sur le service API Détecteur d’anomalies](https://go.microsoft.com/fwlink/?linkid=2080698&clcid=0x409)

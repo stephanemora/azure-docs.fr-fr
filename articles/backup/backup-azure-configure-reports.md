@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/09/2019
 ms.author: dacurwin
-ms.openlocfilehash: 169ce73ead52d6a275f13f084c681e14c89ab606
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 293af600f4bd58efe8383d019ca3d17f724f242c
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68689359"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68933328"
 ---
 # <a name="configure-azure-backup-reports"></a>Configurer les rapports de la Sauvegarde Azure
 Cet article explique les étapes à suivre pour configurer les rapports pour la Sauvegarde Azure à l’aide d’un coffre Recovery Services. Il montre également comment accéder aux rapports à l’aide de Power BI. Une fois que vous avez terminé ces étapes, vous pouvez accéder directement à Power BI pour afficher, personnaliser et créer des rapports.
@@ -37,7 +37,7 @@ Téléchargez la dernière application (version 1.8) pour éviter ce problème.
 - Inscrivez le fournisseur de ressources **Microsoft.insights**, s’il n’est pas déjà inscrit. Utilisez les abonnements pour le compte de stockage et le coffre Recovery Services afin que les données de rapports puissent être transmises au compte de stockage. Pour faire cette étape, accédez au Portail Azure, sélectionnez **Abonnement** > **Fournisseurs de ressources**, et cochez ce fournisseur pour l’inscrire.
 
 ## <a name="configure-storage-account-for-reports"></a>Configurer le compte de stockage pour les rapports
-Suivez ces étapes afin de configurer le compte de stockage pour un coffre Recovery Services à l’aide du Portail Azure. Il s’agit d’une configuration unique. Une fois le compte de stockage configuré, vous pouvez accéder directement à Power BI pour afficher le pack de contenu et utiliser des rapports.
+Suivez ces étapes afin de configurer le compte de stockage pour un coffre Recovery Services à l’aide du Portail Azure. Il s’agit d’une configuration unique. Une fois le compte de stockage configuré, vous pouvez accéder directement à Power BI pour afficher l’application modèle et utiliser des rapports.
 
 1. Si l’un de vos coffres Recovery Services est déjà ouvert, passez à l’étape suivante. Si vous n’avez aucun coffre Recovery Services ouvert, dans le portail Azure, sélectionnez **Tous les services**.
 
@@ -80,11 +80,11 @@ Une fois que vous avez configuré un compte de stockage pour les rapports à l�
 Pour personnaliser et partager le rapport, créez un espace de travail et procédez comme suit.
 
 1. [Connectez-vous](https://powerbi.microsoft.com/landing/signin/) à Power BI.
-2. Sélectionnez **Obtenir des données**. Dans la zone **Autres façons de créer votre propre contenu**, sélectionnez **Packs de contenu de service**. Suivez les étapes de la [documentation Power BI pour la connexion à un service](https://powerbi.microsoft.com/documentation/powerbi-content-packs-services/).
+2. Accédez à **Applications > Obtenir plus d’applications de Microsoft AppSource** . Suivez les étapes de la [documentation Power BI pour la connexion à un service](https://powerbi.microsoft.com/documentation/powerbi-content-packs-services/).
 
 3. Dans la barre de **recherche**, entrez **sauvegarde Azure** et sélectionnez **Obtenir maintenant**.
 
-      ![Obtenir un pack de contenu](./media/backup-azure-configure-reports/content-pack-get.png)
+      ![Obtenir l’application modèle](./media/backup-azure-configure-reports/template-app-get.png)
 4. Entrez le nom du compte de stockage configuré à l’étape 5 précédente, puis sélectionnez **Suivant**.
 
     ![Entrer le nom du compte de stockage](./media/backup-azure-configure-reports/content-pack-storage-account-name.png)    
@@ -96,11 +96,11 @@ Pour personnaliser et partager le rapport, créez un espace de travail et procé
 
     ![Importer un pack de contenu](./media/backup-azure-configure-reports/content-pack-importing-data.png) <br/>
 
-    Une fois l’importation terminée, vous voyez une notification de **réussite**. Si le volume de données dans le compte de stockage est important, l’importation du pack de contenu peut prendre un peu plus longtemps.
+    Une fois l’importation terminée, vous voyez une notification de **réussite**. Si le volume de données dans le compte de stockage est important, l’importation de l’application modèle peut prendre un peu plus longtemps.
 
     ![Importer le pack de contenu - Réussite](./media/backup-azure-configure-reports/content-pack-import-success.png) <br/>
 
-7. Une fois les données importées, le pack de contenu **Sauvegarde Azure** apparaît dans **Applications**, dans le volet de navigation. Sous **Tableaux de bord**, **Rapports** et **Jeux de données**, la liste affiche maintenant la sauvegarde Azure.
+7. Une fois les données importées, l’application modèle **Sauvegarde Azure** est visible dans **Applications** dans le volet de navigation. Sous **Tableaux de bord**, **Rapports** et **Jeux de données**, la liste affiche maintenant la sauvegarde Azure.
 
 8. Sous **Tableaux de bord**, sélectionnez **Sauvegarde Azure**, affichant un ensemble de rapports clés épinglés.
 
@@ -117,10 +117,10 @@ Pour personnaliser et partager le rapport, créez un espace de travail et procé
 | Détails de l’erreur | Résolution : |
 | --- | --- |
 | Une fois que vous avez configuré le compte de stockage pour les rapports de sauvegarde, **Compte de stockage** indique toujours **Non configuré**. | Si vous avez configuré correctement un compte de stockage, vos données de rapport arrivent malgré ce problème. Pour résoudre ce problème, accédez au portail Azure et sélectionnez **Tous les services** > **Paramètres de diagnostic** > **Coffre Recovery Services** > **Modifier le paramètre**. Supprimez le paramètre configuré et créez un paramètre sur le même panneau. Cette fois, dans la case **Nom**, sélectionnez **service**. Le compte de stockage configuré s’affiche maintenant. |
-|Après avoir importé le pack de contenu de la Sauvegarde Azure dans Power BI, un message d’erreur « 404-conteneur introuvable » s’affiche. | Comme indiqué précédemment, vous devez attendre 24 heures pour afficher correctement les rapports dans Power BI après les avoir configurés dans le coffre Recovery Services. Si vous essayez d’accéder aux rapports avant le terme de ce délai, vous obtenez ce message d’erreur, car il manque des données pour afficher des rapports valides. |
+|Après avoir importé l’application modèle Sauvegarde Azure dans Power BI, un message d’erreur « 404 - Conteneur introuvable » s’affiche. | Comme indiqué précédemment, vous devez attendre 24 heures pour afficher correctement les rapports dans Power BI après les avoir configurés dans le coffre Recovery Services. Si vous essayez d’accéder aux rapports avant le terme de ce délai, vous obtenez ce message d’erreur, car il manque des données pour afficher des rapports valides. |
 
 ## <a name="next-steps"></a>Étapes suivantes
-Maintenant que vous avez configuré le compte de stockage et importé le pack de contenu de la Sauvegarde Azure, les prochaines étapes consistent à personnaliser des rapports et à utiliser un modèle de données de rapports pour créer des rapports. Pour plus d'informations, consultez les articles suivants.
+Maintenant que vous avez configuré le compte de stockage et importé l’application modèle Sauvegarde Azure, les prochaines étapes consistent à personnaliser des rapports et à utiliser un modèle de données de rapports pour créer des rapports. Pour plus d'informations, consultez les articles suivants.
 
 * [Utiliser un modèle de données de rapports de la Sauvegarde Azure](backup-azure-reports-data-model.md)
 * [Filtrer des rapports dans Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-about-filters-and-highlighting-in-reports/)

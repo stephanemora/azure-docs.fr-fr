@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 91cc2707034eabf85afae70278f2448b77d3ee14
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: 413df402d5acc878130a47821efd5fa3a512257d
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68608076"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68931934"
 ---
 # <a name="baseline-policy-block-legacy-authentication-preview"></a>Stratégie de base de référence : Bloquer l’authentification héritée (préversion)
 
@@ -37,7 +37,7 @@ Avant de pouvoir bloquer l’authentification héritée dans votre annuaire, vou
 
 1. Accédez au **portail Azure** > **Azure Active Directory** > **Connexions**.
 1. Si elle n’est pas affichée, ajoutez la colonne Application cliente en cliquant sur **Colonnes** > **Application cliente**.
-1. Filtrez les résultats par **Application cliente** > **Autres Clients**, puis cliquez sur **Appliquer**.
+1. **Ajouter des filtres** > **Application cliente** > sélectionnez toutes les options pour **Autres clients**, puis cliquez sur **Appliquer**.
 
 Grâce au filtrage, vous afficherez uniquement les tentatives de connexion effectuées via des protocoles d’authentification héritée. Cliquez sur chaque tentative de connexion pour afficher des détails supplémentaires. Le champ **Application cliente** affiché sous l’onglet **Informations de base** indique quel protocole d’authentification héritée a été utilisé.
 

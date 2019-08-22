@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/08/2019
 ms.author: dacurwin
-ms.openlocfilehash: 4ce6ef67c24bd623a4162329442693ed1628dae2
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 7e7312f942103125217c1f61ae8fe8007a49529b
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639866"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954757"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>Surveiller et gérer les coffres Recovery Services
 
@@ -175,7 +175,7 @@ La liste des machines virtuelles comprend des données utiles : le groupe de res
 
 Dans le tableau de bord du coffre, la vignette **Travaux de sauvegarde** montre plusieurs travaux qui sont en cours ou qui ont échoué au cours des dernières 24 heures. La vignette donne un aperçu du menu Travaux de sauvegarde.
 
-![Éléments de sauvegarde à partir des paramètres](./media/backup-azure-manage-windows-server/backup-jobs-tile.png)
+![Sauvegarder des éléments à partir de paramètres](./media/backup-azure-manage-windows-server/backup-jobs-tile.png)
 
 Pour afficher des informations détaillées sur les travaux, cliquez sur **En cours** ou **Échec** afin d’ouvrir le menu Travaux de sauvegarde filtré selon l’état choisi.
 
@@ -185,11 +185,11 @@ Le menu **Travaux de sauvegarde** affiche des informations sur le type de l’é
 
 Pour ouvrir le menu Travaux de sauvegarde, dans le menu principal du coffre, cliquez sur **Travaux de sauvegarde**.
 
-![Éléments de sauvegarde à partir des paramètres](./media/backup-azure-manage-windows-server/backup-jobs-menu-item.png)
+![Sauvegarder des éléments à partir de paramètres](./media/backup-azure-manage-windows-server/backup-jobs-menu-item.png)
 
 La liste des travaux de sauvegarde s’ouvre.
 
-![Éléments de sauvegarde à partir des paramètres](./media/backup-azure-manage-windows-server/backup-jobs-list.png)
+![Sauvegarder des éléments à partir de paramètres](./media/backup-azure-manage-windows-server/backup-jobs-list.png)
 
 Le menu Travaux de sauvegarde affiche l’état de toutes les opérations de tous les types de sauvegarde, au cours des dernières 24 heures. Utilisez le menu **Filtrer** pour modifier les filtres. Les filtres sont abordés dans les sections suivantes.
 
@@ -197,11 +197,11 @@ Pour modifier les filtres :
 
 1. Dans le menu Travaux de sauvegarde du coffre, cliquez sur **Filtrer**.
 
-   ![Éléments de sauvegarde à partir des paramètres](./media/backup-azure-manage-windows-server/vault-backup-job-menu-filter.png)
+   ![Sauvegarder des éléments à partir de paramètres](./media/backup-azure-manage-windows-server/vault-backup-job-menu-filter.png)
 
     Le menu Filtrer s’ouvre.
 
-   ![Éléments de sauvegarde à partir des paramètres](./media/backup-azure-manage-windows-server/filter-menu-backup-jobs.png)
+   ![Sauvegarder des éléments à partir de paramètres](./media/backup-azure-manage-windows-server/filter-menu-backup-jobs.png)
 
 2. Choisissez les paramètres de filtre, puis cliquez sur **Terminé**. La liste filtrée est actualisée selon les nouveaux paramètres.
 

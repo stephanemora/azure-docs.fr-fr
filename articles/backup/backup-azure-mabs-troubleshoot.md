@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: dacurwin
-ms.openlocfilehash: c08acaf65cd42abd9db97fab1267ce5628595b78
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 0f9c2d1d2081ec22898ed3a4fbc73305ff0995e3
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68689268"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954683"
 ---
 # <a name="troubleshoot-azure-backup-server"></a>Résoudre les problèmes d’un serveur de sauvegarde Azure
 
@@ -25,7 +25,7 @@ Nous vous recommandons d’effectuer les validations ci-dessous avant de résoud
 
 - [Vérifiez que l'agent Microsoft Azure Recovery Services (MARS) est à jour](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409)
 - [Vérifiez la connectivité réseau entre l’agent MARS et Azure](https://aka.ms/AB-A4dp50)
-- Assurez-vous que Microsoft Azure Recovery Services est en cours d’exécution (dans la console de service). Si nécessaire, redémarrez le système et recommencez l’opération
+- Assurez-vous que Microsoft Azure Recovery Services est en cours d’exécution (dans la console de service). Si nécessaire, redémarrez le système et retentez l’opération
 - [Vérifiez qu’il existe entre 5 et 10 % d’espace de volume disponible à l’emplacement du dossier de travail](https://aka.ms/AB-AA4dwtt)
 - En cas d'échec d'inscription, vérifiez si le serveur sur lequel vous essayez d’installer le serveur de sauvegarde Azure n’est pas déjà inscrit sur un autre coffre
 - Si l’installation push échoue, vérifiez si l’agent DPM est déjà présent. Si c’est le cas, désinstallez l’agent et recommencez l’installation
@@ -55,13 +55,13 @@ Nous vous recommandons d’effectuer les validations ci-dessous avant de résoud
 
 | Opération | Détails de l’erreur | Solution de contournement |
 | --- | --- | --- |
-| Restore | **Code d’erreur** : CBPServerRegisteredVaultDontMatchWithCurrent/Vault Credentials Error: 100110 <br/> <br/>**Message d’erreur** : Les informations d’identification du coffre fournies ne correspondent pas au coffre auprès duquel le serveur est enregistré. | **Cause** : ce problème se produit lorsque vous essayez de restaurer des fichiers vers un autre serveur que le serveur d’origine à l’aide de l'option de récupération DPM externe, et si le serveur en cours de récupération et le serveur d’origine à partir duquel les données sont sauvegardées ne sont pas associés au même coffre Recovery Services.<br/> <br/>**Solution de contournement** Pour résoudre ce problème, assurez-vous que le serveur d'origine et l'autre serveur sont enregistrés dans le même coffre.|
+| Restore | **Code d’erreur** : CBPServerRegisteredVaultDontMatchWithCurrent/Vault Credentials Error: 100110 <br/> <br/>**Message d’erreur** : Les informations d’identification du coffre fournies ne correspondent pas au coffre auprès duquel le serveur est enregistré. | **Cause** : Ce problème se produit quand vous essayez de restaurer des fichiers sur un autre serveur que le serveur d’origine à l’aide de l’option de récupération DPM externe, et si le serveur en cours de récupération et le serveur d’origine à partir duquel les données sont sauvegardées ne sont pas associés au même coffre Recovery Services.<br/> <br/>**Solution de contournement** Pour résoudre ce problème, assurez-vous que le serveur d'origine et l'autre serveur sont enregistrés dans le même coffre.|
 
 ## <a name="online-recovery-point-creation-jobs-for-vmware-vm-fail"></a>Les tâches de création de points de récupération en ligne pour les machines virtuelles VMware échouent.
 
 | Opération | Détails de l’erreur | Solution de contournement |
 | --- | --- | --- |
-| Sauvegarde | Les tâches de création de points de récupération en ligne pour les machines virtuelles VMware échouent. DPM a rencontré une erreur à partir de VMware alors qu’il essayait de récupérer des informations de suivi des modifications. Code d’erreur : FileFaultFault (ID 33621) |  <ol><li> Réinitialisez le processus CTK sur VMware pour les machines virtuelles affectées.</li> <li>Vérifiez que le disque indépendant n’est pas en place sur VMware.</li> <li>Arrêtez la protection pour les machines virtuelles affectées et redémarrez-la avec le bouton **d’actualisation**. </li><li>Exécutez une vérification de cohérence pour les machines virtuelles affectées.</li></ol>|
+| Sauvegarde | Les tâches de création de points de récupération en ligne pour les machines virtuelles VMware échouent. DPM a rencontré une erreur à partir de VMware alors qu’il essayait de récupérer des informations de suivi des modifications. ErrorCode - FileFaultFault (ID 33621) |  <ol><li> Réinitialisez le processus CTK sur VMware pour les machines virtuelles affectées.</li> <li>Vérifiez que le disque indépendant n’est pas en place sur VMware.</li> <li>Arrêtez la protection pour les machines virtuelles affectées et redémarrez-la avec le bouton **Actualiser**. </li><li>Exécutez une vérification de cohérence pour les machines virtuelles affectées.</li></ol>|
 
 
 ## <a name="the-agent-operation-failed-because-of-a-communication-error-with-the-dpm-agent-coordinator-service-on-the-server"></a>L’opération de l’agent a échoué en raison d’une erreur de communication avec le service Coordinateur d’agents DPM sur le serveur
@@ -102,7 +102,7 @@ Nous vous recommandons d’effectuer les validations ci-dessous avant de résoud
 | Sauvegarde | Une erreur inattendue s’est produite pendant l’exécution de la tâche. Le périphérique n’est pas prêt. | **Si l’action recommandée dans le produit ne fonctionne pas, procédez comme suit :** <br> <ul><li>Définissez l’espace de stockage des clichés instantanés sur Illimité pour les éléments du groupe de protection, puis exécutez la vérification de la cohérence.<br></li> (OU) <li>Essayez de supprimer le groupe de protection existant et de créer plusieurs groupes. Chaque nouveau groupe de protection doit contenir un élément individuel.</li></ul> |
 | Sauvegarde | Si vous sauvegardez uniquement l’état du système, vérifiez que l’ordinateur présente un espace disponible suffisant pour stocker cette sauvegarde. | <ol><li>Vérifiez que la sauvegarde Windows Server est installée sur l’ordinateur protégé.</li><li>Vérifiez que l’ordinateur protégé dispose d’un espace suffisant pour l’état du système. Pour ce faire, le plus simple est d’accéder à l’ordinateur protégé, d’ouvrir la sauvegarde Windows Server, de cliquer sur les sélections, puis de sélectionner la récupération complète. L’interface utilisateur vous indique ensuite l’espace requis. Ouvrez la **sauvegarde Windows Server** >  **, puis cliquez sur Sauvegarde locale** > **Planification de la sauvegarde** > **Sélectionner la configuration de sauvegarde** > **Serveur complet** (la taille est affichée). Utilisez cette taille à des fins de vérification.</li></ol>
 | Sauvegarde | Échec de la sauvegarde à des fins de récupération complète | Si la taille de la récupération complète est importante, déplacez certains fichiers d’application vers le disque du système d’exploitation et recommencez. |
-| Sauvegarde | L’option de renouvellement de la protection de machine virtuelle VMware sur un nouveau serveur de sauvegarde Azure n’est pas répertoriée comme disponible. | Les propriétés VMware sont pointés vers une ancienne instance du serveur de sauvegarde Microsoft Azure mise hors service. Pour résoudre ce problème :<br><ol><li>Dans VCenter (équivalent SC-VMM), accédez à l’onglet **Résumé**, puis **Attributs personnalisés**.</li>  <li>Supprimez le nom de l’ancien serveur de sauvegarde Microsoft Azure de la valeur **DPMServer**.</li>  <li>Revenez au nouveau serveur de sauvegarde Microsoft Azure et modifiez le groupe de protection.  Après un clic sur le bouton **Actualiser**, la machine virtuelle comporte une case à cocher indiquant qu’elle peut être ajoutée à la protection.</li></ol> |
+| Sauvegarde | L’option permettant de reprotéger une machine virtuelle VMware sur un nouveau serveur de sauvegarde Microsoft Azure ne s’affiche pas comme pouvant être ajoutée. | Les propriétés VMware sont pointés vers une ancienne instance du serveur de sauvegarde Microsoft Azure mise hors service. Pour résoudre ce problème :<br><ol><li>Dans VCenter (équivalent SC-VMM), accédez à l’onglet **Résumé**, puis **Attributs personnalisés**.</li>  <li>Supprimez le nom de l’ancien serveur de sauvegarde Microsoft Azure de la valeur **DPMServer**.</li>  <li>Revenez au nouveau serveur de sauvegarde Microsoft Azure et modifiez le groupe de protection.  Après un clic sur le bouton **Actualiser**, la machine virtuelle comporte une case à cocher indiquant qu’elle peut être ajoutée à la protection.</li></ol> |
 | Sauvegarde | Erreur lors de l’accès aux dossiers/fichiers partagés. | Essayez de modifier les paramètres d’antivirus comme indiqué dans l’article TechNet [Exécution d’un logiciel antivirus sur le serveur DPM](https://technet.microsoft.com/library/hh757911.aspx).|
 
 

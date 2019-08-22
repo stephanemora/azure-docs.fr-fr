@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/06/2019
 ms.author: spelluru
-ms.openlocfilehash: a1b49fd3a2a85377a56c92aefd1b0056f91895b1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 63bae62ed89bd0bbc167a88274002d1fa1e9b86d
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66119563"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68933376"
 ---
 # <a name="dead-letter-and-retry-policies"></a>Stratégies de lettres mortes et de nouvelles tentatives
 
@@ -25,7 +25,9 @@ Quand vous créez un abonnement aux événements, vous pouvez personnaliser les 
 Pour définir un emplacement de lettres mortes, vous avez besoin d’un compte de stockage. Ce dernier sert à contenir les événements qui ne peuvent pas être remis à un point de terminaison. Les exemples reçoivent l'ID de ressource d'un compte de stockage existant. Ils créent un abonnement aux événements qui utilise un conteneur de ce compte de stockage pour le point de terminaison des lettres mortes.
 
 > [!NOTE]
-> Créez un compte de stockage et un conteneur d’objets blob dans le stockage avant d’exécuter les commandes de cet article.
+> - Créez un compte de stockage et un conteneur d’objets blob dans le stockage avant d’exécuter les commandes de cet article.
+> - Le service Event Grid crée des objets blob dans ce conteneur. Les noms des objets blob comportent le nom de l’abonnement Event Grid avec toutes les lettres en majuscules. Par exemple, si le nom de l’abonnement est My-Blob-Subscription, les noms des objets BLOB de lettres mortes comportent MY-BLOB-SUBSCRIPTION (myblobcontainer/MY-BLOB-SUBSCRIPTION/2019/8/8/5/111111111-1111-1111-1111-111111111111.json). Ce comportement assure une protection contre les différences de gestion de la casse entre les services Azure.
+
 
 ### <a name="azure-cli"></a>Azure CLI
 
@@ -73,7 +75,7 @@ Au moment de créer un abonnement Event Grid, vous pouvez définir des valeurs f
 
 Vous ne pouvez pas configurer de [nouvelle tentative de planification](delivery-and-retry.md#retry-schedule-and-duration).
 
-### <a name="azure-cli"></a>Azure CLI
+### <a name="azure-cli"></a>D’Azure CLI
 
 Pour attribuer aux événements une durée de vie différente de 1 440 minutes, utilisez :
 

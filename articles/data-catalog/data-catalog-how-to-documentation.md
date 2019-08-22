@@ -6,14 +6,15 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: 46e3780c7fc6e6a2481e774b89bfb69510865db3
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: e9e9013d354585d04f205feb93a84d94c0f05905
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68734629"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68950182"
 ---
-# <a name="document-data-sources"></a>Documentation de sources de données
+# <a name="how-to-document-data-sources-in-azure-data-catalog"></a>Comment documenter les sources de données dans Azure Data Catalog
+
 ## <a name="introduction"></a>Introduction
 **Microsoft Azure Data Catalog** est un service cloud entièrement géré qui sert de système d'inscription et de détection des sources de données d'entreprise. En d’autres termes, **Microsoft Azure Data Catalog** vise essentiellement à aider les utilisateurs à détecter, *comprendre*et utiliser des sources de données, et permet aux organisations de mieux exploiter leurs données.
 
@@ -23,7 +24,7 @@ L’article [Annotation de sources de données](data-catalog-how-to-annotate.md)
 
 Les balises et descriptions sont idéales pour ajouter des annotations simples. Toutefois, pour aider les consommateurs de données à mieux comprendre l’utilisation d’une source de données et les scénarios commerciaux d’une source de données, un expert peut fournir une documentation complète et détaillée. Il est facile de documenter une source de données. Il suffit de sélectionner une ressource de données ou un conteneur et de choisir l’option **Documentation**.
 
-![](media/data-catalog-documentation/data-catalog-documentation.png)
+![Onglet Documentation dans un catalogue de données](media/data-catalog-documentation/data-catalog-documentation.png)
 
 ## <a name="documenting-data-assets"></a>Documentation de ressources de données
 La documentation **Azure Data Catalog** vous permet d’utiliser votre catalogue de données comme référentiel de contenu pour créer une narration complète de vos ressources de données. Vous pouvez explorer le contenu détaillé décrivant les conteneurs et tables. Si vous utilisez déjà un autre référentiel de contenu, tel que SharePoint ou un partage de fichiers, vous pouvez ajouter des liens de documentation à votre ressource pour référencer ce contenu existant. Vos documents existants seront ainsi mieux exposés.
@@ -31,9 +32,8 @@ La documentation **Azure Data Catalog** vous permet d’utiliser votre catalogue
 > [!NOTE]
 > La documentation n’est pas incluse dans l’index de recherche.
 >
->
 
-![](media/data-catalog-documentation/data-catalog-documentation2.png)
+![Onglet Documentation et lien hypertexte vers lien web](media/data-catalog-documentation/data-catalog-documentation2.png)
 
 Le niveau de documentation peut aller d’une simple description des caractéristiques et de la valeur d’un conteneur de ressources de données à une description détaillée du schéma de table dans un conteneur. Le niveau de documentation fourni doit être dicté par vos besoins métiers. De façon générale, voici cependant quelques avantages et inconvénients associés à la documentation de ressources de données :
 

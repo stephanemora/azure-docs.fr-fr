@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: baselden
 ms.reviewer: ''
-ms.openlocfilehash: 7d40c0604f0947abe8d536eafe87545790476a98
-ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
+ms.openlocfilehash: cd19d1e0cdfa1b160734b23d7f50310948ded80d
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67625544"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68879910"
 ---
 # <a name="plan-an-azure-ad-application-proxy-deployment"></a>Planifier le déploiement d’un proxy d’application Azure AD
 
@@ -292,15 +292,21 @@ Toutefois, les utilisateurs doivent toujours effectuer des opérations nécessit
 
 ### <a name="reporting-and-monitoring"></a>Création de rapports et surveillance
 
-Azure AD peut fournir des insights supplémentaires sur l’attribution d’utilisateurs et l’intégrité opérationnelle via les journaux d’audit et les rapports. 
+Azure AD fournit des insights supplémentaires sur l’utilisation des applications et l’intégrité opérationnelle de votre organisation par le biais de [journaux d’audit et de rapports](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-audit-logs). Le proxy d’application facilite également la supervision des connecteurs à partir du portail Azure AD et des journaux des événements Windows.
 
 #### <a name="application-audit-logs"></a>Journaux d’audit des applications
 
-Ces journaux fournissent des informations détaillées sur les connexions aux applications configurées avec le proxy d’application, ainsi que sur l’appareil et l’utilisateur qui accèdent à l’application. Les journaux d’audit sont accessibles via le portail Azure et l’API Audit desquels ils peuvent être exportés.
+Ces journaux fournissent des informations détaillées sur les connexions aux applications configurées avec le proxy d’application, ainsi que sur l’appareil et l’utilisateur qui accèdent à l’application. Les [journaux d’audit](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-audit-logs) sont accessibles via le portail Azure et l’[API Audit](https://docs.microsoft.com/graph/api/resources/directoryaudit?view=graph-rest-beta) desquels ils peuvent être exportés. Des [rapports d’utilisation et d’insights](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-usage-insights-report) sont également disponibles pour votre application.
+
+#### <a name="application-proxy-connector-monitoring"></a>Supervision du connecteur Proxy d’application
+
+Les connecteurs et le service se chargent de toutes les tâches de haut niveau de disponibilité. Vous pouvez superviser l’état de vos connecteurs à partir de la page Proxy d’application dans le portail Azure AD. Pour plus d’informations sur la maintenance des connecteurs, consultez [Présentation des connecteurs de proxy d’application Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-connectors#maintenance).
+
+![Exemple : Connecteurs de proxy d’application Azure AD](./media/application-proxy-connectors/app-proxy-connectors.png)
 
 #### <a name="windows-event-logs-and-performance-counters"></a>Journaux des événements Windows et compteurs de performances
 
-Les connecteurs ont des journaux d’activité de session et d’administration. Les journaux d’activité admin incluent les événements principaux et leurs erreurs. Les journaux d’activité de session incluent toutes les transactions et les détails de traitement. Les journaux et les compteurs sont accessibles dans les journaux d’événements Windows. Suivez ce [tutoriel pour configurer des sources de données de journaux d’événements dans Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-sources-windows-events).
+Les connecteurs ont des journaux d’activité de session et d’administration. Les journaux d’activité admin incluent les événements principaux et leurs erreurs. Les journaux d’activité de session incluent toutes les transactions et les détails de traitement. Les journaux et les compteurs se trouvent dans les journaux des événements Windows. Pour plus d’informations, consultez [Présentation des connecteurs de proxy d’application Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-connectors#under-the-hood). Suivez ce [tutoriel pour configurer les sources de données de journaux des événements dans Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-sources-windows-events).
 
 ### <a name="troubleshooting-guide-and-steps"></a>Guide de résolution des problèmes
 

@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 3/01/2019
 ms.author: dacurwin
-ms.openlocfilehash: 524d0854e8691428738cee321e394f572ea80112
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 67ba9ba9bc85213ec479a90d205ed9570c62bf8c
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68689192"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954605"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Récupérer des fichiers à partir d’une sauvegarde de machine virtuelle Azure
 
@@ -231,7 +231,7 @@ Si vous rencontrez des problèmes lors de la récupération de fichiers à parti
 | Sur l’ordinateur où le fichier exécutable s’exécute : Les nouveaux volumes ne sont pas démontés après avoir cliqué sur le bouton Démonter | L’initiateur iSCSI de l’ordinateur ne répond pas, ou n’actualise pas sa connexion à la cible et ne maintient pas le cache. |  Après avoir cliqué sur **Démonter**, patientez quelques minutes. Si les nouveaux volumes ne sont pas démontés, parcourez tous les volumes. Le fait de parcourir tous les volumes force l’initiateur à actualiser la connexion, et le volume est démonté avec un message d’erreur indiquant que le disque n’est pas disponible.|
 | Sortie de l’exécutable : Le script est exécuté avec succès, mais le message « New volumes attached » (Nouveaux volumes connectés) ne s’affiche pas dans la sortie du script |    Il s’agit d’une erreur temporaire.    | Les volumes seraient déjà connectés. Ouvrez l’Explorateur pour parcourir les volumes. Si vous utilisez toujours le même ordinateur pour exécuter les scripts, essayez de le redémarrer et la liste devrait s’afficher lors des prochaines exécutions du fichier exécutable. |
 | Propre à Linux : Impossible d’afficher les volumes souhaités | Le système d’exploitation de la machine sur laquelle est exécuté le script peut ne pas reconnaître le système de fichiers sous-jacent de la machine virtuelle protégée | Vérifiez si le point de récupération est cohérent en cas d’incident ou cohérent avec les fichiers. S’il est cohérent avec les fichiers, exécutez le script sur une autre machine dont le système d’exploitation reconnaît le système de fichiers de la machine virtuelle protégée |
-| Propre à Windows : Impossible d’afficher les volumes souhaités | Les disques ont peut-être été attachés, mais les volumes n’ont pas été configurés. | À partir de l’écran de gestion de disque, identifiez les disques supplémentaires relatifs au point de récupération. Si l’état de l’un de ces disques est hors connexion, essayez de le mettre en ligne en cliquant avec le bouton droit sur le disque, puis sur « En ligne ».|
+| Propre à Windows : Impossible d’afficher les volumes souhaités | Les disques ont peut-être été attachés, mais les volumes n’ont pas été configurés. | À partir de l’écran de gestion de disque, identifiez les disques supplémentaires relatifs au point de récupération. Si l’état de l’un de ces disques est hors connexion, essayez de le mettre en ligne en cliquant dessus avec le bouton droit, puis en cliquant sur « En ligne ».|
 
 ## <a name="security"></a>Sécurité
 
@@ -257,11 +257,11 @@ Le script généré est signé avec un certificat officiel de Microsoft pour le 
 
 Seul l’administrateur peut exécuter le script et doit l’exécuter en mode élevé. Le script exécute uniquement un ensemble prégénéré d’étapes et n’accepte pas d’entrée de sources externes.
 
-Pour exécuter le script, l’utilisateur a besoin d’un mot de passe qui est uniquement visible par l’utilisateur autorisé au moment de la génération du script dans le portail Azure ou PowerShell/CLI. Cela permet de s’assurer que l’utilisateur autorisé qui télécharge le script est également chargé d’exécuter le script.
+Pour exécuter le script, l’utilisateur a besoin d’un mot de passe qui est uniquement visible par l’utilisateur autorisé au moment de la génération du script dans le portail Azure ou PowerShell/l’interface CLI. Cela permet de s’assurer que l’utilisateur autorisé qui télécharge le script est également chargé d’exécuter le script.
 
 #### <a name="browse-files-and-folders"></a>Parcourir des fichiers et dossiers
 
-Pour parcourir des fichiers et dossiers, le script utilise l’initiateur iSCSI de l’ordinateur et se connecte au point de récupération qui est configuré en tant que cible iSCSI. Ici, on peut penser à des scénarios où l’on veut imiter/usurper l’identité d’un ou de tous les composants.
+Pour parcourir des fichiers et dossiers, le script utilise l’initiateur iSCSI de l’ordinateur et se connecte au point de récupération qui est configuré comme cible iSCSI. Ici, on peut penser à des scénarios où l’on veut imiter/usurper l’identité d’un ou de tous les composants.
 
 Nous utilisons le mécanisme d’authentification CHAP mutuelle afin que les composants s’authentifient les uns les autres. Cela signifie qu’il est extrêmement difficile pour un initiateur factice de se connecter à la cible iSCSI et à une fausse cible de se connecter à l’ordinateur où le script est exécuté.
 

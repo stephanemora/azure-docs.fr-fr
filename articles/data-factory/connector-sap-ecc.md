@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/01/2019
+ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: c92c1b87de1b728fd79c1ef02b32135463c7124f
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 6fd7c4ffafa54acb7ff67bd2e595f0b3c02a0e5a
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68720684"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967412"
 ---
 # <a name="copy-data-from-sap-ecc-by-using-azure-data-factory"></a>Copier des données de SAP ECC avec Azure Data Factory
 
@@ -50,6 +50,10 @@ En règle générale, SAP ECC expose des entités par le biais de services OData
 
 - **Activer et configurer le service SAP OData**. Vous pouvez activer le service OData par le biais de TCODE SICF en quelques secondes. Vous pouvez également configurer les objets qui doivent être exposés. Pour plus d’informations, consultez la page [guide pas à pas](https://blogs.sap.com/2012/10/26/step-by-step-guide-to-build-an-odata-service-based-on-rfcs-part-1/).
 
+## <a name="prerequisites"></a>Prérequis
+
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
+
 ## <a name="get-started"></a>Prise en main
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
@@ -66,7 +70,7 @@ Les propriétés prises en charge pour le service lié SAP ECC sont les suivante
 | `url` | L’URL du service OData SAP ECC. | OUI |
 | `username` | Le nom d’utilisateur utilisé pour se connecter à SAP ECC. | Non |
 | `password` | Le mot de passe en texte en clair utilisé pour se connecter à SAP ECC. | Non |
-| `connectVia` | Le [runtime d’intégration](concepts-integration-runtime.md) à utiliser pour se connecter à la banque de données. Vous pouvez utiliser un runtime d’intégration auto-hébergé ou un runtime d’intégration Azure si votre magasin de données est accessible publiquement. Si vous ne spécifiez pas de runtime, `connectVia` utilise le runtime d’intégration Azure par défaut. | Non |
+| `connectVia` | Le [runtime d’intégration](concepts-integration-runtime.md) à utiliser pour se connecter à la banque de données. Pour plus d’informations, consultez la section [Prérequis](#prerequisites). Si vous ne spécifiez pas de runtime, le runtime d’intégration Azure par défaut est utilisé. | Non |
 
 ### <a name="example"></a>Exemples
 

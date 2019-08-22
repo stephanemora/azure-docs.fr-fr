@@ -8,10 +8,10 @@ ms.service: container-service
 ms.date: 05/06/2019
 ms.author: mlearned
 ms.openlocfilehash: 8752d888e24e7135d488be6d1b377070a30fe4eb
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "67613840"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-in-the-azure-portal"></a>Créer et configurer un cluster Azure Kubernetes Service (AKS) pour utiliser des nœuds virtuels sur le Portail Azure
@@ -69,7 +69,7 @@ Le fonctionnement des nœuds virtuel dépend fortement de l’ensemble de foncti
 * [Alias d’hôte](https://kubernetes.io/docs/concepts/services-networking/add-entries-to-pod-etc-hosts-with-host-aliases/)
 * [Arguments](../container-instances/container-instances-exec.md#restrictions) pour exécution dans ACI
 * [Daemonsets](concepts-clusters-workloads.md#statefulsets-and-daemonsets) ne déploiera pas de pods dans le nœud virtuel
-* [Les nœuds Windows Server (actuellement en version préliminaire dans AKS)](windows-container-cli.md) ne sont pas pris en charge aux côtés des nœuds virtuels. Vous pouvez utiliser des nœuds virtuels pour planifier des conteneurs Windows Server sans avoir besoin de nœuds Windows Server dans un cluster AKS.
+* [Les nœuds Windows Server (actuellement en préversion dans AKS)](windows-container-cli.md) ne sont pas pris en charge aux côtés des nœuds virtuels. Vous pouvez utiliser des nœuds virtuels pour planifier des conteneurs Windows Server sans avoir besoin de nœuds Windows Server dans un cluster AKS.
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
 
@@ -130,7 +130,7 @@ aks-agentpool-14693408-0       Ready     agent     32m       v1.11.2
 
 ## <a name="deploy-a-sample-app"></a>Déployer un exemple d’application
 
-Dans Azure Cloud Shell, créez un fichier nommé `virtual-node.yaml` et copiez-y le code YAML suivant. Pour planifier le conteneur au niveau du nœud, [nodeSelector][node-selector] and [toleration][toleration] sont définis. Ces paramètres permettent de planifier le pod sur le nœud virtuel et de vérifier que la fonctionnalité est activée.
+Dans Azure Cloud Shell, créez un fichier nommé `virtual-node.yaml` et copiez-y le code YAML suivant. Pour planifier le conteneur au niveau du nœud, [nodeSelector][node-selector] et [toleration][toleration] sont définis. Ces paramètres permettent de planifier le pod sur le nœud virtuel et de vérifier que la fonctionnalité est activée.
 
 ```yaml
 apiVersion: apps/v1

@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2019
+ms.date: 08/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 166b7727362549aaf054e3f0282c564eca687eb9
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 9f9d819533b97a126a324ab867b7185fd6415847
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67672875"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68851980"
 ---
 # <a name="tutorial-configure-zendesk-for-automatic-user-provisioning"></a>Didacticiel : Configurer Zendesk pour le provisionnement automatique d’utilisateurs
 
@@ -35,11 +35,8 @@ Ce didacticiel montre comment procéder dans Zendesk et Azure Active Directory (
 Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
 * Un locataire Azure AD.
-* Un locataire Zendesk avec le plan [Entreprise](https://www.zendesk.com/product/pricing/) ou mieux activé.
+* Un locataire Zendesk avec le plan Professionnel ou mieux activé
 * Un compte d’utilisateur dans Zendesk avec des autorisations d’administrateur.
-
-> [!NOTE]
-> L’intégration de l’approvisionnement Azure AD repose sur [l’API REST Zendesk](https://developer.zendesk.com/rest_api/docs/core/introduction). Cette API est disponible pour les équipes Zendesk avec le plan Entreprise ou mieux.
 
 ## <a name="add-zendesk-from-the-azure-marketplace"></a>Ajouter Zendesk à partir de la Place de marché Azure
 

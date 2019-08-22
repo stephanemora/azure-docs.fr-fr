@@ -1,21 +1,21 @@
 ---
-title: 'Classification : Prédire l’évolution, l’appétence et la vente incitative'
+title: 'Exemple n°5 d’interface visuelle : Classification pour prédire l’évolution, l’appétence et la vente incitative'
 titleSuffix: Azure Machine Learning service
 description: Cet exemple d’expérience d’interface visuelle montre la prédiction de l’évolution, une tâche courante pour la gestion de la relation client (CRM) par le classifieur binaire.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: article
+ms.topic: conceptual
 author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
 ms.date: 05/10/2019
-ms.openlocfilehash: 172089d5371d8c3e38a2a22b3285b5eb180baf00
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.openlocfilehash: a2eabdd601fcf350d2076d33882e3d90255fee92
+ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68742289"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69016469"
 ---
 # <a name="sample-5---classification-predict-churn-appetency-and-up-selling"></a>Exemple 5 - Classification : Prédire l’évolution, l’appétence et la vente incitative 
 

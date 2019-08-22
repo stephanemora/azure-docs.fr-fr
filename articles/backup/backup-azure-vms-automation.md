@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: dacurwin
-ms.openlocfilehash: 1cbd0f649bd5e89c1ed424604697afa179964175
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 23492133035f27aa3e1217269022565e0ff217a9
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68689016"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69018761"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>Sauvegarder et restaurer des machines virtuelles Azure avec PowerShell
 
@@ -312,7 +312,7 @@ $bkpPol.SnapshotRetentionInDays=7
 PS C:\> Set-AzureRmRecoveryServicesBackupProtectionPolicy -policy $bkpPol
 ````
 
-La valeur par défaut est 2 ; l’utilisateur peut opter pour une valeur comprise entre 1 (minimum) et 5 (maximum). Pour les stratégies de sauvegarde hebdomadaire, la période est définie sur 5 et ne peut pas être modifiée.
+La valeur par défaut est 2 ; l’utilisateur peut opter pour une valeur comprise entre 1 (minimum) et 5 (maximum). Pour les stratégies de sauvegarde hebdomadaire, la période est définie sur 5 et ne peut pas être modifiée.
 
 ### <a name="trigger-a-backup"></a>Déclencher une sauvegarde
 
@@ -340,7 +340,7 @@ V2VM              Backup              InProgress          4/23/2016             
 
 ### <a name="change-policy-for-backup-items"></a>Modifier la stratégie pour les éléments de sauvegarde
 
-L’utilisateur peut modifier la stratégie existante ou changer la stratégie de l’élément sauvegardé de Policy1 en Policy2. Pour changer les stratégies d’un élément sauvegardé, il suffit de récupérer la stratégie et l’élément sauvegardé pertinent et d’utiliser la commande [Enable-AzRecoveryServices](https://docs.microsoft.com/powershell/module/az.recoveryservices/Enable-AzRecoveryServicesBackupProtection?view=azps-1.5.0) avec l’élément sauvegardé en tant que paramètre.
+L’utilisateur peut modifier la stratégie existante ou changer la stratégie de l’élément sauvegardé de Policy1 en Policy2. Pour changer de stratégie pour un élément sauvegardé, récupérez la stratégie et l’élément de sauvegarde appropriés, puis utilisez la commande [Enable-AzRecoveryServices](https://docs.microsoft.com/powershell/module/az.recoveryservices/Enable-AzRecoveryServicesBackupProtection?view=azps-1.5.0) avec l’élément de sauvegarde comme paramètre.
 
 ````powershell
 $TargetPol1 = Get-AzRecoveryServicesBackupProtectionPolicy -Name <PolicyName>
@@ -511,7 +511,7 @@ Après avoir restauré les disques, utilisez les étapes ci-après pour créer e
 > [!NOTE]
 > Après avoir restauré les disques, vous pouvez obtenir un modèle de déploiement que vous pouvez utiliser directement pour créer une machine virtuelle. Les cmdlets PS permettant de créer des machines virtuelles gérées/non gérées qui sont chiffrées/non chiffrées ne sont plus différentes.
 
-Les détails du travail obtenu donnent l’URI du modèle que vous pouvez interroger et déployer.
+Les détails du travail obtenu donnent l’URI du modèle qui peut être interrogé et déployé.
 
 ```powershell
    $properties = $details.properties
@@ -653,7 +653,7 @@ La section suivante liste les étapes nécessaires pour créer une machine virtu
 
    * **Machines virtuelles managées et chiffrées (à l’aide de clés BEK et KEK)** avec Azure AD : pour les machines virtuelles managées et chiffrées (à l’aide de clés BEK et KEK) avec Azure AD, attachez les disques managés restaurés. Pour plus d’informations, consultez [Attacher un disque de données à une machine virtuelle Windows à l’aide de PowerShell](../virtual-machines/windows/attach-disk-ps.md).
 
-   * **Machines virtuelles managées et chiffrées (à l’aide de clés BEK uniquement) sans Azure AD** : pour les machines virtuelles managées et chiffrées (à l’aide de clés BEK uniquement) sans Azure AD, si **le secret et le coffre de clés sources ne sont pas disponibles**, restaurez les secrets dans le coffre de clés en appliquant la procédure décrite dans [Restaurer une machine virtuelle non chiffrée à partir d’un point de récupération Sauvegarde Azure](backup-azure-restore-key-secret.md). Ensuite, exécutez les scripts suivants pour définir les détails du chiffrement sur le disque de système d’exploitation restauré (cette étape n’est pas nécessaire pour le disque de données). $dekurl peut être extrait du coffre de clés restauré.
+   * **Machines virtuelles managées et chiffrées (à l’aide de clés BEK uniquement) sans Azure AD** : pour les machines virtuelles managées et chiffrées (à l’aide de clés BEK uniquement) sans Azure AD, si **le secret et le coffre de clés sources ne sont pas disponibles**, restaurez les secrets dans le coffre de clés en appliquant la procédure décrite dans [Restaurer une machine virtuelle non chiffrée à partir d’un point de récupération Sauvegarde Azure](backup-azure-restore-key-secret.md). Ensuite, exécutez les scripts suivants pour définir les détails du chiffrement sur le disque blob de système d’exploitation restauré (cette étape n’est pas nécessaire pour le disque de données). $dekurl peut être extrait du coffre de clés restauré.
 
      Le script ci-dessous doit être exécuté uniquement quand le secret et le coffre de clés sources ne sont pas disponibles.  
 
@@ -667,7 +667,7 @@ La section suivante liste les étapes nécessaires pour créer une machine virtu
 
      Une fois que les secrets sont disponibles et que les détails de chiffrement ont été définis sur le disque du système d’exploitation, pour attacher les disques managés restaurés, consultez [Attacher un disque de données à une machine virtuelle Windows dans Azure à l’aide de PowerShell](../virtual-machines/windows/attach-disk-ps.md).
 
-   * **Machines virtuelles managées et chiffrées (à l’aide de clés BEK et KEK) sans Azure AD** : pour les machines virtuelles managées et chiffrées (à l’aide de clés BEK et KEK) sans Azure AD, si le **secret/clé/coffre de clés source ne sont pas disponibles**, restaurez la clé et les secrets dans le coffre de clés en appliquant la procédure décrite dans [Restaurer une machine virtuelle non chiffrée à partir d’un point de récupération Sauvegarde Azure](backup-azure-restore-key-secret.md). Ensuite, exécutez les scripts suivants pour définir les détails du chiffrement sur le disque blob de système d’exploitation restauré (cette étape n’est pas nécessaire pour le disque de données). $dekurl et kekurl peuvent être extraits du coffre de clés restauré.
+   * **Machines virtuelles managées et chiffrées (à l’aide de clés BEK et KEK) sans Azure AD** : pour les machines virtuelles managées et chiffrées (à l’aide de clés BEK et KEK) sans Azure AD, si le **secret/la clé/le coffre de clés sources ne sont pas disponibles**, restaurez la clé et les secrets dans le coffre de clés en appliquant la procédure décrite dans [Restaurer une machine virtuelle non chiffrée à partir d’un point de récupération Sauvegarde Azure](backup-azure-restore-key-secret.md). Ensuite, exécutez les scripts suivants pour définir les détails du chiffrement sur le disque blob de système d’exploitation restauré (cette étape n’est pas nécessaire pour le disque de données). $dekurl et kekurl peuvent être extraits du coffre de clés restauré.
 
    Le script ci-dessous doit être exécuté uniquement quand le secret/clé/coffre de clés source ne sont pas disponibles.
 
@@ -720,7 +720,7 @@ La section suivante liste les étapes nécessaires pour créer une machine virtu
 
    * **Pour les machines virtuelles sans Azure AD** : utilisez la commande suivante pour activer manuellement le chiffrement des disques de données.
 
-     Si pendant l’exécution de la commande vous êtes invité à fournir l’AADClientID, vous devez mettre à jour votre Azure PowerShell.
+     Si, pendant l’exécution de la commande, vous êtes invité à fournir l’AADClientID, vous devez mettre à jour votre instance Azure PowerShell.
 
      **Clés BEK uniquement**
 
@@ -806,7 +806,7 @@ OsType  Password        Filename
 Windows e3632984e51f496 V2VM_wus2_8287309959960546283_451516692429_cbd6061f7fc543c489f1974d33659fed07a6e0c2e08740.exe
 ```
 
-Exécutez le script sur la machine où vous souhaitez récupérer les fichiers. Pour exécuter le script, vous devez entrer le mot de passe fourni. Lorsque les disques sont attachés, utilisez l’Explorateur de fichiers Windows pour parcourir les nouveaux volumes et fichiers. Pour plus d’informations, consultez l’article sur la sauvegarde [Récupérer des fichiers de sauvegarde de machine virtuelle Azure](backup-azure-restore-files-from-vm.md).
+Exécutez le script sur la machine où vous souhaitez récupérer les fichiers. Pour exécuter le script, vous devez entrer le mot de passe fourni. Lorsque les disques sont attachés, utilisez l’Explorateur de fichiers Windows pour parcourir les nouveaux volumes et fichiers. Pour plus d’informations, consultez l’article [Récupérer des fichiers à partir d’une sauvegarde de machine virtuelle Azure](backup-azure-restore-files-from-vm.md) relatif à la sauvegarde.
 
 ### <a name="unmount-the-disks"></a>Démonter les disques
 

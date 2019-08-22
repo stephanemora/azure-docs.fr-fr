@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 08/13/2019
 ms.author: cherylmc
-ms.openlocfilehash: b590dabbe4b2c6526f2c602aeed64667348eefa9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 624c1648bc709e1ca6ee9c4120350a606df67df5
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66113965"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69035770"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-p2s-configurations"></a>Créer et installer des fichiers de configuration du client VPN avec des configurations d’authentification par certificat de connexions P2S Azure natives
 
@@ -114,23 +114,15 @@ Suivez les étapes ci-dessous afin de configurer le client VPN Mac natif pour un
 
 ## <a name="linuxgui"></a>Linux (interface graphique utilisateur strongSwan)
 
-### <a name="extract-the-key-and-certificate"></a>Extraire la clé et le certificat
+### <a name="installstrongswan"></a>Installer strongSwan
 
-Pour strongSwan, vous devez extraire la clé et le certificat à partir du certificat de client (fichier .pfx) et les enregistrer dans des fichiers individuels .pem.
-Pour ce faire, procédez comme suit :
+[!INCLUDE [install strongSwan](../../includes/vpn-gateway-strongswan-install-include.md)]
 
-1. Télécharger et installer OpenSSL à partir de [OpenSSL](https://www.openssl.org/source/).
-2. Ouvrez une fenêtre de ligne de commande et passez au répertoire où vous avez installé OpenSSL, par exemple, « c:\OpenSLL-Win64\bin\'.
-3. Exécutez la commande suivante pour extraire la clé privée et l’enregistrer dans un nouveau fichier appelé « privatekey.pem » à partir de votre certificat client :
+### <a name="genlinuxcerts"></a>Générer des certificats
 
-   ```
-   C:\ OpenSLL-Win64\bin> openssl pkcs12 -in clientcert.pfx -nocerts -out privatekey.pem -nodes
-   ```
-4. Exécutez à présent la commande suivante pour extraire le certificat public et l’enregistrer dans un nouveau fichier :
+Si vous n’avez pas encore généré de certificats, procédez comme suit :
 
-   ```
-   C:\ OpenSLL-Win64\bin> openssl pkcs12 -in clientcert.pfx -nokeys -out publiccert.pem -nodes
-   ```
+[!INCLUDE [strongSwan certificates](../../includes/vpn-gateway-strongswan-certificates-include.md)]
 
 ### <a name="install"></a>Installer et configurer
 
@@ -163,10 +155,13 @@ Les instructions suivantes ont été créées à l’aide de strongSwan 5.5.1 su
 
 ### <a name="install-strongswan"></a>Installer strongSwan
 
-Vous pouvez utiliser les commandes d’interface de ligne de commande suivantes ou les étapes strongSwan de l’[interface graphique utilisateur](#install) pour installer strongSwan.
+[!INCLUDE [install strongSwan](../../includes/vpn-gateway-strongswan-install-include.md)]
 
-1. `apt-get install strongswan-ikev2 strongswan-plugin-eap-tls`
-2. `apt-get install libstrongswan-standard-plugins`
+### <a name="generate-certificates"></a>Générer des certificats
+
+Si vous n’avez pas encore généré de certificats, procédez comme suit :
+
+[!INCLUDE [strongSwan certificates](../../includes/vpn-gateway-strongswan-certificates-include.md)]
 
 ### <a name="install-and-configure"></a>Installer et configurer
 

@@ -10,12 +10,12 @@ ms.author: vaidyas
 author: csteegz
 ms.reviewer: larryfr
 ms.date: 07/24/2019
-ms.openlocfilehash: 06194537a0c0cce3a52510e6f426a9c2904387b2
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 9cf39230d6a2c615925222b6545a091a4be941ac
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68694344"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68847982"
 ---
 # <a name="deploy-a-deep-learning-model-for-inference-with-gpu"></a>Déployer un modèle de deep learning pour une inférence avec GPU
 
@@ -31,9 +31,9 @@ L’inférence, ou notation de modèle, est la phase au cours de laquelle le mod
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Un espace de travail de service Microsoft Azure Machine Learning. Pour plus d’informations, consultez [Créer un espace de travail Azure Machine Learning service](setup-create-workspace.md).
+* Un espace de travail de service Microsoft Azure Machine Learning. Pour plus d’informations, consultez [Créer un espace de travail Azure Machine Learning service](how-to-manage-workspace.md).
 
-* Un environnement de développement Python dans lequel le SDK Azure Machine Learning est installé. Pour plus d’informations, consultez la section [SDK Python](setup-create-workspace.md#sdk) de l’article Créer un espace de travail.
+* Un environnement de développement Python dans lequel le SDK Azure Machine Learning est installé. Pour plus d’informations, consultez [Kit SDK Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).  
 
 * Un modèle inscrit qui utilise un GPU.
 
@@ -48,7 +48,7 @@ L’inférence, ou notation de modèle, est la phase au cours de laquelle le mod
 Pour vous connecter à un espace de travail existant, utilisez le code suivant :
 
 > [!IMPORTANT]
-> Cet extrait de code s’attend à ce que la configuration de l’espace de travail soit enregistrée dans le répertoire actif ou son parent. Pour plus d’informations sur la création d’un espace de travail et sur l’enregistrement de la configuration dans un fichier, consultez [Créer un espace de travail Azure Machine Learning service](setup-create-workspace.md).
+> Cet extrait de code s’attend à ce que la configuration de l’espace de travail soit enregistrée dans le répertoire actif ou son parent. Pour plus d’informations sur la création d’un espace de travail, consultez [Créer et gérer les espaces de travail du service Azure Machine Learning](how-to-manage-workspace.md).   Pour plus d’informations sur l’enregistrement de la configuration dans un fichier, consultez [Créer un fichier de configuration d’espace de travail](how-to-configure-environment.md#workspace).
 
 ```python
 from azureml.core import Workspace

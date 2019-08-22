@@ -1,5 +1,5 @@
 ---
-title: Application de balises de contenu aux images - Vision par ordinateur
+title: Étiquettes de contenu - Vision par ordinateur
 titleSuffix: Azure Cognitive Services
 description: Découvrez les concepts liés à la fonction de balises d’images de l’API Vision par ordinateur.
 services: cognitive-services
@@ -11,22 +11,22 @@ ms.topic: conceptual
 ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: aeb03566a650fe46286d77913e0d36dcbb19f436
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ad01751f7f7c573352c8fd15cc0f8cc2ebbbe700
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60759671"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68945101"
 ---
-# <a name="applying-content-tags-to-images"></a>Application de balises de contenu aux images
+# <a name="applying-content-tags-to-images"></a>Application d’étiquettes de contenu aux images
 
-Vision par ordinateur retourne des balises basées sur des milliers d’objets, d’êtres vivants, de scènes et d’actions reconnaissables. Lorsque les balises sont ambigües ou inhabituelles, la réponse de l’API fournit des « conseils » pour expliquer la signification de la balise dans le contexte des paramètres connus. Les balises ne sont pas organisées sous forme de taxonomie et aucune hiérarchie d’héritage n’existe. La collection de balises de contenu constitue la « description » essentielle d’une image, qui est affichée sous forme de texte lisible par l’homme (phrases complètes). Notez que, à ce stade, seul l’anglais est pris en charge pour la description d’images.
+Vision par ordinateur retourne des étiquettes basées sur des milliers d’objets, d’êtres vivants, de scènes et d’actions reconnaissables. Lorsque les étiquettes sont ambigües ou inhabituelles, la réponse de l’API fournit des « conseils » pour expliquer la signification de l’étiquette dans le contexte des paramètres connus. Les étiquettes ne sont pas organisées sous forme de taxonomie et aucune hiérarchie d’héritage n’existe. La collection d’étiquettes de contenu constitue la « description » essentielle d’une image, qui est affichée sous forme de texte lisible par l’homme (phrases complètes). Notez que, à ce stade, seul l’anglais est pris en charge pour la description d’images.
 
-Après le chargement d’une image ou d’une URL d’image, les algorithmes de l’API Vision par ordinateur génèrent des balises basées sur les objets, les êtres vivants et les actions identifiées dans l’image. Le balisage ne se limite pas au sujet principal, comme une personne au premier plan, mais il inclut également le décor (intérieur ou extérieur), le mobilier, les outils, les plantes, les animaux, les accessoires, les gadgets, etc.
+Après le chargement d’une image ou d’une URL d’image, les algorithmes de l’API Vision par ordinateur génèrent des étiquettes basées sur les objets, les êtres vivants et les actions identifiées dans l’image. L’étiquetage ne se limite pas au sujet principal, comme une personne au premier plan, mais il inclut également le décor (intérieur ou extérieur), le mobilier, les outils, les plantes, les animaux, les accessoires, les gadgets, etc.
 
-## <a name="image-tagging-example"></a>Exemple de balisage d’images
+## <a name="image-tagging-example"></a>Exemple d’étiquetage d’images
 
-Les réponses JSON suivantes illustrent ce que renvoie Vision par ordinateur au moment du balisage d’éléments visuels détectés dans l’image en exemple.
+Les réponses JSON suivantes illustrent ce que renvoie Vision par ordinateur au moment de l’étiquetage d’éléments visuels détectés dans l’image en exemple.
 
 ![Maison bleu et jardin en façade](./Images/house_yard.png).
 

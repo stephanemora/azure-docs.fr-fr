@@ -12,12 +12,12 @@ author: wenjiefu
 ms.author: wenjiefu
 ms.reviewer: sawinark
 manager: craigg
-ms.openlocfilehash: 05723a90725992e6b955524a2d35c82d3378ee3d
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: a7ad0f3be754029c654b04d19750aab7bbcd210d
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67621856"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68933648"
 ---
 # <a name="troubleshoot-package-execution-in-the-ssis-integration-runtime"></a>Résoudre les problèmes d’exécution de package dans le runtime d’intégration SSIS
 
@@ -128,12 +128,19 @@ Le fait que le nom d’utilisateur ou le mot de passe avec Azure Multi-Factor Au
 
 Vérifiez que vous ne configurez pas **Authentification par mot de passe Active Directory** comme méthode d’authentification du Gestionnaire de connexions quand le paramètre *ConnectUsingManagedIdentity* a la valeur **True** . Vous pouvez le configurer plutôt sur **Authentification SQL**, qui est ignoré si *ConnectUsingManagedIdentity* est défini.
 
+### <a name="multiple-package-executions-are-triggered-unexpectedly"></a>Plusieurs exécutions de package sont déclenchées de manière inattendue
+
+* Cause possible et action recommandée :
+  * L’activité de procédure stockée ADF est utilisée pour déclencher l’exécution du package SSIS. La commande t-sql peut rencontrer un problème temporaire et déclencher la réexécution, ce qui entraînerait plusieurs exécutions de package.
+  * Utilisez l’activité ExecuteSSISPackage à la place, qui garantit que l’exécution du package ne sera pas renouvelée sauf si l’utilisateur a défini un nombre de nouvelles tentatives dans l’activité. Vous trouverez des détails sur [https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity)
+
 ### <a name="package-execution-takes-too-long"></a>L’exécution du package prend trop de temps
 
 Voici des causes possibles et les actions recommandées :
+
 * Un trop grand nombre d’exécutions de package ont été planifiées sur le runtime d’intégration SSIS. Toutes ces exécutions attendront leur tour dans une file d’attente.
-  * Déterminer le nombre maximal à l’aide de cette formule : 
-    
+  * Déterminer le nombre maximal à l’aide de cette formule :
+
     Nombre max d’exécutions en parallèle par runtime d’intégration = Nombre de nœuds * nombre max d’exécutions en parallèle par nœud
   * Pour savoir comment définir le nombre de nœuds et le nombre maximal d’exécutions en parallèle par nœud, consultez [Créer un runtime d’intégration Azure-SSIS dans Azure Data Factory](create-azure-ssis-integration-runtime.md).
 * Le runtime d’intégration SSIS est arrêté ou a un état défectueux. Pour savoir comment vérifier l’état du runtime d’intégration SSIS et les erreurs, consultez [Runtime d’intégration Azure-SSIS](monitor-integration-runtime.md#azure-ssis-integration-runtime).

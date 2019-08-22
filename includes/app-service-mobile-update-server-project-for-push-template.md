@@ -4,12 +4,12 @@ ms.author: crdun
 ms.service: app-service-mobile
 ms.topic: include
 ms.date: 08/23/2018
-ms.openlocfilehash: c664b089f316255fabc4c8dc36b291d7d63e6280
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 675ad278cb8bdc0ced4eff3bd77572f44c9808fc
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67177564"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68857379"
 ---
 Dans cette section, vous mettez à jour le code dans votre projet de serveur principal Mobile Apps existant pour envoyer une notification Push chaque fois qu’un nouvel élément est ajouté. Ce processus est rendu possible par la fonctionnalité [modèle](../articles/notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) d’Azure Notification Hubs, qui autorise l’envoi de notifications Push multiplateforme. Les différents clients sont inscrits pour les notifications Push à l’aide de modèles, et une notification Push universelle unique peut accéder à toutes les plates-formes clientes.
 
@@ -70,7 +70,7 @@ Choisissez l’une des procédures ci-après correspondant au type de votre proj
 
 ### <a name="nodejs"></a>Projet de serveur principal Node.js
 
-1. Si vous ne l’avez pas encore fait, [téléchargez le projet de serveur principal de démarrage rapide](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart) ou utilisez [l’éditeur en ligne du Portail Azure](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor).
+1. Configurez votre projet back-end.
 2. Remplacez le code existant dans todoitem.js par le code suivant :
 
     ```javascript

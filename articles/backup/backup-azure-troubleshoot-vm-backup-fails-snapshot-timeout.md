@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.author: dacurwin
-ms.openlocfilehash: 7fc288ad9e33088b1b5248c1b61ed439ac95a9c4
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: f47afd450350226aa944287e756b73f61b15b32d
+ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688980"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68952039"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Résoudre les problèmes d’une Sauvegarde Azure : Problèmes d’agent ou d’extension
 
@@ -29,12 +29,10 @@ Cet article indique les étapes à suivre pour résoudre les erreurs de la Sauve
 **Code d’erreur** : UserErrorGuestAgentStatusUnavailable <br>
 **Message d’erreur** : L’agent de machine virtuelle ne peut pas communiquer avec la sauvegarde Microsoft Azure<br>
 
-Dès que vous avez enregistré et planifié une machine virtuelle dans le service de sauvegarde, ce dernier lance la tâche en communiquant avec l’agent de la machine virtuelle pour prendre un instantané à la date et l’heure. Il est possible que l’une des conditions suivantes empêche le déclenchement de l’instantané. Lorsque un instantané n’est pas déclenché, la sauvegarde risque d’échouer. Suivez les étapes de dépannage ci-dessous dans l’ordre indiqué, puis réessayez l’opération :<br>
-**Cause 1 : [L’agent est installé dans la machine virtuelle, mais ne répond pas (machines virtuelles Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**     
-**Cause 2 : [L’agent installé dans la machine virtuelle est obsolète (machines virtuelles Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
-**Cause 3 : [Impossible de récupérer l’état de l’instantané ou de capturer un instantané](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**     
-**Cause 4 : [L’extension de sauvegarde ne peut être ni mise à jour ni chargée](#the-backup-extension-fails-to-update-or-load)**  
-**Cause 5 : [La machine virtuelle n’a pas accès à Internet](#the-vm-has-no-internet-access)**
+L’agent de machine virtuelle Azure peut être arrêté, obsolète, dans un état incohérent ou non installé et empêcher le service Sauvegarde Azure de déclencher des instantanés.  
+    
+- Si l’agent de machine virtuelle est arrêté ou est dans un état incohérent, **redémarrez l’agent** et réessayez l’opération de sauvegarde (essayez une sauvegarde ad hoc). Pour connaître les étapes de redémarrage de l’agent, consultez [Machines virtuelles Windows](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) ou [Machines virtuelles Linux](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent). 
+- Si l’agent de machine virtuelle n’est pas installé ou est obsolète, installez/mettez à jour l’agent de machine virtuelle et réessayez l’opération de sauvegarde. Pour connaître les étapes d’installation/de mise à jour de l’agent, consultez [Machines virtuelles Windows](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) ou [Machines virtuelles Linux](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent).  
 
 ## <a name="guestagentsnapshottaskstatuserror---could-not-communicate-with-the-vm-agent-for-snapshot-status"></a>GuestAgentSnapshotTaskStatusError : Impossible de communiquer avec l’agent de machine virtuelle pour obtenir l’état de l’instantané
 
@@ -44,7 +42,8 @@ Dès que vous avez enregistré et planifié une machine virtuelle dans le servic
 Après avoir enregistré et planifié une machine virtuelle pour le service Azure Backup , ce dernier lance le travail en communiquant avec l’extension de sauvegarde de la machine virtuelle pour prendre un instantané à un moment donné. Il est possible que l’une des conditions suivantes empêche le déclenchement de l’instantané. Si la capture instantanée n’est pas déclenchée, un échec de sauvegarde risque de se produire. Suivez les étapes de dépannage ci-dessous dans l’ordre indiqué, puis réessayez l’opération :  
 **Cause 1 : [L’agent est installé dans la machine virtuelle, mais ne répond pas (machines virtuelles Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
 **Cause 2 : [L’agent installé dans la machine virtuelle est obsolète (machines virtuelles Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
-**Cause 3 : [La machine virtuelle n’a pas accès à Internet](#the-vm-has-no-internet-access)**
+**Cause 3 : [Impossible de récupérer l’état de l’instantané ou de capturer un instantané](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**     
+**Cause 4 : [L’extension de sauvegarde ne peut être ni mise à jour ni chargée](#the-backup-extension-fails-to-update-or-load)** 
 
 ## <a name="usererrorrpcollectionlimitreached---the-restore-point-collection-max-limit-has-reached"></a>UserErrorRpCollectionLimitReached : Limite maximale de la collection de points de restauration atteinte
 
@@ -107,7 +106,7 @@ Après avoir enregistré et planifié une machine virtuelle pour le service Azur
 **Code d’erreur** : UserErrorUnsupportedDiskSize <br>
 **Message d’erreur** : Actuellement, Sauvegarde Azure ne prend pas en charge les tailles de disque supérieures à 4 095 Go <br>
 
-Votre opération de sauvegarde peut échouer lors de la sauvegarde d'une machine virtuelle dont la taille de disque est supérieure à 4 095 Go. Pour vous inscrire à la préversion privée de prise en charge de disques Sauvegarde Azure de 4 To à 30 To, envoyez-nous un message à l'adresse AskAzureBackupTeam@microsoft.com.
+Votre opération de sauvegarde peut échouer lors de la sauvegarde d’une machine virtuelle dont la taille de disque est supérieure à 4 095 Go. Pour vous inscrire à une préversion publique limitée de prise en charge de disques volumineux de Sauvegarde Azure pour les disques d’une taille supérieure à 4 To et jusqu’à 30 To, consultez la [vue d’ensemble de la sauvegarde de machine virtuelle Azure](backup-azure-vms-introduction.md#limited-public-preview-backup-of-vm-with-disk-sizes-up-to-30tb).
 
 ## <a name="usererrorbackupoperationinprogress---unable-to-initiate-backup-as-another-backup-operation-is-currently-in-progress"></a>UserErrorBackupOperationInProgress - Impossible de lancer la sauvegarde, car une autre opération de sauvegarde est en cours d’exécution
 

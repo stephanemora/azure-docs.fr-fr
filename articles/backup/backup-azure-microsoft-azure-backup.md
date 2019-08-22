@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: dacurwin
-ms.openlocfilehash: f5367e1ca3e950126766e788323cb1d4749e9b0c
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: eb9908fc7b2d4ecd8af8c2b4a65ab43352035ec5
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688400"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69018891"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Installer et mettre à niveau Azure Backup Server
 > [!div class="op_single_selector"]
@@ -29,7 +29,7 @@ Cet article décrit la préparation de votre environnement à la sauvegarde des 
 >
 >
 
-Les serveurs Microsoft Azure Backup Server déployés dans une machine virtuelle Azure peuvent sauvegarder des machines virtuelles dans Azure, mais ils doivent être dans le même domaine pour que l’opération de sauvegarde puisse s’effectuer. Le processus de sauvegarde d’une machine virtuelle Azure reste identique à la sauvegarde d’une machine virtuelle en local, mais le déploiement de Microsoft Azure Backup Server dans Azure présente certaines limitations. Pour plus d’informations sur ces limitations, consultez [DPM comme machine virtuelle Azure](https://docs.microsoft.com/system-center/dpm/install-dpm?view=sc-dpm-1807#setup-prerequisites)
+Les serveurs MABS (Microsoft Azure Backup Server) déployés dans une machine virtuelle Azure peuvent sauvegarder des machines virtuelles dans Azure, mais ils doivent se trouver dans le même domaine pour que l’opération de sauvegarde puisse s’effectuer. Le processus de sauvegarde d’une machine virtuelle Azure reste identique à la sauvegarde d’une machine virtuelle en local, mais le déploiement de Microsoft Azure Backup Server dans Azure présente certaines limitations. Pour plus d’informations sur ces limitations, consultez [DPM en tant que machine virtuelle Azure](https://docs.microsoft.com/system-center/dpm/install-dpm?view=sc-dpm-1807#setup-prerequisites)
 
 > [!NOTE]
 > Azure comporte deux modèles de déploiement pour la création et l’utilisation de ressources : [Resource Manager et classique](../azure-resource-manager/resource-manager-deployment-model.md). Cet article fournit les informations et les procédures relatives à la restauration des machines virtuelles déployées à l’aide du modèle Resource Manager.
@@ -42,12 +42,12 @@ Azure Backup Server hérite d’une grand partie des fonctionnalités de sauvega
 La première étape de la mise en service d’Azure Backup Server consiste à configurer un serveur Windows Server. Il peut s’agir d’un serveur local ou d’un serveur dans Azure.
 
 ### <a name="using-a-server-in-azure"></a>Utilisation d’un serveur dans Azure
-Lorsque vous choisissez un serveur pour exécuter le serveur de sauvegarde Azure, nous vous recommandons de commencer par une image de la galerie de Windows Server 2012 R2 Datacenter, Windows Server 2016 Datacenter ou Windows Server 2019 Datacenter. L’article [Créer votre première machine virtuelle Windows dans le portail Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)propose un didacticiel de prise en main de la machine virtuelle recommandée dans Azure, même si vous n’avez jamais utilisé Azure. Configuration minimale recommandée pour la machine virtuelle serveur : Standard_A4_v2 avec quatre cœurs et 8 Go de RAM.
+Quand vous choisissez un serveur pour exécuter le serveur de sauvegarde Azure, nous vous recommandons de commencer par une image de la galerie de Windows Server 2012 R2 Datacenter, Windows Server 2016 Datacenter ou Windows Server 2019 Datacenter. L’article [Créer votre première machine virtuelle Windows dans le portail Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)propose un didacticiel de prise en main de la machine virtuelle recommandée dans Azure, même si vous n’avez jamais utilisé Azure. Configuration minimale recommandée pour la machine virtuelle serveur : Standard_A4_v2 avec quatre cœurs et 8 Go de RAM.
 
 La protection des charges de travail à l’aide d’Azure Backup Server peut prendre plusieurs formes. L’article [Installation de DPM en tant que machine virtuelle Azure](https://technet.microsoft.com/library/jj852163.aspx), permet d’expliquer ces différentes formes. Avant de déployer la machine, lisez cet entièrement cet article.
 
 ### <a name="using-an-on-premises-server"></a>Utilisation d’un serveur local
-Si vous ne souhaitez pas exécuter le serveur de base dans Azure, vous pouvez l’exécuter sur un ordinateur virtuel Hyper-V, un ordinateur virtuel VMware ou un hôte physique. Configuration minimale recommandée pour le matériel de serveur : 2 cœurs et 8 Go de RAM. Les systèmes d’exploitation pris en charge sont répertoriés dans le tableau ci-après :
+Si vous ne souhaitez pas exécuter le serveur de base dans Azure, vous pouvez l’exécuter sur un ordinateur virtuel Hyper-V, un ordinateur virtuel VMware ou un hôte physique. Configuration minimale recommandée pour le matériel de serveur : 2 cœurs et 8 Go de RAM. Les systèmes d’exploitation pris en charge sont répertoriés dans le tableau ci-après :
 
 | Système d’exploitation | Plateforme | SKU |
 |:--- | --- |:--- |
@@ -78,12 +78,14 @@ L’option de réplication du stockage vous permet de choisir entre stockage gé
 
 Pour modifier le paramètre de réplication du stockage :
 
-1. Sélectionnez votre coffre pour ouvrir le tableau de bord correspondant et le menu Paramètres. Si le menu **Paramètres** ne s’ouvre pas, cliquez sur **Tous les paramètres** dans le tableau de bord du coffre.
-2. Dans le menu **Paramètres**, cliquez sur **Infrastructure de sauvegarde** > **Configuration de la sauvegarde** pour ouvrir le panneau **Configuration de la sauvegarde**. Dans le menu **Configuration de la sauvegarde**, choisissez l’option de réplication de stockage pour votre coffre.
+1. Dans le panneau **Coffres Recovery Services**, cliquez sur le nouveau coffre. Dans la section **Paramètres**, cliquez sur **Propriétés**.
+2. Dans **Propriétés**, sous **Configuration de la sauvegarde**, cliquez sur **Mise à jour**.
 
-    ![Liste des archivages de sauvegarde](./media/backup-azure-vms-first-look-arm/choose-storage-configuration-rs-vault.png)
+3. Sélectionnez le type de réplication de stockage, puis cliquez sur **Enregistrer**.
 
-    Après avoir sélectionné l’option de stockage pour votre archivage, vous pouvez associer la machine virtuelle à l’archivage. Pour commencer l’association, vous devez découvrir et enregistrer les machines virtuelles Azure.
+     ![Définir la configuration de stockage du nouveau coffre](./media/backup-try-azure-backup-in-10-mins/recovery-services-vault-backup-configuration.png)
+
+ 
 
 ## <a name="software-package"></a>Package logiciel
 ### <a name="downloading-the-software-package"></a>Téléchargement du package logiciel
@@ -116,7 +118,7 @@ Pour modifier le paramètre de réplication du stockage :
 
     ![en local et charges de travail comme objectifs](./media/backup-azure-microsoft-azure-backup/backup-goals-azure-backup-server.png)
 
-    À partir du menu déroulant **Que souhaitez-vous sauvegarder ?** , sélectionnez les charges de travail que vous souhaitez protéger à l’aide du serveur de sauvegarde Azure, puis cliquez sur **OK**.
+    À partir du menu déroulant **Que voulez-vous sauvegarder ?** , sélectionnez les charges de travail que vous souhaitez protéger à l’aide du serveur de sauvegarde Azure, puis cliquez sur **OK**.
 
     L’Assistant **Mise en route de la sauvegarde** modifie l’option de **préparation de l’infrastructure** pour sauvegarder les charges de travail sur Azure.
 
@@ -135,7 +137,7 @@ Pour modifier le paramètre de réplication du stockage :
 
     ![Centre de téléchargement 1](./media/backup-azure-microsoft-azure-backup/downloadcenter.png)
 
-    Puisque la taille de téléchargement de l’ensemble des fichiers est > 3G, sur un lien de téléchargement de 10 Mbits/s, le téléchargement peut prendre jusqu’à 60 minutes.
+    Puisque la taille de téléchargement de l’ensemble des fichiers est supérieure à 3Go, sur un lien de téléchargement de 10 Mbits/s, le téléchargement peut prendre jusqu’à 60 minutes.
 
 ### <a name="extracting-the-software-package"></a>Extraction du package logiciel
 Une fois que vous avez téléchargé tous les fichiers, cliquez sur **MicrosoftAzureBackupInstaller.exe**. **L’Assistant Installation de Microsoft Azure Backup** démarre l’extraction des fichiers d’installation vers l’emplacement que vous avez spécifié. Suivez les instructions de l’Assistant et cliquez sur le bouton **Extraire** pour commencer le processus d’extraction.
@@ -153,14 +155,14 @@ Une fois le processus d’extraction terminé, cochez la case pour exécuter le 
 1. Cliquez sur **Microsoft Azure Backup** pour lancer l’Assistant d’installation.
 
     ![L’Assistant Installation de Microsoft Azure Backup](./media/backup-azure-microsoft-azure-backup/launch-screen2.png)
-2. Dans l’écran d’accueil, cliquez sur le bouton **Suivant** . Vous êtes redirigé vers la section *Vérification des conditions préalables* . Dans cet écran, cliquez sur **Vérifier** afin de déterminer si les configurations matérielle et logicielle requises pour serveur de sauvegarde Azure sont respectées. Si toutes les conditions préalables sont réunies, un message indiquant que la machine présente la configuration requise s’affiche. Cliquez sur le bouton **Suivant** .
+2. Dans l’écran d’accueil, cliquez sur le bouton **Suivant**. Vous êtes redirigé vers la section *Vérification des conditions préalables* . Dans cet écran, cliquez sur **Vérifier** afin de déterminer si les configurations matérielle et logicielle requises pour serveur de sauvegarde Azure sont respectées. Si toutes les conditions préalables sont réunies, un message indiquant que la machine présente la configuration requise s’affiche. Cliquez sur le bouton **Suivant** .
 
     ![Azure Backup Server - Accueil et contrôle des conditions préalables requises](./media/backup-azure-microsoft-azure-backup/prereq/prereq-screen2.png)
 3. Le serveur de sauvegarde Microsoft Azure requiert SQL Server Entreprise. Le package d’installation d’Azure Backup Server fait partie d’une offre groupée avec les fichiers binaires SQL Server appropriés nécessaires si vous ne souhaitez pas utiliser votre propre SQL. Lorsque vous démarrez avec une nouvelle installation du serveur de sauvegarde Azure, vous devez sélectionner l’option **Installer une nouvelle instance de SQL Server avec ce programme d’installation** et cliquer sur le bouton **Vérifier et installer**. Une fois les composants requis installés, cliquez sur **Suivant**.
 
     ![Serveur de sauvegarde Azure - Vérification SQL](./media/backup-azure-microsoft-azure-backup/sql/01.png)
 
-    Si une défaillance se produit et qu’il est conseillé de redémarrer la machine, faites-le, puis cliquez sur **Vérifier à nouveau**. En cas de problèmes de configuration de SQL, reconfigurez SQL conformément aux instructions SQL et essayez à nouveau d’installer/de mettre à niveau MABS à l’aide de l’instance existante de SQL.
+    Si une défaillance se produit et qu’il est conseillé de redémarrer la machine, faites-le, puis cliquez sur **Vérifier à nouveau**. En cas de problèmes de configuration de SQL, reconfigurez SQL conformément aux instructions SQL et réessayez d’installer/de mettre à niveau MABS à l’aide de l’instance existante de SQL.
 
    > [!NOTE]
    > Azure Backup Server ne fonctionne pas avec une instance de serveur SQL distante. L’instance utilisée par le serveur de sauvegarde Azure doit être installée en local. Si vous utilisez un serveur SQL existant pour MABS, la configuration MABS prend uniquement en charge l’utilisation d’*instances nommées* du serveur SQL.
@@ -171,9 +173,9 @@ Une fois le processus d’extraction terminé, cochez la case pour exécuter le 
 
     **Configuration de SSRS avec SQL 2017**
 
-    Lorsque vous utilisez la propre instance de SQL 2017, vous devez configurer manuellement SSRS. Après la configuration de SSRS, vérifiez que la propriété *IsInitialized* de SSRS est définie sur *True*. Lorsqu’elle est définie sur True, MABS suppose que SSRS est déjà configuré et ignorera la configuration de SSRS.
+    Quand vous utilisez votre propre instance de SQL 2017, vous devez configurer manuellement SSRS. Après la configuration de SSRS, vérifiez que la propriété *IsInitialized* de SSRS est définie sur *True*. Lorsqu’elle est définie sur True, MABS suppose que SSRS est déjà configuré et ignorera la configuration de SSRS.
 
-    Utilisez les valeurs suivantes pour la configuration SSRS :
+    Utilisez les valeurs suivantes pour la configuration SSRS : 
 
         - Service Account: ‘Use built-in account’ should be Network Service
         - Web Service URL: ‘Virtual Directory’ should be ReportServer_<SQLInstanceName>
@@ -268,7 +270,7 @@ Voici les étapes à suivre si vous devez déplacer MABS vers un nouveau serveur
     Si vous avez ajouté de nouveaux disques au pool de stockage DPM au lieu de déplacer les anciens, exécutez DPMSYNC -Reallocatereplica
 
 ## <a name="network-connectivity"></a>Connectivité réseau
-Pour que le produit fonctionne correctement, Azure Backup Server exige la connectivité au service Azure Backup. Pour vérifier que la machine est bien connectée à Azure, utilisez l’applet de commande ```Get-DPMCloudConnection``` dans la console Azure Backup Server PowerShell. Si le résultat de l’applet de commande est TRUE, la connectivité existe. Dans le cas contraire, la connectivité n’existe pas.
+Pour que le produit fonctionne correctement, Azure Backup Server exige la connectivité au service Azure Backup. Pour vérifier que la machine est bien connectée à Azure, utilisez l’applet de commande ```Get-DPMCloudConnection``` dans la console Azure Backup Server PowerShell. Si le résultat de la cmdlet est TRUE, la connexion existe. Dans le cas contraire, elle n’existe pas.
 
 Dans le même temps, l’abonnement Azure doit être dans un état correct. Pour déterminer l’état de votre abonnement et le gérer, connectez-vous au [portail d’abonnement](https://account.windowsazure.com/Subscriptions).
 
@@ -295,7 +297,7 @@ Si vous êtes équipé d’un pare-feu ou d’un proxy qui empêche l’accès �
 Une fois la connectivité à Azure restaurée sur l’ordinateur Azure Backup Server, les opérations qui peuvent être exécutées sont déterminées par l’état de l’abonnement Azure. Le tableau ci-dessus comporte les détails des opérations autorisées une fois l’ordinateur « connecté ».
 
 ### <a name="handling-subscription-states"></a>Gestion des états d’abonnement
-Il est possible de faire passer un abonnement Azure de l’état *Expiré* ou *Approvisionnement annulé* à l’état *Actif*. Cependant, cette opération a certaines conséquences sur le comportement du produit lorsque l’état n’est pas *Actif*:
+Il est possible de faire passer un abonnement Azure de l’état *Expiré* ou *Approvisionnement annulé* à l’état *Actif*. Cependant, cette opération a certaines conséquences sur le comportement du produit quand l’état n’est pas *Actif* :
 
 * Un abonnement dont *l’approvisionnement est annulé* ne fonctionne pas pendant la période pour laquelle l’approvisionnement est annulé. En redevenant *Actif*, la fonctionnalité de sauvegarde/restauration du produit est rétablie. Les données de sauvegarde présentes sur le disque local peuvent également être récupérées si le délai de rétention est suffisant. Toutefois, les données de sauvegarde dans Azure sont irrémédiablement perdues une fois que l’abonnement passe à l’état *Approvisionnement annulé* .
 * Un abonnement *Expiré* ne fonctionne plus tant qu’il n’a pas été *réactivé*. Lorsque l’abonnement est à l’état *Expiré* , les sauvegardes planifiées ne sont pas exécutées.

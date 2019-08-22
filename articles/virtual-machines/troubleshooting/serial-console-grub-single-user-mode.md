@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 05/08/2019
+ms.date: 08/06/2019
 ms.author: alsin
-ms.openlocfilehash: 8a3be6420a91093e060850459ff22fc5823b8cf2
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 656bc8329d6273695e4da24a7e7d13c9df6a1080
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67710597"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68846596"
 ---
 # <a name="use-serial-console-to-access-grub-and-single-user-mode"></a>Utiliser la console série pour accéder au GRUB et au mode mono-utilisateur
 GRUB, acronyme de GRand Unified Bootloader, est probablement la première chose que vous voyez quand vous démarrez une machine virtuelle. Parce qu’il s’affiche avant que le système d’exploitation ne démarre, il n’est pas accessible par le biais du protocole SSH. Un GRUB vous permet de modifier votre configuration d’amorçage, notamment pour démarrer en mode mono-utilisateur.
@@ -132,6 +132,7 @@ Par défaut, les images Ubuntu peuvent ne pas afficher automatiquement l’écra
 1. Remplacez la valeur `GRUB_TIMEOUT` par une valeur autre que zéro.
 1. Ouvrez `/etc/default/grub` dans un éditeur de texte de votre choix.
 1. Commentez la ligne `GRUB_HIDDEN_TIMEOUT=1`.
+1. Vérifiez qu’une ligne indique `GRUB_TIMEOUT_STYLE=menu`
 1. Exécutez `sudo update-grub`
 
 ### <a name="single-user-mode-in-ubuntu"></a>Mode mono-utilisateur dans Ubuntu
@@ -193,7 +194,7 @@ Vous êtes automatiquement amené dans l’interpréteur de commandes d’urgenc
 Un peu comme Red Hat Enterprise Linux, le mode mono-utilisateur dans Oracle Linux nécessite l’activation du GRUB et de l’utilisateur racine.
 
 ### <a name="grub-access-in-oracle-linux"></a>Accès au GRUB dans Oracle Linux
-Oracle Linux est fourni avec le GRUB activé par défaut. Pour entrer dans le GRUB, redémarrez votre machine virtuelle avec `sudo reboot` et appuyez sur « Échap ». Vous verrez apparaître l’écran GRUB.
+Oracle Linux est fourni avec le GRUB activé par défaut. Pour entrer dans le GRUB, redémarrez votre machine virtuelle avec `sudo reboot` et appuyez sur « Échap ». Vous verrez apparaître l’écran GRUB. Si vous ne voyez pas grub, vérifiez que la valeur de la ligne `GRUB_TERMINAL` contient « serial console », comme suit : `GRUB_TERMINAL="serial console"`.
 
 ### <a name="single-user-mode-in-oracle-linux"></a>Mode mono-utilisateur dans Oracle Linux
 Suivez les instructions pour RHEL ci-dessus afin d’activer le mode mono-utilisateur dans Oracle Linux.

@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 06/10/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b1591f4f1e96bbb2bffb80a2c652963faa5dca5b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4b55e979c3056f89eb76a1d2c86f9a770d2d3e05
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67077640"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68935387"
 ---
 # <a name="sap-hana-infrastructure-configurations-and-operations-on-azure"></a>Configurations et opérations de l’infrastructure SAP HANA sur Azure
 Ce document fournit des instructions pour la configuration des infrastructures Azure et le fonctionnement des systèmes SAP HANA qui sont déployés sur des machines virtuelles Azure natives. Le document inclut également des informations de configuration pour le scale-out de SAP HANA sur la référence SKU de machine virtuelle M128s. Ce document n’a pas pour but de remplacer la documentation SAP standard, qui propose le contenu suivant :
@@ -173,7 +173,7 @@ Dans le document [SAP HANA TDI Storage Requirements](https://www.sap.com/documen
 En supposant que vous prenez la machine virtuelle Azure M128s certifiée scale-out SAP HANA avec environ 2 To de mémoire, les recommandations de SAP peuvent être résumées ainsi :
 
 - Un nœud principal et jusqu’à quatre nœuds Worker, le volume **/hana/shared** doit avoir une taille de 2 To. 
-- Un nœud principal et jusqu'à cinq à huit nœuds de travail, le volume **/hana/shared** doit être de 4 To. 
+- Un nœud principal et cinq à huit nœuds worker, le volume **/hana/shared** doit être de 4 To. 
 - Un nœud principal et de neuf à 12 nœuds de travail, le volume **/hana/shared** doit être de 6 To. 
 - Un nœud principal et de 12 à 15 nœuds de travail, le volume **/hana/shared** doit être de 8 To.
 
@@ -216,7 +216,7 @@ Si vous souhaitez partager le cluster NFS à haute disponibilité entre les conf
 ### <a name="installing-sap-hana-scale-out-n-azure"></a>Installation du scale-out SAP HANA dans Azure
 Lors de l’installation d’une configuration de scale-out SAP, vous devez procéder :
 
-- Au déploiement ou à l’adaptation de nouvelles infrastructures de réseau virtuel Azure
+- Au déploiement d’une nouvelle infrastructure de réseau virtuel Azure ou à l’adaptation d’une existante
 - Au déploiement de nouvelles machines virtuelles en utilisant les volumes Stockage Premium gérés par Azure
 - Au déploiement d’un nouveau cluster NFS à haute disponibilité, ou à l’adaptation d’un cluster existant
 - À l’adaptation d’un routage réseau pour vous assurer que, par exemple, les communications intra-nœud entre les machines virtuelles ne sont pas acheminées via un [NVA](https://azure.microsoft.com/solutions/network-appliances/). Il en est de même pour le trafic entre les machines virtuelles et le cluster NFS à haute disponibilité.

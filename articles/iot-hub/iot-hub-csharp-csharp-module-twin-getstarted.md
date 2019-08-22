@@ -6,38 +6,38 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: csharp
 ms.topic: conceptual
-ms.date: 04/26/2018
+ms.date: 08/07/2019
 ms.author: menchi
-ms.openlocfilehash: ea42a459365848386082470deb5120e09cb92421
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: e5d2e485283f71b27bb5e93330a54e1b987044c4
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68668151"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68883774"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-net"></a>Bien démarrer avec l’identité de module et le jumeau de module IoT Hub (.NET)
 
 [!INCLUDE [iot-hub-selector-module-twin-getstarted](../../includes/iot-hub-selector-module-twin-getstarted.md)]
 
 > [!NOTE]
-> [Les identités de module et les jumeaux de module](iot-hub-devguide-module-twins.md) sont similaires aux identités d’appareil et aux jumeaux d’appareil Azure IoT Hub, mais offrent un plus grand niveau de détail. Contrairement à l’identité d’appareil et au jumeau d’appareil Azure IoT Hub qui permettent à l’application principale de configurer un appareil et d’obtenir une visibilité sur l’état de l’appareil, une identité de module et un jumeau de module fournissent ces fonctionnalités pour les composants individuels d’un appareil. Sur les appareils compatibles qui intègrent plusieurs composants, par exemple des appareils basés sur un système d’exploitation ou des appareils avec un microprogramme, ils permettent d’isoler la configuration et les conditions de chacun de ces composants.
+> [Les identités de module et les jumeaux de module](iot-hub-devguide-module-twins.md) sont similaires aux identités d’appareil et aux jumeaux d’appareil Azure IoT Hub, mais offrent un plus grand niveau de détail. Contrairement à l’identité d’appareil et au jumeau d’appareil Azure IoT Hub qui permettent à l’application back-end de configurer un appareil et d’obtenir une visibilité sur l’état de l’appareil, une identité de module et un jumeau de module fournissent ces fonctionnalités pour les composants individuels d’un appareil. Sur les appareils compatibles qui intègrent plusieurs composants, par exemple des appareils basés sur un système d’exploitation ou des appareils avec un microprogramme, les identités de module et les jumeaux de module permettent d’isoler la configuration et les conditions de chacun de ces composants.
 
 À la fin de ce didacticiel, vous disposerez de deux applications de console .NET :
 
-* **CreateIdentities**, qui crée une identité d’appareil, une identité de module et une clé de sécurité associée pour connecter votre appareil et vos clients de module.
+* **CreateIdentities**. Cette application crée une identité d’appareil, une identité de module et une clé de sécurité associée pour connecter votre appareil et vos clients de module.
 
-* **UpdateModuleTwinReportedProperties**, qui envoie à votre IoT Hub les propriétés à jour de votre jumeau de module.
+* **UpdateModuleTwinReportedProperties**. Cette application envoie à votre hub IoT les propriétés signalées et à jour pour le jumeau de module.
 
 > [!NOTE]
 > Pour plus d’informations sur les SDK Azure IoT que vous pouvez utiliser pour générer les deux applications qui s’exécutent sur les appareils et sur le serveur de solution principal, consultez l’article [SDK Azure IoT](iot-hub-devguide-sdks.md).
 
-Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
+Pour effectuer ce didacticiel, vous avez besoin de ce qui suit :
 
 * Visual Studio.
 
-* Un compte Azure actif. (Si vous ne possédez pas de compte, vous pouvez créer un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/) en quelques minutes seulement.)
+* Un compte Azure actif. Si vous ne possédez pas de compte, vous pouvez créer un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/) en quelques minutes.
 
-## <a name="create-an-iot-hub"></a>Créer un hub IoT
+## <a name="create-a-hub"></a>Créer un hub
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
@@ -53,21 +53,25 @@ Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
 Dans cette section, vous allez créer sur votre appareil simulé une application de console .NET qui met à jour les propriétés déclarées du jumeau de module.
 
-1. **Créez un projet Visual Studio :** Dans Visual Studio, ajoutez un projet Visual C# Bureau classique Windows à la solution existante en utilisant le modèle de projet **Application console (.NET Framework)** . Assurez-vous que la version du .NET Framework est définie sur 4.6.1 ou supérieur. Nommez le projet **UpdateModuleTwinReportedProperties**.
+Avant de commencer, obtenez la chaîne de connexion de votre module. Connectez-vous au [Portail Azure](https://portal.azure.com/). Accédez à votre hub et sélectionnez **Appareils IoT**. Recherchez **myFirstDevice**. Sélectionnez **myFirstDevice** pour l’ouvrir, puis **myFirstModule** pour l’ouvrir. Dans **Détails sur l’identité de module**, copiez la **chaîne de connexion (clé primaire)** si nécessaire dans la procédure suivante.
 
-    ![Créer un projet Visual Studio](./media/iot-hub-csharp-csharp-module-twin-getstarted/update-twins-csharp1.png)
+   ![Détails du module du Portail Azure](./media/iot-hub-csharp-csharp-module-twin-getstarted/module-identity-detail.png)
 
-2. **Installez le dernier SDK d’appareil .NET Azure IoT Hub :** L’identité de module et le jumeau de module sont disponibles en préversion publique. Ils sont uniquement disponibles dans les kits SDK d’appareil IoT Hub en préversion. Dans Visual Studio, ouvrez Outils > Gestionnaire de package Nuget > Gérer les packages Nuget pour la solution. Recherchez Microsoft.Azure.Devices.Client. Assurez-vous de cocher la case Inclure la version préliminaire. Sélectionnez la version la plus récente et installez-la. Vous avez maintenant accès à toutes les fonctionnalités de module. 
+1. Dans Visual Studio, ajoutez un nouveau projet à votre solution en sélectionnant **Fichier** > **Nouveau** > **Projet**. Dans Créer un projet, sélectionnez **Application console (.NET Framework)** , puis **Suivant**.
 
-    ![Installer le kit SDK du service NET Azure IoT Hub V1.16.0-préversion-005](./media/iot-hub-csharp-csharp-module-twin-getstarted/install-sdk.png)
+1. Nommez le projet *UpdateModuleTwinReportedProperties*. Pour **Solution**, sélectionnez **Ajouter à la solution**. Assurez-vous que la version du .NET Framework est définie sur 4.6.1 ou supérieur.
 
-3. **Obtenir la chaîne de connexion de votre module** : vous pouvez le faire dès maintenant si vous vous connectez au [portail Azure](https://portal.azure.com/). Accédez à votre IoT Hub, puis cliquez sur Appareils IoT. Recherchez et ouvrez myFirstDevice pour vérifier que myFirstModule a bien été créé. Copiez la chaîne de connexion du module. Vous en aurez besoin à l’étape suivante.
+    ![Créer un projet Visual Studio](./media/iot-hub-csharp-csharp-module-twin-getstarted/configure-update-twins-csharp1.png)
 
-    ![Détails du module du Portail Azure](./media/iot-hub-csharp-csharp-module-twin-getstarted/module-detail.png)
+1. Sélectionnez **Créer** pour créer le projet.
 
-4. **Créer l’application de console UpdateModuleTwinReportedProperties**
+1. Dans Visual Studio, ouvrez **Outils** > **Gestionnaire de package NuGet** > **Gérer les packages NuGet pour la solution**. Sélectionnez l’onglet **Parcourir**.
 
-    Ajoutez les instructions `using` suivantes en haut du fichier **Program.cs** :
+1. Recherchez et sélectionnez **Microsoft.Azure.Devices.Client**, puis sélectionnez **Installer**.
+
+    ![Installer la version actuelle du kit SDK du service .NET Azure IoT Hub](./media/iot-hub-csharp-csharp-module-twin-getstarted/install-client-sdk.png)
+
+1. Ajoutez les instructions `using` suivantes en haut du fichier **Program.cs** :
 
     ```csharp
     using Microsoft.Azure.Devices.Client;
@@ -76,11 +80,10 @@ Dans cette section, vous allez créer sur votre appareil simulé une application
     using Newtonsoft.Json;
     ```
 
-    Ajoutez les champs suivants à la classe **Program** . Remplacez la valeur de l’espace réservé par la chaîne de connexion du module.
+1. Ajoutez les champs suivants à la classe **Program** . Remplacez la valeur de l’espace réservé par la chaîne de connexion du module.
 
     ```csharp
-    private const string ModuleConnectionString = 
-      "<Your module connection string>";
+    private const string ModuleConnectionString = "<Your module connection string>";
     private static ModuleClient Client = null;
     static void ConnectionStatusChangeHandler(ConnectionStatus status, 
       ConnectionStatusChangeReason reason)
@@ -90,7 +93,7 @@ Dans cette section, vous allez créer sur votre appareil simulé une application
     }
     ```
 
-    Ajoutez la méthode suivante **OnDesiredPropertyChanged** à la classe **Program** :
+1. Ajoutez la méthode suivante **OnDesiredPropertyChanged** à la classe **Program** :
 
     ```csharp
     private static async Task OnDesiredPropertyChanged(TwinCollection desiredProperties, 
@@ -108,7 +111,7 @@ Dans cette section, vous allez créer sur votre appareil simulé une application
         }
     ```
 
-    Enfin, ajoutez les lignes suivantes à la méthode **Main** :
+1. Ajoutez les lignes suivantes à la méthode **Main** :
 
     ```csharp
     static void Main(string[] args)
@@ -148,7 +151,7 @@ Dans cette section, vous allez créer sur votre appareil simulé une application
 
     Cet exemple de code montre comment récupérer le jumeau de module et mettre à jour les propriétés déclarées avec le protocole AMQP. Dans la préversion publique, AMQP est pris en charge uniquement pour les opérations de jumeau de module.
 
-5. En plus de la méthode **Main** ci-dessus, vous pouvez ajouter le bloc de code suivant pour envoyer un événement à IoT Hub à partir de votre module :
+1. Si vous le souhaitez, vous pouvez ajouter ces instructions à la méthode **Main** pour envoyer un événement à IoT Hub à partir de votre module. Placez ces lignes sous le bloc `try catch`.
 
     ```csharp
     Byte[] bytes = new Byte[2];
@@ -161,11 +164,20 @@ Dans cette section, vous allez créer sur votre appareil simulé une application
 
 ## <a name="run-the-apps"></a>Exécuter les applications
 
-Vous êtes maintenant prêt à exécuter les applications. Dans Visual Studio, dans l’explorateur de solutions, cliquez avec le bouton droit sur votre solution, puis sur **Définir les projets de démarrage**. Sélectionnez **Plusieurs projets de démarrage**, puis choisissez l’action **Démarrer** pour l’application de console. Appuyez ensuite sur F5 pour démarrer l’application.
+Vous pouvez maintenant exécuter les applications.
+
+1. Dans Visual Studio, dans l’**Explorateur de solutions**, cliquez avec le bouton droit sur votre solution, puis sélectionnez **Définir les projets de démarrage**.
+
+1. Sous **Propriétés communes**, sélectionnez **Projet de démarrage**.
+
+1. Sélectionnez **Plusieurs projets de démarrage**, puis choisissez l’action **Démarrer** pour les applications et **OK** pour accepter vos modifications.
+
+1. Appuyez sur **F5** pour démarrer les applications.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour continuer la prise en main de IoT Hub et explorer les autres scénarios IoT, consultez les articles suivants :
 
 * [Prise en main de la gestion d’appareils](iot-hub-node-node-device-management-get-started.md)
+
 * [Bien démarrer avec IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)

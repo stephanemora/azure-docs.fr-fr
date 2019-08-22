@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: add6e23d023753e217c102dc946837a71a64c781
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0292c8a441589a01241fbef6923246b4bcafb5c8
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64871076"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976255"
 ---
 # <a name="add-a-symbol-layer-to-a-map-using-azure-maps-android-sdk"></a>Ajouter une couche de symboles à une carte à l’aide de l’Android SDK Azure Maps
 
@@ -179,3 +179,6 @@ Pour ajouter des éléments à votre carte, voir :
 
 > [!div class="nextstepaction"]
 > [Ajouter des formes à une carte Android](https://docs.microsoft.com/azure/azure-maps/how-to-add-shapes-to-android-map)
+
+> [!div class="nextstepaction"]
+> [Afficher des informations sur les fonctionnalités](display-feature-information-android.md)

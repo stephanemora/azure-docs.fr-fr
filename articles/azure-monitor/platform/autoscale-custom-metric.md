@@ -9,10 +9,10 @@ ms.date: 05/07/2017
 ms.author: ancav
 ms.subservice: autoscale
 ms.openlocfilehash: e6423f2ce3659fd3dd738dcc8a990261bc7bf60c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "60334341"
 ---
 # <a name="get-started-with-auto-scale-by-custom-metric-in-azure"></a>Prise en main de la mise à l’échelle automatique par métrique personnalisée dans Azure
@@ -21,9 +21,9 @@ Cet article décrit comment mettre à l’échelle votre ressource par une mesur
 La mise à l’échelle automatique Azure Monitor s’applique uniquement aux [groupes de machines virtuelles identiques](https://azure.microsoft.com/services/virtual-machine-scale-sets/), aux [services cloud](https://azure.microsoft.com/services/cloud-services/), à [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/) et aux [services de gestion des API](https://docs.microsoft.com/azure/api-management/api-management-key-concepts).
 
 ## <a name="lets-get-started"></a>Prise en main
-Cet article suppose que vous disposez d’une application web avec Application Insights déjà configuré. Si vous ne l’avez pas encore fait, vous pouvez [configurer Application Insights pour votre site web ASP.NET][1]
+Cet article suppose que vous disposez d’une application web avec Application Insights déjà configuré. Si vous n’en avez pas encore, vous pouvez [configurer Application Insights pour votre site web ASP.NET][1].
 
-- Ouvrez le [portail Azure][2]
+- Ouvrez le [portail Azure][2].
 - Cliquez sur l’icône Azure Monitor dans le volet de navigation gauche.
   ![Lancer Azure Monitor][3]
 - Cliquez sur le paramètre de mise à l’échelle automatique pour afficher toutes les ressources pour lesquelles la mise à l’échelle automatique est applicable, ainsi que son état actuel de mise à l’échelle automatique ![Découvrir la mise à l’échelle automatique dans Azure Monitor][4]

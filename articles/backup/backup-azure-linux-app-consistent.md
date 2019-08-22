@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 1/12/2018
 ms.author: dacurwin
-ms.openlocfilehash: dae2268abc3771e43d717c65c19eed37b9f48e8e
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: bb764cfa14b4bc8e53f25629961a1baecd6a6c1f
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68689254"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954690"
 ---
 # <a name="application-consistent-backup-of-azure-linux-vms"></a>Sauvegarde cohérente des applications des machines virtuelles Linux Azure
 
@@ -24,7 +24,7 @@ Lorsque vous prenez des instantanés de sauvegarde de vos machines virtuelles, l
 
 L’infrastructure fournit une option permettant d’exécuter des pré/post-scripts personnalisés lors de la capture d’instantanés de machines virtuelles. Les pré-scripts s’exécutent juste avant la capture instantanée de machines virtuelles ; et les post-scripts, juste après. Les pré-scripts et post-scripts vous permettent de contrôler votre application et votre environnement, pendant que vous prenez des captures instantanées de machines virtuelles.
 
-Les pré-scripts appellent les API natives de l’application, qui suspendent les E/S et vident le contenu de la mémoire sur le disque. Ces actions garantissent que la capture instantanée est cohérente des applications. Les post-scripts utilisent les API natives de l’application pour libérer les E/S, ce qui permet à l’application de reprendre ses opérations normales après la capture instantanée des machines virtuelles.
+Les pré-scripts appellent les API natives de l’application, qui suspendent les E/S et vident le contenu de la mémoire sur le disque. Ces actions garantissent que la capture instantanée est cohérente des applications. Les post-scripts utilisent les API natives de l’application pour libérer les E/S, qui permettent à l’application de reprendre ses opérations normales après la capture instantanée des machines virtuelles.
 
 ## <a name="steps-to-configure-pre-script-and-post-script"></a>Procédure de configuration du pré-script et du post-script
 

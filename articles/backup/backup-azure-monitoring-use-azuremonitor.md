@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: dacurwin
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-ms.openlocfilehash: de13518173f21a0a802c37eb7be3cd6c4926d884
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: ffc245402965cdcd62bb210d79bd95db5444f964
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68689205"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954620"
 ---
 # <a name="monitor-at-scale-by-using-azure-monitor"></a>Superviser à grande échelle avec Azure Monitor
 
@@ -212,7 +212,7 @@ Les données de diagnostic provenant du coffre sont injectées dans l’espace d
 - Dans toutes les solutions, les travaux de sauvegarde et les travaux de restauration ad hoc sont envoyés (push) dès qu’ils se *terminent*.
 - Pour toutes les solutions, à l’exception de la sauvegarde SQL, les travaux de sauvegarde planifiés sont envoyés (push) dès qu’ils se *terminent*.
 - Pour la sauvegarde SQL, comme des sauvegardes de journal peuvent se produire toutes les 15 minutes, les informations pour tous les travaux de sauvegarde planifiés terminés, y compris les journaux, sont traitées par lot et envoyées (push) toutes les 6 heures.
-- Dans toutes les solutions, d’autres informations, comme l’élément de sauvegarde, la stratégie, les points de récupération, le stockage, etc., sont envoyées (push) au moins *une fois par jour*.
+- Dans toutes les solutions, d’autres informations, comme l’élément de sauvegarde, la stratégie de sauvegarde, les points de récupération de sauvegarde, le stockage de sauvegarde, etc., sont envoyées (par push) au moins *une fois par jour*.
 - Une modification dans la configuration de sauvegarde (comme la stratégie de changement ou de modification) déclenche un envoi (push) de toutes les informations de sauvegarde associées.
 
 ## <a name="using-the-recovery-services-vaults-activity-logs"></a>Utilisation des journaux d’activité du coffre Recovery Services
@@ -238,7 +238,7 @@ Pour identifier le journal approprié et créer une alerte :
 
    ![Nouvelle règle d’alerte](media/backup-azure-monitoring-laworkspace/new-alert-rule.png)
 
-Ici, la ressource est le coffre Recovery Services lui-même. Vous devez répéter les mêmes étapes pour tous les coffres pour lesquels vous voulez recevoir des notifications via des journaux d’activité. La condition n’a pas de seuil, de période ou de fréquence, car cette alerte est basée sur des événements. Dès que le journal d’activité approprié est généré, l’alerte est déclenchée.
+Ici, la ressource est le coffre Recovery Services lui-même. Répétez les mêmes étapes pour tous les coffres pour lesquels vous voulez recevoir des notifications par le biais des journaux d’activité. La condition n’a pas de seuil, de période ou de fréquence, car cette alerte est basée sur des événements. Dès que le journal d’activité approprié est généré, l’alerte est déclenchée.
 
 ## <a name="using-log-analytics-to-monitor-at-scale"></a>Utilisation de Log Analytics pour superviser à grande échelle
 

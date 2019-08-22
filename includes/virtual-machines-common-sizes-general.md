@@ -5,19 +5,19 @@ services: virtual-machines
 author: jonbeck7
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 10/08/2018
+ms.date: 08/08/2019
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: fee35d8035238737f6be72d112fba382e00f0875
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.openlocfilehash: a47589728bdbe3842790a7c13fe35d04dbbe6883
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67501230"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881654"
 ---
-Les tailles de machine virtuelle à usage général assurent un ratio processeur/mémoire équilibré. Idéal pour le test et le développement, les bases de données petites à moyennes et les serveurs web au trafic faible à moyen. Cet article donne des informations sur le nombre de processeurs virtuels, de disques de données et de cartes réseau ainsi que sur le débit de stockage pour chacune des tailles de ce regroupement. 
+Les tailles de machine virtuelle à usage général assurent un ratio processeur/mémoire équilibré. Idéal pour le test et le développement, les bases de données petites à moyennes et les serveurs web au trafic faible à moyen. Cet article donne des informations sur le nombre de processeurs virtuels, de disques de données et de cartes réseau ainsi que sur le débit de stockage pour chacune des tailles de ce regroupement.
 
-- La [série DC](#dc-series) est une nouvelle famille de machines virtuelles dans Azure qui peut aider à protéger la confidentialité et l’intégrité de vos données et de votre code lors du traitement dans le cloud public. Ces machines bénéficient du processeur 3,7 GHz Intel XEON E-2176G de dernière génération avec la technologie SGX. Avec Intel Turbo Boost Technology, ces machines peuvent atteindre 4,7 GHz. Les instances de la série DC permettent aux clients de créer des applications sécurisées basées sur enclave pour protéger leur code et leurs données en cours d’utilisation.
+- La [série DC](#dc-series) est une famille de machines virtuelles dans Azure qui permet de protéger la confidentialité et l’intégrité de vos données et de votre code lors de leur traitement dans le cloud public. Ces machines bénéficient du processeur 3,7 GHz Intel XEON E-2176G de dernière génération avec la technologie SGX. Avec Intel Turbo Boost Technology, ces machines peuvent atteindre 4,7 GHz. Les instances de la série DC permettent aux clients de créer des applications sécurisées basées sur enclave pour protéger leur code et leurs données en cours d’utilisation.
 
 - Les machines virtuelles de la série Av2 peuvent être déployées sur différents types de matériel et différents processeurs. Les machines virtuelles de la série A affichent des performances d’unité centrale et des configurations de mémoire idéales pour les charges de travail de niveau d’entrée, propres au développement et au test. La taille est limitée, en fonction du matériel, pour offrir des performances de processeur cohérentes pour l’instance en cours d’exécution, quel que soit le matériel sur lequel elle est déployée. Pour déterminer le matériel physique sur lequel cette taille est déployée, interrogez le matériel virtuel à partir de la machine virtuelle.
 
@@ -27,7 +27,9 @@ Les tailles de machine virtuelle à usage général assurent un ratio processeur
 
 - La série Dv3 est dotée du processeur Intel Xeon® E5-2673 v3 (Haswell) cadencé à 2,4 Ghz ou du dernier processeur Intel XEON® E5-2673 v4 (Broadwell) cadencé à 2,3 GHz dans une configuration multithread, fournissant ainsi une meilleure proposition de valeur pour la plupart des charges de travail à usage général.  La mémoire a été étendue (d’environ 3,5 Gio/vCPU à 4 Gio/vCPU) et les limites de disque et de réseau ont été ajustées au niveau du cœur pour s’aligner sur la transition vers l’hyperthreading.  Le Dv3 n’offre plus les tailles de machines virtuelles à haute mémoire des familles D/Dv2, qui ont été déplacées vers la nouvelle famille Ev3.
 
-  Voici des exemples de cas d’usage de la série D : applications de classe Entreprise, bases de données relationnelles, mise en cache en mémoire et analytique. 
+  Voici des exemples de cas d’usage de la série D : applications de classe Entreprise, bases de données relationnelles, mise en cache en mémoire et analytique.
+
+- La série Da et la série Dasv3 sont de nouvelles tailles qui utilisent le processeur EPYC<sup>TM</sup> 7452V 2.35Ghz d’AMD dans une configuration multithread, avec un cache L3 allant jusqu’à 256 Go, dont 8 Go sont dédiés aux 8 cœurs, ce qui offre davantage d’options pour exécuter des charges de travail à usage général. Les séries Da et Dasv3 ont les mêmes configurations de mémoire et de disque que les séries D et Dsv3.
   
 ## <a name="b-series"></a>Série B
 
@@ -43,13 +45,13 @@ Voici des exemples de cas d’usage : serveurs de développement et de test, ser
 | Size             | Processeurs virtuels  | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Perf. du processeur de base de machine virtuelle | Perf. du processeur max. de machine virtuelle | Crédits initiaux | Crédits cumulés/heure | Crédits cumulés max. | Disques de données max. | Débit de stockage temporaire et mis en cache max. : IOPS / MBps | Débit du disque non mis en cache max. : IOPS / MBps | Nombre max de cartes réseau |          
 |---------------|-------------|----------------|----------------------------|-----------------------|--------------------|--------------------|--------------------|----------------|----------------------------------------|-------------------------------------------|-------------------------------------------|----------|
 | Standard_B1ls<sup>1</sup>  | 1           | 0.5              | 4                          | 5 %                   | 100 %                   | 30                   | 3                  | 72            | 2                                      | 200 / 10                                  | 160 / 10                                  | 2  |
-| Standard_B1s  | 1           | 1              | 4                          | 10%                   | 100 %                   | 30                   | 6\.                  | 144            | 2                        | 400 / 10                                  | 320 / 10                                  | 2  |
+| Standard_B1s  | 1           | 1              | 4                          | 10%                   | 100 %                   | 30                   | 6                  | 144            | 2                        | 400 / 10                                  | 320 / 10                                  | 2  |
 | Standard_B1ms | 1           | 2              | 4                          | 20%                   | 100 %                   | 30                   | 12                 | 288           | 2                         | 800 / 10                                  | 640 / 10                                  | 2  |
 | Standard_B2s  | 2           | 4              | 8                          | 40%                   | 200%                   | 60                   | 24                 | 576            | 4                                      | 1600 / 15                                 | 1280 / 15                                 | 3  |
 | Standard_B2ms | 2           | 8              | 16                         | 60 %                   | 200%                   | 60                   | 36                 | 864            | 4                                      | 2400 / 22.5                               | 1920 / 22.5                               | 3  |
 | Standard_B4ms | 4           | 16             | 32                         | 90%                   | 400%                   | 120                   | 54                 | 1296           | 8                                      | 3600 / 35                                 | 2880 / 35                                 | 4  |
 | Standard_B8ms | 8           | 32             | 64                         | 135%                  | 800%                   | 240                   | 81                 | 1944           | 16                                     | 4320 / 50                                 | 4320 / 50                                 | 4  |
-| Standard_B12ms | 12           | 48             | 96                         | 202 %                  | 1200 %                   | 360                   | 121                 | 2909           | 16                                     | 6480 / 75                                 | 4320 / 50                                 | 6\.  |
+| Standard_B12ms | 12           | 48             | 96                         | 202 %                  | 1200 %                   | 360                   | 121                 | 2909           | 16                                     | 6480 / 75                                 | 4320 / 50                                 | 6  |
 | Standard_B16ms | 16           | 64             | 128                         | 270 %                  | 1600 %                   | 480                   | 162                 | 3888           | 32                                     | 8640 / 100                                 | 4320 / 50                                 | 8  |
 | Standard_B20ms | 20           | 80             | 160                         | 337 %                  | 2000 %                   | 600                   | 203                 | 4860           | 32                                     | 10800 / 125                                 | 4320 / 50                                 | 8  |
 
@@ -78,6 +80,24 @@ Les tailles des machines virtuelles de la série Dsv3 sont basées sur le proce
 
 <sup>1</sup> Machines virtuelles de la série Dsv3 dotées de la technologie Hyper-Threading d’Intel®
 
+## <a name="dasv3-series"></a>Série Dasv3
+
+Premium Storage : Pris en charge
+
+Mise en cache du Stockage Premium : Pris en charge
+
+Les tailles de la série Dasv3 sont basées sur le processeur EPYC<sup>TM</sup> 7452V 2.35Ghz d’AMD, qui peut atteindre une Fmax renforcée de 3.35GHz et utiliser le stockage Premium. Les tailles des machines virtuelles de la série Dasv3 offrent une combinaison de processeur virtuel, mémoire et stockage temporaire pour la plupart des charges de travail de production.
+
+| Size | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) : Gio |
+|---|---|---|---|
+| Standard_D2as_v3  | 2  | 8   | 16  |
+| Standard_D4as_v3  | 4  | 16  | 32  |
+| Standard_D8as_v3  | 8  | 32  | 64  |
+| Standard_D16as_v3 | 16 | 64  | 128 |
+| Standard_D32as_v3 | 32 | 128 | 256 |
+| Standard_D48as_v3 | 48 | 192 | 384 |
+| Standard_D64as_v3 | 64 | 256 | 512 |
+
 ## <a name="dv3-series-sup1sup"></a>Série Dv3 <sup>1</sup>
 
 ACU : 160-190
@@ -102,6 +122,24 @@ Le stockage sur disque de données est facturé séparément des machines virtue
 | Standard_D64_v3 | 64        | 256         | 1 600           | 32             | 96000/1000/500                                           | 8 / 30000                   |
 
 <sup>1</sup> Machines virtuelles de série Dv3 dotées de la technologie Hyper-Threading d’Intel®
+
+## <a name="dav3-series"></a>Série Dav3
+
+Premium Storage : Non pris en charge
+
+Mise en cache du Stockage Premium : Non pris en charge
+
+Les tailles de la série Dav3 sont basées sur le processeur EPYC<sup>TM</sup> 7452V 2.35Ghz d’AMD, qui peut atteindre une Fmax renforcée de 3.35GHz. Les tailles des machines virtuelles de la série Dav3 offrent une combinaison de processeur virtuel, mémoire et stockage temporaire pour la plupart des charges de travail de production. Le stockage sur disque de données est facturé séparément des machines virtuelles. Pour utiliser les disques de stockage Premium, utilisez des machines virtuelles au format Dasv3. Les tarifs et les compteurs de facturation pour les tailles Dasv3 sont identiques à celles de la série Dav3.
+
+| Size | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) : Gio |
+|---|---|---|---|
+| Standard_D2a_v3  | 2  | 8   | 50   |
+| Standard_D4a_v3  | 4  | 16  | 100  |
+| Standard_D8a_v3  | 8  | 32  | 200  |
+| Standard_D16a_v3 | 16 | 64  | 400  |
+| Standard_D32a_v3 | 32 | 128 | 800  |
+| Standard_D48a_v3 | 48 | 192 | 1 200 |
+| Standard_D64a_v3 | 64 | 256 | 1 600 |
 
 ## <a name="dsv2-series"></a>Séries DSv2
 

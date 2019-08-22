@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a8163b2261601b701913e07d703f5db0ac6fa7c0
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 13c9003baaca11dce5a2192a8183674faddfa6dc
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688071"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967295"
 ---
 # <a name="assign-users-and-groups-to-an-application-in-azure-active-directory"></a>Assigner des utilisateurs et des groupes à une application dans Azure Active Directory
 Cet article vous montre comment assigner des utilisateurs ou des groupes à une application dans Azure Active Directory (Azure AD). Les utilisateurs doivent tout d’abord être assignés à une application avant qu’un administrateur puisse leur accorder un accès afin d’effectuer les opérations suivantes :
@@ -165,7 +165,7 @@ Pour activer l’accès en libre-service à une application, procédez comme sui
 
 Lorsque vous avez terminé la configuration d’applications en libre-service, les utilisateurs peuvent accéder à leur [volet d’accès aux applications](https://myapps.microsoft.com/) et cliquer sur le bouton **+Ajouter** pour choisir les applications pour lesquelles vous avez activé l’accès en libre-service. Les approbateurs d’entreprise reçoivent également une notification dans leur [volet d’accès aux applications](https://myapps.microsoft.com/). Vous pouvez leur envoyer une notification par e-mail les avertissant qu’un utilisateur a demandé l’accès à une application nécessitant leur approbation. 
 
-Ces approbations prennent en charge les flux de travail avec approbation unique uniquement, ce qui signifie que si vous spécifiez plusieurs approbateurs, chaque approbateur peut autoriser l’accès à l’application.
+Ces approbations prennent en charge les flux de travail avec approbation unique uniquement, ce qui signifie que si vous spécifiez plusieurs approbateurs, chaque approbateur peut approuver l’accès à l’application.
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Fournir une authentification unique à vos applications avec le proxy d’application](application-proxy-configure-single-sign-on-with-kcd.md)

@@ -6,12 +6,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: 8e2a98748f4fef69b4fd6e3b32d15560641a6336
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: a8545939fd027989519e0f7a161f750ec676749a
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68737053"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976818"
 ---
 # <a name="save-searches-and-pin-data-assets-in-azure-data-catalog"></a>Enregistrer des recherches et épingler des ressources de données dans Azure Data Catalog
 ## <a name="introduction"></a>Introduction
@@ -37,7 +37,7 @@ Pour créer une recherche enregistrée, effectuez les étapes suivantes :
 ### <a name="manage-saved-searches"></a>Gérer les recherches enregistrées
 Lorsque vous enregistrez une recherche, l’option **Recherches enregistrées** s’affiche sous la zone de texte **Recherche actuelle**. Lorsque la liste est développée, toutes les recherches enregistrées sont affichées.
 
- ![Liste des recherches enregistrées](./media/data-catalog-how-to-save-pin/03-list.png)
+ ![Data Catalog - Liste des recherches enregistrées](./media/data-catalog-how-to-save-pin/03-list.png)
 
 Faites ce qui suit :
 
@@ -56,18 +56,18 @@ Faites ce qui suit :
 ### <a name="organizational-saved-searches"></a>Recherches enregistrées organisationnelles
 Tous les utilisateurs de votre organisation peuvent enregistrer des recherches pour leur propre usage. Les administrateurs de Data Catalog peuvent également enregistrer des recherches à destination de tous les utilisateurs de l’organisation. Lorsque les administrateurs enregistrent une recherche, l’option **Partager au sein de l’entreprise** leur est proposée. Cette option permet de partager la recherche enregistrée avec tous les utilisateurs de l’organisation.
 
- ![Recherches enregistrées organisationnelles](./media/data-catalog-how-to-save-pin/08-organizational-saved-search.png)
+ ![Data Catalog - Recherches enregistrées organisationnelles](./media/data-catalog-how-to-save-pin/08-organizational-saved-search.png)
 
 ## <a name="pinned-data-assets"></a>Ressources de données épinglées
 Les recherches enregistrées vous permettent d’enregistrer et de réutiliser les définitions de recherche. Les ressources de données qui sont retournées par la recherche changent en fonction des modifications apportées au catalogue. L’épinglage des ressources de données vous permet d’identifier de manière explicite certaines ressources de données afin de faciliter leur accès, sans avoir besoin d’utiliser une recherche.
 
 L’épinglage d’une ressource de données est simple. Pour ajouter une ressource de données à votre liste de ressources épinglées, il vous suffit de cliquer sur l’icône représentant une **épingle**. Cette icône s’affiche dans l’angle de la vignette de la ressource, dans l’affichage en mosaïque, ainsi que dans la colonne la plus à gauche de la liste, dans le portail Azure Data Catalog.
 
-![Icône permettant d’épingler une ressource de données](./media/data-catalog-how-to-save-pin/05-pinning.png)
+![Data Catalog - Icône permettant d’épingler une ressource de données](./media/data-catalog-how-to-save-pin/05-pinning.png)
 
 Le désépinglage d’une ressource de données est tout aussi simple. Il vous suffit de recliquer sur l’icône représentant une **épingle** pour désépingler la ressource.
 
-![Icône permettant de désépingler une ressource de données](./media/data-catalog-how-to-save-pin/06-unpinning.png)
+![Data Catalog - Icône permettant de désépingler une ressource de données](./media/data-catalog-how-to-save-pin/06-unpinning.png)
 
 ## <a name="the-my-assets-section"></a>Section Mes ressources
 La page d’accueil du portail Data Catalog comprend une section intitulée **Mes ressources** qui affiche les actifs d’intérêt pour l’utilisateur actuel. Cette section inclut à la fois les ressources épinglées et les recherches enregistrées.

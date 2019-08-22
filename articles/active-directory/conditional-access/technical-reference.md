@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 316c5b6b52c30b51fb2f177a0ae2bd9758fc91d9
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: 390c961eaa692e6ca5bf26e2954c0764207fc210
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68442476"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68853675"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Référence des paramètres d’accès conditionnel Azure Active Directory
 
@@ -116,19 +116,20 @@ Dans votre stratégie d’accès conditionnel, vous pouvez sélectionner **Navig
 
 Ce paramètre fonctionne avec tous les navigateurs. Toutefois, pour satisfaire à une stratégie d’appareil, telle qu’une exigence d’appareil conforme, les systèmes d’exploitation et navigateurs suivants sont pris en charge :
 
-| OS                     | Navigateurs                                      |
-| :--                    | :--                                           |
-| Windows 10             | Internet Explorer, Microsoft Edge, Chrome     |
-| Windows 8 / 8.1        | Internet Explorer, Chrome                     |
-| Windows 7              | Internet Explorer, Chrome                     |
-| iOS                    | Safari, Microsoft Edge, Intune Managed Browser |
-| Android                | Chrome, Microsoft Edge, Intune Managed Browser |
-| Windows Phone          | Internet Explorer, Microsoft Edge             |
-| Windows Server 2016    | Internet Explorer, Microsoft Edge             |
-| Windows Server 2016    | Chrome                                        |
-| Windows Server 2012 R2 | Internet Explorer, Chrome                     |
-| Windows Server 2008 R2 | Internet Explorer, Chrome                     |
-| macOS                  | Chrome, Safari                                |
+| OS                     | Navigateurs                                        |
+| :--                    | :--                                             |
+| Windows 10             | Microsoft Edge, Internet Explorer, Chrome       |
+| Windows 8 / 8.1        | Internet Explorer, Chrome                       |
+| Windows 7              | Internet Explorer, Chrome                       |
+| iOS                    | Microsoft Edge, Intune Managed Browser, Safari  |
+| Android                | Microsoft Edge, Intune Managed Browser, Chrome  |
+| Windows Phone          | Microsoft Edge, Internet Explorer               |
+| Windows Server 2019    | Microsoft Edge, Internet Explorer, Chrome       |
+| Windows Server 2016    | Microsoft Edge, Internet Explorer               |
+| Windows Server 2012 R2 | Internet Explorer                       |
+| Windows Server 2008 R2 | Internet Explorer                       |
+| macOS                  | Chrome, Safari                                  |
+
 
 #### <a name="why-do-i-see-a-certificate-prompt-in-the-browser"></a>Pourquoi une invite de saisie de certificat s’affiche-t-elle dans mon navigateur ?
 

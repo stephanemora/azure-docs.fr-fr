@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 07/18/2019
 ms.reviewer: olegan
 ms.author: mbullwin
-ms.openlocfilehash: b2670ec844df192bb73e8b1e76b1ebf611b2539e
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: ab573d1d9ca9d9db39135ea76e555bb0720d7b68
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68619380"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68878796"
 ---
 # <a name="supported-languages"></a>Langues prises en charge
 
@@ -57,4 +57,4 @@ ms.locfileid: "68619380"
 * [Stream Analytics](../../azure-monitor/app/export-power-bi.md)
 
 ## <a name="unsupported-sdks"></a>Kits de développement logiciel (SDK) non pris en charge
-Nous sommes conscients que plusieurs autres kits de développement logiciel (SDK) pris en charge par la communauté existent, et que nous avons même contribué à certains d’entre eux. Toutefois, Azure Monitor assure uniquement la prise en charge lors de l’utilisation des kits de développement logiciel pris en charge figurant sur cette page. Nous évaluons constamment les opportunités de développer notre prise en charge d’autres langues. Suivez notre page d’[annonces GitHub](https://github.com/microsoft/ApplicationInsights-Announcements/issues) pour recevoir les dernières informations concernant les kits de développement (SDK).
+Nous sommes conscients qu’il existe plusieurs autres SDK pris en charge par la communauté. Toutefois, Azure Monitor assure uniquement la prise en charge lors de l’utilisation des kits de développement logiciel pris en charge figurant sur cette page. Nous évaluons constamment les opportunités de développer notre prise en charge d’autres langues. Suivez notre page d’[annonces GitHub](https://github.com/microsoft/ApplicationInsights-Announcements/issues) pour recevoir les dernières informations concernant les kits de développement (SDK). 

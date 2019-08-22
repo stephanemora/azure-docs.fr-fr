@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 06/28/2019
 ms.author: rambala
 ms.openlocfilehash: 4984b30daf6170873cad9472bfed2d879af57efe
-ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "67466648"
 ---
 # <a name="designing-for-high-availability-with-expressroute"></a>Conception pour une haute disponibilité avec ExpressRoute
@@ -74,7 +74,7 @@ Dans cette section, nous allons passer en revue des fonctionnalités facultative
 
 ### <a name="availability-zone-aware-expressroute-virtual-network-gateways"></a>Passerelles de réseau virtuel ExpressRoute tenant compte de la zone de disponibilité
 
-Une zone de disponibilité dans une région Azure est une combinaison d’un domaine d’erreur et d’un domaine de mise à jour. Si vous optez pour le déploiement Azure IaaS redondant interzone, il se peut que vous vouliez configurer des passerelles de réseau virtuel redondantes interzone qui termine le peering privé ExpressRoute. Pour en apprendre plus, consultez [À propos des passerelles de réseau virtuel redondantes interzone dans les Zones de disponibilité Azure][zone redundant vgw]. To configure zone-redundant virtual network gateway, see [Create a zone-redundant virtual network gateway in Azure Availability Zones][conf zone redundant vgw].
+Une zone de disponibilité dans une région Azure est une combinaison d’un domaine d’erreur et d’un domaine de mise à jour. Si vous optez pour le déploiement Azure IaaS redondant interzone, il se peut que vous vouliez configurer des passerelles de réseau virtuel redondantes interzone qui termine le peering privé ExpressRoute. Pour en apprendre plus, consultez [À propos des passerelles de réseau virtuel redondantes interzone dans les zones de disponibilité Azure][zone redundant vgw]. Pour configurer une passerelle de réseau virtuel redondante interzone, consultez [Créer une passerelle de réseau virtuel redondante interzone dans les zones de disponibilité Azure][conf zone redundant vgw].
 
 ### <a name="improving-failure-detection-time"></a>Amélioration du temps de détection des défaillances
 

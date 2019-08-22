@@ -6,12 +6,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: 81e17e1e450e45e4c163ca8231a47deeb8b9ed2c
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 80adc98255cfc9145d583ac775bbc490d599234e
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68734688"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976828"
 ---
 # <a name="azure-data-catalog-developer-concepts"></a>Concepts de développeur Azure Data Catalog
 **Microsoft Azure Data Catalog** est un service cloud entièrement géré qui fournit des fonctionnalités de détection de source de données et de métadonnées de source de données de crowdsourcing. Les développeurs peuvent utiliser le service via son API REST. Il est important de comprendre les concepts du service pour l’intégrer efficacement à **Azure Data Catalog**.
@@ -19,7 +19,7 @@ ms.locfileid: "68734688"
 ## <a name="key-concepts"></a>Concepts clés
 Le modèle conceptuel **Azure Data Catalog** repose sur quatre concepts clés : Le **catalogue**, les **utilisateurs**, les **ressources** et les **annotations**.
 
-![concept][1]
+![Illustration du modèle conceptuel Azure Data Catalog](./media/data-catalog-developer-concepts/concept2.png)
 
 *Figure 1 : modèle conceptuel simplifié d’Azure Data Catalog*
 
@@ -286,7 +286,7 @@ Le principal de sécurité spécial &lt;Everyone&gt; a l’objectId « 00000000
 > 
 
 **Corps**
-
+```json
     {
         "roles": [
             {
@@ -299,9 +299,11 @@ Le principal de sécurité spécial &lt;Everyone&gt; a l’objectId « 00000000
             }
         ]
     }
+```
 
   **Attribuer les propriétaires et restreindre la visibilité d’un élément racine existant** : **PUT** https:\//api.azuredatacatalog.com/catalogs/default/views/tables/042297b0...1be45ecd462a?api-version=2016-03-30
 
+```json
     {
         "roles": [
             {
@@ -343,11 +345,8 @@ Le principal de sécurité spécial &lt;Everyone&gt; a l’objectId « 00000000
             }
         ]
     }
+```
 
 > [!NOTE]
 > Dans PUT, il n’est pas nécessaire de spécifier une charge utile d’élément dans le corps : PUT peut être utilisé pour mettre à jour uniquement les rôles et/ou les autorisations.
 > 
-> 
-
-<!--Image references-->
-[1]: ./media/data-catalog-developer-concepts/concept2.png

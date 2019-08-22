@@ -8,15 +8,15 @@ ms.service: batch
 ms.devlang: multiple
 ms.topic: article
 ms.workload: na
-ms.date: 11/19/2018
+ms.date: 08/09/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: edf4ce2be451672ecbd4f732c3110617dc122ca0
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: a7de2ba66ccfb5e3f3bce688e68698d90fe2eaf6
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68323587"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68941337"
 ---
 # <a name="run-container-applications-on-azure-batch"></a>Exécuter des applications de conteneur sur Azure Batch
 
@@ -228,7 +228,7 @@ CloudPool pool = batchClient.PoolOperations.CreatePool(
 
 Pour exécuter une tâche de conteneur sur un pool prenant en charge les conteneurs, spécifiez des paramètres propres aux conteneurs. Il s’agit notamment de l’image à utiliser, du registre et des options d’exécution des conteneurs.
 
-* Utilisez la propriété `ContainerSettings` des classes de tâches pour configurer les paramètres spécifiques au conteneur. Ces paramètres sont définis par la classe [TaskContainerSettings](/dotnet/api/microsoft.azure.batch.taskcontainersettings).
+* Utilisez la propriété `ContainerSettings` des classes de tâches pour configurer les paramètres spécifiques au conteneur. Ces paramètres sont définis par la classe [TaskContainerSettings](/dotnet/api/microsoft.azure.batch.taskcontainersettings). Notez que l’option de conteneur `--rm` ne nécessite pas d’option `--runtime` supplémentaire, car elle est prise en charge par Batch. 
 
 * Si vous exécutez des tâches sur des images conteneur, la [tâche de cloud](/dotnet/api/microsoft.azure.batch.cloudtask) et la [tâche du gestionnaire de travaux](/dotnet/api/microsoft.azure.batch.cloudjob.jobmanagertask) nécessitent des paramètres de conteneur. Toutefois, la [tâche de démarrage](/dotnet/api/microsoft.azure.batch.starttask), la [tâche de préparation du travail](/dotnet/api/microsoft.azure.batch.cloudjob.jobpreparationtask) et la [tâche de mise en production du travail](/dotnet/api/microsoft.azure.batch.cloudjob.jobreleasetask) ne nécessitent pas de paramètres de conteneur (autrement dit, elles peuvent s’exécuter dans un contexte de conteneur ou directement sur le nœud).
 

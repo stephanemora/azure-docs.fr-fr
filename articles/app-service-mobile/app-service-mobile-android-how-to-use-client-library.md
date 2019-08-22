@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 06/25/2019
 ms.author: emalani
 ms.openlocfilehash: 6a6db136926a7f9d631c717f5cab6c025d97fb48
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "67443542"
 ---
 # <a name="how-to-use-the-azure-mobile-apps-sdk-for-android"></a>Comment utiliser le Kit de développement logiciel (SDK) Azure Mobile Apps pour Android
@@ -33,7 +33,7 @@ Ce guide vous montre comment utiliser le Kit de développement logiciel (SDK) du
 * Gestion des erreurs.
 * Personnalisation du client.
 
-Ce guide est axé sur le kit de développement logiciel Android côté client.  Pour plus d’informations sur les kits SDK côté serveur pour Mobile Apps, consultez [Utiliser le kit SDK backend .NET][10] or [How to use the Node.js backend SDK][11].
+Ce guide est axé sur le kit de développement logiciel Android côté client.  Pour plus d’informations sur les kits SDK côté serveur pour Mobile Apps, consultez [Utiliser le kit SDK de back-end.NET pour Azure Mobile Apps][10] ou [Comment utiliser le kit SDK de back-end Node.js][11].
 
 ## <a name="reference-documentation"></a>Documentation de référence
 
@@ -201,7 +201,7 @@ public final void setPriority(Integer priority) {
 }
 ```
 
-Pour apprendre à créer des tables supplémentaires sur votre serveur principal Mobile Apps, consultez [Procédure : Définir un contrôleur de table][15] (.NET backend) or [Define Tables using a Dynamic Schema][16] (backend Node.js).
+Pour apprendre à créer des tables supplémentaires sur votre serveur principal Mobile Apps, consultez [Procédure : Définir un contrôleur de table][15] (back-end .NET) ou [Définir des tables à l’aide d’un schéma dynamique][16] (back-end Node.js).
 
 Une table de serveur principal Azure Mobile Apps définit cinq champs spéciaux, dont quatre sont disponibles pour les clients :
 
@@ -701,7 +701,7 @@ mJsonToDoTable = mClient.getTable("ToDoItem");
 Une fois que vous avez créé une instance de l’objet **MobileServiceJsonTable**, celui-ci a pratiquement la même API disponible qu’avec le modèle de programmation typé. Dans certains cas, les méthodes utilisent un paramètre non typé au lieu d’un paramètre typé.
 
 ### <a name="json_insert"></a>Insérer une table non typée
-Le code suivant vous explique comment effectuer une insertion. La première étape consiste à créer une bibliothèque [JsonObject][1], which is part of the [gson][3].
+Le code suivant vous explique comment effectuer une insertion. La première étape consiste à créer un objet [JsonObject][1], qui fait partie de la bibliothèque [gson][3].
 
 ```java
 JsonObject jsonItem = new JsonObject();

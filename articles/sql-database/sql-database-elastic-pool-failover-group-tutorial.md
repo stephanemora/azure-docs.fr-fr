@@ -11,12 +11,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein, carlrab
 ms.date: 06/19/2019
-ms.openlocfilehash: 0507b3cb64b4b12bac92cc6bc90120ab4ec56dee
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 5dd241fed757669cf8bccd96a1de948e8d73a021
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568743"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69033255"
 ---
 # <a name="tutorial-add-an-azure-sql-database-elastic-pool-to-a-failover-group"></a>Didacticiel : Ajouter un pool élastique Azure SQL Database à un groupe de basculement
 
@@ -76,11 +76,11 @@ Lors de cette étape, vous allez créer un [groupe de basculement](sql-database-
 1. Sélectionnez **Serveurs SQL** et choisissez le serveur créé dans la section 1.
 1. Sélectionnez **Groupes de basculement** dans le volet **Paramètres**, puis sélectionnez **Ajouter un groupe** pour créer un groupe de basculement. 
 
-    ![Ajouter un nouveau groupe de basculement](media/sql-database-elastic-pool-create-failover-group-tutorial/add-elastic-pool-to-failover-group.png)
+    ![Ajouter un nouveau groupe de basculement](media/sql-database-single-database-create-failover-group-tutorial/sqldb-add-new-failover-group.png)
 
 1. Dans la page **Groupe de basculement**, entrez ou sélectionnez les valeurs suivantes, puis sélectionnez **Créer** :
     - **Nom du groupe de basculement** : Tapez un nom de groupe de basculement unique, par exemple `failovergrouptutorial`. 
-    - **Serveur secondaire** : Sélectionnez l’option permettant de *configurer les paramètres requis*, puis choisissez de **Créer un serveur**. Vous pouvez également choisir un serveur existant en tant que serveur secondaire. Après avoir entré les valeurs suivantes, sélectionnez **Sélectionner**. 
+    - **Serveur secondaire** : Sélectionnez l’option permettant de *configurer les paramètres requis*, puis choisissez de **Créer un serveur**. Vous pouvez également choisir un serveur existant en tant que serveur secondaire. Après avoir entré les valeurs suivantes pour votre nouveau serveur secondaire, sélectionnez **Sélectionner**. 
         - **Nom du serveur** : Tapez un nom unique pour le serveur secondaire, par exemple `mysqlsecondary`. 
         - **Connexion administrateur au serveur** : Tapez `azureuser`.
         - **Mot de passe** : tapez un mot de passe complexe qui répond aux exigences de mot de passe.
@@ -91,9 +91,9 @@ Lors de cette étape, vous allez créer un [groupe de basculement](sql-database-
     
        ![Créer un serveur secondaire pour le groupe de basculement](media/sql-database-single-database-create-failover-group-tutorial/create-secondary-failover-server.png)
 
-1. Une fois qu’un serveur secondaire est sélectionné, l’option **Bases de données dans le groupe** est déverrouillée. Sélectionnez-la pour **Sélectionner les bases de données à ajouter**, puis sélectionnez le pool élastique créé dans la section 2. Un avertissement doit s’afficher, vous invitant à créer un pool élastique sur le serveur secondaire. Sélectionnez l’avertissement, puis cliquez sur **OK** pour créer le pool élastique sur le serveur secondaire. 
+1. Sélectionnez **Bases de données au sein du groupe**, puis sélectionnez le pool élastique créé dans la section 2. Un avertissement doit s’afficher, vous invitant à créer un pool élastique sur le serveur secondaire. Sélectionnez l’avertissement, puis cliquez sur **OK** pour créer le pool élastique sur le serveur secondaire. 
         
-    ![Ajouter la base de données SQL au groupe de basculement](media/sql-database-single-database-create-failover-group-tutorial/add-sqldb-to-failover-group.png)
+    ![Ajouter un pool élastique à un groupe de basculement](media/sql-database-elastic-pool-create-failover-group-tutorial/add-elastic-pool-to-failover-group.png)
         
 1. Sélectionnez **Sélectionner** pour appliquer les paramètres de votre pool élastique au groupe de basculement, puis sélectionnez **Créer** pour créer votre groupe de basculement. L’ajout du pool élastique au groupe de basculement démarre automatiquement le processus de géoréplication. 
 

@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 07/25/2019
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: 150c41dce06c81f2e9e07605ab6d5afa9e424453
-ms.sourcegitcommit: 5604661655840c428045eb837fb8704dca811da0
+ms.openlocfilehash: a836e4cf66bf1e957f7b3779e21ec6a0296f7abe
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68494488"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881438"
 ---
 # <a name="multi-step-web-tests"></a>Tests web à plusieurs étapes
 
@@ -136,7 +136,18 @@ Dans tous les cas, vous devez créer un compte dans votre application uniquement
 
 **Nom d’utilisateur et mot de passe simples** Enregistrez un test web comme à l’accoutumée. Supprimez d’abord les cookies
 
-**Authentification SAML** Utilisez le plug-in SAML qui est disponible pour les tests web. Accédez au plug-in avec ...
+**Authentification SAML**
+
+|Nom de la propriété| Description|
+|----|-----|
+| URI d’audience | URI d’audience pour le jeton SAML.  Il s’agit de l’URI du service Access Control Service (ACS), laquelle inclut l’espace de noms et le nom d’hôte ACS. |
+| Mot de passe du certificat | Mot de passe du certificat client qui accorde l’accès à la clé privée incorporée. |
+| Certificat client  | Valeur du certificat client avec la clé privée au format d’encodage Base64. |
+| Identificateur de nom | Identificateur de nom du jeton. |
+| Pas après | Intervalle de temps pendant lequel le jeton sera valide.  La valeur par défaut est 5 minutes. |
+| Pas avant | Intervalle de temps pendant lequel un jeton créé dans le passé sera valide (pour traiter les décalages de temps).  La valeur par défaut est 5 minutes (négative). |
+| Nom du paramètre de contexte cible | Paramètre de contexte qui recevra l’assertion générée. |
+
 
 **Clé secrète client** Si votre application présente un mode de connexion impliquant une clé secrète client, utilisez ce mode. Azure Active Directory (AAD) est un exemple de service fournissant une connexion avec clé secrète client. Dans AAD, la clé secrète client est la clé d’application.
 

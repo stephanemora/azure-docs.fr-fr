@@ -11,18 +11,18 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/05/2019
+ms.date: 08/07/2019
 ms.author: magoedte
-ms.openlocfilehash: d2fadf6d0bf9b7422b6dbf7597a024d22b5d733f
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 1c2416d9fb1d45116bb6594b29863c1fe8f524a3
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68839325"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68883205"
 ---
 # <a name="designing-your-azure-monitor-logs-deployment"></a>Conception de votre déploiement de journaux Azure Monitor
 
-Azure Monitor stocke des données de [journal](data-platform-logs.md) dans un espace de travail Log Analytics, qui est une ressource Azure et un conteneur où les données sont collectées, agrégées, et qui sert de limite d’administration. Bien que vous puissiez déployer un ou plusieurs espaces de travail dans votre abonnement Azure, vous devez prendre en considération plusieurs éléments pour vous assurer que votre déploiement initial est conforme à nos recommandations pour vous fournir une solution économique, gérable et scalable qui répond aux besoins de votre organisation.
+Azure Monitor stocke des données de [journal](data-platform-logs.md) dans un espace de travail Log Analytics, qui est une ressource Azure et un conteneur où les données sont collectées, agrégées, et qui sert de limite d’administration. Bien que vous puissiez déployer un ou plusieurs espaces de travail dans votre abonnement Azure, vous devez prendre en considération plusieurs éléments pour vous assurer que votre déploiement initial est conforme à nos recommandations pour vous fournir une solution économique, gérable et évolutive qui répond aux besoins de votre organisation.
 
 Les données d’un espace de travail sont organisées en tables, chacune d’entre-elles stockant différents genres de données et possédant son propre ensemble de propriétés, basé sur la ressource qui génère les données. La plupart des sources de données écrivent dans leurs propres tables dans un espace de travail Log Analytics.
 
@@ -32,7 +32,7 @@ Un espace de travail Log Analytics offre :
 
 * Un emplacement géographique pour le stockage des données.
 * L’isolation des données en accordant à différents utilisateurs des droits d’accès suivant l’une de nos stratégies de conception recommandées.
-* Une étendue pour la configuration des paramètres, comme le [niveau tarifaire](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#changing-pricing-tier), la [conservation](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period) et la [limitation des données](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#daily-cap).
+* Une étendue pour la configuration des paramètres, comme le [niveau tarifaire](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#changing-pricing-tier), la [rétention](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period) et la [limitation des données](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#daily-cap).
 
 Cet article fournit une présentation détaillée des considérations relatives à la conception et à la migration, une présentation du contrôle d’accès ainsi que des implémentations de conception recommandées pour votre service informatique.
 
@@ -63,7 +63,7 @@ Si vous utilisez System Center Operations Manager 2012 R2 ou version ultérieure
 
 ## <a name="access-control-overview"></a>Présentation du contrôle d’accès
 
-Avec le contrôle d’accès en fonction du rôle (RBAC), vous pouvez accorder aux utilisateurs et aux groupes uniquement le type d’accès dont ils ont besoin pour travailler avec les données de surveillance dans un espace de travail. Vous pouvez ainsi vous aligner sur le modèle d’exploitation de votre service informatique en utilisant un espace de travail unique pour stocker les données collectées activées sur toutes vos ressources. Par exemple, vous accordez l’accès à votre équipe responsable des services d’infrastructure hébergés sur des machines virtuelles Azure et par conséquent, les membres de l’équipe ont accès uniquement aux journaux générés par les machines virtuelles. Le nouveau modèle de journal Contexte de ressource est le suivant. La base de ce modèle est que chaque enregistrement de journal émis par une ressource Azure est automatiquement associé à cette ressource. Les journaux sont transférés vers un espace de travail central qui respecte la portée et le contrôle d’accès en fonction du rôle, en fonction des ressources.
+Avec le contrôle d’accès en fonction du rôle (RBAC), vous pouvez accorder aux utilisateurs et aux groupes uniquement le type d’accès dont ils ont besoin pour travailler avec les données de surveillance dans un espace de travail. Vous pouvez ainsi vous aligner sur le modèle d’exploitation de votre service informatique en utilisant un espace de travail unique pour stocker les données collectées activées sur toutes vos ressources. Par exemple, vous accordez l’accès à votre équipe responsable des services d’infrastructure hébergés sur des machines virtuelles Azure et par conséquent, les membres de l’équipe ont accès uniquement aux journaux générés par les machines virtuelles. Le nouveau modèle de journal Contexte de ressource est le suivant. La base de ce modèle est, pour chaque enregistrement de journal émis par une ressource Azure, qu’il est automatiquement associé à cette ressource. Les journaux sont transférés vers un espace de travail central qui respecte la portée et le contrôle d’accès en fonction du rôle, en fonction des ressources.
 
 Les données auxquelles un utilisateur a accès sont déterminées par plusieurs facteurs, listés dans le tableau suivant. Chacun est décrit dans les sections ci-dessous.
 
@@ -84,7 +84,7 @@ Les utilisateurs disposent de deux options pour accéder aux données :
 
     ![Contexte Log Analytics de l’espace de travail](./media/design-logs-deployment/query-from-workspace.png)
 
-* **Contexte de ressource** : quand vous accédez à l’espace de travail pour une ressource, un groupe de ressources ou un abonnement spécifique, par exemple, quand vous sélectionnez **Journaux** à partir d’un menu de ressources dans le portail Azure, vous pouvez voir les journaux pour seulement cette ressource dans toutes les tables auxquelles vous avez accès. Dans ce mode, l’étendue des requêtes englobe uniquement les données associées à cette ressource. Ce mode autorise également le contrôle d’accès en fonction du rôle (RBAC) granulaire.
+* **Contexte de ressource** : lorsque vous accédez à l’espace de travail pour une ressource, un groupe de ressources ou un abonnement spécifique, par exemple, lorsque vous sélectionnez **Journaux** à partir d’un menu de ressources dans le portail Azure, vous pouvez voir les journaux pour les ressources dans toutes les tables auxquelles vous avez accès uniquement. Dans ce mode, l’étendue des requêtes englobe uniquement les données associées à cette ressource. Ce mode autorise également le contrôle d’accès en fonction du rôle (RBAC) granulaire.
 
     ![Contexte Log Analytics de la ressource](./media/design-logs-deployment/query-from-resource.png)
 
@@ -111,7 +111,7 @@ Le tableau suivant récapitule les modes d’accès :
 
 ## <a name="access-control-mode"></a>Mode de contrôle d’accès
 
-Le *mode de contrôle d’accès* est un paramètre sur chaque espace de travail qui définit comment les autorisations sont déterminées pour l’espace de travail concerné.
+Le *mode de contrôle d’accès* est un paramètre sur chaque espace de travail qui définit comment les autorisations sont déterminées pour l’espace de travail.
 
 * **Exiger des autorisations d’espace de travail** : ce mode de contrôle n’autorise pas un contrôle RBAC précis. Pour qu’un utilisateur puisse accéder à l’espace de travail, il doit avoir des autorisations sur l’espace de travail ou sur des tables spécifiques.
 
@@ -127,6 +127,8 @@ Le *mode de contrôle d’accès* est un paramètre sur chaque espace de travail
 
     > [!NOTE]
     > Si un utilisateur dispose uniquement des autorisations de ressource sur l’espace de travail, il peut uniquement accéder à l’espace de travail à l’aide du contexte de ressource, en supposant que le mode d’accès à l’espace de travail est défini sur **Utiliser les autorisations de ressource ou d’espace de travail**.
+
+Pour savoir comment modifier le mode de contrôle d’accès dans le portail, avec PowerShell ou à l’aide d’un modèle Resource Manager, consultez [Définir le mode de contrôle d’accès](manage-access.md#define-access-control-mode).
 
 ## <a name="recommendations"></a>Recommandations
 

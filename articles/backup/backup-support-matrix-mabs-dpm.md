@@ -7,12 +7,12 @@ ms.date: 02/17/2019
 ms.topic: conceptual
 ms.author: dacurwin
 manager: carmonm
-ms.openlocfilehash: c4d01c3c72669f7fbfd5b2d8df0678cc0675ccde
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 7f890ddf7aff63189a720f3d604b00610af7a933
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639561"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68949846"
 ---
 # <a name="support-matrix-for-backup-with-microsoft-azure-backup-server-or-system-center-dpm"></a>Tableau de prise en charge pour la sauvegarde avec un serveur de sauvegarde Microsoft Azure ou System Center DPM
 
@@ -55,7 +55,7 @@ Pour plus d'informations :
 **Scénario** | **Agent** | **Lieu**
 --- | --- | ---
 **Sauvegarde de machines/charges de travail locales** | L'agent de protection DPM/MABS s'exécute sur les machines que vous souhaitez sauvegarder.<br/><br/> Agent MARS sur le serveur DPM/MABS.<br/> La version minimale de l’agent Microsoft Azure Recovery Services ou un agent Azure Backup, requise pour activer cette fonctionnalité est 2.0.8719.0.  | DPM/MABS doit s'exécuter localement.
-**Sauvegarde de machines virtuelles/charges de travail Azure** | Agent de protection DPM/MABS sur une machine protégée.<br/><br/> Agent MARS sur le serveur DPM/MABS. | MABS/DPM doit s’exécuter sur une machine virtuelle Azure.
+
 
 ## <a name="supported-deployments"></a>Déploiements pris en charge
 
@@ -166,9 +166,9 @@ Le tableau suivant récapitule ce que vous pouvez sauvegarder sur MABS à partir
 **Windows Server 2012 R2 (Datacenter et Standard)**<br/><br/> 64/32 bits | MABS v3, v2 | Local/machine virtuelle Azure. | **Protection locale** : Volume/partage/dossier/fichier, état système/sauvegarde complète.<br/><br/> **Protection des machines virtuelles Azure** : Volume/partage/dossier/fichier.<br/><br/> Volumes dédupliqués pris en charge. |
 **Windows Server 2012 avec SP1 (Datacenter et Standard)**<br/><br/> 64/32 bits | MABS v3, v2 <br/><br/> [Windows Management Framework 4.0](https://www.microsoft.com/download/details.aspx?id=40855) doit être installé. | Local/machine virtuelle Azure. | **Protection locale** : Volume/partage/dossier/fichier, état système/sauvegarde complète.<br/><br/> **Protection des machines virtuelles Azure** : Volume/partage/dossier/fichier.<br/><br/> Volumes dédupliqués pris en charge. |
 **Windows 2008 R2 avec SP1 (Standard et Enterprise)**<br/><br/> 64/32 bits | Pris en charge par MABS v3, v2.<br/><br/> [Windows Management Framework 4.0](https://www.microsoft.com/download/details.aspx?id=40855) doit être installé. | Local/machine virtuelle Azure. |   **Protection locale** : Volume/partage/dossier/fichier, état système/sauvegarde complète.<br/><br/> **Protection des machines virtuelles Azure** : Volume/partage/dossier/fichier.<br/><br/> Volumes dédupliqués pris en charge. |
-**Windows 2008 R2 (Standard et Enterprise)**<br/><br/> 64/32 bits | Pour MABS v2/v3, le système d’exploitation doit exécuter le SP1. | Local/machine virtuelle Azure. | **Protection locale** : Volume/partage/dossier/fichier, état système/sauvegarde complète.<br/><br/> **Protection des machines virtuelles Azure** : Volume/partage/dossier/fichier.<br/><br/> Volumes dédupliqués pris en charge. |
-**Windows Server 2008 avec SP2**<br/><br/> 64/32 bits | MABS v2, v3 | MABS v2, v3 est pris en charge lorsque MABS est déployé comme machine virtuelle VMware.<br/><br/> Non pris en charge si MABS s’exécute sur une machine virtuelle Azure. | Volume/partage/dossier/fichier, état système/sauvegarde complète. |
-**Windows Storage Server 2008** | MABS v2, v3 | MABS comme serveur physique local/machine virtuelle Hyper-V. <br/><br/> Non pris en charge si MABS s’exécute sur une machine virtuelle Azure. | Volume/partage/dossier/fichier, état système/sauvegarde complète.
+**Windows 2008 R2 (Standard et Enterprise)**<br/><br/> 64/32 bits | Pour MABS v3, v2, le système d’exploitation doit exécuter SP1. | Local/machine virtuelle Azure. | **Protection locale** : Volume/partage/dossier/fichier, état système/sauvegarde complète.<br/><br/> **Protection des machines virtuelles Azure** : Volume/partage/dossier/fichier.<br/><br/> Volumes dédupliqués pris en charge. |
+**Windows Server 2008 avec SP2**<br/><br/> 64/32 bits | MABS v3, v2 | MABS v2, v3 est pris en charge quand MABS est déployé comme machine virtuelle VMware.<br/><br/> Non pris en charge si MABS s’exécute sur une machine virtuelle Azure. | Volume/partage/dossier/fichier, état système/sauvegarde complète. |
+**Windows Storage Server 2008** | MABS v3, v2 | MABS comme serveur physique local/machine virtuelle Hyper-V. <br/><br/> Non pris en charge si MABS s’exécute sur une machine virtuelle Azure. | Volume/partage/dossier/fichier, état système/sauvegarde complète.
 **SQL Server 2017** | MABS v3 | Local/machine virtuelle Azure.| Sauvegarder une base de données SQL Server.<br/><br/> Sauvegarde de cluster SQL Server prise en charge.<br/><br/>Bases de données stockées sur des CVS non prises en charge. |
 **SQL Server 2016/2016 avec SP1** | MABS v3, v2 | Local/machine virtuelle Azure.| Sauvegarder une base de données SQL Server.<br/><br/> Sauvegarde de cluster SQL Server prise en charge.<br/><br/>Bases de données stockées sur des CVS non prises en charge. |
 **SQL Server 2014**<br/><br/> **SQL Server 2012/SP1/SP2**<br/><br/> **SQL Server 2008 R2**<br/><br/> **SQL Server 2008** | MABS v3, v2 | Local/machine virtuelle Azure.| Sauvegarder une base de données SQL Server.<br/><br/> Sauvegarde de cluster SQL Server prise en charge.<br/><br/>Bases de données stockées sur des CVS non prises en charge. |
@@ -195,7 +195,7 @@ Le tableau suivant récapitule ce que vous pouvez sauvegarder sur DPM à partir 
 **Windows 2008 R2 (Standard et Enterprise)**<br/><br/> 64/32 bits | Local.<br/><br/> DPM ne peut pas être installé comme machine virtuelle VMware.<br/><br/> DPM s’exécutant sur une machine virtuelle Azure n’est pas pris en charge. | **Protection locale** : Volume/partage/dossier/fichier, état système/sauvegarde complète.
 **Windows Server 2008 avec SP2**<br/><br/> 64/32 bits | Local uniquement.<br/><br/> DPM est pris en charge quand il s’exécute comme machine virtuelle VMware. L’exécution comme serveur physique ou machine virtuelle Hyper-V n’est pas prise en charge. | Volume/partage/dossier/fichier, état système/sauvegarde complète.
 **Windows Storage Server 2008** | DPM en local exécuté comme serveur physique ou machine virtuelle Hyper-V. | Volume/partage/dossier/fichier, état système/sauvegarde complète.
-**SQL Server 2017** | DPM SAC ; DPM 2016 exécutant le correctif cumulatif 5 ou ultérieur.<br/><br/> Local/machine virtuelle Azure.| Sauvegarder une base de données SQL Server.<br/><br/> Sauvegarde de cluster SQL Server prise en charge.<br/><br/>Bases de données stockées sur des CVS non prises en charge.
+**SQL Server 2017** | DPM SAC ; DPM 2016 exécutant le correctif cumulatif 5 ou version ultérieure.<br/><br/> Local/machine virtuelle Azure.| Sauvegarder une base de données SQL Server.<br/><br/> Sauvegarde de cluster SQL Server prise en charge.<br/><br/>Bases de données stockées sur des CVS non prises en charge.
 **SQL Server 2016 avec SP1** | Non pris en charge pour DPM 2012 R2 ; pris en charge pour DPM SAC, DPM 2016 exécutant le correctif cumulatif 4 ou ultérieur.<br/><br/> Local/machine virtuelle Azure.| Sauvegarder une base de données SQL Server.<br/><br/> Sauvegarde de cluster SQL Server prise en charge.<br/><br/>Bases de données stockées sur des CVS non prises en charge.
 **SQL Server 2016** | Non pris en charge pour DPM 2012 R2. Pris en charge pour DPM SAC, DPM 2016 à partir du correctif cumulatif 2.<br/><br/> Local/machine virtuelle Azure.| Sauvegarder une base de données SQL Server.<br/><br/> Sauvegarde de cluster SQL Server prise en charge.<br/><br/>Bases de données stockées sur des CVS non prises en charge.
 **SQL Server 2014**<br/><br/> **SQL Server 2012/SP1/SP2**<br/><br/> **SQL Server 2008 R2**<br/><br/> **SQL Server 2008** | SQL Server 2014 avec DPM 2012 R2 exécutant le correctif cumulatif 4 ou ultérieur.<br/><br/> Local/machine virtuelle Azure.| Sauvegarder une base de données SQL Server.<br/><br/> Sauvegarde de cluster SQL Server prise en charge.<br/><br/>Bases de données stockées sur des CVS non prises en charge.

@@ -10,18 +10,19 @@ ms.author: robreed
 ms.date: 08/21/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 64588829cec964e52dcb44465869e0090f36f9f1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e153186a3917be3aa94cb663dec58bc3db46aae9
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61303964"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68850411"
 ---
 # <a name="composing-dsc-configurations-in-azure-automation-state-configuration-dsc-using-composite-resources"></a>Composer des configurations DSC dans Azure Automation State Configuration (DSC) au moyen de ressources composites
 
 Lorsqu’une ressource doit être gérée avec plusieurs configurations DSC, la meilleure solution consiste à utiliser des [ressources composites](/powershell/dsc/authoringresourcecomposite). Une ressource composite est une configuration de paramètres imbriqués utilisée comme ressource DSC au sein d’une autre configuration. Cela permet la création de configurations complexes tout en autorisant la création de ressources composites sous-jacentes (configurations paramétrables) et leur gestion à titre individuel.
 
-Azure Automation permet [d’importer et de compiler des ressources composites](automation-dsc-compile.md#composite-resources). Une fois les ressources composites importées dans votre compte Automation, vous pouvez utiliser l’expérience **Composer la configuration** sur la page **State Configuration (DSC)** .
+Azure Automation permet [d’importer et de compiler des ressources composites](automation-dsc-compile.md#compiling-configurations-in-azure-automation-that-contain-composite-resources).
+Une fois les ressources composites importées dans votre compte Automation, vous pouvez utiliser l’expérience **Composer la configuration** sur la page **State Configuration (DSC)** .
 
 ## <a name="composing-a-configuration-from-composite-resources"></a>Composer une configuration à partir de ressources composites
 

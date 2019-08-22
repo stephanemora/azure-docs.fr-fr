@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/01/2019
+ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: 0cad0895b63e8c201183284e9d754a482669c48d
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.openlocfilehash: 0efb884de9deaa2784e160785c26d78179da6567
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67312021"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68966886"
 ---
 # <a name="copy-data-from-postgresql-by-using-azure-data-factory"></a>Copier des données de PostgreSQL à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -34,7 +34,7 @@ Plus précisément, ce connecteur PostgreSQL prend en charge PostgreSQL **versio
 
 ## <a name="prerequisites"></a>Prérequis
 
-Si votre base de données PostgreSQL n’est pas accessible publiquement, vous devez configurer un runtime d’intégration auto-hébergé. Pour en savoir plus sur les runtimes d’intégration auto-hébergés, voir l’article [Runtime d’intégration auto-hébergé](create-self-hosted-integration-runtime.md). Le runtime d’intégration fournit un pilote PostgreSQL intégré à partir de la version 3.7. Ainsi, vous n’avez pas besoin d’installer manuellement un pilote.
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
 Pour une version du runtime d’intégration auto-hébergé antérieure à 3.7, vous devez installer le [fournisseur de données Ngpsql pour PostgreSQL](https://go.microsoft.com/fwlink/?linkid=282716) avec une version comprise entre 2.0.12 et 3.1.9 sur l’ordinateur exécutant le runtime d’intégration.
 
@@ -52,7 +52,7 @@ Les propriétés prises en charge pour le service lié PostgreSQL sont les suiva
 |:--- |:--- |:--- |
 | type | La propriété type doit être définie sur : **PostgreSql** | OUI |
 | connectionString | Chaîne de connexion ODBC permettant de se connecter à Azure Database pour PostgreSQL. <br/>Marquez ce champ comme SecureString pour le stocker de façon sécurisée dans Data Factory. Vous pouvez également définir un mot de passe dans Azure Key Vault et extraire la configuration `password` de la chaîne de connexion. Pour plus d’informations, reportez-vous aux exemples suivants et à l’article [Stocker des informations d’identification dans Azure Key Vault](store-credentials-in-key-vault.md). | OUI |
-| connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Vous pouvez utiliser un runtime d’intégration auto-hébergé ou un runtime d’intégration Azure (si votre banque de données est accessible publiquement). À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. |Non |
+| connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Pour plus d’informations, consultez la section [Prérequis](#prerequisites). À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. |Non |
 
 Une chaîne de connexion par défaut typique est `Server=<server>;Database=<database>;Port=<port>;UID=<username>;Password=<Password>`. Plus de propriétés que vous pouvez définir pour votre cas :
 
@@ -145,7 +145,7 @@ Pour copier des données de PostgreSQL, affectez la valeur **RelationalTable** �
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type du jeu de données doit être définie sur : **RelationalTable** | OUI |
+| type | La propriété type du jeu de données doit être définie sur : **RelationalTable** | OUI |
 | tableName | Nom de la table dans la base de données PostgreSQL. | Non (si « query » dans la source de l’activité est spécifié) |
 
 **Exemple**
@@ -175,7 +175,7 @@ Pour copier des données de PostgreSQL, définissez **RelationalSource** comme t
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type de la source d’activité de copie doit être définie sur : **RelationalSource** | OUI |
+| type | La propriété type de la source d’activité de copie doit être définie sur : **RelationalSource** | OUI |
 | query | Utiliser la requête SQL personnalisée pour lire les données. Par exemple : `"query": "SELECT * FROM \"MySchema\".\"MyTable\""`. | Non (si « tableName » est spécifié dans dataset) |
 
 > [!NOTE]

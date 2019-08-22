@@ -7,12 +7,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 04/10/2019
 ms.author: jureid
-ms.openlocfilehash: 701b35d99cb98009ec0116c23eaeab94ff967f51
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: d6ae863aed629f5f5b1497d5a6e0f8108f4703c8
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68678931"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68848716"
 ---
 # <a name="programmatically-create-azure-enterprise-subscriptions-preview"></a>Créer des abonnements Azure Enterprise par programmation (préversion)
 
@@ -69,7 +69,7 @@ Azure retourne la liste de tous les comptes d’inscription auxquels vous avez a
 }
 ```
 
-Utilisez la propriété `principalName` pour identifier le compte auquel vous souhaitez que soient facturés les abonnements. Copiez l’élément `name` de ce compte. Par exemple, si vous souhaitez créer des abonnements dans le compte d’inscription SignUpEngineering@contoso.com, vous allez copier ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```. Il s’agit de l’ID d’objet du compte d’inscription. Collez cette valeur quelque part, de façon à pouvoir l’utiliser à l’étape suivante en tant que `enrollmentAccountObjectId`.
+Utilisez la propriété `principalName` pour identifier le compte auquel vous souhaitez que soient facturés les abonnements. Copiez l’élément `name` de ce compte. Par exemple, si vous souhaitez créer des abonnements dans le compte d’inscription SignUpEngineering@contoso.com, vous allez copier ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```. Cet identificateur est l’ID d’objet du compte d’inscription. Collez cette valeur quelque part, de façon à pouvoir l’utiliser à l’étape suivante en tant que `enrollmentAccountObjectId`.
 
 ## <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -117,7 +117,7 @@ Azure renvoie la liste de tous les comptes d’inscription auxquels vous avez ac
 ]
 ```
 
-Utilisez la propriété `principalName` pour identifier le compte auquel vous souhaitez que soient facturés les abonnements. Copiez l’élément `name` de ce compte. Par exemple, si vous souhaitez créer des abonnements dans le compte d’inscription SignUpEngineering@contoso.com, vous allez copier ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```. Il s’agit de l’ID d’objet du compte d’inscription. Collez cette valeur quelque part, de façon à pouvoir l’utiliser à l’étape suivante en tant que `enrollmentAccountObjectId`.
+Utilisez la propriété `principalName` pour identifier le compte auquel vous souhaitez que soient facturés les abonnements. Copiez l’élément `name` de ce compte. Par exemple, si vous souhaitez créer des abonnements dans le compte d’inscription SignUpEngineering@contoso.com, vous allez copier ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```. Cet identificateur est l’ID d’objet du compte d’inscription. Collez cette valeur quelque part, de façon à pouvoir l’utiliser à l’étape suivante en tant que `enrollmentAccountObjectId`.
 
 ---
 
@@ -201,7 +201,7 @@ Pour obtenir la liste complète de tous les paramètres, consultez [az account c
 ## <a name="limitations-of-azure-enterprise-subscription-creation-api"></a>Limitations de l’API de création d’abonnement Azure Enterprise
 
 - Seuls des abonnements Azure Enterprise peuvent être créés à l’aide de cette API.
-- Il existe une limite de 200 abonnements par compte d’inscription. Au-delà, les abonnements ne peuvent être créés qu’à l’aide du Centre des comptes. Si vous souhaitez créer des abonnements supplémentaires via l’API, créez un autre compte d’inscription.
+- Il existe une limite de 200 abonnements par compte d’inscription. Au-delà, les abonnements supplémentaires pour le compte ne peuvent être créés qu’à l’aide du Centre des comptes. Si vous souhaitez créer des abonnements supplémentaires via l’API, créez un autre compte d’inscription.
 - Les utilisateurs qui ne sont pas propriétaires de compte, mais qui ont été ajoutés à un compte d’inscription par le biais de RBAC, ne peuvent pas créer d’abonnements à l’aide du Centre des comptes.
 - Vous ne pouvez pas sélectionner le locataire où l’abonnement doit être créé. L’abonnement est toujours créé dans le locataire de base du propriétaire du compte. Pour déplacer l’abonnement vers un autre locataire, consultez [Changer le locataire d’abonnement](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 

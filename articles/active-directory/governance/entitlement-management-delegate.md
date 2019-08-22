@@ -16,12 +16,12 @@ ms.date: 07/10/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e4e21fdef5be09148f001ab6f66f87dd270ccf54
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: 4430e2115e4282ba7bb618184139a845547a06ed
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68618263"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967095"
 ---
 # <a name="delegate-tasks-in-azure-ad-entitlement-management-preview"></a>Déléguer des tâches dans la gestion des droits d’utilisation Azure AD (préversion)
 
@@ -86,7 +86,7 @@ Le tableau suivant répertorie les tâches réalisables par ces rôles.
 | [Ajouter un propriétaire de catalogue ou un gestionnaire de package d’accès à un catalogue](#add-a-catalog-owner-or-an-access-package-manager) |  | :heavy_check_mark: |  |  |
 | [Créer un package d’accès dans un catalogue](entitlement-management-access-package-create.md) |  | :heavy_check_mark:  | :heavy_check_mark:  |  |
 | [Gérer des rôles de ressources dans un package d’accès](entitlement-management-access-package-edit.md) |  | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Définir qui peut demander un package d’accès](entitlement-management-access-package-edit.md#add-a-new-policy) |  | :heavy_check_mark: | :heavy_check_mark: |  |
+| [Créer et modifier des stratégies](entitlement-management-access-package-edit.md#add-a-new-policy) |  | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Affecter directement un utilisateur à un package d’accès](entitlement-management-access-package-edit.md#directly-assign-a-user) |  | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Afficher qui a une affectation à un package d’accès](entitlement-management-access-package-edit.md#view-who-has-an-assignment) |  | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Afficher les requêtes d’un package d’accès](entitlement-management-access-package-edit.md#view-requests) |  | :heavy_check_mark: | :heavy_check_mark: |  |

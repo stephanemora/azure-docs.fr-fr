@@ -8,16 +8,16 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: robinsh
-ms.openlocfilehash: 8e24489ad2909879b035a08316e66788034e99bc
-ms.sourcegitcommit: b49431b29a53efaa5b82f9be0f8a714f668c38ab
+ms.openlocfilehash: 5ef1749217dd8980892d7bf933cbe1412929fbbd
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68377200"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976994"
 ---
 # <a name="message-enrichments-for-device-to-cloud-iot-hub-messages-preview"></a>Enrichissements de messages pour les messages IoT Hub-appareil-à-cloud (préversion)
 
-Les *enrichissements de messages* sont la capacité du IoT Hub à *horodater* des messages avec des informations supplémentaires avant que les messages ne soient envoyés au point de terminaison désigné. Vous pouvez utiliser les enrichissements de messages pour inclure des données pouvant servir à simplifier le traitement en aval. Par exemple, enrichir des messages de télémétrie d’appareil avec une balise de jumeau d’appareil peut réduire la charge de clients en leur évitant d’effectuer des appels d’API doubles pour cette information.
+Les *enrichissements de messages* sont la capacité du IoT Hub à *horodater* des messages avec des informations supplémentaires avant que les messages ne soient envoyés au point de terminaison désigné. Vous pouvez utiliser les enrichissements de messages pour inclure des données permettant de simplifier le traitement en aval. Par exemple, enrichir des messages de télémétrie d’appareil avec une balise de jumeau d’appareil peut réduire la charge de clients en leur évitant d’effectuer des appels d’API doubles pour cette information.
 
 ![Flux des enrichissements de messages](./media/iot-hub-message-enrichments-overview/message-enrichments-flow.png)
 
@@ -29,9 +29,9 @@ Un enrichissement de message comporte trois éléments clés :
 
 * Un ou plusieurs [points de terminaison](iot-hub-devguide-endpoints.md) pour lequel l’enrichissement doit être appliqué.
 
-N’importe quelle chaîne peut être utilisée en tant que clé.
+La **clé** est une chaîne. Une clé ne peut contenir que des caractères alphanumériques ou les caractères spéciaux suivants : trait d’union (`-`), trait de soulignement (`_`) et point (`.`).
 
-La valeur peut être l’un des exemples suivants :
+La **valeur** peut être l’un des exemples suivants :
 
 * N’importe quelle chaîne statique. Des valeurs dynamiques telles que des conditions, une logique et des fonctions ne sont pas autorisées. Par exemple, si vous développez une application SaaS utilisée par plusieurs clients, vous pouvez attribuer un identificateur à chaque client et rendre cet identificateur disponible dans l’application. Lorsque l’application s’exécute, IoT Hub horodate les messages de télémétrie de l’appareil avec l’identificateur du client, ce qui permet de traiter les messages différemment pour chaque client.
 

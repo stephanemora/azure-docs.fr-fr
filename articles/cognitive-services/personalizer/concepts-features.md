@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
-ms.date: 06/24/2019
+ms.date: 08/13/2019
 ms.author: diberry
-ms.openlocfilehash: 1960856ce2f15945d1b1bfa093f349771d481ffc
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: db54a71a6bd252c1ca60ae356cbf340bc660d142
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68663841"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68989081"
 ---
 # <a name="features-are-information-about-actions-and-context"></a>Les caractéristiques sont des informations sur les actions et sur le contexte
 
@@ -25,7 +25,7 @@ Personalizer utilise des **caractéristiques**, qui sont des informations sur le
 
 Par exemple, vous pouvez avoir une **caractéristique** sur :
 
-* L’_utilisateur_, comme un `UserID`. 
+* Le _personnage de l’utilisateur_, par exemple, `Sports_Shopper`. Il ne doit pas s’agir d’un ID utilisateur. 
 * Le _contenu_, par exemple si une vidéo est du type `Documentary`, `Movie` ou `TV Series`, ou si un élément en vente est disponible en magasin.
 * La période de temps _actuelle_, comme le jour de la semaine.
 
@@ -150,7 +150,7 @@ Vous pouvez utiliser plusieurs autres services [Azure Cognitive Services](https:
 
 Chaque action :
 
-* A un ID.
+* A un ID d’_événement_. Si vous disposez déjà d’un ID d’événement, vous devez l’envoyer. Si vous ne disposez pas d’un ID d’événement, il n’est pas nécessaire d’en envoyer un. Personalizer va en créer un pour vous et le retourner dans la réponse de la requête Rank. L’ID est associé à l’événement Rank, et non à l’utilisateur. Si vous devez créer un ID, il est préférable d’utiliser un GUID. 
 * A une liste de caractéristiques.
 * La liste des caractéristiques peut être grande (plusieurs centaines), mais nous recommandons d’évaluer l’efficacité des caractéristiques de façon à supprimer celles qui ne contribuent pas à l’obtention des récompenses. 
 * Les caractéristiques des **actions** peuvent ou non avoir une corrélation avec les caractéristiques du **contexte** utilisées par Personalizer.

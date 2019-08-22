@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 8707a9cb90afe1bf72f3aef6377f8ada409a1c64
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 82b6e701a5f76aa4c2cea78417ca9bcbeeb10308
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60837757"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68927687"
 ---
 # <a name="specify-resources-in-a-service-manifest"></a>Spécifier des ressources dans un manifeste de service
 ## <a name="overview"></a>Vue d'ensemble
@@ -27,6 +27,10 @@ Le manifeste de service met les ressources à la disposition du service à décl
 
 ## <a name="endpoints"></a>Points de terminaison
 Lorsqu’une ressource de point de terminaison est définie dans le manifeste de service, Service Fabric alloue les ports de la plage de ports d’application réservés lorsqu’un port n’est pas spécifié de manière explicite. Examinez, par exemple, le point de terminaison *ServiceEndpoint1* spécifié dans l’extrait de code du manifeste fourni après ce paragraphe. En outre, les services peuvent également demander un port spécifique d’une ressource. Les réplicas de service exécutés sur des nœuds de cluster différents peuvent être alloués à des numéros de ports différents, tandis que les réplicas d’un service exécutés sur le même nœud partagent le port. Les réplicas de service peuvent alors utiliser ces ports pour la réplication et pour écouter les demandes du client.
+
+> [!WARNING] 
+> De par leur conception, les ports statiques ne doivent pas chevaucher la plage de ports d’application spécifiée dans ClusterManifest. Si vous spécifiez un port statique, affectez-le hors de la plage de ports d’application ; sinon, des conflits de port se produiront. Avec la version 6.5CU2, nous émettons un **avertissement d’intégrité** quand nous détectons un tel conflit, mais nous laissons le déploiement continuer de façon synchronisée avec le comportement de la version 6.5 expédiée. Toutefois, nous pouvons empêcher le déploiement de l’application à partir des versions majeures suivantes.
+>
 
 ```xml
 <Resources>

@@ -15,10 +15,10 @@ ms.date: 06/13/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: e04dfa4148213e88aa46e464a31cdd9b6125e0bf
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "67705761"
 ---
 # <a name="create-an-external-app-service-environment"></a>Créer un environnement App Service externe
@@ -33,7 +33,7 @@ Il existe deux façons de déployer un environnement App Service (ASE, App Servi
 - avec une adresse IP virtuelle sur une adresse IP externe, solution souvent appelée ASE externe ;
 - avec l'adresse IP virtuelle sur une adresse IP interne, solution souvent appelée environnement App Service ILB car le point de terminaison interne est un équilibreur de charge interne (ILB, Internal Load Balancer).
 
-Cet article vous explique comment créer un ASE externe. Pour une présentation de l’environnement App Service, consultez [Présentation de l’environnement App Service Environment][Intro]. For information on how to create an ILB ASE, see [Create and use an ILB ASE][MakeILBASE].
+Cet article vous explique comment créer un ASE externe. Pour obtenir une présentation de l’environnement App Service, consultez [Présentation de l’environnement App Service Environment][Intro]. Pour plus d’informations sur la façon de créer un environnement App Service ILB, consultez [Créer et utiliser un équilibreur de charge interne avec un environnement Azure App Service Environment][MakeILBASE].
 
 ## <a name="before-you-create-your-ase"></a>Avant de créer votre ASE
 
@@ -176,7 +176,7 @@ Lorsque vous créez un environnement App Service autonome, celui-ci est vide. M�
 
 Vous pouvez toujours créer des instances de la première version d’App Service Environment (ASEv1). Pour commencer, recherchez **App Service Environment v1** dans la Place de marché. Créez l’environnement App Service de la même façon que pour un environnement App Service autonome. Une fois créée, votre instance d’ASEv1 comprend deux front-ends et deux Workers. Avec ASEv1, vous devez gérer les front-ends et les Workers. Ils ne sont pas ajoutés automatiquement lors de la création de vos plans App Service. Les front-ends servent de points de terminaison HTTP/HTTPS et envoient le trafic aux Workers. Les Workers correspondent aux rôles qui hébergent vos applications. Vous pouvez ajuster la quantité de front-ends et de Workers après la création de l’environnement App Service. 
 
-Pour plus d’informations sur ASEv1, consultez [Présentation d’App Service Environment v1][ASEv1Intro]. For more information on scaling, managing, and monitoring ASEv1, see [How to configure an App Service Environment][ConfigureASEv1].
+Pour plus d’informations sur ASEv1, consultez [Présentation d’App Service Environment v1][ASEv1Intro]. Pour plus d’informations sur la mise à l’échelle, la gestion et la supervision d’ASEv1, consultez [Configuration d’un environnement App Service][ConfigureASEv1].
 
 <!--Image references-->
 [1]: ./media/how_to_create_an_external_app_service_environment/createexternalase-create.png

@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 ms.author: copeters
 author: cody-dkdc
 ms.date: 07/08/2019
-ms.openlocfilehash: 9852ec450b6da3814a3bd2bfc6aae7d19acaf584
-ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
+ms.openlocfilehash: b9593a5802300da8baa1e518f14885637db2068f
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68370388"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69036193"
 ---
 # <a name="detect-data-drift-preview-on-models-deployed-to-azure-kubernetes-service-aks"></a>Détecter une dérive de données (préversion) sur des modèles déployés sur Azure Kubernetes Service (AKS)
 
@@ -46,12 +46,14 @@ Avec Azure Machine Learning service, la dérive de données est supervisée par 
 
 - Un abonnement Azure. Si vous n’en avez pas, créez un compte gratuit avant de commencer. Essayez dès aujourd'hui la [version gratuite ou payante d’Azure Machine Learning service](https://aka.ms/AMLFree).
 
-- Un espace de travail du service Azure Machine Learning et le kit SDK Azure Machine Learning pour Python installé. Suivez les instructions fournies dans [Créer un espace de travail pour le service Azure Machine Learning](setup-create-workspace.md#sdk) pour :
+- Kit SDK Azure Machine Learning pour Python installé. Suivez les instructions fournies dans le [kit SDK Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) pour :
 
     - Créer un environnement Miniconda
     - Installer le kit de développement logiciel (SDK) Azure Machine Learning pour Python
-    - Créer un espace de travail
-    - Écrivez un fichier de configuration d’espace de travail (aml_config/config.json).
+
+- Un [espace de travail Azure Machine Learning service](how-to-manage-workspace.md)
+
+- Un [fichier de configuration](how-to-configure-environment.md#workspace) d’espace de travail.
 
 - Installez le Kit de développement logiciel (SDK)à l’aide de la commande suivante :
 
@@ -160,9 +162,9 @@ La configuration du détecteur de dérive de données peut être consultée dans
 
 ![Configuration de la dérive de données du portail Azure](media/how-to-monitor-data-drift/drift_config.png)
 
-## <a name="view-results-in-azure-ml-workspace-ui"></a>Afficher les résultats dans l’interface utilisateur d’espace de travail Azure ML
+## <a name="view-results-in-azure-portal"></a>Afficher les résultats dans le portail Azure
 
-Pour afficher les résultats dans l’interface utilisateur d’espace de travail Azure ML, accédez à la page du modèle. Dans l’onglet de détails du modèle, la configuration de la dérive de données s’affiche. Un onglet « Dérive de données (préversion) » est désormais disponible pour visualiser les métriques de dérive de données. 
+Pour afficher les résultats dans votre espace de travail dans le [portail Azure](https://portal.azure.com), accédez à la page du modèle. Dans l’onglet de détails du modèle, la configuration de la dérive de données s’affiche. Un onglet « Dérive de données (préversion) » est désormais disponible pour visualiser les métriques de dérive de données. 
 
 ![Dérive de données du portail Azure](media/how-to-monitor-data-drift/drift_ui.png)
 
@@ -195,6 +197,6 @@ La sortie du code précédent peut vous inciter à recycler votre modèle. Pour 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour obtenir un exemple complet de l’utilisation de la dérive de données, consultez le [notebook de dérive de données Azure ML](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/data-drift/azure-ml-datadrift.ipynb). Ce Jupyter Notebook montre comment utiliser un [jeu de données ouvert Azure](https://docs.microsoft.com/azure/open-datasets/overview-what-are-open-datasets) pour former un modèle afin de prédire la météo, le déployer sur AKS et surveiller la dérive de données. 
+* Pour obtenir un exemple complet de l’utilisation de la dérive de données, consultez le [notebook de dérive de données Azure ML](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/monitor-models/data-drift/azure-ml-datadrift.ipynb). Ce Jupyter Notebook montre comment utiliser un [jeu de données ouvert Azure](https://docs.microsoft.com/azure/open-datasets/overview-what-are-open-datasets) pour former un modèle afin de prédire la météo, le déployer sur AKS et surveiller la dérive de données. 
 
 * Nous apprécierons toutes vos questions, commentaires ou suggestions dans notre processus de disponibilité générale de la dérive de données. Utilisez le bouton de commentaires sur le produit ci-dessous ! 

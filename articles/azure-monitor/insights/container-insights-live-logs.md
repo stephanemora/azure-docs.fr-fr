@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/12/2019
 ms.author: magoedte
-ms.openlocfilehash: 968ee4c8bb5d7e09ef3c345c46f6c7b839e0e25a
-ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
+ms.openlocfilehash: 2eab6fa75e4adbbde7bcf20f18301a1e516235c2
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67990034"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69035359"
 ---
 # <a name="how-to-view-logs-and-events-in-real-time-preview"></a>Guide pratique pour afficher les journaux et événements en temps réel (préversion)
 Azure Monitor pour conteneurs inclut une fonctionnalité actuellement en préversion qui fournit une vue en temps réel de vos journaux de conteneur Azure Kubernetes Service (AKS) (stdout/stderr) et événements sans nécessiter l’exécution de commandes kubectl. Lorsque vous sélectionnez une option, un nouveau volet s’affiche sous la table de données de performances dans la vue **Nœuds**, **Contrôleurs** et **Conteneurs**. Il affiche la journalisation dynamique et les événements générés par le moteur du conteneur afin de faciliter la résolution des problèmes en temps réel.
@@ -72,7 +72,7 @@ Si vous avez activé l’autorisation Kubernetes RBAC, vous devez appliquer la l
 
 AKS peut être configuré dans le but d’utiliser Azure Active Directory (AD) pour l’authentification utilisateur. Si vous effectuez cette configuration pour la première fois, voir [Intégrer Azure Active Directory dans Azure Kubernetes Service](../../aks/azure-ad-integration.md). Au cours des étapes de création de l’[application cliente](../../aks/azure-ad-integration.md#create-the-client-application), spécifiez ce qui suit :
 
-- **URI de redirection (facultatif)**  : Il s’agit d’un type d’application **web** et la valeur de l’URL de base doit être `https://afd.hosting.portal.azure.net/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html`.
+-  **URI de redirection** : Deux types d’applications **web** doivent être créés. La première valeur de l’URL de base doit être `https://afd.hosting.portal.azure.net/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html` et la deuxième valeur de l’URL de base doit être `https://monitoring.hosting.portal.azure.net/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html`.
 - Après avoir inscrit l’application, dans la page **Présentation**, sélectionnez **Authentification** dans le volet de gauche. Dans la page **Authentification**, sous **Paramètres avancés** accordez implicitement des **Jetons d’accès** et des **Jetons d’ID**, puis enregistrez votre modifications.
 
 >[!NOTE]

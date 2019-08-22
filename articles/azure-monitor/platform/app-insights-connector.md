@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: magoedte
-ms.openlocfilehash: c7c0d2e3fb818f74a65502674188c523d23729e8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 05f2f52da90f499f7ac16de179d9967b97579997
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65606746"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68849184"
 ---
 # <a name="application-insights-connector-management-solution-deprecated"></a>Solution de gestion Application Insights Connector (déconseillée)
 
@@ -192,10 +192,10 @@ Un enregistrement associé au *type* *ApplicationInsights* est créé pour chaqu
 | DeviceType | Appareil client |
 | ScreenResolution |   |
 | Continent | Continent d'où provient la requête |
-| Pays | Pays/région d’où provient la requête |
+| Country | Pays/région d’où provient la requête |
 | Province | Province, état ou lieu d'où provient la requête |
 | City | Ville d'où provient la requête |
-| isSynthetic | Indique si la requête a été créée par un utilisateur ou par une méthode automatisée. True = générée par l’utilisateur, ou false = méthode automatisée |
+| isSynthetic | Indique si la requête a été créée par un utilisateur ou par une méthode automatisée. True = méthode automatisée ou false = générée par l’utilisateur |
 | SamplingRate | Pourcentage de télémétrie générée par le Kit SDK qui est envoyé vers le portail. Plage 0.0-100.0. |
 | SampledCount | 100/(SamplingRate). Par exemple, 4 =&gt; 25 % |
 | IsAuthenticated | True ou false |

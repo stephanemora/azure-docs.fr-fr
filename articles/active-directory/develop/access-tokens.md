@@ -16,12 +16,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 355e61fdfd9847e54a4bd13ac3b0f2d416c05812
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5c8648014fbc8007328b28cd3bdf76558f2a2d6a
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67111956"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69031875"
 ---
 # <a name="microsoft-identity-platform-access-tokens"></a>Jetons d’accès de la plateforme d’identités Microsoft
 
@@ -86,7 +86,7 @@ Les revendications ne sont présentes que lorsqu’elles sont renseignées par u
 
 | Revendication | Format | Description |
 |-----|--------|-------------|
-| `aud` | Chaîne, URI ID d’application | Identifie le destinataire du jeton. Dans les jetons d’accès, l’audience est l’ID attribué à votre application dans le portail Azure. Votre application doit valider cette valeur et rejeter le jeton si la valeur ne correspond pas. |
+| `aud` | Chaîne, URI ID d’application | Identifie le destinataire du jeton. Dans les jetons d’ID, l’audience est l’ID attribué à votre application dans le portail Azure. Votre application doit valider cette valeur et rejeter le jeton si la valeur ne correspond pas. |
 | `iss` | Chaîne, URI STS | Identifie le service d’émission de jeton de sécurité (STS) qui construit et retourne le jeton, ainsi que le client Azure AD dans lequel l’utilisateur a été authentifié. Si le jeton émis est un jeton v2.0 (voir la revendication `ver`), l’URI se termine dans `/v2.0`. La partie GUID qui indique que l’utilisateur est un utilisateur consommateur d’un compte Microsoft est `9188040d-6c67-4c5b-b112-36a304b66dad`. Votre application doit utiliser la partie GUID de la revendication pour restreindre l’ensemble des clients qui peuvent se connecter à l’application, le cas échéant. |
 |`idp`| Chaîne, généralement un URI STS | Enregistre le fournisseur d’identité qui a authentifié le sujet du jeton. Cette valeur est identique à la valeur de la revendication de l’émetteur sauf si le compte d’utilisateur n’est pas dans le même locataire que l’émetteur (invités par exemple). Si la revendication n’est pas présente, cela signifie que la valeur `iss` peut être utilisée à la place.  Pour les comptes personnels utilisés dans un contexte organisationnel (par exemple, un compte personnel invité dans un locataire Azure AD), la revendication `idp` peut être « live.com » ou un URI STS contenant le locataire de compte Microsoft `9188040d-6c67-4c5b-b112-36a304b66dad`. |  
 | `iat` | int, horodatage UNIX | « Issued At » (Délivré le) indique quand l'authentification de ce jeton a eu lieu. |
@@ -125,7 +125,7 @@ Les revendications suivantes sont incluses dans les jetons v1.0, le cas échéan
 | `onprem_sid`| Chaîne, au format [SID](https://docs.microsoft.com/windows/desktop/SecAuthZ/sid-components) | Lorsque l’utilisateur dispose d’une authentification locale, cette revendication fournit son SID. Vous pouvez utiliser `onprem_sid` pour l’autorisation dans des applications héritées.|
 | `pwd_exp`| int, horodatage UNIX | Indique la date d’expiration du mot de passe de l’utilisateur. |
 | `pwd_url`| Chaîne | URL vers laquelle les utilisateurs peuvent être redirigés pour réinitialiser leur mot de passe. |
-| `in_corp`| booléenne | Indique si le client se connecte à partir du réseau d’entreprise. Dans le cas contraire, la revendication n’est pas incluse. |
+| `in_corp`| boolean | Indique si le client se connecte à partir du réseau d’entreprise. Dans le cas contraire, la revendication n’est pas incluse. |
 | `nickname`| Chaîne | Autre nom de l’utilisateur, distinct du nom de famille et du prénom.|
 | `family_name` | Chaîne | Fournit le nom de famille de l’utilisateur tel que défini sur l’objet utilisateur. |
 | `given_name` | Chaîne | Fournit le prénom de l’utilisateur tel que défini sur l’objet utilisateur. |

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/12/2018
 ms.author: shlo
-ms.openlocfilehash: 63a86fb9498c7c1b1cd527accca84c83a28e01c3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5e34dae5570c64ec2c9fdc478ba8ec1bf4bce9d2
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65788672"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976744"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Pipelines et activités dans Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -59,6 +59,8 @@ Activités de transformation des données | Environnement de calcul
 [U-SQL](transform-data-using-data-lake-analytics.md) | Service Analytique Azure Data Lake
 [Code personnalisé](transform-data-using-dotnet-custom-activity.md) | Azure Batch
 [Databricks Notebook](transform-data-databricks-notebook.md) | Azure Databricks
+[Activité Databricks Jar](transform-data-databricks-jar.md) | Azure Databricks
+[Activité Databricks Python](transform-data-databricks-python.md) | Azure Databricks
 
 Pour plus d’informations, consultez l’article [Activités de transformation des données](transform-data.md).
 
@@ -98,7 +100,7 @@ Tag | Description | Type | Obligatoire
 --- | ----------- | ---- | --------
 name | Nom du pipeline. Spécifiez un nom qui représente l’action effectuée par le pipeline. <br/><ul><li>Nombre maximal de caractères : 140</li><li>Doit commencer par une lettre, un chiffre ou un trait de soulignement (\_)</li><li>Les caractères suivants ne sont pas autorisés : « . », « + », « ? », « / », « < », « > », « * », « % », « & », « : », « \ »</li></ul> | Chaîne | OUI
 description | Spécifiez le texte décrivant la raison motivant l’utilisation du pipeline. | Chaîne | Non
-activities | La section **Activités** peut contenir une ou plusieurs activités définies. Consultez la section [JSON d’activité](#activity-json) pour plus d’informations sur l’élément JSON des activités. | Tableau | OUI
+activities | La section **Activités** peut contenir une ou plusieurs activités définies. Consultez la section [JSON d’activité](#activity-json) pour plus d’informations sur l’élément JSON des activités. | Array | OUI
 parameters | La section **Paramètres** peut comporter un ou plusieurs des paramètres définis dans le pipeline, afin de rendre votre pipeline plus flexible en vue de sa réutilisation. | List | Non
 
 ## <a name="activity-json"></a>Activité JSON

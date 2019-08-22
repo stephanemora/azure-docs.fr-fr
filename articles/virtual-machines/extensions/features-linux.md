@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: roiyz
-ms.openlocfilehash: 3f22da9eabc6f539ef37009f565f073b9de89319
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 8227aa366c8f5149d4212e6cdd00e2745db84814
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67706741"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881951"
 ---
 # <a name="virtual-machine-extensions-and-features-for-linux"></a>Extensions et fonctionnalités de machine virtuelle pour Linux
 
@@ -86,7 +86,7 @@ Vous pouvez exécuter une extension sur une machine virtuelle existante à l’a
 
 ### <a name="azure-cli"></a>D’Azure CLI
 
-Vous pouvez exécuter les extensions de machine virtuelle Azure sur une machine virtuelle existante avec la commande [az vm extension set](/cli/azure/vm/extension#az-vm-extension-set). L’exemple suivant exécute l’extension de script personnalisé sur une machine virtuelle nommée *myVM* dans un groupe de ressources nommé *myResourceGroup* :
+Vous pouvez exécuter les extensions de machine virtuelle Azure sur une machine virtuelle existante avec la commande [az vm extension set](/cli/azure/vm/extension#az-vm-extension-set). L’exemple suivant exécute l’extension de script personnalisé sur une machine virtuelle nommée *myVM* dans un groupe de ressources nommé *myResourceGroup*. Remplacez l’exemple de nom de groupe de ressources, le nom de la machine virtuelle et le script à exécuter (https://raw.githubusercontent.com/me/project/hello.sh) par vos propres informations. 
 
 ```azurecli
 az vm extension set `

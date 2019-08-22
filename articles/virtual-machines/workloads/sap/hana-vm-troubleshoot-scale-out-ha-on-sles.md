@@ -14,10 +14,10 @@ ms.workload: infrastructure
 ms.date: 09/24/2018
 ms.author: hermannd
 ms.openlocfilehash: b794b045efa4be20a63e9996425d69f0212ae0d7
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "67707239"
 ---
 # <a name="verify-and-troubleshoot-sap-hana-scale-out-high-availability-setup-on-sles-12-sp3"></a>Vérifier et corriger la configuration SAP HANA scale-out à haute disponibilité sur SLES 12 SP3 
@@ -94,7 +94,7 @@ Suivant les recommandations de réseau SAP HANA, nous avons créé trois sous-r�
 
 Pour plus d’informations sur la configuration SAP HANA en cas d’utilisation de plusieurs réseaux, consultez [SAP HANA global.ini](#sap-hana-globalini).
 
-Chaque machine virtuelle du cluster a trois cartes réseau virtuelles qui correspondent au nombre de sous-réseaux. [Guide de création d’une machine virtuelle Linux dans Azure avec plusieurs cartes d’interface réseau][azure-linux-multiple-nics] describes a potential routing issue on Azure when deploying a Linux VM. This specific routing article applies only for use of multiple vNICs. The problem is solved by SUSE per default in SLES 12 SP3. For more information, see [Multi-NIC with cloud-netconfig in EC2 and Azure][suse-cloud-netconfig].
+Chaque machine virtuelle du cluster a trois cartes réseau virtuelles qui correspondent au nombre de sous-réseaux. [Guide de création d’une machine virtuelle Linux dans Azure avec plusieurs cartes d’interface réseau][azure-linux-multiple-nics] décrit un problème de routage potentiel sur Azure lors du déploiement d’une machine virtuelle Linux. Cet article de routage spécifique s’applique uniquement à l’utilisation de plusieurs cartes réseau virtuelles. Le problème est résolu par défaut par SUSE dans SLES 12 SP3. Pour plus d’informations, consultez [Plusieurs cartes réseau avec cloud-netconfig dans EC2 et Azure][suse-cloud-netconfig].
 
 
 Pour vérifier que SAP HANA est correctement configuré pour utiliser plusieurs réseaux, exécutez les commandes suivantes. Commencez par vérifier au niveau du système d’exploitation que les trois adresses IP internes des trois sous-réseaux sont actives. Si vous avez défini les sous-réseaux avec différentes plages d’adresses IP, vous devez adapter les commandes :
@@ -726,7 +726,7 @@ Transition Summary:
 ## <a name="planned-maintenance"></a>Maintenance planifiée 
 
 Différents cas d’utilisation doivent être examinés dans le cadre de la maintenance planifiée. Demandez-vous s’il s’agit simplement d’une maintenance d’infrastructure impliquant des changements au niveau du système d’exploitation et de la configuration de disque, ou s’il s’agit d’une mise à niveau de HANA.
-Plus d’informations sont disponibles dans les documents de SUSE comme [Towards Zero Downtime][sles-zero-downtime-paper] or [SAP HANA SR Performance Optimized Scenario][sles-12-for-sap]. Ces documents comprennent également des exemples de migration manuelle d’un site principal.
+Vous trouverez des informations supplémentaires dans les documents SUSE comme [Towards Zero Downtime][sles-zero-downtime-paper] ou [SAP HANA SR Performance Optimized Scenario][sles-12-for-sap]. Ces documents comprennent également des exemples de migration manuelle d’un site principal.
 
 Nous avons effectué des tests internes intensifs pour vérifier le cas d’usage d’une maintenance d’infrastructure. Pour éviter des problèmes liés à la migration du site principal, nous avons décidé de toujours migrer un site principal avant de mettre un cluster en mode de maintenance. De cette façon, le cluster n’a plus besoin d’oublier l’ancienne situation : quel était le site principal et quel autre était le secondaire.
 
@@ -821,7 +821,7 @@ INFO: Removed migration constraints for msl_SAPHanaCon_HSO_HDB00
 
 
 
-## <a name="hbreport-to-collect-log-files"></a>hb_report pour collecter les fichiers journaux
+## <a name="hb_report-to-collect-log-files"></a>hb_report pour collecter les fichiers journaux
 
 Pour analyser les problèmes du cluster Pacemaker, le support de SUSE demande d’exécuter l’utilitaire **hb_report**. Il collecte tous les fichiers journaux importants dont vous avez besoin pour analyser ce qui est arrivé. Cet exemple d’appel utilise une heure de début et de fin où un incident spécifique s’est produit. Consultez aussi [Remarques importantes](#important-notes) :
 

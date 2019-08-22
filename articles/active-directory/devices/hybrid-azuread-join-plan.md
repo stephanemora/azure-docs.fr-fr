@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 49f8d0e418f43648665b95f5bf1f672e9f9dae28
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: cad2568702909274030d3c7c6469a7e4cbf670c4
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779455"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68989259"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Procédure : Planifier l’implémentation de la jonction Azure AD Hybride
 
@@ -101,7 +101,7 @@ Les organisations peuvent vouloir effectuer une validation contrôlée de la jon
 
 ## <a name="select-your-scenario-based-on-your-identity-infrastructure"></a>Sélectionner votre scénario en fonction de votre infrastructure d’identité
 
-La jonction Azure AD Hybride fonctionne à la fois avec les environnements managés et fédérés.  
+La jointure Azure AD Hybride fonctionne avec les environnements managés et fédérés, selon que l’UPN est routable ou non routable. Consultez le bas de la page pour voir un tableau des scénarios pris en charge.  
 
 ### <a name="managed-environment"></a>Environnement géré
 

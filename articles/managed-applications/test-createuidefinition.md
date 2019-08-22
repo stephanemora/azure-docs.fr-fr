@@ -4,18 +4,18 @@ description: Décrit comment tester l’expérience utilisateur de création de 
 author: tfitzmac
 ms.service: managed-applications
 ms.topic: conceptual
-ms.date: 05/26/2019
+ms.date: 08/06/2019
 ms.author: tomfitz
-ms.openlocfilehash: 99ca319910be2cb20214172826eb40361abe72f0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 91dd661cf4900512390079751f400f6a9888c452
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66257658"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68845928"
 ---
 # <a name="test-your-portal-interface-for-azure-managed-applications"></a>Tester votre interface de portail pour Applications managées Azure
 
-Après la [création du fichier createUiDefinition.json](create-uidefinition-overview.md) pour votre application managée, vous devez tester l’expérience utilisateur. Pour simplifier le test, utilisez un environnement de bac à sable qui charge votre fichier dans le portail. Vous n’avez pas besoin de déployer votre application managée. Le bac à sable présente votre interface utilisateur dans l’expérience portail actuelle et en plein écran. Vous pouvez aussi utiliser un script PowerShell pour tester l’interface, mais ce dernier utilise un affichage hérité du portail. Les deux approches sont présentées dans cet article. Le bac à sable constitue la méthode recommandée pour afficher un aperçu de l’interface.
+Après la [création du fichier createUiDefinition.json](create-uidefinition-overview.md) pour votre application managée, vous devez tester l’expérience utilisateur. Pour simplifier le test, utilisez un environnement de bac à sable qui charge votre fichier dans le portail. Vous n’avez pas besoin de déployer votre application managée. Le bac à sable présente votre interface utilisateur dans l’expérience portail actuelle et en plein écran. Ou, vous pouvez utiliser un script pour tester l’interface. Les deux approches sont présentées dans cet article. Le bac à sable constitue la méthode recommandée pour afficher un aperçu de l’interface.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -51,7 +51,8 @@ Si votre formulaire ne s’affiche pas, et si à la place vous voyez une icône 
 
 Pour tester votre interface dans le portail, copiez un des scripts suivants sur votre ordinateur local :
 
-* [Script PowerShell side-load](https://github.com/Azure/azure-quickstart-templates/blob/master/SideLoad-CreateUIDefinition.ps1)
+* [Script PowerShell side-load - Module Az](https://github.com/Azure/azure-quickstart-templates/blob/master/SideLoad-AzCreateUIDefinition.ps1)
+* [Script PowerShell side-load - Module Azure](https://github.com/Azure/azure-quickstart-templates/blob/master/SideLoad-CreateUIDefinition.ps1)
 * [Script Azure CLI side-load](https://github.com/Azure/azure-quickstart-templates/blob/master/sideload-createuidef.sh)
 
 Pour afficher votre fichier d’interface dans le portail, exécutez le script téléchargé. Le script crée un compte de stockage dans votre abonnement Azure et charge votre fichier createUiDefinition.json dans le compte de stockage. Le compte de stockage est créé quand vous exécutez le script pour la première fois, ou si le compte de stockage a été supprimé. Si le compte de stockage existe déjà dans votre abonnement Azure, le script le réutilise. Le script ouvre le portail et charge votre fichier à partir du compte de stockage.
@@ -61,7 +62,7 @@ Indiquez un emplacement pour le compte de stockage et spécifiez le dossier cont
 Pour PowerShell, utilisez la commande suivante :
 
 ```powershell
-.\SideLoad-CreateUIDefinition.ps1 `
+.\SideLoad-AzCreateUIDefinition.ps1 `
   -StorageResourceGroupLocation southcentralus `
   -ArtifactsStagingDirectory .\100-Marketplace-Sample
 ```
@@ -79,7 +80,7 @@ Si votre fichier createUiDefinition.json se trouve dans le même dossier que le 
 Pour PowerShell, utilisez la commande suivante :
 
 ```powershell
-.\SideLoad-CreateUIDefinition.ps1
+.\SideLoad-AzCreateUIDefinition.ps1
 ```
 
 Pour l’interface de ligne de commande Azure, consultez :
@@ -89,8 +90,6 @@ Pour l’interface de ligne de commande Azure, consultez :
 ```
 
 Le script ouvre un nouvel onglet dans votre navigateur. Il affiche le portail avec votre interface de création de l’application managée.
-
-![Afficher le portail](./media/test-createuidefinition/view-portal.png)
 
 Donnez des valeurs aux champs. Lorsque vous avez terminé, vous voyez les valeurs qui sont transmises au modèle.
 

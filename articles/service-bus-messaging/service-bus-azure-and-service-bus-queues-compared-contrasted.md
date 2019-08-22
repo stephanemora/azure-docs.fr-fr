@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: dbbc43bc7a2f42f8a72ce12d84da1ae406a588d2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 32c903e5d469a9a3e7b98bd406b5512d752bb210
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65799348"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69017787"
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Files d’attente Azure et files d’attente Service Bus : comparaison et différences
 Cet article analyse les différences et les similitudes entre les deux types de files d'attente proposés par Microsoft Azure : Files d’attente de stockage et files d’attente Service Bus. À l'aide de ces informations, vous pouvez comparer les technologies respectives et être en mesure de prendre une décision éclairée concernant la solution adaptée à vos besoins.
@@ -52,7 +52,7 @@ En tant que développeur/architecte de solutions, **vous devez envisager d’uti
 * Vous voulez que votre application traite les messages sous forme de flux de longue durée parallèles (les messages sont associés à un flux à l’aide de la propriété [SessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sessionid) du message). Dans ce modèle, chaque nœud de l'application consommatrice entre en concurrence pour les flux, contrairement aux messages. Lorsqu'un flux est donné à un nœud consommateur, le nœud peut examiner l'état du flux de l'application à l'aide de transactions.
 * Votre solution nécessite un comportement transactionnel et l'atomicité lors de l'envoi ou de la réception de plusieurs messages à partir d'une file d'attente.
 * Votre application gère des messages qui peuvent dépasser 64 Ko, mais qui n'atteindront sans doute pas la limite de 256 Ko.
-* Vous êtes confronté à l'exigence de fournir un modèle d'accès basé sur les rôles aux files d'attente et des droits/autorisations différents pour les expéditeurs et les destinataires.
+* Vous êtes confronté à l'exigence de fournir un modèle d'accès basé sur les rôles aux files d'attente et des droits/autorisations différents pour les expéditeurs et les destinataires. Pour plus d’informations, consultez [Contrôle d’accès en fonction du rôle Azure Active Directory (préversion)](service-bus-role-based-access-control.md)
 * La taille de la file d'attente ne sera pas supérieure à 80 Go.
 * Vous souhaitez utiliser le protocole de messagerie basé sur les normes AMQP 1.0. Pour plus d’informations sur AMQP, consultez [Présentation d’AMQP Service Bus](service-bus-amqp-overview.md).
 * Vous pouvez prévoir une migration éventuelle de la communication point à point basée sur la file d'attente vers un modèle d'échange de messages qui permet une intégration transparente de récepteurs (abonnés) supplémentaires, chacun d'entre eux recevant des copies indépendantes de certains ou de tous les messages envoyés à la file d'attente. Ce dernier point fait référence à la fonctionnalité publication/abonnement en mode natif fournie par Service Bus.

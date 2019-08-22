@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 4/3/2019
 ms.author: dacurwin
-ms.openlocfilehash: 71a33b7263cd7a3b2f5e39ce9d24df11a7d6283c
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 5c6e3ef74ea2d77ba03526e05145fe6faa61c050
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688601"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68882053"
 ---
 # <a name="back-up-and-restore-encrypted-azure-vm"></a>Sauvegarder et restaurer une machine virtuelle Azure chiffrée
 
@@ -153,11 +153,12 @@ Vous restaurez des machines virtuelles chiffrées comme suit :
 1. [Restaurez le disque de la machine virtuelle](backup-azure-arm-restore-vms.md#restore-disks).
 2. Ensuite, effectuez l’une des actions suivantes :
     - Utilisez le modèle généré durant l’opération de restauration pour personnaliser les paramètres de la machine virtuelle et déclencher le déploiement de celle-ci. [Plus d’informations](backup-azure-arm-restore-vms.md#use-templates-to-customize-a-restored-vm)
-    - À l’aide de PowerShell, créez une machine virtuelle à partir des disques restaurés. [Plus d’informations](backup-azure-vms-automation.md#create-a-vm-from-restored-disks)
+    - Créez une machine virtuelle à partir des disques restaurés à l’aide de PowerShell. [Plus d’informations](backup-azure-vms-automation.md#create-a-vm-from-restored-disks)
+    - Pour les machines virtuelles Linux, réinitialisez l’extension ADE pour que les disques de données soient ouverts et montés. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Si vous rencontrez des problèmes, consultez les sources suivantes :
+Si vous rencontrez des problèmes, consultez les articles suivants :
 
 - [Erreurs courantes](backup-azure-vms-troubleshoot.md) liées à la sauvegarde et à la restauration de machines virtuelles Azure chiffrées.
 - Problèmes liés à l’[extension de sauvegarde ou à l’agent de machine virtuelle Azure](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md).

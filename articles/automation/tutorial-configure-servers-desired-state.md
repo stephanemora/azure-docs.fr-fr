@@ -9,12 +9,12 @@ ms.author: robreed
 manager: carmonm
 ms.topic: conceptual
 ms.date: 08/08/2018
-ms.openlocfilehash: 3bcdb667ee649b9bbf32ad33e74e876cdd2b5cbf
-ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
+ms.openlocfilehash: 0d877dafc4ab4f8ec4edb0a94450fa9c5dfcd0bb
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67144196"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68850246"
 ---
 # <a name="configure-servers-to-a-desired-state-and-manage-drift"></a>Configurer les serveurs à l’état souhaité et gérer la dérive
 
@@ -63,6 +63,9 @@ configuration TestConfig {
    }
 }
 ```
+
+> [!NOTE]
+> Dans les scénarios plus avancés où vous devez importer plusieurs modules qui fournissent des ressources DSC, vérifiez que chaque module a une ligne `Import-DscResource` unique dans votre configuration.
 
 Appelez l’applet de commande `Import-AzureRmAutomationDscConfiguration` pour charger la configuration dans votre compte Automation :
 
@@ -130,6 +133,17 @@ Set-AzureRmAutomationDscNode -ResourceGroupName 'MyResourceGroup' -AutomationAcc
 Cette opération attribue la configuration de nœud nommée `TestConfig.WebServer` au nœud DSC inscrit nommé `DscVm`.
 Par défaut, le nœud DSC est vérifié pour la conformité avec la configuration de nœud toutes les 30 minutes.
 Pour obtenir des informations sur la modification de l’intervalle de vérification de conformité, consultez [Configuration du Gestionnaire de configuration local](/PowerShell/DSC/metaConfig).
+
+## <a name="working-with-partial-configurations"></a>Utilisation de configurations partielles
+
+Azure Automation State Configuration prend en charge l’utilisation de [configurations partielles](/powershell/dsc/pull-server/partialconfigs).
+Dans ce scénario, DSC est configuré pour gérer plusieurs configurations de manière indépendante, et chaque configuration est récupérée à partir d’Azure Automation.
+Toutefois, on ne peut affecter qu’une seule configuration à un nœud par compte Automation.
+Cela signifie que, si vous utilisez deux configurations pour un nœud, vous aurez besoin de deux comptes Automation.
+
+Pour plus d’informations sur la façon d’inscrire une configuration partielle à partir du service d’extraction, consultez la documentation relative aux [configurations partielles](https://docs.microsoft.com/powershell/dsc/pull-server/partialconfigs#partial-configurations-in-pull-mode).
+
+Pour plus d’informations sur la façon dont les équipes peuvent travailler ensemble pour gérer les serveurs de façon collaborative à l’aide de la configuration en tant que code, consultez [Rôle de DSC dans un pipeline CI/CD](/powershell/dsc/overview/authoringadvanced).
 
 ## <a name="check-the-compliance-status-of-a-managed-node"></a>Vérifier l’état de conformité d’un nœud géré
 

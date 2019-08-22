@@ -10,15 +10,15 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/11/2019
+ms.date: 08/08/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: ce4765a512b81d13f735a05ad4fba5408284a607
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 2d3a303cb00bab6f67abbc6354ca785880759e4d
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68501406"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68945528"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Opérations du fournisseur de ressources Azure Resource Manager
 
@@ -589,6 +589,7 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Action | Microsoft.AzureStack/registrations/getActivationKey/action | Obtient la dernière clé d’activation Azure Stack |
 > | Action | Microsoft.AzureStack/registrations/products/listDetails/action | Récupère les détails étendus d’un produit de la place de marché Azure Stack. |
 > | Action | Microsoft.AzureStack/registrations/products/read | Obtient les propriétés d’un produit de la place de marché Azure Stack. |
+> | Action | Microsoft.AzureStack/registrations/products/uploadProductLog/action | Enregistre l’horodateur et l’état de l’opération de produit de la place de marché Azure Stack |
 > | Action | Microsoft.AzureStack/registrations/read | Obtient les propriétés d’une inscription Azure Stack. |
 > | Action | Microsoft.AzureStack/registrations/write | Crée ou met à jour une inscription Azure Stack |
 
@@ -640,13 +641,18 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > [!div class="mx-tdCol2BreakAll"]
 > | Type d’action | Opération | Description |
 > | --- | --- | --- |
-> | Action | Microsoft.Billing/billingAccounts/departments/read | Lister tous les services sous l’étendue d’un compte de facturation |
-> | Action | Microsoft.Billing/billingAccounts/enrollmentAccounts/read | Lister tous les comptes d’inscription sous l’étendue d’un compte de facturation |
-> | Action | Microsoft.Billing/billingAccounts/read | Lister tous les comptes de facturation auxquels un utilisateur a accès |
-> | Action | Microsoft.Billing/billingPeriods/read | Répertorie les périodes de facturation disponibles |
-> | Action | Microsoft.Billing/departments/read | Lister tous les services auxquels un utilisateur a accès |
-> | Action | Microsoft.Billing/invoices/read | Répertorie les factures disponibles |
-> | Action | Microsoft.Billing/register/action | Inscrit un abonnement auprès du fournisseur de ressources Microsoft.Billing |
+> | Action | Microsoft.Billing/billingAccounts/agreements/read |  |
+> | Action | Microsoft.Billing/billingAccounts/billingPermissions/read |  |
+> | Action | Microsoft.Billing/billingAccounts/billingProfiles/invoices/pricesheet/download/action |  |
+> | Action | Microsoft.Billing/billingAccounts/billingProfiles/invoiceSections/read |  |
+> | Action | Microsoft.Billing/billingAccounts/billingProfiles/pricesheet/download/action |  |
+> | Action | Microsoft.Billing/billingAccounts/billingProfiles/read |  |
+> | Action | Microsoft.Billing/billingAccounts/customers/read |  |
+> | Action | Microsoft.Billing/billingAccounts/departments/read |  |
+> | Action | Microsoft.Billing/billingAccounts/enrollmentAccounts/read |  |
+> | Action | Microsoft.Billing/billingAccounts/products/read |  |
+> | Action | Microsoft.Billing/billingAccounts/read |  |
+> | Action | Microsoft.Billing/departments/read |  |
 
 ## <a name="microsoftbingmaps"></a>Microsoft.BingMaps
 
@@ -1174,6 +1180,7 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/training/read | Pour vérifier l’état d’apprentissage d’un groupe de personnes, en cours ou terminé. L’apprentissage d’un groupe de personnes est une opération asynchrone déclenchée |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/write | Crée un nouveau groupe de personnes avec les valeurs personGroupId, name et userData fournies par l’utilisateur. Met à jour les champs name et userData d’un groupe de personnes existant. Les propriétés restent inchangées si elles ne sont pas dans le corps de la demande. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/verify/action | Vérifiez si deux visages appartiennent à une même personne, ou si un visage appartient à une personne. |
+> | DataAction | Microsoft.CognitiveServices/accounts/ImmersiveReader/getcontentmodelforreader/action | Crée une session de lecteur immersif |
 > | Action | Microsoft.CognitiveServices/accounts/listKeys/action | Afficher la liste des clés |
 > | DataAction | Microsoft.CognitiveServices/accounts/LUIS/predict/action | Obtient la prédiction du point de terminaison publié pour la requête donnée. |
 > | Action | Microsoft.CognitiveServices/accounts/read | Lit les comptes d’API. |
@@ -1470,15 +1477,17 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Action | Microsoft.ContainerService/managedClusters/accessProfiles/read | Obtient un profil d’accès au cluster géré en fonction du nom de rôle |
 > | Action | Microsoft.ContainerService/managedClusters/agentPools/delete | Supprime un pool d’agents |
 > | Action | Microsoft.ContainerService/managedClusters/agentPools/read | Obtient un pool d’agents |
+> | Action | Microsoft.ContainerService/managedClusters/agentPools/upgradeProfiles/read | Obtient le profil de mise à niveau du pool d'agents |
 > | Action | Microsoft.ContainerService/managedClusters/agentPools/write | Créer ou mettre à jour un pool d'agents |
 > | Action | Microsoft.ContainerService/managedClusters/delete | Supprime un cluster géré |
 > | Action | Microsoft.ContainerService/managedClusters/detectors/read | Obtenir le détecteur de cluster managé |
 > | Action | Microsoft.ContainerService/managedClusters/listClusterAdminCredential/action | Répertorier les informations d’identification clusterAdmin d’un cluster géré |
 > | Action | Microsoft.ContainerService/managedClusters/listClusterUserCredential/action | Répertorier les informations d’identification clusterAdmin d’un cluster géré |
+> | Action | Microsoft.ContainerService/managedClusters/privateEndpointConnectionsApproval/action | Détermine si l’utilisateur est autorisé à approuver une connexion de point de terminaison privé |
 > | Action | Microsoft.ContainerService/managedClusters/read | Obtient un cluster géré |
 > | Action | Microsoft.ContainerService/managedClusters/resetAADProfile/action | Réinitialiser le profil AAD d’un cluster managé |
 > | Action | Microsoft.ContainerService/managedClusters/resetServicePrincipalProfile/action | Réinitialiser le profil du principal de service d’un cluster managé |
-> | Action | Microsoft.ContainerService/managedClusters/upgradeprofiles/read | Obtenir le profil de mise à niveau du cluster |
+> | Action | Microsoft.ContainerService/managedClusters/upgradeProfiles/read | Obtenir le profil de mise à niveau du cluster |
 > | Action | Microsoft.ContainerService/managedClusters/write | Crée ou met à jour un cluster géré |
 > | Action | Microsoft.ContainerService/openShiftClusters/delete | Supprimer un cluster Open Shift |
 > | Action | Microsoft.ContainerService/openShiftClusters/read | Obtenir un cluster Open Shift |
@@ -1530,111 +1539,6 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Action | Microsoft.CostManagement/reports/read | Planifier des rapports sur les données d’utilisation par étendue |
 > | Action | Microsoft.CostManagement/tenants/register/action | Inscrire une action pour l’étendue de Microsoft.CostManagement par un client. |
 
-## <a name="microsoftcustomerinsights"></a>Microsoft.CustomerInsights
-
-> [!div class="mx-tdCol2BreakAll"]
-> | Type d’action | Opération | Description |
-> | --- | --- | --- |
-> | Action | Microsoft.CustomerInsights/hubs/adobemetadata/action | Crée ou met à jour des métadonnées Adobe Azure Customer Insights |
-> | Action | Microsoft.CustomerInsights/hubs/adobemetadata/read | Lit des métadonnées Adobe Azure Customer Insights |
-> | Action | Microsoft.CustomerInsights/hubs/authorizationPolicies/delete | Supprimer une stratégie de signature d’accès partagé Azure Customer Insights |
-> | Action | Microsoft.CustomerInsights/hubs/authorizationPolicies/read | Afficher une stratégie de signature d’accès partagé Azure Customer Insights |
-> | Action | Microsoft.CustomerInsights/hubs/authorizationPolicies/regeneratePrimaryKey/action | Régénérer la clé primaire d’une stratégie de signature d’accès partagé Azure Customer Insights |
-> | Action | Microsoft.CustomerInsights/hubs/authorizationPolicies/regenerateSecondaryKey/action | Régénérer la clé secondaire d’une stratégie de signature d’accès partagé Azure Customer Insights |
-> | Action | Microsoft.CustomerInsights/hubs/authorizationPolicies/write | Créer ou mettre à jour une stratégie de signature d’accès partagé Azure Customer Insights |
-> | Action | Microsoft.CustomerInsights/hubs/connectors/activate/action | Active un connecteur Azure Customer Insights |
-> | Action | Microsoft.CustomerInsights/hubs/connectors/activate/action | Active un connecteur Azure Customer Insights |
-> | Action | Microsoft.CustomerInsights/hubs/connectors/delete | Supprimer un connecteur Azure Customer Insights |
-> | Action | Microsoft.CustomerInsights/hubs/connectors/getruntimestatus/action | Obtient un état de runtime du connecteur Azure Customer Insights |
-> | Action | Microsoft.CustomerInsights/hubs/connectors/mappings/activate/action | Active un mappage de connecteur Azure Customer Insights |
-> | Action | Microsoft.CustomerInsights/hubs/connectors/mappings/delete | Supprimer un mappage de connecteur Azure Customer Insights |
-> | Action | Microsoft.CustomerInsights/hubs/connectors/mappings/operations/read | Lit le résultat d’une opération de mappage de connecteur Azure Customer Insights |
-> | Action | Microsoft.CustomerInsights/hubs/connectors/mappings/read | Afficher un mappage de connecteur Azure Customer Insights |
-> | Action | Microsoft.CustomerInsights/hubs/connectors/mappings/write | Créer ou mettre à jour un mappage de connecteur Azure Customer Insights |
-> | Action | Microsoft.CustomerInsights/hubs/connectors/operations/read | Lit le résultat d’une opération de connecteur Azure Customer Insights |
-> | Action | Microsoft.CustomerInsights/hubs/connectors/read | Afficher un connecteur Azure Customer Insights |
-> | Action | Microsoft.CustomerInsights/hubs/connectors/saveauthinfo/action | Crée ou met à jour des informations d’authentification du connecteur Azure Customer Insights |
-> | Action | Microsoft.CustomerInsights/hubs/connectors/update/action | Met à jour un connecteur Azure Customer Insights |
-> | Action | Microsoft.CustomerInsights/hubs/connectors/write | Créer ou mettre à jour un connecteur Azure Customer Insights |
-> | Action | Microsoft.CustomerInsights/hubs/crmmetadata/action | Crée ou met à jour des métadonnées Crm Azure Customer Insights |
-> | Action | Microsoft.CustomerInsights/hubs/crmmetadata/read | Lit des métadonnées Crm Azure Customer Insights |
-> | Action | Microsoft.CustomerInsights/hubs/delete | Supprimer un concentrateur Azure Customer Insights |
-> | Action | Microsoft.CustomerInsights/hubs/gdpr/delete | Supprime un Rgpd Azure Customer Insights |
-> | Action | Microsoft.CustomerInsights/hubs/gdpr/read | Lit un Rgpd Azure Customer Insights |
-> | Action | Microsoft.CustomerInsights/hubs/gdpr/write | Crée ou met à jour un Rgpd Azure Customer Insights |
-> | Action | Microsoft.CustomerInsights/hubs/getbillingcredits/read | Obtient des crédits de facturation du hub Azure Customer Insights |
-> | Action | Microsoft.CustomerInsights/hubs/getbillinghistory/read | Obtient l’historique de facturation du hub Azure Customer Insights |
-> | Action | Microsoft.CustomerInsights/hubs/images/delete | Supprime une image Azure Customer Insights |
-> | Action | Microsoft.CustomerInsights/hubs/images/read | Lit une image Azure Customer Insights |
-> | Action | Microsoft.CustomerInsights/hubs/images/write | Crée ou met à jour une image Azure Customer Insights |
-> | Action | Microsoft.CustomerInsights/hubs/interactions/delete | Supprime des interactions Azure Customer Insights |
-> | Action | Microsoft.CustomerInsights/hubs/interactions/operations/read | Lit le résultat d’une opération d’interaction Azure Customer Insights |
-> | Action | Microsoft.CustomerInsights/hubs/interactions/read | Afficher une interaction Azure Customer Insights |
-> | Action | Microsoft.CustomerInsights/hubs/interactions/suggestrelationshiplinks/action | Propose des liens de relation pour des interactions Azure Customer Insights |
-> | Action | Microsoft.CustomerInsights/hubs/interactions/write | Créer ou mettre à jour une interaction Azure Customer Insights |
-> | Action | Microsoft.CustomerInsights/hubs/kpi/delete | Supprimer un indicateur de performance clé Azure Customer Insights |
-> | Action | Microsoft.CustomerInsights/hubs/kpi/operations/read | Lit un résultat d’opération d’indicateurs de performance clés Azure Customer Insights |
-> | Action | Microsoft.CustomerInsights/hubs/kpi/read | Afficher un indicateur de performance clé Azure Customer Insights |
-> | Action | Microsoft.CustomerInsights/hubs/kpi/reprocess/action | Retraite des indicateurs de performance clés Azure Customer Insights |
-> | Action | Microsoft.CustomerInsights/hubs/kpi/write | Créer ou mettre à jour un indicateur de performance clé Azure Customer Insights |
-> | Action | Microsoft.CustomerInsights/hubs/links/delete | Supprime des liens Azure Customer Insights |
-> | Action | Microsoft.CustomerInsights/hubs/links/operations/read | Lit un résultat d’opération de liens Azure Customer Insights |
-> | Action | Microsoft.CustomerInsights/hubs/links/read | Lit des liens Azure Customer Insights |
-> | Action | Microsoft.CustomerInsights/hubs/links/write | Crée ou met à jour des liens Azure Customer Insights |
-> | Action | Microsoft.CustomerInsights/hubs/msemetadata/action | Crée ou met à jour des métadonnées Mse Azure Customer Insights |
-> | Action | Microsoft.CustomerInsights/hubs/msemetadata/read | Lit des métadonnées Mse Azure Customer Insights |
-> | Action | Microsoft.CustomerInsights/hubs/operationresults/read | Obtient les résultats d’opération de hub Azure Customer Insights |
-> | Action | Microsoft.CustomerInsights/hubs/predictions/delete | Supprime des prédictions Azure Customer Insights |
-> | Action | Microsoft.CustomerInsights/hubs/predictions/operations/read | Lit un résultat d’opération de prédictions Azure Customer Insights |
-> | Action | Microsoft.CustomerInsights/hubs/predictions/read | Lit des prédictions Azure Customer Insights |
-> | Action | Microsoft.CustomerInsights/hubs/predictions/write | Crée ou met à jour des prédictions Azure Customer Insights |
-> | Action | Microsoft.CustomerInsights/hubs/predictivematchpolicies/delete | Supprime des stratégies de correspondance prédictive Azure Customer Insights |
-> | Action | Microsoft.CustomerInsights/hubs/predictivematchpolicies/operations/read | Lit un résulat d’opération de stratégies de correspondance prédictive Azure Customer Insights |
-> | Action | Microsoft.CustomerInsights/hubs/predictivematchpolicies/read | Lit des stratégies de correspondance prédictive Azure Customer Insights |
-> | Action | Microsoft.CustomerInsights/hubs/predictivematchpolicies/write | Crée ou met à jour des stratégies de correspondance prédictive Azure Customer Insights |
-> | Action | Microsoft.CustomerInsights/hubs/profiles/delete | Supprime un profil Azure Customer Insights |
-> | Action | Microsoft.CustomerInsights/hubs/profiles/operations/read | Lit un résultat d’opération de profil Azure Customer Insights |
-> | Action | Microsoft.CustomerInsights/hubs/profiles/read | Afficher un profil Azure Customer Insights |
-> | Action | Microsoft.CustomerInsights/hubs/profiles/write | Écrire un profil Azure Customer Insights |
-> | Action | Microsoft.CustomerInsights/hubs/providers/Microsoft.Insights/diagnosticSettings/read | Obtient le paramètre de diagnostic pour la ressource |
-> | Action | Microsoft.CustomerInsights/hubs/providers/Microsoft.Insights/diagnosticSettings/write | Crée ou met à jour le paramètre de diagnostic pour la ressource |
-> | Action | Microsoft.CustomerInsights/hubs/providers/Microsoft.Insights/logDefinitions/read | Obtenir les journaux d’activité disponibles pour la ressource |
-> | Action | Microsoft.CustomerInsights/hubs/providers/Microsoft.Insights/metricDefinitions/read | Afficher les mesures disponibles pour la ressource |
-> | Action | Microsoft.CustomerInsights/hubs/read | Afficher un concentrateur Azure Customer Insights |
-> | Action | Microsoft.CustomerInsights/hubs/relationshiplinks/delete | Supprime des liens de relation Azure Customer Insights |
-> | Action | Microsoft.CustomerInsights/hubs/relationshiplinks/operations/read | Lit un résultat d’opération de liens de relation Azure Customer Insights |
-> | Action | Microsoft.CustomerInsights/hubs/relationshiplinks/read | Lit des liens de relation Azure Customer Insights |
-> | Action | Microsoft.CustomerInsights/hubs/relationshiplinks/write | Crée ou met à jour des liens de relation Azure Customer Insights |
-> | Action | Microsoft.CustomerInsights/hubs/relationships/delete | Supprime des relations Azure Customer Insights |
-> | Action | Microsoft.CustomerInsights/hubs/relationships/operations/read | Lit un résultat d’opération de relations Azure Customer Insights |
-> | Action | Microsoft.CustomerInsights/hubs/relationships/read | Lit des relations Azure Customer Insights |
-> | Action | Microsoft.CustomerInsights/hubs/relationships/write | Crée ou met à jour des relations Azure Customer Insights |
-> | Action | Microsoft.CustomerInsights/hubs/roleAssignments/delete | Supprimer une affectation RBAC Azure Customer Insights |
-> | Action | Microsoft.CustomerInsights/hubs/roleAssignments/operations/read | Lit un résultat d’opération d’affectation Rbac Azure Customer Insights |
-> | Action | Microsoft.CustomerInsights/hubs/roleAssignments/read | Afficher une affectation RBAC Azure Customer Insights |
-> | Action | Microsoft.CustomerInsights/hubs/roleAssignments/write | Créer ou mettre à jour une affectation RBAC Azure Customer Insights |
-> | Action | Microsoft.CustomerInsights/hubs/roles/read | Lit des rôles Rbac Azure Customer Insights |
-> | Action | Microsoft.CustomerInsights/hubs/salesforcemetadata/action | Crée ou met à jour des métadonnées SalesForce Azure Customer Insights |
-> | Action | Microsoft.CustomerInsights/hubs/salesforcemetadata/read | Lit des métadonnées SalesForce Azure Customer Insights |
-> | Action | Microsoft.CustomerInsights/hubs/segments/delete | Supprime des segments Azure Customer Insights |
-> | Action | Microsoft.CustomerInsights/hubs/segments/dynamic/action | Gère des segments dynamiques Azure Customer Insights |
-> | Action | Microsoft.CustomerInsights/hubs/segments/read | Lit des segments Azure Customer Insights |
-> | Action | Microsoft.CustomerInsights/hubs/segments/static/action | Gère des segments statiques Azure Customer Insights |
-> | Action | Microsoft.CustomerInsights/hubs/segments/write | Crée ou met à jour des segments Azure Customer Insights |
-> | Action | Microsoft.CustomerInsights/hubs/sqlconnectionstrings/delete | Supprime des chaînes de connexion SQL Azure Customer Insights |
-> | Action | Microsoft.CustomerInsights/hubs/sqlconnectionstrings/read | Lit des chaînes de connexion SQL Azure Customer Insights |
-> | Action | Microsoft.CustomerInsights/hubs/sqlconnectionstrings/write | Crée ou met à jour des chaînes de connexion SQL Azure Customer Insights |
-> | Action | Microsoft.CustomerInsights/hubs/suggesttypeschema/action | Génère un schéma de type de suggestion à partir d’un échantillon de données |
-> | Action | Microsoft.CustomerInsights/hubs/tenantmanagement/read | Gère des paramètres de hub Azure Customer Insights |
-> | Action | Microsoft.CustomerInsights/hubs/views/delete | Supprimer une vue d’application Azure Customer Insights |
-> | Action | Microsoft.CustomerInsights/hubs/views/read | Afficher une vue d’application Azure Customer Insights |
-> | Action | Microsoft.CustomerInsights/hubs/views/write | Créer ou mettre à jour une vue d’application Azure Customer Insights |
-> | Action | Microsoft.CustomerInsights/hubs/widgettypes/read | Lit des types de widgets d’application Azure Customer Insights |
-> | Action | Microsoft.CustomerInsights/hubs/write | Créer ou mettre à jour un concentrateur Azure Customer Insights |
-> | Action | Microsoft.CustomerInsights/operations/read | Lit des métadonnées d’API Azure Customer Insights |
-> | Action | Microsoft.CustomerInsights/register/action | Enregistre l’abonnement pour le fournisseur de ressources Customer Insights et permet la création de ressources Customer Insights |
-> | Action | Microsoft.CustomerInsights/unregister/action | Désinscrit l’abonnement pour le fournisseur de ressources Customer Insights |
-
 ## <a name="microsoftdatabox"></a>Microsoft.DataBox
 
 > [!div class="mx-tdCol2BreakAll"]
@@ -1649,9 +1553,14 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Action | Microsoft.DataBox/locations/availableSkus/action | Retourner la liste des références (SKU) disponibles |
 > | Action | Microsoft.DataBox/locations/availableSkus/read | Répertorier ou récupérer les SKU disponibles |
 > | Action | Microsoft.DataBox/locations/operationResults/read | Lister ou obtenir les résultats de l’opération |
+> | Action | Microsoft.DataBox/locations/regionConfiguration/action | Cette méthode retourne les configurations pour la région. |
 > | Action | Microsoft.DataBox/locations/validateAddress/action | Valider l'adresse de livraison et fournir d'autres adresses s’il en est |
-> | Action | Microsoft.DataBox/locations/validateInputs/action |  |
+> | Action | Microsoft.DataBox/locations/validateInputs/action | Cette méthode effectue tous les types de validations. |
+> | Action | Microsoft.DataBox/providers/operations/read | Lister ou obtenir les opérations |
 > | Action | Microsoft.DataBox/register/action | Inscrire le fournisseur Microsoft.Databox |
+> | Action | Microsoft.DataBox/subscriptions/resourceGroups/moveResources/action |  |
+> | Action | Microsoft.DataBox/subscriptions/resourceGroups/validateMoveResources/action |  |
+> | Action | Microsoft.DataBox/unregister/action | Désinscrire le fournisseur Microsoft.Databox |
 
 ## <a name="microsoftdataboxedge"></a>Microsoft.DataBoxEdge
 
@@ -1720,6 +1629,7 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > [!div class="mx-tdCol2BreakAll"]
 > | Type d’action | Opération | Description |
 > | --- | --- | --- |
+> | Action | Microsoft.Databricks/locations/getNetworkPolicies/action | Obtenir des stratégies d’intention de réseau pour un sous-réseau en fonction de l’emplacement utilisé par NRP |
 > | Action | Microsoft.Databricks/register/action | S’inscrit à Databricks. |
 > | Action | Microsoft.Databricks/workspaces/delete | Supprime un espace de travail Databricks. |
 > | Action | Microsoft.Databricks/workspaces/providers/Microsoft.Insights/diagnosticSettings/read | Définit les paramètres de diagnostics disponibles pour l’espace de travail Databricks |
@@ -1783,6 +1693,7 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Action | Microsoft.DataFactory/datafactories/tables/write | Crée ou met à jour tous les jeux de données. |
 > | Action | Microsoft.DataFactory/datafactories/write | Crée ou met à jour la fabrique de données. |
 > | Action | Microsoft.DataFactory/factories/cancelpipelinerun/action | Annule l’exécution du pipeline spécifiée par l’ID d’exécution. |
+> | Action | Microsoft.DataFactory/factories/cancelSandboxPipelineRun/action | Annule une exécution de débogage pour le pipeline. |
 > | Action | Microsoft.DataFactory/factories/createdataflowdebugsession/action | Crée une session de débogage de flux de données. |
 > | Action | Microsoft.DataFactory/factories/dataflows/delete | Supprime le flux de données. |
 > | Action | Microsoft.DataFactory/factories/dataflows/read | Lit un flux de données. |
@@ -1790,6 +1701,7 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Action | Microsoft.DataFactory/factories/datasets/delete | Supprime tous les jeux de données. |
 > | Action | Microsoft.DataFactory/factories/datasets/read | Affiche tous les jeux de données. |
 > | Action | Microsoft.DataFactory/factories/datasets/write | Crée ou met à jour tous les jeux de données. |
+> | Action | Microsoft.DataFactory/factories/debugpipelineruns/cancel/action | Annule une exécution de débogage pour le pipeline. |
 > | Action | Microsoft.DataFactory/factories/delete | Supprime la fabrique de données. |
 > | Action | Microsoft.DataFactory/factories/deletedataflowdebugsession/action | Supprime une session de débogage de flux de données. |
 > | Action | Microsoft.DataFactory/factories/getDataPlaneAccess/action | Obtient l’accès au service ADF DataPlane. |
@@ -1830,6 +1742,9 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Action | Microsoft.DataFactory/factories/pipelines/pipelineruns/activityruns/progress/read | Obtient la progression des exécutions d’activités. |
 > | Action | Microsoft.DataFactory/factories/pipelines/pipelineruns/read | Lit l’exécution du pipeline. |
 > | Action | Microsoft.DataFactory/factories/pipelines/read | Affiche le pipeline. |
+> | Action | Microsoft.DataFactory/factories/pipelines/sandbox/action | Crée un environnement d’exécution de débogage pour le pipeline. |
+> | Action | Microsoft.DataFactory/factories/pipelines/sandbox/create/action | Crée un environnement d’exécution de débogage pour le pipeline. |
+> | Action | Microsoft.DataFactory/factories/pipelines/sandbox/run/action | Crée une exécution de débogage pour le pipeline. |
 > | Action | Microsoft.DataFactory/factories/pipelines/write | Crée ou met à jour un pipeline. |
 > | Action | Microsoft.DataFactory/factories/querydebugpipelineruns/action | Interroge les exécutions du pipeline de débogage. |
 > | Action | Microsoft.DataFactory/factories/querypipelineruns/action | Interroge les exécutions du pipeline. |
@@ -1837,6 +1752,7 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Action | Microsoft.DataFactory/factories/querytriggerruns/action | Interroge les exécutions du déclencheur. |
 > | Action | Microsoft.DataFactory/factories/querytriggerruns/read | Lit les résultats des exécutions du déclencheur. |
 > | Action | Microsoft.DataFactory/factories/read | Affiche la fabrique de données. |
+> | Action | Microsoft.DataFactory/factories/sandboxpipelineruns/sandboxActivityRuns/read | Obtient les informations d’exécution de débogage pour l’activité. |
 > | Action | Microsoft.DataFactory/factories/startdataflowdebugsession/action | Démarre une session de débogage de flux de données. |
 > | Action | Microsoft.DataFactory/factories/triggerruns/read | Affiche les exécutions du déclencheur. |
 > | Action | Microsoft.DataFactory/factories/triggers/delete | Supprime tous les déclencheurs. |
@@ -2112,6 +2028,7 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Action | Microsoft.DBforPostgreSQL/servers/privateEndpointConnections/delete | Supprime une connexion de point de terminaison privé existante |
 > | Action | Microsoft.DBforPostgreSQL/servers/privateEndpointConnections/read | Retourne la liste de connexions de point de terminaison privé ou obtient les propriétés pour de la connexion de point de terminaison privé spécifiée. |
 > | Action | Microsoft.DBforPostgreSQL/servers/privateEndpointConnections/write | Approuve ou rejette une connexion de point de terminaison privé existante |
+> | Action | Microsoft.DBforPostgreSQL/servers/privateLinkResources/read | Obtenir les ressources de liaison privée pour le serveur PostgreSQL correspondant |
 > | Action | Microsoft.DBforPostgreSQL/servers/providers/Microsoft.Insights/diagnosticSettings/read | Obtient le paramètre de diagnostic pour la ressource |
 > | Action | Microsoft.DBforPostgreSQL/servers/providers/Microsoft.Insights/diagnosticSettings/write | Crée ou met à jour le paramètre de diagnostic pour la ressource |
 > | Action | Microsoft.DBforPostgreSQL/servers/providers/Microsoft.Insights/logDefinitions/read | Obtient les journaux d’activité disponibles pour les serveurs Postgres |
@@ -2275,12 +2192,9 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Action | Microsoft.DevTestLab/labs/formulas/write | Ajouter ou modifier des formules. |
 > | Action | Microsoft.DevTestLab/labs/galleryImages/read | Lire des images de la galerie. |
 > | Action | Microsoft.DevTestLab/labs/GenerateUploadUri/action | Générer un URI pour charger des images de disque personnalisées dans un laboratoire. |
-> | Action | Microsoft.DevTestLab/labs/idleShutdowns/delete | Supprime les arrêts inactifs. |
-> | Action | Microsoft.DevTestLab/labs/idleShutdowns/read | Lit les arrêts inactifs. |
-> | Action | Microsoft.DevTestLab/labs/idleShutdowns/write | Ajoute ou modifie des arrêts inactifs. |
 > | Action | Microsoft.DevTestLab/labs/ImportVirtualMachine/action | Importe une machine virtuelle dans un autre laboratoire. |
 > | Action | Microsoft.DevTestLab/labs/ListVhds/action | Répertorier les images de disque disponibles pour la création d’images personnalisées. |
-> | Action | Microsoft.DevTestLab/labs/notificationChannels/delete | Supprimer des canaux de notification. |
+> | Action | Microsoft.DevTestLab/labs/notificationChannels/delete | Supprimer les canaux de notification. |
 > | Action | Microsoft.DevTestLab/labs/notificationChannels/Notify/action | Envoyer une notification au canal fourni. |
 > | Action | Microsoft.DevTestLab/labs/notificationChannels/read | Lire les canaux de notification. |
 > | Action | Microsoft.DevTestLab/labs/notificationChannels/write | Ajouter ou modifier des canaux de notification. |
@@ -2502,7 +2416,9 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Action | Microsoft.EventGrid/domains/providers/Microsoft.Insights/metricDefinitions/read | Obtient les métriques disponibles pour les domaines |
 > | Action | Microsoft.EventGrid/domains/read | Lit un domaine |
 > | Action | Microsoft.EventGrid/domains/regenerateKey/action | Régénère une clé pour un domaine |
+> | Action | Microsoft.EventGrid/domains/topics/delete | Supprimer une rubrique de domaine |
 > | Action | Microsoft.EventGrid/domains/topics/read | Lire une rubrique de domaine |
+> | Action | Microsoft.EventGrid/domains/topics/write | Créer ou mettre à jour une rubrique de domaine |
 > | Action | Microsoft.EventGrid/domains/write | Crée ou met à jour un domaine |
 > | Action | Microsoft.EventGrid/eventSubscriptions/delete | Supprimer un abonnement à un événement |
 > | Action | Microsoft.EventGrid/eventSubscriptions/getFullUrl/action | Obtient l’URL complète de l’abonnement à l’événement |
@@ -2644,6 +2560,9 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Action | Microsoft.HDInsight/clusters/configurations/action | Afficher les configurations du cluster HDInsight |
 > | Action | Microsoft.HDInsight/clusters/configurations/read | Afficher les configurations du cluster HDInsight |
 > | Action | Microsoft.HDInsight/clusters/delete | Supprimer un cluster HDInsight |
+> | Action | Microsoft.HDInsight/clusters/extensions/delete | Supprimer l’extension de cluster pour le cluster HDInsight |
+> | Action | Microsoft.HDInsight/clusters/extensions/read | Obtenir l’extension de cluster pour le cluster HDInsight |
+> | Action | Microsoft.HDInsight/clusters/extensions/write | Créer l’extension de cluster pour le cluster HDInsight |
 > | Action | Microsoft.HDInsight/clusters/getGatewaySettings/action | Obtenir les paramètres de passerelle pour un HDInsight Cluster |
 > | Action | Microsoft.HDInsight/clusters/providers/Microsoft.Insights/diagnosticSettings/read | Obtient le paramètre de diagnostic pour le cluster HDInsight de ressource |
 > | Action | Microsoft.HDInsight/clusters/providers/Microsoft.Insights/diagnosticSettings/write | Crée ou met à jour le paramètre de diagnostic pour le cluster HDInsight de ressource |
@@ -2654,6 +2573,8 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Action | Microsoft.HDInsight/clusters/write | Créer ou mettre à jour un cluster HDInsight |
 > | Action | Microsoft.HDInsight/locations/capabilities/read | Afficher les fonctionnalités de l’abonnement |
 > | Action | Microsoft.HDInsight/locations/checkNameAvailability/read | Vérifier la disponibilité du nom |
+> | Action | Microsoft.HDInsight/register/action | Inscrire le fournisseur de ressources HDInsight pour l’abonnement |
+> | Action | Microsoft.HDInsight/unregister/action | Désinscrire le fournisseur de ressources HDInsight pour l’abonnement |
 
 ## <a name="microsoftimportexport"></a>Microsoft.ImportExport
 
@@ -3042,6 +2963,7 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Action | Microsoft.Kusto/Locations/CheckNameAvailability/action | Vérifie la disponibilité du nom de ressource. |
 > | Action | Microsoft.Kusto/locations/operationresults/read | Lit les ressources d’opérations |
 > | Action | Microsoft.Kusto/Operations/read | Lit les ressources d’opérations |
+> | Action | Microsoft.Kusto/register/action | Action d’inscription de l’abonnement |
 > | Action | Microsoft.Kusto/Register/action | Inscrit l’abonnement sur le fournisseur de ressources Kusto. |
 > | Action | Microsoft.Kusto/SKUs/read | Lit une ressource de référence SKU. |
 > | Action | Microsoft.Kusto/Unregister/action | Désinscrit l’abonnement sur le fournisseur de ressources Kusto. |
@@ -3062,9 +2984,7 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Action | Microsoft.LabServices/labAccounts/idleShutdowns/write | Ajouter ou modifier idleshutdowns. |
 > | Action | Microsoft.LabServices/labAccounts/labs/AddUsers/action | Ajouter des utilisateurs à un laboratoire |
 > | Action | Microsoft.LabServices/labAccounts/labs/delete | Supprimer des laboratoires. |
-> | Action | Microsoft.LabServices/labAccounts/labs/environmentSettings/ClaimAny/action | Revendique un environnement aléatoire pour un utilisateur dans les paramètres d’un environnement |
 > | Action | Microsoft.LabServices/labAccounts/labs/environmentSettings/delete | Supprime un paramètre d’environnement. |
-> | Action | Microsoft.LabServices/labAccounts/labs/environmentSettings/environments/Claim/action | Revendique l’environnement et l’assigne à l’utilisateur |
 > | Action | Microsoft.LabServices/labAccounts/labs/environmentSettings/environments/delete | Supprimer des environnements. |
 > | Action | Microsoft.LabServices/labAccounts/labs/environmentSettings/environments/read | Afficher les environnements. |
 > | Action | Microsoft.LabServices/labAccounts/labs/environmentSettings/environments/ResetPassword/action | Réinitialise le mot de passe utilisateur dans un environnement |
@@ -3082,7 +3002,6 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Action | Microsoft.LabServices/labAccounts/labs/environmentSettings/Stop/action | Arrête un modèle en arrêtant toutes les ressources qu’il contient. |
 > | Action | Microsoft.LabServices/labAccounts/labs/environmentSettings/write | Ajoute ou modifie un paramètre d’environnement. |
 > | Action | Microsoft.LabServices/labAccounts/labs/read | Afficher des laboratoires. |
-> | Action | Microsoft.LabServices/labAccounts/labs/Register/action | Procède à un enregistrement dans un laboratoire géré. |
 > | Action | Microsoft.LabServices/labAccounts/labs/SendEmail/action | Envoyer un e-mail avec un lien d’inscription au labo |
 > | Action | Microsoft.LabServices/labAccounts/labs/users/delete | Supprime des utilisateurs. |
 > | Action | Microsoft.LabServices/labAccounts/labs/users/read | Lit des utilisateurs. |
@@ -3098,13 +3017,10 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Action | Microsoft.LabServices/labAccounts/write | Ajoute ou modifie les comptes de laboratoire. |
 > | Action | Microsoft.LabServices/locations/operations/read | Opérations de lecture. |
 > | Action | Microsoft.LabServices/register/action | Enregistrer l’abonnement. |
-> | Action | Microsoft.LabServices/users/GetEnvironment/action | Obtient les détails relatifs aux machines virtuelles |
 > | Action | Microsoft.LabServices/users/GetOperationBatchStatus/action | Obtenir l’état d’une opération Batch |
 > | Action | Microsoft.LabServices/users/GetOperationStatus/action | Obtenir l’état d’une opération longue |
 > | Action | Microsoft.LabServices/users/GetPersonalPreferences/action | Obtenir des préférences personnelles pour un utilisateur |
 > | Action | Microsoft.LabServices/users/ListAllEnvironments/action | Répertorier tous les environnements de l’utilisateur |
-> | Action | Microsoft.LabServices/users/ListEnvironments/action | Répertorie les environnements de l’utilisateur |
-> | Action | Microsoft.LabServices/users/ListLabs/action | Répertorie les laboratoires de l’utilisateur. |
 > | Action | Microsoft.LabServices/users/Register/action | Enregistre un utilisateur dans un laboratoire géré |
 > | Action | Microsoft.LabServices/users/ResetPassword/action | Réinitialise le mot de passe utilisateur dans un environnement |
 > | Action | Microsoft.LabServices/users/StartEnvironment/action | Lance un environnement en lançant toutes les ressources au sein de l’environnement. |
@@ -3250,6 +3166,7 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Action | Microsoft.MachineLearningServices/workspaces/computes/read | Obtient les ressources de calcul dans le ou les espaces de travail Machine Learning Services |
 > | Action | Microsoft.MachineLearningServices/workspaces/computes/write | Crée ou met à jour les ressources de calcul dans le ou les espaces de travail Machine Learning Services |
 > | Action | Microsoft.MachineLearningServices/workspaces/delete | Supprime le ou les espaces de travail Machine Learning Services |
+> | DataAction | Microsoft.MachineLearningServices/workspaces/experiments/read | Obtient des expériences dans les espaces de travail Machine Learning Services |
 > | DataAction | Microsoft.MachineLearningServices/workspaces/experiments/write | Crée ou met à jour des expériences dans les espaces de travail Machine Learning Services |
 > | Action | Microsoft.MachineLearningServices/workspaces/listKeys/action | Répertorie les secrets d’un espace de travail Machine Learning Services |
 > | Action | Microsoft.MachineLearningServices/workspaces/read | Obtient le ou les espaces de travail Machine Learning Services |
@@ -3453,6 +3370,7 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Action | Microsoft.Migrate/migrateprojects/MigrateEvents/Delete | Supprime un événement de migration |
 > | Action | Microsoft.Migrate/migrateprojects/MigrateEvents/read | Obtient les propriétés d’un événement de migration. |
 > | Action | Microsoft.Migrate/migrateprojects/read | Obtient les propriétés d’un projet de migration |
+> | Action | Microsoft.Migrate/migrateprojects/RefreshSummary/action | Actualise le résumé du projet de migration |
 > | Action | Microsoft.Migrate/migrateprojects/registerTool/action | Inscrit l’outil dans un projet de migration |
 > | Action | Microsoft.Migrate/migrateprojects/solutions/cleanupData/action | Nettoie les données de solution de projet de migration |
 > | Action | Microsoft.Migrate/migrateprojects/solutions/Delete | Supprime une solution de projet de migration |
@@ -3499,6 +3417,8 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > [!div class="mx-tdCol2BreakAll"]
 > | Type d’action | Opération | Description |
 > | --- | --- | --- |
+> | Action | Microsoft.NetApp/locations/checkfilepathavailability/action | Vérifier si le chemin d’accès au fichier est disponible |
+> | Action | Microsoft.NetApp/locations/checknameavailability/action | Vérifier si le nom de la ressource est disponible |
 > | Action | Microsoft.NetApp/locations/operationresults/read | Lire une ressource de résultat d’opération |
 > | Action | Microsoft.NetApp/locations/read | Lire une ressource de vérification de disponibilité. |
 > | Action | Microsoft.NetApp/netAppAccounts/capacityPools/delete | Supprimer une ressource de pool |
@@ -3515,6 +3435,8 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Action | Microsoft.NetApp/netAppAccounts/read | Lire une ressource de compte |
 > | Action | Microsoft.NetApp/netAppAccounts/write | Écrire une ressource de compte |
 > | Action | Microsoft.NetApp/Operations/read | Lire une ressource d’opération |
+> | Action | Microsoft.NetApp/register/action | Inscrit un abonnement auprès du fournisseur de ressources Microsoft.NetApp |
+> | Action | Microsoft.NetApp/unregister/action | Désinscrit un abonnement auprès du fournisseur de ressources Microsoft.NetApp |
 
 ## <a name="microsoftnetwork"></a>Microsoft.Network
 
@@ -3530,6 +3452,7 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Action | Microsoft.Network/applicationGateways/backendAddressPools/join/action | Joint un pool d’adresses principales de passerelle d’application. Impossible à alerter. |
 > | Action | Microsoft.Network/applicationGateways/backendhealth/action | Obtient l’intégrité du serveur principal d’une passerelle d’application. |
 > | Action | Microsoft.Network/applicationGateways/delete | Supprime une passerelle d’application. |
+> | Action | Microsoft.Network/applicationGateways/getBackendHealthOnDemand/action | Obtient l’intégrité du serveur principal d’une passerelle d’application à la demande pour le pool principal et la configuration http donnés |
 > | Action | Microsoft.Network/applicationGateways/read | Obtient une passerelle d’application. |
 > | Action | Microsoft.Network/applicationGateways/start/action | Démarre une passerelle d’application. |
 > | Action | Microsoft.Network/applicationGateways/stop/action | Arrête une passerelle d’application. |
@@ -3609,26 +3532,26 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Action | Microsoft.Network/expressRouteCircuits/authorizations/write | Crée une autorisation ExpressRouteCircuit ou met à jour une autorisation ExpressRouteCircuit existante. |
 > | Action | Microsoft.Network/expressRouteCircuits/delete | Supprime un ExpressRouteCircuit. |
 > | Action | Microsoft.Network/expressRouteCircuits/join/action | Joint un circuit Express Route. Impossible à alerter. |
-> | Action | Microsoft.Network/expressRouteCircuits/peerings/arpTables/action | Obtient une ArpTable d’homologation ExpressRouteCircuit. |
+> | Action | Microsoft.Network/expressRouteCircuits/peerings/arpTables/read | Obtient une ArpTable d’homologation ExpressRouteCircuit. |
 > | Action | Microsoft.Network/expressRouteCircuits/peerings/connections/delete | Supprime une connexion ExpressRouteCircuit |
 > | Action | Microsoft.Network/expressRouteCircuits/peerings/connections/read | Obtient une connexion ExpressRouteCircuit |
 > | Action | Microsoft.Network/expressRouteCircuits/peerings/connections/write | Crée ou met à jour une ressource de connexion ExpressRouteCircuit existante |
 > | Action | Microsoft.Network/expressRouteCircuits/peerings/delete | Supprime une homologation ExpressRouteCircuit. |
 > | Action | Microsoft.Network/expressRouteCircuits/peerings/peerConnections/read | Obtient une connexion appairée au circuit Express Route |
 > | Action | Microsoft.Network/expressRouteCircuits/peerings/read | Obtient une homologation ExpressRouteCircuit. |
-> | Action | Microsoft.Network/expressRouteCircuits/peerings/routeTables/action | Obtient une RouteTable d’homologation ExpressRouteCircuit. |
-> | Action | Microsoft.Network/expressRouteCircuits/peerings/routeTablesSummary/action | Obtient un résumé RouteTable d’homologation ExpressRouteCircuit. |
+> | Action | Microsoft.Network/expressRouteCircuits/peerings/routeTables/read | Obtient une RouteTable d’homologation ExpressRouteCircuit. |
+> | Action | Microsoft.Network/expressRouteCircuits/peerings/routeTablesSummary/read | Obtient un résumé RouteTable d’homologation ExpressRouteCircuit. |
 > | Action | Microsoft.Network/expressRouteCircuits/peerings/stats/read | Obtient les statistiques d’homologation d’un ExpressRouteCircuit. |
 > | Action | Microsoft.Network/expressRouteCircuits/peerings/write | Crée une homologation ExpressRouteCircuit ou met à jour une homologation ExpressRouteCircuit existante. |
 > | Action | Microsoft.Network/expressRouteCircuits/read | Obtenir un ExpressRouteCircuit. |
 > | Action | Microsoft.Network/expressRouteCircuits/stats/read | Obtient les statistiques d’un ExpressRouteCircuit. |
 > | Action | Microsoft.Network/expressRouteCircuits/write | Crée un ExpressRouteCircuit ou met à jour un ExpressRouteCircuit existant. |
 > | Action | Microsoft.Network/expressRouteCrossConnections/join/action | Joint une connexion croisée Express Route. Impossible à alerter. |
-> | Action | Microsoft.Network/expressRouteCrossConnections/peerings/arpTables/action | Obtient une table ARP d’appairage de connexion croisée ExpressRoute |
+> | Action | Microsoft.Network/expressRouteCrossConnections/peerings/arpTables/read | Obtient une table ARP d’appairage de connexion croisée ExpressRoute |
 > | Action | Microsoft.Network/expressRouteCrossConnections/peerings/delete | Supprime un appairage de connexion croisée ExpressRoute |
 > | Action | Microsoft.Network/expressRouteCrossConnections/peerings/read | Obtient un appairage de connexion croisée ExpressRoute |
-> | Action | Microsoft.Network/expressRouteCrossConnections/peerings/routeTables/action | Obtient une table de routage d’appairage de connexion croisée ExpressRoute |
-> | Action | Microsoft.Network/expressRouteCrossConnections/peerings/routeTableSummary/action | Obtient un résumé de table de routage d’appairage de connexion croisée ExpressRoute |
+> | Action | Microsoft.Network/expressRouteCrossConnections/peerings/routeTables/read | Obtient une table de routage d’appairage de connexion croisée ExpressRoute |
+> | Action | Microsoft.Network/expressRouteCrossConnections/peerings/routeTableSummary/read | Obtient un résumé de table de routage d’appairage de connexion croisée ExpressRoute |
 > | Action | Microsoft.Network/expressRouteCrossConnections/peerings/write | Crée un appairage de connexion croisée ExpressRoute ou met à jour un appairage de connexion croisée ExpressRoute existant |
 > | Action | Microsoft.Network/expressRouteCrossConnections/read | Obtient une connexion croisée ExpressRoute |
 > | Action | Microsoft.Network/expressRouteGateways/expressRouteConnections/delete | Supprime une connexion Express Route |
@@ -3940,10 +3863,12 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Action | microsoft.network/vpngateways/reset/action | Réinitialise une passerelle VPN |
 > | Action | microsoft.network/vpnGateways/vpnConnections/delete | Supprime une connexion VPN |
 > | Action | microsoft.network/vpnGateways/vpnConnections/read | Obtient une connexion VPN. |
+> | Action | microsoft.network/vpnGateways/vpnConnections/vpnLinkConnections/read | Obtient une connexion de liaison VPN |
 > | Action | microsoft.network/vpnGateways/vpnConnections/write | Place une connexion VPN. |
 > | Action | Microsoft.Network/vpnGateways/write | Place une passerelle VPN. |
 > | Action | Microsoft.Network/vpnsites/delete | Supprime une ressource de site VPN. |
 > | Action | Microsoft.Network/vpnsites/read | Obtient une ressource de site VPN. |
+> | Action | microsoft.network/vpnSites/vpnSiteLinks/read | Obtient un lien de site VPN |
 > | Action | Microsoft.Network/vpnsites/write | Crée ou met à jour une ressource de site VPN. |
 
 ## <a name="microsoftnotificationhubs"></a>Microsoft.NotificationHubs
@@ -3987,12 +3912,11 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Action | Microsoft.OffAzure/HyperVSites/clusters/read | Obtient les propriétés d’un cluster Hyper-V |
 > | Action | Microsoft.OffAzure/HyperVSites/clusters/write | Crée ou met à jour le cluster Hyper-V |
 > | Action | Microsoft.OffAzure/HyperVSites/delete | Supprime le site Hyper-V |
+> | Action | Microsoft.OffAzure/HyperVSites/healthsummary/read | Obtient le résumé d’intégrité pour la ressource Hyper-V |
 > | Action | Microsoft.OffAzure/HyperVSites/hosts/read | Obtient les propriétés d’un hôte Hyper-V |
 > | Action | Microsoft.OffAzure/HyperVSites/hosts/write | Crée ou met à jour l’hôte Hyper-V |
 > | Action | Microsoft.OffAzure/HyperVSites/jobs/read | Obtient les propriétés de travaux Hyper-V |
 > | Action | Microsoft.OffAzure/HyperVSites/machines/read | Obtient les propriétés de machines Hyper-V |
-> | Action | Microsoft.OffAzure/HyperVSites/machines/start/action | Démarrer les machines Hyper-V |
-> | Action | Microsoft.OffAzure/HyperVSites/machines/stop/action | Arrête les machines Hyper-V |
 > | Action | Microsoft.OffAzure/HyperVSites/operationsstatus/read | Obtient les propriétés d’un état d’opération Hyper-V |
 > | Action | Microsoft.OffAzure/HyperVSites/read | Obtient les propriétés d’un site Hyper-V |
 > | Action | Microsoft.OffAzure/HyperVSites/refresh/action | Actualise les objets au sein d’un site Hyper-V |
@@ -4002,6 +3926,7 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Action | Microsoft.OffAzure/Operations/read | Lit les opérations exposées |
 > | Action | Microsoft.OffAzure/register/action | Inscrit un abonnement auprès du fournisseur de ressources Microsoft.OffAzure |
 > | Action | Microsoft.OffAzure/VMwareSites/delete | Supprime le site VMware |
+> | Action | Microsoft.OffAzure/VMwareSites/healthsummary/read | Obtient le résumé d’intégrité pour la ressource VMware |
 > | Action | Microsoft.OffAzure/VMwareSites/jobs/read | Obtient les propriétés de travaux VMware |
 > | Action | Microsoft.OffAzure/VMwareSites/machines/read | Obtient les propriétés de machines VMware |
 > | Action | Microsoft.OffAzure/VMwareSites/machines/start/action | Démarrer les machines VMware |
@@ -4061,6 +3986,11 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Action | Microsoft.OperationalInsights/workspaces/query/AADDomainServicesPrivilegeUse/read | Lit les données de la table AADDomainServicesPrivilegeUse |
 > | Action | Microsoft.OperationalInsights/workspaces/query/AADDomainServicesSystemSecurity/read | Lit les données de la table AADDomainServicesSystemSecurity |
 > | Action | Microsoft.OperationalInsights/workspaces/query/ADAssessmentRecommendation/read | Lire les données de la table ADAssessmentRecommendation |
+> | Action | Microsoft.OperationalInsights/workspaces/query/AddonAzureBackupAlerts/read | Lire les données de la table AddonAzureBackupAlerts |
+> | Action | Microsoft.OperationalInsights/workspaces/query/AddonAzureBackupJobs/read | Lire les données de la table AddonAzureBackupJobs |
+> | Action | Microsoft.OperationalInsights/workspaces/query/AddonAzureBackupPolicy/read | Lire les données de la table AddonAzureBackupPolicy |
+> | Action | Microsoft.OperationalInsights/workspaces/query/AddonAzureBackupProtectedInstance/read | Lire les données de la table AddonAzureBackupProtectedInstance |
+> | Action | Microsoft.OperationalInsights/workspaces/query/AddonAzureBackupStorage/read | Lire les données de la table AddonAzureBackupStorage |
 > | Action | Microsoft.OperationalInsights/workspaces/query/ADFActivityRun/read | Lit les données de la table ADFActivityRun |
 > | Action | Microsoft.OperationalInsights/workspaces/query/ADFPipelineRun/read | Lit les données de la table ADFPipelineRun |
 > | Action | Microsoft.OperationalInsights/workspaces/query/ADFTriggerRun/read | Lit les données de la table ADFTriggerRun |
@@ -4068,6 +3998,7 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Action | Microsoft.OperationalInsights/workspaces/query/ADSecurityAssessmentRecommendation/read | Lire les données de la table ADSecurityAssessmentRecommendation |
 > | Action | Microsoft.OperationalInsights/workspaces/query/Alert/read | Lire les données de la table Alert |
 > | Action | Microsoft.OperationalInsights/workspaces/query/AlertHistory/read | Lire les données de la table AlertHistory |
+> | Action | Microsoft.OperationalInsights/workspaces/query/ApiManagementGatewayLogs/read | Lire les données de la table ApiManagementGatewayLogs |
 > | Action | Microsoft.OperationalInsights/workspaces/query/AppCenterError/read | Lire les données à partir de la table AppCenterError |
 > | Action | Microsoft.OperationalInsights/workspaces/query/ApplicationInsights/read | Lire les données de la table ApplicationInsights |
 > | Action | Microsoft.OperationalInsights/workspaces/query/AuditLogs/read | Lire les données de la table AuditLogs |
@@ -4088,7 +4019,10 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Action | Microsoft.OperationalInsights/workspaces/query/ContainerInventory/read | Lire les données de la table ContainerInventory |
 > | Action | Microsoft.OperationalInsights/workspaces/query/ContainerLog/read | Lire les données de la table ContainerLog |
 > | Action | Microsoft.OperationalInsights/workspaces/query/ContainerNodeInventory/read | Lire les données de la table ContainerNodeInventory |
+> | Action | Microsoft.OperationalInsights/workspaces/query/ContainerRegistryLoginEvents/read | Lire les données de la table ContainerRegistryLoginEvents |
+> | Action | Microsoft.OperationalInsights/workspaces/query/ContainerRegistryRepositoryEvents/read | Lire les données de la table ContainerRegistryRepositoryEvents |
 > | Action | Microsoft.OperationalInsights/workspaces/query/ContainerServiceLog/read | Lire les données de la table ContainerServiceLog |
+> | Action | Microsoft.OperationalInsights/workspaces/query/CoreAzureBackup/read | Lire les données de la table CoreAzureBackup |
 > | Action | Microsoft.OperationalInsights/workspaces/query/DatabricksAccounts/read | Lit les données de la table DatabricksAccounts |
 > | Action | Microsoft.OperationalInsights/workspaces/query/DatabricksClusters/read | Lit les données de la table DatabricksClusters |
 > | Action | Microsoft.OperationalInsights/workspaces/query/DatabricksDBFS/read | Lit les données de la table DatabricksDBFS |
@@ -4190,6 +4124,9 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Action | Microsoft.OperationalInsights/workspaces/query/MAWindowsDeploymentStatus/read | Lire les données de la table MAWindowsDeploymentStatus |
 > | Action | Microsoft.OperationalInsights/workspaces/query/MAWindowsDeploymentStatusNRT/read | Lire les données de la table MAWindowsDeploymentStatusNRT |
 > | Action | Microsoft.OperationalInsights/workspaces/query/MAWindowsSysReqInstanceReadiness/read | Lire les données de la table MAWindowsSysReqInstanceReadiness |
+> | Action | Microsoft.OperationalInsights/workspaces/query/McasShadowItReporting/read | Lire les données de la table McasShadowItReporting |
+> | Action | Microsoft.OperationalInsights/workspaces/query/Microservices4SpringApplicationLogs/read | Lire les données de la table Microservices4SpringApplicationLogs |
+> | Action | Microsoft.OperationalInsights/workspaces/query/MicrosoftInsightsAzureActivityLog/read | Lire les données de la table MicrosoftInsightsAzureActivityLog |
 > | Action | Microsoft.OperationalInsights/workspaces/query/MicrosoftWebApplicationLog/read | Lit les données de la table MicrosoftWebApplicationLog |
 > | Action | Microsoft.OperationalInsights/workspaces/query/MicrosoftWebFunctionExecutionLogs/read | Lit les données de la table MicrosoftWebFunctionExecutionLogs |
 > | Action | Microsoft.OperationalInsights/workspaces/query/MicrosoftWebStdOutStdErrLog/read | Lit les données de la table MicrosoftWebStdOutStdErrLog |
@@ -4381,11 +4318,13 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Action | microsoft.recoveryservices/Vaults/backupFabrics/backupProtectionIntent/read | Créer une intention de protection de sauvegarde |
 > | Action | microsoft.recoveryservices/Vaults/backupFabrics/backupProtectionIntent/write | Crée une intention de protection de sauvegarde. |
 > | Action | microsoft.recoveryservices/Vaults/backupFabrics/operationResults/read | Renvoie l’état de l’opération. |
+> | Action | microsoft.recoveryservices/Vaults/backupFabrics/operationsStatus/read | Renvoie l’état de l’opération. |
 > | Action | microsoft.recoveryservices/Vaults/backupFabrics/protectableContainers/read | Obtient tous les conteneurs protégeables |
 > | Action | microsoft.recoveryservices/Vaults/backupFabrics/protectionContainers/delete | Supprime le conteneur enregistré |
 > | Action | microsoft.recoveryservices/Vaults/backupFabrics/protectionContainers/inquire/action | Recherche les charges de travail dans un conteneur |
 > | Action | microsoft.recoveryservices/Vaults/backupFabrics/protectionContainers/items/read | Obtient tous les éléments figurant dans un conteneur |
 > | Action | microsoft.recoveryservices/Vaults/backupFabrics/protectionContainers/operationResults/read | Obtient les résultats de l’opération effectuée sur le conteneur de protection. |
+> | Action | microsoft.recoveryservices/Vaults/backupFabrics/protectionContainers/operationsStatus/read | Obtient l’état de l’opération effectuée sur le conteneur de protection. |
 > | Action | microsoft.recoveryservices/Vaults/backupFabrics/protectionContainers/protectedItems/backup/action | Effectue la sauvegarde d’un élément protégé. |
 > | Action | microsoft.recoveryservices/Vaults/backupFabrics/protectionContainers/protectedItems/delete | Supprime un élément protégé. |
 > | Action | microsoft.recoveryservices/Vaults/backupFabrics/protectionContainers/protectedItems/operationResults/read | Obtient les résultats de l’opération effectuée sur les éléments protégés. |
@@ -4401,6 +4340,7 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Action | microsoft.recoveryservices/Vaults/backupFabrics/refreshContainers/action | Actualise la liste de conteneurs. |
 > | Action | microsoft.recoveryservices/Vaults/backupJobs/cancel/action | Annuler le travail. |
 > | Action | microsoft.recoveryservices/Vaults/backupJobs/operationResults/read | Renvoie le résultat de l’opération de travail. |
+> | Action | microsoft.recoveryservices/Vaults/backupJobs/operationsStatus/read | Retourne l’état de l’opération de travail. |
 > | Action | microsoft.recoveryservices/Vaults/backupJobs/read | Renvoie tous les objets de travail. |
 > | Action | microsoft.recoveryservices/Vaults/backupJobsExport/action | Travaux d’exportation |
 > | Action | microsoft.recoveryservices/Vaults/backupOperationResults/read | Renvoie le résultat de l’opération de sauvegarde pour le coffre Recovery Services. |
@@ -4440,6 +4380,7 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Action | Microsoft.RecoveryServices/vaults/replicationFabrics/delete | Supprimer des structures. |
 > | Action | Microsoft.RecoveryServices/vaults/replicationFabrics/deployProcessServerImage/action | Déployer une image de serveur de traitement. |
 > | Action | Microsoft.RecoveryServices/vaults/replicationFabrics/migratetoaad/action | Migrer la structure fabric vers AAD |
+> | Action | Microsoft.RecoveryServices/vaults/replicationFabrics/operationresults/read | Suivre les résultats d’une opération asynchrone sur la ressource Structures |
 > | Action | Microsoft.RecoveryServices/vaults/replicationFabrics/read | Lire des structures. |
 > | Action | Microsoft.RecoveryServices/vaults/replicationFabrics/reassociateGateway/action | Réassocier une passerelle. |
 > | Action | Microsoft.RecoveryServices/vaults/replicationFabrics/remove/action | Supprimer une structure. |
@@ -4450,11 +4391,13 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Action | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationNetworks/replicationNetworkMappings/read | Lire des mappages réseau. |
 > | Action | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationNetworks/replicationNetworkMappings/write | Créer ou mettre à jour des mappages réseau. |
 > | Action | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/discoverProtectableItem/action | Découvrir un élément pouvant être protégé. |
+> | Action | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/operationresults/read | Suivre les résultats d’une opération asynchrone sur la ressource Conteneurs de protection |
 > | Action | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/read | Lire des conteneurs de protection. |
 > | Action | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/remove/action | Supprimer un conteneur de protection. |
 > | Action | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationMigrationItems/delete | Supprimer tous les éléments de migration |
 > | Action | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationMigrationItems/migrate/action | Migrer l’élément |
 > | Action | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationMigrationItems/migrationRecoveryPoints/read | Lire tous les points de récupération de la migration |
+> | Action | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationMigrationItems/operationresults/read | Suivre les résultats d’une opération asynchrone sur la ressource Éléments de la migration |
 > | Action | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationMigrationItems/read | Lire tous les éléments de la migration |
 > | Action | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationMigrationItems/testMigrate/action | Migration de test |
 > | Action | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationMigrationItems/testMigrateCleanup/action | Nettoyage de la migration de test |
@@ -4464,6 +4407,7 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Action | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/applyRecoveryPoint/action | Appliquer un point de récupération. |
 > | Action | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/delete | Supprimer des éléments protégés. |
 > | Action | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/failoverCommit/action | Validation du basculement. |
+> | Action | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/operationresults/read | Suivre les résultats d’une opération asynchrone sur la ressource Éléments protégés |
 > | Action | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/plannedFailover/action | Basculement planifié. |
 > | Action | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/read | Lire des éléments protégés. |
 > | Action | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/recoveryPoints/read | Lire des points de récupération de réplication. |
@@ -4480,25 +4424,30 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Action | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/updateMobilityService/action | Mettre à jour le service Mobilité. |
 > | Action | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/write | Créer ou mettre à jour des éléments protégés. |
 > | Action | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectionContainerMappings/delete | Supprimer des mappages de conteneurs de protection. |
+> | Action | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectionContainerMappings/operationresults/read | Suivre les résultats d’une opération asynchrone sur la ressource Mappages de conteneurs de protection |
 > | Action | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectionContainerMappings/read | Lire des mappages de conteneurs de protection. |
 > | Action | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectionContainerMappings/remove/action | Supprimer un mappage de conteneurs de protection. |
 > | Action | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectionContainerMappings/write | Créer ou mettre à jour des mappages de conteneurs de protection. |
 > | Action | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/switchprotection/action | Basculer un conteneur de protection. |
 > | Action | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/write | Créer ou mettre à jour des conteneurs de protection. |
 > | Action | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationRecoveryServicesProviders/delete | Supprimer des fournisseurs Recovery Services. |
+> | Action | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationRecoveryServicesProviders/operationresults/read | Suivre les résultats d’une opération asynchrone sur la ressource Fournisseurs de services de récupération |
 > | Action | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationRecoveryServicesProviders/read | Lire des fournisseurs Recovery Services. |
 > | Action | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationRecoveryServicesProviders/refreshProvider/action | Actualiser un fournisseur. |
 > | Action | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationRecoveryServicesProviders/remove/action | Supprimer un fournisseur Recovery Services. |
 > | Action | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationRecoveryServicesProviders/write | Créer ou mettre à jour des fournisseurs Recovery Services. |
 > | Action | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationStorageClassifications/read | Lire des classifications de stockage. |
 > | Action | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationStorageClassifications/replicationStorageClassificationMappings/delete | Supprimer des mappages de classifications de stockage. |
+> | Action | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationStorageClassifications/replicationStorageClassificationMappings/operationresults/read | Suivre les résultats d’une opération asynchrone sur la ressource Mappages de classifications de stockage |
 > | Action | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationStorageClassifications/replicationStorageClassificationMappings/read | Lire des mappages de classifications de stockage. |
 > | Action | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationStorageClassifications/replicationStorageClassificationMappings/write | Créer ou mettre à jour des mappages de classifications de stockage. |
 > | Action | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationvCenters/delete | Supprimer des serveurs vCenter. |
+> | Action | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationvCenters/operationresults/read | Suivre les résultats d’une opération asynchrone sur la ressource vCenters |
 > | Action | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationvCenters/read | Lire des serveurs vCenter. |
 > | Action | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationvCenters/write | Créer ou mettre à jour des serveurs vCenter. |
 > | Action | Microsoft.RecoveryServices/vaults/replicationFabrics/write | Créer ou mettre à jour des structures. |
 > | Action | Microsoft.RecoveryServices/vaults/replicationJobs/cancel/action | Annuler un travail. |
+> | Action | Microsoft.RecoveryServices/vaults/replicationJobs/operationresults/read | Suivre les résultats d’une opération asynchrone sur la ressource Travaux |
 > | Action | Microsoft.RecoveryServices/vaults/replicationJobs/read | Lire des travaux. |
 > | Action | Microsoft.RecoveryServices/vaults/replicationJobs/restart/action | Redémarrer un travail. |
 > | Action | Microsoft.RecoveryServices/vaults/replicationJobs/resume/action | Reprendre un travail. |
@@ -4506,6 +4455,7 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Action | Microsoft.RecoveryServices/vaults/replicationNetworkMappings/read | Lire des mappages réseau. |
 > | Action | Microsoft.RecoveryServices/vaults/replicationNetworks/read | Lire des réseaux. |
 > | Action | Microsoft.RecoveryServices/vaults/replicationPolicies/delete | Supprimer des stratégies. |
+> | Action | Microsoft.RecoveryServices/vaults/replicationPolicies/operationresults/read | Suivre les résultats d’une opération asynchrone sur la ressource Stratégies |
 > | Action | Microsoft.RecoveryServices/vaults/replicationPolicies/read | Lire des stratégies. |
 > | Action | Microsoft.RecoveryServices/vaults/replicationPolicies/write | Créer ou mettre à jour des stratégies. |
 > | Action | Microsoft.RecoveryServices/vaults/replicationProtectedItems/read | Lire des éléments protégés. |
@@ -4513,6 +4463,7 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Action | Microsoft.RecoveryServices/vaults/replicationProtectionContainers/read | Lire des conteneurs de protection. |
 > | Action | Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/delete | Supprimer des plans de récupération. |
 > | Action | Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/failoverCommit/action | Plan de récupération de validation de basculement. |
+> | Action | Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/operationresults/read | Suivre les résultats d’une opération asynchrone sur la ressource Plans de récupération |
 > | Action | Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/plannedFailover/action | Plan de récupération de basculement planifié. |
 > | Action | Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/read | Lire des plans de récupération. |
 > | Action | Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/reProtect/action | Reprotéger le plan de récupération. |
@@ -4525,6 +4476,7 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Action | Microsoft.RecoveryServices/vaults/replicationStorageClassifications/read | Lire des classifications de stockage. |
 > | Action | Microsoft.RecoveryServices/vaults/replicationSupportedOperatingSystems/read | Lire tout  |
 > | Action | Microsoft.RecoveryServices/vaults/replicationUsages/read | Lire des utilisations de la réplication du coffre. |
+> | Action | Microsoft.RecoveryServices/vaults/replicationVaultHealth/operationresults/read | Suivre les résultats d’une opération asynchrone sur la ressource Intégrité de la réplication du coffre |
 > | Action | Microsoft.RecoveryServices/vaults/replicationVaultHealth/read | Lire l’intégrité de la réplication du coffre. |
 > | Action | Microsoft.RecoveryServices/vaults/replicationVaultHealth/refresh/action | Actualiser l’intégrité du coffre. |
 > | Action | Microsoft.RecoveryServices/vaults/replicationVaultSettings/read | Lire tout  |
@@ -4569,6 +4521,9 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Action | Microsoft.Relay/namespaces/messagingPlan/read | Obtient le plan de messagerie pour un espace de noms.<br>Cette API est déconseillée.<br>Les propriétés exposées via la ressource MessagingPlan sont déplacées vers la ressource d’espace de noms (parente) dans les versions ultérieures de l’API.<br>Cette opération n’est pas prise en charge sur la version d’API 2017-04-01. |
 > | Action | Microsoft.Relay/namespaces/messagingPlan/write | Met à jour le plan de messagerie pour un espace de noms.<br>Cette API est déconseillée.<br>Les propriétés exposées via la ressource MessagingPlan sont déplacées vers la ressource d’espace de noms (parente) dans les versions ultérieures de l’API.<br>Cette opération n’est pas prise en charge sur la version d’API 2017-04-01. |
 > | Action | Microsoft.Relay/namespaces/operationresults/read | Obtient l’état de l’opération d’espace de noms |
+> | Action | Microsoft.Relay/namespaces/providers/Microsoft.Insights/diagnosticSettings/read | Obtenir la liste des descriptions des ressources des paramètres de diagnostics Namespace. |
+> | Action | Microsoft.Relay/namespaces/providers/Microsoft.Insights/diagnosticSettings/write | Obtenir la liste des descriptions des ressources des paramètres de diagnostics Namespace. |
+> | Action | Microsoft.Relay/namespaces/providers/Microsoft.Insights/logDefinitions/read | Obtenir la liste des descriptions des ressources des journaux d’activité Namespace |
 > | Action | Microsoft.Relay/namespaces/providers/Microsoft.Insights/metricDefinitions/read | Obtenir la liste des descriptions des mesures de ressource Namespace. |
 > | Action | Microsoft.Relay/namespaces/read | Obtenir la liste des descriptions des ressources Namespace. |
 > | Action | Microsoft.Relay/namespaces/removeAcsNamepsace/action | Supprime l’espace de noms ACS |
@@ -4681,6 +4636,7 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Action | Microsoft.Search/searchServices/delete | Supprime le service de recherche. |
 > | Action | Microsoft.Search/searchServices/deleteQueryKey/delete | Supprime la clé de requête. |
 > | Action | Microsoft.Search/searchServices/listAdminKeys/action | Lit les clés d’administration. |
+> | Action | Microsoft.Search/searchServices/listQueryKeys/action | Retourne la liste des clés d’API de requête pour le service Recherche Azure donné. |
 > | Action | Microsoft.Search/searchServices/listQueryKeys/read | Retourne la liste des clés d’API de requête pour le service Recherche Azure donné. |
 > | Action | Microsoft.Search/searchServices/read | Lit le service de recherche. |
 > | Action | Microsoft.Search/searchServices/regenerateAdminKey/action | Régénère la clé d’administration. |
@@ -4783,12 +4739,8 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Action | Microsoft.ServiceBus/namespaces/ipFilterRules/delete | Supprimer une ressource de filtre IP |
 > | Action | Microsoft.ServiceBus/namespaces/ipFilterRules/read | Obtenir une ressource de filtre IP |
 > | Action | Microsoft.ServiceBus/namespaces/ipFilterRules/write | Créer une ressource de filtre IP |
-> | DataAction | Microsoft.ServiceBus/namespaces/messages/browse/action | Parcourir les messages |
-> | DataAction | Microsoft.ServiceBus/namespaces/messages/defer/action | Diffère les messages |
 > | DataAction | Microsoft.ServiceBus/namespaces/messages/receive/action | Recevoir des messages |
-> | DataAction | Microsoft.ServiceBus/namespaces/messages/schedule/action | Planifie les messages |
 > | DataAction | Microsoft.ServiceBus/namespaces/messages/send/action | Envoyer des messages |
-> | DataAction | Microsoft.ServiceBus/namespaces/messages/setstate/action | Définir l’état d’une session |
 > | Action | Microsoft.ServiceBus/namespaces/messagingPlan/read | Obtient le plan de messagerie pour un espace de noms.<br>Cette API est déconseillée.<br>Les propriétés exposées via la ressource MessagingPlan sont déplacées vers la ressource d’espace de noms (parente) dans les versions ultérieures de l’API.<br>Cette opération n’est pas prise en charge sur la version d’API 2017-04-01. |
 > | Action | Microsoft.ServiceBus/namespaces/messagingPlan/write | Met à jour le plan de messagerie pour un espace de noms.<br>Cette API est déconseillée.<br>Les propriétés exposées via la ressource MessagingPlan sont déplacées vers la ressource d’espace de noms (parente) dans les versions ultérieures de l’API.<br>Cette opération n’est pas prise en charge sur la version d’API 2017-04-01. |
 > | Action | Microsoft.ServiceBus/namespaces/migrate/action | Migre une opération d’espace de noms |
@@ -5298,6 +5250,7 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | DataAction | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/deleteAutomaticSnapshot/action | Retourne le résultat de la suppression d’une capture instantanée |
 > | DataAction | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/filter/action | Retourne la liste d’objets blob sous un compte avec le filtre de balises correspondantes |
 > | DataAction | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | Retourner un objet blob ou une liste d’objets blob |
+> | DataAction | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action | Retourne le résultat de la commande blob. |
 > | DataAction | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/read | Retourne le résultat de la lecture des balises d’objet blob |
 > | DataAction | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write | Retourne le résultat de l’écriture des balises d’objet blob |
 > | DataAction | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write | Retourner le résultat de l’écriture d’un objet blob |
@@ -5320,7 +5273,18 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Action | Microsoft.Storage/storageAccounts/blobServices/write | Retourne le résultat des propriétés du service blob de placement |
 > | Action | Microsoft.Storage/storageAccounts/delete | Supprime un compte de stockage existant. |
 > | Action | Microsoft.Storage/storageAccounts/failover/action | Le client est en mesure de contrôler le basculement en cas de problèmes de disponibilité |
+> | DataAction | Microsoft.Storage/storageAccounts/fileServices/fileshares/files/actassuperuser/action |  |
+> | DataAction | Microsoft.Storage/storageAccounts/fileServices/fileshares/files/delete | Retourne le résultat de la suppression d’un fichier/dossier |
+> | DataAction | Microsoft.Storage/storageAccounts/fileServices/fileshares/files/modifypermissions/action | Retourne le résultat de la modification de l’autorisation sur un fichier/dossier |
+> | DataAction | Microsoft.Storage/storageAccounts/fileServices/fileshares/files/read | Retourne un fichier/dossier ou une liste de fichiers/dossiers. |
+> | DataAction | Microsoft.Storage/storageAccounts/fileServices/fileshares/files/write | Retourne le résultat de l’écriture d’un fichier ou de la création d’un dossier. |
+> | Action | Microsoft.Storage/storageAccounts/fileServices/read |  |
 > | Action | Microsoft.Storage/storageAccounts/fileServices/read | Obtenir les propriétés du service de fichiers |
+> | Action | Microsoft.Storage/storageAccounts/fileServices/shares/delete |  |
+> | Action | Microsoft.Storage/storageAccounts/fileServices/shares/read |  |
+> | Action | Microsoft.Storage/storageAccounts/fileServices/shares/read |  |
+> | Action | Microsoft.Storage/storageAccounts/fileServices/shares/write |  |
+> | Action | Microsoft.Storage/storageAccounts/fileServices/write |  |
 > | Action | Microsoft.Storage/storageAccounts/listAccountSas/action | Retourne le jeton SAS du compte de stockage spécifié. |
 > | Action | Microsoft.Storage/storageAccounts/listkeys/action | Retourne les clés d’accès au compte de stockage spécifié. |
 > | Action | Microsoft.Storage/storageAccounts/listServiceSas/action | Retourne le jeton SAS de service pour le compte de stockage spécifié. |
@@ -5767,6 +5731,8 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Action | microsoft.web/locations/managedapis/apioperations/read | Obtient les opérations API managée d’emplacements. |
 > | Action | Microsoft.Web/locations/managedapis/Join/Action | Joint une API managée. |
 > | Action | microsoft.web/locations/managedapis/read | Récupère les API managées des emplacements. |
+> | Action | microsoft.web/locations/operationResults/read | Récupère les opérations. |
+> | Action | microsoft.web/locations/operations/read | Récupère les opérations. |
 > | Action | microsoft.web/operations/read | Récupère les opérations. |
 > | Action | microsoft.web/publishingusers/read | Récupère la publication des utilisateurs. |
 > | Action | microsoft.web/publishingusers/write | Met à jour la publication des utilisateurs. |

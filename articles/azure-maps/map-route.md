@@ -1,6 +1,6 @@
 ---
 title: Affichage de directions avec Azure Maps | Microsoft Docs
-description: Comment afficher des directions entre deux emplacements sur une carte Javascript
+description: Découvrez comment afficher les directions entre deux emplacements sur une carte à l’aide du kit SDK web Azure Maps.
 author: jingjing-z
 ms.author: jinzh
 ms.date: 07/29/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: codepen
-ms.openlocfilehash: 65f8337585e0a4d1077897274fd07505024af22c
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: cf997d4ae120f3e9309892b112f9954bde97bc76
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68638948"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976493"
 ---
 # <a name="show-directions-from-a-to-b"></a>Afficher des directions de A à B
 
@@ -39,7 +39,7 @@ Une ligne est une [fonctionnalité](https://docs.microsoft.com/javascript/api/az
 
 Une [couche de symboles](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer?view=azure-iot-typescript-latest) utilise du texte ou des icônes pour afficher les données basées sur le point, qui sont wrappées dans la [source de données](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) en tant que symboles sur la carte. Le cinquième bloc de code crée une couche de symboles et l’ajoute à la carte.
 
-Le sixième bloc de code interroge le service de routage Azure Maps, qui fait partie du [module de service](how-to-use-services-module.md). La méthode [calculateRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.routeurl?view=azure-iot-typescript-latest#methods) de RouteURL est utilisée pour obtenir une route entre les points de début et de fin. Une collection de fonctionnalités GeoJSON de la réponse est alors extraite à l’aide de la méthode `geojson.getFeatures()` et ajoutée à la source de données. Elle affiche ensuite la réponse sous forme de route sur la carte. Pour plus d’informations sur l’ajout d’une ligne à la carte, consultez [Ajouter une ligne sur la carte](./map-add-shape.md#addALine).
+Le sixième bloc de code interroge le service de routage Azure Maps, qui fait partie du [module de service](how-to-use-services-module.md). La méthode [calculateRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.routeurl?view=azure-iot-typescript-latest#methods) de RouteURL est utilisée pour obtenir une route entre les points de début et de fin. Une collection de fonctionnalités GeoJSON de la réponse est alors extraite à l’aide de la méthode `geojson.getFeatures()` et ajoutée à la source de données. Elle affiche ensuite la réponse sous forme de route sur la carte. Pour plus d’informations sur l’ajout d’une ligne à la carte, consultez [Ajouter une ligne sur la carte](map-add-line-layer.md).
 
 Le dernier bloc de code définit les limites de la carte à l’aide de la propriété [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) de la carte.
 
@@ -62,7 +62,7 @@ Une [couche de symboles](https://docs.microsoft.com/javascript/api/azure-maps-co
 
 Le bloc de code suivant crée les points `SouthWest` et `NorthEast` à partir des points de début et de destination, et définit les limites de la carte à l’aide de la propriété [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) de la carte.
 
-Le dernier bloc de code utilise l'[API de récupération](https://fetch.spec.whatwg.org/) pour effectuer une requête de recherche pour l'[API de routage Azure Maps](https://docs.microsoft.com/rest/api/maps/route/getroutedirections). La réponse est ensuite analysée. Si la réponse est correcte, les informations de latitude et longitude sont utilisées pour créer une ligne en reliant ces points. Les données de la ligne sont ensuite ajoutées à la source de données pour afficher l’itinéraire sur la carte. Pour plus d’instructions, consultez la section relative à [l’ajout d’une ligne sur la carte](./map-add-shape.md#addALine).
+Le dernier bloc de code utilise l'[API de récupération](https://fetch.spec.whatwg.org/) pour effectuer une requête de recherche pour l'[API de routage Azure Maps](https://docs.microsoft.com/rest/api/maps/route/getroutedirections). La réponse est ensuite analysée. Si la réponse est correcte, les informations de latitude et longitude sont utilisées pour créer une ligne en reliant ces points. Les données de la ligne sont ensuite ajoutées à la source de données pour afficher l’itinéraire sur la carte. Pour plus d’instructions, consultez la section relative à [l’ajout d’une ligne sur la carte](map-add-line-layer.md).
 
 La requête de route, la source de données, les couches de lignes et de symboles, et les limites de l’appareil photo sont créés et définis au sein du [détecteur d’événements](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) de la carte pour garantir que les résultats sont affichés après le chargement complet de la carte.
 

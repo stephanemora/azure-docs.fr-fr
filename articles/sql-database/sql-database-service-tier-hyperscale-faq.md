@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/06/2019
-ms.openlocfilehash: 70ba6c5507cf31732d679a61c3e185a520b4c5f3
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 94894126be98f0d3d4d404d97d0a4a39fff2e665
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566678"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68847407"
 ---
 # <a name="faq-about-azure-sql-hyperscale-databases"></a>Questions fréquentes (FAQ) sur les bases de données SQL Azure Hyperscale
 
@@ -44,18 +44,18 @@ Les niveaux de service basés sur des vCore diffèrent principalement en disponi
 - Le niveau de service Critique pour l’entreprise est approprié pour les charges de travail métier où la latence des E/S est une priorité.
 
 | | Type de ressource | Usage général |  Hyperscale | Critique pour l’entreprise |
-|:---|:---:|:---:|:---:|:---:|:---:|
+|:---:|:---:|:---:|:---:|:---:|
 | **Idéal pour** |Tous|  La plupart des charges de travail d’entreprise. Offre des options de calcul et de stockage équilibrées et économiques. | Applications de données avec des besoins en capacité pour des données volumineuses, et la possibilité de mettre à l’échelle automatiquement le stockage et de mettre à l’échelle la capacité de calcul de façon fluide. | Applications OLTP avec des débits de transactions élevés et la latence des E/S la plus faible. Offre la meilleure résilience aux défaillances grâce à l’utilisation de plusieurs réplicas isolés.|
 |  **Type de ressource** ||Base de données unique / pool élastique / instance managée | Base de données unique | Base de données unique / pool élastique / instance managée |
 | **Taille de calcul**|Base de données unique / pool élastique * | 1 à 80 cœurs virtuels | 1 à 80 cœurs virtuels* | 1 à 80 cœurs virtuels |
-| |Instance gérée | 8, 16, 24, 32, 40, 64, 80 cœurs virtuels | N/A | 8, 16, 24, 32, 40, 64, 80 cœurs virtuels |
+| |Instance managée | 8, 16, 24, 32, 40, 64, 80 cœurs virtuels | N/A | 8, 16, 24, 32, 40, 64, 80 cœurs virtuels |
 | **Type de stockage** | Tous |Stockage distant Premium (par instance) | Stockage découplé avec cache disque SSD local (par instance) | Stockage SSD local ultra-rapide (par instance) |
 | **Taille de stockage** | Base de données unique / pool élastique | 5 Go - 4 To | Jusqu’à 100 To | 5 Go - 4 To |
-| | Instance gérée  | 32 Go - 8 To | N/A | 32 Go - 4 To |
+| | Instance managée  | 32 Go - 8 To | N/A | 32 Go - 4 To |
 | **Débit d’E/S** | Base de données unique** | 500 IOPS par vCore avec 7000 IOPS au maximum | L’architecture hyperscale est une architecture à plusieurs niveaux avec une mise en cache sur plusieurs niveaux. L’efficacité des IOPS dépend de la charge de travail. | 5 000 IOPS avec un maximum de 200 000 IOPS|
-| | Instance gérée | Dépend de la taille de fichier | N/A | instance managée : Dépend de la taille de fichier|
+| | Instance managée | Dépend de la taille de fichier | N/A | instance managée : Dépend de la taille de fichier|
 |**Disponibilité**|Tous|1 réplica, pas d’échelle lecture, pas de cache local | Plusieurs réplicas, jusqu’à 15 échelles lecture, cache local partiel | 3 réplicas, 1 échelle lecture, haute disponibilité redondante interzone, cache local complet |
-|**Sauvegardes**|Tous|RA-GRS, 7 à 35 jours (7 jours par défaut)| RA-GRS, 7 à 35 jours (7 jours par défaut), récupération jusqu’à une date et heure (PITR) à durée constante | RA-GRS, 7 à 35 jours (7 jours par défaut) |
+|**Sauvegardes**|Tous|RA-GRS, 7 à 35 jours (7 jours par défaut)| RA-GRS, 7 jours, récupération jusqu’à une date et heure (PITR) à durée constante | RA-GRS, 7 à 35 jours (7 jours par défaut) |
 
 \* Pools élastiques non pris en charge dans le niveau de service Hyperscale
 

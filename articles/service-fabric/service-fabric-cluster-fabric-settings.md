@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/12/2019
 ms.author: atsenthi
-ms.openlocfilehash: c20e782423c60985adb9e18e275fde59e57e00a2
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 08864d6a965921f7f6d284dc53bd2586d30fedd1
+ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599886"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69014423"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Personnaliser les paramètres de cluster Service Fabric
 Cet article décrit les différents paramètres de structure personnalisables d’un cluster Service Fabric. Pour des clusters hébergés dans Azure, vous pouvez personnaliser les paramètres via le [portail Azure](https://portal.azure.com) ou en utilisant un modèle Azure Resource Manager. Pour plus d’informations, voir [Mettre à niveau la configuration d’un cluster Azure](service-fabric-cluster-config-upgrade-azure.md). Pour personnaliser les paramètres d’un cluster autonome, mettez à jour le fichier *ClusterConfig.json* et effectuez une mise à niveau de configuration sur le cluster. Pour plus d’informations, voir [Mettre à niveau la configuration d’un cluster autonome](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -410,6 +410,11 @@ Voici une liste des paramètres Fabric que vous pouvez personnaliser, classés p
 |SharedLogThrottleLimitInPercentUsed|entier (valeur par défaut : 0) | statique | Le pourcentage d’utilisation du journal partagé qui provoque la limitation. La valeur doit être comprise entre 0 et 100. La valeur 0 indique l’utilisation de la valeur de pourcentage par défaut. La valeur 100 indique aucune limitation. Une valeur comprise entre 1 et 99 spécifie le pourcentage d’utilisation de journal au-delà duquel la limitation se produit ; par exemple, si le journal partagé est de 10 Go et la valeur est de 90, la limitation se produit lorsque 9 Go sont utilisés. L’utilisation de la valeur par défaut est recommandée.|
 |WriteBufferMemoryPoolMaximumInKB | Entier (valeur par défaut : 0) |Dynamique|Nombre de Ko maximum que le pool de mémoires-tampons d’écritures peut atteindre. Spécifiez 0 pour indiquer aucune limite. |
 |WriteBufferMemoryPoolMinimumInKB |Entier (valeur par défaut : 8388608) |Dynamique|Nombre de Ko à attribuer initialement au pool de mémoires-tampons d’écritures. Utilisez 0 pour spécifier aucune limite. La valeur par défaut doit être cohérente avec la valeur du paramètre SharedLogSizeInMB ci-dessous. |
+
+## <a name="managedidentitytokenservice"></a>ManagedIdentityTokenService
+| **Paramètre** | **Valeurs autorisées** | **Stratégie de mise à niveau** | **Conseils ou brève description** |
+| --- | --- | --- | --- |
+|IsEnabled|valeur booléenne, valeur par défaut : FALSE|statique|Indicateur contrôlant la présence et l’état du Service de jetons des identités managées dans le cluster. Il s’agit d’une condition préalable à l’utilisation des fonctionnalités d’identité managée des applications Service Fabric.|
 
 ## <a name="management"></a>gestion
 

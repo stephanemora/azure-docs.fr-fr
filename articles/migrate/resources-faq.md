@@ -4,14 +4,14 @@ description: Répond aux questions fréquemment posées sur Azure Migrate
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/17/2019
+ms.date: 08/07/2019
 ms.author: snehaa
-ms.openlocfilehash: 0708502087ae6880d9559cf17f0ba9982b2ba040
-ms.sourcegitcommit: 57a7d4f67635212f5bf0c56e58fd87c8ec366f2c
+ms.openlocfilehash: bf591306220b2c8c1e6c8166686836d96432fc7d
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68372487"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68856273"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Azure Migrate - Forum aux questions
 
@@ -71,7 +71,8 @@ L’appliance se connecte au serveur vCenter (port 443) en utilisant les informa
 
 ### <a name="can-i-connect-the-same-appliance-to-multiple-vcenter-servers"></a>Puis-je connecter la même appliance à plusieurs serveurs vCenter ?
 
-Oui, une même appliance Azure Migrate peut être utilisée pour découvrir plusieurs serveurs vCenter, mais pas simultanément. Vous devez exécuter les découvertes l’une après l’autre.
+Non. Il existe un mappage un-à-un entre une appliance et le serveur vCenter Server. Si vous devez découvrir des machines virtuelles sur plusieurs serveurs vCenter Server, vous devez déployer plusieurs appliances. 
+
 
 ### <a name="i-changed-my-machine-size-can-i-rerun-an-assessment"></a>J’ai modifié la taille de ma machine. Puis-je réexécuter une évaluation ?
 

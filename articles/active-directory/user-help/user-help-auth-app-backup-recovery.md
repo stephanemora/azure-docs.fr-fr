@@ -12,12 +12,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e4148d8a3b44336677ba028807aadbae424b7223
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: ba99001159277d9d221910cafa4f5165ae2bd812
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68382508"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68880771"
 ---
 # <a name="backup-and-recover-account-credentials-with-the-microsoft-authenticator-app"></a>Sauvegarder et récupérer des informations d’authentification de compte avec l’application Microsoft Authenticator
 
@@ -93,6 +93,8 @@ Pour des comptes Microsoft personnels, vous pouvez prouver votre identité en sa
     ![Application Microsoft Authenticator vous permettant de lire votre code QR](./media/user-help-auth-app-backup-recovery/backup-and-recovery-scan-qr-code.png)
 
     >[!NOTE]
+    >S’il s’agit de la première fois que vous configurez l’application Microsoft Authenticator, vous pouvez recevoir une invite vous demandant si vous souhaitez autoriser l’application à accéder à votre appareil photo (iOS) ou à prendre des photos et à enregistrer des vidéos (Android). Vous devez sélectionner **Autoriser** pour que l’application Authenticator puisse accéder à votre appareil photo pour prendre une photo du code QR à l’étape suivante. Si vous n’autorisez pas l’accès à l’appareil photo, vous pouvez toujours installer l’application Authenticator, mais vous devrez ajouter les informations de code manuellement. Pour plus d’informations sur l’ajout manuel du code, consultez [Ajouter manuellement un compte à l’application](user-help-auth-app-add-account-manual.md).
+    >
     >Pour plus d’informations sur l’obtention d’un code QR, consultez [Prise en main de l’application Microsoft Authenticator](https://docs.microsoft.com/azure/active-directory/user-help/user-help-auth-app-download-install) ou [Configurer les informations de sécurité pour utiliser une application d’authentification (préversion)](https://docs.microsoft.com/azure/active-directory/user-help/security-info-setup-auth-app), selon que votre administrateur a activé des informations de sécurité ou non.
 
 ## <a name="troubleshooting-backup-and-recovery-problems"></a>Résoudre les problèmes de sauvegarde et de récupération

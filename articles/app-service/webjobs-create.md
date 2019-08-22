@@ -2,26 +2,22 @@
 title: Exécuter des tâches en arrière-plan avec WebJobs - Azure App Service
 description: Découvrez comment utiliser des tâches web pour exécuter des tâches en arrière-plan dans des applications Web Azure App Service, des applications API ou des applications mobiles.
 services: app-service
-documentationcenter: ''
 author: ggailey777
 manager: jeconnoc
 editor: jimbe
 ms.assetid: af01771e-54eb-4aea-af5f-f883ff39572b
 ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2018
 ms.author: glenga
 ms.reviewer: msangapu;david.ebbo;suwatch;pbatum;naren.soni
 ms.custom: seodec18
-ms.openlocfilehash: 47a068ac6a7941c8ce71cf5c6745d2958c75fe74
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 66c1b62dc94fc071d3b04fc0d4e89220df74d1f8
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68736590"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68945807"
 ---
 # <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>Exécuter des tâches en arrière-plan avec WebJobs dans Azure App Service
 
@@ -165,7 +161,7 @@ when making changes in one don't forget the other two.
    | **Chargement de fichiers** | ConsoleApp.zip | Un fichier *.zip* qui contient votre exécutable un fichier script ainsi que les fichiers de prise en charge requis pour exécuter le programme ou le script. Les types de fichiers exécutables ou scripts pris en charge sont répertoriés dans la section [Types de fichiers pris en charge](#acceptablefiles). |
    | **Type** | Déclenchée | Les [types de tâches web](#webjob-types) sont décrites précédemment dans cet article. |
    | **Déclencheurs** | Planifiée | Pour que la planification fonctionne correctement, activez la fonctionnalité Toujours actif. La fonctionnalité Toujours actif est disponible uniquement dans les niveaux tarifaires De base, Standard et Premium.|
-   | **Expression CRON** | 0 0/20 * * * * | Les [expressions CRON](#cron-expressions) sont décrites dans la section suivante. |
+   | **Expression CRON** | 0 0/20 * * * * | Les [expressions CRON](#ncrontab-expressions) sont décrites dans la section suivante. |
 
 4. Cliquez sur **OK**.
 
@@ -173,9 +169,9 @@ when making changes in one don't forget the other two.
 
    ![Liste des tâches web](./media/web-sites-create-web-jobs/listallwebjobs.png)
 
-## <a name="cron-expressions"></a>Expressions CRON
+## <a name="ncrontab-expressions"></a>Expressions NCRONTAB
 
-Vous pouvez entrer une [expression CRON](../azure-functions/functions-bindings-timer.md#ncrontab-expressions) dans le portail ou inclure un fichier `settings.job` à la racine du fichier *.zip* de votre tâche web, comme dans l’exemple suivant :
+Vous pouvez entrer une [expression NCRONRAB](../azure-functions/functions-bindings-timer.md#ncrontab-expressions) dans le portail ou inclure un fichier `settings.job` à la racine du fichier *.zip* de votre tâche web, comme dans l’exemple suivant :
 
 ```json
 {

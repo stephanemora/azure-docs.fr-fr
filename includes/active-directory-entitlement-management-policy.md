@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/31/2019
 ms.author: rolyon
 ms.custom: include file
-ms.openlocfilehash: db16a2f122da1bf6c767e0a47c93c22f1882c406
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 154d71c9cbc109834a5854b46c3e6584dcefa7eb
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68817214"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68968863"
 ---
 ### <a name="policy-for-users-in-your-directory"></a>Stratégie : Pour les utilisateurs dans votre répertoire
 
@@ -35,7 +35,7 @@ Si vous souhaitez que votre stratégie s’applique aux utilisateurs figurant da
 
 ### <a name="policy-for-users-not-in-your-directory"></a>Stratégie : Pour les utilisateurs qui ne sont pas dans votre répertoire
 
-Procédez comme suit si vous souhaitez que votre stratégie s’applique aux utilisateurs qui ne sont pas dans votre répertoire et qui peuvent demander ce package d’accès. Les **utilisateurs absents de votre annuaire** sont des utilisateurs qui se trouvent dans un autre annuaire Azure AD et n’ont peut-être pas encore été invités dans votre annuaire.  Les répertoires doivent être configurés pour être autorisés dans les paramètres de **Restrictions de collaboration des relations organisationnelles**.
+Procédez comme suit si vous souhaitez que votre stratégie s’applique aux utilisateurs qui ne sont pas dans votre répertoire et qui peuvent demander ce package d’accès. Les **utilisateurs absents de votre annuaire** sont des utilisateurs qui se trouvent dans un autre annuaire Azure AD et n’ont peut-être pas encore été invités dans votre annuaire. Actuellement, vous pouvez uniquement ajouter des utilisateurs à partir d’organisations qui ont Azure AD. Les répertoires doivent être configurés pour être autorisés dans les paramètres de **Restrictions de collaboration des relations organisationnelles**.
 
 > [!NOTE]
 > Un compte d’utilisateur invité externe est créé pour un utilisateur qui n’est pas encore dans votre annuaire et dont la demande est approuvée ou approuvée automatiquement. L’invité est invité, mais ne recevra pas d’invitation par e-mail. Il recevra un e-mail une fois l’attribution au package d’accès fournie. Par défaut, quand cet utilisateur invité n’a plus aucune attribution de package d’accès (pour cause d’expiration ou d’annulation), son compte ne peut plus se connecter et est supprimé par la suite. Si vous voulez que des utilisateurs invités demeurent indéfiniment dans votre répertoire, même s’ils n’ont plus d’attribution de package d’accès, vous pouvez modifier les paramètres de votre configuration de gestion des droits d’utilisation.

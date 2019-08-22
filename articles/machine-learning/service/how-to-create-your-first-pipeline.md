@@ -1,7 +1,7 @@
 ---
 title: Créer, exécuter et effectuer le suivi des pipelines ML
 titleSuffix: Azure Machine Learning service
-description: Créez et exécutez un pipeline Machine Learning avec le SDK Azure Machine Learning pour Python. Vous utilisez des pipelines pour créer et gérer les flux de travail qui combinent les phases de Machine Learning (ML). Ces phases incluent la préparation des données, l’apprentissage du modèle, le déploiement du modèle et l’inférence/le scoring.
+description: Créez et exécutez un pipeline Machine Learning avec le SDK Azure Machine Learning pour Python. Utilisez des pipelines ML pour créer et gérer les flux de travail qui combinent les phases de Machine Learning (ML). Ces phases incluent la préparation des données, l’apprentissage du modèle, le déploiement du modèle et l’inférence/le scoring.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,45 +9,48 @@ ms.topic: conceptual
 ms.reviewer: sgilley
 ms.author: sanpil
 author: sanpil
-ms.date: 05/02/2019
+ms.date: 08/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3f0b764b16c1b550c9afa4107449c1b02815e8d1
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: 1e68f60880e09dfeb46641f40eca12e1fc0560bc
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68668494"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68950423"
 ---
-# <a name="create-and-run-a-machine-learning-pipeline-by-using-azure-machine-learning-sdk"></a>Créer et exécuter un pipeline Machine Learning à l’aide du SDK Azure Machine Learning
+# <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>Créer et exécuter des pipelines de Machine Learning avec le kit SDK Azure Machine Learning
 
-Dans cet article, vous apprendrez à créer, publier et exécuter un [pipeline Machine Learning](concept-ml-pipelines.md) et en effectuer le suivi à l’aide du [SDK Azure Machine Learning](https://aka.ms/aml-sdk).  Ces pipelines permettent de créer et de gérer des workflows qui combinent les différentes phases de Machine Learning. Chaque étape d’un pipeline, comme la préparation des données et l’apprentissage du modèle, peut inclure une ou plusieurs étapes.
+Dans cet article, vous apprendrez à créer, publier et exécuter un [pipeline Machine Learning](concept-ml-pipelines.md) et en effectuer le suivi à l’aide du [SDK Azure Machine Learning](https://aka.ms/aml-sdk).  Utilisez des **pipelines ML** pour créer un flux de travail qui combine plusieurs phases ML, puis publiez ce pipeline dans votre espace de travail Azure Machine Learning pour y accéder ultérieurement ou le partager avec d’autres.  Les pipelines ML sont idéaux pour les scénarios de scoring par lots, car ils utilisent différents calculs, réutilisent les étapes au lieu de les réexécuter et partagent les flux de travail ML avec d’autres. 
 
-Les pipelines que vous créez sont visibles auprès des membres de l’[espace de travail](how-to-manage-workspace.md) d’Azure Machine Learning service. 
+Vous pouvez utiliser un autre type de pipeline appelé [pipeline Azure](https://docs.microsoft.com/en-us/azure/devops/pipelines/targets/azure-machine-learning?context=azure%2Fmachine-learning%2Fservice%2Fcontext%2Fml-context&view=azure-devops&tabs=yaml) pour l’automatisation CI/CD des tâches de ML, mais ce type de pipeline n’est jamais stocké dans votre espace de travail. [Comparez ces différents pipelines](concept-ml-pipelines.md#which-azure-pipeline-technology-should-i-use).
 
-Les pipelines utilisent des cibles de calcul à distance pour le calcul et le stockage des données intermédiaires et finales associées à ce pipeline. Les pipelines peuvent lire et écrire des données à partir/vers les emplacements de [Stockage Azure](https://docs.microsoft.com/azure/storage/) pris en charge.
+Chaque phase d’un pipeline ML, telle que la préparation des données et l’entraînement du modèle, peut inclure une ou plusieurs étapes.
+
+Les pipelines ML que vous créez sont visibles par les membres de votre [espace de travail](how-to-manage-workspace.md) du service Azure Machine Learning. 
+
+Les pipelines ML utilisent des cibles de calcul à distance pour le calcul et le stockage des données intermédiaires et finales associées à ce pipeline. Ils peuvent lire et écrire des données à partir/vers les emplacements de [Stockage Azure](https://docs.microsoft.com/azure/storage/) pris en charge.
 
 Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de commencer. Essayez la [version gratuite ou payante d’Azure Machine Learning service](https://aka.ms/AMLFree).
 
 ## <a name="prerequisites"></a>Prérequis
 
-* [Configurez votre environnement de développement](how-to-configure-environment.md) pour installer le SDK Azure Machine Learning.
+* Créez un [espace de travail Azure Machine Learning](how-to-manage-workspace.md) afin de contenir toutes les ressources de votre pipeline.
 
-* Créez un [espace de travail Azure Machine Learning](how-to-configure-environment.md#workspace) afin de contenir toutes les ressources de votre pipeline. 
+* [Configurez votre environnement de développement](how-to-configure-environment.md) pour installer le kit SDK Azure Machine Learning, ou utilisez une [machine virtuelle Notebook](tutorial-1st-experiment-sdk-setup.md#azure) avec le kit SDK déjà installé.
 
-  ```python
-  from azureml.core import Workspace
-  
-  ws = Workspace.create(
-     name = '<workspace-name>',
-     subscription_id = '<subscription-id>',
-     resource_group = '<resource-group>',
-     location = '<workspace_region>',
-     exist_ok = True)
-  ```
+Commencez par attacher votre espace de travail :
+
+```Python
+import azureml.core
+from azureml.core import Workspace, Datastore
+
+ws = Workspace.from_config()
+```
+
 
 ## <a name="set-up-machine-learning-resources"></a>Configurer des ressources Machine Learning
 
-Créez les ressources requises pour exécuter un pipeline :
+Créez les ressources requises pour exécuter un pipeline ML :
 
 * Configurez un magasin de données permettant d’accéder aux données requises pour les étapes du pipeline.
 
@@ -56,22 +59,24 @@ Créez les ressources requises pour exécuter un pipeline :
 * Configurez les [cibles de calcul](concept-azure-machine-learning-architecture.md#compute-targets) sur lesquelles vous souhaitez que les étapes du pipeline s’exécutent.
 
 ### <a name="set-up-a-datastore"></a>Configurer un magasin de données
+
 Le magasin de données stocke les données accessibles par le pipeline. Chaque espace de travail dispose d’un magasin de données par défaut. Vous pouvez inscrire des magasins de données supplémentaires. 
 
 Lorsque vous créez votre espace de travail, des éléments [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) et de [stockage d’objets Blob Azure ](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction) sont joints à l’espace de travail. Une banque de données par défaut est inscrite pour se connecter au stockage d’objets blob Azure. Pour en savoir plus , voir [Quand utiliser des fichiers Azure, des objets blob Azure, des fichiers Azure ou des disques Azure](https://docs.microsoft.com/azure/storage/common/storage-decide-blobs-files-disks). 
 
 ```python
-# Default datastore (Azure blob storage)
+# Default datastore 
 def_data_store = ws.get_default_datastore()
 
-# The above call is equivalent to this
-def_data_store = Datastore(ws, "workspaceblobstore")
+# Get the blob storage associated with the workspace
+def_blob_store = Datastore(ws, "workspaceblobstore")
 
 # Get file storage associated with the workspace
 def_file_store = Datastore(ws, "workspacefilestore")
+
 ```
 
-Téléchargez les fichiers de données ou les répertoires sur le magasin de données afin que vos pipelines puissent y accéder. Cet exemple utilise le stockage d’objets blob pour le magasin de données :
+Téléchargez les fichiers de données ou les répertoires sur le magasin de données afin que vos pipelines puissent y accéder. Cet exemple utilise le stockage d’objets blob comme magasin de données :
 
 ```python
 def_blob_store.upload_files(
@@ -333,19 +338,21 @@ Lorsque vous exécutez un pipeline pour la première fois, Azure Machine Learnin
 
 Pour plus d’informations, consultez la référence [Experiment class](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py) (Classe Experiment).
 
+
+
 ## <a name="github-tracking-and-integration"></a>Intégration et suivi GitHub
 
 Lorsque vous lancez une exécution d’entraînement où le répertoire source est un répertoire Git local, les informations relatives au répertoire sont stockées dans l’historique des exécutions. Par exemple, l’ID de validation en cours pour le répertoire est consigné au sein de l’historique.
 
 ## <a name="publish-a-pipeline"></a>Publier un pipeline
 
-Vous pouvez publier un pipeline afin de l’exécuter ultérieurement avec des entrées différentes. Pour que le point de terminaison REST d’un pipeline déjà publié accepte les paramètres, vous devez paramétrer le pipeline avant sa publication. 
+Vous pouvez publier un pipeline afin de l’exécuter ultérieurement avec des entrées différentes. Pour que le point de terminaison REST d’un pipeline déjà publié accepte les paramètres, vous devez paramétrer le pipeline avant sa publication.
 
 1. Pour créer un paramètre de pipeline, utilisez un objet [PipelineParameter](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.pipelineparameter?view=azure-ml-py) avec une valeur par défaut.
 
    ```python
    pipeline_param = PipelineParameter(
-     name="pipeline_arg", 
+     name="pipeline_arg",
      default_value=10)
    ```
 
@@ -356,20 +363,21 @@ Vous pouvez publier un pipeline afin de l’exécuter ultérieurement avec des e
      script_name="compare.py",
      arguments=["--comp_data1", comp_data1, "--comp_data2", comp_data2, "--output_data", out_data3, "--param1", pipeline_param],
      inputs=[ comp_data1, comp_data2],
-     outputs=[out_data3],    
-     target=compute_target, 
+     outputs=[out_data3],
+     target=compute_target,
      source_directory=project_folder)
    ```
 
 3. Publiez ce pipeline. Il acceptera un paramètre en cas d’appel.
 
    ```python
-   published_pipeline1 = pipeline1.publish(
-       name="My_Published_Pipeline", 
-       description="My Published Pipeline Description")
+   published_pipeline1 = pipeline_run1.publish_pipeline(
+        name="My_Published_Pipeline",
+        description="My Published Pipeline Description",
+        version="1.0")
    ```
 
-## <a name="run-a-published-pipeline"></a>Exécuter un pipeline publié
+### <a name="run-a-published-pipeline"></a>Exécuter un pipeline publié
 
 Tous les pipelines publiés disposent d’un point de terminaison REST. Celui-ci appelle l’exécution du pipeline à partir de systèmes externes tels que les clients non-Python. Ce point de terminaison active la « répétabilité managée » dans les scénarios de scoring et de nouvel apprentissage.
 
@@ -382,15 +390,28 @@ response = requests.post(published_pipeline1.endpoint,
                                "ParameterAssignments": {"pipeline_arg": 20}})
 ```
 
-## <a name="view-results"></a>Afficher les résultats
+### <a name="view-results-of-a-published-pipeline"></a>Afficher les résultats d’un pipeline publié
 
-Consultez la liste de tous vos pipelines et les détails relatifs à leur exécution :
+Consultez la liste de tous vos pipelines publiés et les détails relatifs à leur exécution :
 1. Connectez-vous au [Portail Azure](https://portal.azure.com/).  
 
 1. [Affichez votre espace de travail](how-to-manage-workspace.md#view) pour trouver la liste des pipelines.
  ![Liste de pipelines Machine Learning](./media/how-to-create-your-first-pipeline/list_of_pipelines.png)
  
 1. Sélectionnez un pipeline spécifique pour afficher les résultats de l’exécution.
+
+### <a name="disable-a-published-pipeline"></a>Désactiver un pipeline publié
+
+Pour masquer un pipeline de votre liste de pipelines publiés, vous le désactivez :
+
+```
+# Get the pipeline by using its ID in the Azure portal
+p = PublishedPipeline.get(ws, id="068f4885-7088-424b-8ce2-eeb9ba5381a6")
+p.disable()
+```
+
+Vous pouvez le réactiver avec `p.enable()`.
+
 
 ## <a name="caching--reuse"></a>Mise en cache et réutilisation  
 
@@ -412,6 +433,7 @@ step = PythonScriptStep(name="Hello World",
  
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 - Utilisez [ces blocs-notes Jupyter sur GitHub](https://aka.ms/aml-pipeline-readme) pour explorer plus en détail les pipelines Machine Learning.
 - Lisez l’aide relative à la référence SDK des packages [azureml-pipelines-core](https://docs.microsoft.com/python/api/azureml-pipeline-core/?view=azure-ml-py) et [azureml-pipelines-steps](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py).
 

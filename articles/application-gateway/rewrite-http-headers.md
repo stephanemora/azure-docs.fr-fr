@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 04/29/2019
+ms.date: 08/08/2019
 ms.author: absha
-ms.openlocfilehash: 9160d300270bf1ab5043bee632d27bcc4b7bf332
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b6f26eca0592017306eaefd3f5fecb544dc6fb36
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66476037"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932187"
 ---
 # <a name="rewrite-http-headers-with-application-gateway"></a>Réécrire des en-têtes HTTP avec Application Gateway
 
@@ -103,6 +103,8 @@ Pour configurer la réécriture d’en-tête HTTP, vous devez effectuer ces éta
    - **Jeu de réécritures** : contient plusieurs règles de réécriture qui seront associées à une règle de routage de requête.
 
 2. Attachez le jeu de réécritures (*RewriteRuleSet*) à une règle de routage. La configuration de réécriture est attachée à l’écouteur source via la règle de routage. Quand vous utilisez une règle de routage de base, la configuration de réécriture d’en-tête est associée à un écouteur source et correspond à une réécriture d’en-tête globale. Quand vous utilisez une règle de routage basée sur le chemin, la configuration de réécriture d’en-tête est définie sur le mappage du chemin d’URL. Dans ce cas, elle s’applique uniquement à la zone de chemin spécifique d’un site.
+   > [!NOTE]
+   > La réécriture d’URL modifie les en-têtes ; elle ne change pas l’URL du chemin.
 
 Vous pouvez créer plusieurs jeux de réécritures d’en-tête HTTP et appliquer chacun d’eux à différents écouteurs. En revanche, vous ne pouvez appliquer qu’un seul jeu de réécritures à un écouteur spécifique.
 
@@ -153,7 +155,7 @@ Vous pouvez évaluer un en-tête de requête ou de réponse HTTP pour détermine
 
 ## <a name="limitations"></a>Limites
 
-- Si une réponse contient plusieurs en-têtes de même nom, la réécriture de la valeur de l’un de ces en-têtes entraîne la suppression des autres en-têtes de la réponse. Cela peut généralement se produire avec l’en-tête Set-Cookie, car une réponse peut en contenir plusieurs. Tel est le cas quand vous utilisez un service d’application avec une passerelle d’application et que vous avez configuré l’affinité de session basée sur les cookies sur la passerelle d’application. Dans ce cas, la réponse contient deux en-têtes Set-Cookie : celui utilisé par le service d’application, par exemple, `Set-Cookie: ARRAffinity=ba127f1caf6ac822b2347cc18bba0364d699ca1ad44d20e0ec01ea80cda2a735;Path=/;HttpOnly;Domain=sitename.azurewebsites.net` et l’autre pour l’affinité de la passerelle d’application, par exemple, `Set-Cookie: ApplicationGatewayAffinity=c1a2bd51lfd396387f96bl9cc3d2c516; Path=/`. La réécriture de l’un des en-têtes Set-Cookie dans ce scénario peut entraîner la suppression de l’autre en-tête Set-Cookie de la réponse.
+- Si une réponse contient plusieurs en-têtes de même nom, la réécriture de la valeur de l’un de ces en-têtes entraîne la suppression des autres en-têtes de la réponse. Cela peut généralement se produire avec l’en-tête Set-Cookie, car une réponse peut en contenir plusieurs. Tel est le cas quand vous utilisez un service d’application avec une passerelle d’application et que vous avez configuré l’affinité de session basée sur les cookies sur la passerelle d’application. Dans ce cas, la réponse contient deux en-têtes Set-Cookie : un utilisé par le service d’application, par exemple `Set-Cookie: ARRAffinity=ba127f1caf6ac822b2347cc18bba0364d699ca1ad44d20e0ec01ea80cda2a735;Path=/;HttpOnly;Domain=sitename.azurewebsites.net`, et un autre pour l’affinité de la passerelle d’application, par exemple `Set-Cookie: ApplicationGatewayAffinity=c1a2bd51lfd396387f96bl9cc3d2c516; Path=/`. La réécriture de l’un des en-têtes Set-Cookie dans ce scénario peut entraîner la suppression de l’autre en-tête Set-Cookie de la réponse.
 
 - La réécriture des en-têtes de connexion, de mise à niveau et d’hôte n’est actuellement pas prise en charge.
 

@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 06/24/2019
 ms.author: alkohli
-ms.openlocfilehash: bc0681a8ea15f736a7b253d6bd7ba2f7928d2a32
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 83f6f7c7f8cd5155669f12fd6e426f86ef1c7baa
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67439395"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68848511"
 ---
 # <a name="troubleshoot-issues-related-to-azure-data-box-and-azure-data-box-heavy"></a>Résoudre les problèmes liés à Azure Data Box et Azure Data Box Heavy
 
@@ -38,7 +38,7 @@ Dans Data Box et Data Box Heavy, les erreurs sont récapitulées comme suit :
 
 Il s’agit d’erreurs liées aux noms de conteneurs et de partages.
 
-### <a name="errorcontainerorsharenamelength"></a>ERROR_CONTAINER_OR_SHARE_NAME_LENGTH     
+### <a name="error_container_or_share_name_length"></a>ERROR_CONTAINER_OR_SHARE_NAME_LENGTH     
 
 **Description de l’erreur :** Le nom du conteneur ou du partage doit comporter entre 3 et 63 caractères. 
 
@@ -57,7 +57,7 @@ Il s’agit d’erreurs liées aux noms de conteneurs et de partages.
     Pour plus d’informations, consultez les conventions de nommage Azure pour les [noms de conteneurs](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names) et les [noms de partages](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#share-names).
 
 
-### <a name="errorcontainerorsharenamealphanumericdash"></a>ERROR_CONTAINER_OR_SHARE_NAME_ALPHA_NUMERIC_DASH
+### <a name="error_container_or_share_name_alpha_numeric_dash"></a>ERROR_CONTAINER_OR_SHARE_NAME_ALPHA_NUMERIC_DASH
 
 **Description de l’erreur :** Le nom du conteneur ou du partage doit uniquement comporter des lettres, des chiffres ou des traits d’union.
 
@@ -75,7 +75,7 @@ Il s’agit d’erreurs liées aux noms de conteneurs et de partages.
 
     Pour plus d’informations, consultez les conventions de nommage Azure pour les [noms de conteneurs](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names) et les [noms de partages](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#share-names).
 
-### <a name="errorcontainerorsharenameimproperdash"></a>ERROR_CONTAINER_OR_SHARE_NAME_IMPROPER_DASH
+### <a name="error_container_or_share_name_improper_dash"></a>ERROR_CONTAINER_OR_SHARE_NAME_IMPROPER_DASH
 
 **Description de l’erreur :** Les noms de conteneurs et les noms de partages ne peuvent pas commencer ou se terminer par des traits d’union et ne peuvent pas contenir deux traits d’union consécutifs.
 
@@ -97,7 +97,7 @@ Il s’agit d’erreurs liées aux noms de conteneurs et de partages.
 
 Il s’agit d’erreurs liées à des données dont la taille dépasse la taille autorisée dans un conteneur ou un partage.
 
-### <a name="errorcontainerorsharecapacityexceeded"></a>ERROR_CONTAINER_OR_SHARE_CAPACITY_EXCEEDED
+### <a name="error_container_or_share_capacity_exceeded"></a>ERROR_CONTAINER_OR_SHARE_CAPACITY_EXCEEDED
 
 **Description de l’erreur :** La taille d’un partage de fichiers Azure est limitée à 5 To de données. Cette limite a été dépassée pour certains partages.
 
@@ -110,7 +110,7 @@ Identifiez les dossiers qui rencontrent ce problème dans les journaux d’erreu
 
 Il s’agit d’erreurs liées à des données dépassant la taille maximale d’objet ou de fichier autorisée dans Azure. 
 
-### <a name="errorbloborfilesizelimit"></a>ERROR_BLOB_OR_FILE_SIZE_LIMIT
+### <a name="error_blob_or_file_size_limit"></a>ERROR_BLOB_OR_FILE_SIZE_LIMIT
 
 **Description de l’erreur :** La taille du fichier dépasse la taille de fichier maximale autorisée pour le chargement.
 
@@ -123,7 +123,7 @@ Il s’agit d’erreurs liées à des données dépassant la taille maximale d�
 
 Il s’agit d’erreurs liées au type de fichier ou type de données non pris en charge trouvé dans le conteneur ou le partage. 
 
-### <a name="errorbloborfilesizealignment"></a>ERROR_BLOB_OR_FILE_SIZE_ALIGNMENT
+### <a name="error_blob_or_file_size_alignment"></a>ERROR_BLOB_OR_FILE_SIZE_ALIGNMENT
 
 **Description de l’erreur :** L’alignement du blob ou du fichier est incorrect.
 
@@ -133,7 +133,7 @@ Supprimez toutes les données non VHD/VHDX du partage d’objets blob de pages.
 
 Pour plus d’informations, consultez [Vue d’ensemble des objets blob de pages](../storage/blobs/storage-blob-pageblob-overview.md).
 
-### <a name="errorbloborfiletypeunsupported"></a>ERROR_BLOB_OR_FILE_TYPE_UNSUPPORTED
+### <a name="error_blob_or_file_type_unsupported"></a>ERROR_BLOB_OR_FILE_TYPE_UNSUPPORTED
 
 **Description de l’erreur :** Un type de fichier non pris en charge est présent dans un partage de disque managé. Seuls les disques durs virtuels fixes sont autorisés.
 
@@ -142,7 +142,7 @@ Pour plus d’informations, consultez [Vue d’ensemble des objets blob de pages
 - Prenez soin de charger uniquement les disques durs virtuels fixes pour créer des disques managés.
 - Les fichiers VHDX ou les disques durs virtuels **dynamiques** et de **différenciation** ne sont pas pris en charge.
 
-### <a name="errordirectorydisallowedfortype"></a>ERROR_DIRECTORY_DISALLOWED_FOR_TYPE
+### <a name="error_directory_disallowed_for_type"></a>ERROR_DIRECTORY_DISALLOWED_FOR_TYPE
 
 **Description de l’erreur :** Un répertoire n’est autorisé dans aucun des dossiers préexistants pour les disques managés. Seuls les disques durs virtuels fixes sont autorisés dans ces dossiers.
 
@@ -153,7 +153,7 @@ Pour plus d’informations, consultez [Vue d’ensemble des objets blob de pages
 
 Pour plus d’informations, consultez [Copier sur des disques managés](data-box-deploy-copy-data-from-vhds.md#connect-to-data-box).
 
-### <a name="reparsepointerror"></a>REPARSE_POINT_ERROR
+### <a name="reparse_point_error"></a>REPARSE_POINT_ERROR
 
 **Description de l’erreur :** Les liens symboliques ne sont pas autorisés dans Linux. 
 
@@ -162,9 +162,9 @@ Pour plus d’informations, consultez [Copier sur des disques managés](data-box
 
 ## <a name="non-critical-blob-or-file-errors"></a>Erreurs non critiques liées aux objets blob ou aux fichiers
 
-Toutes les erreurs qui sont rencontrées pendant la copie des données sont récapitulées dans les sections suivantes.
+Toutes les erreurs non critiques liées aux noms des objets blob, des fichiers ou des conteneurs qui sont affichés pendant la copie des données sont récapitulées dans la section suivante. Si ces erreurs sont présentes, les noms sont modifiés pour être conformes aux conventions de nommage Azure. L’état de la commande correspondante pour le chargement des données s’est **terminé avec des avertissements**.  
 
-### <a name="errorbloborfilenamecharactercontrol"></a>ERROR_BLOB_OR_FILE_NAME_CHARACTER_CONTROL
+### <a name="error_blob_or_file_name_character_control"></a>ERROR_BLOB_OR_FILE_NAME_CHARACTER_CONTROL
 
 **Description de l’erreur :** Les noms d’objets blob ou de fichiers contiennent des caractères de contrôle non pris en charge.
 
@@ -175,7 +175,7 @@ Retirez ou renommez les fichiers pour supprimer les caractères non pris en char
 
 Pour plus d’informations, consultez les conventions de nommage Azure pour les [noms d’objets blob](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata#blob-names) et les [noms de fichiers](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names).
 
-### <a name="errorbloborfilenamecharacterillegal"></a>ERROR_BLOB_OR_FILE_NAME_CHARACTER_ILLEGAL
+### <a name="error_blob_or_file_name_character_illegal"></a>ERROR_BLOB_OR_FILE_NAME_CHARACTER_ILLEGAL
 
 **Description de l’erreur :** Les noms d’objets blob ou de fichiers contiennent des caractères non autorisés.
 
@@ -187,7 +187,7 @@ Retirez ou renommez les fichiers pour supprimer les caractères non pris en char
 Pour plus d’informations, consultez les conventions de nommage Azure pour les [noms d’objets blob](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata#blob-names) et les [noms de fichiers](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names).
 
 
-### <a name="errorbloborfilenameending"></a>ERROR_BLOB_OR_FILE_NAME_ENDING
+### <a name="error_blob_or_file_name_ending"></a>ERROR_BLOB_OR_FILE_NAME_ENDING
 
 **Description de l’erreur :** Les noms d’objets blob ou de fichiers se terminent par des caractères non valides.
 
@@ -199,7 +199,7 @@ Retirez ou renommez les fichiers pour supprimer les caractères non pris en char
 Pour plus d’informations, consultez les conventions de nommage Azure pour les [noms d’objets blob](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata#blob-names) et les [noms de fichiers](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names).
 
 
-### <a name="errorbloborfilenamesegmentcount"></a>ERROR_BLOB_OR_FILE_NAME_SEGMENT_COUNT
+### <a name="error_blob_or_file_name_segment_count"></a>ERROR_BLOB_OR_FILE_NAME_SEGMENT_COUNT
 
 **Description de l’erreur :** Le nom d’objet blob ou de fichier contient trop de segments de chemin.
 
@@ -208,7 +208,7 @@ Pour plus d’informations, consultez les conventions de nommage Azure pour les 
 - Dans la page **Connexion et copie** de l’interface utilisateur web locale, téléchargez et consultez les fichiers d’erreur.
 - Vérifiez que les [noms d’objets blob](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata#blob-names) et les [noms de fichiers](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names) sont conformes aux conventions de nommage Azure.
 
-### <a name="errorbloborfilenameaggregatelength"></a>ERROR_BLOB_OR_FILE_NAME_AGGREGATE_LENGTH
+### <a name="error_blob_or_file_name_aggregate_length"></a>ERROR_BLOB_OR_FILE_NAME_AGGREGATE_LENGTH
 
 **Description de l’erreur :** Le nom du blob ou du fichier est trop long.
 
@@ -220,7 +220,7 @@ Pour plus d’informations, consultez les conventions de nommage Azure pour les 
 
 Pour plus d’informations, consultez les conventions de nommage Azure pour les noms d’objets blob et les noms de fichiers.
 
-### <a name="errorbloborfilenamecomponentlength"></a>ERROR_BLOB_OR_FILE_NAME_COMPONENT_LENGTH
+### <a name="error_blob_or_file_name_component_length"></a>ERROR_BLOB_OR_FILE_NAME_COMPONENT_LENGTH
 
 **Description de l’erreur :** L’un des segments du nom de blob ou de fichier est trop long.
 
@@ -230,7 +230,7 @@ Pour plus d’informations, consultez les conventions de nommage Azure pour les 
 - Vérifiez que les [noms d’objets blob](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata#blob-names) et les [noms de fichiers](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names) sont conformes aux conventions de nommage Azure.
 
 
-### <a name="errorcontainerorsharenamedisallowedfortype"></a>ERROR_CONTAINER_OR_SHARE_NAME_DISALLOWED_FOR_TYPE
+### <a name="error_container_or_share_name_disallowed_for_type"></a>ERROR_CONTAINER_OR_SHARE_NAME_DISALLOWED_FOR_TYPE
 
 **Description de l’erreur :** Des noms de conteneurs non valides sont spécifiés pour les partages de disque managé.
 

@@ -1,18 +1,18 @@
 ---
 title: Utilisation d’Azure Backup pour remplacer votre infrastructure sur bande
-description: Découvrez comment Azure Backup fournit une sémantique de type bande qui permet de sauvegarder et de restaurer des données dans Azure.
+description: Découvrir comment la Sauvegarde Azure fournit une sémantique de type bande qui vous permet de sauvegarder et de restaurer des données dans Azure
 author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 04/30/2017
 ms.author: dacurwin
-ms.openlocfilehash: d768f0fae9487a555f6ace12303f8a4bd7cb8bd1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3be3a2e3355793a8d0b4fcaf0e7f62668f78f0c8
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65146022"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954878"
 ---
 # <a name="move-your-long-term-storage-from-tape-to-the-azure-cloud"></a>Déplacement de votre stockage à long terme de la bande vers le cloud Azure
 Les clients Azure Backup et System Center Data Protection Manager peuvent effectuer les actions suivantes :

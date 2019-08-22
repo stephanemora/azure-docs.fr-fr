@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/19/2018
+ms.date: 8/12/2019
 ms.author: atsenthi
-ms.openlocfilehash: e5fb28b176ce14a9b871b2a6a775e0017fcc993d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a5e452bf3dc9f35c345a5f27af829904b4839ece
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67052669"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68977129"
 ---
 # <a name="service-fabric-application-and-service-manifests"></a>Manifestes des services et applications Service Fabric
 Cet article explique comment les services et les applications Service Fabric sont définis et créés dans différentes versions à l’aide des fichiers ApplicationManifest.xml et ServiceManifest.xml.  Pour plus d’exemples, consultez les [exemples de manifeste de service et d’application](service-fabric-manifest-examples.md).  Le schéma XML pour ces fichiers manifestes est détaillé dans [Documentation relative au schéma ServiceFabricServiceModel.xsd](service-fabric-service-model-schema.md).
@@ -98,6 +98,10 @@ Pour plus d’informations sur la configuration de SetupEntryPoint, consultez [C
 
 Un **point de terminaison** de service Service Fabric est un exemple de ressource Service Fabric. Une ressource Service Fabric peut être déclarée/modifiée sans changer le code compilé. L'accès aux ressources Service Fabric spécifiées dans le manifeste de service peut être contrôlé par le biais de **SecurityGroup** dans le manifeste de l'application. Lorsqu'une ressource Endpoint est définie dans le manifeste de service, Service Fabric alloue des ports de la plage de ports réservés de l'application si aucun port n'est spécifié de manière explicite. En savoir plus sur la [spécification ou la substitution des ressources de point de terminaison](service-fabric-service-manifest-resources.md).
 
+ 
+> [!WARNING]
+> De par leur conception, les ports statiques ne doivent pas chevaucher la plage de ports d’application spécifiée dans ClusterManifest. Si vous spécifiez un port statique, affectez-le hors de la plage de ports d’application ; sinon, des conflits de port se produiront. Avec la version 6.5CU2, nous émettons un **avertissement d’intégrité** quand nous détectons un tel conflit, mais nous laissons le déploiement continuer de façon synchronisée avec le comportement de la version 6.5 expédiée. Toutefois, nous pouvons empêcher le déploiement de l’application à partir des versions majeures suivantes.
+>
 
 <!--
 For more information about other features supported by service manifests, refer to the following articles:
@@ -147,6 +151,7 @@ Ainsi, un manifeste d'application décrit les éléments au niveau de l'applicat
     <Service Name="VotingWeb" ServicePackageActivationMode="ExclusiveProcess">
       <StatelessService ServiceTypeName="VotingWebType" InstanceCount="[VotingWeb_InstanceCount]">
         <SingletonPartition />
+         <PlacementConstraints>(NodeType==NodeType0)</PlacementConstraints
       </StatelessService>
     </Service>
   </DefaultServices>
@@ -162,6 +167,8 @@ Comme dans le cas des manifestes de service, les attributs **Version** sont des 
 **DefaultServices** déclare des instances de service qui sont créées automatiquement chaque fois qu'une application est instanciée par rapport à ce type d'application. Les services par défaut peuvent s'avérer pratiques et se comportent à tous égards comme des services normaux une fois qu'ils ont été créés. Ils sont mis à niveau avec tous les autres services dans l'instance d'application et peuvent également être supprimés. Un manifeste d’application peut contenir plusieurs services par défaut.
 
 **Certificates** (non défini dans l’exemple précédent) déclare les certificats utilisés pour [configurer les points de terminaison HTTPS](service-fabric-service-manifest-resources.md#example-specifying-an-https-endpoint-for-your-service) ou [chiffrer des secrets dans le manifeste d’application](service-fabric-application-secret-management.md).
+
+Les **contraintes de placement** sont les instructions qui définissent où les services doivent s’exécuter. Ces instructions sont attachées aux différents services que vous sélectionnez pour une ou plusieurs propriétés de nœud. Pour plus d’informations, consultez [Syntaxe des contraintes de placement et des propriétés de nœud](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-resource-manager-cluster-description#placement-constraints-and-node-property-syntax)
 
 **Policies** (non défini dans l’exemple précédent) décrit les stratégies de collecte de journaux, d’[« exécuter en tant que » par défaut](service-fabric-application-runas-security.md), d’[intégrité](service-fabric-health-introduction.md#health-policies) et de [sécurité d’accès](service-fabric-application-runas-security.md) à définir au niveau de l’application, et indique notamment si les services ont accès au runtime Service Fabric.
 

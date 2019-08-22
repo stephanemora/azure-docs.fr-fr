@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 06/03/2019
+ms.date: 08/08/2019
 ms.author: alkohli
-ms.openlocfilehash: ba08cd7fdecda99c04d5bb1007b3e5f61cd1bd5c
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 8fecc00a970f0e706dc6240eaec593fd54968ff8
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67446767"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934222"
 ---
 # <a name="tracking-and-event-logging-for-your-azure-data-box-and-azure-data-box-heavy"></a>Suivi et journalisation des événements de votre Azure Data Box et Azure Data Box Heavy
 
@@ -28,7 +28,7 @@ Le tableau suivant récapitule les étapes de la commande Data Box ou Data Box H
 | Configurer l’appareil              | Accès aux informations d’identification de l’appareil dans les [journaux d’activité](#query-activity-logs-during-setup)                                              |
 | Copie des données vers l’appareil        | [Consulter les fichiers *error.xml* ](#view-error-log-during-data-copy) pour la copie des données                                                             |
 | Préparer l’expédition            | [Inspecter les fichiers de nomenclature](#inspect-bom-during-prepare-to-ship) ou les fichiers manifeste sur l’appareil                                      |
-| Chargement des données dans Azure       | [Passer en revue les fichiers *copylogs*](#review-copy-log-during-upload-to-azure) à la recherche des erreurs survenues pendant le chargement dans le centre de données Azure                         |
+| Chargement des données dans Azure       | [Passer en revue les journaux de copie](#review-copy-log-during-upload-to-azure) à la recherche des erreurs survenues pendant le chargement de données dans le centre de données Azure                         |
 | Effacement des données de l’appareil   | [Afficher les journaux d’activité de chaîne de responsabilité](#get-chain-of-custody-logs-after-data-erasure) qui incluent les journaux d’audit et l’historique des commandes                |
 
 Cet article décrit en détail les différents mécanismes ou outils disponibles pour effectuer le suivi et l’audit d’une commande Data Box ou Data Box Heavy. Les informations de cet article s’appliquent à Data Box et à Data Box Heavy. Dans les sections suivantes, toutes les références à Data Box s’appliquent également à Data Box Heavy.
@@ -195,11 +195,11 @@ Les fichiers de nomenclature ou manifeste sont également copiés vers le compte
 
 ## <a name="review-copy-log-during-upload-to-azure"></a>Consulter le journal de copie lors du chargement vers Azure
 
-Lors du chargement des données dans Azure, un fichier *copylog* est créé.
+Lors du chargement de données dans Azure, un journal de copie est créé.
 
-### <a name="copylog"></a>Copylog
+### <a name="copy-log"></a>Journal de copie
 
-Pour chaque commande traitée, le service Data Box crée un fichier *copylog* dans le compte de stockage associé. Le *copylog* contient le nombre total de fichiers chargés et le nombre de fichiers ayant rencontré des erreurs pendant la copie des données de Data Box vers votre compte de stockage Azure.
+Pour chaque commande traitée, le service Data Box crée un journal de copie dans le compte de stockage associé. Le journal de copie contient le nombre total de fichiers chargés et le nombre de fichiers ayant rencontré des erreurs pendant la copie des données de Data Box vers votre compte de stockage Azure.
 
 Un contrôle de redondance cyclique (CRC) est effectué pendant le chargement vers Azure. Les CRC de la copie des données et post-chargement sont comparés. Une différence entre les CRC indique que les fichiers correspondants n’ont pas été chargés.
 
@@ -207,11 +207,13 @@ Par défaut, les journaux sont écrits dans un conteneur nommé  `copylog`. Les
 
 `storage-account-name/databoxcopylog/ordername_device-serial-number_CopyLog_guid.xml`.
 
-Le chemin d’accès au fichier copylog s’affiche également dans le panneau **Vue d’ensemble** du portail.
+Le chemin du journal de copie s’affiche également dans le panneau **Vue d’ensemble** du portail.
 
-![Chemin d’accès au fichier copylog dans le panneau Vue d’ensemble une fois l’opération terminée](media/data-box-logs/copy-log-path-1.png)
+![Chemin du journal de copie dans le panneau Vue d’ensemble une fois l’opération terminée](media/data-box-logs/copy-log-path-1.png)
 
-L’exemple suivant décrit le format général d’un fichier copylog pour un chargement Data Box terminé correctement :
+### <a name="upload-completed-successfully"></a>Chargement réussi 
+
+L’exemple suivant décrit le format général d’un journal de copie pour un chargement Data Box terminé correctement :
 
 ```
 <?xml version="1.0"?>
@@ -222,11 +224,13 @@ L’exemple suivant décrit le format général d’un fichier copylog pour un c
 </CopyLog>
 ```
 
+### <a name="upload-completed-with-errors"></a>Chargement terminé avec des erreurs 
+
 Le chargement vers Azure peut également se terminer avec des erreurs.
 
-![Chemin d’accès au fichier copylog dans le panneau Vue d’ensemble en cas d’erreur](media/data-box-logs/copy-log-path-2.png)
+![Chemin du journal de copie dans le panneau Vue d’ensemble avec des erreurs](media/data-box-logs/copy-log-path-2.png)
 
-Voici un exemple de fichier copylog pour un chargement terminé avec des erreurs :
+Voici un exemple de journal de copie pour un chargement terminé avec des erreurs :
 
 ```xml
 <ErroredEntity Path="iso\samsungssd.iso">
@@ -245,9 +249,15 @@ Voici un exemple de fichier copylog pour un chargement terminé avec des erreurs
   <FilesErrored>2</FilesErrored>
 </CopyLog>
 ```
-Voici un exemple de fichier `copylog` où les conteneurs non conformes aux conventions d’affectation de noms Azure ont été renommés lors du chargement des données vers Azure.
+### <a name="upload-completed-with-warnings"></a>Chargement terminé avec des avertissements
 
-Les nouveaux noms uniques des conteneurs sont au format `DataBox-GUID` et les données du conteneur sont placées dans le nouveau conteneur renommé. Le `copylog` spécifie l’ancien et le nouveau nom du conteneur.
+Le chargement dans Azure s’effectue avec des avertissements si vos données ont des noms de conteneur/d’objet blob/de fichier qui ne sont pas conformes aux conventions de nommage Azure et que les noms ont été modifiés pour charger les données dans Azure.
+
+![Chemin du journal de copie dans le panneau Vue d’ensemble avec des avertissements](media/data-box-logs/copy-log-path-3.png)
+
+Voici un exemple de journal de copie où les conteneurs non conformes aux conventions de nommage Azure ont été renommés lors du chargement des données dans Azure.
+
+Les nouveaux noms uniques des conteneurs sont au format `DataBox-GUID` et les données du conteneur sont placées dans le nouveau conteneur renommé. Le journal de copie spécifie l’ancien et le nouveau nom du conteneur.
 
 ```xml
 <ErroredEntity Path="New Folder">
@@ -258,7 +268,7 @@ Les nouveaux noms uniques des conteneurs sont au format `DataBox-GUID` et les do
 </ErroredEntity>
 ```
 
-Voici un exemple de fichier `copylog` où les objets blob ou fichiers non conformes aux conventions d’affectation de noms Azure ont été renommés lors du chargement des données vers Azure. Les nouveaux noms des objets blob ou fichiers sont convertis avec le code de hachage SHA256 du chemin d’accès relatif au conteneur et sont chargés vers le chemin d’accès, en fonction du type de destination. Il peut s’agir d’objets blob de blocs, d’objets blob de pages ou fichiers Azure Files.
+Voici un exemple de journal de copie où les objets blob ou fichiers non conformes aux conventions de nommage Azure ont été renommés lors du chargement des données dans Azure. Les nouveaux noms des objets blob ou fichiers sont convertis avec le code de hachage SHA256 du chemin d’accès relatif au conteneur et sont chargés vers le chemin d’accès, en fonction du type de destination. Il peut s’agir d’objets blob de blocs, d’objets blob de pages ou fichiers Azure Files.
 
 Le `copylog` spécifie l’ancien et le nouveau nom de l’objet blob ou du fichier et son chemin d’accès dans Azure.
 
@@ -287,7 +297,7 @@ Une fois les données effacées des disques Data Box conformément à la norme N
 
 ### <a name="audit-logs"></a>Journaux d’audit
 
-Les journaux d’audit contiennent des informations sur la mise sous tension et l’accès au partage sur la Data Box ou la Data Box Heavy lorsqu’elle est hors du centre de données Azure. Ces journaux d’activité se trouvent ici : `storage-account/azuredatabox-chainofcustodylogs`.
+Les journaux d’audit contiennent des informations sur la façon de mettre sous tension des partages sur la Data Box ou Data Box Heavy et d’y accéder quand elle est hors du centre de données Azure. Ces journaux d’activité se trouvent ici : `storage-account/azuredatabox-chainofcustodylogs`.
 
 Voici un exemple de journal d’audit de Data Box :
 
@@ -350,7 +360,7 @@ En faisant défiler l’historique des commandes, vous verrez les éléments sui
 
 - Informations de suivi du transporteur pour votre appareil.
 - Événements avec activité *SecureErase*. Ces événements correspondent à l’effacement des données sur le disque.
-- Liens vers les journaux Data Box. Les chemins d’accès aux *journaux d’audit*, *copylogs* et fichiers de *nomenclature* sont présentés.
+- Liens vers les journaux Data Box. Les chemins des *journaux d’audit*, des *journaux de copie* et des fichiers de *nomenclature* sont présentés.
 
 Voici un exemple du journal d’historique des commandes disponible depuis le Portail Azure :
 

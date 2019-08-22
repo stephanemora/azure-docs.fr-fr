@@ -6,12 +6,12 @@ ms.author: stbaron
 ms.topic: conceptual
 ms.service: service-health
 ms.date: 01/29/2019
-ms.openlocfilehash: 0f79a1eed044814d6c2e27f4eadb5ba68a47303f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1692e8acda88a51173eb0eabcd90c377b431a3c3
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60622281"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68955038"
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Types de ressources et les contrôles d’intégrité dans Azure Resource Health
 Voici une liste complète de toutes les vérifications exécutées via Resource Health par type de ressource.
@@ -25,6 +25,11 @@ Voici une liste complète de toutes les vérifications exécutées via Resource 
 |Vérifications exécutées|
 |---|
 |<ul><li>Est-ce que le service Gestion des API est opérationnel ?</li></ul>|
+
+## <a name="microsoftbatchbatchaccounts"></a>Microsoft.Batch/batchAccounts
+|Vérifications exécutées|
+|---|
+|<ul><li>Le compte Batch est-il opérationnel ?</li><li>Le quota de pools a-t-il été dépassé pour ce compte Batch ?</li></ul>|
 
 ## <a name="microsoftcacheredisredis"></a>Microsoft.CacheRedis/Redis
 |Vérifications exécutées|
@@ -72,6 +77,11 @@ Voici une liste complète de toutes les vérifications exécutées via Resource 
 |---|
 |<ul><li>Votre service de migration de base de données a-t-il été incapable de procéder au provisionnement ?</li><li>Votre service de migration de base de données s’est-il arrêté pour cause d’inactivité ou à la suite d’une requête effectuée par l’utilisateur ?</li></ul>|
 
+## <a name="microsoftdatashareaccounts"></a>Microsoft.DataShare/accounts
+|Vérifications exécutées|
+|---|
+|<ul><li>Le compte Data Share est-il opérationnel ?</li><li>Le cluster hébergeant Data Share est-il disponible ?</li></ul>|
+
 ## <a name="microsoftdbformariadbservers"></a>Microsoft.DBforMariaDB/servers
 |Vérifications exécutées|
 |---|
@@ -112,6 +122,16 @@ Voici une liste complète de toutes les vérifications exécutées via Resource 
 |---|
 |<ul><li>Les demandes de coffre de clés échouent-elles en raison de problèmes de plateforme Azure KeyVault ?</li><li>Les demandes de coffre de clés sont-elles limitées en raison de trop de requêtes effectuées par le client ?</li></ul>|
 
+## <a name="microsoftmachinelearningwebservices"></a>Microsoft.MachineLearning/webServices
+|Vérifications exécutées|
+|---|
+|<ul><li>Le service web est-il opérationnel ?</li></ul>|
+
+## <a name="microsoftmediamediaservices"></a>Microsoft.Media/mediaservices
+|Vérifications exécutées|
+|---|
+|<ul><li>Le service multimédia est-il opérationnel ?</li></ul>|
+
 ## <a name="microsoftnetworkapplicationgateways"></a>Microsoft.network/applicationgateways
 |Vérifications exécutées|
 |---|
@@ -131,6 +151,11 @@ Voici une liste complète de toutes les vérifications exécutées via Resource 
 |Vérifications exécutées|
 |---|
 |<ul><li>Les back-ends Front Door répondent-ils avec des erreurs aux sondes d’intégrité ?</li><li>Les modifications de configuration sont-elles retardées ?</li></ul>|
+
+## <a name="microsoftnetworkloadbalancers"></a>Microsoft.network/LoadBalancers
+|Vérifications exécutées|
+|---|
+|<ul><li>Les points de terminaison d’équilibrage de charge sont-ils disponibles ?</li></ul>|
 
 ## <a name="microsoftnetworkvirtualnetworkgateways"></a>Microsoft.network/virtualNetworkGateways
 |Vérifications exécutées|
@@ -167,10 +192,15 @@ Voici une liste complète de toutes les vérifications exécutées via Resource 
 |---|
 |<ul><li>Les clients rencontrent-ils des erreurs Service Bus générées par les utilisateurs ?</li><li>Les utilisateurs rencontrent-ils une augmentation des erreurs transitoires dues à une mise à niveau de l’espace de nommage Service Bus ?</li></ul>|
 
-## <a name="microsoftsqlserverdatabase"></a>Microsoft.SQL/Server/database
+## <a name="microsoftsqlmanagedinstancesdatabases"></a>Microsoft.SQL/managedInstances/databases
 |Vérifications exécutées|
 |---|
-|<ul><li> Y a-t-il eu des connexions à la base de données ?</li></ul>|
+|<ul><li>La base de données est-elle opérationnelle ?</li></ul>|
+
+## <a name="microsoftsqlserverdatabases"></a>Microsoft.SQL/Server/databases
+|Vérifications exécutées|
+|---|
+|<ul><li>Y a-t-il eu des connexions à la base de données ?</li></ul>|
 
 ## <a name="microsoftstoragestorageaccounts"></a>Microsoft.Storage/storageAccounts
 |Vérifications exécutées|
@@ -192,7 +222,7 @@ Voici une liste complète de toutes les vérifications exécutées via Resource 
 |---|
 |<ul><li>Le serveur hôte est-il en cours d’exécution ?</li><li>Le serveur Internet Information est-il en cours d’exécution ?</li><li>L’équilibreur de charge est-il en cours d’exécution ?</li><li>L’application web peut-elle être jointe à partir du centre de données ?</li><li>Le compte de stockage hébergeant le contenu du site est-il disponible ?</li></ul>|
 
-# <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 -  Pour en savoir plus à leur sujet, voir [Présentation du tableau de bord d’Azure Service Health](service-health-overview.md) et [Présentation d’Azure Resource Health](resource-health-overview.md). 
 -  [Forum aux questions sur Azure Resource Health](resource-health-faq.md)
 - Configurez des alertes afin d’être averti des problèmes d’intégrité. Pour plus d’informations, voir [Configurer des alertes pour les événements d’intégrité du service](../azure-monitor/platform/alerts-activity-log-service-notifications.md). 

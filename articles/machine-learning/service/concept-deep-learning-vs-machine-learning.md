@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: lazzeri
 author: FrancescaLazzeri
 ms.date: 08/07/2019
-ms.openlocfilehash: 4b66d015e8a182e305a36dacaa2e082288a3e19e
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 186ba03142e01c4b9340fc5b492621cc17575104
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68840542"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934294"
 ---
 # <a name="introduction-to-deep-learning-vs-machine-learning"></a>Deep Learning et Machine Learning
 
@@ -78,7 +78,7 @@ L’une des tâches importantes que le Deep Learning permet d’accomplir est la
 
 ## <a name="what-are-artificial-neural-networks"></a>Que sont les réseaux neuronaux artificiels ?
 
-Un réseau neuronal artificiel est un modèle de Deep Learning inspiré de la manière dont les réseaux neuronaux biologiques du cerveau humain traitent les informations. Plusieurs types de réseaux neuronaux artificiels sont actuellement utilisés. Les typologies de réseaux neuronaux artificiels les plus populaires sont décrites ci-dessous.
+Les réseaux neuronaux artificiels sont formés par couches de nœuds connectés. Les modèles de Deep Learning utilisent des réseaux neuronaux avec un très grand nombre de couches. Les typologies de réseaux neuronaux artificiels les plus populaires sont décrites ci-dessous.
 
 ### <a name="feedforward-neural-network"></a>Réseau neuronal feedforward
 

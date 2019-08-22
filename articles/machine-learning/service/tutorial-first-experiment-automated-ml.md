@@ -10,12 +10,12 @@ ms.author: tzvikei
 author: tsikiksr
 ms.reviewer: nibaccam
 ms.date: 07/23/2019
-ms.openlocfilehash: 1d2a0c9e1531ace16335ea57acaccedfe2c1a3c8
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 7ef19db472b30d82f14a5dd650cb8f4cb1f3ed3a
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68815900"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68990072"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-train-and-deploy-your-first-classification-model-preview"></a>Didacticiel : Utiliser le Machine Learning automatisé pour entraîner et déployer votre premier modèle de classification (préversion)
 
@@ -95,7 +95,7 @@ Dans ce tutoriel, vous avez appris à effectuer les tâches suivantes :
     Accès concurrentiel| Sélectionnez **5** comme nombre maximal d’itérations simultanées.
 
    >[!NOTE]
-   > Pour cette expérience, nous ne définissons pas de seuil de métriques ni d’itérations maximales. Nous n’empêchons pas non plus le test des algorithmes.
+   > Pour cette expérience, nous ne définissons pas de seuil de métriques ni de nombre de cœurs maximal par itérations. Nous n’empêchons pas non plus le test des algorithmes.
 
 1. Sélectionnez **Démarrer** pour exécuter l’expérience.
 

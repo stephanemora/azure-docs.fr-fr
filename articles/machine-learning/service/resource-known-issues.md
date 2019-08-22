@@ -9,14 +9,14 @@ ms.reviewer: mldocs
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 04/30/2019
+ms.date: 08/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7d1bce7575272b7df185c4e261685d989f49436c
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: 74d345249e1cbaeb45a1a35d3c3d2f61a4c0b9cf
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68716532"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69032968"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning-service"></a>Problèmes connus et dépannage du service Azure Machine Learning
 
@@ -48,6 +48,14 @@ Kit SDK Azure Machine Learning pour Python : PyYAML est un projet installé dist
 ```Python
 pip install --upgrade azureml-sdk[notebooks,automl] --ignore-installed PyYAML
 ```
+
+**Message d’erreur : `ERROR: No matching distribution found for azureml-dataprep-native`**
+
+La distribution Python 3.7.4 d’Anaconda comprend un bogue qui interrompt l’installation d’azureml-SDK. Ce problème est abordé dans ce [problème GitHub](https://github.com/ContinuumIO/anaconda-issues/issues/11195) qui peut être contourné en créant un nouvel environnement Conda à l’aide de cette commande :
+```bash
+conda create -n <env-name> python=3.7.3
+```
+Ce qui crée un environnement Conda utilisant Python 3.7.3, qui ne pose pas le problème d’installation présent dans 3.7.4.
 
 ## <a name="trouble-creating-azure-machine-learning-compute"></a>Problèmes à la création de la Capacité de calcul Azure Machine Learning
 
@@ -134,6 +142,15 @@ Si vous accédez directement à votre espace de travail à partir d’un lien de
 
 Parfois, fournir des informations de diagnostic quand vous demandez de l’aide peut se révéler utile. Pour afficher certains journaux d’activité, visitez le [Portail Microsoft Azure](https://portal.azure.com) et accédez à votre espace de travail, puis sélectionnez **Espace de travail > Expérience > Exécuter > Journaux d’activité**.
 
+> [!NOTE]
+> Azure Machine Learning service consigne des informations de diverses sources pendant la formation, telles que AutoML ou le conteneur Docker qui exécute le travail de formation. La plupart de ces journaux ne sont pas documentés. Si vous rencontrez des problèmes et que vous contactez le support Microsoft, il pourra peut-être utiliser ces journaux pendant la résolution des problèmes.
+
+## <a name="activity-logs"></a>Journaux d’activité
+
+Certaines actions dans l’espace de travail Azure Machine Learning ne consignent pas d’informations dans le __journal d’activité__. Par exemple, le démarrage d’une exécution de formation ou l’inscription d’un modèle.
+
+Certaines de ces actions apparaissent dans la zone __Activités__ de votre espace de travail, mais elles n’indiquent pas qui a initié l’activité.
+
 ## <a name="resource-quotas"></a>Quotas de ressources
 
 Découvrez plus d’informations sur les [quotas des ressources](how-to-manage-quotas.md) que vous pouvez rencontrer quand vous utilisez Azure Machine Learning.
@@ -154,6 +171,6 @@ Par exemple, vous recevrez une erreur si vous essayez de créer ou de joindre un
 
 ## <a name="overloaded-azurefile-storage"></a>Stockage Fichier Azure surchargé
 
-Si un message d’erreur du type « Impossible de charger les fichiers projet dans le répertoire de travail Fichier Azure, car le stockage est surchargé » s’affiche, utilisez les solutions de contournement suivantes.
+Si vous recevez une erreur `Unable to upload project files to working directory in AzureFile because the storage is overloaded`, appliquez les solutions de contournement suivantes.
 
 Si vous utilisez le partage de fichiers pour d’autres charges de travail, telles que le transfert de données, il est recommandé d’utiliser des objets blob afin de permettre l’utilisation du partage de fichiers pour l’envoi des exécutions. Vous pouvez également répartir la charge de travail entre deux espaces de travail.

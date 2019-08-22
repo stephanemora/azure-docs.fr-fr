@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/05/2019
 ms.author: magoedte
-ms.openlocfilehash: 05b022be3bd460809de77945710ed0bdcd275648
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: c6fa4df1fb2fc7559f706d81621ea198f5ca7cdc
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68839314"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881424"
 ---
 # <a name="manage-log-data-and-workspaces-in-azure-monitor"></a>Gérer les données du journal et les espaces de travail dans Azure Monitor
 
@@ -32,7 +32,17 @@ Cet article explique comment gérer l’accès aux journaux et administrer les e
 
 * Comment accorder l’accès aux utilisateurs qui doivent pouvoir accéder aux données de journal dans un tableau spécifique de l’espace de travail à l’aide d’Azure RBAC.
 
-## <a name="define-access-control-mode-in-azure-portal"></a>Définir le mode de contrôle d’accès dans le portail Azure
+## <a name="define-access-control-mode"></a>Définir le mode de contrôle d’accès
+
+Vous pouvez afficher le mode de contrôle d’accès configuré sur un espace de travail à partir du portail Azure ou avec Azure PowerShell.  Vous pouvez modifier ce paramètre à l’aide de l’une des méthodes prises en charge suivantes :
+
+* Portail Azure
+
+* Azure PowerShell
+
+* Modèle Azure Resource Manager
+
+### <a name="configure-from-the-azure-portal"></a>Configurer à partir du portail Azure
 
 Vous pouvez afficher le mode de contrôle d’accès à l’espace de travail actuel dans la page **Vue d’ensemble** de l’espace de travail, dans le menu **Espace de travail Log Analytics**. 
 
@@ -45,7 +55,7 @@ Vous pouvez changer ce paramètre dans la page **Propriétés** de l’espace de
 
 ![Changer le mode d’accès à l’espace de travail](media/manage-access/change-access-control-mode.png)
 
-## <a name="define-access-control-mode-using-powershell"></a>Définir le mode de contrôle d’accès à l’aide de PowerShell
+### <a name="configure-using-powershell"></a>Configurer à l’aide de PowerShell
 
 Pour examiner le mode de contrôle d’accès pour tous les espaces de travail dans l’abonnement, utilisez la commande suivante :
 
@@ -89,7 +99,7 @@ else
 Set-AzResource -ResourceId $_.ResourceId -Properties $_.Properties -Force
 ```
 
-## <a name="define-access-mode-using-resource-manager-template"></a>Définir le mode d’à l’aide d’un modèle Resource Manager
+### <a name="configure-using-a-resource-manager-template"></a>Configurer à l’aide d’un modèle Resource Manager
 
 Pour configurer le mode d’accès dans un modèle Azure Resource Manager, définissez sur une des valeurs suivantes l’indicateur de fonctionnalité **enableLogAccessUsingOnlyResourcePermissions** sur l’espace de travail.
 

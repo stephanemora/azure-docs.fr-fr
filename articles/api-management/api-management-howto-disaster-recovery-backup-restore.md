@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2019
 ms.author: apimpm
-ms.openlocfilehash: 619a4de993f052f143e4117f0100ed1e0aa77b03
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: bde4572ec72286be7d845f4e83bf9c0fe3bff6f1
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68498591"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932396"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Comment implémenter une récupération d'urgence à l'aide d'une sauvegarde de service et la récupérer dans Gestion des API Azure
 
@@ -176,6 +176,7 @@ Tenez compte des contraintes suivantes quand vous faites une demande de sauvegar
 -   Pendant la sauvegarde, **évitez de changer la gestion de service**, comme mettre à niveau une référence ou passer à une version antérieure, changer un nom de domaine, etc.
 -   La restauration d’une **sauvegarde n’est garantie que pendant 30 jours** à partir du moment de sa création.
 -   Les **données d’utilisation** servant à la création des rapports analytiques **ne sont pas incluses** dans la sauvegarde. Utilisez l'[API REST de Gestion des API Azure][azure api management rest api] pour récupérer régulièrement les rapports d'analyse et les conserver en toute sécurité.
+-   En outre, les éléments suivants ne font pas partie des données de sauvegarde : les certificats SSL de domaine personnalisé et tous les certificats intermédiaires ou racines téléchargés par le client, le contenu du portail des développeurs et les paramètres d’intégration du réseau virtuel.
 -   La fréquence à laquelle vous effectuez les sauvegardes du service affecte votre objectif de point de récupération. Pour la réduire, nous vous conseillons d’implémenter des sauvegardes régulières et d’effectuer des sauvegardes à la demande quand vous apportez des changements à votre service Gestion des API.
 -   Les **changements** de configuration du service (par exemple, les API, les stratégies et l’apparence du portail des développeurs) pendant une opération de sauvegarde **peuvent être exclus de la sauvegarde et être perdus**.
 -   **Autorisez** l’accès depuis le plan de contrôle vers le compte de stockage Azure. Le client doit ouvrir l’ensemble suivant d’adresses IP entrantes sur son compte de stockage pour la sauvegarde. 

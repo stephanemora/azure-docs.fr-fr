@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 12/11/2018
 ms.author: dacurwin
-ms.openlocfilehash: c53e2c383739b717a5ce94c872b4616bbd1b3f26
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 9ae21e2bf71789d0b0dd19e3dd7a65ad10fae241
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639939"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69018969"
 ---
 # <a name="back-up-vmware-vms-with-azure-backup-server"></a>Sauvegarder des machines virtuelles VMware avec le serveur de sauvegarde Azure
 
@@ -41,7 +41,7 @@ Par défaut, le serveur de sauvegarde Azure communique avec les serveurs VMware 
 - Si vous ne souhaitez pas utiliser le protocole HTTPS, vous pouvez [désactiver la validation de certificat HTTPS pour tous les serveurs VMware](backup-azure-backup-server-vmware.md#disable-https-certificate-validation).
 - En général, vous vous connectez au serveur vCenter/ESXi depuis un navigateur sur le serveur de sauvegarde Azure via le client web vSphere. La première fois, la connexion n’est pas sécurisée et le message suivant s’affiche.
 - Il est important de comprendre comment le serveur de sauvegarde Azure gère les sauvegardes.
-    - Dans un premier temps, le serveur de sauvegarde Azure sauvegarde les données dans le stockage sur disque local. Le serveur de sauvegarde Azure utilise un pool de stockage, un ensemble de disques et de volumes sur lequel il stocke les points de récupération de disque pour ses données protégées. Il peut s’agir d’un stockage en attachement direct (DAS), un SAN Fibre Channel, ou un appareil de stockage ou SAN iSCSI. Il est important de s’assurer que vous disposez de suffisamment de stockage pour la sauvegarde locale de vos données de machines virtuelles VMware.
+    - Dans un premier temps, le serveur de sauvegarde Azure sauvegarde les données dans le stockage sur disque local. Le serveur de sauvegarde Azure utilise un pool de stockage, un ensemble de disques et de volumes sur lequel il stocke les points de récupération de disque pour ses données protégées. Il peut s’agir d’un stockage en attachement direct (DAS), un SAN Fibre Channel, ou un appareil de stockage ou SAN iSCSI. Il est important de vérifier que vous disposez de suffisamment de stockage pour la sauvegarde locale de vos données de machines virtuelles VMware.
     - Le serveur de sauvegarde Azure effectue ensuite la sauvegarde à partir du stockage de disque local vers Azure.
     - [Obtenez de l’aide](https://docs.microsoft.com/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-1807#figure-out-how-much-storage-space-you-need) pour déterminer la quantité d’espace de stockage dont vous avez besoin. Ces informations concernent DPM, mais elles peuvent être utilisées pour le serveur de sauvegarde Azure.
 
@@ -102,10 +102,10 @@ Pour configurer un canal sécurisé, procédez comme suit :
 
 ### <a name="disable-https-certificate-validation"></a>Désactiver la validation de certificat HTTPS
 
-Si vous avez des limites sécurisées au sein de votre organisation et que vous ne souhaitez pas utiliser le protocole HTTPS entre les serveurs VMware et l’ordinateur du serveur de sauvegarde Azure, désactivez le HTTPS comme suit : u
+Si vous avez des limites sécurisées au sein de votre organisation et que vous ne souhaitez pas utiliser le protocole HTTPS entre les serveurs VMware et l’ordinateur du serveur de sauvegarde Azure, désactivez HTTPS comme suit : 
 1. Copiez et collez le texte suivant dans un fichier .txt.
 
-      ```
+      ```text
       Windows Registry Editor Version 5.00
       [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft Data Protection Manager\VMWare]
       "IgnoreCertificateValidation"=dword:00000001
@@ -221,7 +221,7 @@ Dans l’onglet **Gérer** du panneau **Autorisations globales**, le nouveau com
 
     ![Boîte de dialogue Gérer les informations d’identification du serveur de sauvegarde Azure](./media/backup-azure-backup-server-vmware/mabs-manage-credentials-dialog.png)
 
-4. Dans **Ajouter les informations d’identification**, entrez le nom et la description des nouvelles informations d’identification et spécifiez le nom d’utilisateur et le mot de passe définis sur le serveur VMware. Le nom *Contoso Vcenter credential* est utilisé pour identifier les informations d’identification dans cette procédure. Si le serveur VMware et le serveur de sauvegarde Azure ne se trouvent pas sur le même domaine, spécifiez le domaine dans le nom d’utilisateur.
+4. Dans **Ajouter des informations d’identification**, entrez le nom et la description des nouvelles informations d’identification, puis spécifiez le nom d’utilisateur et le mot de passe définis sur le serveur VMware. Le nom *Contoso Vcenter credential* est utilisé pour identifier les informations d’identification dans cette procédure. Si le serveur VMware et le serveur de sauvegarde Azure ne se trouvent pas sur le même domaine, spécifiez le domaine dans le nom d’utilisateur.
 
     ![Boîte de dialogue Ajouter des informations d’identification du serveur de sauvegarde Azure](./media/backup-azure-backup-server-vmware/mabs-add-credential-dialog2.png)
 
@@ -286,10 +286,10 @@ Ajoutez des machines virtuelles VMware pour la sauvegarde. Les groupes de protec
 
 1. Dans la page **Sélectionner le type de groupe de protection**, sélectionnez **Serveurs**, puis cliquez sur **Suivant**. La page **Sélectionner les membres du groupe** s’affiche.
 
-1. Dans **Sélectionner les membres du groupe** > sélectionnez les machines virtuelles (ou dossiers de machines virtuelles) que vous souhaitez sauvegarder. Cliquez ensuite sur **Suivant**.
+1. Dans **Sélectionner les membres du groupe**, sélectionnez les machines virtuelles (ou dossiers de machines virtuelles) que vous souhaitez sauvegarder. Cliquez ensuite sur **Suivant**.
 
     - Lorsque vous sélectionnez un dossier, les machines virtuelles ou dossiers à l’intérieur de ce dossier sont également sélectionnés pour la sauvegarde. Vous pouvez désactiver les dossiers ou machines virtuelles que vous ne souhaitez pas sauvegarder.
-1. Si une machine virtuelle ou un dossier fait déjà l’objet d’une sauvegarde, vous ne pouvez pas le sélectionner. Cela permet de garantir que plusieurs points de récupération ne sont pas créés pour la même machine virtuelle. .
+1. Si une machine virtuelle ou un dossier fait déjà l’objet d’une sauvegarde, vous ne pouvez pas le sélectionner. Cela garantit que des points de récupération ne sont pas créés en double pour la même machine virtuelle.
 
      ![Sélectionner les membres du groupe](./media/backup-azure-backup-server-vmware/server-add-selected-members.png)
 
@@ -354,7 +354,7 @@ Ajoutez des machines virtuelles VMware pour la sauvegarde. Les groupes de protec
 
 ## <a name="vmware-vsphere-67"></a>VMWare vSphere 6.7
 
-Pour sauvegarder vSphere 6.7, procédez comme suit :
+Pour sauvegarder vSphere 6.7, effectuez les opérations suivantes :
 
 - Activer TLS 1.2 sur le serveur DPM
   >[!Note]

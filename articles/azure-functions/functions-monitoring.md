@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: glenga
-ms.openlocfilehash: cfdc28486cf254c4dd808824ab167489818376ab
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: 582e4d81851d570f99d25d626a1db8a9f5e98231
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68619597"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881330"
 ---
 # <a name="monitor-azure-functions"></a>Surveiller l’exécution des fonctions Azure
 
@@ -607,14 +607,21 @@ Pour signaler un problème avec l’intégration d’Application Insights dans A
 
 ## <a name="streaming-logs"></a>Journaux d’activité en continu
 
-Lors du développement d’une application, il est utile de visualiser des informations de journalisation en temps quasi réel. Vous pouvez afficher un flux de fichiers journaux générés par vos fonctions dans le portail Azure ou dans une session de ligne de commande sur votre ordinateur local.
+Lors du développement d’une application, vous souhaitez souvent savoir ce qui est écrit dans les journaux presque en temps réel lors de l’exécution dans Azure.
 
-Cela équivaut à la sortie observée lorsque vous déboguez vos fonctions au cours du [développement local](functions-develop-local.md). Pour plus d’informations, consultez [Diffusion en continu des journaux d’activité](../app-service/troubleshoot-diagnostic-logs.md#streamlogs).
+Il existe deux façons d’afficher un flux des fichiers journaux générés par vos exécutions de fonction.
 
-> [!NOTE]
-> Les journaux de diffusion en continu ne prennent en charge qu'une seule instance de l’hôte Functions. Lorsque votre fonction est mise à l’échelle vers plusieurs instances, les données des autres instances ne s'affichent pas dans le flux du journal. Dans Application Insights, le [Flux de métriques temps réel](../azure-monitor/app/live-stream.md) prend en charge plusieurs instances. Également en quasi temps réel, l'analytique de diffusion en continue repose aussi sur des [données échantillonnées](#configure-sampling).
+* **Streaming des journaux intégré** : la plateforme App Service vous permet d’afficher un flux de vos fichiers journaux d’application. Cela équivaut à la sortie observée quand vous déboguez vos fonctions au cours du [développement local](functions-develop-local.md) et quand vous utilisez l’onglet **Test** dans le portail. Toutes les informations basées sur les journaux sont affichées. Pour plus d’informations, consultez [Diffusion en continu des journaux d’activité](../app-service/troubleshoot-diagnostic-logs.md#streamlogs). Cette méthode de streaming ne prend en charge qu’une seule instance et ne peut pas être utilisée avec une application exécutée sur Linux dans un plan Consommation.
+
+* **Flux de métriques temps réel** : quand votre application de fonction est [connectée à Application Insights](#enable-application-insights-integration), vous pouvez afficher les données des journaux et d’autres métriques en quasi temps réel dans le portail Azure à l’aide de [Flux de métriques temps réel](../azure-monitor/app/live-stream.md). Appliquez cette méthode lors de la supervision de fonctions s’exécutant sur plusieurs instances ou sur Linux dans un plan Consommation. Cette méthode utilise des [données échantillonnées](#configure-sampling).
+
+Les flux de journaux peuvent être affichés à la fois dans le portail et dans la plupart des environnements de développement locaux. 
 
 ### <a name="portal"></a>Portail
+
+Vous pouvez afficher les deux types de flux de journaux dans le portail.
+
+#### <a name="built-in-log-streaming"></a>Streaming des journaux intégré
 
 Pour afficher les journaux de diffusion en continu dans le portail, sélectionnez l'onglet **Fonctionnalités de la plateforme** dans votre application de fonction. Ensuite, sous **Surveillance**, sélectionnez **Diffusion en continu des journaux**.
 
@@ -624,11 +631,23 @@ Cela permet de connecter votre application au service de diffusion en continu de
 
 ![Afficher la diffusion de journaux d’activité en continu dans le portail](./media/functions-monitoring/streaming-logs-window.png)
 
+#### <a name="live-metrics-stream"></a>Flux de métriques temps réel
+
+Pour voir le flux de métriques temps réel de votre application, sélectionnez l’onglet **Vue d’ensemble** de votre application de fonction. Quand Application Insights est activé, un lien **Application Insights** est visible sous **Fonctionnalités configurées**. Ce lien vous mène à la page Application Insights de votre application.
+
+Dans Application Insights, sélectionnez **Flux de métriques temps réel**. Les [entrées de journaux échantillonnées](#configure-sampling) sont affichées sous **Exemple de télémétrie**.
+
+![Voir les flux de métriques temps réel dans le portail](./media/functions-monitoring/live-metrics-stream.png) 
+
 ### <a name="visual-studio-code"></a>Visual Studio Code
 
 [!INCLUDE [functions-enable-log-stream-vs-code](../../includes/functions-enable-log-stream-vs-code.md)]
 
-### <a name="azure-cli"></a>D’Azure CLI
+### <a name="core-tools"></a>Core Tools
+
+[!INCLUDE [functions-streaming-logs-core-tools](../../includes/functions-streaming-logs-core-tools.md)]
+
+### <a name="azure-cli"></a>Azure CLI
 
 Vous pouvez activer les journaux de diffusion en continu en utilisant [Azure CLI](/cli/azure/install-azure-cli). Utilisez les commandes suivantes pour vous connecter, choisir votre abonnement et diffuser en continu les fichiers journaux :
 

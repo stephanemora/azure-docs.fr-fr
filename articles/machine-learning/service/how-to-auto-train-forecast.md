@@ -10,12 +10,12 @@ ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
 ms.date: 06/20/2019
-ms.openlocfilehash: 34902aa23339b62920f918ae19b410a99e226a0e
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 793474495f3ab3ef06a17b48d15c2f91d0677365
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68358797"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68848164"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Entraîner automatiquement un modèle de prévision de série chronologique
 
@@ -27,17 +27,17 @@ Dans cet article, vous allez apprendre à former un modèle de régression de pr
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2X1GW]
 
-Vous pouvez utiliser ML automatisé pour combiner des techniques et des approches afin d’obtenir des prévisions de séries chronologiques recommandées et de qualité. Une expérience de série chronologique automatisée est traitée comme un problème de régression multivariable. Les valeurs de série chronologique passées « pivotent » pour devenir des dimensions supplémentaires pour le régresseur, avec d’autres prédicteurs. 
+Vous pouvez utiliser ML automatisé pour combiner des techniques et des approches afin d’obtenir des prévisions de séries chronologiques recommandées et de qualité. Une expérience de série chronologique automatisée est traitée comme un problème de régression multivariable. Les valeurs de série chronologique passées « pivotent » pour devenir des dimensions supplémentaires pour le régresseur, avec d’autres prédicteurs.
 
 Contrairement aux méthodes de séries chronologiques classique, cette méthode présente l’avantage d’incorporer naturellement plusieurs variables contextuelles et leurs relations entre elles pendant l’apprentissage. Dans les applications de prévisions du monde réel, plusieurs facteurs peuvent influencer une prévision. Par exemple, lors de la prévision des ventes, les interactions des tendances historiques, des taux de change et des prix déterminent conjointement le résultat de ventes. Un autre avantage est que toutes les innovations récentes dans les modèles de régression appliquent immédiatement aux prévisions.
 
-Vous pouvez [configurer](#config) l’horizon souhaité pour la prévision, ainsi que des retards et bien plus encore. ML automatisé entraîne un modèle unique, mais comportant souvent des branches en interne pour tous les éléments du jeu de données et des horizons de prédiction. Plus de données sont donc disponibles pour estimer les paramètres du modèle, et il devient possible de généraliser des séries inconnues. 
+Vous pouvez [configurer](#config) l’horizon souhaité pour la prévision, ainsi que des retards et bien plus encore. ML automatisé entraîne un modèle unique, mais comportant souvent des branches en interne pour tous les éléments du jeu de données et des horizons de prédiction. Plus de données sont donc disponibles pour estimer les paramètres du modèle, et il devient possible de généraliser des séries inconnues.
 
-Les fonctionnalités extraites les données d’apprentissage jouent un rôle capital. ML automatisé effectue les étapes de prétraitement standard et génère des fonctionnalités supplémentaires de séries chronologiques pour capturer les effets saisonniers et optimiser la précision des prévisions. 
+Les fonctionnalités extraites les données d’apprentissage jouent un rôle capital. ML automatisé effectue les étapes de prétraitement standard et génère des fonctionnalités supplémentaires de séries chronologiques pour capturer les effets saisonniers et optimiser la précision des prévisions.
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Un espace de travail de service Microsoft Azure Machine Learning. Pour créer l’espace de travail, consultez [Créer un espace de travail Azure Machine Learning service](setup-create-workspace.md).
+* Un espace de travail de service Microsoft Azure Machine Learning. Pour créer l’espace de travail, consultez [Créer un espace de travail Azure Machine Learning service](how-to-manage-workspace.md).
 * Cet article suppose une connaissance de base en matière de configuration d’une expérience de Machine Learning automatisé. Suivez le [didacticiel](tutorial-auto-train-models.md) ou les [procédures](how-to-configure-auto-train.md) pour afficher les modèles de conception des expériences de Machine Learning automatisé.
 
 ## <a name="preparing-data"></a>Préparation des données
@@ -106,9 +106,13 @@ time_series_settings = {
     "grain_column_names": ["store"],
     "max_horizon": 50,
     "target_lags": 2,
-    "target_rolling_window_size": 10
+    "target_rolling_window_size": 10,
+    "preprocess": True,
 }
 ```
+
+> [!NOTE]
+> Les étapes de prétraitement du Machine Learning automatisé (normalisation des fonctionnalités, gestion des données manquantes, conversion de texte en valeurs numériques, etc.) font partie du modèle sous-jacent. Lorsque vous utilisez le modèle pour des prédictions, les étapes de prétraitement qui sont appliquées pendant l’entraînement sont appliquées automatiquement à vos données d’entrée.
 
 Créez maintenant un objet `AutoMLConfig` standard, en spécifiant le type de tâche `forecasting` et soumettez l’expérience. Une fois le modèle terminé, récupérez la meilleure itération d’exécution.
 

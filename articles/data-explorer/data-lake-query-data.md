@@ -7,12 +7,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/17/2019
-ms.openlocfilehash: cd53e1386d9d6f2a38beb1661554c8cc9116169d
-ms.sourcegitcommit: 5604661655840c428045eb837fb8704dca811da0
+ms.openlocfilehash: ef4dfc4370c71eac1978a6f3535b571a5e6009b5
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68494860"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68950138"
 ---
 # <a name="query-data-in-azure-data-lake-using-azure-data-explorer-preview"></a>Interroger des données dans Azure Data Lake à l'aide d'Azure Data Explorer (préversion)
 
@@ -45,8 +45,11 @@ Azure Data Explorer s’intègre à Stockage Blob Azure et Azure Data Lake Stora
     dataformat=csv (h@'http://storageaccount.blob.core.windows.net/container1;secretKey') 
     with (compressed = true)  
     ```
-
-    Cette requête crée des partitions quotidiennes *container1/yyyy/MM/dd/all_exported_blobs.csv*. En règle générale, un partitionnement plus granulaire améliore le niveau de performance. Par exemple, les requêtes sur des tables externes avec partitions quotidiennes, comme ci-dessus, offrent un meilleur niveau de performance que les requêtes sur des tables partitionnées mensuellement.
+    
+    > [!NOTE]
+    > * En règle générale, un partitionnement plus granulaire améliore le niveau de performance. Par exemple, les requêtes sur des tables externes avec partitions quotidiennes offrent un meilleur niveau de performance que les requêtes sur des tables partitionnées mensuellement.
+    > * Lorsque vous définissez une table externe avec des partitions, la structure de stockage doit être identique.
+Par exemple, si la table est définie avec une partition DateTime au format aaaa/mm/jj (par défaut), le chemin d’accès au fichier de stockage URI doit être *container1/aaaa/mm/jj/all_exported_blobs*. 
 
 1. La table externe est visible dans le volet gauche de l’interface utilisateur web
 

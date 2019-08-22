@@ -1,21 +1,21 @@
 ---
 title: Supprimer des ressources d’images dans Azure Container Registry
-description: Explique en détail comment gérer efficacement la taille du registre en supprimant les données d’image conteneur.
+description: Explique en détail comment gérer efficacement la taille du registre en supprimant les données d’image conteneur à l’aide de commandes d’interfaces de lignes de commande Azure.
 services: container-registry
 author: dlepow
 manager: gwallace
 ms.service: container-registry
 ms.topic: article
-ms.date: 06/17/2019
+ms.date: 07/31/2019
 ms.author: danlep
-ms.openlocfilehash: eaf3b3e591ca2ddbd29fd5547d334ef90b24fc5e
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 12c1b5f9fa9620622b31f22c701d58ae237bcbf2
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68309643"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69035157"
 ---
-# <a name="delete-container-images-in-azure-container-registry"></a>Supprimer des images conteneur dans Azure Container Registry
+# <a name="delete-container-images-in-azure-container-registry-using-the-azure-cli"></a>Supprimer des images conteneur dans Azure Container Registry à l’aide de l’interface de ligne de commande Azure
 
 Pour limiter la taille de votre registre de conteneurs Azure, vous devez supprimer régulièrement les données d’image obsolètes. Certaines images conteneur déployées dans l’environnement de production peuvent nécessiter un stockage à long terme, mais d’autres peuvent être supprimées plus rapidement. Par exemple, dans un scénario de génération et de tests automatisés, votre registre peut se remplir rapidement d’images qui peuvent ne jamais être déployées, et peuvent donc être vidées peu après la génération et la réussite des tests.
 
@@ -113,7 +113,7 @@ az acr repository show-manifests --name <acrName> --repository <repositoryName> 
 Après avoir identifié les codes de hachage de manifeste obsolètes, vous pouvez exécuter le script Bash suivant pour supprimer les codes de hachage de manifeste antérieurs à un timestamp spécifié. Ce script nécessite Azure CLI et **xargs**. Par défaut, le script n’effectue aucune suppression. Remplacez la valeur `ENABLE_DELETE` par `true` pour activer la suppression des images.
 
 > [!WARNING]
-> Utilisez l'exemple de script suivant avec précaution : les données d'image supprimées ne sont PAS RÉCUPÉRABLES. Si vous disposez de systèmes qui tirent (pull) les images en fonction du code de hachage du manifeste (et non en fonction du nom de l'image), vous ne devez pas exécuter ces scripts. La suppression des codes de hachage de manifeste empêchera ces systèmes de tirer (pull) les images à partir du registre. Au lieu de tirer en fonction du manifeste, envisagez d’adopter un schéma d’*étiquetage unique* (il s’agit là d’une [bonne pratique][tagging-best-practices]). 
+> Utilisez l'exemple de script suivant avec précaution : les données d'image supprimées ne sont PAS RÉCUPÉRABLES. Si vous disposez de systèmes qui tirent (pull) les images en fonction du code de hachage du manifeste (et non en fonction du nom de l'image), vous ne devez pas exécuter ces scripts. La suppression des codes de hachage de manifeste empêchera ces systèmes de tirer (pull) les images à partir du registre. Au lieu de tirer en fonction du manifeste, envisagez d’adopter un schéma d’*étiquetage unique* (il s’agit là d’une [bonne pratique](container-registry-image-tag-version.md)). 
 
 ```bash
 #!/bin/bash
@@ -201,7 +201,7 @@ az acr repository show-manifests --name <acrName> --repository <repositoryName> 
 L’utilisation de cette commande dans un script vous permet de supprimer toutes les images sans étiquette d’un référentiel.
 
 > [!WARNING]
-> Utilisez les exemples de scripts suivants avec prudence : la suppression des données d’image est irrécupérable. Si vous disposez de systèmes qui tirent (pull) les images en fonction du code de hachage du manifeste (et non en fonction du nom de l'image), vous ne devez pas exécuter ces scripts. La suppression des images sans étiquette va empêcher ces systèmes de tirer les images à partir du registre. Au lieu de tirer en fonction du manifeste, envisagez d’adopter un schéma d’*étiquetage unique* (il s’agit là d’une [bonne pratique][tagging-best-practices]).
+> Utilisez les exemples de scripts suivants avec prudence : la suppression des données d’image est irrécupérable. Si vous disposez de systèmes qui tirent (pull) les images en fonction du code de hachage du manifeste (et non en fonction du nom de l'image), vous ne devez pas exécuter ces scripts. La suppression des images sans étiquette va empêcher ces systèmes de tirer les images à partir du registre. Au lieu de tirer en fonction du manifeste, envisagez d’adopter un schéma d’*étiquetage unique* (il s’agit là d’une [bonne pratique](container-registry-image-tag-version.md)).
 
 **Azure CLI dans Bash**
 
@@ -260,6 +260,10 @@ if ($enableDelete) {
 }
 ```
 
+## <a name="automatically-purge-tags-and-manifests-preview"></a>Vider automatiquement les balises et les manifestes (préversion)
+
+Au lieu de scripts d’interfaces de lignes de commande Azure, exécutez une tâche ACR à la demande ou planifiée pour supprimer toutes les balises qui sont antérieures à une certaine durée ou correspondent à un filtre de nom spécifié. Pour plus d’informations, consultez [Purger automatiquement les images d’un registre de conteneurs Azure](container-registry-auto-purge.md).
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur le stockage des images dans Azure Container Registry, consultez [Stockage des images conteneur dans Azure Container Registry](container-registry-storage.md).
@@ -270,7 +274,6 @@ Pour plus d’informations sur le stockage des images dans Azure Container Regis
 <!-- LINKS - External -->
 [docker-manifest-inspect]: https://docs.docker.com/edge/engine/reference/commandline/manifest/#manifest-inspect
 [portal]: https://portal.azure.com
-[tagging-best-practices]: https://stevelasker.blog/2018/03/01/docker-tagging-best-practices-for-tagging-and-versioning-docker-images/
 
 <!-- LINKS - Internal -->
 [az-acr-repository-delete]: /cli/azure/acr/repository#az-acr-repository-delete

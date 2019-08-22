@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2019
 ms.author: iainfou
-ms.openlocfilehash: ecf38543b2c4e5187aa5c6593c3bccf6668b8a8a
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 30f4558339bbfddd2296cd1cb918c6ef8999b67e
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67472761"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68879193"
 ---
 # <a name="password-and-account-lockout-policies-on-managed-domains"></a>Stratégies de mot de passe et de verrouillage de compte sur les domaines managés
 Cet article explique les stratégies de mot de passe par défaut sur un domaine managé. Il décrit également comment configurer ces stratégies.
 
-## <a name="fine-grained-password-policies-fgpp"></a>Stratégies de mot de passe affinée (SMPA)
+## <a name="fine-grained-password-policies-fgpp"></a>Stratégies de mot de passe affinées (SMPA)
 Utilisez des stratégies de mot de passe affinées pour spécifier plusieurs stratégies de mot de passe dans un seul domaine. Les SMPA vous permettent d’appliquer différentes restrictions des stratégies de mot de passe et de verrouillage de compte à différents groupes d’utilisateurs dans un domaine. Par exemple, vous pouvez appliquer des paramètres de mot de passe stricts aux comptes privilégiés.
 
 Vous pouvez configurer les paramètres de mot de passe suivants à l’aide des SMPA :
@@ -38,7 +38,8 @@ Vous pouvez configurer les paramètres de mot de passe suivants à l’aide des 
     * Durée de verrouillage de compte
     * Nombre d’échecs d’ouverture de session autorisés
     * Réinitialisation le nombre d’échecs d’ouverture de session après
-
+    
+Les stratégies SMPA affectent uniquement les utilisateurs créés directement dans Azure AD DS. Les utilisateurs du cloud et les utilisateurs du domaine synchronisés dans le domaine managé Azure AD DS à partir d’Azure AD ne sont pas affectés par les paramètres de complexité du mot de passe. Les stratégies SMPA sont distribuées par le biais de l’association de groupes dans le domaine managé Azure AD DS, et toutes les modifications que vous apportez sont appliquées lors de la prochaine connexion de l’utilisateur. La modification de la stratégie ne déverrouille pas un compte d’utilisateur qui est déjà verrouillé.
 
 ## <a name="default-fine-grained-password-policy-settings-on-a-managed-domain"></a>Paramètres par défaut de la stratégie de mot de passe affinée sur un domaine managé
 La capture d’écran suivante illustre la stratégie de mot de passe affinée par défaut configurée sur un domaine Azure AD Domain Services managé.
@@ -80,7 +81,7 @@ Vous pouvez configurer une SMPA personnalisée pour les raisons suivantes :
 * Pour configurer un paramètre de durée de vie de mot de passe par défaut sur le domaine managé.
 
 Pour créer une SMPA personnalisée sur votre domaine géré :
-1. Connectez-vous à la machine virtuelle Windows que vous utilisez pour administrer votre domaine managé. Si vous n’en avez pas, suivez les instructions pour [gérer un domaine Azure AD Domain Services](manage-domain.md).
+1. Connectez-vous à la machine virtuelle Windows que vous utilisez pour administrer votre domaine managé (il doit s’agir au minimum de Windows Server 2012 R2). Si vous n’en avez pas, suivez les instructions pour [gérer un domaine Azure AD Domain Services](manage-domain.md).
 2. Lancez le **Centre d’administration Active Directory** sur la machine virtuelle.
 3. Cliquez sur le nom de domaine (par exemple, « contoso100.com »).
 4. Double-cliquez sur **Système** pour ouvrir le conteneur Système.

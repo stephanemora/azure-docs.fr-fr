@@ -9,28 +9,28 @@ ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova
-ms.date: 07/07/2019
+ms.date: 08/12/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: fd029c1e7b67d308e3e1fdbedbdc90ea430b4f5b
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 1581a62f0999cf502feaad31d2c884f4d171e770
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567246"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69019658"
 ---
-# <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Différences T-SQL entre Azure SQL Database Managed Instance et SQL Server
+# <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Différences T-SQL d’une instance managée Azure SQL Database par rapport à SQL Server
 
 Cet article résume et explique les différences de syntaxe et de comportement existant entre Azure SQL Database Managed Instance et le moteur de base de données SQL Server local. Les sujets suivants sont abordés : <a name="Differences"></a>
 
 - la [disponibilité](#availability) incluant les différences dans [Always On](#always-on-availability) et les [sauvegardes](#backup) ;
 - la [sécurité](#security) incluant les différences dans l’[audit](#auditing), les [certificats](#certificates), les [informations d’identification](#credential), les [fournisseurs de chiffrement](#cryptographic-providers), les [connexions et les utilisateurs](#logins-and-users) ainsi que la [clé de service et la clé principale du service](#service-key-and-service-master-key) ;
 - la [configuration](#configuration) incluant les différences dans l’[extension du pool de mémoires tampons](#buffer-pool-extension), le [classement](#collation), les [niveaux de compatibilité](#compatibility-levels), la [mise en miroir de bases de données](#database-mirroring), les [options de base de données](#database-options), le service [SQL Server Agent](#sql-server-agent) et les [options de Table](#tables) ;
-- les [fonctionnalités](#functionalities) incluant [BULK INSERT/OPENROWSET](#bulk-insert--openrowset), [CLR](#clr), [DBCC](#dbcc), les [transactions distribuées](#distributed-transactions), les [événements étendus](#extended-events), les [bibliothèques externes](#external-libraries), le [flux de fichier et FileTable](#filestream-and-filetable), la [recherche sémantique de texte intégral](#full-text-semantic-search), les [serveurs liés](#linked-servers), [Polybase](#polybase), la [réplication](#replication), [RESTORE](#restore-statement), [Service Broker](#service-broker), les [procédures stockées, fonctions et déclencheurs](#stored-procedures-functions-and-triggers) ;
+- les [fonctionnalités](#functionalities) incluant [BULK INSERT/OPENROWSET](#bulk-insert--openrowset), [CLR](#clr), [DBCC](#dbcc), les [transactions distribuées](#distributed-transactions), les [événements étendus](#extended-events), les [bibliothèques externes](#external-libraries), le [flux de fichier et FileTable](#filestream-and-filetable), la [recherche sémantique de texte intégral](#full-text-semantic-search), les [serveurs liés](#linked-servers), [Polybase](#polybase), la [Réplication](#replication), la [RESTAURATION](#restore-statement), [Service Broker](#service-broker), les [procédures stockées, fonctions et déclencheurs](#stored-procedures-functions-and-triggers).
 - les [paramètres d’environnement](#Environment), tels que les configurations de réseau virtuel et de sous-réseau ;
 - les [fonctionnalités qui se comportent différemment dans les instances managées](#Changes) ;
 - les [limitations temporaires et les problèmes connus](#Issues).
 
-L’option de déploiement Managed Instance est hautement compatible avec le moteur de base de données SQL Server local. La plupart des fonctionnalités du moteur de base de données SQL Server sont prises en charge dans une instance gérée.
+L’option de déploiement d’instance gérée est hautement compatible avec le moteur de base de données SQL Server local. La plupart des fonctionnalités du moteur de base de données SQL Server sont prises en charge dans une instance gérée.
 
 ![Migration](./media/sql-database-managed-instance/migration.png)
 
@@ -85,7 +85,7 @@ Les principales différences entre l’audit des bases de données dans Azure SQ
 - Avec les options de déploiement de base de données unique et de pool élastique dans Azure SQL Database, l’audit fonctionne au niveau de la base de données.
 - Dans SQL Server en local ou sur machines virtuelles, l’audit s’effectue au niveau serveur. Les événements sont stockés dans le système de fichiers ou dans les journaux des événements Windows.
  
-L’audit XEvent dans Managed Instance prend en charge les cibles de Stockage Blob Azure. Les journaux de fichiers et de Windows ne sont pas pris en charge.
+L’audit XEvent d’une instance gérée prend en charge les cibles de Stockage Blob Azure. Les journaux de fichiers et de Windows ne sont pas pris en charge.
 
 Les principales différences de syntaxe `CREATE AUDIT` pour l’audit du Stockage Blob Azure sont :
 
@@ -309,18 +309,18 @@ Pour plus d’informations sur SQL Server Agent, consultez [SQL Server Agent](ht
 
 ### <a name="tables"></a>Tables
 
-Les tables suivantes ne sont pas prises en charge :
+Les types de tables suivantes ne sont pas prises en charge :
 
-- `FILESTREAM`
-- `FILETABLE`
-- `EXTERNAL TABLE`
-- `MEMORY_OPTIMIZED` 
+- [FILESTREAM](https://docs.microsoft.com/sql/relational-databases/blob/filestream-sql-server)
+- [FILETABLE](https://docs.microsoft.com/sql/relational-databases/blob/filetables-sql-server)
+- [EXTERNAL TABLE](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql) (Polybase)
+- [MEMORY_OPTIMIZED](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/introduction-to-memory-optimized-tables) (non pris en charge uniquement dans le niveau usage général)
 
 Pour plus d’informations sur la façon de créer et de modifier des tables, consultez [CREATE TABLE](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql) et [ALTER TABLE](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql).
 
 ## <a name="functionalities"></a>Fonctionnalités
 
-### <a name="bulk-insert--openrowset"></a>Insertion en bloc/openrowset
+### <a name="bulk-insert--openrowset"></a>Bulk insert/OPENROWSET
 
 Une instance managée ne pouvant pas accéder à des partages de fichiers et à des dossiers Windows, les fichiers doivent être importés à partir du stockage Blob Azure :
 
@@ -379,7 +379,7 @@ La [recherche sémantique](https://docs.microsoft.com/sql/relational-databases/s
 
 ### <a name="linked-servers"></a>Services liés
 
-Les serveurs liés dans des instances managées prennent en charge un nombre limité de cibles :
+Les serveurs liés dans des instances gérées prennent en charge un nombre limité de cibles :
 
 - Les cibles prises en charge sont les instances managées, les bases de données uniques et les instances de SQL Server. 
 - Les serveurs liés ne prennent pas en charge les transactions accessibles en écriture distribuées (MS DTC).
@@ -399,13 +399,44 @@ Les tables externes qui référencent les fichiers dans HDFS ou le stockage Blob
 
 ### <a name="replication"></a>Réplication
 
-La [réplication transactionnelle](sql-database-managed-instance-transactional-replication.md) est disponible en préversion publique dans Managed Instance avec certaines contraintes :
-- Tous les types de participants de réplication (serveur de publication, serveur de distribution, abonné d’extraction et abonné de type push) peuvent être placés sur Managed Instance, mais le serveur de publication et le serveur de distribution ne peuvent pas être placés sur des instances différentes.
-- Les types de réplication transactionnelle, d’instantané et bidirectionnelle sont pris en charge. La réplication de fusion, la réplication d’égal à égal et les abonnements modifiables ne sont pas pris en charge.
-- Managed Instance peut communiquer avec les versions récentes de SQL Server. Consultez les versions prises en charge [ici](sql-database-managed-instance-transactional-replication.md#supportability-matrix-for-instance-databases-and-on-premises-systems).
-- La réplication transactionnelle présente des [exigences de mise en réseau supplémentaires](sql-database-managed-instance-transactional-replication.md#requirements).
+- Les types de réplication d’instantané et bidirectionnelle sont pris en charge. La réplication de fusion, la réplication d’égal à égal et les abonnements modifiables ne sont pas pris en charge.
+- La [réplication transactionnelle](sql-database-managed-instance-transactional-replication.md) est disponible en préversion publique dans Managed Instance sous certaines contraintes :
+    - Tous les types de participants de réplication (serveur de publication, serveur de distribution, abonné d’extraction et abonné de type push) peuvent être placés sur Managed Instance, mais le serveur de publication et le serveur de distribution ne peuvent pas être placés sur des instances différentes.
+    - Managed Instance peut communiquer avec les versions récentes de SQL Server. Consultez les versions prises en charge [ici](sql-database-managed-instance-transactional-replication.md#supportability-matrix-for-instance-databases-and-on-premises-systems).
+    - La réplication transactionnelle présente des [exigences de mise en réseau supplémentaires](sql-database-managed-instance-transactional-replication.md#requirements).
 
 Pour plus d’informations sur la configuration de la réplication, consultez le [didacticiel de réplication](replication-with-sql-database-managed-instance.md).
+
+
+Si la réplication est activée sur une base de données dans un [groupe de basculement](sql-database-auto-failover-group.md), l’administrateur de Managed Insance doit nettoyer toutes les publications de l’ancien principal et les reconfigurer sur le nouveau serveur principal après un basculement. Les activités suivantes sont nécessaires dans ce scénario :
+
+1. Arrêtez tous les travaux de réplication en cours d’exécution sur la base de données, le cas échéant.
+2. Supprimez les métadonnées d’abonnement du serveur de publication en exécutant le script suivant sur la base de données du serveur de publication :
+
+   ```sql
+   EXEC sp_dropsubscription @publication='<name of publication>', @article='all',@subscriber='<name of subscriber>'
+   ```             
+ 
+1. Supprimez les métadonnées d’abonnement de l’abonné. Exécutez le script suivant dans la base de données d’abonnement sur l’instance de l’abonné :
+
+   ```sql
+   EXEC sp_subscription_cleanup
+      @publisher = N'<full DNS of publisher, e.g. example.ac2d23028af5.database.windows.net>', 
+      @publisher_db = N'<publisher database>', 
+      @publication = N'<name of publication>'; 
+   ```                
+
+1. Supprimez définitivement tous les objets de réplication du serveur de publication en exécutant le script suivant dans la base de données publiée :
+
+   ```sql
+   EXEC sp_removedbreplication
+   ```
+
+1. Supprimez définitivement l’ancien serveur de distribution à partir de l’instance principale d’origine (en cas de basculement vers un ancien principal qui utilisait un serveur de distribution). Exécutez le script suivant sur la base de données de référence dans l’ancienne instance gérée du serveur de distribution :
+
+   ```sql
+   EXEC sp_dropdistributor 1,1
+   ```
 
 ### <a name="restore-statement"></a>L’instruction RESTORE 
 
@@ -437,10 +468,13 @@ Les options de base de données suivantes sont fixées ou remplacées et ne peuv
 
 Limites : 
 
+- Les sauvegardes des bases de données endommagées peuvent être restaurées en fonction du type d’altération, mais les sauvegardes automatisées ne sont pas effectuées tant que la corruption n’est pas corrigée. Assurez-vous que vous exécutez `DBCC CHECKDB` sur l’instance source et utilisez la sauvegarde `WITH CHECKSUM` afin d’éviter ce problème.
+- La restauration d’un fichier `.BAK` d’une base de données qui contient une limitation décrite dans ce document (par exemple, `FILESTREAM` ou des objets `FILETABLE`) ne peut pas être restaurée sur Managed instance.
 - Les fichiers `.BAK` qui contiennent plusieurs jeux de sauvegarde ne peuvent pas être restaurés. 
 - Les fichiers `.BAK` qui contiennent plusieurs fichiers journaux ne peuvent pas être restaurés.
-- La restauration échoue si le fichier.bak contient des données `FILESTREAM`.
-- Les sauvegardes contenant des bases de données qui ont des objets en mémoire actifs ne peuvent pas être restaurées sur une instance Usage général. Pour plus d’informations sur les instructions de restauration, consultez [Instructions RESTORE](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql).
+- Les sauvegardes contenant des bases de données plus volumineuses que 8 To, des objets OLTP en mémoire actifs ou plus de 280 fichiers ne peuvent pas être restaurées sur une instance d’usage général. 
+- Les sauvegardes contenant des bases de données plus volumineuses que 4 To ou des objets OLTP en mémoire dont la taille totale est supérieure à la taille décrite dans les [limites de ressources](sql-database-managed-instance-resource-limits.md) ne peuvent pas être restaurées sur l’instance critique pour l’entreprise.
+Pour plus d’informations sur les instructions de restauration, consultez [Instructions RESTORE](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql).
 
 ### <a name="service-broker"></a>Service broker
 
@@ -467,7 +501,7 @@ Le Service Broker entre instances n’est pas pris en charge :
 ## <a name="Environment"></a>Contraintes d’environnement
 
 ### <a name="subnet"></a>Subnet
-- Dans le sous-réseau réservé pour votre instance managée, vous ne pouvez pas placer d’autres ressources (par exemple des machines virtuelles). Mettez ces ressources dans d’autres sous-réseaux.
+-  Vous ne pouvez pas placer d’autres ressources (par exemple des machines virtuelles) dans le sous-réseau sur lequel vous avez déployé votre instance gérée. Déployez ces ressources à l’aide d’un sous-réseau différent.
 - Le sous-réseau doit avoir un nombre suffisant d’[adresses IP](sql-database-managed-instance-connectivity-architecture.md#network-requirements) disponibles. Le nombre minimal est 16, mais la recommandation est de disposer d’au moins 32 adresses IP dans le sous-réseau.
 - [Les points de terminaison de service ne peuvent pas être associés au sous-réseau de l’instance managée](sql-database-managed-instance-connectivity-architecture.md#network-requirements). Vérifiez que l’option Points de terminaison de service est désactivée quand vous créez le réseau virtuel.
 - Le nombre de vCores et de types d’instances que vous pouvez déployer dans une région ont certaines [contraintes et limites](sql-database-managed-instance-resource-limits.md#regional-resource-limitations).
@@ -494,11 +528,11 @@ Les variables, fonctions et vues suivantes retournent des résultats différents
 
 ### <a name="tempdb-size"></a>Taille de TEMPDB
 
-La taille de fichier maximale de `tempdb` ne peut pas être supérieure à 24 Go par cœur sur un niveau Usage général. La taille maximale de `tempdb` sur un niveau Critique pour l’entreprise est limitée à la taille de stockage d’instance. La taille du fichier journal `tempdb` est limitée à 120 Go sur les niveaux usage général et critique pour l’entreprise. La base de données `tempdb` est toujours divisée en 12 fichiers de données. Cette taille maximale par fichier n’est pas modifiable, et de nouveaux fichiers ne peuvent pas être ajoutés à `tempdb`. Certaines requêtes peuvent retourner une erreur si elles ont besoin de plus de 24 Go par cœur dans `tempdb` ou si elles produisent plus de 120 Go de journal. `tempdb` est toujours recréé en tant que base de données vide lorsque l’instance démarre ou bascule, et les modifications apportées dans `tempdb` ne sont pas conservées. 
+La taille de fichier maximale de `tempdb` ne peut pas être supérieure à 24 Go par cœur sur un niveau Usage général. La taille maximale de `tempdb` sur un niveau Critique pour l’entreprise est limitée à la taille de stockage d’instance. La taille du fichier journal `Tempdb` est limitée à 120 Go sur les niveaux usage général et critique pour l’entreprise. La base de données `tempdb` est toujours divisée en 12 fichiers de données. Cette taille maximale par fichier n’est pas modifiable, et de nouveaux fichiers ne peuvent pas être ajoutés à `tempdb`. Certaines requêtes peuvent retourner une erreur si elles ont besoin de plus de 24 Go par cœur dans `tempdb` ou si elles produisent plus de 120 Go de données de journal. `Tempdb` est toujours recréé en tant que base de données vide lorsque l’instance démarre ou bascule, et les modifications apportées dans `tempdb` ne sont pas conservées. 
 
 ### <a name="cant-restore-contained-database"></a>Impossible de restaurer la base de données autonome
 
-Managed Instance ne peut pas restaurer les [bases de données autonomes](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases). La restauration dans le temps des bases de données autonomes existantes ne fonctionne pas sur Managed Instance. Ce problème sera résolu prochainement. En attendant, nous vous conseillons de supprimer l’option d’autonomie de vos bases de données qui sont placées sur Managed Instance. N’utilisez pas l’option d’autonomie pour les bases de données de production. 
+Managed Instance ne peut pas restaurer les [bases de données autonomes](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases). La restauration dans le temps des bases de données autonomes existantes ne fonctionne pas sur Managed Instance. En attendant, nous vous conseillons de supprimer l’option d’autonomie de vos bases de données qui sont placées sur Managed Instance. N’utilisez pas l’option d’autonomie pour les bases de données de production. 
 
 ### <a name="exceeding-storage-space-with-small-database-files"></a>Dépassement de l’espace de stockage avec des fichiers de base de données de petite taille
 
@@ -506,7 +540,7 @@ Les instructions `CREATE DATABASE`, `ALTER DATABASE ADD FILE` et `RESTORE DATABA
 
 Chaque instance managée Usage général dispose de 35 To de stockage réservé pour l’espace disque Premium Azure. Chaque fichier de base de données est placé sur un disque physique distinct. Les tailles de disque peuvent être de 128 Go, 256 Go, 512 Go, 1 To ou 4 To. L’espace non utilisé sur le disque n’est pas facturé, mais la somme des tailles des disques Premium Azure ne peut pas dépasser 35 To. Dans certains cas, une instance managée qui n’a pas besoin de 8 To au total peut dépasser la limite Azure de 35 To en taille de stockage à cause d’une fragmentation interne.
 
-Par exemple, une instance managée Usage général peut avoir un fichier d’une taille de 1,2 To placé sur un disque de 4 To. Elle peut également posséder 248 fichiers, d’une taille de 1 Go chacun, qui sont placés sur des disques distincts de 128 Go. Dans cet exemple :
+Par exemple, une instance managée d’usage général peut avoir un gros fichier d’une taille de 1,2 To placé sur un disque de 4 To. Elle peut également posséder 248 fichiers, d’une taille de 1 Go, qui sont placés sur des disques distincts de 128 Go. Dans cet exemple :
 
 - La taille totale du stockage de disque alloué est de 1 x 4 To + 248 x 128 Go = 35 To.
 - L’espace total réservé pour les bases de données sur l’instance est de 1 x 1,2 To + 248 x 1 Go = 1,4 To.
@@ -516,11 +550,6 @@ Cet exemple montre que, dans certaines circonstances, du fait d’une répartiti
 Dans cet exemple, les bases de données existantes continuent de fonctionner et peuvent croître sans aucun problème du moment que de nouveaux fichiers ne sont pas ajoutés. La création ou la restauration de bases de données est impossible, car il n’y a pas suffisamment d’espace pour les nouveaux lecteurs de disque, même si la taille totale de toutes les bases de données n’atteint pas la limite de taille d’instance. L’erreur qui est retournée dans ce cas n’est pas claire.
 
 Vous pouvez [identifier le nombre de fichiers restants](https://medium.com/azure-sqldb-managed-instance/how-many-files-you-can-create-in-general-purpose-azure-sql-managed-instance-e1c7c32886c1) à l’aide de vues système. Si vous atteignez cette limite, essayez de [vider et de supprimer certains fichiers plus petits au moyen de l’instruction DBCC SHRINKFILE](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkfile-transact-sql#d-emptying-a-file), ou basculez vers le [niveau Critique pour l’entreprise, qui ne connaît pas cette limite](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics).
-
-### <a name="incorrect-configuration-of-the-sas-key-during-database-restore"></a>Configuration incorrecte de la clé SAP au cours d’une restauration de la base de données
-
-Il se peut que `RESTORE DATABASE` qui lit le fichier .bak réessaie constamment de lire le fichier .bak et retourne une erreur après une longue période si la signature d’accès partagé dans `CREDENTIAL` est incorrecte. Exécutez RESTORE HEADERONLY avant de restaurer une base de données pour vous assurer que la clé SAP est correcte.
-Veillez à supprimer le `?` au début de la clé SAP générée en utilisant le portail Azure.
 
 ### <a name="tooling"></a>Outils
 
@@ -547,7 +576,7 @@ Les journaux des erreurs qui sont disponibles dans Managed Instance ne sont pas 
 
 ### <a name="error-logs-are-verbose"></a>Les journaux d’activité des erreurs contiennent des détails non pertinents
 
-Une instance managée ajoute des informations détaillées dans les journaux des erreurs, la plupart ne sont pas pertinentes. La quantité d’informations qui s’y trouve va être réduite à l’avenir.
+Une instance managée ajoute des informations détaillées dans les journaux des erreurs, la plupart ne sont pas pertinentes. 
 
 **Solution de contournement :** utilisez une procédure personnalisée pour lire les journaux des erreurs en excluant les entrées non pertinentes. Pour plus d’informations, consultez [Managed Instance - sp_readmierrorlog](https://blogs.msdn.microsoft.com/sqlcat/2018/05/04/azure-sql-db-managed-instance-sp_readmierrorlog/).
 
@@ -593,11 +622,6 @@ Il arrive que des modules CLR placés dans une instance managée, et que des ser
 Vous ne pouvez pas exécuter `BACKUP DATABASE ... WITH COPY_ONLY` sur une base de données qui est chiffrée avec Transparent Data Encryption (TDE) managé par le service. TDE managé par le service oblige le chiffrement des sauvegardes à l’aide d’une clé de chiffrement TDE interne. La clé ne pouvant pas être exportée, vous ne pouvez pas restaurer la sauvegarde.
 
 **Solution de contournement :** utilisez des sauvegardes automatiques et la restauration dans le temps, ou utilisez [TDE managé par le client (BYOK)](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql#customer-managed-transparent-data-encryption---bring-your-own-key) à la place. Vous pouvez également désactiver le chiffrement sur la base de données.
-
-### <a name="point-in-time-restore-follows-time-by-the-time-zone-set-on-the-source-instance"></a>La restauration dans le temps suit le fuseau horaire défini sur l’instance source
-
-La restauration dans le temps interprète actuellement le temps de restauration en suivant le fuseau horaire de l’instance source plutôt qu’en suivant l’heure UTC.
-Pour plus d’informations, consultez [Problèmes connus de fuseau horaire de Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-timezone#known-issues).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
