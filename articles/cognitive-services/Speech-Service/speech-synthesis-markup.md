@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 1bd1882218630aca0707a792d120045c06dea127
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 89b8b5f8c574de033fabf6861e24fc7d2b31e171
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68552688"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68855099"
 ---
 # <a name="speech-synthesis-markup-language-ssml"></a>SSML (Speech Synthesis Markup Language)
 
@@ -413,8 +413,8 @@ Un seul fichier audio en arrière-plan est autorisé par document SSML. Toutefoi
 |-----------|-------------|---------------------|
 | src | Spécifie l’emplacement/URL du fichier audio en arrière-plan. | Obligatoire en cas d’utilisation de l’audio en arrière-plan dans votre document SSML. |
 | volume | Spécifie le volume du fichier audio en arrière-plan. Les **valeurs acceptées** vont de `0` à `100` inclus. La valeur par défaut est `1`. | Facultatif |
-| fadein | Spécifie la durée de la diminution de son du fichier audio en arrière-plan. Les **valeurs acceptées** vont de `0` à `10000` inclus.  | Facultatif |
-| fadeout | Spécifie la durée de la diminution de son du fichier audio en arrière-plan. Les **valeurs acceptées** vont de `0` à `10000` inclus.  | Facultatif |
+| fadein | Spécifie la durée de l’apparition en fondu de l’audio d’arrière-plan, en millisecondes. La valeur par défaut est `0`, ce qui équivaut à aucune apparition en fondu audio. Les **valeurs acceptées** vont de `0` à `10000` inclus.  | Facultatif |
+| fadeout | Spécifie la durée de la disparition en fondu de l’audio d’arrière-plan, en millisecondes. La valeur par défaut est `0`, ce qui équivaut à aucune disparition en fondu audio. Les **valeurs acceptées** vont de `0` à `10000` inclus.  | Facultatif |
 
 **Exemple**
 

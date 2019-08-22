@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 06/18/2019
 ms.author: dacurwin
-ms.openlocfilehash: b7bf9943afa2a79f98fd28d15e5ea46fa63af732
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 6a929359c0e4e0a5c64eadbf41f565dfeb56a233
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688642"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68854114"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>Sauvegarder des bases de données SQL Server sur des machines virtuelles Azure
 
@@ -177,7 +177,7 @@ Comment détecter les bases de données en cours d’exécution sur une machine 
 
     ![Activer la protection automatique pour le groupe de disponibilité Always On](./media/backup-azure-sql-database/enable-auto-protection.png)
 
-5. Dans **Stratégie de sauvegarde**, choisissez une stratégie, puis sélectionnez  **OK**.
+5. Dans **Stratégie de sauvegarde**, choisissez une stratégie, puis sélectionnez **OK**.
 
    - Sélectionner la stratégie par défaut HourlyLogBackup.
    - Choisir une stratégie de sauvegarde existante créée précédemment pour SQL.
@@ -185,11 +185,11 @@ Comment détecter les bases de données en cours d’exécution sur une machine 
 
      ![Sélectionner la stratégie de sauvegarde](./media/backup-azure-sql-database/select-backup-policy.png)
 
-6. Dans  **Sauvegarder**, sélectionnez  **Activer la sauvegarde**.
+6. Dans **Sauvegarde**, sélectionnez **Activer la sauvegarde**.
 
     ![Activer la stratégie de sauvegarde choisie](./media/backup-azure-sql-database/enable-backup-button.png)
 
-7. Vous pouvez suivre la progression de la configuration dans la zone  **Notifications**  du portail.
+7. Vous pouvez suivre la progression de la configuration dans la zone **Notifications** du portail.
 
     ![Zone Notifications](./media/backup-azure-sql-database/notifications-area.png)
 
@@ -273,7 +273,7 @@ Vous pouvez activer la protection automatique pour sauvegarder automatiquement t
 
 - Il n’existe aucune limite sur le nombre de bases de données que vous pouvez sélectionner en une fois pour la protection automatique.
 - Vous ne pouvez pas protéger ou exclure sélectivement des bases de données de la protection dans une instance lorsque vous activez la protection automatique.
-- Si votre instance inclut déjà des bases de données protégées, elles restent protégées par leurs stratégies respectives même après que vous avez activé la protection automatique. Toutefois, toutes les bases de données non protégées ainsi que celles que vous ajoutez par la suite ont une seule stratégie que vous définissez sous  **Configurer la sauvegarde** après avoir sélectionné les bases de données. Toutefois, vous pouvez modifier ultérieurement la stratégie associée à une base de données protégée automatiquement.  
+- Si votre instance inclut déjà des bases de données protégées, elles restent protégées par leurs stratégies respectives même après que vous avez activé la protection automatique. Toutes les bases de données non protégées que vous ajoutez par la suite ont une seule stratégie que vous définissez au moment de l’activation de la protection automatique et qui est affichée sous **Configurer la sauvegarde**. Toutefois, vous pouvez modifier ultérieurement la stratégie associée à une base de données protégée automatiquement.  
 
 Pour activer la protection automatique :
 
@@ -288,7 +288,7 @@ Si vous devez désactiver la protection automatique, sélectionnez le nom d’in
 
 ![Désactiver la protection automatique sur cette instance](./media/backup-azure-sql-database/disable-auto-protection.png)
 
- 
+ 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Découvrez comment :
