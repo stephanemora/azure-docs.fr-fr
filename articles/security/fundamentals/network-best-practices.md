@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/05/2019
 ms.author: TomSh
-ms.openlocfilehash: 09caffcfdad4b132858b6ec52b36fe037f488b3a
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 4bc4e8e02c5b44c63ee531a295f2b59e91c056bd
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934707"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69900465"
 ---
 # <a name="azure-best-practices-for-network-security"></a>Meilleures pratiques Azure pour la sécurité réseau
 Cet article présente l’ensemble des meilleures pratiques Azure pour améliorer votre sécurité réseau. Ces meilleures pratiques sont issues de notre expérience dans le domaine de la mise en réseau Azure, mais également de celle des clients, comme vous.
@@ -114,7 +114,7 @@ Les appliances de sécurité réseau Azure peuvent offrir des niveaux de sécuri
 Pour trouver les appliances de sécurité de réseau virtuel Azure disponibles, accédez à la [Place de marché Microsoft Azure](https://azure.microsoft.com/marketplace/) et recherchez les termes « sécurité » et « sécurité réseau ».
 
 ## <a name="deploy-perimeter-networks-for-security-zones"></a>Déploiement des réseaux de périmètre pour les zones de sécurité
-Un [réseau de périmètre](./https://docs.microsoft.com/azure/architecture/vdc/networking-virtual-datacenter) (également appelé zone DMZ) est un segment de réseau logique ou physique qui fournit une couche de sécurité supplémentaire entre vos ressources et Internet. Les périphériques de contrôle d’accès réseau spécialisés situés à la périphérie d’un réseau de périmètre autorisent uniquement le trafic souhaité entrant dans votre réseau virtuel.
+Un [réseau de périmètre](https://docs.microsoft.com/azure/architecture/vdc/networking-virtual-datacenter) (également appelé zone DMZ) est un segment de réseau logique ou physique qui fournit une couche de sécurité supplémentaire entre vos ressources et Internet. Les périphériques de contrôle d’accès réseau spécialisés situés à la périphérie d’un réseau de périmètre autorisent uniquement le trafic souhaité entrant dans votre réseau virtuel.
 
 Les réseaux de périmètre sont utiles, car vous pouvez concentrer la gestion des contrôles d’accès réseau, la surveillance, la journalisation et la création de rapports sur les appareils situés à la périphérie de votre réseau virtuel Azure. Un réseau de périmètre est l’endroit où vous activez généralement la prévention de déni de service distribué (DDoS), les systèmes de détection et de prévention des intrusions (IDS/IPS), les règles et les stratégies de pare-feu, le filtrage web, les logiciels anti-programme malveillant du réseau, etc. Les appareils dédiés à la sécurité réseau se trouvent entre Internet et le réseau virtuel Azure, et disposent d’une interface sur les deux réseaux.
 

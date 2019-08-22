@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 05/17/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 94ec7c54e8e49685ad0289102f092516bcb0acfc
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: f13851dd43c80a63ec628e04b98271894c15afc0
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67478252"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69542863"
 ---
 # <a name="manage-pre-and-post-scripts"></a>Gérer les pré-scripts et les post-scripts
 
@@ -66,22 +66,6 @@ Si vous avez besoin d’un autre type d’objet, vous pouvez le caster en un aut
 
 Outre vos paramètres de runbook standard, un paramètre supplémentaire est fourni. Il s’agit du paramètre **SoftwareUpdateConfigurationRunContext**. Ce paramètre est une chaîne JSON, et si vous le définissez dans votre pré/post-script, il est automatiquement transmis par le déploiement de mises à jour. Le paramètre contient des informations sur le déploiement de mises à jour, qui constituent un sous-ensemble des informations renvoyées par [l’API SoftwareUpdateconfigurations](/rest/api/automation/softwareupdateconfigurations/getbyname#updateconfiguration). Le tableau ci-après vous présente les propriétés qui sont fournies dans la variable :
 
-## <a name="stopping-a-deployment"></a>Planification d’un déploiement
-
-Si vous souhaitez arrêter un déploiement basé sur un pré-script, vous devez [lever](automation-runbook-execution.md#throw) une exception. Si vous ne levez pas une exception, le post-script et le déploiement continueront à s’exécuter. [L’exemple de runbook](https://gallery.technet.microsoft.com/Update-Management-Run-6949cc44?redir=0) de la galerie montre comment vous pouvez effectuer cette opération. Voici un extrait de code à partir de ce runbook.
-
-```powershell
-#In this case, we want to terminate the patch job if any run fails.
-#This logic might not hold for all cases - you might want to allow success as long as at least 1 run succeeds
-foreach($summary in $finalStatus)
-{
-    if ($summary.Type -eq "Error")
-    {
-        #We must throw in order to fail the patch deployment.  
-        throw $summary.Summary
-    }
-}
-```
 
 ### <a name="softwareupdateconfigurationruncontext-properties"></a>Propriétés SoftwareUpdateConfigurationRunContext
 
@@ -133,6 +117,25 @@ Un exemple complet avec toutes les propriétés est disponible ici : [Configura
 
 > [!NOTE]
 > L’objet `SoftwareUpdateConfigurationRunContext` peut contenir des entrées en double pour les machines. De ce fait, il se peut que les pré-scripts et les post-scripts s’exécutent plusieurs fois sur la même machine. Pour contourner ce comportement, utilisez le paramètre `Sort-Object -Unique` pour sélectionner uniquement les noms de machine virtuelle uniques dans votre script.
+
+
+## <a name="stopping-a-deployment"></a>Planification d’un déploiement
+
+Si vous souhaitez arrêter un déploiement basé sur un pré-script, vous devez [lever](automation-runbook-execution.md#throw) une exception. Si vous ne levez pas une exception, le post-script et le déploiement continueront à s’exécuter. [L’exemple de runbook](https://gallery.technet.microsoft.com/Update-Management-Run-6949cc44?redir=0) de la galerie montre comment vous pouvez effectuer cette opération. Voici un extrait de code à partir de ce runbook.
+
+```powershell
+#In this case, we want to terminate the patch job if any run fails.
+#This logic might not hold for all cases - you might want to allow success as long as at least 1 run succeeds
+foreach($summary in $finalStatus)
+{
+    if ($summary.Type -eq "Error")
+    {
+        #We must throw in order to fail the patch deployment.  
+        throw $summary.Summary
+    }
+}
+```
+
 
 ## <a name="samples"></a>Exemples
 

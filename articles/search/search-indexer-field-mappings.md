@@ -3,19 +3,19 @@ title: Mappages de champs pour une indexation automatisée à l’aide d’index
 description: Configurez les mappages de champs de l’indexeur Recherche Azure pour tenir compte des différences dans les noms de champs et les représentations des données.
 ms.date: 05/02/2019
 author: mgottein
-manager: cgronlun
+manager: nitinme
 ms.author: magottei
 services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 771a6e413cd08a338da41c09cd6a0da35e28e5e4
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: b64f6dcecb26e35689ad6f569ade6c7862f06f1a
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68840655"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69648139"
 ---
 # <a name="field-mappings-and-transformations-using-azure-search-indexers"></a>Mappages de champs et transformations à l’aide d’indexeurs de la fonction Recherche Azure
 

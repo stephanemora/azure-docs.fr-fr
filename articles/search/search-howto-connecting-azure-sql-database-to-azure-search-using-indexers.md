@@ -3,19 +3,19 @@ title: Se connecter à Azure SQL Database et indexer le contenu à l’aide d’
 description: Découvrez comment analyser des données dans Azure SQL Database à l’aide d’indexeurs pour la recherche en texte intégral dans Recherche Azure. Cet article traite des connexions, de la configuration des indexeurs et de l’ingestion des données.
 ms.date: 05/02/2019
 author: mgottein
-manager: cgronlun
+manager: nitinme
 ms.author: magottei
 services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 59a45791676f62f42763e0e834d327b0c0c4106d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4ed218fdc1c6580e9b92364d123b081a1f34b441
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66755102"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69656231"
 ---
 # <a name="connect-to-and-index-azure-sql-database-content-using-azure-search-indexers"></a>Se connecter à Azure SQL Database et indexer le contenu à l’aide d’indexeurs Recherche Azure
 
@@ -289,7 +289,7 @@ L’indexeur SQL expose plusieurs paramètres de configuration :
 
 | Paramètre | Type de données | Objectif | Valeur par défaut |
 | --- | --- | --- | --- |
-| queryTimeout |chaîne |Définit le délai d’expiration de l’exécution de la requête SQL |5 minutes ("00:05:00") |
+| queryTimeout |string |Définit le délai d’expiration de l’exécution de la requête SQL |5 minutes ("00:05:00") |
 | disableOrderByHighWaterMarkColumn |bool |Indique que la requête SQL utilisée par la stratégie de limite supérieure doit omettre la clause ORDER BY. Consultez [Stratégie de limite supérieure](#HighWaterMarkPolicy) |false |
 
 Ces paramètres sont utilisés dans l’objet `parameters.configuration`, dans la définition de l’indexeur. Par exemple, pour fixer un délai d’expiration de la requête de 10 minutes, créez ou mettez à jour l’indexeur avec la configuration suivante :

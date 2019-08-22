@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: abnarain
-ms.openlocfilehash: 49d9be9f10f0e840cfa3d027901a297de8cbf750
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3f49bed0253a380dbcb0a526364c85c2031b0116
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60328159"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69640320"
 ---
 # <a name="tutorial-copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>Didacticiel : Copier des données depuis une base de données SQL Server locale vers un stockage Blob Azure
 Dans ce tutoriel, vous allez utiliser Azure PowerShell pour créer un pipeline Data Factory qui copie les données d’une base de données SQL Server locale dans un stockage Blob Azure. Vous allez créer et utiliser un runtime d’intégration auto-hébergé, qui déplace les données entre les banques de données locales et cloud. 
@@ -76,13 +76,11 @@ Dans ce tutoriel, vous spécifiez le nom et la clé de votre compte Stockage Azu
 
 1. Dans le volet gauche, sélectionnez **Plus de services**, filtrez à l’aide du mot-clé **Stockage**, puis sélectionnez **Comptes de stockage**.
 
-    ![Rechercher le compte de stockage](media/tutorial-hybrid-copy-powershell/search-storage-account.png)
+    ![Rechercher le compte de stockage](media/doc-common-process/search-storage-account.png)
 
 1. Dans la liste des comptes de stockage, appliquez un filtre pour votre compte de stockage (si nécessaire), puis sélectionnez votre compte de stockage. 
 
 1. Dans la fenêtre **Compte de stockage**, sélectionnez **Clés d’accès**.
-
-    ![Obtenir le nom et la clé du compte de stockage](media/tutorial-hybrid-copy-powershell/storage-account-name-key.png)
 
 1. Dans les zones **Nom du compte de stockage** et **key1**, copiez les valeurs, puis collez-les dans le bloc-notes ou un autre éditeur pour une utilisation ultérieure dans le tutoriel. 
 
@@ -107,7 +105,6 @@ Dans cette section, vous allez créer un conteneur d’objets blob nommé **adft
 
 1. Gardez la fenêtre **conteneur** de **adftutorial** ouverte. Elle vous permet de vérifier la sortie à la fin du tutoriel. Data Factory crée automatiquement le dossier de sortie de ce conteneur, de sorte que vous n’avez pas besoin d’en créer.
 
-    ![Fenêtre de conteneur](media/tutorial-hybrid-copy-powershell/container-page.png)
 
 ### <a name="windows-powershell"></a>Windows PowerShell
 
@@ -266,7 +263,7 @@ Dans cette section, vous allez créer un runtime d’intégration auto-hébergé
 
 1. Dans l’**Assistant Installation de Microsoft Integration Runtime terminé**, cliquez sur **Terminer**.
 
-1. Dans la fenêtre **Inscrire Microsoft Integration Runtime (auto-hébergé)**, collez la clé que vous avez enregistrée dans la section précédente, puis cliquez sur **Inscrire**. 
+1. Dans la fenêtre **Inscrire Microsoft Integration Runtime (auto-hébergé)** , collez la clé que vous avez enregistrée dans la section précédente, puis cliquez sur **Inscrire**. 
 
     ![Inscrire le runtime d’intégration](media/tutorial-hybrid-copy-powershell/register-integration-runtime.png)
 
@@ -274,7 +271,7 @@ Dans cette section, vous allez créer un runtime d’intégration auto-hébergé
 
     ![Inscription réussie](media/tutorial-hybrid-copy-powershell/registered-successfully.png)
 
-1. Dans la fenêtre **Nouveau Integration Runtime (auto-hébergé)**, cliquez sur **suivant**. 
+1. Dans la fenêtre **Nouveau Integration Runtime (auto-hébergé)** , cliquez sur **suivant**. 
 
     ![Fenêtre Nouveau nœud Integration Runtime](media/tutorial-hybrid-copy-powershell/new-integration-runtime-node-page.png)
 
@@ -283,7 +280,7 @@ Dans cette section, vous allez créer un runtime d’intégration auto-hébergé
 
     ![Fenêtre du canal de communication Intranet](media/tutorial-hybrid-copy-powershell/intranet-communication-channel-page.png)
 
-1. Dans la fenêtre **Inscrire Microsoft Integration Runtime (auto-hébergé)**, cliquez sur **Lancer Configuration Manager**. 
+1. Dans la fenêtre **Inscrire Microsoft Integration Runtime (auto-hébergé)** , cliquez sur **Lancer Configuration Manager**. 
 
 1. Le message suivant apparaît une fois que le nœud est connecté au service cloud :
 
@@ -415,7 +412,7 @@ Dans cette étape, vous liez votre instance SQL Server locale à la fabrique de 
     > [!IMPORTANT]
     > - Sélectionnez la section en fonction de l’authentification utilisée pour établir la connexion à votre instance SQL Server.
     > - Remplacez **\<integration runtime name>** par le nom de votre runtime d’intégration.
-    > - Remplacez **\<servername>**, **\<databasename>**, **\<username>**, et **\<password>** par les valeurs de votre instance SQL Server avant d’enregistrer le fichier.
+    > - Remplacez **\<servername>** , **\<databasename>** , **\<username>** , et **\<password>** par les valeurs de votre instance SQL Server avant d’enregistrer le fichier.
     > - Si vous avez besoin d’utiliser une barre oblique (\\) dans votre nom de serveur ou de compte d’utilisateur, faites-la précéder d’un caractère d’échappement (\\). Par exemple, utilisez *mydomain\\\\myuser*. 
 
 1. Pour chiffrer les données sensibles (nom d’utilisateur, mot de passe etc.) exécutez l’applet de commande `New-AzDataFactoryV2LinkedServiceEncryptedCredential`.  

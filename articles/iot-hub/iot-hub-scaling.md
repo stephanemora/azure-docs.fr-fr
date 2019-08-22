@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: wesmc
-ms.openlocfilehash: ea7b38f509fcdaa4e41ce17db3beca44b05a59b2
-ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
+ms.openlocfilehash: 9be0b93335cef919db4efa2fce361bda1f9b934e
+ms.sourcegitcommit: a3a40ad60b8ecd8dbaf7f756091a419b1fe3208e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67514479"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69891992"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>Choisir le niveau IoT Hub correspondant à votre solution
 
@@ -128,10 +128,6 @@ Pour obtenir les pics de performances spécifiques, consultez [Quotas et limitat
 ## <a name="auto-scale"></a>Mise à l’échelle automatique
 
 Si vous approchez le nombre maximal autorisé de messages pour votre hub IoT, vous pouvez utiliser ces [étapes pour une mise à l’échelle automatique](https://azure.microsoft.com/resources/samples/iot-hub-dotnet-autoscale/), afin d’incrémenter une unité IoT Hub dans le même niveau IoT Hub.
-
-## <a name="sharding"></a>Partitionnement
-
-Un hub IoT unique peut recevoir des millions d’appareils, mais votre solution nécessite parfois des caractéristiques de performances spécifiques qu’un seul hub IoT ne peut pas assurer. Dans ce cas, vous pouvez partitionner vos appareils sur plusieurs IoT Hubs. L’utilisation de plusieurs IoT Hubs permet de simplifier les pics de trafic et d’obtenir le débit requis ou les taux d’opération requis.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

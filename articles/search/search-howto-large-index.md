@@ -3,18 +3,18 @@ title: Indexer des grands jeux de données avec des indexeurs intégrés - Reche
 description: Découvrez des stratégies pour l’indexation de grands volumes de données ou pour l’indexation gourmande en ressources via le mode de traitement par lots, la gestion des ressources, et des techniques d’indexation planifiée, parallèle et distribuée.
 services: search
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 ms.service: search
 ms.topic: conceptual
 ms.date: 12/19/2018
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 8c067b6e238fab2970e5e40f0660a5c7555a8f2e
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: a98d716562f53488e9adb5d485a1dbf7fafc3102
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67302226"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69648174"
 ---
 # <a name="how-to-index-large-data-sets-in-azure-search"></a>Comment indexer des grands volumes de données dans Recherche Azure
 

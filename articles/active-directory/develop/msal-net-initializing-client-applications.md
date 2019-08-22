@@ -3,7 +3,7 @@ title: Initialiser des applications clientes (bibliothèque d’authentification
 description: En savoir plus sur l’initialisation d’applications clientes publiques et confidentielles à l’aide de la bibliothèque d’authentification Microsoft pour .NET (MSAL.NET).
 services: active-directory
 documentationcenter: dev-center-name
-author: rwike77
+author: TylerMSFT
 manager: CelesteDG
 editor: ''
 ms.service: active-directory
@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/12/2019
-ms.author: ryanwi
+ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2f22ff41e380a16af2aa45df9a61eefbf293ff83
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5012da8f2ff41971df674fd35162fe14e1de8fc9
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65544316"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69532642"
 ---
 # <a name="initialize-client-applications-using-msalnet"></a>Initialiser des applications clientes avec MSAL.NET
 Cet article décrit l’initialisation d’applications clientes publiques et confidentielles à l’aide de la bibliothèque d’authentification Microsoft pour .NET (MSAL.NET).  Pour en savoir plus sur les types d’applications clientes et les options de configuration d’application, consultez la [vue d’ensemble](msal-client-applications.md).
@@ -33,9 +33,9 @@ Avec MSAL.NET 3.x, la méthode recommandée pour instancier une application cons
 Avant d’initialiser une application, vous devez d’abord l’[inscrire](quickstart-register-app.md) afin que votre application puisse être intégrée à la plate-forme d’identité Microsoft.  Après l’inscription, vous aurez peut-être besoin des informations suivantes (que vous trouverez sur le portail Azure) :
 
 - L’ID client (une chaîne représentant un GUID)
-- L’URL du fournisseur d’identité (l’instance) et l’audience de connexion pour votre application. Ces deux paramètres représentent l’autorité.
-- L’ID locataire, si vous écrivez une application métier uniquement pour votre organisation (également nommée application à locataire unique).
-- Le secret d’application (chaîne secrète client) ou le certificat (de type X509Certificate2) s’il s’agit d’une application client confidentielle.
+- L’URL du fournisseur d’identité (l’instance) et l’audience de connexion pour votre application. Ces deux paramètres représentent collectivement l’autorité.
+- L’ID locataire si vous écrivez une application métier uniquement pour votre organisation (également nommée application à locataire unique).
+- Le secret d’application (chaîne secrète client) ou le certificat (de type X509Certificate2) s’il s’agit d’une application cliente confidentielle.
 - Pour les applications web et parfois pour les applications clientes publiques (en particulier lorsque votre application doit utiliser un répartiteur), vous devez avoir également défini l’URI de redirection auquel le fournisseur d’identité recontactera votre application avec les jetons de sécurité.
 
 ## <a name="ways-to-initialize-applications"></a>Méthodes d’initialisation des applications

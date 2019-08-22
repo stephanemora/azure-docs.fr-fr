@@ -4,22 +4,21 @@ description: Cet article contient des informations de dépannage concernant les 
 ms.service: backup
 author: dcurwin
 ms.author: dacurwin
-ms.date: 07/22/2019
+ms.date: 08/20/2019
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 486c0ae674f1549206b7aa3110faf31132c22f2a
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 1182c7d4ac9a103e752a8cd0c392c5e57f1eebd0
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639394"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69637578"
 ---
 # <a name="troubleshoot-problems-backing-up-azure-file-shares"></a>Résoudre les problèmes de sauvegarde des partages de fichiers Azure
 Vous pouvez résoudre les problèmes et les erreurs rencontrés pendant l’utilisation d’une sauvegarde des partages de fichiers Azure à l’aide des informations figurant dans les tables suivantes.
 
 ## <a name="limitations-for-azure-file-share-backup-during-preview"></a>Limitations pour la sauvegarde de partage de fichiers Azure en préversion
 La sauvegarde des partages de fichiers Azure est disponible en préversion. Les partages de fichiers Azure dans les comptes de stockage à usage général v1 et v2 sont pris en charge. Les scénarios de sauvegarde suivants ne sont pas pris en charge pour les partages de fichiers Azure :
-- Vous ne pouvez pas protéger les partages de fichiers Azure dans des comptes de stockage qui ont activé les réseaux virtuels ou le pare-feu.
 - Il n’y a aucune interface CLI disponible pour la protection des fichiers Azure à l’aide de Sauvegarde Azure.
 - Vous pouvez effectuer une seule sauvegarde planifiée par jour.
 - Vous pouvez effectuer quatre sauvegardes à la demande par jour maximum.
@@ -51,7 +50,6 @@ Le tableau suivant concerne la configuration de la sauvegarde :
 | Vous avez atteint la limite maximale d’instantanés pour ce partage de fichiers, vous serez en mesure d’en effectuer davantage une fois que les anciens ont expiré. | <ul><li> Cette erreur peut se produire lorsque vous créez plusieurs sauvegardes à la demande pour un fichier. <li> Il existe une limite de 200 instantanés par partage de fichiers, y compris ceux pris par Azure Backup. Les anciennes sauvegardes (ou instantanés) planifiées sont nettoyées automatiquement. Les sauvegardes (ou instantanés) à la demande doivent être supprimées si la limite maximale est atteinte.<li> Supprimez les sauvegardes à la demande (instantanés du partage de fichiers Azure) à partir du portail de fichiers Azure. **Remarque**: Si vous supprimez les instantanés créés par Sauvegarde Azure, vous perdez les points de récupération. |
 | La sauvegarde ou la restauration du partage de fichiers a échoué en raison d’une limitation de bande passante du service de stockage. Cela peut être dû au fait que le service de stockage est occupé à traiter d’autres demandes pour le compte de stockage donné.| Réessayez l’opération après un certain temps. |
 | Échec de la restauration avec le partage de fichier cible introuvable. | <ul><li>Assurez-vous que le compte de stockage sélectionné existe et que le partage de fichiers cible n’est pas supprimé. <li> Assurez-vous que le compte de stockage est bien pris en charge par la sauvegarde de partage de fichiers. |
-| La sauvegarde Azure n’est pas prise en charge pour les partages de fichiers Azure contenus dans des comptes de stockage ayant activé les réseaux virtuels. | Désactivez les réseaux virtuels sur votre compte de stockage pour assurer la réussite des opérations de sauvegarde ou de restauration. |
 | Échec des travaux de sauvegarde ou de restauration en raison de l’état verrouillé du compte de stockage. | Supprimez le verrou sur le compte de stockage ou utilisez supprimer verrou au lieu de lire verrou et recommencez l’opération. |
 | Échec de la récupération, car le nombre de fichiers ayant échoué dépasse le seuil. | <ul><li> Les raisons des échecs de la récupération sont répertoriées dans un fichier (chemin d’accès fourni dans les détails du travail). Traitez les échecs et recommencez l’opération de restauration uniquement pour les fichiers ayant échoué. <li> Causes courantes des échecs d’une restauration de fichiers : <br/> -vérifiez que les fichiers ayant échoué ne sont actuellement pas en cours d’utilisation, <br/> -un répertoire portant le même nom que le fichier ayant échoué existe dans le répertoire parent. |
 | Échec de la récupération, car aucun fichier ne peut être récupéré. | <ul><li> Les raisons des échecs de la récupération sont répertoriées dans un fichier (chemin d’accès fourni dans les détails du travail). Traitez les échecs et recommencez l’opération de restauration uniquement pour les fichiers ayant échoué. <li> Causes courantes d’un échec de restauration de fichiers : <br/> -vérifiez que les fichiers ayant échoué ne sont actuellement pas en cours d’utilisation. <br/> -un répertoire portant le même nom que le fichier ayant échoué existe dans le répertoire parent. |

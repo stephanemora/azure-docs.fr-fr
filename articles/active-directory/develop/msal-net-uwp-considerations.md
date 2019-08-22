@@ -3,7 +3,7 @@ title: Considérations relatives à la plateforme Windows universelle (Microsoft
 description: En savoir plus sur les considérations spécifiques lors de l’utilisation de la plateforme Windows universelle avec la bibliothèque d’authentification Microsoft pour .NET (MSAL.NET).
 services: active-directory
 documentationcenter: dev-center-name
-author: rwike77
+author: TylerMSFT
 manager: CelesteDG
 editor: ''
 ms.service: active-directory
@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/16/2019
-ms.author: ryanwi
+ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2d78a64ee41e37fe53eba20eab6753c0b6eb8389
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 263264742088a0012ea844946e13cffbab634b29
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68277916"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69532477"
 ---
 # <a name="universal-windows-platform-specific-considerations-with-msalnet"></a>Considérations relatives à la plateforme Windows universelle avec MSAL.NET
 Sur UWP, il existe plusieurs considérations à prendre en compte lors de l’utilisation de MSAL.NET.

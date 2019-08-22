@@ -10,12 +10,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 07/08/2019
-ms.openlocfilehash: 04c77a82d08e2559d4ce29d49d56d6b7a5edfca5
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 29bff3383985905ac3146dfc7fc097fbd49a5a6d
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68856140"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69543554"
 ---
 # <a name="deploy-a-model-to-azure-container-instances"></a>Déployer un modèle sur Azure Container Instances
 
@@ -51,6 +51,9 @@ Pour déployer un modèle sur Azure Container instances, créez une __configurat
 ### <a name="using-the-sdk"></a>Utilisation du kit de développement logiciel
 
 ```python
+from azureml.core.webservice import AciWebservice, Webservice
+from azureml.core.model import Model
+
 deployment_config = AciWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)
 service = Model.deploy(ws, "aciservice", [model], inference_config, deployment_config)
 service.wait_for_deployment(show_output = True)

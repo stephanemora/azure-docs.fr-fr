@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 05/31/2019
 ms.author: jowargo
-ms.openlocfilehash: 3f5b23028094b545262e9c01640890f2c0b989ca
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 73a6d0eaab286dec9d02bb55eb75f0781bcffcc4
+ms.sourcegitcommit: a3a40ad60b8ecd8dbaf7f756091a419b1fe3208e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66431254"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69891584"
 ---
 # <a name="notification-hubs-security"></a>Sécurité de Notification Hubs
 
@@ -29,9 +29,7 @@ Cette rubrique décrit le modèle de sécurité d'Azure Notification Hubs.
 
 ## <a name="shared-access-signature-security-sas"></a>Sécurité Signature d'accès partagé (SAP)
 
-Notification Hubs implémente un modèle de sécurité de niveau entité appelé SAP (Signature d'accès partagé). Ce schéma permet aux entités de messagerie de déclarer dans leur description jusqu'à 12 règles d'autorisation accordant des droits sur cette entité.
-
-Chaque règle contient un nom, une valeur clé (secret partagé) et un ensemble de droits, comme expliqué dans [Revendications de sécurité](#security-claims). Lorsque vous créez un hub de notification, deux règles sont automatiquement créée  : une avec des droits d'**écoute** (utilisée par l'application cliente) et l'autre avec **tous** les droits (utilisée par le serveur principal d'application).
+Notification Hubs implémente un modèle de sécurité de niveau entité appelé SAP (Signature d'accès partagé). Chaque règle contient un nom, une valeur clé (secret partagé) et un ensemble de droits, comme expliqué dans [Revendications de sécurité](#security-claims). Lorsque vous créez un hub de notification, deux règles sont automatiquement créée  : une avec des droits d'**écoute** (utilisée par l'application cliente) et l'autre avec **tous** les droits (utilisée par le serveur principal d'application).
 
 Lors de la gestion de l'inscription à partir d’applications clientes, si les informations envoyées via des notifications ne sont pas sensibles (par exemple, des mises à jour météorologiques), une méthode courante pour accéder à un concentrateur de notification consiste à attribuer la valeur clé de la règle d'accès en écoute uniquement à l'application cliente et à attribuer la valeur clé de la règle d’accès complet au serveur principal.
 

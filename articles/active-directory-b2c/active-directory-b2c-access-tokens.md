@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 1a545f1e0fd1360d9147280454fb8b75bf216152
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: df47b4fc5b8048f76f94486e213285896dab9cb9
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66507388"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69874090"
 ---
 # <a name="request-an-access-token-in-azure-active-directory-b2c"></a>Demander un jeton d’accès dans Azure Active Directory B2C
 
-Un *jeton d’accès* contient des revendications que vous pouvez utiliser dans Azure Active Directory (Azure AD) B2C pour identifier les autorisations octroyées à vos API. Lorsque vous appelez un serveur de ressources, un jeton d’accès doit être présent dans la requête HTTP. Un jeton d’accès est désigné **access_token** dans les réponses d’Azure AD B2C. 
+Un *jeton d’accès* contient des revendications que vous pouvez utiliser dans Azure Active Directory (Azure AD) B2C pour identifier les autorisations octroyées à vos API. Lorsque vous appelez un serveur de ressources, un jeton d’accès doit être présent dans la requête HTTP. Un jeton d’accès est désigné **access_token** dans les réponses d’Azure AD B2C.
 
 Cet article présente comment demander un jeton d’accès pour une application web et une API web. Pour plus d’informations sur les jetons dans Azure AD B2C, consultez [Vue d’ensemble des jetons dans Azure Active Directory B2C](active-directory-b2c-reference-tokens.md).
 
@@ -67,13 +67,13 @@ Dans l'exemple suivant, vous remplacez ces valeurs :
 - `<application-ID>` - Identificateur de l’application web que vous avez inscrite pour prendre en charge le flux d’utilisateur.
 - `<redirect-uri>` - **URI de redirection** que vous avez entré lorsque vous avez inscrit l'application cliente.
 
-```
+```HTTP
 GET https://<tenant-name>.b2clogin.com/tfp/<tenant-name>.onmicrosoft.com/<policy-name>/oauth2/v2.0/authorize?
 client_id=<application-ID>
 &nonce=anyRandomValue
 &redirect_uri=https://jwt.ms
 &scope=https://tenant-name>.onmicrosoft.com/api/read
-&response_type=code 
+&response_type=code
 ```
 
 La réponse avec le code d’autorisation ressemble à ce qui suit :
@@ -84,9 +84,9 @@ https://jwt.ms/?code=eyJraWQiOiJjcGltY29yZV8wOTI1MjAxNSIsInZlciI6IjEuMC...
 
 Après avoir reçu le code d’autorisation, vous pouvez l’utiliser pour demander un jeton d’accès :
 
-```
+```HTTP
 POST <tenant-name>.onmicrosoft.com/oauth2/v2.0/token?p=<policy-name> HTTP/1.1
-Host: https://<tenant-name>.b2clogin.com
+Host: <tenant-name>.b2clogin.com
 Content-Type: application/x-www-form-urlencoded
 
 grant_type=authorization_code
@@ -99,7 +99,7 @@ grant_type=authorization_code
 
 Vous devriez voir quelque chose de similaire à la réponse suivante :
 
-```
+```JSON
 {
     "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ilg1ZVhrN...",
     "token_type": "Bearer",
@@ -113,7 +113,7 @@ Vous devriez voir quelque chose de similaire à la réponse suivante :
 
 Lorsque vous utilisez https://jwt.ms pour examiner le jeton d’accès retourné, vous devriez voir quelque chose de similaire à l’exemple suivant :
 
-```
+```JSON
 {
   "typ": "JWT",
   "alg": "RS256",

@@ -15,12 +15,12 @@ ms.date: 04/04/2018
 ms.author: aelnably
 ms.reviewer: nicking
 ms.custom: seodec18
-ms.openlocfilehash: ed659e95289665b6ce63ba6961e9f63650b4accf
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 4b3b10177b119c9362f807206a915d4b0b367e16
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67617541"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69639749"
 ---
 # <a name="restore-an-app-in-azure-from-a-snapshot"></a>Restauration d’une application dans Azure à partir d’un instantané
 Cet article explique comment restaurer une application dans [Azure App Service](../app-service/overview.md) à partir d’un instantané. Vous pouvez utiliser l’un des instantanés de votre application pour restaurer cette dernière à un état antérieur. Il n’est pas nécessaire d’activer la sauvegarde d’instantanés : la plateforme enregistre automatiquement un instantané de toutes les applications dans le cadre de la récupération de données.
@@ -30,7 +30,7 @@ Les instantanés sont des copies fantômes incrémentielles qui offrent plusieur
 - Aucune limite de taille de stockage.
 - Aucune configuration nécessaire.
 
-La restauration à partir d’instantanés est disponible pour des applications exécutées au niveau **Premium** ou supérieur. Pour en savoir plus sur la mise à l’échelle de votre application, consultez [Mise à l’échelle d’une application web dans Microsoft Azure App Service](web-sites-scale.md).
+La restauration à partir d’instantanés est disponible pour des applications exécutées au niveau **Premium** ou supérieur. Pour en savoir plus sur la mise à l’échelle de votre application, consultez [Mise à l’échelle d’une application web dans Microsoft Azure App Service](manage-scale-up.md).
 
 ## <a name="limitations"></a>Limites
 

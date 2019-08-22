@@ -11,12 +11,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
 ms.date: 02/20/2019
-ms.openlocfilehash: b99dbd403de0de948527fbe74b7e1205316822c0
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.openlocfilehash: 848cfc96a7da4e69ff77d16a42226a983153ac63
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69019676"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69896997"
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-sql"></a>Utiliser l’authentification Azure Active Directory pour l’authentification avec SQL
 
@@ -116,8 +116,9 @@ Pour créer un utilisateur de base de données autonome dans le service Azure SQ
 
 L’authentification Azure Active Directory prend en charge les méthodes suivantes de connexion à une base de données à l’aide d’identités Azure AD :
 
-- À l’aide de l’authentification Windows.
-- À l’aide d’un nom principal et d’un mot de passe Azure AD
+- Mot de passe Azure Active Directory
+- Intégration d’Azure Active Directory
+- Authentification universelle Azure Active Directory avec MFA
 - À l’aide de l’authentification par jeton d’application
 
 Les méthodes d’authentification suivantes sont prises en charge pour les principaux de serveur (connexions) Azure AD (**préversion publique**) :
@@ -125,7 +126,6 @@ Les méthodes d’authentification suivantes sont prises en charge pour les prin
 - Mot de passe Azure Active Directory
 - Intégration d’Azure Active Directory
 - Authentification universelle Azure Active Directory avec MFA
-- Authentification interactive Azure Active Directory
 
 
 ### <a name="additional-considerations"></a>Considérations supplémentaires

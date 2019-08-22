@@ -15,12 +15,12 @@ ms.date: 05/07/2019
 ms.author: nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b71454fc553a0f81c26426a6a9588f15d5311e38
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a7b4fba03f9edf8a3f4e42b23c6a1b5e06518863
+ms.sourcegitcommit: a3a40ad60b8ecd8dbaf7f756091a419b1fe3208e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65406431"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69891531"
 ---
 # <a name="single-page-application---code-configuration"></a>Application monopage - Configuration du code
 
@@ -61,9 +61,11 @@ Pour plus d’informations sur les options configurables disponibles, consultez 
 
 ```javascript
 //In app.module.ts
+import { MsalModule } from '@azure/msal-angular';
+
 @NgModule({
   imports: [ MsalModule.forRoot({
-                clientId: 'your_app_id'
+                clientID: 'your_app_id'
             })]
          })
 

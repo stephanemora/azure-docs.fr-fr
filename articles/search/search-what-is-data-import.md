@@ -2,19 +2,19 @@
 title: Importation de données pour ingestion dans un index de recherche - Recherche Azure
 description: Remplissez et chargez des données dans un index dans Recherche Azure à partir de sources de données externes.
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 services: search
 ms.service: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: b56a31a58937ddbea08ff22c3d1c0c71942f47f1
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 71ee63dfbe880cbf6018f3dd13d360850ed994f9
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67445392"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69647331"
 ---
 # <a name="data-import-overview---azure-search"></a>Vue d’ensemble de l’importation des données - Recherche Azure
 

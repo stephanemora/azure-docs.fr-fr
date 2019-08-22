@@ -12,12 +12,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7f2145811338200b38e84766459844b4c83e5a80
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 00f8a0e8d655f9412eceb7b0901ced829e490f78
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68382760"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69616096"
 ---
 # <a name="manually-add-an-account-to-the-app"></a>Ajout manuel d’un compte à l’application
 
@@ -105,6 +105,6 @@ Vous pouvez ajouter votre compte Amazon en activant la vérification en deux ét
 
 - Après avoir ajouté vos comptes à l’application, vous pouvez vous connecter à l’aide de l’application Microsoft Authenticator sur votre appareil. Pour plus d’informations, consultez l’article [Se connecter à l’aide de l’application Microsoft Authenticator](user-help-auth-app-sign-in.md).
 
-- Si vous ne parvenez pas à obtenir le code de vérification de votre compte Microsoft personnel, voir la section **Résolution des problèmes de code de vérification** de l’article [Informations de sécurité et codes de vérification des comptes Microsoft](https://support.microsoft.com/en-us/help/12428/microsoft-account-security-info-verification-codes).
+- Si vous ne parvenez pas à obtenir le code de vérification de votre compte Microsoft personnel, voir la section **Résolution des problèmes de code de vérification** de l’article [Informations de sécurité et codes de vérification des comptes Microsoft](https://support.microsoft.com/help/12428/microsoft-account-security-info-verification-codes).
 
 - Pour les appareils exécutant iOS, vous pouvez également sauvegarder les informations d’identification de votre compte et les paramètres de l’application associée, comme l’ordre de vos comptes, dans le cloud. Pour plus d’informations, consultez l’article [Sauvegarder et récupérer des informations d’authentification de compte avec l’application Microsoft Authenticator](user-help-auth-app-backup-recovery.md).

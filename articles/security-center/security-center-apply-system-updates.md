@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
-ms.author: rkarlin
-ms.openlocfilehash: ebd9939128d1f2b870541e82710792d13b69728e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: v-mohabe
+ms.openlocfilehash: 7f9c5b702c0da8de4476508114be911a9d74f78a
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62095441"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69531451"
 ---
 # <a name="apply-system-updates-in-azure-security-center"></a>Appliquer les mises à jour système dans Azure Security Center
 Azure Security Center recherche quotidiennement les mises à jour manquantes du système d’exploitation sur les ordinateurs et machines virtuelles Windows et Linux. Security Center récupère une liste des mises à jour de sécurité et critiques disponibles dans Windows Update ou Windows Server Update Services (WSUS), selon le service configuré sur un ordinateur Windows. Security Center recherche également les dernières mises à jour dans les systèmes Linux. S’il manque une mise à jour système sur votre machine virtuelle ou ordinateur, Security Center vous recommande de l’appliquer.
@@ -69,17 +69,7 @@ Dans cet exemple, nous utilisons **Calcul**.
 
 5. Sélectionnez un ordinateur dans la liste pour plus d’informations. Un autre résultat de recherche s’ouvre avec les informations filtrées uniquement pour cet ordinateur.
 
-    ![Recherche Journaux d’activité Azure Monitor][5]
-
-## <a name="reboot-after-system-updates"></a>Redémarrer après l’application des mises à jour système
-1. Retournons au panneau **Recommandations** . Une fois que vous avez appliqué les mises à jour système, une nouvelle entrée est générée, appelée **Redémarrer après l’application des mises à jour système**. Cette entrée vous permet de savoir que vous devez redémarrer la machine virtuelle pour terminer le processus d’application des mises à jour système.
-
-   ![Redémarrer après l’application des mises à jour système][6]
-2. Sélectionnez **Redémarrer après l’application des mises à jour système**. Cette opération ouvre le panneau **Un redémarrage est en attente pour terminer les mises à jour système** qui affiche une liste de machines virtuelles que vous devez redémarrer pour terminer le processus d’application des mises à jour système.
-
-   ![Redémarrage en attente][7]
-
-Redémarrez la machine virtuelle à partir d’Azure pour terminer le processus.
+    ![Recherche Journaux Azure Monitor][5]
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur le Centre de sécurité, consultez les rubriques suivantes :
@@ -98,5 +88,3 @@ Pour plus d’informations sur le Centre de sécurité, consultez les rubriques 
 [3]: ./media/security-center-apply-system-updates/detail-on-missing-update.png
 [4]: ./media/security-center-apply-system-updates/log-search.png
 [5]: ./media/security-center-apply-system-updates/search-details.png
-[6]: ./media/security-center-apply-system-updates/reboot-after-system-updates.png
-[7]: ./media/security-center-apply-system-updates/restart-pending.png

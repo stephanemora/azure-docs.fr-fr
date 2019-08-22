@@ -12,12 +12,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2d7ceb854f5f6f8d0bfb2d589f42fe6d022ec743
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 9af3549984bd29a6e896e498bf4a2e6c67d7e0e2
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68382479"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69616010"
 ---
 # <a name="sign-in-to-your-accounts-using-the-microsoft-authenticator-app"></a>Vous connecter à vos comptes à l’aide de l’application Microsoft Authenticator
 
@@ -122,7 +122,7 @@ Pour obtenir les étapes nécessaires pour vous connecter à votre compte person
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Si vous ne parvenez pas à obtenir le code de vérification de votre compte Microsoft personnel, consultez la section **Résolution des problèmes de code de vérification** de l'article [Informations de sécurité et codes de vérification des comptes Microsoft](https://support.microsoft.com/en-us/help/12428/microsoft-account-security-info-verification-codes).
+- Si vous ne parvenez pas à obtenir le code de vérification de votre compte Microsoft personnel, consultez la section **Résolution des problèmes de code de vérification** de l'article [Informations de sécurité et codes de vérification des comptes Microsoft](https://support.microsoft.com/help/12428/microsoft-account-security-info-verification-codes).
 
 - Si vous avez des questions plus générales concernant l’application, consultez le [Forum aux questions sur l’application Microsoft Authenticator](user-help-auth-app-faq.md)
 

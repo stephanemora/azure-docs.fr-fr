@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/25/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: c85644e3cab39f9e0864af91722ee54aab6d59f3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d500c3841a9ecec1e4ceae8b13824f0240a5121d
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66139751"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69639846"
 ---
 # <a name="configure-premiumv2-tier-for-azure-app-service"></a>Configurer le niveau PremiumV2 pour Azure App Service
 
@@ -99,7 +99,7 @@ Si votre application s’exécute dans un déploiement App Service où **Premium
 
 Vous pouvez automatiser la création d’application dans le niveau **PremiumV2** à l’aide de scripts, en utilisant [Azure CLI](/cli/azure/install-azure-cli) ou [Azure PowerShell](/powershell/azure/overview).
 
-### <a name="azure-cli"></a>Azure CLI
+### <a name="azure-cli"></a>D’Azure CLI
 
 La commande suivante crée un plan App Service dans _P1V2_. Vous pouvez l’exécuter dans Cloud Shell. Les options possibles pour `--sku` sont P1V2, _P2V2_ et _P3V2_.
 
@@ -125,5 +125,5 @@ New-AzAppServicePlan -ResourceGroupName <resource_group_name> `
 ```
 ## <a name="more-resources"></a>Autres ressources
 
-[Montée en puissance d’une application dans Azure](web-sites-scale.md)  
+[Montée en puissance d’une application dans Azure](manage-scale-up.md)  
 [Mise à l’échelle manuelle ou automatique du nombre d’instances](../monitoring-and-diagnostics/insights-how-to-scale.md)

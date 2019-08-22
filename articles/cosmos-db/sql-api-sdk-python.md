@@ -8,12 +8,12 @@ ms.devlang: python
 ms.topic: reference
 ms.date: 11/29/2018
 ms.author: sngun
-ms.openlocfilehash: 9903339cbf0958893fb0d11a8c1b6ab7d156aae7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ed90c22fa8c5b94567a9886ca71c9b35fbb103f0
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60626789"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624620"
 ---
 # <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>Kit de développement logiciel Python Azure Cosmos DB pour l’API SQL : Notes de publication et ressources
 > [!div class="op_single_selector"]
@@ -27,8 +27,8 @@ ms.locfileid: "60626789"
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [API REST Resource Provider](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](sql-api-query-reference.md)
-> * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
-> * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
+> * [Exécuteur en bloc – .NET](sql-api-sdk-bulk-executor-dot-net.md)
+> * [Exécuteur en bloc – Java](sql-api-sdk-bulk-executor-java.md)
 
 | |  |
 |---|---|
@@ -180,7 +180,7 @@ Le service rejette toute requête envoyée à Cosmos DB à l’aide d’un Kit S
 | 0.9.3-prelease |9 décembre 2014 |29 février 2016 |
 | 0.9.2-prelease |25 novembre 2014 |29 février 2016 |
 | 0.9.1-prelease |23 septembre 2014 |29 février 2016 |
-| 0.9.0-prelease |21\.08.14 |29 février 2016 |
+| 0.9.0-prelease |21.08.14 |29 février 2016 |
 
 ## <a name="faq"></a>Forum Aux Questions
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]

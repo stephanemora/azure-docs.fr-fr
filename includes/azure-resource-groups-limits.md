@@ -2,14 +2,14 @@
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: include
-ms.date: 07/30/2019
+ms.date: 08/19/2019
 ms.author: tomfitz
-ms.openlocfilehash: f027f5b295d75c105e81360a10718239e5b08e4d
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 25928ef35da1ce4b3824303a5d46749c32aa701f
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68698259"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69626329"
 ---
 | Ressource | Limite par défaut | Limite maximale |
 | --- | --- | --- |
@@ -17,7 +17,7 @@ ms.locfileid: "68698259"
 | Déploiements par groupe de ressources dans l’historique des déploiements |800<sup>1</sup> |800 |
 | Ressources par déploiement |800 |800 |
 | Verrous de gestion par étendue unique |20 |20 |
-| Nombre de balises par ressource ou groupe de ressources |15 |15 |
+| Nombre de balises par ressource ou groupe de ressources |50 |50 |
 | Longueur de clé de la balise |512 |512 |
 | Longueur de valeur de la balise |256 |256 |
 

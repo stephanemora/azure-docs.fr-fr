@@ -6,18 +6,18 @@ ms.author: jahender
 ms.date: 4/9/2019
 ms.topic: article
 ms.service: security
-ms.openlocfilehash: 017a26d5672f666d4d8eaf629a0f53fe0cfe517f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3a27eac3d4609f1054b0ef6a9417fe2f1ca53ae4
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65963240"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69656641"
 ---
 # <a name="secure-azure-computing-architecture"></a>Sécuriser l’architecture de calcul Azure
 
 Données Les clients du Département de la Défense des États-Unis (Department of Defense ou DoD) qui déploient des charges de travail chez Azure ont demandé des conseils pour mettre en place des réseaux virtuels sécurisés et configurer les outils et services de sécurité exigés par les normes et pratiques DoD. 
 
-La Defense Information System Agency (DISA) a publié le document [Secure Cloud Computing Architecture (SCCA) Functional Requirements Document (FRD)](https://iasecontent.disa.mil/stigs/pdf/SCCA_FRD_v2-9.pdf) en 2017. SCCA décrit les objectifs fonctionnels de sécurisation des points de connexion du réseau DISN (Defense Information System Network) et des fournisseurs commerciaux de cloud computing. SCCA décrit également comment les chargés de mission sécurisent les applications dans le cloud aux limites de la connexion. Chaque entité DoD qui se connecte au cloud commercial doit suivre les directives énoncées dans le document FRD SCCA.
+La Defense Information System Agency (DISA) a publié le document [Secure Cloud Computing Architecture (SCCA) Functional Requirements Document (FRD)](https://dl.dod.cyber.mil/wp-content/uploads/cloud/pdf/SCCA_FRD_v2-9.pdf) en 2017. SCCA décrit les objectifs fonctionnels de sécurisation des points de connexion du réseau DISN (Defense Information System Network) et des fournisseurs commerciaux de cloud computing. SCCA décrit également comment les chargés de mission sécurisent les applications dans le cloud aux limites de la connexion. Chaque entité DoD qui se connecte au cloud commercial doit suivre les directives énoncées dans le document FRD SCCA.
  
 SCCA comporte quatre composants :
  

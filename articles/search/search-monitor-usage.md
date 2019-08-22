@@ -2,21 +2,19 @@
 title: Superviser l’utilisation des ressources et les métriques de requêtes pour un service de recherche - Recherche Azure
 description: Activer la journalisation, obtenir des métriques d’activité des requêtes, l’utilisation des ressources et d’autres données système à partir d’un service Recherche Azure.
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 tags: azure-portal
 services: search
 ms.service: search
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/16/2019
 ms.author: heidist
-ms.custom: seodec2018
-ms.openlocfilehash: bac897178c8220abe72a92a5cf14fc4767cdd3bf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e83e84cc8627be468ce0074b35549d5ea7def4f5
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66755064"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69640529"
 ---
 # <a name="monitor-resource-consumption-and-query-activity-in-azure-search"></a>Superviser la consommation des ressources et l’activité des requêtes dans la Recherche Azure
 
@@ -113,12 +111,12 @@ Les objets blob contenant vos journaux d’activité du trafic de votre service 
 
 | Nom | Type | Exemples | Notes |
 | --- | --- | --- | --- |
-| time |Datetime |"2018-12-07T00:00:43.6872559Z" |Horodatage de l’opération |
-| resourceId |chaîne |«/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/> MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE » |Votre ID de ressource |
-| operationName |chaîne |« Query.Search » |Nom de l’opération |
-| operationVersion |chaîne |"2019-05-06" |Version d’API utilisée |
-| category |chaîne |« OperationLogs » |constant |
-| resultType |chaîne |« Success » |Valeurs possibles : Réussite ou Échec |
+| time |datetime |"2018-12-07T00:00:43.6872559Z" |Horodatage de l’opération |
+| resourceId |string |«/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/> MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE » |Votre ID de ressource |
+| operationName |string |« Query.Search » |Nom de l’opération |
+| operationVersion |string |"2019-05-06" |Version d’API utilisée |
+| category |string |« OperationLogs » |constant |
+| resultType |string |« Success » |Valeurs possibles : Réussite ou Échec |
 | resultSignature |int |200 |Code de résultat HTTP |
 | durationMS |int |50 |Durée de l’opération en millisecondes |
 | properties |objet |consultez le tableau suivant |Objet contenant des données propres à l’opération |
@@ -127,10 +125,10 @@ Les objets blob contenant vos journaux d’activité du trafic de votre service 
 
 | Nom | Type | Exemples | Notes |
 | --- | --- | --- | --- |
-| Description |chaîne |« GET /indexes(’content’)/docs » |Point de terminaison de l’opération |
-| Interroger |chaîne |"?search=AzureSearch&$count=true&api-version=2019-05-06" |Paramètres de requête |
+| Description |string |« GET /indexes(’content’)/docs » |Point de terminaison de l’opération |
+| Interroger |string |"?search=AzureSearch&$count=true&api-version=2019-05-06" |Paramètres de requête |
 | Documents |int |42 |Nombre de documents traités |
-| IndexName |chaîne |« testindex » |Nom de l’index associé à l’opération |
+| IndexName |string |« testindex » |Nom de l’index associé à l’opération |
 
 ## <a name="metrics-schema"></a>Schéma de mesures
 
@@ -138,15 +136,15 @@ Les métriques sont capturées pour les demandes de requête.
 
 | Nom | Type | Exemples | Notes |
 | --- | --- | --- | --- |
-| resourceId |chaîne |«/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE » |Votre ID de ressource |
-| metricName |chaîne |« Latency » |Nom de la mesure |
-| time |Datetime |"2018-12-07T00:00:43.6872559Z" |Horodatage de l’opération |
+| resourceId |string |«/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE » |Votre ID de ressource |
+| metricName |string |« Latency » |Nom de la mesure |
+| time |datetime |"2018-12-07T00:00:43.6872559Z" |Horodatage de l’opération |
 | average |int |64 |Valeur moyenne des échantillons bruts dans l’intervalle de temps de la mesure |
 | minimum |int |37 |Valeur minimale des échantillons bruts dans l’intervalle de temps de la mesure |
 | maximum |int |78 |Valeur maximale des échantillons bruts dans l’intervalle de temps de la mesure |
 | total |int |258 |Valeur totale des échantillons bruts dans l’intervalle de temps de la mesure |
 | count |int |4 |Nombre d’échantillons bruts utilisés pour générer la mesure |
-| timegrain |chaîne |« PT1M » |Fragment de temps de la mesure au format ISO 8601 |
+| timegrain |string |« PT1M » |Fragment de temps de la mesure au format ISO 8601 |
 
 Toutes les mesures sont consignées dans des intervalles d’une minute. Chaque mesure expose des valeurs minimales, maximales et moyennes par minute.
 

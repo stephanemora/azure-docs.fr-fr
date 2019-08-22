@@ -4,12 +4,12 @@ ms.service: azure
 ms.topic: include
 ms.date: 06/13/2019
 ms.author: sttramer
-ms.openlocfilehash: bfefefc365f2725f9f3feacf1e6159d09cc43ba9
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: f443b11207f6844bcffc1c7963209bc315f725b4
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68736221"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69623856"
 ---
 ## <a name="use-azure-cloud-shell"></a>Utiliser Azure Cloud Shell
 
@@ -25,7 +25,7 @@ Pour lancer Azure Cloud Shell :
 
 Pour exécuter le code de cet article dans Azure Cloud Shell :
 
-1. Lancez Cloud Shell.
+1. Ouvrez Cloud Shell.
 1. Sélectionnez le bouton **Copier** dans un bloc de code pour copier le code. 
 1. Collez le code dans la session Cloud Shell avec **Ctrl**+**Maj**+**V** sur Windows et Linux, ou **Cmd**+ **Maj**+**V** sur macOS. 
 1. Appuyez sur **Entrée** pour exécuter le code.

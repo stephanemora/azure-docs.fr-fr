@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/01/2016
 ms.author: dariac
 ms.custom: seodec18
-ms.openlocfilehash: 55b66237cfbd2db9254362b7fa7efe7da7c624d4
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: b4c7524415865f7db5d4514c14f8e45030620330
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67617597"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69636671"
 ---
 # <a name="best-practices-for-azure-app-service"></a>Meilleures pratiques pour Azure App Service
 Cet article résume les meilleures pratiques dans l’utilisation de [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). 
@@ -39,7 +39,7 @@ Si vous remarquez qu’une application consomme plus de mémoire que prévu, ce 
 ## <a name="CPUresources"></a>Quand les applications consomment plus d’UC que prévu
 Si vous remarquez qu’une application consomme plus d’UC que prévu ou qu’elle provoque des pics de consommation d’UC répétés, ce qui indiqué par des analyses ou des recommandations de service, envisagez de faire monter ou descendre en puissance le plan App Service. Si votre application est « avec état », la seule option possible est la montée en charge. Si l’application est « sans état », l’augmentation de la taille des instances vous confère plus de souplesse et un potentiel de mise à l’échelle plus élevé. 
 
-Pour plus d’informations sur les applications « sans état » et « avec état », regardez la vidéo : [Planning a Scalable End-to-End Multi-Tier Application on Azure App Service](https://channel9.msdn.com/Events/TechEd/NorthAmerica/2014/DEV-B414#fbid=?hashlink=fbid). Pour plus d’informations sur les options de montée en charge et de mise à l’échelle automatique, consultez [Mise à l’échelle d’une application web dans Microsoft Azure App Service](web-sites-scale.md).  
+Pour plus d’informations sur les applications « sans état » et « avec état », regardez la vidéo : [Planning a Scalable End-to-End Multi-Tier Application on Azure App Service](https://channel9.msdn.com/Events/TechEd/NorthAmerica/2014/DEV-B414#fbid=?hashlink=fbid). Pour plus d’informations sur les options de montée en charge et de mise à l’échelle automatique, consultez [Mise à l’échelle d’une application web dans Microsoft Azure App Service](manage-scale-up.md).  
 
 ## <a name="socketresources"></a>Quand les ressources de socket sont épuisées
 L’utilisation des bibliothèques clientes constitue une raison courante de l’épuisement des connexions TCP sortantes ; ces bibliothèques ne sont pas implémentées pour la réutilisation des connexions TCP ou, lorsqu’un protocole de niveau supérieur tel que HTTP - Keep-Alive n’est pas utilisé. Veuillez consulter la documentation pour chacune des bibliothèques référencées par les applications dans votre plan App Service afin de vous assurer que celles-ci sont configurées ou accessibles dans votre code pour une réutilisation efficace des connexions sortantes. Suivez également les instructions de la documentation des bibliothèques pour une création et une mise en production appropriées ainsi que pour un nettoyage servant à éviter la fuite des connexions. Lorsque les examens des bibliothèques clientes sont en cours d’exécution, leur impact peut être atténué en augmentant la taille des instances.

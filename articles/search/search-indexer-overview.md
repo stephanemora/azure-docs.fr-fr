@@ -2,20 +2,18 @@
 title: Indexeurs pour l’analyse des sources de données lors de l’indexation - Recherche Azure
 description: Analysez une base de données Azure SQL, Cosmos DB ou le stockage Azure pour extraire les données pouvant faire l’objet d’une recherche et remplir un index Recherche Azure.
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 services: search
 ms.service: search
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: heidist
-ms.custom: seodec2018
-ms.openlocfilehash: 6871c75f0af662762ffac6e7346d4999e55eb937
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: af01b6127a8a3e20edfac19ce3b54cecb9d561d1
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67303440"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69640581"
 ---
 # <a name="indexers-in-azure-search"></a>Indexeurs dans Azure Search
 

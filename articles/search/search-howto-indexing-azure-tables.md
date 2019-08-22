@@ -3,19 +3,19 @@ title: Contenu de l’index du stockage de tables Azure pour la recherche en tex
 description: Découvrez comment indexer les données stockées dans Stockage Table Azure avec un indexeur Recherche Azure.
 ms.date: 05/02/2019
 author: mgottein
-manager: cgronlun
+manager: nitinme
 ms.author: magottei
 services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: bca7c1b9ffe7ac0ab82f4287bba201a78fbf726a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dffb0a41dbf33cd86014115b089036d69a8e4718
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66755090"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69648186"
 ---
 # <a name="index-azure-table-storage-with-azure-search"></a>Indexer le stockage de tables Azure avec Azure Search
 Cet article montre comment utiliser Azure Search pour indexer les données stockées dans le stockage de tables Azure.

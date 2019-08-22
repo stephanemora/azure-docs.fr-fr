@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlr
 ms.date: 07/11/2019
-ms.openlocfilehash: 97f7393622311103d94d3067205f902e3eec6843
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: a8dfe0db5277a995b6e6675381ebeb5aeb243c9b
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567343"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69647214"
 ---
 # <a name="getting-started-with-azure-sql-database-managed-instance"></a>Bien démarrer avec une instance managée Azure SQL Database
 
@@ -55,8 +55,6 @@ Ces guides de démarrage rapide vous permettent de créer, de configurer et de r
 ## <a name="customize-network-environment"></a>Personnaliser l’environnement réseau
 
 Bien que le réseau virtuel/sous-réseau puisse être configuré automatiquement quand l’instance est créée avec [le portail Azure](sql-database-managed-instance-get-started.md), il peut être judicieux de le créer avant de commencer à créer des instances managées, car vous pouvez ainsi configurer les paramètres du réseau virtuel et du sous-réseau. Le moyen le plus simple pour créer et configurer l’environnement réseau consiste à utiliser le modèle de [déploiement Azure Resource Manager](sql-database-managed-instance-create-vnet-subnet.md), qui va créer et configurer votre réseau et votre sous-réseau où l’instance sera placée. Vous devez simplement cliquer sur le bouton de déploiement Azure Resource Manager et remplir le formulaire avec les paramètres.
-
-Vous pouvez aussi utiliser un [script PowerShell](https://www.powershellmagazine.com/20../../configuring-azure-environment-to-set-up-azure-sql-database-managed-instance-preview/) pour automatiser la création du réseau.
 
 Vous pouvez également utiliser ce [script PowerShell](https://www.powershellmagazine.com/2018/07/23/configuring-azure-environment-to-set-up-azure-sql-database-managed-instance-preview/) pour automatiser la création du réseau.
 

@@ -8,12 +8,12 @@ ms.subservice: blobs
 ms.topic: article
 ms.date: 06/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 56470c08f0ac940dae42821ae61846f1c86d52eb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 838d65da90ec0daef69375e5a75bcb497a0c3512
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66479514"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69900401"
 ---
 # <a name="choose-an-azure-solution-for-data-transfer"></a>Choisir une solution Azure pour le transfert de données
 
@@ -83,4 +83,4 @@ Vous pouvez également vous rendre sur votre compte Stockage Azure dans le Porta
 - Utiliser les API REST pour transférer des données
 
     - [Dans .NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage)
-    - [Dans Java](https://docs.microsoft.com/java/api/overview/azure/storage/client)
+    - [Dans Java](https://docs.microsoft.com/java/api/overview/azure/storage)

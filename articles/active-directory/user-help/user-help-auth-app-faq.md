@@ -13,12 +13,12 @@ ms.date: 01/31/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8786a99f012124848b02eb3db0c2a2e32ff01594
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: c65192501f5cfa075ddb6a27369587de2952f38a
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68382377"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69616034"
 ---
 # <a name="microsoft-authenticator-app-faq"></a>Forum aux questions sur l’application Microsoft Authenticator
 
@@ -54,7 +54,7 @@ L’application Microsoft Authenticator a remplacé l’application Azure Authen
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Si vous ne parvenez pas à obtenir le code de vérification de votre compte Microsoft personnel, consultez la section **Résolution des problèmes de code de vérification** de l’article [Informations de sécurité et codes de vérification des comptes Microsoft](https://support.microsoft.com/en-us/help/12428/microsoft-account-security-info-verification-codes).
+- Si vous ne parvenez pas à obtenir le code de vérification de votre compte Microsoft personnel, consultez la section **Résolution des problèmes de code de vérification** de l’article [Informations de sécurité et codes de vérification des comptes Microsoft](https://support.microsoft.com/help/12428/microsoft-account-security-info-verification-codes).
 
 - Pour plus d’informations sur la vérification en deux étapes, consultez [Configurer mon compte pour la vérification en deux étapes](multi-factor-authentication-end-user-first-time.md)
 

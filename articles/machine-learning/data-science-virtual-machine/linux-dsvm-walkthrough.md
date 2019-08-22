@@ -17,12 +17,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: vijetaj
-ms.openlocfilehash: df05b2605f3553ce26447a4f8e2440002b75ec3a
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 95d128a7af60a1504d05fb5316969fccc49c397f
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68557365"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69574968"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-on-azure"></a>Science des données avec une image Data Science Virtual Machine Linux sur Azure
 Cette procédure pas à pas vous montre comment effectuer plusieurs tâches courantes de science des données avec la machine virtuelle de science des données Linux. La machine virtuelle de science des données Linux est une image de machine virtuelle disponible sur Azure qui est préinstallée avec plusieurs outils couramment utilisés dans le cadre de l’analyse de données et du Machine Learning. Les composants logiciels clés sont détaillés dans la rubrique [Approvisionnement d’une machine virtuelle de science des données Linux](linux-dsvm-intro.md) . L’image de la machine virtuelle facilite la prise en main de la science des données en quelques minutes, sans avoir à installer et à configurer individuellement chacun des outils individuellement. Le cas échéant, vous pouvez facilement faire monter en puissance la machine virtuelle, et l’arrêter lorsqu’elle est inutilisée. Cette ressource est donc flexible et économique.
@@ -229,6 +229,20 @@ Pour l’essayer sur les 10 premières lignes du test défini :
 
     consume(ep, smallTestSet[1:10, ])
 
+<a name="deep-learning"></a>
+
+## <a name="deep-learning-tutorials-and-walkthroughs"></a>Didacticiels et procédures pas à pas de l’apprentissage profond
+
+Outre les exemples basés sur les frameworks, un ensemble de procédures détaillées complètes qui ont été validées sur la machine virtuelle DLVM est également fourni. Ces procédures vous permettent de vous lancer dans le développement d’applications d’apprentissage profond dans des domaines tels que la reconnaissance vocale ou bien la compréhension d’image et de texte. Des didacticiels complets ayant trait à différents domaines et technologies sont continuellement ajoutés.   
+
+
+- [Exécution de réseaux neuronaux sur différents frameworks](https://github.com/ilkarman/DeepLearningFrameworks) : procédure pas à pas complète qui montre comment migrer du code depuis un framework vers un autre. Elle montre également comment comparer les performances des modèles et d’exécution entre les frameworks. 
+
+- [Guide pratique pour créer une solution de bout en bout afin de détecter des produits dans des images](https://github.com/Azure/cortana-intelligence-product-detection-from-images) : la détection d’image est une technique qui peut localiser des objets dans les images et les classer. Les retombées concrètes de cette technologie semblent très prometteuses dans de nombreux domaines professionnels. Par exemple, un détaillant peut utiliser cette technique pour déterminer quel produit un client a choisi dans un rayon. Il peut ensuite utiliser ces informations pour gérer le stock des produits. 
+
+- [Modèle d’apprentissage profond pour l’audio](https://blogs.technet.microsoft.com/machinelearning/2018/01/30/hearing-ai-getting-started-with-deep-learning-for-audio-on-azure/) : Ce tutoriel montre comment entraîner un modèle d’apprentissage profond pour la détection des événements audio dans le [jeu de données Urban Sounds](https://serv.cusp.nyu.edu/projects/urbansounddataset/urbansound8k.html), et explique comment utiliser les données audio.
+
+- [Classification de documents texte](https://github.com/anargyri/lstm_han) : cette procédure pas à pas montre comment créer et effectuer l'apprentissage de deux architectures de réseau neuronal différentes : réseau d’attention hiérarchisée et réseau à mémoire à long ou court terme. Ces réseaux neuronaux utilisent l’API Keras de l’apprentissage profond pour classer les documents texte. Keras facilite l’utilisation de trois des frameworks d’apprentissage profond les plus populaires, à savoir Microsoft Cognitive Toolkit, TensorFlow et Theano.
 
 ## <a name="use-other-tools-available"></a>Utiliser les autres outils disponibles
 Les sections suivantes montrent comment utiliser certains des outils installés sur la machine virtuelle de science des données Linux. Voici la liste des outils abordés :

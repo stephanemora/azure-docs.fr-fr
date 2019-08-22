@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: 6cbddfc5e529bc48e08407796024e5232d1a22e8
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 134302bffdadc27cf202a43e7dc4cc94704bb5b3
+ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68966369"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69557872"
 ---
 # <a name="copy-data-from-teradata-by-using-azure-data-factory"></a>Copier des données depuis une base de données Teradata à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -61,7 +61,7 @@ Le service lié Teradata prend en charge les propriétés suivantes :
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété de type doit être définie sur **Teradata**. | OUI |
+| Type | La propriété de type doit être définie sur **Teradata**. | OUI |
 | connectionString | Spécifie les informations requises pour se connecter à l’instance de base de données Teradata. Consultez les exemples suivants.<br/>Vous pouvez également définir un mot de passe dans Azure Key Vault et extraire la configuration `password` de la chaîne de connexion. Pour plus d’informations, consultez la section [Stocker des informations d’identification dans Azure Key Vault](store-credentials-in-key-vault.md). | OUI |
 | username | Spécifiez le nom d’utilisateur associé à la connexion à la base de données Teradata. S’applique lors de l’utilisation de l’authentification Windows. | Non |
 | password | Spécifiez un mot de passe pour le compte d’utilisateur que vous avez spécifié pour le nom d’utilisateur. Vous pouvez également choisir de [référencer un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). <br>S’applique lors de l’utilisation de l’authentification Windows ou du référencement du mot de passe dans Key Vault pour l’authentification de base. | Non |

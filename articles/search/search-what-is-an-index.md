@@ -2,19 +2,19 @@
 title: Créer une définition et des concepts d’index – Recherche Azure
 description: Introduction aux termes et aux concepts des index dans la Recherche Azure, y compris les composants et la structure physique.
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 ms.author: heidist
 services: search
 ms.service: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.custom: seodec2018
-ms.openlocfilehash: 0a6a5b0e3957141b9ea17a378a7cbeff33a0124e
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 0a26cfc578f12044cb5834f202a0fed5d0a30274
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67485201"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69647371"
 ---
 # <a name="create-a-basic-index-in-azure-search"></a>Créer un index de base dans la Recherche Azure
 

@@ -2,7 +2,7 @@
 title: Exemples de requêtes utilisant la syntaxe de recherche « simple » - Recherche Azure
 description: Exemples de requêtes simples pour la recherche en texte intégral, la recherche filtrée, la recherche géographique, la recherche à facettes et autres chaînes de requête utilisées pour interroger un index Recherche Azure.
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 tags: Simple query analyzer syntax
 services: search
 ms.service: search
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 6b7451371fe1562a6763643cd90e5646bd255018
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: df84686e512db90351d5a9815706890bce49848b
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67653523"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69647616"
 ---
 # <a name="query-examples-using-the-simple-search-syntax-in-azure-search"></a>Exemples de requêtes utilisant la syntaxe de recherche « simple » dans Recherche Azure
 

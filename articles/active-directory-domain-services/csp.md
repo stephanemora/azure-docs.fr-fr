@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/08/2017
 ms.author: iainfou
-ms.openlocfilehash: a0ea28f3b62e6560e4adf8ea6bcb1fe984a1dbe6
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: dc4ad7d8cf9f3267713fd066fa79a4d9d8ab733f
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67473562"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69612967"
 ---
 # <a name="azure-active-directory-ad-domain-services-for-azure-cloud-solution-providers-csp"></a>Azure Active Directory (AD) Domain Services pour les fournisseurs de solutions cloud (CSP) Azure
 Cet article explique comment vous pouvez utiliser Azure AD Domain Services dans un abonnement Azure CSP.
@@ -90,4 +90,4 @@ Tenez compte des considérations importantes suivantes quand vous administrez un
 * [S’inscrire au programme Azure CSP](https://docs.microsoft.com/partner-center/enrolling-in-the-csp-program) et commencer à développer une activité par le biais d’Azure CSP.
 * Passer en revue la liste des [services Azure disponibles dans Azure CSP](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-available-services).
 * [Activer les services de domaine Azure AD à l’aide de PowerShell](powershell-create-instance.md)
-* [Prise en main des services de domaine Azure AD](create-instance.md)
+* [Prise en main des services de domaine Azure AD](tutorial-create-instance.md)

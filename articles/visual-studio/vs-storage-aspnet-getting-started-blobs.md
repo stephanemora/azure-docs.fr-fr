@@ -3,7 +3,7 @@ title: Prise en main du stockage d’objets blob Azure et des services connect�
 description: Comment prendre en main le stockage d’objets blob Azure dans le cadre d’un projet ASP.NET Visual Studio après s’être connecté à un compte de stockage à l’aide des services connectés de Visual Studio
 services: storage
 author: ghogen
-manager: douge
+manager: jillfra
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
 ms.custom: vs-azure
@@ -11,12 +11,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/07/2017
 ms.author: ghogen
-ms.openlocfilehash: 229522d16db0571c7dbe50e05fceaca9491c4c58
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 7fede4a554fc2fd97b5b786a483f6da4f4336248
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 08/15/2019
-ms.locfileid: "69034163"
+ms.locfileid: "69512368"
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-aspnet"></a>Prise en main du stockage d’objets blob Azure et des services connectés de Visual Studio (ASP.NET)
 

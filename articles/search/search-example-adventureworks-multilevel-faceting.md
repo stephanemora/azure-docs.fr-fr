@@ -2,18 +2,18 @@
 title: 'Exemple : Facettes à plusieurs niveaux - Recherche Azure'
 description: Découvrez comment créer des structures à facettes pour les taxonomies à plusieurs niveaux, en créant une structure de navigation imbriquée que vous pouvez inclure dans des pages d’application.
 author: cstone
-manager: cgronlun
+manager: nitinme
 services: search
 ms.service: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: chstone
-ms.openlocfilehash: e17a91a35b69102e4e0ac6025559bbc32e71d8fb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5a6fda0157f0f3a4ca5861acd4bcbead7839e451
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65024124"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69649931"
 ---
 # <a name="example-multi-level-facets-in-azure-search"></a>Exemple : Facettes à plusieurs niveaux dans Recherche Azure
 

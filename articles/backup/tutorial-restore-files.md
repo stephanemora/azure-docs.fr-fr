@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/31/2019
 ms.author: dacurwin
 ms.custom: mvc
-ms.openlocfilehash: 553f19a2cb621698cb5b47e56d7cb30d529cc243
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 9e71757215f6a0a5b664abd3f8a9ee632b1535f3
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68467057"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69876368"
 ---
 # <a name="restore-files-to-a-virtual-machine-in-azure"></a>Restaurer des fichiers vers une machine virtuelle dans Azure
 Azure Backup crée des points de récupération stockés dans des coffres de récupération géoredondants. Quand vous effectuez une restauration à partir d’un point de récupération, vous pouvez restaurer la machine virtuelle entière ou des fichiers individuels. Cet article explique comment restaurer des fichiers individuels. Ce didacticiel vous montre comment effectuer les opérations suivantes :
@@ -142,7 +142,7 @@ Une fois le script de récupération copié sur votre machine virtuelle, vous po
 
     La sortie du script vous donne le chemin d’accès au point de récupération. L’exemple de sortie suivant montre que le point de récupération est monté sur */home/azureuser/myVM-20170919213536/Volume1* :
 
-    ```
+    ```output
     Microsoft Azure VM Backup - File Recovery
     ______________________________________________
     Please enter the password as shown on the portal to securely connect to the recovery point. : c068a041ce12465

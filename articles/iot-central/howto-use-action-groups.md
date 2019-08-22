@@ -8,16 +8,18 @@ ms.date: 07/10/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: philmea
-ms.openlocfilehash: d9d7b2d189c6a1533be2d1cae4989669787c3f2a
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: ad5f660ff72eceecbb6db2e9557b023ed2c6ea99
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67849009"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69875810"
 ---
 # <a name="group-multiple-actions-to-run-from-one-or-more-rules"></a>Regrouper plusieurs actions à exécuter à partir d’une ou plusieurs règles
 
 *Cet article s’applique aux créateurs et aux administrateurs.*
+
+[!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp-note.md)]
 
 Dans Azure IoT Central, vous créez des règles pour exécuter des actions quand une condition est satisfaite. Les règles sont basées sur la télémétrie des appareils ou sur des événements. Par exemple, vous pouvez avertir un opérateur quand la température dans un appareil dépasse un certain seuil. Cet article décrit comment utiliser des *groupes d’actions* [Azure Monitor](../azure-monitor/overview.md) pour attacher plusieurs actions à une règle IoT Central. Vous pouvez attacher un groupe d’actions à plusieurs règles. Un [groupe d’actions](../azure-monitor/platform/action-groups.md) est une collection de préférences de notification définies par le propriétaire d’un abonnement Azure.
 

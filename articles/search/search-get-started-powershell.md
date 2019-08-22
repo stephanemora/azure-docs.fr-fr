@@ -3,18 +3,18 @@ title: 'Démarrage rapide PowerShell : Créer, charger et interroger des index 
 description: Explique comment créer un index, charger des données et exécuter des requêtes à l’aide de Invoke-RestMethod de PowerShell et de l'API REST Recherche Azure.
 ms.date: 07/11/2019
 author: heidisteen
-manager: cgronlun
+manager: nitinme
 ms.author: heidist
 services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: quickstart
-ms.openlocfilehash: 3c47a9a809357d1ad09d8a2dd2ef5a7f1a31a02d
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 171e5a59c59b27469eb3c344fa45c6814b9fbf97
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68840727"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69656285"
 ---
 # <a name="quickstart-create-an-azure-search-index-in-powershell-using-rest-apis"></a>Démarrage rapide : Créer un index Recherche Azure dans PowerShell à l’aide des API REST
 > [!div class="op_single_selector"]

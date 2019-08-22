@@ -4,12 +4,12 @@ ms.author: wesmc
 ms.service: iot-hub
 ms.topic: include
 ms.date: 10/26/2018
-ms.openlocfilehash: 60c0c700dde5afda2ca93a92b334cbc4f0134043
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: 239ea2eb4d5bc8d326d5ca503a18b149252dc1be
+ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68667985"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69558768"
 ---
 > [!div class="op_single_selector"]
 > * [Node.JS](../articles/iot-hub/iot-hub-node-node-device-management-get-started.md)
@@ -24,7 +24,9 @@ Les applications principales peuvent utiliser des primitives Azure IoT Hub, comm
 Utilisez une méthode directe pour lancer des actions de gestion d’appareils (redémarrage, réinitialisation des paramètres d’usine et mise à jour du microprogramme) à partir d’une application principale dans le cloud. L’appareil est chargé de :
 
 * Gérer la requête de méthode envoyée à partir d’IoT Hub.
+
 * Démarrer l’action correspondante spécifique à l’appareil sur l’appareil.
+
 * Fournir à IoT Hub des mises à jour de l’état via des *propriétés signalées*.
 
 Vous pouvez utiliser une application principale dans le cloud pour exécuter des requêtes sur la représentation d’appareil afin d’indiquer la progression des actions de gestion de votre appareil.

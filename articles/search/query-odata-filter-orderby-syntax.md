@@ -7,7 +7,7 @@ ms.service: search
 ms.topic: conceptual
 author: Brjohnstmsft
 ms.author: brjohnst
-ms.manager: cgronlun
+manager: nitinme
 translation.priority.mt:
 - de-de
 - es-es
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 166c23088fe0388199ca51efde05153bb5697e38
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 0bd446b0ffa97a758f68a0f85889b13da6e3d8b0
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67063702"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69650029"
 ---
 # <a name="odata-language-overview-for-filter-orderby-and-select-in-azure-search"></a>Vue d’ensemble du langage OData pour `$filter`, `$orderby` et `$select` dans Recherche Azure
 

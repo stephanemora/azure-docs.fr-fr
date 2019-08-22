@@ -7,12 +7,12 @@ ms.author: omidm
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: 8227ff0c56e147db66c4cdc93083d671b08d1d98
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: eb6df3bfda131f00c04499dc80c47482229195a5
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67433414"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69623914"
 ---
 # <a name="use-apache-oozie-with-apache-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Utiliser Apache Oozie avec Apache Hadoop pour définir et exécuter un workflow sur Azure HDInsight Linux
 
@@ -225,7 +225,7 @@ Les définitions de workflow Oozie sont écrites en langage de définition de pr
 ## <a name="create-a-table"></a>Création d’une table
 
 > [!NOTE]  
-> Il existe de nombreuses façons de se connecter à la base de données SQL pour créer une table. Les étapes suivantes utilisent [FreeTDS](http://www.freetds.org/) à partir du cluster HDInsight.
+> Il existe de nombreuses façons de se connecter à la base de données SQL pour créer une table. Les étapes suivantes utilisent [FreeTDS](https://www.freetds.org/) à partir du cluster HDInsight.
 
 1. Utilisez la commande suivante pour installer FreeTDS sur le cluster HDInsight :
 

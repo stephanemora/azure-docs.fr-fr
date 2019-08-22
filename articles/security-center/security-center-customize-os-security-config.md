@@ -12,21 +12,21 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/20/2019
-ms.author: rkarlin
-ms.openlocfilehash: 8216aee1c27fd5bcb722648aa6380044e1431452
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.date: 08/15/2019
+ms.author: v-mohabe
+ms.openlocfilehash: df4f51f97798048b28c0193dbc61e07fc55c9adc
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68662477"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69535079"
 ---
 # <a name="customize-os-security-configurations-in-azure-security-center-retired"></a>Personnaliser les configurations de la sécurité du système d’exploitation dans Azure Security Center (hors service)
 
 Cette procédure pas à pas explique comment personnaliser les évaluations de configuration de la sécurité du système d’exploitation (préversion) dans Azure Security Center.
 
 > [!NOTE]
-> La possibilité de personnaliser les configurations de la sécurité du système d’exploitation (fonctionnalité d’évaluation) a été supprimée le 31 juillet 2019. Pour en savoir plus et connaître les alternatives, voir [Retrait des fonctionnalités du Security Center (juillet 2019).](security-center-features-retirement-july2019.md#menu_securityconfigurations)
+> La possibilité de personnaliser les configurations de la sécurité du système d’exploitation (fonctionnalité d’évaluation) a été supprimée le 31 juillet 2019. Pour plus d’informations et connaître les alternatives, consultez [Retrait des fonctionnalités de Security Center (juillet 2019).](security-center-features-retirement-july2019.md#menu_securityconfigurations)
 
 ## <a name="what-are-os-security-configurations"></a>Quelles sont les configurations de sécurité du système d’exploitation ?
 
@@ -317,4 +317,4 @@ Cet article vous a montré comment personnaliser les évaluations de la configur
 
 - [Règles de base et identificateurs de configuration courants de Security Center](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335).
 - Security Center utilise CCE (Common Configuration Enumeration) pour affecter des identificateurs uniques aux règles de configuration. Pour plus d’informations, consultez la section [CCE](https://nvd.nist.gov/config/cce/index).
-- [Corriger les configurations de la sécurité](security-center-remediate-os-vulnerabilities.md) explique comment résoudre les vulnérabilités lorsque la configuration du système d’exploitation ne correspond pas aux règles de configuration de la sécurité recommandées.
+- [Corriger les configurations de la sécurité](security-center-virtual-machine-protection.md) explique comment résoudre les vulnérabilités lorsque la configuration du système d’exploitation ne correspond pas aux règles de configuration de la sécurité recommandées.

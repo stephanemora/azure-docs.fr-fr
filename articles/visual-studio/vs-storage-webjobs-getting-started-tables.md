@@ -3,7 +3,7 @@ title: Prise en main du stockage Azure et des services connectés Visual Studio 
 description: Comment prendre en main le stockage de tables Azure dans un projet WebJobs Azure dans Visual Studio après s'être connecté à un compte de stockage à l'aide des services connectés de Visual Studio
 services: storage
 author: ghogen
-manager: douge
+manager: jillfra
 ms.assetid: 061a6c46-0592-4e5d-aced-ab7498481cde
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
-ms.openlocfilehash: 481c2f1eaf20e317c8efa4f21f337f4073af898f
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 8875f680c8bb83c2375d6fe767f376cbb35d5a0a
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68260745"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69510670"
 ---
 # <a name="getting-started-with-azure-storage-azure-webjob-projects"></a>Prise en main d’Azure Storage (projets de tâche web Azure)
 [!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
