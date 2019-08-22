@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/05/2019
 ms.author: magoedte
-ms.openlocfilehash: c6fa4df1fb2fc7559f706d81621ea198f5ca7cdc
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 59e5bbaf8deccdd8218e9c5590266070ed3b5ebb
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68881424"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624335"
 ---
 # <a name="manage-log-data-and-workspaces-in-azure-monitor"></a>Gérer les données du journal et les espaces de travail dans Azure Monitor
 
@@ -44,12 +44,12 @@ Vous pouvez afficher le mode de contrôle d’accès configuré sur un espace de
 
 ### <a name="configure-from-the-azure-portal"></a>Configurer à partir du portail Azure
 
-Vous pouvez afficher le mode de contrôle d’accès à l’espace de travail actuel dans la page **Vue d’ensemble** de l’espace de travail, dans le menu **Espace de travail Log Analytics**. 
+Vous pouvez afficher le mode de contrôle d’accès à l’espace de travail actuel dans la page **Vue d’ensemble** de l’espace de travail, dans le menu **Espace de travail Log Analytics**.
 
 ![Afficher le mode de contrôle d’accès à l’espace de travail](media/manage-access/view-access-control-mode.png)
 
 1. Connectez-vous au portail Azure sur [https://portal.azure.com](https://portal.azure.com).
-1. Dans le portail Azure, sélectionnez Espaces de travail Log Analytics > votre espace de travail.  
+1. Dans le portail Azure, sélectionnez Espaces de travail Log Analytics > votre espace de travail.
 
 Vous pouvez changer ce paramètre dans la page **Propriétés** de l’espace de travail. La possibilité de changer le paramètre est désactivée si vous n’êtes pas autorisé à configurer l’espace de travail.
 
@@ -60,7 +60,7 @@ Vous pouvez changer ce paramètre dans la page **Propriétés** de l’espace de
 Pour examiner le mode de contrôle d’accès pour tous les espaces de travail dans l’abonnement, utilisez la commande suivante :
 
 ```powershell
-Get-AzResource -ResourceType Microsoft.OperationalInsights/workspaces -ExpandProperties | foreach {$_.Name + ": " + $_.Properties.features.enableLogAccessUsingOnlyResourcePermissions} 
+Get-AzResource -ResourceType Microsoft.OperationalInsights/workspaces -ExpandProperties | foreach {$_.Name + ": " + $_.Properties.features.enableLogAccessUsingOnlyResourcePermissions}
 ```
 
 La sortie doit ressembler à ce qui suit :
@@ -70,10 +70,10 @@ DefaultWorkspace38917: True
 DefaultWorkspace21532: False
 ```
 
-La valeur `False` indique que l’espace de travail est configuré avec le mode d’accès en fonction du contexte de l’espace de travail.  La valeur `True` indique que l’espace de travail est configuré avec le mode d’accès en fonction du contexte de la ressource. 
+La valeur `False` indique que l’espace de travail est configuré avec le mode d’accès en fonction du contexte de l’espace de travail.  La valeur `True` indique que l’espace de travail est configuré avec le mode d’accès en fonction du contexte de la ressource.
 
->[!NOTE]
->Si un espace de travail est retourné sans valeur booléenne et est vide, cela correspond également aux résultats d’une valeur `False`.
+> [!NOTE]
+> Si un espace de travail est retourné sans valeur booléenne et est vide, cela correspond également aux résultats d’une valeur `False`.
 >
 
 Utilisez le script suivant pour définir le mode de contrôle d’accès pour un espace de travail spécifique sur l’autorisation en fonction du contexte de la ressource :
@@ -81,9 +81,9 @@ Utilisez le script suivant pour définir le mode de contrôle d’accès pour un
 ```powershell
 $WSName = "my-workspace"
 $Workspace = Get-AzResource -Name $WSName -ExpandProperties
-if ($Workspace.Properties.features.enableLogAccessUsingOnlyResourcePermissions -eq $null) 
+if ($Workspace.Properties.features.enableLogAccessUsingOnlyResourcePermissions -eq $null)
     { $Workspace.Properties.features | Add-Member enableLogAccessUsingOnlyResourcePermissions $true -Force }
-else 
+else
     { $Workspace.Properties.features.enableLogAccessUsingOnlyResourcePermissions = $true }
 Set-AzResource -ResourceId $Workspace.ResourceId -Properties $Workspace.Properties -Force
 ```
@@ -92,9 +92,9 @@ Utilisez le script suivant pour définir le mode de contrôle d’accès pour to
 
 ```powershell
 Get-AzResource -ResourceType Microsoft.OperationalInsights/workspaces -ExpandProperties | foreach {
-if ($_.Properties.features.enableLogAccessUsingOnlyResourcePermissions -eq $null) 
+if ($_.Properties.features.enableLogAccessUsingOnlyResourcePermissions -eq $null)
     { $_.Properties.features | Add-Member enableLogAccessUsingOnlyResourcePermissions $true -Force }
-else 
+else
     { $_.Properties.features.enableLogAccessUsingOnlyResourcePermissions = $true }
 Set-AzResource -ResourceId $_.ResourceId -Properties $_.Properties -Force
 ```
@@ -159,10 +159,10 @@ Les membres du rôle *Contributeur Log Analytics* peuvent effectuer les opérati
 * Ajout et suppression de solutions de gestion
 
     > [!NOTE]
-    > Pour réussir ces deux actions, cette autorisation doit être accordée au niveau du groupe de ressources ou de l’abonnement.  
+    > Pour réussir ces deux actions, cette autorisation doit être accordée au niveau du groupe de ressources ou de l’abonnement.
 
 * Lecture des clés de compte de stockage
-* Configuration de la collecte de journaux d’activité à partir du stockage Azure  
+* Configuration de la collecte de journaux d’activité à partir du stockage Azure
 * Modification des paramètres d’analyse pour les ressources Azure, notamment :
   * Ajout de l’extension de machine virtuelle à des machines virtuelles
   * Configuration des diagnostics Azure sur toutes les ressources Azure
@@ -202,7 +202,7 @@ Quand les utilisateurs interrogent les journaux à partir d’un espace de trava
 | Autorisation | Description |
 | ---------- | ----------- |
 | `Microsoft.Insights/logs/<tableName>/read`<br><br>Exemples :<br>`Microsoft.Insights/logs/*/read`<br>`Microsoft.Insights/logs/Heartbeat/read` | Capacité d’afficher toutes les données de journal pour la ressource.  |
-| `Microsoft.Insights/diagnosticSettings/write ` | Possibilité de configurer les paramètres de diagnostic pour autoriser la configuration des journaux pour cette ressource. |
+| `Microsoft.Insights/diagnosticSettings/write` | Possibilité de configurer les paramètres de diagnostic pour autoriser la configuration des journaux pour cette ressource. |
 
 L’autorisation `/read` est généralement accordée à partir d’un rôle disposant d’autorisations _\*/read ou_  _\*_ tel que les rôles prédéfinis [Lecteur](../../role-based-access-control/built-in-roles.md#reader) et [Contributeur](../../role-based-access-control/built-in-roles.md#contributor). Notez que les rôles personnalisés qui incluent des actions spécifiques ou des rôles intégrés dédiés peuvent ne pas inclure cette autorisation.
 

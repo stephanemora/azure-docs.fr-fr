@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/09/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 4ea983255463080592181cda321ef6b6d1ff147f
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: be391f2aa9ee5d94ffc36a6e03d3af8881346520
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932355"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69636549"
 ---
 # <a name="azure-app-service-plan-overview"></a>Présentation des plans d’Azure App Service
 
@@ -100,7 +100,7 @@ Par exemple, vous pouvez commencer par tester votre application web dans un plan
 
 Il en va de même dans l’autre sens. Quand vous estimez que vous n’avez plus besoin des fonctions ou fonctionnalités d’un niveau supérieur, vous pouvez passer à un niveau inférieur et économiser ainsi de l’argent.
 
-Pour en savoir plus sur la mise à l’échelle du plan App Service, consultez [Mise à l’échelle d’une application web dans Microsoft Azure App Service](web-sites-scale.md).
+Pour en savoir plus sur la mise à l’échelle du plan App Service, consultez [Mise à l’échelle d’une application web dans Microsoft Azure App Service](manage-scale-up.md).
 
 Si votre application est dans le même plan App Service que d’autres applications, vous souhaiterez probablement améliorer le niveau de performance de l’application en isolant les ressources de calcul. Pour ce faire, vous pouvez déplacer l’application vers un plan App Service distinct. Pour plus d’informations, consultez [Déplacer une application vers un autre plan App Service](app-service-plan-manage.md#move).
 

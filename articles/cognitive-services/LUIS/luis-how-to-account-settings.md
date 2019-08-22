@@ -26,7 +26,7 @@ Les deux informations clés d’un compte LUIS sont le compte d’utilisateur et
 
 Sur la page **Paramètres**, cette unique clé de création régionale vous permet d’éditer toutes vos applications depuis le portail [LUIS](luis-reference-regions.md), ainsi que vos [API de création](https://go.microsoft.com/fwlink/?linkid=2092087). Chaque mois, pour des raisons pratiques, la clé de création est autorisée à effectuer un nombre [limité](luis-boundaries.md) de requêtes de point de terminaison.
 
-[Page Paramètres LUIS![](./media/luis-how-to-account-settings/account-settings.png)](./media/luis-how-to-account-settings/account-settings.png#lightbox)
+[![Page Paramètres LUIS](./media/luis-how-to-account-settings/account-settings.png)](./media/luis-how-to-account-settings/account-settings.png#lightbox)
 
 La clé de création peut être utilisée pour chacune de vos applications ainsi que pour toutes les applications que vous avez listées comme collaborateur.
 

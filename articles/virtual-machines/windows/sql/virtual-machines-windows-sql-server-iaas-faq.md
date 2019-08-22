@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/05/2019
 ms.author: mathoma
-ms.openlocfilehash: 80c90ceb0e2edac47d67b99e7fb7f03c1ab82fb1
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 5b3c65361f45c8ad5bdf3adf89dc3002c229d0d0
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68882352"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69650404"
 ---
 # <a name="frequently-asked-questions-for-sql-server-running-on-windows-virtual-machines-in-azure"></a>Forum aux questions (FAQ) relatives à l’exécution de SQL Server sur les machines virtuelles Windows dans Azure
 
@@ -87,7 +87,7 @@ Cet article fournit des réponses à certaines des questions les plus courantes 
 
    Pour disposer d’une licence passive gratuite pour un groupe de disponibilité secondaire de secours ou une instance mise en cluster de basculement, vous devez respecter tous les critères suivants, comme indiquer dans le [fichier PDF du guide de gestion des licences](https://download.microsoft.com/download/7/8/C/78CDF005-97C1-4129-926B-CE4A6FE92CF5/SQL_Server_2017_Licensing_guide.pdf) :
 
-   1. Vous disposez de [License Mobility](https://www.microsoft.com/licensing/licensing-programs/software-assurance-license-mobility?activetab=software-assurance-license-mobility-pivot:primaryr2) via [Software Assurance](https://www.microsoft.comlicensing/licensing-programs/software-assurance-default?activetab=software-assurance-default-pivot%3aprimaryr3). 
+   1. Vous disposez de [License Mobility](https://www.microsoft.com/licensing/licensing-programs/software-assurance-license-mobility?activetab=software-assurance-license-mobility-pivot:primaryr2) via [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default?activetab=software-assurance-default-pivot%3aprimaryr3). 
    1. L’instance SQL Server passive ne fournit pas de données SQL Server aux clients ni n’exécute de charges de travail SQL Server actives. Elle est utilisée uniquement pour la synchronisation avec le serveur principal et maintient la base de données passive dans un état de secours semi-automatique. Si elle fournit des données, telles que des rapports, à des clients exécutant des charges de travail SQL Server actives ou effectuant n’importe quel « travail », comme des sauvegardes supplémentaires à partir du serveur secondaire, il doit s’agir d’une instance SQL Server sous licence payante. 
    1. La licence SQL Server active est couverte par Software Assurance et n’autorise qu’**une seule** instance SQL Server secondaire passive avec la même quantité de calcul que le serveur actif sous licence. 
    1. La machine virtuelle SQL Server secondaire utilise le [modèle de licence](virtual-machines-windows-sql-ahb.md) BYOL (apportez votre propre licence) ou Azure Hybrid Benefit (AHB). 

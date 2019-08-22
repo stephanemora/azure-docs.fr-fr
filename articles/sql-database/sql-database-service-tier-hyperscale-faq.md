@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/06/2019
-ms.openlocfilehash: 94894126be98f0d3d4d404d97d0a4a39fff2e665
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 951d5bb10fbeeac090a1edb510b7214855477eac
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68847407"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69515357"
 ---
 # <a name="faq-about-azure-sql-hyperscale-databases"></a>Questions fréquentes (FAQ) sur les bases de données SQL Azure Hyperscale
 
@@ -48,12 +48,12 @@ Les niveaux de service basés sur des vCore diffèrent principalement en disponi
 | **Idéal pour** |Tous|  La plupart des charges de travail d’entreprise. Offre des options de calcul et de stockage équilibrées et économiques. | Applications de données avec des besoins en capacité pour des données volumineuses, et la possibilité de mettre à l’échelle automatiquement le stockage et de mettre à l’échelle la capacité de calcul de façon fluide. | Applications OLTP avec des débits de transactions élevés et la latence des E/S la plus faible. Offre la meilleure résilience aux défaillances grâce à l’utilisation de plusieurs réplicas isolés.|
 |  **Type de ressource** ||Base de données unique / pool élastique / instance managée | Base de données unique | Base de données unique / pool élastique / instance managée |
 | **Taille de calcul**|Base de données unique / pool élastique * | 1 à 80 cœurs virtuels | 1 à 80 cœurs virtuels* | 1 à 80 cœurs virtuels |
-| |Instance managée | 8, 16, 24, 32, 40, 64, 80 cœurs virtuels | N/A | 8, 16, 24, 32, 40, 64, 80 cœurs virtuels |
+| |Instance gérée | 8, 16, 24, 32, 40, 64, 80 cœurs virtuels | N/A | 8, 16, 24, 32, 40, 64, 80 cœurs virtuels |
 | **Type de stockage** | Tous |Stockage distant Premium (par instance) | Stockage découplé avec cache disque SSD local (par instance) | Stockage SSD local ultra-rapide (par instance) |
 | **Taille de stockage** | Base de données unique / pool élastique | 5 Go - 4 To | Jusqu’à 100 To | 5 Go - 4 To |
-| | Instance managée  | 32 Go - 8 To | N/A | 32 Go - 4 To |
+| | Instance gérée  | 32 Go - 8 To | N/A | 32 Go - 4 To |
 | **Débit d’E/S** | Base de données unique** | 500 IOPS par vCore avec 7000 IOPS au maximum | L’architecture hyperscale est une architecture à plusieurs niveaux avec une mise en cache sur plusieurs niveaux. L’efficacité des IOPS dépend de la charge de travail. | 5 000 IOPS avec un maximum de 200 000 IOPS|
-| | Instance managée | Dépend de la taille de fichier | N/A | instance managée : Dépend de la taille de fichier|
+| | Instance gérée | Dépend de la taille de fichier | N/A | instance managée : Dépend de la taille de fichier|
 |**Disponibilité**|Tous|1 réplica, pas d’échelle lecture, pas de cache local | Plusieurs réplicas, jusqu’à 15 échelles lecture, cache local partiel | 3 réplicas, 1 échelle lecture, haute disponibilité redondante interzone, cache local complet |
 |**Sauvegardes**|Tous|RA-GRS, 7 à 35 jours (7 jours par défaut)| RA-GRS, 7 jours, récupération jusqu’à une date et heure (PITR) à durée constante | RA-GRS, 7 à 35 jours (7 jours par défaut) |
 
@@ -131,7 +131,7 @@ Pas pour l’instant, mais vous pouvez faire descendre en puissance votre calcul
 
 ### <a name="can-i-provision-a-compute-with-extra-ram-for-my-memory-intensive-workload"></a>Puis-je provisionner une capacité de calcul avec de la RAM supplémentaire pour ma charge de travail utilisant beaucoup de mémoire ?
 
-Non. Pour obtenir davantage de RAM, vous devez effectuer une mise à niveau vers une taille de calcul plus grande. Pour plus d’informations, consultez [Tailles de stockage et taille de calcul Hyperscale](sql-database-vcore-resource-limits-single-databases.md#hyperscale-service-tier).
+Non. Pour obtenir davantage de RAM, vous devez effectuer une mise à niveau vers une taille de calcul plus grande. Pour plus d’informations, consultez [Tailles de stockage et taille de calcul Hyperscale](sql-database-vcore-resource-limits-single-databases.md#hyperscale-service-tier-for-provisioned-compute).
 
 ### <a name="can-i-provision-multiple-compute-nodes-of-different-sizes"></a>Puis-je provisionner plusieurs nœuds de calcul de tailles différentes ?
 

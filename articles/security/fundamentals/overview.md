@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: e87fc74b3fa989471f9074a33fc66d8cb8250aa0
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 8e8b4ed3e101a13d369fff7b47ecbb00f8c04a52
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68927836"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69899804"
 ---
 # <a name="introduction-to-azure-security"></a>Présentation d’Azure Security
 ## <a name="overview"></a>Vue d'ensemble
@@ -387,7 +387,7 @@ Microsoft a recours à plusieurs technologies et pratiques de sécurité dans se
 - Le [proxy d’application Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-application-proxy-get-started/) offre une authentification unique (SSO) et un accès à distance sécurisé pour les applications web hébergées en local.
 
 ## <a name="next-steps"></a>Étapes suivantes
-- [Prise en main de la sécurité de Microsoft Azure](./https://docs.microsoft.com/azure/security)
+- [Prise en main de la sécurité de Microsoft Azure](https://docs.microsoft.com/azure/security)
 
 Services et fonctionnalités Azure que vous pouvez utiliser pour sécuriser vos services et données dans Azure
 
