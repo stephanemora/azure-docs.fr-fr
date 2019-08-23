@@ -91,7 +91,7 @@ Pour copier des données de Presto, affectez la valeur **PrestoObject** à la pr
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type du jeu de données doit être définie sur : **PrestoObject** | OUI |
+| type | La propriété type du jeu de données doit être définie sur : **PrestoObject** | OUI |
 | tableName | Nom de la table. | Non (si « query » dans la source de l’activité est spécifié) |
 
 **Exemple**
