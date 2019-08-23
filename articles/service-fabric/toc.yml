@@ -356,6 +356,8 @@
       href: service-fabric-concept-resource-model.md
     - name: Identité managée (préversion)
       href: concepts-managed-identity.md
+    - name: Configurer les informations d’identification d’un référentiel de conteneur
+      href: configure-container-repository-credentials.md
 - name: Guides pratiques
   items:
     - name: Configuration de l'environnement de développement

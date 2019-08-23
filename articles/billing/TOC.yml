@@ -179,12 +179,14 @@
   items:
     - name: Aucun abonnement trouvé
       href: billing-no-subscriptions-found.md
+    - name: Problèmes de paiement
+      href: billing-troubleshoot-azure-payment-issues.md
     - name: Carte refusée
-      href: 'https://support.microsoft.com/en-us/help/4042960'
+      href: billing-troubleshoot-declined-card.md
     - name: Problèmes d’inscription
-      href: 'https://support.microsoft.com/en-us/help/4042959'
-    - name: Problèmes de connexion
-      href: 'https://support.microsoft.com/en-us/help/4042961'
+      href: billing-troubleshoot-azure-sign-up.md
+    - name: Problèmes de connexion à l’abonnement
+      href: billing-troubleshoot-sign-in-issue.md
     - name: Désactivation de l’affichage des coûts d’entreprise
       href: billing-enterprise-mgmt-grp-troubleshoot-cost-view.md
     - name: Contacter le support technique

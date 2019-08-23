@@ -5,14 +5,15 @@ author: DCtheGeek
 manager: carmonm
 ms.service: blueprints
 ms.topic: sample
-ms.date: 06/26/2019
+ms.date: 08/20/2019
 ms.author: dacoulte
-ms.openlocfilehash: e1bafdaa2883afb44aa3c609c0ccba0ce9d0a4ab
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 884777bce761f6b16581a28038bf9a28ce6a3801
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934159"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69650521"
 ---
 # <a name="azure-blueprints-samples"></a>Exemples Azure Blueprints
 
@@ -22,14 +23,26 @@ Le tableau suivant inclut des liens vers des exemples pour Azure Blueprints. Cha
 
 |  |  |
 |---------|---------|
-|[IRS 1075](./irs-1075/index.md)| Propose des garde-fous pour la conformité à la norme IRS 1075.|
+| [IRS 1075](./irs-1075/index.md) | Propose des garde-fous pour la conformité à la norme IRS 1075.|
 | [ISO 27001](./iso27001/index.md) | Propose des garde-fous pour la conformité à la norme ISO 27001. |
 | [Services partagés ISO 27001](./iso27001-shared/index.md) | Fournit un ensemble de modèles d’infrastructure conformes et de garde-fou stratégiques qui facilitent l’attestation ISO 27001. |
 | [Charge de travail App Service Environment/SQL Database ISO 27001](./iso27001-ase-sql-workload/index.md) | Fournit une infrastructure supplémentaire à l’exemple de blueprint [Services partagés ISO 27001](./iso27001-shared/index.md). |
 | [NIST SP 800-53 R4](./nist-sp-800-53-rev4/index.md) | Propose des rails de sécurité pour la conformité à NIST SP 800-53 R4. |
 | [PCI-DSS v3.2.1](./pci-dss-3.2.1/index.md) | Fournit un ensemble de stratégies pour la mise en conformité à PCI-DSS v3.2.1. |
 | [Gouvernance de UK OFFICIAL et de UK NHS](./ukofficial/index.md) | Fournit un ensemble de modèles d’infrastructure conformes et de garde-fous stratégiques qui facilitent l’attestation UK OFFICIAL et UK NHS. |
+| [Base du framework d’adoption du cloud](./caf-foundation/index.md) | Fournit un ensemble de contrôles destinés à vous aider à gérer vos ressources cloud en adéquation avec le [Framework d’adoption de Microsoft Cloud pour Azure](/azure/architecture/cloud-adoption/governance/journeys/index.md). |
+| [Zone d’accueil de migration du framework d’adoption du cloud](./caf-migrate-landing-zone/index.md) | Fournit un ensemble de contrôles destinés à vous aider à configurer la migration de votre première charge de travail et à gérer vos ressources cloud en adéquation avec le [Framework d’adoption de Microsoft Cloud pour Azure](/azure/architecture/cloud-adoption/migrate/index.md). |
 
+## <a name="samples-strategy"></a>Stratégie d’exemples
+
+![Stratégie d’exemples de blueprint](../media/blueprint-samples-strategy.png)
+
+Les blueprints de base et de zone d’accueil de migration du framework d’adoption du cloud partent du principe que le client prépare un abonnement propre existant pour la migration de ressources et charges de travail locales vers Azure
+(régions A et B dans la figure ci-dessus).  
+
+Vous avez la possibilité d’effectuer une itération sur les exemples de blueprint et de rechercher des modèles de personnalisations qu’un client applique. Vous avez également la possibilité d’aborder de manière proactive des blueprints spécifiques d’un secteur, par exemple, ceux des services financiers et du commerce électronique (extrémité supérieure de la région B). De même, nous envisageons de créer des blueprints répondant à des considérations architecturales complexes, telles que des abonnements multiples, la haute disponibilité, des ressources interrégionales et des clients qui appliquent des contrôles à des abonnements et ressources existants (régions C et D).
+
+Il existe des exemples de blueprints qui répondent à un scénario de client où les exigences de conformité et les complexités architecturales sont élevées (région E de la figure ci-dessus). La région F ci-dessus sera utilisée par les clients et partenaires qui tirent parti des exemples de blueprints et les personnalisent pour leurs besoins spécifiques.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

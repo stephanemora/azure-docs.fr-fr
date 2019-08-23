@@ -66,7 +66,7 @@
               href: create-nodes.md
             - name: Supprimer des nœuds
               href: delete-nodes.md
-        - name: Gérer les ressources de cloud privé
+        - name: Gérer des ressources de cloud privé
           items:
             - name: Créer un cloud privé
               href: create-private-cloud.md
@@ -84,7 +84,7 @@
               href: delete-private-cloud.md
         - name: Superviser l’activité CloudSimple
           href: monitor-activity.md
-        - name: Configurer le réseau de cloud privé
+        - name: Configurer un réseau de cloud privé
           items:
             - name: Créer et gérer des réseaux locaux virtuels et des sous-réseaux
               href: create-vlan-subnet.md
@@ -104,8 +104,8 @@
               href: account.md
             - name: Afficher la liste des utilisateurs
               href: users.md
-            - name: Configurer une connexion entre le réseau virtuel et le cloud privé
-              href: 'https://docs.azure.cloudsimple.com/virtual-network-connection/'
+            - name: Configurer une connexion entre un réseau virtuel et le cloud privé
+              href: virtual-network-connection.md
             - name: Modifier votre profil utilisateur
               href: 'https://docs.azure.cloudsimple.com/editprofile/'
         - name: Configurer des machines virtuelles VMware pour le cloud privé
@@ -124,8 +124,8 @@
               href: escalate-privileges.md
             - name: Configurer le DNS et le DHCP des charges de travail
               href: dns-dhcp-setup.md
-            - name: "VPN de couche\_2 NSX pour la migration"
-              href: 'https://docs.azure.cloudsimple.com/migrate-workloads/#migrating-vms-using-nsx-layer-2-vpn'
+            - name: Migrer des charges de travail à l’aide de réseaux étendus de couche 2
+              href: migration-layer-2-vpn.md
         - name: Réseau de cloud privé
           items:
             - name: Connexion VPN entre un site local et un cloud privé
@@ -142,27 +142,31 @@
               href: set-vcenter-identity.md
             - name: Azure Application Gateway avec des machines virtuelles VMware
               href: azure-application-gateway.md
-            - name: Configurer le serveur vCenter de cloud privé comme point de terminaison Automation vRealize
+            - name: Configurer un serveur vCenter de cloud privé comme point de terminaison d’automatisation vRealize
               href: configure-server-vrealize-automation-endpoint.md
             - name: Migrer des machines virtuelles de charge de travail vers un cloud privé
-              href: 'https://docs.azure.cloudsimple.com/migrate-workloads/'
+              href: migrate-workloads.md
             - name: Garantir la haute disponibilité des applications dans VMware sur Azure
               href: 'https://docs.azure.cloudsimple.com/ensuring-high-availability/'
+            - name: Choisir une solution d’équilibrage de charge
+              href: load-balancers.md
         - name: Écosystème VMware
           items:
             - name: Sauvegarder des machines virtuelles de charge de travail
               href: backup-workloads-veeam.md
+            - name: Configurer un cloud privé en tant que site de récupération d’urgence à l’aide de Zerto
+              href: disaster-recovery-zerto.md
             - name: Guide de la solution VMware Horizon
               href: 'https://docs.azure.cloudsimple.com/horizon-guide/'
             - name: Configurer le chiffrement vSAN pour votre cloud privé
               href: vsan-encryption.md
-            - name: Déploiement d’Oracle RAC sur le cloud privé CloudSimple
-              href: 'https://docs.azure.cloudsimple.com/oracle-rac/'
+            - name: Optimiser votre cloud privé pour un RAC Oracle
+              href: oracle-real-application-clusters.md
         - name: Intégration d’Azure Core
           items:
             - name: Source d’identité Azure AD sur le serveur vCenter de cloud privé
               href: azure-ad.md
             - name: Connexion au réseau local avec ExpressRoute
-              href: 'https://docs.azure.cloudsimple.com/on-premises-connection/'
+              href: on-premises-connection.md
             - name: Connexion au réseau virtuel Azure avec ExpressRoute
-              href: 'https://docs.azure.cloudsimple.com/azure-expressroute-connection/'
+              href: azure-expressroute-connection.md

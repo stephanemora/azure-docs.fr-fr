@@ -34,8 +34,10 @@
       href: create-host-pools-powershell.md
     - name: Appliquer une licence Windows aux hôtes de session Windows Virtual Desktop
       href: apply-windows-license.md
-    - name: Configurer un partage de profil utilisateur pour un pool d’hôtes
+    - name: Créer un conteneur de profils pour un pool hôte à l’aide d’un partage de fichiers
       href: create-host-pools-user-profile.md
+    - name: Créer un conteneur de profils pour un pool hôte à l’aide d’Azure NetApp Files
+      href: create-fslogix-profile-container.md
     - name: Configurer la méthode d’équilibrage de charge de Windows Virtual Desktop
       href: configure-host-pool-load-balancing.md
     - name: Préparer et personnaliser une image de disque dur virtuel principale
