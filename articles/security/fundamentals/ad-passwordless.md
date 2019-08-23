@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: security
 ms.subservice: security-fundamentals
 ms.workload: identity
-ms.openlocfilehash: 38c850f167287fe5e1a444c8670e359c4d2b6b90
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: e702a5921e785100c5971057d1652db9aab26acf
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934830"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69899952"
 ---
 # <a name="a-world-without-passwords-with-azure-active-directory"></a>Un monde sans mot de passe avec Azure Active Directory
 
@@ -226,7 +226,7 @@ Nous recommandons également à chaque organisation de créer un protocole à l'
 
 #### <a name="user-sets-up-fido2-security-key"></a>L'utilisateur configure la clé de sécurité FIDO2
 
-Les administrateurs peuvent [approvisionner manuellement les clés](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-passwordless-enable) et les distribuer aux utilisateurs finaux, mais [Intune](https://docs.microsoft.com/intune/windows-enrollment-methods) prend en charge l'approvisionnement et l'activation du fournisseur d'informations d'identification FIDO2 sur l'écran de verrouillage Windows 10. Les administrateurs doivent également utiliser le [portail Azure](https://portal.azure.com/) pour activer les appareils à jeton matériel en tant que méthode d’authentification sans mot de passe.
+Les administrateurs peuvent [approvisionner manuellement les clés](https://docs.microsoft.com/azure/active-directory/authentication/concept-authentication-passwordless) et les distribuer aux utilisateurs finaux, mais [Intune](https://docs.microsoft.com/intune/windows-enrollment-methods) prend en charge l'approvisionnement et l'activation du fournisseur d'informations d'identification FIDO2 sur l'écran de verrouillage Windows 10. Les administrateurs doivent également utiliser le [portail Azure](https://portal.azure.com/) pour activer les appareils à jeton matériel en tant que méthode d’authentification sans mot de passe.
 
 Le déploiement des clés de sécurité FIDO2 implique aussi que les utilisateurs inscrivent leurs clés à l'aide de l'[inscription combinée](../../active-directory/authentication/concept-registration-mfa-sspr-combined.md). Avec l’inscription combinée, les utilisateurs s’inscrivent une seule fois et bénéficient des avantages de l'authentification multifacteur et de la réinitialisation de mot de passe en libre-service (SSPR).
 
@@ -343,4 +343,4 @@ L'adoption de technologies d'authentification multifacteur modernes, telles que 
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Présentation de [l'authentification sans mot de passe](../../active-directory/authentication/concept-authentication-passwordless.md)
-* [Comment activer l'authentification sans mot de passe dans Azure AD](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-passwordless-enable)
+* [Comment activer l'authentification sans mot de passe dans Azure AD](https://docs.microsoft.com/azure/active-directory/authentication/concept-authentication-passwordless)

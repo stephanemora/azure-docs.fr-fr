@@ -6,12 +6,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 08/07/2019
 ms.author: rogarana
-ms.openlocfilehash: addb97d71da1ceac8717ae77204c87a8197dac86
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 6cdee8f1ad59962822e9e0394547c395c13e4bd8
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68935166"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69611778"
 ---
 # <a name="overview-of-azure-files-azure-active-directory-domain-service-azure-ad-ds-authentication-support-for-smb-access"></a>Vue d’ensemble de la prise en charge de l’authentification Azure Active Directory Domaine Service (Azure AD DS) d’Azure Files pour l’accès SMB
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
@@ -59,7 +59,7 @@ Quand une identité associée à une application s’exécutant sur une machine 
 ### <a name="enable-azure-ad-domain-service-authentication-for-smb-access"></a>Activer l’authentification Azure AD Domain Service pour l’accès SMB
 Vous pouvez activer l’authentification Azure AD Domain Service pour Azure Files sur vos comptes de stockage nouveaux et existants, créés après le 24 septembre 2018. 
 
-Avant d’activer cette fonctionnalité, vérifiez qu’Azure AD Domain Services est déployé pour le locataire Azure AD principal auquel est associé votre compte de stockage. Si vous n’avez pas encore configuré Azure AD Domain Services, suivez les instructions pas à pas fournies dans [Activer Azure Active Directory Domain Services à l’aide du portail Azure](../../active-directory-domain-services/create-instance.md).
+Avant d’activer cette fonctionnalité, vérifiez qu’Azure AD Domain Services est déployé pour le locataire Azure AD principal auquel est associé votre compte de stockage. Si vous n’avez pas encore configuré Azure AD Domain Services, suivez les instructions pas à pas fournies dans [Activer Azure Active Directory Domain Services à l’aide du portail Azure](../../active-directory-domain-services/tutorial-create-instance.md).
 
 Le déploiement d’Azure AD Domain Services prend généralement 10 à 15 minutes. Une fois Azure AD Domain Services déployé, vous pouvez activer l’authentification Azure AD sur SMB pour Azure Files. Pour plus d’informations, consultez [Activer l’authentification Azure Active Directory Domain Service sur SMB pour Azure Files](storage-files-active-directory-enable.md). 
 

@@ -112,7 +112,7 @@ Les propriétés prises en charge pour le service lié Dynamics sont les suivant
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type doit être définie sur **Dynamics**. | OUI |
+| type | La propriété type doit être définie sur **Dynamics**. | OUI |
 | deploymentType | Type de déploiement de l’instance Dynamics. Cela doit être **« OnPremisesWithIfd »** pour Dynamics local avec IFD.| OUI |
 | hostName | Nom d’hôte du serveur Dynamics local. | OUI |
 | port | Port du serveur Dynamics local. | Non, la valeur par défaut est 443 |
@@ -158,7 +158,7 @@ Pour copier des données depuis et vers Dynamics, définissez la propriété de 
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété de type du jeu de données doit être définie sur **DynamicsEntity**. |OUI |
+| type | La propriété de type du jeu de données doit être définie sur **DynamicsEntity**. |OUI |
 | entityName | Nom logique de l’entité à récupérer. | Non pour la source (si « query » est spécifié dans la source de l’activité) ; Oui pour le récepteur |
 
 > [!IMPORTANT]
@@ -212,7 +212,7 @@ Pour copier des données de Dynamics, définissez le type de source dans l’act
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété de type de la source de l’activité de copie doit être définie sur **DynamicsSource**. | OUI |
+| type | La propriété de type de la source de l’activité de copie doit être définie sur **DynamicsSource**. | OUI |
 | query | FetchXML est un langage de requête propriétaire qui est utilisé dans Dynamics (en ligne et local). Consultez l’exemple qui suit. Pour en savoir plus, consultez [Générer des requêtes avec FetchXML](https://msdn.microsoft.com/library/gg328332.aspx). | Non (si « entityName » est spécifié dans le jeu de données) |
 
 >[!NOTE]
@@ -276,7 +276,7 @@ Pour copier des données vers Dynamics, définissez le type de récepteur dans l
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété de type du récepteur d’activité de copie doit être définie sur **DynamicsSink**. | OUI |
+| type | La propriété de type du récepteur d’activité de copie doit être définie sur **DynamicsSink**. | OUI |
 | writeBehavior | Comportement d’écriture de l’opération.<br/>La valeur autorisée est **« Upsert »** . | OUI |
 | writeBatchSize | Nombre de lignes de données écrites dans Dynamics pour chaque lot. | Non (valeur par défaut : 10) |
 | ignoreNullValues | Indique si les valeurs Null des données d’entrée (à l’exception des champs clés) doivent être ignorées pendant une opération d’écriture.<br/>Les valeurs autorisées sont **true** et **false**.<br>- **True** : Laisser inchangées les données dans l’objet de destination quand vous effectuez une opération upsert/mise à jour. Insérer une valeur définie par défaut lorsque vous effectuez une opération insert.<br/>- **False** : Mettre à jour les données dans l’objet de destination quand vous effectuez une opération upsert/mise à jour. Insérer une valeur NULL lorsque vous effectuez une opération insert. | Non (valeur par défaut : false) |

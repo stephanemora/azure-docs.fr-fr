@@ -15,12 +15,12 @@ ms.date: 08/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 4ea0ceed80875018ee4f6e4bbcdc2548a232e9e0
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 09551eb2620349fa2445c1da3a7e0d66062ebaf0
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68989956"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69899733"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Rôles intégrés pour les ressources Azure
 
@@ -139,7 +139,7 @@ Le tableau ci-après fournit une brève description de chaque rôle intégré. C
 | [Contributeur aux données Blob du stockage](#storage-blob-data-contributor) | Lire, écrire et supprimer des conteneurs et objets blob du stockage Azure. Pour savoir quelles actions sont requises pour une opération de données spécifique, consultez [Autorisations pour appeler les opérations de données d’objet blob et de file d’attente](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). |
 | [Propriétaire des données Blob du stockage](#storage-blob-data-owner) | Fournit un accès total aux conteneurs d’objets blob et aux données du Stockage Azure, notamment l’attribution du contrôle d’accès POSIX. Pour savoir quelles actions sont requises pour une opération de données spécifique, consultez [Autorisations pour appeler les opérations de données d’objet blob et de file d’attente](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). |
 | [Lecteur des données blob du stockage](#storage-blob-data-reader) | Lire et répertorier des conteneurs et objets blob du stockage Azure. Pour savoir quelles actions sont requises pour une opération de données spécifique, consultez [Autorisations pour appeler les opérations de données d’objet blob et de file d’attente](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). |
-| [Délégation du Stockage Blob](#storage-blob-delegator) | Obtenez la clé de délégation d’utilisateur qui peut être utilisée pour créer une signature d’accès partagé pour un conteneur ou un objet blob signé avec les informations d’identification Azure AD. Pour en savoir plus, consultez [Créer une SAP de délégation d’utilisateur](https://docs.microsoft.com/rest/api/storageservices/create-a-user-delegation-sas). |
+| [Délégation du Stockage Blob](#storage-blob-delegator) | Obtenez la clé de délégation d’utilisateur qui peut être utilisée pour créer une signature d’accès partagé pour un conteneur ou un objet blob signé avec les informations d’identification Azure AD. Pour en savoir plus, consultez [Créer une SAP de délégation d’utilisateur](https://docs.microsoft.com/rest/api/storageservices/create-user-delegation-sas). |
 | [Contributeur de partage SMB de données de fichier de stockage](#storage-file-data-smb-share-contributor) | Permet l'accès en lecture, en écriture et pour suppression dans des partages de fichiers Stockage Azure via SMB |
 | [Contributeur élevé de partage SMB de données de fichier de stockage](#storage-file-data-smb-share-elevated-contributor) | Permet l'accès en lecture, en écriture, pour suppression et pour modification dans des partages de fichiers Stockage Azure via SMB |
 | [Lecteur de partage SMB de données de fichier de stockage](#storage-file-data-smb-share-reader) | Autorise l’accès en lecture au partage de fichiers Azure via SMB |
@@ -2655,7 +2655,7 @@ Le tableau ci-après fournit une brève description de chaque rôle intégré. C
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Obtenez une clé de délégation d’utilisateur qui peut être utilisée pour créer une signature d’accès partagé pour un conteneur ou un objet blob signé avec les informations d’identification Azure AD. Pour en savoir plus, consultez [Créer une SAP de délégation d’utilisateur](https://docs.microsoft.com/rest/api/storageservices/create-a-user-delegation-sas). |
+> | **Description** | Obtenez une clé de délégation d’utilisateur qui peut être utilisée pour créer une signature d’accès partagé pour un conteneur ou un objet blob signé avec les informations d’identification Azure AD. Pour en savoir plus, consultez [Créer une SAP de délégation d’utilisateur](https://docs.microsoft.com/rest/api/storageservices/create-user-delegation-sas). |
 > | **Id** | db58b8e5-c6ad-4a2a-8342-4190687cbf4a |
 > | **Actions** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey/action | Retourne une clé de délégation d’utilisateur pour le service Blob. |

@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/14/2019
 ms.author: helohr
-ms.openlocfilehash: 356b430e0bb9170999398eb8eb68ad31f2d5eeb6
-ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
+ms.openlocfilehash: d5f0dbf916096b608495c0cc1017d919616653d4
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69017252"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69899700"
 ---
 # <a name="deploy-the-diagnostics-tool"></a>Déployer l’outil de diagnostic
 
@@ -106,7 +106,7 @@ Voici comment configurer manuellement les compteurs de performances recommandés
     -   Informations processeur (\*)\\Temps processeur
     -   Retard d’entrée utilisateur par session(\*)\\Délai d’entrée maximal
 
-Découvrez-en plus sur les compteurs de performances sur [Source de données des performances Windows et Linux dans Azure Monitor](/articles/azure-monitor/platform/data-sources-performance-counters.md).
+Découvrez-en plus sur les compteurs de performances sur [Source de données des performances Windows et Linux dans Azure Monitor](/azure/azure-monitor/platform/data-sources-performance-counters).
 
 >[!NOTE]
 >Les compteurs supplémentaires que vous configurez ne s’affichent pas dans l’outil de diagnostic lui-même. Pour qu’il apparaisse dans l’outil de diagnostic, vous devez configurer le fichier config de l’outil. Les instructions pour effectuer cette opération avec l’administration avancé seront disponibles dans GitHub à une date ultérieure.
@@ -189,7 +189,7 @@ Pour définir l’URI de redirection :
 
 Avant de rendre l’outil de diagnostic disponible pour vos utilisateurs, assurez-vous qu’ils disposent des autorisations suivantes :
 
-- Les utilisateurs doivent avoir un accès en lecture pour l’analytique des journaux d'activité. Pour plus d’informations, consultez [Prise en main des rôles, des autorisations et de la sécurité dans Azure Monitor](/articles/azure-monitor/platform/roles-permissions-security.md).
+- Les utilisateurs doivent avoir un accès en lecture pour l’analytique des journaux d'activité. Pour plus d’informations, consultez [Prise en main des rôles, des autorisations et de la sécurité dans Azure Monitor](/azure/azure-monitor/platform/roles-permissions-security).
 -  Les utilisateurs ont également besoin d’un accès en lecture pour l’abonné Windows Virtual Desktop (rôle de lecteur des Services Bureau à distance). Pour plus d’informations, consultez [Accès délégué à la préversion Windows Virtual Desktop ?](delegated-access-virtual-desktop.md).
 
 Vous devez également fournir aux utilisateurs les informations suivantes :
