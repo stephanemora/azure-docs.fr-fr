@@ -331,6 +331,8 @@
       href: automation-deploy-template-runbook.md
     - name: Intégrer Azure Automation à Event Grid et Microsoft Teams
       href: ../event-grid/ensure-tags-exists-on-new-virtual-machines.md?toc=%2fazure%2fautomation%2ftoc.json
+    - name: Créer et planifier un runbook Azure Automation qui démarre/arrête Azure-SSIS Integration Runtime
+      href: '../data-factory/how-to-schedule-azure-ssis-integration-runtime.md#create-and-schedule-azure-automation-runbook-that-startsstops-azure-ssis-ir'
 - name: Surveiller
   items:
     - name: Transférer des données de travaux Azure Automation à Log Analytics

@@ -121,6 +121,8 @@
       href: /javascript/api/overview/azure/containerinstances
     - name: Modèle Resource Manager
       href: /azure/templates/microsoft.containerinstance/containergroups
+    - name: Connecteur
+      href: /connectors/aci
 - name: Ressources
   items:
     - name: Développer vos compétences avec Microsoft Learn

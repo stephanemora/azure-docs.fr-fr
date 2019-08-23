@@ -72,7 +72,7 @@
             - name: Mettre à jour Media Services après la substitution de clés d’accès de stockage
               href: media-services-roll-storage-access-keys.md
             - name: Gérer les ressources de plusieurs comptes de stockage
-              href: meda-services-managing-multiple-storage-accounts.md
+              href: media-services-managing-multiple-storage-accounts.md
         - name: Quotas et limitations
           href: media-services-quotas-and-limitations.md
     - name: Configurer Postman
@@ -94,8 +94,6 @@
               href: media-services-dotnet-upload-files.md
             - name: REST
               href: media-services-rest-upload-files.md
-        - name: Charger des fichiers volumineux avec Aspera
-          href: media-services-upload-files-with-aspera.md
         - name: Charger des fichiers avec StorSimple
           href: media-services-upload-files-from-storsimple.md
         - name: Copier des objets blob existants

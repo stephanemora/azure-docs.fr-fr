@@ -42,7 +42,7 @@
       href: plan-conditional-access.md
     - name: Bonnes pratiques
       href: best-practices.md
-    - name: Modèles de stratégie courants
+    - name: Stratégies d’accès conditionnel courantes
       items:
         - name: Exiger MFA pour les administrateurs
           href: howto-conditional-access-policy-admin-mfa.md
