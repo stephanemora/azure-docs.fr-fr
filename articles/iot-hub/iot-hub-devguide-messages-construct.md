@@ -6,14 +6,14 @@ manager: briz
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 08/13/2018
+ms.date: 08/08/2019
 ms.author: asrastog
-ms.openlocfilehash: e2aafa195fa463a405e2132cd41fada8d6903961
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: dd45c68fb7d7a7226d18dd1afc508b3dbf7b770b
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67450079"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68950453"
 ---
 # <a name="create-and-read-iot-hub-messages"></a>Créer et lire des messages IoT Hub
 
@@ -47,22 +47,28 @@ La messagerie appareil-à-cloud avec IoT Hub présente les caractéristiques sui
 
 Pour plus d’informations sur l’encodage et le décodage des messages envoyés avec différents protocoles, consultez [SDK Azure IoT](iot-hub-devguide-sdks.md).
 
-Le tableau suivant répertorie l’ensemble des propriétés système dans les messages IoT Hub.
+## <a name="system-properties-of-d2c-iot-hub-messages"></a>Propriétés système des messages IoT Hub **D2C**
 
-| Propriété | Description | L’utilisateur est-il définissable ? |
+| Propriété | Description  |L’utilisateur est-il définissable ?|Mot clé de la requête de routage|
+| --- | --- | --- | --- |
+| message-id |Identificateur correspondant au message défini par l’utilisateur utilisé pour les modèles demande-réponse. Format : Une chaîne qui respecte la casse (jusqu’à 128 caractères) de caractères alphanumériques 7 bits ASCII + `{'-', ':', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '$', '''}`.  | OUI | MessageId |
+| iothub-enqueuedtime |Date et heure de réception du message [Appareil-à-cloud](iot-hub-devguide-d2c-guidance.md) par IoT Hub. | Non | EnqueuedTime |
+| user-id |Un ID utilisé pour spécifier l’origine des messages. Lorsque des messages sont générés par IoT Hub, la propriété est définie sur `{iot hub name}`. | OUI | UserId |
+| iothub-connection-device-id |Un ID défini par IoT Hub sur les messages appareil vers cloud. Elle contient la propriété **deviceId** de l’appareil qui a envoyé le message. | Non | deviceId |
+| iothub-connection-auth-generation-id |Un ID défini par IoT Hub sur les messages appareil vers cloud. Elle contient la propriété **generationId** (conformément aux [Propriétés d’identité des appareils](iot-hub-devguide-identity-registry.md#device-identity-properties)) de l’appareil qui a envoyé le message. | Non |DeviceGenerationId |
+| iothub-connection-auth-method |Une méthode d’authentification définie par IoT Hub sur les messages appareil-à-cloud. Cette propriété contient des informations sur la méthode d’authentification utilisée pour authentifier l’appareil qui a envoyé le message.| Non | AuthMethod |
+
+## <a name="system-properties-of-c2d-iot-hub-messages"></a>Propriétés système des messages IoT Hub **C2D**
+
+| Propriété | Description  |L’utilisateur est-il définissable ?|
 | --- | --- | --- |
-| message-id |Identificateur correspondant au message défini par l’utilisateur utilisé pour les modèles demande-réponse. Format : Une chaîne qui respecte la casse (jusqu’à 128 caractères) de caractères alphanumériques 7 bits ASCII + `{'-', ':', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '$', '''}`. | OUI |
-| sequence-number |Un numéro (unique par file d’attente d’appareil) affecté par IoT Hub à chaque message cloud-à-appareil. | Non pour les messages C2D. Oui dans le cas contraire. |
-| to |Une destination spécifiée dans les messages [cloud vers appareil](iot-hub-devguide-c2d-guidance.md) . | Non pour les messages C2D. Oui dans le cas contraire. |
-| absolute-expiry-time |Date et heure d’expiration du message. | OUI |
-| iothub-enqueuedtime |Date et heure de réception du message [Appareil-à-cloud](iot-hub-devguide-d2c-guidance.md) par IoT Hub. | Non pour les messages D2C. Oui dans le cas contraire. |
-| correlation-id |Une propriété de chaîne d’un message de réponse qui contient généralement l'ID du message de la demande dans les modèles demande-réponse. | OUI |
-| user-id |Un ID utilisé pour spécifier l’origine des messages. Lorsque des messages sont générés par IoT Hub, la propriété est définie sur `{iot hub name}`. | Non |
-| iothub-ack |Un générateur de messages de commentaires. Cette propriété est utilisée dans les messages cloud-à-appareil pour demander à IoT Hub de générer des messages de commentaires à la suite de la consommation du message par l’appareil. Valeurs possibles : **none** (par défaut) : aucun message de commentaires n’est généré ; **positive** : recevoir un message de commentaires si le message est achevé ; **negative** : recevoir un message de commentaires si le message a expiré (ou si le nombre maximal de remises a été atteint) sans être achevé par l’appareil, ou **full** : propriétés à la fois positive et négative. <!-- robinsh For more information, see [Message feedback][lnk-feedback].--> | OUI |
-| iothub-connection-device-id |Un ID défini par IoT Hub sur les messages appareil vers cloud. Elle contient la propriété **deviceId** de l’appareil qui a envoyé le message. | Non pour les messages D2C. Oui dans le cas contraire. |
-| iothub-connection-auth-generation-id |Un ID défini par IoT Hub sur les messages appareil vers cloud. Elle contient la propriété **generationId** (conformément aux [Propriétés d’identité des appareils](iot-hub-devguide-identity-registry.md#device-identity-properties)) de l’appareil qui a envoyé le message. | Non pour les messages D2C. Oui dans le cas contraire. |
-| iothub-connection-auth-method |Une méthode d’authentification définie par IoT Hub sur les messages appareil-à-cloud. Cette propriété contient des informations sur la méthode d’authentification utilisée pour authentifier l’appareil qui a envoyé le message. <!-- ROBINSH For more information, see [Device to cloud anti-spoofing][lnk-antispoofing].--> | Non pour les messages D2C. Oui dans le cas contraire. |
-| iothub-creation-time-utc | Date et heure de création du message sur un appareil. Un appareil doit définir cette valeur explicitement. | OUI |
+| message-id |Identificateur correspondant au message défini par l’utilisateur utilisé pour les modèles demande-réponse. Format : Une chaîne qui respecte la casse (jusqu’à 128 caractères) de caractères alphanumériques 7 bits ASCII + `{'-', ':', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '$', '''}`.  |OUI|
+| sequence-number |Un numéro (unique par file d’attente d’appareil) affecté par IoT Hub à chaque message cloud-à-appareil. |Non|
+| to |Une destination spécifiée dans les messages [cloud vers appareil](iot-hub-devguide-c2d-guidance.md) . |Non|
+| absolute-expiry-time |Date et heure d’expiration du message. |Non|   |
+| correlation-id |Une propriété de chaîne d’un message de réponse qui contient généralement l'ID du message de la demande dans les modèles demande-réponse. |OUI|
+| user-id |Un ID utilisé pour spécifier l’origine des messages. Lorsque des messages sont générés par IoT Hub, la propriété est définie sur `{iot hub name}`. |OUI|
+| iothub-ack |Un générateur de messages de commentaires. Cette propriété est utilisée dans les messages cloud-à-appareil pour demander à IoT Hub de générer des messages de commentaires à la suite de la consommation du message par l’appareil. Valeurs possibles : **none** (par défaut) : aucun message de commentaires n’est généré ; **positive** : recevoir un message de commentaires si le message est achevé ; **negative** : recevoir un message de commentaires si le message a expiré (ou si le nombre maximal de remises a été atteint) sans être achevé par l’appareil, ou **full** : propriétés à la fois positive et négative. |OUI|
 
 ## <a name="message-size"></a>Taille des messages
 

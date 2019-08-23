@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/01/2019
+ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: e05e2f2d04aeb572307f8114ca80f148b3d50e3d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b17b6d12dc60546a29d37cfa12fe1f11186579e1
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61370700"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967469"
 ---
 # <a name="copy-data-from-mysql-using-azure-data-factory"></a>Copier des données de MySQL à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -34,7 +34,9 @@ Plus précisément, ce connecteur MySQL prend en charge MySQL **versions 5.6 et
 
 ## <a name="prerequisites"></a>Prérequis
 
-Si votre base de données MySQL n’est pas accessible publiquement, vous devez configurer un runtime d’intégration auto-hébergé. Pour en savoir plus sur les runtimes d’intégration auto-hébergés, voir l’article [Runtime d’intégration auto-hébergé](create-self-hosted-integration-runtime.md). Le runtime d’intégration fournit un pilote MySQL intégré à partir de la version 3.7. Ainsi, vous n’avez pas besoin d’installer manuellement un pilote.
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
+
+Le runtime d’intégration fournit un pilote MySQL intégré à partir de la version 3.7. Ainsi, vous n’avez pas besoin d’installer manuellement un pilote.
 
 Pour une version du runtime d’intégration auto-hébergé antérieure à 3.7, vous devez installer le [Connecteur MySQL/Net pour Microsoft Windows](https://dev.mysql.com/downloads/connector/net/) avec une version comprise entre 6.6.5 et 6.10.7 sur l’ordinateur exécutant le runtime d’intégration. Ce pilote 32 bits est compatible avec le runtime d’intégration (IR) 64 bits.
 
@@ -52,7 +54,7 @@ Les propriétés prises en charge pour le service lié MySQL sont les suivantes�
 |:--- |:--- |:--- |
 | type | La propriété type doit être définie sur : **MySql** | OUI |
 | connectionString | Spécifiez les informations nécessaires pour vous connecter à l’instance d’Azure Database pour MySQL.<br/>Marquez ce champ comme SecureString pour le stocker de façon sécurisée dans Data Factory. Vous pouvez également définir un mot de passe dans Azure Key Vault et extraire la configuration `password` de la chaîne de connexion. Pour plus d’informations, reportez-vous aux exemples suivants et à l’article [Stocker des informations d’identification dans Azure Key Vault](store-credentials-in-key-vault.md). | OUI |
-| connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Vous pouvez utiliser un runtime d’intégration auto-hébergé ou un runtime d’intégration Azure (si votre banque de données est accessible publiquement). À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. |Non |
+| connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Pour plus d’informations, consultez la section [Conditions préalables](#prerequisites). À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. |Non |
 
 Une chaîne de connexion par défaut typique est `Server=<server>;Port=<port>;Database=<database>;UID=<username>;PWD=<password>`. Plus de propriétés que vous pouvez définir pour votre cas :
 
@@ -145,7 +147,7 @@ Pour copier des données de MySQL, affectez la valeur **RelationalTable** à la 
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type du jeu de données doit être définie sur : **RelationalTable** | OUI |
+| type | La propriété type du jeu de données doit être définie sur : **RelationalTable** | OUI |
 | tableName | Nom de la table dans la base de données MySQL. | Non (si « query » dans la source de l’activité est spécifié) |
 
 **Exemple**
@@ -175,7 +177,7 @@ Pour copier des données de MySQL, définissez **RelationalSource** comme type d
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type de la source d’activité de copie doit être définie sur : **RelationalSource** | OUI |
+| type | La propriété type de la source d’activité de copie doit être définie sur : **RelationalSource** | OUI |
 | query | Utiliser la requête SQL personnalisée pour lire les données. Par exemple : `"SELECT * FROM MyTable"`. | Non (si « tableName » est spécifié dans dataset) |
 
 **Exemple :**

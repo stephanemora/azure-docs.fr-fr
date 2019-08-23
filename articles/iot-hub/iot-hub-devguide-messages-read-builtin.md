@@ -7,13 +7,13 @@ ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 02/26/2019
-ms.openlocfilehash: 827d7d9a3d584342703a84dd2a42e5cda9b3a656
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 08/08/2019
+ms.openlocfilehash: e7b8f8a33b741a8dcf2d1a68ae3cf86d6e3687eb
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61364005"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68950410"
 ---
 # <a name="read-device-to-cloud-messages-from-the-built-in-endpoint"></a>Lire des messages appareil-à-cloud à partir du point de terminaison intégré
 
@@ -26,7 +26,7 @@ Par défaut, les messages sont acheminés vers le point de terminaison côté se
 
 IoT Hub permet la conservation des données dans les Event Hubs intégrés pendant au maximum 7 jours. Vous pouvez définir la durée de conservation lors de la création de votre IoT Hub. La durée de conservation des données dans IoT Hub dépend de votre niveau IoT hub et du type d’unité. En termes de taille, les Event Hubs intégrés peuvent conserver les messages de la taille maximale jusqu’à au moins 24 heures de quota. Par exemple, pour 1 unité S1, IoT Hub fournit un stockage suffisant pour conserver au moins 400 000 messages d’une taille de 4 Ko chacun. Si vos appareils envoient des messages plus petits, ceux-ci peuvent être conservés plus longtemps (jusqu’à 7 jours) en fonction de la quantité de stockage utilisée. Nous garantissons la conservation des données au minimum pendant la durée spécifiée.
 
-IoT Hub vous permet aussi de gérer des groupes de consommateurs sur le point de terminaison prédéfini de réception appareil vers cloud.
+IoT Hub vous permet aussi de gérer des groupes de consommateurs sur le point de terminaison prédéfini de réception appareil vers cloud. Vous pouvez avoir jusqu’à 20 groupes de consommateurs pour chaque IoT Hub.
 
 Si vous utilisez un [routage des messages](iot-hub-devguide-messages-d2c.md) et que la [route de repli](iot-hub-devguide-messages-d2c.md#fallback-route) est activée, tous les messages qui ne correspondent pas à une requête sur un itinéraire sont acheminés vers le point de terminaison intégré. Si vous désactivez cette route de repli, les messages qui ne correspondent à aucune requête sont abandonnés.
 

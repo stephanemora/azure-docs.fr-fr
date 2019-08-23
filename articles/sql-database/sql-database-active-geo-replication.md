@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 07/09/2019
-ms.openlocfilehash: 4b1a551ea2dd62d428fee6a7be475472235a3994
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 131333f140518f6fb2f63f17d0aa72692dc7d49a
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569614"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68935066"
 ---
 # <a name="creating-and-using-active-geo-replication"></a>Création et utilisation de la géoréplication active
 
@@ -76,7 +76,7 @@ Pour assurer vraiment la continuité des activités, l’ajout d’une redondanc
 > [!NOTE]
 > La relecture du journal est différée sur la base de données secondaire s’il existe des mises à jour de schéma sur le Principal. Cette dernière nécessite un verrouillage de schéma sur la base de données secondaire.
 > [!IMPORTANT]
-> Vous pouvez utiliser la géoréplication pour créer une base de données secondaire dans la même région que la base de données primaire. Vous pouvez utiliser cette base de données secondaire pour équilibrer les charges de travail en lecture seule dans la même région. Toutefois, une base de données secondaire dans la même région n'offre pas davantage de résilience aux défaillances et ne constitue donc pas une cible de basculement adapté à des fins de récupération d’urgence. De même, elle ne garantit en rien l'isolation de la zone de disponibilité. Utilisez le niveau de service Critique pour l’entreprise ou Premium avec une [configuration de zone redondante](sql-database-high-availability.md#zone-redundant-configuration) pour isoler la zone de disponibilité.   
+> Vous pouvez utiliser la géoréplication pour créer une base de données secondaire dans la même région que la base de données primaire. Vous pouvez utiliser cette base de données secondaire pour équilibrer les charges de travail en lecture seule dans la même région. Toutefois, une base de données secondaire dans la même région n'offre pas davantage de résilience aux défaillances et ne constitue donc pas une cible de basculement adapté à des fins de récupération d’urgence. De même, elle ne garantit en rien l’isolation de la zone de disponibilité. Utilisez le niveau de service Critique pour l’entreprise ou Premium avec une [configuration de zone redondante](sql-database-high-availability.md#zone-redundant-configuration) pour isoler la zone de disponibilité.   
 >
 
 - **Basculement planifié**

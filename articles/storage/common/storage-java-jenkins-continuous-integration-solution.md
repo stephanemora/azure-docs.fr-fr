@@ -1,20 +1,20 @@
 ---
 title: Utilisation de Stockage Azure avec une solution d’intégration continue Jenkins
-description: Ce didacticiel décrit l’utilisation du service BLOB Azure comme référentiel d’artefacts de build créés par une solution d’intégration continue Jenkins.
+description: Ce didacticiel décrit l’utilisation du service blob Azure comme référentiel d’artefacts de build créés par une solution d’intégration continue Jenkins.
 ms.topic: article
 ms.author: tarcher
 author: tarcher
 services: devops
 ms.service: storage
 custom: jenkins
-ms.date: 07/31/2018
+ms.date: 08/13/2019
 ms.subservice: common
-ms.openlocfilehash: d9ef6f5056fdbd7187c92c98d1c884a5314c29a0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dc62696700a5c34c28f5f8c4f347dbb4c5183cab
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65153661"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68986544"
 ---
 # <a name="using-azure-storage-with-a-jenkins-continuous-integration-solution"></a>Utilisation de Stockage Azure avec une solution d’intégration continue Jenkins
 
@@ -97,7 +97,7 @@ Pour les besoins de la formation, vous devez d’abord créer une tâche qui cr�
     **Conseil**
    
     Sous la section **Command** où vous avez entré un script pour **Execute Windows batch command**, un lien permet d'accéder aux variables d'environnement reconnues par Jenkins. Sélectionnez ce lien pour découvrir les noms des variables d’environnement avec leurs descriptions. Les variables d’environnement qui contiennent des caractères spéciaux, comme la variable d’environnement **BUILD_URL**, ne sont pas autorisées comme nom de conteneur ou comme chemin virtuel commun.
-8. Sélectionnez **Make new container public by default** (Rendre le nouveau conteneur public par défaut) pour cet exemple. (Si vous voulez utiliser un conteneur privé, vous devez créer une signature d’accès partagé pour autoriser l’accès, ce qui se trouve en dehors de la portée de cet article. Pour en savoir plus sur les signatures d’accès partagé, consultez [Utilisation des signatures d’accès partagé (SAP)](../storage-dotnet-shared-access-signature-part-1.md).)
+8. Sélectionnez **Make new container public by default** (Rendre le nouveau conteneur public par défaut) pour cet exemple. (Si vous voulez utiliser un conteneur privé, vous devez créer une signature d’accès partagé pour autoriser l’accès, ce qui se trouve en dehors de la portée de cet article. Pour en savoir plus sur les signatures d’accès partagé, consultez [Utilisation des signatures d’accès partagé (SAP)](storage-sas-overview.md).)
 9. [Facultatif] Sélectionnez **Clean container before uploading** (Nettoyer le conteneur avant le téléchargement) si vous voulez que le contenu du conteneur soit effacé avant le chargement des artefacts de build (ne sélectionnez pas cette option si vous ne voulez pas effacer le contenu du conteneur).
 10. Dans **List of Artifacts to upload** (Liste des artefacts à télécharger), entrez `text/*.txt`.
 11. Pour **Common virtual path for uploaded artifacts** (Chemin virtuel commun pour les artefacts chargés), dans le cadre de ce tutoriel, entrez `${BUILD\_ID}/${BUILD\_NUMBER}`.
@@ -135,7 +135,7 @@ La section suivante présente les composants du service Blob.
   
     `http://storageaccount.blob.core.windows.net/container_name/blob_name`
   
-    (Le format ci-dessus s’applique au cloud Azure global. Si vous utilisez un autre cloud Azure, utilisez le point de terminaison dans le [portail Azure](https://portal.azure.com) pour déterminer votre URL de point de terminaison.
+    (Le format ci-dessus s’applique au cloud Azure global. Si vous utilisez un autre cloud Azure, utilisez le point de terminaison dans le [portail Azure](https://portal.azure.com) pour déterminer votre URL de point de terminaison.)
   
     Dans le format ci-dessus, `storageaccount` représente le nom de votre compte de stockage, `container_name` représente le nom de votre conteneur et `blob_name` représente le nom de votre objet blob, respectivement. Le nom du conteneur contient plusieurs chemins d’accès, séparés par une barre oblique ( **/** ). Dans ce tutoriel, nous avons utilisé **MyJob** comme exemple de nom de conteneur et **${BUILD\_ID}/${BUILD\_NUMBER}** comme chemin virtuel commun. L’URL de l’objet blob a donc la forme suivante :
   

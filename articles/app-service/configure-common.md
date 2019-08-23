@@ -5,7 +5,7 @@ keywords: azure app service, web app, paramètres d’app, variables d’environ
 services: app-service\web
 documentationcenter: ''
 author: cephalin
-manager: erikre
+manager: gwallace
 editor: ''
 ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
 ms.service: app-service
@@ -13,15 +13,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/25/2017
+ms.date: 08/13/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: bcc970375120f76e4ec8a90f487d251296f92dba
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bb4ac9953bcadd9e49cee5b7b99e853705b6567c
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65957909"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68990283"
 ---
 # <a name="configure-an-app-service-app-in-the-azure-portal"></a>Configurer une app App Service dans le portail Azure
 
@@ -29,11 +29,13 @@ Cette rubrique explique comment configurer les paramètres courants d’une appl
 
 ## <a name="configure-app-settings"></a>Configuration des paramètres d’application
 
-Dans App Service, vous utilisez les paramètres d’application comme des variables d’environnement. Dans le [portail Azure], accédez à la page de gestion de votre application. Dans le menu de gauche de l'application, cliquez sur **Configuration** > **Paramètres de l'application**.
+Dans App Service, les paramètres d’application sont des variables transmises comme des variables d’environnement au code de l’application. Pour les applications Linux et les conteneurs personnalisés, App Service envoie les paramètres d’application au conteneur via l’indicateur `--env` pour définir la variable d'environnement dans le conteneur.
+
+Dans le [portail Azure], accédez à la page de gestion de votre application. Dans le menu de gauche de l'application, cliquez sur **Configuration** > **Paramètres de l'application**.
 
 ![Paramètres de l’application](./media/configure-common/open-ui.png)
 
-Les développeurs ASP.NET et ASP.NET Core définissent les paramètres de l'application dans App Service comme ils le font avec `<appSettings>` dans *Web.config*, mais les valeurs dans App Service remplacent celles du fichier *Web.config*. Vous pouvez conserver les paramètres de développement (par exemple le mot de passe MySQL local) dans *Web.config*, mais garder les secrets de production (par exemple le mot de passe de la base de données MySQL Azure) en sécurité dans App Service. Le même code utilise vos paramètres de développement lorsque vous déboguez localement, et utilise vos secrets de production lorsque vous les déployez sur Azure.
+Les développeurs ASP.NET et ASP.NET Core définissent les paramètres de l'application dans App Service comme ils le font avec `<appSettings>` dans *Web.config* ou *appsettings.json*, mais les valeurs dans App Service remplacent celles du fichier *Web.config* ou *appsettings.json*. Vous pouvez conserver les paramètres de développement (par exemple le mot de passe MySQL local) dans *Web.config* ou *appsettings.json*, mais garder les secrets de production (par exemple le mot de passe de la base de données MySQL Azure) en sécurité dans App Service. Le même code utilise vos paramètres de développement lorsque vous déboguez localement, et utilise vos secrets de production lorsque vous les déployez sur Azure.
 
 De la même façon, d'autres piles de langage récupèrent les paramètres de l'application en tant que variables d'environnement lors de l'exécution. Pour les étapes spécifiques à la pile de langage, voir :
 

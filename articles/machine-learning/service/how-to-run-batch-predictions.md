@@ -1,5 +1,5 @@
 ---
-title: Exécuter des prédictions par lots sur de grandes quantités de données
+title: Exécuter des prédictions par lots sur d’importants volumes de données avec des pipelines
 titleSuffix: Azure Machine Learning service
 description: Découvrez comment effectuer des prédictions par lots de façon asynchrone sur de grandes quantités de données à l’aide d’Azure Machine Learning service.
 services: machine-learning
@@ -10,16 +10,16 @@ ms.reviewer: jmartens, garye
 ms.author: jordane
 author: jpe316
 ms.date: 07/12/2019
-ms.openlocfilehash: 689ee003e0923a65d3ca3f2d13c1a2d05c299dbd
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 97b66bff0e6413b7774a054a01a0dc73649c9cce
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68358712"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68962982"
 ---
-# <a name="run-batch-predictions-on-large-data-sets-with-azure-machine-learning-service"></a>Exécuter des prédictions par lots sur de grands jeux de données avec Azure Machine Learning service
+# <a name="run-batch-predictions-on-large-data-sets-with-azure-machine-learning-pipelines"></a>Exécuter des prédictions par lots sur de grands jeux de données avec des pipelines Azure Machine Learning
 
-Dans cet article, apprenez à effectuer des prédictions sur de grandes quantités de données de façon asynchrone à l’aide d’Azure Machine Learning service.
+Dans cet article, apprenez à effectuer des prédictions sur de grandes quantités de données de façon asynchrone à l’aide du service de pipelines ML d’Azure Machine Learning.
 
 La prédiction par lots (ou le scoring par lots) fournit une inférence économique avec un débit inégalé pour les applications asynchrones. Les pipelines de prédiction par lots peuvent être mis à l’échelle pour effectuer l’inférence sur plusieurs téraoctets de données de production. La prédiction par lots est optimisée pour les débits élevés et les prédictions autonomes (fire and forget) pour un vaste ensemble de données.
 
@@ -358,7 +358,4 @@ RunDetails(published_pipeline_run).show()
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour examiner cette opération de bout en bout, essayez le bloc-notes de scoring par lots dans [GitHub](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines).
-
-[!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
-
+Pour voir le fonctionnement de bout en bout, essayez le notebook de notation par lot dans [GitHub](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines), ou accédez au [centre d’architecture Azure](/azure/architecture/reference-architectures/ai/batch-scoring-python) pour voir un exemple d’architecture de la solution.

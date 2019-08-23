@@ -12,16 +12,19 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: edc0da77fc1c2813c2485fca18d50952e3060db8
-ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
+ms.openlocfilehash: 7b14ed2c18c1106477e21062afaa4cc8f672c203
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68370471"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68946383"
 ---
-# <a name="log-metrics-during-training-runs-in-azure-machine-learning"></a>Consigner les métriques pendant les exécutions d’entraînement dans Azure Machine Learning
+# <a name="log-metrics-during-training-runs"></a>Consigner les métriques pendant les exécutions d’entraînement
 
 Améliorez le processus de création de modèle avec le suivi de vos expériences et la supervision des métriques. Dans cet article, découvrez comment ajouter la journalisation à votre script d’entraînement, soumettre une exécution d’expérience, surveiller l’exécution et afficher les résultats d’une exécution dans le service Azure Machine Learning.
+
+> [!NOTE]
+> Azure Machine Learning service peut aussi consigner des informations d’autres sources pendant la formation, telles que AutoML ou le conteneur Docker qui exécute le travail de formation. Ces journaux ne sont pas documentés. Si vous rencontrez des problèmes et que vous contactez le support Microsoft, il pourra peut-être utiliser ces journaux pendant la résolution des problèmes.
 
 ## <a name="list-of-training-metrics"></a>Liste des métriques d’entraînement 
 
@@ -49,7 +52,7 @@ Si vous souhaitez suivre ou superviser votre expérimentation, vous devez ajoute
 ## <a name="set-up-the-workspace"></a>Configurer l’espace de travail
 Avant d’ajouter la journalisation et d’envoyer une expérience, vous devez configurer l’espace de travail.
 
-1. Chargez l’espace de travail. Pour en savoir plus sur la définition de la configuration de l’espace de travail, suivez les étapes sous [Créer un espace de travail Azure Machine Learning service](setup-create-workspace.md#sdk).
+1. Chargez l’espace de travail. Pour en savoir plus sur la définition de la configuration de l’espace de travail, consultez le [fichier de configuration de l’espace de travail](how-to-configure-environment.md#workspace).
 
    ```python
    from azureml.core import Experiment, Run, Workspace

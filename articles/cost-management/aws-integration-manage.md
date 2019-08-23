@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: ormaoz
 ms.custom: ''
-ms.openlocfilehash: 05e2375998b3bce4320b2d66ab7fce44cd911dcc
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 6767644e037c6abb3e3044c8707e923a9137a01c
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479128"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69019543"
 ---
 # <a name="manage-aws-costs-and-usage-in-azure"></a>Gérer le coût et l’utilisation d’AWS dans Azure
 
@@ -138,7 +138,7 @@ Il existe deux façons d’obtenir les autorisations d’accès aux coûts de co
 
 Par défaut, le créateur du connecteur AWS est le propriétaire de tous les objets créés par ce connecteur. Notamment le compte AWS consolidé et le compte AWS lié.
 
-Pour pouvoir vérifier les paramètres du connecteur, vous devez disposer au moins d’un rôle de contributeur. Le rôle Lecteur ne peut pas vérifier les paramètres de connecteur.
+Pour pouvoir vérifier les paramètres du connecteur, vous devez disposer au moins d’un rôle de contributeur. Le rôle Lecteur ne peut pas vérifier les paramètres de connecteur
 
 ### <a name="collection-failed-with-assumerole"></a>Échec de la collecte avec l’erreur AssumeRole
 

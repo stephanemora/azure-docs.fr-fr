@@ -5,31 +5,33 @@ services: virtual-machines
 author: jonbeck7
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 05/16/2019
+ms.date: 08/08/2019
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 9e145bc3a6824100409a0f6215152cdf70ec6777
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.openlocfilehash: 3d45defa9ff8e7b2e03d550b76c0e18192c58c4a
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67501231"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881615"
 ---
-Les tailles de machine virtuelle à mémoire optimisée offrent un ration mémoire/processeur supérieur pour les serveurs de base de données relationnelle, les caches moyens à grands et l’analytique en mémoire. Cet article fournit des informations sur le nombre de processeurs virtuels, de disques de données et de cartes réseau ainsi que sur la bande passante réseau et le débit de stockage pour chaque taille de ce regroupement. 
+Les tailles de machine virtuelle à mémoire optimisée offrent un ration mémoire/processeur supérieur pour les serveurs de base de données relationnelle, les caches moyens à grands et l’analytique en mémoire. Cet article fournit des informations sur le nombre de processeurs virtuels, de disques de données et de cartes réseau ainsi que sur la bande passante réseau et le débit de stockage pour chaque taille de ce regroupement.
+
+* La série Ev3 dispose du processeur E5-2673 v4 de 2,3 GHz (Broadwell), mais dans une configuration hyperthread, ce qui lui permet d’offrir ce qui se fait de mieux pour les charges de travail à usage général et d’aligner la série Ev3 sur les machines virtuelles à usage général que l’on retrouve dans la plupart des autres clouds.  La mémoire a été étendue (de 7 Gio/vCPU à 8 Gio/vCPU) et les limites de disque et de réseau ont été ajustées au niveau du cœur pour s’aligner sur la transition vers l’hyperthreading.  La série Ev3 constitue la suite des tailles de machines virtuelles à mémoire haute des familles D/Dv2.
+
+* Les machines de séries Eav3 et Easv3 utilisent le processeur EPYC<sup>TM</sup> 7452V 2.35Ghz d’AMD dans une configuration multithread avec un cache L3 jusqu’à 256 Go, ce qui améliore les options d’exécution de la plupart des charges de travail à mémoire optimisée.  Les séries Eav3 et Easv3 ont les mêmes configurations de mémoire et de disque que les séries Ev3 et Esv3.
 
 * La série Mv2 offre le nombre de processeurs virtuels le plus élevé (jusqu’à 208 processeurs virtuels) et la plus grande mémoire (jusqu’à 5,7 Tio) parmi toutes les machines virtuelles dans le cloud. Elle est idéale pour les très grandes bases de données ou d’autres applications qui bénéficient d’un nombre élevé de processeurs virtuels et de grandes quantités de mémoire.
- 
+
 * La série M propose un nombre élevé de processeurs virtuels (jusqu’à 128 processeurs virtuels) et une grande quantité de mémoire (jusqu’à 3,8 Tio). Elle est également idéale pour les très grandes bases de données ou d’autres applications qui bénéficient d’un nombre élevé de processeurs virtuels et de grandes quantités de mémoire.
 
 * Les séries Dv2, G et DSv2/GS sont idéales pour les applications qui exigent des processeurs virtuels plus rapides, de meilleures performances de stockage temporaire, ou qui ont des exigences de mémoire plus élevées. Elles offrent une combinaison puissante pour de nombreuses applications professionnelles.
 
 * La série Dv2, suite de la série D d’origine, comprend un processeur plus puissant. Le processeur de la série Dv2 est environ 35 % plus rapide que le processeur de la série D. Il est basé sur la dernière génération de processeurs Intel Xeon® E5-2673 v3 de 2,4 GHz (Haswell) ou E5-2673 v4 de 2,3 GHz (Broadwell). Intégrant la technologie Intel Turbo Boost 2.0, il peut atteindre 3,1 GHz. La série Dv2 a les mêmes configurations de disque et de mémoire que la série D.
 
-* La série Ev3 dispose du processeur E5-2673 v4 de 2,3 GHz (Broadwell), mais dans une configuration hyperthread, ce qui lui permet d’offrir ce qui se fait de mieux pour les charges de travail à usage général et d’aligner la série Ev3 sur les machines virtuelles à usage général que l’on retrouve dans la plupart des autres clouds.  La mémoire a été étendue (de 7 Gio/vCPU à 8 Gio/vCPU) et les limites de disque et de réseau ont été ajustées au niveau du cœur pour s’aligner sur la transition vers l’hyperthreading.  La série Ev3 constitue la suite des tailles de machines virtuelles à mémoire haute des familles D/Dv2.
-
 * Le Calcul Azure propose des tailles de machines virtuelles qui sont isolées pour un type de matériel spécifique et dédiées à un seul et même client.  Ces tailles de machines virtuelles conviennent mieux aux charges de travail qui nécessitent un niveau élevé d’isolation par rapport aux autres clients pour les charges de travail qui impliquent des éléments tels que les exigences réglementaires et de conformité.  Les clients peuvent également choisir de subdiviser les ressources de ces machines virtuelles isolées à l’aide de la [prise en charge d’Azure pour les machines virtuelles imbriquées](https://azure.microsoft.com/blog/nested-virtualization-in-azure/).  Consultez les tableaux des familles de machines virtuelles ci-dessous pour connaître les options de machine virtuelle isolée.
 
-## <a name="esv3-series"></a>Série Esv3 
+## <a name="esv3-series"></a>Série Esv3
 
 ACU : 160-190 <sup>1</sup>
 
@@ -59,6 +61,23 @@ Les tailles des machines virtuelles de la série ESv3 sont basées sur le proce
 
 <sup>3</sup> L’instance est isolée sur un matériel dédié à un client unique.
 
+## <a name="easv3-series"></a>Série Easv3
+
+Premium Storage : Pris en charge
+
+Mise en cache du Stockage Premium : Pris en charge
+
+Les tailles de la série Easv3 sont basées sur le processeur EPYC<sup>TM</sup> 7452V 2.35Ghz d’AMD, qui peut atteindre une Fmax renforcée de 3.35GHz et utiliser le stockage Premium. Les tailles des machines virtuelles de la série Easv3 sont idéales pour les applications d’entreprise nécessitant une mémoire importante.
+
+| Size | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) : Gio |
+|---|---|---|---|
+| Standard_E2as_v3  | 2  | 16  | 32  |
+| Standard_E4as_v3  | 4  | 32  | 64  |
+| Standard_E8as_v3  | 8  | 64  | 128 |
+| Standard_E16as_v3 | 16 | 128 | 256 |
+| Standard_E32as_v3 | 32 | 256 | 512 |
+| Standard_E48as_v3 | 48 | 384 | 768 |
+| Standard_E64as_v3 | 64 | 432 | 864 |
 
 ## <a name="ev3-series"></a>Série Ev3 
 
@@ -91,6 +110,23 @@ Le stockage sur disque de données est facturé séparément des machines virtue
 
 <sup>3</sup> L’instance est isolée sur un matériel dédié à un client unique.
 
+## <a name="eav3-series"></a>Série Eav3
+
+Premium Storage : Non pris en charge
+
+Mise en cache du Stockage Premium : Non pris en charge
+
+Les tailles de la série Eav3 sont basées sur le processeur EPYC<sup>TM</sup> 7452V 2.35Ghz d’AMD, qui peut atteindre une Fmax renforcée de 3.35GHz et utiliser le stockage Premium. Les tailles des machines virtuelles de la série Eav3 sont idéales pour les applications d’entreprise nécessitant une mémoire importante. Le stockage sur disque de données est facturé séparément des machines virtuelles. Pour utiliser les disques de stockage Premium, utilisez les tailles de la série Easv3. Les tarifs et les compteurs de facturation pour les tailles Easv3 sont identiques à celles de la série Eav3.
+
+| Size | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) : Gio |
+|---|---|---|---|---|---|
+| Standard_E2a_v3  | 2  | 16  | 50   |
+| Standard_E4a_v3  | 4  | 32  | 100  |
+| Standard_E8a_v3  | 8  | 64  | 200  |
+| Standard_E16a_v3 | 16 | 128 | 400  |
+| Standard_E32a_v3 | 32 | 256 | 800  |
+| Standard_E48a_v3 | 48 | 384 | 1 200 |
+| Standard_E64a_v3 | 64 | 432 | 1 600 |
 
 ## <a name="mv2-series"></a>Série Mv2
 

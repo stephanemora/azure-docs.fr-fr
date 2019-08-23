@@ -9,12 +9,12 @@ ms.date: 07/03/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 80ab896e1393d6c68b22a61d1b96acd507aa6994
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 32b3f113658a20790e0f149739a882004f12fe21
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68249907"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69640823"
 ---
 # <a name="run-azure-cli-or-powershell-commands-with-azure-ad-credentials-to-access-blob-or-queue-data"></a>Exécuter des commandes Azure CLI ou PowerShell avec des informations d’identification Azure AD pour accéder aux données d’objet blob ou de file d’attente
 
@@ -26,7 +26,7 @@ Vous pouvez attribuer des autorisations aux données d’objet blob et de file d
 
 Les extensions sont prises en charge pour les opérations sur les conteneurs et les files d’attente. Les opérations que vous pouvez appeler dépendent des autorisations accordées au principal de sécurité Azure AD avec lequel vous vous connectez à Azure CLI ou PowerShell. Les autorisations sur les conteneurs ou les files d’attente Stockage Azure sont attribuées via le contrôle d’accès en fonction du rôle (RBAC). Par exemple, si le rôle **Lecteur des données Blob** vous est attribué, vous pouvez exécuter des commandes de script qui lisent les données d’un conteneur ou d’une file d’attente. Si le rôle **Contributeur aux données Blob** vous est attribué, vous pouvez exécuter des commandes de script qui lisent, écrivent ou suppriment un conteneur ou une file d’attente, ou les données qu’ils contiennent. 
 
-Pour plus d’informations sur les autorisations requises pour chaque opération Stockage Azure sur un conteneur ou une file d’attente, consultez [Appeler des opérations de stockage avec des jetons OAuth](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#call-storage-operations-with-oauth-tokens).  
+Pour plus d’informations sur les autorisations requises pour chaque opération Stockage Azure sur un conteneur ou une file d’attente, consultez [Appeler des opérations de stockage avec des jetons OAuth](https://docs.microsoft.com/rest/api/storageservices/authorize-with-azure-active-directory#call-storage-operations-with-oauth-tokens).  
 
 ## <a name="call-cli-commands-using-azure-ad-credentials"></a>Appeler des commandes CLI à l’aide des informations d’identification Azure AD
 
@@ -86,11 +86,13 @@ Pour utiliser Azure PowerShell pour vous connecter et exécuter les opérations 
 
 L’exemple suivant montre comment créer un conteneur dans un nouveau compte de stockage à partir d’Azure PowerShell à l’aide de vos informations d’identification Azure AD. N’oubliez pas de remplacer les valeurs d’espace réservé entre crochets par vos propres valeurs :
 
-1. Connectez-vous à votre abonnement Azure avec la commande `Connect-AzAccount` et suivez les instructions à l’écran pour entrer cos informations d’identification Azure AD. 
+1. Connectez-vous à votre compte Azure à l’aide de la commande [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) :
 
     ```powershell
     Connect-AzAccount
     ```
+
+    Pour plus d’informations sur la connexion à Azure avec PowerShell, consultez [Se connecter avec Azure PowerShell](/powershell/azure/authenticate-azureps).
 
 1. Créez un groupe de ressources Azure en appelant [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). 
 

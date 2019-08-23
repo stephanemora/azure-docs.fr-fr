@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/16/2019
 ms.author: manayar
-ms.openlocfilehash: eeb689f90197830dad98c213849b2e82ba43bbf1
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: ac754acd61700dc39ebc633da4274c74d8463824
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68296349"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68884183"
 ---
 # <a name="azure-virtual-machine-scale-set-automatic-os-image-upgrades"></a>Mises à niveau automatiques d’images de système d’exploitation de groupes de machines virtuelles identiques Azure
 
@@ -128,7 +128,7 @@ az vmss update --name myScaleSet --resource-group myResourceGroup --set UpgradeP
 
 Durant une mise à niveau du système d’exploitation, les instances de machine virtuelle dans un groupe identique sont mises à niveau par lot. La mise à niveau doit se poursuivre uniquement si l’application du client est intègre sur les instances de machine virtuelle mises à niveau. Nous recommandons que l’application envoie des signaux d’intégrité au moteur de mise à niveau du système d’exploitation pour le groupe identique. Par défaut, pendant les mises à niveau du système d’exploitation, la plateforme vérifie l’état d’alimentation des machines virtuelles et l’état de provisionnement des extensions pour déterminer l’intégrité d’une instance de machine virtuelle après sa mise à niveau. Lors de la mise à niveau du système d’exploitation d’une instance de machine virtuelle, le disque du système d’exploitation sur l’instance de machine virtuelle est remplacé par un nouveau disque basé sur la dernière version de l’image. Après la mise à niveau du système d’exploitation, les extensions configurées sont exécutées sur ces machines virtuelles. L’application est considérée comme saine uniquement quand toutes les extensions sur l’instance ont été correctement provisionnées.
 
-Un groupe identique peut éventuellement être configuré avec des sondes d’intégrité d’application pour fournir à la plateforme des informations précises sur l’état actuel de l’application. Les sondes d’intégrité d’application sont des sondes d’équilibreur de charge personnalisées qui sont utilisées comme signal d’intégrité. L’application exécutée sur une instance de machine virtuelle d’un groupe identique peut répondre à des requêtes HTTP ou TCP externes en indiquant si elle est saine. Pour plus d’informations sur le fonctionnement des sondes d’équilibreur de charge personnalisées, consultez [Comprendre les sondes d’équilibreur de charge](../load-balancer/load-balancer-custom-probe-overview.md). L’utilisation d’une sonde d’intégrité d’application n’est pas obligatoire pour les groupes identiques Service Fabric, mais cela est recommandé. Pour les groupes identiques autres que Service Fabric, vous devez utiliser des sondes d’intégrité d’application Load Balancer ou l’[extension Intégrité de l’application](virtual-machine-scale-sets-health-extension.md).
+Un groupe identique peut éventuellement être configuré avec des sondes d’intégrité d’application pour fournir à la plateforme des informations précises sur l’état actuel de l’application. Les sondes d’intégrité d’application sont des sondes d’équilibreur de charge personnalisées qui sont utilisées comme signal d’intégrité. L’application exécutée sur une instance de machine virtuelle d’un groupe identique peut répondre à des requêtes HTTP ou TCP externes en indiquant si elle est saine. Pour plus d’informations sur le fonctionnement des sondes d’équilibreur de charge personnalisées, consultez [Comprendre les sondes d’équilibreur de charge](../load-balancer/load-balancer-custom-probe-overview.md). Les sondes d’intégrité d’application ne sont pas prises en charge pour des groupes identiques Service Fabric. Pour les groupes identiques autres que Service Fabric, vous devez utiliser des sondes d’intégrité d’application Load Balancer ou l’[extension Intégrité de l’application](virtual-machine-scale-sets-health-extension.md).
 
 Si le groupe identique est configuré pour utiliser plusieurs groupes de sélection élective, vous devez utiliser des sondes avec un [équilibreur de charge standard](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview).
 

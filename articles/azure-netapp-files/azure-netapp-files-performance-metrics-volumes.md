@@ -1,5 +1,5 @@
 ---
-title: Tests de référence pour les mesures et les performances de volume avec Azure NetApp Files | Microsoft Docs
+title: Recommandations sur les tests de performances pour Azure NetApp Files | Microsoft Docs
 description: Fournit des informations sur les tests de référence pour les mesures et les performances de volume avec Azure NetApp Files.
 services: azure-netapp-files
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/26/2019
+ms.date: 08/07/2019
 ms.author: b-juche
-ms.openlocfilehash: 12ae9e313655924f11799152b5e58b77776c135c
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 1969b3c237a4133df6f53bd6426ca4d50581cbcb
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67479074"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881731"
 ---
-# <a name="benchmark-testing-for-volume-performance-and-metrics-using-azure-netapp-files"></a>Tests de référence pour les métriques et les performances de volume avec Azure NetApp Files
+# <a name="performance-benchmark-test-recommendations-for-azure-netapp-files"></a>Recommandations sur les tests de performances pour Azure NetApp Files
 
 Cet article fournit des informations sur les tests de référence pour les mesures et les performances de volume avec Azure NetApp Files.
 
@@ -131,4 +131,4 @@ L’exemple suivant montre une adresse URL GET permettant d’afficher la taille
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Niveaux de service pour Azure NetApp Files](azure-netapp-files-service-levels.md)
-- [Tests des performances d’Azure NetApp Files](azure-netapp-files-performance-benchmarks.md)
+- [Tests de performances pour Azure NetApp Files](azure-netapp-files-performance-benchmarks.md)

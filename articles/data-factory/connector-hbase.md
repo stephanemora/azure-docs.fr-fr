@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/01/2019
+ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: bc13a1d0a7710a9f96110f1516fe2e48d538fe7e
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: a0d187d31acbea44740295dd3b61f2ec76e021e7
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68720759"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967499"
 ---
 # <a name="copy-data-from-hbase-using-azure-data-factory"></a>Copier des données de HBase avec Azure Data Factory 
 
@@ -28,6 +28,10 @@ Cet article explique comment utiliser l’activité de copie dans Azure Data Fac
 Vous pouvez copier des données de HBase vers n’importe quel magasin de données récepteur pris en charge. Pour obtenir la liste des banques de données prises en charge en tant que sources ou récepteurs par l’activité de copie, consultez le tableau [Banques de données prises en charge](copy-activity-overview.md#supported-data-stores-and-formats).
 
 Azure Data Factory fournit un pilote intégré qui permet la connexion. Vous n’avez donc pas besoin d’installer manuellement un pilote à l’aide de ce connecteur.
+
+## <a name="prerequisites"></a>Prérequis
+
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
 ## <a name="getting-started"></a>Prise en main
 
@@ -46,13 +50,13 @@ Les propriétés suivantes sont prises en charge pour le service lié HBase :
 | port | Port TCP utilisé par l’instance HBase pour écouter les connexions clientes. Valeur par défaut : 9090. Si vous êtes connecté à Azure HDInsights, spécifiez le port 443. | Non |
 | httpPath | URL partielle correspondant au serveur HBase (par exemple, `/hbaserest0` lors de l’utilisation de cluster HDInsights). | Non |
 | authenticationType | Mécanisme d’authentification à utiliser pour se connecter au serveur HBase. <br/>Les valeurs autorisées sont les suivantes : **Anonyme**, **De base** | OUI |
-| userName | Nom d’utilisateur utilisé pour se connecter à l’instance HBase.  | Non |
+| username | Nom d’utilisateur utilisé pour se connecter à l’instance HBase.  | Non |
 | password | Mot de passe correspondant au nom d’utilisateur. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | Non |
 | enableSsl | Indique si les connexions au serveur sont chiffrées suivant le protocole SSL. La valeur par défaut est false.  | Non |
 | trustedCertPath | Chemin d’accès complet du fichier .pem contenant les certificats d’autorité de certification approuvés permettant de vérifier le serveur en cas de connexion via SSL. Cette propriété n’est disponible que si le protocole SSL est utilisé sur un runtime d’intégration auto-hébergé. Valeur par défaut : le fichier cacerts.pem installé avec le runtime d’intégration.  | Non |
 | allowHostNameCNMismatch | Indique si le nom du certificat SSL émis par l’autorité de certification doit correspondre au nom d’hôte du serveur en cas de connexion SSL. La valeur par défaut est false.  | Non |
 | allowSelfSignedServerCert | Indique si les certificats auto-signés provenant du serveur sont autorisés ou non. La valeur par défaut est false.  | Non |
-| connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Vous pouvez utiliser un runtime d’intégration auto-hébergé ou un runtime d’intégration Azure (si votre banque de données est accessible publiquement). À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. |Non |
+| connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Pour plus d’informations, consultez la section [Conditions préalables](#prerequisites). À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. |Non |
 
 >[!NOTE]
 >Si votre cluster ne prend pas en charge les sessions persistantes comme HDInsight, ajoutez explicitement un index de nœud à la fin du paramètre de chemin HTTP, par exemple, spécifiez `/hbaserest0` au lieu de `/hbaserest`.

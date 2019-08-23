@@ -9,12 +9,12 @@ ms.date: 07/25/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 8219e795bb9ab4fc0d479b71e6a93fe6300037d0
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: 2e29dfde651addb58b767d04bd34e8e5441d54c8
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514915"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68986740"
 ---
 # <a name="grant-access-to-azure-blob-and-queue-data-with-rbac-using-azure-cli"></a>Octroyer l’accès aux données blob et de file d’attente Azure avec RBAC à l’aide d’Azure CLI
 
@@ -61,16 +61,16 @@ Pour affecter un rôle RBAC à un principal de sécurité, utilisez la commande 
 Pour affecter un rôle limité à un conteneur, spécifiez une chaîne contenant l’étendue du conteneur pour le paramètre `--scope`. L’étendue d’un conteneur a la forme :
 
 ```
-/subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/blobServices/default/containers/<container-name>
+/subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/blobServices/default/containers/<container>
 ```
 
-L’exemple suivant affecte le rôle **Contributeur aux données Blob du stockage** à un utilisateur, limité à un conteneur nommé *sample-container*. Veillez à remplacer les valeurs de l’exemple et les valeurs d’espace réservé entre les crochets par vos propres valeurs : 
+L’exemple suivant affecte le rôle **Contributeur aux données Blob du stockage** à un utilisateur, limité au niveau du conteneur. Veillez à remplacer les valeurs de l’exemple et les valeurs d’espace réservé entre les crochets par vos propres valeurs :
 
 ```azurecli-interactive
 az role assignment create \
     --role "Storage Blob Data Contributor" \
     --assignee <email> \
-    --scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/blobServices/default/containers/sample-container"
+    --scope "/subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/blobServices/default/containers/<container>"
 ```
 
 ### <a name="queue-scope"></a>Étendue de la file d’attente
@@ -78,16 +78,16 @@ az role assignment create \
 Pour affecter un rôle limité à une file d’attente, spécifiez une chaîne contenant l’étendue de la file d’attente pour le paramètre `--scope`. L’étendue d’une file d’attente a la forme :
 
 ```
-/subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/queueServices/default/queues/<queue-name>
+/subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/queueServices/default/queues/<queue>
 ```
 
-L’exemple suivant affecte le rôle **Contributeur aux données en file d’attente du stockage** à un utilisateur, limité à une file d’attente nommée *sample-queue*. Veillez à remplacer les valeurs de l’exemple et les valeurs d’espace réservé entre les crochets par vos propres valeurs : 
+L’exemple suivant affecte le rôle **Contributeur aux données de file d'attente du stockage** à un utilisateur, limité au niveau de la file d'attente. Veillez à remplacer les valeurs de l’exemple et les valeurs d’espace réservé entre les crochets par vos propres valeurs :
 
 ```azurecli-interactive
 az role assignment create \
     --role "Storage Queue Data Contributor" \
     --assignee <email> \
-    --scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/queueServices/default/queues/sample-queue"
+    --scope "/subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/queueServices/default/queues/<queue>"
 ```
 
 ### <a name="storage-account-scope"></a>Étendue du compte de stockage
@@ -98,24 +98,24 @@ Pour affecter un rôle limité au compte de stockage, spécifiez l’étendue de
 /subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>
 ```
 
-L’exemple suivant montre comment affecter le rôle **Lecteur des données Blob du stockage** à un utilisateur au niveau du compte de stockage. N’oubliez pas de remplacer les valeurs de l’exemple par vos propres valeurs : 
+L’exemple suivant montre comment affecter le rôle **Lecteur des données Blob du stockage** à un utilisateur au niveau du compte de stockage. N’oubliez pas de remplacer les valeurs de l’exemple par vos propres valeurs : \
 
 ```azurecli-interactive
 az role assignment create \
     --role "Storage Blob Data Reader" \
     --assignee <email> \
-    --scope "/subscriptions/<subscription-id>/resourceGroups/sample-resource-group/providers/Microsoft.Storage/storageAccounts/storagesamples"
+    --scope "/subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>"
 ```
 
 ### <a name="resource-group-scope"></a>Étendue du groupe de ressources
 
-Pour affecter un rôle limité au groupe de ressources, spécifiez le nom ou l’ID du groupe de ressources pour le paramètre `--resource-group`. L’exemple suivant affecte le rôle **Lecteur des données en file d’attente du stockage** à un utilisateur au niveau du groupe de ressources. Veillez à remplacer les valeurs de l’exemple et les valeurs d’espace réservé entre les crochets par vos propres valeurs : 
+Pour affecter un rôle limité au groupe de ressources, spécifiez le nom ou l’ID du groupe de ressources pour le paramètre `--resource-group`. L’exemple suivant affecte le rôle **Lecteur des données en file d’attente du stockage** à un utilisateur au niveau du groupe de ressources. Veillez à remplacer les valeurs de l’exemple et les valeurs d’espace réservé entre les crochets par vos propres valeurs :
 
 ```azurecli-interactive
 az role assignment create \
     --role "Storage Queue Data Reader" \
     --assignee <email> \
-    --resource-group sample-resource-group
+    --resource-group <resource-group>
 ```
 
 ### <a name="subscription-scope"></a>Étendue d’abonnement
@@ -132,7 +132,7 @@ L’exemple suivant montre comment affecter le rôle **Lecteur des données Blob
 az role assignment create \
     --role "Storage Blob Data Reader" \
     --assignee <email> \
-    --scope "/subscriptions/<subscription-id>"
+    --scope "/subscriptions/<subscription>"
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes

@@ -1,5 +1,5 @@
 ---
-title: Détecter du contenu spécifique à un domaine - Vision par ordinateur
+title: Contenu spécifique à un domaine - Vision par ordinateur
 titleSuffix: Azure Cognitive Services
 description: Apprenez à spécifier un domaine de catégorisation d'image pour renvoyer des informations plus détaillées sur une image.
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: e4b64e00f71768a8821c83a73b019f77089e1b3a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8d6dc91ae7bb0f6d7a24064749d9295558a7d39c
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60368071"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68946337"
 ---
 # <a name="detect-domain-specific-content"></a>Détecter le contenu spécifique à un domaine
 

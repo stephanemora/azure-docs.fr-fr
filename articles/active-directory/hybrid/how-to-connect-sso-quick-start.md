@@ -16,12 +16,12 @@ ms.date: 04/16/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 06566ab81b6af847a7eb174731105b7f43a7197f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 87764ed30182dc548fc3a260582174f121e27e24
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60242718"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68965215"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Authentification unique transparente Azure Active Directory : Démarrage rapide
 
@@ -144,7 +144,7 @@ Il y a deux façons de modifier les paramètres de la zone Intranet des utilisat
 
     ![Authentification unique](./media/how-to-connect-sso-quick-start/sso7.png)
 
-6. Accédez à **Configuration utilisateur** > **Modèles d’administration** **Policy** > **> **Composants Windows** > **Internet Explorer** > **Panneau de configuration Internet** > **Page Sécurité** > **Zone intranet**. Puis sélectionnez **Autoriser les mises à jour de la barre d’état via le script**.
+6. Accédez à **Configuration utilisateur** > **Stratégie** > **Modèles d’administration** > **Composants Windows** > **Internet Explorer** > **Panneau de configuration Internet** > **Page Sécurité** > **Zone Intranet**. Puis sélectionnez **Autoriser les mises à jour de la barre d’état via le script**.
 
     ![Authentification unique](./media/how-to-connect-sso-quick-start/sso11.png)
 

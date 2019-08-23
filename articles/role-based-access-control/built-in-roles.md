@@ -11,16 +11,16 @@ ms.devlang: ''
 ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 07/11/2019
+ms.date: 08/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: de068563e50da4510343572fd641aadd93157073
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
+ms.openlocfilehash: 4ea0ceed80875018ee4f6e4bbcdc2548a232e9e0
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/13/2019
-ms.locfileid: "67868637"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68989956"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Rôles intégrés pour les ressources Azure
 
@@ -139,6 +139,10 @@ Le tableau ci-après fournit une brève description de chaque rôle intégré. C
 | [Contributeur aux données Blob du stockage](#storage-blob-data-contributor) | Lire, écrire et supprimer des conteneurs et objets blob du stockage Azure. Pour savoir quelles actions sont requises pour une opération de données spécifique, consultez [Autorisations pour appeler les opérations de données d’objet blob et de file d’attente](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). |
 | [Propriétaire des données Blob du stockage](#storage-blob-data-owner) | Fournit un accès total aux conteneurs d’objets blob et aux données du Stockage Azure, notamment l’attribution du contrôle d’accès POSIX. Pour savoir quelles actions sont requises pour une opération de données spécifique, consultez [Autorisations pour appeler les opérations de données d’objet blob et de file d’attente](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). |
 | [Lecteur des données blob du stockage](#storage-blob-data-reader) | Lire et répertorier des conteneurs et objets blob du stockage Azure. Pour savoir quelles actions sont requises pour une opération de données spécifique, consultez [Autorisations pour appeler les opérations de données d’objet blob et de file d’attente](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). |
+| [Délégation du Stockage Blob](#storage-blob-delegator) | Obtenez la clé de délégation d’utilisateur qui peut être utilisée pour créer une signature d’accès partagé pour un conteneur ou un objet blob signé avec les informations d’identification Azure AD. Pour en savoir plus, consultez [Créer une SAP de délégation d’utilisateur](https://docs.microsoft.com/rest/api/storageservices/create-a-user-delegation-sas). |
+| [Contributeur de partage SMB de données de fichier de stockage](#storage-file-data-smb-share-contributor) | Permet l'accès en lecture, en écriture et pour suppression dans des partages de fichiers Stockage Azure via SMB |
+| [Contributeur élevé de partage SMB de données de fichier de stockage](#storage-file-data-smb-share-elevated-contributor) | Permet l'accès en lecture, en écriture, pour suppression et pour modification dans des partages de fichiers Stockage Azure via SMB |
+| [Lecteur de partage SMB de données de fichier de stockage](#storage-file-data-smb-share-reader) | Autorise l’accès en lecture au partage de fichiers Azure via SMB |
 | [Contributeur aux données en file d’attente du stockage](#storage-queue-data-contributor) | Lire, écrire et supprimer des files d'attente et messages en file d'attente du stockage Azure. Pour savoir quelles actions sont requises pour une opération de données spécifique, consultez [Autorisations pour appeler les opérations de données d’objet blob et de file d’attente](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). |
 | [Processeur de messages de données en file d’attente du stockage](#storage-queue-data-message-processor) | Récupérer et supprimer un message, ou en afficher un aperçu à partir d’une file d’attente Stockage Azure. Pour savoir quelles actions sont requises pour une opération de données spécifique, consultez [Autorisations pour appeler les opérations de données d’objet blob et de file d’attente](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). |
 | [Expéditeur de messages de données en file d’attente du stockage](#storage-queue-data-message-sender) | Ajoutez des messages à une file d’attente de stockage Azure. Pour savoir quelles actions sont requises pour une opération de données spécifique, consultez [Autorisations pour appeler les opérations de données d’objet blob et de file d’attente](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). |
@@ -698,7 +702,7 @@ Le tableau ci-après fournit une brève description de chaque rôle intégré. C
 > | **Description** | Permet de gérer les inscriptions Azure Stack. |
 > | **Id** | 6f12a6df-dd06-4f3e-bcb1-ce8be600526a |
 > | **Actions** |  |
-> | Microsoft.AzureStack/registrations/products/listDetails/action | Récupère les détails étendus d’un produit de la place de marché Azure Stack. |
+> | Microsoft.AzureStack/registrations/products/*/action |  |
 > | Microsoft.AzureStack/registrations/products/read | Obtient les propriétés d’un produit de la place de marché Azure Stack. |
 > | Microsoft.AzureStack/registrations/read | Obtient les propriétés d’une inscription Azure Stack. |
 > | **NotActions** |  |
@@ -2605,6 +2609,7 @@ Le tableau ci-après fournit une brève description de chaque rôle intégré. C
 > | Microsoft.Storage/storageAccounts/blobServices/containers/delete | Supprimer un conteneur. |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/read | Retourner un conteneur ou une liste de conteneurs. |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/write | Modifier les métadonnées ou les propriétés d’un conteneur. |
+> | Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey/action | Retourne une clé de délégation d’utilisateur pour le service Blob. |
 > | **NotActions** |  |
 > | *Aucune* |  |
 > | **DataActions** |  |
@@ -2622,6 +2627,7 @@ Le tableau ci-après fournit une brève description de chaque rôle intégré. C
 > | **Id** | b7e6dc6d-f1e8-4753-8033-0f276bb0955b |
 > | **Actions** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/* | Toutes les autorisations sur les conteneurs. |
+> | Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey/action | Retourne une clé de délégation d’utilisateur pour le service Blob. |
 > | **NotActions** |  |
 > | *Aucune* |  |
 > | **DataActions** |  |
@@ -2637,10 +2643,76 @@ Le tableau ci-après fournit une brève description de chaque rôle intégré. C
 > | **Id** | 2a2b9908-6ea1-4ae2-8e65-a410df84e7d1 |
 > | **Actions** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/read | Retourner un conteneur ou une liste de conteneurs. |
+> | Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey/action | Retourne une clé de délégation d’utilisateur pour le service Blob. |
 > | **NotActions** |  |
 > | *Aucune* |  |
 > | **DataActions** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | Retourner un objet blob ou une liste d'objets blob. |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
+
+## <a name="storage-blob-delegator"></a>Délégation du Stockage Blob
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Description** | Obtenez une clé de délégation d’utilisateur qui peut être utilisée pour créer une signature d’accès partagé pour un conteneur ou un objet blob signé avec les informations d’identification Azure AD. Pour en savoir plus, consultez [Créer une SAP de délégation d’utilisateur](https://docs.microsoft.com/rest/api/storageservices/create-a-user-delegation-sas). |
+> | **Id** | db58b8e5-c6ad-4a2a-8342-4190687cbf4a |
+> | **Actions** |  |
+> | Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey/action | Retourne une clé de délégation d’utilisateur pour le service Blob. |
+> | **NotActions** |  |
+> | *Aucune* |  |
+> | **DataActions** |  |
+> | *Aucune* |  |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
+
+## <a name="storage-file-data-smb-share-contributor"></a>Contributeur de partage SMB de données de fichier de stockage
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Description** | Permet l'accès en lecture, en écriture et pour suppression dans des partages de fichiers Stockage Azure via SMB |
+> | **Id** | 0c867c2a-1d8c-454a-a3db-ab2ea1bdc8bb |
+> | **Actions** |  |
+> | *Aucune* |  |
+> | **NotActions** |  |
+> | *Aucune* |  |
+> | **DataActions** |  |
+> | Microsoft.Storage/storageAccounts/fileServices/fileshares/files/read | Retourne un fichier/dossier ou une liste de fichiers/dossiers. |
+> | Microsoft.Storage/storageAccounts/fileServices/fileshares/files/write | Retourne le résultat de l’écriture d’un fichier ou de la création d’un dossier. |
+> | Microsoft.Storage/storageAccounts/fileServices/fileshares/files/delete | Retourne le résultat de la suppression d’un fichier/dossier. |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
+
+## <a name="storage-file-data-smb-share-elevated-contributor"></a>Contributeur élevé de partage SMB de données de fichier de stockage
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Description** | Permet l'accès en lecture, en écriture, pour suppression et pour modification dans des partages de fichiers Stockage Azure via SMB |
+> | **Id** | a7264617-510b-434b-a828-9731dc254ea7 |
+> | **Actions** |  |
+> | *Aucune* |  |
+> | **NotActions** |  |
+> | *Aucune* |  |
+> | **DataActions** |  |
+> | Microsoft.Storage/storageAccounts/fileServices/fileshares/files/read | Retourne un fichier/dossier ou une liste de fichiers/dossiers. |
+> | Microsoft.Storage/storageAccounts/fileServices/fileshares/files/write | Retourne le résultat de l’écriture d’un fichier ou de la création d’un dossier. |
+> | Microsoft.Storage/storageAccounts/fileServices/fileshares/files/delete | Retourne le résultat de la suppression d’un fichier/dossier. |
+> | Microsoft.Storage/storageAccounts/fileServices/fileshares/files/modifypermissions/action | Retourne le résultat de la modification de l’autorisation sur un fichier/dossier. |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
+
+## <a name="storage-file-data-smb-share-reader"></a>Lecteur de partage SMB de données de fichier de stockage
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Description** | Autorise l’accès en lecture au partage de fichiers Azure via SMB |
+> | **Id** | aba4ae5f-2193-4029-9191-0cb91df5e314 |
+> | **Actions** |  |
+> | *Aucune* |  |
+> | **NotActions** |  |
+> | *Aucune* |  |
+> | **DataActions** |  |
+> | Microsoft.Storage/storageAccounts/fileServices/fileshares/files/read | Retourne un fichier/dossier ou une liste de fichiers/dossiers. |
 > | **NotDataActions** |  |
 > | *Aucune* |  |
 

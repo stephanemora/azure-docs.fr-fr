@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/01/2018
+ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: 18b5b941716fd2c6664c37f9e7c1ab2a37d07a88
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: da7dbdee4a376d88219a7a621ed7e3867873a37c
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68720642"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967401"
 ---
 # <a name="copy-data-from-an-sap-table-by-using-azure-data-factory"></a>Copier des données d’une table SAP à l’aide d’Azure Data Factory
 
@@ -201,7 +201,7 @@ Pour copier des données depuis et vers le service lié SAP BW Open Hub, les pro
 
 Pour obtenir la liste complète des sections et des propriétés permettant de définir des activités, consultez [Pipelines](concepts-pipelines-activities.md). Cette section fournit la liste des propriétés prises en charge par la source de la table SAP.
 
-### <a name="sap-table-as-a-source"></a>Table SAP en tant que source
+### <a name="sap-table-as-source"></a>Table SAP en tant que source
 
 Pour copier des données à partir d’une table SAP, les propriétés suivantes sont prises en charge :
 
@@ -223,7 +223,7 @@ Pour copier des données à partir d’une table SAP, les propriétés suivantes
 <br/>
 >Si nous prenons l’exemple de `partitionOption` avec la valeur `partitionOnInt`, le nombre de lignes dans chaque partition est calculé à l’aide de cette formule : (nombre total de lignes comprises entre `partitionUpperBound` et `partitionLowerBound`)/`maxPartitionsNumber`.<br/>
 <br/>
->Pour exécuter des partitions en parallèle et accélérer la copie, il est fortement recommandé de définir `maxPartitionsNumber` comme un multiple de la valeur de la propriété `parallelCopies`. Pour plus d’informations, voir [Copie en parallèle](copy-activity-performance.md#parallel-copy).
+>Pour charger des partitions de données en parallèle afin d’accélérer la copie, le degré parallèle est contrôlé par le paramètre [`parallelCopies`](copy-activity-performance.md#parallel-copy) de l’activité de copie. Par exemple, si vous définissez `parallelCopies` sur quatre, Data Factory génère et exécute simultanément quatre requêtes basées l’option de partition et les paramètres que vous avez spécifiés, chacune récupérant des données à partir de votre table SAP. Nous vous recommandons vivement de faire de `maxPartitionsNumber` un multiple de la valeur de la propriété `parallelCopies`.
 
 Dans `rfcTableOptions`, vous pouvez utiliser les opérateurs de requête SAP courants suivants pour filtrer les lignes :
 
@@ -269,7 +269,8 @@ Dans `rfcTableOptions`, vous pouvez utiliser les opérateurs de requête SAP cou
             },
             "sink": {
                 "type": "<sink type>"
-            }
+            },
+            "parallelCopies": 4
         }
     }
 ]

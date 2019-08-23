@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: sukishen
-ms.openlocfilehash: 62f73f17d598cb2a22ef57d3ec0bcf91b8852298
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 77f04b9688be2a7b7343bac05b24a3fcd4e0fcde
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68728791"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69019699"
 ---
 # <a name="about-azure-networking-msp-partners"></a>À propos des partenaires de mise en réseau de fournisseur de services gérés Azure
 
@@ -24,9 +24,11 @@ Les fournisseurs de services gérés de mise en réseau d’Azure sont un ensemb
 
 Les clients peuvent acheter des offres de services gérés par leur fournisseur par le biais de la Place de marché Azure ou directement depuis le fournisseur de services gérés. Les fournisseurs de service gérés peuvent déployer et gérer des ressources de mise en réseau Azure dans les groupes de ressources et les abonnements des clients à l’aide d’Azure Lighthouse.
 
-## <a name="msp"></a>Partenaires de fournisseur de services gérés
+## <a name="msp"></a>Partenaires de mise en réseau de fournisseur de services gérés Azure
 
 Utilisez les liens dans cette section pour plus d’informations sur les services gérés de cloud mis en réseau offerts par les partenaires de fournisseur de services gérés mis en réseau d’Azure. Si le partenaire de services cloud mis en réseau n’est pas répertorié dans la section ci-dessous, demandez au fournisseur de nous contacter. Celui-ci peut nous contacter par courrier électronique à ManagedVirtualWAN@microsoft.com. 
+
+[ANS Group UK](https://www.ans.co.uk/)
 
 [Aryaka Networks](https://www.aryaka.com/)
 
@@ -43,6 +45,8 @@ Utilisez les liens dans cette section pour plus d’informations sur les service
 [ixreach](https://www.ixreach.com/)
 
 [Megaport](https://www.megaport.com/)
+
+[Oncore Cloud Services]( https://www.oncore.cloud/services/ue-for-expressroute/)
 
 [Tata Communications](https://www.tatacommunications.com/)
 

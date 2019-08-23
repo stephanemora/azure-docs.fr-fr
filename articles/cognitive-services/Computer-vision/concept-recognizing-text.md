@@ -1,5 +1,5 @@
 ---
-title: Reconnaître du texte imprimé et manuscrit - Vision par ordinateur
+title: Reconnaissance du texte imprimé et manuscrit - Vision par ordinateur
 titleSuffix: Azure Cognitive Services
 description: Concepts liés à la reconnaissance du texte imprimé et manuscrit dans des images à l’aide de l’API Vision par ordinateur.
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: cfbbd0b353699c4b04ede07df0450e66bd59612f
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: e37b4c02692575f76582e8f62c3aff00b57424ed
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68311966"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68946300"
 ---
 # <a name="recognize-printed-and-handwritten-text"></a>Reconnaître le texte imprimé et manuscrit
 

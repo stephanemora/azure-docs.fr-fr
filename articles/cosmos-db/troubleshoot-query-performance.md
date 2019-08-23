@@ -8,12 +8,12 @@ ms.date: 07/10/2019
 ms.author: girobins
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: 079e8677febfe6683d4f0e60a0e7ba6b06ea549d
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: a713ed69dc9c35e16b1cc5d9ad9819d53e2e1efe
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67835837"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68986165"
 ---
 # <a name="troubleshoot-query-performance-for-azure-cosmos-db"></a>Résoudre les problèmes de performance des requêtes pour Azure Cosmos DB
 Cet article explique comment identifier, diagnostiquer et résoudre les problèmes de requête SQL Azure Cosmos DB. Afin d'obtenir des performances optimales pour les requêtes Azure Cosmos DB, suivez les étapes de dépannage ci-dessous. 
@@ -23,6 +23,10 @@ Pour obtenir la latence la plus faible possible, l’application appelante doit 
 
 ## <a name="check-consistency-level"></a>Vérifier le niveau de cohérence
 Le [niveau de cohérence](consistency-levels.md) peut avoir un impact sur les performances et les frais. Assurez-vous que votre niveau de cohérence est adapté au scénario donné. Pour en savoir plus, consultez [Choisir le niveau de cohérence](consistency-levels-choosing.md).
+
+## <a name="log-sql-query-in-storage-account"></a>Journaliser la requête SQL dans le compte de stockage
+[L’API SQL interroge les journaux via des journaux de diagnostics](logging.md#turn-on-logging-in-the-azure-portal), ce qui vous permet de journaliser la requête obfusquée dans le compte de stockage de votre choix. Vous pouvez ainsi consulter les journaux de diagnostics et trouver la requête via plus d’unités de requête et utiliser l’ID d’activité à faire correspondre dans QueryRuntimeStatistics. 
+
 
 ## <a name="log-query-metrics"></a>Métriques de requête de journal
 Utilisez `QueryMetrics` pour corriger les requêtes lentes ou coûteuses. 

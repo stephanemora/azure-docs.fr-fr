@@ -9,18 +9,18 @@ ms.topic: article
 ms.service: security
 ms.subservice: security-fundamentals
 ms.workload: identity
-ms.openlocfilehash: 30c2eb2964f11b729b0ffaf58c532d5189cdc2cd
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 38c850f167287fe5e1a444c8670e359c4d2b6b90
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68727774"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934830"
 ---
 # <a name="a-world-without-passwords-with-azure-active-directory"></a>Un monde sans mot de passe avec Azure Active Directory
 
 Le moment est venu de rompre la relation que vous entretenez avec les mots de passe. Les mots de passe nous ont été très utiles par le passé, mais dans l'environnement de travail numérique d'aujourd'hui, ils sont devenus un vecteur d’attaque relativement facile pour les pirates. Les pirates adorent les mots de passe et rien d'étonnant à cela lorsqu'on sait que la plupart des mots de passe rejetés dans Azure Active Directory (Azure AD) contiennent des termes tels que l'année, le mois, la saison ou une équipe sportive locale. En outre, des [recherches ont montré](https://aka.ms/passwordguidance) que les recommandations classiques en matière de gestion des mots de passe, telles que les exigences de longueur, de complexité et les fréquences de changement, sont contre-productives pour diverses raisons liées à la nature humaine.
 
-Les attaques par pulvérisation de mots de passe, hameçonnage et rejeu sont couramment utilisées pour compromettre les comptes des utilisateurs. Les fonctionnalités Azure AD, telles que le [verrouillage intelligent](https://docs.microsoft.com/azure/active-directory/authentication/howto-password-smart-lockout), les [mots de passe interdits](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad-on-premises) et la [protection des mots de passe](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad-on-premises) contribuent à vous protéger contre ces types d'attaques. De même, l'implémentation d'une [authentification multifacteur](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks) (MFA) ou d'une vérification en deux étapes renforce la sécurité en exigeant une deuxième forme d’authentification. Mais à terme, une solution sans mot de passe reste la meilleure solution pour garantir une méthode d'authentification optimale.
+Les attaques par pulvérisation de mots de passe, hameçonnage et rejeu sont couramment utilisées pour compromettre les comptes des utilisateurs. Les fonctionnalités Azure AD, telles que le [verrouillage intelligent](../../active-directory/authentication/howto-password-smart-lockout.md), les [mots de passe interdits](../../active-directory/authentication/concept-password-ban-bad-on-premises.md) et la [protection des mots de passe](../../active-directory/authentication/concept-password-ban-bad-on-premises.md) contribuent à vous protéger contre ces types d'attaques. De même, l'implémentation d'une [authentification multifacteur](../../active-directory/authentication/concept-mfa-howitworks.md) (MFA) ou d'une vérification en deux étapes renforce la sécurité en exigeant une deuxième forme d’authentification. Mais à terme, une solution sans mot de passe reste la meilleure solution pour garantir une méthode d'authentification optimale.
 
 Cet article marque le début de votre parcours. Il vous aide à comprendre et à implémenter les solutions sans mot de passe Microsoft et à choisir une ou plusieurs des options parmi les suivantes :
 
@@ -109,7 +109,7 @@ Pour plus d'informations sur le processus d’authentification dans d’autres s
 
 Le [service de réinitialisation de code confidentiel de Microsoft](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-features#pin-reset) est une fonctionnalité d'Azure AD qui permet aux utilisateurs de réinitialiser leur code confidentiel, si besoin. À l'aide d'une stratégie de groupe, Microsoft Intune ou d'un GPM compatible, un administrateur peut configurer les appareils Windows 10 de sorte qu'ils utilisent, en toute sécurité, le service de réinitialisation du code confidentiel qui permet aux utilisateurs de réinitialiser leur code confidentiel oublié via les paramètres ou l'écran de verrouillage ci-dessus, sans devoir procéder à une nouvelle inscription.
 
-Les utilisateurs doivent parfois recourir aux mots de passe. La [réinitialisation de mot de passe en libre-service](https://docs.microsoft.com/azure/active-directory/authentication/howto-sspr-deployment) (SSPR) est une fonctionnalité d’Azure Active Directory qui permet aux utilisateurs de réinitialiser leurs mots de passe, sans devoir contacter le service informatique. Les utilisateurs doivent s’inscrire ou être inscrits à ce service avant de l’utiliser. Pendant l’inscription, l’utilisateur choisit une ou plusieurs méthodes d’authentification activées par son organisation. SSPR permet aux utilisateurs de rapidement débloquer leur compte et de continuer à travailler, quels que soient l’heure ou l’endroit où ils se trouvent. En permettant aux utilisateurs de débloquer leur compte eux-mêmes, votre organisation peut réduire les pertes de productivité et les coûts de support élevés pour les problèmes les plus courants liés aux mots de passe.
+Les utilisateurs doivent parfois recourir aux mots de passe. La [réinitialisation de mot de passe en libre-service](../../active-directory/authentication/howto-sspr-deployment.md) (SSPR) est une fonctionnalité d’Azure Active Directory qui permet aux utilisateurs de réinitialiser leurs mots de passe, sans devoir contacter le service informatique. Les utilisateurs doivent s’inscrire ou être inscrits à ce service avant de l’utiliser. Pendant l’inscription, l’utilisateur choisit une ou plusieurs méthodes d’authentification activées par son organisation. SSPR permet aux utilisateurs de rapidement débloquer leur compte et de continuer à travailler, quels que soient l’heure ou l’endroit où ils se trouvent. En permettant aux utilisateurs de débloquer leur compte eux-mêmes, votre organisation peut réduire les pertes de productivité et les coûts de support élevés pour les problèmes les plus courants liés aux mots de passe.
 
 ## <a name="passwordless-sign-in-with-microsoft-authenticator"></a>Connexion sans mot de passe avec Microsoft Authenticator
 
@@ -125,9 +125,9 @@ Les conditions préalables à l'utilisation de l'application Microsoft Authentic
 
 * Les utilisateurs finaux sont activés pour Azure Multi-Factor Authentication
 
-* Possibilité pour les utilisateurs d'inscrire leurs appareils à l’aide de Microsoft Intune ou d'une solution de gestion des appareils mobiles tierce (MDM)
+* Il est recommandé que les utilisateurs inscrivent leurs appareils à l’aide de Microsoft Intune ou d’une solution de gestion des périphériques mobiles (GPM) tierce pour simplifier le déploiement de l’application
 
-Si ces conditions sont remplies, les administrateurs activent la connexion par téléphone sans mot de passe dans le locataire à l'aide de [Windows PowerShell.](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-phone-sign-in#enable-my-users) Une fois la connexion activée par téléphone dans le locataire, les utilisateurs finaux peuvent choisir de se connecter via leur téléphone en sélectionnant leur compte professionnel ou scolaire dans l'écran **Comptes** de l'application, puis **Activer la connexion par téléphone**.
+Si ces conditions sont remplies, les administrateurs activent la connexion par téléphone sans mot de passe dans le locataire à l'aide de [Windows PowerShell.](../../active-directory/authentication/howto-authentication-passwordless-phone.md) Une fois la connexion activée par téléphone dans le locataire, les utilisateurs finaux peuvent choisir de se connecter via leur téléphone en sélectionnant leur compte professionnel ou scolaire dans l'écran **Comptes** de l'application, puis **Activer la connexion par téléphone**.
 
 Si la connexion sans mot de passe est activée par un administrateur, les utilisateurs finaux devront répondre aux exigences suivantes :
 
@@ -137,9 +137,9 @@ Si la connexion sans mot de passe est activée par un administrateur, les utilis
 
 * Ajout d’un compte professionnel ou scolaire avec notifications Push à l’application
 
-Pour éviter de vous retrouver bloqué ou de devoir recréer des comptes sur un nouvel appareil, il vous est recommandé d'utiliser Microsoft Authenticator afin de [sauvegarder les informations d'identification de votre compte](https://docs.microsoft.com/azure/active-directory/user-help/user-help-auth-app-backup-recovery) dans le cloud. Après la sauvegarde, vous pouvez également utiliser l’application pour récupérer vos informations sur un nouvel appareil, ce qui évite de se retrouver bloqué ou d’avoir à recréer des comptes.
+Pour éviter de vous retrouver bloqué ou de devoir recréer des comptes sur un nouvel appareil, il vous est recommandé d'utiliser Microsoft Authenticator afin de [sauvegarder les informations d'identification de votre compte](../../active-directory/user-help/user-help-auth-app-backup-recovery.md) dans le cloud. Après la sauvegarde, vous pouvez également utiliser l’application pour récupérer vos informations sur un nouvel appareil, ce qui évite de se retrouver bloqué ou d’avoir à recréer des comptes.
 
-Dans la mesure où la plupart des utilisateurs sont habitués à utiliser uniquement les mots de passe pour s’authentifier, il est important que votre organisation forme les utilisateurs sur ce processus. Le fait d’en être averti peut réduire la probabilité que les utilisateurs appellent votre support technique pour des [problèmes](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-phone-sign-in#known-issues) liés à la connexion à l'aide de l'application Microsoft Authenticator.
+Dans la mesure où la plupart des utilisateurs sont habitués à utiliser uniquement les mots de passe pour s’authentifier, il est important que votre organisation forme les utilisateurs sur ce processus. Le fait d’en être averti peut réduire la probabilité que les utilisateurs appellent votre support technique pour des [problèmes](../../active-directory/authentication/howto-authentication-passwordless-phone.md) liés à la connexion à l'aide de l'application Microsoft Authenticator.
 
 > [!NOTE]
 > La présence d'un utilisateur itinérant dans un lieu sans connectivité Internet constitue un point de défaillance de cette solution. Les clés de sécurité FIDO2 et Windows Hello Entreprise ne sont pas soumis à la même restriction.
@@ -150,9 +150,9 @@ Dans la mesure où la plupart des utilisateurs sont habitués à utiliser unique
 
 Pour utiliser l'application Microsoft Authenticator en tant que solution sans mot de passe à des fins de connexion à un compte Azure AD, l'administrateur et les utilisateurs finaux doivent procéder comme indiqué ci-dessous.
 
-Tout d’abord, l'administrateur doit [activer l’utilisation de l’application en tant qu’informations d’identification](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-phone-sign-in#enable-my-users) dans le locataire à l’aide de Windows PowerShell. L’administrateur doit également activer les utilisateurs finaux pour Azure Multi-Factor Authentication (Azure MFA) et configurer l’application Microsoft Authenticator en tant que [méthode de vérification](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-mfasettings#verification-methods).
+Tout d’abord, l'administrateur doit [activer l’utilisation de l’application en tant qu’informations d’identification](../../active-directory/authentication/howto-authentication-passwordless-phone.md) dans le locataire à l’aide de Windows PowerShell. L’administrateur doit également activer les utilisateurs finaux pour Azure Multi-Factor Authentication (Azure MFA) et configurer l’application Microsoft Authenticator en tant que [méthode de vérification](../../active-directory/authentication/howto-mfa-mfasettings.md#verification-methods).
 
-Les utilisateurs finaux doivent [télécharger et installer](https://docs.microsoft.com/azure/active-directory/user-help/user-help-auth-app-download-install) l’application Microsoft Authenticator et [configurer leur compte](https://docs.microsoft.com/azure/active-directory/user-help/security-info-setup-auth-app) de manière à utiliser Microsoft Authenticator en tant que méthode de vérification.
+Les utilisateurs finaux doivent [télécharger et installer](../../active-directory/user-help/user-help-auth-app-download-install.md) l’application Microsoft Authenticator et [configurer leur compte](../../active-directory/user-help/security-info-setup-auth-app.md) de manière à utiliser Microsoft Authenticator en tant que méthode de vérification.
 
 > [!VIDEO https://www.youtube.com/embed/uWbkLuI4g30]
 
@@ -184,7 +184,7 @@ L'authentification sans mot de passe à l'aide de Microsoft Authenticator suit l
 
 #### <a name="user-manages-their-passwordless-sign-in-with-microsoft-authenticator-credentials"></a>L'utilisateur gère sa connexion sans mot de passe avec les informations d’identification Microsoft Authenticator
 
-Avec l’[inscription combinée](https://docs.microsoft.com/azure/active-directory/authentication/concept-registration-mfa-sspr-combined), les utilisateurs peuvent s’inscrire et bénéficier des avantages de l'authentification multifacteur et de la réinitialisation de mot de passe en libre-service. L'utilisateur s'inscrit et gère ces paramètres en accédant à sa page [Mon profil](https://aka.ms/mysecurityinfo). En plus de la réinitialisation de mot de passe en libre-service, l'inscription combinée prend en charge plusieurs méthodes et actions d'authentification.
+Avec l’[inscription combinée](../../active-directory/authentication/concept-registration-mfa-sspr-combined.md), les utilisateurs peuvent s’inscrire et bénéficier des avantages de l'authentification multifacteur et de la réinitialisation de mot de passe en libre-service. L'utilisateur s'inscrit et gère ces paramètres en accédant à sa page [Mon profil](https://aka.ms/mysecurityinfo). En plus de la réinitialisation de mot de passe en libre-service, l'inscription combinée prend en charge plusieurs méthodes et actions d'authentification.
 
 ## <a name="fido2-security-keys"></a>Clés de sécurité FIDO2
 
@@ -228,7 +228,7 @@ Nous recommandons également à chaque organisation de créer un protocole à l'
 
 Les administrateurs peuvent [approvisionner manuellement les clés](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-passwordless-enable) et les distribuer aux utilisateurs finaux, mais [Intune](https://docs.microsoft.com/intune/windows-enrollment-methods) prend en charge l'approvisionnement et l'activation du fournisseur d'informations d'identification FIDO2 sur l'écran de verrouillage Windows 10. Les administrateurs doivent également utiliser le [portail Azure](https://portal.azure.com/) pour activer les appareils à jeton matériel en tant que méthode d’authentification sans mot de passe.
 
-Le déploiement des clés de sécurité FIDO2 implique aussi que les utilisateurs inscrivent leurs clés à l'aide de l'[inscription combinée](https://docs.microsoft.com/azure/active-directory/authentication/concept-registration-mfa-sspr-combined). Avec l’inscription combinée, les utilisateurs s’inscrivent une seule fois et bénéficient des avantages de l'authentification multifacteur et de la réinitialisation de mot de passe en libre-service (SSPR).
+Le déploiement des clés de sécurité FIDO2 implique aussi que les utilisateurs inscrivent leurs clés à l'aide de l'[inscription combinée](../../active-directory/authentication/concept-registration-mfa-sspr-combined.md). Avec l’inscription combinée, les utilisateurs s’inscrivent une seule fois et bénéficient des avantages de l'authentification multifacteur et de la réinitialisation de mot de passe en libre-service (SSPR).
 
 En plus de sélectionner le jeton matériel en tant que méthode d'authentification multifacteur par défaut, il est recommandé de sélectionner une option de vérification supplémentaire.
 
@@ -342,5 +342,5 @@ L'adoption de technologies d'authentification multifacteur modernes, telles que 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Présentation de [l'authentification sans mot de passe](https://docs.microsoft.com/azure/active-directory/authentication/concept-authentication-passwordless)
+* Présentation de [l'authentification sans mot de passe](../../active-directory/authentication/concept-authentication-passwordless.md)
 * [Comment activer l'authentification sans mot de passe dans Azure AD](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-passwordless-enable)

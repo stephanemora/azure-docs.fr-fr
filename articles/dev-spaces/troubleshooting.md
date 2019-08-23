@@ -9,12 +9,12 @@ ms.date: 09/11/2018
 ms.topic: conceptual
 description: Développement Kubernetes rapide avec des conteneurs et des microservices sur Azure
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs, Helm, service Mesh, routage du service Mesh, kubectl, k8s '
-ms.openlocfilehash: 2434507ac89d631bb96ae9633403075801879a37
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 6ab2e0866c4e6c5cc8f89cb490504f6ca6a076fc
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68277396"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69019647"
 ---
 # <a name="troubleshooting-guide"></a>Guide de résolution des problèmes
 
@@ -445,7 +445,14 @@ Mettez à jour votre installation de l’interface [Azure CLI](/cli/azure/instal
 
 ### <a name="reason"></a>Motif
 
-Lorsque vous exécutez un service dans un espace de développement, le pod de ce service est [injecté avec des conteneurs supplémentaires pour l’instrumentation](how-dev-spaces-works.md#prepare-your-aks-cluster). Ces conteneurs n’ont pas de requêtes ou de limites de ressources définies, ce qui entraîne la désactivation de la mise à l’échelle automatique du pod horizontal.
+Lorsque vous exécutez un service dans un espace de développement, le pod de ce service est [injecté avec des conteneurs supplémentaires pour l’instrumentation](how-dev-spaces-works.md#prepare-your-aks-cluster), et tous les conteneurs d’un pod doivent avoir des limites et des requêtes de ressources définies pour la mise à l’échelle automatique de pod horizontale. 
+
+
+Les requêtes et les limites de ressources peuvent être appliquées pour le conteneur injecté (devspaces-proxy) en ajoutant l’annotation `azds.io/proxy-resources` à la spécification de votre pod. La valeur doit être définie sur un objet JSON représentant la section des ressources de la spécification du conteneur pour le proxy.
 
 ### <a name="try"></a>Essai
-Exécutez le module de mise à l’échelle automatique du pod horizontal dans un espace de noms pour lequel les espaces de développement ne sont pas activés.
+
+Voici un exemple d’annotation de ressources proxy qui doit être appliquée aux spécifications de votre pod.
+```
+azds.io/proxy-resources: "{\"Limits\": {\"cpu\": \"300m\",\"memory\": \"400Mi\"},\"Requests\": {\"cpu\": \"150m\",\"memory\": \"200Mi\"}}"
+```

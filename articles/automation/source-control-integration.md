@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 04/26/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 1ae61af2ad857068950e2b2cdb6f058a33f57186
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 52fcd0d928ecbce5c617ff6a27175fccb8fd96f6
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67477569"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68990243"
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Intégration du contrôle de code source dans Azure Automation
 
@@ -172,6 +172,13 @@ Sélectionnez le contrôle de code source que vous souhaitez supprimer. Sur la p
 ## <a name="encoding"></a>Encodage
 
 Si plusieurs personnes modifient les runbooks qui se trouvent dans votre dépôt de contrôle de code source à l’aide de différents éditeurs, vous risquez de rencontrer des problèmes de codage. Cela peut entraîner l’affichage de caractères incorrects dans votre runbook. Pour plus d’informations, consultez [Causes courantes des problèmes d’encodage](/powershell/scripting/components/vscode/understanding-file-encoding#common-causes-of-encoding-issues).
+
+## <a name="updating-the-access-token"></a>Mise à jour du jeton d’accès
+
+Actuellement, il n’existe aucun moyen de mettre à jour le jeton d’accès dans le contrôle de code source à partir du portail. Une fois que votre jeton d’accès personnel a expiré ou a été révoqué, vous pouvez mettre à jour le contrôle de code source avec un nouveau jeton d’accès en procédant de l’une des manières suivantes :
+
+* Via l’[API REST](https://docs.microsoft.com/en-us/rest/api/automation/sourcecontrol/update).
+* Via la cmdlet [Update-AzAutomationSourceControl](/powershell/module/az.automation/update-azautomationsourcecontrol).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

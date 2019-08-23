@@ -1,19 +1,18 @@
 ---
 title: Copier ou déplacer des données vers Stockage Azure avec AzCopy v10 | Microsoft Docs
 description: AzCopy est un utilitaire de ligne de commande que vous pouvez utiliser pour copier des données vers, depuis ou entre des comptes de stockage. Cet article vous aide à télécharger AzCopy, connectez-vous à votre compte de stockage et transférez des fichiers.
-services: storage
 author: normesta
 ms.service: storage
-ms.topic: article
-ms.date: 07/25/2019
+ms.topic: conceptual
+ms.date: 08/08/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 7ad5be0c7774beacaa15fcca0646c78e2d328ba4
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 6b127738d4be79c30d1791d7313c0f8f7eacaf36
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699842"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68985153"
 ---
 # <a name="get-started-with-azcopy"></a>Bien démarrer avec AzCopy
 
@@ -242,7 +241,7 @@ Cet exemple de commande copie de manière récursive les données d’un répert
 azcopy cp "C:\local\path" "https://account.blob.core.windows.net/mycontainer1/?sv=2018-03-28&ss=bjqt&srt=sco&sp=rwddgcup&se=2019-05-01T05:01:17Z&st=2019-04-30T21:01:17Z&spr=https&sig=MGCXiyEzbtttkr3ewJIh2AR8KrghSy1DGM9ovN734bQF4%3D" --recursive=true
 ```
 
-Pour en savoir plus sur les jetons SAS et savoir comment en obtenir un, voir [Utilisation des signatures d’accès partagé (SAP)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1).
+Pour en savoir plus sur les jetons SAS et savoir comment en obtenir un, voir [Utilisation des signatures d’accès partagé (SAP)](https://docs.microsoft.com/azure/storage/common/storage-sas-overview).
 
 ## <a name="transfer-files"></a>Transférer des fichiers
 
@@ -260,7 +259,9 @@ Pour obtenir des exemples de commandes, consultez l’un de ces articles.
 
 ## <a name="use-azcopy-in-a-script"></a>Utiliser AzCopy dans un script
 
-Au fil du temps, le [lien de téléchargement](#download-and-install-azcopy) AzCopy pointera vers les nouvelles versions d’AzCopy. Si votre script télécharge AzCopy, il se peut qu’il cesse de fonctionner si une version plus récente d’AzCopy modifie les fonctionnalités dont votre script dépend. 
+### <a name="obtain-a-static-download-link"></a>Obtenir un lien de téléchargement statique
+
+Au fil du temps, le [lien de téléchargement](#download-and-install-azcopy) AzCopy pointera vers les nouvelles versions d’AzCopy. Si votre script télécharge AzCopy, il se peut qu’il cesse de fonctionner si une version plus récente d’AzCopy modifie les fonctionnalités dont votre script dépend.
 
 Pour éviter ces problèmes, obtenez un lien statique (non modifiable) vers la version actuelle d’AzCopy. De cette façon, votre script télécharge la même version exacte d’AzCopy à chaque fois qu’il s’exécute.
 
@@ -281,9 +282,13 @@ L’URL apparaît dans la sortie de cette commande. Votre script peut alors tél
 | **Linux** | `wget -O azcopyv10.tar https://azcopyvnext.azureedge.net/release20190301/azcopy_linux_amd64_10.0.8.tar.gz tar -xf azcopyv10.tar --strip-components=1 ./azcopy` |
 | **Windows** | `Invoke-WebRequest https://azcopyvnext.azureedge.net/release20190517/azcopy_windows_amd64_10.1.2.zip -OutFile azcopyv10.zip <<Unzip here>>` |
 
+### <a name="escape-special-characters-in-sas-tokens"></a>Caractères spéciaux d’échappement dans les jetons SAS
+
+Dans les fichiers de lot qui portent l’extension `.cmd`, vous devez placer dans une séquence d’échappement les caractères `%` qui apparaissent dans les jetons SAS. Pour ce faire, vous pouvez ajouter un caractère `%` d’addition à côté des caractères `%` existants dans la chaîne de jeton SAS.
+
 ## <a name="use-azcopy-in-storage-explorer"></a>Utiliser AzCopy dans l’Explorateur de stockage
 
-Si vous souhaitez tirer parti des avantages d’AzCopy en termes de performances, mais préférez utiliser l’Explorateur de stockage plutôt que la ligne de commande pour interagir avec vos fichiers, activez AzCopy dans l’Explorateur de stockage. 
+Si vous souhaitez tirer parti des avantages d’AzCopy en termes de performances, mais préférez utiliser l’Explorateur de stockage plutôt que la ligne de commande pour interagir avec vos fichiers, activez AzCopy dans l’Explorateur de stockage.
 
 Dans l’Explorateur de stockage, choisissez **Préversion**->**Use AzCopy for Improved Blob Upload and Download** (Utiliser AzCopy pour le chargement et le téléchargement améliorés des blobs).
 

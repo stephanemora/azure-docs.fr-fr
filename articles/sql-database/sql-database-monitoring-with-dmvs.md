@@ -11,12 +11,12 @@ author: juliemsft
 ms.author: jrasnick
 ms.reviewer: carlrab
 ms.date: 12/19/2018
-ms.openlocfilehash: 5bddcb89d26566bd2024cbde086b6e35ddaf94ef
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: a630ceb1748f38dc169a4ebabcbb4e021de4273c
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567175"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881555"
 ---
 # <a name="monitoring-performance-azure-sql-database-using-dynamic-management-views"></a>Supervision des performances d’Azure SQL Database à l’aide de vues de gestion dynamique
 
@@ -28,7 +28,7 @@ La base de données SQL prend partiellement en charge trois catégories de vues 
 - vues de gestion dynamique liées à l’exécution ;
 - vues de gestion dynamique liées à la transaction.
 
-Pour plus d’informations sur les vues de gestion dynamique, voir [Fonctions et vues de gestion dynamique (Transact-SQL)](https://msdn.microsoft.com/library/ms188754.aspx) dans la documentation en ligne de SQL Server.
+Pour plus d’informations sur les vues de gestion dynamique, voir [Fonctions et vues de gestion dynamique (Transact-SQL)](https://msdn.microsoft.com/library/ms188754.aspx) dans la documentation en ligne de SQL Server. 
 
 ## <a name="permissions"></a>Autorisations
 
@@ -243,7 +243,7 @@ Pour une contention tempdb, il est courant de réduire ou réécrire le code d�
 
 - Tables temporaires
 - Variables de table
-- Paramètres de table
+- Paramètres table
 - Utilisation du magasin de version (spécifiquement associé aux transactions longues)
 - Requêtes comportant des plans de requête qui utilisent des tris, des jointures hachées et des files d’attente
 
@@ -334,7 +334,7 @@ ORDER BY start_time ASC;
 
 Si votre principal type d’attente est `RESOURCE_SEMAHPORE` et que vous n’avez pas de problème d’utilisation élevée de l’UC, vous avez peut-être un problème d’attente d’allocation de mémoire.
 
-### <a name="determine-if-a-resourcesemahpore-wait-is-a-top-wait"></a>Déterminer si une attente `RESOURCE_SEMAHPORE` est une attente principale
+### <a name="determine-if-a-resource_semahpore-wait-is-a-top-wait"></a>Déterminer si une attente `RESOURCE_SEMAHPORE` est une attente principale
 
 Utilisez la requête suivante pour déterminer si une attente `RESOURCE_SEMAHPORE` est une attente principale
 
@@ -512,7 +512,7 @@ Vous pouvez également surveiller l’utilisation à l’aide de ces deux vues 
 - [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx)
 - [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx)
 
-### <a name="sysdmdbresourcestats"></a>sys.dm_db_resource_stats
+### <a name="sysdm_db_resource_stats"></a>sys.dm_db_resource_stats
 
 Vous pouvez utiliser la vue [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) dans chaque SQL Database. La vue **sys.dm_db_resource_stats** représente les données d’utilisation récente des ressources par rapport au niveau de service. Les pourcentages moyens d’UC, d’E/S des données, d’écritures du journal et de mémoire sont enregistrés toutes les 15 secondes et conservés pendant une heure.
 
@@ -533,7 +533,7 @@ FROM sys.dm_db_resource_stats;
 
 Pour les autres requêtes, consultez les exemples dans [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx).
 
-### <a name="sysresourcestats"></a>sys.resource_stats
+### <a name="sysresource_stats"></a>sys.resource_stats
 
 La vue [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) de la base de données **master** fournit des informations supplémentaires vous permettant de superviser les performances de votre base de données SQL par rapport à son niveau de service et à sa taille de calcul. Les données, qui sont collectées toutes les cinq minutes, sont conservées pendant environ 14 jours. Cette vue est utile pour une analyse historique de plus long terme sur l’utilisation des ressources par votre base de données SQL.
 

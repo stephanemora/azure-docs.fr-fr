@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 08be09f7bee3aa17ff9d1baae4271e994fa235cb
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 3b7265f8d5ec4b7336253787e9cb881900a52b79
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68248878"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68963442"
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Meilleures pratiques pour l’accès conditionnel dans Azure Active Directory
 
@@ -50,7 +50,8 @@ Plusieurs stratégies d’accès conditionnel peuvent s’appliquer lorsque vous
 Toutes les stratégies sont appliquées en deux phases :
 
 - Dans la **première** phase, toutes les stratégies sont évaluées et tous les contrôles d’accès qui ne sont pas satisfaits sont collectés. 
-- Dans la **deuxième** phase, vous êtes invité à vous conformer aux exigences que vous n’avez pas satisfaites. Si l’une des stratégies verrouille l’accès, vous êtes bloqué et n’êtes pas invité à répondre à d’autres contrôles de stratégie. Si des stratégies vous bloquent, vous êtes invité à répondre à d’autres contrôles de stratégie dans l’ordre suivant :
+
+- Dans la **deuxième** phase, vous êtes invité à vous conformer aux exigences que vous n’avez pas satisfaites. Si l’une des stratégies verrouille l’accès, vous êtes bloqué et n’êtes pas invité à répondre à d’autres contrôles de stratégie. Si aucune de ces stratégie ne vous bloque, vous êtes invité à répondre à d’autres contrôles de stratégie dans l’ordre suivant :
 
    ![Ordre](./media/best-practices/06.png)
     

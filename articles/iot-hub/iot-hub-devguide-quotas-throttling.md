@@ -2,18 +2,17 @@
 title: Comprendre les quotas Azure IoT Hub et la limitation | Microsoft Docs
 description: Guide du développeur - description des quotas qui s’appliquent à IoT Hub et comportement de limitation attendu.
 author: robinsh
-manager: philmea
 ms.author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 07/17/2019
-ms.openlocfilehash: 1c19696b10584bc55989b9270978486d7f5aa157
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.date: 08/08/2019
+ms.openlocfilehash: 184cdaddc638461d50f322292d5cfaf28ab93093
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326739"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68950523"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Référence - Quotas et limitation IoT Hub
 
@@ -96,7 +95,8 @@ IoT Hub impose d’autres limites opérationnelles :
 | Chargements de fichiers | 10 chargements de fichiers simultanés par appareil. |
 | Travaux<sup>1</sup> | Le nombre maximal de travaux simultanés est 1 (pour les niveaux Gratuit et S1), 5 (pour S2) et 10 (pour S3). Toutefois, le nombre maximal de [travaux d’importation/exportation d’appareils](iot-hub-bulk-identity-mgmt.md) simultanés est 1 pour tous les niveaux. <br/>L’historique des travaux est conservé pendant 30 jours maximum. |
 | Points de terminaison supplémentaires | Les hubs avec SKU payants peuvent avoir 10 points de terminaison supplémentaires. Les hubs avec SKU gratuits peuvent avoir un point de terminaison supplémentaire. |
-| Règles de routage de messages | Les hubs avec SKU payants peuvent avoir 100 règles de routage. Les hubs avec SKU gratuits peuvent avoir cinq règles de routage. |
+| Requêtes de routage de messages | Les hubs avec références SKU payantes peuvent avoir 100 requêtes de routage. Les hubs avec références SKU gratuites peuvent avoir cinq requêtes de routage. |
+| Enrichissements de message | Les hubs avec références SKU payantes peuvent avoir jusqu’à 10 enrichissements de message. Les hubs avec références SKU gratuites peuvent avoir jusqu’à 2 enrichissements de message.|
 | Messages d’appareil-à-cloud | Taille maximale des messages 256 Ko |
 | Messages de cloud-à-appareil<sup>1</sup> | Taille maximale des messages 64 Ko. Le nombre maximal de messages en attente est de 50 par appareil. |
 | Méthode directe<sup>1</sup> | La taille maximale de charge utile de la méthode directe est de 128 Ko. |

@@ -1,20 +1,19 @@
 ---
 title: Procédure Azure - Utiliser différents mécanismes d’attestation avec le Kit de développement logiciel (SDK) Device Provisioning Service Client dans Azure
 description: Procédure Azure - Utiliser différents mécanismes d’attestation avec le Kit de développement logiciel (SDK) Device Provisioning Service Client dans Azure
-author: yzhong94
-ms.author: yizhon
+author: robinsh
+ms.author: robinsh
 ms.date: 03/30/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-manager: arjmands
 ms.custom: mvc
-ms.openlocfilehash: af59ccc6d14dce49d06e178aac3ecafc29bd982c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fd974ad81a641afb1c93fffb0a12a147c55b3a73
+ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61248128"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68951894"
 ---
 # <a name="how-to-use-different-attestation-mechanisms-with-device-provisioning-service-client-sdk-for-c"></a>Utiliser différents mécanismes d’attestation avec le Kit de développement logiciel (SDK) Device Provisioning Service Client pour C
 
@@ -36,11 +35,11 @@ Pour plus d’informations, consultez les [concepts de sécurité](concepts-secu
 
 ## <a name="enable-authentication-for-supported-attestation-mechanisms"></a>Activer l’authentification pour les mécanismes d’attestation pris en charge
 
-Le mode d’authentification du Kit de développement logiciel (SDK) (X **.** 509 ou TPM) doit être activé pour le simulateur ou l’appareil physique avant qu’ils puissent être inscrits dans le portail Azure. Commencez par accéder au dossier racine pour azure-iot-sdk-c. Exécutez ensuite la commande spécifiée selon le mode d’authentification que vous choisissez :
+Le mode d’authentification du Kit de développement logiciel (SDK) (X.509 ou TPM) doit être activé pour le simulateur ou l’appareil physique avant qu’ils puissent être inscrits dans le portail Azure. Commencez par accéder au dossier racine pour azure-iot-sdk-c. Exécutez ensuite la commande spécifiée selon le mode d’authentification que vous choisissez :
 
-### <a name="use-x509-with-simulator"></a>Utiliser X **.** 509 avec le simulateur
+### <a name="use-x509-with-simulator"></a>Utiliser X.509 avec le simulateur
 
-Le service d’approvisionnement est fourni avec un émulateur de moteur de composition d’identité d’appareil (DICE) qui génère un certificat X **.** 509 pour l’authentification de l’appareil. Exécutez la commande suivante pour activer l’authentification X **.** 509 : 
+Le service d’approvisionnement est fourni avec un émulateur de moteur de composition d’identité d’appareil (DICE) qui génère un certificat X **.** 509 pour l’authentification de l’appareil. Exécutez la commande suivante pour activer l’authentification **X.509** : 
 
 ```
 cmake -Ddps_auth_type=x509 ..
@@ -48,9 +47,9 @@ cmake -Ddps_auth_type=x509 ..
 
 Vous pouvez trouver des informations sur le matériel avec le moteur de composition d’identité d’appareil [ici](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/).
 
-### <a name="use-x509-with-hardware"></a>Utiliser X **.** 509 avec le matériel
+### <a name="use-x509-with-hardware"></a>Utiliser X.509 avec le matériel
 
-Le service d’approvisionnement peut être utilisé avec X **.** 509 sur un autre matériel. Une interface entre le matériel et le kit de développement logiciel (SDK) est nécessaire pour établir la connexion. Contactez le fabricant de votre HSM pour plus d’informations sur l’interface.
+Le service d’approvisionnement peut être utilisé avec **X.509** sur un autre matériel. Une interface entre le matériel et le kit de développement logiciel (SDK) est nécessaire pour établir la connexion. Contactez le fabricant de votre HSM pour plus d’informations sur l’interface.
 
 ### <a name="use-tpm"></a>Utiliser TPM
 
@@ -142,15 +141,15 @@ Générez le kit de développement logiciel (SDK) avant de créer l’inscriptio
 ### <a name="tpm"></a>TPM
 Si vous utilisez TPM, suivez les instructions de [« Créer et approvisionner un appareil TPM simulé à l’aide du kit de développement logiciel C de périphérique pour le service IoT Hub Device Provisioning »](./quick-create-simulated-device.md) pour créer une entrée d’inscription d’appareil dans votre service Device Provisioning Service et simuler le premier démarrage.
 
-### <a name="x509"></a>X **.** 509
+### <a name="x509"></a>X.509
 
 1. Pour inscrire un appareil dans le service d’approvisionnement, vous devez noter la paire de clé de type EK et l’ID d’inscription de chaque appareil, qui sont affichés dans l’outil d’approvisionnement fourni par le kit de développement logiciel (SDK) Client. Exécutez la commande suivante pour imprimer le certificat d’autorité de certification racine (pour les groupes d’inscription) et le certificat de nœud terminal (pour l’inscription individuelle) :
       ```
       ./azure-iot-sdk-c/dps_client/tools/x509_device_provision/x509_device_provision.exe
       ```
 2. Connectez-vous au portail Azure, cliquez sur le bouton **Toutes les ressources** dans le menu de gauche et ouvrez votre instance Device Provisioning Service.
-   - Inscription individuelle X **.** 509 : Dans le panneau de récapitulatif du service Device Provisioning, sélectionnez **Gérer les inscriptions**. Sélectionnez l’onglet **Inscriptions individuelles** et cliquez sur le bouton **Ajouter** dans la partie supérieure. Sélectionnez **X**.**509** en tant que *mécanisme* d’attestation d’identité, chargez le certificat de nœud terminal comme requis par le panneau. Cela fait, cliquez sur le bouton **Enregistrer**. 
-   - Inscription de groupe X **.** 509 : Dans le panneau de récapitulatif du service de provisionnement, sélectionnez **Gérer les inscriptions**. Sélectionnez l’onglet **Inscriptions de groupe** et cliquez sur le bouton **Ajouter** dans la partie supérieure. Sélectionnez **X**.**509** en tant que *mécanisme* d’attestation d’identité, entrez un nom de groupe et un nom de certification, chargez le certificat d’autorité de certification/intermédiaire comme requis par le panneau. Cela fait, cliquez sur le bouton **Enregistrer**. 
+   - **Inscription individuelle X.509** : Dans le panneau de récapitulatif du service Device Provisioning, sélectionnez **Gérer les inscriptions**. Sélectionnez l’onglet **Inscriptions individuelles** et cliquez sur le bouton **Ajouter** dans la partie supérieure. Sélectionnez **X.509** en tant que *mécanisme* d’attestation d’identité, chargez le certificat de nœud terminal comme requis par le panneau. Cela fait, cliquez sur le bouton **Enregistrer**. 
+   - **Inscription de groupe X.509** : Dans le panneau de récapitulatif du service de provisionnement, sélectionnez **Gérer les inscriptions**. Sélectionnez l’onglet **Inscriptions de groupe** et cliquez sur le bouton **Ajouter** dans la partie supérieure. Sélectionnez **X.509** en tant que *mécanisme* d’attestation d’identité, entrez un nom de groupe et un nom de certification, chargez le certificat d’autorité de certification/intermédiaire comme requis par le panneau. Cela fait, cliquez sur le bouton **Enregistrer**. 
 
 ## <a name="enable-authentication-for-devices-using-a-custom-attestation-mechanism-optional"></a>Activer l’authentification pour les appareils à l’aide d’un mécanisme d’attestation personnalisé (facultatif)
 
@@ -182,7 +181,7 @@ Une fois votre bibliothèque générée, vous devez l’intégrer au Kit de dév
 
 ## <a name="connecting-to-iot-hub-after-provisioning"></a>Connexion à IoT Hub après l’approvisionnement
 
-Une fois l’appareil approvisionné avec le service d’approvisionnement, cette API utilise le mode d’authentification spécifié (X **.** 509 ou TPM) pour se connecter à IoT Hub : 
+Une fois l’appareil approvisionné avec le service d’approvisionnement, cette API utilise le mode d’authentification spécifié (**X.509** ou TPM) pour se connecter à IoT Hub : 
   ```
   IOTHUB_CLIENT_LL_HANDLE handle = IoTHubClient_LL_CreateFromDeviceAuth(iothub_uri, device_id, iothub_transport);
   ```

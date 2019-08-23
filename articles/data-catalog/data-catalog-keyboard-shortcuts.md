@@ -1,20 +1,22 @@
 ---
 title: Raccourcis clavier pour Azure Data Catalog
-description: Cet article présente les raccourcis clavier pour Azure Data Catalog.
+description: Cet article présente une liste des raccourcis clavier que vous pouvez utiliser dans Azure Data Catalog.
 author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: 499067f33bddbede6510f61e2cb5da3fb33a5e7c
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 72d1ce0ded61b1143f99769319892981f3cd1c10
+ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68736300"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69014447"
 ---
 # <a name="keyboard-shortcuts-for-azure-data-catalog"></a>Raccourcis clavier pour Azure Data Catalog
+
 ## <a name="keyboard-shortcuts-for-the-data-catalog-data-source-registration-tool"></a>Raccourcis clavier pour l’outil de référencement de données Data Catalog
+
 ### <a name="general-keyboard-shortcuts"></a>Raccourcis clavier généraux
 | Opération | Appuyez sur |
 | --- | --- |

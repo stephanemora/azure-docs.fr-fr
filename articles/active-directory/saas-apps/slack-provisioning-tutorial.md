@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/27/2019
 ms.author: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 036112027fcf210f0ac2ff1e631c8b0bd4b5e9ef
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4a294254bd52db89179c5644ea7a0f0f04027f30
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65964397"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932490"
 ---
 # <a name="tutorial-configure-slack-for-automatic-user-provisioning"></a>Tutoriel : Configurer Slack pour l’attribution automatique d’utilisateurs
 
@@ -120,7 +120,9 @@ Pour plus d’informations sur la lecture des journaux d’activité d’approvi
   
   * La mise à jour n’est effectuée que si ces deux paramètres sont configurés dans l’espace de travail/organisation de Slack : **Profile syncing is enabled** (La synchronisation des profils est activée) et **Users cannot change their display name** (Les utilisateurs ne peuvent pas changer leur nom d’affichage).
   
-  * L’attribut **userName** ne doit pas dépasser 21 caractères et sa valeur doit être unique.
+* L’attribut **userName** ne doit pas dépasser 21 caractères et sa valeur doit être unique.
+
+* Slack n’autorise que la correspondance avec les attributs **userName** et **email**.  
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

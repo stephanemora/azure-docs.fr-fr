@@ -7,18 +7,18 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: pabutler
-ms.openlocfilehash: 2d440adc5111db11486d1fc606abbda0ffae9595
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4bca52f19348569444ee09348c49756f64c986b7
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64942535"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68884448"
 ---
 # <a name="azure-and-appsource-marketplace-offers"></a>Offres des places de marché Azure et AppSource
 
 La première partie de cette section présente les opérations générales utilisées pour créer et gérer les offres sur les places de marché Azure et AppSource.  Cette partie fournit les informations de base que vous devez comprendre pour gérer des types d’offre spécifiques, ainsi que des informations techniques qui sont communes à tous les types d’offres.  La majorité de cette section contient des instructions détaillées sur la façon de créer et gérer des types d’offre spécifiques.  
 
-La vidéo suivante présente les différentes fonctionnalités et les différents types d’offre disponibles dans la Place de marché Microsoft Azure ou AppSource.  Elle aborde également les techniques importantes et les aspects commerciaux de la publication d’une application ou service dans ces places de marché.
+La vidéo suivante présente les différentes fonctionnalités et les différents types d’offre disponibles dans la Place de marché Azure ou AppSource.  Elle aborde également les techniques importantes et les aspects commerciaux de la publication d’une application ou service dans ces places de marché.
 
 > [!VIDEO https://channel9.msdn.com/Events/Build/2018/BRK2513/player]
 
@@ -51,7 +51,7 @@ Le tableau suivant répertorie les types d’offre actuels pris en charge par le
 | [Dynamics 365 Business Central](../cloud-partner-portal-orig/cpp-business-central-offer.md) | AppSource | Package qui étend ce système ERP (Enterprise Resource Planning) et de gestion d’entreprise. |
 | [Dynamics 365 for Customer Engagement](./dyn365ce/cpp-customer-engagement-offer.md) | AppSource | Package qui étend ce système CRM (Customer Resource Management), par le biais de ses modules de ventes, de service, de service de projet et de service sur le terrain  |
 | [Dynamics 365 for Finance and Operations](../cloud-partner-portal-orig/cpp-dynamics-365-operations-offer.md) | AppSource | Package qui étend ce service ERP (Enterprise Resource Planning) qui gère les aspects avancés de la finance, des opérations, de la fabrication et de la gestion de la chaîne logistique |
-| [Module IoT Edge](./iot-edge-module/cpp-offer-process-parts.md) | Azure | Conteneur compatible Docker qui s’exécute sur un appareil IoT Edge.  Il contient de petits modules de calculs qui utilisent une combinaison de code personnalisé, d’autres services Azure et de services tiers. |
+| [Module IoT Edge](./iot-edge-module/cpp-offer-process-parts.md) | Azure | Conteneur compatible Docker qui s’exécute sur un appareil IoT Edge.  Il comprend de petits modules de calculs qui utilisent une combinaison de code personnalisé, d’autres services Azure et de services tiers. |
 | [Application Power BI](./power-bi/cpp-power-bi-offer.md) | AppSource | Application Power BI utilisée regroupant le contenu Power BI personnalisable, notamment les jeux de données, les rapports et les tableaux de bord |
 | [Application SaaS](./saas-app/cpp-saas-offer.md) | Azure | La solution est un abonnement SaaS, gérée par l’éditeur, à laquelle les utilisateurs se connectent via une interface personnalisée qui utilise Azure Active Directory. |
 | [Machine virtuelle](./virtual-machine/cpp-virtual-machine-offer.md)  | Azure  | La solution est contenue dans une seule machine virtuelle déployée sur l’abonnement du client.  |

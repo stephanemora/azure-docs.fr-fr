@@ -6,18 +6,18 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 06/27/2019
-ms.openlocfilehash: 48ff1fdc08e0df463ec48fd1415c7b67d5beb744
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.openlocfilehash: 709428d420c7d5f725d1b7df85e4860aec765b48
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67462099"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68950657"
 ---
 # <a name="query-performance-insight-in-azure-database-for-mariadb"></a>Query Performance Insight dans Azure Database for MariaDB
 
-**S’applique à :**  Azure Database for MariaDB 10.2
+**S’applique à :** Azure Database for MariaDB 10.2
 
-> [!NOTE]
+> [!IMPORTANT]
 > Query Performance Insight est en préversion.
 
 L’analyse des performances des requêtes vous aide à identifier rapidement vos requêtes les plus longues, comment elles évoluent au fil du temps et les attentes qui les affectent.
@@ -36,21 +36,21 @@ L’analyse des performances des requêtes vous aide à identifier rapidement vo
 
 ## <a name="permissions"></a>Autorisations
 
-**Les autorisations Propriétaire** ou **Contributeur** sont requises pour afficher le texte des requêtes dans la fonction Query Performance Insight. **Un utilisateur Lecteur** peut afficher des graphiques et tables, mais non le texte des requêtes.
+Les autorisations **Propriétaire** ou **Contributeur** sont nécessaires pour voir le texte des requêtes dans l’analyse des performances des requêtes. Un **Lecteur** peut voir les graphiques et les tableaux, mais pas le texte des requêtes.
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour que Query Performance Insight puisse fonctionner, le  [Magasin des requêtes](concepts-query-store.md) doit inclure des données.
+Pour que l’analyse des performances des requêtes puisse fonctionner, des données doivent exister dans le [Magasin des requêtes](concepts-query-store.md).
 
 ## <a name="viewing-performance-insights"></a>Affichage d’une analyse des performances
 
 La vue [Analyse des performances des requêtes](concepts-query-performance-insight.md) du portail Azure montre des visualisations sur les informations importantes du magasin des requêtes.
 
-Sur la page du portail de votre serveur Azure Database for MariaDB, sélectionnez **Query Performance Insight** sous la section **Performances intelligentes** de la barre de menus.
+Sur la page du portail de votre serveur Azure Database pour MariaDB, sélectionnez **Analyse des performances des requêtes** sous la section **Performances intelligentes** de la barre de menus.
 
 ### <a name="long-running-queries"></a>Requêtes longues
 
-L’onglet  **Requêtes longues** montre les 5 requêtes dont la durée moyenne d’exécution est la plus longue, agrégées par intervalles de 15 minutes. Vous pouvez afficher plus de requêtes en faisant une sélection dans la liste déroulante **Nombre de requêtes** . Quand vous faites cela, les couleurs du graphique peuvent changer pour un ID de requête spécifique.
+L’onglet **Requêtes longues** montre les 5 requêtes dont la durée moyenne d’exécution est la plus longue, agrégées par intervalles de 15 minutes. Vous pouvez afficher plus de requêtes en faisant une sélection dans la liste déroulante **Nombre de requêtes**. Quand vous faites cela, les couleurs du graphique peuvent changer pour un ID de requête spécifique.
 
 Vous pouvez cliquer et faire glisser dans le graphique pour réduire l’affichage à une fenêtre de temps spécifique. Vous pouvez également utiliser les icônes Zoom avant et Zoom arrière pour afficher une période plus courte ou plus longue, respectivement.
 
@@ -63,7 +63,7 @@ Vous pouvez cliquer et faire glisser dans le graphique pour réduire l’afficha
 
 Les statistiques d’attente fournissent une vue des événements d’attente qui se produisent pendant l’exécution d’une requête spécifique. Pour en savoir plus sur les types d’événements d’attente, consultez la [documentation du moteur MySQL](https://go.microsoft.com/fwlink/?linkid=2098206).
 
-Sélectionnez l’onglet  **Statistiques d’attentes** pour afficher les visualisations correspondantes sur les temps d’attente dans le serveur.
+Sélectionnez l’onglet **Statistiques sur les attentes** pour voir les visualisations correspondantes sur les temps d’attente dans le serveur.
 
 Les requêtes affichées dans la vue des statistiques d’attente sont regroupées en fonction des requêtes qui présentent les temps d’attente les plus longs au cours de l’intervalle indiqué.
 

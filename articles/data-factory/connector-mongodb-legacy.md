@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/20/2018
+ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: 86dcd39ad7b9f1e207e9254ec72698db3998bbd6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 77d0f632c763651004efa46edf027719040f4760
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61400472"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967482"
 ---
 # <a name="copy-data-from-mongodb-using-azure-data-factory"></a>Déplacer des données de MongoDB à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -40,7 +40,9 @@ Plus précisément, ce connecteur MongoDB prend en charge :
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour copier des données depuis/vers une base de données MongoDB qui n’est pas accessible publiquement, vous devez configurer un runtime d’intégration auto-hébergé. Pour plus d’informations, voir l’article [Runtime d’intégration auto-hébergé](create-self-hosted-integration-runtime.md). Le runtime d’intégration fournit un pilote MongoDB intégré, ce qui évite d’avoir à en installer un manuellement lors de la copie des données issues de MongoDB.
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
+
+Le runtime d’intégration fournit un pilote MongoDB intégré, ce qui évite d’avoir à en installer un manuellement lors de la copie des données issues de MongoDB.
 
 ## <a name="getting-started"></a>Prise en main
 
@@ -64,7 +66,7 @@ Les propriétés prises en charge pour le service lié MongoDB sont les suivante
 | authSource |Nom de la base de données MongoDB que vous souhaitez utiliser pour vérifier vos informations d’identification pour l’authentification. |Non. Par défaut, l’authentification de base utilise le compte d’administrateur et la base de données spécifiés à l’aide de la propriété databaseName. |
 | enableSsl | Indique si les connexions au serveur sont chiffrées suivant le protocole SSL. La valeur par défaut est false.  | Non |
 | allowSelfSignedServerCert | Indique si les certificats auto-signés provenant du serveur sont autorisés ou non. La valeur par défaut est false.  | Non |
-| connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Vous pouvez utiliser un runtime d’intégration auto-hébergé ou un runtime d’intégration Azure (si votre banque de données est accessible publiquement). À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. |Non |
+| connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Pour plus d’informations, consultez la section [Conditions préalables](#prerequisites). À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. |Non |
 
 **Exemple :**
 
@@ -97,7 +99,7 @@ Pour obtenir la liste complète des sections et propriétés disponibles pour la
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type du jeu de données doit être définie sur : **MongoDbCollection** | OUI |
+| type | La propriété type du jeu de données doit être définie sur : **MongoDbCollection** | OUI |
 | collectionName |Nom de la collection dans la base de données MongoDB. |OUI |
 
 **Exemple :**
@@ -128,7 +130,7 @@ Les propriétés prises en charge dans la section **source** de l’activité de
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type de la source d’activité de copie doit être définie sur : **MongoDbSource** | OUI |
+| type | La propriété type de la source d’activité de copie doit être définie sur : **MongoDbSource** | OUI |
 | query |Utiliser la requête SQL-92 personnalisée pour lire les données. Par exemple : select * from MyTable. |Non (si « collectionName » est spécifié dans le jeu de données) |
 
 **Exemple :**
@@ -178,7 +180,7 @@ Lors de la copie de données de MongoDB, les mappages suivants sont utilisés en
 |:--- |:--- |
 | Binary |Byte[] |
 | Boolean |Boolean |
-| Date |Datetime |
+| Date |DateTime |
 | NumberDouble |Double |
 | NumberInt |Int32 |
 | NumberLong |Int64 |
@@ -236,7 +238,7 @@ Les tables suivantes montrent les tables virtuelles qui représentent les tablea
 | _id | ExampleTable_Ratings_dim1_idx | ExampleTable_Ratings |
 | --- | --- | --- |
 | 1111 |0 |5\. |
-| 1111 |1 |6\. |
+| 1111 |1 |6 |
 | 2222 |0 |1 |
 | 2222 |1 |2 |
 

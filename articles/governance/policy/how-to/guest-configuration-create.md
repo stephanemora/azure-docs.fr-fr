@@ -7,12 +7,12 @@ ms.date: 07/26/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 5e707fb004af7bbce915baf4b059514fcae8e52b
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 7dd053e3a9824ac0817db528b8b053666e1ded04
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68725925"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881819"
 ---
 # <a name="how-to-create-guest-configuration-policies"></a>Créer des stratégies Guest Configuration
 
@@ -321,6 +321,14 @@ Une fois que vous avez publié une stratégie Azure Policy personnalisée à l�
 
 Le moyen le plus simple de publier un package mis à jour consiste à répéter le processus décrit dans cet article et à fournir un numéro de version mis à jour.
 Cela permet de garantir que toutes les propriétés ont été correctement mises à jour.
+
+## <a name="converting-windows-group-policy-content-to-azure-policy-guest-configuration"></a>Conversion de contenu de stratégie de groupe Windows en configuration d’invité Azure Policy
+
+La configuration d’invité, lors de l’audit de machines Windows, est une implémentation de la syntaxe de Desired State Configuration PowerShell.
+La communauté DSC a publié des outils pour convertir les modèles de stratégie de groupe exportés au format DSC.
+En utilisant cet outil avec les cmdlets de configuration d’invité décrites ci-dessus, vous pouvez convertir du contenu de stratégie de groupe Windows et le compresser/publier pour Azure Policy à des fins d’audit.
+Pour plus d’informations sur l’utilisation de l’outil, consultez l’article [Démarrage rapide : Convertir une stratégie de groupe en DSC](/powershell/dsc/quickstarts/gpo-quickstart).
+Une fois que le contenu a été converti, les étapes ci-dessus pour créer un package et le publier en tant qu’Azure Policy sont les mêmes que pour tout contenu DSC.
 
 ## <a name="optional-signing-guest-configuration-packages"></a>FACULTATIF : Signature des packages Guest Configuration
 

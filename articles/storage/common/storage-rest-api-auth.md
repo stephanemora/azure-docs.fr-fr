@@ -9,12 +9,12 @@ ms.date: 03/21/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 38a120747734cbe4af8804a3e7596fc11a2c2eb3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2149bfb68697129680c45f15c6cce359863fbc59
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66306659"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68989941"
 ---
 # <a name="using-the-azure-storage-rest-api"></a>Utilisation de l’API REST Stockage Azure
 
@@ -79,7 +79,7 @@ Pour utiliser d’autres paramètres, ajoutez-les à la chaîne de ressource ave
 
 [En-têtes de requête](/rest/api/storageservices/List-Containers2#request-headers) **:** Cette section répertorie les en-têtes de requête obligatoires et facultatifs. Trois des en-têtes sont obligatoires : un en-tête *Authorization*, *x-ms-date* (contient l’heure UTC de la requête) et *x-ms-version* (spécifie la version de l’API REST à utiliser). Inclure *x-ms-client-request-id* dans les en-têtes est facultatif. Vous pouvez définir ce champ sur n’importe quelle valeur ; il est écrit dans les journaux d’activité d’analytique du stockage lorsque la journalisation est activée.
 
-[Corps de la requête](/rest/api/storageservices/List-Containers2#request-body) **:** Il n’existe pas de corps de requête pour ListContainers. Le paramètre Corps de la requête est utilisé pour toutes les opérations PUT lors de la mise à jour d’objets Blob, tout comme SetContainerAccessPolicy, qui vous permet d’envoyer une liste XML des stratégies d’accès stockées à appliquer. Les stratégies d’accès stockées sont traitées dans l’article [Utilisation des signatures d’accès partagé (SAP)](storage-dotnet-shared-access-signature-part-1.md).
+[Corps de la requête](/rest/api/storageservices/List-Containers2#request-body) **:** Il n’existe pas de corps de requête pour ListContainers. Le paramètre Corps de la requête est utilisé pour toutes les opérations PUT lors de la mise à jour d’objets Blob, tout comme SetContainerAccessPolicy, qui vous permet d’envoyer une liste XML des stratégies d’accès stockées à appliquer. Les stratégies d’accès stockées sont traitées dans l’article [Utilisation des signatures d’accès partagé (SAP)](storage-sas-overview.md).
 
 [Code d’état de la réponse](/rest/api/storageservices/List-Containers2#status-code) **:** Indique tous les codes d’état que vous devez connaître. Dans cet exemple, un code d’état HTTP de 200 est acceptable. Pour obtenir la liste complète des codes d’état HTTP, consultez [Définitions des codes d’état](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html). Pour consulter les codes d’erreur spécifiques aux API REST de Stockage, consultez [Codes d’erreur API REST courants](/rest/api/storageservices/common-rest-api-error-codes)
 

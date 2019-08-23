@@ -16,12 +16,12 @@ ms.date: 10/16/2018
 ms.author: cephalin
 ms.reviewer: apurvajo
 ms.custom: seodec18
-ms.openlocfilehash: e7768eb29caf66fd8f666a9475ac0787826a47e0
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 7675a22b4b2d8b13524f06f45d6bb805c1e2fad1
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67618896"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69019132"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-azure-app-service"></a>Acheter et configurer un certificat SSL pour Azure App Service
 
@@ -51,7 +51,7 @@ Aidez-vous du tableau suivant pour configurer le certificat. Lorsque vous avez t
 | Paramètre | Description |
 |-|-|
 | Nom | Nom convivial de votre certificat App Service. |
-| Nom d’hôte de domaine nu | Si vous spécifiez ici le domaine racine, vous obtenez un certificat qui sécurise *à la fois* le domaine racine et le sous-domaine `www`. Pour sécuriser un sous-domaine uniquement, indiquez ici son nom de domaine complet (par exemple, `mysubdomain.contoso.com`). |
+| Nom d’hôte de domaine nu | Spécifiez ici le domaine racine. Le certificat émis sécurise *à la fois* le domaine racine et le sous-domaine `www`. Dans le certificat émis, le champ Nom commun contient le domaine racine et le champ Autre nom de l’objet contient le domaine `www`. Pour sécuriser un sous-domaine uniquement, indiquez ici son nom de domaine complet (par exemple, `mysubdomain.contoso.com`).|
 | Subscription | Centre de données dans lequel l’application web est hébergée. |
 | Resource group | Groupe de ressources qui contient le certificat. Vous pouvez utiliser un nouveau groupe de ressources, ou sélectionner le même groupe de ressources que votre application App Service, par exemple. |
 | Référence (SKU) de certificat | Détermine le type de certificat à créer (certificat standard ou [certificat générique](https://wikipedia.org/wiki/Wildcard_certificate)). |

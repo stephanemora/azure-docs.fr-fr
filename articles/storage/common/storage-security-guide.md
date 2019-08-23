@@ -9,12 +9,12 @@ ms.date: 03/21/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 3d5bfa2426d58fa5a09d2203272536eec7fa9c55
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 548f37d6a0d4390fb98ceaee7b59314400debb38
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65789961"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68986549"
 ---
 # <a name="azure-storage-security-guide"></a>Guide de sécurité Azure Storage
 
@@ -25,8 +25,8 @@ Stockage Azure propose un ensemble complet de fonctionnalités de sécurité qui
     - Vous pouvez attribuer des rôles RBAC limités au compte de stockage à des principaux de sécurité et utiliser Azure AD pour autoriser les opérations de gestion des ressources telles que la gestion des clés.
     - L’intégration d’Azure AD est prise en charge pour les opérations de données d’objets blob et de file d’attente. Vous pouvez attribuer des rôles RBAC limités à un abonnement, groupe de ressources, compte de stockage, ou un conteneur ou une file d’attente à un principal de sécurité ou une identité managée pour des ressources Azure. Pour plus d’informations, consultez [Authentifier l’accès au Stockage Azure à l’aide d’Azure Active Directory](storage-auth-aad.md).   
 - Les données peuvent être sécurisées en transit entre une application et Azure au moyen du [chiffrement côté client](../storage-client-side-encryption.md), de HTTPS ou de SMB 3.0.  
-- Les disques de système d’exploitation et de données utilisés par les machines virtuelles Azure peuvent être chiffrés à l’aide [d’Azure Disk Encryption](../../security/azure-security-disk-encryption.md). 
-- Il est possible d’accorder un accès délégué aux objets de données d’Azure Storage en utilisant des [signatures d’accès partagé](../storage-dotnet-shared-access-signature-part-1.md).
+- Les disques de système d’exploitation et de données utilisés par les machines virtuelles Azure peuvent être chiffrés à l’aide [d’Azure Disk Encryption](../../security/azure-security-disk-encryption.md).
+- Il est possible d’accorder un accès délégué aux objets de données d’Azure Storage en utilisant des signatures d’accès partagé. Pour plus d’informations, consultez [Accorder un accès limité aux ressources du Stockage Azure à l’aide des signatures d’accès partagé (SAS)](storage-sas-overview.md).
 
 Cet article fournit une vue d’ensemble sur chacune de ces fonctionnalités de sécurité, qui peuvent être utilisées avec le stockage Azure. Des liens vers des articles détaillés vous sont proposés pour vous permettre d’explorer de façon plus détaillée chaque fonctionnalité.
 
@@ -239,12 +239,7 @@ Pour plus d’informations sur l’utilisation des signatures d’accès partag�
   * [Construction d’un service SAP](https://msdn.microsoft.com/library/dn140255.aspx)
   * [Construction d’un compte SAP](https://msdn.microsoft.com/library/mt584140.aspx)
 
-* Il s’agit d’un didacticiel sur l’utilisation de la bibliothèque cliente .NET pour créer des signatures d’accès partagé et des stratégies d’accès stockées.
-  * [Utilisation des signatures d’accès partagé (SAP)](../storage-dotnet-shared-access-signature-part-1.md)
-
-    Cet article contient une description du modèle SAP, des exemples de signatures d’accès partagé et des recommandations pour une utilisation optimale de ces signatures. La révocation de l’autorisation accordée est également abordée.
-
-* Authentification
+* Authentication
 
   * [Authentification pour les services de stockage Azure](https://msdn.microsoft.com/library/azure/dd179428.aspx)
 * Didacticiel de prise en main des signatures d’accès partagé

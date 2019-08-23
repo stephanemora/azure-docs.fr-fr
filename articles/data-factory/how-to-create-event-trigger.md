@@ -11,12 +11,12 @@ ms.date: 10/18/2018
 author: sharonlo101
 ms.author: shlo
 manager: craigg
-ms.openlocfilehash: bf4dc55d0ec17daf4c611563dd7aee3a06aa192b
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 32edacb7dd66274757359c4eb0e8c169995026ce
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68384697"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69019525"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-in-response-to-an-event"></a>Créer un déclencheur qui exécute un pipeline en réponse à un événement
 
@@ -49,10 +49,7 @@ Cette section vous montre comment créer un déclencheur d’événements dans l
 5. Sélectionnez votre compte de stockage dans la liste déroulante abonnement Azure ou manuellement à l’aide de son ID de ressource de compte de stockage. Choisissez le conteneur sur lequel vous souhaitez que les événements se produisent. La sélection du conteneur est facultative, mais gardez à l’esprit que la sélection de tous les conteneurs peut entraîner un grand nombre d’événements.
 
    > [!NOTE]
-   > Le déclencheur d’événements prend actuellement en charge uniquement les comptes de stockage de version 2 (usage général).
-
-   > [!NOTE]
-   > En raison d’une limitation de Azure Event Grid, Azure Data Factory ne prend en charge qu’un maximum de 500 déclencheurs d’événements par compte de stockage.
+   > Le déclencheur d’événements prend actuellement en charge uniquement Azure Data Lake Storage Gen2 et des comptes de stockages de version 2 (usage général). En raison d’une limitation de Azure Event Grid, Azure Data Factory ne prend en charge qu’un maximum de 500 déclencheurs d’événements par compte de stockage.
 
 6. Avec les propriétés **Blob path begins with** (Chemin d’accès de l’objet blob commence par) et **Blob path ends with** (Chemin d’accès de l’objet blob se termine par), vous pouvez spécifier les conteneurs, les dossiers et les noms d’objets blob pour lesquels vous souhaitez recevoir des événements. Votre déclencheur d’événement requiert la définition d’au moins une de ces propriétés. Vous pouvez utiliser divers modèles pour les deux propriétés **Blob path begins with** (Chemin d’accès de l’objet blob commence par) et **Blob path ends with** (Chemin d’accès de l’objet blob se termine par), comme indiqué dans les exemples plus loin dans cet article.
 

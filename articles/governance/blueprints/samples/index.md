@@ -8,12 +8,12 @@ ms.topic: sample
 ms.date: 08/20/2019
 ms.author: dacoulte
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 884777bce761f6b16581a28038bf9a28ce6a3801
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 8a91ae0c576299e139cf036f1f20b90470f51349
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69650521"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972301"
 ---
 # <a name="azure-blueprints-samples"></a>Exemples Azure Blueprints
 
@@ -30,8 +30,8 @@ Le tableau suivant inclut des liens vers des exemples pour Azure Blueprints. Cha
 | [NIST SP 800-53 R4](./nist-sp-800-53-rev4/index.md) | Propose des rails de sécurité pour la conformité à NIST SP 800-53 R4. |
 | [PCI-DSS v3.2.1](./pci-dss-3.2.1/index.md) | Fournit un ensemble de stratégies pour la mise en conformité à PCI-DSS v3.2.1. |
 | [Gouvernance de UK OFFICIAL et de UK NHS](./ukofficial/index.md) | Fournit un ensemble de modèles d’infrastructure conformes et de garde-fous stratégiques qui facilitent l’attestation UK OFFICIAL et UK NHS. |
-| [Base du framework d’adoption du cloud](./caf-foundation/index.md) | Fournit un ensemble de contrôles destinés à vous aider à gérer vos ressources cloud en adéquation avec le [Framework d’adoption de Microsoft Cloud pour Azure](/azure/architecture/cloud-adoption/governance/journeys/index.md). |
-| [Zone d’accueil de migration du framework d’adoption du cloud](./caf-migrate-landing-zone/index.md) | Fournit un ensemble de contrôles destinés à vous aider à configurer la migration de votre première charge de travail et à gérer vos ressources cloud en adéquation avec le [Framework d’adoption de Microsoft Cloud pour Azure](/azure/architecture/cloud-adoption/migrate/index.md). |
+| [Base du framework d’adoption du cloud](./caf-foundation/index.md) | Fournit un ensemble de contrôles destinés à vous aider à gérer vos ressources cloud en adéquation avec le [Framework d’adoption de Microsoft Cloud pour Azure](/azure/architecture/cloud-adoption/governance/journeys/index). |
+| [Zone d’accueil de migration du framework d’adoption du cloud](./caf-migrate-landing-zone/index.md) | Fournit un ensemble de contrôles destinés à vous aider à configurer la migration de votre première charge de travail et à gérer vos ressources cloud en adéquation avec le [Framework d’adoption de Microsoft Cloud pour Azure](/azure/architecture/cloud-adoption/migrate/index). |
 
 ## <a name="samples-strategy"></a>Stratégie d’exemples
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/07/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: ee216bd4d6994179e347465c30039f2f8e293c85
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: 48a5484e2b2b663d0046fc628c02e656c5bd7a25
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68233016"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68985169"
 ---
 # <a name="microsoft-azure-storage-performance-and-scalability-checklist"></a>Liste de contrôle des performances et de la scalabilité du Stockage Microsoft Azure
 
@@ -30,7 +30,7 @@ Dans cet article, les pratiques éprouvées sont classées dans les groupes suiv
 * Tables
 * Files d’attente  
 
-| Terminé | Domaine | Catégorie | Question |
+| Terminé | Domaine | Category | Question |
 | --- | --- | --- | --- |
 | &nbsp; | Tous les services |Objectifs d'évolutivité |[Votre application est-elle conçue de manière à éviter d'atteindre les objectifs d'évolutivité ?](#subheading1) |
 | &nbsp; | Tous les services |Objectifs d'évolutivité |[Votre convention d'affectation de noms est-elle conçue pour améliorer l'équilibrage de la charge ?](#subheading47) |
@@ -172,7 +172,7 @@ Ces deux technologies vous aident à éviter toute charge inutile (ainsi que les
 
 #### <a name="useful-resources"></a>Ressources utiles
 
-Pour plus d’informations sur les signatures d’accès partagé, consultez l’article [Signatures d’accès partagé, partie 1 : Présentation du modèle SAP](../storage-dotnet-shared-access-signature-part-1.md).  
+Pour plus d’informations sur les SAS, consultez [Accorder un accès limité aux ressources du Stockage Azure à l’aide des signatures d’accès partagé (SAS)](storage-sas-overview.md).  
 
 Pour plus d’informations sur CORS, consultez [Prise en charge du service Partage des ressources cross-origin (CORS) pour les services Azure Storage](https://msdn.microsoft.com/library/azure/dn535601.aspx).  
 
