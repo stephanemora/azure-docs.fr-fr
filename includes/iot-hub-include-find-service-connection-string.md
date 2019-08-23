@@ -8,24 +8,24 @@ ms.topic: include
 ms.date: 07/16/2019
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: b6ca43616a2e7e7611b122bce5c95084e1fd5012
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: 55cdd864d73ce084d994c64233e79d5a58b17def
+ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68402380"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69558456"
 ---
 <!-- This tells how to get the connection string for the service shared access policy of your IoT hub -->
 
 Pour obtenir la chaîne de connexion IoT Hub pour la stratégie **service**, procédez comme suit :
 
-1. Ouvrez votre IoT Hub dans le [portail Azure](https://portal.azure.com).  La méthode la plus simple pour accéder à votre IoT Hub consiste à sélectionner **Groupes de ressources**, le groupe de ressources dans lequel se trouve votre IoT Hub, puis votre IoT Hub dans la liste des ressources.
+1. Dans le [portail Azure](https://portal.azure.com), sélectionnez **Groupes de ressources**. Sélectionnez le groupe de ressources dans lequel se trouve votre hub, puis sélectionnez votre hub dans la liste des ressources.
 
-2. Dans le volet de gauche de votre IoT Hub, sélectionnez **Stratégies d’accès partagé**.
+1. Dans le volet de gauche de votre IoT Hub, sélectionnez **Stratégies d’accès partagé**.
 
-3. Dans la liste des stratégies, sélectionnez la stratégie **service**.
+1. Dans la liste des stratégies, sélectionnez la stratégie **service**.
 
-4. Sous **Clés d’accès partagé**, sélectionnez l’icône de copie pour la **chaîne de connexion -- clé primaire** et enregistrez la valeur.
+1. Sous **Clés d’accès partagé**, sélectionnez l’icône de copie pour la **chaîne de connexion -- clé primaire** et enregistrez la valeur.
 
     ![Montrer comment récupérer la chaîne de connexion](./media/iot-hub-include-find-service-connection-string/iot-hub-get-connection-string.png)
 
