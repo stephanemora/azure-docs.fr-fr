@@ -149,7 +149,7 @@
       items:
         - name: Vue d'ensemble
           href: media-services-apis-overview.md
-          displayName: 'accessing, naming, long-running'
+          displayName: 'accessing, naming, long-running, invalid character'
         - name: 'Paginer, filtrer et classer des entités'
           href: entities-overview.md
         - name: RBAC
