@@ -232,7 +232,7 @@ Le stockage Premium n'est pas autorisé avec Partage de fichiers Azure.
 
 Vous devez créer le compte de stockage de destination, copier les données du compte source vers le compte de destination, puis supprimer le compte source. Vous pouvez utiliser un outil comme AzCopy pour copier les données.
 
-Si vous utilisez des machines virtuelles, vous devez effectuer des étapes supplémentaires avant de migrer les données du compte de stockage. Pour plus d'informations, voir [Migration vers le stockage Azure Premium (disques non gérés)](storage-migration-to-premium-storage.md).
+Si vous utilisez des machines virtuelles, vous devez effectuer des étapes supplémentaires avant de migrer les données du compte de stockage. Pour plus d'informations, voir [Migration vers le stockage Azure Premium (disques non managés)](storage-migration-to-premium-storage.md).
 
 **Comment passer d'un compte de stockage classique vers un compte de stockage Azure Resource Manager ?**
 
