@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 08/13/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: bb4ac9953bcadd9e49cee5b7b99e853705b6567c
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 9609a886bdcbf093cffaf888f9aeaff0d61acec1
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68990283"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69636661"
 ---
 # <a name="configure-an-app-service-app-in-the-azure-portal"></a>Configurer une app App Service dans le portail Azure
 
@@ -167,7 +167,7 @@ Dans le [portail Azure], accédez à la page de gestion de l’application. Dans
 
 ![Paramètres généraux :](./media/configure-common/open-general.png)
 
-Ici, vous pouvez configurer quelques paramètres communs pour l'application. Certains paramètres vous obligent à [monter en puissance vers des niveaux de tarification supérieurs](web-sites-scale.md).
+Ici, vous pouvez configurer quelques paramètres communs pour l'application. Certains paramètres vous obligent à [monter en puissance vers des niveaux de tarification supérieurs](manage-scale-up.md).
 
 - **Paramètres de la pile** : La pile logicielle pour exécuter l'application, y compris le langage et les versions SDK. Pour les applications Linux et les applications de conteneur personnalisées, vous pouvez également définir une commande ou un fichier de démarrage facultatif.
 - **Paramètres de la plateforme** : Vous permet de configurer les paramètres de la plateforme d'hébergement, notamment :
@@ -268,4 +268,4 @@ Voir [Exécuter un conteneur Linux personnalisé dans Azure App Service](contain
 [How to: Monitor web endpoint status]: https://go.microsoft.com/fwLink/?LinkID=279906
 [Concepts de base de la supervision dans Azure App Service]: ./web-sites-monitor.md
 [mode pipeline]: https://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture#Application
-[Mettre à l’échelle une application dans Azure App Service]: ./web-sites-scale.md
+[Mettre à l’échelle une application dans Azure App Service]: ./manage-scale-up.md
