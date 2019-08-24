@@ -120,7 +120,7 @@ Pour copier des données de Presto, affectez la valeur **PrestoSource** au type 
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type de la source d’activité de copie doit être définie sur : **PrestoSource** | OUI |
+| type | La propriété type de la source d’activité de copie doit être définie sur : **PrestoSource** | OUI |
 | query | Utiliser la requête SQL personnalisée pour lire les données. Par exemple : `"SELECT * FROM MyTable"`. | Non (si « tableName » est spécifié dans dataset) |
 
 **Exemple :**
