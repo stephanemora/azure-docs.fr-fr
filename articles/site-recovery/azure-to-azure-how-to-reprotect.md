@@ -73,7 +73,7 @@ Lorsque vous déclenchez un travail de reprotection et que la cible de que machi
 
 Lorsque vous déclenchez un travail de reprotection et que la machine virtuelle cible et les disques n’existent pas, les événements suivants se produisent :
 1. Si la machine virtuelle utilise des disques managés, des disques de réplica sont créés avec le suffixe '-ASRReplica'. Les copies '-ASRReplica' sont utilisées pour la réplication.
-2. Si la machine virtuelle à l’aide de disques non gérés, des disques de réplica sont créés dans le compte de stockage cible.
+2. Si la machine virtuelle à l’aide de disques non managés, des disques de réplica sont créés dans le compte de stockage cible.
 3. Les disques entiers sont copiés à partir de la région ayant échoué vers la nouvelle région cible.
 4. Une fois la synchronisation terminée, la réplication delta commence à créer un point de récupération conformément à la stratégie de réplication.
 

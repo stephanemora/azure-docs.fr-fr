@@ -87,7 +87,7 @@ Les prix varient selon le type de stockage et la disponibilité que vous sélect
 **Azure Disques managés**
 * Les disques managés Premium s’appuient sur des disques SSD et les disques managés Standard sur des disques à rotation classique. Les fonctionnalités Disques managés Premium et Standard sont facturées en fonction de la capacité déployée pour le disque.
 
-**Disques non gérés**
+**Disques non managés**
 * Le stockage Premium s’appuie sur des disques SSD et est facturé en fonction de la capacité du disque.
 * Le stockage standard s’appuie sur des disques rotatifs ordinaires et est facturé en fonction de la capacité en cours d’utilisation et la disponibilité de stockage souhaitée.
   * Pour RA-GRS, les frais de transfert de données de géo-réplication supplémentaires correspondent au coût de la bande passante nécessaire à la réplication de ces données vers une autre région Azure.

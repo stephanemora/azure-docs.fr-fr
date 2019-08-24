@@ -77,7 +77,7 @@ Pour plus d'informations :
 
 ## <a name="managed-disks"></a>Disques managés
 
-Azure Managed Disks simplifie la gestion des disques pour les machines virtuelles Azure infrastructure as a service (IaaS) en gérant les comptes de stockage associés au disque de la machine virtuelle. 
+Disques managés Azure simplifie la gestion des disques pour les machines virtuelles Azure infrastructure as a service (IaaS) en gérant les comptes de stockage associés au disque de la machine virtuelle. 
 
 Comme vous n'avez pas d'accès direct au fichier .vhd, vous ne pouvez pas utiliser directement des outils comme AzCopy pour copier vos fichiers (voir [Objets blob](#blobs)). La solution de contournement consiste à exporter d’abord le disque managé en obtenant un URI de signature d'accès partagé temporaire, puis à télécharger ou à copier le fichier en utilisant ces informations. Les sections suivantes montrent un exemple permettant d'obtenir l’URI de signature d’accès partagé et ce qu'il faut en faire.
 

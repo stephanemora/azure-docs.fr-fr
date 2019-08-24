@@ -132,7 +132,7 @@ az group create --name myResourceGroup --location westus
 
 ## <a name="create-a-storage-account"></a>Créez un compte de stockage.
 
-Créez un compte de stockage pour votre disque personnalisé et vos machines virtuelles avec la commande [az storage account create](/cli/azure/storage/account). Toutes les machines virtuelles avec des disques non gérés que vous créez à partir de votre disque personnalisé doivent être placées dans le même compte de stockage que ce disque. 
+Créez un compte de stockage pour votre disque personnalisé et vos machines virtuelles avec la commande [az storage account create](/cli/azure/storage/account). Toutes les machines virtuelles avec des disques non managés que vous créez à partir de votre disque personnalisé doivent être placées dans le même compte de stockage que ce disque. 
 
 L’exemple suivant crée un compte de stockage nommé `mystorageaccount` dans le groupe de ressources que vous avez créé :
 
@@ -186,7 +186,7 @@ az storage blob upload --account-name mystorageaccount \
 ```
 
 ## <a name="create-the-vm"></a>Création de la machine virtuelle
-Pour créer une machine virtuelle avec des disques non gérés, spécifiez l’URI de votre disque (`--image`) avec la commande [az vm create](/cli/azure/vm). L’exemple suivant crée une machine virtuelle nommée `myVM` à l’aide du disque virtuel que vous avez téléchargé :
+Pour créer une machine virtuelle avec des disques non managés, spécifiez l’URI de votre disque (`--image`) avec la commande [az vm create](/cli/azure/vm). L’exemple suivant crée une machine virtuelle nommée `myVM` à l’aide du disque virtuel que vous avez téléchargé :
 
 Spécifiez le paramètre `--image` avec la commande [az vm create](/cli/azure/vm) pour pointer vers votre disque personnalisé. Vérifiez que le paramètre `--storage-account` correspond au compte de stockage dans lequel se trouve le disque personnalisé. Vous n’avez pas à utiliser le même conteneur que le disque personnalisé pour stocker vos machines virtuelles. Veillez à créer des conteneurs supplémentaires de la même manière que dans les étapes précédentes avant de charger votre disque personnalisé.
 

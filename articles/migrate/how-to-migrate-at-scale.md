@@ -31,7 +31,7 @@ Avant de commencer, vous devez effectuer les étapes suivantes :
 - Vérifier que vous avez ajouté le compte d’administrateur de machine virtuelle au serveur de configuration (qui sera utilisé pour répliquer les machines virtuelles locales)
 - Vérifier que les artefacts cibles dans Azure sont créés
     - Groupe de ressources cible
-    - Compte de stockage cible (et son groupe de ressources) : créez un compte de stockage premium si vous prévoyez de migrer vers des disques gérés premium
+    - Compte de stockage cible (et son groupe de ressources) : créez un compte de stockage premium si vous prévoyez de migrer vers des disques managés premium
     - Compte de stockage de cache (et son groupe de ressources) : créez un compte de stockage standard dans la même région que le coffre
     - Réseau virtuel cible pour le basculement (et son groupe de ressources)
     - Sous-réseau cible
@@ -62,8 +62,8 @@ Une fois que le fichier CSV prêt, vous pouvez exécuter les étapes suivantes p
 8 | asr_completemigration.ps1 | Effectuer l’opération de validation sur les machines virtuelles et supprimer les entités Azure Site Recovery
 9 | asr_postmigration.ps1 | Si vous envisagez d’attribuer des groupes de sécurité réseau aux cartes réseau après le basculement, vous pouvez, pour cela, utiliser ce script. Cela attribue un groupe de sécurité réseau à une des cartes réseau de la machine virtuelle cible.
 
-## <a name="how-to-migrate-to-managed-disks"></a>Comment migrer vers des disques gérés ?
-Par défaut, le script migre les machines virtuelles vers des disques gérés dans Azure. Si le compte de stockage cible fourni est un compte de stockage premium, des disques gérés premium sont créés après la migration. Le compte de stockage de cache peut être un compte standard. Si le compte de stockage cible est un compte de stockage standard, des disques standards sont créés après la migration. 
+## <a name="how-to-migrate-to-managed-disks"></a>Comment migrer vers des disques managés ?
+Par défaut, le script migre les machines virtuelles vers des disques managés dans Azure. Si le compte de stockage cible fourni est un compte de stockage premium, des disques managés premium sont créés après la migration. Le compte de stockage de cache peut être un compte standard. Si le compte de stockage cible est un compte de stockage standard, des disques standards sont créés après la migration. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

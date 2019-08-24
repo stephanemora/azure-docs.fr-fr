@@ -16,7 +16,7 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 07/04/2019
 ms.locfileid: "67565517"
 ---
-# <a name="migrating-to-azure-premium-storage-unmanaged-disks"></a>Migration vers le stockage Azure Premium (disques non gérés)
+# <a name="migrating-to-azure-premium-storage-unmanaged-disks"></a>Migration vers le stockage Azure Premium (disques non managés)
 
 > [!NOTE]
 > Cet article explique comment migrer une machine virtuelle qui utilise des disques standard non gérés vers une machine virtuelle qui utilise des disques premium non gérés. Nous vous recommandons d’utiliser Azure Disques managés pour les nouvelles machines virtuelles et de convertir vos anciens disques non managés en disques managés. Azure Disques managés gère les comptes de stockage sous-jacents à votre place. Pour plus d’informations, consultez [Vue d’ensemble d’Azure Disques managés](../../virtual-machines/windows/managed-disks-overview.md).

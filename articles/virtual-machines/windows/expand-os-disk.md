@@ -151,7 +151,7 @@ Update-AzDisk -ResourceGroupName $rgName -Disk $disk -DiskName $disk.Name
 Start-AzVM -ResourceGroupName $rgName -Name $vmName
 ```
 
-**Disques non gérés**
+**Disques non managés**
 
 ```powershell
 Connect-AzAccount

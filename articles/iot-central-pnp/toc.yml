@@ -17,7 +17,7 @@
       href: ../iot-central/quick-create-pnp-device-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
 - name: Tutoriels
   items:
-    - name: 1 - Définir un nouveau type d’appareil
+    - name: 1- Définir un nouveau type d’appareil
       href: ../iot-central/tutorial-define-device-type-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
     - name: 2 - Ajouter un appareil
       href: ../iot-central/tutorial-add-device-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
@@ -119,6 +119,8 @@
       items:
         - name: IoT Hub
           href: /azure/iot-hub
+        - name: IoT Plug-and-Play
+          href: /azure/iot-pnp
         - name: Service IoT Hub Device Provisioning
           href: /azure/iot-dps
         - name: Location Based Services

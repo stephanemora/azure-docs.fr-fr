@@ -1,5 +1,5 @@
 ---
-title: Rechercher et supprimer les disques managés et non managés Azure non attachés | Microsoft Docs
+title: Trouver et supprimer les disques managés et non managés Azure non attachés | Microsoft Docs
 description: Comment rechercher et supprimer à l’aide d’Azure CLI les disques managés et non managés (disques durs virtuels/objets blob de pages) Azure non attachés.
 author: roygara
 ms.service: virtual-machines-linux
@@ -14,7 +14,7 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 07/31/2019
 ms.locfileid: "68695530"
 ---
-# <a name="find-and-delete-unattached-azure-managed-and-unmanaged-disks"></a>Rechercher et supprimer les disques managés et non managés Azure non attachés
+# <a name="find-and-delete-unattached-azure-managed-and-unmanaged-disks"></a>Trouver et supprimer les disques managés et non managés Azure non attachés
 Par défaut, lorsque vous supprimez une machine virtuelle dans Azure, tous les disques qui sont attachés à cette machine ne sont pas supprimés. Cette fonctionnalité permet d’éviter une perte de données causée par la suppression involontaire de machines virtuelles. Après la suppression d’une machine virtuelle, vous continuez de payer pour les disques non attachés. Cet article explique comment rechercher et supprimer tous les disques non attachés pour réduire les coûts inutiles. 
 
 

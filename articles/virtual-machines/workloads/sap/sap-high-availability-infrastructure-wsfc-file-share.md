@@ -333,7 +333,7 @@ Dans le modèle, procédez comme suit :
 3. Dans la zone **Nom du SOFS**, entrez le nom du réseau hôte global SAP, **sapglobalhost**.
 4. Dans la zone **Nom du partage**, entrez le nom du partage de fichiers, **sapmnt**.
 
-### <a name="use-unmanaged-disks"></a>Utiliser des disques non gérés
+### <a name="use-unmanaged-disks"></a>Utiliser des disques non managés
 
 Le modèle Azure Resource Manager permettant de déployer le serveur de fichiers avec montée en puissance parallèle avec des espaces de stockage direct et des disques non gérés Azure est disponible sur [GitHub][arm-sofs-s2d-non-managed-disks].
 
