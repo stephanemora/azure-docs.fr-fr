@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/13/2019
 ms.author: iainfou
-ms.openlocfilehash: f4252fcd70ff5aa9c2056b72add7c79283ce7fcf
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: f234eaea0d4df3859ef9458ea334f1b7616add34
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67473446"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69612931"
 ---
 # <a name="configure-kerberos-constrained-delegation-kcd-on-a-managed-domain"></a>Configurer la délégation Kerberos contrainte (KCD) sur un domaine managé
 De nombreuses applications doivent accéder à des ressources dans le contexte de l’utilisateur. Active Directory prend en charge un mécanisme, appelé délégation Kerberos, qui rend possible ce cas d’utilisation. En outre, vous pouvez limiter la délégation afin que seules des ressources spécifiques soient accessibles dans le contexte de l’utilisateur. Les domaines gérés des services de domaine Azure AD diffèrent des domaines Active Directory traditionnels dans la mesure où ils sont verrouillés de façon mieux sécurisée.
@@ -47,15 +47,15 @@ La KCD traditionnelle a également quelques problèmes qui lui sont associés. D
 La KCD basée sur la ressource est configurée à l’aide de PowerShell. Vous utilisez les applets de commande `Set-ADComputer` ou `Set-ADUser`, selon que le compte d’emprunt est un compte d’ordinateur ou un compte de service/compte utilisateur.
 
 ### <a name="configure-resource-based-kcd-for-a-computer-account-on-a-managed-domain"></a>Configuration d’une KCD basée sur la ressource pour un compte d’ordinateur sur un domaine géré
-Supposons que vous ayez une application web en cours d’exécution sur l’ordinateur « contoso100-webapp.contoso100.com ». Elle doit accéder à la ressource (une API web s’exécutant sur « contoso100-api.contoso100.com ») dans le contexte des utilisateurs du domaine. Voici comment configurer une délégation Kerberos contrainte basée sur les ressources pour ce scénario :
+Supposons que vous ayez une application web en cours d’exécution sur l’ordinateur « contoso-webapp.contoso.com ». Elle doit accéder à la ressource (une API web s’exécutant sur « contoso-api.contoso.com ») dans le contexte des utilisateurs du domaine. Voici comment configurer une délégation Kerberos contrainte basée sur les ressources pour ce scénario :
 
 1. [Créer une unité d’organisation personnalisée](create-ou.md) Vous pouvez déléguer des autorisations pour gérer cette unité d’organisation personnalisée aux utilisateurs du domaine managé.
 2. Joignez les deux machines virtuelles (celle qui exécute l’application web et celle qui exécute l’API web) au domaine managé. Créez ces comptes d’ordinateur dans l’unité d’organisation personnalisée.
 3. Configurez la délégation Kerberos contrainte basée sur les ressources à l’aide de la commande PowerShell suivante :
 
 ```powershell
-$ImpersonatingAccount = Get-ADComputer -Identity contoso100-webapp.contoso100.com
-Set-ADComputer contoso100-api.contoso100.com -PrincipalsAllowedToDelegateToAccount $ImpersonatingAccount
+$ImpersonatingAccount = Get-ADComputer -Identity contoso-webapp.contoso.com
+Set-ADComputer contoso-api.contoso.com -PrincipalsAllowedToDelegateToAccount $ImpersonatingAccount
 ```
 
 > [!NOTE]
@@ -80,5 +80,5 @@ Set-ADUser backendsvc -PrincipalsAllowedToDelegateToAccount $ImpersonatingAccoun
 >
 
 ## <a name="related-content"></a>Contenu connexe
-* [Services de domaine Azure AD : guide de mise en route](create-instance.md)
+* [Services de domaine Azure AD : guide de mise en route](tutorial-create-instance.md)
 * [Présentation de la délégation Kerberos contrainte](https://technet.microsoft.com/library/jj553400.aspx)

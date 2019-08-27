@@ -2,15 +2,15 @@
 documentType: LandingData
 title: Documentation Recherche personnalisée Bing
 metadata:
-  title: 'Documentation de l’API Recherche personnalisée Bing - Tutoriels, guides de démarrage rapide, informations de référence sur l’API - Microsoft Cognitive Services | Microsoft Docs'
+  title: "Documentation de l’API Recherche personnalisée Bing\_- Tutoriels, guides de démarrage rapide, informations de référence sur l’API"
+  titleSuffix: Azure Cognitive Services
   description: Découvrir comment utiliser le portail Recherche personnalisée Bing pour créer une expérience de recherche personnalisée
   services: cognitive-services
   author: v-deken
   manager: nitinme
   layout: LandingPage
   ms.service: cognitive-services
-  ms.tgt_pltfrm: na
-  ms.devlang: na
+  ms.subservice: bing-custom-search
   ms.topic: landing-page
   ms.date: 07/25/2019
   ms.author: v-deken

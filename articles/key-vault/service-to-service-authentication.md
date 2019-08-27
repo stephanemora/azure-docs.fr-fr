@@ -9,12 +9,12 @@ ms.author: mbaldwin
 ms.date: 07/06/2019
 ms.topic: conceptual
 ms.service: key-vault
-ms.openlocfilehash: f6a95f56b7b617b42c1cec9f64aae73b88b813da
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 30c99ae4150e0bd4645488b5bf75b8bbac0ee66f
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934335"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69562444"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>Authentification de service à service auprès d’Azure Key Vault à l’aide de .NET
 
@@ -132,7 +132,7 @@ Cela s’applique uniquement au développement local. Lorsque votre solution est
 
 ## <a name="running-the-application-using-managed-identity-or-user-assigned-identity"></a>Exécution de l’application en utilisant une identité managée ou une identité affectée par l’utilisateur 
 
-Lorsque vous exécutez votre code dans Azure App Service ou une machine virtuelle Azure pour laquelle une identité managée est activée, la bibliothèque utilise automatiquement l’identité managée. 
+Lorsque vous exécutez votre code dans Azure App Service ou une machine virtuelle Azure pour laquelle une identité managée est activée, la bibliothèque utilise automatiquement l’identité managée. Aucune modification de code n’est requise, mais l’identité managée doit avoir les autorisations *get* pour le coffre de clés. Vous pouvez accorder à l’identité managée les autorisations *get* via les *stratégies d’accès* du coffre de clés.
 
 Vous pouvez aussi authentifier avec une identité affectée par l’utilisateur. Pour en savoir plus sur les identités affectées par l’utilisateur, consultez [À propos des identités managées pour les ressources Azure](../active-directory/managed-identities-azure-resources/overview.md#how-does-the-managed-identities-for-azure-resources-work). Pour s’authentifier avec une identité affectée à l’utilisateur, vous devez spécifier l’ID client dans la chaîne de connexion. La chaîne de connexion est spécifiée dans la section [Prise en charge de chaînes de connexion](#connection-string-support) ci-dessous.
 

@@ -21,7 +21,7 @@
               href: tutorial-1st-experiment-sdk-train.md
         - name: Classification d’images (données MNIST)
           items:
-            - name: 1. Effectuer l’apprentissage d’un modèle
+            - name: 1. Entraîner un modèle
               displayName: build modeling
               href: tutorial-train-models-with-aml.md
             - name: 2. Déployer un modèle
@@ -179,6 +179,9 @@
         - name: Optimiser les hyperparamètres
           displayName: parameter
           href: how-to-tune-hyperparameters.md
+        - name: Utiliser Key Vault lors de l’entraînement
+          displayName: secrets keyvault
+          href: how-to-use-secrets-in-runs.md
     - name: Suivre et superviser des expériences
       items:
         - name: 'Démarrer, superviser ou annuler des exécutions'

@@ -2,15 +2,14 @@
 documentType: LandingData
 title: Documentation de l’API Vision par ordinateur
 metadata:
-  title: Documentation de l’API - Vision par ordinateur - Azure Cognitive Services | Microsoft Docs
+  title: "Documentation de l’API\_- Vision par ordinateur"
+  titleSuffix: Azure Cognitive Services
   description: Découvrez comment utiliser la Vision par ordinateur pour traiter des images et renvoyer des informations. Ces tutoriels vous montrent comment créer des applications qui utilisent l’API.
   services: cognitive-services
   author: nitinme
   manager: nitinme
   ms.service: cognitive-services
   ms.subservice: computer-vision
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
   ms.date: 02/26/2019
   ms.author: nitinme

@@ -149,6 +149,8 @@
       items:
         - name: Architecture d’OPC Twin
           href: overview-opc-twin-architecture.md
+        - name: Architecture d’OPC Vault
+          href: overview-opc-vault-architecture.md
     - name: Guides pratiques
       items:
         - name: Fabrique connectée
@@ -169,14 +171,14 @@
               href: howto-opc-twin-deploy-dependencies.md
         - name: OPC Vault
           items:
-            - name: Déployer OPC Vault sur un projet existant
-              items:
-                - name: Sécuriser les communications du client OPC et OPC PLC
-                  href: howto-opc-vault-deploy-existing-client-plc-communication.md
-                - name: Sécuriser le client OPC UA et les applications de serveur OPC UA
-                  href: howto-opc-vault-deploy-existing-client-server-communication.md
-            - name: Déployer OPC Vault à partir de zéro
-              href: howto-opc-vault-deploy-scratch.md
+            - name: Déployer le service OPC Vault
+              href: howto-opc-vault-deploy.md
+            - name: Gérer le service OPC Vault
+              href: howto-opc-vault-manage.md
+            - name: Sécuriser la communication des appareils OPC UA avec OPC Vault
+              href: howto-opc-vault-secure.md
+            - name: Utiliser le service OPC Vault de façon sécurisée
+              href: howto-opc-vault-secure-ca.md
         - name: OPC Publisher
           items:
             - name: Configurer OPC Publisher
@@ -263,7 +265,7 @@
           href: /azure/iot-pnp
         - name: Service IoT Hub Device Provisioning
           href: /azure/iot-dps
-        - name: Kits de développement logiciel (SDK) IoT Service
+        - name: Kits SDK IoT Service
           href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
         - name: Cartes
           href: /azure/azure-maps
@@ -273,7 +275,7 @@
       items:
         - name: "Azure IoT\_Edge"
           href: /azure/iot-edge
-        - name: Kits de développement logiciel (SDK) IoT Device
+        - name: Kits SDK IoT Device
           href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
 - name: Ressources
   items:

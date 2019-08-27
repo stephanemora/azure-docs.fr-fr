@@ -3,15 +3,14 @@ documentType: LandingData
 title: Documentation Suggestion automatique Bing
 metadata:
   document_id: ce69fd12-adf8-11e7-abc4-cec278b6b50a
-  title: 'Documentation Suggestion automatique Bing - Tutoriels, guides de démarrage rapide, informations de référence sur l’API | Microsoft Docs'
+  title: "Documentation Suggestion automatique Bing\_- Tutoriels, guides de démarrage rapide, informations de référence sur l’API"
+  titleSuffix: Azure Cognitive Services
   description: Découvrez comment utiliser l’API Suggestion automatique Bing pour obtenir des suggestions de requêtes en fonction d’une requête partielle. Ces tutoriels vous montrent comment créer des applications qui utilisent le service.
   services: cognitive-services
   author: aahill
   manager: nitinme
   ms.service: cognitive-services
   ms.subservice: bing-autosuggest
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
   ms.date: 07/25/2019
   ms.author: aahi

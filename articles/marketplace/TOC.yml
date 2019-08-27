@@ -46,7 +46,7 @@
               href: ./enable-appsource-marketplace-using-azure-ad.md
             - name: Solutions intégrées
               href: ./integrated-solutions-for-publishers.md
-        - name: Meilleures pratiques marketing
+        - name: Bonnes pratiques marketing
           href: ./gtm-marketing-best-practices.md
           items:
             - name: Bonnes pratiques pour le référencement des offres
@@ -473,6 +473,21 @@
                   href: ./partner-center-portal/pc-saas-fulfillment-api-v1.md
                 - name: API de traitement SaaS - Questions fréquentes (FAQ)
                   href: ./partner-center-portal/saas-fulfillment-apis-faq.md
+        - name: Vue d’ensemble de la gestion des prospects
+          href: ./partner-center-portal/commercial-marketplace-get-customer-leads.md
+          items:
+            - name: Objets blob Azure
+              href: ./partner-center-portal/commercial-marketplace-lead-management-instructions-azure-blob.md
+            - name: table Azure
+              href: ./partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table.md
+            - name: "Dynamics\_365 for Customer Engagement"
+              href: ./partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics.md
+            - name: Point de terminaison HTTPS
+              href: ./partner-center-portal/commercial-marketplace-lead-management-instructions-https.md
+            - name: Marketo
+              href: ./partner-center-portal/commercial-marketplace-lead-management-instructions-marketo.md
+            - name: Salesforce
+              href: ./partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce.md
         - name: Tester votre offre
           href: ./partner-center-portal/test-drive.md
     - name: État de publication

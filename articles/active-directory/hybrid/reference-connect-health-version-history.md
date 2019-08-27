@@ -15,12 +15,12 @@ ms.topic: reference
 ms.date: 03/20/2019
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 58de8de9a9fab67d743d4560ccda037d8f41301b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 27c0d3055512145396f204fdb17e9375f65a0db3
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66298999"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69562337"
 ---
 # <a name="azure-ad-connect-health-version-release-history"></a>Azure AD Connect Health : Historique de publication des versions
 L’équipe Azure Active Directory met régulièrement à jour Azure AD Connect Health avec de nouvelles fonctions et fonctionnalités. Cet article répertorie les versions et les fonctionnalités qui ont été publiées.  
@@ -31,6 +31,21 @@ L’équipe Azure Active Directory met régulièrement à jour Azure AD Connect 
 
 Azure AD Connect Health pour la synchronisation est intégré à l’installation d’Azure AD Connect. Vous trouverez ici plus d’informations sur l’[historique des versions d’Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history). Pour nous donner un feedback sur les fonctionnalités, votez sur le [canal User Voice Connect Health](https://feedback.azure.com/forums/169401-azure-active-directory/filters/new?category_id=165591)
 
+## <a name="july-2019"></a>Juillet 2019
+**Mise à jour de l’agent**
+* Agent Azure AD Connect Health pour AD FS (version 3.1.59.0) 
+   1. Modification du texte dans TestWindowsTransport
+   2. Modifications pour le chargement d’AD FS RP
+   
+* Agent Azure AD Connect Health pour AD FS (version 3.1.56.0) 
+   1. Ajout du test TestWindowsTransport et suppression des vérifications de point de terminaison WsTrust dans le test CheckOffice365Endpoints
+   2. Enregistrer les informations sur le système d’exploitation et .NET
+   3. Augmentation de la taille de téléchargement du message de configuration RP à 1 Mo.
+   4. Résolution des bogues
+   
+* Agent Azure AD Connect Health pour AD DS (version 3.1.56.0) 
+   1. Enregistrer les informations sur le système d’exploitation et .NET 
+   2. Résolution des bogues
 
 ## <a name="may-2019"></a>Mai 2019
 **Mise à jour de l’agent :** 

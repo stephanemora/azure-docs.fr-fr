@@ -16,12 +16,12 @@ ms.date: 04/19/2019
 ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 64a81a871d811c68f5e92822ca88446966be4d5c
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 7b5be74b0734a27b02030e2c6995b43ef0c02162
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68678097"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69562121"
 ---
 # <a name="request-access-to-an-access-package-in-azure-ad-entitlement-management-preview"></a>Demander l’accès à un package d’accès dans la gestion des droits d’utilisation de Azure Active Directory (préversion)
 
@@ -29,6 +29,10 @@ ms.locfileid: "68678097"
 > La gestion des droits d’utilisation Azure Active Directory (Azure AD) est actuellement en préversion publique.
 > Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge.
 > Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+Avec la gestion des droits d'utilisation d’Azure AD, un package d’accès vous permet d’effectuer une configuration unique des ressources et des stratégies qui gèrent automatiquement l’accès pendant toute la durée de vie du package d’accès. 
+
+Un gestionnaire de package d’accès peut configurer des stratégies pour exiger une approbation pour que les utilisateurs aient accès aux packages d’accès. Un utilisateur qui a besoin d’accéder à un package d’accès peut envoyer une demande d’accès. Cet article explique comment envoyer une demande d’accès.
 
 ## <a name="sign-in-to-the-my-access-portal"></a>Se connecter au portail Mon Accès
 

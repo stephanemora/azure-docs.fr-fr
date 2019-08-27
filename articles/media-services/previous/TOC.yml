@@ -35,7 +35,7 @@
       items:
         - name: Portail Azure
           href: media-services-portal-vod-get-started.md
-        - name: Kit de développement logiciel (SDK) .NET
+        - name: Kit SDK .NET
           href: media-services-dotnet-get-started.md
         - name: Java
           href: media-services-java-how-to-use.md
@@ -49,7 +49,16 @@
           href: media-services-dotnet-live-encode-with-onpremises-encoders.md
 - name: Procédure
   items:
-    - name: gérer
+    - name: Composants existants
+      href: legacy-components.md
+      items:
+        - name: Migrer depuis Azure Media Encoder
+          href: migrate-azure-media-encoder.md
+          displayName: AME
+        - name: Migrer depuis Windows Azure Media Encoder
+          href: migrate-windows-azure-media-encoder.md
+          displayName: WAME
+    - name: Gérer
       items:
         - name: Comptes
           displayName: subscription

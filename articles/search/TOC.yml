@@ -17,6 +17,8 @@
           href: cognitive-search-quickstart-blob.md
     - name: 'C#'
       href: search-get-started-dotnet.md
+    - name: Java
+      href: search-get-started-java.md
     - name: Node.js
       href: search-get-started-nodejs.md
     - name: postman
@@ -65,7 +67,7 @@
       href: 'https://docs.microsoft.com/samples/browse/?products=azure-search&languages=python'
     - name: Exemples REST
       href: 'https://docs.microsoft.com/samples/browse/?products=azure-search&languages=rest'
-- name: Formation
+- name: Entrainement
   items:
     - name: Introduction (Microsoft Learn)
       href: 'https://docs.microsoft.com/learn/modules/intro-to-azure-search/'
@@ -117,10 +119,10 @@
           href: search-api-versions.md
         - name: Développer dans .NET
           href: search-howto-dotnet-sdk.md
-        - name: Développer dans Java
-          href: search-get-started-java.md
         - name: Mettre à niveau le kit de développement logiciel (SDK)
           items:
+            - name: ".NET SDK\_10.0"
+              href: search-dotnet-sdk-migration-version-10.md
             - name: .NET SDK 9.0
               href: search-dotnet-sdk-migration-version-9.md
             - name: Kit de développement logiciel (SDK) .NET 5.0

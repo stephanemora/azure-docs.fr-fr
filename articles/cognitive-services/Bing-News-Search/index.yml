@@ -1,17 +1,15 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
 title: Documentation de l’API Recherche d’actualités Bing
-titleSuffix: Azure Cognitive Services
 metadata:
-  title: "Documentation de l’API Recherche d’actualités Bing\_- Tutoriels, guides de démarrage rapide, informations de référence de l’API\_| Microsoft Docs"
+  title: "Documentation de l’API Recherche d’actualités Bing\_- Tutoriels, guides de démarrage rapide, informations de référence sur l’API"
+  titleSuffix: Azure Cognitive Services
   description: Découvrez comment utiliser l’API Recherche d’actualités Bing pour rechercher des actualités sur le web.
   services: cognitive-services
   author: aahill
   manager: nitinme
   ms.service: cognitive-services
   ms.subservice: bing-video-search
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
   ms.date: 07/25/2019
   ms.author: aahi

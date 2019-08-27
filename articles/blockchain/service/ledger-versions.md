@@ -10,18 +10,18 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: janders
 manager: femila
-ms.openlocfilehash: 53f65ec91a1e0f1e5a6322f0125bf83cd3e400b2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6cded49f14ae90f84b18c0a37059677c6c1fed99
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66399106"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69562795"
 ---
 # <a name="supported-azure-blockchain-service-ledger-versions"></a>Versions de registre d’Azure Blockchain Service prises en charge
 
 Azure Blockchain Service utilise le registre [Quorum](https://www.goquorum.com/developers) basé sur Ethereum et conçu pour le traitement des transactions privées au sein d’un groupe de participants connus, identifié en tant que consortium dans Azure Blockchain Service.
 
-Actuellement, Azure Blockchain Service prend en charge [Quorum version 2.2.1](https://github.com/jpmorganchase/quorum/releases/tag/v2.2.1) et le [gestionnaire de transactions Tessera](https://github.com/jpmorganchase/tessera).
+Actuellement, Azure Blockchain Service prend en charge [Quorum version 2.2.3](https://github.com/jpmorganchase/quorum/releases/tag/v2.2.3) et le [gestionnaire de transactions Tessera](https://github.com/jpmorganchase/tessera).
 
 ## <a name="managing-updates-and-upgrades"></a>Gestion des mises à jour et des mises à niveau
 

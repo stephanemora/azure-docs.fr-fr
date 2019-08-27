@@ -8,16 +8,16 @@ ms.date: 08/13/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 2e97a734a4730e4341614019e3ca1ecaa81420a7
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: c6c070012db0857759c63603072b8321896398b4
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035990"
+ms.locfileid: "69516136"
 ---
 # <a name="build-highly-available-azure-storage-applications-with-geo-zone-redundant-storage-gzrs-preview"></a>Générer des applications de stockage Azure hautement disponibles sur le stockage géoredondant interzone (GZRS) (préversion)
 
-Le stockage géoredondant interzone (GZRS) (préversion) allie la haute disponibilité du [stockage redondant interzone (ZRS)](storage-redundancy-zrs.md) et une protection contre les pannes régionales, comme le prévoit le [stockage géoredondant (GRS)](storage-redundancy-grs.md). Les données d’un compte de stockage GZRS sont répliquées entre trois [zones de disponibilité Azure](../../availability-zones/az-overview.md) dans la région principale et également répliquées vers une région géographique secondaire pour la protection contre les catastrophes régionales.
+Le stockage géoredondant interzone (GZRS) (préversion) allie la haute disponibilité du [stockage redondant interzone (ZRS)](storage-redundancy-zrs.md) et une protection contre les pannes régionales, comme le prévoit le [stockage géoredondant (GRS)](storage-redundancy-grs.md). Les données d’un compte de stockage GZRS sont répliquées entre trois [zones de disponibilité Azure](../../availability-zones/az-overview.md) dans la région principale et également répliquées vers une région géographique secondaire pour la protection contre les catastrophes régionales. Chaque région Azure est associée à une autre région au sein de la même région géographique, constituant ainsi des paires régionales. Pour plus d’informations et d’exceptions, consultez la [documentation](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
 
 Avec un compte de stockage GZRS, vous pouvez continuer à lire et écrire des données si une zone de disponibilité devient indisponible ou n’est pas récupérable. De plus, vos données sont également durables en cas de panne régionale totale ou d’incident empêchant la récupération de la région primaire. Le stockage géoredondant interzone (GZRS) est conçu pour fournir une durabilité des objets d’au moins 99,99999999999999 % (16 chiffres neuf) sur une année donnée. GZRS offre également les mêmes [objectifs d’extensibilité](storage-scalability-targets.md) que LRS, ZRS, GRS ou RA-GRS. Vous pouvez éventuellement activer l’accès en lecture aux données dans la région secondaire avec un stockage géoredondant interzone avec accès en lecture (RA-GZRS) si vos applications doivent être en mesure de lire les données en cas de sinistre dans la région principale.
 
