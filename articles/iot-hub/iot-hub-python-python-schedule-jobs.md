@@ -6,14 +6,14 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: python
 ms.topic: conceptual
-ms.date: 07/30/2019
+ms.date: 08/16/2019
 ms.author: robinsh
-ms.openlocfilehash: 81b2145e6107558f2d9698c7e5d03658f1129b00
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: 63534260e042a1b47ca5e635c48123672d663a9b
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68667953"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69873309"
 ---
 # <a name="schedule-and-broadcast-jobs-python"></a>Planifier et diffuser des travaux (Python)
 
@@ -29,9 +29,9 @@ Sur le plan conceptuel, un travail encapsule l’une de ces actions et suit la p
 
 Pour en savoir plus sur chacune de ces fonctionnalités, consultez les articles suivants :
 
-* Jumeau d’appareil et propriétés : [Prise en main des jumeaux d’appareils](iot-hub-python-twin-getstarted.md) et [Didacticiel : Guide pratique pour utiliser des propriétés de jumeau d’appareil](tutorial-device-twins.md)
+* Jumeau d’appareil et propriétés : [Bien démarrer avec des jumeaux d’appareils](iot-hub-python-twin-getstarted.md) et [Tutoriel : Guide pratique pour utiliser des propriétés de jumeau d’appareil](tutorial-device-twins.md)
 
-* Méthodes directes : [Guide du développeur IoT Hub - méthodes directes](iot-hub-devguide-direct-methods.md) et [Didacticiel : méthodes directes](quickstart-control-device-python.md)
+* Méthodes directes : [Guide du développeur IoT Hub - Méthodes directes](iot-hub-devguide-direct-methods.md) et [Tutoriel : Méthodes directes](quickstart-control-device-python.md)
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
@@ -47,15 +47,17 @@ Ce didacticiel vous explique les procédures suivantes :
 
 **scheduleJobService.py**, qui appelle une méthode directe sur l’application d’appareil simulé et met à jour les propriétés souhaitées du jumeau d’appareil à l’aide d’un travail
 
-[!INCLUDE [iot-hub-include-python-sdk-note](../../includes/iot-hub-include-python-sdk-note.md)]
-
-Voici les instructions d’installation des prérequis.
-
-[!INCLUDE [iot-hub-include-python-installation-notes](../../includes/iot-hub-include-python-installation-notes.md)]
-
 > [!NOTE]
 > Le **SDK Azure IoT pour Python** ne prend pas directement en charge la fonctionnalité de **travaux**. Au lieu de cela, ce didacticiel offre une solution alternative utilisant des minuteries et des threads asynchrones. Pour obtenir des mises à jour supplémentaires, consultez la liste des fonctionnalités du **SDK de client de service** dans la page du [SDK Azure IoT pour Python](https://github.com/Azure/azure-iot-sdk-python).
 >
+
+[!INCLUDE [iot-hub-include-python-sdk-note](../../includes/iot-hub-include-python-sdk-note.md)]
+
+## <a name="prerequisites"></a>Prérequis
+
+Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
+
+[!INCLUDE [iot-hub-include-python-installation-notes](../../includes/iot-hub-include-python-installation-notes.md)]
 
 ## <a name="create-an-iot-hub"></a>Créer un hub IoT
 
@@ -74,6 +76,10 @@ Dans cette section, vous allez créer une application console Python qui répond
     ```cmd/sh
     pip install azure-iothub-device-client
     ```
+
+   > [!NOTE]
+   > Les packages pip pour azure-iothub-service-client et azure-iothub-device-client ne sont actuellement disponibles que pour le système d’exploitation Windows. Pour Linux/Mac OS, reportez-vous aux sections spécifiques de Linux et Mac OS de la publication [Prepare your development environment for Python](https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md) (Préparer votre environnement de développement pour Python).
+   >
 
 2. À l’aide d’un éditeur de texte, créez un fichier **simDevice.py** dans votre répertoire de travail.
 
@@ -156,11 +162,29 @@ Dans cette section, vous allez créer une application console Python qui répond
 > Pour simplifier les choses, ce didacticiel n’implémente aucune stratégie de nouvelle tentative. Dans le code de production, vous devez implémenter des stratégies de nouvelle tentative (par exemple, une interruption exponentielle), comme indiqué dans l’article [Gestion des erreurs temporaires](/azure/architecture/best-practices/transient-faults).
 >
 
-## <a name="get-the-iot-hub-connection-string"></a>Obtention de la chaîne de connexion IoT Hub
+## <a name="get-the-iot-hub-connection-string"></a>Obtenir la chaîne de connexion du hub IoT
 
-[!INCLUDE [iot-hub-howto-schedule-jobs-shared-access-policy-text](../../includes/iot-hub-howto-schedule-jobs-shared-access-policy-text.md)]
+Dans cet article, vous allez créer un service principal qui appelle une méthode directe sur un appareil et met à jour le jumeau de celui-ci. Pour appeler une méthode directe sur un appareil, le service a besoin de l’autorisation de **connexion de service**. Le service a également besoin des autorisations de **lecture du registre** et d’**écriture du registre** pour pouvoir lire et écrire dans le registre des identités. Aucune stratégie d’accès partagé par défaut ne contient que ces autorisations. Vous devez donc en créer une.
 
-[!INCLUDE [iot-hub-include-find-registryrw-connection-string](../../includes/iot-hub-include-find-registryrw-connection-string.md)]
+Pour créer une stratégie d’accès partagé qui accorde des autorisations de **connexion de service**, de **lecture du registre** et d’**écriture du registre**, et obtenir une chaîne de connexion pour cette stratégie, procédez comme suit :
+
+1. Ouvrez votre IoT Hub dans le [portail Azure](https://portal.azure.com). La méthode la plus simple pour accéder à votre IoT Hub consiste à sélectionner **Groupes de ressources**, le groupe de ressources dans lequel se trouve votre IoT Hub, puis votre IoT Hub dans la liste des ressources.
+
+2. Dans le volet de gauche de votre IoT Hub, sélectionnez **Stratégies d’accès partagé**.
+
+3. Dans le menu supérieur au-dessus de la liste des stratégies, sélectionnez **Ajouter**.
+
+4. Dans le volet **Ajouter une stratégie d’accès partagé**, entrez un nom descriptif pour votre stratégie, par exemple : *serviceAndRegistryReadWrite*. Sous **Autorisations**, sélectionnez **Connexion au service** et **Écriture du registre** (l’option **Lecture du registre** est automatiquement sélectionnée lorsque vous sélectionnez l’option **Écriture du registre**). Sélectionnez ensuite **Créer**.
+
+    ![Montrer comment ajouter une nouvelle stratégie d'accès partagé](./media/iot-hub-python-python-schedule-jobs/add-policy.png)
+
+5. Dans le volet **Stratégies d'accès partagé**, sélectionnez votre nouvelle stratégie dans la liste des stratégies.
+
+6. Sous **Clés d’accès partagé**, sélectionnez l’icône de copie pour la **chaîne de connexion -- clé primaire** et enregistrez la valeur.
+
+    ![Montrer comment récupérer la chaîne de connexion](./media/iot-hub-python-python-schedule-jobs/get-connection-string.png)
+
+Pour plus d’informations sur les autorisations et les stratégies d’accès partagé IoT Hub, consultez [Contrôle d’accès et autorisations](./iot-hub-devguide-security.md#access-control-and-permissions).
 
 ## <a name="schedule-jobs-for-calling-a-direct-method-and-updating-a-device-twins-properties"></a>Planifier des travaux pour appeler une méthode directe et mettre à jour les propriétés d’une représentation d’appareil
 
@@ -172,9 +196,13 @@ Dans cette section, vous créez une application console Python qui lance **lockD
     pip install azure-iothub-service-client
     ```
 
+   > [!NOTE]
+   > Les packages pip pour azure-iothub-service-client et azure-iothub-device-client ne sont actuellement disponibles que pour le système d’exploitation Windows. Pour Linux/Mac OS, reportez-vous aux sections spécifiques de Linux et Mac OS de la publication [Prepare your development environment for Python](https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md) (Préparer votre environnement de développement pour Python).
+   >
+
 2. À l’aide d’un éditeur de texte, créez un fichier **scheduleJobService.py** dans votre répertoire de travail.
 
-3. Ajoutez les instructions et variables `import` ci-dessous au début du fichier **scheduleJobService.py** :
+3. Ajoutez les instructions et variables `import` ci-dessous au début du fichier **scheduleJobService.py**. Remplacez la valeur de l’espace réservé `{IoTHubConnectionString}` par la chaîne de connexion du hub IoT que vous avez copiée à l’étape [Obtenir la chaîne de connexion du hub IoT](#get-the-iot-hub-connection-string). Remplacez l’espace réservé `{deviceId}` par l’ID d’appareil que vous avez inscrit à l’étape [ Inscrire un nouvel appareil dans le hub IoT](#register-a-new-device-in-the-iot-hub) :
 
     ```python
     import sys

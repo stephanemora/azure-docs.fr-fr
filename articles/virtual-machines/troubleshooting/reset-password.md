@@ -11,14 +11,14 @@ ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
-ms.date: 06/15/2018
+ms.date: 08/20/2019
 ms.author: delhan
-ms.openlocfilehash: d96d75f4f2623476f7af4e6eea930c1f2c503e3a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8fc51dfb90158316b3fe6c11b5265f1cf3251505
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60306949"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69641045"
 ---
 # <a name="how-to-reset-local-linux-password-on-azure-vms"></a>Réinitialiser votre mot de passe Linux local sur les machines virtuelles Azure
 
@@ -30,11 +30,14 @@ Vous ne pouvez pas vous connecter à la machine virtuelle, et vous recevez un me
 
 ## <a name="manual-password-reset-procedure"></a>Procédure de réinitialisation manuelle du mot de passe
 
-1.  Supprimez la machine virtuelle et conservez les disques joints.
+> [!NOTE]
+> Les étapes suivantes ne s’appliquent pas aux machines virtuelles équipées d’un disque non managé.
 
-2.  Joignez le lecteur du système d’exploitation comme disque de données à une autre machine virtuelle temporaire, située au même endroit.
+1. Prenez un instantané du disque du système d’exploitation de la machine virtuelle affectée, créez un disque à partir de l’instantané, puis attachez le disque à une machine virtuelle de dépannage. Pour en savoir plus, voir [Résoudre les problèmes d’une machine virtuelle Windows en connectant le disque du système d’exploitation à une machine virtuelle de récupération via le portail Azure](troubleshoot-recovery-disks-portal-linux.md).
 
-3.  Exécutez la commande SSH suivante dans la machine virtuelle temporaire pour devenir un super utilisateur.
+2. Connectez-vous à la machine virtuelle de dépannage à l’aide du Bureau à distance.
+
+3.  Exécutez la commande SSH suivante sur la machine virtuelle de dépannage pour devenir un super utilisateur.
 
     ```bash
     sudo su
@@ -98,9 +101,9 @@ Vous ne pouvez pas vous connecter à la machine virtuelle, et vous recevez un me
     umount /tempmount
     ```
 
-11. Détachez le disque du portail de gestion.
+11. Dans le portail Azure, détachez le disque de la machine virtuelle de dépannage.
 
-12. Recréez la machine virtuelle.
+12. [Modifiez le disque de système d’exploitation pour la machine virtuelle affectée](troubleshoot-recovery-disks-portal-linux.md#swap-the-os-disk-for-the-vm).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

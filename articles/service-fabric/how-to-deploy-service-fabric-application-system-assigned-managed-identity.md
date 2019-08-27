@@ -7,16 +7,16 @@ ms.service: service-fabric
 ms.topic: article
 ms.date: 07/25/2019
 ms.author: atsenthi
-ms.openlocfilehash: f9d7f87e9d7b1761c165e08e37cd6a3237c8212a
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 9f6f3d43f80b3c69b0c1106b8e395b4d8f5d32ab
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68965527"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69640700"
 ---
-# <a name="deploy-service-fabric-application-with-system-assigned-managed-identity"></a>Déployer une application Azure Service Fabric avec une identité managée attribuée par le système
+# <a name="deploy-service-fabric-application-with-system-assigned-managed-identity-preview"></a>Déployer une application Azure Service Fabric avec une identité managée attribuée par le système (préversion)
 
-Pour accéder à la fonctionnalité d’identité managée pour les applications Azure Service Fabric, vous devez d’abord activer le service de jeton d’identité managée sur le cluster. Ce service est responsable de l’authentification des applications Service Fabric à l’aide de leurs identités managées et pour l’obtention de jetons d’accès en leur nom. Une fois le service activé, vous pouvez le voir dans Service Fabric Explorer sous la section **Système** dans le volet gauche, exécuté sous le nom **fabric:/System/ManagedIdentityTokenService** à côté d’autre services système.
+Pour accéder à la fonctionnalité d’identité managée pour les applications Azure Service Fabric, vous devez d’abord activer le service de jeton d’identité managée sur le cluster. Ce service est responsable de l’authentification des applications Service Fabric à l’aide de leurs identités managées et de l’obtention de jetons d’accès en leur nom. Une fois le service activé, vous pouvez le voir dans Service Fabric Explorer sous la section **Système** dans le volet gauche, exécuté sous le nom **fabric:/System/ManagedIdentityTokenService** à côté d’autre services système.
 
 > [!NOTE] 
 > Le déploiement d’applications Service Fabric avec des identités managées est pris en charge à partir de la version d’API `"2019-06-01-preview"`. Vous pouvez également utiliser la même version d’API pour le type d’application, la version de type d’application et les ressources de service. La version minimale du runtime Service Fabric pris en charge est 6.5 CU2.
@@ -92,7 +92,7 @@ Cette propriété déclare, pour Azure Resource Manager, et l’identité manag�
     ```
     Il s’agit du mappage équivalent d’une identité à un service, comme décrit ci-dessus, mais du point de vue de la définition de service. L’identité est référencée ici par son nom convivial (`WebAdmin`), comme déclaré dans le manifeste de l’application.
 
-## <a name="related-articles"></a>Articles connexes
+## <a name="next-steps"></a>Étapes suivantes
 
 * Vérifier [la prise en charge des identités managées](./concepts-managed-identity.md) dans Azure Service Fabric
 

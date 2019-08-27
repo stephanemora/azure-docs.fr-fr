@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/06/2019
 ms.author: mlearned
-ms.openlocfilehash: cf9dc304efea8874d16953f74bf88a4317760819
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 369729f10de4a55cd14bb866795ea1aa15b3d9da
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69031793"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69639782"
 ---
 # <a name="preview---limit-egress-traffic-for-cluster-nodes-and-control-access-to-required-ports-and-services-in-azure-kubernetes-service-aks"></a>Préversion - Limiter le trafic de sortie des nœuds de cluster et contrôler l’accès aux ports et services requis dans Azure Kubernetes Service (AKS)
 
@@ -58,6 +58,10 @@ Pour la gestion et à des fins opérationnelles, les nœuds d’un cluster AKS d
 Pour renforcer la sécurité de votre cluster AKS, vous pouvez restreindre le trafic de sortie. Le cluster est configuré pour extraire des images de conteneur système de base à partir de MCR ou ACR. Si vous verrouillez le trafic de sortie de cette manière, vous devez définir des ports et des noms de domaine complets spécifiques pour autoriser les nœuds AKS à communiquer correctement avec les services externes requis. Sans ces ports et noms de domaine complets autorisés, vos nœuds AKS sans dans l’impossibilité de communiquer avec le serveur d’API ou d’installer les composants principaux.
 
 Vous pouvez utiliser le[Pare-feu Azure][azure-firewall] ou une appliance de pare-feu tierce pour sécuriser votre trafic de sortie et définir ces ports et adresses requis. AKS ne crée pas automatiquement ces règles pour vous. Les ports et adresses suivants sont fournis à titre de référence lorsque vous créez des règles appropriées dans votre pare-feu réseau.
+
+> [!IMPORTANT]
+> Lorsque vous utilisez le Pare-feu Azure pour limiter le trafic de sortie et créer un itinéraire défini par l’utilisateur (UDR) afin de forcer tout le trafic de sortie, veillez à créer une règle DNAT appropriée dans le Pare-feu pour autoriser le trafic d’entrée. L’utilisation du Pare-feu Azure avec une UDR perturbe la configuration d’entrée en raison d’un routage asymétrique (ce problème se produit parce que le sous-réseau AKS a un itinéraire par défaut qui conduit à l’adresse IP privée du pare-feu, alors que vous utilisez un service d’équilibreur de charge public, d’entrée ou Kubernetes de type : LoadBalancer). Dans ce cas, le trafic d’équilibreur de charge entrant est reçu par le biais de son adresse IP publique, mais le chemin de retour passe par l’adresse IP privée du pare-feu. Le pare-feu étant avec état, il supprime le paquet de retour, car le pare-feu n’a pas connaissance d’une session établie. Pour découvrir comment intégrer un Pare-feu Azure avec votre équilibreur de charge d’entrée ou de service, voir [Intégrer un pare-feu Azure avec Azure Standard Load Balancer](https://docs.microsoft.com/en-us/azure/firewall/integrate-lb).
+>
 
 Dans AKS, il existe deux jeux de ports et d’adresses :
 

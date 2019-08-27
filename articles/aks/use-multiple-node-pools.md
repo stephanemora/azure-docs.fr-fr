@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/9/2019
 ms.author: mlearned
-ms.openlocfilehash: e6ba6aeaeadb2359c4b30efa35471ca62dcc6b41
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 656934f00879b47669fac4deaac5156cb100e159
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69033968"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69898745"
 ---
 # <a name="preview---create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Préversion - Créer et gérer plusieurs pools de nœuds pour un cluster dans Azure Kubernetes Service (AKS)
 
@@ -24,7 +24,7 @@ Dans Azure Kubernetes Service (AKS), les nœuds d’une même configuration sont
 Cet article vous montre comment créer et gérer plusieurs pools de nœuds dans un cluster AKS. Actuellement, cette fonctionnalité est uniquement disponible en tant que version préliminaire.
 
 > [!IMPORTANT]
-> Les fonctionnalités d’évaluation AKS sont en libre-service et font l’objet d’un abonnement. Les versions préliminaires sont fournies « en-l’état », « avec toutes les erreurs » et « en fonction des disponibilités », et sont exclues des contrats de niveau de service (sla) et de la garantie limitée. Les versions préliminaires AKS sont partiellement couvertes par le service clientèle sur la base du meilleur effort. En tant que tel, ces fonctionnalités ne sont pas destinées à une utilisation en production. Pour obtenir des informations supplémentaires, veuillez lire les articles de support suivants :
+> Les fonctionnalités d’évaluation AKS sont en libre-service et font l’objet d’un abonnement. Les versions préliminaires sont fournies « en l’état », « avec toutes les erreurs » et « en fonction des disponibilités », et sont exclues des contrats de niveau de service (sla) et de la garantie limitée. Les versions préliminaires AKS sont partiellement couvertes par le service clientèle sur la base du meilleur effort. En tant que tel, ces fonctionnalités ne sont pas destinées à une utilisation en production. Pour obtenir des informations supplémentaires, veuillez lire les articles de support suivants :
 >
 > * [Stratégies de support AKS][aks-support-policies]
 > * [FAQ du support Azure][aks-faq]
@@ -90,7 +90,7 @@ Même si cette fonctionnalité est en préversion préliminaire, les limitations
 
 ## <a name="create-an-aks-cluster"></a>Créer un cluster AKS
 
-Pour commencer, créez un cluster AKS avec un pool de nœuds unique. L’exemple suivant utilise la commande [az group create][az-group-create] pour créer un groupe de ressources nommé *myResourceGroup* dans la région *eastus*. Un cluster AKS nommé *myAKSCluster* est alors créé à l’aide de la commande [az aks create][az-aks-create]. Un paramètre *--kubernetes-version* de valeur *1.13.9* est utilisé pour montrer comment mettre à jour un pool de nœuds dans une étape suivante. Vous pouvez spécifier une [version Kubernetes prise en charge][supported-versions].
+Pour commencer, créez un cluster AKS avec un pool de nœuds unique. L’exemple suivant utilise la commande [az group create][az-group-create] pour créer un groupe de ressources nommé *myResourceGroup* dans la région *eastus*. Un cluster AKS nommé *myAKSCluster* est alors créé à l’aide de la commande [az aks create][az-aks-create]. Un paramètre *--kubernetes-version* de valeur *1.13.10* est utilisé pour montrer comment mettre à jour un pool de nœuds dans une étape suivante. Vous pouvez spécifier une [version Kubernetes prise en charge][supported-versions].
 
 ```azurecli-interactive
 # Create a resource group in East US
@@ -103,7 +103,7 @@ az aks create \
     --enable-vmss \
     --node-count 1 \
     --generate-ssh-keys \
-    --kubernetes-version 1.13.9
+    --kubernetes-version 1.13.10
 ```
 
 La création du cluster ne prend que quelques minutes.
@@ -154,7 +154,7 @@ $ az aks nodepool list --resource-group myResourceGroup --cluster-name myAKSClus
     "count": 1,
     ...
     "name": "nodepool1",
-    "orchestratorVersion": "1.13.9",
+    "orchestratorVersion": "1.13.10",
     ...
     "vmSize": "Standard_DS2_v2",
     ...
@@ -163,27 +163,30 @@ $ az aks nodepool list --resource-group myResourceGroup --cluster-name myAKSClus
 ```
 
 > [!TIP]
-> Si aucun paramètre *OrchestratorVersion* ou *VmSize* n’est spécifié lorsque vous ajoutez un pool de nœuds, les nœuds sont créés en fonction des valeurs par défaut pour le cluster AKS. Dans cet exemple, il s’agissait de la version Kubernetes *1.13.9* et de la taille de nœud *Standard_DS2_v2*.
+> Si aucun paramètre *OrchestratorVersion* ou *VmSize* n’est spécifié lorsque vous ajoutez un pool de nœuds, les nœuds sont créés en fonction des valeurs par défaut pour le cluster AKS. Dans cet exemple, il s’agissait de la version Kubernetes *1.13.10* et de la taille de nœud *Standard_DS2_v2*.
 
 ## <a name="upgrade-a-node-pool"></a>Mettre à niveau un pool de nœuds
 
-Lorsque votre cluster AKS a été créé dans la première étape, un paramètre `--kubernetes-version` de *1.13.9* a été spécifié. Ceci définit la version Kubernetes à la fois pour le plan de contrôle et le pool de nœuds initial. Il existe différentes commandes pour mettre à niveau la version Kubernetes du plan de contrôle et du pool de nœuds. La commande `az aks upgrade` sert à mettre à niveau le plan de contrôle, tandis que la commande `az aks nodepool upgrade` est utilisée pour mettre à niveau un pool individuel de nœuds.
+> [!NOTE]
+> Les opérations de mise à niveau et de mise à l’échelle sur un cluster ou un pool de nœuds s’excluent mutuellement. Il ne peut pas y avoir de mise à niveau et de mise à l’échelle simultanées d’un cluster ou d’un pool de nœuds. Au lieu de cela, chaque opération doit être terminée sur la ressource cible avant l’exécution de la demande suivante sur cette même ressource. Pour en savoir plus, voir notre [Guide de résolution des problèmes](https://aka.ms/aks-pending-upgrade).
 
-Nous allons mettre à niveau *mynodepool* vers Kubernetes *1.13.9*. Utilisez la commande [az aks node pool upgrade][az-aks-nodepool-upgrade] pour mettre à niveau le pool de nœuds, comme illustré dans l’exemple suivant :
+Lorsque votre cluster AKS a été créé dans la première étape, un paramètre `--kubernetes-version` de *1.13.10* a été spécifié. Ceci définit la version Kubernetes à la fois pour le plan de contrôle et le pool de nœuds initial. Il existe différentes commandes pour mettre à niveau la version Kubernetes du plan de contrôle et du pool de nœuds. La commande `az aks upgrade` sert à mettre à niveau le plan de contrôle, tandis que la commande `az aks nodepool upgrade` est utilisée pour mettre à niveau un pool individuel de nœuds.
+
+Nous allons mettre à niveau *mynodepool* vers Kubernetes *1.13.10*. Utilisez la commande [az aks node pool upgrade][az-aks-nodepool-upgrade] pour mettre à niveau le pool de nœuds, comme illustré dans l’exemple suivant :
 
 ```azurecli-interactive
 az aks nodepool upgrade \
     --resource-group myResourceGroup \
     --cluster-name myAKSCluster \
     --name mynodepool \
-    --kubernetes-version 1.13.9 \
+    --kubernetes-version 1.13.10 \
     --no-wait
 ```
 
 > [!Tip]
-> Pour mettre à niveau le plan avec la version *1.14.5*, exécutez `az aks upgrade -k 1.14.5`.
+> Pour mettre à niveau le plan avec la version *1.14.6*, exécutez `az aks upgrade -k 1.14.6`.
 
-Listez de nouveau l’état de vos pools de nœuds à l’aide de la commande [az aks node pool list][az-aks-nodepool-list]. L’exemple suivant montre que *mynodepool* est dans l’état *Mise à niveau* vers *1.13.9* :
+Listez de nouveau l’état de vos pools de nœuds à l’aide de la commande [az aks node pool list][az-aks-nodepool-list]. L’exemple suivant montre que *mynodepool* est dans l’état *Mise à niveau* vers *1.13.10* :
 
 ```console
 $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
@@ -194,7 +197,7 @@ $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
     "count": 3,
     ...
     "name": "mynodepool",
-    "orchestratorVersion": "1.13.9",
+    "orchestratorVersion": "1.13.10",
     ...
     "provisioningState": "Upgrading",
     ...
@@ -206,7 +209,7 @@ $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
     "count": 1,
     ...
     "name": "nodepool1",
-    "orchestratorVersion": "1.13.9",
+    "orchestratorVersion": "1.13.10",
     ...
     "provisioningState": "Succeeded",
     ...
@@ -257,7 +260,7 @@ $ az aks nodepool list -g myResourceGroupPools --cluster-name myAKSCluster
     "count": 5,
     ...
     "name": "mynodepool",
-    "orchestratorVersion": "1.13.9",
+    "orchestratorVersion": "1.13.10",
     ...
     "provisioningState": "Scaling",
     ...
@@ -269,7 +272,7 @@ $ az aks nodepool list -g myResourceGroupPools --cluster-name myAKSCluster
     "count": 1,
     ...
     "name": "nodepool1",
-    "orchestratorVersion": "1.13.9",
+    "orchestratorVersion": "1.13.10",
     ...
     "provisioningState": "Succeeded",
     ...
@@ -283,7 +286,7 @@ L’opération de mise à l’échelle peut prendre quelques minutes.
 
 ## <a name="scale-a-specific-node-pool-automatically-by-enabling-the-cluster-autoscaler"></a>Mettre automatiquement à l’échelle un pool de nœuds spécifique en activant l’option de mise à l’échelle automatique de cluster
 
-AKS offre une fonctionnalité distincte en préversion pour mettre automatiquement à l’échelle les pools de nœuds avec un composant appelé [mise à l'échelle automatique de cluster](cluster-autoscaler.md). Ce composant est un module complémentaire AKS qui peut être activé pour chaque pool de nœuds avec un nombre minimal et maximal de mise à l’échelle par pool de nœuds. Découvrez comment [utiliser la mise à l’échelle automatique de cluster par pool de nœuds](cluster-autoscaler.md#enable-the-cluster-autoscaler-on-an-existing-node-pool-in-a-cluster-with-multiple-node-pools).
+AKS offre une fonctionnalité distincte en préversion pour mettre automatiquement à l’échelle les pools de nœuds avec une fonctionnalité appelée [mise à l’échelle automatique du cluster](cluster-autoscaler.md). Cette fonctionnalité est un module complémentaire AKS qui peut être activé pour chaque pool de nœuds avec un nombre minimal et maximal de mise à l’échelle par pool de nœuds. Découvrez comment [utiliser la mise à l’échelle automatique de cluster par pool de nœuds](cluster-autoscaler.md#use-the-cluster-autoscaler-with-multiple-node-pools-enabled).
 
 ## <a name="delete-a-node-pool"></a>Supprimer un pool de nœuds
 
@@ -307,7 +310,7 @@ $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
     "count": 5,
     ...
     "name": "mynodepool",
-    "orchestratorVersion": "1.13.9",
+    "orchestratorVersion": "1.13.10",
     ...
     "provisioningState": "Deleting",
     ...
@@ -319,7 +322,7 @@ $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
     "count": 1,
     ...
     "name": "nodepool1",
-    "orchestratorVersion": "1.13.9",
+    "orchestratorVersion": "1.13.10",
     ...
     "provisioningState": "Succeeded",
     ...
@@ -360,7 +363,7 @@ $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
     "count": 1,
     ...
     "name": "gpunodepool",
-    "orchestratorVersion": "1.13.9",
+    "orchestratorVersion": "1.13.10",
     ...
     "provisioningState": "Creating",
     ...
@@ -372,7 +375,7 @@ $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
     "count": 1,
     ...
     "name": "nodepool1",
-    "orchestratorVersion": "1.13.9",
+    "orchestratorVersion": "1.13.10",
     ...
     "provisioningState": "Succeeded",
     ...
@@ -392,8 +395,8 @@ Vous avez maintenant deux pools de nœuds dans votre cluster, le pool de nœuds 
 $ kubectl get nodes
 
 NAME                                 STATUS   ROLES   AGE     VERSION
-aks-gpunodepool-28993262-vmss000000  Ready    agent   4m22s   v1.13.9
-aks-nodepool1-28993262-vmss000000    Ready    agent   115m    v1.13.9
+aks-gpunodepool-28993262-vmss000000  Ready    agent   4m22s   v1.13.10
+aks-nodepool1-28993262-vmss000000    Ready    agent   115m    v1.13.10
 ```
 
 Le planificateur Kubernetes peut utiliser des teintes et des tolérances pour restreindre les charges de travail qui peuvent s’exécuter sur des nœuds.
@@ -470,7 +473,7 @@ Lorsque vous utilisez un modèle Azure Resource Manager pour créer et gérer de
 Créez un modèle tel que `aks-agentpools.json` et collez l’exemple de manifeste suivant. Cet exemple de modèle configure les paramètres suivants :
 
 * Met à jour le pool d’agents *Linux* nommé *myagentpool* pour exécuter trois nœuds.
-* Définit les nœuds dans le pool de nœuds pour exécuter Kubernetes version *1.13.9*.
+* Définit les nœuds dans le pool de nœuds pour exécuter Kubernetes version *1.13.10*.
 * Définit la taille de nœud en tant que *Standard_DS2_v2*.
 
 Modifiez ces valeurs en fonction des besoins pour mettre à jour, ajouter ou supprimer des pools de nœuds :
@@ -535,7 +538,7 @@ Modifiez ces valeurs en fonction des besoins pour mettre à jour, ajouter ou sup
             "storageProfile": "ManagedDisks",
       "type": "VirtualMachineScaleSets",
             "vnetSubnetID": "[variables('agentPoolProfiles').vnetSubnetId]",
-            "orchestratorVersion": "1.13.9"
+            "orchestratorVersion": "1.13.10"
       }
     }
   ]
@@ -553,6 +556,9 @@ az group deployment create \
 La mise à jour de votre cluster AKS peut prendre quelques minutes selon les paramètres de pool de nœuds et les opérations que vous définissez dans votre modèle Resource Manager.
 
 ## <a name="assign-a-public-ip-per-node-in-a-node-pool"></a>Attribuer une adresse IP publique par nœud dans un pool de nœuds
+
+> [!NOTE]
+> Durant la période de préversion, l’utilisation de cette fonctionnalité avec la *référence (SKU) Standard Load Balancer dans AKS (préversion)* est limitée en raison de possibles conflits de règles d’équilibrage de charge avec l’approvisionnement des machines virtuelles. Pendant la période de préversion, utilisez la *référence (SKU) d’équilibreur de charge de base* si vous devez affecter une adresse IP publique par nœud.
 
 Les nœuds AKS n’ont pas besoin de leurs propres adresses IP publiques pour communiquer. Toutefois, dans certains cas, les nœuds d’un pool de nœuds doivent avoir leurs propres adresses IP publiques. C’est par exemple le cas du gaming, où une console doit être directement connectée à une machine virtuelle dans le cloud pour réduire les tronçons. Pour ce faire, vous devez vous inscrire pour une fonctionnalité d’évaluation distincte, à savoir Node Public IP (préversion).
 

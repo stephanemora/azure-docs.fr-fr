@@ -10,12 +10,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 07/08/2019
-ms.openlocfilehash: 6949f46345a5520ec3e09508b6d81994f9a7deb5
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 490085da1e8f6b8e151168433836d59329887c6e
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69036196"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69623957"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Déployer un modèle sur un cluster Azure Kubernetes Service
 
@@ -59,6 +59,9 @@ Lors d’un déploiement sur Azure Kubernetes Service, vous déployez sur un clu
 **Durée estimée** : environ 20 minutes.
 
 La création ou l’attachement d’un cluster AKS est un processus à effectuer une seule fois pour votre espace de travail. Vous pouvez le réutiliser pour vos autres déploiements. Si vous supprimez le cluster ou le groupe de ressources dans lequel il se trouve, vous devrez recréer un cluster lors du prochain déploiement. Vous pouvez avoir plusieurs clusters AKS attachés à votre espace de travail.
+
+> [!TIP]
+> Si vous souhaitez sécuriser votre cluster AKS à l’aide d’un réseau virtuel Azure, vous devez commencer par créer le réseau virtuel. Pour plus d’informations, voir [Sécuriser l’expérimentation et l’inférence avec un réseau virtuel Microsoft Azure](how-to-enable-virtual-network.md#aksvnet).
 
 Si vous souhaitez créer un cluster AKS à des fins de __développement__, de __validation__ et de __test__ au lieu de production, vous pouvez spécifier l’__objet du cluster__ sur __dev test__.
 
@@ -115,6 +118,8 @@ Si vous avez déjà un cluster AKS version 1.12.## dans votre abonnement Azure, 
 
 > [!TIP]
 > Le cluster AKS existant peut se trouver dans une autre région Azure que celle de votre espace de travail Azure Machine Learning service.
+>
+> Si vous souhaitez sécuriser votre cluster AKS à l’aide d’un réseau virtuel Azure, vous devez commencer par créer le réseau virtuel. Pour plus d’informations, voir [Sécuriser l’expérimentation et l’inférence avec un réseau virtuel Microsoft Azure](how-to-enable-virtual-network.md#aksvnet).
 
 > [!WARNING]
 > Quand vous attachez un cluster AKS à un espace de travail, vous pouvez spécifier la façon dont vous allez l’utiliser en définissant le paramètre `cluster_purpose`.
@@ -182,6 +187,9 @@ Pour déployer un modèle sur Azure Kubernetes Service, créez une __configurati
 ### <a name="using-the-sdk"></a>Utilisation du kit de développement logiciel
 
 ```python
+from azureml.core.webservice import AksWebservice, Webservice
+from azureml.core.model import Model
+
 aks_target = AksCompute(ws,"myaks")
 # If deploying to a cluster configured for dev/test, ensure that it was created with enough
 # cores and memory to handle this deployment configuration. Note that memory is also used by
@@ -269,6 +277,7 @@ print(token)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
+* [Sécuriser l’expérimentation et l’inférence avec un réseau virtuel Microsoft Azure](how-to-enable-virtual-network.md)
 * [Guide pratique pour déployer un modèle à l’aide d’une image Docker personnalisée](how-to-deploy-custom-docker-image.md)
 * [Résolution des problèmes liés au déploiement](how-to-troubleshoot-deployment.md)
 * [Sécuriser les services web Azure Machine Learning avec SSL](how-to-secure-web-service.md)

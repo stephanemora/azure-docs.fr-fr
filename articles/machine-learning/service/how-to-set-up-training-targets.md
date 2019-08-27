@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 06/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 72155e072acb8006b48f6951fc60081126c80691
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: e73a64a9782535da31e2eacbaa2740007707c774
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68990457"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69872435"
 ---
 # <a name="set-up-compute-targets-for-model-training"></a>Configurer des cibles de calcul pour l’entraînement des modèles 
 
@@ -317,7 +317,7 @@ Pour consulter les cibles de calcul de votre espace de travail, procédez comme 
 1. Dans le [portail Azure](https://portal.azure.com), ouvrez votre espace de travail. 
 1. Sous __Applications__, sélectionnez __Capacité de calcul__.
 
-    ![Onglet Calcul](./media/how-to-set-up-training-targets/azure-machine-learning-service-workspace.png)
+    [![Onglet 	Voir le computing](./media/how-to-set-up-training-targets/azure-machine-learning-service-workspace.png)](./media/how-to-set-up-training-targets/azure-machine-learning-service-workspace-expanded.png)
 
 ### <a id="portal-create"></a>Créer une cible de calcul
 
@@ -336,9 +336,7 @@ Suivez la procédure ci-dessus pour afficher la liste des cibles de calcul. Puis
 
 1. Remplissez le formulaire. Indiquez une valeur pour les propriétés requises, notamment **Famille de machines virtuelles**, ainsi que le **nombre maximal de nœuds** à utiliser pour mettre en place la capacité de calcul.  
 
-    ![Remplir le formulaire](./media/how-to-set-up-training-targets/add-compute-form.png) 
-
-1. Sélectionnez __Créer__.
+1. Sélectionnez __Create__ (Créer).
 
 
 1. Pour afficher l’état de l’opération de création, sélectionnez la cible de calcul dans la liste :
@@ -348,8 +346,6 @@ Suivez la procédure ci-dessus pour afficher la liste des cibles de calcul. Puis
 1. Vous voyez alors les détails de la cible de calcul : 
 
     ![Consultez les détails de la cible de calcul](./media/how-to-set-up-training-targets/compute-target-details.png) 
-
-
 
 ### <a id="portal-reuse"></a>Joindre des cibles de calcul
 

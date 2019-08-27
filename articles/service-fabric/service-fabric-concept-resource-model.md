@@ -7,12 +7,12 @@ ms.service: service-fabric
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: atsenthi
-ms.openlocfilehash: 7795612d8aa4974bc640571d49ad1520e2a0f94c
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 8e39318dcaa31a111908c6be1ae7a51d73eb7478
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68963838"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69623825"
 ---
 # <a name="what-is-the-service-fabric-application-resource-model"></a>Qu’est-ce qu’un modèle de ressource d’application Service Fabric ?
 Le déploiement d’applications Service Fabric dans votre cluster Service Fabric par le biais d’Azure Resource Manager est recommandé. Cette méthode permet de décrire les applications et les services au format JSON et de les déployer dans le même modèle Resource Manager que votre cluster. Au lieu de déployer et de gérer des applications via PowerShell ou Azure CLI, il n’est pas nécessaire d’attendre que le cluster soit prêt. Le processus d’inscription, d’approvisionnement et de déploiement d’applications peut s’effectuer en une seule étape. Il est recommandé de gérer le cycle de vie des applications dans votre cluster. Pour plus d’informations, consultez les [meilleures pratiques](https://docs.microsoft.com/azure/service-fabric/service-fabric-best-practices-infrastructure-as-code#azure-service-fabric-resources).
@@ -33,7 +33,7 @@ Dans ce document, découvrez comment :
 ## <a name="deploy-application-resources-using-azure-resource-manager"></a>déployer des ressources d’application à l’aide d’Azure Resource Manager  
 Pour déployer une application et ses services à l’aide du modèle de ressources d’application Azure Resource Manager, vous devez empaqueter le code de l’application, télécharger le package, puis référencer l’emplacement du package dans un modèle Azure Resource Manager en tant que ressource d’application. Pour plus d’informations, consultez [Empaqueter une application](https://docs.microsoft.com/azure/service-fabric/service-fabric-package-apps#create-an-sfpkg).
           
-Ensuite, créez un modèle Azure Resource Manager, mettez à jour le fichier de paramètres avec les détails de l’application et déployez-le sur le cluster Service Fabric. Consultez les exemples ici
+Ensuite, créez un modèle Azure Resource Manager, mettez à jour le fichier de paramètres avec les détails de l’application et déployez-le sur le cluster Service Fabric. Consultez les exemples [ici](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/tree/master/ARM).
 
 ### <a name="create-a-storage-account"></a>Créer un compte de stockage 
 Le déploiement d’une application à partir d’un modèle Resource Manager nécessite un compte de stockage pour l’installation de l’image de l’application. Vous pouvez réutiliser un compte de stockage existant ou créer un nouveau compte de stockage pour indexer vos applications. Vous pouvez ignorer cette étape si vous envisagez d’utiliser un compte de stockage existant. 

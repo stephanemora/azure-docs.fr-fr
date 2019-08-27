@@ -3,16 +3,16 @@ title: Résolution des erreurs courantes
 description: Découvrez comment résoudre les problèmes liés à l’interrogation des ressources Azure avec Azure Resource Graph.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 07/24/2019
+ms.date: 08/21/2019
 ms.topic: troubleshooting
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: 511d170f90e8ed34b00a3960d084223ec73d99dd
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 3c59b5c4b580604c65572364d29d4e5d10a26820
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68480465"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69900007"
 ---
 # <a name="troubleshoot-errors-using-azure-resource-graph"></a>Résoudre les erreurs à l’aide d’Azure Resource Graph
 
@@ -60,6 +60,33 @@ foreach ($batch in $subscriptionsBatch){ $response += Search-AzGraph -Query $que
 # View the completed results of the query on all subscriptions
 $response
 ```
+
+### <a name="rest-contenttype"></a>Scénario : En-tête REST Content-Type non pris en charge
+
+#### <a name="issue"></a>Problème
+
+Les clients qui interrogent l’API REST Azure Resource Graph reçoivent une réponse _500_ (erreur de serveur interne).
+
+#### <a name="cause"></a>Cause :
+
+L’API REST Azure Resource Graph ne prend en charge qu’un `Content-Type`  **application/json**. Certains outils ou agents REST sont par défaut de type **text/plain** que l’API REST ne prend pas en charge.
+
+#### <a name="resolution"></a>Résolution :
+
+Vérifiez que l’outil ou l’agent que vous utilisez pour interroger Azure Resource Graph a l’en-tête API REST `Content-Type` configuré pour **application/json**.
+### <a name="rest-403"></a>Scénario : Aucune autorisation de lecture sur tous les abonnements répertoriés
+
+#### <a name="issue"></a>Problème
+
+Les clients qui transmettent explicitement une liste d’abonnements à l’aide d’une requête Azure Resource Graph obtiennent une réponse _403_ (Interdit).
+
+#### <a name="cause"></a>Cause :
+
+Si le client ne dispose pas d’autorisation de lecture sur tous les abonnements fournis, la demande est refusée en raison de l’absence de droits de sécurité appropriés.
+
+#### <a name="resolution"></a>Résolution :
+
+Incluez dans la liste d’abonnements au moins un abonnement auquel le client qui exécute la requête a accès en lecture. Pour plus d’informations, voir [Autorisations dans Azure Resource Graph](../overview.md#permissions-in-azure-resource-graph).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

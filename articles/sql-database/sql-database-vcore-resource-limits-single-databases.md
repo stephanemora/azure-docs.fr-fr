@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-ms.date: 04/22/2019
-ms.openlocfilehash: 661ac9ea3fd87268c43bf0a0eba66e30f636fc77
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.date: 08/14/2019
+ms.openlocfilehash: 6a29d1e001d4c647d5b975b7e746eced29962ee4
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566204"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69637248"
 ---
 # <a name="resource-limits-for-single-databases-using-the-vcore-based-purchasing-model"></a>Limites de ressources pour des bases de données uniques suivant le modèle d’achat vCore
 
@@ -32,141 +32,165 @@ Vous pouvez définir le niveau de service, la taille de calcul et la quantité d
 > [!IMPORTANT]
 > Pour obtenir des instructions et informations sur la mise à l’échelle, consultez [Rendre scalable une seule base de données](sql-database-single-database-scale.md).
 
-## <a name="general-purpose-service-tier-storage-sizes-and-compute-sizes"></a>Niveau de service Usage général : tailles de stockage et tailles de calcul
+## <a name="general-purpose-service-tier-for-provisioned-compute"></a>Niveau de service Usage général pour un calcul approvisionné
 
 > [!IMPORTANT]
-> Les nouvelles bases de données Gen4 ne sont plus prises en charge dans la région AustraliaEast.
+> Les nouvelles bases de données Gen4 ne sont plus prises en charge dans les régions Australie Est et Brésil Sud.
 
-### <a name="general-purpose-service-tier-generation-4-compute-platform-part-1"></a>Niveau de service Usage général : Plateforme de calcul de génération 4 (partie 1)
+### <a name="gen4-compute-generation-part-1"></a>Génération de calcul Gen4 (partie 1)
 
 |Taille de calcul|GP_Gen4_1|GP_Gen4_2|GP_Gen4_3|GP_Gen4_4|GP_Gen4_5|GP_Gen4_6
 |:--- | --: |--: |--: |--: |--: |--: |
-|Génération H/W|4|4|4|4|4|4|
+|Génération de calcul|Gen4|Gen4|Gen4|Gen4|Gen4|Gen4|
 |vCores|1|2|3|4|5\.|6|
 |Mémoire (Go)|7|14|21|28|35|42|
 |Prise en charge de ColumnStore|OUI|OUI|OUI|OUI|OUI|OUI|
 |Stockage In-Memory OLTP (Go)|N/A|N/A|N/A|N/A|N/A|N/A|
 |Taille maximale des données (Go)|1 024|1 024|1 024|1536|1536|1536|
 |Taille maximale du journal (Go)|307|307|307|461|461|461|
-|Taille de TEMPDB (Go)|32|64|96|128|160|192|
-|Type de stockage|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|
+|Taille maximale des données TempDB (Go)|32|64|96|128|160|192|
+|Type de stockage|SSD distant|SSD distant|SSD distant|SSD distant|SSD distant|SSD distant|
 |Latence d’E/S (approximative)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|
-|IOPS cible (64 ko)|500|1 000|1 500|2000|2 500|3000|
-|Limites de taux de journal (Mbits/s)|3,75|7.5|11,25|15|18,75|22,5|
+|Nombre maximal d’IOPS de données (64 Ko)|500|1 000|1 500|2000|2 500|3000|
+|Taux de journalisation maximal (Mbits/s)|3,75|7.5|11,25|15|18,75|22,5|
 |Nombre maximal d’ouvriers simultanés (demandes)|200|400|600|800|1 000|1 200|
-|Nombre maximal de sessions autorisé|30000|30000|30000|30000|30000|30000|
+|Nombre maximal de sessions simultanées|30000|30000|30000|30000|30000|30000|
 |Nombre de réplicas|1|1|1|1|1|1|
 |Plusieurs zones de disponibilités|N/A|N/A|N/A|N/A|N/A|N/A|
 |Lecture du Scale-out|N/A|N/A|N/A|N/A|N/A|N/A|
 |Stockage de sauvegarde inclus|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|
 
-### <a name="general-purpose-service-tier-generation-4-compute-platform-part-2"></a>Niveau de service Usage général : Plateforme de calcul de génération 4 (partie 2)
+### <a name="gen4-compute-generation-part-2"></a>Génération de calcul Gen4 (partie 2)
 
 |Taille de calcul|GP_Gen4_7|GP_Gen4_8|GP_Gen4_9|GP_Gen4_10|GP_Gen4_16|GP_Gen4_24
 |:--- | --: |--: |--: |--: |--: |--: |
-|Génération H/W|4|4|4|4|4|4|
+|Génération de calcul|Gen4|Gen4|Gen4|Gen4|Gen4|Gen4|
 |vCores|7|8|9|10|16|24|
 |Mémoire (Go)|49|56|63|70|112|168|
 |Prise en charge de ColumnStore|OUI|OUI|OUI|OUI|OUI|OUI|
 |Stockage In-Memory OLTP (Go)|N/A|N/A|N/A|N/A|N/A|N/A|
 |Taille maximale des données (Go)|1536|3 072|3 072|3 072|4096|4096|
 |Taille maximale du journal (Go)|461|922|922|922|1229|1229|
-|Taille de TEMPDB (Go)|224|256|288|320|384|384|
-|Type de stockage|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|
+|Taille maximale des données TempDB (Go)|224|256|288|320|384|384|
+|Type de stockage|SSD distant|SSD distant|SSD distant|SSD distant|SSD distant|SSD distant|
 |Latence d’E/S (approximative)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)
-|IOPS cible (64 ko)|3 500|4000|4500|5 000|7000|7000|
-|Limites de taux de journal (Mbits/s)|26,25|30|30|30|30|30|
+|Nombre maximal d’IOPS de données (64 Ko)|3 500|4000|4500|5 000|7000|7000|
+|Taux de journalisation maximal (Mbits/s)|26,25|30|30|30|30|30|
 |Nombre maximal d’ouvriers simultanés (demandes)|1400|1 600|1 800|2000|3200|4 800|
-|Nombre maximal de sessions autorisé|30000|30000|30000|30000|30000|30000|
+|Nombre maximal de sessions simultanées|30000|30000|30000|30000|30000|30000|
 |Nombre de réplicas|1|1|1|1|1|1|
 |Plusieurs zones de disponibilités|N/A|N/A|N/A|N/A|N/A|N/A|
 |Lecture du Scale-out|N/A|N/A|N/A|N/A|N/A|N/A|
 |Stockage de sauvegarde inclus|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|
 
-### <a name="general-purpose-service-tier-generation-5-compute-platform-part-1"></a>Niveau de service Usage général : Plateforme de calcul de génération 5 (partie 1)
+### <a name="gen5-compute-generation-part-1"></a>Génération de calcul Gen5 (partie 1)
 
 |Taille de calcul|GP_Gen5_2|GP_Gen5_4|GP_Gen5_6|GP_Gen5_8|GP_Gen5_10|GP_Gen5_12|GP_Gen5_14|
 |:--- | --: |--: |--: |--: |---: | --: |--: |
-|Génération H/W|5\.|5\.|5\.|5\.|5\.|5\.|5\.|
+|Génération de calcul|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|
 |vCores|2|4|6|8|10|12|14|
 |Mémoire (Go)|10.2|20,4|30,6|40,8|51|61,2|71,4|
 |Prise en charge de ColumnStore|OUI|OUI|OUI|OUI|OUI|OUI|OUI|
 |Stockage In-Memory OLTP (Go)|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Taille maximale des données (Go)|1 024|1 024|1536|1536|1536|3 072|3 072|
 |Taille maximale du journal (Go)|307|307|307|461|461|461|461|
-|Taille de TEMPDB (Go)|64|128|192|256|320|384|384|
-|Type de stockage|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|
+|Taille maximale des données TempDB (Go)|64|128|192|256|320|384|384|
+|Type de stockage|SSD distant|SSD distant|SSD distant|SSD distant|SSD distant|SSD distant|SSD distant|
 |Latence d’E/S (approximative)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|
-|IOPS cible (64 ko)|1 000|2000|3000|4000|5 000|6000|7000|
-|Limites de taux de journal (Mbits/s)|3,75|7.5|11,25|15|18,75|22,5|26,25|
+|Nombre maximal d’IOPS de données (64 Ko)|1 000|2000|3000|4000|5 000|6000|7000|
+|Taux de journalisation maximal (Mbits/s)|3,75|7.5|11,25|15|18,75|22,5|26,25|
 |Nombre maximal d’ouvriers simultanés (demandes)|200|400|600|800|1 000|1 200|1400|
-|Nombre maximal de sessions autorisé|30000|30000|30000|30000|30000|30000|30000|
+|Nombre maximal de sessions simultanées|30000|30000|30000|30000|30000|30000|30000|
 |Nombre de réplicas|1|1|1|1|1|1|1|
 |Plusieurs zones de disponibilités|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Lecture du Scale-out|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Stockage de sauvegarde inclus|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|
 
-### <a name="general-purpose-service-tier-generation-5-compute-platform-part-2"></a>Niveau de service Usage général : Plateforme de calcul de génération 5 (partie 2)
+### <a name="gen5-compute-generation-part-2"></a>Génération de calcul Gen5 (partie 2)
 
 |Taille de calcul|GP_Gen5_16|GP_Gen5_18|GP_Gen5_20|GP_Gen5_24|GP_Gen5_32|GP_Gen5_40|GP_Gen5_80|
 |:--- | --: |--: |--: |--: |---: | --: |--: |
-|Génération H/W|5\.|5\.|5\.|5\.|5\.|5\.|5\.|
+|Génération de calcul|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|
 |vCores|16|18|20|24|32|40|80|
 |Mémoire (Go)|81,6|91,8|102|122,4|163,2|204|408|
 |Prise en charge de ColumnStore|OUI|OUI|OUI|OUI|OUI|OUI|OUI|
 |Stockage In-Memory OLTP (Go)|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Taille maximale des données (Go)|3 072|3 072|3 072|4096|4096|4096|4096|
 |Taille maximale du journal (Go)|922|922|922|1229|1229|1229|1229|
-|Taille de TEMPDB (Go)|384|384|384|384|384|384|384|
-|Type de stockage|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|
+|Taille maximale des données TempDB (Go)|384|384|384|384|384|384|384|
+|Type de stockage|SSD distant|SSD distant|SSD distant|SSD distant|SSD distant|SSD distant|SSD distant|
 |Latence d’E/S (approximative)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|
-|IOPS cible (64 ko)|7000|7000|7000|7000|7000|7000|7000|
-|Limites de taux de journal (Mbits/s)|30|30|30|30|30|30|30|
+|Nombre maximal d’IOPS de données (64 Ko)|7000|7000|7000|7000|7000|7000|7000|
+|Taux de journalisation maximal (Mbits/s)|30|30|30|30|30|30|30|
 |Nombre maximal d’ouvriers simultanés (demandes)|1 600|1 800|2000|2 400|3200|4000|8000|
-|Nombre maximal de sessions autorisé|30000|30000|30000|30000|30000|30000|30000|
+|Nombre maximal de sessions simultanées|30000|30000|30000|30000|30000|30000|30000|
 |Nombre de réplicas|1|1|1|1|1|1|1|
 |Plusieurs zones de disponibilités|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Lecture du Scale-out|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Stockage de sauvegarde inclus|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|
 
-### <a name="serverless-compute-tier"></a>Niveau de calcul serverless
+## <a name="general-purpose-service-tier-for-serverless-compute"></a>Niveau de service Usage général pour le calcul serverless
 
-Le [niveau de calcul serverless](sql-database-serverless.md) est disponible en préversion et il est seulement destiné aux bases de données uniques qui utilisent le modèle d’achat vCore.
+Le [niveau de calcul serverless](sql-database-serverless.md) est en préversion.
 
-#### <a name="generation-5-compute-platform"></a>Plateforme de calcul de génération 5
+### <a name="gen5-compute-generation-part-1"></a>Génération de calcul Gen5 (partie 1)
 
-|Taille de calcul|GP_S_Gen5_1|GP_S_Gen5_2|GP_S_Gen5_4|
-|:--- | --: |--: |--: |
-|Génération H/W|5\.|5\.|5\.|
-|Nombre minimal-maximal de vCores|0,5-1|0,5-2|0,5-4|
-|Mémoire minimale-maximale (Go)|2,02-3|2,05-6|2,10-12|
-|Délai minimal de pause automatique (heures)|6|6|6|
-|Prise en charge de ColumnStore|OUI|OUI|OUI|
-|Stockage In-Memory OLTP (Go)|N/A|N/A|N/A|
-|Taille maximale des données (Go)|512|1 024|1 024|
-|Taille maximale du journal (Go)|12|24|48|
-|Taille de TEMPDB (Go)|32|64|128|
-|Type de stockage|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|
-|Latence d’E/S (approximative)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|
-|IOPS cible (64 ko)|500|1 000|2000|
-|Limites de taux de journal (Mbits/s)|2.5|5.6|10|
-|Nombre maximal d’ouvriers simultanés (demandes)|75|150|300|
-|Nombre maximal de sessions autorisé|30000|30000|30000|
-|Nombre de réplicas|1|1|1|
-|Plusieurs zones de disponibilités|N/A|N/A|N/A|
-|Lecture du Scale-out|N/A|N/A|N/A|
-|Stockage de sauvegarde inclus|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|
+|Taille de calcul|GP_S_Gen5_1|GP_S_Gen5_2|GP_S_Gen5_4|GP_S_Gen5_6|GP_S_Gen5_8|
+|:--- | --: |--: |--: |--: |--: |
+|Génération de calcul|Gen5|Gen5|Gen5|Gen5|Gen5|
+|Nombre minimal-maximal de vCores|0,5-1|0,5-2|0,5-4|0,75-6|1,0-8|
+|Mémoire minimale-maximale (Go)|2,02-3|2,05-6|2,10-12|2,25-18|3,00-24|
+|Délai minimal de pause automatique (minutes)|60|60|60|60|60|
+|Prise en charge de ColumnStore|OUI|OUI|OUI|OUI|OUI|
+|Stockage In-Memory OLTP (Go)|N/A|N/A|N/A|N/A|N/A|
+|Taille maximale des données (Go)|512|1 024|1 024|1 024|1536|
+|Taille maximale du journal (Go)|154|307|307|307|461|
+|Taille maximale des données TempDB (Go)|32|64|128|192|256|
+|Type de stockage|SSD distant|SSD distant|SSD distant|SSD distant|SSD distant|
+|Latence d’E/S (approximative)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|
+|Nombre maximal d’IOPS de données (64 Ko)|500|1 000|2000|3000|4000|
+|Taux de journalisation maximal (Mbits/s)|2.5|5.6|10|15|20|
+|Nombre maximal d’ouvriers simultanés (demandes)|75|150|300|450|600|
+|Nombre maximal de sessions simultanées|30000|30000|30000|30000|30000|
+|Nombre de réplicas|1|1|1|1|1|
+|Plusieurs zones de disponibilités|N/A|N/A|N/A|N/A|N/A|
+|Lecture du Scale-out|N/A|N/A|N/A|N/A|N/A|
+|Stockage de sauvegarde inclus|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|
 
-## <a name="business-critical-service-tier-for-provisioned-compute-tier"></a>Niveau de service critique pour l’entreprise concernant le niveau de calcul configuré
+### <a name="gen5-compute-generation-part-2"></a>Génération de calcul Gen5 (partie 2)
+
+|Taille de calcul|GP_S_Gen5_10|GP_S_Gen5_12|GP_S_Gen5_14|GP_S_Gen5_16|
+|:--- | --: |--: |--: |--: |
+|Génération de calcul|Gen5|Gen5|Gen5|Gen5|
+|Nombre minimal-maximal de vCores|1,25-10|1,50-12|1,75-14|2,00-16|
+|Mémoire minimale-maximale (Go)|3,75-30|4,50-36|5,25-42|6,00-48|
+|Délai minimal de pause automatique (minutes)|60|60|60|60|
+|Prise en charge de ColumnStore|OUI|OUI|OUI|OUI|
+|Stockage In-Memory OLTP (Go)|N/A|N/A|N/A|N/A|
+|Taille maximale des données (Go)|1536|1536|1536|3 072|
+|Taille maximale du journal (Go)|461|461|461|922|
+|Taille maximale des données TempDB (Go)|320|384|448|512|
+|Type de stockage|SSD distant|SSD distant|SSD distant|SSD distant|
+|Latence d’E/S (approximative)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|
+|Nombre maximal d’IOPS de données (64 Ko)|5 000|6000|7000|8000|
+|Taux de journalisation maximal (Mbits/s)|20|20|20|20|
+|Nombre maximal d’ouvriers simultanés (demandes)|750|900|1050|1 200|
+|Nombre maximal de sessions simultanées|30000|30000|30000|30000|
+|Nombre de réplicas|1|1|1|1|
+|Plusieurs zones de disponibilités|N/A|N/A|N/A|N/A|
+|Lecture du Scale-out|N/A|N/A|N/A|N/A|
+|Stockage de sauvegarde inclus|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|
+
+## <a name="business-critical-service-tier-for-provisioned-compute"></a>Niveau de service critique pour l’entreprise concernant le calcul approvisionné
 
 > [!IMPORTANT]
-> Les nouvelles bases de données Gen4 ne sont plus prises en charge dans la région AustraliaEast.
+> Les nouvelles bases de données Gen4 ne sont plus prises en charge dans les régions Australie Est et Brésil Sud.
 
-### <a name="business-critical-service-tier-generation-4-compute-platform-part-1"></a>Niveau de service Critique pour l’entreprise : Plateforme de calcul de génération 4 (partie 1)
+### <a name="gen4-compute-generation-part-1"></a>Génération de calcul Gen4 (partie 1)
 
 |Taille de calcul|BC_Gen4_1|BC_Gen4_2|BC_Gen4_3|BC_Gen4_4|BC_Gen4_5|BC_Gen4_6|
 |:--- | --: |--: |--: |--: |--: |--: |
-|Génération H/W|4|4|4|4|4|4|
+|Génération de calcul|Gen4|Gen4|Gen4|Gen4|Gen4|Gen4|
 |vCores|1|2|3|4|5\.|6|
 |Mémoire (Go)|7|14|21|28|35|42|
 |Prise en charge de ColumnStore|OUI|OUI|OUI|OUI|OUI|OUI|
@@ -174,23 +198,23 @@ Le [niveau de calcul serverless](sql-database-serverless.md) est disponible en p
 |Type de stockage|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|
 |Taille maximale des données (Go)|650|650|650|650|650|650|
 |Taille maximale du journal (Go)|195|195|195|195|195|195|
-|Taille de TEMPDB (Go)|32|64|96|128|160|192|
+|Taille maximale des données TempDB (Go)|32|64|96|128|160|192|
 |Latence d’E/S (approximative)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|
-|IOPS cible (64 ko)|5 000|10000|15000|20000|25000|30000|
-|Limites de taux de journal (Mbits/s)|8|16|24|32|40|48|
+|Nombre maximal d’IOPS de données (64 Ko)|5 000|10000|15000|20000|25000|30000|
+|Taux de journalisation maximal (Mbits/s)|8|16|24|32|40|48|
 |Nombre maximal d’ouvriers simultanés (demandes)|200|400|600|800|1 000|1 200|
 |Nombre maximal de connexions simultanées|200|400|600|800|1 000|1 200|
-|Nombre maximal de sessions autorisé|30000|30000|30000|30000|30000|30000|
+|Nombre maximal de sessions simultanées|30000|30000|30000|30000|30000|30000|
 |Nombre de réplicas|4|4|4|4|4|4|
 |Plusieurs zones de disponibilités|OUI|OUI|OUI|OUI|OUI|OUI|
 |Lecture du Scale-out|OUI|OUI|OUI|OUI|OUI|OUI|
 |Stockage de sauvegarde inclus|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|
 
-### <a name="business-critical-service-tier-generation-4-compute-platform-part-2"></a>Niveau de service Critique pour l’entreprise : Plateforme de calcul de génération 4 (partie 2)
+### <a name="gen4-compute-generation-part-2"></a>Génération de calcul Gen4 (partie 2)
 
 |Taille de calcul|BC_Gen4_7|BC_Gen4_8|BC_Gen4_9|BC_Gen4_10|BC_Gen4_16|BC_Gen4_24|
 |:--- | --: |--: |--: |--: |--: |--: |
-|Génération H/W|4|4|4|4|4|4|
+|Génération de calcul|Gen4|Gen4|Gen4|Gen4|Gen4|Gen4|
 |vCores|7|8|9|10|16|24|
 |Mémoire (Go)|49|56|63|70|112|168|
 |Prise en charge de ColumnStore|OUI|OUI|OUI|OUI|OUI|OUI|
@@ -198,85 +222,85 @@ Le [niveau de calcul serverless](sql-database-serverless.md) est disponible en p
 |Type de stockage|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|
 |Taille maximale des données (Go)|650|650|650|650|1 024|1 024|
 |Taille maximale du journal (Go)|195|195|195|195|307|307|
-|Taille de TEMPDB (Go)|224|256|288|320|384|384|
+|Taille maximale des données TempDB (Go)|224|256|288|320|384|384|
 |Latence d’E/S (approximative)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|
-|IOPS cible (64 ko)|35000|40000|45000|50000|80000|120 000|
-|Limites de taux de journal (Mbits/s)|56|64|64|64|64|64|
+|Nombre maximal d’IOPS de données (64 Ko)|35000|40000|45000|50000|80000|120 000|
+|Taux de journalisation maximal (Mbits/s)|56|64|64|64|64|64|
 |Nombre maximal d’ouvriers simultanés (demandes)|1400|1 600|1 800|2000|3200|4 800|
 |Nombre maximal de connexions simultanées (requêtes)|1400|1 600|1 800|2000|3200|4 800|
-|Nombre maximal de sessions autorisé|30000|30000|30000|30000|30000|30000|
+|Nombre maximal de sessions simultanées|30000|30000|30000|30000|30000|30000|
 |Nombre de réplicas|4|4|4|4|4|4|
 |Plusieurs zones de disponibilités|OUI|OUI|OUI|OUI|OUI|OUI|
 |Lecture du Scale-out|OUI|OUI|OUI|OUI|OUI|OUI|
 |Stockage de sauvegarde inclus|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|
 
-### <a name="business-critical-service-tier-generation-5-compute-platform-part-1"></a>Niveau de service Critique pour l’entreprise : Plateforme de calcul de génération 5 (partie 1)
+### <a name="gen5-compute-compute-part-1"></a>Génération de calcul Gen5 (partie 1)
 
 |Taille de calcul|BC_Gen5_2|BC_Gen5_4|BC_Gen5_6|BC_Gen5_8|BC_Gen5_10|BC_Gen5_12|BC_Gen5_14|
 |:--- | --: |--: |--: |--: |---: | --: |--: |
-|Génération H/W|5\.|5\.|5\.|5\.|5\.|5\.|5\.|
+|Génération de calcul|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|
 |vCores|2|4|6|8|10|12|14|
 |Mémoire (Go)|10.2|20,4|30,6|40,8|51|61,2|71,4|
 |Prise en charge de ColumnStore|OUI|OUI|OUI|OUI|OUI|OUI|OUI|
 |Stockage In-Memory OLTP (Go)|1 571|3 142|4 713|6 284|8 655|11 026|13 397|
 |Taille maximale des données (Go)|1 024|1 024|1536|1536|1536|3 072|3 072|
 |Taille maximale du journal (Go)|307|307|307|461|461|922|922|
-|Taille de TEMPDB (Go)|64|128|192|256|320|384|384|
+|Taille maximale des données TempDB (Go)|64|128|192|256|320|384|384|
 |Type de stockage|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|
 |Latence d’E/S (approximative)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|
-|IOPS cible (64 ko)|8000|16000|24 000|32000|40000|48 000|56 000|
-|Limites de taux de journal (Mbits/s)|12|24|36|48|60|72|84|
+|Nombre maximal d’IOPS de données (64 Ko)|8000|16000|24 000|32000|40000|48 000|56 000|
+|Taux de journalisation maximal (Mbits/s)|12|24|36|48|60|72|84|
 |Nombre maximal d’ouvriers simultanés (demandes)|200|400|600|800|1 000|1 200|1400|
 |Nombre maximal de connexions simultanées|200|400|600|800|1 000|1 200|1400|
-|Nombre maximal de sessions autorisé|30000|30000|30000|30000|30000|30000|30000|
+|Nombre maximal de sessions simultanées|30000|30000|30000|30000|30000|30000|30000|
 |Nombre de réplicas|4|4|4|4|4|4|4|
 |Plusieurs zones de disponibilités|OUI|OUI|OUI|OUI|OUI|OUI|OUI|
 |Lecture du Scale-out|OUI|OUI|OUI|OUI|OUI|OUI|OUI|
 |Stockage de sauvegarde inclus|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|
 
-### <a name="business-critical-service-tier-generation-5-compute-platform-part-2"></a>Niveau de service Critique pour l’entreprise : Plateforme de calcul de génération 5 (partie 2)
+### <a name="gen5-compute-generation-part-2"></a>Génération de calcul Gen5 (partie 2)
 
 |Taille de calcul|BC_Gen5_16|BC_Gen5_18|BC_Gen5_20|BC_Gen5_24|BC_Gen5_32|BC_Gen5_40|BC_Gen5_80|
 |:--- | --: |--: |--: |--: |---: | --: |--: |
-|Génération H/W|5\.|5\.|5\.|5\.|5\.|5\.|5\.|
+|Génération de calcul|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|
 |vCores|16|18|20|24|32|40|80|
 |Mémoire (Go)|81,6|91,8|102|122,4|163,2|204|408|
 |Prise en charge de ColumnStore|OUI|OUI|OUI|OUI|OUI|OUI|OUI|
 |Stockage In-Memory OLTP (Go)|15 768|18 139|20,51|25 252|37 936|52.22|131,64|
 |Taille maximale des données (Go)|3 072|3 072|3 072|4096|4096|4096|4096|
 |Taille maximale du journal (Go)|922|922|922|1229|1229|1229|1229|
-|Taille de TEMPDB (Go)|384|384|384|384|384|384|384|
+|Taille maximale des données TempDB (Go)|384|384|384|384|384|384|384|
 |Type de stockage|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|
 |Latence d’E/S (approximative)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|
-|IOPS cible (64 ko)|64 000|72 000|80000|96 000|128000|160 000|320 000|
-|Limites de taux de journal (Mbits/s)|96|96|96|96|96|96|96|
+|Nombre maximal d’IOPS de données (64 Ko)|64 000|72 000|80000|96 000|128000|160 000|320 000|
+|Taux de journalisation maximal (Mbits/s)|96|96|96|96|96|96|96|
 |Nombre maximal d’ouvriers simultanés (demandes)|1 600|1 800|2000|2 400|3200|4000|8000|
 |Nombre maximal de connexions simultanées|1 600|1 800|2000|2 400|3200|4000|8000|
-|Nombre maximal de sessions autorisé|30000|30000|30000|30000|30000|30000|30000|
+|Nombre maximal de sessions simultanées|30000|30000|30000|30000|30000|30000|30000|
 |Nombre de réplicas|4|4|4|4|4|4|4|
 |Plusieurs zones de disponibilités|OUI|OUI|OUI|OUI|OUI|OUI|OUI|
 |Lecture du Scale-out|OUI|OUI|OUI|OUI|OUI|OUI|OUI|
 |Stockage de sauvegarde inclus|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|
 
-## <a name="hyperscale-service-tier"></a>Niveau de service Hyperscale
+## <a name="hyperscale-service-tier-for-provisioned-compute"></a>Niveau de service Hyperscale pour un calcul approvisionné
 
-### <a name="generation-5-compute-platform"></a>Plateforme de calcul de génération 5
+### <a name="gen5-compute-generation"></a>Génération de calcul Gen5
 
 |Niveau de performance|HS_Gen5_2|HS_Gen5_4|HS_Gen5_8|HS_Gen5_16|HS_Gen5_24|HS_Gen5_32|HS_Gen5_40|HS_Gen5_80|
 |:--- | --: |--: |--: |--: |---: | --: |--: |--: |
-|Génération H/W|5\.|5\.|5\.|5\.|5\.|5\.|5\.|5\.|
+|Génération de calcul|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|
 |vCores|2|4|8|16|24|32|40|80|
 |Mémoire (Go)|10.2|20,4|40,8|81,6|122,4|163,2|204|408|
 |Prise en charge de ColumnStore|OUI|OUI|OUI|OUI|OUI|OUI|OUI|OUI|
 |Stockage In-Memory OLTP (Go)|N/A|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Taille maximale des données (To)|100 |100 |100 |100 |100 |100 |100 |100 |
 |Taille maximale du journal (To)|1 |1 |1 |1 |1 |1 |1 |1 |
-|Taille de TEMPDB (Go)|64|128|256|384|384|384|384|384|
+|Taille maximale des données TempDB (Go)|64|128|256|384|384|384|384|384|
 |Type de stockage|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|
-|IOPS cible (64 ko)| [Remarque 1](#note-1) |[Remarque 1](#note-1)|[Remarque 1](#note-1) |[Remarque 1](#note-1) |[Remarque 1](#note-1) |[Remarque 1](#note-1) |[Remarque 1](#note-1) | [Remarque 1](#note-1) |
+|Nombre maximal d’IOPS de données (64 Ko)| [Remarque 1](#note-1) |[Remarque 1](#note-1)|[Remarque 1](#note-1) |[Remarque 1](#note-1) |[Remarque 1](#note-1) |[Remarque 1](#note-1) |[Remarque 1](#note-1) | [Remarque 1](#note-1) |
 |Latence d’E/S (approximative)|À déterminer|À déterminer|À déterminer|À déterminer|À déterminer|À déterminer|À déterminer|À déterminer|
 |Nombre maximal d’ouvriers simultanés (demandes)|200|400|800|1 600|2 400|3200|4000|8000|
-|Nombre maximal de sessions autorisé|30000|30000|30000|30000|30000|30000|30000|30000|
+|Nombre maximal de sessions simultanées|30000|30000|30000|30000|30000|30000|30000|30000|
 |Nombre de réplicas|2|2|2|2|2|2|2|2|
 |Plusieurs zones de disponibilités|N/A|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Lecture du Scale-out|OUI|OUI|OUI|OUI|OUI|OUI|OUI|OUI|

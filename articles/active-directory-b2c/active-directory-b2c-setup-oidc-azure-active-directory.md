@@ -7,20 +7,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/08/2019
+ms.date: 08/08/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 58c6d1b032f5b492c5641ff51da80426124069b1
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: 477b4e51c49a558aed0e5623a3821fa9b8d9eabd
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68716781"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69622362"
 ---
 # <a name="set-up-sign-in-for-a-specific-azure-active-directory-organization-in-azure-active-directory-b2c"></a>Configurer la connexion pour une organisation Azure Active Directory spécifique dans Azure Active Directory B2C
-
->[!NOTE]
-> Cette fonctionnalité est en version préliminaire publique. Ne l’utilisez pas dans des environnements de production.
 
 Pour utiliser Azure Active Directory (Azure AD) en tant que [fournisseur d’identité](active-directory-b2c-reference-oauth-code.md) dans Azure AD B2C, vous devez créer une application qui la représente. Cet article explique comment autoriser la connexion d’utilisateurs à partir d’une organisation Azure AD spécifique en utilisant un flux utilisateur dans Azure AD B2C.
 
@@ -29,7 +26,7 @@ Pour utiliser Azure Active Directory (Azure AD) en tant que [fournisseur d’ide
 Pour autoriser la connexion des utilisateurs d’une organisation Azure AD spécifique, vous devez inscrire une application au sein du locataire Azure AD de l’organisation, qui n’est pas le même que votre locataire Azure AD B2C.
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
-2. Veillez à bien utiliser le répertoire qui contient votre locataire Azure AD. Choisissez le **filtre Répertoire et abonnement** dans le menu supérieur et choisissez l’annuaire qui contient votre locataire Azure AD. Il ne s’agit pas du même locataire que votre locataire Azure AD B2C.
+2. Veillez à bien utiliser le répertoire qui contient votre locataire Azure AD. Sélectionnez le filtre **Répertoire et abonnement** dans le menu du haut, puis choisissez le répertoire contenant votre locataire Azure AD. Il ne s’agit pas du même locataire que votre locataire Azure AD B2C.
 3. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Inscriptions d’applications**.
 4. Sélectionnez **Nouvelle inscription**.
 5. Entrez un nom pour votre application. Par exemple : `Azure AD B2C App`.
@@ -50,27 +47,28 @@ Pour autoriser la connexion des utilisateurs d’une organisation Azure AD spé
 
 ## <a name="configure-azure-ad-as-an-identity-provider"></a>Configurer Azure AD en tant que fournisseur d’identité
 
-1. Veillez à bien utiliser le répertoire qui contient le locataire Azure AD B2C. Sélectionnez le filtre **Répertoire et abonnement** dans le menu supérieur, puis choisissez l’annuaire qui contient votre locataire Azure AD B2C.
-2. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Azure AD B2C**.
-3. Cliquez sur **Fournisseurs d’identité**, puis sélectionnez **Ajouter**.
-4. Saisissez un **Nom**. Par exemple, entrez : `Contoso Azure AD`.
-5. Sélectionnez **Type de fournisseur d’identité**, sélectionnez **OpenID Connect (préversion)** , puis cliquez sur **OK**.
-6. Sélectionnez **Configurer ce fournisseur d’identité**
-7. Pour **URL des métadonnées**, entrez l’URL suivante qui remplace `your-AD-tenant-domain` par le nom de domaine de votre locataire Azure AD. Exemple `https://login.microsoftonline.com/contoso.onmicrosoft.com/.well-known/openid-configuration` :
+1. Veillez à bien utiliser le répertoire qui contient le locataire Azure AD B2C. Sélectionnez le filtre **Répertoire et abonnement** dans le menu du haut, puis choisissez le répertoire contenant votre locataire Azure AD B2C.
+1. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Azure AD B2C**.
+1. Cliquez sur **Fournisseurs d’identité**, puis sélectionnez **Nouveau fournisseur OpenID Connect**.
+1. Saisissez un **Nom**. Par exemple, entrez *Contoso Azure AD*.
+1. Pour **URL des métadonnées**, entrez l’URL suivante en remplaçant `your-AD-tenant-domain` par le nom de domaine de votre locataire Azure AD :
 
     ```
     https://login.microsoftonline.com/your-AD-tenant-domain/.well-known/openid-configuration
     ```
 
-8. Pour **ID client**, entrez l’ID d’application que vous avez enregistré précédemment et pour **Clé secrète client**, entrez la valeur de clé secrète que vous avez enregistrée précédemment.
-9. Entrez éventuellement une valeur pour **Domain_hint**. Par exemple : `ContosoAD`. Il s’agit de la valeur à utiliser quand vous faites référence à ce fournisseur d’identité à l’aide de *domain_hint* dans la requête.
-10. Cliquez sur **OK**.
-11. Sélectionnez **Mapper les revendications de ce fournisseur d’identité** et définissez les revendications suivantes :
+    Par exemple : `https://login.microsoftonline.com/contoso.onmicrosoft.com/.well-known/openid-configuration`.
 
-    - Pour **Identifiant utilisateur**, entrez `oid`.
-    - Pour **Nom d’affichage**, entrez `name`.
-    - Pour **Prénom**, entrez `given_name`.
-    - Pour **Nom**, entrez `family_name`.
-    - Pour **E-mail**, entrez `unique_name`.
+1. Pour **ID client**, entrez l’ID d’application que vous avez enregistré précédemment.
+1. Pour **Clé secrète client**, entrez la clé secrète client que vous avez enregistrée précédemment.
+1. Conservez les valeurs par défaut d’**Étendue**, de **Type de réponse** et de **Mode de réponse**.
+1. (Facultatif) Entrez une valeur pour **Domain_hint**. Par exemple, *ContosoAD*. Il s’agit de la valeur à utiliser quand vous faites référence à ce fournisseur d’identité à l’aide de *domain_hint* dans la requête.
+1. Sous **Mappage des revendications du fournisseur d’identité**, entrez les valeurs de mappage des revendications suivantes :
 
-12. Cliquez sur **OK**, puis sur **Créer** pour enregistrer votre configuration.
+    * **ID d’utilisateur** : *oid*
+    * **Nom d’affichage** : *name*
+    * **Prénom** : *given_name*
+    * **Nom** : *family_name*
+    * **E-mail** : *unique_name*
+
+1. Sélectionnez **Enregistrer**.

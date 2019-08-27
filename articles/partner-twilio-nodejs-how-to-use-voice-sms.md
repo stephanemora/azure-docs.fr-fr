@@ -3,9 +3,7 @@ title: Utilisation de Twilio pour les fonctionnalités vocales, VoIP et de messa
 description: Découvrez comment passer un appel téléphonique et envoyer un SMS avec le service d'API Twilio sur Azure. Exemples de code écrits en Node.js.
 services: ''
 documentationcenter: nodejs
-author: devinrader
-manager: wpickett
-editor: ''
+author: georgewallace
 ms.assetid: f558cbbd-13d2-416f-b9b1-33a99c426af9
 ms.service: multiple
 ms.workload: na
@@ -13,13 +11,13 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 11/25/2014
-ms.author: wpickett
-ms.openlocfilehash: d9f419c48f64ba697e031dfc680bc9cb12bba5c4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: gwallace
+ms.openlocfilehash: 164bedffcf9a1aca9f1fa46dea254fb928abcf04
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60422907"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69637273"
 ---
 # <a name="using-twilio-for-voice-voip-and-sms-messaging-in-azure"></a>Utilisation de Twilio pour les fonctionnalités vocales, VoIP et de messagerie SMS dans Azure
 Ce guide montre comment générer des applications qui communiquent avec Twilio et node.js sur Azure.
@@ -239,7 +237,7 @@ Vous avez appris les bases d'utilisation de node.js et de Twilio pour générer 
 
 * [Documentations officielles sur le module][docs]
 * [Didacticiel sur VoIP avec des applications node.js][voipnode]
-* [Votr - application de vote par SMS en temps réel avec node.js et CouchDB (trois parties)][votr]
+* [Votr – application de vote par SMS en temps réel avec node.js et CouchDB (trois parties)][votr]
 * [Programmation par paire dans le navigateur avec node.js][pair]
 
 Nous espérons que vous aimerez travailler sur node.js et Twilio sur Azure !

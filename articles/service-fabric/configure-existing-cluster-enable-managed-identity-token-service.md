@@ -7,14 +7,14 @@ ms.service: service-fabric
 ms.topic: article
 ms.date: 07/25/2019
 ms.author: atsenthi
-ms.openlocfilehash: dc9d7ba9499f2c98370b14fd88d38dffc65480e5
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: adc21358011454c8687998dc5d257052959b933b
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68964031"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69640730"
 ---
-# <a name="configure-an-existing-azure-service-fabric-cluster-to-enable-managed-identity-support"></a>Configurer un cluster Azure Service Fabric existant pour activer le support d’identités managées
+# <a name="configure-an-existing-azure-service-fabric-cluster-to-enable-managed-identity-support-preview"></a>Configurer un cluster Azure Service Fabric existant pour activer la prise en charge d’identités managées (préversion)
 Afin d’accéder à la fonctionnalité des identités managées pour les applications Azure Service Fabric, vous devez d’abord activer le **Service de jetons des identités managées** sur le cluster. Ce service est responsable de l’authentification des applications Service Fabric à l’aide de leurs identités managées et de l’obtention de jetons d’accès en leur nom. Une fois le service activé, vous pouvez le voir dans Service Fabric Explorer sous la section **Système** dans le volet de gauche, exécuté sous le nom **fabric:/System/ManagedIdentityTokenService**.
 
 > [!NOTE]
@@ -75,8 +75,3 @@ Si le déploiement échoue avec le message suivant, cela signifie que le cluster
 * [Déployer une application Azure Service Fabric avec une identité managée attribuée par l’utilisateur](./how-to-deploy-service-fabric-application-user-assigned-managed-identity.md)
 * [Tirer parti de l’identité managée d’une application Service Fabric à partir du code de service](./how-to-managed-identity-service-fabric-app-code.md)
 * [Accorder à une application Azure Service Fabric l’accès à d’autres ressources Azure](./how-to-grant-access-other-resources.md)
-
-## <a name="related-articles"></a>Articles connexes
-* Vérifier le [support des identités managées](./concepts-managed-identity.md) dans Azure Service Fabric
-
-* [Activer le support d’identités managées dans un cluster Azure Service Fabric existant](./configure-existing-cluster-enable-managed-identity-token-service.md)
