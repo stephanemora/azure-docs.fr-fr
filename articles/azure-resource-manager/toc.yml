@@ -67,8 +67,6 @@
       href: templates-cloud-consistency.md
     - name: Modes de déploiement
       href: deployment-modes.md
-    - name: Suppression de ressources
-      href: resource-group-delete.md
     - name: Gestionnaire de déploiement
       items:
         - name: Vue d'ensemble
@@ -186,6 +184,8 @@
             - name: Utilisation d'Azure PowerShell
               displayName: 'open,delete,deploy,move,lock,tag'
               href: manage-resources-powershell.md
+        - name: Supprimer des ressources et des groupes de ressources
+          href: resource-group-delete.md
         - name: Verrouiller des ressources
           href: resource-group-lock-resources.md
         - name: API d’authentification pour l’accès aux abonnements

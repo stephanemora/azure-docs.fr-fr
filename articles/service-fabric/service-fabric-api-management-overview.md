@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/22/2017
 ms.author: vturecek
-ms.openlocfilehash: 0dac2730bcc13b979de6a8faaaa53c0aaf15e902
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 52f9584a2f793ff513100afcb7b7bd6acd2a4742
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60621886"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69900492"
 ---
 # <a name="service-fabric-with-azure-api-management-overview"></a>Vue d’ensemble d’Azure Service Fabric avec Gestion des API
 
@@ -54,7 +54,7 @@ Gestion des API Azure peut être utilisée avec n’importe quelle combinaison d
 
 ## <a name="send-traffic-to-a-stateless-service"></a>Envoyer le trafic vers un service sans état
 
-Dans le cas le plus simple, le trafic est transféré à une instance de service sans état. Pour ce faire, une opération Gestion des API contient une stratégie de traitement entrant avec un service principal Service Fabric qui effectue un mappage à une instance de service sans état spécifique dans le service principal Service Fabric. Les requêtes envoyées à ce service sont envoyées vers un réplica aléatoire de l’instance de service sans état.
+Dans le cas le plus simple, le trafic est transféré à une instance de service sans état. Pour ce faire, une opération Gestion des API contient une stratégie de traitement entrant avec un service principal Service Fabric qui effectue un mappage à une instance de service sans état spécifique dans le service principal Service Fabric. Les requêtes envoyées à ce service le sont à une instance aléatoire du service.
 
 #### <a name="example"></a>Exemples
 Dans le scénario suivant, une application Service Fabric contient un service sans état nommé `fabric:/app/fooservice`, qui expose une API HTTP interne. Le nom d’instance de service est bien connu et peut être codé en dur directement dans la stratégie de traitement entrant Gestion des API. 
@@ -77,7 +77,7 @@ Le service est partitionné à l’aide du schéma de partition Int64, avec deux
 
 Dans des scénarios plus avancés, vous pouvez définir une opération Gestion des API qui mappe les requêtes à plusieurs instances de service. Dans ce cas, chaque opération contient une stratégie qui mappe les requêtes à une instance de service spécifique en fonction des valeurs définies à partir de la requête HTTP entrante, comme le chemin d’accès URL ou la chaîne de requête, et pour les services avec état, une partition dans l’instance de service. 
 
-Pour ce faire, une opération Gestion des API contient une stratégie de traitement entrant avec un service principal Service Fabric qui effectue un mappage à une instance de service sans état dans le service principal Service Fabric basé sur les valeurs récupérées dans la requête HTTP entrante. Les requêtes envoyées à une instance de service sont envoyées vers un réplica aléatoire de l’instance de service.
+Pour ce faire, une opération Gestion des API contient une stratégie de traitement entrant avec un service principal Service Fabric qui effectue un mappage à une instance de service sans état dans le service principal Service Fabric basé sur les valeurs récupérées dans la requête HTTP entrante. Les requêtes envoyées à un service le sont à une instance aléatoire du service.
 
 #### <a name="example"></a>Exemples
 

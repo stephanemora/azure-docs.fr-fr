@@ -16,12 +16,12 @@ ms.date: 07/12/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b21c5f8630598a4b7117d23ad7c8da46de07d2fa
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 5c3102480e316c634930c356ae02f769767b7d08
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204497"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69900036"
 ---
 # <a name="azure-ad-connect-sync-functions-reference"></a>Synchronisation d’Azure AD Connect : Référence des fonctions
 Dans Azure AD Connect, les fonctions servent à manipuler une valeur d’attribut pendant la synchronisation.  
@@ -102,7 +102,7 @@ la fonction BitAnd définit des bits spécifiés sur une valeur.
 **Remarques :**  
 Cette fonction convertit les deux paramètres de la représentation binaire et définit un bit sur :
 
-* 0 - si un des bits, ou les deux bits correspondants dans *masque* et *indicateur* ont pour valeur 0
+* 0 - si un des bits, ou les deux bits correspondants dans *value1* et *value2* ont pour valeur 0
 * 1 - si les deux bits correspondants sont définis sur 1.
 
 En d’autres termes, elle renvoie 0 dans tous les cas, sauf si les bits correspondants de ces deux paramètres sont définis sur 1.

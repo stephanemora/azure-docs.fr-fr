@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/17/2016
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 6e683eb07b690d7d5680b7a4d429d1150f22f67e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 452c3b9aac58e1eca25b6417eb891fed7180ada7
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60767693"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69636636"
 ---
 # <a name="scaling-apps-in-an-app-service-environment"></a>Mise à l'échelle des applications dans un environnement App Service
 Dans Azure App Service, il existe normalement trois éléments que vous pouvez mettre à l'échelle :
@@ -75,12 +75,12 @@ Pour prendre en main les environnements App Service, consultez [Comment créer u
 
 <!--Links-->
 [WhatisASE]: app-service-app-service-environment-intro.md
-[ScaleWebapp]: ../web-sites-scale.md
+[ScaleWebapp]: ../manage-scale-up.md
 [HowtoCreateASE]: app-service-web-how-to-create-an-app-service-environment.md
 [HowtoConfigureASE]: app-service-web-configure-an-app-service-environment.md
 [CreateWebappinASE]: app-service-web-how-to-create-a-web-app-in-an-ase.md
 [Appserviceplans]: ../overview-hosting-plans.md
 [AppServicePricing]: https://azure.microsoft.com/pricing/details/app-service/ 
 [ASEAutoscale]: app-service-environment-auto-scale.md
-[AppScale]: ../web-sites-scale.md
+[AppScale]: ../manage-scale-up.md
 [AppWarmup]: https://ruslany.net/2015/09/how-to-warm-up-azure-web-app-during-deployment-slots-swap/

@@ -17,12 +17,16 @@
       href: tutorial-create-management-vm.md
     - name: Configurer le protocole LDAP sécurisé
       href: tutorial-configure-ldaps.md
+    - name: Configurer la synchronisation de hachage de mot de passe
+      href: tutorial-configure-password-hash-sync.md
 - name: Exemples
   items:
     - name: Créer une instance Azure AD DS avec Azure PowerShell
       href: powershell-create-instance.md
 - name: Concepts
   items:
+    - name: Scénarios de déploiement courants
+      href: scenarios.md
     - name: "Fonctionnement de la synchronisation Azure AD\_DS"
       href: synchronization.md
     - name: Fonctionnement de la synchronisation de hachage de mot de passe
@@ -33,12 +37,10 @@
       href: ../active-directory/fundamentals/active-directory-architecture.md?context=/azure/active-directory-domain-services/context/azure-ad-ds-context
     - name: Implémenter des modèles d’administration avec privilèges minimum
       href: /windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models?context=/azure/active-directory-domain-services/context/azure-ad-ds-context
-- name: Guides pratiques
+- name: Procédures
   items:
     - name: Configurer les paramètres courants
       items:
-        - name: Activer la synchronisation de hachage de mot de passe
-          href: active-directory-ds-getting-started-password-sync-synced-tenant.md
         - name: "Configurer une synchronisation délimitée depuis Azure\_AD"
           href: scoped-synchronization.md
         - name: Créer une unité d’organisation
@@ -47,8 +49,6 @@
           href: create-gmsa.md
     - name: Planifier pour Azure AD DS
       items:
-        - name: Scénarios courants
-          href: scenarios.md
         - name: Considérations relatives au réseau virtuel
           href: network-considerations.md
     - name: Gérer Azure AD DS

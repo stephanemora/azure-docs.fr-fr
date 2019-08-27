@@ -95,8 +95,10 @@
               href: data-box-disk-deploy-set-up.md
             - name: 3 - Copier et valider
               href: data-box-disk-deploy-copy-data.md
-            - name: '4 - Renvoyer, télécharger, vérifier'
+            - name: 4 - Retourner
               href: data-box-disk-deploy-picked-up.md
+            - name: 5 - Vérifier le chargement
+              href: data-box-disk-deploy-upload-verify.md
         - name: Concepts
           items:
             - name: Examiner les conditions requises

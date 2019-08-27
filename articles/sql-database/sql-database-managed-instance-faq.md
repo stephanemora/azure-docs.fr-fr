@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab
 ms.date: 07/16/2019
-ms.openlocfilehash: 3637676a330b324d5620885f0cbe50d4aa68ed51
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 2efeb37f8b98f4cf9a29ec8a6976146b81aab26b
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779044"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69641071"
 ---
 # <a name="sql-database-managed-instance-frequently-asked-questions-faq"></a>Forum aux questions sur les instances gérées SQL Database
 
@@ -36,8 +36,7 @@ Pour les niveaux de service disponibles et leurs caractéristiques, consultez [D
 
 ## <a name="where-can-i-find-known-issues-and-bugs"></a>Où puis-je trouver de l’information sur les problèmes connus et les bogues ?
 
-Pour les bogues et les problèmes connus, consultez [Changements de comportement](sql-database-managed-instance-transact-sql-information.md#Changes) et [Problèmes connus](sql-database-managed-instance-transact-sql-information.md#Issues).
-
+Pour les bogues et les problèmes connus, consultez [problèmes connus](sql-database-managed-instance-transact-sql-information.md#Issues).
 
 ## <a name="can-a-managed-instance-have-the-same-name-as-on-premises-sql-server"></a>Est-ce qu’une instance gérée peut avoir le même nom que SQL Server local ?
 

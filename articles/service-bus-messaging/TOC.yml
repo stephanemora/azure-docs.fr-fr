@@ -79,10 +79,6 @@
       href: service-bus-samples.md
 - name: Concepts
   items:
-    - name: Identités gérées pour les ressources Azure
-      href: service-bus-managed-service-identity.md
-    - name: Contrôle d’accès en fonction du rôle (préversion)
-      href: service-bus-role-based-access-control.md
     - name: Premium-Messaging
       href: service-bus-premium-messaging.md
     - name: Comparer les files d’attente Azure et Service Bus
@@ -95,8 +91,25 @@
       href: service-bus-async-messaging.md
     - name: Gestion des urgences et des pannes
       href: service-bus-outages-disasters.md
-    - name: Attributs de sécurité courants Azure
-      href: service-bus-messaging-security-attributes.md
+    - name: Sécurité
+      items:
+        - name: Authentification et autorisation
+          href: service-bus-authentication-and-authorization.md
+          items:
+            - name: Utiliser des signatures d’accès partagé
+              items:
+                - name: Migrer à partir des services ACS vers SAP
+                  href: service-bus-migrate-acs-sas.md
+                - name: Authentification avec les signatures d’accès partagé
+                  href: service-bus-sas.md
+            - name: Utiliser Azure Active Directory
+              items:
+                - name: Authentifier avec des identités managées pour les ressources Azure
+                  href: service-bus-managed-service-identity.md
+                - name: Authentifier à partir d’une application
+                  href: authenticate-application.md
+        - name: Attributs de sécurité courants Azure
+          href: service-bus-messaging-security-attributes.md
 - name: Guides pratiques
   items:
     - name: Créer un espace de noms
@@ -119,13 +132,6 @@
               href: service-bus-to-event-grid-integration-concept.md
             - name: Exemples Azure Event Grid
               href: service-bus-to-event-grid-integration-example.md
-        - name: Authentification et autorisation
-          href: service-bus-authentication-and-authorization.md
-          items:
-            - name: Migrer à partir des services ACS vers SAP
-              href: service-bus-migrate-acs-sas.md
-            - name: Authentification avec les signatures d’accès partagé
-              href: service-bus-sas.md
         - name: Actions et filtres de rubrique
           href: topic-filters.md
         - name: Migrer des espaces de noms Standard vers Premium

@@ -71,12 +71,24 @@
           href: event-hubs-geo-dr.md
     - name: Sécurité
       items:
-        - name: Identité managée pour les ressources Azure
-          href: event-hubs-managed-service-identity.md
-        - name: Contrôle d’accès en fonction du rôle (préversion)
-          href: event-hubs-role-based-access-control.md
-        - name: Présentation du modèle de sécurité et de l’authentification
-          href: event-hubs-authentication-and-security-model-overview.md
+        - name: Authorization
+          items:
+            - name: Autoriser l’accès à Azure Event Hubs
+              href: authorize-access-event-hubs.md
+            - name: Autoriser l’accès avec Azure Active Directory
+              href: authorize-access-azure-active-directory.md
+            - name: Autoriser l’accès avec une signature d’accès partagé
+              href: authorize-access-shared-access-signature.md
+        - name: Authentication
+          items:
+            - name: S’authentifier à l’aide d’Azure Active Directory
+              items:
+                - name: Authentifier avec une identité managée
+                  href: authenticate-managed-identity.md
+                - name: Authentifier à partir d’une application
+                  href: authenticate-application.md
+            - name: S’authentifier à l’aide d’une signature d’accès partagé
+              href: authenticate-shared-access-signature.md
         - name: Attributs de sécurité
           href: event-hubs-security-attributes.md
     - name: "Guide du protocole AMQP\_1.0"
@@ -166,6 +178,8 @@
           href: event-hubs-service-endpoints.md
         - name: Activer l’intégration des réseaux virtuels et des pare-feu sur l’espace de noms Event Hubs
           href: event-hubs-tutorial-virtual-networks-firewalls.md
+        - name: Configurer les clés gérées par le client pour le chiffrement des données au repos
+          href: configure-customer-managed-key.md
     - name: Résolution des problèmes
       items:
         - name: Exceptions

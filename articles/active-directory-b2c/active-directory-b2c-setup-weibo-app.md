@@ -1,5 +1,5 @@
 ---
-title: Configurer l’inscription et la connexion avec un compte Weibo à l’aide d’Azure Active Directory B2C | Microsoft Docs
+title: Configurer l’inscription et la connexion avec un compte Weibo à l’aide d’Azure Active Directory B2C
 description: Proposez l’inscription et la connexion aux clients disposant de comptes Weibo dans vos applications à l’aide d’Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -7,54 +7,52 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/11/2018
+ms.date: 08/08/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 808d4bc8521917b89a7265be6dfab60757baf910
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 428149fbc015037fa8c92bad6fe72cbd97aad5d7
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66508047"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69622237"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-weibo-account-using-azure-active-directory-b2c"></a>Configurer l’inscription et la connexion avec un compte Weibo à l’aide d’Azure Active Directory B2C
 
-> [!NOTE]
-> Cette fonctionnalité est en préversion.
-> 
+[!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
 ## <a name="create-a-weibo-application"></a>Créer une application Weibo
 
-Pour utiliser un compte Weibo en tant que fournisseur d’identité dans Azure Active Directory (Azure AD) B2C, vous devez créer une application dans votre locataire qui la représente. Si vous n’avez pas encore de compte Weibo, vous pouvez en obtenir un à l’adresse [https://weibo.com/signup/signup.php?lang=en-us](https://weibo.com/signup/signup.php?lang=en-us).
+Pour utiliser un compte Weibo en tant que fournisseur d’identité dans Azure Active Directory (Azure AD) B2C, vous devez créer une application dans votre locataire qui la représente. Si vous n’avez pas encore de compte Weibo, vous pouvez vous inscrire à l’adresse [https://weibo.com/signup/signup.php?lang=en-us](https://weibo.com/signup/signup.php?lang=en-us).
 
 1. Connectez-vous au [portail des développeurs Weibo](https://open.weibo.com/) avec les informations d’identification de votre compte Weibo.
-2. Une fois que vous êtes connecté, sélectionnez votre nom d’affichage dans le coin supérieur droit.
-3. Dans la liste déroulante, sélectionnez **编辑开发者信息** (Modifier les informations développeur).
-4. Entrez les informations requises et sélectionnez **提交** (Envoyer).
-5. Finalisez le processus de vérification d’e-mail.
-6. Accédez à la page de [vérification d’identité](https://open.weibo.com/developers/identity/edit).
-7. Entrez les informations requises et sélectionnez **提交** (Envoyer).
+1. Une fois que vous êtes connecté, sélectionnez votre nom d’affichage dans le coin supérieur droit.
+1. Dans la liste déroulante, sélectionnez **编辑开发者信息** (Modifier les informations développeur).
+1. Entrez les informations requises et sélectionnez **提交** (Envoyer).
+1. Finalisez le processus de vérification d’e-mail.
+1. Accédez à la page de [vérification d’identité](https://open.weibo.com/developers/identity/edit).
+1. Entrez les informations requises et sélectionnez **提交** (Envoyer).
 
 ### <a name="register-a-weibo-application"></a>Inscrire une application Weibo
 
 1. Accédez à la [Page d’inscription de l’application Weibo](https://open.weibo.com/apps/new).
-2. Entrez les informations nécessaires relatives à l’application.
-3. Sélectionnez **创建** (Créer).
-4. Copiez les valeurs **Clé d’application** et **Secret d’application**. Vous avez besoin des deux pour ajouter le fournisseur d’identité à votre locataire.
-5. Téléchargez les photos requises et entrez les informations nécessaires.
-6. Sélectionnez **保存以上信息** (Enregistrer).
-7. Sélectionnez **高级信息** (Informations avancées).
-8. Sélectionnez **编辑** (Modifier) en regard du champ pour OAuth2.0 **授权设置**(URL de redirection).
-9. Entrez `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` pour OAuth2.0 **授权设置**(URL de redirection). Par exemple, si le nom de votre locataire est contoso, définissez l’URL sur `https://contoso.b2clogin.com/contoso.onmicrosoft.com/oauth2/authresp`.
-10. Sélectionnez **提交** (Envoyer).  
+1. Entrez les informations nécessaires relatives à l’application.
+1. Sélectionnez **创建** (Créer).
+1. Copiez les valeurs **Clé d’application** et **Secret d’application**. Vous avez besoin des deux pour ajouter le fournisseur d’identité à votre locataire.
+1. Téléchargez les photos requises et entrez les informations nécessaires.
+1. Sélectionnez **保存以上信息** (Enregistrer).
+1. Sélectionnez **高级信息** (Informations avancées).
+1. Sélectionnez **编辑** (Modifier) en regard du champ pour OAuth2.0 **授权设置**(URL de redirection).
+1. Entrez `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` pour OAuth2.0 **授权设置**(URL de redirection). Par exemple, si le nom de votre locataire est contoso, définissez l’URL sur `https://contoso.b2clogin.com/contoso.onmicrosoft.com/oauth2/authresp`.
+1. Sélectionnez **提交** (Envoyer).
 
 ## <a name="configure-a-weibo-account-as-an-identity-provider"></a>Configuration d’un compte Weibo en tant que fournisseur d’identité
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/) en tant qu’administrateur général de votre locataire Azure AD B2C.
-2. Veillez à utiliser l’annuaire qui contient votre locataire Azure AD B2C en cliquant sur le **filtre Répertoire et abonnement** dans le menu du haut et en choisissant l’annuaire qui contient votre locataire.
-3. Choisissez **Tous les services** dans le coin supérieur gauche du Portail Azure, recherchez et sélectionnez **Azure Active Directory B2C**.
-4. Cliquez sur **Fournisseurs d’identité**, puis sélectionnez **Ajouter**.
-5. Fournissez un **nom**. Par exemple, entrez *Weibo*.
-6. Sélectionnez **Type de fournisseur d'identité**, **Weibo (préversion)** , puis cliquez sur **OK**.
-7. Sélectionnez **Configurer ce fournisseur d’identité**, entrez la clé d’application enregistrée précédemment en tant **qu’ID Client** et entrez le secret d’application enregistré en tant que **Secret client** de l’application Weibo créée précédemment.
-8. Cliquez sur **OK**, puis sur **Créer** pour enregistrer votre configuration Weibo.
+1. Veillez à utiliser l’annuaire qui contient votre locataire Azure AD B2C en sélectionnant le filtre **Annuaire + abonnement** dans le menu du haut et en choisissant l’annuaire qui contient votre locataire.
+1. Choisissez **Tous les services** dans le coin supérieur gauche du Portail Azure, recherchez et sélectionnez **Azure Active Directory B2C**.
+1. Cliquez sur **Fournisseurs d’identité**, puis sélectionnez **Weibo (Préversion)** .
+1. Saisissez un **Nom**. Par exemple, *Weibo*.
+1. Dans **ID client**, entrez la clé d’application de l’application Weibo que vous avez créée précédemment.
+1. Dans **Clé secrète client**, entrez la clé secrète d’application que vous avez consignée.
+1. Sélectionnez **Enregistrer**.

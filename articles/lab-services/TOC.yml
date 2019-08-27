@@ -263,6 +263,10 @@
               href: integrate-environments-devops-pipeline.md
             - name: Utiliser DevTest Labs dans les pipelines de build et de mise en production Azure Pipelines
               href: use-devtest-labs-build-release-pipelines.md
+        - name: Étendre DevTest Labs
+          items:
+            - name: Utiliser Azure Functions pour étendre DevTest Labs
+              href: extend-devtest-labs-azure-functions.md
         - name: Créer un rapport d’utilisation des labs
           href: report-usage-across-multiple-labs-subscriptions.md
         - name: DevTest Labs dans l’entreprise
