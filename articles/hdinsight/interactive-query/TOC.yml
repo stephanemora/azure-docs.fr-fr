@@ -15,6 +15,8 @@
       href: ./interactive-query-tutorial-analyze-flight-data.md
 - name: Concepts
   items:
+    - name: Comparer les options de stockage
+      href: ../hdinsight-hadoop-compare-storage-options.md
     - name: Installer des applications HDInsight
       href: ../hdinsight-apps-install-applications.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
     - name: planification de la capacité

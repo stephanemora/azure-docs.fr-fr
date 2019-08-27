@@ -38,6 +38,8 @@
       href: ../hdinsight-component-versioning.md?toc=/azure/hdinsight/kafka/toc.json&bc=/azure/hdinsight/kafka/breadcrumb/toc.json
     - name: HDInsight 4.0
       href: ../hdinsight-version-release.md?toc=/azure/hdinsight/kafka/toc.json&bc=/azure/hdinsight/kafka/breadcrumb/toc.json
+    - name: Comparer les options de stockage
+      href: ../hdinsight-hadoop-compare-storage-options.md
 - name: Procédures
   items:
     - name: Activer la création de rubrique automatique

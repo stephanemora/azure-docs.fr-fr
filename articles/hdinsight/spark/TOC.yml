@@ -49,6 +49,8 @@
       href: ../hdinsight-version-release.md?toc=/azure/hdinsight/spark/toc.json&bc=/azure/hdinsight/spark/breadcrumb/toc.json
     - name: Superviser la disponibilité de cluster avec les journaux Azure Monitor et Ambari
       href: ../hdinsight-cluster-availability.md?toc=/azure/hdinsight/spark/toc.json&bc=/azure/hdinsight/spark/breadcrumb/toc.json
+    - name: Comparer les options de stockage
+      href: ../hdinsight-hadoop-compare-storage-options.md
 - name: Procédures
   items:
     - name: Utiliser le stockage de cluster

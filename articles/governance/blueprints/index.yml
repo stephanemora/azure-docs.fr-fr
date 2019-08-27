@@ -8,7 +8,7 @@ metadata:
   manager: carmonm
   ms.service: blueprints
   ms.topic: landing-page
-  ms.date: 03/26/2019
+  ms.date: 06/14/2019
   ms.author: dacoulte
 abstract:
   description: 'Azure Blueprints vous aide à déployer et à mettre à jour des environnements cloud de façon renouvelable à l’aide d’artefacts composables tels que des modèles Azure Resource Manager pour provisionner des ressources, des contrôles d’accès en fonction du rôle et des stratégies.'
@@ -25,6 +25,11 @@ sections:
               src: ./media/portal.svg
             text: Portail Azure
             href: create-blueprint-portal.md
+          - image:
+              alt: Azure PowerShell
+              src: ./media/powershell.svg
+            text: Azure PowerShell
+            href: create-blueprint-powershell.md
           - image:
               alt: REST
               src: ./media/rest.svg
