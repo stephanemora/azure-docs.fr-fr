@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/11/2019
-ms.openlocfilehash: dd28fb51a4fc3fbf3dfc893f2f5f159ccafdb4b3
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 1e30650f932d15d23d7ffe7bd9b9fe07e9872511
+ms.sourcegitcommit: a3a40ad60b8ecd8dbaf7f756091a419b1fe3208e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67839301"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69891612"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-visual-interface"></a>Didacticiel : Déployer un modèle Machine Learning avec l’interface visuelle
 
@@ -83,11 +83,9 @@ Vous pouvez tester et gérer vos services web d’interface visuelle en accédan
 
 1. Sélectionnez le nom du service web pour voir des détails supplémentaires.
 
-     ![Capture d’écran montrant les détails supplémentaires disponibles dans la vue du service web](./media/ui-tutorial-automobile-price-deploy/web-service-details.png)
-
 1. Sélectionnez **Test**.
 
-    ![Capture d’écran montrant la page de test du service web](./media/ui-tutorial-automobile-price-deploy/web-service-test.png)
+    [![Capture d’écran montrant la page de test du service web](./media/ui-tutorial-automobile-price-deploy/web-service-test.png)](./media/ui-tutorial-automobile-price-deploy/web-service-test.png#lightbox)
 
 1. Entrez des données de test ou utilisez les exemples de données automatiquement renseignés et sélectionnez **Test**.
 
@@ -105,8 +103,6 @@ Vous trouverez des exemples d’appels REST sous l’onglet **Consommer** de la 
 
 Accédez à l’onglet **API Doc** pour plus de détails d’API.
 
-  ![Capture d’écran montrant les détails supplémentaires d’API que les utilisateurs peuvent trouver sous l’onglet API Doc](./media/ui-tutorial-automobile-price-deploy/web-service-api.png)
-
 ## <a name="manage-models-and-deployments"></a>Gérer les modèles et les déploiements
 
 Les modèles et les déploiements du service web que vous créez dans l’interface visuelle peuvent aussi être gérés à partir de l’espace de travail du service Azure Machine Learning.
@@ -119,11 +115,9 @@ Les modèles et les déploiements du service web que vous créez dans l’interf
 
     Dans cette page, vous verrez des détails supplémentaires sur le modèle.
 
-    ![Capture d’écran montrant une vue d’ensemble des statistiques d’expérience dans le portail Azure](./media/ui-tutorial-automobile-price-deploy/model-details.png)
-
 1. Sélectionnez **Déploiements** pour lister tous les services web qui utilisent ce modèle. Sélectionnez le nom du service web pour accéder à la page de détails du service web. Dans cette page, vous pouvez obtenir des informations détaillées sur le service web.
 
-    ![Capture d’écran d’un rapport d’exécution détaillé](./media/ui-tutorial-automobile-price-deploy/deployment-details.png)
+    [![Capture d’écran d’un rapport d’exécution détaillé](./media/ui-tutorial-automobile-price-deploy/deployment-details.png)](./media/ui-tutorial-automobile-price-deploy/deployment-details.png#lightbox)
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 

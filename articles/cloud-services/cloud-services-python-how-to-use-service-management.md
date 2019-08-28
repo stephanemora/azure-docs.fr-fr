@@ -108,15 +108,15 @@ Quand vous créez un service cloud ou un service de stockage, vous devez fournir
 * Asie Sud-Est
 * Asie Est
 * USA Centre
-* USA Centre Nord
-* USA Centre Sud
+* Centre-Nord des États-Unis
+* États-Unis - partie centrale méridionale
 * USA Ouest
 * USA Est
 * Japon Est
-* Japon Ouest
+* OuJapon Est
 * Brésil Sud
 * Australie Est
-* Australie Sud-Est
+* Sud-Australie Est
 
 ## <a name="CreateCloudService"> </a>Créer un service cloud
 Lorsque vous créez une application et l’exécutez dans Azure, l’ensemble formé par le code et la configuration dans Azure est appelé [service cloud][cloud service]. (on l’appelle également *service hébergé* dans les versions antérieures d’Azure). Vous pouvez utiliser la méthode **create\_hosted\_service** pour créer un service hébergé. Créez le service en fournissant un nom de service hébergé (qui doit être unique dans Azure), une étiquette (automatiquement codée en base64), une description et un emplacement.

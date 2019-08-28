@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 05/21/2019
 ms.author: mjbrown
-ms.openlocfilehash: 66e0a7e13df9eddcd722492c9c894721517af5f9
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: cf73b6e0477e46f0a2eac43d7fa6bccc6845db92
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65968922"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69615240"
 ---
 # <a name="how-to-write-stored-procedures-triggers-and-user-defined-functions-in-azure-cosmos-db"></a>Comment écrire des procédures stockées, des déclencheurs et des fonctions définies par l’utilisateur dans Azure Cosmos DB
 
@@ -48,11 +48,11 @@ Une fois écrite, la procédure stockée doit être inscrite auprès d’une col
 
 ### <a id="create-an-item"></a>Créer un élément à l’aide de la procédure stockée
 
-Quand vous créez un élément à l’aide d’une procédure stockée, il est inséré dans le conteneur Azure Cosmos DB et un ID pour l’élément nouvellement créé est retourné. La création d’un élément est une opération asynchrone, et varie selon les fonctions de rappel JavaScript. La fonction de rappel présente deux paramètres : un pour l’objet d’erreur en cas d’échec de l’opération et un autre pour une valeur renvoyée, ici l’objet créé. À l’intérieur du rappel, vous pouvez gérer l’exception ou générer une erreur. Si aucun rappel n’est fourni et qu’une erreur se produit, le runtime d’Azure Cosmos DB génère une erreur. 
+Quand vous créez un élément à l’aide d’une procédure stockée, il est inséré dans le conteneur Azure Cosmos et un ID pour le nouvel élément est retourné. La création d’un élément est une opération asynchrone, et varie selon les fonctions de rappel JavaScript. La fonction de rappel présente deux paramètres : un pour l’objet d’erreur en cas d’échec de l’opération et un autre pour une valeur renvoyée, ici l’objet créé. À l’intérieur du rappel, vous pouvez gérer l’exception ou générer une erreur. Si aucun rappel n’est fourni et qu’une erreur se produit, le runtime d’Azure Cosmos DB génère une erreur. 
 
 La procédure stockée inclut également un paramètre pour définir la description ; il s’agit d’une valeur booléenne. Lorsque le paramètre est défini sur true et si la description est manquante, la procédure stockée génère une exception. Sinon, le reste de la procédure stockée continue de s’exécuter.
 
-L’exemple de procédure stockée suivant prend un nouvel élément Azure Cosmos DB en tant qu’entrée, l’insère dans le conteneur Azure Cosmos DB et renvoie l’id de l’élément qui vient d’être créé. Dans cet exemple, nous utilisons l’exemple ToDoList de l’article [Démarrage rapide : Développer une application web .NET avec Azure Cosmos DB à l’aide de l’API SQL et du portail Azure](create-sql-api-dotnet.md)
+L’exemple de procédure stockée suivant prend un nouvel élément Azure Cosmos en tant qu’entrée, l’insère dans le conteneur Azure Cosmos et retourne l’ID de l’élément qui vient d’être créé. Dans cet exemple, nous utilisons l’exemple ToDoList de l’article [Démarrage rapide : Développer une application web .NET avec Azure Cosmos DB à l’aide de l’API SQL et du portail Azure](create-sql-api-dotnet.md)
 
 ```javascript
 function createToDoItem(itemToCreate) {
@@ -87,7 +87,7 @@ function sample(arr) {
 
 ### <a id="transactions"></a>Transactions dans des procédures stockées
 
-Vous pouvez implémenter des transactions sur des éléments dans un conteneur à l’aide d’une procédure stockée. L’exemple suivant utilise des transactions au sein d’une application de jeu de football fantastique pour échanger des joueurs entre deux équipes dans une seule opération. La procédure stockée essaie de lire les deux éléments Azure Cosmos DB, qui correspondent chacun aux ID de joueur transmis en tant qu’arguments. Si deux joueurs sont trouvés, la procédure stockée met à jour les éléments en intervertissant leurs équipes. Si des erreurs se produisent, elle génère une exception JavaScript qui annule implicitement la transaction.
+Vous pouvez implémenter des transactions sur des éléments dans un conteneur à l’aide d’une procédure stockée. L’exemple suivant utilise des transactions au sein d’une application de jeu de football fantastique pour échanger des joueurs entre deux équipes dans une seule opération. La procédure stockée essaie de lire les deux éléments Azure Cosmos, qui correspondent chacun aux ID de joueurs transmis en tant qu’arguments. Si deux joueurs sont trouvés, la procédure stockée met à jour les éléments en intervertissant leurs équipes. Si des erreurs se produisent, elle génère une exception JavaScript qui annule implicitement la transaction.
 
 ```javascript
 // JavaScript source code
@@ -214,7 +214,7 @@ Azure Cosmos DB prend en charge les prédéclencheurs et les post-déclencheurs.
 
 ### <a id="pre-triggers"></a>Prédéclencheurs
 
-Voici un exemple de la façon dont un prédéclencheur est utilisé pour valider les propriétés d’un élément Azure Cosmos DB en cours de création. Dans cet exemple, nous utilisons l’exemple ToDoList de l’article [Démarrage rapide : Développer une application web .NET avec Azure Cosmos DB à l’aide de l’API SQL et du portail Azure](create-sql-api-dotnet.md) pour ajouter une propriété timestamp à un élément nouvellement ajouté qui n’en contient pas.
+Voici un exemple de la façon dont un prédéclencheur est utilisé pour valider les propriétés d’un élément Azure Cosmos en cours de création. Dans cet exemple, nous utilisons l’exemple ToDoList de l’article [Démarrage rapide : Développer une application web .NET avec Azure Cosmos DB à l’aide de l’API SQL et du portail Azure](create-sql-api-dotnet.md) pour ajouter une propriété timestamp à un élément nouvellement ajouté qui n’en contient pas.
 
 ```javascript
 function validateToDoItemTimestamp() {
@@ -235,7 +235,7 @@ function validateToDoItemTimestamp() {
 }
 ```
 
-Les pré-déclencheurs ne peuvent pas avoir de paramètres en entrée. L’objet de requête dans le déclencheur est utilisé pour manipuler le message de requête associé à l’opération. Dans l’exemple précédent, le prédéclencheur est exécuté lors de la création d’un élément Azure Cosmos DB, et le corps du message de requête contient l’élément qui doit être créé au format JSON.
+Les pré-déclencheurs ne peuvent pas avoir de paramètres en entrée. L’objet de requête dans le déclencheur est utilisé pour manipuler le message de requête associé à l’opération. Dans l’exemple précédent, le prédéclencheur est exécuté lors de la création d’un élément Azure Cosmos, et le corps du message de requête contient l’élément qui doit être créé au format JSON.
 
 Lorsque les déclencheurs sont inscrits, vous pouvez spécifier les opérations avec lesquelles ils peuvent s’exécuter. Ce déclencheur doit être créé avec une valeur `TriggerOperation` de `TriggerOperation.Create`, ce qui signifie que l’utilisation du déclencheur dans une opération de remplacement comme indiqué dans le code suivant n’est pas autorisée.
 

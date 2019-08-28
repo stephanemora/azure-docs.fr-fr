@@ -61,7 +61,7 @@ Ces modèles DNN sont actuellement disponibles :
   - SSD-VGG
 
 Les FGPA sont disponibles dans ces régions Azure :
-  - East US
+  - USA Est
   - Asie Sud-Est
   - Europe Ouest
   - USA Ouest 2

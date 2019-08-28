@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 08/13/2019
 ms.author: maquaran
-ms.openlocfilehash: 7db14f6406223486ea0efb80d3d1cfcd0351f414
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 3ad9aff10b3bae36a173f776f55a434fd8b38b98
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69037226"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69574272"
 ---
 # <a name="how-to-configure-the-change-feed-processor-start-time"></a>Configurer l’heure de début du processeur de flux de modification
 
@@ -51,8 +51,7 @@ Le processeur de flux de modification est initialisé et commence à lire les mo
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur le flux de modification, consultez les articles suivants :
+Pour plus d’informations sur le processeur de flux de modification, consultez les articles suivants :
 
-* [Présentation du flux de modification](change-feed.md)
-* [Manières de lire le flux de modification](read-change-feed.md)
-* [Utilisation du processeur de flux de modification](change-feed-processor.md)
+* [Vue d’ensemble du processeur de flux de modification](change-feed-processor.md)
+* [Utilisation de l’estimateur de flux de modification](how-to-use-change-feed-estimator.md)

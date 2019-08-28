@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 05/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: c673fd43abe6808256eb74f435aad48ed8d41539
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: a4395105c66756c4743373707309a88e2afa96b7
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359847"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69534817"
 ---
 # <a name="tutorial-deploy-an-image-classification-model-in-azure-container-instances"></a>Didacticiel : Déployer un modèle de classification d’images dans Azure Container Instances
 
@@ -38,10 +38,10 @@ Container Instances est une excellente solution pour comprendre et tester le wor
 > Le code présenté dans cet article a été testé avec le SDK Azure Machine Learning version 1.0.41.
 
 ## <a name="prerequisites"></a>Prérequis
-Passez à la section [Configurer l’environnement de développement](#start) pour lire les étapes liées au notebook.  
 
-Pour exécuter le notebook, effectuez tout d’abord l’entraînement du modèle dans le [Tutoriel (partie 1) : Effectuer l’apprentissage d’un modèle de classification d’images avec Azure Machine Learning Service](tutorial-train-models-with-aml.md).   Exécutez ensuite le notebook **tutorials/img-classification-part2-deploy.ipynb** sur le même serveur de notebooks.
+Pour exécuter le notebook, effectuez tout d’abord l’entraînement du modèle dans le [Tutoriel (partie 1) : Entraîner un modèle de classification d’images](tutorial-train-models-with-aml.md).   Ouvrez ensuite le notebook **tutorials/img-classification-part2-deploy.ipynb** sur le même serveur de notebooks.
 
+Vous trouverez également ce tutoriel sur [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) si vous souhaitez l’utiliser dans votre propre [environnement local](how-to-configure-environment.md#local).  Vérifiez que vous avez installé `matplotlib` et `scikit-learn` dans votre environnement. 
 
 ## <a name="start"></a>Configurer l’environnement
 

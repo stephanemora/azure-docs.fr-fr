@@ -282,7 +282,7 @@ Sous l’onglet **Vérifier + créer**, lisez le récapitulatif, puis sélection
 Vous pouvez surveiller le déploiement à partir du portail Azure. Le bouton **Notifications** en haut de l’écran affiche l’état de base du déploiement.
 
 > [!NOTE]
-> Afin de vous donner une idée des temps de déploiement, nous avons déployé une machine virtuelle SQL dans les États-Unis de l’Est avec les paramètres par défaut. Ce déploiement de test a duré 12 minutes au total. Mais cette durée peut varier en fonction de votre région et des paramètres sélectionnés.
+> Afin de vous donner une idée des temps de déploiement, nous avons déployé une machine virtuelle SQL dans les USA Est avec les paramètres par défaut. Ce déploiement de test a duré 12 minutes au total. Mais cette durée peut varier en fonction de votre région et des paramètres sélectionnés.
 
 ## <a id="remotedesktop"></a> Ouvrir la machine virtuelle à l’aide du Bureau à distance
 

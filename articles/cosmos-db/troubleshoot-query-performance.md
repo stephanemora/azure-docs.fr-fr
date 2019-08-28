@@ -8,12 +8,12 @@ ms.date: 07/10/2019
 ms.author: girobins
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: a713ed69dc9c35e16b1cc5d9ad9819d53e2e1efe
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: d0dd9a371c4912cae0e74b214c673c629fc1ff55
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68986165"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69515816"
 ---
 # <a name="troubleshoot-query-performance-for-azure-cosmos-db"></a>Résoudre les problèmes de performance des requêtes pour Azure Cosmos DB
 Cet article explique comment identifier, diagnostiquer et résoudre les problèmes de requête SQL Azure Cosmos DB. Afin d'obtenir des performances optimales pour les requêtes Azure Cosmos DB, suivez les étapes de dépannage ci-dessous. 
@@ -24,11 +24,12 @@ Pour obtenir la latence la plus faible possible, l’application appelante doit 
 ## <a name="check-consistency-level"></a>Vérifier le niveau de cohérence
 Le [niveau de cohérence](consistency-levels.md) peut avoir un impact sur les performances et les frais. Assurez-vous que votre niveau de cohérence est adapté au scénario donné. Pour en savoir plus, consultez [Choisir le niveau de cohérence](consistency-levels-choosing.md).
 
-## <a name="log-sql-query-in-storage-account"></a>Journaliser la requête SQL dans le compte de stockage
-[L’API SQL interroge les journaux via des journaux de diagnostics](logging.md#turn-on-logging-in-the-azure-portal), ce qui vous permet de journaliser la requête obfusquée dans le compte de stockage de votre choix. Vous pouvez ainsi consulter les journaux de diagnostics et trouver la requête via plus d’unités de requête et utiliser l’ID d’activité à faire correspondre dans QueryRuntimeStatistics. 
+## <a name="log-the-executed-sql-query"></a>Journaliser la requête SQL exécutée 
 
+Vous pouvez journaliser la requête SQL exécutée dans un compte de stockage ou dans la table du journal de diagnostics. Les [journaux de requête SQL via des journaux de diagnostics](logging.md#turn-on-logging-in-the-azure-portal) vous permettent de journaliser la requête obfusquée dans le compte de stockage de votre choix. Cela vous permet d’examiner les journaux et de trouver la requête qui utilise le plus grand nombre d’unités de requête. Plus tard, vous pouvez utiliser l’ID d’activité pour faire correspondre la requête réelle dans QueryRuntimeStatistics. La requête est obfusquée pour des raisons de sécurité et les noms des paramètres de requête et leurs valeurs dans les clauses WHERE sont différents des noms et valeurs réels. Vous pouvez utiliser la journalisation dans le compte de stockage pour conserver la rétention à long terme des requêtes exécutées.  
 
 ## <a name="log-query-metrics"></a>Métriques de requête de journal
+
 Utilisez `QueryMetrics` pour corriger les requêtes lentes ou coûteuses. 
 
   * Définissez `FeedOptions.PopulateQueryMetrics = true` pour inclure `QueryMetrics` dans la réponse.

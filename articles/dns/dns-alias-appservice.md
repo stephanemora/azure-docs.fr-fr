@@ -45,7 +45,7 @@ Créez deux plans Web App Service dans votre groupe de ressources en suivant les
 
 |Nom  |Système d’exploitation  |Location  |Niveau de tarification  |
 |---------|---------|---------|---------|
-|ASP-01     |Windows|East US|Dev/Test D1-Shared|
+|ASP-01     |Windows|USA Est|Dev/Test D1-Shared|
 |ASP-02     |Windows|USA Centre|Dev/Test D1-Shared|
 
 ## <a name="create-app-services"></a>Créer des applications App Service
@@ -60,7 +60,7 @@ Créez deux applications web, une dans chaque plan App Service.
 
    |Nom<br>(doit être unique sur . azurewebsites.net)|Groupe de ressources |Pile d’exécution|Région|Plan App Service/Emplacement
    |---------|---------|-|-|-------|
-   |App-01|Utilisez l’existant<br>Sélectionnez votre groupe de ressources|.NET Core 2.2|East US|ASP-01(D1)|
+   |App-01|Utilisez l’existant<br>Sélectionnez votre groupe de ressources|.NET Core 2.2|USA Est|ASP-01(D1)|
    |App-02|Utilisez l’existant<br>Sélectionnez votre groupe de ressources|.NET Core 2.2|USA Centre|ASP-02(D1)|
 
 ### <a name="gather-some-details"></a>Collecter quelques informations
@@ -89,7 +89,7 @@ Vous pouvez maintenant créer les points de terminaison pour les deux applicatio
 
    |Type  |Nom  |Cible  |Location  |Paramètres d’en-tête personnalisé|
    |---------|---------|---------|---------|---------|
-   |Point de terminaison externe     |End-01|Adresse IP enregistrée pour App-01|East US|host:\<URL enregistrée pour App-01\><br>Exemple : **host:app-01.azurewebsites.net**|
+   |Point de terminaison externe     |End-01|Adresse IP enregistrée pour App-01|USA Est|host:\<URL enregistrée pour App-01\><br>Exemple : **host:app-01.azurewebsites.net**|
    |Point de terminaison externe     |End-02|Adresse IP enregistrée pour App-02|USA Centre|host:\<URL enregistrée pour App-02\><br>Exemple : **host:app-02.azurewebsites.net**
 
 ## <a name="create-dns-zone"></a>Créer une zone DNS

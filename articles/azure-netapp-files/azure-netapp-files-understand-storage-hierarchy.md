@@ -39,7 +39,7 @@ Avant de créer un volume dans Azure NetApp Files, vous devez acheter et configu
 - Un pool de capacité ne peut avoir qu’un seul niveau de service.  
 - Chaque pool de capacité peut appartenir à un seul compte NetApp. Toutefois, vous pouvez avoir plusieurs pools de capacité au sein d’un compte NetApp.  
 - Un pool de capacité ne peut pas être déplacé entre les comptes NetApp.   
-  Par exemple, dans le [diagramme conceptuel de la hiérarchie de stockage](#conceptual_diagram_of_storage_hierarchy) ci-dessous, le Pool de capacité 1 ne peut pas être déplacé du compte NetApp Est des États-Unis au compte NetApp Ouest des États-Unis 2.  
+  Par exemple, dans le [diagramme conceptuel de la hiérarchie de stockage](#conceptual_diagram_of_storage_hierarchy) ci-dessous, le Pool de capacité 1 ne peut pas être déplacé du compte NetApp USA Est au compte NetApp USA Ouest 2.  
 - Impossible de supprimer un pool de capacités tant que tous les volumes qu’il contient n’ont pas été supprimés.
 
 ## <a name="volumes"></a>Volumes

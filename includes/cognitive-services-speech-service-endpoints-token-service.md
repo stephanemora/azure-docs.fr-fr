@@ -23,11 +23,11 @@ France Centre | `https://francecentral.api.cognitive.microsoft.com/sts/v1.0/issu
 Inde Centre | `https://centralindia.api.cognitive.microsoft.com/sts/v1.0/issueToken`
 Japon Est | `https://japaneast.api.cognitive.microsoft.com/sts/v1.0/issueToken`
 Centre de la Corée | `https://koreacentral.api.cognitive.microsoft.com/sts/v1.0/issueToken`
-USA Centre Nord | `https://northcentralus.api.cognitive.microsoft.com/sts/v1.0/issueToken`
+Centre-Nord des États-Unis | `https://northcentralus.api.cognitive.microsoft.com/sts/v1.0/issueToken`
 Europe Nord | `https://northeurope.api.cognitive.microsoft.com/sts/v1.0/issueToken`
-USA Centre Sud | `https://southcentralus.api.cognitive.microsoft.com/sts/v1.0/issueToken`
+États-Unis - partie centrale méridionale | `https://southcentralus.api.cognitive.microsoft.com/sts/v1.0/issueToken`
 Asie Sud-Est | `https://southeastasia.api.cognitive.microsoft.com/sts/v1.0/issueToken`
 Sud du Royaume-Uni | `https://uksouth.api.cognitive.microsoft.com/sts/v1.0/issueToken`
-Europe de l'Ouest | `https://westeurope.api.cognitive.microsoft.com/sts/v1.0/issueToken`
+Europe Ouest | `https://westeurope.api.cognitive.microsoft.com/sts/v1.0/issueToken`
 USA Ouest | `https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken`
 USA Ouest 2 | `https://westus2.api.cognitive.microsoft.com/sts/v1.0/issueToken`

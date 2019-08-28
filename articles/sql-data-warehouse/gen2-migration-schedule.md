@@ -33,7 +33,7 @@ Le tableau suivant récapitule par région le moment où le niveau de capacité 
 | **Région** | **Gen2 inférieur disponible** | **Commencement de la mise à niveau automatique** |
 |:--- |:--- |:--- |
 | Australie Est |Disponible |Complete |
-| Australie Sud-Est |Disponible |Complete |
+| Sud-Australie Est |Disponible |Complete |
 | Brésil Sud |Disponible |Complete |
 | Centre du Canada |Disponible |Complete |
 | Est du Canada |1er juin 2020 |1er juillet 2020 |
@@ -43,7 +43,7 @@ Le tableau suivant récapitule par région le moment où le niveau de capacité 
 | Chine du Nord |\* |\* |
 | Chine Nord 2 |Disponible |Complete |
 | Asie Est |Disponible |Complete |
-| East US |Disponible |Complete |
+| USA Est |Disponible |Complete |
 | USA Est 2 |Disponible |Complete |
 | France Centre |Disponible |En cours |
 | Centre de l’Allemagne |\* |\* |
@@ -52,18 +52,18 @@ Le tableau suivant récapitule par région le moment où le niveau de capacité 
 | Sud de l’Inde |Disponible |Complete |
 | Inde Ouest |1er juillet 2019 |En cours |
 | Japon Est |Disponible |Complete |
-| Japon Ouest |Disponible |Complete |
+| OuJapon Est |Disponible |Complete |
 | Centre de la Corée |Disponible |Complete |
 | Corée du Sud |Disponible |Complete |
-| USA Centre Nord |Disponible |Complete |
+| Centre-Nord des États-Unis |Disponible |Complete |
 | Europe Nord |Disponible |Complete |
 | Afrique du Sud Nord |12 juillet 2019 |Complete |
-| USA Centre Sud |Disponible |Complete |
+| États-Unis - partie centrale méridionale |Disponible |Complete |
 | Asie Sud-Est |Disponible |Complete |
 | Émirats arabes unis Nord |20 juillet 2019 |Complete |
 | Sud du Royaume-Uni |Disponible |En cours |
 | Ouest du Royaume-Uni |Disponible |En cours |
-| USA Centre-Ouest |1er septembre 2019 |1er octobre 2019|
+| Centre-USA Ouest |1er septembre 2019 |1er octobre 2019|
 | Europe Ouest |Disponible |Complete |
 | USA Ouest |Disponible |Complete |
 | USA Ouest 2 |Disponible |Complete |

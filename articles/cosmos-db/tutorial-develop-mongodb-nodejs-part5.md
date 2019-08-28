@@ -12,12 +12,12 @@ ms.author: jopapa
 ms.custom: seodec18
 ms.reviewer: sngun
 Customer intent: As a developer, I want to build a Node.js application, so that I can manage the data stored in Cosmos DB.
-ms.openlocfilehash: c8cab3c723b7e507b0f3b05b933cca9e2c24fb39
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 626015e2aac5eb09dfd271a139dbc5eb49a088fc
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58075473"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69616417"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---use-mongoose-to-connect-to-cosmos-db"></a>Créer une application Angular avec l’API Azure Cosmos DB pour MongoDB - Utiliser Mongoose pour établir la connexion à Cosmos DB
 
@@ -238,7 +238,7 @@ Ensuite, exécutez l’application en procédant comme suit :
 
     ![Nouveau compte Azure Cosmos DB dans le portail Azure](./media/tutorial-develop-mongodb-nodejs-part5/azure-cosmos-db-heroes-app.png)
 
-Pour le moment, aucun héros n’est stocké dans l’application. Dans la partie suivante de ce didacticiel, nous allons ajouter des fonctionnalités d’ajout, d’envoi et de suppression. Nous pouvons ensuite ajouter, mettre à jour et supprimer des héros de l’interface utilisateur en utilisant des connexions Mongoose à notre base de données Azure Cosmos DB. 
+Pour le moment, aucun héros n’est stocké dans l’application. Dans la partie suivante de ce didacticiel, nous allons ajouter des fonctionnalités d’ajout, d’envoi et de suppression. Nous pouvons ensuite ajouter, mettre à jour et supprimer des héros de l’interface utilisateur en utilisant des connexions Mongoose à notre base de données Azure Cosmos. 
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 

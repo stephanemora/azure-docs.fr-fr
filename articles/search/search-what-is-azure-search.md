@@ -6,25 +6,20 @@ author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: overview
-ms.date: 08/13/2019
+ms.date: 08/21/2019
 ms.author: heidist
-ms.openlocfilehash: eefa0eb5d1e15df34089d7baa3241cbbed4724c2
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 204951f725c2885fe9f8bf33fffe83e55628dd34
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69034850"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69899686"
 ---
 # <a name="what-is-azure-search"></a>Présentation de Recherche Azure
 
-La Recherche Azure est une solution cloud de recherche en tant que service, qui offre aux développeurs des API et des outils permettant d’ajouter une expérience de recherche riche concernant du contenu privé et hétérogène dans les applications web, mobiles et d’entreprise. Votre code personnalisé appelle l’ingestion des données (indexation), émet des demandes de requête et gère les réponses. L’expérience de recherche est définie dans votre code client via la fonctionnalité de Recherche Azure, avec l’exécution de requête sur un index persistant que vous créez, possédez et stockez sur Recherche Azure.
+Recherche Azure est une solution cloud de recherche en tant que service, qui offre aux développeurs des API et des outils permettant d’ajouter une expérience de recherche riche concernant du contenu privé et hétérogène dans les applications web, mobiles et d’entreprise. Votre code personnalisé appelle l’ingestion de données (indexation) pour créer et charger un index. De l’autre côté, votre code d’application émet des demandes de requête et gère les réponses. L’expérience de recherche est définie dans votre client via la fonctionnalité de Recherche Azure, avec l’exécution de requête sur un index persistant que vous créez, possédez et stockez sur Recherche Azure.
 
-![Architecture Recherche Azure](media/search-what-is-azure-search/azure-search-diagram.png "Architecture Recherche Azure")
-
-<!-- + Build a search index containing only your data, sourced from multiple content types and platforms. 
-+ Leverage AI enrichments to extract text and features from image files, or entities and key phrases from raw text.
-+ Create intuitive search experiences with facet navigation and filters, synonyms, autocomplete, and text analysis for "did you mean" autocorrected search terms. Get relevance tuning through functions and boosting logic.
-+ Create search apps for specific use-cases. Geo-search supports a "find near me" experience. Multi-lingual search is supported through language analyzers for non-English full text search. -->
+![Architecture Recherche Azure](media/search-what-is-azure-search/azure-search-diagram.svg "Architecture Recherche Azure")
 
 Cette fonctionnalité est exposée par le biais d’une [API REST](/rest/api/searchservice/) ou d’un [SDK.NET](search-howto-dotnet-sdk.md) simple, qui masque la complexité inhérente de la récupération d’informations. En plus des API, le portail Azure offre la prise en charge de l’administration et de la gestion de contenu, avec des outils de prototypage et d’interrogation de vos index. Étant donné que le service s’exécute dans le cloud, infrastructure et la disponibilité sont gérées par Microsoft.
 
@@ -36,7 +31,7 @@ Recherche Azure est adapté aux scénarios d’application suivants :
 
 + Implémentation facile des fonctionnalités de recherche. Les API Recherche Azure simplifient la construction des requêtes, la navigation par facettes, les filtres (y compris la recherche spatiale), le mappage des synonymes, les requêtes TypeAhead et le paramétrage de la pertinence. À l’aide des fonctionnalités intégrées, vous pouvez répondre aux attentes des utilisateurs finaux en matière de recherche, de la même façon que les moteurs de recherche Web commerciaux.
 
-+ Indexation de texte non structuré ou extraction de texte et d’informations à partir de fichiers image. La fonctionnalité de recherche cognitive de Recherche Azure ajoute un traitement IA à un pipeline d’indexation. Certains cas d’utilisation courants incluent la reconnaissance optique des documents numérisés, la reconnaissance d’entités et l’extraction d’expressions clés sur les documents volumineux, la détection de la langue et la traduction de texte, et l’analyse des sentiments.
++ Indexation de texte non structuré ou extraction de texte et d’informations à partir de fichiers image. La fonctionnalité de [recherche cognitive](cognitive-search-concept-intro.md) de Recherche Azure ajoute un traitement IA à un pipeline d’indexation. Certains cas d’utilisation courants incluent la reconnaissance optique des documents numérisés, la reconnaissance d’entités et l’extraction d’expressions clés sur les documents volumineux, la détection de la langue et la traduction de texte, et l’analyse des sentiments.
 
 + Exigences linguistiques respectées à l’aide des analyseurs personnalisés et linguistiques de Recherche Azure. Si vous disposez d’un contenu autre que l’anglais, Recherche Azure prend en charge les analyseurs Lucene et les processeurs de langage naturel de Microsoft. Vous pouvez également configurer des analyseurs pour obtenir un traitement spécialisé de contenu brut, tel que le filtrage des signes diacritiques.
 
@@ -93,7 +88,9 @@ Le modèle push extrait des données auprès de sources de données externes. Ce
 Le modèle d’émission est fourni via le Kit de développement logiciel (SDK) ou les API REST permettant d’envoyer les documents mis à jour à un index. Vous pouvez émettre des données à partir de n'importe quel groupe de données à l’aide du format JSON. Pour obtenir des conseils sur le chargement des données, consultez [Ajout, mise à jour ou suppression de documents](/rest/api/searchservice/addupdate-or-delete-documents) ou [Utilisation du Kit de développement logiciel (SDK) .NET](search-howto-dotnet-sdk.md).
 
 ### <a name="step-4-search"></a>Étape 4 : Recherche
-Après avoir rempli une index, vous pouvez [émettre des requêtes de recherche](/rest/api/searchservice/Search-Documents) à destination du point de terminaison du service en utilisant des requêtes HTTP simples avec l’API REST ou le SDK .NET.
+Après avoir rempli une index, vous pouvez [émettre des requêtes de recherche](search-query-overview.md) à destination du point de terminaison du service en utilisant des requêtes HTTP simples avec l’[API REST](/rest/api/searchservice/Search-Documents) ou le [SDK .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations).
+
+Parcourez la page [Créer votre première application de recherche](tutorial-csharp-create-first-app.md) pour générer et étendre une page web qui collecte les entrées d’utilisateur et gère les résultats. Vous pouvez également utiliser [Postman pour les appels REST interactifs](search-get-started-postman.md) ou l’[Explorateur de recherche](search-explorer.md) intégré dans le portail Azure pour interroger un index existant.
 
 ## <a name="how-it-compares"></a>Comparaison
 

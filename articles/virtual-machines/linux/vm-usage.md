@@ -90,9 +90,9 @@ Le nom de la région renseigné dans le champ Emplacement de la ressource dans l
 |    japanwest             |    Japon Ouest                               |
 |    KoreaCentral          |    Corée Centre                            |
 |    KoreaSouth            |    Corée Sud                              |
-|    northcentralus        |    USA Centre Nord                      |
+|    northcentralus        |    Centre-Nord des États-Unis                      |
 |    northeurope           |    Europe Nord                          |
-|    southcentralus        |    USA Centre Sud                      |
+|    southcentralus        |    États-Unis - partie centrale méridionale                      |
 |    southeastasia         |    Asie Sud-Est                        |
 |    SouthIndia            |    Inde Sud                              |
 |    UKNorth               |    Nord du Royaume-Uni                              |

@@ -28,11 +28,11 @@ Le service SAP HANA sur Azure (Grandes instances) basé sur les tampons Révisio
 - USA Ouest
 - USA Est
 - Australie Est
-- Australie Sud-Est
+- Sud-Australie Est
 - Europe Ouest
 - Europe Nord
 - Japon Est
-- Japon Ouest
+- OuJapon Est
 
 Le service SAP HANA sur Azure (Grandes instances) basé sur des tampons Révision 4 est disponible dans plusieurs configurations dans les régions suivantes :
 

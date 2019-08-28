@@ -222,7 +222,7 @@ Pour déployer Azure File Sync, vous commencez par créer une ressource **Servic
    | **Nom** | Nom unique (par abonnement) du service de synchronisation de stockage.<br><br>Utilisez le nom _afssyncservice02_ dans ce tutoriel. |
    | **Abonnement** | L’abonnement Azure que vous utilisez pour ce tutoriel. |
    | **Groupe de ressources** | groupe de ressources qui contient le service de synchronisation de stockage.<br><br>Utilisez le groupe _afsresgroup101918_ dans ce tutoriel. |
-   | **Lieu** | East US |
+   | **Lieu** | USA Est |
 
 1. Quand vous avez terminé, sélectionnez **Créer** pour déployer le **service de synchronisation de stockage**.
 1. Sélectionnez l’onglet **Notifications** > **Accéder à la ressource**.

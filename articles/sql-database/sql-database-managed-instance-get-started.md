@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab
 ms.date: 05/07/2019
-ms.openlocfilehash: 646a602d7e6c47454f039a5f4f1981a60b56fa56
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: cacd67e26b13df8ef456ac8f1391e4396f5bdd96
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567517"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69873897"
 ---
 # <a name="quickstart-create-an-azure-sql-database-managed-instance"></a>Démarrage rapide : Créer une instance managée Azure SQL Database
 
@@ -35,11 +35,11 @@ Connectez-vous au [Portail Azure](https://portal.azure.com/).
 
 Les étapes suivantes détaillent la création d’une instance managée.
 
-1. Sélectionnez **Créer une ressource** en haut à gauche du portail Azure.
-2. Recherchez **managed instance**, puis sélectionnez **Azure SQL Managed Instance**.
-3. Sélectionnez **Créer**.
+1. Dans le menu de gauche du portail Azure, sélectionnez **Azure SQL**. Si Azure SQL ne figure pas dans la liste, sélectionnez **Tous les services**, puis tapez *Azure SQL* dans la zone de recherche.
+2. Sélectionnez **+Ajouter** pour ouvrir la page **Sélectionner l’option de déploiement SQL**. Vous pouvez afficher des informations supplémentaires sur Azure SQL Database Managed Instance en sélectionnant **Afficher les détails** sur la vignette **Managed Instances**.
+3. Sélectionnez **Créer** :
 
-   ![Créer une instance gérée](./media/sql-database-managed-instance-get-started/managed-instance-create.png)
+   ![Créer une instance gérée](./media/sql-database-managed-instance-get-started/create-managed-instance.png)
 
 4. Renseignez le formulaire de l’option **Instance managée SQL** avec les informations demandées, en utilisant les données du tableau suivant.
 

@@ -18,6 +18,6 @@ ms.locfileid: "67191128"
 * USA Ouest
 * USA Est
 * Europe Ouest
-* USA Centre Sud
+* États-Unis - partie centrale méridionale
 * Australie Est
 * Japon Est

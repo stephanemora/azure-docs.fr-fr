@@ -69,11 +69,11 @@ Le tableau suivant montre les paires de régions primaires et secondaires dispon
 
 | Primaire | Secondaire |
 | --- | --- |
-| USA Centre Sud |USA Centre Nord |
+| États-Unis - partie centrale méridionale |Centre-Nord des États-Unis |
 | USA Est 2 |USA Centre |
 | Europe Ouest |Europe Nord |
 | Asie Sud-Est |Asie Est |
-| Japon Est |Japon Ouest |
+| Japon Est |OuJapon Est |
 
 Dans l’éventualité peu probable que les données d’une région primaire soient perdues, Microsoft tente de les récupérer. Si les données primaires sont irrécupérables, un basculement géographique est effectué et les clients concernés en sont informés via leur abonnement.
 

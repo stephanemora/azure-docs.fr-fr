@@ -211,7 +211,7 @@ Pour compléter tous les objets de base de données tels que les schémas de tab
 
    Par exemple, la commande suivante crée un service dans :
 
-   * Emplacement : Est des États-Unis 2
+   * Emplacement : USA Est 2
    * Abonnement : 97181df2-909d-420b-ab93-1bff15acb6b7
    * Nom du groupe de ressources : PostgresDemo
    * Nom du service DMS : PostgresCLI
@@ -260,7 +260,7 @@ Pour compléter tous les objets de base de données tels que les schémas de tab
 
     Par exemple, la commande suivante crée un projet à l’aide de ces paramètres :
 
-   * Emplacement : USA Centre-Ouest
+   * Emplacement : Centre-USA Ouest
    * Nom du groupe de ressources : PostgresDemo
    * Nom du service : PostgresCLI
    * Nom du projet : PGMigration

@@ -44,13 +44,13 @@ Plus d’informations sur les différentes fonctionnalités de prise en charge p
 ## <a name="supported-regions"></a>Régions prises en charge
 NPM permet d’analyser la connectivité entre les réseaux et les applications dans n’importe quelle partie du monde, à partir d’un espace de travail hébergé dans une des régions suivantes :
 * Europe Ouest
-* USA Centre-Ouest
+* Centre-USA Ouest
 * USA Est
 * Japon Est
 * Asie Sud-Est
 * Australie du Sud-Est
 * Sud du Royaume-Uni
-* Inde Centre
+* Inde centrale
 * Virginie du gouvernement des États-Unis
 
 

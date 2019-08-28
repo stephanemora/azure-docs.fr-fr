@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 06/27/2019
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: dc12d77e9a57938051300277940b6e5107e45496
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: 0a2bf306ccfa3a4a4fc80d0d55493f284185bba9
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68234534"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69648370"
 ---
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 ### <a name="azure-subscription"></a>Abonnement Azure
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
@@ -38,21 +38,17 @@ Pour plus d’informations, consultez les articles suivants :
 ### <a name="azure-storage-account"></a>Compte Azure Storage
 Dans ce guide de démarrage rapide, vous allez utiliser un compte Stockage Azure (un compte Stockage Blob, plus précisément) à usage général à la fois comme magasin de données *source* et de *destination*. Si vous ne possédez pas de compte Stockage Azure à usage général, consultez [Créer un compte de stockage](../articles/storage/common/storage-quickstart-create-account.md) pour en créer un. 
 
-#### <a name="get-the-storage-account-name-and-account-key"></a>Obtenir le nom de compte de stockage et la clé de compte
-Pour ce guide de démarrage rapide, vous devez disposer du nom et de la clé de votre compte de stockage Azure. La procédure suivante détaille les étapes à suivre pour obtenir le nom et la clé de votre compte de stockage : 
+#### <a name="get-the-storage-account-name"></a>Obtenir le nom du compte de stockage
+Pour ce démarrage rapide, vous devez disposer du nom de votre compte de stockage Azure. La procédure suivante détaille les étapes à suivre pour obtenir le nom de votre compte de stockage : 
 
 1. Dans un navigateur web, accédez au [portail Azure](https://portal.azure.com) et connectez-vous à l’aide de vos nom d’utilisateur et mot de passe Azure.
 2. Sélectionnez **Tous les services** > **Stockage** > **Comptes de stockage**.
 3. Dans la page **Comptes de stockage**, appliquez un filtre pour votre compte de stockage (si nécessaire), puis sélectionnez votre compte de stockage. 
-4. Dans la barre latérale de la page *\<Nom du compte>*  - **Compte de stockage**, accédez à l’étiquette **Paramètres** et sélectionnez **Clés d’accès**. La page *\<Nom du compte>*  - **Clés d’accès** s’affiche.
-
-   ![Obtenir le nom et la clé du compte de stockage](media/data-factory-quickstart-prerequisites/storage-account-name-key.png)
-5. Copiez les valeurs des champs **Nom du compte de stockage** et **key1** dans le presse-papiers. Collez-les dans un bloc-notes ou tout autre éditeur et enregistrez le fichier. Vous les utiliserez ultérieurement dans ce guide de démarrage rapide.   
 
 #### <a name="create-a-blob-container"></a>Création d’un conteneur d’objets blob
 Dans cette section, vous allez créer un conteneur d’objets blob nommé **adftutorial** dans un stockage Blob Azure.
 
-1. Dans la barre latérale de la page *\<Nom du compte>*  - **Clés d’accès**, sélectionnez **Vue d’ensemble** > **Objets blob**.
+1. Dans la page du compte de stockage, sélectionnez **Présentation** > **Blobs**.
 2. Dans la barre d’outils de la page *\<Nom du compte>*  - **Objets blob**, sélectionnez **Conteneur**.
 3. Dans la boîte de dialogue **Nouveau conteneur**, saisissez le nom **adftutorial**, puis sélectionnez **OK**. La page *\<Nom du compte>*  - **Objets blob** est mise à jour pour inclure **adftutorial** dans la liste des conteneurs.
 

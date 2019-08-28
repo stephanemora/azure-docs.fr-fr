@@ -43,7 +43,7 @@ Un modèle définit la configuration de chaque type de ressource. Un type de res
 |------------------------------|----------------------------------------------------------|-------------------------------------------|
 | Type                         | Type de ressource Azure à créer                            | Microsoft.Compute/virtualMachineScaleSets |
 | Nom                         | Nom du groupe identique                                       | myScaleSet                                |
-| location                     | Emplacement de création du groupe identique                     | East US                                   |
+| location                     | Emplacement de création du groupe identique                     | USA Est                                   |
 | sku.name                     | Taille de machine virtuelle pour chaque instance de groupe identique                  | Standard_A1                               |
 | sku.capacity                 | Nombre d’instances de machines virtuelles à créer initialement           | 2                                         |
 | upgradePolicy.mode           | Mode de mise à niveau d’instance de machine virtuelle lorsque des modifications se produisent              | Automatique                                 |

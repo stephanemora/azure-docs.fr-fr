@@ -35,7 +35,7 @@ Le partage de fichiers contient également une image de 5 Go. Automatiquement c
 
 ## <a name="use-existing-resources"></a>Utiliser les ressources existantes
 
-L’option Avancé vous permet d’associer des ressources existantes. Lorsque vous sélectionnez une région Cloud Shell, vous devez également choisir un compte de stockage de sauvegarde dans cette région. Par exemple, si votre région affectée est Ouest des États-Unis, vous devez alors associer un partage de fichiers qui se trouve également dans Ouest des États-Unis.
+L’option Avancé vous permet d’associer des ressources existantes. Lorsque vous sélectionnez une région Cloud Shell, vous devez également choisir un compte de stockage de sauvegarde dans cette région. Par exemple, si votre région affectée est USA Ouest, vous devez alors associer un partage de fichiers qui se trouve également dans USA Ouest.
 
 Lorsque l’invite de configuration du stockage s’affiche, sélectionnez **Afficher les paramètres avancés** pour visualiser des options supplémentaires. Les options de stockage renseignées filtrent les comptes de stockage localement redondant (LRS), de stockage géoredondant (GRS) et de stockage redondant interzone (ZRS). 
 

@@ -137,9 +137,9 @@ Mettez sur liste verte le trafic du sous-réseau à l’aide de l’adresse IP s
 |-----------------------|-------|---------|
 |USA Est|NAT de plan de contrôle </br></br>Webapp|23.101.152.95/32 </br></br>40.70.58.221/32|
 |USA Est 2|NAT de plan de contrôle </br></br>Webapp|23.101.152.95/32 </br></br>40.70.58.221/32|
-|USA Centre Nord|NAT de plan de contrôle </br></br>Webapp|23.101.152.95/32 </br></br>40.70.58.221/32|
+|Centre-Nord des États-Unis|NAT de plan de contrôle </br></br>Webapp|23.101.152.95/32 </br></br>40.70.58.221/32|
 |USA Centre|NAT de plan de contrôle </br></br>Webapp|23.101.152.95/32 </br></br>40.70.58.221/32|
-|USA Centre Sud|NAT de plan de contrôle </br></br>Webapp|40.83.178.242/32 </br></br>40.118.174.12/32|
+|États-Unis - partie centrale méridionale|NAT de plan de contrôle </br></br>Webapp|40.83.178.242/32 </br></br>40.118.174.12/32|
 |USA Ouest|NAT de plan de contrôle </br></br>Webapp|40.83.178.242/32 </br></br>40.118.174.12/32|
 |USA Ouest 2|NAT de plan de contrôle </br></br>Webapp|40.83.178.242/32 </br></br>40.118.174.12/32|
 |Centre du Canada|NAT de plan de contrôle </br></br>Webapp|40.85.223.25/32 </br></br>13.71.184.74/32|
@@ -148,17 +148,17 @@ Mettez sur liste verte le trafic du sous-réseau à l’aide de l’adresse IP s
 |Sud du Royaume-Uni|NAT de plan de contrôle </br></br>Webapp|51.140.203.27/32 </br></br>51.140.204.4/32|
 |Europe Ouest|NAT de plan de contrôle </br></br>Webapp|23.100.0.135/32 </br></br>52.232.19.246/32|
 |Europe Nord|NAT de plan de contrôle </br></br>Webapp|23.100.0.135/32 </br></br>52.232.19.246/32|
-|Inde Centre|NAT de plan de contrôle </br></br>Webapp|104.211.89.81/32 </br></br>104.211.101.14/32|
+|Inde centrale|NAT de plan de contrôle </br></br>Webapp|104.211.89.81/32 </br></br>104.211.101.14/32|
 |Inde Sud|NAT de plan de contrôle </br></br>Webapp|104.211.89.81/32 </br></br>104.211.101.14/32|
 |Inde Ouest|NAT de plan de contrôle </br></br>Webapp|104.211.89.81/32 </br></br>104.211.101.14/32|
 |Asie Sud-Est|NAT de plan de contrôle </br></br>Webapp|52.187.0.85/32 </br></br>52.187.145.107/32|
 |Asie Est|NAT de plan de contrôle </br></br>Webapp|52.187.0.85/32 </br></br>52.187.145.107/32|
 |Australie Est|NAT de plan de contrôle </br></br>Webapp|13.70.105.50/32 </br></br>13.75.218.172/32|
-|Australie Sud-Est|NAT de plan de contrôle </br></br>Webapp|13.70.105.50/32 </br></br>13.75.218.172/32|
+|Sud-Australie Est|NAT de plan de contrôle </br></br>Webapp|13.70.105.50/32 </br></br>13.75.218.172/32|
 |Centre de l’Australie|NAT de plan de contrôle </br></br>Webapp|13.70.105.50/32 </br></br>13.75.218.172/32|
 |Centre de l’Australie 2|NAT de plan de contrôle </br></br>Webapp|13.70.105.50/32 </br></br>13.75.218.172/32|
 |Japon Est|NAT de plan de contrôle </br></br>Webapp|13.78.19.235/32 </br></br>52.246.160.72/32|
-|Japon Ouest|NAT de plan de contrôle </br></br>Webapp|13.78.19.235/32 </br></br>52.246.160.72/32|
+|OuJapon Est|NAT de plan de contrôle </br></br>Webapp|13.78.19.235/32 </br></br>52.246.160.72/32|
 
 ## <a name="troubleshooting"></a>Résolution de problèmes
 

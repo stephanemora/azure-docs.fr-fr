@@ -37,7 +37,7 @@ Connectez-vous au [portail Azure](https://portal.azure.com) et créez une ressou
    | ------------- |:-------------|:-----|
    | **Nom**      | Valeur globalement unique | Nom identifiant l’application que vous analysez. |
    | **Groupe de ressources**     | myResourceGroup      | Nom du nouveau groupe de ressources ou existant pour héberger les données Application Insights. |
-   | **Lieu** | East US | Choisissez un emplacement près de chez vous ou proche de l’endroit où votre application est hébergée. |
+   | **Lieu** | USA Est | Choisissez un emplacement près de chez vous ou proche de l’endroit où votre application est hébergée. |
 
 Entrez les valeurs appropriées dans les champs obligatoires, puis sélectionnez **Vérifier + créer**.
 

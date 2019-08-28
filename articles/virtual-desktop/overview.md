@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: overview
 ms.date: 08/07/2019
 ms.author: helohr
-ms.openlocfilehash: 7c331a4a7395069dc4dc3ab1dcfc89415be0898c
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 8827aa660d348ef9e42c617067c2837b8697ba6e
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68854453"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69876778"
 ---
 # <a name="what-is-windows-virtual-desktop-preview"></a>Qu’est-ce que Windows Virtual Desktop Preview ? 
 
@@ -81,7 +81,7 @@ Votre infrastructure doit contenir les éléments suivants pour prendre en charg
 Les machines virtuelles Azure que vous créez pour Windows Virtual Desktop doivent :
 
 * être [standard jointes à un domaine](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-comparison) ou [hybrides jointes à AD](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan). Les machines virtuelles ne peuvent pas être jointes à Azure AD.
-* Exécuter l'une des [images de système d'exploitation prises en charge](#supported-virtual-machine-os-image) suivantes.
+* Exécuter l'une des [images de système d'exploitation prises en charge](#supported-virtual-machine-os-images) suivantes.
 
 >[!NOTE]
 >Si vous avez besoin d’un abonnement Azure, vous pouvez demander un [essai gratuit d’un mois](https://azure.microsoft.com/free/). Si vous utilisez l’essai gratuit d’Azure, vous devez utiliser Azure AD Domain Services pour synchroniser votre annuaire Windows Server Active Directory avec Azure Active Directory.
@@ -101,7 +101,7 @@ Les clients Bureau à distance suivants prennent en charge Windows Virtual Deskt
 * [Windows](https://docs.microsoft.com/azure/virtual-desktop/connect-windows-7-and-10)
 * [HTML5](https://docs.microsoft.com/azure/virtual-desktop/connect-web)
 
-## <a name="supported-virtual-machine-os-image"></a>Image de système d'exploitation de machine virtuelle prise en charge
+## <a name="supported-virtual-machine-os-images"></a>Images de système d’exploitation de machine virtuelle prises en charge
 
 Windows Virtual Desktop prend en charge les images de système d'exploitation suivantes :
 

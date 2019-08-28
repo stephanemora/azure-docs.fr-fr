@@ -60,11 +60,11 @@ Traffic Analytics examine les journaux de flux de groupe de sécurité réseau b
 Vous pouvez utiliser l’analytique du trafic pour les régions prises en charge suivantes :
 
 * Centre du Canada
-* USA Centre-Ouest
-* East US
+* Centre-USA Ouest
+* USA Est
 * USA Est 2
-* USA Centre Nord
-* USA Centre Sud
+* Centre-Nord des États-Unis
+* États-Unis - partie centrale méridionale
 * USA Centre
 * USA Ouest
 * USA Ouest 2
@@ -75,24 +75,24 @@ Vous pouvez utiliser l’analytique du trafic pour les régions prises en charge
 * Ouest du Royaume-Uni
 * Sud du Royaume-Uni
 * Australie Est
-* Australie Sud-Est
+* Sud-Australie Est
 * Asie Est
 * Asie Sud-Est
 * Centre de la Corée
-* Inde Centre
+* Inde centrale
 * Inde Sud
 * Japon Est 
-* Japon Ouest
+* OuJapon Est
 * Gouvernement américain - Virginie
 
 ## <a name="supported-regions-log-analytics-workspaces"></a>Régions prises en charge : Espaces de travail Log Analytics
 
 L’espace de travail Log Analytics doit exister dans les régions suivantes :
 * Centre du Canada
-* USA Centre-Ouest
-* East US
+* Centre-USA Ouest
+* USA Est
 * USA Est 2
-* USA Centre Sud
+* États-Unis - partie centrale méridionale
 * USA Ouest
 * USA Ouest 2
 * USA Centre
@@ -101,11 +101,11 @@ L’espace de travail Log Analytics doit exister dans les régions suivantes :
 * Europe Ouest
 * Sud du Royaume-Uni
 * Australie Est
-* Australie Sud-Est
+* Sud-Australie Est
 * Asie Est
 * Asie Sud-Est
 * Centre de la Corée
-* Inde Centre
+* Inde centrale
 * Japon Est
 * Gouvernement américain - Virginie
 

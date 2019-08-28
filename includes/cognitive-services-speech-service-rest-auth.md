@@ -54,7 +54,7 @@ Le corps de la réponse contient le jeton d’accès au format JSON Web Token (J
 
 #### <a name="powershell-sample"></a>Exemple de code PowerShell
 
-Cet exemple est un simple script PowerShell pour obtenir un jeton d’accès. Remplacez `YOUR_SUBSCRIPTION_KEY` par votre clé d’abonnement de service de reconnaissance vocale. Veillez à utiliser le point de terminaison correct pour la région correspondant à votre abonnement. Cet exemple est actuellement configuré pour l’Ouest des États-Unis.
+Cet exemple est un simple script PowerShell pour obtenir un jeton d’accès. Remplacez `YOUR_SUBSCRIPTION_KEY` par votre clé d’abonnement de service de reconnaissance vocale. Veillez à utiliser le point de terminaison correct pour la région correspondant à votre abonnement. Cet exemple est actuellement configuré pour l’USA Ouest.
 
 ```Powershell
 $FetchTokenHeader = @{
@@ -73,7 +73,7 @@ $OAuthToken
 
 #### <a name="curl-sample"></a>Exemple cURL
 
-cURL est un outil en ligne de commande disponible dans Linux (ainsi que dans le sous-système Windows pour Linux). Cette commande cURL montre comment obtenir un jeton d’accès. Remplacez `YOUR_SUBSCRIPTION_KEY` par votre clé d’abonnement de service de reconnaissance vocale. Veillez à utiliser le point de terminaison correct pour la région correspondant à votre abonnement. Cet exemple est actuellement configuré pour l’Ouest des États-Unis.
+cURL est un outil en ligne de commande disponible dans Linux (ainsi que dans le sous-système Windows pour Linux). Cette commande cURL montre comment obtenir un jeton d’accès. Remplacez `YOUR_SUBSCRIPTION_KEY` par votre clé d’abonnement de service de reconnaissance vocale. Veillez à utiliser le point de terminaison correct pour la région correspondant à votre abonnement. Cet exemple est actuellement configuré pour l’USA Ouest.
 
 ```cli
 curl -v -X POST
@@ -85,7 +85,7 @@ curl -v -X POST
 
 #### <a name="c-sample"></a>Exemple de code C#
 
-La classe C# montre comment obtenir un jeton d’accès. Transmettez votre clé d’abonnement du service Speech quand vous instanciez la classe. Si votre abonnement ne figure pas dans la région Ouest des États-Unis, modifiez la valeur `FetchTokenUri` afin qu’elle corresponde à la région de votre abonnement.
+La classe C# montre comment obtenir un jeton d’accès. Transmettez votre clé d’abonnement du service Speech quand vous instanciez la classe. Si votre abonnement ne figure pas dans la région USA Ouest, modifiez la valeur `FetchTokenUri` afin qu’elle corresponde à la région de votre abonnement.
 
 ```cs
 public class Authentication

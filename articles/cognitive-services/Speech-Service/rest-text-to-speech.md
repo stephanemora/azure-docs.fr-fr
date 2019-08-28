@@ -48,18 +48,18 @@ Le point de terminaison `voices/list` vous permet d’obtenir une liste complèt
 | Centre du Canada | `https://canadacentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | USA Centre | `https://centralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Asie Est | `https://eastasia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| East US | `https://eastus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| USA Est | `https://eastus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | USA Est 2 | `https://eastus2.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | France Centre | `https://francecentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Inde Centre | `https://centralindia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Japon Est | `https://japaneast.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Centre de la Corée | `https://koreacentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| USA Centre Nord | `https://northcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Centre-Nord des États-Unis | `https://northcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Europe Nord | `https://northeurope.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| USA Centre Sud | `https://southcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| États-Unis - partie centrale méridionale | `https://southcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Asie Sud-Est | `https://southeastasia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Sud du Royaume-Uni | `https://uksouth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| Europe de l'Ouest | `https://westeurope.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Europe Ouest | `https://westeurope.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | USA Ouest | `https://westus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | USA Ouest 2 | `https://westus2.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 

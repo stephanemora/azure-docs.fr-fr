@@ -69,7 +69,7 @@ Depuis fin mars 2019, le service HSM dédié est disponible dans les 14 régi
 * USA Est
 * USA Est 2
 * USA Ouest
-* USA Centre Sud
+* États-Unis - partie centrale méridionale
 * Asie Sud-Est
 * Asie Est
 * Europe Nord
@@ -79,7 +79,7 @@ Depuis fin mars 2019, le service HSM dédié est disponible dans les 14 régi
 * Centre du Canada
 * Est du Canada
 * Australie Est
-* Australie Sud-Est
+* Sud-Australie Est
 
 ## <a name="interoperability"></a>Interopérabilité
 

@@ -161,7 +161,7 @@ Configurez un projet Azure Migrate, puis ajoutez-y l’outil Azure Migrate Serve
     --- | ---
     Asie | Asie Sud-Est
     Europe | Europe Nord ou Europe Ouest
-    États-Unis | USA Est ou USA Centre-Ouest
+    États-Unis | USA Est ou Centre-USA Ouest
 
     La zone géographique spécifiée pour le projet est utilisée uniquement pour stocker les métadonnées collectées à partir des machines virtuelles locales. Vous pouvez sélectionner n’importe quelle région cible pour la migration réelle.
 8. Dans **Sélectionner un outil d’évaluation**, sélectionnez **Ignorer l’ajout d’un outil d’évaluation pour l’instant** > **Suivant**.

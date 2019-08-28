@@ -243,24 +243,24 @@ Azure File Sync est disponible uniquement dans les régions suivantes :
 
 | Région | Emplacement du centre de données |
 |--------|---------------------|
-| Est de l’Australie | Nouvelle-Galles du Sud |
-| Sud-est de l’Australie | Victoria |
+| Australie Est | Nouvelle-Galles du Sud |
+| Sud-Australie Est | Victoria |
 | Brésil Sud | État de Sao Paolo |
 | Centre du Canada | Toronto |
 | Est du Canada | Québec |
-| Inde Centre | Pune |
+| Inde centrale | Pune |
 | USA Centre | Iowa |
 | Asie Est | Hong Kong (R.A.S.) |
-| East US | Virginie |
-| Est des États-Unis 2 | Virginie |
+| USA Est | Virginie |
+| USA Est 2 | Virginie |
 | France Centre | Paris |
 | Centre de la Corée| Séoul |
 | Corée du Sud| Busan |
 | Japon Est | Tokyo, Saitama |
-| Japon Ouest | Osaka |
-| USA Centre Nord | Illinois |
+| OuJapon Est | Osaka |
+| Centre-Nord des États-Unis | Illinois |
 | Europe Nord | Irlande |
-| USA Centre Sud | Texas |
+| États-Unis - partie centrale méridionale | Texas |
 | Inde Sud | Chennai |
 | Asie Sud-Est | Singapour |
 | Sud du Royaume-Uni | Londres |
@@ -269,7 +269,7 @@ Azure File Sync est disponible uniquement dans les régions suivantes :
 | Gouvernement des États-Unis – Texas | Texas |
 | Gouvernement américain - Virginie | Virginie |
 | Europe Ouest | Pays-bas |
-| USA Centre-Ouest | Wyoming |
+| Centre-USA Ouest | Wyoming |
 | USA Ouest | Californie |
 | USA Ouest 2 | Washington |
 
@@ -285,25 +285,25 @@ Pour prendre en charge l’intégration du basculement entre le stockage géored
 
 | Région primaire      | Région jumelée      |
 |---------------------|--------------------|
-| Australie Est      | Australie Sud-Est|
-| Australie Sud-Est | Australie Est     |
-| Brésil Sud        | USA Centre Sud   |
+| Australie Est      | Sud-Australie Est|
+| Sud-Australie Est | Australie Est     |
+| Brésil Sud        | États-Unis - partie centrale méridionale   |
 | Centre du Canada      | Est du Canada        |
 | Est du Canada         | Centre du Canada     |
-| Inde Centre       | Inde Sud        |
+| Inde centrale       | Inde Sud        |
 | USA Centre          | USA Est 2          |
 | Asie Est           | Asie Sud-Est     |
-| East US             | USA Ouest            |
+| USA Est             | USA Ouest            |
 | USA Est 2           | USA Centre         |
 | France Centre      | France Sud       |
-| Japon Est          | Japon Ouest         |
-| Japon Ouest          | Japon Est         |
+| Japon Est          | OuJapon Est         |
+| OuJapon Est          | Japon Est         |
 | Centre de la Corée       | Corée du Sud        |
 | Corée du Sud         | Centre de la Corée      |
 | Europe Nord        | Europe Ouest        |
-| USA Centre Nord    | USA Centre Sud   |
-| USA Centre Sud    | USA Centre Nord   |
-| Inde Sud         | Inde Centre      |
+| Centre-Nord des États-Unis    | États-Unis - partie centrale méridionale   |
+| États-Unis - partie centrale méridionale    | Centre-Nord des États-Unis   |
+| Inde Sud         | Inde centrale      |
 | Asie Sud-Est      | Asie Est          |
 | Sud du Royaume-Uni            | Ouest du Royaume-Uni            |
 | Ouest du Royaume-Uni             | Sud du Royaume-Uni           |
@@ -311,9 +311,9 @@ Pour prendre en charge l’intégration du basculement entre le stockage géored
 | US Gov Iowa         | Gouvernement américain - Virginie    |
 | Gouvernement américain - Virginie      | Gouvernement des États-Unis – Texas       |
 | Europe Ouest         | Europe Nord       |
-| USA Centre-Ouest     | USA Ouest 2          |
-| USA Ouest             | East US            |
-| USA Ouest 2           | USA Centre-Ouest    |
+| Centre-USA Ouest     | USA Ouest 2          |
+| USA Ouest             | USA Est            |
+| USA Ouest 2           | Centre-USA Ouest    |
 
 ## <a name="azure-file-sync-agent-update-policy"></a>Stratégie de mise à jour de l’agent Azure File Sync
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]

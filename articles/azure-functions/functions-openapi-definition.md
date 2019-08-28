@@ -1,24 +1,23 @@
 ---
-title: Créer une définition OpenAPI pour une fonction avec Gestion des API Azure
+title: Créer une définition OpenAPI pour une API serverless à l’aide de Gestion des API Azure
 description: Créez une définition OpenAPI permettant aux autres applications et services d’appeler votre fonction dans Azure.
-services: functions
 keywords: OpenAPI, Swagger, applications cloud, services cloud
 author: ggailey777
-manager: jeconnoc
+manager: gwallace
 ms.service: azure-functions
 ms.topic: tutorial
 ms.date: 05/08/2019
 ms.author: glenga
 ms.reviewer: sunayv
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: fc724e241849f4519a0e353cb6789d3f83eaf4b9
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 54a4c6eba094231e8e73cdef87b911dfba20f657
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510482"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69533547"
 ---
-# <a name="create-an-openapi-definition-for-a-function-with-azure-api-management"></a>Créer une définition OpenAPI pour une fonction avec Gestion des API Azure
+# <a name="create-an-openapi-definition-for-a-serverless-api-using-azure-api-management"></a>Créer une définition OpenAPI pour une API serverless à l’aide de Gestion des API Azure
 
 Les API REST sont souvent décrites à l’aide d’une définition OpenAPI. Cette définition contient des informations sur les opérations qui sont disponibles dans une API et sur la façon dont les données de demande et de réponse de l’API doivent être structurées.
 
@@ -49,9 +48,9 @@ La fonction calcule ensuite le coût de la réparation et les revenus engendrés
 
 1. Développez votre Function App, puis sélectionnez le bouton **+** en regard de **Fonctions**. Sélectionnez **Dans le portail** > **Continuer**.
 
-1. Sélectionnez **Plus de modèles...**, puis **Terminer et afficher les modèles**.
+1. Sélectionnez **Plus de modèles...** , puis **Terminer et afficher les modèles**.
 
-1. Sélectionnez Déclencheur HTTP, tapez `TurbineRepair` comme **Nom** de fonction, choisissez `Function` comme **[Niveau d’authentification](functions-bindings-http-webhook.md#http-auth)**, puis sélectionnez **Créer**.  
+1. Sélectionnez Déclencheur HTTP, tapez `TurbineRepair` comme **Nom** de fonction, choisissez `Function` comme **[Niveau d’authentification](functions-bindings-http-webhook.md#http-auth)** , puis sélectionnez **Créer**.  
 
     ![Créer une fonction HTTP pour OpenAPI](media/functions-openapi-definition/select-http-trigger-openapi.png)
 

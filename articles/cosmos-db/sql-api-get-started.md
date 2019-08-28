@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 07/23/2019
 ms.author: kirankk
-ms.openlocfilehash: 37b6a9947d3cabe1f566f842e321229efe9d03b6
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: ea3779ce7d4d77e6b0a55b8a00374b701a073b66
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68598515"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69876435"
 ---
 # <a name="build-a-net-console-app-to-manage-data-in-azure-cosmos-db-sql-api-account"></a>Créer une application console .NET pour gérer des données dans le compte de l’API SQL Azure Cosmos DB
 
@@ -253,9 +253,9 @@ Vous pouvez créer une base de données à l’aide de la fonction [**CreateData
 
 Sélectionnez **F5** pour exécuter votre application.
 
-Félicitations ! Vous avez créé une base de données Azure Cosmos DB.  
+Félicitations ! Vous avez créé une base de données Azure Cosmos.  
 
-## <a id="CreateColl"></a>Étape 5 : Créez un conteneur.
+## <a id="CreateColl"></a>Étape 5 : Créez un conteneur.
 > [!WARNING]
 > L’appel de la méthode **CreateContainerIfNotExistsAsync** crée un conteneur, ce qui a une incidence sur la tarification. Pour plus d'informations, visitez notre [page de tarification](https://azure.microsoft.com/pricing/details/cosmos-db/).
 >
@@ -283,10 +283,10 @@ Vous pouvez créer un conteneur en utilisant la fonction [**CreateContainerIfNot
 
    Sélectionnez **F5** pour exécuter votre application.
 
-Félicitations ! Vous avez créé un conteneur Azure Cosmos DB.  
+Félicitations ! Vous avez créé un conteneur Azure Cosmos.  
 
 ## <a id="CreateDoc"></a>Étape 6 : Ajouter des éléments au conteneur
-Un élément peut être créé à l’aide de la fonction [**CreateItemAsync**](/dotnet/api/microsoft.azure.cosmos.container.createitemasync?view=azure-dotnet#Microsoft_Azure_Cosmos_Container_CreateItemAsync__1___0_System_Nullable_Microsoft_Azure_Cosmos_PartitionKey__Microsoft_Azure_Cosmos_ItemRequestOptions_System_Threading_CancellationToken_) de la classe **CosmosContainer**. Lorsque vous utilisez l’API SQL, les éléments sont projetés sous forme de documents, à savoir du contenu JSON (arbitraire) défini par l’utilisateur. Vous pouvez maintenant insérer un élément dans votre conteneur Azure Cosmos DB.
+Un élément peut être créé à l’aide de la fonction [**CreateItemAsync**](/dotnet/api/microsoft.azure.cosmos.container.createitemasync?view=azure-dotnet#Microsoft_Azure_Cosmos_Container_CreateItemAsync__1___0_System_Nullable_Microsoft_Azure_Cosmos_PartitionKey__Microsoft_Azure_Cosmos_ItemRequestOptions_System_Threading_CancellationToken_) de la classe **CosmosContainer**. Lorsque vous utilisez l’API SQL, les éléments sont projetés sous forme de documents, à savoir du contenu JSON (arbitraire) défini par l’utilisateur. Vous pouvez maintenant insérer un élément dans votre conteneur Azure Cosmos.
 
 Tout d’abord, nous allons créer une classe **Family** représentant les objets stockés dans Azure Cosmos DB dans cet exemple. Nous allons également créer les sous-classes **Parent**, **Child**, **Pet** et **Address** qui seront utilisées dans **Family**. Notez que l’élément doit avoir une propriété **Id** sérialisée comme **id** dans JSON.
 
@@ -320,10 +320,10 @@ Le code procède à une vérification pour s’assurer qu’il n’existe pas d�
 
 Sélectionnez **F5** pour exécuter votre application.
 
-Félicitations ! Vous avez créé deux éléments Azure Cosmos DB.  
+Félicitations ! Vous avez créé deux éléments Azure Cosmos.  
 
-## <a id="Query"></a>Étape 7 : Interroger les ressources Azure Cosmos DB
-Azure Cosmos DB prend en charge les [requêtes](sql-api-sql-query.md) enrichies sur les documents JSON stockés dans chaque collection. L’exemple de code suivant montre comment exécuter une requête sur les éléments que nous avons insérés à l’étape précédente.
+## <a id="Query"></a>Étape 7 : Interroger les ressources Azure Cosmos DB
+Azure Cosmos DB prend en charge les [requêtes](sql-api-sql-query.md) avancées sur les documents JSON stockés dans chaque conteneur. L’exemple de code suivant montre comment exécuter une requête sur les éléments que nous avons insérés à l’étape précédente.
 
 1. Copiez et collez la méthode **QueryItemsAsync** sous votre méthode **AddItemsToContainerAsync**.
 
@@ -347,9 +347,9 @@ Azure Cosmos DB prend en charge les [requêtes](sql-api-sql-query.md) enrichies 
 
 Sélectionnez **F5** pour exécuter votre application.
 
-Félicitations ! Vous avez interrogé un conteneur Azure Cosmos DB.
+Félicitations ! Vous avez interrogé un conteneur Azure Cosmos.
 
-## <a id="ReplaceItem"></a>Étape 8 : Remplacer un élément JSON
+## <a id="ReplaceItem"></a>Étape 8 : Remplacer un élément JSON
 À présent, nous allons mettre à jour un élément dans Azure Cosmos DB.
 
 1. Copiez et collez la méthode **ReplaceFamilyItemAsync** sous votre méthode **QueryItemsAsync**. Notez que nous modifions deux propriétés, ``IsRegistered`` de la famille, et ``Grade`` de l’un des enfants.
@@ -375,7 +375,7 @@ Félicitations ! Vous avez interrogé un conteneur Azure Cosmos DB.
 
    Sélectionnez **F5** pour exécuter votre application.
 
-Félicitations ! Vous avez remplacé un élément Azure Cosmos DB.
+Félicitations ! Vous avez remplacé un élément Azure Cosmos.
 
 ## <a id="DeleteDocument"></a>Étape 9 : Delete item (Supprimer un élément)
 À présent, nous allons supprimer un élément dans Azure Cosmos DB.
@@ -404,9 +404,9 @@ Félicitations ! Vous avez remplacé un élément Azure Cosmos DB.
 
 Sélectionnez **F5** pour exécuter votre application.
 
-Félicitations ! Vous avez supprimé un élément Azure Cosmos DB.
+Félicitations ! Vous avez supprimé un élément Azure Cosmos.
 
-## <a id="DeleteDatabase"></a>Étape 10 : Supprimer la base de données
+## <a id="DeleteDatabase"></a>Étape 10 : Supprimer la base de données
 Maintenant, nous allons supprimer notre base de données. Supprimer la base de données créée revient à supprimer la base de données et toutes les ressources enfants (conteneurs, éléments, procédures stockées, fonctions définies par l’utilisateur et déclencheurs). Nous allons également supprimer l’instance **CosmosClient**.
 
 1. Copiez et collez la méthode **DeleteDatabaseAndCleanupAsync** sous votre méthode **DeleteFamilyItemAsync**.
@@ -419,9 +419,9 @@ Maintenant, nous allons supprimer notre base de données. Supprimer la base de d
 
 Sélectionnez **F5** pour exécuter votre application.
 
-Félicitations ! Vous avez supprimé une base de données Azure Cosmos DB.
+Félicitations ! Vous avez supprimé une base de données Azure Cosmos.
 
-## <a id="Run"></a>Étape 11 : Exécuter votre application de console C#
+## <a id="Run"></a>Étape 11 : Exécuter votre application de console C#
 Sélectionnez F5 dans Visual Studio pour générer et exécuter l’application en mode débogage.
 
 La sortie de votre application entière doit s’afficher dans une fenêtre de console. Celle-ci doit présenter les résultats des requêtes que nous avons ajoutées, qui doivent correspondre au texte d'exemple ci-dessous.

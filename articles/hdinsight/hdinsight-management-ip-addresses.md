@@ -47,7 +47,7 @@ Autorisez le trafic provenant des adresses IP répertoriées pour les services d
 | Asie | Asie Est | 23.102.235.122</br>52.175.38.134 | \*:443 | Trafic entrant |
 | &nbsp; | Asie Sud-Est | 13.76.245.160</br>13.76.136.249 | \*:443 | Trafic entrant |
 | Australie | Australie Est | 104.210.84.115</br>13.75.152.195 | \*:443 | Trafic entrant |
-| &nbsp; | Australie Sud-Est | 13.77.2.56</br>13.77.2.94 | \*:443 | Trafic entrant |
+| &nbsp; | Sud-Australie Est | 13.77.2.56</br>13.77.2.94 | \*:443 | Trafic entrant |
 | Brésil | Brésil Sud | 191.235.84.104</br>191.235.87.113 | \*:443 | Trafic entrant |
 | Canada | Est du Canada | 52.229.127.96</br>52.229.123.172 | \*:443 | Trafic entrant |
 | &nbsp; | Centre du Canada | 52.228.37.66</br>52.228.45.222 |\*: 443 | Trafic entrant |
@@ -60,18 +60,18 @@ Autorisez le trafic provenant des adresses IP répertoriées pour les services d
 | France | France Centre| 20.188.39.64</br>40.89.157.135 | \*:443 | Trafic entrant |
 | Allemagne | Centre de l’Allemagne | 51.4.146.68</br>51.4.146.80 | \*:443 | Trafic entrant |
 | &nbsp; | Nord-Est de l’Allemagne | 51.5.150.132</br>51.5.144.101 | \*:443 | Trafic entrant |
-| Inde | Inde Centre | 52.172.153.209</br>52.172.152.49 | \*:443 | Trafic entrant |
+| Inde | Inde centrale | 52.172.153.209</br>52.172.152.49 | \*:443 | Trafic entrant |
 | &nbsp; | Inde Sud | 104.211.223.67<br/>104.211.216.210 | \*:443 | Trafic entrant |
 | Japon | Japon Est | 13.78.125.90</br>13.78.89.60 | \*:443 | Trafic entrant |
-| &nbsp; | Japon Ouest | 40.74.125.69</br>138.91.29.150 | \*:443 | Trafic entrant |
+| &nbsp; | OuJapon Est | 40.74.125.69</br>138.91.29.150 | \*:443 | Trafic entrant |
 | Corée du Sud | Centre de la Corée | 52.231.39.142</br>52.231.36.209 | \*:443 | Trafic entrant |
 | &nbsp; | Corée du Sud | 52.231.203.16</br>52.231.205.214 | \*:443 | Trafic entrant
 | Royaume-Uni | Ouest du Royaume-Uni | 51.141.13.110</br>51.141.7.20 | \*:443 | Trafic entrant |
 | &nbsp; | Sud du Royaume-Uni | 51.140.47.39</br>51.140.52.16 | \*:443 | Trafic entrant |
 | États-Unis | USA Centre | 13.89.171.122</br>13.89.171.124 | \*:443 | Trafic entrant |
 | &nbsp; | USA Est | 13.82.225.233</br>40.71.175.99 | \*:443 | Trafic entrant |
-| &nbsp; | USA Centre Nord | 157.56.8.38</br>157.55.213.99 | \*:443 | Trafic entrant |
-| &nbsp; | USA Centre-Ouest | 52.161.23.15</br>52.161.10.167 | \*:443 | Trafic entrant |
+| &nbsp; | Centre-Nord des États-Unis | 157.56.8.38</br>157.55.213.99 | \*:443 | Trafic entrant |
+| &nbsp; | Centre-USA Ouest | 52.161.23.15</br>52.161.10.167 | \*:443 | Trafic entrant |
 | &nbsp; | USA Ouest | 13.64.254.98</br>23.101.196.19 | \*:443 | Trafic entrant |
 | &nbsp; | USA Ouest 2 | 52.175.211.210</br>52.175.222.222 | \*:443 | Trafic entrant |
 

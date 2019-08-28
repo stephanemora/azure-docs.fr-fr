@@ -3,19 +3,19 @@ author: MashaMSFT
 ms.service: sql-database
 ms.subservice: single-database
 ms.topic: include
-ms.date: 06/19/2019
+ms.date: 07/31/2019
 ms.author: mathoma
-ms.openlocfilehash: ffa48d55703347883edf96a0a27ee52d19189976
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: d19e21edd31be461ba30e8985e80c4651bbbb02d
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68935035"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69894093"
 ---
-Au cours de cette étape, vous allez créer votre groupe de ressources et une base de données unique Azure SQL Database.
+Au cours de cette étape, vous allez créer une base de données unique Azure SQL Database. 
 
 > [!IMPORTANT]
-> Veillez à configurer des règles de pare-feu pour pouvoir utiliser l’adresse IP publique de l’ordinateur sur lequel vous effectuez les étapes de cet article. 
+> Veillez à configurer des règles de pare-feu pour pouvoir utiliser l’adresse IP publique de l’ordinateur sur lequel vous effectuez les étapes de cet article.
 >
 > Pour plus d’informations, consultez [Créer une règle de pare-feu au niveau du serveur](/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database) ou, pour déterminer l’adresse IP utilisée pour la règle de pare-feu au niveau du serveur pour votre ordinateur, consultez [Créer une règle de pare-feu au niveau du serveur](../sql-database-server-level-firewall-rule.md).  
 
@@ -23,10 +23,11 @@ Au cours de cette étape, vous allez créer votre groupe de ressources et une ba
 
 Créez votre groupe de ressources et votre base de données unique à l’aide du portail Azure.
 
-1. Sélectionnez **Créer une ressource** dans le coin supérieur gauche du portail Azure.
-2. Sélectionnez **Bases de données**, puis sélectionnez **Base de données SQL** pour ouvrir la page **Créer une base de données SQL**.
+1. Dans le menu de gauche du portail Azure, sélectionnez **Azure SQL**. Si **Azure SQL** ne figure pas dans la liste, sélectionnez **Tous les services**, puis tapez *Azure SQL* dans la zone de recherche.
+2. Sélectionnez **+Ajouter** pour ouvrir la page **Sélectionner l’option de déploiement SQL**. Vous pouvez afficher des informations supplémentaires sur les différentes bases de données en sélectionnant **Afficher les détails** sur la vignette **Bases de données**.
+3. Sélectionnez **Créer** :
 
-   ![Créer une base de données unique](../media/sql-database-get-started-portal/create-database-1.png)
+   ![Créer une base de données unique](../media/sql-database-get-started-portal/create-single-database.png)
 
 3. Sous l’onglet **Bases**, dans la section **Détails du projet**, tapez ou sélectionnez les valeurs suivantes :
 

@@ -11,12 +11,12 @@ ms.author: nilesha
 ms.reviewer: trbye
 ms.date: 08/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: 060257ef144309e37208db80c7731ed96b995b2c
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 49f46c09cfcfef2ab1e74ae7c08d9a54289293ac
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68990479"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69534825"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-build-your-regression-model"></a>Didacticiel : Utiliser le Machine Learning automatisé pour générer votre modèle de régression
 
@@ -42,36 +42,11 @@ Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de com
 
 ## <a name="prerequisites"></a>Prérequis
 
-Passez à la section [Configurer votre environnement de développement](#start) pour lire les étapes relatives aux notebooks, ou utilisez les instructions ci-dessous pour obtenir le notebook et l’exécuter sur Azure Notebooks ou votre propre serveur de notebooks. Pour exécuter le notebook, vous devez disposer des éléments suivants :
+* Suivez le [tutoriel sur la préparation des données](tutorial-data-prep.md), qui constitue la première partie.
 
-* [Avoir suivi le tutoriel sur la préparation des données](tutorial-data-prep.md)
-* Un serveur de notebooks Python 3.6 sur lequel les éléments suivants sont installés :
-    * Le SDK Azure Machine Learning pour Python avec les suppléments `automl` et `notebooks`
-    * `matplotlib`
-* Le notebook du tutoriel
-* Un espace de travail Machine Learning
-* Le fichier de configuration pour l’espace de travail dans le même répertoire que le notebook
+* Après avoir suivi la première partie, ouvrez le notebook **tutorials/regression-part2-automated-ml.ipynb** en utilisant le même serveur de notebooks.
 
-Obtenir tous ces prérequis à partir de l’une des sections ci-dessous.
-
-* Utiliser un [serveur de notebooks cloud dans votre espace de travail](#azure)
-* Utiliser [votre propre serveur de notebooks](#server)
-
-### <a name="azure"></a>Utiliser un serveur de notebooks cloud dans votre espace de travail
-
-Il est facile de bien démarrer avec votre propre serveur de notebooks basé sur le cloud. Le [kit SDK Azure Machine Learning pour Python](https://aka.ms/aml-sdk) est déjà installé et configuré pour vous une fois que vous avez créé cette ressource cloud.
-
-[!INCLUDE [aml-azure-notebooks](../../../includes/aml-azure-notebooks.md)]
-
-* Après avoir lancé la page web de notebook, exécutez le notebook **utorials/regression-part2-automated-ml.ipynb**.
-
-### <a name="server"></a>Utiliser votre propre serveur de notebooks Jupyter
-
-Utilisez ces étapes pour créer une instance locale de serveur de notebooks Jupyter sur votre ordinateur.  Veillez à installer `matplotlib` et les suppléments `automl` et `notebooks` dans votre environnement.
-
-[!INCLUDE [aml-your-server](../../../includes/aml-your-server.md)]
-
-Après avoir terminé les étapes, exécutez le notebook **tutorials/regression-part2-automated-ml.ipynb**.
+Vous trouverez également ce tutoriel sur [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) si vous souhaitez l’utiliser dans votre propre [environnement local](how-to-configure-environment.md#local).  Veillez à installer `matplotlib` ainsi que les compléments `automl` et `notebooks` du SDK Azure Machine Learning.
 
 ## <a name="start"></a>Configurer votre environnement de développement
 

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: overview
-ms.date: 07/03/2019
+ms.date: 08/21/2019
 ms.author: alkohli
-ms.openlocfilehash: 8f090a3f07eba529fd39976545eb654083e637eb
-ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
+ms.openlocfilehash: f1a1a8a6b32567a1571c70e76a4ae6c570d27ca5
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67561409"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69900563"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box : Forum Aux Questions (FAQ)
 
@@ -53,7 +53,7 @@ R. Data Box offre une capacité brute de 100 To et une capacité utile de 80 T
 R.  Pour plus d’informations sur les pays/régions dans lesquels Data Box est disponible, accédez à la [disponibilité par région](data-box-overview.md#region-availability).  
 
 ### <a name="q-which-regions-can-i-store-data-in-with-data-box"></a>Q. Dans quelles régions puis-je stocker des données avec Data Box ?
-R. La solution Data Box est prise en charge dans toutes les régions des États-Unis, en Europe de l’Ouest, en Europe du Nord, en France, au Royaume-Uni, au Japon, en Australie et au Canada. Pour plus d’informations, consultez [Disponibilité des régions](data-box-overview.md#region-availability).
+R. La solution Data Box est prise en charge dans toutes les régions des États-Unis, en Europe Ouest, en Europe Nord, en France, au Royaume-Uni, au Japon, en Australie et au Canada. Pour plus d’informations, consultez [Disponibilité des régions](data-box-overview.md#region-availability).
 
 ### <a name="q-whom-should-i-contact-if-i-encounter-any-issues-with-data-box"></a>Q. Qui dois-je contacter si je rencontre des problèmes avec Data Box ?
 R. Si vous rencontrez des problèmes avec Data Box, veuillez contacter le [support Microsoft](data-box-disk-contact-microsoft-support.md).
@@ -185,6 +185,9 @@ R. Pour le service Data Box, Microsoft gère la livraison vers et depuis le cent
 
 ### <a name="q-will-my-data-box-devices-cross-country-borders-during-shipping"></a>Q. Mes appareils Data Box traverseront-ils des frontières lors de leur expédition ?
 R. Le transport des appareils Data Box s'effectue au sein du même pays ; ils ne franchissent aucune frontière internationale. La seule exception concerne les commandes au sein de l'Union européenne (UE), où les appareils peuvent être expédiés depuis et vers n'importe quel pays de l'UE. Cela concerne les appareils Data Box et Data Box Heavy.
+
+### <a name="q-i-ordered-a-data-box-in-us-east-but-i-received-a-device-that-was-shipped-from-a-location-in-us-west-where-should-i-return-the-device-to"></a>Q. J’ai commandé un Data Box dans la région USA Est, mais j’ai reçu un appareil qui a été expédié à partir d’un emplacement dans la région USA Ouest. Où renvoyer l’appareil ?
+R. Nous essayons de vous envoyer un appareil Data Box le plus rapidement possible. Nous donnons la priorité à l’envoi à partir du centre de données le plus proche de l’emplacement de votre compte de stockage, mais nous expédions toujours un appareil à partir d’un centre de données Azure disposant d’un stock. Votre Data Box doit être retourné au même emplacement que celui où il a été expédié, tel qu’affiché sur l’étiquette d’expédition.
 
 ### <a name="q-e-ink-display-is-not-showing-the-return-shipment-label-what-should-i-do"></a>Q. L’écran E-ink n’affiche pas l’étiquette de retour. Que dois-je faire ?
 R. Si l’écran E-ink n’affiche pas l’étiquette de retour, procédez comme suit :

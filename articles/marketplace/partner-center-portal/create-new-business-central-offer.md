@@ -7,16 +7,16 @@ ms.author: jenhayes
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 08/14/2019
-ms.openlocfilehash: 8dbb25f0b854f1ebbc9d8871689a87d4d5b1cfbe
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 0d6721c2ef24665035cc4a99c9bf3804b312fe75
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69037265"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69900161"
 ---
 # <a name="create-a-new-dynamics-365-business-central-offer"></a>Créer une offre Dynamics 365 Business Central
 
-Cette rubrique explique comment créer une nouvelle offre Dynamics 365 Business Central. [Microsoft Dynamics 365 Business Central](https://dynamics.microsoft.com/business-central) est un système de planification des ressources d’entreprise (ERP) qui gère un vaste éventail de processus d’entreprise, notamment en lien avec les finances, les opérations, la chaîne logistique, la gestion de la relation client et le commerce électronique. Les packages Premium prennent également en charge la gestion des services et la fabrication. Toutes les offres pour Dynamics 365 Business Central doivent passer par notre processus de certification.
+Cette rubrique explique comment créer une nouvelle offre Dynamics 365 Business Central. [Microsoft Dynamics 365 Business Central](https://dynamics.microsoft.com/business-central) est un système de planification des ressources d’entreprise (ERP) qui gère un vaste éventail de processus d’entreprise, notamment en lien avec les finances, les opérations, la chaîne logistique, la gestion de la relation client et le commerce électronique. Les packages Premium prennent également en charge le modèle de déploiement classique et la fabrication. Toutes les offres pour Dynamics 365 Business Central doivent passer par notre processus de certification.
 
 Pour commencer à créer des offres Dynamics 365 Business Central, veillez à d’abord [Créer un compte Partner Center](./create-account.md) et ouvrez le [tableau de bord de la Place de marché commerciale](https://partner.microsoft.com/dashboard/commercial-marketplace/offers), et sélectionnez la page **Présentation**.
 
@@ -28,7 +28,7 @@ Sélectionnez le bouton **+ Nouvelle offre**, puis sélectionnez l'élément de 
 
 ### <a name="offer-id-and-alias"></a>ID et alias de l’offre
 
-- **ID de l’offre** : Identificateur unique par offre dans votre compte. Cet ID sera visible par les clients dans l’adresse URL de l’offre de la Place de marché et des modèles Resource Manager (si applicable). L’ID de l’offre doit être en caractères minuscules, alphanumériques (dont traits d’union, tirets du bas, mais pas d’espace blanc). Il est limité à 50 caractères et ne peut pas être modifié après avoir cliqué sur **Créer**.  Par exemple, si vous entrez *test-offer-1* ici, l’URL de l’offre sera `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
+- **ID de l’offre** : Identificateur unique par offre dans votre compte. Cet ID sera visible par les clients dans l’adresse URL de l’offre de la Place de marché et des modèles Resource Manager (si applicable). L’ID de l’offre doit être en caractères minuscules, alphanumériques (dont traits d’union, tirets du bas, mais pas d’espace blanc), limité à 50 caractères et ne peut pas être modifié une fois que vous avez sélectionné **Créer**.  Par exemple, si vous entrez *test-offer-1* ici, l’URL de l’offre sera `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
 
 - **Alias de l’offre** : Le nom utilisé pour faire référence à l’offre dans l’espace partenaires. Ce nom n’est pas utilisé dans la place de marché et est différent du nom de l’offre et d’autres valeurs qui seront présentées aux clients. Cette valeur ne peut pas être modifiée après que vous ayez sélectionné **Créer**.
 
@@ -82,27 +82,11 @@ Choisissez parmi les options suivantes :
 
 ## <a name="connect-lead-management"></a>Connecter la gestion des prospects
 
-Connectez-vous directement aux clients en raccordant votre système CRM (Customer Relationship Management). Quand vous le faites, vous recevrez les coordonnées du client lorsqu’un client montrera de l’intérêt envers votre produit ou le déploiera.
+[!INCLUDE [Test drive content](./includes/connect-lead-management.md)]
 
-Pour vous connecter à votre système CRM, sélectionnez **Connexion**.
+Pour plus d’informations, consultez [Vue d’ensemble de la gestion des prospects](./commercial-marketplace-get-customer-leads.md).
 
-### <a name="choose-a-lead-destination"></a>Choisir une destination de prospect
-
-Une fois que vousavez sélectionné **Connexion**, un menu déroulant s’affiche pour vous permettre de sélectionner votre système CRM, puis de fournir les détails de la connexion.
-
-Partner Center prend en charge les systèmes CRM suivant pour la gestion des prospects. Sélectionnez le lien pour obtenir des instructions de configuration.
-
-- [Table Azure](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-azure-table) : renseignez votre la chaîne de connexion au compte de stockage. 
-- [Dynamics 365 for Customer Engagement (anciennement Dynamics CRM Online)](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics) : fournissez votre URL d’instance Dynamics 365 et le mode d’authentification (Office 365 ou Azure Active Directory).
-- [Point de terminaison HTTPS](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-https) : renseignez l’URL de votre point de terminaison HTTPS. 
-- [Marketo](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-marketo) : indiquez votre ID de serveur, votre ID de compte Munchkin et votre ID de formulaire.
-- [Salesforce](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-salesforce) : indiquez votre ID d’organisation.
-
-#### <a name="additional-lead-management-resources"></a>Ressources de gestion des prospects supplémentaires
-
-- [Questions fréquentes sur la gestion des prospects](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#frequently-asked-questions)
-- [Erreurs courantes de configuration des prospects](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#common-lead-configuration-errors-during-publishing-on-cloud-partner-portal)
-- [Document d’une page présentant la gestion des prospects](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf)
+N’oubliez pas d’**Enregistrer** avant de passer à la section suivante.
 
 ## <a name="properties"></a>properties
 
@@ -110,7 +94,7 @@ La page **Propriétés** est l’emplacement où vous définissez les catégorie
 
 ### <a name="category"></a>Category
 
-Sélectionnez au minimum une et au maximum trois catégories. Elles serviront à placer votre offre dans les zones de recherche appropriées sur la place de marché. Veillez à expliquer dans la description comment votre offre prend en charge ces catégories dans la description de l’offre. 
+Sélectionnez un minimum d’une catégorie et un maximum de trois catégories qui permettent de placer votre offre dans les zones de recherche appropriées sur la Place de marché. Veillez à expliquer dans la description comment votre offre prend en charge ces catégories dans la description de l’offre. 
 
 ### <a name="industry"></a>Secteur d’activité
 
@@ -136,7 +120,7 @@ Si vous ne cochez pas la case **Utiliser le contrat standard ?** , vous devrez f
 
 ## <a name="offer-listing"></a>Annonce de l’offre
 
-La page de référencement de l’offre affiche les langues dans lesquelles votre offre sera répertoriée. Notez qu’actuellement, **Anglais (États-Unis)** est la seule option disponible.
+La page de référencement de l’offre affiche les langues dans lesquelles votre offre sera répertoriée. Actuellement, **Anglais (États-Unis)** est la seule option disponible.
 
 Vous devez définir les informations de la Place de marché (nom de l’offre, description, images, etc.) pour chaque langue/marché. Sélectionnez le nom de la langue/du marché pour fournir ces informations.
 
@@ -149,7 +133,7 @@ Le nom que vous entrez ici s’affichera auprès des clients comme titre de votr
 
 ### <a name="short-description"></a>Brève description
 
-Fournissez une brève description de votre offre (jusqu’à 100 caractères). Cela peut être utilisé dans les résultats de recherche de la place de marché.
+Renseignez une courte description de votre offre (100 caractères maximum) à utiliser dans les résultats de recherche dans une place de marché.
 
 ### <a name="description"></a>Description
 
@@ -157,7 +141,7 @@ Fournissez une description plus longue de votre offre (jusqu’à 3 000 caractè
 
 Quelques conseils pour rédiger votre description :  
 
-- Décrivez clairement la proposition de valeur de votre offre dès les premières phrases de votre description. Incluez ce qui suit dans votre proposition de valeur :
+- Décrivez clairement la proposition de valeur de votre offre dès les premières phrases de votre description. Incluez les éléments suivants dans votre proposition de valeur :
   - Description du produit
   - Type d’utilisateur qui tire parti du produit
   - Les clients ont des besoins ou des problèmes auxquels le produit répond
@@ -194,7 +178,7 @@ Dans la section **Contact de support**, vous devez également fournir **l’URL 
 
 ### <a name="supporting-documents"></a>Documents de soutien
 
-Vous devez fournir au moins un (et au plus trois) documents marketing associés ici, comme des livres blancs, des brochures, des listes de contrôle ou des présentations. Ces documents doivent être au format. pdf.
+Fournissez au moins un (et au plus trois) documents marketing associés ici, comme des livres blancs, des brochures, des listes de contrôle ou des présentations. Ces documents doivent être au format. pdf.
 
 ### <a name="marketplace-images"></a>Images de la Place de marché
 
@@ -202,7 +186,7 @@ Dans cette section, vous pouvez fournir des logos et des images qui seront utili
 
 #### <a name="store-logos"></a>Stocker des logos
 
-Vous devez fournir le logo de votre offre en deux tailles : **Petit (48 x 48)** et **Grand (216 x 216)** .
+Fournissez le logo de votre offre en deux tailles : **Petit (48 x 48)** et **Grand (216 x 216)** .
 
 #### <a name="hero"></a>Bannière
 
@@ -226,11 +210,11 @@ La page **Disponibilité** vous offre des options pour déterminer où et commen
 
 ### <a name="markets"></a>Marchés
 
-Cette section vous permet de spécifier les marchés dans lesquels votre offre doit être disponible. Pour ce faire, sélectionnez **Modifier les marchés.** Cela affichera la fenêtre contextuelle **Sélection du marché**.
+Cette section vous permet de spécifier les marchés dans lesquels votre offre doit être disponible. Pour ce faire, sélectionnez **Edit markets** (Modifier les marchés), ce qui affiche la fenêtre contextuelle **Sélection du marché**.
 
 Par défaut, aucun marché n’est sélectionné, mais vous devez sélectionner au moins un marché pour pouvoir publier votre offre. Cliquez sur **Sélectionner tout** pour rendre votre offre disponible sur tous les marchés possibles ou sélectionnez les marchés spécifiques que vous souhaitez ajouter. Quand vous avez terminé, sélectionnez **Enregistrer**.
 
-Notez que vos sélections ici s’appliquent uniquement aux nouvelles acquisitions. Si quelqu’un a déjà votre application sur un marché donné et que vous supprimez par la suite ce marché, les personnes qui disposent déjà de cette offre peuvent continuer à l’utiliser, mais aucun nouveau client sur ce marché ne pourra bénéficier de votre offre.
+Vos sélections ici s’appliquent uniquement aux nouvelles acquisitions. Si quelqu’un a déjà votre application sur un marché donné et que vous supprimez par la suite ce marché, les personnes qui disposent déjà de cette offre peuvent continuer à l’utiliser, mais aucun nouveau client sur ce marché ne pourra bénéficier de votre offre.
 
 > [!IMPORTANT]
 > Il vous incombe de respecter les exigences légales locales, même si ces exigences ne sont pas répertoriées ici ou dans l’Espace partenaires.
@@ -268,7 +252,7 @@ Obligatoire si votre offre doit être installée avec une autre extension qui n�
 
 #### <a name="dependency-package-file"></a>Fichier de package de dépendance
 
-Obligatoire si votre offre doit être installée avec une autre extension qui a déjà été publiée sur la place de marché. Dans ce cas, téléchargez son fichier .app ou .zip ici.
+Obligatoire si votre offre doit être installée avec une autre extension qui a déjà été publiée sur la place de marché. Si c’est le cas, téléchargez le fichier `.app` ou `.zip` ici.
 
 ### <a name="url-to-app-installation"></a>URL d’installation de l’application
 
@@ -301,7 +285,7 @@ Un modèle de déploiement qui contient toutes les ressources Azure comprenant v
 
 - **Modèle Azure Resource Manager de version d’évaluation** : Téléchargez le fichier .zip contenant votre modèle Azure Resource Manager.  Apprenez-en plus sur la création d’un modèle Azure Resource Manager dans l’article de démarrage rapide [Créer et déployer des modèles Azure Resource Manager à l’aide du portail Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal).
 
-- **Durée d’une version d’évaluation** (obligatoire) : Saisissez la durée d’activité de la version d’évaluation, en nombre d’heures. La version d’évaluation se termine automatiquement à la fin de cette période. Vous ne pouvez définir la durée qu’en nombre d’heures complètes (par exemple, « 2 » heures ; « 1,5 » n’est pas valide).
+- **Durée d’une version d’évaluation** (obligatoire) : Saisissez la durée d’activité de la version d’évaluation, en nombre d’heures. La version d’évaluation se termine automatiquement à la fin de cette période. Vous ne pouvez définir la durée qu’en nombre d’heures complètes (par exemple, « 2 » pour 2 heures, « 1,5 » est incorrect).
 
 ### <a name="technical-configuration-for-dynamics-365-test-drive"></a>Configuration technique pour la version d’évaluation de Dynamics 365
 
@@ -309,13 +293,13 @@ Microsoft peut retirer la complexité de la configuration d’une version d’é
 
 - **Versions d’évaluation simultanées max** (obligatoire) : Définissez le nombre maximum de client pouvant utiliser votre version d’évaluation à la fois. Chaque utilisateur simultané consommera une licence Dynamics 365 tant que la version d’évaluation est active. Veillez donc à disposer de suffisamment de licences pour prendre en charge la limite maximale définie. La valeur recommandée est de 3 à 5.
 
-- **Durée d’une version d’évaluation** (obligatoire) : Saisissez la durée d’activité de la version d’évaluation, en indiquant le nombre d’heures. Passée cette durée, la session prendra fin et aucune de vos licences ne sera plus utilisée. La valeur recommandée est de 2 à 24 heures, selon la complexité de votre offre. Vous ne pouvez définir la durée qu’en nombre d’heures complètes (par exemple, « 2 » heures ; « 1,5 » n’est pas valide).  L’utilisateur peut demander une nouvelle session s’il n’a pas eu assez de temps et s’il souhaite de nouveau accéder à la version d’évaluation.
+- **Durée d’une version d’évaluation** (obligatoire) : Saisissez la durée d’activité de la version d’évaluation, en indiquant le nombre d’heures. Passée cette durée, la session prendra fin et aucune de vos licences ne sera plus utilisée. La valeur recommandée est de 2 à 24 heures, selon la complexité de votre offre. Vous ne pouvez définir la durée qu’en nombre d’heures complètes (par exemple, « 2 » pour 2 heures, « 1,5 » est incorrect).  L’utilisateur peut demander une nouvelle session s’il n’a pas eu assez de temps et s’il souhaite de nouveau accéder à la version d’évaluation.
 
-- **URL de l’instance** (obligatoire) : L’URL où le client commencera sa version d’évaluation. Il s’agit généralement de l’URL de votre instance Dynamics 365 sur laquelle votre application et les exemples de données sont installés (par exemple, https://testdrive.crm.dynamics.com) ).
+- **URL de l’instance** (obligatoire) : L’URL où le client commencera sa version d’évaluation. Il s’agit généralement de l’URL de votre instance Dynamics 365 sur laquelle votre application et les exemples de données sont installés (par exemple, https://testdrive.crm.dynamics.com).
 
 - **URL d’API web de l’instance** (obligatoire): Récupérez l’URL d’API web pour votre instance Dynamics 365 en vous connectant à votre compte Microsoft 365 et en allant dans **Paramètres** \&gt; **Personnalisation** \&gt; **Ressources développeur** \&gt; **API web de l’instance (URL racine de service)** , copiez l’URL trouvée ici (par exemple, https://testdrive.crm.dynamics.com/api/data/v9.0) ).
 
-- **Nom de rôle** (obligatoire).: Renseignez le nom du rôle de sécurité que vous avez défini dans votre version d’évaluation personnalisée de Dynamics 365. Il sera attribué à l’utilisateur lors de la version d’évaluation (par exemple, test-drive-role).
+- **Nom de rôle** (obligatoire).: Renseignez le nom du rôle de sécurité que vous avez défini dans votre version d’évaluation personnalisée de Dynamics 365, qui sera attribué à l’utilisateur lors de la version d’évaluation (par exemple, test-drive-role).
 
 ### <a name="technical-configuration-for-logic-app-test-drive"></a>Configuration technique pour la version d’évaluation d’applications logiques
 
@@ -339,11 +323,11 @@ Les produits souhaitant afficher un visuel interactif Power BI peuvent utiliser 
 
 ### <a name="deployment-subscription-details"></a>Détails de l’abonnement de déploiement
 
-Pour déployer la version d’évaluation de votre côté, veuillez créer et fournir un abonnement Azure séparé et unique. (Non obligatoire pour les versions d’évaluation Power BI).
+Pour déployer la version d’évaluation de votre côté, créez et fournissez un abonnement Azure séparé et unique. (Non obligatoire pour les versions d’évaluation Power BI).
 
-- **ID d’abonnement Azure** (obligatoire pour Azure Resource Manager et les applications logiques) : Entrez l’ID d’abonnement pour accorder l’accès à vos services de compte Azure pour obtenir un rapport et une tarification sur l’utilisation des ressources. Nous vous recommandons d’envisager la [création d’un abonnement Azure distinct](https://docs.microsoft.com/azure/billing/billing-create-subscription) à utiliser pour les versions d’évaluation si vous n’en avez pas déjà. Pour trouver vos ID d’abonnement Azure en vous connectant au [portail Azure](https://portal.azure.com/) et en accédant à l’onglet **Abonnements** dans le menu de gauche. Sélectionnez l’onglet pour afficher votre ID d’abonnement (par exemple, « a83645ac-1234-5ab6-6789-1h234g764ghty »).
+- **ID d’abonnement Azure** (obligatoire pour Azure Resource Manager et les applications logiques) : Entrez l’ID d’abonnement pour accorder l’accès à vos services de compte Azure pour obtenir un rapport et une tarification sur l’utilisation des ressources. Nous vous recommandons d’envisager la [création d’un abonnement Azure distinct](https://docs.microsoft.com/azure/billing/billing-create-subscription) à utiliser pour les versions d’évaluation si vous n’en avez pas déjà. Pour trouver vos ID d’abonnement Azure en vous connectant au [portail Azure](https://portal.azure.com/) et en accédant à l’onglet **Abonnements** dans le menu de gauche. Sélectionnez l’onglet pour afficher votre ID d’abonnement (par exemple, « a83645ac-1234-5ab6-6789-1h234g764ghty »).
 
-- **ID du locataire Azure AD** (obligatoire) : Saisissez l’[ID client](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) de votre Azure Active Directory. Pour trouver cet ID, connectez-vous sur le [Portail Azure](https://portal.azure.com/), sélectionnez l’onglet Active Directory dans le menu de gauche, puis **Propriétés**, cherchez le numéro de l’**ID du répertoire** (par exemple, 50c464d3-4930-494c-963c-1e951d15360e). Vous pouvez aussi rechercher l’ID locataire de votre organisation à l’aide l’URL de votre nom de domaine : [https://www.whatismytenantid.com](https://www.whatismytenantid.com).
+- **ID du locataire Azure AD** (obligatoire) : Saisissez l’[ID client](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) de votre Azure Active Directory. Pour trouver cet ID, connectez-vous sur le [Portail Azure](https://portal.azure.com/), sélectionnez l’onglet Active Directory dans le menu de gauche, puis **Propriétés, cherchez le numéro de l’**ID du répertoire** (par exemple, 50c464d3-4930-494c-963c-1e951d15360e). Vous pouvez aussi rechercher l’ID locataire de votre organisation à l’aide l’URL de votre nom de domaine : [https://www.whatismytenantid.com](https://www.whatismytenantid.com).
 
 - **Nom du locataire Azure AD** (obligatoire pour Dynamics 365) : Entrez le nom de votre locataire Azure Active Directory. Pour rechercher ce nom, connectez-vous au [portail Azure](https://portal.azure.com/), et dans le coin supérieur droit, le nom de votre locataire s’affichera sous le nom de votre compte.
 
@@ -355,7 +339,7 @@ N’oubliez pas d’**Enregistrer** avant de passer à la section suivante.
 
 ### <a name="test-drive-marketplace-listings"></a>Référencements de versions d'évaluation sur la place de marché
 
-L'option **Référencement sur la place de marché** située sous l’onglet **Version d'évaluation** affiche les langues dans lesquelles votre version d'évaluation est disponible. Notez qu’actuellement, **Anglais (États-Unis)** est le seul emplacement disponible. Sélectionnez le nom de la langue pour entrer des informations qui décrivent l’expérience de la version d'évaluation.
+L'option **Référencement sur la place de marché** située sous l’onglet **Version d'évaluation** affiche les langues dans lesquelles votre version d'évaluation est disponible. Actuellement, **Anglais (États-Unis)** est le seul emplacement disponible. Sélectionnez le nom de la langue pour entrer des informations qui décrivent l’expérience de la version d'évaluation.
 
 - **Description** (obligatoire) : Décrivez votre version d’évaluation, ce qui sera présenté, les objectifs que l’utilisateur pourra essayer, les fonctionnalités à explorer, et toute autre information qui aidera l’utilisateur à déterminer ou non s’il souhaite faire l’acquisition de votre offre. Jusqu’à 3 000 caractères peuvent être entrés dans ce champ. 
 
@@ -366,7 +350,7 @@ L'option **Référencement sur la place de marché** située sous l’onglet **V
 - **Vidéos : Ajouter des vidéos** (facultatif) : Vous pouvez charger des vidéos sur YouTube ou Vimeo et les référencer via un lien et une image miniature (533 x 324 pixels), pour proposer au client un guide à suivre et l’aider à mieux comprendre la version d’évaluation, dont l’utilisation des fonctionnalités de votre offre et la compréhension des scénarios qui présentent les avantages.
   - **Nom** (obligatoire)
   - **URL (YouTube ou Vimeo uniquement)** (obligatoire)
-  - **Miniature (533 x 324 px)** : L’image doit être au format .PNG.
+  - **Miniature (533 x 324 px)**  : L’image doit être au format .PNG.
 
 ## <a name="supplemental-content"></a>Contenu supplémentaire
 
@@ -382,11 +366,11 @@ Indiquez si votre solution prend en charge l’édition de base et/ou Premium de
 
 ### <a name="key-usage-scenario"></a>Principaux scénarios d’utilisation
 
-Vous devez télécharger un fichier. pdf qui répertorie les scénarios d’utilisation principaux de votre offre répertoriés dans un document (au format. pdf). Tous les scénarios répertoriés ici peuvent être vérifiés par notre équipe de validation avant que nous approuvions votre offre pour la place de marché.
+Chargez un fichier `.pdf` qui répertorie les scénarios d’utilisation principaux de votre offre répertoriés dans un document (au format. pdf). Tous les scénarios répertoriés ici peuvent être vérifiés par notre équipe de validation avant que nous approuvions votre offre pour la place de marché.
 
 ### <a name="app-tests-automation"></a>Automatisation des tests d’application
 
-Vous devez également télécharger un fichier **d’automatisation de tests d’application** ici (.app).
+Chargez également un fichier **d’automatisation de tests d’application** ici (.app).
 
 ### <a name="test-accounts"></a>Comptes de test
 
@@ -402,10 +386,10 @@ S’il s’agit de votre première publication de cette offre, vous pouvez :
 
 - Consultez l’état d’achèvement de chaque section de l’offre.
     - *Non démarrée* : cela signifie que la section n’a pas encore été touchée et doit être complétée.
-    - *Incomplète* : cela signifie que la section contient des erreurs qui doivent être corrigées, ou qui nécessitent plus d’informations. Veuillez revenir à la ou les sections et mettez-les à jour.
+    - *Incomplète* : cela signifie que la section contient des erreurs qui doivent être corrigées, ou qui nécessitent plus d’informations. Revenir à la ou les sections et les mettre à jour.
     - *Complète* : cela signifie que la section est terminée, toutes les données requises ont été renseignées, et qu’il n’y a aucune erreur. Toutes les sections de l’offre doivent être dans l’état Complète avant de pouvoir envoyer l’offre.
 - Dans la sections **Notes pour la certification**, fournissez des instructions de test à l’équipe de certification pour veiller à ce que votre application soit testée correctement, en plus de toutes autres notes supplémentaires utiles pour comprendre l’application.
-- Envoyez l’offre pour publication en sélectionnant **Envoyer**. Nous vous enverrons un e-mail pour vous faire savoir si une version d’essai de l’offre est disponible pour vérification et approbation. Vous devez revenir à Partner Center et sélectionner **Publier** pour que votre offre soit publiée pour le public (ou au public privé, si l’offre est privée).
+- Envoyez l’offre pour publication en sélectionnant **Envoyer**. Nous vous enverrons un e-mail si une version d’essai de l’offre est disponible pour vérification et approbation. Retourner dans Partner Center et sélectionner **Publier** pour que votre offre soit publiée pour le public (ou au public privé, si l’offre est privée).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -30,7 +30,7 @@ Pour créer un réseau virtuel dans le modèle de déploiement Resource Manager 
    - **Espace d’adressage** : 10.1.0.0/16
    - **Abonnement**: vérifiez que l’abonnement indiqué est celui que vous souhaitez utiliser. Vous pouvez modifier des abonnements à l’aide de la liste déroulante.
    - **Groupe de ressources** : TestRG1 (cliquez sur **Créer nouveau** pour créer un nouveau groupe)
-   - **Emplacement** : East US
+   - **Emplacement** : USA Est
    - **Sous-réseau** : Serveur frontal
    - **Plage d’adresses** : 10.1.0.0/24
 

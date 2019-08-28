@@ -204,7 +204,7 @@ Créez le réseau virtuel et le sous-réseau du [réseau virtuel](../../virtual-
     $subnetName = "mySubNet"
     $singleSubnet = New-AzVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix 10.0.0.0/24
     ```
-2. Créez le réseau virtuel. Cet exemple définit le nom de réseau virtuel sur **myVnetName**, l’emplacement sur **USA Ouest** et le préfixe d’adresse du réseau virtuel sur **10.0.0.0/16**. 
+2. Créez le réseau virtuel. Cet exemple définit le nom de réseau virtuel sur **myVnetName**, l’emplacement sur **West US** et le préfixe d’adresse du réseau virtuel sur **10.0.0.0/16**. 
    
     ```powershell
     $location = "West US"

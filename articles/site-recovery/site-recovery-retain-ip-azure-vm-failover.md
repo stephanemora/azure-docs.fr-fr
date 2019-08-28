@@ -127,7 +127,7 @@ Dans ce scénario, la **société B** dispose d’une infrastructure hybride, un
 
 Voici à quoi ressemble l’architecture réseau avant le basculement :
 
-- Les machines virtuelles des applications sont hébergées dans la région Azure Asie.
+- Les machines virtuelles des applications sont hébergées dans la région Azure Asie Est.
 - Asie Est a un réseau virtuel (**Source VNet**) avec l’espace d’adressage 10.1.0.0/16
   - Asie Est a des charges de travail réparties entre trois sous-réseaux sur **Source VNet** :
     - **Sous-réseau 1** : 10.1.1.0/24

@@ -49,12 +49,12 @@ Le tableau suivant répertorie les adresses IP principales et secondaires de la 
 | Sud de l’Inde | 104.211.224.146 | |
 | Inde Ouest | 104.211.160.80 | |
 | Japon Est | 191.237.240.43 | 13.78.61.196 |
-| Japon Ouest | 191.238.68.11 | 104.214.148.156 |
+| OuJapon Est | 191.238.68.11 | 104.214.148.156 |
 | Centre de la Corée | 52.231.32.42 | |
 | Corée du Sud | 52.231.200.86 |  |
-| USA Centre Nord | 23.98.55.75 | 23.96.178.199 |
+| Centre-Nord des États-Unis | 23.98.55.75 | 23.96.178.199 |
 | Europe Nord | 191.235.193.75 | 40.113.93.91 |
-| USA Centre Sud | 23.98.162.75 | 13.66.62.124 |
+| États-Unis - partie centrale méridionale | 23.98.162.75 | 13.66.62.124 |
 | Asie Sud-Est | 23.100.117.95 | 104.43.15.0 |
 | Sud du Royaume-Uni | 51.140.184.11 | |
 | Ouest du Royaume-Uni | 51.141.8.11| |

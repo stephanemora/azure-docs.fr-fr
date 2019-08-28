@@ -6,14 +6,14 @@ author: stevelas
 manager: gwallace
 ms.service: container-registry
 ms.topic: overview
-ms.date: 05/24/2019
+ms.date: 08/16/2019
 ms.author: stevelas
-ms.openlocfilehash: 2fffa3b063969cbe68fb9a405f4198f15b3f9809
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 73d497b4784a91974fab8a94c6f9fe595770ea45
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68845210"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69574390"
 ---
 # <a name="geo-replication-in-azure-container-registry"></a>Géoréplication dans Azure Container Registry
 
@@ -105,6 +105,14 @@ ACR commence la synchronisation des images entre les réplicas configurés. Une 
 La géoréplication est une fonctionnalité de la [Référence SKU Premium](container-registry-skus.md) d’Azure Container Registry. Lorsque vous répliquez un registre dans les régions de votre choix, cela entraîne des frais de registre Premium pour chaque région.
 
 Dans l’exemple précédent, Contoso a fusionné deux registres en un seul, en ajoutant des réplicas dans les régions USA Est, Canada Centre et Europe Ouest. Contoso payerait le tarif Premium quatre fois par mois, sans configuration ni gestion supplémentaire. Chaque région extraie désormais ses images localement, ce qui améliore les performances et la fiabilité sans frais de sortie de réseau de la région USA Ouest au Canada, en passant par USA Est.
+
+## <a name="troubleshoot-push-operations-with-geo-replicated-registries"></a>Résoudre les problèmes d’opérations Push avec des registres géorépliqués
+ 
+Un client Docker qui transmet une image à un registre géorépliqué peut ne pas envoyer toutes les couches d’images et le manifeste associé à une seule région répliquée. Cela peut se produire car Azure Traffic Manager route les demandes de registre vers le registre répliqué le plus proche du réseau. Si le registre a deux régions de réplication *proches*, les couches d’image et le manifeste peuvent être distribués aux deux sites, et l’opération Push échoue lors de la validation du manifeste. Ce problème se produit en raison de la façon dont le nom DNS du registre est résolu sur certains hôtes Linux. Ce problème ne se produit pas sur Windows, qui fournit un cache DNS côté client.
+ 
+Si ce problème se produit, une solution consiste à appliquer un cache DNS côté client, par exemple `dnsmasq` sur l’hôte Linux. Cela permet de garantir que le nom du registre est résolu de manière cohérente. Si vous utilisez une machine virtuelle Linux dans Azure pour effectuer une transmission de type push vers un registre, consultez [Options de résolution de noms DNS pour les machines virtuelles Linux dans Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/azure-dns).
+
+Pour optimiser la résolution DNS sur le réplica le plus proche lors de la transmission par push d’images, configurez un registre géorépliqué dans les mêmes régions Azure que la source des opérations Push, ou la région la plus proche si vous travaillez en dehors d’Azure.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

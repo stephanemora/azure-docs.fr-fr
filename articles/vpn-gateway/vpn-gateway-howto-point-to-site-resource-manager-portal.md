@@ -39,7 +39,7 @@ Vous pouvez utiliser ces valeurs pour créer un environnement de test ou vous y 
 * **Plage d'adresses du sous-réseau :** 192.168.1.0/24
 * **Abonnement :** vérifiez que vous utilisez l’abonnement approprié si vous en possédez plusieurs.
 * **Groupe de ressources :** TestRG
-* **Emplacement :** East US
+* **Emplacement :** USA Est
 * **GatewaySubnet :** 192.168.200.0/24<br>
 * **Serveur DNS :** (facultatif) l’adresse IP du serveur DNS que vous souhaitez utiliser pour la résolution de noms.
 * **Nom de la passerelle de réseau virtuel :** VNet1GW

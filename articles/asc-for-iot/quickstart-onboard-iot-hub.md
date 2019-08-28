@@ -40,15 +40,15 @@ Cet article explique comment activer le service Azure Security Center pour IoT s
 
 |Régions de service Azure prises en charge | ||
 |---|---|---|
-| USA Centre |East US |USA Est 2 |
-| USA Centre-Ouest |USA Ouest |Ouest des États-Unis 2 |
-| USA Centre Sud|USA Centre Nord | Centre du Canada|
+| USA Centre |USA Est |USA Est 2 |
+| Centre-USA Ouest |USA Ouest |USA Ouest 2 |
+| USA Centre Sud|Centre-Nord des États-Unis | Centre du Canada|
 | Est du Canada| Europe Nord|Brésil Sud|
 | France Centre| Ouest du Royaume-Uni|Sud du Royaume-Uni|
-|Europe Ouest|Europe Nord| Japon Ouest|
-|Japon Est | Australie Sud-Est|Australie Est|
+|Europe Ouest|Europe Nord| OuJapon Est|
+|Japon Est | Sud-Australie Est|Australie Est|
 |Asie Est| Asie Sud-Est| Centre de la Corée|
-|Corée du Sud| Inde Centre| Inde Sud|
+|Corée du Sud| Inde centrale| Inde Sud|
 |
 
 ## <a name="enable-azure-security-center-for-iot-on-your-iot-hub"></a>Activer Azure Security Center pour IoT sur votre IoT Hub 

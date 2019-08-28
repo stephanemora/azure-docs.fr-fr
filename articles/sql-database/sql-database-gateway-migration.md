@@ -29,13 +29,13 @@ La première série de désaffectations de passerelles est prévue pour le 1er s
 
 - USA Ouest
 - Europe Ouest
-- East US
+- USA Est
 - USA Centre
 - Asie Sud-Est
-- USA Centre Sud
+- États-Unis - partie centrale méridionale
 - Europe Nord
-- USA Centre Nord
-- Japon Ouest
+- Centre-Nord des États-Unis
+- OuJapon Est
 - Japon Est
 - USA Est 2
 - Asie Est

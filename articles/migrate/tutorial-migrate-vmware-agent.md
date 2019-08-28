@@ -209,7 +209,7 @@ Si vous n’avez pas suivi le tutoriel d’évaluation des machines virtuelles V
     --- | ---
     Asie | Asie Sud-Est
     Europe | Europe Nord ou Europe Ouest
-    États-Unis | USA Est ou USA Centre-Ouest
+    États-Unis | USA Est ou Centre-USA Ouest
 
     La zone géographique spécifiée pour le projet est utilisée uniquement pour stocker les métadonnées collectées à partir des machines virtuelles locales. Vous pouvez sélectionner n’importe quelle région cible pour la migration réelle.
 4. Dans **Sélectionner un outil d’évaluation**, sélectionnez **Ignorer l’ajout d’un outil d’évaluation pour l’instant** > **Suivant**.

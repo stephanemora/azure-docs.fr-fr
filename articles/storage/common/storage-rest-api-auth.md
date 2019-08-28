@@ -1,24 +1,24 @@
 ---
-title: Opérations d’appel de l’API REST des services Stockage Azure, notamment l’authentification | Microsoft Docs
-description: Opérations d’appel de l’API REST des services Stockage Azure, notamment l’authentification
+title: Appel d’opérations de l’API REST des services Stockage Azure avec une autorisation de clé partagée | Microsoft Docs
+description: Utilisez l’API REST Stockage Azure pour effectuer une demande au Stockage Blob à l’aide de l’autorisation de clé partagée.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/21/2019
+ms.date: 08/19/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 2149bfb68697129680c45f15c6cce359863fbc59
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 1463a470c84d38ebc30e32cf539aa9d6f64a6854
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68989941"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69640661"
 ---
 # <a name="using-the-azure-storage-rest-api"></a>Utilisation de l’API REST Stockage Azure
 
-Cet article vous indique comment utiliser les API REST du service Stockage Blob et comment authentifier l’appel au service. Il est écrit du point de vue d’un développeur qui n’a aucune connaissance sur REST et sur la manière de passer un appel REST. Nous consultons la documentation de référence pour un appel REST et expliquons comment la traduire en un appel REST réel : quels champs sont à placer et où ? Après avoir appris comment configurer un appel REST, vous pouvez utiliser ces connaissances pour utiliser les autres API REST du service Stockage.
+Cet article vous indique comment utiliser les API REST du service Stockage Blob et comment autoriser l’appel au service. Il est écrit du point de vue d’un développeur qui n’a aucune connaissance sur REST et sur la manière de passer un appel REST. Nous consultons la documentation de référence pour un appel REST et expliquons comment la traduire en un appel REST réel : quels champs sont à placer et où ? Après avoir appris comment configurer un appel REST, vous pouvez utiliser ces connaissances pour utiliser les autres API REST du service Stockage.
 
 ## <a name="prerequisites"></a>Prérequis 
 
@@ -267,12 +267,13 @@ Maintenant que vous comprenez comment créer la requête, appeler le service et 
 ## <a name="creating-the-authorization-header"></a>Création de l’en-tête d’autorisation
 
 > [!TIP]
-> Le Stockage Azure prend désormais en charge l’intégration d’Azure Active Directory (Azure AD) pour les objets blob et les files d’attente. Azure AD offre une expérience beaucoup plus simple pour autoriser une requête destinée au Stockage Azure. Pour plus d’informations sur l’utilisation d’Azure AD pour autoriser les opérations REST, consultez [S’authentifier avec Azure Active Directory](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory). Pour une vue d’ensemble de l’intégration d’Azure AD au Stockage Azure, consultez [Authentifier l’accès au Stockage Azure à l’aide d’Azure Active Directory](storage-auth-aad.md).
+> Le Stockage Azure prend désormais en charge l’intégration d’Azure Active Directory (Azure AD) pour les objets blob et les files d’attente. Azure AD offre une expérience beaucoup plus simple pour autoriser une requête destinée au Stockage Azure. Pour plus d’informations sur l’utilisation d’Azure AD pour autoriser les opérations REST, consultez [Autoriser avec Azure Active Directory](/rest/api/storageservices/authorize-with-azure-active-directory). Pour une vue d’ensemble de l’intégration d’Azure AD au Stockage Azure, consultez [Authentifier l’accès au Stockage Azure à l’aide d’Azure Active Directory](storage-auth-aad.md).
 
-Il existe un article qui explique de manière conceptuelle (sans code) comment exécuter [l’authentification pour les services Stockage Azure](/rest/api/storageservices/Authorization-for-the-Azure-Storage-Services).
+Un article explique de manière conceptuelle (sans code) comment [autoriser les demandes à Stockage Azure](/rest/api/storageservices/authorize-requests-to-azure-storage).
+
 Examinons cet article de plus près pour montrer le code.
 
-Premièrement, utilisez l’authentification par clé partagée. Le format de l’en-tête d’autorisation ressemble à ce qui suit :
+Tout d’abord, utilisez une autorisation de clé partagée. Le format de l’en-tête d’autorisation ressemble à ce qui suit :
 
 ```  
 Authorization="SharedKey <storage account name>:<signature>"  
@@ -360,7 +361,7 @@ Cette partie de la chaîne de signature représente le compte de stockage ciblé
 
 Si vous avez des paramètres de requête, cet exemple les inclut également. Voici le code, qui traite aussi les paramètres de requête supplémentaires et les paramètres de requête avec plusieurs valeurs. N’oubliez pas que vous générez ce code pour qu’il fonctionne avec toutes les API REST. Vous souhaitez inclure toutes les possibilités, même si la méthode ListContainers n’a pas besoin de toutes.
 
-```csharp 
+```csharp
 private static string GetCanonicalizedResource(Uri address, string storageAccountName)
 {
     // The absolute path will be "/" because for we're getting a list of containers.
@@ -376,7 +377,7 @@ private static string GetCanonicalizedResource(Uri address, string storageAccoun
         sb.Append('\n').Append(item).Append(':').Append(values[item]);
     }
 
-    return sb.ToString();
+    return sb.ToString().ToLower();
 }
 ```
 
@@ -571,3 +572,4 @@ Dans cet article, vous avez appris à créer une requête vers l’API REST de s
 * [API REST du service Blob](/rest/api/storageservices/blob-service-rest-api)
 * [API REST du service de fichiers](/rest/api/storageservices/file-service-rest-api)
 * [API REST du service de File d’attente](/rest/api/storageservices/queue-service-rest-api)
+* [API REST du service de Table](/rest/api/storageservices/table-service-rest-api)

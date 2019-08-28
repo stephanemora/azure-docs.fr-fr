@@ -20,9 +20,9 @@ ms.locfileid: "67812458"
 | USA Ouest             | 3                       |
 | USA Ouest 2           | 2                       |
 | USA Centre          | 3                       |
-| USA Centre Nord    | 3                       |
-| USA Centre Sud    | 3                       |
-| USA Centre-Ouest     | 2                       |
+| Centre-Nord des États-Unis    | 3                       |
+| États-Unis - partie centrale méridionale    | 3                       |
+| Centre-USA Ouest     | 2                       |
 | Centre du Canada      | 3                      |
 | Est du Canada         | 2                       |
 |                     |                         |
@@ -34,16 +34,16 @@ ms.locfileid: "67812458"
 | Asie Est           | 2                       |
 | Asie Sud-Est     | 2                       |
 | Japon Est          | 2                       |
-| Japon Ouest          | 2                       |
+| OuJapon Est          | 2                       |
 | Inde Sud         | 2                       |
-| Inde Centre       | 2                       |
+| Inde centrale       | 2                       |
 | Inde Ouest          | 2                       |
 | Centre de la Corée       | 2                       |
 | Corée du Sud         | 2                       |
 | Émirats arabes unis Nord           | 2                       |
 |                     |                         |
 | Australie Est      | 2                       |
-| Australie Sud-Est | 2                       |
+| Sud-Australie Est | 2                       |
 | Centre de l’Australie   | 2                       |
 | Centre de l’Australie 2 | 2                       |
 |                     |                         |

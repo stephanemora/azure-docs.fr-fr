@@ -63,7 +63,7 @@ ms.locfileid: "67305278"
 |:---|:---|:---|
 | Nombre maximum de colonnes dans une table         | 500 | |
 | Nombre maximum de caractères pour le nom de colonne | 500 | |
-| Régions ayant atteint la capacité maximale | USA Centre-Ouest | Vous ne pouvez actuellement pas créer un nouvel espace de travail dans cette région dans la mesure où elle a atteint sa limite de capacité temporaire. Cette limite est prévue pour être traitée d’ici fin septembre 2019. |
+| Régions ayant atteint la capacité maximale | Centre-USA Ouest | Vous ne pouvez actuellement pas créer un nouvel espace de travail dans cette région dans la mesure où elle a atteint sa limite de capacité temporaire. Cette limite est prévue pour être traitée d’ici fin septembre 2019. |
 | Exportation de données | Actuellement non disponible | Utilisez Azure Function ou Logic App pour agréger et exporter des données. | 
 
 >[!NOTE]

@@ -42,13 +42,13 @@ Les insights et le reporting d’ASC pour l’IoT sont disponibles sur Azure IoT
 
 ASC pour l’IoT est actuellement pris en charge pour les hubs IoT des régions Azure suivantes :
   - USA Centre  
-  - East US 
+  - USA Est 
   - USA Est 2
-  - USA Centre-Ouest
+  - Centre-USA Ouest
   - USA Ouest
-  - Ouest des États-Unis 2
+  - USA Ouest 2
   - USA Centre Sud
-  - USA Centre Nord
+  - Centre-Nord des États-Unis
   - Centre du Canada
   - Est du Canada 
   - Europe Nord    
@@ -58,15 +58,15 @@ ASC pour l’IoT est actuellement pris en charge pour les hubs IoT des régions 
   - Sud du Royaume-Uni
   - Europe Ouest 
   - Europe Nord 
-  - Japon Ouest  
+  - OuJapon Est  
   - Japon Est  
-  - Australie Sud-Est
+  - Sud-Australie Est
   - Australie Est
   - Asie Est   
   - Asie Sud-Est
   - Centre de la Corée
   - Corée du Sud 
-  - Inde Centre
+  - Inde centrale
   - Inde Sud
   
 ## <a name="wheres-my-iot-hub"></a>Localiser son hub IoT

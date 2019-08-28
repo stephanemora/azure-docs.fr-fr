@@ -153,7 +153,7 @@ Le tableau suivant décrit les paramètres et les valeurs utilisés pour créer 
 | paramètre | value |
 | --- | --- |
 | Nom |simpletestdiskwrite |
-| Emplacement de cette règle d'alerte |East US |
+| Emplacement de cette règle d'alerte |USA Est |
 | ResourceGroup |montest |
 | TargetResourceId |/subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig |
 | MetricName de l'alerte créée |\PhysicalDisk(_Total)\Disk Writes/sec. See the `Get-MetricDefinitions` cmdlet about how to retrieve the exact metric names `Get-MetricDefinitions`. |

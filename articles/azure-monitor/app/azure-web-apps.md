@@ -100,7 +100,7 @@ Le ciblage du framework complet à partir de .NET Core, le déploiement autonome
 
 La supervision côté client est activée pour ASP.NET. Pour activer la supervision côté client :
 
-* Sélectionnez **Paramètres** >** **Paramètres de l’application****
+* Sélectionnez **Paramètres** >** **Paramètres de l’application** **
    * Sous Paramètres de l’application, ajoutez un nouveau **nom de paramètre d’application** et une nouvelle **valeur** :
 
      Nom : `APPINSIGHTS_JAVASCRIPT_ENABLED`

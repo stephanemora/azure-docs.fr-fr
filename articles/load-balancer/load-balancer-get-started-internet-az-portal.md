@@ -44,7 +44,7 @@ Connectez-vous au portail Azure sur https://portal.azure.com.
 6. Cliquez sur **Adresse IP publique**, puis sur **Créer**, puis, dans **Créer une adresse IP publique**, sous Nom, tapez **myPublicIPStandard**.
     >[!NOTE] 
     > L’adresse IP publique créée à cette étape a la référence SKU Standard. Par défaut, elle est redondante interzone. 
-8. Sous **Emplacement**, sélectionnez **Est des États-Unis 2**, puis cliquez sur **OK**. L’équilibreur de charge commence ensuite le déploiement, qui peut prendre plusieurs minutes.
+8. Sous **Emplacement**, sélectionnez **USA Est 2**, puis cliquez sur **OK**. L’équilibreur de charge commence ensuite le déploiement, qui peut prendre plusieurs minutes.
 
 ## <a name="next-steps"></a>Étapes suivantes
 - En savoir plus sur [Load Balancer Standard et les zones de disponibilité](load-balancer-standard-availability-zones.md).

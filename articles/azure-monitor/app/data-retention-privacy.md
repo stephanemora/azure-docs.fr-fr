@@ -101,9 +101,9 @@ Vous ou les membres de votre équipe pouvez les exporter et les copier à d’au
 Microsoft n’utilise les données que pour vous fournir le service.
 
 ## <a name="where-is-the-data-held"></a>Où sont conservées les données ?
-* Aux États-Unis, en Europe ou en Asie du Sud-Est. Vous pouvez sélectionner l’emplacement quand vous créez une ressource Application Insights. 
+* Aux États-Unis, en Europe ou en Asie Sud-Est. Vous pouvez sélectionner l’emplacement quand vous créez une ressource Application Insights. 
 
-#### <a name="does-that-mean-my-app-has-to-be-hosted-in-the-usa-europe-or-southeast-asia"></a>Cela signifie-t-il que mon application doit être hébergée aux États-Unis, en Europe ou en Asie du Sud-Est ?
+#### <a name="does-that-mean-my-app-has-to-be-hosted-in-the-usa-europe-or-southeast-asia"></a>Cela signifie-t-il que mon application doit être hébergée aux États-Unis, en Europe ou en Asie Sud-Est ?
 * Non. Votre application peut s’exécuter n’importe où, sur vos propres hôtes locaux ou dans le cloud.
 
 ## <a name="how-secure-is-my-data"></a>Mes données sont-elles sécurisées ?

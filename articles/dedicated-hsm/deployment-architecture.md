@@ -32,7 +32,7 @@ Les HSM sont répartis entre les centres de données de Microsoft et peuvent êt
 * USA Est
 * USA Est 2
 * USA Ouest
-* USA Centre Sud
+* États-Unis - partie centrale méridionale
 * Asie Sud-Est
 * Asie Est
 * Europe Nord
@@ -42,7 +42,7 @@ Les HSM sont répartis entre les centres de données de Microsoft et peuvent êt
 * Centre du Canada
 * Est du Canada
 * Australie Est
-* Australie Sud-Est
+* Sud-Australie Est
 
 Chacune de ces régions a des racks HSM déployés dans deux centres de données indépendants ou dans au moins deux zones de disponibilité indépendantes. L’Asie Sud-Est a trois zones de disponibilité et USA Est 2 en a deux. Huit régions au total en Europe, en Asie et aux États-Unis proposent le service HSM dédié. Pour plus d’informations sur les régions Azure, consultez les [informations sur les régions Azure](https://azure.microsoft.com/global-infrastructure/regions/).
 L’emplacement/la latence, une haute disponibilité et la prise en charge d’autres applications distribuées font partie des facteurs de conception pour une solution HSM dédié.

@@ -67,11 +67,11 @@ Si vous ne voyez aucune sortie, contactez l’administrateur de l’abonnement p
 
 Vous pouvez utiliser l’analytique du trafic pour les régions prises en charge suivantes :
 - Centre du Canada
-- USA Centre-Ouest
-- East US
+- Centre-USA Ouest
+- USA Est
 - USA Est 2
-- USA Centre Nord
-- USA Centre Sud
+- Centre-Nord des États-Unis
+- États-Unis - partie centrale méridionale
 - USA Centre
 - USA Ouest
 - USA Ouest 2
@@ -82,35 +82,35 @@ Vous pouvez utiliser l’analytique du trafic pour les régions prises en charge
 - Ouest du Royaume-Uni
 - Sud du Royaume-Uni
 - Australie Est
-- Australie Sud-Est 
+- Sud-Australie Est 
 - Asie Est
 - Asie Sud-Est
 - Centre de la Corée
-- Inde Centre
+- Inde centrale
 - Inde Sud
 - Japon Est
-- Japon Ouest
+- OuJapon Est
 - Gouvernement américain - Virginie
 
 L’espace de travail Log Analytics doit exister dans les régions suivantes :
 - Centre du Canada
-- USA Centre-Ouest
+- Centre-USA Ouest
 - USA Ouest
 - USA Ouest 2
-- USA Centre Sud
+- États-Unis - partie centrale méridionale
 - USA Centre
-- East US
+- USA Est
 - USA Est 2
 - France Centre
 - Europe Ouest
 - Europe Nord
 - Sud du Royaume-Uni
 - Australie Est
-- Australie Sud-Est
+- Sud-Australie Est
 - Asie Est
 - Asie Sud-Est 
 - Centre de la Corée
-- Inde Centre
+- Inde centrale
 - Japon Est
 - Gouvernement américain - Virginie
 

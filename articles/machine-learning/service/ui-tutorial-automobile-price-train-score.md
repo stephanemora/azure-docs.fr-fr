@@ -8,13 +8,13 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 07/21/2019
-ms.openlocfilehash: b0d227b71677db1d6b4ce8386b02cf957ca259f7
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.date: 08/16/2019
+ms.openlocfilehash: a2134853c48ca09faa150f038be2d9327af75eee
+ms.sourcegitcommit: a3a40ad60b8ecd8dbaf7f756091a419b1fe3208e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68668408"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69891643"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-visual-interface"></a>Didacticiel : Prédire le prix de véhicules automobiles à l’aide de l’interface visuelle
 
@@ -27,9 +27,11 @@ Dans la première partie, vous allez configurer votre environnement, faire gliss
 Dans la première partie du tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
-> * Importer et nettoyer les données
+> * Création d'une expérience
+> * Importer des données
+> * Préparer les données
 > * Entraîner un modèle Machine Learning
-> * Scorer et évaluer un modèle
+> * Évaluer un modèle Machine Learning
 
 Dans la [deuxième partie](ui-tutorial-automobile-price-deploy.md) du tutoriel, vous découvrirez comment déployer votre modèle prédictif en tant que service web Azure afin de pouvoir l’utiliser pour prédire le prix de n’importe quel véhicule en fonction des caractéristiques techniques que vous lui envoyez. 
 
@@ -37,13 +39,17 @@ Une version complète de ce tutoriel est disponible en tant qu’exemple d’exp
 
 Pour le trouver, sélectionnez **Ajouter nouveau** dans la **page Expériences**, puis sélectionnez l’expérience **Sample 1 - Regression: Automobile Price Prediction(Basic)** (Exemple 1 - Régression : Prédiction du prix de véhicules automobiles [de base]).
 
-## <a name="create-a-workspace"></a>Créer un espace de travail
+## <a name="create-a-new-experiment"></a>Création d'une expérience
+
+Pour créer une expérience d’interface visuelle, vous avez besoin d’un espace de travail Azure Machine Learning service. Dans cette section, vous allez apprendre à créer ces deux ressources.
+
+### <a name="create-a-new-workspace"></a>Créer un espace de travail
 
 Si vous disposez d’un espace de travail Azure Machine Learning service, passez à la section suivante.
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
-## <a name="create-new-experiment"></a>Créer une expérience
+### <a name="create-an-experiment"></a>Création d'une expérience
 
 1. Ouvrez votre espace de travail dans le [portail Azure](https://portal.azure.com/).
 
@@ -57,7 +63,7 @@ Si vous disposez d’un espace de travail Azure Machine Learning service, passez
 
 1. Sélectionnez le nom d’expérience par défaut, **« Expérience créée le ... »** , situé en haut du canevas, et remplacez-le par un nom significatif. Par exemple, **« Prédiction du prix de véhicules automobiles »** . Le nom n’a pas besoin d’être unique.
 
-## <a name="specify-data"></a>Spécifier les données
+## <a name="import-data"></a>Importer des données
 
 Le Machine Learning dépend des données. Heureusement, cette interface contient plusieurs exemples de jeux de données avec lesquels vous pouvez expérimenter. Pour les besoins de ce tutoriel, vous allez utiliser le jeu de données **Automobile price data (Raw)** (Données sur le prix des véhicules automobiles [brutes]). 
 
@@ -65,7 +71,7 @@ Le Machine Learning dépend des données. Heureusement, cette interface contient
 
 1. Sélectionnez le jeu de données **Automobile price data (raw)** , puis faites-le glisser jusqu’au canevas.
 
-   ![Faites glisser les données jusqu’au canevas](./media/ui-tutorial-automobile-price-train-score/drag-data.png)
+   ![Faites glisser les données jusqu’au canevas](./media/ui-tutorial-automobile-price-train-score/drag-data.gif)
 
 1. Sélectionner les colonnes de données à utiliser. Dans la zone de recherche située en haut de la palette, tapez **Sélectionner** afin de rechercher le module **Sélectionner des colonnes dans le jeu de données**.
 
@@ -87,11 +93,11 @@ Le Machine Learning dépend des données. Heureusement, cette interface contient
 
     Dans la boîte de dialogue **Select columns** (Sélectionner les colonnes), sélectionnez **ALL COLUMNS** (TOUTES LES COLONNES) et incluez **toutes les fonctionnalités**. La boîte de dialogue doit ressembler à ceci :
 
-     ![sélecteur de colonne](./media/ui-tutorial-automobile-price-train-score/select-all.png)
+     ![sélecteur de colonne](./media/ui-tutorial-automobile-price-train-score/select-all.gif)
 
 1. En bas à droite, sélectionnez le bouton **OK** pour fermer le sélecteur de colonne.
 
-## <a name="run-the-experiment"></a>Exécuter l’expérience
+### <a name="run-the-experiment"></a>Exécuter l’expérience
 
 À tout moment, cliquez sur le port de sortie d’un jeu de données ou d’un module pour examiner l’aspect des données à ce stade dans le flux de données. Si l’option **Visualize** (Visualiser) est désactivée, vous devez d’abord exécuter l’expérience.
 
@@ -100,7 +106,7 @@ Le Machine Learning dépend des données. Heureusement, cette interface contient
 Une fois que la cible de calcul est disponible, l’expérience s’exécute. Une fois l’exécution terminée, une coche verte apparaît sur chaque module.
 
 
-## <a name="visualize-the-data"></a>Visualiser les données
+### <a name="visualize-the-data"></a>Visualiser les données
 
 Maintenant que vous avez exécuté votre expérience initiale, vous pouvez visualiser les données pour mieux comprendre le jeu de données dont vous disposez.
 
@@ -110,9 +116,9 @@ Maintenant que vous avez exécuté votre expérience initiale, vous pouvez visua
 
     Dans ce jeu de données, chaque ligne représente un véhicule automobile et chaque colonne représente une variable associée au véhicule automobile. Ce jeu de données contient 205 lignes et 26 colonnes.
 
-     Chaque fois que vous cliquez sur une colonne de données, les informations **statistiques** et l’image de **visualisation** de la colonne en question s’affichent à gauche. Par exemple, quand vous cliquez sur **num-of-doors** (nombre de portes), vous constatez qu’elle contient deux valeurs uniques et deux valeurs manquantes. Faites défiler vers le bas pour afficher les valeurs : deux et quatre (portes).
+    Chaque fois que vous cliquez sur une colonne de données, les informations **statistiques** et l’image de **visualisation** de la colonne en question s’affichent à gauche.
 
-     ![Prévisualiser les données](./media/ui-tutorial-automobile-price-train-score/preview-data.gif)
+    [![Prévisualiser les données](./media/ui-tutorial-automobile-price-train-score/preview-data.gif)](./media/ui-tutorial-automobile-price-train-score/preview-data.gif#lightbox)
 
 1. Cliquez sur chaque colonne pour obtenir plus d’informations sur votre jeu de données, et déterminez si ces colonnes seront utiles pour prédire le prix d’une voiture.
 
@@ -137,15 +143,11 @@ Commencez par supprimer entièrement la colonne **normalized-losses**.
 
     * En bas à droite, sélectionnez le bouton **OK** pour fermer le sélecteur de colonne.
 
-    ![Exclure une colonne](./media/ui-tutorial-automobile-price-train-score/exclude-column.png)
+    ![Exclure une colonne](./media/ui-tutorial-automobile-price-train-score/exclude-column.gif)
         
     À présent, le volet de propriétés du module Select Columns in Dataset indique qu’il transmettra toutes les colonnes du jeu de données, à l’exception de **normalized-losses**.
         
     Le volet de propriétés montre que la colonne **normalized-losses** est exclue.
-        
-    ![Volet de propriétés](./media/ui-tutorial-automobile-price-train-score/property-pane.png)
-        
-    Vous pouvez ajouter un commentaire dans un module en double-cliquant sur ce module, puis en saisissant du texte. Ceci peut vous aider à voir d'un seul coup d'œil ce que fait chaque module dans votre expérience. 
 
 1. Double-cliquez sur le module **Select Columns in Dataset** et tapez le commentaire « Exclude normalized losses ». 
     
@@ -168,22 +170,22 @@ Lorsque vous entraînez un modèle, vous devez traiter le problème des données
 1. Dans le volet des propriétés, sélectionnez **Remove entire row** (Supprimer la ligne entière) sous **Cleaning mode** (Mode nettoyage).
 
 1. Double-cliquez sur le module et saisissez le commentaire suivant : « Supprimer les lignes de valeur manquantes ».
- 
-    ![Supprimer les lignes](./media/ui-tutorial-automobile-price-train-score/remove-rows.png)
 
     Votre expérience doit maintenant se présenter comme suit :
     
     ![sélectionner une colonne](./media/ui-tutorial-automobile-price-train-score/experiment-clean.png)
 
-## <a name="train-the-model"></a>Formation du modèle
+## <a name="train-a-machine-learning-model"></a>Entraîner un modèle Machine Learning
 
 Maintenant que les données sont prêtes, vous pouvez construire un modèle prédictif. Vous allez utiliser vos données pour entraîner le modèle. Ensuite, vous testerez le modèle pour voir avec quelle précision il est capable de prédire les prix.
+
+### <a name="select-an-algorithm"></a>Sélectionner un algorithme
 
 La **classification** et la **régression** sont deux types d’algorithmes de machine learning supervisé. La **classification** permet de prédire une réponse à partir d'un jeu de catégories défini, comme une couleur (rouge, bleu ou vert). La **régression** est utilisée pour prédire un nombre.
 
 Comme vous voulez prédire un prix, à savoir un nombre, vous pouvez utiliser un algorithme de régression. Dans cet exemple, vous utilisez un modèle de régression linéaire.
 
-Formez le modèle en lui fournissant un jeu de données incluant le prix. Le modèle analyse les données et recherche des corrélations entre les caractéristiques d’une voiture et son prix.
+### <a name="split-the-data"></a>Fractionner les données
 
 Utilisez vos données pour entraîner et tester le modèle en fractionnant les données en jeux de données distincts d’entraînement et de test.
 
@@ -191,17 +193,17 @@ Utilisez vos données pour entraîner et tester le modèle en fractionnant les d
 
 1. Sélectionnez le module **Fractionner les données**. Dans le volet Propriétés, affectez la valeur 0,7 au paramètre Fraction de lignes dans le premier jeu de données de sortie. De cette façon, vous utiliserez 70 % des données pour entraîner le modèle et conserverez 30 % pour le tester.
 
-    ![Capture d’écran montrant la configuration correcte du volet Propriétés Les valeurs de « Split Data » (Fractionner les données) doivent être « Split Rows » (Lignes fractionnées), 0,7, Randomized split (Fractionnement aléatoire), 0, Faux.](./media/ui-tutorial-automobile-price-train-score/split-data.png)
-
 1. Double-cliquez sur **Split Data** (Fractionner les données) et tapez le commentaire « Fractionner le jeu de données en jeu d’entraînement (0,7) et jeu de test (0,3) ».
+
+### <a name="train-the-model"></a>Formation du modèle
+
+Formez le modèle en lui fournissant un jeu de données incluant le prix. Le modèle analyse les données et recherche des corrélations entre les caractéristiques d’une voiture et son prix.
 
 1. Pour sélectionner l’algorithme d’apprentissage, effacez le contenu de la zone de recherche de votre palette de modules.
 
 1. Développez **Machine Learning**, puis **Initialiser le modèle**. Différentes catégories de modules s'affichent, permettant d'initialiser des algorithmes d'apprentissage automatique.
 
 1. Pour les besoins de cette expérience, sélectionnez **Régression** > **Régression linéaire**, puis faites-le glisser jusqu’à la zone de dessin.
-
-    ![Capture d’écran montrant la configuration correcte du volet Propriétés Les valeurs de « Split Data » (Fractionner les données) doivent être « Split Rows » (Lignes fractionnées), 0,7, Randomized split (Fractionnement aléatoire), 0, Faux.](./media/ui-tutorial-automobile-price-train-score/linear-regression-module.png)
 
 1. Recherchez et faites glisser le module **Entraîner le modèle** jusqu’à la zone de dessin. Connectez la sortie du module Régression linéaire à l’entrée de gauche du module Entraîner le modèle, puis connectez la sortie des données d’entraînement (port gauche) du module **Fractionner les données** à l’entrée de droite du module **Entraîner le modèle**.
 
@@ -215,7 +217,7 @@ Utilisez vos données pour entraîner et tester le modèle en fractionnant les d
 
     ![Capture d’écran montrant la configuration correcte de l’expérience après l’ajout du module Entraîner le modèle.](./media/ui-tutorial-automobile-price-train-score/train-graph.png)
 
-## <a name="score-and-evaluate-the-model"></a>Scorer et évaluer le modèle
+## <a name="evaluate-a-machine-learning-model"></a>Évaluer un modèle Machine Learning
 
 Maintenant que vous avez entraîné le modèle en utilisant 70 % des données, vous pouvez l'utiliser pour le scoring des 30 % restants, afin de voir si votre modèle fonctionne.
 
@@ -244,26 +246,6 @@ Les statistiques suivantes s’affichent pour votre modèle :
 * **Coefficient de détermination** : aussi nommé valeur R au carré, il s’agit d’une mesure statistique indiquant à quel point un modèle correspond aux données.
 
 Pour chacune des statistiques liées aux erreurs, les valeurs les plus petites sont privilégiées. En effet, une valeur plus petite indique un degré de correspondance plus étroit avec la valeur réelle. Plus la valeur du coefficient de détermination est proche de un (1,0), plus les prévisions sont correctes.
-
-## <a name="manage-experiments-in-azure-machine-learning-service-workspace"></a>Gérer les expériences dans l’espace de travail du service Azure Machine Learning
-
-Les expériences que vous créez dans l’interface visuelle peuvent être gérées à partir de l’espace de travail du service Azure Machine Learning. Utilisez cet espace de travail pour afficher des informations plus détaillées, telles que les exécutions individuelles d’expérience, les journaux de diagnostic, les graphiques d’exécution et plus encore.
-
-1. Ouvrez votre espace de travail dans le [portail Azure](https://portal.azure.com/).  
-
-1. Dans votre espace de travail, sélectionnez **Expériences**. Sélectionnez ensuite l’expérience que vous avez créée.
-
-    ![Capture d’écran montrant comment accéder à des expériences dans le portail Azure](./media/ui-tutorial-automobile-price-train-score/portal-experiments.png)
-
-    Dans cette page, vous verrez une vue d’ensemble de l’expérience et de ses dernières exécutions.
-
-    ![Capture d’écran montrant une vue d’ensemble des statistiques d’expérience dans le portail Azure](./media/ui-tutorial-automobile-price-train-score/experiment-overview.png)
-
-1. Sélectionnez un numéro d’exécution pour afficher plus d’informations sur une exécution spécifique.
-
-    ![Capture d’écran d’un rapport d’exécution détaillé](./media/ui-tutorial-automobile-price-train-score/run-details.png)
-
-    Le rapport d’exécution est mis à jour en temps réel. Si vous avez utilisé un module **Exécuter un script Python** ou **Exécuter un script R** dans votre expérience, vous pouvez spécifier les journaux de script à fournir en sortie sous l’onglet **Journaux**.
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 

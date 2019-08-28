@@ -8,14 +8,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/08/2019
 ms.author: atsenthi
-ms.openlocfilehash: b6e1108ffee13f1583d920947404963a69616788
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 07b26fb86392b26ef45c4370741a32efc7dc436b
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68957570"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69640931"
 ---
-# <a name="granting-a-service-fabric-applications-managed-identity-access-to-azure-resources"></a>Accorder à l’identité managée d’une application Service Fabric l’accès à des ressources Azure
+# <a name="granting-a-service-fabric-applications-managed-identity-access-to-azure-resources-preview"></a>Accorder à l’identité managée d’une application Service Fabric l’accès à des ressources Azure (préversion)
 
 Pour que l’application puisse utiliser son identité managée et accéder à d’autres ressources, les autorisations doivent être accordées à cette identité sur la ressource Azure protégée faisant l’objet d’un accès. L’octroi d’autorisations est généralement une action de gestion sur le « plan de contrôle » du service Azure propriétaire de la ressource protégée routée via Azure Resource Manager, ce qui permet d’appliquer toute vérification d’accès en fonction du rôle applicable.
 
@@ -73,15 +73,3 @@ Pour plus d’informations, consultez [Coffres - Mettre à jour la stratégie d�
 * [Déployer une application Azure Service Fabric avec une identité managée attribuée par le système](./how-to-deploy-service-fabric-application-system-assigned-managed-identity.md)
 
 * [Déployer une application Azure Service Fabric avec une identité managée attribuée par l’utilisateur](./how-to-deploy-service-fabric-application-user-assigned-managed-identity.md)
-
-## <a name="related-articles"></a>Articles connexes
-
-* Vérifier [la prise en charge des identités managées](./concepts-managed-identity.md) dans Azure Service Fabric
-
-* [Déployer un nouveau](./configure-new-azure-service-fabric-enable-managed-identity.md) cluster Azure Service Fabric avec une prise en charge d’identité managée 
-
-* [Activer une identité managée](./configure-existing-cluster-enable-managed-identity-token-service.md) dans un cluster Azure Service Fabric existant
-
-* Tirer parti de l’identité managée d’une [application Service fabric à partir du code source](./how-to-managed-identity-service-fabric-app-code.md)
-
-* Consulter la liste des [Services Azure qui prennent en charge l’authentification Azure AD](../active-directory/managed-identities-azure-resources/services-support-msi.md)

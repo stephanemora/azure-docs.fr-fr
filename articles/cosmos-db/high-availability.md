@@ -78,7 +78,7 @@ Cette fonctionnalité est disponible dans les régions Azure suivantes :
 
 * Sud du Royaume-Uni
 * Asie Sud-Est 
-* East US
+* USA Est
 * USA Est 2 
 * USA Centre
 * Europe Ouest

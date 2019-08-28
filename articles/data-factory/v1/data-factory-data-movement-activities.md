@@ -98,9 +98,9 @@ Lorsque les banques de données source et récepteur résident toutes les deux d
 | États-Unis | USA Est | USA Est |
 | &nbsp; | USA Est 2 | USA Est 2 |
 | &nbsp; | USA Centre | USA Centre |
-| &nbsp; | USA Centre Nord | USA Centre Nord |
-| &nbsp; | USA Centre Sud | USA Centre Sud |
-| &nbsp; | USA Centre-Ouest | USA Centre-Ouest |
+| &nbsp; | Centre-Nord des États-Unis | Centre-Nord des États-Unis |
+| &nbsp; | États-Unis - partie centrale méridionale | États-Unis - partie centrale méridionale |
+| &nbsp; | Centre-USA Ouest | Centre-USA Ouest |
 | &nbsp; | USA Ouest | USA Ouest |
 | &nbsp; | USA Ouest 2 | USA Ouest 2 |
 | Canada | Est du Canada | Centre du Canada |
@@ -111,14 +111,14 @@ Lorsque les banques de données source et récepteur résident toutes les deux d
 | Royaume-Uni | Ouest du Royaume-Uni | Sud du Royaume-Uni |
 | &nbsp; | Sud du Royaume-Uni | Sud du Royaume-Uni |
 | Asie-Pacifique | Asie Sud-Est | Asie Sud-Est |
-| &nbsp; | Asie Est | Asie du Sud-Est |
+| &nbsp; | Asie Est | Asie Sud-Est |
 | Australie | Australie Est | Australie Est |
-| &nbsp; | Australie Sud-Est | Australie Sud-Est |
-| Inde | Inde Centre | Inde Centre |
-| &nbsp; | Inde Ouest | Inde Centre |
-| &nbsp; | Inde Sud | Inde Centre |
+| &nbsp; | Sud-Australie Est | Sud-Australie Est |
+| Inde | Inde centrale | Inde centrale |
+| &nbsp; | Inde Ouest | Inde centrale |
+| &nbsp; | Inde Sud | Inde centrale |
 | Japon | Japon Est | Japon Est |
-| &nbsp; | Japon Ouest | Japon Est |
+| &nbsp; | OuJapon Est | Japon Est |
 | Corée du Sud | Centre de la Corée | Centre de la Corée |
 | &nbsp; | Corée du Sud | Centre de la Corée |
 

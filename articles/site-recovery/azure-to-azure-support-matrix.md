@@ -46,7 +46,7 @@ Vous pouvez répliquer et restaurer des machines virtuelles entre deux régions 
 
 **Cluster géographique** | **Régions Azure**
 -- | --
-Amérique | Canada de l’Est, Canada du Centre, Sud du Centre des États-Unis, Ouest du Centre des États-Unis, États-Unis de l’Est, États-Unis de l’Est 2, États-Unis de l’Ouest, États-Unis de l’Ouest 2, États-Unis du Centre, Nord du Centre des États-Unis
+Amérique | Canada de l’Est, Canada du Centre, USA Centre Sud, Ouest du USA Centre, USA Est, USA Est 2, USA Ouest, USA Ouest 2, USA Centre, USA Centre Nord
 Europe | Royaume-Uni Ouest, Royaume-Uni Sud, Europe Nord, Europe Ouest, France Centre, France Sud, Afrique du Sud Ouest,Afrique du Sud Nord
 Asie | Inde du Sud, Centre de l’Inde, Inde de l’Ouest, Asie du Sud-Est, Asie de l’Est, Japon de l’Est, Japon de l’Ouest, Centre de la Corée, Corée du Sud, Émirats arabes unis Centre, Émirats arabes unis Nord
 Australie   | Australie Est, Australie Sud-Est, Australie Centre, Australie Centre 2

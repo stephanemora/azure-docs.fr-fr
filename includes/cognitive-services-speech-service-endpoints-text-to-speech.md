@@ -27,9 +27,9 @@ Servez-vous de ce tableau pour connaître la disponibilité des voix standard et
 | Inde Centre | `https://centralindia.tts.speech.microsoft.com/cognitiveservices/v1` | OUI | OUI |
 | Japon Est | `https://japaneast.tts.speech.microsoft.com/cognitiveservices/v1` | OUI | Non |
 | Centre de la Corée | `https://koreacentral.tts.speech.microsoft.com/cognitiveservices/v1` | OUI | Non |
-| USA Centre Nord | `https://northcentralus.tts.speech.microsoft.com/cognitiveservices/v1` | OUI | Non |
+| Centre-Nord des États-Unis | `https://northcentralus.tts.speech.microsoft.com/cognitiveservices/v1` | OUI | Non |
 | Europe Nord | `https://northeurope.tts.speech.microsoft.com/cognitiveservices/v1` | OUI | Non |
-| USA Centre Sud | `https://southcentralus.tts.speech.microsoft.com/cognitiveservices/v1` | OUI | OUI |
+| États-Unis - partie centrale méridionale | `https://southcentralus.tts.speech.microsoft.com/cognitiveservices/v1` | OUI | OUI |
 | Asie Sud-Est | `https://southeastasia.tts.speech.microsoft.com/cognitiveservices/v1` | OUI | OUI |
 | Sud du Royaume-Uni | `https://uksouth.tts.speech.microsoft.com/cognitiveservices/v1` | OUI | OUI |
 | Europe Ouest | `https://westeurope.tts.speech.microsoft.com/cognitiveservices/v1` | OUI | OUI |
@@ -52,11 +52,11 @@ Si vous avez créé une police de la voix personnalisée, utilisez le point de t
 | Inde Centre | `https://centralindia.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
 | Japon Est | `https://japaneast.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
 | Centre de la Corée | `https://koreacentral.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
-| USA Centre Nord | `https://northcentralus.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
+| Centre-Nord des États-Unis | `https://northcentralus.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
 | Europe Nord | `https://northeurope.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
-| USA Centre Sud | `https://southcentralus.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
+| États-Unis - partie centrale méridionale | `https://southcentralus.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
 | Asie Sud-Est | `https://southeastasia.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
 | Sud du Royaume-Uni | `https://uksouth.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
-| Europe de l'Ouest | `https://westeurope.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
+| Europe Ouest | `https://westeurope.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
 | USA Ouest | `https://westus.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
 | USA Ouest 2 | `https://westus2.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |

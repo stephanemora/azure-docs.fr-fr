@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 04/18/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 9c3ed6dd79d6225b38751c910253cfa1f0720d1c
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: 46fb1fc6455cd35d8bb1eaf0a1b7ee499f5c1caf
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57731968"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69574888"
 ---
 # <a name="quickstart-pause-and-resume-compute-for-an-azure-sql-data-warehouse-in-the-azure-portal"></a>Démarrage rapide : Suspendre et reprendre le calcul pour un entrepôt Azure SQL Data Warehouse sur le portail Azure
 
@@ -35,9 +35,9 @@ Utilisez la section [Créer et connecter – Portail](create-data-warehouse-port
 
 Pour réduire les coûts, vous pouvez interrompre et reprendre des ressources de calcul à la demande. Par exemple, si vous n’utilisez pas la base de données pendant la nuit et les week-ends, vous pouvez la suspendre à ces moments et la reprendre pendant la journée. Aucune ressource de calcul ne vous sera facturée tant que la base de données restera suspendue. Le stockage, en revanche, continuera à occasionner des frais. 
 
-Suivez les étapes ci-dessous pour suspendre un entrepôt de données SQL.
+Suivez les étapes ci-dessous pour interrompre un entrepôt de données SQL.
 
-1. Cliquez sur **Bases de données SQL** sur la page de gauche du Portail Azure.
+1. Cliquez sur **Bases de données SQL** dans la page de gauche du portail Azure.
 2. Sélectionnez **mySampleDataWarehouse** dans la page **Bases de données SQL**. L’entrepôt de données s’ouvre. 
 3. Sur la page **mySampleDataWarehouse**, **l’État** est **En ligne**.
 
@@ -59,7 +59,7 @@ Suivez les étapes ci-dessous pour suspendre un entrepôt de données SQL.
 
 Suivez les étapes ci-dessous pour reprendre un entrepôt de données SQL.
 
-1. Cliquez sur **Bases de données SQL** sur la page de gauche du Portail Azure.
+1. Cliquez sur **Bases de données SQL** dans la page de gauche du portail Azure.
 2. Sélectionnez **mySampleDataWarehouse** dans la page **Bases de données SQL**. L’entrepôt de données s’ouvre. 
 3. Sur la page **mySampleDataWarehouse**, **l’État** est **Suspendu**.
 

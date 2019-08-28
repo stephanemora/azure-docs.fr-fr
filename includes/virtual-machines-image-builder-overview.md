@@ -35,9 +35,9 @@ La préversion prend en charge les fonctionnalités suivantes :
 
 ## <a name="regions"></a>Régions
 Le service Générateur d’images Azure sera disponible en préversion dans les régions suivantes. Des images peuvent être distribuées en dehors de ces régions.
-- East US
+- USA Est
 - USA Est 2
-- USA Centre-Ouest
+- Centre-USA Ouest
 - USA Ouest
 - USA Ouest 2
 

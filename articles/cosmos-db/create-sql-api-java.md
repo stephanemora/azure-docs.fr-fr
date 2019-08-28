@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 05/21/2019
 ms.author: sngun
 ms.custom: seo-java-august2019
-ms.openlocfilehash: 5f8555d23a43a3ca391ec03f827b0d81ac3c4698
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: a7e2089b8dfff1f021c31d2b13591b54dcd9c4ac
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68933971"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69616982"
 ---
 # <a name="quickstart-build-a-java-application-using-azure-cosmos-db-sql-api-account"></a>Démarrage rapide : Générer une application Java à l’aide du compte d’API SQL Azure Cosmos DB
 
@@ -26,7 +26,7 @@ ms.locfileid: "68933971"
 > * [Python](create-sql-api-python.md)
 > * [Xamarin](create-sql-api-xamarin-dotnet.md)
 
-Ce démarrage rapide montre comment créer et gérer des ressources d’un compte d’[API SQL](sql-api-introduction.md) Azure Cosmos DB à l’aide d’une application Java. Tout d’abord, vous créez un compte d’API SQL Azure Cosmos DB à l’aide du portail Azure, créez une application Java en utilisant le [kit de développement logiciel (SDK) Java SQL](sql-api-sdk-async-java.md), ajoutez des ressources à votre compte Cosmos DB à l’aide de l’application Java. Les instructions de ce guide de démarrage rapide s’appliquent à tous les systèmes d’exploitation pouvant exécuter Java. Après avoir suivi ce guide de démarrage rapide, vous saurez comment créer et modifier des bases de données Cosmos DB et des conteneurs soit dans l’interface utilisateur, soit par programmation, selon la méthode que vous préférez.
+Ce démarrage rapide montre comment créer et gérer des ressources d’un compte d’[API SQL](sql-api-introduction.md) Azure Cosmos DB à l’aide d’une application Java. Tout d’abord, vous créez un compte d’API SQL Azure Cosmos DB à l’aide du portail Azure, créez une application Java en utilisant le [kit de développement logiciel (SDK) Java SQL](sql-api-sdk-async-java.md), ajoutez des ressources à votre compte Cosmos DB à l’aide de l’application Java. Les instructions de ce guide de démarrage rapide s’appliquent à tous les systèmes d’exploitation pouvant exécuter Java. Après avoir suivi ce démarrage rapide, vous saurez comment créer et modifier des bases de données Cosmos et des conteneurs soit dans l’interface utilisateur, soit par programmation, selon la méthode que vous préférez.
 
 ## <a name="prerequisites"></a>Prérequis
 

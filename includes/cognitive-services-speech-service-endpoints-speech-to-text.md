@@ -23,12 +23,12 @@ ms.locfileid: "68306093"
 | Inde Centre | `https://centralindia.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1` |
 | Japon Est | `https://japaneast.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1` |
 | Centre de la Corée | `https://koreacentral.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1` |
-| USA Centre Nord | `https://northcentralus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1` |
+| Centre-Nord des États-Unis | `https://northcentralus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1` |
 | Europe Nord | `https://northeurope.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1` |
-| USA Centre Sud | `https://southcentralus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1` |
+| États-Unis - partie centrale méridionale | `https://southcentralus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1` |
 | Asie Sud-Est | `https://southeastasia.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1` |
 | Sud du Royaume-Uni | `https://uksouth.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1` |
-| Europe de l'Ouest | `https://westeurope.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1` |
+| Europe Ouest | `https://westeurope.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1` |
 | USA Ouest | `https://westus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1` |
 | USA Ouest 2 | `https://westus2.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1` |
 

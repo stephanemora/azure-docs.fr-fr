@@ -171,8 +171,8 @@ Dans la préversion publique, la publication des métriques personnalisées n’
 |Région Azure|Préfixe du point de terminaison régional|
 |---|---|
 |USA Est| https:\//eastus.monitoring.azure.com/ |
-|USA Centre Sud| https:\//southcentralus.monitoring.azure.com/ |
-|USA Centre-Ouest| https:\//westcentralus.monitoring.azure.com/ |
+|États-Unis - partie centrale méridionale| https:\//southcentralus.monitoring.azure.com/ |
+|Centre-USA Ouest| https:\//westcentralus.monitoring.azure.com/ |
 |USA Ouest 2| https:\//westus2.monitoring.azure.com/ |
 |Asie Sud-Est| https:\//southeastasia.monitoring.azure.com/ |
 |Europe Nord| https:\//northeurope.monitoring.azure.com/ |

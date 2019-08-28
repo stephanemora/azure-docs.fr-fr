@@ -46,7 +46,7 @@ Nous utilisons les valeurs suivantes dans les exemples de cet article. Vous pouv
 * **Espace d’adressage :** 10.1.0.0/16
 * **Abonnement :** abonnement à utiliser
 * **Groupe de ressources :** TestRG1
-* **Emplacement :** East US
+* **Emplacement :** USA Est
 * **Sous-réseau :** Front-end : 10.1.0.0/24, back-end : 10.1.1.0/24 (facultatif pour cet exercice)
 * **Nom du sous-réseau de passerelle :** GatewaySubnet (renseigné automatiquement dans le portail)
 * **Plage d’adresses du sous-réseau de passerelle** : 10.1.255.0/27

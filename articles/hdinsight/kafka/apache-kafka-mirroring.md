@@ -66,7 +66,7 @@ Cette architecture comporte deux clusters dans différents groupes de ressources
     |Groupe de ressources | Location |
     |---|---|
     | kafka-primary-rg | USA Centre |
-    | kafka-secondary-rg | USA Centre Nord |
+    | kafka-secondary-rg | Centre-Nord des États-Unis |
 
 1. Créez un réseau virtuel **kafka-principal-vnet** dans **kafka-principal-rg**. Conservez les paramètres par défaut.
 1. Créez un réseau virtuel **kafka-secondary-vnet** dans **kafka-secondary-rg**, également avec les paramètres par défaut.

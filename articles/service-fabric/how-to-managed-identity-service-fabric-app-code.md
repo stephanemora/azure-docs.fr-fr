@@ -8,14 +8,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 7/25/2019
 ms.author: atsenthi
-ms.openlocfilehash: 528e1b0a353cdcd716f9bca63c423af7a6f12641
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 8e535fc581e186abd032206c2bbf78623d95967f
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68957514"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69899767"
 ---
-# <a name="how-to-leverage-a-service-fabric-applications-managed-identity-to-access-azure-services"></a>Tirer parti de l’identité managée d’une application Service Fabric pour accéder aux services Azure
+# <a name="how-to-leverage-a-service-fabric-applications-managed-identity-to-access-azure-services-preview"></a>Tirer parti de l’identité managée d’une application Service Fabric pour accéder aux services Azure (préversion)
 
 Les applications Service Fabric peuvent tirer parti des identités managées pour accéder à d’autres ressources Azure qui prennent en charge l’authentification basée sur Azure Active Directory. Une application peut obtenir un [jeton d’accès](../active-directory/develop/developer-glossary.md#access-token) représentant son identité, qui peut être affectée par le système ou affectée par l’utilisateur, et l’utiliser en tant que jeton de « porteur » pour s’authentifier auprès d'un autre service (également appelé [serveur de ressources protégé](../active-directory/develop/developer-glossary.md#resource-server)). Le jeton représente l’identité assignée à l’application Service Fabric et sera uniquement délivré aux ressources Azure (y compris les applications DF) qui partagent cette identité. Reportez-vous à la [documentation de présentation des identités managées](../active-directory/managed-identities-azure-resources/overview.md) pour obtenir une description détaillée des identités managées, ainsi que la distinction entre les identités affectées par le système et celles affectées par l’utilisateur. Nous allons faire référence à une application avec identité managée Service Fabric comme [application cliente](../active-directory/develop/developer-glossary.md#client-application) dans cet article.
 
@@ -23,7 +23,7 @@ Les applications Service Fabric peuvent tirer parti des identités managées pou
 > Une identité managée représente l’association entre une ressource Azure et un principal de service dans le client Azure AD correspondant associé à l’abonnement contenant la ressource. Ainsi, dans le contexte de Service Fabric, les identités managées sont uniquement prises en charge pour les applications déployées en tant que ressources Azure. 
 
 > [!IMPORTANT]
-> Avant d’utiliser l’identité managée d’une application Service Fabric, l’accès à la ressource protégée doit être accordé à l’application cliente. Reportez-vous à la liste des [services Azure qui prennent en charge l’authentification Azure AD](/active-directory/managed-identities-azure-resources/services-support-managed-identities#azure-services-that-support-managed-identities-for-azure-resources) pour vérifier la prise en charge, puis à la documentation du service respectif pour les étapes spécifiques afin d’accorder un accès d’identité aux ressources intéressantes. 
+> Avant d’utiliser l’identité managée d’une application Service Fabric, l’accès à la ressource protégée doit être accordé à l’application cliente. Reportez-vous à la liste des [services Azure qui prennent en charge l’authentification Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-managed-identities-for-azure-resources) pour vérifier la prise en charge, puis à la documentation du service respectif pour les étapes spécifiques afin d’accorder un accès d’identité aux ressources intéressantes. 
 
 ## <a name="acquiring-an-access-token-using-rest-api"></a>Acquisition d’un jeton d’accès à l’aide de l’API REST
 Dans les clusters activés pour l’identité managée, le runtime Service Fabric expose un point de terminaison localhost que les applications peuvent utiliser pour obtenir des jetons d’accès. Le point de terminaison est disponible sur chaque nœud du cluster et est accessible à toutes les entités sur ce nœud. Les appelants autorisés peuvent obtenir des jetons d’accès en appelant ce point de terminaison et en présentant un code d’authentification. Le code est généré par le runtime Service Fabric pour chaque activation de package de code de service distincte, et est lié à la durée de vie du processus hébergeant ce package de code de service.
@@ -60,7 +60,7 @@ où :
 | `GET` | Le verbe HTTP, indiquant votre souhait de récupérer des données du point de terminaison. Dans ce cas, un jeton d’accès OAuth. | 
 | `http://localhost:2377/metadata/identity/oauth2/token` | Le point de terminaison de l’identité managée pour les applications Service Fabric, fourni via la variable d’environnement MSI_ENDPOINT. |
 | `api-version` | Un paramètre de chaîne de requête, spécifiant la version de l’API du service de jeton d’identité managée ; actuellement, la seule valeur acceptée est `2019-07-01-preview`, et peut faire l’objet de modifications. |
-| `resource` | Un paramètre de chaîne de requête, indiquant l’URI ID d’application de la ressource cible. Il s’agit de la revendication `aud` (audience) du jeton émis. Cet exemple demande un jeton pour accéder à Azure Key Vault, dont l’URI ID d’application correspond à https://keyvault.azure.com/. |
+| `resource` | Un paramètre de chaîne de requête, indiquant l’URI ID d’application de la ressource cible. Il s’agit de la revendication `aud` (audience) du jeton émis. Cet exemple demande un jeton pour accéder à Azure Key Vault, dont l’URI ID d’application correspond à \//keyvault.azure.com/. |
 | `Secret` | Un champ d’en-tête de demande HTTP, requis par le service de jeton d’identité managée Service Fabric pour que les services Service Fabric authentifient l’appelant. Cette valeur est fournie par le runtime SF via la variable d’environnement MSI_SECRET. |
 
 
@@ -312,11 +312,3 @@ Consultez [Services Azure prenant en charge l’authentification de Azure AD](..
 * [Déployer une application Azure Service Fabric avec une identité managée attribuée par le système](./how-to-deploy-service-fabric-application-system-assigned-managed-identity.md)
 * [Déployer une application Azure Service Fabric avec une identité managée attribuée par l’utilisateur](./how-to-deploy-service-fabric-application-user-assigned-managed-identity.md)
 * [Accorder à une application Azure Service Fabric l’accès à d’autres ressources Azure](./how-to-grant-access-other-resources.md)
-
-## <a name="see-also"></a>Voir aussi
-
-* Vérifier [la prise en charge des identités managées](./concepts-managed-identity.md) dans Azure Service Fabric
-
-* [Déployer un nouveau](./configure-new-azure-service-fabric-enable-managed-identity.md) cluster Azure Service Fabric avec une prise en charge d’identité managée 
-
-* [Activer une identité managée](./configure-existing-cluster-enable-managed-identity-token-service.md) dans un cluster Azure Service Fabric existant

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 6b127738d4be79c30d1791d7313c0f8f7eacaf36
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 6b5be5271e2ff579d93cb70f7c8da93d861d4dc0
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68985153"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69648723"
 ---
 # <a name="get-started-with-azcopy"></a>Bien démarrer avec AzCopy
 
@@ -65,9 +65,9 @@ Utilisez ce tableau pour vous guider :
 |**Stockage de blobs (espace de noms hiérarchique)** | Azure AD et SAS |
 |**Stockage Fichier** | SAS uniquement |
 
-### <a name="option-1-use-azure-ad"></a>Option 1 : Utilisez Azure AD
+### <a name="option-1-use-azure-active-directory"></a>Option 1 : Utiliser Azure Active Directory
 
-En utilisant Azure AD, vous pouvez fournir des informations d’identification en une seule fois au lieu d’avoir à ajouter un jeton SAS à chaque commande.  
+En utilisant Azure Active Directory, vous pouvez fournir des informations d’identification en une seule fois au lieu d’ajouter un jeton SAS à chaque commande.  
 
 > [!NOTE]
 > Dans la version actuelle, si vous envisagez de copier des objets blob entre des comptes de stockage, vous devez ajouter un jeton SAS à chaque URL source. Vous pouvez omettre le jeton SAS uniquement à partir de l’URL de destination. Pour des exemples, consultez [Copier des objets blob entre des comptes de stockage](storage-use-azcopy-blobs.md).
@@ -93,7 +93,7 @@ Ces rôles peuvent être attribués à votre principal de service sur l’une de
 Pour savoir comment vérifier et attribuer des rôles, voir [Octroyer l’accès aux données blob et de file d’attente Azure avec RBAC dans le Portail Azure](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 > [!NOTE]
-> Gardez à l’esprit que les attributions de rôles RBAC peuvent prendre jusqu’à cinq minutes pour se propager.
+> Gardez à l’esprit que la propagation des attributions de rôles RBAC peut prendre jusqu’à cinq minutes.
 
 Vous n’avez pas besoin qu’un de ces rôles soit assigné à votre responsable de la sécurité si votre responsable de la sécurité est ajouté à la liste de contrôle d’accès du conteneur ou du répertoire cible. Dans la liste de contrôle d’accès, votre responsable de la sécurité a besoin de droits d’écriture sur le répertoire cible et d’autorisation d’exécution sur le conteneur et chaque répertoire parent.
 
@@ -149,7 +149,7 @@ $env:AZCOPY_SPA_CLIENT_SECRET="$(Read-Host -prompt "Enter key")"
 ```
 
 > [!NOTE]
-> Envisagez d’utiliser une invite comme dans cet exemple. De cette façon, la clé secrète client n’apparaîtra pas dans l’historique des commandes de votre console. 
+> Envisagez d’utiliser une invite comme dans cet exemple. De cette façon, votre mot de passe n’apparaîtra pas dans l’historique des commandes de votre console.  
 
 Ensuite, tapez la commande suivante, puis appuyez sur la touche ENTRÉE.
 
@@ -170,7 +170,7 @@ Ensuite, définissez la variable d’environnement `AZCOPY_SPA_CERT_PASSWORD` po
 > [!NOTE]
 > Assurez-vous de définir cette valeur à partir de votre invite de commande, et non dans les paramètres des variables d’environnement de votre système d’exploitation. De cette façon, la valeur n’est disponible que pour la session en cours.
 
-Cet exemple montre comment vous pouvez le faire dans PowerShell.
+Cet exemple montre comment vous pouvez effectuer cette tâche dans PowerShell.
 
 ```azcopy
 $env:AZCOPY_SPA_CERT_PASSWORD="$(Read-Host -prompt "Enter key")"
@@ -238,7 +238,7 @@ Vous pouvez ajouter un jeton SAP à chaque URL source ou de destination utilisé
 Cet exemple de commande copie de manière récursive les données d’un répertoire local dans un conteneur de blobs. Un jeton SAP fictif est ajouté à la fin de l’URL du conteneur.
 
 ```azcopy
-azcopy cp "C:\local\path" "https://account.blob.core.windows.net/mycontainer1/?sv=2018-03-28&ss=bjqt&srt=sco&sp=rwddgcup&se=2019-05-01T05:01:17Z&st=2019-04-30T21:01:17Z&spr=https&sig=MGCXiyEzbtttkr3ewJIh2AR8KrghSy1DGM9ovN734bQF4%3D" --recursive=true
+azcopy copy "C:\local\path" "https://account.blob.core.windows.net/mycontainer1/?sv=2018-03-28&ss=bjqt&srt=sco&sp=rwddgcup&se=2019-05-01T05:01:17Z&st=2019-04-30T21:01:17Z&spr=https&sig=MGCXiyEzbtttkr3ewJIh2AR8KrghSy1DGM9ovN734bQF4%3D" --recursive=true
 ```
 
 Pour en savoir plus sur les jetons SAS et savoir comment en obtenir un, voir [Utilisation des signatures d’accès partagé (SAP)](https://docs.microsoft.com/azure/storage/common/storage-sas-overview).

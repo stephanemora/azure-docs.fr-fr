@@ -153,24 +153,24 @@ Si vous avec besoin de restaurer une base de données Hyperscale Azure SQL Datab
 Le niveau Hyperscale d’Azure SQL Database est actuellement disponible dans les régions suivantes :
 
 - Australie Est
-- Australie Sud-Est
+- Sud-Australie Est
 - Brésil Sud
 - Centre du Canada
 - USA Centre
 - Chine orientale 2
 - Chine Nord 2
 - Asie Est
-- East US
+- USA Est
 - USA Est 2
 - France Centre
 - Japon Est
-- Japon Ouest
+- OuJapon Est
 - Centre de la Corée
 - Corée du Sud
-- USA Centre Nord
+- Centre-Nord des États-Unis
 - Europe Nord
 - Afrique du Sud Nord
-- USA Centre Sud
+- États-Unis - partie centrale méridionale
 - Asie Sud-Est
 - Sud du Royaume-Uni
 - Ouest du Royaume-Uni

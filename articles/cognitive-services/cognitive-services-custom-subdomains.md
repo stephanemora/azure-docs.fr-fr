@@ -82,13 +82,13 @@ Oui. Il s’agit d’une liste de points de terminaison régionaux que vous pouv
 | | Inde Centre | `https://centralindia.api.cognitive.microsoft.com` |
 | | Japon Est | `https://japaneast.api.cognitive.microsoft.com` |
 | | Centre de la Corée | `https://koreacentral.api.cognitive.microsoft.com` |
-| | USA Centre Nord | `https://northcentralus.api.cognitive.microsoft.com` |
+| | Centre-Nord des États-Unis | `https://northcentralus.api.cognitive.microsoft.com` |
 | | Europe Nord | `https://northeurope.api.cognitive.microsoft.com` |
 | | Afrique du Sud Nord | `https://southafricanorth.api.cognitive.microsoft.com` |
-| | USA Centre Sud | `https://southcentralus.api.cognitive.microsoft.com` |
+| | États-Unis - partie centrale méridionale | `https://southcentralus.api.cognitive.microsoft.com` |
 | | Asie Sud-Est | `https://southeastasia.api.cognitive.microsoft.com` |
 | | Sud du Royaume-Uni | `https://uksouth.api.cognitive.microsoft.com` |
-| | USA Centre-Ouest | `https://westcentralus.api.cognitive.microsoft.com` |
+| | Centre-USA Ouest | `https://westcentralus.api.cognitive.microsoft.com` |
 | | Europe Ouest | `https://westeurope.api.cognitive.microsoft.com` |
 | | USA Ouest | `https://westus.api.cognitive.microsoft.com` |
 | | USA Ouest 2 | `https://westus2.api.cognitive.microsoft.com` |

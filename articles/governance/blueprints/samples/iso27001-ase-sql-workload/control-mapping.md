@@ -7,12 +7,12 @@ ms.date: 03/14/2019
 ms.topic: sample
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 59e47c448f58235114c8fb3147637b77dd5fcf23
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: de043e682fea5cb629a127763515b162c3ad4943
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68226065"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69515924"
 ---
 # <a name="control-mapping-of-the-iso-27001-asesql-workload-blueprint-sample"></a>Correspondance des contrôles de l’exemple de blueprint Charge de travail ASE/SQL ISO 27001
 
@@ -118,13 +118,13 @@ Le fait de savoir où vos ressources Azure peuvent avoir des configurations de c
 - \[Préversion\] : Auditer le chiffrement d’objet blob manquant pour les comptes de stockage
 - \[Préversion\] : Déployer une extension de machine virtuelle pour vérifier que les machines virtuelles Windows ne stockent pas les mots de passe à l’aide du chiffrement réversible
 - \[Préversion\] : Vérifier que les machines virtuelles Windows ne stockent pas les mots de passe à l’aide du chiffrement réversible
-- \[Préversion\] : Superviser les bases de données SQL non chiffrées dans Azure Security Center
 - \[Préversion\] : Superviser les disques de machine virtuelle non chiffrés dans Azure Security Center
 - Auditer l'activation du chiffrement des variables du compte Automation
 - Auditer l'activation des connexions sécurisées uniquement à votre cache Redis
 - Auditer le transfert sécurisé vers les comptes de stockage
 - Auditer l'affectation à la propriété ClusterProtectionLevel de la valeur EncryptAndSign dans Service Fabric
 - Auditer l’état du chiffrement transparent des données
+- La technologie Transparent Data Encryption doit être activée sur les bases de données SQL
 
 ## <a name="a1241-event-logging"></a>A.12.4.1 Journalisation des événements
 
@@ -135,9 +135,9 @@ Les journaux de diagnostic fournissent des insights sur les opérations effectu�
 - \[Préversion\] : Vérifier le déploiement de Dependency Agent dans VMSS - Image de machine virtuelle (système d’exploitation) non listée
 - \[Préversion\] : Auditer le déploiement de Log Analytics Agent - Image de machine virtuelle (système d’exploitation) non listée
 - \[Préversion\] : Auditer le déploiement de Log Analytics Agent dans VMSS - Image de machine virtuelle (système d’exploitation) non listée
-- \[Préversion\] : Superviser les bases de données SQL non auditées dans Azure Security Center
 - Auditer le paramètre de diagnostic
 - Auditer les paramètres d'audit au niveau du serveur SQL
+- L’audit doit être activé sur les paramètres de sécurité des données avancés sur SQL Server
 
 ## <a name="a1243-administrator-and-operator-logs"></a>A.12.4.3 Journaux d’administrateur et d’opérateur
 
@@ -147,9 +147,9 @@ Ce blueprint vous permet de garantir que les événements système sont journali
 - \[Préversion\] : Vérifier le déploiement de Dependency Agent dans VMSS - Image de machine virtuelle (système d’exploitation) non listée
 - \[Préversion\] : Auditer le déploiement de Log Analytics Agent - Image de machine virtuelle (système d’exploitation) non listée
 - \[Préversion\] : Auditer le déploiement de Log Analytics Agent dans VMSS - Image de machine virtuelle (système d’exploitation) non listée
-- \[Préversion\] : Superviser les bases de données SQL non auditées dans Azure Security Center
 - Auditer le paramètre de diagnostic
 - Auditer les paramètres d'audit au niveau du serveur SQL
+- L’audit doit être activé sur les paramètres de sécurité des données avancés sur SQL Server
 
 ## <a name="a1244-clock-synchronization"></a>A.12.4.4 Synchronisation de l’horloge
 
@@ -159,9 +159,9 @@ Ce blueprint vous permet de garantir que les événements système sont journali
 - \[Préversion\] : Vérifier le déploiement de Dependency Agent dans VMSS - Image de machine virtuelle (système d’exploitation) non listée
 - \[Préversion\] : Auditer le déploiement de Log Analytics Agent - Image de machine virtuelle (système d’exploitation) non listée
 - \[Préversion\] : Auditer le déploiement de Log Analytics Agent dans VMSS - Image de machine virtuelle (système d’exploitation) non listée
-- \[Préversion\] : Superviser les bases de données SQL non auditées dans Azure Security Center
 - Auditer le paramètre de diagnostic
 - Auditer les paramètres d'audit au niveau du serveur SQL
+- L’audit doit être activé sur les paramètres de sécurité des données avancés sur SQL Server
 
 ## <a name="a1251-installation-of-software-on-operational-systems"></a>A.12.5.1 Installation de logiciels sur les systèmes d’exploitation
 

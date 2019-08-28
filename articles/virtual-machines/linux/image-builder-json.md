@@ -55,9 +55,9 @@ Voici le format de modèle de base :
 
 L’emplacement est la région dans laquelle l’image personnalisée sera créée. Pour le générateur d’images en préversion, les régions suivantes sont prises en charge :
 
-- East US
+- USA Est
 - USA Est 2
-- USA Centre-Ouest
+- Centre-USA Ouest
 - USA Ouest
 - USA Ouest 2
 

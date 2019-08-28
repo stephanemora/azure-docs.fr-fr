@@ -34,7 +34,7 @@ Ce guide nécessite que vous exécutiez Azure CLI version 2.0.4 ou ultérieure. 
 
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
-Créez un groupe de ressources nommé *MyResourceGroup* dans l’emplacement *Est des États-Unis*.
+Créez un groupe de ressources nommé *MyResourceGroup* dans l’emplacement *USA Est*.
 
 ```bash
 az group create --name myResourceGroup --location eastus

@@ -78,15 +78,15 @@ Les régions sources sont répertoriées dans la table ci-dessous. Tout les rég
 
 | Régions sources |
 |---------------------|-----------------|------------------|-----------------|
-| Centre de l’Australie   | EUAP USA Centre | Centre de la Corée    | USA Centre-Ouest |
+| Centre de l’Australie   | EUAP USA Centre | Centre de la Corée    | Centre-USA Ouest |
 | Centre de l’Australie 2 | Asie Est       | Corée du Sud      | Europe Ouest     |
-| Australie Est      | East US         | USA Centre Nord | Inde Ouest      |
-| Australie Sud-Est | USA Est 2       | Europe Nord     | USA Ouest         |
-| Brésil Sud        | USA Est 2 (EUAP)  | USA Centre Sud | USA Ouest 2       |
+| Australie Est      | USA Est         | Centre-Nord des États-Unis | Inde Ouest      |
+| Sud-Australie Est | USA Est 2       | Europe Nord     | USA Ouest         |
+| Brésil Sud        | USA Est 2 (EUAP)  | États-Unis - partie centrale méridionale | USA Ouest 2       |
 | Centre du Canada      | France Centre  | Inde Sud      |                 |
 | Est du Canada         | France Sud    | Asie Sud-Est   |                 |
-| Inde Centre       | Japon Est      | Sud du Royaume-Uni         |                 |
-| USA Centre          | Japon Ouest      | Ouest du Royaume-Uni          |                 |
+| Inde centrale       | Japon Est      | Sud du Royaume-Uni         |                 |
+| USA Centre          | OuJapon Est      | Ouest du Royaume-Uni          |                 |
 
 
 

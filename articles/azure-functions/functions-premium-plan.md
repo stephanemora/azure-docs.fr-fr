@@ -108,19 +108,19 @@ Vous trouverez ci-dessous les régions prenant actuellement en charge la préver
 |Région| Windows | Linux |
 |--| -- | -- |
 |Australie Est| ✔ | |
-|Australie Sud-Est | ✔ | ✔ |
+|Sud-Australie Est | ✔ | ✔ |
 |Centre du Canada| ✔ |  |
 |USA Centre| ✔ |  |
 |Asie Est| ✔ |  |
-|East US | | ✔ |
+|USA Est | | ✔ |
 |USA Est 2| ✔ |  |
 |France Centre| ✔ |  |
 |Japon Est|  | ✔ |
-|Japon Ouest| ✔ | |
+|OuJapon Est| ✔ | |
 |Centre de la Corée| ✔ |  |
-|USA Centre Nord| ✔ |  |
+|Centre-Nord des États-Unis| ✔ |  |
 |Europe Nord| ✔ | ✔ |
-|USA Centre Sud| ✔ |  |
+|États-Unis - partie centrale méridionale| ✔ |  |
 |Inde Sud | ✔ | |
 |Asie Sud-Est| ✔ | ✔ |
 |Ouest du Royaume-Uni| ✔ |  |

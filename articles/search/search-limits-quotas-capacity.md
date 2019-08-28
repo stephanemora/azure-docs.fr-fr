@@ -73,10 +73,10 @@ Pour savoir si votre service a un nombre limité de documents, consultez la vign
 Si le portail indique une limite de nombre de documents, soit votre service a été créé avant fin 2017, soit il a été créé sur un centre de données utilisant des clusters de moindre capacité pour l’hébergement des services Recherche Azure :
 
 + Australie Est
-+ Est de l'Asie
++ Asie Est
 + Inde centrale
-+ Ouest du Japon
-+ Centre-Ouest des États-Unis
++ OuJapon Est
++ Centre-USA Ouest
 
 Pour les services soumis aux limites de document, les limites maximales suivantes s’appliquent :
 

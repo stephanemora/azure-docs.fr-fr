@@ -50,7 +50,7 @@ Application Insights permet de recueillir les données de télémétrie à parti
    | ------------- |:-------------|:-----|
    | **Nom**      | Valeur globalement unique | Nom identifiant l’application que vous analysez |
    | **Groupe de ressources**     | myResourceGroup      | Nom du nouveau groupe de ressources pour héberger les données Application Insights |
-   | **Lieu** | East US | Choisissez un emplacement près de chez vous ou proche de l’endroit où votre application est hébergée |
+   | **Lieu** | USA Est | Choisissez un emplacement près de chez vous ou proche de l’endroit où votre application est hébergée |
 
 2. Cliquez sur **Créer**.
 

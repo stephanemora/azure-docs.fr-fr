@@ -76,7 +76,7 @@ Le tableau ci-dessous répertorie les adresses IP des passerelles par région. P
 | Chine du Nord          | 139.219.15.17      |                 | |
 | Chine Nord 2        | 40.73.50.0         |                 | |
 | Asie Est            | 191.234.2.139, 52.175.33.150 |       | |
-| East US              | 40.121.158.30, 40.79.153.12 | 191.238.6.43 | Aucune connexion après le 1er septembre 2019 |
+| USA Est              | 40.121.158.30, 40.79.153.12 | 191.238.6.43 | Aucune connexion après le 1er septembre 2019 |
 | USA Est 2            | 40.79.84.180, 52.177.185.181, 52.167.104.0 | 191.239.224.107    | Aucune connexion après le 1er septembre 2019 |
 | France Centre       | 40.79.137.0, 40.79.129.1 |           | |
 | Centre de l’Allemagne      | 51.4.144.100       |                 | |
@@ -85,20 +85,20 @@ Le tableau ci-dessous répertorie les adresses IP des passerelles par région. P
 | Sud de l’Inde          | 104.211.224.146    |                 | |
 | Inde Ouest           | 104.211.160.80     |                 | |
 | Japon Est           | 13.78.61.196, 40.79.184.8, 13.78.106.224 | 191.237.240.43 | Aucune connexion après le 1er septembre 2019 |
-| Japon Ouest           | 104.214.148.156, 40.74.100.192 | 191.238.68.11 | Aucune connexion après le 1er septembre 2019 |
+| OuJapon Est           | 104.214.148.156, 40.74.100.192 | 191.238.68.11 | Aucune connexion après le 1er septembre 2019 |
 | Centre de la Corée        | 52.231.32.42       |                 | |
 | Corée du Sud          | 52.231.200.86      |                 | |
-| USA Centre Nord     | 23.96.178.199      | 23.98.55.75     | Aucune connexion après le 1er septembre 2019 |
+| Centre-Nord des États-Unis     | 23.96.178.199      | 23.98.55.75     | Aucune connexion après le 1er septembre 2019 |
 | Europe Nord         | 40.113.93.91       | 191.235.193.75  | Aucune connexion après le 1er septembre 2019 |
 | Afrique du Sud Nord   | 102.133.152.0      |                 | |
 | Afrique du Sud Ouest    | 102.133.24.0       |                 | |
-| USA Centre Sud     | 13.66.62.124       | 23.98.162.75    | Aucune connexion après le 1er septembre 2019 |
+| États-Unis - partie centrale méridionale     | 13.66.62.124       | 23.98.162.75    | Aucune connexion après le 1er septembre 2019 |
 | Asie Sud-Est      | 104.43.15.0        | 23.100.117.95   | Aucune connexion après le 1er septembre 2019 |
 | Émirats arabes unis Centre          | 20.37.72.64        |                 | |
 | Émirats arabes unis Nord            | 65.52.248.0        |                 | |
 | Sud du Royaume-Uni             | 51.140.184.11      |                 | |
 | Ouest du Royaume-Uni              | 51.141.8.11        |                 | |
-| USA Centre-Ouest      | 13.78.145.25       |                 | |
+| Centre-USA Ouest      | 13.78.145.25       |                 | |
 | Europe Ouest          | 40.68.37.158       | 191.237.232.75  | Aucune connexion après le 1er septembre 2019 |
 | USA Ouest              | 104.42.238.205     | 23.99.34.75     | Aucune connexion après le 1er septembre 2019 |
 | USA Ouest 2            | 13.66.226.202      |                 | |

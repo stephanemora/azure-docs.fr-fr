@@ -34,7 +34,7 @@ Data Catalog est conçu pour les utilisateurs, techniciens ou non, notamment :
 Les services Data Catalog sont actuellement disponibles dans les centres de données suivants :
 
 * USA Ouest
-* East US
+* USA Est
 * Europe Ouest
 * Europe Nord
 * Australie Est

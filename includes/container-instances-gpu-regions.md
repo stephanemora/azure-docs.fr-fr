@@ -15,7 +15,7 @@ ms.locfileid: "67177624"
 
 * USA Est 
 * USA Ouest 2 
-* USA Centre Sud 
+* États-Unis - partie centrale méridionale 
 * Europe Ouest 
 * Europe Nord
-* Inde Centre 
+* Inde centrale 

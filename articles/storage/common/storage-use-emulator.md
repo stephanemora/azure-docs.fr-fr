@@ -3,16 +3,16 @@ title: Utilisation de l’émulateur de stockage Azure pour le développement et
 description: L’émulateur de stockage Azure fournit un environnement de développement local gratuit pour développer et tester vos applications Stockage Azure. Apprenez-en plus sur l’autorisation des demandes, la connexion à l’émulateur à partir de votre application et l’utilisation de l’outil en ligne de commande.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 08/10/2018
+ms.date: 08/21/2019
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
-ms.openlocfilehash: 9e0e024a5bd3c9cf16879bb9ea93727a338ddbf4
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: a50b397ffe1cfc44d4234dcfbee1618e9fb2506c
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68986406"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69900339"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>Utilisation de l’émulateur de stockage Azure pour le développement et le test
 
@@ -221,9 +221,21 @@ Le stockage de files d’attente dans l’émulateur ne présente aucune différ
 
 ## <a name="storage-emulator-release-notes"></a>Notes de publication de l’émulateur de stockage
 
+### <a name="version-510"></a>Version 5.10
+
+* L’émulateur de stockage ne refuse pas la version 2019-07-07 des services de stockage sur les points de terminaison des services Blob, de File d’attente et de Table.
+
+### <a name="version-59"></a>Version 5.9
+
+* L’émulateur de stockage ne refuse pas la version 2019-02-02 des services de stockage sur les points de terminaison des services Blob, de File d’attente et de Table.
+
+### <a name="version-58"></a>Version 5.8
+
+* L’émulateur de stockage ne refuse pas la version 2018-11-09 des services de stockage sur les points de terminaison des services Blob, de File d’attente et de Table.
+
 ### <a name="version-57"></a>Version 5.7
 
-Correction d’un bogue générant une erreur en cas d’activation de la journalisation.
+* Correction d’un bogue générant une erreur en cas d’activation de la journalisation.
 
 ### <a name="version-56"></a>Version 5.6
 
@@ -236,11 +248,11 @@ Correction d’un bogue générant une erreur en cas d’activation de la journa
 
 ### <a name="version-54"></a>Version 5.4
 
-Pour améliorer la stabilité de l’installation, l’émulateur ne tente plus de réserver les ports au moment de l’installation. Si vous souhaitez avoir des réservations de port, utilisez l’option *-reserveports* de la commande **init** afin de les spécifier.
+* Pour améliorer la stabilité de l’installation, l’émulateur ne tente plus de réserver les ports au moment de l’installation. Si vous souhaitez avoir des réservations de port, utilisez l’option *-reserveports* de la commande **init** afin de les spécifier.
 
 ### <a name="version-53"></a>Version 5.3
 
-L’émulateur de stockage prend maintenant en charge la version 2017-07-29 des services de stockage sur les points de terminaison des services BLOB, de File d’attente et de Table.
+* L’émulateur de stockage prend maintenant en charge la version 2017-07-29 des services de stockage sur les points de terminaison des services BLOB, de File d’attente et de Table.
 
 ### <a name="version-52"></a>Version 5.2
 
@@ -249,7 +261,7 @@ L’émulateur de stockage prend maintenant en charge la version 2017-07-29 des
 
 ### <a name="version-51"></a>Version 5.1
 
-Correction d’un bogue dans lequel l’émulateur de stockage retournait l’en-tête `DataServiceVersion` dans certaines réponses où le service ne se trouvait pas.
+* Correction d’un bogue dans lequel l’émulateur de stockage retournait l’en-tête `DataServiceVersion` dans certaines réponses où le service ne se trouvait pas.
 
 ### <a name="version-50"></a>Version 5.0
 

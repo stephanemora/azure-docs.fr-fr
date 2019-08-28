@@ -36,12 +36,12 @@ Le kit de développement logiciel (SDK) Speech est disponible dans les régions 
  ------|-------|--------
  USA Ouest | `westus` | https://westus.cris.ai
  USA Ouest 2 | `westus2` | https://westus2.cris.ai
- East US | `eastus` | https://eastus.cris.ai
+ USA Est | `eastus` | https://eastus.cris.ai
  USA Est 2 | `eastus2` | https://eastus2.cris.ai
  USA Centre | `centralus` | https://centralus.cris.ai
- USA Centre Nord | `northcentralus` | https://northcentralus.cris.ai
- USA Centre Sud | `southcentralus` | https://southcentralus.cris.ai
- Inde Centre | `centralindia` | https://centralindia.cris.ai
+ Centre-Nord des États-Unis | `northcentralus` | https://northcentralus.cris.ai
+ États-Unis - partie centrale méridionale | `southcentralus` | https://southcentralus.cris.ai
+ Inde centrale | `centralindia` | https://centralindia.cris.ai
  Asie Est | `eastasia` | https://eastasia.cris.ai
  Asie Sud-Est | `southeastasia` | https://southeastasia.cris.ai
  Japon Est | `japaneast` | https://japaneast.cris.ai
@@ -64,10 +64,10 @@ Les régions disponibles pour la **reconnaissance de l'intention** via le kit de
  Australie | Australie Est | `australiaeast`
  Europe | Europe Nord | `northeurope`
  Europe | Europe Ouest | `westeurope`
- Amérique du Nord | East US | `eastus`
+ Amérique du Nord | USA Est | `eastus`
  Amérique du Nord | USA Est 2 | `eastus2`
- Amérique du Nord | USA Centre Sud | `southcentralus`
- Amérique du Nord | USA Centre-Ouest | `westcentralus`
+ Amérique du Nord | États-Unis - partie centrale méridionale | `southcentralus`
+ Amérique du Nord | Centre-USA Ouest | `westcentralus`
  Amérique du Nord | USA Ouest | `westus`
  Amérique du Nord | USA Ouest 2 | `westus2`
  Amérique du Sud | Brésil Sud | `brazilsouth`
@@ -82,7 +82,7 @@ Région | Paramètre du SDK Speech
 -------|---------------------
 USA Ouest | `westus`
 USA Ouest 2 | `westus2`
-East US | `eastus`
+USA Est | `eastus`
 USA Est 2 | `eastus2`
 Europe Ouest | `westeurope`
 Europe Nord | `northeurope`

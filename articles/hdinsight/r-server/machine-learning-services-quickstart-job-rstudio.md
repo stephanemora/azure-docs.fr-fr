@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 06/19/2019
 ms.author: hrasheed
 ms.custom: mvc
-ms.openlocfilehash: 484763adfa154dcdf226b03f1f591d248532ee35
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 295430027afabcfcf793a87ae5859dc9c6675966
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67451500"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69876309"
 ---
 # <a name="quickstart-execute-an-r-script-on-an-ml-services-cluster-in-azure-hdinsight-using-rstudio-server"></a>Démarrage rapide : Exécuter un script R sur un cluster ML Services dans HDInsight Azure à l’aide de RStudio Server
 
@@ -23,11 +23,11 @@ Dans ce guide de démarrage rapide, vous allez apprendre à exécuter un script 
 
 ## <a name="prerequisite"></a>Configuration requise
 
-Un cluster ML Services sur HDInsight. Consultez [Création clusters Apache Hadoop à l’aide du portail Azure](../hdinsight-hadoop-create-linux-clusters-portal.md) et sélectionnez **ML Services** pour le **Type de cluster**.
+Un cluster ML Services sur HDInsight. Consultez [Création clusters Apache Hadoop à l’aide du Portail Azure](../hdinsight-hadoop-create-linux-clusters-portal.md) et sélectionnez **ML Services** pour le **Type de cluster**.
 
 ## <a name="connect-to-rstudio-server"></a>Se connecter à RStudio Server
 
-RStudio Server s’exécute sur le nœud de périphérie du cluster. Accédez à l’URL suivante où `CLUSTERNAME` est le nom du cluster ML Services que vous avez créé :
+RStudio Server s’exécute sur le nœud de périphérie du cluster. Accédez à l’URL suivante où `CLUSTERNAME` est le nom du cluster ML Services que vous avez créé :
 
 ```
 https://CLUSTERNAME.azurehdinsight.net/rstudio/
@@ -182,3 +182,6 @@ Dans ce guide de démarrage rapide, vous avez appris à exécuter un script R av
 
 > [!div class="nextstepaction"]
 >[Options de contexte de calcul pour ML Services sur HDInsight](./r-server-compute-contexts.md)
+
+> [!NOTE]
+> Cette page décrit les fonctionnalités du logiciel RStudio. Microsoft Azure HDInsight n’est pas affilié à RStudio, Inc.

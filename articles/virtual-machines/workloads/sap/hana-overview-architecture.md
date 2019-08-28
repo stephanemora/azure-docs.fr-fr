@@ -39,7 +39,7 @@ Depuis juillet 2019, nous faisons la distinction entre deux révisions différe
 
 - « Révision 3 » (Rév. 3) : il s’agit des tampons mis à disposition du client pour le déploiement avant juillet 2019
 - « Révision 4 » (Rév. 4) : nouvelle conception de tampon déployée à proximité des hôtes de machine virtuelle Azure et qui jusqu’à présent sont disponibles dans les régions Azure suivantes :
-    -  Ouest des États-Unis 2 
+    -  USA Ouest 2 
     -  USA Est 
     -  Europe Ouest
     -  Europe Nord

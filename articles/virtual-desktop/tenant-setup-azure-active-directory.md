@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 062b815315d7bcdd5d55a86c2447a0b21295e8b6
-ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
+ms.openlocfilehash: cd80ed3c3db2453a333c87ed706dd358ba248b47
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69014087"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69516188"
 ---
 # <a name="tutorial-create-a-tenant-in-windows-virtual-desktop-preview"></a>Didacticiel : Créer un locataire dans Windows Virtual Desktop Preview
 
@@ -34,7 +34,7 @@ Voici ce dont vous avez besoin pour configurer votre locataire Windows Virtual D
    * Le compte d’administrateur doit être un compte professionnel ou scolaire.
 * Un abonnement Azure.
 
-## <a name="grant-azure-active-directory-permissions-to-the-windows-virtual-desktop-preview-service"></a>Accorder des autorisations Azure Active Directory au service Windows Virtual Desktop Preview
+## <a name="grant-permissions-to-windows-virtual-desktop"></a>Octroyer des autorisations à Windows Virtual Desktop
 
 Si vous avez déjà accordé des autorisations à Windows Virtual Desktop pour cette instance Azure Active Directory, ignorez cette section.
 
@@ -62,7 +62,7 @@ Pour accorder des autorisations au service :
 6. Connectez-vous à la page de consentement Windows Virtual Desktop en tant qu’administrateur général comme vous l’avez fait à l’étape 2.
 7. Sélectionnez **Accepter**.
 
-## <a name="assign-the-tenantcreator-application-role-to-a-user-in-your-azure-active-directory-tenant"></a>Attribuer le rôle d’application TenantCreator à un utilisateur dans votre locataire Azure Active Directory
+## <a name="assign-the-tenantcreator-application-role"></a>Attribuer le rôle d’application TenantCreator
 
 L’attribution du rôle d’application TenantCreator à un utilisateur Azure Active Directory permet à ce dernier de créer un locataire Windows Virtual Desktop associé à l’instance Azure Active Directory. Vous devez utiliser votre compte d’administrateur général pour attribuer le rôle TenantCreator.
 

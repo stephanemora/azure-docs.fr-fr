@@ -65,7 +65,7 @@ az login
 Créez un groupe de ressources avec la commande [az group create](/cli/azure/group#az-group-create). Un groupe de ressources Azure est un conteneur logique dans lequel les ressources Azure sont déployées et gérées.
 
 Sélectionnez un nom de groupe de ressources et renseignez l’espace réservé.
-L’exemple suivant crée un groupe de ressources dans l’emplacement Est des États-Unis :
+L’exemple suivant crée un groupe de ressources dans l’emplacement USA Est :
 
 ```azurecli
 # To list locations: az account list-locations --output table

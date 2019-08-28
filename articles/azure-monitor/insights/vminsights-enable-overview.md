@@ -39,15 +39,15 @@ Avant de commencer, prenez connaissance de ce qui suit.
 
 Azure Monitor pour machines virtuelles prend en charge un espace de travail Log Analytics dans les régions suivantes :
 
-- USA Centre-Ouest
+- Centre-USA Ouest
 - USA Ouest 2<sup>1</sup>
-- East US
+- USA Est
 - Centre du Canada
 - Sud du Royaume-Uni
 - Europe Ouest
 - Asie Sud-Est
 - Australie Est
-- Australie Sud-Est
+- Sud-Australie Est
 
 <sup>1</sup> Cette région ne prend pas encore en charge la fonctionnalité d’intégrité d’Azure Monitor pour machines virtuelles.
 

@@ -46,7 +46,7 @@ Connectez-vous au portail Azure sur https://portal.azure.com.
    - Abonnement : sélectionnez votre abonnement pour la stratégie.    
    - Groupe de ressources : Sélectionnez **Créer** et entrez *myResourceGroup*.     
    - Nom : myEndpointPolicy
-   - Emplacement : USA Centre-Ouest     
+   - Emplacement : Centre-USA Ouest     
  
    ![Informations de base sur la création d’une stratégie de point de terminaison de service](./media/virtual-network-service-endpoint-policies-portal/virtual-network-endpoint-policies-create-startpane.PNG)
    
@@ -100,7 +100,7 @@ Avant de pouvoir associer une stratégie à un sous-réseau, vous devez créer u
    - Espace d’adressage : 10.0.0.0/16      
    - Abonnement : Sélectionnez votre abonnement. La stratégie doit se trouver dans le même abonnement que le réseau virtuel     
    - Groupe de ressources : Sélectionnez **Utiliser l’existant**, puis *myResourceGroup*     
-   - Emplacement : USA Centre-Ouest     
+   - Emplacement : Centre-USA Ouest     
    - Nom du sous-réseau : private     
    - Plage d’adresses : 10.0.0.0/24
      

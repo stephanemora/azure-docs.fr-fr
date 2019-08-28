@@ -7,12 +7,12 @@ ms.topic: sample
 ms.date: 08/05/2019
 ms.author: mjbrown
 ms.custom: seodec18
-ms.openlocfilehash: 45f5e21e05cf627d418cb66418cf305833a73891
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: e8f943ebaa5dfc06e0bfb04dc1097d6794ec6d05
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68965105"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69616828"
 ---
 # <a name="manage-azure-cosmos-db-sql-api-resources-using-powershell"></a>Gérer les ressources de l’API SQL Azure Cosmos DB à l’aide de PowerShell
 
@@ -46,7 +46,7 @@ Les sections suivantes montrent comment gérer le compte Azure Cosmos, et notamm
 
 ### <a id="create-account"></a> Créer un compte Azure Cosmos
 
-Cette commande crée un compte de base de données Azure Cosmos DB avec [plusieurs régions][distribute-data-globally] et une [stratégie de cohérence](consistency-levels.md) d’obsolescence limitée.
+Cette commande crée un compte de base de données Azure Cosmos avec [plusieurs régions][distribute-data-globally] et une [stratégie de cohérence](consistency-levels.md) d’obsolescence limitée.
 
 ```azurepowershell-interactive
 # Create an Azure Cosmos Account for Core (SQL) API
@@ -112,7 +112,7 @@ Get-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
 
 ### <a id="update-account"></a> Mettre à jour un compte Azure Cosmos
 
-Cette commande vous permet de mettre à jour les propriétés de votre compte de base de données Azure Cosmos DB. Les propriétés pouvant être mises à jour sont les suivantes :
+Cette commande vous permet de mettre à jour les propriétés de votre compte de base de données Azure Cosmos. Les propriétés pouvant être mises à jour sont les suivantes :
 
 * Ajout ou suppression de régions
 * Modification de la stratégie de cohérence par défaut
@@ -247,6 +247,7 @@ Pour l’exemple ci-dessous, supposons que le compte a actuellement la priorité
 
 ```azurepowershell-interactive
 # Change the failover priority for an Azure Cosmos Account
+# Assume existing priority is "West US 2" = 0 and "East US 2" = 1
 
 $resourceGroupName = "myResourceGroup"
 $accountName = "mycosmosaccount"

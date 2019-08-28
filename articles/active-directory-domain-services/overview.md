@@ -1,103 +1,115 @@
 ---
 title: Présentation des services de domaine Azure Active Directory | Microsoft Docs
-description: Présentation des services de domaine Azure Active Directory
+description: Dans cette vue d’ensemble, découvrez ce qui est fourni par Azure Active Directory Domain Services et comment l’utiliser dans votre organisation pour fournir des services d’identité aux applications et services dans le cloud.
 services: active-directory-ds
-documentationcenter: ''
 author: iainfoulds
 manager: daveba
-editor: curtand
-ms.assetid: 0d47178f-773e-45f9-9ff4-9e8cffa4ffa2
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: conceptual
-ms.date: 05/20/2019
+ms.topic: overview
+ms.date: 08/14/2019
 ms.author: iainfou
-ms.openlocfilehash: e29936915f0cd0b7e7ae7adfdbdb90d31195cd34
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 921266b78b82364b4610dcd74b6ee16ee44cb060
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67472747"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69617229"
 ---
-# <a name="azure-active-directory-ad-domain-services"></a>Services de domaine Azure Active Directory (AD)
-## <a name="overview"></a>Vue d'ensemble
-Azure Infrastructure Services permet de déployer une large gamme de solutions informatiques de manière agile. Azure Virtual Machines permet un déploiement quasi instantané, et un paiement à la minute. Grâce à la prise en charge de Windows, Linux, SQL Server, Oracle, IBM, SAP et BizTalk, vous pouvez déployer n’importe quelle charge de travail et toutes les langues sur quasiment tous les systèmes d’exploitation. Ces avantages permettent de migrer des applications héritées déployées sur site vers Azure, tout en faisant des économies sur les dépenses d’exploitation.
+# <a name="what-is-azure-active-directory-domain-services"></a>Présentation d’Azure Active Directory Domain Services
 
-Un aspect clé de la migration d’applications sur site vers Azure consiste à gérer les aspects liés à l’identité de ces applications. Les applications orientées répertoire peuvent s’appuyer sur le protocole LDAP pour obtenir un accès en lecture ou en écriture à l’annuaire d’entreprise, ou sur l’authentification intégrée Windows (authentification Kerberos ou NTLM) pour authentifier les utilisateurs finaux. Les applications métier (Line-of-business, LOB) s’exécutant sous Windows Server sont généralement déployées sur les ordinateurs appartenant au domaine, et peuvent être gérées en toute sécurité grâce à la stratégie de groupe. Pour « transférer » les applications de site vers le cloud, les dépendances par rapport à l’infrastructure d’identité doivent être résolues.
+Azure Active Directory Domain Services (Azure AD DS) fournit des services de domaine managés, comme la jonction de domaine, la stratégie de groupe, le protocole LDAP, et l’authentification Kerberos/NTLM entièrement compatible avec Windows Server Active Directory. Vous utilisez ces services de domaine sans avoir à déployer, gérer et apporter des correctifs aux contrôleurs de domaine dans le cloud. Azure AD DS s’intègre à votre locataire Azure AD existant, permettant ainsi aux utilisateurs de se connecter à l’aide de leurs informations d’identification actuelles. Vous pouvez également utiliser des comptes d’utilisateurs et des groupes existants pour sécuriser l’accès aux ressources, et ainsi fournir une migration lift-and-shift plus simple des ressources locales vers Azure.
 
-Pour répondre aux besoins liés à l’identité de leurs applications déployées dans Azure, les administrateurs adoptent souvent l’une des solutions suivantes :
+Azure AD DS réplique les informations d’identité à partir d’Azure AD et fonctionne donc avec des clients Azure AD qui sont uniquement cloud ou synchronisés avec un environnement local Active Directory Domain Services (AD DS). Si vous disposez d’un environnement AD DS local existant, vous pouvez synchroniser les informations des comptes d’utilisateurs pour fournir une identité cohérente aux utilisateurs. Pour les environnements cloud uniquement, vous n’avez pas besoin d’un environnement AD DS local traditionnel pour utiliser les services d’identité centralisés d’Azure AD DS. Le même ensemble de fonctionnalités Azure AD DS existe pour les deux environnements.
 
-* le déploiement d’une connexion VPN de site à site entre charges de travail en cours d’exécution dans les services d’infrastructure Azure et l’annuaire d’entreprise sur site.
-* l’extension de l’infrastructure de domaine/forêt Active Directory d’entreprise par le biais de la configuration de contrôleurs de domaine de réplica à l’aide de machines virtuelles.
-* le déploiement d’un domaine autonome dans Azure à l’aide de contrôleurs de domaine déployés en tant que machines virtuelles Azure.
+La vidéo suivante fournit une vue d’ensemble de la façon dont Azure AD DS s’intègre à vos applications et charges de travail pour fournir des services d’identité dans le cloud :
 
-Toutes ces approches pèchent par leur coût élevé et la surcharge administrative. Les administrateurs doivent déployer des contrôleurs de domaine en utilisant des machines virtuelles dans Azure. De plus, ils doivent gérer, assurer la sécurité, appliquer des correctifs, surveiller, sauvegarder et dépanner ces machines virtuelles. La dépendance vis-à-vis des connexions VPN dans l’annuaire sur site expose les charges de travail déployées dans Azure aux problèmes ou pannes réseau temporaires, qui réduisent les temps d’activité et affectent quelque peu la fiabilité de ces applications.
-
-Nous avons conçu les Services de domaine Active Directory Azure pour offrir une alternative plus simple.
-
-### <a name="watch-an-introductory-video"></a>Regarder une vidéo d’introduction
+<br />
 
 >[!VIDEO https://www.youtube.com/embed/T1Nd9APNceQ]
 
-## <a name="introducing-azure-ad-domain-services"></a>Présentation des services de domaine Azure AD
+## <a name="common-ways-to-provide-identity-solutions-in-the-cloud"></a>Méthodes courantes pour fournir des solutions d’identité dans le cloud
 
-Les Services de domaine Active Directory Azure fournissent des services de domaine gérés tels que la jonction de domaine, la stratégie de groupe, le protocole LDAP, l’authentification Kerberos/NTLM, etc. totalement compatibles avec Windows Server Active Directory. Vous pouvez utiliser ces services de domaine sans avoir à déployer, gérer et apporter des correctifs aux contrôleurs de domaine dans le cloud. Les services de domaine Azure AD s’intègrent au locataire Azure AD existant, permettant ainsi aux utilisateurs de se connecter à l’aide de leurs informations d’identification d’entreprise. En outre, vous pouvez utiliser des comptes d’utilisateurs et des groupes existants pour sécuriser l’accès aux ressources, et garantir un « transfert » plus simple des ressources locales vers les services d’infrastructure Azure.
+Lorsque vous migrez des charges de travail existantes vers le cloud, les applications prenant en charge les répertoires peuvent utiliser LDAP pour l’accès en lecture ou en écriture à un répertoire AD DS local. Les applications s’exécutant sous Windows Server sont généralement déployées sur les ordinateurs appartenant au domaine, et peuvent être gérées de façon sécurisée à l’aide de la stratégie de groupe. Pour authentifier les utilisateurs finaux, les applications peuvent également s’appuyer sur l’authentification intégrée de Windows, telle que l’authentification Kerberos ou NTLM.
 
-La fonctionnalité des services de domaine Azure AD fonctionne de façon transparente, que votre locataire Azure AD soit situé uniquement dans le cloud ou synchronisé avec votre annuaire Active Directory local.
+Les administrateurs informatiques utilisent souvent l’une des solutions suivantes pour fournir un service d’identité aux applications qui s’exécutent dans Azure :
 
-### <a name="azure-ad-domain-services-for-cloud-only-organizations"></a>Services de domaine Azure AD pour les entreprises exclusivement dans le cloud
+* Configurez une connexion VPN de site à site entre les charges de travail qui s’exécutent dans Azure et l’environnement AD DS local.
+* Créez des contrôleurs de domaine de réplication à l’aide de machines virtuelles Azure pour étendre le domaine ou la forêt AD DS.
+* Déployez un environnement AD DS autonome dans Azure à l’aide de contrôleurs de domaine qui s’exécutent sur des machines virtuelles Azure.
 
-Un locataire Azure AD exclusivement dans le cloud (souvent appelé « locataires managés ») n’a aucune empreinte sur l’identité locale. En d’autres termes, les comptes d’utilisateurs, leurs mots de passe et les appartenances au groupe sont tous natifs du cloud, c’est-à-dire créés et gérés dans Azure AD. Imaginons un instant que Contoso est un locataire Azure AD uniquement dans le cloud. Comme indiqué sur l’illustration suivante, l’administrateur de Contoso a configuré un réseau virtuel dans les Services d’Infrastructure Azure. Les applications et les charges de travail de serveur sont déployées dans ce réseau virtuel sur des machines virtuelles Azure. Contoso étant un locataire exclusivement dans le cloud, toutes les identités des utilisateurs, leurs informations d’identification et les appartenances aux groupes sont créées et gérées dans Azure AD.
+Grâce à ces approches, les connexions VPN au répertoire local rendent les applications vulnérables aux problèmes ou pannes réseau temporaires. Si vous déployez des contrôleurs de domaine à l’aide de machines virtuelles dans Azure, les machines virtuelles de l’équipe informatique doivent gérer, sécuriser, corriger, surveiller, sauvegarder et résoudre les problèmes.
 
-![Vue d’ensemble des services de domaine Azure AD](./media/active-directory-domain-services-overview/aadds-overview.png)
+Azure AD DS offre des alternatives à la nécessité de créer des connexions VPN dans un environnement AD DS local ou d’exécuter et de gérer des machines virtuelles dans Azure pour fournir des services d’identité. En tant que service managé, Azure AD DS réduit la complexité de la création d’une solution d’identité intégrée pour les environnements hybrides et cloud uniquement.
 
-L’administrateur informatique de Contoso peut activer les services de domaine Azure AD pour son locataire Azure AD et choisir de proposer des services de domaine dans ce réseau virtuel. Par la suite, les services de domaine Azure AD configurent un domaine géré et le rendent disponible sur le réseau virtuel. Tous les comptes utilisateur, les appartenances au groupe et les informations d’identification utilisateur disponibles dans le locataire Azure AD de Contoso sont également disponibles dans ce domaine nouvellement créé. Cette fonctionnalité permet aux utilisateurs de l’entreprise de se connecter au domaine à l’aide de leurs informations d’identification d’entreprise, par exemple, lors de la connexion à distance aux ordinateurs joints au domaine via le Bureau à distance. Les administrateurs peuvent configurer l’accès aux ressources dans le domaine à l’aide des appartenances aux groupes existantes. Les applications déployées sur les machines virtuelles dans le réseau virtuel peuvent utiliser des fonctionnalités telles que la jonction de domaine, la lecture LDAP, la liaison LDAP, l’authentification NTLM et Kerberos et la stratégie de groupe.
+## <a name="azure-ad-ds-features-and-benefits"></a>Fonctionnalités et avantages d’Azure AD DS
 
-Voici quelques aspects fondamentaux du domaine géré configuré par les services de domaine Azure AD :
+Pour fournir des services d’identité aux applications et aux machines virtuelles dans le cloud, Azure AD DS est entièrement compatible avec un environnement AD DS traditionnel pour des opérations telles que la jonction de domaine, le LDAP sécurisé (LDAPs), la gestion de la stratégie de groupe et de DNS, ainsi que la liaison LDAP et la prise en charge de la lecture. La prise en charge de l’écriture LDAP est disponible pour les objets créés dans le domaine Azure AD DS managé, mais pas pour les ressources synchronisées à partir d’Azure AD. Les fonctionnalités suivantes d’Azure AD DS simplifient les opérations de déploiement et de gestion :
 
-* L’administrateur informatique de Contoso n’a pas à gérer, appliquer les correctifs ou surveiller le domaine ou les contrôleurs de domaine pour ce domaine géré.
-* Il est inutile de gérer la réplication AD pour ce domaine. Les comptes utilisateur, les appartenances aux groupes et les informations d’identification du locataire Azure AD de Contoso sont automatiquement disponibles dans ce domaine géré.
-* Étant donné que le domaine est géré par les services de domaine Azure AD, l’administrateur informatique de Contoso ne dispose pas des privilèges d’administrateur de domaine ou d’administrateur d’entreprise sur ce domaine.
+* **Expérience de déploiement simplifiée :** Azure AD DS est activé pour votre locataire Azure AD à l’aide d’un seul Assistant dans le Portail Azure.
+* **Intégration à Azure AD :** Les comptes d’utilisateur, les appartenances aux groupes et les informations d’identification sont automatiquement disponibles à partir de votre locataire Azure AD. Les nouveaux utilisateurs, groupes ou modifications apportées aux attributs à partir de votre locataire Azure AD ou de votre environnement AD DS local sont automatiquement synchronisés avec Azure AD DS.
+* **Utilisation de vos informations d’identification/mots de passe d’entreprise :** Les mots de passe des utilisateurs dans votre client Azure AD fonctionnent avec Azure AD DS. Les utilisateurs peuvent utiliser leurs informations d’identification d’entreprise pour joindre des machines à des domaines, se connecter de manière interactive ou via le bureau à distance et s’authentifier sur le domaine managé Azure AD DS.
+* **Authentification NTLM et Kerberos :** Grâce à la prise en charge de l’authentification NTLM et Kerberos, vous pouvez déployer des applications qui reposent sur l’authentification intégrée de Windows.
+* **Haute disponibilité :** Azure AD DS inclut plusieurs contrôleurs de domaine, qui fournissent une haute disponibilité pour votre domaine managé. Cette haute disponibilité garantit le temps de fonctionnement du service et la résilience aux défaillances.
 
-### <a name="azure-ad-domain-services-for-hybrid-organizations"></a>Services de domaine Azure AD pour les entreprises hybrides
-Les entreprises dotées d’une infrastructure informatique hybride consomment à la fois des ressources de cloud et des ressources locales. Ces entreprises synchronisent les informations d’identité de leur annuaire local vers avec le locataire Azure AD. Comme les entreprises hybrides cherchent à migrer davantage d’applications locales vers le cloud, en particulier les applications héritées orientées annuaire, les services de domaine Azure AD peuvent leur être utiles.
+Voici quelques aspects clés d’un domaine managé Azure AD DS :
 
-La société Litware Corporation a déployé [Azure AD Connect](../active-directory/hybrid/whatis-hybrid-identity.md)afin de synchroniser les informations d’identité de l’annuaire local avec le locataire Azure AD. Ces informations d'identité incluent les comptes d'utilisateurs, les codes de hachage de leurs informations d'identification pour l'authentification (synchronisation des codes de hachage des mots de passe) et les appartenances aux groupes.
+* Le domaine managé Azure AD DS est un domaine autonome et non une extension du domaine local.
+* Votre équipe informatique n’a pas à gérer, à appliquer les correctifs ni à analyser les contrôleurs de domaine pour ce domaine managé Azure AD DS.
 
-> [!NOTE]
-> **La synchronisation des codes de hachage des mots de passe est obligatoire pour les organisations hybrides qui souhaitent utiliser Azure AD Domain Services**. Cette exigence est due au fait que les informations d’identification des utilisateurs sont obligatoires dans le domaine géré fourni par les services de domaine Azure AD afin d’authentifier les utilisateurs via les méthodes d’authentification NTLM ou Kerberos.
->
->
+Pour les environnements hybrides qui exécutent AD DS localement, vous n’avez pas besoin de gérer la réplication Active Directory sur le domaine managé Azure AD DS. Les comptes utilisateur, les appartenances aux groupes et les informations d’identification de votre répertoire local sont synchronisés avec Azure AD via Azure AD Connect. Ces comptes utilisateur, appartenances aux groupes et informations d’identification sont automatiquement disponibles dans le domaine managé Azure AD DS.
 
-![Services de domaine Azure AD pour Litware Corporation](./media/active-directory-domain-services-overview/aadds-overview-synced-tenant.png)
+## <a name="how-does-azure-ad-ds-work"></a>Fonctionnement d’Azure AD DS
 
-L’illustration précédente montre comment des entreprises dotées d’une infrastructure informatique hybride, comme Litware, peuvent utiliser les services de domaine Azure AD. Les applications et charges de travail de serveurs de Litware nécessitant des services de domaine sont déployées dans un réseau virtuel dans les services d’infrastructure Azure. L’administrateur informatique de Litware peut activer les services de domaine Azure AD pour son locataire Azure AD et rendre un domaine géré disponible dans ce réseau virtuel. Vu que Litware est une entreprise hybride avec une infrastructure informatique hybride, les comptes d’utilisateurs, les groupes et les informations d’identification sont synchronisés avec leur locataire Azure AD à partir de leur annuaire local. Cette fonctionnalité permet aux utilisateurs de se connecter au domaine à l’aide de leurs informations d’identification d’entreprise, par exemple, lors de la connexion à distance aux ordinateurs joints au domaine via le Bureau à distance. Les administrateurs peuvent configurer l’accès aux ressources dans le domaine à l’aide des appartenances aux groupes existantes. Les applications déployées sur les machines virtuelles dans le réseau virtuel peuvent utiliser des fonctionnalités telles que la jonction de domaine, la lecture LDAP, la liaison LDAP, l’authentification NTLM et Kerberos et la stratégie de groupe.
+Pour fournir des services d’identité, Azure crée un domaine managé AD DS disponible sur un réseau virtuel de votre choix. En coulisses, et sans que vous ayez besoin de gérer, de sécuriser ou de mettre à jour, la redondance est assurée par le biais d’une paire de contrôleurs de domaine Windows Server. Le domaine managé Azure AD DS est configuré pour effectuer une synchronisation unidirectionnelle à partir d’Azure AD afin de fournir l’accès à un ensemble central d’utilisateurs, de groupes et d’informations d’identification. Vous pouvez créer des ressources directement dans le domaine managé Azure AD DS, mais elles ne sont pas resynchronisées sur Azure AD. Dans Azure, les applications, les services et les machines virtuelles qui se connectent à ce réseau virtuel peuvent ensuite utiliser des fonctionnalités AD DS courantes telles que la jonction de domaine, la stratégie de groupe, LDAP et l’authentification Kerberos/NTLM. Dans un environnement hybride avec un environnement AD DS local, [Azure AD Connect][azure-ad-connect] synchronise les informations d’identité avec Azure AD.
 
-Voici quelques aspects fondamentaux du domaine géré configuré par les services de domaine Azure AD :
+![Synchronisation dans Azure AD Domain Services avec Azure AD et Active Directory Domain Services en local à l’aide d’AD Connect](./media/active-directory-domain-services-design-guide/sync-topology.png)
 
-* Le domaine géré est un domaine autonome. et non une extension du domaine local de Litware.
-* L’administrateur informatique de Litware n’a pas à gérer, appliquer les correctifs ou analyser les contrôleurs de domaine de ce domaine géré.
-* Il est inutile de gérer la réplication AD pour ce domaine. Les comptes utilisateur, les appartenances aux groupes et les informations d’identification de l’annuaire de Litware local sont synchronisés avec Azure AD via Azure AD Connect. Ces comptes utilisateur, appartenances aux groupes et informations d’identification sont automatiquement disponibles dans le domaine géré.
-* Étant donné que le domaine est géré par les Services de domaine Azure AD, l’administrateur informatique de Litware administrateur ne dispose pas des privilèges d’administrateur ou des privilèges administrateur d’entreprise sur ce domaine.
+Pour voir Azure AD DS en action, étudions quelques exemples :
 
-## <a name="benefits"></a>Avantages
-Avec les services de domaine Azure AD, vous pouvez bénéficier des avantages suivants :
+* [Azure AD DS pour les organisations hybrides](#azure-ad-ds-for-hybrid-organizations)
+* [Azure AD DS pour les organisations cloud uniquement](#azure-ad-ds-for-cloud-only-organizations)
 
-* **Simple** : vous pouvez satisfaire les besoins d’identité d’ordinateurs virtuels déployés sur les services d’infrastructure Azure en quelques clics. Vous n’avez pas besoin de déployer et de gérer l’infrastructure d’identité dans Azure ni de reconfigurer la connectivité de votre infrastructure d’identité locale.
-* **Intégré** : les services de domaine Azure AD s’intègrent parfaitement à votre locataire Azure AD. Désormais, vous pouvez utiliser Azure AD comme un annuaire d’entreprise dans le cloud intégré qui répond aux besoins de vos applications modernes ainsi qu’a ceux des applications de répertoires traditionnels.
-* **Compatible** : les Services de domaine Azure AD reposent sur l’infrastructure de niveau entreprise de Windows Server Active Directory. Ainsi, vos applications peuvent bénéficier d’une plus grande compatibilité avec les fonctionnalités de Windows Server Active Directory. Les fonctionnalités disponibles dans Windows Server Active Directory ne sont actuellement pas toutes disponibles pour les Services de domaine Azure AD. Toutefois, les fonctionnalités disponibles sont compatibles avec les fonctionnalités correspondantes de Windows Server Active Directory présentes dans votre infrastructure locale. Les fonctionnalités LDAP, Kerberos, NTLM, Stratégie de groupe et de jonction de domaine constituent une solution ayant fait ses preuves, qui a été testée et encore affinée sur plusieurs versions de Windows Server.
-* **Rentable** : avec les Services de domaine Azure AD, vous pouvez éviter les charges que représentent l’infrastructure et la gestion liées à la gestion de l’infrastructure d’identité associée aux applications orientées répertoire traditionnelles. Vous pouvez transférer ces applications vers les Services d’Infrastructure Azure et réaliser des économies substantielles sur les frais d’exploitation.
+### <a name="azure-ad-ds-for-hybrid-organizations"></a>Azure AD DS pour les organisations hybrides
 
+De nombreuses organisations exécutent une infrastructure hybride qui comprend des charges de travail d’application cloud et locales. Les applications héritées migrées vers Azure dans le cadre d’une stratégie lift-and-shift peuvent toujours utiliser des connexions LDAP traditionnelles pour fournir des informations d’identité. Pour prendre en charge cette infrastructure hybride, les informations d’identité d’un environnement Active Directory Domain Services (AD DS) local peuvent être synchronisées avec un locataire Azure AD. Azure AD DS peut ensuite fournir ces applications héritées dans Azure avec une source d’identité, sans qu’il soit nécessaire de configurer ni de gérer la connectivité des applications vers les services de répertoire locaux.
+
+Examinons un exemple de Litware Corporation, une organisation hybride qui exécute des ressources locales et Azure :
+
+![Azure Active Directory Domain Services pour une organisation hybride qui inclut une synchronisation locale](./media/overview/synced-tenant.png)
+
+* Les applications et charges de travail de serveurs nécessitant des services de domaine sont déployées dans un réseau virtuel dans Azure.
+    * Cela peut inclure des applications héritées migrées vers Azure dans le cadre d’une stratégie lift-and-shift.
+* Afin de synchroniser les informations d’identité du répertoire local avec le locataire Azure AD, la société Litware Corporation a déployé [Azure AD Connect][azure-ad-connect].
+    * Les informations d’identité incluent les comptes d’utilisateurs et les appartenances aux groupes.
+* L’équipe informatique de Litware active Azure AD DS pour son locataire Azure AD dans ce réseau virtuel ou un réseau virtuel homologué.
+* Les applications et machines virtuelles déployées dans le réseau virtuel Azure peuvent ensuite utiliser des fonctionnalités Azure AD DS telles que la jonction de domaine, la lecture LDAP, la liaison LDAP, l’authentification NTLM et Kerberos et la stratégie de groupe.
+
+### <a name="azure-ad-ds-for-cloud-only-organizations"></a>Azure AD DS pour les organisations cloud uniquement
+
+Un locataire cloud uniquement Azure AD ne dispose pas d’une source d’identité locale. Les comptes d’utilisateur et les appartenances aux groupes, par exemple, sont créés et gérés dans Azure AD.
+
+Examinons maintenant un exemple pour Contoso, une organisation cloud uniquement qui utilise uniquement Azure AD pour l’identité. Toutes les identités des utilisateurs, leurs informations d’identification et les appartenances aux groupes sont créées et gérées dans Azure AD. Il n’existe aucune configuration supplémentaire d’Azure AD Connect pour synchroniser des informations d’identité à partir d’un répertoire local.
+
+![Azure Active Directory Domain Services pour une organisation cloud uniquement sans synchronisation locale](./media/overview/cloud-only-tenant.png)
+
+* Les applications et charges de travail de serveurs nécessitant des services de domaine sont déployées dans un réseau virtuel dans Azure.
+* L’équipe informatique de Contoso active Azure AD DS pour son locataire Azure AD dans ce réseau virtuel ou un réseau virtuel homologué.
+* Les applications et machines virtuelles déployées dans le réseau virtuel Azure peuvent ensuite utiliser des fonctionnalités Azure AD DS telles que la jonction de domaine, la lecture LDAP, la liaison LDAP, l’authentification NTLM et Kerberos et la stratégie de groupe.
 
 ## <a name="next-steps"></a>Étapes suivantes
-### <a name="learn-more-about-azure-ad-domain-services"></a>En savoir plus sur Azure AD Domain Services
-* [Caractéristiques](active-directory-ds-features.md)
-* [Scénarios de déploiement](scenarios.md)
-* [Déterminer si la solution Azure AD Domain Services répond aux besoins de vos cas d’usage](comparison.md)
-* [Comprendre comment la solution Azure AD Domain Services est synchronisée avec votre annuaire Azure AD](synchronization.md)
 
-### <a name="get-started-with-azure-ad-domain-services"></a>Prise en main des services de domaine Azure AD
-* [Activer Azure AD Domain Services à l’aide du portail Azure](create-instance.md)
+Pour en savoir plus sur les différentes entre Azure AD DS et d’autres solutions d’identité et sur le fonctionnement de la synchronisation, consultez les articles suivants :
+
+* [Comparer Azure AD DS avec Azure AD, Active Directory Domain Services sur des machines virtuelles Azure et Active Directory Domain Services en local][compare]
+* [Comprendre comment la solution Azure AD Domain Services est synchronisée avec votre répertoire Azure AD][synchronization]
+
+Pour bien démarrer, [créez un domaine managé Azure AD DS à l’aide du portail Azure][tutorial-create].
+
+<!-- INTERNAL LINKS -->
+[compare]: compare-identity-solutions.md
+[synchronization]: synchronization.md
+[tutorial-create]: tutorial-create-instance.md
+[azure-ad-connect]: ../active-directory/hybrid/whatis-hybrid-identity.md
+[password-hash-sync]: ../active-directory/hybrid/how-to-connect-password-hash-synchronization.md

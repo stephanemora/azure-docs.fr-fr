@@ -121,14 +121,14 @@ Le service Azure Import/Export prend en charge la copie des données vers et dep
 
 |Pays/région  |Pays/région  |Pays/région  |Pays/région  |
 |---------|---------|---------|---------|
-|USA Est    | Europe Nord        | Inde Centre        |US Gov Iowa         |
+|USA Est    | Europe Nord        | Inde centrale        |US Gov Iowa         |
 |USA Ouest     |Europe Ouest         | Inde Sud        | Est des États-Unis – US DoD        |
 |USA Est 2    | Asie Est        |  Inde Ouest        | Centre des États-Unis – US DoD        |
 |USA Ouest 2     | Asie Sud-Est        | Centre du Canada        | Chine orientale         |
 |USA Centre     | Australie Est        | Est du Canada        | Chine du Nord        |
-|USA Centre Nord     |  Australie Sud-Est       | Brésil Sud        | Sud du Royaume-Uni        |
-|USA Centre Sud     | Japon Ouest        |Centre de la Corée         | Centre de l’Allemagne        |
-|USA Centre-Ouest     |  Japon Est       | Gouvernement américain - Virginie        | Nord-Est de l’Allemagne        |
+|Centre-Nord des États-Unis     |  Sud-Australie Est       | Brésil Sud        | Sud du Royaume-Uni        |
+|États-Unis - partie centrale méridionale     | OuJapon Est        |Centre de la Corée         | Centre de l’Allemagne        |
+|Centre-USA Ouest     |  Japon Est       | Gouvernement américain - Virginie        | Nord-Est de l’Allemagne        |
 
 
 ## <a name="security-considerations"></a>Considérations relatives à la sécurité

@@ -154,7 +154,7 @@ Dans le modèle, les liens sont générés en combinant l’URI de base (à part
 
 Avec cette approche, la valeur par défaut est utilisée pour le paramètre `_artifactsLocation`. Si les modèles liés doivent être récupérés à partir d’un autre emplacement, l’entrée du paramètre peut être utilisée au moment du déploiement pour remplacer la valeur par défaut. Aucune modification du modèle n’est nécessaire.
 
-### <a name="use-artifactslocation-instead-of-hardcoding-links"></a>Utiliser _artifactsLocation à la place de liens de codage en dur
+### <a name="use-_artifactslocation-instead-of-hardcoding-links"></a>Utiliser _artifactsLocation à la place de liens de codage en dur
 
 Outre son utilisation pour les modèles imbriqués, l’URL du paramètre `_artifactsLocation` est utilisé comme base pour tous les artefacts associés d’un modèle de déploiement. Certaines extensions de machine virtuelle contiennent un lien vers un script stocké en dehors du modèle. Pour ces extensions, vous ne devez pas coder les liens en dur. Par exemple, les extensions de Script personnalisé et de DSC PowerShell peuvent établir un lien vers un script externe sur GitHub comme suit : 
 
@@ -499,7 +499,7 @@ Vous pouvez récupérer la même liste à l’aide de l’applet de commande Azu
 Get-AzureRmVMImagePublisher -Location "West Europe" | Get-AzureRmVMImageOffer | Get-AzureRmVMImageSku | Get-AzureRmVMImage
 ```
 
-Cette commande prend quelques minutes pour retourner toutes les images disponibles dans la région Europe de l’Ouest du cloud Azure global.
+Cette commande prend quelques minutes pour retourner toutes les images disponibles dans la région Europe Ouest du cloud Azure global.
 
 Si vous avez mis ces images de machine virtuelle à disposition dans Azure Stack, la totalité du stockage disponible doit être utilisée. Pour prendre en compte même la plus petite unité d’échelle, Azure Stack vous permet de sélectionner les images que vous souhaitez ajouter à un environnement.
 

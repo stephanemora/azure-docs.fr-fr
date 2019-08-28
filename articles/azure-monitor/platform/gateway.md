@@ -317,14 +317,14 @@ Utilisez les tableaux suivants pour identifier l’URL de chaque emplacement.
 
 | **Lieu** | **URL** |
 | --- | --- |
-| USA Centre Nord |ncus-jobruntimedata-prod-su1.azure-automation.net |
+| Centre-Nord des États-Unis |ncus-jobruntimedata-prod-su1.azure-automation.net |
 | Europe Ouest |we-jobruntimedata-prod-su1.azure-automation.net |
-| USA Centre Sud |scus-jobruntimedata-prod-su1.azure-automation.net |
+| États-Unis - partie centrale méridionale |scus-jobruntimedata-prod-su1.azure-automation.net |
 | USA Est 2 |eus2-jobruntimedata-prod-su1.azure-automation.net |
 | Canada central |cc-jobruntimedata-prod-su1.azure-automation.net |
 | Europe Nord |ne-jobruntimedata-prod-su1.azure-automation.net |
 | Asie Sud-Est |sea-jobruntimedata-prod-su1.azure-automation.net |
-| Inde Centre |cid-jobruntimedata-prod-su1.azure-automation.net |
+| Inde centrale |cid-jobruntimedata-prod-su1.azure-automation.net |
 | Japon |jpe-jobruntimedata-prod-su1.azure-automation.net |
 | Australie |ase-jobruntimedata-prod-su1.azure-automation.net |
 
@@ -332,14 +332,14 @@ Utilisez les tableaux suivants pour identifier l’URL de chaque emplacement.
 
 | **Lieu** | **URL** |
 | --- | --- |
-| USA Centre Nord |ncus-agentservice-prod-1.azure-automation.net |
+| Centre-Nord des États-Unis |ncus-agentservice-prod-1.azure-automation.net |
 | Europe Ouest |we-agentservice-prod-1.azure-automation.net |
-| USA Centre Sud |scus-agentservice-prod-1.azure-automation.net |
+| États-Unis - partie centrale méridionale |scus-agentservice-prod-1.azure-automation.net |
 | USA Est 2 |eus2-agentservice-prod-1.azure-automation.net |
 | Canada central |cc-agentservice-prod-1.azure-automation.net |
 | Europe Nord |ne-agentservice-prod-1.azure-automation.net |
 | Asie Sud-Est |sea-agentservice-prod-1.azure-automation.net |
-| Inde Centre |cid-agentservice-prod-1.azure-automation.net |
+| Inde centrale |cid-agentservice-prod-1.azure-automation.net |
 | Japon |jpe-agentservice-prod-1.azure-automation.net |
 | Australie |ase-agentservice-prod-1.azure-automation.net |
 
