@@ -10,17 +10,72 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 8/2/2019
+ms.date: 8/19/2019
 ms.author: raiye
-ms.openlocfilehash: 6f7fc27674ad26d8de8dd5d0c6c801b269b0e686
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: c27438dbbeffc0837c3d71d9bb532803655538b8
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68941711"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69637546"
 ---
 # <a name="azure-guest-os"></a>Système d’exploitation invité d'Azure
 Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Response Center) appliquées au système d’exploitation invité d'Azure. Parcourez cet article pour déterminer si une mise à jour spécifique s'applique au système d’exploitation invité que vous utilisez. Les mises à jour vont toujours de l'avant pour la [famille][family-explain] spécifique avec laquelle elles ont été présentées.
+
+
+## <a name="august-2019-guest-os"></a>Système d’exploitation invité, août 2019
+
+>[!NOTE]
+>Le système d’exploitation invité d’août est actuellement déployé sur les machines virtuelles du service cloud qui sont configurées pour les mises à jour automatiques. Une fois le déploiement terminé, cette version sera disponible pour les mises à jour manuelles via le portail Azure et les fichiers de configuration. Les correctifs suivants sont inclus dans le système d’exploitation invité d’août. Cette liste est susceptible d’être modifiée.
+
+| Catégorie de produit | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
+| --- | --- | --- | --- | --- |
+|  Version 08-19   |  [4512482]  |  Sécurité Windows   |  3.76  |  13 août 2019  |
+|  Version 08-19   |  [4494175]  |  Mise à jour du microcode   |  5.34  |  18 juin 2019  |
+|  Version 08-19   |  [4512517]  |  Dernière mise à jour cumulative   |  5.34  |  13 août 2019  |
+|  Version 08-19   |  [4494174]  |  Mise à jour du microcode   |  6.1  |  18 juin 2019  |
+|  Version 08-19   |  [4511553]  |  Dernière mise à jour cumulative   |  6.1  |  13 août 2019  |
+|  Version 08-19   |  [4512486]  |  Sécurité Windows   |  2,89  |  13 août 2019  |
+|  Version 08-19   |  [4512489]  |  Sécurité Windows   |  4.69  |  13 août 2019  |
+|  Version 08-19   |  [4511872]  |  Internet Explorer    |  2.89, 3.76, 4.69  |  15 août 2019  |
+|  Version 08-19   |  [4507449]  |  Non relatif à la sécurité   |  2,89  |  9 juillet 2019  |
+|  Version 08-19   |  [4507000]  |  .NET 4.5.2 non relatif à la sécurité   |  3.76  |  12 août 2019  |
+|  Version 08-19   |  [4507002]  |  .NET 3.5 non relatif à la sécurité   |  3.76  |  12 août 2019  |
+|  Version 08-19   |  [4507462]  |  Non relatif à la sécurité   |  3.76  |  9 juillet 2019  |
+|  Version 08-19   |  [4506999]  |  .NET 4.5.2 non relatif à la sécurité    |  4.69  |  12 août 2019  |
+|  Version 08-19   |  [4507005]  |  .NET 3.5 non relatif à la sécurité    |  4.69  |  12 août 2019  |
+|  Version 08-19   |  [4507448]  |  Non relatif à la sécurité   |  4.69  |  9 juillet 2019  |
+|  Version 08-19   |  [4509091]  |  Mise à jour de la pile de maintenance   |  5.34  |  9 juillet 2019  |
+|  Version 08-19   |  [4509095]  |  Mise à jour de la pile de maintenance   |  6.1  |  9 juillet 2019  |
+|  Version 08-19   |  [4512937]  |  Mise à jour de la pile de maintenance   |  6.1  |  29 juillet 2019  |
+|  Version 08-19   |  [4507004]  |  .NET 3.5.1 non relatif à la sécurité    |  2,89  |  12 août 2019  |
+|  Version 08-19   |  [4504418]  |  Mise à jour de la pile de maintenance   |  3.76, 4.69  |  11 juillet 2019  |
+|  Version 08-19   |  [4507001]  |  .NET 4.5.2 non relatif à la sécurité   |  2,89  |  12 août 2019  |
+|  Version 08-19   |  [4507704]  |  Paramètre d’heure d’été pour le Brésil et le Maroc dans Windows   |  2.89, 3.76, 4.69, 5.34  |  13 août 2019  |
+
+[4512482]: https://support.microsoft.com/kb/4512482
+[4494175]: https://support.microsoft.com/kb/4494175
+[4512517]: https://support.microsoft.com/kb/4512517
+[4494174]: https://support.microsoft.com/kb/4494174
+[4511553]: https://support.microsoft.com/kb/4511553
+[4512486]: https://support.microsoft.com/kb/4512486
+[4512489]: https://support.microsoft.com/kb/4512489
+[4511872]: https://support.microsoft.com/kb/4511872
+[4507449]: https://support.microsoft.com/kb/4507449
+[4507000]: https://support.microsoft.com/kb/4507000
+[4507002]: https://support.microsoft.com/kb/4507002
+[4507462]: https://support.microsoft.com/kb/4507462
+[4506999]: https://support.microsoft.com/kb/4506999
+[4507005]: https://support.microsoft.com/kb/4507005
+[4507448]: https://support.microsoft.com/kb/4507448
+[4509091]: https://support.microsoft.com/kb/4509091
+[4509095]: https://support.microsoft.com/kb/4509095
+[4512937]: https://support.microsoft.com/kb/4512937
+[4507004]: https://support.microsoft.com/kb/4507004
+[4504418]: https://support.microsoft.com/kb/4504418
+[4507001]: https://support.microsoft.com/kb/4507001
+[4507704]: https://support.microsoft.com/kb/4507704
+
 
 ## <a name="july-2019-guest-os"></a>Système d’exploitation invité, juillet 2019
 
