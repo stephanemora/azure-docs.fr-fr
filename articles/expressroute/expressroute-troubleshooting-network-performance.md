@@ -183,17 +183,17 @@ Configuration des tests :
 | Seattle | USA Ouest 2        |    191 km |   5 ms | 262,0 Mbits/s |  3,74 Gbits/s |
 | Seattle | USA Ouest          |  1\.094 km |  18 ms |  82,3 Mbits/s |  3,70 Gbits/s |
 | Seattle | USA Centre       |  2\.357 km |  40 ms |  38,8 Mbits/s |  2,55 Gbits/s |
-| Seattle | USA Centre Sud |  2\.877 km |  51 ms |  30,6 Mbits/s |  2,49 Gbits/s |
-| Seattle | USA Centre Nord |  2\.792 km |  55 ms |  27,7 Mbits/s |  2,19 Gbits/s |
+| Seattle | États-Unis - partie centrale méridionale |  2\.877 km |  51 ms |  30,6 Mbits/s |  2,49 Gbits/s |
+| Seattle | Centre-Nord des États-Unis |  2\.792 km |  55 ms |  27,7 Mbits/s |  2,19 Gbits/s |
 | Seattle | USA Est 2        |  3\.769 km |  73 ms |  21,3 Mbits/s |  1,79 Gbit/s |
 | Seattle | USA Est          |  3\.699 km |  74 ms |  21,1 Mbits/s |  1,78 Gbit/s |
 | Seattle | Japon Est       |  7\.705 km | 106 ms |  14,6 Mbits/s |  1,22 Gbit/s |
 | Seattle | Sud du Royaume-Uni         |  7\.708 km | 146 ms |  10,6 Mbits/s |   896 Mbits/s |
 | Seattle | Europe Ouest      |  7\.834 km | 153 ms |  10,2 Mbits/s |   761 Mbits/s |
-| Seattle | Australie Est   | 12\.484 km | 165 ms |   9,4 Mbits/s |   794 Mbits/s |
-| Seattle | Asie Sud-Est   | 12\.989 km | 170 ms |   9,2 Mbits/s |   756 Mbits/s |
-| Seattle | Brésil Sud *   | 10\.930 km | 189 ms |   8,2 Mbits/s |   699 Mbits/s |
-| Seattle | Inde Sud      | 12\.918 km | 202 ms |   7,7 Mbits/s |   634 Mbits/s |
+| Seattle | Australie Est   | 12.484 km | 165 ms |   9,4 Mbits/s |   794 Mbits/s |
+| Seattle | Asie Sud-Est   | 12.989 km | 170 ms |   9,2 Mbits/s |   756 Mbits/s |
+| Seattle | Brésil Sud *   | 10.930 km | 189 ms |   8,2 Mbits/s |   699 Mbits/s |
+| Seattle | Inde Sud      | 12.918 km | 202 ms |   7,7 Mbits/s |   634 Mbits/s |
 
 \* La latence au Brésil est un bon exemple où la distance à vol d’oiseau diffère considérablement de la distance en fibre optique. Alors que la latence devrait normalement se situer aux alentours de 160 ms, elle s’élève à 189 ms. Cette différence par rapport à mes attentes pourrait indiquer un problème réseau quelque part, mais très probablement que la fibre optique en direction du Brésil n’emprunte pas une ligne droite, ce qui se traduit par un supplément de 1 000 km environ sur l’itinéraire entre Seattle et le Brésil.
 
