@@ -9,12 +9,12 @@ ms.date: 08/02/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: f33193e3102afca73344fcd640d14d9af9c1d46e
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: 2607e09e6b8428c2aacc8ee7c6be42f54284a1ce
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68775344"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69641092"
 ---
 # <a name="authorize-access-to-azure-blobs-and-queues-using-azure-active-directory"></a>Autoriser l’accès aux objets blob et aux files d’attente Azure avec Azure Active Directory
 
@@ -54,7 +54,7 @@ Pour plus d’informations sur la définition des rôles intégrés pour le Stoc
 
 ### <a name="access-permissions-for-data-operations"></a>Autorisations d’accès pour les opérations de données
 
-Pour plus d’informations sur les autorisations requises pour l’appel d’opérations propres aux services Azure BLOB ou de File d’attente, consultez la section [Permissions for calling blob and queue data operations](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations) (Autorisations pour l’appel d’opérations de données d’objet blob et de file d’attente).
+Pour plus d’informations sur les autorisations requises pour l’appel d’opérations propres aux services Azure BLOB ou de File d’attente, consultez la section [Permissions for calling blob and queue data operations](https://docs.microsoft.com/rest/api/storageservices/authorize-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations) (Autorisations pour l’appel d’opérations de données d’objet blob et de file d’attente).
 
 ## <a name="resource-scope"></a>Étendue des ressources
 
@@ -85,5 +85,5 @@ Azure Files prend uniquement en charge l’autorisation avec Azure AD sur SMB po
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Autoriser l’accès aux objets blob et files d’attente avec Azure Active Directory et les identités managées pour les ressources Azure](storage-auth-aad-msi.md)
-- [S’authentifier auprès d’Azure Active Directory à partir d’une application pour accéder aux objets blob et aux files d’attente](storage-auth-aad-app.md)
+- [S'authentifier auprès d'Azure Active Directory à partir d'une application pour accéder aux objets blob et aux files d'attente](storage-auth-aad-app.md)
 - [Azure Storage support for Azure Active Directory based access control generally available](https://azure.microsoft.com/blog/azure-storage-support-for-azure-ad-based-access-control-now-generally-available/) (Disponibilité générale de la prise en charge par le service Stockage Azure du contrôle d’accès basé sur Azure Active Directory)

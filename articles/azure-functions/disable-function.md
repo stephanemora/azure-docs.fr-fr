@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 08/05/2019
 ms.author: glenga
-ms.openlocfilehash: 183056d01146194b2854a70df790802e1a0bb839
-ms.sourcegitcommit: f7998db5e6ba35cbf2a133174027dc8ccf8ce957
+ms.openlocfilehash: 498bb8c0f1e7bb674605d4a98f0be0f3e0b9a7c9
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68782232"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69650494"
 ---
 # <a name="how-to-disable-functions-in-azure-functions"></a>Guide pratique pour désactiver des fonctions dans Azure Functions
 
@@ -29,7 +29,7 @@ Cet article explique comment désactiver une fonction dans Azure Functions. Quan
 
 ## <a name="functions-2x---all-languages"></a>Functions 2.x - Tous les langages
 
-Dans Functions 2.x, vous désactivez une fonction à l'aide d'un paramètre d'application au format `AzureWebJobs.<FUNCTION_NAME>.Disabled`. Vous pouvez créer et modifier ce paramètre par programmation à l'aide de l'interface de ligne de commande Azure. Vous pouvez également le faire à partir de l'onglet **Gérer** de votre fonction sur le [Portail Azure](https://portal.azure.com). 
+Dans Functions 2.x, vous désactivez une fonction à l'aide d'un paramètre d'application au format `AzureWebJobs.<FUNCTION_NAME>.Disabled`. Vous pouvez créer et modifier ce paramètre d'application de plusieurs façons, notamment à l'aide de l'interface [Azure CLI](/cli/azure/) et à partir de l'onglet **Gérer** de votre fonction sur le [portail Azure](https://portal.azure.com). 
 
 ### <a name="azure-cli"></a>D’Azure CLI
 

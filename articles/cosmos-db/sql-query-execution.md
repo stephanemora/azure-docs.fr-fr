@@ -6,18 +6,18 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/31/2019
 ms.author: tisande
-ms.openlocfilehash: e4e26b658bd29e4589be40e4d29935059836c909
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 0eca458c344e5c44ad62121db14e6b286dc19a86
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67343160"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69614443"
 ---
 # <a name="azure-cosmos-db-sql-query-execution"></a>Exécution de requêtes SQL Azure Cosmos DB
 
 N’importe quel langage capable d’émettre des requêtes HTTP/HTTPS peut appeler l’API REST de Cosmos DB. Cosmos DB propose également des bibliothèques de programmation pour les langages de programmation .NET, Node.js, JavaScript et Python. L’API REST et les bibliothèques prennent toutes en charge l’interrogation par le biais de SQL, et le kit SDK .NET prend également en charge l’[interrogation LINQ](sql-query-linq-to-sql.md).
 
-Les exemples suivants montrent comment créer une requête et la soumettre à un compte de base de données Cosmos DB.
+Les exemples suivants montrent comment créer une requête et la soumettre à un compte de base de données Cosmos.
 
 ## <a id="REST-API"></a>API REST
 
@@ -143,15 +143,15 @@ Les résultats sont :
     }
 ```
 
-Si les résultats d’une requête ne tiennent pas sur une seule page, l’API REST retourne un jeton de continuation via l’en-tête de réponse `x-ms-continuation-token`. Les clients peuvent paginer les résultats en incluant l’en-tête dans les résultats suivants. Vous pouvez aussi contrôler le nombre de résultats par page via l’en-tête de nombre `x-ms-max-item-count`.
+Si les résultats d’une requête ne tiennent pas sur une seule page, l’API REST retourne un jeton de continuation via l’en-tête de réponse `x-ms-continuation-token`. Les clients peuvent paginer les résultats en incluant l’en-tête dans les résultats suivants. Vous pouvez aussi contrôler le nombre de résultats par page via l’en-tête de nombre `x-ms-max-item-count`.
 
 Si une requête inclut une fonction d’agrégation telle que COUNT, la page de requête peut retourner une valeur partiellement agrégée sur une seule page de résultats. Les clients doivent effectuer une agrégation de deuxième niveau sur ces résultats pour produire les résultats finaux. Par exemple, ils peuvent additionner les nombres retournés dans les pages individuelles pour retourner le nombre total.
 
-Pour gérer la stratégie de cohérence des données des requêtes, utilisez l’en-tête `x-ms-consistency-level` comme dans toutes les requêtes d’API REST. En outre, le maintien de la cohérence par session nécessite l’application de l’écho sur le dernier en-tête de cookie `x-ms-session-token` dans la demande de requête. La stratégie d’indexation du conteneur interrogé peut également influencer la cohérence des résultats de la requête. Avec les paramètres de stratégie d’indexation par défaut pour les conteneurs, l’index est toujours actualisé avec le contenu de l’élément, et les résultats de la requête correspondent à la cohérence choisie pour les données. Pour plus d’informations, consultez [Niveaux de cohérence dans Azure Cosmos DB][consistency-levels].
+Pour gérer la stratégie de cohérence des données des requêtes, utilisez l’en-tête `x-ms-consistency-level` comme dans toutes les requêtes d’API REST. En outre, le maintien de la cohérence par session nécessite l’application de l’écho sur le dernier en-tête de cookie `x-ms-session-token` dans la demande de requête. La stratégie d’indexation du conteneur interrogé peut également influencer la cohérence des résultats de la requête. Avec les paramètres de stratégie d’indexation par défaut pour les conteneurs, l’index est toujours actualisé avec le contenu de l’élément, et les résultats de la requête correspondent à la cohérence choisie pour les données. Pour plus d’informations, consultez [Niveaux de cohérence dans Azure Cosmos DB][consistency-levels].
 
 Si la stratégie d’indexation configurée pour le conteneur ne peut pas prendre en charge la requête spécifiée, le serveur Azure Cosmos DB retourne le code d’état 400 « Demande incorrecte ». Ce message d’erreur est retourné pour les requêtes ayant des chemins explicitement exclus de l’indexation. Vous pouvez spécifier l’en-tête `x-ms-documentdb-query-enable-scan` pour permettre à la requête d’effectuer une analyse quand un index n’est pas disponible.
 
-Vous pouvez obtenir les métriques détaillées sur l’exécution des requêtes en définissant l’en-tête `x-ms-documentdb-populatequerymetrics` sur `true`. Pour en savoir plus, consultez la section relative aux [métriques de requête SQL pour Azure Cosmos DB](sql-api-query-metrics.md).
+Vous pouvez obtenir les indicateurs de performance détaillés sur l’exécution des requêtes en définissant l’en-tête `x-ms-documentdb-populatequerymetrics` sur `true`. Pour en savoir plus, consultez la section relative aux [métriques de requête SQL pour Azure Cosmos DB](sql-api-query-metrics.md).
 
 ## <a name="c-net-sdk"></a>C# (SDK .NET)
 
@@ -241,7 +241,7 @@ Le prochain exemple illustre des jointures, exprimées via l’opérateur LINQ `
     }
 ```
 
-Le client .NET effectue une itération automatique à travers l’ensemble des pages des résultats de la requête dans les blocs `foreach`, comme indiqué dans l’exemple précédent. Les options de requête présentées dans la section sur l’[API REST](#REST-API) sont également disponibles dans le kit SDK .NET à l’aide des classes `FeedOptions` et `FeedResponse` dans la méthode `CreateDocumentQuery`. Vous pouvez contrôler le nombre de pages à l’aide du paramètre `MaxItemCount`.
+Le client .NET effectue une itération automatique à travers l’ensemble des pages des résultats de la requête dans les blocs `foreach`, comme indiqué dans l’exemple précédent. Les options de requête présentées dans la section sur l’[API REST](#REST-API) sont également disponibles dans le kit SDK .NET à l’aide des classes `FeedOptions` et `FeedResponse` dans la méthode `CreateDocumentQuery`. Vous pouvez contrôler le nombre de pages à l’aide du paramètre `MaxItemCount`.
 
 Vous pouvez également contrôler explicitement la pagination en créant `IDocumentQueryable` à l’aide de l’objet `IQueryable`, puis en lisant les valeurs `ResponseContinuationToken` et en les retransférant en tant que `RequestContinuationToken` dans `FeedOptions`. Vous pouvez définir `EnableScanInQuery` pour autoriser les analyses quand la stratégie d’indexation configurée ne prend pas en charge la requête. Dans le cas des conteneurs partitionnés, vous pouvez utiliser `PartitionKey` pour exécuter la requête sur une seule partition, même si Azure Cosmos DB peut extraire automatiquement cet élément du texte de la requête. Vous pouvez utiliser `EnableCrossPartitionQuery` pour exécuter des requêtes sur plusieurs partitions.
 

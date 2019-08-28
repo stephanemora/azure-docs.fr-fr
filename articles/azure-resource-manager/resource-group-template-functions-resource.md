@@ -4,14 +4,14 @@ description: Décrit les fonctions à utiliser dans un modèle Azure Resource Ma
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 08/06/2019
+ms.date: 08/20/2019
 ms.author: tomfitz
-ms.openlocfilehash: 2ec6e58438e7be953e1f672fb815ff3f68a7f252
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 2cd37405176eefa8f4445942b9fbf1afc2a7404a
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68839259"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69650432"
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Fonctions de ressources pour les modèles Azure Resource Manager
 
@@ -634,7 +634,7 @@ L’exemple précédent renvoie un objet dans le format suivant :
 
 ## <a name="resourceid"></a>resourceId
 
-`resourceId([subscriptionId], [resourceGroupName], resourceType, resourceName1, [resourceName2]...)`
+`resourceId([subscriptionId], [resourceGroupName], resourceType, resourceName1, [resourceName2], ...)`
 
 Retourne l'identificateur unique d'une ressource. Vous utilisez cette fonction lorsque le nom de la ressource est ambigu ou non configuré dans le même modèle. 
 
@@ -646,43 +646,46 @@ Retourne l'identificateur unique d'une ressource. Vous utilisez cette fonction l
 | resourceGroupName |Non |string |La valeur par défaut est le groupe de ressources actuel. Spécifiez cette valeur lorsque vous devez récupérer une ressource se trouvant dans un autre groupe de ressources. |
 | resourceType |OUI |string |Type de ressource, y compris l'espace de noms du fournisseur de ressources. |
 | nom_ressource1 |OUI |string |Nom de la ressource. |
-| nom_ressource2 |Non |string |Segment de nom de ressource suivant si la ressource est imbriquée. |
+| nom_ressource2 |Non |string |Segment de nom de ressource suivant si nécessaire. |
+
+Continuez à ajouter des noms de ressource en paramètres lorsque le type de ressource contient plus de segments.
 
 ### <a name="return-value"></a>Valeur de retour
 
 L'identificateur est retourné au format suivant :
 
-```json
-/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-```
+**/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}**
+
 
 ### <a name="remarks"></a>Remarques
 
-Lorsqu’elle est utilisée avec un [déploiement au niveau abonnement](deploy-to-subscription.md), la fonction `resourceId()` ne peut récupérer que l’ID des ressources déployées à ce niveau. Ainsi, vous pouvez obtenir l’ID d’une définition de stratégie ou d’une définition de rôle, mais pas l’ID d’un compte de stockage. Pour les déploiements sur un groupe de ressources, l’inverse est vrai. Vous ne pouvez pas obtenir l’ID de ressource des ressources déployées au niveau abonnement.
+Le nombre de paramètres que vous fournissez varie selon qu’il s'agit d’une ressource parent ou d’une ressource enfant et selon que la ressource fait partie du même abonnement ou du même groupe de ressources.
 
-Les valeurs de paramètre spécifiées varient selon que la ressource se trouve ou non dans le même abonnement et le même groupe de ressources que le déploiement actuel. Pour obtenir l’ID de ressource d’un compte de stockage se trouvant dans le même abonnement et le même groupe de ressources, utilisez :
-
-```json
-"[resourceId('Microsoft.Storage/storageAccounts','examplestorage')]"
-```
-
-Pour obtenir l’ID de ressource d’un compte de stockage se trouvant dans le même abonnement mais dans un groupe de ressources différent, utilisez :
+Pour obtenir l’ID de ressource d’une ressource parent se trouvant dans le même abonnement et le même groupe de ressources, indiquez le type et le nom de la ressource.
 
 ```json
-"[resourceId('otherResourceGroup', 'Microsoft.Storage/storageAccounts','examplestorage')]"
+"[resourceId('Microsoft.ServiceBus/namespaces', 'namespace1')]"
 ```
 
-Pour obtenir l’ID de ressource d’un compte de stockage se trouvant dans un abonnement et un groupe de ressources différents, utilisez :
+Pour obtenir l’ID de ressource d’une ressource enfant, faites attention au nombre de segments dans le type de ressource. Indiquez un nom de ressource pour chaque segment du type de ressource. Le nom du segment correspond à la ressource qui existe pour cette partie de la hiérarchie.
+
+```json
+"[resourceId('Microsoft.ServiceBus/namespaces/queues/authorizationRules', 'namespace1', 'queue1', 'auth1')]"
+```
+
+Pour obtenir l’ID de ressource d’une ressource se trouvant dans le même abonnement mais dans un groupe de ressources différent, indiquez le nom du groupe de ressources.
+
+```json
+"[resourceId('otherResourceGroup', 'Microsoft.Storage/storageAccounts', 'examplestorage')]"
+```
+
+Pour obtenir l’ID de ressource d’une ressource se trouvant dans un abonnement et un groupe de ressources différents, indiquez l’ID d’abonnement et le nom du groupe de ressources.
 
 ```json
 "[resourceId('xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx', 'otherResourceGroup', 'Microsoft.Storage/storageAccounts','examplestorage')]"
 ```
 
-Pour obtenir l’ID de ressource d’une base de données se trouvant dans un groupe de ressources différent, utilisez :
-
-```json
-"[resourceId('otherResourceGroup', 'Microsoft.SQL/servers/databases', parameters('serverName'), parameters('databaseName'))]"
-```
+Lorsqu’elle est utilisée avec un [déploiement au niveau abonnement](deploy-to-subscription.md), la fonction `resourceId()` ne peut récupérer que l’ID des ressources déployées à ce niveau. Ainsi, vous pouvez obtenir l’ID d’une définition de stratégie ou d’une définition de rôle, mais pas l’ID d’un compte de stockage. Pour les déploiements sur un groupe de ressources, l’inverse est vrai. Vous ne pouvez pas obtenir l’ID de ressource des ressources déployées au niveau abonnement.
 
 Pour obtenir l’ID de ressource d’une ressource de niveau abonnement lors du déploiement dans l’étendue de l’abonnement, utilisez :
 

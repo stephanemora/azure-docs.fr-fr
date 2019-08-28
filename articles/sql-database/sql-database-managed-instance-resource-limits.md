@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
 ms.date: 06/26/2019
-ms.openlocfilehash: 961c0de6856a9791f76be1ec609f176f1fbbf8fb
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: e5dc449dc51faccdd8c0e69337cc5f8ac19fa296
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567333"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69874402"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Vue d’ensemble des limites de ressources Azure SQL Database Managed Instance
 
@@ -42,7 +42,7 @@ L’instance gérée d’Azure SQL Database peut être déployée sur deux gén�
 | Stockage réservé d’instance max. |  Usage général : 8 To<br/>Critique pour l’entreprise : 1 To | Usage général : 8 To<br/> Critique pour l’entreprise 1 To, 2 To ou 4 To, en fonction du nombre de cœurs |
 
 > [!IMPORTANT]
-> Les nouvelles bases de données Gen4 ne sont plus prises en charge dans la région AustraliaEast.
+> Les nouvelles bases de données Gen4 ne sont plus prises en charge dans les régions Australie Est et Brésil Sud.
 
 ### <a name="service-tier-characteristics"></a>Caractéristiques du niveau de service
 
@@ -56,11 +56,13 @@ L’instance gérée a deux niveaux de service : Usage général/Vital pour l�
 | Taille de base de données maximale | Déterminé par la taille de stockage maximale par instance | Déterminé par la taille de stockage maximale par instance |
 | Nombre maximal de bases de données par instance | 100 | 100 |
 | Nombre maximal de fichiers de base de données par instance | Jusqu’à 280 | 32 767 fichiers par base de données |
+| Taille maximale des fichiers | 8 To | 4 To |
 | IOPS de données/journal (approximatives) | 500 - 7 500 par fichier<br/>\*[Augmentez la taille de fichier pour obtenir davantage d’IOPS](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes)| 11 000 - 110 000 (1375/vCore)<br/>Ajoutez plus de vCores pour obtenir de meilleures performances d’E/S. |
 | Limite de débit d’écriture du journal | 3 Mo/s par vCore<br/>22 Mo/s max par instance | 4 Mo/s par vCore<br/>48 Mo/s par instance|
 | Débit de données (approximatif) | 100 - 250 Mo/s par fichier<br/>\*[Augmentez la taille de fichier pour obtenir de meilleures performances d’E/S](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | N/A |
 | Latence d’E/S de stockage (approximative) | 5 - 10 ms | 1 - 2 ms |
 | Taille maximale de tempDB | 192 - 1 920 Go (24 Go par vCore)<br/>Ajoutez plus de vCores pour obtenir davantage d’espace TempDB. | Limité par la taille de stockage maximale d’instance. La taille du fichier journal TempDB est actuellement limitée à 24 Go/vCore. |
+| OLTP en mémoire | Non pris en charge | Disponible |
 | Nombre maximal de sessions | 30000 | 30000 |
 
 > [!NOTE]

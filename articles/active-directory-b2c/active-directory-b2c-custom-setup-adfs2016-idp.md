@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/07/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 595f8a174e615fb08a042b0e9c4cfe6da6ac1b7e
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: 5dffba9106493e60b35538a5210a51cead7fb135
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68773426"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69899628"
 ---
 # <a name="add-adfs-as-a-saml-identity-provider-using-custom-policies-in-azure-active-directory-b2c"></a>Ajouter ADFS en tant que fournisseur d’identités SAML à l’aide de stratégies personnalisées dans Azure Active Directory B2C
 
@@ -27,13 +27,14 @@ Cet article explique comment autoriser la connexion d’un compte d’utilisateu
 
 - Suivez les étapes de l’article [Prise en main des stratégies personnalisées dans Azure Active Directory B2C](active-directory-b2c-get-started-custom.md).
 - Assurez-vous d’avoir accès à un fichier .pfx de certificat avec une clé privée. Vous pouvez générer votre propre certificat autosigné et le charger dans Azure AD B2C. Azure AD B2C utilise ce certificat pour signer la requête SAML envoyée à votre fournisseur d’identité SAML.
+- Pour qu'Azure accepte le mot de passe du fichier .pfx, celui-ci doit être chiffré à l'aide de l'option TripleDES-SHA1 de l'utilitaire d'exportation du magasin de certificats Windows, par opposition à AES256-SHA256.
 
 ## <a name="create-a-policy-key"></a>Création d’une clé de stratégie
 
 Vous devez enregistrer votre certificat dans votre client Azure AD B2C.
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
-2. Veillez à bien utiliser le répertoire qui contient votre locataire Azure AD B2C. Choisissez le **filtre Répertoire et abonnement** dans le menu supérieur et sélectionnez le répertoire qui contient votre locataire.
+2. Veillez à bien utiliser l’annuaire qui contient votre locataire Azure AD B2C. Sélectionnez **Filtre de répertoire et d’abonnement** dans le menu supérieur et choisissez l’annuaire qui contient votre locataire.
 3. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Azure AD B2C**.
 4. Dans la page de vue d’ensemble, sélectionnez **Infrastructure d’expérience d’identité**.
 5. Sélectionnez **Clés de stratégie**, puis **Ajouter**.

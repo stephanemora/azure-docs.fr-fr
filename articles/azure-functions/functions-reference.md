@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 10/12/2017
 ms.author: glenga
-ms.openlocfilehash: 737da27fd8da292b6c1f8997d4bd300bbec8740e
-ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
+ms.openlocfilehash: 2715aeae5d10241703fa876557d1edcea1723874
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67565529"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69874955"
 ---
 # <a name="azure-functions-developers-guide"></a>Guide de développement Azure Functions
 Dans Azure Functions, des fonctions spécifiques partagent quelques concepts techniques et composants de base, quels que soient le langage et la liaison que vous utilisez. Avant de passer à l'apprentissage des détails propres à un langage ou une liaison donnés, veillez à lire cette présentation qui s'applique à l’ensemble d’entre eux.
@@ -43,6 +43,8 @@ Le fichier function.json définit le déclencheur, les liaisons de fonction et d
     ]
 }
 ```
+
+Pour plus d'exemples, consultez la [page wiki Function.json](https://github.com/Azure/azure-functions-host/wiki/function.json).
 
 La propriété `bindings` vous permet de configurer les liaisons et les déclencheurs. Chaque liaison partage quelques paramètres communs et des paramètres propres à un type de liaison donné. Chaque liaison requiert les paramètres suivants :
 

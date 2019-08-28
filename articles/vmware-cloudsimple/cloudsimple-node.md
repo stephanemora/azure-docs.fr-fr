@@ -1,40 +1,40 @@
 ---
-title: Vue d'ensemble des nœuds pour la solution VMware de CloudSimple - Azure
+title: Solution Azure VMware de CloudSimple - Vue d’ensemble sur les nœuds
 description: Découvrez les nœuds et concepts CloudSimple.
 author: sharaths-cs
 ms.author: dikamath
-ms.date: 04/10/2019
+ms.date: 08/20/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 346bd046810ebae5142bc23400419857000d0c8e
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 58af69b401400c7b2f663a91de8bf38bc9a296a3
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68812579"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69877697"
 ---
 # <a name="cloudsimple-nodes-overview"></a>Vue d'ensemble des nœuds CloudSimple
 
-Un nœud est :
+Les nœuds sont les blocs de construction d'un cloud privé. Un nœud est :
 
 * Un hôte de calcul complet dédié sur lequel l'hyperviseur VMware ESXi est installé  
-* Une unité de calcul que vous pouvez approvisionner ou réserver pour créer des clouds privés  
-* Disponible à l’approvisionnement ou à la réservation dans une région où le service CloudSimple est disponible
+* Une unité de calcul que vous pouvez acheter ou réserver pour créer des clouds privés
+* Disponible à l'achat ou à la réservation dans une région où le service CloudSimple est disponible
 
-Les nœuds sont les blocs de construction d'un cloud privé.  Pour créer un cloud privé, il vous faut au moins trois nœuds de la même référence SKU.  Pour développer un cloud privé, ajoutez-y des nœuds.  Vous pouvez ajouter des nœuds à un cluster existant. Vous pouvez également créer un nouveau cluster en approvisionnant des nœuds sur le portail Azure et en les associant au service CloudSimple.  Tous les nœuds approvisionnés sont visibles sous le service CloudSimple.  Vous créez un cloud privé à partir des nœuds approvisionnés sur le portail CloudSimple.
+Vous créez un cloud privé à partir des nœuds achetés. Pour créer un cloud privé, il vous faut au moins trois nœuds de la même référence SKU. Pour développer un cloud privé, ajoutez-y des nœuds.  Vous pouvez ajouter des nœuds à un cluster existant ou créer un nouveau cluster en achetant des nœuds sur le Portail Azure et en les associant au service CloudSimple.  Tous les nœuds achetés sont visibles sous le service CloudSimple.  
 
-## <a name="provisioned-nodes"></a>Nœuds approvisionnés
+## <a name="purchased-nodes"></a>Nœuds achetés
 
-Les nœuds approvisionnés peuvent faire l’objet d’un paiement à l’utilisation. L’approvisionnement de nœuds vous permet de procéder rapidement et à la demande à une mise à l’échelle de votre cluster VMware. Si nécessaire, vous pouvez ajouter des nœuds ou supprimer un nœud approvisionné pour faire descendre en puissance votre cluster VMware. Les nœuds approvisionnés sont facturés sur une base mensuelle et imputés à l’abonnement avec lequel ils sont approvisionnés :
+Les nœuds achetés peuvent faire l'objet d'un paiement à l'utilisation. L'achat de nœuds vous permet de procéder rapidement et à la demande à une mise à l'échelle de votre cluster VMware. Si nécessaire, vous pouvez ajouter des nœuds, ou supprimer un nœud acheté pour faire descendre en puissance votre cluster VMware. Les nœuds achetés sont facturés sur une base mensuelle et imputés à l'abonnement avec lequel ils sont achetés.
 
 * Si vous payez votre abonnement Azure par carte de crédit, celle-ci est immédiatement débitée.
 * Si vous réglez sur facture, les frais sont portés sur votre facture suivante.
 
 ## <a name="vmware-solution-by-cloudsimple-nodes-sku"></a>Références SKU de nœuds pour solution VMware de CloudSimple
 
-Les types de nœuds suivants sont disponibles à l’approvisionnement ou à la réservation.
+Les types de nœuds suivants sont disponibles à l'achat ou à la réservation.
 
 | SKU | CS28 - Nœud | CS36 - Nœud |
 |-----|-------------|-------------|
@@ -57,5 +57,5 @@ Les limites de nœud suivantes s'appliquent aux clouds privés.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Découvrez comment [approvisionner des nœuds](create-nodes.md)
+* Apprenez à [acheter des nœuds](create-nodes.md)
 * Découvrez-en plus sur le [Cloud privé](cloudsimple-private-cloud.md)

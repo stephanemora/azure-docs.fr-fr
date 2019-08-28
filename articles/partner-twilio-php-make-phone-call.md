@@ -3,9 +3,7 @@ title: Appel téléphonique à partir de Twilio (PHP) | Microsoft Docs
 description: Découvrez comment passer un appel téléphonique et envoyer un SMS avec le service d'API Twilio sur Azure. Les exemples concernent une applications PHP.
 documentationcenter: php
 services: ''
-author: devinrader
-manager: twilio
-editor: mollybos
+author: georgewallace
 ms.assetid: 44e35adc-be06-4700-beee-8c9e2c20c540
 ms.service: multiple
 ms.workload: na
@@ -13,13 +11,13 @@ ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
 ms.date: 11/25/2014
-ms.author: microsofthelp@twilio.com
-ms.openlocfilehash: 03b74f5a931e1cfbf09433af76c250607b7fc80c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: gwallace
+ms.openlocfilehash: fb1623c4a409f1c6cba94bad56d773e166d2b182
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60422297"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69637326"
 ---
 # <a name="how-to-make-a-phone-call-using-twilio-in-a-php-application-on-azure"></a>Exécution d'un appel téléphonique à l'aide de Twilio dans une application PHP sur Azure
 L'exemple qui suit montre comment utiliser Twilio pour passer un appel depuis une page web PHP hébergée sur Azure. L’application finale demande à l'utilisateur les valeurs de l’appel téléphonique, comme illustré dans la capture d’écran qui suit.

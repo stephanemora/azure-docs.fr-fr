@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: glenga
-ms.openlocfilehash: 2047f11272c6154d4443e889eff24401c2f73afa
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6e9ac50f38b2cf7bc3531e58e87ff2a8768c0a45
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67067696"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69650483"
 ---
 # <a name="how-to-target-azure-functions-runtime-versions"></a>Comment cibler des versions du runtime Azure Functions
 
@@ -36,7 +36,7 @@ Les valeurs que vous pouvez définir dans le paramètre d’application `FUNCTIO
 
 ## <a name="view-and-update-the-current-runtime-version"></a>Afficher et mettre à jour la version actuelle du runtime
 
-Vous pouvez modifier la version du runtime utilisée par votre application de fonction. Compte tenu du risque de changements cassants, faites-le avant d’avoir créé des fonctions dans votre application de fonction. Même si la version du runtime est déterminée par le paramètre `FUNCTIONS_EXTENSION_VERSION`, effectuez cette modification sur le Portail Azure et non en changeant directement le paramètre. En effet, le portail valide les modifications et en effectue d’autres si nécessaire.
+Vous pouvez modifier la version du runtime utilisée par votre application de fonction. Compte tenu du risque de changements cassants, vous pouvez le faire avant d’avoir créé des fonctions dans votre application de fonction. Même si la version du runtime est déterminée par le paramètre `FUNCTIONS_EXTENSION_VERSION`, effectuez cette modification sur le Portail Azure et non en changeant directement le paramètre. En effet, le portail valide les modifications et en effectue d’autres si nécessaire.
 
 ### <a name="from-the-azure-portal"></a>À partir du portail Azure
 

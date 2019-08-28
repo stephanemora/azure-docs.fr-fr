@@ -6,14 +6,14 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 08/09/2019
+ms.date: 08/20/2019
 ms.author: v-adgera
-ms.openlocfilehash: 7ceb36d818c84642461372f0df70c8088908550c
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 66dbfd09ef07740c07ddb010b73e33e783340e5a
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68965813"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69873641"
 ---
 # <a name="how-to-configure-postman-for-azure-digital-twins"></a>Guide pratique pour configurer Postman pour Azure Digital Twins
 
@@ -53,7 +53,9 @@ Configurez votre application Azure Active Directory pour utiliser le flux d’oc
 
 ## <a name="obtain-an-oauth-20-token"></a>Obtenir un jeton OAuth 2.0
 
-Ensuite, configurez Postman pour obtenir un jeton Azure Active Directory. Après quoi, adressez une requête HTTP authentifiée à Azure Digital Twins en utilisant le jeton acquis :
+[!INCLUDE [digital-twins-management-api](../../includes/digital-twins-management-api.md)]
+
+Configurez Postman pour obtenir un jeton Azure Active Directory. Après quoi, adressez une requête HTTP authentifiée à Azure Digital Twins en utilisant le jeton acquis :
 
 1. Accédez à [www.getpostman.com](https://www.getpostman.com/) pour télécharger l’application.
 1. Vérifiez que votre **URL d’autorisation** est correcte. Elle doit prendre la forme suivante :
@@ -75,7 +77,7 @@ Ensuite, configurez Postman pour obtenir un jeton Azure Active Directory. Après
     | URL d’authentification | Utilisez l’**URL d’autorisation** de l’étape 2 |
     | ID client | Utilisez l’**ID d’application** de l’application Azure Active Directory qui a été créée ou réaffectée dans la section précédente |
     | Étendue | Laisser vide |
-    | État | Laisser vide |
+    | State | Laisser vide |
     | Authentification du client | `Send as Basic Auth header` |
 
 1. Le client doit maintenant se présenter comme suit :

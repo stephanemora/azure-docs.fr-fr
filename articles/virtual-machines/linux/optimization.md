@@ -17,12 +17,12 @@ ms.topic: article
 ms.date: 09/06/2016
 ms.author: rclaus
 ms.subservice: disks
-ms.openlocfilehash: bd59257c1136f52beaf217c1f983c8aeb7bd81d5
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: ea8f3f1860223e102aeccf81f72b5294283b83f6
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67671122"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69640751"
 ---
 # <a name="optimize-your-linux-vm-on-azure"></a>Optimiser votre machine virtuelle Linux sur Azure
 Il est simple de créer une machine virtuelle Linux à partir de la ligne de commande ou du portail. Ce didacticiel vous explique comment configurer votre machine virtuelle de manière à en optimiser les performances sur la plateforme Microsoft Azure. Dans cette rubrique, une machine virtuelle de serveur Ubuntu est utilisée, mais vous pouvez également créer des machines virtuelles Linux en utilisant vos [propres images en tant que modèles](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  
@@ -43,9 +43,9 @@ Pour bénéficier des plus hauts niveaux d’E/S par seconde sur les disques de 
 * Si vous utilisez **XFS**, désactivez les barrières à l’aide de l’option de montage `nobarrier`. (Pour activer les barrières, utilisez l’option `barrier`.)
 
 ## <a name="unmanaged-storage-account-considerations"></a>Considérations relatives aux comptes de stockage non gérés
-L’action par défaut quand vous créez une machine virtuelle avec l’interface Azure CLI est d’utiliser Azure Disques managés.  Ces disques sont gérés par la plateforme Azure et ne nécessitent pas de préparation ou d’emplacement pour les stocker.  Les disques non gérés requièrent un compte de stockage et sont associés à certaines autres considérations en matière de performances.  Pour plus d’informations sur les disques managés, consultez [Vue d’ensemble d’Azure Disques managés](../windows/managed-disks-overview.md).  La section qui suit décrit les considérations relatives aux performances dont vous devez tenir compte uniquement si vous utilisez des disques non gérés.  Une fois de plus, la solution de stockage par défaut et recommandée consiste à utiliser des disques managés.
+L’action par défaut quand vous créez une machine virtuelle avec l’interface Azure CLI est d’utiliser Azure Disques managés.  Ces disques sont gérés par la plateforme Azure et ne nécessitent pas de préparation ou d’emplacement pour les stocker.  Les disques non managés requièrent un compte de stockage et sont associés à certaines autres considérations en matière de performances.  Pour plus d’informations sur les disques managés, consultez [Vue d’ensemble d’Azure Disques managés](../windows/managed-disks-overview.md).  La section qui suit décrit les considérations relatives aux performances dont vous devez tenir compte uniquement si vous utilisez des disques non managés.  Une fois de plus, la solution de stockage par défaut et recommandée consiste à utiliser des disques managés.
 
-Si vous créez une machine virtuelle avec des disques non gérés, veillez à attacher les disques à partir de comptes de stockage résidant dans la même région que votre machine virtuelle afin d’assurer une proximité étroite et de minimiser la latence du réseau.  Chaque compte de stockage Standard présente une limite de 20 000 E/S par seconde et une taille maximale de 500 To.  Cette limite correspond à environ 40 disques utilisés de manière intensive, incluant le disque de système d’exploitation et tous les disques de données que vous créez. Pour les comptes de stockage Premium, il n’existe aucun nombre maximal d’E/S par seconde, mais une limite de taille de 32 To. 
+Si vous créez une machine virtuelle avec des disques non managés, veillez à attacher les disques à partir de comptes de stockage résidant dans la même région que votre machine virtuelle afin d’assurer une proximité étroite et de minimiser la latence du réseau.  Chaque compte de stockage Standard présente une limite de 20 000 E/S par seconde et une taille maximale de 500 To.  Cette limite correspond à environ 40 disques utilisés de manière intensive, incluant le disque de système d’exploitation et tous les disques de données que vous créez. Pour les comptes de stockage Premium, il n’existe aucun nombre maximal d’E/S par seconde, mais une limite de taille de 32 To. 
 
 Lorsque vous devez gérer des charges de travail à E/S par seconde élevées et que vous avez choisi le stockage Standard pour vos disques, vous pouvez avoir besoin de fractionner les disques entre plusieurs comptes de stockage pour ne pas risquer d’atteindre la limite de 20 000 E/S par seconde propre aux comptes de stockage Standard. Votre machine virtuelle peut contenir une combinaison de disques associés à différents comptes de stockage et types de comptes de stockage pour vous offrir la configuration optimale souhaitée.
  
@@ -60,9 +60,9 @@ Pour les images Cloud Ubuntu, vous devez utiliser cloud-init pour configurer la 
 
 Pour les images sans prise en charge cloud-init, les images déployées à partir d’Azure Marketplace présentent un agent Linux de machine virtuelle intégré au système d’exploitation. Cet agent permet à la machine virtuelle d’interagir avec divers services Azure. Si vous ayez déployé une image standard à partir d’Azure Marketplace, vous devez suivre la procédure ci-après pour configurer les paramètres de votre fichier d’échange Linux de manière adéquate :
 
-Vous devez rechercher et modifier deux entrées spécifiques dans le fichier **/etc/waagent.conf** . Ces entrées contrôlent l’existence d’un fichier d’échange dédié et la taille de ce fichier. Les paramètres à modifier sont `ResourceDisk.EnableSwap=N` et `ResourceDisk.SwapSizeMB=0`. 
+Vous devez rechercher et modifier deux entrées spécifiques dans le fichier **/etc/waagent.conf** . Ces entrées contrôlent l’existence d’un fichier d’échange dédié et la taille de ce fichier. Les paramètres à vérifier sont `ResourceDisk.EnableSwap` et `ResourceDisk.SwapSizeMB`. 
 
-Redéfinissez les paramètres sur les valeurs suivantes :
+Pour activer un disque correctement activé et un fichier d'échange monté, vérifiez que les paramètres sont définis comme suit :
 
 * ResourceDisk.EnableSwap=Y
 * ResourceDisk.SwapSizeMB={taille en Mo en fonction de vos besoins} 

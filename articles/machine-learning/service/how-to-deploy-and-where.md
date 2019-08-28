@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 08/06/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: a92cb0f3da5058e7ffeee6f47e8cfa26ae291005
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: acb3717f0e71ca1e67f1ddec79a259935f6cc539
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68990557"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69897687"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Déployer des modèles avec le service Azure Machine Learning
 
@@ -149,12 +149,25 @@ Les cibles de calcul (ou ressources de calcul) suivantes peuvent héberger votre
 
 ## <a name="prepare-to-deploy"></a>Préparer au déploiement
 
-Pour déployer un modèle en tant que service web, vous devez créer une configuration d’inférence (`InferenceConfig`) et une configuration de déploiement. L’inférence, ou scoring du modèle, est la phase où le modèle déployé est utilisé pour la prédiction, généralement sur des données de production. Dans la configuration de l’inférence, vous spécifiez les scripts et les dépendances nécessaires à l’utilisation de votre modèle. Dans la configuration du déploiement, vous spécifiez de quelle manière le modèle doit être utilisé sur la cible de calcul.
+Le déploiement du modèle requiert ce qui suit :
 
-> [!IMPORTANT]
-> Le Kit de développement logiciel (SDK) Azure Machine Learning n’offre aucun moyen pour les déploiements de service Web ou de IoT Edge d’accéder à votre magasin de données ou à vos jeux de données. Si vous avez besoin du modèle déployé pour accéder aux données stockées en dehors du déploiement, comme dans un compte de stockage Azure, vous devez développer une solution de code personnalisée à l’aide du Kit de développement logiciel (SDK) approprié. Exemple : [Kit de développement logiciel (SDK) Stockage Azure pour Python](https://github.com/Azure/azure-storage-python).
->
-> Une autre solution possible pour votre scénario consiste à utiliser les [prédictions par lots](how-to-run-batch-predictions.md), qui donnent accès aux magasins de travail lors du scoring.
+* Un __script d'entrée__. Ce script accepte les requêtes, évalue la requête à l'aide du modèle et renvoie les résultats.
+
+    > [!IMPORTANT]
+    > Le script d'entrée est spécifique à votre modèle. Il doit comprendre le format des données de la requête entrante, le format des données attendues par votre modèle et le format des données renvoyées aux clients.
+    >
+    > Si le format des données de la requête n'est pas utilisable par votre modèle, le script peut les convertir à un format acceptable. Il peut également transformer la réponse avant de la renvoyer au client.
+
+    > [!IMPORTANT]
+    > Le Kit de développement logiciel (SDK) Azure Machine Learning n’offre aucun moyen pour les déploiements de service Web ou de IoT Edge d’accéder à votre magasin de données ou à vos jeux de données. Si vous avez besoin du modèle déployé pour accéder aux données stockées en dehors du déploiement, comme dans un compte de stockage Azure, vous devez développer une solution de code personnalisée à l’aide du Kit de développement logiciel (SDK) approprié. Exemple : [Kit de développement logiciel (SDK) Stockage Azure pour Python](https://github.com/Azure/azure-storage-python).
+    >
+    > Une autre solution possible pour votre scénario consiste à utiliser les [prédictions par lots](how-to-run-batch-predictions.md), qui donnent accès aux magasins de travail lors du scoring.
+
+* **Dépendances**, comme les scripts d'assistance ou les packages Python/Conda nécessaires à l'exécution du script d'entrée ou du modèle
+
+* __Configuration de déploiement__ de la cible de calcul qui héberge le modèle déployé. Cette configuration décrit notamment les besoins en mémoire et en ressources CPU pour exécuter le modèle.
+
+Ces entités sont encapsulées dans une __configuration d'inférence__ et une __configuration de déploiement__. La configuration d'inférence référence le script d'entrée et d'autres dépendances. Ces configurations sont définies par programmation lors de l'utilisation du kit de développement logiciel (SDK) et sous forme de fichiers JSON lors de l'utilisation de l'interface CLI pour procéder au déploiement.
 
 ### <a id="script"></a> 1. Définir votre script d’entrée et les dépendances
 
@@ -177,6 +190,8 @@ L’exemple ci-dessous retourne le chemin d’un seul fichier appelé `sklearn_m
 ```python
 model_path = Model.get_model_path('sklearn_mnist')
 ```
+
+<a id="schema"></a>
 
 #### <a name="optional-automatic-schema-generation"></a>(Facultatif) Génération automatique d'un schéma
 
@@ -399,9 +414,13 @@ def run(request):
 
 ### <a name="2-define-your-inferenceconfig"></a>2. Définir votre configuration d’inférence
 
-La configuration de l’inférence décrit comment configurer le modèle pour les prédictions. L’exemple suivant montre comment créer une configuration d’inférence. Cette configuration spécifie le runtime, le script d’entrée et (facultatif) le fichier d’environnement conda :
+La configuration de l’inférence décrit comment configurer le modèle pour les prédictions. Cette configuration ne fait pas partie de votre script d'entrée. Elle référence votre script d'entrée et sert à localiser toutes les ressources requises par le déploiement. Elle est utilisée plus tard lors du déploiement du modèle.
+
+L’exemple suivant montre comment créer une configuration d’inférence. Cette configuration spécifie le runtime, le script d’entrée et (facultatif) le fichier d’environnement conda :
 
 ```python
+from azureml.core.model import InferenceConfig
+
 inference_config = InferenceConfig(runtime="python",
                                    entry_script="x/y/score.py",
                                    conda_file="env/myenv.yml")
@@ -431,7 +450,7 @@ Pour plus d’informations sur l’utilisation d’une image Docker personnalis�
 
 ### <a name="3-define-your-deployment-configuration"></a>3. Définir votre configuration de déploiement
 
-Avant de commencer le déploiement, vous devez définir la configuration de déploiement. __La configuration de déploiement est propre à la cible de calcul qui va héberger le service web__. Par exemple, dans un déploiement local, vous devez spécifier le port sur lequel le service accepte les requêtes.
+Avant de commencer le déploiement, vous devez définir la configuration de déploiement. __La configuration de déploiement est propre à la cible de calcul qui va héberger le service web__. Par exemple, dans un déploiement local, vous devez spécifier le port sur lequel le service accepte les requêtes. La configuration de déploiement ne fait pas partie de votre script d'entrée. Elle est utilisée pour définir les caractéristiques de la cible de calcul qui hébergera le modèle et le script d'entrée.
 
 Vous pouvez aussi avoir besoin de créer la ressource de calcul. C’est le cas, par exemple, si vous n’avez pas encore associé Azure Kubernetes Service à votre espace de travail.
 
@@ -442,6 +461,12 @@ Le tableau suivant donne un exemple de configuration de déploiement créée pou
 | Local | `deployment_config = LocalWebservice.deploy_configuration(port=8890)` |
 | Azure Container Instance | `deployment_config = AciWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)` |
 | Azure Kubernetes Service | `deployment_config = AksWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)` |
+
+Chacune des classes des services web Local, ACI et AKS peut être importée à partir de `azureml.core.webservice` :
+
+```python
+from azureml.core.webservice import AciWebservice, AksWebservice, LocalWebservice
+```
 
 > [!TIP]
 > Avant de déployer votre modèle en tant que service, vous pouvez le profiler afin de déterminer les exigences optimales en processeur et en mémoire. Vous pouvez profiler votre modèle à l’aide du kit de développement logiciel (SDK) ou de l'interface CLI. Pour plus d’informations, consultez la référence [profile()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#profile-workspace--profile-name--models--inference-config--input-data-) et [az ml model profile](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-profile).
@@ -459,6 +484,8 @@ Pour un déploiement local, Docker doit être installé sur votre machine locale
 #### <a name="using-the-sdk"></a>Utilisation du kit de développement logiciel
 
 ```python
+from azureml.core.webservice import LocalWebservice, Webservice
+
 deployment_config = LocalWebservice.deploy_configuration(port=8890)
 service = Model.deploy(ws, "myservice", [model], inference_config, deployment_config)
 service.wait_for_deployment(show_output = True)
@@ -696,7 +723,7 @@ Vous pouvez déployer des modèles en continu à l’aide de l’extension Machi
 
 1. Utilisez __Connexions au service__ pour configurer une connexion de principal de service à votre espace de travail de service Azure Machine Learning afin d'accéder à tous vos artefacts. Accédez aux paramètres du projet, cliquez sur Connexions au service, puis sélectionnez Azure Resource Manager.
 
-    ![view-service-connection](media/how-to-deploy-and-where/view-service-connection.png) 
+    [![view-service-connection](media/how-to-deploy-and-where/view-service-connection.png)](media/how-to-deploy-and-where/view-service-connection-expanded.png) 
 
 1. Définissez AzureMLWorkspace en tant que __niveau d'étendue__ et renseignez les paramètres suivants.
 
@@ -704,11 +731,11 @@ Vous pouvez déployer des modèles en continu à l’aide de l’extension Machi
 
 1. Ensuite, pour déployer en continu votre modèle Machine Learning à l’aide d'Azure Pipelines, sous Pipelines, sélectionnez __Mise en production__. Ajoutez un nouvel artefact, sélectionnez l’artefact Modèle AzureML et la connexion au service créée à l’étape précédente. Sélectionnez le modèle et la version pour déclencher un déploiement. 
 
-    ![select-AzureMLmodel-artifact](media/how-to-deploy-and-where/enable-modeltrigger-artifact.png)
+    [![select-AzureMLmodel-artifact](media/how-to-deploy-and-where/enable-modeltrigger-artifact.png)](media/how-to-deploy-and-where/enable-modeltrigger-artifact-expanded.png)
 
 1. Activez le déclencheur de modèle sur votre artefact de modèle. En activant le déclencheur, chaque fois que la version spécifiée (version la plus récente) de ce modèle est inscrite dans votre espace de travail, un pipeline de mise en production Azure DevOps est déclenché. 
 
-    ![enable-model-trigger](media/how-to-deploy-and-where/set-modeltrigger.png)
+    [![enable-model-trigger](media/how-to-deploy-and-where/set-modeltrigger.png)](media/how-to-deploy-and-where/set-modeltrigger-expanded.png)
 
 Pour obtenir d’autres exemples de projets et des exemples, consultez les exemples de référentiels suivants :
 

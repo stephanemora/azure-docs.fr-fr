@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/4/2019
 ms.author: atsenthi
-ms.openlocfilehash: dde124a568581c53a4168b1c84e5df8a9d55155f
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 2bb9a5e8e42901f22d9f68d691684614c7161620
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599553"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69650665"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-linux"></a>Créer votre première application de conteneur Service Fabric sur Linux
 > [!div class="op_single_selector"]
@@ -181,28 +181,11 @@ Spécifiez le mappage de port au format approprié. Pour cet article, vous devez
 ![Générateur Yeoman Service Fabric pour les conteneurs][sf-yeoman]
 
 ## <a name="configure-container-repository-authentication"></a>Configurer l’authentification des référentiels de conteneur
- Si votre conteneur doit s’authentifier auprès d’un référentiel privé, ajoutez `RepositoryCredentials`. Pour cet article, ajoutez le nom de compte et le mot de passe du registre de conteneurs myregistry.azurecr.io. Assurez-vous que la stratégie est ajoutée sous la balise « ServiceManifestImport » correspondant au package de service approprié.
 
-```xml
-   <ServiceManifestImport>
-      <ServiceManifestRef ServiceManifestName="MyServicePkg" ServiceManifestVersion="1.0.0" />
-    <Policies>
-        <ContainerHostPolicies CodePackageRef="Code">
-        <RepositoryCredentials AccountName="myregistry" Password="=P==/==/=8=/=+u4lyOB=+=nWzEeRfF=" PasswordEncrypted="false"/>
-        <PortBinding ContainerPort="80" EndpointRef="myServiceTypeEndpoint"/>
-        </ContainerHostPolicies>
-    </Policies>
-   </ServiceManifestImport>
-``` 
-
-Nous vous recommandons de chiffrer le mot de passe du référentiel. Pour obtenir des instructions, consultez [Gérer les secrets chiffrés dans les applications Service Fabric](service-fabric-application-secret-management.md).
-
-### <a name="configure-cluster-wide-credentials"></a>Configurer les informations d’identification au niveau du cluster
-Reportez-vous à [cette documentation](
-service-fabric-get-started-containers.md#configure-cluster-wide-credentials).
+Pour configurer différents types d'authentification afin de télécharger des images conteneur, consultez [Authentification des référentiels de conteneur](configure-container-repository-credentials.md).
 
 ## <a name="configure-isolation-mode"></a>Configurer le mode d’isolation
-Avec la version du runtime 6.3, l’isolation de machine virtuelle est prise en charge pour les conteneurs Linux. Deux modes d’isolation sont ainsi pris en charge pour les conteneurs : process et hyperv. Avec le mode d’isolation hyperv, les noyaux sont isolés entre chaque conteneur et l’hôte du conteneur. L’isolation hyperv est implémentée à l’aide de l’option [Nettoyer les conteneurs](https://software.intel.com/en-us/articles/intel-clear-containers-2-using-clear-containers-with-docker). Le mode d’isolation est spécifié pour les clusters Linux dans l’élément `ServicePackageContainerPolicy` dans le fichier manifeste de l’application. Les modes d’isolation qui peuvent être définis sont `process`, `hyperv` et `default`. La valeur par défaut est le mode d’isolation de processus. L’extrait de code suivant montre comment le mode d’isolation est spécifié dans le fichier manifeste de l’application.
+La version 6.3 du runtime prend en charge l'isolation des machines virtuelles pour les conteneurs Linux. Deux modes d'isolation sont ainsi pris en charge pour les conteneurs : process et Hyper-V. Avec le mode d'isolation Hyper-V, les noyaux sont isolés entre chaque conteneur et l'hôte du conteneur. L'isolation Hyper-V est implémentée à l'aide de l'option [Nettoyer les conteneurs](https://software.intel.com/en-us/articles/intel-clear-containers-2-using-clear-containers-with-docker). Le mode d’isolation est spécifié pour les clusters Linux dans l’élément `ServicePackageContainerPolicy` dans le fichier manifeste de l’application. Les modes d’isolation qui peuvent être définis sont `process`, `hyperv` et `default`. La valeur par défaut est le mode d’isolation de processus. L’extrait de code suivant montre comment le mode d’isolation est spécifié dans le fichier manifeste de l’application.
 
 ```xml
 <ServiceManifestImport>
@@ -236,7 +219,7 @@ La [gouvernance des ressources](service-fabric-resource-governance.md) limite le
 
 En démarrant la version 6.1, Service Fabric intègre automatiquement les événements [docker HEALTHCHECK](https://docs.docker.com/engine/reference/builder/#healthcheck) à son rapport d’intégrité du système. Cela signifie que si **HEALTHCHECK** est activé dans votre conteneur, Service Fabric générera un rapport d’intégrité chaque fois que l’état d’intégrité du conteneur changera comme indiqué par Docker. Un rapport d’intégrité **OK** apparaît dans [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) lorsque *health_status* est *intègre* et  **AVERTISSEMENT** s’affiche lorsque *health_status* est *défectueux*. 
 
-À compter de la dernière version v6.4, vous avez la possibilité d'indiquer que les évaluations HEALTHCHECK docker doivent être signalées en tant qu'erreur. Si cette option est activée, un rapport d'intégrité **OK** apparaît lorsque *health_status* indique *sain* et **ERREUR** s'affiche lorsque *health_status* indique *non sain*.
+À compter de la dernière version v6.4, vous avez la possibilité d’indiquer que les évaluations HEALTHCHECK docker doivent être signalées en tant qu’erreur. Si cette option est activée, un rapport d’intégrité **OK** apparaît quand *health_status* indique *sain* et **ERROR** s’affiche quand *health_status* indique *non sain*.
 
 L’instruction **HEALTHCHECK** qui pointe vers la vérification réalisée pour surveiller l’intégrité du conteneur doit être présente dans le fichier Dockerfile utilisé lors de la génération de l’image conteneur.
 
@@ -264,7 +247,7 @@ Par défaut, *IncludeDockerHealthStatusInSystemHealthReport* est défini sur **t
 
 Si *RestartContainerOnUnhealthyDockerHealthStatus* est défini sur **true**, un conteneur déclaré défectueux à plusieurs reprises est redémarré (éventuellement sur d’autres nœuds).
 
-Si *TreatContainerUnhealthyStatusAsError* est défini sur **true**, des rapports d'intégrité **ERROR** s'affichent lorsque *health_status* indique *unhealthy* pour le conteneur.
+Si *TreatContainerUnhealthyStatusAsError* est défini sur **true**, des rapports d’intégrité **ERROR** s’affichent quand *health_status* indique *non sain* pour le conteneur.
 
 Si vous souhaitez désactiver l’intégration **HEALTHCHECK** pour l’ensemble du cluster Service Fabric, vous devez définir [EnableDockerHealthCheckIntegration](service-fabric-cluster-fabric-settings.md) sur **false**.
 

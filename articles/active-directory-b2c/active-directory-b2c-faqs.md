@@ -1,23 +1,23 @@
 ---
-title: Forum Aux Questions sur Azure Active Directory B2C
-description: Forum aux questions (FAQ) sur Azure Active Directory B2C.
+title: Forum Aux Questions (FAQ) sur Azure Active Directory B2C
+description: Réponses aux questions fréquentes sur Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/08/2019
+ms.date: 08/08/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 6f25cfb2c0e07278220cdd04ee38472157f1be4d
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: c84f68a9af855f61523919069e1947e051b130b4
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67612487"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69622264"
 ---
-# <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C : Forum Aux Questions (FAQ)
+# <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C : Forum Aux Questions (FAQ)
 
 Cette page répond aux questions fréquemment posées sur Azure Active Directory (Azure AD) B2C. N'hésitez pas à la consulter pour vous tenir au courant des mises à jour.
 
@@ -37,7 +37,7 @@ Vous ne pouvez pas utiliser Azure AD B2C pour authentifier les utilisateurs pour
 
 Dans un locataire Azure AD, les utilisateurs qui appartiennent au locataire se connectent avec une adresse e-mail au format `<xyz>@<tenant domain>`. Le `<tenant domain>` est l’un des domaines vérifiés dans le locataire ou le domaine `<...>.onmicrosoft.com` initial. Ce type de compte est un compte professionnel ou scolaire.
 
-Dans un locataire Azure AD B2C, la plupart des applications demandent que l’utilisateur se connecte avec une adresse e-mail arbitraire (par exemple, joe@comcast.net, bob@gmail.com, sarah@contoso.com ou jim@live.com). Ce type de compte est un compte local. Nous prenons également en charge les noms d’utilisateur arbitraires en tant que comptes locaux (par exemple joe, bob, sarah ou jim). Vous pourrez choisir entre ces deux types de comptes locaux pendant la configuration des fournisseurs d’identité pour Azure AD B2C sur le Portail Azure. Dans votre client Azure AD B2C, cliquez sur **Fournisseurs d’identité**, puis sélectionnez **Nom d’utilisateur** sous Comptes locaux.
+Dans un locataire Azure AD B2C, la plupart des applications demandent que l’utilisateur se connecte avec une adresse e-mail arbitraire (par exemple, joe@comcast.net, bob@gmail.com, sarah@contoso.com ou jim@live.com). Ce type de compte est un compte local. Nous prenons également en charge les noms d’utilisateur arbitraires en tant que comptes locaux (par exemple joe, bob, sarah ou jim). Vous pourrez choisir entre ces deux types de comptes locaux pendant la configuration des fournisseurs d’identité pour Azure AD B2C sur le Portail Azure. Dans votre client Azure AD B2C, sélectionnez **Fournisseurs d’identité**, **Compte local**, puis **Nom d’utilisateur**.
 
 Les comptes d’utilisateur des applications doivent toujours être créés par le biais d’un flux d’utilisateur d’inscription ou de connexion ou bien à l’aide de l’API Graph Azure AD. Les comptes d’utilisateur créés sur le Portail Azure ne servent qu’à l’administration du client.
 

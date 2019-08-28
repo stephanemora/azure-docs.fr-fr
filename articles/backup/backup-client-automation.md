@@ -6,14 +6,14 @@ author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 5/24/2018
+ms.date: 08/20/2019
 ms.author: dacurwin
-ms.openlocfilehash: bb488db036b99d3826a3060a7f4143bec7aea3e5
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: d65da05ea2b24e3820d9a6fde31b3d4a5c72dbd1
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688574"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69656749"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>Déployer et gérer une sauvegarde vers Azure pour un serveur/client Windows à l’aide de PowerShell
 
@@ -136,6 +136,18 @@ Une fois que vous avez créé un coffre Recovery Services, téléchargez le dern
 ```powershell
 $CredsPath = "C:\downloads"
 $CredsFilename = Get-AzRecoveryServicesVaultSettingsFile -Backup -Vault $Vault1 -Path $CredsPath
+```
+
+### <a name="registering-using-the-ps-az-module"></a>Inscription à l’aide du module PS Az
+
+Dans le dernier module Az de Powershell, en raison des limitations sous-jacentes de la plateforme, le téléchargement des informations d’identification du coffre-fort nécessite un certificat auto-signé. L’exemple suivant montre comment fournir un certificat auto-signé et télécharger les informations d’identification du coffre-fort.
+
+```powershell
+$Vault = Get-AzRecoveryServicesVault -ResourceGroupName $rgName -Name $VaultName
+$cert = New-SelfSignedCertificate -certstorelocation cert:\localmachine\my -dnsname xxxxxxxxxxxxx
+$certificate =[System.Convert]::ToBase64String($cert.RawData)
+$CredsPath = "C:\downloads"
+$CredsFilename = Get-AzRecoveryServicesVaultSettingsFile -Certificate $certificate -Vault $vault -Backup -Path $CredsPath
 ```
 
 Sur le serveur Windows Server ou l’ordinateur client Windows, exécutez l’applet de commande [Start-OBRegistration](https://technet.microsoft.com/library/hh770398%28v=wps.630%29.aspx) pour inscrire l’ordinateur auprès du coffre.

@@ -7,12 +7,12 @@ ms.author: jenhayes
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 08/14/2019
-ms.openlocfilehash: 1478e8f44db2e6a1d52d069d2f52830c265b2641
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 7cda51870a98b2606a0133a61ad6f786e7e9324a
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69037261"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69900141"
 ---
 # <a name="create-a-new-dynamics-365-for-customer-engagement--powerapps-offer"></a>Créer une nouvelle offre Dynamics 365 for Customer Engagement et PowerApps
 
@@ -82,27 +82,11 @@ Choisissez parmi les options suivantes :
 
 ## <a name="connect-lead-management"></a>Connecter la gestion des prospects
 
-Connectez-vous directement aux clients en raccordant votre système CRM (Customer Relationship Management). Quand vous le faites, vous recevrez les coordonnées du client lorsqu’un client montrera de l’intérêt envers votre produit ou le déploiera.
+[!INCLUDE [Test drive content](./includes/connect-lead-management.md)]
 
-Pour vous connecter à votre système CRM, sélectionnez **Connexion**.
+Pour plus d'informations, consultez [Vue d'ensemble de la gestion des prospects](./commercial-marketplace-get-customer-leads.md).
 
-### <a name="choose-a-lead-destination"></a>Choisir une destination de prospect
-
-Une fois que vousavez sélectionné **Connexion**, un menu déroulant s’affiche pour vous permettre de sélectionner votre système CRM, puis de fournir les détails de la connexion.
-
-Partner Center prend en charge les systèmes CRM suivant pour la gestion des prospects. Sélectionnez le lien pour obtenir des instructions de configuration.
-
-- [Table Azure](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-azure-table) : renseignez votre la chaîne de connexion au compte de stockage. 
-- [Dynamics 365 for Customer Engagement (anciennement Dynamics CRM Online)](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics) : fournissez votre URL d’instance Dynamics 365 et le mode d’authentification (Office 365 ou Azure Active Directory).
-- [Point de terminaison HTTPS](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-https) : renseignez l’URL de votre point de terminaison HTTPS. 
-- [Marketo](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-marketo) : indiquez votre ID de serveur, votre ID de compte Munchkin et votre ID de formulaire.
-- [Salesforce](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-salesforce) : indiquez votre ID d’organisation. 
-
-#### <a name="additional-lead-management-resources"></a>Ressources de gestion des prospects supplémentaires
-
-- [Questions fréquentes sur la gestion des prospects](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#frequently-asked-questions)
-- [Erreurs courantes de configuration des prospects](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#common-lead-configuration-errors-during-publishing-on-cloud-partner-portal)
-- [Document d’une page présentant la gestion des prospects](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf)
+N’oubliez pas d’**Enregistrer** avant de passer à la section suivante.
 
 ## <a name="properties"></a>properties
 

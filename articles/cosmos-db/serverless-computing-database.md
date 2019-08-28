@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: sngun
-ms.openlocfilehash: 3bf89cd3ec0822cee2a3ebcf76de4193046462f9
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: e1014c710d892e45f09999db22b1f59c0bb36300
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68335906"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69614586"
 ---
 # <a name="serverless-database-computing-using-azure-cosmos-db-and-azure-functions"></a>Traitement de base de données serverless à l’aide d’Azure Cosmos DB et d’Azure Functions
 
@@ -23,9 +23,9 @@ Grâce à l’intégration native entre [Azure Cosmos DB](https://azure.microsof
 
 Azure Cosmos DB et Azure Functions permettent d’intégrer vos bases de données et applications sans serveur comme suit :
 
-* Créez un **déclencheur Azure Functions pour Cosmos DB** basé sur les événements. Ce déclencheur se base sur les [flux de modification](change-feed.md) pour effectuer le monitoring des modifications du conteneur Azure Cosmos DB. Quand des modifications sont apportées à un conteneur, le flux de modification est envoyé au déclencheur, qui appelle la fonction Azure.
-* Vous pouvez également lier une fonction Azure à un conteneur Azure Cosmos DB à l’aide d’une **liaison d’entrée**. Les liaisons d’entrée lisent les données d’un conteneur lorsqu’une fonction s’exécute.
-* Liez une fonction à un conteneur Azure Cosmos DB à l’aide d’une **liaison de sortie**. Les liaisons de sortie écrivent des données dans un conteneur après l’exécution d’une fonction.
+* Créez un **déclencheur Azure Functions pour Cosmos DB** basé sur les événements. Ce déclencheur se base sur les [flux de modification](change-feed.md) pour effectuer le monitoring des modifications du conteneur Azure Cosmos. Quand des modifications sont apportées à un conteneur, le flux de modification est envoyé au déclencheur, qui appelle la fonction Azure.
+* Vous pouvez également lier une fonction Azure à un conteneur Azure Cosmos à l'aide d'une **liaison d'entrée**. Les liaisons d’entrée lisent les données d’un conteneur lorsqu’une fonction s’exécute.
+* Liez une fonction à un conteneur Azure Cosmos à l'aide d'une **liaison de sortie**. Les liaisons de sortie écrivent des données dans un conteneur après l’exécution d’une fonction.
 
 > [!NOTE]
 > Actuellement, les liaisons d’entrée, les liaisons de sortie et le déclencheur Azure Functions pour Cosmos DB sont uniquement pris en charge pour une utilisation avec l’API SQL. Pour toutes les autres API Azure Cosmos DB, vous devez accéder à la base de données depuis votre fonction en utilisant le client statique pour votre API.
@@ -37,9 +37,9 @@ Le diagramme suivant illustre chacune de ces trois intégrations :
 
 Le déclencheur Azure Functions, la liaison d’entrée et la liaison de sortie Azure Cosmos DB peuvent être utilisés dans les combinaisons suivantes :
 
-* Un déclencheur Azure Functions pour Cosmos DB peut être utilisé avec une liaison de sortie vers un autre conteneur Azure Cosmos DB. Une fois qu’une fonction a exécuté une action sur un élément dans le flux de modification, vous pouvez l’écrire dans un autre conteneur (son écriture dans le même conteneur d’origine créerait de fait une boucle récursive). Vous pouvez également utiliser un déclencheur Azure Functions pour Cosmos DB afin de migrer efficacement tous les éléments modifiés d’un conteneur vers un autre à l’aide d’une liaison de sortie.
+* Un déclencheur Azure Functions pour Cosmos DB peut être utilisé avec une liaison de sortie vers un autre conteneur Azure Cosmos. Une fois qu’une fonction a exécuté une action sur un élément dans le flux de modification, vous pouvez l’écrire dans un autre conteneur (son écriture dans le même conteneur d’origine créerait de fait une boucle récursive). Vous pouvez également utiliser un déclencheur Azure Functions pour Cosmos DB afin de migrer efficacement tous les éléments modifiés d’un conteneur vers un autre à l’aide d’une liaison de sortie.
 * Les liaisons d’entrée et les liaisons de sortie pour Azure Cosmos DB peuvent être utilisées dans la même fonction Azure. Cela est utile quand vous souhaitez trouver certaines données avec la liaison d’entrée, les modifier dans la fonction Azure, puis les enregistrer dans le même conteneur ou dans un autre conteneur après la modification.
-* Une liaison d’entrée vers un conteneur Azure Cosmos DB peut être utilisée dans la même fonction qu’un déclencheur Azure Functions pour Cosmos DB et peut également être utilisée avec ou sans liaison de sortie. Vous pouvez utiliser cette combinaison pour appliquer des informations de change à jour (extraites à l’aide d’une liaison d’entrée vers un conteneur de change) pour le flux de modification de nouvelles commandes dans votre service de panier. Le total du panier mis à jour, avec la conversion monétaire actuelle appliquée, peut être écrit dans un troisième conteneur à l’aide d’une liaison de sortie.
+* Une liaison d'entrée vers un conteneur Azure Cosmos peut être utilisée dans la même fonction qu'un déclencheur Azure Functions pour Cosmos DB et peut également être utilisée avec ou sans liaison de sortie. Vous pouvez utiliser cette combinaison pour appliquer des informations de change à jour (extraites à l’aide d’une liaison d’entrée vers un conteneur de change) pour le flux de modification de nouvelles commandes dans votre service de panier. Le total du panier mis à jour, avec la conversion monétaire actuelle appliquée, peut être écrit dans un troisième conteneur à l’aide d’une liaison de sortie.
 
 ## <a name="use-cases"></a>Cas d'utilisation
 
@@ -57,7 +57,7 @@ Dans les implémentations IoT, vous pouvez appeler une fonction quand le voyant 
 4. Le déclencheur est appelé à chaque modification de données de la collection de données de capteur, étant donné que toutes les modifications sont transmises via le flux de modification.
 5. Une condition de seuil est utilisée dans la fonction pour envoyer les données de capteur au service de garanties.
 6. Si la température dépasse une certaine valeur, une alerte est également envoyée au propriétaire.
-7. La **liaison de sortie** sur la fonction met à jour l’enregistrement de la voiture dans un autre conteneur Azure Cosmos DB pour stocker les informations sur l’événement de vérification du moteur.
+7. La **liaison de sortie** sur la fonction met à jour l'enregistrement de la voiture dans un autre conteneur Azure Cosmos pour stocker les informations relatives à l'événement de vérification du moteur.
 
 L’illustration suivante montre le code écrit dans le portail Azure pour ce déclencheur.
 
@@ -69,7 +69,7 @@ Dans les implémentations financières, vous pouvez appeler une fonction lorsqu�
 
 **Implémentation :** Déclencheur de minuteur avec une liaison d’entrée Azure Cosmos DB
 
-1. À l’aide d’un [déclencheur de minuteur](../azure-functions/functions-bindings-timer.md), vous pouvez récupérer les informations sur les soldes de comptes bancaires stockées dans un conteneur Azure Cosmos DB à intervalles réguliers à l’aide d’une **liaison d’entrée**.
+1. À l'aide d'un [déclencheur de minuteur](../azure-functions/functions-bindings-timer.md), vous pouvez récupérer les informations relatives aux soldes de comptes bancaires stockées dans un conteneur Azure Cosmos à intervalles réguliers à l'aide d'une **liaison d'entrée**.
 2. Si le solde est inférieur au seuil de solde faible défini par l’utilisateur, effectuez un suivi à l’aide d’une action à partir de la fonction Azure.
 3. La liaison de sortie peut être une [intégration SendGrid](../azure-functions/functions-bindings-sendgrid.md) qui envoie un e-mail à partir d’un compte de service aux adresses e-mail identifiées pour chacun des comptes dont le solde est faible.
 
@@ -118,7 +118,7 @@ L’intégration native entre Azure Cosmos DB et Azure Functions est disponible 
 
 ## <a name="why-choose-azure-functions-integration-for-serverless-computing"></a>Pourquoi choisir l’intégration d’Azure Functions pour l’informatique sans serveur ?
 
-Azure Functions permet de créer des unités évolutives de travail ou des éléments de logique concis qui peuvent être exécutés à la demande, sans avoir à configurer ni gérer d’infrastructure. L’utilisation d’Azure Functions évite d’avoir à créer une application complète pour répondre aux modifications de la base de données Azure Cosmos DB. À la place, vous pouvez créer de petites fonctions réutilisables pour des tâches spécifiques. Vous pouvez également utiliser les données Azure Cosmos DB comme entrée ou sortie vers une fonction Azure en réponse à des événements tels que des requêtes HTTP ou un déclencheur régulier.
+Azure Functions permet de créer des unités évolutives de travail ou des éléments de logique concis qui peuvent être exécutés à la demande, sans avoir à configurer ni gérer d’infrastructure. L'utilisation d'Azure Functions évite d'avoir à créer une application complète pour répondre aux modifications de la base de données Azure Cosmos. À la place, vous pouvez créer de petites fonctions réutilisables pour des tâches spécifiques. Vous pouvez également utiliser les données Azure Cosmos DB comme entrée ou sortie vers une fonction Azure en réponse à des événements tels que des requêtes HTTP ou un déclencheur régulier.
 
 Azure Cosmos DB est la base de données recommandée pour l’architecture informatique sans serveur pour les raisons suivantes :
 

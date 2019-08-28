@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 07/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: cb4378047f34f3f635b2f1dd2425bbee28f91178
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 5a6f7c6de005112578cc29865574e5e255c99a8e
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68815720"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69873066"
 ---
 # <a name="tune-hyperparameters-for-your-model-with-azure-machine-learning-service"></a>Optimiser les hyperparamètres de votre modèle avec le service Azure Machine Learning
 
@@ -325,11 +325,9 @@ Vous pouvez également visualiser les performances de chacune des exécutions au
 
 De plus, vous pouvez identifier visuellement la corrélation entre les performances et les valeurs des hyperparamètres individuels avec un tracé de coordonnées parallèles. 
 
-![Coordonnées parallèles de l’optimisation des hyperparamètres](media/how-to-tune-hyperparameters/HyperparameterTuningParallelCoordinates.png)
+[![Coordonnées parallèles de l'optimisation des hyperparamètres](media/how-to-tune-hyperparameters/HyperparameterTuningParallelCoordinates.png)](media/how-to-tune-hyperparameters/hyperparameter-tuning-parallel-coordinates-expanded.png)
 
 Vous pouvez aussi visualiser toutes vos exécutions d’optimisation des hyperparamètres dans le portail web Azure. Pour plus d’informations sur la visualisation d’une expérience sur le portail web, consultez le [guide pratique pour suivre les expériences](how-to-track-experiments.md#view-the-experiment-in-the-web-portal).
-
-![Portail de l’optimisation des hyperparamètres](media/how-to-tune-hyperparameters/HyperparameterTuningPortal.png)
 
 ## <a name="find-the-best-model"></a>Trouver le meilleur modèle
 

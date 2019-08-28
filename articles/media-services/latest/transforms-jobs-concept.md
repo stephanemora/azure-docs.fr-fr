@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 05/08/2019
+ms.date: 08/19/2019
 ms.author: juliako
-ms.openlocfilehash: 01b386c820a09af0e616698aabc58a886c30bb09
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 466ab0737aa5af40bd1bc137b98ab57a48feafde
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65550924"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69637352"
 ---
 # <a name="transforms-and-jobs"></a>Transformations et travaux
 
@@ -119,5 +119,6 @@ Découvrez l’article [Communauté Azure Media Services](media-services-communi
 - Avant de commencer le développement, consultez [Développement avec les API Media Services v3](media-services-apis-overview.md) (informations sur l’accès aux API, les conventions d’affectation de noms, etc.)
 - Consultez les didacticiels suivants :
 
-    - [Tutoriel : Charger, encoder et diffuser en streaming des vidéos à l’aide de .NET](stream-files-tutorial-with-api.md)
-    - [Tutoriel : Analyser des vidéos avec Media Services v3 à l’aide de .NET](analyze-videos-tutorial-with-api.md)
+    - [Tutoriel : Encoder un fichier distant basé sur une URL et diffuser la vidéo en continu](stream-files-tutorial-with-rest.md)
+    - [Tutoriel : Charger, encoder et diffuser des vidéos en continu](stream-files-tutorial-with-api.md)
+    - [Tutoriel : Analyser des vidéos avec Media Services v3](analyze-videos-tutorial-with-api.md)

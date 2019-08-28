@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ca6f79b5febdbf12c80ab85d07117bf937babef0
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: 879404b264e9ea6c544c6edf509001b38997bb0c
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67798209"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69874342"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Intégrer votre infrastructure NPS existante dans Azure Multi-Factor Authentication
 
@@ -125,7 +125,7 @@ Il existe deux facteurs qui affectent les méthodes d’authentification disponi
       > [!NOTE]
       > Lorsque vous déployez l’extension NPS, utilisez ces facteurs pour déterminer quelles méthodes sont disponibles pour vos utilisateurs. Si votre point d’accès sans fil compatible 802.1X prend en charge PAP, mais que le client UX ne dispose pas des champs d’entrée pour un code de vérification, l’appel téléphonique et la notification d’application mobile sont les deux options prises en charge.
       >
-      > En outre, si votre client VPN UX prend en charge les champs de saisie et que vous avez configuré la stratégie d’accès réseau, l’authentification peut aboutir, mais aucun des attributs RADIUS configurés dans la stratégie réseau ne sera appliqué à l’appareil d’accès réseau (tel qu’un serveur RRAS), ni au client VPN. Par conséquent, le client VPN peut disposer d’un accès plus ou moins étendu que voulu, ou n’avoir aucun accès du tout.
+      > En outre, si votre client VPN UX prend en charge le champ de saisie et que vous avez configuré la stratégie d'accès réseau, l'authentification peut aboutir, mais aucun des attributs RADIUS configurés dans la stratégie réseau ne sera appliqué à l'appareil d'accès réseau (tel qu'un serveur RRAS), ni au client VPN. Par conséquent, le client VPN peut disposer d’un accès plus ou moins étendu que voulu, ou n’avoir aucun accès du tout.
       >
 
 2. Les méthodes d’entrée que l’application cliente (VPN, Netscaler server ou autre) peut gérer. Par exemple, le client VPN dispose-t-il de moyens permettant d’autoriser l’utilisateur à taper un code de vérification à partir d’un texte ou d’une application mobile ?

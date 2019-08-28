@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 6/1/2019
 ms.author: absha
-ms.openlocfilehash: 86b41bb2554dbefeaeb724e746bcaf757463f8ae
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: 65cf71140d1706b8607e721ac323b1a97ae272fa
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67795916"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69898442"
 ---
 # <a name="application-gateway-configuration-overview"></a>Présentation de la configuration d’Application Gateway
 
@@ -62,7 +62,7 @@ Les Groupes de sécurité réseau (NSG) sont pris en charge sur Application Gate
 Pour ce scénario, utilisez des groupes de sécurité réseau sur le sous-réseau Application Gateway. Placez les restrictions suivantes sur le sous-réseau dans cet ordre de priorité :
 
 1. Autorisez le trafic entrant provenant d’une adresse IP/plage d’adresses IP sources.
-2. Autorisez les demandes entrantes provenant de toutes les sources adressées aux ports 65503-65534 pour les [communications relatives à l’intégrité back-end](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics). Cette plage de ports est nécessaire pour la communication avec l’infrastructure Azure. Ces ports sont protégés (verrouillés) par des certificats Azure. Sans les certificats appropriés en place, les entités externes ne peuvent pas lancer des modifications sur ces points de terminaison.
+2. Autorisez les requêtes entrantes de toutes les sources vers les ports 65503-65534 pour la référence SKU Application Gateway v1 et vers les ports 65200-65535 pour la référence SKU v2 de la [communication sur l'intégrité du serveur principal](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics). Cette plage de ports est nécessaire pour la communication avec l’infrastructure Azure. Ces ports sont protégés (verrouillés) par des certificats Azure. Sans les certificats appropriés en place, les entités externes ne peuvent pas lancer des modifications sur ces points de terminaison.
 3. Autorisez les sondes Azure Load Balancer entrantes (balise *AzureLoadBalancer*) et le trafic de réseau virtuel entrant (balise *VirtualNetwork*) sur le [Groupe de sécurité réseau](https://docs.microsoft.com/azure/virtual-network/security-overview).
 4. Bloquez tout autre trafic entrant avec une règle Tout refuser.
 5. Autoriser le trafic sortant vers internet pour toutes les destinations.
