@@ -5,15 +5,15 @@ author: dkamstra
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 7/22/2019
+ms.date: 8/19/2019
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 52d7b84fe6210d8a4d46814ad6749bed0463478e
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: a0b0df9110f062b5f9c23840cb21308b634c9c81
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68405649"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69898148"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Créer et gérer des groupes d’actions sur le Portail Azure
 Un groupe d’actions est une collection de préférences de notification définies par le propriétaire d’un abonnement Azure. Les alertes Azure Monitor et Service Health utilisent des groupes d’actions pour avertir les utilisateurs qu’une alerte a été déclenchée. Plusieurs alertes peuvent utiliser le même groupe d’actions ou des groupes d’actions différents selon les besoins de l’utilisateur. Vous pouvez configurer jusqu'à 2 000 groupes d'actions au sein d'un abonnement.
@@ -76,6 +76,11 @@ Après sa création, un groupe d’actions apparaît dans la section **Groupes d
 > [!NOTE]
 > Consultez [Subscription Service Limits for Monitoring (Limites du service d’abonnement pour la surveillance)](https://docs.microsoft.com/azure/azure-subscription-service-limits#azure-monitor-limits) pour connaître les limites numériques sur chacun des éléments ci-dessous.  
 
+### <a name="automation-runbook"></a>Runbook Automation
+Consultez l’article [Limites du service d’abonnement Azure](../../azure-subscription-service-limits.md) pour connaître les limites de charges utiles Runbook.
+
+Vous pouvez avoir un nombre limité d’actions de runbook par groupe d’actions. 
+
 ### <a name="azure-app-push-notifications"></a>Notifications Push Azure App
 Vous pouvez avoir un nombre limité d’actions d’application Azure par groupe d’actions.
 
@@ -87,6 +92,16 @@ Les e-mails seront envoyés à partir des adresses e-mail suivantes. Vérifiez q
 
 Vous pouvez avoir un nombre limité d’actions d’e-mail par groupe d’actions. Consultez l’article [Informations de limitation du débit](./../../azure-monitor/platform/alerts-rate-limiting.md).
 
+### <a name="email-azure-resource-manager-role"></a>Envoyer un message au rôle Azure Resource Manager
+Envoyer un message aux membres du rôle de l’abonnement.
+
+Vous pouvez avoir un nombre limité d’actions d’e-mail par groupe d’actions. Consultez l’article [Informations de limitation du débit](./../../azure-monitor/platform/alerts-rate-limiting.md).
+
+### <a name="function"></a>Fonction
+Les touches de fonction de Function Apps, qui sont configurées comme actions, sont lues par le biais de l’API Functions, ce qui nécessite actuellement l’utilisation d’applications de fonction v2 pour définir le paramètre d’application AzureWebJobsSecretStorageType sur « files » (fichiers). Consultez [Modifications apportées à la gestion de clés dans les fonctions V2]( https://aka.ms/funcsecrets) pour plus d’informations.
+
+Vous pouvez avoir un nombre limité d’actions de fonction par groupe d’actions.
+
 ### <a name="itsm"></a>ITSM
 ITSM Action requiert une connexion ITSM. Découvrez comment créer une [connexion ITSM](../../azure-monitor/platform/itsmc-overview.md).
 
@@ -95,51 +110,7 @@ Vous pouvez avoir un nombre limité d’actions ITSM par groupe d’actions.
 ### <a name="logic-app"></a>Application logique
 Vous pouvez avoir un nombre limité d’actions d’application logique par groupe d’actions.
 
-### <a name="function"></a>Fonction
-Les touches de fonction de Function Apps, qui sont configurées comme actions, sont lues par le biais de l’API Functions, ce qui nécessite actuellement l’utilisation d’applications de fonction v2 pour définir le paramètre d’application AzureWebJobsSecretStorageType sur « files » (fichiers). Consultez [Modifications apportées à la gestion de clés dans les fonctions V2]( https://aka.ms/funcsecrets) pour plus d’informations.
-
-Vous pouvez avoir un nombre limité d’actions de fonction par groupe d’actions.
-
-### <a name="automation-runbook"></a>Runbook Automation
-Consultez l’article [Limites du service d’abonnement Azure](../../azure-subscription-service-limits.md) pour connaître les limites de charges utiles Runbook.
-
-Vous pouvez avoir un nombre limité d’actions de runbook par groupe d’actions. 
-
-### <a name="sms"></a>sms
-Pour obtenir d’autres informations importantes, consultez [Informations de limitation du débit](./../../azure-monitor/platform/alerts-rate-limiting.md) et [Comportement des alertes SMS](../../azure-monitor/platform/alerts-sms-behavior.md).
-
-Vous pouvez avoir un nombre limité d’actions SMS par groupe d’actions.  
-
-### <a name="voice"></a>Voix
-Consultez l’article [Informations de limitation du débit](./../../azure-monitor/platform/alerts-rate-limiting.md).
-
-Vous pouvez avoir un nombre limité d’actions de voix par groupe d’actions.
-
-### <a name="webhook"></a>webhook
-Les Webhooks sont retentés au travers des règles suivantes. L’appel de webhook est retenté 2 fois au maximum lorsque les codes d’état HTTP suivants sont retournés : 408, 429, 503, 504 ou que le point de terminaison HTTP ne répond pas. La première nouvelle tentative se produit après 10 secondes. La deuxième nouvelle tentative se produit après 100 secondes. Après deux échecs, aucun groupe d’actions n’appellera le point de terminaison pendant 30 minutes. 
-
-Plage d’adresses IP sources
- - 13.72.19.232
- - 13.106.57.181
- - 13.106.54.3
- - 13.106.54.19
- - 13.106.38.142
- - 13.106.38.148
- - 13.106.57.196
- - 13.106.57.197
- - 52.244.68.117
- - 52.244.65.137
- - 52.183.31.0
- - 52.184.145.166
- - 51.4.138.199
- - 51.5.148.86
- - 51.5.149.19
-
-Pour recevoir des mises à jour sur les modifications apportées à ces adresses IP, nous vous recommandons de configurer une alerte Service Health qui surveille les notifications d’information relatives au service Groupes d’actions.
-
-Vous pouvez avoir un nombre limité d’actions de webhook par groupe d’actions.
-
-#### <a name="secure-webhook"></a>Webhook sécurisé
+### <a name="secure-webhook"></a>Webhook sécurisé
 **Pour l’instant, la fonctionnalité Webhook sécurisé n’existe qu’en préversion.**
 
 L’action de webhook de groupes d’actions vous permet de tirer parti d’Azure Active Directory pour sécuriser la connexion entre votre groupe d’actions et votre API web protégée (point de terminaison webhook). Le workflow global pour tirer parti de cette fonctionnalité est décrit ci-dessous. Pour obtenir une vue d’ensemble des applications Azure AD et des principaux de service, consultez [Présentation de la plateforme d’identités Microsoft (v2.0)](https://docs.microsoft.com/azure/active-directory/develop/v2-overview).
@@ -156,12 +127,12 @@ L’action de webhook de groupes d’actions vous permet de tirer parti d’Azur
     - Modifiez la variable du script PowerShell $myAzureADApplicationObjectId pour utiliser l’ID d’objet de votre application Azure AD.
     - Exécutez le script modifié.
     
-1. Configurez l’action de webhook du groupe d’actions.
+1. Configurez l’action de webhook sécurisé du groupe d’actions.
     - Copiez la valeur $myApp.ObjectId à partir du script et entrez-la dans le champ de l’ID d’objet d’application dans la définition de l’action de webhook.
     
     ![Action de webhook sécurisé](./media/action-groups/action-groups-secure-webhook.png)
 
-##### <a name="secure-webhook-powershell-script"></a>Script PowerShell de webhook sécurisé
+#### <a name="secure-webhook-powershell-script"></a>Script PowerShell de webhook sécurisé
 
 ```PowerShell
 Connect-AzureAD -TenantId "<provide your Azure AD tenant ID here>"
@@ -229,6 +200,41 @@ Write-Host "My Azure AD Application ($myApp.ObjectId): " + $myApp.ObjectId
 Write-Host "My Azure AD Application's Roles"
 Write-Host $myApp.AppRoles
 ```
+
+### <a name="sms"></a>sms
+Pour obtenir d’autres informations importantes, consultez [Informations de limitation du débit](./../../azure-monitor/platform/alerts-rate-limiting.md) et [Comportement des alertes SMS](../../azure-monitor/platform/alerts-sms-behavior.md).
+
+Vous pouvez avoir un nombre limité d’actions SMS par groupe d’actions.  
+
+### <a name="voice"></a>Voix
+Consultez l’article [Informations de limitation du débit](./../../azure-monitor/platform/alerts-rate-limiting.md).
+
+Vous pouvez avoir un nombre limité d’actions de voix par groupe d’actions.
+
+### <a name="webhook"></a>webhook
+Les Webhooks sont retentés au travers des règles suivantes. L’appel de webhook est retenté 2 fois au maximum lorsque les codes d’état HTTP suivants sont retournés : 408, 429, 503, 504 ou que le point de terminaison HTTP ne répond pas. La première nouvelle tentative se produit après 10 secondes. La deuxième nouvelle tentative se produit après 100 secondes. Après deux échecs, aucun groupe d’actions n’appellera le point de terminaison pendant 30 minutes. 
+
+Plage d’adresses IP sources
+ - 13.72.19.232
+ - 13.106.57.181
+ - 13.106.54.3
+ - 13.106.54.19
+ - 13.106.38.142
+ - 13.106.38.148
+ - 13.106.57.196
+ - 13.106.57.197
+ - 52.244.68.117
+ - 52.244.65.137
+ - 52.183.31.0
+ - 52.184.145.166
+ - 51.4.138.199
+ - 51.5.148.86
+ - 51.5.149.19
+
+Pour recevoir des mises à jour sur les modifications apportées à ces adresses IP, nous vous recommandons de configurer une alerte Service Health qui surveille les notifications d’information relatives au service Groupes d’actions.
+
+Vous pouvez avoir un nombre limité d’actions de webhook par groupe d’actions.
+
 
 
 ## <a name="next-steps"></a>Étapes suivantes

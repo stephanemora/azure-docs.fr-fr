@@ -40,10 +40,12 @@
       href: expressroute-qos.md
     - name: À propos de la migration des circuits d’un déploiement classique vers Resource Manager
       href: expressroute-move.md
-    - name: À propose de ExpressRoute Direct
+    - name: À propos d’ExpressRoute Direct
       href: expressroute-erdirect-about.md
     - name: À propos d’ExpressRoute Global Reach
       href: expressroute-global-reach.md
+    - name: Connecter Azure au cloud public
+      href: expressroute-connect-azure-to-public-cloud.md
     - name: Interopérabilité de connectivité du serveur principal
       items:
         - name: Préface et initialisation (tearDown) de test

@@ -7,12 +7,12 @@ ms.author: v-qiwe
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 08/14/2019
-ms.openlocfilehash: 3d3fc1541fb99d8d1219392158c3b87cd6ff99aa
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 584b9fdde33d14650c36c44b9b457a25f8a1d6f9
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69033538"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69900131"
 ---
 # <a name="create-a-new-saas-offer"></a>Créer une nouvelle offre SaaS
 
@@ -153,23 +153,9 @@ En activant une version d’évaluation, vous devrez configurer un environnement
 
 ## <a name="connect-lead-management"></a>Connecter la gestion des prospects
 
-Connectez-vous avec les clients directement en répertoriant votre offre dans les Places de marché et en introduisant votre système CRM afin de recevoir les informations de contact des clients immédiatement après qu’un client ait exprimé son intérêt ou déployé votre produit.
+[!INCLUDE [Test drive content](./includes/connect-lead-management.md)]
 
-- **Choisir une destination de prospect** (menu déroulant) : Renseignez les informations de connexion au système CRM sur lequel vous souhaitez que nous envoyions des prospects de client. 
-
-Partner Center prend en charge les systèmes CRM suivant pour la gestion des prospects. Sélectionnez le lien pour obtenir des instructions de configuration.
-
-- Blob Azure : renseignez l’adresse e-mail, le nom du conteneur et la chaîne de connexion du compte de stockage. 
-- [Table Azure](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-azure-table) : renseignez l’adresse e-mail et la chaîne de connexion du compte de stockage. 
-- [Dynamics CRM Online](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics) : renseignez l’adresse e-mail, l’URL et le mode d’authentification (Office 365 ou Azure Active Directory).
-- [Point de terminaison HTTPS](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-https) : renseignez l’adresse e-mail et l’URL du point de terminaison HTTPS. 
-- [Marketo](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-marketo) : renseignez l’adresse e-mail, l’ID du formulaire, l’ID du compte Munchkin et l’ID du serveur.
-- [Salesforce](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-salesforce) : renseignez l’adresse e-mail et l’ID de l’organisation. 
-
-#### <a name="additional-lead-management-resources"></a>Ressources de gestion des prospects supplémentaires
-- [Questions fréquentes sur la gestion des prospects](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#frequently-asked-questions)
-- [Erreurs courantes de configuration des prospects](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#common-lead-configuration-errors-during-publishing-on-cloud-partner-portal)
-- [Document d’une page présentant la gestion des prospects](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf)
+Pour plus d’informations, consultez [Vue d’ensemble de la gestion des prospects](./commercial-marketplace-get-customer-leads.md).
 
 N’oubliez pas d’**Enregistrer** avant de passer à la section suivante.
 
@@ -302,12 +288,7 @@ Pour que la description de votre offre soit plus attrayante, vous pouvez utilise
 
     La section ci-dessus ressemblerait à ceci :
 
-    <h1>Il s’agit du titre 1</h1> 
-    <h2>Il s’agit du titre 2</h2> 
-    <h3>Il s’agit du titre 3</h3> 
-    <h4>Il s’agit du titre 4</h4> 
-    <h5>Il s’agit du titre 5</h5> 
-    <h6>Il s’agit du titre 6</h6> 
+    ![Exemples d’en-têtes](./media/heading.png)
 
 #### <a name="links"></a>Liens
 

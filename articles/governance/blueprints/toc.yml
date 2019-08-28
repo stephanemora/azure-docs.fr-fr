@@ -11,6 +11,9 @@
     - name: 'Créer un blueprint : portail'
       displayName: 'publish, assign, track, unassign, delete'
       href: create-blueprint-portal.md
+    - name: Créer un blueprint - PowerShell
+      displayName: 'publish, assign, track, unassign, delete'
+      href: create-blueprint-powershell.md
     - name: 'Créer un blueprint : API REST'
       displayName: 'publish, assign, track, unassign, delete'
       href: create-blueprint-rest-api.md

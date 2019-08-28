@@ -8,20 +8,98 @@ ms.subservice: core
 ms.topic: reference
 ms.author: jmartens
 author: j-martens
-ms.date: 07/25/2019
+ms.date: 08/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: ec913133ef97a632b12db2859bd4ac32df70a1c5
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 777ab4c05f70cba403fe6d2318c9d498b5dd4ff3
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68828619"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69897562"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Notes de publication du service Azure Machine Learning
 
-Dans cet article, découvrez les versions du service Azure Machine Learning.  Pour obtenir le contenu complet de la référence SDK, consultez la page de référence du [**SDK principal pour Python**](https://aka.ms/aml-sdk) d’Azure Machine Learning.
+Dans cet article, découvrez les versions du service Azure Machine Learning.  Pour obtenir le contenu complet de la référence SDK, consultez la page de référence du [**SDK principal pour Python**](https://aka.ms/aml-sdk) d’Azure Machine Learning. 
 
 Consultez la [liste des problèmes connus](resource-known-issues.md) pour en savoir plus sur les bogues connus et les solutions de contournement.
+
+## <a name="2019-08-19"></a>19/08/2019
+
+### <a name="azure-machine-learning-sdk-for-python-v1057"></a>Kit de développement logiciel (SDK) Azure Machine Learning pour Python v1.0.57
++ **Nouvelles fonctionnalités**
+  + Activation de `TabularDataset` pour consommation par AutomatedML. Pour en savoir plus sur `TabularDataset`, consultez https://aka.ms/azureml/howto/createdatasets.
+  
++ **Résolutions de bogue et améliorations**
+  + **automl-client-core-nativeclient**
+    + Correction de l’erreur déclenchée lorsque des étiquettes d’apprentissage et/ou de validation (y et y_valid) sont fournies sous la forme de trames de données Pandas, mais pas en tant que tableau numpy.
+    + Interface mise à jour pour créer un `RawDataContext` pour exiger uniquement les données et l’objet `AutoMLBaseSettings`.
+    +  Autoriser les utilisateurs AutoML à supprimer des séries d’apprentissage qui ne sont pas suffisamment longues lors des prévisions. - Autoriser les utilisateurs AutoML à supprimer des grains du jeu de test qui n’existent pas dans le jeu d’apprentissage lors de la prévision.
+  + **azure-cli-ml**
+    + Vous pouvez maintenant mettre à jour le certificat SSL pour le point de terminaison de score déployé sur le cluster AKS pour les certificats générés par Microsoft et par le client.
+  + **azureml-automl-core**
+    + Résolution d’un problème dans AutoML où les lignes avec des étiquettes manquantes ne sont pas correctement supprimées.
+    + Amélioration de la journalisation des erreurs dans AutoML. Les messages d’erreur complets seront désormais toujours écrits dans le fichier journal.
+    + AutoML a mis à jour son épinglage de package pour inclure `azureml-defaults`, `azureml-explain-model` et`azureml-dataprep`. AutoML n’avertira plus en cas d’incompatibilité de package (à l’exception du package `azureml-train-automl`).
+    + Correction d’un problème dans TimeSeries où les fractionnements du CV sont de taille inégale, ce qui provoque l’échec du calcul des fichiers binaires.
+    + Lors de l’exécution de l’ensemble d’itération pour le type d’apprentissage de validation croisée, si nous avons rencontré un problème lors du téléchargement des modèles formés sur l’ensemble du jeu de données, nous avons une incohérence entre la pondération des modèles et les modèles qui ont été intégrés à l’ensemble de vote.
+    + Correction de l’erreur déclenchée lorsque des étiquettes d’apprentissage et/ou de validation (y et y_valid) sont fournies sous la forme de trames de données Pandas, mais pas en tant que tableau numpy.
+    + Résolution du problème lié aux tâches de prévision quand Aucune a été trouvé dans les colonnes booléennes des tables d’entrée.
+    + Autoriser les utilisateurs AutoML à supprimer des séries d’apprentissage qui ne sont pas suffisamment longues lors des prévisions. - Autoriser les utilisateurs AutoML à supprimer des grains du jeu de test qui n’existent pas dans le jeu d’apprentissage lors de la prévision.
+  + **azureml-core**
+    + Correction du problème de classement du paramètre blob_cache_timeout.
+    + Ajout des types d’exceptions d’ajustement externe et de transformation aux erreurs système.
+    + Ajout de la prise en charge des secrets Key Vault pour les exécutions distantes. Ajout d’une classe azureml.core.keyvault.Keyvault pour ajouter, obtenir et répertorier les secrets du coffre de clés associé à votre espace de travail. Opérations prises en charge :
+      + azureml.core.workspace.Workspace.get_default_keyvault()
+      + azureml.core.keyvault.Keyvault.set_secret(name, value)
+      + azureml.core.keyvault.Keyvault.set_secrets(secrets_dict)
+      + azureml.core.keyvault.Keyvault.get_secret(name)
+      + azureml.core.keyvault.Keyvault.get_secrets(secrets_list)
+      + azureml.core.keyvault.Keyvault.list_secrets()
+    + Méthodes supplémentaires pour obtenir un coffre de clés par défaut et obtenir des secrets lors de l’exécution distante :
+      + azureml.core.workspace.Workspace.get_default_keyvault()
+      + azureml.core.run.Run.get_secret(name)
+      + azureml.core.run.Run.get_secrets(secrets_list)
+    + Ajout de paramètres de substitution supplémentaires à la commande submit-hyperdrive de la CLI.
+    + Amélioration de la fiabilité des appels d’API pour étendre les nouvelles tentatives aux exceptions de la bibliothèque de demandes courantes.
+    + Ajout de la prise en charge de l’envoi des exécutions à partir d’une exécution envoyée.
+    + Correction du problème de jeton SAS arrivant à expiration dans FileWatcher, ce qui provoquait l’arrêt du chargement des fichiers après l’expiration de leur jeton initial.
+    + Importation des fichiers CSV/TSV HTTP pris en charge dans le SDK Python du jeu de données.
+    + Méthode Workspace.Setup() déconseillée. Le message d’avertissement présenté aux utilisateurs suggère d’utiliser create() ou get()/from_config().
+    + Ajout de Environment.add_private_pip_wheel(), qui permet de charger des packages Python privés et personnalisés (.whl) dans l’espace de travail et de les utiliser en toute sécurité pour générer/matérialiser l’environnement.
+    + Vous pouvez maintenant mettre à jour le certificat SSL pour le point de terminaison de score déployé sur le cluster AKS pour les certificats générés par Microsoft et par le client.
+  + **azureml-explain-model**
+    + Ajout d’un paramètre pour ajouter un ID de modèle aux explications lors du chargement.
+    + Ajout du balisage `is_raw` aux explications en mémoire et au chargement.
+    + Ajout de la prise en charge et des tests pytorch pour le package azureml-explain-model.
+  + **azureml-opendatasets**
+    + Prise en charge de la détection et de la journalisation de l’environnement de test automatique.
+    + Ajout de classes pour obtenir la population des États-Unis par comté et par code postal.
+  + **azureml-pipeline-core**
+    + Ajout de la propriété label aux définitions de port d’entrée et de sortie.
+  + **azureml-telemetry**
+    + Correction de la configuration de télémétrie incorrecte.
+  + **azureml-train-automl**
+    + Correction du bogue à l’origine de l’échec de l’installation, l’erreur n’étant pas consignée dans le champ Erreurs de l’exécution et donc pas stockée dans le champ Erreurs du parent.
+    + Résolution d’un problème dans AutoML où les lignes avec des étiquettes manquantes ne sont pas correctement supprimées.
+    + Autoriser les utilisateurs AutoML à supprimer des séries d’apprentissage qui ne sont pas suffisamment longues lors des prévisions.
+    + Autoriser les utilisateurs AutoML à supprimer des grains du jeu de test qui n’existent pas dans le jeu d’apprentissage lors de la prévision.
+    + Désormais, AutoMLStep passe par la configuration de automl à backend pour éviter tout problème concernant la modification ou l’ajout de paramètres de configuration.
+  + **azureml-train-core**
+    + Ajout de la prise en charge de Torch 1.2 dans PyTorch Estimator.
+  + **azureml-widgets**
+    + Amélioration des graphiques de la matrice de confusion pour l’apprentissage de la classification.
+
+### <a name="azure-machine-learning-data-prep-sdk-v1112"></a>Kit de développement logiciel (SDK) de préparation de données Azure Machine Learning v1.1.12
++ **Nouvelles fonctionnalités**
+  + Les listes de chaînes peuvent maintenant être passées comme entrée des méthodes `read_*`.
+
++ **Résolutions de bogue et améliorations**
+  + Les performances de `read_parquet` ont été considérablement améliorées lors de l’exécution dans Spark.
+  + Résolution d’un problème où `column_type_builder` échouait en cas de colonne unique avec des formats de date ambigus.
+
+### <a name="azure-portal"></a>Portail Azure
++ **Fonctionnalité en préversion**
+  + La diffusion en continu des fichiers journaux et des fichiers de sortie est désormais disponible pour les pages de détail de l’exécution. Ces fichiers diffusent des mises à jour en temps réel lorsque l’aperçu est activé.
 
 ## <a name="2019-08-05"></a>05-08-2019
 

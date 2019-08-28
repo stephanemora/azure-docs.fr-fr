@@ -33,18 +33,16 @@
       href: security-center-data-security.md
     - name: Utiliser les recommandations pour améliorer la sécurité
       href: security-center-using-recommendations.md
-    - name: Détecter les menaces
-      href: security-center-detection-capabilities.md
-    - name: Gérer les alertes de sécurité
-      href: security-center-managing-and-responding-alerts.md
-    - name: Incidents de sécurité
-      href: security-center-incident.md
     - name: Gestion multilocataire
       href: security-center-cross-tenant-management.md
-    - name: Alertes de détection des menaces
+    - name: Alertes de détection des menaces et incidents
       items:
         - name: Vue d'ensemble des alertes de sécurité
           href: security-center-alerts-overview.md
+        - name: Gérer les alertes de sécurité
+          href: security-center-managing-and-responding-alerts.md
+        - name: Gérer les incidents de sécurité
+          href: security-center-incident.md
         - name: Détection des menaces pour les machines virtuelles et les serveurs
           href: security-center-alerts-iaas.md
         - name: Détection des menaces pour le calcul natif cloud

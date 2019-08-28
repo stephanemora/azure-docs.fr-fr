@@ -1,106 +1,94 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Load Balancer
+### YamlMime:Landing
+title: Documentation Load Balancer
+summary: Apprenez à utiliser Azure Load Balancer. Grâce à des guides de démarrage rapide, à des didacticiels, à des exemples et à de nombreuses autres ressources, apprenez à déployer un équilibreur de charge et équilibrer le trafic vers et depuis les machines virtuelles et les ressources de cloud, sans oublier le trafic au sein des réseaux virtuels intersite.
 metadata:
-  document_id: null
   title: Load Balancer
-  meta.description: 'Learn how to use Azure Load Balancer. Quickstarts, tutorials, samples, and more, show you how to deploy a load balancer and load balance traffic to and from virtual machines and cloud resources, and in cross-premises virtual networks.'
+  description: Apprenez à utiliser Azure Load Balancer. Grâce à des guides de démarrage rapide, à des didacticiels, à des exemples et à de nombreuses autres ressources, apprenez à déployer un équilibreur de charge et équilibrer le trafic vers et depuis les machines virtuelles et les ressources de cloud, sans oublier le trafic au sein des réseaux virtuels intersite.
   services: load-balancer
-  author: asudbring
-  manager: twooley
   ms.service: load-balancer
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
-  ms.date: 11/14/2018
+  ms.collection: collection
+  author: asudbring
   ms.author: allensu
-abstract:
-  description: 'Apprenez à utiliser Azure Load Balancer. Grâce à des guides de démarrage rapide, à des didacticiels, à des exemples et à de nombreuses autres ressources, apprenez à déployer un équilibreur de charge et équilibrer le trafic vers et depuis les machines virtuelles et les ressources de cloud, sans oublier le trafic au sein des réseaux virtuels intersite.'
-sections:
-  - title: "Démarrages en 5\_minutes"
-    items:
-      - type: paragraph
-        text: 'Apprenez à créer un équilibreur de charge, à créer des machines virtuelles sous la forme de serveurs principaux, à installer une application web personnalisée sur la machine virtuelle, puis à équilibrer la charge de l’application web entre les machines virtuelles.'
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: 'https://docs.microsoft.com/media/common/i_portal.svg'
-            text: Portail Azure
-            href: /azure/load-balancer/quickstart-create-basic-load-balancer-portal
-          - image:
-              src: 'https://docs.microsoft.com/media/logos/logo_powershell.svg'
-            text: Azure PowerShell
-            href: /azure/load-balancer/quickstart-create-basic-load-balancer-powershell
-          - image:
-              src: 'https://docs.microsoft.com/media/common/cli.svg'
-            text: D’Azure CLI
-            href: /azure/load-balancer/quickstart-create-basic-load-balancer-cli
-  - title: Didacticiels pas à pas
-    items:
-      - type: paragraph
-        text: Apprenez à créer un équilibreur de charge et à équilibrer la charge des services entre les machines virtuelles.
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="/azure/load-balancer/tutorial-load-balancer-standard-manage-portal">Équilibrer la charge de trafic internet vers des machines virtuelles</a>
-          - html: <a href="/azure/load-balancer/tutorial-load-balancer-basic-internal-portal">Équilibrer la charge de trafic interne vers des machines virtuelles</a>
-          - html: <a href="/azure/load-balancer/tutorial-load-balancer-standard-public-zone-redundant-portal">Équilibrer la charge de machines virtuelles entre des zones de disponibilité</a>
-          - html: <a href="/azure/load-balancer/tutorial-load-balancer-standard-public-zonal-portal">Équilibrer la charge de machines virtuelles dans une zone de disponibilité spécifique</a>
-          - html: <a href="/azure/load-balancer/tutorial-load-balancer-port-forwarding-portal">Configurer le transfert de port dans l’équilibreur de charge</a>
-  - title: Développer vos compétences avec Microsoft Learn
-    items:
-      - type: list
-        style: cards
-        className: cardsFTitle
-        items:
-          - title: Rendre vos machines virtuelles hautement disponibles
-            href: /learn/modules/intro-to-azure-virtual-machines/5-high-availability
-            image:
-              src: /learn/achievements/make-your-virtual-machines-highly-available.svg
-              href: /learn/modules/intro-to-azure-virtual-machines/5-high-availability
-      - type: paragraph
-        text: <a href="/learn/browse/?products=azure-virtual-machines">Plus de formations interactives...</a>
-  - title: Formation vidéo gratuite Pluralsight
-    items:
-      - type: list
-        style: cards
-        className: cardsFTitle
-        items:
-          - title: Administrateur Azure
-            href: 'https://go.microsoft.com/fwlink/?linkid=2012827'
-            image:
-              src: 'https://docs.microsoft.com/media/logos/logo_pluralsight.svg'
-              href: 'https://go.microsoft.com/fwlink/?linkid=2012827'
-          - title: Architecte solutions Azure
-            href: 'https://go.microsoft.com/fwlink/?linkid=2012824'
-            image:
-              src: 'https://docs.microsoft.com/media/logos/logo_pluralsight.svg'
-              href: 'https://go.microsoft.com/fwlink/?linkid=2012824'
-          - title: Administration Azure pour les administrateurs AWS
-            href: 'https://app.pluralsight.com/library/courses/azure-administration-aws-administrators/table-of-contents'
-            image:
-              src: 'https://docs.microsoft.com/media/logos/logo_pluralsight.svg'
-              href: 'https://app.pluralsight.com/library/courses/azure-administration-aws-administrators/table-of-contents'
-  - title: Exemples
-    items:
-      - type: paragraph
-        text: Exemples de scripts pour les tâches courantes.
-      - type: list
-        style: unordered
-        className: spaced noBullet
-        items:
-          - html: <a href="/azure/load-balancer/cli-samples">Interface de ligne de commande Azure</a>
-          - html: <a href="/azure/load-balancer/powershell-samples">PowerShell</a>
-  - title: Informations de référence
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Ligne de commande
-            html: '<p><a href="/powershell/module/az.network#load_balancer">PowerShell</a></p><p><a href="/cli/azure/network/lb">Interface de ligne de commande Azure</a></p>'
-          - title: Languages
-            html: '<p><a href="/dotnet/api/overview/azure/virtual-network">.NET</a></p><p><a href="/java/api/com.microsoft.azure.management.network">Java</a></p><p><a href="https://docs.microsoft.com/python/api/azure.mgmt.network.v2017_10_01.models.LoadBalancer">Node.JS</a></p><p><a href="https://docs.microsoft.com/python/api/azure.mgmt.network.v2015_06_15.operations.loadbalancersoperations">Python</a></p>'
-          - title: REST
-            html: "<p><a href=\"/rest/api/load-balancer/\">Référence d’API\_REST</a></p>"
+  ms.date: 08/20/2019
+  ms.openlocfilehash: cb6ecdf9c717602cb3309107bc0ac24805be5d0a
+  ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 08/27/2019
+  ms.locfileid: "70061880"
+landingContent:
+- title: À propos de Load Balancer
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Qu’est-ce que Load Balancer ?
+      url: load-balancer-overview.md
+    - text: Qu’est-ce que Load Balancer Standard ?
+      url: load-balancer-standard-overview.md
+- title: Prise en main
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Créer un équilibreur de charge de base public
+      url: quickstart-create-basic-load-balancer-portal.md
+    - text: Créer un équilibreur de charge Standard pour équilibrer la charge des machines virtuelles
+      url: quickstart-load-balancer-standard-public-portal.md
+  - linkListType: tutorial
+    links:
+    - text: Équilibrer la charge de trafic internet vers des machines virtuelles
+      url: tutorial-load-balancer-standard-manage-portal.md
+    - text: Équilibrer la charge du trafic interne avec un équilibreur de charge de base
+      url: tutorial-load-balancer-basic-internal-portal.md
+    - text: Configurer le transfert de port dans Azure Load Balancer
+      url: tutorial-load-balancer-port-forwarding-portal.md
+- title: Gérer les fonctionnalités et les options
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Sondes d’intégrité Load Balancer
+      url: load-balancer-custom-probe-overview.md
+    - text: Connexions sortantes dans Azure
+      url: load-balancer-outbound-connections.md
+    - text: Serveurs frontaux multiples dans Azure Load Balancer
+      url: load-balancer-multivip-overview.md
+  - linkListType: how-to-guide
+    links:
+    - text: Configurer des règles d’équilibrage de charge et des règles de trafic sortant dans Standard Load Balancer à l’aide d’Azure CLI
+      url: configure-load-balancer-outbound-cli.md
+    - text: Créer un équilibrage de charge Internet avec IPv6 à l’aide de PowerShell
+      url: load-balancer-ipv6-internet-ps.md
+    - text: Configurer le mode de distribution
+      url: load-balancer-distribution-mode.md
+- title: Déployer
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Référence Standard de Load Balancer et zones de disponibilité
+      url: load-balancer-standard-availability-zones.md
+    - text: Load Balancer avec réinitialisation TCP au terme du délai d’inactivité (préversion publique)
+      url: load-balancer-tcp-reset.md
+  - linkListType: how-to-guide
+    links:
+    - text: Créer un équilibreur de charge Standard avec un front-end redondant interzone
+      url: load-balancer-get-started-internet-az-portal.md
+    - text: Créer un équilibreur de charge Standard avec un front-end zonal
+      url: load-balancer-get-started-internet-availability-zones-zonal-portal.md
+    - text: Équilibrage de charge sur plusieurs configurations IP
+      url: load-balancer-multiple-ip.md
+- title: Résolution des problèmes
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Diagnostics Azure Standard Load Balancer avec les métriques, les alertes et l’intégrité des ressources
+      url: load-balancer-standard-diagnostics.md
+    - text: Résoudre les problèmes liés à Azure Load Balancer
+      url: load-balancer-troubleshoot.md
+- title: Informations de référence
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Azure PowerShell
+      url: https://docs.microsoft.com/powershell/module/az.network/?view=azps-2.5.0#load_balancer
+    - text: D’Azure CLI
+      url: https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest

@@ -7,14 +7,14 @@ ms.service: service-fabric
 ms.topic: article
 ms.date: 07/25/2019
 ms.author: atsenthi
-ms.openlocfilehash: 24fcdaf612a26109194524733e1fb9069dc664e0
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: cb32251c2507f3def7f5e830af15828ff2f04c29
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68965571"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69640718"
 ---
-# <a name="create-a-new-azure-service-fabric-cluster-with-managed-identity-support"></a>Créer un nouveau cluster Azure Service Fabric avec une prise en charge d’identité managée
+# <a name="create-a-new-azure-service-fabric-cluster-with-managed-identity-support-preview"></a>Créer un nouveau cluster Azure Service Fabric avec une prise en charge d’identité managée (préversion)
 
 Pour accéder à la fonctionnalité d’identité managée pour les applications Azure Service Fabric, vous devez d’abord activer le service de jeton d’identité managée sur le cluster. Ce service est responsable de l’authentification des applications Service Fabric à l’aide de leurs identités managées et de l’obtention de jetons d’accès en leur nom. Une fois le service activé, vous pouvez le voir dans Service Fabric Explorer sous la section **Système** dans le volet gauche, exécuté sous le nom **fabric:/System/ManagedIdentityTokenService** à côté d’autre services système.
 
@@ -51,13 +51,14 @@ Si le déploiement échoue avec ce message, cela signifie que le cluster n’est
 }
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
-* [Déployer une application Azure Service Fabric avec une identité managée attribuée par le système](./how-to-deploy-service-fabric-application-system-assigned-managed-identity.md)
-* [Déployer une application Azure Service Fabric avec une identité managée attribuée par l’utilisateur](./how-to-deploy-service-fabric-application-user-assigned-managed-identity.md)
-* [Tirer parti de l’identité managée d’une application Service Fabric à partir du code de service](./how-to-managed-identity-service-fabric-app-code.md)
-* [Accorder à une application Azure Service Fabric l’accès à d’autres ressources Azure](./how-to-grant-access-other-resources.md)
 
 ## <a name="related-articles"></a>Articles connexes
 * Vérifier la [prise en charge des identités managées](./concepts-managed-identity.md) dans Azure Service Fabric
 
 * [Activer la prise en charge d’identité managée dans un cluster Azure Service Fabric existant](./configure-existing-cluster-enable-managed-identity-token-service.md)
+
+## <a name="next-steps"></a>Étapes suivantes
+* [Déployer une application Azure Service Fabric avec une identité managée attribuée par le système](./how-to-deploy-service-fabric-application-system-assigned-managed-identity.md)
+* [Déployer une application Azure Service Fabric avec une identité managée attribuée par l’utilisateur](./how-to-deploy-service-fabric-application-user-assigned-managed-identity.md)
+* [Tirer parti de l’identité managée d’une application Service Fabric à partir du code de service](./how-to-managed-identity-service-fabric-app-code.md)
+* [Accorder à une application Azure Service Fabric l’accès à d’autres ressources Azure](./how-to-grant-access-other-resources.md)

@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
-ms.date: 04/29/2019
+ms.date: 08/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: ee8af77ce8f3897fdf1cb3da9a125acca28f9419
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 5a2cab9dff4a075545d919cb41e72cf6e446e9d2
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68358694"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69897326"
 ---
 # <a name="use-ssl-to-secure-a-web-service-through-azure-machine-learning"></a>Utiliser SSL pour sécuriser un service web par le biais d'Azure Machine Learning
 
@@ -149,9 +149,102 @@ Vous devez ensuite mettre à jour votre DNS afin qu’il pointe vers le service 
   > [!WARNING]
   > Si vous avez utilisé *leaf_domain_label* pour créer le service à l’aide d’un certificat fourni par Microsoft, ne mettez pas à jour manuellement la valeur DNS du cluster. Cette valeur doit être définie automatiquement.
 
-  Mettez à jour le DNS sous l’onglet **Configuration** de l’adresse IP publique du cluster AKS. (Consultez l'image suivante.) L’adresse IP publique est un type de ressource créé sous le groupe de ressources qui contient les nœuds d’agent AKS et d’autres ressources de mise en réseau.
+  Mettez à jour le DNS de l’adresse IP publique du cluster AKS sur l’onglet **Configuration**, sous **Paramètres** dans le volet de gauche. (Consultez l'image suivante.) L’adresse IP publique est un type de ressource créé sous le groupe de ressources qui contient les nœuds d’agent AKS et d’autres ressources de mise en réseau.
 
-  ![Azure Machine Learning service : Sécurisation des services web avec SSL](./media/how-to-secure-web-service/aks-public-ip-address.png)
+  [![Service Azure Machine Learning : Sécurisation des services web avec SSL](./media/how-to-secure-web-service/aks-public-ip-address.png)](./media/how-to-secure-web-service/aks-public-ip-address-expanded.png)
+
+## <a name="update-the-ssl-certificate"></a>Mettre à jour le certificat SSL
+
+Les certificats SSL expirent et doivent être renouvelés. En général, cela se produit chaque année. Utilisez les informations des sections suivantes pour mettre à jour et renouveler votre certificat pour les modèles déployés sur Azure Kubernetes Service :
+
+### <a name="update-a-microsoft-generated-certificate"></a>Mettre à jour un certificat généré par Microsoft
+
+Si le certificat a été initialement généré par Microsoft (avec *leaf_domain_label* pour créer le service), utilisez un des exemples suivants pour mettre à jour le certificat :
+
+**Utilisez le SDK**
+
+```python
+from azureml.core.compute import AksCompute
+from azureml.core.compute.aks import AksUpdateConfiguration
+from azureml.core.compute.aks import SslConfiguration
+
+# Get the existing cluster
+aks_target = AksCompute(ws, clustername)
+
+# Update the existing certificate by referencing the leaf domain label
+ssl_configuration = SslConfiguration(leaf_domain_label="myaks", overwrite_existing_domain=True)
+update_config = AksUpdateConfiguration(ssl_configuration)
+aks_target.update(update_config)
+```
+
+**Utiliser l’interface CLI**
+
+```azurecli
+az ml computetarget update aks -g "myresourcegroup" -w "myresourceworkspace" -n "myaks" --ssl-leaf-domain-label "myaks" --ssl-overwrite-domain True
+```
+
+Pour en savoir plus, consultez les documents de référence suivants :
+
+* [SslConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.sslconfiguration?view=azure-ml-py)
+* [AksUpdateConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.aksupdateconfiguration?view=azure-ml-py)
+
+### <a name="update-custom-certificate"></a>Mettre à jour un certificat personnalisé
+
+Si le certificat a été initialement généré par une autorité de certification, procédez comme suit :
+
+1. Utilisez la documentation fournie par l’autorité de certification pour renouveler le certificat. Ce processus crée de nouveaux fichiers de certificat.
+
+1. Utilisez le kit de développement logiciel (SDK) ou l’interface CLI pour mettre à jour le service avec le nouveau certificat :
+
+    **Utilisez le SDK**
+
+    ```python
+    from azureml.core.compute import AksCompute
+    from azureml.core.compute.aks import AksUpdateConfiguration
+    from azureml.core.compute.aks import SslConfiguration
+    
+    # Read the certificate file
+    def get_content(file_name):
+        with open(file_name, 'r') as f:
+            return f.read()
+
+    # Get the existing cluster
+    aks_target = AksCompute(ws, clustername)
+    
+    # Update cluster with custom certificate
+    ssl_configuration = SslConfiguration(cname="myaks", cert=get_content('cert.pem'), key=get_content('key.pem'))
+    update_config = AksUpdateConfiguration(ssl_configuration)
+    aks_target.update(update_config)
+    ```
+
+    **Utiliser l’interface CLI**
+
+    ```azurecli
+    az ml computetarget update aks -g "myresourcegroup" -w "myresourceworkspace" -n "myaks" --ssl-cname "myaks"--ssl-cert-file "cert.pem" --ssl-key-file "key.pem"
+    ```
+
+Pour en savoir plus, consultez les documents de référence suivants :
+
+* [SslConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.sslconfiguration?view=azure-ml-py)
+* [AksUpdateConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.aksupdateconfiguration?view=azure-ml-py)
+
+## <a name="disable-ssl"></a>Désactiver SSL 3.0
+
+Pour désactiver SSL pour un modèle déployé sur Azure Kubernetes Service, créez un `SslConfiguration` avec `status="Disabled"`, puis effectuez une mise à jour :
+
+```python
+from azureml.core.compute import AksCompute
+from azureml.core.compute.aks import AksUpdateConfiguration
+from azureml.core.compute.aks import SslConfiguration
+
+# Get the existing cluster
+aks_target = AksCompute(ws, clustername)
+
+# Disable SSL
+ssl_configuration = SslConfiguration(status="Disabled")
+update_config = AksUpdateConfiguration(ssl_configuration)
+aks_target.update(update_config)
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 Découvrez comment :

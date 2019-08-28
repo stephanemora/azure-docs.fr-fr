@@ -21,17 +21,14 @@
               href: tutorial-1st-experiment-sdk-train.md
         - name: Classification d’images (données MNIST)
           items:
-            - name: 1. Entraîner un modèle
+            - name: 1. Effectuer l’apprentissage d’un modèle
               displayName: build modeling
               href: tutorial-train-models-with-aml.md
             - name: 2. Déployer un modèle
               href: tutorial-deploy-models-with-aml.md
         - name: Régression (données NYC Taxi)
           items:
-            - name: 1. Préparer les données pour la modélisation
-              displayName: data prep
-              href: tutorial-data-prep.md
-            - name: 2. Former automatiquement un modèle ML
+            - name: Former automatiquement un modèle ML
               displayName: 'automl, automated, auto ml,'
               href: tutorial-auto-train-models.md
     - name: Interface visuelle
@@ -260,7 +257,7 @@
     - name: Créer des workflows réutilisables
       displayName: pipelines
       items:
-        - name: Pipelines ML
+        - name: Créer des pipelines ML en Python
           href: how-to-create-your-first-pipeline.md
         - name: Pipelines Azure pour CI/CD
           displayName: 'continuous, integration, delivery'

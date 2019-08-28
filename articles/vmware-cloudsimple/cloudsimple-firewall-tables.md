@@ -1,23 +1,23 @@
 ---
-title: Tables de pare-feu - Solution VMware de CloudSimple - Azure
+title: Solution VMware sur Azure de CloudSimple - Tables de pare-feu
 description: Découvrez les tables de pare-feu et les règles de pare-feu de cloud privé CloudSimple.
 author: sharaths-cs
 ms.author: dikamath
-ms.date: 04/10/2019
+ms.date: 08/20/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 9d25aa9252f061cee7f4cffdca42f00d84f719a3
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 89bef6cef48f2b972aa3f931008b0db84431b832
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68812665"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69877717"
 ---
 # <a name="firewall-tables-overview"></a>Vue d’ensemble des tables de pare-feu
 
-Une table de pare-feu liste les règles permettant de filtrer le trafic réseau vers et en provenance de ressources de cloud privé. Vous pouvez les appliquer à un réseau local virtuel ou à un sous-réseau. Les règles contrôlent ensuite le trafic réseau entre un réseau source ou une adresse IP et un réseau de destination ou une adresse IP.
+Une table de pare-feu liste les règles permettant de filtrer le trafic réseau vers et en provenance de ressources de cloud privé. Vous pouvez appliquer des tables de pare-feu à un réseau local virtuel/sous-réseau. Les règles contrôlent ensuite le trafic réseau entre un réseau source ou une adresse IP et un réseau de destination ou une adresse IP.
 
 ## <a name="firewall-rules"></a>Règles de pare-feu
 
@@ -62,4 +62,4 @@ Les règles par défaut suivantes sont créées sur chaque table de pare-feu.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Configurer des règles et tables de pare-feu](https://docs.azure.cloudsimple.com/firewall/)
+* [Configurer des règles et tables de pare-feu](firewall.md)

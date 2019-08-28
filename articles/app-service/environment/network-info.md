@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 05/31/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 3f80f3c6be747cf84aa9d8b2c386c0568a7511ad
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 01a7c4e41dd628ec8671555daf828b67bebba23e
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67069376"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69898667"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Considérations relatives à la mise en réseau pour un environnement App Service Environment #
 
@@ -27,8 +27,8 @@ ms.locfileid: "67069376"
 
  [App Service Environment Azure][Intro] est un déploiement d’Azure App Service dans un sous-réseau d’un réseau virtuel Azure (VNet). Il existe deux types de déploiement pour un environnement App Service (ASE) :
 
-- **ASE externe** : expose les applications hébergées dans l’ASE sur une adresse IP accessible via Internet. Pour plus d’informations, consultez [Créer un environnement App Service externe][MakeExternalASE].
-- **ASE ILB** : expose les applications hébergées dans l’ASE sur une adresse IP à l’intérieur de votre réseau virtuel. Le point de terminaison interne est un équilibreur de charge interne (ILB), d’où cette appellation d’ASE ILB. Pour plus d’informations, consultez [Create and use an ILB ASE][MakeILBASE] (Créer et utiliser un ASE ILB).
+- **ASE externe** : expose les applications hébergées dans l’ASE sur une adresse IP accessible via Internet. Pour plus d’informations, consultez [Créer un App Service Environment externe][MakeExternalASE].
+- **ASE ILB** : expose les applications hébergées dans l’ASE sur une adresse IP à l’intérieur de votre réseau virtuel. Le point de terminaison interne est un équilibreur de charge interne (ILB), d’où cette appellation d’ASE ILB. Pour plus d’informations, consultez [Créer et utiliser un ASE ILB][MakeILBASE].
 
 Tous les environnements ASE, externes et ILB ont une adresse IP virtuelle publique, qui est utilisée pour le trafic de gestion entrant et en tant qu’adresse de départ lors l’appels de l’ASE vers Internet. Tous les appels d’un ASE à destination d’Internet quittent le réseau virtuel via une adresse IP virtuelle assignée à l’ASE. L’adresse IP publique de cette adresse IP virtuelle constitue l’adresse IP source de tous les appels de l’ASE à destination d’Internet. Si les applications hébergées dans votre environnement ASE appellent des ressources de votre réseau virtuel ou hébergées dans un VPN, l’adresse IP source sera l’une des adresses IP du sous-réseau utilisé par votre environnement ASE. Comme l’ASE se trouve à l’intérieur du réseau virtuel, il peut également accéder aux ressources de celui-ci sans configuration supplémentaire. Si le réseau virtuel est connecté à votre réseau local, les applications dans votre environnement ASE ont également accès aux ressources sans configuration supplémentaire.
 

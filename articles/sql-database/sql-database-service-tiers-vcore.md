@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 ms.date: 06/26/2019
-ms.openlocfilehash: e5af3803ebb4cb0a88a082d3c85d0df68da8d1b8
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: a23f71a38324d9751846f1308f79d3a4e746fd85
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566614"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69637281"
 ---
 # <a name="choose-among-the-vcore-service-tiers-and-migrate-from-the-dtu-service-tiers"></a>Choisissez parmi les niveaux de service vCore et effectuez la migration depuis les niveaux de service DTU
 
@@ -28,7 +28,7 @@ Le modèle d’achat vCore (cœurs virtuels) vous permet de mettre à l’échel
 Le matériel Gen4 offre bien plus de mémoire par vCore. Toutefois, le matériel Gen5 vous permet de monter en puissance les ressources de calcul de façon plus importante.
 
 > [!IMPORTANT]
-> Les nouvelles bases de données Gen4 ne sont plus prises en charge dans la région AustraliaEast.
+> Les nouvelles bases de données Gen4 ne sont plus prises en charge dans la région Australie Est ni Brésil Sud.
 > [!NOTE]
 > Pour plus d’informations sur les niveaux de service DTU, consultez [Niveaux de service pour le modèle d’achat DTU](sql-database-service-tiers-dtu.md). Pour plus d’informations sur les différences entre les niveaux de service pour modèles d’achat DTU et vCore, consultez [Modèles d’achat Azure SQL Database](sql-database-purchase-models.md).
 

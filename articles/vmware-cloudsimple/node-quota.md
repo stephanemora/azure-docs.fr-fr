@@ -3,21 +3,21 @@ title: Solution Azure VMware de CloudSimple - Quota de nœuds CloudSimple
 description: Décrit les limites de quota pour les nœuds de CloudSimple et comment demander une augmentation du quota
 author: sharaths-cs
 ms.author: dikamath
-ms.date: 04/30/2019
+ms.date: 08/19/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: e765d7c87f2f941a5e2d558b71c4e5a71d2df9b1
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 5da91f37d197e9d427343a09d0376076c356e92d
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68816672"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69877812"
 ---
 # <a name="cloudsimple-node-quota-limits"></a>Limites de quota de nœuds CloudSimple
 
-Quatre nœuds est la quantité par défaut disponible à l’approvisionnement lorsque votre abonnement est activé pour le service CloudSimple.  Vous pouvez approvisionner tout [type de nœud](cloudsimple-node.md) à partir du portail Azure.  Un minimum de trois nœuds de la même référence SKU est requis pour créer un cloud privé.  Si vous avez approvisionné les nœuds, vous pourriez voir une erreur lorsque vous tentez d’approvisionner des nœuds supplémentaires.
+Quatre nœuds est la quantité par défaut disponible à l’achat, lorsque votre abonnement est activé pour le service CloudSimple.  Vous pouvez acheter tout [type de nœud](cloudsimple-node.md) à partir du portail Azure.  Un minimum de trois nœuds de la même référence SKU est requis pour créer un cloud privé.  Si vous avez acheté les nœuds, vous pourriez voir une erreur lorsque vous tentez d’acheter des nœuds supplémentaires.
 
 ## <a name="quota-increase"></a>Augmentation de quota
 
@@ -40,5 +40,5 @@ Vous pouvez également contacter votre responsable de compte Microsoft à [azure
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Approvisionner les nœuds](create-nodes.md)
+* [Acheter des nœuds](create-nodes.md)
 * [Vue d’ensemble des nœuds CloudSimple](cloudsimple-node.md)

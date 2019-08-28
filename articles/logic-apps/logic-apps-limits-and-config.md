@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 07/19/2019
-ms.openlocfilehash: dd4eef7998b83c7a527738762379d0d3e720d70f
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 95df72875338b6964f42075404cf9c30ba132f9d
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699812"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69900206"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limites et informations de configuration pour Azure Logic Apps
 
@@ -205,7 +205,7 @@ Les limites du nombre d’artefacts pour chaque niveau de compte d’intégratio
 | Cartes | 25 | 500 | 1 000 |
 | Schémas | 25 | 500 | 1 000 |
 | Assemblys | 10 | 25 | 1 000 |
-| Certificats | 25 | 2 | 500 |
+| Certificats | 25 | 2 | 1 000 |
 | Configurations par lots | 5\. | 1 | 50 |
 ||||
 
@@ -253,9 +253,11 @@ Lorsque vous supprimez une application logique, aucune nouvelle exécution n’e
 
 ## <a name="firewall-configuration-ip-addresses"></a>Configuration du pare-feu : Adresses IP
 
-Toutes les applications logiques qui se trouvent dans une même région utilisent les mêmes plages d’adresses IP. Pour prendre en charge les appels que les applications logiques passent directement à [HTTP](../connectors/connectors-native-http.md), [HTTP + Swagger](../connectors/connectors-native-http-swagger.md) et à d’autres requêtes HTTP, configurez vos pare-feu avec *toutes* les adresses IP [entrantes](#inbound) *et* [sortantes](#outbound) qui sont utilisées par le service Logic Apps, en fonction de l’emplacement de vos applications logiques. Ces adresses s’affichent sous les en-têtes **Entrantes** et **Sortantes** dans cette section, et sont triées par région.
+Toutes les applications logiques qui se trouvent dans une même région utilisent les mêmes plages d’adresses IP. Pour prendre en charge les appels que les applications logiques passent directement à [HTTP](../connectors/connectors-native-http.md), [HTTP + Swagger](../connectors/connectors-native-http-swagger.md) et à d’autres requêtes HTTP, configurez vos pare-feu avec *toutes* les adresses IP [entrantes](#inbound) *et* [sortantes](#outbound) qui sont utilisées par le service Logic Apps, en fonction de l’emplacement de vos applications logiques. Ces adresses s’affichent sous les en-têtes **Entrantes** et **Sortantes** dans cette section, et sont triées par région. 
 
 Pour prendre en charge les appels que passent les [connecteurs managés par Microsoft](../connectors/apis-list.md), configurez votre pare-feu avec *toutes* les adresses IP [sortantes](#outbound) utilisées par ces connecteurs, en fonction de l’emplacement de vos applications logiques. Ces adresses s’affichent sous l’en-tête **Sortantes** dans cette section, et sont triées par région.
+
+Pour les applications logiques qui s’exécutent dans un environnement de service d’intégration (ISE), assurez-vous que vous [ouvrez ces ports](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#ports).
 
 Pour [Azure Government](../azure-government/documentation-government-overview.md) et [Azure China 21Vianet](https://docs.microsoft.com/azure/china/), les adresses IP réservées pour les connecteurs ne sont pas disponibles.
 

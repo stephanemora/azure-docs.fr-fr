@@ -10,16 +10,16 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: cotresne
-ms.openlocfilehash: 7f931a72eab534bc2856e9e545b684d2b8ae7a60
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: a0c34fcc70d92f98a6d72e4cd2fc78d34d863d55
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68444040"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69650453"
 ---
 # <a name="deployment-technologies-in-azure-functions"></a>Technologies de déploiement dans Azure Functions
 
-Vous pouvez utiliser plusieurs technologies différentes pour déployer le code de votre projet Azure Functions sur Azure. Cet article présente une liste exhaustive des technologies existantes, indique la disponibilité de ces technologies selon l’environnement d’exécution d’Azure Functions, explique le fonctionnement de chaque méthode et fournit des recommandations sur le choix de la meilleure méthode à utiliser dans divers scénarios. Les différents outils qui prennent en charge le déploiement sur Azure Functions sont adaptés à la technologie sous-jacente à leur contexte.
+Vous pouvez utiliser plusieurs technologies différentes pour déployer le code de votre projet Azure Functions sur Azure. Cet article présente une liste exhaustive des technologies existantes, indique la disponibilité de ces technologies selon l’environnement d’exécution d’Azure Functions, explique le fonctionnement de chaque méthode et fournit des recommandations sur le choix de la meilleure méthode à utiliser dans divers scénarios. Les différents outils qui prennent en charge le déploiement sur Azure Functions sont adaptés à la technologie sous-jacente à leur contexte. En général, le déploiement zip est la technologie de déploiement recommandée pour Azure Functions.
 
 ## <a name="deployment-technology-availability"></a>Disponibilité des technologies de déploiement
 
@@ -31,17 +31,17 @@ Azure Functions prend en charge le développement local multiplateforme ainsi qu
 
 Chaque plan a des comportements différents. Les technologies de déploiement ne sont pas toutes disponibles pour chaque environnement d’exécution d’Azure Functions. Le graphique suivant indique les technologies de déploiement prises en charge pour chaque combinaison de système d'exploitation et de plan d'hébergement :
 
-| Technologie de déploiement | Consommation Windows | Windows Premium (préversion) | Dédié (Windows)  | Consommation Linux (préversion) | Dédié (Linux) |
-|-----------------------|:-------------------:|:-------------------------:|:-----------------:|:---------------------------:|:---------------:|
-| URL du package externe<sup>1</sup> |✔|✔|✔|✔|✔|
-| Zip Deploy |✔|✔|✔| |✔|
-| Conteneur Docker | | | | |✔|
-| Web Deploy |✔|✔|✔| | |
-| Contrôle de code source |✔|✔|✔| |✔|
-| Git local<sup>1</sup> |✔|✔|✔| |✔|
-| Synchronisation cloud<sup>1</sup> |✔|✔|✔| |✔|
-| FTP<sup>1</sup> |✔|✔|✔| |✔|
-| Modification dans le portail |✔|✔|✔| |✔<sup>2</sup>|
+| Technologie de déploiement | Consommation Windows | Windows Premium (préversion) | Dédié (Windows)  | Consommation Linux | Premium (Linux) (préversion) | Dédié (Linux) |
+|-----------------------|:-------------------:|:-------------------------:|:------------------:|:---------------------------:|:-------------:|:---------------:|
+| URL du package externe<sup>1</sup> |✔|✔|✔|✔|✔|✔|
+| Zip Deploy |✔|✔|✔|✔|✔|✔|
+| Conteneur Docker | | | | |✔|✔|
+| Web Deploy |✔|✔|✔| | | |
+| Contrôle de code source |✔|✔|✔| |✔|✔|
+| Git local<sup>1</sup> |✔|✔|✔| |✔|✔|
+| Synchronisation cloud<sup>1</sup> |✔|✔|✔| |✔|✔|
+| FTP<sup>1</sup> |✔|✔|✔| |✔|✔|
+| Modification dans le portail |✔|✔|✔| |✔<sup>2</sup>|✔<sup>2</sup>|
 
 <sup>1</sup> Cette technologie de déploiement nécessite une [synchronisation manuelle des déclencheurs](#trigger-syncing).  
 <sup>2</sup> La modification dans le portail est disponible uniquement pour les déclencheurs HTTP et de minuteur quand Azure Functions est exécuté sur Linux avec des plans Premium et Dédié.
@@ -58,7 +58,40 @@ Quand vous changez l’un de vos déclencheurs, l’infrastructure Functions doi
 * Envoyez une requête HTTP POST sur `https://{functionappname}.azurewebsites.net/admin/host/synctriggers?code=<API_KEY>` en utilisant la [clé principale](functions-bindings-http-webhook.md#authorization-keys).
 * Envoyez une requête HTTP POST sur `https://management.azure.com/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP_NAME>/providers/Microsoft.Web/sites/<FUNCTION_APP_NAME>/syncfunctiontriggers?api-version=2016-08-01`. Remplacez les espaces réservés par votre ID d’abonnement, le nom de votre groupe de ressources et le nom de votre application de fonction.
 
-## <a name="deployment-technology-details"></a>Description des technologies de déploiement 
+### <a name="remote-build"></a>Build distante
+
+Azure Functions peut créer automatiquement les builds sur le code qu’il reçoit après les déploiements zip. Ces builds se comportent de façon légèrement différente selon que votre application s’exécute sur Windows ou Linux. Les builds distantes ne sont pas exécutées quand une application a été précédemment configurée en mode [Exécuter à partir du package](run-functions-from-deployment-package.md). Pour savoir comment utiliser la build distante, accédez à [Zip Deploy](#zip-deploy).
+
+> [!NOTE]
+> Si vous rencontrez des problèmes avec la build distante, cela peut être dû au fait que votre application a été créée avant la mise à disposition de la fonctionnalité (1er août 2019). Essayez de créer une nouvelle application Azure Functions.
+
+#### <a name="remote-build-on-windows"></a>Build distante sur Windows
+
+Toutes les applications de fonction s’exécutant sur Windows ont une petite application de gestion, le site SCM (ou [Kudu](https://github.com/projectkudu/kudu)). Ce site gère une grande partie du déploiement et de la logique de build pour Azure Functions.
+
+Quand une application est déployée sur Windows, les commandes spécifiques au langage, comme `dotnet restore` (C#) ou `npm install` (JavaScript), sont exécutées.
+
+#### <a name="remote-build-on-linux-preview"></a>Build distante sur Linux (préversion)
+
+Pour activer la build distante sur Linux, vous devez définir les [paramètres d’application](functions-how-to-use-azure-function-app-settings.md#settings) suivants :
+
+* `ENABLE_ORYX_BUILD=true`
+* `SCM_DO_BUILD_DURING_DEPLOYMENT=true`
+
+Lorsque les applications sont créées à distance sur Linux, elles s’[exécutent à partir du package de déploiement](run-functions-from-deployment-package.md).
+
+> [!NOTE]
+> Le plan de build distante sur Linux dédié (App Service) est actuellement uniquement pris en charge pour Node.js et Python.
+
+##### <a name="consumption-preview-plan"></a>Plan Consommation (préversion)
+
+Les applications de fonction Linux qui s’exécutent dans le plan Consommation ne disposent pas de site SCM/Kudu, ce qui limite les options de déploiement. Toutefois, les applications de fonction sur Linux exécutées dans le plan Consommation prennent en charge les builds distantes.
+
+##### <a name="dedicated-and-premium-preview-plans"></a>Plans dédiés et Premium (préversion)
+
+Les applications de fonction qui s’exécutent sur Linux dans le [plan dédié (App service)](functions-scale.md#app-service-plan) et le [plan Premium](functions-scale.md#premium-plan) disposent également d’un site SCM/Kudu limité.
+
+## <a name="deployment-technology-details"></a>Description des technologies de déploiement
 
 Les méthodes de déploiement décrites ci-après sont disponibles dans Azure Functions.
 
@@ -70,17 +103,25 @@ Vous pouvez utiliser une URL de package externe pour référencer un fichier de 
 >
 >Si vous employez le Stockage Blob Azure, utilisez un conteneur privé associé à une [signature d’accès partagé](../vs-azure-tools-storage-manage-with-storage-explorer.md#generate-a-sas-in-storage-explorer) pour permettre à Functions d’accéder au package. Chaque fois que l’application redémarre, elle extrait une copie du contenu. Votre référence doit être valide pendant la durée de vie de l’application.
 
->__Quand l’utiliser ?__ L’URL de package externe est la seule méthode de déploiement prise en charge quand Azure Functions est exécuté sur Linux dans le plan Consommation (préversion). Si vous mettez à jour le fichier de package référencé par une application de fonction, vous devez [synchroniser manuellement les déclencheurs](#trigger-syncing) pour indiquer à Azure que votre application a été modifiée.
+>__Quand l’utiliser ?__ L’URL de package externe est la seule méthode de déploiement prise en charge quand Azure Functions est exécuté sur Linux dans le plan de consommation (préversion), si l’utilisateur ne souhaite pas qu’une build distante soit effectuée. Si vous mettez à jour le fichier de package référencé par une application de fonction, vous devez [synchroniser manuellement les déclencheurs](#trigger-syncing) pour indiquer à Azure que votre application a été modifiée.
 
 ### <a name="zip-deploy"></a>Zip Deploy
 
-Utilisez Zip Deploy pour envoyer (push) un fichier .zip contenant votre application de fonction sur Azure. Vous pouvez éventuellement spécifier que votre application démarre en mode [Exécuter à partir du package](run-functions-from-deployment-package.md).
+Utilisez Zip Deploy pour envoyer (push) un fichier .zip contenant votre application de fonction sur Azure. Si vous le souhaitez, vous pouvez configurer votre application pour qu’elle utilise le mode [Exécuter à partir du package](run-functions-from-deployment-package.md) ou spécifier qu’une [build distante](#remote-build) est effectuée.
 
 >__Comment l’utiliser ?__ Effectuez le déploiement à l’aide de votre outil client habituel : [VS Code](functions-create-first-function-vs-code.md#publish-the-project-to-azure), [Visual Studio](functions-develop-vs.md#publish-to-azure) ou [Azure CLI](functions-create-first-azure-function-azure-cli.md#deploy-the-function-app-project-to-azure). Pour déployer manuellement un fichier .zip sur votre application de fonction, suivez les instructions dans [Déployer à partir d’un fichier .zip ou d’une URL](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file-or-url).
->
->Quand vous effectuez le déploiement à l’aide de Zip Deploy, vous pouvez définir votre application pour s’exécuter en mode [Exécuter à partir du package](run-functions-from-deployment-package.md). Pour définir le mode Exécuter à partir du package, affectez au paramètre d’application `WEBSITE_RUN_FROM_PACKAGE` la valeur `1`. Nous vous recommandons le déploiement zip. Il accélère les temps de chargement de vos applications, et il s’agit de la méthode par défaut pour VS Code, Visual Studio et Azure CLI.
 
->__Quand l’utiliser ?__ Zip Deploy est la technologie de déploiement recommandée quand Functions est exécuté sur Windows et Linux dans le plan Premium ou Dédié.
+Pour effectuer un déploiement zip avec une [build distante](#remote-build), utilisez la commande [Core Tools](functions-run-local.md) suivante :
+
+```bash
+func azure functionapp publish <app name> --build remote
+```
+
+Vous pouvez également demander à VS Code d’effectuer une build distante lors du déploiement en ajoutant l’indicateur azureFunctions.scmDoBuildDuringDeployment. Pour savoir comment ajouter un indicateur à VS Code, lisez les instructions du [Wiki Azure Functions Extension](https://github.com/microsoft/vscode-azurefunctions/wiki).
+
+>Quand vous effectuez le déploiement à l’aide de Zip Deploy, vous pouvez définir votre application pour qu’elle s’exécute en mode [Exécuter à partir du package](run-functions-from-deployment-package.md). Pour utiliser le mode Exécuter à partir du package, affectez au paramètre d’application `WEBSITE_RUN_FROM_PACKAGE` la valeur `1`. Nous vous recommandons le déploiement zip. Il accélère les temps de chargement de vos applications, et il s’agit de la méthode par défaut pour VS Code, Visual Studio et Azure CLI. 
+
+>__Quand l’utiliser ?__ Zip Deploy est la technologie de déploiement recommandée pour Azure Functions.
 
 ### <a name="docker-container"></a>Conteneur Docker
 
@@ -93,7 +134,7 @@ Vous pouvez déployer une image conteneur Linux qui contient votre application d
 >
 >Pour effectuer le déploiement sur une application existante à l’aide d’un conteneur personnalisé, utilisez la commande [`func deploy`](functions-run-local.md#publish) dans [Azure Functions Core Tools](functions-run-local.md).
 
->__Quand l’utiliser ?__ Utilisez l’option Conteneur Docker si vous voulez contrôler davantage l’environnement Linux dans lequel s’exécute votre application de fonction. Cette technologie de déploiement est disponible uniquement quand Azure Functions est exécuté sur Linux dans un plan App Service.
+>__Quand l’utiliser ?__ Utilisez l’option Conteneur Docker si vous voulez contrôler davantage l’environnement Linux dans lequel s’exécute votre application de fonction. Cette technologie de déploiement est disponible uniquement quand Azure Functions est exécuté sur Linux.
 
 ### <a name="web-deploy-msdeploy"></a>Web Deploy (MSDeploy)
 
@@ -151,7 +192,7 @@ Dans l’éditeur du portail, vous pouvez modifier directement les fichiers dans
 
 Le tableau suivant présente les systèmes d’exploitation et les langages qui prennent en charge la modification dans le portail :
 
-| | Consommation Windows | Windows Premium (préversion) | Dédié (Windows) | Consommation Linux (préversion) | Premium (Linux) (préversion)| Dédié (Linux) |
+| | Consommation Windows | Windows Premium (préversion) | Dédié (Windows) | Consommation Linux | Premium (Linux) (préversion)| Dédié (Linux) |
 |-|:-----------------: |:-------------------------:|:-----------------:|:---------------------------:|:---------------:|:---------------:|
 | C# | | | | | |
 | Script C# |✔|✔|✔| |✔<sup>\*</sup> |✔<sup>\*</sup>|
@@ -166,23 +207,7 @@ Le tableau suivant présente les systèmes d’exploitation et les langages qui 
 
 ## <a name="deployment-slots"></a>Emplacements de déploiement
 
-Quand vous déployez votre application de fonction sur Azure, vous pouvez choisir un autre emplacement de déploiement que directement l’emplacement de production. Pour plus d’informations sur les emplacements de déploiement, consultez [Emplacements Azure App Service](../app-service/deploy-staging-slots.md).
-
-### <a name="deployment-slots-levels-of-support"></a>Niveaux de prise en charge des emplacements de déploiement
-
-Il existe deux niveaux de prise en charge des emplacements de déploiement :
-
-* **Disponibilité générale** : entièrement pris en charge et approuvé pour la production.
-* **Préversion** : pas encore pris en charge, mais le statut de disponibilité générale est prévu à l’avenir.
-
-| Plan d’hébergement/système d’exploitation | Niveau de prise en charge |
-| --------------- | ------ |
-| Consommation Windows | PRÉVERSION |
-| Windows Premium (préversion) | PRÉVERSION |
-| Dédié (Windows) | Disponibilité générale |
-| Consommation Linux | Non pris en charge |
-| Premium (Linux) (préversion) | PRÉVERSION |
-| Dédié (Linux) | Disponibilité générale |
+Quand vous déployez votre application de fonction sur Azure, vous pouvez choisir un autre emplacement de déploiement que directement l’emplacement de production. Pour plus d’informations sur les emplacements de déploiement, consultez la documentation sur les [emplacements de déploiement Azure Functions](../app-service/deploy-staging-slots.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

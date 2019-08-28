@@ -7,12 +7,12 @@ ms.service: governance
 ms.date: 04/22/2019
 ms.author: rithorn
 ms.topic: overview
-ms.openlocfilehash: 6ca8351e7294c5a9cdd9f594eb4524d04a27b5c1
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: c9bc02959c64baecf11e2d1651051cd9bdda61d7
+ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68516989"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70060622"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Organiser vos ressources avec des groupes d’administration Azure
 
@@ -26,7 +26,7 @@ Vous pouvez créer une structure flexible de groupes d’administration et d’a
 
 ![Exemple d’une arborescence hiérarchique de groupes de gestion](./media/tree.png)
 
-Créez une hiérarchie afin de pouvoir appliquer une stratégie, par exemple limiter les emplacements de machine virtuelle à la région USA Ouest sur le groupe « Production ». Cette stratégie héritera sur les deux abonnements EA dans ce groupe d’administration et s’applique à toutes les machines virtuelles dans ces abonnements. Cette stratégie de sécurité ne peut pas être modifiée par le propriétaire de ressources ou d’abonnement permettant une gouvernance améliorée.
+Vous pouvez créer une hiérarchie qui applique une stratégie, par exemple, qui limite les emplacements de machines virtuelles à la région USA Ouest dans le groupe appelé « Production ». Cette stratégie héritera sur les deux abonnements EA dans ce groupe d’administration et s’applique à toutes les machines virtuelles dans ces abonnements. Cette stratégie de sécurité ne peut pas être modifiée par le propriétaire de ressources ou d’abonnement permettant une gouvernance améliorée.
 
 Un autre scénario où vous pouvez utiliser les groupes d’administration consiste à fournir un accès utilisateur à plusieurs abonnements. En déplaçant plusieurs abonnements dans ce groupe d’administration, vous pouvez créer une affectation de [contrôle d’accès en fonction du rôle](../../role-based-access-control/overview.md) (RBAC) dans le groupe d’administration, qui héritera de l’accès à tous les abonnements.
 Une affectation sur le groupe d’administration peut autoriser les utilisateurs à accéder à tout ce que dont ils ont besoin, au lieu de créer un script RBAC sur différents abonnements.
@@ -55,7 +55,7 @@ Ce groupe d’administration racine est intégré à la hiérarchie et contient 
   - Lors de leur création, les nouveaux abonnements sont attribués par défaut au groupe d’administration racine.
 - Tous les clients Azure peuvent voir le groupe d’administration racine, mais tous ne peuvent pas le gérer.
   - Toute personne ayant accès à un abonnement peut voir où celui-ci se trouve dans la hiérarchie.  
-  - Personne ne reçoit par défaut l’accès au groupe d’administration racine. Les administrateurs généraux Azure AD sont les seuls utilisateurs à pouvoir élever leurs privilèges pour obtenir l’accès.  Une fois l’accès obtenu, les administrateurs généraux peuvent attribuer un rôle RBAC aux autres utilisateurs qu’ils doivent gérer.  
+  - Personne ne reçoit par défaut l’accès au groupe d’administration racine. Les administrateurs généraux Azure AD sont les seuls utilisateurs à pouvoir élever leurs privilèges pour obtenir l’accès.  Une fois qu’ils ont accès au groupe d’administration racine, les administrateurs généraux peuvent attribuer un rôle RBAC aux autres utilisateurs pour le gérer.  
 
 > [!IMPORTANT]
 > Les attributions d’accès utilisateur et de stratégies effectuées au niveau du groupe d’administration racine **s’appliquent à toutes les ressources de l’annuaire**.
