@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: e434065feb218b0a46220b95cc6bfd9a7033de30
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 120ab94ce62010acf4e742bd5220405961dad6db
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68816109"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972720"
 ---
 # <a name="key-concepts-for-administration-of-azure-vmware-solution-by-cloudsimple"></a>Concepts clés pour l’administration de la solution Azure VMware par CloudSimple
 
@@ -34,7 +34,6 @@ En savoir plus sur le [service CloudSimple](cloudsimple-service.md).
 ## <a name="cloudsimple-node"></a>Nœud CloudSimple
 
 Un nœud CloudSimple est un hôte de calcul et de stockage hyperconvergé complet dédié sur lequel l’hyperviseur VMware ESXi est déployé. Ce nœud est ensuite intégré aux plateformes VMware vSphere, vCenter, vSAN, et NSX. Les services de mise en réseau CloudSimple et Edge sont également activés. Chaque nœud sert d’unité de capacité de calcul et de capacité de stockage que vous pouvez configurer pour créer des [clouds privés CloudSimple](cloudsimple-private-cloud.md). Vous configurez ou réservez des nœuds dans une région où le service CloudSimple est disponible.
-
 
 En savoir plus sur les [nœuds CloudSimple](cloudsimple-node.md).
 

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/18/2018
 ms.author: yexu
-ms.openlocfilehash: 107687c785433f81870449d1445136b5148a4d2c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 144a991eb911fa6a337b6711515bd5760456fc10
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60787691"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69996386"
 ---
 # <a name="copy-data-tool-in-azure-data-factory"></a>Outil Copier des données dans Azure Data Factory
 L’outil Copier des données d’Azure Data Factory facilite et optimise le processus de réception des données dans Azure Data Lake, qui est généralement la première étape dans un scénario d’intégration des données de bout en bout.  Il permet de gagner du temps, surtout lorsque vous utilisez Azure Data Factory pour réceptionner des données à partir d’une source de données pour la première fois. Voici certains des avantages de l’utilisation de cet outil :
@@ -95,7 +95,7 @@ Puis remplacez **2016** par **{year}** , **03** par **{month}** , **01** par **{
 
 ![Filtrer un fichier ou un dossier](./media/copy-data-tool/filter-file-or-folder.png)
 
-L’outil Copier des données génère des paramètres avec des expressions, fonctions et variables système qui peuvent être utilisés pour représenter les variables {year}, {month}, {day}, {hour} et {minute} lors de la création du pipeline. Pour plus d’informations, consultez l’article [Guide pratique pour lire ou écrire des données partitionnées](how-to-read-write-partitioned-data.md).
+L’outil Copier des données génère des paramètres avec des expressions, fonctions et variables système qui peuvent être utilisés pour représenter les variables {year}, {month}, {day}, {hour} et {minute} lors de la création du pipeline.
 
 ## <a name="scheduling-options"></a>Options de planification
 Vous pouvez effectuer l’opération de copie une seule fois ou la répéter selon une planification établie (horaire, quotidienne et ainsi de suite.). Ces options peuvent être utilisées pour les connecteurs entre différents environnements, notamment les environnements locaux, dans le cloud ou sur un bureau local. 

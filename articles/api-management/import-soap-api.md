@@ -9,16 +9,15 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/22/2017
 ms.author: apimpm
-ms.openlocfilehash: 7f7a203495e35d9e4143fe247a55adaa43bc5d2d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 22b7b79426829b57f15263f7792dca6596c6641f
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60817041"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073242"
 ---
 # <a name="import-soap-api"></a>Importer une API SOAP
 
@@ -59,7 +58,7 @@ Effectuez le guide de démarrage rapide suivant : [Créer une instance du servi
 
     * **Starter**
     * **Illimité**   
-10. Sélectionnez **Créer**.
+10. Sélectionnez **Create** (Créer).
 
 ### <a name="test-the-new-apim-api-in-the-administrative-portal"></a>Tester la nouvelle API APIM dans le portail d’administration
 

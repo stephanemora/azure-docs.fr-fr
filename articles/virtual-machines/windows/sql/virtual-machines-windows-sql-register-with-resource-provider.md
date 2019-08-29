@@ -7,19 +7,18 @@ author: MashaMSFT
 manager: craigg
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/24/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 552caf0f09dcfa291981ef73152cf4febfc4a840
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: a4e217ce3fcfae0f7d103c545ff385f2dffe582d
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68882379"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70100491"
 ---
 # <a name="register-a-sql-server-virtual-machine-in-azure-with-the-sql-vm-resource-provider"></a>Inscrire une machine virtuelle SQL Server dans Azure auprès du fournisseur de ressources de machine virtuelle SQL
 
@@ -235,7 +234,7 @@ Il n’existe aucun prérequis à l’inscription auprès du fournisseur de ress
 
 Oui, vous pouvez vous inscrire auprès du fournisseur de ressources de machine virtuelle SQL en mode de gestion léger si l’extension IaaS SQL Server n’est pas installée sur la machine virtuelle. En mode léger, le fournisseur de ressources de machine virtuelle SQL utilise une application console pour vérifier la version et l’édition de l’instance SQL Server. 
 
-Le mode de gestion SQL par défaut au moment de l’inscription auprès du fournisseur de ressources de machine virtuelle SQL est _Complet_. Si la propriété de gestion SQL n’est pas définie lors de l’inscription auprès du fournisseur de ressources de machine virtuelle SQL, le mode de gestion complet est défini. L’installation de l’extension IaaS SQL sur la machine virtuelle est le prérequis à l’inscription auprès du fournisseur de ressources de machine virtuelle SQL en mode de gestion complet.
+Le mode de gestion SQL par défaut au moment de l’inscription auprès du fournisseur de ressources de machine virtuelle SQL est _Complet_. Si la propriété de gestion SQL n’est pas définie lors de l’inscription auprès du fournisseur de ressources de machine virtuelle SQL, le mode de gestion complète est défini. L’installation de l’extension IaaS SQL sur la machine virtuelle est le prérequis à l’inscription auprès du fournisseur de ressources de machine virtuelle SQL en mode de gestion complète.
 
 **L’inscription auprès du fournisseur de ressources de machine virtuelle SQL a-t-elle pour effet d’installer un agent sur ma machine virtuelle ?**
 

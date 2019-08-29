@@ -4,14 +4,14 @@ description: Décrit comment définir le nom et le type des ressources enfants d
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 08/02/2019
+ms.date: 08/26/2019
 ms.author: tomfitz
-ms.openlocfilehash: 32d1eb8fdf2b488e5d6ec46d281392ad6185525b
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: bd1c38547866c34eb5c4808ed5b185b50fa44a01
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827341"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70035562"
 ---
 # <a name="set-name-and-type-for-child-resources"></a>Définir le nom et le type des ressources enfants
 
@@ -22,9 +22,9 @@ Dans un modèle Resource Manager, vous pouvez spécifier la ressource enfant dan
 ```json
 "resources": [
   {
-    // parent resource
+    <parent-resource>
     "resources": [
-      // child resource
+      <child-resource>
     ]
   }
 ]
@@ -35,10 +35,10 @@ L’exemple suivant montre la ressource enfant en dehors de la ressource parent.
 ```json
 "resources": [
   {
-    // parent resource
+    <parent-resource>
   },
   {
-    // child resource
+    <child-resource>
   }
 ]
 ```
@@ -101,7 +101,7 @@ En cas de définition en dehors de la ressource parent, vous mettez en forme le 
 "name": "{parent-resource-name}/{child-resource-name}",
 ```
 
-L’exemple suivant montre un réseau virtuel et un sous-réseau qui sont tous deux définis au niveau de la racine. Notez que le sous-réseau est inclus dans le tableau des ressources pour le réseau virtuel. Le nom est défini sur VNet1/Subnet1 et le type est défini sur **Microsoft.Network/virtualNetworks/subnets**. La ressource enfant est marquée comme étant dépendante de la ressource parent, car la ressource parent doit exister pour que la ressource enfant puisse être déployée.
+L’exemple suivant montre un réseau virtuel et un sous-réseau qui sont tous deux définis au niveau de la racine. Notez que le sous-réseau est inclus dans le tableau des ressources pour le réseau virtuel. Le nom est défini sur **VNet1/Subnet1** et le type est défini sur **Microsoft.Network/virtualNetworks/subnets**. La ressource enfant est marquée comme étant dépendante de la ressource parent, car la ressource parent doit exister pour que la ressource enfant puisse être déployée.
 
 ```json
 "resources": [

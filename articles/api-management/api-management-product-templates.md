@@ -10,16 +10,15 @@ ms.assetid: 49f9254c-4c5f-4ed4-9c8d-798f44e805ee
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 14090e21fb7c6ca07fe63220ffd1d44d483ac869
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 637d4e7bc75537d99538048700673192534613dc
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61088171"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073377"
 ---
 # <a name="product-templates-in-azure-api-management"></a>Modèles Produit dans Gestion des API Azure
 
@@ -206,16 +205,16 @@ Gestion des API Azure vous offre la possibilité de personnaliser le contenu des
 |Propriété|Type|Description|  
 |--------------|----------|-----------------|  
 |Produit|[Produit](api-management-template-data-model-reference.md#Product)|Produit spécifié.|  
-|IsDeveloperSubscribed|booléenne|Si l’utilisateur actuel est abonné à ce produit.|  
+|IsDeveloperSubscribed|boolean|Si l’utilisateur actuel est abonné à ce produit.|  
 |SubscriptionState|number|État de l’abonnement. Les états possibles sont :<br /><br /> -   `0 - suspended` : l’abonnement est bloqué et l’abonné ne peut appeler aucune API du produit.<br />-   `1 - active` : l’abonnement est actif.<br />-   `2 - expired` : l’abonnement a atteint sa date d’expiration et a été désactivé.<br />-   `3 - submitted` : la demande d’abonnement a été effectuée par le développeur, mais n’a pas encore été approuvée ou rejetée.<br />-   `4 - rejected` : la demande d’abonnement a été refusée par un administrateur.<br />-   `5 - cancelled` : l’abonnement a été annulé par le développeur ou l’administrateur.|  
 |limites|array|Cette propriété est déconseillée et ne doit pas être utilisée.|  
-|DelegatedSubscriptionEnabled|booléenne|Indique si la [délégation](https://azure.microsoft.com/documentation/articles/api-management-howto-setup-delegation/) est activée pour cet abonnement.|  
-|DelegatedSubscriptionUrl|chaîne|Si la délégation est activée, indique l’URL de l’abonnement délégué.|  
-|IsAgreed|booléenne|Si le produit est associé à un contrat, indique si l’utilisateur actuel a accepté les termes du contrat.|  
+|DelegatedSubscriptionEnabled|boolean|Indique si la [délégation](https://azure.microsoft.com/documentation/articles/api-management-howto-setup-delegation/) est activée pour cet abonnement.|  
+|DelegatedSubscriptionUrl|string|Si la délégation est activée, indique l’URL de l’abonnement délégué.|  
+|IsAgreed|boolean|Si le produit est associé à un contrat, indique si l’utilisateur actuel a accepté les termes du contrat.|  
 |Abonnements|Collection d’entités [Subscription summary](api-management-template-data-model-reference.md#SubscriptionSummary).|Abonnements au produit.|  
 |Apis|Collection d’entités [API](api-management-template-data-model-reference.md#API).|API dans ce produit.|  
-|CannotAddBecauseSubscriptionNumberLimitReached|booléenne|Indique si l’utilisateur actuel est autorisé à s’abonner à ce produit en fonction de la limite d’abonnement.|  
-|CannotAddBecauseMultipleSubscriptionsNotAllowed|booléenne|Indique si l’utilisateur actuel est autorisé à s’abonner à ce produit en fonction de l’autorisation ou non de plusieurs abonnements.|  
+|CannotAddBecauseSubscriptionNumberLimitReached|boolean|Indique si l’utilisateur actuel est autorisé à s’abonner à ce produit en fonction de la limite d’abonnement.|  
+|CannotAddBecauseMultipleSubscriptionsNotAllowed|boolean|Indique si l’utilisateur actuel est autorisé à s’abonner à ce produit en fonction de l’autorisation ou non de plusieurs abonnements.|  
   
 ### <a name="sample-template-data"></a>Données d’un exemple de modèle  
   

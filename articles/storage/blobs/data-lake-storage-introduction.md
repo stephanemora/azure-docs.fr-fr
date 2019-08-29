@@ -8,12 +8,12 @@ ms.date: 12/06/2018
 ms.author: normesta
 ms.reviewer: jamesbak
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 3dea4dfc58bf087b8f6bc0a3f45646da5cb597ad
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: de2dc5068dc454925744688a43f49a855aac42f3
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68847232"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69991847"
 ---
 # <a name="introduction-to-azure-data-lake-storage-gen2"></a>Présentation d'Azure Data Lake Storage Gen2
 
@@ -64,7 +64,7 @@ Les éléments suivants sont des entités équivalentes, décrites par différen
 | Concept                                | Organisation de niveau supérieur | Organisation de niveau inférieur                                            | Conteneur de données |
 |----------------------------------------|------------------------|---------------------------------------------------------------------|----------------|
 | Objets BLOB – Stockage d’objets à usage général | Conteneur              | Répertoire virtuel (Kit de développement logiciel uniquement – ne fournit aucune manipulation atomique) | Blob           |
-| ADLS Gen2 – Stockage de l’analytique          | Système de fichiers             | Répertoire                                                           | Fichier           |
+| ADLS Gen2 – Stockage de l’analytique          | Conteneur            | Répertoire                                                           | Fichier           |
 
 ## <a name="supported-open-source-platforms"></a>Plateformes open source prises en charge
 

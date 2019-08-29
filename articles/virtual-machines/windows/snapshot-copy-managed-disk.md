@@ -10,17 +10,16 @@ ms.assetid: 15eb778e-fc07-45ef-bdc8-9090193a6d20
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: b3b9095cd7ee3fa12523b14f59cc06820b9e4382
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 76110fa04441540875e65c8bc056fc21555c5db6
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64692216"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70102276"
 ---
 # <a name="create-a-snapshot"></a>Créer un instantané
 
@@ -38,7 +37,7 @@ Si vous prévoyez d’utiliser la capture instantanée pour créer une machine v
 6. Sélectionnez un **Emplacement** de centre de données Azure.  
 7. Dans **Disque source**, sélectionnez le disque managé dont vous souhaitez obtenir une capture instantanée.
 8. Sélectionnez le **type de compte** à utiliser pour stocker la capture instantanée. Sélectionnez **Standard_HDD**, sauf si vous avez besoin que la capture soit stockée sur un disque hautes performances.
-9. Sélectionnez **Créer**.
+9. Sélectionnez **Create** (Créer).
 
 ## <a name="use-powershell"></a>Utiliser PowerShell
 

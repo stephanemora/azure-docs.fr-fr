@@ -9,12 +9,12 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 06/07/2019
 ms.author: diberry
-ms.openlocfilehash: e55ccb508760c4473f71245c183948219f31985c
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: c258799b1305c4204d08d66aa36a0be7c71a4944
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68663909"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70034376"
 ---
 # <a name="how-personalizer-works"></a>Fonctionnement de Personalizer
 
@@ -163,7 +163,7 @@ Vous pouvez utiliser des moteurs de recommandation avec Personalizer pour effect
 
 ## <a name="adding-content-safeguards-to-your-application"></a>Ajout de protections de contenu à votre application
 
-Si votre application autorise des variations importantes du contenu affiché aux utilisateurs, et qu’une partie de ce contenu peut être préjudiciable ou inappropriée pour certains utilisateurs, vous devez vous assurer à l’avance que les protections adéquates sont en place pour empêcher les utilisateurs de voir du contenu inapproprié. La meilleure procédure pour implémenter des protections est la suivante :
+Si votre application autorise des variations importantes du contenu affiché aux utilisateurs, et qu’une partie de ce contenu peut être préjudiciable ou inappropriée pour certains utilisateurs, vous devez vous assurer à l’avance que les protections adéquates sont en place pour empêcher les utilisateurs de voir du contenu inapproprié. la suivante :
     * Obtenir la liste des actions à classer.
     * Filtrer les celles qui ne sont pas viables pour le public.
     * Classer uniquement les actions viables.

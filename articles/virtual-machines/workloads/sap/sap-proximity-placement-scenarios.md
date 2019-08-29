@@ -9,19 +9,18 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-linux
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/15/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f97cce2d1a8b2de5634215629ddb997dc8f7196a
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: 02dcb7174dd9cb2926ef2fafda4b521b939ae68a
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68235167"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70077986"
 ---
 # <a name="azure-proximity-placement-groups-for-optimal-network-latency-with-sap-applications"></a>Groupes de placement de proximité Azure pour une latence réseau optimale avec les applications SAP
 Les applications SAP basées sur l’architecture SAP NetWeaver ou SAP S/4HANA sont sensibles à la latence réseau entre la couche Application SAP et la couche Base de données SAP. La raison de cette sensibilité de la part de ces architectures tient du fait que la majeure partie de la logique métier est exécutée dans la couche Application. Suite à l’exécution de la logique métier, la couche Application SAP émet des requêtes à la couche Base de données à des fréquences élevées de milliers et de dizaines de milliers par seconde. Dans la plupart des cas, la nature de ces requêtes est simple. Et elles peuvent souvent être exécutées sur la couche Base de données en moins de 500 microsecondes, voire moins. Le temps passé sur le réseau à envoyer une telle requête de la couche Application à la couche Base de données et à recevoir le jeu de résultats de la couche Base de données a un impact majeur sur le temps nécessaire à l’exécution des processus métier. Cette sensibilité à la latence réseau est la raison pour laquelle du temps est nécessaire dans les projets de déploiement SAP pour atteindre une latence réseau optimale. Dans [Note SAP n° 1100926 - FAQ : Performances réseau](https://launchpad.support.sap.com/#/notes/1100926/E), SAP a publié des instructions sur la façon de classer la latence réseau.

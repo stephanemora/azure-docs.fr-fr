@@ -10,12 +10,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 06/26/2019
 ms.author: dapine
-ms.openlocfilehash: 37fa972d52c564c4d61e5923c2b3dc48bde9d2ee
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: a8162f96051a73b9f6e6a6fe3ece020e0a94f08f
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67445803"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70068828"
 ---
 # <a name="create-containers-for-reuse"></a>Créer des conteneurs à réutiliser
 
@@ -116,7 +116,7 @@ Suivez ces étapes pour utiliser le Dockerfile et placer la nouvelle image dans 
 
 1. Connectez-vous à Azure CLI à partir d’une console. Cette commande ouvre un navigateur et nécessite une authentification. Une fois authentifié, vous pouvez fermer le navigateur et continuer à travailler dans la console.
 
-    ```azure-cli
+    ```azurecli
     az login
     ```
 
@@ -124,7 +124,7 @@ Suivez ces étapes pour utiliser le Dockerfile et placer la nouvelle image dans 
 
     Remplacez les valeurs entre chevrons, `<my-registry>`, par votre propre nom de registre.  
 
-    ```azure-cli
+    ```azurecli
     az acr login --name <my-registry>
     ```
 

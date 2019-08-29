@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: a562630ef19c134c227ef44b944c1dd921ff2e46
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: d20ea4a6e86bb889615d3ab9bfcac5aedf838ceb
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68726821"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70098624"
 ---
 # <a name="securing-paas-deployments"></a>Sécurisation des déploiements PaaS
 
@@ -139,7 +139,7 @@ Voici les bonnes pratiques relatives à l’utilisation d’App Service.
 **Détail** : [App Service Environment](/azure/app-service/environment/intro) propose une fonctionnalité d’intégration de réseau virtuel qui vous permet de limiter les adresses IP sources entrantes par le biais de groupes de sécurité réseau. Les réseaux virtuels vous permettent de placer des ressources Azure dans un réseau routable non-Internet auquel vous contrôlez l’accès. Pour en savoir plus, consultez [Intégrer une application à un réseau virtuel Azure](/azure/app-service/web-sites-integrate-with-vnet).
 
 **Bonne pratique** : supervisez l’état de sécurité de vos environnements App Service.   
-**Détail** : utilisez Azure Security Center pour superviser vos environnements App Service. Lorsque Security Center identifie des failles de sécurité potentielles, il crée des [recommandations](/azure/security-center/security-center-virtual-machine-recommendations) qui vous guident tout au long du processus de configuration des contrôles nécessaires.
+**Détail** : utilisez Azure Security Center pour superviser vos environnements App Service. Lorsque Security Center identifie des failles de sécurité potentielles, il crée des [recommandations](../../security-center/security-center-virtual-machine-protection.md) qui vous guident tout au long du processus de configuration des contrôles nécessaires.
 
 > [!NOTE]
 > La surveillance d’App Service est uniquement disponible en préversion, au [niveau Standard](/azure/security-center/security-center-pricing) dans Security Center.

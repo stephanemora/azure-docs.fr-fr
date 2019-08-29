@@ -9,19 +9,18 @@ editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.assetid: 93e812c1-79dd-40c5-b97b-aa79f5cd7d76
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/09/2018
 ms.author: cynthn
 ms.reviewer: davberg
-ms.openlocfilehash: 662e8365ef3c5642df58f4cea8a7d831bbfa6970
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: d91535c6f0daeac58a3005d94e19cbba3e781ebf
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67870882"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70083849"
 ---
 # <a name="compute-benchmark-scores-for-linux-vms"></a>Calcul des scores de test d’évaluation pour les machines virtuelles Linux
 Les scores de test d’évaluation CoreMark suivants montrent les performances de calcul pour la gamme de machines virtuelles hautes performances d’Azure exécutant Ubuntu. Les scores de test d’évaluation de calcul sont également disponibles pour [les machines virtuelles Windows](../windows/compute-benchmark-scores.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
@@ -363,7 +362,7 @@ Les scores de test d’évaluation CoreMark suivants montrent les performances d
 
 | Taille de la machine virtuelle | UC | Processeurs virtuels | Nœuds NUMA | Mémoire (GiO) | Score moy. | StdDev | StdDev% | Nb d’exéc. |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| Standard_NC6s_v3 | Intel(R) Xeon(R) CPU E5-2690 v4 @ 2,60 GHz | 6\. | 1 | 110,2 | 106 929 | 353 | 0,33 % | 49 |
+| Standard_NC6s_v3 | Intel(R) Xeon(R) CPU E5-2690 v4 @ 2,60 GHz | 6 | 1 | 110,2 | 106 929 | 353 | 0,33 % | 49 |
 | Standard_NC12s_v3 | Intel(R) Xeon(R) CPU E5-2690 v4 @ 2,60 GHz | 12 | 1 | 220,4 | 213 585 | 875 | 0,41 % | 42 |
 | Standard_NC24rs_v3 | Intel(R) Xeon(R) CPU E5-2690 v4 @ 2,60 GHz | 24 | 2 | 440,9 | 403 554 | 6 705 | 1,66 % | 42 |
 | Standard_NC24s_v3 | Intel(R) Xeon(R) CPU E5-2690 v4 @ 2,60 GHz | 24 | 2 | 440,9 | 403 874 | 7 603 | 1,88 % | 42 |
@@ -373,7 +372,7 @@ Les scores de test d’évaluation CoreMark suivants montrent les performances d
 
 | Taille de la machine virtuelle | UC | Processeurs virtuels | Nœuds NUMA | Mémoire (GiO) | Score moy. | StdDev | StdDev% | Nb d’exéc. |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| Standard_NC6s_v2 | Intel(R) Xeon(R) CPU E5-2690 v4 @ 2,60 GHz | 6\. | 1 | 110,2 | 107 115 | 321 | 0,30 % | 63 |
+| Standard_NC6s_v2 | Intel(R) Xeon(R) CPU E5-2690 v4 @ 2,60 GHz | 6 | 1 | 110,2 | 107 115 | 321 | 0,30 % | 63 |
 | Standard_NC12s_v2 | Intel(R) Xeon(R) CPU E5-2690 v4 @ 2,60 GHz | 12 | 1 | 220,4 | 213 814 | 656 | 0,31 % | 63 |
 | Standard_NC24rs_v2 | Intel(R) Xeon(R) CPU E5-2690 v4 @ 2,60 GHz | 24 | 2 | 440,9 | 401 728 | 6 995 | 1,74 % | 63 |
 | Standard_NC24s_v2 | Intel(R) Xeon(R) CPU E5-2690 v4 @ 2,60 GHz | 24 | 2 | 440,9 | 402 808 | 7 923 | 1,97 % | 63 |
@@ -383,7 +382,7 @@ Les scores de test d’évaluation CoreMark suivants montrent les performances d
 
 | Taille de la machine virtuelle | UC | Processeurs virtuels | Nœuds NUMA | Mémoire (GiO) | Score moy. | StdDev | StdDev% | Nb d’exéc. |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| Standard_NC6 | Intel(R) Xeon(R) CPU E5-2690 v3 @ 2,60 GHz | 6\. | 1 | 55,0 | 102 211 | 658 | 0,64 % | 259 |
+| Standard_NC6 | Intel(R) Xeon(R) CPU E5-2690 v3 @ 2,60 GHz | 6 | 1 | 55,0 | 102 211 | 658 | 0,64 % | 259 |
 | Standard_NC12 | Intel(R) Xeon(R) CPU E5-2690 v3 @ 2,60 GHz | 12 | 1 | 110,2 | 203 523 | 2 293 | 1,13 % | 259 |
 | Standard_NC24 | Intel(R) Xeon(R) CPU E5-2690 v3 @ 2,60 GHz | 24 | 2 | 220,4 | 382 897 | 8 712 | 2,28 % | 259 |
 | Standard_NC24r | Intel(R) Xeon(R) CPU E5-2690 v3 @ 2,60 GHz | 24 | 2 | 220,4 | 383 171 | 9 166 | 2,39 % | 259 |
@@ -393,7 +392,7 @@ Les scores de test d’évaluation CoreMark suivants montrent les performances d
 
 | Taille de la machine virtuelle | UC | Processeurs virtuels | Nœuds NUMA | Mémoire (GiO) | Score moy. | StdDev | StdDev% | Nb d’exéc. |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| Standard_ND6s | Intel(R) Xeon(R) CPU E5-2690 v4 @ 2,60 GHz | 6\. | 1 | 110,2 | 107 095 | 353 | 0,33 % | 63 |
+| Standard_ND6s | Intel(R) Xeon(R) CPU E5-2690 v4 @ 2,60 GHz | 6 | 1 | 110,2 | 107 095 | 353 | 0,33 % | 63 |
 | Standard_ND12s | Intel(R) Xeon(R) CPU E5-2690 v4 @ 2,60 GHz | 12 | 1 | 220,4 | 212 298 | 3 457 | 1,63 % | 63 |
 | Standard_ND24rs | Intel(R) Xeon(R) CPU E5-2690 v4 @ 2,60 GHz | 24 | 2 | 440,9 | 402 749 | 7 838 | 1,95 % | 56 |
 | Standard_ND24s | Intel(R) Xeon(R) CPU E5-2690 v4 @ 2,60 GHz | 24 | 2 | 440,9 | 401 822 | 7 776 | 1,94 % | 63 |
@@ -403,7 +402,7 @@ Les scores de test d’évaluation CoreMark suivants montrent les performances d
 
 | Taille de la machine virtuelle | UC | Processeurs virtuels | Nœuds NUMA | Mémoire (GiO) | Score moy. | StdDev | StdDev% | Nb d’exéc. |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| Standard_NV6 | Intel(R) Xeon(R) CPU E5-2690 v3 @ 2,60 GHz | 6\. | 1 | 55,0 | 101 728 | 2 094 | 2,06 % | 259 |
+| Standard_NV6 | Intel(R) Xeon(R) CPU E5-2690 v3 @ 2,60 GHz | 6 | 1 | 55,0 | 101 728 | 2 094 | 2,06 % | 259 |
 | Standard_NV12 | Intel(R) Xeon(R) CPU E5-2690 v3 @ 2,60 GHz | 12 | 1 | 110,2 | 203 903 | 1 724 | 0,85 % | 252 |
 | Standard_NV24 | Intel(R) Xeon(R) CPU E5-2690 v3 @ 2,60 GHz | 24 | 2 | 220,4 | 379 879 | 8 737 | 2,30 % | 259 |
 

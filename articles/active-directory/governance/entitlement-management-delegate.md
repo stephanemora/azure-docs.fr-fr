@@ -16,12 +16,12 @@ ms.date: 07/10/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4430e2115e4282ba7bb618184139a845547a06ed
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 064724b3c6a5faa485850ecdfa3d3759d3631be0
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967095"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70124906"
 ---
 # <a name="delegate-tasks-in-azure-ad-entitlement-management-preview"></a>Déléguer des tâches dans la gestion des droits d’utilisation Azure AD (préversion)
 
@@ -30,13 +30,15 @@ ms.locfileid: "68967095"
 > Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge.
 > Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Par défaut, les administrateurs généraux et les administrateurs d’utilisateurs peuvent créer et gérer tous les aspects de la gestion des droits d’utilisation Azure AD. Toutefois, les utilisateurs de ces rôles sont susceptibles de ne pas connaître tous les scénarios dans lesquels des packages d’accès sont requis. En général, ce sont les utilisateurs au sein des services qui savent qui a besoin de collaborer.
+Par défaut, les administrateurs généraux et les administrateurs d’utilisateurs peuvent créer et gérer tous les aspects de la gestion des droits d’utilisation Azure AD. Toutefois, les utilisateurs de ces rôles sont susceptibles de ne pas connaître tous les scénarios dans lesquels des packages d’accès sont requis. En général, ce sont les utilisateurs au sein des services qui savent qui a besoin de collaborer. 
 
-Plutôt que d’accorder des autorisations illimitées pour aux non-administrateurs, vous pouvez accorder aux utilisateurs les dernières autorisations dont ils ont besoin pour effectuer leur travail et éviter de créer des conflits ou des droits d’accès inappropriés. Cet article décrit les rôles que vous pouvez affecter afin de déléguer des diverses tâches dans la gestion des droits d’utilisation.
+Plutôt que d’accorder des autorisations illimitées pour aux non-administrateurs, vous pouvez accorder aux utilisateurs les dernières autorisations dont ils ont besoin pour effectuer leur travail et éviter de créer des conflits ou des droits d’accès inappropriés. Cet article décrit les rôles que vous pouvez affecter afin de déléguer des diverses tâches dans la gestion des droits d’utilisation. 
 
 ## <a name="delegate-example-for-departmental-adoption"></a>Exemple de délégation pour l’adoption par service
 
-Pour comprendre comment déléguer des tâches de gestion des droits d’utilisation, prenons un exemple. Supposons que votre organisation possède les cinq utilisateurs suivants :
+Pour comprendre comment déléguer des tâches de gestion des droits d’utilisation, prenons un exemple. 
+
+Supposons que votre organisation possède les cinq utilisateurs suivants :
 
 | Utilisateur | department | Notes |
 | --- | --- | --- |
@@ -59,6 +61,7 @@ Les services Recherche et Marketing souhaitent utiliser la gestion des droits d�
 Maintenant les services Recherche et Marketing peuvent utiliser la gestion des droits d’utilisation. Bob, Carol, Dave et Elisa peuvent créer et gérer des packages d’accès dans leurs catalogues respectifs.
 
 ![Exemple de délégation de la gestion des droits d’utilisation](./media/entitlement-management-delegate/elm-delegate.png)
+
 
 ## <a name="entitlement-management-roles"></a>Rôles de gestion des droits d’utilisation
 
@@ -113,6 +116,7 @@ Afin qu’un utilisateur, qui ni administrateur général, ni administrateur d�
 | [Administrateur d’application](../users-groups-roles/directory-assign-admin-roles.md) | Propriétaire de catalogue |  |  | :heavy_check_mark: |  |
 | [Administrateur d’application cloud](../users-groups-roles/directory-assign-admin-roles.md) | Propriétaire de catalogue |  |  | :heavy_check_mark: |  |
 | Utilisateur | Propriétaire de catalogue | Seulement si propriétaire d’un groupe | Seulement si propriétaire d’un groupe | Seulement si propriétaire d’une application |  |
+
 
 ## <a name="add-a-catalog-creator"></a>Ajouter un créateur de catalogue
 

@@ -9,16 +9,15 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 08/01/2019
 ms.author: apimpm
-ms.openlocfilehash: db341a2075238ccef214ea151d2b2d2860eb6f3a
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 57965b0326171f37d33aeae02080c8887c3acf23
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68837947"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70072071"
 ---
 # <a name="import-a-logic-app-as-an-api"></a>Importer une application logique en tant qu’API
 
@@ -58,7 +57,7 @@ Dans cet article, vous apprendrez comment :
     - **Starter**
     - **Illimité**
 
-7. Sélectionnez **Créer**.
+7. Sélectionnez **Create** (Créer).
 
 ## <a name="test-the-imported-api-in-the-azure-portal"></a>Tester l’API importée dans le portail Azure
 

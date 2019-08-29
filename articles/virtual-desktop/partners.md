@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: helohr
-ms.openlocfilehash: 6fe2e63138ce9e0f4e8980e4f37330228ac2bdb6
-ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
+ms.openlocfilehash: bd5ec1e75fa1669b0ca33e4cb4629793b09a9bad
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68369438"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70036126"
 ---
 # <a name="windows-virtual-desktop-partner-integrations"></a>Intégrations de partenaires Windows Virtual Desktop
 
@@ -82,7 +82,7 @@ ThinPrint est un fournisseur de services à valeur ajoutée Windows Virtual Desk
 La solution ezeep de ThinPrint étend la valeur de Windows Virtual Desktop en établissant une connexion à l'infrastructure d'impression existante de l'entreprise. ezeep permet aux utilisateurs de contrôler l'impression dans l'entreprise, où qu'ils se trouvent. Grâce à ezeep, les utilisateurs peuvent combler le fossé entre Windows Virtual Desktop et le matériel d'impression.
 
 - [Consultez le résumé de la solution conjointe.](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3oYas)
-- [Visitez le web du partenaire.](http://www.ezeep.com/wvd-printing)
+- [Visitez le web du partenaire.](https://www.ezeep.com/wvd-printing)
 
 ## <a name="workspot"></a>Workspot
 

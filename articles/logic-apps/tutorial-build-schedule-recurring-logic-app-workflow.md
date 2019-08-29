@@ -6,16 +6,17 @@ ms.service: logic-apps
 ms.suite: integration
 author: ecfan
 ms.author: estfan
+ms.manager: carmonm
 ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/12/2018
-ms.openlocfilehash: ebc6388f1ebc7546ffda07095ead50797bde4e8b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: ec29eef7e733155b205d4feda844883bbc4496c9
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58884684"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70051751"
 ---
 # <a name="check-traffic-on-a-schedule-with-azure-logic-apps"></a>Vérifier le trafic selon une planification avec Azure Logic Apps
 
@@ -35,17 +36,17 @@ Lorsque vous avez terminé, votre application logique ressemble à ce flux de tr
 
 ![Application logique de niveau élevé](./media/tutorial-build-scheduled-recurring-logic-app-workflow/check-travel-time-overview.png)
 
-Si vous n’avez pas d’abonnement Azure, <a href="https://azure.microsoft.com/free/" target="_blank">créez un compte Azure gratuit</a> avant de commencer.
+Si vous n’avez pas d’abonnement Azure, [créez un compte Azure gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
 ## <a name="prerequisites"></a>Prérequis
 
 * Un compte de messagerie d’un fournisseur de messagerie pris en charge par Azure Logic Apps, par exemple Office 365 Outlook, Outlook.com ou Gmail. Pour les autres fournisseurs, [passez en revue la liste des connecteurs ici](https://docs.microsoft.com/connectors/). Ce guide de démarrage rapide utilise un compte Outlook.com. Si vous utilisez un autre compte de messagerie, les étapes générales sont identiques, mais l’affichage de l’interface utilisateur peut être légèrement différent.
 
-* Pour obtenir la durée de trajet d’un itinéraire, vous avez besoin d’une clé d’accès pour l’API Bing Cartes. Pour obtenir cette clé, suivez les étapes décrites dans l’article indiquant <a href="https://msdn.microsoft.com/library/ff428642.aspx" target="_blank">comment obtenir une clé Bing Cartes</a>. 
+* Pour obtenir la durée de trajet d’un itinéraire, vous avez besoin d’une clé d’accès pour l’API Bing Cartes. Pour obtenir cette clé, suivez les étapes décrites dans l’article indiquant [comment obtenir une clé Bing Cartes](https://msdn.microsoft.com/library/ff428642.aspx). 
 
 ## <a name="sign-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
 
-Connectez-vous au <a href="https://portal.azure.com" target="_blank">portail Azure</a> avec les informations d’identification de votre compte Azure.
+Connectez-vous au [portail Azure](https://portal.azure.com) avec les informations d’identification de votre compte Azure.
 
 ## <a name="create-your-logic-app"></a>Créer votre application logique
 
@@ -78,7 +79,7 @@ Connectez-vous au <a href="https://portal.azure.com" target="_blank">portail Azu
 
    ![Rechercher et ajouter le déclencheur « Planification - Récurrence »](./media/tutorial-build-scheduled-recurring-logic-app-workflow/add-schedule-recurrence-trigger.png)
 
-2. Dans la forme **Périodicité**, choisissez le bouton **points de suspension** (**...**), puis **Renommer**. Renommez le déclencheur à l’aide de cette description : ```Check travel time every weekday morning```.
+2. Dans la forme **Périodicité**, choisissez le bouton **points de suspension** ( **...** ), puis **Renommer**. Renommez le déclencheur à l’aide de cette description : ```Check travel time every weekday morning```.
 
    ![Renommer le déclencheur](./media/tutorial-build-scheduled-recurring-logic-app-workflow/rename-recurrence-schedule-trigger.png)
 
@@ -126,7 +127,7 @@ Maintenant que vous disposez d’un déclencheur, ajoutez une [action](../logic-
    | Paramètre | Valeur | Description |
    | ------- | ----- | ----------- |
    | **Nom de connexion** | BingMapsConnection | Donnez un nom à votre connexion. | 
-   | **Clé API** | <*your-Bing-Maps-key*> | Entrez la clé Bing Cartes que vous avez reçue précédemment. Si vous ne possédez pas une clé Bing Cartes, découvrez <a href="https://msdn.microsoft.com/library/ff428642.aspx" target="_blank">comment en obtenir une</a>. | 
+   | **Clé API** | <*your-Bing-Maps-key*> | Entrez la clé Bing Cartes que vous avez reçue précédemment. Si vous ne possédez pas une clé Bing Cartes, découvrez [comment en obtenir une](https://msdn.microsoft.com/library/ff428642.aspx). | 
    | | | |  
 
 4. Renommez l’action à l’aide de cette description : ```Get route and travel time with traffic```.
@@ -157,7 +158,7 @@ Créez une variable afin de pouvoir convertir et stocker la durée du trajet act
 
 Vous souhaiterez parfois effectuer des opérations sur les données de votre flux de travail et utiliser les résultats dans les actions ultérieures. Pour enregistrer ces résultats afin de pouvoir facilement les réutiliser ou y faire référence, vous pouvez créer des variables pour stocker ces résultats après les avoir traités. Vous ne pouvez créer des variables qu’au niveau supérieur de votre application logique.
 
-Par défaut, l’action **Obtenir l’itinéraire** précédente retourne la durée du trajet actuel avec le trafic exprimé en secondes dans le champ **Travel Duration Traffic (Trafic correspondant à la durée du trajet)**. Si vous préférez convertir et stocker cette valeur en minutes, vous facilitez la réutilisation ultérieure de la valeur sans la reconvertir.
+Par défaut, l’action **Obtenir l’itinéraire** précédente retourne la durée du trajet actuel avec le trafic exprimé en secondes dans le champ **Travel Duration Traffic (Trafic correspondant à la durée du trajet)** . Si vous préférez convertir et stocker cette valeur en minutes, vous facilitez la réutilisation ultérieure de la valeur sans la reconvertir.
 
 1. Sous l’action **Obtenir l’itinéraire**, choisissez **+ Nouvelle étape** > **Ajouter une action**.
 
@@ -172,7 +173,7 @@ Par défaut, l’action **Obtenir l’itinéraire** précédente retourne la dur
    | Paramètre | Valeur | Description | 
    | ------- | ----- | ----------- | 
    | **Nom** | travelTime | Nom de la variable. | 
-   | **Type** | Entier  | Type de données de la variable. | 
+   | **Type** | Entier | Type de données de la variable. | 
    | **Valeur** | Expression qui convertit la durée du trajet actuel de secondes en minutes (voir les étapes décrites sous ce tableau). | Valeur initiale de votre variable. | 
    |||| 
 
@@ -194,12 +195,12 @@ Par défaut, l’action **Obtenir l’itinéraire** précédente retourne la dur
 
       ![Entrer cette expression : « div(,60) »](./media/tutorial-build-scheduled-recurring-logic-app-workflow/initialize-variable-action-settings-2.png)
 
-   3. Placez votre curseur à l’intérieur de l’expression entre la parenthèse gauche (**(**) et la virgule (**,**). 
+   3. Placez votre curseur à l’intérieur de l’expression entre la parenthèse gauche ( **(** ) et la virgule ( **,** ). 
    Choisissez **Contenu dynamique**.
 
       ![Positionner le curseur, choisir « Contenu dynamique »](./media/tutorial-build-scheduled-recurring-logic-app-workflow/initialize-variable-action-settings-3.png)
 
-   4. Dans la liste de contenu dynamique, sélectionnez **Travel Duration Traffic (Trafic correspondant à la durée du trajet)**.
+   4. Dans la liste de contenu dynamique, sélectionnez **Travel Duration Traffic (Trafic correspondant à la durée du trajet)** .
 
       ![Sélectionner le champ « Travel Duration Traffic (Trafic correspondant à la durée du trajet) »](./media/tutorial-build-scheduled-recurring-logic-app-workflow/initialize-variable-action-settings-4.png)
 
@@ -283,7 +284,7 @@ Ajoutez une action qui vous avertit par e-mail lorsque la durée du trajet dépa
 
       ![Entrer une expression pour calculer les minutes au-delà de la durée du trajet](./media/tutorial-build-scheduled-recurring-logic-app-workflow/send-email-body-settings-2.png)
 
-   4. Placez votre curseur à l’intérieur de l’expression entre la parenthèse gauche (**(**) et la virgule (**,**). Choisissez **Contenu dynamique**.
+   4. Placez votre curseur à l’intérieur de l’expression entre la parenthèse gauche ( **(** ) et la virgule ( **,** ). Choisissez **Contenu dynamique**.
 
       ![Poursuivre la création de l’expression pour calculer les minutes au-delà de la durée du trajet](./media/tutorial-build-scheduled-recurring-logic-app-workflow/send-email-body-settings-3.png)
 

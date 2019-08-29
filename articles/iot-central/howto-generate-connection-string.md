@@ -3,17 +3,17 @@ title: Générer une chaîne de connexion d’appareil pour Azure IoT Central | 
 description: En tant que développeur pour des appareils, comment puis-je générer une chaîne de connexion pour un appareil qui doit se connecter à une application IoT Central ?
 author: dominicbetts
 ms.author: dobett
-ms.date: 04/09/2019
+ms.date: 08/23/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: f302cbfa7152ae30be434f560c0c39056d40f9f4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 97c0332656b75c3c8d0cddecb41c7a15ac2f218c
+ms.sourcegitcommit: 80dff35a6ded18fa15bba633bf5b768aa2284fa8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60885618"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70019774"
 ---
 # <a name="generate-a-device-connection-string-to-connect-to-an-azure-iot-central-application"></a>Générer une chaîne de connexion d’appareil pour se connecter à une application Azure IoT Central
 

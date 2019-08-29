@@ -15,12 +15,12 @@ ms.date: 04/01/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b994078350aec5657659f8835d228eb907606bb8
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: b6d42c961054927581e7cc43b6f467e5d3e23c4e
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67807640"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69996723"
 ---
 # <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>Gestion de l’approvisionnement de comptes d’utilisateur pour les applications d’entreprise dans le portail Azure
 
@@ -92,9 +92,3 @@ Cochez la case **Effacer l’état en cours et redémarrer la synchronisation** 
 * Redémarrer les services et exécuter à nouveau la synchronisation initiale
 
 Cette option permet aux administrateurs de recommencer le processus de déploiement d’approvisionnement.
-
-### <a name="synchronization-details"></a>Détails de la synchronisation
-
-Cette section fournit des informations supplémentaires sur le fonctionnement du service d’approvisionnement, y compris la première et la dernière exécution du service d’approvisionnement pour l’application et le nombre d’objets utilisateur et groupe gérés.
-
-Un lien est fourni vers le **rapport d’activité d’approvisionnement**, ce qui fournit un journal de tous les utilisateurs et groupes créés, mis à jour et supprimés entre Azure AD et l’application cible. Un lien est également fourni vers le **rapport d’erreur de l’approvisionnement**, ce qui fournit des messages d’erreurs plus détaillés pour les objets utilisateur et groupe dont la lecture, la création, la mise à jour ou la suppression a échoué.

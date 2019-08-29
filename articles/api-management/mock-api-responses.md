@@ -9,17 +9,16 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 8840c85e35a371b8c7a0a76dbee6353a20b212be
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 6841695cca5d3864e6823085520d8e9162e54043
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68881124"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70067944"
 ---
 # <a name="mock-api-responses"></a>Simuler des réponses de l’API
 
@@ -55,7 +54,7 @@ Cette section montre comment créer une API vide sans backend. Elle montre égal
 3. Sélectionnez **API vide** dans la liste.
 4. Entrez « *API de test* » pour **Nom complet**.
 5. Entrez « *Illimité* » pour **Produits**.
-6. Sélectionnez **Créer**.
+6. Sélectionnez **Create** (Créer).
 
 ## <a name="add-an-operation-to-the-test-api"></a>Ajouter une opération à l’API de test
 
@@ -80,7 +79,7 @@ Cette section montre comment créer une API vide sans backend. Elle montre égal
 6. Sous le titre **Représentations** à droite, sélectionnez **+ Ajouter la représentation**.
 7. Entrez « *application/json* » dans la zone de recherche et sélectionnez le type de contenu **application/json**.
 8. Dans la zone de texte **Exemple**, entrez `{ "sampleField" : "test" }`.
-9. Sélectionnez **Créer**.
+9. Sélectionnez **Create** (Créer).
 
 ## <a name="enable-response-mocking"></a>Activer la simulation des réponses
 

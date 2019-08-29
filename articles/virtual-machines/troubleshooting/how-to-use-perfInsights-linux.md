@@ -10,16 +10,15 @@ tags: ''
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 7/10/2019
 ms.author: genli
-ms.openlocfilehash: f618066f19a5cbbf25bc1fcc872cc654ce96dae3
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 19b2fcaed2c80d4ca52ada9f9f0898479e73bcf2
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68856524"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70080512"
 ---
 # <a name="how-to-use-perfinsights"></a>Utilisation de PerfInsights
 
@@ -79,7 +78,7 @@ Les informations relatives à la machine virtuelle Linux, au système d’exploi
   - Capture de profilage du processeur et de l’utilisation du processeur par les processus à intervalle de 5 secondes
   - Capture de profilage de l’utilisation de la mémoire par les processus à intervalle de 5 secondes
 
-- Réseau  
+- Mise en réseau  
   - Liste des cartes réseau avec statistiques des cartes
   - Tableau de routage réseau
   - Ports ouverts et état
@@ -222,7 +221,7 @@ L’onglet **Overview** fournit des détails de base sur l’exécution et des i
 > [!NOTE]
 > Les conclusions identifiées comme étant d’importance élevée sont des problèmes connus qui peuvent conduire à des problèmes de performances. Les conclusions identifiées comme étant d’importance moyenne représentent des configurations non optimales ne provoquant pas forcément de problèmes de performances. Les conclusions identifiées comme étant d’importance faible sont des instructions données à titre informatif uniquement.
 
-Examinez les suggestions et les liens pour toutes les conclusions d’importance élevée et moyenne. Découvrez comment elles peuvent affecter les performances, ainsi que les bonnes pratiques pour les configurations de performances optimisées.
+Examinez les suggestions et les liens pour toutes les conclusions d’importance élevée et moyenne. En savoir plus sur la façon dont elles peuvent affecter les performances, et sur les meilleures pratiques pour les configurations de performances optimisées.
 
 ### <a name="cpu-tab"></a>Onglet CPU
 
@@ -230,9 +229,9 @@ L’onglet **CPU** fournit des informations sur la consommation du processeur au
 
 ![Capture d’écran de l’onglet CPU du rapport PerfInsights](media/how-to-use-perfinsights-linux/perfinsights-linux-cpu-tab.png)
 
-### <a name="storage-tab"></a>Onglet Storage
+### <a name="storage-tab"></a>Onglet Stockage
 
-La section **Findings** affiche les différentes conclusions et recommandations relatives au stockage.
+La section **Conclusions** affiche les différentes conclusions et recommandations relatives au stockage.
 
 L’onglet **Block Devices** et autres sections associées comme les onglets **Partitions**, **LVM** et **MDADM** décrivent comment les appareils de traitement par blocs sont configurés et liés entre eux.
 

@@ -9,19 +9,18 @@ editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.assetid: 69ae72ec-e8be-4e46-a8f0-e744aebb5cc2
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/09/2018
 ms.author: cynthn
 ms.reviewer: davberg
-ms.openlocfilehash: 087640ab9c589728551438ebca536f872e3bd910
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 665a4d89c056b5825e35f0925ba3eaaf55d06c0f
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67876551"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70089371"
 ---
 # <a name="compute-benchmark-scores-for-windows-vms"></a>Calcul des scores de test d’évaluation pour les machines virtuelles Windows
 Les scores de test d’évaluation SPECInt suivants montrent les performances de calcul de certaines machines virtuelles Azure exécutant Windows Server. Les scores de test d’évaluation de calcul sont également disponibles pour [les machines virtuelles Linux](../linux/compute-benchmark-scores.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
@@ -43,10 +42,10 @@ Les scores de test d’évaluation SPECInt suivants montrent les performances de
 | Standard_A4_v2 | 4 | 1 | Processeur Intel(R) Xeon(R) E5-2673 v3 à 2,40 GHz | 13 | 52,8 | 2.0 | 
 | Standard_A4_v2 | 4 | 1 | Processeur Intel(R) Xeon(R) E5-2673 v4 à 2,30 GHz | 15 | 52,1 | 4.5 | 
 | Standard_A4m_v2 | 4 | 1 | Processeur Intel(R) Xeon(R) E5-2660 0 à 2,20 GHz | 17 | 56,4 | 1.8 | 
-| Standard_A4m_v2 | 4 | 1 | Processeur Intel(R) Xeon(R) E5-2673 v3 à 2,40 GHz | 6\. | 53,4 | 1.9 | 
+| Standard_A4m_v2 | 4 | 1 | Processeur Intel(R) Xeon(R) E5-2673 v3 à 2,40 GHz | 6 | 53,4 | 1.9 | 
 | Standard_A4m_v2 | 4 | 1 | Processeur Intel(R) Xeon(R) E5-2673 v4 à 2,30 GHz | 23 | 57,1 | 3.6 | 
 | Standard_A8_v2 | 8 | 1 | Processeur Intel(R) Xeon(R) E5-2660 0 à 2,20 GHz | 14 | 109,1 | 1.6 | 
-| Standard_A8_v2 | 8 | 1 | Processeur Intel(R) Xeon(R) E5-2673 v3 à 2,40 GHz | 6\. | 101,5 | 2.8 | 
+| Standard_A8_v2 | 8 | 1 | Processeur Intel(R) Xeon(R) E5-2673 v3 à 2,40 GHz | 6 | 101,5 | 2.8 | 
 | Standard_A8_v2 | 8 | 1 | Processeur Intel(R) Xeon(R) E5-2673 v4 à 2,30 GHz | 11 | 101,9 | 2.7 | 
 | Standard_A8m_v2 | 8 | 1 | Processeur Intel(R) Xeon(R) E5-2673 v3 à 2,40 GHz | 11 | 101,4 | 1.2 | 
 | Standard_A8m_v2 | 8 | 1 | Processeur Intel(R) Xeon(R) E5-2673 v4 à 2,30 GHz | 10 | 104,5 | 5,1 | 
@@ -60,7 +59,7 @@ Les scores de test d’évaluation SPECInt suivants montrent les performances de
 | Standard_B2ms | 2 | 1 | Processeur Intel(R) Xeon(R) E5-2673 v4 à 2,30 GHz | 36 | 19,8 | 0,8 | 
 | Standard_B2s | 2 | 1 | Processeur Intel(R) Xeon(R) E5-2673 v3 à 2,40 GHz | 2 | 13.0 | 0.0 | 
 | Standard_B2s | 2 | 1 | Processeur Intel(R) Xeon(R) E5-2673 v4 à 2,30 GHz | 29 | 13.0 | 0.5 | 
-| Standard_B4ms | 4 | 1 | Processeur Intel(R) Xeon(R) E5-2673 v3 à 2,40 GHz | 6\. | 27,1 | 1.0 | 
+| Standard_B4ms | 4 | 1 | Processeur Intel(R) Xeon(R) E5-2673 v3 à 2,40 GHz | 6 | 27,1 | 1.0 | 
 | Standard_B4ms | 4 | 1 | Processeur Intel(R) Xeon(R) E5-2673 v4 à 2,30 GHz | 43 | 28,3 | 0,7 | 
 | Standard_B8ms | 8 | 1 | Processeur Intel(R) Xeon(R) E5-2673 v3 à 2,40 GHz | 3 | 42,0 | 0.0 | 
 | Standard_B8ms | 8 | 1 | Processeur Intel(R) Xeon(R) E5-2673 v4 à 2,30 GHz | 25 | 41,4 | 0.9 | 
@@ -235,7 +234,7 @@ Les scores de test d’évaluation SPECInt suivants montrent les performances de
 | Standard_F8 | 8 | 1 | Processeur Intel(R) Xeon(R) E5-2673 v4 à 2,30 GHz | 25 | 251,2 | 7.0 | 
 | Standard_F16 | 16 | 1 | Processeur Intel(R) Xeon(R) E5-2673 v3 à 2,40 GHz | 19 | 424,1 | 8,2 | 
 | Standard_F16 | 16 | 1 | Processeur Intel(R) Xeon(R) E5-2673 v4 à 2,30 GHz | 32 | 467,8 | 11,1 | 
-| Standard_F16 | 16 | 2 | Processeur Intel(R) Xeon(R) E5-2673 v3 à 2,40 GHz | 6\. | 472,3 | 13.2 | 
+| Standard_F16 | 16 | 2 | Processeur Intel(R) Xeon(R) E5-2673 v3 à 2,40 GHz | 6 | 472,3 | 13.2 | 
 
 ## <a name="gs---storage-optimized"></a>GS - Optimisé pour le stockage
 | Size | Processeurs virtuels | Nœuds NUMA | UC | Exécutions | Taux de base moy. | StdDev | 
@@ -309,7 +308,7 @@ Les scores de test d’évaluation SPECInt suivants montrent les performances de
 ## <a name="ncsv3---gpu-enabled"></a>NCSv3 - Avec processeur graphique (GPU)
 | Size | Processeurs virtuels | Nœuds NUMA | UC | Exécutions | Taux de base moy. | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
-| Standard_NC6s_v3 | 6\. | 1 | Intel(R) Xeon(R) CPU E5-2690 v4 @ 2,60 GHz | 6\. | 230,2 | 1.6 | 
+| Standard_NC6s_v3 | 6 | 1 | Intel(R) Xeon(R) CPU E5-2690 v4 @ 2,60 GHz | 6 | 230,2 | 1.6 | 
 | Standard_NC12s_v3 | 12 | 1 | Intel(R) Xeon(R) CPU E5-2690 v4 @ 2,60 GHz | 7 | 425,0 | 3.6 | 
 | Standard_NC24rs_v3 | 24 | 2 | Intel(R) Xeon(R) CPU E5-2690 v4 @ 2,60 GHz | 2 | 811,0 | 4,2 | 
 | Standard_NC24s_v3 | 24 | 2 | Intel(R) Xeon(R) CPU E5-2690 v4 @ 2,60 GHz | 3 | 809,3 | 2.3 | 
@@ -317,7 +316,7 @@ Les scores de test d’évaluation SPECInt suivants montrent les performances de
 ## <a name="ncsv2---gpu-enabled"></a>NCSv2 - Avec processeur graphique (GPU)
 | Size | Processeurs virtuels | Nœuds NUMA | UC | Exécutions | Taux de base moy. | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
-| Standard_NC6s_v2 | 6\. | 1 | Intel(R) Xeon(R) CPU E5-2690 v4 @ 2,60 GHz | 11 | 227,0 | 6.2 | 
+| Standard_NC6s_v2 | 6 | 1 | Intel(R) Xeon(R) CPU E5-2690 v4 @ 2,60 GHz | 11 | 227,0 | 6.2 | 
 | Standard_NC12s_v2 | 12 | 1 | Intel(R) Xeon(R) CPU E5-2690 v4 @ 2,60 GHz | 9 | 427,3 | 1.3 | 
 | Standard_NC24rs_v2 | 24 | 2 | Intel(R) Xeon(R) CPU E5-2690 v4 @ 2,60 GHz | 12 | 811,0 | 5.4 | 
 | Standard_NC24s_v2 | 24 | 2 | Intel(R) Xeon(R) CPU E5-2690 v4 @ 2,60 GHz | 11 | 811,5 | 4.4 | 
@@ -325,7 +324,7 @@ Les scores de test d’évaluation SPECInt suivants montrent les performances de
 ## <a name="nc---gpu-enabled"></a>NC - Avec processeur graphique (GPU)
 | Size | Processeurs virtuels | Nœuds NUMA | UC | Exécutions | Taux de base moy. | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
-| Standard_NC6 | 6\. | 1 | Intel(R) Xeon(R) CPU E5-2690 v3 @ 2,60 GHz | 27 | 209,6 | 4.4 | 
+| Standard_NC6 | 6 | 1 | Intel(R) Xeon(R) CPU E5-2690 v3 @ 2,60 GHz | 27 | 209,6 | 4.4 | 
 | Standard_NC12 | 12 | 1 | Intel(R) Xeon(R) CPU E5-2690 v3 @ 2,60 GHz | 28 | 394,4 | 3.8 | 
 | Standard_NC24 | 24 | 2 | Intel(R) Xeon(R) CPU E5-2690 v3 @ 2,60 GHz | 28 | 751,7 | 3,5 | 
 | Standard_NC24r | 24 | 2 | Intel(R) Xeon(R) CPU E5-2690 v3 @ 2,60 GHz | 27 | 752,9 | 3.4 | 
@@ -333,7 +332,7 @@ Les scores de test d’évaluation SPECInt suivants montrent les performances de
 ## <a name="nds--gpu-enabled"></a>NDs - Avec processeur graphique (GPU)
 | Size | Processeurs virtuels | Nœuds NUMA | UC | Exécutions | Taux de base moy. | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
-| Standard_ND6s | 6\. | 1 | Intel(R) Xeon(R) CPU E5-2690 v4 @ 2,60 GHz | 8 | 230,1 | 1.2 | 
+| Standard_ND6s | 6 | 1 | Intel(R) Xeon(R) CPU E5-2690 v4 @ 2,60 GHz | 8 | 230,1 | 1.2 | 
 | Standard_ND12s | 12 | 1 | Intel(R) Xeon(R) CPU E5-2690 v4 @ 2,60 GHz | 11 | 426,5 | 1.4 | 
 | Standard_ND24rs | 24 | 2 | Intel(R) Xeon(R) CPU E5-2690 v4 @ 2,60 GHz | 10 | 811,4 | 3,5 | 
 | Standard_ND24s | 24 | 2 | Intel(R) Xeon(R) CPU E5-2690 v4 @ 2,60 GHz | 11 | 812,6 | 4.4 | 
@@ -341,7 +340,7 @@ Les scores de test d’évaluation SPECInt suivants montrent les performances de
 ## <a name="nv---gpu-enabled"></a>NV - Avec processeur graphique (GPU)
 | Size | Processeurs virtuels | Nœuds NUMA | UC | Exécutions | Taux de base moy. | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
-| Standard_NV6 | 6\. | 1 | Intel(R) Xeon(R) CPU E5-2690 v3 @ 2,60 GHz | 28 | 210,5 | 6.1 | 
+| Standard_NV6 | 6 | 1 | Intel(R) Xeon(R) CPU E5-2690 v3 @ 2,60 GHz | 28 | 210,5 | 6.1 | 
 | Standard_NV12 | 12 | 1 | Intel(R) Xeon(R) CPU E5-2690 v3 @ 2,60 GHz | 28 | 394,5 | 2.3 | 
 | Standard_NV24 | 24 | 2 | Intel(R) Xeon(R) CPU E5-2690 v3 @ 2,60 GHz | 26 | 752,2 | 4.4 | 
 

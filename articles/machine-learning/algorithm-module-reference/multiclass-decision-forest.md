@@ -9,13 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ROBOTS: NOINDEX
-ms.openlocfilehash: 10364d014431a500e7c38a02d47f432cd464feb6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b56f08dfd1a14ffedffb612bb8974086ee08ede7
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65411474"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70128616"
 ---
 # <a name="multiclass-decision-forest-module"></a>Module Forêt d’arbres de décision multiclasse
 
@@ -48,7 +47,7 @@ Le classifieur de forêt d’arbres de décision dans Azure Machine Learning est
 
 3. Pour **Méthode de rééchantillonnage**, choisissez la méthode utilisée pour créer les arbres individuels.  Vous pouvez choisir l’ensachage ou la réplication.
 
-    + **Ensachage** : l’ensachage (aussi appelé bagging ou *bootstrap aggregating* en anglais) est une méthode dans laquelle chaque arbre est développé sur un nouvel échantillon. Ils sont tous créés en échantillonnant un jeu de données original de manière aléatoire à l’aide d’un ensemble de remplacement jusqu’à obtenir un jeu de données dont la taille est identique à l’original. Les sorties des modèles sont combinées grâce à un *vote* qui est une forme d’agrégation. Pour plus d’informations, consultez la page Wikipedia relative au « bootstrap aggregating ».
+    + **Ensachage** : le bagging, également appelé *agrégation boostrap*, est une méthode selon laquelle chaque arbre est développé sur un nouvel échantillon, créé en échantillonnant le jeu de données d’origine de manière aléatoire à l’aide d’un ensemble de remplacement jusqu’à obtenir un jeu de données de taille identique à l’original. Les sorties des modèles sont combinées grâce à un *vote* qui est une forme d’agrégation. Pour plus d’informations, consultez la page Wikipedia relative au « bootstrap aggregating ».
 
     + **Réplication** : avec la réplication, l’apprentissage de chaque arbre est effectué à partir des mêmes données d’entrée. Le prédicat fractionné utilisé pour chaque nœud d’arbre est toujours déterminé de manière aléatoire, ce qui crée des arbres variés.
 
@@ -69,7 +68,7 @@ Le classifieur de forêt d’arbres de décision dans Azure Machine Learning est
 
 8. **Nombre minimal d’échantillons par nœud terminal** : indiquez le nombre minimal de cas requis pour créer un nœud terminal (feuille) dans un arbre. En augmentant cette valeur, vous augmentez le seuil pour la création de règles.
 
-    Par exemple, avec la valeur par défaut de 1, un seul cas suffit à entraîner la création d’une règle. Si vous définissez la valeur de ce champ sur 5, les données de la formation doivent contenir au moins cinq cas remplissant les mêmes conditions.
+    Par exemple, avec la valeur par défaut, 1, un seul cas suffit à entraîner la création d’une règle. Si vous définissez la valeur de ce champ sur 5, les données de la formation doivent contenir au moins cinq cas remplissant les mêmes conditions.
 
 
 
@@ -81,7 +80,7 @@ Le classifieur de forêt d’arbres de décision dans Azure Machine Learning est
 
 ## <a name="results"></a>Résultats
 
-Une fois la formation terminée :
+Une fois l’apprentissage terminé :
 
 + Pour afficher l’arbre créé pour chaque itération, cliquez sur la sortie du module [Effectuer l’apprentissage du modèle](./train-model.md) et sélectionnez **Visualiser** .
 + Pour descendre dans la hiérarchie des fractionnements et afficher les règles de chaque nœud, cliquez sur chaque arbre.

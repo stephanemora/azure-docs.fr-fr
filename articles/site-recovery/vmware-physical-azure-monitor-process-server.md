@@ -5,16 +5,16 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 05/30/2019
+ms.date: 08/22/2019
 ms.author: raynew
-ms.openlocfilehash: 4ff52e737438210296b8f2201d5e66e1d38b7bc9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5d746385a034fdf742b8958b3d1fe51ea2a3c5cf
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66418287"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972173"
 ---
-# <a name="monitor-the-process-server"></a>Surveiller le serveur de processus.
+# <a name="monitor-the-process-server"></a>Surveiller le serveur de traitement.
 
 Cet article explique comment surveiller le serveur de processus [Site Recovery](site-recovery-overview.md).
 

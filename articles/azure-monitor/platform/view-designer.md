@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: bwren
-ms.openlocfilehash: f07fc2f03ad72e7ee0fd408782b8fe845c88e780
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 33930823fbeb42011d8e2a368d17c9a21070a243
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61342007"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70035594"
 ---
 # <a name="create-custom-views-by-using-view-designer-in-azure-monitor"></a>Créer des vues personnalisées à l’aide du Concepteur de vues dans Azure Monitor
 Grâce au Concepteur de vues d’Azure Monitor, vous pouvez créer plusieurs vues personnalisées dans le portail Azure qui peuvent vous aider à visualiser les données dans votre espace de travail Log Analytics. Cet article fournit une présentation du Concepteur de vues et des procédures de création et de modification des vues personnalisées.
@@ -45,7 +45,7 @@ Les vues que vous créez avec le Concepteur de vues contiennent les éléments d
 | Composants de visualisation | Présente une visualisation de données dans l’espace de travail Log Analytics en fonction d’une ou plusieurs [requêtes de journal](../log-query/log-query-overview.md). La plupart des composants incluent un en-tête, qui fournit une visualisation d’ensemble, et une liste, qui montre les premiers résultats. Chaque type de composant produit différentes visualisations des enregistrements dans l’espace de travail Log Analytics. Vous sélectionnez des éléments dans le composant pour effectuer une requête de journal qui fournit des enregistrements détaillés. |
 
 ## <a name="required-permissions"></a>Autorisations requises
-Vous avez au minimum besoin d’[autorisations de niveau contributeur](manage-access.md#manage-accounts-and-users) dans l’espace de travail Log Analytics pour créer ou modifier des vues. Si vous n’avez pas cette autorisation, l’option Concepteur de vues n’apparaît pas dans le menu.
+Vous avez au minimum besoin d’[autorisations de niveau contributeur](manage-access.md#manage-access-using-azure-permissions) dans l’espace de travail Log Analytics pour créer ou modifier des vues. Si vous n’avez pas cette autorisation, l’option Concepteur de vues n’apparaît pas dans le menu.
 
 
 ## <a name="work-with-an-existing-view"></a>Utiliser une vue existante

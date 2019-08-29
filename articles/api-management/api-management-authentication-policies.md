@@ -10,16 +10,15 @@ ms.assetid: 061702a7-3a78-472b-a54a-f3b1e332490d
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: apimpm
-ms.openlocfilehash: bd31d711c58a63b5c15712c1774d48433c62f18d
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: 69584b434ac0442df48dcdea2a7d9f2aca9c1ccd
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68774975"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073735"
 ---
 # <a name="api-management-authentication-policies"></a>Stratégies d’authentification dans Gestion des API
 Cette rubrique est une ressource de référence au sujet des stratégies Gestion des API suivantes. Pour plus d'informations sur l'ajout et la configuration des stratégies, consultez la page [Stratégies dans Gestion des API](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -57,7 +56,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 
 |Nom|Description|Obligatoire|Default|
 |----------|-----------------|--------------|-------------|
-|userName|Spécifie le nom d’utilisateur associé aux informations d’identification de base.|OUI|N/A|
+|username|Spécifie le nom d’utilisateur associé aux informations d’identification de base.|OUI|N/A|
 |password|Spécifie le mot de passe associé aux informations d’identification de base.|OUI|N/A|
 
 ### <a name="usage"></a>Usage

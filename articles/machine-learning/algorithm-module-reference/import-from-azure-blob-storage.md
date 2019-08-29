@@ -9,13 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ROBOTS: NOINDEX
-ms.openlocfilehash: 4ac98516c1a326e1ede09bbb9660113ffd0642a0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fea64070c496379351bb75f2a38aba9b4db70dcd
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65029684"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70128722"
 ---
 # <a name="import-from-azure-blob-storage-module"></a>Importer à partir du module de stockage Blob Azure
 
@@ -99,4 +98,4 @@ Les étapes suivantes décrivent la configuration manuelle de la source d’impo
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Consultez les [modules disponibles](module-reference.md) pour Azure Machine Learning service. 
+Consultez [l’ensemble des modules disponibles](module-reference.md) pour Azure Machine Learning service. 

@@ -7,14 +7,14 @@ ms.author: jenhayes
 ms.date: 07/11/2019
 ms.topic: overview
 manager: carmonm
-ms.openlocfilehash: 15454d4b3f0abad6166c4b163df6c8652669d649
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: f6468e62e9969aa87d51e25ed220bf7d4bed989e
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67810913"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69971564"
 ---
-# <a name="cross-tenant-management-experiences"></a>Expériences de la gestion inter-locataire
+# <a name="cross-tenant-management-experiences"></a>Expériences de la gestion multilocataire
 
 Cet article décrit les scénarios que vous, en tant que fournisseur de services, pouvez utiliser avec la [gestion des ressources déléguées Azure](../concepts/azure-delegated-resource-management.md) pour gérer des ressources Azure pour plusieurs clients à partir de votre propre locataire dans le [portail Azure](https://portal.azure.com).
 
@@ -112,6 +112,7 @@ Demandes de support :
 
 - Ouvrir des demandes de support pour des ressources déléguées à partir du panneau **Aide + Support** dans le portail Azure (en sélectionnant le plan de support disponible pour l’étendue déléguée)
 
+## <a name="current-limitations"></a>Limitations actuelles
 Dans tous les scénarios, gardez à l’esprit les limitations actuelles suivantes :
 
 - Les demandes traitées par Azure Resource Manager peuvent être effectuées à l’aide de la gestion des ressources déléguées Azure. Les URI d’opération pour ces demandes commencent par `https://management.azure.com`. Toutefois, les demandes qui sont gérées par une instance d’un type de ressource (par exemple, accès aux secrets du coffre de clés ou accès aux données de stockage) ne sont pas prises en charge avec la gestion des ressources déléguées Azure. Les URI d’opération pour ces demandes commencent généralement par une adresse propre à votre instance, telle que `https://myaccount.blob.core.windows.net` ou `https://mykeyvault.vault.azure.net/`. Ces dernières sont également des opérations sur les données plutôt que des opérations de gestion. 

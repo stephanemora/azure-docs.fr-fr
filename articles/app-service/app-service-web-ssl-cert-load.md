@@ -9,17 +9,16 @@ editor: ''
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: ead1892062912840c9931ae60d11c90975ad26ac
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6820daf34e63fd48e83c645e7509a3256bc8435b
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66475097"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70066988"
 ---
 # <a name="use-an-ssl-certificate-in-your-application-code-in-azure-app-service"></a>Utiliser un certificat SSL dans votre code d’application dans Azure App Service
 
@@ -29,7 +28,7 @@ Cette approche de l’utilisation de certificats dans votre code utilisant la fo
 
 Lorsque vous laissez App Service gérer vos certificats SSL, vous pouvez conserver les certificats et votre code d’application séparément et protéger vos données sensibles.
 
-## <a name="upload-a-private-certificate"></a>Charger un certificat privé
+## <a name="upload-a-private-certificate"></a>Téléchargement d’un certificat privé
 
 Avant de charger un certificat privé, assurez-vous qu’il [satisfait à toutes les exigences](app-service-web-tutorial-custom-ssl.md#prepare-a-private-certificate), à l’exception de celle d’être configuré pour l’authentification du serveur.
 
@@ -41,7 +40,7 @@ az webapp config ssl upload --name <app-name> --resource-group <resource-group-n
 
 Copiez l’empreinte du certificat, puis reportez-vous à la section [Rendre le certificat accessible](#make-the-certificate-accessible).
 
-## <a name="upload-a-public-certificate"></a>Charger un certificat public
+## <a name="upload-a-public-certificate"></a>Téléchargement d’un certificat public
 
 Les certificats publics sont pris en charge au format *.cer*. Pour charger un certificat public, sur le <a href="https://portal.azure.com" target="_blank">portail Azure</a>, accédez à votre application.
 

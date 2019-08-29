@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/30/2018
 ms.author: TomSh
-ms.openlocfilehash: 9053866b76ec1cc409c3f00d0af59bf3761d3936
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: e5ed60ea59dc8cf19b8f9ca7e96777dbc6980171
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68927980"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69906055"
 ---
 # <a name="azure-database-security-overview"></a>Vue d’ensemble de la sécurité des bases de données Azure
 
@@ -206,7 +206,7 @@ Protection avancée contre les menaces SQL fournit un ensemble de fonctionnalit�
 
 [Azure Security Center](https://azure.microsoft.com/documentation/services/security-center/) vous aide à vous empêcher, détecter et répondre aux menaces. Il fournit des fonctions intégrées de surveillance de la sécurité et de gestion des stratégies sur vos abonnements Azure. Il permet de détecter les menaces qui pourraient passer inaperçues et fonctionne avec un vaste écosystème de solutions de sécurité.
 
-[Security Center](../../security-center/security-center-sql-database.md) vous aide à protéger les données dans SQL Database en fournissant une visibilité de la sécurité de l’ensemble de vos serveurs et bases de données. Avec Security Center, vous pouvez :
+[Security Center](../../security-center/security-center-alerts-data-services.md) vous aide à protéger les données dans SQL Database en fournissant une visibilité de la sécurité de l’ensemble de vos serveurs et bases de données. Avec Security Center, vous pouvez :
 
 - définir des stratégies pour l’audit et le chiffrement de SQL Database ;
 - surveiller la sécurité des ressources SQL Database dans tous vos abonnements ;

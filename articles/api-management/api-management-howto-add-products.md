@@ -9,17 +9,16 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 08/10/2018
 ms.author: apimpm
-ms.openlocfilehash: eff827937adbae7cfdfdd86392593df8d698053c
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 134483764ffcb012ece0769a514683fc9487887f
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66241829"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073623"
 ---
 # <a name="create-and-publish-a-product"></a>Créer et publier un produit  
 
@@ -53,7 +52,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
     | Nom complet             | Le nom qui doit apparaître dans le **portail des développeurs**.                                                                                                                                                                                                                                                        |
     | Nom                     | Nom descriptif du produit.                                                                                                                                                                                                                                                                                      |
     | Description              | Le champ **Description** vous permet d’ajouter des informations détaillées sur le produit, comme son objectif, les API auxquelles il permet l’accès, ainsi que d’autres informations utiles.                                                                                                                                               |
-    | État                    | Appuyez sur **Publié** si vous souhaitez publier le produit. Avant de pouvoir appeler les API dans un produit, ce produit doit être publié. Par défaut, les nouveaux produits ne sont pas publiés et ne sont visibles que pour les utilisateurs du groupe **Administrateurs** .                                                                                      |
+    | State                    | Appuyez sur **Publié** si vous souhaitez publier le produit. Avant de pouvoir appeler les API dans un produit, ce produit doit être publié. Par défaut, les nouveaux produits ne sont pas publiés et ne sont visibles que pour les utilisateurs du groupe **Administrateurs** .                                                                                      |
     | Nécessite un abonnement    | Cochez **Require subscription** (Demander un abonnement) si un utilisateur doit s’abonner pour pouvoir utiliser le produit.                                                                                                                                                                                                                                   |
     | Nécessite une approbation        | Cochez **Demander une approbation** si vous souhaitez qu’un administrateur révise et accepte ou refuse les tentatives d’abonnement à ce produit. Si la case n’est pas cochée, les tentatives d’abonnement sont automatiquement approuvées.                                                                                                                         |
     | Limite du nombre d’abonnements | Pour limiter le nombre de plusieurs abonnements simultanés, entrez la limite d’abonnements.                                                                                                                                                                                                                                |

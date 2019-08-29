@@ -6,15 +6,15 @@ manager: carmonm
 ms.service: site-recovery
 services: site-recovery
 ms.topic: tutorial
-ms.date: 05/30/2019
+ms.date: 08/22/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 854e09600440c28f7505a016566ea0f05e994f5f
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: 852193e137eab10d1e46c5ba6ae6636d530095be
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66418321"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972188"
 ---
 # <a name="fail-over-and-fail-back-vmware-vms"></a>Effectuer un basculement et une restauration automatique des machines virtuelles VMware
 
@@ -61,7 +61,7 @@ Vérifiez les propriétés suivantes :
 
 3. Dans **Calcul et réseau**, vous pouvez modifier ces propriétés en fonction des besoins :
     * Nom Azure
-    * Groupe de ressources
+    * Resource group
     * Taille de la cible
     * [Groupe à haute disponibilité](../virtual-machines/windows/tutorial-availability-sets.md)
     * Paramètres des disques managés

@@ -8,18 +8,17 @@ manager: gwallace
 editor: ''
 ms.assetid: facb1115-2b4e-4ef3-9905-330e42beb686
 ms.service: virtual-machines-linux
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/15/2016
 ms.author: gwallace
-ms.openlocfilehash: b36f6e2ace02324a63616f31fcdccfa666856699
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 116811a8b4d8e61a2a727cd4606344f2b169be96
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67875215"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70091594"
 ---
 # <a name="create-a-linux-vm-using-the-azure-classic-cli"></a>Créer une machine virtuelle Linux à l’aide d’Azure Classic CLI
 
@@ -67,7 +66,7 @@ Le précédent exemple `quick-create` appelait uniquement l’indicateur `-M` po
 * nom de la machine virtuelle
 * emplacement (`westus` ou `westeurope` sont des valeurs par défaut appropriées)
 * linux (pour indiquer à Azure le système d’exploitation souhaité)
-* userName
+* username
 
 L’exemple suivant spécifie toutes les valeurs, ainsi aucune autre invite n’est requise. Dans la mesure où vous avez un `~/.ssh/id_rsa.pub` en tant que fichier de clé publique au format ssh-rsa, il fonctionne comme suit :
 

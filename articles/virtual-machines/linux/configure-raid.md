@@ -11,17 +11,16 @@ ms.assetid: f3cb2786-bda6-4d2c-9aaf-2db80f490feb
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2017
 ms.author: rclaus
 ms.subservice: disks
-ms.openlocfilehash: a7e6c0b2f260976842a0b3ac1f7f69fa859e2283
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: d0658af090d9a3f39bee69f5103a78a329fe189c
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67671662"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70083805"
 ---
 # <a name="configure-software-raid-on-linux"></a>Configuration d’un RAID logiciel sur Linux
 L'utilisation d'un RAID logiciel pour les machines virtuelles Linux sur Azure est un scénario fréquent afin de regrouper plusieurs disques de données attachés sous la forme d'un périphérique RAID unique. En règle générale, ce scénario permet d'optimiser les performances et d'améliorer le débit par rapport à l'utilisation d'un disque unique.
@@ -122,19 +121,19 @@ Dans cet exemple, nous créons une partition de disque unique sur /dev/sdc. La n
 
 1. Créez le système de fichiers sur le nouveau périphérique RAID.
    
-    a. **CentOS, Oracle Linux, SLES 12, openSUSE et Ubuntu**
+    **CentOS, Oracle Linux, SLES 12, openSUSE et Ubuntu**
 
     ```bash   
     sudo mkfs -t ext4 /dev/md127
     ```
    
-    b. **SLES 11**
+    **SLES 11**
 
     ```bash
     sudo mkfs -t ext3 /dev/md127
     ```
    
-    c. **SLES 11** : activez boot.md et créez mdadm.conf
+    **SLES 11** : activez boot.md et créez mdadm.conf
 
     ```bash
     sudo -i chkconfig --add boot.md
@@ -144,7 +143,7 @@ Dans cet exemple, nous créons une partition de disque unique sur /dev/sdc. La n
    > [!NOTE]
    > Un redémarrage peut être nécessaire après avoir apporté ces modifications sur des systèmes SUSE. Cette étape n’est *pas* requise pour SLES 12.
    > 
-   > 
+   
 
 ## <a name="add-the-new-file-system-to-etcfstab"></a>Ajout du nouveau système de fichiers à /etc/fstab
 > [!IMPORTANT]

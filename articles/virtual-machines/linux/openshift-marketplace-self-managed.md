@@ -9,18 +9,17 @@ editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/7/2019
 ms.author: haroldw
-ms.openlocfilehash: 9b981924dcaf715dd1d05d452b756a40b63f8dac
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 87b5c4ab006d9129d7530b06d8b31df35e288c75
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65233087"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70091909"
 ---
 # <a name="configure-prerequisites"></a>Configuration préalable requise
 
@@ -68,9 +67,9 @@ Entrez les valeurs des paramètres d’entrée et cliquez sur **OK**.
 |-----------------------|-----------------|
 | Nom d’utilisateur administrateur de la machine virtuelle | Utilisateur administrateur à créer sur toutes les instances de machine virtuelle |
 | Clé publique SSH pour l’utilisateur administrateur | Clé publique SSH utilisée pour se connecter à la machine virtuelle, ne doit pas utiliser de phrase secrète |
-| Abonnement | Abonnement Azure dans lequel déployer un cluster |
+| Subscription | Abonnement Azure dans lequel déployer un cluster |
 | Groupe de ressources | Pour les ressources de cluster, créez un groupe de ressources ou sélectionnez un groupe de ressources vide existant |
-| Lieu | Région Azure dans laquelle déployer le cluster |
+| Location | Région Azure dans laquelle déployer le cluster |
 
    ![Panneau des concepts de base de l’offre](media/openshift-marketplace-self-managed/ocp-basics.png)  
 <br>

@@ -9,13 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ROBOTS: NOINDEX
-ms.openlocfilehash: d372adf75d46fdedb7a6f2b17e47822475d1f155
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b8bb3285aecb6aff399606e6263f014027a86581
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65442361"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70128888"
 ---
 # <a name="decision-forest-regression-module"></a>Module Régression de forêt d’arbres de décision
 
@@ -47,11 +46,11 @@ Pour en savoir plus sur l’infrastructure théorique de cet algorithme et son i
 
 2. Ouvrez les propriétés du module et, pour **Méthode de rééchantillonnage**, choisissez la méthode utilisée pour créer des arbres individuels.  Vous pouvez choisir **l’ensachage** ou la **réplication**.
 
-    - **Ensachage** : l’ensachage est aussi appelé bagging ou *bootstrap aggregating* en anglais. Chaque arbre d’une forêt de décision de régression génère une distribution gaussienne, sous la forme d’une prédiction. L’agrégation consiste à trouver une distribution gaussienne dont les deux premiers moments correspondent à des moments du mélange de distributions gaussiennes obtenu via la combinaison de toutes les distributions gaussiennes renvoyées par des arbres individuels.
+    - **Bagging** : l’ensachage est aussi appelé bagging ou *bootstrap aggregating* en anglais. Chaque arbre d’une forêt de décision de régression génère une distribution gaussienne, sous la forme d’une prédiction. L’agrégation consiste à trouver une distribution gaussienne dont les deux premiers moments correspondent à des moments du mélange de distributions gaussiennes obtenu via la combinaison de toutes les distributions gaussiennes renvoyées par des arbres individuels.
 
          Pour en savoir plus, consultez l’entrée Wikipedia relative au [Bootstrap Aggregating](https://wikipedia.org/wiki/Bootstrap_aggregating).
 
-    - **Réplication** : avec la réplication, l’apprentissage de chaque arbre est effectué à partir des mêmes données d’entrée. Le prédicat fractionné utilisé pour chaque nœud d’arbre est toujours déterminé de manière aléatoire, et les arbres sont variés.
+    - **Réplication** : avec la réplication, l’apprentissage de chacun des arbres est effectué sur les mêmes données d’entrée. Le prédicat fractionné utilisé pour chaque nœud d’arbre est toujours déterminé de manière aléatoire, et les arbres sont variés.
 
          Pour en savoir plus sur le processus d’apprentissage avec l’option **Répliquer**, voir [Decision Forests for Computer Vision and Medical Image Analysis (Forêts de décision pour la vision par ordinateur et l’analyse des images médicales) Criminisi and J. Shotton. Springer 2013](https://research.microsoft.com/projects/decisionforests/).
 
@@ -68,13 +67,13 @@ Pour en savoir plus sur l’infrastructure théorique de cet algorithme et son i
     > [!TIP]
     > Cette valeur contrôle également le nombre d’arbres affichés lorsque vous visualisez le modèle formé. Si vous souhaitez afficher ou imprimer un arbre unique, vous pouvez définir la valeur sur 1. Toutefois, cela signifie qu’un seul arbre est généré (celui qui inclut le jeu de paramètres initial) et qu’aucune autre itération n’est effectuée.
 
-5. Dans le champ **Maximum depth of the decision trees** (Profondeur maximale des arbres de décision), saisissez un nombre pour limiter la profondeur maximale de n’importe quel arbre de décision. Le fait d’augmenter la profondeur de l’arbre peut améliorer la précision, mais cela peut entraîner un surajustement et rallonger la durée de formation.
+5. Dans le champ **Maximum depth of the decision trees** (Profondeur maximale des arbres de décision), saisissez un nombre pour limiter la profondeur maximale de n’importe quel arbre de décision. Le fait d’augmenter la profondeur de l’arbre est susceptible d’améliorer la précision, au prix d’un risque de surajustement et d’augmentation du temps d’apprentissage.
 
-6. Dans le champ **Nombre de fractionnements aléatoires par nœud**, saisissez le nombre de fractionnements à utiliser lors de la génération de chaque nœud de l’arbre. Un *fractionnement* signifie que les fonctionnalités à chaque niveau de l’arbre (nœud) sont séparées au hasard.
+6. Dans le champ **Nombre de fractionnements aléatoires par nœud**, tapez le nombre de fractionnements à utiliser pour créer chacun des nœuds de l’arbre. Le *fractionnement* consiste à diviser de manière aléatoire les fonctionnalités à chaque niveau de l’arbre (nœud).
 
-7. Dans le champ **Minimum number of samples per leaf node** (Nombre minimal d’échantillons par nœud terminal), indiquez le nombre minimum de cas requis pour la création d’un nœud terminal dans un arbre.
+7. Dans le champ **Nombre minimal d’échantillons par nœud terminal**, indiquez le nombre minimal de cas requis pour la création d’un nœud terminal dans un arbre.
 
-     En augmentant cette valeur, vous augmentez le seuil pour la création des règles. Par exemple, avec la valeur par défaut de 1, un seul cas suffit à entraîner la création d’une règle. Si vous définissez la valeur de ce champ sur 5, les données de formation doivent contenir au moins cinq cas remplissant les mêmes conditions.
+     Plus cette valeur est grande, plus le seuil de création de règles augmente. Par exemple, avec la valeur par défaut, 1, un seul cas suffit à entraîner la création d’une règle. Si vous définissez la valeur de ce champ sur 5, les données de formation doivent contenir au moins cinq cas remplissant les mêmes conditions.
 
 
 9. Connectez un jeu de données étiqueté, sélectionnez une colonne d’étiquette unique contenant deux résultats maximum et connectez-vous à [Entraîner un modèle](./train-model.md).
@@ -97,4 +96,4 @@ Une fois la formation terminée :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Consultez les [modules disponibles](module-reference.md) pour Azure Machine Learning Service. 
+Consultez [l’ensemble des modules disponibles](module-reference.md) pour Azure Machine Learning service. 

@@ -7,16 +7,15 @@ manager: jeconnoc
 keywords: azure functions, fonctions, traitement des événements, webhooks, calcul dynamique, architecture sans serveur
 ms.assetid: 501722c3-f2f7-4224-a220-6d59da08a320
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: glenga
-ms.openlocfilehash: 582e4d81851d570f99d25d626a1db8a9f5e98231
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 7220c72625697490d9c42dab7e18ca4bf64d3f43
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68881330"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70085623"
 ---
 # <a name="monitor-azure-functions"></a>Surveiller l’exécution des fonctions Azure
 
@@ -631,7 +630,7 @@ Cela permet de connecter votre application au service de diffusion en continu de
 
 ![Afficher la diffusion de journaux d’activité en continu dans le portail](./media/functions-monitoring/streaming-logs-window.png)
 
-#### <a name="live-metrics-stream"></a>Flux de métriques temps réel
+#### <a name="live-metrics-stream"></a>Live Metrics Stream (Flux continu de mesures)
 
 Pour voir le flux de métriques temps réel de votre application, sélectionnez l’onglet **Vue d’ensemble** de votre application de fonction. Quand Application Insights est activé, un lien **Application Insights** est visible sous **Fonctionnalités configurées**. Ce lien vous mène à la page Application Insights de votre application.
 
@@ -647,7 +646,7 @@ Dans Application Insights, sélectionnez **Flux de métriques temps réel**. Les
 
 [!INCLUDE [functions-streaming-logs-core-tools](../../includes/functions-streaming-logs-core-tools.md)]
 
-### <a name="azure-cli"></a>Azure CLI
+### <a name="azure-cli"></a>D’Azure CLI
 
 Vous pouvez activer les journaux de diffusion en continu en utilisant [Azure CLI](/cli/azure/install-azure-cli). Utilisez les commandes suivantes pour vous connecter, choisir votre abonnement et diffuser en continu les fichiers journaux :
 

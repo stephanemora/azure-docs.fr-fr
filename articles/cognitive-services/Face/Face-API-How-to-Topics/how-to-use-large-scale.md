@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: sample
 ms.date: 05/01/2019
 ms.author: sbowles
-ms.openlocfilehash: dcbec817f771324219a68de96eb5dd262a887fc1
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: d8ecfb53b78277e4b0e4a85d60fb6712d0bc2292
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67449041"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70114831"
 ---
 # <a name="example-use-the-large-scale-feature"></a>Exemple : Utilisez la fonctionnalité à grande échelle
 
@@ -32,7 +32,7 @@ Les exemples sont écrits en C# à l'aide de la bibliothèque de client de l'API
 
 Lorsque vous utilisez la bibliothèque de client de l'API Visage, la clé d'abonnement et le point de terminaison de l'abonnement sont transmis par le biais du constructeur de la classe FaceClient. Par exemple :
 
-```CSharp
+```csharp
 string SubscriptionKey = "<Subscription Key>";
 // Use your own subscription endpoint corresponding to the subscription key.
 string SubscriptionEndpoint = "https://westus.api.cognitive.microsoft.com";
@@ -73,7 +73,7 @@ Ajoutez tous les visages et toutes les personnes de l'objet PersonGroup dans le 
 
 Le tableau précédent est une comparaison des opérations au niveau de la liste entre FaceList et LargeFaceList. Comme nous pouvons l'observer, LargeFaceList comporte de nouvelles opérations, Former et Accéder à l'état de la formation, par rapport à FaceList. La formation de l'objet LargeFaceList est une condition préalable à l'opération [FindSimilar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237). Aucune formation n'est requise pour l'objet FaceList. L'extrait de code suivant est une fonction d'assistance pour attendre la formation d'un objet LargeFaceList :
 
-```CSharp
+```csharp
 /// <summary>
 /// Helper function to train LargeFaceList and wait for finish.
 /// </summary>
@@ -123,7 +123,7 @@ private static async Task TrainLargeFaceList(
 
 Auparavant, une utilisation standard de l'objet FaceList, avec ajout de visages et FindSimilar, se présentait comme suit :
 
-```CSharp
+```csharp
 // Create a FaceList.
 const string FaceListId = "myfacelistid_001";
 const string FaceListName = "MyFaceListDisplayName";
@@ -156,7 +156,7 @@ using (Stream stream = File.OpenRead(QueryImagePath))
 
 Lorsque vous le migrez vers l'objet LargeFaceList, le code devient :
 
-```CSharp
+```csharp
 // Create a LargeFaceList.
 const string LargeFaceListId = "mylargefacelistid_001";
 const string LargeFaceListName = "MyLargeFaceListDisplayName";
@@ -233,7 +233,7 @@ Si une latence relativement longue est acceptable, il n'est pas nécessaire de d
 
 Supposons qu'il existe une fonction `TrainLargePersonGroup` semblable à `TrainLargeFaceList`. Voici un exemple d'implémentation standard de la formation autonome sur un objet LargePersonGroup en appelant la classe [`Timer`](https://msdn.microsoft.com/library/system.timers.timer(v=vs.110).aspx) dans `System.Timers` :
 
-```CSharp
+```csharp
 private static void Main()
 {
     // Create a LargePersonGroup.

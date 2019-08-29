@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: abc09ac1a13537c31fe96fae14edefd0d06b6aef
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: fab65828228bdea8f0367f8928b83934bf0a7a4f
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69879137"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69995869"
 ---
 # <a name="azure-iot-central-architecture-preview-features"></a>Architecture d’Azure IoT Central (fonctionnalités en préversion)
 
@@ -73,7 +73,7 @@ Dans une application Azure IoT Central, les modèles d’appareil définissent l
 
 Dans un modèle d’appareil d'application en préversion IoT Central :
 
-- Les **modèles de capacité d’appareil** spécifient les capacités d'un appareil, notamment les données de télémétrie qu'il envoie, les propriétés qui définissent l'état de l’appareil, et les commandes auxquelles l’appareil répond. Les capacités de l'appareil sont organisées en une ou plusieurs interfaces. Pour plus d'informations sur les modèles de capacité d’appareil, consultez la documentation [IoT Plug-and-Play](https://aka.ms/iot-pnp-docs).
+- Les **modèles de capacité d’appareil** spécifient les capacités d'un appareil, notamment les données de télémétrie qu'il envoie, les propriétés qui définissent l'état de l’appareil, et les commandes auxquelles l’appareil répond. Les capacités de l'appareil sont organisées en une ou plusieurs interfaces. Pour plus d'informations sur les modèles de capacité d’appareil, consultez la documentation [IoT Plug-and-Play](../iot-pnp/overview-iot-plug-and-play.md).
 - Les **propriétés du cloud** spécifient les propriétés que l'IoT Central stocke pour un appareil. Ces propriétés sont uniquement stockées dans IoT Central et ne sont jamais envoyées à un appareil.
 - Les **vues** spécifient les tableaux de bord et les formulaires créés par le concepteur pour permettre à l'opérateur de surveiller et de gérer les appareils.
 - Les **personnalisations** permettent au concepteur de remplacer certaines des définitions du modèle de capacité d’appareil afin de les rendre plus pertinentes pour l'application IoT Central.

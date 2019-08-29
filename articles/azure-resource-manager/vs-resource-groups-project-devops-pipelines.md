@@ -3,15 +3,15 @@ title: CI/CD avec Azure Pipelines et des modèles Resource Manager
 description: Décrit la configuration de l’intégration continue dans Azure Pipelines en utilisant des projets de déploiement Groupe de ressources Azure dans Visual Studio pour déployer des modèles Resource Manager.
 author: tfitzmac
 ms.service: azure-resource-manager
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/12/2019
 ms.author: tomfitz
-ms.openlocfilehash: b70b38904c0373c53c3731dd0442511116d9c4de
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.openlocfilehash: ae896fa0820fbd25ed3f2d29c89fbcd56e7fd6f5
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67191224"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69982457"
 ---
 # <a name="integrate-resource-manager-templates-with-azure-pipelines"></a>Intégrer des modèles Azure Resource Manager avec Azure Pipelines
 

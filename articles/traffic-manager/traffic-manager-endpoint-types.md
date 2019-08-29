@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/29/2017
 ms.author: allensu
-ms.openlocfilehash: 1b72fc510543ff57f5fac1b03e76df7ffed3fbfe
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: 9de5b161c6bb1897058898dddd620ad093f148be
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68333827"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69981051"
 ---
 # <a name="traffic-manager-endpoints"></a>Points de terminaison Traffic Manager
 
@@ -101,7 +101,7 @@ Si tous les points de terminaison d’un profil sont désactivés, ou si le prof
 
 * [Puis-je utiliser Traffic Manager avec plusieurs applications web dans la même région ?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-use-traffic-manager-with-more-than-one-web-app-in-the-same-region)
 
-* [Comment déplacer les points de terminaison Azure de mon profil Traffic Manager vers un autre groupe de ressources ?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-do-i-move-my-traffic-manager-profiles-azure-endpoints-to-a-different-resource-group)
+* [Comment déplacer les points de terminaison Azure de mon profil Traffic Manager vers un autre groupe de ressources ?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-do-i-move-my-traffic-manager-profiles-azure-endpoints-to-a-different-resource-group-or-subscription)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

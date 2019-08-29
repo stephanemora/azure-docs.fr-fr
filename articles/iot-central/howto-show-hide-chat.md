@@ -3,17 +3,17 @@ title: Afficher/masquer les conversations en direct dans Azure IoT Central | Mic
 description: En tant qu’utilisateur, découvrez comment afficher et masquer les conversations en direct.
 author: v-krghan
 ms.author: v-krghan
-ms.date: 04/18/2019
+ms.date: 08/23/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: a8d2b71899cdd6b7f9c8cb803732b760f3009811
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9ab0f830ab3b06f272e371a6908ac6dde3e3893a
+ms.sourcegitcommit: 80dff35a6ded18fa15bba633bf5b768aa2284fa8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64513319"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70019710"
 ---
 # <a name="toggle-live-chat"></a>Activer ou désactiver les conversations en direct
 

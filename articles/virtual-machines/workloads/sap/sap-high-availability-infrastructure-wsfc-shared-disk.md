@@ -10,19 +10,18 @@ tags: azure-resource-manager
 keywords: ''
 ms.assetid: ec976257-396b-42a0-8ea1-01c97f820fa6
 ms.service: virtual-machines-windows
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b4e107da9d8e5019ba51769d283f3faa34839380
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 63a2a3a68adaa2e389cc2af173c8f75a18fbc36d
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "67709257"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70078703"
 ---
 # <a name="prepare-the-azure-infrastructure-for-sap-ha-by-using-a-windows-failover-cluster-and-shared-disk-for-sap-ascsscs"></a>Préparer l’infrastructure Azure pour la haute disponibilité SAP à l’aide d’un cluster de basculement Windows et d’un disque partagé pour SAP ASCS/SCS
 
@@ -204,7 +203,7 @@ _**Figure 1 :** Définir les paramètres Azure Resource Manager de haute dispon
     * \<SIDSystèmeSAP\>-nic-ascs-\<Numéro\>
     * \<SIDSystèmeSAP\>-nic-db-\<Numéro\>
 
-  * **Des comptes de stockage Azure (disques non gérés uniquement)**  :
+  * **Des comptes de stockage Azure (disques non managés uniquement)**  :
 
   * **Des groupes de disponibilité** pour :
     * Machines virtuelles de serveur d'applications SAP : \<SAPSystemSID\>-avset-di

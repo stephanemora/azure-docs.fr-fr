@@ -7,12 +7,12 @@ ms.date: 07/31/2019
 ms.topic: article
 ms.service: virtual-machines-linux
 manager: gwallace
-ms.openlocfilehash: abaf96b11abee0bf519a276f825b9c47cd333c1b
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 240e0dadaebde6725974604b578328ede0b20652
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68816310"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70129059"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>Aperçu : Créer un modèle de générateur d’images Azure 
 
@@ -190,6 +190,7 @@ Définit l’image source comme une version d’image existante dans une galerie
 `imageVersionId` doit être l’ID de ressource de la version d’image. Utilisez [az sig image-version list](/cli/azure/sig/image-version#az-sig-image-version-list) pour répertorier les versions d’image.
 
 ## <a name="properties-buildtimeoutinminutes"></a>Propriétés : buildTimeoutInMinutes
+
 Par défaut, Image Builder s’exécutera pendant 240 minutes. Après cela, il expire et s’arrête, que la génération de l’image soit terminée ou non. Si le délai d’expiration est atteint, une erreur semblable à celle-ci s’affiche :
 
 ```text
@@ -203,7 +204,6 @@ Si vous avez besoin de plus de temps pour que les personnalisations se terminent
 
 
 ## <a name="properties-customize"></a>Propriétés : personnaliser
-
 
 Le générateur d’images prend en charge plusieurs « personnalisateurs ». Les personnalisateurs sont des fonctions utilisées pour personnaliser votre image, telles que l’exécution de scripts ou le redémarrage de serveurs. 
 

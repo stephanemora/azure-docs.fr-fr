@@ -10,16 +10,15 @@ ms.assetid: 3c777964-02b2-4f55-8731-8c3bd3c0ae27
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2018
 ms.author: apimpm
-ms.openlocfilehash: 87693caa5343e359bb3ab424de489c2270bbca62
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: df7b14c8221ab7837cabe968a82cfc5d5d9050c4
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64704440"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70072576"
 ---
 # <a name="error-handling-in-api-management-policies"></a>Gestion des erreurs dans les stratégies de la Gestion des API
 
@@ -79,13 +78,13 @@ La section de stratégie `on-error` peut être utilisée, quelle que soit l’é
   
 | Nom       | type   | Description                                                                                               | Obligatoire |
 |------------|--------|-----------------------------------------------------------------------------------------------------------|----------|
-| `Source`   | chaîne | Désigne l’élément où l’erreur s’est produite. Peut être une stratégie ou un nom d’étape de pipeline intégrée.     | OUI      |
-| `Reason`   | chaîne | Code d’erreur informatique, utilisable dans la gestion des erreurs.                                       | Non       |
-| `Message`  | chaîne | Description lisible de l’erreur.                                                                         | OUI      |
-| `Scope`    | chaîne | Nom de l’étendue où l’erreur s’est produite. Peut être « global », « product », « api » ou « operation ». | Non       |
-| `Section`  | chaîne | Nom de la section où l’erreur s’est produite. Valeurs possibles : « entrant », « principal », « sortant » ou « erreur ».       | Non       |
-| `Path`     | chaîne | Spécifie la stratégie imbriquée, par exemple, « choose[3]/when[2] ».                                                        | Non       |
-| `PolicyId` | chaîne | Valeur de l’attribut `id`, s’il est spécifié par le client, sur la stratégie où l’erreur s’est produite.             | Non       |
+| `Source`   | string | Désigne l’élément où l’erreur s’est produite. Peut être une stratégie ou un nom d’étape de pipeline intégrée.     | OUI      |
+| `Reason`   | string | Code d’erreur informatique, utilisable dans la gestion des erreurs.                                       | Non       |
+| `Message`  | string | Description lisible de l’erreur.                                                                         | OUI      |
+| `Scope`    | string | Nom de l’étendue où l’erreur s’est produite. Peut être « global », « product », « api » ou « operation ». | Non       |
+| `Section`  | string | Nom de la section où l’erreur s’est produite. Valeurs possibles : « entrant », « principal », « sortant » ou « erreur ».       | Non       |
+| `Path`     | string | Spécifie la stratégie imbriquée, par exemple, « choose[3]/when[2] ».                                                        | Non       |
+| `PolicyId` | string | Valeur de l’attribut `id`, s’il est spécifié par le client, sur la stratégie où l’erreur s’est produite.             | Non       |
 
 > [!TIP]
 > Vous pouvez accéder au code d’état avec context.Response.StatusCode.  

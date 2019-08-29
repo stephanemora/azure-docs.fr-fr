@@ -11,17 +11,17 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 08/05/2019
-ms.openlocfilehash: 4722cda0506493671ff872d75e7376f3de74b1b8
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 2d7cc217ff8ae45491c0f9d6b54ea8afea19cd2e
+ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68886464"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69981241"
 ---
 # <a name="azure-sql-database-and-data-warehouse-network-access-controls"></a>Contrôles d’accès réseau Azure SQL Database et Data Warehouse
 
 > [!NOTE]
-> Cet article s’applique à un serveur SQL Azure et aux bases de données SQL Database et SQL Data Warehouse créées sur le serveur SQL Azure. Par souci de simplicité, SQL Database est utilisé pour faire référence à la fois à SQL Database et à SQL Data Warehouse.
+> Cet article s’applique à un serveur SQL Azure et aux bases de données SQL Database et SQL Data Warehouse créées sur le serveur SQL Azure. Par souci de simplicité, la base de données SQL est utilisée pour faire référence à SQL Database et SQL Data Warehouse.
 
 > [!IMPORTANT]
 > Cet article ne s’applique *pas* à **Azure SQL Database Managed Instance**. Pour plus d’informations sur la configuration réseau, consultez [Connexion à une instance managée](sql-database-managed-instance-connect-app.md).
@@ -33,6 +33,7 @@ Lorsque vous créez un serveur SQL Server Azure à partir du [portail Azure](sql
 
 - Règles de pare-feu de réseau virtuel : Utilisez cette fonctionnalité pour autoriser le trafic à partir d’un réseau virtuel spécifique au sein de la limite Azure.
 
+> [!VIDEO https://channel9.msdn.com/Shows/Data-Exposed/Data-Exposed--SQL-Database-Connectivity-Explained/player?WT.mc_id=dataexposed-c9-niner]
 
 ## <a name="allow-azure-services"></a>Autoriser les services Azure 
 Lors de la création d’un serveur Azure SQL Server à partir du [portail Azure](sql-database-single-database-get-started.md), ce paramètre est laissé désactivé.

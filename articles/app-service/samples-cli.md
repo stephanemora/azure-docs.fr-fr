@@ -9,19 +9,18 @@ editor: ggailey777
 tags: azure-service-management
 ms.assetid: 53e6a15a-370a-48df-8618-c6737e26acec
 ms.service: app-service
-ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: app-service
 ms.date: 12/12/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: fe5649951b1b19ce52c13648f897f4a83e1f761b
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: dc8a08c61250994b6083e3936820e1e6025593a6
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53628372"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70066697"
 ---
 # <a name="cli-samples-for-azure-app-service"></a>Exemples d’interface CLI pour Azure App Service
 
@@ -52,5 +51,5 @@ Le tableau suivant contient des liens vers des scripts Bash créés à l’aide 
 | [Créer une sauvegarde planifiée pour une application](./scripts/cli-backup-scheduled.md?toc=%2fcli%2fazure%2ftoc.json) | Crée une application App Service et une sauvegarde planifiée pour celle-ci. |
 | [Restaurer une application à partir d’une sauvegarde](./scripts/cli-backup-restore.md?toc=%2fcli%2fazure%2ftoc.json) | Restaure une application App Service à partir d’une sauvegarde. |
 |**Surveiller l’application**||
-| [Superviser une application avec les journaux de serveur web](./scripts/cli-monitor.md?toc=%2fcli%2fazure%2ftoc.json) | Crée une application App Service, active sa journalisation et télécharge les journaux d’activité sur votre ordinateur local. |
+| [Superviser une application avec les journaux d’activité de serveur web](./scripts/cli-monitor.md?toc=%2fcli%2fazure%2ftoc.json) | Crée une application App Service, active sa journalisation et télécharge les journaux d’activité sur votre ordinateur local. |
 | | |

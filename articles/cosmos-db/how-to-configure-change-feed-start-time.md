@@ -3,15 +3,15 @@ title: Configurer l’heure de début du processeur de flux de modification - Az
 description: Découvrez comment configurer le processeur de flux de modification pour qu’il commence la lecture depuis une date et une heure spécifiques
 author: ealsur
 ms.service: cosmos-db
-ms.topic: sample
+ms.topic: conceptual
 ms.date: 08/13/2019
 ms.author: maquaran
-ms.openlocfilehash: 3ad9aff10b3bae36a173f776f55a434fd8b38b98
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.openlocfilehash: 600556a06d3f58c4d2ec79a49fdee5e8e04d4036
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69574272"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70093646"
 ---
 # <a name="how-to-configure-the-change-feed-processor-start-time"></a>Configurer l’heure de début du processeur de flux de modification
 
@@ -46,7 +46,7 @@ Le processeur de flux de modification est initialisé et commence à lire les mo
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
 * [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md)
-* [Exemples d’utilisation sur GitHub](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/usage/changefeed)
+* [Exemples d’utilisation sur GitHub](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed)
 * [Exemples supplémentaires sur GitHub](https://github.com/Azure-Samples/cosmos-dotnet-change-feed-processor)
 
 ## <a name="next-steps"></a>Étapes suivantes

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2018
 ms.author: banders
-ms.openlocfilehash: 98ed28af8df246549fb521a81f1968e1f5c28cc4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 39526defb8f41ddacb0a26d7ad852f820ca6ea77
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60370711"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70034523"
 ---
 # <a name="understand-azure-enterprise-agreement-administrative-roles-in-azure"></a>Comprendre les rôles d’administrateur Contrat Entreprise Azure dans Azure
 
@@ -36,7 +36,7 @@ Les sections suivantes décrivent les limitations et les capacités de chaque r�
 
 ## <a name="user-limit-for-admin-roles"></a>Limite utilisateur pour les rôles d’administrateur
 
-|Rôle| Limite utilisateur|
+|Role| Limite utilisateur|
 |---|---|
 |Administrateur d’entreprise|Illimité|
 |Administrateur d’entreprise (lecture seule)|Illimité|
@@ -56,7 +56,7 @@ Les sections suivantes décrivent les limitations et les capacités de chaque r�
 |Ajouter ou supprimer des contacts de notification<sup>2</sup> |✔|✘|✘|✘|✘|
 |Créer et gérer des services |✔|✘|✘|✘|✘|
 |Voir les administrateurs de service|✔|✔|✔|✔|✘|
-|Ajouter ou supprimer des administrateurs de service|✔|✔|✔|✘|✘|
+|Ajouter ou supprimer des administrateurs de service|✔|✘|✔|✘|✘|
 |Voir les comptes de l’inscription |✔|✔|✔<sup>3</sup>|✔<sup>3</sup>|✘|
 |Ajouter des comptes à l’inscription et changer le propriétaire du compte|✔|✘|✔<sup>3</sup>|✘|✘|
 |Créer et gérer des abonnements et des autorisations d’abonnement|✘|✘|✘|✘|✔|

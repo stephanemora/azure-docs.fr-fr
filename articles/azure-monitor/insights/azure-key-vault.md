@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: bwren
-ms.openlocfilehash: b7d9ff760bac06602d8d770a358c8a2e22a72c81
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 1e0e9a0d76e644ec48ecd423a105dd89629d290c
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68849195"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69997701"
 ---
 # <a name="azure-key-vault-analytics-solution-in-azure-monitor"></a>Solution Azure Key Vault Analytics dans Azure Monitor
 
@@ -105,26 +105,26 @@ La solution Azure Key Vault analyse les enregistrements de type **KeyVaults** qu
 
 | Propriété | Description |
 |:--- |:--- |
-| Type |*AzureDiagnostics* |
-| SourceSystem |*Microsoft Azure* |
-| callerIpAddress |Adresse IP du client qui a effectué la demande. |
-| Category | *AuditEvent* |
-| CorrelationId |GUID facultatif que le client peut transférer pour mettre en corrélation les journaux d’activité côté client avec les journaux d’activité côté service (Key Vault). |
-| DurationMs |Délai nécessaire pour répondre à la demande API REST, en millisecondes. La latence du réseau n’étant pas incluse dans ce chiffre, le temps mesuré côté client peut ne pas correspondre à cette durée. |
-| httpStatusCode_d |Code d’état HTTP retourné par la demande (par exemple, *200*) |
-| id_s |ID unique de la demande. |
-| identity_claim_appid_g | GUID de l’ID d’application |
-| OperationName |Nom de l’opération, comme décrit dans [journalisation d’Azure Key Vault](../../key-vault/key-vault-logging.md) |
-| operationVersion |Version d’API REST demandée par le client (par exemple *2015-06-01*) |
-| requestUri_s |URI de la demande. |
-| Ressource |Nom du Key Vault. |
-| ResourceGroup |Groupe de ressources du Key Vault. |
-| ResourceId |ID de ressource Azure Resource Manager Pour les journaux d’activité de coffre de clés, il s’agit de l’ID de ressource du coffre de clés. |
-| ResourceProvider |*MICROSOFT.KEYVAULT* |
-| ResourceType | *VAULTS* |
-| ResultSignature |État HTTP (par exemple *OK*) |
-| ResultType |Résultat de la demande de l’API REST (par exemple, *Réussite*) |
-| SubscriptionId |ID de l’abonnement Azure contenant le Key Vault. |
+| `Type` |*AzureDiagnostics* |
+| `SourceSystem` |*Microsoft Azure* |
+| `CallerIpAddress` |Adresse IP du client qui a effectué la demande. |
+| `Category` | *AuditEvent* |
+| `CorrelationId` |GUID facultatif que le client peut transférer pour mettre en corrélation les journaux d’activité côté client avec les journaux d’activité côté service (Key Vault). |
+| `DurationMs` |Délai nécessaire pour répondre à la demande API REST, en millisecondes. La latence du réseau n’étant pas incluse dans ce chiffre, le temps mesuré côté client peut ne pas correspondre à cette durée. |
+| `httpStatusCode_d` |Code d’état HTTP retourné par la demande (par exemple, *200*) |
+| `id_s` |ID unique de la demande. |
+| `identity_claim_appid_g` | GUID de l’ID d’application |
+| `OperationName` |Nom de l’opération, comme décrit dans [journalisation d’Azure Key Vault](../../key-vault/key-vault-logging.md) |
+| `OperationVersion` |Version d’API REST demandée par le client (par exemple *2015-06-01*) |
+| `requestUri_s` |URI de la demande. |
+| `Resource` |Nom du Key Vault. |
+| `ResourceGroup` |Groupe de ressources du Key Vault. |
+| `ResourceId` |ID de ressource Azure Resource Manager Pour les journaux d’activité de coffre de clés, il s’agit de l’ID de ressource du coffre de clés. |
+| `ResourceProvider` |*MICROSOFT.KEYVAULT* |
+| `ResourceType` | *VAULTS* |
+| `ResultSignature` |État HTTP (par exemple *OK*) |
+| `ResultType` |Résultat de la demande de l’API REST (par exemple, *Réussite*) |
+| `SubscriptionId` |ID de l’abonnement Azure contenant le Key Vault. |
 
 ## <a name="migrating-from-the-old-key-vault-solution"></a>Migration à partir d’une ancienne version de Key Vault
 En janvier 2017, le mode d’envoi des journaux d’activité de Key Vault vers Log Analytics a changé. Ces modifications présentent les avantages suivants :

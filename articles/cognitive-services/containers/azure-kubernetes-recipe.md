@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 06/26/2019
 ms.author: dapine
-ms.openlocfilehash: 5b406f9c7f8c16038561853170896d2cd95dc383
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 852530910f7a8c6c815493d0dbcc57f67695d6de
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67444843"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70066102"
 ---
 # <a name="deploy-the-language-detection-container-to-azure-kubernetes-service"></a>Déployer le conteneur Détection de langue sur Azure Kubernetes Service
 
@@ -62,19 +62,19 @@ Pour déployer le conteneur sur Azure Kubernetes Service, les images de conteneu
 
 1. Se connecter à Azure CLI
 
-    ```azurecli
+    ```azurecli-interactive
     az login
     ```
 
 1. Créez un groupe de ressources nommé `cogserv-container-rg` pour contenir toutes les ressources créées dans cette procédure.
 
-    ```azurecli
+    ```azurecli-interactive
     az group create --name cogserv-container-rg --location westus
     ```
 
 1. Créez votre propre registre Azure Container Registry, en utilisant votre nom suivi de `registry`, comme `pattyregistry`. N’utilisez pas de tirets ni de caractères de trait de soulignement dans le nom.
 
-    ```azurecli
+    ```azurecli-interactive
     az acr create --resource-group cogserv-container-rg --name pattyregistry --sku Basic
     ```
 
@@ -104,7 +104,7 @@ Pour déployer le conteneur sur Azure Kubernetes Service, les images de conteneu
 
 1. Connectez-vous à votre registre de conteneurs. Vous devez vous connecter pour pouvoir envoyer (push) des images à votre registre.
 
-    ```azurecli
+    ```azurecli-interactive
     az acr login --name pattyregistry
     ```
 
@@ -174,7 +174,7 @@ Les étapes suivantes sont nécessaires pour obtenir les informations permettant
 
 1. Créez le principal du service.
 
-    ```azurecli
+    ```azurecli-interactive
     az ad sp create-for-rbac --skip-assignment
     ```
 
@@ -193,7 +193,7 @@ Les étapes suivantes sont nécessaires pour obtenir les informations permettant
 
 1. Obtenez l’ID de votre registre de conteneurs.
 
-    ```azurecli
+    ```azurecli-interactive
     az acr show --resource-group cogserv-container-rg --name pattyregistry --query "id" --o table
     ```
 
@@ -208,7 +208,7 @@ Les étapes suivantes sont nécessaires pour obtenir les informations permettant
 
 1. Pour accorder l’accès correct permettant au cluster AKS d’utiliser des images stockées dans votre registre de conteneurs, créez une attribution de rôle. Remplacez `<appId>` et `<acrId>` par les valeurs recueillies au cours des deux étapes précédentes.
 
-    ```azurecli
+    ```azurecli-interactive
     az role assignment create --assignee <appId> --scope <acrId> --role Reader
     ```
 
@@ -216,7 +216,7 @@ Les étapes suivantes sont nécessaires pour obtenir les informations permettant
 
 1. Créer un cluster Kubernetes. Toutes les valeurs des paramètres proviennent des sections précédentes, à l’exception du paramètre de nom. Choisissez un nom qui indique qui l’a créé et quel est son objectif, par exemple `patty-kube`.
 
-    ```azurecli
+    ```azurecli-interactive
     az aks create --resource-group cogserv-container-rg --name patty-kube --node-count 2  --service-principal <appId>  --client-secret <client-secret>  --generate-ssh-keys
     ```
 
@@ -284,7 +284,7 @@ Les étapes suivantes sont nécessaires pour obtenir les informations permettant
 
 1. Obtenez les informations d’identification du cluster Kubernetes.
 
-    ```azurecli
+    ```azurecli-interactive
     az aks get-credentials --resource-group cogserv-container-rg --name patty-kube
     ```
 
@@ -397,7 +397,7 @@ Changez l’URL dans le navigateur pour l’adresse IP externe du conteneur `lan
 
 Quand vous avez terminé avec le cluster, supprimez le groupe de ressources Azure.
 
-```azure-cli
+```azurecli-interactive
 az group delete --name cogserv-container-rg
 ```
 

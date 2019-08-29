@@ -9,13 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ROBOTS: NOINDEX
-ms.openlocfilehash: 09ea530cac5bdbd62208f134177e5ceaccb545e2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 812fb8d312b165bd43f600da520f390f9c6399fe
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65027944"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70128415"
 ---
 # <a name="two-class-boosted-decision-tree-module"></a>Arbre de décision optimisé à deux classes
 
@@ -37,7 +36,7 @@ Vous pouvez effectuer l’apprentissage de ce type de modèle à l’aide de l�
   
 2.  Spécifiez le mode d’apprentissage du modèle en définissant l’option **Create trainer mode** (Créer un mode d’apprentissage).
   
-    + **Single Parameter** (Paramètre unique) : si vous savez comment vous voulez configurer le modèle, vous pouvez fournir un ensemble spécifique de valeurs en tant qu’arguments.
+    + **Paramètre unique** : si vous savez comment vous voulez configurer le modèle, vous pouvez fournir un ensemble spécifique de valeurs en tant qu’arguments.
   
   
 3.  Dans le champ **Maximum number of leaves per tree** (Nombre maximal de nœuds terminaux par arbre), indiquez le nombre maximal de nœuds terminaux qui peuvent être créés dans un arbre quelconque.
@@ -46,7 +45,7 @@ Vous pouvez effectuer l’apprentissage de ce type de modèle à l’aide de l�
   
 4.  Dans le champ **Minimum number of samples per leaf node** (Nombre minimal d’échantillons par nœud terminal), indiquez le nombre de cas requis pour la création d’un nœud terminal dans un arbre.  
   
-     En augmentant cette valeur, vous augmentez le seuil pour la création de règles. Par exemple, avec la valeur par défaut de 1, un seul cas suffit à entraîner la création d’une règle. Si vous définissez la valeur de ce champ sur 5, les données d’apprentissage doivent contenir au moins cinq cas remplissant les mêmes conditions.
+     En augmentant cette valeur, vous augmentez le seuil pour la création de règles. Par exemple, avec la valeur par défaut, 1, un seul cas suffit à entraîner la création d’une règle. Si vous définissez la valeur de ce champ sur 5, les données d’apprentissage doivent contenir au moins cinq cas remplissant les mêmes conditions.
   
 5.  Dans le champ **Taux d’apprentissage**, saisissez un nombre compris entre 0 et 1 qui définit la taille de pas lors de l’apprentissage.  
   
@@ -76,4 +75,4 @@ Une fois l’apprentissage du modèle effectué, cliquez avec le bouton droit su
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Consultez les [modules disponibles](module-reference.md) pour Azure Machine Learning service. 
+Consultez [l’ensemble des modules disponibles](module-reference.md) pour Azure Machine Learning service. 

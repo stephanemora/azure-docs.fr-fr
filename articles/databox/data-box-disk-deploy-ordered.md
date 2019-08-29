@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 39d39b313cd2e65989989080d4cb0729b0be1e65
-ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
+ms.openlocfilehash: c1626542aba71f971ad96fe9f187ce9f1c1a99f3
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67561451"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70012943"
 ---
 # <a name="tutorial-order-an-azure-data-box-disk"></a>Didacticiel : Commander une solution Azure Data Box Disk
 
@@ -68,7 +68,7 @@ Effectuez les étapes suivantes pour commander Data Box Disk.
 
     |Paramètre|Valeur|
     |---|---|
-    |Abonnement|Sélectionnez l’abonnement pour lequel le service Data Box est activé.<br> L’abonnement est lié à votre compte de facturation. |
+    |Subscription|Sélectionnez l’abonnement pour lequel le service Data Box est activé.<br> L’abonnement est lié à votre compte de facturation. |
     |Type de transfert| Importer vers Azure|
     |Pays source | Sélectionnez le pays ou la région où vos données se trouvent actuellement.|
     |Région Azure de destination|Sélectionnez la région Azure où vous souhaitez transférer des données.|
@@ -83,7 +83,7 @@ Effectuez les étapes suivantes pour commander Data Box Disk.
     |Paramètre|Valeur|
     |---|---|
     |Nom|Indiquez un nom convivial pour suivre la commande.<br> Le nom peut comporter entre 3 et 24 caractères qui peuvent être des lettres, des chiffres et des traits d’union. <br> Il doit commencer et se terminer par une lettre ou un chiffre. |
-    |Groupe de ressources| Créez-en un nouveau ou utilisez un groupe existant. <br> Un groupe de ressources est un conteneur logique pour les ressources qui peuvent être gérées ou déployées ensemble. |
+    |Resource group| Créez-en un nouveau ou utilisez un groupe existant. <br> Un groupe de ressources est un conteneur logique pour les ressources qui peuvent être gérées ou déployées ensemble. |
     |Région Azure de destination| Sélectionnez une région pour votre compte de stockage.<br> Actuellement, les comptes de stockage de toutes les régions des États-Unis, d’Europe du Nord et de l’Ouest, du Canada et de l’Australie sont pris en charge. |
     |Taille de données estimée en To| Entrez une estimation en To. <br>Selon la taille des données, Microsoft vous envoie un nombre de disques SSD de 8 To (7 To de capacité utilisable) approprié. <br>La capacité utilisable maximale de 5 disques peut atteindre 35 To. |
     |Clé d’accès de disque| Fournissez la clé d’accès de disque si vous cochez l’option **Utiliser une clé personnalisée à la place de la clé d’accès générée par Azure**. <br> Fournissez une clé alphanumérique comprise entre 12 et 32 caractères, et contenant au moins une valeur numérique et un caractère spécial. Seuls les caractères spéciaux `@?_+` sont autorisés. <br> Vous pouvez choisir d’ignorer cette option et d’utiliser la clé d’accès générée par Azure pour déverrouiller vos disques.|
@@ -97,11 +97,11 @@ Effectuez les étapes suivantes pour commander Data Box Disk.
 
     |Paramètre  |Valeur  |
     |---------|---------|
-    |Groupe de ressources     | Créez un nouveau groupe de ressources si vous envisagez de créer des disques managés à partir de disques durs virtuels locaux. N’utilisez un groupe de ressources existant que s’il a été créé pour la commande Data Box Disk de disque managé par le service Data Box. <br> Seul un groupe de ressources est pris en charge.|
+    |Resource group     | Créez un nouveau groupe de ressources si vous envisagez de créer des disques managés à partir de disques durs virtuels locaux. N’utilisez un groupe de ressources existant que s’il a été créé pour la commande Data Box Disk de disque managé par le service Data Box. <br> Seul un groupe de ressources est pris en charge.|
 
     ![Commande Data Box Disk pour un disque managé](media/data-box-disk-deploy-ordered/order-managed-disks.png)
 
-    Le compte de stockage spécifié pour les disques managés est utilisé comme compte de stockage intermédiaire. Le service Data Box charge les disques durs virtuels sur le compte de stockage intermédiaire, les convertit en disques managés, puis passe aux groupes de ressources. Pour plus d’informations, voir [Vérifier le chargement des données dans Azure](data-box-disk-deploy-picked-up.md#verify-data-upload-to-azure).
+    Le compte de stockage spécifié pour les disques managés est utilisé comme compte de stockage intermédiaire. Le service Data Box charge les disques durs virtuels sur le compte de stockage intermédiaire, les convertit en disques managés, puis passe aux groupes de ressources. Pour plus d’informations, voir [Vérifier le chargement des données dans Azure](data-box-disk-deploy-upload-verify.md#verify-data-upload-to-azure).
 
 13. Cliquez sur **Suivant**.
 

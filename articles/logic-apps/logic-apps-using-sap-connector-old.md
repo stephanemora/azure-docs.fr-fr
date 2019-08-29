@@ -10,12 +10,12 @@ services: logic-apps
 ms.reviewer: klam, divswa, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: d677c0eae9c92f90783ed4ebd95a528b34c872ec
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 31f6a3fc281b8dc309ddcd237246c870c85ae20b
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60847406"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69971643"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Se connecter aux systèmes SAP à partir d’Azure Logic Apps
 
@@ -27,8 +27,8 @@ Cet article explique comment accéder à vos ressources SAP à partir d’une ap
 Cet exemple utilise une application logique que vous pouvez déclencher à l’aide d’une requête HTTP. L’application logique envoie un document intermédiaire (IDoc) à un serveur SAP et renvoie une réponse au demandeur qui a appelé l’application logique.
 Les connecteurs SAP actuels disposent d’actions, mais pas de déclencheurs. Cet exemple utilise donc le [déclencheur de requête HTTP](../connectors/connectors-native-reqres.md) comme première étape du flux de travail de l’application logique. Pour obtenir des informations techniques spécifiques aux connecteurs SAP, consultez ces articles de référence : 
 
-* <a href="https://docs.microsoft.com/connectors/sapapplicationserver/" target="blank">Connecteur de serveur d’applications SAP</a>
-* <a href="https://docs.microsoft.com/connectors/sapmessageserver/" target="blank">Connecteur de serveur de messagerie SAP</a>
+* <a href="https://docs.microsoft.com/connectors/sap" target="blank">Connecteur de serveur d’applications SAP</a>
+* <a href="https://docs.microsoft.com/connectors/sap/#send-message-to-sap" target="blank">Connecteur de serveur de messagerie SAP</a>
 
 Si vous n’avez pas encore d’abonnement Azure, <a href="https://azure.microsoft.com/free/" target="_blank">inscrivez-vous pour bénéficier d’un compte Azure gratuit</a>.
 
@@ -190,8 +190,8 @@ Félicitations, vous venez de créer une application logique qui peut communique
 
 Pour obtenir des détails techniques sur le connecteur, comme décrit dans les fichiers Swagger des connecteurs, consultez les articles de référence suivants : 
 
-* [Serveur d’applications SAP](/connectors/sapapplicationserver/)
-* [Serveur de messagerie SAP](/connectors/sapmessageserver/)
+* [Serveur d’applications SAP](/connectors/sap)
+* [Serveur de messagerie SAP](/connectors/sap/#send-message-to-sap)
 
 ## <a name="get-support"></a>Obtenir de l’aide
 

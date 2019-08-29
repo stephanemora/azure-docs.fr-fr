@@ -9,13 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ROBOTS: NOINDEX
-ms.openlocfilehash: dce90d911085c1f7330a2e0952bb9576c1d765fa
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b16e745de277d5aa262f1e1624df22f97d0cf29c
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65029294"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70128536"
 ---
 # <a name="remove-duplicate-rows-module"></a>Module Supprimer les lignes en double
 
@@ -34,7 +33,7 @@ Par exemple, supposons que vos données se présentent comme suit et représente
 |4| F.M.| M| 23| Fév|
 | | F.M.| M| 23| |
 |5\.| F.A.M.| M| 53| |
-|6\.| F.A.M.| M| NaN| |
+|6| F.A.M.| M| NaN| |
 |7| F.A.M.| M| NaN| |
 
 Clairement, cet exemple comporte plusieurs colonnes avec des données potentiellement en double. Le fait de savoir s’il s’agit réellement de doublons dépend de votre connaissance des données. 
@@ -79,4 +78,4 @@ Lorsque vous exécutez le module, il crée un jeu de données candidat et envoie
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Consultez [l’ensemble des modules disponibles](module-reference.md) pour le service Azure Machine Learning. 
+Consultez [l’ensemble des modules disponibles](module-reference.md) pour Azure Machine Learning service. 

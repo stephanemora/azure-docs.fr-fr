@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 06/24/2019
 ms.author: sngun
-ms.openlocfilehash: b1d8d2539ae89dfdb8feb2e38f00bf4440411d8a
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 9824e1468604763834e37abe94290d68d81077ab
+ms.sourcegitcommit: 80dff35a6ded18fa15bba633bf5b768aa2284fa8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68815142"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70020130"
 ---
 # <a name="tutorial-develop-an-aspnet-core-mvc-web-application-with-azure-cosmos-db-by-using-net-sdk"></a>Didacticiel : Développer une application web ASP.NET Core MVC avec Azure Cosmos DB à l’aide du kit SDK .NET 
 
@@ -74,7 +74,7 @@ Dans la section suivante, vous allez créer une application ASP.NET Core MVC.
 
 3. Dans la zone **Nom** , tapez le nom du projet. Ce didacticiel utilise le nom « todo ». Si vous choisissez d’utiliser un autre nom, corrigez les exemples de code fournis chaque fois que ce tutoriel fait référence à l’espace de noms todo, de façon à utiliser le nom que vous avez attribué à votre application. 
 
-4. Sélectionnez **Parcourir** pour accéder au dossier où vous souhaitez créer le projet. Sélectionnez **Créer**. 
+4. Sélectionnez **Parcourir** pour accéder au dossier où vous souhaitez créer le projet. Sélectionnez **Create** (Créer). 
 
 5. La boîte de dialogue **Créer une application web ASP.NET Core** s’affiche. Dans la liste des modèles, sélectionnez **Application web (Model-View-Controller)** .
 
@@ -119,22 +119,6 @@ Maintenant que nous avons presque tout le code de framework ASP.NET Core MVC don
    [!code-csharp[Main](~/samples-cosmosdb-dotnet-core-web-app/src/Models/Item.cs)]
    
    Les données stockées dans Azure Cosmos DB sont transmises et stockées au format JSON. Pour contrôler la façon dont vos objets sont sérialisés/désérialisés par JSON.NET, vous pouvez utiliser l’attribut **JsonProperty**, comme indiqué dans la classe **Item** que vous avez créée. En plus de contrôler le format du nom de propriété qui est transmis à JSON, vous pouvez renommer vos propriétés .NET, comme vous l’avez fait avec la propriété **Completed**. 
-
-### <a name="add-a-controller"></a>Ajout d'un contrôleur
-
-1. À partir de l’**Explorateur de solutions**, cliquez avec le bouton droit sur le dossier **Contrôleurs**, sélectionnez **Ajouter**, puis **Contrôleur**. La boîte de dialogue **Ajouter une structure** s'affiche.
-
-1. Sélectionnez **Contrôleur MVC - Vide**, puis **Ajouter**.
-
-   ![Capture d’écran de la boîte de dialogue Ajouter une structure avec l’option Contrôleur MVC - Vide mise en évidence](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-controller-add-scaffold.png)
-
-1. Nommez votre nouveau contrôleur, **ItemController** et remplacez le code de ce fichier par le code suivant :
-
-   [!code-csharp[Main](~/samples-cosmosdb-dotnet-core-web-app/src/Controllers/ItemController.cs)]
-
-   L’attribut **ValidateAntiForgeryToken** est utilisé ici pour protéger cette application contre les attaques de type falsification de requête intersites. Et il ne s’agit pas que d’un simple ajout de cet attribut, vos vues devraient également fonctionner avec ce jeton anti-falsification. Pour plus d’informations sur le sujet, et pour obtenir des exemples illustrant une implémentation adéquate, consultez [Prévention des falsifications de requête intersites][Preventing Cross-Site Request Forgery]. Le code source fourni sur [GitHub][GitHub] comporte l’implémentation complète.
-
-   Nous utilisons également l’attribut **Bind** sur le paramètre de méthode pour établir une protection contre les attaques par sur-validation. Pour plus d’informations, consultez [Opérations CRUD de base dans ASP.NET MVC][Basic CRUD Operations in ASP.NET MVC].
 
 ### <a name="add-views"></a>Ajout de vues
 
@@ -191,7 +175,23 @@ Et finalement, ajoutez une vue qui permet de modifier un élément en suivant ce
 
 Une fois cette opération effectuée, fermez tous les documents cshtml dans Visual Studio. Vous reviendrez à ces vues plus tard.
 
-## <a name="connect-to-cosmosdb"></a>Étape 5 : Se connecter à Azure Cosmos DB 
+### <a name="add-a-controller"></a>Ajout d'un contrôleur
+
+1. À partir de l’**Explorateur de solutions**, cliquez avec le bouton droit sur le dossier **Contrôleurs**, sélectionnez **Ajouter**, puis **Contrôleur**. La boîte de dialogue **Ajouter une structure** s'affiche.
+
+1. Sélectionnez **Contrôleur MVC - Vide**, puis **Ajouter**.
+
+   ![Capture d’écran de la boîte de dialogue Ajouter une structure avec l’option Contrôleur MVC - Vide mise en évidence](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-controller-add-scaffold.png)
+
+1. Nommez votre nouveau contrôleur, **ItemController** et remplacez le code de ce fichier par le code suivant :
+
+   [!code-csharp[Main](~/samples-cosmosdb-dotnet-core-web-app/src/Controllers/ItemController.cs)]
+
+   L’attribut **ValidateAntiForgeryToken** est utilisé ici pour protéger cette application contre les attaques de type falsification de requête intersites. Et il ne s’agit pas que d’un simple ajout de cet attribut, vos vues devraient également fonctionner avec ce jeton anti-falsification. Pour plus d’informations sur le sujet, et pour obtenir des exemples illustrant une implémentation adéquate, consultez [Prévention des falsifications de requête intersites][Preventing Cross-Site Request Forgery]. Le code source fourni sur [GitHub][GitHub] comporte l’implémentation complète.
+
+   Nous utilisons également l’attribut **Bind** sur le paramètre de méthode pour établir une protection contre les attaques par sur-validation. Pour plus d’informations, consultez [Opérations CRUD de base dans ASP.NET MVC][Basic CRUD Operations in ASP.NET MVC].
+
+## <a name="connect-to-cosmosdb"></a>Étape 5 : Se connecter à Azure Cosmos DB 
 
 Maintenant que nous nous sommes occupés des éléments de base de MVC, ajoutons le code pour se connecter à Azure Cosmos DB et effectuer des opérations CRUD. 
 

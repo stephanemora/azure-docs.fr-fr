@@ -10,16 +10,15 @@ ms.assetid: e57df269-1019-4b74-b74d-53155b809d59
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2018
 ms.author: apimpm
-ms.openlocfilehash: 1fbafcdab938a0f8653df48631d7733cc58a3668
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1189689566da84df6d6b8845bf7c81bd8aa5f1ab
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60656795"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70072221"
 ---
 # <a name="page-templates-in-azure-api-management"></a>Modèles de page dans Gestion des API Azure
 Gestion des API Azure vous offre la possibilité de personnaliser le contenu des pages du portail des développeurs à l’aide d’un ensemble de modèles qui configurent leur contenu. En utilisant la syntaxe [DotLiquid](http://dotliquidmarkup.org/) et l’éditeur de votre choix, comme [DotLiquid for Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), ainsi qu’un ensemble de [ressources de chaîne](api-management-template-resources.md#strings), de [ressources de glyphe](api-management-template-resources.md#glyphs) et de [contrôles de page](api-management-page-controls.md) localisés, vous disposez d’un large choix pour configurer le contenu des pages selon vos besoins à l’aide de ces modèles.  
@@ -228,11 +227,11 @@ Gestion des API Azure vous offre la possibilité de personnaliser le contenu des
   
 |Propriété|Type|Description|  
 |--------------|----------|-----------------|  
-|referenceCode|chaîne|Code généré si cette page s’est affichée à la suite d’une erreur interne.|  
-|errorCode|chaîne|Code généré si cette page s’est affichée à la suite d’une erreur interne.|  
-|emailBody|chaîne|Corps d’e-mail généré si cette page s’est affichée à la suite d’une erreur interne.|  
-|requestedUrl|chaîne|URL demandée quand la page est introuvable.|  
-|referrerUrl|chaîne|URL de point d’accès pointant vers l’URL demandée.|  
+|referenceCode|string|Code généré si cette page s’est affichée à la suite d’une erreur interne.|  
+|errorCode|string|Code généré si cette page s’est affichée à la suite d’une erreur interne.|  
+|emailBody|string|Corps d’e-mail généré si cette page s’est affichée à la suite d’une erreur interne.|  
+|requestedUrl|string|URL demandée quand la page est introuvable.|  
+|referrerUrl|string|URL de point d’accès pointant vers l’URL demandée.|  
   
 ### <a name="sample-template-data"></a>Données d’un exemple de modèle  
   

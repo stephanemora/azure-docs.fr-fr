@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 07/18/2019
 ms.author: hamusa
-ms.openlocfilehash: 8934306efadc4ec732afbb658c081ada30f232cd
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 4b6a140ec428ce3b053c41074f02f65f19b8dc72
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68312222"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70102887"
 ---
 # <a name="dependency-visualization"></a>Visualisation de dépendance
 
@@ -28,7 +28,7 @@ La visualisation des dépendances dans l’évaluation du serveur vous permet de
 
 - Assurez-vous que vous avez [créé](how-to-add-tool-first-time.md) un projet Azure Migrate.
 - Si vous avez déjà créé un projet, assurez-vous que vous avez [ajouté](how-to-assess.md) Azure Migrate : Server Assessment.
-- Assurez-vous d'avoir découvert vos machines dans Azure Migrate ; vous pouvez le faire en configurant une appliance Azure Migrate pour [VMware](how-to-set-up-appliance-vmware.md) ou [Hyper-V](how-to-set-up-appliance-hyper-v.md). L’appliance découvre les machines locales et envoie les métadonnées et les données de performances à Azure Migrate : Évaluation de serveur. [Plus d’informations](migrate-appliance.md)
+- Assurez-vous d'avoir découvert vos machines dans Azure Migrate ; vous pouvez le faire en configurant une appliance Azure Migrate pour [VMware](how-to-set-up-appliance-vmware.md) ou [Hyper-V](how-to-set-up-appliance-hyper-v.md). L’appliance découvre les machines locales et envoie les métadonnées et les données de performances à Azure Migrate : Server Assessment. [Plus d’informations](migrate-appliance.md)
 
 ## <a name="how-does-it-work"></a>Comment cela fonctionne-t-il ?
 
@@ -58,7 +58,7 @@ Azure Migrate utilise la solution [Service Map](../operations-management-suite/o
 Pour utiliser la visualisation des dépendances, vous devez télécharger et installer des agents sur chaque machine locale que vous souhaitez analyser.  
 
 - [Microsoft Monitoring Agent (MMA)](https://docs.microsoft.com/azure/log-analytics/log-analytics-agent-windows) doit être installé sur chaque machine. [En savoir plus](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies#install-the-mma) sur l’installation de l’agent MMA.
-- Le programme [Dependency Agent](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure) doit être installé sur chaque machine. [En savoir plus](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies#install-the-dependency-agent) sur l’installation de l’agent de dépendances.
+- Le programme [Dependency Agent](../azure-monitor/platform/agents-overview.md#dependency-agent) doit être installé sur chaque machine. [En savoir plus](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies#install-the-dependency-agent) sur l’installation de l’agent de dépendances.
 - En outre, si certaines de vos machines sont dépourvues de connexion Internet, vous devez télécharger et installer la passerelle Log Analytics sur ces machines.
 
 Vous n’avez pas besoin ces agents sur les machines que vous souhaitez évaluer, sauf si vous utilisez la visualisation des dépendances.

@@ -3,16 +3,16 @@ title: Qu’est-ce qu’Azure Lighthouse ?
 description: Azure Lighthouse permet aux fournisseurs de services de fournir des services managés à leurs clients avec une automatisation et une efficacité accrues à grande échelle.
 author: JnHs
 ms.author: jenhayes
-ms.date: 07/11/2019
+ms.date: 08/22/2019
 ms.topic: overview
 ms.service: lighthouse
 manager: carmonm
-ms.openlocfilehash: eb55af5a1121eb193bb76efc9f9e0b833f4b5a1f
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 05fa16504e25a6bf0f6aa1c0a348284abba6e1ed
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67810793"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70011899"
 ---
 # <a name="what-is-azure-lighthouse"></a>Qu’est-ce qu’Azure Lighthouse ?
 
@@ -42,3 +42,8 @@ Azure Lighthouse offre plusieurs moyens de simplifier l’engagement et la gesti
 
 > [!NOTE]
 > Les fonctionnalités décrites ci-dessus sont actuellement disponibles dans des clouds publics. Pour connaître la disponibilité régionale des différents services, voir [Disponibilité des produits par région](https://azure.microsoft.com/global-infrastructure/services/).
+
+## <a name="next-steps"></a>Étapes suivantes
+
+- Découvrez [Gestion des ressources déléguées Azure](concepts/azure-delegated-resource-management.md).
+- Découvrez les [Expériences de gestion inter-locataire](concepts/cross-tenant-management-experience.md).

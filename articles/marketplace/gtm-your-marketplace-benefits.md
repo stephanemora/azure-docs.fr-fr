@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 01/12/2019
 ms.author: ellacroi
-ms.openlocfilehash: 297a6f9058b220d1f2e3a0ca69d018858218b774
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 02fcda2d851ddefa1c592bf0b5b09d5e5d59828f
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65909740"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70128224"
 ---
 # <a name="your-marketplace-benefits"></a>Vos avantages sur la Place de marché
 
@@ -67,7 +67,7 @@ Le tableau ci-dessous récapitule les conditions d’éligibilité pour les offr
 
 ## <a name="marketplace-rewards-for-transact-partners"></a>Récompenses de la Place de marché pour les partenaires de transaction
 
-La liste complète des avantages pour les récompenses de la place de marché apparaît sur les [diapositives de résumé du programme](https://onedrive.live.com/view.aspx?resid=1900675C97CA6FE0!630&ithint=file%2cpptx&authkey=!APQ6LSnDenx2FKM).
+La liste complète des avantages pour les récompenses de la place de marché apparaît sur les [diapositives de résumé du programme](https://aka.ms/marketplacerewards).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

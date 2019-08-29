@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 04/15/2019
+ms.date: 08/21/2019
 ms.author: alkohli
-ms.openlocfilehash: 8823aebe17a5446b3c507878833c2525c338dde1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 375576dd4a7897c48474fd2af00a99084292d854
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64718005"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69970882"
 ---
 # <a name="azure-data-box-edge-security-and-data-protection"></a>Protection des données et sécurité Azure Data Box Edge
 
@@ -71,6 +71,8 @@ Cette section décrit les fonctionnalités de sécurité Data Box Edge visant à
 ### <a name="protect-data-at-rest"></a>Protection des données au repos
 
 [!INCLUDE [data-box-edge-gateway-data-rest](../../includes/data-box-edge-gateway-data-rest.md)]
+- Le chiffrement BitLocker XTS-AES de 256 bits est utilisé pour protéger les données locales.
+
 
 ### <a name="protect-data-in-flight"></a>Protection des données à la volée
 
