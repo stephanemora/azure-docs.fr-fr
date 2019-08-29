@@ -10,20 +10,19 @@ ms.assetid: 6223b6bd-84ec-48df-943f-461d84605694
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 7e697329e83b530157e490b04f5155d28d243bb6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d153238c58d72874ddbf7979e68423e21ea7c020
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61271706"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073163"
 ---
 # <a name="back-up-your-app-in-azure"></a>Sauvegarde de votre application dans Azure
-La fonctionnalité de sauvegarde et de restauration [d’Azure App Service](overview.md) vous permet de créer facilement des sauvegardes d’applications manuelles ou planifiées. Vous pouvez restaurer l’application d’après la capture instantanée d’un état précédent en remplaçant l’application existante ou en restaurant sur une autre application. 
+La fonctionnalité de sauvegarde et de restauration [d’Azure App Service](overview.md) vous permet de créer facilement des sauvegardes d’applications manuelles ou planifiées.  Les sauvegardes peuvent être configurées pour être conservées au maximum indéfiniment. Vous pouvez restaurer l’application d’après la capture instantanée d’un état précédent en remplaçant l’application existante ou en restaurant sur une autre application.
 
 Pour plus d’informations sur la restauration d’une application à partir d’une sauvegarde, consultez [Restauration d’une application dans Azure](web-sites-restore.md).
 
@@ -50,7 +49,7 @@ Les solutions de base de données suivantes sont prises en charge par la fonctio
 <a name="requirements"></a>
 
 ## <a name="requirements-and-restrictions"></a>Exigences et restrictions
-* La fonctionnalité de sauvegarde et de restauration implique que le plan App Service soit de type **Standard** ou **Premium**. Pour plus d'informations sur la mise à l’échelle de votre plan App Service en vue d'utiliser un niveau plus élevé, consultez [Mise à l’échelle d’une application web dans Microsoft Azure App Service](web-sites-scale.md).  
+* La fonctionnalité de sauvegarde et de restauration implique que le plan App Service soit de type **Standard** ou **Premium**. Pour plus d'informations sur la mise à l’échelle de votre plan App Service en vue d'utiliser un niveau plus élevé, consultez [Mise à l’échelle d’une application web dans Microsoft Azure App Service](manage-scale-up.md).  
   Le niveau **Premium** permet un plus grand nombre de sauvegardes quotidiennes que le niveau **Standard**.
 * Vous avez besoin d’un compte de stockage Azure et d’un conteneur dans le même abonnement que l’application que vous souhaitez sauvegarder. Pour plus d’informations sur les comptes de stockage Azure, consultez [Vue d’ensemble des comptes de stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-account-overview).
 * Les sauvegardes peuvent contenir jusqu’à 10 Go de contenu d’applications et de bases de données. Une erreur se produit si la taille de la sauvegarde dépasse cette limite.
@@ -69,7 +68,7 @@ Les solutions de base de données suivantes sont prises en charge par la fonctio
    
    > [!NOTE]
    > Si le message suivant s’affiche, cliquez dessus pour mettre à niveau votre plan App Service avant de pouvoir poursuivre les sauvegardes.
-   > Pour plus d’informations, consultez [Faire monter en puissance une application web dans Azure](web-sites-scale.md).  
+   > Pour plus d’informations, consultez [Faire monter en puissance une application web dans Azure](manage-scale-up.md).  
    > ![Sélection d'un compte de stockage](./media/web-sites-backup/01UpgradePlan1.png)
    > 
    > 

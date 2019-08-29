@@ -3,25 +3,25 @@ title: Solution Azure VMware par CloudSimple – Maintenance et mises à jour Cl
 description: Décrit le processus de service CloudSimple pour les mises à jour et maintenance planifiée.
 author: sharaths-cs
 ms.author: dikamath
-ms.date: 04/30/2019
+ms.date: 08/20/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 5d6eeecbecc89995c25e687cc6808ed3b0c5dc5c
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 92f02c0abef6755213d4c73189c7e0a593867ef6
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68816222"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69877927"
 ---
 # <a name="cloudsimple-maintenance-and-updates"></a>Maintenance et mises à jour CloudSimple
 
-L’environnement de cloud privé est conçu pour ne comporter aucun point de défaillance unique :
+L’environnement de cloud privé est conçu pour ne comporter aucun point de défaillance unique.
 
-* Les clusters ESXi sont configurés avec la haute disponibilité de vSphere. Ils sont dimensionnés de façon à comporter au moins un nœud de secours dans une optique de résilience.
+* Les clusters ESXi sont configurés avec la haute disponibilité (HA) de vSphere. Ils sont dimensionnés de façon à comporter au moins un nœud de secours dans une optique de résilience.
 * Le stockage principal redondant est assuré par vSAN, qui a besoin d’au moins trois nœuds pour assurer une protection contre la défaillance unique. Il est possible de configurer vSAN de sorte qu’il offre une résilience supérieure pour les grands clusters.
-* Les machines virtuelles vCenter, PSC et NSX Manager sont configurées avec la stratégie de stockage RAID 10 dans une optique de protection contre les défaillances de stockage. Les machines virtuelles sont protégées contre les défaillances de nœud/réseau par vSphere HA.
+* Les machines virtuelles vCenter, PSC et NSX Manager sont configurées avec le stockage RAID 10 dans une optique de protection contre les défaillances de stockage. Les machines virtuelles sont protégées contre les défaillances de nœud/réseau par vSphere HA.
 * Les hôtes ESXi comportent des cartes réseau et des ventilateurs redondants.
 * Les commutateurs Tor et Spine sont configurés en paires haute disponibilité à des fins de résilience.
 
@@ -52,14 +52,14 @@ CloudSimple sauvegarde, gère et met à jour ces éléments VMware dans les clou
 * vSAN
 * NSX
 
-## <a name="back-up-and-restore"></a>Sauvegarde et restauration
+## <a name="back-up-and-restore"></a>Sauvegarder et restaurer des données
 
 La sauvegarde CloudSimple inclut :
 
 * des sauvegardes incrémentielles nocturnes de règles vCenter, PSC et DVS ;
-* l’utilisation d’API natives vCenter pour sauvegarder les composants de la couche Application ;
-* la sauvegarde automatique avant toute mise à jour ou mise à niveau des logiciels de gestion VMware ;
-* le chiffrement de données à la source, par vCenter, avant le transfert de données via un canal chiffré TLS 1.2 vers Azure. Les données sont stockées dans un objet blob Azure, où elles sont répliquées dans différentes régions.
+* les API natives vCenter pour sauvegarder les composants de la couche Application ;
+* la sauvegarde automatique avant toute mise à jour ou mise à niveau des logiciels de gestion VMware ;
+* le chiffrement des données à la source par vCenter avant leur transfert vers Azure via un canal chiffré TLS 1.2. Les données sont stockées dans un objet blob Azure, où elles sont répliquées dans différentes régions.
 
 Pour demander une restauration, ouvrez une [Demande de support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
@@ -105,4 +105,4 @@ CloudSimple propose des mises à jour de maintenance trimestrielles des composan
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Sauvegarder des machines virtuelles de charge de travail avec Veeam](https://docs.azure.cloudsimple.com/backup-workloads-veeam/).
+[Sauvegarder des machines virtuelles de charge de travail avec Veeam](backup-workloads-veeam.md)

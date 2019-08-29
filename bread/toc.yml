@@ -618,6 +618,9 @@
       tocHref: /azure/security/
       topicHref: /azure/security/
       items:
+        - name: Notions de base
+          tocHref: /azure/security/fundamentals/
+          topicHref: /azure/security/fundamentals/
         - name: Développement
           tocHref: /azure/security/develop/
           topicHref: /azure/security/develop/

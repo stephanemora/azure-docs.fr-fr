@@ -7,7 +7,7 @@ ms.service: search
 ms.topic: conceptual
 author: Brjohnstmsft
 ms.author: brjohnst
-ms.manager: cgronlun
+manager: nitinme
 translation.priority.mt:
 - de-de
 - es-es
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: eb6667a1429382ed566826de64ad7ffbe83183cf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 73cfdb6a4185689a6485f55a4f6bdd1e7e3b14be
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65521881"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69648838"
 ---
 # <a name="add-suggesters-to-an-index-for-typeahead-in-azure-search"></a>Ajouter des suggesteurs à un index pour des requêtes prédictives dans Recherche Azure
 
@@ -106,6 +106,13 @@ Les propriétés suivantes définissent un générateur de suggestions :
 |`name`        |Nom du suggesteur. Vous utilisez le nom du suggesteur lors de l’appel de [l’API REST Suggestions](https://docs.microsoft.com/rest/api/searchservice/suggestions) ou de [l’API REST Autocomplétion](https://docs.microsoft.com/rest/api/searchservice/autocomplete).|
 |`searchMode`  |Stratégie utilisée pour rechercher des expressions candidates. Le seul mode actuellement pris en charge est `analyzingInfixMatching`, qui effectue une correspondance flexible des expressions en début ou au milieu des phrases.|
 |`sourceFields`|Liste d’un ou de plusieurs champs constituant la source du contenu pour des suggestions. Seuls les champs de type `Edm.String` et `Collection(Edm.String)` peuvent être des sources pour des suggestions. Seuls les champs qui n’ont pas un analyseur de langue personnalisé défini peuvent être utilisés.<p/>Spécifiez uniquement les champs qui se prêtent à une réponse attendue et appropriée, qu’il s’agisse d’une chaîne complète dans une barre de recherche ou d’une liste déroulante.<p/>Un nom d’hôtel est un bon candidat, car il est précis. Les champs détaillés tels que des descriptions et des commentaires sont trop denses. De même, les champs répétitifs, tels que les balises et les catégories sont moins efficaces. Dans les exemples, nous incluons tout de même « catégorie » pour montrer que vous pouvez inclure plusieurs champs. |
+
+#### <a name="analysis-of-sourcefields-in-a-suggester"></a>Analyse de SourceFields dans un suggesteur
+
+Recherche Azure analyse le contenu des champs pour permettre l’interrogation des termes individuels. Les générateurs de suggestions requièrent l’indexation des préfixes en plus des termes complets, ce qui nécessite une analyse supplémentaire sur les champs sources. Les configurations de l’analyseur personnalisé peuvent combiner les différents générateurs de jetons et filtres, souvent de manière à produire les préfixes requis pour des suggestions impossibles. Pour cette raison, **Recherche Azure empêche les champs avec des analyseurs personnalisés d’être inclus dans un suggesteur**.
+
+> [!NOTE] 
+>  L’approche recommandée pour contourner la limitation ci-dessus consiste à utiliser 2 champs distincts pour le même contenu. Ceci permettra à l’un des champs d’avoir des suggesteurs et à l’autre d’être configuré avec une configuration d’analyseur personnalisée.
 
 ## <a name="when-to-create-a-suggester"></a>Quand créer un suggesteur
 

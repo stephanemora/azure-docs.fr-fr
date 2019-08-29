@@ -8,13 +8,13 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: nodejs
 ms.topic: conceptual
-ms.date: 10/06/2017
-ms.openlocfilehash: 243f4e63cc04bca018c2bf69492dccf163e92b73
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.date: 08/16/2019
+ms.openlocfilehash: 0a89cd2c576a3539d7b1b6a282a2287551e8265a
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68780852"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69877107"
 ---
 # <a name="schedule-and-broadcast-jobs-nodejs"></a>Planifier et diffuser des travaux (Node.js)
 
@@ -48,9 +48,11 @@ Ce didacticiel vous explique les procédures suivantes :
 
 * **scheduleJobService.js**, qui appelle une méthode directe sur l’application d’appareil simulé et met à jour les propriétés souhaitées du jumeau d’appareil à l’aide d’un travail.
 
-Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
+## <a name="prerequisites"></a>Prérequis
 
-* Node.js version 10.0x ou ultérieure [Préparer votre environnement de développement](https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md) décrit l’installation de Node.js pour ce tutoriel sur Windows ou sur Linux.
+Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
+
+* Node.j version 10.0.x ou ultérieure. L’article [Préparer votre environnement de développement](https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md) décrit l’installation de Node.js pour ce didacticiel sur Windows ou sur Linux.
 
 * Un compte Azure actif. (Si vous ne possédez pas de compte, vous pouvez créer un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/) en quelques minutes seulement.)
 
@@ -68,39 +70,39 @@ Dans cette section, vous allez créer une application console Node.js qui répon
 
 1. Créez un dossier vide appelé **simDevice**.  Dans le dossier **simDevice** , créez un fichier package.json à l’aide de la commande ci-dessous, à l’invite de commandes.  Acceptez toutes les valeurs par défaut :
 
-   ```
+   ```console
    npm init
    ```
 
 2. À l’invite de commandes, dans le dossier **simDevice**, exécutez la commande suivante pour installer les packages Kit de développement logiciel (SDK) pour appareils **azure-iot-device** et **azure-iot-device-mqtt** :
-   
-   ```
+
+   ```console
    npm install azure-iot-device azure-iot-device-mqtt --save
    ```
 
 3. Dans un éditeur de texte, créez un fichier **simDevice.js** dans le dossier **simDevice**.
 
 4. Ajoutez les instructions ’require’ ci-dessous au début du fichier **simDevice.js** :
-   
-    ```
+
+    ```javascript
     'use strict';
-   
+
     var Client = require('azure-iot-device').Client;
     var Protocol = require('azure-iot-device-mqtt').Mqtt;
     ```
 
-5. Ajoutez une variable **connectionString** et utilisez-la pour créer une instance de **Client**.  
-   
-    ```
-    var connectionString = 'HostName={youriothostname};DeviceId={yourdeviceid};SharedAccessKey={yourdevicekey}';
+5. Ajoutez une variable **connectionString** et utilisez-la pour créer une instance de **Client**. Remplacez la valeur d’espace réservé `{yourDeviceConnectionString}` par la chaîne de connexion de l’appareil copiée précédemment.
+
+    ```javascript
+    var connectionString = '{yourDeviceConnectionString}';
     var client = Client.fromConnectionString(connectionString, Protocol);
     ```
 
 6. Ajoutez la fonction suivante pour gérer la méthode **lockDoor**.
-   
-    ```
+
+    ```javascript
     var onLockDoor = function(request, response) {
-   
+
         // Respond the cloud app for the direct method
         response.send(200, function(err) {
             if (err) {
@@ -109,14 +111,14 @@ Dans cette section, vous allez créer une application console Node.js qui répon
                 console.log('Response to method \'' + request.methodName + '\' sent successfully.');
             }
         });
-   
+
         console.log('Locking Door!');
     };
     ```
 
 7. Ajoutez le code suivant pour inscrire le gestionnaire de la méthode **lockDoor**.
 
-   ```
+   ```javascript
    client.open(function(err) {
         if (err) {
             console.error('Could not connect to IotHub client.');
@@ -145,30 +147,30 @@ Dans cette section, vous créez une application console Node.js qui lance **lock
 
 1. Créez un dossier vide appelé **scheduleJobService**.  Dans le dossier **scheduleJobService**, créez un fichier package.json à l’aide de la commande ci-dessous, à l’invite de commandes.  Acceptez toutes les valeurs par défaut :
 
-    ```
+    ```console
     npm init
     ```
 
 2. À l’invite de commandes, dans le dossier **scheduleJobService**, exécutez la commande suivante pour installer les packages Kit de développement logiciel (SDK) pour appareils **azure-iothub** et **azure-iot-device-mqtt** :
-   
-    ```
+
+    ```console
     npm install azure-iothub uuid --save
     ```
 
 3. À l’aide d’un éditeur de texte, créez un nouveau fichier **scheduleJobService.js** dans le dossier **scheduleJobService**.
 
-4. Ajoutez les instructions ’require’ suivantes au début du fichier **dmpatterns_gscheduleJobServiceetstarted_service.js** :
-   
-    ```
+4. Ajoutez les instructions ’require’ ci-dessous au début du fichier **scheduleJobService.js** :
+
+    ```javascript
     'use strict';
-   
+
     var uuid = require('uuid');
     var JobClient = require('azure-iothub').JobClient;
     ```
 
-5. Ajoutez les déclarations de variable suivantes et remplacez les valeurs d’espace réservé :
-   
-    ```
+5. Ajoutez les déclarations de variable suivantes. Remplacez la valeur de l’espace réservé `{iothubconnectionstring}`par la valeur copiée dans [Obtenir la chaîne de connexion du hub IoT](#get-the-iot-hub-connection-string). Si vous avez inscrit un autre appareil que **myDeviceId**, veillez à le modifier dans la condition de requête.
+
+    ```javascript
     var connectionString = '{iothubconnectionstring}';
     var queryCondition = "deviceId IN ['myDeviceId']";
     var startTime = new Date();
@@ -177,8 +179,8 @@ Dans cette section, vous créez une application console Node.js qui lance **lock
     ```
 
 6. Ajoutez la fonction suivante, qui permet de surveiller l’exécution du travail :
-   
-    ```
+
+    ```javascript
     function monitorJob (jobId, callback) {
         var jobMonitorInterval = setInterval(function() {
             jobClient.getJob(jobId, function(err, result) {
@@ -197,14 +199,14 @@ Dans cette section, vous créez une application console Node.js qui lance **lock
     ```
 
 7. Ajoutez le code suivant pour planifier le travail qui appelle la méthode de l’appareil :
-   
-    ```
+  
+    ```javascript
     var methodParams = {
         methodName: 'lockDoor',
         payload: null,
         responseTimeoutInSeconds: 15 // Timeout after 15 seconds if device is unable to process method
     };
-   
+
     var methodJobId = uuid.v4();
     console.log('scheduling Device Method job with id: ' + methodJobId);
     jobClient.scheduleDeviceMethod(methodJobId,
@@ -228,8 +230,8 @@ Dans cette section, vous créez une application console Node.js qui lance **lock
     ```
 
 8. Ajoutez le code suivant pour planifier le travail de mise à jour de la représentation d’appareil :
-   
-    ```
+
+    ```javascript
     var twinPatch = {
        etag: '*',
        properties: {
@@ -239,9 +241,9 @@ Dans cette section, vous créez une application console Node.js qui lance **lock
            }
        }
     };
-   
+
     var twinJobId = uuid.v4();
-   
+
     console.log('scheduling Twin Update job with id: ' + twinJobId);
     jobClient.scheduleTwinUpdate(twinJobId,
                                 queryCondition,
@@ -270,18 +272,26 @@ Dans cette section, vous créez une application console Node.js qui lance **lock
 Vous êtes maintenant prêt à exécuter les applications.
 
 1. À l’invite de commandes, dans le dossier **simDevice**, exécutez la commande suivante pour commencer à écouter la méthode directe de redémarrage.
-   
-    ```
+
+    ```console
     node simDevice.js
     ```
 
 2. À l’invite de commandes dans le dossier **scheduleJobService**, exécutez la commande suivante pour déclencher les travaux afin de verrouiller la porte et de mettre à jour le jumeau
-   
-    ```
+
+    ```console
     node scheduleJobService.js
     ```
 
-3. La réponse de l’appareil à la méthode directe s’affiche dans la console.
+3. La réponse de l’appareil à la méthode directe et l’état du travail s’affichent dans la console.
+
+   La réponse de l’appareil à la méthode directe est affichée ci-dessous :
+
+   ![Sortie de l’application d’appareil simulé](./media/iot-hub-node-node-schedule-jobs/sim-device.png)
+
+   L’exemple suivant montre les travaux de planification de service pour la méthode directe et la mise à jour du jumeau d'appareil, ainsi que les tâches qui s’exécutent jusqu’à la fin :
+
+   ![Exécution de l’application de périphérique simulé](./media/iot-hub-node-node-schedule-jobs/schedule-job-service.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

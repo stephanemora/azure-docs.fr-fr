@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: ninarn, carlrab
-ms.date: 02/28/2019
-ms.openlocfilehash: 31fb6eaefe557c1f135b4558b873454d4a3a01d8
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.date: 08/06/2019
+ms.openlocfilehash: 0b0a6bec7916c056c187ed9e588dd3ac8fea8d84
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568618"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69876403"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>Les pools élastiques vous aident à gérer et à mettre à l’échelle plusieurs bases de données Azure SQL
 
@@ -155,8 +155,14 @@ Les bases de données mises en pool prennent généralement en charge les mêmes
 
 Vous pouvez créer un pool élastique dans le portail Azure de deux façons.
 
-1. Vous pouvez également créer un pool élastique en recherchant **pool élastique SQL** dans la **Place de marché** ou en cliquant sur **+Ajouter** dans le panneau de recherche des pools élastiques SQL. Ce workflow d’approvisionnement de pool vous permet d’indiquer un nouveau serveur ou un serveur existant.
-2. Vous pouvez également créer un pool élastique en accédant à un serveur SQL existant, puis en cliquant sur **Créer un pool** pour créer un pool directement sur ce serveur. Ici, la seule différence est que vous n’avez pas à effectuer l’étape où vous spécifiez le serveur pendant le provisionnement du pool.
+1. Dans le menu de gauche du portail Azure, sélectionnez **Azure SQL**. Si Azure SQL ne figure pas dans la liste, sélectionnez **Tous les services**, puis tapez *Azure SQL* dans la zone de recherche.
+2. Sélectionnez **+Ajouter** pour ouvrir la page **Sélectionner l’option de déploiement SQL**. Vous pouvez afficher des informations supplémentaires sur les pools élastiques en sélectionnant **Afficher les détails** sur la vignette **Bases de données**.
+3. Sur la vignette **Bases de données**, sélectionnez **Pool élastique** dans la liste déroulante **Type de ressource**, puis sélectionnez **Créer** :
+
+   ![Créer un pool élastique](./media/sql-database-elastic-pool/create-elastic-pool.png)
+
+
+1. Vous pouvez également créer un pool élastique en accédant à un serveur Azure SQL existant, puis en cliquant sur **+ Nouveau pool** pour créer un pool directement sur ce serveur.
 
 > [!NOTE]
 > Vous pouvez créer plusieurs pools sur un serveur, mais il est impossible d’ajouter des bases de données de différents serveurs dans le même pool.
@@ -210,9 +216,9 @@ Pour plus d'informations, voir [Créer des alertes SQL Database dans le portail 
 
   Umbraco utilise des pools élastiques avec Azure SQL Database afin de provisionner rapidement des services et de les mettre à l’échelle pour des milliers de locataires dans le cloud.
 
-- [Daxko/CSI](https://customers.microsoft.com/story/csi-used-azure-to-accelerate-its-development-cycle-and-to-enhance-its-customer-services)
+- [Daxko/CSI](https://customers.microsoft.com/story/726277-csi-daxko-partner-professional-service-azure)    
 
-  Daxko/CSI utilise des pools élastiques avec Azure SQL Database pour accélérer son cycle de développement et améliorer ses performances et ses services clients.
+   Daxko/CSI utilise des pools élastiques avec Azure SQL Database pour accélérer son cycle de développement et améliorer ses performances et ses services clients.   
 
 ## <a name="next-steps"></a>Étapes suivantes
 

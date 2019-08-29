@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 164a71354423bebc1422ba94747f2daeec33909d
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: e9c21ff5c4c94eecc7bb1a6643e46166df80edf4
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68828793"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69648318"
 ---
 # <a name="enable-passwordless-sign-in-with-the-microsoft-authenticator-app-preview"></a>Activer la connexion sans mot de passe avec l'application Microsoft Authenticator (préversion)
 
@@ -92,7 +92,7 @@ Les utilisateurs finals qui sont activés pour MFA par le biais d’un serveur A
 
 ### <a name="device-registration"></a>Enregistrement de l’appareil
 
-L’une des conditions requises pour la création de cette information d’identification forte est que l’appareil soit inscrit dans le locataire Azure AD pour un utilisateur individuel. Du fait des restrictions en matière d’inscription d’appareil, un appareil ne peut être inscrit que dans un seul locataire. Cette limite signifie qu’un seul compte professionnel ou scolaire de l’application Microsoft Authenticator peut être activé pour la connexion par téléphone.
+L’une des conditions requises pour la création de cette information d’identification forte est que l’appareil sur lequel l’application Microsoft Authenticator est installée soit inscrit dans le locataire Azure AD pour un utilisateur individuel. Du fait des restrictions en matière d’inscription d’appareil, un appareil ne peut être inscrit que dans un seul locataire. Cette limite signifie qu’un seul compte professionnel ou scolaire de l’application Microsoft Authenticator peut être activé pour la connexion par téléphone.
 
 > [!NOTE]
 > L’inscription de l’appareil n’est pas la même que la gestion des appareils ou « MDM ». Il associe uniquement un ID d’appareil et un ID d’utilisateur dans le répertoire Azure AD.  

@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: a81b22d8ca538c7dc25a9c6631c2b455d5a6c90e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0b74c7b178ee4512067de4b8decba0c3c565ccd4
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66257216"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69616969"
 ---
 # <a name="use-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>Utiliser la bibliothèque de l’exécuteur en bloc .NET pour effectuer des opérations en bloc dans Azure Cosmos DB
 
-Ce tutoriel fournit des instructions sur l’utilisation de la bibliothèque de l’exécuteur en bloc .NET d’Azure Cosmos DB pour importer et mettre à jour des documents vers un conteneur Azure Cosmos DB. Pour en savoir plus sur la bibliothèque de l’exécuteur en bloc et sur la façon dont elle vous aide à profiter d’un débit et d’un stockage conséquents, consultez l’article [Vue d’ensemble de la bibliothèque BulkExecutor](bulk-executor-overview.md). Dans ce tutoriel, vous voyez un exemple d’application .NET qui importe en bloc des documents, générés de manière aléatoire, dans un conteneur Azure Cosmos DB. Après l’importation, il illustre comment mettre à jour en bloc les données importées en spécifiant des correctifs comme opérations à effectuer sur des champs de documents spécifiques. 
+Ce tutoriel fournit des instructions sur l’utilisation de la bibliothèque de l’exécuteur en bloc .NET d’Azure Cosmos DB pour importer et mettre à jour des documents vers un conteneur Azure Cosmos. Pour en savoir plus sur la bibliothèque de l’exécuteur en bloc et sur la façon dont elle vous aide à profiter d’un débit et d’un stockage conséquents, consultez l’article [Vue d’ensemble de la bibliothèque BulkExecutor](bulk-executor-overview.md). Dans ce tutoriel, vous voyez un exemple d’application .NET qui importe en bloc des documents, générés de manière aléatoire, dans un conteneur Azure Cosmos. Après l’importation, il illustre comment mettre à jour en bloc les données importées en spécifiant des correctifs comme opérations à effectuer sur des champs de documents spécifiques. 
 
 Actuellement, la bibliothèque de l’exécuteur en bloc est prise en charge uniquement par les comptes d’API Gremlin et d’API SQL Azure Cosmos DB. Cet article décrit comment utiliser la bibliothèque .NET de l’exécuteur en bloc avec des comptes d’API SQL. Pour en savoir plus sur l’utilisation de la bibliothèque .NET de l’exécuteur en bloc avec l’API Gremlin, consultez [Effectuer des opérations en bloc dans l’API Gremlin Azure Cosmos DB](bulk-executor-graph-dotnet.md). 
 
@@ -171,11 +171,11 @@ Pour bénéficier de meilleures performances lors de l’utilisation de la bibli
 
 * Pour de meilleures performances, exécutez votre application à partir d’une machine virtuelle Azure qui se trouve dans la région d’écriture du compte Cosmos DB.  
 
-* Il est recommandé d’instancier un seul objet BulkExecutor pour l’ensemble de l’application dans une même machine virtuelle correspondant à un conteneur Cosmos DB spécifique.  
+* Il est recommandé d’instancier un seul objet BulkExecutor pour l’ensemble de l’application dans une même machine virtuelle correspondant à un conteneur Cosmos spécifique.  
 
 * L’exécution d’une API d’opération en bloc consomme une grande partie des E/S réseau et du processeur de l’ordinateur client. Cela est dû à la génération automatique de plusieurs tâches en interne. Évitez de générer plusieurs tâches simultanées dans votre processus d’application, exécutant chacune des appels d’API d’opérations en bloc. Si un appel d’API d’opération en bloc en cours d’exécution sur une seule machine virtuelle ne peut pas consommer le débit complet de votre conteneur (si le débit de votre conteneur est supérieur à 1 million RU/s), il est préférable de créer des machines virtuelles distinctes pour exécuter simultanément les appels d’API d’opérations en bloc.  
 
-* Vérifiez qu’InitializeAsync() est appelé après l’instanciation d’un objet BulkExecutor pour extraire le mappage de partition de conteneur Cosmos DB cible.  
+* Vérifiez qu’InitializeAsync() est appelé après l’instanciation d’un objet BulkExecutor pour extraire le mappage de partition de conteneur Cosmos cible.  
 
 * Pour obtenir de meilleures performances, vérifiez que **gcServer** est activé dans le fichier App.Config de votre application.
   ```xml  

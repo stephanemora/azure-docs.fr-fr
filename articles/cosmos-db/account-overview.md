@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/23/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 617d19b0dd9da926eb49170c1566febc6f6280ba
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 833d8533ff3289693e1744db2d77d4bed6a9ea69
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68467814"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69616992"
 ---
 # <a name="work-with-azure-cosmos-account"></a>Utiliser un compte Azure Cosmos
 
@@ -25,7 +25,7 @@ Pour gérer en toute sécurité l’accès à toutes les données au sein de vot
 
 ## <a name="elements-in-an-azure-cosmos-account"></a>Éléments d’un compte Azure Cosmos
 
-Dans Azure Cosmos DB, un conteneur est l’unité d’extensibilité de base. Vous pouvez pratiquement avoir un débit approvisionné illimité (RU/s) et un stockage sur un conteneur. Azure Cosmos DB partitionne votre conteneur en toute transparence à l’aide de la clé de partition logique que vous spécifiez pour mettre à l’échelle votre débit approvisionné et votre stockage. Pour en savoir plus, consultez [Utilisation des conteneurs et éléments Azure Cosmos](databases-containers-items.md).
+Le conteneur Azure Cosmos est l’unité d’extensibilité de base. Vous pouvez pratiquement avoir un débit approvisionné illimité (RU/s) et un stockage sur un conteneur. Azure Cosmos DB partitionne votre conteneur en toute transparence à l’aide de la clé de partition logique que vous spécifiez pour mettre à l’échelle votre débit approvisionné et votre stockage. Pour en savoir plus, consultez [Utilisation des conteneurs et éléments Azure Cosmos](databases-containers-items.md).
 
 Actuellement, vous pouvez créer un maximum de 100 comptes Azure Cosmos pour un abonnement Azure. Un seul compte Azure Cosmos peut gérer une quantité de données et un débit provisionné pratiquement illimités. Pour gérer vos données et votre débit provisionné, vous pouvez créer une ou plusieurs bases de données Azure Cosmos pour votre compte, puis, au sein de ces bases de données, créer un ou plusieurs conteneurs. L’image suivante illustre la hiérarchie de ces différents éléments dans un compte Azure Cosmos :
 

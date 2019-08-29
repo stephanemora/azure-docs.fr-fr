@@ -1,87 +1,93 @@
 ---
-title: "Azure Active Directory Domain Services : Guide d'administration | Microsoft Docs"
-description: Créer une UO sur des domaines gérés par les services de domaine Azure Active Directory
+title: Créer une unité d’organisation (UO) dans Azure AD Domain Services | Microsoft Docs
+description: Découvrez comment créer et gérer une unité d’organisation (UO) personnalisée dans un domaine managé Azure AD Domain Services.
 services: active-directory-ds
-documentationcenter: ''
 author: iainfoulds
 manager: daveba
-editor: curtand
 ms.assetid: 52602ad8-2b93-4082-8487-427bdcfa8126
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/10/2019
+ms.date: 08/07/2019
 ms.author: iainfou
-ms.openlocfilehash: b2bdad25d676d65494fdd5b6a314f8c3381254de
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: a3f9ad20e4bfba6e0bb858c82ccce73bb687a826
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67473677"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69613090"
 ---
-# <a name="create-an-organizational-unit-ou-on-an-azure-ad-domain-services-managed-domain"></a>Créer une UO sur un domaine géré par les services de domaine Azure Active Directory
-Les domaines gérés par les services de domaine Azure Active Directory incluent deux conteneurs intégrés, appelés « Ordinateurs AADDC » et « Utilisateurs AADDC », respectivement. Le conteneur « Ordinateurs AADDC » inclut des objets ordinateur associés à tous les ordinateurs qui sont joints au domaine géré. Le conteneur « Utilisateurs AADDC » comprend les utilisateurs et les groupes du client Azure AD. Parfois, il peut être nécessaire de créer des comptes de service sur le domaine géré, afin de déployer des charges de travail. Pour cela, vous pouvez créer une unité d’organisation (UO) personnalisée dans le domaine géré, puis générer des comptes de service dans cette UO. Cet article vous explique comment créer une UO dans votre domaine géré.
+# <a name="create-an-organizational-unit-ou-in-an-azure-ad-domain-services-managed-domain"></a>Créer une unité d’organisation (UO) sur un domaine dans un domaine managé Azure AD Domain Services
+
+Les unités d’organisation (UO) dans Active Directory Domain Services (AD DS) vous permettent de regrouper logiquement des objets tels que des comptes d’utilisateur, des comptes de service ou des comptes d’ordinateur. Vous pouvez ensuite affecter des administrateurs à des unités d’organisation spécifiques et appliquer une stratégie de groupe, donc des paramètres de configuration ciblés.
+
+Les domaines managés Azure AD DS incluent deux unités d’organisation intégrées : *ordinateurs AADDC* et *utilisateurs AADDC*. L’unité d’organisation *Ordinateurs AADDC* contient des objets ordinateur associés à tous les ordinateurs qui sont joints au domaine managé. L’unité d’organisation *Utilisateurs AADDC* comprend les utilisateurs et les groupes qui y sont synchronisés du locataire Azure AD. Lors de la création et de l’exécution des charges de travail utilisant Azure AD DS, vous devrez peut-être créer des comptes de service pour que les applications s’authentifient elles-mêmes. Pour organiser ces comptes de service, vous créez souvent une unité d’organisation personnalisée dans le domaine managé Azure AD DS, puis des comptes de service au sein de cette unité d’organisation.
+
+Cet article vous explique comment créer une unité d’organisation dans votre domaine managé Azure AD DS.
 
 [!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
 
 ## <a name="before-you-begin"></a>Avant de commencer
-Pour exécuter les tâches indiquées dans cet article, vous avez besoin des éléments suivants :
 
-1. Un **abonnement Azure**valide.
-2. Un **répertoire Azure AD** , synchronisé avec un répertoire local ou un répertoire cloud uniquement.
-3. **services de domaine Azure AD** , qui doivent être activés pour le répertoire Azure AD. Si ce n’est déjà fait, suivez l’ensemble des tâches décrites dans le [Guide de mise en route](create-instance.md).
-4. Une machine virtuelle jointe au domaine, qui vous permet d’administrer le domaine géré par les services de domaine Azure AD. Si vous ne disposez pas de cette machine, suivez toutes les tâches décrites dans l’article intitulé [Joindre une machine virtuelle Windows Server à un domaine géré](active-directory-ds-admin-guide-join-windows-vm.md).
-5. Vous devez vous procurer les informations d’identification d’un **compte d’utilisateur appartenant au groupe « AAD DC Administrators »** dans votre répertoire, pour créer une UO personnalisée dans votre domaine géré.
+Pour faire ce qui est décrit dans cet article, vous avez besoin des ressources et des privilèges suivants :
 
-## <a name="install-ad-administration-tools-on-a-domain-joined-virtual-machine-for-remote-administration"></a>Installer les outils d’administration Active Directory sur une machine virtuelle jointe à un domaine à des fins de gestion à distance
-Vous pouvez administrer à distance les domaines gérés par les services de domaine Azure Active Directory (AD) par l’intermédiaire des outils d’administration familiers d’Active Directory, par exemple le Centre d’administration Active Directory (ADAC, Active Directory Administrative Center) ou AD PowerShell. Les administrateurs clients ne disposent pas des privilèges permettant la connexion aux contrôleurs de domaine sur le domaine géré, via le Bureau à distance. Pour administrer le domaine géré, installez les outils d’administration Active Directory sur une machine virtuelle jointe au domaine géré. Pour savoir comment faire, consultez l’article intitulé [Gérer un domaine Azure AD Domain Services](manage-domain.md).
+* Un abonnement Azure actif.
+    * Si vous n’avez pas d’abonnement Azure, [créez un compte](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* Un locataire Azure Active Directory associé à votre abonnement, synchronisé avec un annuaire local ou un annuaire cloud uniquement.
+    * Si nécessaire, [créez un locataire Azure Active Directory][create-azure-ad-tenant] ou [associez un abonnement Azure à votre compte][associate-azure-ad-tenant].
+* Un domaine managé Azure Active Directory Domain Services activé et configuré dans votre locataire Azure AD.
+    * Si nécessaire, suivez le tutoriel pour [créer et configurer une instance Azure Active Directory Domain Services][create-azure-ad-ds-instance].
+* Une machine virtuelle de gestuib Windows Server jointe au domaine managé Azure AD DS.
+    * Si nécessaire, suivez le tutoriel pour [créer une machine virtuelle de gestion][tutorial-create-management-vm].
+* Un compte d’utilisateur membre du groupe *Administrateurs Azure AD DC* dans votre locataire Azure AD.
 
-## <a name="create-an-organizational-unit-on-the-managed-domain"></a>Créer une UO sur le domaine géré
-Maintenant que les outils d’administration AD sont installés sur la machine virtuelle jointe au domaine, nous pouvons les utiliser pour créer une unité d’organisation sur le domaine géré. Procédez comme suit :
+## <a name="custom-ou-considerations-and-limitations"></a>Considérations et limitations relatives aux unités d’organisation personnalisées
+
+Lorsque vous créez des unités d’organisation personnalisées dans un domaine managé Azure AD DS, vous bénéficiez d’une plus grande souplesse de gestion pour la gestion des utilisateurs et l’application de la stratégie de groupe. Par rapport à un environnement AD DS local, il existe certaines limitations et considérations à prendre en compte lors de la création et de la gestion d’une structure d’unité d’organisation personnalisée dans Azure AD DS :
+
+* Pour créer des unités d’organisation personnalisées, les utilisateurs doivent être membres du groupe *Administrateurs AAD DC*.
+* Un utilisateur qui crée une unité d’organisation personnalisée se voit accorder des privilèges d’administration (contrôle total) sur cette unité d’organisation et est le propriétaire de la ressource.
+    * Par défaut, le groupe *Administrateurs AAD DC* a également le contrôle total sur l’unité d’organisation personnalisée.
+* Une unité d’organisation pour *Utilisateurs AADDC* est créée et contient les comptes d’utilisateur synchronisés à partir de votre locataire Azure AD.
+    * Vous ne pouvez pas déplacer des utilisateurs ou des groupes de l’unité d’organisation *Utilisateurs AADDC* vers des unités d’organisation personnalisées que vous créez. Seuls les comptes d’utilisateurs ou les ressources créés dans le domaine managé Azure AD DS peuvent être déplacés dans des unités d’organisation personnalisées.
+* Les comptes d’utilisateur, groupes, comptes de service et objets ordinateur que vous créez dans des unités d’organisation personnalisées ne sont pas disponibles dans votre locataire Azure AD.
+    * Ces objets n’apparaissent pas à l’aide de l’API Graph Azure AD ou dans l’interface utilisateur Azure AD ; ils sont uniquement disponibles dans votre domaine managé Azure AD DS.
+
+## <a name="create-a-custom-ou"></a>Créer une unité d’organisation personnalisée
+
+Pour créer une unité d’organisation personnalisée, vous utilisez les outils d’administration Active Directory à partir d’une machine virtuelle jointe à un domaine. Le Centre d’administration Active Directory vous permet d’afficher, de modifier et de créer des ressources dans un domaine managé Azure AD DS, y compris des unités d’organisation.
 
 > [!NOTE]
-> Seuls les membres du groupe « AAD DC Administrators » disposent des privilèges requis pour créer une UO personnalisée. Veillez à effectuer les étapes suivantes en tant qu’utilisateur appartenant à ce groupe.
->
->
+> Pour créer une unité d’organisation personnalisée dans un domaine managé Azure AD DS, vous devez être connecté à un compte d’utilisateur membre du groupe d *administrateurs du contrôleur de domaine AAD*.
 
-1. Dans l’écran d’accueil, cliquez sur **Outils d’administration**. Les outils d’administration AD doivent apparaître comme installés sur la machine virtuelle.
+1. Dans l’écran d’accueil, sélectionnez **Outils d’administration**. Une liste des outils de gestion disponibles est présentée dans le didacticiel pour [créer une machine virtuelle de gestion][tutorial-create-management-vm].
+1. Pour créer et gérer des unités d'organisation, sélectionnez **Centre d’administration Active Directory** dans la liste des outils d’administration.
+1. Dans le volet gauche, choisissez votre domaine managé Azure AD DS, par exemple *contoso.com*. Une liste des unités d’organisation et des ressources s’affiche :
 
-    ![Outils d’administration installés sur le serveur](./media/active-directory-domain-services-admin-guide/install-rsat-admin-tools-installed.png)
-2. Cliquez sur **Centre d’administration Active Directory**.
+    ![Sélectionnez votre domaine managé Azure AD DS dans le Centre d’administration Active Directory](./media/active-directory-domain-services-admin-guide/create-ou-adac-overview.png)
 
-    ![Centre d'administration Active Directory](./media/active-directory-domain-services-admin-guide/adac-overview.png)
-3. Pour afficher le domaine, cliquez sur son nom dans le volet gauche (par exemple, contoso100.com).
+1. Le volet **Tâches** s’affiche sur le côté droit du Centre d’administration Active Directory. Sous le domaine, par exemple *contoso.com*, sélectionnez **Nouveau > Unité d’organisation**.
 
-    ![ADAC - Affichage du domaine](./media/active-directory-domain-services-admin-guide/create-ou-adac-overview.png)
-4. Sur le volet **Tâches** affiché à droite, cliquez sur l’option **Nouveau** figurant sous le nœud du nom de domaine. Dans cet exemple, nous cliquons sur l’option **Nouveau** figurant sous le nœud « contoso100(local) » dans le volet **Tâches** affiché à droite.
+    ![Sélectionnez l’option qui vous permettra de créer une nouvelle unité d’organisation dans le Centre d'administration Active Directory](./media/active-directory-domain-services-admin-guide/create-ou-adac-new-ou.png)
 
-    ![ADAC - Nouvelle unité d’organisation](./media/active-directory-domain-services-admin-guide/create-ou-adac-new-ou.png)
-5. Vous devez voir apparaître l’option permettant de créer une UO. Cliquez sur **Unité d’organisation** pour afficher la boîte de dialogue **Créer une unité d’organisation**.
-6. Dans la boîte de dialogue **Créer une unité d’organisation**, indiquez une valeur dans le champ **Nom** de l’UO. Décrivez brièvement l’UO. Vous pouvez également renseigner le champ **Gérée par** de l’UO. Cliquez sur **OK**pour créer l’UO personnalisée.
+1. Dans la boîte de dialogue **Créer une unité d’organisation**, indiquez un **Nom** pour la nouvelle unité d’organisation, par exemple *MyCustomOu*. Fournissez une brève description de l’unité d’organisation, telle qu’*unité d’organisation personnalisée pour les comptes de service*. Si vous le souhaitez, vous pouvez également renseigner le champ **Managée par** de l’unité d’organisation. Sélectionnez **OK**pour créer l’unité d’organisation personnalisée.
 
-    ![ADAC - Boîte de dialogue Créer une unité d’organisation](./media/active-directory-domain-services-admin-guide/create-ou-dialog.png)
-7. L’unité d’organisation créée doit désormais s’afficher dans le centre ADAC.
+    ![Créez une unité d’organisation personnalisée à partir du Centre d’administration Active Directory](./media/active-directory-domain-services-admin-guide/create-ou-dialog.png)
 
-    ![ADAC - Unité d’organisation créée](./media/active-directory-domain-services-admin-guide/create-ou-done.png)
+1. De retour dans le Centre d’administration Active Directory, l’unité d’organisation personnalisée est désormais listée et peut être utilisée :
 
-## <a name="permissionssecurity-for-newly-created-ous"></a>Sécurité/autorisations associées aux nouvelles unités d’organisation
-Par défaut, l’utilisateur (membre du groupe « AAD DC Administrators ») ayant créé l’UO personnalisée bénéficie de privilèges d’administration (contrôle total) concernant l’unité d’organisation. L’utilisateur peut ensuite accorder des privilèges à d’autres utilisateurs ou au groupe « AAD DC Administrators », au besoin. Comme indiqué dans la capture d’écran ci-dessous, l’utilisateur « bob@domainservicespreview.onmicrosoft.com », qui a créé l’unité d’organisation « MyCustomOU », bénéficie d’un contrôle absolu sur cette dernière.
+    ![Unité d’organisation personnalisée disponible dans le Centre d’administration Active Directory](./media/active-directory-domain-services-admin-guide/create-ou-done.png)
 
- ![ADAC - Sécurité de la nouvelle UO](./media/active-directory-domain-services-admin-guide/create-ou-permissions.png)
+## <a name="next-steps"></a>Étapes suivantes
 
-## <a name="notes-on-administering-custom-ous"></a>Remarques sur l’administration des unités d’organisation (UO) personnalisées
-Maintenant que vous avez créé une UO personnalisée, vous pouvez créer des utilisateurs, des groupes, des ordinateurs et des comptes de service dans cette dernière. Vous ne pouvez pas déplacer des utilisateurs ou des groupes de l’UO Utilisateurs AADDC vers des UO personnalisées.
+Pour plus d’informations sur l’utilisation des outils d’administration ou la création et l’utilisation de comptes de service, consultez les articles suivants :
 
-> [!WARNING]
-> Les comptes de service, groupes, objets ordinateur et comptes d’utilisateur que vous créez dans un UO personnalisée ne sont pas disponible sur votre client Azure AD. En d’autres termes, ces objets ne s’affichent pas via l’API Azure AD Graph ou dans l’interface utilisateur Azure AD. Ces objets sont uniquement disponibles dans votre domaine géré par les services de domaine Azure AD.
->
->
-
-## <a name="related-content"></a>Contenu connexe
-* [Gérer un domaine Azure AD Domain Services](manage-domain.md)
-* [Gérer la stratégie de groupe pour Azure AD Domain Services](manage-group-policy.md)
 * [Centre d'administration Active Directory : Prise en main](https://technet.microsoft.com/library/dd560651.aspx)
 * [Guide pas à pas des comptes de service (éventuellement en anglais)](https://technet.microsoft.com/library/dd548356.aspx)
+
+<!-- INTERNAL LINKS -->
+[create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md
+[associate-azure-ad-tenant]: ../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md
+[create-azure-ad-ds-instance]: tutorial-create-instance.md
+[tutorial-create-management-vm]: tutorial-create-management-vm.md

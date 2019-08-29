@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/02/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: ab42c600b975adac9f13e8e75da9696e51e7e94d
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: e4d33756f1e09abedbf828deb447fbf14c6bfed7
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779861"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69616917"
 ---
 # <a name="optimize-cost-with-reserved-capacity-in-azure-cosmos-db"></a>Optimiser les coûts avec une capacité réservée dans Azure Cosmos DB
 
@@ -57,7 +57,7 @@ La taille de la réservation doit être basée sur la quantité totale de débit
    | Groupe de ressources | Groupe de ressources auquel la remise de capacité réservée est appliquée. |
    |Terme  |   Une année ou trois ans.   |
    |Type de débit   |  Le débit est provisionné en unités de requête. Vous pouvez acheter une réservation pour le débit approvisionné pour les deux configurations (écritures dans une seule région et écritures dans plusieurs régions). Le type de débit propose deux valeurs à sélectionner : 100 RU/s par heure et 100 RU multimaîtres/s par heure.|
-   | Unités de capacité réservée| Quantité de débit que vous souhaitez réserver. Pour calculer cette valeur, déterminez d’abord le débit nécessaire pour toutes vos ressources Cosmos DB (par exemple, les bases de données ou les conteneurs) par région. Ensuite, multipliez cette quantité par le nombre de régions à associer à votre base de données Cosmos DB. Par exemple :  Si vous avez cinq régions avec chacune 1 million d’unités de requête par seconde (RU/s), sélectionnez 5 millions de RU/s comme capacité réservée à acheter. |
+   | Unités de capacité réservée| Quantité de débit que vous souhaitez réserver. Pour calculer cette valeur, déterminez d’abord le débit nécessaire pour toutes vos ressources Cosmos DB (par exemple, les bases de données ou les conteneurs) par région. Ensuite, multipliez cette quantité par le nombre de régions à associer à votre base de données Cosmos. Par exemple :  Si vous avez cinq régions avec chacune 1 million d’unités de requête par seconde (RU/s), sélectionnez 5 millions de RU/s comme capacité réservée à acheter. |
 
 
 5. Le prix requis pour acheter la capacité réservée est calculé une fois le formulaire rempli. La sortie indique également le pourcentage de remise que vous obtenez avec les options sélectionnées. Cliquez ensuite sur **Sélectionner**

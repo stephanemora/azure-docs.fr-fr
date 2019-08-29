@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: iainfou
-ms.openlocfilehash: 475817985885cdd6023e72f20ecf35a3ca582924
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 1c52ac967d241f31d96988fa5ead8b4e049f6f4c
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67472439"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69617100"
 ---
 # <a name="synchronization-in-an-azure-ad-domain-services-managed-domain"></a>Synchronisation sur un domaine géré par les services de domaine Azure Active Directory
 Le diagramme suivant illustre le fonctionnement de la synchronisation sur les domaines gérés par les services de domaine Azure AD.
@@ -69,7 +69,7 @@ Le tableau suivant répertorie certains des attributs communs et décrit comment
 | Historique des SID des utilisateurs et groupes |SID d’utilisateur et de groupe principal local |L’attribut SidHistory pour les utilisateurs et groupes dans votre domaine géré est défini de sorte à correspondre au SID de groupe ou d’utilisateur principal correspondant sur votre domaine local. Cette fonctionnalité permet de faciliter la migration des applications sur site vers le domaine géré, étant donné que vous n’avez pas besoin de redéfinir les ACL des ressources. |
 
 > [!NOTE]
-> **Se connecter au domaine géré en utilisant le format UPN :** l’attribut SAMAccountName peut être généré automatiquement pour certains comptes d’utilisateurs dans votre domaine géré. Si plusieurs utilisateurs ont le même attribut mailNickname ou que des utilisateurs ont des préfixes UPN anormalement longs, la valeur SAMAccountName pour ces utilisateurs peut être générée automatiquement. Par conséquent, le format SAMAccountName (par exemple, « CONTOSO100\joeuser ») n’est pas toujours une méthode fiable pour se connecter au domaine. La valeur de SAMAccountName générée automatiquement pour l’utilisateur peut différer du préfixe UPN de ce dernier. Utilisez le format UPN (par exemple, 'joeuser@contoso100.com') pour vous connecter de manière fiable au domaine managé.
+> **Se connecter au domaine géré en utilisant le format UPN :** l’attribut SAMAccountName peut être généré automatiquement pour certains comptes d’utilisateurs dans votre domaine géré. Si plusieurs utilisateurs ont le même attribut mailNickname ou que des utilisateurs ont des préfixes UPN anormalement longs, la valeur SAMAccountName pour ces utilisateurs peut être générée automatiquement. Par conséquent, le format SAMAccountName (par exemple, « CONTOSO\dee ») n’est pas toujours une méthode fiable pour se connecter au domaine. La valeur de SAMAccountName générée automatiquement pour l’utilisateur peut différer du préfixe UPN de ce dernier. Utilisez le format UPN (par exemple, 'dee@contoso.com') pour vous connecter de manière fiable au domaine managé.
 
 ### <a name="attribute-mapping-for-user-accounts"></a>Mappage d’attributs pour les comptes d’utilisateur
 Le tableau suivant illustre la façon dont certains attributs pour les objets utilisateur dans votre client Azure AD sont synchronisés avec les attributs correspondants dans votre domaine géré.
@@ -116,7 +116,7 @@ Le tableau suivant illustre la façon dont certains attributs pour les objets de
 ## <a name="password-hash-synchronization-and-security-considerations"></a>Considérations relatives à la sécurité et à la synchronisation de hachage du mot de passe
 Lorsque vous activez Azure AD Domain Services, votre annuaire Azure AD génère et stocke les hachages de mot de passe dans des formats compatibles NTLM et Kerberos. 
 
-Pour les comptes d’utilisateurs existant dans le cloud, comme Azure AD ne stocke jamais leurs mots de passe en texte clair, ces hachages ne peuvent pas être générés automatiquement. Microsoft impose donc aux [utilisateurs cloud de réinitialiser/modifier leur mot de passe](active-directory-ds-getting-started-password-sync.md) afin que les hachages de leur mot de passe soient générés et stockés dans Azure AD. Pour tout compte d’utilisateur cloud créé dans Azure AD après l’activation d’Azure AD Domain Services, les hachages de mot de passe sont générés et stockés dans des formats compatibles NTLM et Kerberos. 
+Pour les comptes d’utilisateurs existant dans le cloud, comme Azure AD ne stocke jamais leurs mots de passe en texte clair, ces hachages ne peuvent pas être générés automatiquement. Microsoft impose donc aux [utilisateurs cloud de réinitialiser/modifier leur mot de passe](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds) afin que les hachages de leur mot de passe soient générés et stockés dans Azure AD. Pour tout compte d’utilisateur cloud créé dans Azure AD après l’activation d’Azure AD Domain Services, les hachages de mot de passe sont générés et stockés dans des formats compatibles NTLM et Kerberos. 
 
 Pour les comptes d’utilisateurs synchronisés à partir de l’instance Active Directory locale, vous devez [configurer Azure AD Connect pour synchroniser les hachages de mot de passe dans des formats compatibles NTLM et Kerberos](active-directory-ds-getting-started-password-sync-synced-tenant.md).
 
@@ -126,7 +126,6 @@ Les hachages de mot de passe compatibles NTLM et Kerberos sont toujours stockés
 Comme décrit dans une section précédente de cet article, il n’existe aucune synchronisation de votre domaine géré vers votre client Azure AD. Vous pouvez choisir de [créer une unité d’organisation (OU) personnalisée](create-ou.md) dans votre domaine géré. En outre, vous pouvez créer d’autres unités d’organisation, utilisateurs, groupes ou comptes de service au sein de ces unités d’organisation personnalisées. Les objets créés dans les unités d’organisation personnalisées sont de nouveau synchronisés avec votre client Azure AD. Ces objets sont disponibles uniquement dans votre domaine géré. Par conséquent, ces objets ne sont pas visibles à l’aide des applets de commande PowerShell d’Azure AD, l’API Graph d’Azure AD ou l’interface utilisateur de gestion d’Azure AD.
 
 ## <a name="related-content"></a>Contenu connexe
-* [Fonctionnalités - Services de domaine Azure AD](active-directory-ds-features.md)
 * [Scénarios de déploiement - Services de domaine Azure AD](scenarios.md)
 * [Considérations relatives à la mise en réseau pour les services de domaine Azure AD](network-considerations.md)
-* [Prise en main des services de domaine Azure AD](create-instance.md)
+* [Prise en main des services de domaine Azure AD](tutorial-create-instance.md)

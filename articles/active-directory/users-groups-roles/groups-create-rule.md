@@ -9,22 +9,22 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 03/18/2019
+ms.date: 08/12/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f828ff83e6b9c60eb08edef7f47e88185fb5aef8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: cb4f9d2f78857231d0ecd81a2538a75b4b8a2f74
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60472140"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69650300"
 ---
 # <a name="create-a-dynamic-group-and-check-status"></a>Créer un groupe dynamique et vérifier l’état
 
 Dans Azure Active Directory (Azure AD), vous pouvez utiliser des règles pour déterminer l’appartenance aux groupes à partir des propriétés de l’utilisateur ou de l’appareil. Cet article explique comment configurer une règle pour un groupe dynamique dans le portail Azure.
-L’appartenance dynamique est prise en charge pour les groupes de sécurité ou les groupes Office 365. Lorsqu’une règle d’appartenance de groupe est appliquée, les correspondances avec la règle d’appartenance des attributs utilisateur et appareil sont évaluées. Lorsqu’un attribut d’utilisateur ou d’appareil change, toutes les règles de groupe dynamique au sein de l’organisation sont traitées pour tenir compte de toutes les modifications d’appartenance. Les utilisateurs et les appareils sont ajoutés ou supprimés s’ils remplissent les conditions pour un groupe.
+L’appartenance dynamique est prise en charge pour les groupes de sécurité ou les groupes Office 365. Lorsqu’une règle d’appartenance de groupe est appliquée, les correspondances avec la règle d’appartenance des attributs utilisateur et appareil sont évaluées. Lorsqu’un attribut d’utilisateur ou d’appareil change, toutes les règles de groupe dynamique au sein de l’organisation sont traitées pour tenir compte de toutes les modifications d’appartenance. Les utilisateurs et les appareils sont ajoutés ou supprimés s’ils remplissent les conditions pour un groupe. Les groupes de sécurité peuvent être utilisés pour des appareils ou des utilisateurs, mais les groupes Office 365 ne peuvent être utilisés que par des groupes d’utilisateurs.
 
 Pour obtenir des exemples de syntaxe des règles, des propriétés prises en charge, des opérateurs et des valeurs pris en charge pour une règle d’appartenance, consultez [Règles d’appartenance dynamique pour les groupes dans Azure Active Directory](groups-dynamic-membership.md).
 
@@ -36,21 +36,21 @@ Pour obtenir des exemples de syntaxe des règles, des propriétés prises en cha
 
    ![Sélectionnez la commande pour ajouter le nouveau groupe](./media/groups-create-rule/new-group-creation.png)
 
-4. Dans la page **Groupe**, entrez le nom et la description du nouveau groupe. Sélectionnez un **Type d’appartenance** pour les utilisateurs ou les appareils, puis sélectionnez **Ajouter une requête dynamique**. Vous pouvez utiliser le générateur de règle pour créer une règle simple, ou [écrire une règle d’appartenance vous-même](groups-dynamic-membership.md).
+4. Dans la page **Groupe**, entrez le nom et la description du nouveau groupe. Sélectionnez un **Type d’appartenance** pour les utilisateurs ou les appareils, puis sélectionnez **Ajouter une requête dynamique**. Le générateur de règles prend en charge jusqu'à cinq expressions. Pour ajouter une sixième expression ou une expression suivante, vous devez utiliser la zone de texte.
 
    ![Ajouter une règle d’appartenance au groupe dynamique](./media/groups-create-rule/add-dynamic-group-rule.png)
 
 5. Pour afficher les propriétés d’extension personnalisées disponibles pour votre requête d’appartenance
    1. Sélectionnez **Obtenir les propriétés d’extension personnalisée**
-   2. Entrez l’ID de l’application, puis sélectionnez **Actualiser les propriétés**. 
-6. Après avoir créé la règle, sélectionnez **Ajouter une requête** dans le bas du panneau.
-7. Sélectionnez **Créer** on the **Groupe** panneau pour créer le groupe.
+   2. Entrez l’ID de l’application, puis sélectionnez **Actualiser les propriétés**.
+6. Une fois la règle créée, sélectionnez **Enregistrer**.
+7. Sélectionnez **Créer** sur la page **Nouveau groupe** pour créer le groupe.
 
-Si la règle que vous avez entrée n’est pas valide, une explication de la raison pour laquelle la règle n’a pas pu être traitée s’affiche en haut à droite du portail. Lisez-la avec attention pour savoir comment corriger la règle.
+Si la règle que vous avez entrée n'est pas valide, une explication de la raison pour laquelle la règle n'a pas pu être traitée s'affiche dans la notification Azure du portail. Lisez-la avec attention pour savoir comment corriger la règle.
 
 ## <a name="turn-on-or-off-welcome-email"></a>Activer ou désactiver l’e-mail de bienvenue
 
-Lorsqu’un groupe Office 365 est créé, une notification de bienvenue est envoyée aux utilisateurs qui sont ajoutés au groupe. Plus tard, si un attribut d’utilisateur ou d’appareil change, toutes les règles de groupe dynamique au sein de l’organisation sont traitées pour les modifications d’appartenance. Les utilisateurs qui sont alors ajoutés reçoivent également la notification de bienvenue. Vous pouvez désactiver ce comportement dans [Exchange PowerShell](https://docs.microsoft.com/powershell/module/exchange/users-and-groups/Set-UnifiedGroup?view=exchange-ps). 
+Lorsqu’un groupe Office 365 est créé, une notification de bienvenue est envoyée par e-mail aux utilisateurs qui sont ajoutés au groupe. Plus tard, si un attribut d’utilisateur ou d’appareil change, toutes les règles de groupe dynamique au sein de l’organisation sont traitées pour les modifications d’appartenance. Les utilisateurs qui sont alors ajoutés reçoivent également la notification de bienvenue. Vous pouvez désactiver ce comportement dans [Exchange PowerShell](https://docs.microsoft.com/powershell/module/exchange/users-and-groups/Set-UnifiedGroup?view=exchange-ps).
 
 ## <a name="check-processing-status-for-a-rule"></a>Vérifier l’état de traitement d’une règle
 

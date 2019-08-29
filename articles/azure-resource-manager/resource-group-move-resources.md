@@ -4,14 +4,14 @@ description: Utilisez Azure Resource Manager ou une API REST pour déplacer d
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 07/09/2019
+ms.date: 08/19/2019
 ms.author: tomfitz
-ms.openlocfilehash: 01ec8facf2771de9ec01b9470521340a59ee4d0d
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 69cd6031111c72d54cb87975c2040078a9965821
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67721389"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70035546"
 ---
 # <a name="move-resources-to-a-new-resource-group-or-subscription"></a>Déplacer des ressources vers un nouveau groupe de ressource ou un nouvel abonnement
 
@@ -32,9 +32,9 @@ Plusieurs étapes importantes doivent être effectuées avant de déplacer une r
    * [Conseils pour le déplacement d’App Services](./move-limitations/app-service-move-limitations.md)
    * [Conseils pour le déplacement de DevOps Services](/azure/devops/organizations/billing/change-azure-subscription?toc=/azure/azure-resource-manager/toc.json)
    * [Conseils pour le déplacement de modèles de déploiement classique](./move-limitations/classic-model-move-limitations.md) : Calcul classique, Stockage classique, Réseaux virtuels classiques et services Cloud
+   * [Aide pour le déplacement du réseau](./move-limitations/networking-move-limitations.md)
    * [Conseils pour le déplacement de Recovery Services](../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json)
    * [Conseils pour le déplacement de machines virtuelles](./move-limitations/virtual-machines-move-limitations.md)
-   * [Conseils pour le déplacement de réseaux virtuels](./move-limitations/virtual-network-move-limitations.md)
 
 1. Les abonnements source et de destination doivent être actifs. Si vous rencontrez des problèmes lors de l’activation d’un compte qui a été désactivé, [créez une demande de support Azure](../azure-supportability/how-to-create-azure-support-request.md). Sélectionnez **Gestion des abonnements** comme type de problème.
 
@@ -93,6 +93,24 @@ Plusieurs étapes importantes doivent être effectuées avant de déplacer une r
    * **Microsoft.Resources/subscriptions/resourceGroups/write** sur le groupe de ressources de destination.
 
 1. Avant de déplacer les ressources, vérifiez les quotas d’abonnement pour l’abonnement vers lequel vous souhaitez déplacer les ressources. Si le déplacement des ressources signifie que l’abonnement dépassera ses limites, vous devez vérifier si vous pouvez demander une augmentation du quota. Pour connaître la liste des limites et savoir comment demander une augmentation, consultez [Abonnement Azure et limites, quotas et contraintes du service](../azure-subscription-service-limits.md).
+
+1. **Pour un déplacement entre des abonnements, la ressource et ses ressources dépendantes doivent se trouver dans le même groupe de ressources et être déplacées ensemble.** Par exemple, une machine virtuelle avec des disques managés nécessite le déplacement simultané de la machine virtuelle, des disques managés ainsi que des autres ressources dépendantes.
+
+   Si vous déplacez une ressource vers un nouvel abonnement, vérifiez si la ressource a des ressources dépendantes et si elles se trouvent dans le même groupe de ressources. Si les ressources ne se trouvent pas dans le même groupe de ressources, vérifiez si elles peuvent y être consolidées. Dans ce cas, mettez toutes ces ressources dans le même groupe de ressources à l’aide d’une opération de déplacement entre les groupes de ressources.
+
+   Pour plus d’informations, consultez [Scénario de déplacement entre des abonnements](#scenario-for-move-across-subscriptions).
+
+## <a name="scenario-for-move-across-subscriptions"></a>Scénario de déplacement entre différents abonnements
+
+Le déplacement de ressources d’un abonnement vers un autre est un processus en trois étapes :
+
+![scénario de déplacement entre des abonnements](./media/resource-group-move-resources/cross-subscription-move-scenario.png)
+
+Pour illustrer cela, nous avons une seule ressource dépendante.
+
+* Étape 1 : Si les ressources dépendantes sont réparties entre différents groupes de ressources, commencez par les déplacer vers un même groupe de ressources.
+* Étape 2 : Déplacez la ressource et les ressources dépendantes ensemble de l’abonnement source vers l’abonnement cible.
+* Étape 3 : Si vous le souhaitez, redistribuez les ressources dépendantes dans différents groupes de ressources dans l’abonnement cible. 
 
 ## <a name="validate-move"></a>Valider le déplacement
 

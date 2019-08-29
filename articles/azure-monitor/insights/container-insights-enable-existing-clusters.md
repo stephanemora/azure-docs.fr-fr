@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/25/2019
+ms.date: 08/19/2019
 ms.author: magoedte
-ms.openlocfilehash: ae340fb11d422b7516cc315e78be974d22239503
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 650729269370bfcd6608b82fc14c3306da1ed222
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65074679"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624430"
 ---
 # <a name="enable-monitoring-of-azure-kubernetes-service-aks-cluster-already-deployed"></a>Activer la surveillance d’un cluster Azure Kubernetes Service (AKS) déjà déployé
 
@@ -26,7 +26,7 @@ Cet article explique comment configurer Azure Monitor pour les conteneurs afin 
 
 Vous pouvez activer la surveillance d’un cluster AKS déjà déployé à l’aide d’une des méthodes prises en charge :
 
-* Azure CLI
+* D’Azure CLI
 * Terraform
 * [À partir d’Azure Monitor](#enable-from-azure-monitor-in-the-portal) ou [directement depuis le cluster AKS](#enable-directly-from-aks-cluster-in-the-portal) dans le portail Azure 
 * Avec le [modèle Azure Resource Manager fourni](#enable-using-an-azure-resource-manager-template), à l’aide de la cmdlet Azure PowerShell `New-AzResourceGroupDeployment` ou avec Azure CLI. 
@@ -81,9 +81,13 @@ provisioningState       : Succeeded
 Pour activer la supervision de votre cluster AKS dans le portail Azure à partir d’Azure Monitor, effectuez les étapes suivantes :
 
 1. Dans le Portail Azure, sélectionnez **Surveiller**. 
+
 2. Sélectionnez **Conteneurs** dans la liste.
+
 3. Dans la page **Monitor - Conteneurs**, sélectionnez **Clusters non analysés**.
+
 4. Dans la liste des clusters non surveillés, recherchez le conteneur dans la liste et cliquez sur **Activer**.   
+
 5. Dans la page **Onboarding to Container Health and Logs** (Intégration de l’intégrité des conteneurs et aux journaux), si vous disposez d’un espace de travail Log Analytics dans le même abonnement que le cluster, sélectionnez-le dans la liste déroulante.  
     La liste présélectionne l’espace de travail par défaut et l’emplacement où le conteneur AKS est déployé dans l’abonnement. 
 
@@ -99,14 +103,17 @@ Une fois que vous avez activé la surveillance, 15 minutes peuvent s’écouler 
 Pour activer la surveillance directement depuis votre cluster AKS dans le portail Azure, procédez comme suit :
 
 1. Dans le portail Azure, sélectionnez **Tous les services**. 
-2. Dans la liste des ressources, commencez à taper **Conteneurs**.  
-    Au fur et à mesure de votre saisie, la liste est filtrée. 
+
+2. Dans la liste des ressources, commencez à taper **Conteneurs**.  Au fur et à mesure de votre saisie, la liste est filtrée. 
+
 3. Sélectionnez **Services Kubernetes**.  
 
     ![Lien vers les services Kubernetes](./media/container-insights-onboard/portal-search-containers-01.png)
 
 4. Dans la liste des conteneurs, sélectionnez un conteneur.
+
 5. Dans la vue d’ensemble du conteneur, sélectionnez **Conteneurs Monitor**.  
+
 6. Dans la page **Intégration à Azure Monitor pour conteneurs**, si vous disposez d’un espace de travail Log Analytics dans le même abonnement que le cluster, sélectionnez-le dans la liste déroulante.  
     La liste présélectionne l’espace de travail par défaut et l’emplacement où le conteneur AKS est déployé dans l’abonnement. 
 
@@ -131,10 +138,12 @@ Cette méthode inclut deux modèles JSON. Le premier modèle spécifie la config
 L’espace de travail Log Analytics doit être créé avant d’activer la surveillance à l’aide d’Azure PowerShell ou CLI. Pour créer l’espace de travail, vous pouvez en configurer un via [Azure Resource Manager](../../azure-monitor/platform/template-workspace-configuration.md), [PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json) ou le [portail Azure](../../azure-monitor/learn/quick-create-workspace.md).
 
 Si vous n’êtes pas familiarisé avec le déploiement de ressources à l’aide d’un modèle, consultez les rubriques suivantes :
+
 * [Déployer des ressources à l’aide de modèles Resource Manager et d’Azure PowerShell](../../azure-resource-manager/resource-group-template-deploy.md)
+
 * [Déployer des ressources à l’aide de modèles Resource Manager et de l’interface de ligne de commande Azure](../../azure-resource-manager/resource-group-template-deploy-cli.md)
 
-Si vous avez choisi d’utiliser Azure CLI, vous devez d’abord l’installer et l’utiliser localement. Vous devez exécuter Azure CLI 2.0.59 ou version ultérieure. Pour identifier votre version, exécutez `az --version`. Si vous devez installer ou mettre à niveau Azure CLI, consultez [Installer Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). 
+Si vous avez choisi d’utiliser Azure CLI, vous devez d’abord l’installer et l’utiliser localement. Vous devez exécuter Azure CLI version 2.0.59 ou une version ultérieure. Pour identifier votre version, exécutez `az --version`. Si vous devez installer ou mettre à niveau Azure CLI, consultez [Installer Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). 
 
 ### <a name="create-and-execute-a-template"></a>Créer et exécuter un modèle
 
@@ -142,74 +151,93 @@ Si vous avez choisi d’utiliser Azure CLI, vous devez d’abord l’installer e
 
     ```json
     {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-      "aksResourceId": {
-        "type": "string",
-        "metadata": {
-           "description": "AKS Cluster Resource ID"
-           }
-    },
-    "aksResourceLocation": {
-    "type": "string",
-     "metadata": {
-        "description": "Location of the AKS resource e.g. \"East US\""
-       }
-    },
-    "workspaceResourceId": {
-      "type": "string",
-      "metadata": {
-         "description": "Azure Monitor Log Analytics Resource ID"
-       }
-    }
-    },
-    "resources": [
-      {
-    "name": "[split(parameters('aksResourceId'),'/')[8]]",
-    "type": "Microsoft.ContainerService/managedClusters",
-    "location": "[parameters('aksResourceLocation')]",
-    "apiVersion": "2018-03-31",
-    "properties": {
-      "mode": "Incremental",
-      "id": "[parameters('aksResourceId')]",
-      "addonProfiles": {
-        "omsagent": {
-          "enabled": true,
-          "config": {
-            "logAnalyticsWorkspaceResourceID": "[parameters('workspaceResourceId')]"
+      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "aksResourceId": {
+          "type": "string",
+          "metadata": {
+            "description": "AKS Cluster Resource ID"
           }
-         }
-       }
-      }
-     }
-     ]
+        },
+        "aksResourceLocation": {
+          "type": "string",
+          "metadata": {
+            "description": "Location of the AKS resource e.g. \"East US\""
+          }
+        },
+        "aksResourceTagValues": {
+          "type": "object",
+          "metadata": {
+            "description": "Existing all tags on AKS Cluster Resource"
+          }
+        },
+        "workspaceResourceId": {
+          "type": "string",
+          "metadata": {
+            "description": "Azure Monitor Log Analytics Resource ID"
+          }
+        }
+      },
+      "resources": [
+        {
+          "name": "[split(parameters('aksResourceId'),'/')[8]]",
+          "type": "Microsoft.ContainerService/managedClusters",
+          "location": "[parameters('aksResourceLocation')]",
+          "tags": "[parameters('aksResourceTagValues')]",
+          "apiVersion": "2018-03-31",
+          "properties": {
+            "mode": "Incremental",
+            "id": "[parameters('aksResourceId')]",
+            "addonProfiles": {
+              "omsagent": {
+                "enabled": true,
+                "config": {
+                  "logAnalyticsWorkspaceResourceID": "[parameters('workspaceResourceId')]"
+                }
+              }
+            }
+          }
+        }
+      ]
     }
     ```
 
 2. Enregistrez ce fichier en tant que **existingClusterOnboarding.json** dans un dossier local.
+
 3. Collez la syntaxe JSON suivante dans votre fichier :
 
     ```json
     {
-       "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-       "contentVersion": "1.0.0.0",
-       "parameters": {
-         "aksResourceId": {
-           "value": "/subscriptions/<SubscriptionId>/resourcegroups/<ResourceGroup>/providers/Microsoft.ContainerService/managedClusters/<ResourceName>"
-       },
-       "aksResourceLocation": {
-         "value": "<aksClusterLocation>"
-       },
-       "workspaceResourceId": {
-         "value": "/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroup>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName>"
-       }  
-     }
+      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "aksResourceId": {
+          "value": "/subscriptions/<SubscriptionId>/resourcegroups/<ResourceGroup>/providers/Microsoft.ContainerService/managedClusters/<ResourceName>"
+        },
+        "aksResourceLocation": {
+          "value": "<aksClusterLocation>"
+        },
+        "workspaceResourceId": {
+          "value": "/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroup>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName>"
+        },
+        "aksResourceTagValues": {
+          "value": {
+            "<existing-tag-name1>": "<existing-tag-value1>",
+            "<existing-tag-name2>": "<existing-tag-value2>",
+            "<existing-tag-nameN>": "<existing-tag-valueN>"
+          }
+        }
+      }
     }
     ```
 
 4. Modifiez **aksResourceId** et **aksResourceLocation** à l’aide des valeurs situées sur la page **Vue d’ensemble d’AKS** du cluster AKS. La valeur de **workspaceResourceId** est l’ID de ressource complet de votre espace de travail Log Analytics, qui inclut le nom de l’espace de travail. 
+
+    Modifiez les valeurs d’**aksResourceTagValues** pour qu’elles correspondent aux valeurs de balises existantes spécifiées pour le cluster AKS.
+
 5. Enregistrez ce fichier en tant que **existingClusterParam.json** dans un dossier local.
+
 6. Vous êtes prêt à déployer ce modèle. 
 
    * Pour effectuer un déploiement avec Azure PowerShell, utilisez les commandes suivantes dans le dossier qui contient le modèle :
@@ -217,6 +245,7 @@ Si vous avez choisi d’utiliser Azure CLI, vous devez d’abord l’installer e
        ```powershell
        New-AzResourceGroupDeployment -Name OnboardCluster -ResourceGroupName <ResourceGroupName> -TemplateFile .\existingClusterOnboarding.json -TemplateParameterFile .\existingClusterParam.json
        ```
+       
        Le changement de configuration peut prendre quelques minutes. Lorsqu’il est terminé, un message similaire à celui-ci s’affiche avec les résultats :
 
        ```powershell
@@ -236,7 +265,8 @@ Si vous avez choisi d’utiliser Azure CLI, vous devez d’abord l’installer e
        ```azurecli
        provisioningState       : Succeeded
        ```
-     Une fois que vous avez activé la surveillance, 15 minutes peuvent s’écouler avant que vous puissiez voir les métriques d’intégrité du cluster. 
+     
+       Une fois que vous avez activé la surveillance, 15 minutes peuvent s’écouler avant que vous puissiez voir les métriques d’intégrité du cluster. 
 
 ## <a name="verify-agent-and-solution-deployment"></a>Vérifier le déploiement de l’agent et de la solution
 

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 3/29/2019
 ms.author: sutalasi
-ms.openlocfilehash: 844563e03529e472624b35d2b545c3e432e4ea17
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: b549e8bf53ca7728b18e04542c7291f0ce720cb0
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67876295"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69876454"
 ---
 # <a name="about-networking-in-azure-to-azure-replication"></a>Mise en réseau dans Azure pour la réplication d’Azure
 
@@ -77,7 +77,7 @@ Les plages d’adresses IP Site Recovery sont les suivantes :
    USA Centre Nord | 23.96.195.247 | 168.62.249.226
    Europe Nord | 40.69.212.238 | 52.169.18.8
    Europe Ouest | 52.166.13.64 | 40.68.93.145
-   USA Est | 13.82.88.226 | 104.45.147.24
+   East US | 13.82.88.226 | 104.45.147.24
    USA Ouest | 40.83.179.48 | 104.40.26.199
    USA Centre Sud | 13.84.148.14 | 104.210.146.250
    USA Centre | 40.69.144.231 | 52.165.34.144
@@ -109,6 +109,11 @@ Les plages d’adresses IP Site Recovery sont les suivantes :
    Gouvernement des États-Unis – Texas | 52.238.119.218 | 52.238.116.60
    Est des États-Unis – US DoD | 52.181.164.103 | 52.181.162.129
    Centre des États-Unis – US DoD | 52.182.95.237 | 52.182.90.133
+   Chine du Nord | 40.125.202.254 | 42.159.4.151
+   Chine Nord 2 | 40.73.35.193 | 40.73.33.230
+   Chine orientale | 42.159.205.45 | 42.159.132.40
+   Chine orientale 2 | 40.73.118.52| 40.73.100.125
+  
 ## <a name="example-nsg-configuration"></a>Exemple de configuration de groupe de sécurité réseau
 
 Cet exemple montre comment configurer des règles de groupes de sécurité réseau pour une machine virtuelle à répliquer.
@@ -144,7 +149,7 @@ Ces règles sont nécessaires pour que la réplication puisse être activée de 
 
    **Lieu** | **Adresse IP Site Recovery** |  **Adresse IP de surveillance Site Recovery**
     --- | --- | ---
-   USA Centre | 13.82.88.226 | 104.45.147.24
+   East US | 13.82.88.226 | 104.45.147.24
 
 ## <a name="network-virtual-appliance-configuration"></a>Configuration des appliances virtuelles réseau
 

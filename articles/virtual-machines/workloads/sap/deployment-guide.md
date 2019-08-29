@@ -10,18 +10,17 @@ tags: azure-resource-manager
 keywords: ''
 ms.assetid: 1c4f1951-3613-4a5a-a0af-36b85750c84e
 ms.service: virtual-machines-linux
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/26/2018
 ms.author: sedusch
-ms.openlocfilehash: 23f2d9add5838fc0c9ac5764921a2f3cc6ae7ab7
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: b9db5cbb9e65fc7bc8aa306a69a0889f29b61be3
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "67709898"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70101352"
 ---
 # <a name="azure-virtual-machines-deployment-for-sap-netweaver"></a>Déploiement de machines virtuelles Azure pour SAP NetWeaver
 
@@ -417,7 +416,7 @@ Le moyen le plus simple de créer une machine virtuelle à l’aide d’une imag
 1.  Sélectionnez **Calcul**, puis choisissez le type de système d’exploitation que vous souhaitez déployer. Par exemple, Windows Server 2012 R2, SUSE Linux Enterprise Server 12 (SLES 12) ou Red Hat Enterprise Linux 7.2 (RHEL 7.2) ou Oracle Linux 7.2. La liste affichée par défaut ne répertorie pas tous les systèmes d’exploitation pris en charge. Pour obtenir une liste complète, sélectionnez **Afficher tout**. Pour plus d’informations sur les systèmes d’exploitation pris en charge pour le déploiement de logiciels SAP, consultez la note SAP [1928533].
 1.  Sur la page suivante, passez en revue les conditions générales.
 1.  Dans la zone **Sélectionner un modèle de déploiement**, sélectionnez **Resource Manager**.
-1.  Sélectionnez **Créer**.
+1.  Sélectionnez **Create** (Créer).
 
 L’assistant vous guide pour configurer les paramètres requis pour créer la machine virtuelle, ainsi que toutes les ressources requises, telles que les interfaces réseau et les comptes de stockage. Voici certains exemples de paramètres :
 

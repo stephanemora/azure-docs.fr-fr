@@ -8,12 +8,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 4/16/2019
 ms.author: yoafr
-ms.openlocfilehash: 8e7456eff3062ef6667e7b0022ea9740c397a493
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 5ffa77a05e6019ee6b5e29c5af5ed0130e027cae
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68679242"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69876512"
 ---
 > [!NOTE]
 > Ce document détaille la liste des fonctionnalités qui ont été supprimées d’Azure Security Center le 31 juillet 2019.
@@ -160,7 +160,7 @@ Security Center peut activer des [solutions de sécurité intégrées dans Azure
 - [Microsoft Advanced Threat Analytics](https://docs.microsoft.com/azure/sentinel/connect-azure-atp)
 - [Azure AD Identity Protection](https://docs.microsoft.com/azure/sentinel/connect-azure-ad-identity-protection)
 
-Après la mise hors service, vous ne pourrez ajouter ou modifier un des types de solutions mentionnées dans la liste précédente, à partir de l’interface utilisateur ou de l’API.
+Après la mise hors service, vous ne pourrez ajouter ou modifier un des types de solutions mentionnées dans la liste précédente, à partir de l’interface utilisateur ou de l’API. Azure Security Center ne découvrira plus de nouvelles instances des solutions de partenaires mentionnées ci-dessus.
 
 Si vous disposez de solutions connectées, nous vous conseillons de migrer vers Azure Sentinel.
 

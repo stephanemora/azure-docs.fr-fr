@@ -15,12 +15,12 @@ ms.date: 04/09/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 610aeec9e4c40d0aad0c28f02697e2cf01edbe4a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5919c9ab53761649c55e67ceacec0409174e9120
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60438689"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69617025"
 ---
 # <a name="assign-azure-resource-roles-in-pim"></a>Attribuer des rôles de ressources Azure dans PIM
 
@@ -33,7 +33,7 @@ Azure Active Directory (Azure AD) Privileged Identity Management (PIM) peut gé
 - Gestionnaire de sécurité, et plus
 
 > [!NOTE]
-> Les utilisateurs ou les membres d’un groupe affectés aux rôles de propriétaire ou d’administrateur de l’accès utilisateur, de même que les administrateurs globaux qui permettent la gestion des abonnements dans Azure AD, sont des administrateurs de ressources. Ces administrateurs peuvent assigner des rôles, configurer des paramètres de rôle et revoir les accès à l’aide de PIM pour Azure Resources. Affichez la liste des [rôles intégrés pour les ressources Azure](../../role-based-access-control/built-in-roles.md).
+> Les utilisateurs ou les membres d’un groupe affectés aux rôles de propriétaire ou d’administrateur de l’accès utilisateur, de même que les administrateurs globaux qui permettent la gestion des abonnements dans Azure AD, sont des administrateurs de ressources. Ces administrateurs peuvent assigner des rôles, configurer des paramètres de rôle et revoir les accès à l’aide de PIM pour Azure Resources. Autrement dit, le compte ne dispose pas des droits nécessaires pour gérer PIM pour les ressources si l’utilisateur n’a pas un rôle d’administrateur de ressources. Affichez la liste des [rôles intégrés pour les ressources Azure](../../role-based-access-control/built-in-roles.md).
 
 ## <a name="assign-a-role"></a>Attribuer un rôle
 

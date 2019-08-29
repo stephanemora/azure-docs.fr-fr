@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: iainfou
-ms.openlocfilehash: acb001417b85b8ff45b2617e148e8b1961f3cbfa
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: c5ec80e81381423bdfdee07b1c020343d14ed559
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68772991"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69617069"
 ---
 # <a name="azure-ad-domain-services---troubleshooting-guide"></a>Services de domaine Azure AD : guide de dépannage
 Cet article fournit des conseils de dépannage pour les problèmes que vous pouvez rencontrer pendant la configuration ou l’administration des services de domaine Azure Active Directory (AD).
@@ -32,7 +32,7 @@ Choisissez les étapes de résolution qui correspondent au message d’erreur qu
 
 | **Message d’erreur** | **Résolution :** |
 | --- |:--- |
-| *Le nom contoso100.com est déjà utilisé sur ce réseau. Spécifiez un nom qui n’est pas utilisé.* |[Conflit de nom de domaine dans le réseau virtuel](troubleshoot.md#domain-name-conflict) |
+| *Le nom contoso.com est déjà utilisé sur ce réseau. Spécifiez un nom qui n’est pas utilisé.* |[Conflit de nom de domaine dans le réseau virtuel](troubleshoot.md#domain-name-conflict) |
 | *Les services de domaine n’ont pas pu être activés pour ce client Azure AD. Le service ne dispose pas des autorisations adéquates pour l’application appelée « Synchronisation des services de domaine Azure AD ». Supprimez l’application appelée « Synchronisation des services de domaine Azure AD » et réessayez d’activer les services de domaine pour votre client Azure AD.* |[Les services de domaine ne disposent pas des autorisations adéquates pour l’application Synchronisation des services de domaine Azure AD.](troubleshoot.md#inadequate-permissions) |
 | *Les services de domaine n’ont pas pu être activés pour ce client Azure AD. L’application de services de domaine dans votre client Azure AD n’a pas les autorisations requises pour activer les services de domaine. Supprimez l’application avec l’identificateur d’application d87dcbc6-a371-462e-88e3-28ad15ec4e64 et essayez ensuite d’activer les services de domaine pour votre client Azure AD.* |[L’application de services de domaine n’est pas configurée correctement dans votre client.](troubleshoot.md#invalid-configuration) |
 | *Les services de domaine n’ont pas pu être activés pour ce client Azure AD. L’application Microsoft Azure AD est désactivée dans votre client Azure AD. Activez l’application avec l’identificateur d’application 00000002-0000-0000-c000-000000000000 et essayez ensuite d’activer les services de domaine pour votre client Azure AD.* |[L’application Microsoft Graph est désactivée dans votre client Azure AD.](troubleshoot.md#microsoft-graph-disabled) |
@@ -40,7 +40,7 @@ Choisissez les étapes de résolution qui correspondent au message d’erreur qu
 ### <a name="domain-name-conflict"></a>Conflit de nom de domaine
 **Message d’erreur :**
 
-*Le nom contoso100.com est déjà utilisé sur ce réseau. Spécifiez un nom qui n’est pas utilisé.*
+*Le nom contoso.com est déjà utilisé sur ce réseau. Spécifiez un nom qui n’est pas utilisé.*
 
 **Correction :**
 
@@ -135,12 +135,12 @@ Si un ou plusieurs utilisateurs de votre locataire Azure AD sont incapables de s
 >
 >
 
-* Assurez-vous d'avoir [activé la synchronisation du mot de passe](active-directory-ds-getting-started-password-sync.md) selon les étapes décrites dans le guide de mise en route.
+* Assurez-vous d'avoir [activé la synchronisation du mot de passe](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds) selon les étapes décrites dans le guide de mise en route.
 * **Comptes externes :** Assurez-vous que le compte d’utilisateur affecté n’est pas un compte externe dans le locataire Azure AD. Les exemples de comptes externes incluent les comptes Microsoft (par exemple, « joe@live.com ») ou les comptes d’utilisateurs d’un annuaire Azure AD externe. Dans la mesure où les services de domaine Azure AD n’ont pas d'informations d'identification pour ces comptes d'utilisateurs, ces utilisateurs ne peuvent pas se connecter au domaine géré.
 * **Comptes synchronisés :** si les comptes d’utilisateurs affectés sont synchronisés à partir d’un annuaire local, vérifiez que les points suivants sont respectés :
 
   * Vous avez déployé la [dernière version recommandée d’Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594)ou procédé à la mise à jour vers cette version.
-  * Vous avez configuré Azure AD Connect pour [effectuer une synchronisation complète](active-directory-ds-getting-started-password-sync.md).
+  * Vous avez configuré Azure AD Connect pour [effectuer une synchronisation complète](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds).
   * Selon la taille de votre annuaire, la mise à disposition des comptes d'utilisateurs et hachages d’informations d’identification dans les services de domaine Azure AD peut prendre du temps. Assurez-vous de patienter suffisamment longtemps avant d’effectuer une nouvelle tentative d’authentification.
   * Si le problème persiste après la vérification des étapes ci-dessus, essayez de redémarrer le service Microsoft Azure AD Sync. Ouvrez une invite de commande et exécutez les commandes suivantes sur votre ordinateur de synchronisation :
 

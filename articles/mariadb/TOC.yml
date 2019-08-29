@@ -89,6 +89,10 @@
           href: concepts-read-replicas.md
 - name: Guides pratiques
   items:
+    - name: Gérer un serveur
+      items:
+        - name: Portail Azure
+          href: howto-create-manage-server-portal.md
     - name: Règles de pare-feu
       items:
         - name: Portail Azure
@@ -123,6 +127,8 @@
       items:
         - name: Portail Azure
           href: howto-auto-grow-storage-portal.md
+        - name: D’Azure CLI
+          href: howto-auto-grow-storage-cli.md
     - name: Accéder aux journaux d’activité du serveur
       items:
         - name: Journaux des requêtes lentes

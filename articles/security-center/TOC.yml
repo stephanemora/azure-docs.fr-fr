@@ -127,8 +127,6 @@
           href: security-center-install-endpoint-protection.md
         - name: Évaluation des vulnérabilités non installée
           href: security-center-vulnerability-assessment-recommendations.md
-        - name: Activer des groupes de sécurité réseau
-          href: security-center-enable-network-security-groups.md
         - name: Rapports de menace
           href: security-center-threat-report.md
         - name: Alertes personnalisées
@@ -143,8 +141,6 @@
           href: security-center-investigation-user-data.md
         - name: Playbooks Logic Apps
           href: security-center-playbooks.md
-        - name: Visualiser les événements
-          href: security-center-events-dashboard.md
         - name: Recherche
           href: security-center-search.md
         - name: Planification et fonctionnement

@@ -9,20 +9,20 @@ ms.topic: conceptual
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 07/10/2019
+ms.date: 08/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 873f45a6cce85669581037c4c398a52b1ebd6d68
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 4aa948a785153dd0d70a9af41ae0ed25036827f8
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68966857"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69656272"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Utiliser un modèle Azure Machine Learning déployé en tant que service web
 
 Le déploiement d’un modèle Azure Machine Learning en tant que service web crée une API REST. Vous pouvez envoyer des données à cette API et recevoir la prédiction retournée par le modèle. Dans ce document, découvrez comment créer des clients pour le service web en utilisant C#, Go, Java et Python.
 
-Vous créez un service web lorsque vous déployez une image sur Azure Container Instances, Azure Kubernetes Service ou FPGA. Vous créez des images à partir de modèles inscrits et de fichiers de scoring. Vous récupérez l’URI utilisé pour accéder à un service web utilisant le [kit de développement logiciel (SDK) Azure Machine Learning](https://aka.ms/aml-sdk). Si l’authentification est activée, vous pouvez également utiliser le kit de développement logiciel (SDK) pour obtenir les clés d’authentification.
+Vous créez un service web lorsque vous déployez une image sur Azure Container Instances, Azure Kubernetes Service ou FPGA. Vous créez des images à partir de modèles inscrits et de fichiers de scoring. Vous récupérez l’URI utilisé pour accéder à un service web utilisant le [kit de développement logiciel (SDK) Azure Machine Learning](https://aka.ms/aml-sdk). Si l’authentification est activée, vous pouvez également utiliser le kit de développement logiciel (SDK) pour obtenir les clés d’authentification ou les jetons.
 
 Le flux de travail général pour la création d’un client qui utilise un service web de Machine Learning est le suivant :
 
@@ -43,7 +43,7 @@ La classe [azureml.core.Webservice](https://docs.microsoft.com/python/api/azurem
 * `auth_enabled` -Si l’authentification par clé est activée, `True` ; sinon, `False`.
 * `token_auth_enabled` -Si l’authentification par jeton est activée, `True` ; sinon, `False`.
 * `scoring_uri` -L’adresse de l’API REST.
-
+* `swagger_uri` : l’adresse de la spécification OpenAPI. Cet URI est disponible si vous avez activé la génération de schéma automatique. Pour plus d’informations, consultez [Déployer des modèles avec le service Azure Machine Learning](how-to-deploy-and-where.md#schema).
 
 Il y a trois manières de récupérer ces informations pour les services web déployés :
 
@@ -56,6 +56,7 @@ Il y a trois manières de récupérer ces informations pour les services web dé
                                            image_config=image_config,
                                            workspace=ws)
     print(service.scoring_uri)
+    print(service.swagger_uri)
     ```
 
 * Vous pouvez utiliser `Webservice.list` afin de récupérer une liste de services web déployés pour les modèles dans votre espace de travail. Vous pouvez ajouter des filtres pour affiner la liste des informations retournées. Pour plus d’informations sur les éléments permettant de filtrer, voir la documentation de référence [Webservice.list](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice.webservice?view=azure-ml-py).
@@ -63,6 +64,7 @@ Il y a trois manières de récupérer ces informations pour les services web dé
     ```python
     services = Webservice.list(ws)
     print(services[0].scoring_uri)
+    print(services[0].swagger_uri)
     ```
 
 * Si vous connaissez le nom du service déployé, vous pouvez créer une instance de `Webservice` et fournir les noms de l’espace de travail et du service en tant que paramètres. Le nouvel objet contient des informations sur le service déployé.
@@ -70,18 +72,21 @@ Il y a trois manières de récupérer ces informations pour les services web dé
     ```python
     service = Webservice(workspace=ws, name='myservice')
     print(service.scoring_uri)
+    print(service.swagger_uri)
     ```
 
 ### <a name="authentication-for-services"></a>Authentification pour les services
 
-Azure Machine Learning offre deux moyens de contrôler l’accès à vos services Web. 
+Azure Machine Learning offre deux moyens de contrôler l’accès à vos services Web.
 
 |Méthode d'authentification|ACI|AKS|
 |---|---|---|
 |Clé|Désactivé par défaut| Activée par défaut|
-|par jeton| Non disponible| Désactivé par défaut |
+|par jeton| Non disponible| Désactivée par défaut |
 
-#### <a name="authentication-with-keys"></a>Authentification avec clés
+Lors de l’envoi d’une demande à un service sécurisé à l’aide d’une clé ou d'un jeton, utilisez l’en-tête d’__autorisation__ pour passer la clé ou le jeton. La clé ou le jeton doivent être formatés en forme en tant que `Bearer <key-or-token>`, où `<key-or-token>` est la valeur de votre clé ou de votre jeton.
+
+#### <a name="authentication-with-keys"></a>Authentification avec des clés
 
 Lorsque vous activez l’authentification pour un déploiement, vous créez automatiquement des clés d’authentification.
 
@@ -112,7 +117,7 @@ Pour contrôler l’authentification par jeton, utilisez le paramètre `token_au
 Si l’authentification par jeton est activée, vous pouvez utiliser la méthode `get_token` pour récupérer un jeton de porteur et le délai d’expiration des jetons :
 
 ```python
-token, refresh_by = service.get_tokens()
+token, refresh_by = service.get_token()
 print(token)
 ```
 
@@ -193,9 +198,9 @@ namespace MLWebServiceClient
     {
         static void Main(string[] args)
         {
-            // Set the scoring URI and authentication key
+            // Set the scoring URI and authentication key or token
             string scoringUri = "<your web service URI>";
-            string authKey = "<your key>";
+            string authKey = "<your key or token>";
 
             // Set the data to be sent to the service.
             // In this case, we are sending two sets of data to be scored.
@@ -309,8 +314,8 @@ var exampleData = []Features{
 
 // Set to the URI for your service
 var serviceUri string = "<your web service URI>"
-// Set to the authentication key (if any) for your service
-var authKey string = "<your key>"
+// Set to the authentication key or token (if any) for your service
+var authKey string = "<your key or token>"
 
 func main() {
     // Create the input data from example data
@@ -364,8 +369,8 @@ public class App {
     public static void sendRequest(String data) {
         // Replace with the scoring_uri of your service
         String uri = "<your web service URI>";
-        // If using authentication, replace with the auth key
-        String key = "<your key>";
+        // If using authentication, replace with the auth key or token
+        String key = "<your key or token>";
         try {
             // Create the request
             Content content = Request.Post(uri)
@@ -438,8 +443,8 @@ import json
 
 # URL for the web service
 scoring_uri = '<your web service URI>'
-# If the service is authenticated, set the key
-key = '<your key>'
+# If the service is authenticated, set the key or token
+key = '<your key or token>'
 
 # Two sets of data to score, so we get two results back
 data = {"data":
