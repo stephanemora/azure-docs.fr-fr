@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: iainfou
-ms.openlocfilehash: f28933623100ed18320df37741c7c1e82ccffa9f
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 183f1190e4ccbd730600290305a5847f83853c39
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69612850"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69990742"
 ---
 # <a name="join-a-centos-linux-virtual-machine-to-a-managed-domain"></a>Joindre une machine virtuelle Linux CentOS à un domaine managé
 Cet article indique comment joindre une machine virtuelle Linux CentOS dans Azure à un domaine managé par Azure AD Domain Services.
@@ -84,7 +84,7 @@ Maintenant que les packages requis sont installés sur la machine virtuelle Linu
 1. Découvrez le domaine géré par les services de domaine Azure AD. Sur votre terminal SSH, saisissez la commande suivante :
 
     ```console
-    sudo realm discover contoso.COM
+    sudo realm discover CONTOSO.COM
     ```
 
    > [!NOTE]
@@ -100,7 +100,7 @@ Maintenant que les packages requis sont installés sur la machine virtuelle Linu
     > * Spécifiez le nom de domaine en majuscules. Dans le cas contraire, kinit échoue.
 
     ```console
-    kinit bob@contoso.COM
+    kinit bob@CONTOSO.COM
     ```
 
 3. Joignez l’ordinateur au domaine. Sur votre terminal SSH, saisissez la commande suivante :
@@ -111,7 +111,7 @@ Maintenant que les packages requis sont installés sur la machine virtuelle Linu
     > Si votre machine virtuelle n'est pas en mesure de rejoindre le domaine, assurez-vous que le groupe de sécurité réseau de la machine virtuelle autorise le trafic Kerberos sortant sur le port TCP + UDP 464 vers le sous-réseau de réseau virtuel pour votre domaine Azure AD DS géré.
 
     ```console
-    sudo realm join --verbose contoso.COM -U 'bob@contoso.COM'
+    sudo realm join --verbose CONTOSO.COM -U 'bob@CONTOSO.COM'
     ```
 
 Vous devez voir apparaître un message signalant que l’ordinateur a bien été joint au domaine géré : « La machine a bien été inscrite dans le domaine ».
@@ -120,10 +120,10 @@ Vous devez voir apparaître un message signalant que l’ordinateur a bien été
 ## <a name="verify-domain-join"></a>Vérifier la jonction de domaine
 Vérifiez rapidement si la machine a bien été jointe au domaine géré. Connectez-vous à la machine virtuelle CentOS jointe au domaine à l’aide d’une autre connexion SSH. Utilisez un compte d’utilisateur de domaine, puis vérifiez que le compte d’utilisateur est correctement résolu.
 
-1. Sur votre terminal SSH, saisissez la commande suivante pour vous connecter à la machine virtuelle CentOS jointe au domaine à l’aide de SSH. Utilisez un compte de domaine appartenant au domaine géré (par exemple dans ce cas, « bob@contoso.COM »).
+1. Sur votre terminal SSH, saisissez la commande suivante pour vous connecter à la machine virtuelle CentOS jointe au domaine à l’aide de SSH. Utilisez un compte de domaine appartenant au domaine géré (par exemple dans ce cas, « bob@CONTOSO.COM »).
     
     ```console
-    ssh -l bob@contoso.COM contoso-centos.contoso.com
+    ssh -l bob@CONTOSO.COM contoso-centos.contoso.com
     ```
 
 2. Sur votre terminal SSH, tapez la commande suivante pour voir si le répertoire de base a été initialisé correctement.

@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/27/2018
+ms.date: 08/21/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 597670803514fa59faaafdad73786cdb745a0976
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 5342ec14e32b87c5cccdb36206122ce1168aeb56
+ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69640902"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70061422"
 ---
 # <a name="windows-defender-advanced-threat-protection-with-azure-security-center"></a>Windows Defender Advanced Threat Protection avec Azure Security Center
 
@@ -117,6 +117,7 @@ Pour générer une alerte de test de Windows Defender ATP inoffensive :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
+- [Plateformes et fonctionnalités prises en charge par Azure Security Center](security-center-os-coverage.md)
 - [Définition de stratégies de sécurité dans Azure Security Center](tutorial-security-policy.md) : découvrez comment configurer des stratégies de sécurité pour vos groupes de ressources et abonnements Azure.
 - [Gestion des suggestions de sécurité dans Azure Security Center](security-center-recommendations.md) : découvrez la façon dont les suggestions vous aident à protéger vos ressources Azure.
 - [Surveillance de l’intégrité de la sécurité dans Azure Security Center](security-center-monitoring.md) : découvrez comment surveiller l’intégrité de vos ressources Azure.

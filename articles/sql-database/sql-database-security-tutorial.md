@@ -330,7 +330,7 @@ Pour activer ou vérifier le chiffrement :
 
 1. Dans le portail Azure, sélectionnez **Bases de données SQL** dans le menu de gauche, puis sélectionnez votre base de données dans la page **Bases de données SQL**.
 
-1. Dans la section **Sécurité**, sélectionnez **	Transparent Data Encryption**.
+1. Dans la section **Sécurité**, sélectionnez **Transparent Data Encryption**.
 
 1. Si nécessaire, définissez **Chiffrement des données** sur **ACTIVÉ**. Sélectionnez **Enregistrer**.
 

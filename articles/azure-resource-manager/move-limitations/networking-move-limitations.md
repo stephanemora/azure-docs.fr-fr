@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 08/19/2019
 ms.author: tomfitz
-ms.openlocfilehash: c41ab1c3309243fa3a96d907f620ffeff10376a1
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 6ad7f32704d8cb73999a6e3cf60cb2a238268242
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69626118"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70034546"
 ---
 # <a name="move-guidance-for-networking-resources"></a>Conseils sur le déplacement de ressources réseau
 
@@ -22,10 +22,6 @@ Cet article décrit comment déplacer des réseaux virtuels et d’autres ressou
 Lors de la migration d’un réseau virtuel, vous devez également migrer ses ressources dépendantes. Pour les passerelles VPN, vous devez déplacer les adresses IP, les passerelles de réseau virtuel et toutes les ressources de connexion associées. Les passerelles de réseau locales peuvent se trouver dans un autre groupe de ressources.
 
 Si vous déplacez une machine virtuelle avec une carte d’interface réseau, vous devez déplacer toutes les ressources dépendantes. Déplacer le réseau virtuel de la carte d’interface réseau, toutes les autres cartes d’interface réseau dépendantes du réseau virtuel ainsi que les passerelles VPN.
-
-## <a name="state-of-dependent-resources"></a>État des ressources dépendantes
-
-Si le groupe de ressources source ou cible contient un réseau virtuel, les états de toutes les ressources dépendantes pour le réseau virtuel sont vérifiés au cours du déplacement. Si l’une de ces ressources est en état d’échec, le déplacement est bloqué. Par exemple, si une machine virtuelle qui utilise le réseau virtuel a échoué, le déplacement est bloqué. Le déplacement est bloqué même lorsque la machine virtuelle n’est pas l’une des ressources déplacées et ne se trouve pas dans l’un des groupes de ressources à déplacer. Pour éviter ce problème, déplacez vos ressources vers un groupe de ressources qui n’a pas de réseau virtuel.
 
 ## <a name="peered-virtual-network"></a>Réseau virtuel appairé
 

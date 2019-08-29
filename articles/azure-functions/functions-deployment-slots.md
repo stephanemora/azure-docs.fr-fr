@@ -7,16 +7,15 @@ author: craigshoemaker
 manager: gwallace
 keywords: azure functions, fonctions
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: reference
 ms.date: 08/12/2019
 ms.author: cshoe
-ms.openlocfilehash: a75299906098a0149df5417835569a30a4e585ff
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 50337745b008cdd38dd860a0329e44ee712e7acd
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69626094"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70085668"
 ---
 # <a name="azure-functions-deployment-slots"></a>Emplacements de déploiement Azure Functions
 
@@ -78,7 +77,7 @@ Pour créer un paramètre de déploiement, procédez comme suit :
 - Sous *Fonctionnalités de la plateforme > Paramètres généraux*, cliquez sur **Configuration**.
 - Cliquez sur le nom du paramètre que vous souhaitez associer à l’emplacement actuel.
 - Activez la case à cocher **Paramètre de l’emplacement de déploiement**.
-- Cliquez sur **OK**.
+- Cliquez sur **OK**
 - Lorsque le panneau des paramètres disparaît, cliquez sur **Enregistrer** pour conserver les modifications.
 
 ![Paramètre d’emplacement de déploiement](./media/functions-deployment-slots/azure-functions-deployment-slots-deployment-setting.png)
