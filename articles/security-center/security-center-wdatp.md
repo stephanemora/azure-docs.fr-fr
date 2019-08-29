@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/27/2018
 ms.author: v-mohabe
-ms.openlocfilehash: 87f5a14bcd6003ad81b663ed97e5349dcbff2a30
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: 597670803514fa59faaafdad73786cdb745a0976
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68296530"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69640902"
 ---
 # <a name="windows-defender-advanced-threat-protection-with-azure-security-center"></a>Windows Defender Advanced Threat Protection avec Azure Security Center
 
@@ -51,7 +51,7 @@ Vous pouvez également examiner l’alerte en vous servant de Windows Defender A
 
 ## <a name="platform-support"></a>Prise en charge de plateformes
 
-Windows Defender ATP dans Security Center prend en charge la détection sur les systèmes d’exploitation Windows Server 2012 R2 et Windows Server 2016 appartenant à un abonnement de service standard.
+Windows Defender ATP dans Security Center prend en charge la détection sur les systèmes d’exploitation Windows Server 2016, 2012 R2 et 2008 R2 SP1 appartenant à un abonnement de service Standard.
 
 > [!NOTE]
 > Lorsque vous utilisez Azure Security Center pour surveiller les serveurs, un locataire Windows Defender ATP est automatiquement créé et les données de Windows Defender ATP sont stockées dans la région Europe par défaut. Si vous avez besoin de déplacer des données vers un autre emplacement, vous devez contacter le Support Microsoft pour réinitialiser le locataire.

@@ -70,7 +70,7 @@ Les offres de la Place de marché Microsoft Azure peuvent être achetées par le
 
 Le client peut déployer la solution sur n’importe laquelle des régions Azure qu’il a activées. Nous vous recommandons de choisir les centres de données situés à proximité de vos services pour optimiser les performances et maîtriser votre budget.
 
-**Est-il possible d’* annuler* la suppression accidentelle d’un achat effectué dans la Place de marché Azure ?**
+**Est-il possible d’*annuler* la suppression accidentelle d’un achat effectué dans la Place de marché Azure?**
 
 Non, les suppressions sont définitives. Si un abonnement est supprimé accidentellement, il peut être racheté. Toutes les fonctionnalités ou services prépayés non utilisés sont perdus.
 

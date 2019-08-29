@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 07/30/2019
+ms.date: 08/13/2019
 ms.author: magoedte
-ms.openlocfilehash: 2ea17a4363218351eb6e5ba0678435f3707e4ab9
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: a559fe86850ee9c1378876bc5ed8f2d0ddfb2d99
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68663735"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69543046"
 ---
 # <a name="connect-operations-manager-to-azure-monitor"></a>Connecter Operations Manager à Azure Monitor
 
@@ -65,12 +65,12 @@ Avant de commencer, passez en revue les exigences suivantes.
 >[!NOTE]
 >Les dernières modifications apportées aux API Azure empêchent les clients de pouvoir configurer pour la première fois l'intégration entre leur groupe d'administration et Azure Monitor. Pour les clients qui ont déjà intégré leur groupe d’administration avec le service, vous n’êtes pas affecté, sauf si vous devez reconfigurer votre connexion existante.  
 >Un nouveau pack d’administration a été publié pour les versions suivantes d’Operations Manager :
->  
->* Pour System Center Operations Manager 1801, téléchargez le pack d'administration [ici](https://www.microsoft.com/download/details.aspx?id=57173)  
->* Pour System Center Operations Manager 2016, téléchargez le pack d'administration [ici](https://www.microsoft.com/download/details.aspx?id=57172)  
->* Pour System Center Operations Manager 2012 R2, téléchargez le pack d'administration [ici](https://www.microsoft.com/download/details.aspx?id=57171)  
->
->Cette mise à jour du pack de gestion n’est pas applicable à System Center Operations Manager 1807, qui est une version mise à jour depuis la version 1801 et non un build complet du produit.   
+> - Pour System Center Operations Manager 2019, le pack d’administration est fourni avec la build Operations Manager.
+>- Le pack d’administration Operations Manager 1801 s’applique également à Operations Manager 1807.
+>- Pour System Center Operations Manager 1801, téléchargez le pack d'administration [ici](https://www.microsoft.com/download/details.aspx?id=57173).
+>- Pour System Center Operations Manager 2016, téléchargez le pack d'administration [ici](https://www.microsoft.com/download/details.aspx?id=57172).  
+>- Pour System Center Operations Manager 2012 R2, téléchargez le pack d'administration [ici](https://www.microsoft.com/download/details.aspx?id=57171).  
+
 
 ### <a name="network"></a>Réseau
 

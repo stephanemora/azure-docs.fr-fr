@@ -14,18 +14,19 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 460ea15b0827ea307d64d1bd92d9bd14d5919d73
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: 22cf2be8eaed47a9440c6798acfb4383bd84c916
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68704375"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69611705"
 ---
 # <a name="azure-event-hubs---geo-disaster-recovery"></a>Azure Event Hubs - Géorécupération d’urgence 
 
 Si tout un centre de données ou une région Azure complète (si aucune [zone de disponibilité](../availability-zones/az-overview.md) n’est utilisée) connaît un temps d’arrêt, il est essentiel que le traitement des données puisse continuer dans les autres régions ou centres de données. Pour cette raison, la *géorécupération d’urgence* et la *géoréplication* sont des fonctionnalités importantes pour les entreprises. Azure Event Hubs prend en charge la géorécupération d’urgence et la géoréplication au niveau de l’espace de noms. 
 
-La fonctionnalité de géorécupération d’urgence est disponible de manière globale pour la référence SKU standard dédiée d’Event Hubs. Veuillez noter que vous pouvez uniquement apparier des espaces de noms sur le même niveau de référence (SKU). Par exemple, si vous avez un espace de noms dans un cluster qui est disponible uniquement dans notre référence SKU dédiée, il peut uniquement être associé à un espace de noms dans un autre cluster. 
+> [!NOTE]
+> La fonctionnalité de géorécupération d’urgence est disponible uniquement pour les [références SKU standard et dédiées](https://azure.microsoft.com/pricing/details/event-hubs/).  
 
 ## <a name="outages-and-disasters"></a>Pannes et sinistres
 
@@ -37,7 +38,9 @@ La fonctionnalité de géorécupération d’urgence d’Azure Event Hubs est un
 
 ## <a name="basic-concepts-and-terms"></a>Concepts et terminologie de base
 
-La fonctionnalité de récupération d’urgence implémente la récupération d’urgence des métadonnées, en s’appuyant sur les espaces de noms de récupération d’urgence principal et secondaire. Notez que la fonctionnalité de géorécupération d’urgence est disponible uniquement pour la [référence SKU standard](https://azure.microsoft.com/pricing/details/event-hubs/). Vous n’avez pas besoin de modifier la chaîne de connexion, car la connexion est établie à l’aide d’un alias.
+La fonctionnalité de récupération d’urgence implémente la récupération d’urgence des métadonnées, en s’appuyant sur les espaces de noms de récupération d’urgence principal et secondaire. 
+
+La fonctionnalité de géorécupération d’urgence est disponible uniquement pour les [références SKU standard et dédiées](https://azure.microsoft.com/pricing/details/event-hubs/). Vous n’avez pas besoin de modifier la chaîne de connexion, car la connexion est établie à l’aide d’un alias.
 
 Cet article emploie les termes suivants :
 
@@ -48,6 +51,19 @@ Cet article emploie les termes suivants :
 -  *Métadonnées* : entités telles que des concentrateurs d’événements et des groupes de consommateurs ; incluent également leurs propriétés sur le service associé à l’espace de noms. Notez que seules les entités et leurs paramètres sont automatiquement répliqués. Les messages et les événements ne sont pas répliqués. 
 
 -  *Basculement* : processus d’activation de l’espace de noms secondaire.
+
+## <a name="supported-namespace-pairs"></a>Paires d’espaces de noms prises en charge
+Les combinaisons suivantes d’espaces de noms principaux et secondaires sont prises en charge :  
+
+| Espace de noms principal | Espace de noms secondaire | Pris en charge | 
+| ----------------- | -------------------- | ---------- |
+| standard | standard | OUI | 
+| standard | Dédié | OUI | 
+| Dédié | Dédié | OUI | 
+| Dédié | standard | Non | 
+
+> [!NOTE]
+> Vous ne pouvez pas associer des espaces de noms qui se trouvent dans le même cluster dédié. Vous pouvez associer des espaces de noms qui se trouvent dans des cluster distincts. 
 
 ## <a name="setup-and-failover-flow"></a>Flux de configuration et de basculement
 

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 7/02/2019
+ms.date: 8/18/2019
 ms.author: v-mohabe
-ms.openlocfilehash: f795822d76def4a6695a4746fba7e8566041cb2b
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: 70b43c65703316e5dee8e9cf2cf86fe982a49592
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68295547"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624781"
 ---
 # <a name="threat-detection-for-azure-service-layer-in-azure-security-center"></a>Détection des menaces pour la couche des services Azure dans Azure Security Center
 
@@ -47,6 +47,7 @@ L’analytique de la couche réseau de Security Center est basée sur des exempl
 |**Activité réseau entrante SSH suspecte**|L’analyse d’un échantillon du trafic réseau a détecté une communication SSH entrante anormale vers une ressource dans votre déploiement. Un nombre relativement élevé de connexions entrantes à votre ressource est considéré comme anormal pour cet environnement. Cette activité peut indiquer une tentative d’attaque par force brute sur votre interface SSH.
 |**Activité réseau entrante RDP suspecte à partir de plusieurs sources**|L’analyse d’un échantillon du trafic réseau a détecté des communications RDP entrantes anormales depuis plusieurs sources vers une ressource dans votre déploiement. La connexion de diverses adresses IP uniques à votre ressource est considérée comme anormale pour cet environnement. Cette activité peut indiquer une tentative d’attaque par force brute sur votre interface RDP à partir de plusieurs hôtes (Botnet).|
 |**Activité réseau entrante RDP suspecte**|L’analyse d’un échantillon du trafic réseau a détecté une communication RDP entrante anormale vers une ressource dans votre déploiement. Un nombre relativement élevé de connexions entrantes à votre ressource est considéré comme anormal pour cet environnement. Cette activité peut indiquer une tentative d’attaque par force brute sur votre interface SSH.|
+|**Communication réseau avec une adresse malveillante détectée**|L’analyse d’un échantillon du trafic réseau a détecté une communication provenant d’une ressource dans votre déploiement avec un possible serveur C&C (commande et contrôle). Notez que ce type d’activité peut entraîner le marquage de votre adresse IP par des entités externes comme étant malveillante.|
 
 Pour comprendre comment Security Center peut utiliser les signaux liés au réseau pour appliquer la protection contre les menaces, consultez [Détections DNS heuristiques dans Azure Security Center](https://azure.microsoft.com/blog/heuristic-dns-detections-in-azure-security-center/).
 ## Couche Gestion Azure (Azure Resource Manager) (préversion)<a name ="management-layer"></a>
@@ -77,4 +78,4 @@ Security Center offre une couche supplémentaire de protection en exploitant les
 > 3. Sous **Activer les intégrations**, décochez la case **Autoriser Microsoft Cloud App Security à accéder à mes données**, puis cliquez sur **Enregistrer**.
 
 >[!NOTE]
->Azure Security Center stocke les données de client liées à la sécurité dans la même zone géographique que la ressource. Si Microsoft n’a pas encore déployé Azure Security Center dans la zone géographique de la ressource, il stocke les données aux États-Unis. Quand MCAS (Microsoft Cloud App Security) est activé, ces informations sont stockées selon les règles d’emplacement géographique de MCAS. Pour plus d’informations, consultez [Stockage des données pour les services non régionaux](http://azuredatacentermap.azurewebsites.net/).
+>Azure Security Center stocke les données de client liées à la sécurité dans la même zone géographique que la ressource. Si Microsoft n’a pas encore déployé Azure Security Center dans la zone géographique de la ressource, il stocke les données aux États-Unis. Quand MCAS (Microsoft Cloud App Security) est activé, ces informations sont stockées selon les règles d’emplacement géographique de MCAS. Pour plus d’informations, consultez [Stockage des données pour les services non régionaux](https://azuredatacentermap.azurewebsites.net/).

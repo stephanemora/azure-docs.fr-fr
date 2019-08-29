@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: helohr
-ms.openlocfilehash: 374d5a8f51e28b8a10595842cfc301db503b6bed
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 1c365790e1633a74be9f5baf41098e7511f99a7d
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67613326"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69563289"
 ---
 # <a name="create-a-host-pool-with-powershell"></a>Créer un pool d’hôtes avec PowerShell
 
@@ -63,6 +63,8 @@ Vous pouvez créer une machine virtuelle de plusieurs façons :
 - [Créer une machine virtuelle à partir d’une image Azure Gallery](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal#create-virtual-machine)
 - [Créer une machine virtuelle à partir d’une image managée](https://docs.microsoft.com/azure/virtual-machines/windows/create-vm-generalized-managed)
 - [Créer une machine virtuelle à partir d’une image non managée](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image)
+
+Une fois que vous avez créé vos machines virtuelles hôtes de session, [appliquez une licence Windows à une machine virtuelle hôte de session](./apply-windows-license.md#apply-a-windows-license-to-a-session-host-vm) pour exécuter vos machines virtuelles Windows ou Windows Server sans payer une autre licence. 
 
 ## <a name="prepare-the-virtual-machines-for-windows-virtual-desktop-preview-agent-installations"></a>Préparer les machines virtuelles pour l'installation des agents Windows Virtual Desktop (préversion)
 

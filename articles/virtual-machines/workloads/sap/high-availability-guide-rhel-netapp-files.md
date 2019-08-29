@@ -9,18 +9,17 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-windows
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/14/2019
 ms.author: radeltch
-ms.openlocfilehash: 5aaeda39869985da1b499916ff6f977c91f6a756
-ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
+ms.openlocfilehash: d3fbd38484696f0b133e7494fed11a22dc038148
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69014128"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70101111"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver-on-red-hat-enterprise-linux-with-azure-netapp-files-for-sap-applications"></a>Haute disponibilité des machines virtuelles Azure pour SAP NetWeaver sur Red Hat Enterprise Linux avec Azure NetApp Files pour les applications SAP
 
@@ -521,7 +520,7 @@ Les éléments suivants sont précédés de **[A]** (applicable à tous les nœu
 
 1. **[A]** Mettre à jour le fichier /usr/sap/sapservices
 
-   Pour empêcher le démarrage des instances par le script de démarrage sapinit, toutes les instances managées par Pacemaker doivent être commentées à partir du fichier /usr/sap/sapservices. Ne commentez pas l’instance SAP HANA si elle sera utilisée avec HANA SR.
+   Pour empêcher le démarrage des instances par le script de démarrage sapinit, toutes les instances gérées par Pacemaker doivent être commentées à partir du fichier /usr/sap/sapservices. Ne commentez pas l’instance SAP HANA si elle sera utilisée avec HANA SR.
 
    ```
    sudo vi /usr/sap/sapservices

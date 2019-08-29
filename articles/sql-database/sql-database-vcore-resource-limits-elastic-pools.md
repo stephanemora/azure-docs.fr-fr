@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 ms.date: 06/26/2019
-ms.openlocfilehash: b84e317745b7bd20f4862bd04584e42254a660d1
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: aa35cb1ae0ad035bdef6ff8e19cf115188ba7f3a
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566191"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69640854"
 ---
 # <a name="resource-limits-for-elastic-pools-using-the-vcore-based-purchasing-model-limits"></a>Limites de ressources pour les pools élastiques suivant les limites du modèle d’achat vCore
 
@@ -37,7 +37,7 @@ Vous pouvez définir le niveau de service, la taille de calcul et la quantité d
 ## <a name="general-purpose-service-tier-storage-sizes-and-compute-sizes"></a>Niveau de service Usage général : tailles de stockage et tailles de calcul
 
 > [!IMPORTANT]
-> Les nouvelles bases de données Gen4 ne sont plus prises en charge dans la région AustraliaEast.
+> Les nouvelles bases de données Gen4 ne sont plus prises en charge dans les régions Australie Est et Brésil Sud.
 
 ### <a name="general-purpose-service-tier-generation-4-compute-platform-part-1"></a>Niveau de service Usage général : Plateforme de calcul de génération 4 (partie 1)
 
@@ -153,7 +153,7 @@ Vous pouvez définir le niveau de service, la taille de calcul et la quantité d
 ## <a name="business-critical-service-tier-storage-sizes-and-compute-sizes"></a>Niveau de service Critique pour l’entreprise : tailles de stockage et tailles de calcul
 
 > [!IMPORTANT]
-> Les nouvelles bases de données Gen4 ne sont plus prises en charge dans la région AustraliaEast.
+> Les nouvelles bases de données Gen4 ne sont plus prises en charge dans les régions Australie Est et Brésil Sud.
 
 ### <a name="business-critical-service-tier-generation-4-compute-platform-part-1"></a>Niveau de service Critique pour l’entreprise : Plateforme de calcul de génération 4 (partie 1)
 

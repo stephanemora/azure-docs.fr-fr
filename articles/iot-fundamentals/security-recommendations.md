@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 06/26/2019
 ms.author: dkshir
 ms.custom: security-recommendations
-ms.openlocfilehash: 4416f3149c33a0c9a437b2fbd6a48729a5a7f044
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 55ca189d5f4622a395ffe603d7f0d6764db82f3d
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67722860"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69877218"
 ---
 # <a name="security-recommendations-for-azure-internet-of-things-iot-deployment"></a>Recommandations de sécurité pour le déploiement d’Azure IoT
 
@@ -42,7 +42,7 @@ Cet article contient des recommandations de sécurité pour les services Azure I
 | Recommandation | Commentaires |
 |-|-|
 | Sécuriser l’authentification des appareils | Assurez une communication sécurisée entre vos appareils et votre IoT Hub, en utilisant soit [une clé d’identité ou un jeton de sécurité unique](iot-security-deployment.md#iot-hub-security-tokens), soit [un certificat X.509 sur l’appareil](iot-security-deployment.md#x509-certificate-based-device-authentication) pour chaque appareil. Utilisez la méthode appropriée pour [ utiliser les jetons de sécurité basés sur le protocole choisi (MQTT, AMQP ou HTTPS)](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-security). |
-| Sécuriser la communication des appareils | IoT Hub sécurise la connexion aux appareils à l’aide du standard TLS (Transport Layer Security) pour les versions 1.2, 1.1, et 1.0. Utilisez [TLS 1.2](https://tools.ietf.org/html/rfc5246) afin de garantir une sécurité maximale. |
+| Sécuriser la communication des appareils | IoT Hub sécurise la connexion aux appareils à l’aide du standard TLS (Transport Layer Security) pour les versions 1.2 et 1.0. Utilisez [TLS 1.2](https://tools.ietf.org/html/rfc5246) afin de garantir une sécurité maximale. |
 | Sécuriser les communications des services | IoT Hub fournit des points de terminaison pour se connecter à des services principaux tels que [Stockage Azure](/azure/storage/) ou [Event Hubs](/azure/event-hubs) en utilisant uniquement le protocole TLS, et aucun point de terminaison n’est exposé sur un canal non chiffré. Une fois que ces données atteignent ces services principaux à des fins de stockage ou d’analyse, assurez-vous d’utiliser des méthodes de sécurité et de chiffrement appropriées pour ce service et de protéger les informations sensibles sur le serveur principal. |
 
 

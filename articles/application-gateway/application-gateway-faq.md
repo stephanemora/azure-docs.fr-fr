@@ -5,15 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.workload: infrastructure-services
-ms.date: 6/1/2019
+ms.date: 08/22/2019
 ms.author: victorh
-ms.openlocfilehash: 5bfb3a093cd101f30daf4439dc8f58b5b4f693ca
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.openlocfilehash: da8142ad035eec338a3c1ba1a23be7c2be470a04
+ms.sourcegitcommit: a3a40ad60b8ecd8dbaf7f756091a419b1fe3208e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68740884"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69891720"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Forum aux questions sur Application Gateway
 
@@ -361,6 +360,13 @@ Vous pouvez également utiliser un modèle Resource Manager qui installe et exé
 ### <a name="what-could-cause-backend-health-to-return-an-unknown-status"></a>Dans quelles circonstances, l'intégrité d'un serveur principal peut-elle indiquer un état inconnu ?
 
 En règle générale, vous constatez un état inconnu lorsque l'accès au serveur principal est bloqué par un groupe de sécurité réseau (NSG), un DNS personnalisé ou un routage défini par l'utilisateur (UDR) sur le sous-réseau d'Application Gateway. Pour plus d’informations, consultez [Intégrité du serveur principal, journalisation des diagnostics et métriques pour Application Gateway](application-gateway-diagnostics.md).
+
+### <a name="is-there-any-case-where-nsg-flow-logs-wont-show-allowed-traffic"></a>Existe-t-il un cas où les journaux de flux NSG n’affichent pas le trafic autorisé ?
+
+Oui. Si votre configuration correspond au scénario suivant, vous ne verrez pas le trafic autorisé dans vos journaux de flux NSG :
+- Vous avez déployé Application Gateway v2
+- Vous avez un NSG sur le sous-réseau Application Gateway
+- Vous avez activé les journaux de flux NSG sur ce groupe de sécurité réseau
 
 ## <a name="next-steps"></a>Étapes suivantes
 

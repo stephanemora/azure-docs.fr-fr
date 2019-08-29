@@ -52,7 +52,7 @@ Cette expérience permet à votre application d’obtenir une authentification u
 
 Notez qu’il existe une expérience en version préliminaire dans le portail d’inscription des applications pour vous aider à calculer l’URI de réponse répartie pour les applications iOS et Android:
 
-1. Dans l’inscription d’application, choisissez **Authentification** et sélection ** Essayer d’utiliser la nouvelle**
+1. Dans l’inscription d’application, choisissez **Authentification** et sélection **Essayer d’utiliser la nouvelle**
    ![image d’expérience](https://user-images.githubusercontent.com/13203188/60799285-2d031b00-a173-11e9-9d28-ac07a7ae894a.png)
 
 2. Sélectionner **Ajouter une**

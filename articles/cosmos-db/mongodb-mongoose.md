@@ -9,12 +9,12 @@ ms.date: 12/26/2018
 author: sivethe
 ms.author: sivethe
 ms.custom: seodec18
-ms.openlocfilehash: 23275bc639b445b55cafb72c929514541ba00660
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3955b84df401e5832668fa091274caea9af2466e
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61333237"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69876603"
 ---
 # <a name="connect-a-nodejs-mongoose-application-to-azure-cosmos-db"></a>Connecter une application Mongoose Node.js à Azure Cosmos DB
 
@@ -65,11 +65,11 @@ Passons à la création d’un compte Cosmos. Si vous avez déjà un compte que 
     var env = require('dotenv').load();    //Use the .env file to load the variables
     ```
 
-1. Ajoutez la chaîne de connexion Cosmos DB et le nom Cosmos DB au fichier ```.env```.
+1. Ajoutez la chaîne de connexion Cosmos DB et le nom Cosmos DB au fichier ```.env```. Remplacez les espaces réservés {cosmos-account-name} et {dbname} par le nom de votre compte Cosmos et le nom de la base de données, sans les symboles de l’accolade.
 
     ```JavaScript
-    COSMOSDB_CONNSTR=mongodb://{cosmos-user}.documents.azure.com:10255/{dbname}
-    COSMODDB_USER=cosmos-user
+    COSMOSDB_CONNSTR=mongodb://{cosmos-account-name}.documents.azure.com:10255/{dbname}
+    COSMODDB_USER=cosmos-account-name
     COSMOSDB_PASSWORD=cosmos-secret
     ```
 

@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/05/2019
 ms.author: banders
-ms.openlocfilehash: 5e38684500520d4565835456b94200aea399c938
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 828bc3784a118a81adc4391b1bf222c00ee2025a
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68814102"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69543019"
 ---
 # <a name="self-service-exchanges-and-refunds-for-azure-reservations"></a>Échanges et remboursements en libre-service de réservations Azure
 
@@ -60,11 +60,6 @@ La facture d’origine est annulée, puis une facture est créée. L’argent es
 
 Azure dispose des stratégies suivantes pour les annulations, les échanges et les remboursements.
 
-**Stratégies d’annulation**
-
-- Si vous annulez une réservation, des frais de résiliation anticipée de 12 % sont susceptibles d’être appliqués.
-- Le remboursement que vous recevez pour une annulation est le solde au prorata moins les 12 % des frais de résiliation anticipée. Pour annuler, accédez à la réservation dans le portail Azure, puis sélectionnez **Remboursement**.
-
 **Stratégies d’échange**
 
 - Vous pouvez retourner plusieurs réservations existantes pour acheter une nouvelle réservation du même type. Vous ne pouvez pas échanger une réservation d’un type contre une réservation d’un autre type. Par exemple, vous ne pouvez pas retourner une réservation de machine virtuelle pour acheter une réservation SQL.
@@ -77,10 +72,12 @@ Azure dispose des stratégies suivantes pour les annulations, les échanges et l
 - Il n’y a aucune pénalité ou limite annuelle pour les échanges.
 
 **Stratégies de remboursement**
+- Si vous annulez une réservation, des frais de résiliation anticipée de 12 % sont susceptibles d’être appliqués.
+- Le remboursement que vous recevez pour une annulation est le solde au prorata moins les 12 % des frais de résiliation anticipée. Pour annuler, accédez à la réservation dans le portail Azure, puis sélectionnez **Remboursement**.
 - Le montant total du remboursement ne peut pas dépasser 50 000 USD sur 12 mois consécutifs.
 - Les remboursements sont calculés en fonction du prix le plus bas de votre prix d’achat ou du prix actuel de la réservation.
 - Seuls les propriétaires de réservation peuvent traiter un remboursement. [Découvrez comment ajouter ou changer les utilisateurs qui peuvent gérer une réservation](billing-manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).
-- Microsoft se réserve le droit de facturer une pénalité de 12 % pour tout retour, bien que la pénalité ne soit pas actuellement facturée.
+- Microsoft se réserve le droit de facturer une pénalité de 12 % pour les retours. La pénalité n’est pas facturée pour le moment, mais sera facturée à l’avenir.
 
 ## <a name="exchange-non-premium-storage-for-premium-storage"></a>Échanger un stockage non Premium contre un stockage Premium
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/18/2018
 ms.author: magoedte
-ms.openlocfilehash: 29c91f2dcff04a2d21973e79c5719c3f4d84181b
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: a443931b8340552251fbcbe534f009eeeaf953aa
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827371"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69617309"
 ---
 # <a name="guidance-for-personal-data-stored-in-log-analytics-and-application-insights"></a>Guide pour les données personnelles stockées dans Log Analytics et Application Insights
 
@@ -98,6 +98,11 @@ Pour les requêtes d’affichage et d’exportation des données, vous devez uti
 Nous avons rendu disponible un chemin d’API *de vidage* dans le cadre d’une gestion de la confidentialité. Ce chemin doit être utilisé avec prudence en raison du risque associé à cette opération, de l’impact potentiel sur les performances, et de la possibilité d’influer sur les agrégations, les mesures et d’autres aspects de vos données Log Analytics. Pour d’autres approches de la gestion des données privées, consultez la section [Stratégie de gestion des données personnelles](#strategy-for-personal-data-handling).
 
 Le vidage est une opération nécessitant des privilèges élevés, qu’aucune application ni utilisateur dans Azure (y compris même le propriétaire de la ressource) n’a l’autorisation d’exécuter sans qu’un rôle lui soit explicitement accordé dans Azure Resource Manager. Ce rôle est _Videur de données_ et il doit être délégué avec prudence en raison du risque de perte de données. 
+
+> [!IMPORTANT]
+> Pour gérer les ressources système, les demandes de vidage sont limitées à 50 demandes par heure. Vous devez regrouper l’exécution des demandes de vidage en envoyant une seule commande dont le prédicat comprend toutes les identités des utilisateurs qui demandent un vidage. Utilisez [l’opérateur in](/azure/kusto/query/inoperator) pour spécifier plusieurs identités. Vous devez exécuter la requête avant d’exécuter la demande de vidage pour vérifier que les résultats sont tels qu’attendus. 
+
+
 
 Une fois que le rôle Azure Resource Manager a été affecté, deux nouveaux chemins d’API sont disponibles : 
 

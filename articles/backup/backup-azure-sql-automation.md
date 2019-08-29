@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/15/2019
 ms.author: dacurwin
 ms.assetid: 57854626-91f9-4677-b6a2-5d12b6a866e1
-ms.openlocfilehash: e078c75911a332c7e70f3a578723735729b9e6b6
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: e6a1ec1d11404e6179fda919c58f581c3524c4d4
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68954495"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69650336"
 ---
 # <a name="back-up-and-restore-sql-databases-in-azure--vms-with-powershell"></a>Sauvegarder et restaurer des bases de données SQL dans des machines virtuelles Azure à l’aide de PowerShell
 
@@ -167,6 +167,18 @@ Une stratégie de sauvegarde spécifie la planification des sauvegardes et la du
 * Affichez la planification de la stratégie de sauvegarde par défaut avec [Get-AzRecoveryServicesBackupSchedulePolicyObject](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupschedulepolicyobject?view=azps-1.4.0).
 * Vous utilisez la cmdlet [New-AzRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupprotectionpolicy?view=azps-1.4.0) pour créer une stratégie de sauvegarde. Vous entrez les objets de stratégie de planification et de rétention.
 
+Par défaut, une heure de début est définie dans l’objet de la stratégie de planification. Utilisez l’exemple suivant pour modifier l’heure de début sur l’heure de début souhaitée. L’heure de début souhaitée doit également être au format UTC. L’exemple ci-dessous suppose que l’heure de début souhaitée est 01:00 AM UTC pour les sauvegardes quotidiennes.
+
+```powershell
+$schPol = Get-AzRecoveryServicesBackupSchedulePolicyObject -WorkloadType "MSSQL"
+$UtcTime = Get-Date -Date "2019-03-20 01:30:00Z"
+$UtcTime = $UtcTime.ToUniversalTime()
+$schpol.ScheduleRunTimes[0] = $UtcTime
+```
+
+> [!IMPORTANT]
+> Vous devez fournir l’heure de début en multiples de 30 minutes uniquement. Dans l’exemple ci-dessus, il peut s’agir uniquement de « 01:00:00 » ou de « 02:30:00 ». L’heure de début ne peut pas être « 01:15:00 ».
+
 L’exemple suivant stocke la stratégie de planification et la stratégie de conservation dans des variables. Il utilise ensuite ces variables en tant que paramètres pour une nouvelle stratégie (**NewSQLPolicy**). **NewSQLPolicy** effectue une sauvegarde quotidienne « complète », la conserve pendant 180 jours et effectue une sauvegarde de journal toutes les 2 heures
 
 ```powershell
@@ -181,7 +193,7 @@ Le résultat ressemble à ce qui suit.
 Name                 WorkloadType       BackupManagementType BackupTime                Frequency                                IsDifferentialBackup IsLogBackupEnabled
                                                                                                                                 Enabled
 ----                 ------------       -------------------- ----------                ---------                                -------------------- ------------------
-NewSQLPolicy         MSSQL              AzureWorkload        3/15/2019 9:00:00 PM      Daily                                    False                True
+NewSQLPolicy         MSSQL              AzureWorkload        3/15/2019 01:30:00 AM      Daily                                    False                True
 ```
 
 ## <a name="enable-backup"></a>Activer la sauvegarde
@@ -198,7 +210,7 @@ Register-AzRecoveryServicesBackupContainer -ResourceId $myVM.ID -BackupManagemen
 La commande renvoie un « conteneur de sauvegarde »de cette ressource et l’état est défini sur « inscrit »
 
 > [!NOTE]
-> Si le paramètre force n’est pas spécifié, l’utilisateur est invité à confirmer avec un texte « Do you want to disable protection for this container » (Voulez-vous désactiver la protection de ce conteneur). Veuillez ignorer ce texte et indiquez « O » pour confirmer. Il s’agit d’un problème connu et nous travaillons à sa résolution en supprimant le texte et l’exigence pour le paramètre force
+> Si le paramètre force n’est pas spécifié, l’utilisateur est invité à confirmer avec un texte « Do you want to disable protection for this container » (Voulez-vous désactiver la protection de ce conteneur). Veuillez ignorer ce texte et indiquez « O » pour confirmer. Il s’agit d’un problème connu et nous travaillons à sa résolution en supprimant le texte et l’exigence pour le paramètre force.
 
 ### <a name="fetching-sql-dbs"></a>Récupération des bases de données SQL
 

@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 01/31/2019
+ms.date: 08/12/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5a0e0508babdd9ae703e38d58b079ab5fa16f68c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f529723abd449891dba845253502b78e8666199f
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66397881"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69650215"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Règles d’appartenance de groupe dynamique dans Azure Active Directory
 
@@ -43,6 +43,12 @@ Une règle d’appartenance qui remplit automatiquement un groupe d’utilisateu
 * Valeur
 
 L’ordre des parties au sein d’une expression est importants pour éviter les erreurs de syntaxe.
+
+### <a name="rule-builder-in-the-azure-portal"></a>Générateur de règles dans le portail Azure
+
+Azure AD fournit un générateur de règles pour créer et mettre à jour plus rapidement vos règles importantes. Le générateur de règles prend en charge jusqu’à cinq règles. Pour ajouter une sixième règle et toute autre règle ultérieure, vous devez utiliser la zone de texte. Pour obtenir des instructions pas à pas, consultez [Mettre à jour un groupe dynamique](groups-update-rule.md).
+
+   ![Ajouter une règle d’appartenance au groupe dynamique](./media/groups-update-rule/update-dynamic-group-rule.png)
 
 ### <a name="rules-with-a-single-expression"></a>Règles avec une expression unique
 

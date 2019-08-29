@@ -8,16 +8,16 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: d9fc39edfad18c756c2816f9eb0b3774d8bf882c
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: a180e2ba6c1a610116271d5a9b6e3fdf562cecdf
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68812687"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69563197"
 ---
 # <a name="account-management-overview"></a>Vue d’ensemble de la gestion de compte
 
-Lorsque vous créez votre service CloudSimple, celui-ci crée un compte sur CloudSimple.  Ce compte est associé à votre abonnement Azure où se trouve le service.  Tous les utilisateurs de l’abonnement ayant le rôle **propriétaire** ou **contributeur** ont accès au portail CloudSimple.  L’ID d’abonnement Azure et l’ID de locataire associés au service CloudSimple figurent sur la [page Comptes](https://docs.azure.cloudsimple.com/account/).
+Lorsque vous créez votre service CloudSimple, celui-ci crée un compte sur CloudSimple.  Ce compte est associé à votre abonnement Azure où se trouve le service.  Tous les utilisateurs de l’abonnement ayant le rôle **propriétaire** ou **contributeur** ont accès au portail CloudSimple.  L’ID d’abonnement Azure et l’ID de locataire associés au service CloudSimple figurent sur la [page Comptes](account.md).
 
 ## <a name="additional-alert-emails"></a>E-mails d’alerte supplémentaires
 
@@ -36,5 +36,5 @@ Tous les utilisateurs ayant le rôle **propriétaire** ou **contributeur** dans 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Afficher le résumé du compte](https://docs.azure.cloudsimple.com/account/)
-* [Afficher la liste d’utilisateurs](https://docs.azure.cloudsimple.com/users/)
+* [Afficher le résumé du compte](account.md)
+* [Afficher la liste d’utilisateurs](users.md)

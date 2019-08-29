@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
 ms.date: 08/05/2019
-ms.openlocfilehash: 94035fda6b1dff491a69c0f0001019ccd753d4e8
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: ebf4f516b8f90ce2ba8b277281300ae3239821c5
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68816622"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69640802"
 ---
 # <a name="what-is-azure-sql-database-managed-instance"></a>Qu’est-ce que l’instance managée Azure SQL Database ?
 
@@ -82,7 +82,7 @@ Dans le modèle vCore, vous pouvez choisir entre différentes générations de m
 Vous trouverez des informations sur les différences entre les générations de matériel dans les [limites de ressources d’instance managée](sql-database-managed-instance-resource-limits.md#hardware-generation-characteristics).
 
 > [!IMPORTANT]
-> Les nouvelles bases de données Gen4 ne sont plus prises en charge dans la région AustraliaEast.
+> Les nouvelles bases de données Gen4 ne sont plus prises en charge dans les régions Australie Est et Brésil Sud.
 
 ## <a name="managed-instance-service-tiers"></a>Niveaux de service Managed Instance
 

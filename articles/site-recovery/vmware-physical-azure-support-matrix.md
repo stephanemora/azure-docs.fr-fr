@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 07/23/2019
 ms.author: raynew
-ms.openlocfilehash: 65c330a9b2dcc97160280daede926573fdef4c00
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: fd24d0d9f05855cf22da547f95b16da0a8d2c788
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68679355"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69617642"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Matrice de prise en charge de la reprise d’activité des machines virtuelles VMware et serveurs physiques sur Azure
 
@@ -181,7 +181,7 @@ VMDK invité/serveur | OUI
 Disque de cluster partagé invité/serveur | Non
 Disque chiffré invité/serveur | Non
 NFS invité/serveur | Non
-iSCSI invité/serveur | Non
+iSCSI invité/serveur | Pour la migration : Oui<br/>Pour la récupération d’urgence : Non. iSCSI est automatiquement restauré en tant que disque attaché à la machine virtuelle
 SMB 3.0 invité/serveur | Non
 RDM invité/serveur | OUI<br/><br/> N/A pour les serveurs physiques
 Disque invité/serveur > 1 To | Oui, le disque doit être d’une taille supérieure à 1024 Mo<br/><br/>Jusqu'à 8 192 Go lors de la réplication sur des disques managés (à partir de la version 9.26)<br></br> Jusqu'à 4 095 Go lors de la réplication vers des comptes de stockage

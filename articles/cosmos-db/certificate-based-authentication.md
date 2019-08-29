@@ -44,7 +44,7 @@ Dans cette étape, vous inscrirez un exemple d’application web dans votre comp
 
 1. Une fois le formulaire rempli, sélectionnez **Inscrire**.
 
-1. Une fois l’application inscrite, notez l’ **	ID (du client) d’application** et l’**ID d’objet**. Ces informations vous seront utiles plus tard. 
+1. Une fois l’application inscrite, notez l’**ID (du client) d’application** et l’ **ID d’objet**. Ces informations vous seront utiles plus tard. 
 
    ![Obtenir les ID de l’application et de l’objet](./media/certificate-based-authentication/get-app-object-ids.png)
 
