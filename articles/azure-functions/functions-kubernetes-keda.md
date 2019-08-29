@@ -7,16 +7,15 @@ author: jeffhollan
 manager: jeconnoc
 keywords: azure functions, fonctions, traitement des événements, calcul dynamique, architecture serverless, kubernetes
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: jehollan
-ms.openlocfilehash: c82ed7aa841f53f5c81f3281ed1b09926e565e75
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b581d7c9b5876813e36ebbf41be713b44dd97735
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65077619"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70096092"
 ---
 # <a name="azure-functions-on-kubernetes-with-keda"></a>Azure Functions sur Kubernetes avec KEDA
 

@@ -9,13 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ROBOTS: NOINDEX
-ms.openlocfilehash: 040f726a703d34a95bae7d5b7cdd766655c62a4e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 506f37a2e01f428ccadc0368bd2efb6b58c9106c
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65029714"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70128690"
 ---
 # <a name="linear-regression-module"></a>Module Régression linéaire
 Cet article décrit un module de l’interface visuelle (en préversion) pour Azure Machine Learning service.
@@ -144,4 +143,4 @@ Une fois l’apprentissage terminé :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Voir l’[ensemble de modules disponibles](module-reference.md) pour Azure Machine Learning service. 
+Consultez [l’ensemble des modules disponibles](module-reference.md) pour Azure Machine Learning service. 

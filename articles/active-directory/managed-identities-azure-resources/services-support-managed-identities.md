@@ -10,12 +10,12 @@ ms.service: active-directory
 ms.subservice: msi
 manager: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6869602b7d4aff6d779d189f0b6444dde2055d4
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 5630c157ef7843726bcc17455a1e683e58b88ffd
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68261903"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69905230"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Services Azure qui prennent en charge les identités managées pour ressources Azure
 
@@ -63,7 +63,7 @@ Reportez-vous à la liste suivante pour configurer l'identité managée des grou
 | Type d'identité managée | Toutes mises à la disposition générale<br>Régions Azure à l'échelle internationale | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | --- | --- | --- | --- |
 | Attribuée par le système | Disponible | Disponible | Disponible | Disponible |
-| Attribuée par l'utilisateur | PRÉVERSION | Non disponible | Non disponible | Non disponible |
+| Attribuée par l'utilisateur | Disponible | Non disponible | Non disponible | Non disponible |
 
 Reportez-vous à la liste suivante pour configurer l'identité managée d'Azure App Service (dans les régions où il est disponible) :
 
@@ -89,7 +89,7 @@ Reportez-vous à la liste suivante pour utiliser une identité managée avec [Az
 Type d'identité managée |Toutes mises à la disposition générale<br>Régions Azure à l'échelle internationale | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | --- | --- | --- | --- |
 | Attribuée par le système | Disponible | Disponible | Disponible | Disponible |
-| Attribuée par l'utilisateur | PRÉVERSION | Non disponible | Non disponible | Non disponible |
+| Attribuée par l'utilisateur | Disponible | Non disponible | Non disponible | Non disponible |
 
 Reportez-vous à la liste suivante pour configurer l'identité managée du service Azure Functions (dans les régions où il est disponible) :
 

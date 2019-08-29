@@ -9,13 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/06/2019
-ROBOTS: NOINDEX
-ms.openlocfilehash: 40a8247c22da1f7a057e222565ffb2ec4c6b7fb3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 17263c8e7300f427b7d82aea65e1f83edf6d6fc4
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65028739"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70128846"
 ---
 # <a name="evaluate-model-module"></a>Module Évaluer le modèle
 
@@ -127,4 +126,4 @@ Les métriques retournées pour les modèles de régression sont généralement 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Consultez les [modules disponibles](module-reference.md) pour Azure Machine Learning service. 
+Consultez [l’ensemble des modules disponibles](module-reference.md) pour Azure Machine Learning service. 

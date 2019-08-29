@@ -9,15 +9,14 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/06/2019
-ROBOTS: NOINDEX
-ms.openlocfilehash: ea9b50cede3e2d264ca0476b6a987ca6896c3c79
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c6d7aabd41e9d0e872926adbbcb2d18332cb7d5e
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65029744"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70128918"
 ---
-# <a name="create-python-model"></a>Create Python Model
+# <a name="create-python-model"></a>Créer un modèle Python
 
 Cet article décrit comment utiliser le module **Create Python Model** pour créer un modèle non formé à partir d’un script Python. 
 

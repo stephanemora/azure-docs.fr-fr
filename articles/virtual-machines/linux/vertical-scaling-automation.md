@@ -11,17 +11,16 @@ ms.assetid: dcee199e-fa25-44d5-9b25-df564cee9b45
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
 ms.topic: article
 ms.date: 04/18/2019
 ms.author: kasing
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e0317344fd8ee1eb415b61d4f5035219e649b18d
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: e08d0e2084f2310623391a3b20f0f09df4c419e8
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67695474"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70103518"
 ---
 # <a name="vertically-scale-azure-linux-virtual-machine-with-azure-automation"></a>Évolution verticale des machines virtuelles Linux Azure avec Azure Automation
 La mise à l’échelle verticale consiste à augmenter ou à réduire les ressources d’un ordinateur en réponse à la charge de travail. Dans Azure, cette opération est possible en modifiant la taille de la machine virtuelle. Cela peut vous aider dans les scénarios suivants
@@ -35,6 +34,7 @@ Les grandes lignes des étapes sont présentées ci-dessous.
 2. Importer les runbooks de mise à l’échelle verticale Azure Automation dans votre abonnement
 3. Ajouter un webhook à votre runbook
 4. Ajouter une alerte à votre machine virtuelle
+
 
 ## <a name="scale-limitations"></a>Limitations relatives à la mise à l’échelle
 
@@ -223,6 +223,8 @@ Vous pouvez choisir d’effectuer une mise à l’échelle entre les paires de t
 | Standard_NV12 | Standard_NV24 |
 | Standard_NV6s_v2 | Standard_NV12s_v2 |
 | Standard_NV12s_v2 | Standard_NV24s_v2 |
+| Standard_NV12s_v3 |Standard_NV48s_v3 |
+
 
 ## <a name="setup-azure-automation-to-access-your-virtual-machines"></a>Configuration d’Azure Automation pour accéder à vos machines virtuelles
 La première chose à faire est de créer un compte Azure Automation qui hébergera les runbooks utilisés pour mettre à l’échelle les instances de jeu de mise à l’échelle de machines virtuelles. Depuis peu, le service Automation dispose de la fonctionnalité « Compte d'identification » qui facilite la configuration du Principal du service permettant d'exécuter automatiquement les runbooks au nom de l’utilisateur de façon très simple. Pour en savoir plus à ce sujet, consultez l’article ci-dessous :

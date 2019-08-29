@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/11/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 50d896f2a835136316945b26a3191861125faa25
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: 0ed7fbf5e2b4f7f9b554f718d88c62e7a266f4ad
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68306094"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69903890"
 ---
 ## <a name="supported-distributions-and-drivers"></a>Distributions et pilotes pris en charge
 
@@ -34,7 +34,7 @@ Microsoft redistribue les programmes d’installation du pilote GRID NVIDIA pour
 
 | Distribution | Pilote |
 | --- | -- |
-| Ubuntu 16.04 LTS<br/><br/>Red Hat Enterprise Linux 7.0 à 7.6<br/><br/>CentOS 7.0 à 7.6<br/><br/>SUSE Linux Enterprise Server 12 SP2 | NVIDIA GRID 9.0, branche pilote R430|
+|Ubuntu 18.04 LTS<br/><br/>Ubuntu 16.04 LTS<br/><br/>Red Hat Enterprise Linux 7.0 à 7.6<br/><br/>CentOS 7.0 à 7.6<br/><br/>SUSE Linux Enterprise Server 12 SP2 | NVIDIA GRID 9.0, branche pilote R430|
 
 > [!WARNING] 
 > L’installation de logiciels tiers sur des produits Red Hat peut affecter les conditions de prise en charge de Red Hat. Consultez l’[article de la Base de connaissances Red Hat](https://access.redhat.com/articles/1067).
