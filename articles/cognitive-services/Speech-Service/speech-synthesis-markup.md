@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 89b8b5f8c574de033fabf6861e24fc7d2b31e171
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 12d556fd9c37b83a919b830d155250e9eaa64128
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68855099"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624254"
 ---
 # <a name="speech-synthesis-markup-language-ssml"></a>SSML (Speech Synthesis Markup Language)
 
@@ -31,6 +31,10 @@ L’implémentation par SSML des services vocaux est basée sur le [Speech Synth
 Choisissez parmi les voix standard et neuronales, ou créez une voix personnalisée propre à votre produit ou votre marque. Plus de 75 voix standard sont disponibles dans plus de 45 langues et paramètres régionaux, et 5 voix neuronales sont disponibles dans 4 langues et paramètres régionaux. Pour obtenir la liste complète des langues, paramètres régionaux et voix (neuronales et standard) pris en charge, consultez [prise en charge linguistique](language-support.md).
 
 Pour en savoir plus sur les voix standard, neuronales et personnalisées, voir [Vue d’ensemble de la synthèse vocale](text-to-speech.md).
+
+## <a name="special-characters"></a>Caractères spéciaux
+
+Lorsque vous utilisez SSML pour convertir le texte en synthèse vocale, n’oubliez pas que, comme pour XML, les caractères spéciaux, tels que les guillemets, les apostrophes et les crochets, doivent être placés dans une séquence d’échappement. Pour plus d’informations, consultez la page [Extensible Markup Language (XML) 1.0 : Annexe D](https://www.w3.org/TR/xml/#sec-entexpand).
 
 ## <a name="supported-ssml-elements"></a>Éléments SSML pris en charge
 
@@ -142,6 +146,7 @@ Reportez-vous à ce tableau pour déterminer les styles oraux pris en charge pou
 |-------|------|-------------|
 | `en-US-JessaNeural` | type=`cheerful` | Exprime une émotion positive et heureuse |
 | | type=`empathy` | Exprime une de la compassion et de la compréhension |
+| | type=`chat` | Parlez sur un ton décontracté et détendu |
 | `zh-CN-XiaoxiaoNeural` | type=`newscast` | Exprime un ton formel, similaire aux journaux télévisés |
 | | type=`sentiment` | Transmet un message ou récit touchant |
 

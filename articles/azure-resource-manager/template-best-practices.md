@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/12/2019
+ms.date: 08/16/2019
 ms.author: tomfitz
-ms.openlocfilehash: cdec216187050a449f23f72474e0265acce14c5f
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: cf6a5b07dd72c4e2364281b755e77e642f8fe167
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "67867390"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69542988"
 ---
 # <a name="azure-resource-manager-template-best-practices"></a>Meilleures pratiques relatives aux modèles Azure Resource Manager
 
@@ -150,6 +150,8 @@ Les informations de cette section peuvent être utiles lorsque vous travaillez a
 ## <a name="variables"></a>variables
 
 Les informations suivantes peuvent être utiles lorsque vous travaillez avec des [variables](resource-group-authoring-templates.md#variables) :
+
+* Utilisez la case mixte pour les noms de variables.
 
 * Utilisez des variables pour les valeurs que vous devez utiliser plusieurs fois dans un modèle. Si une valeur est utilisée une seule fois, une valeur codée en dur rend votre modèle plus facile à lire.
 

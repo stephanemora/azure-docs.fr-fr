@@ -13,16 +13,16 @@ ms.author: rolyon
 ms.reviewer: ''
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 39b359ef7feeaec541ba17e98a5d1e9b74c6403a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0da4c6b1c1434dae564ab4876a3ab3f341a87097
+ms.sourcegitcommit: a3a40ad60b8ecd8dbaf7f756091a419b1fe3208e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65957999"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69891957"
 ---
 # <a name="close-your-work-or-school-account-in-an-unmanaged-directory"></a>Fermer votre compte professionnel ou scolaire dans un annuaire Azure non managé
 
-Si vous êtes un utilisateur dans une organisation Azure Active Directory (Azure AD) non managée et que vous n’avez plus besoin d’utiliser des applications à partir de cette organisation ou de conserver toute association, vous pouvez fermer votre compte à tout moment. Un annuaire non managé n’a pas un administrateur général. Les utilisateurs dans un annuaire non managé peuvent fermer leurs comptes eux-mêmes, sans contacter un administrateur.
+Si vous êtes un utilisateur d’une organisation Azure Active Directory (Azure AD) non managée et que vous n’avez plus besoin d’utiliser des applications à partir de cette organisation ou de conserver toute association, vous pouvez fermer votre compte à tout moment. Un annuaire non managé n’a pas un administrateur général. Les utilisateurs dans un annuaire non managé peuvent fermer leurs comptes eux-mêmes, sans contacter un administrateur.
 
 Les utilisateurs dans un annuaire non managé sont souvent créés au cours d’une inscription en libre-service. Un exemple peut être un travailleur d’informations dans une organisation qui s’inscrit pour un service gratuit. Pour plus d’informations sur l’inscription en libre-service, consultez [Présentation de l’inscription en libre-service pour Azure Active Directory](directory-self-service-signup.md).
 

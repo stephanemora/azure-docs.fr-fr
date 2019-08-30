@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 08/21/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 0bdef508e12a3b11143149b330da73838b53f860
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 42129870c6ab2bb5e58bdf9aaa323a3d64b479f8
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67439016"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69644923"
 ---
 # <a name="add-rest-api-claims-exchanges-to-custom-policies-in-azure-active-directory-b2c"></a>Ajouter des échanges de revendications d’API REST aux stratégies personnalisées dans Azure Active Directory B2C
 
@@ -97,8 +97,10 @@ Ouvrez le fichier *TrustFrameworkExtensions.xml* et ajoutez l’élément XML **
       <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
       <Metadata>
         <Item Key="ServiceUrl">https://myfunction.azurewebsites.net/api/HttpTrigger1?code=bAZ4lLy//ZHZxmncM8rI7AgjQsrMKmVXBpP0vd9smOzdXDDUIaLljA==</Item>
-        <Item Key="AuthenticationType">None</Item>
         <Item Key="SendClaimsIn">Body</Item>
+        <!-- Set AuthenticationType to Basic or ClientCertificate in production environments -->
+        <Item Key="AuthenticationType">None</Item>
+        <!-- REMOVE the following line in production environments -->
         <Item Key="AllowInsecureAuthInProduction">true</Item>
       </Metadata>
       <InputClaims>
@@ -114,6 +116,8 @@ Ouvrez le fichier *TrustFrameworkExtensions.xml* et ajoutez l’élément XML **
 ```
 
 L’élément **InputClaims** définit les revendications qui sont envoyées au service REST. Dans cet exemple, la valeur de la revendication `givenName` est envoyée au service REST en tant que revendication `email`. L’élément **OutputClaims** définit les revendications qui sont attendues du service REST.
+
+Les commentaires ci -dessus `AuthenticationType` et `AllowInsecureAuthInProduction` indiquent les modifications que vous devez effectuer lorsque vous passez à un environnement de production. Pour en savoir plus sur la sécurisation de vos API RESTful pour la production, consultez la page [Sécuriser les API RESTful avec une authentification de base](active-directory-b2c-custom-rest-api-netfw-secure-basic.md) et [Sécuriser les API RESTful avec une authentification par certificat](active-directory-b2c-custom-rest-api-netfw-secure-cert.md).
 
 ## <a name="add-the-claim-definition"></a>Ajouter la définition de revendication
 
@@ -251,5 +255,13 @@ Si tout est bien configuré, le jeton inclut la nouvelle revendication `city`, a
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Vous pouvez aussi concevoir l’interaction comme un profil de validation. Pour plus d’informations, consultez [Procédure pas à pas : Intégrer les échanges de revendications de l’API REST dans votre parcours utilisateur Azure AD B2C comme validation d’une entrée de l’utilisateur](active-directory-b2c-rest-api-validation-custom.md).
-- [Changer la modification de profil pour rassembler des informations supplémentaires de vos utilisateurs](active-directory-b2c-create-custom-attributes-profile-edit-custom.md)
+Vous pouvez aussi concevoir l’interaction comme un profil de validation. Pour plus d’informations, consultez [Procédure pas à pas : Intégrer les échanges de revendications de l’API REST dans votre parcours utilisateur Azure AD B2C comme validation d’une entrée de l’utilisateur](active-directory-b2c-rest-api-validation-custom.md).
+
+[Changer la modification de profil pour rassembler des informations supplémentaires de vos utilisateurs](active-directory-b2c-create-custom-attributes-profile-edit-custom.md)
+
+[Reference : Profil technique RESTful](restful-technical-profile.md)
+
+Pour en savoir plus sur la sécurisation de vos API, consultez les articles suivants :
+
+* [Azure Active Directory B2C: Secure your RESTful services using HTTP basic authentication](active-directory-b2c-custom-rest-api-netfw-secure-basic.md) (Azure Active Directory B2C : Sécuriser vos services RESTful à l’aide de l’authentification HTTP de base)
+* [Sécuriser votre API RESTful avec des certificats clients](active-directory-b2c-custom-rest-api-netfw-secure-cert.md)

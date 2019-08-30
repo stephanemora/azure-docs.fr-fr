@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/26/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 60bb1c3b81ef990993a2ce659a2b189c9d8a0eba
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 79a5f9a1269bdfc63d9d0b6fffd8458d011b777b
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65967973"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69640871"
 ---
 # <a name="use-azure-security-center-recommendations-to-enhance-security"></a>Utiliser les recommandations Azure Security Center pour améliorer la sécurité
 Vous pouvez réduire les risques d’un incident de sécurité en configurant une stratégie de sécurité, puis en implémentant les recommandations fournies par Azure Security Center. Cet article explique comment utiliser les stratégies de sécurité et les recommandations d'Azure Security Center pour prévenir une attaque de sécurité. 
@@ -41,20 +41,20 @@ David, de la sécurité informatique de Contoso, a déjà choisi d’intégrer S
 
 Security Center analyse automatiquement l’état de sécurité des ressources Azure de Contoso avant d’appliquer les stratégies de sécurité par défaut. Lorsque Security Center identifie des failles de sécurité potentielles, il crée des **recommandations** en fonction des contrôles définis dans la stratégie de sécurité. 
 
-David exécute le niveau standard d’Azure Security sur tous ses abonnements pour obtenir l’intégralité des recommandations et fonctionnalités de sécurité disponibles. Jeff intègre également tous ses serveurs locaux existants qui n’ont pas encore migré vers le cloud pour pouvoir tirer parti de la prise en charge hybride de Security Center sur l’ensemble de ses serveurs [Windows](quick-onboard-windows-computer.md) et [Linux](quick-onboard-linux-computer.md).
+David exécute le niveau standard d’Azure Security sur tous ses abonnements pour obtenir l’intégralité des recommandations et des fonctionnalités de sécurité disponibles. Jeff intègre également tous ses serveurs locaux existants qui n’ont pas encore migré vers le cloud pour pouvoir tirer parti de la prise en charge hybride de Security Center sur l’ensemble de ses serveurs [Windows](quick-onboard-windows-computer.md) et [Linux](quick-onboard-linux-computer.md).
 
 Jeff est propriétaire d’une charge de travail cloud. Il est chargé d’appliquer des contrôles de sécurité conformément aux stratégies de sécurité de Contoso. 
 
 Jeff effectue les tâches suivantes :
 
 - Surveiller les recommandations de sécurité fournies par Security Center
-- Évaluer les recommandations de sécurité et décider s’il doit les appliquer ou les ignorer
+- Évaluer les recommandations de sécurité et décider s’il doit les appliquer ou les ignorer.
 - Appliquer les recommandations de sécurité
 
 ### <a name="remediate-threats-using-recommendations"></a>Remédier aux menaces à l’aide des recommandations
-Dans le cadre de ses activités de supervision quotidiennes, Jeff se connecte à Azure et ouvre Security Center. 
+Dans le cadre de ses activités de supervision quotidiennes, Jeff se connecte à Azure et ouvre Security Center. 
 
-1. Jeff sélectionne les abonnements de sa charge de travail.
+1. Jeff sélectionne les abonnements de charge de travail.
 
 2. Jeff vérifie son **degré de sécurisation** pour savoir si les abonnements sont bien sécurisés et constate que celui-ci s’élève à 548.
 

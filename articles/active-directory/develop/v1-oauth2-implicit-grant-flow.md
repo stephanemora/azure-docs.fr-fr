@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/24/2018
+ms.date: 08/15/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8e30bd940d3312a16f2dd30b175deb6622cb8c01
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: eb751d4cad036135865af9f97e159da104749388
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68834731"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69532409"
 ---
 # <a name="understanding-the-oauth2-implicit-grant-flow-in-azure-active-directory-ad"></a>Comprendre le flux d’octroi implicite OAuth2 dans Azure Active Directory (AD)
 
@@ -35,7 +35,7 @@ L’octroi implicite OAuth2 est connu pour présenter le plus grand nombre de pr
 
 Fondamentalement, [l’octroi de code d’autorisation OAuth2](https://tools.ietf.org/html/rfc6749#section-1.3.1) est l’octroi d’autorisation qui utilise deux points de terminaison distincts. Le point de terminaison d’autorisation est utilisé pour la phase d’interaction avec l’utilisateur, ce qui génère un code d’autorisation. Le point de terminaison de jeton est ensuite utilisé par le client pour échanger le code avec un jeton d’accès et, souvent, un jeton d’actualisation. Les applications web sont tenues de présenter leurs propres informations d’identification d’application au point de terminaison de jeton, de sorte que le serveur d’autorisation puisse authentifier le client.
 
-L’[octroi implicite OAuth2](https://tools.ietf.org/html/rfc6749#section-1.3.2) est une variante d’autres octrois d’autorisation. Il permet à un client d’obtenir un jeton d’accès (et, en cas d’utilisation d’[OpenId Connect](https://openid.net/specs/openid-connect-core-1_0.html), un jeton id_token) directement à partir du point de terminaison d’autorisation, sans avoir à contacter le point de terminaison de jeton ni à authentifier le client. Cette variante a été conçue pour les applications JavaScript qui s’exécutent dans un navigateur web : dans la spécification OAuth2 d’origine, les jetons sont renvoyés dans un fragment d’URI. Ceci met les bits de jeton à la disposition du code JavaScript dans le client, mais garantit qu’ils ne seront pas inclus dans les redirections vers le serveur. Le renvoi des jetons via le navigateur s’effectue directement à partir du point de terminaison d’autorisation. Il présente également l’avantage d’éliminer tous les appels Cross-Origin, qui sont nécessaires si l’application JavaScript est requise pour contacter le point de terminaison de jeton.
+L’[octroi implicite OAuth2](https://tools.ietf.org/html/rfc6749#section-1.3.2) est une variante d’autres octrois d’autorisation. Il permet à un client d’obtenir un jeton d’accès (et, en cas d’utilisation d’[OpenId Connect](https://openid.net/specs/openid-connect-core-1_0.html), un jeton id_token) directement à partir du point de terminaison d’autorisation, sans avoir à contacter le point de terminaison de jeton ni à authentifier le client. Cette variante a été conçue pour les applications JavaScript qui s’exécutent dans un navigateur web : dans la spécification OAuth2 d’origine, les jetons sont renvoyés dans un fragment d’URI. Ceci met les bits de jeton à la disposition du code JavaScript dans le client, mais garantit qu’ils ne seront pas inclus dans les redirections vers le serveur. Dans l’octroi implicite OAuth2, le point de terminaison d’autorisation émet des jetons d’accès directement au client à l’aide d’un URI de redirection précédemment fourni. Il présente également l’avantage d’éliminer tous les appels Cross-Origin, qui sont nécessaires si l’application JavaScript est requise pour contacter le point de terminaison de jeton.
 
 Le fait que ces flux ne retournent jamais de jetons d’actualisation au client représente une caractéristique importante de l’octroi implicite OAuth2. La section suivante montre que ce n’est pas nécessaire ; il s’agirait en fait d’un problème de sécurité.
 

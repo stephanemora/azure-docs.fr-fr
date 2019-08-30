@@ -9,20 +9,17 @@ ms.service: app-service
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 11/20/2018
+ms.date: 08/15/2019
 ms.author: mahender
 ms.reviewer: yevbronsh
-ms.openlocfilehash: 8bc30d50772dffddca32d9f6e22c3d7cec566c70
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: a2b8a4e496094c6275710328e70a09376ce0e5fc
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68297155"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69563028"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Guide pratique pour utiliser des identités managées pour App Service et Azure Functions
-
-> [!NOTE] 
-> La prise en charge de l’identité managée pour App Service sur Linux et Web App pour conteneurs est actuellement en préversion.
 
 > [!Important] 
 > Si vous migrez votre application entre différents abonnements/locataires, les identités managées pour App Service et Azure Functions présentent un comportement anormal. L’application devra obtenir une nouvelle identité, ce qui peut être effectué par la désactivation et la réactivation de la fonctionnalité. Consultez [Suppression d’une identité](#remove) ci-dessous. Les ressources en aval devront également disposer de stratégies d’accès mises à jour pour utiliser la nouvelle identité.
@@ -30,8 +27,8 @@ ms.locfileid: "68297155"
 Cette rubrique vous montre comment créer une identité managée pour les applications App Service et Azure Functions et comment l’utiliser pour accéder à d’autres ressources. Une identité managée issue d’Azure Active Directory permet à votre application d’accéder facilement aux autres ressources protégées par AAD telles qu’Azure Key Vault. Managée par la plateforme Azure, l’identité ne nécessite pas que vous approvisionniez ou permutiez de secrets. Pour plus d’informations sur les identités managées dans AAD, consultez [Identités gérées pour les ressources Azure](../active-directory/managed-identities-azure-resources/overview.md).
 
 Deux types d’identité peuvent être accordés à votre application : 
-- Une **identité attribuée par le système** est liée à votre application et est supprimée si votre application est supprimée. Une application ne peut avoir qu’une seule identité attribuée par le système. La prise en charge de l’identité attribuée par le système est généralement disponible pour les applications Windows. 
-- Une **identité attribuée par l’utilisateur** est une ressource Azure autonome qui peut être assignée à votre application. Une application peut avoir plusieurs identités attribuées par l’utilisateur. La prise en charge de l’identité attribuée par l’utilisateur est en préversion pour tous les types d’application.
+- Une **identité attribuée par le système** est liée à votre application et est supprimée si votre application est supprimée. Une application ne peut avoir qu’une seule identité attribuée par le système.
+- Une **identité attribuée par l’utilisateur** est une ressource Azure autonome qui peut être assignée à votre application. Une application peut avoir plusieurs identités attribuées par l’utilisateur.
 
 ## <a name="adding-a-system-assigned-identity"></a>Ajout d’une identité attribuée par le système
 
@@ -158,17 +155,11 @@ Quand le site est créé, il a les propriétés supplémentaires suivantes :
 Où `<TENANTID>` et `<PRINCIPALID>` sont remplacés par des GUID. La propriété tenantId identifie le locataire AAD auquel appartient l’identité. La propriété principalId est un identificateur unique pour la nouvelle identité de l’application. Dans AAD, le principal de service porte le même nom que celui que vous avez donné à votre instance App Service ou Azure Functions.
 
 
-## <a name="adding-a-user-assigned-identity-preview"></a>Ajout d’une identité attribuée par l’utilisateur (préversion)
-
-> [!NOTE] 
-> Les identités attribuées par l’utilisateur sont actuellement en préversion. Les clouds souverains ne sont pas encore pris en charge.
+## <a name="adding-a-user-assigned-identity"></a>Ajout d’une identité attribuée par l’utilisateur
 
 La création d’une application avec une identité attribuée par l’utilisateur nécessite la création de l’identité, puis l’ajout de son identificateur de ressource à la configuration de votre application.
 
 ### <a name="using-the-azure-portal"></a>Utilisation du portail Azure
-
-> [!NOTE] 
-> Cette expérience de portail est en cours de déploiement et peut ne pas être encore disponible dans toutes les régions.
 
 Tout d’abord, vous devrez créer une ressource d’identité attribuée par l’utilisateur.
 
@@ -180,7 +171,7 @@ Tout d’abord, vous devrez créer une ressource d’identité attribuée par l�
 
 4. Sélectionnez **Identité managée**.
 
-5. Dans l’onglet **Attribuée par l’utilisateur (préversion)** , cliquez sur **Ajouter**.
+5. Dans l’onglet **Attribuée par l’utilisateur**, cliquez sur **Ajouter**.
 
 6. Recherchez l’identité que vous avez créée précédemment et sélectionnez-la. Cliquez sur **Add**.
 
@@ -388,6 +379,25 @@ const getToken = function(resource, apiver, cb) {
     rp(options)
         .then(cb);
 }
+```
+
+<a name="token-python"></a>Dans Python :
+
+```python
+import os
+import requests
+
+msi_endpoint = os.environ["MSI_ENDPOINT"]
+msi_secret = os.environ["MSI_SECRET"]
+
+def get_bearer_token(resource_uri, token_api_version):
+    token_auth_uri = f"{msi_endpoint}?resource={resource_uri}&api-version={token_api_version}"
+    head_msi = {'Secret':msi_secret}
+
+    resp = requests.get(token_auth_uri, headers=head_msi)
+    access_token = resp.json()['access_token']
+
+    return access_token
 ```
 
 <a name="token-powershell"></a>Dans PowerShell :

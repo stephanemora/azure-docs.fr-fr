@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 07/05/2019
 ms.author: cherylmc
-ms.openlocfilehash: 9744a4b7bc5d2e9ce22bfa14ea33a2b11dacda85
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 92978815af22e3ce1a549b9ca3e335befca8c918
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67612462"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69563046"
 ---
 # <a name="reset-a-vpn-gateway"></a>Réinitialiser une passerelle VPN
 
@@ -69,10 +69,12 @@ Quand vous recevez un résultat de retour, vous pouvez supposer que la réinitia
 
 ### <a name="resetclassic"></a>Modèle de déploiement classique
 
-La cmdlet permettant de réinitialiser une passerelle est **Reset-AzureVNetGateway**. Avant d’effectuer une réinitialisation, vérifiez que vous disposez de la dernière version des [cmdlets PowerShell Service Management (SM)](https://docs.microsoft.com/powershell/azure/servicemanagement/install-azure-ps?view=azuresmps-4.0.0#azure-service-management-cmdlets). L’exemple suivant réinitialise la passerelle d’un réseau virtuel appelé « ContosoVNet » :
+La cmdlet permettant de réinitialiser une passerelle est **Reset-AzureVNetGateway**. Les cmdlet Azure PowerShell pour le management des services doit être installé localement sur votre bureau. Vous ne pouvez pas utiliser Azure Cloud Shell. Avant d’effectuer une réinitialisation, vérifiez que vous disposez de la dernière version des [cmdlets PowerShell Service Management (SM)](https://docs.microsoft.com/powershell/azure/servicemanagement/install-azure-ps?view=azuresmps-4.0.0#azure-service-management-cmdlets). Lorsque vous utilisez cette commande, assurez-vous que vous utilisez le nom complet du réseau virtuel. Les réseaux virtuels classiques ayant été créés à l’aide du portail ont un nom long requis pour PowerShell. Vous pouvez afficher le nom long à l’aide de « Get-AzureVNetConfig -ExportToFile C:\Myfoldername\NetworkConfig.xml ».
+
+L’exemple suivant réinitialise la passerelle pour un réseau virtuel nommé « Group TestRG1 TestVNet1» (qui apparaît simplement comme « TestVNet1 » dans le portail) :
 
 ```powershell
-Reset-AzureVNetGateway –VnetName “ContosoVNet”
+Reset-AzureVNetGateway –VnetName 'Group TestRG1 TestVNet1'
 ```
 
 Résultat :

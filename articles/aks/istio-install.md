@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/19/2019
 ms.author: pabouwer
-ms.openlocfilehash: 9d973cb2ac210e912d93941a2f81889557379f43
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 032a907e45e007cb51357300e4bbf3c7afb40dde
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "67625978"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69542888"
 ---
 # <a name="install-and-use-istio-in-azure-kubernetes-service-aks"></a>Installer et utiliser Istio dans AKS (Azure Kubernetes Service)
 
@@ -41,6 +41,8 @@ Dans cet article, vous apprendrez comment :
 Les étapes détaillées dans cet article supposent que vous avez créé un cluster AKS (Kubernetes version `1.11` ou supérieure, avec RBAC activé) et que vous avez établi une connexion `kubectl` avec le cluster. Si vous avez besoin d’aide avec l’un quelconque de ces éléments, consultez le [guide de démarrage rapide d’AKS][aks-quickstart].
 
 Vous avez besoin de [Helm][helm] pour suivre ces instructions et installer Istio. Il est recommandé d’avoir correctement installé et configuré la version `2.12.2` ou ultérieure dans votre cluster. Si vous avez besoin d’aide pour installer Helm, consultez les [consignes d’installation de Helm dans AKS][helm-install]. Tous les pods Istio doivent également être planifiés pour s’exécuter sur des nœuds Linux.
+
+Assurez-vous de lire la documentation relative aux [niveau performance et à l’extensibilité Istio](https://istio.io/docs/concepts/performance-and-scalability/) pour comprendre quelles sont les ressources supplémentaires nécessaires à l'exécution d'Istio dans votre cluster AKS. Les exigences de base et de mémoire varient en fonction de votre charge de travail précise. Choisissez un nombre de nœuds et une taille de machine virtuelle appropriés pour votre configuration.
 
 Cet article répartit les instructions d’installation d’Istio en plusieurs étapes discrètes. Le résultat final est, par sa structure, identique à celui obtenu avec le [guide][istio-install-helm] officiel d’installation d’Istio.
 

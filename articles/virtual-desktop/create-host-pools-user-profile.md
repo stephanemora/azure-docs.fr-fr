@@ -1,24 +1,24 @@
 ---
-title: Configurer un partage de profil utilisateur pour un pool hôte Windows Virtual Desktop Preview - Azure
-description: Explique comment configurer un conteneur de profils FSLogix pour un pool hôte Windows Virtual Desktop Preview.
+title: Créer un conteneur de profils FSLogix pour un pool d'hôtes à l'aide d’un partage de fichiers basé sur machine virtuelle – Azure
+description: Configuration d’un conteneur de profils FSLogix pour un pool d’hôte Windows Virtual Desktop Preview à l'aide d’un partage de fichiers basé sur machine virtuelle.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 04/05/2019
+ms.date: 08/20/2019
 ms.author: helohr
-ms.openlocfilehash: 692902c28b336dd46a7c6f00d5cf5a61ee9f7328
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: cf3d682e4d0c68822267a4e63846d80b632cbdcc
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67619100"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69876790"
 ---
-# <a name="set-up-a-user-profile-share-for-a-host-pool"></a>Configurer un partage de profil utilisateur pour un pool d’hôtes
+# <a name="create-a-profile-container-for-a-host-pool-using-a-file-share"></a>Créer un conteneur de profils pour un pool hôte à l’aide d’un partage de fichiers
 
 Le service Windows Virtual Desktop Preview offre des conteneurs de profils FSLogix comme solution de profil utilisateur recommandée. Nous recommandons de ne pas utiliser la solution Disque de profil utilisateur (UPD), qui sera déconseillée dans les futures versions de Windows Virtual Desktop.
 
-Cette section vous indique comment configurer un partage de conteneur de profils FSLogix pour un pool hôte. Pour obtenir une documentation générale concernant FSLogix, consultez le [site FSLogix](https://docs.fslogix.com/).
+Cet article vous indique comment configurer un partage de conteneur de profils FSLogix pour un pool d’hôtes à l’aide d’un partage de fichiers basé sur machine virtuelle. Pour plus d’informations sur FSLogix, consultez le [site FSLogix](https://docs.fslogix.com/).
 
 ## <a name="create-a-new-virtual-machine-that-will-act-as-a-file-share"></a>Créer une machine virtuelle qui fera office de partage de fichiers
 
@@ -32,7 +32,7 @@ Après avoir créé la machine virtuelle, joignez-la au domaine en procédant co
 
 1. [Connectez-vous à la machine virtuelle](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal#connect-to-virtual-machine) avec les informations d’identification que vous avez indiquées lors de la création de la machine virtuelle.
 2. Sur la machine virtuelle, lancez le **Panneau de configuration** et sélectionnez **Système**.
-3. Sélectionnez successivement **Nom de l’ordinateur**, **Modifier les paramètres** et **Modifier...**
+3. Sélectionnez successivement **Nom de l’ordinateur**, **Modifier les paramètres** et **Modifier…**
 4. Sélectionnez **Domaine**, puis entrez le domaine Active Directory sur le réseau virtuel.
 5. Authentifiez-vous avec un compte de domaine qui dispose de privilèges d’accès sur les machines de jonction de domaine.
 
@@ -48,15 +48,15 @@ Vous trouverez ci-dessous des instructions générales sur la préparation d’u
 6. Recherchez le groupe de sécurité dans lequel vous avez ajouté les utilisateurs de Windows Virtual Desktop, puis vérifiez que ce groupe dispose de l’accès **Contrôle total**.
 7. Après avoir ajouté le groupe de sécurité, cliquez avec le bouton droit sur le dossier, sélectionnez **Propriétés**, puis **Partage**, puis copiez le **Chemin d’accès réseau** pour une utilisation ultérieure.
 
-Pour plus d’informations sur les autorisations, consultez la [documentation FSLogix](https://docs.fslogix.com/display/20170529/Requirements%2B-%2BProfile%2BContainers).
+Pour plus d’informations sur les autorisations, consultez la [documentation FSLogix](https://docs.microsoft.com/fslogix/fslogix-storage-config-ht).
 
 ## <a name="configure-the-fslogix-profile-container"></a>Configurer le conteneur de profils FSLogix
 
 Pour configurer les machines virtuelles avec le logiciel FSLogix, procédez comme suit sur chaque machine inscrite dans le pool hôte :
 
 1. [Connectez-vous à la machine virtuelle](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal#connect-to-virtual-machine) avec les informations d’identification que vous avez indiquées lors de la création de la machine virtuelle.
-2. Lancez un navigateur Internet et accédez à [ce lien](https://go.microsoft.com/fwlink/?linkid=2084562) pour télécharger l’agent FSLogix. Dans le cadre de la préversion publique de Windows Virtual Desktop, vous obtenez une clé de licence pour activer le logiciel FSLogix. La clé est le fichier LicenseKey.txt inclus dans le fichier .zip de l’agent FSLogix.
-3. Accédez à \\\\Win32\\Release ou \\\\X64\\Release dans le fichier .zip et exécutez **FSLogixAppsSetup** pour installer l’agent FSLogix.
+2. Lancez un navigateur Internet et accédez à [ce lien](https://go.microsoft.com/fwlink/?linkid=2084562) pour télécharger l’agent FSLogix.
+3. Accédez à \\\\Win32\\Release ou \\\\X64\\Release dans le fichier .zip et exécutez **FSLogixAppsSetup** pour installer l’agent FSLogix.  Pour en savoir plus sur l’installation de FSLogix, consultez la page [Télécharger et installer FSLogix](https://docs.microsoft.com/fslogix/install-ht).
 4. Accédez à **Program Files** > **FSLogix** > **Apps** pour vérifier l’agent installé.
 5. Dans le menu Démarrer, exécutez **RegEdit** en tant qu’administrateur. Accédez à **Computer\\HKEY_LOCAL_MACHINE\\software\\FSLogix**.
 6. Créez une clé nommée **Profils**.

@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/31/2019
-ms.openlocfilehash: a0da13e82811d500dee50c2231500245c7e011a6
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 3b242ff8ee3e635493cd501cf37ffc7c78a57d91
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68383449"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69563323"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Comprendre les sorties d’Azure Stream Analytics
 
@@ -270,6 +270,9 @@ Azure Stream Analytics appelle Azure Functions via des déclencheurs HTTP. L’a
 | Nombre maximal de lots  |Propriété qui vous permet de spécifier le nombre maximal d’événements dans chaque lot envoyé à Azure Functions. La valeur par défaut est 100. |
 
 Lorsqu’Azure Stream Analytics reçoit une erreur 413 (qui indique que l’entité de requête HTTP est trop volumineuse) de la part d’une fonction Azure, il réduit la taille des lots envoyés à Azure Functions. Dans le code de votre fonction Azure, utilisez cette exception pour vous assurer qu’Azure Stream Analytics n’envoie pas de lots trop volumineux. Vérifiez également que les valeurs de taille et de nombre de lots maximum utilisées dans la fonction correspondent à celles qui ont été saisies dans le portail Stream Analytics.
+
+> [!NOTE]
+> Lors du test de la connexion, Stream Analytics envoie un lot vide à Azure Functions pour s’assurer que la connexion entre les deux fonctionne. Assurez-vous que votre Function App gère les demandes de lots vides pour vérifier si la connexion de test est bien établie.
 
 De plus, si aucun événement n’est signalé dans le temps imparti, aucune sortie n’est générée. De ce fait, la fonction **computeResult** n’est pas appelée. Ce comportement est cohérent avec les fonctions d’agrégation fenêtrées intégrées.
 

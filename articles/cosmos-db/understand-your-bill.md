@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: f800560aa4ddef52c2274fa8b3f5c98d68189f0f
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: 1dc4120ec9f1db8ac34800096ae407b5581758a4
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68717516"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69614166"
 ---
 # <a name="understand-your-azure-cosmos-db-bill"></a>Compréhension de vos factures Azure Cosmos DB
 
@@ -90,7 +90,7 @@ Si vous augmentez le débit provisionné pour un conteneur ou un ensemble de con
 
 ## <a name="billing-examples-with-geo-replication-and-multi-master"></a>Exemples de facturation avec géo-réplication et multimaître  
 
-Vous pouvez ajouter à votre compte de base de données Azure Cosmos DB des régions Azure n’importe où dans le monde, ou en supprimer, et ceci à tout moment. La réservation du débit que vous avez configuré pour les différentes bases de données et conteneurs Azure Cosmos DB est garantie dans chacune des régions Azure associées à votre compte de base de données Azure Cosmos. Si la somme de débit approvisionné (RU/s) configuré sur l’ensemble des bases de données et des conteneurs de votre compte de base de données Azure Cosmos (approvisionné par heure) est T et que le nombre de régions Azure associées à votre compte de base de données est N, alors le débit total approvisionné pour une heure donnée, pour votre compte de base de données Azure Cosmos, (a) configuré avec une seule région d’écriture est égal à T x N RU/s et (b) configuré avec toutes les régions capables de traiter les écritures est égal à T x (N + 1) RU/s, respectivement. Le débit approvisionné (une seule région d’écriture) coûte 0,008 $/heure pour 100 RU/seconde et le débit approvisionné avec plusieurs régions accessibles en écriture (configuration multimaître) coûte 0,016 $/heure et pour 100 RU/seconde (voir la [Page de tarification](https://azure.microsoft.com/pricing/details/cosmos-db/)). Azure Cosmos DB vous permet de lire vos données de n’importe quelle région, que vous utilisiez une seule ou plusieurs région(s) d’écriture.
+Vous pouvez ajouter des régions Azure à votre compte de base de données Azure Cosmos n’importe où dans le monde, ou en supprimer, et ceci à tout moment. La réservation du débit que vous avez configuré pour les différentes bases de données et conteneurs Azure Cosmos est garantie dans chacune des régions Azure associées à votre compte de base de données Azure Cosmos. Si la somme de débit approvisionné (RU/s) configuré sur l’ensemble des bases de données et des conteneurs de votre compte de base de données Azure Cosmos (approvisionné par heure) est T et que le nombre de régions Azure associées à votre compte de base de données est N, alors le débit total approvisionné pour une heure donnée, pour votre compte de base de données Azure Cosmos, (a) configuré avec une seule région d’écriture est égal à T x N RU/s et (b) configuré avec toutes les régions capables de traiter les écritures est égal à T x (N + 1) RU/s, respectivement. Le débit approvisionné (une seule région d’écriture) coûte 0,008 $/heure pour 100 RU/seconde et le débit approvisionné avec plusieurs régions accessibles en écriture (configuration multimaître) coûte 0,016 $/heure et pour 100 RU/seconde (voir la [Page de tarification](https://azure.microsoft.com/pricing/details/cosmos-db/)). Azure Cosmos DB vous permet de lire vos données de n’importe quelle région, que vous utilisiez une seule ou plusieurs région(s) d’écriture.
 
 ### <a name="billing-example-multi-region-azure-cosmos-account-single-region-writes"></a>Exemple de facturation : compte Azure Cosmos avec plusieurs régions et une seule région d’écriture
 
@@ -228,7 +228,7 @@ Coût mensuel total = coût mensuel de stockage + coût mensuel du débit pour u
 
 ## <a name="billing-with-azure-cosmos-db-reserved-capacity"></a>Facturation avec une capacité réservée Azure Cosmos DB
 
-La capacité réservée Azure Cosmos DB vous permet d’acheter à l’avance du débit approvisionné (une capacité réservée ou une réservation) qui peut être appliqué à tous les conteneurs et bases de données Azure Cosmos DB (pour n’importe quelle API ou n’importe quel modèle de données) de toutes les régions Azure. Comme le prix du débit provisionné varie d’une région à l’autre, il est utile de considérer la capacité de réserve comme un crédit monétaire que vous avez acheté au rabais et qui peut être utilisé pour le débit approvisionné au prix respectif dans chaque région. Par exemple, supposons que vous disposez d’un compte Azure Cosmos avec un seul conteneur configuré avec 50 000 RU/s et deux régions globalement répliquées : USA Est et Japon Est. Si vous choisissez l’option de paiement à l’utilisation, vous devrez alors payer :  
+La capacité réservée Azure Cosmos DB vous permet d’acheter à l’avance du débit approvisionné (une capacité réservée ou une réservation) qui peut être appliqué à tous les conteneurs et toutes les bases de données Azure Cosmos (pour n’importe quelle API ou n’importe quel modèle de données) de toutes les régions Azure. Comme le prix du débit provisionné varie d’une région à l’autre, il est utile de considérer la capacité de réserve comme un crédit monétaire que vous avez acheté au rabais et qui peut être utilisé pour le débit approvisionné au prix respectif dans chaque région. Par exemple, supposons que vous disposez d’un compte Azure Cosmos avec un seul conteneur configuré avec 50 000 RU/s et deux régions globalement répliquées : USA Est et Japon Est. Si vous choisissez l’option de paiement à l’utilisation, vous devrez alors payer :  
 
 * dans la région USA Est : 50 000 RU/s au tarif de 0,008 $ pour 100 RU/s dans cette région 
 

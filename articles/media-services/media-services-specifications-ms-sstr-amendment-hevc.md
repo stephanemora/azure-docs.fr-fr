@@ -3,7 +3,7 @@ title: Azure Media Services – Avenant relatif au protocole Smooth Streaming po
 description: Cette spécification décrit le protocole et le format requis pour l’ingestion de streaming en direct basée sur le format MP4 avec HEVC pour Azure Media Services. Il s’agit d’un avenant relatif à la documentation du protocole Smooth Streaming (MS-SSTR) visant à inclure la prise en charge de l’ingestion et du streaming HEVC. Seules les modifications nécessaires à la distribution HEVC sont spécifiées dans cet article, à l’exception de la mention « Pas de modification » qui indique que le texte est copié pour clarification uniquement.
 services: media-services
 documentationcenter: ''
-author: cenkdin
+author: johndeu
 manager: femila
 editor: ''
 ms.assetid: f27d85de-2cb8-4269-8eed-2efb566ca2c6
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 08/19/2019
 ms.author: johndeu
-ms.openlocfilehash: dfd6de1ab2e4530afb56d1c6c67e6d78eb9ee474
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: e0637b2a015a610f9c3f92809f63a442980b63b1
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "69015678"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624816"
 ---
 # <a name="smooth-streaming-protocol-ms-sstr-amendment-for-hevc"></a>Avenant relatif au protocole Smooth Streaming (MS-SSTR) pour HEVC 
 
@@ -27,7 +27,7 @@ ms.locfileid: "69015678"
 
 Cet article fournit des modifications détaillées à appliquer à la spécification du protocole Smooth Streaming [MS-SSTR] afin d’activer Smooth Streaming de vidéo encodée HEVC. Dans cette spécification, nous ne présentons que les modifications nécessaires pour distribuer le codec vidéo HEVC. L’article suit le même schéma de numérotation que la spécification [MS-SSTR]. Les titres vides présentés dans l’article sont fournis afin d’orienter le lecteur vers leur position dans la spécification [MS-SSTR].  « Pas de modification » indique que le texte est copié à des fins de clarification uniquement.
 
-L’article indique les exigences d’implémentation technique pour le signalement de codec vidéo HEVC dans un manifeste Smooth Streaming, les références normatives sont mises à jour pour faire référence aux normes MPEG actuelles qui incluent HEVC, Chiffrement commun de HEVC, et les noms de zones du format de fichier multimédia de base ISO ont été mis à jour pour être cohérents avec les dernières spécifications. 
+L’article indique les exigences d’implémentation technique pour le signalement de codec vidéo HEVC (à l'aide de pistes de format « hev1 » ou « hvc1 ») dans un manifeste Smooth Streaming. Les références normatives sont mises à jour pour référencer les normes MPEG standards actuelles qui incluent HEVC, Chiffrement commun de HEVC, et les noms de zones du format de fichier multimédia de base ISO ont été mis à jour pour être cohérents avec les dernières spécifications. 
 
 La spécification du protocole Smooth Streaming [MS-SSTR] référencée décrit le format de câble utilisé pour distribuer les médias numériques en direct et à la demande, tels qu’audio et vidéo, des manières suivantes : d’un encodeur à un serveur web, d’un serveur à un autre serveur et d’un serveur à un client HTTP.
 L’utilisation d’une structure de distribution de données basée sur MPEG-4 ([[MPEG4-RA])](https://go.microsoft.com/fwlink/?LinkId=327787) sur HTTP permet une commutation transparente quasiment en temps réel entre différents niveaux de qualité de contenu multimédia compressé. Le résultat est une expérience de lecture constante pour l’utilisateur final du client HTTP, même si le réseau et les conditions de rendu vidéo changent pour l’ordinateur ou l’appareil client.
@@ -148,10 +148,12 @@ ProtectionElement DOIT être présent lorsque le chiffrement commun (CENC) est a
 >   **FourCC (variable) :** code de quatre caractères qui identifie le format de média utilisé pour chaque exemple. La gamme de valeurs suivantes est réservée avec les significations sémantiques suivantes :
 > 
 > * « hev1 » : les exemples vidéo de cette piste utilisent la vidéo HEVC, à l’aide du format de description d’exemple « hev1 » spécifié dans [ISO/CEI-14496-15].
+>
+> * « hvc1 »: Les exemples vidéo de cette piste utilisent la vidéo HEVC, à l’aide du format de description d’exemple « hvc1 » indiqué dans [ISO/CEI-14496-15].
 > 
 >   **CodecPrivateData (variable):** données indiquant des paramètres spécifiques au format de média et communes à tous les exemples de la piste, représentées sous forme de chaîne d’octets codés en hexadécimal. Le format et la signification sémantique de la séquence d’octets varie en fonction de la valeur du champ **FourCC** comme suit :
 > 
->   * Lorsqu’un TrackElement décrit une vidéo HEVC, le champ **FourCC** DOIT être défini sur **« hev1 »** et ;
+>   * Lorsqu’un TrackElement décrit une vidéo HEVC, le champ **FourCC** DOIT être défini sur **« hev1 »** ou **« hvc1 »**
 > 
 >   le champ **CodecPrivateData** DOIT contenir une représentation de chaîne codée en hexadécimal de la séquence d’octets suivante, spécifiée dans ABNF [[RFC5234] :](https://go.microsoft.com/fwlink/?LinkId=123096) (pas de modification à partir de MS-SSTR)
 > 
@@ -173,7 +175,7 @@ ProtectionElement DOIT être présent lorsque le chiffrement commun (CENC) est a
 
 ### <a name="223-fragment-request"></a>2.2.3 Requête du fragment 
 
->   **Remarque**: format de média par défaut demandé pour **MinorVersion** 2 et « hev1 » est « iso8 », format de fichier multimédia de base ISO, spécifié dans [ISO/CEI 14496-12] Format de fichier multimédia de base ISO quatrième édition et [ISO/CEI 23001-7] Chiffrement commun deuxième édition.
+>   **Remarque**: Le format de média par défaut requis pour **MinorVersion** 2 et «  hev1 » ou « hvc1 »   est le format de fichier multimédia de base ISO « iso8 » , indiqué dans [ISO/CEI 14496-12]    Format de fichier multimédia de base ISO quatrième édition et [ISO/CEI 23001-7] Chiffrement    commun deuxième édition.
 
 ### <a name="224-fragment-response"></a>2.2.4 Réponse du fragment 
 

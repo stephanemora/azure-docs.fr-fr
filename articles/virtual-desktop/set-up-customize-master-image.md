@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: helohr
-ms.openlocfilehash: 2413a380adf32755452482d2b68d2055f7db666d
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: abde79ab131719fe4f2963db98c7a6daa3419424
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67620434"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69876850"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>Préparer et personnaliser une image de disque dur virtuel principale
 
@@ -91,7 +91,7 @@ reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer" /v SpecialRoam
 
 ### <a name="set-up-user-profile-container-fslogix"></a>Configurer le conteneur du profil utilisateur (FSLogix)
 
-Pour inclure le conteneur FSLogix en tant que partie de l’image, suivez les instructions de l’article [Configurer un partage de profil utilisateur pour un pool d’hôtes](create-host-pools-user-profile.md#configure-the-fslogix-profile-container). Vous pouvez tester la fonctionnalité du conteneur FSLogix avec [ce démarrage rapide](https://docs.fslogix.com/display/20170529/Profile+Containers+-+Quick+Start).
+Pour inclure le conteneur FSLogix dans l’image, suivez les instructions de l’article [Créer un conteneur de profil pour un pool d’hôtes à l’aide d’un partage de fichiers](create-host-pools-user-profile.md#configure-the-fslogix-profile-container). Vous pouvez tester la fonctionnalité du conteneur FSLogix avec [ce démarrage rapide](https://docs.microsoft.com/en-us/fslogix/configure-cloud-cache-tutorial).
 
 ### <a name="configure-windows-defender"></a>Configurer Windows Defender
 
@@ -227,5 +227,5 @@ Maintenant que vous avez une image, vous pouvez créer ou mettre à jour des poo
 - [Créer un pool d’hôtes avec le modèle Azure Resource Manager](create-host-pools-arm-template.md)
 - [Tutoriel : Créer un pool d’hôtes avec la Place de marché Azure](create-host-pools-azure-marketplace.md)
 - [Créer un pool d’hôtes avec PowerShell](create-host-pools-powershell.md)
-- [Configurer un partage de profil utilisateur pour un pool d’hôtes](create-host-pools-user-profile.md)
+- [Créer un conteneur de profils pour un pool hôte à l’aide d’un partage de fichiers](create-host-pools-user-profile.md)
 - [Configurer la méthode d’équilibrage de charge de Windows Virtual Desktop](configure-host-pool-load-balancing.md)

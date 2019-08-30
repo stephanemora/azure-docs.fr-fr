@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/21/2019
 ms.author: tisande
-ms.openlocfilehash: 87b275806c06443e37e9e92c35a38b4cde378322
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 5537133b31bb63c9fa6ac3a52b344f7f1d9c4c8a
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67343151"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69614348"
 ---
 # <a name="getting-started-with-sql-queries"></a>Bien démarrer avec les requêtes SQL
 
@@ -86,9 +86,9 @@ Le deuxième élément utilise `givenName` et `familyName` au lieu de `firstName
 
 ### <a name="query-the-json-items"></a>Interroger les éléments JSON
 
-Appliquez quelques requêtes sur les données JSON pour comprendre certains aspects clés du langage de requête SQL de Azure Cosmos DB.
+Appliquez quelques requêtes sur les données JSON pour comprendre certains aspects clés du langage de requête SQL d’Azure Cosmos DB.
 
-La requête suivante retourne les éléments dont le champ `id` correspond à `AndersenFamily`. Comme il s’agit d’une requête `SELECT *`, son résultat est l’élément JSON complet. Pour plus d’informations sur la syntaxe SELECT, consultez [Instruction SELECT](sql-query-select.md). 
+La requête suivante retourne les éléments dont le champ `id` correspond à `AndersenFamily`. Comme il s’agit d’une requête `SELECT *`, son résultat est l’élément JSON complet. Pour plus d’informations sur la syntaxe SELECT, consultez [Instruction SELECT](sql-query-select.md). 
 
 ```sql
     SELECT *
@@ -118,7 +118,7 @@ Voici le résultat de la requête :
     }]
 ```
 
-La requête suivante remet en forme la sortie JSON. La requête projette un nouvel objet `Family` JSON avec 2 champs sélectionnés, `Name` et `City`, où la ville de l’adresse est identique à l’État. « NY, NY » correspond à ce cas.
+La requête suivante remet en forme la sortie JSON. La requête projette un nouvel objet JSON `Family` avec deux champs sélectionnés, `Name` et `City`, où la ville de l’adresse est identique à l’État. « NY, NY » correspond à ce cas.
 
 ```sql
     SELECT {"Name":f.id, "City":f.address.city} AS Family
@@ -166,7 +166,7 @@ Les exemples précédents illustrent plusieurs aspects du langage de requête Co
 
 * Azure Cosmos DB prend uniquement en charge les éléments JSON stricts. Le système de type et les expressions peuvent uniquement traiter des types JSON. Pour en savoir plus, consultez la [spécification JSON](https://www.json.org/).  
 
-* Un conteneur Cosmos DB est une collection sans schéma d’éléments JSON. Les relations dans et entre les éléments d’un conteneur sont capturées de façon implicite par l’autonomie, et non par les relations de clé primaire et de clé étrangère. Cette fonctionnalité est importante pour les jointures intra-éléments décrites plus loin dans cet article.
+* Un conteneur Cosmos est une collection sans schéma d’éléments JSON. Les relations dans et entre les éléments d’un conteneur sont capturées de façon implicite par l’autonomie, et non par les relations de clé primaire et de clé étrangère. Cette fonctionnalité est importante pour les jointures intra-éléments décrites plus loin dans cet article.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

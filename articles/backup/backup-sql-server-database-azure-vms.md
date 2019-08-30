@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 06/18/2019
 ms.author: dacurwin
-ms.openlocfilehash: 6a929359c0e4e0a5c64eadbf41f565dfeb56a233
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 3c16d8b5f1611c6c05e60d65551f73eb2d395668
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68854114"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69872905"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>Sauvegarder des bases de données SQL Server sur des machines virtuelles Azure
 
@@ -51,22 +51,29 @@ Pour toute opération, une machine virtuelle SQL Server requiert une connectivit
 
 - **Autorisez les plages d’adresses IP du centre de données Azure**. Cette option autorise les [plages d’adresses IP](https://www.microsoft.com/download/details.aspx?id=41653) dans le téléchargement. Pour accéder à un groupe de sécurité réseau, utilisez l’applet de commande Set-AzureNetworkSecurityRule. Si vous êtes un destinataire sûr, dressez la liste des adresses IP spécifiques à une région ; vous devez également mettre à jour la liste des destinataires sûrs en indiquant la balise du service Azure Active Directory (Azure AD) pour activer l’authentification.
 
-- **Autorisez l’accès à l’aide de balises de groupe de sécurité réseau**. Si vous utilisez des groupes de sécurité réseau pour restreindre la connectivité, cette option ajoute une règle à votre groupe de sécurité réseau qui permet l’accès sortant à Sauvegarde Azure en utilisant la balise AzureBackup. En plus de cette balise, vous avez également besoin des [règles](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) correspondantes pour Azure AD et Stockage Azure afin de permettre la connexion pour l’authentification et le transfert de données. La balise AzureBackup est actuellement disponible sur PowerShell uniquement. Pour créer une règle à l’aide de la balise AzureBackup :
+- **Autorisez l’accès à l’aide de balises de groupe de sécurité réseau**.  Si vous utilisez NSG pour limiter la connectivité, vous devez utiliser la balise de service Sauvegarde Azure pour autoriser l’accès sortant à la Sauvegarde Azure. Vous devez également utiliser des [règles](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) pour Azure AD et Stockage Azure afin de permettre la connectivité pour l’authentification et le transfert de données. Pour ce faire, vous pouvez utiliser le portail ou PowerShell.
 
-    - Ajoutez les identifiants de compte Azure et mettez à jour les clouds nationaux<br/>
-    `Add-AzureRmAccount`
+    Pour créer une règle à l’aide du portail :
+    
+    - Dans **Tous les services**, accédez à**Groupes de sécurité réseau** et sélectionnez le groupe de sécurité réseau.
+    - Sous **PARAMÈTRES**, sélectionnez **Règles de sécurité de trafic sortant**.
+    - Sélectionnez **Ajouter**. Entrez toutes les informations nécessaires à la création d’une nouvelle règle, comme décrit dans [paramètres de règle de sécurité](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group#security-rule-settings). Vérifiez que l'option **Destination** est définie sur **Balise de service** et **Balise de service de destination** sur **AzureBackup**.
+    - Cliquez sur **Ajouter**  pour enregistrer la règle de sécurité de trafic sortant que vous venez de créer.
+    
+   Pour créer une règle à l’aide de Powershell :
 
-    - Sélectionnez l’abonnement au groupe de sécurité réseau<br/>
-    `Select-AzureRmSubscription "<Subscription Id>"`
-
-     - Sélectionnez le groupe de sécurité réseau<br/>
-    `$nsg = Get-AzureRmNetworkSecurityGroup -Name "<NSG name>" -ResourceGroupName "<NSG resource group name>"`
-
-    - Ajoutez la règle de trafic sortant autorisée pour la balise du service Sauvegarde Azure<br/>
-    `Add-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg -Name "AzureBackupAllowOutbound" -Access Allow -Protocol * -Direction Outbound -Priority <priority> -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix "AzureBackup" -DestinationPortRange 443 -Description "Allow outbound traffic to Azure Backup service"`
-
+   - Ajoutez les identifiants de compte Azure et mettez à jour les clouds nationaux<br/>
+    ``Add-AzureRmAccount``
+  - Sélectionnez l’abonnement au groupe de sécurité réseau<br/>
+    ``Select-AzureRmSubscription "<Subscription Id>"``
+  - Sélectionnez le groupe de sécurité réseau<br/>
+    ```$nsg = Get-AzureRmNetworkSecurityGroup -Name "<NSG name>" -ResourceGroupName "<NSG resource group name>"```
+  - Ajoutez la règle de trafic sortant autorisée pour la balise du service Sauvegarde Azure<br/>
+   ```Add-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg -Name "AzureBackupAllowOutbound" -Access Allow -Protocol * -Direction Outbound -Priority <priority> -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix "AzureBackup" -DestinationPortRange 443 -Description "Allow outbound traffic to Azure Backup service"```
   - Enregistrez le groupe de sécurité réseau<br/>
-    `Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg`
+    ```Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg```
+
+   
 - **Autorisez l’accès à l’aide de balises de Pare-feu Azure**. Si vous utilisez Pare-feu Azure, créez une règle d’application en utilisant la balise [FQDN](https://docs.microsoft.com/azure/firewall/fqdn-tags) d’AzureBackup. Cela autorise l’accès sortant à Sauvegarde Azure.
 - **Déployez un serveur proxy HTTP pour le routage du trafic**. Lorsque vous sauvegardez une base de données SQL Server sur une machine virtuelle Azure, l’extension de sauvegarde sur la machine virtuelle utilise les API HTTPS pour envoyer des commandes de gestion à Sauvegarde Azure, et des données à Stockage Azure. L’extension de sauvegarde utilise également Azure AD pour l’authentification. Acheminez le trafic de l’extension de sauvegarde pour ces trois services via le proxy HTTP. Les extensions sont le seul composant configuré pour l’accès à l’internet public.
 
@@ -168,7 +175,7 @@ Comment détecter les bases de données en cours d’exécution sur une machine 
    Pour optimiser les charges de sauvegarde, la sauvegarde Azure définit le nombre maximal de bases de données à 50 dans une tâche de sauvegarde.
 
      * Pour protéger plus de 50 bases de données, configurez plusieurs sauvegardes.
-     * Pour activer [](#enable-auto-protection) l’instance entière ou le groupe de disponibilité Always On. Dans la liste déroulante **AUTOPROTECT** (Protection automatique), sélectionnez **ON** (Activer), puis **OK**.
+     * Pour [activer](#enable-auto-protection) l’ensemble de l’instance ou le groupe de disponibilité Always On dans la liste déroulante **PROTECTION AUTOMATIQUE**, sélectionnez **ACTIVER** puis **OK**.
 
     > [!NOTE]
     > La fonctionnalité de [protection automatique](#enable-auto-protection) permet non seulement de protéger toutes les bases de données existantes en une seule étape, mais aussi de protéger automatiquement toutes les nouvelles bases de données ajoutées à cette instance ou ce groupe de disponibilité.  

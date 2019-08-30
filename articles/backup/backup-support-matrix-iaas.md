@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/02/2019
 ms.author: dacurwin
-ms.openlocfilehash: 9b0cbe8126a01a64e35b2fcfeca400aed5aef0cc
-ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
+ms.openlocfilehash: df9e60c8d517c35029e425d50dba81a18c2f1114
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68952032"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69617364"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Tableau de prise en charge pour la sauvegarde de machines virtuelles Azure
 Vous pouvez utiliser le [service Sauvegarde Azure](backup-overview.md) pour sauvegarder des machines et des charges de travail locales ainsi que des machines virtuelles Azure. Cet article récapitule les paramètres de prise en charge et les limitations de la sauvegarde de machines virtuelles Azure avec Sauvegarde Azure.
@@ -157,8 +157,8 @@ Restauration des machines virtuelles épinglées par zone | Prise en charge (pou
 
 **Composant** | **Support**
 --- | ---
-Disques de données de machine virtuelle Azure | Sauvegarder une machine virtuelle avec 16 disques de données ou moins. <br/><br/> Prise en charge des disques d’une taille maximale de 4 To<br/><br/>Pour vous inscrire à une préversion publique limitée de prise en charge de disques volumineux de Sauvegarde Azure pour les disques d’une taille supérieure à 4 To et jusqu’à 30 To, consultez la [vue d’ensemble de la sauvegarde de machine virtuelle Azure](backup-azure-vms-introduction.md#limited-public-preview-backup-of-vm-with-disk-sizes-up-to-30tb).
-Taille de disque de données | La taille maximale d’un disque individuel est de 4 095 Go.<br/><br/>Pour vous inscrire à une préversion publique limitée de prise en charge de disques volumineux de Sauvegarde Azure pour les disques d’une taille supérieure à 4 To jusqu’à 30 To, reportez-vous à cet [article](backup-azure-vms-introduction.md#limited-public-preview-backup-of-vm-with-disk-sizes-up-to-30tb).
+Disques de données de machine virtuelle Azure | Sauvegarder une machine virtuelle avec 16 disques de données ou moins. <br/><br/> Prise en charge des disques d’une taille maximale de 4 To<br/><br/>Pour vous inscrire à une préversion publique limitée de prise en charge de disques volumineux de Sauvegarde Azure pour les disques d’une taille supérieure à 4 To et jusqu’à 30 To, reportez-vous à cet [article](backup-azure-vms-introduction.md#limited-public-preview-backup-of-vm-with-disk-sizes-up-to-30tb).
+Taille de disque de données | La taille maximale d’un disque individuel est de 4 095 Go.<br/><br/>Pour vous inscrire à une préversion publique limitée de prise en charge de disques volumineux de Sauvegarde Azure pour les disques d’une taille supérieure à 4 To jusqu’à 30 To, reportez-vous à cet [article](backup-azure-vms-introduction.md#limited-public-preview-backup-of-vm-with-disk-sizes-up-to-30tb).
 Type de stockage | HDD Standard, SSD Standard, SSD Premium.
 Disques managés | Pris en charge.
 Disques chiffrés | Pris en charge.<br/><br/> Les machines virtuelles Azure activées pour Azure Disk Encryption peuvent être sauvegardées (avec ou sans l’application Azure AD).<br/><br/> Les machines virtuelles chiffrées ne peuvent pas être récupérées au niveau fichier/dossier. Vous devez récupérer la totalité de la machine virtuelle.<br/><br/> Vous pouvez activer le chiffrement sur des machines virtuelles qui sont déjà protégées par Sauvegarde Azure.

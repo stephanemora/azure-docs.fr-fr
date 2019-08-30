@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/31/2019
 ms.author: mjbrown
-ms.openlocfilehash: e168e450230720f4ad78516e6edcdc3aa08ba3e1
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: b67202da7293ef55cfe3390ca676f7944da80fba
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67343114"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69614334"
 ---
 # <a name="user-defined-functions-udfs-in-azure-cosmos-db"></a>Fonctions définies par l’utilisateur dans Azure Cosmos DB
 
@@ -19,7 +19,7 @@ L’API SQL prend en charge les fonctions définies par l’utilisateur. Les fon
 
 L’API étend la syntaxe SQL pour prendre en charge la logique d’application personnalisée à l’aide de fonctions définies par l’utilisateur. Vous pouvez inscrire les fonctions définies par l’utilisateur auprès de l’API SQL et les référencer dans les requêtes SQL. En fait, les fonctions définies par l’utilisateur sont conçues avec soin pour être appelées à partir de requêtes. En conséquence, les fonctions définies par l’utilisateur ne peuvent pas accéder à l’objet de contexte comme d’autres types JavaScript, tels que les procédures stockées et les déclencheurs. Les requêtes sont en lecture seule et peuvent s’exécuter sur des réplicas principaux ou secondaires. Les fonctions définies par l’utilisateur, contrairement à d’autres types JavaScript, sont conçues pour être exécutées sur des réplicas secondaires.
 
-L’exemple suivant inscrit une fonction définie par l’utilisateur sous un conteneur d’éléments dans la base de données Cosmos DB. L’exemple crée une fonction définie par l’utilisateur dont le nom est `REGEX_MATCH`. Elle accepte les deux valeurs de chaîne JSON `input` et `pattern`, et vérifie si la première correspond au modèle spécifié dans la seconde à l’aide de la fonction `string.match()` de JavaScript.
+L’exemple suivant inscrit une fonction définie par l’utilisateur sous un conteneur d’éléments dans la base de données Cosmos. L’exemple crée une fonction définie par l’utilisateur dont le nom est `REGEX_MATCH`. Elle accepte les deux valeurs de chaîne JSON `input` et `pattern`, et vérifie si la première correspond au modèle spécifié dans la seconde à l’aide de la fonction `string.match()` de JavaScript.
 
 ## <a name="examples"></a>Exemples
 

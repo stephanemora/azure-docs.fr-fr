@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 1c2bf53a610c566ac58df588f6d96389f2206563
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: 700cd6c0c75b25d56e812a394d6bdd193e4fb57c
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68717545"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69614059"
 ---
 # <a name="stored-procedures-triggers-and-user-defined-functions"></a>Procédures stockées, déclencheurs et fonctions définies par l’utilisateur
 
@@ -79,11 +79,11 @@ Azure Cosmos DB prend en charge deux types de déclencheurs :
 
 ### <a name="pre-triggers"></a>Prédéclencheurs
 
-Azure Cosmos DB fournit des déclencheurs qui peuvent être appelés par l’exécution d’une opération sur un élément Azure Cosmos DB. Par exemple, vous pouvez spécifier un prédéclencheur lorsque vous créez un élément. Dans ce cas, le prédéclencheur sera exécuté avant la création de l’élément. Les pré-déclencheurs ne peuvent pas avoir de paramètres en entrée. Si nécessaire, l’objet de la demande peut être utilisé pour mettre à jour le corps du document à partir de la demande d’origine. Lorsque les déclencheurs sont enregistrés, les utilisateurs peuvent spécifier les opérations avec lesquelles il peut s'exécuter. Si un déclencheur a été créé avec `TriggerOperation.Create`, cela signifie que l’utilisation du déclencheur dans une opération de remplacement n’est pas autorisée. Pour obtenir des exemples, consultez l’article [Guide pratique pour écrire des déclencheurs](how-to-write-stored-procedures-triggers-udfs.md#triggers).
+Azure Cosmos DB fournit des déclencheurs qui peuvent être appelés par l’exécution d’une opération sur un élément Azure Cosmos. Par exemple, vous pouvez spécifier un prédéclencheur lorsque vous créez un élément. Dans ce cas, le prédéclencheur sera exécuté avant la création de l’élément. Les pré-déclencheurs ne peuvent pas avoir de paramètres en entrée. Si nécessaire, l’objet de la demande peut être utilisé pour mettre à jour le corps du document à partir de la demande d’origine. Lorsque les déclencheurs sont enregistrés, les utilisateurs peuvent spécifier les opérations avec lesquelles il peut s'exécuter. Si un déclencheur a été créé avec `TriggerOperation.Create`, cela signifie que l’utilisation du déclencheur dans une opération de remplacement n’est pas autorisée. Pour obtenir des exemples, consultez l’article [Guide pratique pour écrire des déclencheurs](how-to-write-stored-procedures-triggers-udfs.md#triggers).
 
 ### <a name="post-triggers"></a>Post-déclencheurs
 
-Comme pour les prédéclencheurs, les post-déclencheurs sont également associés à une opération sur un élément Azure Cosmos DB et ils ne nécessitent aucun paramètre d’entrée. Ils sont exécutés *après* la fin de l’opération et ont accès au message de réponse qui est envoyé au client. Pour obtenir des exemples, consultez l’article [Guide pratique pour écrire des déclencheurs](how-to-write-stored-procedures-triggers-udfs.md#triggers).
+Comme pour les prédéclencheurs, les post-déclencheurs sont également associés à une opération sur un élément Azure Cosmos et ils ne nécessitent aucun paramètre d’entrée. Ils sont exécutés *après* la fin de l’opération et ont accès au message de réponse qui est envoyé au client. Pour obtenir des exemples, consultez l’article [Guide pratique pour écrire des déclencheurs](how-to-write-stored-procedures-triggers-udfs.md#triggers).
 
 > [!NOTE]
 > Les déclencheurs inscrits ne s’exécutent pas automatiquement lorsque leurs opérations correspondantes (créer / supprimer / remplacer / mettre à jour) sont effectuées. Ils doivent être appelés explicitement lors de l’exécution de ces opérations. Pour plus d’informations, consultez l’article [Comment exécuter des déclencheurs](how-to-use-stored-procedures-triggers-udfs.md#pre-triggers).

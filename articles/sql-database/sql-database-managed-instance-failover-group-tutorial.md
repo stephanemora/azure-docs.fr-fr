@@ -12,12 +12,12 @@ ms.author: mathoma
 ms.reviewer: sashan, carlrab
 manager: jroth
 ms.date: 06/27/2019
-ms.openlocfilehash: 5bf2ee68ff2cfde2846dff2d94f7478920a18760
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: e4b7de3931c0d3508e5af6aa6bf85dfa18641aee
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69037349"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624987"
 ---
 # <a name="tutorial-add-a-sql-database-managed-instance-to-a-failover-group"></a>Didacticiel : Ajouter une instance managée SQL Database à un groupe de basculement
 
@@ -151,7 +151,7 @@ Pour que deux instances gérées participent à un groupe de basculement, une pa
     | **Type de passerelle** | Sélectionnez **VPN**. |
     | **Type de VPN** | Sélectionnez **Route-based** |
     | **Référence (SKU)**| Laissez la valeur `VpnGw1` par défaut. |
-    | **Lieu**| L’emplacement où se trouve votre instance gérée secondaire et votre réseau virtuel secondaire.   |
+    | **Lieu**| L’emplacement où se trouve votre instance managée principale et votre réseau virtuel principal.   |
     | **Réseau virtuel**| Sélectionnez le réseau virtuel créé dans la section 2, par exemple `vnet-sql-mi-primary`. |
     | **Adresse IP publique**| Sélectionnez **Créer nouveau**. |
     | **Nom de l’adresse IP publique**| Entrez un nom pour votre adresse IP, par exemple `primary-gateway-IP`. |

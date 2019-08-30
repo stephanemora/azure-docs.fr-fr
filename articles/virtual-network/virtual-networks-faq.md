@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/12/2019
 ms.author: kumud
-ms.openlocfilehash: ebb9028aab8626554d0f5fede15129c141d441cb
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 7ec731c6b75ff556c9e00f7041fea32f807fe5f4
+ms.sourcegitcommit: a3a40ad60b8ecd8dbaf7f756091a419b1fe3208e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035334"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69892019"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>FAQ sur les réseaux virtuels Azure
 
@@ -29,9 +29,11 @@ Un réseau virtuel (VNet) Azure est une représentation de votre propre réseau 
 
 Utilisez les réseaux virtuels pour effectuer les actions suivantes :
 
-* Créer un réseau virtuel cloud uniquement privé dédié Vous n’avez pas toujours besoin d’une configuration intersite pour votre solution. Lorsque vous créez un réseau virtuel, vos services et les machines virtuelles au sein de votre réseau virtuel peuvent communiquer directement et en toute sécurité dans le cloud. Vous pouvez encore configurer des connexions au point de terminaison pour les machines virtuelles et les services qui requièrent une communication Internet dans le cadre de votre solution.
-* Étendre en toute sécurité votre centre de données Avec les réseaux virtuels, vous pouvez créer des VPN site à site (S2S) traditionnels pour faire évoluer en toute sécurité la capacité de votre centre de données. Les VPN S2S utilisent le protocole IPSEC pour fournir une connexion sécurisée entre votre passerelle VPN d’entreprise et Azure.
-* Activer les scénarios de cloud hybride Les réseaux virtuels vous donnent la possibilité de prendre en charge une variété de scénarios de cloud hybride. Vous pouvez connecter en toute sécurité des applications informatiques à n’importe quel type de système local, comme les ordinateurs centraux et les systèmes Unix.
+* Créez un réseau virtuel dédié uniquement au cloud privé. Vous n’avez pas toujours besoin d’une configuration intersite pour votre solution. Lorsque vous créez un réseau virtuel, vos services et les machines virtuelles au sein de votre réseau virtuel peuvent communiquer directement et en toute sécurité dans le cloud. Vous pouvez encore configurer des connexions au point de terminaison pour les machines virtuelles et les services qui requièrent une communication Internet dans le cadre de votre solution.
+
+* Étendez votre centre de données en toute sécurité. Avec les réseaux virtuels, vous pouvez créer des VPN site à site (S2S) traditionnels pour faire évoluer en toute sécurité la capacité de votre centre de données. Les VPN S2S utilisent le protocole IPSEC pour fournir une connexion sécurisée entre votre passerelle VPN d’entreprise et Azure.
+
+* Activez les scénarios de cloud hybride. Les réseaux virtuels vous donnent la possibilité de prendre en charge une variété de scénarios de nuage hybride. Vous pouvez connecter en toute sécurité des applications informatiques à n’importe quel type de système local, comme les ordinateurs centraux et les systèmes Unix.
 
 ### <a name="how-do-i-get-started"></a>Comment faire pour démarrer ?
 Consultez la [Documentation Réseau virtuel](https://docs.microsoft.com/azure/virtual-network/) pour commencer. Ce document fournit des informations de présentation et de déploiement pour toutes les fonctionnalités du réseau virtuel.

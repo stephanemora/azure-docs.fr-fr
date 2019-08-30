@@ -17,12 +17,12 @@ ms.date: 04/22/2019
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e8fb570d328c7391c269d4a2aa91c69003b1cfc8
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: f62ad020d2ec3b5ab712f50dca2dddd3b981f098
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68989886"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69656468"
 ---
 # <a name="azure-ad-activity-logs-in-azure-monitor"></a>Journaux d’activité Azure Active Directory dans Azure Monitor
 
@@ -70,7 +70,7 @@ Si vous avez déjà une licence Azure AD, vous avez besoin d’un abonnement Azu
 
 ### <a name="storage-size-for-activity-logs"></a>Taille de stockage des journaux d’activité
 
-Chaque événement du journal d’audit utilise environ 2 Ko de stockage de données. Par conséquent, pour un locataire possédant 100 000 utilisateurs, et qui impliquerait environ 1,5 million d’événements par jour, vous auriez besoin d’environ 3 Go de stockage de données par jour. Dans la mesure où les écritures sont réalisées par lots de cinq minutes environ, vous pouvez anticiper environ 9000 opérations d’écriture par mois. 
+Chaque événement du journal d’audit utilise environ 2 Ko de stockage de données. Les journaux des événements de connexions représentent 4 Ko de stockage de données. Par conséquent, pour un locataire possédant 100 000 utilisateurs, et qui impliquerait environ 1,5 million d’événements par jour, vous auriez besoin d’environ 3 Go de stockage de données par jour. Dans la mesure où les écritures sont réalisées par lots de cinq minutes environ, vous pouvez anticiper environ 9000 opérations d’écriture par mois. 
 
 
 Le tableau suivant contient une estimation des coûts, selon la taille du locataire. Ces coûts sont calculés pour un compte de stockage à usage général v2 dans la région USA Ouest, pendant au moins un an de rétention. Utilisez la [Calculatrice de prix de stockage Azure](https://azure.microsoft.com/pricing/details/storage/blobs/) pour obtenir une estimation plus précise du volume de données que vous prévoyez pour votre application.

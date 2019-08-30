@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 06/25/2019
+ms.date: 08/15/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 022b16669791b9b9cce066b3dd17c70b33569cc0
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 8cd63913c0e96d496aa617369601c1dd121b4b46
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68955234"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69542848"
 ---
 # <a name="what-is-a-qna-maker-knowledge-base"></a>Qu’est-ce qu’une base de connaissances QnA Maker ?
 
@@ -59,6 +59,70 @@ Le processus est expliqué dans le tableau suivant :
 
 Les fonctionnalités utilisées incluent, mais sans s’y limiter, la sémantique au niveau des mots, l’importance des termes dans un corpus et les modèles sémantiques ayant fait l’objet d’un apprentissage profond pour déterminer la similarité et la pertinence entre deux chaînes de texte.
 
+## <a name="http-request-and-response-with-endpoint"></a>Requête et réponse HTTP avec point de terminaison
+Lorsque vous publiez votre base de connaissance, le service crée un **point de terminaison** HTTP basé sur REST pouvant être intégré dans votre application, généralement un bot conversationnel. 
+
+### <a name="the-user-query-request-to-generate-an-answer"></a>Demande de requête de l’utilisateur pour générer une réponse
+
+Une **requête de l’utilisateur** est la question que l’utilisateur final pose dans la base de connaissances, telle que `How do I add a collaborator to my app?`. Cette requête est souvent dans un format de langage naturel ou bien composée de quelques mots-clés qui représentent la question, tels que `help with collaborators`. La requête est envoyée à votre base de connaissances à partir d'une **requête** HTTP dans votre application cliente.
+
+```json
+{
+    "question": "qna maker and luis",
+    "top": 6,
+    "isTest": true,
+    "scoreThreshold": 20,
+    "strictFilters": [
+    {
+        "name": "category",
+        "value": "api"
+    }],
+    "userId": "sd53lsY="
+}
+```
+
+Vous contrôlez la réponse en définissant des propriétés telles que[scoreThreshold](./confidence-score.md#choose-a-score-threshold), [top](../how-to/improve-knowledge-base.md#use-the-top-property-in-the-generateanswer-request-to-get-several-matching-answers), et [stringFilters](../how-to/metadata-generateanswer-usage.md#filter-results-with-strictfilters-for-metadata-tags).
+
+Utilisez [le contenu de la conversation](../how-to/metadata-generateanswer-usage.md#use-question-and-answer-results-to-keep-conversation-context) avec [la fonctionnalité multitour](../how-to/multiturn-conversation.md) pour que la conversation se poursuive afin d'affiner les questions et les réponses pour trouver la réponse correcte et définitive.
+
+### <a name="the-response-from-a-call-to-generate-answer"></a>Réponse d’un appel pour générer une réponse
+
+La **réponse** HTTP est la réponse extraite de la base de données. Il s’agit de la meilleure correspondance pour une requête utilisateur donnée. La réponse comprend la solution et le score de prédiction. Si vous avez demandé plusieurs réponses principales, avec la propriété `top`, vous obtenez plus d’une réponse principale, chacune avec un score. 
+
+```json
+{
+    "answers": [
+        {
+            "questions": [
+                "What is the closing time?"
+            ],
+            "answer": "10.30 PM",
+            "score": 100,
+            "id": 1,
+            "source": "Editorial",
+            "metadata": [
+                {
+                    "name": "restaurant",
+                    "value": "paradise"
+                },
+                {
+                    "name": "location",
+                    "value": "secunderabad"
+                }
+            ]
+        }
+    ]
+}
+```
+
+### <a name="test-and-production-knowledge-base"></a>Base de connaissances de test et de production
+Une base de connaissances est le référentiel de questions et réponses créées, conservées et utilisées par le biais de QnA Maker. Chaque couche QnA Maker peut servir à plusieurs bases de connaissances.
+
+Une base de connaissances peut être de test ou publiée. 
+
+La **base de connaissances de test** est la version en cours de modification, d’enregistrement et de test. Elle garantit la précision et l’exhaustivité des réponses. Les modifications apportées à la base de connaissances de test n’affectent pas l’utilisateur final de votre application ni du chatbot. La base de connaissances de test est connue comme `test` dans la requête HTTP. 
+
+La **base de connaissances publiée** est la version utilisée dans votre bot conversationnel/application. En publiant une base de connaissances, vous placez le contenu de la base de connaissances de test dans la version publiée de celle-ci. Étant donné que la base de connaissances publiée est la version utilisée par l’application via le point de terminaison, soyez vigilant. Vous devez vous assurer que le contenu est correct et bien testé. La base de connaissances de test est connue comme `prod` dans la requête HTTP. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -68,3 +132,11 @@ Les fonctionnalités utilisées incluent, mais sans s’y limiter, la sémantiqu
 ## <a name="see-also"></a>Voir aussi
 
 [Vue d’ensemble de QnA Maker](../Overview/overview.md)
+
+Créez et modifiez la base de connaissances avec : 
+* [API REST](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/qnamaker/knowledgebase)
+* [.Net SDK](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.knowledgebase?view=azure-dotnet)
+
+Générer une réponse avec : 
+* [API REST](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer)
+* [.Net SDK](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.runtime?view=azure-dotnet)

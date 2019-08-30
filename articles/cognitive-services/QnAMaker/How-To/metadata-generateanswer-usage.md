@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 06/27/2019
 ms.author: diberry
-ms.openlocfilehash: dbfa7aaccd513ffcf8ba3907911d8c49275b2ea6
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 18b901b429ee675726ef0e36535f1f97f4cdd076
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967658"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69542998"
 ---
 # <a name="get-an-answer-with-the-generateanswer-api-and-metadata"></a>Obtenir une réponse avec l’API GenerateAnswer et des métadonnées
 
@@ -228,6 +228,18 @@ Vous pouvez rechercher dans la Base de connaissances publiée à l’aide de `is
   "RankerType":"QuestionOnly"
 }
 ```
+
+## <a name="common-http-errors"></a>Erreurs HTTP courantes
+
+|Code|Explication|
+|:--|--|
+|2xx|Succès|
+|400|Les paramètres de la requête sont incorrects, ce qui signifie que les paramètres obligatoires sont manquants, incorrects ou trop grands|
+|400|Le corps de la requête est incorrect, ce qui signifie que l’objet JSON est manquant, mal formé ou trop grand|
+|401|Clé non valide|
+|403|Interdit : vous n’avez pas les autorisations appropriées|
+|404|La base de connaissances n’existe pas|
+|410|Cette API est déconseillée et n’est plus disponible.|
 
 ## <a name="next-steps"></a>Étapes suivantes
 

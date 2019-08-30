@@ -7,10 +7,6 @@
       items:
         - name: Application web dans un conteneur Linux
           href: secure-web-app.md
-    - name: Solutions conformes du secteur
-      items:
-        - name: Payment card industry
-          href: secure-pci-web-app.md
 - name: Concepts
   expanded: true
   items:

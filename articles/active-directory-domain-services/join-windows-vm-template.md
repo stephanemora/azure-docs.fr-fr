@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: iainfou
-ms.openlocfilehash: 3d16a4240b7a30a483b70b068ab7d91ca7bdcb17
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 599d474b7c45274c87878c622149a86bc93af318
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67473036"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69612275"
 ---
 # <a name="join-a-windows-server-virtual-machine-to-a-managed-domain-using-a-resource-manager-template"></a>Joindre une machine virtuelle Windows Server à un domaine géré à l’aide d’un modèle Resource Manager
 Cet article explique comment joindre une machine virtuelle Windows Server à un domaine géré Azure AD Domain Services à l’aide de modèles Resource Manager.
@@ -31,9 +31,9 @@ Cet article explique comment joindre une machine virtuelle Windows Server à un 
 Pour exécuter les tâches indiquées dans cet article, vous avez besoin des éléments suivants :
 1. Un **abonnement Azure**valide.
 2. Un **répertoire Azure AD** , synchronisé avec un répertoire local ou un répertoire cloud uniquement.
-3. **services de domaine Azure AD** , qui doivent être activés pour le répertoire Azure AD. Si ce n’est déjà fait, suivez l’ensemble des tâches décrites dans le [Guide de mise en route](create-instance.md).
-4. Veillez à configurer les adresses IP du domaine géré en tant que serveurs DNS pour le réseau virtuel. Pour plus d’informations, consultez [Comment mettre à jour les paramètres DNS pour le réseau virtuel Azure](active-directory-ds-getting-started-dns.md)
-5. Effectuez les étapes requises pour [synchroniser les mots de passe à votre domaine géré Azure Active Directory Domain Services](active-directory-ds-getting-started-password-sync.md).
+3. **services de domaine Azure AD** , qui doivent être activés pour le répertoire Azure AD. Si ce n’est déjà fait, suivez l’ensemble des tâches décrites dans le [Guide de mise en route](tutorial-create-instance.md).
+4. Veillez à configurer les adresses IP du domaine géré en tant que serveurs DNS pour le réseau virtuel. Pour plus d’informations, consultez [Comment mettre à jour les paramètres DNS pour le réseau virtuel Azure](tutorial-create-instance.md#update-dns-settings-for-the-azure-virtual-network)
+5. Effectuez les étapes requises pour [synchroniser les mots de passe à votre domaine géré Azure Active Directory Domain Services](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds).
 
 
 ## <a name="install-and-configure-required-tools"></a>Installer et configurer les outils requis
@@ -43,7 +43,7 @@ Vous pouvez utiliser l’une des options suivantes pour effectuer les étapes d�
 
 
 ## <a name="option-1-provision-a-new-windows-server-vm-and-join-it-to-a-managed-domain"></a>Option 1 : Approvisionner une nouvelle machine virtuelle Windows Server et la joindre à un domaine géré
-**Nom du modèle de démarrage rapide** : [201-vm-domain-join](https://azure.microsoft.com/resources/templates/201-vm-domain-join/)
+**nom du modèle de démarrage rapide** : [201-vm-domain-join](https://azure.microsoft.com/resources/templates/201-vm-domain-join/)
 
 Pour déployer une machine virtuelle Windows Server et la joindre à un domaine, procédez comme suit :
 1. Accédez au [modèle de démarrage rapide](https://azure.microsoft.com/resources/templates/201-vm-domain-join/).
@@ -74,7 +74,7 @@ Une fois le déploiement terminé, votre machine virtuelle Windows nouvellement 
 
 
 ## <a name="option-2-join-an-existing-windows-server-vm-to-a-managed-domain"></a>Option 2 : Joindre une machine virtuelle Windows Server existante à un domaine géré
-**Modèle de démarrage rapide** : [201-vm-domain-join-existing](https://azure.microsoft.com/resources/templates/201-vm-domain-join-existing/)
+**modèle de démarrage rapide** : [201-vm-domain-join-existing](https://azure.microsoft.com/resources/templates/201-vm-domain-join-existing/)
 
 Pour joindre une machine virtuelle Windows Server existante à un domaine géré, procédez comme suit :
 1. Accédez au [modèle de démarrage rapide](https://azure.microsoft.com/resources/templates/201-vm-domain-join-existing/).
@@ -101,6 +101,6 @@ Une fois le déploiement terminé, les machines virtuelles Windows spécifiées 
 
 ## <a name="related-content"></a>Contenu connexe
 * [Vue d’ensemble d’Azure PowerShell](/powershell/azure/overview)
-* [Modèle de démarrage rapide Azure - Jonction de domaine d’une nouvelle machine virtuelle](https://azure.microsoft.com/resources/templates/201-vm-domain-join/)
-* [Modèle de démarrage rapide Azure - Jonction de domaine de machines virtuelles existantes](https://azure.microsoft.com/resources/templates/201-vm-domain-join-existing/)
+* [Modèle de démarrage rapide Azure – Jonction de domaine d’une nouvelle machine virtuelle](https://azure.microsoft.com/resources/templates/201-vm-domain-join/)
+* [Modèle de démarrage rapide Azure – Jonction de domaine de machines virtuelles existantes](https://azure.microsoft.com/resources/templates/201-vm-domain-join-existing/)
 * [Déployer des ressources à l’aide de modèles Resource Manager et d’Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
