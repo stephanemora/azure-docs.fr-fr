@@ -8,22 +8,22 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 5bb1a4dd9d652481dfe1a2727ee0e5fe7601e96a
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 95d27bab243f6805436465f5027e519d33e20f6f
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68812757"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69563225"
 ---
-# <a name="accessing-the-vmware-solution-by-cloudsimple-portal-from-azure-portal"></a>Accès à la solution Azure VMware par CloudSimple, à partir du portail Microsoft Azure
+# <a name="access-the-vmware-solution-by-cloudsimple-portal-from-the-azure-portal"></a>Accédez à la solution VMware de CloudSimple à partir du portail Azure
 
 L’authentification unique est prise en charge pour l’accès au portail CloudSimple. Une fois connecté au portail Microsoft Azure, vous pouvez accéder au portail CloudSimple sans avoir à vous connecter à nouveau. La première fois que vous accédez au portail CloudSimple, vous êtes invité à autoriser l’application [Autorisation du Service CloudSimple](#consent-to-cloudsimple-service-authorization-application).  L’autorisation n’est effectuée qu’une seule fois.
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-Les utilisateurs disposant des rôles **Propriétaire** et **Contributeur** peuvent accéder au portail CloudSimple.  Les rôles doivent être configurés sur le groupe de ressources dans lequel le service CloudSimple est déployé.  Ils peuvent également être configurés sur l’objet de service CloudSimple.  Pour en savoir plus sur la vérification de votre rôle, consultez l’article [Voir les attributions de rôles](https://docs.microsoft.com/azure/role-based-access-control/check-access).
+Les utilisateurs disposant des rôles **Propriétaire** et **Contributeur** peuvent accéder au portail CloudSimple.  Les rôles doivent être configurés sur le groupe de ressources dans lequel le service CloudSimple est déployé.  Ils peuvent également être configurés sur l’objet de service CloudSimple.  Pour en savoir plus sur la vérification de votre rôle, consultez l’article [Voir les attributions de rôles](https://docs.microsoft.com/azure/role-based-access-control/check-access). Seuls les utilisateurs disposant de rôles **Propriétaire** et **Contributeur** intégrés peuvent accéder au portail CloudSimple.  Les rôles doivent être configurés sur l’abonnement.  Pour en savoir plus sur la vérification de votre rôle, consultez l’article [Voir les attributions de rôles](https://docs.microsoft.com/azure/role-based-access-control/check-access).
 
-Si vous utilisez un rôle personnalisé, il doit inclure l’une des opérations suivantes sous ```Actions```.  Pour en savoir plus sur les rôles personnalisés, voir [Rôles personnalisés pour les ressources Azure](https://docs.microsoft.com/azure/role-based-access-control/custom-roles).  Si l’une des opérations ne fait pas partie de ```NotActions```, l’utilisateur ne peut pas accéder au portail CloudSimple. 
+Si vous utilisez un rôle personnalisé, il doit inclure l’une des opérations suivantes sous ```Actions```.  Pour en savoir plus sur les rôles personnalisés, voir [Rôles personnalisés pour les ressources Azure](https://docs.microsoft.com/azure/role-based-access-control/custom-roles).  Si l’une des opérations ne fait pas partie de ```NotActions```, l’utilisateur ne peut pas accéder au portail CloudSimple.
 
 ```
 Microsoft.VMwareCloudSimple/*
@@ -48,7 +48,7 @@ Connectez-vous au portail Azure sur [https://portal.azure.com](https://portal.az
 
     ![Lancer le portail CloudSimple](media/launch-cloudsimple-portal.png)
 
-> [!TIP]
+> [!NOTE]
 > Si vous sélectionnez une opération de cloud privé (par exemple, la création ou le développement d’un cloud privé) directement depuis le portail Microsoft Azure, le portail CloudSimple s’ouvre à la page indiquée.
 
 Dans le portail CloudSimple, sélectionnez **Accueil** dans le menu latéral pour afficher un récapitulatif des informations concernant vos Clouds privés. Les ressources et la capacité de vos Clouds privés sont affichées, ainsi que des alertes et les tâches qui nécessitent votre attention. Pour les tâches courantes, cliquez sur les icônes nommées en haut de la page.
@@ -57,7 +57,7 @@ Dans le portail CloudSimple, sélectionnez **Accueil** dans le menu latéral pou
 
 ## <a name="consent-to-cloudsimple-service-authorization-application"></a>Consentement pour l’application Autorisation du Service CloudSimple
 
-Si vous démarrez le portail CloudSimple depuis le portail Microsoft Azure pour la première fois, vous êtes invité à autoriser l’application Autorisation du Service CloudSimple.  Sélectionnez **Accepter** pour accorder les autorisations demandées et accéder au portail CloudSimple. 
+Si vous démarrez le portail CloudSimple depuis le portail Microsoft Azure pour la première fois, vous êtes invité à autoriser l’application Autorisation du Service CloudSimple.  Sélectionnez **Accepter** pour accorder les autorisations demandées et accéder au portail CloudSimple.
 
 ![Consentement pour l’application Autorisation du Service CloudSimple - Administrateurs](media/cloudsimple-azure-consent.png)
 

@@ -13,32 +13,33 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/16/2017
 ms.author: genli
-ms.openlocfilehash: e1e91ec4393072a7da78c0de800cab26608c74d6
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: b1aca591437738b29786f50c2a5291ab456f3416
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67709335"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69876693"
 ---
 # <a name="troubleshoot-a-linux-vm-by-attaching-the-os-disk-to-a-recovery-vm-with-the-azure-cli"></a>Résoudre les problèmes d’une machine virtuelle Linux en attachant le disque de système d’exploitation à une machine virtuelle de récupération avec Azure CLI
 Si votre machine virtuelle Linux rencontre une erreur de démarrage ou de disque, il vous faudra éventuellement appliquer la procédure de dépannage directement sur le disque dur virtuel. Comme exemple courant, citons une entrée non valide dans `/etc/fstab` qui empêche le bon démarrage de la machine virtuelle. Cet article vous explique comment utiliser l’interface de ligne de commande Azure pour connecter votre disque dur virtuel à une autre machine virtuelle Linux pour corriger les éventuelles erreurs, puis pour régénérer votre machine virtuelle d’origine. 
 
-
 ## <a name="recovery-process-overview"></a>Vue d’ensemble du processus de récupération
 Le processus de résolution de problème se présente comme suit :
 
-1. Supprimez les machines virtuelles présentant des erreurs, en conservant les disques durs virtuels.
-2. Fixez et montez le disque dur virtuel sur une autre machine virtuelle Linux, à des fins de résolution des problèmes.
-3. Connectez-vous à la machine virtuelle de dépannage. Modifiez les fichiers ou exécutez des outils afin de corriger les problèmes sur le disque dur virtuel d’origine.
-4. Démontez le disque dur virtuel d’origine et dissociez-le de la machine virtuelle de dépannage.
-5. Créez une machine virtuelle à l’aide du disque dur virtuel d’origine.
-
-Pour la machine virtuelle qui utilise le disque managé, consultez [Résoudre les problèmes d’une machine virtuelle avec disque managé en attachant un nouveau disque de système d’exploitation](#troubleshoot-a-managed-disk-vm-by-attaching-a-new-os-disk).
+1. Arrêter la machine virtuelle affectée.
+1. Prenez une capture instantanée du disque du système d’exploitation de la machine virtuelle.
+1. Créer un disque à partir de la capture instantanée du disque de système d’exploitation.
+1. Joignez et montez le disque dur virtuel sur une autre machine virtuelle Linux à des fins de résolution des problèmes.
+1. Connectez-vous à la machine virtuelle de dépannage. Modifiez les fichiers ou exécutez des outils afin de corriger les problèmes du nouveau disque du système d’exploitation.
+1. Démontez et détachez le nouveau disque de système d’exploitation de la machine virtuelle de résolution des problèmes.
+1. Changer le disque de système d’exploitation pour la machine virtuelle affectée.
 
 Pour effectuer ces étapes de dépannage, vous devez installer la dernière version [d’Azure CLI](/cli/azure/install-az-cli2) et vous connecter à un compte Azure avec [az login](/cli/azure/reference-index).
 
-Dans les exemples suivants, remplacez les noms de paramètres avec vos propres valeurs. Exemples de noms de paramètre : `myResourceGroup`, `mystorageaccount` et `myVM`.
+> [!Important]
+> Les scripts dans cet article s’appliquent uniquement aux machines virtuelles qui utilisent [Disque managé](../linux/managed-disks-overview.md). 
 
+Dans les exemples suivants, remplacez les noms de paramètres par vos propres valeurs, telles que `myResourceGroup` et `myVM`.
 
 ## <a name="determine-boot-issues"></a>Identifier les problèmes de démarrage
 Examinez la sortie en série afin d’identifier la raison pour laquelle votre machine virtuelle ne démarre pas correctement. Comme exemple courant, citons une entrée non valide dans `/etc/fstab`, ou le disque dur virtuel en cours de suppression ou de déplacement.
@@ -51,44 +52,75 @@ az vm boot-diagnostics get-boot-log --resource-group myResourceGroup --name myVM
 
 Examinez la sortie en série afin d’identifier la raison pour laquelle le démarrage de la machine virtuelle est mis en échec. Si la sortie en série ne fournit aucune indication, il vous faudra éventuellement passer en revue les fichiers journaux de `/var/log` une fois que le disque dur virtuel est connecté à une machine virtuelle de dépannage.
 
+## <a name="stop-the-vm"></a>Arrêtez la machine virtuelle.
 
-## <a name="view-existing-virtual-hard-disk-details"></a>Afficher les détails du disque dur virtuel existant
-Avant de pouvoir associer votre disque dur virtuel à une autre machine virtuelle, vous devez identifier l’URI du disque du système d’exploitation. 
-
-Pour afficher des informations sur votre machine virtuelle, utilisez la commande [az vm show](/cli/azure/vm). Utilisez l’indicateur `--query` pour extraire l’URI du disque du système d’exploitation. L’exemple suivant récupère des informations de disque pour la machine virtuelle `myVM` dans le groupe de ressources `myResourceGroup` :
+L’exemple suivant arrête la machine virtuelle nommée `myVM` dans le groupe de ressource nommé `myResourceGroup` :
 
 ```azurecli
-az vm show --resource-group myResourceGroup --name myVM \
-    --query [storageProfile.osDisk.vhd.uri] --output tsv
+az vm stop --resource-group MyResourceGroup --name MyVm
 ```
+## <a name="take-a-snapshot-from-the-os-disk-of-the-affected-vm"></a>Prenez une capture instantanée du disque du système d’exploitation de la machine virtuelle concernée.
 
-L’URI se présente ainsi : **https://mystorageaccount.blob.core.windows.net/vhds/myVM.vhd** .
-
-## <a name="delete-existing-vm"></a>Supprimer une machine virtuelle existante
-Les disques durs virtuels et les machines virtuelles sont deux ressources distinctes dans Azure. Le disque dur virtuel est l’emplacement de stockage du système d’exploitation, des applications et des configurations. La machine virtuelle correspond à des métadonnées définissant la taille ou l’emplacement ; elle référence des ressources comme un disque dur virtuel ou une carte d’interface réseau virtuelle (NIC). Chaque disque dur virtuel associé à une machine virtuelle se voit attribuer un bail. Bien que l’association et la dissociation des disques de données puisse s’effectuer pendant l’exécution de la machine virtuelle, le disque du système d’exploitation ne peut pas être dissocié, sauf si la ressource de machine virtuelle est supprimée. Le bail continue à associer le disque du système d’exploitation à une machine virtuelle, même lorsque cette machine virtuelle se trouve dans un état d’arrêt ou de libération.
-
-La première étape de la récupération de votre machine virtuelle consiste à supprimer la ressource de machine virtuelle. En supprimant la machine virtuelle, vous ne vous séparez pas des disques durs virtuels de votre compte de stockage. Une fois la machine virtuelle supprimée, vous associez le disque dur virtuel à une autre machine virtuelle afin de réparer et de corriger les erreurs.
-
-Supprimez la machine virtuelle avec la commande [az vm delete](/cli/azure/vm). L’exemple suivant supprime la machine virtuelle nommée `myVM` du groupe de ressource nommé `myResourceGroup` :
+Une capture instantanée est une copie complète en lecture seule d’un disque dur virtuel. Elle ne peut pas être attachée à une machine virtuelle. Dans l’étape suivante, vous allez créer un disque à partir de cet instantané. L’exemple suivant crée une capture instantanée avec le nom `mySnapshot` à partir du disque de système d’exploitation de la machine virtuelle nommée « myVM ». 
 
 ```azurecli
-az vm delete --resource-group myResourceGroup --name myVM 
+#Get the OS disk Id 
+$osdiskid=(az vm show -g myResourceGroup -n myVM --query "storageProfile.osDisk.managedDisk.id" -o tsv)
+
+#creates a snapshot of the disk
+az snapshot create --resource-group myResourceGroupDisk --source "$osdiskid" --name mySnapshot
 ```
+## <a name="create-a-disk-from-the-snapshot"></a>Créer un disque à partir de la capture instantanée
 
-Attendez la suppression définitive de la machine virtuelle avant d’associer le disque dur virtuel à une autre machine virtuelle. Le bail du disque dur virtuel, qui l’associe à la machine virtuelle, doit être libéré avant l’association du disque dur virtuel à une autre machine virtuelle.
-
-
-## <a name="attach-existing-virtual-hard-disk-to-another-vm"></a>Associer un disque dur virtuel existant à une autre machine virtuelle
-Pour les prochaines étapes, vous utilisez une autre machine virtuelle à des fins de résolution des problèmes. Vous associez le disque dur virtuel existant à cette machine virtuelle de dépannage et modifiez le contenu du disque. Ce processus vous permet de corriger les éventuelles erreurs de configuration ou d’examiner des fichiers journaux supplémentaires de système ou d’application, par exemple. Sélectionnez ou créez une autre machine virtuelle à des fins de résolution des problèmes.
-
-Attachez le disque dur virtuel existant avec la commande [az vm unmanaged-disk attach](/cli/azure/vm/unmanaged-disk). Lorsque vous associez le disque dur virtuel existant, spécifiez l’URI du disque obtenu dans la commande `az vm show` précédente. L’exemple suivant associe un disque dur virtuel existant à la machine virtuelle de dépannage nommée `myVMRecovery` dans le groupe de ressources nommé `myResourceGroup` :
+Ce script crée un disque managé portant le nom `myOSDisk` à partir de l’instantané nommé `mySnapshot`.  
 
 ```azurecli
-az vm unmanaged-disk attach --resource-group myResourceGroup --vm-name myVMRecovery \
-    --vhd-uri https://mystorageaccount.blob.core.windows.net/vhds/myVM.vhd
+#Provide the name of your resource group
+$resourceGroup=myResourceGroup
+
+#Provide the name of the snapshot that will be used to create Managed Disks
+$snapshot=mySnapshot
+
+#Provide the name of the Managed Disk
+$osDisk=myNewOSDisk
+
+#Provide the size of the disks in GB. It should be greater than the VHD file size.
+$diskSize=128
+
+#Provide the storage type for Managed Disk. Premium_LRS or Standard_LRS.
+$storageType=Premium_LRS
+
+#Provide the OS type
+$osType=linux
+
+#Provide the name of the virtual machine
+$virtualMachine=myVM
+
+#Get the snapshot Id 
+$snapshotId=(az snapshot show --name $snapshot --resource-group $resourceGroup --query [id] -o tsv)
+
+# Create a new Managed Disks using the snapshot Id.
+
+az disk create --resource-group $resourceGroup --name $osDisk --sku $storageType --size-gb $diskSize --source $snapshotId
+
 ```
 
+Si le groupe de ressources et l’instantané source ne se trouvent pas dans la même région, vous recevrez ce message d’erreur « la ressource est introuvable » lorsque vous exécutez `az disk create`. Dans ce cas, vous devez indiquer `--location <region>` pour créer le disque dans la même région que l’instantané source.
 
+Vous disposez maintenant d’une copie du disque de système d’exploitation d’origine. Vous pouvez monter ce disque sur une autre machine virtuelle Windows à des fins de résolution des problèmes.
+
+## <a name="attach-the-new-virtual-hard-disk-to-another-vm"></a>Joignez le nouveau disque dur virtuel existant sur une autre machine virtuelle
+Pour les prochaines étapes, vous utilisez une autre machine virtuelle à des fins de résolution des problèmes. Vous joignez le disque à cette machine virtuelle de résolution des problèmes et modifiez le contenu du disque. Ce processus vous permet de corriger les éventuelles erreurs de configuration ou d'examiner d'autres fichiers journaux du système ou des applications.
+
+Ce script joint le disque `myNewOSDisk` à la machine virtuelle `MyTroubleshootVM` :
+
+```azurecli
+# Get ID of the OS disk that you just created.
+$myNewOSDiskid=(az vm show -g myResourceGroupDisk -n myNewOSDisk --query "storageProfile.osDisk.managedDisk.id" -o tsv)
+
+# Attach the disk to the troubleshooting VM
+az vm disk attach --disk $diskId --resource-group MyResourceGroup --size-gb 128 --sku Standard_LRS --vm-name MyTroubleshootVM
+```
 ## <a name="mount-the-attached-data-disk"></a>Monter le disque de données associé
 
 > [!NOTE]
@@ -128,11 +160,11 @@ az vm unmanaged-disk attach --resource-group myResourceGroup --vm-name myVMRecov
     > Nous vous recommandons de monter les disques de données sur les machines virtuelles à l’aide de l’identifiant unique universel (UUID) du disque dur virtuel. Pour ce scénario court de résolution des problèmes, il n’est pas nécessaire de monter le disque dur virtuel à l’aide de l’UUID. Toutefois, dans des conditions normales, la modification de `/etc/fstab` pour monter les disques durs virtuels avec le nom d’appareil en lieu et place de l’UUID peut entraîner la mise en échec du démarrage de la machine virtuelle.
 
 
-## <a name="fix-issues-on-original-virtual-hard-disk"></a>Résoudre des problèmes sur le disque dur virtuel d’origine
+## <a name="fix-issues-on-the-new-os-disk"></a>Résoudre les problèmes sur le nouveau disque de système d’exploitation
 Avec le disque dur virtuel existant monté, vous pouvez désormais exécuter les procédures de maintenance et de dépannage requises. Une fois que vous avez résolu les problèmes, passez aux étapes suivantes.
 
 
-## <a name="unmount-and-detach-original-virtual-hard-disk"></a>Démonter et dissocier le disque dur virtuel d’origine
+## <a name="unmount-and-detach-the-new-os-disk"></a>Démontez et détachez le nouveau disque de système d’exploitation
 Une fois les erreurs résolues, vous démontez et dissociez le disque dur virtuel existant de votre machine virtuelle de dépannage. Vous ne pouvez pas utiliser votre disque dur virtuel avec une autre machine virtuelle avant la libération du bail associant le disque dur virtuel à la machine virtuelle de dépannage.
 
 1. À partir de la session SSH vers votre machine virtuelle de dépannage, démontez le disque dur virtuel existant. Commencez par modifier votre point de montage dans le répertoire parent :
@@ -147,52 +179,31 @@ Une fois les erreurs résolues, vous démontez et dissociez le disque dur virtue
     sudo umount /dev/sdc1
     ```
 
-2. Dissociez le disque dur virtuel de la machine virtuelle. Quittez la session SSH vers votre machine virtuelle de dépannage. Utilisez la commande [az vm unmanaged-disk list](/cli/azure/vm/unmanaged-disk) pour répertorier les disques de données associés à votre machine virtuelle de dépannage. L’exemple suivant répertorie les disques de données associés à la machine virtuelle nommée `myVMRecovery` dans le groupe de ressources nommé `myResourceGroup` :
+2. Dissociez le disque dur virtuel de la machine virtuelle. Quittez la session SSH vers votre machine virtuelle de résolution des problèmes :
 
     ```azurecli
-    azure vm unmanaged-disk list --resource-group myResourceGroup --vm-name myVMRecovery \
-        --query '[].{Disk:vhd.uri}' --output table
+    az vm disk detach -g MyResourceGroup --vm-name MyTroubleShootVm --name myNewOSDisk
     ```
 
-    Notez le nom de votre disque dur virtuel existant. Par exemple, le nom d’un disque ayant comme URI **https://mystorageaccount.blob.core.windows.net/vhds/myVM.vhd** est **myVHD**. 
+## <a name="change-the-os-disk-for-the-affected-vm"></a>Changer le disque de système d’exploitation pour la machine virtuelle affectée
 
-    Détachez le disque de données de votre machine virtuelle à l’aide de la commande [az vm unmanaged-disk detach](/cli/azure/vm/unmanaged-disk). L’exemple suivant supprime la machine virtuelle nommée `myVHD` du groupe de ressources `myVMRecovery` dans le groupe de ressources `myResourceGroup` :
+Vous pouvez utiliser Azure CLI pour échanger les disques de système d’exploitation. Il est inutile de supprimer et de recréer la machine virtuelle.
 
-    ```azurecli
-    az vm unmanaged-disk detach --resource-group myResourceGroup --vm-name myVMRecovery \
-        --name myVHD
-    ```
-
-
-## <a name="create-vm-from-original-hard-disk"></a>Créer une machine virtuelle à partir du disque dur d’origine
-Pour créer une machine virtuelle à partir de votre disque dur d’origine, utilisez [ce modèle Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd). Le véritable modèle JSON se trouve sur le lien suivant :
-
-- https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-specialized-vhd-new-or-existing-vnet/azuredeploy.json
-
-Le modèle déploie une machine virtuelle à l’aide de l’URI du disque dur virtuel, à partir de la commande précédente. Déployez ensuite le modèle avec la commande [az group deployment create](/cli/azure/group/deployment). Indiquez l’URI de votre disque dur virtuel d’origine, puis spécifiez le type de système d’exploitation, la taille de la machine virtuelle et son nom, comme suit :
+Cet exemple arrête la machine virtuelle nommée `myVM` et affecte le disque nommé `myNewOSDisk` en tant que nouveau disque de système d’exploitation.
 
 ```azurecli
-az group deployment create --resource-group myResourceGroup --name myDeployment \
-  --parameters '{"osDiskVhdUri": {"value": "https://mystorageaccount.blob.core.windows.net/vhds/myVM.vhd"},
-    "osType": {"value": "Linux"},
-    "vmSize": {"value": "Standard_DS1_v2"},
-    "vmName": {"value": "myDeployedVM"}}' \
-    --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vm-specialized-vhd/azuredeploy.json
+# Stop the affected VM
+az vm stop -n myVM -g myResourceGroup
+
+# Get ID of the OS disk that is repaired.
+$myNewOSDiskid=(az vm show -g myResourceGroupDisk -n myNewOSDisk --query "storageProfile.osDisk.managedDisk.id" -o tsv)
+
+# Change the OS disk of the affected VM to "myNewOSDisk"
+az vm update -g myResourceGroup -n myVM --os-disk $myNewOSDiskid
+
+# Start the VM
+az vm start -n myVM -g myResourceGroup
 ```
-
-## <a name="re-enable-boot-diagnostics"></a>Réactiver les diagnostics de démarrage
-Lorsque vous créez votre machine virtuelle à partir du disque dur virtuel existant, les diagnostics de démarrage peuvent ne pas être automatiquement activés. Activez les diagnostics de démarrage avec la commande [az vm boot-diagnostics enable](/cli/azure/vm/boot-diagnostics). L’exemple suivant active l’extension de diagnostic sur la machine virtuelle nommée `myDeployedVM`, dans le groupe de ressources nommé `myResourceGroup` :
-
-```azurecli
-az vm boot-diagnostics enable --resource-group myResourceGroup --name myDeployedVM
-```
-
-## <a name="troubleshoot-a-managed-disk-vm-by-attaching-a-new-os-disk"></a>Résoudre les problèmes d’une machine virtuelle avec disque managé en attachant un nouveau disque de système d’exploitation
-1. Arrêtez la machine virtuelle affectée.
-2. [Créez une capture instantanée de disque managé](../linux/snapshot-copy-managed-disk.md) du disque de système d’exploitation de la machine virtuelle avec disque managé.
-3. [Créez un disque managé à partir de la capture instantanée](../scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-snapshot.md).
-4. [Attachez le disque managé en tant que disque de données de la machine virtuelle](../windows/attach-disk-ps.md).
-5. [Transformez le disque de données de l’étape 4 en disque de système d’exploitation](../windows/os-disk-swap.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 Si vous rencontrez des problèmes pour vous connecter à votre machine virtuelle, consultez la rubrique [Dépannage d’une connexion SSH à une machine virtuelle Linux Azure défaillante, qui génère une erreur ou qui est refusée](troubleshoot-ssh-connection.md). Pour résoudre les problèmes liés à l’accès aux applications exécutées sur votre machine virtuelle, consultez la section [Résoudre les problèmes de connectivité des applications sur une machine virtuelle Linux Azure](troubleshoot-app-connection.md).
