@@ -66,17 +66,19 @@
           href: ./domain-joined-zeppelin-signin.md
 - name: Informations de référence
   items:
+    - name: Configurations de nœuds prises en charge
+      href: ../hdinsight-supported-node-configuration.md
     - name: Exemples de code
       href: 'https://azure.microsoft.com/resources/samples/?service=hdinsight'
     - name: Azure PowerShell
       href: /powershell/module/az.hdinsight
-    - name: Kit SDK .NET
+    - name: Kit de développement logiciel (SDK) .NET
       href: 'https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet'
-    - name: Kit SDK Python
+    - name: Kit de développement logiciel (SDK) Python
       href: 'https://docs.microsoft.com/python/api/overview/azure/hdinsight?view=azure-python'
-    - name: Kit SDK Java
+    - name: Kit de développement logiciel (SDK) Java
       href: 'https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-preview'
-    - name: Kit SDK Go
+    - name: Kit de développement logiciel (SDK) Go
       href: ../hdinsight-go-sdk-overview.md?toc=/azure/hdinsight/domain-joined/toc.json&bc=/azure/hdinsight/domain-joined/breadcrumb/toc.json
     - name: .NET (Apache HBase)
       href: 'https://www.nuget.org/packages/Microsoft.HBase.Client/'

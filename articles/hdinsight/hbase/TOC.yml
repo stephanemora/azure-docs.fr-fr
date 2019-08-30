@@ -210,6 +210,8 @@
               href: ../hdinsight-hadoop-optimize-hive-query.md?toc=/azure/hdinsight/hbase/toc.json&bc=/azure/hdinsight/hbase/breadcrumb/toc.json
 - name: Informations de référence
   items:
+    - name: Configurations de nœuds prises en charge
+      href: ../hdinsight-supported-node-configuration.md
     - name: Exemples de code
       href: 'https://azure.microsoft.com/resources/samples/?service=hdinsight'
     - name: Azure PowerShell

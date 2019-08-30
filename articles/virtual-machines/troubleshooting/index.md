@@ -8,74 +8,81 @@ manager: gwallace
 ms.assetid: ''
 ms.service: virtual-machines
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: landing-page
 ms.date: 10/3/2018
 ms.author: genli
-ms.openlocfilehash: 1db5829abd52a1b010d38dd8e9151ab2df3f1de5
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: ed1873fa8e74b2af5734411dc80aeb9089b61a7e
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68854400"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70080450"
 ---
 # <a name="troubleshooting-azure-virtual-machines"></a>Résolution des problèmes liés aux machines virtuelles Azure
 
-- Échecs d’allocation
-    - [Échecs d’allocation](allocation-failure.md)
-    - [Échecs d’allocation pour les déploiements classiques](allocation-failure-classic.md)
+## <a name="tools-for-troubleshooting"></a>Outils de résolution des problèmes
+
+- [Console série](serial-console-windows.md)
 - [Diagnostics de démarrage](boot-diagnostics.md)
-- RDP
-    - [Réinitialiser RDP](reset-rdp.md)
-    - [Dépannage pour RDP](troubleshoot-rdp-connection.md)
-    - [Dépannage détaillé pour RDP](detailed-troubleshoot-rdp.md)
-    - [Dépannage d’erreurs spécifiques](troubleshoot-specific-rdp-errors.md)
-- SSH 
-    - [Résolution des problèmes SSH](troubleshoot-ssh-connection.md)
-    - [Résolution des problèmes SSH détaillée](detailed-troubleshoot-ssh-connection.md)
-    - [Messages d’erreur courants](error-messages.md)
-- [Installer l’agent de machine virtuelle Windows en mode hors connexion](install-vm-agent-offline.md)
-- Résoudre les problèmes de performance des machines virtuelles
-    - [Problèmes de performances avec les machines virtuelles](performance-diagnostics.md)
-    - Windows
-        - [Guide pratique pour utiliser PerfInsights](how-to-use-perfinsights.md)
-        - [Extension de diagnostics de performance](performance-diagnostics-vm-extension.md)
-    - Linux
-        - [Guide pratique pour utiliser PerfInsights](how-to-use-perfinsights-linux.md)
+- [Machine virtuelle Windows : Attacher le disque du système d’exploitation à une autre machine virtuelle pour la résolution de problèmes](troubleshoot-recovery-disks-portal-windows.md)
+- [Machine virtuelle Linux : Attacher le disque du système d’exploitation à une autre machine virtuelle pour la résolution de problèmes](troubleshoot-recovery-disks-portal-linux.md)
+
+## <a name="cant-connect-to-the-vm"></a>Impossible de se connecter à la machine virtuelle
+
+### <a name="windows"></a>Windows
+
+**Solution courante**
+
+- [Réinitialiser RDP](reset-rdp.md)
+- [Dépannage pour RDP](troubleshoot-rdp-connection.md)
+- [Dépannage détaillé pour RDP](detailed-troubleshoot-rdp.md)
+
+**Erreurs RDP**
+
+- [Absence de serveur de licences](troubleshoot-rdp-no-license-server.md)
+- [Une erreur interne ](Troubleshoot-rdp-internal-error.md)
+- [erreurs d’authentification](troubleshoot-authentication-error-rdp-vm.md)
+- [Dépannage d’erreurs spécifiques](troubleshoot-specific-rdp-errors.md)
+
+**Erreurs de démarrage de machine virtuelle**
+
+* [Erreurs de démarrage BitLocker](troubleshoot-bitlocker-boot-error.md) 
+* [Windows indique « Vérification du système de fichiers » pendant le démarrage](troubleshoot-check-disk-boot-error.md)
+* [Erreurs liées à un écran bleu](troubleshoot-common-blue-screen-error.md)
+* [Le démarrage de la machine virtuelle est bloqué sur « Préparation de Windows](troubleshoot-vm-boot-configure-update.md)
+* [Erreur « Échec du service critique » sur écran bleu](troubleshoot-critical-service-failed-boot-error.md)
+* [Problème de boucle de redémarrage](troubleshoot-reboot-loop.md)
+* [Le démarrage de la machine virtuelle est bloqué au niveau de la mise à jour de Windows](troubleshoot-stuck-updating-boot-error.md)
+* [La machine virtuelle démarre en mode sans échec](troubleshoot-rdp-safe-mode.md)
+
+**Autres**
+- [Réinitialiser le mot de passe de la machine virtuelle Windows en mode hors connexion](reset-local-password-without-agent.md)
+- [Réinitialiser la carte réseau après une configuration incorrecte](reset-network-interface.md)
+
+### <a name="linux"></a>Linux
+
+- [Résolution des problèmes SSH](troubleshoot-ssh-connection.md)
+- [Résolution des problèmes SSH détaillée](detailed-troubleshoot-ssh-connection.md)
+- [Messages d’erreur courants](error-messages.md)
+- [Réinitialiser le mot de passe de la machine virtuelle Linux en mode hors connexion](reset-password.md)
+
+## <a name="vm-deployment-issues"></a>Problèmes de déploiement de machine virtuelle
+
+- [Échecs d’allocation](allocation-failure.md)
 - Redéploiement d’une machine virtuelle
     - [Linux](redeploy-to-new-node-linux.md)
     - [Windows](redeploy-to-new-node-windows.md)
-- Réinitialiser le mot de passe de la machine virtuelle
-    - [Windows](reset-local-password-without-agent.md)
-    - [Linux](reset-password.md)
-- [Réinitialiser la carte d’interface réseau](reset-network-interface.md)
-- [Redémarrage ou redimensionnement d’une machine virtuelle](restart-resize-error-troubleshooting.md)
-- Utiliser la console série
-    - [Machine virtuelle Linux](serial-console-linux.md)
-        - [Console série GRUB/Mode utilisateur unique](serial-console-grub-single-user-mode.md)
-        - [Console série NMI/SysRq](serial-console-nmi-sysrq.md)
-    - [Machine virtuelle Windows](serial-console-windows.md)
-        - [CMD et commandes PowerShell](serial-console-cmd-ps-commands.md)
-- [Erreurs lors de la suppression des ressources de stockage](storage-resource-deletion-errors.md      )
-- [Redémarrages inattendus de machines virtuelles avec des VHD joints](unexpected-reboots-attached-vhds.md)
-- [Problèmes d’activation de Windows](troubleshoot-activation-problems.md)
-- [Problèmes d’accès à l’application](troubleshoot-app-connection.md)
 - Dépanner les déploiements
     - [Linux](troubleshoot-deploy-vm-linux.md)
     - [Windows](troubleshoot-deploy-vm-windows.md)
 - [Les noms d’appareil changent](troubleshoot-device-names-problems.md)
-- Accès à la récupération d’une machine virtuelle
-    - Windows
-        - [PowerShell](troubleshoot-recovery-disks-windows.md)
-        - [Portail Azure](troubleshoot-recovery-disks-portal-windows.md)
-    - Linux
-        - [INTERFACE DE LIGNE DE COMMANDE](troubleshoot-recovery-disks-linux.md)
-    - [Portail Azure](troubleshoot-recovery-disks-portal-linux.md)
-- [Erreurs de démarrage](boot-error-troubleshoot.md)
-- [Erreurs de BitLocker](troubleshoot-bitlocker-boot-error.md)
-- [Vérification des erreurs du système de fichiers](troubleshoot-check-disk-boot-error.md)
-- [Erreurs liées à un écran bleu](troubleshoot-common-blue-screen-error.md)
-- [Erreurs de limitation](troubleshooting-throttling-errors.md)
-- [Utiliser la virtualisation imbriquée](troubleshoot-vm-by-use-nested-virtualization.md)
-- [Comprendre un redémarrage du système](understand-vm-reboot.md)
+- [Installer l’agent de machine virtuelle Windows en mode hors connexion](install-vm-agent-offline.md)
+- [Redémarrage ou redimensionnement d’une machine virtuelle](restart-resize-error-troubleshooting.md)
 
+## <a name="vm-performance-issue"></a>Problème de performances de machine virtuelle
+- [Problèmes de performances avec les machines virtuelles](performance-diagnostics.md)
+- Windows
+    - [Guide pratique pour utiliser PerfInsights](how-to-use-perfinsights.md)
+    - [Extension de diagnostics de performance](performance-diagnostics-vm-extension.md)
+- Linux
+    - [Guide pratique pour utiliser PerfInsights](how-to-use-perfinsights-linux.md)
