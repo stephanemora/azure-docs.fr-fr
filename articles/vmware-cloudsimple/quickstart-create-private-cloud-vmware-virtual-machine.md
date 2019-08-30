@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 4e1642366d41906035e1ba1b7f75d0ad875c739b
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.openlocfilehash: 8d4712ca57801c15510ffcaf54852ce9287d343b
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69574623"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972402"
 ---
 # <a name="create-vmware-virtual-machines-on-your-private-cloud"></a>Créer des machines virtuelles VMware sur votre cloud privé
 
@@ -143,7 +143,7 @@ Les pages Network (Réseau) du portail CloudSimple vous permettent de spécifier
 
     ![Adresse IP publique](media/quick-create-pc-public-ip.png)
 
-La tâche d'attribution de l'adresse IP publique commence. Vous pouvez vérifier l'état de la tâche sur la page **Activity > Tasks** (Activité > Tâches). Une fois l'attribution terminée, la nouvelle entrée s’affiche sur la page des adresses IP publiques. 
+La tâche d'attribution de l'adresse IP publique commence. Vous pouvez vérifier l'état de la tâche sur la page **Activity > Tasks** (Activité > Tâches). Une fois l'attribution terminée, la nouvelle entrée s’affiche sur la page des adresses IP publiques.
 
 Vous devez configurer la machine virtuelle à laquelle cette adresse IP doit être mappée à l’aide de l’adresse locale spécifiée ci-dessus. La procédure de configuration d’une adresse IP est spécifique au système d’exploitation de la machine virtuelle. Consultez la documentation du système d’exploitation de votre machine virtuelle pour connaître la procédure appropriée.
 
@@ -205,7 +205,7 @@ or
 ```
 python3 -m http.server 80
 ```
-Démarrez un navigateur sur votre poste de travail, puis faites-le pointer sur le port 80 pour que l’adresse IP publique puisse parcourir les fichiers de votre machine virtuelle. 
+Démarrez un navigateur sur votre poste de travail, puis faites-le pointer sur le port 80 pour que l’adresse IP publique puisse parcourir les fichiers de votre machine virtuelle.
 
 ### <a name="default-cloudsimple-firewall-rules-for-public-ip"></a>Règles de pare-feu CloudSimple par défaut pour les adresses IP publiques
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 08/15/2019
 ms.author: mbullwin
-ms.openlocfilehash: 77c5285462c4368badd63d7cdbf6589c7ad03c8d
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: f72feeefeb896c9006f767f8724d9ca3b3640c1e
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69534503"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70035232"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights pour les pages web
 
@@ -36,7 +36,7 @@ Vous pouvez utiliser Application Insights avec toutes les pages web ; il vous s
 > [!IMPORTANT]
 > Vous devez uniquement utiliser l’une des méthodes ci-dessous pour ajouter le kit SDK JavaScript Application Insights à votre application. Si vous utilisez la configuration basée sur NPM, n’utilisez pas celle basée sur un extrait de code. Il en va de même pour le scénario inverse lorsque vous utilisez l’approche basée sur un extrait, n’utilisez pas également la configuration basée sur NPM. 
 
-### <a name="npm-based-setup"></a>Configuration basée sur NPM 
+### <a name="npm-based-setup"></a>Configuration basée sur NPM
 
 ```js
 import { ApplicationInsights } from '@microsoft/applicationinsights-web'
@@ -198,7 +198,7 @@ La pile d’appels minimisée de vos données de télémétrie d’exception peu
 2. Identifiez les mappages de source qui correspondent à cette pile d’appels. Le mappage de source doit correspondre au fichier source d’un frame de pile, mais avec le suffixe `.map`
 3. Glissez-déplacez les mappages de source sur la pile des appels dans le portail Azure ![](https://i.imgur.com/Efue9nU.gif)
 
-## <a name="application-insights-web-basic"></a>Version web de base d’Application Insights
+### <a name="application-insights-web-basic"></a>Version web de base d’Application Insights
 
 Pour bénéficier d’une gestion allégée, vous pouvez installer à la place la version de base d’Application Insights
 ```

@@ -14,12 +14,12 @@ ms.date: 08/13/2019
 ms.author: lizross
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1a9d997f9ced0fbd921abfb13cda5a4845eb3763
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: fc6f6f7b02db664ca6cd62dc7aad61baf5f132fa
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69616280"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70088401"
 ---
 # <a name="manage-app-passwords-for-two-step-verification"></a>Gérer les mots de passe d’application pour la vérification en deux étapes
 
@@ -47,7 +47,7 @@ Vous pouvez créer et supprimer des mots de passe d’application, selon la faç
 
 - **Votre organisation utilise la vérification à deux facteurs et la page Vérification de sécurité supplémentaire.** Si vous utilisez votre compte professionnel ou scolaire (par exemple, alain@contoso.com) avec la vérification à deux facteurs dans votre organisation, vous pouvez gérer vos mots de passe d’application à partir de la [page Vérification de sécurité supplémentaire](https://account.activedirectory.windowsazure.com/Proofup.aspx). Pour obtenir des instructions détaillées, consultez [Créer et supprimer des mots de passe d’application à partir de la page Vérification de sécurité supplémentaire](#create-and-delete-app-passwords-from-the-additional-security-verification-page) dans cet article.
 
-- **Votre organisation utilise la vérification à deux facteurs et le portail Office 365.** Si vous utilisez votre compte professionnel ou scolaire (par exemple, alain@contoso.com), la vérification à deux facteurs et des applications Office 365 dans votre organisation, vous pouvez gérer vos mots de passe d’application à partir de la [page du portail Office 365](https://office.portal.com). Pour obtenir des instructions détaillées, consultez [Créer et supprimer des mots de passe d’application à partir du portail Office 365](#create-and-delete-app-passwords-using-the-office-365-portal) dans cet article.
+- **Votre organisation utilise la vérification à deux facteurs et le portail Office 365.** Si vous utilisez votre compte professionnel ou scolaire (par exemple, alain@contoso.com), la vérification à deux facteurs et des applications Office 365 dans votre organisation, vous pouvez gérer vos mots de passe d’application à partir de la [page du portail Office 365](https://www.office.com). Pour obtenir des instructions détaillées, consultez [Créer et supprimer des mots de passe d’application à partir du portail Office 365](#create-and-delete-app-passwords-using-the-office-365-portal) dans cet article.
 
 - **Vous utilisez la vérification à deux facteurs avec un compte Microsoft personnel.** Si vous utilisez un compte Microsoft personnel (comme alain@outlook.com) avec la vérification à deux facteurs, vous pouvez gérer vos mots de passe d’application à partir de la [page Security basics](https://account.microsoft.com/security/) (Fonctions de base de la sécurité). Pour obtenir des instructions détaillées, consultez [Utilisation de mots de passe d’application avec des applications qui ne prennent pas en charge la vérification en deux étapes](https://support.microsoft.com/help/12409/microsoft-account-app-passwords-and-two-step-verification).
 

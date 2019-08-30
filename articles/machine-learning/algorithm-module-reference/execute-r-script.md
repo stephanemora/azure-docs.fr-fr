@@ -9,13 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: peterlu
 ms.date: 06/01/2019
-ROBOTS: NOINDEX
-ms.openlocfilehash: 7de3dd016700d10ef5fac97fada5cd23c2f4e1cb
-ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
+ms.openlocfilehash: 01fb3325bed889911c79a4f828afa27b86d746db
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69558303"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70128800"
 ---
 # <a name="execute-r-script"></a>Exécuter un script R
 
@@ -66,7 +65,7 @@ azureml_main <- function(dataframe1, dataframe2){
 }
 ```
  > [!NOTE]
-    > Vérifiez si le package existe déjà avant de l’installer, afin d’éviter de répéter l’installation. Comme `  if(!require(zoo)) install.packages("zoo",repos = "http://cran.us.r-project.org")` dans l’exemple de code ci-dessus. Répéter l’installation peut entraîner l’expiration des requêtes de service web.     
+  > Vérifiez si le package existe déjà avant de l’installer, afin d’éviter de répéter l’installation. Comme `  if(!require(zoo)) install.packages("zoo",repos = "http://cran.us.r-project.org")` dans l’exemple de code ci-dessus. Répéter l’installation peut entraîner l’expiration des requêtes de service web.     
 
 ## <a name="how-to-configure-execute-r-script"></a>Comment configurer le module Exécuter un script R
 

@@ -8,12 +8,12 @@ ms.date: 05/31/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 884ded67c25aca78225baef2d7e4c5de1cc94fd0
-ms.sourcegitcommit: f7998db5e6ba35cbf2a133174027dc8ccf8ce957
+ms.openlocfilehash: c6a76f4188ecbf6ca778fdbcd23ac9fed2f60dde
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68782288"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69534661"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>Résolution des problèmes rencontrés avec Update Management
 
@@ -22,6 +22,42 @@ Cet article traite des solutions pour résoudre les problèmes que vous pouvez r
 Il existe un utilitaire de résolution des problèmes qui permet à l’agent Worker hybride de déterminer le problème sous-jacent. Pour en savoir plus sur l’utilitaire de résolution des problèmes, consultez [Résoudre les problèmes de l’agent de mise à jour](update-agent-issues.md). Pour tous les autres problèmes, reportez-vous aux informations détaillées ci-dessous concernant des problèmes éventuels.
 
 ## <a name="general"></a>Généralités
+
+### <a name="rp-register"></a>Scénario : Impossible d’inscrire le fournisseur de ressources Automation pour les abonnements
+
+#### <a name="issue"></a>Problème
+
+Vous pouvez recevoir l’erreur suivante lors de l’utilisation de solutions dans votre compte Automation.
+
+```error
+Error details: Unable to register Automation Resource Provider for subscriptions:
+```
+
+#### <a name="cause"></a>Cause :
+
+Le fournisseur de ressources Automation n’est pas inscrit dans l’abonnement.
+
+#### <a name="resolution"></a>Résolution :
+
+Vous pouvez inscrire les fournisseurs de ressources Automation en effectuant les étapes suivantes dans le portail Azure :
+
+1. Cliquez sur **Tous les services** en bas de la liste des services Azure, puis sélectionnez **Abonnements** dans le groupe de services _Général_.
+2. Sélectionnez votre abonnement.
+3. Cliquez sur **Fournisseurs de ressources** sous _Paramètres_.
+4. Dans la liste des fournisseurs de ressources, vérifiez que le fournisseur de ressources **Microsoft.Automation** est inscrit.
+5. Si le fournisseur n’est pas listé, inscrivez le fournisseur **Microsoft.Automation** avec les étapes listées sous [](/azure/azure-resource-manager/resource-manager-register-provider-errors).
+
+### <a name="mw-exceeded"></a>Scénario : La gestion des mises à jour planifiée a échoué avec l’erreur MaintenanceWindowExceeded
+
+#### <a name="issue"></a>Problème
+
+La fenêtre de maintenance par défaut pour les mises à jour est de 120 minutes. Vous pouvez augmenter la taille de la fenêtre de maintenance à un maximum de six (6) heures, soit 360 minutes.
+
+#### <a name="resolution"></a>Résolution :
+
+Modifiez tous les déploiements de mise à jour planifiés ayant échoué et augmentez la taille de la fenêtre de maintenance.
+
+Pour plus d’informations sur les fenêtres de maintenance, consultez [Installer des mises à jour](../automation-update-management.md#install-updates).
 
 ### <a name="components-enabled-not-working"></a>Scénario : Les composants de la solution « Update Management » ont été activés et cette machine virtuelle est en cours de configuration
 
@@ -298,7 +334,31 @@ Si vous ne pouvez pas résoudre un problème de mise à jour corrective, pour po
 /var/opt/microsoft/omsagent/run/automationworker/omsupdatemgmt.log
 ```
 
-### <a name="other"></a>Scénario : Mon problème n’est pas listé ci-dessus
+## <a name="patches-are-not-installed"></a>Les correctifs ne sont pas installés
+
+### <a name="machines-do-not-install-updates"></a>Les machines n’installent pas les mises à jour
+
+* Essayez d’exécuter les mises à jour directement sur la machine. Si la machine ne se met pas à jour, consultez la [liste des erreurs potentielles dans le guide de résolution des problèmes](https://docs.microsoft.com/azure/automation/troubleshoot/update-management#hresult).
+* Si les mises à jour s’exécutent localement, essayez de supprimer et de réinstaller l’agent sur la machine en suivant les instructions dans [« Supprimer une machine virtuelle d’Update Management »](https://docs.microsoft.com/azure/automation/automation-update-management#remove-a-vm-for-update-management).
+
+### <a name="i-know-updates-are-available-but-they-dont-show-as-needed-on-my-machines"></a>Je sais que des mises à jour sont disponibles, mais elles n’apparaissent pas comme étant nécessaires sur mes machines
+
+* Cela se produit souvent si les machines sont configurées pour obtenir les mises à jour depuis WSUS/SCCM, mais que WSUS/SCCM n’a pas approuvé les mises à jour.
+* Vous pouvez vérifier si les machines sont configurées pour WSUS/SCCM en [faisant une référence croisée de la clé de Registre « UseWUServer » avec les clés de Registre de la section « Configuration automatique des mises à jour par modification du Registre » de ce document](https://support.microsoft.com/help/328010/how-to-configure-automatic-updates-by-using-group-policy-or-registry-s)
+
+### <a name="updates-show-as-installed-but-i-cant-find-them-on-my-machine"></a>**Les mises à jour s’affichent comme étant installées, mais je ne les trouve pas sur ma machine**
+
+* Les mises à jour sont souvent remplacées par d’autres mises à jour. Pour plus d’informations, consultez [« La mise à jour est remplacée » dans le guide de résolution des problèmes de mise à jour de Windows](https://docs.microsoft.com/windows/deployment/update/windows-update-troubleshooting#the-update-is-not-applicable-to-your-computer)
+
+### <a name="installing-updates-by-classification-on-linux"></a>**Installation de mises à jour par classification sur Linux**
+
+* Le déploiement de mises à jour sur Linux par classification (« Mises à jour critiques et de sécurité ») a des limitations importantes, en particulier pour CentOS. Ces [limitations sont documentées dans la page Vue d’ensemble d’Update Management](https://docs.microsoft.com/azure/automation/automation-update-management#linux-2)
+
+### <a name="kb2267602-is-consistently--missing"></a>**L’article KB2267602 est systématiquement manquant**
+
+* L’article KB2267602 a trait à la [mise à jour de définitions Windows Defender](https://www.microsoft.com/wdsi/definitions). Il est mis à jour quotidiennement.
+
+## <a name="other"></a>Scénario : Mon problème n’est pas listé ci-dessus
 
 ### <a name="issue"></a>Problème
 

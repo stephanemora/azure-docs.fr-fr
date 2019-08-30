@@ -14,10 +14,10 @@ ms.workload: infrastructure
 ms.date: 03/15/2019
 ms.author: sedusch
 ms.openlocfilehash: 78d14add09a89b7ec4d4844a12ffa0434d714b3a
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2019
+ms.lasthandoff: 08/15/2019
 ms.locfileid: "67709098"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-suse-linux-enterprise-server"></a>Haute disponibilité de SAP HANA sur les machines virtuelles Azure sur SUSE Linux Enterprise Server
@@ -101,8 +101,8 @@ La Place de marché Azure contient une image de SUSE Linux Enterprise Server fo
 Vous pouvez utiliser un des modèles de démarrage rapide disponibles sur GitHub pour déployer toutes les ressources nécessaires. Le modèle déploie les machines virtuelles, l’équilibrage de charge, le groupe à haute disponibilité, etc.
 Suivez ces étapes pour déployer le modèle :
 
-1. Ouvrez le [modèle de base de données][template-multisid-db] or the [converged template][template-converged] on the Azure portal. 
-    The database template creates the load-balancing rules for a database only. The converged template also creates the load-balancing rules for an ASCS/SCS and ERS (Linux only) instance. If you plan to install an SAP NetWeaver-based system and you want to install the ASCS/SCS instance on the same machines, use the [converged template][template-converged].
+1. Ouvrez le [modèle de base de données][template-multisid-db] ou le [modèle convergé][template-converged] sur le portail Azure. 
+    Le modèle de base de données crée les règles d’équilibrage de charge pour une base de données uniquement. Le modèle convergent crée également les règles d’équilibrage de charge pour une instance ASCS/SCS et ERS (Linux uniquement). Si vous prévoyez d’installer un système SAP NetWeaver et souhaitez installer l’instance ASC/SCS sur les mêmes machines, utilisez le [modèle convergé][template-converged].
 
 1. Entrez les paramètres suivants :
     - **ID du système SAP** : Entrez l’ID du système SAP que vous souhaitez installer. Cet ID est utilisé comme préfixe pour les ressources déployées.

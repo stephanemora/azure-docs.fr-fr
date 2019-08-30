@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 ms.author: copeters
 author: cody-dkdc
 ms.date: 07/08/2019
-ms.openlocfilehash: 41e357ee53d4c2fbc6683be3446ba2527dd9253f
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: c6c4d1d4da3679eaefacb5aa0c91fcf64afc2a6b
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69623977"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70128279"
 ---
 # <a name="detect-data-drift-preview-on-models-deployed-to-azure-kubernetes-service-aks"></a>Détecter une dérive de données (préversion) sur des modèles déployés sur Azure Kubernetes Service (AKS)
 
@@ -178,16 +178,7 @@ Pour que vous puissiez configurer des alertes et actions personnalisées, toutes
 
 ## <a name="retrain-your-model-after-drift"></a>Recycler votre modèle après la dérive
 
-Lorsque la dérive des données a un impact négatif sur les performances de votre modèle déployé, il est temps de recycler le modèle. La méthode suivante [`diff()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#diff-rhs-dataset--compute-target-none--columns-none-
-) vous donne une première idée de ce qui a changé entre les anciens et les nouveaux ensembles de données de formation. 
-
-```python
-from azureml.core import Dataset
-
-old_training_dataset.diff(new_training_dataset)
-```
-
-La sortie du code précédent peut vous inciter à recycler votre modèle. Pour ce faire, procédez comme suit :
+Lorsque la dérive des données a un impact négatif sur les performances de votre modèle déployé, il est temps de recycler le modèle. Pour ce faire, procédez comme suit :
 
 * Étudiez les données recueillies et préparer les données pour former le nouveau modèle.
 * Fractionnez-le en données d’apprentissage/de test.

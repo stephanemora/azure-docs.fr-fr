@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/17/2018
 ms.author: sedusch
-ms.openlocfilehash: bffb92e37ccddd43c2a64466282084bb6226c338
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 24e7e67145b789737484fcb594f48127c41eafe9
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570567"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69575227"
 ---
 # <a name="setting-up-pacemaker-on-red-hat-enterprise-linux-in-azure"></a>Configuration de Pacemaker sur Red Hat Entreprise Linux dans Azure
 
@@ -107,12 +107,16 @@ Les éléments suivants sont précédés de **[A]** (applicable à tous les nœu
    > RHEL 7.6 : fence-agents-4.2.1-11.el7_6.8  
    > RHEL 7.5 : fence-agents-4.0.11-86.el7_5.8  
    > RHEL 7.4 : fence-agents-4.0.11-66.el7_4.12  
-   > Pour plus d’informations, consultez [Azure VM running as a RHEL High Availability cluster member take a very long time to be fenced, or fencing fails / times-out before the VM shuts down](https://access.redhat.com/solutions/3408711)
+   > Pour plus d’informations, consultez [Azure VM running as a RHEL High Availability cluster member take a very long time to be fenced, or fencing fails / times-out before the VM shuts down](https://access.redhat.com/solutions/3408711).
 
    Vérifiez la version de l’agent de clôture Azure. Si nécessaire, mettez-le à jour vers une version ultérieure ou égale à celle indiquée ci-dessus.
+
    <pre><code># Check the version of the Azure Fence Agent
     sudo yum info fence-agents-azure-arm
    </code></pre>
+
+   > [!IMPORTANT]
+   > Si vous devez mettre à jour l’agent de clôture Azure et si vous utilisez un rôle personnalisé, mettez à jour ce rôle personnalisé en y ajoutant l’action **powerOff**. Pour plus d’informations, consultez [Créer un rôle personnalisé pour l’agent de clôture](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker#1-create-a-custom-role-for-the-fence-agent).  
 
 1. **[A]** Configurer la résolution de nom d’hôte
 
