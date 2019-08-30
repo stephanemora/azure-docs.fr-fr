@@ -1,5 +1,5 @@
 ---
-title: CreateUiDefitinion.json pour une expérience de création d’applications managées par Azure | Microsoft Docs
+title: CreateUiDefinition.json pour une expérience de création d’applications managées Azure | Microsoft Docs
 description: Décrit comment créer des définitions d’interface utilisateur pour des applications gérées Azure
 services: managed-applications
 documentationcenter: na
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/06/2019
 ms.author: tomfitz
-ms.openlocfilehash: 292f2995e7ff1f56c306b8c9859bdb323f21762d
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 783c4f5b1f5a7f2be748bc7173da2d068e1425f4
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68847611"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69575653"
 ---
-# <a name="createuidefitinionjson-for-azure-managed-applications-create-experience"></a>CreateUiDefitinion.json pour une expérience de création d’applications managées par Azure
+# <a name="createuidefinitionjson-for-azure-managed-applications-create-experience"></a>CreateUiDefinition.json pour une expérience de création d’applications managées Azure
 
 Ce document présente les principaux concepts du fichier **createUiDefinition.json** utilisé par le portail Microsoft Azure afin de définir l’interface utilisateur lors de la création d’une application managée.
 
@@ -52,13 +52,11 @@ Le schéma de la propriété des paramètres dépend de la version et du gestion
 
 L’inclusion de `$schema` est recommandée, mais facultative. Si la valeur de `version` est spécifiée, celle-ci doit correspondre à la version figurant dans l’`$schema` URI.
 
-Vous pouvez utiliser un éditeur JSON pour créer votre définition d’interface utilisateur puis la tester dans le [Bac à sable de définition d’interface utilisateur](https://portal.azure.com/?feature.customPortal=false&#blade/Microsoft_Azure_CreateUIDef/SandboxBlade) pour l’afficher. Pour plus d’informations sur le bac à sable, consultez [Tester votre interface de portail pour les Applications managées Azure](test-createuidefinition.md).
+Vous pouvez utiliser un éditeur JSON pour créer votre fichier createUiDefinition, puis la tester dans le [sandbox (bac à sable) createUiDefinition](https://portal.azure.com/?feature.customPortal=false&#blade/Microsoft_Azure_CreateUIDef/SandboxBlade) pour en afficher un aperçu. Pour plus d’informations sur le bac à sable, consultez [Tester votre interface de portail pour les Applications managées Azure](test-createuidefinition.md).
 
 ## <a name="basics"></a>Concepts de base
 
 Les principes de base sont les premières étapes générées lorsque le portail Microsoft Azure analyse le fichier. Outre le fait d’afficher des éléments spécifiés dans `basics`, le portail injecte des éléments permettant aux utilisateurs de choisir l’abonnement, le groupe de ressources et l’emplacement du déploiement. Lorsque cela est possible, les éléments demandant des paramètres concernant le déploiement, comme le nom d’un cluster ou des informations d’identification administrateur, doivent figurer dans cette étape.
-
-Si le comportement d’un élément dépend de l’abonnement de l’utilisateur, du groupe de ressources ou de l’emplacement, cet élément ne peut pas être utilisé dans les principes de base. Par exemple, **Microsoft.Compute.SizeSelector** dépend de l’abonnement et de l’emplacement de l’utilisateur pour déterminer la liste des tailles disponibles. Par conséquent, **Microsoft.Compute.SizeSelector** ne peut être utilisé que dans steps. En règle générale, seuls les éléments de l’espace de noms **Microsoft.Common** peuvent être utilisés dans basics. Cependant, certains éléments dans d’autres espaces de noms (comme **Microsoft.Compute.Credentials**) qui ne dépendent pas du contexte de l’utilisateur, sont toujours autorisés.
 
 ## <a name="steps"></a>Étapes
 

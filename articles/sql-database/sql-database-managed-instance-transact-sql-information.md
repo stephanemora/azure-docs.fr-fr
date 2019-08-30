@@ -11,28 +11,30 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova
 ms.date: 08/12/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 1581a62f0999cf502feaad31d2c884f4d171e770
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.openlocfilehash: 8ed9b86f8dd4f255a6ea8420ef27fbb131df91a9
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69019658"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69644891"
 ---
-# <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Différences T-SQL d’une instance managée Azure SQL Database par rapport à SQL Server
+# <a name="managed-instance-t-sql-differences-limitations-and-known-issues"></a>Différences T-SQL, limitations et problèmes connus avec Managed Instance
 
-Cet article résume et explique les différences de syntaxe et de comportement existant entre Azure SQL Database Managed Instance et le moteur de base de données SQL Server local. Les sujets suivants sont abordés : <a name="Differences"></a>
+Cet article résume et explique les différences de syntaxe et de comportement existant entre Azure SQL Database Managed Instance et le moteur de base de données SQL Server local. L’option de déploiement d’instance gérée est hautement compatible avec le moteur de base de données SQL Server local. La plupart des fonctionnalités du moteur de base de données SQL Server sont prises en charge dans une instance gérée.
+
+![Migration](./media/sql-database-managed-instance/migration.png)
+
+Certaines limitations PaaS ont été introduites dans Managed Instance et certains comportements ont changé par rapport à SQL Server. Les différences se répartissent en différentes catégories, à savoir : <a name="Differences"></a>
 
 - la [disponibilité](#availability) incluant les différences dans [Always On](#always-on-availability) et les [sauvegardes](#backup) ;
 - la [sécurité](#security) incluant les différences dans l’[audit](#auditing), les [certificats](#certificates), les [informations d’identification](#credential), les [fournisseurs de chiffrement](#cryptographic-providers), les [connexions et les utilisateurs](#logins-and-users) ainsi que la [clé de service et la clé principale du service](#service-key-and-service-master-key) ;
 - la [configuration](#configuration) incluant les différences dans l’[extension du pool de mémoires tampons](#buffer-pool-extension), le [classement](#collation), les [niveaux de compatibilité](#compatibility-levels), la [mise en miroir de bases de données](#database-mirroring), les [options de base de données](#database-options), le service [SQL Server Agent](#sql-server-agent) et les [options de Table](#tables) ;
 - les [fonctionnalités](#functionalities) incluant [BULK INSERT/OPENROWSET](#bulk-insert--openrowset), [CLR](#clr), [DBCC](#dbcc), les [transactions distribuées](#distributed-transactions), les [événements étendus](#extended-events), les [bibliothèques externes](#external-libraries), le [flux de fichier et FileTable](#filestream-and-filetable), la [recherche sémantique de texte intégral](#full-text-semantic-search), les [serveurs liés](#linked-servers), [Polybase](#polybase), la [Réplication](#replication), la [RESTAURATION](#restore-statement), [Service Broker](#service-broker), les [procédures stockées, fonctions et déclencheurs](#stored-procedures-functions-and-triggers).
 - les [paramètres d’environnement](#Environment), tels que les configurations de réseau virtuel et de sous-réseau ;
-- les [fonctionnalités qui se comportent différemment dans les instances managées](#Changes) ;
-- les [limitations temporaires et les problèmes connus](#Issues).
 
-L’option de déploiement d’instance gérée est hautement compatible avec le moteur de base de données SQL Server local. La plupart des fonctionnalités du moteur de base de données SQL Server sont prises en charge dans une instance gérée.
+La plupart de ces fonctionnalités sont des contraintes architecturales et représentent des fonctionnalités de service.
 
-![Migration](./media/sql-database-managed-instance/migration.png)
+Cette page décrit également des [problèmes connus temporaires](#Issues) qui ont été détectés dans Managed Instance et qui seront résolus ultérieurement.
 
 ## <a name="availability"></a>Disponibilité
 
@@ -62,6 +64,7 @@ Les instances managées étant dotées de sauvegardes automatiques, les utilisat
 Limites : 
 
 - Une instance managée permet de sauvegarder une base de données d’instance vers une sauvegarde comprenant jusqu’à 32 bandes, ce qui est suffisant pour des bases de données allant jusqu’à 4 To si la compression de sauvegarde est utilisée.
+- Vous ne pouvez pas exécuter `BACKUP DATABASE ... WITH COPY_ONLY` sur une base de données qui est chiffrée avec Transparent Data Encryption (TDE) managé par le service. TDE managé par le service oblige le chiffrement des sauvegardes à l’aide d’une clé de chiffrement TDE interne. La clé ne pouvant pas être exportée, vous ne pouvez pas restaurer la sauvegarde. utilisez des sauvegardes automatiques et la restauration dans le temps, ou utilisez [TDE managé par le client (BYOK)](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql#customer-managed-transparent-data-encryption---bring-your-own-key) à la place. Vous pouvez également désactiver le chiffrement sur la base de données.
 - La taille maximale de la bande de sauvegarde en utilisant la commande `BACKUP` dans une instance managée est de 195 Go, ce qui représente la taille maximale des objets blob. Augmentez le nombre de bandes dans la commande de sauvegarde pour réduire la taille de bande individuelle et ne pas dépasser cette limite.
 
     > [!TIP]
@@ -339,9 +342,9 @@ Une instance managée ne pouvant pas accéder à des partages de fichiers et à 
 
 Les instructions DBCC non documentées qui sont activées dans SQL Server ne sont pas prises en charge dans les instances managées.
 
-- Les `Trace flags` ne sont pas pris en charge. Consultez les [indicateurs de trace](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql).
-- `DBCC TRACEOFF` n’est pas pris en charge. Consultez [DBCC TRACEOFF](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceoff-transact-sql).
-- `DBCC TRACEON` n’est pas pris en charge. Consultez [DBCC TRACEOFF](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-transact-sql).
+- Seul un nombre limité d’`Trace flags` globaux est pris en charge. Les `Trace flags` de session ne sont pas pris en charge. Consultez les [indicateurs de trace](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql).
+- [DBCC TRACEOFF](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceoff-transact-sql) et [DBCC TRACEON](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-transact-sql) fonctionnent avec le nombre limité d’indicateurs de trace globaux.
+- [DBCC CHECKDB](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-checkdb-transact-sql) ne peut pas être utilisé avec les options REPAIR_ALLOW_DATA_LOSS, REPAIR_FAST et REPAIR_REBUILD, car la base de données ne peut pas être définie sur le mode `SINGLE_USER`. Consultez l’article sur les [différences avec ALTER DATABASE](#alter-database-statement). Les endommagements potentiels de la base de données sont gérés par l’équipe de support Azure. Contactez le support Azure si vous constatez un endommagement de la base de données qui doit être corrigé.
 
 ### <a name="distributed-transactions"></a>Transactions distribuées
 
@@ -498,6 +501,18 @@ Le Service Broker entre instances n’est pas pris en charge :
 - `Extended stored procedures` ne sont pas pris en charge, ce qui inclut `sp_addextendedproc` et `sp_dropextendedproc`. Consultez [Procédures stockées étendues](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/general-extended-stored-procedures-transact-sql).
 - `sp_attach_db`, `sp_attach_single_file_db` et `sp_detach_db` ne sont pas pris en charge. Consultez [sp_attach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-db-transact-sql), [sp_attach_single_file_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-single-file-db-transact-sql) et [sp_detach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-detach-db-transact-sql).
 
+### <a name="system-functions-and-variables"></a>Fonctions et variables système
+
+Les variables, fonctions et vues suivantes retournent des résultats différents :
+
+- `SERVERPROPERTY('EngineEdition')` retourne la valeur 8. Cette propriété identifie une instance gérée de façon unique. Consultez [SERVERPROPERTY](https://docs.microsoft.com/sql/t-sql/functions/serverproperty-transact-sql).
+- `SERVERPROPERTY('InstanceName')` retourne la valeur NULL, car le concept d’instance tel qu’il existe pour SQL Server ne s’applique pas à une instance managée. Consultez [SERVERPROPERTY(« InstanceName »)](https://docs.microsoft.com/sql/t-sql/functions/serverproperty-transact-sql).
+- `@@SERVERNAME` retourne un nom DNS « connectable » complet, par exemple, my-managed-instance.wcus17662feb9ce98.database.windows.net. Consultez [@@SERVERNAME](https://docs.microsoft.com/sql/t-sql/functions/servername-transact-sql). 
+- `SYS.SERVERS` retourne le nom DNS « connectable » complet, tel que `myinstance.domain.database.windows.net` pour les propriétés « name » et « data_source ». Consultez [SYS. SERVERS](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-servers-transact-sql).
+- `@@SERVICENAME` retourne la valeur NULL, car le concept de service tel qu’il existe pour SQL Server ne s’applique pas à une instance managée. Consultez [@@SERVICENAME](https://docs.microsoft.com/sql/t-sql/functions/servicename-transact-sql).
+- `SUSER_ID` est pris en charge. Il retourne NULL si la connexion Azure AD n’est pas dans sys.syslogins. Consultez [SUSER_ID](https://docs.microsoft.com/sql/t-sql/functions/suser-id-transact-sql). 
+- `SUSER_SID` n’est pas pris en charge. Les données incorrectes sont retournées, ce qui est un problème temporaire connu. Consultez [SUSER_SID](https://docs.microsoft.com/sql/t-sql/functions/suser-sid-transact-sql). 
+
 ## <a name="Environment"></a>Contraintes d’environnement
 
 ### <a name="subnet"></a>Subnet
@@ -512,27 +527,55 @@ Le Service Broker entre instances n’est pas pris en charge :
 - Après la création d’une instance managée, le déplacement de l’instance managée ou du réseau virtuel vers un autre groupe de ressources ou vers un autre abonnement n’est pas pris en charge.
 - Certains services, tels que App Service Environment, Logic Apps et Managed Instance (utilisés pour la géoréplication, la réplication transactionnelle ou via des serveurs liés), ne peuvent pas accéder aux instances Managed Instance dans des régions différentes si leurs réseaux virtuels sont connectés au moyen du [Peering mondial](../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers). Vous pouvez vous connecter à ces ressources via ExpressRoute ou une connexion entre deux réseaux virtuels, par l’intermédiaire de passerelles de réseau virtuel.
 
-## <a name="Changes"></a> Changements de comportement
+### <a name="tempdb"></a>TEMPDB
 
-Les variables, fonctions et vues suivantes retournent des résultats différents :
+La taille de fichier maximale de `tempdb` ne peut pas être supérieure à 24 Go par cœur sur un niveau Usage général. La taille maximale de `tempdb` sur un niveau Critique pour l’entreprise est limitée à la taille de stockage d’instance. La taille du fichier journal `Tempdb` est limitée à 120 Go sur les niveaux usage général et critique pour l’entreprise. Certaines requêtes peuvent retourner une erreur si elles ont besoin de plus de 24 Go par cœur dans `tempdb` ou si elles produisent plus de 120 Go de données de journal.
 
-- `SERVERPROPERTY('EngineEdition')` retourne la valeur 8. Cette propriété identifie une instance gérée de façon unique. Consultez [SERVERPROPERTY](https://docs.microsoft.com/sql/t-sql/functions/serverproperty-transact-sql).
-- `SERVERPROPERTY('InstanceName')` retourne la valeur NULL, car le concept d’instance tel qu’il existe pour SQL Server ne s’applique pas à une instance managée. Consultez [SERVERPROPERTY(« InstanceName »)](https://docs.microsoft.com/sql/t-sql/functions/serverproperty-transact-sql).
-- `@@SERVERNAME` retourne un nom DNS « connectable » complet, par exemple, my-managed-instance.wcus17662feb9ce98.database.windows.net. Consultez [@@SERVERNAME](https://docs.microsoft.com/sql/t-sql/functions/servername-transact-sql). 
-- `SYS.SERVERS` retourne le nom DNS « connectable » complet, tel que `myinstance.domain.database.windows.net` pour les propriétés « name » et « data_source ». Consultez [SYS. SERVERS](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-servers-transact-sql).
-- `@@SERVICENAME` retourne la valeur NULL, car le concept de service tel qu’il existe pour SQL Server ne s’applique pas à une instance managée. Consultez [@@SERVICENAME](https://docs.microsoft.com/sql/t-sql/functions/servicename-transact-sql).
-- `SUSER_ID` est pris en charge. Il retourne NULL si la connexion Azure AD n’est pas dans sys.syslogins. Consultez [SUSER_ID](https://docs.microsoft.com/sql/t-sql/functions/suser-id-transact-sql). 
-- `SUSER_SID` n’est pas pris en charge. Les données incorrectes sont retournées, ce qui est un problème temporaire connu. Consultez [SUSER_SID](https://docs.microsoft.com/sql/t-sql/functions/suser-sid-transact-sql). 
+### <a name="error-logs"></a>Des journaux d’activité d’erreurs
 
-## <a name="Issues"></a> Problèmes connus et limitations
+Une instance managée ajoute des informations détaillées dans les journaux des erreurs. Beaucoup d’événements système internes sont consignés dans le journal des erreurs. utilisez une procédure personnalisée pour lire les journaux des erreurs en excluant les entrées non pertinentes. Pour plus d’informations, consultez [Managed Instance - sp_readmierrorlog](https://blogs.msdn.microsoft.com/sqlcat/2018/05/04/azure-sql-db-managed-instance-sp_readmierrorlog/).
 
-### <a name="tempdb-size"></a>Taille de TEMPDB
+## <a name="Issues"></a> Problèmes connus
 
-La taille de fichier maximale de `tempdb` ne peut pas être supérieure à 24 Go par cœur sur un niveau Usage général. La taille maximale de `tempdb` sur un niveau Critique pour l’entreprise est limitée à la taille de stockage d’instance. La taille du fichier journal `Tempdb` est limitée à 120 Go sur les niveaux usage général et critique pour l’entreprise. La base de données `tempdb` est toujours divisée en 12 fichiers de données. Cette taille maximale par fichier n’est pas modifiable, et de nouveaux fichiers ne peuvent pas être ajoutés à `tempdb`. Certaines requêtes peuvent retourner une erreur si elles ont besoin de plus de 24 Go par cœur dans `tempdb` ou si elles produisent plus de 120 Go de données de journal. `Tempdb` est toujours recréé en tant que base de données vide lorsque l’instance démarre ou bascule, et les modifications apportées dans `tempdb` ne sont pas conservées. 
+### <a name="cross-database-service-broker-dialogs-must-be-re-initialized-after-service-tier-upgrade"></a>Les boîtes de dialogue Service Broker utilisées entre plusieurs bases de données doivent être réinitialisées après la mise à niveau du niveau de service
 
-### <a name="cant-restore-contained-database"></a>Impossible de restaurer la base de données autonome
+**Date :** août 2019
 
-Managed Instance ne peut pas restaurer les [bases de données autonomes](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases). La restauration dans le temps des bases de données autonomes existantes ne fonctionne pas sur Managed Instance. En attendant, nous vous conseillons de supprimer l’option d’autonomie de vos bases de données qui sont placées sur Managed Instance. N’utilisez pas l’option d’autonomie pour les bases de données de production. 
+Les boîtes de dialogue Service Broker utilisées entre plusieurs bases de données cessent de transmettre les messages aux services dans d’autres bases de données après un changement du niveau de service. Les messages ne sont **pas perdus** et peuvent être retrouvés dans la file d’attente de l’expéditeur. Toute modification du nombre de vCores ou de la taille de stockage des instances dans Managed Instance entraîne le changement de la valeur `service_broke_guid` affichée dans [sys.databases](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-databases-transact-sql) pour toutes les bases de données. Tout élément `DIALOG` créé à l’aide de l’instruction [BEGIN DIALOG](https://docs.microsoft.com/en-us/sql/t-sql/statements/begin-dialog-conversation-transact-sql) qui référence des Service Brokers dans une autre base de données cessera de transmettre les messages au service cible.
+
+**Solution de contournement :** arrêtez toutes les activités qui utilisent des conversations de boîtes de dialogue Service Broker entre plusieurs bases de données avant de mettre à jour le niveau de service et réinitialisez-les ensuite. S’il reste des messages non transmis après le changement de niveau de service, consultez les messages en question dans la file d’attente source et renvoyez-les à la file d’attente cible.
+
+### <a name="impersonification-of-aad-login-types-is-not-supported"></a>L’emprunt d’identité des types de connexion AAD n’est pas pris en charge
+
+**Date :** Juillet 2019
+
+L’emprunt d’identité avec `EXECUTE AS USER` ou `EXECUTE AS LOGIN` des principaux AAD suivants n’est pas pris en charge :
+-   Utilisateurs AAD avec alias. L’erreur suivante est retournée dans ce cas `15517`.
+- Connexions et utilisateurs AAD basés sur des applications ou des principaux de service AAD. Les erreurs suivantes sont retournées dans ces cas `15517` et `15406`.
+
+### <a name="query-parameter-not-supported-in-sp_send_db_mail"></a>Le paramètre @query n’est pas pris en charge dans sp_send_db_mail
+
+**Date :** Avril 2019
+
+Le paramètre `@query` dans la procédure [sp_send_db_mail](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-send-dbmail-transact-sql) ne fonctionne pas.
+
+### <a name="transactional-replication-must-be-reconfigured-after-geo-failover"></a>La réplication transactionnelle doit être reconfigurée après un basculement géographique
+
+**Date :** mars 2019
+
+Si la réplication transactionnelle est activée sur une base de données dans un groupe de basculement automatique, l’administrateur de l’instance managée doit nettoyer toutes les publications de l’ancienne base de données primaire et les reconfigurer sur la nouvelle après un basculement vers une autre région. Pour plus d’informations, consultez [Réplication](#replication).
+
+### <a name="aad-logins-and-users-are-not-supported-in-tools"></a>Les utilisateurs et connexions AAD ne sont pas pris en charge dans les outils
+
+**Date :** janvier 2019
+
+SQL Server Management Studio et SQL Server Data Tools ne prennent pas entièrement en charge les utilisateurs et connexions Azure Active Directory.
+- L’utilisation de principaux de serveur (connexions) et d’utilisateurs (préversion publique) Azure AD avec SQL Server Data Tools n’est pas prise en charge actuellement.
+- La création de scripts pour les principaux de serveur (connexions) et les utilisateurs (préversion publique) Azure AD n’est pas prise en charge dans SQL Server Management Studio.
+
+### <a name="tempdb-structure-and-content-is-re-created"></a>La structure et le contenu de TEMPDB sont recréés
+
+La base de données `tempdb` est toujours fractionnée en 12 fichiers de données, et cette structure de fichiers ne peut pas être modifiée. La taille maximale par fichier n’est pas modifiable, et il n’est pas possible d’ajouter de nouveaux fichiers dans `tempdb`. `Tempdb` est toujours recréé en tant que base de données vide lorsque l’instance démarre ou bascule, et les modifications apportées dans `tempdb` ne sont pas conservées.
 
 ### <a name="exceeding-storage-space-with-small-database-files"></a>Dépassement de l’espace de stockage avec des fichiers de base de données de petite taille
 
@@ -551,34 +594,13 @@ Dans cet exemple, les bases de données existantes continuent de fonctionner et 
 
 Vous pouvez [identifier le nombre de fichiers restants](https://medium.com/azure-sqldb-managed-instance/how-many-files-you-can-create-in-general-purpose-azure-sql-managed-instance-e1c7c32886c1) à l’aide de vues système. Si vous atteignez cette limite, essayez de [vider et de supprimer certains fichiers plus petits au moyen de l’instruction DBCC SHRINKFILE](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkfile-transact-sql#d-emptying-a-file), ou basculez vers le [niveau Critique pour l’entreprise, qui ne connaît pas cette limite](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics).
 
-### <a name="tooling"></a>Outils
-
-SQL Server Management Studio et SQL Server Data Tools peuvent rencontrer des problèmes lorsqu’ils accèdent à une instance managée.
-
-- L’utilisation de principaux de serveur (connexions) et d’utilisateurs (préversion publique) Azure AD avec SQL Server Data Tools n’est pas prise en charge actuellement.
-- La création de scripts pour les principaux de serveur (connexions) et les utilisateurs (préversion publique) Azure AD n’est pas prise en charge dans SQL Server Management Studio.
-
-### <a name="incorrect-database-names-in-some-views-logs-and-messages"></a>Les noms des bases de données sont incorrects dans plusieurs vues, journaux d’activité et messages
+### <a name="guid-values-shown-instead-of-database-names"></a>Affichage des valeurs GUID à la place des noms de base de données
 
 Plusieurs vues système, compteurs de performances, messages d’erreur, événements XEvent et entrées du journal des erreurs affichent des identificateurs de base de données GUID au lieu d’afficher les noms des bases de données. Ne prenez pas en compte ces identificateurs GUID, car ils vont être remplacés à l’avenir par les noms des bases de données.
 
-### <a name="database-mail"></a>Messagerie de base de données
-
-Le paramètre `@query` dans la procédure [sp_send_db_mail](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-send-dbmail-transact-sql) ne fonctionne pas.
-
-### <a name="database-mail-profile"></a>Profil Database Mail
-
-Le profil Database Mail utilisé par l’instance SQL Server Agent doit être appelé `AzureManagedInstance_dbmail_profile`. Il n’existe aucune restriction pour les autres noms de profil Database Mail.
-
 ### <a name="error-logs-arent-persisted"></a>Les journaux des erreurs ne sont pas conservés
 
-Les journaux des erreurs qui sont disponibles dans Managed Instance ne sont pas persistants, et leur taille n’est pas comprise dans la limite de stockage maximale. Les journaux des erreurs peuvent être automatiquement effacés si un basculement se produit.
-
-### <a name="error-logs-are-verbose"></a>Les journaux d’activité des erreurs contiennent des détails non pertinents
-
-Une instance managée ajoute des informations détaillées dans les journaux des erreurs, la plupart ne sont pas pertinentes. 
-
-**Solution de contournement :** utilisez une procédure personnalisée pour lire les journaux des erreurs en excluant les entrées non pertinentes. Pour plus d’informations, consultez [Managed Instance - sp_readmierrorlog](https://blogs.msdn.microsoft.com/sqlcat/2018/05/04/azure-sql-db-managed-instance-sp_readmierrorlog/).
+Les journaux des erreurs qui sont disponibles dans Managed Instance ne sont pas persistants, et leur taille n’est pas comprise dans la limite de stockage maximale. Les journaux des erreurs peuvent être automatiquement effacés si un basculement se produit. Il peut y avoir des écarts dans l’historique du journal des erreurs, car Managed Instance a été déplacé plusieurs fois sur plusieurs machines virtuelles.
 
 ### <a name="transaction-scope-on-two-databases-within-the-same-instance-isnt-supported"></a>L’utilisation de la même étendue de transaction pour deux bases de données appartenant à une même instance n’est pas prise en charge
 
@@ -616,12 +638,6 @@ Même si ce code fonctionne avec les données d’une même instance, il nécess
 Il arrive que des modules CLR placés dans une instance managée, et que des serveurs liés ou des requêtes distribuées référençant une instance active, ne parviennent pas quelquefois à résoudre l’adresse IP d’une instance locale. Cette erreur est un problème temporaire.
 
 **Solution de contournement :** utilisez des connexions contextuelles dans un module CLR, si possible.
-
-### <a name="tde-encrypted-databases-with-a-service-managed-key-dont-support-user-initiated-backups"></a>Les bases de données chiffrées avec TDE, au moyen d’une clé managée par le service, ne prennent pas en charge les sauvegardes initiées par l’utilisateur
-
-Vous ne pouvez pas exécuter `BACKUP DATABASE ... WITH COPY_ONLY` sur une base de données qui est chiffrée avec Transparent Data Encryption (TDE) managé par le service. TDE managé par le service oblige le chiffrement des sauvegardes à l’aide d’une clé de chiffrement TDE interne. La clé ne pouvant pas être exportée, vous ne pouvez pas restaurer la sauvegarde.
-
-**Solution de contournement :** utilisez des sauvegardes automatiques et la restauration dans le temps, ou utilisez [TDE managé par le client (BYOK)](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql#customer-managed-transparent-data-encryption---bring-your-own-key) à la place. Vous pouvez également désactiver le chiffrement sur la base de données.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

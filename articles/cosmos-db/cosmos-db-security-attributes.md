@@ -9,12 +9,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 50711f8675e1b8aca6b9f90925ea921d22020ddd
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: f1b578ff70e8a2795ba886e6d0c75eff521f77c3
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68442553"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69615540"
 ---
 # <a name="security-attributes-for-azure-cosmos-db"></a>Attributs de sécurité pour Azure Cosmos DB
 
@@ -26,7 +26,7 @@ Cet article décrit les attributs de sécurité intégrés à Azure Cosmos DB.
 
 | Attribut de sécurité | Oui/Non | Notes |
 |---|---|--|
-| Chiffrement au repos (comme le chiffrement côté serveur, le chiffrement côté serveur avec clés managées par le client et d’autres fonctions de chiffrement) | OUI | Par défaut, toutes les bases de données et sauvegardes Cosmos DB sont chiffrées (voir [Chiffrement des données dans Azure Cosmos DB](database-encryption-at-rest.md)). Le chiffrement côté serveur avec des clés gérées par le client n’est pas pris en charge. |
+| Chiffrement au repos (comme le chiffrement côté serveur, le chiffrement côté serveur avec clés managées par le client et d’autres fonctions de chiffrement) | OUI | Par défaut, toutes les bases de données et sauvegardes Cosmos sont chiffrées (voir [Chiffrement des données dans Azure Cosmos DB](database-encryption-at-rest.md)). Le chiffrement côté serveur avec des clés gérées par le client n’est pas pris en charge. |
 | Le chiffrement en transit (tel que le chiffrement ExpressRoute, le chiffrement dans un réseau virtuel, et le chiffrement de réseau virtuel à réseau virtuel)| OUI | Toutes les données Azure Cosmos DB sont chiffrées en transit. |
 | Gestion des clés de chiffrement (CMK, BYOK, etc.)| Non |  |
 | Chiffrement au niveau des colonnes (Azure Data Services)| OUI | Uniquement dans l’API Table Premium. Certaines API ne prennent pas en charge cette fonctionnalité. Voir [Présentation d’Azure Cosmos DB : API Table](table-introduction.md). |

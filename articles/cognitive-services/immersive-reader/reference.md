@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: reference
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: 1a616bce8c161825853b1966769d9505595d95de
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 1d9fc20055fe3adb571b5a77330cc6537998cb5f
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688312"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69534471"
 ---
 # <a name="immersive-reader-sdk-reference"></a>Référence du kit de développement logiciel (SDK) du lecteur immersif
 
@@ -73,6 +73,7 @@ Contient le contenu à afficher dans le lecteur immersif.
 | --------- | ----------- |
 | texte/brut | Texte brut. |
 | application/mathml+xml | Langage de balisage mathématique (MathML). [Plus d’informations](https://developer.mozilla.org/en-US/docs/Web/MathML)
+| application/vnd.openxmlformats-officedocument.wordprocessingml.document | Document au format .docx Microsoft Word.
 
 ### <a name="options"></a>Options
 
@@ -104,7 +105,8 @@ Contient des informations sur l'erreur.
 | ---- | ----------- |
 | BadArgument | L'argument fourni n’est pas valide. Pour plus d'informations, voir `message`. |
 | Délai d'expiration | Le lecteur immersif n'a pas été chargé dans le délai spécifié. |
-| TokenExpired| Le jeton fourni a expiré. |
+| TokenExpired | Le jeton fourni a expiré. |
+| Throttled | Le taux d’appels maximal a été dépassé. |
 
 ## <a name="launching-the-immersive-reader"></a>Lancement du lecteur immersif
 

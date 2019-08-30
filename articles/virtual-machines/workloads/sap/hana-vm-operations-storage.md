@@ -13,15 +13,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/05/2019
+ms.date: 08/15/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d062b6fff9693d5bda75edd65b8fe88d834eff57
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1b363c9da195794f6356539ffca46101edf431c2
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66735510"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69533880"
 ---
 # <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>Configurations du stockage des machines virtuelles SAP HANA Azure
 
@@ -29,7 +29,7 @@ Azure fournit des types de stockage différents, adaptés aux machines virtuelle
 
 - Disques SSD Standard
 - Disques SSD Premium (Solid State Drive)
-- SSD Ultra en préversion publique n’est pas encore pris en charge dans les applications SAP en production
+- [Disque Ultra](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/disks-enable-ultra-ssd) 
 
 Pour en savoir plus sur ces types de disques, consultez l’article [Sélectionner un type de disque](https://docs.microsoft.com/azure/virtual-machines/linux/disks-types)
 
@@ -161,19 +161,21 @@ Vérifiez que le débit de stockage des différents volumes suggérés est suffi
 > Les recommandations relatives à la configuration du disque qui sont indiquées ciblent une configuration minimale pour le protocole SAP équivalente à celles de leurs fournisseurs d’infrastructure. En pratique, dans les scénarios de déploiement et de charge de travail des clients, il se peut que ces recommandations ne fournissent pas suffisamment de fonctionnalités. Dans certains cas, il se peut que le client demande un rechargement plus rapide des données après un redémarrage HANA ou que les configurations de sauvegarde demandent une bande passante plus élevée pour le stockage. Dans d’autres cas, pour **/hana/log**, 5 000 IOPS étaient insuffisants pour la charge de travail spécifique. Par conséquent, prenez ces recommandations en tant que point de départ et adaptez-les en fonction des exigences de la charge de travail.
 >  
 
-## <a name="azure-ultra-ssd-storage-configuration-for-sap-hana"></a>Configuration du stockage SSD Ultra Azure pour SAP HANA
-Microsoft est en train d’introduire un nouveau type de stockage Azure appelé [SSD Ultra Azure](https://azure.microsoft.com/updates/ultra-ssd-new-azure-managed-disks-offering-for-your-most-latency-sensitive-workloads/). La principale différence entre le stockage Azure proposé jusqu’à présent et le stockage SSD Ultra est que les capacités de disque ne sont plus limitées à la taille du disque. En tant que client, vous pouvez définir ces capacités pour SSD Ultra :
+## <a name="azure-ultra-disk-storage-configuration-for-sap-hana"></a>Configuration du stockage sur disque Ultra Azure pour SAP HANA
+Microsoft est en train de déployer un nouveau type de stockage Azure appelé [disque Ultra Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/disks-types#ultra-disk). La principale différence entre le stockage Azure proposé jusqu’à présent et le disque Ultra est que les capacités du disque ne sont plus limitées à la taille du disque. En tant que client, vous pouvez définir ces capacités pour le disque Ultra :
 
 - Taille d’un disque allant de 4 à 65 536 Gio
 - IOPS allant de 100 à 160K (la valeur maximum dépend également des types de machine virtuelle)
 - Débit de stockage de 300 à 2 000 Mo/s
 
-Pour plus d’informations, consultez l’article [Annonce de SSD Ultra – Nouvelle génération de la technologie Azure Disks (préversion)](https://azure.microsoft.com/blog/announcing-ultra-ssd-the-next-generation-of-azure-disks-technology-preview/)
+Avec le disque Ultra, vous avez la possibilité de définir un seul disque qui répond à vos exigences en matière de plage de débit de disque, d’IOPS et de taille. Au lieu d’utiliser des gestionnaires de volumes logiques tels que LVM ou MDADM en plus du Stockage Azure Premium pour construire des volumes qui respectent les exigences de débit de stockage et d’IOPS, vous pouvez choisir une configuration mixte entre le disque Ultra et le stockage Premium. Vous pouvez ainsi limiter l’utilisation du disque Ultra aux volumes /hana/data et /hana/log ayant des performances critiques et utiliser le stockage Premium Azure pour les autres volumes
 
-SSD Ultra vous donne la possibilité de définir un seul disque qui répond à vos exigences en matière de plage de débit de disque, d’IOPS et de taille. Au lieu d’utiliser des gestionnaires de volumes logiques tels que LVM ou MDADM en plus du Stockage Azure Premium pour construire des volumes qui respectent les exigences de débit de stockage et d’IOPS, vous pouvez exécuter un mélange de configuration entre SSD Ultra et le Stockage Premium. Par conséquent, vous pouvez limiter l’utilisation de SSD Ultra aux performances des volumes /hana/data et /hana/log critiques et couvrir d’autres volumes avec le Stockage Premium Azure
+> [!IMPORTANT]
+> Le disque Ultra n’est pas encore disponible dans toutes les régions Azure, ni pris en charge par tous les types de machines virtuelles. Pour plus d’informations sur la disponibilité du disque Ultra et sa prise en charge par les différentes familles de machines virtuelles, consultez l’article [Quels sont les types de disque disponibles dans Azure ?](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/disks-types#ultra-disk).
 
 | Référence de la machine virtuelle | RAM | Bande passante E/S DE MACHINE VIRTUELLE<br /> Débit | Volume /hana/data | Débit d’e/s /hana/data | IOPS /hana/data | Volume /hana/log | Débit d’e/s /hana/log | IOPS /hana/log |
 | --- | --- | --- | --- | --- | --- | --- | --- | -- |
+| E64s_v3 | 432 Gio | 1 200 Mo/s | 600 Go | 700 Mo/s | 7500 | 512 Go | 500 Mo/s  | 2000 |
 | M32ts | 192 Gio | 500 Mo/s | 250 Go | 500 Mo/s | 7500 | 256 Go | 500 Mo/s  | 2000 |
 | M32ls | 256 Gio | 500 Mo/s | 300 Go | 500 Mo/s | 7500 | 256 Go | 500 Mo/s  | 2000 |
 | M64ls | 512 Go | 1 000 Mo/s | 600 Go | 500 Mo/s | 7500 | 512 Go | 500 Mo/s  | 2000 |
@@ -186,10 +188,10 @@ SSD Ultra vous donne la possibilité de définir un seul disque qui répond à v
 | M416s_v2 | 5 700 Gio | 2 000 Mo/s | 7 200 Go | 1 500 Mo/s | 9000 | 512 Go | 800 Mo/s  | 2000 | 
 | M416ms_v2 | 11 400 Gio | 2 000 Mo/s | 14 400 Go | 1 500 Mo/s | 9000 | 512 Go | 800 Mo/s  | 2000 |   
 
-Microsoft n’a pas encore mis les types de machines virtuelles M416xx_v2 à la disposition du public. Les valeurs répertoriées sont destinées à être un point de départ et doivent être évaluées en fonction de la demande réelle. L’avantage de SSD Ultra Azure est que les valeurs d’IOPS et de débit peuvent être adaptées sans avoir à arrêter la machine virtuelle, ni la charge de travail appliquée au système.   
+Microsoft n’a pas encore mis les types de machines virtuelles M416xx_v2 à la disposition du public. Les valeurs répertoriées sont destinées à être un point de départ et doivent être évaluées en fonction de la demande réelle. L’avantage du disque Ultra Azure est que les valeurs d’IOPS et de débit peuvent être adaptées sans avoir à arrêter la machine virtuelle, ni la charge de travail appliquée au système.   
 
 > [!NOTE]
-> À ce jour, les captures instantanées de stockage avec le stockage SSD Ultra ne sont pas disponibles. Cela empêche l’utilisation de captures instantanées de machine virtuelle avec les services Sauvegarde Azure
+> À ce jour, les captures instantanées du disque de stockage Ultra ne sont pas disponibles. Cela empêche l’utilisation de captures instantanées de machine virtuelle avec les services Sauvegarde Azure
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d'informations, consultez les pages suivantes :

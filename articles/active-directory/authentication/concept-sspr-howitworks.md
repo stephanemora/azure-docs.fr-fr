@@ -5,27 +5,22 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/30/2019
+ms.date: 08/16/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 47a6f475b5f1152850ec918b196883c6974f4d95
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2c31867f4de0e49e2c82733dc859f17ba060bdaa
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60415609"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69561332"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Fonctionnement : Réinitialisation de mot de passe en libre-service Azure AD
 
 Comment fonctionne la réinitialisation de mot de passe libre-service (SSPR) ? Que signifie cette option dans l’interface ? Poursuivez la lecture pour en savoir plus sur SSPR Azure Active Directory (Azure AD).
-
-|     |
-| --- |
-| La notification d’application mobile et le code d’application mobile en tant que méthodes réinitialisation de mot de passe en libre-service Azure AD sont des fonctionnalités de la préversion publique d’Azure Active Directory. Pour plus d’informations sur les préversions, consultez [Conditions d’utilisation supplémentaires pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
-|     |
 
 ## <a name="how-does-the-password-reset-portal-work"></a>Fonctionnement du portail de réinitialisation de mot de passe
 
@@ -61,8 +56,8 @@ Lisez les étapes suivantes pour en savoir plus sur la logique sous-jacente à l
 
 Si SSPR est activé, vous devez sélectionner au moins l’une des options suivantes pour les méthodes d’authentification. Ces options sont parfois appelées « portails ». Il est vivement recommandé que **choisir au moins deux méthodes d’authentification** afin que les utilisateurs disposent de davantage de flexibilité au le cas où une des méthodes nécessaires ne serait pas accessible. Vous trouverez plus d’informations sur les méthodes énoncées ci-dessous dans l’article [Que sont les méthodes d’authentification ?](concept-authentication-methods.md).
 
-* Notification d’application mobile (préversion)
-* Code d'application mobile (préversion)
+* Notification sur l’application mobile
+* Code de l’application mobile
 * Email
 * Téléphone mobile
 * Téléphone de bureau
@@ -86,7 +81,7 @@ Les utilisateurs peuvent choisir de fournir plusieurs méthodes d’authentifica
 
 Si un utilisateur n’a pas le nombre minimal requis de méthodes inscrites, une page d’erreur s’affiche et lui indique de contacter un administrateur pour que ce dernier réinitialise son mot de passe.
 
-#### <a name="mobile-app-and-sspr-preview"></a>Application mobile et réinitialisation de mot de passe en libre-service (préversion)
+#### <a name="mobile-app-and-sspr"></a>Application mobile et réinitialisation de mot de passe en libre-service
 
 Lorsque vous utilisez une application mobile, comme l’application Microsoft Authenticator, vous devez tenir compte des mises en garde suivantes concernant la méthode de réinitialisation de mot de passe :
 

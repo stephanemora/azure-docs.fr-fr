@@ -14,15 +14,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 08/05/2019
+ms.date: 08/15/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4af30a24c5913abec1c2c2287e1b0f145470f42c
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: da7b9c44d15ac0ca16afe15e429a6fe2cf89e366
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68828363"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69575243"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Utiliser Azure pour héberger et exécuter des scénarios de charge de travail SAP
 
@@ -122,6 +122,8 @@ Pour plus d’informations sur l’intégration de services Azure dans des compo
 
 ## <a name="change-log"></a>Journal des modifications
 
+- 16/08/2019 : Modifications apportées à [Configuration de Pacemaker sur Red Hat Enterprise Linux dans Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker) pour rappeler aux clients de mettre à jour les actions dans le rôle personnalisé s’ils effectuent une mise à jour vers la nouvelle version de l’agent de clôture Azure  
+- 15/08/2019 : Modifications apportées à [Configurations du stockage des machines virtuelles SAP HANA Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-vm-operations-storage) pour refléter la disponibilité générale du disque de stockage Ultra (anciennement disque SSD Ultra)
 - 01/08/2019 : Modifications apportées à [Configuration de Pacemaker sur SUSE Linux Enterprise Server dans Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker) pour intégrer les modifications spécifiquement pour SLES 15 
 - 23/07/2019 : Modifications apportées à [Mettre en cluster une instance SAP ASCS/SCS sur un cluster de basculement Windows à l’aide du partage de fichiers dans Azure](sap-high-availability-guide-wsfc-file-share.md) pour refléter la prise en charge de l’espace de stockage direct par Azure Site Recovery Services
 - 14/07/2019 : Publication de [Groupes de placements de proximité Azure pour une latence réseau optimale avec les applications SAP | Microsoft Docs](sap-proximity-placement-scenarios.md)

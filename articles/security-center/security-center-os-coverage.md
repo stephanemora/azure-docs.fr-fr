@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 6/03/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 7cd1d451b49faf2f8e3ad38f4ff780256ef2dc5d
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 1f5a144728614ee13bf4f08bb594f0546d446880
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68883599"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69640779"
 ---
 # <a name="platforms-and-features-supported-by-azure-security-center"></a>Plateformes et fonctionnalités prises en charge par Azure Security Center
 
@@ -30,8 +30,7 @@ La supervision de l’état de la sécurité et des recommandations sont disponi
 >
 
 ## <a name="platforms-that-support-the-data-collection-agent"></a>Plateformes prenant en charge l’agent de collecte de données 
-
-Cette section liste les plateformes sur lesquelles l’agent Azure Security Center peut s’exécuter et à partir desquelles il peut collecter des données.
+Cette section liste les plateformes sur lesquelles l’agent Log Analytics, utilisé par Azure Security Center, peut s’exécuter.
 
 ### <a name="supported-platforms-for-windows-computers-and-vms"></a>Plateformes prises en charge pour les ordinateurs et machines virtuelles Windows
 Les systèmes d’exploitation Windows suivants sont pris en charge :
@@ -112,7 +111,7 @@ Pour plus d’informations sur le moment où les recommandations sont générée
 |------|------|-----|-----|
 | Windows Defender (logiciel anti-programme malveillant de Microsoft)| Windows Server 2016| Non, intégré au système d’exploitation| OUI |
 | System Center Endpoint Protection (logiciel anti-programme malveillant de Microsoft) | Windows Server 2012 R2, 2012, 2008 R2 (voir la remarque ci-dessous) | Via l’extension | OUI |
-| Trend Micro : toutes les versions | Gamme Windows Server  | Non | OUI |
+| Trend Micro : toutes les versions* | Gamme Windows Server  | Non | OUI |
 | Symantec v12.1.1100+| Gamme Windows Server  | Non | OUI |
 | McAfee v10+ | Gamme Windows Server  | Non | OUI |
 | McAfee v10+ | Famille de serveurs Linux  | Non | Oui **\*** |
@@ -122,6 +121,7 @@ Pour plus d’informations sur le moment où les recommandations sont générée
 
 > [!NOTE]
 > - La détection de System Center Endpoint Protection (SCEP) sur une machine virtuelle Windows Server 2008 R2 requiert l’installation de SCEP après celle de PowerShell 3.0 (ou d’une version ultérieure).
+> - La détection de la protection Trend Micro est prise en charge pour les agents Deep Security.  Les agents OfficeScan ne sont pas pris en charge.
 
 ## <a name="supported-paas-features"></a>Fonctionnalités PaaS prises en charge
 
@@ -165,6 +165,6 @@ Pour plus d’informations sur le moment où les recommandations sont générée
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Découvrez comment planifier l’adoption d’Azure Security Center et prenez connaissance des considérations relatives à la conception](security-center-planning-and-operations-guide.md).
-- En savoir plus sur [l’analyse comportementale de machine virtuelle et l’analyse de mémoire de vidage sur incident dans Security Center](security-center-alerts-type.md#virtual-machine-behavioral-analysis).
+- Découvrez-en plus sur la [détection des menaces pour les machines virtuelles et les serveurs dans Azure Security Center](security-center-alerts-iaas.md).
 - Découvrez [les réponses aux questions le plus souvent posées sur l’utilisation d’Azure Security Center](security-center-faq.md).
 - Accédez à des [billets de blog sur la sécurité et la conformité Azure](https://blogs.msdn.com/b/azuresecurity/).

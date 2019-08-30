@@ -7,85 +7,87 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/14/2019
-ms.openlocfilehash: b0cf6eab86b0b932e44b6824305c23df01f35808
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 2eb23a65196ac4f6456f50dbbbfd9e4b484ad171
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68383821"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69515728"
 ---
 # <a name="select-the-correct-vm-sku-for-your-azure-data-explorer-cluster"></a>Sélectionner la bonne référence SKU de machine virtuelle pour votre cluster Azure Data Explorer 
 
-Azure Data Explorer propose plusieurs références SKU de machine virtuelle pour la création d'un cluster ou l'optimisation du cluster avec une charge de travail changeante. Les machines virtuelles ont été soigneusement choisies pour permettre le coût le plus optimal pour n'importe quelle charge de travail. 
+Quand vous créez un cluster ou que vous optimisez un cluster pour une charge de travail changeante, Azure Data Explorer met à votre disposition plusieurs références SKU de machine virtuelle. Les machines virtuelles ont été soigneusement choisies afin que vous bénéficiiez du coût le plus optimal pour n’importe quelle charge de travail. 
 
-La taille et la référence SKU d’une machine virtuelle du cluster de gestion des données sont entièrement gérées par le service Azure Data Explorer. Elle est déterminée par des facteurs tels que la taille de la machine virtuelle du moteur et la charge de travail d'ingestion. 
+La taille et la référence SKU d’une machine virtuelle du cluster de gestion des données sont entièrement gérées par le service Azure Data Explorer. Elles sont déterminées par des facteurs tels que la taille de la machine virtuelle du moteur et la charge de travail d’ingestion. 
 
-La référence SKU de machine virtuelle du cluster moteur peut être modifiée à tout moment en [mettant à l'échelle le cluster](manage-cluster-vertical-scaling.md). Par conséquent, il est préférable de commencer par la taille minimale de référence SKU correspondant au scénario initial. Gardez à l'esprit que la mise à l'échelle du cluster entraîne un temps d'arrêt pouvant atteindre 30 minutes lorsque le cluster est recréé avec la nouvelle référence SKU de machine virtuelle.
+Vous pouvez changer la référence SKU de machine virtuelle du cluster moteur à tout moment en [mettant à l’échelle le cluster](manage-cluster-vertical-scaling.md). Il est préférable de commencer par la plus petite taille de référence SKU correspondant au scénario initial. Gardez à l’esprit que la mise à l’échelle du cluster entraîne un temps d’arrêt pouvant atteindre 30 minutes quand le cluster est recréé avec la nouvelle référence SKU de machine virtuelle.
 
 > [!TIP]
-> Le calcul des [RI (instances réservées)](https://docs.microsoft.com/azure/virtual-machines/windows/prepay-reserved-vm-instances) est applicable au cluster Azure Data Explorer.  
+> Le calcul des [instances réservées (RI)](https://docs.microsoft.com/azure/virtual-machines/windows/prepay-reserved-vm-instances) est applicable au cluster Azure Data Explorer.  
 
-Cet article décrit les différentes options de référence SKU de machine virtuelle et fournit des détails techniques qui peuvent vous aider à faire le meilleur choix.
+Cet article décrit différentes options de référence SKU de machine virtuelle et fournit des détails techniques qui peuvent vous aider à faire le meilleur choix.
 
-## <a name="select-the-cluster-type"></a>Sélectionner le type de cluster
+## <a name="select-a-cluster-type"></a>Sélectionner un type de cluster
 
 Azure Data Explorer offre deux types de clusters :
 
 * **Production** : Les clusters de production contiennent deux nœuds pour les clusters de moteur et de gestion de données et sont utilisés conformément au [contrat de niveau de service (SLA)](https://azure.microsoft.com/support/legal/sla/data-explorer/v1_0/) Azure Data Explorer.
 
-* **Développement/test (aucun SLA)**  : Les clusters de développement/test ne comportent qu’un seul nœud D11_v2 pour le cluster moteur et un seul nœud D1 pour le cluster de gestion des données. Ce type de cluster représente la configuration la moins chère en raison du faible nombre d'instances et de l'absence de frais de balisage moteur. Il n'existe pas de SLA pour cette configuration de cluster car elle manque de redondance.
+* **Développement/test (aucun SLA)**  : Les clusters de développement/test ne comportent qu’un seul nœud D11 v2 pour le cluster moteur et un seul nœud D1 pour le cluster de gestion des données. Ce type de cluster représente la configuration la moins chère en raison de son faible nombre d’instances et de l’absence de frais de balisage moteur. Il n’existe pas de SLA pour cette configuration de cluster, car elle manque de redondance.
 
 ## <a name="sku-types"></a>Types de référence SKU
 
-Lors de la création d'un cluster Azure Data Explorer, sélectionnez la référence SKU de machine virtuelle *optimale* pour la charge de travail planifiée. Azure Data Explorer propose deux familles de références SKU :
+Quand vous créez un cluster Azure Data Explorer, sélectionnez la référence SKU de machine virtuelle *optimale* pour la charge de travail planifiée. Vous pouvez choisir parmi les deux familles de références SKU Azure Data Explorer suivantes :
 
-* **D_V2** : La référence SKU D est optimisée pour le calcul et disponible en deux versions.
-    * Machine virtuelle seule
-    * Machine virtuelle regroupée avec des disques de stockage Premium
+* **D v2** : La référence SKU D est optimisée pour le calcul et est disponible en deux versions :
+    * La machine virtuelle elle-même
+    * La machine virtuelle regroupée avec des disques de stockage Premium
 
-* **LS** : La référence SKU L est optimisée pour le stockage. Pour le même prix, elle propose un disque SSD beaucoup plus grand que la référence SKU **D**.
+* **LS** : La référence SKU L est optimisée pour le stockage. Pour le même prix, elle propose un disque SSD beaucoup plus grand que la référence SKU D.
 
-Le tableau suivant présente les principales différences entre les types de référence SKU disponibles :
+Les principales différences entre les types de référence SKU disponibles sont décrites dans le tableau suivant :
  
-|**Attribut** | **Référence SKU D** | **Référence SKU L**
+| Attribut | RÉFÉRENCE SKU D | RÉFÉRENCE SKU L |
 |---|---|---
-|**Petites références SKU**|La taille minimale est 'D11' avec deux cœurs|La taille minimale est 'L4' avec quatre cœurs
-|**Disponibilité**|Disponible dans toutes les régions (la version DS+PS offre une disponibilité plus limitée)|Disponible dans quelques régions
-|**Coût par Go de cache par cœur**|Elevé avec la référence SKU D, faible avec la version DS+PS|Moins cher avec l'option *Paiement à l’utilisation*
-|**Prix des RI (instances réservées)**|Remise élevée (plus de 55 % pour un engagement sur trois ans)|Remise plus petite (20 % pour un engagement sur trois ans)  
+|**Petites références SKU**|La taille minimale est D11 avec deux cœurs|La taille minimale est L4 avec quatre cœurs |
+|**Disponibilité**|Disponible dans toutes les régions (la version DS+PS offre une disponibilité plus limitée)|Disponible dans quelques régions |
+|**Coût par&nbsp;Go de cache par cœur**|Elevé avec la référence SKU D, faible avec la version DS+PS|Le moins cher avec l’option Paiement à l’utilisation |
+|**Prix des instances réservées (RI)**|Remise élevée (plus de 55&nbsp;% pour un engagement sur trois ans)|Remise plus petite (20&nbsp;% pour un engagement sur trois ans) |  
 
 ## <a name="select-your-cluster-vm"></a>Sélectionner votre machine virtuelle de cluster 
 
 Pour sélectionner votre machine virtuelle de cluster, [configurez une mise à l'échelle verticale](manage-cluster-vertical-scaling.md#configure-vertical-scaling). 
 
-Les différentes options de référence SKU de machine virtuelle vous permettent d'optimiser les coûts en fonction des performances nécessaires et des exigences de cache à chaud pour le scénario souhaité. Si le scénario exige des performances optimales pour un volume de requêtes élevé, la référence SKU idéale doit être optimisée pour le calcul. D'autre part, si le scénario exige d'interroger de grands volumes de données avec une charge de requêtes relativement plus faible, la référence SKU optimisée pour le stockage réduira les coûts tout en offrant d'excellentes performances.
+Avec différentes options de référence SKU de machine virtuelle disponibles, vous pouvez optimiser les coûts en fonctions des exigences de performances et de cache à chaud de votre scénario. 
+* Si vous avez besoin de performances optimales pour un volume de requêtes élevé, la référence SKU idéale doit être optimisée pour le calcul. 
+* Si vous devez interroger de grands volumes de données avec une charge de requête relativement inférieure, la référence SKU optimisée pour le stockage peut contribuer à réduire les coûts tout en offrant d’excellentes performances.
 
-Le nombre d'instances par cluster pour les petites références SKU étant limité, il est préférable d'utiliser des machines virtuelles de plus grande taille avec une plus grande RAM. La taille de la RAM est nécessaire pour certains types de requêtes qui exigent plus de ressources RAM, notamment celles qui utilisent `joins`. Par conséquent, lorsque vous étudiez les options de mise à l'échelle, il est conseillé de monter en puissance une référence SKU plus grande plutôt que d’ajouter plus d'instances pour monter en charge.
+Le nombre d’instances par cluster pour les petites références SKU étant limité, il est préférable d’utiliser des machines virtuelles de plus grande taille avec une plus grande RAM. Davantage de RAM est nécessaire pour certains types de requêtes qui exigent plus de ressources RAM, notamment celles qui utilisent `joins`. Ainsi, quand vous étudiez les options de mise à l’échelle, nous vous recommandons d’effectuer un scale-up au profit d’une référence SKU plus grande plutôt qu’un scale-out en ajoutant des instances.
 
 ## <a name="vm-options"></a>Options de la machine virtuelle
 
-Le tableau suivant fournit les spécifications techniques des machines virtuelles du cluster Azure Data Explorer :
+Les spécifications techniques des machines virtuelles du cluster Azure Data Explorer sont décrites dans le tableau suivant :
 
-|**Nom**| **Catégorie** | **Taille du disque SSD** | **Cœurs** | **RAM** | **Disques de stockage Premium (1 To)**| **Nombre minimum d'instances par cluster** | **Nombre maximum d'instances par cluster**
+|**Nom**| **Catégorie** | **Taille du disque SSD** | **Cœurs** | **RAM** | **Disques de stockage Premium (1&nbsp;To)**| **Nombre minimum d'instances par cluster** | **Nombre maximum d'instances par cluster**
 |---|---|---|---|---|---|---|---
-|D11_v2| optimisé pour le calcul | 75 Go    | 2 | 14 Go | 0 | 1 | 8 (sauf pour les références SKU de développement/test où il est de 1)
-|D12_v2| optimisé pour le calcul | 150 Go   | 4 | 28 Go | 0 | 2 | 16
-|D13_v2| optimisé pour le calcul | 307 Go   | 8 | 56 Go | 0 | 2 | 1 000
-|D14_v2| optimisé pour le calcul | 614 Go   | 16| 112 Go | 0 | 2 | 1 000
-|DS13_v2 + 1 To PS| optimisé pour le stockage | 1 To | 8 | 56 Go | 1 | 2 | 1 000
-|DS13_v2 + 2 To PS| optimisé pour le stockage | 2 To | 8 | 56 Go | 2 | 2 | 1 000
-|DS14_v2 + 3 To PS| optimisé pour le stockage | 3 To | 16 | 112 Go | 2 | 2 | 1 000
-|DS14_v2 + 4 To PS| optimisé pour le stockage | 4 To | 16 | 112 Go | 4 | 2 | 1 000
-|L4s_v1| optimisé pour le stockage | 650 Go | 4 | 32 Go | 0 | 2 | 16
-|L8s_v1| optimisé pour le stockage | 1,3 To | 8 | 64 Go | 0 | 2 | 1 000
-|L16s_1| optimisé pour le stockage | 2,6 To | 16| 128 Go | 0 | 2 | 1 000
+|D11 v2| Optimisé pour le calcul | 75&nbsp;Go    | 2 | 14&nbsp;Go | 0 | 1 | 8 (sauf pour les références SKU de développement/test où il est de 1)
+|D12 v2| Optimisé pour le calcul | 150&nbsp;Go   | 4 | 28&nbsp;Go | 0 | 2 | 16
+|D13 v2| Optimisé pour le calcul | 307&nbsp;Go   | 8 | 56&nbsp;Go | 0 | 2 | 1 000
+|D14 v2| Optimisé pour le calcul | 614&nbsp;Go   | 16| 112&nbsp;Go | 0 | 2 | 1 000
+|DS13 v2 + 1&nbsp;TB&nbsp;PS| Optimisé pour le stockage | 1&nbsp;To | 8 | 56&nbsp;Go | 1 | 2 | 1 000
+|DS13 v2 + 2&nbsp;TB&nbsp;PS| Optimisé pour le stockage | 2&nbsp;To | 8 | 56&nbsp;Go | 2 | 2 | 1 000
+|DS14 v2 + 3&nbsp;TB&nbsp;PS| Optimisé pour le stockage | 3&nbsp;To | 16 | 112&nbsp;Go | 2 | 2 | 1 000
+|DS14 v2 + 4&nbsp;TB&nbsp;PS| Optimisé pour le stockage | 4&nbsp;To | 16 | 112&nbsp;Go | 4 | 2 | 1 000
+|L4s v1| Optimisé pour le stockage | 650&nbsp;Go | 4 | 32&nbsp;Go | 0 | 2 | 16
+|L8s v1| Optimisé pour le stockage | 1,3&nbsp;To | 8 | 64&nbsp;Go | 0 | 2 | 1 000
+|L16s_1| Optimisé pour le stockage | 2,6&nbsp;To | 16| 128&nbsp;Go | 0 | 2 | 1 000
 
-* Visualisez la liste mise à jour des références SKU de machine virtuelle par région à l'aide de l'[API ListSkus](/dotnet/api/microsoft.azure.management.kusto.clustersoperationsextensions.listskus?view=azure-dotnet) Azure Data Explorer. 
-* En savoir plus sur les [différentes références SKU de calcul](/azure/virtual-machines/windows/sizes-compute). 
+* Vous pouvez visualiser la liste mise à jour des références SKU de machine virtuelle par région à l’aide de l’[API ListSkus](/dotnet/api/microsoft.azure.management.kusto.clustersoperationsextensions.listskus?view=azure-dotnet) Azure Data Explorer. 
+* Découvrez-en plus sur les [différentes références SKU de calcul](/azure/virtual-machines/windows/sizes-compute). 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Vous pouvez à tout moment [monter ou descendre en puissance](manage-cluster-vertical-scaling.md) le cluster moteur en changeant la référence SKU de machine virtuelle pour différents besoins. 
+* Vous pouvez [appliquer un scale-up ou un scale-down](manage-cluster-vertical-scaling.md) au cluster moteur à tout moment en changeant la référence SKU de machine virtuelle, en fonction des besoins. 
 
-* La taille du cluster moteur peut être [diminuée ou augmentée](manage-cluster-horizontal-scaling.md) pour modifier sa capacité en fonction de l'évolution de la demande.
+* Vous pouvez [appliquer un scale-in ou un scale-out](manage-cluster-horizontal-scaling.md) au cluster moteur pour modifier la capacité, en fonction des demandes.
 

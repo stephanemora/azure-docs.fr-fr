@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/02/2019
+ms.date: 08/20/2019
 ms.author: barclayn
-ms.openlocfilehash: 89acc86526d1017e97efbf1812e02cfb6a240953
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 910057e0e81219a68608441530d03ca1a2411b02
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035428"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69875099"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Chiffrement des données au repos d’Azure
 
@@ -254,14 +254,14 @@ La prise en charge du chiffrement côté serveur est actuellement fournie par la
 
 Le chiffrement côté client des données Azure SQL Database est pris en charge via la fonctionnalité [Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx). Always Encrypted utilise une clé qui est créée et stockée par le client. Les clients peuvent stocker la clé principale dans un magasin de certificats Windows, dans Azure Key Vault ou dans un module de sécurité matériel local. Avec SQL Server Management Studio, les utilisateurs SQL choisissent quelle clé ils veulent utiliser pour quelle colonne.
 
-|                                  |                    | **Modèle de chiffrement et gestion des clés** |                    |
-|----------------------------------|--------------------|-----------------------------------------|--------------------|
-|                                  | **Côté serveur à l’aide d’une clé gérée par le service**     | **Côté serveur à l’aide d’une clé gérée par le client**             | **Côté client à l’aide d’une gestion par le client**      |
-| **IA et Machine Learning**      |                    |                    |                    |
+#### <a name="encryption-model-and-key-management"></a>Modèle de chiffrement et gestion des clés
+
+| **Côté serveur à l’aide d’une clé gérée par le service** |**Côté serveur à l’aide d’une clé gérée par le client**| **Côté client à l’aide d’une gestion par le client** | **IA et Machine Learning**   |
+|--------------------|-------------------|----------------------|--------------------|
 | Recherche Azure                     | OUI                | -                  | -                  |
 | Service Azure Machine Learning   | OUI                | -                  | -                  |
 | Azure Machine Learning Studio    | OUI                | Préversion, RSA 2048 bits | -               |
-| Power BI                         | OUI                | Préversion, RSA 2048 bits | -                  |
+| Power BI                         | OUI                | Préversion, RSA 2048 bits | -               |
 | **Analyse**                    |                    |                    |                    |
 | Azure Stream Analytics           | OUI                | -                  | -                  |
 | Event Hubs                       | OUI                | -                  | -                  |
@@ -282,7 +282,7 @@ Le chiffrement côté client des données Azure SQL Database est pris en charge 
 | Azure SQL Database               | OUI                | Oui, RSA 2048 bits  | OUI                |
 | Azure SQL Database pour MariaDB   | OUI                | -                  | -                  |
 | Azure SQL Database pour MySQL     | OUI                | -                  | -                  |
-| Azure SQL Database pour PostgreSQL | OUI                | -                  | -                  |
+| Azure SQL Database pour PostgreSQL | OUI                | -                  | -                 |
 | Azure SQL Data Warehouse         | OUI                | Oui, RSA 2048 bits  | OUI                |
 | SQL Server Stretch Database      | OUI                | Oui, RSA 2048 bits  | OUI                |
 | Stockage Table                    | OUI                | -                  | OUI                |

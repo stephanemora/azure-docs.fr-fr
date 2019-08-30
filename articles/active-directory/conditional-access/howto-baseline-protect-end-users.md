@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: afcd9c9d3191caeabe182f499b5fd80cd8e1d8dd
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: 131d38f6154e7a6e2f3175838b084e47e17ec582
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68608141"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69532926"
 ---
 # <a name="baseline-policy-end-user-protection-preview"></a>Stratégie de base : Protection de l’utilisateur final (préversion)
 
@@ -64,11 +64,11 @@ La stratégie **Stratégie de base : la protection des utilisateurs finaux (pr�
 
 Pour activer cette stratégie et protéger vos utilisateurs, procédez comme suit :
 
-1. Connectez-vous au **portail Microsoft Azure** en tant qu’administrateur général, administrateur de sécurité ou administrateur de l’accès conditionnel.
+1. Connectez-vous au **portail Azure** en tant qu’administrateur général, administrateur de sécurité ou administrateur de l’accès conditionnel.
 1. Accédez à **Azure Active Directory** > **Accès conditionnel**.
 1. Dans la liste des stratégies, sélectionnez **Stratégie de base : Protection de l’utilisateur final (préversion)** .
 1. Définissez **Activer la stratégie** sur **Utiliser la stratégie immédiatement**.
-1. Cliquez sur  **Enregistrer**.
+1. Cliquez sur **Enregistrer**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

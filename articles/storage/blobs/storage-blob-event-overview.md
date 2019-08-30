@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: cbrooks
-ms.openlocfilehash: 13eef9beb6c86683c56efc744dc42b4614b84fe9
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: b813ef89bb1a55f769d0ea2391855ba5d671c140
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68946479"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69648794"
 ---
 # <a name="reacting-to-blob-storage-events"></a>Réaction aux événements de Stockage Blob
 
@@ -32,6 +32,8 @@ Si vous souhaitez faire un essai maintenant, consultez l’un des articles de d�
 |Portail Azure    |[Démarrage rapide : Acheminer des événements de stockage Blob vers un point de terminaison web avec le portail Azure](https://docs.microsoft.com/azure/event-grid/blob-event-quickstart-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 |PowerShell    |[Démarrage rapide : Acheminer des événements de stockage vers un point de terminaison web avec PowerShell](https://docs.microsoft.com/azure/storage/blobs/storage-blob-event-quickstart-powershell?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 |D’Azure CLI    |[Démarrage rapide : Acheminer des événements de stockage vers un point de terminaison web avec Azure CLI](https://docs.microsoft.com/azure/storage/blobs/storage-blob-event-quickstart?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
+
+Si votre compte dispose d’un espace de noms hiérarchique, ce tutoriel vous montre comment associer un abonnement Event Grid, une fonction Azure et un [travail](https://docs.azuredatabricks.net/user-guide/jobs.html) dans Azure Databricks : [Tutoriel : Utiliser des événements Azure Data Lake Storage Gen2 pour mettre à jour une table Databricks Delta](data-lake-storage-events.md).
 
 ## <a name="the-event-model"></a>Le modèle d’événement
 

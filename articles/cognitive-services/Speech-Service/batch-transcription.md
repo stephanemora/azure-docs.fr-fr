@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: panosper
-ms.openlocfilehash: e98ac335f475e4a6db6b17d5954512f5749e6aec
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 101cfacf071292d00556656b0df9c6bf9c15f414
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68881151"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69515889"
 ---
 # <a name="why-use-batch-transcription"></a>Pourquoi utiliser la transcription Batch ?
 

@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 08/07/2019
-ms.openlocfilehash: ebecb69e57c620b2eb84568757c8e3e6f1cb1663
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 510f58cc0b71fb75ac6f5e15fc883c3caf4a8f9a
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68946409"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69898005"
 ---
 # <a name="enterprise-security-for-azure-machine-learning-service"></a>Sécurité de l’entreprise pour le service Azure Machine Learning
 
@@ -31,7 +31,7 @@ L’authentification multifacteur est prise en charge si Azure Active Directory 
 * Le client présente le jeton à Azure Resource Manager et tous les services Azure Machine Learning.
 * Le service Azure Machine Learning fournit un jeton Azure Machine Learning pour le calcul de l’utilisateur. Par exemple, la capacité de calcul Machine Learning. Ce jeton est utilisé par le calcul de l’utilisateur pour effectuer un rappel dans le service Azure Machine Learning (les limites définies sont l’espace de travail) une fois l’exécution terminée.
 
-![Capture d’écran montrant le fonctionnement de l’authentification dans le service Azure Machine Learning](./media/enterprise-readiness/authentication.png)
+[![Capture d’écran montrant le fonctionnement de l’authentification dans le service Azure Machine Learning](./media/enterprise-readiness/authentication.png)](./media/enterprise-readiness/authentication-expanded.png)
 
 ### <a name="authentication-for-web-service-deployment"></a>Authentification pour le déploiement de service web
 
@@ -185,7 +185,7 @@ Chaque espace de travail a une identité managée affectée par le système asso
 
 Les métriques Azure Monitor peuvent être utilisées pour afficher et surveiller des métriques de votre espace de travail de service Azure Machine Learning. À partir du [portail Azure](https://portal.azure.com), sélectionnez votre espace de travail, puis utilisez le lien __Métriques__.
 
-![Capture d’écran montrant des exemples de métriques pour un espace de travail](./media/enterprise-readiness/workspace-metrics.png)
+[![Capture d’écran montrant des exemples de métriques pour un espace de travail](./media/enterprise-readiness/workspace-metrics.png)](./media/enterprise-readiness/workspace-metrics-expanded.png)
 
 Les métriques incluent des informations sur les exécutions, les déploiements et les inscriptions.
 
@@ -197,7 +197,7 @@ Vous pouvez consulter le journal d’activité sous l’espace de travail pour v
 
 La capture d’écran suivante montre le journal d’activité d’un espace de travail :
 
-![Capture d’écran montrant un journal d’activité sous un espace de travail](./media/enterprise-readiness/workspace-activity-log.png)
+[![Capture d’écran montrant un journal d’activité sous un espace de travail](./media/enterprise-readiness/workspace-activity-log.png)](./media/enterprise-readiness/workspace-activity-log-expanded.png)
 
 Les détails des requêtes de scoring sont stockés dans Application Insights, qui est créé dans l’abonnement de l’utilisateur lors de la création de l’espace de travail. Les informations consignées inclut des champs comme HTTPMethod, UserAgent, ComputeType, RequestUrl, StatusCode, RequestId, Duration, etc.
 
@@ -220,14 +220,14 @@ L’utilisateur se connecte à Azure AD à partir de n’importe quel client de
 
 D’autres calculs attachés à un espace de travail (Azure Kubernetes Service, machines virtuelles, etc.) peuvent également être provisionnés par les clients en fonction des besoins.
 
-![Capture d’écran montrant le workflow de création d’un espace de travail](./media/enterprise-readiness/create-workspace.png)
+[![Capture d’écran montrant le workflow de création d’un espace de travail](./media/enterprise-readiness/create-workspace.png)](./media/enterprise-readiness/create-workspace-expanded.png)
 
 ### <a name="save-source-code-training-scripts"></a>Enregistrer le code source (scripts d’entraînement)
 
 Le diagramme suivant montre le workflow de capture instantanée du code.
 Les répertoires (expériences), qui contiennent le code source (scripts d’entraînement) sont associés à un espace de travail de service Azure Machine Learning.  Ces scripts sont stockés sur l’ordinateur local du client et dans le cloud (dans Stockage Blob Azure, sous l’abonnement du client). Les instantanés de code sont utilisés pour l’exécution ou l’inspection de l’audit d’historique.
 
-![Capture d’écran montrant le workflow de création d’un espace de travail](./media/enterprise-readiness/code-snapshot.png)
+[![Capture d’écran montrant le workflow de création d’un espace de travail](./media/enterprise-readiness/code-snapshot.png)](./media/enterprise-readiness/code-snapshot-expanded.png)
 
 ### <a name="training"></a>Formation
 
@@ -253,7 +253,7 @@ Le diagramme suivant montre le workflow d’entraînement.
 
 Cette étape est indiquée dans le flux où le calcul d’entraînement réécrit les *métriques d’exécution* dans le service Azure Machine Learning à partir duquel il est stocké dans la base de données Cosmos DB. Les clients peuvent appeler le service Azure Machine Learning qui, à son tour, extrait les métriques de la base de données Cosmos DB et les retourne au client.
 
-![Capture d’écran montrant le workflow de création d’un espace de travail](./media/enterprise-readiness/training-and-metrics.png)
+[![Capture d’écran montrant le workflow de création d’un espace de travail](./media/enterprise-readiness/training-and-metrics.png)](./media/enterprise-readiness/training-and-metrics-expanded.png)
 
 ### <a name="creating-web-services"></a>Création de services web
 
@@ -267,7 +267,7 @@ Consultez les détails ci-dessous :
 * Les détails des requêtes de scoring sont stockés dans Application Insights, qui se trouve dans l’abonnement de l’utilisateur
 * Les données de télémétrie sont également envoyées (push) à l’abonnement Microsoft/Azure
 
-![Capture d’écran montrant le workflow de création d’un espace de travail](./media/enterprise-readiness/inferencing.png)
+[![Capture d’écran montrant le workflow de création d’un espace de travail](./media/enterprise-readiness/inferencing.png)](./media/enterprise-readiness/inferencing-expanded.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

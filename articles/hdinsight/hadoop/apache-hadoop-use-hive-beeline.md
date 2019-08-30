@@ -7,12 +7,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: hrasheed
-ms.openlocfilehash: dcfcd4b55f848e1725e286e6ef2a87a2c36e5a71
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7c4af8346b5da20c662b5549284a3540d08908f8
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64684926"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70072921"
 ---
 # <a name="use-the-apache-beeline-client-with-apache-hive"></a>Utiliser le client Apache Beeline avec Apache Hive
 
@@ -46,7 +46,7 @@ Remplacez `<headnode-FQDN>` par le nom de domaine complet d’un nœud principal
 
 ### <a name="to-hdinsight-enterprise-security-package-esp-cluster"></a>Vers un cluster du Pack Sécurité Entreprise (ESP) HDInsight
 
-Lors de la connexion d’un client à un cluster Pack Sécurité Entreprise (ESP) joint à Azure Active Directory (AAD), vous devez également spécifier le nom de domaine `<AAD-Domain>` et le nom d’un compte d’utilisateur de domaine autorisé à accéder au cluster `<username>` :
+Lors de la connexion d’un client à un cluster Pack Sécurité Entreprise (ESP) joint à Azure Active Directory (AAD) sur une machine dans le même domaine du cluster, vous devez également spécifier le nom de domaine `<AAD-Domain>` et le nom d’un compte d’utilisateur de domaine autorisé à accéder au cluster `<username>` :
 
 ```bash
 kinit <username>
@@ -59,7 +59,7 @@ Remplacez `<username>` par le nom d’un compte de domaine autorisé à accéder
 
 ### <a name="over-public-internet"></a>Sur l’Internet public
 
-Lors de la connexion via l’internet public, vous devez fournir le nom de compte de connexion de cluster (par défaut `admin`) et le mot de passe. Par exemple, utilisation de Beeline à partir d’un système client pour se connecter à l’adresse `<clustername>.azurehdinsight.net`. Cette connexion est établie via le port `443`et est chiffrée à l’aide de SSL :
+Lors de la connexion via l’internet public à un cluster non-ESP ou à un cluster ESP joint à Azure Active Directory (AAD), vous devez fournir le nom de compte de connexion de cluster (par défaut `admin`) et le mot de passe. Par exemple, utilisation de Beeline à partir d’un système client pour se connecter à l’adresse `<clustername>.azurehdinsight.net`. Cette connexion est établie via le port `443`et est chiffrée à l’aide de SSL :
 
 ```bash
 beeline -u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2' -n admin -p password
@@ -88,7 +88,7 @@ beeline -u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportM
 Lorsque vous vous connectez directement depuis le nœud principal du cluster, ou à partir d’une ressource à l’intérieur du même réseau virtuel Azure que le cluster HDInsight, le port `10002` doit être utilisé pour le serveur Spark Thrift à la place de `10001`. L’exemple suivant montre comment se connecter directement au nœud principal :
 
 ```bash
-beeline -u 'jdbc:hive2://headnodehost:10002/;transportMode=http'
+/usr/hdp/current/spark2-client/bin/beeline -u 'jdbc:hive2://headnodehost:10002/;transportMode=http'
 ```
 
 ---

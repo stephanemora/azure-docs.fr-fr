@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: mbullwin
-ms.openlocfilehash: c2f115564c81f38dd437f1d3ff1e33d7d162a42f
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 858508e949f8a880498e1a3d983dc76224010c31
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326440"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69534605"
 ---
 # <a name="dependency-tracking-in-azure-application-insights"></a>Suivi des dépendances dans Azure Application Insights 
 
@@ -90,7 +90,7 @@ Si vous souhaitez désactiver le module de suivi des dépendances standard, supp
 
 ## <a name="tracking-ajax-calls-from-web-pages"></a>Suivi des appels AJAX provenant de pages web
 
-Pour les pages web, le SDK JavaScript Application Insights collecte automatiquement les appels AJAX en tant que dépendances, comme cela est décrit [ici](javascript.md#ajax-performance). Ce document se concentre sur les dépendances des composants serveur.
+Pour les pages web, le kit SDK JavaScript Application Insights collecte automatiquement les appels AJAX en tant que dépendances.
 
 ## <a name="advanced-sql-tracking-to-get-full-sql-query"></a>Suivi SQL avancé pour obtenir la requête SQL complète
 
@@ -113,7 +113,7 @@ Dans les cas ci-dessus, la bonne pratique pour vérifier que ce moteur d’instr
 
 * [Mise en correspondance d’applications](app-map.md) visualise les dépendances entre votre application et les composants voisins.
 * [Diagnostics de transaction](transaction-diagnostics.md) montre les données serveur mises en corrélation avec les composants unifiés.
-* [Navigateurs](javascript.md#ajax-performance) montre les appels AJAX provenant des navigateurs des utilisateurs.
+* [Navigateurs](javascript.md) montre les appels AJAX provenant des navigateurs des utilisateurs.
 * Parcourez les requêtes lentes ou ayant échoué pour vérifier leurs appels de dépendance.
 * Vous pouvez utiliser [Analytics](#logs-analytics) pour interroger des données de dépendances.
 

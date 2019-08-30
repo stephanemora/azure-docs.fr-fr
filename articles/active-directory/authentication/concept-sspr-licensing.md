@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/11/2019
+ms.date: 08/19/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7463b86ea20a712937b8ccba7997c2551aae5be6
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 4d7a23ed0a84ebd671c69744dfec145763ef6897
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68879104"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69622716"
 ---
 # <a name="licensing-requirements-for-azure-ad-self-service-password-reset"></a>Conditions de licence pour la réinitialisation du mot de passe en libre-service Azure AD
 
@@ -34,7 +34,7 @@ La réinitialisation du mot de passe Azure AD libre-service est fournie sous lic
 * Réinitialisation libre-service du mot de passe pour les utilisateurs du cloud
    * Je suis un **utilisateur cloud uniquement** et j’ai oublié mon mot de passe.
       * J’aimerais **réinitialiser** mon mot de passe pour un nouveau.
-   * Cette fonctionnalité est incluse dans les éditions Premium P1 et Premium P2 d'Azure AD, ainsi que dans Microsoft 365 Business.
+   * Cette fonctionnalité est incluse dans les éditions Premium P1 et Premium P2 d’Azure AD, ainsi que dans Microsoft 365 Business ou Office 365.
 
 * Réinitialisation/modification/déverrouillage du mot de passe en libre-service **avec des réécritures locales**
    * Je suis un **utilisateur hybride** mon compte d’utilisateur Active Directory local est synchronisé avec mon compte Azure AD à l’aide d’Azure AD Connect. Je souhaite modifier mon mot de passe, j’ai oublié mon mot de passe, ou il a été verrouillé.

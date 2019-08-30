@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/13/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 21fe92bf4a33dc44545f1bd54c718db6c0a38532
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: c3201ec64ee7a3471b7d93b83664c62c2e7e0435
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68843196"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69541463"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Forum aux questions sur les disques de machines virtuelles et les disques Premium gérés et non gérés Azure IaaS
 
@@ -61,7 +61,7 @@ La fonctionnalité Disques managés élimine les restrictions associées aux com
 
 Non. La fonctionnalité actuelle de capture instantanée crée une copie complète d’un disque géré.
 
-**Les machines virtuelles d’un groupe à haute disponibilité peuvent-elles consister en une combinaison de disques gérés et non gérés ?**
+**Les machines virtuelles d’un groupe à haute disponibilité peuvent-elles consister en une combinaison de disques managés et non managés ?**
 
 Non. Les machines virtuelles d’un groupe à haute disponibilité doivent utiliser exclusivement des disques managés ou non managés. Lorsque vous créez un groupe à haute disponibilité, vous pouvez définir le type de disques à utiliser.
 
@@ -97,7 +97,7 @@ Vous pouvez générer un URI de signature d’accès partagé (SAP) en lecture s
 
 Les clients peuvent prendre une capture instantanée de leurs disques managés, qu’ils utilisent pour créer un autre disque managé.
 
-**Les disques non gérés sont-ils encore pris en charge ?**
+**Les disques non managés sont-ils encore pris en charge ?**
 
 Oui, les disques managés et non managés sont pris en charge. Nous vous recommandons d’utiliser des disques managés pour les nouvelles charges de travail et de migrer vos charges de travail en cours vers des disques managés.
 
@@ -143,7 +143,48 @@ Le partitionnement GPT peut être utilisé uniquement sur les disques de donnée
 
 **Quels types de disque prennent en charge les captures instantanées ?**
 
-Les disques SSD Premium, SSD Standard et HDD Standard prennent en charge les captures instantanées. Pour ces trois types de disques, les captures instantanées sont prises en charge pour toutes les tailles (dont les disques allant jusqu’à 32 To). Les disques SSD Ultra ne prennent pas en charge les captures instantanées.
+Les disques SSD Premium, SSD Standard et HDD Standard prennent en charge les captures instantanées. Pour ces trois types de disques, les captures instantanées sont prises en charge pour toutes les tailles (dont les disques allant jusqu’à 32 To). Les disques Ultra ne prennent pas en charge les captures instantanées.
+
+## <a name="ultra-disks"></a>Disques Ultra
+
+**Quelles sont les régions qui prennent en charge les disques Ultra ?**
+- USA Est 2
+- Asie Sud-Est
+- Europe Nord
+
+**Quelles sont les séries de machines virtuelles qui prennent en charge les disques Ultra ?**
+- ESv3
+- DSv3
+
+**Quel débit dois-je définir pour mon disque Ultra ?**
+Si vous ne savez pas comment configurer le débit de votre disque, nous vous recommandons de commencer par une taille d’E/S de 16 Kio et d’ajuster les performances à partir de cette valeur quand vous supervisez votre application. La formule est : Débit en Mbits/s = nombre d’IOPS * 16 / 1 000.
+
+**J’ai configuré mon disque à 40 000 IOPS mais je ne vois que 12 800 IOPS. Pourquoi ne vois-je pas les performances du disque ?**
+En plus de la limitation de disque, il existe une limitation d’IO (E/S) imposée au niveau de la machine virtuelle. Vérifiez que la taille de la machine virtuelle que vous utilisez peut prendre en charge les niveaux configurés pour vos disques. Pour plus d’informations sur les limites d’IO (E/S) imposées par votre machine virtuelle, consultez [Tailles des machines virtuelles Windows dans Azure](../articles/virtual-machines/windows/sizes.md).
+
+**Puis-je utiliser les niveaux de mise en cache avec un disque Ultra ?**
+Non, les disques Ultra ne prennent pas en charge les différentes méthodes de mise en cache prises en charge par d’autres types de disque. Affectez la valeur Aucune à la mise en cache de disque.
+
+**Puis-je attacher un disque Ultra à ma machine virtuelle existante ?**
+Éventuellement. Votre machine virtuelle doit se trouver dans une région et une zone de disponibilité prenant en charge les disques Ultra. Pour plus d’informations, consultez les détails permettant de [bien démarrer avec les disques Ultra](../articles/virtual-machines/windows/disks-enable-ultra-ssd.md).
+
+**Puis-je utiliser un disque Ultra en tant que disque de système d’exploitation pour ma machine virtuelle ?**
+Non, les disques Ultra sont uniquement pris en charge en tant que disques de données et sont uniquement pris en charge en tant que disques natifs 4K.
+
+**Puis-je convertir un disque existant en disque Ultra ?**
+Non, mais vous pouvez migrer les données d’un disque existant vers un disque Ultra. Pour migrer un disque existant vers un disque Ultra, attachez les deux disques à la même machine virtuelle, puis copiez les données d’un disque à l’autre, ou utilisez une solution tierce pour effectuer la migration des données.
+
+**Puis-je créer des captures instantanées pour les disques Ultra ?**
+Non, les captures instantanées ne sont pas encore disponibles.
+
+**Le service Sauvegarde Azure est-il disponible pour les disques Ultra ?**
+Non, la prise en charge de Sauvegarde Azure n’est pas encore disponible.
+
+**Puis-je attacher un disque Ultra à une machine virtuelle s’exécutant dans un groupe à haute disponibilité ?**
+Non, cela n’est pas encore pris en charge.
+
+**Puis-je activer ASR (Azure Site Recovery) pour les machines virtuelles utilisant des disques Ultra ?**
+Non, ASR n’est pas encore pris en charge pour les disques Ultra.
 
 ## <a name="standard-ssd-disks"></a>Disques SSD Standard
 
@@ -325,7 +366,7 @@ Vous n’avez pas besoin de mettre à niveau votre version des outils Azure pour
 |Azure CLI v2     | Numéro de version 2.0.12 : Version de juillet 2017 ou ultérieure|
 |AzCopy           | Numéro de version 6.1.0 : Version de juin 2017 ou ultérieure|
 
-**Les tailles de disque P4 et P6 sont-elles prises en charge pour les disques non gérés ou les objets blob de pages ?**
+**Les tailles de disque P4 et P6 sont-elles prises en charge pour les disques non managés ou les objets blob de pages ?**
 
 Les tailles de disque P4 (32 Gio) et P6 (64 Gio) ne sont pas prises en charge en tant que niveaux de disque par défaut pour les disques non managés et les objets blob de pages. Vous devez explicitement [définir le niveau d’objets blob](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier) sur P4 et P6 pour que votre disque soit mappé à ces niveaux. Si vous déployez un objet blob de pages ou un disque non managé avec une taille de disque ou une longueur de contenu inférieure à 32 Gio ou entre 32 Gio et 64 Gio sans définir le niveau de l’objet blob, vous continuez à utiliser P10 avec 500 IOPS et 100 Mio/s et le niveau tarifaire mappé.
 

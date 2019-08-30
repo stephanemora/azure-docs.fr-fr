@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 7/9/2019
 ms.author: b-juche
-ms.openlocfilehash: 9409beea3f22fd7ff09fe49838a37d9ff0b485f6
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 3cd60f390f0233e2923660fc39675b5a307d8d8f
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68975909"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69515421"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Créer un volume SMB pour Azure NetApp Files
 
@@ -59,6 +59,18 @@ Un sous-réseau doit être délégué à Azure NetApp Files.
     |    LDAP sécurisé        |    636       |    TCP           |
     |    LDAP sécurisé        |    3269      |    TCP           |
     |    w32time            |    123       |    UDP           |
+
+* La topologie de site pour les services de domaine Active Directory ciblés doit respecter les meilleures pratiques, en particulier le réseau virtuel Azure où Azure NetApp Files est déployé.  
+
+    L’espace d’adressage du réseau virtuel où Azure NetApp Files est déployé doit être ajouté à un site Active Directory nouveau ou existant (où réside un contrôleur de domaine accessible par Azure NetApp Files). 
+
+* Les serveurs DNS spécifiés doivent être accessibles à partir du [sous-réseau délégué](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-delegate-subnet) d’Azure NetApp Files.  
+
+    Consultez [Consignes pour planifier un réseau Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-network-topologies) pour découvrir les topologies de réseau prises en charge.
+
+    Les groupes de sécurité réseau et les pare-feu doivent avoir des règles configurées de manière appropriée pour autoriser les demandes de trafic Active Directory et DNS.
+
+    Consultez [Conception de la topologie du site](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/designing-the-site-topology) sur les sites et services Active Directory. 
 
 ## <a name="create-an-active-directory-connection"></a>Créer une connexion Active Directory
 
@@ -117,9 +129,9 @@ Un sous-réseau doit être délégué à Azure NetApp Files.
         Le champ **Quota disponible** indique la quantité d’espace inutilisé dans le pool de capacités choisi, que vous pouvez utiliser pour créer un volume. La taille du nouveau volume ne doit pas dépasser le quota disponible.  
 
     * **Réseau virtuel**  
-        Spécifiez le réseau virtuel Azure à partir duquel vous voulez accéder au volume.  
+        Spécifiez le réseau virtuel Azure (VNet) à partir duquel vous voulez accéder au volume.  
 
-        Le réseau virtuel que vous spécifiez doit avoir un sous-réseau délégué à Azure NetApp Files. Le service Azure NetApp Files est accessible seulement à partir du même réseau virtuel ou d’un sous-réseau qui se trouve dans la même région que le volume via le peering de réseau virtuel. Vous pouvez également accéder au volume à partir de votre réseau local via Express Route.   
+        Le réseau virtuel que vous spécifiez doit avoir un sous-réseau délégué à Azure NetApp Files. Le service Azure NetApp Files est accessible seulement à partir du même réseau virtuel ou d’un réseau virtuel qui figure dans la même région que le volume via le peering de réseau virtuel. Vous pouvez également accéder au volume à partir de votre réseau local via Express Route.   
 
     * **Sous-réseau**  
         Spécifiez le sous-réseau que vous souhaitez utiliser pour le volume.  

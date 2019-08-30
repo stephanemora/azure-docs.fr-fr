@@ -3,17 +3,17 @@ title: Solution Azure VMware par CloudSimple – Composants VMware de cloud priv
 description: Explique comment les composants VMware sont installés sur le cloud privé.
 author: sharaths-cs
 ms.author: dikamath
-ms.date: 04/30/2019
+ms.date: 08/15/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 89bc9c07ae74da1a4269a505627a7626e478ef99
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 26f58a38ac3abe9c6e2a3c6254190dffc4a51eb9
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68812183"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69543709"
 ---
 # <a name="private-cloud-vmware-components"></a>Composants VMware de cloud privé
 
@@ -47,11 +47,11 @@ L’appliance serveur vCenter (VCSA) fournit les fonctions d’authentification,
 
 ### <a name="vcenter-single-sign-on"></a>Authentification unique vCenter
 
-Le Platform Services Controller intégré sur VCSA est associé à un **domaine d’authentification unique vCenter**  dont le nom est **cloudsimple.local**.  Un utilisateur par défaut **CloudOwner@cloudsimple.com** est créé pour vous permettre d’accéder à vCenter.  Vous pouvez ajouter des [sources d’identité pour vCenter](https://docs.azure.cloudsimple.com/set-vcenter-identity/) locales/Azure Active Directory.
+Le Platform Services Controller intégré sur VCSA est associé à un **domaine d’authentification unique vCenter**  dont le nom est **cloudsimple.local**.  Un utilisateur par défaut **CloudOwner@cloudsimple.com** est créé pour vous permettre d’accéder à vCenter.  Vous pouvez ajouter des [sources d’identité pour vCenter](set-vcenter-identity.md) locales/Azure Active Directory.
 
 ## <a name="vsan-storage"></a>Stockage vSAN
 
-Les clouds privés sont créés avec un stockage vSAN 100 % flash entièrement configuré, en local pour le cluster.  Il faut au minimum trois nœuds de la même référence SKU pour créer un cluster vSphere avec magasin de données vSAN.  La déduplication et la compression sont activées par défaut sur la banque de données vSAN.  Deux groupes de disques sont créés sur chaque nœud du cluster vSphere. Chacun contient un disque de cache et trois disques de capacité.
+Les clouds privés sont créés avec un stockage vSAN 100 % flash entièrement configuré, en local pour le cluster.  Il faut au minimum trois nœuds de la même référence SKU pour créer un cluster vSphere avec magasin de données vSAN.  La déduplication et la compression sont activées par défaut dans la banque de données vSAN.  Deux groupes de disques sont créés sur chaque nœud du cluster vSphere. Chacun contient un disque de cache et trois disques de capacité.
 
 Une stratégie de stockage vSAN par défaut est créée sur le cluster vSphere et appliquée au magasin de données vSAN.  Elle détermine la manière dont les objets de stockage de machine virtuelle sont approvisionnés et alloués dans le magasin de données pour garantir le niveau de service requis.  La stratégie de stockage définit le **nombre de pannes tolérées** et la **méthode de tolérance aux pannes**.  Il est possible de créer des stratégies de stockage et de les appliquer aux machines virtuelles. Pour remplir le contrat SLA, une capacité supplémentaire de 25 % est nécessaire sur le magasin de données vSAN.  
 

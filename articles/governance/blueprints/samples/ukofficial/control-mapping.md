@@ -8,12 +8,12 @@ ms.date: 06/26/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 945898105aab7261ee494a86aeff10337599feb3
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: 7da31e09157b8877db4d36d0f061f29433d02d11
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68226004"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69515630"
 ---
 # <a name="control-mapping-of-the-uk-official-and-uk-nhs-blueprint-samples"></a>Mappage des contrôles des exemples de blueprint UK OFFICIAL et UK NHS
 
@@ -33,8 +33,8 @@ Le blueprint vous aide à vérifier que le transfert d’informations avec les s
 Ce blueprint vous aide à appliquer votre stratégie sur l’utilisation des contrôles de chiffrement en affectant des définitions [Azure Policy](../../../policy/overview.md) qui appliquent des contrôles de chiffrement spécifiques et détectent l’utilisation de paramètres de chiffrement faibles.
 Le fait de savoir où vos ressources Azure peuvent avoir des configurations de chiffrement non optimales peut vous aider à prendre des mesures correctives visant à vérifier que les ressources sont configurées conformément à votre stratégie de sécurité des informations. Plus précisément, les stratégies assignées par ce blueprint exigent le chiffrement des comptes Data Lake Storage ; exigent le chiffrement transparent des données dans les bases de données SQL ; vérifient le chiffrement sur les comptes de stockage, bases de données SQL, disques de machine virtuelle et variables de compte Automation ; vérifient les connexions non sécurisées aux comptes de stockage et au Cache Redis ; vérifient si le chiffrement par mot de passe des machines virtuelles est faible ; et vérifient les communication Service Fabric non chiffrées.
 
-- Superviser les bases de données SQL non chiffrées dans Azure Security Center
-- Un chiffrement de disque doit être appliqué aux machines virtuelles
+- La technologie Transparent Data Encryption doit être activée sur les bases de données SQL
+- Le chiffrement de disque doit être appliqué sur les machines virtuelles
 - Les variables de compte Automation doivent être chiffrées
 - La sécurisation du transfert vers des comptes de stockage doit être activée
 - La propriété ClusterProtectionLevel doit être définie sur EncryptAndSign pour les clusters Service Fabric
@@ -107,7 +107,7 @@ Ce blueprint vous permet également de contrôler l’accès aux ressources Azur
 
 - \[Préversion\] : Déployer des exigences pour auditer les machines virtuelles Linux qui ont des comptes sans mot de passe
 - \[Préversion\] : Déployer des exigences pour auditer les machines virtuelles Linux qui autorisent les connexions à distance des comptes sans mot de passe
-- \[Préversion\] : Auditer les machines virtuelles Linux qui ont des compte sans mot de passe
+- \[Préversion\] : Auditer les machines virtuelles Linux qui ont des comptes sans mot de passe
 - \[Préversion\] : Auditer les machines virtuelles Linux qui autorisent les connexions à distance des comptes sans mot de passe
 - Les comptes de stockage doivent être migrés vers de nouvelles ressources Azure Resource Manager
 - Les machines virtuelles doivent être migrées vers de nouvelles ressources Azure Resource Manager
@@ -151,7 +151,7 @@ Ce blueprint affecte également une définition Azure Policy qui vérifie les au
 
 Ce blueprint vous permet de garantir que les événements système sont journalisés en affectant des définitions [Azure Policy](../../../policy/overview.md) qui vérifient les paramètres de journalisation sur les ressources Azure. Une stratégie affectée vérifie également si les machines virtuelles n’envoient pas de journaux à un espace de travail Log Analytics spécifié.
 
-- Superviser les serveurs SQL non audités dans Azure Security Center
+- L’audit doit être activé sur les paramètres de sécurité des données avancés sur SQL Server
 - Auditer le paramètre de diagnostic
 - Auditer les paramètres d'audit au niveau du serveur SQL
 - \[Préversion\] : Déployer Log Analytics Agent pour les machines virtuelles Linux

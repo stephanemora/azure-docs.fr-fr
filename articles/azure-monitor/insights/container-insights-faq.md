@@ -8,14 +8,14 @@ editor: tysonn
 ms.service: azure-monitor
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 08/02/2019
+ms.date: 08/14/2019
 ms.author: magoedte
-ms.openlocfilehash: 3644b40311c037df800eb89ca26d1285fbf1e082
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.openlocfilehash: f8d763f8bb228a0d4d83a3776f818d59939b942d
+ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68741502"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69559081"
 ---
 # <a name="azure-monitor-for-containers-frequently-asked-questions"></a>Azure Monitor pour conteneurs - Forum Aux Questions (FAQ)
 
@@ -33,7 +33,7 @@ Si vous ne voyez pas de données dans l’espace de travail Log Analytics à un 
 
 La table ContainerInventory contient des informations sur les conteneurs arrêtés et en cours d'exécution. La table est renseignée par un flux de travail situé au sein de l’agent qui interroge le docker pour tous les conteneurs (en cours d’exécution et arrêtés) et transmet ces données à l’espace de travail Log Analytics.
  
-## <a name="how-do-i-resolve-missing-subscription-registration-error"></a>Comment puis-je résoudre l’erreur **Missing Subscription registration** (Inscription d’abonnement manquante) ?
+## <a name="how-do-i-resolve-missing-subscription-registration-error"></a>Comment puis-je résoudre l’erreur *Missing Subscription registration* (Inscription d’abonnement manquante) ?
 
 Si vous recevez l’erreur **Missing Subscription registration** (Inscription d’abonnement manquante), vous pouvez y remédier en inscrivant le fournisseur de ressources **Microsoft.OperationsManagement** dans l’abonnement où l’espace de travail est défini. La documentation contenant la procédure à suivre est disponible [ici](../../azure-resource-manager/resource-manager-register-provider-errors.md).
 
@@ -71,7 +71,7 @@ LogEntry : ({“Hello": "This example has multiple lines:","Docker/Moby": "will 
 
 ```
 
-Pour en savoir plus, utilisez le [lien GitHub](https://github.com/moby/moby/issues/22920) suivant.
+Pour en savoir plus sur ce problème, utilisez le [lien GitHub](https://github.com/moby/moby/issues/22920) suivant.
 
 ## <a name="how-do-i-resolve-azure-ad-errors-when-i-enable-live-logs"></a>Comment puis-je résoudre les erreurs Azure AD lorsque j’active les journaux d’activité dynamiques ? 
 
@@ -86,6 +86,9 @@ Après avoir activé Azure Monitor pour conteneurs pour un cluster AKS, si vous 
 - *.oms.opinsights.azure.com   443
 - *.blob.core.windows.net      443
 - dc.services.visualstudio.com 443
+- *.microsoftonline.com        443
+- *.monitoring.azure.com       443
+- login.microsoftonline.com    443
 
 ## <a name="next-steps"></a>Étapes suivantes
 

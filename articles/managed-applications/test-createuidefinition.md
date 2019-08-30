@@ -6,12 +6,12 @@ ms.service: managed-applications
 ms.topic: conceptual
 ms.date: 08/06/2019
 ms.author: tomfitz
-ms.openlocfilehash: 91dd661cf4900512390079751f400f6a9888c452
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 54eb2df06df56c33e1a3cd74e7a4a93c07aab682
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68845928"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69575667"
 ---
 # <a name="test-your-portal-interface-for-azure-managed-applications"></a>Tester votre interface de portail pour Applications managées Azure
 
@@ -91,7 +91,7 @@ Pour l’interface de ligne de commande Azure, consultez :
 
 Le script ouvre un nouvel onglet dans votre navigateur. Il affiche le portail avec votre interface de création de l’application managée.
 
-Donnez des valeurs aux champs. Lorsque vous avez terminé, vous voyez les valeurs qui sont transmises au modèle.
+Donnez des valeurs aux champs. Quand vous avez terminé, vous voyez les valeurs qui sont passées au modèle se trouvant dans la console des outils de développement de votre navigateur.
 
 ![Afficher les valeurs](./media/test-createuidefinition/show-json.png)
 

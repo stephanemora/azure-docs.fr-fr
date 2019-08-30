@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 4aadac343e023e68432741c1f1231bc0ec9fe0ea
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 5e3b96d79ddef7940fd4029f9268e3040a63d2fb
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68990201"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69875085"
 ---
 # <a name="azure-functions-http-triggers-and-bindings"></a>Déclencheurs et liaisons HTTP d’Azure Functions
 
@@ -728,7 +728,7 @@ Les clés sont stockées dans votre Function App dans Azure, et chiffrées au re
 
 ![Gérez les clés de fonction dans le portail.](./media/functions-bindings-http-webhook/manage-function-keys.png)
 
-Il n’existe pas d’API prise en charge pour obtenir des clés de fonction par programmation.
+Vous pouvez obtenir des clés de fonction par programmation à l’aide de l’[API de gestion de clés](https://github.com/Azure/azure-functions-host/wiki/Key-management-API).
 
 ### <a name="api-key-authorization"></a>Autorisation de clé API
 

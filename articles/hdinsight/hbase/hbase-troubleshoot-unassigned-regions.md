@@ -5,13 +5,13 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
-ms.date: 08/07/2019
-ms.openlocfilehash: e75f2fdd0530b92e8c8405b74c2a364ff9e9e28e
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.date: 08/16/2019
+ms.openlocfilehash: 6e734a661557b024257fcd1b9d9c2da6a3bc8f85
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68935460"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69640223"
 ---
 # <a name="issues-with-region-servers-in-azure-hdinsight"></a>Problèmes avec les serveurs de région dans Azure HDInsight
 
@@ -27,7 +27,7 @@ Lors de l’exécution de la commande `hbase hbck`, vous voyez un message d’er
 multiple regions being unassigned or holes in the chain of regions
 ```
 
-Dans l’interface utilisateur Apache HBase Master, il est possible de constater le nombre de régions non attribuées sur tous les serveurs de région.
+Dans l’interface utilisateur Apache HBase Master, vous pouvez voir le nombre de régions en état de déséquilibre sur tous les serveurs régionaux. Vous pouvez ensuite exécuter la commande `hbase hbck` pour afficher les trous dans la chaîne de régions.
 
 ### <a name="cause"></a>Cause :
 
@@ -39,13 +39,13 @@ Corrigez les attributions. Suivez les étapes ci-dessous pour rétablir les rég
 
 1. Connectez-vous au cluster HDInsight HBase à l’aide de SSH.
 
-1. Exécutez la commande `hbase zkcli` pour vous connecter au shell zookeeper.
+1. Exécutez la commande `hbase zkcli` pour vous connecter au shell ZooKeeper.
 
 1. Exécutez la commande `rmr /hbase/regions-in-transition` ou `rmr /hbase-unsecure/regions-in-transition`.
 
 1. Quittez le shell zookeeper à l’aide de la commande `exit`.
 
-1. Ouvrez l’interface utilisateur d’Ambari et redémarrez le service HBase Master actif à partir d’Ambari.
+1. Ouvrez l’interface utilisateur d’Apache Ambari et redémarrez le service HBase Master actif.
 
 1. Exécutez de nouveau la commande `hbase hbck` (sans autre option). Vérifiez la sortie et assurez-vous que toutes les régions sont assignées.
 
@@ -85,6 +85,6 @@ Si votre problème ne figure pas dans cet article ou si vous ne parvenez pas à 
 
 * Obtenez des réponses de la part d’experts Azure en faisant appel au [Support de la communauté Azure](https://azure.microsoft.com/support/community/).
 
-* Connectez-vous à [@AzureSupport](https://twitter.com/azuresupport), le compte Microsoft Azure officiel pour améliorer l’expérience client. Connexion de la communauté Azure aux ressources appropriées : réponses, support technique et experts.
+* Connectez-vous à [@AzureSupport](https://twitter.com/azuresupport), le compte Microsoft Azure officiel pour améliorer l’expérience client. Connexion de la communauté Azure aux ressources appropriées : réponses, support technique et experts.
 
 * Si vous avez besoin d’une aide supplémentaire, vous pouvez envoyer une requête de support à partir du [Portail Microsoft Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Sélectionnez **Support** dans la barre de menus, ou ouvrez le hub **Aide + Support**. Pour plus d’informations, consultez [Création d’une demande de support Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). L’accès au support relatif à la gestion et à la facturation des abonnements est inclus avec votre abonnement Microsoft Azure. En outre, le support technique est fourni avec l’un des [plans de support Azure](https://azure.microsoft.com/support/plans/).

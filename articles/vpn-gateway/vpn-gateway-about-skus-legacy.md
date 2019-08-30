@@ -2,25 +2,18 @@
 title: Anciennes références SKU de passerelle VPN de réseau virtuel Azure | Microsoft Docs
 description: Comment utiliser les anciennes références SKU de passerelle de réseau virtuel ; de base, standard et HighPerformance.
 services: vpn-gateway
-documentationcenter: na
 author: cherylmc
-manager: jpconnock
-editor: ''
-tags: azure-resource-manager,azure-service-management
-ms.assetid: ''
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/10/2019
+ms.date: 08/15/2019
 ms.author: cherylmc
-ms.openlocfilehash: 00f1677e2691f9be5bb4584b07ca00340a52b1e1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5c745258929d495c1e568a156690f569de9f0e36
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67056433"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69533910"
 ---
 # <a name="working-with-virtual-network-gateway-skus-legacy-skus"></a>Utilisation des références SKU de passerelle de réseau virtuel (anciennes références SKU)
 
@@ -42,15 +35,9 @@ Vous pouvez consulter les tarifs des passerelles héritées dans la section **Pa
 
 ## <a name="resize"></a>Redimensionner une passerelle
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
 Vous pouvez redimensionner votre passerelle selon une référence SKU de passerelle au sein de la même famille de références SKU. Par exemple, si vous avez une référence SKU standard, vous pouvez redimensionner selon une référence SKU HighPerformance. Cependant, vous ne pouvez pas redimensionner votre passerelle VPN entre d’anciennes références SKU est de nouvelles familles de références SKU. Par exemple, vous ne pouvez pas aller d’une référence SKU standard à une référence SKU VpnGw2, ou d’une référence SKU de base à VpnGw1.
 
-Pour redimensionner une passerelle pour le modèle de déploiement classique, utilisez la commande suivante :
-
-```powershell
-Resize-AzureVirtualNetworkGateway -GatewayId <Gateway ID> -GatewaySKU HighPerformance
-```
+### <a name="resource-manager"></a>Gestionnaire de ressources
 
 Pour redimensionner une passerelle pour le modèle de déploiement du Gestionnaire des ressources à l’aide de PowerShell, utilisez la commande suivante :
 
@@ -58,7 +45,16 @@ Pour redimensionner une passerelle pour le modèle de déploiement du Gestionnai
 $gw = Get-AzVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
 Resize-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -GatewaySku HighPerformance
 ```
+
 Vous pouvez également redimensionner une passerelle dans le portail Azure.
+
+### <a name="classicresize"></a>Classique
+
+Pour redimensionner une passerelle selon le modèle de déploiement classique, vous devez utiliser les applets de commande PowerShell Service Management. Utilisez la commande suivante :
+
+```powershell
+Resize-AzureVirtualNetworkGateway -GatewayId <Gateway ID> -GatewaySKU HighPerformance
+```
 
 ## <a name="change"></a>Basculer vers les nouvelles références SKU de passerelle
 

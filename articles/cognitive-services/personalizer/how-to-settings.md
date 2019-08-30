@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: f0ccf0e480fa57e0ffdfc94ca35cfaceded37a0b
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: cd67f435ff390267e01acd99594b9063db4c4ee1
+ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68663894"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69559092"
 ---
 # <a name="personalizer-settings"></a>Paramètres de Personalizer
 
@@ -86,6 +86,7 @@ Dans la section Gestion des ressources pour **Modèle et stratégie**, passez en
 ## <a name="import-and-export-learning-policy"></a>Importer et exporter la stratégie d’apprentissage
 
 Dans la section Gestion des ressources pour **Modèle et stratégie**, importez une nouvelle stratégie d’apprentissage ou exportez la stratégie d’apprentissage actuelle.
+Vous pouvez obtenir des fichiers de stratégie d’apprentissage à partir d’exportations précédentes ou télécharger les stratégies optimisées découvertes lors des évaluations hors connexion. Les modifications manuelles apportées à ces fichiers affectent les performances de machine learning et la précision des évaluations hors connexion, et Microsoft ne peut pas garantir la précision du machine learning et des évaluations, ni des exceptions de service résultant de stratégies modifiées manuellement.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

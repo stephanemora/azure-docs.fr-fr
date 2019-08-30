@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.author: dacurwin
-ms.openlocfilehash: f47afd450350226aa944287e756b73f61b15b32d
-ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
+ms.openlocfilehash: 54b83df4c0ad68c9bd6b39d39926657395c48f3e
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68952039"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69615873"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Résoudre les problèmes d’une Sauvegarde Azure : Problèmes d’agent ou d’extension
 
@@ -106,7 +106,7 @@ Après avoir enregistré et planifié une machine virtuelle pour le service Azur
 **Code d’erreur** : UserErrorUnsupportedDiskSize <br>
 **Message d’erreur** : Actuellement, Sauvegarde Azure ne prend pas en charge les tailles de disque supérieures à 4 095 Go <br>
 
-Votre opération de sauvegarde peut échouer lors de la sauvegarde d’une machine virtuelle dont la taille de disque est supérieure à 4 095 Go. Pour vous inscrire à une préversion publique limitée de prise en charge de disques volumineux de Sauvegarde Azure pour les disques d’une taille supérieure à 4 To et jusqu’à 30 To, consultez la [vue d’ensemble de la sauvegarde de machine virtuelle Azure](backup-azure-vms-introduction.md#limited-public-preview-backup-of-vm-with-disk-sizes-up-to-30tb).
+Votre opération de sauvegarde peut échouer lors de la sauvegarde d’une machine virtuelle dont la taille de disque est supérieure à 4 095 Go. Pour vous inscrire à une préversion publique limitée de prise en charge de disques volumineux de Sauvegarde Azure pour les disques d’une taille supérieure à 4 To et jusqu’à 30 To, reportez-vous à cet [article](backup-azure-vms-introduction.md#limited-public-preview-backup-of-vm-with-disk-sizes-up-to-30tb).
 
 ## <a name="usererrorbackupoperationinprogress---unable-to-initiate-backup-as-another-backup-operation-is-currently-in-progress"></a>UserErrorBackupOperationInProgress - Impossible de lancer la sauvegarde, car une autre opération de sauvegarde est en cours d’exécution
 

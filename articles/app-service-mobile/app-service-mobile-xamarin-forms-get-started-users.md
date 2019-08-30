@@ -15,17 +15,17 @@ ms.topic: article
 ms.date: 06/25/2019
 ms.author: emalani
 ms.openlocfilehash: f1777fcb5a4e7899da982bd9d1d35905cb408ad2
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
+ms.lasthandoff: 08/15/2019
 ms.locfileid: "67446306"
 ---
 # <a name="add-authentication-to-your-xamarin-forms-app"></a>Ajouter l’authentification à votre application Xamarin Forms
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
 
 > [!NOTE]
-> Visual Studio App Center investit dans des services nouveaux et intégrés, essentiels au développement d’applications mobiles. Les développeurs peuvent utiliser les services **Build**, **Test** et **Distribute** pour configurer le pipeline de livraison et d’intégration continues. Une fois l’application déployée, les développeurs peuvent surveiller l’état et l’utilisation de leur application à l’aide des services **Analytics** et **Diagnostics**, et interagir avec des utilisateurs à l’aide du service **Push**. Les développeurs peuvent également utiliser **Auth** pour authentifier leurs utilisateurs, ainsi que le service **Data** pour conserver et synchroniser les données d’application dans le cloud. Découvrez [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-xamarin-forms-get-started-users) aujourd’hui.
+> Visual Studio App Center investit dans des services nouveaux et intégrés, essentiels au développement d’applications mobiles. Les développeurs peuvent utiliser les services **Build**, **Test** et **Distribute** pour configurer le pipeline de livraison et d’intégration continues. Une fois l’application déployée, les développeurs peuvent superviser l’état et l’utilisation de leur application à l’aide des services **Analytics** et **Diagnostics**, puis interagir avec les utilisateurs à l’aide du service **Push**. Les développeurs peuvent aussi utiliser **Auth** pour authentifier leurs utilisateurs ainsi que le service **Data** pour conserver et synchroniser les données d’application dans le cloud. Découvrez [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-xamarin-forms-get-started-users) dès aujourd’hui.
 >
 
 ## <a name="overview"></a>Vue d'ensemble
@@ -57,8 +57,7 @@ L’authentification sécurisée nécessite de définir un nouveau schéma d’U
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
 ## <a name="add-authentication-to-the-portable-class-library"></a>Ajout de l'authentification à la bibliothèque de classes portable
-Mobile Apps utilise [LoginAsync][3] extension method on the [MobileServiceClient][4] to sign in a user with App Service authentication. This sample
-uses a server-managed authentication flow that displays the provider's sign-in interface in the app. For more information, see [Server-managed authentication][5]. Pour offrir une meilleure expérience utilisateur dans votre application de production, vous devez plutôt envisager d’utiliser une [authentification gérée par le client][6].
+Mobile Apps utilise la méthode d’extension [LoginAsync][3] sur [MobileServiceClient][4] pour connecter un utilisateur avec l’authentification App Service. Cet exemple utilise un flux d’authentification géré par le serveur qui affiche l’interface de connexion du fournisseur dans l’application. Pour plus d’informations, voir la rubrique [Authentification gérée par le serveur][5]. Pour offrir une meilleure expérience utilisateur dans votre application de production, vous avez plutôt intérêt à envisager d’utiliser une [authentification gérée par le client][6].
 
 Pour vous authentifier auprès d’un projet Xamarin Forms, définissez une interface **IAuthenticate** dans la bibliothèque de classes portable de l’application. Ensuite, ajoutez un bouton **Connexion** à l’interface utilisateur définie dans la bibliothèque de classes portable que l’utilisateur devra sélectionner pour démarrer l’authentification. Une fois l’authentification effectuée, les données sont chargées depuis le serveur principal d’application mobile.
 

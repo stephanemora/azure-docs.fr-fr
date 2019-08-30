@@ -11,17 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/04/2018
+ms.date: 08/15/2019
 ms.author: mimart
-ms.reviewer: harshja
+ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6d85fc7ed16f397cb91232e9648df4e8741b37a
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: aa0dc2081aff5a24fb830b756131cccd5c6ce810
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68705798"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69533699"
 ---
 # <a name="redirect-hardcoded-links-for-apps-published-with-azure-ad-application-proxy"></a>Rediriger les liens codés en dur pour les applications publiées avec le Proxy d’application Azure AD
 
@@ -30,13 +30,16 @@ Le Proxy d’application Azure AD rend vos applications locales disponibles pour
 La meilleure façon de vous assurer que des liens fonctionnent de la même manière à l’intérieur et à l’extérieur de votre réseau d’entreprise est de configurer les URL externes de vos applications comme les URL internes. Utilisez [des domaines personnalisés](application-proxy-configure-custom-domain.md) pour configurer vos URL externes et utiliser votre nom de domaine d’entreprise plutôt que le domaine de proxy d’application par défaut.
 
 
-Si vous ne pouvez pas utiliser des domaines personnalisés dans votre locataire, il existe plusieurs autres options pour fournir cette fonctionnalité. Toutes ces options sont également compatibles les unes avec les autres et avec les domaines personnalisés. Vous pouvez donc configurer des domaines personnalisés et d’autres solutions si nécessaire. 
+Si vous ne pouvez pas utiliser des domaines personnalisés dans votre locataire, il existe plusieurs autres options pour fournir cette fonctionnalité. Toutes ces options sont également compatibles les unes avec les autres et avec les domaines personnalisés. Vous pouvez donc configurer des domaines personnalisés et d’autres solutions si nécessaire.
+
+> [!NOTE]
+> La traduction des liens n’est pas prise en charge pour les URL internes codées en dur générées via JavaScript.
 
 **Option 1 : Utiliser Managed Browser ou Microsoft Edge** – Cette solution s'applique uniquement si vous envisagez de recommander ou d'exiger que les utilisateurs accèdent à l'application par le biais du navigateur Intune Managed Browser ou Microsoft Edge. Elle gère toutes les URL publiées. 
 
 **Option 2 : Utiliser l’extension MyApps** – Cette solution exige des utilisateurs qu’ils installent une extension de navigateur côté client, mais elle gère les URL publiées et fonctionne avec les navigateurs les plus populaires. 
 
-**Option 3 : Utiliser le paramètre de traduction de lien** – Il s’agit d’un paramètre côté administrateur qui n’est pas visible par les utilisateurs. Toutefois, il gère uniquement les URL en HTML et CSS. Les URL internes codées en dur et générées par le biais de Javascript (par exemple) ne fonctionnent pas.  
+**Option 3 : Utiliser le paramètre de traduction de lien** – Il s’agit d’un paramètre côté administrateur qui n’est pas visible par les utilisateurs. Toutefois, il gère uniquement les URL en HTML et CSS.   
 
 Ces trois fonctionnalités garantissent le fonctionnement de vos liens quel que soit l’emplacement des utilisateurs. Lorsque vous avez des applications qui indiquent directement les points de terminaison internes ou des ports, vous pouvez mapper ces URL internes aux URL de Proxy d’application externes publiées. 
 

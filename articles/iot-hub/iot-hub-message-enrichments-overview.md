@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: robinsh
-ms.openlocfilehash: 5ef1749217dd8980892d7bf933cbe1412929fbbd
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 9e3df59af33d6e5fdd1024d42c34dc2b4ed3184e
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976994"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69873191"
 ---
 # <a name="message-enrichments-for-device-to-cloud-iot-hub-messages-preview"></a>Enrichissements de messages pour les messages IoT Hub-appareil-à-cloud (préversion)
 
@@ -76,6 +76,8 @@ Pour essayer les enrichissements de messages, consultez le [didacticiel dédié 
 
 * La taille totale du message, y compris des enrichissements, ne peut pas dépasser 256 Ko. Si la taille d’un message dépasse 256 Ko, l’IoT Hub supprimera le message. Vous pouvez utiliser les [métriques IoT Hub](iot-hub-metrics.md) pour identifier et déboguer des erreurs lorsque les messages sont supprimés. Par exemple, vous pouvez suivre d2c.telemetry.egress.invalid.
 
+* Les enrichissements de message ne s’appliquent pas aux événements de changement de jumeau numérique (inclus dans la [préversion publique d’IoT Plug-and-Play](../iot-pnp/overview-iot-plug-and-play.md)).
+
 ## <a name="pricing"></a>Tarifs
 
 Les enrichissements de messages sont disponibles sans frais supplémentaires. Actuellement, vous êtes facturé lorsque vous envoyez un message à un IoT Hub. Vous n’êtes facturé qu’une fois pour ce message, même s’il est envoyé à plusieurs points de terminaison.
@@ -88,6 +90,8 @@ Cette fonctionnalité est disponible en préversion et dans toutes les régions 
 
 Consultez les articles suivants pour plus d’informations sur le routage des messages vers un IoT Hub :
 
-* [Use IoT Hub message routing to send device-to-cloud messages to different endpoints](iot-hub-devguide-messages-d2c.md) (Utiliser le routage des messages IoT Hub pour envoyer des messages appareil-à-cloud à différents points de terminaison)
+* [Tutoriel sur les améliorations de message](tutorial-message-enrichments.md)
+
+* [Utiliser le routage des messages IoT Hub pour envoyer des messages appareil-à-cloud à différents points de terminaison](iot-hub-devguide-messages-d2c.md)
 
 * [Tutoriel : Routage d’IoT Hub](tutorial-routing.md)

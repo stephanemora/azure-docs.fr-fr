@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: rimman
-ms.openlocfilehash: e321091f2abcff4c385b442ac6474c0592845e2e
-ms.sourcegitcommit: 15f7b641a67f3d6cf4fb4b4c11eaee18cf335923
+ms.openlocfilehash: f2e01e42a53f6f099191c03f45d6521668ea73a1
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68602032"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69616682"
 ---
 # <a name="secure-access-to-data-in-azure-cosmos-db"></a>Sécuriser l’accès aux données dans Azure Cosmos DB
 
@@ -105,7 +105,7 @@ Pour obtenir un exemple de service de niveau intermédiaire utilisé pour géné
 <a id="users"></a>
 
 ## <a name="users"></a>Utilisateurs
-Les utilisateurs d’Azure Cosmos DB sont associés à une base de données Cosmos DB.  Chaque base de données peut contenir zéro, un ou plusieurs utilisateurs Azure Cosmos DB.  L’exemple de code suivant indique comment créer une ressource utilisateur DocumentDB.
+Les utilisateurs d’Azure Cosmos DB sont associés à une base de données Cosmos.  Chaque base de données peut contenir zéro, un ou plusieurs utilisateurs Azure Cosmos DB.  L’exemple de code suivant indique comment créer une ressource utilisateur DocumentDB.
 
 ```csharp
 //Create a user.
@@ -193,5 +193,5 @@ Azure Cosmos DB vous permet de rechercher, de sélectionner, de modifier et de s
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Pour en savoir plus sur la sécurité de la base de données Azure Cosmos DB, consultez [Azure Cosmos DB : Sécurité de la base de données](database-security.md).
+* Pour en savoir plus sur la sécurité de la base de données Azure Cosmos, consultez [Azure Cosmos DB : Sécurité de la base de données](database-security.md).
 * Pour savoir comment créer des jetons d’autorisation Azure Cosmos DB, consultez [Access Control on Azure Cosmos DB Resources](https://docs.microsoft.com/rest/api/cosmos-db/access-control-on-cosmosdb-resources) (Contrôle d’accès aux ressources Azure Cosmos DB).

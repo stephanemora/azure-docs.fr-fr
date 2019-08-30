@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 7/16/2019
 ms.author: dapine
-ms.openlocfilehash: 06f2db708385c4c3fbf8d005b701b633ac52776a
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 420ac45b7d3b5e97772b1aa712ba6b8442ac1de2
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68559141"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69562764"
 ---
 # <a name="use-with-kubernetes-and-helm"></a>Utilisation avec Kubernetes et Helm
 
@@ -95,7 +95,7 @@ Visitez le [hub Microsoft Helm][ms-helm-hub] pour accéder à tous les graphique
 helm repo add microsoft https://microsoft.github.io/charts/repo
 ```
 
-Ensuite, nous allons configurer nos valeurs de graphique Helm. Copiez et collez la configuration YAML suivante dans un fichier nommé `config-values.yaml`. Pour plus d’informations sur la personnalisation du **Graphique Helm pour Cognitive Services Speech local**, consultez [Personnaliser des graphiques Helm](#customize-helm-charts). Remplacez les valeurs `billing` et `apikey` par les vôtres.
+Ensuite, nous allons configurer nos valeurs de graphique Helm. Copiez et collez la configuration YAML suivante dans un fichier nommé `config-values.yaml`. Pour plus d’informations sur la personnalisation du **Graphique Helm pour Cognitive Services Speech local**, consultez [Personnaliser des graphiques Helm](#customize-helm-charts). Remplacez les commentaires `# {ENDPOINT_URI}` et `# {API_KEY}` par vos propres valeurs.
 
 ```yaml
 # These settings are deployment specific and users can provide customizations
@@ -113,8 +113,8 @@ speechToText:
       - containerpreview # Or an existing secret
     args:
       eula: accept
-      billing: # < Your billing URL >
-      apikey: # < Your API Key >
+      billing: # {ENDPOINT_URI}
+      apikey: # {API_KEY}
 
 # text-to-speech configurations
 textToSpeech:
@@ -129,8 +129,8 @@ textToSpeech:
       - containerpreview # Or an existing secret
     args:
       eula: accept
-      billing: # < Your billing URL >
-      apikey: # < Your API Key >
+      billing: # {ENDPOINT_URI}
+      apikey: # {API_KEY}
 ```
 
 > [!IMPORTANT]

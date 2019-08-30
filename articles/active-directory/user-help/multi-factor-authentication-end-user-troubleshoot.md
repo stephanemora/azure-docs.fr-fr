@@ -13,12 +13,12 @@ ms.date: 08/07/2019
 ms.author: lizross
 ms.reviewer: kexia
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: df32ec9c2d181072bb67a8ca0f2cb04560287286
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.openlocfilehash: 178ce07db24976d7df590d353603da67b68122e8
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68949769"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69616116"
 ---
 # <a name="troubleshoot-common-two-factor-verification-problems"></a>Résoudre les problèmes courants de vérification à deux facteurs
 
@@ -29,7 +29,7 @@ Certains problèmes courants de vérification à deux facteurs semblent se produ
 >[!Important]
 >Ce contenu est destiné aux utilisateurs. Si vous êtes un administrateur, vous trouverez plus d’informations sur la méthode à suivre pour configurer et gérer votre environnement Azure Active Directory (Azure AD) dans le [documentation relative à Azure Active Directory](https://docs.microsoft.com/azure/active-directory).
 >
->Ce contenu est également destiné uniquement à être utilisé avec votre compte professionnel ou scolaire, le compte qui vous a été fourni par votre organisation (par exemple, alain@contoso.com). Si vous rencontrez des problèmes avec la vérification à deux facteurs et votre compte Microsoft personnel, celui que vous avez configuré pour vous-même (par exemple, danielle@outlook.com), consultez [Activation ou désactivation de la vérification à deux facteurs de votre compte Microsoft](https://support.microsoft.com/en-us/help/4028586/microsoft-account-turning-two-step-verification-on-or-off).
+>Ce contenu est également destiné uniquement à être utilisé avec votre compte professionnel ou scolaire, le compte qui vous a été fourni par votre organisation (par exemple, alain@contoso.com). Si vous rencontrez des problèmes avec la vérification à deux facteurs et votre compte Microsoft personnel, celui que vous avez configuré pour vous-même (par exemple, danielle@outlook.com), consultez [Activation ou désactivation de la vérification à deux facteurs de votre compte Microsoft](https://support.microsoft.com/help/4028586/microsoft-account-turning-two-step-verification-on-or-off).
 
 ## <a name="i-forgot-my-mobile-device-at-home"></a>J’ai oublié mon appareil mobile à la maison
 
@@ -42,7 +42,7 @@ Cela peut arriver. Vous avez laissé votre appareil mobile chez vous, et mainten
     ![Changer de méthode de vérification](./media/multi-factor-authentication-end-user-troubleshoot/two-factor-auth-signin-another-way.png)
 
     >[!Note]
-    >Si vous ne voyez pas le lien **Connectez-vous autrement**, cela signifie que vous n’avez pas configuré d’autres méthodes de vérification. Dans ce cas, vous devez contacter votre administrateur pour qu’il vous aide à vous connecter à votre compte.
+    >Si vous ne voyez pas le lien **Sign in another way** (Se connecter autrement), cela signifie que vous n’avez pas configuré d’autres méthodes de vérification. Dans ce cas, vous devez contacter votre administrateur pour qu’il vous aide à vous connecter à votre compte.
 
 2. Choisissez votre autre méthode de vérification et poursuivez le processus de vérification à deux facteurs.
 
@@ -82,9 +82,9 @@ Si vous avez reçu un nouvel appareil mobile, vous devez le configurer pour qu�
 
 2. Mettez à jour les informations de votre compte et de votre appareil dans la page **Vérification de sécurité supplémentaire**, en supprimant votre ancien appareil et en ajoutant le nouveau. Pour plus d’informations, consultez l’article [Gérer les paramètres de la vérification à deux facteurs](multi-factor-authentication-end-user-manage-settings.md).
 
-3. Facultatif. Téléchargez, installez et configurez l’application Microsoft Authenticator sur votre appareil mobile en suivant les étapes de l’article [Télécharger et installer l’application Microsoft Authenticator](user-help-auth-app-download-install.md).
+3. facultatif. Téléchargez, installez et configurez l’application Microsoft Authenticator sur votre appareil mobile en suivant les étapes de l’article [Télécharger et installer l’application Microsoft Authenticator](user-help-auth-app-download-install.md).
 
-4. Facultatif. Activez la vérification à deux facteurs pour vos appareils de confiance en suivant les étapes de la section **Activer les invites de vérification à deux facteurs sur un appareil de confiance** de l’article [Gérer les paramètres de la vérification à deux facteurs](multi-factor-authentication-end-user-manage-settings.md#turn-on-two-factor-verification-prompts-on-a-trusted-device).
+4. facultatif. Activez la vérification à deux facteurs pour vos appareils de confiance en suivant les étapes de la section **Activer les invites de vérification à deux facteurs sur un appareil de confiance** de l’article [Gérer les paramètres de la vérification à deux facteurs](multi-factor-authentication-end-user-manage-settings.md#turn-on-two-factor-verification-prompts-on-a-trusted-device).
 
 ## <a name="im-having-problems-signing-in-on-my-mobile-device-while-traveling"></a>J’ai des difficultés à me connecter à mon appareil mobile quand je suis en déplacement
 
@@ -92,7 +92,11 @@ Il peut s’avérer plus difficile d’utiliser une méthode de vérification li
 
 ## <a name="i-cant-get-my-app-passwords-to-work"></a>Mes mots de passe d’application ne fonctionnent pas
 
-Les mots de passe d’application viennent remplacer les mots de passe standard de vos anciennes applications de bureau qui ne prennent pas en charge la vérification à deux facteurs. En premier lieu, vérifiez que vous avez correctement tapé le mot de passe. Si cela ne résout pas le problème, essayez de créer un nouveau mot de passe d’application pour l’application en suivant les étapes décrites dans la section **Créer et supprimer des mots de passe d’application à l’aide du portail MyApps** de l’article [Gérer les mots de passe d’application pour la vérification en deux étapes](multi-factor-authentication-end-user-app-passwords.md#create-and-delete-app-passwords-using-the-myapps-portal).
+Les mots de passe d’application viennent remplacer les mots de passe standard de vos anciennes applications de bureau qui ne prennent pas en charge la vérification à deux facteurs. En premier lieu, vérifiez que vous avez correctement tapé le mot de passe. Si cela ne résout pas le problème, essayez de créer un nouveau mot de passe d’application pour l’application en suivant les étapes décrites dans la section **Créer et supprimer des mots de passe d’application à l’aide du portail MyApps** de l’article [Gérer les mots de passe d’application pour la vérification en deux étapes](multi-factor-authentication-end-user-app-passwords.md#create-and-delete-app-passwords-from-the-additional-security-verification-page).
+
+## <a name="why-cant-i-turn-two-factor-verification-off"></a>Pourquoi je ne peux pas désactiver la vérification à deux facteurs ?
+
+Si vous utilisez la vérification à deux facteurs avec votre compte professionnel ou scolaire (par exemple, alain@contoso.com), cela signifie très probablement que votre organisation a décidé de vous contraindre à utiliser cette fonctionnalité de sécurité supplémentaire. Comme votre organisation a décidé que cette fonctionnalité était obligatoire, vous n’avez aucun moyen de la désactiver individuellement. En revanche, si vous utilisez la vérification à deux facteurs avec un compte personnel, comme alain@outlook.com, vous avez la possibilité d’activer et de désactiver la fonctionnalité. Pour obtenir des instructions sur la façon de contrôler la vérification à deux facteurs pour votre compte Microsoft personnel, consultez [Activation ou désactivation de la vérification à deux facteurs pour votre compte Microsoft](https://support.microsoft.com/help/4028586/microsoft-account-turning-two-step-verification-on-or-off).
 
 ## <a name="i-didnt-find-an-answer-to-my-problem"></a>Je n’ai pas trouvé de réponse à mon problème
 

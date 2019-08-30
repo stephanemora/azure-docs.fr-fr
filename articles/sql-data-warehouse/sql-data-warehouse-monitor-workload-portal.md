@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 03/22/2019
 ms.author: kevin
 ms.reviewer: jrasnick
-ms.openlocfilehash: 6c8ce090039e3d5cc85c86d920710294de2165f9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 73e7312eacd11fbec052d2b0b7781528c3b3d50f
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60748905"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69575371"
 ---
 # <a name="monitor-workload---azure-portal"></a>Superviser une charge de travail dans le portail Azure
 
@@ -24,7 +24,7 @@ Cet article explique comment utiliser le portail Azure pour superviser votre cha
 ## <a name="prerequisites"></a>Prérequis
 
 - Abonnement Azure : Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
-- Azure SQL Data Warehouse : Nous allons collecter des journaux pour un entrepôt de données SQL. Si vous n’avez pas d’entrepôt de données SQL provisionné, consultez les instructions dans [Créer un entrepôt de données SQL](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-tutorial).
+- Azure SQL Data Warehouse : Nous collecterons les journaux pour un entrepôt SQL Data Warehouse. Si vous n’avez pas provisionné d’entrepôt SQL Data Warehouse, consultez les instructions dans [Créer un entrepôt SQL Data Warehouse](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-tutorial).
 
 ## <a name="create-a-log-analytics-workspace"></a>Créer un espace de travail Log Analytics
 
@@ -40,7 +40,7 @@ Pour plus d’informations sur les espaces de travail, consultez cette [document
 
 ## <a name="turn-on-diagnostic-logs"></a>Activer les journaux de diagnostic 
 
-Configurez les paramètres de diagnostic pour émettre des journaux à partir de votre entrepôt de données SQL. Les journaux se composent de vues de télémétrie de votre entrepôt de données équivalentes aux vues de gestion dynamique (DMV) de résolution des problèmes de performance les plus fréquentes pour SQL Data Warehouse. À l’heure actuelle, les vues suivantes sont prises en charge :
+Configurez les paramètres de diagnostic pour envoyer les journaux à partir de votre entrepôt SQL Data Warehouse. Les journaux se composent de vues de télémétrie de votre entrepôt de données équivalentes aux vues de gestion dynamique (DMV) de résolution des problèmes de performance les plus fréquentes pour SQL Data Warehouse. À l’heure actuelle, les vues suivantes sont prises en charge :
 
 - [sys.dm_pdw_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?view=aps-pdw-2016-au7)
 - [sys.dm_pdw_request_steps](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql?view=aps-pdw-2016-au7)

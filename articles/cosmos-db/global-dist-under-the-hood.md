@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/23/2019
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: 849c3a745de08e7cf8ff7f1b8bb237a6d0f54395
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: ce943fbed0774667100f6de4c60f91c0b02de6c3
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68384161"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69615349"
 ---
 # <a name="global-data-distribution-with-azure-cosmos-db---under-the-hood"></a>Distribution de données mondiale avec Azure Cosmos DB - Sous le capot
 
@@ -34,7 +34,7 @@ Comme le montre l’illustration suivante, les données d’un conteneur sont di
 
 Une partition physique est implémentée par un groupe de réplicas appelé *jeu de réplicas*. Chaque machine héberge des centaines de réplicas correspondant à diverses partitions physiques au sein d’un ensemble fixe de processus, comme le montre l’illustration ci-dessus. Les réplicas correspondant aux partitions physiques sont distribués de façon dynamique, et leur charge est équilibrée sur les machines au sein d’un cluster, et sur les centres de données au sein d’une région.  
 
-Un réplica n’appartient qu’à un seul client Azure Cosmos DB. Chaque réplica héberge une instance du [moteur de base de données](https://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) de Cosmos DB, qui gère les ressources ainsi que les index associés. Le moteur de base de données de Cosmos DB opère sur un système type basé sur ARS. Le moteur ignore le concept de schéma et brouille la frontière entre la structure et les valeurs d’instance des enregistrements. Cosmos DB parvient à une indépendance complète du schéma en indexant automatiquement et efficacement tout ce qui est ingéré, ce qui permet aux utilisateurs d’interroger leurs données globalement distribuées sans devoir se préoccuper du schéma ou de la gestion d’index.
+Un réplica n’appartient qu’à un seul client Azure Cosmos DB. Chaque réplica héberge une instance du [moteur de base de données](https://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) de Cosmos DB, qui gère les ressources ainsi que les index associés. Le moteur de base de données de Cosmos opère sur un système type basé sur ARS. Le moteur ignore le concept de schéma et brouille la frontière entre la structure et les valeurs d’instance des enregistrements. Cosmos DB parvient à une indépendance complète du schéma en indexant automatiquement et efficacement tout ce qui est ingéré, ce qui permet aux utilisateurs d’interroger leurs données globalement distribuées sans devoir se préoccuper du schéma ou de la gestion d’index.
 
 Le moteur de base de données Cosmos est constitué de composants incluant l’implémentation de plusieurs primitives de coordination, les runtimes de langage, le processeur de requêtes ainsi que les sous-systèmes de stockage et d’indexation responsables du stockage transactionnel et de l’indexation des données. Pour assurer la durabilité et la haute disponibilité, le moteur de base de données conserve ses données et son index sur des disques SSD, et les réplique sur les instances de moteur de base de données à l’intérieur des jeux de réplicas. Les locataires plus importants correspondent à une échelle plus élevée de débit et de stockage, et disposent de réplicas de plus grande capacité ou en plus grand nombre, voire des deux. Chaque composant du système étant entièrement asynchrone, jamais un thread ne bloque, et chaque thread effectue un travail de courte durée n’induisant pas de basculements de thread superflus. Une limitation du débit et une contre-pression sont appliquées à la pile entière, du contrôle d’admission à tous les chemins d’E/S. Le moteur de base de données Cosmos est conçu pour exploiter un accès concurrentiel de granularité fine et fournir un débit élevé tout en opérant avec une quantité réduite de ressources système.
 

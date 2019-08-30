@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: zarhoads
-ms.openlocfilehash: 1dcf08f4fefb53ed46038c82e0ce8f9d3dd94de2
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 422189952096ef25b69e62aa2708c59385b0637a
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69032238"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69898956"
 ---
 # <a name="preview---use-a-standard-sku-load-balancer-in-azure-kubernetes-service-aks"></a>Préversion - Utiliser un équilibreur de charge de référence (SKU) Standard dans Azure Kubernetes Service (AKS)
 
@@ -39,7 +39,7 @@ Le principal de service du cluster AKS a besoin de l’autorisation de gérer le
 Vous devez créer un cluster AKS qui définit la référence SKU pour l’équilibreur de charge sur *Standard* au lieu de la valeur par défaut, *De base*. La création d’un cluster AKS est couverte dans une étape ultérieure, mais vous devez d’abord activer quelques fonctionnalités d’évaluation.
 
 > [!IMPORTANT]
-> Les fonctionnalités d’évaluation AKS sont en libre-service et font l’objet d’un abonnement. Les versions préliminaires sont fournies « en-l’état », « avec toutes les erreurs » et « en fonction des disponibilités », et sont exclues des contrats de niveau de service (sla) et de la garantie limitée. Les versions préliminaires AKS sont partiellement couvertes par le service clientèle sur la base du meilleur effort. En tant que tel, ces fonctionnalités ne sont pas destinées à une utilisation en production. Pour obtenir des informations supplémentaires, veuillez lire les articles de support suivants :
+> Les fonctionnalités d’évaluation AKS sont en libre-service et font l’objet d’un abonnement. Les versions préliminaires sont fournies « en l’état », « avec toutes les erreurs » et « en fonction des disponibilités », et sont exclues des contrats de niveau de service (sla) et de la garantie limitée. Les versions préliminaires AKS sont partiellement couvertes par le service clientèle sur la base du meilleur effort. En tant que tel, ces fonctionnalités ne sont pas destinées à une utilisation en production. Pour obtenir des informations supplémentaires, veuillez lire les articles de support suivants :
 >
 > * [Stratégies de support AKS][aks-support-policies]
 > * [FAQ du support Azure][aks-faq]
@@ -92,11 +92,11 @@ Les limitations suivantes s’appliquent lorsque vous créez et gérez des clust
 
 * Lorsque vous utilisez la référence SKU *Standard* pour un équilibreur de charge, vous devez autoriser des adresses publiques et éviter de créer une Azure Policy qui interdit la création d’IP. Le cluster AKS crée automatiquement une adresse IP publique pour la référence SKU *Standard* dans le même groupe de ressources que celui créé pour le cluster AKS, généralement nommé avec *MC_* au début. AKS attribue l’adresse IP publique pour l’équilibreur de charge de référence SKU *Standard*. L’adresse IP publique est requise pour autoriser le trafic sortant à partir du cluster AKS. Cette adresse IP publique est également nécessaire pour maintenir la connectivité entre le plan de contrôle et les nœuds d’agent, ainsi que pour assurer la compatibilité avec les versions précédentes d’AKS.
 * Lorsque vous utilisez la référence SKU *Standard* pour un équilibreur de charge, vous devez utiliser Kubernetes version 1.13.5 ou version ultérieure.
-* Si vous utilisez la [fonctionnalité Adresse publique du nœud](use-multiple-node-pools.md#assign-a-public-ip-per-node-in-a-node-pool) avec des équilibreurs de charge standard, vous pouvez définir une règle de trafic sortant SLB ou une adresse IP publique pour le nœud. Vous devez sélectionner l’une ou l’autre, car une machine virtuelle ne peut pas être attachée simultanément à une règle de trafic sortant SLB et à une adresse IP publique.
 
 Même si cette fonctionnalité est en préversion préliminaire, les limitations supplémentaires suivantes s’appliquent :
 
 * Lorsque vous utilisez la référence SKU *Standard* pour un équilibreur de charge dans AKS, vous ne pouvez pas définir votre propre adresse IP publique pour la sortie de l’équilibreur de charge. Vous devez utiliser l’adresse IP qu'AKS attribue à votre équilibreur de charge.
+* Elle ne peut pas être utilisée avec la [fonctionnalité d’adresse IP publique de nœud](use-multiple-node-pools.md#assign-a-public-ip-per-node-in-a-node-pool).
 
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
@@ -166,7 +166,7 @@ L’exemple de sortie suivant montre le nœud unique créé au cours des étapes
 
 ```
 NAME                       STATUS   ROLES   AGE     VERSION
-aks-nodepool1-31718369-0   Ready    agent   6m44s   v1.13.9
+aks-nodepool1-31718369-0   Ready    agent   6m44s   v1.13.10
 ```
 
 ## <a name="verify-your-cluster-uses-the-standard-sku"></a>Vérifier que votre cluster utilise la référence SKU *Standard*

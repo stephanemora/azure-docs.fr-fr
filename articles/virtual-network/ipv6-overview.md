@@ -12,12 +12,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 07/15/2019
 ms.author: kumud
-ms.openlocfilehash: 5093b74484cd04a0c0c7afed8e2ebc725af033f5
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 33078439e8f055d746fad9949a9b0d7651e120f7
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68249833"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69543809"
 ---
 # <a name="what-is-ipv6-for-azure-virtual-network-preview"></a>Qu’est-ce que le protocole IPv6 pour réseau virtuel Azure ? (Préversion)
 
@@ -48,6 +48,8 @@ IPv6 pour le réseau virtuel inclut les fonctionnalités suivantes :
 
 - Les clients Azure peuvent définir leur propre espace d’adressage de réseau virtuel IPv6 pour répondre aux besoins de leurs applications et clients, ou intégrer sans difficulté dans leur propre espace d’adressage IP local.
 - Des réseaux virtuels double pile (IPv4 et IPv6) avec des sous-réseaux double pile permettent aux applications de se connecter à des ressources tant IPv4 que IPv6 au sein de leur réseau virtuel ou sur Internet.
+    > [!IMPORTANT]
+    > Les sous-réseaux pour IPv6 doivent avoir une taille égale à /64.  Cela garantit la compatibilité ultérieure si vous décidez d’activer le routage du sous-réseau vers un réseau local, car certains routeurs acceptent uniquement les routes IPv6 /64.  
 - Possibilité de protéger vos ressources avec des règles de protocole IPv6 pour les groupes de sécurité réseau.
 - Possibilité de personnaliser le routage du trafic IPv6 dans votre réseau virtuel avec des itinéraires définis par l’utilisateur, en particulier lorsque vous utilisez des appliances virtuelles réseau pour augmenter votre application.
 - Accordez aux clients Internet un accès fluide à votre application à double pile à l’aide du protocole de leur choix avec la prise en charge d’Azure DNS pour les enregistrements (AAAA) IPv6. 

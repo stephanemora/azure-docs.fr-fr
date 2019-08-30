@@ -3,7 +3,7 @@ title: Journalisation dans les applications MSAL | Azure
 description: En savoir plus sur la journalisation dans les applications Microsoft Authentication Library (MSAL).
 services: active-directory
 documentationcenter: dev-center-name
-author: rwike77
+author: TylerMSFT
 manager: CelesteDG
 editor: ''
 ms.service: active-directory
@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/22/2019
-ms.author: ryanwi
+ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 09590fbd340ac3945f05346f99254ec0b76dcd76
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 2f52ca8062ed1ed196a67d25385b712451afe8ae
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68835002"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69532726"
 ---
 # <a name="logging"></a>Journalisation
 Applications Microsoft Authentication Library (MSAL) pour générer des messages de journal qui peuvent aider à diagnostiquer des problèmes et fournissent des détails. Une application peut configurer la journalisation avec quelques lignes de code et contrôler de façon personnalisée le niveau de détail, ainsi que permettre de savoir si des données personnelles et d’organisation sont consignées ou non. Il est recommandé de définir un rappel de journalisation et de donner aux utilisateurs le moyen d’envoyer des journaux lorsqu’ils rencontrent des problèmes d’authentification.
@@ -40,6 +40,10 @@ L’enregistreur d’événements de MSAL autorise la capture de plusieurs nivea
 Par défaut, l’enregistreur d’événements MSAL ne capture pas de données personnelles ou d’organisation hautement sensibles. La bibliothèque vous offre la possibilité d’activer la journalisation de données personnelles et d’organisation si vous décidez de le faire.
 
 ## <a name="logging-in-msalnet"></a>Journalisation dans MSAL.NET
+
+ > [!NOTE]
+ > Pour plus d’informations sur MSAL.NET, consultez le [wiki MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki). Obtenez des exemples de journalisation MSAL.NET et bien plus encore. 
+ 
 Dans la MSAL 3.x, la journalisation est définie par l’application sur l’application lors de la création du modificateur de générateur `.WithLogging`. Cette méthode accepte des paramètres optionnels :
 
 - *Niveau* vous permet de définir le niveau de journalisation souhaité. Si vous le définissez sur Erreurs, vous obtiendrez seulement les erreurs.

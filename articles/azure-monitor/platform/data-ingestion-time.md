@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/18/2019
 ms.author: bwren
-ms.openlocfilehash: e07a436ee18a216bab569d299e534e729996db19
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 5947c4c28736f8488ea0e48941214df42c6af72a
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68990156"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69639499"
 ---
 # <a name="log-data-ingestion-time-in-azure-monitor"></a>Durée d’ingestion de données de journal dans Azure Monitor
 Azure Monitor est un service de données à grande échelle servant des milliers de clients envoyant des téraoctets de données chaque mois à un rythme croissant. Les utilisateurs se demandent souvent quel est le délai nécessaire pour que les données de journal soient disponibles une fois qu’elles ont été collectées. Cet article explique les différents facteurs qui affectent cette latence.
@@ -100,8 +100,11 @@ Heartbeat
 | summarize percentiles(E2EIngestionLatency,50,95), percentiles(AgentLatency,50,95) by Computer 
 | top 20 by percentile_E2EIngestionLatency_95 desc
 ```
- 
-Si vous souhaitez explorer au niveau du détail la durée d’ingestion pour un ordinateur spécifique sur une période donnée, utilisez la requête suivante, qui affiche également les données depuis la journée précédente dans un graphe : 
+
+Les contrôles de centile précédents conviennent pour rechercher des tendances générales en matière de latence. Pour identifier un pic à court terme en matière de latence, l’utilisation de la valeur maximale (`max()`) peut s’avérer plus efficace.
+
+Si vous souhaitez explorer au niveau du détail la durée d’ingestion pour un ordinateur spécifique sur une période donnée, utilisez la requête suivante, qui affiche également les données de la journée précédente dans un graphe : 
+
 
 ``` Kusto
 Heartbeat 

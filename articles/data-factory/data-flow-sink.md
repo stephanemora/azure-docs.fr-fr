@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/03/2019
-ms.openlocfilehash: b228dfd92fe389d196a65f7152ef22751842f4bb
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 24ad0f2e917420c327577851cabc9e5bdbad2825
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68640288"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69515682"
 ---
 # <a name="sink-transformation-for-a-data-flow"></a>Transformation de réception des flux de données
 
@@ -79,13 +79,16 @@ Configurez la dénomination des fichiers :
 
 Choisissez les Paramètres de base de données :
 
+![Onglet Paramètres, montrant les options du récepteur SQL](media/data-flow/alter-row2.png "Options SQL")
+
 * **Mettre à jour la méthode** : Par défaut, elle autorise les insertions. Effacez **Autoriser les insertions** si vous souhaitez arrêter d’insérer des lignes à partir de votre source. Pour mettre à jour, upsert ou supprimer des lignes, ajoutez d’abord une transformation de ligne alternative pour baliser les lignes pour ces actions. 
 * **Recréer la table** : Supprimez ou créez la table cible avant que le flux de données se termine.
 * **Tronquer la table** : Supprimez toutes les lignes de la table cible avant que le flux de données se termine.
 * **Taille de lot** : Entrez le nombre de lots à créer pour diviser les données en plusieurs blocs de données. Utilisez cette option pour des charges de données volumineuses. 
 * **Activer le mode de préproduction** : Utilisez PolyBase lors du chargement d’Azure Data Warehouse en tant que jeu de données de réception.
+* **Pré et post-scripts SQL** : Entrez des scripts SQL multilignes qui s’exécutent avant (prétraitement) et après (post-traitement) l’écriture de données dans votre base de données de réception.
 
-![Onglet Paramètres, montrant les options du récepteur SQL](media/data-flow/alter-row2.png "Options SQL")
+![Pré et post-scripts de traitement SQL](media/data-flow/prepost1.png "Scripts de traitement SQL")
 
 > [!NOTE]
 > Dans Data Flow, vous pouvez diriger Data Factory pour créer une nouvelle définition de table dans votre base de données cible. Pour créer la définition de table, définissez un ensemble dans la transformation de réception qui a un nouveau nom de table. Dans le jeu de données SQL, sous le nom de la table, sélectionnez **Modifier** et entrez un nouveau nom. Dans la transformation de réception, activez **Autoriser la dérive du schéma**. Définissez **Importer un schéma** sur **Aucun**.

@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 07/12/2019
 ms.author: danlep
-ms.openlocfilehash: 8fac70e7e5125ae86b2b5ce13041bbf1fd067bbe
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 07fa7f3df5274ae88c93deac75093ead3f32f036
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68641522"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69509091"
 ---
 # <a name="cross-registry-authentication-in-an-acr-task-using-an-azure-managed-identity"></a>Authentification multiregistre dans une tâche ACR à l’aide d’une identité managée par Azure 
 
@@ -76,7 +76,7 @@ Les étapes de cette section créent une tâche et activent une identité affect
 
 ### <a name="create-task"></a>Créer une tâche
 
-Créez la tâche *helloworldtask* en exécutant la commande [az acr task create][az-acr-task-create] suivante. Le contexte de la tâche est le système local et la commande fait référence au fichier `helloworldtask.yaml` dans le répertoire de travail. Le paramètre `--assign-identity` transmet l’ID de ressource de l’identité affectée par l’utilisateur. 
+Créez la tâche *helloworldtask* en exécutant la commande [az acr task create][az-acr-task-create] suivante. La tâche s’exécute sans contexte de code source et la commande référence le fichier `helloworldtask.yaml` dans le répertoire de travail. Le paramètre `--assign-identity` transmet l’ID de ressource de l’identité affectée par l’utilisateur. 
 
 ```azurecli
 az acr task create \
@@ -95,7 +95,7 @@ Les étapes de cette section créent une tâche et activent une identité affect
 
 ### <a name="create-task"></a>Créer une tâche
 
-Créez la tâche *helloworldtask* en exécutant la commande [az acr task create][az-acr-task-create] suivante. Le contexte de la tâche est le système local et la commande fait référence au fichier `helloworldtask.yaml` dans le répertoire de travail. Le paramètre `--assign-identity`, sans valeur, active une identité managée affectée par le système sur la tâche. 
+Créez la tâche *helloworldtask* en exécutant la commande [az acr task create][az-acr-task-create] suivante. La tâche s’exécute sans contexte de code source et la commande référence le fichier `helloworldtask.yaml` dans le répertoire de travail. Le paramètre `--assign-identity`, sans valeur, active une identité managée affectée par le système sur la tâche. 
 
 ```azurecli
 az acr task create \

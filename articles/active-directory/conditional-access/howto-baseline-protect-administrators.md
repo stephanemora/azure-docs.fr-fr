@@ -11,18 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 213540a5b6c77146155365133f2cca08eea25351
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: b00b061b1763d4b4e7236d8dc9ac1eedf7f923bc
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68608162"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69533016"
 ---
 # <a name="baseline-policy-require-mfa-for-admins-preview"></a>Stratégie de référence : Exiger l’authentification multifacteur pour les administrateurs (préversion)
 
 Les utilisateurs ayant accès à des comptes privilégiés ont accès sans restriction à votre environnement. En raison de l’importance de ces comptes, vous devez leur accorder une attention particulière. Une méthode courante pour améliorer la protection de comptes privilégiés consiste à demander une forme de vérification de compte plus sévère lorsqu’ils sont utilisés pour se connecter. Dans Azure Active Directory, vous pouvez obtenir une vérification plus sévère des comptes en demandant une authentification multifacteur (MFA).
 
-La stratégie **Exiger l’authentification multifacteur pour les administrateurs (préversion)**  est une [stratégie de référence](concept-baseline-protection.md) qui exige l’authentification multifacteur chaque fois qu’un des rôles d’administrateur avec élévation de privilèges suivants se connecte :
+**Exiger l’authentification multifacteur pour les administrateurs (préversion)** est une [stratégie de référence](concept-baseline-protection.md) qui exige l’authentification multifacteur chaque fois qu’un des rôles d’administrateur privilégiés suivants se connecte :
 
 * Administrateur général
 * Administrateur SharePoint
@@ -52,11 +52,11 @@ La stratégie **Stratégie de référence : Exiger l’authentification multifac
 
 Pour activer cette stratégie et protéger vos administrateurs, procédez comme suit :
 
-1. Connectez-vous au  **portail Azure** en tant qu’administrateur général, administrateur de sécurité ou administrateur de l’accès conditionnel.
+1. Connectez-vous au **portail Azure** en tant qu’administrateur général, administrateur de sécurité ou administrateur de l’accès conditionnel.
 1. Accédez à **Azure Active Directory** > **Accès conditionnel**.
 1. Dans la liste des stratégies, sélectionnez **Stratégie de référence : Exiger l’authentification multifacteur pour les administrateurs (préversion)** .
 1. Définissez **Activer la stratégie** sur **Utiliser la stratégie immédiatement**.
-1. Cliquez sur  **Enregistrer**.
+1. Cliquez sur **Enregistrer**.
 
 > [!WARNING]
 > Lorsque cette stratégie était en préversion, l’option **Activer automatiquement la stratégie à l’avenir** était disponible, mais nous l’avons supprimée, afin d’éviter un impact soudain sur l’utilisateur. Si vous avez sélectionné cette option lorsqu’elle était disponible, l’option **Ne pas utiliser la stratégie** est automatiquement sélectionnée. S’ils souhaitent utiliser cette stratégie de référence, consultez les étapes ci-dessus pour l’activer.

@@ -12,19 +12,19 @@ ms.workload: infrastructure-services
 ms.date: 05/31/2019
 ms.author: kumud
 ms.reviewer: tyao
-ms.openlocfilehash: a610a2c01a1e935c55942b621e5b3799cb002fc0
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: d2d52d2faf9122b7dc87f71ac7b1be53eaa99878
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68698641"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69534990"
 ---
 # <a name="configure-an-ip-restriction-rule-with-a-web-application-firewall-for-azure-front-door-service"></a>Configurer une règle de restriction IP avec un pare-feu d’applications web pour Azure Front Door Service
 Cet article vous montre comment configurer des règles de restriction IP dans un pare-feu d’applications web (WAF) pour Azure Front Door Service à l’aide d’Azure CLI, Azure PowerShell ou un modèle Azure Resource Manager.
 
 Une règle de contrôle d’accès basé sur l’adresse IP est une règle WAF personnalisée qui vous permet de contrôler l’accès à vos applications web. Elle remplit cette fonction en spécifiant une liste d’adresses IP ou de plages d’adresses IP dans un format CIDR (Classless Inter-Domain Routing).
 
-Par défaut, votre application web est accessible depuis Internet. Si vous souhaitez limiter l’accès aux clients à partir d’une liste d’adresses IP connues ou de plages d’adresses IP, vous devez créer deux règles de correspondance IP. La première règle de correspondance IP contient la liste des adresses IP en tant que valeurs correspondantes et définit l’action sur **Autoriser**. La deuxième, dont la priorité est plus basse, bloque toutes les autres adresses IP en utilisant l’opérateur **ALL** et en définissant l’action sur **Bloquer**. Une fois une règle de restriction IP appliquée, les demandes provenant d’adresses qui ne figurent pas dans cette liste autorisée recevront une réponse 403 Interdit.  
+Par défaut, votre application web est accessible depuis Internet. Si vous souhaitez limiter l’accès aux clients à partir d’une liste d’adresses IP ou de plages d’adresses IP connues, vous pouvez créer une règle de correspondance IP qui contient la liste des adresses IP en tant que valeurs correspondantes et définit l’opérateur sur « Non » (en attribuant au paramètre negate la valeur true) et l’action sur **Block**. Une fois une règle de restriction IP appliquée, les demandes provenant d’adresses qui ne figurent pas dans cette liste autorisée recevront une réponse 403 Interdit.  
 
 ## <a name="configure-a-waf-policy-with-the-azure-cli"></a>Configurer une stratégie WAF avec Azure CLI
 
@@ -40,52 +40,51 @@ Créez un profil Azure Front Door Service en suivant les instructions décrites 
 
 ### <a name="create-a-waf-policy"></a>Créer une stratégie de pare-feu d’applications web (WAF)
 
-Créer une stratégie WAF à l’aide de la commande [az network waf-policy create](/cli/azure/ext/front-door/network/front-door/waf-policy?view=azure-cli-latest#ext-front-door-az-network-front-door-waf-policy-create). Dans l’exemple suivant, remplacez le nom de la stratégie *IPAllowPolicyExampleCLI* par un nom unique.
+Créer une stratégie WAF à l’aide de la commande [az network front-door waf-policy create](/cli/azure/ext/front-door/network/front-door/waf-policy?view=azure-cli-latest#ext-front-door-az-network-front-door-waf-policy-create). Dans l’exemple suivant, remplacez le nom de la stratégie *IPAllowPolicyExampleCLI* par un nom unique.
 
 ```azurecli-interactive 
-az network waf-policy create \
+az network front-door waf-policy create \
   --resource-group <resource-group-name> \
   --subscription <subscription ID> \
   --name IPAllowPolicyExampleCLI
   ```
 ### <a name="add-a-custom-ip-access-control-rule"></a>Ajouter une règle de contrôle d’accès IP personnalisée
 
-Utilisez la commande [az network waf-policy custom-rule create](/cli/azure/ext/front-door/network/front-door/waf-policy/rule?view=azure-cli-latest#ext-front-door-az-network-front-door-waf-policy-rule-create) pour ajouter une règle de contrôle d'accès IP personnalisée pour une stratégie WAF que vous venez de créer.
+Utilisez la commande [az network front-door waf-policy custom-rule create](/cli/azure/ext/front-door/network/front-door/waf-policy/rule?view=azure-cli-latest#ext-front-door-az-network-front-door-waf-policy-rule-create) pour ajouter une règle de contrôle d’accès IP personnalisée pour une stratégie WAF que vous venez de créer.
 
 Dans les exemples suivants :
 -  Remplacez *IPAllowPolicyExampleCLI* par votre stratégie unique créée précédemment.
 -  Remplacez *ip-address-range-1*, *ip-address-range-2* par votre propre plage.
 
-Tout d’abord, créez l’adresse IP et autorisez la règle pour les adresses spécifiées.
+Tout d’abord, créez une règle d’autorisation IP pour la stratégie créée à l’étape précédente. Notez que **--defer** est obligatoire, car une règle doit inclure au moins une condition de correspondance. 
 
 ```azurecli
-az network waf-policy custom-rule create \
+az network front-door waf-policy rule create \
   --name IPAllowListRule \
   --priority 1 \
   --rule-type MatchRule \
-  --match-condition RemoteAddr IPMatch ("<ip-address-range-1>","<ip-address-range-2>") \
-  --action Allow \
-  --resource-group <resource-group-name> \
-  --policy-name IPAllowPolicyExampleCLI
-```
-Créez ensuite une règle **block all** avec une priorité inférieure à la règle **allow** précédente. Là encore, remplacez *IPAllowPolicyExampleCLI* dans l’exemple suivant par votre stratégie unique que vous avez créée précédemment.
-
-```azurecli
-az network waf-policy custom-rule create \
-  --name IPDenyAllRule\
-  --priority 2 \
-  --rule-type MatchRule \
-  --match-condition RemoteAddr Any
   --action Block \
   --resource-group <resource-group-name> \
-  --policy-name IPAllowPolicyExampleCLI
+  --policy-name IPAllowPolicyExampleCLI --defer
 ```
-    
+Ensuite, ajoutez une condition de correspondance à la règle :
+
+```azurecli
+az network front-door waf-policy rule match-condition add\
+--match-variable RemoteAddr \
+--operator IPMatch
+--values "ip-address-range-1" "ip-address-range-2"
+--negate true\
+--name IPAllowListRule\
+  --resource-group <resource-group-name> \
+  --policy-name IPAllowPolicyExampleCLI 
+  ```
+                                                   
 ### <a name="find-the-id-of-a-waf-policy"></a>Rechercher l’ID d’une stratégie WAF 
-Recherchez une stratégie WAF à l’aide de la commande [az network waf-policy show](/cli/azure/ext/front-door/network/front-door/waf-policy?view=azure-cli-latest#ext-front-door-az-network-front-door-waf-policy-show). Là encore, remplacez *IPAllowPolicyExampleCLI* dans l’exemple suivant par votre stratégie unique que vous avez créée précédemment.
+Recherchez une stratégie WAF à l’aide de la commande [az network front-door waf-policy show](/cli/azure/ext/front-door/network/front-door/waf-policy?view=azure-cli-latest#ext-front-door-az-network-front-door-waf-policy-show). Là encore, remplacez *IPAllowPolicyExampleCLI* dans l’exemple suivant par votre stratégie unique que vous avez créée précédemment.
 
    ```azurecli
-   az network waf-policy show \
+   az network front-door  waf-policy show \
      --resource-group <resource-group-name> \
      --name IPAllowPolicyExampleCLI
    ```
@@ -140,43 +139,29 @@ $IPMatchCondition = New-AzFrontDoorWafMatchConditionObject `
 -MatchVariable  RemoteAddr `
 -OperatorProperty IPMatch `
 -MatchValue "ip-address-range-1", "ip-address-range-2"
+-NegateCondition 1
 ```
-Créez une règle *match all condition* pour IP à l’aide de la commande suivante :
-```powershell
-$IPMatchALlCondition = New-AzFrontDoorWafMatchConditionObject `
--MatchVariable  RemoteAddr `
--OperatorProperty Any        
-  ```
-    
+     
 ### <a name="create-a-custom-ip-allow-rule"></a>Créer une règle d’autorisation IP personnalisée
 
-Utilisez la commande [New-AzFrontDoorCustomRuleObject](/powershell/module/Az.FrontDoor/New-azfrontdoorwafcustomruleobject) pour définir une action et une priorité. Dans l’exemple suivant, les requêtes d’adresses IP client qui correspondent à la liste seront autorisées.
+Utilisez la commande [New-AzFrontDoorCustomRuleObject](/powershell/module/Az.FrontDoor/New-azfrontdoorwafcustomruleobject) pour définir une action et une priorité. Dans l’exemple suivant, les requêtes ne provenant pas d’adresses IP clientes qui correspondent à la liste sont autorisées.
 
 ```powershell
 $IPAllowRule = New-AzFrontDoorCustomRuleObject `
 -Name "IPAllowRule" `
 -RuleType MatchRule `
 -MatchCondition $IPMatchCondition `
--Action Allow -Priority 1
-```
-Créez une règle **block all** avec une priorité inférieure à la règle IP **allow** précédente.
-```powershell
-$IPBlockAll = New-AzFrontDoorCustomRuleObject `
--Name "IPDenyAll" `
--RuleType MatchRule `
--MatchCondition $IPMatchALlCondition `
--Action Block `
--Priority 2
+-Action Block -Priority 1
 ```
 
 ### <a name="configure-a-waf-policy"></a>Configurer une stratégie WAF
-Recherchez le nom du groupe de ressources qui contient le profil Azure Front Door Service à l’aide de `Get-AzResourceGroup`. Configurez ensuite une stratégie WAF avec la règle IP **block all** à l’aide de la commande [New-AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy).
+Recherchez le nom du groupe de ressources qui contient le profil Azure Front Door Service à l’aide de `Get-AzResourceGroup`. Configurez ensuite une stratégie WAF avec la règle IP à l’aide de la commande [New-AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy).
 
 ```powershell
   $IPAllowPolicyExamplePS = New-AzFrontDoorWafPolicy `
     -Name "IPRestrictionExamplePS" `
     -resourceGroupName <resource-group-name> `
-    -Customrule $IPAllowRule $IPBlockAll `
+    -Customrule $IPAllowRule`
     -Mode Prevention `
     -EnabledState Enabled
    ```

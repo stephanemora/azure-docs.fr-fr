@@ -10,12 +10,12 @@ ms.subservice: load-data
 ms.date: 04/26/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 5f2830b524c554a6988bfc873cd0f6c54e5c56a4
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: e3bef20a92322b07219e42c4f7fe8443917eae32
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67839677"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69575201"
 ---
 # <a name="tutorial-load-new-york-taxicab-data-to-azure-sql-data-warehouse"></a>Didacticiel : Chargement des données de New York Taxicab dans Azure SQL Data Warehouse
 
@@ -42,11 +42,11 @@ Avant de commencer ce didacticiel, téléchargez et installez la dernière versi
 
 Connectez-vous au [portail Azure](https://portal.azure.com/).
 
-## <a name="create-a-blank-sql-data-warehouse"></a>Créer un entrepôt de données SQL vide
+## <a name="create-a-blank-sql-data-warehouse"></a>Créer un entrepôt SQL Data Warehouse vide
 
-Un entrepôt de données Azure SQL est créé avec un ensemble défini de [ressources de calcul](memory-and-concurrency-limits.md). La base de données est créée dans un [groupe de ressources Azure](../azure-resource-manager/resource-group-overview.md) et dans un [serveur logique Azure SQL](../sql-database/sql-database-features.md). 
+Un entrepôt Azure SQL Data Warehouse est créé avec un ensemble défini de [ressources de calcul](memory-and-concurrency-limits.md). La base de données est créée dans un [groupe de ressources Azure](../azure-resource-manager/resource-group-overview.md) et dans un [serveur logique Azure SQL](../sql-database/sql-database-features.md). 
 
-Suivez ces étapes pour créer un entrepôt de données SQL vide. 
+Suivez ces étapes pour créer un entrepôt SQL Data Warehouse vide. 
 
 1. Cliquez sur **Créer une ressource** en haut à gauche du portail Azure.
 

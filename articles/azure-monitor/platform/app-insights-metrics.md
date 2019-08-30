@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 07/03/2019
 ms.author: vitalyg
 ms.subservice: application-insights
-ms.openlocfilehash: d4b7a214af23d69f1217d84e9401de230cd358b0
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 903fd2309949036b62fb4975596fb645c021d06d
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67877431"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69535035"
 ---
 # <a name="application-insights-log-based-metrics"></a>Métriques reposant sur un journal d’Application Insights
 
@@ -80,7 +80,7 @@ La métrique *Tests de disponibilité* reflète le nombre de tests web exécuté
 
 |Unité de mesure|Agrégations prises en charge|Dimensions prises en charge|
 |---|---|---|---|---|---|
-|Nombre|Nombre|Emplacement d'exécution, Nom du test, Résultat du test|
+|Count|Count|Emplacement d'exécution, Nom du test, Résultat du test|
 
 ```Kusto
 availabilityResults
@@ -93,7 +93,7 @@ availabilityResults
 Les métriques du navigateur sont collectées par le Kit de développement logiciel (SDK) JavaScript Application Insights à partir des navigateurs réels des utilisateurs finaux. Elles vous donnent un excellent aperçu de l'expérience de vos utilisateurs avec votre application web. Les métriques du navigateur ne sont généralement pas échantillonnées, ce qui signifie qu’elles offrent une plus grande précision des données d'utilisation par rapport aux métriques côté serveur qui peuvent être biaisées par l'échantillonnage.
 
 > [!NOTE]
-> Pour collecter les métriques du navigateur, votre application doit être instrumentée avec l’[extrait de code du SDK JavaScript Application Insights](../../azure-monitor/app/javascript.md#add-the-sdk-script-to-your-app-or-web-pages).
+> Pour collecter les métriques du navigateur, votre application doit être instrumentée avec le [kit SDK JavaScript Application Insights](../../azure-monitor/app/javascript.md).
 
 ### <a name="browser-page-load-time-browsertimingstotalduration"></a>Temps de chargement de la page de navigateur (browserTimings/totalDuration)
 
@@ -185,7 +185,7 @@ Cette métrique reflète le nombre d'exceptions levées à partir de votre code 
 
 |Unité de mesure|Agrégations prises en charge|Dimensions pré-agrégées|Notes|
 |---|---|---|---|
-|Nombre|Nombre|Aucun|La version reposant sur un journal utilise l’agrégation **Sum**|
+|Count|Count|Aucun|La version reposant sur un journal utilise l’agrégation **Sum**|
 
 ```Kusto
 exceptions
@@ -200,7 +200,7 @@ Nombre d’appels de dépendance ayant échoué.
 
 |Unité de mesure|Agrégations prises en charge|Dimensions pré-agrégées|Notes|
 |---|---|---|---|
-|Nombre|Nombre|Aucun|La version reposant sur un journal utilise l’agrégation **Sum**|
+|Count|Count|Aucun|La version reposant sur un journal utilise l’agrégation **Sum**|
 
 ```Kusto
 dependencies
@@ -215,7 +215,7 @@ Chaque fois que vous consignez une exception dans Application Insights, un appel
 
 |Unité de mesure|Agrégations prises en charge|Dimensions pré-agrégées|Notes|
 |---|---|---|---|
-|Nombre|Nombre|Nom du rôle cloud, Instance de rôle cloud, Type d’appareil|La version reposant sur un journal utilise l’agrégation **Sum**|
+|Count|Count|Nom du rôle cloud, Instance de rôle cloud, Type d’appareil|La version reposant sur un journal utilise l’agrégation **Sum**|
 
 ```Kusto
 exceptions
@@ -229,7 +229,7 @@ Nombre de requêtes de serveur suivies qui ont été marquées comme ayant *éch
 
 |Unité de mesure|Agrégations prises en charge|Dimensions pré-agrégées|Notes|
 |---|---|---|---|
-|Nombre|Nombre|Instance de rôle cloud, Nom du rôle cloud, Trafic réel ou synthétique, Performances de la requête, Code de réponse|La version reposant sur un journal utilise l’agrégation **Sum**|
+|Count|Count|Instance de rôle cloud, Nom du rôle cloud, Trafic réel ou synthétique, Performances de la requête, Code de réponse|La version reposant sur un journal utilise l’agrégation **Sum**|
 
 ```Kusto
 requests
@@ -244,7 +244,7 @@ Cette métrique indique le nombre d'exceptions du serveur.
 
 |Unité de mesure|Agrégations prises en charge|Dimensions pré-agrégées|Notes|
 |---|---|---|---|
-|Nombre|Nombre|Nom du rôle cloud, Instance de rôle cloud|La version reposant sur un journal utilise l’agrégation **Sum**|
+|Count|Count|Nom du rôle cloud, Instance de rôle cloud|La version reposant sur un journal utilise l’agrégation **Sum**|
 
 ```Kusto
 exceptions

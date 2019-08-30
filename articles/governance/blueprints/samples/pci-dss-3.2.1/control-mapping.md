@@ -8,12 +8,12 @@ ms.date: 06/24/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 1e85cb5c06f36e0f8c105ece2c012cfe7cb77bf4
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: c2dbfa5f6c9d679582a1834f2ff645c5ff79c51e
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68226028"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69515691"
 ---
 # <a name="control-mapping-of-the-pci-dss-v321-blueprint-sample"></a>Mappage des contrôles de l’exemple de blueprint PCI-DSS v3.2.1
 
@@ -35,8 +35,8 @@ Ce blueprint vous aide à appliquer votre stratégie avec utilisation des contr�
 - Function App ne doit pas être accessible via HTTPS
 - L'application web ne doit pas être accessible via HTTPS
 - L'application API doit uniquement être accessible via HTTPS
-- Superviser les bases de données SQL non chiffrées dans Azure Security Center
-- Un chiffrement de disque doit être appliqué aux machines virtuelles
+- La technologie Transparent Data Encryption doit être activée sur les bases de données SQL
+- Le chiffrement de disque doit être appliqué sur les machines virtuelles
 - Les variables de compte Automation doivent être chiffrées
 - Seules les connexions sécurisées à votre cache Redis doivent être activées
 - La sécurisation du transfert vers des comptes de stockage doit être activée
@@ -110,7 +110,7 @@ Ce blueprint vous aide à appliquer des mots de passe forts en affectant des dé
 Ce blueprint vous permet de garantir que les événements système sont journalisés. Il affecte pour cela des définitions [Azure Policy](../../../policy/overview.md) qui vérifient les paramètres de journalisation sur les ressources Azure.
 Les journaux de diagnostic fournissent des insights sur les opérations effectuées dans vos ressources Azure. Les journaux Azure s’appuient sur les horloges internes synchronisées pour créer un enregistrement corrélé dans le temps des événements entre les ressources.
 
-- Superviser les serveurs SQL non audités dans Azure Security Center
+- L’audit doit être activé sur les paramètres de sécurité des données avancés sur SQL Server
 - Auditer le paramètre de diagnostic
 - Auditer les paramètres d'audit au niveau du serveur SQL
 - Déployer l’audit sur des serveurs SQL

@@ -5,13 +5,13 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
-ms.date: 08/02/2019
-ms.openlocfilehash: a8351f13f015ca53e72bbff41152e46690fdc7bc
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.date: 08/15/2019
+ms.openlocfilehash: f6ff654b8e51dfaf2697df69c7f220d41346c2bc
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68855733"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69543470"
 ---
 # <a name="outofmemoryerror-exceptions-for-apache-spark-in-azure-hdinsight"></a>Exceptions OutOfMemoryError pour Apache Spark dans Azure HDInsight
 
@@ -53,13 +53,13 @@ java.lang.OutOfMemoryError
 
 ### <a name="cause"></a>Cause :
 
-Le problème est probablement lié à un manque de mémoire de segment. Votre application Spark requiert suffisamment de mémoire de segment Machines virtuelles Java (JVM) lorsqu'elle fonctionne en tant qu’exécuteurs ou pilotes.
+La cause la plus probable de cette exception est que le segment de mémoire allouée aux machines virtuelles Java (JVM) est insuffisant. Ces JVM sont lancées en tant qu’exécuteurs ou pilotes dans le cadre de l’application Apache Spark.
 
 ### <a name="resolution"></a>Résolution :
 
 1. Déterminez le volume maximal de données que l’application Spark va traiter. Estimez ce volume en fonction du volume maximal des données d’entrée, des données intermédiaires produites par la transformation des données d’entrée et des données de sortie produites à partir des données intermédiaires. Si l’estimation initiale n’est pas suffisante, augmentez légèrement le volume, et itérez jusqu'à ce que les erreurs de mémoire diminuent.
 
-1. Assurez-vous que le cluster HDInsight à utiliser dispose de suffisamment de ressources en termes de mémoire et de cœurs pour prendre en charge l’application Spark. Pour le vérifier, accédez à la section Mesures de cluster de l’interface utilisateur YARN du cluster et comparez les valeurs Mémoire utilisée/Mémoire totale et VCores utilisés/Total des VCores .
+1. Assurez-vous que le cluster HDInsight à utiliser dispose de suffisamment de ressources en termes de mémoire et de cœurs pour prendre en charge l’application Spark. Pour le vérifier, accédez à la section Mesures de cluster de l’interface utilisateur YARN du cluster et comparez les valeurs **Mémoire utilisée**/ **Mémoire totale** et les valeurs **VCores utilisées**/ **Total des VCores**.
 
     ![affichage de la mémoire centrale yarn](./media/apache-spark-ts-outofmemory/yarn-core-memory-view.png)
 

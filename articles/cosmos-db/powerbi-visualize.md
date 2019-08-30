@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: sngun
-ms.openlocfilehash: 76531de279dfe6e9b73b3895f0ef63c4c88b63cd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1dbdd428a54ebf38c7b880bb9530935c0f748226
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65979006"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69616809"
 ---
 # <a name="visualize-azure-cosmos-db-data-by-using-the-power-bi-connector"></a>Visualiser les données Azure Cosmos DB à l’aide du connecteur Power BI
 
@@ -32,7 +32,7 @@ Avant de suivre les instructions de ce didacticiel Power BI, assurez-vous de dis
 
 * Téléchargez les [exemples de données de volcan](https://github.com/Azure-Samples/azure-cosmos-db-sample-data/blob/master/SampleData/VolcanoData.json) à partir de GitHub.
 
-* [Créer un compte de base de données Azure Cosmos DB](https://azure.microsoft.com/documentation/articles/create-account/) et importer les données de volcan à l’aide de l’[outil de migration de données Azure Cosmos DB](import-data.md). Lorsque vous importez des données, prenez en compte les paramètres suivants pour la source et les destinations dans l’outil de migration de données :
+* [Créer un compte de base de données Azure Cosmos](https://azure.microsoft.com/documentation/articles/create-account/) et importer les données de volcan à l’aide de l’[outil de migration de données Azure Cosmos DB](import-data.md). Lorsque vous importez des données, prenez en compte les paramètres suivants pour la source et les destinations dans l’outil de migration de données :
 
    * **Paramètres de la source** 
 

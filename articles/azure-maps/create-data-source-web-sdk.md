@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: c225aa5f821925247d27890e9ee75f3eac4d9eb9
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 36c06182d0807ce3d255477a865023ae7b74e2cb
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976608"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69874930"
 ---
 # <a name="create-a-data-source"></a>Création d'une source de données
 
@@ -22,7 +22,11 @@ Le SDK web Azure Maps stocke des données dans des sources de données qui optim
 
 **Source de données GeoJSON**
 
-Une source de données GeoJSON peut charger et stocker des données localement à l’aide de la classe `DataSource`. Les données GeoJSON peuvent être créées manuellement ou à l’aide des classes d’assistance de l’espace de noms [atlas.data](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data). La classe `DataSource` fournit des fonctions pour l’importation de fichiers GeoJSON locaux ou distants. Les fichiers GeoJSON distants doivent être hébergés sur un point de terminaison CORs. La classe `DataSource` fournit des fonctionnalités pour les données de point de clustering. 
+Une source de données GeoJSON peut charger et stocker des données localement à l’aide de la classe `DataSource`. Les données GeoJSON peuvent être créées manuellement ou à l’aide des classes d’assistance de l’espace de noms [atlas.data](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data). La classe `DataSource` fournit des fonctions pour l’importation de fichiers GeoJSON locaux ou distants. Les fichiers GeoJSON distants doivent être hébergés sur un point de terminaison CORs. La classe `DataSource` fournit des fonctionnalités pour les données de point de clustering. Les données peuvent être facilement ajoutées, supprimées et mises à jour avec la classe `DataSource`.
+
+
+> [!TIP]
+> Si vous souhaitez remplacer toutes les données d’un `DataSource`, si vous effectuez des appels aux fonctions `clear` puis `add`, la carte tentera de se réafficher deux fois, ce qui peut entraîner un certain délai. Utilisez plutôt la fonction `setShapes` qui supprimera et remplacera toutes les données de la source de données et déclenchera uniquement un nouveau réaffichage de la carte.
 
 **Source de mosaïque vectorielle**
 
@@ -138,10 +142,10 @@ Pour obtenir plus d’exemples de code à ajouter à vos cartes, consultez les a
 > [Utiliser des expressions de style basées sur les données](data-driven-style-expressions-web-sdk.md)
 
 > [!div class="nextstepaction"]
-> [Ajouter un calque de symboles](map-add-pin.md)
+> [Ajouter une couche de symboles](map-add-pin.md)
 
 > [!div class="nextstepaction"]
-> [Ajouter un calque de bulles](map-add-bubble-layer.md)
+> [Ajouter une couche de bulles](map-add-bubble-layer.md)
 
 > [!div class="nextstepaction"]
 > [Ajouter un calque de lignes](map-add-line-layer.md)

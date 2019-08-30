@@ -5,13 +5,13 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
-ms.date: 08/02/2019
-ms.openlocfilehash: 2baef0d8c23a8da13c3640d85159dc17b3acc80f
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.date: 08/14/2019
+ms.openlocfilehash: e0fbb93e11c170f80620ac9b1e895650752ad638
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68816908"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69511362"
 ---
 # <a name="scenario-local-hdfs-stuck-in-safe-mode-on-azure-hdinsight-cluster"></a>Scénario : HDFS local bloqué en mode sans échec sur le cluster Azure HDInsight
 
@@ -19,9 +19,9 @@ Cet article décrit les éventuelles solutions à appliquer pour résoudre les p
 
 ## <a name="issue"></a>Problème
 
-HDFS local bloqué en mode sans échec sur le cluster Azure HDInsight Vous recevez un message d’erreur semblable à ce qui suit :
+Le stockage Apache HDFS (Hadoop Distributed File System) est bloqué en mode sans échec sur le cluster HDInsight. Vous recevez un message d’erreur semblable à ce qui suit :
 
-```
+```output
 hdiuser@hn0-spark2:~$ hdfs dfs -D "fs.default.name=hdfs://mycluster/" -mkdir /temp
 17/04/05 16:20:52 WARN retry.RetryInvocationHandler: Exception while invoking ClientNamenodeProtocolTranslatorPB.mkdirs over hn0-spark2.2oyzcdm4sfjuzjmj5dnmvscjpg.dx.internal.cloudapp.net/10.0.0.22:8020. Not retrying because try once and fail.
 org.apache.hadoop.ipc.RemoteException(org.apache.hadoop.hdfs.server.namenode.SafeModeException): Cannot create directory /temp. Name node is in safe mode.
@@ -33,7 +33,7 @@ mkdir: Cannot create directory /temp. Name node is in safe mode.
 
 ## <a name="cause"></a>Cause :
 
-Le cluster HDInsight a été redimensionné avec très peu de nœuds, avec un nombre en deçà ou proche du facteur de réplication HDFS.
+Le cluster HDInsight a été redimensionné avec très peu de nœuds, ou le nombre de nœuds est proche du facteur de réplication HDFS.
 
 ## <a name="resolution"></a>Résolution :
 
@@ -61,6 +61,6 @@ Si votre problème ne figure pas dans cet article ou si vous ne parvenez pas à 
 
 * Obtenez des réponses de la part d’experts Azure en faisant appel au [Support de la communauté Azure](https://azure.microsoft.com/support/community/).
 
-* Connectez-vous avec [@AzureSupport](https://twitter.com/azuresupport), le compte Microsoft Azure officiel pour améliorer l’expérience client en connectant la communauté Azure aux ressources appropriées (réponses, support et experts).
+* Connectez-vous à [@AzureSupport](https://twitter.com/azuresupport), le compte Microsoft Azure officiel pour améliorer l’expérience client. Connexion de la communauté Azure aux ressources appropriées : réponses, support technique et experts.
 
-* Si vous avez besoin d’une aide supplémentaire, vous pouvez envoyer une demande de support à partir du [Portail Microsoft Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Sélectionnez **Support** dans la barre de menus, ou ouvrez le hub **Aide + Support**. Pour en savoir plus, voir [Création d’une demande de support Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). L’accès au support relatif à la gestion et à la facturation des abonnements est inclus dans votre abonnement Microsoft Azure. En outre, un support technique est fourni via l’un des [plans de support Azure](https://azure.microsoft.com/support/plans/).
+* Si vous avez besoin d’une aide supplémentaire, vous pouvez envoyer une requête de support à partir du [Portail Microsoft Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Sélectionnez **Support** dans la barre de menus, ou ouvrez le hub **Aide + Support**. Pour plus d’informations, consultez [Création d’une demande de support Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). L’accès au support relatif à la gestion et à la facturation des abonnements est inclus avec votre abonnement Microsoft Azure. En outre, le support technique est fourni avec l’un des [plans de support Azure](https://azure.microsoft.com/support/plans/).

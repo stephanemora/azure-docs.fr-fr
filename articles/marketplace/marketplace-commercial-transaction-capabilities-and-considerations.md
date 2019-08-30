@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: pabutler
-ms.openlocfilehash: c58a36988e3aee9b122446e3ee3c4878a582b8ad
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 6991ebfa58099a42b09e482d11c0d3c3983decce
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67871033"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69535057"
 ---
 # <a name="commercial-marketplace-transaction-capabilities-and-considerations"></a>Considérations et fonctionnalités relatives aux transactions dans la Place de marché commerciale
 
@@ -144,7 +144,7 @@ Cette option doit être configurée pour la vente via Microsoft et peut être fa
 |Microsoft vous verse 80 % des revenus générés par les licences <br> \* Microsoft paie 90 % de vos coûts de licence pour les applications SaaS qualifiées   |   80 $/mois <br> \* 90 $/mois    |
 |Microsoft conserve 20 % des revenus générés par les licences <br> \* Microsoft conserve 10 % de vos coûts de licence pour les applications SaaS qualifiées  |  20 $/mois <br> \* 10 $     |
 
-* **Frais liés au service Place de marché réduits** : Pour certains produits SaaS que vous publiez sur notre Place de marché commerciale, Microsoft réduit ses frais liés au service Place de marché de 20 % (comme décrit dans le Contrat d'éditeur Microsoft) à 10 %.  Afin que votre produit soit qualifié, au moins un de vos produits doit avoir été désigné par Microsoft comme Prêt à la co-vente IP ou Priorité à la co-vente IP. Pour recevoir ces frais liés au service Place de marché réduits pour le mois, l’éligibilité doit être respectée au moins cinq (5) jours ouvrés avant la fin de ce mois. Les frais liés au service Place de marché réduits ne s’appliquent pas aux machines virtuelles, aux applications managées ou à tout autre produit, disponible via notre Place de marché commerciale.  Les frais liés au service Place de marché réduits sont disponibles pour les offres qualifiées, avec frais de licence collectés par Microsoft entre le 1er mai 2019 et le 30 juin 2020.  Au-delà de cette date, les frais liés au service Place de marché réduits retrouveront leur montant initial.
+* **Frais liés au service Place de marché réduits** : Pour certains produits SaaS que vous publiez sur notre Place de marché commerciale, Microsoft réduit ses frais liés au service Place de marché de 20 % (comme décrit dans le Contrat d'éditeur Microsoft) à 10 %.  Afin que votre produit soit qualifié, au moins un de vos produits doit avoir été désigné par Microsoft comme Prêt à la co-vente IP ou Priorité à la co-vente IP. Pour recevoir ces frais liés au service Place de marché réduits pour le mois, l’éligibilité doit être respectée au moins cinq (5) jours ouvrés avant la fin du mois précédent. Les frais liés au service Place de marché réduits ne s’appliquent pas aux machines virtuelles, aux applications managées ou à tout autre produit, disponible via notre Place de marché commerciale.  Les frais liés au service Place de marché réduits sont disponibles pour les offres qualifiées, avec frais de licence collectés par Microsoft entre le 1er mai 2019 et le 30 juin 2020.  Au-delà de cette date, les frais liés au service Place de marché réduits retrouveront leur montant initial.
 
 ### <a name="customer-invoicing-payment-billing-and-collections"></a>Tarification, paiement, facturation et collecte côté client
 

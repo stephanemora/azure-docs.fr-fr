@@ -6,16 +6,16 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: rimman
-ms.openlocfilehash: 71f1f8896126728277ba6f0bf2c0ded1b2a608b7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2955df266bcf164ce4a155acc5209679eff0ce8a
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65967248"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69615009"
 ---
 # <a name="optimize-storage-cost-in-azure-cosmos-db"></a>Optimiser les coûts de stockage dans Azure Cosmos DB
 
-Azure Cosmos DB offre un stockage et un débit illimités. Contrairement au débit, que vous devez approvisionner/configurer sur vos bases de données ou conteneurs Azure Cosmos, le stockage est facturé en fonction de la consommation. Vous êtes facturé uniquement pour le stockage logique que vous consommez et vous n’êtes pas obligé de réserver de stockage à l’avance. Le stockage se met automatiquement à l’échelle en fonction des données que vous ajoutez ou supprimez dans un conteneur Azure Cosmos DB.
+Azure Cosmos DB offre un stockage et un débit illimités. Contrairement au débit, que vous devez approvisionner/configurer sur vos bases de données ou conteneurs Azure Cosmos, le stockage est facturé en fonction de la consommation. Vous êtes facturé uniquement pour le stockage logique que vous consommez et vous n’êtes pas obligé de réserver de stockage à l’avance. Le stockage se met automatiquement à l’échelle en fonction des données que vous ajoutez ou supprimez dans un conteneur Azure Cosmos.
 
 ## <a name="storage-cost"></a>Coût de stockage
 

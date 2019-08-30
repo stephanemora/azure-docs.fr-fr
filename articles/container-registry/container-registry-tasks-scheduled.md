@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 06/27/2019
 ms.author: danlep
-ms.openlocfilehash: 6237b8056262abe1f8cea28bebd6b3bad97e0f7e
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: a4a1099d90b619be383d440067a692c51a2430ac
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967579"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69509069"
 ---
 # <a name="run-an-acr-task-on-a-defined-schedule"></a>Exécuter une tâche ACR selon une planification définie
 
@@ -48,9 +48,9 @@ Lorsque vous créez une tâche avec la commande [az acr task create][az-acr-task
 az acr task create \
   --name mytask \
   --registry myregistry \
-  --context /dev/null \
   --cmd hello-world \
-  --schedule "0 21 * * *"
+  --schedule "0 21 * * *" \
+  --context /dev/null
 ```
 
 Exécutez la commande [az acr task show][az-acr-task-show] pour vérifier que le déclencheur de minuteur est configuré. Par défaut, le déclencheur de mise à jour d’image de base est également activé.
@@ -176,11 +176,11 @@ Chaque champ peut être associé aux types de valeurs suivants :
 
 |Type  |Exemples  |En cas de déclenchement  |
 |---------|---------|---------|
-|Une valeur spécifique |<nobr>« 5 * * * * »</nobr>|toutes les heures, 5 minutes après l’heure|
-|Toutes les valeurs (`*`)|<nobr>« * 5 * * * »</nobr>|toutes les minutes, à partir de 5:00 UTC (60 fois par jour)|
-|Une plage (opérateur `-`)|<nobr>« 0 1-3 * * * »</nobr>|3 fois par jour à 1:00, 2:00 et 3:00 UTC|
-|Un ensemble de valeurs (opérateur `,`)|<nobr>« 20,30,40 * * * * »</nobr>|3 fois par heure, 20 minutes, 30 minutes et 40 minutes après l’heure|
-|Une valeur d’intervalle (opérateur `/`)|<nobr>« */10 * * * * »</nobr>|6 fois par heure, 10 minutes, 20 minutes et ainsi de suite, après l’heure
+|Une valeur spécifique |<nobr>`"5 * * * *"`</nobr>|toutes les heures, 5 minutes après l’heure|
+|Toutes les valeurs (`*`)|<nobr>`"* 5 * * *"`</nobr>|toutes les minutes, à partir de 5:00 UTC (60 fois par jour)|
+|Une plage (opérateur `-`)|<nobr>`"0 1-3 * * *"`</nobr>|3 fois par jour à 1:00, 2:00 et 3:00 UTC|
+|Un ensemble de valeurs (opérateur `,`)|<nobr>`"20,30,40 * * * *"`</nobr>|3 fois par heure, 20 minutes, 30 minutes et 40 minutes après l’heure|
+|Une valeur d’intervalle (opérateur `/`)|<nobr>`"*/10 * * * *"`</nobr>|6 fois par heure, 10 minutes, 20 minutes et ainsi de suite, après l’heure
 
 [!INCLUDE [functions-cron-expressions-months-days](../../includes/functions-cron-expressions-months-days.md)]
 
@@ -198,6 +198,8 @@ Chaque champ peut être associé aux types de valeurs suivants :
 
 
 ## <a name="next-steps"></a>Étapes suivantes
+
+Pour obtenir un exemple d’utilisation d’une tâche planifiée afin de nettoyer des dépôts dans un registre , consultez [Purger automatiquement les images d’un registre de conteneurs Azure](container-registry-auto-purge.md).
 
 Pour obtenir des exemples de tâches déclenchées par les validations de code source ou les mises à jour d'images de base, consultez les [didacticiels ACR Tasks](container-registry-tutorial-quick-task.md).
 

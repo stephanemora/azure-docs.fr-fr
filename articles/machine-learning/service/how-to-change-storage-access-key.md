@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 08/08/2019
-ms.openlocfilehash: 7c6b85bd1f5935fb3722f82efcdfc921fc9cb2ec
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.date: 08/16/2019
+ms.openlocfilehash: e386e34a8326a51753631ee9ea4215d01ba7ceb3
+ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68990554"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69558229"
 ---
 # <a name="regenerate-storage-account-access-keys"></a>Régénérer des clés d’accès de compte de stockage
 
@@ -50,12 +50,15 @@ ws = Workspace.from_config()
 
 default_ds = ws.get_default_datastore()
 print("Default datstore: " + default_ds.name + ", storage account name: " +
-      default_ds.account_name + ", container name: " + ds.container_name)
+      default_ds.account_name + ", container name: " + default_ds.container_name)
 
 datastores = ws.datastores
 for name, ds in datastores.items():
-    if ds.datastore_type == "AzureBlob" or ds.datastore_type == "AzureFile":
-        print("datastore name: " + name + ", storage account name: " +
+    if ds.datastore_type == "AzureBlob":
+        print("Blob store - datastore name: " + name + ", storage account name: " +
+              ds.account_name + ", container name: " + ds.container_name)
+    if ds.datastore_type == "AzureFile":
+        print("File share - datastore name: " + name + ", storage account name: " +
               ds.account_name + ", container name: " + ds.container_name)
 ```
 
@@ -64,6 +67,8 @@ Ce code recherche les banques de données inscrites qui utilisent Stockage Azure
 * Nom de la banque de données : nom de la base de données sous laquelle le compte de stockage est inscrit.
 * Nom du compte de stockage : Nom du compte Stockage Azure.
 * Conteneur : conteneur dans le compte de stockage qui est utilisé par cette inscription.
+
+Il indique également si le magasin de stockage est destiné à un objet blob Azure ou à un partage de fichiers Azure, car il existe différentes méthodes pour réinscrire chaque type de magasin de stockage.
 
 S’il existe une entrée pour le compte de stockage dont vous prévoyez de régénérer les clés d’accès, enregistrez le nom de la banque de données, le nom du compte de stockage et le nom du conteneur.
 
@@ -97,12 +102,21 @@ Pour mettre à jour le service Azure Machine Learning afin d’utiliser la nouve
 1. Pour réinscrire les banques de données qui utilisent le compte de stockage, utilisez les valeurs de la section [Éléments à mettre à jour](#whattoupdate) et la clé de l’étape 1 avec le code suivant :
 
     ```python
-    ds = Datastore.register_azure_blob_container(workspace=ws, 
-                                              datastore_name='your datastore name', 
+    # Re-register the blob container
+    ds_blob = Datastore.register_azure_blob_container(workspace=ws,
+                                              datastore_name='your datastore name',
                                               container_name='your container name',
-                                              account_name='your storage account name', 
+                                              account_name='your storage account name',
                                               account_key='new storage account key',
                                               overwrite=True)
+    # Re-register file shares
+    ds_file = Datastore.register_azure_file_share(workspace=ws,
+                                          datastore_name='your datastore name',
+                                          file_share_name='your container name',
+                                          account_name='your storage account name',
+                                          account_key='new storage account key',
+                                          overwrite=True)
+    
     ```
 
     Puisque `overwrite=True` est spécifié, ce code écrase l’inscription existante et la met à jour pour utiliser la nouvelle clé.

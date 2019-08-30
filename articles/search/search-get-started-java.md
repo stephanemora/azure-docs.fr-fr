@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/26/2018
 ms.author: jjed
 ms.custom: seodec2018, seo-java-july2019
-ms.openlocfilehash: 7172cd01ca881ec3027854444107b0744b65feb3
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: 7deb9d2cf16aa82de7ce4ea163652c2936819063
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68489791"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69533242"
 ---
 # <a name="quickstart-create-an-azure-search-index-in-java"></a>Démarrage rapide : Créer un index Recherche Azure en Java
 > [!div class="op_single_selector"]
@@ -60,7 +60,7 @@ La liste suivante décrit les fichiers qui sont pertinents pour cet exemple.
 Tous les appels d’API REST dans le service Recherche Azure exigent que vous fournissiez l’URL du service et un paramètre `api-key`. 
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
-2. Dans la barre d’index, cliquez sur **Service de recherche** pour obtenir la liste des services Azure Search approvisionnés pour votre abonnement.
+2. Dans la barre d’index, sélectionnez **Service de recherche** pour obtenir la liste des services Azure Search provisionnés pour votre abonnement.
 3. Sélectionnez le service que vous souhaitez utiliser.
 4. Le tableau de bord des services affiche des vignettes contenant des informations essentielles, ainsi que l'icône de clé permettant d'accéder aux clés administrateur.
    
@@ -69,20 +69,20 @@ Tous les appels d’API REST dans le service Recherche Azure exigent que vous fo
 
 ## <a name="download-the-sample-files"></a>Télécharger les fichiers exemples
 1. Accédez à [search-java-indexer-demo](https://github.com/Azure-Samples/search-java-indexer-demo) sur GitHub.
-2. Cliquez sur **Download ZIP**, enregistrez le fichier ZIP sur le disque, puis extrayez tous les fichiers qu'il contient. Si vous le souhaitez, vous pouvez extraire ces fichiers dans votre espace de travail Java pour faciliter la recherche du projet ultérieurement.
+2. Sélectionnez **Download ZIP**, enregistrez le fichier zip sur le disque, puis extrayez tous les fichiers qu’il contient. Si vous le souhaitez, vous pouvez extraire ces fichiers dans votre espace de travail Java pour faciliter la recherche du projet ultérieurement.
 3. Les fichiers exemples sont en lecture seule. Avec le bouton droit de la souris, cliquez sur le dossier et désactivez l'attribut de lecture seule.
 
 Toutes les modifications et instructions d'exécution ultérieures seront effectuées sur les fichiers de ce dossier.  
 
 ## <a name="import-project"></a>Importer le projet
-1. Dans Eclipse, choisissez **File** > **Import** > **General** > **Existing Projects into Workspace**.
+1. Dans Eclipse, sélectionnez **File** > **Import** > **General** > **Existing Projects into Workspace**.
    
     ![Capture d’écran montrant comment importer un projet existant][4]
 2. Dans **Select root directory**, accédez au dossier contenant les fichiers exemples. Sélectionnez le dossier qui contient le dossier .project. Le projet doit s'afficher sélectionné dans la liste **Projects** .
    
     ![Capture d’écran montrant la liste des projets dans la fenêtre Importer des projets][12]
-3. Cliquez sur **Terminer**.
-4. Utilisez **Project Explorer** pour afficher et modifier les fichiers. Si l’explorateur n’est pas ouvert, cliquez sur **Window** > **Show View** > **Project Explorer** ou utilisez le raccourci.
+3. Sélectionnez **Terminer**.
+4. Utilisez **Project Explorer** pour afficher et modifier les fichiers. Si l’explorateur n’est pas ouvert, sélectionnez**Window** > **Show View** > **Project Explorer** ou utilisez le raccourci pour l’ouvrir.
 
 ## <a name="configure-the-service-url-and-api-key"></a>Configurer l’URL du service et le paramètre `api-key`
 1. Dans **Project Explorer**, double-cliquez sur **config.properties** pour modifier les paramètres de configuration contenant le nom du serveur et le paramètre `api-key`.
@@ -96,17 +96,17 @@ Toutes les modifications et instructions d'exécution ultérieures seront effect
 2. Sélectionnez **Dynamic Web Module**, **Java** et **JavaScript**.
    
     ![Capture d’écran montrant comment sélectionner les facettes de projet pour votre projet][6]
-3. Cliquez sur **Appliquer**.
+3. Sélectionnez **Appliquer**.
 4. Sélectionnez **Window** > **Preferences** > **Server** > **Runtime Environments** > **Add..** .
 5. Développez Apache et sélectionnez la version du serveur Apache Tomcat que vous avez précédemment installée. Sur notre système, nous avons installé la version 8.
    
     ![Capture d’écran montrant où, dans la fenêtre de l’environnement d’exécution, vous pouvez sélectionner votre version d’Apache Tomcat][7]
 6. Dans la page suivante, spécifiez le répertoire d'installation de Tomcat. Sur un ordinateur Windows, il s’agit très probablement du répertoire C:\Program Files\Apache Software Foundation\Tomcat *version*.
-7. Cliquez sur **Terminer**.
+7. Sélectionnez **Terminer**.
 8. Sélectionnez **Window** > **Preferences** > **Java** > **Installed JREs** > **Add**.
 9. Dans **Add JRE**, sélectionnez **Standard VM**.
-10. Cliquez sur **Suivant**.
-11. Dans JRE Definition de la page d’accueil de JRE, cliquez sur **Directory**.
+10. Sélectionnez **Suivant**.
+11. Dans JRE Definition, dans la page d’accueil de JRE, sélectionnez **Directory**.
 12. Accédez à **Program Files** > **Java** et sélectionnez le JDK que vous avez installé précédemment. Il est important de sélectionner le JDK comme JRE.
 13. Dans Installed JREs, sélectionnez le **JDK**. Vos paramètres doivent être similaires au contenu de la capture d'écran suivante.
     
@@ -118,10 +118,10 @@ Toutes les modifications et instructions d'exécution ultérieures seront effect
 La phase de configuration est maintenant terminée. Vous allez maintenant créer et exécuter le projet.
 
 ## <a name="build-the-project"></a>Créer le projet
-1. Dans Project Explorer, cliquez avec le bouton droit sur le nom du projet et sélectionnez **Run As** > **Maven build...** pour configurer le projet.
+1. Dans l’Explorateur de projets, cliquez avec le bouton droit sur le nom du projet et sélectionnez **Run As** > **Maven build** pour configurer le projet.
    
-    ![Capture d’écran montrant comment choisir Maven Build dans la fenêtre de l’Explorateur de projets][10]
-2. Dans le champ Goals de Edit Configuration, saisissez « clean install », puis cliquez sur **Run**.
+    ![Capture d’écran montrant comment sélectionner Maven build dans la fenêtre de l’Explorateur de projets][10]
+2. Dans Edit Configuration, dans Goals, entrez « clean install », puis sélectionnez **Run**.
 
 Des messages d'état s’affichent dans la fenêtre de la console. Le message BUILD SUCCESS indique que le projet a été généré sans erreur.
 
@@ -131,19 +131,19 @@ Dans cette dernière étape, vous allez exécuter l'application dans un environn
 Si ce n’est déjà fait, vous devez spécifier un environnement d'exécution de serveur dans Eclipse.
 
 1. Dans Project Explorer, développez **WebContent**.
-2. Cliquez avec le bouton droit sur **Search.jsp** > **Run As** > **Run on Server**. Sélectionnez le serveur Apache Tomcat, puis cliquez sur **Run**.
+2. Cliquez avec le bouton droit sur **Search.jsp** > **Run As** > **Run on Server**. Sélectionnez le serveur Apache Tomcat, puis sélectionnez **Run**.
 
 > [!TIP]
-> Si vous avez stocké votre projet dans un espace de travail personnalisé, vous devrez désigner cet emplacement dans **Run Configuration** pour éviter une erreur lors du démarrage du serveur. Dans Project Explorer, cliquez avec le bouton droit sur **Search.jsp** > **Run As** > **Run Configurations**. Sélectionnez le serveur Apache Tomcat. Cliquez sur **Arguments**. Cliquez sur **Workspace** ou **File System** pour définir le dossier contenant le projet.
+> Si vous avez stocké votre projet dans un espace de travail personnalisé, vous devrez désigner cet emplacement dans **Run Configuration** pour éviter une erreur lors du démarrage du serveur. Dans Project Explorer, cliquez avec le bouton droit sur **Search.jsp** > **Run As** > **Run Configurations**. Sélectionnez le serveur Apache Tomcat. Sélectionnez **Arguments**. Sélectionnez **Workspace** ou **File System** pour définir le dossier contenant le projet.
 > 
 > 
 
 Lorsque vous exécutez l'application, une fenêtre de navigateur affiche un champ de recherche  permettant d'entrer des termes.
 
-Attendez environ une minute avant de cliquer sur **Search** , le temps que le service crée et charge l'index. Si vous obtenez une erreur HTTP 404, Patientez encore un peu avant de réessayer.
+Attendez environ une minute avant de sélectionner **Search**, le temps que le service crée et charge l’index. Si vous obtenez une erreur HTTP 404, Patientez encore un peu avant de réessayer.
 
 ## <a name="search-on-usgs-data"></a>Exécution d'une recherche sur les données USGS
-Le jeu de données USGS comprend les enregistrements qui correspondent à l'État de Rhode Island. Si vous cliquez sur **Search** et que le champ de recherche est vide, vous obtiendrez les 50 premières entrées, ce qui correspond au paramétrage par défaut.
+Le jeu de données USGS comprend les enregistrements qui correspondent à l'État de Rhode Island. Si vous sélectionnez **Search** et que le champ de recherche est vide, vous obtiendrez les 50 premières entrées, ce qui correspond au paramétrage par défaut.
 
 Saisissez un terme pour que le moteur de recherche puisse travailler. Essayez d'entrer le nom d’une figure locale. « Roger Williams » fut le premier gouverneur de Rhode Island. De nombreux parcs, bâtiments et écoles portent son nom.
 

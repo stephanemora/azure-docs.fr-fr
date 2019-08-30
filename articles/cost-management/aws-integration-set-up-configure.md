@@ -5,21 +5,21 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 05/21/2019
+ms.date: 08/15/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: ormaoz
 ms.custom: ''
-ms.openlocfilehash: 951178a82e0975f5f2af71bd48cf0f931246ae37
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9664beca514abcbad4eca7c8f9dc1b494018802e
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66002121"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69535189"
 ---
 # <a name="set-up-and-configure-aws-cost-and-usage-report-integration"></a>Configurer l'intégration des rapports sur les coûts et l'utilisation AWS
 
-Grâce à l'intégration du rapport de coût et d'utilisation (CUR) d'Amazon Web Services (AWS), vous pouvez surveiller et contrôler vos dépenses AWS dans Azure Cost Management. L'intégration offre un emplacement unique dans le portail Azure où vous pouvez surveiller et contrôler les dépenses pour Azure et AWS. Cet article explique comment configurer l'intégration et l'utiliser pour analyser les coûts et revoir les budgets à l'aide des fonctionnalités Azure Cost Management.
+Grâce à l’intégration du rapport de coût et d’utilisation (CUR) d’Amazon Web Services (AWS), vous supervisez et contrôlez vos dépenses AWS dans Azure Cost Management. L’intégration offre un emplacement unique dans le portail Azure où vous supervisez et contrôlez les dépenses pour Azure et AWS. Cet article explique comment configurer l’intégration et l’utiliser pour analyser les coûts et revoir les budgets à l’aide des fonctionnalités Azure Cost Management.
 
 Cost Management traite le rapport sur les coûts et l'utilisation AWS stocké dans un compartiment S3 en utilisant vos identifiants d'accès à AWS pour obtenir les définitions des rapports et télécharger des fichiers CSV de rapport au format GZIP.
 
@@ -33,18 +33,18 @@ Utilisez la page **Cost & Usage Reports** (Rapports sur les coûts et l'utilisat
 2. Dans le volet de navigation, sélectionnez **Cost & Usage Reports** (Rapports sur les coûts et l'utilisation).
 3. Sélectionnez **Create report** (Créer un rapport).
 4. Pour **Report name** (Nom du rapport), entrez un nom pour votre rapport.
-5. Pour **Additional report details** (Détails supplémentaires du rapport), spécifiez les ID de chaque ressource dans le rapport et sélectionnez **Include Resource IDs** (Inclure les ID de ressource).
-6. Pour **Data refresh settings** (Paramètres d’actualisation des données), indiquez si vous voulez actualiser le rapport sur les coûts et l’utilisation AWS si AWS applique des remboursements, des crédits ou des frais de support à votre compte une fois votre facture finalisée. À chaque actualisation d’un rapport, un nouveau rapport est chargé sur Amazon S3. Il est recommandé de laisser ce réglage activé.
+5. Sous **Additional report details** (Détails du rapport supplémentaires), sélectionnez **Include resource IDs** (Inclure les ID de ressource).
+6. Pour **Data refresh settings** (Paramètres d’actualisation des données), indiquez si vous voulez actualiser le rapport sur les coûts et l’utilisation AWS si AWS applique des remboursements, des crédits ou des frais de support à votre compte une fois votre facture finalisée. À chaque actualisation d’un rapport, un nouveau rapport est chargé sur Amazon S3. Nous vous recommandons de conserver le paramètre sélectionné.
 7. Sélectionnez **Suivant**.
 8. Pour **S3 bucket** (Compartiment S3), choisissez **Configure** (Configurer).
-9. Dans la boîte de dialogue Configure S3 Bucket (Configuration du compartiment S3), effectuez l'une des opérations suivantes :
+9. Dans la boîte de dialogue Configure S3 Bucket (Configuration du compartiment S3), effectuez l’une des tâches suivantes :
     1. Sélectionnez un compartiment existant dans la liste déroulante puis choisissez **Next** (Suivant).
     2. Entrez un nom de compartiment et la région où vous voulez créer un compartiment, puis choisissez **Next** (Suivant).
-10. Sélectionnez I have confirmed that this policy is correct (Je confirme que cette stratégie est correcte), puis choisissez Save (Enregistrer).
+10. Sélectionnez **I have confirmed that this policy is correct** (Je confirme que cette stratégie est correcte), puis cliquez sur **Save** (Enregistrer).
 11. (Facultatif) Pour le préfixe Report path (Chemin du rapport), entrez le préfixe du chemin du rapport que vous voulez ajouter au nom de votre rapport.
-Si vous ne spécifiez aucun préfixe, le préfixe par défaut correspond au nom que vous avez spécifié pour le rapport à l'étape 4 et la plage de dates du rapport, au format suivant : `/report-name/date-range/`
+Si vous ne spécifiez pas de préfixe, le préfixe par défaut est le nom que vous avez spécifié pour le rapport. La plage de dates a le format `/report-name/date-range/`.
 12. Pour **Unité de temps**, choisissez **Toutes les heures**.
-13. Pour **Report versioning** (Gestion des versions du rapport), choisissez si vous voulez que chaque version du rapport écrase la version précédente ou soit fournie en complément des versions précédentes.
+13. Pour **Report versioning** (Gestion des versions du rapport), choisissez si vous voulez que chaque version du rapport écrase la version précédente ou si vous voulez de nouveaux rapports supplémentaires.
 14. Pour **Enable data integration for** (Activer l'intégration des données pour), aucune sélection n'est nécessaire.
 15. Pour **Compression**, sélectionnez **GZIP**.
 16. Sélectionnez **Suivant**.
@@ -109,7 +109,7 @@ Ajoutez l’autorisation pour les organisations AWS :
 2. Sélectionnez **Niveau d’accès** > **Liste** > **ListAccounts**. Cette action obtient les noms des comptes.
 3. Dans **Review Policy** (Stratégie de vérification), entrez le nom de la nouvelle stratégie. Vérifiez que vous avez entré les informations correctes, puis sélectionnez **Créer une stratégie**.
 4. Revenez à l’onglet précédent et actualisez la page web de votre navigateur. Sur la barre de recherche, recherchez votre nouvelle stratégie.
-5. Sélectionnez **Next:Review**.
+5. Sélectionnez **Suivant : Vérification**).
 6. Entrez un nom pour le nouveau rôle. Vérifiez que vous avez entré les informations correctes, puis sélectionnez **Créer un rôle**.
 
     Notez le rôle ARN et l’ID externe utilisés dans les étapes précédentes lorsque vous avez créé le rôle. Vous allez les utiliser ultérieurement pour configurer le connecteur Azure Cost Management.
@@ -189,7 +189,7 @@ Lorsque vous sélectionnez un connecteur sur la page **Connecteurs cloud**, vous
 
 ## <a name="set-up-azure-management-groups"></a>Configurer de groupes d’administration Azure
 
-Afin de créer un endroit unique pour afficher les informations des fournisseurs de services inter-cloud, vous devez placer vos abonnements Azure et vos comptes AWS liés dans le même groupe d'administration. Si vous n’avez pas déjà configuré votre environnement Azure avec des groupes d’administration, veuillez consulter la section [Configuration initiale des groupes d’administration](../governance/management-groups/index.md#initial-setup-of-management-groups).
+Vous devez placer vos abonnements Azure et vos comptes AWS liés dans le même groupe d’administration afin de créer un emplacement unique où vous pouvez voir les informations des fournisseurs de services inter-cloud. Si vous n’avez pas déjà configuré votre environnement Azure avec des groupes d’administration, veuillez consulter la section [Configuration initiale des groupes d’administration](../governance/management-groups/index.md#initial-setup-of-management-groups).
 
 Si vous voulez séparer les coûts, vous pouvez créer un groupe d’administration ne contenant que des comptes AWS liés.
 
@@ -229,6 +229,6 @@ Les comptes AWS liés à AWS héritent toujours des autorisations du groupe d’
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Maintenant que vous avez configuré l'intégration du rapport sur les coûts et l'utilisation AWS, passez à la section [Gérer les coûts et l'utilisation AWS](aws-integration-manage.md).
+- Maintenant que vous avez configuré l’intégration du rapport sur les coûts et l’utilisation AWS, passez à la section [Gérer les coûts et l’utilisation AWS](aws-integration-manage.md).
 - Si vous n’êtes pas familiarisé avec l’analyse des coûts, consultez le guide de démarrage rapide [Explorer et analyser les coûts avec l’analyse du coût](quick-acm-cost-analysis.md).
 - Si vous n’êtes pas familiarisé avec les budgets dans Azure, consultez [Créer et gérer des budgets Azure](tutorial-acm-create-budgets.md).

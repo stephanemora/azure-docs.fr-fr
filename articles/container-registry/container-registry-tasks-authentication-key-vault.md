@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 07/12/2019
 ms.author: danlep
-ms.openlocfilehash: 6aa729e4f32769ec50632bea582c8b69c7c0ce91
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: bcaf2918c92ec7b8223d394290a1d7c624fc451c
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68641542"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69509235"
 ---
 # <a name="external-authentication-in-an-acr-task-using-an-azure-managed-identity"></a>Authentification externe dans une tâche ACR à l’aide d’une identité managée par Azure 
 
@@ -107,7 +107,7 @@ Les étapes de cette section créent une tâche et activent une identité affect
 
 ### <a name="create-task"></a>Créer une tâche
 
-Créez la tâche *dockerhubtask* en exécutant la commande [az acr task create][az-acr-task-create] suivante. Le contexte de la tâche est le système local et la commande fait référence au fichier `dockerhubtask.yaml` dans le répertoire de travail. Le paramètre `--assign-identity` transmet l’ID de ressource de l’identité affectée par l’utilisateur. 
+Créez la tâche *dockerhubtask* en exécutant la commande [az acr task create][az-acr-task-create] suivante. La tâche s’exécute sans contexte de code source et la commande référence le fichier `dockerhubtask.yaml` dans le répertoire de travail. Le paramètre `--assign-identity` transmet l’ID de ressource de l’identité affectée par l’utilisateur. 
 
 ```azurecli
 az acr task create \
@@ -126,7 +126,7 @@ Les étapes de cette section créent une tâche et activent une identité affect
 
 ### <a name="create-task"></a>Créer une tâche
 
-Créez la tâche *dockerhubtask* en exécutant la commande [az acr task create][az-acr-task-create] suivante. Le contexte de la tâche est le système local et la commande fait référence au fichier `dockerhubtask.yaml` dans le répertoire de travail.  Le paramètre `--assign-identity`, sans valeur, active une identité managée affectée par le système sur la tâche.  
+Créez la tâche *dockerhubtask* en exécutant la commande [az acr task create][az-acr-task-create] suivante. La tâche s’exécute sans contexte de code source et la commande référence le fichier `dockerhubtask.yaml` dans le répertoire de travail. Le paramètre `--assign-identity`, sans valeur, active une identité managée affectée par le système sur la tâche.  
 
 ```azurecli
 az acr task create \
@@ -206,7 +206,7 @@ Pour confirmer que l’image a fait l’objet d’un envoi (push), recherchez la
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* En savoir plus sur l’[activation d’une identité managée dans une tâche ACR](container-registry-tasks-authentication-managed-identity.md).
+* En savoir plus sur l’[activation d’une identité gérée dans une tâche ACR](container-registry-tasks-authentication-managed-identity.md).
 * Consultez la [référence YAML ACR Tasks](container-registry-tasks-reference-yaml.md)
 
 

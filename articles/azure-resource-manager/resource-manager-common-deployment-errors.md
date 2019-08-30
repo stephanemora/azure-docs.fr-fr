@@ -6,18 +6,20 @@ author: tfitzmac
 keywords: erreur de déploiement, déploiement Azure, déployer dans azure
 ms.service: azure-resource-manager
 ms.topic: troubleshooting
-ms.date: 02/15/2019
+ms.date: 07/28/2019
 ms.author: tomfitz
-ms.openlocfilehash: fea7f77b1f4bcace23ad9164354c4f42e868869f
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 639f6b3b29b7effa12de79335d44b0193f3f9932
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67206337"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69638535"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Résolution des erreurs courantes dans des déploiements Azure avec Azure Resource Manager
 
 Cet article décrit certaines erreurs courantes liées au déploiement Azure et fournit des informations pour les résoudre. Si vous ne trouvez pas le code d’erreur correspondant à l’erreur de votre déploiement, consultez [Rechercher un code d’erreur](#find-error-code).
+
+Si vous recherchez des informations sur un code d’erreur et que ces informations ne sont pas fournies dans cet article, faites-le nous savoir. En bas de cette page, vous pouvez laisser des commentaires. Ces commentaires sont suivis avec les problèmes GitHub. 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -35,38 +37,38 @@ Cet article décrit certaines erreurs courantes liées au déploiement Azure et 
 | DeploymentActive | Attendez le déploiement simultané sur ce groupe de ressources soit terminé. | |
 | DeploymentFailed | L’erreur DeploymentFailed est une erreur générale qui ne fournit pas les détails dont vous avez besoin pour résoudre l’erreur. Pour en savoir plus, recherchez un code d’erreur dans les détails de l’erreur. | [Rechercher un code d’erreur](#find-error-code) |
 | DeploymentQuotaExceeded | Si vous atteignez la limite des 800 déploiements par groupe de ressources, supprimez les déploiements inutiles dans l’historique. Vous pouvez supprimer des entrées de l'historique avec la commande [az group deployment delete](/cli/azure/group/deployment#az-group-deployment-delete) dans Azure CLI ou la commande [Remove-AzResourceGroupDeployment](/powershell/module/az.resources/remove-azresourcegroupdeployment) dans PowerShell. La suppression d’une entrée à partir de l’historique des déploiements n’affecte pas les ressources de déploiement. | |
-| DnsRecordInUse | Le nom de l’enregistrement DNS doit être unique. Indiquez un autre nom ou modifiez l’enregistrement existant. | |
+| DnsRecordInUse | Le nom de l’enregistrement DNS doit être unique. Entrez un autre nom. | |
 | ImageNotFound | Vérifiez les paramètres d’image de machine virtuelle. |  |
-| InUseSubnetCannotBeDeleted | Vous pouvez rencontrer cette erreur quand vous tentez de mettre à jour une ressource, mais que la requête est traitée en supprimant et en créant la ressource. Veillez à spécifier toutes les valeurs non modifiées. | [Mettre à jour une ressource](/azure/architecture/building-blocks/extending-templates/update-resource) |
+| InUseSubnetCannotBeDeleted | Vous pouvez rencontrer cette erreur quand vous tentez de mettre à jour une ressource, et que cette requête est traitée en supprimant et en créant la ressource. Veillez à spécifier toutes les valeurs non modifiées. | [Mettre à jour une ressource](/azure/architecture/building-blocks/extending-templates/update-resource) |
 | InvalidAuthenticationTokenTenant | Procurez-vous le jeton d’accès pour le client approprié. Vous pouvez uniquement obtenir le jeton auprès du client auquel appartient votre compte. | |
 | InvalidContentLink | Vous avez probablement tenté d’établir une liaison avec un modèle imbriqué qui n’est pas disponible. Vérifiez l’URI que vous avez indiqué pour le modèle imbriqué. Si le modèle existe dans un compte de stockage, assurez-vous que l’URI est accessible. Vous devrez peut-être valider un jeton SAS. | [Modèles liés](resource-group-linked-templates.md) |
-| InvalidParameter | L’une des valeurs que vous avez fournies pour une ressource ne correspond pas à la valeur attendue. Cette erreur peut être due à de nombreuses conditions différentes. Par exemple, il se peut qu’un mot de passe soit insuffisant ou un nom d’objet blob incorrect. Vérifiez le message d’erreur pour déterminer la valeur à corriger. | |
-| InvalidRequestContent | Vos valeurs de déploiement contiennent des valeurs inattendues ou n’incluent pas les valeurs requises. Vérifiez les valeurs pour votre type de ressource. | [Référence de modèle](/azure/templates/) |
-| InvalidRequestFormat | Activez l’enregistrement du débogage durant l’exécution du déploiement et vérifiez le contenu de la requête. | [Activer l’enregistrement du débogage](#enable-debug-logging) |
+| InvalidParameter | L’une des valeurs que vous avez fournies pour une ressource ne correspond pas à la valeur attendue. Cette erreur peut être due à de nombreuses conditions différentes. Par exemple, il se peut qu’un mot de passe soit insuffisant ou un nom d’objet blob incorrect. Le message d’erreur doit indiquer la valeur à corriger. | |
+| InvalidRequestContent | Les valeurs de déploiement contiennent des valeurs inattendues ou n’incluent pas les valeurs requises. Vérifiez les valeurs pour votre type de ressource. | [Référence de modèle](/azure/templates/) |
+| InvalidRequestFormat | Activez l’enregistrement du débogage durant l’exécution du déploiement et vérifiez le contenu de la demande. | [Activer l’enregistrement du débogage](#enable-debug-logging) |
 | InvalidResourceNamespace | Vérifiez l’espace de noms de ressources que vous avez spécifié dans la propriété **type**. | [Référence de modèle](/azure/templates/) |
 | InvalidResourceReference | La ressource n’existe pas encore ou n’est pas correctement référencée. Vérifiez si vous devez ajouter une dépendance. Vérifiez que votre utilisation de la fonction **reference** inclut les paramètres requis pour votre scénario. | [Résoudre les erreurs de dépendance](resource-manager-not-found-errors.md) |
 | InvalidResourceType | Vérifiez le type de ressource que vous avez spécifié dans la propriété **type**. | [Référence de modèle](/azure/templates/) |
 | InvalidSubscriptionRegistrationState | Inscrivez votre abonnement auprès du fournisseur de ressources. | [Résoudre les erreurs d’inscription](resource-manager-register-provider-errors.md) |
 | InvalidTemplate | Vérifiez que la syntaxe de votre modèle ne contient pas d’erreurs. | [Résoudre les erreurs de modèle non valide](resource-manager-invalid-template-errors.md) |
 | InvalidTemplateCircularDependency | Supprimez les dépendances inutiles. | [Résoudre les dépendances circulaires](resource-manager-invalid-template-errors.md#circular-dependency) |
-| LinkedAuthorizationFailed | Vérifiez si votre compte appartient au même client que le groupe de ressources que vous déployez. | |
+| LinkedAuthorizationFailed | Vérifiez si votre compte appartient au même locataire que le groupe de ressources vers lequel vous effectuez le déploiement. | |
 | LinkedInvalidPropertyId | L’ID de ressource pour une ressource particulière n’est pas correctement résolu. Assurez-vous de bien fournir toutes les valeurs requises pour l’ID de ressource, notamment l’ID d’abonnement, le nom du groupe de ressources, le type de ressource, le nom de la ressource parente (si nécessaire) et le nom de la ressource. | |
-| LocationRequired | Indiquez un emplacement pour votre ressource. | [Définir un emplacement](resource-group-authoring-templates.md#resource-location) |
+| LocationRequired | Fournissez un emplacement pour la ressource. | [Définir un emplacement](resource-group-authoring-templates.md#resource-location) |
 | MismatchingResourceSegments | Assurez-vous que la ressource imbriquée a un nombre correct de segments dans le nom et le type. | [Résoudre les segments de la ressource](resource-manager-invalid-template-errors.md#incorrect-segment-lengths)
-| MissingRegistrationForLocation | Vérifiez l’état d’inscription du fournisseur de ressources ainsi que les emplacements pris en charge. | [Résoudre les erreurs d’inscription](resource-manager-register-provider-errors.md) |
+| MissingRegistrationForLocation | Vérifiez l’état d’inscription du fournisseur de ressources, ainsi que les emplacements pris en charge. | [Résoudre les erreurs d’inscription](resource-manager-register-provider-errors.md) |
 | MissingSubscriptionRegistration | Inscrivez votre abonnement auprès du fournisseur de ressources. | [Résoudre les erreurs d’inscription](resource-manager-register-provider-errors.md) |
 | NoRegisteredProviderFound | Vérifier l’état d’inscription du fournisseur de ressources. | [Résoudre les erreurs d’inscription](resource-manager-register-provider-errors.md) |
 | NotFound | Vous essayez peut-être de déployer une ressource dépendante en parallèle avec une ressource parente. Vérifiez si vous avez besoin d’ajouter une dépendance. | [Résoudre les erreurs de dépendance](resource-manager-not-found-errors.md) |
 | OperationNotAllowed | Le déploiement tente une opération qui dépasse le quota autorisé pour l’abonnement, le groupe de ressources ou la région. Si possible, modifiez votre déploiement pour respecter les quotas. Dans le cas contraire, vous pouvez demander une modification de vos quotas. | [Résoudre les erreurs de quota](resource-manager-quota-errors.md) |
 | ParentResourceNotFound | Assurez-vous qu’il existe une ressource parente avant de créer des ressources enfants. | [Résoudre les erreurs de ressource parente](resource-manager-parent-resource-errors.md) |
-| PasswordTooLong | Vous avez peut-être choisi un mot de passe comportant trop de caractères ou converti la valeur de votre mot de passe en chaîne sécurisée avant de le transmettre en tant que paramètre. Si le modèle inclut un paramètre de **chaîne sécurisée**, vous n’avez pas besoin de convertir la valeur en chaîne sécurisée. Indiquez la valeur de mot de passe sous forme de texte. |  |
+| PasswordTooLong | Vous avez peut-être choisi un mot de passe comportant trop de caractères ou converti la valeur de votre mot de passe en chaîne sécurisée avant de la transmettre en tant que paramètre. Si le modèle inclut un paramètre de **chaîne sécurisée**, vous n’avez pas besoin de convertir la valeur en chaîne sécurisée. Indiquez la valeur de mot de passe sous forme de texte. |  |
 | PrivateIPAddressInReservedRange | L’adresse IP spécifiée inclut une plage d’adresses requise par Azure. Modifiez l’adresse IP pour éviter d’utiliser la plage réservée. | [Adresses IP](../virtual-network/virtual-network-ip-addresses-overview-arm.md) |
 | PrivateIPAddressNotInSubnet | L’adresse IP spécifiée se trouve en dehors de la plage de sous-réseau. Modifiez l’adresse IP pour qu’elle se trouve dans la plage de sous-réseau. | [Adresses IP](../virtual-network/virtual-network-ip-addresses-overview-arm.md) |
 | PropertyChangeNotAllowed | Certaines propriétés ne peuvent pas être modifiées sur une ressource déployée. Durant la mise à jour d’une ressource, limitez vos modifications aux propriétés autorisées. | [Mettre à jour une ressource](/azure/architecture/building-blocks/extending-templates/update-resource) |
 | RequestDisallowedByPolicy | Votre abonnement inclut une stratégie de ressource qui empêche une action que vous tentez d’exécuter au cours du déploiement. Recherchez la stratégie qui bloque l’action. Si possible, modifiez votre déploiement pour respecter les limitations de la stratégie. | [Résoudre les erreurs de stratégie](resource-manager-policy-requestdisallowedbypolicy-error.md) |
 | ReservedResourceName | Spécifiez un nom de ressource qui n’inclut pas de nom réservé. | [Noms de ressource réservés](resource-manager-reserved-resource-name.md) |
 | ResourceGroupBeingDeleted | Attendez que la suppression soit terminée. | |
-| ResourceGroupNotFound | Vérifiez le nom du groupe de ressources cible pour le déploiement. Il doit déjà exister dans votre abonnement. Vérifiez le contexte de votre abonnement. | [Azure CLI](/cli/azure/account?#az-account-set) [PowerShell](/powershell/module/Az.Accounts/Set-AzContext) |
+| ResourceGroupNotFound | Vérifiez le nom du groupe de ressources cible pour le déploiement. Le groupe de ressources cible doit déjà exister dans votre abonnement. Vérifiez le contexte de votre abonnement. | [Azure CLI](/cli/azure/account?#az-account-set) [PowerShell](/powershell/module/Az.Accounts/Set-AzContext) |
 | ResourceNotFound | Votre déploiement fait référence à une ressource qui ne peut pas être résolue. Vérifiez que votre utilisation de la fonction **reference** inclut les paramètres requis pour votre scénario. | [Résoudre les erreurs de référence](resource-manager-not-found-errors.md) |
 | ResourceQuotaExceeded | Le déploiement tente de créer des ressources qui dépassent le quota autorisé pour l’abonnement, le groupe de ressources ou la région. Si possible, modifiez votre infrastructure pour respecter les quotas. Dans le cas contraire, vous pouvez demander une modification de vos quotas. | [Résoudre les erreurs de quota](resource-manager-quota-errors.md) |
 | SkuNotAvailable | Sélectionnez la référence SKU (par exemple, la taille de la machine virtuelle) disponible pour l’emplacement que vous avez sélectionné. | [Résoudre les erreurs de référence SKU](resource-manager-sku-not-available-errors.md) |
@@ -246,6 +248,6 @@ Si vous rencontrez des erreurs de déploiement que vous pensez liées à une mau
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Suivez le [Didacticiel : Résoudre les problèmes liés aux déploiements de modèles Resource Manager](./resource-manager-tutorial-troubleshoot.md)
+* Pour étudier la résolution des problèmes, suivez le [Tutoriel : Résoudre les problèmes liés aux déploiements de modèles Resource Manager](./resource-manager-tutorial-troubleshoot.md)
 * Pour en savoir plus sur les actions d’audit, consultez [Opérations d’audit avec Resource Manager](resource-group-audit.md).
 * Pour en savoir plus sur les actions visant à déterminer les erreurs au cours du déploiement, consultez [Voir les opérations de déploiement](resource-manager-deployment-operations.md).

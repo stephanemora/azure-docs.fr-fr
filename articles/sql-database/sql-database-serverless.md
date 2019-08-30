@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
 ms.date: 07/05/2019
-ms.openlocfilehash: 3b9a9f4ac1cf0722ab7d3838f0b0c4c12b47dc74
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 67e877609eec98e7100b34ab477dbab7c5577772
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566812"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69515284"
 ---
 # <a name="azure-sql-database-serverless-preview"></a>Azure SQL Database serverless (préversion)
 
@@ -281,7 +281,7 @@ Get-AzSqlDatabase `
 
 ## <a name="resource-limits"></a>Limites des ressources
 
-Pour les limites de ressources, consultez [Niveau de calcul serverless](sql-database-vCore-resource-limits-single-databases.md#serverless-compute-tier)
+Pour les limites de ressources, consultez [Niveau de calcul serverless](sql-database-vCore-resource-limits-single-databases.md#general-purpose-service-tier-for-serverless-compute).
 
 ## <a name="billing"></a>Facturation
 
@@ -324,4 +324,4 @@ Le niveau de calcul serverless est disponible partout dans le monde, sauf dans l
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Pour démarrer, consultez [Démarrage rapide : Créez une base de données unique dans Azure SQL Database à l’aide du portail Azure](sql-database-single-database-get-started.md).
-- Pour les limites de ressources, consultez [Limites des ressources du niveau de calcul serverless](sql-database-vCore-resource-limits-single-databases.md#serverless-compute-tier)
+- Pour les limites de ressources, consultez [Limites des ressources du niveau de calcul serverless](sql-database-vCore-resource-limits-single-databases.md#general-purpose-service-tier-for-serverless-compute)

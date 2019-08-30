@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: allensu
-ms.openlocfilehash: 37f1a0d9c70afc0a3a86ac76b682ee7b2adb253d
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: 86376983f98abd241783f456cb9b41ab5d93ae51
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68335793"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69511016"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Forum Aux Questions (FAQ) relatif à Traffic Manager
 
@@ -322,9 +322,9 @@ Traffic Manager répond avec le nom DNS ou l’adresse IP du point de terminai
 
 En règle générale, Traffic Manager est utilisé pour diriger le trafic vers des applications déployées dans des régions différentes. Vous pouvez toutefois l’utiliser dans les applications comportant plusieurs déploiements dans la même région. Les points de terminaison Azure Traffic Manager ne permettent pas d’ajouter au même profil Traffic Manager plusieurs points de terminaison d’application web provenant de la même région Azure.
 
-### <a name="how-do-i-move-my-traffic-manager-profiles-azure-endpoints-to-a-different-resource-group"></a>Comment déplacer les points de terminaison Azure de mon profil Traffic Manager vers un autre groupe de ressources ?
+### <a name="how-do-i-move-my-traffic-manager-profiles-azure-endpoints-to-a-different-resource-group-or-subscription"></a>Comment déplacer les points de terminaison Azure de mon profil Traffic Manager vers un autre abonnement ou groupe de ressources ?
 
-Les points de terminaison Azure qui sont associés à un profil Traffic Manager sont suivis à l’aide de leur ID de ressource. Lorsqu’une ressource Azure qui est utilisée comme point de terminaison (par exemple, une adresse IP publique, un service cloud classique, une application web ou un autre profil Traffic Manager utilisé de façon imbriquée) est déplacée vers un autre groupe de ressources, son ID de ressource est modifié. Dans ce scénario, vous devez mettre à jour le profil Traffic Manager en commençant par supprimer les points de terminaison du profil avant de les ajouter à nouveau.
+Les points de terminaison Azure qui sont associés à un profil Traffic Manager sont suivis à l’aide de leur ID de ressource. Quand une ressource Azure qui est utilisée comme point de terminaison (par exemple, une adresse IP publique, un service cloud classique, une application web ou un autre profil Traffic Manager utilisé de façon imbriquée) est déplacée vers un autre abonnement ou groupe de ressources, son ID de ressource change. Dans ce scénario, vous devez mettre à jour le profil Traffic Manager en commençant par supprimer les points de terminaison du profil avant de les ajouter à nouveau.
 
 ## <a name="traffic-manager-endpoint-monitoring"></a>Surveillance des points de terminaison Traffic Manager
 

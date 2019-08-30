@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cedfead26bd2a82792729853a2b8d038278b75f6
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 79f462b8903033784f186032c715cc966dfae7b4
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68853296"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69622701"
 ---
 # <a name="what-is-authentication"></a>Qu’est-ce que l’authentification ?
 
@@ -53,7 +53,7 @@ Voici ce que vous devez savoir sur les divers composants du diagramme :
   * Pour générer une application rapidement et ajouter des fonctionnalités telles que l’obtention de jetons, l’actualisation de jetons, la connexion d’un utilisateur et l’affichage des informations utilisateur (entre autres), consultez les **guides de démarrage rapide** de la documentation.
   * Pour obtenir des procédures détaillées, basées sur des scénarios et appliquées aux principales tâches de développement de l’authentification, telles que l’obtention de jetons d’accès et leur utilisation dans les appels à l’API Microsoft Graph ou à d’autres API, l’implémentation de la connexion Microsoft avec une application web traditionnelle basée sur navigateur à l’aide d’OpenID Connect, et bien d’autres, consultez les **didacticiels** de la documentation.
   * Pour télécharger des exemples de code, accédez à [GitHub](https://github.com/Azure-Samples?q=active-directory).
-* Le flux de demandes et de réponses du processus d’authentification est déterminé par le protocole d’authentification que vous avez utilisé, par exemple OAuth 2.0, OpenID Connect, WS-Federation ou SAML 2.0. Pour en savoir plus sur les protocoles, consultez la section **Concepts > Protocoles** de la documentation.
+* Le flux de demandes et de réponses du processus d’authentification est déterminé par le protocole d’authentification que vous avez utilisé, par exemple OAuth 2.0, OpenID Connect, WS-Federation ou SAML 2.0. Pour plus d’informations sur les protocoles, consultez la section **Concepts > Protocole d’authentification** de la documentation.
 
 Dans le scénario ci-dessus, vous pouvez classer les applications en fonction de ces deux rôles :
 

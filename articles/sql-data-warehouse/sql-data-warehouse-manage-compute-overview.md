@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 47be738a4e5dcec144d482c28e39cbe950bba3e7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f0935ccc4c4274bfab0c589ef158d4ea0bef455c
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60748932"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69575323"
 ---
 # <a name="manage-compute-in-azure-sql-data-warehouse"></a>Gérer les ressources de calcul dans Azure SQL Data Warehouse
 Découvrez comment gérer les ressources de calcul dans Azure SQL Data Warehouse. Vous pouvez alléger les coûts en suspendant l’entrepôt de données, ou mettre à l’échelle ce dernier afin de répondre aux exigences en matière de niveau de performance. 
@@ -39,8 +39,8 @@ Le tableau ci-après illustre l’évolution du nombre de distributions par nœu
 | 300  | 3                  | 20                           |
 | 400  | 4                  | 15                           |
 | 500  | 5\.                  | 12                           |
-| 600  | 6\.                  | 10                           |
-| 1 000 | 10                 | 6\.                            |
+| 600  | 6                  | 10                           |
+| 1 000 | 10                 | 6                            |
 | 1 200 | 12                 | 5\.                            |
 | 1 500 | 15                 | 4                            |
 | 2000 | 20                 | 3                            |
@@ -115,4 +115,4 @@ La mise à l’échelle de l’entrepôt de données requiert les autorisations 
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Un autre aspect de la gestion des ressources de calcul concerne l’allocation de ressources de calcul différentes pour des requêtes spécifiques. Pour plus d’informations, consultez l’article [Classes de ressources pour la gestion des charges de travail](resource-classes-for-workload-management.md).
+Consultez le guide pratique pour [gérer les ressources de calcul](manage-compute-with-azure-functions.md). Un autre aspect de la gestion des ressources de calcul concerne l’allocation de ressources de calcul différentes pour des requêtes spécifiques. Pour plus d’informations, consultez l’article [Classes de ressources pour la gestion des charges de travail](resource-classes-for-workload-management.md).

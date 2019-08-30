@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 77bf284734428e9257b46d85296796e4051ace26
-ms.sourcegitcommit: 5604661655840c428045eb837fb8704dca811da0
+ms.openlocfilehash: 44bf3171f9da73dac17b29e86c80fc8f0d011498
+ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68494836"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69557937"
 ---
 # <a name="azure-policy-definition-structure"></a>Structure de définition Azure Policy
 
@@ -72,7 +72,7 @@ Tous les exemples Azure Policy se trouvent dans [Exemples de stratégies](../sam
 
 ## <a name="mode"></a>Mode
 
-Le **Mode** est configuré selon si la stratégie cible une propriété Azure Resource Manager ou une propriété de fournisseur de ressources.
+Le **Mode** est configuré selon que la stratégie cible une propriété Azure Resource Manager ou une propriété de fournisseur de ressources.
 
 ### <a name="resource-manager-modes"></a>Modes Resource Manager
 

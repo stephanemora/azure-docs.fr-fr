@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d006bd36cc8f8c84fb13bae43702a3e472f8876a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9fc30c3273528b8cbc08681950e0bd5f03ec7890
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67113291"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69561276"
 ---
 # <a name="enable-combined-security-information-registration-preview"></a>Activer l’inscription d’informations de sécurité combinée (préversion)
 
@@ -28,6 +28,11 @@ Avant d’activer la nouvelle expérience, consultez l’article [Inscription d�
 | --- |
 | L’inscription d’informations de sécurité combinée pour la réinitialisation de mot de passe en libre-service Azure Active Directory (Azure AD) et l’authentification multifacteur Azure est une fonctionnalité en préversion publique d’Azure AD. Pour plus d’informations sur les préversions, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
 |     |
+
+> [!NOTE]
+> Les organisations qui ont activé la préversion précédente pour l’inscription et la gestion d’informations de sécurité doivent effectuer les étapes ci-dessous pour activer l’expérience de préversion améliorée. Pour les organisations qui n’opèrent pas le changement, le 25 septembre 2019, Microsoft fera basculer les utilisateurs de la préversion précédente pour l’inscription et la gestion d’informations de sécurité dans l’expérience améliorée. 
+> 
+> Si vous n’avez activé aucune préversion, votre organisation ne sera pas impactée.
 
 ## <a name="enable-combined-registration"></a>Activer une inscription combinée
 

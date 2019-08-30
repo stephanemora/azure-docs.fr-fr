@@ -5,22 +5,25 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 10/04/2018
+ms.date: 08/15/2019
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2df98966b69250d31f2a741411aea6e5554f9ed6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 081061eae07fa3765d032ad155e59ebf5aa3cbc9
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67112863"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69512559"
 ---
 # <a name="azure-active-directory-b2b-collaboration-licensing-guidance"></a>Guide d’attribution de licences pour Azure Active Directory B2B Collaboration
 
-Avec la collaboration business-to-business (B2B) Azure Active Directory (Azure AD), vous pouvez inviter des utilisateurs externes (ou « utilisateurs invités ») à utiliser vos services Azure AD payants. Pour chaque licence Azure AD payante que vous attribuez à un utilisateur, vous pouvez inviter jusqu’à cinq utilisateurs à l’aide d’une allocation d’utilisateur externe.
+Avec la collaboration business-to-business (B2B) Azure Active Directory (Azure AD), vous pouvez inviter des utilisateurs externes (ou « utilisateurs invités ») à utiliser vos services Azure AD payants. Certaines fonctionnalités sont gratuites, mais pour les fonctionnalités Azure AD payantes, vous pouvez inviter jusqu’à cinq utilisateurs invités pour la licence de chaque édition d’Azure AD que vous possédez pour un employé ou un utilisateur non invité de votre locataire.
+
+> [!NOTE]
+> Pour plus d’informations sur les tarifs d’Azure AD et les fonctionnalités de collaboration B2B, consultez [Tarifs d’Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 
 L’attribution de licences aux utilisateurs invités B2B est automatiquement calculée et signalée d’après un ratio de 1 pour 5. Actuellement, il n’est pas possible d’attribuer directement des licences d’utilisateur invité B2B à des utilisateurs invités.
 

@@ -8,12 +8,12 @@ ms.author: robreed
 ms.date: 06/05/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: cd085164fc9804e0c1c822df1c72d3ef94093a07
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: cbc6932c3bbe11f0c4def17097c1791cbb1687bf
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67672787"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69515892"
 ---
 # <a name="manage-modules-in-azure-automation"></a>Gérer les modules dans Azure Automation
 
@@ -46,7 +46,7 @@ Pour importer un module à partir de PowerShell Gallery, accédez à https://www
 
 ![Importation de module PowerShell Gallery](../media/modules/powershell-gallery.png)
 
-Vous pouvez aussi importer des modules PowerShell Gallery directement à partir de votre compte Automation. Dans votre compte Automation, sélectionnez **Modules** sous **Ressources partagées**. Dans la page des modules, cliquez sur **Parcourir la galerie**. La page **Parcourir la galerie** s’ouvre. Vous pouvez utiliser cette page pour rechercher un module dans PowerShell Gallery. Sélectionnez le module que vous souhaitez importer, puis cliquez sur **Importer**. Dans la page **Importer**, cliquez sur **OK** pour lancer l’importation.
+Vous pouvez aussi importer des modules PowerShell Gallery directement à partir de votre compte Automation. Dans votre compte Automation, sélectionnez **Modules** sous **Ressources partagées**. Dans la page des modules, cliquez sur **Parcourir la galerie**, puis recherchez un module dans PowerShell Gallery. Sélectionnez le module que vous souhaitez importer, puis cliquez sur **Importer**. Dans la page **Importer**, cliquez sur **OK** pour lancer l’importation.
 
 ![Importation PowerShell Gallery à partir du portail Azure](../media/modules/gallery-azure-portal.png)
 
@@ -68,7 +68,7 @@ Remove-AzureRmAutomationModule -Name <moduleName> -AutomationAccountName <automa
 
 ## <a name="internal-cmdlets"></a>Applets de commande internes
 
-La liste ci-dessous recense les applets de commande du module interne `Orchestrator.AssetManagement.Cmdlets` qui est importé dans chaque compte Automation. Ces applets de commande sont accessibles dans vos runbooks et les configurations DSC et vous permettent d’interagir avec les ressources de votre compte Automation. Par ailleurs, les applets de commande internes vous permettent de récupérer des secrets à partir des valeurs de **Variable** chiffrées, des **informations d’identification** et des champs **Connexion** chiffrés. Les applets de commande Azure PowerShell ne peuvent pas récupérer ces secrets. Quand vous les utilisez, vous n’êtes pas tenu de vous connecter implicitement à Azure. Cela est utile dans les scénarios où vous disposez d’une connexion, comme un compte d’identification que vous devez utiliser pour vous authentifier auprès d’Azure.
+La liste ci-dessous recense les applets de commande du module interne `Orchestrator.AssetManagement.Cmdlets` qui est importé dans chaque compte Automation. Ces applets de commande sont accessibles dans vos runbooks et les configurations DSC et vous permettent d’interagir avec les ressources de votre compte Automation. Par ailleurs, les applets de commande internes vous permettent de récupérer des secrets à partir des valeurs de **Variable** chiffrées, des **informations d’identification** et des champs **Connexion** chiffrés. Les applets de commande Azure PowerShell ne peuvent pas récupérer ces secrets. Ces applets de commande ne vous obligent pas à vous connecter implicitement à Azure quand vous les utilisez, par exemple à utiliser un compte d’identification pour vous authentifier auprès d’Azure.
 
 |Nom|Description|
 |---|---|
@@ -82,11 +82,11 @@ La liste ci-dessous recense les applets de commande du module interne `Orchestra
 
 ## <a name="add-a-connection-type-to-your-module"></a>Ajouter un type de connexion à votre module
 
-Vous pouvez indiquer un [type de connexion](../automation-connections.md) personnalisé à utiliser dans votre compte Automation en ajoutant un fichier facultatif à votre module. Il s’agit d’un fichier de métadonnées qui spécifie le type de connexion Azure Automation à utiliser avec les applets de commande du module dans votre compte Automation. Pour parvenir à cela, vous devez en premier lieu savoir comment créer un module PowerShell. Pour plus d’informations sur la création de modules, consultez [Guide pratique pour écrire un module de script PowerShell](/powershell/developer/module/how-to-write-a-powershell-script-module).
+Vous pouvez indiquer un [type de connexion](../automation-connections.md) personnalisé à utiliser dans votre compte Automation en ajoutant un fichier facultatif à votre module. Il s’agit d’un fichier de métadonnées qui spécifie le type de connexion Azure Automation à utiliser avec les applets de commande du module dans votre compte Automation. Pour cela, vous devez dans un premier temps savoir comment créer un module PowerShell. Pour plus d’informations sur la création de modules, consultez [Guide pratique pour écrire un module de script PowerShell](/powershell/developer/module/how-to-write-a-powershell-script-module).
 
 ![Utiliser une connexion personnalisée sur le portail Azure](../media/modules/connection-create-new.png)
 
-Pour ajouter un type de connexion Azure Automation, votre module doit contenir un fichier nommé `<ModuleName>-Automation.json` qui spécifie les propriétés du type de connexion. Il s’agit d’un fichier json, qui est placé dans le dossier de module de votre fichier .zip compressé. Ce fichier contient les champs d’une connexion nécessaire pour se connecter au système ou au service représenté par le module. Cette configuration finit par créer un type de connexion dans Azure Automation. Avec ce fichier, vous pouvez définir les noms de champ, les types et indiquer si les champs doivent être chiffrés ou facultatifs, pour le type de connexion du module. L’exemple suivant est un modèle au format de fichier json qui définit une propriété username et password :
+Pour ajouter un type de connexion Azure Automation, votre module doit contenir un fichier nommé `<ModuleName>-Automation.json` qui spécifie les propriétés du type de connexion. Le fichier json est placé dans le dossier module de votre fichier .zip compressé. Ce fichier contient les champs d’une connexion nécessaire pour se connecter au système ou au service représenté par le module. La configuration se termine en créant un type de connexion dans Azure Automation. Avec ce fichier, vous pouvez définir les noms de champ, les types et indiquer si les champs doivent être chiffrés ou facultatifs, pour le type de connexion du module. L’exemple suivant est un modèle au format de fichier json qui définit une propriété username et password :
 
 ```json
 {
@@ -114,6 +114,17 @@ Pour ajouter un type de connexion Azure Automation, votre module doit contenir u
 Ces modules PowerShell peuvent être importés dans Azure Automation afin de rendre disponibles leurs applets de commande et leurs ressources DSC, les premières pour une utilisation dans des runbooks, les secondes, pour une utilisation au sein des configurations DSC. En coulisse, Azure Automation stocke ces modules et, lors de l’exécution d’un travail de compilation de DSC ou d’une tâche de runbook, les charge dans les bacs à sable (sandbox) Azure Automation où les runbooks s’exécutent et les configurations DSC compilent. Les ressources DSC présentes dans les modules sont également placées automatiquement sur le serveur Pull Automation DSC. Elles peuvent être extraites par des ordinateurs lorsqu’elles appliquent des configurations DSC.
 
 Nous vous recommandons de tenir compte des points suivants quand vous créez un module PowerShell en vue de l’utiliser dans Azure Automation :
+
+* N’incluez PAS de dossier version dans le package. zip.  Si cette question s’avère moins problématique dans le cas des runbooks, elle peut occasionner un problème avec le service State Configuration.  En effet, Azure Automation créera automatiquement le dossier version quand le module sera distribué aux nœuds gérés par DSC, et s’il existe un dossier version, vous vous retrouverez avec deux instances.  Exemple de structure de dossiers pour un module DSC :
+
+```powershell
+myModule
+  - DSCResources
+    - myResourceFolder
+      myResourceModule.psm1
+      myResourceSchema.mof
+  myModuleManifest.psd1
+```
 
 * Incluez un résumé, une description et une URI d’aide pour chaque applet de commande dans le module. Dans PowerShell, vous pouvez définir certaines informations d’aide pour les applets de commande, pour que l’utilisateur puisse obtenir de l’aide quant à leur utilisation, avec l’applet de commande **Get-Help** . L’exemple suivant montre comment définir un résumé et un URI d’aide dans un fichier de module .psm1 :
 
@@ -159,7 +170,7 @@ Nous vous recommandons de tenir compte des points suivants quand vous créez un 
 
   ![Aide du module d’intégration](../media/modules/module-activity-description.png)
 
-* Si le module se connecte à un service externe, il doit contenir un [type de connexion](#add-a-connection-type-to-your-module). Chaque applet de commande du module doit pouvoir accueillir un objet de connexion (une instance de ce type de connexion) en tant que paramètre. Les utilisateurs peuvent ainsi mapper les paramètres de la ressource de connexion aux paramètres correspondants de l’applet de commande chaque fois qu’ils appellent une applet de commande. Reposant sur l’exemple de runbook ci-dessus, il utilise un exemple de ressource de connexion Contoso appelée ContosoConnection pour accéder aux ressources Contoso et retourner des données du service externe.
+* Si le module se connecte à un service externe, il doit contenir un [type de connexion](#add-a-connection-type-to-your-module). Chaque applet de commande du module doit pouvoir accueillir un objet de connexion (une instance de ce type de connexion) en tant que paramètre. Les utilisateurs mappent les paramètres de la ressource de connexion aux paramètres correspondants de l’applet de commande chaque fois qu’ils appellent une applet de commande. Reposant sur l’exemple de runbook ci-dessus, il utilise un exemple de ressource de connexion Contoso appelée ContosoConnection pour accéder aux ressources Contoso et retourner des données du service externe.
 
   Dans l’exemple suivant, les champs sont mappés aux propriétés UserName et Password d’un objet `PSCredential` et sont transmis à l’applet de commande.
 
@@ -184,7 +195,7 @@ Nous vous recommandons de tenir compte des points suivants quand vous créez un 
 
 * Définissez le type de sortie pour toutes les applets de commande du module. La définition d’un type de sortie pour une applet de commande permet à IntelliSense (au moment de la conception) de vous aider à déterminer les propriétés de sortie de l’applet de commande, à utiliser lors de la création. Cela est particulièrement utile lors de la création graphique d’un runbook Azure Automation, où les connaissances au moment de la conception sont essentielles pour une expérience utilisateur conviviale de votre module.
 
-  Pour y parvenir, ajoutez `[OutputType([<MyOutputType>])]`, MyOutputType correspondant à un type valide. Pour en savoir plus sur OutputType, consultez [À propos des fonctions OutputTypeAttribute](/powershell/module/microsoft.powershell.core/about/about_functions_outputtypeattribute). Le code suivant montre comment ajouter `OutputType` à une applet de commande :
+Ajoutez `[OutputType([<MyOutputType>])]` là où MyOutputType est un type valide. Pour en savoir plus sur OutputType, consultez [À propos des fonctions OutputTypeAttribute](/powershell/module/microsoft.powershell.core/about/about_functions_outputtypeattribute). Le code suivant montre comment ajouter `OutputType` à une applet de commande :
 
   ```powershell
   function Get-ContosoUser {

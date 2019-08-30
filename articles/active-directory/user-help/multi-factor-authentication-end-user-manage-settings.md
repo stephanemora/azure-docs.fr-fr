@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 08/06/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7acfa31434534eb3618b8a279ea6cff543fae076
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.openlocfilehash: 9ed7d812a9c1cba356277a4454234531ce8d41ef
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68949796"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69616144"
 ---
 # <a name="manage-your-two-factor-verification-method-settings"></a>Gérer les paramètres de la vérification à deux facteurs
 
@@ -135,6 +135,10 @@ En fonction des paramètres de votre organisation, une case à cocher **Ne plus 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Obtenir des conseils de dépannage et de l’aide dans [Problèmes avec la vérification à deux facteurs](multi-factor-authentication-end-user-troubleshoot.md)
+Une fois que vous avez ajouté ou mis à jour vos paramètres de vérification à deux facteurs, vous pouvez gérer vos mots de passe d’application, vous connecter ou obtenir de l’aide pour certains problèmes courants liés à la vérification à deux facteurs.
 
 - [Gérer les mots de passe d’application pour la vérification à deux facteurs](multi-factor-authentication-end-user-app-passwords.md) pour les applications qui ne prennent pas en charge la vérification à deux facteurs.
+
+- [Se connecter à l’aide de la vérification à deux facteurs](multi-factor-authentication-end-user-signin.md)
+
+- [Obtenir de l’aide pour la vérification à deux facteurs](multi-factor-authentication-end-user-troubleshoot.md)

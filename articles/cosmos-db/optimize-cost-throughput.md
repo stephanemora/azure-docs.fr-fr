@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: rimman
-ms.openlocfilehash: ddbec882675dba4724406ad1ea8079df377c34fc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8829c2534184bc14e82dfbf30d2170a7a1b8add0
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65967305"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69614991"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>Optimiser le coût du débit approvisionné dans Azure Cosmos DB
 
@@ -29,7 +29,7 @@ Vous pouvez configurer le débit sur des bases de données ou des conteneurs, et
 
 Voici quelques indications pour choisir une stratégie de débit approvisionné :
 
-**Approvisionnez le débit sur une base de données Azure Cosmos DB (contenant un ensemble de conteneurs) si** :
+**Provisionnez le débit sur une base de données Azure Cosmos (contenant un ensemble de conteneurs) si** :
 
 1. Vous avez quelques dizaines de conteneurs Azure Cosmos et souhaitez partager le débit sur tout ou partie de ces conteneurs. 
 

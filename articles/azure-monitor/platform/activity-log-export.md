@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: acf2526e79519e610614dc5217efbfe5e327b90f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d34040722ac8793fd4bbb02f2d3fa59247f8267c
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66248143"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69639636"
 ---
 # <a name="export-azure-activity-log-to-storage-or-azure-event-hubs"></a>Exporter le journal d’activité vers le stockage ou Azure Event Hubs
 Le [journal d’activité Azure](activity-logs-overview.md) apporte des insights sur les événements liés aux abonnements qui se sont produits dans votre abonnement Azure. En plus d'afficher le journal d’activité dans le portail Azure ou de le copier dans un espace de travail Log Analytics où il peut être analysé avec d’autres données collectées par Azure Monitor, vous pouvez créer un profil de journal pour archiver le journal d’activité dans un compte de stockage Azure ou le diffuser en continu dans un Event Hub.
@@ -63,8 +63,10 @@ Si des stratégies de rétention sont définies, mais que le stockage des journa
 
 > [!WARNING]
 > Depuis le 1er novembre 2018, le format des données de journal dans le compte de stockage est devenu JSON Lines. [Consultez cet article pour en savoir plus sur les conséquences liées à ce changement et pour découvrir comment mettre à jour vos outils pour qu’ils gèrent ce nouveau format.](diagnostic-logs-append-blobs.md)
->
->
+
+
+> [!IMPORTANT]
+> Vous pouvez recevoir un message d’erreur lors de la création d’un profil de journal, si le fournisseur de ressources Microsoft.Insights n’est pas inscrit. Consultez [Fournisseurs et types de ressources Azure](../../azure-resource-manager/resource-manager-supported-services.md) pour inscrire ce fournisseur.
 
 ### <a name="create-log-profile-using-the-azure-portal"></a>Créer un profil de journal à l’aide du portail Azure
 

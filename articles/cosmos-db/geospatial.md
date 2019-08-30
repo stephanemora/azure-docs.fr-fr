@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
 ms.author: sngun
-ms.openlocfilehash: 1654ccabab751896fcbbab09d112080ccc2f67b6
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 1b26f78c6d44123ef1baa3c55fd16c3340d59dd4
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68467729"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69616841"
 ---
 # <a name="use-geospatial-and-geojson-location-data-with-azure-cosmos-db-sql-api-account"></a>Utiliser des données d’emplacement géospatiales et GeoJSON avec un compte d’API SQL Azure Cosmos DB
 
@@ -249,7 +249,7 @@ Vous pouvez aussi utiliser ces fonctions pour valider des polygones. Par exemple
 ### <a name="linq-querying-in-the-net-sdk"></a>Interrogation LINQ dans le Kit de développement logiciel (SDK) .NET
 Le SDK .NET SQL fournit également les méthodes de stub `Distance()` et `Within()` pour une utilisation dans des expressions LINQ. Le fournisseur SQL LINQ traduit ces appels de méthode en appels de fonction intégrés SQL équivalents (ST_DISTANCE et ST_WITHIN, respectivement). 
 
-Voici un exemple de requête LINQ qui recherche tous les documents de la collection Azure Cosmos DB dont la valeur « location » est dans un rayon de 30 kilomètres du point spécifié à l’aide de LINQ.
+Voici un exemple de requête LINQ qui recherche tous les documents du conteneur Azure Cosmos dont la valeur « location » est dans un rayon de 30 kilomètres du point spécifié à l’aide de LINQ.
 
 **Requête LINQ de distance**
 

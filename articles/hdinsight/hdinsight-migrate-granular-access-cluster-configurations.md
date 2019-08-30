@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/09/2019
-ms.openlocfilehash: 1e5eb1e363ac9e282a72a9c1430c3f80c825bb91
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: a77310d0e45f095260d77ead0cfe14a3ce0ebd8e
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68945077"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69623839"
 ---
 # <a name="migrate-to-granular-role-based-access-for-cluster-configurations"></a>Migrer vers un accès en fonction du rôle granulaire pour les configurations de cluster
 
@@ -201,7 +201,7 @@ Si cela ne fonctionne toujours pas, contactez votre administrateur AAD pour obte
 
 ### <a name="what-will-happen-if-i-take-no-action"></a>Que se passe-t-il si je n’effectue aucune action ?
 
-Les appels à `GET /configurations` et `POST /configurations/gateway` ne retournent plus d’informations et l’appel à `GET /configurations/{configurationName}` ne retourne plus de paramètres sensibles, comme la clé du compte de stockage ou le mot de passe du cluster. Il en va de même pour les méthodes du kit SDK et les applets de commande PowerShell correspondantes.
+Les appels à `GET /configurations` et `POST /configurations/gateway` ne retournent plus d’informations et l’appel à `GET /configurations/{configurationName}` ne retourne plus de paramètres sensibles comme les clés de compte de stockage ou le mot de passe du cluster. Il en va de même pour les méthodes du kit SDK et les applets de commande PowerShell correspondantes.
 
 Si vous utilisez une version antérieure de l’un des outils pour Visual Studio, VSCode, IntelliJ ou Eclipse mentionnés ci-dessus, ils ne fonctionneront plus tant que vous n’aurez pas effectué la mise à jour.
 

@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: hrasheed
-ms.openlocfilehash: 6ec981164de0ff61b0e83d54255d046a1418ed96
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 333eecb11f0bd20c747bc44419fea26765f886c5
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66000103"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69509103"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters-preview"></a>Mise à l’échelle automatique des clusters Azure HDInsight (préversion)
 
@@ -186,9 +186,25 @@ Vous pouvez créer un cluster HDInsight avec la mise à l’échelle basée sur 
 
 ### <a name="enable-and-disable-autoscale-for-a-running-cluster"></a>Activation et désactivation de la mise à l’échelle automatique d’un cluster en cours d’exécution
 
+#### <a name="using-the-azure-portal"></a>Utilisation du portail Azure
 Pour activer la mise à l’échelle automatique sur un cluster en cours d’exécution, sélectionnez **Taille du cluster** sous **Paramètres**. Puis cliquez sur **Activer la mise à l’échelle automatique**. Choisissez un type de mise à l’échelle automatique, puis entrez les options de mise à l’échelle basée sur la planification ou la charge. Puis, cliquez sur **Enregistrer**.
 
 ![Activation de l’option de mise à l’échelle d’un nœud Worker basée sur la planification](./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-enable-running-cluster.png)
+
+#### <a name="using-the-rest-api"></a>Utilisation de l’API REST
+Pour activer ou désactiver la mise à l’échelle automatique sur un cluster en cours d’exécution à l’aide de l’API REST, envoyez une requête POST au point de terminaison de la mise à l’échelle automatique comme indiqué dans l’extrait de code ci-dessous :
+
+```
+https://management.azure.com/subscriptions/{subscription Id}/resourceGroups/{resourceGroup Name}/providers/Microsoft.HDInsight/clusters/{CLUSTERNAME}/roles/workernode/autoscale?api-version=2018-06-01-preview
+```
+
+Utilisez les paramètres appropriés dans la charge utile de la requête. La charge utile JSON ci-dessous peut être utilisée pour activer la mise à l’échelle automatique. Utilisez la charge utile `{autoscale: null}` pour désactiver la mise à l’échelle automatique.
+
+```json
+{ autoscale: { capacity: { minInstanceCount: 1, maxInstanceCount: 2 } } }
+```
+
+Consultez la section précédente sur l’[activation de la mise à l’échelle automatique basée sur la charge](#load-based-autoscaling) pour obtenir une description complète de tous les paramètres de charge utile.
 
 ## <a name="best-practices"></a>Bonnes pratiques
 

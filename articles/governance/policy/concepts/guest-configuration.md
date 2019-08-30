@@ -8,16 +8,19 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 74e36d944450e1ce2c61481b2cb7e345860212af
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 6f51d2907738f49ace559f1b127458eda71de287
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326882"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624103"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Comprendre la configuration d’invité d’Azure Policy
 
 En plus de l’audit et de la [correction](../how-to/remediate-resources.md) des ressources Azure, Azure Policy peut auditer les paramètres internes d’une machine virtuelle. La validation est effectuée par le client et l’extension de configuration d’invité. L’extension, via le client, valide les paramètres tels que la configuration du système d’exploitation, la présence ou la configuration de l’application, les paramètres d’environnement et bien plus encore.
+
+À ce stade, la configuration d’invité Azure Policy effectue uniquement un audit des paramètres à l’intérieur de la machine.
+Il n’est pas encore possible d’appliquer des configurations.
 
 [!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
 

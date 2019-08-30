@@ -9,12 +9,12 @@ ms.date: 04/11/2019
 ms.topic: article
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: cf063311e5559ddf5706df397ce744a726610000
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: 5be247e8bb999ee5306d10e67c46c7273953dc71
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68667339"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69534689"
 ---
 # <a name="enable-update-management-change-tracking-and-inventory-solutions-on-multiple-vms"></a>Activer les solutions Update Management, Change Tracking et Inventory sur plusieurs machines virtuelles
 
@@ -45,7 +45,7 @@ La liste des machines virtuelles est filtrée pour afficher uniquement celles qu
 
 ### <a name="resource-group-limit"></a> Limitations en matière d’intégration
 
-Le nombre de groupes de ressources que vous pouvez utiliser pour l’intégration est restreint par les [limites de déploiement Resource Manager](../azure-resource-manager/resource-manager-cross-resource-group-deployment.md). Les déploiements Resource Manager, à ne pas confondre avec les déploiements de mises à jour, sont limités à 5 groupes de ressources par déploiement. Pour garantir l’intégrité de l’intégration, 2 de ces groupes de ressources sont réservés à la configuration de l’espace de travail Log Analytics, du compte Automation et des ressources associées. Il vous reste donc 3 groupes de ressources sélectionnables pour le déploiement.
+Le nombre de groupes de ressources que vous pouvez utiliser pour l’intégration est restreint par les [limites de déploiement Resource Manager](../azure-resource-manager/resource-manager-cross-resource-group-deployment.md). Les déploiements Resource Manager (à ne pas confondre avec les déploiements de mises à jour) sont limités à 5 groupes de ressources par déploiement. Pour garantir l’intégrité de l’intégration, 2 de ces groupes de ressources sont réservés à la configuration de l’espace de travail Log Analytics, du compte Automation et des ressources associées. Il vous reste donc 3 groupes de ressources sélectionnables pour le déploiement. Cette limite s’applique uniquement à l’intégration simultanée, pas au nombre de groupes de ressources qui peuvent être gérés par une solution Automation.
 
 Vous pouvez également utiliser un runbook pour l’intégration. Pour plus d’informations, consultez [Intégrer les solutions de suivi de modifications et de mises à jour dans Azure Automation](automation-onboard-solutions.md).
 

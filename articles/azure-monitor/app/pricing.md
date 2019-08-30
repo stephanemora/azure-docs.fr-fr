@@ -11,14 +11,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.reviewer: mbullwin
-ms.date: 08/13/2019
+ms.date: 08/19/2019
 ms.author: dalek
-ms.openlocfilehash: abf23eda2474ecbcfcaf0dadb26327225213a9a6
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: c3da37d89da8c70f6acdfb1b5ab9c5b10edb86f0
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68989227"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624400"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Gérer l’utilisation et les coûts pour Application Insights
 
@@ -92,7 +92,7 @@ Vous pouvez utiliser une des options suivantes pour voir la quantité de donnée
 Voici quelques opérations possibles pour réduire le volume de données :
 
 * Utilisez l’ [échantillonnage](../../azure-monitor/app/sampling.md). Cette technologie permet de réduire votre débit de données sans entraîner de distorsion de vos métriques. Vous gardez la possibilité de naviguer entre les éléments associés dans la recherche. Dans les applications serveurs, l’échantillonnage s’applique automatiquement.
-* [Limitez le nombre d’appels Ajax qui peuvent être signalés](../../azure-monitor/app/javascript.md#detailed-configuration) dans chaque affichage de page, ou désactivez les rapports Ajax.
+* [Limitez le nombre d’appels Ajax qui peuvent être signalés](../../azure-monitor/app/javascript.md#configuration) dans chaque affichage de page, ou désactivez les rapports Ajax.
 * [Modifiez ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md) pour désactiver les modules de collecte dont vous n’avez pas besoin. Par exemple, vous pouvez décider que les compteurs de performances ou les données de dépendance ne sont pas essentiels.
 * Répartissez vos données de télémétrie entre les clés d’instrumentation. 
 * Procédez à la pré-agrégation des métriques. Si vous placez des appels de TrackMetric dans votre application, vous pouvez réduire le trafic en utilisant la surcharge qui accepte votre calcul de la moyenne et de l’écart type d’un lot de mesures. Une autre possibilité consiste à utiliser un [package de pré-agrégation](https://www.myget.org/gallery/applicationinsights-sdk-labs).
@@ -103,7 +103,7 @@ Vous pouvez utiliser la limite quotidienne de volume pour limiter les données c
 
 Au lieu d’utiliser la limite quotidienne de volume, utilisez [l’échantillonnage](../../azure-monitor/app/sampling.md) pour régler le volume de données sur le niveau souhaité. Ensuite, n’utilisez la limite quotidienne qu’en « dernier recours », au cas où votre application commencerait soudainement à envoyer des volumes de données de télémétrie beaucoup plus élevés.
 
-Pour changer la limite quotidienne, accédez à la section **Configurer** de votre ressource Application Insights dans le volet **Utilisation et estimation des coûts**, puis sélectionnez **Limite quotidienne**.
+Pour changer la limite quotidienne, accédez à la section **Configurer** de votre ressource Application Insights, dans la page **Utilisation et estimation des coûts**, puis sélectionnez **Limite quotidienne**.
 
 ![Ajuster la limite du volume quotidien des données de télémétrie](./media/pricing/pricing-003.png)
 
@@ -135,11 +135,13 @@ Pour chaque enregistrement conservé, `itemCount` indique le nombre d’enregist
 
 ## <a name="change-the-data-retention-period"></a>Changer la période de rétention des données
 
-Application Insights intègre à présent un nombre limité de clients Application Insights à notre préversion de rétention variable. Des informations sur la façon de participer à ce programme en préversion sont disponibles [ici](https://feedback.azure.com/forums/357324-azure-monitor-application-insights/suggestions/17454031).
+La rétention par défaut pour les ressources Application Insights est de 90 jours. Différentes périodes de rétention peuvent être sélectionnées pour chaque ressource Application Insights. L’ensemble complet de périodes de conservation disponibles est 30, 60, 90, 120, 180, 270, 365, 550 et 730 jours. 
 
-La rétention par défaut pour les ressources Application Insights est de 90 jours. Différentes périodes de rétention peuvent être sélectionnées pour chaque ressource Application Insights. L’ensemble complet de périodes de rétention disponibles est 30, 60, 120, 180, 270, 365, 550 ou 730 jours. 
+Pour changer le délai de conservation, dans votre ressource Application Insights, accédez à la page **Utilisation et coûts estimés**, puis sélectionnez l’option **Conservation des données** :
 
-Quand la facturation est activée pour une rétention plus longue, les données conservées pendant plus de 90 jours sont facturées selon le même tarif que celles actuellement facturées pour la conservation des données Azure Log Analytics. Apprenez-en davantage dans la [page des tarifs Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/).  Tenez-vous informé de la progression de la rétention variable en [votant pour cette suggestion](https://feedback.azure.com/forums/357324-azure-monitor-application-insights/suggestions/17454031). 
+![Ajuster la limite du volume quotidien des données de télémétrie](./media/pricing/pricing-005.png)
+
+Quand la facturation est activée pour une conservation plus longue, les données conservées pendant plus de 90 jours sont facturées selon le même tarif que celles actuellement facturées pour la conservation des données Azure Log Analytics. Apprenez-en davantage dans la [page des tarifs Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/). Tenez-vous informé de la progression de la rétention variable en [votant pour cette suggestion](https://feedback.azure.com/forums/357324-azure-monitor-application-insights/suggestions/17454031). 
 
 ## <a name="limits-summary"></a>Synthèse des limites
 

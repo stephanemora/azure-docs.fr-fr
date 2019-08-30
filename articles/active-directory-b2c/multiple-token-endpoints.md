@@ -1,6 +1,6 @@
 ---
-title: Prise en charge de plusieurs émetteurs de jetons dans une application Web basée sur OWIN - Azure Active Directory B2C
-description: Découvrez comment activer une application Web .NET pour prendre en charge les jetons émis par plusieurs domaines.
+title: Migrer des API web OWIN vers b2clogin.com – Azure Active Directory B2C
+description: Découvrez comment permettre à une API web .NET de prendre en charge les jetons émis par plusieurs émetteurs de jetons pendant que vous migrez vos applications vers b2clogin.com.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,21 +10,23 @@ ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 31ab19b8b3adbef1f0ea573af13b98750d278db8
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: a8a6b4f90fe3f1e60341cc59e7d81870c82e843b
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68716718"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69533762"
 ---
-# <a name="support-multiple-token-issuers-in-an-owin-based-web-application"></a>Prise en charge de plusieurs émetteurs de jetons dans une application Web basée sur OWIN
+# <a name="migrate-an-owin-based-web-api-to-b2clogincom"></a>Migrer une API web OWIN vers b2clogin.com
 
-Cet article décrit une technique permettant d’activer la prise en charge de plusieurs émetteurs de jetons dans des applications Web et des API qui implémentent l’[interface OWIN (Open Web interface for .NET)](http://owin.org/). La prise en charge de plusieurs points de terminaison de jeton est utile lorsque vous migrez des applications B2C Azure AD (Azure Active Directory) à partir de *login.microsoftonline.com* vers *b2clogin.com*.
+Cet article décrit une technique permettant d’activer la prise en charge de plusieurs émetteurs de jetons dans des API web qui implémentent l’[interface OWIN (Open Web interface for .NET)](http://owin.org/). La prise en charge de plusieurs points de terminaison de jeton s’avère utile quand vous migrez des API Azure AD B2C (Azure Active Directory B2C) et leurs applications de *login.microsoftonline.com* vers *b2clogin.com*.
 
-Les sections suivantes présentent un exemple d’activation de plusieurs émetteurs dans une application Web et l’API Web correspondante qui utilisent les composants de l’intergiciel [Microsoft OWIN][katana] (Katana). Bien que les exemples de code soient spécifiques à l’intergiciel Microsoft OWIN, la technique générale doit s’appliquer aux autres bibliothèques OWIN.
+En ajoutant la prise en charge dans votre API en vue d’accepter les jetons émis par b2clogin.com et login.microsoftonline.com, vous pouvez migrer vos applications web de manière échelonnée avant de supprimer la prise en charge des jetons émis par login.microsoftonline.com à partir de l’API.
+
+Les sections suivantes présentent un exemple d’activation de plusieurs émetteurs dans une API web qui utilise les composants intergiciels (middleware) [Microsoft OWIN][katana] (Katana). Bien que les exemples de code soient spécifiques à l’intergiciel Microsoft OWIN, la technique générale doit s’appliquer aux autres bibliothèques OWIN.
 
 > [!NOTE]
-> Cet article s’adresse aux clients Azure AD B2C avec les applications actuellement déployées qui font référence à `login.microsoftonline.com` et qui souhaitent migrer vers le point de terminaison `b2clogin.com` recommandé. Si vous configurez une nouvelle application, utilisez [b2clogin.com](b2clogin.md) comme indiqué.
+> Cet article s’adresse aux clients Azure AD B2C ayant actuellement des API et des applications déployées qui font référence à `login.microsoftonline.com` et qui souhaitent migrer vers le point de terminaison `b2clogin.com` recommandé. Si vous configurez une nouvelle application, utilisez [b2clogin.com](b2clogin.md) comme indiqué.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -34,7 +36,7 @@ Avant de poursuivre les étapes de cet article, vous devez disposer des ressourc
 
 ## <a name="get-token-issuer-endpoints"></a>Obtenir les points de terminaison d’émetteur de jeton
 
-Vous devez d’abord obtenir les URI de point de terminaison de l’émetteur de jeton pour chaque émetteur que vous souhaitez prendre en charge dans votre application. Pour accéder aux points de terminaison *b2clogin.com* et *login.microsoftonline.com* pris en charge par votre locataire Azure AD B2C, utilisez la procédure suivante dans le Portail Microsoft Azure.
+Vous devez d’abord obtenir les URI de point de terminaison d’émetteur de jeton pour chaque émetteur que vous souhaitez prendre en charge dans votre API. Pour accéder aux points de terminaison *b2clogin.com* et *login.microsoftonline.com* pris en charge par votre locataire Azure AD B2C, utilisez la procédure suivante dans le Portail Microsoft Azure.
 
 Commencez par sélectionner l’un de vos flux d’utilisateurs existants :
 

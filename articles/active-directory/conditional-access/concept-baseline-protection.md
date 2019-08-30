@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 819b2f3c54d97639eceae9aed60fdd5da2e7b3ef
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: 572371f4abec413be5a2320c7d69d8126f26924f
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68608170"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69533058"
 ---
 # <a name="what-are-baseline-policies"></a>Que sont les stratégies de référence ?
 
-Les stratégies de référence sont un ensemble de stratégies prédéfinies qui aident à protéger les organisations contre de nombreuses attaques courantes. Ces attaques courantes peuvent inclure l’hameçonnage, la réinsertion et la pulvérisation de mot de passe. Les stratégies de référence sont disponibles dans toutes les éditions d’Azure AD. Microsoft propose ces stratégies de protection de référence à tout le monde, car les attaques basées sur l’identité ont connu une hausse au cours des dernières années. L’objectif de ces quatre stratégies est de veiller à ce que toutes les organisations aient un niveau de référence de sécurité activé sans aucun coût supplémentaire.  
+Les stratégies de référence sont un ensemble de stratégies prédéfinies qui aident les organisations à se protéger contre de nombreuses attaques courantes. Ces attaques courantes peuvent inclure l’hameçonnage, la réinsertion et la pulvérisation de mot de passe. Les stratégies de référence sont disponibles dans toutes les éditions d’Azure AD. Microsoft propose ces stratégies de protection de référence à tout le monde, car les attaques basées sur l’identité ont connu une hausse au cours des dernières années. L’objectif de ces quatre stratégies est de veiller à ce que toutes les organisations aient un niveau de référence de sécurité activé sans aucun coût supplémentaire.  
 
 La gestion de stratégies d’accès conditionnel personnalisé requiert une licence Azure AD Premium.
 
@@ -41,7 +41,7 @@ Ces quatre stratégies de base influent sur les flux d’authentification hérit
 
 En raison de l’importance et de l’accès de ces administrateurs de comptes, vous devez leur accorder une attention particulière. Une méthode courante pour améliorer la protection de comptes privilégiés consiste à demander une forme de vérification de compte plus stricte lorsqu’ils sont utilisés pour se connecter. Dans Azure Active Directory, vous pouvez obtenir une vérification plus stricte des comptes en demandant aux administrateurs de se procurer et d’utiliser une authentification multifacteur (MFA) Azure.
 
-[Exiger l’authentification multifacteur pour les administrateurs (préversion)](howto-baseline-protect-administrators.md)  est une stratégie de référence qui nécessite une authentification multifacteur (MFA) pour les rôles d’annuaire suivants, considérés comme les rôles d’Azure AD les plus privilégiés :
+[Exiger l’authentification multifacteur pour les administrateurs (préversion)](howto-baseline-protect-administrators.md) est une stratégie de référence qui exige une authentification multifacteur (MFA) pour les rôles d’annuaire suivants, considérés comme les rôles d’Azure AD les plus privilégiés :
 
 * Administrateur général
 * Administrateur SharePoint
@@ -52,7 +52,7 @@ En raison de l’importance et de l’accès de ces administrateurs de comptes, 
 * Administrateur de facturation
 * Administrateur d’utilisateurs
 
-Si votre organisation utilise ces comptes dans des scripts ou du code, envisagez de les remplacer par des  [identités managées](../managed-identities-azure-resources/overview.md).
+Si votre organisation utilise ces comptes dans des scripts ou du code, envisagez de les remplacer par des [identités managées](../managed-identities-azure-resources/overview.md).
 
 ### <a name="end-user-protection-preview"></a>Protection de l’utilisateur final (préversion)
 
@@ -87,7 +87,7 @@ Pour protéger les actions privilégiées, la stratégie **Exiger l’authentifi
 
 Pour activer une stratégie de référence :
 
-1. Connectez-vous au  **portail Microsoft Azure**  en tant qu’administrateur général, administrateur de sécurité ou administrateur de l’accès conditionnel.
+1. Connectez-vous au **portail Azure** en tant qu’administrateur général, administrateur de sécurité ou administrateur de l’accès conditionnel.
 1. Accédez à **Azure Active Directory** > **Accès conditionnel**.
 1. Dans la liste des stratégies, sélectionnez une stratégie de référence que vous souhaitez activer.
 1. Définissez l’option **Appliquer la stratégie** sur **Activé**.

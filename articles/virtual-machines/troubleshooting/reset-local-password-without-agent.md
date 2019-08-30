@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/25/2019
 ms.author: genli
-ms.openlocfilehash: 5354ebc8c25125f86a0208382d176c84372cadc1
-ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
+ms.openlocfilehash: 75d6c10ded4038297689835d5ff012f344540e6f
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68369864"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69638849"
 ---
 # <a name="reset-local-windows-password-for-azure-vm-offline"></a>Réinitialiser un mot de passe Windows local pour la machine virtuelle Azure hors connexion
 Vous pouvez réinitialiser le mot de passe Windows local d’une machine virtuelle dans Azure à l’aide du [portail Azure ou Azure PowerShell](reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) à condition que l’agent invité Azure soit installé. Cette méthode est le principal moyen de réinitialiser un mot de passe sur une machine virtuelle Azure. Si l’agent invité Azure ne répond pas ou ne parvient pas à s’installer après chargement d’une image personnalisée, vous pouvez réinitialiser manuellement un mot de passe Windows. Cet article explique comment réinitialiser un mot de passe de compte local en attachant le disque virtuel du système d’exploitation source à une autre machine virtuelle. Les étapes décrites dans cet article ne s’appliquent pas aux contrôleurs de domaine Windows. 
@@ -29,73 +29,23 @@ Vous pouvez réinitialiser le mot de passe Windows local d’une machine virtuel
 ## <a name="overview-of-the-process"></a>Vue d’ensemble du processus
 La procédure de réinitialisation d’un mot de passe local pour une machine virtuelle Windows dans Azure lorsque l’agent invité Azure est inaccessible est la suivante :
 
-1. Supprimez la machine virtuelle source. Les disques virtuels sont conservés.
+1. Arrêter la machine virtuelle affectée.
+1. Créez une capture instantanée du disque de système d’exploitation de la machine virtuelle.
+1. Créez une copie du disque de système d’exploitation à partir de la capture instantanée.
+1. Attachez et montez le disque de système d’exploitation copié sur une autre machine virtuelle Windows, puis créez des fichiers de configuration sur le disque. Ces fichiers facilitent la réinitialisation du mot de passe.
+1. Démontez et détachez le disque de système d’exploitation copié de la machine virtuelle de dépannage.
+1. Remplacez le disque de système d’exploitation de la machine virtuelle affectée.
 
-2. Attachez le disque de système d’exploitation de la machine virtuelle source à une autre machine virtuelle au même emplacement au sein de votre abonnement Azure. Cette machine virtuelle est appelée machine virtuelle de dépannage.
-
-3. À l’aide de la machine virtuelle de dépannage, créez des fichiers de configuration sur le disque de système d’exploitation de la machine virtuelle source.
-
-4. Détachez le disque de système d’exploitation de la machine virtuelle source de la machine virtuelle de dépannage.
-
-5. Utilisez un modèle Resource Manager pour créer une machine virtuelle à l’aide du disque virtuel d’origine.
-
-6. Au démarrage de la nouvelle machine virtuelle, les fichiers de configuration que vous créez mettent à jour le mot de passe de l’utilisateur concerné.
-
-> [!NOTE]
-> Vous pouvez automatiser les processus suivants :
->
-> - Création de la machine virtuelle de dépannage
-> - Attachement du disque du système d’exploitation
-> - Recréation de la machine virtuelle d’origine
-> 
-> Pour ce faire, utilisez les [scripts de récupération de machine virtuelle Azure](https://github.com/Azure/azure-support-scripts/blob/master/VMRecovery/ResourceManager/README.md). Si vous choisissez d’utiliser les scripts de récupération de machine virtuelle Azure, vous pouvez utiliser le processus suivant dans la section « Procédure détaillée » :
-> 1. Ignorez les étapes 1 et 2 en utilisant les scripts pour joindre le disque du système d’exploitation de la machine virtuelle affectée à une machine virtuelle de récupération.
-> 2. Suivez les étapes 3 à 6 pour appliquer les atténuations.
-> 3. Ignorez les étapes 7 à 9 en utilisant les scripts pour recréer la machine virtuelle.
-> 4. Suivez les étapes 10 et 11.
-
-## <a name="detailed-steps-for-resource-manager"></a>Étapes détaillées pour Resource Manager
+## <a name="detailed-steps-for-the-vm-with-resource-manager-deployment"></a>Étapes détaillées pour la machine virtuelle avec le déploiement de Resource Manager
 
 > [!NOTE]
 > Les étapes ne s’appliquent pas aux contrôleurs de domaine Windows. Elles fonctionnent uniquement sur un serveur autonome ou un serveur qui est membre d’un domaine.
 
-Essayez toujours de réinitialiser un mot de passe à l’aide du [portail Azure ou Azure PowerShell](reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) avant d’effectuer la procédure suivante. Avant de commencer, vérifiez que vous disposez d’une sauvegarde de votre machine virtuelle. 
+Essayez toujours de réinitialiser un mot de passe à l’aide du [portail Azure ou Azure PowerShell](reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) avant d’effectuer la procédure suivante. Avant de commencer, vérifiez que vous disposez d’une sauvegarde de votre machine virtuelle.
 
-1. Supprimez la machine virtuelle affectée dans le portail Azure. La suppression de la machine virtuelle ne supprime que les métadonnées, la référence de la machine virtuelle dans Azure. Les disques virtuels sont conservés lors de la suppression de la machine virtuelle :
-   
-   * Sélectionnez la machine virtuelle dans le portail Azure et cliquez sur *Supprimer* :
-     
-     ![Supprimer une machine virtuelle existante](./media/reset-local-password-without-agent/delete-vm.png)
-
-2. Attachez le disque de système d’exploitation de la machine virtuelle source à la machine virtuelle de dépannage. La machine virtuelle de dépannage doit être dans la même région que le disque de système d’exploitation de la machine virtuelle source (par exemple `West US`) :
-   
-   1. Sélectionnez la machine virtuelle de dépannage dans le portail Azure. Cliquez sur *Disques* | *Attacher existant* :
-     
-     ![Attachement d’un disque existant](./media/reset-local-password-without-agent/disks-attach-existing.png)
-     
-   2. Sélectionnez *Fichier VHD*, puis le compte de stockage qui contient votre machine virtuelle source :
-     
-     ![Sélectionner le compte de stockage](./media/reset-local-password-without-agent/disks-select-storage-account.png)
-     
-   3. Sélectionnez le conteneur source. En général, le conteneur source est *disques durs virtuels* :
-     
-     ![Sélectionner le conteneur de stockage](./media/reset-local-password-without-agent/disks-select-container.png)
-     
-   4. Sélectionnez le disque dur virtuel de système d’exploitation à attacher. Cliquez sur *Sélectionner* pour terminer le processus :
-     
-     ![Sélectionner le disque virtuel source](./media/reset-local-password-without-agent/disks-select-source-vhd.png)
-
-3. Connectez-vous à la machine virtuelle de dépannage à l’aide du Bureau à distance et vérifiez que le disque de système d’exploitation de la machine virtuelle source est visible :
-   
-   1. Sélectionnez la machine virtuelle de dépannage dans le portail Azure et cliquez sur *Se connecter*.
-
-   2. Ouvrez le fichier RDP qui télécharge. Entrez le nom d’utilisateur et le mot de passe de la machine virtuelle de dépannage.
-
-   3. Dans l’Explorateur de fichiers, recherchez le disque de données que vous avez attaché. Si le disque dur virtuel de la machine virtuelle source est le seul disque de données attaché à la machine virtuelle de dépannage, il doit s’agir du lecteur F: :
-     
-     ![Afficher le disque de données attaché](./media/reset-local-password-without-agent/troubleshooting-vm-file-explorer.png)
-
-4. Créez `gpt.ini` dans `\Windows\System32\GroupPolicy` sur le lecteur de la machine virtuelle source (si le fichier gpt.ini existe, renommez-le gpt.ini.bak) :
+1. Effectuez une capture instantanée du disque du système d’exploitation de la machine virtuelle affectée, créez un disque à partir de cette capture instantanée, puis attachez le disque à une machine virtuelle de dépannage. Pour en savoir plus, consultez [Résoudre les problèmes d’une machine virtuelle Windows en connectant le disque du système d’exploitation à une machine virtuelle de récupération à l’aide du portail Azure](troubleshoot-recovery-disks-portal-windows.md).
+2. Connectez-vous à la machine virtuelle de dépannage à l’aide du Bureau à distance.
+3. Créez `gpt.ini` dans `\Windows\System32\GroupPolicy` sur le lecteur de la machine virtuelle source (si le fichier gpt.ini existe, renommez-le gpt.ini.bak) :
    
    > [!WARNING]
    > Veillez à ne pas accidentellement créer les fichiers suivants dans C:\Windows, le lecteur de système d’exploitation de la machine virtuelle de dépannage. Créez les fichiers suivants dans le lecteur du système d’exploitation de votre machine virtuelle source qui est attaché en tant que disque de données.
@@ -111,7 +61,7 @@ Essayez toujours de réinitialiser un mot de passe à l’aide du [portail Azure
      
      ![Créer le fichier gpt.ini](./media/reset-local-password-without-agent/create-gpt-ini.png)
 
-5. Créez `scripts.ini` dans `\Windows\System32\GroupPolicy\Machines\Scripts\`. Vérifiez que les dossiers masqués sont affichés. Si nécessaire, créez les dossiers `Machine` ou `Scripts`.
+4. Créez `scripts.ini` dans `\Windows\System32\GroupPolicy\Machines\Scripts\`. Vérifiez que les dossiers masqués sont affichés. Si nécessaire, créez les dossiers `Machine` ou `Scripts`.
    
    * Ajoutez les lignes suivantes au fichier `scripts.ini` que vous avez créé :
      
@@ -123,7 +73,7 @@ Essayez toujours de réinitialiser un mot de passe à l’aide du [portail Azure
      
      ![Créer scripts.ini](./media/reset-local-password-without-agent/create-scripts-ini.png)
 
-6. Créez `FixAzureVM.cmd` dans `\Windows\System32` avec le contenu suivant, en remplaçant `<username>` et `<newpassword>` par vos propres valeurs :
+5. Créez `FixAzureVM.cmd` dans `\Windows\System32` avec le contenu suivant, en remplaçant `<username>` et `<newpassword>` par vos propres valeurs :
    
     ```
     net user <username> <newpassword> /add
@@ -135,39 +85,13 @@ Essayez toujours de réinitialiser un mot de passe à l’aide du [portail Azure
    
     Vous devez respecter les exigences de complexité du mot de passe configuré pour votre machine virtuelle lors de la définition du nouveau mot de passe.
 
-7. Dans le portail Azure, détachez le disque de la machine virtuelle de dépannage :
-   
-   1. Sélectionnez la machine virtuelle de dépannage dans le portail Azure, puis cliquez sur *Disques*.
+6. Dans le portail Azure, détachez le disque de la machine virtuelle de dépannage.
 
-   2. Sélectionnez le disque de données attaché à l’étape 2, puis cliquez sur *Détacher* :
-     
-     ![Détacher le disque](./media/reset-local-password-without-agent/detach-disk.png)
+7. [Changez le disque de système d’exploitation pour la machine virtuelle affectée](troubleshoot-recovery-disks-portal-windows.md#swap-the-os-disk-for-the-vm).
 
-8. Avant de créer une machine virtuelle, obtenez l’URI vers le disque du système d’exploitation source :
-   
-   1. Sélectionnez le compte de stockage dans le portail Azure, puis cliquez sur *Objets blob*.
+8. Une fois la nouvelle machine virtuelle exécutée, connectez-vous à elle à l’aide du Bureau à distance et du nouveau mot de passe que vous avez spécifié dans le script `FixAzureVM.cmd`.
 
-   2. Sélectionnez le conteneur. En général, le conteneur source est *disques durs virtuels* :
-     
-     ![Sélectionner l’objet blob de compte de stockage](./media/reset-local-password-without-agent/select-storage-details.png)
-     
-   3. Sélectionnez le disque dur virtuel de système d’exploitation de votre machine virtuelle source et cliquez sur le bouton *Copier* en regard du nom de l’*URL* :
-     
-     ![Copier l’URI de disque](./media/reset-local-password-without-agent/copy-source-vhd-uri.png)
-
-9. Créez une machine virtuelle à partir du disque de système d’exploitation de la machine virtuelle source :
-   
-   1. Utilisez [ce modèle Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd-new-or-existing-vnet) pour créer une machine virtuelle à partir d’un disque dur virtuel spécialisé. Cliquez sur le bouton `Deploy to Azure` pour ouvrir le portail Azure avec les informations préremplies.
-
-   2. Si vous souhaitez conserver tous les paramètres précédents pour la machine virtuelle, sélectionnez *Modifier le modèle* pour indiquer vos réseau virtuel, sous-réseau, carte réseau ou adresse IP publique existants.
-
-   3. Dans la zone de texte `OSDISKVHDURI`, collez l’URI de votre disque dur virtuel source obtenu à l’étape précédente :
-     
-     ![Créer une machine virtuelle à partir d’un modèle](./media/reset-local-password-without-agent/create-new-vm-from-template.png)
-
-10. Une fois la nouvelle machine virtuelle exécutée, connectez-vous à elle à l’aide du Bureau à distance et du nouveau mot de passe que vous avez spécifié dans le script `FixAzureVM.cmd`.
-
-11. Dans votre session à distance vers la nouvelle machine virtuelle, supprimez les fichiers suivants pour nettoyer l’environnement :
+9. Dans votre session à distance vers la nouvelle machine virtuelle, supprimez les fichiers suivants pour nettoyer l’environnement :
     
     * Dans %windir%\System32
       * supprimez FixAzureVM.cmd
@@ -267,7 +191,7 @@ Essayez toujours de réinitialiser un mot de passe à l’aide du [portail Azure
    
    1. Sélectionnez la machine virtuelle de dépannage dans le portail Azure, puis cliquez sur *Disques*.
    
-   2. Sélectionnez le disque de données attaché à l’étape 2, cliquez sur *Détacher :* , puis sur *OK*.
+   2. Sélectionnez le disque de données attaché à l’étape 2, cliquez sur **Détacher**, puis cliquez sur **OK**.
 
      ![Détacher le disque](./media/reset-local-password-without-agent/data-disks-classic.png)
      

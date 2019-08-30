@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: 8f180308133ffba12cc3bffb19130aa7a129da9f
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 48c6d6ed60045d906fcb711bd07ab492b6bbf488
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68952892"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69543686"
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-access-tiers"></a>Stockage Blob Azure : niveaux d’accès chaud, froid et archive
 
@@ -80,6 +80,7 @@ Voici quelques exemples de scénarios d’utilisation pour le niveau d’accès 
 ### <a name="blob-rehydration"></a>Rafraîchissement des objets blob
 
 [!INCLUDE [storage-blob-rehydrate-include](../../../includes/storage-blob-rehydrate-include.md)]
+Pour en savoir plus, consultez [Réalimenter les données d’objets blob à partir du niveau Archive](storage-blob-rehydration.md).  
 
 ## <a name="account-level-tiering"></a>Hiérarchisation au niveau du compte
 
@@ -164,11 +165,13 @@ Dans cette section, les scénarios suivants sont décrits à l’aide du Portail
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 
-1. Pour accéder à votre objet blob dans votre compte de stockage : cliquez sur **Toutes les ressources**, sélectionnez votre compte de stockage, puis votre conteneur et enfin sélectionnez votre objet blob.
+1. Pour accéder à votre objet blob dans votre compte de stockage, sélectionnez Toutes les ressources, puis votre compte de stockage et enfin sélectionnez votre objet blob.
 
-1. Dans le panneau des **propriétés de l’objet blob**, cliquez sur le menu déroulant **Niveau d’accès** pour sélectionner le niveau d’accès **Chaud**, **Froid** ou **Archive**.
+1. Dans le panneau **Propriétés de l’objet blob**, sélectionnez le bouton **Changer le niveau** pour ouvrir le panneau des niveaux.
 
-1. Cliquez sur **Enregistrer** dans la partie supérieure du panneau.
+1. Sélectionnez le niveau d’accès **Chaud**, **Froid** ou **Archive**. Si votre objet blob est actuellement dans le niveau Archive et que vous souhaitez le réalimenter dans un niveau en ligne, vous pouvez également sélectionner une priorité de réalimentation **Standard** ou **Élevée**.
+
+1. Cliquez sur **OK** au bas du panneau.
 
 ## <a name="pricing-and-billing"></a>Tarification et facturation
 
@@ -245,6 +248,8 @@ Le stockage des données ainsi que d’autres limites sont établis à partir du
 [Vérifier la disponibilité de niveau chaud, froid et archive par région](https://azure.microsoft.com/regions/#services)
 
 [Gérer le cycle de vie du stockage Blob Azure](storage-lifecycle-management-concepts.md)
+
+[Découvrir comment réalimenter les données d’objets blob à partir du niveau Archive](storage-blob-rehydration.md)
 
 [Évaluer l’utilisation des comptes de stockage actuels en activant les métriques Azure Storage](../common/storage-enable-and-view-metrics.md)
 

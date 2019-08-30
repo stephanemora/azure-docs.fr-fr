@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 06/17/2019
+ms.date: 08/16/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1322c919906dc2d0dd23de538fa2c1992fbe5da0
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: d18c74e908f6d5c4c3d2eefb0518add380fa1324
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67164825"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69561307"
 ---
 # <a name="what-are-authentication-methods"></a>Que sont les méthodes d’authentification ?
 
@@ -31,7 +31,7 @@ Microsoft recommande vivement aux administrateurs de permettre aux utilisateurs 
 | Mot de passe | Authentification multifacteur et réinitialisation de mot de passe en libre-service |
 | Questions de sécurité | Réinitialisation de mot de passe en libre-service uniquement |
 | Adresse de messagerie | Réinitialisation de mot de passe en libre-service uniquement |
-| Application Microsoft Authenticator | Authentification multifacteur et préversion publique pour la réinitialisation de mot de passe en libre-service |
+| Application Microsoft Authenticator | Authentification multifacteur et réinitialisation de mot de passe en libre-service |
 | Jetons matériels OATH | Préversion publique pour l’authentification multifacteur et la réinitialisation de mot de passe en libre-service |
 | sms | Authentification multifacteur et réinitialisation de mot de passe en libre-service |
 | Appel vocal | Authentification multifacteur et réinitialisation de mot de passe en libre-service |
@@ -41,7 +41,7 @@ Microsoft recommande vivement aux administrateurs de permettre aux utilisateurs 
 
 |     |
 | --- |
-| Les jetons matériels OATH pour l’authentification multifacteur et la réinitialisation de mot de passe en libre-service, et la notification d’application mobile ou le code d’application mobile en tant que méthodes de réinitialisation de mot de passe en libre-service Azure AD, sont des fonctionnalités disponibles dans la préversion publique d’Azure Active Directory. Pour plus d’informations sur les préversions, consultez [Conditions d’utilisation supplémentaires pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
+| Les jetons matériels OATH pour MFA et SSPR sont des fonctionnalités en préversion publique d’Azure Active Directory. Pour plus d’informations sur les préversions, consultez [Conditions d’utilisation supplémentaires pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
 |     |
 
 ## <a name="password"></a>Mot de passe
@@ -156,7 +156,7 @@ Les utilisateurs peuvent combiner jusqu’à cinq jetons matériels OATH ou des 
 
 ## <a name="oath-hardware-tokens-public-preview"></a>Jetons matériels OATH (préversion publique)
 
-OATH est une norme ouverte qui spécifie le mode de génération des codes de mot de passe (OTP) à usage unique. Azure AD prendra maintenant en charge l’utilisation des jetons OATH-TOTP SHA-1 de 30 secondes ou 60 secondes. Les clients peuvent se procurer ces jetons auprès du fournisseur de leur choix. Les secrets sont limités à 128 caractères et cette limite peut ne pas être compatible avec tous les jetons.
+OATH est une norme ouverte qui spécifie le mode de génération des codes de mot de passe (OTP) à usage unique. Azure AD prendra maintenant en charge l’utilisation des jetons OATH-TOTP SHA-1 de 30 secondes ou 60 secondes. Les clients peuvent se procurer ces jetons auprès du fournisseur de leur choix. Les secrets sont limités à 128 caractères et cette limite peut ne pas être compatible avec tous les jetons. Les clés secrètes doivent être encodées en Base32.
 
 ![Chargement des jetons OATH dans le panneau de jetons OATH du serveur MFA](media/concept-authentication-methods/oath-tokens-azure-ad.png)
 

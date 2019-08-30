@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 41fa5a859e738c2bb70e4885aa856f247e922492
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 3a2702abd39ecdf506d58b6bd8884f12607e29e8
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67448999"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69615291"
 ---
 # <a name="diagnostic-logging-in-azure-cosmos-db"></a>Journalisation des diagnostics dans Azure Cosmos DB 
 
-Après avoir commencé à utiliser une ou plusieurs bases de données Azure Cosmos DB, vous pouvez surveiller comment et quand vos bases de données font l’objet d’un accès. Cet article fournit une vue d’ensemble des journaux d’activité disponibles sur la plateforme Azure. Vous y apprendrez comment activer la journalisation des diagnostics à des fins de supervision pour envoyer les journaux d’activité à [Stockage Azure](https://azure.microsoft.com/services/storage/), comment diffuser des journaux d’activité sur [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)et comment exporter des journaux d’activité vers les [journaux Azure Monitor](https://azure.microsoft.com/services/log-analytics/).
+Après avoir commencé à utiliser une ou plusieurs bases de données Azure Cosmos, vous pouvez superviser comment et quand vos bases de données font l’objet d’un accès. Cet article fournit une vue d’ensemble des journaux d’activité disponibles sur la plateforme Azure. Vous y apprendrez comment activer la journalisation des diagnostics à des fins de supervision pour envoyer les journaux d’activité à [Stockage Azure](https://azure.microsoft.com/services/storage/), comment diffuser des journaux d’activité sur [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)et comment exporter des journaux d’activité vers les [journaux Azure Monitor](https://azure.microsoft.com/services/log-analytics/).
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -183,7 +183,7 @@ Pour plus d’informations sur la configuration d’Azure PowerShell, consultez 
 ### <a id="storage"></a>Création d’un nouveau compte de stockage pour vos journaux d’activité
 Bien que vous puissiez utiliser un compte de stockage existant pour vos journaux d’activité, dans ce didacticiel nous en créons un nouveau qui sera dédié à vos journaux d’activité Azure Cosmos DB. Pour plus de commodité, nous stockons les détails du compte de stockage dans une variable nommée **sa**.
 
-Pour faciliter encore la gestion, dans ce didacticiel nous utilisons le groupe de ressources qui contient la base de données Azure Cosmos DB. Remplacez les valeurs des paramètres **ContosoResourceGroup**, **contosocosmosdblogs** et **USA Centre Nord**, comme il convient :
+Pour faciliter encore la gestion, dans ce tutoriel nous utilisons le groupe de ressources qui contient la base de données Azure Cosmos. Remplacez les valeurs des paramètres **ContosoResourceGroup**, **contosocosmosdblogs** et **USA Centre Nord**, comme il convient :
 
 ```powershell
 $sa = New-AzStorageAccount -ResourceGroupName ContosoResourceGroup `
@@ -397,7 +397,7 @@ Maintenant que vous avez activé la collecte de données, exécutez une recherch
 <a id="#queries"></a>
 ### <a name="queries"></a>Requêtes
 
-Voici quelques requêtes supplémentaires que vous pouvez entrer dans la zone **Recherche dans les journaux**. Elles vous aideront à surveiller vos conteneurs Azure Cosmos DB. Ces requêtes fonctionnent avec le [nouveau langage](../log-analytics/log-analytics-log-search-upgrade.md). 
+Voici quelques requêtes supplémentaires que vous pouvez entrer dans la zone **Recherche dans les journaux**. Elles vous aideront à superviser vos conteneurs Azure Cosmos. Ces requêtes fonctionnent avec le [nouveau langage](../log-analytics/log-analytics-log-search-upgrade.md). 
 
 Pour en savoir plus sur la signification des données retournées par chaque recherche dans les journaux d’activité, consultez [Interpréter vos journaux d’activité Azure Cosmos DB](#interpret).
 
@@ -486,4 +486,4 @@ Le tableau suivant décrit le contenu de chaque entrée de journal.
    - [Nouveautés des concentrateurs d’événements Azure ?](../event-hubs/event-hubs-what-is-event-hubs.md)
    - [Prise en main des hubs d’événements](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 - Consultez [Télécharger les journaux de métriques et de diagnostics de Stockage Azure](../storage/blobs/storage-quickstart-blobs-dotnet.md#download-blobs).
-- Consultez la [Présentation des recherches dans les journaux d’activité Azure Monitor](../log-analytics/log-analytics-log-search-new.md).
+- Consultez la [Vue d’ensemble des recherches dans les journaux Azure Monitor](../log-analytics/log-analytics-log-search-new.md).

@@ -4,14 +4,14 @@ description: Utilisez Azure Resource Manager ou une API REST pour déplacer d
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 07/09/2019
+ms.date: 08/19/2019
 ms.author: tomfitz
-ms.openlocfilehash: e23d7c571a010e5bfb42e5f15368e0194272ed53
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 445ee2784a74a366089a49a0e2f2f17d51ef93bf
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67723341"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624301"
 ---
 # <a name="troubleshoot-moving-azure-resources-to-new-resource-group-or-subscription"></a>Résoudre les problèmes liés au déplacement de ressources vers un nouveau groupe de ressource ou abonnement
 
@@ -33,13 +33,17 @@ Certains services doivent faire l'objet de considérations supplémentaires en t
 * [Services d’application](./move-limitations/app-service-move-limitations.md)
 * [Azure DevOps Services](/azure/devops/organizations/billing/change-azure-subscription?toc=/azure/azure-resource-manager/toc.json)
 * [Modèle de déploiement classique](./move-limitations/classic-model-move-limitations.md)
+* [Mise en réseau](./move-limitations/networking-move-limitations.md)
 * [Recovery Services](../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json)
 * [Machines virtuelles](./move-limitations/virtual-machines-move-limitations.md)
-* [Réseaux virtuels](./move-limitations/virtual-network-move-limitations.md)
 
 ## <a name="large-requests"></a>Requêtes volumineuses
 
 Quand c’est possible, divisez les grands déplacements en opérations de déplacement distinctes. Resource Manager retourne immédiatement une erreur en cas de tentative de déplacement de plus de 800 ressources en une seule opération. Cependant, un déplacement de moins de 800 ressources peut également échouer en raison d’un dépassement du délai d’expiration.
+
+## <a name="resource-not-in-succeeded-state"></a>Ressource qui n’est pas dans un état de réussite
+
+Si vous obtenez un message d’erreur indiquant qu’une ressource ne peut pas être déplacée parce qu’elle n’est pas dans un état de réussite, le problème peut en fait être lié à une ressource dépendante qui bloque le déplacement. Consultez [État des ressources dépendantes](./move-limitations/networking-move-limitations.md#state-of-dependent-resources).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

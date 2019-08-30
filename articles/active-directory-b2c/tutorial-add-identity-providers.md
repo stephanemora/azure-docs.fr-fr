@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 07/08/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 5710ccfe5d6450714e029827a795b484b1bcd2b4
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: 388ef66351140dab18bd7c92290d84f0f4d734ac
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68716659"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69622785"
 ---
 # <a name="tutorial-add-identity-providers-to-your-applications-in-azure-active-directory-b2c"></a>Didacticiel : Ajouter des fournisseurs d’identité à vos applications dans Azure Active Directory B2C
 
@@ -94,13 +94,11 @@ Après avoir créé l’application pour le fournisseur d’identité que vous s
 
 ### <a name="add-the-azure-active-directory-identity-provider"></a>Ajouter le fournisseur d’identité Azure Active Directory
 
-1. Veillez à utiliser l’annuaire qui contient votre locataire Azure AD B2C en cliquant sur le **filtre annuaire et abonnement** dans le menu du haut et en choisissant l’annuaire qui contient votre locataire Azure AD B2C.
+1. Veillez à bien utiliser le répertoire qui contient le locataire Azure AD B2C. Sélectionnez le filtre **Annuaire + abonnement** dans le menu du haut, puis choisissez l’annuaire qui contient votre locataire Azure AD B2C.
 1. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Azure AD B2C**.
-1. Cliquez sur **Fournisseurs d’identité**, puis sélectionnez **Ajouter**.
+1. Sélectionnez **Fournisseurs d’identité**, puis **Nouveau fournisseur OpenID Connect**.
 1. Saisissez un **Nom**. Par exemple, entrez *Contoso Azure AD*.
-1. Sélectionnez **Type de fournisseur d’identité**, sélectionnez **OpenID Connect (préversion)** , puis cliquez sur **OK**.
-1. Cliquez sur **Configurer ce fournisseur d’identité**.
-1. Pour **URL des métadonnées**, entrez l’URL suivante en remplaçant `your-AD-tenant-domain` par le nom de domaine de votre locataire Azure AD.
+1. Dans **URL des métadonnées**, entrez l’URL suivante en remplaçant `your-AD-tenant-domain` par le nom de domaine de votre locataire Azure AD :
 
     ```
     https://login.microsoftonline.com/your-AD-tenant-domain/.well-known/openid-configuration
@@ -108,28 +106,27 @@ Après avoir créé l’application pour le fournisseur d’identité que vous s
 
     Par exemple : `https://login.microsoftonline.com/contoso.onmicrosoft.com/.well-known/openid-configuration`.
 
-1. Pour **ID client**, entrez l’*ID d’application (client)* que vous avez consigné précédemment.
-1. Pour **Clé secrète client**, entrez la valeur de *clé secrète client* que vous avez consignée précédemment.
-1. Entrez éventuellement une valeur pour **Domain_hint**. Par exemple : `ContosoAD`. Les [indications de domaine](../active-directory/manage-apps/configure-authentication-for-federated-users-portal.md) sont des directives incluses dans la demande d’authentification émise par une application. Elles peuvent servir à accélérer l’utilisateur vers la page de connexion de son fournisseur d’identité fédéré. Ou elles peuvent être utilisées par une application multilocataire pour accélérer l’utilisateur directement vers la page de connexion Azure AD personnalisée pour son locataire.
-1. Sélectionnez **OK**.
-1. Sélectionnez **Mapper les revendications de ce fournisseur d’identité** et définissez les revendications suivantes :
+1. Dans **ID client**, entrez l’ID d’application que vous avez enregistré précédemment.
+1. Dans **Clé secrète client**, entrez la clé secrète client que vous avez enregistrée précédemment.
+1. Conservez les valeurs par défaut dans **Étendue**, **Type de réponse** et **Mode de réponse**.
+1. (Facultatif) Entrez une valeur pour **Domain_hint**. Par exemple, *ContosoAD*. Les [indications de domaine](../active-directory/manage-apps/configure-authentication-for-federated-users-portal.md) sont des directives incluses dans la demande d’authentification émise par une application. Elles peuvent servir à accélérer l’utilisateur vers la page de connexion de son fournisseur d’identité fédéré. Ou elles peuvent être utilisées par une application multilocataire pour accélérer l’utilisateur directement vers la page de connexion Azure AD personnalisée pour son locataire.
+1. Sous **Mappage des revendications du fournisseur d’identité**, entrez les valeurs de mappage des revendications suivantes :
 
-    - Pour **Identifiant utilisateur**, entrez `oid`.
-    - Pour **Nom d’affichage**, entrez `name`.
-    - Pour **Prénom**, entrez `given_name`.
-    - Pour **Nom**, entrez `family_name`.
-    - Pour **E-mail**, entrez `unique_name`.
+    * **ID d’utilisateur** : *oid*
+    * **Nom d’affichage** : *name*
+    * **Prénom** : *given_name*
+    * **Nom** : *family_name*
+    * **E-mail** : *unique_name*
 
-1. Sélectionnez **OK**, puis **Créer** pour enregistrer votre configuration.
+1. Sélectionnez **Enregistrer**.
 
 ### <a name="add-the-facebook-identity-provider"></a>Ajouter le fournisseur d’identité Facebook
 
-1. Cliquez sur **Fournisseurs d’identité**, puis sélectionnez **Ajouter**.
-1. Entrez un **nom**. Par exemple, entrez *Facebook*.
-1. Sélectionnez **Type de fournisseur d’identité**, **Facebook**, puis **OK**.
-1. Sélectionnez **Configurer ce fournisseur d’identité** et entrez l’*ID d’application* que vous avez enregistré précédemment en tant qu’**ID client**.
-1. Entrez le **Secret d’application** que vous avez consigné en tant que *Clé secrète client*.
-1. Sélectionnez **OK**, puis **Créer** pour enregistrer votre configuration Facebook.
+1. Sélectionnez **Fournisseurs d’identité**, puis **Facebook**.
+1. Saisissez un **Nom**. Par exemple, *Facebook*.
+1. Dans **ID client**, entrez l’ID de l’application Facebook que vous avez créée précédemment.
+1. Dans **Clé secrète client**, entrez la clé secrète d’application que vous avez enregistrée.
+1. Sélectionnez **Enregistrer**.
 
 ## <a name="update-the-user-flow"></a>Mettre à jour le flux d'utilisateurs
 

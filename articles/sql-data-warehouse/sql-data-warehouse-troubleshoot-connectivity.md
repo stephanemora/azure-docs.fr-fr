@@ -10,12 +10,12 @@ ms.subservice: supportability
 ms.date: 03/27/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
-ms.openlocfilehash: 2d7f56b65db09232af4fe7e198675ea0cfd64a25
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 290753b866f15e09a52572fdd7a43a60fc2812d6
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67595491"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69575547"
 ---
 # <a name="troubleshooting-connectivity-issues"></a>Résolution des problèmes de connectivité
 
@@ -31,11 +31,11 @@ Cet article répertorie les techniques de dépannage courantes relatives à la c
 
 ## <a name="check-service-availability"></a>Vérifier la disponibilité du service
 
-Vérifiez si le service est disponible. Dans le Portail Azure, accédez à l’entrepôt de données SQL auquel vous souhaitez vous connecter. Dans le panneau Table des matières à gauche, cliquez sur **Diagnostiquer et résoudre les problèmes**.
+Vérifiez si le service est disponible. Dans le portail Azure, accédez à l’entrepôt SQL Data Warehouse auquel vous souhaitez vous connecter. Dans le panneau Table des matières à gauche, cliquez sur **Diagnostiquer et résoudre les problèmes**.
 
 ![Sélectionner l’intégrité des ressources](./media/sql-data-warehouse-troubleshoot-connectivity/diagnostics-link.png)
 
-L’état de votre entrepôt de données SQL s’affiche ici. Si le service ne s’affiche pas comme étant **disponible**, vérifiez d’autres étapes.
+L’état de votre entrepôt SQL Data Warehouse s’affiche ici. Si le service ne s’affiche pas comme étant **disponible**, vérifiez d’autres étapes.
 
 ![Service disponible](./media/sql-data-warehouse-troubleshoot-connectivity/resource-health.png)
 
@@ -45,15 +45,15 @@ Si l’intégrité des ressources indique que votre entrepôt de données est in
 
 ## <a name="check-for-paused-or-scaling-operation"></a>Vérifier les opérations de mise à l’échelle ou interrompues
 
-Vérifiez le portail pour voir si l’entrepôt de données SQL est interrompu ou mis à l’échelle.
+Dans le portail, vérifiez si votre entrepôt SQL Data Warehouse est interrompu ou mis à l’échelle.
 
 ![Service suspendu](./media/sql-data-warehouse-troubleshoot-connectivity/overview-paused.png)
 
-Si vous constatez que votre service est interrompu ou mis à l’échelle, vérifiez que ce n’est pas durant le programme de maintenance. Sur le portail, dans la *Vue d’ensemble* de votre entrepôt de données SQL, vous verrez le programme de maintenance sélectionné.
+Si vous constatez que votre service est interrompu ou mis à l’échelle, vérifiez que ce n’est pas durant le programme de maintenance. Dans le portail, dans la *Vue d’ensemble* de votre entrepôt SQL Data Warehouse, vous verrez le programme de maintenance sélectionné.
 
 ![Vue d’ensemble du programme de maintenance](./media/sql-data-warehouse-troubleshoot-connectivity/overview-maintance-schedule.png)
 
-Sinon, contactez votre administrateur informatique pour vérifier que cette opération de maintenance n’est pas un événement planifié. Pour reprendre l’exécution de l’entrepôt de données SQL, suivez les étapes décrites [ici](https://docs.microsoft.com/azure/sql-data-warehouse/pause-and-resume-compute-portal#resume-compute).
+Sinon, contactez votre administrateur informatique pour vérifier que cette opération de maintenance n’est pas un événement planifié. Pour reprendre l’exécution de l’entrepôt SQL Data Warehouse, suivez les étapes décrites [ici](https://docs.microsoft.com/azure/sql-data-warehouse/pause-and-resume-compute-portal#resume-compute).
 
 ## <a name="check-your-firewall-settings"></a>Vérifier les paramètres de pare-feu
 
@@ -67,7 +67,7 @@ Si vous recevez des erreurs 40914 et 40615, consultez la documentation [Résolut
 
 ### <a name="software"></a>Logiciel
 
-Vérifiez que vous utilisez les derniers outils pour vous connecter à l’entrepôt de données SQL :
+Vérifiez que vous utilisez bien les outils les plus récents pour vous connecter à votre entrepôt SQL Data Warehouse :
 
 * SSMS
 * Studio de données Azure

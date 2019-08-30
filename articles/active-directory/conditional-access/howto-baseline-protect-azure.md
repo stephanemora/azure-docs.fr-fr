@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aab2aa4415345747a0e87b90ef0a7ee770ef3465
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: e8095b4fa6e52b7c34cedaea35b129ab68dddc65
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68608126"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69532958"
 ---
 # <a name="baseline-policy-require-mfa-for-service-management-preview"></a>Stratégie de référence : exiger l’authentification MFA pour le management des services (préversion)
 
@@ -32,21 +32,21 @@ Utiliser Azure Resource Manager pour gérer vos services est une action très pr
 
 Une fois que cette stratégie est activée dans un locataire, tous les utilisateurs qui se connectent à des ressources de gestion Azure seront confrontés à une authentification multifacteur. Si l’utilisateur n’est pas inscrit pour une authentification MFA, celui-ci devra s’inscrire à l’aide de l’application d’authentification Microsoft Authenticator pour continuer.
 
-Pour effectuer une connexion interactive à l’aide d’[Azure Powershell](https://docs.microsoft.com/powershell/azure/authenticate-azureps), utilisez la cmdlet [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount).
+Pour effectuer une connexion interactive à l’aide d’[Azure Powershell](https://docs.microsoft.com/powershell/azure/authenticate-azureps), utilisez l’applet de commande [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount).
 
 ```PowerShell
 Connect-AzAccount
 ```
 
-Lorsque vous l’exécutez, cette cmdlet présente une chaîne de jeton. Pour vous connecter, copiez cette chaîne et collez-la dans [https://microsoft.com/devicelogin](https://microsoft.com/devicelogin)  dans un navigateur. Votre session PowerShell est ainsi authentifiée pour vous connecter à Azure.
+Lorsque vous l’exécutez, cette cmdlet présente une chaîne de jeton. Pour vous connecter, copiez cette chaîne et collez-la dans [https://microsoft.com/devicelogin](https://microsoft.com/devicelogin) dans un navigateur. Votre session PowerShell est ainsi authentifiée pour vous connecter à Azure.
 
-Pour effectuer une connexion interactive à l’aide d’[Azure CLI](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest), exécutez la commande [az login](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-login).
+Pour effectuer une connexion interactive à l’aide d’[Azure CLI](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest), exécutez la commande[az login](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-login).
 
 ```azurecli
 az login
 ```
 
-Si l’interface CLI peut ouvrir votre navigateur par défaut, elle le fera et chargera une page de connexion par la même occasion. Sinon, vous devez ouvrir une page de navigateur et suivre les instructions sur la ligne de commande pour entrer un code d’autorisation après avoir accédé à [https://aka.ms/devicelogin](https://aka.ms/devicelogin) dans votre navigateur. Ensuite, connectez-vous avec les informations d’identification de votre compte dans le navigateur.
+Si l’interface CLI peut ouvrir votre navigateur par défaut, elle le fera et chargera une page de connexion par la même occasion. Sinon, vous devez ouvrir une page de navigateur et suivre les instructions sur la ligne de commande pour entrer un code d’autorisation après avoir accédé à [https://aka.ms/devicelogin](https://aka.ms/devicelogin) dans votre navigateur. Ensuite, connectez-vous avec les informations d’identification de votre compte dans le navigateur.
 
 ## <a name="deployment-considerations"></a>Points à prendre en considération pour le déploiement
 
@@ -58,11 +58,11 @@ La stratégie **Stratégie de référence : exiger l’authentification MFA pour
 
 Pour activer cette stratégie et protéger vos administrateurs, procédez comme suit :
 
-1. Connectez-vous au  **portail Azure** en tant qu’administrateur général, administrateur de sécurité ou administrateur de l’accès conditionnel.
+1. Connectez-vous au **portail Azure** en tant qu’administrateur général, administrateur de sécurité ou administrateur de l’accès conditionnel.
 1. Accédez à **Azure Active Directory** > **Accès conditionnel**.
 1. Dans la liste des stratégies, sélectionnez **Stratégie de référence : exiger l’authentification MFA pour le management des services (préversion)** .
 1. Définissez **Activer la stratégie** sur **Utiliser la stratégie immédiatement**.
-1. Cliquez sur  **Enregistrer**.
+1. Cliquez sur **Enregistrer**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

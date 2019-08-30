@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 08/13/2018
 ms.author: saudas
-ms.openlocfilehash: 1668e0b3b155804496b190f2ba66d220ba0dd219
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 00fadd8a98ec4f58783ed8b407e2621a7c107149
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68381951"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69533526"
 ---
 # <a name="aks-troubleshooting"></a>Résolution des problèmes liés à AKS
 
@@ -86,10 +86,12 @@ Cette erreur se produit quand des clusters basculent dans un état d’échec po
 
 *Cette assistance de dépannage est redirigée depuis https://aka.ms/aks-pending-upgrade*
 
-Les opérations de cluster sont limitées quand des opérations de mise à niveau active sont en cours ou qu’une mise à niveau a été entreprise pour finalement échouer. Pour diagnostiquer le problème, exécutez `az aks show -g myResourceGroup -n myAKSCluster -o table` pour récupérer l’état détaillé de votre cluster. Selon le résultat :
+Les opérations de mise à niveau et de mise à l’échelle sur un cluster doté d’un seul pool de nœuds ou un cluster doté de [plusieurs pools de nœuds](use-multiple-node-pools.md) s’excluent mutuellement. Il ne peut pas y avoir de mise à niveau et de mise à l’échelle simultanées d’un cluster ou d’un pool de nœuds. En effet, chaque opération doit être terminée sur la ressource cible avant l’exécution de la demande suivante sur cette même ressource. De ce fait, les opérations sont limitées quand des opérations de mise à niveau ou de mise à l’échelle actives se produisent ou sont entreprises et qu’elles échouent par la suite. 
+
+Pour faciliter le diagnostic du problème, exécutez `az aks show -g myResourceGroup -n myAKSCluster -o table` pour récupérer l’état détaillé de votre cluster. Selon le résultat :
 
 * Si le cluster est en cours de mise à niveau, patientez le temps que l’opération se termine. Si elle a abouti, tentez à nouveau l’opération qui a échoué auparavant.
-* Si la mise la mise à niveau du cluster a échoué, suivez les étapes décrites plus haut.
+* Si la mise la mise à niveau du cluster a échoué, suivez les étapes décrites dans la section précédente.
 
 ## <a name="can-i-move-my-cluster-to-a-different-subscription-or-my-subscription-with-my-cluster-to-a-new-tenant"></a>Puis-je déplacer mon cluster vers un autre abonnement ou mon abonnement et mon cluster vers un nouveau locataire ?
 

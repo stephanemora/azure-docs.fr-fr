@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 08/08/2019
 ms.author: alkohli
-ms.openlocfilehash: 8fecc00a970f0e706dc6240eaec593fd54968ff8
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 72e1d3b0ad72b1e68b88eb0550cbe839ade9d929
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934222"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69535180"
 ---
 # <a name="tracking-and-event-logging-for-your-azure-data-box-and-azure-data-box-heavy"></a>Suivi et journalisation des événements de votre Azure Data Box et Azure Data Box Heavy
 
@@ -64,7 +64,7 @@ Vous pouvez suivre votre commande via le Portail Azure et via le site web du tra
 
 - Votre Data Box arrive dans vos locaux dans un état verrouillé. Vous pouvez utiliser les informations d’identification de l’appareil disponibles dans la section du Portail Azure concernant votre commande.  
 
-    Lors de la configuration de Data Box, vous aurez peut-être besoin de savoir qui a eu accès aux informations d’identification de l’appareil. Pour déterminer qui a accédé au panneau **Informations d’identification de l’appareil**, vous pouvez interroger les journaux d’activité.  Toute action qui implique l’accès au panneau **Détails sur l’appareil > Informations d’identification** est enregistrée dans les journaux d’activité en tant qu’action `ListCredentials`.
+    Lors de la configuration de Data Box, vous aurez peut-être besoin de savoir qui a eu accès aux informations d’identification de l’appareil. Pour déterminer qui a accédé au panneau **Informations d’identification de l’appareil**, vous pouvez interroger les journaux d’activité.  Toute action qui implique l’accès au panneau **Détails sur l’appareil > Informations d’identification** est enregistrée dans les journaux d’activité en tant qu’action `ListCredentials`.
 
     ![Interroger les journaux d’activité](media/data-box-logs/query-activity-log-1.png)
 
@@ -76,7 +76,7 @@ Lors de la copie des données dans Data Box ou Data Box Heavy, un fichier d’er
 
 ### <a name="errorxml-file"></a>Fichier Error.xml
 
-Assurez-vous que les travaux de copie ont été accomplis sans erreurs. Si des erreurs se sont produites durant le processus de copie, téléchargez les journaux à partir de la page  **Connexion et copie** .
+Assurez-vous que les travaux de copie ont été accomplis sans erreurs. Si des erreurs se sont produites durant le processus de copie, téléchargez les journaux à partir de la page **Connexion et copie**.
 
 - Si vous avez copié un fichier qui n’est pas de 512 octets alignés dans un dossier de disque managé sur votre Data Box, celui-ci n’est pas chargé en tant qu’objet blob de pages sur votre compte de stockage intermédiaire. Vous verrez une erreur dans les journaux. Supprimez le fichier et copiez un fichier de 512 octets alignés.
 - Si vous avez copié un fichier de disque dur virtuel (VHDX), VHD dynamique ou VHD de différenciation (ces fichiers ne sont pas pris en charge), vous verrez une erreur dans les journaux.
@@ -203,7 +203,7 @@ Pour chaque commande traitée, le service Data Box crée un journal de copie dan
 
 Un contrôle de redondance cyclique (CRC) est effectué pendant le chargement vers Azure. Les CRC de la copie des données et post-chargement sont comparés. Une différence entre les CRC indique que les fichiers correspondants n’ont pas été chargés.
 
-Par défaut, les journaux sont écrits dans un conteneur nommé  `copylog`. Les journaux sont stockés avec la convention d’affectation de noms suivante :
+Par défaut, les journaux d’activité sont écrits dans un conteneur nommé `copylog`. Les journaux sont stockés avec la convention d’affectation de noms suivante :
 
 `storage-account-name/databoxcopylog/ordername_device-serial-number_CopyLog_guid.xml`.
 
@@ -354,7 +354,7 @@ The authentication information fields provide detailed information about this sp
 
 ## <a name="download-order-history"></a>Télécharger l’historique des commandes
 
-L’historique des commandes est disponible dans le Portail Azure. Si la commande est terminée et que le nettoyage de l’appareil (l’effacement des données des disques) est terminé lui aussi, accédez à votre commande d’appareil, puis à **Détails de la commande**. L’option  **Télécharger l’historique des commandes**  est disponible. Pour plus d’informations, consultez [Télécharger l’historique des commandes](data-box-portal-admin.md#download-order-history).
+L’historique des commandes est disponible dans le Portail Azure. Si la commande est terminée et que le nettoyage de l’appareil (l’effacement des données des disques) est terminé lui aussi, accédez à votre commande d’appareil, puis à **Détails de la commande**. L’option **Download order history** (Télécharger l’historique des commandes) est disponible. Pour plus d’informations, consultez [Télécharger l’historique des commandes](data-box-portal-admin.md#download-order-history).
 
 En faisant défiler l’historique des commandes, vous verrez les éléments suivants :
 

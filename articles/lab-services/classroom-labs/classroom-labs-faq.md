@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/26/2019
+ms.date: 08/20/2019
 ms.author: spelluru
-ms.openlocfilehash: 261f337ac72a28bc2e1c74e23731242cc3bd0075
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 411037dd97350d877aff4e2d094c3408f168f9fd
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68571293"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69648573"
 ---
 # <a name="classroom-labs-in-azure-lab-services---frequently-asked-questions-faq"></a>Labs de salle de classe dans Azure Lab Services - Forum aux questions (FAQ)
 Obtenez des réponses aux questions les plus fréquemment posées sur les labs de salle de classe dans Azure Lab Services. 
@@ -44,13 +44,13 @@ Par exemple, si vous avez un bloc de /19 - 10.0.0.0/19, cette plage d’adress
 Abonnez-vous au [blog Azure Lab Services](https://azure.microsoft.com/blog/tag/azure-lab-services/).
 
 ## <a name="update-notifications"></a>Notifications de mise à jour
-Abonnez-vous aux [mises à jour de Lab Services](https://azure.microsoft.com/updates/?product=lab-services) pour rester informé des nouvelles fonctionnalités de DevTest Labs.
+Abonnez-vous aux [mises à jour de Lab Services](https://azure.microsoft.com/updates/?product=lab-services) pour rester informé des nouvelles fonctionnalités de Lab Services.
 
 ## <a name="general"></a>Généralités
 ### <a name="what-if-my-question-isnt-answered-here"></a>Que dois-je faire si je n’ai pas trouvé de réponse à ma question ici ?
 Si votre question n’est pas répertoriée ici, faites-le-nous savoir pour que nous puissions vous aider à trouver une réponse.
 
 - Postez une question à la fin de ce Forum aux questions. 
-- Pour atteindre un public plus large, postez une question sur le [forum MSDN consacré à Azure DevTest Labs](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureDevTestLabs). 
-- Concernant les demandes et idées de fonctionnalité, envoyez-les à [Azure DevTest Labs User Voice](https://feedback.azure.com/forums/320373-azure-devtest-labs).
+- Pour atteindre un public plus large, postez une question sur le [forum Stack Overflow consacré à Azure Lab Services](https://stackoverflow.com/questions/tagged/azure-lab-services). 
+- Concernant les demandes de fonctionnalité, transmettez vos questions et idées à [Azure Lab Services - User Voice](https://feedback.azure.com/forums/320373-lab-services?category_id=352774).
 

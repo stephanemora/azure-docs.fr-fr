@@ -12,12 +12,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: cfa9d6a1a287281bec91facf04c73506db81f84a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4962070d69af98d0c7b10dc6f931612766529dce
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64711556"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69515703"
 ---
 # <a name="customize-setup-for-the-azure-ssis-integration-runtime"></a>Personnalisation l’installation du runtime d’intégration Azure-SSIS
 
@@ -39,6 +39,8 @@ Vous pouvez installer des composants libres, ou sans licence, et des composants 
 -   Si vous devez joindre votre IR Azure-SSIS avec une installation personnalisée à un réseau virtuel, seul le réseau virtuel Azure Resource Manager est pris en charge. Le réseau virtuel classique n'est pas pris en charge.
 
 -   Actuellement, le partage administratif n’est pas pris en charge sur l’IR Azure-SSIS.
+
+-   Le pilote ODBC IBM iSeries Access n’est pas pris en charge sur Azure-SSIS IR. Vous pouvez voir une erreur d’installation lors de l’installation personnalisée. Pour obtenir de l’aide, contactez le support IBM.
 
 ## <a name="prerequisites"></a>Prérequis
 

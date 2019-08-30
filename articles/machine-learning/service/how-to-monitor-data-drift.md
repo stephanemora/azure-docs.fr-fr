@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 ms.author: copeters
 author: cody-dkdc
 ms.date: 07/08/2019
-ms.openlocfilehash: b9593a5802300da8baa1e518f14885637db2068f
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 41e357ee53d4c2fbc6683be3446ba2527dd9253f
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69036193"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69623977"
 ---
 # <a name="detect-data-drift-preview-on-models-deployed-to-azure-kubernetes-service-aks"></a>Détecter une dérive de données (préversion) sur des modèles déployés sur Azure Kubernetes Service (AKS)
 
@@ -40,7 +40,7 @@ Avec Azure Machine Learning service, vous pouvez surveiller les entrées d’un 
 
 ### <a name="how-data-drift-is-monitored-in-azure-machine-learning-service"></a>Supervision de la dérive des données dans Azure Machine Learning service
 
-Avec Azure Machine Learning service, la dérive de données est supervisée par le biais de jeux de données ou de déploiements. Pour superviser la dérive des données, un jeu de données de référence (généralement le jeu de données d’entraînement d’un modèle) est spécifié. Un deuxième jeu de données (généralement les données d’entrée du modèle qui ont été collectées à partir d’un déploiement) est testé en le comparant avec le jeu de données de référence. Les deux jeux de données sont [profilés](how-to-explore-prepare-data.md#explore-with-summary-statistics) et sont utilisés comme entrée pour le service de supervision de la dérive des données. Un modèle Machine Learning est entraîné pour détecter les différences entre les deux jeux de données. Les performances du modèle sont converties pour établir un coefficient dérive mesurant l’étendue de la dérive entre les deux jeux de données. Grâce à l’[interprétabilité des modèles](machine-learning-interpretability-explainability.md), les fonctionnalités qui contribuent au coefficient de dérive sont calculées. De nombreuses informations (profil du jeu de données, données statistiques, etc.) relatives à chaque fonctionnalité sont suivies. 
+Avec Azure Machine Learning service, la dérive de données est supervisée par le biais de jeux de données ou de déploiements. Pour superviser la dérive des données, un jeu de données de référence (généralement le jeu de données d’entraînement d’un modèle) est spécifié. Un deuxième jeu de données (généralement les données d’entrée du modèle qui ont été collectées à partir d’un déploiement) est testé en le comparant avec le jeu de données de référence. Les deux jeux de données sont profilés et sont utilisés comme entrée pour le service de supervision de la dérive des données. Un modèle Machine Learning est entraîné pour détecter les différences entre les deux jeux de données. Les performances du modèle sont converties pour établir un coefficient dérive mesurant l’étendue de la dérive entre les deux jeux de données. Grâce à l’[interprétabilité des modèles](machine-learning-interpretability-explainability.md), les fonctionnalités qui contribuent au coefficient de dérive sont calculées. De nombreuses informations (profil du jeu de données, données statistiques, etc.) relatives à chaque fonctionnalité sont suivies. 
 
 ## <a name="prerequisites"></a>Prérequis
 

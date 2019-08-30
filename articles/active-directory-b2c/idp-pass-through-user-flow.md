@@ -1,5 +1,5 @@
 ---
-title: Transmettre un jeton d’accès via un flux utilisateur à votre application – Azure Active Directory B2C | Microsoft Docs
+title: Passer un jeton d’accès via un flux utilisateur à votre application – Azure Active Directory B2C
 description: Découvrez comment passer un jeton d’accès pour les fournisseurs d’identité OAuth 2.0 en tant que revendication dans un flux utilisateur dans Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -7,29 +7,26 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/16/2019
+ms.date: 08/17/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 8e9019699d8a81d31d2b20f674fd76fcb70021d6
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: 66b3dc4aba5d1b29cc0c6190877fbd6b26a11f0c
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67846827"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69510096"
 ---
 # <a name="pass-an-access-token-through-a-user-flow-to-your-application-in-azure-active-directory-b2c"></a>Passer un jeton d’accès par le biais d’un flux utilisateur à une application dans Azure Active Directory B2C
 
-> [!NOTE]
-> Cette fonctionnalité est actuellement disponible en préversion publique.
-
-Un [flux utilisateur](active-directory-b2c-reference-policies.md) dans Azure Active Directory (Azure AD) B2C permet aux utilisateurs d’une application de s’inscrire ou de se connecter à un fournisseur d’identité. Au départ, Azure AD B2C reçoit un [jeton d’accès](active-directory-b2c-reference-tokens.md) du fournisseur d’identité. Azure AD B2C utilise ce jeton pour récupérer des informations sur l’utilisateur. Vous activez une revendication dans votre flux utilisateur pour passer le jeton aux applications que vous inscrivez dans Azure AD B2C.
+Un [flux utilisateur](active-directory-b2c-reference-policies.md) dans Azure AD B2C (Azure Active Directory B2C) permet aux utilisateurs de votre application de s’inscrire ou de se connecter à un fournisseur d’identité. Au départ, Azure AD B2C reçoit un [jeton d’accès](active-directory-b2c-reference-tokens.md) du fournisseur d’identité. Azure AD B2C utilise ce jeton pour récupérer des informations sur l’utilisateur. Vous activez une revendication dans votre flux utilisateur pour passer le jeton aux applications que vous inscrivez dans Azure AD B2C.
 
 Pour l’instant, Azure AD B2C permet uniquement de passer le jeton d’accès de fournisseurs d’identité [OAuth 2.0](active-directory-b2c-reference-oauth-code.md) (dont font partie [Facebook](active-directory-b2c-setup-fb-app.md) et [Google](active-directory-b2c-setup-goog-app.md)). Pour tous les autres fournisseurs d’identité, la revendication est retournée vide.
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Votre application doit utiliser un [flux utilisateur v2](user-flow-versions.md).
-- Votre flux utilisateur est configuré avec un fournisseur d’identité OAuth 2.0.
+* Votre application doit utiliser un [flux utilisateur v2](user-flow-versions.md).
+* Votre flux utilisateur est configuré avec un fournisseur d’identité OAuth 2.0.
 
 ## <a name="enable-the-claim"></a>Activer la revendication
 
