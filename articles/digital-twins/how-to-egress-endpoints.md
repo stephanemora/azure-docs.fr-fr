@@ -51,7 +51,7 @@ Les événements sont envoyés par des objets IoT (tels que les appareils et cap
 | --- | --- | --- |
 | id | string | Identificateur unique de l’événement. |
 | subject | string | Chemin de l’objet de l’événement, défini par le serveur de publication. |
-| données | objet | Données d’événement spécifiques au fournisseur de ressources. |
+| données | object | Données d’événement spécifiques au fournisseur de ressources. |
 | eventType | string | Un des types d’événements inscrits pour cette source d’événement. |
 | eventTime | string | L’heure à quelle l’événement est généré selon l’heure UTC du fournisseur. |
 | dataVersion | string | Version du schéma de l’objet de données. Le serveur de publication définit la version du schéma. |
