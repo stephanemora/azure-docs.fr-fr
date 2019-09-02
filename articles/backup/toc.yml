@@ -70,6 +70,8 @@
       href: backup-architecture.md
     - name: Contrôle d’accès en fonction du rôle
       href: backup-rbac-rs-vault.md
+    - name: Sécurité pour les charges de travail cloud
+      href: backup-azure-security-feature-cloud.md
     - name: Sécurité pour les sauvegardes hybrides
       href: backup-azure-security-feature.md
     - name: Configurer la sauvegarde hors connexion

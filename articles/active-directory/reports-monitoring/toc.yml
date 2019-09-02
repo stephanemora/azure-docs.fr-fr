@@ -37,10 +37,12 @@
       href: concept-usage-insights-report.md
     - name: Connexions risquées
       href: concept-risky-sign-ins.md
-    - name: Événements à risque
+    - name: Détections de risques
       href: concept-risk-events.md
     - name: Les utilisateurs à risque
       href: concept-user-at-risk.md
+    - name: Journaux de provisionnement
+      href: concept-provisioning-logs.md
     - name: API de création de rapports
       href: concept-reporting-api.md
     - name: Journaux d’activité Azure AD dans Azure Monitor

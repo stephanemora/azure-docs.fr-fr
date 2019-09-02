@@ -1,40 +1,65 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: WAN virtuel Azure
+### YamlMime:Landing
+title: Documentation sur Virtual WAN
+summary: Apprenez à configurer, créer et gérer un WAN virtuel Azure. Générez la connectivité sécurisée des branches à l’échelle mondiale.
 metadata:
-  document_id: null
-  title: 'Documentation sur le WAN virtuel - Tutoriels, informations de référence sur les API | Microsoft Docs'
-  meta.description: 'Learn how to configure, create, and manage an Azure Virtual WAN. Build secure global scale branch connectivity.'
+  title: Documentation sur Virtual WAN
+  description: À propos de Virtual WAN
   services: virtual-wan
-  author: cherylmc
-  manager: jeconnoc
   ms.service: virtual-wan
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
-  ms.date: 10/01/2018
+  author: cherylmc
   ms.author: cherylmc
-abstract:
-  description: 'Apprenez à configurer, créer et gérer un WAN virtuel Azure. Générez la connectivité sécurisée des branches à l’échelle mondiale.'
-sections:
-  - title: Didacticiels pas à pas
-    items:
-      - type: paragraph
-        text: 'Apprenez à configurer, créer et gérer des connexions à l’aide d’Azure Virtual WAN.'
-      - type: list
-        style: unordered
-        className: spaced Bullet
-        items:
-          - html: <a href="/azure/virtual-wan/virtual-wan-site-to-site-portal">Connexions site à site</a>
-          - html: <a href="/azure/virtual-wan/virtual-wan-point-to-site-portal">Connexions point à site</a>
-          - html: <a href="/azure/virtual-wan/virtual-wan-expressroute-portal">Connexions ExpressRoute</a>
-  - title: Informations de référence
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Ligne de commande
-            html: '<p><a href="/powershell/module/az.network#networking">PowerShell</a></p><p><a href="/cli/azure/ext/virtual-wan">Interface de ligne de commande Azure</a></p>'
-          - title: REST
-            html: "<p><a href=\"https://go.microsoft.com/fwlink/p/?linkid=2005000\">Référence d’API\_REST</a></p>"
+  ms.date: 08/28/2019
+  ms.openlocfilehash: a79f04f343264669bfa4366a140c6fd11b4fc7e5
+  ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 08/28/2019
+  ms.locfileid: "70128156"
+landingContent:
+- title: À propos du WAN virtuel
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Qu’est-ce que Virtual WAN ?
+      url: virtual-wan-about.md
+  - linkListType: concept
+    links:
+    - text: Utilisation des emplacements et partenaires
+      url: virtual-wan-locations-partners.md
+    - text: Forum Aux Questions
+      url: virtual-wan-faq.md
+- title: Prise en main
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Créer une connexion de site à site
+      url: virtual-wan-site-to-site-portal.md
+    - text: Créer une association ExpressRoute
+      url: virtual-wan-expressroute-portal.md
+  - linkListType: how-to-guide
+    links:
+    - text: Acheminer le trafic depuis un hub virtuel vers une NVA
+      url: virtual-wan-route-table-portal.md
+  - linkListType: concept
+    links:
+    - text: Stratégies par défaut pour la connectivité IPsec
+      url: virtual-wan-ipsec.md
+- title: Architecture
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Architecture du réseau de transit global
+      url: virtual-wan-global-transit-network-architecture.md
+    - text: Plan de contrôle Office 365
+      url: virtual-wan-office365-overview.md
+- title: Informations de référence
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: D’Azure CLI
+      url: /cli/azure/ext/virtual-wan/network
+    - text: Azure PowerShell
+      url: /powershell/module/az.network#networking
+    - text: REST
+      url: /rest/api/virtualwan

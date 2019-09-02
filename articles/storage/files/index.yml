@@ -1,0 +1,57 @@
+### YamlMime:Landing
+title: Azure Files
+summary: Azure Files fournit des partages de fichiers managés multiplateformes dans le cloud qui sont accessibles par le biais du protocole SMB (Server Message Block).
+metadata:
+  title: Azure Files
+  description: Montez des partages de fichiers dans le cloud ou en local sur Windows, Linux et macOS. Mettez en cache les partages de fichiers Azure sur Windows Server avec Azure File Sync en accès local.
+  services: storage
+  ms.service: storage
+  ms.subservice: files
+  ms.topic: landing-page
+  ms.collection: collection
+  author: roygara
+  ms.author: rogarana
+  ms.date: 08/27/2019
+  ms.openlocfilehash: 06764b43d46dc4fee51ac58254e2d2578257f096
+  ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 08/29/2019
+  ms.locfileid: "70143048"
+landingContent:
+- title: À propos d’Azure Files
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Guide de planification Azure Files
+      url: storage-files-planning.md
+    - text: Guide de planification Azure File Sync
+      url: storage-sync-files-planning.md
+    - text: Qu’est-ce qu’Azure Files ?
+      url: storage-files-introduction.md
+- title: Prise en main
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: Créer et utiliser des partages de fichiers - Windows
+      url: storage-files-quick-create-use-windows.md
+    - text: Créer des partages de fichiers Premium
+      url: storage-how-to-create-premium-fileshare.md
+    - text: Gérer votre serveur avec Azure File Sync
+      url: storage-sync-files-server-registration.md
+  - linkListType: tutorial
+    links:
+    - text: Étendre les serveurs de fichiers Windows avec Azure File Sync
+      url: storage-sync-files-extend-servers.md
+- title: Résolution des problèmes
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Résolution des problèmes Azure Files - Windows
+      url: storage-troubleshoot-windows-file-connection-problems.md
+    - text: Résolution des problèmes Azure Files - Linux
+      url: storage-troubleshoot-linux-file-connection-problems.md
+    - text: Résolution des problèmes de performances Azure Files
+      url: storage-troubleshooting-files-performance.md
+    - text: Résolution des problèmes Azure File Sync
+      url: storage-sync-files-troubleshoot.md

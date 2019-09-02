@@ -1,5 +1,5 @@
-- name: Documentation Stockage Azure
-  href: /azure/storage/
+- name: Documentation Stockage File d'attente Azure
+  href: /azure/storage/queues/
 - name: Vue d'ensemble
   expanded: true
   items:

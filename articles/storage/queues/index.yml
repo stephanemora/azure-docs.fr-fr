@@ -1,0 +1,61 @@
+### YamlMime:Landing
+title: Documentation Stockage File d’attente Azure - Stockage Azure
+summary: Stockage File d’attente Azure est un service permettant de stocker un grand nombre de messages. Accédez aux messages depuis n’importe où dans le monde via HTTP ou HTTPS.
+metadata:
+  title: Documentation Stockage File d’attente Azure - Stockage Azure
+  description: Stockage File d’attente Azure est un service permettant de stocker un grand nombre de messages. Accédez aux messages depuis n’importe où dans le monde via HTTP ou HTTPS.
+  services: storage
+  ms.service: storage
+  ms.subservice: queues
+  ms.topic: landing-page
+  ms.collection: collection
+  author: mhopkins-msft
+  ms.author: mhopkins
+  ms.date: 08/27/2019
+  ms.openlocfilehash: 5de22a49dcc985ca95ee97d9de77180e2c56765b
+  ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 08/28/2019
+  ms.locfileid: "70129412"
+landingContent:
+- title: À propos des files d’attente Azure
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Que sont les files d’attente Azure ?
+      url: storage-queues-introduction.md
+- title: Prise en main
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Créer une file d’attente et ajouter un message à l’aide du portail Azure
+      url: storage-quickstart-queues-portal.md
+    - text: Utiliser .NET pour créer une file d’attente dans le stockage Azure
+      url: storage-quickstart-queues-dotnet.md
+- title: Développer avec des files d’attente
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Prise en main du stockage de files d’attente Azure à l’aide de .NET
+      url: storage-dotnet-how-to-use-queues.md
+    - text: Utilisation du stockage de files d'attente à partir de Java
+      url: storage-java-how-to-use-queue-storage.md
+    - text: Utilisation du stockage de files d'attente à partir de Node.js
+      url: storage-nodejs-how-to-use-queues.md
+    - text: Utilisation du stockage de files d'attente à partir de C++
+      url: storage-c-plus-plus-how-to-use-queues.md
+    - text: Utilisation du stockage de files d'attente à partir de Python
+      url: storage-python-how-to-use-queue-storage.md
+- title: Gérer des files d’attente
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Effectuer des opérations sur Stockage File d’attente Azure avec Azure PowerShell
+      url: storage-powershell-how-to-use-queues.md
+- title: Didacticiel
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Utiliser des files d’attente de stockage Azure (.NET)
+      url: storage-tutorial-queues.md

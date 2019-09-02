@@ -63,7 +63,7 @@
       items:
         - name: REST
           href: azure-netapp-files-develop-with-rest-api.md
-        - name: Kits SDK Azure NetApp Files
+        - name: Kits SDK Azure NetApp Files et outils CLI
           href: azure-netapp-files-sdk-cli.md
         - name: Corriger les erreurs du fournisseur de ressources Azure NetApp Files
           href: azure-netapp-files-troubleshoot-resource-provider-errors.md

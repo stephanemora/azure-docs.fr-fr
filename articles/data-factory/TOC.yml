@@ -187,6 +187,8 @@
           href: iterative-development-debugging.md
     - name: Connecteurs
       items:
+        - name: Vue d’ensemble des connecteurs
+          href: connector-overview.md
         - name: "Amazon\_Marketplace\_Web\_Service"
           href: connector-amazon-marketplace-web-service.md
         - name: Amazon Redshift
@@ -382,40 +384,40 @@
     - name: Transformer les données
       href: transform-data.md
       items:
+        - name: Activité de fonction Azure
+          href: control-flow-azure-function-activity.md
+        - name: Activité personnalisée
+          href: transform-data-using-dotnet-custom-activity.md
+        - name: Activité de Databricks Jar
+          href: transform-data-databricks-jar.md
+        - name: Activité de Databricks Notebook
+          href: transform-data-databricks-notebook.md
+        - name: Activité de Databricks Python
+          href: transform-data-databricks-python.md
+        - name: Activité Data Lake U-SQL
+          href: transform-data-using-data-lake-analytics.md
         - name: Activité Hive HDInsight
           href: transform-data-using-hadoop-hive.md
-        - name: Activité Pig HDInsight
-          href: transform-data-using-hadoop-pig.md
         - name: Activité MapReduce HDInsight
           href: transform-data-using-hadoop-map-reduce.md
-        - name: Activité de diffusion en continu HDInsight
-          href: transform-data-using-hadoop-streaming.md
+        - name: Activité Pig HDInsight
+          href: transform-data-using-hadoop-pig.md
         - name: Activité Spark HDInsight
           href: transform-data-using-spark.md
+        - name: Activité de diffusion en continu HDInsight
+          href: transform-data-using-hadoop-streaming.md
         - name: Activité d'exécution du lot ML
           href: transform-data-using-machine-learning.md
         - name: Activité des ressources de mise à jour ML
           href: update-machine-learning-models.md
         - name: Activité de procédure stockée
           href: transform-data-using-stored-procedure.md
-        - name: Activité Data Lake U-SQL
-          href: transform-data-using-data-lake-analytics.md
-        - name: Activité de Databricks Notebook
-          href: transform-data-databricks-notebook.md
-        - name: Activité de Databricks Jar
-          href: transform-data-databricks-jar.md
-        - name: Activité de Databricks Python
-          href: transform-data-databricks-python.md
-        - name: Activité personnalisée
-          href: transform-data-using-dotnet-custom-activity.md
         - name: Services liés de calcul
           href: compute-linked-services.md
     - name: Flux de contrôle
       items:
         - name: Ajouter une activité variable
           href: control-flow-append-variable-activity.md
-        - name: Activité de fonction Azure
-          href: control-flow-azure-function-activity.md
         - name: Exécuter une activité de flux de données
           href: control-flow-execute-data-flow-activity.md
         - name: Activité d’exécution du pipeline
@@ -584,6 +586,8 @@
       items:
         - name: Résolution des problèmes d’activité
           href: data-factory-troubleshoot-guide.md
+        - name: Résolution des problèmes du connecteur
+          href: connector-troubleshoot-guide.md
         - name: Résolution des problèmes de gestion Azure-SSIS Integration Runtime
           href: ssis-integration-runtime-management-troubleshoot.md
         - name: Résolution des problèmes d’exécution de package dans Azure-SSIS IR

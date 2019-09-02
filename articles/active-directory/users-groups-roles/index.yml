@@ -1,46 +1,83 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Documentation Gestion des utilisateurs en entreprise - Azure Active Directory
+summary: Les services de gestion des utilisateurs Azure AD, tels que les attributions de rôles d’administrateur et de groupes, vous aident à accomplir vos tâches principales rapidement. Attribuez des licences, accordez l’accès à une application à des groupes ou des utilisateurs, ou déléguez des autorisations pour distribuer les tâches de gestion des identités.
 metadata:
-  document_id: null
-  title: 'Documentation Utilisateurs, groupes, rôles et licences Azure Active Directory'
-  description: 'Découvrez comment utiliser des utilisateurs, des groupes, des rôles et des licences pour gérer l’authentification aux services cloud Azure dans votre client.'
+  title: Documentation Utilisateurs, groupes, rôles et licences Azure Active Directory
+  description: Découvrez comment utiliser des utilisateurs, des groupes, des rôles et des licences pour gérer l’authentification aux services cloud Azure dans votre organisation.
   services: active-directory
-  ms.subservice: users-groups-roles
-  author: curtand
-  manager: mtillman
   ms.service: active-directory
+  ms.subservice: users-groups-roles
+  manager: mtillman
   ms.topic: landing-page
-  ms.date: 01/31/2019
+  ms.date: 08/28/2019
+  author: curtand
   ms.author: curtand
-abstract:
-  description: 'Les outils de gestion des utilisateurs Azure AD, tels que les affectations de rôles d’administrateur et de groupes vous permettent d’accomplir vos tâches principales plus rapidement et de prendre en charge la croissance. Vous pouvez attribuer des licences ou l’accès aux applications SaaS à des groupes plutôt qu’à des personnes, ou déléguer des autorisations pour distribuer la surcharge de gestion des identités Azure AD.'
-sections:
-  - title: "Démarrages rapides en\_5\_minutes"
-    items:
-      - type: paragraph
-        text: Découvrez comment utiliser les outils de gestion dans Azure Active Directory
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="/azure/active-directory/fundamentals/add-users-azure-active-directory">Ajouter des utilisateurs dans Azure AD</a>
-          - html: <a href="/azure/active-directory/fundamentals/license-users-groups">Attribuer des licences à des utilisateurs</a>
-          - html: "<a href=\"/azure/active-directory/fundamentals/active-directory-get-started-premium\">S’inscrire à Azure\_AD\_Premium</a>"
-          - html: <a href="/azure/active-directory/users-groups-roles/groups-quickstart-expiration">Définir une expiration pour les groupes créés par l’utilisateur</a>
-          - html: <a href="/azure/active-directory/users-groups-roles/groups-quickstart-naming-policy">Définir une stratégie de noms pour les groupes créés par l’utilisateur</a>
-  - title: Didacticiels pas à pas
-    items:
-      - type: paragraph
-        text: Découvrez comment remplir les groupes de manière dynamique dans Azure Active Directory
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="/azure/active-directory/users-groups-roles/groups-dynamic-tutorial">Créer un groupe rempli de manière dynamique</a>
-  - title: Informations de référence
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Liens des références
-            html: '<p><a href="https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0">Applets de commande Azure AD PowerShell</a></p>'
+  ms.openlocfilehash: 4689a573bf8d58aa9734af97ea66f78ab4e5707a
+  ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 08/28/2019
+  ms.locfileid: "70126930"
+landingContent:
+- title: À propos des utilisateurs, des groupes, des rôles et des licences
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Utilisateurs, groupes, licences et rôles dans les grandes entreprises
+      url: directory-overview-user-model.md
+    - text: Vue d’ensemble des rôles personnalisés
+      url: roles-custom-overview.md
+  - linkListType: concept
+    links:
+    - text: Déléguer l’administration
+      url: roles-concept-delegation.md
+    - text: Comparer les rôles RBAC Azure et les rôles d’administrateur Azure AD
+      url: https://docs.microsoft.com/en-us/azure/role-based-access-control/rbac-and-directory-admin-roles?context=azure/active-directory/users-groups-roles/context/ugr-context
+- title: Prise en main
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Ajouter un utilisateur
+      url: https://review.docs.microsoft.com/en-us/azure/active-directory/fundamentals/add-users-azure-active-directory?context=azure/active-directory/users-groups-roles/context/ugr-context
+    - text: Définir une stratégie d’expiration pour les groupes
+      url: groups-quickstart-expiration.md
+    - text: Attribuer des licences à des utilisateurs
+      url: https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/license-users-groups?context=azure/active-directory/users-groups-roles/context/ugr-context
+- title: Attribuer des rôles d’administrateur Azure AD
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Attribuer des rôles à l’aide de PowerShell
+      url: roles-assign-powershell.md
+    - text: Attribuer des rôles à l’aide d’API Graph
+      url: roles-assign-graph.md
+    - text: Déléguer des rôles par tâche
+      url: roles-delegate-by-task.md
+    - text: Déléguer la gestion des applications
+      url: roles-delegate-app-roles.md
+- title: Attribuer des licences
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Attribuer une licence à un groupe d’utilisateurs
+      url: licensing-groups-assign.md
+    - text: Exemples de licences PowerShell
+      url: licensing-ps-examples.md
+- title: Gérer les groupes
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Créer un groupe dynamique
+      url: groups-create-rule.md
+    - text: Paramètres de groupe dans PowerShell
+      url: groups-settings-v2-cmdlets.md
+    - text: Définir la stratégie de nommage des groupes
+      url: groups-naming-policy.md
+- title: Ajouter des domaines
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Ajouter un nom de domaine personnalisé
+      url: https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/add-custom-domain?context=azure/active-directory/users-groups-roles/context/ugr-context
+    - text: Gérer les noms de domaine personnalisés
+      url: domains-manage.md
