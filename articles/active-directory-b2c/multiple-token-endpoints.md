@@ -87,7 +87,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-an
 Dans cette section, vous allez mettre à jour le code pour spécifier que les deux points de terminaison de l’émetteur du jeton sont valides.
 
 1. Ouvrez la solution **B2C-WebAPI-DotNet.sln** dans Visual Studio
-1. Dans le projet **TaskService**, ouvrez le fichier *TaskService\\App_Start\\**Startup.Auth.cs*** dans votre éditeur
+1. Dans le projet **TaskService**, ouvrez le fichier *TaskService\\App_Start\\ **Startup.Auth.cs*** dans votre éditeur
 1. Ajoutez la directive `using` suivante en haut du fichier :
 
     `using System.Collections.Generic;`

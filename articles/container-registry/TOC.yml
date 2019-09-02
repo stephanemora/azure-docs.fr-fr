@@ -59,6 +59,8 @@
       items:
         - name: Envoyer et extraire une image
           href: container-registry-get-started-docker-cli.md
+        - name: Envoyer (push) et tirer (pull) un artefact OCI
+          href: container-registry-oci-artifacts.md
         - name: Afficher les référentiels
           href: container-registry-repositories.md
         - name: Importer les images conteneur

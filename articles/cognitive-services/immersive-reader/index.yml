@@ -1,63 +1,55 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Documentation du lecteur immersif
+summary: Le lecteur immersif est un outil qui permet d’implémenter des techniques éprouvées pour améliorer la compréhension dans le cadre de l’apprentissage de la lecture, l’apprentissage d’une langue et pour les personnes avec des difficultés d’apprentissage. Vous pouvez utiliser le lecteur immersif dans votre application web à l’aide du SDK du lecteur immersif.
 metadata:
-  title: "Documentation du lecteur immersif\_- Guides de démarrage rapide, tutoriels, informations de référence sur l’API\_- Azure Cognitive Services\_| Microsoft Docs"
-  description: Découvrez comment utiliser le lecteur immersif dans votre application.
-  services: cognitive-services
-  author: metanMSFT
-  manager: nitinme
+  title: Documentation du lecteur immersif
+  description: Le lecteur immersif est un outil qui permet d’implémenter des techniques éprouvées pour améliorer la compréhension dans le cadre de l’apprentissage de la lecture, l’apprentissage d’une langue et pour les personnes avec des difficultés d’apprentissage. Vous pouvez utiliser le lecteur immersif dans votre application web à l’aide du SDK du lecteur immersif.
+  services: service
   ms.service: cognitive-services
   ms.subservice: immersive-reader
   ms.topic: landing-page
-  ms.date: 06/20/2019
-  ms.author: metanMSFT
-abstract:
-  description: 'Le lecteur immersif est un outil qui permet d’implémenter des techniques éprouvées pour améliorer la compréhension dans le cadre de l’apprentissage de la lecture, l’apprentissage d’une langue et pour les personnes avec des difficultés d’apprentissage. Vous pouvez utiliser le lecteur immersif dans votre application web à l’aide du SDK du lecteur immersif.'
-sections:
-  - items:
-      - type: list
-        style: cards
-        className: cardsM
-        columns: 3
-        items:
-          - href: /azure/cognitive-services/immersive-reader/overview
-            html: <p>En savoir plus sur le lecteur immersif et son intégration dans vos applications</p>
-            image:
-              src: ../media/index/i_overview.svg
-            title: "Qu’est-ce que le lecteur immersif\_?"
-          - href: /azure/cognitive-services/immersive-reader/reference
-            html: <p>En savoir plus sur le SDK Javascript du lecteur immersif</p>
-            image:
-              src: ../media/index/i_overview.svg
-            title: Utiliser le SDK du lecteur immersif
-  - title: "Démarrages en 5\_minutes"
-    items:
-      - type: paragraph
-        text: "Prise en main du lecteur immersif\_:"
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: media/index/logo_csharp.svg
-            text: 'C&#35;'
-            alt: 'Logo C#'
-            href: quickstart
-  - title: Didacticiels pas à pas
-    items:
-      - type: paragraph
-        text: "Découvrez comment développer des applications avec le lecteur immersif\_:"
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="tutorial-nodejs.md">Lancer le lecteur immersif à l’aide de Node.js</a>
-          - html: <a href="tutorial-python.md">Lancer le lecteur immersif avec Python</a>
-          - html: <a href="tutorial-ios-picture-immersive-reader.md">Lancer le lecteur immersif avec Swift</a>
-  - title: Informations de référence
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Kits SDK
-            html: <p><a href="reference.md">Javascript</a></p>
+  ms.collection: collection
+  author: IEvangelist
+  ms.author: dapine
+  ms.date: 08/29/2019
+  ms.openlocfilehash: 50185a0bbfc3a9677ebc90f326b0c43ab2a2eb13
+  ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 08/29/2019
+  ms.locfileid: "70164493"
+landingContent:
+- title: À propos du lecteur immersif
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Qu’est-ce que le lecteur immersif ?
+      url: overview.md
+- title: Prise en main
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: ASP.NET Core
+      url: quickstart.md
+    - text: Swift (iOS)
+      url: ios-quickstart.md
+  - linkListType: tutorial
+    links:
+    - text: Node.js
+      url: tutorial-nodejs.md
+    - text: Python
+      url: tutorial-python.md
+    - text: Swift (iOS)
+      url: tutorial-ios-picture-immersive-reader.md
+- title: Explorer le lecteur immersif
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: S’authentifier à l’aide d’Azure Active Directory
+      url: azure-active-directory-authentication.md
+  - linkListType: reference
+    links:
+    - text: Kit de développement logiciel (SDK) JavaScript
+      url: reference.md
+    - text: Kit de développement logiciel (SDK) iOS
+      url: ios-reference.md

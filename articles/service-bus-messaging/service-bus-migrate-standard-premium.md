@@ -219,8 +219,8 @@ Cependant, si vous pouvez migrer au cours d'une fenêtre de maintenance planifi�
 [Créer un espace de noms - créer un espace de noms Premium]: ./media/service-bus-standard-premium-migration/3.png
 [Configurer un espace de noms - choisir le nom de la post-migration]: ./media/service-bus-standard-premium-migration/4.png
 [Configurer un espace de noms - synchroniser les entités - démarrer]: ./media/service-bus-standard-premium-migration/5.png
-[Configurer l'espace de noms - synchroniser les entités - avancement]: ./media/service-bus-standard-premium-migration/8.png.
-[Changer d'espace de noms - changer de menu]: ./media/service-bus-standard-premium-migration/9.png.
+[Configurer l'espace de noms - synchroniser les entités - avancement]: ./media/service-bus-standard-premium-migration/8.png
+[Changer d'espace de noms - changer de menu]: ./media/service-bus-standard-premium-migration/9.png
 [Changer d'espace de noms - réussite]: ./media/service-bus-standard-premium-migration/12.png
 
 [Abandonner le flux - abandonner la synchronisation]: ./media/service-bus-standard-premium-migration/abort1.png

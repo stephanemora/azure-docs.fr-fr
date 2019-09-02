@@ -41,7 +41,7 @@ sections:
       - items:
           - html: <a href="service/tutorial-1st-experiment-sdk-setup">Configurer votre environnement et entraîner votre première expérimentation ML</a>
           - html: <a href="service/tutorial-train-models-with-aml">Entraîner et déployer des modèles de classification d’images</a>
-          - html: <a href="service/tutorial-data-prep">Préparer les données et utiliser le ML automatisé pour prédire les frais de taxi</a>
+          - html: <a href="service/tutorial-auto-train-models">Utiliser le ML automatisé pour prédire les prix des taxis</a>
         style: unordered
         type: list
       - text: "Consommez vos modèles\_:"

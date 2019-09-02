@@ -76,7 +76,7 @@ Si vous souhaitez que les utilisateurs se connectent à l’aide d’un compte L
 
 Définissez un compte LinkedIn en tant que fournisseur de revendications en l’ajoutant à l’élément **ClaimsProviders** dans le fichier d’extension de votre stratégie.
 
-1. Ouvrez le fichier *SocialAndLocalAccounts/**TrustFrameworkExtensions.xml*** dans votre éditeur. Ce fichier se trouve dans le [Pack de démarrage de stratégie personnalisée][starter-pack] que vous avez téléchargé dans le cadre de l’une des conditions préalables.
+1. Ouvrez le fichier *SocialAndLocalAccounts/ **TrustFrameworkExtensions.xml*** dans votre éditeur. Ce fichier se trouve dans le [Pack de démarrage de stratégie personnalisée][starter-pack] que vous avez téléchargé dans le cadre de l’une des conditions préalables.
 1. Recherchez l’élément **ClaimsProviders**. S’il n’existe pas, ajoutez-le sous l’élément racine.
 1. Ajoutez un nouveau **ClaimsProvider** comme suit :
 

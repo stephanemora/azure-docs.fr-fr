@@ -4,9 +4,9 @@
 - name: Vue d'ensemble
   expanded: true
   items:
-    - name: "Qu’est-ce que la machine virtuelle de science des données\_?"
+    - name: "Qu’est-ce que Data Science Virtual Machine\_?"
       href: overview.md
-    - name: "Qu’est-ce que la machine virtuelle de science des données\_Geo AI ?"
+    - name: "Qu’est-ce que la DSVM d’IA géographique\_?"
       href: geo-ai-dsvm-overview.md
 - name: Démarrages rapides
   expanded: true
@@ -17,7 +17,7 @@
       href: dsvm-ubuntu-intro.md
     - name: Créer une DSVM CentOS
       href: linux-dsvm-intro.md
-    - name: "Créer la machine virtuelle de science des données\_Geo AI"
+    - name: Créer une Geo AI DSVM
       href: provision-geo-ai-dsvm.md
 - name: Concepts
   items:

@@ -8,7 +8,7 @@ metadata:
   manager: carmonm
   ms.service: resource-graph
   ms.topic: landing-page
-  ms.date: 05/06/2019
+  ms.date: 08/25/2019
   ms.author: dacoulte
 abstract:
   description: La documentation Azure Resource Graph vous aide à configurer et à apprendre le langage de requête pour découvrir et explorer vos ressources à grande échelle.
@@ -21,9 +21,14 @@ sections:
         style: icon48
         items:
           - image:
-              alt: Azure CLI
+              alt: Explorateur Azure Resource Graph
+              src: ./media/arg_explorer.svg
+            text: Explorateur Resource Graph
+            href: first-query-portal.md
+          - image:
+              alt: D’Azure CLI
               src: ./media/cli.svg
-            text: Azure CLI
+            text: D’Azure CLI
             href: first-query-azurecli.md
           - image:
               alt: Azure PowerShell
