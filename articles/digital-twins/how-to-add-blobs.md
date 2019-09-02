@@ -53,14 +53,14 @@ Les métadonnées d’objets blob JSON sont conformes au modèle suivant :
 
 | Attribut | Type | Description |
 | --- | --- | --- |
-| **parentId** | Chaîne | Entité parente avec laquelle associer l’objet blob (espaces, appareils ou utilisateurs) |
-| **name** |Chaîne | Nom convivial pour l’objet blob |
-| **type** | Chaîne | Type d’objet blob. Vous ne pouvez pas utiliser *type* et *typeId*  |
-| **typeId** | Entier | ID de type d’objet blob. Vous ne pouvez pas utiliser *type* et *typeId* |
-| **subtype** | Chaîne | Sous-type d’objet blob. Vous ne pouvez pas utiliser *subtype* et *subtypeId* |
-| **subtypeId** | Entier | ID de sous-type d’objet blob. Vous ne pouvez pas utiliser *subtype* et *subtypeId* |
-| **description** | Chaîne | Description personnalisée de l’objet blob |
-| **sharing** | Chaîne | Indique si l’objet blob peut être partagé - enum [`None`, `Tree`, `Global`] |
+| **parentId** | String | Entité parente avec laquelle associer l’objet blob (espaces, appareils ou utilisateurs) |
+| **name** |String | Nom convivial pour l’objet blob |
+| **type** | String | Type d’objet blob. Vous ne pouvez pas utiliser *type* et *typeId*  |
+| **typeId** | Integer | ID de type d’objet blob. Vous ne pouvez pas utiliser *type* et *typeId* |
+| **subtype** | String | Sous-type d’objet blob. Vous ne pouvez pas utiliser *subtype* et *subtypeId* |
+| **subtypeId** | Integer | ID de sous-type d’objet blob. Vous ne pouvez pas utiliser *subtype* et *subtypeId* |
+| **description** | String | Description personnalisée de l’objet blob |
+| **sharing** | String | Indique si l’objet blob peut être partagé - enum [`None`, `Tree`, `Global`] |
 
 Les métadonnées d’objets blob sont toujours fournies en tant que premier segment avec **Content-Type** `application/json` ou en tant que fichier `.json`. Les données de fichiers sont fournies dans le deuxième segment et peuvent être de n’importe quel type MIME pris en charge.
 
