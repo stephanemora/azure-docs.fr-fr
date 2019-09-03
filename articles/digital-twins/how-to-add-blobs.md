@@ -56,9 +56,9 @@ Les métadonnées d’objets blob JSON sont conformes au modèle suivant :
 | **parentId** | String | Entité parente avec laquelle associer l’objet blob (espaces, appareils ou utilisateurs) |
 | **name** |String | Nom convivial pour l’objet blob |
 | **type** | String | Type d’objet blob. Vous ne pouvez pas utiliser *type* et *typeId*  |
-| **typeId** | Entier | ID de type d’objet blob. Vous ne pouvez pas utiliser *type* et *typeId* |
+| **typeId** | Integer | ID de type d’objet blob. Vous ne pouvez pas utiliser *type* et *typeId* |
 | **subtype** | String | Sous-type d’objet blob. Vous ne pouvez pas utiliser *subtype* et *subtypeId* |
-| **subtypeId** | Entier | ID de sous-type d’objet blob. Vous ne pouvez pas utiliser *subtype* et *subtypeId* |
+| **subtypeId** | Integer | ID de sous-type d’objet blob. Vous ne pouvez pas utiliser *subtype* et *subtypeId* |
 | **description** | String | Description personnalisée de l’objet blob |
 | **sharing** | String | Indique si l’objet blob peut être partagé - enum [`None`, `Tree`, `Global`] |
 
@@ -114,9 +114,9 @@ Les objets blob retournés individuellement sont conformes au schéma JSON suiva
 | **name** |String | Nom convivial pour l’objet blob |
 | **parentId** | String | Entité parente avec laquelle associer l’objet blob (espaces, appareils ou utilisateurs) |
 | **type** | String | Type d’objet blob. Vous ne pouvez pas utiliser *type* et *typeId*  |
-| **typeId** | Entier | ID de type d’objet blob. Vous ne pouvez pas utiliser *type* et *typeId* |
+| **typeId** | Integer | ID de type d’objet blob. Vous ne pouvez pas utiliser *type* et *typeId* |
 | **subtype** | String | Sous-type d’objet blob. Vous ne pouvez pas utiliser *subtype* et *subtypeId* |
-| **subtypeId** | Entier | ID de sous-type d’objet blob. Vous ne pouvez pas utiliser *subtype* et *subtypeId* |
+| **subtypeId** | Integer | ID de sous-type d’objet blob. Vous ne pouvez pas utiliser *subtype* et *subtypeId* |
 | **sharing** | String | Indique si l’objet blob peut être partagé - enum [`None`, `Tree`, `Global`] |
 | **description** | String | Description personnalisée de l’objet blob |
 | **contentInfos** | Array | Spécifie les informations de métadonnées non structurées, notamment la version |
