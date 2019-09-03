@@ -299,7 +299,7 @@ Un événement contient les données générales suivantes :
 | eventType | string | Un des types d’événements inscrits pour cette source d’événement. |
 | eventTime | string | L’heure à quelle l’événement est généré selon l’heure UTC du fournisseur. |
 | id | string | Identificateur unique de l’événement. |
-| données | objet | Données d’événement de stockage Blob. |
+| data | object | Données d’événement de stockage Blob. |
 | dataVersion | string | Version du schéma de l’objet de données. Le serveur de publication définit la version du schéma. |
 | metadataVersion | string | Version du schéma des métadonnées d’événement. Event Grid définit le schéma des propriétés de niveau supérieur. Event Grid fournit cette valeur. |
 
@@ -310,7 +310,7 @@ L’objet de données comporte les propriétés suivantes :
 | api | string | Opération qui a déclenché l’événement. |
 | clientRequestId | string | ID de requête fourni par le client pour l’opération d’API de stockage. Il peut être utilisé pour mettre en corrélation les journaux de diagnostic du Stockage Azure en utilisant le champ « client-request-id » dans les journaux et peut être fourni dans des demandes du client à l’aide de l’en-tête « x-ms-client-request-id ». Consultez [Format de journal](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-log-format). |
 | requestId | string | L’ID de requête de service généré pour l’opération de l’API de stockage. Peut être utilisé pour mettre en corrélation les journaux de diagnostic de stockage Azure en utilisant le champ « request-id-header » dans les journaux d’activité et est retourné lors de l’initialisation de l’appel d’API dans l’en-tête ’x-ms-request-id’. Consultez [Format de journal](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-log-format). |
-| etag | string | Valeur que vous pouvez utiliser pour effectuer des opérations de manière conditionnelle. |
+| eTag | string | Valeur que vous pouvez utiliser pour effectuer des opérations de manière conditionnelle. |
 | contentType | string | Type de contenu spécifié pour l’objet blob. |
 | contentLength | integer | Taille de l’objet blob en octets. |
 | blobType | string | Type d’objet blob. Les valeurs valides sont « BlockBlob » ou « PageBlob ». |
@@ -321,7 +321,7 @@ L’objet de données comporte les propriétés suivantes :
 |
 | recursive| string| `True` pour effectuer l’opération sur tous les répertoires enfants ; sinon, `False`. <br>Apparaît uniquement pour les événements déclenchés sur les comptes de stockage d’objets blob qui ont un espace de noms hiérarchique. |
 | sequencer | string | Une valeur de chaîne opaque représentant l’ordre logique des événements pour n’importe quel nom d’objet Blob particulier.  Les utilisateurs peuvent utiliser la comparaison de chaînes standard pour comprendre l’ordre relatif de deux événements sur le même nom d’objet Blob. |
-| storageDiagnostics | objet | Des données de diagnostic occasionnellement incluses par le service de stockage Azure. Elles doivent, le cas échéant, être ignorées par les consommateurs d’événements. |
+| storageDiagnostics | object | Des données de diagnostic occasionnellement incluses par le service de stockage Azure. Elles doivent, le cas échéant, être ignorées par les consommateurs d’événements. |
 
 |Propriété|Type|Description|
  |-------------------|------------------------|-----------------------------------------------------------------------|
