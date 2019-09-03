@@ -4,8 +4,10 @@
   items:
     - name: À propos de Security Center
       href: security-center-intro.md
-    - name: "Plateformes et fonctionnalités prises en charge par Security\_Center"
+    - name: Plateformes prises en charge
       href: security-center-os-coverage.md
+    - name: Fonctionnalités prises en charge
+      href: security-center-services.md
 - name: Démarrages rapides
   expanded: true
   items:

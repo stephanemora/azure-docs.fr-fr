@@ -7,12 +7,12 @@ ms.date: 06/24/2019
 ms.topic: sample
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 5362d25e1a6c9bcd273ae915bf2f599578f575ff
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: f71d21149fa842b005d81b1f222b78244def6c20
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68228833"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231665"
 ---
 # <a name="overview-of-the-nist-sp-800-53-r4-blueprint-sample"></a>Vue d’ensemble de l’exemple de blueprint NIST SP 800-53 R4
 
@@ -32,7 +32,7 @@ Vous venez de parcourir une vue d’ensemble de l’exemple de blueprint NIST SP
 
 Autres articles sur les blueprints et la manière de les utiliser :
 
-- Découvrir le [cycle de vie des blueprints](../../concepts/lifecycle.md).
+- En savoir plus sur le [cycle de vie des blueprints](../../concepts/lifecycle.md)
 - Comprendre comment utiliser les [paramètres statiques et dynamiques](../../concepts/parameters.md).
 - Apprendre à personnaliser l’[ordre de séquencement des blueprints](../../concepts/sequencing-order.md).
 - Découvrir comment utiliser le [verrouillage de ressources de blueprint](../../concepts/resource-locking.md).

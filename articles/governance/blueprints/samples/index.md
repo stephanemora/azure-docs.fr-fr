@@ -8,12 +8,12 @@ ms.topic: sample
 ms.date: 08/21/2019
 ms.author: dacoulte
 ms.custom: fasttrack-edit
-ms.openlocfilehash: fc05e8c7c1536544d9ac7c2a45f66da8316fe088
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 58deb4fff4cee21acbf99d3c4035a9941697bed4
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70076938"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231837"
 ---
 # <a name="azure-blueprints-samples"></a>Exemples Azure Blueprints
 
@@ -48,7 +48,7 @@ Il existe des exemples de blueprints qui répondent à un scénario de client o�
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Découvrir le [cycle de vie d’un blueprint](../concepts/lifecycle.md).
+- En savoir plus sur le [cycle de vie des blueprints](../concepts/lifecycle.md)
 - Comprendre comment utiliser les [paramètres statiques et dynamiques](../concepts/parameters.md).
 - Apprendre à personnaliser l’[ordre de séquencement des blueprints](../concepts/sequencing-order.md).
 - Découvrir comment utiliser le [verrouillage de ressources de blueprint](../concepts/resource-locking.md).

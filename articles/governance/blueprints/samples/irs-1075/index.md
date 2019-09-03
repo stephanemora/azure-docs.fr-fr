@@ -7,12 +7,12 @@ ms.date: 08/07/2019
 ms.topic: sample
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 2bf66f0d6636ac2a8d92a3a865833c9056cd22da
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 5892c0b7f18c43c095019caa9fa40ffec0017369
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934141"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231810"
 ---
 # <a name="overview-of-the-irs-1075-blueprint-sample"></a>Vue d’ensemble de l’exemple de blueprint IRS 1075
 
@@ -31,7 +31,7 @@ Vous venez de parcourir une vue d’ensemble de l’exemple de blueprint IRS 10
 
 Autres articles sur les blueprints et la manière de les utiliser :
 
-- Découvrir le [cycle de vie des blueprints](../../concepts/lifecycle.md).
+- En savoir plus sur le [cycle de vie des blueprints](../../concepts/lifecycle.md)
 - Comprendre comment utiliser les [paramètres statiques et dynamiques](../../concepts/parameters.md).
 - Apprendre à personnaliser l’[ordre de séquencement des blueprints](../../concepts/sequencing-order.md).
 - Découvrir comment utiliser le [verrouillage de ressources de blueprint](../../concepts/resource-locking.md).

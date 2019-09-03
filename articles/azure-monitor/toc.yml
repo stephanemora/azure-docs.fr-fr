@@ -476,8 +476,6 @@
               items:
                 - name: Sites SharePoint
                   href: app/sharepoint.md
-                - name: "Dynamics\_CRM"
-                  href: app/sample-mscrm.md
                 - name: Ordinateurs Windows
                   href: app/windows-desktop.md
         - name: Containers

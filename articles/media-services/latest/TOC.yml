@@ -48,6 +48,7 @@
       items:
         - name: Éléments multimédias
           href: assets-concept.md
+          displayName: naming
     - name: Encodage
       items:
         - name: Vue d'ensemble
@@ -162,6 +163,7 @@
               href: job-error-codes.md
     - name: Conseils de migration de v2 vers v3
       href: migrate-from-v2-to-v3.md
+      displayName: naming
 - name: Guides pratiques
   items:
     - name: Prise en main
